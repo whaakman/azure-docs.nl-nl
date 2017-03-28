@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
+ms.date: 03/21/2017
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: 24b0a928967e6abf9f1eb4f085179a8cd6e82955
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 7f23ae904461e754b3871b33ca40c2ff4fcb99f0
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Zelfstudie: Aan de slag met Azure Data Lake Analytics met Azure Portal
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Informatie over het gebruik van Azure Portal voor het maken van Azure Data Lake Analytics-accounts, het definiëren van Data Lake Analytics-taken in [U-SQL](data-lake-analytics-u-sql-get-started.md), en het verzenden van taken naar de Data Lake Analytics-service. Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor meer informatie over Data Lake Analytics.
+Informatie over het gebruik van de Azure-portal voor het maken van Azure Data Lake Analytics-accounts, het definiëren van taken in [U-SQL](data-lake-analytics-u-sql-get-started.md), en het verzenden van taken naar de Data Lake Analytics-service. Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor meer informatie over Data Lake Analytics.
 
 In deze zelfstudie gaat u een taak ontwikkelen die een bestand met door tabs gescheiden waarden (TSV) leest en converteert naar een bestand met door komma's gescheiden waarden (CSV). Om de zelfstudie te volgen met andere ondersteunde hulpprogramma’s klikt u op de tabbladen boven aan deze sectie. Als uw eerste taak is voltooid, kunt u complexere gegevenstransformaties gaan schrijven met U-SQL.
 
@@ -35,7 +36,7 @@ Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
 ## <a name="create-data-lake-analytics-account"></a>Een Data Lake Analytics-account maken
 U moet een Data Lake Analytics-account hebben voordat u taken kunt uitvoeren.
 
-Elk Data Lake Analytics-account is afhankelijk van een [Azure Data Lake Store]()-account.  Dit account wordt het Data Lake Store-standaardaccount genoemd.  U kunt het Data Lake Store-account van tevoren maken, of wanneer u het Data Lake Analytics-account maakt. In deze zelfstudie gaat u het Data Lake-account maken met het Data Lake Analytics-account.
+Elk Data Lake Analytics-account is afhankelijk van een Azure Data Lake Store-account.  Dit account wordt het Data Lake Store-standaardaccount genoemd.  U kunt het Data Lake Store-account van tevoren maken, of wanneer u het Data Lake Analytics-account maakt. In deze zelfstudie gaat u het Data Lake-account maken met het Data Lake Analytics-account.
 
 **Een Data Lake Analytics-account maken**
 
@@ -45,19 +46,20 @@ Elk Data Lake Analytics-account is afhankelijk van een [Azure Data Lake Store]()
 
     ![Azure Data Lake Analytics-portalblade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
-   * **Naam**: geef het Azure Data Lake Analytics-account een naam.
+   * **Naam**: geef uw Data Lake Analytics-account een naam (alleen kleine letters en cijfers zijn toegestaan).
    * **Abonnement**: kies het Azure-abonnement dat u gebruikt voor het Analytics-account.
    * **Resourcegroep**. Selecteer een bestaande Azure-resourcegroep of maak een nieuwe. Met Azure Resource Manager kunt u met de resources in uw toepassing werken als groep. Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie.
    * **Locatie**. Selecteer een Azure-datacenter voor het Data Lake Analytics-account.
-   * **Data Lake Store**: elke Data Lake Analytics-account is afhankelijk van een Data Lake Store-account. Het Data Lake Analytics-account en het afhankelijke Data Lake Store-account moeten zich in hetzelfde Azure-datacenter bevinden. Volg de instructies voor het maken van een nieuw Data Lake Store-account of selecteer een bestaand account.
-4. Klik op **Create**. U gaat naar het startscherm van de portal. Er is een nieuwe tegel toegevoegd aan het Startboard met het label ‘Deploying Azure Data Lake Analytics’. Het duurt enkele minuten om een Data Lake Analytics-account te maken. Wanneer het account is gemaakt, wordt het in een nieuwe blade geopend.
+   * **Data Lake Store**: klik op *Vereiste instellingen configureren*. Volg de instructies voor het maken van een nieuw Data Lake Store-account of selecteer een bestaand account. Elk Data Lake Analytics-account is afhankelijk van een Data Lake Store-account. Het Data Lake Analytics-account en het afhankelijke Data Lake Store-account moeten zich in hetzelfde Azure-datacenter bevinden.
+4. Uw prijscategorie selecteren  
+5. Klik op **Create**. U keert terug naar het beginscherm van de portal, waar een nieuwe tegel wordt weergegeven met 'Azure Data Lake Analytics implementeren'. Het maken van het Data Lake Analytics-account tijdens het implementatieproces duurt enkele minuten. Wanneer het account is gemaakt, wordt het in een nieuwe blade geopend.
 
 Nadat een Data Lake Analytics-account is gemaakt, kunt u extra Data Lake Store-accounts en Azure Storage-accounts toevoegen. Zie [Gegevensbronnen voor Data Lake Analytics-account beheren](data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
 
 ## <a name="prepare-source-data"></a>Brongegevens voorbereiden
-In deze zelfstudie verwerkt u een aantal zoeklogboeken.  Het zoeklogboek kan worden opgeslagen in de Data Lake Store of Azure Blob-opslag.
+In deze zelfstudie verwerkt u zoeklogboeken.  Het zoeklogboek kan worden opgeslagen in de Data Lake Store of Azure Blob-opslag.
 
-Azure Portal biedt een gebruikersinterface waarmee u een aantal voorbeeldbestanden kunt kopiëren naar het Data Lake Store-account, waaronder een zoeklogboekbestand.
+Azure Portal biedt een gebruikersinterface waarmee u een voorbeeldbestanden kunt kopiëren naar het Data Lake Store-account, waaronder een zoeklogboekbestand.
 
 **Bestanden met voorbeeldgegevens kopiëren**
 
@@ -138,9 +140,4 @@ Nadat u de brongegevens hebt voorbereid, kunt u beginnen met het ontwikkelen van
 * Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor een overzicht van Data Lake Analytics.
 * Als u dezelfde zelfstudie wilt bekijken met een ander hulpprogramma, klikt u op de tabselectors boven aan de pagina.
 * Zie [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md) (Diagnostische logboeken openen voor Azure Data Lake Analytics) voor logboekregistratie van diagnostische informatie.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -1,30 +1,30 @@
 ---
-title: Azure Quick Start - Een VM-CLI maken | Microsoft Docs
-description: Ontdek snel hoe u virtuele machines maakt met de Azure CLI.
-services: virtual-machines-linux
+title: Azure Quick Start - Een Windows VM CLI maken | Microsoft Docs
+description: Ontdek snel hoe u virtuele Windows-machines maakt met de Azure CLI.
+services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: hero-article
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/10/2017
+ms.date: 03/20/2017
 ms.author: nepeters
 translationtype: Human Translation
 ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: c1d7cfe614ab4e677e7fff989e79eb09acb3feed
+ms.openlocfilehash: 0f9ff487e289eadb857508134b7e08b00360fdd3
 ms.lasthandoff: 03/22/2017
 
 ---
 
-# <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Een virtuele Linux-machine maken met de Azure CLI
+# <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a>Een virtuele Windows-machine maken met de Azure CLI
 
-De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. In deze handleiding staat informatie over het gebruik van de Azure CLI om een virtuele machine te implementeren met Ubuntu 16.04 LTS.
+De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. In deze handleiding staat informatie over het gebruik van de Azure CLI om een virtuele machine te implementeren met Windows Server 2016.
 
 Voordat u begint, moet u controleren of de Azure-CLI is geïnstalleerd. Zie voor meer informatie de [Installatiehandleiding van de Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
@@ -38,7 +38,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
+Maak een resourcegroep maken met [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
 In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westeurope`.
 
@@ -48,12 +48,12 @@ az group create --name myResourceGroup --location westeurope
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
 
-Maak een VM met de opdracht [az vm create](/cli/azure/vm#create). 
+Maak een VM met [az vm create](/cli/azure/vm#create). 
 
-In het volgende voorbeeld wordt een virtuele machine gemaakt met de naam `myVM` en worden er SSH-sleutels gemaakt, als deze nog niet bestaan op een standaardsleutellocatie. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.  
+In het volgende voorbeeld wordt een virtuele machine met de naam `myVM` gemaakt. In dit voorbeeld wordt `azureuser` voor de naam van een gebruiker met beheerdersrechten en ` myPassword12` als het wachtwoord gebruikt. Werk deze waarden bij met waarden die geschikt zijn voor uw omgeving. Deze waarden zijn nodig als u verbinding maakt met de virtuele machine.
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
+az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
 ```
 
 Wanneer de virtuele machine is gemaakt, toont de Azure CLI informatie die lijkt op de informatie in het volgende voorbeeld. Noteer het openbare IP-adres. Dit adres wordt gebruikt voor toegang tot de virtuele machine.
@@ -73,10 +73,10 @@ Wanneer de virtuele machine is gemaakt, toont de Azure CLI informatie die lijkt 
 
 ## <a name="connect-to-virtual-machine"></a>Verbinding maken met de virtuele machine
 
-Gebruik de volgende opdracht om een SSH-sessie te starten voor de virtuele machine. Vervang het IP-adres door het openbare IP-adres van de virtuele machine.
+Gebruik de volgende opdracht om een sessie met een extern bureaublad te starten voor de virtuele machine. Vervang het IP-adres door het openbare IP-adres van de virtuele machine. Wanneer u hierom wordt gevraagd, typt u de referenties die zijn gebruikt bij het maken van de virtuele machine.
 
 ```bash 
-ssh <Public IP Address>
+mstsc /v:<Public IP Address>
 ```
 
 ## <a name="delete-virtual-machine"></a>De virtuele machine verwijderen
@@ -89,7 +89,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Zelfstudie voor het maken van virtuele machines met een hoge beschikbaarheid](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Zelfstudie voor de installatie van een rol en de configuratie van de firewall](./virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[CLI-voorbeelden voor VM-implementatie verkennen](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+[CLI-voorbeelden voor VM-implementatie verkennen](./virtual-machines-windows-cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

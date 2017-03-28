@@ -18,9 +18,9 @@ ms.date: 03/03/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c11adbe77131d4e0337ccd926da03041042c3703
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 682ebb212f9056f3704a6de5dde8d3a35681108f
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -105,7 +105,7 @@ U vindt de verbindingsreeks in Azure Portal of met behulp van Azure-opdrachtrege
 
 3. Op de blade **Implementatiegeschiedenis** klikt u op de implementatie met een naam die begint met **microsoft-acs** gevolgd door een implementatiedatum. Voorbeeld: microsoft-acs-201701310000.  
 
-4. Op de pagina **Samenvatting**, onder **Uitvoer**, worden enkele clusterkoppelingen gegeven.<provided></provided> **SSHMaster0** biedt een SSH-verbindingsreeks naar de eerste master in uw Container Service-cluster. 
+4. Op de pagina **Samenvatting**, onder **Uitvoer**, worden enkele clusterkoppelingen verstrekt. **SSHMaster0** biedt een SSH-verbindingsreeks naar de eerste master in uw Container Service-cluster. 
 
 Zoals eerder vermeld, kunt u ook Azure-hulpprogramma's gebruiken om de FQDN van de master te vinden. Maak een SSH-verbinding met de master met behulp van de FQDN van de master en de gebruikersnaam die u hebt opgegeven bij het maken van het cluster. Bijvoorbeeld:
 
@@ -122,3 +122,4 @@ Zie [Verbinding maken met een Azure Container Service-cluster](container-service
 
 * [Meer informatie](container-service-intro.md) over Azure Container Service.
 * Implementeer een Container Service-cluster met de [portal](container-service-deployment.md) of [Azure CLI 2.0](container-service-create-acs-cluster-cli.md).
+

@@ -1,108 +1,87 @@
 ---
-title: Een virtuele Linux-machine maken met behulp van Azure Portal | Microsoft Docs
-description: Een virtuele Linux-machine maken met behulp van Azure Portal.
+title: Azure Quick Start - Een VM-portal maken | Microsoft Docs
+description: Azure Quick Start - Een VM-portal maken
 services: virtual-machines-linux
-documentationcenter: 
-author: iainfoulds
+documentationcenter: virtual-machines
+author: neilpeterson
 manager: timlt
-editor: 
+editor: tysonn
 tags: azure-resource-manager
-ms.assetid: cc5dc395-dc54-4402-8804-2bb15aba8ea2
+ms.assetid: 
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 1/17/2017
-ms.author: iainfou
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 03/21/2017
+ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: beff4fb41ed46b016088734054e7a7897fed1a30
-ms.openlocfilehash: 7287b87b1e50e28de06a5363a1f35bd7ac34d51c
-ms.lasthandoff: 02/15/2017
-
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: bcfd830a5e2f39f36460990cae7e84b04d9a5fbb
+ms.lasthandoff: 03/22/2017
 
 ---
-# <a name="create-a-linux-vm-on-azure-using-the-portal"></a>Een virtuele Linux-machine in Azure maken met behulp van de portal
-In dit artikel wordt beschreven hoe u met [Azure Portal](https://portal.azure.com/) snel een virtuele Linux-machine maakt.
 
-De vereisten zijn:
+# <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Een virtuele Linux-machine maken met Azure Portal
 
-* [een Azure-account.](https://azure.microsoft.com/pricing/free-trial/)
-* [bestanden voor openbare en persoonlijke SSH-sleutels](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Virtuele Azure-machines kunnen worden gemaakt via Azure Portal. Deze methode biedt een gebruikersinterface op basis van een browser voor het maken en configureren van virtuele machines en alle verwante resources. In deze Quick Start gaat u een virtuele machine maken via Azure Portal. 
 
-## <a name="sign-in"></a>Aanmelden
-Meld u bij Azure Portal aan met uw Azure-account-id. Klik op **+ Nieuw** in de linkerbovenhoek:
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 
-![Een Azure-resource maken](./media/virtual-machines-linux-quick-create-portal/create_new_resource.png)
+## <a name="create-ssh-key-pair"></a>Een SSH-sleutelpaar maken
 
-## <a name="choose-vm"></a>Kies VM
-Klik in de **Marketplace** op **Compute** en selecteer **Ubuntu Server 16.04 LTS** in de installatiekopielijst **Aanbevolen apps**.  Controleer onderin of het implementatiemodel `Resource Manager` is en klik vervolgens op **Maken**.
+U hebt een SSH-sleutelpaar nodig om deze Quick Start te volgen. Als u een bestaand SSH-sleutelpaar hebt, kunt u deze stap overslaan. Als u een Windows-machine gebruikt, volgt u de instructies [hier](./virtual-machines-linux-ssh-from-windows.md). 
 
-![Selecteer de installatiekopie van een virtuele machine uit Azure Marketplace](./media/virtual-machines-linux-quick-create-portal/create_new_vm.png)
+In een Bash-shell voert u deze opdracht uit en volgt u de aanwijzingen op het scherm. De uitvoer van de opdracht bevat de bestandsnaam van het bestand met de openbare sleutel. De inhoud van dit bestand is nodig om de virtuele machine te maken.
 
-## <a name="enter-vm-options"></a>Voer VM-opties in
-Voer op de pagina **Grondbeginselen** het volgende in:
-
-* de gewenste naam voor de virtuele machine
-* het type VM-schijf (standaard SSD, of HDD)
-* de gebruikersnaam van de beheerder
-* stel het **verificatietype** in op **Openbare SSH-sleutel**
-* uw openbare SSH-sleutel als tekenreeks (uit uw `~/.ssh/`-map)
-* een resourcegroepnaam, of selecteer een bestaande resourcegroep
-
-en klik op **OK** om door te gaan. De blade moet er ongeveer uitzien als in de volgende schermafbeelding:
-
-![De basisopties invoeren voor de virtuele Azure-machine](./media/virtual-machines-linux-quick-create-portal/enter_basic_vm_details.png)
-
-## <a name="choose-vm-size"></a>VM-grootte kiezen
-Kies een VM-grootte. In de volgende voorbeelden is **DS1_V2 Standard** gekozen, waarmee Ubuntu op een Premium SSD wordt geïnstalleerd. De **S** in de VM-grootte geeft aan dat er sprake is van SSD-ondersteuning. Klik op **Selecteren** om instellingen te configureren.
-
-![Een Azure VM-grootte kiezen](./media/virtual-machines-linux-quick-create-portal/select_vm_size.png)
-
-## <a name="storage-and-network"></a>Opslag en netwerk
-Op de blade **Instellingen** kunt u ervoor kiezen om Azure Managed Disks te gebruiken voor uw virtuele machine. De huidige standaardinstelling is om niet-beheerde schijven te gebruiken. Azure Managed Disks worden verwerkt door het Azure-platform. Er is geen voorbereiding of locatie nodig om ze op te slaan. Zie [Overzicht van Azure Managed Disks](../storage/storage-managed-disks-overview.md) voor meer informatie over Azure Managed Disks. Voor niet-beheerde schijven moet u een opslagaccount maken of selecteren voor uw virtuele harde schijven:
-
-![Opslagaccount selecteren voor niet-beheerde schijven](./media/virtual-machines-linux-quick-create-portal/configure_non_managed_disks.png)
-
-Als u ervoor kiest om Azure Managed Disks te gebruiken, zijn er geen aanvullende opslagopties om te configureren, zoals blijkt uit het volgende voorbeeld:
-
-![De optie Azure Managed Disks kiezen in de portal](./media/virtual-machines-linux-quick-create-portal/select_managed_disks.png)
-
-Behoud voor de rest van de netwerkinstellingen de standaardwaarden.
-
-## <a name="confirm-vm-settings-and-launch"></a>VM-instellingen bevestigen en starten
-Bevestig de instellingen voor uw nieuwe virtuele Ubuntu-machine en klik op **OK**.
-
-![De Azure VM-instellingen controleren en de virtuele machine maken](./media/virtual-machines-linux-quick-create-portal/review_final_vm_settings.png)
-
-## <a name="select-the-vm-resource"></a>De VM-resource selecteren
-Open de startpagina van de portal en selecteer **Resourcegroepen** in het menu in de linkerbovenhoek. Indien nodig klikt u op de drie balken boven aan het menu om de lijst als volgt uit te vouwen:
-
-![Een lijst met resourcegroepen openen](./media/virtual-machines-linux-quick-create-portal/select_resource_group.png)
-
-Selecteer de resourcegroep en klik vervolgens op de nieuwe virtuele machine:
-
-![De Azure VM NIC-instellingen zoeken](./media/virtual-machines-linux-quick-create-portal/select_vm_resource.png)
-
-## <a name="find-the-public-ip"></a>Het openbare IP-Adres zoeken
-Bekijk het **openbare IP-adres** dat is toegewezen aan de virtuele machine:
-
-![Het openbare IP-adres van de virtuele machine van Azure ophalen](./media/virtual-machines-linux-quick-create-portal/view_public_ip_address.png)
-
-## <a name="ssh-to-the-vm"></a>SSH naar virtuele machine
-Voeg SSH toe aan het openbare IP-adres met behulp van uw openbare SSH-sleutel.  Vanaf een Mac- of Linux-werkstation kunt u SSH direct vanaf de terminal uitvoeren. Als u op een Windows-workstation bent, moet u PuTTY, MobaXTerm of Cygwin voor SSH naar Linux gebruiken.  Als u dat nog niet hebt gedaan, is dit een document dat uw Windows-workstation gereed maakt voor SSH naar Linux.
-
-[SSH-sleutels gebruiken met Windows op Azure](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+```bash
+ssh-keygen -t rsa -b 2048
 ```
-ssh -i ~/.ssh/azure_id_rsa ops@40.112.255.214
+
+## <a name="log-in-to-azure"></a>Meld u aan bij Azure. 
+
+Meld u via http://portal.azure.com aan bij Azure Portal.
+
+## <a name="create-virtual-machine"></a>Virtuele machine maken
+
+1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+
+2. Selecteer **Compute** op de blade **Nieuw**. Selecteer **Ubuntu-server 16.04 LTS** op de blade **Compute** en klik daarna op **Maken**.
+
+3. Vul het formulier **Basisinformatie** in voor de virtuele machine. Bij **Verificatietype** selecteert u **SSH**. Wanneer u uw **openbare SSH-sleutel** plakt, verwijdert u alle voorloop- en volgspaties. Selecteer een **resourcegroep** of maak een nieuwe. Een resourcegroep is een logische container waarin Azure-resources worden gemaakt en waarin ze collectief worden beheerd. Na het voltooien klikt u op **OK**.
+
+    ![Voer basisinformatie over uw virtuele machine in op de portalblade](./media/virtual-machine-quick-start/create-vm-portal-basic-blade.png)  
+
+4. Kies een grootte voor de virtuele machine en klik op **Selecteren**. 
+
+    ![Selecteer een grootte voor de virtuele machine in de portal blade](./media/virtual-machine-quick-start/create-vm-portal-size-blade.png)
+
+5. Op de blade Instellingen selecteert u **Ja** onder **Managed Disks gebruiken**. Laat voor de rest de standaardinstellingen staan en klik op **OK**.
+
+6. Klik op de pagina Overzicht op **OK** om de implementatie van de virtuele machine te starten.
+
+7. Voor het bewaken van de implementatiestatus klikt u op de virtuele machine. U vindt de virtuele machine op het Azure Portal-dashboard, of door **Virtuele machines** te selecteren in het menu links. Wanneer de virtuele machine is gemaakt, verandert de status van **Implementeren** in **In uitvoering**.
+
+## <a name="connect-to-virtual-machine"></a>Verbinding maken met de virtuele machine
+
+Wanneer de implementatie is voltooid, maakt u een SSH-verbinding met de virtuele machine.
+
+1. Klik op de knop **Verbinden** op de blade van de virtuele machine. Op de knop Verbinden wordt een SSH-verbindingsreeks weergegeven die u kunt gebruiken om verbinding te maken met de virtuele machine.
+
+    ![Portal 9](./media/virtual-machine-quick-start/portal-quick-start-9.png) 
+
+2. Voer de volgende opdracht uit om een SSH-sessie te starten. Vervang de verbindingsreeks door de reeks die u uit Azure Portal hebt gekopieerd.
+
+```bash 
+ssh <replace with IP address>
 ```
+## <a name="delete-virtual-machine"></a>De virtuele machine verwijderen
+
+Wanneer u de virtuele machine niet meer nodig hebt, verwijdert u de resourcegroep, de machine zelf én alle gerelateerde resources. Hiervoor selecteert u de resourcegroep op de blade van de virtuele machine en klikt u op **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
-U hebt nu snel een virtuele Linux-machine gemaakt die u kunt gebruiken voor test- of demonstratiedoeleinden. Als u een virtuele Linux-machine wilt maken die is afgestemd op uw infrastructuur, volgt u de instructies in een van de volgende artikelen.
 
-* [Een virtuele Linux-machine in Azure maken met behulp van sjablonen](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Een met SSH beveiligde virtuele Linux-machine in Azure maken met behulp van sjablonen](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Een virtuele Linux-machine maken met behulp van de Azure CLI](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Zelfstudie voor het maken van virtuele machines met een hoge beschikbaarheid](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
+[CLI-voorbeelden voor VM-implementatie verkennen](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

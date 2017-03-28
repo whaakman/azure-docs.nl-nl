@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/08/2016
-ms.author: edmaca
+ms.date: 03/17/2017
+ms.author: edmaca, yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 2fa2d26b996435c18c2f88396991bf7210350553
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f5a27eba14560a56ad5020daf7741f37ac2cc6f2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -130,7 +130,7 @@ Data Lake Analytics-taken worden geschreven in de U-SQL-taal. Zie [Aan de slag m
        IntelliSense voor catalogusentiteiten (databases, schema's, tabellen, UDO’s enz.) is gerelateerd aan uw Compute-account. U kunt het huidige actieve Compute-account, de database en het schema controleren in de bovenste werkbalk en ze overschakelen via de vervolgkeuzelijsten.
    * ***-kolommen uitvouwen**
 
-       Klik rechts van de * om een blauwe onderstreping weer te geven onder de *. Houd de muisaanwijzer op de blauwe onderstreping en klik vervolgens op de pijl-omlaag.
+       Klik rechts van de *om een blauwe onderstreping weer te geven onder de*. Houd de muisaanwijzer op de blauwe onderstreping en klik vervolgens op de pijl-omlaag.
        ![Data Lake-hulpprogramma's voor Visual Studio uitvouwen *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
        Klik op **Expand Columns** en het hulpprogramma vervangt de * door de kolomnamen.
@@ -197,71 +197,11 @@ Met Taak afspelen kunt u de uitvoering van de taak bekijken en afwijkingen en kn
 Data Lake Tools voor Visual Studio biedt instelbare kleurenoverlays voor de taakweergave, voor het aanduiden van de voortgang, gegevens-I/O, uitvoeringstijd en I/O-doorvoer in elke fase. Hiermee kunt u potentiële problemen identificeren en taakeigenschappen direct en op intuïtieve wijze distribueren. Kies de gegevensbron die u wilt weergeven in de vervolgkeuzelijst.  
 
 ## <a name="run-u-sql-locally"></a>U-SQL lokaal uitvoeren
-Als u U-SQL lokaal uitvoert in Visual Studio, kunt u:
 
-* U-SQL-scripts lokaal uitvoeren samen met C#-assembly's.
-* Lokaal fouten opsporen in C#-assembly's.
-* Lokale databases, assembly's, schema's en tabellen maken/verwijderen/weergeven in Server Explorer, net zoals u dat kunt doen voor Azure Data Lake Analytics-service.
+Met Azure Data Lake-tools voor Visio Studio en de Azure Data Lake U-SQL-SDK kunt u U-SQL-taken op uw werkstation uitvoeren, net zoals u in de Azure Data Lake-service. Deze twee lokaal uitgevoerde functies besparen tijd op het gebied van het testen en de foutopsporing van uw U-SQL-taken. 
 
-U ziet een account *Local* in Visual Studio en het installatieprogramma maakt een map *DataRoot* in *C:\LocalRunRoot*. De map DataRoot wordt gebruikt voor:
+* [U-SQL-taken testen en controleren op fouten met behulp van lokale uitvoering en de Azure Data Lake U-SQL-SDK](data-lake-analytics-data-lake-tools-local-run.md)
 
-* Het opslaan van metagegevens zoals tabellen, databases, TVF’s, enzovoort.
-* Bepaalde scripts: als naar een relatief pad wordt verwezen in invoer-/uitvoerpaden, zoeken we de DataRoot op (en pad van het script als het de invoer is).
-* Er wordt NIET verwezen naar de map DataRoot wanneer u een assembly probeert te registreren en een relatief pad gebruikt (Zie het gedeelte ‘Assembly’s gebruiken bij lokale uitvoering’ voor meer informatie).
-
-In de volgende video wordt de functie voor het lokaal uitvoeren van U-SQL getoond:
-
-> [!VIDEO https://channel9.msdn.com/Series/AzureDataLake/USQL-LocalRun/player]
->
->
-
-### <a name="known-issues-and-limitations"></a>Bekende problemen en beperkingen
-* Tabellen, databases, enzovoort kunnen niet worden gemaakt in Server Explorer voor het lokale account.
-* Wanneer naar een relatief pad wordt verwezen:
-
-  * In de scriptinvoer (EXTRACT * FROM “/path/abc”) wordt zowel in het pad DataRoot als het scriptpad gezocht.
-  * In de scriptuitvoer (OUTPUT TO “path/abc”) wordt het pad DataRoot als uitvoermap gebruikt.
-  * In de assembly-registratie (CREATE ASSEMBLY xyz FROM “/path/abc”) wordt gezocht in het scriptpad, maar niet in de DataRoot.
-  * In de geregistreerde TVF/View of andere metagegevensentiteiten wordt in het pad DataRoot gezocht, maar niet in het scriptpad.
-
-    Voor scripts die worden uitgevoerd op de Data Lake-service wordt het standaardopslagaccount gebruikt als hoofdmap en doorzocht.
-
-### <a name="test-u-sql-scripts-locally"></a>U-SQL-scripts lokaal testen
-Zie [U-SQL-scripts ontwikkelen](#develop-and-test-u-sql-scripts) voor instructies voor het ontwikkelen van U-SQL-scripts. Als u U-SQL-scripts lokaal wilt bouwen en uitvoeren, selecteert u **(Local)** in de vervolgkeuzelijst cluster en klikt u op **Submit**. Zorg ervoor dat u naar de juiste gegevens verwijst; u moet naar het absolute pad verwijzen of de gegevens in de map DataRoot plaatsen.
-
-![U-SQL Visual Studio-project lokaal verzenden](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
-
-Om lokaal uitvoeren te activeren kunt u ook met de rechtermuisknop op een script klikken en vervolgens in het contextmenu op **Run Local Plan** klikken, of op **Ctrl + F5** drukken.
-
-### <a name="use-assemblies-in-local-run"></a>Assembly's gebruiken bij lokaal uitvoeren
-Er zijn twee manieren om de aangepaste C#-bestanden uit te voeren:
-
-* Schrijf assembly's in het onderliggende-codebestand en ze worden automatisch geregistreerd en verwijderd nadat het script is uitgevoerd.
-* Maak een assembly-project in C# en registreer de uitvoer-DLL bij het lokale account via een script zoals het onderstaande. Houd er rekening mee dat het pad relatief is ten opzichte van het script en niet ten opzichte van de map DataRoot.
-
-![Assembly's gebruiken bij lokaal uitvoeren van U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-local-run-assembly.png)
-
-### <a name="debug-scripts-and-c-assemblies-locally"></a>Lokaal fouten opsporen in scripts en C#-assembly's
-U kunt fouten opsporen C#-assembly's zonder die te verzenden en registreren in de Azure Data Lake Analytics-service. U kunt onderbrekingspunten instellen in zowel het onderliggende-codebestand als een C#-project waarnaar wordt verwezen.
-
-**Foutopsporing in lokale code in onderliggende-codebestand**
-
-1. Onderbrekingspunten instellen in het onderliggende-codebestand.
-2. Druk op **F5** om lokaal fouten op te sporen in het script.
-
-De volgende procedure werkt alleen in Visual Studio 2015. In oudere Visual Studio-versies moet u mogelijk de PDB-bestanden handmatig toevoegen.
-
-**Fouten opsporen in lokale code in een C#-project waarnaar wordt verwezen**
-
-1. Maak een C#-assemblyproject en bouw het zo dat het de DLL-uitvoer genereert.
-2. Registreer het DLL-bestand met een U-SQL-instructie:
-
-    ```
-    CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
-    ```
-    
-3. Stel onderbrekingspunten in in de C#-code.
-4. Druk op **F5** om lokaal fouten op te sporen in het script dat verwijst naar de C#-DLL.  
 
 ## <a name="see-also"></a>Zie ook
 Om aan de slag te gaan met Data Lake Analytics met verschillende hulpprogramma's, zie:

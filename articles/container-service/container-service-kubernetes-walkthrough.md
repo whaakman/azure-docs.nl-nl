@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
-ms.openlocfilehash: 49602804cc6b4d4f98c802c1a3b651dda2634bb7
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: d342e21e8e0bd78b713f3a6b2f7b3c319185eb43
+ms.lasthandoff: 03/22/2017
 
 ---
 
@@ -142,7 +142,7 @@ Als u de Kubernetes-webinterface wilt bekijken, kunt u het volgende gebruiken:
 ```console
 kubectl proxy
 ```
-Hiermee wordt een eenvoudige geverifieerde proxy uitgevoerd op localhost, die u kunt gebruiken om de [Kubernetes-webinterface](http://localhost:8001/ui) weer te geven. Zie voor meer informatie [Using the Kubernetes web UI with Azure Container Service](container-service-kubernetes-ui.md) (De Kubernetes-webinterface gebruiken met Azure Container Service).
+Hiermee wordt een eenvoudige geverifieerde proxy uitgevoerd op localhost, die u kunt gebruiken om de Kubernetes-webinterface weer te geven, die wordt uitgevoerd op [http://localhost:8001/ui](http://localhost:8001/ui). Zie voor meer informatie [Using the Kubernetes web UI with Azure Container Service](container-service-kubernetes-ui.md) (De Kubernetes-webinterface gebruiken met Azure Container Service).
 
 ![Afbeelding van Kubernetes-dashboard](media/container-service-kubernetes-walkthrough/kubernetes-dashboard.png)
 
@@ -157,13 +157,13 @@ kubectl get pods
 Met de naam van uw schil kunt u een externe opdracht uitvoeren op uw schil.  Bijvoorbeeld:
 
 ```console
-kubectl exec nginx-701339712-retbj date
+kubectl exec <pod name> date
 ```
 
 U kunt ook een volledig interactieve sessie openen met de `-it`-vlaggen:
 
 ```console
-kubectl exec nginx-701339712-retbj -it bash
+kubectl exec <pod name> -it bash
 ```
 
 ![Externe sessie binnen een container](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2017
+ms.date: 03/14/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 79c6ef627d20be52b6067d1f6dfea2a53505c590
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -28,14 +29,16 @@ In het volgende artikel staat beschreven hoe u aan de slag gaat met Azure Multi-
 
 ![MFA in de Cloud](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
-## <a name="prerequisites"></a>Vereisten
-Aan de volgende vereisten moet worden voldaan voordat u Azure Multi-Factor Authentication voor uw gebruikers kunt inschakelen.
+## <a name="prerequisite"></a>Vereiste
+[U moet u aanmelden voor een Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/): als u nog geen Azure-abonnement hebt, moet u er een nemen. Als u net begint en Azure MFA gebruikt, kunt u een proefabonnement nemen
 
-1. [U moet u aanmelden voor een Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/): als u nog geen Azure-abonnement hebt, moet u er een nemen. Als u net begint en Azure MFA gebruikt, kunt u een proefabonnement nemen
-2. [U moet een Multi-Factor Authentication-provider maken](multi-factor-authentication-get-started-auth-provider.md) en deze toewijzen aan uw adreslijst of [licenties toewijzen aan gebruikers](multi-factor-authentication-get-started-assign-licenses.md)
+## <a name="enable-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication inschakelen
+Als uw gebruikers licenties hebben die Azure Multi-Factor Authentication bevatten, hoeft u niets te doen om Azure MFA in te schakelen. U kunt starten met het vereisen van verificatie in twee stappen voor afzonderlijke gebruikers. De licenties die Azure MFA inschakelen zijn:
+- Azure Multi-Factor Authentication
+- Azure Active Directory Premium
+- Enterprise Mobility + Security
 
-> [!NOTE]
-> Licenties zijn beschikbaar voor gebruikers die Azure MFA, Azure AD Premium of Enterprise Mobility Suite (EMS) hebben.  MFA maakt deel uit van Azure AD Premium en EMS. Als u voldoende licenties hebt, hoeft u geen Multi-Factor Authentication-provider te maken.
+Als u niet een van deze drie licenties hebt, of onvoldoende licenties hebt voor alle gebruikers, is dat ook geen probleem. U hoeft dan alleen een extra stap uit te voeren en [een Multi-Factor Authentication-provider te maken](multi-factor-authentication-get-started-auth-provider.md) in uw directory.
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Verificatie in twee stappen inschakelen voor gebruikers
 Verander de status van de gebruiker van Uitgeschakeld naar Ingeschakeld om verificatie in twee stappen te activeren.  Zie voor meer informatie over de status van de gebruiker [Gebruikersstatussen in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
@@ -97,10 +100,5 @@ Zie voor meer informatie [Gebruikersstatussen in Azure Multi-Factor Authenticati
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat u Multi-Factor Authentication in de cloud hebt ingesteld, kunt u uw implementatie configureren en instellen. Zie [Azure Multi-Factor Authentication configureren](multi-factor-authentication-whats-next.md) voor meer informatie.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

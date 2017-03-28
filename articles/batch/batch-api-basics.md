@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 03/08/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0682a048429d8e980da529975a24dde28a9812fe
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 1ebe72255697af16fc28191a102a7c0487968eda
 ms.lasthandoff: 03/15/2017
 
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/15/2017
 
 In dit overzicht van de kernonderdelen van de Azure Batch-service worden de primaire servicefuncties en resources besproken die Batch-ontwikkelaars kunnen gebruiken voor het bouwen van grootschalige parallelle rekenoplossingen.
 
-Of u nu een gedistribueerde rekenkundige toepassing of service ontwikkelt die directe [REST-API][batch_rest_api]-aanroepen uitgeeft of een van de [Batch SDK's](batch-technical-overview.md#batch-development-apis) gebruikt, u maakt gebruik van veel van de resources en functies die in dit artikel worden besproken.
+Of u nu een gedistribueerde rekenkundige toepassing of service ontwikkelt die directe [REST-API][batch_rest_api]-aanroepen uitgeeft of een van de [Batch SDK's](batch-apis-tools.md#batch-development-apis) gebruikt, u maakt gebruik van veel van de resources en functies die in dit artikel worden besproken.
 
 > [!TIP]
 > Zie [Basisbeginselen van Azure Batch](batch-technical-overview.md) voor een introductie op hoger niveau van de Batch-service.
@@ -427,6 +427,7 @@ In situaties waarin een aantal taken mislukken, kan uw Batch-clienttoepassing of
 >
 
 ## <a name="next-steps"></a>Volgende stappen
+* Meer informatie over de [Batch-API's en -hulpprogramma's](batch-apis-tools.md) die beschikbaar zijn voor het bouwen van Batch-oplossingen.
 * Stapsgewijs een Batch-voorbeeld-app doorlopen in [Aan de slag met de Azure Batch-bibliotheek voor .NET](batch-dotnet-get-started.md). Er is ook een [Python-versie](batch-python-tutorial.md) van de zelfstudie waarin een workload in Linux-rekenknooppunten wordt uitgevoerd.
 * Het [Batch Explorer][github_batchexplorer]-voorbeeldproject voor gebruik bij het ontwikkelen van uw Batch-oplossingen downloaden en bouwen. Met behulp van Batch Explorer kunt u het volgende en nog veel meer uitvoeren:
 
