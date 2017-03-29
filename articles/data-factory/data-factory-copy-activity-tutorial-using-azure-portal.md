@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/14/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: 299a55865c1c91e664d67095de76708f444d30b9
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: a4658f1eee3cdd24b3da47b4c7319c61ea39cb34
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -125,7 +126,7 @@ In deze stap maakt u twee gekoppelde services: **AzureStorageLinkedService** en 
 4. Bevestig dat **AzureSqlLinkedService** in de structuurweergave wordt weergegeven. 
 
 > [!NOTE]
-> Zie [Gegevens verplaatsen van/naar Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) voor meer informatie over JSON-eigenschappen.
+> Zie [Gegevens verplaatsen van/naar Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) voor meer informatie over JSON-eigenschappen.
 > 
 > 
 
@@ -201,7 +202,7 @@ In deze stap maakt u een gegevensset met de naam **InputDataset** die verwijst n
 3. Klik op **Implementeren** op de werkbalk om de tabel **InputDataset** te implementeren. Bevestig dat **InputDataset** in de structuurweergave wordt weergegeven.
 
 > [!NOTE]
-> Zie [Gegevens verplaatsen van/naar Azure-blob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) voor meer informatie over JSON-eigenschappen.
+> Zie [Gegevens verplaatsen van/naar Azure-blob](data-factory-azure-blob-connector.md#dataset-properties) voor meer informatie over JSON-eigenschappen.
 > 
 > 
 
@@ -247,7 +248,7 @@ In dit deel van de stap maakt u een uitvoergegevensset met de naam **OutputDatas
 3. Klik op **Implementeren** op de werkbalk om de tabel **OutputDataset** te implementeren. Bevestig dat **OutputDataset** in de structuurweergave wordt weergegeven. 
 
 > [!NOTE]
-> Zie [Gegevens verplaatsen van/naar Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) voor meer informatie over JSON-eigenschappen.
+> Zie [Gegevens verplaatsen van/naar Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) voor meer informatie over JSON-eigenschappen.
 > 
 > 
 
@@ -306,7 +307,7 @@ In deze stap maakt u een pijplijn met een **kopieeractiviteit** die gebruikmaakt
    * De invoer voor de activiteit is ingesteld op **InputDataset** en de uitvoer voor de activiteit is ingesteld op **OutputDataset**.
    * In het gedeelte **typeProperties** is **BlobSource** opgegeven als het brontype en **SqlSink** als het sink-type.
      
-     Vervang de waarde van de eigenschap **start** door de huidige dag en de waarde **end** door de volgende dag. U hoeft alleen de datum in te vullen en kunt de tijd overslaan. Dit wordt dan bijvoorbeeld&2016;-02-03, wat gelijk staat aan&2016;-02-03T00:00:00Z
+     Vervang de waarde van de eigenschap **start** door de huidige dag en de waarde **end** door de volgende dag. U hoeft alleen de datum in te vullen en kunt de tijd overslaan. Dit wordt dan bijvoorbeeld 2016-02-03, wat gelijk staat aan 2016-02-03T00:00:00Z
      
      Zowel de begin- als einddatum en -tijd moeten de [ISO-indeling](http://en.wikipedia.org/wiki/ISO_8601) hebben. Bijvoorbeeld: 2016-10-14T16:32:41Z. De **eindtijd** is optioneel, maar we gebruiken hem in deze zelfstudie. 
      
@@ -412,9 +413,4 @@ In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt om gegevens te kopi√
 | [Pijplijnen](data-factory-create-pipelines.md) |In dit artikel worden pijplijnen en activiteiten in Azure Data Factory nader uitgelegd. |
 | [Gegevenssets](data-factory-create-datasets.md) |Op basis van dit artikel krijgt u inzicht in de gegevenssets in Azure Data Factory. |
 | [Plannen en uitvoeren](data-factory-scheduling-and-execution.md) |In dit artikel wordt uitleg gegeven over de plannings- en uitvoeringsaspecten van het Azure Data Factory-toepassingsmodel. |
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

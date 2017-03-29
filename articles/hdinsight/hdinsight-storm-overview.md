@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 72d54080-1e48-4a5e-aa50-cce4ffc85077
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/11/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 0cf2d7f4cbbed730d690693fd006665355155c22
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 0aa2a7075f64b353f6b052ab6b973a06622a9339
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -42,7 +43,7 @@ Apache Storm op HDInsight biedt de volgende belangrijke voordelen:
 * Aanpassen kan eenvoudig door scripts op een cluster uit te voeren tijdens of na het maken van het cluster. Zie [HDInsight-clusters aanpassen met scriptacties](hdinsight-hadoop-customize-cluster-linux.md) voor meer informatie.
 
 * Gebruik de gewenste taal: Storm-onderdelen kunnen worden geschreven in verschillende talen, zoals **Java**, **C#** en **Python**.
-  
+
   * Visual Studio-integratie met HDInsight voor het ontwikkelen, beheren en controleren van C#-topologieën. Zie [C# Storm-topologieën met de hulpprogramma's van HDInsight voor Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md) voor meer informatie.
 
   * Biedt ondersteuning voor de **Trident** Java-interface. Met deze interface kunt u Storm-topologieën maken die ondersteuning bieden voor een eenmalige verwerking van berichten, transactionele DataStore-persistentie en een aantal algemene Stream Analytics-bewerkingen.
@@ -50,13 +51,13 @@ Apache Storm op HDInsight biedt de volgende belangrijke voordelen:
 * Eenvoudig omhoog en omlaag schalen van het cluster: voeg worker-knooppunten toe of verwijder ze zonder de actieve Storm-topologieën te beïnvloeden.
 
 * Integratie met de volgende Azure-services:
-  
+
     * Event Hubs
     * Virtueel netwerk
     * SQL Database
     * Azure Storage
     * DocumentDB
-  
+
   * Combineer op veilige wijze de mogelijkheden van meerdere HDInsight-clusters door gebruik te maken van Azure Virtual Network: maak analytische pijplijnen die HDInsight-, HBase- of Hadoop-clusters gebruiken.
 
 Zie [Companies Using Apache Storm](https://storm.apache.org/documentation/Powered-By.html) (Bedrijven die Apache Storm gebruiken) voor een lijst met bedrijven die gebruikmaken van Apache Storm.
@@ -80,7 +81,7 @@ Binnen 15 minuten nadat u een aanvraag hebt verzonden, beschikt u over een nieuw
 
 * __Webconnectiviteit__: HDInsight-clusters bieden de Ambari-webgebruikersinterface. Met de Ambare-webgebruikersinterface kunt u eenvoudig services op het cluster controleren, configureren en beheren. Storm op HDInsight biedt ook de Storm-gebruikersinterface, waarmee u Storm-topologieën kunt controleren en beheren vanuit de browser.
 
-  Zie [HDInsight beheren met behulp van de Ambari-webgebruikersinterface](hdinsight-hadoop-manage-ambari.md) en [Controleren en beheren met behulp van de Storm-gebruikersinterface](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-using-the-storm-ui).
+  Zie [HDInsight beheren met behulp van de Ambari-webgebruikersinterface](hdinsight-hadoop-manage-ambari.md) en [Controleren en beheren met behulp van de Storm-gebruikersinterface](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui).
 
 * __Azure PowerShell en CLI__: zowel Azure PowerShell en Azure CLI bieden opdrachtregelprogramma's die u vanuit het clientsysteem kunt gebruiken om te werken met HDInsight en andere Azure-services.
 
@@ -152,7 +153,7 @@ Apache Storm voert **topologieën** uit in plaats van de MapReduce-taken die u m
 * **Stream**: een niet-afhankelijke verzameling **tuples**. Streams worden geproduceerd door **spouts** en **bolts** en ze worden verbruikt door **bolts**.
 * **Tuple**: een benoemde lijst met dynamische getypeerde waarden.
 * **Spout**: gebruikt gegevens van een gegevensbron en verzendt een of meer **streams**.
-  
+
   > [!NOTE]
   > Vaak worden gegevens uit een wachtrij gelezen, zoals Kafka of Azure Event Hubs. De wachtrij zorgt ervoor dat gegevens bij een storing worden bewaard.
 
@@ -199,7 +200,7 @@ Het patroon voor het lezen van een invoer-tuple, het verzenden van nul of meer t
 
 Hoe gegevensstromen worden gekoppeld, varieert per toepassing. U kunt bijvoorbeeld elke tuple uit meerdere streams samenvoegen in één nieuwe stream, of u kunt alleen batches tuples voor een specifiek venster samenvoegen. In beide gevallen kunt u samenvoeging realiseren met [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29), wat een manier is om te definiëren hoe tuples worden gerouteerd naar bolts.
 
-In het volgende Java-voorbeeld wordt fieldsGrouping gebruikt om tuples die afkomstig zijn uit de onderdelen&1;,&2; en&3; te routeren naar de **MyJoiner**-bolt.
+In het volgende Java-voorbeeld wordt fieldsGrouping gebruikt om tuples die afkomstig zijn uit de onderdelen 1, 2 en 3 te routeren naar de **MyJoiner**-bolt.
 
     builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
 
