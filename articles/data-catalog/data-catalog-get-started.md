@@ -18,6 +18,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 2b128e2771ea89d1c0d6b8d52357d1bcc993115a
 ms.openlocfilehash: a9629d0a4bfc44f5d035a29f8e97d76922cc0060
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -136,7 +137,7 @@ In deze oefening gebruikt u de het hulpprogramma voor registratie om gegevensass
    
    1. Vouw in **Serverhiërarchie** het item **AdventureWorks2014** uit en klik op **Production**.
    2. Ctrl+klik op **Product**, **ProductCategory**, **ProductDescription** en **ProductPhoto**.
-   3. Klik op de **pijl om de geselecteerde items te verplaatsen ** (**>**). Met deze actie worden alle geselecteerde objecten verplaatst naar de lijst **Te registreren objecten**.
+   3. Klik op de **pijl om de geselecteerde items te verplaatsen** (**>**). Met deze actie worden alle geselecteerde objecten verplaatst naar de lijst **Te registreren objecten**.
       
       ![Zelfstudie voor Azure Data Catalog - bladeren door objecten en objecten selecteren](media/data-catalog-get-started/data-catalog-server-hierarchy.png)
    4. Selecteer **Preview opnemen** om een snapshotvoorbeeld van de gegevens op te nemen. De snapshot bevat maximaal 20 records uit elke tabel en wordt gekopieerd naar de catalogus.
@@ -362,10 +363,5 @@ In deze zelfstudie hebt u essentiële mogelijkheden van Azure Data Catalog verke
 * [Gegevensassets documenteren](data-catalog-how-to-documentation.md)
 * [Verbinding maken met gegevensassets](data-catalog-how-to-connect.md)
 * [Gegevensassets beheren](data-catalog-how-to-manage.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
