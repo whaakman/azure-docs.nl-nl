@@ -17,10 +17,11 @@ ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 5abd8365ed883831d4c85ebd14de31dbe45d815d
+ms.lasthandoff: 01/24/2017
 
 ---
 
-# <a name="a-nameget-startedacreating-an-internet-facing-load-balancer-in-resource-manager-by-using-powershell"></a><a name="get-started"></a>Een internetgerichte load balancer maken in Resource Manager met behulp van PowerShell
+# <a name="get-started"></a>Een internetgerichte load balancer maken in Resource Manager met behulp van PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -254,7 +255,7 @@ Zie voor instructies voor het maken van een virtuele machine en het toewijzen va
 2. Laad de back-endconfiguratie in een variabele.
 
     ```powershell
-    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
     ```
 
 3. Laad de gemaakte netwerkinterface in een variabele. De variabele heet **$nic**. De netwerkinterfacenaam is hetzelfde als in bovenstaand voorbeeld.
@@ -282,7 +283,7 @@ Zie voor instructies voor het maken van een virtuele machine en het toewijzen va
 1. Met behulp van de load balancer uit het bovenstaande voorbeeld wijst u load balancer-object toe aan de variabele **$slb** met `Get-AzureLoadBalancer`.
 
     ```powershell
-    $slb = get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+    $slb = get-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
     ```
 
 2. In het volgende voorbeeld voegt u aan een bestaande load balancer een NAT-regel voor binnenkomende verbindingen toe met poort 81 in de front-end en poort 8181 voor de back-endgroep.
@@ -302,7 +303,7 @@ Zie voor instructies voor het maken van een virtuele machine en het toewijzen va
 Gebruik de opdracht `Remove-AzureLoadBalancer` om een eerder gemaakte load balancer met de naam **NRP-LB** te verwijderen uit de resourcegroep **NRP RG**.
 
 ```powershell
-Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+Remove-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
 > [!NOTE]
@@ -315,9 +316,4 @@ Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 [Een distributiemodus voor de load balancer configureren](load-balancer-distribution-mode.md)
 
 [TCP-time-outinstellingen voor inactiviteit voor de load balancer configureren](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
