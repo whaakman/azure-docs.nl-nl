@@ -26,11 +26,11 @@
 ## Verbinding maken
 
 ### [Overzicht](sql-data-warehouse-connect-overview.md)
-### [Verbindingsreeksen](sql-data-warehouse-connection-strings.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Visual Studio installeren](sql-data-warehouse-install-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [Verbindingsreeksen](sql-data-warehouse-connection-strings.md)
 
 ## Maken
 ### [Azure Portal](sql-data-warehouse-get-started-provision.md)

@@ -560,6 +560,6 @@ U kunt zich nu concentreren op het bouwen van de gebruikersinterface, zodat gebr
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
-[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
+[GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
 
 

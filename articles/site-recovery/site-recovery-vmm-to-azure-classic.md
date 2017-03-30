@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: d315c5ed186c24236c860df1ad1b79d55c9a4d57
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: e2e09cdabd323575c0da6797c9eb2564572629f1
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -274,7 +274,7 @@ Wanneer de servers, clouds en netwerken correct zijn geconfigureerd, kunt u beve
     ![Virtuele machines controleren](./media/site-recovery-vmm-to-azure-classic/vm-properties.png)
 2. Op het tabblad **Configureren** van de eigenschappen van de virtuele machines kunnen de volgende netwerkeigenschappen worden gewijzigd.
 
-* **Aantal netwerkadapters op de virtuele doelmachine**: het aantal netwerkadapters wordt bepaald door de grootte die u voor de virtuele doelmachine opgeeft. Raadpleeg [de specificaties voor de grootte van virtuele machines](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) voor het aantal ondersteunde adapters voor de verschillende grootten van een virtuele machine. Wanneer u de grootte voor een virtuele machine wijzigt en de instellingen opslaat, is het aantal netwerkadapters gewijzigd wanneer u de pagina **Configureren** een volgende keer opent. Het aantal netwerkadapters van de virtuele doelmachines is het minimum aantal netwerkadapters op de virtuele bronmachine en het maximum aantal netwerkadapters dat wordt ondersteund door de grootte van de gekozen virtuele machine, waarbij het volgende geldt:
+* **Aantal netwerkadapters op de virtuele doelmachine**: het aantal netwerkadapters wordt bepaald door de grootte die u voor de virtuele doelmachine opgeeft. Raadpleeg [de specificaties voor de grootte van virtuele machines](../virtual-machines/virtual-machines-linux-sizes.md) voor het aantal ondersteunde adapters voor de verschillende grootten van een virtuele machine. Wanneer u de grootte voor een virtuele machine wijzigt en de instellingen opslaat, is het aantal netwerkadapters gewijzigd wanneer u de pagina **Configureren** een volgende keer opent. Het aantal netwerkadapters van de virtuele doelmachines is het minimum aantal netwerkadapters op de virtuele bronmachine en het maximum aantal netwerkadapters dat wordt ondersteund door de grootte van de gekozen virtuele machine, waarbij het volgende geldt:
 
   * Als het aantal netwerkadapters op de bronmachine kleiner is dan of gelijk is aan het aantal adapters dat is toegestaan voor de grootte van de doelmachine, heeft het doel hetzelfde aantal adapters als de bron.
   * Als het aantal adapters voor de virtuele bronmachine meer is dan is toegestaan voor de doelgrootte, wordt het maximum voor de doelgrootte gebruikt.

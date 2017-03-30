@@ -75,7 +75,7 @@ Met IoT Hub wordt de volgende set apparaatbeheerpatronen mogelijk gemaakt.  In d
 * **Opnieuw opstarten**: via de back-endtoepassing wordt het apparaat met een rechtstreekse methode geïnformeerd dat er opnieuw wordt opgestart.  Het apparaat maakt gebruik van de gerapporteerde eigenschappen om de opstartstatus van het apparaat bij te werken.
   
     ![Afbeelding van het opstartpatroon van apparaatbeheer][img-reboot_pattern]
-* **Fabrieksinstellingen terugzetten **: via de back-endtoepassing wordt het apparaat via een rechtstreekse methode geïnformeerd dat het terugzetten van de fabrieksinstellingen is gestart.  Het apparaat maakt gebruik van de gerapporteerde eigenschappen om de status van het terugzetten van de fabrieksinstellingen van het apparaat bij te werken.
+* **Fabrieksinstellingen terugzetten**: via de back-endtoepassing wordt het apparaat via een rechtstreekse methode geïnformeerd dat het terugzetten van de fabrieksinstellingen is gestart.  Het apparaat maakt gebruik van de gerapporteerde eigenschappen om de status van het terugzetten van de fabrieksinstellingen van het apparaat bij te werken.
   
     ![Afbeelding van het patroon van herstel naar fabrieksinstellingen voor apparaatbeheer][img-facreset_pattern]
 * **Configuratie**: voor de back-endtoepassing worden de gewenste eigenschappen gebruikt voor het configureren van software die op het apparaat wordt uitgevoerd.  Het apparaat maakt gebruik van de gerapporteerde eigenschappen om de configuratiestatus van het apparaat bij te werken.
