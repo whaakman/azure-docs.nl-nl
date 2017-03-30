@@ -205,7 +205,7 @@ U hebt nu de infrastructuur geïmplementeerd voor uw app, maar er is nog geen co
    
     ![webimplementatie toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
    
-    Voor het **artefactopslagaccount ** kunt u het account selecteren dat is geïmplementeerd met deze resourcegroep.
+    Voor het **artefactopslagaccount** kunt u het account selecteren dat is geïmplementeerd met deze resourcegroep.
 10. Nadat de implementatie is voltooid, selecteert u uw web-app in de portal. Selecteer de URL om naar de site te bladeren.
     
      ![naar site bladeren](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
