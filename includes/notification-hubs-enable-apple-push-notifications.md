@@ -31,7 +31,7 @@ U moet u app bij Apple registreren en u voor pushmeldingen registeren om pushmel
    
    * **Naam**: typ een beschrijvende naam voor uw app in het veld **Naam** in de sectie **Beschrijving app-id**.
    * **Bundel-id**: onder de sectie **Expliciete app-id** typt u een **bundel-id** in het formulier `<Organization Identifier>.<Product Name>` zoals vermeld in de [App Distribution Guide](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8) (Gids voor apps-distributie). De *organisatie-id* en *productnaam* die u gebruikt, moet overeenkomen met de organisatie-id en productnaam die u gebruikt als u een XCode-project gaat maken. In de onderstaande schermopname wordt *NotificationHubs* gebruikt als de organisatie-id en *GetStarted* als de productnaam. Door ervoor te zorgen dat deze overeenkomen met waarden die u gaat gebruiken in uw XCode-project, is het mogelijk om het juiste publicatieprofiel met XCode te gebruiken. 
-   * ** Pushmeldingen**: selecteer de optie **Pushmeldingen** in de sectie **App Services**.
+   * **Pushmeldingen**: selecteer de optie **Pushmeldingen** in de sectie **App Services**.
      
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
      
@@ -116,8 +116,3 @@ U moet u app bij Apple registreren en u voor pushmeldingen registeren om pushmel
 7. Als het nieuwe inrichtingsprofiel is gemaakt, klikt u erop om het te downloaden en op uw machine met de Xcode-ontwikkelcode te installeren. Klik vervolgens op **Gereed**.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
-
-
-<!--HONumber=Dec16_HO1-->
-
-

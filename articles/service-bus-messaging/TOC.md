@@ -1,6 +1,7 @@
 # Overzicht
 ## [Wat is Service Bus Messaging?](service-bus-messaging-overview.md)
 ## [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+## [Service Bus-architectuur](service-bus-architecture.md)
 ## [Veelgestelde vragen](service-bus-faq.md)
 
 # Aan de slag
