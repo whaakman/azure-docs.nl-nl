@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: cc25d521b4de64643c8920d45ec9aa6c07b94302
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 977fcf74c86e2ab312d99b3f1821cfb7efbe9745
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -408,7 +409,7 @@ In deze sectie geeft u de naam en sleutel van uw Azure Storage-account op. Zie [
 De tekenreeks connectionString maakt gebruik van de parameters storageAccountName en storageAccountKey. De waarden voor deze parameters worden doorgegeven met behulp van een configuratiebestand. De definitie maakt ook gebruik van variabelen: azureStorageLinkedService en dataFactoryName die zijn gedefinieerd in de sjabloon. 
 
 #### <a name="azure-sql-database-linked-service"></a>Een gekoppelde Azure SQL Database-service
-U geeft in deze sectie de Azure SQL-servernaam, -databasenaam, -gebruikersnaam en -wachtwoord op. Zie [Een gekoppelde Azure SQL-service](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een gekoppelde Azure SQL-service.  
+U geeft in deze sectie de Azure SQL-servernaam, -databasenaam, -gebruikersnaam en -wachtwoord op. Zie [Een gekoppelde Azure SQL-service](data-factory-azure-sql-connector.md#linked-service-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een gekoppelde Azure SQL-service.  
 
 ```json
 {
@@ -431,7 +432,7 @@ U geeft in deze sectie de Azure SQL-servernaam, -databasenaam, -gebruikersnaam e
 De tekenreeks connectionString maakt gebruik van de parameters sqlServerName, databaseName, sqlServerUserName en sqlServerPassword waarvan de waarden worden doorgegeven met behulp van een configuratiebestand. De definitie maakt ook gebruik van de volgende variabelen uit de sjabloon: azureSqlLinkedServiceName en dataFactoryName.
 
 #### <a name="azure-blob-dataset"></a>De Azure Blob-gegevensset
-U geeft de namen van de blobcontainer, map en het bestand met de invoergegevens op. Zie [Eigenschappen van de Azure Blob-gegevensset](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een Azure Blob-gegevensset. 
+U geeft de namen van de blobcontainer, map en het bestand met de invoergegevens op. Zie [Eigenschappen van de Azure Blob-gegevensset](data-factory-azure-blob-connector.md#dataset-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een Azure Blob-gegevensset. 
 
 ```json
 {
@@ -473,7 +474,7 @@ U geeft de namen van de blobcontainer, map en het bestand met de invoergegevens 
 ```
 
 #### <a name="azure-sql-dataset"></a>De Azure SQL-gegevensset
-U geeft de naam op van de tabel in de Azure SQL-database die de gekopieerde gegevens uit de Azure Blob-opslag bevat. Zie [Eigenschappen van de Azure SQL-gegevensset](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een Azure SQL-gegevensset. 
+U geeft de naam op van de tabel in de Azure SQL-database die de gekopieerde gegevens uit de Azure Blob-opslag bevat. Zie [Eigenschappen van de Azure SQL-gegevensset](data-factory-azure-sql-connector.md#dataset-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een Azure SQL-gegevensset. 
 
 ```json
 {
@@ -591,8 +592,3 @@ U kunt de sjabloon ook hergebruiken om herhaalde taken uit te voeren. U moet bij
 | [Pijplijnen](data-factory-create-pipelines.md) |In dit artikel worden pijplijnen en activiteiten in Azure Data Factory nader uitgelegd. |
 | [Gegevenssets](data-factory-create-datasets.md) |Op basis van dit artikel krijgt u inzicht in de gegevenssets in Azure Data Factory. |
 | [Plannen en uitvoeren](data-factory-scheduling-and-execution.md) |In dit artikel wordt uitleg gegeven over de plannings- en uitvoeringsaspecten van het Azure Data Factory-toepassingsmodel. |
-
-
-<!--HONumber=Feb17_HO3-->
-
-

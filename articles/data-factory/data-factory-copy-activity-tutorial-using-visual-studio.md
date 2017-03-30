@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 7196b4eddc8a00cf2c15e8d8447ef8381db738a3
-ms.openlocfilehash: a1ef4ccb6546f011c405a98cab3cae514de813ea
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 39824fa66dee9f1bd57687e59ece97f4f4636b7d
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -97,7 +97,7 @@ In deze stap maakt u twee gekoppelde services: **AzureStorageLinkedService1** en
 4. Sla het bestand **AzureSqlLinkedService1.json** op. 
 
 > [!NOTE]
-> Zie [Gegevens verplaatsen van/naar Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) voor meer informatie over JSON-eigenschappen.
+> Zie [Gegevens verplaatsen van/naar Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) voor meer informatie over JSON-eigenschappen.
 > 
 > 
 
@@ -169,7 +169,7 @@ In deze stap maakt u een gegevensset met de naam **InputDataset** die verwijst n
     ```
             
 > [!NOTE]
-> Zie [Gegevens verplaatsen van/naar Azure-blob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) voor meer informatie over JSON-eigenschappen.
+> Zie [Gegevens verplaatsen van/naar Azure-blob](data-factory-azure-blob-connector.md#dataset-properties) voor meer informatie over JSON-eigenschappen.
 > 
 > 
 
@@ -216,7 +216,7 @@ In deze stap maakt u een uitvoergegevensset met de naam **OutputDataset**. Deze 
    * De **beschikbaarheid** wordt ingesteld op **elk uur** (de **frequentie** wordt ingesteld op **elk uur** en het **interval** wordt ingesteld op **1**).  De Data Factory-service maakt elk uur een uitvoergegevenssegment in de tabel **emp** in de Azure SQL-database.
 
 > [!NOTE]
-> Zie [Gegevens verplaatsen van/naar Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) voor meer informatie over JSON-eigenschappen.
+> Zie [Gegevens verplaatsen van/naar Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) voor meer informatie over JSON-eigenschappen.
 > 
 > 
 
@@ -277,7 +277,7 @@ U hebt tot nu toe gekoppelde invoer- en uitvoerservices gemaakt. U maakt nu met 
    * De invoer voor de activiteit is ingesteld op **InputDataset** en de uitvoer voor de activiteit is ingesteld op **OutputDataset**.
    * In het gedeelte **typeProperties** is **BlobSource** opgegeven als het brontype en **SqlSink** als het sink-type.
    
-   Vervang de waarde van de eigenschap **start** door de huidige dag en de waarde **end** door de volgende dag. U hoeft alleen de datum in te vullen en kunt de tijd overslaan. Dit wordt dan bijvoorbeeld&2016;-02-03, wat gelijk staat aan&2016;-02-03T00:00:00Z
+   Vervang de waarde van de eigenschap **start** door de huidige dag en de waarde **end** door de volgende dag. U hoeft alleen de datum in te vullen en kunt de tijd overslaan. Dit wordt dan bijvoorbeeld 2016-02-03, wat gelijk staat aan 2016-02-03T00:00:00Z
    
    Zowel de begin- als einddatum en -tijd moeten de [ISO-indeling](http://en.wikipedia.org/wiki/ISO_8601) hebben. Bijvoorbeeld: 2016-10-14T16:32:41Z. De **eindtijd** is optioneel, maar we gebruiken hem in deze zelfstudie. 
    

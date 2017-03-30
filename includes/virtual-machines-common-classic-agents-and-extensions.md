@@ -41,4 +41,4 @@ De VM-agent wordt in de volgende situaties ingeschakeld:
 >
 
 ## <a name="find-add-update-and-remove-vm-extensions"></a>VM-extensies zoeken, toevoegen, bijwerken en verwijderen
-Zie [Azure VM-extensies toevoegen, zoeken, bijwerken en verwijderen](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) voor meer informatie over deze taken.
+Zie [Azure VM-extensies toevoegen, zoeken, bijwerken en verwijderen](../articles/virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) voor meer informatie over deze taken.
