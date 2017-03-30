@@ -14,11 +14,11 @@
 ## Sjablonen maken
 ### [Aanbevolen procedures voor sjablonen](resource-manager-template-best-practices.md)
 ### [Sjabloonsecties](resource-group-authoring-templates.md)
-### [Sjabloonfuncties](resource-group-template-functions.md)
 ### [Afhankelijkheid tussen resources definiëren](resource-group-define-dependencies.md)
+### [Locatie instellen](resource-manager-template-location.md)
+### [Tags toewijzen](resource-manager-template-tags.md)
 ### [Naam en type van onderliggende resource instellen](resource-manager-template-child-resource.md)
 ### [Meerdere exemplaren maken van resourcetype](resource-group-create-multiple.md)
-### [Beveiligde waarden doorgeven tijdens implementatie](resource-manager-keyvault-parameter.md)
 ### [Koppeling naar andere sjablonen](resource-group-linked-templates.md)
 ### [Status delen tussen gekoppelde sjablonen](best-practices-resource-manager-state.md)
 ### [Patronen voor het ontwerpen van sjablonen](best-practices-resource-manager-design-templates.md)
@@ -28,6 +28,7 @@
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST-API](resource-group-template-deploy-rest.md)
 ### [Doorlopende integratie met Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Beveiligde waarden doorgeven tijdens implementatie](resource-manager-keyvault-parameter.md)
 ## Beheren
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
@@ -56,6 +57,7 @@
 ### [Implementatiebewerkingen bekijken](resource-manager-deployment-operations.md)
 
 # Naslaginformatie
+## [Sjabloonfuncties](resource-group-template-functions.md)
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
 ## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)

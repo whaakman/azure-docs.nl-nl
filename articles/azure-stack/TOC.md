@@ -36,8 +36,9 @@
 
 # Beveiliging en naleving
 ## Procedures
-### [Gebruikersmachtigingen beheren](azure-stack-manage-permissions.md)
+### [RBAC beheren](azure-stack-manage-permissions.md)
 ### [Gebruikers toevoegen voor AD FS](azure-stack-add-users-adfs.md)
+### [Service-principals maken](Azure-stack-create-service-principals.md)
 
 # Services aanbieden
 ## Aan de slag
@@ -113,6 +114,9 @@
 # Problemen oplossen
 ## [Bekende problemen](azure-stack-troubleshooting.md)
 ## [Diagnostische gegevens in Azure Stack](azure-stack-diagnostics.md)
+
+# Naslaginformatie
+## [API-versieprofielen beheren](azure-stack-version-profiles.md)
 
 # Resources
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  
