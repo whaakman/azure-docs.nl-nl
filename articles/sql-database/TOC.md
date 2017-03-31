@@ -5,20 +5,17 @@
 ## [Database maken - Portal](sql-database-get-started-portal.md)
 ## [Database maken - Azure CLI](sql-database-get-started-cli.md)
 ## [Database maken - PowerShell](sql-database-get-started-powershell.md)
-## Verbinding maken
+## Beheren
 ### [SSMS](sql-database-connect-query-ssms.md)
 ### [VS-code](sql-database-connect-query-vscode.md)
+## Verbinding maken
 ### [C#](sql-database-connect-query-dotnet.md)
 # Voorbeelden
 ## [Azure-CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
 # Zelfstudies
-## Toegang
-### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
-### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
-## Herstel
-### [Portal](sql-database-get-started-backup-recovery-portal.md)
-### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+## [Een database ontwerpen](sql-database-design-first-database.md)
+
 # Concepten
 ## Databases en servers
 ### [Databases](sql-database-overview.md)
@@ -110,6 +107,9 @@
 ### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
 ### [C#](sql-database-elastic-pool-manage-csharp.md)
+## Databasetoegang 
+### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
+### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 ## Beveiligde gegevens
 ### [Verificatie met Azure AD](sql-database-aad-authentication-configure.md)
 ### [Controle](sql-database-auditing-portal.md)
@@ -117,11 +117,13 @@
 ### [Versleutelen - Cert Store](sql-database-always-encrypted.md)
 ### [Versleutelen - Key Vault](sql-database-always-encrypted-azure-key-vault.md)
 ### [Maskering configureren](sql-database-dynamic-data-masking-get-started-portal.md)
-## Back-up en herstel
-### [Herstellen - portal](sql-database-restore-database-portal.md)
+## Herstel
+### [Portal](sql-database-get-started-backup-recovery-portal.md)
+### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+### [Eén tabel](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
+## Bewaartermijn
 ### [Retentie - portal](sql-database-manage-long-term-backup-retention-portal.md)
 ### [Retentie - PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
-### [Eén tabel herstellen](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
 ## Geo-replicatiegegevens
 ### [Portal](sql-database-geo-replication-portal.md)
 ### [T-SQL - configureren](sql-database-geo-replication-transact-sql.md)

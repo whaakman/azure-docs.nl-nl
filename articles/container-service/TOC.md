@@ -28,6 +28,7 @@
 ### [Een service-principal configureren](container-service-kubernetes-service-principal.md)
 ### [Containerbeheer - UI van Kubernetes](container-service-kubernetes-ui.md)
 ### [Taakverdeling instellen voor Kubernetes-containers](container-service-kubernetes-load-balancing.md)
+### [Jenkins-integratie met ACS en Kubernetes](container-service-kubernetes-jenkins.md)
 ### Kubernetes bewaken
 #### [Bewaken met OMS](container-service-kubernetes-oms.md)
 #### [Bewaken met Datadog](container-service-kubernetes-datadog.md)

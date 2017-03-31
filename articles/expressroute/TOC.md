@@ -2,27 +2,25 @@
 ## [Wat is ExpressRoute?](expressroute-introduction.md)
 ## [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md)
 ## [Connectiviteitsmodellen](expressroute-connectivity-models.md)
+## [Circuits en routeringsdomeinen](expressroute-circuit-peerings.md)
 ## [Locaties en partners](expressroute-locations.md)
 ### [Providers per locatie](expressroute-locations-providers.md)
 ### [Locaties per provider](expressroute-locations.md)
+## [Virtuele netwerkgateways voor ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # Aan de slag
-## [Werkstromen](expressroute-workflows.md)
 ## [Vereisten](expressroute-prerequisites.md)
-## [Circuits en routeringsdomeinen](expressroute-circuit-peerings.md)
+## [Werkstromen](expressroute-workflows.md)
 ## [Routeringsvereisten](expressroute-routing.md)
-## [Routering optimaliseren](expressroute-optimize-routing.md)
 ## [NAT-vereisten](expressroute-nat.md)
 ## [QoS-vereisten](expressroute-qos.md)
 ## [Circuits verplaatsen van klassiek naar Resource Manager](expressroute-move.md)
-## [Virtuele netwerkgateways voor ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # Procedures
 ## Een circuit maken en wijzigen
 ### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
-### [PowerShell (klassiek)](expressroute-howto-circuit-classic.md)
-## Een routeringsconfiguratie maken en wijzigen
+## Een peeringconfiguratie maken en wijzigen
 ### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
 ### [PowerShell (klassiek)](expressroute-howto-routing-classic.md)
@@ -38,11 +36,12 @@
 ### [PowerShell (klassiek)](expressroute-howto-coexist-classic.md)
 ## [Een circuit migreren van klassiek naar Resource Manager](expressroute-howto-move-arm.md)
 ## Een router voor ExpressRoute configureren
-### [Voorbeelden van instellingen voor routerconfiguraties](expressroute-config-samples-routing.md)
+### [Een router configureren](expressroute-config-samples-routing.md)
 ### [Voorbeelden van routerconfiguraties voor NAT](expressroute-config-samples-nat.md)
 
 ## Beste praktijken
 ### [Aanbevolen procedures voor netwerkbeveiliging en cloudservices](../best-practices-network-security.md)
+## [Routering optimaliseren](expressroute-optimize-routing.md)
 ### [Asymmetrisch routeren](expressroute-asymmetric-routing.md)
 
 ## Problemen oplossen

@@ -70,6 +70,9 @@
 ### [Surface Hub](log-analytics-surface-hubs.md)
 ### [Updatebeheer](../operations-management-suite/oms-solution-update-management.md)
 ### [VMware](log-analytics-vmware.md)
+### Windows Analytics
+#### [Updatecompatibiliteit](https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started)
+#### [Gereedheid voor upgrade](https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started)
 ### [Bedradingsgegevens](log-analytics-wire-data.md)
 ## Ontwikkelen
 ### [Gegevensverzamelaar-API](log-analytics-data-collector-api.md)
@@ -83,6 +86,6 @@
 ## [REST](/rest/api/loganalytics)
 
 # Resources
-## [Upgradeanalyse](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
+## [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=log-analytics)
