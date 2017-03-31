@@ -1,3 +1,4 @@
+
 # Overzicht
 ## [Wat is Service Fabric?](service-fabric-overview.md)
 ## [Uitleg over microservices](service-fabric-overview-microservices.md)
@@ -22,11 +23,13 @@
 ### [Patronen en scenario's](service-fabric-patterns-and-scenarios.md)
 ### Basisbeginselen
 #### [Toepassingsmodel](service-fabric-application-model.md)
+#### [Toepassingspakket maken](service-fabric-package-apps.md)
 #### [Ondersteund programmeermodel](service-fabric-choose-framework.md)
 #### [Servicestatus](service-fabric-concepts-state.md)
 #### [Servicecommunicatie](service-fabric-connect-and-communicate-with-services.md)
 #### [Een webfront-end toevoegen](service-fabric-add-a-web-frontend.md)
 #### [Servicemanifest-resources](service-fabric-service-manifest-resources.md)
+#### [Aan de slag met Eclipse-invoegtoepassing voor Java-ontwikkeling](service-fabric-get-started-eclipse.md)
 #### [Apps beheren in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 #### [Beveiligde verbindingen configureren in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 #### Fouten opsporen
@@ -62,7 +65,7 @@
 #### [Back-up en herstel](service-fabric-reliable-services-backup-restore.md)
 #### [Communiceren via Betrouwbare services](service-fabric-reliable-services-communication.md)
 #### [Veilige communicatie via Reliable Services](service-fabric-reliable-services-secure-communication.md)
-##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
+##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 ##### [Service voor externe toegang](service-fabric-reliable-services-communication-remoting.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Omgekeerde proxy](service-fabric-reverseproxy.md)
@@ -88,6 +91,7 @@
 ## Migreren uit Cloud Services
 ### [Cloud Services vergelijken met Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Migreren naar Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+### [Aanbevolen procedures](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ## Clusters maken en beheren
 

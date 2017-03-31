@@ -4,30 +4,29 @@
 
 # Aan de slag
 ## [Een naamruimte maken](relay-create-namespace-portal.md)
-## [Aan de slag met hybride verbindingen](relay-hybrid-connections-dotnet-get-started.md)
-## [Aan de slag met WCF Relay](service-bus-dotnet-how-to-use-relay.md)
-## [Shared access signatures](../service-bus-messaging/service-bus-sas-overview.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Zelfstudie over hybride WCF Relay](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
-## [Zelfstudie over WCF Relay .NET](service-bus-relay-tutorial.md)
-## [Zelfstudie over WCF Relay REST](service-bus-relay-rest-tutorial.md)
+## Hybride verbindingen
+### [.NET](relay-hybrid-connections-dotnet-get-started.md)
+### [Node](relay-hybrid-connections-node-get-started.md)
+## [WCF-relay](relay-wcf-dotnet-get-started.md)
 
 # Procedures
-## [Verifiëren en autoriseren](../service-bus-messaging/service-bus-authentication-and-authorization.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Plan voor uitval en noodgevallen](../service-bus-messaging/service-bus-outages-disasters.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Protocol hybride verbindingen](relay-hybrid-connections-protocol.md)
-## [Algemene uitzonderingen](relay-exceptions.md)
+## Plannen en ontwerpen
+### [Verificatie en beveiliging](relay-authentication-and-authorization.md)
+### [Protocol hybride verbindingen](relay-hybrid-connections-protocol.md)
+## Ontwikkelen
+### [Beschikbare API's](relay-api-overview.md)
+#### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
+#### [Node](relay-hybrid-connections-node-ws-api-overview.md)
 
 # Naslaginformatie
-## [Voorbeelden](service-bus-relay-samples.md)
-## [.NET-API voor hybride verbindingen](/dotnet/api/microsoft.servicebus)
-## [.NET-API voor WCF Relay](/dotnet/api/microsoft.servicebus)
-## [Poortinstellingen](service-bus-relay-port-settings.md)
+## .NET
+### [Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
+### [Microsoft.ServiceBus](/dotnet/api/Microsoft.ServiceBus)
+## [Uitzonderingen](relay-exceptions.md)
+## [Poortinstellingen](relay-port-settings.md)
 
 # Resources
-## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
-## [MSDN-forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
+## [Voorbeelden](https://github.com/azure/azure-relay/tree/master/samples)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/service-bus/)
-## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
-## [Service-updates](https://azure.microsoft.com/updates/?product=service-bus)
-## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
+## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)

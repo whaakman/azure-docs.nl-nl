@@ -12,11 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: f40f64906bf87d8505fa1a209222163256326d14
 ms.openlocfilehash: a2cc4729ca5cb1dcc10630158ec3d94315fb01a5
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -100,9 +101,4 @@ Het Incident Response Team kan ook gebruikmaken van [Security Center Power BI](s
 
 ## <a name="conclusion"></a>Conclusie
 Het is heel belangrijk voor uw organisatie om een team samen te stellen voordat er zich een incident voordoet. Dit heeft een positieve invloed op de manier waarop incidenten worden afgehandeld. Met de juiste hulpprogramma's voor het bewaken van resources is dit team in staat om nauwgezette stappen uit te voeren om een beveiligingsincident op te lossen. De [detectiemogelijkheden](security-center-detection-capabilities.md) van Security Center helpen IT-medewerkers om snel te reageren op beveiligingsincidenten en beveiligingsproblemen vlug op te lossen.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

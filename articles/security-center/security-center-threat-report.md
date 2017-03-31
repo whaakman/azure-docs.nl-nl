@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
 ms.openlocfilehash: 99c5ea06a0970c360eb711a8b10894d416146693
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -75,9 +76,4 @@ In dit document hebt u geleerd hoe beveiligingsinformatierapporten van Azure Sec
 * [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md). Informatie over het beheren van en reageren op beveiligingswaarschuwingen.
 * [Beveiligingsincidenten afhandelen in Azure Security Center](security-center-incident.md)
 * [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/). Raadpleeg de blogberichten over beveiliging en naleving in Azure.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

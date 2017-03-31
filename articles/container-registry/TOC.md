@@ -6,6 +6,7 @@
 ## [Een register maken in de portal](container-registry-get-started-portal.md)
 ## [Een register maken met Azure CLI 2.0](container-registry-get-started-azure-cli.md)
 ## [Een installatiekopie pushen en ophalen](container-registry-get-started-docker-cli.md)
+## [Opslagplaatsen weergeven](container-registry-repositories.md)
 
 # Procedures
 
