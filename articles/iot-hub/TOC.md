@@ -98,6 +98,11 @@
 ## Een Arduino gebruiken
 
 ### [Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [Berichten op cloudapparaten beheren met iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+#### [IoT Hub-berichten opslaan in Azure-gegevensopslag](iot-hub-store-data-in-azure-table-storage.md)
+### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [Berichten op cloudapparaten beheren met iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+#### [IoT Hub-berichten opslaan in Azure-gegevensopslag](iot-hub-store-data-in-azure-table-storage.md)
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Les 1: Uw apparaat configureren
@@ -233,7 +238,9 @@
 #### [De REST-API gebruiken](iot-hub-rm-rest.md)
 #### [Een PowerShell-sjabloon gebruiken](iot-hub-rm-template-powershell.md)
 #### [Een .NET-sjabloon gebruiken](iot-hub-rm-template.md)
-### [Uploaden van bestanden configureren](iot-hub-configure-file-upload.md)
+### Uploaden van bestanden configureren
+#### [De portal gebruiken](iot-hub-configure-file-upload.md)
+#### [PowerShell gebruiken](iot-hub-configure-file-upload-powershell.md)
 ### [IoT-apparaten bulksgewijs beheren](iot-hub-bulk-identity-mgmt.md)
 ### [Metrische gebruiksgegevens](iot-hub-metrics.md)
 ### [Controle van bewerkingen](iot-hub-operations-monitoring.md)

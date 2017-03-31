@@ -160,6 +160,8 @@
 #### Apps publiceren
 ##### [Azure Portal](application-proxy-publish-azure-portal.md)
 ##### [Klassieke portal](active-directory-application-proxy-publish.md)
+
+#### [PingAccess voor Azure AD](application-proxy-ping-access.md)
 #### [Beveiliging](application-proxy-security-considerations.md)
 #### [Netwerken](application-proxy-network-topology-considerations.md)
 #### [Extern bureaublad](application-proxy-publish-remote-desktop.md)

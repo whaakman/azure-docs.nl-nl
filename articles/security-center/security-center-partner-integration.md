@@ -12,11 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
 ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
+ms.lasthandoff: 12/02/2016
 
 
 ---
@@ -56,7 +57,7 @@ Security Center kan aanraden om een partneroplossing te implementeren op basis v
 
 Zodra een partneroplossing is geïmplementeerd, kunt u informatie over de status van de oplossing bekijken en basisbeheertaken uitvoeren vanuit de tegel Partneroplossing in het hoofddashboard van Security Center. Lees [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md) voor meer informatie over het beheren van partneroplossingen in Security Center.
 
-![Partnerintegratie](./media/security-center-partner-integration/security-center-partner-integration-fig1.png)
+![Partnerintegratie](./media/security-center-partner-integration/security-center-partner-integration-fig1-new.png)
 
 
 ## <a name="see-also"></a>Zie ook
@@ -69,9 +70,4 @@ In dit document hebt u kunnen lezen hoe u een partneroplossing integreert in Azu
 * [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt bewaken.
 * [Azure Security Center FAQ](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
 * [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

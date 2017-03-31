@@ -1,40 +1,55 @@
 # [Overzicht](security-get-started-overview.md)
-## [Hoe werkt het?](azure-security-getting-started.md)
-## [Beveiligingsservices en -technologieën](azure-security-services-technologies.md)
 ## [Netwerkbeveiliging](security-network-overview.md)
+## [Opslagbeveiliging](security-storage-overview.md)
+## [Rekenbeveiliging](security-virtual-machines-overview.md)
+## [Beveiligingsbeheer en -controle](security-management-and-monitoring-overview.md)
+## [Identiteitsbeheer](security-identity-management-overview.md)
+## [IoT-beveiliging](../iot-suite/iot-security-architecture.md#security-in-iot)
+## [Beveiligingsarchitectuur](azure-security-architecture-overview.md)
+
+# Aan de slag
+## [Aan de slag met Azure-beveiliging](azure-security-getting-started.md)
+## [Aanbevolen procedures en patronen voor beveiliging](security-best-practices-and-patterns.md)
+## [Beveiligingsservices en -technologieën](azure-security-services-technologies.md)
+
+## Netwerkbeveiliging
 ### [Aanbevolen procedures voor netwerkbeveiliging](azure-security-network-security-best-practices.md)
 ### [Grensbeveiliging](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Veilige hybride netwerkarchitectuur](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
-## [Opslagbeveiliging](security-storage-overview.md)
+
+## Opslagbeveiliging
 ### [Aanbevolen procedures voor gegevensbeveiliging en -versleuteling](azure-security-data-encryption-best-practices.md)
 ### [Gids voor opslagbeveiliging](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
-## [Rekenbeveiliging](security-virtual-machines-overview.md)
+
+## Computerbeveiliging
 ### [Aanbevolen procedures voor virtuele Azure-machines](azure-security-best-practices-vms.md)
 ### [Aanbevolen procedures voor IaaS-workloads ](azure-security-iaas.md)
 ### [Microsoft Antimalware](azure-security-antimalware.md)
-### [Schijfversleuteling](azure-security-disk-encryption.md)
-### [Azure-VM versleutelen](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
-## [Beveiligingsbeheer en -controle](security-management-and-monitoring-overview.md)
+### [Schijfversleuteling voor IaaS-VM's](azure-security-disk-encryption.md)
+### [Een Azure-VM versleutelen](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
+
+## Beveiligingsbeheer en -controle
 ### [Beveiligingsbeheer](azure-security-management.md)
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
-### [Azure-logboekintegratie](security-azure-log-integration-overview.md)
-#### [Aan de slag](security-azure-log-integration-get-started.md)
+### [Inleiding tot Azure-logboekintegratie](security-azure-log-integration-overview.md)
+#### [Aan de slag met Azure-logboekintegratie](security-azure-log-integration-get-started.md)
 #### [Veelgestelde vragen](security-azure-log-integration-faq.md)
-## [Identiteitsbeheer](security-identity-management-overview.md)
+
+## Identiteitsbeheer
 ### [Aanbevolen procedures voor beveiliging van identiteitsbeheer](azure-security-identity-management-best-practices.md)
+
 ## PaaS-services
 ### [PaaS-implementaties beveiligen](security-paas-deployments.md)
-#### [PaaS-toepassingen beveiligen met SQL](security-paas-applications-using-sql.md)
-#### [PaaS-toepassingen beveiligen met App Services](security-paas-applications-using-app-services.md)
-### [IoT-beveiligingsoverzicht](security-internet-of-things-overview.md)
-### [Aanbevolen procedures voor IoT-beveiliging](azure-security-iot-best-practices.md)
-## Verticale industrieën
-### [Veilige gezondheidsoplossingen ontwerpen](security-health-care-solution.md)
-## [Beveiligingsarchitectuur](azure-security-architecture-overview.md)
-### [Gegevensclassificatie voor cloudvoorbereiding](azure-security-data-classification.md)
-### [Toepassingsarchitectuur in Azure](security-application-architecture-on-azure.md)
-### [Aanbevolen procedures en patronen voor beveiliging](security-best-practices-and-patterns.md)
-### [Tolerante toepassingen ontwikkelen](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
+#### [PaaS-toepassingen voor web en mobiel beveiligen met SQL](security-paas-applications-using-sql.md)
+#### [PaaS-toepassingen voor web en mobiel beveiligen met App Services](security-paas-applications-using-app-services.md)
+
+## Internet of Things
+### [Uw IoT-implementatie beveiligen](../iot-suite/iot-suite-security-deployment.md)
+### [Aanbevolen procedures voor IoT-beveiliging](../iot-suite/iot-security-best-practices.md)
+
+## Beveiligingsarchitectuur
+### [Gegevensclassificatie](azure-security-data-classification.md)
+### [Herstel na noodgevallen en hoge beschikbaarheid voor Azure-toepassingen](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 # Verwant
 ## [Vertrouwenscentrum](security-microsoft-trust-center.md)
@@ -45,6 +60,7 @@
 ## [Log Analytics](../log-analytics/log-analytics-overview.md)
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
+## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # Resources
 ## [Blog over beveiliging en naleving](http://blogs.msdn.com/b/azuresecurity/)
