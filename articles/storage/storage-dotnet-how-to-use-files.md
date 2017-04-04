@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-/ms.date: 3/8/2017
+ms.date: 03/27/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 4e81088857c0e9cacaf91342227ae63080fc90c5
-ms.openlocfilehash: 780066b1e71d967c64da0a1c1a284ffd5d1b7481
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: fcdeac53c79551000b48a47a1afc65e082bcc692
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -129,7 +129,7 @@ U bereidt het gebruik van PowerShell voor door de Azure PowerShell-cmdlets te do
 Open een Azure PowerShell-venster door op **Start** te klikken en **Windows PowerShell** te typen. In het PowerShell-venster wordt de Azure Powershell-module voor u geladen.
 
 ### <a name="create-a-context-for-your-storage-account-and-key"></a>Een context maken voor uw opslagaccount en -sleutel
-Nu gaat u de context van het opslagaccount maken. De context bestaat uit de naam en accountsleutel van het opslagaccount. Voor instructies voor het kopiëren van de accountsleutel uit de [Azure Portal](https://portal.azure.com) raadpleegt u [View and copy storage access keys](storage-create-storage-account.md#view-and-copy-storage-access-keys) (Toegangssleutels voor opslag weergeven en kopiëren).
+Nu gaat u de context van het opslagaccount maken. De context bestaat uit de naam en accountsleutel van het opslagaccount. Voor instructies voor het kopiëren van de accountsleutel uit [Azure Portal](https://portal.azure.com) raadpleegt u [Opslagtoegangssleutels bekijken en kopiëren](storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 Vervang `storage-account-name` en `storage-account-key` in het volgende voorbeeld door de naam en sleutel van uw opslagaccount.
 
@@ -211,8 +211,8 @@ Wanneer een client File Storage opent, hangt de gebruikte SMB-versie af van de S
 ### <a name="mount-the-file-share-from-an-azure-virtual-machine-running-windows"></a>De bestandsshare koppelen vanaf een virtuele machine in Azure waarop Windows wordt uitgevoerd
 Als voorbeeld van het koppelen van een Azure-bestandsshare maken we nu een virtuele machine in Azure waarop Windows wordt uitgevoerd en maken we op afstand verbinding om de share te koppelen.
 
-1. Maak eerst een nieuwe virtuele machine in Azure door de instructies te volgen in [Create a Windows virtual machine in the Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Een virtuele machine voor Windows maken in Azure Portal).
-2. Maak daarna op afstand verbinding met de virtuele machine door de instructies te volgen in [Log on to a Windows virtual machine using the Azure Portal](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Aanmelden bij een virtuele machine met Windows met behulp van Azure Portal).
+1. Maak eerst een nieuwe virtuele machine in Azure door de instructies te volgen in [Create a Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Een virtuele machine voor Windows maken in Azure Portal).
+2. Maak daarna op afstand verbinding met de virtuele machine door de instructies te volgen in [Log on to a Windows virtual machine using the Azure portal](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Aanmelden bij een virtuele machine met Windows met behulp van Azure Portal).
 3. Open een PowerShell-venster op de virtuele machine.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>De referenties van het opslagaccount voor de virtuele machine persistent maken
@@ -264,17 +264,29 @@ Als u de bestandsshare wilt koppelen vanuit een on-premises client, moet u eerst
 Voor het schrijven van code die File Storage aanroept, kunt u de opslagclientbibliotheken voor .NET en Java of de REST API van Azure Storage gebruiken. In het voorbeeld in deze sectie ziet u hoe u met een bestandsshare werkt door vanuit een eenvoudige consoletoepassing die wordt uitgevoerd op het bureaublad gebruik te maken van de [Azure Storage-clientbibliotheek voor .NET](https://msdn.microsoft.com/library/mt347887.aspx).
 
 ### <a name="create-the-console-application-and-obtain-the-assembly"></a>De consoletoepassing maken en de assembly verkrijgen
-Ga als volgt te werk om een nieuwe consoletoepassing te maken in Visual Studio en het NuGet-pakket te installeren dat de Azure Storage-clientbibliotheek bevat:
+Maak in Visual Studio een nieuwe Windows-consoletoepassing. De volgende stappen laten zien hoe u een consoletoepassing maakt in Visual Studio 2017, maar de stappen zijn hetzelfde in andere versies van Visual Studio.
 
-1. In Visual Studio kiest u **Bestand > Nieuw Project** en vervolgens kiest u **Windows > Consoletoepassing** uit de lijst met Visual C#-sjablonen.
-2. Geef een naam op voor de consoletoepassing en klik op **OK**.
-3. Wanneer het project is gemaakt, klikt u met de rechtermuisknop op het project in Solution Explorer en kiest u **NuGet-pakketten beheren**. Zoek online naar 'WindowsAzure.Storage' en klik op **Installeren** om de Azure Storage-clientbibliotheek voor .NET-pakketten en -afhankelijkheden te installeren.
+1. Selecteer **Bestand** > **Nieuw** > **Project**
+2. Selecteer **Geïnstalleerd** > **Sjablonen** > **Visual C#** > **Klassiek Windows-bureaublad**
+3. Selecteer **Consoletoepassing (.NET Framework)**
+4. Typ een naam voor de toepassing in het veld **Naam:**
+5. Selecteer **OK**
 
-In de codevoorbeelden in dit artikel wordt ook gebruikgemaakt van de [Configuration Manager-bibliotheek van Microsoft Azure](https://msdn.microsoft.com/library/azure/mt634646.aspx), om de opslagverbindingsreeks op te halen uit het bestand app.config in de consoletoepassing. Met Azure Configuration Manager kunt u de verbindingsreeks in runtime ophalen, ongeacht of de toepassing wordt uitgevoerd in Microsoft Azure of vanuit een bureaublad-, mobiele of webtoepassing.
+Alle codevoorbeelden in deze zelfstudie kunnen worden toegevoegd aan de methode `Main()` van het bestand `Program.cs` van de consoletoepassing.
 
-U installeert het Azure Configuration Manager-pakket door in Solution Explorer met de rechtermuisknop op het project te klikken en **NuGet-pakketten beheren** te kiezen. Zoek online naar 'ConfigurationManager' en klik op **Installeren** om het pakket te installeren.
+U kunt de Azure Storage-clientbibliotheek gebruiken in elk type .NET-toepassing, waaronder een Azure-cloudservice of -web-app en bureaublad- en mobiele toepassingen. In deze gids gebruiken we een consoletoepassing voor de eenvoud.
 
-Het gebruik van Azure Configuration Manager is optioneel. U kunt ook een API gebruiken, zoals de [ConfigurationManager-klasse](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) van .NET Framework.
+### <a name="use-nuget-to-install-the-required-packages"></a>NuGet gebruiken om de vereiste pakketten te installeren
+Er zijn twee pakketten waarnaar u in uw project moet verwijzen om deze zelfstudie te kunnen voltooien:
+
+* [Microsoft Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): dit pakket biedt programmatisch toegang tot gegevensbronnen in uw opslagaccount.
+* [Configuration Manager-bibliotheek van Microsoft Azure voor .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): dit pakket biedt een klasse voor het parseren van een verbindingsreeks in een configuratiebestand, ongeacht waar de toepassing wordt uitgevoerd.
+
+Met NuGet kunt u beide pakketten verkrijgen. Volg deze stappen:
+
+1. Klik met de rechtermuisknop op het project in **Solution Explorer** en kies **NuGet-pakketten beheren**.
+2. Zoek online naar 'WindowsAzure.Storage' en klik op **Installeren** om de Storage-clientbibliotheek en de afhankelijkheden ervan te installeren.
+3. Zoek online naar 'WindowsAzure.ConfigurationManager' en klik op **Installeren** om Azure Configuration Manager te installeren.
 
 ### <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Uw opslagaccountreferenties opslaan in het bestand app.config
 Vervolgens slaat u uw referenties op in het bestand app.config van het project. Bewerk het bestand app.config zo dat het op het volgende voorbeeld lijkt, waarbij u `myaccount` vervangt door de naam van het opslagaccount, en `mykey` door de sleutel van het opslagaccount.
@@ -296,8 +308,8 @@ Vervolgens slaat u uw referenties op in het bestand app.config van het project. 
 > 
 > 
 
-### <a name="add-namespace-declarations"></a>Naamruimtedeclaraties toevoegen
-Open het bestand `program.cs` in Solution Explorer en plaats de volgende naamruimtedeclaraties boven in het bestand.
+### <a name="add-using-directives"></a>Using-instructies toevoegen
+Open het bestand `Program.cs` in Solution Explorer en plaats de volgende using-instructies aan het begin van het bestand.
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -542,11 +554,11 @@ Op dezelfde manier kunt u een blob naar een bestand kopiëren. Als het bronobjec
 ## <a name="troubleshooting-file-storage-using-metrics"></a>Problemen met File Storage oplossen met metrische gegevens
 Azure Storage Analytics ondersteunt nu metrische gegevens voor File Storage. Met metrische gegevens kunt u aanvragen volgen en problemen diagnosticeren.
 
-U kunt metrische gegevens voor File Storage inschakelen vanuit de [Azure Portal](https://portal.azure.com). U kunt metrische gegevens ook inschakelen via een programma. Daarvoor roept u de bewerking Set File Service Properties aan via de REST API of een van de analogen daarvan in de Storage-clientbibliotheek.
+U kunt metrische gegevens voor File Storage inschakelen vanuit [Azure Portal](https://portal.azure.com). U kunt metrische gegevens ook inschakelen via een programma. Daarvoor roept u de bewerking Set File Service Properties aan via de REST API of een van de analogen daarvan in de Storage-clientbibliotheek.
 
 In het volgende codevoorbeeld ziet u hoe u de Storage-clientbibliotheek voor .NET gebruikt om metrische gegevens in te schakelen voor File Storage.
 
-Voeg eerst de volgende `using`-instructies toe aan de reeds eerder vermelde instructies in het bestand program.cs:
+Voeg behalve de instructies die u hierboven hebt toegevoegd, ook de volgende `using`-instructies toe aan het bestand `Program.cs`:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage.File.Protocol;
@@ -645,7 +657,7 @@ U kunt ook het [artikel voor het oplossen van problemen met Azure-bestanden](sto
     Als u veel bestanden wilt overbrengen naar File Storage, kunt u beter gebruikmaken van AzCopy, Azure Powershell (Windows) of de Azure CLI (Linux/Unix). Deze hulpprogramma's zijn geoptimaliseerd voor netwerkoverdracht.
 15. **Er is een patch beschikbaar voor het oplossen van prestatieproblemen met Azure-bestanden**
     
-    Het Windows-team heeft onlangs een patch uitgebracht voor een prestatieprobleem dat zich voordoet wanneer de klant Azure File Storage opent vanuit Windows 8.1 of Windows Server 2012 R2. Meer informatie vindt u in het bijbehorende KB-artikel [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025) (Prestatieproblemen wanneer u Azure File Storage opent vanuit Windows 8.1 of Server 2012 R2).
+    Het Windows-team heeft onlangs een patch uitgebracht voor een prestatieprobleem dat zich voordoet wanneer de klant Azure File Storage opent vanuit Windows 8.1 of Windows Server 2012 R2. Meer informatie vindt u in het bijbehorende KB-artikel [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/kb/3114025) (Prestatieproblemen wanneer u Azure File Storage opent vanuit Windows 8.1 of Server 2012 R2).
 16. **Azure File Storage gebruiken met IBM MQ**
     
     IBM heeft een document uitgegeven om IBM MQ-klanten te helpen bij de configuratie van Azure File Storage met hun service. Voor meer informatie raadpleegt u [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service) (IBM MQ-wachtrijbeheer voor meerdere instanties instellen met Microsoft Azure File-service.
@@ -655,9 +667,10 @@ U kunt ook het [artikel voor het oplossen van problemen met Azure-bestanden](sto
 
 18. **Hoe kan ik versleuteling aan de serverzijde inschakelen voor Azure Files?**
 
-    [Versleuteling aan de serverzijde](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) is momenteel in preview. Tijdens de preview kan de functie alleen worden ingeschakeld voor nieuwe Azure Resource Manager-opslagaccounts (ARM).
-    U kunt deze functie inschakelen op een Azure Resource Manager-opslagaccount via Azure Portal. De planning is om [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) of de [Microsoft Azure Storage-resourceprovider API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) aan het eind van februari klaar te hebben voor het inschakelen van versleuteling voor bestandsopslag. Er zijn geen extra kosten verbonden aan het inschakelen van deze functie. Wanneer u Storage Service-versleuteling inschakelt voor Azure File Storage, worden uw gegevens automatisch versleuteld. 
-    Meer informatie over Storage Service-versleuteling. U kunt ook contact opnemen via ssediscussions@microsoft.com voor aanvullende vragen over de preview.
+    [Versleuteling aan de serverzijde](storage-service-encryption.md) voor Azure Files is momenteel in preview. Tijdens de preview kunt u deze functie alleen op een nieuw Azure Resource Manager-opslagaccount inschakelen via [Azure Portal](https://portal.azure.com). Er zijn geen extra kosten verbonden aan het inschakelen van deze functie. Wanneer u Storage Service-versleuteling inschakelt voor Azure File Storage, worden uw gegevens automatisch versleuteld. 
+    
+    De planning is om versleuteling voor bestandsopslag met [Azure Powershell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md) en de [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in de toekomst in te schakelen. 
+    Zie [Storage Service Encryption](storage-service-encryption.md) (Storage Service-versleuteling) voor meer informatie over versleuteling van data-at-rest in Azure Storage. U kunt contact opnemen met ssediscussions@microsoft.com als u tijdens de preview vragen hebt.
 
 ## <a name="next-steps"></a>Volgende stappen
 Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.
@@ -670,7 +683,7 @@ Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.
 * [Azure PowerShell gebruiken met Azure Storage](storage-powershell-guide-full.md)
 * [AzCopy gebruiken met Microsoft Azure Storage](storage-use-azcopy.md)
 * [De Azure CLI gebruiken met Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
-* [Problemen met betrekking tot Azure File Storage oplossen](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Problemen met betrekking tot Azure File Storage oplossen](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Naslaginformatie
 * [Naslaginformatie over de Storage-clientbibliotheek voor .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)

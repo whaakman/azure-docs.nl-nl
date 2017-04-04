@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 03/22/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: cd0e53955495752cd91323b9926f9494a70c5797
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 3df12cd8700a75c1288967e86cd92e6ed4886d59
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -52,12 +53,9 @@ Wanneer de relay-verbinding tot stand is gebracht, kunnen de clients berichten u
 Nu u een overzicht van de werking van de Service Bus-architectuur hebt gelezen, kunt u de volgende koppelingen bezoeken voor meer informatie:
 
 * [Overzicht van Service Bus-berichten](service-bus-messaging-overview.md)
+* [Overzicht van Azure Relay](../service-bus-relay/relay-what-is-it.md)
 * [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Een oplossing voor berichten in de wachtrij met behulp van Service Bus-wachtrijen](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

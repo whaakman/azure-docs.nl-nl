@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/14/2016
+ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: de2c52f8db5445e3e2eee62f673109f6d38cffa0
-ms.openlocfilehash: c58ee1c07e454a711ab0d6365a5cd432b0d939c8
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 0539e9d04c61d35de56a29d350c07654c095c576
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -56,7 +57,7 @@ U kunt het modelontwerp herhalen, en het experiment bewerken en uitvoeren totdat
 
 ## <a name="open-machine-learning-studio"></a>Machine Learning Studio openen
 
-Ga naar [https://studio.azureml.net](https://studio.azureml.net) om aan de slag te gaan met Studio. Als u zich eerder hebt aangemeld bij Machine Learning Studio, klikt u op **Sign in**. Klik anders op **Sign up here** en kies tussen gratis en betaalde opties.
+Ga naar [https://studio.azureml.net](https://studio.azureml.net) om aan de slag te gaan met Studio. Als u zich eerder hebt aangemeld bij Machine Learning Studio, klikt u op **Sign in**. Klik anders op **Sign Up** en kies tussen gratis en betaalde opties.
 
 ![Meld u aan bij Machine Learning Studio][sign-in-to-studio]
 <br/>
@@ -159,7 +160,10 @@ Eerst voegt u een module toe waarmee de kolom **normalized-losses** volledig wor
     ***Het deelvenster met eigenschappen geeft aan dat de kolom normalized-losses wordt uitgesloten***
 
     > [!TIP]
-    > U kunt een opmerking aan een module toevoegen door te dubbelklikken op de module en tekst in te voeren. Zodoende kunt u in één oogopslag zien wat de module in uw experiment doet. Dubbelklik in dit geval op de module [Select Columns in Dataset][select-columns] en typ de opmerking 'normalized-losses uitsluiten'.
+    U kunt een opmerking aan een module toevoegen door te dubbelklikken op de module en tekst in te voeren. Zodoende kunt u in één oogopslag zien wat de module in uw experiment doet. Dubbelklik in dit geval op de module [Select Columns in Dataset][select-columns] en typ de opmerking 'normalized-losses uitsluiten'.
+    >
+    >
+
 
     ![Dubbelklik op een module om een opmerking toe te voegen][add-comment]
     <br/>
@@ -377,9 +381,4 @@ Wilt u meer leren? Zie [Een voorspellende oplossing met Azure Machine Learning o
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

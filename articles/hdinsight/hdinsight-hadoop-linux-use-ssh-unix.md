@@ -1,6 +1,6 @@
 ---
 title: SSH-sleutels gebruiken met HDInsight (Hadoop) in Windows, Linux, Unix of OS X | Microsoft Docs
-description: " U kunt HDInsight openen met Secure Shell (SSH). Dit document bevat informatie over het gebruik van SSH met HDInsight in Windows-, Linux-, Unix- of OS X-clients."
+description: " U kunt HDInsight openen met Secure Shell (SSH). Dit document bevat informatie over het gebruik van SSH om verbinding te maken met HDInsight in Windows-, Linux-, Unix- of OS X-clients."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,166 +13,153 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/27/2017
+ms.date: 03/16/2017
 ms.author: larryfr
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
-ms.openlocfilehash: 4cde035f75bfa3c448f12e9ebf2896b9a54a6873
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 89d44476e9de8ac32195efaf66535cdd9fb4260e
+ms.lasthandoff: 03/25/2017
 
 ---
-# <a name="use-ssh-with-hdinsight-hadoop-from-bash-on-windows-10-linux-unix-or-os-x"></a>SSH gebruiken met HDInsight (Hadoop) vanuit Bash op Windows 10, Linux, Unix of OS X
+# <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Verbinding maken met HDInsight (Hadoop) via SSH
 
-> [!div class="op_single_selector"]
-> * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
-> * [SSH (Windows, Linux, Unix, OS X)](hdinsight-hadoop-linux-use-ssh-unix.md)
+Kom meer te weten over het gebruik van [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) om veilig verbinding te maken met HDInsight. HDInsight kan gebruikmaken van Linux (Ubuntu) als het besturingssysteem voor knooppunten in het cluster. SSH kan worden gebruikt om verbinding te maken met de hoofd- en Edge-knooppunten van een op Linux gebaseerd cluster en om rechtstreeks op deze knooppunten opdrachten uit te voeren.
 
-Met [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) kunt u zich aanmelden bij een op Linux gebaseerd HDInsight-cluster en opdrachten uitvoeren via een opdrachtregelinterface. Dit document bevat algemene informatie over SSH en specifieke informatie over het gebruik van SSH met HDInsight.
+De volgende tabel bevat de adres- en poortinformatie die nodig is bij het verbinden met HDInsight via SSH:
 
-## <a name="what-is-ssh"></a>Wat is SSH?
+| Adres | Poort | Maakt verbinding met... |
+| ----- | ----- | ----- |
+| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Edge-knooppunt (als er een bestaat) |
+| `<clustername>-ssh.azurehdinsight.net` | 22 | Primaire hoofdknooppunt |
+| `<clustername>-ssh.azurehdinsight.net` | 23 | Secundaire hoofdknooppunt |
 
-SSH is een cryptografisch netwerkprotocol waarmee u veilig kunt communiceren met een externe server via een onbeveiligd netwerk. SSH wordt gebruikt om veilige opdrachtregelaanmelding te bieden bij een externe server. In dit geval zijn dat de hoofdknooppunten of is dat het Edge-knooppunt van een HDInsight-cluster.
-
-U kunt ook gebruikmaken van SSH om netwerkverkeer van uw client naar het HDInsight-cluster te leiden. Met een tunnel kunt u services op het HDInsight-cluster openen die niet rechtstreeks toegankelijk zijn via internet. Zie [SSH-tunnels gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) voor meer informatie over het gebruik van SSH-tunnels.
+> [!NOTE]
+> Vervang `<edgenodename>` door de naam van het Edge-knooppunt. Zie [Edge-knooppunten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node) voor meer informatie over het gebruik van Edge-knooppunten.
+>
+> Vervang `<clustername>` door de naam van uw HDInsight-cluster.
+>
+> Het is raadzaam __altijd verbinding te maken met het Edge-knooppunt__ als er een dergelijk knooppunt bestaat. De hoofdknooppunten hosten services die essentieel zijn voor de status van het cluster. Het Edge-knooppunt voert alleen uit wat u op het knooppunt plaatst.
 
 ## <a name="ssh-clients"></a>SSH-clients
 
-Veel besturingssystemen bieden SSH-clientfunctionaliteit via de opdrachtregelprogramma’s `ssh` en `scp`.
+De meeste besturingssystemen bieden de `ssh`-client. Microsoft Windows biedt niet standaard een SSH-client. Via de volgende pakketten kunt u een SSH-client verkrijgen voor Windows:
 
-* __ssh__: een algemene SSH-client die kan worden gebruikt voor het maken van een externe opdrachtregelsessie en voor het maken van tunnels.
-* __scp__: een hulpprogramma dat bestanden tussen lokale en externe systemen kopieert met behulp van het SSH-protocol.
+* [Bash in Ubuntu in Windows 10](https://msdn.microsoft.com/commandline/wsl/about): de opdracht `ssh` wordt geboden via de Bash-opdrachtregel in Windows.
 
-Windows 10 Jubileumupdate biedt Bash als een functie voor ontwikkelaars. Het biedt `ssh`, `scp` en andere Linux-opdrachten. Zie [Bash on Ubuntu op Windows](https://msdn.microsoft.com/commandline/wsl/about) voor meer informatie over het gebruik van Bash on Windows 10.
+* [Git (https://git-scm.com/)](https://git-scm.com/): de opdracht `ssh` wordt geboden via de GitBash-opdrachtregel.
 
-Als u Windows gebruikt en u geen toegang hebt tot Bash on Windows 10, worden de volgende SSH-clients aanbevolen:
+* [GitHub Desktop (https://desktop.github.com/)](https://desktop.github.com/): de opdracht `ssh` wordt geboden via de Git Shell-opdrachtregel. GitHub Desktop kan worden geconfigureerd voor het gebruik van Bash, de Windows-opdrachtprompt of PowerShell als de opdrachtregel voor de Git Shell.
 
-* [Git voor Windows](https://git-for-windows.github.io/): voorziet in de opdrachtregelhulpprogramma’s `ssh` en `scp`.
-* [Cygwin](https://cygwin.com/): voorziet in de opdrachtregelhulpprogramma’s `ssh` en `scp`.
+* [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): het PowerShell-team draagt OpenSSH over naar Windows en biedt testversies.
 
-> [!NOTE]
-> Voor de stappen in dit document wordt ervan uitgegaan dat u toegang hebt tot de opdracht `ssh`. Als u een client zoals puTTY of MobaXterm gebruikt, raadpleegt u de documentatie voor dat product voor de bijbehorende parameters en opdrachten.
+    > [!WARNING]
+    > Het OpenSSH-pakket bevat het SSH-serveronderdeel `sshd`. Met dit onderdeel wordt een SSH-server gestart op uw systeem, zodat anderen er verbinding mee kunnen maken. Configureer dit onderdeel alleen en open poort 22 alleen als u een SSH-server wilt hosten op uw systeem. Dit is niet vereist om te communiceren met HDInsight.
 
-## <a name="ssh-authentication"></a>SSH-verificatie
+Er zijn ook verschillende grafische SSH-clients, zoals [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) en [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). Met deze clients kunt u verbinding maken met HDInsight, maar het proces om verbinding te maken met een server, verschilt ten opzichte van het proces in het hulpprogramma `ssh`. Zie voor meer informatie de documentatie van de grafische client die u gebruikt.
 
-Een SSH-verbinding kan worden geverifieerd met een wachtwoord of [openbare-sleutelcryptografie (https://en.wikipedia.org/wiki/Public-key_cryptography)](https://en.wikipedia.org/wiki/Public-key_cryptography). Een sleutel is de veiligste optie, omdat een sleutel niet zo kwetsbaar is voor aanvallen als een wachtwoord. Het maken en beheren van sleutels is echter gecompliceerder dan het gebruiken van een wachtwoord.
+## <a id="sshkey"></a>Verificatie: SSH-sleutels
 
-Als u openbare-sleutelcryptografie gebruikt, maakt u een _openbare sleutel_ en een _privésleutel_.
+Bij SSH-sleutels wordt gebruikgemaakt van [openbare-sleutelcryptografie](https://en.wikipedia.org/wiki/Public-key_cryptography) voor het beveiligen van het cluster. SSH-sleutels zijn veiliger dan wachtwoorden en bieden een eenvoudige manier om uw HDInsight-cluster te beveiligen.
 
-* De **openbare sleutel** wordt in de knooppunten van uw HDInsight-cluster geladen of in een andere service die u wilt gebruiken met openbare-sleutelcryptografie.
+Als uw SSH-account wordt beveiligd met een sleutel, moet de client tijdens het verbinden de bijbehorende privésleutel opgeven:
 
-* De **privésleutel** biedt u aan het HDInsight-cluster aan wanneer u zich aanmeldt met een SSH-client. De sleutel dient om uw identiteit te verifiëren. Houd deze privésleutel geheim. Deel deze niet.
+* De meeste clients kunnen worden geconfigureerd voor het gebruik van een __standaardsleutel__. De `ssh`-client zoekt bijvoorbeeld via `~/.ssh/id_rsa` naar een privésleutel in Linux- en Unix-omgevingen.
 
-    U kunt extra beveiliging toevoegen door een wachtwoordzin te maken voor de privésleutel. Als u een wachtwoordzin gebruikt, dient u deze in te voeren bij het verifiëren met SSH.
+* U kunt het __pad naar een privésleutel__ opgeven. Met de `ssh`-client wordt de parameter `-i` gebruikt om het pad naar de privésleutel op te geven. Bijvoorbeeld `ssh -i ~/.ssh/hdinsight sshuser@myedge.mycluster-ssh.azurehdinsight.net`.
 
-### <a name="create-a-public-and-private-key"></a>Een openbare sleutel en een privésleutel maken
+* Als u __meerdere privésleutels__ gebruikt voor verschillende servers, kunnen hulpprogramma's zoals [ssh-agent (https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent) worden gebruikt om automatisch te selecteren welke sleutel wordt gebruikt.
 
-Met het hulpprogramma `ssh-keygen` kunt u eenvoudig een openbare sleutel en een privésleutel maken voor gebruik met HDInsight. In een opdrachtregel gebruikt u de volgende opdracht om nieuwe sleutels te maken voor gebruik met HDInsight:
+> [!IMPORTANT]
+>
+> Als u uw privésleutel beveiligt met een wachtwoordzin, moet u de wachtwoordzin invoeren bij gebruik van de sleutel. Hulpprogramma's zoals `ssh-agent` kunnen het wachtwoord voor extra gebruiksgemak in de cache opslaan.
 
-> [!NOTE]
-> Als u een GUI SSH-client zoals MobaXTerm of puTTY gebruikt, raadpleegt u de documentatie van de client over het genereren van sleutels.
+### <a name="create-an-ssh-key-pair"></a>Een SSH-sleutelpaar maken
+
+Gebruik de opdracht `ssh-keygen` om openbare- en privésleutelbestanden te maken. Met de volgende opdracht maakt u een 2048-bits RSA-sleutelpaar dat kan worden gebruikt met HDInsight:
 
     ssh-keygen -t rsa -b 2048
 
-U wordt gevraagd naar de volgende informatie:
+U wordt tijdens het maken van de sleutel gevraagd om informatie. U moet bijvoorbeeld opgeven waar de sleutels worden opgeslagen en er wordt gevraagd of u een wachtwoordzin wilt gebruiken. Wanneer het proces is voltooid, worden er twee bestanden gemaakt: een openbare sleutel en een privésleutel.
 
-* De bestandslocatie: de standaardlocatie is `~/.ssh/id_rsa`.
+* De __openbare sleutel__ wordt gebruikt om een HDInsight-cluster te maken. De openbare sleutel heeft de extensie `.pub`.
 
-* Een optionele wachtwoordzin: als u een wachtwoordzin invoert, moet u deze opnieuw invoeren bij het verifiëren van uw HDInsight-cluster.
+* De __privésleutel__ wordt gebruikt om uw client te verifiëren bij het HDInsight-cluster.
 
 > [!IMPORTANT]
-> De wachtwoordzin is een wachtwoord voor de privésleutel. Telkens wanneer u de privésleutel gebruikt om te verifiëren, moet u de wachtwoordzin opgeven om de sleutel te kunnen gebruiken. Als iemand anders uw privésleutel in handen krijgt, kan deze de sleutel niet gebruiken zonder de wachtwoordzin.
->
-> Als u de wachtwoordzin vergeet, is er geen manier om deze te herstellen of opnieuw in te stellen.
+> U kunt uw sleutels beveiligen met een wachtwoordzin. Dit is in feite een wachtwoord voor uw privésleutel. Wanneer iemand uw privésleutel in handen krijgt, heeft deze óók de wachtwoordzin nodig om de sleutel te kunnen gebruiken.
 
-Wanneer de opdracht is voltooid, hebt u twee nieuwe bestanden:
+### <a name="create-hdinsight-using-the-public-key"></a>HDInsight maken met de openbare sleutel
 
-* __id\_rsa__: dit bestand bevat de privésleutel.
+| Methode voor het maken | De openbare sleutel gebruiken |
+| ------- | ------- |
+| **Azure Portal** | Schakel het selectievakje bij __Hetzelfde wachtwoord als voor aanmelding bij cluster gebruiken__ uit en selecteer __Openbare sleutel__ als SSH-verificatietype. Tot slot selecteert u het openbare-sleutelbestand of plakt u de tekstinhoud van het bestand in het veld __Openbare SSH-sleutel__.</br>![Dialoogvenster voor de openbare SSH-sleutel tijdens het maken van een HDInsight-cluster](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
+| **Azure PowerShell** | Gebruik de parameter `-SshPublicKey` van de cmdlet `New-AzureRmHdinsightCluster` en plak de inhoud van de openbare sleutel als tekenreeks.|
+| **Azure CLI 1.0** | Gebruik de parameter `--sshPublicKey` van de opdracht `azure hdinsight cluster create` en plak de inhoud van de openbare sleutel als tekenreeks. |
+| **Resource Manager-sjabloon** | Zie [HDInsight op Linux implementeren met een SSH-sleutel](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/) voor een voorbeeld van het gebruik van SSH-sleutels met een sjabloon. Het `publicKeys`-element in het bestand [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) wordt gebruikt om sleutels door te geven aan Azure bij het maken van het cluster. |
 
-    > [!WARNING]
-    > Beperk de toegang tot dit bestand om onbevoegde toegang tot services die worden beveiligd met de openbare sleutel, te voorkomen.
+## <a id="sshpassword"></a>Verificatie: wachtwoord
 
-* __id\_rsa.pub__: dit bestand bevat de openbare sleutel. U gebruikt dit bestand bij het maken van een HDInsight-cluster.
+SSH-accounts kunnen worden beveiligd met een wachtwoord. Als u met SSH verbinding maakt met HDInsight, wordt u gevraagd om het wachtwoord in te voeren.
 
-    > [!NOTE]
-    > Het maakt niet uit wie er toegang heeft tot de _openbare_ sleutel. Het enige dat u met de openbare sleutel kunt doen, is de privésleutel controleren. Voor services zoals de SSH-server wordt de openbare sleutel gebruikt om uw identiteit te controleren wanneer u verifieert met de privésleutel.
+> [!WARNING]
+> Het wordt niet aangeraden om wachtwoordverificatie te gebruiken voor SSH. Wachtwoorden kunnen worden geraden en zijn gevoelig voor ernstige aanvallen. In plaats daarvan wordt aangeraden om [SSH-sleutels te gebruiken voor verificatie](#sshkey).
 
-## <a name="configure-ssh-on-hdinsight"></a>SSH configureren op HDInsight
+### <a name="create-hdinsight-using-a-password"></a>HDInsight maken met een wachtwoord
 
-Wanneer u een op Linux gebaseerd HDInsight-cluster maakt, moet u een _SSH-gebruikersnaam_ en ofwel een _wachtwoord_ ofwel een _openbare sleutel_ opgeven. Deze gegevens worden tijdens het maken van een cluster gebruikt om referenties aan te maken voor de HDInsight-clusterknooppunten. Het wachtwoord of de openbare sleutel wordt gebruikt om het gebruikersaccount te beveiligen.
+| Methode voor het maken | Het wachtwoord specificeren |
+| --------------- | ---------------- |
+| **Azure Portal** | Het SSH-gebruikersaccount heeft standaard hetzelfde wachtwoord als het aanmeldingsaccount van het cluster. Als u een ander wachtwoord wilt gebruiken, schakelt u het selectievakje bij __Hetzelfde wachtwoord als bij aanmelding voor cluster__ uit en voert u het wachtwoord in in het veld __SSH-wachtwoord__.</br>![Dialoogvenster voor het SSH-wachtwoord tijdens het maken van een HDInsight-cluster](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
+| **Azure PowerShell** | Gebruik de parameter `--SshCredential` van de cmdlet `New-AzureRmHdinsightCluster` en geef een `PSCredential`-object op dat de SSH-gebruikersaccountnaam en het wachtwoord bevat. |
+| **Azure CLI 1.0** | Gebruik de parameter `--sshPassword` van de opdracht `azure hdinsight cluster create` en geef de wachtwoordwaarde op. |
+| **Resource Manager-sjabloon** | Zie [HDInsight op Linux implementeren met een SSH-wachtwoord](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/) voor een voorbeeld van het gebruik met een wachtwoord met een sjabloon. Het `linuxOperatingSystemProfile`-element in het bestand [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) wordt gebruikt om de SSH-accountnaam en het wachtwoord door te geven aan Azure bij het maken van het cluster.|
 
-Raadpleeg een van de volgende documenten voor meer informatie over het configureren van SSH tijdens het maken van een cluster:
+### <a name="change-the-ssh-password"></a>Het SSH-wachtwoord wijzigen
 
-* [HDInsight maken met Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md)
-* [HDInsight maken met Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
-* [HDInsight maken met Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [HDInsight maken met Azure Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
-* [HDInsight maken met de .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-* [HDInsight maken met REST](hdinsight-hadoop-create-linux-clusters-curl-rest.md)
+Zie het gedeelte __Wachtwoorden wijzigen__ van het document [HDInsight beheren](hdinsight-administer-use-portal-linux.md#change-passwords) voor meer informatie over het wijzigen van het wachtwoord van het SSH-gebruikersaccount.
 
-### <a name="additional-ssh-users"></a>Aanvullende SSH-gebruikers
+## <a id="domainjoined"></a>Verificatie: HDInsight, gekoppeld aan een domein
 
-Hoewel er aanvullende SSH-gebruikers kunnen worden toegevoegd aan het cluster nadat het is gemaakt, wordt dit niet aanbevolen.
+Als u een __HDInsight-cluster gebruikt dat is gekoppeld aan een domein__, moet u de opdracht `kinit` gebruiken na het verbinden met SSH. Met deze opdracht wordt u om een domeingebruiker en een wachtwoord gevraagd. Uw sessie wordt geverifieerd bij het Azure Active Directory-domein dat is gekoppeld aan het cluster.
 
-* Nieuwe SSH-gebruikers moeten aan elk knooppunt in het cluster worden toegevoegd.
+Zie [Aan een domein gekoppelde HDInsight-clusters configureren](hdinsight-domain-joined-configure.md) voor meer informatie.
 
-* Nieuwe SSH-gebruikers hebben dezelfde toegang tot HDInsight als de standaardgebruiker. Er is geen enkele manier om de toegang tot gegevens of taken te beperken in HDInsight op basis van een SSH-gebruikersaccount.
+## <a name="connect-to-worker-and-zookeeper-nodes"></a>Verbinding maken met werkrol- en Zookeeper-knooppunten
 
-Als u de toegang per gebruiker wilt kunnen beperken, moet u een HDInsight-cluster gebruiken dat is gekoppeld aan een domein. Domain-joined HDInsight maakt gebruik van Active Directory om de toegang tot clusterresources te beheren.
-
-Als u een domain-joined HDInsight-cluster gebruikt, kunt u verifiëren met behulp van Active Directory nadat u verbinding hebt gemaakt met SSH. Meerdere gebruikers kunnen verbinding maken met SSH en vervolgens verificatie uitvoeren voor hun Active Directory-account. Zie het gedeelte [HDInsight gekoppeld aan een domein](#domainjoined) voor meer informatie.
-
-##<a id="connect"></a> Verbinding maken met HDInsight
-
-Op alle knooppunten in een HDInsight-cluster wordt de SSH-server uitgevoerd, maar u kunt alleen via het openbare internet verbinding maken met de hoofd- of Edge-knooppunten.
-
-* Als u verbinding wilt maken met de _hoofdknooppunten_, gebruikt u `CLUSTERNAME-ssh.azurehdinsight.net`, waarbij __CLUSTERNAME__ de naam is van het HDInsight-cluster. Als u verbinding maakt via poort 22 (de standaardpoort voor SSH), wordt er verbinding gemaakt met het primaire hoofdknooppunt. Als u poort 23 gebruikt, wordt er verbinding gemaakt met het secundaire hoofdknooppunt.
-
-* Als u verbinding wilt maken met een _Edge-knooppunt_, gebruikt u `EDGENAME.CLUSTERNAME-ssh.azurehdinsight.net`, waarbij __EDGENAME__ de naam is van het Edge-knooppunt en __CLUSTERNAME__ de naam is van het HDInsight-cluster. Gebruik poort 22 als u verbinding wilt maken met een Edge-knooppunt.
-
-In de volgende voorbeelden ziet u hoe u de hoofdknooppunten en het Edge-knooppunt van een cluster met de naam __myhdi__ met elkaar verbindt met de SSH-gebruikersnaam __sshuser__. Het Edge-knooppunt heet __myedge__.
-
-| Als u dit wilt doen... | Gebruikt u... |
-| ----- | ----- |
-| Verbinding maken met het primaire hoofdknooppunt | `ssh sshuser@myhdi-ssh.azurehdinsight.net` |
-| Verbinding maken met het secundaire hoofdknooppunt | `ssh -p 23 sshuser@myhdi-ssh.azurehdinsight.net` |
-| Verbinding maken met het edge-knooppunt | `ssh sshuser@edge.myhdi-ssh.azurehdinsight.net` |
-
-Als u een wachtwoord gebruikt om het SSH-account te beveiligen, wordt u gevraagd om het wachtwoord in te voeren.
-
-Als u een openbare sleutel gebruikt om het SSH-account te beveiligen, moet u mogelijk het pad opgeven naar de bijbehorende privésleutel. Dat kan met behulp van de schakeloptie `-i`. In het volgende voorbeeld ziet u hoe de schakeloptie `-i` wordt gebruikt:
-
-    ssh -i /path/to/public.key sshuser@myhdi-ssh.azurehdinsight.net
-
-### <a name="connect-to-other-nodes"></a>Verbinding maken met andere knooppunten
-
-De werkrolknooppunten en de Zookeeper-knooppunten zijn niet rechtstreeks toegankelijk van buiten het cluster, maar ze zijn wel toegankelijk via de clusterhoofdknooppunten en Edge-knooppunten. Hier volgen de algemene stappen om verbinding te maken met andere knooppunten:
+De werkrolknooppunten en de Zookeeper-knooppunten zijn niet rechtstreeks toegankelijk via internet, maar ze zijn wel toegankelijk via de clusterhoofdknooppunten en Edge-knooppunten. Hier volgen de algemene stappen om verbinding te maken met andere knooppunten:
 
 1. SSH gebruiken om verbinding te maken met een hoofd- of Edge-knooppunt:
 
-        ssh sshuser@myhdi-ssh.azurehdinsight.net
+        ssh sshuser@myedge.mycluster-ssh.azurehdinsight.net
 
 2. Gebruik van de SSH-verbinding naar het hoofd- of Edge-knooppunt de opdracht `ssh` om verbinding te maken met een werkrolknooppunt in het cluster:
 
         ssh sshuser@wn0-myhdi
 
-    Raadpleeg het document [HDInsight beheren met behulp van de Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) voor informatie over het ophalen van een lijst van de werkrolknooppunten in het cluster. In het document staat een voorbeeld van hoe u de FQDN-namen van clusterknooppunten ophaalt.
+    Raadpleeg de voorbeelden in het document [HDInsight beheren met behulp van de Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) voor informatie over het ophalen van een lijst van de domeinnamen van de knooppunten in het cluster.
 
-Als het SSH-account is beveiligd met een wachtwoord, wordt u gevraagd om het wachtwoord in te voeren. Er wordt vervolgens verbinding gemaakt.
+Als het SSH-account is beveiligd met een __wachtwoord__, wordt u gevraagd om het wachtwoord in te voeren. Er wordt vervolgens verbinding gemaakt.
 
-Als u een SSH-sleutel gebruikt om uw gebruikersaccount te verifiëren, moet u ervoor zorgen dat uw lokale omgeving is geconfigureerd voor het doorsturen van SSH-agents.
+Als u __SSH-sleutels__ gebruikt om uw SSH-account te beveiligen, moet u ervoor zorgen dat uw lokale omgeving is geconfigureerd voor het doorsturen van SSH-agents.
+
+> [!NOTE]
+> U kunt ook HDInsight installeren op een virtueel Azure-netwerk om rechtstreeks toegang te verkrijgen tot alle knooppunten in het cluster. U kunt dan uw externe machine koppelen aan datzelfde virtuele netwerk en rechtstreeks toegang verkrijgen tot alle knooppunten in het cluster.
+>
+> Zie [Een virtueel netwerk gebruiken met HDInsight](hdinsight-extend-hadoop-virtual-network.md) voor meer informatie.
+
+### <a name="configure-ssh-agent-forwarding"></a>Het doorsturen van SSH-agents configureren
 
 > [!IMPORTANT]
 > Bij de volgende stappen wordt ervan uitgegaan dat u een op Linux/UNIX gebaseerd systeem gebruikt en dat u werkt met Bash on Windows 10. Als deze stappen niet werken voor uw systeem, moet u mogelijk de documentatie van uw SSH-client raadplegen.
 
 1. Start een teksteditor en open `~/.ssh/config`. Als dit bestand niet bestaat, kunt u dit maken door `touch ~/.ssh/config` in te voeren op een opdrachtregel.
 
-2. Voeg het volgende toe aan het bestand. Vervang *CLUSTERNAME* door de naam van uw HDInsight-cluster.
+2. Voeg de volgende tekst toe aan het bestand `config`.
 
-        Host CLUSTERNAME-ssh.azurehdinsight.net
+        Host <edgenodename>.<clustername>-ssh.azurehdinsight.net
           ForwardAgent yes
 
-    Hiermee configureert u het doorsturen van de SSH-agent voor uw HDInsight-cluster.
+    Vervang de __host__informatie door het adres van het knooppunt waar u verbinding mee maakt via SSH. In het vorige voorbeeld werd gebruikgemaakt van het Edge-knooppunt. Hiermee configureert u het doorsturen van de SSH-agent naar het opgegeven knooppunt.
 
 3. Test het doorsturen van de SSH-agent met de volgende opdracht vanaf de terminal:
 
@@ -190,41 +177,10 @@ Als u een SSH-sleutel gebruikt om uw gebruikersaccount te verifiëren, moet u er
 
     Als uw persoonlijke sleutel wordt opgeslagen in een ander bestand, vervangt u `~/.ssh/id_rsa` door het pad naar het bestand.
 
-<a id="domainjoined"></a>
-### <a name="domain-joined-hdinsight"></a>HDInsight gekoppeld aan een domein
-
-Met [HDInsight gekoppeld aan een domein](hdinsight-domain-joined-introduction.md) kan Kerberos in Hadoop worden geïntegreerd in HDInsight. Omdat de SSH-gebruiker geen Active Directory-domeingebruiker is, kunt u pas Hadoop-opdrachten uitvoeren nadat u verificatie hebt uitgevoerd met Active Directory. Volg deze stappen om uw SSH-sessie te verifiëren met Active Directory:
-
-1. Maak met behulp van SSH verbinding met een HDInsight-cluster dat is gekoppeld aan een domein. Met de volgende opdracht maakt u bijvoorbeeld verbinding met een HDInsight-cluster met de naam __myhdi__ via een SSH-account met de naam __sshuser__.
-
-        ssh sshuser@myhdi-ssh.azurehdinsight.net
-
-2. Ga als volgt te werk om te verifiëren met een domeingebruiker en een wachtwoord:
-
-        kinit
-
-     Wanneer hierom wordt gevraagd, voert u de domeingebruikersnaam en het wachtwoord voor de domeingebruiker in.
-
-    Raadpleeg [Domain-joined HDInsight-clusters configureren](hdinsight-domain-joined-configure.md) voor meer informatie over het configureren van domeingebruikers voor domain-joined HDInsight-clusters.
-
-Na verificatie met de opdracht `kinit` kunt u Hadoop-opdrachten zoals `hdfs dfs -ls /` en `hive` gebruiken.
-
-## <a id="tunnel"></a>SSH-tunneling
-
-SSH kan worden gebruikt voor de tunneling van lokale aanvragen, zoals webaanvragen, naar het HDInsight-cluster. De aanvraag wordt doorgestuurd naar het cluster en vervolgens opgelost binnen het cluster.
-
-> [!IMPORTANT]
-> Een SSH-tunnel is vereist voor toegang tot de webgebruikersinterface voor bepaalde Hadoop-services. De gebruikersinterface van bijvoorbeeld Taakgeschiedenis of Resource Manager is alleen toegankelijk via een SSH-tunnel.
-
-Raadpleeg [SSH-tunneling gebruiken voor toegang tot de Ambari-webgebruikersinterface, JobHistory, NameNode, Oozie en andere webgebruikersinterfaces van ](hdinsight-linux-ambari-ssh-tunnel.md) voor meer informatie over het maken en gebruiken van een SSH-tunnel.
+5. Maak met SSH verbinding met het Edge-knooppunt of de hoofdknooppunten van het cluster. Gebruik vervolgens de SSH-opdracht om verbinding te maken met een werkrol- of Zookeeper-knooppunt. De verbinding wordt gemaakt met de doorgestuurde sleutel.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u weet hoe zich kunt verifiëren met een SSH-sleutel, wordt uitgelegd hoe u MapReduce gebruikt met Hadoop op HDInsight.
-
-* [Hive gebruiken met HDInsight](hdinsight-use-hive.md)
-* [Pig gebruiken met HDInsight](hdinsight-use-pig.md)
-* [MapReduce-taken gebruiken met HDInsight](hdinsight-use-mapreduce.md)
-
-[preview-portal]: https://portal.azure.com/
-
+* [SSH-tunneling gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md)
+* [Een virtueel netwerk gebruiken met HDInsight](hdinsight-extend-hadoop-virtual-network.md)
+* [Edge-knooppunten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node)

@@ -3,7 +3,7 @@ title: Uw ontwikkelomgeving instellen in Linux | Microsoft Docs
 description: Installeer de runtime en SDK en maak een lokaal ontwikkelcluster in Linux. Zodra u dit hebt gedaan, kunt u toepassingen bouwen.
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: mani-ramaswamy
 manager: timlt
 editor: 
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
@@ -12,12 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-ms.author: seanmck
+ms.date: 03/23/2017
+ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 1e961eccbc4fb8af90c7da831429c942f92bdf79
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 516b8e517a16dd0d87e02189260166696225fbab
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/11/2017
 ### <a name="supported-operating-system-versions"></a>Ondersteunde versies van besturingssystemen
 De volgende versies van besturingssystemen worden ondersteund voor de ontwikkeling:
 
-* Ubuntu 16.04 ('Xenial Xerus')
+* Ubuntu 16.04 (i**'Xenial Xerus'**)
 
 ## <a name="update-your-apt-sources"></a>Uw apt-bronnen bijwerken
 Voor het installeren van de SDK en het bijbehorende runtimepakket via apt-get, moet u eerst uw apt-bronnen bijwerken.
@@ -47,7 +47,7 @@ Voor het installeren van de SDK en het bijbehorende runtimepakket via apt-get, m
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
-3. Voeg de dotnet-opslagplaats toe aan uw lijst met bronnen.
+3. Voeg de **dotnet**-opslagplaats toe aan uw lijst met bronnen.
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -66,7 +66,7 @@ Voor het installeren van de SDK en het bijbehorende runtimepakket via apt-get, m
     ```bash
     sudo apt-get update
     ```
-## <a name="install-and-set-up-the-sdk"></a>De SDK installeren en instellen
+## <a name="install-and-set-up-the-sdk-for-containers-and-guest-executables"></a>De SDK voor containers en uitvoerbare gastbestanden installeren en instellen
 Wanneer uw bronnen zijn bijgewerkt, kunt u de SDK installeren.
 
 1. Installeer het Service Fabric-SDK-pakket. U wordt gevraagd om de installatie te bevestigen en de licentieovereenkomst te accepteren.
@@ -80,6 +80,21 @@ Wanneer uw bronnen zijn bijgewerkt, kunt u de SDK installeren.
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
+Wanneer u de stappen hebt uitgevoerd om het algemene SDK-pakket te installeren, moet u apps kunnen maken met uitvoerbare gastbestanden of containerservices door `yo azuresfguest` uit te voeren. Mogelijk moet u de omgevingsvariabele **$NODE_PATH** instellen op de locatie waarop de knooppuntmodules zich bevinden. 
+
+    ```bash
+    export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules 
+    ```
+
+Als u de omgeving als hoofdmap gebruikt, moet u de variabele mogelijk instellen met de volgende opdracht:
+
+    ```bash
+    export NODE_PATH=$NODE_PATH:/root/.node/lib/node_modules 
+    ```
+
+> [!TIP]
+> U kunt deze opdrachten toevoegen aan het bestand ~/.bashrc, zodat u de omgevingsvariabele niet bij elke aanmelding hoeft in te stellen.
+>
 
 ## <a name="set-up-the-azure-cross-platform-cli"></a>De platformoverschrijdende CLI van Azure instellen
 De [platformoverschrijdende CLI van Azure][azure-xplat-cli-github] bevat opdrachten voor interactie met Service Fabric-entiteiten, inclusief clusters en toepassingen. Deze is gebaseerd op Node.js en daarom [moet u controleren of u Node hebt geïnstalleerd][install-node] voordat u doorgaat met de volgende instructies:
@@ -111,6 +126,7 @@ De [platformoverschrijdende CLI van Azure][azure-xplat-cli-github] bevat opdrach
 > [!NOTE]
 > Service Fabric-opdrachten zijn nog niet beschikbaar in Azure CLI 2.0.
 
+
 ## <a name="set-up-a-local-cluster"></a>Een lokaal cluster instellen
 Als alles goed is geïnstalleerd, moet u een lokaal cluster kunnen starten.
 
@@ -129,9 +145,8 @@ Op dit punt kunt u vooraf samengestelde Service Fabric-toepassingspakketten of n
 > [!NOTE]
 > Zelfstandige clusters worden niet ondersteund in Linux - slechts clusters met één vak en clusters met meerdere Azure Linux-machines worden ondersteund in het voorbeeld.
 >
->
 
-## <a name="install-the-java-sdk-and-eclipse-neon-plugin-optional"></a>De Java-SDK en Eclipse Neon-invoegtoepassing installeren (optioneel)
+## <a name="install-the-java-sdk-optional-if-you-wish-to-use-the-java-programming-models"></a>De Java-SDK installeren (alleen als u de Java-programmeermodellen wilt gebruiken)
 De Java-SDK biedt de bibliotheken en sjablonen die vereist zijn voor het bouwen van Service Fabric-services met behulp van Java.
 
 1. Installeer het Java-SDK-pakket.
@@ -144,8 +159,13 @@ De Java-SDK biedt de bibliotheken en sjablonen die vereist zijn voor het bouwen 
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
+## <a name="install-the-eclipse-neon-plugin-optional"></a>De Eclipse Neon-invoegtoepassing installeren (optioneel)
 
-U kunt de Eclipse-invoegtoepassing voor Service Fabric installeren vanuit de **Eclipse IDE voor Java-ontwikkelaars**.
+U kunt de Eclipse-invoegtoepassing voor Service Fabric installeren vanuit de **Eclipse IDE voor Java-ontwikkelaars**. Met Eclipse kunt u behalve Service Fabric Java-toepassingen ook uitvoerbare Fabric Service-gasttoepassingen en containertoepassingen maken.
+
+> [!NOTE]
+> De installatie van de Java-SDK is een vereiste voor het gebruik van de Eclipse-invoegtoepassing, zelfs als u deze alleen gebruikt om uitvoerbare gastbestanden en containertoepassingen te maken en te implementeren.
+>
 
 1. Zorg er in Eclipse voor dat u de meest recente Eclipse **Neon**- en meest recente Buildship-versie (1.0.17 of hoger) hebt geïnstalleerd. U kunt de versies van geïnstalleerde onderdelen controleren door **Help > Installation Details** te kiezen. U kunt Buildship bijwerken met behulp van [deze instructies][buildship-update].
 2. Als u de Service Fabric-invoegtoepassing wilt installeren, kiest u **Help > Install New Software...**
@@ -155,11 +175,12 @@ U kunt de Eclipse-invoegtoepassing voor Service Fabric installeren vanuit de **E
 5. Kies de Service Fabric-invoegtoepassing en klik op Next.
 6. Doorloop de installatie en accepteer de gebruiksrechtovereenkomst.
 
-Als u de Service Fabric Eclipse-invoegtoepassing al hebt geïnstalleerd, zorgt u ervoor dat u de meest recente versie gebruikt. U kunt controleren of deze kan worden bijgewerkt door het volgende uit te voeren: ``Help => Installation Details``. Zoek naar Service Fabric in de lijst met geïnstalleerde invoegtoepassingen en klik op Bijwerken. Als er een update beschikbaar is, wordt deze opgehaald en geïnstalleerd.
+Als u de Service Fabric Eclipse-invoegtoepassing al hebt geïnstalleerd, zorgt u ervoor dat u de meest recente versie gebruikt. U kunt dit controleren door ``Help => Installation Details`` te selecteren en in de lijst met geïnstalleerde modules naar Fabric Service te zoeken. Selecteer de update als er een nieuwere versie beschikbaar is. 
 
-Zie onze gedetailleerde handleiding [Service Fabric - Aan de slag met Eclipse](service-fabric-get-started-eclipse.md) voor meer informatie over het gebruik van de Service Fabric Eclipse-invoegtoepassing voor het maken, bouwen implementeren en upgraden van een Service Fabric Java-toepassing.
+Zie [Aan de slag met de Eclipse-invoegtoepassing voor de ontwikkeling van Java-toepassingen met Service Fabric](service-fabric-get-started-eclipse.md) voor meer informatie.
 
-## <a name="install-the-net-core-sdk-optional"></a>De .NET Core-SDK installeren (optioneel)
+
+## <a name="install-the-net-core-sdk-optional-if-you-wish-to-use-the-net-core-programming-models"></a>De .NET Core-SDK installeren (alleen als u de .NET Core-programmeermodellen wilt gebruiken)
 De .NET Core-SDK biedt de bibliotheken en sjablonen die vereist zijn voor het bouwen van Service Fabric-services met behulp van platformoverschrijdende .NET Core.
 
 1. Installeer het .NET Core-SDK-pakket.
@@ -180,10 +201,11 @@ Als u wilt bijwerken naar de nieuwste versie van de SDK en runtime, voert u de v
 
    ```bash
    sudo apt-get update
-   sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
+   sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
    ```
 
-Als u de CLI wilt bijwerken, gaat u naar de map waar u CLI hebt gekloond en voert u `git pull` uit om bij te werken.
+Als u de CLI wilt bijwerken, gaat u naar de map waar u CLI hebt gekloond en voert u `git pull` uit om bij te werken.  Als er voor het bijwerken extra stappen nodig zijn, worden deze in de releaseopmerkingen genoemd. 
+
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Uw eerste Service Fabric Java-toepassing in Linux maken en implementeren met behulp van Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
@@ -191,6 +213,7 @@ Als u de CLI wilt bijwerken, gaat u naar de map waar u CLI hebt gekloond en voer
 * [Uw eerste CSharp-toepassing in Linux maken](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Uw ontwikkelomgeving voorbereiden in OSX](service-fabric-get-started-mac.md)
 * [De Azure CLI gebruiken voor het beheren van uw Service Fabric-toepassingen](service-fabric-azure-cli.md)
+* [Verschillen tussen Service Fabric in Windows en Linux](service-fabric-linux-windows-differences.md)
 
 <!-- Links -->
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 214913cb63e38c5df0ab32ad19629507e5fdb35c
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 81c9313635f382252550a4c0dcc7a707e9f365fb
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -240,9 +240,9 @@ De uitgaande verbinding met internet is toegestaan, omdat al het uitgaande verke
 
 Als u alle resources wilt verwijderen die u in dit artikel hebt gemaakt, voert u de volgende stappen uit:
 
-1. Als u de resourcegroep MyRG wilt weergeven die u in dit artikel hebt gemaakt, voert u stap 1-3 uit in het gedeelte [Resources controleren](#review) van dit artikel. Bekijk nogmaals de resources in de resourcegroep. Als u de resourcegroep MyRG via de voorgaande stappen hebt gemaakt, ziet u de 12 resources die in de afbeelding worden weergegeven in stap 3.
+1. Als u de resourcegroep MyRG wilt weergeven die u in dit artikel hebt gemaakt, voert u stap 1-3 uit in het gedeelte [Resources controleren](#review) van dit artikel. Bekijk nogmaals de resources in de resourcegroep. Als u de resourcegroep MyRG via de voorgaande stappen hebt gemaakt, ziet u de 12 resources die in de afbeelding worden weergegeven in stap 4.
 2. Klik op de blade MyRG op de knop **Verwijderen**.
-3. De portal vereist dat u de naam van de resourcegroep typt om te bevestigen dat u deze wilt verwijderen. Als u andere resources ziet dan de resources die in stap 3 van het gedeelte [Resources controleren](#review) van dit artikel worden weergegeven, klikt u op **Annuleren**. Als alleen de 12 resources worden weergegeven die u in het kader van dit artikel hebt gemaakt, typt u *MyRG* als naam van de resourcegroep. Klik vervolgens op **Verwijderen**. Als u een resourcegroep verwijdert, worden alle resources binnen de resourcegroep verwijderd. Zorg er dus altijd voor dat u de inhoud van een resourcegroep bevestigt, voordat u deze verwijdert. Alle resources die zich in de resourcegroep bevinden en de resourcegroep zelf worden verwijderd. Dit proces duurt enkele minuten.
+3. De portal vereist dat u de naam van de resourcegroep typt om te bevestigen dat u deze wilt verwijderen. Als u andere resources ziet dan de resources die in stap 4 van het gedeelte [Resources controleren](#review) van dit artikel worden weergegeven, klikt u op **Annuleren**. Als alleen de 12 resources worden weergegeven die u in het kader van dit artikel hebt gemaakt, typt u *MyRG* als naam van de resourcegroep. Klik vervolgens op **Verwijderen**. Als u een resourcegroep verwijdert, worden alle resources binnen de resourcegroep verwijderd. Zorg er dus altijd voor dat u de inhoud van een resourcegroep bevestigt, voordat u deze verwijdert. Alle resources die zich in de resourcegroep bevinden en de resourcegroep zelf worden verwijderd. Dit proces duurt enkele minuten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

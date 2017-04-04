@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
-ms.openlocfilehash: 7796ec3a7c65e320ca142de4d03f6de5d0698e21
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 102eab0e2e915521f8702b526dda886a2502f40b
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -66,7 +67,7 @@ U wilt virtuele netwerken wellicht koppelen om de volgende redenen:
 
 Zie voor meer informatie over verbindingen tussen VNets de [Aandachtspunten bij VNet-naar-VNet](#faq) aan het einde van dit artikel.
 
-### <a name="a-namevaluesaexample-settings"></a><a name="values"></a>Voorbeeldinstellingen
+### <a name="values"></a>Voorbeeldinstellingen
 Wanneer u deze stappen uitvoert als oefening kunt u de volgende voorbeeldconfiguratiewaarden gebruiken. Als voorbeeld gebruiken we meerdere adresruimten voor elke VNet. Voor VNet-naar-VNet-configuraties zijn meerdere adresruimten echter niet vereist.
 
 **Waarden voor TestVNet1:**
@@ -115,18 +116,18 @@ Wanneer u deze stappen uitvoert als oefening kunt u de volgende voorbeeldconfigu
   * Naam: TestVNet4toTestVNet1
   * Gedeelde sleutel: u kunt de gedeelde sleutel zelf maken. In dit voorbeeld gebruiken we abc123. Het belangrijkste is dat wanneer u de verbinding tussen de VNets maakt, de waarde moet overeenkomen.
 
-## <a name="a-namecreatvneta1-create-and-configure-testvnet1"></a><a name="CreatVNet"></a>1. TestVNet1 maken en configureren
+## <a name="CreatVNet"></a>1. TestVNet1 maken en configureren
 Als u al beschikt over een VNet, controleert u of de instellingen compatibel zijn met het ontwerp van de VPN-gateway. Let vooral op eventuele subnetten die met andere netwerken overlappen. Als u overlappende subnetten hebt, werkt de verbinding mogelijk niet goed. Als het VNet met de juiste instellingen is geconfigureerd, kunt u beginnen met de stappen in de sectie [Een DNS-server opgeven](#dns).
 
 ### <a name="to-create-a-virtual-network"></a>Een virtueel netwerk maken
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="a-namesubnetsa2-add-additional-address-space-and-create-subnets"></a><a name="subnets"></a>2. Extra adresruimte toevoegen en subnetten maken
+## <a name="subnets"></a>2. Extra adresruimte toevoegen en subnetten maken
 Wanneer het VNet is gemaakt, kunt u er extra adresruimte en subnetten aan toevoegen.
 
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
-## <a name="a-namegatewaysubneta3-create-a-gateway-subnet"></a><a name="gatewaysubnet"></a>3. Een gatewaysubnet maken
+## <a name="gatewaysubnet"></a>3. Een gatewaysubnet maken
 Voordat u het virtuele netwerk verbindt met een gateway, moet u eerst het gatewaysubnet maken voor het virtuele netwerk waarmee u verbinding wilt maken. Indien mogelijk is het beste een gatewaysubnet met een CIDR-blok van /28 of /27 te gebruiken zodat er voldoende IP-adressen zijn om aan toekomstige aanvullende configuratievereisten te voldoen.
 
 Als u deze configuratie bij wijze van oefening maakt, gebruikt u deze [voorbeeldinstellingen](#values) wanneer u het gatewaysubnet maakt.
@@ -136,21 +137,21 @@ Als u deze configuratie bij wijze van oefening maakt, gebruikt u deze [voorbeeld
 ### <a name="to-create-a-gateway-subnet"></a>Een gatewaysubnet maken
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-## <a name="a-namednsservera4-specify-a-dns-server-optional"></a><a name="DNSServer"></a>4. Een DNS-server opgeven (optioneel)
-Als u naamomzetting wilt instellen voor virtuele machines die in uw VNets worden geïmplementeerd, moet u een DNS-server opgeven.
+## <a name="DNSServer"></a>4. Een DNS-server opgeven (optioneel)
+DNS is niet vereist voor VNet-VNet-verbindingen. Als u echter naamomzetting wilt instellen voor resources die in uw virtuele netwerk worden geïmplementeerd, moet u een DNS-server opgeven. Met deze instelling kunt u de DNS-server opgeven die u wilt gebruiken voor de naamomzetting voor dit virtuele netwerk. Hierdoor wordt geen DNS-server aangemaakt.
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
-## <a name="a-namevnetgatewaya5-create-a-virtual-network-gateway"></a><a name="VNetGateway"></a>5. De gateway van een virtueel netwerk maken
+## <a name="VNetGateway"></a>5. De gateway van een virtueel netwerk maken
 In deze stap maakt u de virtuele netwerkgateway VNet. Deze stap kan maximaal 45 minuten duren. Als u deze configuratie bij wijze van oefening maakt, kunt u de [voorbeeldinstellingen](#values) gebruiken.
 
 ### <a name="to-create-a-virtual-network-gateway"></a>De gateway van een virtueel netwerk maken
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-## <a name="a-namecreatetestvnet4a6-create-and-configure-testvnet4"></a><a name="CreateTestVNet4"></a>6. TestVNet4 maken en configureren
+## <a name="CreateTestVNet4"></a>6. TestVNet4 maken en configureren
 Wanneer u TestVNet1 hebt geconfigureerd, maakt u TestVNet4 door de vorige stappen te herhalen en de waarden te vervangen door die van TestVNet4. U hoeft niet te wachten tot de gateway van het virtuele netwerk voor TestVNet1 is gemaakt voordat u TestVNet4 configureert. Als u uw eigen waarden gebruikt, zorgt u ervoor dat de adresruimten niet overlappen met een van de VNets waarmee u verbinding wilt maken.
 
-## <a name="a-nametestvnet1connectiona7-configure-the-testvnet1-connection"></a><a name="TestVNet1Connection"></a>7. De TestVNet1-verbinding configureren
+## <a name="TestVNet1Connection"></a>7. De TestVNet1-verbinding configureren
 Wanneer de virtuele netwerkgateways voor TestVNet1 en TestVNet4 zijn voltooid, kunt u de verbindingen voor uw virtuele netwerkgateway maken. In deze sectie maakt u een verbinding tussen VNet1 en VNet4.
 
 1. In **Alle resources** gaat u naar de virtuele netwerkgateway voor uw VNet. Bijvoorbeeld **TestVNet1GW**. Klik op **TestVNet1GW** om de blade voor de virtuele netwerkgateway te openen.
@@ -172,10 +173,10 @@ Wanneer de virtuele netwerkgateways voor TestVNet1 en TestVNet4 zijn voltooid, k
     ![Gedeelde sleutel](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Gedeelde sleutel")
 10. Klik op **OK** onder aan de blade om de wijzigingen op te slaan.
 
-## <a name="a-nametestvnet4connectiona8-configure-the-testvnet4-connection"></a><a name="TestVNet4Connection"></a>8. De TestVNet4-verbinding configureren
+## <a name="TestVNet4Connection"></a>8. De TestVNet4-verbinding configureren
 Maak vervolgens een verbinding tussen TestVNet4 en TestVNet1. Gebruik dezelfde methode die u hebt gebruikt voor het maken van de verbinding tussen TestVNet1 en TestVNet4. Zorg ervoor dat u dezelfde gedeelde sleutel gebruikt.
 
-## <a name="a-nameverifyconnectiona9-verify-your-connection"></a><a name="VerifyConnection"></a>9. De verbinding controleren
+## <a name="VerifyConnection"></a>9. De verbinding controleren
 Controleer de VPN-verbinding. Doe voor elke virtuele netwerkgateway het volgende:
 
 1. Zoek de blade voor de gateway van het virtuele netwerk. Bijvoorbeeld **TestVNet4GW**. 
@@ -189,16 +190,11 @@ U kunt afzonderlijk op elke verbinding dubbelklikken voor meer informatie over d
 
 ![Essentials](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
 
-## <a name="a-namefaqavnet-to-vnet-considerations"></a><a name="faq"></a>Aandachtspunten bij VNet-naar-VNet
+## <a name="faq"></a>Aandachtspunten bij VNet-naar-VNet
 Bekijk de Veelgestelde vragen voor meer informatie over VNet-naar-VNet-verbindingen.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Raadpleeg de [documentatie over Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
