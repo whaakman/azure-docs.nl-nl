@@ -1,14 +1,16 @@
+Voor site-naar-site-verbindingen met een on-premises netwerk is een VPN-apparaat vereist. Er zijn veel verschillende VPN-apparaten die compatibel zijn met Azure. Zie [VPN-apparaten](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) voor meer informatie over VPN-apparaten en configuratie-instellingen. Controleer voordat u uw VPN-apparaat configureert of er [bekende compatibiliteitsproblemen](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) zijn met het VPN-apparaat dat u wilt gebruiken. Neem contact op met de fabrikant van uw apparaat voor specifieke configuratiegegevens voor het VPN-apparaat.
 
-Om uw VPN-apparaat te configureren, hebt u het openbare IP-adres van de virtuele netwerkgateway nodig voor het configureren van uw on-premises VPN-apparaat. Neem contact op met de fabrikant van uw apparaat voor specifieke informatie over configuraties en het configureren van uw apparaat. Raadpleeg de [VPN-apparaten](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) voor meer informatie over VPN-apparaten die goed werken in combinatie met Azure.
+Bij de configuratie van uw VPN-apparaat hebt u het volgende nodig:
 
-Gebruik het volgende voorbeeld om het openbare IP-adres van uw virtuele netwerkgateway te vinden met behulp van PowerShell:
+- **Het openbare IP-adres** van de gateway van uw virtuele netwerk.
 
-    Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
+    -  Navigeer naar **Virtuele netwerkgateways** en klik op de naam van uw gateway om het openbare IP-adres dat gebruikmaakt van Azure Portal, te achterhalen. 
 
-U kunt het openbare IP-adres voor uw virtuele netwerkgateway ook vinden in de Azure-portal. Navigeer naar **Virtuele netwerkgateways** en klik vervolgens op de naam van uw gateway.
+    - Gebruik het volgende voorbeeld om het openbare IP-adres van uw virtuele netwerkgateway te vinden met behulp van PowerShell en vervang de waarden door uw eigen waarden.
+
+            Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
+- **Een gedeelde sleutel**. Dit is dezelfde gedeelde sleutel die u opgeeft wanneer u uw site-naar-site VPN-verbinding maakt. In onze voorbeelden gebruiken we een zeer eenvoudige gedeelde sleutel. We raden u aan een complexere sleutel te gebruiken.
 
 
-
-<!--HONumber=Nov16_HO2-->
 
 

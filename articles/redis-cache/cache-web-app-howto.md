@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/27/2017
+ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 8d1b9293a0b3958d0f478b6a0b6816b8d534883d
-ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 02e30f7fcbe0782528460b542a75f1d11c7286a1
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
 > 
 > 
 
-In deze zelfstudie ziet u hoe u een ASP.NET-webtoepassing maakt en implementeert in een web-app in Azure App Service met behulp van Visual Studio 2015. In de voorbeeldtoepassing wordt een lijst met teamstatistieken uit een database weergegeven. U maakt kennis met verschillende manieren waarop u Azure Redis-cache kunt gebruiken om gegevens op te slaan in en op te halen uit de cache. Wanneer u de zelfstudie hebt voltooid, hebt u een actieve web-app die naar een database leest en schrijft. Deze web-app is geoptimaliseerd met Azure Redis-cache en wordt gehost in Azure.
+In deze zelfstudie ziet u hoe u een ASP.NET-webtoepassing maakt en implementeert in een web-app in Azure App Service met behulp van Visual Studio 2017. In de voorbeeldtoepassing wordt een lijst met teamstatistieken uit een database weergegeven. U maakt kennis met verschillende manieren waarop u Azure Redis-cache kunt gebruiken om gegevens op te slaan in en op te halen uit de cache. Wanneer u de zelfstudie hebt voltooid, hebt u een actieve web-app die naar een database leest en schrijft. Deze web-app is geoptimaliseerd met Azure Redis-cache en wordt gehost in Azure.
 
 U leert het volgende:
 
@@ -45,7 +46,7 @@ U leert het volgende:
 U hebt het volgende nodig om deze zelfstudie te voltooien:
 
 * [Azure-account](#azure-account)
-* [Visual Studio 2015 met de Azure-SDK voor .NET](#visual-studio-2015-with-the-azure-sdk-for-net)
+* [Visual Studio 2017 met de Azure SDK voor .NET](#visual-studio-2017-with-the-azure-sdk-for-net)
 
 ### <a name="azure-account"></a>Azure-account
 U hebt een Azure-account nodig om deze zelfstudie te voltooien. U kunt:
@@ -53,22 +54,23 @@ U hebt een Azure-account nodig om deze zelfstudie te voltooien. U kunt:
 * [Gratis een Azure-account openen](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). U ontvangt tegoed dat kan worden gebruikt om betaalde Azure-services uit te proberen. Zelfs nadat het tegoed is gebruikt, kunt u het account houden en de gratis Azure-services en -functies gebruiken.
 * [Uw voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Via uw MSDN-abonnement ontvangt u elke maand tegoeden die u voor betaalde Azure-services kunt gebruiken.
 
-### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>Visual Studio 2015 met de Azure-SDK voor .NET
-De zelfstudie is geschreven voor Visual Studio 2015 met de [Azure-SDK voor .NET](../dotnet-sdk.md) 2.8.2 of hoger. [Download hier de nieuwste Azure-SDK voor Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Als u Visual Studio nog niet hebt, wordt dit automatisch geïnstalleerd samen met de SDK.
+### <a name="visual-studio-2017-with-the-azure-sdk-for-net"></a>Visual Studio 2017 met de Azure SDK voor .NET
+De zelfstudie is geschreven voor Visual Studio 2017 met de [Azure-SDK voor .NET](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#azuretools). De Azure SDK 2.9.5 is opgenomen in het installatieprogramma voor Visual Studio.
+
+Als u Visual Studio 2015 hebt, kunt u de zelfstudie volgen met de [Azure SDK voor .NET](../dotnet-sdk.md) 2.8.2 of hoger. [Download hier de nieuwste Azure-SDK voor Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Als u Visual Studio nog niet hebt, wordt dit automatisch geïnstalleerd samen met de SDK. Sommige schermen zien er mogelijk anders uit dan wordt weergegeven in de afbeeldingen in deze zelfstudie.
 
 Als u Visual Studio 2013 hebt, kunt u [de nieuwste Azure-SDK voor Visual Studio 2013 downloaden](http://go.microsoft.com/fwlink/?LinkID=324322). Sommige schermen zien er mogelijk anders uit dan wordt weergegeven in de afbeeldingen in deze zelfstudie.
-
-> [!NOTE]
-> Afhankelijk van hoeveel van de SDK-afhankelijkheden u al op uw computer hebt staan, kan het installeren van de SDK lang duren, van enkele minuten tot een halfuur of meer.
-> 
-> 
 
 ## <a name="create-the-visual-studio-project"></a>Het Visual Studio-project maken
 1. Open Visual Studio en klik op **File**, **New**, **Project**.
 2. Vouw het knooppunt **Visual C#** uit in de lijst **Templates**, selecteer **Cloud** en klik op **ASP.NET Web Application**. Zorg ervoor dat **.NET Framework 4.5.2** of hoger is geselecteerd.  Typ **ContosoTeamStats** in het tekstvak **Name**. Klik vervolgens op **OK**.
    
     ![Project maken][cache-create-project]
-3. Selecteer **MVC** als het projecttype. Schakel het selectievakje **Host in the cloud** uit. In de volgende stappen in deze zelfstudie [richt u de Azure-resources in](#provision-the-azure-resources) en [publiceert u de toepassing in Azure](#publish-the-application-to-azure). Voor een voorbeeld van een App Service-web-app die is ingericht vanuit Visual Studio door **Host in the cloud** aangevinkt te laten, bekijkt u [Aan de slag met web-apps in Azure App Service met ASP.NET en Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
+3. Selecteer **MVC** als het projecttype. 
+
+    Zorg ervoor dat **Geen verificatie** is opgegeven voor de instellingen bij **Verificatie**. Afhankelijk van uw versie van Visual Studio kan de standaardwaarde op iets anders zijn ingesteld. Als u deze wilt wijzigen, klikt u op **Verificatie wijzigen** en selecteert u **Geen verificatie**.
+
+    Als u de zelfstudie volgt met Visual Studio 2015, schakel dan het selectievakje **Host in de cloud** in. In de volgende stappen in deze zelfstudie [richt u de Azure-resources in](#provision-the-azure-resources) en [publiceert u de toepassing in Azure](#publish-the-application-to-azure). Voor een voorbeeld van een App Service-web-app die is ingericht vanuit Visual Studio door **Host in the cloud** aangevinkt te laten, bekijkt u [Aan de slag met web-apps in Azure App Service met ASP.NET en Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
    
     ![De projectsjabloon selecteren][cache-select-template]
 4. Klik op **OK** om het project te maken.
@@ -76,9 +78,21 @@ Als u Visual Studio 2013 hebt, kunt u [de nieuwste Azure-SDK voor Visual Studio 
 ## <a name="create-the-aspnet-mvc-application"></a>De ASP.NET MVC-toepassing maken
 In dit gedeelte van de zelfstudie maakt u de basistoepassing die teamstatistieken leest en weergeeft vanuit een database.
 
+* [Het Entity Framework NuGet-pakket toevoegen](#add-the-entity-framework-nuget-package)
 * [Het model toevoegen](#add-the-model)
 * [De controller toevoegen](#add-the-controller)
 * [De weergaven configureren](#configure-the-views)
+
+### <a name="add-the-entity-framework-nuget-package"></a>Het Entity Framework NuGet-pakket toevoegen
+
+1. Klik in het menu **Extra** op **NuGet Package Manager**, **Package Manager Console**.
+2. Voer de volgende opdracht uit vanuit het venster `Package Manager Console`.
+    
+    ```
+    Install-Package EntityFramework
+    ```
+
+Meer informatie over dit pakket vindt u op de NuGet-pagina [EntityFramework](https://www.nuget.org/packages/EntityFramework/).
 
 ### <a name="add-the-model"></a>Het model toevoegen
 1. Klik in **Solution Explorer** met de rechtermuisknop op **Models** en kies **Add**, **Class**. 
@@ -172,21 +186,27 @@ In dit gedeelte van de zelfstudie maakt u de basistoepassing die teamstatistieke
 1. Dubbelklik in **Solution Explorer** op **web.config** om het bestand te openen.
    
     ![Web.config][cache-web-config]
-2. Voeg de volgende verbindingsreeks toe aan het gedeelte `connectionStrings`. De naam van de verbindingsreeks moet overeenkomen met de naam van de contextklasse van de Entity Framework-database. Dit is `TeamContext`.
-
-    ```xml   
-    <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
-    ```
-
-    Nadat u deze hebt toegevoegd, moet het gedeelte `connectionStrings` eruitzien zoals in het volgende voorbeeld.
+2. Voeg de volgende `connectionStrings`-sectie toe. De naam van de verbindingsreeks moet overeenkomen met de naam van de contextklasse van de Entity Framework-database. Dit is `TeamContext`.
 
     ```xml
     <connectionStrings>
-        <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
-            providerName="System.Data.SqlClient" />
         <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
+
+    U kunt de nieuwe `connectionStrings`-sectie toevoegen zodat deze achter `configSections` staat, zoals wordt weergegeven in het volgende voorbeeld.
+
+    ```xml
+    <configuration>
+      <configSections>
+        <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+        <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+      </configSections>
+      <connectionStrings>
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+      </connectionStrings>
+      ...
+      ```
 
 ### <a name="add-the-controller"></a>De controller toevoegen
 1. Druk op **F6** om het project te bouwen. 
@@ -228,7 +248,7 @@ In dit gedeelte van de zelfstudie maakt u de basistoepassing die teamstatistieke
         url: "{controller}/{action}/{id}",
         defaults: new { controller = "Teams", action = "Index", id = UrlParameter.Optional }
     );
-```
+    ```
 
 
 ### <a name="configure-the-views"></a>De weergaven configureren
@@ -261,14 +281,14 @@ In dit gedeelte van de zelfstudie configureert u de voorbeeldtoepassing om met b
 * [De weergave Teamindex bijwerken voor gebruik met de cache](#update-the-teams-index-view-to-work-with-the-cache)
 
 ### <a name="configure-the-application-to-use-stackexchangeredis"></a>De toepassing configureren voor gebruik van StackExchange.Redis
-1. Als u in Visual Studio een clienttoepassing wilt configureren met het NuGet-pakket StackExchange.Redis, klikt u in **Solution Explorer** met de rechtermuisknop op het project en kiest u **Manage NuGet Packages**. 
+1. Als u in Visual Studio een clienttoepassing wilt configureren met het NuGet-pakket StackExchange.Redis, klikt u in het menu **Extra** op **NuGet Package Manager**, **Package Manager Console**.
+2. Voer de volgende opdracht uit vanuit het venster `Package Manager Console`.
+    
+    ```
+    Install-Package StackExchange.Redis
+    ```
    
-    ![Manage NuGet Packages][redis-cache-manage-nuget-menu]
-2. Typ **StackExchange.Redis** in het zoekvak, selecteer de gewenste versie in de resultaten en klik op **Install**.
-   
-    ![NuGet-pakket StackExchange.Redis][redis-cache-stack-exchange-nuget]
-   
-    Het NuGet-pakket downloadt de vereiste assembly-verwijzingen voor de clienttoepassing en voegt deze toe om met de cacheclient StackExchange.Redis toegang te krijgen tot de Azure Redis-cache. Als u liever een versie van de clientbibliotheek **StackExchange.Redis** gebruikt met een sterke naam, kiest u **StackExchange.Redis.StrongName**. Kies anders **StackExchange.Redis**.
+    Het NuGet-pakket downloadt de vereiste assembly-verwijzingen voor de clienttoepassing en voegt deze toe om met de cacheclient StackExchange.Redis toegang te krijgen tot de Azure Redis-cache. Als u een versie met een sterke naam van de `StackExchange.Redis`-clientbibliotheek verkiest, installeert u het `StackExchange.Redis.StrongName`-pakket.
 3. Vouw in **Solution Explorer** de map **Controllers** uit en dubbelklik op **TeamsController.cs** om dit bestand te openen.
    
     ![TeamsController][cache-teamscontroller]
@@ -521,7 +541,7 @@ In dit voorbeeld worden teamstatistieken opgehaald uit de database of uit de cac
     }
     ```
 
-    De `GetFromSortedSetTop5`-methode leest de beste vijf teams uit de in de cache opgeslagen gesorteerde set. Deze methode begint met het controleren van de cache op de aanwezigheid van de `teamsSortedSet`-sleutel. Als deze sleutel niet aanwezig is, wordt de `GetFromSortedSet`-methode aangeroepen om de teamstatistieken te lezen en op te slaan in de cache. Vervolgens wordt de in de cache opgeslagen gesorteerde set gevraagd om de beste vijf teams op te halen. Deze worden daarna geretourneerd.
+    De `GetFromSortedSetTop5`-methode leest de beste vijf teams uit de in de cache opgeslagen gesorteerde set. Deze methode begint met het controleren van de cache op de aanwezigheid van de `teamsSortedSet`-sleutel. Als deze sleutel niet aanwezig is, wordt de `GetFromSortedSet`-methode aangeroepen om de teamstatistieken te lezen en op te slaan in de cache. Vervolgens wordt de in de cache opgeslagen gesorteerde set bevraagd om de beste vijf teams op te halen. Deze worden daarna geretourneerd.
 
     ```c#
     List<Team> GetFromSortedSetTop5()
@@ -670,7 +690,7 @@ De ondersteuningscode die als onderdeel van dit voorbeeld is gegenereerd, bevat 
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
     ```
    
-    Deze rij geeft de waarde van `ViewBag.Msg` weer. Deze bevat een statusrapport over de huidige bewerking, die wordt ingesteld wanneer u op een van de actiekoppelingen uit de vorige stap klikt.   
+    Deze rij toont de waarde van `ViewBag.Msg`, die een statusrapport over de huidige bewerking bevat. De `ViewBag.Msg` wordt ingesteld wanneer u op een van de actiekoppelingen uit de vorige stap klikt.   
    
     ![Statusbericht][cache-status-message]
 2. Druk op **F6** om het project te bouwen.
@@ -698,7 +718,7 @@ Als u op de knop **Deploy to Azure** klikt, wordt u naar de Azure-portal geleid 
 ![Implementeren in Azure][cache-deploy-to-azure-step-1]
 
 1. Selecteer in de sectie **Basisbeginselen** het Azure-abonnement dat u wilt gebruiken. Selecteer daarnaast een bestaande resourcegroep of maak een nieuwe, en geef de locatie van de resourcegroep op.
-2. Geef in de sectie **Instellingen** de naam van een beheerdersaccount (**ADMINISTRATORLOGIN** - niet **beheerder** gebruiken), een beheerderswachtwoord voor aanmelding (**ADMINISTRATORLOGINPASSWORD**) en de databasenaam (**DATABASENAME**) op. De andere parameters zijn geconfigureerd voor een gratis App Service-hostingplan en voor opties met lagere kosten voor de SQL Database en de Azure Redis-cache (deze worden niet geleverd met een gratis laag).
+2. Geef in de sectie **Instellingen** de **aanmeldingsnaam van een beheerder** op (gebruik niet **admin**), het **wachtwoord van de beheerdersaanmelding** en de **Databasenaam**. De andere parameters zijn geconfigureerd voor een gratis App Service-hostingplan en voor opties met lagere kosten voor de SQL Database en de Azure Redis-cache (deze worden niet geleverd met een gratis laag).
 
     ![Implementeren in Azure][cache-deploy-to-azure-step-2]
 
@@ -726,17 +746,13 @@ In deze stap van de zelfstudie publiceert u de toepassing in Azure en voert u de
 1. Klik in Visual Studio met de rechtermuisknop op het project **ContosoTeamStats** en kies **Publish**.
    
     ![Publiceren][cache-publish-app]
-2. Klik op **Microsoft Azure App Service**.
+2. Klik op **Microsoft Azure App Service**, kies **Bestaande selecteren** en klik op **Publiceren**.
    
     ![Publiceren][cache-publish-to-app-service]
-3. Selecteer het abonnement dat u hebt gebruikt bij het maken van de Azure-resources, vouw de resourcegroep met de resources uit, selecteer de gewenste web-app en klik op **OK**. Als u de knop **Implementeren in Azure** hebt gebruikt, begint de naam van uw web-app met **webSite**, gevolgd door een aantal extra tekens.
+3. Selecteer het abonnement dat u hebt gebruikt bij het maken van de Azure-resources, vouw de resourcegroep met de resources uit en selecteer de gewenste web-app. Als u de knop **Implementeren in Azure** hebt gebruikt, begint de naam van uw web-app met **webSite**, gevolgd door een aantal extra tekens.
    
     ![Web-app selecteren][cache-select-web-app]
-4. Klik op **Validate Connection** om uw instellingen te controleren. Klik vervolgens op **Publish**.
-   
-    ![Publiceren][cache-publish]
-   
-    Na enkele ogenblikken wordt het publicatieproces voltooid. Er wordt een browservenster geopend waarin de voorbeeldtoepassing wordt uitgevoerd. Als er tijdens het valideren of publiceren een DNS-fout optreedt en het inrichtingsproces voor de Azure-resources voor de toepassing nog maar net is voltooid, wacht dan even en probeer het opnieuw.
+4. Klik op **OK** om het publicatieproces te starten. Na enkele ogenblikken wordt het publicatieproces voltooid. Er wordt een browservenster geopend waarin de voorbeeldtoepassing wordt uitgevoerd. Als er tijdens het valideren of publiceren een DNS-fout optreedt en het inrichtingsproces voor de Azure-resources voor de toepassing nog maar net is voltooid, wacht dan even en probeer het opnieuw.
    
     ![Cache toegevoegd][cache-added-to-application]
 
@@ -848,10 +864,5 @@ Nadat u de cache die u wilt gebruiken, hebt geselecteerd of gemaakt, kunt u naar
 [cache-publish]: ./media/cache-web-app-howto/cache-publish.png
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

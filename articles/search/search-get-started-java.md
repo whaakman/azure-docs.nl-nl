@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ecc365fd90ba955efb977c4e598eae6746916f0
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -60,7 +61,7 @@ In de volgende lijst worden de bestanden beschreven die relevant zijn voor dit v
 
 <a id="sub-2"></a>
 
-## <a name="find-the-service-name-and-apikey-of-your-azure-search-service"></a>De servicenaam en API-sleutel van uw Azure Search-service zoeken
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>De servicenaam en API-sleutel van uw Azure Search-service zoeken
 Voor alle REST API-aanroepen in Azure Search geldt dat u de service-URL en API-sleutel moet opgeven. 
 
 1. Meld u aan bij [Azure-portal](https://portal.azure.com).
@@ -72,7 +73,7 @@ Voor alle REST API-aanroepen in Azure Search geldt dat u de service-URL en API-s
 5. Kopieer de service-URL en een beheersleutel. Deze hebt u later weer nodig wanneer u ze toevoegt aan het bestand **config.properties**.
 
 ## <a name="download-the-sample-files"></a>De voorbeeldbestanden downloaden
-1. Ga naar [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) op Github.
+1. Ga naar [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) op GitHub.
 2. Klik op **Download ZIP** (ZIP downloaden), sla het zip-bestand op naar de schijf en pak vervolgens alle bestanden in het zip-bestand uit. U kunt de bestanden eventueel uitpakken naar uw Java-werkruimte, zodat u het project later eenvoudig kunt terugvinden.
 3. De voorbeeldbestanden hebben het kenmerk alleen -lezen Klik met de rechtermuisknop op de mapeigenschappen en verwijder het kenmerk alleen-lezen.
 
@@ -88,7 +89,7 @@ Alle volgende bestandswijzigingen en uitvoerinstructies worden uitgevoerd voor d
 3. Klik op **Voltooien**.
 4. Gebruik **Projectverkenner** om de bestanden weer te geven en te bewerken. Als Projectverkenner nog niet is geopend, klikt u op **Window** (Venster) > **Show View** (Weergaven tonen) > **Projectverkenner** of gebruik de snelkoppeling om Projectverkenner te openen.
 
-## <a name="configure-the-service-url-and-apikey"></a>Configureer de service-URL en API-sleutel
+## <a name="configure-the-service-url-and-api-key"></a>Configureer de service-URL en API-sleutel
 1. Dubbelklik in **Projectverkenner** op **config.properties** om de configuratie-instellingen met de servernaam en API-sleutel te bewerken.
 2. Raadpleeg de eerdere stappen in dit artikel, waarin u de service-URL en API-sleutel in de [Azure-portal](https://portal.azure.com) hebt gevonden, om de waarden te verkrijgen die u nu moet opgeven in **config.properties**.
 3. In **config.properties** vervangt u 'Api Key' door de API-sleutel voor uw service. Vervolgens wordt in hetzelfde bestand servicename (het eerste onderdeel van de URL http://servicename.search.windows.net) vervangen door de servicenaam.
@@ -179,9 +180,4 @@ Bent u niet bekend met Azure Search? Het is raadzaam andere zelfstudies te bekij
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

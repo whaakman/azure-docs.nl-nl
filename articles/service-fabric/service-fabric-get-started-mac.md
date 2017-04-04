@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 12/27/2016
 ms.author: saysa
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: fc73eedae7ec9664da714567f47a543e625cd023
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: e5d14eb0a656d67030f4c0d3d510aec0e9cafae7
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -38,17 +38,20 @@ Service Fabric wordt niet systeemeigen op OS X uitgevoerd. Als u een lokaal Serv
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
 >[!NOTE]
->  U moet wederzijds ondersteunde versies van Vagrant en VirtualBox gebruiken. Vagrant functioneert mogelijk niet goed in combinatie met een niet-ondersteunde versie van VirtualBox.
+> U moet wederzijds ondersteunde versies van Vagrant en VirtualBox gebruiken. Vagrant functioneert mogelijk niet goed in combinatie met een niet-ondersteunde versie van VirtualBox.
 >
 
 ## <a name="create-the-local-vm"></a>De lokale virtuele machine maken
 Ga als volgt te werk om de lokale VM te maken met een Service Fabric-cluster met 5-knooppunten:
 
-1. Kloon de **Vagrantfile**-opslagplaats
+1. De `Vagrantfile`-opslagplaats klonen
 
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
+    Met deze stappen verkrijgt u het bestand `Vagrantfile` dat de VM-configuratie bevat plus de locatie van waar de virtuele machine is gedownload.
+
+   
 2. Navigeer naar de lokale kloon van de opslagplaats
 
     ```bash
@@ -61,7 +64,7 @@ Ga als volgt te werk om de lokale VM te maken met een Service Fabric-cluster met
    * 3 GB toegewezen geheugen
    * Persoonlijk hostnetwerk geconfigureerd op IP 192.168.50.50 dat passthrough van verkeer van de Mac-host inschakelt
 
-     U kunt een van deze instellingen wijzigen of een andere configuratie toevoegen aan de virtuele machine in de Vagrantfile. Zie de [Vagrant-documentatie](http://www.vagrantup.com/docs) voor de volledige lijst met configuratieopties.
+     U kunt deze instellingen wijzigen of een andere configuratie toevoegen aan de virtuele machine in de `Vagrantfile`. Zie de [Vagrant-documentatie](http://www.vagrantup.com/docs) voor de volledige lijst met configuratieopties.
 4. De virtuele machine maken
 
     ```bash
@@ -72,19 +75,24 @@ Ga als volgt te werk om de lokale VM te maken met een Service Fabric-cluster met
 
     ![Starten van clusterinstallatie na inrichting van VM][cluster-setup-script]
 
+>[!TIP]
+> Als het downloaden van de virtuele machine lang duurt, kunt u deze downloaden met behulp van wget of curl, of via een browser door te navigeren naar de koppeling die met **config.vm.box_url** is opgegeven in het bestand `Vagrantfile`. Nadat u deze lokaal hebt gedownload, bewerkt u `Vagrantfile`, zodat dit wijst naar het lokale pad waar u de installatiekopie hebt gedownload. Als u de installatiekopie bijvoorbeeld hebt gedownload naar /home/users/test/azureservicefabric.tp8.box, stelt u **config.vm.box_url** in op dat pad.
+>
+
 5. Test of het cluster correct is ingesteld door naar Service Fabric Explorer te gaan op http://192.168.50.50:19080/Explorer (ervan uitgaande dat u het standaard IP-adres van het privénetwerk hebt gehouden).
 
     ![Service Fabric Explorer bekeken vanuit de host-Mac][sfx-mac]
 
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>De Service Fabric-invoegtoepassing installeren voor Eclipse Neon
 
-Service Fabric biedt een invoegtoepassing voor de **Eclipse Neon voor Java IDE** die het proces van het maken, bouwen en implementeren van Java-services kan vereenvoudigen. U kunt de installatiestappen volgen uit deze algemene [documentatie](service-fabric-get-started-eclipse.md#install-or-update-service-fabric-plugin-on-eclipse-neon) over het installeren en bijwerken van de Service Fabric Eclipse-invoegtoepassing.
+Service Fabric biedt een invoegtoepassing voor de **Eclipse Neon voor Java IDE** die het maken, bouwen en implementeren van Java-services kan vereenvoudigen. U kunt de installatiestappen volgen uit deze algemene [documentatie](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) over het installeren en bijwerken van de Service Fabric Eclipse-invoegtoepassing.
 
 ## <a name="using-service-fabric-eclipse-plugin-on-mac"></a>De Service Fabric Eclipse-invoegtoepassing gebruiken op Mac-apparaten
 
-Zorg ervoor dat u de stappen uit de [documentatie over de Service Fabric Eclipse-invoegtoepassing](service-fabric-get-started-eclipse.md) hebt gevolgd. De stappen voor het maken, bouwen en implementeren van een Service Fabric Java-toepassing met behulp van een Vagrant-gastcontainer op een Mac-host zijn vrijwel hetzelfde als in de algemene documentatie wordt beschreven, op een paar punten na. Deze punten worden hieronder beschreven.
-* Omdat de Service Fabric-bibliotheken zijn vereist om de Service Fabric Java-toepassing te kunnen bouwen, moet het Eclipse-project worden gemaakt in een gedeeld pad. Standaard wordt de inhoud in het pad van de host waar ``Vagrantfile`` staat, gedeeld met het ``/vagrant``-pad voor de gast.
-* Eenvoudig gezegd: als u ``Vagrantfile`` in een pad hebt staan, zoals ``~/home/john/allprojects/``, moet u het Service Fabric-project ``MyActor`` op de locatie ``~/home/john/allprojects/MyActor`` maken, en wordt het pad naar uw Eclipse-werkruimte ``~/home/john/allprojects``.
+Zorg ervoor dat u de stappen uit de [documentatie over de Service Fabric Eclipse-invoegtoepassing](service-fabric-get-started-eclipse.md) hebt gevolgd. De stappen voor het maken, bouwen en implementeren van een Service Fabric Java-toepassing met behulp van een Vagrant-gastcontainer op een Mac-host zijn vrijwel hetzelfde als in de algemene documentatie wordt beschreven, op de volgende punten na:
+
+* Omdat de Service Fabric-bibliotheken zijn vereist voor de Service Fabric Java-toepassing, moet het Eclipse-project worden gemaakt in een gedeeld pad. Standaard wordt de inhoud in het pad van de host waar ``Vagrantfile`` staat, gedeeld met het ``/vagrant``-pad voor de gast.
+* Als u ``Vagrantfile`` in een pad hebt staan, bijvoorbeeld in ``~/home/john/allprojects/``, moet u het Service Fabric-project ``MyActor`` op de locatie ``~/home/john/allprojects/MyActor`` maken, en wordt het pad naar uw Eclipse-werkruimte ``~/home/john/allprojects``.
 
 ## <a name="next-steps"></a>Volgende stappen
 <!-- Links -->
