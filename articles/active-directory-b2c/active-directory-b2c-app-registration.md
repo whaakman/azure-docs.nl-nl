@@ -5,7 +5,7 @@ services: active-directory-b2c
 documentationcenter: 
 author: parakhj
 manager: krassk
-editor: bryanla
+editor: parakhj
 ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -15,9 +15,10 @@ ms.topic: get-started-article
 ms.date: 3/13/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 541849501335fb25d96cffa81b8119adc158cdd7
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: e04fbd97dd4d5ecaf12edf47d80572b32d29ed00
+ms.lasthandoff: 03/23/2017
+
 
 
 ---
@@ -48,18 +49,26 @@ U kunt de blade ook openen door te klikken op **Meer services** en vervolgens te
 2. Klik op **+Toevoegen** boven aan de blade.
 3. Geef een **Naam** op voor de toepassing waarmee deze wordt beschreven voor uw consumenten. U kunt bijvoorbeeld Contoso B2C-app opgeven.
 4. Zet de schakeloptie **Inclusief web-app/web-API** op **Ja**. De **Antwoord-URL's** zijn eindpunten waarop Azure AD B2C tokens retourneert die door uw toepassing worden aangevraagd. Geef bijvoorbeeld `https://localhost:44316/` op.
-5. Klik op **Opslaan** om de toepassing te registreren.
-6. Klik op de toepassing die u net hebt gemaakt en noteer de globaal unieke **toepassingsclient-id** die u later in uw code gebruikt.
+5. Klik op **Maken** om uw toepassing te registreren.
+6. Klik op de toepassing die u net hebt gemaakt en noteer de globaal unieke **toepassingsclient-id** die u later in uw code gebruikt. 
+7. Als uw webtoepassing ook een web-API aanroept die wordt beveiligd met Azure AD B2C, is het verstandig om een **toepassingsgeheim** te maken. Dit kan door op de blade **Sleutels** te klikken op de knop **Sleutel genereren**.
 
+> [!NOTE]
+> Een **toepassingsgeheim** is een belangrijke beveiligingsreferentie en moet op de juiste wijze worden beveiligd.
+> 
+   
 
 ## <a name="register-a-web-api"></a>Een web-API registreren
 1. Klik op de blade B2C-functies in de Azure Portal op **Toepassingen**.
 2. Klik op **+Toevoegen** boven aan de blade.
 3. Geef een **Naam** op voor de toepassing waarmee deze wordt beschreven voor uw consumenten. U kunt bijvoorbeeld 'Contoso B2C-API' opgeven.
 4. Zet de schakeloptie **Inclusief web-app/web-API** op **Ja**. De **Antwoord-URL's** zijn eindpunten waarop Azure AD B2C tokens retourneert die door uw toepassing worden aangevraagd. Geef bijvoorbeeld `https://localhost:44316/` op.
-5. Klik op **Opslaan** om de toepassing te registreren.
-6. Klik op de toepassing die u net hebt gemaakt en noteer de globaal unieke **toepassingsclient-id** die u later in uw code gebruikt.
-
+5. Voer een waarde in voor **URI voor de app-id**. Dit is de id die wordt gebruikt voor uw web-API. Voer bijvoorbeeld 'notities' in. De volledige URI-id wordt eronder gegenereerd. 
+6. Klik op **Maken** om uw toepassing te registreren.
+7. Klik op de toepassing die u net hebt gemaakt en noteer de globaal unieke **toepassingsclient-id** die u later in uw code gebruikt.
+8. Klik op **Gepubliceerd bereiken**. Dit is waar u de machtigingen (bereiken) definieert die kunnen worden verleend aan andere toepassingen.
+9. Voeg indien nodig meer bereiken toe. Standaard wordt het bereik 'user_impersonation' gedefinieerd. Dit bereik biedt andere toepassingen de mogelijkheid om namens de aangemelde gebruiker toegang te krijgen tot deze API. Dit bereik kan desgewenst ook weer worden ingetrokken. 
+10. Klik op **Opslaan**.
 
 ## <a name="register-a-mobilenative-application"></a>Een mobiele/native toepassing registreren
 1. Klik op de blade B2C-functies in de Azure Portal op **Toepassingen**.
@@ -69,6 +78,11 @@ U kunt de blade ook openen door te klikken op **Meer services** en vervolgens te
 5. Voer bij **Omleidings-URI** een URI met een aangepast schema in. Typ bijvoorbeeld com.onmicrosoft.contoso.app-naam://redirect/pad. Zorg ervoor dat u een [goede omleidings-URI](#choosing-a-redirect-uri) kiest.
 6. Klik op **Opslaan** om de toepassing te registreren.
 7. Klik op de toepassing die u net hebt gemaakt en noteer de globaal unieke **toepassingsclient-id** die u later in uw code gebruikt.
+8. Als uw native toepassing ook een web-API aanroept die wordt beveiligd met Azure AD B2C, is het verstandig om een **toepassingsgeheim** te maken. Dit kan door op de blade **Sleutels** te klikken op de knop **Sleutel genereren**.
+
+> [!NOTE]
+> Een **toepassingsgeheim** is een belangrijke beveiligingsreferentie en moet op de juiste wijze worden beveiligd.
+> 
 
 ### <a name="choosing-a-redirect-uri"></a>Een omleidings-URI kiezen
 Er zijn twee belangrijke overwegingen bij het kiezen van een omleidings-URI voor mobiele/native toepassingen: 

@@ -4,7 +4,7 @@ description: Informatie over het maken, implementeren en beheren van een virtuee
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: f37752a5-cd0c-479b-bef2-ac2c724bcc37
 ms.service: storsimple
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 03/22/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
-ms.openlocfilehash: c081f31acb7d8767343f41be59d75616fa14b2da
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 48d9d8ae97eb763932dd6a59a7df01ae92c92eff
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -32,34 +33,13 @@ Het virtuele StorSimple-apparaat is beschikbaar in twee modellen: de Standard 80
 | **Maximale capaciteit** |30 TB |64 TB |
 | **Azure VM** |Standard_A3 (4 kerngeheugens, 7 GB geheugen) |Standard_DS3 (4 kerngeheugens, 14 GB geheugen) |
 | **Versiecompatibiliteit** |Versies met Update 2 of oudere of nieuwere software |Versies met Update 2 of nieuwere software |
-| **Beschikbaarheid in regio’s** |Alle Azure-regio's |Azure-regio’s waar ondersteuning wordt geboden voor Premium-opslag<br></br>Zie [Ondersteunde regio's voor 8020](#supported-regions-for-8020) voor een lijst met regio’s |
+| **Beschikbaarheid in regio’s** |Alle Azure-regio's |Alle Azure-regio's waar ondersteuning wordt geboden voor Premium Storage<br></br> De Premium Storage-regio's zijn regio's die overeenkomen met de rij voor *Schijfruimte* in de lijst met [Azure Services per regio](https://azure.microsoft.com/en-us/regions/services). |
 | **Opslagtype** |Maakt gebruik van Azure Standard-opslag voor lokale schijven<br></br> Ontdek hoe u [een Standard-opslagaccount maakt](../storage/storage-create-storage-account.md) |Maakt gebruik van Azure Premium Storage voor lokale schijven<sup>2</sup> <br></br>Ontdek hoe u [een Premium Storage-account maakt](../storage/storage-premium-storage.md) |
 | **Richtlijnen voor de workload** |Bestanden ophalen uit back-ups op itemniveau |Cloudontwikkelings- en testscenario’s, lage latentie en werkbelasting met hogere prestaties <br></br>Secundair apparaat voor herstel na noodgevallen |
 
 <sup>1</sup> *Voorheen bekend als de 1100*.
 
 <sup>2</sup> *Voor zowel de 8010 als de 8020 wordt voor de cloudlaag Azure Standard-opslag gebruikt. Het verschil zit hem alleen in de lokale laag in het apparaat*.
-
-#### <a name="supported-regions-for-8020"></a>Ondersteunde regio’s voor de 8020
-De Premium-opslagregio's die momenteel worden ondersteund voor de 8020, worden hieronder in een tabel weergegeven. Deze lijst wordt steeds bijgewerkt naarmate Premium-opslag beschikbaar komt in meer regio's.
-
-| S. nr. | Momenteel niet ondersteund in de volgende regio’s |
-| --- | --- |
-| 1 |VS - midden |
-| 2 |VS - oost |
-| 3 |VS - oost 2 |
-| 4 |VS - west |
-| 5 |Noord-Europa |
-| 6 |West-Europa |
-| 7 |Zuidoost-Azië |
-| 8 |Japan - oost |
-| 9 |Japan - west |
-| 10 |Australië - oost |
-| 11 |Australië - zuidoost* |
-| 12 |Oost-Azië* |
-| 13 |Zuid-centraal VS* |
-
-* Premium-opslag is onlangs geïntroduceerd in deze geografische gebieden.
 
 In dit artikel wordt stapsgewijs beschreven hoe u een virtueel StorSimple-apparaat implementeert in Azure. Wanneer u dit artikel hebt gelezen:
 
@@ -89,7 +69,7 @@ In de volgende gedeelten worden de configuratievereisten voor het virtuele StorS
 #### <a name="azure-requirements"></a>Azure-vereisten
 Voordat u het virtuele apparaat inricht, moet u de volgende voorbereidingen treffen in uw Azure-omgeving:
 
-* Voor het virtuele apparaat [configureert u een virtueel netwerk in Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Als u Premium-opslag gebruikt, moet u een virtueel netwerk maken in een Azure-regio die ondersteuning biedt voor Premium-opslag. Meer informatie over [regio’s die momenteel worden ondersteund voor de 8020](#supported-regions-for-8020).
+* Voor het virtuele apparaat [configureert u een virtueel netwerk in Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Als u Premium-opslag gebruikt, moet u een virtueel netwerk maken in een Azure-regio die ondersteuning biedt voor Premium-opslag. De Premium Storage-regio's zijn regio's die overeenkomen met de rij voor *Schijfruimte* in de lijst met [Azure Services per regio](https://azure.microsoft.com/en-us/regions/services).
 * Het is raadzaam om de standaard-DNS-server van Azure te gebruiken. Geef liever geen eigen naam op voor de DNS-server. Als uw DNS-servernaam niet geldig is of als de DNS-server IP-adressen niet correct kan omzetten, mislukt het maken van het virtuele apparaat.
 * Punt-naar-site en site-naar-site zijn optioneel, maar niet vereist. Als u wilt, kunt u deze opties configureren in meer geavanceerde scenario's.
 * U kunt [virtuele Azure-machines](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (hostservers) maken in het virtuele netwerk; deze maken gebruik van de volumes die beschikbaar worden gesteld door het virtuele apparaat. Deze servers moeten aan de volgende vereisten voldoen:                             
@@ -256,9 +236,4 @@ Als er tijdens het maken van een virtueel apparaat geen verbinding is met intern
 ## <a name="next-steps"></a>Volgende stappen
 * Ontdek hoe u [de StorSimple Manager-service gebruikt om een virtueel apparaat te beheren](storsimple-manager-service-administration.md).
 * Ontdek hoe u [een StorSimple-volume herstelt op basis van een back-upset](storsimple-restore-from-backup-set.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

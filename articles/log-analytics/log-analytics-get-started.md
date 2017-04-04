@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: f75386f970aeb5694d226cfcd569b8c04a253191
-ms.openlocfilehash: 0f418af5728b6a156ebc72fb99a3d16d559654ed
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 634b4c99b746ad0b8b3238e11b3c305d2cf7082f
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -27,7 +27,7 @@ U kunt snel aan de slag met Azure Log Analytics. Deze service helpt u bij het ev
 Dit artikel fungeert als inleiding op Log Analytics. Het bevat een korte zelfstudie die u stapsgewijs laat zien hoe u een minimale implementatie in Azure uitvoert. U kunt de verworven kennis daarna meteen in de praktijk brengen. Een werkruimte is een logische container waarin uw beheergegevens in Azure worden opgeslagen. Nadat u deze informatie hebt doorgenomen en uw eigen evaluatie hebt voltooid, kunt u de evaluatiewerkruimte verwijderen. Omdat dit artikel een zelfstudie betreft, blijven specifieke bedrijfsbehoeften, planningsvereisten en architectuurrichtlijnen buiten beschouwing.
 
 >[!NOTE]
->Als u de Microsoft Azure Government Cloud gebruikt, neemt u in plaats van dit artikel [Azure Government Monitoring + Management documentation](https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics) (Documentatie voor Azure Government Monitoring + Management) door.
+>Als u de Microsoft Azure Government Cloud gebruikt, neemt u in plaats van dit artikel [Azure Government Monitoring + Management documentation](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics) (Documentatie voor Azure Government Monitoring + Management) door.
 
 Hier volgt een kort overzicht van het proces dat u doorloopt om aan de slag te gaan:
 
@@ -128,7 +128,7 @@ Bekijk eerst de gegevens die vanuit de oplossingen zijn aangeleverd. Bekijk verv
 4. Ga naar de [Operations Management Suite](http://microsoft.com/oms)-website en meld aan met uw Azure-account. Wanneer u bent aangemeld, ziet u hier vrijwel identieke informatie over de oplossing als in Azure Portal.  
     ![OMS-portal](./media/log-analytics-get-started/oms-portal.png)
 5. Klik op de tegel **Update Management**.
-6. Op het dashboard Update Management ziet u dat de systeemupdate-informatie identiek is aan die in Azure Portal. De tegel **Manage Update Deployments** is echter nieuw. Klik op de tegel **Manage Update Deployments**.  
+6. Op het dashboard Update Management ziet u dat de systeemupdate-informatie identiek is aan die in Azure Portal. Alleen de tegel **Manage Update Deployments** is nieuw. Klik op de tegel **Manage Update Deployments**.  
     ![Tegel Update Management](./media/log-analytics-get-started/update-management.png)
 7. Klik op de pagina **Update Deployments** op **Add** om een *update uit te voeren*.  
     ![Update-implementaties](./media/log-analytics-get-started/update-management-update-deployments.png)

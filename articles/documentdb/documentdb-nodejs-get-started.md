@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: e955366aa6fb8481fc8a76158b298dd927e855a2
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 2b8ac838e9387b04467f03d0608da05b3edfdd26
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -604,7 +604,7 @@ U ziet de uitvoer van uw GetStarted-app. De uitvoer moet overeenkomen met de ond
 Gefeliciteerd. U hebt de Node.js-zelfstudie voltooid en u beschikt nu over uw eerste DocumentDB-consoletoepassing!
 
 ## <a id="GetSolution"></a>De volledige Node.js-zelfstudieoplossing gebruiken
-Als u geen tijd hebt gehad voor het voltooien van de stappen in deze zelfstudie of als u gewoon de code wilt downloaden, kunt u deze ophalen van [Github](https://github.com/Azure-Samples/documentdb-node-getting-started).
+Als u geen tijd hebt gehad om de stappen in deze zelfstudie uit te voeren of als u alleen de code wilt downloaden, kunt u deze ophalen van [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started).
 
 Als u de oplossing GetStarted wilt uitvoeren met alle voorbeelden uit dit artikel hebt u het volgende nodig:
 

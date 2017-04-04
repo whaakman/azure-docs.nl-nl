@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6a03b96b3f06d9c8cdb820e6c7835f728a28cc99
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: eec7d1402bdea4e5433c473dd713eed23aa80464
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -62,10 +63,10 @@ Maak met [Azure App Service](https://azure.microsoft.com/services/app-service/) 
 9. Klik op OK nadat u het project en de vertakking hebt gekozen. Nu moeten er meldingen over een implementatie binnen beginnen te komen.
    
    ![image9][image9]
-10. Ga terug naar Github om de webhook te zien die is gemaakt om de opslagplaats van het besturingselement te integreren met Azure. Dankzij Azure Portal bestaat integratie met Github uit slechts enkele eenvoudige stappen.
+10. Ga terug naar GitHub om de webhook te zien die is gemaakt om de opslagplaats van het besturingselement te integreren met Azure. Dankzij Azure Portal bestaat integratie met GitHub uit slechts enkele eenvoudige stappen.
     
     ![image10][image10]
-11. Om continue implementatie te demonstreren, gaat u snel wat inhoud aan de opslagplaats toevoegen. Voeg als eenvoudig voorbeeld een voorbeeldtekstbestand toe aan een Github-opslagplaats. U kunt .NET, Ruby, Python of een ander type toepassing met App Service gebruiken. Voeg gerust een tekstbestand, ASP.NET MVC-, Java- of Ruby-toepassing aan de gewenste opslagplaats toe.
+11. Om continue implementatie te demonstreren, gaat u snel wat inhoud aan de opslagplaats toevoegen. Voeg als eenvoudig voorbeeld een voorbeeldtekstbestand toe aan een GitHub-opslagplaats. U kunt .NET, Ruby, Python of een ander type toepassing met App Service gebruiken. Voeg gerust een tekstbestand, ASP.NET MVC-, Java- of Ruby-toepassing aan de gewenste opslagplaats toe.
     
     ![image11][image11]
 12. Nadat de wijzigingen aan de opslagplaats zijn doorgegeven, ziet u in het meldingengebied van de portal dat er een nieuwe implementatie is gestart. Klik op Synchroniseren als u de wijzigingen niet snel genoeg ziet nadat u ze hebt doorgevoerd in de opslagplaats.
@@ -334,9 +335,4 @@ In deze zelfstudie hebt u kennisgemaakt met enkele krachtige mogelijkheden van h
 [image67]: ./media/tutorial-azureportal-devops/image67.png
 [image68]: ./media/tutorial-azureportal-devops/image68.png
 [image69]: ./media/tutorial-azureportal-devops/image69.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

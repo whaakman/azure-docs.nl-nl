@@ -17,8 +17,9 @@ ms.topic: get-started-article
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: bdcf28703f007d32144278c7f0956fe4c27c3b27
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 98cb1d7e5fd464421ae97f2ace33852e71a18a21
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -32,7 +33,7 @@ Azure heeft twee opties om SQL Server-workloads te hosten in Microsoft Azure:
 Ontdek hoe elke optie in het Microsoft-gegevensplatform past en krijg hulp bij het vinden van de juiste optie voor uw zakelijke vereisten. Of u nu kostenbesparingen of minimaal beheer het belangrijkst vindt, met dit artikel kunt u beslissen welke benadering de bedrijfsvereisten levert die u het belangrijkst vindt.
 
 ## <a name="microsofts-data-platform"></a>Gegevensplatform van Microsoft
-Een van de eerste belangrijke punten in een discussie over Azure ten opzichte van on-premises SQL Server-databases is dat u alles kunt gebruiken. Het gegevensplatform van Microsoft maakt gebruik van SQL Server-technologie en maakt deze beschikbaar op fysieke on-premises machines, privécloudomgevingen, externe gehoste privécloudomgevingen en openbare cloud. Met SQL Server op Azure Virtual Machines kunt u voldoen aan de unieke en diverse bedrijfsbehoeften door een combinatie van on-premises en in de cloud gehoste implementaties terwijl dezelfde set serverproducten, ontwikkelingsprogramma's en kennis wordt gebruikt in deze omgevingen.
+Een van de eerste belangrijke punten in een discussie over Azure ten opzichte van on-premises SQL Server-databases is dat u alles kunt gebruiken. Het gegevensplatform van Microsoft maakt gebruik van SQL Server-technologie en maakt deze beschikbaar op fysieke on-premises machines, privécloudomgevingen, externe gehoste privécloudomgevingen en openbare cloud. Met SQL Server op virtuele Azure-machines kunt u voldoen aan de unieke en diverse bedrijfsbehoeften met een combinatie van on-premises en in de cloud gehoste implementaties terwijl dezelfde set serverproducten, ontwikkelingsprogramma's en kennis wordt gebruikt in deze omgevingen.
 
    ![Opties SQL Server cloud: SQL server op IaaS of SaaS-SQL Database in de cloud.](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
 
@@ -54,7 +55,7 @@ In de volgende gedeelten vindt u meer informatie over SQL Server in de openbare 
 
 Over het algemeen zijn deze twee SQL-opties geoptimaliseerd voor verschillende doeleinden:
 
-* **SQL Database** is geoptimaliseerd om de totale kosten te minimaliseren om veel databases in te richten en te beheren. Dit vermindert beheerkosten omdat u geen virtuele machines, besturingssysteem of database-software hoeft te beheren. U hoeft upgrades, hoge beschikbaarheid of [back-ups](sql-database-automated-backups.md) niet te beheren. Over het algemeen kan Azure SQL Database het aantal databases dat wordt beheerd door één IT of ontwikkelingsresource aanzienlijk verhogen.
+* **Azure SQL Database** is geoptimaliseerd voor het minimaliseren van de totale kosten om veel databases in te richten en te beheren. Dit vermindert beheerkosten omdat u geen virtuele machines, besturingssysteem of database-software hoeft te beheren. U hoeft upgrades, hoge beschikbaarheid of [back-ups](sql-database-automated-backups.md) niet te beheren. Over het algemeen kan Azure SQL Database het aantal databases dat wordt beheerd door één IT of ontwikkelingsresource aanzienlijk verhogen.
 * **SQL Server die wordt uitgevoerd op Azure Virtual Machines** is geoptimaliseerd om bestaande toepassingen te migreren naar Azure of bestaande on-premises-toepassingen uit te breiden naar de cloud in hybride implementaties. Bovendien kunt u SQL Server op een virtuele machine gebruiken om traditionele SQL Server-toepassingen te ontwikkelen en te testen. Met SQL Server op Azure Virtual Machines hebt u de volledige beheerdersrechten van een speciaal exemplaar van SQL Server en een cloud-gebaseerde VM. Het is een ideale keuze als een organisatie al IT-bronnen beschikbaar heeft voor het onderhouden van de virtuele machines. Met deze mogelijkheden kunt u een aangepast systeem bouwen voor de specifieke prestaties en beschikbaarheidsvereisten van uw toepassing.
 
 De volgende tabel geeft een overzicht van de belangrijkste kenmerken van de SQL Database en SQL Server op Azure Virtual Machines:
@@ -123,7 +124,7 @@ Voor **SQL Database** Basic, Standard en Premium servicelagen biedt Microsoft ee
 
 Voor **SQL Server die wordt uitgevoerd op Azure Virtual Machines**, biedt Microsoft een beschikbaarheids-SLA van 99,95% die alleen van toepassing is op de virtuele machine. Deze SLA heeft geen betrekking op de processen (zoals SQL Server) die worden uitgevoerd op de VM en vereist dat u ten minste twee exemplaren van de virtuele machine in een beschikbaarheidsset host. Voor de meest recente informatie, zie de [VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Voor hoge beschikbaarheid (HA) van de database binnen virtuele machines, moet u een van de ondersteunde opties voor hoge beschikbaarheid in SQL Server configureren, zoals [AlwaysOn-beschikbaarheidsgroepen](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Het gebruik van een ondersteunde optie voor hoge beschikbaarheid biedt geen extra SLA, maar u kunt wel een databasebeschikbaarheid van >99,99% behalen.
 
-### <a name="a-namemarketatime-to-market"></a><a name="market"></a>Implementatietijd
+### <a name="market"></a>Implementatietijd
 **SQL Database** is de juiste oplossing voor toepassingen die zijn ontworpen voor de cloud wanneer de productiviteit van ontwikkelaars en snelle implementatietijd essentieel zijn. Met programmatische DBA-functies is het ideaal voor cloud-architecten en -ontwikkelaars aangezien het de noodzaak voor het beheren van het onderliggende besturingssysteem en de database vermindert. U kunt bijvoorbeeld de [REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) en [PowerShell-Cmdlets](http://msdn.microsoft.com/library/mt740629.aspx) gebruiken om beheerbewerkingen te automatiseren en beheren voor duizenden databases. Met functies zoals [elastische pools](sql-database-elastic-pool.md) kunt u zich richten op de toepassingslaag en uw oplossing sneller leveren aan de markt.
 
 **SQL Server die wordt uitgevoerd op Azure Virtual Machines** is ideaal als uw bestaande of nieuwe toepassingen grote databases, onderling verbonden databases of toegang tot alle functies in SQL Server of Windows vereisen. Het is ook geschikt wanneer u bestaande on-premises toepassingen en databases wilt migreren naar Azure. Omdat u de presentatie-, toepassings- en gegevenslagen niet hoeft te wijzigen, bespaart u tijd en geld op het opnieuw vormgeven van uw architectuur. In plaats daarvan kunt u zich richten op het migreren van uw oplossingen naar Azure en het uitvoeren van prestatieoptimalisatie die mogelijk wordt vereist door het Azure-platform. Zie voor meer informatie [Best practices prestaties for SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
@@ -145,10 +146,5 @@ Kies voor **SQL Server op Azure VM's** als:
 * Zie [Uw eerste Azure SQL Database](sql-database-get-started.md) om aan de slag te gaan met SQL Database.
 * Zie [Prijzen van SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 * Zie [Provision a SQL Server virtual machine in Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) om aan de slag te kunnen met SQL Server op Azure VM’s.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 03/19/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 639eb424c31abea4106cf37b14fee99a8fd9d307
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 648aa01beaffccf69250f1028e27bc13ed70837c
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -529,7 +529,7 @@ U ziet de uitvoer van uw GetStarted-app. De uitvoer bevat de resultaten van de q
 Gefeliciteerd. U hebt de NoSQL-zelfstudie voltooid en beschikt nu over een werkende C#-consoletoepassing.
 
 ## <a id="GetSolution"></a> De volledige NoSQL-zelfstudieoplossing ophalen
-Als u geen tijd hebt gehad voor het voltooien van de stappen in deze zelfstudie of als u gewoon de codevoorbeelden wilt downloaden, kunt u deze ophalen van [Github](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
+Als u geen tijd hebt gehad om de stappen in deze zelfstudie uit te voeren of als u alleen de codevoorbeelden wilt downloaden, kunt u deze ophalen van [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
 
 Voor het bouwen van de oplossing GetStarted hebt u het volgende nodig:
 

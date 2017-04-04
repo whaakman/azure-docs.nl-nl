@@ -1,4 +1,4 @@
-Zorg ervoor dat u al een Relay-naamruimte hebt gemaakt, zoals [hier][namespace-how-to] wordt weergegeven.
+Controleer of u al een Relay-naamruimte hebt gemaakt, zoals [hier][namespace-how-to] wordt weergegeven.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik in het linkernavigatievenster van de portal op **Relay**.
@@ -14,7 +14,3 @@ Zorg ervoor dat u al een Relay-naamruimte hebt gemaakt, zoals [hier][namespace-h
 6. Klik onder aan de blade op **Maken**.
 
 [namespace-how-to]: ../articles/service-bus-relay/relay-create-namespace-portal.md 
-
-<!--HONumber=Feb17_HO1-->
-
-

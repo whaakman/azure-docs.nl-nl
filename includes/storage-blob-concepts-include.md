@@ -14,7 +14,7 @@ De Blob service bevat de volgende onderdelen:
 
 ![Blobarchitectuur](./media/storage-blob-concepts-include/blob1.png)
 
-* **Opslagaccount:** Alle toegang tot Azure Storage vindt plaats via een opslagaccount. Dit opslagaccount kan een **algemeen opslagaccount** zijn of een **Blob-opslagaccount** dat speciaal is bedoeld voor de opslag van objecten/blobs. Zie [Azure-opslagaccount](../articles/storage/storage-create-storage-account.md) voor meer informatie over opslagaccounts.
+* **Opslagaccount:** Alle toegang tot Azure Storage vindt plaats via een opslagaccount. Dit opslagaccount kan een **algemeen opslagaccount** zijn of een **Blob-opslagaccount** dat speciaal is bedoeld voor de opslag van objecten/blobs. Zie [Over Azure Storage-accounts](../articles/storage/storage-create-storage-account.md) voor meer informatie.
 * **Container:** Een container is een groepering van een reeks blobs. Alle blobs moeten zich in een container bevinden. Een account kan een onbeperkt aantal containers bevatten. Een container kan een onbeperkt aantal blobs bevatten. De naam van een container mag alleen kleine letters bevatten.
 * **Blob:** Een bestand van willekeurig type en willekeurige grootte. Azure Storage biedt drie typen blobs: blok-blobs, pagina-blobs en toevoeg-blobs.
   
@@ -22,10 +22,5 @@ De Blob service bevat de volgende onderdelen:
   
     *Pagina-blobs* kunnen 1 TB groot zijn, en zijn efficiënter voor regelmatige lees- en schrijfbewerkingen. In Azure Virtuele Machines worden pagina-blobs gebruikt als besturingssysteem- en gegevensschijven.
   
-    Zie [Containers, blobs en metagegevens een naam geven en hiernaar verwijderen](https://msdn.microsoft.com/library/azure/dd135715.aspx) voor meer informatie over de naamgeving van containers en blobs.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+    Zie [Containers, blobs en metagegevens een naam geven en hiernaar verwijderen](/rest/api/storageservices/fileservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) voor meer informatie over de naamgeving van containers en blobs.
 

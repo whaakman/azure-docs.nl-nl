@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 0c56a74e43b989a32b10a878cec16cce0f972a9f
-ms.openlocfilehash: 63c0397b6e737038fb7758d2749ae82d1485d45d
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 34a9d187eecec185e2b8d6977baea267ca9e60e5
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -130,6 +130,19 @@ Gebruik Site Recovery om uw SAP-implementatie als volgt te beveiligen:
 * Vereenvoudig SAP-ontwikkeling en -tests door naar behoeven een op de productieomgeving lijkende replica-omgeving te maken, zodat u toepassingen kunt testen en foutopsporing kunt uitvoeren.
 
 [Meer informatie](http://aka.ms/asr-sap) over het beveiligen van SAP.
+
+## <a name="protect-iis"></a>IIS beveiligen
+Gebruik Site Recovery om uw IIS-implementatie als volgt te beveiligen:
+
+Azure Site Recovery biedt herstel na noodgevallen door de belangrijke onderdelen in uw omgeving te repliceren naar een koude externe site of een openbare cloud, zoals Microsoft Azure. Omdat de virtuele machine met de webserver en de database worden gerepliceerd naar de herstelsite, hoeft er geen afzonderlijke back-up te worden gemaakt van configuratiebestanden of certificaten. De toepassingstoewijzingen en -bindingen die afhankelijk zijn van omgevingsvariabelen die na failover zijn gewijzigd, kunnen worden bijgewerkt via scripts die zijn geïntegreerd in de plannen voor herstel na noodgevallen. Virtuele machines worden alleen in het geval van een failover naar de herstelsite gebracht. Door u de volgende mogelijkheden te bieden, helpt Azure Site Recovery daarnaast ook bij de organisatie van een complete failover:
+
+-    Sequentiëring van het afsluiten en opstarten van virtuele machines in de verschillende categorieën.
+-    Het toevoegen van scripts voor het bijwerken van toepassingsafhankelijkheden en -bindingen op de virtuele machines nadat deze zijn gestart. De scripts kunnen ook worden gebruikt om de DNS-server zo bij te werken dat deze naar de herstelsite wijst.
+-    Het vóór de failover toewijzen van IP-adressen aan virtuele machines door de primaire en herstelnetwerken toe te wijzen, zodat scripts kunnen worden gebruikt die na failover niet bijgewerkt hoeven te worden.
+-    De mogelijkheid van een failover met één klik voor meerdere webtoepassingen op de webservers, zodat er geen verwarring meer is in het geval van een noodgeval.
+-    De mogelijkheid om de herstelplannen in een geïsoleerde omgeving te testen voor details voor DR.
+
+[Meer informatie](https://aka.ms/asr-iis) over het beveiligen van IIS-webfarm.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Vereisten controleren](site-recovery-prereq.md) 

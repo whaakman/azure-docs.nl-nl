@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 441caf3cc9a3b9074bd263f4a4c45763967fa580
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c2c46637ccccd01c1c3056d6a25ef605cfd68f2d
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Aan de slag met wachtwoordbeheer
 > [!IMPORTANT]
-> **Bent u hier terechtgekomen omdat u problemen ondervindt met het aanmelden?** Als dat het geval is, vindt u hier meer informatie over het [wijzigen en opnieuw instellen van uw eigen wachtwoord](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Bent u hier terechtgekomen omdat u problemen ondervindt met het aanmelden?** Als dat het geval is, vindt u hier meer informatie over het [wijzigen en opnieuw instellen van uw eigen wachtwoord](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -33,7 +33,7 @@ Er hoeven slechts enkele eenvoudige stappen te worden uitgevoerd om uw gebruiker
 * [**Handige tips van onze klanten voordat u begint**](#top-tips-from-our-customers-to-read-before-you-begin)
  * [**BELANGRIJKSTE TIP: NAVIGEREN IN DOCUMENTATIE** - Gebruik onze inhoudsopgave en de zoekfunctie van uw browser om antwoord op uw vragen te vinden](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
  * [**Tip 1: LICENTIEVERLENING** - Zorg ervoor dat de licentievereisten duidelijk zijn](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
- * [**Tip 2: TESTEN** - Test met een eindgebruiker, niet een beheerder, en voer een pilot uit met een kleine groep gebruikers](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+ * [**Tip 2: TESTEN** - Test met een eindgebruiker, niet een beheerder, en voer een pilot uit met een kleine groep gebruikers](#tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
  * [**Tip 3: IMPLEMENTATIE** - Vul vooraf gegevens in voor uw gebruikers, zodat ze zich niet hoeven te registreren](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
  * [**Tip 4: Implementatie** - Gebruik de functie voor wachtwoordherstel, zodat het niet meer nodig is om tijdelijke wachtwoorden te verstrekken](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
  * [**Tip 5: TERUGSCHRIJVEN** - Raadpleeg het toepassingsgebeurtenislogboek op uw computer met AAD Connect om problemen met het terugschrijven van wachtwoorden op te lossen](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
@@ -59,7 +59,7 @@ Hieronder vindt u enkele van de tips die in de praktijk zeer nuttig zijn gebleke
 
 * [**BELANGRIJKSTE TIP: NAVIGEREN IN DOCUMENTATIE** - Gebruik onze inhoudsopgave en de zoekfunctie van uw browser om antwoord op uw vragen te vinden](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
 * [**Tip 1: LICENTIEVERLENING** - Zorg ervoor dat de licentievereisten duidelijk zijn](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
-* [**Tip 2: TESTEN** - Test met een eindgebruiker, niet een beheerder, en voer een pilot uit met een kleine groep gebruikers](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+* [**Tip 2: TESTEN** - Test met een eindgebruiker, niet een beheerder, en voer een pilot uit met een kleine groep gebruikers](#tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
 * [**Tip 3: IMPLEMENTATIE** - Vul vooraf gegevens in voor uw gebruikers, zodat ze zich niet hoeven te registreren](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
 * [**Tip 4: Implementatie** - Gebruik de functie voor wachtwoordherstel, zodat het niet meer nodig is om tijdelijke wachtwoorden te verstrekken](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
 * [**Tip 5: TERUGSCHRIJVEN** - Raadpleeg het toepassingsgebeurtenislogboek op uw computer met AAD Connect om problemen met het terugschrijven van wachtwoorden op te lossen](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
@@ -78,9 +78,9 @@ U vindt de inhoudsopgave via deze koppeling:
 De functie voor wachtwoordherstel van Azure AD werkt alleen als er ten minste één licentie is toegewezen in uw organisatie. Er wordt geen licentie per gebruiker afgedwongen voor de ervaring Wachtwoordherstel zelf. Als u de functie echter gebruikt zonder dat er een licentie is toegewezen aan een gebruiker, voldoet u niet aan de voorwaarden van uw Microsoft-licentieovereenkomst en zult u licenties moeten toewijzen aan die gebruikers.
 
 Dit zijn enkele documenten die u kunt lezen om te begrijpen welke licenties zijn vereist voor de functie voor wachtwoordherstel.
-* [General password reset licensing information]() (Algemene licentiegegevens voor wachtwoordherstel)
-* [Per-feature password reset licensing information]() (Licentiegegevens voor wachtwoordherstel per functie)
-* [Scenarios supported for password writeback]() (Scenario's die worden ondersteund voor terugschrijven van wachtwoorden)
+* [General password reset licensing information](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-customize#what-customization-options-are-available) (Algemene licentiegegevens voor wachtwoordherstel)
+* [Per-feature password reset licensing information](https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability) (Licentiegegevens voor wachtwoordherstel per functie)
+* [Scenarios supported for password writeback](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#scenarios-supported-for-password-writeback) (Scenario's die worden ondersteund voor terugschrijven van wachtwoorden)
 
 ### <a name="tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users"></a>Tip 2: TESTEN - Test met een eindgebruiker, niet een beheerder, en voer een pilot uit met een kleine groep gebruikers
 Wanneer u test met een beheerder, is het beleid voor wachtwoordherstel voor beheerders van kracht. Dit beleid wordt hieronder toegelicht.  Dit betekent dat u NIET de verwachte resultaten ziet van het beleid dat u hebt geconfigureerd voor uw eindgebruikers.
@@ -310,6 +310,7 @@ In dit gedeelte vindt u meer informatie over het configureren van het opnieuw in
 Voordat u het terugschrijven van wachtwoorden kunt inschakelen, moet u aan de volgende vereisten voldoen:
 
 * U hebt een Azure AD-tenant waarvoor Azure AD Premium is ingeschakeld.  Zie [Azure Active Directory-edities](active-directory-editions.md) voor meer informatie.
+* U moet Azure AD Connect koppelen aan de PDC-emulator (primaire domeincontroller) om het terugschrijven van wachtwoorden te laten werken.  Indien nodig kunt u Azure AD Connect configureren om een PDC te gebruiken door met de rechtermuisknop te klikken op **Eigenschappen** in de Active Directory-synchronisatieconnector, en vervolgens **Mappartities configureren** te selecteren. Ga van daaruit naar de sectie **Verbindingsinstellingen voor domeincontrollers** en schakel het vakje **Alleen voorkeursdomeincontrollers gebruiken** in.  Opmerking: Als de voorkeursdomeincontroller geen PDC-emulator is, wordt via Azure AD Connect toch verbinding gemaakt met de PDC voor het terugschrijven van wachtwoorden.
 * Het opnieuw instellen van wachtwoorden is geconfigureerd en ingeschakeld in uw tenant.  Zie [Gebruikers in staat stellen om hun Azure AD-wachtwoorden opnieuw in te stellen](#enable-users-to-reset-their-azure-ad-passwords) voor meer informatie
 * U hebt ten minste één beheerdersaccount en één testgebruikersaccount nodig in combinatie met een Azure AD Premium-licentie waarmee u deze functie kunt testen.  Zie [Azure Active Directory-edities](active-directory-editions.md) voor meer informatie.
 
@@ -374,7 +375,7 @@ Nu u het Azure AD Connect-hulpprogramma hebt gedownload, kunt u Wachtwoord terug
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>Wachtwoord terugschrijven inschakelen met Windows PowerShell
 1. Op uw **Directory Sync-computer** opent u een nieuw **verhoogd Windows PowerShell-venster**.
 2. Als de module nog niet is geladen, typt u in de `import-module ADSync`-opdracht om de Azure AD Connect-cmdlets naar uw huidige sessie te laden.
-3. Haal de lijst Azure AD-connectors in uw systeem op door de cmdlet `Get-ADSyncConnector` uit te voeren en de resultaten op te slaan in `$aadConnectorName`, zoals `$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
+3. Haal de lijst Azure AD-connectors in uw systeem op door de cmdlet `Get-ADSyncConnector` uit te voeren en de resultaten op te slaan in `$aadConnectorName`, zoals `$aadConnectorName = Get-ADSyncConnector|where-object {$_.name -like "*AAD"}`
 4. De huidige status van terugschrijven voor de huidige connector ophalen door de volgende cmdlet uit te voeren: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
 5. Wachtwoord terugschrijven inschakelen door de cmdlet uit te voeren: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
@@ -398,9 +399,9 @@ Als u Wachtwoord terugschrijven hebt ingeschakeld, moet u ervoor zorgen dat de m
 
 #### <a name="why-do-i-need-to-do-this"></a>Waarom moet ik dit doen?
 
-Als u wilt dat het terugschrijven van wachtwoorden goed werkt, moet de machine waarop Azure AD Connect wordt uitgevoerd, een uitgaande HTTPS-verbinding kunnen maken met **.servicebus.windows.net* en bepaalde IP-adressen die worden gebruikt door Azure. Deze worden gedefinieerd in de [Microsoft Azure-lijst met datacenter-IP-bereiken](https://www.microsoft.com/download/details.aspx?id=41653).
+De functie Wachtwoord terugschrijven werkt alleen als de machine waarop Azure AD Connect wordt uitgevoerd, kan communiceren met de service voor het opnieuw instellen van wachtwoorden en met Azure Service Bus.
 
-Voor Azure AD Connect-versie **1.1.443.0** (nieuwste) en hoger:
+Voor Azure AD Connect-versie **1.1.443.0** en hoger:
 
 - De meest recente versie van het hulpprogramma Azure AD Connect moet **uitgaande HTTPS-toegang** hebben tot:
     - *passwordreset.microsoftonline.com*
@@ -420,7 +421,7 @@ Voor Azure AD Connect-versie **1.0.8667.0** tot **1.1.380.0**:
         - Als u wilt dat het terugschrijven van wachtwoorden bij deze configuratie blijft werken, moet u ervoor zorgen dat uw netwerkapparaten elke week worden bijgewerkt met de nieuwste IP-adressen van de Microsoft Azure-lijst met datacenter-IP-bereiken. Deze IP-bereiken zijn beschikbaar in een XML-bestand dat elke woensdag (Pacific Time) wordt bijgewerkt en de daarop volgende maandag (Pacific Time) van kracht wordt.
     - Vereiste stappen:
         - Alle uitgaande HTTPS-verbindingen met *.servicebus.windows.net toestaan
-        - Sta alle uitgaande HTTPS-verbindingen met de IP-adressen in de Microsoft Azure-lijst met datacenter-IP-bereiken toe en werk deze configuratie elke week bij.
+        - Sta alle uitgaande HTTPS-verbindingen met de IP-adressen in de Microsoft Azure-lijst met datacenter-IP-bereiken toe en werk deze configuratie elke week bij. De lijst kan [hier](https://www.microsoft.com/download/details.aspx?id=41653) worden gedownload.
 
 > [!NOTE]
 > Als u het terugschrijven van wachtwoorden hebt geconfigureerd door de bovenstaande instructies te volgen en u geen fouten ziet in het Azure AD Connect-gebeurtenislogboek, maar er wel connectiviteitsproblemen optreden bij het testen, kan het zijn dat een netwerkapparaat in uw omgeving HTTP-verbindingen met IP-adressen blokkeert. Als verbinding met *https://*.servicebus.windows.net* bijvoorbeeld is toegestaan, kan het zijn dat de verbinding met een bepaald IP-adres binnen dat bereik wordt geblokkeerd. U kunt dit oplossen door uw netwerkomgeving zodanig te configureren dat uitgaande HTTPS-verbindingen via poort 443 met alle URL's en IP-adressen (optie 1 hierboven) worden toegestaan. Als alternatief kunt u ook contact opnemen met uw netwerkteam om HTTPS-verbindingen met specifieke IP-adressen toe te staan (optie 2 hierboven).
@@ -494,7 +495,7 @@ Nu Wachtwoord terugschrijven is ingeschakeld, kunt u testen of dit werkt. Hiervo
 ## <a name="next-steps"></a>Volgende stappen
 Hieronder vindt u koppelingen naar alle Azure AD-documentatiepagina’s over wachtwoordherstel:
 
-* **Bent u hier terechtgekomen omdat u problemen ondervindt met het aanmelden?** Als dat het geval is, vindt u hier meer informatie over het [wijzigen en opnieuw instellen van uw eigen wachtwoord](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Bent u hier terechtgekomen omdat u problemen ondervindt met het aanmelden?** Als dat het geval is, vindt u hier meer informatie over het [wijzigen en opnieuw instellen van uw eigen wachtwoord](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Hoe werkt het?**](active-directory-passwords-how-it-works.md): meer informatie over de zes verschillende onderdelen van de service en wat elke service biedt
 * [**Aanpassen**](active-directory-passwords-customize.md): informatie over het aanpassen van de weergave en het gedrag van de service om aan de behoeften van uw organisatie te voldoen
 * [**Aanbevolen procedures**](active-directory-passwords-best-practices.md): informatie over het snel implementeren en effectief beheren van wachtwoorden in uw organisatie
