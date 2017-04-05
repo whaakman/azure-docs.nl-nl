@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: d342e21e8e0bd78b713f3a6b2f7b3c319185eb43
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e4f47341554e2de514c8be2f5c85983d09bbb760
+ms.lasthandoff: 04/03/2017
 
 ---
 
@@ -34,7 +34,7 @@ Op de volgende afbeelding ziet u de architectuur van een Container Service-clust
 ![Afbeelding van Kubernetes-cluster in Azure](media/container-service-kubernetes-walkthrough/kubernetes.png)
 
 ## <a name="prerequisites"></a>Vereisten
-In dit scenario wordt ervan uitgegaan dat u [Azure CLI-versie 2.0](/cli/azure/install-az-cli2) hebt geïnstalleerd en ingesteld. Ook moet u een openbare SSH-RSA-sleutel hebben op `~/.ssh/id_rsa.pub`. Als u er geen hebt, raadpleegt u de stappen voor [OS X en Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) of [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md).
+In dit scenario wordt ervan uitgegaan dat u [Azure CLI-versie 2.0](/cli/azure/install-az-cli2) hebt geïnstalleerd en ingesteld. Ook moet u een openbare SSH-RSA-sleutel hebben op `~/.ssh/id_rsa.pub`. Als u er geen hebt, raadpleegt u de stappen voor [OS X en Linux](../virtual-machines/linux/mac-create-ssh-keys.md) of [Windows](../virtual-machines/linux/ssh-from-windows.md).
 
 
 

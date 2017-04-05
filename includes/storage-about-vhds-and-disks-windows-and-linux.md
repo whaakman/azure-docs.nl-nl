@@ -1,13 +1,3 @@
-### <a name="disk-persistence"></a>Schijfpersistentie 
-
-De volgende tabel illustreert de verschillende statussen voor de verschillende schijven in een virtuele Azure-machine. Ook wordt aangegeven of de gegevens in een bepaalde status al dan niet worden bewaard.
-
-| Schijf | Starten | Stoppen/<br>Toewijzing ongedaan maken | Onderbreken | Opnieuw<br>opstarten | Afsluiten<br>down | Verwijderen | Fout | Formaat wijzigen | 
-| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
-| Besturingssysteemschijf | Ja | Ja  | Ja | Ja | Ja  | Nee | Nee  | Ja | 
-| RAM  | Ja | Ja | Ja | Ja | Nee   | Nee | Nee | Nee | 
-| Lokale tijdelijke schijf | Ja | Nee | Ja | Nee | Nee  | Nee | Nee | Nee | 
-| Gekoppelde gegevensschijf | Ja | Ja | Ja | Ja | Ja  | Ja | Ja | Ja | 
 
 ## <a name="about-vhds"></a>Over VHD's
 
@@ -41,7 +31,7 @@ Premium Storage maakt gebruik van SSD's en voorziet in hoogwaardige schijfonders
 
 ### <a name="unmanaged-disks"></a>Niet-beheerde schijven
 
-Oorspronkelijk werden niet-beheerde schijven gebruikt door virtuele machines. Met deze schijven maakt u uw eigen opslagaccount en specificeert u dit account wanneer u de schijf maakt. U dient te controleren of u niet te veel schijven in hetzelfde opslagaccount plaatst, omdat u anders de [schaalbaarheidsdoelen](../articles/storage/storage-scalability-targets.md) van het opslagaccount kunt overschrijden (bijvoorbeeld&20;.000 IOP's), waardoor de virtuele machines worden vertraagd. Met niet-beheerde schijven moet u bepalen hoe u het beste gebruik kunt maken van een of meer opslagaccounts om de beste prestaties voor uw virtuele machines te realiseren.
+Oorspronkelijk werden niet-beheerde schijven gebruikt door virtuele machines. Met deze schijven maakt u uw eigen opslagaccount en specificeert u dit account wanneer u de schijf maakt. U dient te controleren of u niet te veel schijven in hetzelfde opslagaccount plaatst, omdat u anders de [schaalbaarheidsdoelen](../articles/storage/storage-scalability-targets.md) van het opslagaccount kunt overschrijden (bijvoorbeeld 20.000 IOP's), waardoor de virtuele machines worden vertraagd. Met niet-beheerde schijven moet u bepalen hoe u het beste gebruik kunt maken van een of meer opslagaccounts om de beste prestaties voor uw virtuele machines te realiseren.
 
 ### <a name="managed-disks"></a>Managed Disks 
 

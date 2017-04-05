@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 8460ed6be3e922fb85f46982662d44eed21dda7c
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 81cf490eae7f283c0180875cb3a2ed2ffe6333c8
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -36,7 +36,7 @@ Tijdens het configureren van de waarschuwing hebt u twee opties voor het aanroep
 
 ## <a name="calling-a-runbook-using-a-webhook"></a>Een runbook aanroepen met behulp van een webhook
 
-Met een webhook kunt u een bepaald runbook in Azure Automation starten via een afzonderlijke HTTP-aanvraag.  Voordat u de [Log Analytics-waarschuwing](../log-analytics/log-analytics-alerts.md#creating-alert-rules) configureert om het runbook aan te roepen met behulp van een webhook als waarschuwingsactie, moet u een webhook voor het runbook maken dat met deze methode wordt aangeroepen.  Bekijk en volg de stappen in het artikel [Create a webhook](automation-webhooks.md#creating-a-webhook) (Een webhook maken) en vergeet niet om de webhook-URL te registreren, zodat u ernaar kunt verwijzen tijdens het configureren van de waarschuwingsregel.   
+Met een webhook kunt u een bepaald runbook in Azure Automation starten via een afzonderlijke HTTP-aanvraag.  Voordat u de [Log Analytics-waarschuwing](../log-analytics/log-analytics-alerts.md#alert-rules) configureert om het runbook aan te roepen met behulp van een webhook als waarschuwingsactie, moet u een webhook voor het runbook maken dat met deze methode wordt aangeroepen.  Bekijk en volg de stappen in het artikel [Create a webhook](automation-webhooks.md#creating-a-webhook) (Een webhook maken) en vergeet niet om de webhook-URL te registreren, zodat u ernaar kunt verwijzen tijdens het configureren van de waarschuwingsregel.   
 
 ## <a name="calling-a-runbook-directly"></a>Een runbook direct aanroepen
 
