@@ -128,7 +128,6 @@
 
 ## Apparaten beheren
 ### [Apparaten registreren](active-directory-device-registration-overview.md)
-#### [Automatische registratie beheren](active-directory-device-registration.md)
 #### [Instellen](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [On-premises implementeren](active-directory-device-registration-on-premises-setup.md)
 #### [Veelgestelde vragen](active-directory-device-registration-faq.md)
@@ -161,7 +160,6 @@
 ##### [Azure Portal](application-proxy-publish-azure-portal.md)
 ##### [Klassieke portal](active-directory-application-proxy-publish.md)
 
-#### [PingAccess voor Azure AD](application-proxy-ping-access.md)
 #### [Beveiliging](application-proxy-security-considerations.md)
 #### [Netwerken](application-proxy-network-topology-considerations.md)
 #### [Extern bureaublad](application-proxy-publish-remote-desktop.md)
@@ -174,7 +172,8 @@
 #### [Aangepaste domeinen](active-directory-application-proxy-custom-domains.md)
 #### [Toegang tot apps](active-directory-appssoaccess-whatis.md)
 ##### [Azure Portal](application-proxy-sso-azure-portal.md)
-#### [Eenmalige aanmelding](active-directory-application-proxy-sso-using-kcd.md)
+#### [Eenmalige aanmelding met KCD](active-directory-application-proxy-sso-using-kcd.md)
+#### [Eenmalige aanmelding met koppen](application-proxy-ping-access.md)
 #### [Claimbewuste apps](active-directory-application-proxy-claims-aware-apps.md)
 #### [Systeemeigen client-apps](active-directory-application-proxy-native-client.md)
 #### [Aangepaste startpagina](application-proxy-office365-app-launcher.md)

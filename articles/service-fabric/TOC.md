@@ -57,16 +57,19 @@
 #### Aan de slag
 ##### [C# op Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java op Linux](service-fabric-reliable-services-quick-start-java.md)
-#### [Levenscyclus van Reliable Services](service-fabric-reliable-services-lifecycle.md)
+#### [Levenscyclus van Reliable Services - C#](service-fabric-reliable-services-lifecycle.md)
+#### [Levenscyclus van Reliable Services - Java](service-fabric-reliable-services-lifecycle-java.md)
 #### [Betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md)
 #### [Betrouwbare verzamelingen gebruiken](service-fabric-work-with-reliable-collections.md)
 #### [Configureren](service-fabric-reliable-services-configuration.md)
 #### [Meldingen](service-fabric-reliable-services-notifications.md)
 #### [Back-up en herstel](service-fabric-reliable-services-backup-restore.md)
 #### [Communiceren via Betrouwbare services](service-fabric-reliable-services-communication.md)
-#### [Veilige communicatie via Reliable Services](service-fabric-reliable-services-secure-communication.md)
+#### [Veilige communicatie via Reliable Services - C#](service-fabric-reliable-services-secure-communication.md)
+#### [Veilige communicatie via Reliable Services - Java](service-fabric-reliable-services-secure-communication-java.md)
 ##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
-##### [Service voor externe toegang](service-fabric-reliable-services-communication-remoting.md)
+##### [Service voor externe toegang - C#](service-fabric-reliable-services-communication-remoting.md)
+##### [Service voor externe toegang - Java](service-fabric-reliable-services-communication-remoting-java.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Omgekeerde proxy](service-fabric-reverseproxy.md)
 #### [Geavanceerd gebruik](service-fabric-reliable-services-advanced-usage.md)
@@ -104,6 +107,7 @@
 #### [Een cluster beheren met Azure CLI](service-fabric-azure-cli.md) 
 #### [Een cluster beveiligen](service-fabric-cluster-security.md)
 #### [Herstel na noodgevallen](service-fabric-disaster-recovery.md)
+#### [Functieverschillen tussen Linux en Windows](service-fabric-linux-windows-differences.md)
 
 ### Clusters op Azure
 #### Een cluster maken op Azure

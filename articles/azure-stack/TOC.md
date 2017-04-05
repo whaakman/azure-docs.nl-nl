@@ -65,10 +65,11 @@
 #### [Een Marketplace-item maken en publiceren](azure-stack-create-and-publish-marketplace-item.md)
 #### [Een aangepaste VM-installatiekopie toevoegen](azure-stack-add-vm-image.md)
 #### [Virtuele Linux-machines implementeren](azure-stack-linux.md)
-### Facturering en toerekenen
-#### [Overzicht van facturering en toerekenen](azure-stack-billing-and-chargeback.md)
-#### [Resourcegebruik-API voor providers](azure-stack-provider-resource-api.md)
-#### [Resourcegebruik-API voor tenants](azure-stack-tenant-resource-usage-api.md)
+### Gebruik en facturering
+#### [Overzicht](azure-stack-billing-and-chargeback.md)
+#### [Rapportage over gebruiksgegevens](azure-stack-usage-reporting.md)
+#### [API voor providergebruik](azure-stack-provider-resource-api.md)
+#### [API voor tenantgebruik](azure-stack-tenant-resource-usage-api.md)
 #### [Veelgestelde vragen over gebruik](azure-stack-usage-related-faq.md)
 
 # Services gebruiken

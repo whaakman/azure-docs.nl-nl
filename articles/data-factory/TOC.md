@@ -25,10 +25,11 @@
 
 # Procedures
 ## Gegevens verplaatsen
+### [Overzicht kopieeractiviteit](data-factory-data-movement-activities.md)
 ### [Kopieerwizard van Data Factory](data-factory-azure-copy-wizard.md)
 #### [1 TB in 15 minuten laden](data-factory-load-sql-data-warehouse.md)
-### [Kopieeractiviteit](data-factory-data-movement-activities.md)
-#### [Handleiding voor prestaties en afstemmen van kopieeractiviteit](data-factory-copy-activity-performance.md)
+### [Handleiding voor prestaties en afstemmen van kopieeractiviteit](data-factory-copy-activity-performance.md)
+### Connectors
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
 #### [Azure Blob Storage](data-factory-azure-blob-connector.md)
@@ -52,16 +53,14 @@
 #### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
 #### [Salesforce](data-factory-salesforce-connector.md)
 #### [SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md)
-#### [SFTP](data-factory-sftp-connector.md)
 #### [SAP HANA](data-factory-sap-hana-connector.md)
+#### [SFTP](data-factory-sftp-connector.md)
 #### [SQL Server](data-factory-sqlserver-connector.md)
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Webtabel](data-factory-web-table-connector.md)
 ### [Gegevensbeheergateway](data-factory-data-management-gateway.md)
 ### [Gegevens verplaatsen tussen on-premises en de cloud](data-factory-move-data-between-onprem-and-cloud.md)
-### [Kolommen voor invoer- en uitvoergegevensset toewijzen](data-factory-map-columns.md)
-### [Ondersteunde indelingen voor bestanden en compressie](data-factory-supported-file-and-compression-formats.md)
 
 ## [Gegevens transformeren](data-factory-data-transformation-activities.md)
 ### [HDInsight Hive-activiteit](data-factory-hive-activity.md)
@@ -100,9 +99,9 @@
 ### [Productaanbevelingen](data-factory-product-reco-usecase.md)
 ### [Klantprofilering](data-factory-customer-profiling-usecase.md)
 ### [Grootschalige gegevenssets verwerken met Data Factory en Batch](data-factory-data-processing-using-batch.md)
-## [Service-updates](https://azure.microsoft.com/en-us/updates/?product=data-factory)
+## [Service-updates](https://azure.microsoft.com/updates/?product=data-factory)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/data-factory/)
-## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
 ## [Verzoeken om een functie](https://feedback.azure.com/forums/270578-azure-data-factory)

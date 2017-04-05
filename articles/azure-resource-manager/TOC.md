@@ -46,11 +46,12 @@
 ### [Beveiligingsoverwegingen](best-practices-resource-manager-security.md)
 ## Resourcebeleid instellen
 ### [Wat is een resourcebeleid?](resource-manager-policy.md)
-### [Beleid toewijzen en beheren](resource-manager-policy-create-assign.md)
+### [Beleidstoewijzing portal](resource-manager-policy-portal.md)
+### [Beleidstoewijzing script](resource-manager-policy-create-assign.md)
 ### [Beleid voor resourcetags](resource-manager-policy-tags.md)
 ### [Opslagbeleid](resource-manager-policy-storage.md)
-### [Beleid voor virtuele Linux-machines](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Beleid voor virtuele Windows-machines](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Beleid voor virtuele Linux-machines](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Beleid voor virtuele Windows-machines](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Controleren en problemen oplossen
 ### [Veelvoorkomende implementatiefouten oplossen](resource-manager-common-deployment-errors.md)
 ### [Activiteitenlogboeken bekijken](resource-group-audit.md)

@@ -3,7 +3,7 @@ title: Een ASP.NET-app in Azure implementeren met Visual Studio | Microsoft Docs
 description: Ontdek hoe u een ASP.NET-webproject implementeert in een nieuwe web-app in Azure App Service met behulp van Visual Studio.
 services: app-service\web
 documentationcenter: .net
-author: tdykstra
+author: cephalin
 manager: erikre
 editor: 
 ms.assetid: 69759e3c-384c-4afb-9278-db6724f6cb74
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 12/16/2016
-ms.author: rachelap
+ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 9b7e0b429575d080819f25e04d492a2b09d4d63a
-ms.openlocfilehash: 946552d1b268c6e70a9e8fcd4c40bd6e2ab76178
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 93107d19e1814b30d69fc12c92b544d9760bda6a
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -50,7 +50,7 @@ Naast de tijd die nodig is voor het installeren van de Azure SDK voor .NET, duur
   
     Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Daar kunt u een tijdelijke en eenvoudige app maken in App Service. U hebt hiervoor geen creditcard nodig en bent nergens toe verplicht.
 
-## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>De ontwikkelomgeving instellen
+## <a name="setupdevenv"></a>De ontwikkelomgeving instellen
 De zelfstudie is geschreven voor Visual Studio 2015 met de [Azure SDK voor .NET](../dotnet-sdk.md) 2.9 of hoger. 
 
 * [Download de nieuwste Azure SDK voor Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). De SDK installeert Visual Studio 2015 als u daar nog niet over beschikt.
@@ -189,8 +189,6 @@ In deze sectie implementeert u het webproject in de web app-resource die u hebt 
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 Als u een probleem ondervindt terwijl u deze zelfstudie doorloopt, controleert u of u de nieuwste versie van de Azure SDK voor .NET gebruikt. Dit kunt u het eenvoudigst doen door [de Azure SDK voor Visual Studio 2015 te downloaden](http://go.microsoft.com/fwlink/?linkid=518003). Als u de huidige versie hebt geïnstalleerd, ziet u in het webplatforminstallatieprogramma dat er geen installatie nodig is.
-
-Als u een bedrijfsnetwerk gebruikt en u via een firewall probeert Azure App Service te implementeren, zorgt u ervoor dat de poorten 443 en 8172 zijn geopend voor Web Deploy. Als u deze poorten niet kunt openen, raadpleegt u het gedeelte Volgende stappen hieronder voor andere implementatie-opties.
 
 Wanneer uw ASP.NET-web-app eenmaal wordt uitgevoerd in Azure App Service, doet u er verstandig aan u te verdiepen in de Visual Studio-functies die het oplossen van problemen vereenvoudigen. Voor meer informatie over logboekregistratie, foutopsporing op afstand en meer raadpleegt u [Probleemoplossing voor Azure-web-apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 

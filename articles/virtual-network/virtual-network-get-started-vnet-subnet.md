@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 81c9313635f382252550a4c0dcc7a707e9f365fb
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c731099cb91512f3bf0ecc2ffa5258788c90cd1b
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -101,7 +101,7 @@ Voltooi de volgende stappen om de webserver-VM te maken:
     |**Resourcegroep**|**Bestaande gebruiken:** selecteer *MyRG*|Hoewel we dezelfde resourcegroep gebruiken als met het VNet, hoeven de resources zich niet in dezelfde resourcegroep te bevinden.|
     |**Locatie**|*VS - west*|De locatie moet dezelfde locatie zijn die u in stap 5 hebt opgegeven in het gedeelte [Een virtueel netwerk met twee subnetten maken](#create-vnet) van dit artikel. De virtuele machines en de VNets waarmee ze verbinding maken, moeten zich op dezelfde locatie bevinden.|
 
-4. Klik op de blade **Kies een grootte** op *DS1_V2 Standard* en vervolgens op **Selecteren**. Lees het artikel over [VM-grootten voor Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor een lijst met alle VM-grootten voor Windows die door Azure worden ondersteund.
+4. Klik op de blade **Kies een grootte** op *DS1_V2 Standard* en vervolgens op **Selecteren**. Lees het artikel over [VM-grootten voor Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor een lijst met alle VM-grootten voor Windows die door Azure worden ondersteund.
 5. Selecteer op de blade **Instellingen** de volgende waarden of voer deze in en klik op **OK**:
 
     |**Instelling**|**Waarde**|**Details**|
@@ -111,7 +111,7 @@ Voltooi de volgende stappen om de webserver-VM te maken:
     |**Subnet**|Selecteer *Front-end*|U kunt elk subnet selecteren dat zich binnen het VNet bevindt.|
     |**Openbaar IP-adres**|Accepteer de standaardwaarde|Met een openbaar IP-adres kunt u vanaf internet verbinding maken met de virtuele machine. In het artikel [IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) (IP-adressen) vindt u meer informatie over openbare IP-adressen.|
     |**Netwerkbeveiligingsgroep (firewall)**|Accepteer de standaardwaarde|Klik op de standaard-NSG **(nieuwe) MyWebServer-nsg** die de portal heeft gemaakt, om de instellingen weer te geven. U ziet dat de blade **Netwerkbeveiligingsgroep maken** die nu wordt geopend, één regel voor binnenkomende verbindingen heeft waarmee TCP/3389-verkeer (RDP) van elk bron-IP-adres mogelijk wordt.|
-    |**Alle andere waarden**|Accepteer de standaardwaarden|Lees het artikel [About VMs](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Informatie over virtuele machines) voor meer informatie over de overige instellingen.|
+    |**Alle andere waarden**|Accepteer de standaardwaarden|Lees het artikel [About VMs](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Informatie over virtuele machines) voor meer informatie over de overige instellingen.|
 
     Met netwerkbeveiligingsgroepen (NSG's) kunt u regels voor binnenkomende en uitgaande verbindingen maken voor het type netwerkverkeer dat van en naar de virtuele machine kan stromen. Standaard wordt al het binnenkomende verkeer naar de virtuele machine geweigerd. U kunt voor een productiewebserver aanvullende regels voor binnenkomende verbindingen toevoegen voor TCP/80 (HTTP) en TCP/443 (HTTPS). Er is geen regel voor uitgaand verkeer, omdat al het uitgaande verkeer standaard wordt toegestaan. U kunt regels toevoegen of verwijderen om het verkeer volgens uw beleid te beheren. Lees het artikel [Netwerkbeveiligingsgroepen](virtual-networks-nsg.md) voor meer informatie over NSG's.
 
@@ -160,7 +160,7 @@ Hoewel u zelf één VNet en twee virtuele machines hebt gemaakt, heeft Azure Por
 
     ![Inhoud resourcegroep](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-Lees de overzichtsartikelen [Virtual machine](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Virtuele machine), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Schijf) en [Storage account](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Opslagaccount) voor meer informatie over virtuele machines, schijven en opslagaccounts. De twee standaard-NSG's die in de portal voor u zijn gemaakt, worden weergegeven. Ook kunt u zien dat er in de portal twee netwerkinterfaceresources zijn gemaakt. Met een netwerkinterface (NIC) kan een virtuele machine via het VNet verbinding maken met andere resources. Lees het artikel [NIC](virtual-network-network-interface.md) voor meer informatie over NIC's. In de portal is ook één openbare IP-adresresource gemaakt. Openbare IP-adressen zijn één instelling voor een openbare IP-adresresource. In het artikel [IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) (IP-adressen) vindt u meer informatie over openbare IP-adressen.
+Lees de overzichtsartikelen [Virtual machine](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Virtuele machine), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Schijf) en [Storage account](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Opslagaccount) voor meer informatie over virtuele machines, schijven en opslagaccounts. De twee standaard-NSG's die in de portal voor u zijn gemaakt, worden weergegeven. Ook kunt u zien dat er in de portal twee netwerkinterfaceresources zijn gemaakt. Met een netwerkinterface (NIC) kan een virtuele machine via het VNet verbinding maken met andere resources. Lees het artikel [NIC](virtual-network-network-interface.md) voor meer informatie over NIC's. In de portal is ook één openbare IP-adresresource gemaakt. Openbare IP-adressen zijn één instelling voor een openbare IP-adresresource. In het artikel [IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) (IP-adressen) vindt u meer informatie over openbare IP-adressen.
 
 ## <a name="connect-to-from-vms"></a>Verbinding maken met de virtuele machines
 
@@ -252,5 +252,5 @@ In deze oefening hebt u een VNet en twee virtuele machines gemaakt. U hebt tijde
 - [Openbare IP-adressen](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 - [Netwerkinterfaces](virtual-network-network-interface.md)
 - [Netwerkbeveiligingsgroepen](virtual-networks-nsg.md)
-- [Virtuele machines](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Virtuele machines](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 

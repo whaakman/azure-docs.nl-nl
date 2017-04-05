@@ -37,7 +37,7 @@
     ```
    
    > [!NOTE]
-   > Voor een virtuele Linux-machine moet u de optie `-e` opgeven in `vm create`. Het is niet mogelijk om SSH in te schakelen nadat de virtuele machine is gemaakt. Zie voor meer informatie over SSH [SSH gebruiken met Linux op Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+   > Voor een virtuele Linux-machine moet u de optie `-e` opgeven in `vm create`. Het is niet mogelijk om SSH in te schakelen nadat de virtuele machine is gemaakt. Zie voor meer informatie over SSH [SSH gebruiken met Linux op Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 5. U kunt de kenmerken van de virtuele machine controleren via de opdracht `azure vm show`. In het volgende voorbeeld worden gegevens weergegeven voor de virtuele machine met de naam `myVM`:
 
@@ -53,9 +53,4 @@
 
 ## <a name="next-steps"></a>Volgende stappen
 Lees voor meer informatie over deze Azure CLI 1.0-opdrachten voor virtuele machines [Using the Azure CLI 1.0 with the Classic deployment API](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) (De Azure CLI 1.0 gebruiken met de API voor klassieke implementatie).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -16,7 +16,7 @@ Op de blade Grondbeginselen worden administratieve gegevens voor de virtuele mac
 
 2. Voer een **Gebruikersnaam** en een sterk **Wachtwoord** in om te gebruiken voor het maken van een lokaal account op de virtuele machine. Het lokale account wordt gebruikt voor aanmelding bij en beheer van de VM. In het voorbeeld is _azureuser_ de naam van de gebruiker.
 
- Het wachtwoord moet 8 tot 123 tekens lang zijn en aan drie van de vier volgende complexiteitsvereisten voldoen: ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken. Zie meer informatie over [vereisten voor gebruikersnaam en wachtwoord](../articles/virtual-machines/virtual-machines-windows-faq.md).
+ Het wachtwoord moet 8 tot 123 tekens lang zijn en aan drie van de vier volgende complexiteitsvereisten voldoen: ten minste één kleine letter, één hoofdletter, één cijfer en één speciaal teken. Zie meer informatie over [vereisten voor gebruikersnaam en wachtwoord](../articles/virtual-machines/windows/faq.md).
 
 3. Het **abonnement** is optioneel. Een algemene instelling is 'Betalen naar gebruik'.
 

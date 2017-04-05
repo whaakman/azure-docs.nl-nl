@@ -1,13 +1,14 @@
 # Overzicht
 ## [Wat is Application Gateway?](application-gateway-introduction.md)
 ## [Veelgestelde vragen over Application Gateway](application-gateway-faq.md)
-## [Web Application Firewall](application-gateway-webapplicationfirewall-overview.md)
+## [Web Application Firewall](application-gateway-web-application-firewall-overview.md)
+### [Standaardregelsets en -regels](application-gateway-crs-rulegroups-rules.md)
 ## [Statuscontrole](application-gateway-probe-overview.md)
 ## [URL-routering](application-gateway-url-route-overview.md)
 ## [Multi-site](application-gateway-multi-site-overview.md)
 ## [End-to-end-SSL](application-gateway-backend-ssl.md)
 ## [WebSocket](application-gateway-websocket.md)
-## [Servicelimieten](../azure-subscription-service-limits.md#application-gateway-limits?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [Servicelimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Aan de slag
 ## Een Application Gateway maken
 ### Openbaar
@@ -23,6 +24,8 @@
 ## Web Application Firewall configureren
 ### [Portal](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
+## Regels voor Web Application Firewall aanpassen
+### [Portal](application-gateway-customize-waf-rules-portal.md)
 ## Configureren voor SSL-offload
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)

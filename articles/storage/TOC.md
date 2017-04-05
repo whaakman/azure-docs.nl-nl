@@ -45,11 +45,11 @@
 
 ## Disk Storage 
 ### [Een virtuele machine maken met behulp van Resource Manager en PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-### [Een virtuele Linux-machine maken met behulp van de Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
-### [Een beheerde schijf koppelen aan een virtuele Windows-machine met PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
-### [Een beheerde schijf toevoegen aan een virtuele Linux-machine](../virtual-machines/virtual-machines-linux-add-disk.md)
-### [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
-### [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+### [Een virtuele Linux-machine maken met behulp van de Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md)
+### [Een beheerde schijf koppelen aan een virtuele Windows-machine met PowerShell](../virtual-machines/windows/attach-disk-ps.md)
+### [Een beheerde schijf toevoegen aan een virtuele Linux-machine](../virtual-machines/linux/add-disk.md)
+### [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+### [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 # Procedures
 ## [Een opslagaccount maken](storage-create-storage-account.md)
@@ -74,8 +74,8 @@
 ### [Schijven en VHD's voor virtuele Windows-machines](storage-about-disks-and-vhds-windows.md)
 ### [Schijven en VHD's voor virtuele Linux-machines](storage-about-disks-and-vhds-linux.md)
 ### [Overzicht van Azure Managed Disks](storage-managed-disks-overview.md)
-### [Virtuele Azure-machines migreren naar Azure Managed Disks](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
-### [Migreren van AWS en andere platforms naar Managed Disks](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+### [Virtuele Azure-machines migreren naar Azure Managed Disks](../virtual-machines/windows/migrate-to-managed-disks.md)
+### [Migreren van AWS en andere platforms naar Managed Disks](../virtual-machines/windows/on-prem-to-azure.md)
 ### [Veelgestelde vragen over VM-schijven van Azure IaaS](storage-faq-for-disks.md)
 ### Premium Storage
 #### [Krachtige Premium Storage voor VM-schijven](storage-premium-storage.md)
@@ -127,9 +127,9 @@
 ## Gegevens overdragen
 ### [Gegevens verplaatsen van en naar opslag](storage-moving-data.md)
 ### [AzCopy-opdrachtregelprogramma](storage-use-azcopy.md)
-### [De service Import/Export gebruiken](storage-import-export-service.md)
-### [Het hulpprogramma Import/Export gebruiken](storage-import-export-tool-how-to.md)
-#### [Het hulpprogramma Import/Export instellen](storage-import-export-tool-setup.md)
+### [De Import/Export-service gebruiken](storage-import-export-service.md)
+### [Het Import/Export-hulpprogramma gebruiken](storage-import-export-tool-how-to.md)
+#### [Het Import/Export-hulpprogramma instellen](storage-import-export-tool-setup.md)
 #### [Harde schijven voorbereiden voor een importtaak](storage-import-export-tool-preparing-hard-drives-import.md)
 ##### [Eigenschappen en metagegevens instellen tijdens het importproces](storage-import-export-tool-setting-properties-metadata-import.md)
 ##### [Voorbeeldwerkstroom voor het voorbereiden van harde schijven voor een importtaak](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
@@ -138,12 +138,12 @@
 #### [De taakstatus controleren met kopielogboekbestanden](storage-import-export-tool-reviewing-job-status-v1.md)
 #### [Een importtaak herstellen](storage-import-export-tool-repairing-an-import-job-v1.md)
 #### [Een exporttaak herstellen](storage-import-export-tool-repairing-an-export-job-v1.md)
-#### [Problemen met het hulpprogramma Import/Export oplossen](storage-import-export-tool-troubleshooting-v1.md)
+#### [Problemen met het Import/Export-hulpprogramma oplossen](storage-import-export-tool-troubleshooting-v1.md)
 #### [Bestandsindeling van het Import/Export-servicemanifest](storage-import-export-file-format-manifest.md)
 #### [Bestandsindeling van het metagegevens- en eigenschappenbestand van de Import/Export-service](storage-import-export-file-format-metadata-and-properties.md)
 #### [Bestandsindeling van het logboekbestand van de Import/Export-service](storage-import-export-file-format-log.md)
-### [Het hulpprogramma Import/Export (v1) gebruiken](storage-import-export-tool-how-to-v1.md)
-#### [Het hulpprogramma Import/Export instellen](storage-import-export-tool-setup-v1.md)
+### [Het Import/Export-hulpprogramma gebruiken (v1)](storage-import-export-tool-how-to-v1.md)
+#### [Het Import/Export-hulpprogramma instellen](storage-import-export-tool-setup-v1.md)
 #### [Harde schijven voorbereiden voor een importtaak](storage-import-export-tool-preparing-hard-drives-import-v1.md)
 ##### [Eigenschappen en metagegevens instellen tijdens het importproces](storage-import-export-tool-setting-properties-metadata-import-v1.md)
 ##### [Voorbeeldwerkstroom voor het voorbereiden van harde schijven voor een importtaak](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
@@ -152,7 +152,7 @@
 #### [De taakstatus controleren met kopielogboekbestanden](storage-import-export-tool-reviewing-job-status-v1.md)
 #### [Een importtaak herstellen](storage-import-export-tool-repairing-an-import-job-v1.md)
 #### [Een exporttaak herstellen](storage-import-export-tool-repairing-an-export-job-v1.md)
-#### [Problemen met het hulpprogramma Import/Export oplossen](storage-import-export-tool-troubleshooting-v1.md)
+#### [Problemen met het Import/Export-hulpprogramma oplossen](storage-import-export-tool-troubleshooting-v1.md)
 #### [Bestandsindeling van het Import/Export-servicemanifest](storage-import-export-file-format-manifest.md)
 #### [Bestandsindeling van het metagegevens- en eigenschappenbestand van de Import/Export-service](storage-import-export-file-format-metadata-and-properties.md)
 #### [Bestandsindeling van het logboekbestand van de Import/Export-service](storage-import-export-file-format-log.md)
@@ -201,6 +201,7 @@
 ## Azure Opslagverkenner
 ### [Opslagverkenner (preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Blobs beheren met Opslagverkenner (preview)](../vs-azure-tools-storage-explorer-blobs.md)
+### [Opslagverkenner (preview) gebruiken met Azure File Storage](../vs-azure-tools-storage-explorer-files.md)
 
 ## NuGet-pakketten
 ### [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

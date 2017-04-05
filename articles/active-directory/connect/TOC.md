@@ -46,6 +46,9 @@
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Uitbreidingen van de directory](active-directory-aadconnectsync-feature-directory-extensions.md)
 
+### [Het wachtwoord van het Azure AD Sync-serviceaccount wijzigen](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [AD-prullenbak inschakelen](active-directory-aadconnectsync-recycle-bin.md)
+
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
 #### [Bewerkingen](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md)

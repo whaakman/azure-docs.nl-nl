@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 25a35912b72f7f44b83ccd49f298b44665318418
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3dfa2c56dd6d3e0fe7757995d284cebe172eabc4
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -35,7 +35,7 @@ Voor DC/OS en Docker Swarm moet u een veilige shell-tunnel (SSH) naar een intern
 ## <a name="prerequisites"></a>Vereisten
 
 * Een Kubernetes-, DC/OS- of Swarm-cluster, [geïmplementeerd in Azure Container Service](container-service-deployment.md).
-* SSH RSA-bestand met persoonlijke sleutel die overeenkomt met de openbare sleutel die tijdens de implementatie is toegevoegd aan het cluster. Met deze opdrachten wordt ervan uitgegaan dat de persoonlijke SSH-sleutel zich bevindt in `$HOME/.ssh/id_rsa` op uw computer. Zie deze instructies voor [OS X en Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) of [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) voor meer informatie. Als de SSH-verbinding niet werkt, moet u mogelijk [uw SSH-sleutels opnieuw instellen](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
+* SSH RSA-bestand met persoonlijke sleutel die overeenkomt met de openbare sleutel die tijdens de implementatie is toegevoegd aan het cluster. Met deze opdrachten wordt ervan uitgegaan dat de persoonlijke SSH-sleutel zich bevindt in `$HOME/.ssh/id_rsa` op uw computer. Zie deze instructies voor [OS X en Linux](../virtual-machines/linux/mac-create-ssh-keys.md) of [Windows](../virtual-machines/linux/ssh-from-windows.md) voor meer informatie. Als de SSH-verbinding niet werkt, moet u mogelijk [uw SSH-sleutels opnieuw instellen](../virtual-machines/linux/troubleshoot-ssh-connection.md).
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Verbinding maken met een Kubernetes-cluster
 

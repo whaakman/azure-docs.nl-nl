@@ -34,7 +34,6 @@
 ## Beheren
 ### Azure Search beheren
 #### [Azure Portal](search-manage.md)
-#### [REST](search-get-started-management-api.md)
 #### [PowerShell](search-manage-powershell.md)
 ### [Gebruik en statistieken controleren](search-monitor-usage.md)
 ### [Analyse zoekverkeer](search-traffic-analytics.md)
@@ -85,8 +84,3 @@
 ### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

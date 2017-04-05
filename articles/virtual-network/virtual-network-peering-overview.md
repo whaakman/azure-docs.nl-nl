@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 ms.author: narayan
 translationtype: Human Translation
-ms.sourcegitcommit: 15afcad97941fc595478e36e826a73831f40475e
-ms.openlocfilehash: eb05b504c5cf13cd852a5e01cc3bec79fd20d547
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6fbcdcf77f46a3c643e8fedc1d112588cbd7befc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -36,7 +37,7 @@ Vereisten en de belangrijkste aspecten van VNet-peering:
 * VNet-peering vindt plaats tussen twee VNets en er is geen afgeleide transitieve relatie tussen peerings. Als VNetA bijvoorbeeld is gekoppeld aan VNetB, en als VNetB is gekoppeld aan VNetC, betekent dit *niet* automatisch dat VNetA is gekoppeld aan VNetC.
 * U kunt VNets koppelen die zich bevinden in twee verschillende abonnementen, mits een bevoegde gebruiker van beide abonnementen de peering toestaat en de abonnementen zijn gekoppeld aan dezelfde Active Directory-tenant.
 * VNets kunnen worden gekoppeld als beide zijn gemaakt via het Resource Manager-implementatiemodel of als een is gemaakt via het Resource Manager-implementatiemodel en het andere is gemaakt via het klassieke implementatiemodel. Twee VNets die zijn gemaakt via het klassieke implementatiemodel kunnen echter niet aan elkaar worden gekoppeld. Wanneer VNets via verschillende implementatiemodellen zijn gemaakt, moeten de VNets beide aanwezig zijn in *hetzelfde* abonnement. De mogelijkheid om VNets te koppelen die via verschillende implementatiemodellen zijn gemaakt die zich in *verschillende* abonnementen bevinden, bevindt zich in de **evaluatie**versie. Lees het artikel [Een peering voor virtuele netwerken maken met behulp van Powershell](virtual-networks-create-vnetpeering-arm-ps.md) voor meer informatie.
-* Hoewel de communicatie tussen virtuele machines in gekoppelde VNets geen extra bandbreedtebeperkingen heeft, is er nog steeds een bandbreedtelimiet op basis van VM-grootte van toepassing. Lees de artikelen over VM-grootte voor [Windows](../virtual-machines/virtual-machines-windows-sizes.md) of [Linux](../virtual-machines/virtual-machines-linux-sizes.md) voor meer informatie over de maximale netwerkbandbreedte voor verschillende VM-groottes.
+* Hoewel de communicatie tussen virtuele machines in gekoppelde VNets geen extra bandbreedtebeperkingen heeft, is er nog steeds een bandbreedtelimiet op basis van VM-grootte van toepassing. Lees de artikelen over VM-grootte voor [Windows](../virtual-machines/windows/sizes.md) of [Linux](../virtual-machines/linux/sizes.md) voor meer informatie over de maximale netwerkbandbreedte voor verschillende VM-groottes.
 
 ![Basic VNet-peering](./media/virtual-networks-peering-overview/figure01.png)
 
@@ -84,15 +85,10 @@ Er zijn limieten voor het aantal peerings dat is toegestaan voor één virtueel 
 ## <a name="pricing"></a>Prijzen
 Er wordt een nominaal bedrag in rekening gebracht voor inkomend en uitgaand verkeer dat gebruikmaakt van een VNet-peering. Raadpleeg voor meer informatie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-network).
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Lees meer informatie over het maken van een VNet-peering met:
 
 * [Azure Portal](virtual-networks-create-vnetpeering-arm-portal.md)
 * [Azure PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 * [Een Azure Resource Manager-sjabloon](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

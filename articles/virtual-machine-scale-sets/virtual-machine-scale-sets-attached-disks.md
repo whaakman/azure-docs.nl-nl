@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 2/6/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 2939de432fcb5dbf4a7316343c3c6ae102b579e8
-ms.openlocfilehash: 5b34969f9c854775587d402acbedee12f236ab7a
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 91d36d5321f455a2af31093fa460ddf6640942d4
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -62,7 +63,7 @@ U kunt een gegevensschijf toevoegen aan een VM-schaalset met behulp van de Azure
 az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
 ```
 > [!NOTE]
-> Andere VM-grootten hebben andere limieten voor het aantal gekoppelde schijven dat wordt ondersteund. Controleer de [formaatkenmerken van de virtuele machine](../virtual-machines/virtual-machines-windows-sizes.md) voordat u een nieuwe schijf toevoegt.
+> Andere VM-grootten hebben andere limieten voor het aantal gekoppelde schijven dat wordt ondersteund. Controleer de [formaatkenmerken van de virtuele machine](../virtual-machines/windows/sizes.md) voordat u een nieuwe schijf toevoegt.
 
 U kunt ook een schijf toevoegen door een nieuwe vermelding toe te voegen aan de eigenschap _dataDisks_ in het _storageProfile_ van een schaalsetdefinitie en de wijziging toe te passen. U kunt dit testen door een bestaande schaalsetdefinitie te vinden in [Azure Resource Explorer](https://resources.azure.com/). Selecteer _Bewerken_ en voeg een nieuwe schijf toe aan de lijst met gegevensschijven. Bijvoorbeeld met het bovenstaande voorbeeld:
 ```json
@@ -106,10 +107,5 @@ Bij de eerste implementatie van ondersteuning voor gekoppelde schijven voor scha
 
 De ondersteuning in Azure Portal voor gekoppelde gegevensschijven in schaalsets is oorspronkelijk beperkt. Afhankelijk van uw vereisten kunt u Azure-sjablonen, CLI, PowerShell, SDK's en REST API gebruiken voor het beheren van gekoppelde schijven.
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
