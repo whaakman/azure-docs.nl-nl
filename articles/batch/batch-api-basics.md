@@ -16,9 +16,9 @@ ms.date: 03/08/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 1ebe72255697af16fc28191a102a7c0487968eda
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f323afdea34e973f3ecdd54022f04b3f0d86afb1
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -107,7 +107,7 @@ Wanneer u een pool maakt, kunt u de volgende kenmerken opgeven:
 
     De grootte van rekenknooppunten met **Cloud Services-configuratie** wordt vermeld in [Groottes voor Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Batch ondersteunt Cloud Services van alle grootten met uitzondering van `ExtraSmall`, `STANDARD_A1_V2` en `STANDARD_A2_V2`.
 
-    De grootte van rekenknooppunten met **virtuele-machineconfiguratie** wordt vermeld in [Groottes voor virtuele machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) en [Groottes voor virtuele machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). Batch ondersteunt alle Azure VM-groottes met uitzondering van `STANDARD_A0` en die met Premium Storage (de serie `STANDARD_GS`, `STANDARD_DS` en `STANDARD_DSV2`).
+    De grootte van rekenknooppunten met **virtuele-machineconfiguratie** wordt vermeld in [Groottes voor virtuele machines in Azure](../virtual-machines/linux/sizes.md) (Linux) en [Groottes voor virtuele machines in Azure](../virtual-machines/windows/sizes.md) (Windows). Batch ondersteunt alle Azure VM-groottes met uitzondering van `STANDARD_A0` en die met Premium Storage (de serie `STANDARD_GS`, `STANDARD_DS` en `STANDARD_DSV2`).
 
     Houd bij het selecteren van de grootte van een rekenknooppunt rekening met de kenmerken en vereisten van de toepassingen die u uitvoert op de knooppunten. Houd ook rekening met het feit of bijvoorbeeld de toepassing meerdere threads heeft en hoeveel geheugen deze gebruikt. Zo kunt u gemakkelijker de meest geschikte en voordeligste knooppuntgrootte bepalen. Meestal selecteert u een knooppuntgrootte in de veronderstelling dat er op het knooppunt één taak tegelijk wordt uitgevoerd. Het is echter mogelijk om meerdere taken te hebben (waarbij meerdere toepassingsinstanties [parallel worden uitgevoerd](batch-parallel-node-tasks.md)) op rekenknooppunten tijdens het uitvoeren van de taak. In dat geval kiest u meestal voor een groter knooppunt om te voldoen aan deze opdracht. Zie [Taak planningsbeleid](#task-scheduling-policy) voor meer informatie.
 

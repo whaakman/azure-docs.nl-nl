@@ -114,7 +114,6 @@
 #### [Hive-query's gebruiken](machine-learning-data-science-create-features-hive.md)
 #### [TDSP-functieselectie](machine-learning-data-science-select-features.md)
 ### Modellen maken en trainen
-#### [Converteren naar score](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Beheer van de levenscyclus van experimenten](machine-learning-version-control.md)
 #### [Iteraties beheren](machine-learning-manage-experiment-iterations.md)
 #### [PowerShell gebruiken om modellen te maken](machine-learning-create-models-and-endpoints-with-powershell.md)
@@ -133,19 +132,20 @@
 ##### [Aangepaste R-modules schrijven](machine-learning-custom-r-modules.md)
 ##### [Python-scripts uitvoeren](machine-learning-execute-python-scripts.md)
 
-## Modellen implementeren en gebruiken
+## Modellen operationeel maken
 ### [Overzicht](machine-learning-deploy-consume-web-service-guide.md)
 ### Modellen implementeren
-#### [Hoe werkt het?](machine-learning-model-progression-experiment-to-web-service.md)
 #### [Een webservice implementeren](machine-learning-publish-a-machine-learning-web-service.md)
+#### [Hoe werkt het?](machine-learning-model-progression-experiment-to-web-service.md)
+#### [Implementatie voorbereiden](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Externe gegevens gebruiken](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Implementeren in meerdere regio's](machine-learning-how-to-deploy-to-multiple-regions.md)
 #### [Webserviceparameters gebruiken](machine-learning-web-service-parameters.md)
 #### [Logboekregistratie inschakelen](machine-learning-web-services-logging.md)
 ### Webservices beheren
-#### [Eindpunten maken](machine-learning-create-endpoint.md)
 #### [Web Services-portal gebruiken](machine-learning-manage-new-webservice.md)
 #### [Beheren met API's](machine-learning-manage-web-service-endpoints-using-api-management.md)
+#### [Eindpunten maken](machine-learning-create-endpoint.md)
 #### [Schalen](machine-learning-scaling-webservice.md)
 ### Modellen opnieuw trainen
 #### [Overzicht](machine-learning-retrain-machine-learning-model.md)
@@ -198,12 +198,6 @@
 #### [Detectie van afwijkingen](machine-learning-apps-anomaly-detection-api.md)
 #### [Tekstanalyse](machine-learning-apps-text-analytics.md)
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
-#### Aanbevelingen
-##### [Overzicht](machine-learning-recommendation-api-sample-application.md)
-##### [Snel starten](machine-learning-recommendation-api-quick-start-guide.md)
-##### [Naslaginformatie](machine-learning-recommendation-api-documentation.md)
-##### [JavaScript gebruiken](machine-learning-recommendation-api-javascript-integration.md)
-##### [Veelgestelde vragen](machine-learning-recommendation-api-faq.md)
 #### Voorspellend onderhoud
 ##### [Overzicht](cortana-analytics-playbook-predictive-maintenance.md)
 ##### [Architectuur](cortana-analytics-architecture-predictive-maintenance.md)

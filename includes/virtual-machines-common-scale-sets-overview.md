@@ -23,7 +23,7 @@ Als u het aantal virtuele machines in een VM-schaalset wilt verhogen of verlagen
 
 Als u een sjabloon opnieuw wilt implementeren om de capaciteit te wijzigen, kunt u een veel kleinere sjabloon definiëren dat alleen de SKU en bijgewerkte capaciteit bevat. Een voorbeeld hiervan wordt hier weergegeven: [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
 
-Raadpleeg [Automatisch machines schalen in een virtuele-machineschaalset](../articles/virtual-machines/virtual-machines-windows-vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor een stapsgewijze uitleg van het maken van een schaalset die automatisch wordt geschaald
+Raadpleeg [Automatisch machines schalen in een virtuele-machineschaalset](../articles/virtual-machines/windows/vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor een stapsgewijze uitleg van het maken van een schaalset die automatisch wordt geschaald
 
 ## <a name="monitoring-your-vm-scale-set"></a>De VM-schaalset controleren
 Het wordt momenteel aanbevolen om de [Azure Resource Explorer](https://resources.azure.com) te gebruiken om VM-schaalsets te bekijken. VM-schaalsets zijn een resource onder Microsoft.Compute. U kunt ze vanaf deze site bekijken door de volgende koppelingen uit te vouwen:
@@ -115,9 +115,4 @@ In dit gedeelte wordt een aantal typische scenario's voor VM-schaalsets genoemd.
 **V:** Maken VM-schaalsets gebruik van beschikbaarheidssets van Azure?
 
 **A:** Ja. Een VM-schaalset is een impliciete beschikbaarheidsset met drie foutdomeinen en vijf upgradedomeinen. U hoeft onder virtualMachineProfile niets te configureren. In toekomstige releases gaan VM-schaalsets waarschijnlijk meerdere tenants omvatten, maar een schaalset is momenteel een enkele beschikbaarheidsset.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

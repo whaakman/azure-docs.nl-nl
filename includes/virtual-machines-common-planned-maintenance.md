@@ -14,7 +14,7 @@ Er zijn twee soorten VM-configuraties: voor meerdere exemplaren en voor één ex
 
 De configuratie met meerdere exemplaren biedt redundantie voor fysieke computers, kracht en netwerkmogelijkheden. Deze wordt aanbevolen om de beschikbaarheid van uw toepassing te garanderen. Alle virtuele machines in de beschikbaarheidsset moeten voor hetzelfde doel in uw toepassing worden gebruikt.
 
-Voor meer informatie over het configureren van uw virtuele machines voor maximale beschikbaarheid raadpleegt u [Manage the availability of your Windows virtual machines](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (De beschikbaarheid van uw virtuele machines in Windows beheren) of [Manage the availability of your Linux virtual machines](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (De beschikbaarheid van uw virtuele machines in Linux beheren).
+Voor meer informatie over het configureren van uw virtuele machines voor maximale beschikbaarheid raadpleegt u [Manage the availability of your Windows virtual machines](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (De beschikbaarheid van uw virtuele machines in Windows beheren) of [Manage the availability of your Linux virtual machines](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (De beschikbaarheid van uw virtuele machines in Linux beheren).
 
 Een configuratie met één exemplaar wordt daarentegen gebruikt voor zelfstandige virtuele machines die niet in een beschikbaarheidsset zijn geplaatst. Deze virtuele machines komen niet in aanmerking voor de Service Level Agreement (SLA), waarvoor twee of meer virtuele machines in dezelfde beschikbaarheidsset moeten worden geïmplementeerd.
 
@@ -28,7 +28,7 @@ Bij een update van een configuratie met meerdere exemplaren wordt ervan uitgegaa
 Elke virtuele machine in een beschikbaarheidsset krijgt door het onderliggende Azure-platform een updatedomein en een foutdomein toegewezen. Elk updatedomein is een groep virtuele machines die in hetzelfde tijdvenster opnieuw worden opgestart. Elk foutdomein is een groep virtuele machines met een gemeenschappelijke voedingsbron en netwerkswitch.
 
 
-Zie [Configure multiple virtual machines in an availability set for redundancy](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) (Meerdere virtuele machines in een beschikbaarheidsset configureren voor redundantie) voor meer informatie over update- en foutdomeinen.
+Zie [Configure multiple virtual machines in an availability set for redundancy](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) (Meerdere virtuele machines in een beschikbaarheidsset configureren voor redundantie) voor meer informatie over update- en foutdomeinen.
 
 Om tijdens een update de beschikbaarheid te behouden, voert Azure het onderhoud per updatedomein uit, waarbij telkens één domein tegelijk wordt bijgewerkt. Tijdens het onderhoud in een updatedomein wordt elke virtuele machine in het domein uitgeschakeld. Vervolgens wordt de update op de hostmachines toegepast en worden de virtuele machines weer opgestart. Wanneer het onderhoud in het domein is voltooid, herhaalt Azure het proces voor het volgende updatedomein totdat elk domein is bijgewerkt.
 
@@ -101,4 +101,4 @@ Zie de volgende tabel voor de huidige regioparen:
 <!--Link references-->
 [Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 
-[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/windows/manage-availability.md#Understand-planned-versus-unplanned-maintenance/

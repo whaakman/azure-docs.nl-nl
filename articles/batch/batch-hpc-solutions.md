@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 288bd4dc0bde4cb610efc4a6d015e5b9499eb0ee
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 0bab12648a31b416bd7ceca75f0f83f5da226bad
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -90,10 +90,10 @@ Hier vindt u meer informatie over de compute-, gegevens- en netwerkservices en v
 > 
 
 ### <a name="compute-services"></a>Compute services
-Compute Services van Azure vormen de kern van een Big Compute-oplossing en de andere Compute Services bieden voordelen voor andere scenario's. Op basisniveau bieden deze services verschillende modi voor toepassingen om op VM-rekeninstanties te worden uitgevoerd die Azure verstrekt met behulp van Windows Server Hyper-V-technologie. Op deze instanties kunnen standaard en aangepaste Linux- en Windows-besturingssystemen en hulpprogramma's worden uitgevoerd. Azure biedt u een keuze uit [instantiegrootten](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) met verschillende configuraties van CPU-kernen, geheugen, schijfcapaciteit en andere kenmerken. Afhankelijk van uw behoeften kunt u de instanties opschalen naar duizenden kernen en daarna omlaag schalen wanneer u minder bronnen nodig hebt.
+Compute Services van Azure vormen de kern van een Big Compute-oplossing en de andere Compute Services bieden voordelen voor andere scenario's. Op basisniveau bieden deze services verschillende modi voor toepassingen om op VM-rekeninstanties te worden uitgevoerd die Azure verstrekt met behulp van Windows Server Hyper-V-technologie. Op deze instanties kunnen standaard en aangepaste Linux- en Windows-besturingssystemen en hulpprogramma's worden uitgevoerd. Azure biedt u een keuze uit [instantiegrootten](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) met verschillende configuraties van CPU-kernen, geheugen, schijfcapaciteit en andere kenmerken. Afhankelijk van uw behoeften kunt u de instanties opschalen naar duizenden kernen en daarna omlaag schalen wanneer u minder bronnen nodig hebt.
 
 > [!NOTE]
-> Gebruik de [rekenintensieve instanties zoals de H-serie](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) van Azure om de prestaties en schaalbaarheid van HPC-workloads te verbeteren. Deze instanties ondersteunen ook parallelle MPI-toepassingen die een toepassingsnetwerk met een lage latentie en hoge doorvoer vereisen. Er zijn ook virtuele machines uit de [N-serie](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) met NVIDIA-GPU's beschikbaar om het aantal reken- en visualisatiescenario's in Azure te vergroten.  
+> Gebruik de [rekenintensieve instanties zoals de H-serie](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) van Azure om de prestaties en schaalbaarheid van HPC-workloads te verbeteren. Deze instanties ondersteunen ook parallelle MPI-toepassingen die een toepassingsnetwerk met een lage latentie en hoge doorvoer vereisen. Er zijn ook virtuele machines uit de [N-serie](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) met NVIDIA-GPU's beschikbaar om het aantal reken- en visualisatiescenario's in Azure te vergroten.  
 > 
 > 
 

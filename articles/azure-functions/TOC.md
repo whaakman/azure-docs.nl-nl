@@ -21,13 +21,12 @@
 #### [HTTP- en webhook-bindingen](functions-bindings-http-webhook.md)
 #### [Mobile Apps-bindingen](functions-bindings-mobile-apps.md)
 #### [Notification Hub-uitvoerbinding](functions-bindings-notification-hubs.md)
-#### [Service Bus-triggers en -bindingen voor wachtrijen en onderwerpen](functions-bindings-service-bus.md)
+#### [Service Bus-bindingen](functions-bindings-service-bus.md)
 #### [SendGrid-bindingen](functions-bindings-sendgrid.md)
 #### Storage-bindingen
 ##### [Blob-bindingen](functions-bindings-storage-blob.md)
 ##### [Wachtrijbindingen](functions-bindings-storage-queue.md)
 ##### [Tabelbindingen](functions-bindings-storage-table.md)
-##### [SendGrid-bindingen](functions-bindings-sendgrid.md)
 #### [Timertrigger](functions-bindings-timer.md)
 #### [Twilio-uitvoerbinding](functions-bindings-twilio.md)
 ### [Een functie-app maken vanuit Azure Portal](functions-create-function-app-portal.md) 
@@ -35,6 +34,8 @@
 ### [Lokaal ontwikkelen en fouten opsporen](functions-run-local.md)
 ### [Aanbevolen procedures voor Azure Functions](functions-best-practices.md)
 ### [Azure Functions gebruiken voor het uitvoeren van een geplande opschoontaak](functions-scenario-database-table-cleanup.md)
+### [De definitie van een OpenAPI (preview) maken](functions-api-definition-getting-started.md)
+#### [OpenAPI 2.0 in functieverwijzing](functions-api-definition.md)
 
 ## Beheren
 ### [Instellingen configureren voor een functie-app](functions-how-to-use-azure-function-app-settings.md)

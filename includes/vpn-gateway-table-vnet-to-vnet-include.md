@@ -1,6 +1,6 @@
 | **Implementatiemodel/-methode** | **Azure Portal** | **Klassieke portal** | **PowerShell** |
 | --- | --- | --- | --- |
-| **Klassiek** |Niet ondersteund |[Artikel*](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) |Ondersteund |
+| **Klassiek** |[Artikel*](../articles/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md)|[Artikel*](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) |Ondersteund |
 | **Resource Manager** |[Artikel+](../articles/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) |Niet ondersteund |[Artikel](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) |
 | **Verbindingen tussen verschillende implementatiemodellen** |[Artikel*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) |Ondersteund* |[Artikel](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md) |
 

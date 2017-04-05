@@ -1,23 +1,25 @@
-## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
-In deze sectie doet u het volgende:
+## <a name="create-a-simulated-device-app"></a>Create a simulated device app
+In this section, you:
 
-* U maakt een Node.js-console-app die reageert op een directe methode die door de cloud wordt aangeroepen.
-* U activeert een gesimuleerde firmware-update.
-* U gebruikt de gerapporteerde eigenschappen om apparaatdubbelquery's in te schakelen die de apparaten identificeren en vaststellen wanneer er voor het laatst een firmware-update op deze apparaten is uitgevoerd.
+* Create a Node.js console app that responds to a direct method called by the cloud
+* Trigger a simulated firmware update
+* Use the reported properties to enable device twin queries to identify devices and when they last completed a firmware update
 
-1. U maakt een lege map met de naam **simulateddevice**.  Maak in de map **simulateddevice** een bestand met de naam package.json door achter de opdrachtprompt de volgende opdracht op te geven. Accepteer alle standaardwaarden:
+Step 1: Create an empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
    
     ```
     npm init
     ```
-2. Voer achter de opdrachtprompt in de map **simulateddevice** de volgende opdracht uit om de Device SDK-pakketten **azure-iot-device** en **azure-iot-device-mqtt** te installeren:
+
+Step 2: At your command prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** Device SDK packages:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Gebruik een teksteditor om in de map **manageddevice** het bestand **dmpatterns_fwupdate_device.js** te maken.
 
-4. Voeg de volgende 'require'-instructies toe aan het begin van het bestand **dmpatterns_fwupdate_device.js**:
+Step 3: Using a text editor, create a **dmpatterns_fwupdate_device.js** file in the **manageddevice** folder.
+
+Step 4: Add the following 'require' statements at the start of the **dmpatterns_fwupdate_device.js** file:
    
     ```
     'use strict';
@@ -25,13 +27,14 @@ In deze sectie doet u het volgende:
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Voeg een **connectionString**-variabele toe en gebruik deze om een **client**exemplaar te maken. Vervang de tijdelijke aanduiding `{yourdeviceconnectionstring}` door de verbindingsreeks die u eerder hebt genoteerd in de sectie Een apparaat-id maken:
+Step 5: Add a **connectionString** variable and use it to create a **Client** instance. Replace the `{yourdeviceconnectionstring}` placeholder with the connection string you previously made a note of in the "Create a device identity" section previously:
    
     ```
     var connectionString = '{yourdeviceconnectionstring}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
-6. Voeg de volgende functie toe. Deze wordt gebruikt om gerapporteerde eigenschappen bij te werken:
+
+Step 6: Add the following function that is used to update reported properties:
    
     ```
     var reportFWUpdateThroughTwin = function(twin, firmwareUpdateValue) {
@@ -47,7 +50,8 @@ In deze sectie doet u het volgende:
       });
     };
     ```
-7. Voeg de volgende functies toe. Deze simuleren het downloaden en toepassen van de firmware-installatiekopie:
+
+Step 7: Add the following functions that simulate downloading and applying the firmware image:
    
     ```
     var simulateDownloadImage = function(imageUrl, callback) {
@@ -69,7 +73,8 @@ In deze sectie doet u het volgende:
       callback(error);
     }
     ```
-8. Voeg de volgende functie toe. Hiermee wordt de status van de firmware-update via de gerapporteerde eigenschappen gewijzigd in **Wachten**. Normaal gesproken worden apparaten op de hoogte gesteld van een beschikbare update, waarna een door de beheerder gedefinieerd beleid ervoor zorgt dat het apparaat de update downloadt en toepast. In deze functie moet de logica voor het inschakelen van dat beleid worden uitgevoerd. Voor de duidelijkheid wordt het voorbeeld vier seconden uitgesteld voordat de firmware-installatiekopie wordt gedownload:
+
+Step 8: Add the following function that updates the firmware update status through the reported properties to **waiting**. Typically, devices are informed of an available update and an administrator defined policy causes the device to start downloading and applying the update. This function is where the logic to enable that policy should run. For simplicity, the sample waits for four seconds before proceeding to download the firmware image:
    
     ```
     var waitToDownload = function(twin, fwPackageUriVal, callback) {
@@ -84,7 +89,8 @@ In deze sectie doet u het volgende:
       setTimeout(callback, 4000);
     };
     ```
-9. Voeg de volgende functie toe. Hiermee wordt de status van de firmware via de gerapporteerde eigenschappen gewijzigd in **Downloaden**. De functie simuleert vervolgens het downloaden van de firmware, waarna de updatestatus van de firmware wordt gewijzigd in **downloadFailed** of **downloadComplete**:
+
+Step 9: Add the following function that updates the firmware update status through the reported properties to **downloading**. The function then simulates a firmware download and finally updates the firmware update status to either **downloadFailed** or **downloadComplete**:
    
     ```
     var downloadImage = function(twin, fwPackageUriVal, callback) {
@@ -121,7 +127,8 @@ In deze sectie doet u het volgende:
       }, 4000);
     }
     ```
-10. Voeg de volgende functie toe. Hiermee wordt de status van de firmware-update via de gerapporteerde eigenschappen gewijzigd in **Toepassen**. De functie simuleert vervolgens het toepassen van de firmware, waarna de updatestatus van de firmware wordt gewijzigd in **applyFailed** of **applyComplete**:
+
+Step 10: Add the following function that updates the firmware update status through the reported properties to **applying**. The function then simulates applying the firmware image and finally updates the firmware update status to either **applyFailed** or **applyComplete**:
     
     ```
     var applyImage = function(twin, imageData, callback) {
@@ -158,7 +165,8 @@ In deze sectie doet u het volgende:
       }, 4000);
     }
     ```
-11. Voeg de volgende functie toe. Deze handelt de directe methode **firmwareUpdate** af en start het uit meerdere fasen bestaande firmware-updateproces:
+
+Step 11: Add the following function that handles the **firmwareUpdate** direct method and initiates the multi-stage firmware update process:
     
     ```
     var onFirmwareUpdate = function(request, response) {
@@ -193,7 +201,8 @@ In deze sectie doet u het volgende:
       });
     }
     ```
-12. Voeg tot slot de volgende code toe die de verbinding met uw IoT-hub tot stand brengt:
+
+Step 12: Finally, add the following code that connects to your IoT hub:
     
     ```
     client.open(function(err) {
@@ -208,10 +217,6 @@ In deze sectie doet u het volgende:
     ```
 
 > [!NOTE]
-> Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. Bij de productiecode moet u een beleid voor opnieuw proberen implementeren (zoals exponentieel uitstel), zoals aangegeven in het MSDN-artikel [Transient Fault Handling][lnk-transient-faults] (Afhandeling van tijdelijke fouten).
+> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling](https://msdn.microsoft.com/library/hh675232.aspx).
 > 
 > 
-
-<!--HONumber=Feb17_HO1-->
-
-

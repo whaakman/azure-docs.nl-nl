@@ -81,14 +81,14 @@ In Azure worden virtuele machines gemaakt op basis van een installatiekopie. Dez
 
 Als u een virtuele machine maakt op basis van een installatiekopie in de Azure Marketplace, werkt u eigenlijk met sjablonen. Azure Resource Manager-sjablonen zijn declaratieve JavaScript Object Notation (JSON)-bestanden die kunnen worden gebruikt voor het maken van complexe toepassingsomgevingen met virtuele machines, opslag, virtuele netwerken, enzovoort. Lees meer over het gebruik van [Azure Resource Manager-sjablonen](../articles/azure-resource-manager/resource-group-overview.md), inclusief hoe u zelf [sjablonen kunt maken](../articles/resource-group-authoring-templates.md).
 
-U kunt ook uw eigen aangepaste installatiekopieën maken en ze uploaden met [Azure CLI](../articles/virtual-machines/virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of [Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) om snel virtuele machines te maken die zijn afgestemd op uw eigen specifieke vereisten.
+U kunt ook uw eigen aangepaste installatiekopieën maken en ze uploaden met [Azure CLI](../articles/virtual-machines/linux/upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of [Azure PowerShell](../articles/virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) om snel virtuele machines te maken die zijn afgestemd op uw eigen specifieke vereisten.
 
 ## <a name="availability-sets"></a>Beschikbaarheidssets
 Een beschikbaarheidsset is een logische groepering van virtuele machines waaruit Azure kan begrijpen hoe uw toepassing is ontworpen, om zo redundantie en beschikbaarheid te kunnen bieden. Het wordt aanbevolen binnen een beschikbaarheidsset twee of meer virtuele machines te maken, om een toepassing zo maximaal beschikbaar te maken en te voldoen aan de [99,95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Wanneer een enkele virtuele machine gebruikmaakt van [Azure Premium Storage](../articles/storage/storage-premium-storage.md), is de Azure SLA van toepassing op niet-gepland onderhoud. Een beschikbaarheidsset bestaat uit twee extra groepen, om zo te beschermen tegen hardwarestoringen en om veilig updates te kunnen toepassen: foutdomeinen (FD's) en update-domeinen (UD's).
 
 ![Concepttekening van een configuratie met een updatedomein en een foutdomein](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
-Lees meer over het beheren van de beschikbaarheid van [Linux-VM's](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of [Windows VM's](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Lees meer over het beheren van de beschikbaarheid van [Linux-VM's](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of [Windows VM's](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="fault-domains"></a>Foutdomeinen
 Een foutdomein is een logische groep onderliggende hardware met een gemeenschappelijke voeding en netwerkswitch, vergelijkbaar met een rack in een on-premises datacenter. Wanneer u virtuele machines in een beschikbaarheidsset maakt, verdeelt het Azure-platform uw virtuele machines automatisch tussen deze foutdomeinen. Deze aanpak beperkt de gevolgen van mogelijke problemen met de fysieke hardware, netwerkstoringen of stroomonderbrekingen.
@@ -101,9 +101,4 @@ Een updatedomein is een logische groep onderliggende hardware die op hetzelfde m
 
 ## <a name="next-steps"></a>Volgende stappen
 U kunt nu deze functies voor beschikbaarheid en redundantie gaan gebruiken om uw eigen Azure-omgeving te bouwen. Zie voor informatie over aanbevolen procedures de [aanbevolen procedures voor Azure-beschikbaarheid](../articles/best-practices-availability-checklist.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

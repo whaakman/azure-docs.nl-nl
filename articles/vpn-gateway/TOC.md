@@ -23,6 +23,7 @@
 ## Een verbinding tussen VNet's configureren
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Azure Portal (klassiek)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ### [Klassieke portal (klassiek)](virtual-networks-configure-vnet-to-vnet-connection.md)
 ## Een VNet-naar-VNet-verbinding tussen implementatiemodellen configureren
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -42,6 +43,7 @@
 ## [Een VPN-gatewayverbinding verifiëren](vpn-gateway-verify-connection-resource-manager.md)
 ## [Een VPN-gateway opnieuw instellen](vpn-gateway-resetgw-classic.md)
 ## Een VPN-gateway verwijderen
+### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (klassiek)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Zelfondertekende basiscertificaten voor P2S verbindingen maken](vpn-gateway-certificates-point-to-site.md)

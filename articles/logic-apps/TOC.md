@@ -16,9 +16,9 @@
 ### [Aangepaste code toevoegen met Azure Functions](logic-apps-azure-functions.md)
 ### [Lussen, bereiken en gegevensdebatching](logic-apps-loops-and-scopes.md)
 ### [Definities voor logische apps maken](logic-apps-author-definitions.md)
+### [Aanroepen, triggeren of nesten van logische apps](logic-apps-http-endpoint.md)
 ### [Aangepaste API's maken voor logische apps](logic-apps-create-api-app.md)
 ### [Aangepaste API's voor logische apps aanroepen](logic-apps-custom-hosted-api.md)
-### [Eindpunten van logische apps aanroepen als triggers](logic-apps-http-endpoint.md)
 ### [Fouten en uitzonderingen verwerken](logic-apps-exception-handling.md)
 ### [Inhoudstypen verwerken](logic-apps-content-type.md)
 ### [Uw logische apps beveiligen](logic-apps-securing-a-logic-app.md)
@@ -47,6 +47,7 @@
 ### [X12-bedrijfsintegratie](logic-apps-enterprise-integration-x12.md)
 ### [X12-codering](logic-apps-enterprise-integration-x12-encode.md)
 ### [X12-decodering](logic-apps-enterprise-integration-x12-decode.md)
+### [Herstel na noodgevallen](logic-apps-enterprise-integration-b2b-business-continuity.md)
 
 ## Toegang tot on-premises gegevens
 ### [Verbinding maken met on-premises gegevens](logic-apps-gateway-connection.md)
@@ -69,6 +70,7 @@
 
 ## Voorbeelden, scenario's en rondleidingen
 ### [Overzicht](logic-apps-examples-and-scenarios.md)
+### [Een serverloos sociale dashboard maken](logic-apps-scenario-social-serverless.md)
 ### [Logische apps aanroepen met Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Verwerking van fouten en uitzonderingen toevoegen](logic-apps-scenario-error-and-exception-handling.md)
 ### [B2B-verwerking](logic-apps-enterprise-integration-b2b.md)

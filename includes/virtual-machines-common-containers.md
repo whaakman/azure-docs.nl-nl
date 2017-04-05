@@ -2,7 +2,7 @@ Azure-cloudoplossingen zijn gebouwd op virtuele machines (emulatie van de fysiek
 
 Azure biedt de volgende Docker-waarden:
 
-* [Veel](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) [verschillende](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) manieren om Docker-hosts te maken voor containers die geschikt zijn voor uw situatie
+* [Veel](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) [verschillende](../articles/virtual-machines/linux/dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) manieren om Docker-hosts te maken voor containers die geschikt zijn voor uw situatie
 * De [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/) maakt clusters van containerhosts met behulp van orchestrators zoals **Marathon** en **Swarm**.
 * [Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md) en [resourcegroepsjablonen](../articles/resource-group-authoring-templates.md) voor eenvoudiger implementeren en bijwerken van complexe gedistribueerde toepassingen
 * Integratie met een breed scala aan zowel bedrijfseigen als open-source beheerhulpprogramma's
@@ -92,19 +92,19 @@ Deze mogelijkheden worden vervolgens vaak gemigreerd naar hulpprogramma's zoals 
 Recenter heeft Azure de [Azure-bronbeheer](../articles/resource-manager-deployment-model.md) REST API uitgebracht en PowerShell- en Azure CLI-hulpprogramma’s bijgewerkt zodat deze gemakkelijk te gebruiken zijn. U kunt volledige toepassingstopologieën implementeren, wijzigen of opnieuw implementeren met behulp van [Azure Resource Manager-sjablonen](../articles/resource-group-authoring-templates.md) met de Azure-bronbeheer-API via:
 
 * de [Azure Portal met behulp van sjablonen](https://github.com/Azure/azure-quickstart-templates)&mdash;, gebruik de knop 'DeployToAzure'
-* de [Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* de [Azure PowerShell-modules](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* de [Azure CLI](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* de [Azure PowerShell-modules](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="deployment-and-management-of-entire-groups-of-azure-vms-and-containers"></a>Implementatie en beheer van hele groepen virtuele Azure-machines en containers
 Er zijn enkele populaire systemen die hele groepen virtuele machines kunnen implementeren en Docker (of andere Linux-containerhostsystemen) erop kunnen installeren als automatiseerbare groep. Zie het gedeelte [containers en hulpprogramma's](#containers-and-vm-technologies) hieronder voor rechtstreekse koppelingen. Er zijn verschillende systemen die dit in hogere of mindere mate doen en dit is geen volledige lijst. Afhankelijk van uw vaardigheden en scenario's zijn ze wel of niet bruikbaar.
 
-Docker heeft een eigen set hulpprogramma's voor het maken van virtuele machines ([docker-machine](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) en een taakverdelend docker-containerhulpprogramma voor clusterbeheer ([Swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Daarnaast wordt de [Azure Docker VM-extensie](https://github.com/Azure/azure-docker-extension/blob/master/README.md) geleverd met standaardondersteuning voor [ `docker-compose` ](https://docs.docker.com/compose/), dat geconfigureerde toepassingscontainers kan implementeren in meerdere containers.
+Docker heeft een eigen set hulpprogramma's voor het maken van virtuele machines ([docker-machine](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) en een taakverdelend docker-containerhulpprogramma voor clusterbeheer ([Swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Daarnaast wordt de [Azure Docker VM-extensie](https://github.com/Azure/azure-docker-extension/blob/master/README.md) geleverd met standaardondersteuning voor [ `docker-compose` ](https://docs.docker.com/compose/), dat geconfigureerde toepassingscontainers kan implementeren in meerdere containers.
 
 Daarnaast kunt u [Data Center Operating System (DCOS) van Mesosphere](http://docs.mesosphere.com/install/azurecluster/) uitproberen. DCOS is gebaseerd op de open-source [mesos](http://mesos.apache.org/) 'kernel voor gedistribueerde systemen' waarmee u uw datacenter kunt behandelen als één adresseerbare service. DCOS heeft ingebouwde pakketten voor verschillende belangrijke systemen zoals [Spark](http://spark.apache.org/) en [Kafka](http://kafka.apache.org/) (en andere) evenals ingebouwde services zoals [Marathon](https://mesosphere.github.io/marathon/) (een controlesysteem voor containers) en [Chronos](https://mesos.github.io/chronos/) (een gedistribueerde planner). Mesos is afgeleid van ervaringen opgedaan bij Twitter, AirBnb en andere grote internetbedrijven. U kunt ook **Swarm** gebruiken als de orchestration-engine.
 
 Ook is [Kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) een open-source systeem voor het beheer van virtuele machines en containergroepen afgeleid van ervaringen opgedaan bij Google. U kunt [Kubernetes zelfs gebruiken met Weave om netwerkondersteuning te bieden](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
-[Deis](http://deis.io/overview/) is een open-source 'Platform-as-a-Service' (PaaS) waarmee u gemakkelijk toepassingen op uw eigen servers kunt implementeren en beheren. Deis is gebouwd op Docker en CoreOS en biedt een lichtgewicht PaaS voorzien van door Heroku geïnspireerde werkstroom. U kunt eenvoudig [een Azure VM-groep met 3 knooppunten maken en Deis installeren](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in Azure en vervolgens [een Hello World Go-toepassing installeren](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md#deploy-and-scale-a-hello-world-application).
+[Deis](http://deis.io/overview/) is een open-source 'Platform-as-a-Service' (PaaS) waarmee u gemakkelijk toepassingen op uw eigen servers kunt implementeren en beheren. Deis is gebouwd op Docker en CoreOS en biedt een lichtgewicht PaaS voorzien van door Heroku geïnspireerde werkstroom. U kunt eenvoudig [een Azure VM-groep met 3 knooppunten maken en Deis installeren](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in Azure en vervolgens [een Hello World Go-toepassing installeren](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
 
 [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), een Linux-distributie met een geoptimaliseerde footprint, ondersteuning voor Docker en een eigen containersysteem genoemd [rkt](https://github.com/coreos/rkt), heeft ook een beheerhulpprogramma voor containergroepen met de naam [Fleet](https://coreos.com/using-coreos/clustering/).
 
@@ -144,13 +144,13 @@ Docker-hulpprogramma's:
 
 Docker in Microsoft Azure:
 
-* [Docker VM-extensie voor Linux in Azure](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Docker VM-extensie voor Linux in Azure](../articles/virtual-machines/linux/dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Gebruikershandleiding voor Azure Docker VM-extensie](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
 * [De Docker VM-extensie gebruiken met de Azure-opdrachtregelinterface (Azure CLI)](../articles/virtual-machines/linux/classic/cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [De Docker VM-extensie gebruiken vanuit Azure Portal](../articles/virtual-machines/linux/classic/portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Docker-machine gebruiken in Azure](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Docker-machine gebruiken in Azure](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Docker gebruiken met Swarm in Azure](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Aan de slag met Docker en Compose in Azure](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Aan de slag met Docker en Compose in Azure](../articles/virtual-machines/linux/docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Een Azure-resourcegroepsjabloon gebruiken om snel een Docker-host in Azure te maken](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
 * [De ingebouwde ondersteuning voor `compose` ](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) voor ingesloten toepassingen
 * [Een persoonlijk Docker-register implementeren in Azure](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -164,7 +164,7 @@ Configuratie, clusterbeheer en container-orchestration:
 * [Fleet in CoreOS](https://coreos.com/using-coreos/clustering/)
 * Deis
 
-  * [Een Azure VM-groep met 3 knooppunten maken, Deis installeren en een Hello World Go-toepassing starten](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  * [Een Azure VM-groep met 3 knooppunten maken, Deis installeren en een Hello World Go-toepassing starten](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Kubernetes
 
   * [Volledige handleiding voor geautomatiseerde Kubernetes-clusterimplementatie met CoreOS en Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)

@@ -4,6 +4,7 @@
 ## [Waarschuwingen](monitoring-overview-alerts.md)
 ## [Automatisch schalen](monitoring-overview-autoscale.md)
 ## [Activiteitenlogboek](monitoring-overview-activity-logs.md)
+## [Actiegroepen](monitoring-action-groups.md)
 ## [Diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md)
 ## [Partnerintegraties](monitoring-partners.md)
 ## [Azure Diagnostics](azure-diagnostics.md)
@@ -28,10 +29,19 @@
 ### [Webhooks en e-mailmeldingen configureren voor automatisch schalen](insights-autoscale-to-webhook-email.md)
 ## Het activiteitenlogboek gebruiken
 ### [Gebeurtenissen in het activiteitenlogboek bekijken](insights-debugging-with-events.md)
-### [Een webhook configureren voor een waarschuwing van het activiteitenlogboek](insights-auditlog-to-webhook-email.md)
+### [Meldingen configureren voor waarschuwingen van het activiteitenlogboek](monitoring-activity-log-alerts.md)
 ### [Het activiteitenlogboek archiveren](monitoring-archive-activity-log.md)
 ### [Activiteitenlogboek streamen naar Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 ### [Bewerkingen controleren met Resource Manager](../azure-resource-manager/resource-group-audit.md)
+### [Waarschuwingen voor activiteitenlogboek maken Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+## Servicemeldingen
+### [Servicemeldingen bekijken](monitoring-service-notifications.md)
+### [Waarschuwingen voor servicemeldingen configureren](monitoring-activity-log-alerts-on-service-notifications.md)
+## Actiegroepen
+### [Meer informatie over webhook-schema](monitoring-activity-log-alerts-webhook.md)
+### [Gedrag SMS-waarschuwingen](monitoring-sms-alert-behavior.md)
+### [Beperking waarschuwingsaantallen](monitoring-alerts-rate-limiting.md)
+### [Actiegroepen maken met Resource Manager](monitoring-create-action-group-with-resource-manager-template.md)
 ## Diagnostische logboeken beheren
 ### [Archiveren](monitoring-archive-diagnostic-logs.md)
 ### [Streamen naar Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)

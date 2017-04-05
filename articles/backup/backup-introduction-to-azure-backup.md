@@ -17,9 +17,9 @@ ms.date: 3/13/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 0be8f1f9fb96bce445c4a91520b9a847b205a519
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: a2452b95c9355957b10477a6e457000f0eba6a9c
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -98,7 +98,7 @@ De volgende tabel bevat de Azure Backup-onderdelen die ondersteuning bieden voor
 Azure Backup beschermt VM's voor Premium Storage. Azure Premium Storage is opslag op basis van SSD (Solid-State Drive), ontworpen om I/O-intensieve workloads te ondersteunen. Premium Storage is uitermate geschikt voor VM-workloads (virtuele machine). Zie het artikel [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md) (Premium Storage: hoogwaardige opslag voor workloads van Azure Virtual Machines) voor meer informatie over Premium Storage.
 
 ### <a name="back-up-premium-storage-vms"></a>Een back-up van VM's voor Premium-opslag maken
-Tijdens een back-up van virtuele machines voor Premium-opslag, maakt de Backup-service in het Premium-opslagaccount een tijdelijke faseringslocatie met de naam 'AzureBackup-'. De faseringslocatie is gelijk aan de grootte van de momentopname van het herstelpunt. Zorg ervoor dat er voldoende vrije ruimte in het opslagaccount is voor de tijdelijke faseringslocatie. Zie het artikel [Beperkingen van Premium Storage](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) voor meer informatie. Zodra de back-uptaak is voltooid, wordt de faseringslocatie verwijderd. De opslagkosten die in rekening worden gebracht voor de faseringslocatie zijn consistent met de [Prijzen voor een Premium-opslag](../storage/storage-premium-storage.md#pricing-and-billing).
+Tijdens een back-up van virtuele machines voor Premium-opslag, maakt de Backup-service in het Premium-opslagaccount een tijdelijke faseringslocatie met de naam 'AzureBackup-'. De faseringslocatie is gelijk aan de grootte van de momentopname van het herstelpunt. Zorg ervoor dat er voldoende vrije ruimte in het opslagaccount is voor de tijdelijke faseringslocatie. Zie het artikel [Beperkingen van Premium Storage](../storage/storage-premium-storage.md#scalability-and-performance-targets) voor meer informatie. Zodra de back-uptaak is voltooid, wordt de faseringslocatie verwijderd. De opslagkosten die in rekening worden gebracht voor de faseringslocatie zijn consistent met de [Prijzen voor een Premium-opslag](../storage/storage-premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Wijzig of bewerk de faseringslocatie niet.

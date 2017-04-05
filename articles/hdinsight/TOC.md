@@ -65,6 +65,7 @@
 ### [Resultaten van voedingsinspectie voorspellen](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Websitelogboeken analyseren](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 ### [Caffe gebruiken voor deep learning](hdinsight-deep-learning-caffe-spark.md)
+### [Met Microsoft Cognitive Toolkit gebruiken](hdinsight-apache-spark-microsoft-cognitive-toolkit.md)
 ### [Zeppelin-notitieblokken gebruiken](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Jupyter-notitieblokkernels](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 ### [Externe pakketten gebruiken met Jupyter-met behulp van magic-pakket voor cellen](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
@@ -141,9 +142,8 @@
 #### [RES gebruiken voor het installeren van apps](https://msdn.microsoft.com/library/mt706515.aspx)
 #### [HDInsight-apps publiceren naar Azure Marketplace](hdinsight-apps-publish-applications.md)
 ## Beveiligen
+### [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [SSH-tunneling gebruiken](hdinsight-linux-ambari-ssh-tunnel.md)
-### [SSH van Linux, Unix, OS X gebruiken](hdinsight-hadoop-linux-use-ssh-unix.md)
-### [SSH van Windows-besturingssysteem gebruiken](hdinsight-hadoop-linux-use-ssh-windows.md)
 ### [Toegang tot gegevens beperken](hdinsight-storage-sharedaccesssignature-permissions.md)
 ## Beheren
 ### [Linux-clusters maken](hdinsight-hadoop-provision-linux-clusters.md)
@@ -171,6 +171,8 @@
 ### [Cluster en servicepoorten en URI's](hdinsight-hadoop-port-settings-for-services.md)
 ### [Migreren naar ontwikkelingsprogramma's van Resource Manager](hdinsight-hadoop-development-using-azure-resource-manager.md)
 ### [Beschikbaarheid en betrouwbaarheid](hdinsight-high-availability-linux.md)
+### [HDInsight-cluster upgraden naar nieuwere versie](hdinsight-upgrade-cluster.md)
+### [OS-patches voor HDInsight-cluster](hdinsight-os-patching.md)
 ## Problemen oplossen
 ### [Tips voor Linux](hdinsight-hadoop-linux-information.md)
 ### [Releaseopmerkingen](hdinsight-release-notes.md)
@@ -195,16 +197,7 @@
 # Verwant
 ## Windows-clusters
 ### [Windows-clusters migreren naar Linux-clusters](hdinsight-migrate-from-windows-to-linux.md)
-### [Beginnen met Hadoop](hdinsight-hadoop-tutorial-get-started-windows.md)
-### [Beginnen met Storm](hdinsight-apache-storm-tutorial-get-started.md)
-### [Beginnen met HBase](hdinsight-hbase-tutorial-get-started.md)
 ### [Voorbeelden van Hadoop MapReduce uitvoeren](hdinsight-run-samples.md)
-### [Hadoop-clusters maken](hdinsight-provision-clusters.md)
-#### [Azure Portal gebruiken](hdinsight-hadoop-create-windows-clusters-portal.md)
-#### [.NET-SDK gebruiken](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md)
-#### [Azure CLI gebruiken](hdinsight-hadoop-create-windows-clusters-cli.md)
-#### [Azure PowerShell gebruiken](hdinsight-hadoop-create-windows-clusters-powershell.md)
-#### [Resourcemanager-sjablonen gebruiken](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 ### [Solr in clusters gebruiken](hdinsight-hadoop-solr-install-linux.md)
 ### [Giraph gebruiken om grootschalige grafieken te verwerken](hdinsight-hadoop-giraph-install.md)
 ### [Oozie gebruiken voor werkstromen](hdinsight-use-oozie.md)
@@ -212,7 +205,6 @@
 ### [Maven gebruiken om Java-toepassingen te maken](hdinsight-hbase-build-java-maven.md)
 ### [De Tez-gebruikersinterface gebruiken om problemen met Tez-taken op te sporen](hdinsight-debug-tez-ui.md)
 ### [Aanpassingen aanbrengen met Script Action](hdinsight-hadoop-customize-cluster.md)
-### [Beschikbaarheid en betrouwbaarheid](hdinsight-high-availability.md)
 ### [Toegang tot YARN-toepassingslogboeken](hdinsight-hadoop-access-yarn-app-logs.md)
 ### [Apache Phoenix en SQuirreL gebruiken](hdinsight-hbase-phoenix-squirrel.md)
 ### [Filmaanbevelingen genereren met Mahout](hdinsight-mahout.md)

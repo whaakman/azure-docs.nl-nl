@@ -23,18 +23,12 @@
 ## Een peeringconfiguratie maken en wijzigen
 ### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
-### [PowerShell (klassiek)](expressroute-howto-routing-classic.md)
 ## Een virtueel netwerk koppelen aan een ExpressRoute-circuit
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
-### [PowerShell (klassiek)](expressroute-howto-linkvnet-classic.md)
-## Een virtuele netwerkgateway configureren voor ExpressRoute
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-### [PowerShell (klassiek)](expressroute-howto-add-gateway-classic.md)
-## Gelijktijdige site-naar-site en VPN Gateway- en ExpressRoute-verbindingen maken
-### [PowerShell](expressroute-howto-coexist-resource-manager.md)
-### [PowerShell (klassiek)](expressroute-howto-coexist-classic.md)
-## [Een circuit migreren van klassiek naar Resource Manager](expressroute-howto-move-arm.md)
+## [Een virtuele netwerkgateway configureren voor ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
+## [Gelijktijdige ExpressRoute- en site-to-site-verbindingen configureren](expressroute-howto-coexist-resource-manager.md)
+## [Een circuit van klassiek naar Resource Manager verplaatsen](expressroute-howto-move-arm.md)
 ## Een router voor ExpressRoute configureren
 ### [Een router configureren](expressroute-config-samples-routing.md)
 ### [Voorbeelden van routerconfiguraties voor NAT](expressroute-config-samples-nat.md)

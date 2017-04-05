@@ -41,6 +41,7 @@
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Grote bestanden uploaden met Aspera](media-services-upload-files-with-aspera.md)
+### [Bestanden uploaden met StorSimple](media-services-upload-files-from-storsimple.md)
 ### [Bestaande blobs kopiëren](media-services-copying-existing-blob.md)
 
 ## [Inhoud coderen](media-services-encode-asset.md)

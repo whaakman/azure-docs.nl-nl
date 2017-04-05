@@ -44,6 +44,7 @@
 ### [Gebruikersaccounts beheren](api-management-howto-create-or-invite-developers.md)
 ### [Beheren met automatisering](automation-manage-api-management.md)
 ### [Configureren met behulp van Git](api-management-configuration-repository-git.md)
+### [Controleren met behulp van Azure Monitor](api-management-howto-use-azure-monitor.md)
 # Naslaginformatie
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [REST](/rest/api/apimanagement/)

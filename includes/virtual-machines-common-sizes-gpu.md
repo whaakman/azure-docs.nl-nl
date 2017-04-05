@@ -17,7 +17,7 @@ De NC-exemplaren worden aangestuurd door een NVIDIA Tesla R80-kaart. Gebruikers 
 
 **Ondersteunde besturingssystemen**
 
-* Windows Server 2016, Windows Server 2012 R2; zie [N-series driver setup for Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md) (Stuurprogramma’s uit de N-serie instellen voor Windows)
+* Windows Server 2016, Windows Server 2012 R2; zie [N-series driver setup for Windows](../articles/virtual-machines/windows/n-series-driver-setup.md) (Stuurprogramma’s uit de N-serie instellen voor Windows)
 
 ## <a name="nc-instances"></a>NC-exemplaren
 
@@ -34,8 +34,8 @@ De NC-exemplaren worden aangestuurd door een NVIDIA Tesla R80-kaart. Gebruikers 
 
 **Ondersteunde besturingssystemen**
 
-* Windows Server 2016, Windows Server 2012 R2; zie [N-series driver setup for Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md) (Stuurprogramma’s uit de N-serie instellen voor Windows)
-* Ubuntu 16.04 TNS; zie [N-series driver setup for Linux](../articles/virtual-machines/virtual-machines-linux-n-series-driver-setup.md) (Stuurprogramma’s uit de N-serie instellen voor Linux)
+* Windows Server 2016, Windows Server 2012 R2; zie [N-series driver setup for Windows](../articles/virtual-machines/windows/n-series-driver-setup.md) (Stuurprogramma’s uit de N-serie instellen voor Windows)
+* Ubuntu 16.04 TNS; zie [N-series driver setup for Linux](../articles/virtual-machines/linux/n-series-driver-setup.md) (Stuurprogramma’s uit de N-serie instellen voor Linux)
 
 <br>
 

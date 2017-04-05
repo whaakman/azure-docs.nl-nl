@@ -16,6 +16,7 @@
 ### [Taakverdeling instellen voor DC/OS-containers](container-service-load-balancing.md)
 ### [App-/gebruikersspecifieke orchestrator in DC/OS](container-service-application-specific-marathon.md)
 ### [Een bestandsshare toevoegen](container-service-dcos-fileshare.md)
+### [Azure Container Registry gebruiken](container-service-dcos-acr.md)
 ### DC/OS bewaken
 #### [Bewaken met ELK](container-service-monitoring-elk.md)
 #### [Bewaken met OMS](container-service-monitoring-oms.md)
@@ -36,6 +37,7 @@
 ## Beheren met Docker Swarm
 ### [Docker CLI en Docker Compose](container-service-docker-swarm.md)
 ### [Continue integratie met Docker Swarm](container-service-docker-swarm-setup-ci-cd.md)
+## [Beveiligde containers](container-service-security.md)
 # Naslaginformatie
 ## [Azure CLI 2.0](/cli/azure/acs)
 ## [REST](/rest/api/compute/containerservices)
@@ -43,3 +45,4 @@
 ## [Beschikbaarheid in regio's](https://azure.microsoft.com/regions/services/)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/container-service/)
 ## [Service-updates](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-container-service)

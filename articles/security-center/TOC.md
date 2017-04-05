@@ -30,8 +30,8 @@
 #### [Verkeer alleen via NGFW sturen](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
 
 ### [Aanbevelingen voor SQL-service](security-center-sql-service-recommendations.md)
-#### [Controleren voor SQL-databases inschakelen](security-center-enable-auditing-on-sql-databases.md)
-#### [Controleren voor SQL-servers inschakelen](security-center-enable-auditing-on-sql-servers.md)
+#### [Controle en detectie van bedreigingen op SQL-databases inschakelen](security-center-enable-auditing-on-sql-databases.md)
+#### [Controle en detectie van bedreigingen op SQL-servers inschakelen](security-center-enable-auditing-on-sql-servers.md)
 #### [Transparante gegevensversleuteling inschakelen](security-center-enable-transparent-data-encryption.md)
 
 ### [Aanbevelingen voor virtuele machines](security-center-virtual-machine-recommendations.md)
@@ -74,8 +74,3 @@
 ## [Overzicht van services](https://azure.microsoft.com/services/security-center/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=security-center)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

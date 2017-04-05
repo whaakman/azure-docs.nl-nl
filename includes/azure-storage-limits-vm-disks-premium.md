@@ -24,10 +24,5 @@
 | Max. aantal IOP's per VM |80.000 IOP's met GS5 VM<sup>1</sup> |
 | Max. doorvoer per VM |2000 MB/s met GS5 VM<sup>1</sup> |
 
-<sup>1</sup>Zie [VM-grootte](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor de limieten die gelden bij andere VM-grootten. 
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+<sup>1</sup>Zie [VM-grootte](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor de limieten die gelden bij andere VM-grootten. 
 
