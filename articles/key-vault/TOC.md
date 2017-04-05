@@ -25,6 +25,7 @@
 ## Automatiseren
 ### [Azure Automation](automation-manage-key-vault.md)
 ### [Maken en beheren met CLI](key-vault-manage-with-cli.md)
+### [Maken en beheren met CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Naslaginformatie
 ## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)

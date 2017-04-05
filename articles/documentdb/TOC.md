@@ -85,6 +85,7 @@
 
 
 ## Integreren
+### [Verbinding maken met Spark](documentdb-spark-connector.md)
 ### [Een website implementeren met Azure App Service](documentdb-create-documentdb-website.md)
 ### [Toepassingslogboeken bijhouden met Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Verbinden aan Azure Functions](../azure-functions/functions-bindings-documentdb.md)

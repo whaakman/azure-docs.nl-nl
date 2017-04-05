@@ -4,6 +4,7 @@
 # Aan de slag
 ## [Een schaalset implementeren in de portal](virtual-machine-scale-sets-portal-create.md)
 ## [Een schaalset implementeren met PowerShell of Azure CLI](virtual-machine-scale-sets-create.md)
+## [Een automatisch schalende app implementeren met behulp van een sjabloon](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
 # Procedures
 ## Plannen en ontwerpen

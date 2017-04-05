@@ -33,6 +33,8 @@
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Inleiding tot Azure-logboekintegratie](security-azure-log-integration-overview.md)
 #### [Aan de slag met Azure-logboekintegratie](security-azure-log-integration-get-started.md)
+#### [Controlelogboeken van Azure Active Directory integreren](security-azure-log-integration-ad.md)
+#### [Waarschuwingen van Beveiligingscentrum integreren](security-azure-log-integration-security-center.md)
 #### [Veelgestelde vragen](security-azure-log-integration-faq.md)
 
 ## Identiteitsbeheer
