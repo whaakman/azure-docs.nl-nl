@@ -1,16 +1,16 @@
-# [Overzicht](../../virtual-machines-linux-azure-overview.md)
+# [Overzicht](../overview.md)
 ## [Installatiekopieën](about-images.md)
 ## [VM-extensies](agents-and-extensions.md)
 ## [Beschikbaarheid](configure-availability.md)
 ## [Veelgestelde vragen](faq.md)
 
-# [Aan de slag](../../virtual-machines-linux-opensource-links.md)
+# [Aan de slag](../opensource-links.md)
 ## [Een Linux-VM maken via de portal](createportal.md)
 ## [Azure CLI installeren](../../../cli-install-nodejs.md)
-## [SSH-sleutels maken](../../virtual-machines-linux-mac-create-ssh-keys.md)
+## [SSH-sleutels maken](../mac-create-ssh-keys.md)
 
 # Procedures
-## [Compute](../../virtual-machines-linux-intro-on-azure.md)
+## [Compute](../intro-on-azure.md)
 ### [Een aangepaste VM maken](create-custom.md)
 ### [Een VM vastleggen](capture-image.md)
 ### [Extern bureaublad gebruiken met een Linux-VM](remote-desktop.md)

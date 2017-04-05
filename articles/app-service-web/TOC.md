@@ -15,13 +15,6 @@
 ## [PowerShell](app-service-powershell-samples.md) 
 
 # Zelfstudies
-## [Functionaliteit toevoegen aan een web-app](app-service-web-get-started-2.md)
-## [ASP.NET-app met SQL-database](web-sites-dotnet-get-started.md)
-## [Laravel-app met MySQL](app-service-web-php-get-started.md)
-## [Sails.js-app met NOSQL-database](app-service-web-nodejs-sails.md)
-## [Java-app met Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
-## [Java-app met IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
-## [Django-app met MySQL](web-sites-python-ptvs-django-mysql.md)
 
 # Concepten
 ## [De werking van App Service](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)    
@@ -34,20 +27,25 @@
 # Handleidingen
 ## Uw app ontwikkelen    
 ### ASP.NET
-
+#### [ASP.NET-app met SQL-database](web-sites-dotnet-get-started.md)
 #### [Een ASP.NET Core-app ontwikkelen met VS Code](web-sites-create-web-app-using-vscode.md)
 ### PHP
+#### [Laravel-app met MySQL](app-service-web-php-get-started.md)
 #### [Een PHP-project opzetten](web-sites-php-configure.md)
 #### [Een WordPress-multisite instellen](web-sites-php-convert-wordpress-multisite.md) 
 ### Node.js
+#### [Sails.js-app met NOSQL-database](app-service-web-nodejs-sails.md)
 #### [IO.js gebruiken](web-sites-nodejs-iojs.md)
 #### [Fouten opsporen in Node.js-app](web-sites-nodejs-debug.md)
 ### Java
-
+#### [Java-app met Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
+#### [Java-app met IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
 #### [Azure SDK voor Java gebruiken](java-create-azure-website-using-java-sdk.md)
 #### [Bestaande app uploaden](web-sites-java-add-app.md)
 #### [Externe foutopsporing voor Eclipse](app-service-web-debug-java-web-app-in-eclipse.md)
 #### [Externe foutopsporing voor IntelliJ](app-service-web-debug-java-web-app-in-intellij.md)
+### Python
+#### [Django-app met MySQL](web-sites-python-ptvs-django-mysql.md)
 
 ### [E-mails versturen met SendGrid](sendgrid-dotnet-how-to-send-email.md)
 
@@ -82,6 +80,7 @@
 
 ### [Migreren vanuit IIS](web-sites-migration-from-iis-server.md)
 ### [Testen tijdens productie](app-service-web-test-in-production-get-start.md)
+### [Functionaliteit toevoegen aan een web-app](app-service-web-get-started-2.md)
 
 ## Verbinding maken met database/resources        
 
