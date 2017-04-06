@@ -382,7 +382,7 @@ Zodra de volledige toepassing correct werkt met DocumentDB, kunt u de toepassing
 3. Klik in het venster **Microsoft Azure Web Apps** op **New** (Nieuw).
    
     ![Schermopname van het venster Microsoft Azure Web Apps (Web-apps van Microsoft Azure)](./media/documentdb-python-application/select-existing-website.png)
-4. Geef in het venster **Create site on Microsoft Azure** (Site op Microsoft Azure maken) de **naam voor de web-app**, een **App Service-plan **, een **resourcegroep** en **regio** in de desbetreffende velden op en klik op **Create** (Maken).
+4. Geef in het venster **Create site on Microsoft Azure** (Site op Microsoft Azure maken) de **naam voor de web-app**, een **App Service-plan**, een **resourcegroep** en **regio** in de desbetreffende velden op en klik op **Create** (Maken).
    
     ![Schermopname van het venster Create site on Microsoft Azure (Site op Microsoft Azure maken)](./media/documentdb-python-application/create-site-on-microsoft-azure.png)
 5. Klik in het venster **Publish Web** (Publiceren naar het web) op **Publish** (Publiceren).
