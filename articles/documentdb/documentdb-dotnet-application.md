@@ -559,7 +559,7 @@ Als u tijdens een poging tot het implementeren van de web-app de melding 'Er is 
     - Regio: selecteer de regio die het dichtst bij uw app-gebruikers ligt
     - Databaseserver: selecteer geen database en klik vervolgens op **Maken**. 
 
-4. Klik in het scherm 'todo net app *' op **Verbinding valideren**. Nadat de verbinding is gecontroleerd, klikt u op **Publiceren**. 
+4. Klik in het scherm "todo net *app ", op**Verbinding valideren**. Nadat de verbinding is gecontroleerd, klikt u op**Publiceren**. 
     
     De app wordt vervolgens weergegeven in uw browser.
 
