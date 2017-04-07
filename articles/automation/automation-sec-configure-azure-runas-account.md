@@ -250,7 +250,7 @@ Ga als volgt te werk om de waarden op te halen voor *SubscriptionID*, *ResourceG
 2. Selecteer op de blade **Alle instellingen** onder **Accountinstellingen** de optie **Eigenschappen**. 
 3. Let op de waarden op de blade **Eigenschappen**.
 
- ![De blade Eigenschappen voor het Automation-account](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
+![De blade Eigenschappen voor het Automation-account](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
 
 ### <a name="create-a-run-as-account-powershell-script"></a>Een PowerShell-script voor Uitvoeren als-account maken
 Dit PowerShell-script biedt ondersteuning voor de volgende configuraties:
@@ -415,7 +415,6 @@ Ga als volgt te werk om het script uit te voeren en het certificaat te uploaden:
         $TenantID = $SubscriptionInfo | Select TenantId -First 1
         $Thumbprint = $PfxCert.Thumbprint
         $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId}
-
 
         # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
