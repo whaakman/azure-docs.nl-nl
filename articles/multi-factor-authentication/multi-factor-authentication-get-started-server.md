@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/26/2017
+ms.date: 03/26/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c5a26a17ab50993f8b57c8868b02541251de1cb1
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: b769f785f67c24b99156dcfc21a42f661cc9da27
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -121,13 +121,13 @@ Nu dat de server is geïnstalleerd en geconfigureerd, kunt u snel gebruikers imp
 ## <a name="send-users-an-email"></a>E-mail verzenden naar gebruikers
 Nu u alle gebruikers hebt geïmporteerd in de MFA-server, stuurt u ze een e-mail om ze te laten weten dat ze zijn ingeschreven voor verificatie in twee stappen.
 
-U moet uw e-mail aanpassen aan de manier waarop u de gebruikers hebt geconfigureerd voor verificatie in twee stappen. Als u bijvoorbeeld de telefoonnummers vanuit het bedrijfsadresboek importeert, moeten in de e-mail de standaardtelefoonnummers staan. Gebruikers weten dan wat ze kunnen verwachten. Als u de telefoonnummers niet importeert of als gebruikers de mobiele app gaan gebruiken, stuurt u hun een e-mail met een koppeling naar de Azure Multi-Factor Authentication-gebruikersportal om de accountinschrijving te voltooien.
+U moet uw e-mail aanpassen aan de manier waarop u de gebruikers hebt geconfigureerd voor verificatie in twee stappen. Als u bijvoorbeeld de telefoonnummers vanuit het bedrijfsadresboek importeert, moeten in de e-mail de standaardtelefoonnummers staan. Gebruikers weten dan wat ze kunnen verwachten. Als u de telefoonnummers niet importeert of als gebruikers de mobiele app gaan gebruiken, stuurt u hun een e-mail met het verzoek om de accountinschrijving te voltooien. Voeg in de e-mail een hyperlink toe naar de portal voor Multi-Factor Authentication via Azure Portal.
 
 De inhoud van het e-mailbericht is ook afhankelijk van de verificatiemethode die voor de gebruiker is ingesteld (telefoonoproep, sms of mobiele app).  Als de gebruiker bijvoorbeeld bij de verificatie een pincode moet opgeven, staat in het e-mailbericht welke pincode initieel is ingesteld.  Gebruikers moeten hun pincode wijzigen bij de eerste verificatie.
 
 
 ### <a name="configure-email-and-email-templates"></a>E-mailberichten en e-mailsjablonen configureren
-Klik op het e-mailpictogram links om de instellingen voor het verzenden van deze e-mailberichten te bepalen. Hier kunt u de SMTP-gegevens van uw e-mailserver invoeren en e-mails verzenden door het selectievakje bij **E-mails versturen naar gebruikers** in te schakelen.
+Klik op het e-mailpictogram links om de instellingen voor het verzenden van deze e-mailberichten te bepalen. Op deze pagina kunt u de SMTP-gegevens van uw e-mailserver invoeren en e-mails verzenden door het selectievakje bij **E-mails versturen naar gebruikers** in te schakelen.
 
 ![E-mailinstellingen](./media/multi-factor-authentication-get-started-server/email1.png)
 
@@ -155,11 +155,7 @@ Naast de bovenstaande velden worden ook het verificatieresultaat (geslaagd/gewei
 
 - De [Gebruikersportal](multi-factor-authentication-get-started-portal.md) instellen en configureren voor selfservice door gebruikers.
 
-- Azure Multi-Factor Authentication instellen met [Active Directory Federation Services](multi-factor-authentication-get-started-adfs.md).
-
-- De Azure MFA-server instellen en configureren met [RADIUS-verificatie](multi-factor-authentication-get-started-server-radius.md). Als u RADIUS gebruikt, kunt u verschillende systemen van derden integreren met de Azure MFA-server. 
-
-- De Azure MFA-server instellen en configureren met [Windows-verificatie](multi-factor-authentication-get-started-server-windows.md).
+- De Azure MFA-server installeren en configureren met [Active Directory Federation-service](multi-factor-authentication-get-started-adfs.md), [RADIUS-verificatie](multi-factor-authentication-get-started-server-radius.md) of [LDAP-authenticatie](multi-factor-authentication-get-started-server-ldap.md).
 
 - [Externe bureaublad-gateway en Azure Multi-Factor Authentication-server met behulp van RADIUS](multi-factor-authentication-get-started-server-rdg.md) instellen en configureren. 
 

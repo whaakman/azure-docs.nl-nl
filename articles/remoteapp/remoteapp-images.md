@@ -14,14 +14,15 @@ ms.topic: get-started-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
-ms.openlocfilehash: 21ae6458d1d65698c0c8fc7081696cb7406a918c
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 348306795fd3c8275b21e4ec6dceae408916bf72
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="what-is-in-the-azure-remoteapp-template-images"></a>Wat bevatten de sjablooninstallatiekopieën van Azure RemoteApp?
 > [!IMPORTANT]
-> Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
+> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
 > 
 
@@ -111,10 +112,5 @@ Deze installatiekopie is een uitbreiding op de vanilla-installatiekopie en bevat
 > **Juridische informatie:** Deze installatiekopie bevat geen licentie voor Microsoft Office en *kan niet worden gebruikt voor productie*. De Office 2013 Professional Plus-installatiekopie is alleen bedoeld als proefversie. Als u Office-apps in Azure RemoteApp wilt gebruiken voor productie, maak dan gebruik van de Office 365 ProPlus-installatiekopie. Zie [Office 365 gebruiken met Azure RemoteApp](remoteapp-o365.md) voor meer informatie over licentieverlening voor Office.
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

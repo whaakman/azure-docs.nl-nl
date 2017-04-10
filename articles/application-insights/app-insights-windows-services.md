@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights voor Windows-services en -werkrollen | Microsoft Docs
+title: Azure Application Insights voor Windows-server en -werkrollen | Microsoft Docs
 description: De Application Insights SDK handmatig toevoegen aan uw ASP.NET-toepassing om gebruik, beschikbaarheid en prestaties te analyseren.
 services: application-insights
 documentationcenter: .net
@@ -14,14 +14,14 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: df23a55197d15946f16868d14c6db08dcba4df19
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 97d750035e79d4780738e660d05e1a41085d51f1
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="manually-configure-application-insights-for-aspnet-4-applications"></a>Application Insights handmatig configureren voor ASP.NET 4-toepassingen
-[Application Insights](app-insights-overview.md) is een uitbreidbaar hulpprogramma voor webontwikkelaars dat u helpt de prestaties en het gebruik van uw live-toepassing te bewaken. U kunt het hulpprogramma handmatig configureren voor het bewaken van Windows-services, -werkrollen en andere ASP.NET-toepassingen. Voor web-apps is handmatige configuratie een alternatief voor de [automatische configuratie](app-insights-asp-net.md) die wordt aangeboden door Visual Studio.
+# <a name="manually-configure-application-insights-for-aspnet-applications"></a>Application Insights handmatig configureren voor ASP.NET-toepassingen
+[Application Insights](app-insights-overview.md) is een uitbreidbaar hulpprogramma voor webontwikkelaars dat u helpt de prestaties en het gebruik van uw live-toepassing te bewaken. U kunt het hulpprogramma handmatig configureren voor het bewaken van uw Windows-server, werkrollen en andere ASP.NET-toepassingen. Voor web-apps is handmatige configuratie een alternatief voor de [automatische configuratie](app-insights-asp-net.md) die wordt aangeboden door Visual Studio.
 
 ![Voorbeeld van grafieken met prestatiebewaking](./media/app-insights-windows-services/10-perf.png)
 
@@ -47,13 +47,13 @@ De sleutel geeft aan wat de resource is. U installeert de sleutel in het begin i
 
 De stappen die u zojuist hebt gevolgd om een nieuwe resource te maken, vormen ook een goed startpunt om te beginnen met het bewaken van een toepassing. U kunt er nu gegevens naar verzenden.
 
-## <a name="sdk"></a>2. De SDK installeren in uw toepassing
-De installatie en configuratie van de Application Insights-SDK varieert, afhankelijk van het platform waarmee u werkt. Voor ASP.NET-apps is het eenvoudig.
+## <a name="sdk"></a>2. Het Application Insights-pakket in uw toepassing installeren
+De installatie en configuratie van het Application Insights-pakket varieert, afhankelijk van het platform waarmee u werkt. Voor ASP.NET-apps is het eenvoudig.
 
 1. Bewerk in Visual Studio de NuGet-pakketten van uw web-app-project.
    
     ![Klik met de rechtermuisknop op het project en selecteer NuGet-pakketten beheren](./media/app-insights-windows-services/03-nuget.png)
-2. Installeer de Application Insights-SDK voor web-apps.
+2. Installeer het Application Insights-pakket voor Windows-server-apps.
    
     ![Naar Application Insights zoeken](./media/app-insights-windows-services/04-ai-nuget.png)
    
@@ -61,10 +61,10 @@ De installatie en configuratie van de Application Insights-SDK varieert, afhanke
    
     Ja. Kies de Core API (Microsoft.ApplicationInsights) als u de API alleen wilt gebruiken voor het verzenden van uw eigen telemetrie. Het pakket voor Windows Server omvat automatisch de Core API plus een aantal andere pakketten zoals prestatiemeterverzameling en afhankelijkheidsbewaking. 
 
-#### <a name="to-upgrade-to-future-sdk-versions"></a>Upgraden naar toekomstige SDK-versies
+#### <a name="to-upgrade-to-future-package-versions"></a>Upgraden naar toekomstige pakketversies
 Van tijd tot tijd brengen we een nieuwe versie van de SDK uit.
 
-Als u wilt upgraden naar een [nieuwe release van de SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/), opent u NuGet-pakketbeheer opnieuw en filtert u op geïnstalleerde pakketten. Selecteer **Microsoft.ApplicationInsights.Web** en kies **Upgraden**.
+Als u wilt upgraden naar een [nieuwe release van het pakket](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/), opent u NuGet-pakketbeheer opnieuw en filtert u op geïnstalleerde pakketten. Selecteer **Microsoft.ApplicationInsights.WindowsServer** en kies **Upgraden**.
 
 Als u aanpassingen in ApplicationInsights.config hebt aangebracht, slaat u hiervan een kopie op voordat u de upgrade uitvoert. Voeg vervolgens uw wijzigingen samen in de nieuwe versie.
 

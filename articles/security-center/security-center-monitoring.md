@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
-ms.openlocfilehash: ae263615d5fa262eb8a8ed2e5461d92bec503f1d
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: d796566676e13b312832dd543f52d3475d877ef8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -33,30 +34,31 @@ Zie [Beveiligingsaanbevelingen implementeren in Azure Security Center](security-
 
 Op de tegel **Beveiligingsstatus van de resource** kunt u de beveiligingsstatus van uw resources bewaken. In het volgende voorbeeld ziet u een aantal problemen met een hoge en gemiddelde ernst en die uw aandacht vereisen. Het ingeschakelde beveiligingsbeleid is van invloed op de typen besturingselementen die worden bewaakt.
 
-![De tegel Beveiligingsstatus van de resource](./media/security-center-monitoring/security-center-monitoring-fig1-new4-2017.png)
+![De tegel Beveiligingsstatus van de resource](./media/security-center-monitoring/security-center-monitoring-fig1-new001-2017.png)
 
 Als in Security Center een beveiligingsprobleem wordt gevonden dat moet worden verholpen, zoals een virtuele machine met ontbrekende beveiligingsupdates of een subnet zonder een [netwerkbeveiligingsgroep](/virtual-network/virtual-networks-nsg.md), wordt dat hier vermeld.
 
-### <a name="monitor-virtual-machines"></a>Virtuele machines bewaken
-Wanneer u op **Virtuele machines** in de tegel **Beveiligingsstatus van de resource** klikt, wordt de blade **Virtuele machines** geopend met meer informatie over stappen voor onboarding en preventie, evenals een lijst met alle virtuele machines die worden bewaakt door Security Center, zoals te zien is op de volgende schermafbeelding.
+### <a name="monitor-compute"></a>Berekenen controleren
+Als u op de tegel **Beveiligingsstatus van de resource** klikt op **Berekenen**, wordt de blade **Berekenen** geopend met daarop drie tabbladen:
 
-![Ontbrekende systeemupdate per virtuele machine](./media/security-center-monitoring/security-center-monitoring-fig2-ga.png)
+- **Overzicht**: aanbevelingen voor controle en virtuele machines.
+- **Virtuele machines**: lijst met alle virtuele machines en de bijbehorende actuele beveiligingsstatussen.
+- **Cloudservices**: lijst met alle web- en worker-rollen gecontroleerd met het beveiligingscentrum.
 
-* Stappen voor onboarding
-* Aanbevelingen voor virtuele machines
-* Virtuele machines
+![Ontbrekende systeemupdate per virtuele machine](./media/security-center-monitoring/security-center-monitoring-fig1-new002-2017.png)
 
-U kunt in elke sectie een afzonderlijke optie selecteren om meer informatie weer te geven over de stap die wordt aanbevolen om het probleem op te lossen. In de volgende secties worden deze gebieden gedetailleerder uitgelegd.
+Op elk tabblad kunt u meerdere sectie hebben en in elke sectie kunt u een afzonderlijke optie selecteren voor meer informatie over de aanbevolen stappen voor het oplossen van het specifieke probleem. 
 
 #### <a name="monitoring-recommendations"></a>Aanbevelingen ten aanzien van controle
-In deze sectie wordt het totale aantal virtuele machines weergegeven dat is geïnitialiseerd voor het verzamelen van gegevens en de huidige status. Nadat voor alle virtuele machines gegevensverzameling is geïnitialiseerd, zijn ze klaar om Security Center-beveiligingsbeleid te ontvangen. Als u op deze vermelding klikt, wordt de blade **Installatiestatus van gegevensverzameling** geopend en ziet u de namen van de virtuele machines en de huidige status van het verzamelen van gegevens in de kolom **INSTALLATIESTATUS**, zoals te zien is op de volgende schermafbeelding.
+In deze sectie wordt het totale aantal virtuele machines weergegeven dat is geïnitialiseerd voor het verzamelen van gegevens en de huidige status. Nadat voor alle virtuele machines gegevensverzameling is geïnitialiseerd, zijn ze klaar om Security Center-beveiligingsbeleid te ontvangen. Als u op deze vermelding klikt, wordt de blade **VM-agent ontbreekt of reageert niet** geopend. 
 
-![Initialisatiestatus van virtuele machines](./media/security-center-monitoring/security-center-monitoring-fig3-ga.png)
+![Ontbrekende systeemupdate per virtuele machine](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+
 
 #### <a name="virtual-machine-recommendations"></a>Aanbevelingen voor virtuele machines
 Dit gedeelte bevat een reeks [aanbevelingen voor elke virtuele machine](security-center-virtual-machine-recommendations.md) die wordt bewaakt door Azure Security Center. De eerste kolom bevat de aanbeveling. De tweede kolom geeft het totale aantal virtuele machines dat wordt beïnvloed door deze aanbeveling. De derde kolom geeft de ernst van het probleem weer, zoals wordt geïllustreerd op de volgende schermafbeelding.
 
-![Aanbevelingen voor virtuele machines](./media/security-center-monitoring/security-center-monitoring-fig4-ga.png)
+![Aanbevelingen voor virtuele machines](./media/security-center-monitoring/security-center-monitoring-fig1-new004-2017.png)
 
 > [!NOTE]
 > Alleen virtuele machines met ten minste één openbaar eindpunt worden weergegeven op de blade **Netwerkstatus** in de lijst **Netwerktopologie**.
@@ -93,7 +95,7 @@ Klik op de naam van de virtuele machine om meer informatie voor de aanbeveling w
 #### <a name="virtual-machines-section"></a>Sectie voor virtuele machines
 De sectie voor virtuele machines geeft een overzicht van alle virtuele machines en aanbevelingen. Elke kolom vertegenwoordigt een reeks aanbevelingen, zoals te zien is op de volgende schermafbeelding:
 
-![Overzicht van alle virtuele machines en aanbevelingen](./media/security-center-monitoring/security-center-monitoring-fig7-ga.png)
+![Overzicht van alle virtuele machines en aanbevelingen](./media/security-center-monitoring/security-center-monitoring-fig1-new005-2017.png)
 
 U kunt met het pictogram dat wordt weergegeven onder elke aanbeveling, snel zien welke virtuele machines aandacht vereisen en wat het type aanbeveling is.
 
@@ -103,12 +105,12 @@ In het vorige voorbeeld heeft één virtuele machine een cruciale aanbeveling me
 
 Deze blade bevat de beveiligingsdetails voor de virtuele machine. Onder in deze blade ziet u de aanbevolen actie en de ernst van elk probleem.
 
-#### <a name="cloud-services-preview-section"></a>Het gedeelte Cloudservices (preview)
-De status voor cloudservices is opgenomen in de tegel **Beveiligingsstatus** van de virtuele machine. Er wordt een aanbeveling gemaakt wanneer de versie van het besturingssysteem verouderd is, zoals wordt weergegeven in de volgende schermafbeelding:
+#### <a name="cloud-services-section"></a>Veelgestelde vragen over cloudservices
+Voor cloudservices wordt een aanbeveling gemaakt wanneer de versie van het besturingssysteem verouderd is, zoals u ziet in de volgende schermafbeelding:
 
-![Status van cloudservices](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
+![Status van cloudservices](./media/security-center-monitoring/security-center-monitoring-fig1-new006-2017.png)
 
-U moet de stappen in de aanbeveling volgen om de versie van het besturingssysteem bij te werken. Een voorbeeld: als u in de rode waarschuwing in de WebRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd in IIS) of WorkerRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd in IIS) klikt, wordt een nieuwe blade geopend met meer informatie over deze aanbeveling, zoals op de volgende schermafbeelding wordt weergegeven:
+Bij een scenario waarin u een aanbeveling krijgt (wat in het vorige voorbeeld niet het geval is), volgt u de stappen in de aanbeveling om de versie van het besturingssysteem bij te werken. Wanneer een update beschikbaar is, ontvangt u een waarschuwing (rood of oranje, afhankelijk van de ernst van het probleem). Als u klikt op deze waarschuwing in de WebRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd in IIS) of WorkerRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd in IIS), wordt een nieuwe blade geopend met meer informatie over deze aanbeveling. Dit wordt weergegeven op de volgende schermafbeelding:
 
 ![Details van de cloudservice](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
@@ -214,9 +216,4 @@ In dit artikel hebt u kunnen lezen hoe u de bewakingsmogelijkheden in Azure Secu
 * [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt controleren.
 * [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.
 * [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

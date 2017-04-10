@@ -4,7 +4,7 @@ De gateway-SKU UltraPerformance staat niet in deze tabel. Meer informatie over d
 
 |  | **Doorvoer VPN-gateway (1)** | **Max. IPsec-tunnels VPN-gateway (2)** | **Doorvoer ExpressRoute-gateway** | **VPN-gateway en ExpressRoute bestaan tegelijk** |
 | --- | --- | --- | --- | --- |
-| **Basis-SKU (3)(5)** |100 Mbps |10 |500 Mbps |Nee |
+| **Basic SKU (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |Nee |
 | **Standaard SKU (4)(5)** |100 Mbps |10 |1000 Mbps |Ja |
 | **High Performance SKU (4)** |200 Mbps |30 |2000 Mbps |Ja |
 
@@ -13,9 +13,4 @@ De gateway-SKU UltraPerformance staat niet in deze tabel. Meer informatie over d
 * (3) BGP wordt niet ondersteund voor de Basis-SKU.
 * (4) Op beleid gebaseerde VPN-verbindingen worden niet ondersteund voor deze SKU. Ze worden alleen ondersteund voor de Basis-SKU.
 * (5) Actief-actief S2S VPN-gatewayverbindingen worden niet ondersteund voor deze SKU. Actief-actief wordt alleen ondersteund op de HighPerformance SKU.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+* (6) Basic SKU is afgeschaft voor gebruik met Expressroute.

@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2165cdc87a505e94fab2fc73c30a5764348c6dc1
-ms.openlocfilehash: b382cf65ae172e0037f2bc668a4f5862b29d1700
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6ea9db6ac7a7ba63652b860c22899a8616ea81bc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -65,8 +66,8 @@ In de bovenstaande afbeelding ziet u hoe NSG-regels worden verwerkt.
 ### <a name="default-tags"></a>Standaardtags
 Standaardtags zijn systeem-id's voor een bepaalde categorie IP-adressen. U kunt standaardtags gebruiken in de eigenschappen voor het **voorvoegsel voor het bronadres** en het **voorvoegsel voor het doeladres** van een regel. Er zijn drie standaardtags die u kunt gebruiken.
 
-* **VIRTUAL_NETWORK:** met deze standaardtag worden alle adresruimten van uw netwerk aangeduid. Dit omvat de adresruimte van het virtuele netwerk (CIDR-bereiken die in Azure zijn gedefinieerd) en alle verbonden on-premises adresruimten en verbonden Azure VNET'S (lokale netwerken).
-* **AZURE_LOADBALANCER:** met deze standaardtag wordt de load balancer voor de infrastructuur van Azure aangeduid. Dit wordt vertaald naar het IP-adres van een datacenter van Azure vanwaar statuscontroles van Azure worden uitgevoerd.
+* **VIRTUAL_NETWORK** (**VirtualNetwork** als u Azure Resource Manager gebruikt): met deze standaardtag worden al uw adresruimten van het netwerk aangeduid. Dit omvat de adresruimte van het virtuele netwerk (CIDR-bereiken die in Azure zijn gedefinieerd) en alle verbonden on-premises adresruimten en verbonden Azure VNET'S (lokale netwerken).
+* **AZURE_LOADBALANCER** (**AzureLoadBalancer** als u Azure Resource Manager gebruikt): met deze standaardtag wordt de infrastructuur-load balancer van Azure aangeduid. Dit wordt vertaald naar het IP-adres van een datacenter van Azure vanwaar statuscontroles van Azure worden uitgevoerd.
 * **INTERNET:** met deze standaardtag wordt de IP-adresruimte aangeduid die zich buiten het virtuele netwerk bevindt en bereikbaar is via internet. Dit bereik omvat ook [openbare IP-adresruimten van Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="default-rules"></a>Standaardregels
@@ -180,7 +181,7 @@ In de huidige NSG-regels worden alleen de protocollen *TCP* en *UDP* ondersteund
 * Veel Azure-services kunnen niet worden verbonden met virtuele Azure-netwerken en daarom kan verkeer van en naar deze netwerken niet met NSG's worden gefilterd.  Raadpleeg de documentatie bij de services die u gebruikt om te bepalen of deze kunnen worden gebruikt in combinatie met VNET's.
 
 ## <a name="sample-deployment"></a>Voorbeeldimplementatie
-Ter illustratie van de toepassing van de informatie in dit artikel, definiëren we NSG's voor het filteren van het netwerkverkeer naar een&2;-laags workloadoplossing met de volgende vereisten:
+Ter illustratie van de toepassing van de informatie in dit artikel, definiëren we NSG's voor het filteren van het netwerkverkeer naar een 2-laags workloadoplossing met de volgende vereisten:
 
 1. Scheiding van verkeer tussen front-end (Windows-webservers) en back-end (SQL Database-servers).
 2. Taakverdelingsregels waarmee verkeer naar de load balancer wordt doorgestuurd naar alle webservers op poort 80.
@@ -258,9 +259,4 @@ Omdat sommige van de bovenstaande NSG's moeten worden gekoppeld aan afzonderlijk
 * [NSG's implementeren in het klassieke implementatiemodel](virtual-networks-create-nsg-classic-ps.md).
 * [NSG's implementeren in Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 * [NSG-logboeken beheren](virtual-network-nsg-manage-log.md).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

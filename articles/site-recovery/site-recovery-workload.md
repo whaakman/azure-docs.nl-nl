@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 34a9d187eecec185e2b8d6977baea267ca9e60e5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 4149c5e06f1a23864ca0f92f1b7b73f4f66949df
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -61,6 +61,7 @@ Met Site Recovery kan elke app die wordt uitgevoerd op een ondersteunde machine,
 | Dynamics CRM |J |Binnenkort beschikbaar |J |Binnenkort beschikbaar |
 | Oracle |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |J (door Microsoft getest) |
 | Windows-bestandsserver |J |J |J |J |
+| Citrix XenApp en XenDesktop |N.v.t. |J |N.v.t. |J |
 
 ## <a name="replicate-active-directory-and-dns"></a>Active Directory en DNS repliceren
 Voor de meeste zakelijke apps zijn een Active Directory- en DNS-infrastructuur essentieel. Tijdens het herstel na noodgevallen moet u deze infrastructuuronderdelen beveiligen en herstellen voordat u uw workloads en apps herstelt.
@@ -143,6 +144,17 @@ Azure Site Recovery biedt herstel na noodgevallen door de belangrijke onderdelen
 -    De mogelijkheid om de herstelplannen in een geïsoleerde omgeving te testen voor details voor DR.
 
 [Meer informatie](https://aka.ms/asr-iis) over het beveiligen van IIS-webfarm.
+
+## <a name="protect-citrix-xenapp-and-xendesktop"></a>Citrix XenApp en XenDesktop beveiligen
+Gebruik Site Recovery om de Citrix XenApp- en XenDesktop-implementaties te beveiligen. Dit werkt als volgt:
+
+* Schakel beveiliging voor de Citrix XenApp- en XenDesktop-implementaties in door verschillende implementatielagen te repliceren in Azure, inclusief (AD DNS-server, SQL Database-server, Citrix Delivery Controller, StoreFront-server, XenApp Master (VDA), Citrix XenApp-licentieserver).
+* Vereenvoudig de cloudmigratie door Site Recovery te gebruiken om de Citrix XenApp- en XenDesktop-implementaties te migreren naar Azure.
+* Vereenvoudig Citrix XenApp-/XenDesktop-tests door een op de productieomgeving lijkende replica-omgeving op aanvraag te maken voor tests en foutopsporing.
+* Deze oplossing is alleen van toepassing op virtuele bureaubladen en virtuele niet-clientbureaubladen in een Windows Server-besturingssysteem. Dit komt omdat voor virtuele clientbureaubladen licentieverlening nog niet wordt ondersteund in Azure. 
+[Meer informatie](https://azure.microsoft.com/en-us/pricing/licensing-faq/) over licentieverlening voor clientbureaubladen en serverdesktops in Azure.
+
+[Meer informatie](https://aka.ms/citrix-xenapp-xendesktop-with-asr) over het beveiligen van Citrix XenApp- en XenDesktop-implementaties.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Vereisten controleren](site-recovery-prereq.md) 

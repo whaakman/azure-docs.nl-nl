@@ -12,12 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/03/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: f8512229ee30fee6315d8ba167f1716e40f79b3e
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: cee4748a0b24e11cd8a8ee46471418680fcf7b33
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -53,7 +53,7 @@ De implementatie kan een minuut duren. Nadat de implementatie is voltooid, bevat
 3. In de blade wordt een samenvatting van de implementatie weergegeven. Deze samenvatting bevat de status van de implementatie en bewerkingen, en de waarden die u hebt opgegeven voor de parameters. Selecteer **Sjabloon weergeven** om de sjabloon te bekijken die u voor de implementatie hebt gebruikt.
    
      ![implementatiesamenvatting bekijken](./media/resource-manager-export-template/deployment-summary.png)
-4. Resource Manager haalt de volgende zes bestanden voor u op:
+4. Resource Manager haalt de volgende zeven bestanden voor u op:
    
    1. **Sjabloon**: de sjabloon die de infrastructuur voor uw oplossing definieert. Toen u het opslagaccount via de portal maakte, heeft Resource Manager een sjabloon gebruikt om het te implementeren. De sjabloon is opgeslagen voor toekomstig gebruik.
    2. **Parameters**: een parameterbestand dat u kunt gebruiken om tijdens de implementatie waarden door te geven. Dit bestand bevat de waarden die u hebt opgegeven tijdens de eerste implementatie. Deze waarden kunt u echter wijzigen wanneer u de sjabloon opnieuw implementeert.
@@ -148,28 +148,28 @@ Als u de huidige status van uw resourcegroep wilt weten, exporteert u een sjablo
      Niet alle resourcetypen ondersteunen de functie voor het exporteren van sjablonen. Als de resourcegroep alleen het opslagaccount en de virtuele netwerken bevat die in dit artikel worden vermeld, ziet u geen foutmelding. Als u echter andere resourcetypen hebt gemaakt, wordt er mogelijk een foutmelding weergegeven dat er een probleem is met de export. U krijgt meer informatie over het afhandelen van die problemen in de sectie [Problemen met exports oplossen](#fix-export-issues).
 2. Weer ziet u de zes bestanden die u kunt gebruiken om de oplossing opnieuw te implementeren, maar deze keer is de sjabloon enigszins anders. Deze sjabloon heeft slechts twee parameters: één voor de opslagaccountnaam en één voor de virtuele-netwerknaam.
 
-  ```json
-  "parameters": {
-    "virtualNetworks_VNET_name": {
-      "defaultValue": "VNET",
-      "type": "String"
-    },
-    "storageAccounts_storagetf05092016_name": {
-      "defaultValue": "storagetf05092016",
-      "type": "String"
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "virtualNetworks_VNET_name": {
+       "defaultValue": "VNET",
+       "type": "String"
+     },
+     "storageAccounts_storagetf05092016_name": {
+       "defaultValue": "storagetf05092016",
+       "type": "String"
+     }
+   },
+   ```
    
-     Resource Manager heeft de sjablonen die u tijdens de implementatie hebt gebruikt niet opgehaald. In plaats daarvan heeft Resource Manager een nieuwe sjabloon gegenereerd die is gebaseerd op de huidige configuratie van de resources. De sjabloon stelt de locatie- en replicatiewaarde voor het opslagaccount bijvoorbeeld in op:
+   Resource Manager heeft de sjablonen die u tijdens de implementatie hebt gebruikt niet opgehaald. In plaats daarvan heeft Resource Manager een nieuwe sjabloon gegenereerd die is gebaseerd op de huidige configuratie van de resources. De sjabloon stelt de locatie- en replicatiewaarde voor het opslagaccount bijvoorbeeld in op:
 
-  ```json 
-  "location": "northeurope",
-  "tags": {},
-  "properties": {
-    "accountType": "Standard_RAGRS"
-  },
-  ```
+   ```json 
+   "location": "northeurope",
+   "tags": {},
+   "properties": {
+     "accountType": "Standard_RAGRS"
+   },
+   ```
 3. U hebt een aantal opties om verder te werken met deze sjabloon. U kunt de sjabloon downloaden en er lokaal mee werken met een JSON-editor. Of u kunt de sjabloon opslaan in uw bibliotheek en er mee werken via de portal.
    
      Als u ervaring hebt met een JSON-editor, zoals [VS Code](resource-manager-vs-code.md) of [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), wilt u de sjabloon misschien liever lokaal downloaden en die editor gebruiken. Als u geen JSON-editor hebt geïnstalleerd, wilt u de sjabloon misschien liever via de portal bewerken. Hieronder wordt ervan uitgegaan dat u de sjabloon hebt opgeslagen in uw bibliotheek in de portal. U brengt echter dezelfde syntaxiswijzigingen aan in de sjabloon, ongeacht of u lokaal met een JSON-editor werkt of via de portal.
@@ -205,88 +205,88 @@ In deze sectie voegt u parameters toe aan de geëxporteerde sjabloon, zodat u de
      ![sjabloon bewerken](./media/resource-manager-export-template/edit-template.png)
 3. Om de waarden te kunnen gebruiken die u tijdens de implementatie misschien wilt opgeven, vervangt u de sectie **parameters** door nieuwe parameterdefinities. Let op de waarden van **allowedValues** voor **storageAccount_accountType**. Als u per ongeluk een ongeldige waarde opgeeft, wordt deze fout herkend voordat de implementatie start. Merk ook op dat u alleen een voorvoegsel voor de opslagaccountnaam opgeeft en het voorvoegsel tot 11 tekens is beperkt. Door het voorvoegsel tot 11 tekens te beperken, zorgt u ervoor dat de volledige naam niet langer is dan het maximum aantal tekens voor een opslagaccount. Met behulp van het voorvoegsel kunt u een naamgevingsconventie toepassen op uw opslagaccounts. In de volgende stap ziet u hoe u een unieke naam kunt maken.
 
-  ```json
-  "parameters": {
-    "storageAccount_prefix": {
-      "type": "string",
-      "maxLength": 11
-    },
-    "storageAccount_accountType": {
-      "defaultValue": "Standard_RAGRS",
-      "type": "string",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_ZRS",
-        "Standard_GRS",
-        "Standard_RAGRS",
-        "Premium_LRS"
-      ]
-    },
-    "virtualNetwork_name": {
-      "type": "string"
-    },
-    "addressPrefix": {
-      "defaultValue": "10.0.0.0/16",
-      "type": "string"
-    },
-    "subnetName": {
-      "defaultValue": "subnet-1",
-      "type": "string"
-    },
-    "subnetAddressPrefix": {
-      "defaultValue": "10.0.0.0/24",
-      "type": "string"
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageAccount_prefix": {
+       "type": "string",
+       "maxLength": 11
+     },
+     "storageAccount_accountType": {
+       "defaultValue": "Standard_RAGRS",
+       "type": "string",
+       "allowedValues": [
+         "Standard_LRS",
+         "Standard_ZRS",
+         "Standard_GRS",
+         "Standard_RAGRS",
+         "Premium_LRS"
+       ]
+     },
+     "virtualNetwork_name": {
+       "type": "string"
+     },
+     "addressPrefix": {
+       "defaultValue": "10.0.0.0/16",
+       "type": "string"
+     },
+     "subnetName": {
+       "defaultValue": "subnet-1",
+       "type": "string"
+     },
+     "subnetAddressPrefix": {
+       "defaultValue": "10.0.0.0/24",
+       "type": "string"
+     }
+   },
+   ```
 
 4. De sectie met **variabelen** van uw sjabloon is momenteel leeg. In de sectie met **variabelen** kunt u waarden maken die de syntaxis voor de rest van de sjabloon vereenvoudigen. Vervang deze sectie door een nieuwe variabeledefinitie. De variabele **storageAccount_name** voegt het voorvoegsel van de parameter samen tot een unieke tekenreeks die wordt gegenereerd op basis van de id van de resourcegroep. U hoeft niet langer een unieke naam te bedenken wanneer u een parameterwaarde opgeeft.
 
-  ```json
-  "variables": {
-    "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
-  },
-  ```
+   ```json
+   "variables": {
+     "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
+   },
+   ```
 
 5. Als u de parameters en de variabele in de resourcedefinities wilt gebruiken, vervangt u de sectie **resources** door nieuwe resourcedefinities. U ziet dat er, afgezien van de waarde die aan de resource-eigenschap is toegewezen, maar weinig is gewijzigd in de resourcedefinities. De eigenschappen zijn hetzelfde als de eigenschappen van de geëxporteerde sjabloon. U wijst eenvoudigweg eigenschappen toe aan de parameterwaarden in plaats van aan de vastgelegde waarden. De locatie van de resources is ingesteld voor gebruik van dezelfde locatie als de resourcegroep via de expressie **resourceGroup () .location**. Naar de variabele die u voor de opslagaccountnaam hebt gemaakt, wordt verwezen via de expressie **variabelen**.
 
-  ```json
-  "resources": [
-    {
-      "type": "Microsoft.Network/virtualNetworks",
-      "name": "[parameters('virtualNetwork_name')]",
-      "apiVersion": "2015-06-15",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "addressSpace": {
-          "addressPrefixes": [
-            "[parameters('addressPrefix')]"
-          ]
-        },
-        "subnets": [
-          {
-            "name": "[parameters('subnetName')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnetAddressPrefix')]"
-            }
-          }
-        ]
-      },
-      "dependsOn": []
-    },
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccount_name')]",
-      "apiVersion": "2015-06-15",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-        "accountType": "[parameters('storageAccount_accountType')]"
-      },
-      "dependsOn": []
-    }
-  ]
-  ```
+   ```json
+   "resources": [
+     {
+       "type": "Microsoft.Network/virtualNetworks",
+       "name": "[parameters('virtualNetwork_name')]",
+       "apiVersion": "2015-06-15",
+       "location": "[resourceGroup().location]",
+       "properties": {
+         "addressSpace": {
+           "addressPrefixes": [
+             "[parameters('addressPrefix')]"
+           ]
+         },
+         "subnets": [
+           {
+             "name": "[parameters('subnetName')]",
+             "properties": {
+               "addressPrefix": "[parameters('subnetAddressPrefix')]"
+             }
+           }
+         ]
+       },
+       "dependsOn": []
+     },
+     {
+       "type": "Microsoft.Storage/storageAccounts",
+       "name": "[variables('storageAccount_name')]",
+       "apiVersion": "2015-06-15",
+       "location": "[resourceGroup().location]",
+       "tags": {},
+       "properties": {
+         "accountType": "[parameters('storageAccount_accountType')]"
+       },
+       "dependsOn": []
+     }
+   ]
+   ```
 
 6. Selecteer **OK** wanneer u klaar bent om de sjabloon te bewerken.
 7. Klik op **Opslaan** om de wijzigingen in de sjabloon op te slaan.
@@ -393,7 +393,7 @@ Voeg in de websiteresource een definitie toe voor de te installeren code:
 ```
 
 ### <a name="virtual-machine-extension"></a>Extensie voor de virtuele machine
-Zie voor meer voorbeelden van extensies voor de virtuele machine [Voorbeelden van Azure Windows VM-extensieconfiguratie](../virtual-machines/virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Zie voor meer voorbeelden van extensies voor de virtuele machine [Voorbeelden van Azure Windows VM-extensieconfiguratie](../virtual-machines/windows/extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="virtual-network-gateway"></a>Gateway van een virtueel netwerk
 Voeg een resourcetype voor de gateway van het virtuele netwerk toe.

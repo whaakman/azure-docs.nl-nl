@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/16/2017
+ms.date: 04/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 89d44476e9de8ac32195efaf66535cdd9fb4260e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 248e820ccd2c68a8500aab3233c5beea3c8cc868
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Verbinding maken met HDInsight (Hadoop) via SSH
@@ -30,16 +30,19 @@ De volgende tabel bevat de adres- en poortinformatie die nodig is bij het verbin
 
 | Adres | Poort | Maakt verbinding met... |
 | ----- | ----- | ----- |
-| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Edge-knooppunt (als er een bestaat) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Edge-knooppunt (R Server op HDInsight) |
+| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Edge-knooppunt (ieder ander clustertype, als er een Edge-knooppunt bestaat) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Primaire hoofdknooppunt |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Secundaire hoofdknooppunt |
 
 > [!NOTE]
-> Vervang `<edgenodename>` door de naam van het Edge-knooppunt. Zie [Edge-knooppunten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node) voor meer informatie over het gebruik van Edge-knooppunten.
+> Vervang `<edgenodename>` door de naam van het Edge-knooppunt.
 >
 > Vervang `<clustername>` door de naam van uw HDInsight-cluster.
 >
 > Het is raadzaam __altijd verbinding te maken met het Edge-knooppunt__ als er een dergelijk knooppunt bestaat. De hoofdknooppunten hosten services die essentieel zijn voor de status van het cluster. Het Edge-knooppunt voert alleen uit wat u op het knooppunt plaatst.
+>
+> Zie [Edge-knooppunten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node) voor meer informatie over het gebruik van Edge-knooppunten.
 
 ## <a name="ssh-clients"></a>SSH-clients
 

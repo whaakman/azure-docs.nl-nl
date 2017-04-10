@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 52edc23e0f677567beeb33c47b14f6ea66989890
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 24d41c7eb6b5bd34c07d21318740ecf4c6db2d22
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="sql-azure-with-azure-remoteapp"></a>SQL Azure met Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
+> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
 > 
 
@@ -56,10 +57,5 @@ Als het gebruik van een clienttoepassing, gehost in Azure RemoteApp die verbindi
 * Netwerklatentie tussen uw apparaat en Azure is hoog. Voor de beste prestaties gebruikt u de best en snelst mogelijke netwerkverbinding. Gebruik [azurespeed.com](http://azurespeed.com/) als een algemeen hulpprogramma om latentie tussen uw apparaten en het Azure Datacenter te testen.  
 * Client-app, gehost in Azure RemoteApp, is zwaar belast. U kunt de prestaties verbeteren wanneer u een ander abonnement kiest, bijvoorbeeld Premium. U zou ook de resources kunnen bewaken die door uw toepassing worden verbruikt: druk tijdens een actieve sessie achtereenvolgens op Ctrl, Alt en End om het SAS-scherm te openen. Selecteer Taakbeheer en observeer het resourceverbruik van uw app.
 * SQL-server wordt zwaar belast of is niet geoptimaliseerd. Volg de SQL-richtlijnen voor probleemoplossing. 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

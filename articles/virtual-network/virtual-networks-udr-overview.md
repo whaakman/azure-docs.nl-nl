@@ -16,9 +16,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c9996d2160c4082c18e9022835725c4c7270a248
-ms.openlocfilehash: 555939d6181d43d89a2d355744b74887d41df6ff
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 1657f7c772b7039707a67c4abc788479cc08bdd0
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -57,7 +57,7 @@ Pakketten worden gerouteerd via een TCP/IP-netwerk op basis van een routetabel d
 | --- | --- | --- | --- |
 | Adresvoorvoegsel |De doel-CIDR waarop de route van toepassing is, zoals 10.1.0.0/16. |Dit moet een geldig CIDR-bereik zijn van adressen op internet, in een virtueel Azure-netwerk of in een on-premises datacentrum. |Zorg ervoor dat het **adresvoorvoegsel** niet het adres voor het **Nexthop-adres** bevat, anders raken de pakketten in een lus van de bron naar de volgende hop zonder ooit hun doel te bereiken. |
 | Volgend hoptype |Het type hop in Azure waarnaar het pakket moet worden doorgestuurd. |Dit moet een van de volgende waarden zijn: <br/> **Virtueel netwerk**. Hiermee geeft u het lokale virtuele netwerk op. Als u bijvoorbeeld twee subnetten, 10.1.0.0/16 en 10.2.0.0/16, in hetzelfde virtuele netwerk hebt, heeft de route voor elk subnet in de routetabel de waarde *Virtueel netwerk* voor de volgende hop. <br/> **Gateway voor een virtueel netwerk**. Hiermee geeft u een Azure S2S VPN-gateway op. <br/> **Internet**. Hiermee geeft u de standaard-internetgateway van de Azure-infrastructuur op. <br/> **Virtueel apparaat**. Hiermee geeft u een virtueel apparaat op dat u hebt toegevoegd aan uw virtuele Azure-netwerk. <br/> **Geen**. Hiermee geeft u een black hole op. Pakketten die worden doorgestuurd naar een black hole, worden helemaal niet doorgestuurd. |Overweeg het gebruik van een **virtueel apparaat** om verkeer naar een intern IP-adres van een VM of Azure Load Balancer te leiden.  Dit type staat de specificatie van een IP-adres toe, zoals hieronder wordt beschreven. Overweeg het gebruik van het type **Geen** als u het doorsturen van pakketten naar een bepaalde bestemming wilt stoppen. |
-| Adres van de volgende hop |Het adres voor de volgende hop bevat het IP-adres waarnaar pakketten moeten worden doorgestuurd. Waarden voor de volgende hop zijn alleen toegestaan in routes waar het volgende hoptype *Virtueel apparaat* is. |Moet een IP-adres zijn dat bereikbaar is binnen het virtuele netwerk waar de door de gebruiker gedefinieerde route wordt toegepast. |Als het IP-adres een VM vertegenwoordigt, moet u [Doorsturen via IP](#IP-forwarding) in Azure voor de VM inschakelen. Als het IP-adres het interne IP-adres van een Azure Load Balancer vertegenwoordigt, zorg er dan voor dat u beschikt over een overeenkomende taakverdelingsregel voor elke poort die u wilt verdelen.|
+| Adres van de volgende hop |Het adres voor de volgende hop bevat het IP-adres waarnaar pakketten moeten worden doorgestuurd. Waarden voor de volgende hop zijn alleen toegestaan in routes waar het volgende hoptype *Virtueel apparaat* is. |Moet een IP-adres zijn dat bereikbaar is binnen het virtuele netwerk waar de door de gebruiker gedefinieerde route wordt toegepast, zonder via een **virtuele netwerkgateway** te gaan. Het IP-adres moet zich bevinden in hetzelfde virtuele netwerk als waar het wordt toegepast, of in een gekoppeld virtueel netwerk. |Als het IP-adres een VM vertegenwoordigt, moet u [Doorsturen via IP](#IP-forwarding) in Azure voor de VM inschakelen. Als het IP-adres het interne IP-adres van een Azure Load Balancer vertegenwoordigt, zorg er dan voor dat u beschikt over een overeenkomende taakverdelingsregel voor elke poort die u wilt verdelen.|
 
 Sommige van de NextHopType-waarden hebben verschillende namen in Azure PowerShell:
 

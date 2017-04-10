@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: ae869be6ed9f304629498f416ffdda96252bdf9c
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: bcd8b3b7fb44a28d7184d14969eb998ce07c8e53
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -83,9 +83,10 @@ Open uw Application Insights-resource. Meld u aan bij [Azure Portal](https://por
 ![Schermopname van Visual Studio die toont hoe u de Application Insights-portal kunt openen](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
 > [!NOTE]
-> Als u een toegangsfout ontvangt, hebt u mogelijk meer dan één set Microsoft-referenties en bent u aangemeld met de verkeerde set. Meld u af en opnieuw aan in de portal.
+> Als u een toegangsfout ontvangt: hebt u meer dan één set Microsoft-referenties en bent u aangemeld met de verkeerde set? Meld u af en opnieuw aan in de portal.
 
 De portal wordt geopend met een weergave van de telemetrie van uw app.
+
 ![Schermopname van Application Insights-overzichtspagina](./media/app-insights-asp-net/66.png)
 
 Klik op een tegel of grafiek om meer details te zien.

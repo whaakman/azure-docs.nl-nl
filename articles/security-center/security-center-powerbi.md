@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
-ms.openlocfilehash: 10e58a76644b5e4d50f05a2db03f4af193cc5152
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: 1091abef19121ac4ce65fdaf7299b091bf41eb1c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,12 +29,12 @@ U kunt ook adviezen van het Security Center en beveiligingswaarschuwingen met an
 ## <a name="using-azure-security-center-dashboard-to-access-power-bi"></a>Het Azure Security Center-dashboard gebruiken voor toegang tot Power BI
 U kunt het Azure Security Center-dashboard ook gebruiken voor toegang tot Power BI-rapporten. Volg de stappen om deze taak uitvoeren:
 
-1. Klik in het **Azure Security Center**-dashboard op de knop **Verkennen in Power BI**.
+1. Klik in het **Azure Security Center**-dashboard op de knop **Power BI**.
 
-    ![Verbinding maken met Azure Security Center via Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png)
-2. De blade **Verkennen in Power BI** wordt geopend aan de rechterkant zoals op het volgende scherm wordt weergegeven:
+    ![Verbinding maken met Azure Security Center via Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10-2017.png)
+2. De blade **Power BI** wordt geopend aan de rechterkant zoals op het volgende scherm wordt weergegeven:
 
-    ![Verbinding maken met Azure Security Center via Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new2.png)
+    ![Verbinding maken met Azure Security Center via Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new11-2017.png)
 3. Als u het Power BI-dashboard voor het eerst maakt, kunt u een van de volgende opties in de blade **Verkennen in Power BI** kiezen:
 
    * **Security insights dashboard** (Dashboard voor beveiligingsinzichten): kies deze optie als u een dashboard wilt maken dat de beveiligingsstatus, threads en detecties bevat. Dit is een meer algemene optie voor personen met de DevOps-rol die verantwoordelijk zijn voor het analyseren van de beveiligingsstatus en gedetecteerde waarschuwingen voor alle abonnementen.
@@ -119,9 +120,4 @@ In dit document hebt u kunnen lezen hoe u Power BI in Azure Security Center gebr
 * [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md): leer hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren
 * [Veelgestelde vragen over Azure Security Center](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service
 * [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -14,8 +14,9 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 46e6ab8a9c5d4e6a00d61ee4e5bbfd42307bfc69
-ms.openlocfilehash: 5ec35fb0171a4a62b915579b5a079060132998dd
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 42507475b5d15c4704e6bcb3d56dc00c91006655
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -60,9 +61,10 @@ Deze items zijn implementaties van [Application Insights](app-insights-overview.
 ## <a name="logging-frameworks"></a>Frameworks voor logboekregistratie
 * [Log4Net, NLog of System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 * [Java, Log4J of Logback](app-insights-java-trace-logs.md)
-* [Semantische logboekregistratie (SLAB)](https://github.com/fidmor89/SLAB_AppInsights), kan worden geïntegreerd met het [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
+* [Semantische logboekregistratie (SLAB)](https://github.com/fidmor89/SLAB_AppInsights): kan worden geïntegreerd met het [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
 * [Belastingstests in de cloud](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [LogStash-invoegtoepassing](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
+* [OMS Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 
 ## <a name="content-management-systems"></a>Content Management Systems (CMS)
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)
@@ -77,11 +79,6 @@ Deze items zijn implementaties van [Application Insights](app-insights-overview.
 * [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Stream Analytics](app-insights-export-power-bi.md)
 
-## <a name="a-nameprojectsa-build-your-own-sdk"></a><a name="projects"></a> Uw eigen SDK bouwen
+## <a name="projects"></a> Uw eigen SDK bouwen
 Als er nog geen SDK beschikbaar is voor uw taal of platform, kunt u er ook zelf een bouwen. Bekijk de code van de bestaande SDK's die worden beschreven in het [Application Insights SDK-project op GitHub](https://github.com/Microsoft/AppInsights-Home).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
