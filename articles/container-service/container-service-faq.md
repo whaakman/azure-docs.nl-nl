@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 682ebb212f9056f3704a6de5dde8d3a35681108f
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a70b82770a13231ee59ac768deb45b232f95687d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -44,7 +44,7 @@ Momenteel worden Linux-containers alleen ondersteund met alle orchestrators. De 
 ### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>Welke orchestrator in Azure Container Service wordt aanbevolen? 
 In het algemeen bevelen we geen specifieke orchestrators aan. Als u ervaring hebt met een van de ondersteunde orchestrators, kunt u die ervaring toepassen op Azure Container Service. Gegevenstrends suggereren echter dat DC/OS goed werkt voor big data- en IoT-workloads, dat Kubernetes geschikt is voor cloudworkloads en dat Docker Swarm bekendstaat om de integratie met Docker-hulpprogramma's en de toegankelijkheid.
 
-Als uw situatie erom vraagt, kunt u ook aangepaste containeroplossingen bouwen en beheren met andere Azure-services. Deze services zijn onder andere [Virtual Machines](../virtual-machines/virtual-machines-linux-azure-overview.md), [Service Fabric](../service-fabric/service-fabric-overview.md), [Web Apps](../app-service-web/app-service-web-overview.md) en [Batch](../batch/batch-technical-overview.md).  
+Als uw situatie erom vraagt, kunt u ook aangepaste containeroplossingen bouwen en beheren met andere Azure-services. Deze services zijn onder andere [Virtual Machines](../virtual-machines/linux/overview.md), [Service Fabric](../service-fabric/service-fabric-overview.md), [Web Apps](../app-service-web/app-service-web-overview.md) en [Batch](../batch/batch-technical-overview.md).  
 
 ### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>Wat is het verschil tussen Azure Container Service en ACS Engine? 
 Azure Container Service is een Azure-service met SLA en functies in Azure Portal, Azure-opdrachtregelprogramma's en Azure-API's. Met de service kunt u clusters die standaardprogramma's voor containerorchestratie uitvoeren, snel implementeren en beheren met een relatief klein aantal configuratie-opties. 
@@ -55,7 +55,7 @@ Azure Container Service is een Azure-service met SLA en functies in Azure Portal
 
 ### <a name="how-do-i-create-ssh-keys-for-my-cluster"></a>Hoe kan ik SSH-sleutels maken voor mijn cluster?
 
-U kunt standaardprogramma's op uw besturingssysteem gebruiken om een sleutelpaar met openbare en privé-SSH RSA-sleutel te maken voor verificatie met de virtuele Linux-machines voor uw cluster. Raadpleeg de stappen voor [OS X en Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) of [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
+U kunt standaardprogramma's op uw besturingssysteem gebruiken om een sleutelpaar met openbare en privé-SSH RSA-sleutel te maken voor verificatie met de virtuele Linux-machines voor uw cluster. Raadpleeg de stappen voor [OS X en Linux](../virtual-machines/linux/mac-create-ssh-keys.md) of [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
 Als u [Azure CLI 2.0-opdrachten](container-service-create-acs-cluster-cli.md) gebruikt om een Container Service-cluster te implementeren, kunnen de SSH-sleutels automatisch worden gegenereerd voor uw cluster.
 
@@ -66,6 +66,12 @@ Voor het maken van een Kubernetes-cluster in Azure Container Service zijn ook ee
 
 Als u [Azure CLI 2.0-opdrachten](container-service-create-acs-cluster-cli.md) gebruikt om een Kubernetes-cluster te implementeren, kunnen de referenties van de service-principal automatisch worden gegenereerd voor uw cluster.
 
+### <a name="how-large-a-cluster-can-i-create"></a>Hoe groot kan een cluster zijn dat ik maak?
+U kunt een cluster maken met 1, 3 of 5 hoofdknooppunten. U kunt maximaal 100 agentknooppunten kiezen.
+
+> [!IMPORTANT]
+> Voor grotere clusters en afhankelijk van de grootte van de virtuele machines die u kiest voor uw knooppunten, kan het nodig zijn om het quotum voor kerngeheugens in het abonnement te verhogen. Als u een verhoging van het quotum wilt aanvragen, opent u een [online een ondersteuningsverzoek](../azure-supportability/how-to-create-azure-support-request.md). Hiervoor worden geen kosten in rekening gebracht. Als u een [gratis account van Azure](https://azure.microsoft.com/free/) gebruikt, kunt u slechts een paar Azure Compute-resources van Azure gebruiken.
+> 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>Hoe kan ik het aantal masters verhogen nadat een cluster is gemaakt? 
 Nadat het cluster is gemaakt, staat het aantal masters vast en kan dit niet worden gewijzigd. We raden u aan om bij het maken van het cluster meerdere masters te selecteren voor hogere beschikbaarheid.

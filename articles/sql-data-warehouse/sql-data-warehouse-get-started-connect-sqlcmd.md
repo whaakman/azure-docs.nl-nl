@@ -1,6 +1,6 @@
 ---
 title: Verbinding maken met Azure SQL Data Warehouse sqlcmd | Microsoft Docs
-description: Gebruik het opdrachtregelhulpprogramma [sqlcmd][sqlcmd] om verbinding te maken met en een query uit te voeren op een Azure SQL Data Warehouse.
+description: Gebruik het opdrachtregelhulpprogramma [sqlcmd][sqlcmd] om verbinding te maken met en een query uit te voeren op een Azure SQL-datawarehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: connect
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
-ms.openlocfilehash: 1cd3bd8cab4e74da820f844d2ba96243cc6ccdcd
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3508cdf6dcfa3d7122e1e3b635f3cd37863dbf62
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -30,7 +32,7 @@ ms.openlocfilehash: 1cd3bd8cab4e74da820f844d2ba96243cc6ccdcd
 > 
 > 
 
-Gebruik het opdrachtregelhulpprogramma [sqlcmd][sqlcmd] om verbinding te maken met en een query uit te voeren op een Azure SQL Data Warehouse.  
+Gebruik het opdrachtregelhulpprogramma [sqlcmd][sqlcmd] om verbinding te maken met en een query uit te voeren op een Azure SQL-datawarehouse.  
 
 ## <a name="1-connect"></a>1. Verbinding maken
 U gaat als volgt aan de slag met [sqlcmd][sqlcmd]: open de opdrachtprompt en voer **sqlcmd** in, gevolgd door de verbindingstekenreeks voor uw SQL Data Warehouse-database. De verbindingstekenreeks moet de volgende parameters bevatten:
@@ -86,7 +88,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie [sqlcmd-documentatie][sqlcmd] voor meer informatie over de opties die beschikbaar zijn in sqlcmd.
+Zie [sqlcmd-documentatie][sqlcmdsqlcmd] voor meer informatie over de opties die beschikbaar zijn in sqlcmd.
 
 <!--Image references-->
 
@@ -94,12 +96,7 @@ Zie [sqlcmd-documentatie][sqlcmd] voor meer informatie over de opties die beschi
 
 <!--MSDN references--> 
 [sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

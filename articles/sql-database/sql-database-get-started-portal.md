@@ -9,23 +9,25 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start create
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/13/2017
+ms.date: 04/03/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: be5839e04fae457b889db11dffe56f31afe723a5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: c0c6cdf8aa48568b7a4468dd87b2896f94fc1bf6
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Een Azure SQL-database maken in Azure Portal
 
 In deze Quick Start leert u hoe u een SQL-database maakt in Azure.  Azure SQL Database is een 'Database-as-a-Service'-aanbieding waarmee u maximaal beschikbare SQL Server-databases kunt uitvoeren en schalen in de cloud.  In deze Quick Start ziet u hoe u aan de slag gaat door een nieuwe SQL-database te maken met behulp van Azure Portal.
+
+Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
@@ -43,10 +45,10 @@ Volg deze stappen voor het maken van een SQL-database met de voorbeeldgegevens v
 
     ![database-1 maken](./media/sql-database-get-started/create-database-1.png)
 
-3. Vul het formulier SQL Database in met de volgende informatie, zoals in de voorgaande afbeelding wordt weergegeven: 
-   - Databasenaam: gebruik **mySampleDatabase**
-   - Resourcegroep: gebruik **myResourceGroup**
-   - Bron: selecteer **Voorbeeld (AdventureWorksLT)**
+3. Vul het formulier SQL Database in met de volgende informatie, zoals in de voorgaande afbeelding wordt weergegeven:     
+   - Databasenaam: **mySampleDatabase**
+   - Resourcegroep: **myResourceGroup**
+   - Bron: **Voorbeeld (AdventureWorksLT)**
 
 4. Klik op **Server** als u een nieuwe server voor de nieuwe database wilt maken en configureren. Vul het **nieuwe serverformulier** in, waarbij u een unieke servernaam opgeeft. Verstrek ook een naam voor de beheerdersaanmelding bij de server en een zelfgekozen wachtwoord. 
 
@@ -82,7 +84,7 @@ De service SQL Database maakt een firewall op serverniveau die voorkomt dat exte
 
 4. Klik op **OK** en vervolgens op **X** om de pagina **Firewallinstellingen** te sluiten.
 
-U kunt nu verbinding maken met de database en de server met SQL Server Management Studio of een ander hulpprogramma naar keuze.
+U kunt nu verbinding maken met de database en de bijbehorende server met behulp van SQL Server Management Studio of een ander hulpprogramma naar keuze. Dit doet u vanaf dit IP-adres via het serverbeheerdersaccount dat eerder is gemaakt.
 
 ## <a name="query-the-sql-database"></a>Query's uitvoeren op de SQL-database
 
@@ -103,7 +105,7 @@ Tijdens het maken van de SQL-database hebben we deze gevuld met de voorbeelddata
 5. Wanneer u bent geverifieerd, typt u de volgende query in het deelvenster van de query-editor:
 
    ```
-   SELECT pc.Name as CategoryName, p.name as ProductName
+   SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
    ON pc.productcategoryid = p.productcategoryid;

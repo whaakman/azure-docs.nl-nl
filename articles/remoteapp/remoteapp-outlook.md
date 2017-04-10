@@ -14,14 +14,15 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 300ee477a00cdd463a2abf87dd73550777fd9e05
-ms.openlocfilehash: 941cc40c3c1979609649eda42e4b39aa383c3fd2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a6d4fbdf0e552f50673092183e893841ec0c5aa4
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="using-microsoft-outlook-in-azure-remoteapp"></a>Microsoft Outlook gebruiken in Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
+> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
 > 
 
@@ -36,10 +37,5 @@ Lees [Stapsgewijze instructies over het inschakelen van de cachemodus](https://t
 
 ## <a name="search"></a>Zoeken
 In Azure RemoteApp heeft het zoeken in Outlook beperkingen. In Azure RemoteApp worden gegroepeerde virtuele machines gebruikt om gebruikerssessies mogelijk te maken. Zoekindexering is afhankelijk van de machine-id. Deze is voor alle virtuele machines anders. Het is mogelijk dat een gebruiker telkens naar een nieuwe virtuele machine wordt omgeleid wanneer hij zich aanmeldt bij Azure RemoteApp. Als lokaal zoeken zou zijn ingeschakeld, zou dat betekenen dat de indexeerfunctie zou worden uitgevoerd telkens wanneer de computer-id verandert (wanneer de gebruiker zich op een andere virtuele machine bevindt). Afhankelijk van de grootte van het OST-bestand kan het lang duren vooraleer de indexeerfunctie klaar is, en kan deze resources in beslag nemen die nodig zijn voor andere apps. Zoeken zou niet alleen traag zijn maar zou misschien geen resultaten opleveren. Met een accountprofiel van het type Onlinemodus omzeilt u dit probleem, maar de algehele prestaties zouden hierdoor afnemen vanwege de afwezigheid van een lokale cache (zie de koppeling hierboven voor meer informatie over het verschil tussen de cachemodus en de onlinemodus). Geïndexeerd/lokaal zoeken kan echter niet worden uitgeschakeld en online zoeken kan in Outlook 2013 helaas niet standaard worden ingeschakeld.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

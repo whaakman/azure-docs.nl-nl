@@ -18,15 +18,15 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: ba56eaa154116edbe1dd8962049535cfa57551ac
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 7ae47bcce700336206d532b414b7d0eea41d87c5
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren voor gegevens
 
-Gebruik [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) voor het maken en beheren van SQL Server-resources via de gebruikersinterface of in scripts. In deze handleiding wordt informatie geboden over het gebruik van SSMS om verbinding te maken met een Azure SQL-database, over het uitvoeren van query's en over het invoegen, bijwerken en verwijderen van instructies.
+Gebruik [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) voor het maken en beheren van SQL Server-resources via de gebruikersinterface of in scripts. In deze Quick Start wordt informatie geboden over het gebruik van SSMS om verbinding te maken met een Azure SQL-database, over het uitvoeren van query's en over het invoegen, bijwerken en verwijderen van instructies.
 
 In deze Quick Start wordt dit gebruikt als basis voor het maken van de resources die u hebt gemaakt in een van deze Quick Starts:
 
@@ -45,11 +45,11 @@ Haal de volledig gekwalificeerde servernaam van uw Azure SQL Database-server op 
 
     <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
 
-## <a name="connect-to-the-server"></a>Verbinding maken met de server
+## <a name="connect-to-the-server-and-your-new-database"></a>Verbinding maken met de server en de nieuwe database
 
 Gebruik SQL Server Management Studio om verbinding te maken met uw Azure SQL Database-server.
 
-1. Voer **SSMS** in in het Windows-zoekvak en klik op **Enter** om SSMS te openen.
+1. Open SQL Server Management Studio.
 
 2. Voer in het dialoogvenster **Verbinding maken met server** de volgende informatie in:
    - **Servertype**: geef de database-engine op

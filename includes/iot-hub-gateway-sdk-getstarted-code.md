@@ -1,7 +1,8 @@
 ## <a name="typical-output"></a>Typische uitvoer
-Hieronder volgt een voorbeeld van de uitvoer geschreven naar het logboekbestand door de Hello World-sjabloon. Voor de leesbaarheid zijn tekens voor nieuwe regels en tabs toegevoegd:
 
-```
+Hieronder ziet u een voorbeeld van de uitvoer die door het voorbeeldprogramma Hello World naar het logboekbestand wordt geschreven. De uitvoer is voor de leesbaarheid voorzien van opmaak:
+
+```json
 [{
     "time": "Mon Apr 11 13:48:07 2016",
     "content": "Log started"
@@ -30,14 +31,16 @@ Hieronder volgt een voorbeeld van de uitvoer geschreven naar het logboekbestand 
 ```
 
 ## <a name="code-snippets"></a>Codefragmenten
-Dit deel behandelt enkele belangrijke onderdelen van de code in de Hello World-sjabloon.
+
+In deze sectie worden enkele belangrijke onderdelen van de code in het voorbeeldprogramma Hello\_World behandeld.
 
 ### <a name="gateway-creation"></a>Het maken van de gateway
-De ontwikkelaar moet het *gatewayproces* schrijven. Dit programma maakt de interne infrastructuur (de broker), laadt modules en stelt alles in om correct te werken. De SDK biedt de **Gateway_Create_From_JSON**-functie waarmee u een gateway vanuit een JSON-bestand kunt opstarten. Om de functie **Gateway_Create_From_JSON** te gebruiken, moet u dit pad doorgeven aan een JSON-bestand dat de te laden modules specificeert. 
 
-U vindt de code voor het gatewayproces in de Hello World-sjabloon in het bestand [main.c][lnk-main-c]. Het stuk hieronder geeft een verkorte versie van de gatewayprocescode weer voor een betere leesbaarheid. Het programma maakt een gateway en wacht dan tot de gebruiker op **ENTER** drukt alvorens het de gateway afbreekt. 
+De ontwikkelaar moet het *gatewayproces* schrijven. Dit programma maakt de interne infrastructuur (de broker), laadt modules en stelt alles in om correct te werken. De SDK biedt de functie **Gateway\_Create\_From\_JSON** waarmee u een gateway vanuit een JSON-bestand kunt opstarten. Als**\_u\_ \_deze** functie wilt gebruiken, moet u aan de functie het pad doorgeven naar een JSON-bestand dat de te laden modules specificeert.
 
-```
+U vindt de code voor het gatewayproces in de Hello World-sjabloon in het bestand [main.c][lnk-main-c]. Voor een betere leesbaarheid bevat het fragment hieronder een verkorte versie van de code voor het verwerken van de gateway. Het voorbeeldprogramma maakt een gateway en wacht dan tot de gebruiker op **Enter** drukt om de gateway weer te verwijderen.
+
+```c
 int main(int argc, char** argv)
 {
     GATEWAY_HANDLE gateway;
@@ -53,22 +56,21 @@ int main(int argc, char** argv)
         Gateway_LL_Destroy(gateway);
     }
     return 0;
-} 
+}
 ```
 
-Het JSON-instellingenbestand bevat een lijst met te laden modules en koppelingen tussen deze modules.
-Elke module moet het volgende specificeren:
+Het bestand met JSON-instellingen bevat een lijst met te laden modules en de koppelingen tussen deze modules. Elke module moet het volgende specificeren:
 
-* **naam**: een unieke modulenaam.
-* **laadprogramma**: een laadprogramma dat de gewenste module kan laden.  Laadprogramma's zijn een uitbreidingspunt voor het laden van verschillende soorten modules. Wij bieden laadprogramma's voor gebruik met modules die zijn geschreven in systeemeigen C, Node.js, Java en .NET. Het Hello World-voorbeeld maakt alleen gebruik van het systeemeigen laadprogramma, omdat alle modules in dit voorbeeld dynamische bibliotheken zijn, geschreven in C. Raadpleeg de voorbeelden voor [Node](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) of [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample) voor meer informatie over het gebruik van modules die zijn geschreven in andere programmeertalen.
-    * **naam**: naam van het laadprogramma dat wordt gebruikt voor het laden van de module.  
-    * **ingangspunt**: het pad naar de bibliotheek met de module. Voor Linux is dit een .so-bestand, voor Windows een .dll-bestand. Houd er rekening mee dat dit ingangspunt specifiek is voor het type laadprogramma dat wordt gebruikt. Het ingangspunt voor het Node.js-laadprogramma is bijvoorbeeld een .js-bestand, het ingangspunt voor het Java-laadprogramma is een klassepad + klassenaam en het ingangspunt van het .NET-ingangspunt is een assemblynaam + klassenaam.
+* **name**: een unieke naam voor de module.
+* **loader**: een laadprogramma dat de gewenste module kan laden. Laadprogramma's zijn een uitbreidingspunt voor het laden van verschillende soorten modules. Wij bieden laadprogramma's voor gebruik met modules die zijn geschreven in systeemeigen C, Node.js, Java en .NET. Het Hello World-voorbeeld maakt alleen gebruik van het systeemeigen C-laadprogramma, omdat alle modules in dit voorbeeld dynamische bibliotheken zijn, geschreven in C. Zie de voorbeelden voor [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/java_sample) of [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/dotnet_binding_sample) voor meer informatie over het gebruik van modules die in andere talen zijn geschreven.
+    * **name**: naam van het laadprogramma dat wordt gebruikt voor het laden van de module.
+    * **entrypoint**: het pad naar de bibliotheek met de module. Voor Linux is deze bibliotheek een SO-bestand, voor Windows een DLL-bestand. Het toegangspunt is specifiek voor het type laadprogramma dat wordt gebruikt. Het toegangspunt voor het laadprogramma van Node.js is een JS-bestand. Het toegangspunt voor het laadprogramma van Java is een klassepad plus de naam van een klasse. Het toegangspunt voor het laadprogramma van .NET is de naam van een assembly plus de naam van een klasse.
 
 * **args**: alle configuratie-informatie die de module nodig heeft.
 
-De volgende code toont de JSON die wordt gebruikt om alle modules voor het Hello World-voorbeeld op Linux te declareren. Of een module argumenten nodig heeft, is afhankelijk van het ontwerp van de module. In dit voorbeeld neemt de loggermodule een argument dat het pad is naar het uitvoerbestand. De Hello World-module neemt geen argumenten.
+De volgende code toont de JSON die wordt gebruikt om alle modules voor het Hello World-voorbeeld op Linux te declareren. Of een module argumenten nodig heeft, is afhankelijk van het ontwerp van de module. In dit voorbeeld wordt aan de loggermodule een argument doorgegeven dat bestaat uit het pad naar het uitvoerbestand. De module hello\_world heeft geen argumenten.
 
-```
+```json
 "modules" :
 [
     {
@@ -96,15 +98,15 @@ De volgende code toont de JSON die wordt gebruikt om alle modules voor het Hello
 
 Het JSON-bestand bevat ook de koppelingen tussen de modules die worden doorgegeven aan de broker. Een koppeling heeft twee eigenschappen:
 
-* **bron**: de naam van een module van het gedeelte `modules`, of '\*'.
+* **source**: de naam van een module van het gedeelte `modules`, of '\*'.
 * **sink**: de naam van een module van het gedeelte `modules`.
 
-Elke koppeling definieert de route en richting van een bericht. Berichten van module `source` moeten worden geleverd aan module `sink`. De `source` kan worden ingesteld op '\*'. Hiermee wordt aangegeven dat berichten van alle modules worden ontvangen door `sink`.
+Elke koppeling definieert de route en richting van een bericht. Berichten van de module `source` worden doorgegeven aan de module `sink`. De `source` kan worden ingesteld op \*. Hiermee wordt aangegeven dat berichten van alle modules worden ontvangen door `sink`.
 
-De volgende code toont de JSON die wordt gebruikt om de koppelingen tussen de modules voor het Hello World-voorbeeld op Linux te configureren. Elk bericht dat wordt gemaakt door module `hello_world` wordt gebruikt door module `logger`.
+De volgende code toont de JSON die wordt gebruikt om koppelingen te configureren tussen de modules die worden gebruikt in het voorbeeld hello\_world op Linux. Elk bericht dat wordt gemaakt door de module `hello_world`, wordt gebruikt door de module `logger`.
 
-```
-"links": 
+```json
+"links":
 [
     {
         "source": "hello_world",
@@ -113,10 +115,11 @@ De volgende code toont de JSON die wordt gebruikt om de koppelingen tussen de mo
 ]
 ```
 
-### <a name="hello-world-module-message-publishing"></a>Hello World-module berichtpublicatie
-U vindt de code die wordt gebruikt door de “hello world”-module om berichten te publiceren in het bestand ['hello_world.c'][lnk-helloworld-c]. Het onderstaande fragment toont een gewijzigde versie met bijkomende opmerkingen en bepaalde foutafhandelingscode die is verwijderd voor een betere leesbaarheid:
+### <a name="helloworld-module-message-publishing"></a>Publiceren van berichten door de module hello\_world
 
-```
+U vindt de code die door de module hello\_world wordt gebruikt om berichten te publiceren, in het bestand [hello_world.c][lnk-helloworld-c]. Voor een betere leesbaarheid bevat het volgende fragment een gewijzigde versie van de code, waarbij opmerkingen zijn toegevoegd en code voor foutafhandeling is weggelaten:
+
+```c
 int helloWorldThread(void *param)
 {
     // create data structures used in function.
@@ -162,10 +165,11 @@ int helloWorldThread(void *param)
 }
 ```
 
-### <a name="hello-world-module-message-processing"></a>Hello World-module berichtverwerking
-De Hello World-module moet nooit berichten verwerken die andere modules publiceren voor de broker. Dit maakt implementatie van de berichtcallback in de Hello World-module een no-op-functie.
+### <a name="helloworld-module-message-processing"></a>Berichtverwerking door de module hello\_world
 
-```
+De module hello\_world verwerkt nooit berichten die andere modules naar de broker publiceren. Om die reden is de implementatie van de bericht-callback in de module hello\_world een no-op-functie.
+
+```c
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
     /* No action, HelloWorld is not interested in any messages. */
@@ -173,11 +177,12 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 ```
 
 ### <a name="logger-module-message-publishing-and-processing"></a>Loggermodule berichtpublicatie en -verwerking
-De loggermodule ontvangt berichten van de broker en schrijft ze weg naar een bestand. Deze module publiceert nooit berichten. Daarom roept de code van de loggermodule nooit de functie **Broker_Publish** aan.
 
-De functie **Logger_Recieve** in het bestand [logger.c][lnk-logger-c] is de callback die de broker aanroept om berichten aan de loggermodule te leveren. Het onderstaande fragment toont een gewijzigde versie met bijkomende opmerkingen en bepaalde foutafhandelingscode die is verwijderd voor een betere leesbaarheid:
+De loggermodule ontvangt berichten van de broker en schrijft deze weg naar een bestand. Deze module publiceert nooit berichten. Daarom roept de code van de loggermodule nooit de functie **Broker_Publish** aan.
 
-```
+De functie **Logger_Recieve** in het bestand [logger.c][lnk-logger-c] is de callback die de broker aanroept om berichten aan de loggermodule te leveren. Voor een betere leesbaarheid bevat het volgende fragment een gewijzigde versie, waarbij opmerkingen zijn toegevoegd en code voor foutafhandeling is weggelaten:
+
+```c
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
 
@@ -217,7 +222,8 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het gebruik van de IoT Gateway SDK:
+
+Raadpleeg de volgende artikelen voor informatie over het gebruik van de SDK voor IoT Gateway:
 
 * [IoT Gateway SDK – apparaat-naar-cloudberichten verzenden met een gesimuleerd apparaat met Linux][lnk-gateway-simulated].
 * [Azure IoT Gateway SDK][lnk-gateway-sdk] op GitHub.
@@ -228,7 +234,3 @@ Zie voor meer informatie over het gebruik van de IoT Gateway SDK:
 [lnk-logger-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/logger/src/logger.c
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
-
-<!--HONumber=Dec16_HO1-->
-
-

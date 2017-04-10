@@ -1,5 +1,5 @@
 ---
-title: Problemen met toegang tot Azure Active Directory oplossen | Microsoft Docs
+title: Problemen oplossen met toegang tot Azure Portal vanaf een Windows-apparaat | Microsoft Docs
 description: Meer informatie over stappen die u kunt uitvoeren om toegangsproblemen met onlineresources van uw organisatie op te lossen.
 services: active-directory
 keywords: voorwaardelijke toegang op basis van een apparaat, apparaatregistratie, apparaatregistratie inschakelen, apparaatregistratie en MDM
@@ -12,62 +12,95 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2017
+ms.date: 04/04/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: fbabf6f2e1e588ba509c4da84ab1700b1b5d4f87
-ms.openlocfilehash: ad9f9a8c5b370ffa916b9089ef3ce523fe0266c7
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 9a648ca8f91529bc5aaa7b8ffbcfddb40864f409
+ms.lasthandoff: 04/04/2017
 
 
 ---
-# <a name="troubleshooting-for-azure-active-directory-access-issues"></a>Problemen met toegang tot Azure Active Directory oplossen
-U probeert toegang te krijgen tot het SharePoint Online-intranet van uw organisatie en het foutbericht 'Toegang geweigerd' wordt weergegeven. Wat kunt u doen?
+# <a name="troubleshooting-you-cant-get-there-from-here-on-a-windows-device"></a>Problemen oplossen met toegang vanaf een Windows-apparaat
+
+Tijdens een poging om bijvoorbeeld het SharePoint Online-intranet van uw organisatie te openen, krijgt u een pagina te zien waarop staat dat *u geen toegang hebt*. U ziet deze pagina omdat de beheerder voorwaardelijk toegangsbeleid heeft geconfigureerd op basis waarvan de toegang tot resources in uw organisatie onder bepaalde omstandigheden wordt geblokkeerd. Uiteindelijk kan het nodig zijn om contact op te nemen met de helpdesk of beheerder, maar voordat u dit doet, is er een aantal dingen dat u eerst zelf kunt proberen.
+
+Als u een **Windows**-apparaat gebruikt, controleert u het volgende:
+
+- Gebruikt u een ondersteunde browser?
+
+- Voert u een ondersteunde versie van Windows uit op het apparaat?
+
+- Is het apparaat compatibel?
 
 
-In dit artikel vindt u stappen die u kunt uitvoeren om toegangsproblemen met onlineresources van uw organisatie op te lossen.
 
-Voor hulp bij het oplossen van toegangsproblemen met Azure Active Directory (Azure AD), raadpleegt u de sectie in het artikel die betrekking heeft op uw apparaatplatform:
 
-* Windows-apparaat
-* iOS-apparaat (Binnenkort vindt u hier hulp voor iPhones en iPads.)
-* Android-apparaat (Binnenkort vindt u hier hulp voor Android-telefoons en -tablets.)
 
-## <a name="access-from-a-windows-device"></a>Toegang vanaf een Windows-apparaat
-Als op uw apparaat een van de volgende platforms wordt uitgevoerd, zoekt u in de volgende secties naar het foutbericht dat wordt weergegeven wanneer u probeert toegang te krijgen tot een toepassing of service:
 
-* Windows 10
-* Windows 8.1
-* Windows 8
-* Windows 7
-* Windows Server 2016
-* Windows Server 2012 R2
-* Windows Server 2012
-* Windows Server 2008 R2
+## <a name="supported-browser"></a>Ondersteunde browser
 
-### <a name="device-is-not-registered"></a>Apparaat is niet geregistreerd
-Als uw apparaat niet is geregistreerd bij Azure AD en de toepassing is beveiligd met een beleid op basis van apparaten, wordt mogelijk een pagina met een van de volgende foutberichten weergegeven:
+Als de beheerder voorwaardelijk toegangsbeleid heeft geconfigureerd, hebt u alleen toegang tot de resources van uw organisatie vanaf een ondersteunde browser. Op een Windows-apparaat worden alleen **Internet Explorer** en **Edge** ondersteund.
 
+U kunt eenvoudig vaststellen of u geen toegang hebt tot een resource vanwege een niet-ondersteunde browser door op de foutpagina naar de sectie Details te gaan:
+
+![Scenario](./media/active-directory-conditional-access-device-remediation/02.png "Berichten over ontoegankelijke toepassingen voor niet-ondersteunde browsers")
+
+De enige oplossing is een browser te gebruiken die de toepassing ondersteunt voor uw apparaatplatform. Zie [Ondersteunde browsers](active-directory-conditional-access-supported-apps.md#supported-browsers) voor een volledige lijst met ondersteunde browsers.  
+
+
+## <a name="supported-versions-of-windows"></a>Ondersteunde versies van Windows
+
+Het volgende moet waar zijn over het Windows-besturingssysteem op uw apparaat: 
+
+- Als u een Windows-desktopbesturingssysteem uitvoert op het apparaat, moet dit Windows 7 of later zijn.
+- Als u een Windows-serverbesturingssysteem uitvoert op het apparaat, moet dit Windows Server 2008 R2 of later zijn. 
+
+
+## <a name="compliant-device"></a>Compatibel apparaat
+
+Mogelijk heeft de beheerder voorwaardelijk toegangsbeleid geconfigureerd op basis waarvan toegang tot de resources van uw organisatie alleen mogelijk is vanaf compatibele apparaten. Het apparaat moet zijn gekoppeld aan uw on-premises Active Directory of aan uw Azure Active Directory om compatibel te zijn.
+
+U kunt eenvoudig vaststellen of u geen toegang hebt tot een resource vanwege een apparaat dat niet compatibel is, door op de foutpagina naar de sectie Details te gaan:
+ 
 ![Scenario](./media/active-directory-conditional-access-device-remediation/01.png "Berichten over ontoegankelijke toepassingen voor niet-geregistreerde apparaten")
 
-Probeer het volgende als het apparaat is toegevoegd aan een Active Directory-domein in uw organisatie:
+
+### <a name="is-your-device-joined-to-an-on-premises-active-directory"></a>Is het apparaat gekoppeld aan een on-premises Active Directory?
+
+**Als het apparaat is gekoppeld aan een on-premises Active Directory in uw organisatie:**
 
 1. Zorg dat u bij Windows bent aangemeld met uw werkaccount (uw Active Directory-account).
 2. Maak via een VPN (virtueel particulier netwerk) of DirectAccess verbinding met uw bedrijfsnetwerk.
 3. Wanneer u verbinding hebt gemaakt, drukt u op de toets met het Windows-logo + L om uw Windows-sessie te vergrendelen.
-4. Voer de referenties voor uw werkaccount in om de Windows-sessie te ontgrendelen.
+4. Ontgrendel de Windows-sessie door de referenties voor uw werkaccount in te voeren.
 5. Wacht even en probeer dan opnieuw of u de toepassing of service kunt openen.
 6. Als dezelfde pagina wordt weergegeven, klikt u op de koppeling **Meer details** en neemt u met deze gegevens contact op met de beheerder.
 
-Als uw apparaat niet is verbonden met een domein en Windows 10 op het apparaat wordt uitgevoerd, hebt u twee opties:
+
+### <a name="is-your-device-not-joined-to-an-on-premises-active-directory"></a>Is het apparaat niet gekoppeld aan een on-premises Active Directory?
+
+Als het apparaat niet is gekoppeld aan een on-premises Active Directory en Windows 10 op het apparaat wordt uitgevoerd, hebt u twee opties:
 
 * Azure AD Join uitvoeren
 * Uw werk- of schoolaccount toevoegen aan Windows
 
-Zie [Using Windows 10 devices in your workplace](active-directory-azureadjoin-windows10-devices.md) (Windows 10-apparaten gebruiken op uw werkplek) voor informatie over de verschillen tussen deze opties.
+Zie [Using Windows 10 devices in your workplace](active-directory-azureadjoin-windows10-devices.md) (Windows 10-apparaten gebruiken op uw werkplek) voor informatie over de verschillen tussen deze opties.  
+Als het apparaat:
 
-Als u Azure AD Join wilt uitvoeren, volgt u de stappen voor het platform waarop uw apparaat wordt uitgevoerd. (Azure AD Join is niet beschikbaar op Windows Phones.)
+- Deel uitmaakt van uw organisatie, voert u Azure AD Join uit.
+- Een persoonlijk apparaat of Windows Phone is, voegt u uw werk- of schoolaccount toe aan Windows 
 
-**Windows 10 Jubileumupdate**
+
+
+#### <a name="azure-ad-join-on-windows-10"></a>Azure AD Join op Windows 10
+
+De stappen voor het koppelen van een apparaat aan Azure AD zijn afhankelijk van de versie van Windows 10 die erop wordt uitgevoerd. Voer de opdracht **winver** uit om te bepalen welke versie van het Windows 10-besturingssysteem u hebt: 
+
+![Windows-versie](./media/active-directory-conditional-access-device-remediation/03.png )
+
+
+**Windows 10 Jubileumupdate (versie 1607)**
 
 1. Start de app **Instellingen**.
 2. Klik op **Accounts** > **Toegang via werk of school**.
@@ -77,7 +110,7 @@ Als u Azure AD Join wilt uitvoeren, volgt u de stappen voor het platform waarop 
 6. Meld u af en meld u weer aan met uw werkaccount.
 7. Probeer opnieuw toegang te krijgen tot de toepassing.
 
-**Windows 10-update van november 2015**
+**Windows 10-update van november 2015 (versie 1511):**
 
 1. Start de app **Instellingen**.
 2. Klik op **Systeem** > **Info**.
@@ -86,23 +119,8 @@ Als u Azure AD Join wilt uitvoeren, volgt u de stappen voor het platform waarop 
 5. Meld u af en meld u weer aan met uw werkaccount (uw Azure AD-account).
 6. Probeer opnieuw toegang te krijgen tot de toepassing.
 
-Voer de volgende stappen uit om uw werk- of schoolaccount toe te voegen:
 
-**Windows 10 Jubileumupdate**
-
-1. Start de app **Instellingen**.
-2. Klik op **Accounts** > **Toegang via werk of school**.
-3. Klik op **Verbinden**.
-4. Verifieer uzelf bij uw organisatie, gebruik zo nodig Multi-Factor Authentication en voer vervolgens de stappen uit die hier worden weergegeven.
-5. Probeer opnieuw toegang te krijgen tot de toepassing.
-
-**Windows 10-update van november 2015**
-
-1. Start de app **Instellingen**.
-2. Klik op **Accounts** > **Uw accounts**.
-3. Klik op **Werk- of schoolaccount toevoegen**.
-4. Verifieer uzelf bij uw organisatie, gebruik zo nodig Multi-Factor Authentication en voer vervolgens de stappen uit die hier worden weergegeven.
-5. Probeer opnieuw toegang te krijgen tot de toepassing.
+#### <a name="workplace-join-on-windows-81"></a>Workplace Join op Windows 8.1
 
 Als uw apparaat niet in een domein is opgenomen en Windows 8.1 op het apparaat wordt uitgevoerd, kunt u de volgende stappen uitvoeren om een Workplace Join uit te voeren en het apparaat in te schrijven bij Microsoft Intune:
 
@@ -113,24 +131,33 @@ Als uw apparaat niet in een domein is opgenomen en Windows 8.1 op het apparaat w
 5. Klik op **Inschakelen**.
 6. Probeer opnieuw toegang te krijgen tot de toepassing.
 
-### <a name="browser-is-not-supported"></a>Browser wordt niet ondersteund
-Misschien hebt u geen toegang als u een toepassing of service probeert te openen met een van de volgende browsers:
 
-* Chrome, Firefox of een andere browser dan Microsoft Edge of Microsoft Internet Explorer in Windows 10 of Windows Server 2016
-* Firefox in Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012 of Windows Server 2008 R2
 
-Er wordt een foutpagina weergegeven die er ongeveer als volgt uitziet:
+#### <a name="add-your-work-or-school-account-to-windows"></a>Uw werk- of schoolaccount toevoegen aan Windows 
 
-![Scenario](./media/active-directory-conditional-access-device-remediation/02.png "Berichten over ontoegankelijke toepassingen voor niet-ondersteunde browsers")
 
-De enige oplossing is een browser te gebruiken die de toepassing ondersteunt voor uw apparaatplatform.
+**Windows 10 Jubileumupdate (versie 1607)**
+
+1. Start de app **Instellingen**.
+2. Klik op **Accounts** > **Toegang via werk of school**.
+3. Klik op **Verbinden**.
+4. Verifieer uzelf bij uw organisatie, gebruik zo nodig Multi-Factor Authentication en voer vervolgens de stappen uit die hier worden weergegeven.
+5. Probeer opnieuw toegang te krijgen tot de toepassing.
+
+
+**Windows 10-update van november 2015 (versie 1511):**
+
+1. Start de app **Instellingen**.
+2. Klik op **Accounts** > **Uw accounts**.
+3. Klik op **Werk- of schoolaccount toevoegen**.
+4. Verifieer uzelf bij uw organisatie, gebruik zo nodig Multi-Factor Authentication en voer vervolgens de stappen uit die hier worden weergegeven.
+5. Probeer opnieuw toegang te krijgen tot de toepassing.
+
+
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 [Voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

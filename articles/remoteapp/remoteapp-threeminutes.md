@@ -14,14 +14,15 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: ccbae83898ec8ea3bd7bca0beae7f78b2b535562
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 3373e37b8efb1bd7d9b7e6c4fb8d3db468c1ad02
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="try-azure-remoteapp-on-your-device-in-3-minutes-or-less"></a>Probeer Azure RemoteApp uit op uw apparaat in drie minuten of minder
 > [!IMPORTANT]
-> Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
+> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
 > 
 
@@ -42,10 +43,5 @@ Uw mening telt. Aan het einde van elke sessie ziet u een dialoogvenster voor uw 
 > Omdat dit een testomgeving is voor het werken met demo’s, is de externe internettoegang vanuit de demo’s in de gepubliceerde demotoepassingen uitgeschakeld. Als gevolg hiervan zijn services zoals OneDrive niet toegankelijk. Ook delen via het klembord (kopiëren en plakken) en USB- en printeromleiding zijn uitgeschakeld.  
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 12/09/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 8da480acc04922a3636821c5303f6380236c5ea3
-ms.openlocfilehash: 1bff76371ea1ca3ee68c9f04ea24a42f95bb7da7
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 45ff2ff08cb36f9a4bf49ff04de149accf157e0e
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -27,7 +28,7 @@ Azure Active Directory (AD) is een IDMaaS-platform (Identity Management-as-a-Ser
 1. [De voordelen van Azure AD-integratie](active-directory-how-to-integrate.md): ontdek waarom de integratie met Azure AD de beste oplossing is voor beveiligde aanmelding en autorisatie.
 2. [Scenario's voor Azure AD-verificatie](active-directory-authentication-scenarios.md): profiteer van vereenvoudigde verificatie in Azure AD om eenmalige aanmelding voor uw toepassing te bieden.
 3. [Toepassingen integreren met Azure AD](active-directory-integrating-applications.md): meer informatie over het toevoegen, bijwerken en verwijderen van toepassingen in Azure AD en de huisstijlrichtlijnen voor geïntegreerde apps.
-4. [Azure AD Graph-API](active-directory-graph-api.md): gebruik de Azure AD Graph-API om via geprogrammeerde toegang te krijgen tot Azure AD via REST API-eindpunten. De Azure AD Graph-API is ook toegankelijk via [Microsoft Graph](https://graph.microsoft.io/). Microsoft Graph biedt een geïntegreerde API waarmee u toegang hebt tot meerdere API's voor Microsoft-cloudservices via één REST API-eindpunt en met één toegangstoken.
+4. [Microsoft Graph](https://graph.microsoft.io/) en [Azure AD Graph API](active-directory-graph-api.md): geprogrammeerde toegang tot Azure AD via REST API-eindpunten. **Wij raden u ten zeerste aan om Microsoft Graph te gebruiken in plaats van Azure AD Graph API om toegang te krijgen tot Azure Active Directory-resources.** We richten ons momenteel op ontwikkelingen in Microsoft Graph. Voor Azure AD Graph API zijn geen verdere verbeteringen gepland. Er is maar een beperkt aantal scenario's waarvoor Azure AD Graph API nog steeds geschikt is. Zie het blogbericht [Mogelijk Graph of Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) in het Office-ontwikkelaarscentrum voor meer informatie.
 5. [Azure AD-verificatiebibliotheken](active-directory-authentication-libraries.md): u kunt eenvoudig gebruikers verifiëren door ervoor te zorgen dat zij toegangstokens verkrijgen via Azure AD-verificatiebibliotheken voor .NET, JavaScript, Objective-C, Android en meer.
 
 ## <a name="getting-started"></a>Aan de slag
@@ -56,10 +57,10 @@ Deze zelfstudies zijn geschikt voor meerdere platforms en hiermee kunt u snel le
 |:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapi-dotnet.md) |[Node.js](active-directory-devquickstarts-webapi-nodejs.md) |
 
-### <a name="querying-the-directory-quickstart-guide"></a>De snelstartgids voor Directory opvragen
-| [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md) |
-|:---:|
-| [Graph API](active-directory-graph-api-quickstart.md) |
+### <a name="microsoft-graph-and-azure-ad-graph-api-quick-start-guides"></a>Snelstartgidsen voor Microsoft Graph en Azure AD Graph API
+| [![Microsoft Graph](./media/active-directory-developers-guide/msgraph.png)](https://developer.microsoft.com/graph/quick-start) | [![Azure AD Graph API](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md) |
+|:---:|:---:|
+| [Microsoft Graph](https://developer.microsoft.com/graph/quick-start) | [Azure AD Graph API](active-directory-graph-api-quickstart.md) |
 
 ## <a name="how-tos"></a>Procedures
 In deze artikelen wordt beschreven hoe u bepaalde taken uitvoert met Azure Active Directory:
@@ -90,9 +91,13 @@ Deze artikelen bevatten naslaginformatie over REST API's en API's voor verificat
 * [Azure Active Directory-voorbeelden](https://github.com/azure-samples?query=active-directory): de eenvoudigste manier om door de lijst met voorbeelden te bladeren, is via de [index met codevoorbeelden](active-directory-code-samples.md).
 * [Active Directory Authentication Library (ADAL) voor .NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet)-documentatie is beschikbaar voor zowel [de meest recente primaire versie](https://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory) als [de vorige primaire versie](https://docs.microsoft.com/active-directory/adal/v2/microsoft.identitymodel.clients.activedirectory).
 
-### <a name="graph-api"></a>Graph API
-* [Naslaginformatie over Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx): naslaginformatie over REST voor Azure Active Directory Graph API. [De interactieve naslaginformatie over Graph API weergeven](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
-* [Graph API-machtigingsbereiken](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): OAuth 2.0-machtigingsbereiken waarmee de toegang van een app tot directorygegevens in een tenant wordt beheerd.
+### <a name="microsoft-graph-and-azure-ad-graph-api"></a>Microsoft Graph en Azure AD Graph API
+> [!IMPORTANT]
+> Wij raden u ten zeerste aan om [Microsoft Graph](https://graph.microsoft.io/) te gebruiken in plaats van Azure AD Graph API om toegang te krijgen tot Azure Active Directory-resources. We richten ons momenteel op ontwikkelingen in Microsoft Graph. Voor Azure AD Graph API zijn geen verdere verbeteringen gepland. Er is maar een beperkt aantal scenario's waarvoor Azure AD Graph API nog steeds geschikt is. Zie het blogbericht [Mogelijk Graph of Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) in het Office-ontwikkelaarscentrum voor meer informatie.
+> 
+* [Microsoft Graph](https://graph.microsoft.io/): documentatie, naslaginformatie, voorbeelden en SDK's voor Microsoft Graph. 
+* [Naslaginformatie over Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog): naslaginformatie over REST voor Azure Active Directory Graph API. 
+* [Azure AD Graph API-machtigingsbereiken](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): OAuth 2.0-machtigingsbereiken waarmee de toegang van een app tot directorygegevens in een tenant wordt beheerd.
 
 ### <a name="authentication-and-authorization-protocols"></a>Verificatie- en autorisatieprotocollen
 * [Ondertekening van sleutelrollover in Azure AD](active-directory-signing-key-rollover.md): meer informatie over het proces voor ondertekening van de sleutelrollover in Azure AD en het bijwerken van de sleutel voor de meest voorkomende toepassingsscenario's.
@@ -131,9 +136,4 @@ Zie voor richtlijnen over het gebruik van de ontwikkeling van Windows Server en 
 
 * [AD FS-scenario's voor ontwikkelaars](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): biedt een overzicht van AD FS-onderdelen en hoe het werkt, met informatie over de ondersteunde verificatie/autorisatie-scenario's.
 * [AD FS-overzichten](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development): een lijst met overzichtsartikelen die stapsgewijze instructies bieden over het implementeren van de gerelateerde verificatie-/autorisatiestromen.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

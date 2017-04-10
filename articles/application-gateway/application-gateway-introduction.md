@@ -1,5 +1,5 @@
 ---
-title: Inleiding tot Application Gateway | Microsoft Docs
+title: Inleiding tot Azure Application Gateway | Microsoft Docs
 description: Deze pagina geeft een overzicht van de Application Gateway-service voor de taakverdeling in laag 7, inclusief de grootte van de gateway, HTTP-taakverdeling, op cookies gebaseerde sessie-affiniteit en SSL-offload.
 documentationcenter: na
 services: application-gateway
@@ -13,28 +13,38 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 04/03/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 15db7dad6b83f6df3891aea60b308f2cf6008dd9
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: d23b400d8e6db66bc596731770a98e2833302543
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="overview-of-application-gateway"></a>Overzicht van Application Gateway
 
-## <a name="what-is-application-gateway"></a>Wat is Application Gateway
+Microsoft Azure Application Gateway is een gereserveerd virtueel apparaat dat ADC (Application Delivery Controller) aanbiedt als een service en daarmee veel mogelijkheden van laag 7 voor taakverdeling voor uw toepassing. Het bestaat uit meerdere werkrolinstanties voor schaalbaarheid en hoge beschikbaarheid. Hiermee kunnen klanten de productiviteit van webfarms optimaliseren door CPU-intensieve SSL-beëindiging te offloaden naar de toepassingsgateway. Het bevat ook andere routeringsmogelijkheden voor laag 7, met inbegrip van round robin-distributie van inkomend verkeer, cookies op basis van sessieaffiniteit, routering van URL's op padbasis en de mogelijkheid voor het hosten van meerdere websites achter één toepassingsgateway. Application Gateway kan worden geconfigureerd als op internet gerichte gateway, interne enige gateway of een combinatie van beide. Application Gateway wordt volledig door Azure beheerd en is zeer schaalbaar en maximaal beschikbaar. Het biedt een uitgebreide verzameling diagnostische gegevens en functies voor logboekregistratie voor betere beheersbaarheid. Wanneer u een Application Gateway maakt, wordt er een eindpunt (openbare VIP of interne ILB IP) gekoppeld en voor inkomend netwerkverkeer gebruikt. Deze VIP of ILB IP wordt geleverd door Azure Load Balancer en werkt op transportniveau (TCP/UDP) en laat al het inkomende netwerkverkeer verdelen naar de werkrolinstanties van de toepassingsgateway. De toepassingsgateway routeert het HTTP/HTTPS-verkeer vervolgens op basis van de configuratie, of het nu een virtuele machine, een cloudservice, een intern of een extern IP-adres is.
 
-Microsoft Azure Application Gateway biedt een ADC (Application Delivery Controller) als een service en biedt daarmee veel mogelijkheden van laag 7 voor taakverdeling voor uw toepassing. Hiermee kunnen klanten de productiviteit van webfarms optimaliseren door het offloaden van CPU intensieve SSL-beëindiging met de Application Gateway. Het bevat ook andere routeringsmogelijkheden voor laag 7, met inbegrip van round robin-distributie van inkomend verkeer, cookies op basis van sessieaffiniteit, URL-pad op basis van routering en de mogelijkheid voor het hosten van meerdere websites achter één Application Gateway. Application Gateway biedt ook een WAF (Web Application Firewall) die uw toepassing beschermt tegen de meeste van de veelvoorkomende web beveiligingslekken uit de OWASP top 10. Application Gateway kan worden geconfigureerd als op internet gerichte gateway, interne enige gateway of een combinatie van beide. Application Gateway wordt volledig door Azure beheerd en is zeer schaalbaar en maximaal beschikbaar. Het biedt een uitgebreide verzameling diagnostische gegevens en logboekregistratiemogelijkheden voor betere beheerbaarheid. Application Gateway werkt met virtuele machines, cloudservices en intern of extern gerichte webtoepassingen.
+Er wordt ook een WAF (Web Application Firewall) geleverd via de WAF-SKU van de toepassingsgateway om webtoepassingen te beschermen tegen veelvoorkomende beveiligingsproblemen en aanvallen op internet. Web Application Firewall gebruikt hiervoor regels uit de [Core Rule Set 3.0 of 2.2.9 van OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project).
 
-Application Gateway is een speciaal virtueel apparaat voor uw toepassing en bestaat uit meerdere workerinstanties voor schaalbaarheid en hoge beschikbaarheid. Wanneer u een Application Gateway maakt, wordt er een eindpunt (openbare VIP of interne ILB IP) gekoppeld en voor inkomend netwerkverkeer gebruikt. Deze VIP of ILB IP wordt geleverd door Azure Load Balancer en werkt op transportniveau (TCP/UDP) en laat al het inkomende netwerkverkeer verdelen naar de Application Gateway-workerinstanties. De Application Gateway routeert het HTTP/HTTPS-verkeer vervolgens op basis van de configuratie, of het nu een virtuele machine, een cloudservice, intern of een extern IP-adres is. Raadpleeg voor de SLA en prijzen verwijzen de pagina's [SLA](https://azure.microsoft.com/support/legal/sla/) en [Prijzen](https://azure.microsoft.com/pricing/details/application-gateway/).
+## <a name="differences-between-application-gateway-skus"></a>Verschillen tussen SKU's met Application Gateway
+
+Application Gateway is beschikbaar in twee SKU's. Een Standard-SKU en een WAF-SKU (Web Application Firewall).
+
+### <a name="standard"></a>Standard
+
+De Standard-SKU biedt SSL-beëindiging, sessieaffiniteit op basis van cookies, round robin-taakverdeling, routering op basis van inhoud en de mogelijkheid om meerdere websites en beveiligingsvoorzieningen te hosten. De beveiligingsvoorzieningen die door Application Gateway worden geboden, zijn onder andere SSL-beleidsbeheer, ondersteuning voor end-to-end SSL en SSL-beëindiging.
+
+### <a name="web-application-firewall-waf"></a>Web Application Firewall (WAF)
+
+De WAF-SKU biedt alle mogelijkheden van de Standard-SKU, met als extra functionaliteit een [firewall voor webtoepassingen](application-gateway-web-application-firewall-overview.md). Deze firewall biedt regels waarmee het mogelijk is om aanvallen te detecteren, zodat uw webtoepassingen kunnen worden beschermd tegen veelvoorkomende beveiligingsproblemen en aanvallen via internet.
 
 ## <a name="features"></a>Functies
 
 Application Gateway ondersteunt momenteel levering van laag 7-toepassingen met de volgende functies:
 
-* **[Web Application Firewall (Preview)](application-gateway-webapplicationfirewall-overview.md)**: de firewall-webtoepassing (WAF) in Azure Application Gateway beschermt webtoepassingen tegen algemene webgebaseerde aanvallen, zoals SQL-injectie, XSS-aanvallen (cross-site scripting) en sessiekapingen.
+* **[Web Application Firewall (Preview)](application-gateway-webapplicationfirewall-overview.md)**: WAF in Azure Application Gateway beschermt webtoepassingen tegen veelvoorkomende aanvallen vanaf internet, zoals SQL-injectie, XSS-aanvallen (cross-site scripting) en sessiekapingen.
 * **HTTP-taakverdeling**: Application Gateway biedt round robin-taakverdeling. Taakverdeling wordt uitgevoerd op laag 7 en wordt alleen gebruikt voor HTTP(S)-verkeer.
 * **Sessieaffiniteit op basis van cookies**: deze functie is handig als u een gebruikerssessie op dezelfde back-end wilt behouden. Met behulp van de gatewaybeheerde cookies kan de Application Gateway het daarop volgende verkeer van een gebruikerssessie naar dezelfde back-end leiden voor verwerking. Deze functie is belangrijk wanneer de sessiestatus lokaal wordt opgeslagen op de back-endserver voor een gebruikerssessie.
 * **[Secure Sockets Layer-offload (SSL)](application-gateway-ssl-arm.md)**: deze functie neemt de intensieve taak van het versleutelen van HTTPS-verkeer over van uw webservers. Door de SSL-verbinding bij de Application Gateway te beëindigen en de aanvraag niet versleuteld naar de server door te sturen, hoeft de webserver niet meer te ontsleutelen.  De Application Gateway versleutelt het antwoord opnieuw voordat het naar de client wordt verstuurd. Deze functie is handig wanneer de back-end zich in hetzelfde beveiligde virtuele netwerk bevindt als de Application Gateway in Azure.
@@ -50,7 +60,7 @@ Application Gateway ondersteunt momenteel levering van laag 7-toepassingen met d
 Application Gateway is nuttig voor:
 
 * Toepassingen waarvoor aanvragen van dezelfde gebruiker/clientsessie zijn vereist om dezelfde virtuele back-endmachine te bereiken. Voorbeelden van deze toepassingen zijn winkelwagen-apps en webmailservers.
-* Toepassingen die webserverfarms willen ontdoen van bewerkingen met SSL-beëindiging.
+* Het ontlasten van farms met webservers door de overhead voor SSL-beëindiging weg te nemen.
 * Toepassingen, zoals een netwerk voor contentlevering, waarvoor meerdere HTTP-aanvragen op dezelfde langlopende TCP-verbinding moeten worden doorgestuurd of verdeeld naar andere back-endservers.
 * Toepassingen die ondersteuning bieden voor websocket-verkeer
 * Webtoepassingen beveiligen tegen veelvoorkomende webgebaseerde aanvallen, zoals SQL-injectie, SSX-aanvallen (cross-site scripting) en sessiekapingen.
@@ -64,8 +74,6 @@ Met Application Gateway-taakverdeling als een door Azure beheerde service kan ee
 ## <a name="gateway-sizes-and-instances"></a>Gateway-grootten en -exemplaren
 
 Application Gateway wordt momenteel aangeboden in drie grootten: **klein**, **middelgroot** en **groot**. Kleine exemplaargrootten zijn bedoeld voor het ontwikkelen en testen van scenario's.
-
-Er zijn momenteel twee SKU's voor Application Gateway: **WAF** en **Standard**.
 
 U kunt maximaal 50 toepassingsgateways per abonnement maken. Elke toepassingsgateway kan maximaal 10 exemplaren hebben. Elke toepassingsgateway kan bestaan uit 20 HTTP-listeners. Zie [Servicelimieten voor Application Gateway](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits) voor een volledige lijst van toepassingsgateway-limieten.
 
@@ -85,9 +93,13 @@ Azure Application Gateway bewaakt automatisch de status van de back-endexemplare
 
 ## <a name="configuring-and-managing"></a>Configuratie en beheer
 
-Application Gateway kan voor het eindpunt een openbaar IP-adres, een privé IP-adres of beide hebben wanneer het is geconfigureerd. Application Gateway wordt in een virtueel netwerk geconfigureerd in een eigen subnet. Het subnet dat voor Application Gateway is gemaakt of wordt gebruikt, mag geen andere typen resources bevatten. De enige andere toegestane resources in het subnet zijn andere toepassingsgateways. Voor het beveiligen van uw back-endresources kunnen de back-endservers zich in een ander subnet in hetzelfde virtuele netwerk bevinden als de toepassingsgateway. Dit aanvullende subnet is niet vereist voor de back-endtoepassingen. Zolang de toepassingsgateway het IP-adres kan bereiken, kan Application Gateway ADC-mogelijkheden bieden voor de back-endservers.
+Application Gateway kan voor het eindpunt een openbaar IP-adres, een privé IP-adres of beide hebben wanneer het is geconfigureerd. Application Gateway wordt in een virtueel netwerk geconfigureerd in een eigen subnet. Het subnet dat voor Application Gateway is gemaakt of wordt gebruikt, mag geen andere typen resources bevatten. De enige andere toegestane resources in het subnet zijn andere toepassingsgateways. Voor het beveiligen van uw back-endresources kunnen de back-endservers zich in een ander subnet in hetzelfde virtuele netwerk bevinden als de toepassingsgateway. Dit aanvullende subnet is niet vereist voor de back-endtoepassingen. Zolang de toepassingsgateway het IP-adres kan bereiken, kan Application Gateway ADC-mogelijkheden bieden voor de back-endservers. 
 
-U kunt een toepassingsgateway maken en beheren met REST-API's, PowerShell-cmdlets, Azure CLI of [Azure Portal](https://portal.azure.com/).
+U kunt een toepassingsgateway maken en beheren met REST-API's, PowerShell-cmdlets, Azure CLI of [Azure Portal](https://portal.azure.com/). Ga voor aanvullende vragen over Application Gateway naar [Frequently asked questions for Application Gateway](application-gateway-faq.md) (Veelgestelde vragen over Application Gateway).
+
+## <a name="pricing"></a>Prijzen
+
+De prijzen variëren naargelang de kosten per gateway-uur en de kosten voor gegevensverwerking. De prijzen voor gateway-uren voor de WAF-SKU verschillen van de kosten voor Basic-SKU's. Zie [Prijzen van Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/) voor meer informatie. De kosten voor gegevensverwerking zijn wel hetzelfde.
 
 ## <a name="next-steps"></a>Volgende stappen
 

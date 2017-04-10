@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 84aaff1f1e8a92583107295643e0ada81376fab0
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: d32d91f7bbfcea61caba6ccc3033929d307f14be
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Een Windows-app op elk apparaat uitvoeren met Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp wordt buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
+> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
 > 
 
@@ -121,10 +122,5 @@ Nu kunt u Access op al uw apparaten gebruiken, maar zorg er wel voor dat u een R
 Nu u hebt geleerd hoe een verzameling maakt, kunt u proberen een [verzameling te maken die gebruikmaakt van Office 365](remoteapp-tutorial-o365anywhere.md). U kunt ook een [hybride verzameling](remoteapp-create-hybrid-deployment.md) maken die toegang heeft tot uw lokale netwerk.
 
 <!--Image references-->
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 04/03/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: fa7c846cf5018b5f0d918e5dc9d9020313833d77
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f5793f771553df78c1c335ad57e0d64078d98148
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -97,14 +97,17 @@ Op de blade **Basisbeginselen** geeft u de volgende gegevens op:
     ![Blade SQL-basisbeginselen](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## <a name="2-choose-virtual-machine-size"></a>2. De grootte van de virtuele machine kiezen
-Bij de stap **Grootte** kiest u de grootte van uw virtuele machine. Dit doet u op de blade **Een grootte kiezen**. De blade geeft in eerste instantie aanbevolen grootten voor de machine weer op basis van de geselecteerde installatiekopie. Er wordt ook een schatting gegeven van de maandelijkse kosten voor het uitvoeren van de virtuele machine.
+Bij de stap **Grootte** kiest u de grootte van uw virtuele machine. Dit doet u op de blade **Een grootte kiezen**. De blade geeft in eerste instantie aanbevolen grootten voor de machine weer op basis van de geselecteerde installatiekopie.
+
+> [!IMPORTANT]
+> De geschatte maandelijkse kosten die worden weergegeven op de blade **Grootte kiezen**, zijn niet inclusief de kosten voor SQL Server-licentieverlening. Het betreft hier alleen de kosten voor de VM. Voor de Express- en Developer-edities van SQL Server zijn dit de totale geschatte kosten. Zie de [pagina met prijzen voor virtuele Windows-machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) en selecteer de gewenste editie van SQL server. 
 
 ![Opties voor de grootte van uw virtuele SQL-machine](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
 Voor productieworkloads raden we u aan voor de virtuele machine een grootte te selecteren die ondersteuning biedt voor [Premium Storage](../../../storage/storage-premium-storage.md). Als u dat prestatieniveau niet nodig hebt, klikt u op de knop **Alle weergeven** om alle opties voor machinegrootte weer te geven. Voor een ontwikkelings- of testomgeving kunt u bijvoorbeeld een kleinere machinegrootte gebruiken.
 
 > [!NOTE]
-> Zie voor meer informatie over grootten voor virtuele machines [Grootten voor virtuele machines](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Zie voor overwegingen met betrekking tot de grootte van een virtuele SQL Server-machine [Aanbevolen procedures voor prestaties voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+> Zie voor meer informatie over grootten voor virtuele machines [Grootten voor virtuele machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Zie voor overwegingen met betrekking tot de grootte van een virtuele SQL Server-machine [Aanbevolen procedures voor prestaties voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 > 
 > 
 
@@ -123,7 +126,7 @@ Op de blade **Instellingen** configureert u de Azure-opslag, -netwerken en -bewa
 * Onder **Opslagaccount** kunt u de automatisch ingerichte opslagaccountnaam accepteren. U kunt ook op **Opslagaccount** klikken om een bestaand account te kiezen en het opslagtype voor het account te configureren. Azure maakt standaard een nieuw opslagaccount met lokaal redundante opslag. Zie voor meer informatie over opslagopties [Azure Storage-replicatie](../../../storage/storage-redundancy.md).
 * Onder **Netwerk** kunt u de automatisch ingevulde waarden accepteren. U kunt ook op elke functie klikken om het **Virtuele netwerk**, het **Subnet**, het **Openbaar IP-adres** en de **Netwerkbeveiligingsgroep** handmatig te configureren. Houd voor deze zelfstudie de standaardwaarden aan.
 * In Azure wordt **Bewaking** standaard ingeschakeld met hetzelfde opslagaccount als dat van de virtuele machine. U kunt deze instellingen hier wijzigen.
-* Geef onder **Beschikbaarheidsset** een beschikbaarheidsset op. Voor deze zelfstudie kunt u **geen** selecteren. Als u van plan bent de SQL AlwaysOn-beschikbaarheidsgroepen in te stellen, moet u de beschikbaarheid configureren om te voorkomen dat de virtuele machine opnieuw wordt gemaakt.  Zie voor meer informatie [De beschikbaarheid van virtuele machines beheren](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Geef onder **Beschikbaarheidsset** een beschikbaarheidsset op. Voor deze zelfstudie kunt u **geen** selecteren. Als u van plan bent de SQL AlwaysOn-beschikbaarheidsgroepen in te stellen, moet u de beschikbaarheid configureren om te voorkomen dat de virtuele machine opnieuw wordt gemaakt.  Zie voor meer informatie [De beschikbaarheid van virtuele machines beheren](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Klik op **OK** wanneer u klaar bent met het configureren van deze instellingen.
 
