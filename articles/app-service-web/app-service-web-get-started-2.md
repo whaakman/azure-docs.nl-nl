@@ -15,14 +15,14 @@ ms.topic: get-started-article
 ms.date: 05/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
-ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 34cccf6a0962f72e04a90516fa7643db2533d85d
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>Functionaliteit toevoegen aan uw eerste web-app
-In [In vijf minuten uw eerste web-app implementeren in Azure](app-service-web-get-started-cli-nodejs.md) hebt u een voorbeeld-web-app geïmplementeerd in [Azure App Service](../app-service/app-service-value-prop-what-is.md). In dit artikel gaat u snel een aantal handige functies aan uw geïmplementeerde web-app toevoegen. U gaat zo dadelijk het volgende doen:
+In [In vijf minuten uw eerste web-app implementeren in Azure](app-service-web-get-started-dotnet.md) hebt u een voorbeeld-web-app geïmplementeerd in [Azure App Service](../app-service/app-service-value-prop-what-is.md). In dit artikel gaat u snel een aantal handige functies aan uw geïmplementeerde web-app toevoegen. U gaat zo dadelijk het volgende doen:
 
 * verificatie voor uw gebruikers afdwingen
 * uw app automatisch schalen

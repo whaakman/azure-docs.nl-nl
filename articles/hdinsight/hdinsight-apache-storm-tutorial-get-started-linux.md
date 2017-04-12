@@ -17,9 +17,9 @@ ms.date: 03/17/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 5d74f2c130eeddb1022acf9673c6a2006af2db58
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 4787928ed066b9aed51a8512deeda6cd49897d82
+ms.lasthandoff: 04/11/2017
 
 ---
 #<a name="get-started-with-the-storm-starter-samples-for-big-data-analytics-on-linux-based-hdinsight"></a>Aan de slag met Storm Starter-voorbeelden voor big data-analyses in HDInsight op basis van Linux
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/25/2017
 Apache Storm is een gedistribueerd, schaalbaar, fouttolerant en realtime berekeningssysteem voor het verwerken van gegevensstromen. Met Storm in Azure HDInsight kunt u een op een cloud gebaseerd Storm-cluster maken dat in realtime big data-analyses uitvoert.
 
 > [!IMPORTANT]
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight-afschaffing op Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date) voor meer informatie.
+> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight-afschaffing op Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -46,7 +46,7 @@ Apache Storm is een gedistribueerd, schaalbaar, fouttolerant en realtime bereken
 Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
 
 1. In [Azure Portal](https://portal.azure.com) selecteert u **+ NIEUW**, **Intelligence en analyse** en vervolgens **HDInsight**.
-   
+
     ![Een HDInsight-cluster maken](./media/hdinsight-apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
 2. Geef op de blade **Basisbeginselen** de volgende gegevens op:
@@ -57,11 +57,11 @@ Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
     * **SSH-gebruikersnaam (Secure Shell)**: de aanmeldingsgegevens voor toegang tot het cluster via SSH. Het wachtwoord is standaard hetzelfde als het aanmeldingswachtwoord van het cluster.
     * **Resourcegroep**: de resourcegroep waarin het cluster wordt gemaakt.
     * **Locatie**: de Azure-regio waarin het cluster wordt gemaakt.
-   
+
     ![Abonnement selecteren](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
 3. Selecteer **Clustertype** en stel de volgende waarden in op de blade **Clusterconfiguratie**:
-   
+
     * **Clustertype**: Storm
 
     * **Besturingssysteem**: Linux
@@ -69,9 +69,9 @@ Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
     * **Versie**: Storm 1.0.1 (HDI 3.5)
 
     * **Clusterlaag**: standaard
-     
+
     Gebruik ten slotte de knop **Selecteren** om de instellingen op te slaan.
-     
+
     ![Clustertype selecteren](./media/hdinsight-apache-storm-tutorial-get-started-linux/set-hdinsight-cluster-type.png)
 
 4. Nadat u het clustertype hebt geselecteerd, gebruikt u de knop __Selecteren__ om het clustertype te selecteren. Gebruik vervolgens de knop __Volgende__ om de basisconfiguratie te voltooien.
@@ -81,34 +81,34 @@ Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
     ![De instellingen van het opslagaccount voor HDInsight configureren](./media/hdinsight-apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
 6. Controleer op de blade **Samenvatting** de configuratie van het cluster. Gebruik de koppeling __Bewerken__ om onjuiste instellingen te wijzigen. Gebruik tot slot de knop __Maken__ om het cluster te maken.
-   
+
     ![Samenvatting clusterconfiguratie](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-configuration-summary.png)
-   
+
     > [!NOTE]
     > Het kan tot 20 minuten duren om het cluster te maken.
 
 ## <a name="run-a-storm-starter-sample-on-hdinsight"></a>Een Storm Starter-voorbeeld uitvoeren in HDInsight
 
 1. Maak verbinding met het HDInsight-cluster via SSH:
-   
+
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-   
+
     Als u een wachtwoord hebt gebruikt om uw SSH gebruikersaccount te beveiligen, wordt u gevraagd het wachtwoord in te voeren. Als u een openbare sleutel hebt gebruikt, moet u mogelijk de parameter `-i` gebruiken om de overeenkomende persoonlijke sleutel op te geven. Bijvoorbeeld `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
-   
+
     Zie [SSH-sleutels gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor informatie.
 
 2. Gebruik de volgende opdracht om een voorbeeldtopologie te starten:
-   
+
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
-   
+
     > [!NOTE]
     > In eerdere versies van HDInsight is de klassenaam van de topologie `storm.starter.WordCountTopology` in plaats van `org.apache.storm.starter.WordCountTopology`.
-   
+
     Met deze opdracht wordt de WordCount-voorbeeldtopologie gestart op het cluster, met een beschrijvende naam voor 'wordcount'. Het genereert willekeurig zinnen en telt het aantal keer dat elk woord in deze zinnen voorkomt.
-   
+
     > [!NOTE]
     > Bij het indienen van uw eigen topologieën bij het cluster moet u eerst het JAR-bestand met het cluster kopiëren voordat u de opdracht `storm` gebruikt. Gebruik de opdracht `scp` om het bestand te kopiëren. Bijvoorbeeld: `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
-    > 
+    >
     > Het WordCount-voorbeeld en andere Storm Starter-voorbeelden zijn al in uw cluster opgenomen in `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
 Wilt u de bron van de Storm Starter-voorbeelden bekijken? U vindt de code hier: [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter). Deze koppeling is voor Storm 1.0.x, die bij HDInsight 3.5 wordt geleverd. Gebruik voor andere versies van Storm de knop __Vertakking__ boven aan de pagina om een andere Storm-versie te selecteren.
@@ -120,58 +120,58 @@ De Storm-gebruikersinterface biedt een webinterface voor het werken met actieve 
 Voer de volgende stappen uit voor het bewaken van de topologie met behulp van de Storm-gebruikersinterface:
 
 1. Ga in een webbrowser naar https://CLUSTERNAME.azurehdinsight.net/stormui om de gebruikersinterface van Storm weer te geven. Vervang **CLUSTERNAME** door de naam van uw cluster.
-    
+
     > [!NOTE]
     > Als u wordt gevraagd een gebruikersnaam en een wachtwoord op te geven, voert u de gegevens voor de clusterbeheerder (admin) en het wachtwoord in die u hebt gebruikt toen u het cluster maakte.
 
 2. Selecteer onder **Topology summary** de vermelding **wordcount** in de kolom **Name**. Er wordt informatie over de topologie weergegeven.
-    
+
     ![Storm-dashboard met informatie over de Storm Starter WordCount-topologie](./media/hdinsight-apache-storm-tutorial-get-started-linux/topology-summary.png)
-    
+
     Deze pagina bevat de volgende informatie:
-    
+
     * **Topology stats**: basisinformatie over de topologieprestaties, geordend in tijdvensters.
-     
+
         > [!NOTE]
         > Wanneer er een specifiek tijdvenster wordt geselecteerd, verandert het tijdvenster voor informatie die wordt weergegeven in andere gedeelten van de pagina.
 
     * **Spouts**: basisinformatie over spouts, met inbegrip van de laatste fout die door elke spout is geretourneerd.
-    
+
     * **Bolts**: basisinformatie over bolts.
-    
+
     * **Topology configuration**: gedetailleerde informatie over de topologieconfiguratie.
-     
+
     Deze pagina bevat ook de acties die op de topologie kunnen worden uitgevoerd:
-   
+
     * **Activate**: de verwerking van een gedeactiveerde topologie wordt hervat.
-    
+
     * **Deactivate**: een actieve topologie wordt onderbroken.
-    
+
     * **Rebalance**: de parallelle uitvoering van de topologie wordt aangepast. Nadat u het aantal knooppunten in het cluster hebt gewijzigd, moet u actieve topologieën opnieuw verdelen. Met het opnieuw verdelen wordt de parallelle uitvoering aangepast om te compenseren voor het toegenomen/afgenomen aantal knooppunten in het cluster. Zie [Inzicht in de parallelle uitvoering van een Storm-topologie](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) voor meer informatie.
-    
+
     * **Kill**: hiermee wordt een Storm-topologie na de opgegeven time-out beëindigd.
 
 3. Selecteer op deze pagina een item in de sectie **Spouts** of **Bolts**. Er wordt informatie over het geselecteerde onderdeel weergegeven.
-   
+
     ![Storm-dashboard met informatie over de geselecteerde onderdelen.](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)
-   
+
     Deze pagina geeft de volgende informatie weer:
-   
+
     * **Spout/Bolt stats**: basisinformatie over de prestaties van de diverse onderdelen, geordend in tijdvensters.
-     
+
         > [!NOTE]
         > Wanneer er een specifiek tijdvenster wordt geselecteerd, verandert het tijdvenster voor informatie die wordt weergegeven in andere gedeelten van de pagina.
-     
+
     * **Input stats** (alleen bolts): informatie over onderdelen die gegevens produceren die worden verbruikt door de bolt.
-    
+
     * **Output stats**: informatie over gegevens die door deze bolt zijn gegenereerd.
-    
+
     * **Executors**: informatie over exemplaren van dit onderdeel.
-    
+
     * **Errors**: fouten die door dit onderdeel zijn gegenereerd.
 
 4. Als u details voor een specifiek exemplaar van het onderdeel wilt weergeven, selecteert u een item in de kolom **Port** in de sectie **Executor** terwijl u de details van een spout of bolt bekijkt.
-   
+
         2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
         2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
         2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [snow]
@@ -180,7 +180,7 @@ Voer de volgende stappen uit voor het bewaken van de topologie met behulp van de
         2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [white, 747293]
         2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
         2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
-   
+
     In dit voorbeeld komt het woord **seven** 1.493.957 keer voor. Dit getal is het aantal keer dat het woord is gevonden sinds deze topologie is gestart.
 
 ## <a name="stop-the-topology"></a>De topologie stoppen

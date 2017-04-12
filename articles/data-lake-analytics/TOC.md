@@ -9,7 +9,8 @@
 ## [Java-SDK](data-lake-analytics-get-started-java-sdk.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Azure CLI](data-lake-analytics-get-started-cli.md)
-## [REST API](data-lake-analytics-get-started-rest-api.md)
+## [Azure CLI 2.0](data-lake-analytics-get-started-cli2.md)
+## [REST-API](data-lake-analytics-get-started-rest-api.md)
 ## [Python](data-lake-analytics-get-started-python.md)
 
 # Procedures
@@ -45,16 +46,12 @@
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
 ## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
 ## [REST](/rest/api/datalakeanalytics/)
+## [CLI 2.0](https://docs.microsoft.com/cli/azure/dla)
 
-# Bronnen
+# Resources
 ## [Service-updates](https://azure.microsoft.com/updates/?product=data-lake-analytics)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Feedback geven op UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Azure Data Lake-blog](https://blogs.msdn.microsoft.com/azuredatalake/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

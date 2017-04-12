@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 83c063bb003ccda80ba6c1a74aadcd624d77ae47
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 2a1e1004a4dab48aed75740a24ff5556242eaa67
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -62,12 +62,12 @@ Naast Web Apps in App Service biedt Azure nog andere services die kunnen worden 
 Als u aan de slag wilt gaan door in App Service voorbeeldcode voor een nieuwe web-app te implementeren, volgt u een van de zelfstudies uit de onderstaande vervolgkeuzelijst. U hebt een gratis Azure-account nodig.
 
 > [!div class="op_single_selector"]
-> * [In vijf minuten uw eerste HTML-site implementeren in Azure](app-service-web-get-started-html-cli-nodejs.md)
-> * [In vijf minuten uw eerste ASP.NET-web-app implementeren in Azure](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [In vijf minuten uw eerste PHP-web-app implementeren in Azure](app-service-web-get-started-php-cli-nodejs.md)
-> * [In vijf minuten uw eerste Node.js-web-app implementeren in Azure](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [In vijf minuten uw eerste Python-web-app implementeren in Azure](app-service-web-get-started-python-cli-nodejs.md)
+> * [In vijf minuten uw eerste ASP.NET-web-app implementeren in Azure](app-service-web-get-started-dotnet.md)
+> * [In vijf minuten uw eerste PHP-web-app implementeren in Azure](app-service-web-get-started-php.md)
+> * [In vijf minuten uw eerste Node.js-web-app implementeren in Azure](app-service-web-get-started-nodejs.md)
 > * [In vijf minuten uw eerste Java-web-app implementeren in Azure](app-service-web-get-started-java.md)
+> * [In vijf minuten uw eerste Python-web-app implementeren in Azure](app-service-web-get-started-python.md)
+> * [In vijf minuten uw eerste HTML-site implementeren in Azure](app-service-web-get-started-html.md)
 > 
 > 
 

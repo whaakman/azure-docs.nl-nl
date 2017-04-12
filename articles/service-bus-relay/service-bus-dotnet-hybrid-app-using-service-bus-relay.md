@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 6c59c98a400da0616762b2bd0c4217d97e22ab86
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: ed1db5521a17988d7936c53afcfe565cc7ba1a38
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -227,7 +227,7 @@ In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens wor
 
    ![][19]
 8. Klik op **OK**.
-9. U moet nu Azure-resources configureren voor een nieuwe web-app. Volg alle stappen in [Een web-app maken](../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application) en [De Azure-resources maken](../app-service-web/web-sites-dotnet-get-started.md#create-the-azure-resources). Ga vervolgens terug naar deze zelfstudie en ga door met de volgende stap.
+9. U moet nu Azure-resources configureren voor een nieuwe web-app. Volg alle stappen in [Een web-app maken](../app-service-web/app-service-web-get-started-dotnet.md) en [De Azure-resources maken](../app-service-web/app-service-web-get-started-dotnet.md). Ga vervolgens terug naar deze zelfstudie en ga door met de volgende stap.
 10. Klik in Solution Explorer met de rechtermuisknop op **Modellen** en klik achtereenvolgens op **Toevoegen** en **Klasse**. Typ in het vak **Naam** de naam **Product.cs**. Klik vervolgens op **Toevoegen**.
 
     ![][17]
@@ -395,7 +395,7 @@ Klik op **Vernieuwen** op de pagina **ProductsPortal**. Elke keer dat u de pagin
 Sluit beide toepassingen voordat u doorgaat met de volgende stap.
 
 ## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>Het project ProductsPortal in een Azure-web-app implementeren
-De volgende stap is het converteren van de **ProductsPortal**-frontend naar een Azure-web-app. Implementeer eerst het **ProductsPortal**-project, waarbij u alle stappen in de sectie [Het webproject implementeren in Azure](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-azure) uitvoert. Ga terug naar deze zelfstudie als de implementatie is voltooid en ga door met de volgende stap.
+De volgende stap is het converteren van de **ProductsPortal**-frontend naar een Azure-web-app. Implementeer eerst het **ProductsPortal**-project, waarbij u alle stappen in de sectie [Het webproject implementeren in Azure](../app-service-web/app-service-web-get-started-dotnet.md) uitvoert. Ga terug naar deze zelfstudie als de implementatie is voltooid en ga door met de volgende stap.
 
 > [!NOTE]
 > Mogelijk wordt er een foutbericht weergegeven in het browservenster wanneer het **ProductsPortal**-webproject automatisch wordt gestart na de implementatie. Dit is normaal en doet zich voor omdat de **ProductsServer**-toepassing nog niet wordt uitgevoerd.

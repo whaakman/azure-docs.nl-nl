@@ -9,8 +9,6 @@ Er zijn een aantal speciale Azure-regio's die u bij het bouwen van uw toepassing
 
 * **VS (overheid) - Virginia** en **VS (overheid) - Iowa**
   * Een fysiek en logisch van netwerken afgeschermd exemplaar van Azure voor de Amerikaanse overheid en zijn partners, bediend door gecontroleerde Amerikaanse staatsburgers. Dit exemplaar beschikt over aanvullende nalevingscertificeringen, zoals [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) en [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Meer informatie over [Azure Government](https://azure.microsoft.com/features/gov/).
-* **India - midden**, **India - zuid** en **India - west**
-  * Deze regio's zijn momenteel beschikbaar voor klanten met een volumelicentie en partners met een lokale inschrijving in India. In 2016 hebben gebruikers toegang tot deze regio’s als ze een direct online abonnement hebben aangeschaft.
 * **China - noord** en **China - oost**
   * Deze regio's zijn beschikbaar via een unieke samenwerking tussen Microsoft en 21Vianet, waarbij Microsoft niet rechtstreeks de datacentra onderhoudt. Zie meer informatie over [Microsoft Azure in China](http://www.windowsazure.cn/).
 * **Duitsland - centraal** en **Duitsland - noordoost**

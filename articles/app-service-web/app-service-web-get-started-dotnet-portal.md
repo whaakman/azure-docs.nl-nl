@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/10/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: fa3f31cdd708729071876ffad707bea70567da83
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 6b1dede903083d1771733330a069b6ab533d9f00
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -103,7 +103,7 @@ Wanneer Azure klaar is met het implementeren van de app, krijgt u nog een meldin
     ![Umbraco-configuratie - eerste Umbraco in Azure App Service](./media/app-service-web-get-started-dotnet-portal/umbraco-config.png)
     
 ## <a name="next-steps"></a>Volgende stappen
-* [Een ASP.NET-web-app in Azure App Service implementeren met Visual Studio](web-sites-dotnet-get-started.md) -Informatie over het maken van een nieuwe Azure-web-app via Visual Studio met behulp van één van de meegeleverde toepassingssjablonen.
+* [Een ASP.NET-web-app in Azure App Service implementeren met Visual Studio](app-service-web-get-started-dotnet.md) -Informatie over het maken van een nieuwe Azure-web-app via Visual Studio met behulp van één van de meegeleverde toepassingssjablonen.
 * [Uw code implementeren in Azure App Service](web-sites-deploy.md) - Informatie over implementeren via FTP of via broncodebeheeropslagplaatsen.
 * [Functionaliteit toevoegen aan uw eerste web-app](app-service-web-get-started-2.md) - Til uw Azure-app naar een hoger niveau. Verifieer uw gebruikers. Schaal de app op basis van vraag. Stel prestatiewaarschuwingen in. Dit alles met slechts enkele klikken.
 
