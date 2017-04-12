@@ -95,6 +95,7 @@ Deze artikelen bevatten naslaginformatie over REST API's en API's voor verificat
 > [!IMPORTANT]
 > Wij raden u ten zeerste aan om [Microsoft Graph](https://graph.microsoft.io/) te gebruiken in plaats van Azure AD Graph API om toegang te krijgen tot Azure Active Directory-resources. We richten ons momenteel op ontwikkelingen in Microsoft Graph. Voor Azure AD Graph API zijn geen verdere verbeteringen gepland. Er is maar een beperkt aantal scenario's waarvoor Azure AD Graph API nog steeds geschikt is. Zie het blogbericht [Mogelijk Graph of Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) in het Office-ontwikkelaarscentrum voor meer informatie.
 > 
+
 * [Microsoft Graph](https://graph.microsoft.io/): documentatie, naslaginformatie, voorbeelden en SDK's voor Microsoft Graph. 
 * [Naslaginformatie over Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog): naslaginformatie over REST voor Azure Active Directory Graph API. 
 * [Azure AD Graph API-machtigingsbereiken](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): OAuth 2.0-machtigingsbereiken waarmee de toegang van een app tot directorygegevens in een tenant wordt beheerd.

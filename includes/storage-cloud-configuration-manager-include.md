@@ -3,7 +3,7 @@ De [Configuration Manager-bibliotheek van Microsoft Azure voor .NET](https://www
 Voeg de volgende `using`-richtlijn toe om naar het CloudConfigurationManager-pakket te verwijzen:
 
 ```csharp
-using Microsoft.Azure;    //Namespace for CloudConfigurationManager
+using Microsoft.Azure; //Namespace for CloudConfigurationManager
 ```
 
 In het volgende voorbeeld ziet u hoe u een verbindingsreeks ophaalt uit een configuratiebestand:
@@ -15,9 +15,4 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 ```
 
 Het gebruik van Azure Configuration Manager is optioneel. U kunt ook een API gebruiken, zoals de [ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx)-klasse van .NET Framework.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
