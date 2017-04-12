@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/16/2016
+ms.date: 04/04/2017
 ms.author: haining;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 5e9aa39ccf91f98336e5db179b532930f7e83313
 ms.openlocfilehash: 35bf8b41288afd31ba7e6f861beb7a7bf2a36d94
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -50,10 +51,5 @@ Download het diagram **Microsoft Azure Machine Learning Studio Capabilities Over
 * Voor een gedetailleerde beschrijving van de machine learning-algoritmen die beschikbaar zijn in Machine Learning Studio, leest u [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md) (Algoritmen kiezen voor Microsoft Azure Machine Learning).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 
