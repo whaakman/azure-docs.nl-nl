@@ -26,7 +26,7 @@
 ###[Uw cache distribueren via clustering](cache-how-to-premium-clustering.md)
 ## Automatiseren
 ###[Implementeren en beheren met PowerShell](cache-howto-manage-redis-cache-powershell.md)
-###[Implementeren en beheren met Azure CLI](cache-manage-cli.md)
+###[Implementeren en beheren met Azure CLI](cli-samples.md)
 ###[Redis Cache inrichten](cache-redis-cache-arm-provision.md)
 ###[Een web-app inrichten met Redis Cache](cache-web-app-arm-with-redis-cache-provision.md)
 ## Met ASP.NET integreren
@@ -57,9 +57,4 @@
 # Resources
 ## [Voorbeelden van Redis Cache](cache-redis-samples.md)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/cache/)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

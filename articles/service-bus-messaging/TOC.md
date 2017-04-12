@@ -50,7 +50,7 @@
 ## Beheren
 ### [Service Bus-beheerbibliotheken](service-bus-management-libraries.md)
 ### [Azure Resource Manager-sjablonen gebruiken](service-bus-resource-manager-overview.md)
-### [PowerShell gebruiken om entiteiten in te richten](service-bus-powershell-how-to-provision.md)
+### [PowerShell gebruiken om entiteiten in te richten](service-bus-manage-with-ps.md)
 
 # Naslaginformatie
 ## .NET

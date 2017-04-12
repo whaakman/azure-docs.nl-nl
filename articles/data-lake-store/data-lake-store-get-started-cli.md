@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2017
+ms.date: 03/17/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: e43a6ea9510c481518becb52cc571ec62e3b151d
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: f7748dba30c6e0332c166feda25f4aaa93c06efa
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -28,20 +28,22 @@ ms.lasthandoff: 03/21/2017
 > * [.NET-SDK](data-lake-store-get-started-net-sdk.md)
 > * [Java-SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST-API](data-lake-store-get-started-rest-api.md)
-> * [Azure-CLI](data-lake-store-get-started-cli.md)
+> * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
 
-> [!NOTE]
-> Voor het uploaden en downloaden van grote hoeveelheden gegevens (grote bestanden, een groot aantal bestanden of beide), raden wij u aan om de [Python-SDK](data-lake-store-get-started-python.md), de [.NET-SDK](data-lake-store-get-started-net-sdk.md) of [Azure PowerShell](data-lake-store-get-started-powershell.md) te gebruiken. Met deze opties profiteert u van betere prestaties, omdat er meerdere threads worden gebruikt om de gegevensverplaatsing parallel te laten verlopen.
-> 
->  
-
 Informatie over gebruik van de Azure-opdrachtregelinterface voor het maken van een Azure Data Lake Store-account en het uitvoeren van basisbewerkingen, zoals het maken van mappen, uploaden en downloaden van gegevensbestanden, verwijderen van uw account, enzovoort. Zie [Overzicht van Data Lake Store](data-lake-store-overview.md) voor meer informatie over Data Lake Store.
 
 De Azure CLI is geïmplementeerd in Node.js en kan worden gebruikt op elk platform dat ondersteuning biedt voor Node.js, zoals Windows, Mac en Linux. De Azure CLI is open-source. De broncode wordt beheerd in GitHub op <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. Dit artikel behandelt alleen het gebruik van de Azure CLI met Data Lake Store. Raadpleeg voor algemene richtlijnen voor het gebruik van Azure CLI [De Azure CLI gebruiken][azure-command-line-tools].
+
+
+> [!NOTE]
+> Voor het uploaden en downloaden van grote hoeveelheden gegevens (grote bestanden, een groot aantal bestanden of beide), raden wij u aan om de [Python-SDK](data-lake-store-get-started-python.md), de [.NET-SDK](data-lake-store-get-started-net-sdk.md) of [Azure PowerShell](data-lake-store-get-started-powershell.md) te gebruiken. Met deze opties profiteert u van betere prestaties, omdat er meerdere threads worden gebruikt om de gegevensverplaatsing parallel te laten verlopen.
+> 
+>
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
@@ -50,10 +52,13 @@ Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
 * **Azure CLI**: zie [De Azure CLI installeren en configureren](../cli-install-nodejs.md) voor informatie over de installatie en configuratie. Start de computer opnieuw op nadat u de CLI hebt geïnstalleerd.
 
 ## <a name="authentication"></a>Authentication
+
 In dit artikel wordt een eenvoudigere verificatiemethode voor Data Lake Store gebruikt waarbij u zich als een eindgebruiker aanmeldt. Het toegangsniveau voor het account en bestandssysteem van Data Lake Store wordt vervolgens bepaald door het toegangsniveau van de aangemelde gebruiker. Er zijn echter ook andere manieren om te verifiëren in Data Lake Store, zoals **verificatie door eindgebruikers** en **service-naar-serviceverificatie**. Zie [Verifiëren met Data Lake Store met behulp van Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) voor instructies en meer informatie over verificatie.
 
 ## <a name="login-to-your-azure-subscription"></a>Meld u aan bij uw Azure-abonnement
+
 1. Volg de stappen die zijn beschreven in [Verbinding maken met een Azure-abonnement met de Azure-opdrachtregelinterface (Azure CLI)](../xplat-cli-connect.md) en maak verbinding met uw abonnement met behulp van de `azure login`-methode.
+
 2. Gebruik de opdracht `azure account list` om de abonnementen weer te geven die aan uw account zijn gekoppeld.
    
         info:    Executing command account list
