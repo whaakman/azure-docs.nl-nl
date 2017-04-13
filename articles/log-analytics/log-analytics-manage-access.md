@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/09/2017
+ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
@@ -78,7 +78,7 @@ Standaard wordt het Microsoft-account of organisatieaccount dat wordt gebruikt v
 Er zijn twee machtigingsmodellen die de toegang tot een Log Analytics-werkruimte beheren:
 
 1. Verouderde Log Analytics-gebruikersrollen
-2. [Toegang op basis van rollen in Azure](../active-directory/role-based-access-control-configure.md) 
+2. [Toegang op basis van rollen in Azure](../active-directory/role-based-access-control-configure.md)
 
 In de volgende tabel ziet u de toegang die met elk machtigingsmodel kan worden ingesteld:
 
@@ -101,13 +101,14 @@ Voor de volgende activiteiten in de Log Analytics-portal zijn ook Azure-machtigi
 | Beheeroplossingen toevoegen en verwijderen                        | Resourcegroepen schrijven <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | De prijscategorie wijzigen                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Gegevens weergeven op de tegels *Back-up* en *Site Recovery* | Beheerder/medebeheerder | Heeft toegang tot resources die zijn geïmplementeerd met behulp van het klassieke implementatiemodel |
- 
+
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Toegang tot Log Analytics beheren met behulp van Azure-machtigingen
 Volg de stappen in [Roltoewijzingen gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement](../active-directory/role-based-access-control-configure.md) om toegang te verlenen tot de Log Analytics-werkruimte met behulp van Azure-machtigingen.
 
 Als u minimaal Azure-leesmachtiging hebt in de Log Analytics-werkruimte, kunt u de OMS-portal openen door op de taak **OMS-portal** te klikken wanneer de Log Analytics-werkruimte wordt weergegeven.
 
-Bij het openen van de Log Analytics-portal schakelt u over op het gebruik van de verouderde Log Analytics-gebruikersrollen. Als u niet beschikt over een roltoewijzing in de Log Analytics-portal, [worden de Azure-machtigingen waarover u beschikt, in de werkruimte gecontroleerd](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource). De roltoewijzing in de Log Analytics-portal wordt als volgt bepaald:
+Bij het openen van de Log Analytics-portal schakelt u over op het gebruik van de verouderde Log Analytics-gebruikersrollen. Als u niet beschikt over een roltoewijzing in de Log Analytics-portal, [worden de Azure-machtigingen waarover u beschikt, in de werkruimte gecontroleerd](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
+De roltoewijzing in de Log Analytics-portal wordt als volgt bepaald:
 
 | Voorwaarden                                                   | Toegewezen Log Analytics-gebruikersrol | Opmerkingen |
 |--------------------------------------------------------------|----------------------------------|-------|
@@ -119,7 +120,7 @@ Bij het openen van de Log Analytics-portal schakelt u over op het gebruik van de
 | Voor door Cloud Solution Provider (CSP) beheerde abonnementen <br> Het account waarbij u bent aangemeld, bevindt zich in de Azure Active Directory die aan de werkruimte is gekoppeld | Beheerder | Doorgaans de klant van een CSP |
 | Voor door Cloud Solution Provider (CSP) beheerde abonnementen <br> Het account waarbij u bent aangemeld, bevindt zich niet in de Azure Active Directory die aan de werkruimte is gekoppeld | Inzender | Doorgaans de CSP |
 
-<sup>1</sup> Raadpleeg [Azure-machtigingen](../active-directory/role-based-access-control-custom-roles.md) voor meer informatie over roldefinities. Bij het evalueren van rollen is een actie van `*` niet equivalent aan `Microsoft.OperationalInsights/workspaces/*`. 
+<sup>1</sup> Raadpleeg [Azure-machtigingen](../active-directory/role-based-access-control-custom-roles.md) voor meer informatie over roldefinities. Bij het evalueren van rollen is een actie van `*` niet equivalent aan `Microsoft.OperationalInsights/workspaces/*`.
 
 Een aantal punten met betrekking tot de Azure Portal waarmee u rekening moet houden:
 
