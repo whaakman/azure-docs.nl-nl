@@ -81,6 +81,7 @@
 ### [Benoemde netwerken](active-directory-known-networks-azure-portal.md)
 ### [Rapporten migreren](active-directory-reporting-migration.md)
 ### [Retentie](active-directory-reporting-retention.md)
+### [Wachttijden](active-directory-reporting-latencies-azure-portal.md)
 ### [Veelgestelde vragen](active-directory-reporting-faq.md)
 ### Problemen oplossen
 #### [Ontbrekende controlegegevens](active-directory-reporting-troubleshoot-missing-audit-data.md)
@@ -109,8 +110,9 @@
 ##### [Afwijkende aanmeldingen](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [Wachtwoorden beheren](active-directory-manage-passwords.md)
-### [Uw eigen wachtwoord bijwerken](active-directory-passwords-update-your-own-password.md)
-### [Het opnieuw instellen van wachtwoorden configureren via selfservice](active-directory-passwords.md)
+### [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md)
+### [Registreren voor de selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md)
+### [Inschakelen van de selfservice voor wachtwoordherstel door de beheerder](active-directory-passwords.md)
 ### [Meer informatie over wachtwoordbeheer](active-directory-passwords-how-it-works.md)
 ### [Meer informatie over beleidsregels en beperkingen](active-directory-passwords-policy.md)
 ### Wachtwoorden opnieuw instellen
@@ -155,19 +157,12 @@
 ### [Externe toegang tot uw apps bieden](active-directory-application-proxy-get-started.md)
 #### [App-Proxy inschakelen](active-directory-application-proxy-enable.md)
 #### [Meer informatie over connectors](application-proxy-understand-connectors.md)
-
-#### Apps publiceren
-##### [Azure Portal](application-proxy-publish-azure-portal.md)
-##### [Klassieke portal](active-directory-application-proxy-publish.md)
-
+#### [Apps publiceren](application-proxy-publish-azure-portal.md)
 #### [Beveiliging](application-proxy-security-considerations.md)
 #### [Netwerken](application-proxy-network-topology-considerations.md)
 #### [Extern bureaublad](application-proxy-publish-remote-desktop.md)
 #### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-
-#### Publiceren op een aparte netwerken
-##### [Azure Portal](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Klassieke portal](active-directory-application-proxy-connectors.md)
+#### [Publiceren op afzonderlijke netwerken](active-directory-application-proxy-connectors-azure-portal.md)
 #### [Proxyservers](application-proxy-working-with-proxy-servers.md)
 #### [Aangepaste domeinen](active-directory-application-proxy-custom-domains.md)
 #### [Toegang tot apps](active-directory-appssoaccess-whatis.md)
@@ -181,6 +176,11 @@
 #### [Stille installatie](active-directory-application-proxy-silent-installation.md)
 #### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Problemen oplossen](active-directory-application-proxy-troubleshoot.md)
+#### De klassieke portal gebruiken
+##### [Connectors downloaden](application-proxy-enable-classic-portal.md)
+##### [Apps publiceren](active-directory-application-proxy-publish.md)
+##### [Connectors gebruiken](active-directory-application-proxy-connectors.md)
+
 
 ### Enterprise-apps beheren
 #### [Gebruikers toewijzen](active-directory-coreapps-assign-user-azure-portal.md)
@@ -200,8 +200,21 @@
 #### [Selfservice toegang](active-directory-self-service-application-access.md)
 #### [Certificaten voor SSO](active-directory-sso-certs.md)
 #### [Beperkingen voor tenants](active-directory-tenant-restrictions.md)
+#### [SCIM gebruiken voor het inrichten van gebruikers](active-directory-scim-provisioning.md)
 
-### [SCIM gebruiken voor het inrichten van gebruikers](active-directory-scim-provisioning.md)
+### [Problemen oplossen](active-directory-application-troubleshoot-content-map.md)
+#### Ontwikkeling van toepassingen
+##### [Configuratie en registratie](active-directory-application-dev-config-content-map.md)
+##### [Ontwikkeling](active-directory-application-dev-development-content-map.md)
+#### Beheer van toepassingen
+##### [Configuratie](active-directory-application-config-content-map.md)
+##### [Aanmelden](active-directory-application-sign-in-content-map.md)
+##### [Inrichten](active-directory-application-provisioning-content-map.md)
+##### [Toegang beheren](active-directory-application-access-content-map.md)
+##### [Toegangsvenster](active-directory-application-access-panel-content-map.md)
+##### [Toepassingsproxy](active-directory-application-proxy-content-map.md)
+##### [Voorwaardelijke toegang](active-directory-application-conditional-access-content-map.md)
+
 ### [Documentbibliotheek](active-directory-apps-index.md)
 
 ## Uw directory beheren
@@ -315,6 +328,12 @@
 ### [Hash-algoritme van de handtekening wijzigen](active-directory-federation-sha256-guidance.md)
 
 ## [Problemen oplossen](active-directory-troubleshooting.md)
+
+## Azure AD Proof of Concept (PoC) implementeren
+### [PoC Playbook: inleiding](active-directory-playbook-intro.md)
+### [PoC Playbook: onderdelen](active-directory-playbook-ingredients.md)
+### [PoC Playbook: implementatie](active-directory-playbook-implementation.md)
+### [PoC Playbook: bouwstenen](active-directory-playbook-building-blocks.md)
 
 
 # Naslaginformatie

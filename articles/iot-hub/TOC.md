@@ -103,6 +103,7 @@
 #### [Gegevensvisualisatie in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Gegevensvisualisatie met Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Weersvoorspelling met behulp van Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+#### [Apparaatbeheer met iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 
 ### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Berichten op cloudapparaten beheren met iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -110,6 +111,7 @@
 #### [Gegevensvisualisatie in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Gegevensvisualisatie met Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Weersvoorspelling met behulp van Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+#### [Apparaatbeheer met iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
@@ -138,54 +140,13 @@
 ### [Simulatie op Linux](iot-hub-linux-gateway-sdk-get-started.md)
 ### [Simulatie op Windows](iot-hub-windows-gateway-sdk-get-started.md)
 
+
 ## Het IoT Gateway-startpakket gebruiken
-### [Gesimuleerd apparaat](iot-hub-gateway-kit-c-sim-get-started.md)
-#### Les 1: Uw NUC configureren
-##### [Intel NUC instellen als IoT-gateway](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
+### Het IoT Gateway-startpakket configureren
+#### [Intel NUC instellen als IoT-gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+#### [Een IoT-gateway aan IoT Hub koppelen](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+#### [Een IoT-gateway gebruiken voor gegevensconversie](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
-#### Les 2: Uw IoT-hub maken
-##### [De hulpprogramma's downloaden (Windows 7+)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
-##### [De hulpprogramma's downloaden (Ubuntu 16.04)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-ubuntu.md)
-##### [De hulpprogramma's downloaden (macOS 10.10)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-mac.md)
-##### [Een IoT-hub maken en uw apparaat registreren](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
-
-#### Les 3: Berichten ontvangen van het gesimuleerde apparaat
-##### [De BLE-voorbeeld-app configureren en uitvoeren](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
-##### [Berichten van de IoT-hub lezen](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)
-
-#### Les 4: Berichten opslaan in Azure Table Storage
-##### [Een Azure Functions-app en Azure Storage-account maken](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
-##### [In Azure Table Storage opgeslagen berichten lezen](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
-
-#### [Les 5: Uw eerste Azure IoT-gatewaymodule maken](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
-
-#### [Problemen oplossen](iot-hub-gateway-kit-c-sim-troubleshooting.md)
-
-### [SensorTag-apparaat](iot-hub-gateway-kit-c-get-started.md)
-#### Les 1: Uw NUC configureren
-##### [Intel NUC instellen als IoT-gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-
-#### Les 2: Uw IoT-hub maken
-##### [De hulpprogramma's downloaden (Windows 7+)](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
-##### [De hulpprogramma's downloaden (Ubuntu 16.04)](iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md)
-##### [De hulpprogramma's downloaden (macOS 10.10)](iot-hub-gateway-kit-c-lesson2-get-the-tools-mac.md)
-##### [Een IoT-hub maken en uw apparaat registreren](iot-hub-gateway-kit-c-lesson2-register-device.md)
-
-#### Les 3: Berichten ontvangen van het gesimuleerde apparaat
-##### [De BLE-voorbeeld-app configureren en uitvoeren](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
-##### [Berichten van de IoT-hub lezen](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
-
-#### Les 4: Berichten opslaan in Azure Table Storage
-##### [Een Azure Functions-app en Azure Storage-account maken](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
-##### [In Azure Table Storage opgeslagen berichten lezen](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
-
-#### [Les 5: Uw eerste Azure IoT-gatewaymodule maken](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
-
-##### [Problemen oplossen](iot-hub-gateway-kit-c-troubleshooting.md)
-
-## [De IoT-apparaat-SDK voor C gebruiken](iot-hub-device-sdk-c-intro.md)
-### [De IoTHubClient gebruiken](iot-hub-device-sdk-c-iothubclient.md)
-### [De serialisatiefunctie gebruiken](iot-hub-device-sdk-c-serializer.md)
 
 # Procedures
 ## Plannen
@@ -211,6 +172,9 @@
 #### [Apparaat- en service-SDK's](iot-hub-devguide-sdks.md)
 #### [MQTT-ondersteuning](iot-hub-mqtt-support.md)
 #### [Woordenlijst](iot-hub-devguide-glossary.md)
+### [De IoT-apparaat-SDK voor C gebruiken](iot-hub-device-sdk-c-intro.md)
+#### [De IoTHubClient gebruiken](iot-hub-device-sdk-c-iothubclient.md)
+#### [De serialisatiefunctie gebruiken](iot-hub-device-sdk-c-serializer.md)
 ### Apparaat-naar-cloud-berichten verwerken
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
@@ -268,8 +232,8 @@
 ## [Azure CLI 2.0 Preview](/cli/azure/iot)
 ## [.NET (service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (apparaten)](/dotnet/api/microsoft.azure.devices.client)
-## [Java (service)](/java/api/com.microsoft.azure.iot.service.auth)
-## [Java (apparaten)](/java/api/com.microsoft.azure.iothub)
+## [Java (service)](/java/api/com.microsoft.azure.sdk.iot.service)
+## [Java (apparaten)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [SDK's voor Azure IoT](http://azure.github.io/azure-iot-sdks/)
 ## [Gateway-SDK](http://azure.github.io/azure-iot-gateway-sdk)
 ## [REST (resourceprovider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)

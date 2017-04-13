@@ -185,6 +185,8 @@
     items:
     - name: "Een database kopiëren"
       href: sql-database-copy.md
+    - name: "Een database importeren"
+      href: sql-database-import.md
     - name: "Een database exporteren"
       href: sql-database-export.md
   - name: "Controleren en afstemmen"
@@ -209,16 +211,6 @@
       href: sql-database-compatibility-level-query-performance-130.md
 - name: "Handleidingen"
   items:
-  - name: "Firewall beheren"
-    items:
-    - name: "Portal"
-      href: sql-database-configure-firewall-settings.md
-    - name: "PowerShell"
-      href: sql-database-configure-firewall-settings-powershell.md
-    - name: "REST API"
-      href: sql-database-configure-firewall-settings-rest.md
-    - name: "Transact-SQL"
-      href: sql-database-configure-firewall-settings-tsql.md
   - name: "Pools voor Elastic Database beheren"
     items:
     - name: "Portal"
@@ -249,20 +241,10 @@
       href: sql-database-always-encrypted-azure-key-vault.md
     - name: "Maskering configureren"
       href: sql-database-dynamic-data-masking-get-started-portal.md
-  - name: "Herstel"
-    items:
-    - name: "Portal"
-      href: sql-database-get-started-backup-recovery-portal.md
-    - name: "PowerShell"
-      href: sql-database-get-started-backup-recovery-powershell.md
-    - name: "Eén tabel"
-      href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-  - name: "Bewaartermijn"
-    items:
-    - name: "Retentie - Portal"
-      href: sql-database-manage-long-term-backup-retention-portal.md
-    - name: "Retentie - PowerShell"
-      href: sql-database-manage-long-term-backup-retention-powershell.md
+  - name: "Eén tabel herstellen"
+    href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
+  - name: "Een kluis voor back-ups configureren"
+    href: sql-database-long-term-backup-retention-configure.md
   - name: "Geo-replicatiegegevens"
     items:
     - name: "Portal"
@@ -277,10 +259,6 @@
       href: sql-database-disaster-recovery-drills.md
   - name: "Gegevens verplaatsen"
     items:
-    - name: "Importeren - Portal"
-      href: sql-database-import-portal.md
-    - name: "Importeren - SQLPackage"
-      href: sql-database-import-sqlpackage.md
     - name: "Gegevens laden met BCP"
       href: sql-database-load-from-csv-with-bcp.md
     - name: "Gegevens laden met ADF"

@@ -18,10 +18,13 @@
 
 # Procedures
 ## Plannen en ontwerpen
+### [🔧 Algemene scenario's voor integratie met Azure-services](event-hubs-common-integrations.md)
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Overzicht van authenticatie- en beveiligingsmodellen](event-hubs-authentication-and-security-model-overview.md)
 ### [Beschikbaarheid en consistentie](event-hubs-availability-and-consistency.md)
 ## Ontwikkelen
+### [🔧 Fouten afhandelen en het opnieuw proberen](event-hubs-handling-errors-retry.md)
+### [🔧 Prestaties en schaal beheren](event-hubs-performance-scale.md)
 ### [Beschikbare API's](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
@@ -34,6 +37,7 @@
 #### [Event Hubs Archive](event-hubs-archive-overview.md)
 #### [Event Hubs Archive inschakelen met een sjabloon](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
 #### [Event Hubs Archive inschakelen met Python](event-hubs-archive-python.md)
+### [PowerShell gebruiken om entiteiten in te richten](event-hubs-manage-with-ps.md) 
 ### [Gegevens van Azure Diagnostics streamen met behulp van Event Hubs](event-hubs-streaming-azure-diags-data.md)
 ### [Event Hub maken en implementeren met een Resource Manager-sjabloon](event-hubs-resource-manager-namespace-event-hub.md)
 
@@ -58,8 +62,3 @@
 ## [Service-updates](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

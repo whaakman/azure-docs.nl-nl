@@ -30,6 +30,7 @@
 ### [Containerbeheer - UI van Kubernetes](container-service-kubernetes-ui.md)
 ### [Taakverdeling instellen voor Kubernetes-containers](container-service-kubernetes-load-balancing.md)
 ### [Jenkins-integratie met ACS en Kubernetes](container-service-kubernetes-jenkins.md)
+### [Helm-grafieken implementeren](container-service-kubernetes-helm.md)
 ### Kubernetes bewaken
 #### [Bewaken met OMS](container-service-kubernetes-oms.md)
 #### [Bewaken met Datadog](container-service-kubernetes-datadog.md)

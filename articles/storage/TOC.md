@@ -79,6 +79,7 @@
 ### [Veelgestelde vragen over VM-schijven van Azure IaaS](storage-faq-for-disks.md)
 ### Premium Storage
 #### [Krachtige Premium Storage voor VM-schijven](storage-premium-storage.md)
+#### [Migreren naar Premium Storage met Azure Site Recovery](storage-migrate-to-premium-storage-using-azure-site-recovery.md)
 #### [Ontwerp voor hoge prestaties](storage-premium-storage-performance.md)
 ### Standaardopslag
 #### [Rendabele standaardopslag en niet-beheerde en beheerde VM-schijven](storage-standard-storage.md)

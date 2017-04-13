@@ -5,21 +5,24 @@
 ## [Apache Spark](hdinsight-apache-spark-overview.md)
 ## [HBase](hdinsight-hbase-overview.md)
 ## [Apache Storm](hdinsight-storm-overview.md)
-## [In domein opgenomen HDInsight-voorbeeld](hdinsight-domain-joined-introduction.md)
-## [Kafka-preview](hdinsight-apache-kafka-introduction.md)
+## [Kafka (preview)](hdinsight-apache-kafka-introduction.md)
+## [Aan een domein gekoppelde HDInsight-clusters (preview)](hdinsight-domain-joined-introduction.md)
+## Releaseopmerkingen
+### [Recent](hdinsight-release-notes.md)
+### [Archief](hdinsight-release-notes-archive.md)
 
 # Aan de slag
 ## [Beginnen met Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Beginnen met R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Beginnen met Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
+## [Beginnen met R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Beginnen met HBase en NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Beginnen met Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
-## [Beginnen met voorbeeld van Interactive Hive](hdinsight-hadoop-use-interactive-hive.md)
-## [Beginnen met Kafka-preview](hdinsight-apache-kafka-get-started.md)
+## [Beginnen met Interactive Hive (preview)](hdinsight-hadoop-use-interactive-hive.md)
+## [Beginnen met Kafka (preview)](hdinsight-apache-kafka-get-started.md)
 ## [Hadoop-sandbox](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake-hulpprogramma's met Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Hulpprogramma's voor Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
-## [Blob-opslag gebruiken](hdinsight-hadoop-use-blob-storage.md)
+## [HDInsight-opslagopties](hdinsight-hadoop-use-blob-storage.md)
 
 # Procedures
 ## Hadoop gebruiken voor batch-query 's
@@ -35,17 +38,17 @@
 #### [De queryconsole gebruiken](hdinsight-hadoop-use-hive-query-console.md)
 ### [Een Java UDF gebruiken met Hive](hdinsight-hadoop-hive-java-udf.md)
 ### [MapReduce gebruiken met Hadoop](hdinsight-use-mapreduce.md)
-#### [Extern bureaublad gebruiken](hdinsight-hadoop-use-mapreduce-remote-desktop.md)
 #### [SSH gebruiken](hdinsight-hadoop-use-mapreduce-ssh.md)
 #### [cURL gebruiken](hdinsight-hadoop-use-mapreduce-curl.md)
 #### [PowerShell gebruiken](hdinsight-hadoop-use-mapreduce-powershell.md)
+#### [Extern bureaublad gebruiken](hdinsight-hadoop-use-mapreduce-remote-desktop.md)
 ### [De MapReduce-voorbeelden uitvoeren](hdinsight-hadoop-run-samples-linux.md)
 ### [Pig gebruiken met Hadoop](hdinsight-use-pig.md)
-#### [Extern bureaublad gebruiken](hdinsight-hadoop-use-pig-remote-desktop.md)
 #### [SSH en Pig gebruiken](hdinsight-hadoop-use-pig-ssh.md)
 #### [PowerShell gebruiken](hdinsight-hadoop-use-pig-powershell.md)
 #### [.NET-SDK gebruiken](hdinsight-hadoop-use-pig-dotnet-sdk.md)
 #### [cURL gebruiken](hdinsight-hadoop-use-pig-curl.md)
+#### [Extern bureaublad gebruiken](hdinsight-hadoop-use-pig-remote-desktop.md)
 ### [DataFu gebruiken met Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [On-demand clusters](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Hadoop-taken indienen](hdinsight-submit-hadoop-jobs-programmatically.md)
@@ -58,8 +61,8 @@
 ### [Met Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Met BI-hulpprogramma's](hdinsight-apache-spark-use-bi-tools.md)
 ### [Een zelfstandige app maken](hdinsight-apache-spark-create-standalone-application.md)
-### [Apps ontwikkelen met Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
-### [Apps ontwikkelen met IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
+### [Apps maken met Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
+### [Apps maken met IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [Streaming-gebeurtenissen verwerken](hdinsight-apache-spark-eventhub-streaming.md)
 ### [HVAC-prestaties voorspellen](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Resultaten van voedingsinspectie voorspellen](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
@@ -97,11 +100,11 @@
 #### [Voertuigsensorgegevens verwerken](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [Gebeurtenissen gedurende een periode correleren](hdinsight-storm-correlation-topology.md)
 #### [Topologieën ontwikkelen met Python](hdinsight-storm-develop-python-topology.md)
-## In domein opgenomen HDInsight-voorbeeld gebruiken
+## Aan domein gekoppeld HDInsight (preview) gebruiken
 ### [Configureren](hdinsight-domain-joined-configure.md)
 ### [Beheren](hdinsight-domain-joined-manage.md)
 ### [Hive-beleid configureren](hdinsight-domain-joined-run-hive.md)
-## Kafka-preview gebruiken
+## Kafka (preview) gebruiken
 ### [Kafka-gegevens repliceren](hdinsight-apache-kafka-mirroring.md)
 ### [Gebruiken met Spark](hdinsight-apache-spark-with-kafka.md)
 ### [Gebruiken met Storm](hdinsight-apache-storm-with-kafka.md)
@@ -175,7 +178,6 @@
 ### [OS-patches voor HDInsight-cluster](hdinsight-os-patching.md)
 ## Problemen oplossen
 ### [Tips voor Linux](hdinsight-hadoop-linux-information.md)
-### [Releaseopmerkingen](hdinsight-release-notes.md)
 ### [HDInsight-logboekbestanden analyseren](hdinsight-debug-jobs.md)
 ### [Fouten in apps opsporen met YARN-logboeken](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 ### [Heapdumps inschakelen](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

@@ -29,13 +29,13 @@
 ##### [Tabelbindingen](functions-bindings-storage-table.md)
 #### [Timertrigger](functions-bindings-timer.md)
 #### [Twilio-uitvoerbinding](functions-bindings-twilio.md)
+### [Functions-proxy's definiëren](functions-proxies.md)
 ### [Een functie-app maken vanuit Azure Portal](functions-create-function-app-portal.md) 
+### [Een geplande opschoontaak uitvoeren](functions-scenario-database-table-cleanup.md)
 ### [Azure Functions testen](functions-test-a-function.md)
 ### [Lokaal ontwikkelen en fouten opsporen](functions-run-local.md)
 ### [Aanbevolen procedures voor Azure Functions](functions-best-practices.md)
-### [Azure Functions gebruiken voor het uitvoeren van een geplande opschoontaak](functions-scenario-database-table-cleanup.md)
-### [De definitie van een OpenAPI (preview) maken](functions-api-definition-getting-started.md)
-#### [OpenAPI 2.0 in functieverwijzing](functions-api-definition.md)
+### [Een OpenAPI-definitie maken](functions-api-definition-getting-started.md)
 
 ## Beheren
 ### [Instellingen configureren voor een functie-app](functions-how-to-use-azure-function-app-settings.md)

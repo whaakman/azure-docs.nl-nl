@@ -17,6 +17,7 @@
 ### [Java op Linux](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# op Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Implementeren van apps op een lokale cluster](service-fabric-get-started-with-a-local-cluster.md)
+## [Een zelfstandige cluster maken](service-fabric-get-started-standalone-cluster.md)
 
 # Procedures
 ## Een toepassing bouwen
@@ -145,6 +146,7 @@
 ### Toepassingen implementeren of verwijderen
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+#### [FabricClient-API's](service-fabric-deploy-remove-applications-fabricclient.md)
 ### [Overzicht toepassingsupgrade](service-fabric-application-upgrade.md)
 ### [Toepassingsupgrade configureren](service-fabric-visualstudio-configure-upgrade.md)
 ### [Parameters toepassingsupgrade](service-fabric-application-upgrade-parameters.md)
@@ -208,9 +210,9 @@
 ### [Servicebeweging](service-fabric-cluster-resource-manager-movement-cost.md)
 
 # Naslaginformatie
-## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
-## [Java-API](/java/api/microsoft.servicefabric.services)
-## [.NET](/dotnet/api/microsoft.servicefabric.services)
+## [PowerShell](/powershell/module/ServiceFabric/)
+## [Java-API](/java/api/)
+## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicefabric)
 
 # Resources

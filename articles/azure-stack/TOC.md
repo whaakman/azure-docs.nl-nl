@@ -8,6 +8,7 @@
 ## Aan de slag
 ### [Vereisten voor implementatie](azure-stack-deploy.md)
 ### [Implementeren](azure-stack-run-powershell-script.md)
+### [Portals activeren](azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals)
 ### [Registreren](azure-stack-register.md)
 ## Procedures
 ### [Verbinding maken met Azure Stack POC](azure-stack-connect-azure-stack.md)
@@ -56,6 +57,7 @@
 #### [App Service op Azure Stack-overzicht](azure-stack-app-service-overview.md)
 #### [Voordat u aan de slag gaat](azure-stack-app-service-before-you-get-started.md)
 #### [App Service-resourceprovider implementeren](azure-stack-app-service-deploy.md)
+#### [App Service offline implementeren](azure-stack-app-service-deploy-offline.md)
 #### [Meer webwerkrollen toevoegen](azure-stack-app-service-add-worker-roles.md)
 #### [Implementatiebronnen configureren](azure-stack-app-service-configure-deployment-sources.md)
 #### [FTP inschalen in App Service op Azure Stack](azure-stack-app-service-enable-ftp.md)
@@ -80,7 +82,7 @@
 ### [Overzicht](azure-stack-storage-overview.md)
 ### [Verschillen en overwegingen](azure-stack-acs-differences-tp2.md)
 ## Netwerk
-### [iDNS voor Azure Stack](azure-stack-understanding-dns-in-tp2.md)
+### [iDNS voor Azure Stack](azure-stack-understanding-dns.md)
 ### [DNS in Azure Stack](azure-stack-dns.md)
 ### [Site-naar-site VPN-verbindingen begrijpen](azure-stack-create-vpn-connection-one-node-tp2.md)
 ## Key Vault

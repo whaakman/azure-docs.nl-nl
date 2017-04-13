@@ -27,7 +27,7 @@
 
 ## VM-basissen en -sjablonen beheren
 ### [Een virtuele machine maken die kan worden geclaimd](devtest-lab-add-claimable-vm.md)
-### [Multi-VM-omgevingen maken met Azure Resource Manager-sjablonen](devtest-lab-create-environment-from-arm.md)
+### [Multi-VM-omgevingen en PaaS-resources maken met Azure Resource Manager-sjablonen](devtest-lab-create-environment-from-arm.md)
 ### [Marketplace-installatiekopieën configureren](devtest-lab-configure-marketplace-images.md)
 ### [Installatiekopieën met formules vergelijken](devtest-lab-comparing-vm-base-image-types.md)
 ### [Formules beheren](devtest-lab-manage-formulas.md)
