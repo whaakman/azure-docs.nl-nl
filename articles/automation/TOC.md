@@ -1,16 +1,17 @@
 # Overzicht
 ## [Wat is Azure Automation?](automation-intro.md)
 # Aan de slag
-## [Runbook maken](automation-first-runbook-graphical.md)
-## [PowerShell-runbook maken](automation-first-runbook-textual-powershell.md)
-## [PowerShell Workflow-runbook maken](automation-first-runbook-textual.md)
-## [Toegangsbeheer op basis van rollen](automation-role-based-access-control.md)
+## Runbook-zelfstudie
+### [Een grafisch runbook maken](automation-first-runbook-graphical.md)
+### [PowerShell-runbook maken](automation-first-runbook-textual-powershell.md)
+### [PowerShell Workflow-runbook maken](automation-first-runbook-textual.md)
 # Procedures
-## Verificatie instellen
+## Verificatie en beveiliging
 ### [Verificatie in Azure Automation](automation-security-overview.md)
-### [Azure Run As-account](automation-sec-configure-azure-runas-account.md)
-### [Beheer van Azure-services en Resource Manager](automation-sec-configure-aduser-account.md)
-### [Amazon Web Services](automation-sec-configure-aws-account.md)
+### [Een Azure Uitvoeren als-account configureren](automation-sec-configure-azure-runas-account.md)
+### [Een Azure AD-gebruikersaccount configureren](automation-sec-configure-aduser-account.md)
+### [Verificatie configureren met AWS](automation-sec-configure-aws-account.md)
+### [Toegangsbeheer op basis van rollen](automation-role-based-access-control.md)
 ## Runbooks maken
 ### [Runbooktypen](automation-runbook-types.md)
 ### [Runbooks maken en importeren](automation-creating-importing-runbook.md)

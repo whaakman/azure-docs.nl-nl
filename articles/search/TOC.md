@@ -48,16 +48,19 @@
 ### [JSON-blobs indexeren](search-howto-index-json-blobs.md)
 ### [Indexeerverbindingen met SQL Server configureren op een virtuele Azure-machine](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Veldtoewijzingen in indexeerfuncties](search-indexer-field-mappings.md)
-##  Zoekervaring
-### [Vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-### [Lucene-querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-### [Voorbeelden van Lucene-querysyntaxis](search-query-lucene-examples.md)
-### [Filterexpressiesyntaxis](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+##  Search 
+### [Hoe zoeken in de volledige tekst werkt](search-lucene-query-architecture.md)
+### Query's bouwen
+#### [Vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+#### [Lucene-querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+#### [Voorbeelden van Lucene-querysyntaxis](search-query-lucene-examples.md)
+#### [Filterexpressiesyntaxis](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+### Aangepast zoeken
+#### [Taalanalyse](https://docs.microsoft.com/rest/api/searchservice/language-support)
+#### [Analysevoorzieningen aanpassen](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [Scoren](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Suggesties](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Facetnavigatie](search-faceted-navigation.md)
-### [Taalanalyse](https://docs.microsoft.com/rest/api/searchservice/language-support)
-### [Analysevoorzieningen aanpassen](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 
 # Naslaginformatie
 ## [.NET](/dotnet/api/microsoft.azure.search)

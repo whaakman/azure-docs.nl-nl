@@ -16,6 +16,11 @@
 ### [Probleemoplossing en bewaking](troubleshooting-monitoring.md)
 ### [Enkel exemplaar van SAP HANA](hana-get-started.md)
 ### [Implementatiehandleiding voor S/4 HANA of BW/4 HANA](cal-s4h.md)
+### Back-up maken
+#### [Overzicht](sap-hana-backup-guide.md)
+#### [Back-up op bestandsniveau](sap-hana-backup-file-level.md)
+#### [Momentopnamen van opslag](sap-hana-backup-storage-snapshots.md)
+
 ## SAP Netweaver
 ### [Overzicht en architectuur](suse-quickstart.md)
 ### [Plannen en implementeren](planning-guide.md)

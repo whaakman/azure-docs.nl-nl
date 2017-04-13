@@ -1,6 +1,7 @@
 # Aan de slag
 ## [Onverwachte kosten voorkomen](billing-getting-started.md)
 ## [Aanmelden met Office 365-account](billing-use-existing-office-365-account-azure-subscription.md)
+## [Registreren voor Office 365 met een Azure-account](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Limieten en quota](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 # Procedures
 ## Gebruik en kosten controleren
@@ -33,8 +34,3 @@
 
 # Resources
 ## [Contact opnemen met ondersteuning](../azure-supportability/how-to-create-azure-support-request.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -1,30 +1,26 @@
 # Overzicht
-## [Wat is Stretch Database?](sql-server-stretch-database-overview.md)
-## [Beperkingen en blokkeringsproblemen](sql-server-stretch-database-limitations.md)
+## [Wat is Stretch Database?](/sql/sql-server/stretch-database/stretch-database)
+## [Beperkingen en blokkeringsproblemen](/sql/sql-server/stretch-database/limitations-for-stretch-database)
 
 # Aan de slag
-## [Databases en tabellen identificeren](sql-server-stretch-database-identify-databases.md)
-## [De wizard uitvoeren](sql-server-stretch-database-wizard.md)
+## [Databases en tabellen identificeren](/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor)
+## [De wizard uitvoeren](/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard)
 
 # Procedures
 ## Inschakelen
-### [Een database inschakelen](sql-server-stretch-database-enable-database.md)
-### [Een tabel inschakelen](sql-server-stretch-database-enable-table.md)
-### [Te migreren rijen selecteren](sql-server-stretch-database-predicate-function.md)
+### [Een database inschakelen](/sql/sql-server/stretch-database/enable-stretch-database-for-a-database)
+### [Een tabel inschakelen](/sql/sql-server/stretch-database/enable-stretch-database-for-a-table)
+### [Te migreren rijen selecteren](/sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database)
 ## Beheren
-### [Gegevensmigratie controleren](sql-server-stretch-database-monitor.md)
-### [Migratie onderbreken en hervatten](sql-server-stretch-database-pause.md)
-### [Beheren en problemen oplossen](sql-server-stretch-database-manage.md)
-### [Back-up en herstel](sql-server-stretch-database-backup.md)
-### [Stretch Database uitschakelen](sql-server-stretch-database-disable.md)
+### [Gegevensmigratie controleren](/sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database)
+### [Migratie onderbreken en hervatten](/sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database)
+### [Beheren en problemen oplossen](/sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database)
+### [Een back-up maken](/sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database)
+### [Herstellen](/sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database)
+### [Stretch Database uitschakelen](/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
 
 # Resources
 ## [Prijzen](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)
 ## [Blog](https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=sql-server-stretch-database)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database)
-
-
-<!--HONumber=Nov16_HO4-->
-
-

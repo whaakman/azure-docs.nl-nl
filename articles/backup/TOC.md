@@ -19,6 +19,7 @@
 ## Azure Backup-server
 ### [Azure Backup Server-workloads voorbereiden in Azure Portal](backup-azure-microsoft-azure-backup.md)
 ### [Azure Backup Server-workloads voorbereiden in klassieke portal](backup-azure-microsoft-azure-backup-classic.md)
+### [Azure Backup Server gebruiken om back-ups te maken van een VMware-server](backup-azure-backup-server-vmware.md)
 ### [Azure Backup Server gebruiken om back-ups te maken van Exchange](backup-azure-exchange-mabs.md)
 ### [Azure Backup Server gebruiken om back-ups te maken van een SharePoint-farm](backup-azure-backup-sharepoint-mabs.md)
 ### [Azure Backup Server gebruiken om back-ups te maken van SQL](backup-azure-sql-mabs.md)

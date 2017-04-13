@@ -47,6 +47,7 @@
 ### [Uitbreidingen van de directory](active-directory-aadconnectsync-feature-directory-extensions.md)
 
 ### [Het wachtwoord van het Azure AD Sync-serviceaccount wijzigen](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [Het wachtwoord voor het AD DS-account wijzigen](active-directory-aadconnectsync-change-addsacct-pass.md)
 ### [AD-prullenbak inschakelen](active-directory-aadconnectsync-recycle-bin.md)
 
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
@@ -58,6 +59,7 @@
 
 ## Federation Services beheren
 ### [Beheren en aanpassen](active-directory-aadconnect-federation-management.md)
+### [Meerdere exemplaren van Azure AD federeren met één exemplaar van AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 
 ## Problemen oplossen

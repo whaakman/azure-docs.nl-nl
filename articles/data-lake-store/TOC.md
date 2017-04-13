@@ -11,6 +11,7 @@
 ## [Java-SDK gebruiken](data-lake-store-get-started-java-sdk.md)
 ## [REST-API gebruiken](data-lake-store-get-started-rest-api.md)
 ## [Azure CLI gebruiken](data-lake-store-get-started-cli.md)
+## [Azure CLI 2.0 gebruiken](data-lake-store-get-started-cli-2.0.md)
 ## [Node.js gebruiken](data-lake-store-manage-use-nodejs.md)
 ## [Python gebruiken](data-lake-store-get-started-python.md)
 
@@ -49,6 +50,7 @@
 ### [Gebruiken met Power BI](data-lake-store-power-bi.md)
 ### [Gebruiken met Data Catalog](data-lake-store-with-data-catalog.md)
 ### [Gebruiken met PolyBase in SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md)
+### [Gebruiken met SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager)
 ### [Meer integratie-opties van Azure](data-lake-store-integrate-with-other-services.md)
 
 ## Beheren
@@ -63,8 +65,9 @@
 ## [Python (accountbeheer)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 ## [Python (bestandssysteembeheer)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
+## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/dls)
 
-# Bronnen
+# Resources
 ## [Service-updates](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/data-lake-store/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)

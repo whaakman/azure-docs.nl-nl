@@ -9,6 +9,7 @@
 ## Virtuele Linux-machines beheren
 ### [Auteur virtuele machine-aanbieding](./cloud-partner-portal-publish-virtual-machine.md)
 #### [Vereisten](./cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm)
+#### [Een Microsoft-ontwikkelaarsaccount registreren](./cloud-partner-portal-dev-center-accounts-registration.md)
 #### [Nieuwe VM-aanbieding maken](./cloud-partner-portal-publish-virtual-machine.md#how-to-create-a-new-vm-offer)
 #### [Formulier voor instellingen van aanbieding](./cloud-partner-portal-publish-virtual-machine.md#how-to-fill-out-the-offer-settings-form)
 #### [Formulier voor SKU 's](./cloud-partner-portal-publish-virtual-machine.md#how-to-create-skus)
@@ -21,6 +22,7 @@
 ### [Bestaande aanbieding bijwerken](./cloud-partner-portal-update-existing-offer.md)
 ### [Een VM-aanbieding/SKU verwijderen](./cloud-partner-portal-delete-an-offer.md)
 ### [Migreren naar Cloud Partner-portal](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
+## [Verkopershandleiding voor Azure Marketplace](./cloud-partner-portal-seller-guide.md)
 
 ## [Marketing lead management](./cloud-partner-portal-marketing-lead-management.md)
 ### [Azure-tabel](./cloud-partner-portal-lead-management-instructions-azure-table.md)
