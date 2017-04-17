@@ -88,7 +88,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie [sqlcmd-documentatie][sqlcmdsqlcmd] voor meer informatie over de opties die beschikbaar zijn in sqlcmd.
+Zie [sqlcmd-documentatie][sqlcmd] voor meer informatie over de opties die beschikbaar zijn in sqlcmd.
 
 <!--Image references-->
 
