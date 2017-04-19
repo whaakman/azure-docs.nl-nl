@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/03/2017
+ms.date: 04/11/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: ab0a0ecba9d9e930cbc0ec5d4b83e252d2e50f7b
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 03ba7f0df69da073fd876fc4c06121952e594a02
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -33,7 +33,7 @@ U hebt een VPN-apparaat nodig om een cross-premises site-naar-site-VPN-verbindin
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>Waar u op moet letten wanneer u de tabellen bekijkt:
 
-* Er is een terminologiewijziging voor Azure VPN-gateways. Waarschijnlijk komt u beide termen tegen. Er is geen wijziging in functionaliteit, alleen de benaming is veranderd.
+* Er is een terminologiewijziging voor Azure VPN-gateways. Er is geen wijziging in functionaliteit, alleen de benaming is veranderd.
   * Statische routering = PolicyBased
   * Dynamische routering = RouteBased
 * De specificaties voor een VPN-gateway met hoge prestaties en een RouteBased VPN-gateway zijn hetzelfde, tenzij anders wordt vermeld. Zo zijn de gevalideerde VPN-apparaten die compatibel zijn met RouteBased VPN-gateways ook compatibel met de Azure VPN-gateway met hoge prestaties.
@@ -45,7 +45,7 @@ U hebt een VPN-apparaat nodig om een cross-premises site-naar-site-VPN-verbindin
 ## <a name="devicetable"></a>Gevalideerde VPN-apparaten
 We hebben samen met apparaatleveranciers een reeks standaard VPN-apparaten gevalideerd. Alle apparaten in de apparaatfamilies die in onderstaande lijst zijn opgenomen, kunnen met Azure VPN-gateways worden gebruikt. Zie [VPN-gateways](vpn-gateway-about-vpngateways.md) om het type gateway te verifiëren dat u moet maken voor de oplossing die u wilt configureren.
 
-Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen die overeenkomen met de betreffende apparaatstuurprogrammafamilie. Voor ondersteuning van VPN-apparaten neemt u contact op met de fabrikant van uw apparaat.
+Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen die overeenkomen met de betreffende apparaatstuurprogrammafamilie.  De koppelingen naar configuratie-instructies worden naar beste vermogen geleverd. Voor ondersteuning van VPN-apparaten neemt u contact op met de fabrikant van uw apparaat.
 
 |**Leverancier**          |**Apparaatfamilie**     |**Minimale versie van het besturingssysteem** |**PolicyBased** |**RouteBased** |
 | ---                | ---                  | ---                   | ---            | ---           |
@@ -59,7 +59,6 @@ Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen d
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Voorbeelden van configuraties](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Voorbeelden van configuraties](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Voorbeelden van configuraties](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Voorbeelden van configuraties*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 en hoger |[Configuratiehandleiding](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Niet compatibel |
-| Dell SonicWALL |TZ-serie, NSA-serie<br>SuperMassive-serie<br>E-Class NSA-serie |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |[Configuratiehandleiding voor SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Configuratiehandleiding voor SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[Configuratiehandleiding voor SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Configuratiehandleiding voor SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 |BIG-IP-serie |12.0 |[Configuratiehandleiding](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Configuratiehandleiding](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.4.2 |[Configuratiehandleiding](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |[Configuratiehandleiding](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
 | Internet Initiative Japan (IIJ) |SEIL-serie |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Configuratiehandleiding](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Niet compatibel |
@@ -71,6 +70,7 @@ Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen d
 | Open Systems AG |Mission Control Security Gateway |N.v.t. |[Configuratiehandleiding](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[Configuratiehandleiding](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan |Openswan |2.6.32 |(binnenkort beschikbaar) |Niet compatibel |
 | Palo Alto Networks |Alle apparaten waarop PAN-OS wordt uitgevoerd |PAN-OS<br>PolicyBased: 6.1.5 of hoger<br>RouteBased: 7.1.4 |[Configuratiehandleiding](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Configuratiehandleiding](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
+| SonicWall |TZ-serie, NSA-serie<br>SuperMassive-serie<br>E-Class NSA-serie |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |[Configuratiehandleiding voor SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Configuratiehandleiding voor SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[Configuratiehandleiding voor SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Configuratiehandleiding voor SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | WatchGuard |Alle |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Configuratiehandleiding](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Configuratiehandleiding](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 (*) Routers uit de ISR 7200-serie bieden alleen ondersteuning voor PolicyBased VPN-verbindingen.
@@ -100,11 +100,11 @@ Nadat u het bij het VPN-apparaat meegeleverde configuratievoorbeeld hebt gedownl
 | &lt;SP_AzureGatewayIpAddress&gt; |Deze informatie is specifiek voor uw virtuele netwerk en u vindt deze in de beheerportal als **IP-adres van gateway**. |
 | &lt;SP_PresharedKey&gt; |Deze informatie is specifiek voor uw virtuele netwerk en u vindt deze in de beheerportal onder Sleutel beheren. |
 
-## <a name="IPSec"></a>IPSec-/IKE-parameters
+## <a name="ipsec"></a>IPSec-/IKE-parameters
 > [!NOTE]
-> Hoewel de waarden in de volgende tabel worden ondersteund door de Azure VPN-gateway, bestaat er momenteel geen mechanisme om vanuit de Azure VPN-gateway een specifieke combinatie van algoritmen of parameters op te geven of te selecteren. U moet eventuele beperkingen vanuit het on-premises VPN-apparaat opgeven.
+> Hoewel de waarden in de volgende tabel worden ondersteund door de Azure VPN-gateway, bestaat er momenteel geen mechanisme om vanuit de Azure VPN-gateway een specifieke combinatie van algoritmen of parameters op te geven of te selecteren. U moet eventuele beperkingen vanuit het on-premises VPN-apparaat opgeven. Bovendien moet u **MSS** vastzetten op **1350**.
 > 
-> Bovendien moet u **MSS** vastzetten op **1350**.
+>
 
 In de onderstaande tabellen:
 
@@ -182,6 +182,8 @@ De volgende tabel bevat aanbiedingen van IPSec-SA (IKE Quick Mode). De aanbiedin
 
 > [!IMPORTANT]
 > Dit zijn de bekende compatibiliteitsproblemen tussen VPN-apparaten van derden en Azure VPN-gateways. Het team van Azure werkt samen met de leveranciers aan een oplossing voor de hier vermelde problemen. Zodra de problemen zijn opgelost, wordt deze pagina bijgewerkt met de meest actuele informatie. Bekijk deze pagina daarom regelmatig.
+>
+>
 
 ###<a name="feb-16-2017"></a>16 februari 2017
 
@@ -189,5 +191,5 @@ De volgende tabel bevat aanbiedingen van IPSec-SA (IKE Quick Mode). De aanbiedin
 
 1. Controleer de firmwareversie van uw Palo Alto Networks-apparaat. Als de PAN-OS-versie ouder is dan 7.1.4, voert u een upgrade uit naar 7.1.4.
 2. Op het Palo Alto Networks-apparaat wijzigt u de levensduur van de beveiligingskoppeling fase 2 (of de beveiligingskoppeling in snelle modus) in 28.800 seconden (8 uur) wanneer er verbinding met de Azure VPN-gateway wordt gemaakt.
-3. Als het connectiviteitsprobleem zich nog steeds voordoet, opent u een ondersteuningsaanvraag via Azure Portal.
+3. Als het connectiviteitsprobleem zich nog steeds voordoet, opent u een ondersteuningsaanvraag via de Azure-portal.
 

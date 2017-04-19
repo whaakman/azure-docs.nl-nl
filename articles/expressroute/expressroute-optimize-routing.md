@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/24/2017
+ms.date: 04/06/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f03099391600bc3b918eb3a8c866c16a02052b7a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -67,7 +67,7 @@ Met ExpressRoute kunt u VNet-communicatie (communicatie van Virtual Network naar
 ![Probleem ExpressRoute casus 3: Suboptimale routering tussen virtuele netwerken](./media/expressroute-optimize-routing/expressroute-case3-problem.png)
 
 ### <a name="solution-assign-a-high-weight-to-local-connection"></a>Oplossing: meer gewicht toewijzen aan lokale verbinding
-De oplossing is eenvoudig. Omdat u weet waar de VNets en circuits zich bevinden, kunt u ons vertellen aan welk pad elke VNet de voorkeur moet geven. Voor dit voorbeeld wijst u aan de lokale verbinding een hoger gewicht toe dan aan de externe verbinding. Wanneer een VNet op meerdere verbindingen het voorvoegsel van het andere VNet ontvangt, krijgt de verbinding met het hoogste gewicht de voorkeur om verkeer te verzenden dat voor dat voorvoegsel is bestemd.
+De oplossing is eenvoudig. Omdat u weet waar de VNets en circuits zich bevinden, kunt u ons vertellen aan welk pad elke VNet de voorkeur moet geven. Voor dit voorbeeld wijst u aan de lokale verbinding een hoger gewicht toe dan aan de externe verbinding (klik [hier](expressroute-howto-linkvnet-arm.md#modify-a-virtual-network-connection) voor een configuratievoorbeeld). Wanneer een VNet op meerdere verbindingen het voorvoegsel van het andere VNet ontvangt, krijgt de verbinding met het hoogste gewicht de voorkeur om verkeer te verzenden dat voor dat voorvoegsel is bestemd.
 
 ![Oplossing ExpressRoute casus 3: Meer gewicht toewijzen aan lokale verbinding](./media/expressroute-optimize-routing/expressroute-case3-solution.png)
 
@@ -75,3 +75,4 @@ De oplossing is eenvoudig. Omdat u weet waar de VNets en circuits zich bevinden,
 > Als u meerdere ExpressRoute-circuits hebt, kunt u de routering vanuit VNet naar uw on-premises netwerk ook beïnvloeden door het gewicht van een verbinding te configureren in plaats van AS PATH aan het begin toe te voegen, een techniek die in het tweede scenario hierboven is beschreven. Wanneer er wordt bepaald hoe het verkeer moet worden verzonden, wordt er voor elk voorvoegsel altijd eerst gekeken naar het gewicht van de verbinding en dan pas naar de AS PATH-lengte.
 >
 >
+

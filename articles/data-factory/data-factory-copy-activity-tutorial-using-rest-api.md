@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: c5049cbe98dbb04deae4a2b9dc098938aa65495a
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 003a32f2ef67f8aa63ed7be2553fa0f0c3afc08a
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -49,14 +50,14 @@ In deze zelfstudie ziet u hoe u een Azure-gegevensfactory maakt en bewaakt met e
   3. Haal de **tenant-id** op. 
   4. Wijs de toepassing **ADFCopyTutorialApp** toe aan de rol **Inzender Data Factory**.  
 * Installeer [Azure PowerShell](/powershell/azureps-cmdlets-docs).  
-* Start **PowerShell** en voer de volgende opdracht uit. Houd Azure PowerShell open tot het einde van deze zelfstudie. Als u het programma sluit en opnieuw opent, moet u de opdrachten opnieuw uitvoeren.
+* Start **PowerShell** en voer de volgende stappen uit. Houd Azure PowerShell open tot het einde van deze zelfstudie. Als u het programma sluit en opnieuw opent, moet u de opdrachten opnieuw uitvoeren.
   
-  1. Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij de Azure Portal.
+  1. Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij Azure Portal:
     
     ```PowerShell 
     Login-AzureRmAccount
     ```   
-  2. Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven.
+  2. Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven:
 
     ```PowerShell     
     Get-AzureRmSubscription
@@ -66,7 +67,7 @@ In deze zelfstudie ziet u hoe u een Azure-gegevensfactory maakt en bewaakt met e
     ```PowerShell
     Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
     ```
-  4. Maak een Azure-resourcegroep met de naam **ADFTutorialResourceGroup** door de volgende opdracht uit te voeren in PowerShell.  
+  4. Maak een Azure-resourcegroep met de naam **ADFTutorialResourceGroup** door de volgende opdracht uit te voeren in PowerShell:  
 
     ```PowerShell     
       New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
@@ -172,10 +173,10 @@ Met de JSON-definitie wordt een gegevensset gedefinieerd met de naam **AzureBlob
 * **linkedServiceName** wordt ingesteld op **AzureStorageLinkedService**. 
 * **folderPath** is ingesteld op de **adftutorial**-container en **fileName** is ingesteld op **emp.txt**.  
 * De indeling **type** wordt ingesteld op **TextFormat**
-* Er zijn twee velden in het tekstbestand: **FirstName** en **LastName**, gescheiden door een kommateken (**columnDelimiter**)    
-* De **beschikbaarheid** wordt ingesteld op **elk uur** (de frequentie wordt ingesteld op elk uur en het interval wordt ingesteld op 1). Daarom zoekt Data Factory elk uur naar invoergegevens in de hoofdmap van de opgegeven blobcontainer (**adftutorial**). 
+* Er zijn twee velden in het tekstbestand: **FirstName** en **LastName**, gescheiden door een komma (columnDelimiter)    
+* De **beschikbaarheid** wordt ingesteld op **elk uur** (de frequentie wordt ingesteld op elk uur en het interval wordt ingesteld op 1). Daarom zoekt Data Factory elk uur naar invoergegevens in de hoofdmap van de opgegeven blobcontainer (adftutorial). 
 
-Als u geen **fileName** opgeeft voor een invoergegevensset, worden alle bestanden/blobs uit de invoermap (**folderPath**) beschouwd als invoer. Als u een fileName opgeeft in de JSON, wordt alleen het opgegeven bestand/de opgegeven blob gezien als invoer.
+Als u geen **fileName** opgeeft voor een invoergegevensset, worden alle bestanden/blobs uit de invoermap (folderPath) beschouwd als invoer. Als u een fileName opgeeft in de JSON, wordt alleen het opgegeven bestand/de opgegeven blob gezien als invoer.
 
 Als u geen **fileName** opgeeft voor een **uitvoertabel**, krijgen de bestanden die worden gegenereerd in **folderPath** een naam op basis van de volgende indeling: Data.&lt;Guid&gt;.txt (voorbeeld: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -230,7 +231,7 @@ Houd rekening met de volgende punten:
 * **linkedServiceName** wordt ingesteld op **AzureSqlLinkedService**.
 * **tablename** wordt ingesteld op **emp**.
 * De tabel emp in de database bevat drie kolommen: **ID**, **FirstName** en **LastName**. ID is een identiteitskolom, zodat u alleen **FirstName** en **LastName** hoeft op te geven.
-* De **beschikbaarheid** wordt ingesteld op **elk uur** (de **frequentie** wordt ingesteld op **elk uur** en het **interval** wordt ingesteld op **1**).  De Data Factory-service maakt elk uur een uitvoergegevenssegment in de tabel **emp** in de Azure SQL-database.
+* De **beschikbaarheid** is ingesteld op **Elk uur** (de frequentie is ingesteld op elk uur en het interval is ingesteld op 1).  De Data Factory-service maakt elk uur een uitvoergegevenssegment in de tabel **emp** in de Azure SQL-database.
 
 ### <a name="pipelinejson"></a>pipeline.json
 
@@ -284,7 +285,7 @@ Houd rekening met de volgende punten:
 * De invoer voor de activiteit is ingesteld op **AzureBlobInput** en de uitvoer voor de activiteit is ingesteld op **AzureSqlOutput**.
 * In het gedeelte **transformation** is **BlobSource** opgegeven als het brontype en **SqlSink** als het sink-type.
 
-Vervang de waarde van de eigenschap **start** door de huidige dag en de waarde **end** door de volgende dag. U hoeft alleen de datum in te vullen en kunt de tijd overslaan. Dit wordt dan bijvoorbeeld&2015;-02-03, wat gelijk staat aan&2015;-02-03T00:00:00Z
+Vervang de waarde van de eigenschap **start** door de huidige dag en de waarde **end** door de volgende dag. U hoeft alleen de datum in te vullen en kunt de tijd overslaan. Dit wordt dan bijvoorbeeld 2015-02-03, wat gelijk staat aan 2015-02-03T00:00:00Z
 
 Zowel de begin- als einddatum en -tijd moeten de [ISO-indeling](http://en.wikipedia.org/wiki/ISO_8601) hebben. Bijvoorbeeld: 2014-10-14T16:32:41Z. De **eindtijd** is optioneel, maar we gebruiken hem in deze zelfstudie. 
 
@@ -316,7 +317,7 @@ $adf = "ADFCopyTutorialDF"
 ```
 
 ## <a name="authenticate-with-aad"></a>Verifiëren met AAD
-Voer de volgende opdracht uit om te verifiëren met Azure Active Directory (AAD). 
+Voer de volgende opdracht uit om te verifiëren met Azure Active Directory (AAD): 
 
 ```PowerShell
 $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
@@ -360,7 +361,7 @@ Houd rekening met de volgende punten:
 * De naam van de gegevensfactory wordt in de toekomst mogelijk geregistreerd als DNS-naam en wordt daarmee ook voor iedereen zichtbaar.
 * Als u de foutmelding **This subscription is not registered to use namespace Microsoft.DataFactory** ontvangt, voert u een van de volgende stappen uit en probeert u opnieuw te publiceren: 
   
-  * Voer in Azure PowerShell de volgende opdracht uit om de Data Factory-provider te registreren. 
+  * Voer in Azure PowerShell de volgende opdracht uit om de Data Factory-provider te registreren: 
 
     ```PowerShell    
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
@@ -428,7 +429,7 @@ Voer de volgende stappen uit om Azure Blob Storage en de Azure SQL Database voor
 * Maak het tekstbestand **emp.txt** en upload het als blob naar de container **adftutorial**. 
 * Maak een tabel met de naam **emp** in de Azure SQL Database waarnaar **AzureSqlLinkedService** verwijst.
 
-1. Open Kladblok, plak de volgende tekst en sla het bestand als **emp.txt** op in de map **C:\ADFGetStartedPSH** op de vaste schijf. 
+1. Start Kladblok. Kopieer de volgende tekst en sla deze als **emp.txt** op in de map **C:\ADFGetStartedPSH** op de vaste schijf. 
 
     ```   
     John, Doe
@@ -456,7 +457,7 @@ Voer de volgende stappen uit om Azure Blob Storage en de Azure SQL Database voor
     Als de client geen toegang heeft tot de Azure SQL-server, moet u de firewall configureren voor uw Azure SQL-server zodat toegang vanaf uw apparaat (IP-adres) wordt toegestaan. Raadpleeg [dit artikel](../sql-database/sql-database-configure-firewall-settings.md) voor stappen waarmee u uw firewall kunt configureren voor uw Azure SQL-server.
 
 ### <a name="create-input-dataset"></a>Invoergegevensset maken
-In deze stap maakt u een gegevensset met de naam **AzureBlobInput** die verwijst naar een blobcontainer in Azure Storage. Deze container wordt vertegenwoordigd door de gekoppelde **AzureStorageLinkedService**-service. Deze blobcontainer (**adftutorial**) plaatst de invoergegevens in het bestand **emp.txt**. 
+In deze stap maakt u een gegevensset met de naam **AzureBlobInput** die verwijst naar een blobcontainer in Azure Storage. Deze container wordt vertegenwoordigd door de gekoppelde **AzureStorageLinkedService**-service. Deze blobcontainer (adftutorial) plaatst de invoergegevens in het bestand **emp.txt**. 
 
 1. Wijs de opdracht toe aan de variabele met de naam **cmd**. 
 
@@ -475,7 +476,7 @@ In deze stap maakt u een gegevensset met de naam **AzureBlobInput** die verwijst
     ```
 
 ### <a name="create-output-dataset"></a>Uitvoergegevensset maken
-In deze stap maakt u een uitvoertabel met de naam **AzureSqlOutput**. Deze gegevensset wijst naar een SQL-tabel (**emp**) in de Azure SQL-database die wordt vertegenwoordigd door **AzureSqlLinkedService**. De pijplijn kopieert invoergegevens uit de invoerblob naar de tabel **emp**. 
+In deze stap maakt u een uitvoertabel met de naam **AzureSqlOutput**. Deze gegevensset wijst naar een SQL-tabel (emp) in de Azure SQL-database die wordt vertegenwoordigd door **AzureSqlLinkedService**. De pijplijn kopieert invoergegevens uit de invoerblob naar de tabel **emp**. 
 
 1. Wijs de opdracht toe aan de variabele met de naam **cmd**.
 
@@ -573,9 +574,4 @@ In deze zelfstudie hebt u REST API gebruikt om een Azure-gegevensfactory te make
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png
 
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

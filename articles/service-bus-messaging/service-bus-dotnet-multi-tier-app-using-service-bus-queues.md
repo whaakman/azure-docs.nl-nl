@@ -12,18 +12,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 04/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 76c884bfdfbfacf474489d41f1e388956e4daaa0
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-toepassing met meerdere lagen die Azure Service Bus-wachtrijen gebruikt
 ## <a name="introduction"></a>Inleiding
-Ontwikkelen voor Microsoft Azure is eenvoudig met Visual Studio en de gratis Azure SDK voor .NET. In deze zelfstudie doorloopt u de stappen voor het maken van een toepassing die meerdere Azure-resources in uw lokale omgeving gebruikt. Bij deze stappen wordt ervan uitgegaan dat u nog geen ervaring hebt met Azure.
+Ontwikkelen voor Microsoft Azure is eenvoudig met Visual Studio en de gratis Azure SDK voor .NET. In deze zelfstudie doorloopt u de stappen voor het maken van een toepassing die meerdere Azure-resources in uw lokale omgeving gebruikt.
 
 U leert het volgende:
 
@@ -34,16 +34,16 @@ U leert het volgende:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-In deze zelfstudie zult u de toepassing met meerdere lagen ontwikkelen en uitvoeren in een cloudservice van Azure. De front-end is een ASP.NET MVC-webrol en de back-end is een werkrol die gebruikmaakt van een Service Bus-wachtrij. U kunt dezelfde toepassing met meerdere lagen maken met de front-end als een webproject dat wordt geïmplementeerd op een Azure-website in plaats van een cloudservice. Zie het gedeelte [Volgende stappen](#nextsteps) voor instructies over de stappen die anders moeten op een Azure-website-front-end. U kunt ook de zelfstudie [.NET on-premises/hybride cloud-toepassing](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) gebruiken.
+In deze zelfstudie zult u de toepassing met meerdere lagen ontwikkelen en uitvoeren in een cloudservice van Azure. De front-end is een ASP.NET MVC-webrol en de back-end is een werkrol die gebruikmaakt van een Service Bus-wachtrij. U kunt dezelfde toepassing met meerdere lagen maken met de front-end als een webproject dat wordt geïmplementeerd op een Azure-website in plaats van een cloudservice. U kunt ook de zelfstudie [.NET on-premises/hybride cloud-toepassing](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) gebruiken.
 
 In de volgende schermafbeelding wordt de voltooide toepassing weergegeven.
 
 ![][0]
 
 ## <a name="scenario-overview-inter-role-communication"></a>Scenario-overzicht: communicatie tussen rollen
-Als u een order wilt indienen voor verwerking, moet het front-end UI-onderdeel, dat wordt uitgevoerd in de webrol, communiceren met de logica van de middelste laag, die wordt uitgevoerd in de werkrol. In dit voorbeeld wordt Service Bus Brokered Messaging gebruikt voor communicatie tussen de lagen.
+Als u een order wilt indienen voor verwerking, moet het front-end UI-onderdeel, dat wordt uitgevoerd in de webrol, communiceren met de logica van de middelste laag, die wordt uitgevoerd in de werkrol. In dit voorbeeld wordt Service Bus Messaging gebruikt voor communicatie tussen de lagen.
 
-Met behulp van Brokered Messaging tussen de weblaag en de middelste laag worden de twee onderdelen losgekoppeld. In tegenstelling tot Direct Messaging (dat wil zeggen, TCP of HTTP) hoeft de weblaag niet rechtstreeks verbinding te maken met de middelste laag. In plaats daarvan worden werkeenheden, als berichten, naar Service Bus gepusht. Daar worden ze veilig bewaard totdat de middelste laag gereed is om ze te ontvangen en te verwerken.
+Met behulp van Service Bus Messaging tussen de weblaag en de middelste laag worden de twee onderdelen losgekoppeld. In tegenstelling tot Direct Messaging (dat wil zeggen, TCP of HTTP) hoeft de weblaag niet rechtstreeks verbinding te maken met de middelste laag. In plaats daarvan worden werkeenheden, als berichten, naar Service Bus gepusht. Daar worden ze veilig bewaard totdat de middelste laag gereed is om ze te ontvangen en te verwerken.
 
 Service Bus biedt twee entiteiten ter ondersteuning van Brokered Messaging: wachtrijen en onderwerpen. Met wachtrijen wordt elk bericht dat naar de wachtrij wordt verzonden, verbruikt door een enkele ontvanger. Onderwerpen ondersteunen het patroon voor publiceren/abonneren waarin elk gepubliceerde bericht beschikbaar wordt gesteld aan een abonnement dat bij het onderwerp is geregistreerd. Elk abonnement onderhoudt logisch gezien zijn eigen wachtrij met berichten. Abonnementen kunnen ook worden geconfigureerd met filterregels die de set berichten die wordt doorgegeven aan de abonnementenwachtrij beperken tot berichten die overeenkomen met het filter. In het volgende voorbeeld wordt gebruikgemaakt van Service Bus-wachtrijen.
 
@@ -63,7 +63,7 @@ In de volgende gedeelten wordt de code besproken waarmee deze architectuur wordt
 Voordat u Azure-toepassingen kunt ontwikkelen, moet u de hulpprogramma's ophalen en uw ontwikkelomgeving instellen.
 
 1. Installeer de Azure-SDK voor .NET via de [pagina met downloads](https://azure.microsoft.com/downloads/) voor SDK.
-2. Klik in de kolom **.NET** op de versie van [Visual Studio](http://www.visualstudio.com) die u gebruikt. In de stappen in deze zelfstudie wordt Visual Studio 2015 gebruikt.
+2. Klik in de kolom **.NET** op de versie van [Visual Studio](http://www.visualstudio.com) die u gebruikt. In de stappen in deze zelfstudie wordt Visual Studio 2015 gebruikt, maar ze werken ook met Visual Studio 2017.
 3. Klik op **Uitvoeren** wanneer u wordt gevraagd of u het installatieprogramma wilt uitvoeren of opslaan.
 4. Klik in het **webplatforminstallatieprogramma** op **Installeren** om door te gaan met de installatie.
 5. Nadat de installatie is voltooid, hebt u alles wat u nodig hebt om te starten met het ontwikkelen van de app. De SDK bevat hulpprogramma's waarmee u eenvoudig Azure-toepassingen kunt ontwikkelen in Visual Studio.
@@ -78,7 +78,7 @@ In dit gedeelte maakt u de front-end van uw toepassing. U maakt eerst de pagina'
 Vervolgens voegt u code toe waarmee items worden verzonden naar een Service Bus-wachtrij en waarmee statusinformatie over de wachtrij wordt weergegeven.
 
 ### <a name="create-the-project"></a>Het project maken
-1. Start Microsoft Visual Studio met administratorbevoegdheden. U kunt Visual Studio starten met administratorbevoegdheden door met de rechtermuisknop op het programmapictogram **Visual Studio** te klikken en vervolgens te klikken op **Als administrator uitvoeren**. Voor de Azure-rekenemulator, die verderop in dit artikel wordt besproken, is vereist dat Visual Studio wordt gestart met administratorbevoegdheden.
+1. Visual Studio starten met administratorbevoegdheden: klik met de rechtermuisknop op het programmapictogram **Visual Studio** en klik vervolgens op **Als administrator uitvoeren**. Voor de Azure-rekenemulator, die verderop in dit artikel wordt besproken, is vereist dat Visual Studio wordt gestart met administratorbevoegdheden.
    
    Klik in het menu **Bestand** van Visual Studio op **Nieuw** en klik vervolgens op **Project**.
 2. Klik vanuit **Geïnstalleerde sjablonen** onder **Visual C#** op **Cloud** en klik vervolgens op **Azure Cloud Service**. Geef het project de naam **MultiTierApp**. Klik vervolgens op **OK**.
@@ -98,7 +98,7 @@ Vervolgens voegt u code toe waarmee items worden verzonden naar een Service Bus-
     ![][16]
 7. Ga terug naar het dialoogvenster **Nieuw ASP.NET-project** en klik op **OK** om het project te maken.
 8. Klik in **Solution Explorer** in het project **FrontendWebRole** met de rechtermuisknop op **Verwijzingen** en klik vervolgens op **NuGet-pakketten beheren**.
-9. Klik op het tabblad **Bladeren** en zoek vervolgens naar `Microsoft Azure Service Bus`. Klik op **Installeren** en accepteer de gebruiksvoorwaarden.
+9. Klik op het tabblad **Bladeren** en zoek vervolgens naar `Microsoft Azure Service Bus`. Selecteer het **WindowsAzure.ServiceBus**-pakket, klik op **Installeren** en accepteer de gebruiksvoorwaarden.
    
    ![][13]
    
@@ -362,7 +362,7 @@ U maakt nu de werkrol die de orderverzendingen verwerkt. In dit voorbeeld wordt 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende resources voor meer informatie over Service Bus:  
 
-* [Azure Service Bus][sbmsdn]  
+* [Documentatie voor Azure Service Bus][sbdocs]  
 * [Service Bus-servicepagina][sbacom]  
 * [Service Bus-wachtrijen gebruiken][sbacomqhowto]  
 
@@ -370,7 +370,7 @@ Zie voor meer informatie over scenario's voor meerdere lagen:
 
 * [.NET-toepassing met meerdere lagen met Table Storage, Queue Storage en Blob Storage][mutitierstorage]  
 
-[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
+[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
@@ -381,8 +381,8 @@ Zie voor meer informatie over scenario's voor meerdere lagen:
 [14]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-33.png
 [15]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-34.png
 [16]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-14.png
-[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-36.png
-[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-37.png
+[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
+[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app2.png
 
 [19]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
 [20]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
@@ -391,7 +391,7 @@ Zie voor meer informatie over scenario's voor meerdere lagen:
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
+[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 03/30/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 6c26fdd11031ab482d12611ca338df5c90a14193
-ms.openlocfilehash: a482e20bdbf60889f93f4532ed042b41ec51b81e
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 06f81b11205085357ba4ba4e2f0d2e1e4c0e940a
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -39,7 +40,7 @@ Wanneer u de synchronisatieservices installeert, kunt de optie voor optionele co
 | Optionele configuratie | Beschrijving |
 | --- | --- |
 | Een bestaande SQL Server gebruiken |Hiermee kunt u de naam van de SQL Server en de exemplaarnaam opgeven. Kies deze optie als u al een databaseserver heeft die u wilt gebruiken. Voer de exemplaarnaam, gevolgd door een komma en poortnummer, in bij **Exemplaarnaam** als bladeren niet is ingeschakeld voor uw SQL Server. |
-| Een bestaand serviceaccount gebruiken |Azure AD Connect maakt standaard een lokaal serviceaccount aan voor de synchronisatieservices. Het wachtwoord wordt automatisch gegenereerd en is onbekend bij de persoon die Azure AD Connect installeert. Als u een externe SQL server gebruikt of een proxyserver waarvoor verificatie vereist is, dan heeft u een serviceaccount in het domein nodig en moet u het wachtwoord kennen. Voer in dat geval het te gebruiken serviceaccount in. Zorg dat de gebruiker die de installatie uitvoert een SA in SQL is, zodat een aanmelding voor het serviceaccount kan worden aangemaakt. Zie [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
+| Een bestaand serviceaccount gebruiken |Azure AD Connect maakt standaard gebruik van een virtueel serviceaccount voor de synchronisatieservices. Als u een externe SQL-server gebruikt of een proxyserver waarvoor verificatie is vereist, hebt u een **beheerd serviceaccount** of een serviceaccount in het domein nodig en moet u het wachtwoord kennen. Voer in dat geval het te gebruiken account in. Zorg dat de gebruiker die de installatie uitvoert een SA in SQL is, zodat een aanmelding voor het serviceaccount kan worden aangemaakt. Zie [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) |
 | Aangepaste synchronisatiegroepen opgeven |Azure AD Connect maakt standaard vier groepen lokaal op de server aan wanneer de synchronisatieservices worden geïnstalleerd. Deze groepen zijn: Beheerders, Operators, Bladeren en Wachtwoord opnieuw instellen. U kunt hier uw eigen groepen opgeven. De groepen moeten lokaal op de server zijn en mogen zich niet in het domein bevinden. |
 
 ### <a name="user-sign-in"></a>Gebruikersaanmelding
@@ -100,7 +101,7 @@ Op deze pagina in de wizard configureert u filteren op basis van een domein en O
 
 Als u OE filteren gebruikt, worden nieuwe OE's die later zijn toegevoegd, standaard gesynchroniseerd. Als u wilt dat nieuwe OE's niet worden gesynchroniseerd, kunt u dit met [OE filteren](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) instellen nadat de wizard is voltooid.
 
-Als u [Groep filteren](#sync-filtering-based-on-groups) wilt gebruiken, zorg er dan voor dat de OE met de groep is opgenomen en dat u niet filtert met OE filteren. OE filteren wordt geëvalueerd vóór groep filteren.
+Als u [Groep filteren](#sync-filtering-based-on-groups) wilt gebruiken, zorgt u ervoor dat de OE met de groep is opgenomen en dat u niet filtert met OE filteren. OE filteren wordt geëvalueerd vóór groep filteren.
 
 Sommige domeinen kunnen ook onbereikbaar zijn door firewallbeperkingen. Deze domeinen zijn standaard uitgeschakeld en hebben een waarschuwing.  
 ![Onbereikbare domeinen](./media/active-directory-aadconnect-get-started-custom/unreachable.png)  
@@ -119,7 +120,7 @@ Met de functie Overeenkomend in forests kunt u definiëren hoe gebruikers van uw
 | sAMAccountName en MailNickName |Deze optie koppelt kenmerken waarbij wordt verwacht dat de aanmeldings-id van de gebruiker gevonden kan worden. |
 | Een specifiek kenmerk |Met deze optie kunt u uw eigen kenmerk selecteren. **Beperking:** Zorg dat u een kenmerk kiest dat al in de metaverse te vinden is. Als u een aangepast kenmerk kiest dat niet in de metaverse staat, kan de wizard niet voltooid worden. |
 
-**Bronanker** - Het kenmerk sourceAnchor is onveranderbaar tijdens de levensduur van een gebruikersobject. Het is de primaire sleutel die de on-premises gebruiker aan de gebruiker in Azure AD koppelt. Omdat het kenmerk niet kan worden gewijzigd, moet u een goed kenmerk kiezen. Een goede kandidaat is objectGUID. Dit kenmerk wordt niet gewijzigd, tenzij het gebruikersaccount worden verplaatst tussen forests/domeinen. In een omgeving met meerdere forests waarin u accounts tussen forests verplaatst, moet een ander kenmerk worden gebruikt, zoals een kenmerk met de id van de werknemer. Vermijd kenmerken die wijzigen wanneer iemand trouwt of een andere taak krijgt. U kunt geen kenmerken met een @-sign, gebruiken, dus het e-mailadres en userPrincipalName kunnen niet worden gebruikt. Het kenmerk is ook hoofdlettergevoelig, dus als u een object tussen forests verplaatst, zorg dan dat de hoofdletters en kleine letters hetzelfde blijven. Binaire kenmerken krijgen base64-codering, maar andere kenmerktypen blijven ongecodeerd. In scenario's met federatie en in sommige Azure AD-interfaces wordt dit kenmerk ook wel onveranderbare id genoemd. Meer informatie over het bronanker vindt u in de [ontwerpconcepten](active-directory-aadconnect-design-concepts.md#sourceanchor).
+**Bronanker** - Het kenmerk sourceAnchor is onveranderbaar tijdens de levensduur van een gebruikersobject. Het is de primaire sleutel die de on-premises gebruiker aan de gebruiker in Azure AD koppelt. Omdat het kenmerk niet kan worden gewijzigd, moet u een goed kenmerk kiezen. Een goede kandidaat is objectGUID. Dit kenmerk wordt niet gewijzigd, tenzij het gebruikersaccount worden verplaatst tussen forests/domeinen. In een omgeving met meerdere forests waarin u accounts tussen forests verplaatst, moet een ander kenmerk worden gebruikt, zoals een kenmerk met de id van de werknemer. Vermijd kenmerken die wijzigen wanneer iemand trouwt of een andere taak krijgt. U kunt geen kenmerken met een @-sign gebruiken, dus het e-mailadres en userPrincipalName kunnen niet worden gebruikt. Het kenmerk is ook hoofdlettergevoelig, dus als u een object tussen forests verplaatst, zorg dan dat de hoofdletters en kleine letters hetzelfde blijven. Binaire kenmerken krijgen base64-codering, maar andere kenmerktypen blijven ongecodeerd. In scenario's met federatie en in sommige Azure AD-interfaces wordt dit kenmerk ook wel onveranderbare id genoemd. Meer informatie over het bronanker vindt u in de [ontwerpconcepten](active-directory-aadconnect-design-concepts.md#sourceanchor).
 
 ### <a name="sync-filtering-based-on-groups"></a>Synchronisatiefilters op basis van groepen
 Met de functie Filteren op groep kunt u bij wijze van proef een kleine subset van objecten synchroniseren. Om deze functie te gebruiken maakt u voor dit doel een groep aan in uw on-premises Active Directory. Voeg vervolgens gebruikers en groepen toe die naar Azure AD moeten worden gesynchroniseerd als directe leden. U kunt later gebruikers aan deze groep toevoegen en eruit verwijderen om de lijst te onderhouden met objecten die in Azure AD aanwezig moeten zijn. Alle objecten die u wilt synchroniseren moet een direct lid van de groep zijn. Gebruikers, groepen, contactpersonen en computers/apparaten moeten allemaal directe leden zijn. Genest groepslidmaatschap is niet opgelost. Wanneer u een groep als lid toevoegt, wordt alleen de groep zelf toegevoegd en niet de leden ervan.
@@ -175,7 +176,7 @@ U kunt het schema in Azure AD uitbreiden met aangepaste kenmerken die door uw or
 Zie voor meer informatie [Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md).
 
 ### <a name="enabling-single-sign-on-sso"></a>Eenmalige aanmelding (SSO) inschakelen
-Het configureren van eenmalige aanmelding voor gebruik met wachtwoordsynchronisatie of Pass-through-verificatie is een eenvoudig proces dat u slechts één keer hoeft te doorlopen voor elk forest dat wordt gesynchroniseerd met Azure AD. De configuratie omvat de volgende twee stappen:
+Het configureren van eenmalige aanmelding voor gebruik met wachtwoordsynchronisatie of passthrough-verificatie is een eenvoudig proces dat u slechts één keer hoeft te doorlopen voor elk forest dat wordt gesynchroniseerd met Azure AD. De configuratie omvat de volgende twee stappen:
 
 1.    Maak het benodigde computeraccount in uw on-premises Active Directory.
 2.    Configureer de intranetzone van de clientcomputers voor de ondersteuning van eenmalige aanmelding.
@@ -194,7 +195,7 @@ Op een computer met de hulpprogramma's voor Groepsbeleidsbeheer.
 
 1.    Open de hulpprogramma's voor Groepsbeleidsbeheer
 2.    Bewerk het groepsbeleid dat op alle gebruikers wordt toegepast. Bijvoorbeeld het standaard domeinbeleid.
-3.    Ga naar **Gebruikersconfiguratie\Beheersjablonen\Windows-onderdelen\Internet Explorer\Onderdeel Internetopties van het Configuratiescherm\tabblad Beveiliging** en selecteer **Lijst van zonetoewijzingen voor websites**, zoals in de afbeelding hieronder.
+3.    Ga naar **Gebruikersconfiguratie\Beheersjablonen\Windows-onderdelen\Internet Explorer\Onderdeel Internetopties van het Configuratiescherm\Het tabblad Beveiliging** en selecteer **Lijst van zonetoewijzingen voor websites**, zoals in de afbeelding hieronder.
 4.    Schakel het beleid in en geef de volgende twee items op in het dialoogvenster.
 
         Waarde:`https://autologon.microsoftazuread-sso.com`  
@@ -316,9 +317,4 @@ Meer informatie over deze functies, die tijdens de installatie zijn ingeschakeld
 Meer informatie over deze algemene onderwerpen: [scheduler and how to trigger sync](active-directory-aadconnectsync-feature-scheduler.md).
 
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory ](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

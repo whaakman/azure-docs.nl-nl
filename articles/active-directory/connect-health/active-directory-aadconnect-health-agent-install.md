@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/12/2017
+ms.date: 04/11/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 7c320a043322fefea1f58301492d4c5a0567320c
-ms.openlocfilehash: 9569a850c6fadd86c408f9e9d4ec6d7d519744e8
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 7aa1363c3d4164edb5199a21e75b2b08a3218bf5
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -34,7 +35,7 @@ In de volgende tabel ziet u een lijst vereisten voor het gebruik van Azure AD Co
 | Uitgaande verbinding met de Azure-service-eindpunten | Tijdens de installatie en runtime moet de agent verbonden zijn met de Azure AD Connect Health-service-eindpunten. Als de uitgaande connectiviteit is geblokkeerd met firewalls, moet u ervoor zorgen dat de volgende eindpunten wel zijn toegestaan: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.servicebus.windows.net - Poort: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https://management.azure.com </li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
 |Uitgaande verbindingen op basis van IP-adressen | Als u meer wilt weten over het filteren op IP-adressen in firewalls, ziet u [Azure IP-bereiken](https://www.microsoft.com/en-us/download/details.aspx?id=41653).|
 | SSL-controle voor uitgaand verkeer is gefilterd of uitgeschakeld | De agentregistratiestap of het uploaden van gegevens kan mislukken als er in de netwerklaag een SSL-inspectie of blokkering is voor uitgaand verkeer. |
-| Firewallpoorten op de server waarop de agent wordt uitgevoerd. |De volgende firewallpoorten moeten open zijn, anders kan de agent niet communiceren met de eindpunten van de Azure AD Health-service.</br></br><li>TCP/UDP-poort 443</li><li>TCP/UDP-poort 5671</li> |
+| Firewallpoorten op de server waarop de agent wordt uitgevoerd. |De volgende firewallpoorten moeten open zijn, anders kan de agent niet communiceren met de eindpunten van de Azure AD Health-service.</br></br><li>TCP-poort 443</li><li>TCP-poort 5671</li> |
 | Sta de volgende websites toe als verbeterde beveiliging van Internet Explorer is ingeschakeld |Als verbeterde beveiliging van Internet Explorer is ingeschakeld, moeten de volgende websites worden toegestaan op de server waarop u de agent wilt installeren.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>De federatieve server van uw organisatie moet worden vertrouwd door Azure Active Directory. Bijvoorbeeld: https://sts.contoso.com</li> |
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>De Azure AD Connect Health-agent voor AD FS installeren
@@ -167,7 +168,7 @@ Voor de opdracht worden de volgende parameters gebruikt:
 * AttributeFiltering : $true (standaard) - als Azure AD Connect de standaardkenmerkset niet synchroniseert en is geconfigureerd voor het gebruik van een gefilterde kenmerkset. $false in andere gevallen.
 * StagingMode : $false (standaard) - als de Azure AD Connect-server zich niet in de faseringsmodus bevindt, $true als de server is geconfigureerd voor de faseringsmodus.
 
-Als u wordt gevraagd zich te verifiëren, moet u hetzelfde hoofdbeheerdersaccount gebruiken (zoals admin@domain.onmicrosoft.com)) dat is gebruikt voor het configureren van Azure AD Connect.
+Als u wordt gevraagd zich te verifiëren, moet u hetzelfde hoofdbeheerdersaccount gebruiken (zoals admin@domain.onmicrosoft.com) dat is gebruikt voor het configureren van Azure AD Connect.
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-ds"></a>De Azure AD Connect Health-agent voor AD DS installeren
 Dubbelklik op het .exe-bestand dat u hebt gedownload om de installatie van de agent te starten. Klik in het eerste scherm op Installeren.
@@ -301,8 +302,4 @@ U kunt de vlag -ShowResults in de opdracht gebruiken om gedetailleerde logboeken
 * [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md)
 * [Veelgestelde vragen over Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Versiegeschiedenis van Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
 

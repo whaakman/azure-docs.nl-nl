@@ -13,40 +13,39 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 9df9d10d436ac56c881c9547f3095b630d4cb97f
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ff70484dff03a44d23d2cf34ce115fd57c4b0390
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal"></a>Een VNet met een site-naar-site-verbinding maken met de klassieke portal
+
+Een site-naar-site-VPN-gatewayverbinding (S2S) is een verbinding via een VPN-tunnel met IPsec/IKE (IKEv1 of IKEv2). Voor dit type verbinding moet er een VPN-apparaat on-premises aanwezig zijn waaraan een openbaar IP-adres is toegewezen en dat zich niet achter een NAT bevindt. Site-naar-site-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties.
+
+![Diagram: cross-premises site-naar-site-VPN-gatewayverbinding](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
+
+In dit artikel wordt stapsgewijs beschreven hoe u een virtueel netwerk en een site-naar-site-VPN-gatewayverbinding met uw on-premises netwerk maakt met behulp van het klassieke implementatiemodel en de klassieke portal. Site-naar-site-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties. U kunt deze configuratie voor het Resource Manager-implementatiemodel ook maken door in de volgende lijst een andere optie te selecteren:
+
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [Klassiek - Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Klassiek - Klassieke portal](vpn-gateway-site-to-site-create.md)
+> * [Klassiek - klassieke portal](vpn-gateway-site-to-site-create.md)
 >
 >
-
-In dit artikel wordt stapsgewijs beschreven hoe u een virtueel netwerk en een site-naar-site-VPN-gatewayverbinding met uw on-premises netwerk maakt met behulp van het klassieke implementatiemodel en de klassieke portal. Site-naar-site-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties.
-
-![Diagram: cross-premises site-naar-site-VPN-gatewayverbinding](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
-
-### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Implementatiemodellen en -methoden voor site-naar-site-verbindingen
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
-
-In de volgende tabel staan de momenteel beschikbare implementatiemodellen en -methoden voor site-naar-site-configuraties. Als er een artikel met configuratiestappen beschikbaar is, kunt u dit via een rechtstreekse koppeling in deze tabel raadplegen.
-
-[!INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 #### <a name="additional-configurations"></a>Aanvullende configuraties
 Raadpleeg [Configure a VNet-to-VNet connection for the classic deployment model (Een VNet-naar-VNet verbinding voor het klassieke implementatiemodel configureren)](virtual-networks-configure-vnet-to-vnet-connection.md), als u VNets met elkaar wilt verbinden. Zie [Een S2S-verbinding toevoegen aan een VNet met een bestaande VPN-gatewayverbinding](vpn-gateway-multi-site.md) als u een site-naar-site-verbinding wilt toevoegen aan een VNet die al een verbinding heeft.
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Controleer of u beschikt over de volgende items voordat u begint met de configuratie.
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+
+Controleer of u beschikt over de volgende items voordat u begint met de configuratie:
 
 * Een compatibel VPN-apparaat en iemand die dit kan configureren. Zie [About VPN Devices](vpn-gateway-about-vpn-devices.md) (Over VPN-apparaten). Als u niet weet hoe u uw VPN-apparaat moet configureren of de IP-adresbereiken in uw on-premises netwerkconfiguratie niet kent, moet u contact opnemen met iemand die u hierbij kan helpen en de benodigde gegevens kan verstrekken.
 * Een extern gericht openbaar IP-adres voor het VPN-apparaat. Dit IP-adres kan zich niet achter een NAT bevinden.

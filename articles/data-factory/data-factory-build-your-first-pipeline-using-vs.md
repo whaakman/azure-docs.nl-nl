@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 23927acae12f0db13fe6dd24a4e1fde8ced25d40
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 5c6a6fcf86867fb2195a31d636003f16ed503da2
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -502,6 +502,9 @@ Entiteiten publiceren in een Azure Data Factory-project via een configuratiebest
 6. Klik op **Finish** nadat de implementatiebewerking is voltooid.
 
 Wanneer u implementeert, worden de waarden van het configuratiebestand gebruikt voor de eigenschappen in de JSON-bestanden voor Data Factory-entiteiten voordat de entiteiten worden geïmplementeerd in de Azure Data Factory-service.   
+
+## <a name="use-azure-key-vault"></a>Azure Key Vault gebruiken
+Het wordt niet aangeraden en het is vaak in strijd met het beveiligingsbeleid om gevoelige gegevens, zoals verbindingsreeksen, op te slaan in de codeopslagplaats. Zie het voorbeeld [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish) op GitHub voor meer informatie over de opslag van vertrouwelijke gegevens in Azure Key Vault en het gebruik daarvan tijdens de publicatie van Data Factory-entiteiten. Met de extensie Secure Publish voor Visual Studio kunnen de geheimen worden opgeslagen in Key Vault en worden alleen verwijzingen naar deze geheimen opgegeven in de gekoppelde services/implementatieconfiguraties. Deze verwijzingen worden opgelost wanneer u Data Factory-entiteiten publiceert naar Azure. Deze bestanden kunnen vervolgens worden doorgevoerd naar een bronopslagplaats zonder dat er geheimen worden weergegeven.
 
 ## <a name="summary"></a>Samenvatting
 In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt voor het verwerken van gegevens. Dit hebt u gedaan door Hive-script uit te voeren op een HDInsight Hadoop-cluster. U hebt in de Azure Portal de Data Factory-editor gebruikt om de volgende stappen uit te voeren:  

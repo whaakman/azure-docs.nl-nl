@@ -13,43 +13,39 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c80ddbaf8c2c84735564e514ddaf4308c4aff303
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 4133e2e90f51d141044f2ac064c60df1263b498e
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="configure-a-vnet-to-vnet-connection-using-the-azure-portal"></a>Een verbinding tussen VNets configureren met behulp van Azure Portal
+
+Het verbinden van een virtueel netwerk met een ander virtueel netwerk (VNet-naar-VNet) lijkt op het verbinden van een VNet met een on-premises locatie. Voor beide connectiviteitstypen wordt een VPN-gateway gebruikt om een beveiligde tunnel met IPsec/IKE te bieden. U kunt zelfs VNet-naar-VNet-communicatie met multi-site-verbindingsconfiguraties combineren. Zo kunt u netwerktopologieën maken waarin cross-premises connectiviteit is gecombineerd met connectiviteit tussen virtuele netwerken.
+
+![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
+
+Dit artikel helpt u met de stappen voor het maken van een verbinding tussen VNets in het Resource Manager-implementatiemodel met behulp van VPN Gateway en Azure Portal. Wanneer u Azure Portal gebruikt om virtuele netwerken te verbinden, moeten de VNets binnen hetzelfde abonnement vallen. Als uw virtuele netwerken onder verschillende abonnementen vallen, kunt u deze nog steeds verbinden met behulp van de [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)-stappen.
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]Als u een verbinding tussen VNets wilt maken met een ander implementatiemodel, tussen verschillende implementatiemodellen of met een ander implementatieprogramma, kunt u de gewenste optie selecteren in de volgende vervolgkeuzelijst:
+
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Klassiek - Azure Portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Klassiek - Klassieke portal](virtual-networks-configure-vnet-to-vnet-connection.md)
-> 
-> 
-
-Dit artikel helpt u met de stappen voor het maken van een verbinding tussen VNets in het Resource Manager-implementatiemodel met behulp van VPN Gateway en Azure Portal.
-
-Wanneer u Azure Portal gebruikt om virtuele netwerken te verbinden, moeten de VNets binnen hetzelfde abonnement vallen. Als uw virtuele netwerken onder verschillende abonnementen vallen, kunt u deze nog steeds verbinden met behulp van de [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)-stappen.
-
-![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
-
-### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>Implementatiemodellen en -methoden voor verbindingen tussen VNets
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
-
-In de volgende tabel staan de momenteel beschikbare implementatiemodellen en -methoden voor VNet-naar-VNet-configuraties. Als er een artikel met configuratiestappen beschikbaar is, kunt u dit via een rechtstreekse koppeling in deze tabel raadplegen.
-
-[!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
-
-**VNet-peering**
+> * [Verbinding maken tussen verschillende implementatiemodellen - Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Verbinding maken tussen verschillende implementatiemodellen - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
+>
+>
 
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
+
 ## <a name="about-vnet-to-vnet-connections"></a>Over VNet-naar-VNet-verbindingen
-Het verbinden van een virtueel netwerk met een ander virtueel netwerk (VNet-naar-VNet) lijkt op het verbinden van een VNet met een on-premises locatie. Voor beide connectiviteitstypen wordt een Azure VPN-gateway gebruikt om een beveiligde tunnel met IPsec/IKE te bieden. De VNets die u verbindt, kunnen zich bevinden in verschillende regio's of tot verschillende abonnementen behoren.
+Het verbinden van een virtueel netwerk met een ander virtueel netwerk (VNet-naar-VNet) lijkt op het verbinden van een VNet met een on-premises locatie. Voor beide connectiviteitstypen wordt een Azure VPN-gateway gebruikt om een beveiligde tunnel met IPsec/IKE te bieden. De VNets die u verbindt, kunnen zich bevinden in verschillende regio's of tot verschillende abonnementen behoren. Als uw VNet's echter onder verschillende abonnementen vallen, kunt u de verbinding niet via de portal maken. U kunt daarvoor [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) gebruiken.
 
 U kunt zelfs VNet-naar-VNet-communicatie met multi-site-configuraties combineren. Zoals u in het volgende diagram kunt zien, kunt u netwerktopologieën maken waarin cross-premises connectiviteit wordt gecombineerd met connectiviteit tussen virtuele netwerken:
 
@@ -144,7 +140,7 @@ DNS is niet vereist voor VNet-VNet-verbindingen. Als u echter naamomzetting wilt
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="VNetGateway"></a>5. De gateway van een virtueel netwerk maken
-In deze stap maakt u de virtuele netwerkgateway VNet. Deze stap kan maximaal 45 minuten duren. Als u deze configuratie bij wijze van oefening maakt, kunt u de [voorbeeldinstellingen](#values) gebruiken.
+In deze stap maakt u de virtuele netwerkgateway VNet. Het maken van een gateway duurt vaak 45 minuten of langer, afhankelijk van de geselecteerde gateway-SKU. Als u deze configuratie bij wijze van oefening maakt, kunt u de [voorbeeldinstellingen](#values) gebruiken.
 
 ### <a name="to-create-a-virtual-network-gateway"></a>De gateway van een virtueel netwerk maken
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
@@ -153,7 +149,7 @@ In deze stap maakt u de virtuele netwerkgateway VNet. Deze stap kan maximaal 45 
 Wanneer u TestVNet1 hebt geconfigureerd, maakt u TestVNet4 door de vorige stappen te herhalen en de waarden te vervangen door die van TestVNet4. U hoeft niet te wachten tot de gateway van het virtuele netwerk voor TestVNet1 is gemaakt voordat u TestVNet4 configureert. Als u uw eigen waarden gebruikt, zorgt u ervoor dat de adresruimten niet overlappen met een van de VNets waarmee u verbinding wilt maken.
 
 ## <a name="TestVNet1Connection"></a>7. De TestVNet1-verbinding configureren
-Wanneer de virtuele netwerkgateways voor TestVNet1 en TestVNet4 zijn voltooid, kunt u de verbindingen voor uw virtuele netwerkgateway maken. In deze sectie maakt u een verbinding tussen VNet1 en VNet4.
+Wanneer de virtuele netwerkgateways voor TestVNet1 en TestVNet4 zijn voltooid, kunt u de verbindingen voor uw virtuele netwerkgateway maken. In deze sectie maakt u een verbinding tussen VNet1 en VNet4. Deze stappen werken alleen voor VNets in hetzelfde abonnement. Als uw VNets onder verschillende abonnementen vallen, moet u PowerShell gebruiken om de verbinding te maken. Zie het artikel voor [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
 1. In **Alle resources** gaat u naar de virtuele netwerkgateway voor uw VNet. Bijvoorbeeld **TestVNet1GW**. Klik op **TestVNet1GW** om de blade voor de virtuele netwerkgateway te openen.
    

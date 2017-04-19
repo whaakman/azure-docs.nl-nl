@@ -12,12 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 04/05/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 5da00d1d64b258773fa485baa804b283fde731c3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 1b0d278c102497eca978d8cd3fa29cd2527f186c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -148,11 +148,63 @@ Dit is een voorbeeld van dit type waarschuwing:
 ![Waarschuwing dat er verdachte processen worden uitgevoerd](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
 ### <a name="multiple-domain-accounts-queried"></a>Query's op meerdere domeinaccounts uitgevoerd
-Security Center kan meerdere pogingen detecteren waarbij query's op domeinaccounts zijn uitgevoerd, wat doorgaans gebeurt als aanvallers het netwerk verkennen. Aanvallers kunnen deze methode gebruiken om query's uit te voeren op het domein met het doel de gebruikers te identificeren, wat de beheerdersaccounts van het domein zijn, welke computers domeincontrollers zijn en of er mogelijk vertrouwensrelaties zijn tussen het domein en andere domeinen.
+Aanvallers doen doorgaans meer dan één poging om een netwerk te verkennen. Daarom kan Security Center meerdere querypogingen voor Active Directory-domeinaccounts detecteren. Aanvallers kunnen deze methode gebruiken om query's uit te voeren op het domein met het doel de gebruikers te identificeren, wat de beheerdersaccounts van het domein zijn, welke computers domeincontrollers zijn en of er mogelijk vertrouwensrelaties zijn tussen het domein en andere domeinen.
 
 Dit is een voorbeeld van dit type waarschuwing:
 
 ![Waarschuwing over meerdere domeinaccounts](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
+
+### <a name="local-administrators-group-members-were-enumerated"></a>Leden van de groep Lokale beheerders zijn geïnventariseerd
+
+In Security Center wordt een waarschuwing geactiveerd wanneer in Windows Server 2016 of Windows 10 beveiligingsgebeurtenis 4798 is geactiveerd. Dit gebeurt wanneer lokale-beheerdersgroepen worden geïnventariseerd, iets wat aanvallers doorgaans doen om het netwerk te verkennen. Aanvallers kunnen deze techniek gebruiken om de identiteit op te vragen van gebruikers met beheerdersrechten.
+
+Dit is een voorbeeld van dit type waarschuwing:
+
+![Lokale beheerder](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
+
+### <a name="anomalous-mix-of-upper-and-lower-case-characters"></a>Ongebruikelijke combinatie van hoofdletters en kleine letters
+
+In Security Center wordt een waarschuwing geactiveerd wanneer het gebruik van een combinatie van hoofdletters en kleine letters op de opdrachtregel wordt gedetecteerd. Sommige aanvallers gebruiken deze techniek om de hoofdlettergevoelige of hash-gebaseerde machineregel te ontlopen.
+
+Dit is een voorbeeld van dit type waarschuwing:
+
+![Ongebruikelijke combinatie](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
+
+### <a name="suspected-kerberos-golden-ticket-attack"></a>Verdachte Golden Ticket Kerberos-aanval
+
+Een verdachte [krbtgt](https://technet.microsoft.com/library/dn745899.aspx)-sleutel kan door een aanvaller worden gebruikt om Kerberos Golden Tickets te maken, waarmee de aanvaller elke gewenste gebruiker kan imiteren. In Security Center wordt een waarschuwing geactiveerd wanneer dit type activiteit wordt gedetecteerd.
+
+> [!NOTE] 
+> Meer informatie over Kerberos Golden Tickets vindt u in de [Windows 10 credential theft mitigation guide](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx) (Handleiding voor beperking van het risico op referentiediefstal in Windows 10).
+
+Dit is een voorbeeld van dit type waarschuwing:
+
+![Golden Ticket](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
+
+### <a name="suspicious-account-created"></a>Verdacht account gemaakt
+
+In Security Center wordt een waarschuwing geactiveerd wanneer er een account wordt gemaakt dat veel overeenkomsten vertoont met een bestaand ingebouwd account met beheerdersbevoegdheden. Deze techniek kan door aanvallers worden gebruikt om een rogue-account te maken en te voorkomen dat het door menselijke verificatie wordt opgemerkt.
+ 
+Dit is een voorbeeld van dit type waarschuwing:
+
+![Verdacht account](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
+
+### <a name="suspicious-firewall-rule-created"></a>Verdachte firewallregel gemaakt
+
+Aanvallers kunnen proberen de hostbeveiliging te omzeilen door aangepaste firewallregels te maken die mogelijk maken dat schadelijke toepassingen communiceren met opdrachten en besturing, of via de aangetaste host aanvallen op het netwerk uitvoeren. In Security Center wordt een waarschuwing geactiveerd wanneer wordt gedetecteerd dat er een nieuwe firewallregel is gemaakt vanuit een uitvoerbaar bestand op een verdachte locatie.
+ 
+Dit is een voorbeeld van dit type waarschuwing:
+
+![Firewallregel](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
+
+### <a name="suspicious-combination-of-hta-and-powershell"></a>Verdachte combinatie van HTA en PowerShell
+
+In Security Center wordt een waarschuwing geactiveerd wanneer wordt gedetecteerd dat door een HTA (Microsoft HTML Application) PowerShell-opdrachten worden gestart. Dit is een techniek die aanvallers gebruiken om schadelijke PowerShell-scripts te starten.
+ 
+Dit is een voorbeeld van dit type waarschuwing:
+
+![HTA en PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
+
 
 ## <a name="network-analysis"></a>Netwerkanalyse
 Het detecteren van netwerkbedreigingen van Security Center werkt volgens het automatisch verzamelen van beveiligingsgegevens van uw Azure IPFIX-verkeer (Internet Protocol Flow Information Export). Deze informatie wordt door Security Center geanalyseerd, waarbij vaak informatie uit meerdere bronnen wordt samengebracht om bedreigingen te analyseren.

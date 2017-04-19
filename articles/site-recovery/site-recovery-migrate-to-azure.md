@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 04/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 981155c38bdc8cb54639d2271be1f3bd3036125c
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 5348cedf369264defc5bb8417397aae046915ca7
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -49,9 +49,16 @@ U kunt:
 
 ## <a name="migrate-on-premises-vms-and-physical-servers"></a>Virtuele machines en fysieke servers on-premises migreren
 
-Als u on-premises virtuele Hyper-V-machines, virtuele VMware-machines en fysieke servers wilt migreren, volgt u bijna dezelfde stappen als bij normale replicatie. U stelt een Recovery Services-kluis in, configureert de vereiste beheerservers (afhankelijk van wat u wilt migreren), voegt deze toe aan de kluis en geeft replicatie-instellingen op. U schakelt replicatie in voor de machines die u wilt migreren en voert een snelle testfailover uit om te controleren of alles naar behoren werkt.
+Als u on-premises virtuele Hyper-V-machines, virtuele VMware-machines en fysieke servers wilt migreren, volgt u bijna dezelfde stappen als bij normale replicatie.
 
-Nadat u hebt gecontroleerd of de replicatieomgeving werkt, gebruikt u een geplande of niet-geplande failover, afhankelijk van [wat er wordt ondersteund](site-recovery-failover.md) voor uw scenario. Voor migratie hoeft u geen failover door te voeren. In plaats daarvan selecteert u de optie **Volledige migratie** voor elke machine die u wilt migreren. Met de actie **Volledige migratie** voltooit u het migratieproces, verwijdert u de replicatie voor de machine en zet u de facturering van Site Recovery voor de machine stop.
+1. Een Recovery Services-kluis instellen
+2. Configureer de vereiste beheerservers (VMware, VMM, Hyper-V, afhankelijk van wat u wilt migreren), voeg deze toe aan de kluis en geef replicatie-instellingen op.
+3. Replicatie inschakelen voor de machines die u wilt migreren
+4. Na de eerste migratie voert u een snelle testfailover uit om te verifiëren of alles naar behoren werkt.
+5. Nadat u hebt gecontroleerd of de replicatieomgeving werkt, gebruikt u een geplande of niet-geplande failover, afhankelijk van [wat er wordt ondersteund](site-recovery-failover.md) voor uw scenario. We raden u aan om waar mogelijk een geplande failover te gebruiken.
+6. Voor migratie hoeft u geen failover door te voeren of te verwijderen. In plaats daarvan selecteert u de optie **Volledige migratie** voor elke machine die u wilt migreren.
+     - Klik in **Gerepliceerde items** met de rechtermuisknop op de virtuele machine en klik vervolgens op **Volledige migratie**. Klik op **OK** om te voltooien. U kunt de voortgang in de VM-eigenschappen bijhouden door de volledige migratietaak te volgen in **Site Recovery-taken**.
+     - Met de actie **Volledige migratie** voltooit u het migratieproces, verwijdert u de replicatie voor de machine en zet u de facturering van Site Recovery voor de machine stop.
 
 ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 

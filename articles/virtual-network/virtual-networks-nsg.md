@@ -15,31 +15,31 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6ea9db6ac7a7ba63652b860c22899a8616ea81bc
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: dfa9f6e4bc95a1cd99f84e58167192d951960a7a
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="control-network-traffic-flow-with-network-security-groups"></a>Netwerkverkeer met netwerkbeveiligingsgroepen beheren
+# <a name="filter-network-traffic-with-network-security-groups"></a>Netwerkverkeer filteren met netwerkbeveiligingsgroepen
 
-Een netwerkbeveiligingsgroep (Network Security Group, NSG) bevat een lijst met ACL-regels (Access Control List, toegangsbeheerlijst) waarmee netwerkverkeer voor uw VM-exemplaren in een virtueel netwerk wordt toegestaan of geweigerd. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle VM-exemplaren in dat subnet. U kunt het verkeer naar een afzonderlijke VM nog verder beperken door een NSG rechtstreeks aan die VM te koppelen.
+Een netwerkbeveiligingsgroep (Network Security Group, NSG) bevat een lijst met beveiligingsregels waarmee netwerkverkeer naar resources die zijn verbonden met virtuele Azure-netwerken (VNet) wordt toegestaan of geweigerd. NSG's kunnen worden gekoppeld aan subnetten, afzonderlijke virtuele machines (klassiek) of afzonderlijke netwerkinterfaces (NIC) die zijn gekoppeld aan VM’s (Resource Manager). Wanneer een NSG is gekoppeld aan een subnet, zijn de regels van toepassing op alle resources die zijn verbonden met het subnet. Verkeer kan verder worden beperkt door ook een NSG te koppelen aan een VM of NIC.
 
 > [!NOTE]
 > Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md). In dit artikel komen beide modellen aan de orde, maar u wordt aangeraden voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
 
 ## <a name="nsg-resource"></a>NSG-resource
-NSG's bevatten de volgende eigenschappen.
+NSG's bevatten de volgende eigenschappen:
 
 | Eigenschap | Beschrijving | Beperkingen | Overwegingen |
 | --- | --- | --- | --- |
-| Naam |Naam voor de NSG |Moet uniek zijn binnen de regio<br/>Kan letters, cijfers, onderstrepingstekens, punten en afbreekstreepjes bevatten<br/>Moet beginnen met een letter of cijfer<br/>Moet eindigen met een letter, cijfer of onderstrepingsteken<br/>Is niet langer dan 80 tekens |Omdat u mogelijk verschillende NSG's moet maken, is het raadzaam namen te gebruiken die aangeven wat het doel van de NSG's is |
-| Regio |Azure-regio waar de NSG wordt gehost |NSG's kunnen alleen worden toegepast op resources binnen de regio waarin deze zijn gemaakt |Zie [Limieten](#Limits) verderop in dit document voor informatie over het maximum aantal NSG's per regio |
-| Resourcegroep |Resourcegroep waartoe de NSG behoort |Hoewel een NSG tot een resourcegroep behoort, kan deze worden gekoppeld aan resources in elke willekeurige resourcegroep, zolang de resouce maar tot dezelfde Azure-regio als de NSG behoort |Resourcegroepen worden gebruikt voor het beheren van meerdere resources tegelijk, als een implementatie-eenheid<br/>U kunt de NSG desgewenst groeperen met resources waaraan deze is gekoppeld |
-| Regels |Regels die bepalen welk verkeer wordt toegestaan of geweigerd | |Zie [NSG-regels](#Nsg-rules) verderop in document |
+| Naam |Naam voor de NSG |Moet uniek zijn binnen de regio.<br/>Kan letters, cijfers, onderstrepingstekens, punten en afbreekstreepjes bevatten.<br/>Moet beginnen met een letter of cijfer.<br/>Moet eindigen op een letter, cijfer of onderstrepingsteken.<br/>Mag niet meer dan 80 tekens bevatten. |Omdat u mogelijk meerdere NSG's moet maken, is het raadzaam namen te gebruiken die aangeven wat het doel van de NSG is. |
+| Regio |Azure-[regio](https://azure.microsoft.com/regions) waar de NSG wordt gemaakt. |NSG's kunnen alleen worden gekoppeld aan resources binnen dezelfde regio als de NSG. |Voor meer informatie over hoeveel NSG's u per regio kunt hebben, leest u het artikel over [Azure-limieten](../azure-subscription-service-limits.md#virtual-networking-limits-classic).|
+| Resourcegroep |De [resourcegroep](../azure-resource-manager/resource-group-overview.md#resource-groups) waarin de NSG bestaat. |Hoewel een NSG bestaat in een resourcegroep, kan deze worden gekoppeld aan resources in elke willekeurige resourcegroep, mits de resource tot dezelfde Azure-regio als de NSG behoort. |Resourcegroepen worden gebruikt voor het beheren van meerdere resources tegelijk, als een implementatie-eenheid.<br/>U kunt de NSG desgewenst groeperen met resources waaraan deze is gekoppeld. |
+| Regels |Regels voor binnenkomend of uitgaand verkeer die bepalen welk verkeer wordt toegestaan of geweigerd. | |Zie de sectie [NSG-regels](#Nsg-rules) in dit artikel. |
 
 > [!NOTE]
-> ACL's voor eindpunten en netwerkbeveiligingsgroepen worden niet ondersteund op een en hetzelfde VM-exemplaar. Als u een NSG wilt gebruiken en er al een ACL voor eindpunten is geïmplementeerd, moet u eerst de ACL voor eindpunten verwijderen. Zie voor informatie over hoe u dit doet, [Toegangsbeheerlijsten (ACL's) voor eindpunten beheren met PowerShell](virtual-networks-acl-powershell.md).
+> ACL's voor eindpunten en netwerkbeveiligingsgroepen worden niet ondersteund op een en hetzelfde VM-exemplaar. Als u een NSG wilt gebruiken en er al een ACL voor eindpunten is geïmplementeerd, moet u eerst de ACL voor eindpunten verwijderen. Voor informatie over het verwijderen van een ACL leest u het artikel [Toegangsbeheerlijsten (ACL's) voor eindpunten beheren met PowerShell](virtual-networks-acl-powershell.md).
 > 
 
 ### <a name="nsg-rules"></a>NSG-regels
@@ -47,216 +47,220 @@ NSG-regels bevatten de volgende eigenschappen:
 
 | Eigenschap | Beschrijving | Beperkingen | Overwegingen |
 | --- | --- | --- | --- |
-| **Naam** |Naam voor de regel |Moet uniek zijn binnen de regio<br/>Kan letters, cijfers, onderstrepingstekens, punten en afbreekstreepjes bevatten<br/>Moet beginnen met een letter of cijfer<br/>Moet eindigen met een letter, cijfer of onderstrepingsteken<br/>Is niet langer dan 80 tekens |U kunt meerdere regels binnen een NSG hebben, dus zorg ervoor dat u duidelijk herkenbare namen gebruikt die het doel van de regel aangeven |
-| **Protocol** |Te matchen protocol voor de regel |TCP, UDP of \* |Als u \* als protocol gebruikt, omvat dit zowel ICMP (alleen oost-west-verkeer), als UDP en TCP en hebt u wellicht minder regels nodig<br/>Tegelijkertijd is het gebruik van \* mogelijk niet specifiek genoeg, dus gebruik deze optie alleen als dit echt nodig is |
-| **Bronpoortbereik** |Te matchen bronpoortbereik voor de regel |Een poortnummer tussen 1 en 65535, een poortbereik (bijvoorbeeld 1-65635) of \* (voor alle poorten) |Bronpoorten kunnen kortstondig zijn. Tenzij in uw clientprogramma een specifieke poort wordt gebruikt, gebruikt u in de meeste gevallen '*'.<br/>Gebruik zo veel mogelijk poortbereiken om te voorkomen dat u meerdere regels nodig hebt<br/>Meerdere poorten of poortbereiken kunnen niet worden gegroepeerd met komma's |
-| **Doelpoortbereik** |Te matchen doelpoortbereik voor de regel |Een poortnummer tussen 1 en 65535, een poortbereik (bijvoorbeeld 1-65535) of \* (voor alle poorten) |Gebruik zo veel mogelijk poortbereiken om te voorkomen dat u meerdere regels nodig hebt<br/>Meerdere poorten of poortbereiken kunnen niet worden gegroepeerd met komma's |
-| **Bronadresvoorvoegsel** |Te matchen bronadresvoorvoegsel of tag voor de regel |Een IP-adres (bijvoorbeeld 10.10.10.10), IP-subnet (bijvoorbeeld 192.168.1.0/24), [standaardtag](#default-tags) of * (voor alle adressen) |Overweeg het gebruik van bereiken, standaardtags en * om het aantal regels te verminderen |
-| **Doeladresvoorvoegsel** |Te matchen doeladresvoorvoegsel of tag voor de regel |een IP-adres (bijvoorbeeld 10.10.10.10), IP-subnet (bijvoorbeeld 192.168.1.0/24), [standaardtag](#default-tags) of * (voor alle adressen) |Overweeg het gebruik van bereiken, standaardtags en * om het aantal regels te verminderen |
-| **Richting** |Te matchen richting van verkeer voor de regel |binnenkomend of uitgaand |Regels voor binnenkomend en uitgaand verkeer worden afzonderlijk verwerkt op basis van de richting |
-| **Prioriteit** |Regels worden gecontroleerd op volgorde van prioriteit en als een regel van toepassing is, worden verder geen regels meer getest voor matching |Getal tussen 100 en 4096 |Overweeg prioriteitsnummers voor regels te laten verspringen met 100, om ruimte voor nieuwe regels over te laten tussen bestaande regels in |
-| **Toegang** |Toe te passen type toegang als de regel matcht |toestaan of weigeren |Als er geen regel voor het toestaan van een pakket wordt gevonden, wordt het pakket verwijderd |
+| **Naam** |Naam voor de regel. |Moet uniek zijn binnen de regio.<br/>Kan letters, cijfers, onderstrepingstekens, punten en afbreekstreepjes bevatten.<br/>Moet beginnen met een letter of cijfer.<br/>Moet eindigen op een letter, cijfer of onderstrepingsteken.<br/>Mag niet meer dan 80 tekens bevatten. |U kunt meerdere regels binnen een NSG hebben, dus zorg ervoor dat u duidelijk herkenbare namen gebruikt die het doel van de regel aangeven. |
+| **Protocol** |Protocol waarop de regel van toepassing is. |TCP, UDP of * |Als u * als protocol gebruikt, omvat dit zowel ICMP (alleen oost-west-verkeer), als UDP en TCP en hebt u wellicht minder regels nodig.<br/>Tegelijkertijd is het gebruik van * mogelijk niet specifiek genoeg, zodat het wordt aanbevolen * alleen te gebruiken als dit echt nodig is. |
+| **Bronpoortbereik** |Bronpoortbereik waarop de regel van toepassing is. |Eén poortnummer tussen 1 en 65535, een poortbereik (bijvoorbeeld 1-65635) of * (voor alle poorten). |Bronpoorten kunnen kortstondig zijn. Tenzij in uw clientprogramma een specifieke poort wordt gebruikt, gebruikt u in de meeste gevallen *.<br/>Gebruik zo veel mogelijk poortbereiken om te voorkomen dat u meerdere regels nodig hebt.<br/>Meerdere poorten of poortbereiken kunnen niet worden gegroepeerd met komma's. |
+| **Doelpoortbereik** |Doelpoortbereik waarop de regel van toepassing is. |Eén poortnummer tussen 1 en 65535, een poortbereik (bijvoorbeeld 1-65535) of \* (voor alle poorten). |Gebruik zo veel mogelijk poortbereiken om te voorkomen dat u meerdere regels nodig hebt.<br/>Meerdere poorten of poortbereiken kunnen niet worden gegroepeerd met komma's. |
+| **Bronadresvoorvoegsel** |Bronadresvoorvoegsel of tag waarop de regel van toepassing is. |Eén IP-adres (bijvoorbeeld 10.10.10.10), een IP-subnet (bijvoorbeeld 192.168.1.0/24), een [standaardtag](#default-tags) of * (voor alle adressen). |Overweeg het gebruik van bereiken, standaardtags en * om het aantal regels te verminderen. |
+| **Doeladresvoorvoegsel** |Doeladresvoorvoegsel of tag waarop de regel van toepassing is. | Eén IP-adres (bijvoorbeeld 10.10.10.10), een IP-subnet (bijvoorbeeld 192.168.1.0/24), een [standaardtag](#default-tags) of * (voor alle adressen). |Overweeg het gebruik van bereiken, standaardtags en * om het aantal regels te verminderen. |
+| **Richting** |Richting van het verkeer waarop de regel van toepassing is. |Binnenkomend of uitgaand. |Regels voor binnenkomend en uitgaand verkeer worden afzonderlijk verwerkt op basis van de richting. |
+| **Prioriteit** |Regels worden in volgorde van prioriteit gecontroleerd. Zodra een regel van toepassing is, worden geen andere regels meer getest. | Getal tussen 100 en 4096. | Overweeg prioriteitsnummers voor regels te laten verspringen met 100 om ruimte over te laten voor nieuwe regels die u mogelijk in de toekomst wilt maken. |
+| **Toegang** |Type toegang dat moet worden toegepast als de regel overeenkomt. | Toestaan of weigeren. | Onthoud dat het pakket wordt verwijderd als er geen regel wordt gevonden die het pakket toestaat. |
 
-NSG's bevatten twee sets met regels: een set met regels voor binnenkomend verkeer en een set met regels voor uitgaand verkeer. De prioriteit voor een regel moet uniek zijn binnen elke set. 
+NSG's bevatten twee sets met regels: een voor binnenkomend verkeer en een voor uitgaand verkeer. De prioriteit voor een regel moet uniek zijn binnen elke set. 
 
 ![Verwerking van NSG-regels](./media/virtual-network-nsg-overview/figure3.png) 
 
-In de bovenstaande afbeelding ziet u hoe NSG-regels worden verwerkt.
+In de vorige afbeelding ziet u hoe NSG-regels worden verwerkt.
 
 ### <a name="default-tags"></a>Standaardtags
-Standaardtags zijn systeem-id's voor een bepaalde categorie IP-adressen. U kunt standaardtags gebruiken in de eigenschappen voor het **voorvoegsel voor het bronadres** en het **voorvoegsel voor het doeladres** van een regel. Er zijn drie standaardtags die u kunt gebruiken.
+Standaardtags zijn systeem-id's voor een bepaalde categorie IP-adressen. U kunt standaardtags gebruiken in de eigenschappen voor het **voorvoegsel voor het bronadres** en het **voorvoegsel voor het doeladres** van een regel. Er zijn drie standaardtags die u kunt gebruiken:
 
-* **VIRTUAL_NETWORK** (**VirtualNetwork** als u Azure Resource Manager gebruikt): met deze standaardtag worden al uw adresruimten van het netwerk aangeduid. Dit omvat de adresruimte van het virtuele netwerk (CIDR-bereiken die in Azure zijn gedefinieerd) en alle verbonden on-premises adresruimten en verbonden Azure VNET'S (lokale netwerken).
-* **AZURE_LOADBALANCER** (**AzureLoadBalancer** als u Azure Resource Manager gebruikt): met deze standaardtag wordt de infrastructuur-load balancer van Azure aangeduid. Dit wordt vertaald naar het IP-adres van een datacenter van Azure vanwaar statuscontroles van Azure worden uitgevoerd.
-* **INTERNET:** met deze standaardtag wordt de IP-adresruimte aangeduid die zich buiten het virtuele netwerk bevindt en bereikbaar is via internet. Dit bereik omvat ook [openbare IP-adresruimten van Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** voor klassiek): deze tag omvat de adresruimte van het virtuele netwerk (CIDR-bereiken die in Azure zijn gedefinieerd) en alle verbonden on-premises adresruimten en verbonden Azure VNet's (lokale netwerken).
+* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** voor klassiek): met deze tag wordt de load balancer voor de infrastructuur van Azure aangeduid. De tag wordt omgezet in het IP-adres van een Azure-datacenter van waaruit statuscontroles van Azure worden uitgevoerd.
+* **Internet** (Resource Manager) (**INTERNET** voor klassiek): met deze tag wordt de IP-adresruimte aangeduid die zich buiten het virtuele netwerk bevindt en bereikbaar is via internet. Dit bereik omvat ook de [openbare IP-adresruimte van Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="default-rules"></a>Standaardregels
 Alle NSG's bevatten een set met standaardregels. De standaardregels kunnen niet worden verwijderd, maar omdat ze de laagste prioriteit hebben, kunnen ze worden overschreven door de regels die u maakt. 
 
-Zoals u kunt zien in de onderstaande standaardregels, wordt verkeer van of naar een virtueel netwerk zowel toegestaan in binnenkomende als uitgaande richting. Hoewel connectiviteit met internet wordt toegestaan in uitgaande richting, wordt het standaard geblokkeerd in binnenkomende richting. Er is een standaardregel waarmee de load balancer van Azure wordt toegestaan de status van uw VM's en rolexemplaren te controleren. U kunt deze regel onderdrukken als u geen set met taakverdeling gebruikt.
+De standaardregels kunnen verkeer als volgt toestaan en weigeren:
+- **Virtueel netwerk:** Verkeer dat afkomstig is van en eindigt in een virtueel netwerk wordt toegestaan in zowel binnenkomende als uitgaande richting.
+- **Internet:** Uitgaand verkeer is toegestaan, maar binnenkomend verkeer wordt geblokkeerd.
+- **Load balancer:** Toestaan dat de load balancer van Azure de status van uw VM's en rolexemplaren controleert. Als u geen set met taakverdeling gebruikt, kunt u deze regel onderdrukken.
 
 **Standaardregels voor binnenkomend verkeer**
 
-| Name | Prioriteit | Bron-IP | Bronpoort | Doel-IP | Doelpoort | Protocol | Toegang |
+| Name | Prioriteit | Bron-IP | Bronpoort | Doel-IP | Doelpoort | Protocol | Access |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| ALLOW VNET INBOUND |65000 |VIRTUAL_NETWORK |* |VIRTUAL_NETWORK |* |* |ALLOW |
-| ALLOW AZURE LOAD BALANCER INBOUND |65001 |AZURE_LOADBALANCER |* |* |* |* |ALLOW |
-| DENY ALL INBOUND |65500 |* |* |* |* |* |DENY |
+| AllowVNetInBound |65000 | VirtualNetwork | * | VirtualNetwork | * | * | Toestaan |
+| AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | * | * | * | * | Toestaan |
+| DenyAllInBound |65500 | * | * | * | * | * | Weigeren |
 
 **Standaardregels voor uitgaand verkeer**
 
-| Naam | Prioriteit | Bron-IP | Bronpoort | Doel-IP | Doelpoort | Protocol | Toegang |
+| Naam | Prioriteit | Bron-IP | Bronpoort | Doel-IP | Doelpoort | Protocol | Access |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| ALLOW VNET OUTBOUND |65000 |VIRTUAL_NETWORK |* |VIRTUAL_NETWORK |* |* |ALLOW |
-| ALLOW INTERNET OUTBOUND |65001 |* |* |INTERNET |* |* |ALLOW |
-| DENY ALL OUTBOUND |65500 |* |* |* |* |* |DENY |
+| AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | Toestaan |
+| AllowInternetOutBound | 65001 | * | * | Internet | * | * | Toestaan |
+| DenyAllOutBound | 65500 | * | * | * | * | * | Weigeren |
 
 ## <a name="associating-nsgs"></a>NSG's koppelen
-U kunt een NSG koppelen aan VM's, NIC's en subnetten, afhankelijk van het implementatiemodel dat u gebruikt.
+U kunt als volgt een NSG koppelen aan VM's, NIC's en subnetten, afhankelijk van het implementatiemodel dat u gebruikt:
 
-* **Een NSG koppelen aan een VM (alleen voor klassieke implementaties).** Als u een NSG aan een VM koppelt, worden de netwerktoegangsregels toegepast op al het binnenkomende en uitgaande verkeer van de VM. 
-* **Een NSG koppelen aan een NIC (alleen voor implementaties van Resource Manager).** Als u een NSG aan een NIC koppelt, worden de netwerktoegangsregels in de NSG alleen toegepast op die NIC. Als u een VM meerdere NIC's hebt en er een NSG wordt toegepast op één NIC, heeft dat geen invloed op verkeer dat is gebonden aan andere NIC's. 
-* **Een NSG koppelen aan een subnet (alle implementaties)**. Als u een NSG aan een subnet koppelt, worden netwerktoegangsregels in de NSG toegepast op alle IaaS- en PaaS-resources in het subnet. 
+* **VM (alleen klassiek):** beveiligingsregels worden toegepast op al het verkeer naar/van de virtuele machine. 
+* **NIC (alleen Resource Manager):** beveiligingsregels worden toegepast op al het verkeer naar/van de NIC waaraan de NSG is gekoppeld. In een VM met meerdere NIC's kunt u verschillende NSG’s (of dezelfde NSG) toepassen op elke NIC afzonderlijk. 
+* **Subnet (Resource Manager en klassiek):** beveiligingsregels worden toegepast op al het verkeer naar/van resources die zijn verbonden met het VNet.
 
-U kunt verschillende NSG's koppelen aan een VM (of NIC, afhankelijk van het implementatiemodel) en het subnet dat met een NIC of VM is verbonden. In dat geval worden alle netwerktoegangsregels toegepast op het verkeer op basis van prioriteit in elke NSG, in de volgende volgorde:
+U kunt verschillende NSG's koppelen aan een VM (of NIC, afhankelijk van het implementatiemodel) en het subnet waarmee een NIC of VM is verbonden. Beveiligingsregels worden toegepast op het verkeer op basis van prioriteit in elke NSG, in deze volgorde:
 
 - **Binnenkomend verkeer**
 
-  1. **NSG die is toegepast op het subnet:** als er een overeenkomende regel is voor de subnet-NSG om verkeer te weigeren, wordt het pakket verwijderd.
+  1. **NSG die is toegepast op het subnet:** als er een overeenkomende regel is voor de subnet-NSG die verkeer weigert, wordt het pakket verwijderd.
 
-  2. **NSG die is toegepast op de NIC** (Resource Manager) of VM (klassiek): als VM\NIC NSG een overeenkomende regel heeft om verkeer te weigeren, wordt het pakket verwijderd bij VM\NIC, hoewel de subnet-NSG een overeenkomende regel heeft om verkeer toe te staan.
+  2. **NSG die is toegepast op de NIC** (Resource Manager) of VM (klassiek): als een VM\NIC-NSG een overeenkomende regel heeft die verkeer weigert, worden pakketten verwijderd bij de VM\NIC, zelfs als een subnet-NSG een overeenkomende regel heeft die verkeer toestaat.
 
 - **Uitgaand verkeer**
 
-  1. **NSG die is toegepast op het subnet** (Resource Manager) of VM (klassiek): als VM\NIC NSG een overeenkomende regel heeft om verkeer te weigeren, wordt het pakket verwijderd.
+  1. **NSG die is toegepast op de NIC** (Resource Manager) of VM (klassiek): als een VM\NIC-NSG een overeenkomende regel heeft die verkeer weigert, worden pakketten verwijderd.
 
-  2. **NSG die is toegepast op het subnet:** als de subnet-NSG een overeenkomende regel heeft om verkeer te weigeren, wordt het pakket hier verwijderd, hoewel VM\NIC NSG een overeenkomende regel heeft om verkeer toe te staan.
+  2. **NSG die is toegepast op het subnet**: als een subnet-NSG een overeenkomende regel heeft die verkeer weigert, worden pakketten verwijderd, zelfs als een VM/NIC-NSG een overeenkomende regel heeft die verkeer toestaat.
 
 > [!NOTE]
 > U kunt slechts één NSG aan een subnet, VM of NIC koppelen, maar u kunt wel dezelfde NSG aan zo veel resources koppelen als u wilt.
 >
 
 ## <a name="implementation"></a>Implementatie
-U kunt NSG's implementeren in het klassieke implementatiemodel of het implementatiemodel van Resource Manager met behulp van de hieronder vermelde hulpprogramma's.
+U kunt NSG's implementeren in het klassieke implementatiemodel of het implementatiemodel van Resource Manager met behulp van de volgende hulpprogramma's:
 
 | Implementatieprogramma | Klassiek | Resource Manager |
 | --- | --- | --- |
-| Klassieke portal | Nee  | Nee |
 | Azure Portal   | Ja | [Ja](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [Ja](virtual-networks-create-nsg-classic-ps.md) | [Ja](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI      | [Ja](virtual-networks-create-nsg-classic-cli.md) | [Ja](virtual-networks-create-nsg-arm-cli.md) |
-| ARM-sjabloon   | Nee  | [Ja](virtual-networks-create-nsg-arm-template.md) |
+| Azure CLI **V1**   | [Ja](virtual-networks-create-nsg-classic-cli.md) | [Ja](virtual-networks-create-nsg-cli-nodejs.md) |
+| Azure CLI **V2**   | Nee | [Ja](virtual-networks-create-nsg-arm-cli.md) |
+| Azure Resource Manager-sjabloon   | Nee  | [Ja](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Planning
 Voordat u NSG's implementeert, moet u de volgende vragen beantwoorden:
 
-1. Van welke typen resources wilt u het binnenkomende of uitgaande verkeer filteren (NIC's in dezelfde VM, VM's of andere resources zoals cloudservices of toepassingsserviceomgevingen die zijn verbonden met hetzelfde subnet, of tussen resources die zijn verbonden met verschillende subnetten)?
-2. Zijn de resources waarvan u het binnenkomende/uitgaande verkeer wilt filteren verbonden met subnetten in bestaande VNET'S of worden ze verbonden met nieuwe VNs of subnetten?
+1. Voor welke soorten resources wilt binnenkomend of uitgaand verkeer filteren? U kunt resources zoals NIC's (Resource Manager), VM’s (klassiek), Cloud Services, omgevingen met toepassingsservices en VM- schaalsets verbinden. 
+2. Zijn de resources waarvan u het binnenkomende/uitgaande verkeer wilt filteren verbonden met subnetten in bestaande VNet's?
 
-Lees de [aanbevolen procedures voor cloudservices en netwerkbeveiliging](../best-practices-network-security.md) voor meer informatie over het plannen van netwerkbeveiliging in Azure. 
+Lees het artikel [Cloud Services en netwerkbeveiliging](../best-practices-network-security.md) voor meer informatie over het plannen van netwerkbeveiliging in Azure. 
 
 ## <a name="design-considerations"></a>Overwegingen bij het ontwerpen
-Lees, als u de antwoorden op de vragen in de sectie [Planning](#Planning) weet, het volgende aandachtig door voordat u uw NSG's definieert.
+Als u de antwoorden op de vragen in de sectie [Planning](#Planning) weet, leest u de volgende secties aandachtig door voordat u uw NSG's definieert:
 
 ### <a name="limits"></a>Limieten
-Houd rekening met de volgende limieten bij het ontwerpen van uw NSG's.
-
-| **Beschrijving** | **Standaardlimiet** | **Gevolgen** |
-| --- | --- | --- |
-| Aantal NSG's dat u aan een subnet, VM of NIC kunt koppelen |1 |Dit betekent dat u NSG's niet kunt combineren. Zorg ervoor dat alle benodigde regels voor een bepaalde set resources zijn opgenomen in één NSG. |
-| NSG's per regio per abonnement |100 |Standaard wordt een nieuwe NSG gemaakt voor elke VM die u in Azure Portal maakt. Als u dit standaardgedrag toestaat, is het maximum aantal NSG's snel bereikt. Houd rekening met deze limiet in uw ontwerp en verdeel uw resources zo nodig in meerdere regio's of abonnementen. |
-| NSG-regels per NSG |200 |Gebruik een breed bereik van IP-adressen en poorten zodat u deze limiet niet overschrijdt. |
-
-> [!IMPORTANT]
-> Bekijk alle [limieten voor netwerkservices in Azure](../azure-subscription-service-limits.md#networking-limits) voordat u uw oplossing ontwerpt. Sommige limieten kunnen worden verhoogd door een ondersteuningsticket te openen.
-> 
-> 
+Er gelden limieten voor het aantal NSG's dat u kunt hebben in een abonnement en het aantal regels per NSG. Lees voor meer informatie over de limieten het artikel [Azure-limieten](../azure-subscription-service-limits.md#networking-limits).
 
 ### <a name="vnet-and-subnet-design"></a>VNET's en subnetten ontwerpen
-Omdat NSG's kunnen worden toegepast op subnetten, kunt u het aantal NSG's minimaliseren door uw resources te  groeperen per subnet, en NSG's op subnetten toe te passen.  Als u besluit om NSG's op subnetten toe te passen, merkt u mogelijk dat bij het definiëren van bestaande VNET's en subnetten niet altijd rekening is gehouden met NSG's. Mogelijk moet u nieuwe VNET's en subnetten definiëren ter ondersteuning van uw NSG-ontwerp. En de nieuwe resources implementeren in de nieuwe subnetten. U kunt dan een migratiestrategie definiëren om bestaande resources te verplaatsen naar de nieuwe subnetten. 
+Omdat NSG's kunnen worden toegepast op subnetten, kunt u het aantal NSG's minimaliseren door uw resources te  groeperen per subnet, en NSG's op subnetten toe te passen.  Als u besluit om NSG's op subnetten toe te passen, merkt u mogelijk dat bij het definiëren van bestaande VNET's en subnetten niet altijd rekening is gehouden met NSG's. U moet mogelijk nieuwe VNet's en subnetten definiëren ter ondersteuning van uw NSG-ontwerp en uw nieuwe resources implementeren met uw nieuwe subnetten. U kunt dan een migratiestrategie definiëren om bestaande resources te verplaatsen naar de nieuwe subnetten. 
 
 ### <a name="special-rules"></a>Speciale regels
-U moet rekening houden met de speciale regels die hieronder worden vermeld. Zorg ervoor dat u geen verkeer blokkeert dat wordt toegestaan door deze regels, anders is er in uw infrastructuur geen communicatie mogelijk met essentiële Azure-services.
+Als u verkeer blokkeert dat is toegestaan door de volgende regels, kan uw infrastructuur niet communiceren met essentiële Azure-services:
 
-* **Virtueel IP-adres van het hostknooppunt:** Basisinfrastructuurservices zoals DHCP, DNS en Statuscontrole worden geleverd via het gevirtualiseerde host-IP-adres 168.63.129.16. Dit openbare IP-adres is van Microsoft en is het enige gevirtualiseerde IP-adres dat in alle regio's wordt gebruikt voor dit doel. Dit IP-adres wordt toegewezen aan het fysieke IP-adres van de servermachine (hostknooppunt) die fungeert als host voor de virtuele machine. Het hostknooppunt fungeert als de DHCP-relay, de recursieve DNS-omzetter en de bron voor de statuscontrole van de load balancer en de machine. Communicatie met dit IP-adres mag niet worden beschouwd als een aanval.
-* **Licentieverlening (Key Management Service):** voor alle Windows installatiekopieën die op de virtuele machines worden uitgevoerd, is een licentie vereist. Hiertoe wordt een licentieaanvraag verstuurd naar de Key Management Service-hostservers waarop dergelijke query's worden afgehandeld. Dit gebeurt altijd via de uitgaande poort 1688.
+* **Virtueel IP-adres van het hostknooppunt:** basisinfrastructuurservices zoals DHCP, DNS en statuscontrole worden geleverd via het gevirtualiseerde host-IP-adres 168.63.129.16. Dit openbare IP-adres is van Microsoft en is het enige gevirtualiseerde IP-adres dat in alle regio's wordt gebruikt voor dit doel. Dit IP-adres wordt toegewezen aan het fysieke IP-adres van de servercomputer (hostknooppunt) die fungeert als host voor de VM. Het hostknooppunt fungeert als de DHCP-relay, de recursieve DNS-omzetter en de bron voor de statuscontrole van de load balancer en de machine. Communicatie met dit IP-adres is geen aanval.
+* **Licentieverlening (Key Management Service):** voor alle Windows installatiekopieën die op de VM’s machines worden uitgevoerd, is een licentie vereist. Hiervoor wordt een licentieaanvraag verstuurd naar de Key Management Service-hostservers waarop dergelijke query's worden afgehandeld. De uitgaande aanvraag wordt gedaan via poort. 1688.
 
 ### <a name="icmp-traffic"></a>ICMP-verkeer
-In de huidige NSG-regels worden alleen de protocollen *TCP* en *UDP* ondersteund. Er is geen specifieke tag voor *ICMP*. ICMP-verkeer wordt echter wel standaard toegestaan binnen een virtueel netwerk via de regel voor binnenkomend verkeer in een VNET (standaardregel 65000 binnenkomend) waarmee verkeer van/naar elke poort en elk protocol in het VNET wordt toegestaan.
+In de huidige NSG-regels worden alleen de protocollen *TCP* en *UDP* ondersteund. Er is geen specifieke tag voor *ICMP*. ICMP-verkeer is echter toegestaan binnen een VNet door de standaardregel AllowVNetInBound waarmee verkeer van en naar een poort en protocol binnen de VNet wordt toegestaan.
 
 ### <a name="subnets"></a>Subnetten
 * Houd rekening met het aantal benodigde lagen voor uw workload. Elke laag kan worden geïsoleerd met behulp van een subnet, waarbij een NSG wordt toegepast op het subnet. 
-* Als u een subnet voor een VPN-gateway of ExpressRoute-circuit moet implementeren, moet u **GEEN** NSG op dat subnet toepassen. Als u dit wel doet, is er verbinding mogelijk tussen VNET’s of lokale netwerkonderdelen onderling.
-* Als u een virtueel apparaat wilt implementeren, moet u het virtuele apparaat implementeren in een eigen subnet, anders werken uw door de gebruiker gedefinieerde routes (UDR's) mogelijk niet correct. U kunt een NSG op subnetniveau implementeren om binnenkomend en uitgaand verkeer in dit subnet te filteren. Meer informatie over [het beheren van verkeersstromen en het gebruik van virtuele apparaten](virtual-networks-udr-overview.md).
+* Als u een subnet voor een VPN-gateway of ExpressRoute-circuit moet implementeren, mag u **geen** NSG op dat subnet toepassen. Als u dit wel doet, mislukken verbindingen tussen VNets of tussen lokale netwerkonderdelen onderling. 
+* Als u een virtueel netwerkapparaat (Network Virtual Appliance, NVA) moet implementeren, verbindt u de NVA met een eigen subnet en maakt u door de gebruiker gedefinieerde routes (User-Defined Routes, UDR) naar en van de NVA. U kunt een NSG op subnetniveau implementeren om binnenkomend en uitgaand verkeer in dit subnet te filteren. Lees het artikel [User-defined routes](virtual-networks-udr-overview.md) (Door de gebruiker gedefinieerde routes) voor meer informatie over UDR’s.
 
 ### <a name="load-balancers"></a>Load balancers
-* Overweeg de taakverdelingsregels en NAT-regels voor elke load balancer die wordt gebruikt door elk van de workloads. Deze regels zijn gebonden aan een back-end-groep met NIC's (implementaties van Resource Manager) of VM's/rolexemplaren (klassieke implementaties). Overweeg om een NSG voor elke back-end-groep te maken zodat alleen verkeer wordt toegestaan dat is gedefinieerd in de regels die zijn geïmplementeerd in de load balancers. Dit garandeert dat verkeer dat rechtstreeks afkomstig is van de back-end-groep, in plaats van via de load balancer, ook gefilterd is.
-* In klassieke implementaties maakt u eindpunten waarop poorten van een load balancer worden afgestemd met poorten van uw VM's of rolexemplaren. U kunt ook uw eigen individuele openbare load balancer maken in een implementatie van Resource Manager. Als u verkeer beperkt tot VM's en rolexemplaren die deel uitmaken van een back-end-groep in een load balancer met behulp van NSGs, houd er dan rekening mee dat de doelpoort voor het binnenkomende verkeer de werkelijke poort van de VM of het rolexemplaar is, en niet de poort die beschikbaar is gemaakt door de load balancer. Houd er ook rekening mee dat de bronpoort en het bronadres voor de verbinding met de VM een poort en adres zijn op de externe computer op internet, en niet de poort die en het adres dat beschikbaar is gemaakt door de load balancer.
-* Net als bij openbare load balancers geldt: wanneer u NSG's maakt voor het filteren van verkeer dat afkomstig is van een interne load balancer (ILB), worden de bronpoort en het bronadresbereik gebruikt van de computer waarvan de oproep afkomstig is, en niet die van de load balancer. Bovendien zijn de doelpoort en het doeladresbereik gerelateerd aan de computer waarop het verkeer binnenkomt, niet aan de load balancer.
+* Overweeg regels voor taakverdeling en netwerkadresomzetting (Network Address Translation, NAT) voor elke load balancer die wordt gebruikt door elk van uw workloads. NAT-regels zijn gebonden aan een back-end-groep die NIC's (Resource Manager) of VM's/Cloud Services-rolexemplaren (klassiek) bevat. Overweeg een NSG te maken voor elke back-end-groep, zodat alleen verkeer wordt toegestaan dat is gedefinieerd in de regels die zijn geïmplementeerd in de load balancers. Als u een NSG maakt voor elke back-end-groep, zorgt u ervoor dat verkeer dat rechtstreeks naar de back-end-groep gaat, in plaats van via de load balancer, ook wordt gefilterd.
+* In klassieke implementaties maakt u eindpunten waarop poorten van een load balancer worden afgestemd met poorten van uw VM's of rolexemplaren. U kunt ook uw eigen individuele openbare load balancer maken via Resource Manager. De doelpoort voor binnenkomend verkeer is de daadwerkelijke poort in de VM of het rolexemplaar, niet de poort die wordt weergegeven door een load balancer. De bronpoort en het bronadres voor de verbinding met de VM zijn een poort en adres op de externe computer op internet, en niet de poort en het adres die beschikbaar zijn gemaakt door de load balancer.
+* Wanneer u NSG's maakt om verkeer te filteren dat afkomstig is van een interne load balancer (ILB), worden de bronpoort en het bronadresbereik toegepast van de computer waarvan de oproep afkomstig is en niet die van de load balancer. De doelpoort en het doeladresbereik zijn die van de doelcomputer, niet van de load balancer.
 
 ### <a name="other"></a>Overige
-* ACL's voor eindpunten en NSG's worden niet ondersteund op een en hetzelfde VM-exemplaar. Als u een NSG wilt gebruiken en er al een ACL voor eindpunten is geïmplementeerd, moet u eerst de ACL voor eindpunten verwijderen. Zie [ACL's voor eindpunten beheren](virtual-networks-acl-powershell.md) voor meer informatie over hoe u dit doet.
-* In het implementatiemodel van Resource Manager kunt u een NSG gebruiken die is gekoppeld aan een NIC voor VM's met meerdere NIC's om beheer (externe toegang) via NIC in te schakelen, en zo verkeer te scheiden.
+* ACL's voor eindpunten en NSG's worden niet ondersteund op een en hetzelfde VM-exemplaar. Als u een NSG wilt gebruiken en er al een ACL voor eindpunten is geïmplementeerd, moet u eerst de ACL voor eindpunten verwijderen. Voor meer informatie over het verwijderen van een eindpunt-ACT leest u het artikel [Eindpunt-ACL's beheren](virtual-networks-acl-powershell.md).
+* In Resource Manager kunt u een NSG die aan een NIC is gekoppeld gebruiken voor VM's met meerdere NIC's om zo beheer (externe toegang) per NIC mogelijk te maken. Door unieke NSG's te koppelen aan elke NIC kunt u soorten verkeer over NIC's scheiden.
 * Net als bij het gebruik van load balancers geldt dat u bij het filteren van verkeer van andere VNET's, het adresbereik van de bron van de externe computer moet gebruiken, en niet dat van de gateway waarmee de VNET's onderling worden verbonden.
-* Veel Azure-services kunnen niet worden verbonden met virtuele Azure-netwerken en daarom kan verkeer van en naar deze netwerken niet met NSG's worden gefilterd.  Raadpleeg de documentatie bij de services die u gebruikt om te bepalen of deze kunnen worden gebruikt in combinatie met VNET's.
+* Veel Azure-services kunnen niet worden verbonden met VNet's. Als een Azure-resource niet met een VNet is verbonden, kunt u geen NSG gebruiken om verkeer naar de resource te filteren.  Raadpleeg de documentatie bij de services die u gebruikt om te bepalen of de service kan worden gebruikt in combinatie met een VNet.
 
 ## <a name="sample-deployment"></a>Voorbeeldimplementatie
-Ter illustratie van de toepassing van de informatie in dit artikel, definiëren we NSG's voor het filteren van het netwerkverkeer naar een 2-laags workloadoplossing met de volgende vereisten:
-
-1. Scheiding van verkeer tussen front-end (Windows-webservers) en back-end (SQL Database-servers).
-2. Taakverdelingsregels waarmee verkeer naar de load balancer wordt doorgestuurd naar alle webservers op poort 80.
-3. NAT-regels waarmee binnenkomend verkeer op poort 50001 van de load balancer wordt doorgestuurd op poort 3389 van één VM in de front-end.
-4. Geen toegang tot de front-end- of back-end-VM's via internet, met uitzondering van vereiste nummer 1.
-5. Geen toegang tot internet via de front-end of back-end.
-6. Toegang tot poort 3389 voor elke webserver in de front-end, voor verkeer dat afkomstig is van het front-end-subnet zelf.
-7. Toegang tot poort 3389 voor alle SQL Server-VM's in de back-end van alleen het front-end-subnet.
-8. Toegang tot poort 1433 voor alle SQL Server-VM's in de back-end van alleen het front-end-subnet.
-9. Scheiding van beheerverkeer (poort 3389) en databaseverkeer (poort 1433) op verschillende NIC's in de back-end-VM's.
+Bekijk ter illustratie van de toepassing van de informatie in dit artikel een gangbaar scenario van een toepassing met twee lagen zoals in de volgende afbeelding:
 
 ![NSG's](./media/virtual-network-nsg-overview/figure1.png)
 
-Zoals u ziet in het bovenstaande diagram, zijn de VM's *Web1* en *Web2* verbonden met het subnet *FrontEnd*, en zijn de VM's *DB1* en *DB2* verbonden met het subnet *BackEnd*.  Beide subnetten behoren tot het VNET *TestVNET*. Alle resources zijn toegewezen aan de Azure-regio *VS-west*.
+Zoals u ziet in het diagram, zijn de VM's *Web1* en *Web2* verbonden met het subnet *FrontEnd* en zijn de VM's *DB1* en *DB2* verbonden met het subnet *BackEnd*.  Beide subnetten behoren tot het VNET *TestVNET*. De toepassingsonderdelen worden elk uitgevoerd binnen een Azure-VM die is verbonden met een VNet. Voor het scenario gelden de volgende vereisten:
 
-De vereisten 1-6 (met uitzondering van 3) hierboven zijn allemaal beperkt tot subnetruimten. Om het benodigde aantal regels voor elke NSG te beperken en om gemakkelijk extra VM's te kunnen toevoegen aan de subnetten met hetzelfde type workload als de bestaande VM's, kunnen we de volgende NSG's op subnetniveau implementeren.
+1. Scheiding van verkeer tussen de WEB- en DB-servers.
+2. Taakverdelingsregels waarmee verkeer van de load balancer wordt doorgestuurd naar alle webservers op poort 80.
+3. NAT-regels voor de load balancer waarmee verkeer dat via poort 50001 in de load balancer binnenkomt, wordt doorgestuurd naar poort 3389 op de VM WEB1.
+4. Geen toegang tot de front-end- of back-end-VM's via internet, behalve vereisten 1 en 3.
+5. Geen uitgaande internettoegang vanaf de WEB- of DB-servers.
+6. Toegang vanaf het subnet FrontEnd naar poort 3389 van een webserver is toegestaan.
+7. Toegang vanaf het subnet FrontEnd naar poort 3389 van een DB-server is toegestaan.
+8. Toegang vanaf het subnet FrontEnd naar poort 1433 van alle DB-servers is toegestaan.
+9. Scheiding van beheerverkeer (poort 3389) en databaseverkeer (poort 1433) op verschillende NIC's in DB-servers.
 
-### <a name="nsg-for-frontend-subnet"></a>NSG voor subnet FrontEnd
+Vereisten 1-6 (behalve vereisten 3 en 4) zijn alle beperkt tot de subnetruimten. De volgende NSG's voldoen aan de voorgaande vereisten, terwijl het aantal vereiste NSG’s tot het minimum is beperkt:
+
+### <a name="frontend"></a>FrontEnd
 **Regels voor binnenkomend verkeer**
 
 | Regel | Toegang | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HTTP toestaan |Toestaan |100 |INTERNET |\* |\* |80 |TCP |
-| RDP via FrontEnd toestaan |Toestaan |200 |192.168.1.0/24 |\* |\* |3389 |TCP |
-| alles via internet weigeren |Weigeren |300 |INTERNET |\* |\* |\* |TCP |
+| Allow-Inbound-HTTP-Internet | Toestaan | 100 | Internet | * | * | 80 | TCP |
+| Allow-Inbound-RDP-Internet | Toestaan | 200 | Internet | * | * | 3389 | TCP |
+| Deny-Inbound-All | Weigeren | 300 | Internet | * | * | * | TCP |
 
 **Regels voor uitgaand verkeer**
 
 | Regel | Toegang | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| internet weigeren |Weigeren |100 |\* |\* |INTERNET |\* |\* |
+| Deny-Internet-All |Weigeren |100 | * | * | Internet | * | * |
 
-### <a name="nsg-for-backend-subnet"></a>NSG voor subnet BackEnd
+### <a name="backend"></a>BackEnd
 **Regels voor binnenkomend verkeer**
 
 | Regel | Toegang | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| internet weigeren |Weigeren |100 |INTERNET |\* |\* |\* |\* |
+| Deny-Internet-All | Weigeren | 100 | Internet | * | * | * | * |
 
 **Regels voor uitgaand verkeer**
 
 | Regel | Toegang | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| internet weigeren |Weigeren |100 |\* |\* |INTERNET |\* |\* |
+| Deny-Internet-All | Weigeren | 100 | * | * | Internet | * | * |
 
-### <a name="nsg-for-single-vm-nic-in-frontend-for-rdp-from-internet"></a>NSG voor één VM (NIC) in FrontEnd voor RDP via internet
+De volgende NSG's worden gemaakt en gekoppeld aan NIC's in de volgende VM’s:
+
+### <a name="web1"></a>WEB1
 **Regels voor binnenkomend verkeer**
 
 | Regel | Toegang | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| RDP via internet toestaan |Toestaan |100 |INTERNET |* |\* |3389 |TCP |
+| Allow-Inbound-RDP-Internet | Toestaan | 100 | Internet | * | * | 3389 | TCP |
+| Allow-Inbound-HTTP-Internet | Toestaan | 200 | Internet | * | * | 80 | TCP |
 
 > [!NOTE]
-> Merk op dat het bronadresbereik voor deze regel **Internet** is, en niet het VIP voor de load balancer. De bronpoort **\***, niet 500001. Zorg ervoor dat u NAT-regels, taakverdelingsregels en NSG-regels niet met elkaar verwart. NSG-regels hebben altijd betrekking op de bron van herkomst en de bestemming van het verkeer, **NIET** op de load balancer ertussen. 
+> Het bronadresbereik voor de vorige regels is **Internet**, niet het virtuele IP-adres van de load balancer. De bronpoort is *, niet 500001. NAT-regels voor load balancers zijn niet hetzelfde als NSG-beveiligingsregels. NSG-beveiligingsregels hebben altijd betrekking op de bron van herkomst en de bestemming van het verkeer, **niet** op de load balancer ertussen. 
 > 
 > 
 
-### <a name="nsg-for-management-nics-in-backend"></a>NSG voor beheer-NIC's in BackEnd
+### <a name="web2"></a>WEB2
 **Regels voor binnenkomend verkeer**
 
 | Regel | Toegang | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| RDP via front-end toestaan |Toestaan |100 |192.168.1.0/24 |* |\* |3389 |TCP |
+| Deny-Inbound-RDP-Internet | Weigeren | 100 | Internet | * | * | 3389 | TCP |
+| Allow-Inbound-HTTP-Internet | Toestaan | 200 | Internet | * | * | 80 | TCP |
 
-### <a name="nsg-for-database-access-nics-in-back-end"></a>NSG voor databasetoegang-NIC's in back-end
+### <a name="db-servers-management-nic"></a>DB-servers (beheer-NIC)
 **Regels voor binnenkomend verkeer**
 
 | Regel | Toegang | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| SQL via front-end toestaan |Toestaan |100 |192.168.1.0/24 |* |\* |1433 |TCP |
+| Allow-Inbound-RDP-Front-end | Toestaan | 100 | 192.168.1.0/24 | * | * | 3389 | TCP |
 
-Omdat sommige van de bovenstaande NSG's moeten worden gekoppeld aan afzonderlijke NIC's, moet u dit scenario implementeren als een implementatie van Resource Manager. Merk op hoe regels worden gecombineerd voor het subnet en NIC-niveau, afhankelijk van hoe ze moeten worden toegepast. 
+### <a name="db-servers-database-traffic-nic"></a>DB-servers (NIC voor databaseverkeer)
+**Regels voor binnenkomend verkeer**
+
+| Regel | Toegang | Prioriteit | Bronadresbereik | Bronpoort | Doeladresbereik | Doelpoort | Protocol |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Allow-Inbound-SQL-Front-end | Toestaan | 100 | 192.168.1.0/24 | * | * | 1433 | TCP |
+
+Aangezien sommige NSG's zijn gekoppeld aan afzonderlijke NIC's, gelden de regels voor resources die zijn geïmplementeerd via Resource Manager. Regels worden gecombineerd voor subnet en NIC, afhankelijk van hoe ze zijn gekoppeld. 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [NSG's implementeren in het klassieke implementatiemodel](virtual-networks-create-nsg-classic-ps.md).
-* [NSG's implementeren in Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
+* [NSG's implementeren (Resource Manager)](virtual-networks-create-nsg-arm-pportal.md).
+* [NSG's implementeren (klassiek)](virtual-networks-create-nsg-classic-ps.md).
 * [NSG-logboeken beheren](virtual-network-nsg-manage-log.md).
+* [Problemen met NSG’s oplossen] (virtual-network-nsg-troubleshoot-portal.md)
 

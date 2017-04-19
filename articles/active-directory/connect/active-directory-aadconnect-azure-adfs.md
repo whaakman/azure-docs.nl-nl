@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2017
-ms.author: anandy;billmath
+ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: ed3b3b114af2844405779f65fa8c3e89ae6a6c35
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a6a8300046a0f17061e74b793b254cdca1e1a265
+ms.lasthandoff: 04/10/2017
 
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Active Directory Federation Services in Azure implementeren
@@ -119,8 +119,8 @@ Maak de volgende beschikbaarheidssets
 | contosodcset |DC/ADFS |3 |5 |
 | contosowapset |WAP |3 |5 |
 
-### <a name="4----deploy-virtual-machines"></a>4.    Virtuele machines implementeren
-In de volgende stap gaat u de virtuele machines implementeren waarop de verschillende rollen in uw infrastructuur worden uitgevoerd. De aanbevolen configuratie is minimaal twee machines per beschikbaarheidsset. Maak voor de basisimplementatie zes virtuele machines.
+### <a name="4-deploy-virtual-machines"></a>4. Virtuele machines implementeren
+In de volgende stap gaat u de virtuele machines implementeren waarop de verschillende rollen in uw infrastructuur worden uitgevoerd. De aanbevolen configuratie is minimaal twee machines per beschikbaarheidsset. Maak voor de basisimplementatie vier virtuele machines.
 
 | Machine | Rol | Subnet | Beschikbaarheidsset | Storage-account | IP-adres |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -146,8 +146,8 @@ Wanneer de implementatie is voltooid, moet het deelvenster van de virtuele machi
 * Wijzig het niveau van de twee servers in replicadomeincontrollers bij DNS
 * Configureer de AD FS-servers door met serverbeheer de AD FS-rol te installeren.
 
-### <a name="6----deploying-internal-load-balancer-ilb"></a>6.    Interne load balancer (ILB) implementeren
-**6.1.    De ILB maken**
+### <a name="6-deploying-internal-load-balancer-ilb"></a>6. Interne load balancer (ILB) implementeren
+**6.1. De ILB maken**
 
 U implementeert een ILB door in Azure Portal Load Balancers te selecteren en op Toevoegen (+) te klikken.
 
@@ -172,7 +172,7 @@ Wanneer u op Maken klikt en de ILB is geïmplementeerd, wordt deze weergegeven i
 
 In de volgende stap configureert u de back-endpool en de back-endtest.
 
-**6.2.    ILB-back-endpool configureren**
+**6.2. ILB-back-endpool configureren**
 
 Selecteer de zojuist gemaakte ILB in het deelvenster Load Balancers. Het instellingenvenster wordt geopend. 
 
@@ -183,7 +183,7 @@ Selecteer de zojuist gemaakte ILB in het deelvenster Load Balancers. Het instell
 
 ![ILB-back-endpool configureren](./media/active-directory-aadconnect-azure-adfs/ilbdeployment3.png)
 
-**6.3.    Test configureren**
+**6.3. Test configureren**
 
 Selecteer Tests in het instellingenvenster ILB-instellingen.
 
@@ -192,7 +192,7 @@ Selecteer Tests in het instellingenvenster ILB-instellingen.
 
 ![Test ILB configureren](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
 
-**6.4.    Taakverdelingsregels maken**
+**6.4. Taakverdelingsregels maken**
 
 Voor een doeltreffende verdeling van het verkeer moet de ILB worden geconfigureerd met taakverdelingsregels. Als u een regel voor taakverdeling wilt maken: 
 
@@ -202,23 +202,23 @@ Voor een doeltreffende verdeling van het verkeer moet de ILB worden geconfiguree
 
 ![ILB-taakverdelingsregels configureren](./media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
 
-**6.5.    DNS bijwerken met ILB**
+**6.5. DNS bijwerken met ILB**
 
 Ga naar de DNS-server en maak een CNAME voor de ILB. Dit moet de CNAME zijn voor de federatieservice met het IP-adres dat verwijst naar het IP-adres van de ILB. Als het IP-adres van de ILB bijvoorbeeld 10.3.0.8 is en de geïnstalleerde federatieservice fs.contoso.com is, maakt u een CNAME voor fs.contoso.com die naar 10.3.0.8 verwijst.
 Op die manier komt alle communicatie met betrekking tot fs.contoso.com terecht bij de ILB en wordt deze correct gerouteerd.
 
-### <a name="7----configuring-the-web-application-proxy-server"></a>7.    De webtoepassingsproxyserver configureren
-**7.1.    De webtoepassingsproxyservers configureren om de AD FS-servers te bereiken**
+### <a name="7-configuring-the-web-application-proxy-server"></a>7. De webtoepassingsproxyserver configureren
+**7.1. De webtoepassingsproxyservers configureren om de AD FS-servers te bereiken**
 
-U moet ervoor zorgen dat de webtoepassingsproxyservers de AD FS-servers achter de ILB kunnen bereiken. Daarom maakt u in de map %systemroot%\system32\drivers\etc\hosts een record voor de ILB. De DN-naam (Distinguished Name) moet de naam van de federatieservice zijn, bijvoorbeeld fs.contoso.com. De IP-vermelding moet het IP-adres van de ILB zijn (in het voorbeeld is dit&10;.3.0.8).
+U moet ervoor zorgen dat de webtoepassingsproxyservers de AD FS-servers achter de ILB kunnen bereiken. Daarom maakt u in de map %systemroot%\system32\drivers\etc\hosts een record voor de ILB. De DN-naam (Distinguished Name) moet de naam van de federatieservice zijn, bijvoorbeeld fs.contoso.com. De IP-vermelding moet het IP-adres van de ILB zijn (in het voorbeeld is dit 10.3.0.8).
 
-**7.2.    De webtoepassingsproxyrol installeren**
+**7.2. De webtoepassingsproxyrol installeren**
 
 Nadat u ervoor hebt gezorgd dat de webtoepassingsproxyservers de AD FS-servers achter de ILB kunnen bereiken, kunt u de webtoepassingsproxyservers installeren. Webtoepassingsproxyservers hoeven niet te worden toegevoegd aan het domein. Installeer de webtoepassingsproxyrollen op de twee webtoepassingsproxyservers door de rol Externe toegang te selecteren. Serverbeheer leidt u door de WAP-installatie.
 Zie [De webtoepassingsproxyserver installeren en configureren](https://technet.microsoft.com/library/dn383662.aspx) voor meer informatie over het implementeren van WAP.
 
-### <a name="8----deploying-the-internet-facing-public-load-balancer"></a>8.    De internetgerichte (openbare) load balancer implementeren
-**8.1.    Internetgerichte (openbare) load balancer maken**
+### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  De internetgerichte (openbare) load balancer implementeren
+**8.1.  Internetgerichte (openbare) load balancer maken**
 
 Selecteer Load Balancers in Azure Portal en klik op Toevoegen. Voer in het deelvenster Load Balancer maken de volgende informatie in
 
@@ -232,7 +232,7 @@ Na implementatie wordt de load balancer weergegeven in de lijst met load balance
 
 ![Lijst met load balancers](./media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
 
-**8.2.    Een DNS-label toewijzen aan het openbare IP-adres**
+**8.2. Een DNS-label toewijzen aan het openbare IP-adres**
 
 Klik op de vermelding van de zojuist gemaakte load balancer in het deelvenster Load Balancers om het deelvenster voor configuratie te openen. Volg onderstaande stappen om het DNS-label voor het openbare IP-adres te configureren:
 
@@ -244,26 +244,26 @@ Klik op de vermelding van de zojuist gemaakte load balancer in het deelvenster L
 
 ![Internetgerichte load balancer (DNS) configureren](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
 
-**8.3.    Back-endpool voor internetgerichte (openbare) load balancer configureren** 
+**8.3. Back-endpool voor internetgerichte (openbare) load balancer configureren** 
 
 Volg dezelfde stappen als voor het maken van de interne load balancer om de back-endpool voor de internetgerichte (openbare) load balancer als beschikbaarheidsset voor de WAP-servers te configureren. Bijvoorbeeld: contosowapset.
 
 ![Back-endpool voor internetgerichte (openbare) load balancer configureren](./media/active-directory-aadconnect-azure-adfs/elbdeployment5.png)
 
-**8.4.    Test configureren**
+**8.4. Test configureren**
 
 Volg dezelfde stappen als voor het configureren van de interne load balancer om de test voor de back-endpool van de WAP-servers te configureren.
 
 ![Test voor internetgerichte load balancer configureren](./media/active-directory-aadconnect-azure-adfs/elbdeployment6.png)
 
-**8.5.    Taakverdelingsregel(s) maken**
+**8.5. Taakverdelingsregel(s) maken**
 
 Volg dezelfde stappen als in ILB om de taakverdelingsregel voor TCP 443 te configureren.
 
 ![Taakverdelingsregels van internetgerichte load balancer configureren](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
 
-### <a name="9----securing-the-network"></a>9.    Het netwerk beveiligen
-**9.1.    Het interne subnet beveiligen**
+### <a name="9-securing-the-network"></a>9. Het netwerk beveiligen
+**9.1. Het interne subnet beveiligen**
 
 Over het algemeen hebt u de volgende regels nodig om het interne subnet doeltreffend te beveiligen (in de hieronder vermelde volgorde)
 
@@ -276,7 +276,7 @@ Over het algemeen hebt u de volgende regels nodig om het interne subnet doeltref
 
 [opmerking]: <> (![INT-toegangsregels (inkomend)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [opmerking]: <> (![INT-toegangsregels (uitgaand)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
 
-**9.2.    Het DMZ-subnet beveiligen**
+**9.2. Het DMZ-subnet beveiligen**
 
 | Regel | Beschrijving | Stroom |
 |:--- |:--- |:---:|
@@ -292,7 +292,7 @@ Over het algemeen hebt u de volgende regels nodig om het interne subnet doeltref
 > 
 > 
 
-### <a name="10----test-the-ad-fs-sign-in"></a>10.    De aanmelding bij AD FS testen
+### <a name="10-test-the-ad-fs-sign-in"></a>10. De aanmelding bij AD FS testen
 De gemakkelijkste manier om AD FS te testen, is met de pagina IdpInitiatedSignon.aspx. Daartoe moet IdpInitiatedSignOn in de eigenschappen van AD FS worden ingeschakeld. Volg onderstaande stappen om uw AD FS-installatie te controleren
 
 1. Voer onderstaande cmdlet met PowerShell uit op de AD FS-server om deze in te schakelen.

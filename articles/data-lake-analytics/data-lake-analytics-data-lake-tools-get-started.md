@@ -12,30 +12,30 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/17/2017
+ms.date: 04/06/2017
 ms.author: edmaca, yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f5a27eba14560a56ad5020daf7741f37ac2cc6f2
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: c26ac89bd7ef494331ba309aacf87de03506ac4c
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="tutorial-develop-u-sql-scripts-using-data-lake-tools-for-visual-studio"></a>Zelfstudie: U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Informatie over het installeren van Data Lake Tools en het gebruiken van Data Lake Tools voor Visual Studio om U-SQL-scripts te schrijven en testen.
+Schrijf en test U-SQL-scripts met Data Lake-tools voor Visual Studio.
 
 U-SQL is een uitermate schaalbare en uitbreidbare taal voor het voorbereiden, transformeren en analyseren van alle gegevens in de data lake en daarbuiten. Zie [Naslaginformatie over U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
-* **Visual Studio 2015 update 3, Visual Studio 2013 update 4 of Visual Studio 2012. Enterprise- (Ultimate/Premium), Professional- en Community-edities worden ondersteund; Express-editie wordt niet ondersteund. Visual Studio 2017 wordt momenteel niet ondersteund.**
+* **Visual Studio 2017 (onder gegevensopslag en verwerkingsworkload), Visual Studio 2015 update 3, Visual Studio 2013 update 4 of Visual Studio 2012. Enterprise- (Ultimate/Premium), Professional- en Community-edities worden ondersteund; de Express-editie wordt niet ondersteund.**
 * **Microsoft Azure SDK voor .NET versie 2.7.1 of hoger**.  U kunt dit installeren met het [Webplatforminstallatieprogramma](http://www.microsoft.com/web/downloads/platform.aspx).
 * **[Data Lake Tools voor Visual Studio](http://aka.ms/adltoolsvs)**.
 
-    Wanneer Data Lake Tools voor Visual Studio is geïnstalleerd, ziet u een knooppunt ‘Data Lake Analytics’ in Server Explorer, onder het 'Azure'-knooppunt (u opent Server Explorer met Ctrl + Alt + S).
+    Wanneer Data Lake Tools voor Visual Studio is geïnstalleerd, ziet u een knooppunt 'Data Lake Analytics' in Server Explorer, onder het 'Azure'-knooppunt (u opent Server Explorer met Ctrl + Alt + S).
 
-* **Data Lake Analytics-account en voorbeeldgegevens** Het maken van Data Lake Analytics-accounts wordt niet ondersteund door de Data Lake-hulpprogramma's. U kunt een account maken met behulp van Azure Portal, Azure PowerShell, de .NET-SDK of de Azure-CLI.
+* **Data Lake Analytics-account en voorbeeldgegevens** Het maken van Data Lake Analytics-accounts wordt niet ondersteund door de Data Lake-tools. Maak een account met behulp van Azure Portal, Azure PowerShell, .NET-SDK of Azure-CLI.
 Een PowerShell-script voor het maken van een Data Lake Analytics-service en het uploaden van een brongegevensbestand vindt u in [Appx-A PowerShell-voorbeeld ter voorbereiding op de zelfstudie](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial).
 
     Desgewenst kunt u de volgende twee secties doornemen in [Aan de slag met Azure Data Lake Analytics met Azure Portal](data-lake-analytics-get-started-portal.md) om uw account te maken en gegevens handmatig te uploaden:
@@ -54,7 +54,7 @@ Een PowerShell-script voor het maken van een Data Lake Analytics-service en het 
 ## <a name="upload-source-data-files"></a>Uploaden van brongegevensbestanden
 Eerder in de zelfstudie, in de sectie **Vereisten**, hebt u enkele gegevens geüpload.  
 
-Als u uw eigen gegevens wilt gebruiken, volgt u de onderstaande procedure voor het uploaden van gegevens van Data Lake Tools.
+Als u uw eigen gegevens wilt gebruiken, volgt u deze stappen voor het uploaden van gegevens vanuit de Data Lake-tools.
 
 **Bestanden uploaden naar het afhankelijke Azure Data Lake-account**
 
@@ -130,7 +130,7 @@ Data Lake Analytics-taken worden geschreven in de U-SQL-taal. Zie [Aan de slag m
        IntelliSense voor catalogusentiteiten (databases, schema's, tabellen, UDO’s enz.) is gerelateerd aan uw Compute-account. U kunt het huidige actieve Compute-account, de database en het schema controleren in de bovenste werkbalk en ze overschakelen via de vervolgkeuzelijsten.
    * ***-kolommen uitvouwen**
 
-       Klik rechts van de *om een blauwe onderstreping weer te geven onder de*. Houd de muisaanwijzer op de blauwe onderstreping en klik vervolgens op de pijl-omlaag.
+       Als u rechts van de * klikt, ziet u een blauwe onderstreping onder de *. Houd de muisaanwijzer op de blauwe onderstreping en klik vervolgens op de pijl-omlaag.
        ![Data Lake-hulpprogramma's voor Visual Studio uitvouwen *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
        Klik op **Expand Columns** en het hulpprogramma vervangt de * door de kolomnamen.
