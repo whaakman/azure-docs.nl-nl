@@ -18,7 +18,7 @@ ms.author: syamk
 translationtype: Human Translation
 ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
 ms.openlocfilehash: 44307f258ea05635addf85bf9c59cd78b2ac0f1e
-ms.lasthandoff: 03/08/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -559,7 +559,7 @@ Als u tijdens een poging tot het implementeren van de web-app de melding 'Er is 
     - Regio: selecteer de regio die het dichtst bij uw app-gebruikers ligt
     - Databaseserver: selecteer geen database en klik vervolgens op **Maken**. 
 
-4. Klik in het scherm "todo net *app ", op**Verbinding valideren**. Nadat de verbinding is gecontroleerd, klikt u op**Publiceren**. 
+4. Klik in het scherm "todo net app * ", op **Verbinding valideren**. Nadat de verbinding is gecontroleerd, klikt u op **Publiceren**. 
     
     De app wordt vervolgens weergegeven in uw browser.
 
