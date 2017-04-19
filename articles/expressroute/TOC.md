@@ -26,7 +26,9 @@
 ## Een virtueel netwerk koppelen aan een ExpressRoute-circuit
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
-## [Een virtuele netwerkgateway configureren voor ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
+## Een virtuele netwerkgateway configureren voor ExpressRoute
+### [Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
+### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Gelijktijdige ExpressRoute- en site-to-site-verbindingen configureren](expressroute-howto-coexist-resource-manager.md)
 ## [Een circuit van klassiek naar Resource Manager verplaatsen](expressroute-howto-move-arm.md)
 ## [Gekoppelde virtuele netwerken van het klassieke model naar Resource Manager migreren](expressroute-migration-classic-resource-manager.md)

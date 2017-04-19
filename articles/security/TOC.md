@@ -50,7 +50,7 @@
 ### [Aanbevolen procedures voor IoT-beveiliging](../iot-suite/iot-security-best-practices.md)
 
 ## Beveiligingsarchitectuur
-### [Gegevensclassificatie](azure-security-data-classification.md)
+### [Gegevensclassificatie](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03)
 ### [Herstel na noodgevallen en hoge beschikbaarheid voor Azure-toepassingen](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 # Verwant
