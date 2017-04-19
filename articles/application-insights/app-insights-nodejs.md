@@ -14,16 +14,16 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: b4e2ca39cf13b25ee02afec3867a57ab4b665cbd
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 310ada88bb4d9b39eeaa10f303b9e1bd3b1f927f
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="add-application-insights-sdk-to-monitor-your-nodejs-app"></a>De Application Insights-SDK toevoegen om uw Node.js-app te bewaken
 
 
-Met [Azure Application Insights](app-insights-overview.md) wordt uw live-toepassing bewaakt om u te helpen bij het [detecteren en onderzoeken van prestatieproblemen en -uitzonderingen](app-insights-detect-triage-diagnose.md) en om [na te gaan hoe uw app wordt gebruikt](app-insights-overview-usage.md). De tool werkt voor apps die worden gehost op uw eigen on-premises IIS-servers, op virtuele Azure-machines en in Azure-webtoepassingen.
+Met [Azure Application Insights](app-insights-overview.md) wordt uw live-toepassing bewaakt om u te helpen bij het [detecteren en onderzoeken van prestatieproblemen en -uitzonderingen](app-insights-detect-triage-diagnose.md) en om [na te gaan hoe uw app wordt gebruikt](app-insights-web-track-usage.md). De tool werkt voor apps die worden gehost op uw eigen on-premises IIS-servers, op virtuele Azure-machines en in Azure-webtoepassingen.
 
 Met de SDK kunt u automatisch de snelheid en reacties van binnenkomende HTTP-aanvragen verzamelen, net als de prestatiemeteritems (CPU, geheugen, RPS) en onverwerkte uitzonderingen. Bovendien kunt u aangepaste aanroepen toevoegen om de afhankelijkheden, meetgegevens en andere gebeurtenissen bij te houden.
 
@@ -192,7 +192,7 @@ server.on("listening", () => {
 
 <!--Link references-->
 
-[knowUsers]: app-insights-overview-usage.md
+[knowUsers]: app-insights-web-track-usage.md
 [metrics]: app-insights-metrics-explorer.md
 [perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/

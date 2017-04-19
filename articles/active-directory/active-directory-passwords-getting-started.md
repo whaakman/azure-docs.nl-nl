@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: c2c46637ccccd01c1c3056d6a25ef605cfd68f2d
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: d1094e1b350883c206a9180ff71bd8613156360a
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Aan de slag met wachtwoordbeheer
 > [!IMPORTANT]
-> **Bent u hier terechtgekomen omdat u problemen ondervindt met het aanmelden?** Als dat het geval is, vindt u hier meer informatie over het [wijzigen en opnieuw instellen van uw eigen wachtwoord](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **Bent u hier terechtgekomen omdat u problemen ondervindt met het aanmelden?** Als dat het geval is, vindt u hier meer informatie over het [wijzigen en opnieuw instellen van uw eigen wachtwoord](active-directory-passwords-update-your-own-password.md#reset-my-password).
 >
 >
 
@@ -69,9 +69,9 @@ Hieronder vindt u enkele van de tips die in de praktijk zeer nuttig zijn gebleke
 * [**Tip 9: PROBLEMEN OPLOSSEN** - Als u toch nog hulp nodig hebt, verzamel dan voldoende informatie voor ons om u te kunnen helpen](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
 
 ### <a name="top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers"></a>BELANGRIJKSTE TIP: NAVIGEREN IN DOCUMENTATIE - Gebruik onze inhoudsopgave en de zoekfunctie van uw browser om antwoord op uw vragen te vinden
-Als u gebruikmaakt van onze documentatie, zult u zien dat we hebben geprobeerd om in de inhoudsopgave zo veel mogelijk quicklinks op te nemen naar alle interessante onderwerpen voor beheerders. 
+Als u gebruikmaakt van onze documentatie, zult u zien dat we hebben geprobeerd om in de inhoudsopgave zo veel mogelijk quicklinks op te nemen naar alle interessante onderwerpen voor beheerders.
 
-U vindt de inhoudsopgave via deze koppeling: 
+U vindt de inhoudsopgave via deze koppeling:
 * [Azure AD Password Reset: Documentation Table of Contents](https://docs.microsoft.com/azure/active-directory/active-directory-passwords) (Azure AD-wachtwoord opnieuw instellen: inhoudsopgave van documentatie)
 
 ### <a name="tip-1-licensing---make-sure-you-understand-the-licensing-requirements"></a>Tip 1: LICENTIEVERLENING - Zorg ervoor dat de licentievereisten duidelijk zijn
@@ -93,9 +93,9 @@ De beleidsregels die zijn geconfigureerd in de beheerinterface, zijn ALLEEN van 
  * ...gedurende de eerste 30 dagen nadat een proefabonnement is gestart **OF**
  * ...als er geen vanity domain wordt gebruikt **EN** er geen identiteiten worden gesynchroniseerd in Azure AD Connect
  * **_Vereist_**: dat **één** van deze opties is opgegeven: E-mailadres voor authenticatie, Alternatief e-mailadres, Telefoon voor authenticatie, Mobiele telefoon of Telefoon (werk)
-* **Beleid met twee gates geldt...** 
+* **Beleid met twee gates geldt...**
  * ...als de eerste 30 dagen van een proefabonnement zijn verstreken **OF**
- * ...bij aanwezigheid van een vanity domain **OF** 
+ * ...bij aanwezigheid van een vanity domain **OF**
  * ...als u in Azure AD Connect hebt ingesteld dat identiteiten vanuit de on-premises omgeving moeten worden gesynchroniseerd
  * _**Vereist**_: dat **twee** van deze opties zijn opgegeven: E-mailadres voor authenticatie, Alternatief e-mailadres, Telefoon voor authenticatie, Mobiele telefoon of Telefoon (werk)
 
@@ -145,7 +145,7 @@ Raadpleeg deze onderwerpen voor een volledig overzicht van informatie voor probl
 * [Stap 3: Uw firewall configureren](#step-3-configure-your-firewall)
 * [Stap 4: De juiste machtigingen instellen](#step-4-set-up-the-appropriate-active-directory-permissions)
 
-### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Tip 7: RAPPORTAGE - Raadpleeg de auditlogboeken van Azure AD SSPR om te kijken wie er wachtwoorden registreert of opnieuw instelt 
+### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Tip 7: RAPPORTAGE - Raadpleeg de auditlogboeken van Azure AD SSPR om te kijken wie er wachtwoorden registreert of opnieuw instelt
 Als wachtwoordherstel eenmaal is geïmplementeerd en werkt, is de volgende logische stap te kijken hoe het functioneert en te analyseren wie zich alsnog moet registreren. Ook kunt u dan zien welke problemen uw gebruikers regelmatig tegenkomen bij het opnieuw instellen van wachtwoorden en welke voordelen de functie oplevert.
 
 Met behulp van de auditlogboeken van de functie voor wachtwoordherstel van Azure AD kunt u dit en nog veel meer doen vanuit Azure Portal, Power BI, de API Reporting Events van Azure AD of PowerShell.  Zie deze onderwerpen voor meer informatie over het gebruik van deze rapportagefuncties:
@@ -495,7 +495,7 @@ Nu Wachtwoord terugschrijven is ingeschakeld, kunt u testen of dit werkt. Hiervo
 ## <a name="next-steps"></a>Volgende stappen
 Hieronder vindt u koppelingen naar alle Azure AD-documentatiepagina’s over wachtwoordherstel:
 
-* **Bent u hier terechtgekomen omdat u problemen ondervindt met het aanmelden?** Als dat het geval is, vindt u hier meer informatie over het [wijzigen en opnieuw instellen van uw eigen wachtwoord](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **Bent u hier terechtgekomen omdat u problemen ondervindt met het aanmelden?** Als dat het geval is, vindt u hier meer informatie over het [wijzigen en opnieuw instellen van uw eigen wachtwoord](active-directory-passwords-update-your-own-password.md#reset-my-password).
 * [**Hoe werkt het?**](active-directory-passwords-how-it-works.md): meer informatie over de zes verschillende onderdelen van de service en wat elke service biedt
 * [**Aanpassen**](active-directory-passwords-customize.md): informatie over het aanpassen van de weergave en het gedrag van de service om aan de behoeften van uw organisatie te voldoen
 * [**Aanbevolen procedures**](active-directory-passwords-best-practices.md): informatie over het snel implementeren en effectief beheren van wachtwoorden in uw organisatie

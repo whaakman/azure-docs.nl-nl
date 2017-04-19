@@ -48,6 +48,7 @@
 ### [Waarschuwingsbeheeroplossing](log-analytics-solution-alert-management.md)
 ## Oplossingen gebruiken
 ### [Overzicht van oplossingen](log-analytics-add-solutions.md)
+### [Activity Log Analytics](log-analytics-activity.md)
 ### [AD-evaluatie](log-analytics-ad-assessment.md)
 ### [AD-replicatiestatus](log-analytics-ad-replication-status.md)
 ### [Waarschuwingsbeheer](log-analytics-solution-alert-management.md)
