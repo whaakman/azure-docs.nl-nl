@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2e8ff5304d4ccc63f92567b22c0508e3fc7b9bcf
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 71903120a77aa4d8fd58ea600488d3464570b0cb
+ms.lasthandoff: 04/06/2017
 
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Een Docker-containerhostingoplossing implementeren met behulp van Azure Portal
@@ -36,7 +36,11 @@ Zie [Kennismaking met Azure Container Service](container-service-intro.md) voor 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Azure-abonnement**: als u nog geen abonnement hebt, kunt u zich registreren voor een [gratis proefversie](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
+* **Azure-abonnement**: als u nog geen abonnement hebt, kunt u zich registreren voor een [gratis proefversie](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Voor een groter cluster kunt u een Betalen per gebruik-abonnement of andere aanschafopties overwegen.
+
+    > [!NOTE]
+    > Uw Azure-abonnementgebruik en [resourcequota’s](../azure-subscription-service-limits.md), zoals kernquota's, kunnen de omvang beperken van het cluster dat u implementeert. Als u een verhoging van het quotum wilt aanvragen, opent u een [online een ondersteuningsverzoek](../azure-supportability/how-to-create-azure-support-request.md). Hiervoor worden geen kosten in rekening gebracht.
+    >
 
 * **Openbare SSH RSA-sleutel**: wanneer u implementeert via de portal of een van de snelstartsjablonen van Azure, moet u de openbare sleutel opgeven voor verificatie bij de virtuele machines van Azure Container Service. Als u SSH RSA-sleutels (Secure Shell) wilt maken, ziet u de richtlijnen voor [OS X en Linux](../virtual-machines/linux/mac-create-ssh-keys.md) of [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
@@ -109,7 +113,7 @@ Het duurt enkele minuten om de implementatie te voltooien. Daarna is het Azure C
 ## <a name="create-a-cluster-by-using-a-quickstart-template"></a>Een cluster maken met het snelstartsjabloon
 Er zijn Azure-snelstartsjablonen beschikbaar voor het implementeren van clusters in Azure Container Service. De verstrekte snelstartsjablonen kunnen worden aangepast om aanvullende of geavanceerde Azure-configuratie toe te voegen. Als u een Azure Container Service-cluster wilt maken met een Azure-snelstartsjabloon, hebt u een Azure-abonnement nodig. Als u er geen hebt, kunt u zich [registreren voor een gratis proefversie](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
-Volg deze stappen voor het implementeren van een cluster middels een sjabloon en Azure CLI 2.0 (zie de [instructies voor installeren en instellen](/cli/azure/install-az-cli2.md)).
+Volg deze stappen voor het implementeren van een cluster middels een sjabloon en Azure CLI 2.0 (zie de [instructies voor installeren en instellen](/cli/azure/install-az-cli2)).
 
 > [!NOTE] 
 > Als u een Windows-systeem gebruikt, kunt u vergelijkbare stappen volgen voor het implementeren van een sjabloon, maar dan via Azure PowerShell. De stappen worden verderop in dit gedeelte beschreven. U kunt sjablonen ook implementeren via de [portal](../azure-resource-manager/resource-group-template-deploy-portal.md) of op een andere manier.

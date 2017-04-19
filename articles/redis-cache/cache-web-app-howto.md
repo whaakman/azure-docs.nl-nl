@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 02e30f7fcbe0782528460b542a75f1d11c7286a1
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 076a85b7b965f163255e919eb61700aef0d1fc18
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -70,7 +70,7 @@ Als u Visual Studio 2013 hebt, kunt u [de nieuwste Azure-SDK voor Visual Studio 
 
     Zorg ervoor dat **Geen verificatie** is opgegeven voor de instellingen bij **Verificatie**. Afhankelijk van uw versie van Visual Studio kan de standaardwaarde op iets anders zijn ingesteld. Als u deze wilt wijzigen, klikt u op **Verificatie wijzigen** en selecteert u **Geen verificatie**.
 
-    Als u de zelfstudie volgt met Visual Studio 2015, schakel dan het selectievakje **Host in de cloud** in. In de volgende stappen in deze zelfstudie [richt u de Azure-resources in](#provision-the-azure-resources) en [publiceert u de toepassing in Azure](#publish-the-application-to-azure). Voor een voorbeeld van een App Service-web-app die is ingericht vanuit Visual Studio door **Host in the cloud** aangevinkt te laten, bekijkt u [Aan de slag met web-apps in Azure App Service met ASP.NET en Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
+    Als u de zelfstudie volgt met Visual Studio 2015, schakel dan het selectievakje **Host in de cloud** in. In de volgende stappen in deze zelfstudie [richt u de Azure-resources in](#provision-the-azure-resources) en [publiceert u de toepassing in Azure](#publish-the-application-to-azure). Voor een voorbeeld van een App Service-web-app die is ingericht vanuit Visual Studio door **Host in the cloud** aangevinkt te laten, bekijkt u [Aan de slag met web-apps in Azure App Service met ASP.NET en Visual Studio](../app-service-web/app-service-web-get-started-dotnet.md).
    
     ![De projectsjabloon selecteren][cache-select-template]
 4. Klik op **OK** om het project te maken.
@@ -86,7 +86,7 @@ In dit gedeelte van de zelfstudie maakt u de basistoepassing die teamstatistieke
 ### <a name="add-the-entity-framework-nuget-package"></a>Het Entity Framework NuGet-pakket toevoegen
 
 1. Klik in het menu **Extra** op **NuGet Package Manager**, **Package Manager Console**.
-2. Voer de volgende opdracht uit vanuit het venster `Package Manager Console`.
+2. Voer de volgende opdracht uit in het venster **Pakketbeheerconsole**.
     
     ```
     Install-Package EntityFramework

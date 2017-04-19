@@ -13,15 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 04/11/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: fe52867519aa65cabb62a876d5bfe57310b90fd6
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 209f8869e9ed681285865154bdd4d2d7a0f22456
+ms.lasthandoff: 04/12/2017
 
 
 ---
-# <a name="connect-active-directory-with-azure-active-directory"></a>Active Directory verbinden met Azure Active Directory.
+# <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Uw on-premises directory's integreren met Azure Active Directory
 Azure AD Connect integreert uw on-premises directory's met Azure Active Directory. Hiermee kunt u uw gebruikers een algemene identiteit bieden voor Office 365, Azure en SaaS toepassingen die zijn geïntegreerd met Azure AD. In dit onderwerp worden de planning, implementatie en bewerking besproken. Het is een verzameling van koppelingen naar de onderwerpen die betrekking hebben op dit gebied.
 
 > [!IMPORTANT]
@@ -109,7 +110,7 @@ De functie [Onopzettelijk verwijderen voorkomen](active-directory-aadconnectsync
 ## <a name="customize-azure-ad-connect-sync"></a>Azure AD Connect-synchronisatie aanpassen
 Azure AD Connect-synchronisatie wordt geleverd met een standaardconfiguratie waarmee de meeste klanten en topologieën kunnen werken. Maar er zijn altijd situaties waarin de standaardconfiguratie niet werkt en aangepast moet worden. Er kunnen wijzigingen gedaan worden zoals beschreven in deze sectie en gekoppelde onderwerpen.
 
-Als u niet eerder met een synchronisatie-topologie hebt gewerkt, zorg er dan voor dat u eerst bekend raakt met de beginselen en de voorwaarden zoals beschreven in de [technische concepten](active-directory-aadconnectsync-technical-concepts.md). Azure AD Connect is de ontwikkeling van MIIS2003, ILM2007 en FIM&2010;. Zelfs als er dingen identiek zijn, is er ook veel gewijzigd.
+Als u niet eerder met een synchronisatie-topologie hebt gewerkt, zorg er dan voor dat u eerst bekend raakt met de beginselen en de voorwaarden zoals beschreven in de [technische concepten](active-directory-aadconnectsync-technical-concepts.md). Azure AD Connect is de ontwikkeling van MIIS2003, ILM2007 en FIM 2010. Zelfs als er dingen identiek zijn, is er ook veel gewijzigd.
 
 De [standaardconfiguratie](active-directory-aadconnectsync-understanding-default-configuration.md) gaat ervan uit dat er meer dan één forest in de configuratie kan zijn. In deze topologieën kan een gebruikersobject worden weergegeven als een contactpersoon in een andere forest. De gebruiker heeft mogelijk ook een gekoppeld postvak in een andere bron-forest. Het gedrag van de standaardconfiguratie wordt beschreven in [gebruikers en contactpersonen](active-directory-aadconnectsync-understanding-users-and-contacts.md).
 
@@ -155,10 +156,5 @@ Ignite 2015-presentatie over het uitbreiden van uw on-premises adreslijsten in d
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player]
 > 
 > 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
