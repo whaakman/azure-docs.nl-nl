@@ -13,42 +13,38 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 619ea430b13c16e8e4338413613d5798f36458ba
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 81eca4b41b6a0726e5fcf851074bfb7dfca16fb8
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Een site-naar-site-verbinding maken met behulp van Azure Portal (klassiek)
+
+Een site-naar-site-VPN-gatewayverbinding (S2S) is een verbinding via een VPN-tunnel met IPsec/IKE (IKEv1 of IKEv2). Voor dit type verbinding moet er een VPN-apparaat on-premises aanwezig zijn waaraan een openbaar IP-adres is toegewezen en dat zich niet achter een NAT bevindt. Site-naar-site-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties.
+
+![Diagram: cross-premises site-naar-site-VPN-gatewayverbinding](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
+
+In dit artikel wordt stapsgewijs beschreven hoe u een virtueel netwerk en een site-naar-site-VPN-gatewayverbinding met uw on-premises netwerk maakt, met behulp van het klassieke implementatiemodel en Azure Portal. U kunt deze configuratie voor het Resource Manager-implementatiemodel ook maken door in de volgende lijst een andere optie te selecteren:
+
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [Klassiek - Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Klassiek - Klassieke portal](vpn-gateway-site-to-site-create.md)
+> * [Klassiek - klassieke portal](vpn-gateway-site-to-site-create.md)
 >
 >
-
-
-Een site-naar-site-VPN-gatewayverbinding (S2S) is een verbinding via een VPN-tunnel met IPsec/IKE (IKEv1 of IKEv2). Voor dit type verbinding moet er een VPN-apparaat on-premises aanwezig zijn waaraan een openbaar IP-adres is toegewezen en dat zich niet achter een NAT bevindt. Site-naar-site-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties.
-
-In dit artikel wordt stapsgewijs beschreven hoe u een virtueel netwerk en een site-naar-site-VPN-gatewayverbinding met uw on-premises netwerk maakt, met behulp van het klassieke implementatiemodel en Azure Portal. 
-
-![Diagram: cross-premises site-naar-site-VPN-gatewayverbinding](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
-
-### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Implementatiemodellen en -methoden voor site-naar-site-verbindingen
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
-
-In de volgende tabel staan de momenteel beschikbare implementatiemodellen en -methoden voor site-naar-site-configuraties. Als er een artikel met configuratiestappen beschikbaar is, kunt u dit via een rechtstreekse koppeling in deze tabel raadplegen.
-
-[!INCLUDE [site-to-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 #### <a name="additional-configurations"></a>Aanvullende configuraties
 Als u VNets met elkaar wilt verbinden, maar geen verbinding maakt met een on-premises locatie, raadpleeg dan [Configure a VNet-to-VNet connection](virtual-networks-configure-vnet-to-vnet-connection.md) (Een VNet-naar-VNet-verbinding configureren). Zie [Een S2S-verbinding toevoegen aan een VNet met een bestaande VPN-gatewayverbinding](vpn-gateway-multi-site.md) als u een site-naar-site-verbinding wilt toevoegen aan een VNet die al een verbinding heeft.
 
 ## <a name="before-you-begin"></a>Voordat u begint
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+
 Controleer voordat u met de configuratie begint of u de volgende items hebt.
 
 * Een compatibel VPN-apparaat en iemand die dit kan configureren. Zie [About VPN Devices](vpn-gateway-about-vpn-devices.md) (Over VPN-apparaten). Als u niet weet hoe u uw VPN-apparaat moet configureren of de IP-adresbereiken in uw on-premises netwerkconfiguratie niet kent, moet u contact opnemen met iemand die u hierbij kan helpen en de benodigde gegevens kan verstrekken.
@@ -57,8 +53,7 @@ Controleer voordat u met de configuratie begint of u de volgende items hebt.
 * Momenteel is het in PowerShell vereist dat de gedeelde sleutel wordt opgegeven en de VPN-gatewayverbinding wordt gemaakt. Installeer de nieuwste versie van de Azure SM (Service Management) PowerShell-cmdlets. Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor meer informatie. Als u werkt met PowerShell voor deze configuratie, zorg er dan voor dat u de bewerkingen uitvoert als beheerder. 
 
 > [!NOTE]
-> Wanneer u een S2S-verbinding configureert, hebt u een openbaar IPv4-adres voor het VPN-apparaat nodig.                                                                                                                                                                               
->
+> Wanneer u een S2S-verbinding configureert, hebt u een openbaar IPv4-adres voor het VPN-apparaat nodig.
 >
 
 ### <a name="values"></a>Voorbeeld van configuratiewaarden voor deze oefening
@@ -103,7 +98,7 @@ Als u een virtueel netwerk maakt om te gebruiken met een S2S-verbinding, moet u 
 8. Selecteer **Vastmaken aan dashboard** als u uw VNet gemakkelijk wilt terugvinden op het dashboard en klik vervolgens op **Aanmaken**.
 
     ![Vastmaken aan dashboard](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "Vastmaken aan dashboard")
-9. Klik op Maken. U ziet nu een tegel op het dashboard waarop de voortgang van het VNet wordt weergegeven. De tegel wordt gewijzigd wanneer het VNet wordt gemaakt.
+9. Wanneer u op Maken klikt, wordt er op het dashboard een tegel weergegeven die de voortgang van uw VNet weergeeft. De tegel wordt gewijzigd wanneer het VNet wordt gemaakt.
 
     ![Tegel Virtueel netwerk maken](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "Tegel Virtueel netwerk maken")
 
@@ -125,7 +120,7 @@ Nadat u uw virtuele netwerk hebt gemaakt, kunt u het IP-adres van een DNS-server
 1. Ga naar de virtuele netwerken in de portal.
 2. Klik op de blade voor uw virtuele netwerk onder de sectie **Instellingen** op **DNS-servers**.
 3. Voeg een DNS-server toe.
-4. Klik boven aan de blade op **Opslaan** om uw instellingen op te slaan.
+4. Klik boven aan de pagina op **Opslaan** om uw instellingen op te slaan.
  
 ## <a name="localsite"></a>4. De lokale site configureren
 
@@ -147,7 +142,7 @@ De lokale site verwijst doorgaans naar uw on-premises locatie. Het bevat het IP-
 
 ## <a name="gatewaysubnet"></a>5. Het gatewaysubnet configureren
 
-U moet een gatewaysubnet maken voor de VPN-gateway. Het gatewaysubnet bevat de IP-adressen waarvan de VPN-gatewayservices gebruik gaan maken.
+U moet een gatewaysubnet maken voor de VPN-gateway. Het gatewaysubnet bevat de IP-adressen waarvan de VPN-gatewayservices gebruikmaken.
 
 1. Selecteer op de blade **Nieuwe VPN-verbinding** het selectievakje **Gateway onmiddellijk maken**. De blade Optionele gatewayconfiguratie wordt weergegeven. Als u het selectievakje niet selecteert, ziet u de blade niet waarop u het gatewaysubnet kunt configureren.
 
@@ -170,32 +165,48 @@ U moet een gatewaysubnet maken voor de VPN-gateway. Het gatewaysubnet bevat de I
 
 ## <a name="vpndevice"></a>7. Uw VPN-apparaat configureren
 
-Neem contact op met de fabrikant van uw apparaat voor specifieke informatie over configuraties en het configureren van uw apparaat. Raadpleeg de [VPN-apparaten](vpn-gateway-about-vpn-devices.md) voor meer informatie over VPN-apparaten die goed werken in combinatie met Azure. Controleer ook of er [Bekende compatibiliteitsproblemen](vpn-gateway-about-vpn-devices.md#known) zijn met het VPN-apparaat dat u wilt gebruiken. 
+Voor site-naar-site-verbindingen met een on-premises netwerk is een VPN-apparaat vereist. Hoewel we niet voor alle VPN-apparaten de configuratiestappen geven, kan de informatie van de volgende koppelingen toch nuttig zijn:
 
-Wanneer u het VPN-apparaat gaat configureren, hebt het IP-adres nodig van de VPN-gateway die u hebt gemaakt. U vindt dit adres op de blade **Overzicht** voor het virtuele netwerk.
+- Zie [Over VPN-apparaten](vpn-gateway-about-vpn-devices.md) voor meer informatie over compatibele VPN-apparaten. 
+- Zie [Gevalideerde VPN-apparaten](vpn-gateway-about-vpn-devices.md#devicetable) voor koppelingen naar configuratie-instellingen. Deze koppelingen worden op basis van 'best effort' aangeboden. Het is altijd verstandig om de actuele configuratie-informatie op te vragen bij de fabrikant van uw apparaat.
+- Zie [Bewerkingsvoorbeelden](vpn-gateway-about-vpn-devices.md#editing) voor voorbeelden van het bewerken van de apparaatconfiguratie.
+- Zie [Parameters](vpn-gateway-about-vpn-devices.md#ipsec) voor de IPsec/IKE-parameters.
+- Controleer voordat u uw VPN-apparaat configureert of er [bekende compatibiliteitsproblemen](vpn-gateway-about-vpn-devices.md#known) zijn met het VPN-apparaat dat u wilt gebruiken.
+
+Bij de configuratie van uw VPN-apparaat hebt u het volgende nodig:
+
+- Het openbare IP-adres van de gateway van uw virtuele netwerk. U vindt dit adres op de blade **Overzicht** voor het virtuele netwerk.
+- Een gedeelde sleutel. Dit is dezelfde gedeelde sleutel die u opgeeft wanneer u uw site-naar-site-VPN-verbinding maakt. In onze voorbeelden gebruiken we een zeer eenvoudige gedeelde sleutel. We raden u aan een complexere sleutel te gebruiken.
 
 ## <a name="CreateConnection"></a>8. De verbinding maken
 In deze stap stelt u de gedeelde sleutel in en maakt u de verbinding. De sleutel die u instelt, moet dezelfde sleutel zijn die is gebruikt bij de configuratie van het VPN-apparaat.
 
 > [!NOTE]
-> Deze stap is momenteel niet beschikbaar in Azure Portal. Gebruik de SM-versie (Service Management) van de Azure PowerShell-cmdlets.                                                                                                                                                                             
->
+> Deze stap is momenteel niet beschikbaar in Azure Portal. Gebruik de SM-versie (Service Management) van de Azure PowerShell-cmdlets.                                        >
 >
 
 ### <a name="step-1-connect-to-your-azure-account"></a>Step 1. Verbinding maken met uw Azure-account
 
 1. Open de PowerShell-console met verhoogde rechten en maak verbinding met uw account. Gebruik het volgende voorbeeld als hulp bij het maken van de verbinding:
 
-        Login-AzureRmAccount
+  ```powershell
+  Login-AzureRmAccount
+  ```
 2. Controleer de abonnementen voor het account.
 
-        Get-AzureRmSubscription
+  ```powershell
+  Get-AzureRmSubscription
+  ```
 3. Als u meerdere abonnementen hebt, selecteert u het abonnement dat u wilt gebruiken.
 
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 4. Voeg de SM-versie van de PowerShell-cmdlets toe.
 
-        Add-AzureAccount
+  ```powershell
+  Add-AzureAccount
+  ```
 
 ### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>Stap 2. De gedeelde sleutel instellen en de verbinding maken
 
@@ -203,13 +214,17 @@ Als u werkt met PowerShell en het klassieke implementatiemodel, komen de namen v
 
 1. Maak een map op de computer en exporteer vervolgens het netwerkconfiguratiebestand naar de map. In dit voorbeeld wordt het netwerkconfiguratiebestand geëxporteerd naar C:\AzureNet.
 
-         Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+  ```powershell
+  Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+  ```
 2. Open het netwerkconfiguratiebestand met een xml-editor en controleer de waarden voor LocalNetworkSite name en VirtualNetworkSite name. Wijzig het voorbeeld om de waarden te weerspiegelen. Gebruik voor een naam die spaties bevat, enkele aanhalingstekens rond de waarde.
 
 3. Stel de gedeelde sleutel in en maak de verbinding. -SharedKey is een waarde die u genereert en opgeeft. In het voorbeeld wordt abc123 gebruikt, maar u kunt een ingewikkeldere waarde gebruiken. (aanbevolen) Het is van belang dat de waarde die u hier opgeeft, dezelfde waarde is die u hebt opgegeven bij het configureren van het VPN-apparaat.
 
-        Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
-        -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
+  ```powershell
+  Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
+  -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
+  ```
 Wanneer de verbinding is gemaakt, is het resultaat: **Status: geslaagd**.
 
 ## <a name="verify"></a>9. De verbinding controleren

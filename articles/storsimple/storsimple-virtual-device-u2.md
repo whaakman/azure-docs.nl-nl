@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/22/2017
+ms.date: 04/07/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 48d9d8ae97eb763932dd6a59a7df01ae92c92eff
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d9ba200dba2b1460a9d3c9ba07e2bca54c30b53a
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -33,7 +33,7 @@ Het virtuele StorSimple-apparaat is beschikbaar in twee modellen: de Standard 80
 | **Maximale capaciteit** |30 TB |64 TB |
 | **Azure VM** |Standard_A3 (4 kerngeheugens, 7 GB geheugen) |Standard_DS3 (4 kerngeheugens, 14 GB geheugen) |
 | **Versiecompatibiliteit** |Versies met Update 2 of oudere of nieuwere software |Versies met Update 2 of nieuwere software |
-| **Beschikbaarheid in regio’s** |Alle Azure-regio's |Alle Azure-regio's waar ondersteuning wordt geboden voor Premium Storage<br></br> De Premium Storage-regio's zijn regio's die overeenkomen met de rij voor *Schijfruimte* in de lijst met [Azure Services per regio](https://azure.microsoft.com/en-us/regions/services). |
+| **Beschikbaarheid in regio’s** |Alle Azure-regio's |Alle Azure-regio's waar ondersteuning wordt geboden voor Premium Storage en Azure-VM’s met DS3<br></br> Gebruik [deze lijst](https://azure.microsoft.com/en-us/regions/services) om te kijken of zowel *Virtuele Machines > DS-serie* als *Opslag > Schijfruimte* beschikbaar is in uw regio. |
 | **Opslagtype** |Maakt gebruik van Azure Standard-opslag voor lokale schijven<br></br> Ontdek hoe u [een Standard-opslagaccount maakt](../storage/storage-create-storage-account.md) |Maakt gebruik van Azure Premium Storage voor lokale schijven<sup>2</sup> <br></br>Ontdek hoe u [een Premium Storage-account maakt](../storage/storage-premium-storage.md) |
 | **Richtlijnen voor de workload** |Bestanden ophalen uit back-ups op itemniveau |Cloudontwikkelings- en testscenario’s, lage latentie en werkbelasting met hogere prestaties <br></br>Secundair apparaat voor herstel na noodgevallen |
 

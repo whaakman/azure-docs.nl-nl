@@ -1,6 +1,6 @@
 ---
 title: Verbinding maken met Azure SQL Database via .NET (C#) | Microsoft Docs
-description: Gebruik de voorbeeldcode in deze Quick Start om met Azure SQL Database een moderne toepassing te bouwen met C# die wordt ondersteund door een krachtige relationele database in de cloud.
+description: Is een .NET-codevoorbeeld dat u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit Azure SQL Database
 services: sql-database
 documentationcenter: 
 author: ajlam
@@ -8,37 +8,42 @@ manager: jhubbard
 editor: 
 ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start connect
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/28/2017
+ms.date: 04/05/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: c6c0c218b8d0456d37a4514238675fd8e75faf9d
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: c36c3a3f651bcee38b953b12e48cab8d93a34207
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="azure-sql-database-use-net-c-to-connect-and-query-data"></a>Azure SQL Database: .NET (C#) gebruiken om verbinding te maken en query's uit te voeren voor gegevens
 
-Gebruik [C# en ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) om verbinding te maken met de Azure SQL-database en om er query's voor uit te voeren. In deze handleiding wordt informatie geboden over het gebruik van C# om verbinding te maken met een Azure SQL-database, over het uitvoeren van query's en over het invoegen, bijwerken en verwijderen van instructies.
+In deze Quick Start ziet u hoe u [C# en ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) gebruikt om verbinding te maken met een Azure SQL-database en vervolgens Transact-SQL-instructies gebruikt om gegevens in de database te zoeken, in te voegen, bij te werken en te verwijderen vanaf het Windows-, Mac OS- en Ubuntu Linux-platform.
 
 In deze Quick Start wordt dit gebruikt als basis voor het maken van de resources die u hebt gemaakt in een van deze Quick Starts:
 
 - [Database maken - Portal](sql-database-get-started-portal.md)
 - [Database maken - CLI](sql-database-get-started-cli.md)
 
-## <a name="configure-development-environment"></a>De ontwikkelomgeving configureren
+## <a name="install-net"></a>.NET installeren
 
-In de volgende secties worden details gegeven over het configureren van uw bestaande ontwikkelomgevingen in Mac OS, Linux (Ubuntu) en Windows om te werken met Azure SQL Database.
+### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework en .NET Core**
+
+Visual Studio 2017 Community is een volledig functionele, uitbreidbare en gratis IDE voor het maken van moderne toepassingen voor Android, iOS en Windows, voor web- en databasetoepassingen, en voor cloudservices. U kunt het .NET Framework volledig installeren of alleen .NET Core. De codefragmenten in de Quick Start werken in beide gevallen. Als Visual Studio al is geïnstalleerd op uw computer, kunt u de volgende stappen overslaan.
+
+1. Download het [installatieprogramma](https://go.microsoft.com/fwlink/?LinkId=691978). 
+2. Voer het installatieprogramma uit en volg de weergegeven opdrachten om de installatie te voltooien.
 
 ### <a name="mac-os"></a>**Mac OS**
 Open de terminal en navigeer naar een map waar u van plan bent een .NET Core-project te maken. Voer de volgende opdrachten in voor het installeren van **Brew**, **OpenSSL** en **.NET Core**. 
 
-```C#
+```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 brew install openssl
@@ -52,20 +57,12 @@ Installeer .NET Core op Mac OS. Download het [officiële installatieprogramma](h
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 Open de terminal en navigeer naar een map waar u van plan bent een .NET Core-project te maken. Voer de volgende opdrachten in om **.NET Core** te installeren.
 
-```C#
+```bash
 sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 sudo apt-get update
 sudo apt-get install dotnet-dev-1.0.1
 ```
-
-### <a name="windows"></a>**Windows**
-Installeer de Visual Studio 2015 Community-editie en .NET Framework. Als Visual Studio al is geïnstalleerd op uw computer, kunt u de volgende stappen overslaan.
-
-Visual Studio 2015 Community is een volledig functionele, uitbreidbare en gratis IDE voor het maken van moderne toepassingen voor Android, iOS en Windows, voor web- en databasetoepassingen, en voor cloudservices.
-
-1. Download het [installatieprogramma](https://go.microsoft.com/fwlink/?LinkId=691978). 
-2. Voer het installatieprogramma uit en volg de weergegeven opdrachten om de installatie te voltooien.
 
 ## <a name="get-connection-information"></a>Verbindingsgegevens ophalen
 
@@ -309,5 +306,11 @@ namespace ConsoleApplication1
 ## <a name="next-steps"></a>Volgende stappen
 
 - zie [.NET-documentatie](https://docs.microsoft.com/dotnet/) voor .NET-documentatie.
-- Zie [Visual Studio Code](https://code.visualstudio.com/docs) voor meer informatie over het uitvoeren van query's voor en het bewerken van gegevens met Visual Studio Code.
+- Als u verbinding wilt maken en query's wilt uitvoeren met behulp van SQL Server Management Studio, raadpleegt u [Verbinding maken en query's uitvoeren met SSMS](sql-database-connect-query-ssms.md)
+- Zie [Verbinding maken en query's uitvoeren met Visual Studio](sql-database-connect-query-vscode.md) als u verbinding wilt maken en query's wilt uitvoeren met Visual Studio Code.
+- Zie [Verbinding maken en query's uitvoeren met PHP](sql-database-connect-query-php.md) als u verbinding wilt maken en query's wilt uitvoeren met PHP.
+- Zie [Verbinding maken en query's uitvoeren met Node.js](sql-database-connect-query-nodejs.md) als u verbinding wilt maken en query's wilt uitvoeren met Node.js.
+- Zie [Verbinding maken en query's uitvoeren met Java](sql-database-connect-query-java.md) als u verbinding wilt maken en query's wilt uitvoeren met Java.
+- Zie [Verbinding maken en query's uitvoeren met Python](sql-database-connect-query-python.md) als u verbinding wilt maken en query's wilt uitvoeren met Python.
+- Zie [Verbinding maken en query's uitvoeren met Ruby](sql-database-connect-query-ruby.md) als u verbinding wilt maken en query's wilt uitvoeren met Ruby.
 

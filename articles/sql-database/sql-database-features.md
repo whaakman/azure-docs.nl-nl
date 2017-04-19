@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: e052109ff10f21c3a737f336479fe43fb54e500e
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 7dc5210c073a3130bfc9ffdbc9ce33e19ca5bc1a
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -42,7 +42,7 @@ Zie [SQL-databases](sql-database-overview.md) voor meer informatie over Azure SQ
 
 In de volgende tabellen staan de belangrijkste functies van Azure SQL Database en SQL Server, worden de ondersteuningsmogelijkheden gespecificeerd en staan koppelingen naar meer informatie over de functie op elk platform. Voor Transact-SQL-functies volgt u de koppeling in de tabel voor de categorie van de functie. Zie ook [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md) (Verschillen tussen Azure SQL-database en Transact-SQL) voor meer achtergrondinformatie over de redenen waarom bepaalde soorten functies niet worden ondersteund.
 
-Er worden doorlopend extra functies toegevoegd aan V12. Het wordt daarom aangeraden om onze Azure-webpagina Service-updates regelmatig te bezoeken en filters te gebruiken:
+Er worden doorlopend extra functies toegevoegd aan Azure SQL Database. Het wordt daarom aangeraden om onze Azure-webpagina Service-updates regelmatig te bezoeken en filters te gebruiken:
 
 * Gefilterd op de [SQL Database-service](https://azure.microsoft.com/updates/?service=sql-database).
 * Gefilterd op [aankondigingen](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) over de algemene beschikbaarheid (GA) van SQL Database-functies.

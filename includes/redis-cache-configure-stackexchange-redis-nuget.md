@@ -25,7 +25,7 @@ Het NuGet-pakket downloadt de vereiste assembly-verwijzingen voor de clienttoepa
 > 
 > 
 
-U kunt het StackExchange.Redis-pakket NuGet ook installeren door in het menu **Hulpprogramma's** te klikken op **NuGet Package Manager**, **Package Manager Console** en de volgende opdracht uit te voeren vanuit het venster `Package Manager Console`.
+U kunt het StackExchange.Redis-pakket NuGet ook installeren door in het menu **Hulpprogramma's** te klikken op **NuGet Package Manager**, **Package Manager Console** en in het venster **Package Manager Console** de volgende opdracht uit te voeren.
     
 ```
 Install-Package StackExchange.Redis

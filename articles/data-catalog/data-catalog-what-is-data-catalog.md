@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 04/06/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: cd3184059a0970bb7c9b59803cf37125abbbd879
-ms.openlocfilehash: 19d4c3990c88f82f60cd253ffdcbd2005d00ad79
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: fb8f43f5bb5725da30e67cdf5d7b066fe40ed003
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -47,7 +48,7 @@ Gezamenlijk vormen deze uitdagingen een aanzienlijke belemmering voor bedrijven 
 ## <a name="azure-data-catalog-can-help"></a>Azure Data Catalog kan helpen
 Data Catalog is ontworpen om deze problemen te verhelpen en ervoor te zorgen dat ondernemingen het meeste uit hun bestaande gegevensassets kunnen halen. Data Catalog helpt door te zorgen dat gegevensbronnen gemakkelijk kunnen worden gedetecteerd en begrijpelijk zijn voor de gebruikers die de beheerde gegevens nodig hebben.
 
-Data Catalog levert een cloudservice waarin gegevensbronnen kunnen worden geregistreerd. De gegevens blijven op de bestaande locatie, maar een kopie van de metagegevens wordt toegevoegd aan Data Catalog, samen met een verwijzing naar de locatie van de gegevensbron. Deze metagegevens worden ook geïndexeerd zodat elke gegevensbron gemakkelijk kan worden gedetecteerd via zoekopdrachten, en begrijpelijk is voor gebruikers die de gegevensbron detecteren.
+Data Catalog levert een cloudservice waarin een gegevensbron kan worden geregistreerd. De gegevens blijven op de bestaande locatie, maar een kopie van de metagegevens wordt toegevoegd aan Data Catalog, samen met een verwijzing naar de locatie van de gegevensbron. Deze metagegevens worden ook geïndexeerd zodat elke gegevensbron gemakkelijk kan worden gedetecteerd via zoekopdrachten, en begrijpelijk is voor gebruikers die de gegevensbron detecteren.
 
 Als een gegevensbron is geregistreerd, kunnen de metagegevens vervolgens worden uitgebreid door de gebruiker die de registratie heeft uitgevoerd of door andere gebruikers in de onderneming. Elke gebruiker kan aantekeningen toevoegen aan een gegevensbron door beschrijvingen, tags of andere metagegevens in te voeren, zoals documentatie en processen voor het aanvragen van toegang tot gegevensbronnen. Deze beschrijvende metagegevens vormen een aanvulling op de structurele metagegevens (zoals kolomnamen en gegevenstypen) die zijn geregistreerd vanuit de gegevensbron.
 
@@ -72,9 +73,4 @@ Zie voor meer informatie over de mogelijkheden van Data Catalog:
 * [Gegevensassets beheren](data-catalog-how-to-manage.md)
 * [De zakelijke woordenlijst instellen](data-catalog-how-to-business-glossary.md)
 * [Veelgestelde vragen](data-catalog-frequently-asked-questions.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

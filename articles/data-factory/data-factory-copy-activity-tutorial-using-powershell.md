@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/02/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: a95e65db804f1c6cc2927901216ee7a287a911ee
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 09d8634d8d1b16edb058d0bb259b089a54748279
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -53,7 +54,7 @@ De volgende tabel bevat de stappen die u moet uitvoeren als onderdeel van de zel
 | --- | --- |
 | [Een Azure Data Factory maken](#create-data-factory) |In deze stap maakt u een Azure-gegevensfactory met de naam **ADFTutorialDataFactoryPSH**. |
 | [Gekoppelde services maken](#create-linked-services) |In deze stap maakt u twee gekoppelde services: **StorageLinkedService** en **AzureSqlLinkedService**. Met de StorageLinkedService wordt een Azure Storage-service gekoppeld en met AzureSqlLinkedService wordt een Azure SQL-database gekoppeld aan ADFTutorialDataFactoryPSH. |
-| [Invoer- en uitvoergegevenssets maken](#create-datasets) |In deze stap definieert u twee gegevenssets (**EmpTableFromBlob** en **EmpSQLTable**). Deze gegevenssets worden gebruikt als invoer- en uitvoertabellen voor **Kopieeractiviteit** in de ADFTutorialPipeline die u in de volgende stap maakt. |
+| [Invoer- en uitvoergegevenssets maken](#create-datasets) |In deze stap definieert u twee gegevenssets (EmpTableFromBlob en EmpSQLTable). Deze gegevenssets worden gebruikt als invoer- en uitvoertabellen voor **Kopieeractiviteit** in de ADFTutorialPipeline die u in de volgende stap maakt. |
 | [Een pijplijn maken en uitvoeren](#create-pipeline) |In deze stap maakt u een pijplijn met de naam **ADFTutorialPipeline** in de data factory ADFTutorialDataFactoryPSH. De pijplijn gebruikt Kopieeractiviteit om gegevens van een Azure-blob naar een uitvoer-Azure-databasetabel te kopiëren. |
 | [Gegevenssets en pijplijn bewaken](#monitor-pipeline) |In deze stap bewaakt u de gegevenssets en de pijplijn met Azure PowerShell. |
 
@@ -62,40 +63,57 @@ In deze stap gebruikt u Azure PowerShell om een Azure data factory met de naam *
 
 1. Start **PowerShell**. Houd Azure PowerShell open tot het einde van deze zelfstudie. Als u het programma sluit en opnieuw opent, moet u de opdrachten opnieuw uitvoeren.
 
-   a. Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij Azure Portal:
+    Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij Azure Portal:
 
-           Login-AzureRmAccount   
-   b. Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven:
+    ```PowerShell
+    Login-AzureRmAccount
+    ```   
+   
+    Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven:
 
-           Get-AzureRmSubscription
-   c. Voer de volgende opdracht uit om het abonnement te selecteren waarmee u wilt werken. Vervang **&lt;NameOfAzureSubscription**&gt; door de naam van uw Azure-abonnement:
+    ```PowerShell
+    Get-AzureRmSubscription
+    ```
 
-           Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    Voer de volgende opdracht uit om het abonnement te selecteren waarmee u wilt werken. Vervang **&lt;NameOfAzureSubscription**&gt; door de naam van uw Azure-abonnement:
+
+    ```PowerShell
+    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    ```
 2. Maak een Azure-resourcegroep met de naam **ADFTutorialResourceGroup** door de volgende opdracht uit te voeren:
 
-        New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-
+    ```PowerShell
+    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```
+    
     Voor sommige van de stappen in deze zelfstudie wordt ervan uitgegaan dat u de resourcegroep met de naam **ADFTutorialResourceGroup** gebruikt. Als u een andere resourcegroep gebruikt, moet u voor deze zelfstudie die groep gebruiken in plaats van ADFTutorialResourceGroup.
 3. Voer de cmdlet **New-AzureRmDataFactory** uit om een data factory met de naam **ADFTutorialDataFactoryPSH** te maken:  
 
-        New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
-
+    ```PowerShell
+    New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
+    ```
 Houd rekening met de volgende punten:
 
 * De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u het volgende foutbericht krijgt, moet u de naam (bijvoorbeeld uwnaamADFTutorialDataFactoryPSH) wijzigen. Gebruik deze naam in plaats van ADFTutorialFactoryPSH tijdens het uitvoeren van de stappen in de zelfstudie. Raadpleeg [Data Factory - Naming Rules](data-factory-naming-rules.md) (Data Factory - Naamgevingsregels) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
 
-        Data factory name “ADFTutorialDataFactoryPSH” is not available
+    ```
+    Data factory name “ADFTutorialDataFactoryPSH” is not available
+    ```
 * Als u Data Factory-exemplaren wilt maken, moet u bijdrager of beheerder zijn van het Azure-abonnement.
 * De naam van de data factory wordt in de toekomst mogelijk geregistreerd als DNS-naam en wordt daarmee ook voor iedereen zichtbaar.
 * Mogelijk wordt de volgende fout weergegeven: **Dit abonnement is niet geregistreerd voor gebruik van de naamruimte Microsoft.DataFactory**. Voer een van de volgende handelingen uit en probeer opnieuw te publiceren:
 
   * Voer in Azure PowerShell de volgende opdracht uit om de Data Factory-provider te registreren:
 
-          Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```PowerShell
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
 
-      Voer de volgende opdracht uit om te bevestigen dat de Data Factory-provider is geregistreerd:
+    Voer de volgende opdracht uit om te bevestigen dat de Data Factory-provider is geregistreerd:
 
-          Get-AzureRmResourceProvider
+    ```PowerShell
+    Get-AzureRmResourceProvider
+    ```
   * Meld u met het Azure-abonnement aan bij de [Azure-portal](https://portal.azure.com). Ga naar een Data Factory-blade of maak een data factory in de Azure-portal. Door deze actie wordt de provider automatisch voor u geregistreerd.
 
 ## <a name="create-linked-services"></a>Gekoppelde services maken
@@ -106,33 +124,34 @@ In deze stap maakt u twee gekoppelde services: **StorageLinkedService** en **Azu
 ### <a name="create-a-linked-service-for-an-azure-storage-account"></a>Een gekoppelde service maken voor een Azure-opslagaccount
 1. Maak een JSON-bestand met de naam **StorageLinkedService.json** in de map **C:\ADFGetStartedPSH**. Geef dit bestand de volgende inhoud. (Maak de map ADFGetStartedPSH als deze nog niet bestaat.)
 
-         {
-               "name": "StorageLinkedService",
-               "properties": {
-                 "type": "AzureStorage",
-                 "typeProperties": {
-                       "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-                 }
-               }
-         }
-
+    ```json
+    {
+        "name": "StorageLinkedService",
+        "properties": {
+            "type": "AzureStorage",
+            "typeProperties": {
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        }
+     }
+    ```
    Vervang **accountname** en **accountkey** door de naam en sleutel van uw Azure Storage-account.
 2. Schakel in **Azure PowerShell** over naar de map **ADFGetStartedPSH**.
 3. U kunt de cmdlet **New-AzureRmDataFactoryLinkedService** gebruiken om een gekoppelde service te maken. Voor deze cmdlet en andere Data Factory-cmdlets die u in deze zelfstudie gebruikt, moet u waarden doorgeven voor de parameters **ResourceGroupName** en **DataFactoryName**. U kunt ook **Get-AzureRmDataFactory** gebruiken om een DataFactory-object te verkrijgen. U geeft daarmee het object door zonder ResourceGroupName en DataFactoryName te hoeven typen telkens wanneer u een cmdlet uitvoert. Voer de volgende opdracht uit om de uitvoer van de cmdlet **Get-AzureRmDataFactory** toe te wijzen aan de variabele **$df**:
 
-    ```   
+    ```PowerShell   
     $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
     ```
 
 4. Voer nu de cmdlet **New-AzureRmDataFactoryLinkedService** uit om de gekoppelde **StorageLinkedService**-service te maken.
 
-    ```
+    ```PowerShell
     New-AzureRmDataFactoryLinkedService $df -File .\StorageLinkedService.json
     ```
 
     Als u de cmdlet **Get-AzureRmDataFactory** niet had uitgevoerd en u de uitvoer niet had toegewezen aan de **$df**-variabele, zou u als volgt waarden moeten opgeven voor de parameters ResourceGroupName en DataFactoryName.   
 
-    ```
+    ```PowerShell
     New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
     ```
 
@@ -141,20 +160,21 @@ Als u Azure PowerShell gedurende deze zelfstudie sluit, moet u de volgende keer 
 ### <a name="create-a-linked-service-for-an-azure-sql-database"></a>Een gekoppelde service maken voor een Azure SQL-database
 1. Maak een JSON-bestand met de naam AzureSqlLinkedService.json en de volgende inhoud:
 
-         {
-             "name": "AzureSqlLinkedService",
-             "properties": {
-                 "type": "AzureSqlDatabase",
-                 "typeProperties": {
-                       "connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=<user>@<server>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-                 }
-               }
-         }
-
+    ```json
+    {
+        "name": "AzureSqlLinkedService",
+        "properties": {
+            "type": "AzureSqlDatabase",
+            "typeProperties": {
+                "connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=<user>@<server>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            }
+        }
+     }
+    ```
    Vervang **servername**, **databasename**, **username@servername** en **password** door de namen van uw Azure SQL-server, database, gebruiker en wachtwoord.
 2. Voer de volgende opdracht uit om een gekoppelde service te maken:
 
-    ```
+    ```PowerShell
     New-AzureRmDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
     ```
 
@@ -180,64 +200,70 @@ Voer de volgende stappen uit om de Blob-opslag en Azure SQL Database voor te ber
 2. Maak een tekstbestand met de naam **emp.txt** en upload het als blob naar de container **adftutorial**.
 3. Maak een tabel met de naam **emp** in de SQL-database waarnaar **AzureSqlLinkedService** wijst.
 
-4. Open Kladblok, plak de volgende tekst en sla het bestand als **emp.txt** op in de map **C:\ADFGetStartedPSH** op de vaste schijf.
+4. Start Kladblok. Kopieer de volgende tekst en sla deze als **emp.txt** op in de map **C:\ADFGetStartedPSH** op de vaste schijf.
 
-        John, Doe
-        Jane, Doe
+    ```
+    John, Doe
+    Jane, Doe
+    ```
 5. Gebruik hulpprogramma's zoals [Azure Opslagverkenner](https://azurestorageexplorer.codeplex.com/) om de container **adftutorial** te maken en om het bestand **emp.txt** te uploaden naar de container.
 
     ![Azure Opslagverkenner](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)
 6. Gebruik het volgende SQL-script om de tabel **emp** te maken in uw SQL-database.  
 
-        CREATE TABLE dbo.emp
-        (
-            ID int IDENTITY(1,1) NOT NULL,
-            FirstName varchar(50),
-            LastName varchar(50),
-        )
-        GO
+    ```sql
+    CREATE TABLE dbo.emp
+    (
+        ID int IDENTITY(1,1) NOT NULL,
+        FirstName varchar(50),
+        LastName varchar(50),
+    )
+    GO
 
-        CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+    ```
 
     Als u SQL Server 2014 op uw computer hebt geïnstalleerd, volgt u de instructies in [Stap 2: Verbinding maken met de SQL Database in het artikel Azure SQL Database beheren met SQL Server Management Studio](../sql-database/sql-database-manage-azure-ssms.md) om verbinding te maken met uw SQL-databaseserver en het SQL-script uit te voeren.
 
     Als de client geen toegang heeft tot de SQL-databaseserver, moet u de firewall voor uw SQL-databaseserver zo instellen dat toegang vanaf uw apparaat (IP-adres) is toegestaan. Raadpleeg [dit artikel](../sql-database/sql-database-configure-firewall-settings.md) voor de stappen.
 
 ### <a name="create-an-input-dataset"></a>Een invoergegevensset maken
-Een tabel is een rechthoekige gegevensset en bevat een schema. In deze stap maakt u een tabel met de naam **EmpBlobTable**. Deze tabel wijst naar een blobcontainer in Azure Storage, voorgesteld door de gekoppelde **StorageLinkedService**-service. Deze blobcontainer (**adftutorial**) bevat een bestand **emp.txt** dat de invoergegevens bevat.
+Een tabel is een rechthoekige gegevensset en bevat een schema. In deze stap maakt u een tabel met de naam **EmpBlobTable**. Deze tabel wijst naar een blobcontainer in Azure Storage, voorgesteld door de gekoppelde **StorageLinkedService**-service. Deze blobcontainer (adftutorial) bevat de invoergegevens van het bestand **emp.txt**.
 
 1. Maak een JSON-bestand met de naam **EmpBlobTable.json** in de map **C:\ADFGetStartedPSH**. Geef dit bestand de volgende inhoud:
 
-         {
-           "name": "EmpTableFromBlob",
-           "properties": {
-             "structure": [
-               {
-                 "name": "FirstName",
-                 "type": "String"
-               },
-               {
-                 "name": "LastName",
-                 "type": "String"
-               }
-             ],
-             "type": "AzureBlob",
-             "linkedServiceName": "StorageLinkedService",
-             "typeProperties": {
-               "fileName": "emp.txt",
-               "folderPath": "adftutorial/",
-               "format": {
-                 "type": "TextFormat",
-                 "columnDelimiter": ","
-               }
-             },
-             "external": true,
-             "availability": {
-               "frequency": "Hour",
-               "interval": 1
-             }
-           }
-         }
+    ```json
+    {
+        "name": "EmpTableFromBlob",
+        "properties": {
+            "structure": [
+                {
+                    "name": "FirstName",
+                    "type": "String"
+                },
+                {
+                    "name": "LastName",
+                    "type": "String"
+                }
+            ],
+            "type": "AzureBlob",
+            "linkedServiceName": "StorageLinkedService",
+            "typeProperties": {
+                "fileName": "emp.txt",
+                "folderPath": "adftutorial/",
+                "format": {
+                    "type": "TextFormat",
+                    "columnDelimiter": ","
+                }
+            },
+            "external": true,
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            }
+        }
+     }
+    ```
 
    Houd rekening met de volgende punten:
 
@@ -246,61 +272,65 @@ Een tabel is een rechthoekige gegevensset en bevat een schema. In deze stap maak
    * **folderPath** wordt ingesteld op de container **adftutorial**.
    * **fileName** wordt ingesteld op **emp.txt**. Als u de naam van de blob niet opgeeft, worden de gegevens uit alle blobs in de container gezien als invoergegevens.  
    * De indeling **type** wordt ingesteld op **TextFormat**.
-   * Er zijn twee velden in het tekstbestand: **FirstName** en **LastName**, gescheiden door een komma (**columnDelimiter**).    
-   * **Beschikbaarheid** wordt ingesteld op **elk uur** (**Frequentie** wordt ingesteld op elk **uur** en **Interval** wordt ingesteld op **1**). Daarom zoekt Data Factory elk uur naar invoergegevens in de hoofdmap van de blobcontainer (**adftutorial**).
+   * Er zijn twee velden in het tekstbestand: **FirstName** en **LastName**, gescheiden door een komma (columnDelimiter).    
+   * **Beschikbaarheid** is ingesteld op **Elk uur** (frequentie is ingesteld op elk uur en interval ingesteld op 1). Daarom zoekt Data Factory elk uur naar invoergegevens in de hoofdmap van de blobcontainer (adftutorial).
 
-   Als u geen **fileName** opgeeft voor een **invoertabel**, worden alle bestanden en blobs uit de invoermap (**folderPath**) beschouwd als invoer. Als u een fileName opgeeft in de JSON, wordt alleen het opgegeven bestand of de opgegeven blob gezien als invoer.
+   Als u geen **fileName** opgeeft voor een **invoertabel**, worden alle bestanden en blobs uit de invoermap (folderPath) beschouwd als invoer. Als u een fileName opgeeft in de JSON, wordt alleen het opgegeven bestand of de opgegeven blob gezien als invoer.
 
    Als u geen **fileName** opgeeft voor een **uitvoertabel**, krijgen de bestanden die worden gegenereerd in **folderPath** een naam op basis van de volgende indeling: Data.<Guid\>.txt (voorbeeld: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
    Als u **folderPath** en **fileName** dynamisch wilt instellen op basis van de **SliceStart**-tijd, gebruikt u de eigenschap **partitionedBy**. In het volgende voorbeeld worden voor folderPath Year, Month en Day gebruikt van de SliceStart-waarde (tijd waarop is begonnen met het verwerken van het segment). Voor fileName wordt gebruikgemaakt van Hour van de SliceStart-waarde. Als er bijvoorbeeld een segment wordt geproduceerd voor 2016-10-20T08:00:00, wordt folderName ingesteld op wikidatagateway/wikisampledataout/2016/10/20 en wordt fileName ingesteld op 08.csv.
 
-         "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-         "fileName": "{Hour}.csv",
-         "partitionedBy":
-         [
-             { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-             { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
-             { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
-             { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
-         ],
+    ```json
+     "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+     "fileName": "{Hour}.csv",
+     "partitionedBy":
+     [
+         { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+         { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+         { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+         { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
+     ],
+    ```
 
    Zie de [naslaginformatie voor JSON-scriptverwerking](data-factory-data-movement-activities.md) voor meer informatie over JSON-eigenschappen.
 2. Voer de volgende opdracht uit om de Data Factory-gegevensset te maken.
 
-    ```  
+    ```PowerShell  
     New-AzureRmDataFactoryDataset $df -File .\EmpBlobTable.json
     ```
 
 ### <a name="create-an-output-dataset"></a>Een uitvoergegevensset maken
-In deze stap maakt u een uitvoergegevensset met de naam **EmpSQLTable**. Deze gegevensset wijst naar een SQL-tabel (**emp**) in de Azure SQL-database die wordt vertegenwoordigd door **AzureSqlLinkedService**. De pijplijn kopieert invoergegevens uit de invoerblob naar de tabel **emp**.
+In deze stap maakt u een uitvoergegevensset met de naam **EmpSQLTable**. Deze gegevensset wijst naar een SQL-tabel (emp) in de Azure SQL-database die wordt vertegenwoordigd door **AzureSqlLinkedService**. De pijplijn kopieert invoergegevens uit de invoerblob naar de tabel **emp**.
 
 1. Maak een JSON-bestand met de naam **EmpSQLTable.json** in de map **C:\ADFGetStartedPSH**. Geef dit bestand de volgende inhoud:
 
-         {
-           "name": "EmpSQLTable",
-           "properties": {
-             "structure": [
-               {
-                 "name": "FirstName",
-                 "type": "String"
-               },
-               {
-                 "name": "LastName",
-                 "type": "String"
-               }
-             ],
-             "type": "AzureSqlTable",
-             "linkedServiceName": "AzureSqlLinkedService",
-             "typeProperties": {
-               "tableName": "emp"
-             },
-             "availability": {
-               "frequency": "Hour",
-               "interval": 1
-             }
-           }
-         }
+    ```json
+    {
+        "name": "EmpSQLTable",
+        "properties": {
+            "structure": [
+                {
+                    "name": "FirstName",
+                    "type": "String"
+                },
+                {
+                    "name": "LastName",
+                    "type": "String"
+                }
+            ],
+            "type": "AzureSqlTable",
+            "linkedServiceName": "AzureSqlLinkedService",
+            "typeProperties": {
+                "tableName": "emp"
+            },
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            }
+        }
+    }
+    ```
 
    Houd rekening met de volgende punten:
 
@@ -308,10 +338,10 @@ In deze stap maakt u een uitvoergegevensset met de naam **EmpSQLTable**. Deze ge
    * **linkedServiceName** wordt ingesteld op **AzureSqlLinkedService**.
    * **tablename** wordt ingesteld op **emp**.
    * De tabel emp in de database bevat drie kolommen: **ID**, **FirstName** en **LastName**. ID is een identiteitskolom, zodat u alleen **FirstName** en **LastName** hoeft op te geven.
-   * **Beschikbaarheid** wordt ingesteld op **elk uur** (**Frequentie** wordt ingesteld op **elk uur** en **Interval** wordt ingesteld op **1**). De Data Factory-service maakt elk uur een uitvoergegevenssegment in de tabel **emp** in de Azure SQL-database.
+   * **Beschikbaarheid** is ingesteld op **Elk uur** (frequentie is ingesteld op elk uur en interval is ingesteld op 1). De Data Factory-service maakt elk uur een uitvoergegevenssegment in de tabel **emp** in de Azure SQL-database.
 2. Voer de volgende opdracht uit om de data factory-gegevensset te maken.
 
-    ```   
+    ```PowerShell   
     New-AzureRmDataFactoryDataset $df -File .\EmpSQLTable.json
     ```
 
@@ -320,48 +350,41 @@ In deze stap maakt u een pijplijn met **Kopieeractiviteit**. De pijplijn gebruik
 
 1. Maak een JSON-bestand met de naam **ADFTutorialPipeline.json** in de map **C:\ADFGetStartedPSH**. Geef dit bestand de volgende inhoud:
 
-          {
-           "name": "ADFTutorialPipeline",
-           "properties": {
-             "description": "Copy data from a blob to Azure SQL table",
-             "activities": [
-               {
-                 "name": "CopyFromBlobToSQL",
-                 "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
-                 "type": "Copy",
-                 "inputs": [
-                   {
-                     "name": "EmpTableFromBlob"
-                   }
-                 ],
-                 "outputs": [
-                   {
-                     "name": "EmpSQLTable"
-                   }
-                 ],
-                 "typeProperties": {
-                   "source": {
-                     "type": "BlobSource"
-                   },
-                   "sink": {
-                     "type": "SqlSink"
-                   }
-                 },
-                 "Policy": {
-                   "concurrency": 1,
-                   "executionPriorityOrder": "NewestFirst",
-                   "style": "StartOfInterval",
-                   "retry": 0,
-                   "timeout": "01:00:00"
-                 }
-               }
-             ],
-             "start": "2016-08-09T00:00:00Z",
-             "end": "2016-08-10T00:00:00Z",
-             "isPaused": false
-           }
-         }
-
+    ```json
+    {
+        "name": "ADFTutorialPipeline",
+        "properties": {
+            "description": "Copy data from a blob to Azure SQL table",
+            "activities": [
+                {
+                    "name": "CopyFromBlobToSQL",
+                    "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+                    "type": "Copy",
+                    "inputs": [{ "name": "EmpTableFromBlob" }],
+                    "outputs": [{ "name": "EmpSQLTable" }],
+                    "typeProperties": {
+                        "source": {
+                            "type": "BlobSource"
+                        },
+                        "sink": {
+                            "type": "SqlSink"
+                        }
+                    },
+                    "Policy": {
+                        "concurrency": 1,
+                        "executionPriorityOrder": "NewestFirst",
+                        "style": "StartOfInterval",
+                        "retry": 0,
+                        "timeout": "01:00:00"
+                    }
+                }
+            ],
+            "start": "2016-08-09T00:00:00Z",
+            "end": "2016-08-10T00:00:00Z",
+            "isPaused": false
+        }
+     }
+    ```
    Houd rekening met de volgende punten:
 
    * In het gedeelte Activiteiten is er slechts één activiteit waarvan **type** is ingesteld op **Copy**.
@@ -377,7 +400,7 @@ In deze stap maakt u een pijplijn met **Kopieeractiviteit**. De pijplijn gebruik
    Zie de [naslaginformatie voor JSON-scriptverwerking](data-factory-data-movement-activities.md) voor meer informatie over JSON-eigenschappen.
 2. Voer de volgende opdracht uit om de data factory-tabel te maken.
 
-    ```   
+    ```PowerShell   
     New-AzureRmDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
     ```
 
@@ -388,13 +411,13 @@ In deze stap gebruikt u Azure PowerShell om te bewaken wat er gebeurt in een Azu
 
 1. Voer **Get-AzureRmDataFactory** uit en wijs de uitvoer toe aan een $df-variabele.
 
-    ```  
+    ```PowerShell  
     $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
     ```
 
 2. Voer **Get-AzureRmDataFactorySlice** uit voor meer informatie over alle segmenten van **EmpSQLTable**, de uitvoertabel van de pijplijn.  
 
-    ```   
+    ```PowerShell   
     Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
     ```
 
@@ -404,7 +427,7 @@ In deze stap gebruikt u Azure PowerShell om te bewaken wat er gebeurt in een Azu
 
    **Voorbeelduitvoer:**
 
-    ```   
+    ``` 
      ResourceGroupName : ADFTutorialResourceGroup
      DataFactoryName   : ADFTutorialDataFactoryPSH
      TableName         : EmpSQLTable
@@ -417,30 +440,30 @@ In deze stap gebruikt u Azure PowerShell om te bewaken wat er gebeurt in een Azu
     ```
 3. Voer **Get-AzureRmDataFactoryRun** uit om gegevens over het uitvoeren van de activiteit op te halen voor een **bepaald** segment. Wijzig de waarde van de parameter **StartDateTime** zodat deze overeenkomt met de **Start**-tijd van het segment uit de uitvoer. De waarde van **StartDateTime** moet de [ISO-indeling](http://en.wikipedia.org/wiki/ISO_8601) hebben.
 
-    ```  
+    ```PowerShell  
     Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
     ```
 
    De uitvoer ziet er uit als in het volgende uittreksel:
 
-    ```   
-     Id                  : 3404c187-c889-4f88-933b-2a2f5cd84e90_635614488000000000_635614524000000000_EmpSQLTable
-     ResourceGroupName   : ADFTutorialResourceGroup
-     DataFactoryName     : ADFTutorialDataFactoryPSH
-     TableName           : EmpSQLTable
-     ProcessingStartTime : 8/9/2016 11:03:28 PM
-     ProcessingEndTime   : 8/9/2016 11:04:36 PM
-     PercentComplete     : 100
-     DataSliceStart      : 8/9/2016 10:00:00 PM
-     DataSliceEnd        : 8/9/2016 11:00:00 PM
-     Status              : Succeeded
-     Timestamp           : 8/9/2016 11:03:28 PM
-     RetryAttempt        : 0
-     Properties          : {}
-     ErrorMessage        :
-     ActivityName        : CopyFromBlobToSQL
-     PipelineName        : ADFTutorialPipeline
-     Type                : Copy
+    ```  
+    Id                  : 3404c187-c889-4f88-933b-2a2f5cd84e90_635614488000000000_635614524000000000_EmpSQLTable
+    ResourceGroupName   : ADFTutorialResourceGroup
+    DataFactoryName     : ADFTutorialDataFactoryPSH
+    TableName           : EmpSQLTable
+    ProcessingStartTime : 8/9/2016 11:03:28 PM
+    ProcessingEndTime   : 8/9/2016 11:04:36 PM
+    PercentComplete     : 100
+    DataSliceStart      : 8/9/2016 10:00:00 PM
+    DataSliceEnd        : 8/9/2016 11:00:00 PM
+    Status              : Succeeded
+    Timestamp           : 8/9/2016 11:03:28 PM
+    RetryAttempt        : 0
+    Properties          : {}
+    ErrorMessage        :
+    ActivityName        : CopyFromBlobToSQL
+    PipelineName        : ADFTutorialPipeline
+    Type                : Copy
     ```
 
 Zie [Data Factory Cmdlet Reference][cmdlet-reference] (Naslaginformatie voor Data Factory-cmdlets) voor uitgebreide documentatie over Data Factory-cmdlets.
@@ -479,9 +502,4 @@ In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt om gegevens te kopi�
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png
 
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

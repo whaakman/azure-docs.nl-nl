@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 04/04/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 280a17677714a522ca978a6eb6baf3e70f853d7a
-ms.openlocfilehash: 5b0865310076557c8f7ce6f9d9b553950854407c
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 2fc966e7c93e44007f15c3129fbe709beddb21af
+ms.lasthandoff: 04/05/2017
 
 
 ---
-# <a name="expressroute-technical-overview"></a>Technisch overzicht van ExpressRoute
+# <a name="expressroute-overview"></a>Overzicht van ExpressRoute
 Met Microsoft Azure ExpressRoute kunt u uw on-premises netwerken in de Microsoft Cloud uitbreiden via een speciale persoonlijke verbinding die wordt gefaciliteerd door een connectiviteitsprovider. Met ExpressRoute kunt u verbindingen tot stand brengen met Microsoft Cloud-services, zoals Microsoft Azure, Office 365 en CRM Online. 
 
 Via een connectiviteitsprovider in een co-locatiefaciliteit is connectiviteit mogelijk vanuit een any-to-any (IP VPN) netwerk, een point-to-point Ethernet-netwerk of een virtuele overlappende verbinding. ExpressRoute-verbindingen gaan niet via het openbare internet. Daardoor zijn ExpressRoute-verbindingen betrouwbaarder en sneller en hebben ze lagere latenties en betere beveiliging dan gewone verbindingen via internet. Zie [ExpressRoute connectivity models](expressroute-connectivity-models.md) (ExpressRoute-connectiviteitsmodellen) voor meer informatie over verbinding maken tussen uw netwerk en Microsoft met behulp van ExpressRoute.
 
-![](./media/expressroute-introduction/expressroute-connection-overview-diagram.png)
+![](./media/expressroute-introduction/expressroute-connection-overview.png)
 
 ## <a name="key-benefits"></a>Belangrijkste voordelen
 
@@ -46,7 +46,7 @@ Zie de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) voor meer i
 Microsoft maakt gebruik van een standaardprotocol voor dynamische routering (BGP) voor het uitwisselen van routes tussen uw on-premises netwerk, uw exemplaren in Azure en openbare Microsoft-adressen.  We stellen meerdere BGP-sessies met uw netwerk in voor verschillende verkeersprofielen. Meer informatie vindt u in het artikel [ExpressRoute circuit and routing domains](expressroute-circuit-peerings.md) (ExpressRoute-circuit en -routeringsdomeinen).
 
 ### <a name="redundancy"></a>Redundantie
-Elk ExpressRoute-circuit bestaat uit twee verbindingen met twee Microsoft Enterprise-randrouters (MSEE's) van de connectiviteitsprovider/uw netwerkrand. Microsoft vereist een dubbele BGP-verbinding van de connectiviteitsprovider/uw kant. Een voor elke MSEE. U kunt ervoor kiezen om geen redundante apparaten/Ethernet-circuits aan uw kant te implementeren. Connectiviteitsproviders gebruiken redundante apparaten echter om ervoor te zorgen dat uw verbindingen op een redundante manier worden doorgegeven aan Microsoft. Onze [SLA](https://azure.microsoft.com/support/legal/sla/) is alleen geldig als er een redundante Laag-3-connectiviteit is geconfigureerd. 
+Elk ExpressRoute-circuit bestaat uit twee verbindingen met twee Microsoft Enterprise-randrouters (MSEE's) van de connectiviteitsprovider/uw netwerkrand. Microsoft vereist een dubbele BGP-verbinding van de connectiviteitsprovider/uw kant. Eén voor elke MSEE. U kunt ervoor kiezen om geen redundante apparaten/Ethernet-circuits aan uw kant te implementeren. Connectiviteitsproviders gebruiken redundante apparaten echter om ervoor te zorgen dat uw verbindingen op een redundante manier worden doorgegeven aan Microsoft. Onze [SLA](https://azure.microsoft.com/support/legal/sla/) is alleen geldig als er een redundante Laag-3-connectiviteit is geconfigureerd.
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Connectiviteit met Microsoft Cloud-services
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
@@ -74,7 +74,7 @@ ExpressRoute heeft een voortdurend groeiend ecosysteem van connectiviteitsprovid
 Microsoft stuurt geïsoleerde cloudomgevingen aan voor speciale geopolitieke regio's en klantsegmenten. Raadpleeg de pagina [ExpressRoute providers and locations](expressroute-locations.md) (Overzicht van ExpressRoute-providers en -locaties) voor een lijst van nationale clouds en providers.
 
 ### <a name="bandwidth-options"></a>Bandbreedte-opties
-U kunt ExpressRoute-circuits aanschaffen voor een breed scala aan bandbreedten. De lijst met ondersteunde bandbreedten vindt u hieronder. Controleer ook de lijst met ondersteunde bandbreedten van uw connectiviteitsproviders.
+U kunt ExpressRoute-circuits aanschaffen voor een breed scala aan bandbreedten. Hieronder vindt u een lijst van ondersteunde bandbreedten. Controleer ook de lijst met ondersteunde bandbreedten van uw connectiviteitsproviders.
 
 * 50 Mbps
 * 100 Mbps
@@ -107,6 +107,6 @@ U kunt een factureringsmodel selecteren dat voor u het meest geschikt is. Kies e
 * Raadpleeg de vereisten voor [Routering](expressroute-routing.md), [NAT](expressroute-nat.md) en [QoS](expressroute-qos.md).
 * Configureer uw ExpressRoute-verbinding.
   * [Een ExpressRoute-circuit maken](expressroute-howto-circuit-portal-resource-manager.md)
-  * [Routering configureren](expressroute-howto-routing-portal-resource-manager.md)
-  * [Een VNet koppelen aan een ExpressRoute-circuit](expressroute-howto-linkvnet-portal-resource-manager.md)
+  * [Peering configureren voor een ExpressRoute-circuit](expressroute-howto-routing-portal-resource-manager.md)
+  * [Een virtueel netwerk verbinden met een ExpressRoute-circuit](expressroute-howto-linkvnet-portal-resource-manager.md)
 

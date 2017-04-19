@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: 733c151012e3d896f720fbc64120432aca594bda
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 0664888dbb14aaa353d5d126cdf799b62711d71f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -106,7 +106,7 @@ Maak een Azure Active Directory-toepassing, maak een service-principal voor de t
     ```PowerShell
     $azureAdApplication    
     ```
-    Noteer de toepassings-id (**applicationID** uit de uitvoer).
+    Noteer de toepassings-id (applicationID in de uitvoer).
 
 U moet na deze stappen beschikken over de volgende vier waarden:
 
@@ -124,7 +124,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
    5. Voer **DataFactoryAPITestApp** in als de naam.
    6. Selecteer **C:\ADFGetStarted** als de locatie.
    7. Klik op **OK** om het project te maken.
-2. Klik achtereenvolgens op **Tools**, houd de muisaanwijzer op **Nuget Package Manager** en klik op **Package Manager Console**.
+2. Klik op **Tools**, wijs **NuGet Package Manager** aan en klik op **Package Manager Console**.
 3. Voer de volgende stappen uit in de **Package Manager Console**:
    1. Voer de volgende opdracht uit om het Data Factory-pakket te installeren: `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Voer de volgende opdracht uit om het Azure Active Directory-pakket te installeren (u gebruikt de Active Directory API in de code): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
@@ -185,7 +185,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
    > [!IMPORTANT]
    > Vervang de waarde van **resourceGroupName** door de naam van uw Azure-resourcegroep.
    >
-   > Werk de naam van de gegevensfactory (**dataFactoryName**) bij zodat deze uniek is. De naam van de gegevensfactory moet wereldwijd uniek zijn. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+   > Werk de naam van de data factory (dataFactoryName) zodanig bij dat deze uniek is. De naam van de gegevensfactory moet wereldwijd uniek zijn. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
 
 7. Voeg de volgende code die een **gegevensfactory** maakt toe aan de methode **Main**.
 
@@ -474,7 +474,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
     }
     ```
 
-15. Vouw in Solution Explorer het project (**DataFactoryAPITestApp**) uit, klik met de rechtermuisknop op **References** en klik vervolgens op **Add Reference**. Schakel het selectievakje voor '**System.Configuration**'-assembly in en klik op **OK**.
+15. Vouw in Solution Explorer het project (DataFactoryAPITestApp) uit, klik met de rechtermuisknop op **References** en klik vervolgens op **Add Reference**. Schakel het selectievakje voor **System.Configuration**-assembly in. Klik vervolgens op **OK**.
 16. Bouw de consoletoepassing. Klik op **Build** in het menu en klik op **Build Solution**.
 17. Controleer of er ten minste één bestand in de **adftutorial**-container in uw Azure Blob Storage staat. Als dit niet het geval is, maakt u in Kladblok het **Emp.txt**-bestand met de volgende inhoud en uploadt u het bestand naar de adftutorial-container.
 
@@ -487,7 +487,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
    * Gekoppelde service: **LinkedService_AzureStorage**
    * Gegevensset: **DatasetBlobSource** en **DatasetBlobDestination**.
    * Pijplijn: **PipelineBlobSample**
-20. Controleer of de twee werknemersrecords zijn gemaakt in de tabel "**emp**" in de opgegeven Azure SQL-database.
+20. Controleer of de twee werknemersrecords zijn gemaakt in de tabel **emp** in de opgegeven Azure SQL-database.
 
 ## <a name="next-steps"></a>Volgende stappen
 | Onderwerp | Beschrijving |

@@ -12,7 +12,7 @@
     ```
 2. Voeg de volgende Relay `constants` toe aan `listener.js` voor de verbindingsgegevens van de hybride verbinding. Vervang de tijdelijke aanduidingen tussen punthaken door de juiste waarden die zijn verkregen bij het maken van de hybride verbinding.
    
-   1. `const ns`: de Relay-naamruimte
+   1. `const ns`: de Relay-naamruimte (gebruik FQDN, bijvoorbeeld `{namespace}.servicebus.windows.net`)
    2. `const path`: de naam van de hybride verbinding
    3. `const keyrule`: de naam van de SAS-sleutel
    4. `const key`: de waarde van de SAS-sleutel
@@ -71,9 +71,4 @@
         console.log('error' + err);
     });
     ```
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

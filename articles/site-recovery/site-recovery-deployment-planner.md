@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 431f73e1be45dec9aa0fe186cb22078f8d95588d
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -90,9 +90,9 @@ De map bevat meerdere bestanden en submappen. Het uitvoerbare bestand is ASRDepl
 
     Voorbeeld:  
     Kopieer het ZIP-bestand naar station E:\ en pak het uit.
-   E:\ASR Deployment Planner-Preview_v1.1.zip
+   E:\ASR Deployment Planner-Preview_v1.2.zip
 
-    E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner-Preview_v1.2\ ASR Deployment Planner-Preview_v1.2\ ASRDeploymentPlanner.exe
 
 ## <a name="capabilities"></a>Functionaliteit
 Het opdrachtregelprogramma (ASRDeploymentPlanner.exe) kunt u uitvoeren in een van de volgende drie modi:
@@ -145,6 +145,8 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Password | (Optioneel) Het wachtwoord om verbinding te maken met de vCenter-server of vSphere ESXi-host. Als u nu geen wachtwoord opgeeft, wordt u erom gevraagd wanneer de opdracht wordt uitgevoerd.|
 | -StorageAccountName | (Optioneel) De naam van het opslagaccount dat wordt gebruikt om de bereikbare doorvoer te vinden voor gegevensreplicatie van on-premises naar Azure. Het hulpprogramma uploadt testgegevens naar dit opslagaccount om de doorvoer te berekenen.|
 | -StorageAccountKey | (Optioneel) De sleutel die wordt gebruikt voor toegang tot het opslagaccount. Ga naar Azure Portal > Opslagaccounts > <*naam van opslagaccount*> > Instellingen > Toegangssleutels > Key1 (of primaire toegangssleutel voor klassieke opslagaccount). |
+| -Environment | (optioneel) Dit is uw doelomgeving voor het Azure Storage-account. Dit kan een van de volgende drie waarden zijn: AzureCloud, AzureUSGovernment, AzureChinaCloud. De standaardwaarde is AzureCloud. Gebruik de parameter wanneer uw Azure-doelregio de clouds voor Azure van de Amerikaanse overheid of Azure voor China is. |
+
 
 Het is raadzaam om de virtuele machines gedurende ten minste 15 tot 30 dagen te profileren. Gedurende de periode voor profilering blijft ASRDeploymentPlanner.exe actief. Het hulpprogramma noteert de invoer van de profileringstijd in dagen. Als u enkele uren of minuten wilt profileren om het hulpprogramma even te testen, moet u in de openbare preview de tijd omzetten in een corresponderende meting in dagen. Als u bijvoorbeeld 30 minuten wilt profileren, moet de invoer 30/(60*24) = 0,021 dagen zijn. De minimaal toegestane tijd voor profilering is 30 minuten.
 
@@ -281,11 +283,12 @@ Open een opdrachtregelconsole en ga naar de map met het hulpprogramma voor de Si
 
 |Parameternaam | Beschrijving |
 |-|-|
-| -operation | GetThroughput |
+| -Operation | GetThroughput |
 | -Directory | (Optioneel) De UNC-directory of de lokale directory waar de geprofileerde gegevens (bestanden die tijdens de profilering zijn gegenereerd) worden opgeslagen. Deze gegevens zijn vereist voor het genereren van het rapport. Als u geen directory opgeeft, wordt de directory 'ProfiledData' gebruikt. |
 | -StorageAccountName | De naam van het opslagaccount dat wordt gebruikt om de bandbreedte te bepalen die wordt gebruikt voor gegevensreplicatie van on-premises naar Azure. Het hulpprogramma uploadt testgegevens naar dit opslagaccount om de gebruikte bandbreedte te bepalen. |
 | -StorageAccountKey | De sleutel die wordt gebruikt voor toegang tot het opslagaccount. Ga naar Azure Portal > Opslagaccounts > <*naam van het opslagaccount*> > Instellingen > Toegangssleutels > Key1 (of primaire toegangssleutel voor klassieke opslagaccount). |
 | -VMListFile | Het bestand met de lijst met virtuele machines die moeten worden geprofileerd voor het berekenen van de gebruikte bandbreedte. Het bestandspad kan absoluut of relatief zijn. Het bestand moet per regel één naam of IP-adres van een virtuele machine bevatten. De namen van de virtuele machines in het bestand moeten identiek zijn met de namen van de virtuele machine op de vCenter-server of vSphere ESXi-host.<br>Het bestand ProfileVMList bevat bijvoorbeeld de volgende virtuele machines:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
+| -Environment | (optioneel) Dit is uw doelomgeving voor het Azure Storage-account. Dit kan een van de volgende drie waarden zijn: AzureCloud, AzureUSGovernment, AzureChinaCloud. De standaardwaarde is AzureCloud. Gebruik de parameter wanneer uw Azure-doelregio de clouds voor Azure van de Amerikaanse overheid of Azure voor China is. |
 
 Het hulpprogramma maakt in de opgegeven directory verschillende asrvhdfile<#>.vhd-bestanden van 64 MB (# is het volgnummer). Deze bestanden worden geüpload naar het opslagaccount om de doorvoer te bepalen. Nadat de doorvoer is gemeten, worden al deze bestanden verwijderd uit het opslagaccount en van de lokale server. Als het hulpprogramma om wat voor reden dan ook wordt beëindigd tijdens het berekenen van de doorvoer, worden de bestanden niet verwijderd uit het account of van de lokale server. U moet de bestanden dan handmatig verwijderen.
 
@@ -477,6 +480,10 @@ Als de kenmerken van de workload van een schijf overeenkomen met de categorie P2
 
 **NIC's**: het aantal NIC's van de virtuele machine.
 
+**Opstarttype**: het opstarttype van de virtuele machine. Dit kan BIOS of EFI zijn. Op dit moment ondersteunt Azure Site Recovery alleen BIOS-opstarttypen. Alle virtuele machines van het EFI-opstarttype worden vermeld op het werkblad Incompatibele virtuele machines. 
+
+**Type besturingssysteem**: het type besturingssysteem van de virtuele machine. Dit kan Windows, Linux of een ander besturingssysteem zijn.
+
 ## <a name="incompatible-vms"></a>Niet-compatibele VM's
 
 ![Excel-werkblad met niet-compatibele VM's](./media/site-recovery-deployment-planner/incompatible-vms.png)
@@ -486,6 +493,7 @@ Als de kenmerken van de workload van een schijf overeenkomen met de categorie P2
 **VM-compatibiliteit**: geeft aan waarom de virtuele machine niet compatibel is voor gebruik met Site Recovery. De redenen worden voor elke niet-compatibele schijf van de virtuele machine beschreven. Op basis van gepubliceerde [opslaglimieten](https://aka.ms/azure-storage-scalbility-performance) kan dit een van de volgende redenen zijn:
 
 * Schijf is groter dan 1023 GB. Azure Storage biedt momenteel geen ondersteuning voor schijven groter dan 1 TB.
+* Opstarttype is EFI. Azure Site Recovery ondersteunt op dit moment alleen virtuele machines met het BIOS-opstarttype.
 
 * Totale grootte van virtuele machine (replicatie + TFO) overschrijdt de ondersteunde limiet voor opslagaccounts (35 TB). Dit probleem treedt meestal op wanneer één schijf in de virtuele machine een prestatiekenmerk heeft dat groter is dan de maximaal ondersteunde limieten voor Standard-opslag van Azure of Site Recovery. De virtuele machine komt dan in aanmerking voor Premium Storage. De maximaal ondersteunde grootte van een Premium Storage-account is echter 35 TB en één beveiligde virtuele machine kan niet worden beveiligd via meerdere opslagaccounts. Houd er ook rekening mee dat bij het uitvoeren van een testfailover op een beveiligde virtuele machine, deze wordt uitgevoerd in het opslagaccount waarin ook de replicatie plaatsvindt. Stel in dit geval 2 x de grootte van de schijf in om replicatie mogelijk te maken en het testen van failover parallel uit te voeren.
 * De bron-IOPS is groter dan de ondersteunde IOPS-limiet voor opslag van 5000 per schijf.
@@ -508,6 +516,10 @@ Als de kenmerken van de workload van een schijf overeenkomen met de categorie P2
 **Geheugen (MB)**: de hoeveelheid RAM-geheugen van de virtuele machine.
 
 **NIC's**: het aantal NIC's van de virtuele machine.
+
+**Opstarttype**: het opstarttype van de virtuele machine. Dit kan BIOS of EFI zijn. Op dit moment ondersteunt Azure Site Recovery alleen BIOS-opstarttypen. Alle virtuele machines van het EFI-opstarttype worden vermeld op het werkblad Incompatibele virtuele machines. 
+
+**Type besturingssysteem**: het type besturingssysteem van de virtuele machine. Dit kan Windows, Linux of een ander besturingssysteem zijn.
 
 
 ## <a name="site-recovery-limits"></a>Site Recovery-limieten
@@ -546,6 +558,18 @@ Ga als volgt te werk om de implementatieplanner bij te werken:
 
 
 ## <a name="version-history"></a>Versiegeschiedenis
+### <a name="12"></a>1.2
+Bijgewerkt: 7 april 2017
+
+De volgende oplossingen zijn toegevoegd:
+
+* Toegevoegd is de controle van het opstarttype (BIOS of EFI) voor elke virtuele machine om te bepalen of de virtuele machine compatibel is met de beveiliging.
+* Toegevoegd is informatie over het type besturingssysteem voor elke virtuele machine op de werkbladen Compatibele virtuele machines en Incompatibele virtuele machines.
+* De bewerking GetThroughput wordt nu ondersteund in de Microsoft Azure-regio's van de Amerikaanse overheid en China.
+* Er zijn meer controles op vereisten toegevoegd voor vCenter en ESXi Server.
+* Er werd een onjuist rapport gegenereerd als de landinstellingen stonden ingesteld op een andere taal dan Engels.
+
+
 ### <a name="11"></a>1.1
 Bijgewerkt: 9 maart 2017
 

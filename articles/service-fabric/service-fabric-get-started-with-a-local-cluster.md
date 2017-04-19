@@ -12,12 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 04/07/2017
 ms.author: ryanwi;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
-ms.openlocfilehash: d1320daaf4b0bd8c1a7b7c8e37fa8b81c4a53e64
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: c0c5ab8a9db60ff375b7d823e40f83cbc4d2b4c3
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -90,7 +90,7 @@ In deze zelfstudie gebruiken we een bestaande voorbeeldtoepassing (WordCount gen
    
     ![De UI van de geïmplementeerde toepassing][deployed-app-ui]
    
-    De toepassing WordCount is eenvoudig. Het bevat JavaScript-code aan de clientzijde voor het genereren van willekeurige "woorden" van vijf tekens, die vervolgens worden doorgegeven aan de toepassing via ASP.NET Web API. Een stateful service houdt het aantal getelde woorden bij. Ze worden gepartitioneerd op basis van het eerste teken van het woord. U vindt de broncode voor de app WordCount in de [voorbeelden waarmee u aan de slag kunt gaan](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
+    De toepassing WordCount is eenvoudig. Het bevat JavaScript-code aan de clientzijde voor het genereren van willekeurige "woorden" van vijf tekens, die vervolgens worden doorgegeven aan de toepassing via ASP.NET Web API. Een stateful service houdt het aantal getelde woorden bij. Ze worden gepartitioneerd op basis van het eerste teken van het woord. U vindt de broncode voor de app WordCount in de [klassieke voorbeelden waarmee u aan de slag kunt gaan](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/WordCount).
    
     De toepassing die we hebben geïmplementeerd, bevat vier partities. Woorden die beginnen met A tot G worden in de eerste partitie opgeslagen, woorden die beginnen met H tot N worden in de tweede partitie opgeslagen, enzovoort.
 

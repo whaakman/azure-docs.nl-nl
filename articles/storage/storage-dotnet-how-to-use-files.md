@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: fcdeac53c79551000b48a47a1afc65e082bcc692
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: b835b04d6ef6d06e35add4f503e6800099e97383
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -259,6 +259,16 @@ Als u de bestandsshare wilt koppelen vanuit een on-premises client, moet u eerst
 > Sommige internetproviders blokkeren poort 445, dus misschien moet u contact opnemen met uw serviceprovider.
 > 
 > 
+
+### <a name="unmount-the-file-share"></a>De bestandsshare ontkoppelen
+Als u de bestandsshare wilt ontkoppelen, kunt u opdracht `net use` met optie `/delete` gebruiken.
+
+```
+net use <drive-letter> /delete
+
+example :
+net use z: /delete
+```
 
 ## <a name="develop-with-file-storage"></a>Ontwikkelen met File Storage
 Voor het schrijven van code die File Storage aanroept, kunt u de opslagclientbibliotheken voor .NET en Java of de REST API van Azure Storage gebruiken. In het voorbeeld in deze sectie ziet u hoe u met een bestandsshare werkt door vanuit een eenvoudige consoletoepassing die wordt uitgevoerd op het bureaublad gebruik te maken van de [Azure Storage-clientbibliotheek voor .NET](https://msdn.microsoft.com/library/mt347887.aspx).
@@ -666,11 +676,13 @@ U kunt ook het [artikel voor het oplossen van problemen met Azure-bestanden](sto
     U kunt het [artikel voor het oplossen van problemen met Azure-bestanden](storage-troubleshoot-file-connection-problems.md) raadplegen voor richtlijnen voor end-to-end-probleemoplossing.               
 
 18. **Hoe kan ik versleuteling aan de serverzijde inschakelen voor Azure Files?**
+> [!NOTE]
+> [Versleuteling aan de serverzijde](storage-service-encryption.md) voor Azure Files is momenteel in preview. Neem contact op met [SSEDiscussion](mailto:ssediscussions@microsoft.com) als u tijdens de preview-periode vragen hebt.
 
-    [Versleuteling aan de serverzijde](storage-service-encryption.md) voor Azure Files is momenteel in preview. Tijdens de preview kunt u deze functie alleen op een nieuw Azure Resource Manager-opslagaccount inschakelen via [Azure Portal](https://portal.azure.com). Er zijn geen extra kosten verbonden aan het inschakelen van deze functie. Wanneer u Storage Service-versleuteling inschakelt voor Azure File Storage, worden uw gegevens automatisch versleuteld. 
+    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal](https://portal.azure.com). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
     
-    De planning is om versleuteling voor bestandsopslag met [Azure Powershell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md) en de [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in de toekomst in te schakelen. 
-    Zie [Storage Service Encryption](storage-service-encryption.md) (Storage Service-versleuteling) voor meer informatie over versleuteling van data-at-rest in Azure Storage. U kunt contact opnemen met ssediscussions@microsoft.com als u tijdens de preview vragen hebt.
+    We plan to support enabling encryption for file storage with [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md), and the [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in the future. 
+    See [Storage Service Encryption](storage-service-encryption.md) for more information about encryption at rest in Azure Storage, and you can contact ssediscussions@microsoft.com if you have questions during the preview.
 
 ## <a name="next-steps"></a>Volgende stappen
 Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.

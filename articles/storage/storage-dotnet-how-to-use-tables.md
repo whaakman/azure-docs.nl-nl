@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/27/2016
+ms.date: 04/10/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 7a9a28ce8be7587c84a1188d643c990cc4fb7355
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 0764d4cbcd618be54c8b6e71a632d24c5c3bfe67
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -26,20 +26,21 @@ ms.lasthandoff: 03/28/2017
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
-## <a name="overview"></a>Overzicht
-Azure Table Storage is een service waarmee gestructureerde NoSQL-gegevens worden opgeslagen in de cloud. Table Storage is een sleutel-/kenmerkopslag met een schemaloos ontwerp. Omdat Table Storage schemaloos is, kunt u uw gegevens eenvoudig aanpassen naarmate de behoeften van uw toepassing veranderen. De toegang tot gegevens verloopt snel en kostenefficiënt voor alle soorten toepassingen. Table Storage is doorgaans aanzienlijk goedkoper dan traditionele SQL voor vergelijkbare gegevensvolumes.
+Azure Table Storage is een service die gestructureerde NoSQL-gegevens opslaat in de cloud en zo een sleutel/kenmerkarchiefontwerp zonder schema biedt. Omdat Table Storage schemaloos is, kunt u uw gegevens eenvoudig aanpassen naarmate de behoeften van uw toepassing veranderen. Toegang tot Table Storage-gegevens is snel en kostenefficiënt voor veel soorten toepassingen en doorgaans goedkoper dan traditionele SQL voor vergelijkbare gegevensvolumes.
 
-U kunt Table Storage gebruiken voor het opslaan van flexibele gegevenssets, zoals gebruikersgegevens voor webtoepassingen, adresboeken, apparaatgegevens en alle overige typen metagegevens die uw service nodig heeft. In elke tabel kunt u een willekeurig aantal entiteiten opslaan. Een opslagaccount kan een onbeperkt aantal tabellen bevatten, tot de maximale capaciteit van het opslagaccount.
+U kunt Table Storage gebruiken voor de opslag van flexibele gegevenssets, zoals gebruikersgegevens voor webtoepassingen, adresboeken, apparaatgegevens of andere soorten metagegevens die uw service nodig heeft. In elke tabel kunt u een willekeurig aantal entiteiten opslaan. Een opslagaccount kan een onbeperkt aantal tabellen bevatten, tot de maximale capaciteit van het opslagaccount.
 
 ### <a name="about-this-tutorial"></a>Over deze zelfstudie
-Deze zelfstudie laat zien hoe u .NET-code kunt schrijven voor een aantal algemene scenario's die gebruikmaken van Azure Table Storage, waaronder het maken en verwijderen van een tabel en het invoegen, bijwerken, verwijderen en opvragen van tabelgegevens.
+In deze zelfstudie leert u hoe u de [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) in een aantal veelvoorkomende scenario's voor Azure Table Storage gebruikt. Deze scenario's worden geïllustreerd met C#-voorbeelden voor het maken en verwijderen van een tabel en het invoegen, bijwerken, verwijderen en opvragen van tabelgegevens.
 
-**Vereisten:**
+## <a name="prerequisites"></a>Vereisten
+
+U hebt het volgende nodig om deze zelfstudie te voltooien:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
 * [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Azure Configuration Manager voor .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-* Een [Azure Storage-account](storage-create-storage-account.md#create-a-storage-account)
+* [Azure Storage-account](storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -65,7 +66,7 @@ using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### <a name="create-the-table-service-client"></a>De Tabelserviceclient maken
-Met behulp van de **CloudTableClient**-klasse kunt u tabellen en entiteiten ophalen die zijn opgeslagen in de Table Storage. Hier volgt één manier om de serviceclient te maken:
+Met behulp van de [CloudTableClient][dotnet_CloudTableClient]-klasse kunt u tabellen en entiteiten ophalen die zijn opgeslagen in Table Storage. Hier volgt één manier om de client voor de Table-service te maken:
 
 ```csharp
 // Create the table client.
@@ -93,8 +94,7 @@ table.CreateIfNotExists();
 ```
 
 ## <a name="add-an-entity-to-a-table"></a>Een entiteit toevoegen aan een tabel
-Entiteiten worden toegewezen aan C\#-objecten met behulp van een aangepaste klasse die is afgeleid van **TableEntity**. Als u een entiteit wilt toevoegen aan een tabel, maakt u een klasse die de eigenschappen van uw entiteit definieert. De volgende code definieert een entiteitsklasse die de voornaam van de klant als de rijsleutel en de achternaam als de partitiesleutel gebruikt. De partitie- en rijsleutel van een entiteit vormen samen de unieke id van de entiteit in de tabel. Entiteiten met dezelfde partitiesleutel kunnen sneller worden opgevraagd dan entiteiten met verschillende partitiesleutels, maar het gebruik van verschillende partitiesleutels maakt een grotere schaalbaarheid van parallelle bewerkingen mogelijk. Voor elke eigenschap die in de Tabelservice moet worden opgeslagen, moet de eigenschap een openbare eigenschap van een ondersteund type zijn die de waarden voor instellen en ophalen weergeeft.
-Ook *moet* uw entiteitstype een parameterloze constructor bevatten.
+Entiteiten worden toegewezen aan C#-objecten met behulp van een aangepaste klasse die is afgeleid van [TableEntity][dotnet_TableEntity]. Als u een entiteit wilt toevoegen aan een tabel, maakt u een klasse die de eigenschappen van uw entiteit definieert. De volgende code definieert een entiteitsklasse die de voornaam van de klant als de rijsleutel en de achternaam als de partitiesleutel gebruikt. De entiteit wordt in de tabel op unieke wijze geïdentificeerd door diens partitie- en rijsleutel. Entiteiten met dezelfde partitiesleutel kunnen sneller worden opgevraagd dan entiteiten met verschillende partitiesleutels, maar het gebruik van verschillende partitiesleutels maakt een grotere schaalbaarheid van parallelle bewerkingen mogelijk. De entiteiten die u in tabellen wilt opslaan, moeten van een ondersteund type zijn. Ze moeten bijvoorbeeld zijn afgeleid van de [TableEntity][dotnet_TableEntity]-klasse. De entiteitseigenschappen die u in een tabel wilt opslaan, moeten openbare eigenschappen van het type zijn. Bovendien moeten ze zowel het ophalen als het instellen van waarden ondersteunen. Ook *moet* uw entiteitstype een parameterloze constructor bevatten.
 
 ```csharp
 public class CustomerEntity : TableEntity
@@ -113,7 +113,7 @@ public class CustomerEntity : TableEntity
 }
 ```
 
-Tabelbewerkingen die betrekking hebben op entiteiten, worden uitgevoerd via het **CloudTable**-object dat u eerder hebt gemaakt in de sectie 'Een tabel maken'. De bewerking die moet worden uitgevoerd, wordt vertegenwoordigd door een **TableOperation**-object.  Het volgende codevoorbeeld toont het maken van het **CloudTable**-object, gevolgd door een **CustomerEntity**-object.  Voor het voorbereiden van de bewerking wordt een **TableOperation**-object gemaakt voor het invoegen van de klantentiteit in de tabel.  Ten slotte wordt de bewerking uitgevoerd door het aanroepen van **CloudTable.Execute**.
+Tabelbewerkingen die betrekking hebben op entiteiten, worden uitgevoerd via het [CloudTable][dotnet_CloudTable]-object dat u eerder hebt gemaakt in de sectie Een tabel maken. De bewerking die moet worden uitgevoerd, wordt vertegenwoordigd door een [TableOperation][dotnet_TableOperation]-object. Het volgende codevoorbeeld toont het maken van het [CloudTable][dotnet_CloudTable]-object, gevolgd door een **CustomerEntity**-object. Voor het voorbereiden van de bewerking wordt een [TableOperation][dotnet_TableOperation]-object gemaakt voor het invoegen van de klantentiteit in de tabel. Ten slotte wordt de bewerking uitgevoerd door het aanroepen van [CloudTable][dotnet_CloudTable].[Execute][dotnet_CloudTable_Execute].
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -146,8 +146,7 @@ U kunt in één schrijfbewerking een batch entiteiten invoegen in een tabel. Enk
 * Alle entiteiten in een batchbewerking moeten dezelfde partitiesleutel hebben.
 * Het is mogelijk een query als batchbewerking uit te voeren, maar deze moet dan wel de enige bewerking in de batch zijn.
 
-<!-- -->
-Het volgende codevoorbeeld maakt twee entiteitsobjecten en voegt elk daarvan toe aan **TableBatchOperation** met behulp van de methode **Insert**. Vervolgens wordt **CloudTable.Execute** aangeroepen om de bewerking uit te voeren.
+Het volgende codevoorbeeld maakt twee entiteitsobjecten en voegt elk daarvan toe aan [TableBatchOperation][dotnet_TableBatchOperation] met behulp van de methode [Insert][dotnet_TableBatchOperation_Insert]. Vervolgens wordt [CloudTable][dotnet_CloudTable].[ExecuteBatch][dotnet_CloudTable_ExecuteBatch] aangeroepen om de bewerking uit te voeren.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -182,8 +181,7 @@ table.ExecuteBatch(batchOperation);
 ```
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Alle entiteiten in een partitie ophalen
-Gebruik een **TableQuery**-object om een tabel met alle entiteiten in een partitie op te vragen.
-Het volgende codevoorbeeld geeft een filter voor entiteiten waarbij 'Smith' de partitiesleutel is. In dit voorbeeld worden de velden van elke entiteit in de queryresultaten naar de console afgedrukt.
+Gebruik een [TableQuery][dotnet_TableQuery]-object om een tabel met alle entiteiten in een partitie op te vragen. Het volgende codevoorbeeld geeft een filter voor entiteiten waarbij 'Smith' de partitiesleutel is. In dit voorbeeld worden de velden van elke entiteit in de queryresultaten naar de console afgedrukt.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -208,7 +206,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(query))
 ```
 
 ## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Een bereik van entiteiten in een partitie ophalen
-Als u geen query wilt uitvoeren op alle entiteiten in een partitie, kunt u een bereik opgeven door het partitiesleutelfilter te combineren met een rijsleutelfilter. Het volgende codevoorbeeld maakt gebruik van twee filters om alle entiteiten met de partitie 'Smith' op te halen waarbij de rijsleutel (voornaam) begint met een letter die in het alfabet vóór de 'E' komt. Vervolgens worden de resultaten van de query afgedrukt.
+Als u een query niet op alle entiteiten in een partitie wilt uitvoeren, kunt u een bereik opgeven door het partitiesleutelfilter te combineren met een rijsleutelfilter. Het volgende codevoorbeeld maakt gebruik van twee filters om alle entiteiten met de partitie 'Smith' op te halen waarbij de rijsleutel (voornaam) begint met een letter die in het alfabet vóór de 'E' komt. Vervolgens worden de resultaten van de query afgedrukt.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -237,9 +235,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(rangeQuery))
 ```
 
 ## <a name="retrieve-a-single-entity"></a>Eén entiteit ophalen
-U kunt een query schrijven om één specifieke entiteit op te halen. De volgende code gebruikt **TableOperation** om de klant 'Ben Smith' op te geven.
-Deze methode retourneert één entiteit in plaats van een verzameling. De geretourneerde waarde in **TableResult.Result** is een **CustomerEntity**-object.
-Het opgeven van zowel partitie- als rijsleutels in een query is de snelste manier om één entiteit op te halen uit de Tabelservice.
+U kunt een query schrijven om één specifieke entiteit op te halen. De volgende code gebruikt [TableOperation][dotnet_TableOperation] om de klant 'Ben Smith' op te geven. Deze methode retourneert één entiteit in plaats van een verzameling. De geretourneerde waarde in [TableResult][dotnet_TableResult].[Result][dotnet_TableResult_Result] is een **CustomerEntity**-object. Het opgeven van zowel partitie- als rijsleutels in een query is de snelste manier om één entiteit op te halen uit de Tabelservice.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -270,7 +266,7 @@ else
 ```
 
 ## <a name="replace-an-entity"></a>Een entiteit vervangen
-Als u een entiteit wilt bijwerken, haalt u deze op uit de Tabelservice, wijzigt u het entiteitsobject en slaat u de wijzigingen weer op in de Tabelservice. De volgende code wijzigt het telefoonnummer van een bestaande klant. In plaats van **Insert** aan te roepen, gebruikt deze code **Replace**. Met deze bewerking wordt de entiteit op de server volledig vervangen, tenzij de entiteit op de server sinds het ophalen is gewijzigd. In dat geval mislukt de bewerking.  Hiermee wordt voorkomen dat de toepassing per ongeluk een wijziging overschrijft die door een ander onderdeel van uw toepassing is aangebracht tussen het moment van ophalen en het moment van bijwerken.  U kunt deze fout het best als volgt afhandelen: de entiteit opnieuw ophalen, de gewenste wijzigingen (indien nog geldig) aanbrengen en vervolgens een andere **Replace**-bewerking uitvoeren.  In de volgende sectie wordt beschreven hoe u dit gedrag kunt wijzigen.
+Als u een entiteit wilt bijwerken, haalt u deze op uit de Tabelservice, wijzigt u het entiteitsobject en slaat u de wijzigingen weer op in de Tabelservice. De volgende code wijzigt het telefoonnummer van een bestaande klant. In plaats van [Insert][dotnet_TableOperation_Insert] aan te roepen, gebruikt deze code [Replace][dotnet_TableOperation_Replace]. Met [Replace][dotnet_TableOperation_Replace] wordt de entiteit op de server volledig vervangen, tenzij de entiteit op de server sinds het ophalen is gewijzigd. In dat geval mislukt de bewerking. Hiermee wordt voorkomen dat de toepassing per ongeluk een wijziging overschrijft die door een ander onderdeel van uw toepassing is aangebracht tussen het moment van ophalen en het moment van bijwerken. U kunt deze fout het best als volgt afhandelen: de entiteit opnieuw ophalen, de gewenste wijzigingen (indien nog geldig) aanbrengen en vervolgens een andere [Replace][dotnet_TableOperation_Replace]-bewerking uitvoeren. In de volgende sectie wordt beschreven hoe u dit gedrag kunt wijzigen.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -312,8 +308,9 @@ else
 ```
 
 ## <a name="insert-or-replace-an-entity"></a>Een entiteit invoegen of vervangen
-**Replace**-bewerkingen mislukken als de entiteit is gewijzigd nadat deze is opgehaald van de server.  Voor een succesvolle **Replace**-bewerking moet u de entiteit bovendien eerst ophalen van de server.
-Soms weet u echter niet of de entiteit op de server aanwezig is en zijn de huidige waarden die erin zijn opgeslagen, niet relevant. Met uw update worden deze allemaal overschreven.  Hiervoor gebruikt u een **InsertOrReplace**-bewerking.  Met deze bewerking wordt de entiteit ingevoegd als deze niet bestaat of vervangen als deze wel bestaat, ongeacht wanneer de laatste update is uitgevoerd.  In het volgende codevoorbeeld wordt de klantentiteit voor 'Ben Smith' nog steeds opgehaald, maar vervolgens op de server opgeslagen via **InsertOrReplace**.  Eventuele wijzigingen die in de entiteit zijn aangebracht tussen het moment van ophalen en het moment van bijwerken, worden overschreven.
+[Replace][dotnet_TableOperation_Replace]-bewerkingen mislukken als de entiteit is gewijzigd nadat deze is opgehaald van de server. Voor een succesvolle [Replace][dotnet_TableOperation_Replace]-bewerking moet u de entiteit bovendien eerst ophalen van de server. Soms weet u echter niet of de entiteit op de server aanwezig is en zijn de huidige waarden die erin zijn opgeslagen, niet relevant. Met uw update worden deze allemaal overschreven. Hiervoor gebruikt u een [InsertOrReplace][dotnet_TableOperation_InsertOrReplace]-bewerking. Met deze bewerking wordt de entiteit ingevoegd als deze niet bestaat of vervangen als deze wel bestaat, ongeacht wanneer de laatste update is uitgevoerd.
+
+In het volgende codevoorbeeld wordt een klantentiteit voor 'Fred Jones' gemaakt en ingevoegd in de tabel 'people'. Vervolgens gebruiken we de bewerking [InsertOrReplace][dotnet_TableOperation_InsertOrReplace] om een entiteit met dezelfde partitiesleutel (Jones) en rijsleutel (Fred) op te slaan op de server, dit keer met een andere waarde voor de eigenschap PhoneNumber. Omdat we [InsertOrReplace][dotnet_TableOperation_InsertOrReplace] hebben gebruikt, worden alle bijbehorende eigenschapswaarden vervangen. Als de entiteit 'Fred Jones' echter niet in de tabel had bestaan, zou deze worden ingevoegd.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -326,36 +323,37 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 // Create the CloudTable object that represents the "people" table.
 CloudTable table = tableClient.GetTableReference("people");
 
-// Create a retrieve operation that takes a customer entity.
-TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
+// Create a customer entity.
+CustomerEntity customer3 = new CustomerEntity("Jones", "Fred");
+customer3.Email = "Fred@contoso.com";
+customer3.PhoneNumber = "425-555-0106";
+
+// Create the TableOperation object that inserts the customer entity.
+TableOperation insertOperation = TableOperation.Insert(customer3);
 
 // Execute the operation.
-TableResult retrievedResult = table.Execute(retrieveOperation);
+table.Execute(insertOperation);
 
-// Assign the result to a CustomerEntity object.
-CustomerEntity updateEntity = (CustomerEntity)retrievedResult.Result;
+// Create another customer entity with the same partition key and row key.
+// We've already created a 'Fred Jones' entity and saved it to the
+// 'people' table, but here we're specifying a different value for the
+// PhoneNumber property.
+CustomerEntity customer4 = new CustomerEntity("Jones", "Fred");
+customer4.Email = "Fred@contoso.com";
+customer4.PhoneNumber = "425-555-0107";
 
-if (updateEntity != null)
-{
-    // Change the phone number.
-    updateEntity.PhoneNumber = "425-555-1234";
+// Create the InsertOrReplace TableOperation.
+TableOperation insertOrReplaceOperation = TableOperation.InsertOrReplace(customer4);
 
-    // Create the InsertOrReplace TableOperation.
-    TableOperation insertOrReplaceOperation = TableOperation.InsertOrReplace(updateEntity);
-
-    // Execute the operation.
-    table.Execute(insertOrReplaceOperation);
-
-    Console.WriteLine("Entity was updated.");
-}
-else
-{
-    Console.WriteLine("Entity could not be retrieved.");
-}
+// Execute the operation. Because a 'Fred Jones' entity already exists in the
+// 'people' table, its property values will be overwritten by those in this
+// CustomerEntity. If 'Fred Jones' didn't already exist, the entity would be
+// added to the table.
+table.Execute(insertOrReplaceOperation);
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>Een query uitvoeren op een subset van entiteitseigenschappen
-Met een tabelquery haalt u slechts enkele eigenschappen van een entiteit op in plaats van alle eigenschappen hiervan. Deze methode, projectie genoemd, verbruikt minder bandbreedte en kan de queryprestaties verbeteren, vooral bij grote entiteiten. De query in de volgende code retourneert alleen de e-mailadressen van de entiteiten in de tabel. Dit wordt gedaan via een **DynamicTableEntity**- en een **EntityResolver**-query. Meer informatie over projectie vindt u in het [Blogbericht Introductie tot upsert en queryprojectie][Introducing Upsert and Query Projection blog post]. Houd er rekening mee dat projectie niet wordt ondersteund in de emulator van de lokale opslag. Deze code wordt dus alleen uitgevoerd als u een account gebruikt in de Tabelservice.
+Met een tabelquery haalt u slechts enkele eigenschappen van een entiteit op in plaats van alle eigenschappen hiervan. Deze methode, projectie genoemd, verbruikt minder bandbreedte en kan de queryprestaties verbeteren, vooral bij grote entiteiten. De query in de volgende code retourneert alleen de e-mailadressen van de entiteiten in de tabel. Dit wordt gedaan via een [DynamicTableEntity][dotnet_DynamicTableEntity]- en een [EntityResolver][dotnet_EntityResolver]-query. Meer informatie over projectie vindt u in het blogbericht [Introducing Upsert and Query Projection][blog_post_upsert] (Introductie tot upsert en queryprojectie). Projectie wordt niet ondersteund door de opslagemulator. Deze code wordt dus alleen uitgevoerd als u een account gebruikt in de Tabelservice.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -381,7 +379,7 @@ foreach (string projectedEmail in table.ExecuteQuery(projectionQuery, resolver, 
 ```
 
 ## <a name="delete-an-entity"></a>Een entiteit verwijderen
-U kunt een entiteit gemakkelijk verwijderen nadat u deze hebt opgehaald. Hiervoor gebruikt u hetzelfde patroon dat is getoond voor het bijwerken van een entiteit.  Met de volgende code wordt een klantentiteit opgehaald en verwijderd.
+U kunt een entiteit gemakkelijk verwijderen nadat u deze hebt opgehaald. Hiervoor gebruikt u hetzelfde patroon dat is getoond voor het bijwerken van een entiteit. Met de volgende code wordt een klantentiteit opgehaald en verwijderd.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -479,18 +477,23 @@ Nu u de basisprincipes van Table Storage hebt geleerd, volgt u deze koppelingen 
 [Download and install the Azure SDK for .NET]: /develop/net/
 [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
 
-[Blob5]: ./media/storage-dotnet-how-to-use-table-storage/blob5.png
-[Blob6]: ./media/storage-dotnet-how-to-use-table-storage/blob6.png
-[Blob7]: ./media/storage-dotnet-how-to-use-table-storage/blob7.png
-[Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
-[Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
+[blog_post_upsert]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
-[Introducing Upsert and Query Projection blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-[.NET Client Library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Configure Azure Storage connection strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
-[OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
-[Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-[Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-[How to: Programmatically access Table storage]: #tablestorage
+[dotnet_api_ref]: https://msdn.microsoft.com/library/azure/mt347887.aspx
+[dotnet_CloudTableClient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.cloudtableclient.aspx
+[dotnet_CloudTable]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.cloudtable.aspx
+[dotnet_CloudTable_Execute]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.cloudtable.execute.aspx
+[dotnet_CloudTable_ExecuteBatch]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.cloudtable.executebatch.aspx
+[dotnet_DynamicTableEntity]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.dynamictableentity.aspx
+[dotnet_EntityResolver]: https://msdn.microsoft.com/library/jj733144.aspx
+[dotnet_TableBatchOperation]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx
+[dotnet_TableBatchOperation_Insert]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.insert.aspx
+[dotnet_TableEntity]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableentity.aspx
+[dotnet_TableOperation]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableoperation.aspx
+[dotnet_TableOperation_Insert]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableoperation.insert.aspx
+[dotnet_TableOperation_InsertOrReplace]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableoperation.insertorreplace.aspx
+[dotnet_TableOperation_Replace]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableoperation.replace.aspx
+[dotnet_TableQuery]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablequery.aspx
+[dotnet_TableResult]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableresult.aspx
+[dotnet_TableResult_Result]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableresult.result.aspx
 

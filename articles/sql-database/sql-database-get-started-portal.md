@@ -17,15 +17,15 @@ ms.topic: hero-article
 ms.date: 04/03/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: c0c6cdf8aa48568b7a4468dd87b2896f94fc1bf6
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 58af25d90b419b3ddb986118a8c9ba3b42aa95a6
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Een Azure SQL-database maken in Azure Portal
 
-In deze Quick Start leert u hoe u een SQL-database maakt in Azure.  Azure SQL Database is een 'Database-as-a-Service'-aanbieding waarmee u maximaal beschikbare SQL Server-databases kunt uitvoeren en schalen in de cloud.  In deze Quick Start ziet u hoe u aan de slag gaat door een nieuwe SQL-database te maken met behulp van Azure Portal.
+In deze Quick Start leert u hoe u een SQL-database maakt in Azure. Azure SQL Database is een Database-as-a-Service-oplossing waarmee u maximaal beschikbare SQL Server-databases kunt uitvoeren en schalen in de cloud. In deze Quick Start ziet u hoe u aan de slag gaat door een SQL-database te maken met behulp van Azure Portal.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -43,21 +43,21 @@ Volg deze stappen voor het maken van een SQL-database met de voorbeeldgegevens v
 
 2. Selecteer **Databases** op de pagina **Nieuw** en selecteer **SQL-database** op de pagina **Databases**.
 
-    ![database-1 maken](./media/sql-database-get-started/create-database-1.png)
+    ![database-1 maken](./media/sql-database-get-started-portal/create-database-1.png)
 
 3. Vul het formulier SQL Database in met de volgende informatie, zoals in de voorgaande afbeelding wordt weergegeven:     
    - Databasenaam: **mySampleDatabase**
    - Resourcegroep: **myResourceGroup**
    - Bron: **Voorbeeld (AdventureWorksLT)**
 
-4. Klik op **Server** als u een nieuwe server voor de nieuwe database wilt maken en configureren. Vul het **nieuwe serverformulier** in, waarbij u een unieke servernaam opgeeft. Verstrek ook een naam voor de beheerdersaanmelding bij de server en een zelfgekozen wachtwoord. 
+4. Klik op **Server** als u een server voor de nieuwe database wilt maken en configureren. Vul het **nieuwe serverformulier** in, waarbij u een unieke servernaam opgeeft. Verstrek ook een naam voor de beheerdersaanmelding bij de server en een zelfgekozen wachtwoord. 
 
-    ![database-server maken](./media/sql-database-get-started/create-database-server.png)
+    ![database-server maken](./media/sql-database-get-started-portal/create-database-server.png)
 5. Klik op **Selecteren**.
 
 6. Klik op **Prijscategorie** om de servicelaag en het prestatieniveau voor de nieuwe database op te geven. Voor deze Quick Start selecteert u **20 DTU's** en **250** GB opslag
 
-    ![database-s1 maken](./media/sql-database-get-started/create-database-s1.png)
+    ![database-s1 maken](./media/sql-database-get-started-portal/create-database-s1.png)
 
 7. Klik op **Toepassen**.  
 
@@ -65,26 +65,30 @@ Volg deze stappen voor het maken van een SQL-database met de voorbeeldgegevens v
 
 9. Klik op de werkbalk op **Meldingen** om het implementatieproces te bewaken.
 
-    ![melding](./media/sql-database-get-started/notification.png)
+    ![melding](./media/sql-database-get-started-portal/notification.png)
 
 
 ## <a name="create-a-server-level-firewall-rule"></a>Een serverfirewallregel maken
 
 De service SQL Database maakt een firewall op serverniveau die voorkomt dat externe toepassingen en hulpmiddelen verbinding maken met de server of databases op de server, tenzij er een firewallregel is gemaakt om de firewall te openen voor specifieke IP-adressen. Volg deze stappen om een [SQL Database-firewallregel op serverniveau](sql-database-firewall-configure.md) te maken voor het IP-adres van de client en connectiviteit via de SQL Database-firewall alleen voor uw IP-adres toe te staan. 
 
-1. Nadat de implementatie is voltooid, klikt u op **SQL-databases** in het menu links en klikt u op de pagina **SQL-databases** op de nieuwe database **mySampleDatabase**. De overzichtspagina voor de database wordt geopend, waarin de volledig gekwalificeerde naam (zoals **mynewserver20170327.database.windows.net**) en opties voor verdere configuratie worden weergegeven.
+1. Wanneer de implementatie is voltooid, klikt u op **SQL-databases** in het menu aan de linkerkant en klikt u op de pagina **SQL-databases** op de database. De overzichtspagina voor de database wordt geopend, waarin de volledig gekwalificeerde naam (zoals **mynewserver20170327.database.windows.net**) en opties voor verdere configuratie worden weergegeven.
 
-      ![serverfirewallregel](./media/sql-database-get-started/server-firewall-rule.png) 
+      ![serverfirewallregel](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 2. Klik op de werkbalk op **Serverfirewall instellen** zoals in de vorige afbeelding is weergegeven. De pagina **Firewallinstellingen** voor de SQL Database-server wordt geopend. 
 
 3. Klik op **IP van client toevoegen** op de werkbalk en klik vervolgens op **Opslaan**. Er wordt een firewallregel op serverniveau gemaakt voor uw huidige IP-adres.
 
-      ![serverfirewallregel instellen](./media/sql-database-get-started/server-firewall-rule-set.png) 
+      ![serverfirewallregel instellen](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
-4. Klik op **OK** en vervolgens op **X** om de pagina **Firewallinstellingen** te sluiten.
+4. Klik op **OK** en sluit de pagina **Firewallinstellingen**.
 
-U kunt nu verbinding maken met de database en de bijbehorende server met behulp van SQL Server Management Studio of een ander hulpprogramma naar keuze. Dit doet u vanaf dit IP-adres via het serverbeheerdersaccount dat eerder is gemaakt.
+U kunt nu verbinding maken met de SQL Database-server en de bijbehorende databases met behulp van SQL Server Management Studio of een ander hulpprogramma naar keuze. Dit doet u vanaf dit IP-adres via het serverbeheerdersaccount dat eerder is gemaakt.
+
+> [!NOTE]
+> SQL Database communiceert via poort 1433. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 1433 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u alleen verbinding maken met uw Azure SQL Database-server als uw IT-afdeling poort 1433 openstelt.
+>
 
 ## <a name="query-the-sql-database"></a>Query's uitvoeren op de SQL-database
 
@@ -92,13 +96,13 @@ Tijdens het maken van de SQL-database hebben we deze gevuld met de voorbeelddata
 
 1. Klik op de pagina SQL Database voor uw database op **Extra** op de werkbalk. De pagina **Extra** wordt geopend.
 
-     ![menu extra](./media/sql-database-get-started/tools-menu.png) 
+     ![menu extra](./media/sql-database-get-started-portal/tools-menu.png) 
 
 2. Klik achtereenvolgens op **Query-editor (preview)**, op het selectievakje **Preview-voorwaarden** en op **OK**. De pagina Query-editor wordt geopend.
 
 3. Klik op **Aanmelden** en selecteer wanneer hierom wordt gevraagd **SQL serververificatie**. Geef vervolgens de gebruikersnaam en het wachtwoord van de serverbeheerder op die u eerder hebt gemaakt.
 
-    ![aanmelding](./media/sql-database-get-started/login.png) 
+    ![aanmelding](./media/sql-database-get-started-portal/login.png) 
 
 4. Klik op **OK** om u aan te melden.
 
@@ -113,13 +117,13 @@ Tijdens het maken van de SQL-database hebben we deze gevuld met de voorbeelddata
 
 6. Klik op **Uitvoeren** en bekijk de resultaten van de query in het deelvenster **Resultaten**.
 
-    ![resultaten queryeditor](./media/sql-database-get-started/query-editor-results.png)
+    ![resultaten queryeditor](./media/sql-database-get-started-portal/query-editor-results.png)
 
-7. Klik op **X** om de pagina **Query-editor** te sluiten en klik nogmaals op **X** om de pagina **Extra** te sluiten.
+7. Sluit de pagina **Query-editor** en de pagina **Extra**.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als u van plan bent om door te gaan met andere Quick Starts of met de zelfstudies, verwijdert u de resources die u in deze Quick Start hebt gemaakt niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die door deze Quick Start in Azure Portal zijn gemaakt.
+Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als u van plan bent om door te gaan met andere Quick Starts, verwijdert u de resources die u in deze Quick Start hebt gemaakt niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die door deze Quick Start in Azure Portal zijn gemaakt.
 
 1. Klik in het menu links in Azure Portal op **Resourcegroepen** en klik vervolgens op **myResourceGroup**. 
 2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ **myResourceGroup** in het tekstvak en klik vervolgens op **Verwijderen**.
@@ -127,6 +131,11 @@ Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Als u verbinding wilt maken en query's wilt uitvoeren met behulp van SQL Server Management Studio, raadpleegt u [Verbinding maken en query's uitvoeren met SSMS](sql-database-connect-query-ssms.md)
-- Zie [Verbinding maken en query's uitvoeren met Visual Studio](sql-database-connect-query.md) als u verbinding wilt maken met Visual Studio.
-- Zie voor een technisch overzicht van de SQL Database [Over de SQL Database-service](sql-database-technical-overview.md).
+- Zie [Verbinding maken en query's uitvoeren met Visual Studio Code](sql-database-connect-query-vscode.md) als u verbinding wilt maken en query’s wilt uitvoeren met Visual Studio Code.
+- Zie [Verbinding maken en query’s uitvoeren met .NET](sql-database-connect-query-dotnet.md) als u verbinding wilt maken en query’s wilt uitvoeren met .NET.
+- Zie [Verbinding maken en query's uitvoeren met PHP](sql-database-connect-query-php.md) als u verbinding wilt maken en query's wilt uitvoeren met PHP.
+- Zie [Verbinding maken en query's uitvoeren met Node.js](sql-database-connect-query-nodejs.md) als u verbinding wilt maken en query's wilt uitvoeren met Node.js.
+- Zie [Verbinding maken en query's uitvoeren met Java](sql-database-connect-query-java.md) als u verbinding wilt maken en query's wilt uitvoeren met Java.
+- Zie [Verbinding maken en query's uitvoeren met Python](sql-database-connect-query-python.md) als u verbinding wilt maken en query's wilt uitvoeren met Python.
+- Zie [Verbinding maken en query's uitvoeren met Ruby](sql-database-connect-query-ruby.md) als u verbinding wilt maken en query's wilt uitvoeren met Ruby.
 

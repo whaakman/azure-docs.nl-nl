@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/30/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 8d9d39d63209b8ab6884ddeff569687b55591f95
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: c6f25b8cf8c133f44644db1507958b2176efa230
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -107,7 +107,7 @@ Gebruik de [Analytics-querytaal](app-insights-analytics-tour.md) voor krachtiger
 * [Schakel diagnostische Azure-gegevens in](app-insights-azure-diagnostics.md) om te verzenden naar Application Insights.
 * [Controleer metrische gegevens voor servicestatus](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) om ervoor te zorgen dat de service beschikbaar is en reageert.
 * [Ontvang waarschuwingsmeldingen](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) wanneer er operationele gebeurtenissen plaatsvinden of metrische gegevens een drempelwaarde overschrijden.
-* Gebruik [Application Insights voor JavaScript-apps en -webpagina's](app-insights-web-track-usage.md) om clienttelemetrie op te halen uit de browsers die een webpagina bezoeken.
+* Gebruik [Application Insights voor JavaScript-apps en -webpagina's](app-insights-javascript.md) om clienttelemetrie op te halen uit de browsers die een webpagina bezoeken.
 * [Stel webtests voor beschikbaarheid in](app-insights-monitor-web-app-availability.md) om te worden gewaarschuwd als uw site niet actief is.
 
 
