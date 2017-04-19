@@ -1,20 +1,18 @@
-Er gelden enkele beperkingen voor het aantal meetgegevens en gebeurtenissen per toepassing (per instrumentatiesleutel). De limieten zijn afhankelijk van de [prijscategorie](https://azure.microsoft.com/pricing/details/application-insights/) die u kiest.
+There are some limits on the number of metrics and events per application (that is, per instrumentation key). Limits depend on the [pricing plan](https://azure.microsoft.com/pricing/details/application-insights/) that you choose.
 
-| **Resource** | **Standaardlimiet** | **Opmerking**
+| **Resource** | **Default limit** | **Note**
 | --- | --- | --- |
-| Totale hoeveelheid gegevens per dag | 500 GB | U kunt gegevens beperken door een maximum in te stellen. Als u meer nodig hebt, kunt u een e-mail sturen naar AIDataCap@microsoft.com.
-| Gratis gegevens per maand<br/> (prijscategorie Basic) | 1 GB | Aanvullende gegevens worden per gigabyte in rekening gebracht.
-| Beperking | 32.000 gebeurtenissen per seconde | De limiet wordt gemeten in een minuut.
-| Bewaartijd van gegevens | 90 dagen | Deze resource is voor [Search](../articles/application-insights/app-insights-diagnostic-search.md), [Analytics](../articles/application-insights/app-insights-analytics.md) en [Metrics Explorer](../articles/application-insights/app-insights-metrics-explorer.md).
-| Bewaartijd van gedetailleerde resultaten van [beschikbaarheidstests met meerdere stappen](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) | 90 dagen | Deze resource biedt gedetailleerde resultaten van elke stap.
-| Naamlengte voor de eigenschappen en meetgegevens | 150 |
-| Lengte van de tekenreeks eigenschapswaarde | 8.192 |
-| Lengte van berichten voor tracering en uitzonderingen | 10.000 |
-| Aantal [beschikbaarheidstests](../articles/application-insights/app-insights-monitor-web-app-availability.md) per app  | 10 |
+| Total data per day | 500 GB | You can reduce data by setting a cap. If you need more, mail AIDataCap@microsoft.com.
+| Free data per month<br/> (Basic price plan) | 1 GB | Additional data is charged per gigabyte.
+| Throttling | 32 k events/second | The limit is measured over a minute.
+| Data retention | 90 days | This resource is for [Search](../articles/application-insights/app-insights-diagnostic-search.md), [Analytics](../articles/application-insights/app-insights-analytics.md), and [Metrics Explorer](../articles/application-insights/app-insights-metrics-explorer.md).
+| [Availability multi-step test](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) detailed results retention | 90 days | This resource provides detailed results of each step.
+| Maximum event size | 64 K | 
+| Property and metric name length | 150 | see comment below for more informaiton
+| Property value string length | 8,192 | see comment below for more informaiton
+| Trace and exception message length | 10 k | see comment below for more informaiton
+| [Availability tests](../articles/application-insights/app-insights-monitor-web-app-availability.md) count per app  | 10 |
 
-Zie [Over prijzen en quota voor Application Insights](../articles/application-insights/app-insights-pricing.md) voor meer informatie.
+For more information, see [About pricing and quotas in Application Insights](../articles/application-insights/app-insights-pricing.md).
 
-
-<!--HONumber=Feb17_HO2-->
-
-
+For more informaiton on data fields limits see [per type schemas](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
