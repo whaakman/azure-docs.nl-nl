@@ -1,13 +1,8 @@
 > [!NOTE]
 > 
 > **Probeer gratis Azure Machine Learning**
+>
+> Een creditcard of een Azure-abonnement is niet vereist. <a href="https://studio.azureml.net/?selectAccess=true&o=2" target="_blank">**Meteen aan de slag >**.</a>
 > 
-> Geen creditcard of Azure-abonnement nodig. <a href="https://studio.azureml.net/?selectAccess=true&o=2" target="_blank">**Meteen aan de slag >**</a>
 > 
-> 
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 
