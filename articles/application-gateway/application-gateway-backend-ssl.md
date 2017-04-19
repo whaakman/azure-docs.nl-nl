@@ -13,24 +13,24 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 04/04/2017
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 5009b13cec57e6974f71610c84fdaad837085df0
-ms.openlocfilehash: 5f81d8146f8000e73a2eb578ff2371a62c8875e9
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 40368e31790a7ffa2d34a51a13e78d028cd0a1eb
+ms.lasthandoff: 04/05/2017
 
 
 ---
 # <a name="overview-of-end-to-end-ssl-and-ssl-policy-on-application-gateway"></a>Overzicht van end-to-end SSL en SSL-beleid in Application Gateway
 
-Application Gateway ondersteunt SSL-beëindiging op de gateway, waarna het verkeer normaal gesproken onversleuteld naar de back-endservers wordt doorgeleid. Met deze functie ontlast u de webservers van de kostbare overheads voor het versleutelen en ontsleutelen. Voor sommige gebruikers is onversleutelde communicatie met de back-endserververs echter onacceptabel. Deze onversleutelde communicatie kan het gevolg zijn van de beveiligings- of nalevingsvereisten, of misschien kan de toepassing alleen worden gebruikt via een beveiligde verbinding. Voor zulke toepassingen ondersteunt Application Gateway nu end-to-end SSL-versleuteling.
+Application Gateway ondersteunt SSL-beëindiging op de gateway, waarna het verkeer normaal gesproken onversleuteld naar de back-endservers wordt doorgeleid. Met deze functie voorkomt u prijzige overhead voor het versleutelen en ontsleutelen voor uw webservers. Voor sommige gebruikers is onversleutelde communicatie met de back-endserververs echter onacceptabel. Deze onversleutelde communicatie kan het gevolg zijn van de beveiligings- of nalevingsvereisten of misschien kan de toepassing alleen worden gebruikt via een beveiligde verbinding. Voor zulke toepassingen ondersteunt Application Gateway end-to-end SSL-versleuteling.
 
 ## <a name="overview"></a>Overzicht
 
-Met end-to-end SSL kunt u veilig gevoelige gegevens versleuteld verzenden naar de back-endserver, terwijl u gebruik blijft maken van de voordelen van de Layer 7-taakverdelingsfuncties die Application Gateway te bieden heeft. Voorbeelden van deze functies zijn: affiniteit op basis van cookies, routering op basis van een URL, ondersteuning voor routering op basis van sites en de mogelijkheid om X-Forwarded-*-headers in te voegen.
+Met end-to-end SSL kunt u veilig gevoelige gegevens versleuteld verzenden naar de back-endserver, terwijl u gebruik blijft maken van de voordelen van de Layer 7-taakverdelingsfuncties die Application Gateway te bieden heeft. Voorbeelden van deze functies zijn: sessieaffiniteit op basis van cookies, routering op basis van een URL, ondersteuning voor routering op basis van sites en de mogelijkheid om X-Forwarded-*-headers in te voegen.
 
-Wanneer Application Gateway is geconfigureerd met de communicatiemodus voor end-to-end SSL, worden door Application Gateway de SSL-sessies van de gebruiker op de gateway beëindigd en het gebruikersverkeer ontsleuteld. Vervolgens worden de geconfigureerde regels toegepast voor het selecteren van het juiste exemplaar van de back-endgroep waarnaar het verkeer moet worden doorgeleid. Application Gateway initieert vervolgens een nieuwe SSL-verbinding met de back-endserver en versleutelt de gegevens opnieuw met het openbare-sleutelcertificaat van de back-endserver voordat de aanvraag naar de back-endserver wordt verstuurd. End-to-end SSL wordt ingeschakeld door de protocolinstelling in BackendHTTPSetting in te stellen op Https. Dit wordt vervolgens toegepast op een back-endgroep. Elke back-endserver in de back-endgroep waarvoor end-to-end SSL is ingeschakeld, moet worden geconfigureerd met een certificaat zodat beveiligde communicatie mogelijk is.
+Wanneer Application Gateway is geconfigureerd met de communicatiemodus voor end-to-end SSL, worden door Application Gateway de SSL-sessies op de gateway beëindigd en wordt het gebruikersverkeer ontsleuteld. Vervolgens worden de geconfigureerde regels toegepast voor het selecteren van het juiste exemplaar van de back-endgroep waarnaar het verkeer moet worden doorgeleid. Application Gateway initieert vervolgens een nieuwe SSL-verbinding met de back-endserver en versleutelt de gegevens opnieuw met het openbare-sleutelcertificaat van de back-endserver, voordat de aanvraag naar de back-endserver wordt verstuurd. End-to-end SSL wordt ingeschakeld door de protocolinstelling in BackendHTTPSetting in te stellen op HTTPS. Dit wordt vervolgens toegepast op een back-endgroep. Elke back-endserver in de back-endgroep waarvoor end-to-end SSL is ingeschakeld, moet worden geconfigureerd met een certificaat zodat beveiligde communicatie mogelijk is.
 
 ![end-to-end SSL-scenario][1]
 
@@ -44,7 +44,7 @@ Application Gateway communiceert alleen met bekende back-endexemplaren waarvan h
 
 Application Gateway ondersteunt SSL-onderhandelingsbeleidsregels die door de gebruiker kunnen worden geconfigureerd. Op die manier hebben klanten meer controle over SSL-verbindingen op de Application Gateway.
 
-1. SSL 2.0 en 3.0 worden geforceerd uitgeschakeld voor alle Application Gateways. Ze kunnen op geen enkele wijze worden geconfigureerd.
+1. SSL 2.0 en 3.0 worden geforceerd uitgeschakeld voor alle Application Gateways. Deze kunnen op geen enkele wijze worden geconfigureerd.
 2. Bij het definiëren van het SSL-beleid kunt u een van de volgende drie protocollen uitschakelen: **TLSv1\_0**, **TLSv1\_1**, **TLSv1\_2**.
 3. Als er geen SSL-beleid is gedefinieerd, worden alle drie protocollen (TLSv1\_0, TLSv1\_1, TLSv1_2) ingeschakeld.
 

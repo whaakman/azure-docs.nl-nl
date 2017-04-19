@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/04/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 9a648ca8f91529bc5aaa7b8ffbcfddb40864f409
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 4b8627f3cdd13578f9b4c35297bf5d550dccfd07
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="troubleshooting-you-cant-get-there-from-here-on-a-windows-device"></a>Problemen oplossen met toegang vanaf een Windows-apparaat
+# <a name="you-cant-get-there-from-here-on-a-windows-device"></a>U kunt daar niet komen vanaf deze locatie op een Windows-apparaat
 
 Tijdens een poging om bijvoorbeeld het SharePoint Online-intranet van uw organisatie te openen, krijgt u een pagina te zien waarop staat dat *u geen toegang hebt*. U ziet deze pagina omdat de beheerder voorwaardelijk toegangsbeleid heeft geconfigureerd op basis waarvan de toegang tot resources in uw organisatie onder bepaalde omstandigheden wordt geblokkeerd. Uiteindelijk kan het nodig zijn om contact op te nemen met de helpdesk of beheerder, maar voordat u dit doet, is er een aantal dingen dat u eerst zelf kunt proberen.
 

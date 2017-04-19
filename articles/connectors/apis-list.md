@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/27/2017
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: a469a6e29e07029b7eab4e80e132b9276c5b18df
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 53bb5d64e27458b4a88981bd20ea4236b31431ec
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -87,7 +87,7 @@ Connectors bieden ook de acties die u in de werkstroom van uw app kunt gebruiken
 
 ## <a name="custom-connectors-and-certification-for-microsoft-azure"></a>Aangepaste connectors en certificering voor Microsoft Azure
 
-Wilt u uw eigen connectors maken of kunt u de gewenste connector niet vinden? U kunt [het Logic Apps-platform uitbreiden](../logic-apps/logic-apps-create-api-app.md) en API-apps maken die gebruikmaken van API's of systemen die niet beschikbaar zijn als out-of-the-box-connectors. U kunt ook uw API-apps voor Microsoft Azure-certificering indienen en ze vervolgens beschikbaar stellen via Azure. Meer informatie over [het certificeren van uw oplossingen voor Microsoft Azure](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
+Als u API's wilt aanroepen waarmee aangepaste code wordt uitgevoerd of die niet beschikbaar zijn als connectors, kunt u [het Logic Apps-platform uitbreiden](../logic-apps/logic-apps-create-api-app.md) door op REST gebaseerde API Apps te maken als aangepaste connectors. Als u uw aangepaste API Apps openbaar wilt maken en beschikbaar wilt maken voor gebruik in Azure, verzendt u uw nominaties naar het [Microsoft Azure Certified-programma](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
 
 ## <a name="get-help"></a>Help opvragen
 

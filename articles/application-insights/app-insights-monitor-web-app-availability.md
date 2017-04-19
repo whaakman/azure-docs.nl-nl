@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/13/2017
+ms.date: 04/06/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 153a97154faf65598141f321bcd33c4503fa30b0
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: cfe70aa09b21aa914e3705bf7969583c7a1bbd52
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -241,7 +241,10 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
     De twee termen worden door elkaar gebruikt.
 * *Ik wil graag beschikbaarheidstests gebruiken op onze interne server die achter een firewall wordt uitgevoerd.*
 
-    Uw firewall configureren om aanvragen van de [IP-adressen van webtestagents](app-insights-ip-addresses.md) toe te staan.
+    Er zijn twee mogelijke oplossingen:
+    
+    * Configureer uw firewall om binnenkomende aanvragen van de [IP-adressen van onze webtestagents](app-insights-ip-addresses.md) toe te staan.
+    * Schrijf uw eigen code om uw interne server periodiek te testen. Voer de code uit als achtergrondproces op een testserver achter de firewall. De resultaten van het testproces kunnen worden verzonden naar Application Insights door de API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) te gebruiken in het SDK-kernpakket. Hiervoor moet uw testserver uitgaande toegang hebben tot het opname-eindpunt van Application Insights, maar dit is een veel kleiner beveiligingsrisico dan wanneer u binnenkomende aanvragen toestaat. De resultaten worden niet weergegeven in de blades voor de beschikbaarheidswebtests, maar worden weergegeven als beschikbaarheidsresultaten in Analytics, Search en Metric Explorer.
 * *Het uploaden van een webtest met meerdere stappen mislukt*
 
     Er is een limiet van 300 K.
@@ -260,10 +263,6 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 
     Dat wordt niet ondersteund.
 
-## <a name="video"></a>Video
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
->
->
 
 ## <a name="next"></a>Volgende stappen
 [Diagnostische logboeken doorzoeken][diagnostic]

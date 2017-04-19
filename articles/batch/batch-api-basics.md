@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 03/08/2017
+ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f323afdea34e973f3ecdd54022f04b3f0d86afb1
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c7090940192d9bd07fce96ad475b2239f5e9f2e8
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -46,7 +46,7 @@ De volgende werkstroom op hoog niveau is gangbaar voor bijna alle toepassingen e
 In de volgende secties worden deze en andere resources van Batch besproken waarmee u uw gedistribueerde rekenkundige scenario kunt uitvoeren.
 
 > [!NOTE]
-> U hebt een [Batch-account](batch-account-create-portal.md) nodig om de Batch-service te kunnen gebruiken. Bovendien wordt voor vrijwel alle oplossingen een [Azure-opslagaccount][azure_storage] gebruikt om bestanden op te slaan en op te halen. Batch ondersteunt momenteel alleen het opslagaccounttype **Algemeen**, zoals beschreven in stap 5 van [Een opslagaccount maken](../storage/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md).
+> U hebt een [Batch-account](#account) nodig om de Batch-service te kunnen gebruiken. Bovendien wordt voor vrijwel alle oplossingen een [Azure-opslagaccount][azure_storage] gebruikt om bestanden op te slaan en op te halen. Batch ondersteunt momenteel alleen het opslagaccounttype **Algemeen**, zoals beschreven in stap 5 van [Een opslagaccount maken](../storage/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md).
 >
 >
 
@@ -69,7 +69,16 @@ Sommige van de volgende resources (accounts, rekenknooppunten, pools, jobs en ta
 * [Toepassingspakketten](#application-packages)
 
 ## <a name="account"></a>Account
-Een Batch-account is een uniek geïdentificeerde entiteit in de Batch-service. Alle verwerkingen zijn gekoppeld aan een Batch-account. Wanneer u met de Batch-service bewerkingen wilt uitvoeren, hebt u de accountnaam en een van de bijbehorende accountsleutels nodig. U kunt [een Azure Batch-account in de Azure Portal maken](batch-account-create-portal.md).
+Een Batch-account is een uniek geïdentificeerde entiteit in de Batch-service. Alle verwerkingen zijn gekoppeld aan een Batch-account.
+
+U kunt een Azure Batch-account maken met de [Azure Portal](batch-account-create-portal.md) of via een programma, zoals met de [Batch Management .NET-bibliotheek](batch-management-dotnet.md). Wanneer u het account maakt, kunt u een Azure-opslagaccount koppelen.
+
+Batch ondersteunt twee accountconfiguraties, op basis van de eigenschap *groepstoewijzingsmodus*. Met de twee configuraties beschikt u over verschillende opties voor verificatie met de Batch-service en voor de inrichting en het beheer van Batch-[groepen](#pool) (zie verderop in dit artikel). 
+
+
+* **Batch-service** (standaard): u hebt toegang tot de Batch-API's via verificatie op basis van gedeelde sleutels of [Azure Active Directory-verificatie](batch-aad-auth.md). Batch-rekenresources worden achter de schermen toegewezen in een door Azure beheerd account.   
+* **Gebruikersabonnement**: u hebt alleen toegang tot de Batch-API's met [Azure Active Directory-verificatie](batch-aad-auth.md). Batch-rekenresources worden rechtstreeks in uw Azure-abonnement toegewezen. In deze modus hebt u meer flexibiliteit bij de configuratie van de rekenknooppunten en de integratie met andere services. Voor deze modus moet u een extra Azure-sleutelkluis voor uw Batch-account instellen.
+ 
 
 ## <a name="compute-node"></a>Rekenknooppunt
 Een rekenknooppunt is een virtuele machine (VM) van Azure die aan een specifiek deel van de workload van uw toepassing is toegewezen. De grootte van een knooppunt bepaalt het aantal CPU-kernen, de geheugencapaciteit en de grootte van het lokale bestandssysteem die aan het knooppunt worden toegewezen. U kunt pools van Windows- of Linux-knooppunten maken met behulp van Azure Cloud Services of Virtual Machines Marketplace-installatiekopieën. Zie de volgende sectie ([Pool](#pool)) voor meer informatie over deze opties.
@@ -89,13 +98,16 @@ Azure Batch-groepen worden gebouwd boven op het kernrekenplatform van Azure. Dez
 
 Aan elk knooppunt dat aan een pool wordt toegevoegd, wordt een unieke naam en een uniek IP-adres toegewezen. Wanneer een knooppunt uit een pool wordt verwijderd, gaan alle wijzigingen in het besturingssysteem of de bestanden verloren. De naam en het IP-adres van het verwijderde knooppunt worden vrijgegeven voor toekomstig gebruik. Wanneer een knooppunt een pool verlaat, is de levensduur ervan beëindigd.
 
-Wanneer u een pool maakt, kunt u de volgende kenmerken opgeven:
+Wanneer u een pool maakt, kunt u de volgende kenmerken opgeven. Sommige instellingen verschillen, afhankelijk van de groepstoewijzingsmodus van het Batch-[account](#account).
 
 * **Besturingssysteem** en **versie** van rekenknooppunt
 
-    Wanneer u een besturingssysteem voor de knooppunten in de pool selecteert, beschikt u over twee opties: **Virtuele-machineconfiguratie** en **Cloud Services-configuratie**.
+    > [!NOTE]
+    > In de groepstoewijzingsmodus van de Batch-service beschikt u over twee opties wanneer u een besturingssysteem selecteert voor de knooppunten in uw pool: **Virtuele-machineconfiguratie** en **Cloud Services-configuratie**. In de modus Gebruikersabonnement kunt u alleen Virtuele-machineconfiguratie gebruiken.
+    >
 
-    **Virtuele-machineconfiguratie** biedt Linux- en Windows-installatiekopieën voor rekenknooppunten via de [Azure Virtual Machines Marketplace][vm_marketplace].
+    **Virtuele-machineconfiguratie** biedt Linux- en Windows-installatiekopieën voor rekenknooppunten via de [Azure Virtual Machines Marketplace][vm_marketplace] en in de toewijzingsmodus voor gebruikersabonnementen kunt u aangepaste VM-installatiekopieën gebruiken.
+
     Wanneer u een pool met virtuele-machineconfiguratieknooppunten maakt, moet u niet alleen de grootte van de knooppunten opgeven, maar ook de **verwijzing naar de installatiekopie van de virtuele machine** en de Batch-**knooppuntagent-SKU** die op de knooppunten moet worden geïnstalleerd. Zie [Linux-rekenknooppunten in Azure Batch-pools inrichten](batch-linux-nodes.md) voor meer informatie over het opgeven van deze pooleigenschappen.
 
     **Cloud Services-configuratie** biedt *alleen* Windows rekenknooppunten. Beschikbare besturingssystemen voor Cloud Services-configuratiepools worden weergegeven in de [Azure-compatibiliteitsmatrix voor releases van gastbesturingssystemen en SDK’s](../cloud-services/cloud-services-guestos-update-matrix.md). Wanneer u een pool met Cloud Services-knooppunten maakt, moet u de grootte van het knooppunt en het bijbehorende *type besturingssysteem* opgeven. Wanneer u pools met Windows rekenknooppunten maakt, maakt u meestal gebruik van Cloud Services.
@@ -313,17 +325,27 @@ Een gecombineerde benadering wordt meestal gebruikt voor het verwerken van een v
 
 ## <a name="pool-network-configuration"></a>Netwerkconfiguratie pool
 
-U kunt de id van een [virtueel netwerk (VNet)](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/) van Azure opgeven waarin de rekenknooppunten van de pool moeten worden gemaakt wanneer u een pool van rekenknooppunten maakt in Azure Batch.
-
-* Alleen aan **Cloud Services Configuration**-pools kan een VNet worden toegewezen.
+U kunt de API’s gebruiken om de id van een [virtueel netwerk (VNet)](../virtual-network/virtual-networks-overview.md) van Azure op te geven waarin de rekenknooppunten van de pool moeten worden gemaakt wanneer u een pool van rekenknooppunten maakt in Azure Batch.
 
 * Het VNet moet aan de volgende vereisten voldoen:
 
    * In dezelfde Azure-**regio** als het Azure Batch-account.
    * In hetzelfde Azure-**abonnement** als het Azure Batch-account.
-   * Een **klassiek** VNet. VNets die zijn gemaakt met het Azure Resource Manager-implementatiemodel, worden niet ondersteund.
 
 * Het VNet heeft genoeg vrije **IP-adressen** nodig om de eigenschap `targetDedicated` van de pool onder te brengen. Als het subnet onvoldoende vrije IP-adressen heeft, wijst de Batch-service de rekenknooppunten in de pool gedeeltelijk toe en wordt er een fout weergegeven voor het aanpassen van de grootte.
+
+* Het opgegeven subnet moet communicatie vanuit de Batch-service toestaan om taken te kunnen plannen voor de rekenknooppunten. Als communicatie met de rekenknooppunten wordt geweigerd door een **netwerkbeveiligingsgroep** die is gekoppeld aan het VNet, zet de Batch-service de status van de rekenknooppunten op **Onbruikbaar**. 
+
+* Als het opgegeven VNet bijbehorende netwerkbeveiligingsgroepen heeft, moet binnenkomende communicatie worden ingeschakeld. Voor een Linux-pool moeten de poorten 29876, 29877 en 22 zijn ingeschakeld. Voor een Windows-pool moet poort 3389 zijn ingeschakeld.
+
+Aanvullende instellingen voor het VNet zijn afhankelijk van de groepstoewijzingsmodus van het Batch-account.
+
+### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>VNets voor pools die zijn ingericht in de Batch-service
+
+In de toewijzingsmodus van de Batch-service kan alleen aan pools van **Cloud Services-configuratie** een VNet worden toegewezen. Het opgegeven VNet moet bovendien een **klassiek** VNet zijn. VNets die zijn gemaakt met het Azure Resource Manager-implementatiemodel, worden niet ondersteund.
+   
+
+
 * De *MicrosoftAzureBatch*-service-principal moet de toegangsbeheerrol [Inzender voor klassieke virtuele machines](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) hebben voor het betreffende VNet. In Azure Portal:
 
   * Selecteer het **VNet** en vervolgens **Toegangsbeheer (IAM)** > **Rollen** > **Inzender voor klassieke virtuele machines** > **Toevoegen**
@@ -331,7 +353,13 @@ U kunt de id van een [virtueel netwerk (VNet)](https://azure.microsoft.com/docum
   * Schakel het selectievakje **MicrosoftAzureBatch** in
   * Selecteer de knop **Selecteren**.
 
-* Als communicatie met de rekenknooppunten wordt geweigerd door een **netwerkbeveiligingsgroep** die is gekoppeld aan het VNet, zet de Batch-service de status van de rekenknooppunten op **onbruikbaar**. Het subnet moet communicatie vanuit de Azure Batch-service toestaan om taken te kunnen plannen voor de rekenknooppunten.
+
+
+### <a name="vnets-for-pools-provisioned-in-a-user-subscription"></a>VNets voor pools die zijn ingericht in een gebruikersabonnement
+
+In de toewijzingsmodus Gebruikersabonnement worden alleen pools van **Virtuele-machineconfiguratie** ondersteund en kan alleen hieraan een VNet worden toegewezen. Het opgegeven VNet moet bovendien zijn gebaseerd op **Resource Manager**. VNets die zijn gemaakt met het klassieke implementatiemodel, worden niet ondersteund.
+
+
 
 ## <a name="scaling-compute-resources"></a>Rekenresources vergroten/verkleinen
 Door [automatisch te vergroten/verkleinen](batch-automatic-scaling.md) kunt u het aantal rekenknooppunten in een pool dynamisch laten aanpassen door de Batch-service op basis van de huidige workload en het resourcegebruik van uw rekenscenario. Zo kunt u de totale kosten van het uitvoeren van uw toepassing verlagen door alleen de benodigde resources te gebruiken en de resources die u niet nodig hebt, vrij te geven.

@@ -17,9 +17,9 @@ ms.date: 3/13/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: a2452b95c9355957b10477a6e457000f0eba6a9c
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 2e981f0f45bc5b338937839b74114e12db960927
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -90,9 +90,9 @@ De volgende tabel bevat de Azure Backup-onderdelen die ondersteuning bieden voor
 | Onderdeel | Ondersteuning voor Linux (goedgekeurd door Azure) |
 | --- | --- |
 | Azure Backup-agent (MARS) |Nee (alleen Windows-agent) |
-| System Center DPM |Bestandsconsistente back-up alleen op Hyper-V<br/> (niet beschikbaar voor Azure VM) |
-| Azure Backup-server |Bestandsconsistente back-up alleen op Hyper-V<br/> (niet beschikbaar voor Azure VM) |
-| Back-up van virtuele machines van Azure IaaS |Ja (toepassingsconsistente back-up met [pre-script en post-script framework](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)) |
+| System Center DPM |Bestandsconsistente back-up van Linux-gast-VM's op Hyper-V en VMware<br/> (niet beschikbaar voor Azure VM)<br/> Linux-gast-VM's herstellen op Hyper-V- en VMware |
+| Azure Backup-server |Bestandsconsistente back-up van Linux-gast-VM's op Hyper-V en VMware<br/> (niet beschikbaar voor Azure VM)<br/> Linux-gast-VM's herstellen op Hyper-V- en VMware |
+| Back-up van virtuele machines van Azure IaaS |Toepassingsconsistente back-up met [prescript en postscript framework](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)<br/> [Gedetailleerd bestandsherstel](backup-azure-restore-files-from-vm.md)<br/> [Alle VM-schijven herstellen](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-backed-up-disks)<br/> [VM herstellen](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-new-vm-from-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>VM's voor Premium Storage met Azure Backup gebruiken
 Azure Backup beschermt VM's voor Premium Storage. Azure Premium Storage is opslag op basis van SSD (Solid-State Drive), ontworpen om I/O-intensieve workloads te ondersteunen. Premium Storage is uitermate geschikt voor VM-workloads (virtuele machine). Zie het artikel [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md) (Premium Storage: hoogwaardige opslag voor workloads van Azure Virtual Machines) voor meer informatie over Premium Storage.
