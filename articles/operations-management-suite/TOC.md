@@ -3,15 +3,9 @@
 ## [OMS-architectuur](operations-management-suite-architecture.md)
 
 # Aan de slag
-## Inzicht en analyse
-### [Registreren voor Log Analytics](../log-analytics/log-analytics-get-started.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Automation en beheer
-### [Mijn eerste runbook](../automation/automation-first-runbook-graphical.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Beveiliging en herstel
-### [Kennismaking met Azure Backup](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Beveiliging en naleving
-### [Beveiliging en controle](oms-security-getting-started.md)
-### [Gegevensbeveiliging](oms-security-data-security.md)
+## Rondleidingen
+### [Serviceoverzicht](operations-management-suite-walkthrough-servicemap.md)
+
 
 # Procedures
 

@@ -76,6 +76,7 @@
 ## [Een Azure Backup-kluis verwijderen](backup-azure-delete-vault.md)
 ## [Offline back-ups configureren](backup-azure-backup-import-export.md)
 ## [De tapewisselaar vervangen](backup-azure-backup-cloud-as-tape.md)
+## [Toepassingsconsistente back-ups van virtuele Linux-machines](backup-azure-linux-app-consistent.md)
 
 # Naslaginformatie
 ## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)

@@ -287,10 +287,10 @@
 ### [Talen](Translator/languages.md)
 ### [Hub](Translator/translator-hub-overview.md)
 ### [CTF](Translator/collaborative-translation-framework-reporting-api.md)
-### [Overzicht van de spraakomzettings-API](Translator/speech-overview.md)
-### [Naslaginformatie voor de spraakomzettings-API](http://docs.microsofttranslator.com/speech-translate.html)
-### [Overzicht van de tekstomzettings-API](Translator/text-overview.md)
-### [Naslaginformatie voor de tekstomzettings-API](http://docs.microsofttranslator.com/text-translate.html)
+### [Overzicht Translator Speech-API](Translator/speech-overview.md)
+### [ Naslaginformatie Translator Speech-API](http://docs.microsofttranslator.com/speech-translate.html)
+### [Overzicht Translator Text-API](Translator/text-overview.md)
+### [ Naslaginformatie Translator Text-API](http://docs.microsofttranslator.com/text-translate.html)
 
 ## Video
 ### [Overzicht](Video/Home.md)

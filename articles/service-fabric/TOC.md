@@ -5,7 +5,7 @@
 ## [Toepassingsscenario's](service-fabric-application-scenarios.md)
 ## [Architectuur](service-fabric-architecture.md)
 ## [Terminologie](service-fabric-technical-overview.md)
-## [Inhoudsschema](service-fabric-content-roadmap.md)
+## [Inleiding](service-fabric-content-roadmap.md)
 
 # Aan de slag
 ## De ontwikkelomgeving instellen
@@ -17,7 +17,8 @@
 ### [Java op Linux](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# op Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Implementeren van apps op een lokale cluster](service-fabric-get-started-with-a-local-cluster.md)
-## [Een zelfstandige cluster maken](service-fabric-get-started-standalone-cluster.md)
+## [Uw eerste cluster maken in Azure](service-fabric-get-started-azure-cluster.md)
+## [Uw eerste zelfstandige -cluster maken](service-fabric-get-started-standalone-cluster.md)
 
 # Procedures
 ## Een toepassing bouwen
@@ -124,7 +125,6 @@
 #### [Toegangsbeheer](service-fabric-cluster-security-roles.md)
 #### [Een cluster configureren](service-fabric-cluster-fabric-settings.md)
 #### [Clustercertificaten toevoegen of overdragen](service-fabric-cluster-security-update-certs-azure.md) 
-#### [Een Party Cluster gratis proberen](http://aka.ms/tryservicefabric)
 
 ### Zelfstandige clusters
 #### [Implementatie plannen en voorbereiden](service-fabric-cluster-standalone-deployment-preparation.md)

@@ -19,6 +19,7 @@
 ### [Kostenbeheer configureren](devtest-lab-configure-cost-management.md)
 ### [Virtuele netwerken configureren](devtest-lab-configure-vnet.md)
 ### [Gedeelde IP-adressen begrijpen](devtest-lab-shared-ip.md)
+### [Lab-aanpassingen automatiseren met behulp van sjablonen en PowerShell](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 
 ## Artefacten beheren
 ### [Een artefactenopslagplaats toevoegen](devtest-lab-add-artifact-repo.md)

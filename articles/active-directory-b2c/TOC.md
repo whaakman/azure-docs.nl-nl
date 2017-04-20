@@ -1,7 +1,7 @@
 # Overzicht
 ## [Overzicht](active-directory-b2c-overview.md)
 ## [Soorten toepassingen](active-directory-b2c-apps.md)
-## [Productieschaal versus preview van B2C-tenants](active-directory-b2c-reference-tenant-type.md)
+## [Regionale beschikbaarheid en opslaglocaties](active-directory-b2c-reference-tenant-type.md)
 
 # Aan de slag
 ## [Een Azure AD B2C-directory maken](active-directory-b2c-get-started.md)

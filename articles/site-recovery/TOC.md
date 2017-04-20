@@ -5,7 +5,7 @@
 ## [Welke workloads kunt u beveiligen?](site-recovery-workload.md)
 ## [Ondersteuningsmatrix voor Site Recovery](site-recovery-support-matrix-to-azure.md)
 ## [Veelgestelde vragen](site-recovery-faq.md)
-## [Een inleiding bekijken](https://azure.microsoft.com/resources/videos/index/?services=recovery-manager)
+## [Een inleiding bekijken](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Aan de slag
 ## [Virtuele VMware-machines repliceren naar Azure](site-recovery-vmware-to-azure.md)
@@ -21,7 +21,7 @@
 ### [Overwegingen voor netwerkinfrastructuur](site-recovery-network-design.md)
 ### [Capaciteit plannen en schalen voor VMware-replicatie naar Azure](site-recovery-plan-capacity-vmware.md)
 ### [Implementatieplanner voor VMware-replicatie naar Azure](site-recovery-deployment-planner.md)
-### [Site Recovery Capacity Planner voor Hyper-V-replicatie](site-recovery-capacity-planner.md)
+### [Capacity Planner voor Hyper-V-replicatie](site-recovery-capacity-planner.md)
 
 ## Configureren
 ### [De bronomgeving instellen](site-recovery-set-up-vmware-to-azure.md)

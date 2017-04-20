@@ -1,17 +1,20 @@
 # Overzicht
 ## [Wat is Azure Automation?](automation-intro.md)
 # Aan de slag
+## [Aan de slag met Azure Automation](automation-offering-get-started.md)
 ## Runbook-zelfstudie
 ### [Een grafisch runbook maken](automation-first-runbook-graphical.md)
 ### [PowerShell-runbook maken](automation-first-runbook-textual-powershell.md)
 ### [PowerShell Workflow-runbook maken](automation-first-runbook-textual.md)
 # Procedures
 ## Verificatie en beveiliging
-### [Verificatie in Azure Automation](automation-security-overview.md)
-### [Een Azure Uitvoeren als-account configureren](automation-sec-configure-azure-runas-account.md)
-### [Een Azure AD-gebruikersaccount configureren](automation-sec-configure-aduser-account.md)
-### [Verificatie configureren met AWS](automation-sec-configure-aws-account.md)
+### [Zelfstandig Automation-account maken](automation-create-standalone-account.md)
+### [Azure AD-gebruikersaccount maken](automation-create-aduser-account.md)
+### [Verificatie configureren met AWS](automation-config-aws-account.md)
+### [Uitvoeren als-account voor Azure maken met PowerShell](automation-update-account-powershell.md)
+### [Automation-accountconfiguratie valideren](automation-verify-runas-authentication.md)
 ### [Toegangsbeheer op basis van rollen](automation-role-based-access-control.md)
+### [Automation-account beheren](automation-manage-account.md)
 ## Runbooks maken
 ### [Runbooktypen](automation-runbook-types.md)
 ### [Runbooks maken en importeren](automation-creating-importing-runbook.md)
@@ -71,7 +74,7 @@
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell (klassiek)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
-## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [REST](/rest/api/automation)
 ## [REST (klassiek)](https://msdn.microsoft.com/library/azure/mt163781)
 # Resources
 ## [Releaseopmerkingen](https://azure.microsoft.com/updates/?product=automation)

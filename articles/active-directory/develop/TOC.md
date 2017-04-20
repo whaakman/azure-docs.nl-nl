@@ -1,4 +1,5 @@
-# [Overzicht](active-directory-developers-guide.md)
+# Overzicht
+## [Handleiding voor ontwikkelaars](active-directory-developers-guide.md)
 ## [Apps en Azure Active Directory](active-directory-how-applications-are-added.md)
 ## [Woordenlijst voor ontwikkelaars](active-directory-dev-glossary.md)
 ## [AAD Graph API](active-directory-graph-api.md)
@@ -39,14 +40,12 @@
 ## [Huisstijlrichtlijnen](active-directory-branding-guidelines.md)
 ## Werken met SAML
 ### [Azure AD en SAML](active-directory-saml-protocol-reference.md)
-### [SAML weergeven die door Access Control wordt geretourneerd](active-directory-java-view-saml-returned-by-access-control.md)
 ### [Claims aanpassen](active-directory-saml-claims-customization.md)
 ### [Fouten opsporen van op SAML gebaseerde SSO](active-directory-saml-debugging.md)
 ### [SAML-protocol voor eenmalige aanmelding](active-directory-single-sign-on-protocol-reference.md)
 ### [SAML-protocol voor eenmalige afmelding](active-directory-single-sign-out-protocol-reference.md)
 ## Werken met Visual Studio
 ### [Aan de slag met aan Azure Active Directory en Visual Studio verbonden services (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
-### [Wat is er gebeurd met mijn MVC-project](Visual Studio Azure Active Directory connected service.md)?] (vs-active-directory-dotnet-what-happened
 ### [Fout tijdens de verificatiedetectie](vs-active-directory-error.md)
 ### [Aan de slag met Web API](vs-active-directory-webapi-getting-started.md)
 ### [Wat is er gebeurd met mijn Web API-project?](vs-active-directory-webapi-what-happened.md)
@@ -59,7 +58,8 @@
 ### [Federatieve metagegevens](active-directory-federation-metadata.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
-# [v2.0-eindpunt](active-directory-appmodel-v2-overview.md)
+### [Service-naar-serviceaanroepen](active-directory-protocols-oauth-service-to-service.md)
+# v2.0-eindpunt
 ## [Overzicht](active-directory-appmodel-v2-overview.md)
 ### [Verschillen](active-directory-v2-compare.md)
 ### [App-typen](active-directory-v2-flows.md)
@@ -82,12 +82,11 @@
 ## Naslaginformatie
 ### [Naslaginformatie over app-registratie](active-directory-v2-registration-portal.md)
 ### [Verificatiebibliotheken](active-directory-v2-libraries.md)
+### [v2.0-verificatieprotocollen](active-directory-v2-protocols.md)
+#### [Tokenverwijzing](active-directory-v2-tokens.md)
+#### [OAuth 2.0-autorisatiecodestroom](active-directory-v2-protocols-oauth-code.md)
+#### [OpenID Connect](active-directory-v2-protocols-oidc.md)
+#### [Impliciete stroom](active-directory-v2-protocols-implicit.md)
+#### [Referenties voor OAuth 2.0-client](active-directory-v2-protocols-oauth-client-creds.md)
 ### [Bereiken](active-directory-v2-scopes.md)
-### [Tokenverwijzing](active-directory-v2-tokens.md)
-### [OpenID Connect](active-directory-v2-protocols-oidc.md)
-### [Impliciete stroom](active-directory-v2-protocols-implicit.md)
-### [OAuth 2.0-autorisatiecodestroom](active-directory-v2-protocols-oauth-code.md)
-### [Referenties voor OAuth 2.0-client](active-directory-v2-protocols-oauth-client-creds.md)
-### [OAuth 2.0 en OpenID](active-directory-v2-protocols.md)
-### [Service-naar-serviceaanroepen](active-directory-protocols-oauth-service-to-service.md)
 # [Voorbeelden](active-directory-code-samples.md)

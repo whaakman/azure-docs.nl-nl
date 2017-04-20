@@ -24,7 +24,7 @@
 ### [Migreren naar Cloud Partner-portal](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 ## [Verkopershandleiding voor Azure Marketplace](./cloud-partner-portal-seller-guide.md)
 
-## [Marketing lead management](./cloud-partner-portal-marketing-lead-management.md)
+## [Leads klant ophalen](./cloud-partner-portal-get-customer-leads.md)
 ### [Azure-tabel](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 ### [Dynamics CRM Online](./cloud-partner-portal-lead-management-instructions-dynamics.md)
 ### [Salesforce](./cloud-partner-portal-lead-management-instructions-salesforce.md)
@@ -32,5 +32,4 @@
 
 ## [Uitgeverprofiel beheren](./cloud-partner-portal-manage-publisher-profile.md)
 ## [Gebruikers beheren](./cloud-partner-portal-manage-users.md)
-## [Feedback geven](./cloud-partner-portal-give-feedback.md)
 ## [Ondersteuning krijgen](./cloud-partner-portal-support-for-cloud-partner-portal.md)
