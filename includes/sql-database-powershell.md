@@ -9,13 +9,12 @@ Eerst moet u de nieuwste versie van Azure PowerShell installeren en uitvoeren. Z
 
 Wanneer u de cmdlet [**Add-AzureRmAccount**](https://msdn.microsoft.com/library/azure/mt619267\(v=azure.300\).aspx) uitvoert, wordt er een aanmeldingsscherm geopend waarin u uw referenties kunt invoeren. Gebruik de referenties waarmee u zich aanmeldt bij de Azure-portal.
 
-    Add-AzureRmAccount
+```PowerShell
+Add-AzureRmAccount
+```
 
 Als u meerdere abonnementen hebt, gebruik dan de cmdlet [**Set-AzureRmContext**](https://msdn.microsoft.com/library/azure/mt619263\(v=azure.300\).aspx) om te selecteren welk abonnement u voor de PowerShell-sessie wilt gebruiken. Voer [**Get-AzureRmContext**](https://msdn.microsoft.com/library/azure/mt619265\(v=azure.300\).aspx) uit als u wilt zien welke abonnement door de huidige PowerShell-sessie wordt gebruikt. Voer [**Get-AzureRmSubscription**](https://msdn.microsoft.com/library/azure/mt619284\(v=azure.300\).aspx) uit als u al uw abonnementen wilt weergeven.
 
-    Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+```PowerShell
+Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
+```
