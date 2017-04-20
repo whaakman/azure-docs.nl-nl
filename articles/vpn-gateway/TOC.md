@@ -34,10 +34,11 @@
 ## Meerdere site-to-siteverbindingen configureren
 ### [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [PowerShell (klassiek)](vpn-gateway-multi-site.md)
-## [BGP configureren voor Azure VPN Gateways met PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
+## [Een BGP configureren voor een VPN-gateway](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Maximaal beschikbare actief-actief-verbindingen configureren](vpn-gateway-activeactive-rm-powershell.md)
 ## [Instellingen voor lokale netwerkgateway wijzigen met PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ## [Een VPN-gatewayverbinding verifiëren](vpn-gateway-verify-connection-resource-manager.md)
+## [VPN-doorvoer naar een VNet valideren](vpn-gateway-validate-throughput-to-vnet.md)
 ## [Een VPN-gateway opnieuw instellen](vpn-gateway-resetgw-classic.md)
 ## Een VPN-gateway verwijderen
 ### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)

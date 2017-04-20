@@ -25,6 +25,16 @@
 ### [Batch-PowerShell-cmdlets](batch-powershell-cmdlets-get-started.md)
 ### [Azure CLI](batch-cli-get-started.md)
 ### [Diagnostische logboeken voor Batch](batch-diagnostics.md)
+### [Batch Analytics](batch-analytics.md)
+#### [Gebeurtenis pool maken](batch-pool-create-event.md)
+#### [Gebeurtenis pool verwijderen starten](batch-pool-delete-start-event.md)
+#### [Gebeurtenis pool verwijderen voltooid](batch-pool-delete-complete-event.md)
+#### [Gebeurtenis formaat pool wijzigen starten](batch-pool-resize-start-event.md)
+#### [Gebeurtenis formaat pool wijzigen voltooid](batch-pool-resize-complete-event.md)
+#### [Gebeurtenis taak starten](batch-task-start-event.md)
+#### [Gebeurtenis taak voltooid](batch-task-complete-event.md)
+#### [Gebeurtenis taak mislukt](batch-task-fail-event.md)
+### [Omgevingsvariabelen Azure Batch-rekenknooppunt](batch-compute-node-environment-variables.md)
 
 # Naslaginformatie
 ## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)

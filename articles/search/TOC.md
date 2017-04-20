@@ -18,6 +18,7 @@
 ## [Zoekresultaten verwerken](search-pagination-page-layout.md)
 ## Zelfstudies
 ### [.NET](search-howto-dotnet-sdk.md)
+### [Voorbeeld .NET-synoniemen](search-synonyms-tutorial-sdk.md)
 ### [Portal](search-get-started-portal.md)
 ### [NodeJS](search-get-started-nodejs.md)
 ### [Java](search-get-started-java.md)
@@ -48,7 +49,7 @@
 ### [JSON-blobs indexeren](search-howto-index-json-blobs.md)
 ### [Indexeerverbindingen met SQL Server configureren op een virtuele Azure-machine](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Veldtoewijzingen in indexeerfuncties](search-indexer-field-mappings.md)
-##  Search 
+##  Search
 ### [Hoe zoeken in de volledige tekst werkt](search-lucene-query-architecture.md)
 ### Query's bouwen
 #### [Vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
@@ -61,6 +62,7 @@
 ### [Scoren](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Suggesties](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Facetnavigatie](search-faceted-navigation.md)
+### [Voorbeeld synoniemen](search-synonyms.md)
 
 # Naslaginformatie
 ## [.NET](/dotnet/api/microsoft.azure.search)

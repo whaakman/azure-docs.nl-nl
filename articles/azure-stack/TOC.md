@@ -15,7 +15,6 @@
 ### [Standaardinstallatiekopie toevoegen](azure-stack-add-default-image.md)
 ### [Een virtuele machine inrichten](azure-stack-provision-vm.md)
 ### [Een opslagaccount maken](azure-stack-provision-storage-account.md)
-### [Een Azure Stack-tenant toevoegen](azure-stack-add-new-user-aad.md)
 ### [Azure Stack POC opnieuw implementeren](azure-stack-redeploy.md)
 
 # Beheren
@@ -31,15 +30,17 @@
 ## Procedures
 ### [Updates beheren](azure-stack-updates.md)
 ### [Status en waarschuwingen bewaken](azure-stack-monitor-health.md)
-### [Netwerkresources beheren](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
+### [Netwerkresources beheren](azure-stack-viewing-public-ip-address-consumption.md)
 ### [Opslagresources beheren](azure-stack-manage-storage-accounts.md)
 ### [Virtuele Windows Azure Pack-machines beheren](azure-stack-manage-windows-azure-pack.md)
 
 # Beveiliging en naleving
 ## Procedures
 ### [RBAC beheren](azure-stack-manage-permissions.md)
+### [Gebruikers toevoegen voor Azure AD](azure-stack-add-new-user-aad.md)
 ### [Gebruikers toevoegen voor AD FS](azure-stack-add-users-adfs.md)
 ### [Service-principals maken](Azure-stack-create-service-principals.md)
+### [Multitenancy inschakelen](azure-stack-enable-multitenancy.md)
 
 # Services aanbieden
 ## Aan de slag

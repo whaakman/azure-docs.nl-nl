@@ -14,12 +14,15 @@
 ## Sjablonen maken
 ### [Aanbevolen procedures voor sjablonen](resource-manager-template-best-practices.md)
 ### [Sjabloonsecties](resource-group-authoring-templates.md)
+### [Koppeling naar andere sjablonen](resource-group-linked-templates.md)
 ### [Afhankelijkheid tussen resources definiëren](resource-group-define-dependencies.md)
+### Lus kopiëren om meerdere exemplaren te maken
+#### [Eenvoudige syntaxis](resource-group-create-multiple.md)
+#### [Sequentiële lus](resource-manager-sequential-loop.md)
+#### [Eigenschap kopiëren](resource-manager-property-copy.md)
 ### [Locatie instellen](resource-manager-template-location.md)
 ### [Tags toewijzen](resource-manager-template-tags.md)
 ### [Naam en type van onderliggende resource instellen](resource-manager-template-child-resource.md)
-### [Meerdere exemplaren maken van resourcetype](resource-group-create-multiple.md)
-### [Koppeling naar andere sjablonen](resource-group-linked-templates.md)
 ### [Status delen tussen gekoppelde sjablonen](best-practices-resource-manager-state.md)
 ### [Patronen voor het ontwerpen van sjablonen](best-practices-resource-manager-design-templates.md)
 ## Implementeren
