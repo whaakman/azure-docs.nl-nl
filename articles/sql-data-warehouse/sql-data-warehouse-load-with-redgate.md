@@ -129,7 +129,7 @@ Als u de gegevens in SQL Data Warehouse wilt verkennen, begint u met het bekijke
 Voor meer informatie over Data Platform Studio van Redgate:
 
 * [Ga naar de DPS-startpagina](http://www.dataplatformstudio.com/)
-* [Bekijk een demonstratie van DPS op Channel&9;](https://channel9.msdn.com/Blogs/cloud-with-a-silver-lining/Loading-data-into-Azure-SQL-Datawarehouse-with-Redgate-Data-Platform-Studio)
+* [Bekijk een demonstratie van DPS op Channel 9](https://channel9.msdn.com/Blogs/cloud-with-a-silver-lining/Loading-data-into-Azure-SQL-Datawarehouse-with-Redgate-Data-Platform-Studio)
 
 Zie voor een overzicht van andere manieren om te migreren en uw gegevens in SQL Data Warehouse te laden:
 
