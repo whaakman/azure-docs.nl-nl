@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 38fe7818771f6a6965cb324631d0935959576541
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 6c309a14e00324a9335bde61fe175ec3906c066d
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -37,9 +37,9 @@ Om deze handleiding volledig door te kunnen nemen, hebt u het volgende nodig:
 * [Microsoft Visual Studio 2015 of hoger](http://visualstudio.com). In de schermafbeeldingen in deze zelfstudie wordt Visual Studio 2017 gebruikt.
 * Een actief Azure-account. Als u geen Azure-account hebt, kunt u binnen een paar minuten een gratis account maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/free/) voor meer informatie.
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Maak een Event Hubs-naamruimte en een Event Hub
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Een Event Hubs-naamruimte en een Event Hub maken
 
-In de eerste stap gebruikt u de [Azure-portal](https://portal.azure.com) om een naamruimte van het type Event Hubs te maken en de beheerreferenties te verkrijgen die de toepassing nodig heeft om met de Event Hub te communiceren. Volg de procedure in [dit artikel](event-hubs-create.md) om een naamruimte en Event Hub te maken en ga daarna verder met de volgende stappen.
+In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naamruimte van het type Event Hubs te maken en de beheerreferenties te verkrijgen die de toepassing nodig heeft om met de Event Hub te communiceren. Volg de procedure in [dit artikel](event-hubs-create.md) om een naamruimte en Event Hub te maken en ga daarna verder met de volgende stappen.
 
 ## <a name="create-an-azure-storage-account"></a>Een Azure Storage-account maken
 

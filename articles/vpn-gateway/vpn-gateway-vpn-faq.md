@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2017
+ms.date: 04/17/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 15ac382f72cab455246ffcc05f08c8aba5876c8f
-ms.openlocfilehash: c90bb4f41661aedec2bde53abe035fe9bcc80320
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 49aeb711de73bf967f330ec54385fb8bb36dd7ca
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -34,18 +35,18 @@ U kunt verbinding maken met meerdere sites met behulp van Windows PowerShell en 
 ### <a name="what-are-my-cross-premises-connection-options"></a>Wat zijn de opties voor cross-premises-verbinding?
 De volgende cross-premises verbindingen worden ondersteund:
 
-* [Site-naar-site](vpn-gateway-howto-site-to-site-resource-manager-portal.md): VPN-verbinding via IPsec (IKE v1 en IKE v2). Voor dit type verbinding is een VPN-apparaat of RRAS vereist.
-* [Punt-naar-site](vpn-gateway-howto-point-to-site-resource-manager-portal.md): VPN-verbinding via SSTP (Secure Socket Tunneling Protocol). Voor deze verbinding is geen VPN-apparaat vereist.
-* [VNet-naar-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md): dit type verbinding is hetzelfde als de site-naar-site-configuratie. VNet-naar-VNet is een VPN-verbinding via IPsec (IKE v1 en IKE v2). Hiervoor is geen VPN-apparaat vereist.
-* [Multi-site](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md): dit is een variant op een site-naar-site-configuratie waarmee u meerdere on-premises sites kunt verbinden met een virtueel netwerk.
-* [ExpressRoute](../expressroute/expressroute-introduction.md): ExpressRoute is een directe verbinding van uw WAN met Azure. Deze loopt niet via het openbare internet. Raadpleeg het [Technisch overzicht van ExpressRoute](../expressroute/expressroute-introduction.md) en de [Veelgestelde vragen over ExpressRoute](../expressroute/expressroute-faqs.md) voor meer informatie.
+* Site-naar-site: VPN-verbinding via IPsec (IKE v1 en IKE v2). Voor dit type verbinding is een VPN-apparaat of RRAS vereist. Zie [Site-naar-site](vpn-gateway-howto-site-to-site-resource-manager-portal.md) voor meer informatie.
+* Punt-naar-site: VPN-verbinding via SSTP (Secure Socket Tunneling Protocol). Voor deze verbinding is geen VPN-apparaat vereist. Zie [Punt-naar-site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) voor meer informatie.
+* VNet-naar-VNet: dit type verbinding is hetzelfde als de site-naar-site-configuratie. VNet-naar-VNet is een VPN-verbinding via IPsec (IKE v1 en IKE v2). Hiervoor is geen VPN-apparaat vereist. Zie [VNet-naar-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) voor meer informatie.
+* Multi-site: dit is een variant op een site-naar-site-configuratie waarmee u meerdere on-premises sites kunt verbinden met een virtueel netwerk. Zie [Multi-site](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) voor meer informatie.
+* ExpressRoute: ExpressRoute is een directe verbinding van uw WAN met Azure en geen VPN-verbinding via het openbare internet. Raadpleeg het [Technisch overzicht van ExpressRoute](../expressroute/expressroute-introduction.md) en de [Veelgestelde vragen over ExpressRoute](../expressroute/expressroute-faqs.md) voor meer informatie.
 
 Zie [Informatie over VPN Gateway](vpn-gateway-about-vpngateways.md) voor meer informatie over VPN-gatewayverbindingen.
 
 ### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site"></a>Wat is het verschil tussen een site-naar-site-verbinding en een punt-naar-site?
-Er is sprake van **site-naar-site**-configuraties tussen uw on-premises locatie en Azure. Dit betekent dat u vanaf elke computer op uw locatie verbinding kunt maken met elke virtuele machine of rolinstantie binnen uw virtuele netwerk, afhankelijk van hoe u routering wilt configureren. Het is een geweldige optie voor een cross-premises-verbinding die altijd beschikbaar is. Dit type verbinding is afhankelijk van een IPsec-VPN-apparaat (hardware of software) dat op de rand van uw netwerk moet worden geïmplementeerd. Als u dit type verbinding wilt maken, hebt u de vereiste VPN-hardware en een extern gericht IPv4-adres nodig.
+Er is sprake van **site-naar-site**-configuraties (IPsec-/IKE VPN-tunnel) tussen uw on-premises locatie en Azure. Dit betekent dat u vanaf elke computer op uw locatie verbinding kunt maken met elke virtuele machine of rolinstantie binnen uw virtuele netwerk, afhankelijk van hoe u routering en machtigingen wilt configureren. Het is een geweldige optie voor een cross-premises-verbinding die altijd beschikbaar is. Dit type verbinding is afhankelijk van een IPsec-VPN-apparaat (hardwareapparaat of software) dat aan de rand van uw netwerk moet worden geïmplementeerd. Als u dit type verbinding wilt maken, hebt u een extern gericht IPv4-adres nodig dat zich niet achter een NAT bevindt.
 
-Met **punt-naar-site**-configuraties kunt u vanaf één computer waar dan ook verbinding maken met alles binnen het virtuele netwerk. Hiervoor wordt de met Windows meegeleverde VPN-client gebruikt. Als onderdeel van de punt-naar-site-configuratie installeert u een certificaat en een VPN-clientconfiguratiepakket. Dit pakket bevat de instellingen waarmee de computer verbinding kan maken met elke virtuele machine of rolinstantie in het virtuele netwerk. Het is ideaal wanneer u verbinding wilt maken met een virtueel netwerk maar u zich niet on-premises bevindt. Het is ook een goede optie wanneer u geen toegang hebt tot VPN-hardware of een extern gericht IPv4-adres, twee zaken die vereist zijn voor een site-naar-site-verbinding.
+Met **punt-naar-site**-configuraties (VPN via SSTP) kunt u vanaf één computer waar dan ook verbinding maken met alles binnen het virtuele netwerk. Hiervoor wordt de met Windows meegeleverde VPN-client gebruikt. Als onderdeel van de punt-naar-site-configuratie installeert u een certificaat en een VPN-clientconfiguratiepakket. Dit pakket bevat de instellingen waarmee de computer verbinding kan maken met elke virtuele machine of rolinstantie in het virtuele netwerk. Het is ideaal wanneer u verbinding wilt maken met een virtueel netwerk maar u zich niet on-premises bevindt. Het is ook een goede optie wanneer u geen toegang hebt tot VPN-hardware of een extern gericht IPv4-adres, twee zaken die vereist zijn voor een site-naar-site-verbinding.
 
 U kunt uw virtuele netwerk configureren om tegelijkertijd gebruik te maken van site-naar-site en punt-naar-site, mits u de site-naar-site-verbinding maakt met een op route gebaseerd VPN-type voor uw gateway. Op route gebaseerde VPN-typen worden in het klassieke implementatiemodel dynamische gateways genoemd.
 
@@ -61,9 +62,9 @@ Op beleid gebaseerde gateways implementeren op beleid gebaseerde VPN's. Op belei
 Op route gebaseerde gateways implementeren op route gebaseerde VPN's. Op route gebaseerde VPN's gebruiken 'routes' in de IP-doorstuurtabel of routeringstabel om pakketten naar de bijbehorende tunnelinterfaces te sturen. De tunnelinterfaces versleutelen of ontsleutelen de pakketten vervolgens naar en vanuit de tunnels. Het beleid of de verkeersselector voor op route gebaseerde VPN's is geconfigureerd als alles-naar-alles (of jokertekens).
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Heb ik een gatewaysubnet nodig?
-Ja. Het gatewaysubnet bevat de IP-adressen waarvan de virtuele-netwerkgatewayservices gebruik van maken. U moet een gatewaysubnet maken voor uw VNet om een virtuele-netwerkgateway te kunnen configureren. Voor een goede werking moeten alle gatewaysubnetten de naam GatewaySubnet krijgen. Geef het gatewaysubnet geen andere naam. Implementeer ook geen VM's of iets anders in het gatewaysubnet.
+Ja. Het gatewaysubnet bevat de IP-adressen waarvan de virtuele-netwerkgatewayservices gebruik van maken. U moet een gatewaysubnet maken voor uw VNet om een virtuele netwerkgateway te kunnen configureren. Voor een goede werking moeten alle gatewaysubnetten de naam GatewaySubnet krijgen. Geef het gatewaysubnet geen andere naam. Implementeer ook geen VM's of iets anders in het gatewaysubnet.
 
-Wanneer u het gatewaysubnet maakt, geeft u op hoeveel IP-adressen het subnet bevat. De IP-adressen in het gatewaysubnet worden toegewezen aan de gatewayservice. Bij sommige configuraties moeten er meer IP-adressen worden toegewezen aan de gatewayservices dan bij andere. U moet ervoor zorgen dat uw gatewaysubnet voldoende IP-adressen bevat om groei mogelijk te maken en om mogelijke nieuwe verbindingsconfiguraties toe te kunnen voegen. U kunt dus wel een gatewaysubnet maken met een grootte van slechts /29, maar het wordt aangeraden om een gatewaysubnet van /28 of groter te maken (/27, /26 etc.). Bekijk de vereisten voor de configuratie die u wilt gebruiken en controleer of het gatewaysubnet dat u hebt, voldoet aan deze vereisten.
+Wanneer u het gatewaysubnet maakt, geeft u op hoeveel IP-adressen het subnet bevat. De IP-adressen in het gatewaysubnet worden toegewezen aan de gatewayservice. Bij sommige configuraties moeten er meer IP-adressen worden toegewezen aan de gatewayservices dan bij andere. U moet ervoor zorgen dat uw gatewaysubnet voldoende IP-adressen bevat om groei mogelijk te maken en om mogelijke nieuwe verbindingsconfiguraties toe te kunnen voegen. U kunt dus wel een gatewaysubnet maken met een grootte van slechts /29, maar het wordt aangeraden om een gatewaysubnet van /27 of groter te maken (/27, /26, /25 enz.). Bekijk de vereisten voor de configuratie die u wilt gebruiken en controleer of het gatewaysubnet dat u hebt, voldoet aan deze vereisten.
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>Kan ik Virtual Machines of rolinstanties implementeren in het gatewaysubnet?
 Nee.
@@ -106,11 +107,23 @@ Een VPN-gateway is in feite een multihomed apparaat met één NIC die toegang he
 Zie [Informatie over VPN-gatewayconfiguratie-instellingen](vpn-gateway-about-vpn-gateway-settings.md) voor meer informatie.
 
 ## <a name="site-to-site-connections-and-vpn-devices"></a>Site-naar-site-verbindingen en VPN-apparaten
-### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>Waaraan moet ik denken bij het selecteren van een VPN-apparaat?
-We hebben samen met apparaatleveranciers een reeks standaard site-naar-site-VPN-apparaten gevalideerd. [Hier](vpn-gateway-about-vpn-devices.md) vindt u een lijst met bekende compatibele VPN-apparaten, hun bijbehorende configuratie-instructies of voorbeelden en apparaatspecificaties. Alle apparaten in de vermelde apparaatfamilies die als compatibel worden weergegeven, zouden met Virtual Network moeten werken. Als hulp bij de configuratie van uw VPN-apparaat kunt u het voorbeeld van de apparaatconfiguratie raadplegen of de koppeling bij de betreffende apparaatfamilie.
 
-### <a name="what-do-i-do-if-i-have-a-vpn-device-that-isnt-in-the-known-compatible-device-list"></a>Wat moet ik doen als ik een VPN-apparaat heb dat niet voorkomt in de lijst met bekende compatibele apparaten?
-Als uw apparaat niet wordt vermeld als een bekend compatibel VPN-apparaat en u dit toch wilt gebruiken voor uw VPN-verbinding, moet u controleren of het voldoet aan de [hier](vpn-gateway-about-vpn-devices.md) vermelde ondersteunde opties en parameters voor IPsec/IKE-configuratie. Apparaten die voldoen aan de minimumvereisten zouden met VPN-gateways moeten werken. Neem contact op met de fabrikant van uw apparaat voor aanvullende ondersteuning en configuratie-instructies.
+### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>Waaraan moet ik denken bij het selecteren van een VPN-apparaat?
+We hebben samen met apparaatleveranciers een reeks standaard site-naar-site-VPN-apparaten gevalideerd. In het artikel [Over VPN-apparaten](vpn-gateway-about-vpn-devices.md) vindt u een lijst met bekende compatibele VPN-apparaten, de bijbehorende configuratie-instructies of -voorbeelden en apparaatspecificaties. Alle apparaten in de vermelde apparaatfamilies die als compatibel worden weergegeven, zouden met Virtual Network moeten werken. Als hulp bij de configuratie van uw VPN-apparaat kunt u het voorbeeld van de apparaatconfiguratie raadplegen of de koppeling bij de betreffende apparaatfamilie.
+
+### <a name="where-can-i-find-configuration-settings-for-vpn-devices"></a>Waar vind ik configuratie-instellingen voor VPN-apparaten?
+
+Zie [Gevalideerde VPN-apparaten](vpn-gateway-about-vpn-devices.md#devicetable) voor koppelingen naar configuratie-instellingen. De koppelingen over apparaatconfiguratie worden naar beste vermogen geleverd. Het is altijd verstandig om de actuele configuratie-informatie op te vragen bij de fabrikant van uw apparaat.
+
+Controleer voordat u uw VPN-apparaat configureert of er [bekende compatibiliteitsproblemen](vpn-gateway-about-vpn-devices.md#known) zijn met het VPN-apparaat dat u wilt gebruiken.
+
+### <a name="how-do-i-edit-vpn-device-configuration-samples"></a>Hoe bewerk ik voorbeelden van VPN-apparaatconfiguraties?
+
+Zie [Bewerkingsvoorbeelden](vpn-gateway-about-vpn-devices.md#editing) voor voorbeelden van het bewerken van de apparaatconfiguratie.
+
+### <a name="where-do-i-find-ipsec-and-ike-parameters"></a>Waar vind ik IPsec- en IKE-parameters?
+
+Zie [Parameters](vpn-gateway-about-vpn-devices.md#ipsec) voor de IPsec-/IKE-parameters.
 
 ### <a name="why-does-my-policy-based-vpn-tunnel-go-down-when-traffic-is-idle"></a>Waarom wordt mijn op beleid gebaseerde VPN-tunnel inactief als er geen verkeer is?
 Dit is normaal voor op beleid gebaseerde VPN-gateways (ook wel bekend als statische routering genoemd). Wanneer er langer dan vijf minuten geen verkeer is via de tunnel, wordt de tunnel verwijderd. Zodra er verkeer is in een van de richtingen, wordt de tunnel onmiddellijk opnieuw ingesteld.
@@ -120,11 +133,11 @@ Windows Server 2012 RRAS-servers (Routering en RAS) worden ondersteund voor site
 
 Andere VPN-softwareoplossingen zouden in principe met onze gateway moeten werken zolang ze voldoen aan de standaard-IPSec-implementaties. Neem contact op met de leverancier van de software voor configuratie- en ondersteuningsinstructies.
 
-## <a name="a-namep2sapoint-to-site-connections"></a><a name="P2S"></a>Punt-naar-site-verbindingen
+## <a name="P2S"></a>Punt-naar-site-verbindingen
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-## <a name="a-namev2vmultiavnet-to-vnet-and-multi-site-connections"></a><a name="V2VMulti"></a>VNet-naar-VNET- en multi-site-verbindingen
+## <a name="V2VMulti"></a>VNet-naar-VNET- en multi-site-verbindingen
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
@@ -151,7 +164,7 @@ Ja, P2S-VPN-verbindingen (punt-naar-site) kunnen worden gebruikt met de VPN-gate
 ### <a name="can-i-connect-a-virtual-network-with-ipsec-vpns-to-my-expressroute-circuit"></a>Kan ik een virtueel netwerk met IPsec-VPN's verbinden met mijn ExpressRoute-circuit?
 Ja, dit wordt ondersteund. Voor meer informatie raadpleegt u [Expressroute en site-naar-site-VPN-verbindingen die naast elkaar kunnen worden gebruikt configureren](../expressroute/expressroute-howto-coexist-classic.md)
 
-## <a name="a-namebgpabgp"></a><a name="bgp"></a>BGP
+## <a name="bgp"></a>BGP
 [!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
 ## <a name="cross-premises-connectivity-and-vms"></a>Cross-premises-connectiviteit en virtuele machines
@@ -170,8 +183,3 @@ Aanvullende informatie over virtuele netwerken vindt u in de [Veelgestelde vrage
 
 * Zie [Over VPN Gateway](vpn-gateway-about-vpngateways.md) voor meer informatie over VPN Gateway.
 * Zie [Informatie over VPN-gatewayconfiguratie-instellingen](vpn-gateway-about-vpn-gateway-settings.md) voor meer informatie over VPN-gatewayconfiguratie-instellingen.
-
-
-<!--HONumber=Feb17_HO3-->
-
-

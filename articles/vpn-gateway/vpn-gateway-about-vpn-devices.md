@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 03ba7f0df69da073fd876fc4c06121952e594a02
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: d7c4c5b118dade39bd47ae2c7836157589fcb45a
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -33,21 +33,21 @@ U hebt een VPN-apparaat nodig om een cross-premises site-naar-site-VPN-verbindin
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>Waar u op moet letten wanneer u de tabellen bekijkt:
 
-* Er is een terminologiewijziging voor Azure VPN-gateways. Er is geen wijziging in functionaliteit, alleen de benaming is veranderd.
+* Er is een terminologiewijziging voor Azure VPN-gateways. Er is geen wijziging in de functionaliteit. Alleen de namen worden gewijzigd.
   * Statische routering = PolicyBased
   * Dynamische routering = RouteBased
 * De specificaties voor een VPN-gateway met hoge prestaties en een RouteBased VPN-gateway zijn hetzelfde, tenzij anders wordt vermeld. Zo zijn de gevalideerde VPN-apparaten die compatibel zijn met RouteBased VPN-gateways ook compatibel met de Azure VPN-gateway met hoge prestaties.
 
 > [!NOTE]
-> Wanneer u een S2S-verbinding configureert, hebt u een openbaar IPv4-adres voor het VPN-apparaat nodig.                                                                                                                                                                               
+> Wanneer u een S2S-verbinding configureert, hebt u een openbaar IPv4-adres voor het VPN-apparaat nodig.
+>                
 
-
-## <a name="devicetable"></a>Gevalideerde VPN-apparaten
+## <a name="devicetable"></a>Gevalideerde VPN-apparaten en apparaatconfiguratiehandleidingen
 We hebben samen met apparaatleveranciers een reeks standaard VPN-apparaten gevalideerd. Alle apparaten in de apparaatfamilies die in onderstaande lijst zijn opgenomen, kunnen met Azure VPN-gateways worden gebruikt. Zie [VPN-gateways](vpn-gateway-about-vpngateways.md) om het type gateway te verifiëren dat u moet maken voor de oplossing die u wilt configureren.
 
-Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen die overeenkomen met de betreffende apparaatstuurprogrammafamilie.  De koppelingen naar configuratie-instructies worden naar beste vermogen geleverd. Voor ondersteuning van VPN-apparaten neemt u contact op met de fabrikant van uw apparaat.
+Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen die overeenkomen met de betreffende apparaatstuurprogrammafamilie. De koppelingen naar configuratie-instructies worden naar beste vermogen geleverd. Voor ondersteuning van VPN-apparaten neemt u contact op met de fabrikant van uw apparaat.
 
-|**Leverancier**          |**Apparaatfamilie**     |**Minimale versie van het besturingssysteem** |**PolicyBased** |**RouteBased** |
+|**Leverancier**          |**Apparaatfamilie**     |**Minimale versie van het besturingssysteem** |**PolicyBased configuratie-instructies** |**RouteBased configuratie-instructies** |
 | ---                | ---                  | ---                   | ---            | ---           |
 | A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |Niet compatibel  |[Configuratiehandleiding](https://www.a10networks.com/resources/deployment-guides/a10-thunder-cfw-ipsec-vpn-interoperability-azure-vpn-gateways)|
 | Allied Telesis     |VPN-routers uit AR-serie |2.9.2                  |Binnenkort beschikbaar     |Niet compatibel  |
@@ -81,7 +81,7 @@ Als uw apparaat niet in de tabel met gevalideerde VPN-apparaten wordt vermeld, w
 ## <a name="editing"></a>Voorbeelden van het bewerken van apparaatconfiguraties
 Nadat u het bij het VPN-apparaat meegeleverde configuratievoorbeeld hebt gedownload, moet u enkele waarden veranderen zodat ze overeenkomen met de instellingen voor uw omgeving.
 
-###<a name="to-edit-a-sample"></a>U bewerkt een voorbeeld als volgt:
+### <a name="to-edit-a-sample"></a>U bewerkt een voorbeeld als volgt:
 
 1. Open het voorbeeld met Kladblok.
 2. Zoek alle <*tekst*>-tekenreeksen en vervang ze door de waarden die betrekking hebben op uw omgeving. Zorg dat u < en > opneemt. Als u een naam opgeeft, moet deze uniek zijn. Als een opdracht niet werkt, raadpleeg dan de documentatie van de fabrikant van uw apparaat.
@@ -106,7 +106,7 @@ Nadat u het bij het VPN-apparaat meegeleverde configuratievoorbeeld hebt gedownl
 > 
 >
 
-In de onderstaande tabellen:
+In de volgende tabellen:
 
 * SA = Security Association
 * IKE Phase 1 wordt ook 'Main Mode' genoemd
@@ -185,7 +185,7 @@ De volgende tabel bevat aanbiedingen van IPSec-SA (IKE Quick Mode). De aanbiedin
 >
 >
 
-###<a name="feb-16-2017"></a>16 februari 2017
+### <a name="feb-16-2017"></a>16 februari 2017
 
 **Palo Alto Networks-apparaten met een oudere versie dan 7.1.4** voor op route gebaseerde Azure VPN: als u VPN-apparaten van Palo Alto Networks gebruikt met een PAN-OS-versie die ouder is dan 7.1.4 en u connectiviteitsproblemen hebt met op route gebaseerde Azure VPN-gateways, voert u de volgende stappen uit:
 

@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 371c76ed36cd9d21026a5a49c6ef86a0cd3cc816
-ms.openlocfilehash: 8fd8b4b9611adb15df7e436a00f8ec35ea1e9614
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: a7b3f8addbba21e60be0076784ae954f4cedb0b8
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -26,7 +27,13 @@ Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-ser
 Bekijk de pagina [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md) (ExpressRoute-circuits en routeringsdomeinen) voor een overzicht van de verschillende routeringsdomeinen. Om te voldoen aan de vereisten voor openbare IP-adressen voor openbare Azure-peering en Microsoft-peering, wordt u aangeraden om NAT in te stellen tussen uw netwerk en Microsoft. In deze sectie vindt u een gedetailleerde beschrijving van de NAT-infrastructuur die u moet instellen.
 
 ## <a name="nat-requirements-for-azure-public-peering"></a>NAT-vereisten voor openbare Azure-peering
-Met het pad voor openbare Azure-peering kunt u verbinding maken met alle services die via de openbare IP-adressen worden gehost in Azure. Deze lijst bevat services die worden vermeld in de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) en alle services die door ISV's worden gehost op Microsoft Azure. Connectiviteit met Microsoft Azure-services via openbare peering wordt altijd gestart vanuit uw netwerk naar het Microsoft-netwerk. Verkeer dat is bestemd voor Microsoft Azure via openbare peering moet met SNAT worden omgezet naar geldige openbare IPv4-adressen voordat het het Microsoft-netwerk binnenkomt. In onderstaande afbeelding ziet u een algemeen beeld van hoe de NAT kan worden ingesteld om te voldoen aan bovenstaande vereiste.
+Met het pad voor openbare Azure-peering kunt u verbinding maken met alle services die via de openbare IP-adressen worden gehost in Azure. Deze lijst bevat services die worden vermeld in de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) en alle services die door ISV's worden gehost op Microsoft Azure. 
+
+> [!IMPORTANT]
+> Connectiviteit met Microsoft Azure-services via openbare peering wordt altijd gestart vanuit uw netwerk naar het Microsoft-netwerk. Daarom kunnen sessies met uw netwerk niet vanuit Microsoft Azure-services via ExpressRoute worden gestart. Als dit toch wordt geprobeerd, maken pakketten die naar deze aangekondigde IP-adressen worden verzonden, gebruik van internet in plaats van ExpressRoute.
+> 
+
+Verkeer dat is bestemd voor Microsoft Azure via openbare peering moet met SNAT worden omgezet naar geldige openbare IPv4-adressen voordat het het Microsoft-netwerk binnenkomt. In onderstaande afbeelding ziet u een algemeen beeld van hoe de NAT kan worden ingesteld om te voldoen aan bovenstaande vereiste.
 
 ![](./media/expressroute-nat/expressroute-nat-azure-public.png) 
 
@@ -66,10 +73,5 @@ Met het pad voor Microsoft-peering kunt u verbinding maken met Microsoft Cloud-s
   * [Een ExpressRoute-circuit maken](expressroute-howto-circuit-classic.md)
   * [Routering configureren](expressroute-howto-routing-classic.md)
   * [Een VNet koppelen aan een ExpressRoute-circuit](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

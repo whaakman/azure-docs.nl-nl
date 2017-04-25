@@ -18,9 +18,9 @@ ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f85f6484db177285e0fd64a15991a7eb227cd29b
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: f5c36624360b4a09819ea70f3ac23f943688c120
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -106,6 +106,9 @@ In de standaard blob-container wordt clusterspecifieke informatie opgeslagen, zo
 Wanneer u een HDInsight-cluster maakt vanuit de portal, kunt u (zoals hieronder wordt getoond) de details van het opslagaccount opgeven. U kunt ook opgeven of u een extra opslagaccount aan het cluster wilt koppelen en, zo ja, Data Lake Store of een andere Azure Storage-blob als de extra opslagruimte kiezen.
 
 ![Gegevensbron voor het maken van HDInsight Hadoop](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
+
+> [!WARNING]
+> Het gebruik van een extra opslagaccount op een andere locatie dan het HDInsight-cluster wordt niet ondersteund.
 
 #### <a name="using-azure-cli"></a>Azure CLI gebruiken
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
@@ -285,6 +288,8 @@ $clusterName = <HDInsightClusterName>
 
 Tijdens het maken van een HDInsight-cluster geeft u het Azure Storage-account op dat u ermee wilt koppelen. Naast dit opslagaccount kunt u tijdens het maakproces of nadat een cluster is gemaakt extra opslagaccounts toevoegen uit hetzelfde Azure-abonnement of uit andere Azure-abonnementen. Zie [HDInsight-clusters maken](hdinsight-hadoop-provision-linux-clusters.md) voor instructies over het toevoegen van extra opslagaccounts.
 
+> [!WARNING]
+> Het gebruik van een extra opslagaccount op een andere locatie dan het HDInsight-cluster wordt niet ondersteund.
 
 ## <a name="using-azure-data-lake-store-with-hdinsight-clusters"></a>Azure Data Lake Store gebruiken met HDInsight-clusters
 

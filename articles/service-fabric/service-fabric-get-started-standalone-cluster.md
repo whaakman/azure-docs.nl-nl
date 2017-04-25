@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 04/11/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6da8b21014966edd9f4cea0fd27f6973b2b820f0
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 5e32f1e534057b5e8e0ed6d5c0a4631f9fefbca5
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/12/2017
 U kunt een zelfstandig Service Fabric-cluster maken op elke virtuele machine of computer met Windows Server 2012 R2 of Windows Server 2016, lokaal of in de cloud. Deze Quick Start helpt u om in enkele minuten een zelfstandig ontwikkelingscluster te maken.  Wanneer u klaar bent, hebt u een cluster met drie knooppunten die worden uitgevoerd op één computer. Hierop kunt u vervolgens apps implementeren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Service Fabric biedt een installatiepakket voor het maken van zelfstandige Service Fabric-clusters.  [Download het installatiepakket](http://go.microsoft.com/fwlink/?LinkId=730690).  Pak het pakket uit naar een map, bijvoorbeeld naar *C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer*, op de computer of virtuele machine waarop u het ontwikkelingscluster gaat instellen.  De inhoud van het installatiepakket wordt [hier](service-fabric-cluster-standalone-package-contents.md) uitgebreid beschreven.
+Service Fabric biedt een installatiepakket voor het maken van zelfstandige Service Fabric-clusters.  [Download het installatiepakket](http://go.microsoft.com/fwlink/?LinkId=730690).  Pak het installatiepakket uit en zet dit in een map op de computer of virtuele machine waar u het ontwikkelingscluster instelt.  De inhoud van het installatiepakket wordt [hier](service-fabric-cluster-standalone-package-contents.md) uitgebreid beschreven.
 
 De clusterbeheerder die het cluster implementeert en configureert, moet administratorbevoegdheden hebben op de computer. U kunt Service Fabric niet installeren op een domeincontroller.
 
@@ -37,7 +37,9 @@ Het script *TestConfiguration.ps1* in het zelfstandige pakket wordt gebruikt als
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json
 ```
 ## <a name="create-the-cluster"></a>Het cluster maken
-Met het installatiepakket worden diverse voorbeelden van clusterconfiguraties geïnstalleerd. *ClusterConfig.Unsecure.DevCluster.json* is de eenvoudigste clusterconfiguratie: een onbeveiligd cluster met drie knooppunten die worden uitgevoerd op één computer. U hoeft voor deze zelfstudie geen standaardconfiguratie-instellingen te wijzigen.  Andere configuratiebestanden beschrijven clusters voor één of meerdere machines die zijn beveiligd met een x.509-certificaat of met Windows-beveiliging.  Lees [Een cluster beveiligen](service-fabric-cluster-security.md) voor meer informatie over de beveiliging van Service Fabric-clusters. 
+Met het installatiepakket worden diverse voorbeelden van clusterconfiguraties geïnstalleerd. *ClusterConfig.Unsecure.DevCluster.json* is de eenvoudigste clusterconfiguratie: een onbeveiligd cluster met drie knooppunten die worden uitgevoerd op één computer.  Andere configuratiebestanden beschrijven clusters voor één of meerdere machines die zijn beveiligd met een x.509-certificaat of met Windows-beveiliging.  U hoeft de standaardconfiguratie-instellingen voor deze zelfstudie niet te wijzigen, maar neem wel het configuratiebestand door om vertrouwd te raken met de instellingen.  De sectie **nodes** beschrijft de drie knooppunten in het cluster: naam, IP-adres, [knooppunttype, foutdomein en upgradedomein](service-fabric-cluster-manifest.md#nodes-on-the-cluster).  De sectie **properties** definieert [de beveiliging, het betrouwbaarheidsniveau, de diagnostische verzameling en de typen knooppunten](service-fabric-cluster-manifest.md#cluster-properties) voor het cluster.
+
+Dit cluster is onveilig.  Iedereen kan anoniem verbinding maken en beheerbewerkingen uitvoeren. Productieclusters moeten dus altijd worden beveiligd met X.509-certificaten of Windows-beveiliging.  Beveiliging kan alleen worden geconfigureerd tijdens het maken van het cluster. Het is niet mogelijk beveiliging in te schakelen nadat het cluster is gemaakt.  Lees [Een cluster beveiligen](service-fabric-cluster-security.md) voor meer informatie over de beveiliging van Service Fabric-clusters.  
 
 Als u het ontwikkelingscluster met drie knooppunten wilt maken, voert u het script *CreateServiceFabricCluster.ps1* uit vanuit een PowerShell-sessie met administratorbevoegdheden:
 
@@ -88,7 +90,7 @@ Als u de Service Fabric-runtime van de computer wilt verwijderen, voert u het vo
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u een zelfstandig ontwikkelingscluster hebt ingesteld, kunt u het volgende proberen:
+Nu u een zelfstandig ontwikkelingscluster hebt ingesteld, kunt u de volgende artikelen proberen:
 * [Een zelfstandig cluster met meerdere machines instellen](service-fabric-cluster-creation-for-windows-server.md) en beveiliging inschakelen.
 * [Apps implementeren met behulp van Powershell](service-fabric-deploy-remove-applications.md)
 

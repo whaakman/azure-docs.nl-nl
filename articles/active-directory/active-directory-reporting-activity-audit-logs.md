@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: aef5bce6f440f4a0a57763f915d307297f50281b
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: d88f8bed0cbd14ee49986d6749396731a810034b
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -28,7 +28,7 @@ Wanneer u rapporten bekijkt in de [previewversie](active-directory-preview-expla
 De rapportstructuur in Azure Active Directory bestaat uit de volgende onderdelen:
 
 - **Activiteit** 
-    - **Aanmeldingsactiviteiten**: informatie over het gebruik van beheerde toepassingen en aanmeldactiviteiten van gebruikers
+    - **Aanmeldactiviteiten**: informatie over het gebruik van beheerde toepassingen en aanmeldactiviteiten van gebruikers
     - **Controlelogboeken**: informatie over systeemactiviteit van gebruikers, groepsbeheer, uw beheerde toepassingen en directory-activiteiten.
 - **Beveiliging** 
     - **Riskante aanmeldingen** - Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk is uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount is. Zie Riskante aanmeldingen voor meer informatie.
@@ -73,8 +73,7 @@ Wanneer u op een item in de lijstweergave klikt, krijgt u er alle beschikbare in
 Als u de gerapporteerde gegevens wilt beperken tot een niveau dat geschikt is voor u, kunt u de controlegegevens filteren met de volgende velden:
 
 - Datumbereik
-- Gestart door
-- Category
+- Gestart door (actor)
 - Category
 - Resourcetype van activiteit
 - Activiteit
@@ -311,7 +310,7 @@ Met de controlerapporten op basis van toepassingen krijgt u antwoord op vragen z
 * Zijn de namen van toepassingen gewijzigd?
 * Wie heeft toestemming gegeven voor een toepassing?
 
-Als u alleen controlegegevens wilt bekijken die aan uw toepassingen zijn gerelateerd, kunt u een gefilterde weergave openen via **Controlelogboeken** in het gedeelte **Activiteit** van de blade **Bedrijfstoepassingen**. Dit beginpunt heeft **Toepassing** als vooraf geselecteerd **Type activiteitsresource**.
+Als u alleen controlegegevens wilt bekijken die aan uw toepassingen zijn gerelateerd, kunt u een gefilterde weergave openen via **Controlelogboeken** in het gedeelte **Activiteit** van de blade **Bedrijfstoepassingen**. Dit beginpunt heeft **Bedrijfstoepassingen** als vooraf geselecteerd **Type activiteitsresource**.
 
 ![Controlelogboeken](./media/active-directory-reporting-activity-audit-logs/134.png "Controlelogboeken")
 

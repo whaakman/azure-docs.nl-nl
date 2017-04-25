@@ -9,16 +9,16 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 67b4af9f3ef7fb078d6d125e0d3257ea85e288b0
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: d051382954db989ce4152602d249383e7b9dfa46
+ms.lasthandoff: 04/14/2017
 
 ---
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 04/04/2017
 
 De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. In deze handleiding staat informatie over het gebruik van de Azure CLI om een virtuele machine te implementeren met Ubuntu 16.04 LTS. Nadat de server is geïmplementeerd, wordt er een SSH verstuurd naar de virtuele machine om NGINX te installeren. 
 
-Voordat u begint, moet u controleren of de Azure-CLI is geïnstalleerd. Zie voor meer informatie de [Installatiehandleiding van de Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Controleer ook of de Azure-CLI is geïnstalleerd. Zie voor meer informatie de [Installatiehandleiding van de Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure. 
 

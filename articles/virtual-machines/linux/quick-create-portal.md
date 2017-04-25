@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 04/13/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 25ffd1c5bf289fa98a4b350eb916b386eee7f05c
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: ab29f01980bc7c3a8f12aaa55ff35baa3bf3f9fb
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2017
 
 Virtuele Azure-machines kunnen worden gemaakt via Azure Portal. Deze methode biedt een gebruikersinterface op basis van een browser voor het maken en configureren van virtuele machines en alle verwante resources. In deze Quick Start gaat u een virtuele machine maken via Azure Portal.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="create-ssh-key-pair"></a>Een SSH-sleutelpaar maken
 
@@ -52,9 +52,9 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
 
     ![Voer basisinformatie over uw virtuele machine in op de portalblade](./media/quick-create-portal/create-vm-portal-basic-blade.png)  
 
-4. Kies een grootte voor de virtuele machine en klik op **Selecteren**. 
+4. Kies een grootte voor de virtuele machine. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. 
 
-    ![Selecteer een grootte voor de virtuele machine in de portal blade](./media/quick-create-portal/create-vm-portal-size-blade.png)
+    ![Schermopname van VM-grootten](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
 5. Op de blade Instellingen selecteert u **Ja** onder **Managed Disks gebruiken**. Laat voor de rest de standaardinstellingen staan en klik op **OK**.
 
@@ -71,7 +71,7 @@ Standaard worden alleen SSH-verbindingen toegestaan naar virtuele Linux-machines
 2. Klik op de blade van de resourcegroep op de **netwerkbeveiligingsgroep** in de lijst met resources. De naam van de NSG moet bestaan uit de naam van de virtuele machine, met -nsg toegevoegd aan het einde.
 3. Klik op de kop **Binnenkomende beveiligingsregel** om de lijst met regels voor binnenkomende verbindingen te openen. De lijst moet al een regel voor RDP bevatten.
 4. Klik op **+ Toevoegen** om de blade **Inkomende beveiligingsregel toevoegen** te openen.
-5. Typ **nginx** bij **Naam** en zorg ervoor dat **Poortbereik** is ingesteld op 80 en **Actie** is ingesteld op **Toestaan** en klik vervolgens op **OK**.
+5. Typ bij **Naam** **nginx**. Zorg ervoor dat het **poortbereik** is ingesteld op 80 en **Actie** is ingesteld op **Toestaan**. Klik op **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Verbinding maken met de virtuele machine
@@ -104,7 +104,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>De welkomstpagina van NGIX weergeven
 
-Nu NGINX is geïnstalleerd en poort 80 op de virtuele machine is geopend voor toegang vanaf internet, kunt u een webbrowser van uw keuze gebruiken om de standaardwelkomstpagina van NGINX weer te geven. Zorg ervoor dat u de standaardpagina bezoekt met het `publicIpAddress` dat u hierboven hebt gedocumenteerd. 
+Nu NGINX is geïnstalleerd en poort 80 op de virtuele machine is geopend voor toegang vanaf internet, kunt u een webbrowser van uw keuze gebruiken om de standaardwelkomstpagina van NGINX weer te geven. Zorg ervoor dat u de standaardpagina bezoekt met het `publicIpAddress` dat u hebt gedocumenteerd. 
 
 ![Standaardsite van NGINX](./media/quick-create-cli/nginx.png) 
 ## <a name="delete-virtual-machine"></a>De virtuele machine verwijderen

@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ace5d18cd88d55d167f8447d18d65ca21818ff62
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 0a6b5115a4eebfcce14094d82cdcc9579f80def6
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -60,7 +60,7 @@ Als u System Center Operations Manager gebruikt, kan elke beheergroep uit Operat
 
 U kunt gegevens van uw werkruimte in Azure Portal bekijken. U kunt de gegevens ook bekijken in de OMS-portal.
 
-#### <a name="view-workspace-information-the-azure-portal"></a>Werkruimtegegevens in Azure Portal bekijken
+#### <a name="view-workspace-information-in-the-azure-portal"></a>Werkruimtegegevens weergeven in Azure Portal
 
 1. Meld u met uw Azure-abonnement aan bij [Azure Portal](https://portal.azure.com) als u dit nog niet hebt gedaan.
 2. Klik in het menu **Hub** op **Meer services** en typ in de lijst met resources op **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Klik op **Log Analytics**.  
@@ -177,7 +177,7 @@ U kunt de accountrol van een gebruiker die aan uw OMS-account is gekoppeld, wijz
 4. Klik in het bevestigingsdialoogvenster op **Ja**.
 
 ### <a name="remove-a-user-from-a-workspace"></a>Een gebruiker uit een werkruimte verwijderen
-Voer de volgende stappen uit om een gebruiker te verwijderen uit een werkruimte. Met het verwijderen van de gebruiker wordt de werkruimte niet gesloten. In plaats daarvan wordt de koppeling tussen die gebruiker en de werkruimte verwijderd. Als een gebruiker is gekoppeld aan meerdere werkruimten, kan die gebruiker zich nog wel aanmelden bij OMS en de andere werkruimten zien.
+Voer de volgende stappen uit om een gebruiker te verwijderen uit een werkruimte. Met het verwijderen van de gebruiker wordt de werkruimte niet gesloten. In plaats daarvan wordt de koppeling tussen die gebruiker en de werkruimte verwijderd. Als een gebruiker is gekoppeld aan meerdere werkruimten, kan die gebruiker zich nog wel aanmelden bij OMS en zijn andere werkruimten zien.
 
 1. Klik in de OMS-portal op de tegel **Instellingen**.
 2. Klik op het tabblad **Accounts** en vervolgens op het tabblad **Gebruikers beheren**.
@@ -202,9 +202,6 @@ Alle werkruimten die zijn gemaakt na 26 september 2016 moeten op het moment van 
     > [!IMPORTANT]
     > U kunt een werkruimte alleen koppelen als uw Azure-account al toegang heeft tot deze werkruimte.  Met andere woorden: het account dat u gebruikt voor toegang tot Azure Portal, moet **hetzelfde** zijn als het account dat u gebruikt voor toegang tot de werkruimte. Zie [Een gebruiker toevoegen aan een bestaande werkruimte](#add-a-user-to-an-existing-workspace) als dit niet het geval is.
 
-
-
-
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Een werkruimte in de Azure Portal koppelen aan een Azure-abonnement
 1. Meld u aan bij de [Azure Portal](http://portal.azure.com).
 2. Blader naar **Log Analytics** en selecteer dit.
@@ -225,7 +222,7 @@ Alle werkruimten die zijn gemaakt na 26 september 2016 moeten op het moment van 
 8. Klik op **OK**. De werkruimte is nu gekoppeld aan uw Azure-account.
 
 > [!NOTE]
-> Als u de werkruimte die u wilt koppelen niet ziet, heeft uw Azure-abonnement geen toegang tot de werkruimte die u hebt gemaakt met behulp van de OMS-website.  Zie [Een gebruiker toevoegen aan een bestaande werkruimte](#add-a-user-to-an-existing-workspace) om dit account toegang te verlenen vanuit de OMS-portal.
+> Als u de te koppelen werkruimte niet ziet, heeft uw Azure-abonnement geen toegang tot de werkruimte die u hebt gemaakt met behulp van de OMS-portal.  Zie [Een gebruiker toevoegen aan een bestaande werkruimte](#add-a-user-to-an-existing-workspace) om dit account toegang te verlenen vanuit de OMS-portal.
 >
 >
 
@@ -250,7 +247,7 @@ Doe het volgende om ervoor te zorgen dat gebruik van een werkruimte wordt toegep
 De rechten van het OMS-abonnement zijn niet zichtbaar in de Azure Portal of OMS-portal. U kunt de rechten en het gebruik wel in de Enterprise Portal zien.  
 
 Als u het Azure-abonnement waaraan uw werkruimte is gekoppeld, wilt wijzigen, kunt u de Azure PowerShell-cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) gebruiken.
-tot
+
 ### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Azure Commitment gebruiken via een Enterprise-overeenkomst
 Als u geen OMS-abonnement hebt, betaalt u voor elk onderdeel van OMS afzonderlijk en wordt het gebruik weergegeven op uw Azure-factuur.
 

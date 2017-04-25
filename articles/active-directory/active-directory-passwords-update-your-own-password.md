@@ -16,9 +16,9 @@ ms.date: 04/11/2017
 ms.author: joflore
 ms.custom: end-user
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9b7735bbe8d3b2ffc78eba8f1489d70a02fe7342
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: bb62d6973dff00932e72ddb4b2c344f070537828
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -31,7 +31,7 @@ Als u de volgende scenario's op u van toepassing zijn, kunnen we u helpen
 * U weet niet meer precies hoe u toegang moet krijgen tot uw account en u bent uw wachtwoord vergeten
 * Er is geen wachtwoord aan u toegewezen en de beheerder heeft u hier naartoe gestuurd
 
-## <a name="unlock-your-account"></a>Uw account ontgrendelen
+## <a name="unlock-my-account"></a>Mijn account ontgrendelen
 
 Als u hier bent om uw account te ontgrendelen, volgt u onderstaande stappen. Wanneer de zin **Kies een nieuw wachtwoord** wordt weergegeven bij stap 6 hieronder, kunt u uw account ontgrendelen of uw wachtoord wijzigen en zo uw account ontgrendelen.
 
@@ -43,6 +43,11 @@ Als u weer toegang wilt krijgen tot uw account, volgt u onderstaande stappen.
     ![Hebt u geen toegang tot uw account?][Login]
 
 2. Voer de **gebruikers-id** van uw werk of school in en bewijs dat u geen robot bent door te slagen voor de CAPTCHA-test en de weergegeven tekst in te voeren en klik op **Volgende**
+
+   > [!NOTE]
+   > Als de beheerder deze functionaliteit niet heeft ingeschakeld, wordt de koppeling Contact opnemen met de beheerder nu weergegeven, zodat de beheerder hulp kan verlenen via e-mail of een eigen webportal.
+   >
+
 3. Afhankelijk van de manier waarop de beheerder dingen heeft geconfigureerd, worden een of meer van de volgende opties weergegeven:
     * **Stuur e-mail naar mijn alternatieve e-mailadres** - er wordt een e-mail met een code van 6 cijfers verzonden naar uw alternatieve e-mailadres of uw e-mailadres voor authenticatie (de keus is aan u).
     * **Sms-bericht naar mijn telefoon verzenden** - er wordt een sms-bericht met een code van 6 cijfers verzonden naar uw mobiele telefoon of uw telefoon voor authenticatie (de keus is aan u).
@@ -61,10 +66,6 @@ Als u weer toegang wilt krijgen tot uw account, volgt u onderstaande stappen.
 7. Wanneer de melding **Uw wachtwoord is opnieuw ingesteld** wordt weergegeven, kunt u zich aanmelden met uw nieuwe wachtwoord.
 
     ![Uw wachtwoord is opnieuw ingesteld][Complete]
-
-> [!NOTE]
-> Als de beheerder deze functionaliteit niet heeft ingeschakeld, wordt de koppeling Contact opnemen met de beheerder weergegeven, zodat de beheerder hulp kan verlenen via e-mail of een eigen webportal.
->
 
 Nadat u deze methode voor het ontgrendelen of opnieuw instellen van uw wachtwoord hebt gebruikt, ontvangt u mogelijk een e-mail waarin wordt bevestigd dat dit proces is voltooid en dat afkomstig is van een account als 'Microsoft namens uw organisatie'. Als u een dergelijke e-mail ontvangt en u geen gebruik hebt gemaakt van de selfservice voor het opnieuw instellen van een wachtwoord om weer toegang te krijgen tot uw account, moet u contact opnemen met de beheerder.
 

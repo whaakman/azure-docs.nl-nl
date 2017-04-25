@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/03/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 58af25d90b419b3ddb986118a8c9ba3b42aa95a6
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 3366348e6ea3ae296bc249090e75c16ebe9fc1fb
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -50,18 +50,26 @@ Volg deze stappen voor het maken van een SQL-database met de voorbeeldgegevens v
    - Resourcegroep: **myResourceGroup**
    - Bron: **Voorbeeld (AdventureWorksLT)**
 
-4. Klik op **Server** als u een server voor de nieuwe database wilt maken en configureren. Vul het **nieuwe serverformulier** in, waarbij u een unieke servernaam opgeeft. Verstrek ook een naam voor de beheerdersaanmelding bij de server en een zelfgekozen wachtwoord. 
+   > [!IMPORTANT]
+   > U moet de voorbeelddatabase op dit formulier selecteren. Deze wordt namelijk in de rest van deze Quick Start gebruikt.
+   > 
+
+4. Klik op **Server** en vul het **nieuwe serverformulier** in, waarbij u een unieke servernaam opgeeft. Verstrek ook een naam voor de beheerdersaanmelding bij de server en een zelfgekozen wachtwoord. 
+
+   > [!IMPORTANT]
+   > De beheerdersaanmelding bij de server en het wachtwoord die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze Quick Start. Onthoud of noteer deze informatie voor later gebruik. 
+   >  
 
     ![database-server maken](./media/sql-database-get-started-portal/create-database-server.png)
-5. Klik op **Selecteren**.
+5. Wanneer u het formulier hebt ingevuld, klikt u op **Selecteren**.
 
-6. Klik op **Prijscategorie** om de servicelaag en het prestatieniveau voor de nieuwe database op te geven. Voor deze Quick Start selecteert u **20 DTU's** en **250** GB opslag
+6. Klik op **Prijscategorie** om de servicelaag en het prestatieniveau voor de nieuwe database op te geven. Gebruik de schuifregelaar om **20 DTU's** en **250** GB aan opslagruimte te selecteren. Zie [Wat is een DTU?](sql-database-what-is-a-dtu.md) voor meer informatie over DTU's.
 
     ![database-s1 maken](./media/sql-database-get-started-portal/create-database-s1.png)
 
-7. Klik op **Toepassen**.  
+7. Nadat u de hoeveelheid DTU's hebt geselecteerd, klikt u op **Toepassen**.  
 
-8. Klik op **Maken** om de database in te richten. De inrichting duurt een paar minuten. 
+8. Nu u het SQL Database-formulier hebt ingevuld, klikt u op **Maken** om de database in te richten. De inrichting duurt een paar minuten. 
 
 9. Klik op de werkbalk op **Meldingen** om het implementatieproces te bewaken.
 
@@ -72,13 +80,26 @@ Volg deze stappen voor het maken van een SQL-database met de voorbeeldgegevens v
 
 De service SQL Database maakt een firewall op serverniveau die voorkomt dat externe toepassingen en hulpmiddelen verbinding maken met de server of databases op de server, tenzij er een firewallregel is gemaakt om de firewall te openen voor specifieke IP-adressen. Volg deze stappen om een [SQL Database-firewallregel op serverniveau](sql-database-firewall-configure.md) te maken voor het IP-adres van de client en connectiviteit via de SQL Database-firewall alleen voor uw IP-adres toe te staan. 
 
-1. Wanneer de implementatie is voltooid, klikt u op **SQL-databases** in het menu aan de linkerkant en klikt u op de pagina **SQL-databases** op de database. De overzichtspagina voor de database wordt geopend, waarin de volledig gekwalificeerde naam (zoals **mynewserver20170327.database.windows.net**) en opties voor verdere configuratie worden weergegeven.
+> [!NOTE]
+> SQL Database communiceert via poort 1433. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 1433 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u alleen verbinding maken met uw Azure SQL Database-server als uw IT-afdeling poort 1433 openstelt.
+>
 
-      ![serverfirewallregel](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+1. Wanneer de implementatie is voltooid, klikt u op **SQL Databases** in het menu aan de linkerkant. Klik vervolgens op de pagina SQL Databases op **mySampleDatabase**. De overzichtspagina voor de database wordt geopend. Hierop worden de volledig gekwalificeerde naam (zoals **mynewserver20170411.database.windows.net**) en opties voor verdere configuratie weergegeven.
+
+   > [!IMPORTANT]
+   > U hebt deze volledig gekwalificeerde servernaam nodig om verbinding te maken met de server en de bijbehorende databases in de volgende Quick Starts.
+   > 
+
+      ![servernaam](./media/sql-database-get-started-portal/server-name.png) 
 
 2. Klik op de werkbalk op **Serverfirewall instellen** zoals in de vorige afbeelding is weergegeven. De pagina **Firewallinstellingen** voor de SQL Database-server wordt geopend. 
 
-3. Klik op **IP van client toevoegen** op de werkbalk en klik vervolgens op **Opslaan**. Er wordt een firewallregel op serverniveau gemaakt voor uw huidige IP-adres.
+      ![serverfirewallregel](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+
+
+3. Klik op **IP van client toevoegen** op de werkbalk om uw huidige IP-adres aan een nieuwe firewallregel toe te voegen. Een firewallregel kan poort 1433 openen voor een afzonderlijk IP-adres of voor een aantal IP-adressen.
+
+4. Klik op **Opslaan**. Er wordt een firewallregel op serverniveau gemaakt voor uw huidige IP-adres waarbij poort 1433 op de logische server wordt geopend.
 
       ![serverfirewallregel instellen](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
@@ -86,13 +107,12 @@ De service SQL Database maakt een firewall op serverniveau die voorkomt dat exte
 
 U kunt nu verbinding maken met de SQL Database-server en de bijbehorende databases met behulp van SQL Server Management Studio of een ander hulpprogramma naar keuze. Dit doet u vanaf dit IP-adres via het serverbeheerdersaccount dat eerder is gemaakt.
 
-> [!NOTE]
-> SQL Database communiceert via poort 1433. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 1433 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u alleen verbinding maken met uw Azure SQL Database-server als uw IT-afdeling poort 1433 openstelt.
->
+> [!IMPORTANT]
+> Voor alle Azure-services is toegang via de SQL Database-firewall standaard ingeschakeld. Klik op **UIT** op deze pagina om dit voor alle Azure-services uit te schakelen.
 
 ## <a name="query-the-sql-database"></a>Query's uitvoeren op de SQL-database
 
-Tijdens het maken van de SQL-database hebben we deze gevuld met de voorbeelddatabase **AdventureWorksLT** (dit was een van de opties die we in Gebruikersinterface maken, eerder in deze QuickStart, hebben geselecteerd). Nu gaan we het ingebouwde queryprogramma in Azure Portal gebruiken om de gegevens op te vragen. 
+Nu u een voorbeelddatabase in Azure hebt gemaakt, gebruiken we het ingebouwde hulpprogramma voor query's binnen Azure Portal om te bevestigen dat u verbinding kunt maken met de database en query's kunt uitvoeren voor de gegevens. 
 
 1. Klik op de pagina SQL Database voor uw database op **Extra** op de werkbalk. De pagina **Extra** wordt geopend.
 

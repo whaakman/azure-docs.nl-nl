@@ -13,12 +13,12 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/05/2017
+ms.date: 04/17/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: c36c3a3f651bcee38b953b12e48cab8d93a34207
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 368ffc65382c75b0fe5f4c20ce1c6a487a764ed3
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -70,16 +70,18 @@ Haal de verbindingsreeks op in Azure Portal. U gebruikt de verbindingsreeks om v
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Selecteer **SQL-databases** in het menu links en klik op uw database op de pagina **SQL-databases**. 
-3. Bekijk in het deelvenster **Essentials** voor uw database de volledig gekwalificeerde servernaam. 
+3. Op de pagina **Overzicht** voor de database controleert u de volledig gekwalificeerde servernaam zoals in de onderstaande afbeelding wordt weergegeven. U kunt de cursor boven de servernaam houden om de optie **Klik om te kopiëren** naar boven te halen. 
 
-    <img src="./media/sql-database-connect-query-dotnet/connection-strings.png" alt="connection strings" style="width: 780px;" />
+   ![servernaam](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Klik op **Databaseverbindingsreeksen tonen**.
+4. Als u de aanmeldingsgegevens voor uw Azure SQL Database-server bent vergeten, gaat u naar de SQL Database-serverpagina om de beheerdersnaam voor de server weer te geven en, indien nodig, het wachtwoord opnieuw in te stellen.
 
-5. Bekijk de volledige**ADO.NET**-verbindingsreeks.
+5. Klik op **Databaseverbindingsreeksen tonen**.
 
-    <img src="./media/sql-database-connect-query-dotnet/adonet-connection-string.png" alt="ADO.NET connection string" style="width: 780px;" />
-    
+6. Bekijk de volledige**ADO.NET**-verbindingsreeks.
+
+    ![ADO.NET-verbindingsreeks](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
+  
 ## <a name="add-systemdatasqlclient"></a>System.Data.SqlClient toevoegen
 Als u gebruikmaakt van .NET Core, voegt u System.Data.SqlClient als een afhankelijkheid toe aan het ***.csproj***-bestand van het project.
 
@@ -94,8 +96,7 @@ Als u gebruikmaakt van .NET Core, voegt u System.Data.SqlClient als een afhankel
 1. Open een leeg codebestand in uw ontwikkelingsomgeving.
 2. Voeg ```using System.Data.SqlClient``` toe aan uw codebestand ([naamruimte System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
 
-3. Gebruik [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) met de Transact-SQL-instructie [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) om in uw Azure SQL-database query's uit te voeren voor gegevens. De juiste waarden voor uw server toevoegen
-
+3. Gebruik [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) met de Transact-SQL-instructie [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) om in uw Azure SQL-database query's uit te voeren voor gegevens. Voeg de juiste waarden voor uw server toe.
 ```csharp
 using System;
 using System.Data;
