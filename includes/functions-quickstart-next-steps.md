@@ -10,7 +10,3 @@ Deze snelstartgids demonstreert een eenvoudige uitvoering van een basisfunctie d
   Beschrijft de serviceabonnementen die beschikbaar zijn voor Azure Functions, zoals het hostingabonnement Consumption, en helpt u bij het kiezen van het juiste abonnement. 
 * [Wat is Azure App Service?](../articles/app-service/app-service-value-prop-what-is.md)  
   Azure Functions maakt gebruik van het Azure App Service-platform voor kernfunctionaliteit zoals implementaties, omgevingsvariabelen en diagnostische procedures. 
-
-<!--HONumber=Feb17_HO1-->
-
-
