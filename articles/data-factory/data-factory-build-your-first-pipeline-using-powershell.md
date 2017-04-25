@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/25/2017
+ms.date: 04/17/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
 ms.openlocfilehash: 2d1a4cf1ab1f66f51eb29a4b8cee07dca8d88719
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -53,7 +54,7 @@ In deze stap gebruikt u Azure PowerShell om een Azure-gegevensfactory met de naa
     ```    
    * Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven.
     ```PowerShell
-    Get-AzureRmSubscription 
+    Get-AzureRmSubscription    
     ```
    * Voer de volgende opdracht uit om het abonnement te selecteren waarmee u wilt werken. Dit moet hetzelfde abonnement zijn als het abonnement dat u in de Azure Portal gebruikt.
     ```PowerShell
@@ -413,9 +414,4 @@ In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDIn
 | [Gegevenssets](data-factory-create-datasets.md) |Op basis van dit artikel krijgt u inzicht in de gegevenssets in Azure Data Factory. |
 | [Plannen en uitvoeren](data-factory-scheduling-and-execution.md) |In dit artikel wordt uitleg gegeven over de plannings- en uitvoeringsaspecten van het Azure Data Factory-toepassingsmodel. |
 | [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) |In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. |
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
