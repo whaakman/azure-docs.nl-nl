@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 0550f5fecd83ae9dc0acb2770006156425baddf3
-ms.openlocfilehash: 0617d2e668fe719d6002254b6d13ca729887c0e3
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 07b62cd6f6deb0cf3ff1c806204ebc26c773a164
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -58,6 +59,67 @@ Opslagverkenner (preview-versie) biedt een aantal manieren om verbinding te make
 
     ![Geselecteerde Azure-abonnementen][4]
 
+## <a name="connect-to-an-azure-stack-subscription"></a>Verbinding maken met een Azure Stack-abonnement
+
+1. Er is een VPN-verbinding vereist om met Opslagverkenner een externe verbinding te maken met een Azure Stack-abonnement. Raadpleeg voor meer informatie over het instellen van een VPN-verbinding naar Azure Stack [Verbinding maken met Azure Stack met VPN](azure-stack/azure-stack-connect-azure-stack.md#connect-with-vpn)
+
+2. Voor Azure Stack POC dient u het Azure Stack-basiscertificaat van de certificeringsinstantie te exporteren. Open `mmc.exe` op MAS-CON01, een Azure Stack-hostmachine of een lokale computer met een VPN-verbinding met Azure Stack. Selecteer in het menu **Bestand** de optie **Module toevoegen/verwijderen** en voeg **certificaten** toe voor het beheren van een **computeraccount** of **lokale computer**.
+
+   ![Laad het Azure Stack-basiscertificaat via mmc.exe][25]   
+
+   Zoek naar **AzureStackCertificationAuthority** onder **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates**. Klik met de rechtermuisknop op het item, selecteer **Alle taken-> Exporteren**. Volg vervolgens de dialoogvensters om het certificaat te exporteren met **Base-64 encoded X.509 (.CER)**. Het geëxporteerde certificaat zal worden gebruikt in de volgende stap.   
+
+   ![Het Azure Stack-basiscertificaat van de certificeringsinstantie exporteren][26]   
+
+3. Selecteer in Opslagverkenner (Preview) het menu **Bewerken**, selecteer dan **SSL-certificaten** en kies vervolgens **Certificaten importeren**. Gebruik het dialoogvenster Bestand kiezen om het certificaat dat u in de vorige stap hebt gezocht te zoeken en te openen. Na het importeren wordt u gevraagd om Opslagverkenner opnieuw te starten.
+
+   ![Importeer het certificaat in Opslagverkenner (Preview)][27]
+
+4. Zodra Opslagverkenner (Preview) opnieuw is gestart, selecteert u het menu **Bewerken** en controleert u of de optie **Azure Stack als doel** is ingeschakeld. Als dat niet het geval is, schakelt u deze in en start u Opslagverkenner opnieuw om de wijziging door te voeren. Deze configuratie is vereist om compatibiliteit met uw Azure Stack-omgeving te garanderen.
+
+   ![Zorg dat de optie Azure Stack als doel is geselecteerd][28]
+
+5. Selecteer op de linkerzijbalk **Accounts beheren**. In het linkerdeelvenster ziet u alle Microsoft-accounts waarop u bent aangemeld. Om verbinding te maken met een Azure Stack-account, selecteert u **Een account toevoegen**.
+
+   ![Een Azure Stack-account toevoegen][29]
+
+6. Kies in het dialoogvenster **Nieuw account toevoegen** onder **Azure-omgeving** de optie **Aangepaste omgeving maken** en klik vervolgens op **Volgende**.
+
+7. Voer alle vereiste gegevens voor de aangepaste Azure Stack-omgeving in en klik vervolgens op **Aanmelden**.  Vul in het dialoogvenster **Aanmelden bij een aangepaste cloudomgeving** de gevraagde inloggegevens in om u aan te melden met een Azure Stack-account dat is gekoppeld aan ten minste één actief Stack Azure-abonnement. De details voor elk veld in het dialoogvenster zijn als volgt:
+
+    * **De naam van de omgeving**: dit veld kan worden aangepast door de gebruiker.
+    * **Instantie**: deze waarde dient https://login.windows.net te zijn. Gebruik https://login.chinacloudapi.cn voor Azure China (Mooncake).
+    * **Resource-id voor aanmelden**: haal deze waarde op door middel van het volgende PowerShell-commando:
+
+    Als u een cloudbeheerder bent:
+
+    ```powershell
+    PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```
+
+    Als u een tenant bent:
+
+    ```powershell
+    PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```
+
+    * **Graph-eindpunt**: deze waarde dient https://graph.windows.net te zijn. Gebruik https://graph.chinacloudapi.cn voor Azure China (Mooncake).
+    * **ARM-resource-id**: gebruik dezelfde waarde als voor het Resource-id voor aanmelden.
+    * **ARM-resource-eindpunt**: voorbeelden van een ARM-resource-eindpunt:
+
+    Voor cloudbeheerders: https://adminmanagement.local.azurestack.external   
+    Voor tenants: https://management.local.azurestack.external
+ 
+    * **Tenant-id's**: optioneel. Deze waarde wordt alleen ingevuld wanneer de map moet worden opgegeven.
+
+8. Wanneer u bent aangemeld met een Azure Stack-account, worden in het linkerdeelvenster de Azure Stack-abonnementen weergegeven die aan dat account zijn gekoppeld. Selecteer de Azure Stack-abonnementen waarmee u wilt werken en selecteer vervolgens **Toepassen**. (Door **Alle abonnementen** te selecteren selecteert u alle of geen Azure Stack-abonnementen.)
+
+   ![De Azure Stack-abonnementen selecteren na het invullen van het dialoogvenster Aangepaste cloudomgeving][30]
+
+9. In het linkerdeelvenster worden de opslagaccounts weergegeven die aan de geselecteerde Azure Stack-abonnementen zijn gekoppeld.
+
+   ![Lijst met opslagaccounts, waaronder Azure Stack-abonnementsaccounts][31]
+
 ## <a name="work-with-local-development-storage"></a>Werken met lokale ontwikkelingsopslag
 Met Opslagverkenner (Preview) kunt u met lokale opslag werken via de Azure-opslagemulator. Hiermee kunt u code schrijven voor opslag en deze testen zonder dat u een opslagaccount hoeft te hebben geïmplementeerd in Azure (omdat het opslagaccount wordt gesimuleerd door de Azure-opslagemulator).
 
@@ -66,7 +128,7 @@ Met Opslagverkenner (Preview) kunt u met lokale opslag werken via de Azure-opsla
 >
 >
 
-1. Klap in het linkerdeelvenster van de Storage Explorer (voorbeeld) de node **(lokale en bijgevoegde ** > **Opslagaccounts** > **(ontwikkeling)** uit.
+1. Klap in het linkerdeelvenster van de Storage Explorer (voorbeeld) de node **(lokale en bijgevoegde** > **Opslagaccounts** > **(ontwikkeling)** uit.
 
     ![Node lokale ontwikkeling][21]
 2. Als u de Azure-opslagemulator nog niet hebt geïnstalleerd, wordt u via de informatiebalk gevraagd dit te doen. Wanneer de informatiebalk wordt weergegeven, selecteert u **De nieuwste versie downloaden** en installeert u de emulator.
@@ -207,9 +269,11 @@ Als u de zoekopdracht wilt wissen, klikt u op **x** in het zoekvak.
 [22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/download-storage-emulator.png
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+[25]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-certificate-azure-stack.png
+[26]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/export-root-cert-azure-stack.png
+[27]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/import-azure-stack-cert-storage-explorer.png
+[28]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-target-azure-stack.png
+[29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
+[30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
+[31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
 
