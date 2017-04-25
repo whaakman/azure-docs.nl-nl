@@ -11,7 +11,3 @@ U kunt de verbindingsstatus voor een klassieke VNet-VPN-gateway weergeven door i
 5. Klik op de naam van de verbinding om de blade **Site-naar-site-VPN-verbinding** te openen voor meer informatie over de verbinding.
 
     ![Verbindingsstatus meer](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Verbindingsstatus meer info")
-
-<!--HONumber=Jan17_HO5-->
-
-
