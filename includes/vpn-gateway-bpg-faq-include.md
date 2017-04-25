@@ -28,6 +28,8 @@ Azure VPN-gateway maakt de volgende routes bekend aan uw on-premises BGP-apparat
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>Kan ik standaardroute (0.0.0.0/0) adverteren naar Azure VPN-gateways?
 Ja.
 
+Houd er rekening mee dat dit al het uitgaande verkeer van het VNet naar uw on-premises site stuurt en voorkomt dat de virtuele machines van het VNet openbare communicatie accepteren die rechtstreeks van internet afkomstig is, zoals RDP of SSH van internet naar de virtuele machines.
+
 ### <a name="can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes"></a>Kan ik de exacte voorvoegsels als de voorvoegsels van mijn virtuele netwerk adverteren?
 
 Nee, het adverteren van dezelfde voorvoegsels als een van de adresvoorvoegsels van uw virtuele netwerk wordt door het Azure-platform geblokkeerd of gefilterd. U kunt echter een voorvoegsel aankondigen dat een superset is van wat u in Virtual Network hebt. 
@@ -65,9 +67,4 @@ Azure Local Network Gateway geeft u de eerste adresvoorvoegsels voor het on-prem
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>Wat moet ik toevoegen aan mijn on-premises VPN-apparaat voor de BGP-peeringsessie?
 U moet een hostroute van het Azure BGP-peer-IP-adres toevoegen aan uw VPN-apparaat die verwijst naar de IPSec-S2S VPN-tunnel. Als het Azure VPN-peer-IP-adres bijvoorbeeld "10.12.255.30" is, dient u een hostroute toe te voegen voor "10.12.255.30" met een nexthop-interface van de overeenkomende IPsec-tunnelinterface op uw VPN-apparaat.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

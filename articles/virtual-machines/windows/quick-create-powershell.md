@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: ace9fc76cd1f007ffbee1dbc3df3e91858f35b93
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
+ms.openlocfilehash: 91ef7f432d0954cc8456e5d98c48943aa0ad72a7
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,9 +27,9 @@ ms.lasthandoff: 04/04/2017
 
 De Azure PowerShell-module wordt gebruikt voor het maken en beheren van Azure-resources vanaf de PowerShell-opdrachtregel of in scripts. In deze handleiding wordt beschreven hoe u PowerShell gebruikt voor het maken van een virtuele Azure-machine met Windows Server 2016.  Als de implementatie is voltooid, maken we verbinding met de server en installeren we ISS.  
 
-Voor u begint, moet u ervoor zorgen dat de nieuwste versie van de Azure PowerShell-module is geïnstalleerd. Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor meer informatie.
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Zorg er ook voor dat de nieuwste versie van de Azure PowerShell-module is geïnstalleerd. Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor meer informatie.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 

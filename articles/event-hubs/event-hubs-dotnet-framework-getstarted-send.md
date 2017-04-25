@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 5c326a025a4276ae9b1a777439ed6c728d3e7103
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 306c9c5cb06caa186bc0b7f431a5412dfe810722
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -33,9 +33,9 @@ Om deze handleiding volledig door te kunnen nemen, hebt u het volgende nodig:
 * [Microsoft Visual Studio 2015 of hoger](http://visualstudio.com). In de schermafbeeldingen in deze zelfstudie wordt Visual Studio 2017 gebruikt.
 * Een actief Azure-account. Als u geen Azure-account hebt, kunt u binnen een paar minuten een gratis account maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/free/) voor meer informatie.
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Maak een Event Hubs-naamruimte en een Event Hub
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Een Event Hubs-naamruimte en een Event Hub maken
 
-In de eerste stap gebruikt u de [Azure-portal](https://portal.azure.com) om een naamruimte van het type Event Hubs te maken en de beheerreferenties te verkrijgen die de toepassing nodig heeft om met de Event Hub te communiceren. Volg de procedure in [dit artikel](event-hubs-create.md) om een naamruimte en Event Hub te maken en ga daarna verder met de volgende stappen.
+In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naamruimte van het type Event Hubs te maken en de beheerreferenties te verkrijgen die de toepassing nodig heeft om met de Event Hub te communiceren. Volg de procedure in [dit artikel](event-hubs-create.md) om een naamruimte en Event Hub te maken en ga daarna verder met de volgende stappen.
 
 ## <a name="create-a-console-application"></a>Een consoletoepassing maken
 In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar uw Event Hub verzendt.
@@ -87,7 +87,7 @@ In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar 
     }
     ```
    
-    Met deze methode worden continu gebeurtenissen naar uw Event Hub verzonden, met een vertraging van 200 ms.
+    Met deze methode worden er continu gebeurtenissen naar uw Event Hub verzonden, met een vertraging van 200 ms.
 7. Voeg tot slot de volgende regels toe aan de methode **Main**:
    
     ```csharp

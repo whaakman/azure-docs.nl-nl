@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: a0340359dff470551a08a8213f3a704f15f78794
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 88abdb41a403f9c1dc85e574c655c532ee9b1eb5
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -184,6 +184,54 @@ Controleer welke apps worden bewaakt:
 
 * Downloadt de nieuwste Application Insights-SDK naar de server.
 
+## <a name="questions"></a>Vragen over Status Monitor
+
+### <a name="what-is-status-monitor"></a>Wat is Status Monitor?
+
+Een bureaubladtoepassing die u op uw IIS-webserver kunt installeren. Hiermee kunt u web-apps instrumenteren en configureren. 
+
+### <a name="when-do-i-use-status-monitor"></a>Wanneer maak ik gebruik van Status Monitor?
+
+* Wanneer u web-apps wilt instrumenteren die worden uitgevoerd op uw IIS-server, zelfs als deze al worden uitgevoerd.
+* Om extra telemetrie mogelijk te maken voor web-apps die bij het compileren zijn [gebouwd met de Application Insights-SDK](app-insights-asp-net.md). 
+
+### <a name="can-i-close-it-after-it-runs"></a>Kan ik de applicatie sluiten nadat deze is uitgevoerd?
+
+Ja. Zodra de applicatie de gekozen websites heeft geïnstrumenteerd, kunt u deze sluiten.
+
+Status Monitor verzamelt niet zelf telemetrie. Het configureert enkel de web-apps en stelt enkele machtigingen in.
+
+### <a name="what-does-status-monitor-do"></a>Wat doet Status Monitor?
+
+Wanneer u een web-app selecteert die u met Status Monitor wilt instrumenteren:
+
+* Worden de Application Insights-assembly's en een .config-bestand gedownload en in de map met de binaire bestanden van de web-app geplaatst.
+* Wordt `web.config` gewijzigd om de Application Insights HTTP-bewakingsmodule toe te voegen.
+* Schakelt CLR-profilering in voor het verzamelen van afhankelijkheidsaanroepen.
+
+### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>Moet ik Status Monitor telkens uitvoeren wanneer ik de app heb bijgewerkt?
+
+Niet als u deze stapsgewijs opnieuw implementeert. 
+
+Als u de optie 'Bestaande bestanden verwijderen' selecteert in het publicatieproces, dient u Status Monitor opnieuw uit te voeren om Application Insights te configureren.
+
+### <a name="what-telemetry-is-collected"></a>Welke telemetrie wordt verzameld?
+
+Voor toepassingen die u met behulp van de Status Monitor bij het uitvoeren instrumenteert:
+
+* HTTP-aanvragen
+* Afhankelijkheidsaanroepen
+* Uitzonderingen
+* Prestatiemeteritems
+
+Voor toepassingen die bij het compileren al zijn geïnstrumenteerd:
+
+ * Procestellers.
+ * Afhankelijkheidsaanroepen (.NET 4.5); retourwaarden in afhankelijkheidsaanroepen (.NET 4.6).
+ * Stack-tracewaarden van uitzonderingen.
+
+[Meer informatie](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
@@ -212,5 +260,5 @@ Meer telemetrie toevoegen:
 [greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 

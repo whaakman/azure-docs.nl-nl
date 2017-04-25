@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 8f8ed2396ba0fcff5c6334daa2a095a960e924c5
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
+ms.openlocfilehash: bffbeb5238ec69d763e1cc7ad3c8a6e4fad34306
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,9 +27,11 @@ ms.lasthandoff: 04/04/2017
 
 De Azure PowerShell-module wordt gebruikt voor het maken en beheren van Azure-resources vanaf de PowerShell-opdrachtregel of in scripts. In deze handleiding wordt beschreven hoe u PowerShell gebruikt voor het maken van een virtuele Azure-machine met Ubuntu 14.04 LTS.
 
-Voordat u begint, een moet er een openbare SSH-sleutel met de naam `id_rsa.pub` worden opgeslagen in de map `.ssh` van uw Windows-gebruikersprofiel. Zie voor gedetailleerde informatie over het maken van SSH-sleutels voor Azure [Create SSH keys for Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (SSH-sleutels maken voor Azure).
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Zorg er ook voor dat de nieuwste versie van de Azure PowerShell-module is geïnstalleerd. Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor meer informatie.
+
+Tot slot moet er een openbare SSH-sleutel met de naam `id_rsa.pub` worden opgeslagen in de map `.ssh` van uw Windows-gebruikersprofiel. Zie voor gedetailleerde informatie over het maken van SSH-sleutels voor Azure [Create SSH keys for Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (SSH-sleutels maken voor Azure).
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 

@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: c173f1b6937739f662eb41aa1886e66cb06ed729
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: a08fe566f4962684bc4aad220687e9cd36fc4abf
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -41,12 +41,13 @@ Haal de volledig gekwalificeerde servernaam van uw Azure SQL Database-server op 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Selecteer **SQL-databases** in het menu links en klik op uw database op de pagina **SQL-databases**. 
-3. In het deelvenster **Essentials** van de Azure Portal-pagina van uw database kopieert u de **servernaam**.
+3. Op de pagina **Overzicht** voor de database controleert u de volledig gekwalificeerde servernaam zoals in de onderstaande afbeelding wordt weergegeven. U kunt de cursor boven de servernaam houden om de optie **Klik om te kopiëren** naar boven te halen.
 
    ![verbindingsgegevens](./media/sql-database-connect-query-ssms/connection-information.png) 
 
+4. Als u de aanmeldingsgegevens voor uw Azure SQL Database-server bent vergeten, gaat u naar de SQL Database-serverpagina om de beheerdersnaam voor de server weer te geven en, indien nodig, het wachtwoord opnieuw in te stellen. 
 
-## <a name="connect-to-the-server-and-your-new-database"></a>Verbinding maken met de server en de nieuwe database
+## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Verbinding maken met uw database op de logische SQL Database-server
 
 Gebruik SQL Server Management Studio om verbinding te maken met uw Azure SQL Database-server. 
 
@@ -65,7 +66,7 @@ Gebruik SQL Server Management Studio om verbinding te maken met uw Azure SQL Dat
 
    ![verbinding maken met server](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Klik op **Opties**. Voer in de sectie **Verbinding maken met database** **mySampleDatabase** in om verbinding te maken met deze database die u eerder hebt gemaakt.
+3. Klik op **Opties** in het dialoogvenster **Verbinding maken met server**. Voer in de sectie **Verbinding maken met database** **mySampleDatabase** in om verbinding te maken met deze database.
 
    ![verbinding maken met database op server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
@@ -73,7 +74,7 @@ Gebruik SQL Server Management Studio om verbinding te maken met uw Azure SQL Dat
 
    ![verbonden met server](./media/sql-database-connect-query-ssms/connected.png)  
 
-4. In Objectverkenner vouwt u **Databases** en daarna **mySampleDatabase** uit om de objecten in de voorbeelddatabase weer te geven.
+5. In Objectverkenner vouwt u **Databases** en daarna **mySampleDatabase** uit om de objecten in de voorbeelddatabase weer te geven.
 
 ## <a name="query-data"></a>Querygegevens
 
@@ -91,7 +92,7 @@ Gebruik de Transact-SQL-instructie [SELECT](https://msdn.microsoft.com/library/m
 
 3. Klik in de werkbalk op **Uitvoeren** om gegevens op te halen uit de tabellen Product en ProductCategory.
 
-    <img src="./media/sql-database-connect-query-ssms/query.png" alt="query" style="width: 780px;" />
+    ![query](./media/sql-database-connect-query-ssms/query.png)
 
 ## <a name="insert-data"></a>Gegevens invoegen
 

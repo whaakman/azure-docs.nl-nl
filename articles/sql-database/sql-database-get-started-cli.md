@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: hero-article
-ms.date: 04/04/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 24a99c20dc015b15de980e8323f2d88a39d318dd
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 06b6830b28745b0f6574d7bca5cca7907db8ecb1
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -39,21 +39,40 @@ Meld u aan bij uw Azure-abonnement met de opdracht [az login](/cli/azure/#login)
 az login
 ```
 
+## <a name="define-variables"></a>Variabelen definiëren
+
+Definieer variabelen voor gebruik in de scripts in deze Quick Start.
+
+```azurecli
+# The data center and resource name for your resources
+resourcegroupname = myResourceGroup
+location = westeurope
+# The logical server name: Use a random value or replace with your own value (do not capitalize)
+servername = server-$RANDOM
+# Set an admin login and password for your database
+adminlogin = ServerAdmin
+password = ChangeYourAdminPassword1
+# The ip address range that you want to allow to access your DB
+startip = "0.0.0.0"
+endip = "0.0.0.1"
+# The database name
+databasename = mySampleDatabase
+```
+
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 Maak een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met de opdracht [az group create](/cli/azure/group#create). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en groepsgewijs worden beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westeurope`.
 
 ```azurecli
-az group create --name myResourceGroup --location westeurope
+az group create --name $resourcegroupname --location $location
 ```
 ## <a name="create-a-logical-server"></a>Een logische server maken
 
 Als u een [logische Azure SQL Database-server](sql-database-features.md) wilt maken, gebruikt u de opdracht [az sql server create](/cli/azure/sql/server#create). Een logische server bevat een groep met databases die worden beheerd als groep. In het volgende voorbeeld wordt een server met een willekeurige naam gemaakt in de resourcegroep met een beheerdersaccount met de gebruikersnaam `ServerAdmin` en het wachtwoord `ChangeYourAdminPassword1`. U kunt deze vooraf gedefinieerde waarden vervangen.
 
 ```azurecli
-servername=server-$RANDOM
-az sql server create --name $servername --resource-group myResourceGroup --location westeurope \
-    --admin-user ServerAdmin --admin-password ChangeYourAdminPassword1
+az sql server create --name $servername --resource-group $resourcegroupname --location $location \
+    --admin-user $adminlogin --admin-password $password
 ```
 
 ## <a name="configure-a-server-firewall-rule"></a>Een serverfirewallregel configureren
@@ -61,8 +80,8 @@ az sql server create --name $servername --resource-group myResourceGroup --locat
 Maak een [Azure SQL Database-firewallregel op serverniveau](sql-database-firewall-configure.md) met de opdracht [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create). Een firewallregel op serverniveau kan een externe toepassing, zoals SQL Server Management Studio of het hulpprogramma SQLCMD verbinding laten maken met een SQL-database via de firewall van de SQL Database-service. In het volgende voorbeeld wordt de firewall alleen geopend voor andere Azure-resources. Voor externe connectiviteit wijzigt u het IP-adres in een correct adres voor uw omgeving. Als u alle IP-adressen wilt openen, gebruikt u 0.0.0.0 als beginadres en 255.255.255.255 als eindadres.  
 
 ```azurecli
-az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
-    -n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql server firewall-rule create --resource-group $resourcegroupname --server $servername \
+    -n AllowYourIp --start-ip-address $startip --end-ip-address $endip
 ```
 
 > [!NOTE]
@@ -74,8 +93,8 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 Maak een database met een [prestatieniveau van S0](sql-database-service-tiers.md) op de server met de opdracht [az sql db create](/cli/azure/sql/db#create). In het volgende voorbeeld wordt een database met de naam `mySampleDatabase` gemaakt en worden de gegevens uit het AdventureWorksLT-voorbeeld in deze database geladen. U kunt deze vooraf gedefinieerde waarden desgewenst vervangen. (Andere Quick Starts in deze verzameling zijn echter op de waarden in deze Quick Start gebaseerd.)
 
 ```azurecli
-az sql db create --resource-group myResourceGroup --server $servername \
-    --name mySampleDatabase --sample-name AdventureWorksLT --service-objective S0
+az sql db create --resource-group $resourcegroupname --server $servername \
+    --name $databasename --sample-name AdventureWorksLT --service-objective S0
 ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
@@ -83,7 +102,7 @@ az sql db create --resource-group myResourceGroup --server $servername \
 Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als u van plan bent om door te gaan met andere Quick Starts of met de zelfstudies, verwijdert u de resources die u in deze Quick Start hebt gemaakt niet. Als u niet wilt doorgaan, gebruikt u de volgende opdracht om alle resources die via deze Quick Start zijn gemaakt, te verwijderen.
 
 ```azurecli
-az group delete --name myResourceGroup
+az group delete --name $resourcegroupname
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: e12d533ac5befe020c0aad4aa64ca9ed50349c3d
-ms.openlocfilehash: 271f447a36f42330ed7b8dea78b32c06eebdeda6
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: e5ef305d926a57e32cdebd44f3dbe2185c735dd4
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -39,11 +40,7 @@ Recovery Services-kluizen ondersteunen beide modellen.  In een Recovery Services
 Back-ups van klassieke virtuele machines in de back-upkluis worden niet automatisch naar de Recovery Services-kluis gemigreerd wanneer u de virtuele machines van de klassieke naar de Resource Manager-modus migreert. Volg deze stappen voor migratie van back-ups van VM’s:
 
 1. Ga in de back-upkluis naar het tabblad **Beveiligde Items** en selecteer de virtuele machine. Klik op [Beveiliging stoppen](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Laat de optie *Gekoppelde back-upgegevens verwijderen* **uitgeschakeld**.
-2. Migreer de virtuele machines van de klassieke modus naar de Resource Manager-modus. Zorg ervoor dat de opslagruimte en het netwerk die corresponderen met de virtuele machine ook naar de Resource Manager modus worden gemigreerd.
-3. Maak een Recovery Services-kluis en configureer de back-up op de gemigreerde virtuele machine met behulp van de actie **Back-up** bovenaan in het dashboard van de kluis. Meer informatie over het [inschakelen van back-ups in de Recovery Services-kluis](backup-azure-vms-first-look-arm.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+2. Ga in [Azure Portal](https://portal.azure.com) naar het menu **Extensies** voor de virtuele machine en verwijder de extensie **VMSnapshot/VMSnapshotLinux**.
+3. Migreer de virtuele machines van de klassieke modus naar de Resource Manager-modus. Zorg ervoor dat de opslagruimte en het netwerk die corresponderen met de virtuele machine ook naar de Resource Manager modus worden gemigreerd.
+4. Maak een Recovery Services-kluis en configureer de back-up op de gemigreerde virtuele machine met behulp van de actie **Back-up** bovenaan in het dashboard van de kluis. Meer informatie over het [inschakelen van back-ups in de Recovery Services-kluis](backup-azure-vms-first-look-arm.md)
 

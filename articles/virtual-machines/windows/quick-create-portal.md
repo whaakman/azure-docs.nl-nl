@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 04/13/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 17fb538b33a4a4a2b333ff501e6e729f6000f623
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 8a86cf64dcd65e74285a1073f7494eba0708ddcd
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2017
 
 Virtuele Azure-machines kunnen worden gemaakt via Azure Portal. Deze methode biedt een gebruikersinterface op basis van een browser voor het maken en configureren van virtuele machines en alle verwante resources. In deze Quick Start gaat u een virtuele machine maken via Azure Portal. Als de implementatie is voltooid, maken we verbinding met de server en installeren we ISS.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
@@ -42,7 +42,9 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
 
     ![Voer basisinformatie over uw virtuele machine in op de portalblade](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)  
 
-5. Kies een grootte voor de virtuele machine en klik op **Selecteren**.
+5. Kies een grootte voor de virtuele machine. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. 
+
+    ![Schermopname van VM-grootten](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
 6. Op de blade Instellingen selecteert u **Ja** onder **Managed Disks gebruiken**. Laat voor de rest de standaardinstellingen staan en klik op **OK**.
 
@@ -58,7 +60,7 @@ Als u verkeer voor IIS wilt toestaan, moet u poort 80 openen voor webverkeer. De
 2. Klik op de blade van de resourcegroep op de **netwerkbeveiligingsgroep** in de lijst met resources. De naam van de NSG moet bestaan uit de naam van de virtuele machine, met -nsg toegevoegd aan het einde.
 3. Klik op de kop **Binnenkomende beveiligingsregel** om de lijst met regels voor binnenkomende verbindingen te openen. De lijst moet al een regel voor RDP bevatten.
 4. Klik op **+ Toevoegen** om de blade **Inkomende beveiligingsregel toevoegen** te openen.
-5. Typ **IIS** bij **Naam** en zorg ervoor dat **Poortbereik** is ingesteld op 80 en **Actie** is ingesteld op **Toestaan** en klik vervolgens op **OK**.
+5. In typ bij **Naam** **IIS**. Zorg ervoor dat het **poortbereik** is ingesteld op 80 en **Actie** is ingesteld op **Toestaan**. Klik op **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Verbinding maken met de virtuele machine
@@ -78,7 +80,7 @@ Wanneer de implementatie is voltooid, maakt u via een extern bureaublad verbindi
 
 ## <a name="install-iis-using-powershell"></a>IIS installeren met behulp van PowerShell
 
-U bent nu aangemeld bij de virtuele machine van Azure en er is nog maar één regel code van PowerShell nodig om IIS te installeren en de regel voor de lokale firewall in te schakelen om webverkeer toe te staan.  Open een PowerShell-prompt en voer de volgende opdracht uit:
+Open op de virtuele machine een PowerShell-opdrachtprompt en voer de volgende opdracht uit om IIS te installeren en de lokale firewall-regel in te schakelen om webverkeer toe te staan:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -90,13 +92,6 @@ Nu IIS is geïnstalleerd en poort 80 op de virtuele machine is geopend voor toeg
 
 ![Standaardsite van IIS](./media/quick-create-powershell/default-iis-website.png) 
 
-## <a name="delete-virtual-machine"></a>De virtuele machine verwijderen
-
-Wanneer de virtuele machine niet meer nodig is, kan de volgende opdracht worden gebruikt om de resourcegroep, de virtuele machine zelf en alle gerelateerde resources te verwijderen.
-
-```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
-```
 ## <a name="delete-virtual-machine"></a>De virtuele machine verwijderen
 
 Wanneer u de virtuele machine niet meer nodig hebt, verwijdert u de resourcegroep, de machine zelf én alle gerelateerde resources. Hiervoor selecteert u de resourcegroep op de blade van de virtuele machine en klikt u op **Verwijderen**.

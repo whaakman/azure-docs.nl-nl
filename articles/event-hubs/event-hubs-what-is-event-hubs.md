@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 03/31/2017
 ms.author: sethm; babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 6450651062219c8f2c4757d6f233bd4b710e56ff
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 28a14cc68f44a278274e60cf46d5344c85dcc777
+ms.lasthandoff: 04/18/2017
 
 
 ---
-# <a name="what-is-azure-event-hubs"></a>Wat is Azure Event Hubs?
-Event Hubs is een uiterst schaalbaar platform voor het streamen van gegevens. Het kan miljoenen gebeurtenissen per seconde opnemen. Gegevens die worden verzonden naar een Event Hub, kunnen worden omgezet en opgeslagen via een provider voor realtime analytische gegevens of batchverwerking/opslagadapters. Event Hubs biedt mogelijkheden voor klein- en grootschalige scenario’s voor publiceren/abonneren. Hierbij fungeert de service als toegangspunt voor big data.
+# <a name="what-is-event-hubs"></a>Wat is Event Hubs?
+Azure Event Hubs is een uiterst schaalbaar platform voor het streamen van gegevens. Het kan miljoenen gebeurtenissen per seconde opnemen. Gegevens die naar een Event Hub worden verzonden, kunnen worden omgezet en opgeslagen via een provider voor realtime analytische gegevens of batchverwerking/opslagadapters. Event Hubs biedt mogelijkheden voor klein- en grootschalige scenario’s voor publiceren/abonneren. Hierbij fungeert de service als toegangspunt voor big data.
 
 ## <a name="why-use-event-hubs"></a>Het nut van Event Hubs
 De verwerkingsmogelijkheden voor gebeurtenissen en telemetrie van Event Hubs zijn ideaal voor:
@@ -40,7 +40,7 @@ De algemene rol die Event Hubs in oplossingsarchitecturen speelt, is die van 'vo
 
 Azure Event Hubs is een gebeurtenisverwerkingsservice die telemetriegegevens en gebeurtenissen op cloudniveau opneemt, waarbij de latentie laag is en de betrouwbaarheid hoog. Event Hubs biedt de mogelijkheid voor het verwerken van een berichtenstroom. Sommige van de kenmerken van Event Hubs wijken af van wat u gewend bent bij traditionele zakelijke tools voor berichtenverzending. De mogelijkheden van Event Hubs zijn gebaseerd op maximale doorvoer en scenario's voor de verwerking van gebeurtenissen. Om die reden biedt Event Hubs niet alle berichtenmogelijkheden die voor berichtenentiteiten beschikbaar zijn, zoals onderwerpen.
 
-Uw Event Hub wordt gemaakt op het niveau van de naamruimte en gebruikt AMQP en HTTP als primaire API-interfaces.
+Een Event Hub wordt gemaakt op het niveau van de naamruimte en gebruikt AMQP en HTTP als primaire API-interfaces.
 
 ## <a name="event-publishers"></a>Gebeurtenisuitgevers
 Een *gebeurtenisuitgever* is een entiteit die gegevens naar een Event Hub verzendt. Gebeurtenisuitgevers kunnen gebeurtenissen publiceren met HTTPS of AMQP 1.0. Gebeurtenisuitgevers gebruiken een Shared Access Signature-token (SAS) om zichzelf te identificeren bij een Event Hub en kunnen een unieke identiteit hebben of een algemene SAS-token gebruiken.
@@ -117,7 +117,7 @@ Een *offset* is de positie van een gebeurtenis binnen een partitie. U kunt een o
 ### <a name="checkpointing"></a>Controlepunten plaatsen
 *Het plaatsen van controlepunten* is een proces waarbij lezers hun positie binnen de gebeurtenisvolgorde van een partitie markeren of vastleggen. Het plaatsen van controlepunten is de verantwoordelijkheid van de consumer en vindt plaats per partitie binnen een consumergroep. Deze verantwoordelijkheid houdt in dat elke partitielezer voor elke consumergroep de huidige positie in de gebeurtenisstroom moet bijhouden en de service kan informeren wanneer de gegevensstroom is voltooid.
 
-Als een lezer van een partitie is losgekoppeld en er vervolgens weer verbinding wordt gemaakt, begint het lezen bij het controlepunt dat eerder is verzonden door de laatste lezer van de betreffende partitie in de consumergroep. Wanneer de lezer verbinding maakt, wordt deze offset aan de Event Hub doorgegeven om de locatie op te geven waar u wilt beginnen met lezen. Op deze manier kunt u het plaatsen van controlepunten gebruiken om gebeurtenissen te markeren als 'voltooid' door downstream-toepassingen. Bovendien beschikt u met controlepunten over tolerantie bij een failover tussen lezers die op verschillende apparaten worden uitgevoerd. Het is mogelijk om terug te keren naar de oudere gegevens door een lagere offset van dit controlepuntproces op te geven. Via dit mechanisme zorgt het plaatsen van controlepunten voor failover-tolerantie en voor herhaling van gebeurtenisstromen.
+Als een lezer van een partitie is losgekoppeld en er vervolgens weer verbinding wordt gemaakt, begint het lezen bij het controlepunt dat eerder is verzonden door de laatste lezer van de betreffende partitie in de consumergroep. Wanneer de lezer verbinding maakt, wordt deze offset aan de Event Hub doorgegeven om de locatie op te geven waar moet worden begonnen met lezen. Op deze manier kunt u het plaatsen van controlepunten gebruiken om gebeurtenissen te markeren als 'voltooid' door downstream-toepassingen. Bovendien beschikt u met controlepunten over tolerantie bij een failover tussen lezers die op verschillende apparaten worden uitgevoerd. Het is mogelijk om terug te keren naar de oudere gegevens door een lagere offset van dit controlepuntproces op te geven. Via dit mechanisme zorgt het plaatsen van controlepunten voor failover-tolerantie en voor herhaling van gebeurtenisstromen.
 
 ### <a name="common-consumer-tasks"></a>Algemene taken voor consumers
 Alle Event Hubs-consumers maken verbinding via een AMQP 1.0-sessie en een statusbewust bidirectioneel communicatiekanaal. Elke partitie heeft een AMQP 1.0-sessie die het mogelijk maakt partitiespecifieke gebeurtenissen te transporteren.

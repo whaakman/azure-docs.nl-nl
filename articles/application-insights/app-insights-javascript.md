@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: c4e1ecc824b09fd7523cdc7a29559adca19488f3
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: a06ba41193f00f4aa2c7af4e5430ed15f9bb877c
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -108,7 +108,7 @@ Open de blade Browsers om cumulatieve prestatiegegevens weer te geven van de bro
 
 ![Open de resource van uw app in portal.azure.com en klik op Instellingen, Browser](./media/app-insights-javascript/03.png)
 
-*Zijn er nog geen gegevens? Klik boven aan de pagina op**Vernieuwen**. Ziet u nog steeds niets? Raadpleeg [Probleemoplossing](app-insights-troubleshoot-faq.md).*
+*Zijn er nog geen gegevens? Klik boven aan de pagina op **Vernieuwen**. Ziet u nog steeds niets? Raadpleeg [Probleemoplossing](app-insights-troubleshoot-faq.md).*
 
 De blade Browser is een [Metrics Explorer-blade](app-insights-metrics-explorer.md) met vooraf ingestelde filters en grafiekselecties. U kunt het tijdbereik, de filters en configuratie van de grafiek bewerken, en desgewenst het resultaat als favoriet opslaan. Klik op **Standaardwaarden herstellen** om de oorspronkelijke bladeconfiguratie terug te zetten.
 
@@ -230,6 +230,6 @@ Wilt u weten wat gebruikers met uw app doen?
 ## <a name="next"></a> Volgende stappen
 * [Bijhouden van gebruik](app-insights-web-track-usage.md)
 * [Aangepaste gebeurtenissen en metrische gegevens](app-insights-api-custom-events-metrics.md)
-* [Bouwen-meten-leren](app-insights-overview-usage.md)
+* [Bouwen-meten-leren](app-insights-web-track-usage.md)
 
 

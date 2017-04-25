@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: a28e325e8a7e902a64f8cc267e2f0d3be151bcb3
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: c344941c59c52d260999c29f448bb94df24fba1d
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -31,7 +31,7 @@ Voor verificatie gebruiken zowel de beheerlaag als de gegevenslaag Azure Active 
 
 Hier volgt een kort overzicht van de onderwerpen die aan bod komen:
 
-[Verificatie met behulp van Azure Active Directory](#authentication-using-azure-active-direcrory): in deze sectie wordt uitgelegd hoe een aanroeper verificatie uitvoert met Azure Active Directory voor toegang tot een Key Vault via de beheerlaag en de gegevenslaag. 
+[Verificatie met behulp van Azure Active Directory](#authentication-using-azure-active-directory): in deze sectie wordt uitgelegd hoe een aanroeper verificatie uitvoert met Azure Active Directory voor toegang tot een Key Vault via de beheerlaag en de gegevenslaag. 
 
 [Beheerlaag en gegevenslaag](#management-plane-and-data-plane): de beheerlaag en de gegevenslaag zijn twee toegangslagen die worden gebruikt voor toegang tot uw Key Vault. Elke toegangslaag ondersteunt specifieke bewerkingen. In deze sectie worden de toegangseindpunten, ondersteunde bewerkingen en toegangsbeheermethodes beschreven die beide lagen gebruiken. 
 
@@ -87,7 +87,7 @@ U kunt toegang verlenen aan gebruikers, groepen en toepassingen binnen een bepaa
 ## <a name="data-plane-access-control"></a>Toegangsbeheer voor de gegevenslaag
 De gegevenslaag van een Key Vault bestaat uit de bewerkingen die invloed hebben op de objecten in een Key Vault, zoals sleutels, geheimen en certificaten.  Dit zijn onder andere sleutelbewerkingen, zoals sleutels maken, importeren, bijwerken, sorteren, herstellen en er back-ups van maken, cryptografische bewerkingen, zoals ondertekenen, controleren, versleutelen, ontsleutelen, inpakken en uitpakken, en tags en andere kenmerken voor sleutels instellen. Voor geheimen gaat het om bewerkingen zoals ophalen, instellen, sorteren en verwijderen.
 
-U verleent toegang tot de gegevenslaag door toegangsbeleid voor een Key Vault in te stellen. Een gebruiker, groep of toepassing heeft inzendersrechten (RBAC) voor de beheerlaag van een Key Vault nodig om toegangsbeleid voor die Key Vault in te stellen. Een gebruiker, groep of toepassing kan worden gemachtigd om bepaalde bewerkingen voor sleutels of geheimen in een Key Vault uit te voeren. Kay Vault ondersteunt maximaal 16 vermeldingen van toegangsbeleid voor een Key Vault. Maak een Azure Active Directory-beveiligingsgroep en voeg gebruikers toe aan die groep om meerdere gebruikers in een Key Vault toegang te geven tot de gegevenslaag.
+U verleent toegang tot de gegevenslaag door toegangsbeleid voor een Key Vault in te stellen. Een gebruiker, groep of toepassing heeft inzendersrechten (RBAC) voor de beheerlaag van een Key Vault nodig om toegangsbeleid voor die Key Vault in te stellen. Een gebruiker, groep of toepassing kan worden gemachtigd om bepaalde bewerkingen voor sleutels of geheimen in een Key Vault uit te voeren. Key Vault ondersteunt maximaal 16 toegangsbeleidsitems voor een sleutelkluis. Maak een Azure Active Directory-beveiligingsgroep en voeg gebruikers toe aan die groep om meerdere gebruikers in een Key Vault toegang te geven tot de gegevenslaag.
 
 ### <a name="key-vault-access-policies"></a>Toegangsbeleid van Key Vault
 Met toegangsbeleid van Key Vault kunt u machtigingen voor sleutels, geheimen en certificaten afzonderlijk toekennen. U kunt bijvoorbeeld een gebruiker toegang geven tot sleutels, maar geen machtigingen voor geheimen geven. Machtigingen voor toegang tot sleutels, geheimen of certificaten bevinden zich echter op het niveau van de Key Vault. Met andere woorden: het toegangsbeleid voor Key Vault ondersteunt geen machtigingen op objectniveau. U kunt [Azure Portal](https://portal.azure.com/), de [Azure CLI-hulpprogramma's](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) of de [Key Vault-beheer REST-API's](https://msdn.microsoft.com/library/azure/mt620024.aspx) gebruiken om toegangsbeleid in te stellen voor Key Vault.

@@ -15,12 +15,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/17/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ff5d156ab2b701233c4cdbf08e3d6e517c01b9fb
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 5b623c78f8b8eac846c5ca244f1e0b25ee4f400f
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -38,7 +38,7 @@ Voordat u begint, zorgt u ervoor dat u de nieuwste versie van [Visual Studio Cod
 ## <a name="configure-vs-code-mac-os-only"></a>VS Code (alleen Mac OS) configureren
 
 ### <a name="mac-os"></a>**Mac OS**
-Voor Mac OS moet u OpenSSL installeren. Dit is een vereiste voor DotNet Core waarvan de mssql-extensie gebruikmaakt. Open de terminal en voer de volgende opdrachten in om **brew** en **OpenSSL*** te installeren. 
+Voor Mac OS moet u OpenSSL installeren. Dit is een vereiste voor DotNet Core waarvan de mssql-extensie gebruikmaakt. Open de terminal en voer de volgende opdrachten in om **brew** en **OpenSSL** te installeren. 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -55,9 +55,11 @@ Haal de volledig gekwalificeerde servernaam van uw Azure SQL Database-server op 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Selecteer **SQL-databases** in het menu links en klik op uw database op de pagina **SQL-databases**. 
-3. In het deelvenster **Essentials** van de Azure Portal-pagina van uw database kopieert u de **servernaam** voor later gebruik in deze Quick Start.
+3. Op de pagina **Overzicht** voor de database controleert u de volledig gekwalificeerde servernaam zoals in de volgende afbeelding wordt weergegeven. U kunt de cursor boven de servernaam houden om de optie **Klik om te kopiëren** naar boven te halen.
 
-    <img src="./media/sql-database-connect-query-vscode/connection-information.png" alt="connection information" style="width: 780px;" />
+   ![verbindingsgegevens](./media/sql-database-connect-query-ssms/connection-information.png) 
+
+4. Als u de aanmeldingsgegevens voor uw Azure SQL Database-server bent vergeten, gaat u naar de SQL Database-serverpagina om de beheerdersnaam voor de server weer te geven en, indien nodig, het wachtwoord opnieuw in te stellen. 
 
 ## <a name="set-language-mode-to-sql"></a>Taalmodus instellen op SQL
 
@@ -65,17 +67,22 @@ Zorg ervoor dat de taalmodus in Visual Studio Code is ingesteld op **SQL** om ms
 
 1. Open een nieuw Visual Studio Code venster. 
 
-2. Druk op **⌘ + K, M** of **Ctrl + K, M** (respectievelijk voor Mac en Windows), typ **SQL** en druk op **Enter** om de taalmodus in te stellen op SQL. 
+2. Klik op **Tekst zonder opmaak** in de rechterbenedenhoek van de statusbalk.
+3. In de vervolgkeuzelijst **Taalmodus selecteren** die wordt geopend, typt u **SQL** en drukt u vervolgens op **ENTER** om de taalmodus in te stellen op SQL. 
 
-<img src="./media/sql-database-connect-query-vscode/vscode-language-mode.png" alt="SQL language mode" style="width: 780px;" />
+   ![SQL-taalmodus](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
 
-## <a name="connect-to-the-server"></a>Verbinding maken met de server
+## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Verbinding maken met uw database op de logische SQL Database-server
 
 Gebruik Visual Studio Code om verbinding te maken met uw Azure SQL Database-server.
 
+> [!IMPORTANT]
+> Voordat u doorgaat, zorgt u ervoor dat u uw server-, database- en aanmeldingsgegevens bij de hand hebt. Wanneer u begint met het invoeren van de verbindingsprofielgegevens, moet u als u de focus van Visual Studio Code wijzigt, het maken van het verbindingsprofiel opnieuw starten.
+>
+
 1. In VS Code drukt u op **CTRL+SHIFT+P** (of **F1**) om het opdrachtenpalet te openen.
 
-2. Typ **sqlcon**, druk op **Enter** en stel de taal in op **SQL**.
+2. Typ **sqlcon** en druk op **ENTER**.
 
 3. Druk op **ENTER** om **Verbindingsprofiel maken** te selecteren. Hiermee wordt een verbindingsprofiel gemaakt voor uw exemplaar van SQL Server.
 
@@ -97,7 +104,7 @@ Gebruik Visual Studio Code om verbinding te maken met uw Azure SQL Database-serv
 
 6. Controleer in de statusbalk of er verbinding is gemaakt.
 
-   <img src="./media/sql-database-connect-query-vscode/vscode-connection-status.png" alt="Connection status" style="width: 780px;" />
+   ![Verbindingsstatus](./media/sql-database-connect-query-vscode/vscode-connection-status.png)
 
 ## <a name="query-data"></a>Querygegevens
 
@@ -114,7 +121,7 @@ Gebruik de Transact-SQL-instructie [SELECT](https://msdn.microsoft.com/library/m
 
 2. Druk op **CTRL+SHIFT+E** om gegevens op te halen uit de tabellen Product en ProductCategory.
 
-    <img src="./media/sql-database-connect-query-vscode/query.png" alt="Query" style="width: 780px;" />
+    ![Query’s uitvoeren](./media/sql-database-connect-query-vscode/query.png)
 
 ## <a name="insert-data"></a>Gegevens invoegen
 

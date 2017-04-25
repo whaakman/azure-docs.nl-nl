@@ -13,34 +13,43 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/28/2017
+ms.date: 04/13/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: f816a6972c0e80c6a7063705917ecf18debc75f6
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: bf245d8885e6d6628f182e36e0a9c99a4854873a
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>Aan de slag met R Server op HDInsight
+
 HDInsight bevat een R Server-optie die kan worden geïntegreerd in uw HDInsight-cluster. Hierdoor kunnen R-scripts gebruikmaken van Spark en MapReduce om gedistribueerde berekeningen uit te voeren. In dit document leert u hoe u een R Server op HDInsight-cluster maakt. Vervolgens voert u een R-script uit waarin wordt gedemonstreerd hoe Spark wordt gebruikt voor gedistribueerde R-berekeningen.
 
 ## <a name="prerequisites"></a>Vereisten
-* **Een Azure-abonnement**: voordat u aan deze zelfstudie begint, moet u beschikken over een Azure-abonnement. Ga naar [Een gratis proefversie van Azure krijgen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) voor meer informatie.
+
+* **Een Azure-abonnement**: voordat u aan deze zelfstudie begint, moet u beschikken over een Azure-abonnement. Raadpleeg het artikel [Een gratis proefversie van Azure krijgen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) voor meer informatie.
 * **Een SSH-client (Secure Shell)**: er wordt een SSH-client gebruikt om extern verbinding te maken met het HDInsight-cluster en om opdrachten rechtstreeks uit te voeren op het cluster. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+* **SSH-sleutels (optioneel)**: u kunt het SSH-account dat wordt gebruikt om verbinding te maken met het cluster, beveiligen met behulp van een wachtwoord of een openbare sleutel. Het is eenvoudiger om een wachtwoord te gebruiken. Bovendien kunt u dan aan de slag gaan zonder eerst een openbaar/persoonlijk sleutelpaar te hoeven maken. Het gebruik van een sleutel is echter veiliger.
 
-  * **SSH-sleutels (optioneel)**: u kunt het SSH-account dat wordt gebruikt om verbinding te maken met het cluster, beveiligen met behulp van een wachtwoord of een openbare sleutel. Het is eenvoudiger om een wachtwoord te gebruiken. Bovendien kunt u dan aan de slag gaan zonder eerst een openbaar/persoonlijk sleutelpaar te hoeven maken. Het gebruik van een sleutel is echter veiliger.
+> [!NOTE]
+> Bij de stappen in dit document wordt ervan uitgegaan dat u een wachtwoord gebruikt.
 
-      Bij de stappen in dit document wordt ervan uitgegaan dat u een wachtwoord gebruikt.
 
 ### <a name="access-control-requirements"></a>Vereisten voor toegangsbeheer
+
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## <a name="create-the-cluster"></a>Het cluster maken
-> [!NOTE]
-> De stappen in dit document helpen u bij het maken van een R Server op HDInsight-cluster met behulp van informatie over de standaardconfiguratie. Zie [HDInsight-clusters op basis van Linux maken](hdinsight-hadoop-provision-linux-clusters.md) voor andere configuratie-instellingen voor clusters (zoals het toevoegen van extra opslagaccounts, het gebruiken van een Azure Virtual Network of door een metastore maken voor Hive). Zie [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/) (Een HDInsight-cluster op basis van R Server implementeren) voor het maken van een R Server met een Azure Resource Management-sjabloon.
->
->
+## <a name="automated-cluster-creation"></a>Automatisch een cluster maken
+
+U kunt het maken van HDInsight R Servers automatiseren met ARM-sjablonen, de SDK of PowerShell.
+
+* Zie [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/) (Een HDInsight-cluster op basis van R Server implementeren) voor het maken van een R Server met een Azure Resource Manager-sjabloon.
+* Zie [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) (In HDInsight op Linux gebaseerde clusters maken met de .NET-SDK) als u een R Server wilt maken met behulp van de .NET-SDK.
+* Als u R Server wilt implementeren met PowerShell, raadpleegt u het artikel [Creating an R Server on HDInsight with PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) (Een R Server in HDInsight maken met PowerShell).
+
+
+## <a name="create-the-cluster-using-the-azure-portal"></a>Het cluster maken met Azure Portal
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
 
@@ -164,6 +173,7 @@ Als u ervoor hebt gekozen om de RStudio Server Community-editie op te nemen in d
    > Ongeacht welke methode u kiest, de eerste keer dat u zich aanmeldt moet u zich twee keer verifiëren.  Bij de eerste verificatie geeft u de gebruikers-id en het wachtwoord voor de beheerder op voor het cluster. Bij de tweede prompt geeft u de gebruikers-id en het wachtwoord voor SSH op. Bij volgende aanmeldingen zijn alleen de gebruikers-id en het wachtwoord voor SSH vereist.
 
 ## <a name="connect-to-the-r-server-edge-node"></a>Verbinding maken met het R Server Edge-knooppunt
+
 Verbinding maken met het R Server Edge-knooppunt van het HDInsight-cluster met behulp van SSH:
 
    `ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net`
@@ -225,6 +235,7 @@ U kunt ook de adressering in WASB-stijl gebruiken.
 `rxHadoopListFiles("wasbs:///")`
 
 ## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>R Server op HDI gebruiken vanaf een extern exemplaar van Microsoft R Server of Microsoft R Client
+
 In de sectie hierboven over het gebruik van openbare/persoonlijke sleutelparen voor toegang tot het cluster ziet u dat het mogelijk is om toegang tot de HDI Hadoop Spark-context voor berekenen in te stellen vanaf een extern exemplaar van Microsoft R Server of Microsoft R Client, uitgevoerd op een desktop of laptop. (Zie Microsoft R Server gebruiken als een Hadoop-client in de sectie [Een context voor berekenen maken voor Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) in de onlinehandleiding [Aan de slag met RevoScaleR Hadoop Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).)  Hiervoor moet u de volgende opties opgeven wanneer u de RxSpark-compute-context definieert op uw laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches en sshProfileScript. Bijvoorbeeld:
 
 ```
@@ -253,6 +264,7 @@ In de sectie hierboven over het gebruik van openbare/persoonlijke sleutelparen v
 
 
 ## <a name="use-a-compute-context"></a>Een compute-context gebruiken
+
 Met een compute-context kunt u bepalen of een berekening lokaal op het Edge-knooppunt wordt uitgevoerd of dat de berekening wordt gedistribueerd naar de verschillende knooppunten in het HDInsight-cluster.
 
 1. Gebruik vanuit RStudio Server of vanuit de R-console (tijdens een SSH-sessie) het volgende om voorbeeldgegevens te laden in de standaardopslag voor HDInsight.
@@ -376,6 +388,7 @@ Met een compute-context kunt u bepalen of een berekening lokaal op het Edge-knoo
 
 
 ## <a name="distribute-r-code-to-multiple-nodes"></a>R-code distribueren naar meerdere knooppunten
+
 Met R Server kunt u gemakkelijk bestaande R-code uitvoeren op verschillende knooppunten in het cluster door gebruik te maken van `rxExec`. Dit is handig bij het uitvoeren van een parameteropschoning of van simulaties. Hier volgt een voorbeeld van het gebruik van `rxExec`.
 
 `rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )`
@@ -402,6 +415,7 @@ Als u nog steeds de Spark- of MapReduce-context gebruikt, wordt de knooppuntnaam
     ```
 
 ## <a name="accessing-data-in-hive-and-parquet"></a>Toegang tot gegevens in Hive en Parquet
+
 Dankzij een nieuwe functie die beschikbaar is in R Server 9.0 en hoger, hebt u nu direct toegang tot de gegevens in Hive en Parquet, zodat deze kunnen worden gebruikt voor ScaleR-functies in de Spark-compute-context. Deze mogelijkheden zijn beschikbaar via nieuwe functies voor ScaleR-gegevensbronnen (genaamd RxHiveData en RxParquetData) die gebruikmaken van Spark SQL om gegevens rechtstreeks in Spark DataFrame te laden voor analyse met ScaleR.  
 
 Hieronder ziet u een voorbeeld van code bij het gebruik van de nieuwe functies:
@@ -456,6 +470,7 @@ Raadpleeg de online-Help in R Server via de opdrachten ?RxHivedata en ?RxParquet
 
 
 ## <a name="install-r-packages"></a>R-pakketten installeren
+
 Als u extra R-pakketten wilt installeren op het Edge-knooppunt, kunt u `install.packages()` rechtstreeks vanuit de R-console gebruiken wanneer u via SSH bent verbonden met het Edge-knooppunt. Als u echter R-pakketten wilt installeren op de worker-knooppunten van het cluster, moet u een scriptactie gebruiken.
 
 Scriptacties zijn Bash-scripts die worden gebruikt om configuratiewijzigingen aan te brengen in het HDInsight-cluster, of om extra software te installeren. In dit geval worden ze gebruiken om extra R-pakketten te installeren. Gebruik de volgende stappen om extra pakketten te installeren met behulp van een scriptactie.
@@ -501,6 +516,7 @@ Scriptacties zijn Bash-scripts die worden gebruikt om configuratiewijzigingen aa
 4. Selecteer **Maken** om het script uit te voeren. Nadat het script is voltooid, zijn de R-pakketten beschikbaar zijn op alle worker-knooppunten.
 
 ## <a name="using-microsoft-r-server-operationalization"></a>Microsoft R Server-uitoefening gebruiken
+
 Wanneer de gegevensmodellering is voltooid, kunt u het model uitvoeren om voorspellingen te maken. Voer de stappen hieronder uit om Microsoft R Server-uitoefening te configureren.
 
 Ten eerste, SSH op het Edge-knooppunt. Bijvoorbeeld ```ssh -L USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net```.
@@ -577,6 +593,7 @@ remoteLogin(
 
 
 ### <a name="decommission-the-worker-nodes"></a>De worker-knooppunten uit bedrijf nemen
+
 Microsoft R Server wordt momenteel niet beheerd via Yarn. Als de worker-knooppunten niet uit bedrijf worden genomen, werkt de resourcemanager Yarn niet zoals verwacht, omdat in dit geval niet wordt gedetecteerd welke resources de server bevat. Om dit te voorkomen raden we u aan de worker-knooppunten uit bedrijf te nemen daar waar u de rekenknooppunten naartoe wilt schalen.
 
 Stappen voor het uit bedrijf nemen van worker-knooppunten:
@@ -604,6 +621,7 @@ Stappen voor het uit bedrijf nemen van worker-knooppunten:
 * Sluit het beheerprogramma
 
 ### <a name="add-compute-nodes-details-on-web-node"></a>Details van rekenknooppunten toevoegen op het webknooppunt
+
 Zodra alle uit bedrijf genomen worker-knooppunten zijn geconfigureerd om het rekenknooppunt uit te voeren, keert u terug naar het Edge-knooppunt en voegt u de IP-adressen van de uit bedrijf genomen worker-knooppunten toe in de configuratie van het Microsoft R Server-webknooppunt:
 
 * SSH op het Edge-knooppunt
@@ -613,6 +631,7 @@ Zodra alle uit bedrijf genomen worker-knooppunten zijn geconfigureerd om het rek
 ![opdrachtregel worker-knooppunten uit bedrijf nemen](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Nu u weet hoe u een nieuw HDInsight-cluster maakt dat R Server bevat, en u de basistechnieken kent van het gebruik van de R-console vanuit een SSH-sessie, kunt u de volgende artikelen raadplegen voor manieren waarop u kunt werken met R Server op HDInsight.
 
 * [RStudio Server toevoegen aan HDInsight (indien niet geïnstalleerd tijdens het maken van het cluster)](hdinsight-hadoop-r-server-install-r-studio.md)

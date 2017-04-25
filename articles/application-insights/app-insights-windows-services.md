@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 97d750035e79d4780738e660d05e1a41085d51f1
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 29598f052778759ed362e3aa4b997acb799717ef
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -115,10 +115,7 @@ Implementeer nu uw toepassing naar uw server of naar Azure en bekijk hoe de gege
 Wanneer u de foutopsporingsmodus gebruikt, wordt de telemetrie direct doorgegeven, zodat u binnen enkele seconden gegevens ziet verschijnen. Wanneer u uw app in de Release-configuratie implementeert, duurt het langer om gegevens te verzamelen.
 
 #### <a name="no-data-after-you-publish-to-your-server"></a>Ziet u geen gegevens nadat u uw app naar uw server hebt gepubliceerd?
-Open deze poorten voor uitgaand verkeer in de firewall van uw server:
-
-* `dc.services.visualstudio.com:443`
-* `f5.services.visualstudio.com:443`
+Open poorten voor uitgaand verkeer in de firewall van uw server. Raadpleeg [deze pagina](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses) voor de lijst met vereiste adressen 
 
 #### <a name="trouble-on-your-build-server"></a>Problemen op uw buildserver?
 Raadpleeg dit artikel voor [Probleemoplossing](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).

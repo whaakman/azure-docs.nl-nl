@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 04/12/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: cfe70aa09b21aa914e3705bf7969583c7a1bbd52
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 5893f8126b0f18ac0d56e434a8e495380bd605d5
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -34,23 +34,26 @@ Er zijn twee soorten webtests:
 
 Per toepassingsresource kunt u maximaal 10 webtests maken.
 
-## <a name="create"></a>1. Een resource aanmaken voor uw testrapporten
-Sla deze stap over als u voor deze toepassing al [een Application Insights-resource hebt ingesteld][start] en u de beschikbaarheidsrapporten op dezelfde plaats wilt weergeven.
+## <a name="create"></a>1. Een resource openen voor uw webtestrapporten
 
-Meld u aan bij [Microsoft Azure](http://azure.com), ga naar [Azure Portal](https://portal.azure.com) en maak een Application Insights-resource.
+**Als u Application Insights al hebt geconfigureerd** voor uw web-app, opent u de Application Insights-bron in [Azure Portal](https://portal.azure.com).
+
+**Of, als u uw rapporten in een nieuwe resource wilt zien:** meld u aan bij [Microsoft Azure](http://azure.com), ga naar [Azure Portal](https://portal.azure.com) en maak een Application Insights-resource.
 
 ![Nieuw > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
 Klik op **Alle resources** om de blade Overzicht van de nieuwe resource te openen.
 
 ## <a name="setup"></a>2. Een URL-pingtest aanmaken
-Ga in uw Application Insights-resource naar de tegel Beschikbaarheid. Klik hierop om voor uw toepassing de blade Webtests te openen. Voeg vervolgens een webtest toe.
+Open de blade Beschikbaarheid en voeg een webtest toe.
 
 ![Vul in elk geval de URL van uw website in](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-* **De URL** moet vanaf het openbare internet zichtbaar zijn. De URL kan een querytekenreeks bevatten, zodat u bijvoorbeeld kunt oefenen met uw database. Als de URL naar een omleiding is opgelost, kunnen we deze tot maximaal 10 omleidingen opvolgen.
-* **Afhankelijke aanvragen parseren**: afbeeldingen, scripts, stijlbestanden en andere resources van de pagina worden als onderdeel van de test aangevraagd. De vastgelegde reactietijd omvat ook de tijden hiervoor. De test mislukt als al deze resources niet succesvol kunnen worden gedownload binnen de timeout voor de hele test.
-* **Nieuwe pogingen inschakelen**: als de test mislukt, wordt deze na een korte periode opnieuw uitgevoerd. Fouten worden pas gerapporteerd als er drie opeenvolgende pogingen mislukken. Daaropvolgende tests worden vervolgens met de gebruikelijke testfrequentie uitgevoerd. Volgende pogingen worden tijdelijk uitgesteld tot er weer een test slaagt. Deze regel wordt onafhankelijk toegepast op elke testlocatie. (Deze instelling wordt aangeraden. Gemiddeld verdwijnt ongeveer 80% van de fouten na het opnieuw proberen.)
+* **De URL** kan iedere webpagina zijn die u wilt testen, maar deze moet zichtbaar zijn vanaf het openbare internet. De URL kan ook een querytekenreeks bevatten, zodat u bijvoorbeeld kunt oefenen met uw database. Als de URL naar een omleiding is opgelost, kunnen we deze tot maximaal 10 omleidingen opvolgen.
+* **Parseren van afhankelijke aanvragen**: als deze optie is ingeschakeld, vraagt de test om afbeeldingen, scripts, stijlbestanden en andere bestanden die deel van de geteste webpagina uitmaken. De opgenomen reactietijd is inclusief de tijd die nodig is om deze bestanden op te halen. De test mislukt als al deze resources niet succesvol kunnen worden gedownload binnen de timeout voor de hele test. 
+
+    Als de optie niet is ingeschakeld, vraagt de test alleen het bestand op van de URL die u hebt opgegeven.
+* **Nieuwe pogingen inschakelen**: als deze optie is ingeschakeld, wordt de test, als de test is mislukt, na een korte periode opnieuw uitgevoerd. Fouten worden pas gerapporteerd als er drie opeenvolgende pogingen mislukken. Daaropvolgende tests worden vervolgens met de gebruikelijke testfrequentie uitgevoerd. Volgende pogingen worden tijdelijk uitgesteld tot er weer een test slaagt. Deze regel wordt onafhankelijk toegepast op elke testlocatie. Deze optie wordt aangeraden. Gemiddeld verdwijnt ongeveer 80% van de fouten na het opnieuw proberen.
 * **Testfrequentie**: stel in hoe vaak de test wordt uitgevoerd vanaf elke testlocatie. Met een frequentie van vijf minuten en vijf testlocaties wordt uw site gemiddeld per minuut getest.
 * **Testlocaties** zijn de plaatsen van waaraf onze servers webaanvragen verzenden naar uw URL. Kies meer dan één testlocatie, zodat u problemen met uw website kunt onderscheiden van netwerkproblemen. U kunt maximaal 16 locaties selecteren.
 * **Criteria voor succes**:
@@ -67,14 +70,23 @@ Ga in uw Application Insights-resource naar de tegel Beschikbaarheid. Klik hiero
 ### <a name="test-more-urls"></a>Meer URL’s testen
 Voeg meer tests toe. U kunt bijvoorbeeld uw startpagina testen of controleren of uw database wordt uitgevoerd, door de URL te testen voor een zoekopdracht.
 
+
 ## <a name="monitor"></a>3. De testresultaten bekijken
-Na 1-2 minuten worden de resultaten weergegeven op de blade Webtest.
+
+Klik na 5 minuten op **Vernieuwen** om de testresultaten weer te geven. 
 
 ![Samenvatting van de resultaten op de Startblade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
 Klik op een balk op de samenvattingschart voor een detailoverzicht van deze periode.
 
-In deze grafieken staan de resultaten van alle webtests die voor deze toepassing zijn uitgevoerd.
+## <a name="edit"></a> Tests bekijken en bewerken
+
+Selecteer op de pagina Overzicht een specifieke test. Hier kunt u de specifieke resultaten bekijken en de test bewerken of tijdelijk uitschakelen.
+
+![Een webtest bewerken of uitschakelen](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
+
+Mogelijk wilt u uw webtests uitschakelen wanneer u onderhoud gaat uitvoeren aan uw service.
+
 
 ## <a name="failures"></a>Als u mislukte tests ziet
 Klik op een rode punt.
@@ -103,7 +115,9 @@ U kunt een scenario bewaken dat bestaat uit een reeks URL's. Als u bijvoorbeeld 
 
 Als u een test met meerdere stappen wilt maken, neemt u het scenario op met Visual Studio Enterprise en uploadt u vervolgens de opname naar Application Insights. Application Insights speelt het scenario opnieuw met intervallen en controleert de reacties.
 
-U kunt in uw tests geen gecodeerde functies gebruiken. De scenariostappen moeten als script worden verwerkt in het .webtest-bestand.
+> [!NOTE]
+> U kunt in uw tests geen gecodeerde functies of lussen gebruiken. De test moet volledig zijn opgenomen in het .webtest-script. U kunt echter wel standaard-invoegtoepassingen gebruiken.
+>
 
 #### <a name="1-record-a-scenario"></a>1. Een scenario opnemen
 Gebruik Visual Studio Enterprise om een websessie op te nemen.
@@ -144,13 +158,19 @@ Gebruik Visual Studio Enterprise om een websessie op te nemen.
 
     Stel de testlocaties, frequentie en waarschuwingsparameters op dezelfde manier in als voor pingtests.
 
+#### <a name="3-see-the-results"></a>3. De resultaten weergeven
+
 Bekijk de testresultaten om mogelijke fouten te ontdekken. Dit doet u op dezelfde manier als voor tests met één URL.
 
-Een veelvoorkomende reden voor het mislukken van een test is dat het uitvoeren ervan te lang duurt. Het uitvoeren van de test mag niet langer dan twee minuten duren.
+Bovendien kunt u de testresultaten downloaden om ze in Visual Studio weer te geven.
 
-Vergeet niet dat alle resources van een pagina correct moeten laden om de test de doen slagen, inclusief scripts, stijlsheets, afbeeldingen enz.
+#### <a name="too-many-failures"></a>Te veel fouten?
 
-De webtest moet volledig zijn opgenomen in het .webtest-bestand. U kunt in de test geen gecodeerde functies gebruiken.
+* Een veelvoorkomende reden voor het mislukken van een test is dat het uitvoeren ervan te lang duurt. Het uitvoeren van de test mag niet langer dan twee minuten duren.
+
+* Vergeet niet dat alle resources van een pagina correct moeten laden om de test de doen slagen, inclusief scripts, stijlsheets, afbeeldingen enz.
+
+* De webtest moet volledig zijn opgenomen in het .webtest-script. U kunt in de test geen gecodeerde functies gebruiken.
 
 ### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Tijd en willekeurige cijfers invoegen in uw test met meerdere stappen
 Stel dat u een hulpprogramma test dat tijdsafhankelijke gegevens ontvangt van een externe feed (bijvoorbeeld een feed met aandelenkoersen). Wanneer u uw webtest opneemt, moet u specifieke tijden gebruiken, maar u stelt deze in als testparameters: StartTime en EndTime.
@@ -211,12 +231,6 @@ Als uw test moet aanmelden met OAuth, is de algemene benadering:
 * Maak parameters van de tokens. Stel de parameter in wanneer er een token wordt geretourneerd van de verificator en gebruik deze in de query voor de site.
   (Visual Studio probeert de testparameters toe te voegen, maar voegt de parameters voor de tokens niet correct toe.)
 
-## <a name="edit"></a> Een test bewerken of uitschakelen
-Open een afzonderlijke test om deze te bewerken of uit te schakelen.
-
-![Een webtest bewerken of uitschakelen](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
-
-Mogelijk wilt u uw webtests uitschakelen wanneer u onderhoud gaat uitvoeren aan uw service.
 
 ## <a name="performance-tests"></a>Prestatietests
 U kunt een belastingtest op uw website uitvoeren. Zoals de beschikbaarheidstest kunt enkel- of meervoudige aanvragen sturen vanuit onze punten over de hele wereld verspreid. In tegenstelling tot een beschikbaarheidstest worden vele verzoeken verzonden, waarmee meerdere gelijktijdige gebruikers worden gesimuleerd.
@@ -229,7 +243,7 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 * Gebruik [PowerShell-scripts](app-insights-powershell.md#add-an-availability-test) om automatisch een webtest in te stellen.
 * Stel een [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) in die wordt aangeroepen wanneer er een waarschuwing wordt gegenereerd.
 
-## <a name="questions-problems"></a>Vragen? Problemen?
+## <a name="qna"></a>Vragen? Problemen?
 * *Kan ik code aanroepen via mijn webtest?*
 
     Nee. De stappen van de test moeten zich in het bestand .webtest bevinden. U kunt geen andere webtests aanroepen of lussen gebruiken. Maar er zijn verschillende invoegtoepassingen die nuttig kunnen zijn.

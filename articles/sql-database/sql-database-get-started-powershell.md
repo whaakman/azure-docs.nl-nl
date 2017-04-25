@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: hero-article
-ms.date: 04/03/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 7f75b57c5d409ad9c4c79c48e4b7ee0021e7846b
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: bb8fcd907a03350dc21106944e72e6f06109b5f6
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -39,23 +39,43 @@ Meld u aan bij uw Azure-abonnement met de opdracht [Add-AzureRmAccount](https://
 Add-AzureRmAccount
 ```
 
+## <a name="create-variables"></a>Variabelen maken
+
+Definieer variabelen voor gebruik in de scripts in deze Quick Start.
+
+```powershell
+# The data center and resource name for your resources
+$resourcegroupname = "myResourceGroup"
+$location = "WestEurope"
+# The logical server name: Use a random value or replace with your own value (do not capitalize)
+$servername = "server-$(Get-Random)"
+# Set an admin login and password for your database
+# The login information for the server
+$adminlogin = "ServerAdmin"
+$password = "ChangeYourAdminPassword1"
+# The ip address range that you want to allow to access your server - change as appropriate
+$startip = "0.0.0.0"
+$endip = "0.0.0.1"
+# The database name
+$databasename = "mySampleDatabase"
+```
+
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 Maak een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met de opdracht [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en groepsgewijs worden beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westeurope`.
 
 ```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "westeurope"
+New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Een logische server maken
 
 Als u een [logische Azure SQL Database-server](sql-database-features.md) wilt maken, gebruikt u de opdracht [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver). Een logische server bevat een groep met databases die worden beheerd als groep. In het volgende voorbeeld wordt een server met een willekeurige naam gemaakt in de resourcegroep met een beheerdersaccount met de gebruikersnaam `ServerAdmin` en het wachtwoord `ChangeYourAdminPassword1`. U kunt deze vooraf gedefinieerde waarden vervangen.
 
 ```powershell
-$servername = "server-$(Get-Random)"
-New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
+New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -Location "westeurope" `
-    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList "ServerAdmin", $(ConvertTo-SecureString -String "ChangeYourAdminPassword1" -AsPlainText -Force))
+    -Location $location `
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 ```
 
 ## <a name="configure-a-server-firewall-rule"></a>Een serverfirewallregel configureren
@@ -63,9 +83,9 @@ New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
 Maak een [firewallregel op Azure SQL Database-serverniveau](sql-database-firewall-configure.md) met de opdracht [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserverfirewallrule). Een firewallregel op serverniveau kan een externe toepassing, zoals SQL Server Management Studio of het hulpprogramma SQLCMD verbinding laten maken met een SQL-database via de firewall van de SQL Database-service. In het volgende voorbeeld wordt de firewall alleen geopend voor andere Azure-resources. Voor externe connectiviteit wijzigt u het IP-adres in een correct adres voor uw omgeving. Als u alle IP-adressen wilt openen, gebruikt u 0.0.0.0 als beginadres en 255.255.255.255 als eindadres.
 
 ```powershell
-New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
+New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
+    -FirewallRuleName "AllowSome" -StartIpAddress $startip -EndIpAddress $endip
 ```
 
 > [!NOTE]
@@ -77,9 +97,9 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 Maak een lege SQL-database met een [prestatieniveau van S0](sql-database-service-tiers.md) in de server met de opdracht [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqldatabase). In het volgende voorbeeld wordt een database genaamd `mySampleDatabase` gemaakt. Vervang deze vooraf gedefinieerde waarde door een waarde naar wens.
 
 ```powershell
-New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
+New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -DatabaseName "MySampleDatabase" `
+    -DatabaseName databasename `
     -RequestedServiceObjectiveName "S0"
 ```
 
@@ -88,7 +108,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
 Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als u van plan bent om door te gaan met andere Quick Starts of met de zelfstudies, verwijdert u de resources die u in deze Quick Start hebt gemaakt niet. Als u niet wilt doorgaan, gebruikt u de volgende opdracht om alle resources die via deze Quick Start zijn gemaakt, te verwijderen.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -101,3 +121,4 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 - Zie [Verbinding maken en query's uitvoeren met Java](sql-database-connect-query-java.md) als u verbinding wilt maken en query's wilt uitvoeren met Java.
 - Zie [Verbinding maken en query's uitvoeren met Python](sql-database-connect-query-python.md) als u verbinding wilt maken en query's wilt uitvoeren met Python.
 - Zie [Verbinding maken en query's uitvoeren met Ruby](sql-database-connect-query-ruby.md) als u verbinding wilt maken en query's wilt uitvoeren met Ruby.
+

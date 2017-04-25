@@ -9,9 +9,9 @@ ms.topic: hero-article
 ms.service: app-service-web
 manager: erikre
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: a12eab1f7bc4177f659771d58a58f749507c994c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 8194e669f943a6c47f02ae0d2a55e0e720420489
+ms.lasthandoff: 04/18/2017
 
 ---
 # <a name="connect-a-web-app-to-a-content-delivery-network"></a>Een web-app verbinden met een Content Delivery Network
@@ -28,7 +28,7 @@ Open eerst uw favoriete browser en blader naar Azure [Portal](https://portal.azu
 
 ## <a name="step-2---create-a-cdn-profile"></a>Stap 2: Maak een CDN-profiel
 
-Klik op de knop `+ New` in de linkernavigatie. Klik vervolgens op **Web en mobiel**. Selecteer onder de categorie Web + mobiel de optie **CDN**.
+Klik op de knop **+ Nieuw** in het linkernavigatiepaneel. Klik vervolgens op **Web + mobiel**. Selecteer onder de categorie Web + mobiel de optie **CDN**.
 
 Geef de **Naam**, **Locatie**, **Resourcegroep** en **Prijscategorie** op en klik vervolgens op **Maken**.
 
@@ -38,7 +38,7 @@ Open de resourcegroephub vanuit de linkernavigatie en selecteer **myResourceGrou
 
 ## <a name="step-3---create-a-cdn-endpoint"></a>Stap 3: Maak een CDN-eindpunt
 
-Klik op `+ Endpoint` vanuit de opdrachten naast het zoekvak. Hiermee wordt de blade voor het maken van een eindpunt geopend.
+Klik op **+ Eindpunt** vanuit de opdrachten naast het zoekvak. Hiermee wordt de blade voor het maken van een eindpunt geopend.
 
 Geef de **Naam**, het **Oorsprongtype** en de **Hostnaam van oorsprong** op en klik vervolgens op **Toevoegen**.
 

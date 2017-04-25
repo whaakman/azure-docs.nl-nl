@@ -18,9 +18,9 @@ ms.date: 11/14/2016
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4e4a4f4e299dc2747eb48bbd2e064cd80783211c
-ms.openlocfilehash: 0d3b09fb20f748fe70049c505625d813190e94b0
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 25301f1bbacdf2f1e3d04ed3470eafd31098ea32
+ms.lasthandoff: 04/17/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Inleiding tot privé-Docker-containerregisters
@@ -39,7 +39,7 @@ Voor achtergrondinformatie over Docker en containers raadpleegt u:
 Haal installatiekopieën op vanuit een Azure-containerregister en push ze naar verschillende implementatiedoelen:
 
 * **Schaalbare indelingssystemen** die toepassingen in een container beheren voor verschillende hostclusters, waaronder [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) en [Kubernetes](http://kubernetes.io/docs/).
-* **Azure-services** die het bouwen en uitvoeren van toepassingen op schaal ondersteunen, waaronder [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md) en [Service Fabric](../service-fabric/index.md).
+* **Azure-services** die het bouwen en uitvoeren van toepassingen op schaal ondersteunen, waaronder [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md), [Service Fabric](../service-fabric/index.md) en andere.
 
 Ontwikkelaars kunnen ook naar een containerregister pushen als onderdeel van een ontwikkelingswerkstroom met containers. Bijvoorbeeld naar een containerregister vanuit doorlopende integratie- implementatieprogramma's als [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) of [Jenkins](https://jenkins.io/).
 
