@@ -40,8 +40,3 @@
     ![Samenvatting](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
 Na voltooiing van de registratie wordt de server weergegeven op de blade **Instellingen** > **Servers** in de kluis.
-
-
-<!--HONumber=Feb17_HO4-->
-
-
