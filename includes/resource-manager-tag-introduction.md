@@ -1,16 +1,12 @@
-U past tags toe op uw Azure-resources om ze logisch te ordenen op categorieën. Elke tag bestaat uit een sleutel en een waarde. U kunt de sleutel Omgeving en de waarde Productie bijvoorbeeld toepassen op alle resources in de productie. Zonder deze tag kunt u mogelijk met moeite bepalen of een resource is bedoeld voor ontwikkeling, tests of productie. Omgeving en Productie zijn echter alleen voorbeelden. U definieert zelf de sleutels en waarden die het zinvolst zijn voor het organiseren uw abonnement.
+You apply tags to your Azure resources to logically organize them by categories. Each tag consists of a key and a value. For example, you can apply the key "Environment" and the value "Production" to all the resources in production. Without this tag, you may have difficulty identifying whether a resource is intended for development, test, or production. However, "Environment" and "Production" are just examples. You define the keys and values that make the most sense for organizing your subscription.
 
-Nadat u de tags hebt toegepast, kunt u alle resources in het abonnement ophalen met deze tagsleutel en -waarde. Met tags kunt u verwante resources ophalen die zich in verschillende resourcegroepen bevinden. Deze aanpak is nuttig wanneer u resources moet ordenen voor facturering of beheer.
+After applying tags, you can retrieve all the resources in your subscription with that tag key and value. Tags enable you to retrieve related resources that reside in different resource groups. This approach is helpful when you need to organize resources for billing or management.
 
-Voor tags gelden de volgende beperkingen:
+The following limitations apply to tags:
 
-* Elke resource of resourcegroep mag maximaal 15 tags hebben. 
-* De tagnaam is beperkt tot 512 tekens.
-* De tagwaarde is beperkt tot 256 tekens. 
-* Tags die zijn toegepast op de resourcegroep, worden niet overgenomen door de resources in deze resourcegroep. 
+* Each resource or resource group can have a maximum of 15 tag key/value pairs. This limitation only applies to tags directly applied to the resource group or resource. A resource group can contain many resources that each have 15 tag key/value pairs. 
+* The tag name is limited to 512 characters.
+* The tag value is limited to 256 characters. 
+* Tags applied to the resource group are not inherited by the resources in that resource group. 
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+If you have more than 15 values that you need to associate with a resource, use a JSON string for the tag value. The JSON string can contain many values that are applied to a single tag key. An example of assigning a JSON string to the tag key is shown in this article.
