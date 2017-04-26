@@ -67,7 +67,7 @@
 ### [Handleiding voor tabelontwerp](storage-table-design-guide.md)
 ### [Voorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Bestanden gebruiken
-### [Overzicht](/rest/api/storageservices/fileservices/File-Service-Concepts)
+### [Overzicht](/rest/api/storageservices/File-Service-Concepts)
 ### [Problemen met Azure-bestanden oplossen](storage-troubleshoot-file-connection-problems.md)
 ### [Voorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Schijven gebruiken
@@ -180,7 +180,7 @@
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Blobs, wachtrijen, tabellen en bestanden](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
+### [Blobs, wachtrijen, tabellen en bestanden](/rest/api/storageservices/azure-storage-services-rest-api-reference)
 ### [Resourceprovider](/rest/api/storagerp)
 ### [Import/export](/rest/api/storageimportexport)
 

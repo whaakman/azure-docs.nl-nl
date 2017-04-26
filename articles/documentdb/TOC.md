@@ -4,6 +4,7 @@
 ## [Wat is DocumentDB: API voor MongoDB?](documentdb-protocol-mongodb.md)
 ## [Basisconcepten](documentdb-resources.md)
 ## [Wereldwijde distributie](documentdb-distribute-data-globally.md)
+## [Regionale failovers](documentdb-regional-failovers.md)
 ## [Beveiliging](documentdb-nosql-database-security.md)
 ## [NoSQL TCO-analyse](https://aka.ms/documentdb-tco-paper)
 ## Scenario's
@@ -47,8 +48,7 @@
 ### [Modellen voor uw gegevens maken](documentdb-modeling-data.md)
 ### [Gegevens automatisch laten verlopen](documentdb-time-to-live.md)
 ### [Back-ups maken en bestanden terugzetten](documentdb-online-backup-and-restore.md)
-### [Regionale failovers](documentdb-regional-failovers.md)
-### Automation
+### Automatisering
 #### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
 #### [Azure CLI 1.0: een account maken](documentdb-automation-resource-manager-cli-nodejs.md)
 #### [Azure CLI 1.0: regio's toevoegen of verwijderen](documentdb-automation-region-management.md)

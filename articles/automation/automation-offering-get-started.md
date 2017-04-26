@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 1876b78186da3aa6c0ae9dc7de3b7ab7e46888bb
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 0f80ac93e3ff1ee95477e4fa5dbe21d61ddf8ead
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -211,7 +211,7 @@ Wanneer het Automation-account is gemaakt, worden er automatisch verschillende r
 | AzureClassicAutomationTutorial Runbook | Een voorbeeld van een grafisch runbook dat alle klassieke virtuele machines die zijn gemaakt met behulp van het klassieke implementatiemodel in een abonnement, ophaalt met het klassieke Uitvoeren als-account (certificaat) en vervolgens de VM-naam en -status schrijft. |
 | AzureClassicAutomationTutorial Script Runbook | Een voorbeeld van een PowerShell-runbook dat alle klassieke virtuele machines in een abonnement ophaalt met het klassieke Uitvoeren als-account (certificaat) en vervolgens de VM-naam en -status schrijft. |
 | AzureClassicRunAsCertificate | Het certificaatasset dat automatisch wordt gemaakt en dat u gebruikt voor verificatie met Azure, zodat u klassieke Azure-resources kunt beheren vanuit runbooks. Het certificaat is één jaar geldig. |
-| AzureClassicRunAsConnection | Het verbindingsasset dat automatisch wordt gemaakt en dat u gebruikt voor verificatie met Azure, zodat u klassieke Azure-resources kunt beheren vanuit runbooks. |Verifiëren met Azure, zodat u klassieke Azure-resources kunt beheren vanuit runbooks. |
+| AzureClassicRunAsConnection | Het verbindingsasset dat automatisch wordt gemaakt en dat u gebruikt voor verificatie met Azure, zodat u klassieke Azure-resources kunt beheren vanuit runbooks.|
 
 ## <a name="next-steps"></a>Volgende stappen
 * Raadpleeg [Runbooks verifiëren met een Azure Uitvoeren als-account](automation-verify-runas-authentication.md) als u wilt controleren of uw nieuwe Azure Automation-account kan worden geverifieerd met Azure-resources.

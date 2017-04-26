@@ -14,6 +14,7 @@
 ## Een site-to-siteverbinding configureren
 ### [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+### [Azure-CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure Portal (klassiek)](vpn-gateway-howto-site-to-site-classic-portal.md)
 ### [Klassieke portal (klassiek)](vpn-gateway-site-to-site-create.md)
 ## Een point-to-siteverbinding configureren
@@ -38,7 +39,6 @@
 ## [Maximaal beschikbare actief-actief-verbindingen configureren](vpn-gateway-activeactive-rm-powershell.md)
 ## [Instellingen voor lokale netwerkgateway wijzigen met PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ## [Een VPN-gatewayverbinding verifiëren](vpn-gateway-verify-connection-resource-manager.md)
-## [VPN-doorvoer naar een VNet valideren](vpn-gateway-validate-throughput-to-vnet.md)
 ## [Een VPN-gateway opnieuw instellen](vpn-gateway-resetgw-classic.md)
 ## Een VPN-gateway verwijderen
 ### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -46,12 +46,15 @@
 ### [PowerShell (klassiek)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Zelfondertekende basiscertificaten voor P2S verbindingen maken](vpn-gateway-certificates-point-to-site.md)
 ## [Een VPN-gateway configureren (klassiek)](vpn-gateway-configure-vpn-gateway-mp.md)
+## Problemen oplossen
+### [VPN-doorvoer naar een VNet valideren](vpn-gateway-validate-throughput-to-vnet.md)
 
 # Naslaginformatie
 ## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.6.0/azurerm.network)
 ## [PowerShell (klassiek)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
 ## [REST](https://msdn.microsoft.com/library/mt163859)
 ## [REST (klassiek)](https://msdn.microsoft.com/library/jj154113)
+## [Azure-CLI](https://docs.microsoft.com/cli/azure/network)
 
 # Verwant
 ## [Virtueel netwerk](/azure/virtual-network/)

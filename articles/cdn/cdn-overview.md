@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 6c8c04e0237e2168df60ecc597754c38af167e14
-ms.openlocfilehash: 0aed3d224199b17bac748b14416a738eac342103
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 8809f35e992d528224fc14e0de01a61d396c082b
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -62,7 +63,7 @@ Er zijn drie Azure CDN-producten: **Azure CDN Standard van Akamai**, **Azure CDN
 | [Snel leegmaken](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Vooraf laden van assets](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Basisanalyse](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
-| [Ondersteuning voor HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** | | |
+| [Ondersteuning voor HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Geavanceerde HTTP-rapporten](cdn-advanced-http-reports.md) | | |**&#x2713;** |
 | [Realtime statistieken](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Realtime waarschuwingen](cdn-real-time-alerts.md) | | |**&#x2713;** |
@@ -88,10 +89,5 @@ Bekijk de [video van de Build 2016-sessie](https://azure.microsoft.com/documenta
 Meer informatie over hoe u Azure CDN kunt automatiseren met [.NET](cdn-app-dev-net.md) of [Node.js](cdn-app-dev-node.md).
 
 Zie [Prijzen van CDN](https://azure.microsoft.com/pricing/details/cdn/) voor informatie over de prijzen.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

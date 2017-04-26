@@ -22,7 +22,7 @@
 
 ## Web-apps maken
 ### [.NET](../app-service-web/app-service-web-get-started-dotnet.md)
-### [PHP](../app-service-web/app-service-web-get-started-php.md)    
+### [PHP](../app-service-web/app-service-web-get-started-php.md)
 ### [Node.js](../app-service-web/app-service-web-get-started-nodejs.md)
 ### [Java](../app-service-web/app-service-web-get-started-java.md)
 ### [Python](../app-service-web/app-service-web-get-started-python.md)
@@ -68,7 +68,7 @@
 #### [Pushmeldingen toevoegen](app-service-mobile-windows-store-dotnet-get-started-push.md)
 #### [Werken met de client-SDK](app-service-mobile-dotnet-how-to-use-client-library.md)
 
-### Xamarin.Android 
+### Xamarin.Android
 #### [Offline synchroniseren inschakelen](app-service-mobile-xamarin-android-get-started-offline-data.md)
 #### [Verificatie toevoegen](app-service-mobile-xamarin-android-get-started-users.md)
 #### [Pushmeldingen toevoegen](app-service-mobile-xamarin-android-get-started-push.md)
@@ -78,7 +78,6 @@
 #### [Offline synchroniseren inschakelen](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 #### [Verificatie toevoegen](app-service-mobile-xamarin-forms-get-started-users.md)
 #### [Pushmeldingen toevoegen](app-service-mobile-xamarin-forms-get-started-push.md)
-#### [Verbinding maken met Azure Storage in uw app Xamarin.Forms](app-service-mobile-xamarin-forms-blob-storage.md)
 #### [Werken met de client-SDK](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 ### Xamarin.iOS
@@ -194,7 +193,6 @@
 ### [Apps beheren met Azure Automation](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Integreren
-### [Verbinding maken met Azure Storage in uw app Xamarin.Forms](app-service-mobile-xamarin-forms-blob-storage.md)
 ### [Toegang tot on-premises resources via hybride verbindingen](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [E-mail verzenden via SendGrid met Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
@@ -219,10 +217,10 @@
 ## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Resources
-## [Prijzen](https://azure.microsoft.com/en-us/pricing/details/app-service/)  
-## [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)  
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)  
-## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services) 
+## [Prijzen](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)
+## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
 ## Voorbeelden
 ### [Field engineer](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
 ### [Synchronisatie van gestructureerde gegevens](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)
