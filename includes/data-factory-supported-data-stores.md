@@ -1,8 +1,3 @@
-De kopieeractiviteit in Data Factory kopieert gegevens van een brongegevensarchief naar een sinkgegevensarchief. Data Factory ondersteunt de volgende gegevensarchieven. Gegevens vanuit elke willekeurige bron kunnen naar een sink worden geschreven. Klik op een gegevensarchief voor informatie over het kopiëren van gegevens naar en van dat archief.
-
-> [!NOTE] 
-> Als u gegevens wilt verplaatsen naar/van een gegevensarchief dat niet wordt ondersteund door de kopieeractiviteit, gebruikt u een **aangepaste activiteit** in Data Factory met uw eigen logica voor het kopiëren/verplaatsen van gegevens. Zie [Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn](../articles/data-factory/data-factory-use-custom-activities.md) voor meer informatie over het maken en gebruiken van een aangepaste activiteit.
-
 | Category | Gegevensarchief | Ondersteund als een bron | Ondersteund als een sink |
 |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Storage](../articles/data-factory/data-factory-azure-blob-connector.md) |✓ |✓ |
@@ -36,7 +31,4 @@ De kopieeractiviteit in Data Factory kopieert gegevens van een brongegevensarchi
 | &nbsp; |[Webtabel (tabel van HTML)](../articles/data-factory/data-factory-web-table-connector.md) |✓ | |
 | &nbsp; |[GE Historian](../articles/data-factory/data-factory-odbc-connector.md#ge-historian-store)* |✓ | | |
 
-> [!NOTE]
-> Gegevensarchieven met een * kunnen zich on-premises of op Azure IaaS bevinden. Hiervoor moet u [Data Management Gateway](../articles/data-factory/data-factory-data-management-gateway.md) installeren op een on-premises/Azure IaaS-computer.
->
->
+

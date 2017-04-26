@@ -7,6 +7,7 @@
 ## [Beveiligingsgroepweergave](network-watcher-security-group-view-overview.md)
 ## [Volgende hop](network-watcher-next-hop-overview.md)
 ## [Problemen met VPN-verbinding oplossen](network-watcher-troubleshoot-overview.md)
+## [Servicelimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 # Aan de slag
 ## [Network Watcher configureren](network-watcher-create.md)
 ## Pakketopname beheren

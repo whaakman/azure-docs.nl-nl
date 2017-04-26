@@ -67,6 +67,9 @@
   - name: "Overheid"
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/
+  - name: "Duitsland"
+    tocHref: /azure/germany/
+    topicHref: /azure/germany/
   - name: "Portal"
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
