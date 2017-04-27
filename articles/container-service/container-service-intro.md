@@ -74,6 +74,8 @@ Docker Swarm biedt systeemeigen clustering voor Docker. Aangezien Docker Swarm w
 
 ![Azure Container Service geconfigureerd voor het gebruik van Swarm.](media/acs-intro/acs-swarm2.png)
 
+[!INCLUDE [container-service-swarm-mode-note](../../includes/container-service-swarm-mode-note.md)]
+
 Tools die worden ondersteund voor het beheer van containers in een Swarm-cluster, zijn bijvoorbeeld:
 
 * Dokku
