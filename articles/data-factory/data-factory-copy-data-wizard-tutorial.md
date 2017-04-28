@@ -31,8 +31,6 @@ ms.lasthandoff: 02/17/2017
 > * [Azure Resource Manager-sjabloon](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-> 
-> 
 
 Met de **wizard Kopiëren** van Azure Data Factory kunt u snel en eenvoudig een pijplijn maken die het scenario voor gegevensopname/-verplaatsing implementeert. Daarom wordt u aangeraden de wizard te gebruiken als een eerste stap bij het maken van een voorbeeldpijplijn voor het scenario waarin gegevensverplaatsing plaatsvindt. Deze zelfstudie laat zien hoe u een Azure-gegevensfactory kunt maken, de wizard Kopiëren kunt starten en een reeks stappen kunt uitvoeren om informatie over uw scenario voor gegevensopname/-verplaatsing op te geven. Nadat u de stappen in de wizard hebt voltooid, maakt de wizard automatisch een pijplijn met een kopieeractiviteit om gegevens te kopiëren uit een Azure Blob-opslag naar Azure SQL-databases. Zie [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over de kopieeractiviteit. 
 
