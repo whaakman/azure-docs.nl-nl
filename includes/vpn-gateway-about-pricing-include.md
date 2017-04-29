@@ -8,8 +8,3 @@ U betaalt voor twee dingen: het uurtarief voor het berekenen van de gateway van 
 * Als u verkeer tussen virtuele netwerken in verschillende gebieden verzendt, zijn de prijzen gebaseerd op de regio.
 * Als u alleen verkeer verzendt tussen virtuele netwerken die zich in dezelfde regio bevinden, worden er geen gegevenskosten in rekening gebracht. Verkeer tussen VNets in dezelfde regio is gratis.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -41,8 +41,3 @@ Ga als volgt te werk om een naamruimte te maken:
 [connection-string]: ./media/howto-service-bus-topics/connection-string.png
 
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

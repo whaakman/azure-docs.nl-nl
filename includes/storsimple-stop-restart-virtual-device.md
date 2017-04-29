@@ -14,8 +14,3 @@ Gebruik de volgende cmdlet om een virtueel apparaat opnieuw op te starten.
 
 `Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

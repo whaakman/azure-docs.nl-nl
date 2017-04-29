@@ -7,8 +7,3 @@
 5. Klik op **Certificaat voor extern beheer downloaden** om een certificaat voor extern beheer te downloaden. Geef een locatie op waar dit bestand moet worden opgeslagen. Dit certificaat moet vervolgens worden geïnstalleerd op de client of hostcomputer die u gebruikt voor de verbinding met het virtuele apparaat.
 6. Klik op **Opslaan** onder aan de pagina.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -4,8 +4,3 @@
 2. Klik op **Virtuele machines** en selecteer vervolgens het virtuele apparaat.
 3. Klik op **Verwijderen** en verwijder alle schijven van de virtuele machine.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

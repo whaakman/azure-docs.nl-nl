@@ -22,7 +22,3 @@ Azure DNS beheert alle DNS-records met *recordsets*. Een recordset (ook bekend a
 Veronderstel bijvoorbeeld dat u al een A-record 'www' hebt gemaakt in de zone 'contoso.com' die naar het IP-adres '134.170.185.46' verwijst (de eerste record bovenaan).  Als u nu de tweede record wilt maken, moet u deze toevoegen aan de bestaande recordset. U maakt dus geen aanvullende recordset.
 
 De recordtypen SOA en CNAME zijn uitzonderingen. De DNS-standaarden staan voor deze typen niet toe dat er meerdere records zijn met dezelfde naam. Daarom kunnen deze recordsets slechts één record bevatten.
-
-<!--HONumber=Jan17_HO1-->
-
-

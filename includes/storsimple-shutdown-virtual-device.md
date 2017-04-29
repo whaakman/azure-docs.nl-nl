@@ -3,8 +3,3 @@
 2. Klik op **Virtuele machines** en selecteer vervolgens het virtuele apparaat.
 3. Klik op **Afsluiten**.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-
