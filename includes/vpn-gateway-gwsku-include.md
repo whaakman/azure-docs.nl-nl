@@ -15,8 +15,3 @@ Houd rekening met het volgende als u een SKU selecteert:
 * ExpressRoute-VPN-Gateway-configuraties die naast elkaar bestaan, worden niet ondersteund in de basis-SKU.
 * Actief-actief S2S VPN-gatewayverbindingen kunnen alleen worden geconfigureerd op de HighPerformance SKU.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -17,8 +17,3 @@ Nadat de configuratie en de registratie zijn voltooid, komt het apparaat online.
 
 ![Onlinefase voor het virtuele StorSimple-apparaat](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

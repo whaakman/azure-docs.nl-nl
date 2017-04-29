@@ -11,8 +11,3 @@ Hier volgt een lijst met andere zelfstudies die u kunt bekijken voor het verzend
 
 In de volgende sectie van de zelfstudie leert u hoe u de [REST-interface van Notification Hub](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) kunt gebruiken om het meldingsbericht rechtstreeks vanuit uw app te verzenden. Alle geregistreerde apparaten ontvangen de melding die door elk type apparaat is verzonden.  
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

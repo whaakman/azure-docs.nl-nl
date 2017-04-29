@@ -12,8 +12,3 @@
 
 Nadat het eindpunt is gemaakt, kunt u de details van het eindpunt weergeven om het openbare VIP-adres (virtueel IP-adres) te bepalen. Noteer dit adres.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

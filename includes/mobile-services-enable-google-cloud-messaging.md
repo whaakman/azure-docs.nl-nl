@@ -21,8 +21,3 @@
    
     Deze API-sleutelwaarde wordt door Azure gebruikt om zich bij GCM te verifiëren en om namens uw app pushmeldingen te verzenden.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-
