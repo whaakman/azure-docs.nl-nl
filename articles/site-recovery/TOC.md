@@ -9,16 +9,17 @@
 
 # Aan de slag
 ## [Virtuele VMware-machines repliceren naar Azure](site-recovery-vmware-to-azure.md)
-## [Virtuele VMware-machines repliceren naar Azure in een multitenant-implementatie (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
+## [Fysieke servers repliceren naar Azure](site-recovery-physical-servers-to-azure.md) 
 ## [Virtuele Hyper-V-machines repliceren naar Azure (met VMM)](site-recovery-vmm-to-azure.md)
 ## [Virtuele Hyper-V-machines repliceren naar Azure](site-recovery-hyper-v-site-to-azure.md)
-## [Virtuele VMware-machines en fysieke servers repliceren naar een secundaire site](site-recovery-vmware-to-vmware.md)
 ## [Virtuele Hyper-V-machines repliceren naar een secundaire site (met VMM)](site-recovery-vmm-to-vmm.md)
+## [Virtuele VMware-machines en fysieke servers repliceren naar een secundaire site](site-recovery-vmware-to-vmware.md)
+## [Virtuele VMware-machines repliceren naar Azure in een multitenant-implementatie (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
 
 # Procedures
 ## Plannen
 ### [Vereisten voor implementatie](site-recovery-prereq.md)
-### [Overwegingen voor netwerkinfrastructuur](site-recovery-network-design.md)
+### [Netwerkinfrastructuur plannen](site-recovery-network-design.md)
 ### [Capaciteit plannen en schalen voor VMware-replicatie naar Azure](site-recovery-plan-capacity-vmware.md)
 ### [Implementatieplanner voor VMware-replicatie naar Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner voor Hyper-V-replicatie](site-recovery-capacity-planner.md)

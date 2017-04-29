@@ -56,6 +56,7 @@
 ### [Capaciteit en prestaties](log-analytics-capacity.md)
 ### [Tracering wijzigen](log-analytics-change-tracking.md)
 ### [Containers](log-analytics-containers.md)
+### [Analytische gegevens voor DNS](log-analytics-dns.md)
 ### [Key Vault](log-analytics-azure-key-vault.md)
 ### Logic Apps B2B-berichten
 #### [Logic Apps B2B-berichtoplossing](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)

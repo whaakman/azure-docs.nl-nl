@@ -10,6 +10,12 @@
 ## [Uw eerste sjabloon maken](resource-manager-create-first-template.md)
 ## [Visual Studio met Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# Voorbeelden
+## PowerShell
+### [Sjabloon implementeren](resource-manager-samples-powershell-deploy.md)
+## Azure CLI
+### [Sjabloon implementeren](resource-manager-samples-cli-deploy.md)
+
 # Procedures
 ## Sjablonen maken
 ### [Aanbevolen procedures voor sjablonen](resource-manager-template-best-practices.md)
@@ -26,8 +32,12 @@
 ### [Status delen tussen gekoppelde sjablonen](best-practices-resource-manager-state.md)
 ### [Patronen voor het ontwerpen van sjablonen](best-practices-resource-manager-design-templates.md)
 ## Implementeren
-### [PowerShell](resource-group-template-deploy.md)
-### [Azure CLI](resource-group-template-deploy-cli.md)
+### PowerShell
+#### [Sjabloon implementeren](resource-group-template-deploy.md)
+#### [Persoonlijke sjabloon met SAS-token implementeren](resource-manager-powershell-sas-token.md)
+### Azure CLI
+#### [Sjabloon implementeren](resource-group-template-deploy-cli.md)
+#### [Persoonlijke sjabloon met SAS-token implementeren](resource-manager-cli-sas-token.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST-API](resource-group-template-deploy-rest.md)
 ### [Doorlopende integratie met Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
