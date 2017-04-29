@@ -1,6 +1,8 @@
 # Overzicht
 ## [Wat is Azure DNS?](dns-overview.md)
 ## [DNS-zones en -records](dns-zones-records.md)
+## [DNS-delegatie met Azure DNS](dns-domain-delegation.md)
+## [Veelgestelde vragen over DNS](dns-faq.md)
 
 # Aan de slag
 
@@ -10,7 +12,7 @@
 ### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 ### [Azure CLI 2.0](dns-getstarted-cli.md)
 
-## [Uw domein delegeren naar Azure DNS](dns-domain-delegation.md)
+## [Uw domein delegeren naar Azure DNS](dns-delegate-domain-azure-dns.md)
 ## [Aangepaste DNS-records voor een web-app maken](dns-web-sites-custom-domain.md)
 
 # Procedures

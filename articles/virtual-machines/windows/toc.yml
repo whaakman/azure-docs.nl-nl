@@ -13,18 +13,24 @@
     href: quick-create-powershell.md
   - name: "Virtuele machine maken - Azure CLI"
     href: quick-create-cli.md
+- name: "Zelfstudies"
+  items:
+  - name: "1 - Een virtuele machine maken/beheren"
+    href: tutorial-manage-vm.md
+  - name: "2 - Schijven maken/beheren"
+    href: tutorial-manage-data-disk.md
+  - name: "3 - Configuratie automatiseren"
+    href: tutorial-automate-vm-deployment.md
+  - name: "4 - Taakverdelingen maken voor virtuele machines"
+    href: tutorial-load-balancer.md
+  - name: "5 - Netwerken beheren"
+    href: tutorial-virtual-network.md
 - name: "Voorbeelden"
   items:
   - name: "PowerShell"
     href: powershell-samples.md
   - name: "Azure CLI"
     href: cli-samples.md
-- name: "Zelfstudies"
-  items:
-  - name: "Een virtuele machine maken en beheren"
-    href: ../virtual-machines-windows-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: "Taakverdeling met virtuele machines met hoge beschikbaarheid"
-    href: load-balanced-iis-tutorial.md
 - name: "Concepten"
   items:
   - name: "Regio’s en beschikbaarheid"
@@ -261,7 +267,7 @@
     - name: "Toegang beheren"
       href: ../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: "Een schijf versleutelen"
-      href: ../../security/azure-security-disk-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: encrypt-disks.md
     - name: "Beleid toepassen op virtuele machines"
       href: policy.md
     - name: "Key Vault instellen"

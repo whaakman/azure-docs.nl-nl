@@ -1,10 +1,11 @@
 # Overzicht
+## [Integreren met Azure AD](active-directory-how-to-integrate.md)
 ## [Handleiding voor ontwikkelaars](active-directory-developers-guide.md)
 ## [Apps en Azure Active Directory](active-directory-how-applications-are-added.md)
 ## [Woordenlijst voor ontwikkelaars](active-directory-dev-glossary.md)
-## [AAD Graph API](active-directory-graph-api.md)
+## [Azure AD Graph API](active-directory-graph-api.md)
 # Snelstartgidsen
-## [Een AAD-tenant verkrijgen](active-directory-howto-tenant.md)
+## [Een Azure AD-tenant verkrijgen](active-directory-howto-tenant.md)
 ## [Apps integreren met AAD](active-directory-integrating-applications.md)
 ## Apps voor mobiele apparaten en pc
 ### [iOS](active-directory-devquickstarts-ios.md)
@@ -23,9 +24,9 @@
 ## Web-API
 ### [Web-API en .NET](active-directory-devquickstarts-webapi-dotnet.md)
 ### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
-## [AAD Graph API](active-directory-graph-api-quickstart.md)
+## [Azure AD Graph API](active-directory-graph-api-quickstart.md)
 # Handleidingen
-## [Verificatiepatronen](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad.md)
+## [Verificatiepatronen](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 ### [Systeemeigen apps](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [Web-apps](active-directory-authentication-scenarios.md#web-application-to-web-api)
 ### [Web-API](active-directory-authentication-scenarios.md#web-application-to-web-api)
@@ -45,7 +46,7 @@
 ### [SAML-protocol voor eenmalige aanmelding](active-directory-single-sign-on-protocol-reference.md)
 ### [SAML-protocol voor eenmalige afmelding](active-directory-single-sign-out-protocol-reference.md)
 ## Werken met Visual Studio
-### [Aan de slag met aan Azure Active Directory en Visual Studio verbonden services (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
+### [Aan de slag met aan Visual Studio verbonden services (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
 ### [Fout tijdens de verificatiedetectie](vs-active-directory-error.md)
 ### [Aan de slag met Web API](vs-active-directory-webapi-getting-started.md)
 ### [Wat is er gebeurd met mijn Web API-project?](vs-active-directory-webapi-what-happened.md)

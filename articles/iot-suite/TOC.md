@@ -8,6 +8,7 @@
 ## [Aan de slag met vooraf geconfigureerde oplossingen](iot-suite-getstarted-preconfigured-solutions.md)
 ## [Machtigingen op azureiotsuite.com](iot-suite-permissions.md)
 ## [Een overzicht van de oplossing voor voorspellend onderhoud](iot-suite-predictive-overview.md)
+## [Overzicht van de oplossing voor verbonden bedrijven](iot-suite-connected-factory-overview.md)
 ## [Kennismaken met de oplossing voor controle op afstand](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Kennismaken met de oplossing voor voorspellend onderhoud](iot-suite-predictive-walkthrough.md)
 
@@ -21,6 +22,7 @@
 ## [Dynamische telemetrie gebruiken bij de oplossing voor controle op afstand](iot-suite-dynamic-telemetry.md)
 ## [Een aangepaste regel maken in de oplossing voor controle op afstand](iot-suite-custom-rule.md)
 ## [Apparaatgegevens in de oplossing voor controle op afstand](iot-suite-remote-monitoring-device-info.md)
+## [Een gateway implementeren voor een verbonden bedrijf](iot-suite-connected-factory-gateway-deployment.md)
 
 # Naslaginformatie
 ## [Beveiligingsarchitectuur](iot-security-architecture.md)
@@ -39,10 +41,5 @@
 ## [Leertraject voor IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

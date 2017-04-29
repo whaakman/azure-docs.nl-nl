@@ -1,10 +1,9 @@
 # Overzicht
 ## [Inleiding tot Azure Data Factory](data-factory-introduction.md)
 ## Concepten
-### [Gegevenssets](data-factory-create-datasets.md)
 ### [Pijplijnen en activiteiten](data-factory-create-pipelines.md)
+### [Gegevenssets](data-factory-create-datasets.md)
 ### [Plannen en uitvoeren](data-factory-scheduling-and-execution.md)
-### [Gekoppelde services berekenen](data-factory-compute-linked-services.md)
 
 # Aan de slag
 ## [Zelfstudie: Een pijplijn maken om gegevens te kopiëren](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -20,7 +19,8 @@
 ### [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Azure Resource Manager-sjabloon](data-factory-build-your-first-pipeline-using-arm.md)
-### [REST-API](data-factory-build-your-first-pipeline-using-rest-api.md)
+### [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+## [Zelfstudie: Move data between on-premises and cloud (Gegevens verplaatsen tussen on-premises en de cloud)](data-factory-move-data-between-onprem-and-cloud.md)
 ## [Veelgestelde vragen](data-factory-faq.md)
 
 # Procedures
@@ -60,7 +60,7 @@
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Webtabel](data-factory-web-table-connector.md)
 ### [Gegevensbeheergateway](data-factory-data-management-gateway.md)
-### [Gegevens verplaatsen tussen on-premises en de cloud](data-factory-move-data-between-onprem-and-cloud.md)
+
 
 ## [Gegevens transformeren](data-factory-data-transformation-activities.md)
 ### [HDInsight Hive-activiteit](data-factory-hive-activity.md)
@@ -75,6 +75,7 @@
 ### [.NET aangepaste activiteit](data-factory-use-custom-activities.md)
 ### [R-scripts aanroepen](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ### [Modellen in Azure Analysis Services opnieuw verwerken](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+### [Gekoppelde services berekenen](data-factory-compute-linked-services.md)
 
 ## Ontwikkelen
 ### [Azure Resource Manager-sjabloon](data-factory-how-to-use-resource-manager-templates.md)

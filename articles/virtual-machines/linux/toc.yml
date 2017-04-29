@@ -13,20 +13,30 @@
     href: quick-create-portal.md
   - name: "Virtuele machine maken - PowerShell"
     href: quick-create-powershell.md
+- name: "Zelfstudies"
+  items:
+  - name: "1 - Virtuele machines maken/beheren"
+    href: tutorial-manage-vm.md
+  - name: "2 - Schijven maken/beheren"
+    href: tutorial-manage-disks.md
+  - name: "3 - Configuratie automatiseren"
+    href: tutorial-automate-vm-deployment.md
+  - name: "4 - VM-installatiekopieën maken"
+    href: tutorial-custom-images.md
+  - name: "5 - Virtuele machines met hoge beschikbaarheid"
+    href: tutorial-availability-sets.md
+  - name: "6 - Een VM-schaalset maken"
+    href: tutorial-create-vmss.md
+  - name: "7 - Taakverdelingen maken voor virtuele machines"
+    href: tutorial-load-balancer.md
+  - name: "8 - Netwerken beheren"
+    href: tutorial-virtual-network.md
 - name: "Voorbeelden"
   items:
   - name: "Azure CLI"
     href: cli-samples.md
   - name: "PowerShell"
     href: powershell-samples.md
-- name: "Zelfstudies"
-  items:
-  - name: "Een virtuele machine maken en beheren"
-    href: tutorial-manage-vm.md
-  - name: "Taakverdeling met virtuele machines met hoge beschikbaarheid"
-    href: tutorial-load-balance-nodejs.md
-  - name: "Een VM-schaalset maken"
-    href: tutorial-create-vmss.md
 - name: "Concepten"
   items:
   - name: "Door Azure goedgekeurde distributies"

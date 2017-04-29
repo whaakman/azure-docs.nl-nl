@@ -69,6 +69,7 @@
 #### [Licentieproblemen van een groep vaststellen en oplossen](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
 #### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
+#### [PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
 ### [Selfservicegroepen instellen](active-directory-accessmanagement-self-service-group-management.md)
 ### [Problemen oplossen](active-directory-accessmanagement-troubleshooting.md)
 
