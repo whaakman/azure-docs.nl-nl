@@ -35,7 +35,3 @@ Ja, dat is mogelijk. De virtuele netwerken kunnen echter geen overlappende IP-vo
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Hoeveel doorvoer kan ik verwachten via site-naar-site- of punt-naar-site-verbindingen?
 Het is moeilijk om de exacte doorvoer van de VPN-tunnels te onderhouden. IPSec en SSTP zijn cryptografisch zware VPN-protocollen. Doorvoer wordt ook beperkt door de latentie en bandbreedte tussen uw locatie en het internet.
-
-<!--HONumber=Feb17_HO3-->
-
-
