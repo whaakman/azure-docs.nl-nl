@@ -34,8 +34,3 @@ Klik op **Maken** wanneer de opties voor de nieuwe cache zijn geconfigureerd. He
 
 ![Cache gemaakt](media/redis-cache-create/redis-cache-cache-created.png)
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-
