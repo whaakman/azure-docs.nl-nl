@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 5b623c78f8b8eac846c5ca244f1e0b25ee4f400f
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 45405c7bb9993d1fd529b25b599c3cd7f459843c
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -35,7 +35,7 @@ In deze Quick Start wordt dit gebruikt als basis voor het maken van de resources
 
 Voordat u begint, zorgt u ervoor dat u de nieuwste versie van [Visual Studio Code](https://code.visualstudio.com/Download) hebt geïnstalleerd en dat de [mssql-extensie](https://aka.ms/mssql-marketplace) is geladen. Zie [VS Code installeren](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) voor hulp bij het installeren van de mssql-extensie. Zie ook [mssql voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
 
-## <a name="configure-vs-code-mac-os-only"></a>VS Code (alleen Mac OS) configureren
+## <a name="configure-vs-code"></a>VS-code configureren 
 
 ### <a name="mac-os"></a>**Mac OS**
 Voor Mac OS moet u OpenSSL installeren. Dit is een vereiste voor DotNet Core waarvan de mssql-extensie gebruikmaakt. Open de terminal en voer de volgende opdrachten in om **brew** en **OpenSSL** te installeren. 
@@ -49,9 +49,17 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
+### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+
+Er is geen speciale configuratie vereist.
+
+### <a name="windows"></a>**Windows**
+
+Er is geen speciale configuratie vereist.
+
 ## <a name="get-connection-information"></a>Verbindingsgegevens ophalen
 
-Haal de volledig gekwalificeerde servernaam van uw Azure SQL Database-server op uit Azure Portal. U gebuikt de volledig gekwalificeerde servernaam om verbinding met uw server te maken via Visual Studio Code.
+Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure SQL-database. U hebt de volledig gekwalificeerde servernaam, databasenaam en aanmeldingsgegevens in de volgende procedures nodig.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Selecteer **SQL-databases** in het menu links en klik op uw database op de pagina **SQL-databases**. 
@@ -108,7 +116,7 @@ Gebruik Visual Studio Code om verbinding te maken met uw Azure SQL Database-serv
 
 ## <a name="query-data"></a>Querygegevens
 
-Gebruik de Transact-SQL-instructie [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) om in uw Azure SQL-database query's uit te voeren voor gegevens.
+Gebruik de volgende code om op categorie een query uit te voeren voor de 20 populairste producten. Gebruik de Transact-SQL-instructie [SELECT](https://msdn.microsoft.com/library/ms189499.aspx).
 
 1. Voer in het venster **Editor** de volgende query in in het lege queryvenster:
 
@@ -125,7 +133,7 @@ Gebruik de Transact-SQL-instructie [SELECT](https://msdn.microsoft.com/library/m
 
 ## <a name="insert-data"></a>Gegevens invoegen
 
-Gebruik de Transact-SQL-instructie [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) om in uw Azure SQL-database gegevens in te voegen.
+Gebruik de volgende code om een nieuw product in te voegen in de tabel SalesLT.Product. Gebruik de Transact-SQL-instructie [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
 
 1. In het venster **Editor** verwijdert u de eerdere query en voert u de volgende query in:
 
@@ -153,7 +161,7 @@ Gebruik de Transact-SQL-instructie [INSERT](https://msdn.microsoft.com/library/m
 
 ## <a name="update-data"></a>Gegevens bijwerken
 
-Gebruik de Transact-SQL-instructie [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) om in uw Azure SQL-database gegevens bij te werken.
+Gebruik de volgende code om het nieuwe product bij te werken dat u eerder hebt toegevoegd. Gebruik de Transact-SQL-instructie [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
 
 1.  In het venster **Editor** verwijdert u de eerdere query en voert u de volgende query in:
 
@@ -167,7 +175,7 @@ Gebruik de Transact-SQL-instructie [UPDATE](https://msdn.microsoft.com/library/m
 
 ## <a name="delete-data"></a>Gegevens verwijderen
 
-Gebruik de Transact-SQL-instructie [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) om in uw Azure SQL-database gegevens te verwijderen.
+Gebruik de volgende code om het nieuwe product te verwijderen dat u eerder hebt toegevoegd. Gebruik de Transact-SQL-instructie [DELETE](https://msdn.microsoft.com/library/ms189835.aspx).
 
 1. In het venster **Editor** verwijdert u de eerdere query en voert u de volgende query in:
 

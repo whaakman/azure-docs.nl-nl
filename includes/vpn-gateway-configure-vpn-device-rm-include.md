@@ -8,14 +8,6 @@ Voor site-naar-site-verbindingen met een on-premises netwerk is een VPN-apparaat
 
 Bij de configuratie van uw VPN-apparaat hebt u het volgende nodig:
 
-- Het openbare IP-adres van de gateway van uw virtuele netwerk.
+- Een gedeelde sleutel. Dit is dezelfde gedeelde sleutel die u opgeeft wanneer u uw site-naar-site-VPN-verbinding maakt. In onze voorbeelden gebruiken we een eenvoudige gedeelde sleutel. We raden u aan een complexere sleutel te genereren.
 
-    -  Navigeer naar **Virtuele netwerkgateways** en klik op de naam van uw gateway om het openbare IP-adres dat gebruikmaakt van Azure Portal, te achterhalen. 
-    - Gebruik het volgende voorbeeld om het openbare IP-adres van uw virtuele netwerkgateway te vinden met behulp van PowerShell en vervang de waarden door uw eigen waarden.
-
-            Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
-- Een gedeelde sleutel. Dit is dezelfde gedeelde sleutel die u opgeeft wanneer u uw site-naar-site-VPN-verbinding maakt. In onze voorbeelden gebruiken we een zeer eenvoudige gedeelde sleutel. We raden u aan een complexere sleutel te gebruiken.
-
-
-
-
+- Het openbare IP-adres van de gateway van uw virtuele netwerk. U kunt het openbare IP-adres weergeven met behulp van Azure Portal, PowerShell of de CLI.

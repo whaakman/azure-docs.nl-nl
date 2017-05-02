@@ -16,84 +16,87 @@ ms.date: 04/11/2017
 ms.author: joflore
 ms.custom: end-user
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: bb62d6973dff00932e72ddb4b2c344f070537828
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: c95f52f028cdfaed35821275d816a24035ff02fb
+ms.lasthandoff: 04/25/2017
 
 
 ---
-# <a name="help-i-forgot-my-password"></a>Help, ik ben mijn wachtwoord vergeten
+# <a name="help-i-forgot-my-azure-ad-password"></a>Help, ik ben mijn wachtwoord voor Azure AD vergeten
 
-Stap 1... geen paniek
+Als u uw wachtwoord bent vergeten of dit nooit hebt ontvangen van uw IT-afdeling, bent uitgesloten van uw account of uw wachtwoord wilt wijzigen, kunnen wij u helpen.
 
-Als u de volgende scenario's op u van toepassing zijn, kunnen we u helpen
+## <a name="reset-or-unlock-my-password-for-a-work-or-school-account"></a>Mijn wachtwoord voor een werk- of schoolaccount opnieuw instellen of ontgrendelen
 
-* U weet niet meer precies hoe u toegang moet krijgen tot uw account en u bent uw wachtwoord vergeten
-* Er is geen wachtwoord aan u toegewezen en de beheerder heeft u hier naartoe gestuurd
+Als u toegang wilt krijgen tot uw werk- of schoolaccount, volgt u onderstaande stappen om naar de selfservice voor wachtwoordherstel (SSPR) van Azure AD te gaan.
 
-## <a name="unlock-my-account"></a>Mijn account ontgrendelen
-
-Als u hier bent om uw account te ontgrendelen, volgt u onderstaande stappen. Wanneer de zin **Kies een nieuw wachtwoord** wordt weergegeven bij stap 6 hieronder, kunt u uw account ontgrendelen of uw wachtoord wijzigen en zo uw account ontgrendelen.
-
-## <a name="reset-my-password"></a>Mijn wachtwoord opnieuw instellen
-
-Als u weer toegang wilt krijgen tot uw account, volgt u onderstaande stappen.
-1. Klik vanuit een willekeurige aanmeldingspagina van uw werk of school op de **koppeling Hebt u geen toegang tot uw account?** en klik vervolgens op **Werk- of schoolaccount** of ga rechtstreeks naar de [pagina voor het opnieuw instellen van een wachtwoord](https://passwordreset.microsoftonline.com/)
-
-    ![Hebt u geen toegang tot uw account?][Login]
-
-2. Voer de **gebruikers-id** van uw werk of school in en bewijs dat u geen robot bent door te slagen voor de CAPTCHA-test en de weergegeven tekst in te voeren en klik op **Volgende**
+1. Klik vanaf een willekeurige aanmeldingspagina voor uw werk- of schoolaccount op de koppeling **Hebt u geen toegang tot uw account?**. Klik vervolgens op **Werk- of schoolaccount** of ga rechtstreeks naar de [pagina voor het opnieuw instellen van een wachtwoord](https://passwordreset.microsoftonline.com/).
 
    > [!NOTE]
-   > Als de beheerder deze functionaliteit niet heeft ingeschakeld, wordt de koppeling Contact opnemen met de beheerder nu weergegeven, zodat de beheerder hulp kan verlenen via e-mail of een eigen webportal.
+   > Als u probeert opnieuw toegang te krijgen tot een persoonlijk account, zoals hotmail.com of outlook.com, probeer dan de [suggesties in dit artikel](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
+   >
+    ![Hebt u geen toegang tot uw account?][Login]
+
+2. Voer de **gebruikers-id** voor uw werk of school in, bewijs dat u geen robot bent door de tekens in te voeren die u op het scherm ziet en klik op **Volgende**.
+
+   > [!NOTE]
+   > Als uw IT-afdeling deze functionaliteit niet heeft ingeschakeld, wordt de koppeling 'Neem contact op met uw beheerder' weergegeven. Uw IT-afdeling kan u dan via e-mail of het eigen webportal helpen.
    >
 
-3. Afhankelijk van de manier waarop de beheerder dingen heeft geconfigureerd, worden een of meer van de volgende opties weergegeven:
-    * **Stuur e-mail naar mijn alternatieve e-mailadres** - er wordt een e-mail met een code van 6 cijfers verzonden naar uw alternatieve e-mailadres of uw e-mailadres voor authenticatie (de keus is aan u).
-    * **Sms-bericht naar mijn telefoon verzenden** - er wordt een sms-bericht met een code van 6 cijfers verzonden naar uw mobiele telefoon of uw telefoon voor authenticatie (de keus is aan u).
-    * **Mijn mobiele telefoon bellen** - u wordt gebeld op uw mobiele telefoon of uw telefoon voor authenticatie (de keus is aan u). Druk op # om de oproep te bevestigen.
-    * **Mijn zakelijke telefoon bellen** - er wordt gebeld naar uw zakelijke telefoon. Druk op # om de oproep te bevestigen.
-    * **Mijn beveiligingsvragen beantwoorden** - er worden vooraf opgegeven beveiligingsvragen weergegeven die u moet beantwoorden.
-4. Vul de antwoorden op de beveiligingsvragen in de vereiste velden in en klik op **Volgende**
+3. Afhankelijk van de manier waarop de IT-afdeling SSPR heeft geconfigureerd, worden een of meer van de volgende opties weergegeven. Gebruik de informatie [hier](active-directory-passwords-reset-register.md). Sommige van deze gegevens zijn al door u of de IT-afdeling ingevuld.
+    * **Stuur e-mail naar mijn alternatieve e-mailadres**
+    * **Sms-bericht naar mijn telefoon verzenden**
+    * **Mijn mobiele telefoon bellen**
+    * **Mijn zakelijke telefoon bellen**
+    * **Mijn beveiligingsvragen beantwoorden**
+
+    Kies een optie, geef de juiste antwoorden en klik op **Volgende**.
 
     ![Controleer uw authenticatiegegevens controleren][Verification]
 
-5. Mogelijk vereist uw systeembeheerder een aanvullende verificatiestap en moet u stap 4 herhalen met een andere optie
-6. Geef op de pagina **Een nieuw wachtwoord kiezen** een nieuw wachtwoord op dat voldoet aan de vereisten van uw organisatie, bevestig het wachtwoord en klik vervolgens op **Voltooien**
+4. Mogelijk vraagt uw IT-afdeling om aanvullende verificatie. In dat geval moet u stap 3 misschien met een andere keuze herhalen.
+5. Geef op de pagina **Een nieuw wachtwoord kiezen** een nieuw wachtwoord, bevestig het wachtwoord en klik op **Voltooien**. Het is raadzaam om een wachtwoord te kiezen van 8-16 tekens met hoofdletters en kleine letters, cijfers en speciale tekens.
 
-    ![Uw wachtwoord wijzigen][Change]
+   > [!NOTE]
+   > Als u uw account moet ontgrendelen, selecteert u nu de optie om alleen te ontgrendelen of de optie om uw wachtwoord te wijzigen en te ontgrendelen.
+   >
 
-7. Wanneer de melding **Uw wachtwoord is opnieuw ingesteld** wordt weergegeven, kunt u zich aanmelden met uw nieuwe wachtwoord.
+6. Wanneer de melding **Uw wachtwoord is opnieuw ingesteld** wordt weergegeven, kunt u zich aanmelden met uw nieuwe wachtwoord.
 
     ![Uw wachtwoord is opnieuw ingesteld][Complete]
 
-Nadat u deze methode voor het ontgrendelen of opnieuw instellen van uw wachtwoord hebt gebruikt, ontvangt u mogelijk een e-mail waarin wordt bevestigd dat dit proces is voltooid en dat afkomstig is van een account als 'Microsoft namens uw organisatie'. Als u een dergelijke e-mail ontvangt en u geen gebruik hebt gemaakt van de selfservice voor het opnieuw instellen van een wachtwoord om weer toegang te krijgen tot uw account, moet u contact opnemen met de beheerder.
+Als het goed is, hebt u nu weer toegang tot uw account. Als dit niet het geval is, neemt u contact op met de IT-afdeling van uw organisatie voor verdere hulp.
+
+U ontvangt mogelijk een bevestigings-e-mail van een account als 'Microsoft namens \<uw organisatie>\". Als u een dergelijke e-mail ontvangt en u geen gebruik hebt gemaakt van de selfservice voor het opnieuw instellen van een wachtwoord om weer toegang te krijgen tot uw account, moet u contact opnemen met de IT-afdeling van uw organisatie.
 
 ## <a name="change-my-password"></a>Mijn wachtwoord wijzigen
 
-Als u uw wachtwoord al kent en het wilt wijzigen, probeert u de volgende stappen
+Als u uw wachtwoord al kent en dit wilt wijzigen, voer dan de volgende stappen uit om uw wachtwoord te wijzigen.
 
 ### <a name="change-your-password-from-the-office-365-portal"></a>Uw wachtwoord wijzigen vanuit de Office 365-portal
 
-1. Klik op uw profiel rechts bovenin en klik op **Account weergeven**
-2. **Beveiliging en privacy**
-3. **Wachtwoord**
-4. Voer uw oude wachtwoord in, voer uw nieuwe wachtwoord in en bevestig uw nieuwe wachtwoord
-5. **Verzenden**
+Gebruik deze methode als u uw toepassingen gewoonlijk opent via de Office-portal
+
+1. Meld u aan bij uw [Office 365-account](https://www.office.com)
+2. Klik op uw profiel rechts bovenin en klik vervolgens op **Account weergeven**
+3. Klik op **Beveiliging en privacy** > **Wachtwoord**
+4. Voer eerst uw oude wachtwoord in en daarna uw nieuwe wachtwoord. Bevestig dit en klik op **Verzenden**
 
 ### <a name="change-your-password-from-the-azure-access-panel"></a>Uw wachtwoord wijzigen vanuit het Azure-toegangsvenster
 
+Gebruik deze methode als u uw toepassingen gewoonlijk opent vanuit de Azure-toegangsportal
+
 1. Meld u aan bij de [Azure-toegangsportal](https://myapps.microsoft.com/) met uw huidige wachtwoord
 2. Klik op uw profiel rechts bovenin en klik vervolgens op **Profiel**
-3. **Wachtwoord wijzigen**
-4. Voer uw oude wachtwoord in, voer uw nieuwe wachtwoord in en bevestig uw nieuwe wachtwoord
-5. **Verzenden**
+3. Klik op **Wachtwoord wijzigen**
+4. Voer eerst uw oude wachtwoord in en daarna uw nieuwe wachtwoord. Bevestig dit en klik op **Verzenden**
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Registreren voor de selfservice voor het opnieuw instellen van een wachtwoord](active-directory-passwords-reset-register.md)
 * [Registratiepagina voor het opnieuw instellen van een wachtwoord](http://aka.ms/ssprsetup)
 * [Portal voor het opnieuw instellen van een wachtwoord](https://passwordreset.microsoftonline.com/)
+* [Kunt u zich niet aanmelden bij uw Microsoft-account?](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Login]: ./media/active-directory-passwords-update-your-own-password/reset-1-login.png "Aanmeldingspagina Hebt u geen toegang tot uw account?"
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Uw authenticatiegegevens controleren"

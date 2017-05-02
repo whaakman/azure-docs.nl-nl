@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/6/2017
+ms.date: 4/25/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 91d36d5321f455a2af31093fa460ddf6640942d4
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: d991adb8fa8f71a8785327be244ad9749a837dfd
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -58,10 +58,21 @@ Een andere manier om een schaalset te maken met gekoppelde gegevensschijven, is 
 U kunt hier een volledig voorbeeld bekijken van een schaalset die klaar is om geïmplementeerd te worden met een gekoppelde schijf: [https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data).
 
 ## <a name="adding-a-data-disk-to-an-existing-scale-set"></a>Een gegevensschijf toevoegen aan een bestaande schaalset
+> [!NOTE]
+>  U kunt gegevensschijven alleen koppelen aan een schaalset die is gemaakt met [Azure Managed Disks](./virtual-machine-scale-sets-managed-disks.md).
+
 U kunt een gegevensschijf toevoegen aan een VM-schaalset met behulp van de Azure CLI-opdracht _az vmss disk attach_. Geef een LUN op die nog niet in gebruik is. In het volgende CLI-voorbeeld wordt een 50GB-station aan LUN 3 toegevoegd:
 ```bash
 az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
 ```
+
+In het volgende PowerShell-voorbeeld wordt een 50 GB-station aan LUN 3 toegevoegd:
+```powershell
+$vmss = Get-AzureRmVmss -ResourceGroupName myvmssrg -VMScaleSetName myvmss
+$vmss = Add-AzureRmVmssDataDisk -VirtualMachineScaleSet $vmss -Lun 3 -Caching 'ReadWrite' -CreateOption Empty -DiskSizeGB 50 -StorageAccountType StandardLRS
+Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScaleSet $vmss
+```
+
 > [!NOTE]
 > Andere VM-grootten hebben andere limieten voor het aantal gekoppelde schijven dat wordt ondersteund. Controleer de [formaatkenmerken van de virtuele machine](../virtual-machines/windows/sizes.md) voordat u een nieuwe schijf toevoegt.
 

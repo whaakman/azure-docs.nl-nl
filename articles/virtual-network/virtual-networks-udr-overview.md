@@ -16,9 +16,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1657f7c772b7039707a67c4abc788479cc08bdd0
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 93920075a8ad8de4fd650d9cbbfd13b7bc18bf52
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -46,7 +46,7 @@ In de volgende afbeelding ziet u een voorbeeld van door de gebruiker gedefinieer
 ![Systeemroutes in Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
 > [!IMPORTANT]
-> Door de gebruiker gedefinieerde routes worden alleen toegepast op uitgaand verkeer van een subnet. u kunt bijvoorbeeld geen routes maken om op te geven hoe verkeer vanaf internet in een subnet binnenkomt. Ook kan het apparaat waarnaar u verkeer doorstuurt, zich niet in hetzelfde subnet bevinden als waar het verkeer van afkomstig is. Maak altijd een apart subnet voor uw apparaten. 
+> Door de gebruiker gedefinieerde routes worden toegepast op verkeer dat een subnet van een willekeurige resource (zoals netwerkinterfaces gekoppeld aan virtuele machines) in het subnet verlaat. U kunt bijvoorbeeld geen routes maken om op te geven hoe verkeer vanaf internet in een subnet binnenkomt. Het apparaat waarnaar u verkeer doorstuurt, kan zich niet in hetzelfde subnet bevinden als waar het verkeer van afkomstig is. Maak altijd een apart subnet voor uw apparaten. 
 > 
 > 
 

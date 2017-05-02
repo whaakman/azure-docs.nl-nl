@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/09/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ecc141c9afa46f23d31de4356068ef4f98a92aa
-ms.openlocfilehash: a47a911967a50102f62d471d2e73cf86bdeda3b1
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: a3ceca6cd0f470a5cd6849c345867f094b870a85
+ms.lasthandoff: 04/19/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Inleiding tot Apache Kafka in HDInsight (preview)
@@ -65,4 +65,4 @@ Gebruik de volgende koppelingen voor meer informatie over het gebruik van Apache
 
 * [Apache Spark gebruiken met Kafka in HDInsight](hdinsight-apache-spark-with-kafka.md)
 
-
+* [Verbinding maken met Kafka via een Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md)

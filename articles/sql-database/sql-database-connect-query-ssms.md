@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: a08fe566f4962684bc4aad220687e9cd36fc4abf
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 9ffad92e668b76c9a4e2941b20d075bf52132d16
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -37,7 +37,7 @@ Voordat u begint, zorgt u ervoor dat u de nieuwste versie van [SSMS](https://msd
 
 ## <a name="get-connection-information"></a>Verbindingsgegevens ophalen
 
-Haal de volledig gekwalificeerde servernaam van uw Azure SQL Database-server op uit Azure Portal. U gebuikt de volledig gekwalificeerde servernaam om verbinding met uw server te maken via SQL Server Management Studio.
+Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure SQL-database. U hebt de volledig gekwalificeerde servernaam, databasenaam en aanmeldingsgegevens in de volgende procedures nodig.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Selecteer **SQL-databases** in het menu links en klik op uw database op de pagina **SQL-databases**. 
@@ -78,7 +78,7 @@ Gebruik SQL Server Management Studio om verbinding te maken met uw Azure SQL Dat
 
 ## <a name="query-data"></a>Querygegevens
 
-Gebruik de Transact-SQL-instructie [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) om in uw Azure SQL-database query's uit te voeren voor gegevens.
+Gebruik de volgende code om op categorie een query uit te voeren voor de 20 populairste producten. Gebruik de Transact-SQL-instructie [SELECT](https://msdn.microsoft.com/library/ms189499.aspx).
 
 1. Klik in Objectverkenner met de rechtermuisknop op **mySampleDatabase** en klik vervolgens op **Nieuwe query**. Er wordt een leeg queryvenster geopend dat is verbonden met uw database.
 2. Voer de volgende query in het queryvenster in:
@@ -96,7 +96,7 @@ Gebruik de Transact-SQL-instructie [SELECT](https://msdn.microsoft.com/library/m
 
 ## <a name="insert-data"></a>Gegevens invoegen
 
-Gebruik de Transact-SQL-instructie [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) om in uw Azure SQL-database gegevens in te voegen.
+Gebruik de volgende code om een nieuw product in te voegen in de tabel SalesLT.Product. Gebruik de Transact-SQL-instructie [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
 
 1. Vervang in het queryvenster de vorige query door de volgende query:
 
@@ -126,7 +126,7 @@ Gebruik de Transact-SQL-instructie [INSERT](https://msdn.microsoft.com/library/m
 
 ## <a name="update-data"></a>Gegevens bijwerken
 
-Gebruik de Transact-SQL-instructie [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) om in uw Azure SQL-database gegevens bij te werken.
+Gebruik de volgende code om het nieuwe product bij te werken dat u eerder hebt toegevoegd. Gebruik de Transact-SQL-instructie [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
 
 1. Vervang in het queryvenster de vorige query door de volgende query:
 
@@ -142,7 +142,7 @@ Gebruik de Transact-SQL-instructie [UPDATE](https://msdn.microsoft.com/library/m
 
 ## <a name="delete-data"></a>Gegevens verwijderen
 
-Gebruik de Transact-SQL-instructie [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) om in uw Azure SQL-database gegevens te verwijderen.
+Gebruik de volgende code om het nieuwe product te verwijderen dat u eerder hebt toegevoegd. Gebruik de Transact-SQL-instructie [DELETE](https://msdn.microsoft.com/library/ms189835.aspx).
 
 1. Vervang in het queryvenster de vorige query door de volgende query:
 
