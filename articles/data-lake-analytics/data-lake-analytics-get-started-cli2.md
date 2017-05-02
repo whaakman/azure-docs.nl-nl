@@ -111,8 +111,8 @@ Azure Portal biedt een gebruikersinterface waarmee u een aantal voorbeeldbestand
 Gebruik de volgende opdrachten om bestanden te uploaden met de CLI 2.0:
 
 ```azurecli
-az dls file upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
-az dls file list --account "<Data Lake Store Account Name>" --path "<Path>"
+az dls fs upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
+az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 ```
 
 Data Lake Analytics heeft ook toegang tot Azure Blob-opslag.  Zie [De Azure CLI gebruiken met Azure Storage](../storage/storage-azure-cli.md) voor informatie over het uploaden van gegevens naar Azure Blob-opslag.
