@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/28/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 22966659db3951316dca11fd555e07a183114062
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: c32cb52e4bb7bacde20e21820f277b4e86877e74
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="create-a-nodejs-application-on-web-app"></a>Een Node.js-toepassing maken in een web-app
@@ -148,7 +148,7 @@ Wanneer het App Service-plan is gemaakt, toont de Azure CLI soortgelijke informa
 
 Nu er een App Service-plan is gemaakt, maakt u binnen dit `quickStartPlan` App Service-plan een web-app. De web-app geeft ons een hostingruimte voor het implementeren van onze code, evenals een URL waarmee we de geïmplementeerde toepassing kunnen bekijken. Gebruik de opdracht [az appservice web create](/cli/azure/appservice/web#create) om de web-app te maken.
 
-Vervang in de onderstaande opdracht de tijdelijke aanduiding <app_name> door de naam van uw eigen unieke app. De <app_name> wordt gebruikt als de standaard-DNS-site voor de web-app. De naam moet uniek zijn in alle apps in Azure. Later kunt u een aangepaste DNS-vermelding toewijzen aan de web-app voordat u deze beschikbaar maakt voor uw gebruikers.
+Vervang in de onderstaande opdracht de tijdelijke aanduiding `<app_name>` door de naam van uw eigen unieke app. De `<app_name>` wordt gebruikt als de standaard-DNS-site voor de web-app. De naam moet uniek zijn in alle apps in Azure. Later kunt u een aangepaste DNS-vermelding toewijzen aan de web-app voordat u deze beschikbaar maakt voor uw gebruikers.
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -296,7 +296,7 @@ Ga naar Azure Portal om de web-app die u zojuist hebt gemaakt, te bekijken.
 
 Hiervoor moet u zich aanmelden bij [https://portal.azure.com](https://portal.azure.com).
 
-Klik vanuit het linkermenu op **App Service** en klik op de naam van uw Azure-web-app.
+Klik vanuit het linkermenu op **App Services** en klik op de naam van uw Azure-web-app.
 
 ![Navigatie in de portal naar de Azure-web-app](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
@@ -321,3 +321,4 @@ Deze tabbladen op de blade bevatten de vele handige functies die kunt u toevoege
 ## <a name="next-steps"></a>Volgende stappen
 
 Bekijk vooraf gemaakte [CLI-scripts voor web-apps](app-service-cli-samples.md).
+

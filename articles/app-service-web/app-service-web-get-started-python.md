@@ -15,15 +15,15 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: f60e1188d1eb8baf8c6d5e77e2ff91a449351e1e
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 9bd8db6c765f8f702a6e4ea5b17507269d3310d1
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="create-a-python-application-on-web-app"></a>Een Python-toepassing maken in een web-app
 
-Deze zelfstudie om snel aan de slag te gaan, helpt u bij het ontwikkelen en implementeren van een Python-app in Azure. We voeren de app uit met behulp van een Azure App Service op basis van Linux, en maken en configureren er een nieuwe web-app in met behulp van de Azure CLI. Vervolgens gebruiken we Git om onze Python-app te implementeren in Azure.
+Deze zelfstudie om snel aan de slag te gaan, helpt u bij het ontwikkelen en implementeren van een Python-app in Azure. We voeren de app uit met behulp van een Azure App Service, en maken en configureren hierin een nieuwe web-app met behulp van de Azure CLI. Vervolgens gebruiken we Git om onze Python-app te implementeren in Azure.
 
 ![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
@@ -34,7 +34,7 @@ U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux
 Voordat u dit voorbeeld uitvoert, moet u het volgende lokaal installeren:
 
 1. [Git downloaden en installeren](https://git-scm.com/)
-1. [Python downloaden en installeren](https://Python.net)
+1. [Python downloaden en installeren](https://www.python.org/downloads/)
 1. De [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) downloaden en installeren
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
@@ -59,13 +59,13 @@ cd Python-docs-hello-world
 Voer de toepassing lokaal uit door een terminalvenster te openen en een `Python`-opdrachtregel voor het voorbeeld te gebruiken om de ingebouwde Python-webserver te starten.
 
 ```bash
-Python -S localhost:8080
+python main.py
 ```
 
 Open een webbrowser en navigeer naar het voorbeeld.
 
 ```bash
-http://localhost:8080
+http://localhost:5000
 ```
 
 Het bericht **Hello World** uit de voorbeeld-app wordt weergegeven op de pagina.
@@ -119,27 +119,34 @@ Maak een App Service-plan op basis van Linux met de opdracht [az appservice plan
 > * SKU (Free, Shared, Basic, Standard, Premium)
 >
 
-In het volgende voorbeeld wordt een App Service-plan gemaakt in Linux Workers met de naam `quickStartPlan` en de prijscategorie **Standard**.
+In het volgende voorbeeld wordt een App Service-plan gemaakt in Linux Workers met de naam `quickStartPlan` en de **gratis** prijscategorie.
 
 ```azurecli
-az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku S1 --is-linux
+az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
 ```
 
 Wanneer het App Service-plan is gemaakt, toont de Azure CLI soortgelijke informatie als in het volgende voorbeeld.
 
 ```json
 {
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-    "kind": "linux",
-    "location": "West Europe",
-    "sku": {
-    "capacity": 1,
-    "family": "S",
-    "name": "S1",
-    "tier": "Standard"
-    },
-    "status": "Ready",
-    "type": "Microsoft.Web/serverfarms"
+"appServicePlanName": "quickStartPlan",
+"geoRegion": "North Europe",
+"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
+"kind": "app",
+"location": "North Europe",
+"maximumNumberOfWorkers": 1,
+"name": "quickStartPlan",
+"provisioningState": "Succeeded",
+"resourceGroup": "myResourceGroup",
+"sku": {
+  "capacity": 0,
+  "family": "F",
+  "name": "F1",
+  "size": "F1",
+  "tier": "Free"
+},
+"status": "Ready",
+"type": "Microsoft.Web/serverfarms",
 }
 ```
 
@@ -147,7 +154,7 @@ Wanneer het App Service-plan is gemaakt, toont de Azure CLI soortgelijke informa
 
 Nu er een App Service-plan is gemaakt, maakt u binnen dit `quickStartPlan` App Service-plan een web-app. De web-app geeft ons een hostingruimte voor het implementeren van onze code, evenals een URL waarmee we de geïmplementeerde toepassing kunnen bekijken. Gebruik de opdracht [az appservice web create](/cli/azure/appservice/web#create) om de web-app te maken.
 
-Vervang in de onderstaande opdracht de tijdelijke aanduiding <app_name> door de naam van uw eigen unieke app. De <app_name> wordt gebruikt als de standaard-DNS-site voor de web-app. De naam moet uniek zijn in alle apps in Azure. Later kunt u een aangepaste DNS-vermelding toewijzen aan de web-app voordat u deze beschikbaar maakt voor uw gebruikers.
+Vervang in de onderstaande opdracht de tijdelijke aanduiding `<app_name>` door de naam van uw eigen unieke app. De `<app_name>` wordt gebruikt als de standaard-DNS-site voor de web-app. De naam moet uniek zijn in alle apps in Azure. Later kunt u een aangepaste DNS-vermelding toewijzen aan de web-app voordat u deze beschikbaar maakt voor uw gebruikers.
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -157,19 +164,24 @@ Wanneer de web-app is gemaakt, toont de Azure CLI soortgelijke informatie als in
 
 ```json
 {
-    "clientAffinityEnabled": true,
-    "defaultHostName": "<app_name>.azurewebsites.net",
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app_name>",
-    "isDefaultContainer": null,
-    "kind": "app",
-    "location": "West Europe",
-    "name": "<app_name>",
-    "repositorySiteName": "<app_name>",
-    "reserved": true,
-    "resourceGroup": "myResourceGroup",
-    "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-    "state": "Running",
-    "type": "Microsoft.Web/sites",
+  "clientAffinityEnabled": true,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "enabled": true,
+  "enabledHostNames": [
+    "<app_name>.azurewebsites.net",
+    "<app_name>.scm.azurewebsites.net"
+  ],
+  "hostNames": [
+    "<app_name>.azurewebsites.net"
+  ],
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app_name>",
+  "kind": "app",
+  "location": "North Europe",
+  "outboundIpAddresses": "13.69.190.80,13.69.191.239,13.69.186.193,13.69.187.34",
+  "resourceGroup": "myResourceGroup",
+  "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
+  "state": "Running",
+  "type": "Microsoft.Web/sites",
 }
 ```
 
@@ -185,13 +197,13 @@ We hebben nu een lege nieuwe web-app gemaakt in Azure. We gaan nu onze web-app c
 
 ## <a name="configure-to-use-python"></a>Configureren voor het gebruik van Python
 
-Gebruik de opdracht [az appservice web config update](/cli/azure/app-service/web/config#update) voor het configureren van de web-app voor het gebruik van Python versie `7.0.x`.
+Gebruik de opdracht [az appservice web config update](/cli/azure/app-service/web/config#update) voor het configureren van de web-app voor het gebruik van Python versie `3.4`.
 
 > [!TIP]
 > Voor het instellen van de Python-versie op deze manier wordt een standaardcontainer gebruikt die wordt geleverd door het platform. Als u uw eigen container wilt gebruiken, raadpleegt u de CLI-verwijzing voor de opdracht [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update).
 
 ```azurecli
-az appservice web config update --name <app_name> --resource-group myResourceGroup
+az appservice web config update --python-version 3.4 --name <app-name> --resource-group myResourceGroup
 ```
 
 ## <a name="configure-local-git-deployment"></a>Lokale Git-implementatie configureren
@@ -227,28 +239,45 @@ git push azure master
 Tijdens de implementatie communiceert Azure App Service de voortgang naar Git.
 
 ```bash
-Counting objects: 2, done.
+Counting objects: 18, done.
 Delta compression using up to 4 threads.
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
-Total 2 (delta 1), reused 0 (delta 0)
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (18/18), 4.31 KiB | 0 bytes/s, done.
+Total 18 (delta 4), reused 0 (delta 0)
 remote: Updating branch 'master'.
 remote: Updating submodules.
-remote: Preparing deployment for commit id '25f18051e9'.
+remote: Preparing deployment for commit id '44e74fe7dd'.
 remote: Generating deployment script.
+remote: Generating deployment script for python Web Site
+remote: Generated deployment script files
 remote: Running deployment command...
-remote: Handling Basic Web Site deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
+remote: Handling python deployment.
+remote: KuduSync.NET from: 'D:\home\site\repository' to: 'D:\home\site\wwwroot'
+remote: Deleting file: 'hostingstart.html'
 remote: Copying file: '.gitignore'
 remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
 remote: Copying file: 'main.py'
-remote: Ignoring: .git
+remote: Copying file: 'README.md'
+remote: Copying file: 'requirements.txt'
+remote: Copying file: 'virtualenv_proxy.py'
+remote: Copying file: 'web.2.7.config'
+remote: Copying file: 'web.3.4.config'
+remote: Detected requirements.txt.  You can skip Python specific steps with a .skipPythonDeployment file.
+remote: Detecting Python runtime from site configuration
+remote: Detected python-3.4
+remote: Creating python-3.4 virtual environment.
+remote: .................................
+remote: Pip install requirements.
+remote: Successfully installed Flask click itsdangerous Jinja2 Werkzeug MarkupSafe
+remote: Cleaning up...
+remote: .
+remote: Overwriting web.config with web.3.4.config
+remote:         1 file(s) copied.
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
-   cc39b1e..25f1805  master -> master
+ * [new branch]      master -> master
 ```
 
 ## <a name="browse-to-the-app"></a>Bladeren naar de app
@@ -261,14 +290,14 @@ http://<app_name>.azurewebsites.net
 
 Deze keer wordt de pagina die het bericht Hello World weergeeft, uitgevoerd met onze Python-code die wordt uitgevoerd als een Azure App Service-web-app.
 
-
+![]()
 
 ## <a name="updating-and-deploying-the-code"></a>De code bijwerken en implementeren
 
-Open met behulp van een lokale teksteditor het bestand `main.py` binnen de Python-app en breng een kleine wijziging aan in de tekst in de tekenreeks naast `echo`:
+Open met behulp van een lokale teksteditor het bestand `main.py` binnen de Python-app en breng een kleine wijziging aan in de tekst in de tekenreeks naast de instructie `return`:
 
 ```python
-echo "Hello Azure!";
+return 'Hello, Azure!'
 ```
 
 Leg uw wijzigingen vast in Git en push de codewijzigingen vervolgens naar Azure.
@@ -288,7 +317,7 @@ Ga naar Azure Portal om de web-app die u zojuist hebt gemaakt, te bekijken.
 
 Hiervoor moet u zich aanmelden bij [https://portal.azure.com](https://portal.azure.com).
 
-Klik vanuit het linkermenu op **App Service** en klik op de naam van uw Azure-web-app.
+Klik vanuit het linkermenu op **App Services** en klik op de naam van uw Azure-web-app.
 
 ![Navigatie in de portal naar de Azure-web-app](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-list.png)
 

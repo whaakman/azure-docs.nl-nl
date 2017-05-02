@@ -1,28 +1,27 @@
-### <a name="noconnection"></a>Voorvoegsels toevoegen of verwijderen - geen gatewayverbinding
-### <a name="to-add-additional-prefixes"></a>Aanvullende voorvoegsels toevoegen
+### <a name="noconnection"></a>Voorvoegsels wijzigen - geen gatewayverbinding
 
-Gebruik het onderstaande voorbeeld om aanvullende adresvoorvoegsels toe te voegen aan een lokale netwerkgateway die u hebt gemaakt, maar die nog geen gatewayverbinding heeft. Wijzig de waarden in die van uzelf.
+- Ga als volgt te werk om aanvullende voorvoegsels toe te voegen:
 
-```powershell
-$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
--AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
-```
-### <a name="to-remove-an-address-prefix"></a>Een adresvoorvoegsel verwijderen
+  ```powershell
+  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+  -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+  ```
 
-Gebruik het onderstaande voorbeeld om een adresvoorvoegsel te verwijderen uit een lokale netwerkgateway die geen VPN-verbinding heeft. Laat de voorvoegsels weg die u niet langer nodig hebt. In dit voorbeeld hebben we voorvoegsel 20.0.0.0/24 (van het vorige voorbeeld) niet langer nodig, dus werken we de lokale netwerkgateway bij zonder dit voorvoegsel.
+- Ga als volgt te werk om een adresvoorvoegsel te verwijderen:<br>
+  Laat de voorvoegsels weg die u niet langer nodig hebt. In dit voorbeeld hebben we voorvoegsel 20.0.0.0/24 (uit het vorige voorbeeld) niet langer nodig, dus werken we de lokale netwerkgateway bij zonder dit voorvoegsel.
 
-```powershell
-$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
--AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
-```
+  ```powershell
+  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+  -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+  ```
 
-### <a name="withconnection"></a>Voorvoegsels toevoegen of verwijderen - bestaande gatewayverbinding
-Als u uw gatewayverbinding hebt gemaakt en u wilt IP-adresvoorvoegsels toevoegen aan of verwijderen uit uw lokale netwerkgateway, moet u de volgende stappen uitvoeren in de volgorde waarin ze staan vermeld. Dit veroorzaakt enige downtime in uw VPN-verbinding. Wanneer u uw voorvoegsels bijwerkt, moet u eerst de verbinding verwijderen, de voorvoegsels wijzigen, en vervolgens een nieuwe verbinding maken. Zorg dat u de waarden in de onderstaande voorbeelden door uw eigen waarden vervangt.
+### <a name="withconnection"></a>Voorvoegsels wijzigen - bestaande gatewayverbinding
+Als u een gatewayverbinding hebt en u IP-adresvoorvoegsels wilt toevoegen aan of verwijderen uit uw lokale netwerkgateway, moet u de volgende stappen uitvoeren in de volgorde waarin ze staan vermeld. Dit veroorzaakt enige downtime in uw VPN-verbinding.
 
 > [!IMPORTANT]
-> Verwijder de VPN-gateway niet. Als u dat doet, moet u de stappen herhalen om hem opnieuw tot stand te brengen. Bovendien moet u uw on-premises router opnieuw configureren met de nieuwe instellingen.
+> Verwijder de VPN-gateway niet. Als u dit wel doet, moet u de stappen nogmaals doorlopen om deze opnieuw te maken. Bovendien moet u uw on-premises VPN-apparaat bijwerken met het nieuwe IP-adres van de VPN-gateway.
 > 
 > 
 
@@ -53,7 +52,7 @@ Als u uw gatewayverbinding hebt gemaakt en u wilt IP-adresvoorvoegsels toevoegen
   $gateway1 = Get-AzureRmVirtualNetworkGateway -Name RMGateway  -ResourceGroupName MyRGName
   ```
    
-  Maak de verbinding. Houd er rekening mee dat in dit voorbeeld de variabele $local wordt gebruikt die u in de vorige stap hebt ingesteld.
+  Maak de verbinding. In dit voorbeeld wordt de variabele $local gebruikt die u in stap 2 hebt ingesteld.
 
   ```powershell
   New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName `

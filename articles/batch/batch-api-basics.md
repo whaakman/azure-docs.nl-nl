@@ -16,9 +16,9 @@ ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: c7090940192d9bd07fce96ad475b2239f5e9f2e8
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 23dfe112411ebc6f47e6a3f09baaf1aa746e6987
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -73,11 +73,12 @@ Een Batch-account is een uniek geïdentificeerde entiteit in de Batch-service. A
 
 U kunt een Azure Batch-account maken met de [Azure Portal](batch-account-create-portal.md) of via een programma, zoals met de [Batch Management .NET-bibliotheek](batch-management-dotnet.md). Wanneer u het account maakt, kunt u een Azure-opslagaccount koppelen.
 
-Batch ondersteunt twee accountconfiguraties, op basis van de eigenschap *groepstoewijzingsmodus*. Met de twee configuraties beschikt u over verschillende opties voor verificatie met de Batch-service en voor de inrichting en het beheer van Batch-[groepen](#pool) (zie verderop in dit artikel). 
+Batch ondersteunt twee accountconfiguraties, op basis van de eigenschap *groepstoewijzingsmodus*. De twee configuraties geven u toegang tot verschillende mogelijkheden met betrekking tot Batch-[groepen](#pool) (zie verderop in dit artikel). 
 
 
-* **Batch-service** (standaard): u hebt toegang tot de Batch-API's via verificatie op basis van gedeelde sleutels of [Azure Active Directory-verificatie](batch-aad-auth.md). Batch-rekenresources worden achter de schermen toegewezen in een door Azure beheerd account.   
-* **Gebruikersabonnement**: u hebt alleen toegang tot de Batch-API's met [Azure Active Directory-verificatie](batch-aad-auth.md). Batch-rekenresources worden rechtstreeks in uw Azure-abonnement toegewezen. In deze modus hebt u meer flexibiliteit bij de configuratie van de rekenknooppunten en de integratie met andere services. Voor deze modus moet u een extra Azure-sleutelkluis voor uw Batch-account instellen.
+* **Batch-service**: dit is de standaardoptie, waarbij achter de schermen virtuele machines met Batch-groepen worden toegewezen in Azure-abonnementen. Gebruik deze accountconfiguratie als Cloud Services-groepen vereist zijn. Deze configuratie kan echter niet worden gebruikt als Virtual Machine-groepen vereist zijn die zijn gemaakt op basis van aangepaste VM-installatiekopieën of die gebruikmaken van een virtueel netwerk. U hebt toegang tot de Batch-API's via verificatie op basis van gedeelde sleutels of [Azure Active Directory-verificatie](batch-aad-auth.md). 
+
+* **Gebruikersabonnement**: gebruik deze accountconfiguratie als Virtual Machine-groepen vereist zijn die zijn gemaakt op basis van aangepaste VM-installatiekopieën of die gebruikmaken van een virtueel netwerk. U hebt alleen toegang tot de Batch-API's met [Azure Active Directory-verificatie](batch-aad-auth.md). Cloud Services-groepen worden niet ondersteund. Batch-reken-VM's worden rechtstreeks in uw Azure-abonnement toegewezen. Voor deze modus moet u een Azure-sleutelkluis voor uw Batch-account instellen.
  
 
 ## <a name="compute-node"></a>Rekenknooppunt

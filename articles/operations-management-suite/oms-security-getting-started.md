@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 04/19/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 888b9786de8302ccd2e11f271aa417bcbcc2620b
-ms.lasthandoff: 12/02/2016
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -99,12 +99,12 @@ Wanneer u op de blade **Zoeken** klikt, wordt net als bij andere live-tegels in 
 Als u op de naam van de computer klikt, wordt de beveiligingsstatus voor deze computer chronologisch weergegeven. Dat is heel handig voor scenario's waarin u moet weten of de antimalware ooit is geïnstalleerd en op een bepaald moment is verwijderd.   
 
 ### <a name="update-assessment"></a>Update-evaluatie
-Met deze optie kunt u snel de algemene blootstelling aan mogelijke beveiligingsproblemen vaststellen en bepalen of en hoe essentieel deze updates zijn voor uw omgeving. Met de oplossing OMS Beveiliging en controle worden deze updates alleen gevisualiseerd. De werkelijke gegevens zijn afkomstig van [Oplossingen voor systeemupdates](https://technet.microsoft.com/library/mt484096.aspx). Dit is een andere module van OMS. Hier ziet u een voorbeeld van de updates:
+Met deze optie kunt u snel de algemene blootstelling aan mogelijke beveiligingsproblemen vaststellen en bepalen of en hoe essentieel deze updates zijn voor uw omgeving. Met de oplossing OMS Beveiliging en controle worden deze updates alleen gevisualiseerd. De werkelijke gegevens zijn afkomstig van [de oplossing voor updatebeheer](oms-solution-update-management.md). Dit is een andere module van OMS. Hier ziet u een voorbeeld van de updates:
 
-![systeemupdates](./media/oms-security-getting-started/oms-getting-started-fig6.png)
+![systeemupdates](./media/oms-security-getting-started/oms-getting-started-fig6-new.png)
 
 > [!NOTE]
-> Lees [Update servers with the System Updates solution](https://technet.microsoft.com/library/mt484096.aspx) (Servers bijwerken met de oplossing voor systeemupdates) voor meer informatie over de update-oplossing.
+> Lees [De oplossing voor updatebeheer in OMS](oms-solution-update-management.md) voor meer informatie over de oplossing voor updatebeheer.
 > 
 > 
 
@@ -135,6 +135,14 @@ Deze tegel kan worden gebruikt voor toegang tot alle computers met actieve bevei
 
 U kunt uw onderzoek voortzetten door op elke computer te klikken en de gebeurtenissen die zijn gemarkeerd te controleren.
 
+### <a name="threat-intelligence"></a>Bedreigingsinformatie
+
+Door de optie Bedreigingsinformatie te gebruiken in OMS Beveiliging en controle, kunnen IT-beheerders beveiligingsbedreigingen identificeren voor de omgeving. Zo kunnen ze bijvoorbeeld bepalen of een bepaalde computer deel uitmaakt van een botnet. Computers kunnen knooppunten worden in een botnet wanneer aanvallers malware installeren waarmee de computer wordt verbonden met de bedieningscentrale. Er kunnen ook potentiële bedreigingen mee worden geïdentificeerd die afkomstig zijn van underground communicatiekanalen zoals darknet. Lees [Beveiligingswaarschuwingen in de oplossing Beveiliging en controle van Operations Management Suite bewaken en erop reageren](oms-security-responding-alerts.md) voor meer informatie over bedreigingsinformatie.
+
+### <a name="baseline-assessment"></a>Basislijnevaluatie
+
+Microsoft definieert samen met brancheorganisaties en overheidsinstanties overal ter wereld een Windows-configuratie die garandeert dat maximaal beveiligde serverimplementaties worden gebruikt. Deze configuratie bestaat uit een verzameling registersleutels, controlebeleidsinstellingen en beveiligingsbeleidsinstellingen, gecombineerd met waarden die door Microsoft voor deze instellingen worden aanbevolen. Deze verzameling staat bekend als de beveiligingsbasislijn. Lees [Basislijnevaluatie in de oplossing Beveiliging en controle in Operations Management Suite](oms-security-baseline.md) voor meer informatie over deze optie.
+
 ### <a name="azure-security-center"></a>Azure Security Center
 Deze tegel is in feite een snelkoppeling voor toegang tot het Azure Security Center-dashboard. Lees [Aan de slag met Azure Security Center](../security-center/security-center-get-started.md) voor meer informatie over deze oplossing.
 
@@ -153,7 +161,7 @@ Deze optie heeft als belangrijkste doel de IT-afdeling toestaan mogelijke bedrei
 Deze optie kan tijdens een [onderzoek naar de incidentrespons](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) ook worden gebruikt om de evaluatie uit te voeren en meer informatie te verkrijgen over de aanval.
 
 > [!NOTE]
-> Bekijk [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Azure Security Center en Microsoft Operations Management Suite gebruiken voor een incidentrespons) voor meer informatie over het gebruik van OMS voor incidentresponses.
+> Bekijk de video [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Azure Security Center en Microsoft Operations Management Suite gebruiken voor een incidentrespons) voor meer informatie over het gebruik van OMS voor incidentresponses.
 > 
 > 
 

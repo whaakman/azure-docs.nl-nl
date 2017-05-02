@@ -13,34 +13,36 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 04/24/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ff70484dff03a44d23d2cf34ce115fd57c4b0390
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: d0cedf73aa3f73e672a73b6abaca5eb8c22a76a7
+ms.lasthandoff: 04/25/2017
 
 
 ---
-# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal"></a>Een VNet met een site-naar-site-verbinding maken met de klassieke portal
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal-classic"></a>Een VNet met een site-naar-site-verbinding maken met de klassieke portal (klassiek)
 
-Een site-naar-site-VPN-gatewayverbinding (S2S) is een verbinding via een VPN-tunnel met IPsec/IKE (IKEv1 of IKEv2). Voor dit type verbinding moet er een VPN-apparaat on-premises aanwezig zijn waaraan een openbaar IP-adres is toegewezen en dat zich niet achter een NAT bevindt. Site-naar-site-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties.
-
-![Diagram: cross-premises site-naar-site-VPN-gatewayverbinding](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
-
-In dit artikel wordt stapsgewijs beschreven hoe u een virtueel netwerk en een site-naar-site-VPN-gatewayverbinding met uw on-premises netwerk maakt met behulp van het klassieke implementatiemodel en de klassieke portal. Site-naar-site-verbindingen kunnen worden gebruikt voor cross-premises en hybride configuraties. U kunt deze configuratie voor het Resource Manager-implementatiemodel ook maken door in de volgende lijst een andere optie te selecteren:
+In dit artikel leest u hoe u de klassieke portal gebruikt om een site-naar-site-VPN-gatewayverbinding te maken vanuit uw lokale netwerk naar het VNet. De stappen in dit artikel zijn van toepassing op het klassieke implementatiemodel. U kunt deze configuratie ook maken met een ander implementatiehulpprogramma of een ander implementatiemodel door in de volgende lijst een andere optie te selecteren:
 
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Klassiek - Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Klassiek - klassieke portal](vpn-gateway-site-to-site-create.md)
+> 
 >
->
+
+![Diagram: cross-premises site-naar-site-VPN-gatewayverbinding](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
+
+
+Een site-naar-site-VPN-gatewayverbinding wordt gebruikt om een on-premises netwerk via een IPsec-/IKE-VPN-tunnel (IKEv1 of IKEv2) te verbinden met een virtueel Azure-netwerk. Voor dit type verbinding moet er on-premises een VPN-apparaat aanwezig zijn waaraan een extern openbaar IP-adres is toegewezen. Zie [Overzicht van VPN Gateway](vpn-gateway-about-vpngateways.md) voor meer informatie over VPN-gateways.
 
 #### <a name="additional-configurations"></a>Aanvullende configuraties
-Raadpleeg [Configure a VNet-to-VNet connection for the classic deployment model (Een VNet-naar-VNet verbinding voor het klassieke implementatiemodel configureren)](virtual-networks-configure-vnet-to-vnet-connection.md), als u VNets met elkaar wilt verbinden. Zie [Een S2S-verbinding toevoegen aan een VNet met een bestaande VPN-gatewayverbinding](vpn-gateway-multi-site.md) als u een site-naar-site-verbinding wilt toevoegen aan een VNet die al een verbinding heeft.
 
+Raadpleeg [Configure a VNet-to-VNet connection for the classic deployment model (Een VNet-naar-VNet verbinding voor het klassieke implementatiemodel configureren)](virtual-networks-configure-vnet-to-vnet-connection.md), als u VNets met elkaar wilt verbinden. Zie [Een S2S-verbinding toevoegen aan een VNet met een bestaande VPN-gatewayverbinding](vpn-gateway-multi-site.md) als u een site-naar-site-verbinding wilt toevoegen aan een VNet die al een verbinding heeft.
 ## <a name="before-you-begin"></a>Voordat u begint
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -59,7 +61,7 @@ Controleer of u beschikt over de volgende items voordat u begint met de configur
 ## <a name="Details"></a>Pagina met details over virtueel netwerk
 Voer de volgende informatie in:
 
-* **Naam**: geef het virtuele netwerk een naam. Bijvoorbeeld *EastUSVNet*. U gebruikt deze naam voor het virtuele netwerk wanneer u de virtuele machines en PaaS-instanties implementeert. Maak de naam dus niet te ingewikkeld.
+* **Naam**: geef het virtuele netwerk een naam. Bijvoorbeeld *EastUSVNet*. U gebruikt deze virtuele-netwerknaam wanneer u de virtuele machines en PaaS-instanties implementeert. Maak de naam dus niet te ingewikkeld.
 * **Locatie**: de locatie is direct gerelateerd aan de fysieke locatie (regio) waar u wilt dat de resources (VM's) zich bevinden. Selecteer bijvoorbeeld VS - oost als u wilt dat de virtuele machines die u in dit virtuele netwerk implementeert zich fysiek bevinden in *VS - oost*. U kunt de regio die aan het virtuele netwerk is gekoppeld, niet meer wijzigen wanneer het netwerk is gemaakt.
 
 ## <a name="DNS"></a>Pagina DNS-servers en VPN-verbinding
@@ -90,7 +92,7 @@ Voer de volgende informatie in en klik rechtsonder op het vinkje om het netwerk 
 * **Subnet toevoegen**: neem het IP-beginadres en het Aantal adressen op. U hebt geen aanvullende subnetten nodig, maar misschien wilt u een apart subnet maken voor virtuele machines die statische DIPS krijgen. Of misschien wilt u uw virtuele machines in een subnet plaatsen dat is gescheiden van uw andere rolinstanties.
 * **Gatewaysubnet toevoegen**: klik om het gatewaysubnet toe te voegen. Het gatewaysubnet wordt alleen gebruikt voor de gateway van het virtuele netwerk. Het is vereist voor deze configuratie.
 
-Wanneer u onder aan de pagina op het vinkje klikt, wordt het virtuele netwerk gemaakt. Als dit is voltooid, wordt op de pagina **Netwerken** in de klassieke Azure Portal **Gemaakt** vermeld onder **Status**. Wanneer het VNet is gemaakt, kunt u de gateway van het virtuele netwerk configureren.
+Klik onder aan de pagina op het vinkje om het virtuele netwerk te maken. Als dit is voltooid, wordt op de pagina **Netwerken** van de klassieke Azure-portal de **Status** **Gemaakt** weergegeven. Wanneer het VNet is gemaakt, kunt u de gateway van het virtuele netwerk configureren.
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 

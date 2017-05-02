@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 407b189af12116d633ed505facf4bcfde9be5822
-ms.openlocfilehash: 1bd099ee9154e920fef5b99e27d2a9711c1d75d1
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 10840ee4ff070436e2c21d51846ea6363825abac
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -66,10 +67,13 @@ SQL Server dat wordt uitgevoerd op virtuele machines in Azure is één mogelijkh
 ## <a name="create-a-new-sql-vm"></a>Een nieuwe SQL-VM maken
 De volgende gedeelten bevatten directe koppelingen naar Azure Portal voor de galerie met installatiekopieën van virtuele SQL Server-machines. Afhankelijk van de installatiekopie die u selecteert, kunt u de SQL Server-licentiekosten betalen per minuut of uw eigen licentie gebruiken (Bring Your Own Licence, BYOL).
 
-Stapsgewijze richtlijnen voor dit proces vindt u in de zelfstudie [Een virtuele SQL Server-machine inrichten in Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). Bekijk ook de [Aanbevolen procedures voor de beste prestaties voor virtuele SQL Server-machines](virtual-machines-windows-sql-performance.md), waarin wordt uitgelegd hoe u de juiste machinegrootte selecteert, evenals andere functies die tijdens het inrichten beschikbaar zijn.
+Stapsgewijze richtlijnen voor het maken van een nieuwe virtuele SQL-machine vindt u in de zelfstudie [Een virtuele SQL Server-machine inrichten in Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). Bekijk ook de [Aanbevolen procedures voor de beste prestaties voor virtuele SQL Server-machines](virtual-machines-windows-sql-performance.md), waarin wordt uitgelegd hoe u de juiste machinegrootte selecteert, evenals andere functies die tijdens het inrichten beschikbaar zijn.
 
 ## <a name="option-1-create-a-sql-vm-with-per-minute-licensing"></a>Optie 1: een SQL-VM maken met licentiekosten per minuut
 De volgende tabel bevat een matrix met de laatste SQL Server-installatiekopieën in de galerie met virtuele machines. Klik op een koppeling om te beginnen met het maken van een nieuwe virtuele SQL-machine met de versie, de editie en het besturingssysteem die u hebt opgegeven. 
+
+> [!TIP]
+> Zie [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's) voor informatie over de VM- en SQL-prijzen voor deze installatiekopieën.
 
 | Version | Besturingssysteem | Editie |
 | --- | --- | --- |
@@ -80,8 +84,11 @@ De volgende tabel bevat een matrix met de laatste SQL Server-installatiekopieën
 
 In aanvulling op deze lijst zijn er ook andere combinaties van SQL Server-versies en besturingssystemen beschikbaar. Voer een Marketplace-zoekactie in Azure Portal uit om andere installatiekopieën te vinden. 
 
-## <a name="a-idbyola-option-2-create-a-sql-vm-with-an-existing-license"></a><a id="BYOL"></a> Optie 2: een SQL-VM maken met een bestaande licentie
+## <a id="BYOL"></a> Optie 2: een SQL-VM maken met een bestaande licentie
 U kunt ook uw eigen licentie gebruiken (Bring Your Own Licence, BYOL). In dit scenario betaalt u alleen voor de virtuele machine, zonder eventuele extra kosten voor SQL Server-licentieverlening. Als u uw eigen licentie wilt gebruiken, raadpleegt u onderstaande matrix met SQL Server-versies, SQL Server-edities en besturingssystemen. In de portal worden de namen van deze installatiekopieën voorafgegaan door **{BYOL}**.
+
+> [!TIP]
+> Als u uw eigen licentie hebt, kan dit u in de loop van de tijd geld besparen voor doorlopende productieworkloads. Zie [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's) voor meer informatie.
 
 | Version | Besturingssysteem | Editie |
 | --- | --- | --- |
@@ -92,8 +99,7 @@ U kunt ook uw eigen licentie gebruiken (Bring Your Own Licence, BYOL). In dit sc
 In aanvulling op deze lijst zijn er ook andere combinaties van SQL Server-versies en besturingssystemen beschikbaar. Voer een Marketplace-zoekactie in Azure Portal uit om andere installatiekopieën te vinden (zoek op '{BYOL} SQL Server').
 
 > [!IMPORTANT]
-> Voor het gebruik van installatiekopieën voor VM’s op basis van BYOL moet u beschikken over een Enterprise-overeenkomst met [licentiemobiliteit via Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/). Ook hebt u een geldige licentie nodig voor de SQL Server-versie/-editie die u wilt gebruiken. U moet [de benodigde BYOL-informatie aan Microsoft verstrekken](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf) binnen **10** dagen na inrichting van uw virtuele machine.
-> 
+> Voor het gebruik van installatiekopieën voor VM’s op basis van BYOL moet u beschikken over een Enterprise-overeenkomst met [licentiemobiliteit via Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/). Ook hebt u een geldige licentie nodig voor de SQL Server-versie/-editie die u wilt gebruiken. U moet [de benodigde BYOL-informatie aan Microsoft verstrekken](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf) binnen **10** dagen na inrichting van uw virtuele machine. 
 
 > [!NOTE]
 > Het is niet mogelijk om de licentie voor een SQL Server-VM waarbij per minuut wordt betaald te wijzigen in uw eigen licentie. Als u dit wilt doen, moet u een nieuwe BYOL-VM maken en uw databases naar de nieuwe VM migreren. 
@@ -126,13 +132,8 @@ Zie de sectie over het programma voor kwaliteitsverbetering in het onderwerp [Li
 ## <a name="next-steps"></a>Volgende stappen
 [Bekijk het leertraject](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) voor virtuele SQL Server-machines in Azure.
 
-Zie [Prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) voor vragen over prijzen. Selecteer de doeleditie van SQL Server in de lijst **Besturingssysteem/software**. Geef vervolgens de prijzen weer voor virtuele machines van verschillende grootten. 
+Zie [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's) en de [pagina met prijzen voor Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) als u vragen hebt over prijzen. Selecteer de doeleditie van SQL Server in de lijst **Besturingssysteem/software**. Geef vervolgens de prijzen weer voor virtuele machines van verschillende grootten.
 
 Nog vragen? Bekijk eerst de [Veelgestelde vragen over SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-faq.md). Maar u kunt uw vragen of opmerkingen ook onder aan elk onderwerp over virtuele SQL-machines toevoegen om te communiceren met Microsoft en de community.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

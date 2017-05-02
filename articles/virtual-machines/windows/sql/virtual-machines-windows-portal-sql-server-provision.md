@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f5793f771553df78c1c335ad57e0d64078d98148
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: e16792bb762287bc16c280386981a4d442448674
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -42,11 +42,10 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="select-a-sql-vm-image-from-the-gallery"></a>Een installatiekopie voor een virtuele SQL-machine in de galerie selecteren
 1. Meld u met uw account aan bij de [Azure Portal](https://portal.azure.com).
-   
+
    > [!NOTE]
    > Als u geen Azure-account hebt, gaat u naar [Azure, gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
-   > 
-   > 
+
 2. Klik in Azure Portal op **Nieuw**. In de portal wordt de blade **Nieuw** geopend. De resources voor virtuele SQL Server-machines bevinden zich in de groep **Berekenen** van de Marketplace.
 3. Klik op de blade **Nieuw** op **Berekenen** en klik vervolgens op **Alles weergeven**.
 4. Typ in het tekstvak **Filter** de tekst 'SQL Server' en druk op Enter.
@@ -58,13 +57,13 @@ In deze zelfstudie leert u het volgende:
 
    > [!TIP]
    > In deze zelfstudie maken we gebruik van de Developer Edition omdat deze een complete versie van de SQL Server is die gratis gebruikt kan worden voor ontwikkelings-/testdoeleinden. U betaalt alleen voor de kosten van het uitvoeren van de virtuele machine.
-   
+
    > [!NOTE]
-   > SQL VM-images bevatten de licentiekosten voor SQL Server als prijzen per minuut van de virtuele machine die u maakt (met uitzondering van de Developer en Express Editions). SQL Server Developer is gratis voor ontwikkeling/testen (niet voor productiedoeleinden) en SQL Express is gratis voor lichte werkbelasting (minder dan 1 GB geheugen, minder dan 10 GB opslagruimte). Er is nog een andere mogelijkheid en dat is BYOL (bring-your-own-license). U betaalt dan alleen voor de virtuele machine. De namen van de installatiekopieën worden voorafgegaan door {BYOL}. Zie [Aan de slag met SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md) voor meer informatie over deze optie.
-   > 
-   > 
+   > SQL VM-images bevatten de licentiekosten voor SQL Server als prijzen per minuut van de virtuele machine die u maakt (met uitzondering van de Developer en Express Editions). SQL Server Developer is gratis voor ontwikkeling/testen (niet voor productiedoeleinden) en SQL Express is gratis voor lichte werkbelasting (minder dan 1 GB geheugen, minder dan 10 GB opslagruimte).
+   > Er is nog een andere mogelijkheid en dat is BYOL (bring-your-own-license). U betaalt dan alleen voor de virtuele machine. De namen van de installatiekopieën worden voorafgegaan door {BYOL}. Zie [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's) voor meer informatie over deze opties.
+
 7. Controleer onder **Een implementatiemodel selecteren** of **Resource Manager** is geselecteerd. Resource Manager is het aanbevolen implementatiemodel voor nieuwe virtuele machines. Klik op **Create**.
-   
+
     ![Virtuele SQL-machines maken met Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
 ## <a name="configure-the-vm"></a>De virtuele machine configureren
@@ -100,7 +99,7 @@ Op de blade **Basisbeginselen** geeft u de volgende gegevens op:
 Bij de stap **Grootte** kiest u de grootte van uw virtuele machine. Dit doet u op de blade **Een grootte kiezen**. De blade geeft in eerste instantie aanbevolen grootten voor de machine weer op basis van de geselecteerde installatiekopie.
 
 > [!IMPORTANT]
-> De geschatte maandelijkse kosten die worden weergegeven op de blade **Grootte kiezen**, zijn niet inclusief de kosten voor SQL Server-licentieverlening. Het betreft hier alleen de kosten voor de VM. Voor de Express- en Developer-edities van SQL Server zijn dit de totale geschatte kosten. Zie de [pagina met prijzen voor virtuele Windows-machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) en selecteer de gewenste editie van SQL server. 
+> De geschatte maandelijkse kosten die worden weergegeven op de blade **Grootte kiezen**, zijn niet inclusief de kosten voor SQL Server-licentieverlening. Het betreft hier alleen de kosten voor de VM. Voor de Express- en Developer-edities van SQL Server zijn dit de totale geschatte kosten. Zie de [pagina met prijzen voor virtuele Windows-machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) en selecteer de gewenste editie van SQL server. Zie ook [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's).
 
 ![Opties voor de grootte van uw virtuele SQL-machine](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
@@ -108,8 +107,6 @@ Voor productieworkloads raden we u aan voor de virtuele machine een grootte te s
 
 > [!NOTE]
 > Zie voor meer informatie over grootten voor virtuele machines [Grootten voor virtuele machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Zie voor overwegingen met betrekking tot de grootte van een virtuele SQL Server-machine [Aanbevolen procedures voor prestaties voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
-> 
-> 
 
 Kies de grootte van uw machine en klik vervolgens op **Selecteren**.
 

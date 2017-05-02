@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 29c4c2a2818468a2fa8360eebd4b653bdcbbde19
-ms.openlocfilehash: 0749d371466226343227c79db544a8e3dca0cca8
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 75188a8f74b08d28b92259348626d5734ed4ce6c
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -40,9 +41,11 @@ In de volgende stappen ziet u hoe u de Azure-portal kunt gebruiken om een lab te
    2. Selecteer het **abonnement** dat u wilt koppelen aan het lab.
    3. Selecteer op welke **locatie** u het lab wilt opslaan.
    4. Selecteer **Auto-shutdown** om op te geven of u het automatisch afsluiten van alle virtuele machines van het lab wilt inschakelen en de parameters voor deze machines wilt definiëren. 
-   5. Selecteer **Maken**.
-      
-      ![Een labblade maken](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
+   5. Selecteer **Vastmaken aan dashboard** als u wilt dat een snelkoppeling van de testomgeving op het dashboard van de portal wordt weergegeven.
+   6. Selecteer **Opties voor Automation** als u Azure Resource Manager-sjablonen wilt ophalen voor automatisering van de configuratie. 
+   7. Selecteer **Maken**.
+    
+    ![Een labblade maken](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -54,10 +57,5 @@ Wanneer u uw lab hebt gemaakt, kunt u onder andere de volgende stappen uitvoeren
 * [Een labsjabloon maken](devtest-lab-create-template.md).
 * [Aangepaste artefacten maken voor uw virtuele machines](devtest-lab-artifact-author.md).
 * [Een VM met artefacten toevoegen aan een lab](devtest-lab-add-vm-with-artifacts.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

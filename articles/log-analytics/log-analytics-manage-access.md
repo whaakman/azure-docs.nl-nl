@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 0a6b5115a4eebfcce14094d82cdcc9579f80def6
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 5b4a2b7646a2ead1df459c5d9a17d125821c86a5
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -94,13 +94,15 @@ In de volgende tabel ziet u de toegang die met elk machtigingsmodel kan worden i
 
 De oude Log Analytics-gebruikersrollen beheren alleen de toegang tot activiteiten die worden uitgevoerd in de [Log Analytics-portal](https://mms.microsoft.com).
 
-Voor de volgende activiteiten in de Log Analytics-portal zijn ook Azure-machtigingen vereist:
+Voor de volgende activiteiten zijn ook Azure-machtigingen vereist:
 
 | Actie                                                          | Azure-machtigingen nodig | Opmerkingen |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Beheeroplossingen toevoegen en verwijderen                        | Resourcegroepen schrijven <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Beheeroplossingen toevoegen en verwijderen                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | De prijscategorie wijzigen                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Gegevens weergeven op de tegels *Back-up* en *Site Recovery* | Beheerder/medebeheerder | Heeft toegang tot resources die zijn geïmplementeerd met behulp van het klassieke implementatiemodel |
+| Een werkruimte maken in Azure Portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
+
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Toegang tot Log Analytics beheren met behulp van Azure-machtigingen
 Volg de stappen in [Roltoewijzingen gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement](../active-directory/role-based-access-control-configure.md) om toegang te verlenen tot de Log Analytics-werkruimte met behulp van Azure-machtigingen.
@@ -177,7 +179,7 @@ U kunt de accountrol van een gebruiker die aan uw OMS-account is gekoppeld, wijz
 4. Klik in het bevestigingsdialoogvenster op **Ja**.
 
 ### <a name="remove-a-user-from-a-workspace"></a>Een gebruiker uit een werkruimte verwijderen
-Voer de volgende stappen uit om een gebruiker te verwijderen uit een werkruimte. Met het verwijderen van de gebruiker wordt de werkruimte niet gesloten. In plaats daarvan wordt de koppeling tussen die gebruiker en de werkruimte verwijderd. Als een gebruiker is gekoppeld aan meerdere werkruimten, kan die gebruiker zich nog wel aanmelden bij OMS en zijn andere werkruimten zien.
+Voer de volgende stappen uit om een gebruiker te verwijderen uit een werkruimte. Met het verwijderen van de gebruiker wordt de werkruimte niet gesloten. In plaats daarvan wordt de koppeling tussen die gebruiker en de werkruimte verwijderd. Als een gebruiker is gekoppeld aan meerdere werkruimten, kan die gebruiker zich nog wel aanmelden bij OMS en de andere werkruimten zien.
 
 1. Klik in de OMS-portal op de tegel **Instellingen**.
 2. Klik op het tabblad **Accounts** en vervolgens op het tabblad **Gebruikers beheren**.

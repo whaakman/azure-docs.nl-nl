@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 9f9c2ad56483919bf676fc84af49a7c90ba042f9
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 48f7ba325f61b4a91c0208b4c99058da801bee19
+ms.lasthandoff: 04/20/2017
 
 ---
 
@@ -35,6 +35,14 @@ Dit artikel leidt u stapsgewijs door de procedure voor het maken van uw eerste D
 Een DNS-zone wordt gebruikt om de DNS-records voor een bepaald domein te hosten. Als u uw domein wilt hosten in Azure DNS, moet u een DNS-zone maken voor die domeinnaam. Alle DNS-records voor uw domein worden vervolgens gemaakt binnen deze DNS-zone. Tot slot moet u de naamservers voor het domein configureren om de DNS-zone te publiceren naar internet. Deze stappen worden hieronder allemaal beschreven.
 
 Bij deze instructies wordt ervan uitgegaan dat u Azure PowerShell al hebt geïnstalleerd en bent aangemeld. Zie [How to manage DNS zones using PowerShell](dns-operations-dnszones.md) (DNS-zones beheren met behulp van PowerShell) voor hulp.
+
+## <a name="create-the-resource-group"></a>De resourcegroep maken
+
+Voordat u de DNS-zone maakt, wordt er een resourcegroep gemaakt waartoe de DNS-zone gaat behoren. Hieronder ziet u de opdracht.
+
+```powershell
+New-AzureRMResourceGroup -name MyResourceGroup -location "westus"
+```
 
 ## <a name="create-a-dns-zone"></a>Een DNS-zone maken
 
@@ -84,6 +92,13 @@ MaxNumberOfRecordSets : 5000
 
 Deze naamservers moeten worden geconfigureerd met de domeinnaamregistrar (waar u de domeinnaam hebt gekocht). Uw registrar zal u de mogelijkheid bieden om de naamservers voor het domein in te stellen. Zie [Uw domein delegeren naar Azure DNS](dns-domain-delegation.md) voor meer informatie.
 
+## <a name="delete-all-resources"></a>Alle resources verwijderen
+
+Als u alle resources wilt verwijderen die u in dit artikel hebt gemaakt, voert u de volgende stappen uit:
+
+```powershell
+Remove-AzureRMResourceGroup -Name MyResourceGroup
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

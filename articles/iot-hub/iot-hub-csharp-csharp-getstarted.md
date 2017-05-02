@@ -16,9 +16,9 @@ ms.date: 03/16/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: ac67a1a67c3a11fde98242519266fcd3ab4f60cb
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 33ddab887ade0d788129367eec4db7e70f35e0b9
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -95,6 +95,7 @@ In dit gedeelte gaat u een .NET-consoletoepassing maken die een apparaat-id kan 
 > 
 > 
 
+<a id="D2C_csharp"></a>
 ## <a name="receive-device-to-cloud-messages"></a>Apparaat-naar-cloud-berichten ontvangen
 In dit gedeelte maakt u een .NET-consoletoepassing die apparaat-naar-cloud-berichten uit IoT Hub kan lezen. Een IoT-hub toont een [Azure Event Hubs][lnk-event-hubs-overview]-compatibel eindpunt waarmee u apparaat-naar-cloud-berichten kunt lezen. Om de zaken niet nodeloos ingewikkeld te maken, maakt u met deze handleiding een basislezer die niet geschikt is voor hoge doorvoersnelheden. In de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] leert u hoe u op grote schaal apparaat-naar-cloud-berichten kunt verwerken. Zie voor meer informatie over het verwerken van Event Hubs-berichten de zelfstudie [Aan de slag met Event Hubs][lnk-eventhubs-tutorial]. (Deze zelfstudie is van toepassing op eindpunten die compatibel zijn met event hubs in IoT Hub.)
 
@@ -178,20 +179,24 @@ In deze sectie maakt u een .NET-consoletoepassing die een apparaat simuleert dat
    
         private static async void SendDeviceToCloudMessagesAsync()
         {
-            double avgWindSpeed = 10; // m/s
+            double minTemperature = 20;
+            double minHumidity = 60;
             Random rand = new Random();
    
             while (true)
             {
-                double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
+                double currentTemperature = minTemperature + rand.NextDouble() * 15;
+                double currentHumidity = minHumidity + rand.NextDouble() * 20;
    
                 var telemetryDataPoint = new
                 {
                     deviceId = "myFirstDevice",
-                    windSpeed = currentWindSpeed
+                    temperature = currentTemperature,
+                    humidity = currentHumidity
                 };
                 var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
                 var message = new Message(Encoding.ASCII.GetBytes(messageString));
+                message.Properties.Add("temperatureAlert", (currentTemperature > 30) ? "true" : "false");
    
                 await deviceClient.SendEventAsync(message);
                 Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, messageString);
@@ -200,7 +205,7 @@ In deze sectie maakt u een .NET-consoletoepassing die een apparaat simuleert dat
             }
         }
    
-    Met deze methode wordt elke seconde een nieuw apparaat-naar-cloud bericht verzonden. Het bericht bevat een JSON-geserialiseerd object met het apparaat-ID en een willekeurig gegenereerd nummer om een windsnelheidssensor te simuleren.
+    Met deze methode wordt elke seconde een nieuw apparaat-naar-cloud bericht verzonden. Het bericht bevat een JSON-geserialiseerd object met de apparaat-id en willekeurig gegenereerde nummers om een temperatuursensor te simuleren, en een vochtigheidssensor.
 7. Voeg tot slot de volgende regels toe aan de methode **Main**:
    
         Console.WriteLine("Simulated device\n");

@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 368ffc65382c75b0fe5f4c20ce1c6a487a764ed3
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 119ffa3ac31e0ea6e76f8232f13b4dd8667f78aa
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -32,6 +32,8 @@ In deze Quick Start wordt dit gebruikt als basis voor het maken van de resources
 - [Database maken - CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-net"></a>.NET installeren
+
+Voor de stappen in deze sectie wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met .NET, maar geen ervaring hebt met het werken met Azure SQL Database. Als u niet bekend bent met ontwikkelen met .NET, gaat u naar [Een app bouwen met SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) en selecteert u **C#**. Selecteer vervolgens uw besturingssysteem.
 
 ### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework en .NET Core**
 
@@ -66,7 +68,7 @@ sudo apt-get install dotnet-dev-1.0.1
 
 ## <a name="get-connection-information"></a>Verbindingsgegevens ophalen
 
-Haal de verbindingsreeks op in Azure Portal. U gebruikt de verbindingsreeks om verbinding te maken met de Azure SQL-database.
+Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure SQL-database. U hebt de volledig gekwalificeerde servernaam, databasenaam en aanmeldingsgegevens in de volgende procedures nodig.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Selecteer **SQL-databases** in het menu links en klik op uw database op de pagina **SQL-databases**. 
@@ -96,7 +98,8 @@ Als u gebruikmaakt van .NET Core, voegt u System.Data.SqlClient als een afhankel
 1. Open een leeg codebestand in uw ontwikkelingsomgeving.
 2. Voeg ```using System.Data.SqlClient``` toe aan uw codebestand ([naamruimte System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
 
-3. Gebruik [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) met de Transact-SQL-instructie [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) om in uw Azure SQL-database query's uit te voeren voor gegevens. Voeg de juiste waarden voor uw server toe.
+3. Gebruik de volgende code om op categorie een query uit te voeren voor de 20 populairste producten. Gebruik de opdracht [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) met de Transact-SQL-instructie [SELECT](https://msdn.microsoft.com/library/ms189499.aspx). Voeg de juiste waarden toe voor uw server, database, gebruiker en wachtwoord.
+
 ```csharp
 using System;
 using System.Data;
@@ -152,7 +155,7 @@ namespace ConsoleApplication1
 
 ## <a name="insert-data"></a>Gegevens invoegen
 
-Gebruik [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) met de Transact-SQL-instructie [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) om in uw Azure SQL-database gegevens in te voegen.
+Gebruik de volgende code om een nieuw product in te voegen in de tabel SalesLT.Product. Gebruik de opdracht [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) met de Transact-SQL-instructie [INSERT](https://msdn.microsoft.com/library/ms174335.aspx). Voeg de juiste waarden toe voor uw server, database, gebruiker en wachtwoord.
 
 ```csharp
 using System;
@@ -207,7 +210,7 @@ namespace ConsoleApplication1
 
 ## <a name="update-data"></a>Gegevens bijwerken
 
-Gebruik [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) met de Transact-SQL-instructie [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) om in uw Azure SQL-database gegevens bij te werken.
+Gebruik de volgende code om het nieuwe product bij te werken dat u eerder hebt toegevoegd. Gebruik de opdracht [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) met de Transact-SQL-instructie [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx). Voeg de juiste waarden toe voor uw server, database, gebruiker en wachtwoord.
 
 ```csharp
 using System;
@@ -257,7 +260,7 @@ namespace ConsoleApplication1
 
 ## <a name="delete-data"></a>Gegevens verwijderen
 
-Gebruik [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) met de Transact-SQL-instructie [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) om in uw Azure SQL-database gegevens te verwijderen.
+Gebruik de volgende code om het nieuwe product te verwijderen dat u eerder hebt toegevoegd. Gebruik de opdracht [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) met de Transact-SQL-instructie [DELETE](https://msdn.microsoft.com/library/ms189835.aspx). Voeg de juiste waarden toe voor uw server, database, gebruiker en wachtwoord.
 
 ```csharp
 using System;
