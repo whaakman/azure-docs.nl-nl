@@ -49,12 +49,11 @@ Zie [het overzicht](container-registry-intro.md) voor meer achtergrondinformatie
 
     d. **Beheerder**: schakel eventueel toegang tot het register in voor een beheerder. U kunt deze instelling wijzigen nadat u het register hebt gemaakt.
 
-    > [!IMPORTANT]
-    > Naast toegang via een beheeraccount ondersteunen containerregisters verificatie met behulp van service-principals van Azure Active Directory. Bekijk voor meer informatie [Verifiëren met het containerregister](container-registry-authentication.md).
-
+      > [!IMPORTANT]
+      > Naast toegang via een beheeraccount ondersteunen containerregisters verificatie met behulp van service-principals van Azure Active Directory. Bekijk voor meer informatie [Verifiëren met het containerregister](container-registry-authentication.md).
+      >
 
     e. **Opslagaccount**: maak een [opslagaccount](../storage/storage-introduction.md) met de standaardinstelling of selecteer een bestaand opslagaccount op dezelfde locatie. Premium-opslag wordt momenteel niet ondersteund.
-
 
 ## <a name="manage-registry-settings"></a>Registerinstellingen beheren
 Nadat u het register hebt gemaakt, kunt u de registerinstellingen openen via de blade **Container Registry** in de portal. U hebt de instellingen mogelijk nodig om u aan te melden bij uw register of om de beheerder in of uit te schakelen.
