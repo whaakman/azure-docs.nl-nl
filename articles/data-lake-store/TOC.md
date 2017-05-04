@@ -30,6 +30,7 @@
 ### [Gegevens in Data Lake Store beveiligen](data-lake-store-secure-data.md)
 ### [Verificatie van service-tot-service](data-lake-store-authenticate-using-active-directory.md)
 ### [Verificatie van de eindgebruiker](data-lake-store-end-user-authenticate-using-active-directory.md)
+### [Versleuteling](data-lake-store-encryption.md)
 
 ## Prestaties
 ### [Richtlijnen voor het afstemmen van de prestaties van Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
@@ -58,7 +59,7 @@
 ### [Plannen voor hoge beschikbaarheid](data-lake-store-troubleshooting-guidance.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)
+## [PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datalake.store)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)

@@ -21,7 +21,7 @@
 ### [Uitgaande verificatie](scheduler-outbound-authentication.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [PowerShell](/powershell/module/azurerm.scheduler)
 ## [REST](/rest/api/scheduler)
 
 # Bronnen
@@ -31,10 +31,5 @@
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=scheduler)
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 3d52c0f5faf90dedf587fb270e9a160a374ed558
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 19cd1cf60a14f4a2087bcfdbb4b223039c82dec3
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -66,7 +66,7 @@ In de stappen in dit artikel worden variabelen gebruikt die aan het begin van el
 ![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 ### <a name="before-you-begin"></a>Voordat u begint
-Voordat u begint, moet u de Azure Resource Manager PowerShell-cmdlets installeren. Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor meer informatie over het installeren van de PowerShell-cmdlets. 
+Voordat u begint, moet u de Azure Resource Manager PowerShell-cmdlets installeren. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie over het installeren van de PowerShell-cmdlets. 
 
 ### <a name="Step1"></a>Stap 1: De IP-adresbereiken plannen
 In de volgende stappen maakt u twee virtuele netwerken en hun bijbehorende gatewaysubnetten en configuraties. Vervolgens maakt u een VPN-verbinding tussen de twee VNets. Het is belangrijk dat u de IP-adresbereiken voor uw netwerkconfiguratie plant. De VNet-bereiken of de bereiken van het lokale netwerk mogen elkaar niet overlappen.

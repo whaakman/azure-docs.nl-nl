@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 4c29a3d17161a38f9aee9337e27feb36306cf329
-ms.openlocfilehash: b889208da300f301ee5c418bfa461a21cd8c07ee
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c06be7a2d17b655c958c4ba4618739f5b218b8d7
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -39,7 +40,7 @@ ms.openlocfilehash: b889208da300f301ee5c418bfa461a21cd8c07ee
 
 Volg de onderstaande stappen om een load balancer in te stellen met behulp van PowerShell:
 
-1. Als u Azure PowerShell nog niet eerder hebt gebruikt, kunt u [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) raadplegen en de instructies helemaal tot aan het einde volgen om u aan te melden bij Azure en uw abonnement te selecteren.
+1. Als u Azure PowerShell nog niet eerder hebt gebruikt, kunt u [Azure PowerShell installeren en configureren](/powershell/azure/overview) raadplegen en de instructies helemaal tot aan het einde volgen om u aan te melden bij Azure en uw abonnement te selecteren.
 2. Nadat u een virtuele machine hebt gemaakt, kunt u PowerShell-cmdlets gebruiken om een load balancer toe te voegen aan een virtuele machine binnen dezelfde cloudservice.
 
 In het volgende voorbeeld voegt u een set met gelijke taakverdeling met de naam 'webfarm' toe aan de cloud service 'mytestcloud' (of myctestcloud.cloudapp.net) en voegt u de eindpunten voor de load balancer toe aan virtuele machines met de naam 'web1' en 'web2'. De load balancer ontvangt netwerkverkeer via poort 80 en verdeelt taken tussen virtuele machines die zijn gedefinieerd door het lokale eindpunt (in dit geval poort 80) met TCP.
@@ -73,9 +74,4 @@ Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name htt
 U kunt ook [aan de slag gaan met het maken van een interne load balancer](load-balancer-get-started-ilb-classic-ps.md) en configureren welk type [distributiemodus](load-balancer-distribution-mode.md) er moet worden gebruikt voor specifiek gedrag voor netwerkverkeer van de load balancer.
 
 Als uw toepassing verbindingen actief moet houden voor servers achter een load balancer, krijgt u meer inzicht in [niet-actieve TCP-time-outinstellingen voor een load balancer](load-balancer-tcp-idle-timeout.md). Op deze manier krijgt u meer informatie over het gedrag van niet-actieve verbindingen wanneer u Azure Load Balancer gebruikt.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

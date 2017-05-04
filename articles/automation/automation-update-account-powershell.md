@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 96ab414f6fb58908f253e9f1cf29ab3a57ca2a90
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d34bb4a285f77f5c21a4af2d544bda3221d59e8d
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -32,7 +32,7 @@ In de volgende gevallen kunt u PowerShell gebruiken om uw bestaande Automation-a
 ## <a name="prerequisites"></a>Vereisten
 
 * Het script kan alleen worden uitgevoerd op Windows 10 en Windows Server 2016 met Azure Resource Manager-modules 2.01 en hoger. Uitvoeren wordt niet ondersteund in eerdere versies van Windows.
-* Azure PowerShell 1.0 en hoger. Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor meer informatie over de PowerShell 1.0-release.
+* Azure PowerShell 1.0 en hoger. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie over de PowerShell 1.0-release.
 * Een Automation-account waarnaar wordt verwezen als de waarde voor de parameter *– AutomationAccountName* en *- ApplicationDisplayName* in het volgende PowerShell-script.
 
 Ga als volgt te werk om de waarden op te halen voor *SubscriptionID*, *ResourceGroup* en *AutomationAccountName*, die vereiste parameters zijn voor de scripts:
@@ -271,3 +271,4 @@ Let op het volgende nadat het script is uitgevoerd:
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md) (Toepassingsobjecten en service-principalobjecten) voor meer informatie over service-principals.
 * Voor meer informatie over certificaten en Azure-services raadpleegt u [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md) (Overzicht van certificaten voor Azure Cloud Services).
+

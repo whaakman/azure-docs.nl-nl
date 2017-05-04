@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: ac0d2e6891d916febb3eeee736288454c2b92c2d
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 859c0bf3afec46e07b8b8da73fffbc37f3f7959d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +48,7 @@ Er zijn een aantal manieren om de vereisten te installeren en de versleuteling t
 >
 
 ## <a name="install-and-configure-azure-powershell"></a>Azure PowerShell installeren en configureren
-Azure PowerShell-versie 1.2.1 of hoger moet op uw computer geïnstalleerd zijn. Het artikel [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) bevat alle stappen die u moet volgen om uw computer zo in te richten dat deze kan werken met Azure PowerShell. De eenvoudigste manier is de installatiemethode met behulp van de Web PI die beschreven staat in dat artikel. Als u Azure PowerShell al hebt geïnstalleerd, dient u dit opnieuw te installeren met behulp van de Web PI zodat u beschikt over de nieuwste versie van Azure PowerShell.
+Azure PowerShell-versie 1.2.1 of hoger moet op uw computer geïnstalleerd zijn. Het artikel [How to install and configure Azure PowerShell](/powershell/azure/overview) bevat alle stappen die u moet volgen om uw computer zo in te richten dat deze kan werken met Azure PowerShell. De eenvoudigste manier is de installatiemethode met behulp van de Web PI die beschreven staat in dat artikel. Als u Azure PowerShell al hebt geïnstalleerd, dient u dit opnieuw te installeren met behulp van de Web PI zodat u beschikt over de nieuwste versie van Azure PowerShell.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Download het configuratiescript met vereisten voor Azure Disk Encryption en voer dit uit.
 Het configuratiescript met vereisten voor Azure Disk Encryption installeert alle vereisten voor het versleutelen van uw Azure Virtual Machines.
@@ -81,7 +81,7 @@ Het script met vereisten voor Azure Disk Encryption vraagt u na het openen om de
 * **Naam resourcegroep**: naam van de resourcegroep waar u de Key Vault in wilt plaatsen.  Als er nog geen resourcegroep met de door u ingevulde naam bestaat, wordt deze aangemaakt. Als u al een resourcegroep hebt die u in dit abonnement wilt gebruiken, vul dan de naam van die resourcegroep in.
 * **Naam Key Vault**: naam van de sleutelkluis waar versleutelingssleutels in moeten worden geplaatst. Als u nog geen Key Vault hebt met de door u ingevulde naam bestaat, wordt deze aangemaakt. Als u al een Key Vault hebt die u wilt gebruiken, vul dan de naam van die Key Vault in.
 * **Locatie**: de locatie van de Key Vault. Zorg ervoor dat de Key Vault en de VM’s die moeten worden versleuteld, zich op dezelfde locatie bevinden. Als u de locatie niet weet, volg dan de stappen verderop in dit artikel om deze te vinden.
-* **Naam Azure Active Directory-toepassing**: naam van de Azure Active Directory-toepassing die wordt gebruikt om geheimen over te schrijven naar de Key Vault. Als er nog geen toepassing met deze naam bestaat, wordt deze aangemaakt. Als u al een Azure Active Directory-toepassing hebt die u wilt gebruiken, vul dan de naam van die Azure Active Directory-toepassing in.
+* **Naam Azure Active Directory-toepassing** : naam van de Azure Active Directory-toepassing die wordt gebruikt om geheimen over te schrijven naar de Key Vault. Als er nog geen toepassing met deze naam bestaat, wordt deze aangemaakt. Als u al een Azure Active Directory-toepassing hebt die u wilt gebruiken, vul dan de naam van die Azure Active Directory-toepassing in.
 
 > [!NOTE]
 > Als u wilt weten waarom u een Azure Active Directory-toepassing moet maken, zie dan het gedeelte *Register an application with Azure Active Directory* in het artikel [Getting Started with Azure Key Vault](../key-vault/key-vault-get-started.md).

@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 79c6ef627d20be52b6067d1f6dfea2a53505c590
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 554931e96e073ec2f2f68df2297e1ee21f5eda87
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -66,7 +66,7 @@ Gebruik de volgende procedure om MFA in te schakelen voor uw gebruikers.
 Nadat u uw gebruikers hebt ingeschakeld, dient u ze hierover te informeren via e-mail. De volgende keer dat ze zich proberen aan te melden, worden ze gevraagd om hun account aan te melden voor verificatie in twee stappen. Zodra ze verificatie in twee stappen gaan gebruiken, moeten ze ook wachtwoorden instellen voor toepassingen om te voorkomen dat niet-browsertoepassingen worden geblokkeerd.
 
 ## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>PowerShell gebruiken om het inschakelen van verificatie in twee stappen te automatiseren
-Als u de [status](multi-factor-authentication-whats-next.md) met [Azure AD PowerShell](/powershell/azureps-cmdlets-docs) wilt wijzigen, kunt u het volgende doen.  U kunt `$st.State` wijzigen zodat deze overeenkomt met een van de volgende statussen:
+Als u de [status](multi-factor-authentication-whats-next.md) met [Azure AD PowerShell](/powershell/azure/overview) wilt wijzigen, kunt u het volgende doen.  U kunt `$st.State` wijzigen zodat deze overeenkomt met een van de volgende statussen:
 
 * Ingeschakeld
 * Afgedwongen

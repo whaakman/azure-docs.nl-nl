@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 9ed3e60679a0c637c99f8019119289c71be81f83
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9d523044f5107eea9dfbba17564cc15ec05076c5
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -55,7 +55,7 @@ Uw toepassingen en services kunnen direct REST-API-aanroepen verstrekken of een 
 
 De functionaliteit die door de ontwikkeling-API's wordt geboden, is ook beschikbaar via de volgende opdrachtregelprogramma's: 
 
-* [PowerShell-cmdlets voor Batch][batch_ps]: met de Azure Batch-cmdlets in de [Azure PowerShell](/powershell/azureps-cmdlets-docs)-module kunt u Batch-resources beheren met PowerShell.
+* [PowerShell-cmdlets voor Batch][batch_ps]: met de Azure Batch-cmdlets in de [Azure PowerShell](/powershell/azure/overview)-module kunt u Batch-resources beheren met PowerShell.
 * [Azure CLI](/cli/azure/overview): de Azure Command-Line Interface (Azure CLI) is een platformoverschrijdende hulpmiddelenset die shellopdrachten biedt voor interactie met vele Azure-services, waaronder Batch.
 
 ## <a name="batch-resource-management"></a>Batch-resourcebeheer

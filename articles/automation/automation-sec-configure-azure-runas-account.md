@@ -19,9 +19,9 @@ ROBOTS: NOINDEX
 redirect_url: /azure/automation/automation-offering-get-started
 redirect_document_id: TRUE
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: fbca3d195290551d37606e231b997a40a602351f
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 90570886b3a1ae0c48683691cb438b5a61195d76
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -245,7 +245,7 @@ In de volgende gevallen kunt u PowerShell gebruiken om uw bestaande Automation-a
 Het script heeft de volgende vereisten:
 
 * Het script kan alleen worden uitgevoerd op Windows 10 en Windows Server 2016 met Azure Resource Manager-modules 2.01 en hoger. Uitvoeren wordt niet ondersteund in eerdere versies van Windows.
-* Azure PowerShell 1.0 en hoger. Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor meer informatie over de PowerShell 1.0-release.
+* Azure PowerShell 1.0 en hoger. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie over de PowerShell 1.0-release.
 * Een Automation-account waarnaar wordt verwezen als de waarde voor de parameter *– AutomationAccountName* en *- ApplicationDisplayName* in het volgende PowerShell-script.
 
 Ga als volgt te werk om de waarden op te halen voor *SubscriptionID*, *ResourceGroup* en *AutomationAccountName*, die vereiste parameters zijn voor de scripts:
@@ -515,7 +515,7 @@ U kunt de volgende bijgewerkte voorbeeldcode, die is overgenomen uit het voorbee
          }
     }
 
-Om u te helpen eenvoudig tussen meerdere abonnementen te schakelen, bevat het script twee extra regels met code voor de ondersteuning van verwijzingen naar de context van een abonnement. Een variabele asset met de naam *SubscriptionId* bevat de id van het abonnement. Na de cmdlet-instructie `Add-AzureRmAccount` wordt de cmdlet [ `Set-AzureRmContext` ](https://msdn.microsoft.com/library/mt619263.aspx) vermeld met de parameter *-SubscriptionId*. Als de naam van de variabele te algemeen is, kunt u deze wijzigen door er een voorvoegsel aan toe te voegen of door er een andere naamgevingsconventie op toe te passen, zodat u de variabele gemakkelijker kunt identificeren. U kunt ook de parameter *-SubscriptionName* in plaats van *-SubscriptionId* gebruiken met een bijbehorende variabele asset.
+Om u te helpen eenvoudig tussen meerdere abonnementen te schakelen, bevat het script twee extra regels met code voor de ondersteuning van verwijzingen naar de context van een abonnement. Een variabele asset met de naam *SubscriptionId* bevat de id van het abonnement. Na de cmdlet-instructie `Add-AzureRmAccount` wordt de cmdlet [ `Set-AzureRmContext` ](/powershell/module/azurerm.profile/set-azurermcontext) vermeld met de parameter *-SubscriptionId*. Als de naam van de variabele te algemeen is, kunt u deze wijzigen door er een voorvoegsel aan toe te voegen of door er een andere naamgevingsconventie op toe te passen, zodat u de variabele gemakkelijker kunt identificeren. U kunt ook de parameter *-SubscriptionName* in plaats van *-SubscriptionId* gebruiken met een bijbehorende variabele asset.
 
 De cmdlet die u gebruikt voor verificatie in het runbook, `Add-AzureRmAccount`, gebruikt de parameterset *ServicePrincipalCertificate*. In plaats van gebruikersreferenties wordt voor verificatie het certificaat van de service-principal gebruikt.
 

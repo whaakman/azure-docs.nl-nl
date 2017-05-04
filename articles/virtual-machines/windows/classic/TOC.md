@@ -9,7 +9,7 @@
 # Aan de slag
 ## [Een virtuele machine maken via de portal](tutorial.md)
 ## [Aanmelden bij een VM](connect-logon.md)
-## [Azure PowerShell installeren](/powershell/azureps-cmdlets-docs)
+## [Azure PowerShell installeren](/powershell/azure/overview)
 ## [Azure CLI installeren](../../../cli-install-nodejs.md)
 
 # Procedures
@@ -88,7 +88,7 @@
 ## [RDP-wachtwoord opnieuw instellen](reset-rdp.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure-CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)

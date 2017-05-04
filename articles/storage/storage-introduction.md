@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 44f40aebe8418b0cfcf2c2708469d586d1dd4c4c
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: eec53d5dea1255572d515f1ab2796da681579d19
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -32,7 +32,9 @@ Azure Storage is de oplossing voor opslag in de cloud voor moderne toepassingen 
 * Hoe worden uw Azure Storage-gegevens duurzaam gemaakt aan de hand van redundantie en replicatie?
 * Waar bouwt u uw eerste Azure Storage-toepassing?
 
-Zie [Binnen vijf minuten aan de slag met Azure Storage](storage-getting-started-guide.md) als u Azure Storage snel gebruiksklaar wilt hebben.
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!-- To get up and running with Azure Storage quickly, see [Get started with Azure Storage in five minutes](storage-getting-started-guide.md). -->
 
 Zie [Volgende stappen](#next-steps) hieronder voor meer informatie over de hulpprogramma's, bibliotheken en andere bronnen voor het gebruik van Azure Storage.
 
@@ -185,12 +187,12 @@ Azure Storage-resources zijn toegankelijk voor elke taal waarvoor HTTP/HTTPS-aan
 * [Opslagclientbibliotheek voor PHP](https://azure.microsoft.com/develop/php/)
 * [Opslagclientbibliotheek voor Ruby](https://azure.microsoft.com/develop/ruby/)
 * [Opslagclientbibliotheek voor Python](https://azure.microsoft.com/develop/python/)
-* [Opslag-cmdlets voor PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
+* [Opslag-cmdlets voor PowerShell 1.0](/powershell/module/azurerm.storage/#storage)
 
 ### <a name="azure-storage-management-services"></a>Azure Storage-beheerservices
 * [REST API-verwijzing van opslagresourceprovider](/rest/api/storagerp/)
 * [Clientbibliotheek van opslagresourceprovider voor .NET](/dotnet/api/microsoft.azure.management.storage)
-* [Cdmlets van opslagresourceprovider voor PowerShell 1.0](/powershell/storage/)
+* [Cdmlets van opslagresourceprovider voor PowerShell 1.0](/powershell/module/azure.storage)
 * [REST API van opslagservicebeheer (klassiek)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-services"></a>Azure Storage-services voor gegevensverplaatsing
@@ -202,7 +204,7 @@ Azure Storage-resources zijn toegankelijk voor elke taal waarvoor HTTP/HTTPS-aan
 * [Azure Storage-clienthulpprogramma’s](storage-explorers.md)
 * [Azure-SDK's en -hulpprogramma's](https://azure.microsoft.com/tools/)
 * [Azure-opslagemulator](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [AzCopy-opdrachtregelprogramma](http://aka.ms/downloadazcopy)
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -211,7 +213,11 @@ Zie de volgende bronnen voor meer informatie over Azure Storage:
 ### <a name="documentation"></a>Documentatie
 * [Documentatie bij Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Een opslagaccount maken](storage-create-storage-account.md)
-* [Binnen vijf minuten aan de slag met Azure Storage](storage-getting-started-guide.md)
+
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
+-->
 
 ### <a name="for-administrators"></a>Voor beheerders
 * [Azure PowerShell gebruiken met Azure Storage](storage-powershell-guide-full.md)

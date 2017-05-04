@@ -6,7 +6,7 @@ documentationcenter: na
 author: cherylmc
 manager: timlt
 editor: 
-tags: azure-resource-manager
+tags: azure-service-management
 ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: fd7c834e8e061ba51b116ade88769dde05abcf9a
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: e5dcf957ea88175be02bce21929c43151417d0e3
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -48,7 +48,7 @@ Controleer voordat u met de configuratie begint, of aan de volgende criteria is 
 * Een compatibel VPN-apparaat en iemand die dit kan configureren. Zie [Over VPN-apparaten](vpn-gateway-about-vpn-devices.md) voor meer informatie over compatibele VPN-apparaten en -apparaatconfiguratie.
 * Een extern gericht openbaar IPv4-adres voor het VPN-apparaat. Dit IP-adres kan zich niet achter een NAT bevinden.
 * Als u de IP-adresbereiken in uw on-premises netwerkconfiguratie niet kent, moet u contact opnemen met iemand die u hierbij kan helpen en de benodigde gegevens kan verstrekken. Wanneer u deze configuratie maakt, moet u de IP-adresbereikvoorvoegsels opgeven die Azure naar uw on-premises locatie doorstuurt. Geen van de subnetten van uw on-premises netwerk kan overlappen met de virtuele subnetten waarmee u verbinding wilt maken.
-* Momenteel is het in PowerShell vereist dat de gedeelde sleutel wordt opgegeven en de VPN-gatewayverbinding wordt gemaakt. Installeer de nieuwste versie van de Azure SM (Service Management) PowerShell-cmdlets. Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor meer informatie. Als u werkt met PowerShell voor deze configuratie, zorg er dan voor dat u de bewerkingen uitvoert als beheerder. 
+* Momenteel is het in PowerShell vereist dat de gedeelde sleutel wordt opgegeven en de VPN-gatewayverbinding wordt gemaakt. Installeer de nieuwste versie van de Azure SM (Service Management) PowerShell-cmdlets. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie. Als u werkt met PowerShell voor deze configuratie, zorg er dan voor dat u de bewerkingen uitvoert als beheerder. 
 
 ### <a name="values"></a>Voorbeeld van configuratiewaarden voor deze oefening
 

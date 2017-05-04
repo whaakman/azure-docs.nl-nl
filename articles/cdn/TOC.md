@@ -45,7 +45,7 @@
 ### [Bestandscompressie](cdn-troubleshoot-compression.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn)
+## [PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)
@@ -61,8 +61,3 @@
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 51e4665b6372859021237144a0bf7f6763a2638b
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: b7b5f92c0093faa96a367fc95d459b1babd99789
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -64,7 +64,7 @@ Hier vindt u de instructies voor het wijzigen van het wachtwoord die u moet door
 Een paar minuten nadat u uw wachtwoord hebt gewijzigd, kunt u het nieuwe wachtwoord gebruiken in Azure Active Directory Domain Services. Na ongeveer 20 minuten kunt u zich met uw gewijzigde wachtwoord aanmelden bij computers die zijn gekoppeld aan het beheerde domein.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Uw eigen wachtwoord bijwerken](../active-directory/active-directory-passwords-update-your-own-password.md#reset-my-password)
+* [Uw eigen wachtwoord bijwerken](../active-directory/active-directory-passwords-update-your-own-password.md)
 * [Aan de slag met wachtwoordbeheer in Azure AD](../active-directory/active-directory-passwords-getting-started.md)
 * [Wachtwoordsynchronisatie met Azure Active Directory Domain Services inschakelen voor een gesynchroniseerde Azure AD-tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Een beheerd domein van Azure Active Directory Domain Services beheren](active-directory-ds-admin-guide-administer-domain.md)

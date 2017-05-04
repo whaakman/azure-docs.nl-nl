@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 04/11/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 5e32f1e534057b5e8e0ed6d5c0a4631f9fefbca5
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a96150a6a7f83d1c220e0450f7704634a1f6ed1b
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -50,12 +50,12 @@ Als u het ontwikkelingscluster met drie knooppunten wilt maken, voert u het scri
 Het Service Fabric-runtimepakket wordt automatisch gedownload en geïnstalleerd op het moment dat het cluster wordt gemaakt.
 
 ## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
-Het ontwikkelingscluster met drie knooppunten wordt nu uitgevoerd. De Service Fabric PowerShell-module wordt met de runtime geïnstalleerd.  Vanaf dezelfde computer of vanaf een externe computer met de Service Fabric-runtime kunt u controleren of het cluster wordt uitgevoerd.  De cmdlet [Connect-ServiceFabricCluster](/powershell/module/ServiceFabric/Connect-ServiceFabricCluster) brengt een verbinding met het cluster tot stand.   
+Het ontwikkelingscluster met drie knooppunten wordt nu uitgevoerd. De Service Fabric PowerShell-module wordt met de runtime geïnstalleerd.  Vanaf dezelfde computer of vanaf een externe computer met de Service Fabric-runtime kunt u controleren of het cluster wordt uitgevoerd.  De cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) brengt een verbinding met het cluster tot stand.   
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint localhost:19000
 ```
-Zie [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) (Verbinding maken met een beveiligd cluster) voor meer voorbeelden van clusterverbindingen. Nadat u verbinding hebt gemaakt met het cluster, gebruikt u de cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) om een lijst weer te geven van de knooppunten in het cluster, evenals statusinformatie voor elk knooppunt. **HealthState** moet *OK* zijn voor elk knooppunt.
+Zie [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) (Verbinding maken met een beveiligd cluster) voor meer voorbeelden van clusterverbindingen. Nadat u verbinding hebt gemaakt met het cluster, gebruikt u de cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) om een lijst weer te geven van de knooppunten in het cluster, evenals statusinformatie voor elk knooppunt. **HealthState** moet *OK* zijn voor elk knooppunt.
 
 ```powershell
 PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> Get-ServiceFabricNode |Format-Table
@@ -95,3 +95,4 @@ Nu u een zelfstandig ontwikkelingscluster hebt ingesteld, kunt u de volgende art
 * [Apps implementeren met behulp van Powershell](service-fabric-deploy-remove-applications.md)
 
 [service-fabric-explorer]: ./media/service-fabric-get-started-standalone-cluster/sfx.png
+

@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 38e8320c09c5aa870018081a29911611f09a3e3a
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 31cdfdcb5c0e5a1c467b871dca72a8a1da58a00e
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -41,7 +41,7 @@ In dit artikel gebruikt u een Azure Resource Manager-sjabloon om uw eerste Azure
 
 ## <a name="prerequisites"></a>Vereisten
 * Lees het artikel [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) en voer de **vereiste** stappen uit.
-* Volg de instructies in [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) om de meest recente versie van Azure PowerShell te installeren op uw computer.
+* Volg de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/overview) om de meest recente versie van Azure PowerShell te installeren op uw computer.
 * Zie [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md) (Azure Resource Manager-sjablonen samenstellen) voor meer informatie over Azure Resource Manager-sjablonen. 
 
 ## <a name="in-this-tutorial"></a>In deze zelfstudie

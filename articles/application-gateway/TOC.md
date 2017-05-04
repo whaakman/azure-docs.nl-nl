@@ -46,7 +46,7 @@
 ### [Fouten in Application Gateway oplossen](application-gateway-troubleshooting-502.md)
 ### [Diagnostische logboeken en metrische gegevens](application-gateway-diagnostics.md)
 # Naslaginformatie
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI 2.0](/cli/azure/network/application-gateway)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/com.microsoft.azure.management.network)

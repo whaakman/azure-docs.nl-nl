@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: b0ccde30b93214b161558daf8e2b4e37e58711da
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d340210d799f995cb10a20cf48a9245bbd3bc8d3
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -68,7 +68,7 @@ Voor deze configuratie gebruikt u de volgende waarden. De variabelen worden inge
 
 ## <a name="before-beginning"></a>Voordat u begint
 * Controleer of u een Azure-abonnement hebt. Als u nog geen Azure-abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) of [u aanmelden voor een gratis account](https://azure.microsoft.com/pricing/free-trial).
-* Installeer de meest recente versie van de PowerShell-cmdlets van Azure Resource Manager. Zie [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van de PowerShell-cmdlets. 
+* Installeer de meest recente versie van de PowerShell-cmdlets van Azure Resource Manager. Zie [How to install and configure Azure PowerShell](/powershell/azure/overview) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van de PowerShell-cmdlets. 
 
 ## <a name="declare"></a>Deel 1: Aanmelden en variabelen instellen
 In deze sectie meldt u zich aan en declareert u de waarden die voor deze configuratie worden gebruikt. De opgegeven waarden worden in de voorbeeldscripts gebruikt. Wijzig de waarden zodat ze overeenkomen met uw omgeving. U kunt ook de gedeclareerde waarden gebruiken en de stappen bij wijze van oefening doorlopen.
@@ -284,7 +284,7 @@ Als u problemen hebt met het maken van een verbinding, controleert u het volgend
 
 ## <a name="connectVM"></a>Verbinding maken met een virtuele machine
 
-1. Nadat u verbinding hebt gemaakt met uw VNet, kunt u een verbinding maken met een virtuele machine via de P2S-verbinding. Voor de verbinding met de virtuele machine hebt u het privé-IP-adres van de virtuele machine nodig. In het volgende voorbeeld ziet u hoe u het privé-IP-adres verkrijgt met [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface?view=azurermps-3.7.0). Er wordt een lijst van virtuele machines geretourneerd met de bijbehorende privé-IP-adressen in al uw resourcegroepen. 
+1. Nadat u verbinding hebt gemaakt met uw VNet, kunt u een verbinding maken met een virtuele machine via de P2S-verbinding. Voor de verbinding met de virtuele machine hebt u het privé-IP-adres van de virtuele machine nodig. In het volgende voorbeeld ziet u hoe u het privé-IP-adres verkrijgt met [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface). Er wordt een lijst van virtuele machines geretourneerd met de bijbehorende privé-IP-adressen in al uw resourcegroepen. 
 
   ```powershell   
   $vms = get-azurermvm
@@ -424,3 +424,4 @@ U kunt een clientcertificaat opnieuw activeren door de vingerafdruk te verwijder
 
 ## <a name="next-steps"></a>Volgende stappen
 Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Virtuele machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie. Zie [Azure and Linux VM Network Overview](../virtual-machines/linux/azure-vm-network-overview.md) (Overzicht van Azure- en Linux-VM-netwerken) voor meer informatie over netwerken en virtuele machines.
+

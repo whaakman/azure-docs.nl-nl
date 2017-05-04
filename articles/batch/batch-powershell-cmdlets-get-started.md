@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: cc8942dacee60d6243e91a3b4360c0c07956fa66
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 65c9d6c2b7a7c994a262d463d6a32b41c7e5c33a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,14 +26,14 @@ ms.lasthandoff: 02/28/2017
 
 Met de PowerShell-cmdlets voor Azure Batch kunt u veel dezelfde taken die u uitvoert met de Batch-API's, Azure Portal en de Azure-opdrachtregelinterface (CLI), uitvoeren en er scripts voor uitvoeren. Dit is een korte inleiding in de cmdlets die u kunt gebruiken om uw Batch-accounts te beheren en te werken met uw Batch-resources, zoals pools en taken.
 
-Zie [Naslaginformatie over Azure Batch-cmdlets](https://msdn.microsoft.com/library/azure/mt125957.aspx) voor een volledige lijst met Batch-cmdlets en gedetailleerde cmdlet-syntaxis.
+Zie [Naslaginformatie over Azure Batch-cmdlets](/powershell/module/azurerm.batch/#batch) voor een volledige lijst met Batch-cmdlets en gedetailleerde cmdlet-syntaxis.
 
 Dit artikel is gebaseerd op cmdlets in Azure PowerShell versie 3.0.0. Het wordt aangeraden Azure PowerShell regelmatig bij te werken om te profiteren van service-updates en verbeteringen.
 
 ## <a name="prerequisites"></a>Vereisten
 Voer de volgende bewerkingen uit als u Azure PowerShell wilt gebruiken voor het beheer van de Batch-resources.
 
-* [Azure PowerShell installeren en configureren ](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell installeren en configureren ](/powershell/azure/overview)
 * Voer de cmdlet **Login-AzureRmAccount** uit om verbinding te maken met uw abonnement (de Azure Batch-cmdlets zijn meegeleverd in de Azure Resource Manager-module):
   
     `Login-AzureRmAccount`
@@ -43,7 +43,7 @@ Voer de volgende bewerkingen uit als u Azure PowerShell wilt gebruiken voor het 
 
 ## <a name="manage-batch-accounts-and-keys"></a>Batch-accounts en -sleutels beheren
 ### <a name="create-a-batch-account"></a>Batch-account maken
-Met **New-AzureRmBatchAccount** wordt een Batch-account in een opgegeven resourcegroep gemaakt. Als u nog geen resourcegroep hebt, maakt u er een door de cmdlet [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx) uit te voeren. Geef een van de Azure-gebieden op in de parameter **locatie**, bijvoorbeeld 'VS - midden'. Bijvoorbeeld:
+Met **New-AzureRmBatchAccount** wordt een Batch-account in een opgegeven resourcegroep gemaakt. Als u nog geen resourcegroep hebt, maakt u er een door de cmdlet [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) uit te voeren. Geef een van de Azure-gebieden op in de parameter **locatie**, bijvoorbeeld 'VS - midden'. Bijvoorbeeld:
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
@@ -237,7 +237,7 @@ Nu hebt u de eigenschappen van de adresgroep bijgewerkt in de Batch-service. Voo
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [Naslaginformatie over Azure Batch-cmdlets](https://msdn.microsoft.com/library/azure/mt125957.aspx) voor gedetailleerde cmdlet-syntaxis en voorbeelden.
+* Zie [Naslaginformatie over Azure Batch-cmdlets](/powershell/module/azurerm.batch/#batch) voor gedetailleerde cmdlet-syntaxis en voorbeelden.
 * Zie [Application deployment with Azure Batch application packages](batch-application-packages.md) (Toepassingsimplementatie met Azure Batch-toepassingspakketten) voor meer informatie over toepassingen en toepassingspakketten in Batch.
 
 
