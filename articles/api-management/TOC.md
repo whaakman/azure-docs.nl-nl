@@ -47,7 +47,7 @@
 ### [Controleren met behulp van Azure Monitor](api-management-howto-use-azure-monitor.md)
 ### [Op rollen gebaseerd toegangsbeheer gebruiken](api-management-role-based-access-control.md)
 # Naslaginformatie
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (oorspronkelijk)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [Beleidsregels](api-management-policies.md)

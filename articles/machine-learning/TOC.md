@@ -173,7 +173,7 @@
 
 # Naslaginformatie
 
-## [PowerShell-module (nieuw)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
+## [PowerShell-module (nieuw)](/powershell/module/azurerm.machinelearning)
 ## [PowerShell-module (klassiek)](machine-learning-powershell-module.md)
 ## [Naslaginformatie over algoritmen en modules](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [Naslaginformatie over de REST-API](/rest/api/machinelearning)

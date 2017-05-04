@@ -6,7 +6,7 @@
     href: app-service-web-overview.md
   - name: "Hostingopties vergelijken"
     href: choose-web-site-cloud-service-vm.md
-- name: "Snelstartgids"
+- name: "Snelstartgidsen"
   expanded: true
   items:
   - name: "Een .NET-app maken"

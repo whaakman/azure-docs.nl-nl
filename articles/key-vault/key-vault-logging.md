@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 51732acdad74dd6dbfc47fae62efc87df6ce5c15
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 924fce8245a88fd7c12636182336e503237fe4dc
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -35,11 +35,11 @@ U kunt uw logboekgegevens maximaal tien minuten nadat de sleutelkluisbewerking i
 Deze zelfstudie helpt u op weg met de logboekregistratie van Azure Sleutelkluis, het maken van uw opslagaccount, het inschakelen van logboekregistratie en het interpreteren van de logboekgegevens die worden verzameld.  
 
 > [!NOTE]
-> Deze zelfstudie bevat geen instructies voor het maken van sleutelkluizen, sleutels of geheimen. Zie [Aan de slag met Azure Key Vault](key-vault-get-started.md) voor meer informatie. Zie [deze equivalente zelfstudie](key-vault-manage-with-cli.md) voor instructies voor het maken van een platformonafhankelijke opdrachtregelinterface.
-> 
+> Deze zelfstudie bevat geen instructies voor het maken van sleutelkluizen, sleutels of geheimen. Zie [Aan de slag met Azure Key Vault](key-vault-get-started.md) voor meer informatie. Zie [deze equivalente zelfstudie](key-vault-manage-with-cli2.md) voor instructies voor het maken van een platformonafhankelijke opdrachtregelinterface.
+>
 > Het is momenteel niet mogelijk om Azure Sleutelkluis in de Azure-portal te configureren. Gebruik in plaats daarvan deze instructies voor Azure PowerShell.
-> 
-> 
+>
+>
 
 Zie [Wat is Azure Key Vault?](key-vault-whatis.md) voor algemene informatie over Azure Key Vault.
 
@@ -47,7 +47,7 @@ Zie [Wat is Azure Key Vault?](key-vault-whatis.md) voor algemene informatie over
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Een bestaande sleutelkluis die u hebt gebruikt.  
-* Azure PowerShell, **versie 1.0.1 of hoger**. Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) om Azure PowerShell te installeren en te koppelen aan uw Azure-abonnement. Als u Azure PowerShell al hebt geïnstalleerd, maar niet weet welke versie u hebt, typt u `(Get-Module azure -ListAvailable).Version` in de Azure PowerShell-console.  
+* Azure PowerShell, **versie 1.0.1 of hoger**. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) om Azure PowerShell te installeren en te koppelen aan uw Azure-abonnement. Als u Azure PowerShell al hebt geïnstalleerd, maar niet weet welke versie u hebt, typt u `(Get-Module azure -ListAvailable).Version` in de Azure PowerShell-console.  
 * Voldoende opslagruimte op Azure voor uw Sleutelkluis-logboeken.
 
 ## <a id="connect"></a>Verbinding maken met uw abonnementen
@@ -66,11 +66,11 @@ Geef vervolgens op welk abonnement is gekoppeld aan de sleutelkluis waarvoor u l
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
 > [!NOTE]
-> Dit is een belangrijke stap, die met name handig is als er meerdere abonnementen zijn gekoppeld aan uw account. Mogelijk wordt er een fout weergegeven voor het registreren van Microsoft.Insights als deze stap wordt overgeslagen. 
+> Dit is een belangrijke stap, die met name handig is als er meerdere abonnementen zijn gekoppeld aan uw account. Mogelijk wordt er een fout weergegeven voor het registreren van Microsoft.Insights als deze stap wordt overgeslagen.
 >   
 >
 
-Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor meer informatie over het configureren van Azure PowerShell.
+Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie over het configureren van Azure PowerShell.
 
 ## <a id="storage"></a>Een nieuw opslagaccount voor uw logboeken maken
 Hoewel u een bestaand opslagaccount voor uw logboeken kunt gebruiken, maken we hier een nieuw opslagaccount, speciaal voor Sleutelkluis-logboeken. Voor het gemak slaan we de details op in een variabele met de naam **sa**. Deze moeten we later namelijk opgeven.
@@ -82,8 +82,8 @@ En om het ons nog gemakkelijker te maken, gebruiken we de resourcegroep die de s
 
 > [!NOTE]
 > Als u een bestaand opslagaccount gebruikt, moet hiervoor hetzelfde abonnement worden gebruikt als voor uw sleutelkluis. Ook moet het opslagaccount gebruikmaken van het Resource Manager-implementatiemodel, niet van het klassieke implementatiemodel.
-> 
-> 
+>
+>
 
 ## <a id="identify"></a>De sleutelkluis voor uw logboeken identificeren
 In de zelfstudie Aan de slag is de naam van de sleutelkluis **ContosoKeyVault**. We gaan deze naam ook hier gebruiken en de details in een variabele met de naam **kv** opslaan:
@@ -168,13 +168,13 @@ Wanneer u deze tweede opdracht uitvoert maakt het **/** scheidingsteken in de bl
 Als u alleen specifieke blobs wilt downloaden, moet u jokertekens gebruiken. Bijvoorbeeld:
 
 * Als u meerdere sleutelkluizen hebt en het logboek voor slechts één sleutelkluis wilt downloaden met de naam CONTOSOKEYVAULT3:
-  
+
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
 * Als u meerdere resourcegroepen hebt en logboeken voor slechts één resourcegroep wilt downloaden, gebruikt u `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
-  
+
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
 * Als u alle logboeken voor de maand januari 2016 wilt, gebruikt u `-Blob '*/year=2016/m=01/*'`:
-  
+
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
 
 We gaan zo kijken wat er precies in de logboeken staat. Maar eerst behandelen we nog twee parameters voor Get-AzureRmDiagnosticSetting die handig kunnen zijn:
@@ -272,8 +272,7 @@ Zie [Azure Key Vault in een webtoepassing gebruiken](key-vault-use-from-web-appl
 
 Zie de [Ontwikkelaarshandleiding voor Azure Key Vault](key-vault-developers-guide.md) voor het programmeren van verwijzingen.
 
-Zie [Cmdlets voor Azure Sleutelkluis](https://msdn.microsoft.com/library/azure/dn868052.aspx) voor een lijst met Azure PowerShell 1.0- cmdlets voor Azure Sleutelkluis.
+Zie [Cmdlets voor Azure Sleutelkluis](/powershell/module/azurerm.keyvault/#key_vault) voor een lijst met Azure PowerShell 1.0- cmdlets voor Azure Sleutelkluis.
 
 Zie [How to setup Key Vault with end to end key rotation and auditing](key-vault-key-rotation-log-monitoring.md) (Sleutelkluis instellen met end-to-endsleutelrotatie en -controle) voor een zelfstudie over sleutelrotatie en logboekcontrole met Azure Sleutelkluis.
-
 

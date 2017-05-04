@@ -1,11 +1,7 @@
-Azure Data Lake Store is een ondernemingsbrede opslagplaats op hyperschaal voor analytische workloads van big data. Met Data Lake Store kunt u gegevens van elke grootte, elk type en elke opnamesnelheid op één enkele locatie vastleggen voor operationele en experimentele analyses. Er is geen limiet voor de hoeveelheid gegevens die u in een Data Lake Store-account kunt opslaan.
+Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Data Lake Store enables you to capture data of any size, type, and ingestion speed in one single place for operational and exploratory analytics. There is no limit to the amount of data you can store in a Data Lake Store account.
 
-| **Resource** | **Standaardlimiet** | **Opmerkingen** |
+| **Resource** | **Default Limit** | **Comments** |
 | --- | --- | --- |
-| Maximumaantal Data Lake Store-accounts per abonnement per regio |10 | Contact opnemen met Ondersteuning om een verhoging van deze limiet aan te vragen |
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+| Max number of Data Lake Store accounts, per subscription, per region |10 | Contact Support to request an increase for this limit |
+| Max number of access ACLs, per file or folder |32 | This is a hard limit. Use groups to manage access with fewer entries |
+| Max number of default ACLs, per file or folder |32 | This is a hard limit. Use groups to manage access with fewer entries |

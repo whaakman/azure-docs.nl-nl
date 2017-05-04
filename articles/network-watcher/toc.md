@@ -54,7 +54,7 @@
 ## [Indringers detecteren met open-sourcehulpprogramma's](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Application Gateway-logboeken in Azure Log Analytics analyseren](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 # Naslaginformatie
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [PowerShell](/powershell/azure/overview)
 ## [.NET](/dotnet/api)
 ## [REST](/rest/api/networkwatcher/)
 # Verwant

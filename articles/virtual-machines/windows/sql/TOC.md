@@ -36,7 +36,7 @@
 ## [Toepassingspatronen](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/resourcemanager)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [SQL Server-stuurprogramma's](https://msdn.microsoft.com/library/mt654049.aspx)

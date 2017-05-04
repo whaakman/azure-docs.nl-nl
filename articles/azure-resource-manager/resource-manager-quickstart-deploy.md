@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/16/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 41d9476d4ce6b7afc2ba9c757e96db7e8e72d5ae
-ms.openlocfilehash: a77354d0719240e5916b5ec945dad75e534802d3
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 3b3162c335be43c9bf2a3d1c14b86cdd9b5d46b9
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -42,7 +43,7 @@ De volgende secties tonen hoe u deze stappen uitvoert met [PowerShell](#powershe
 
 ## <a name="powershell"></a>PowerShell
 
-1. Zie [Get started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs) (Aan de slag met Azure PowerShell-cmdlets) om Azure PowerShell te installeren.
+1. Zie [Get started with Azure PowerShell cmdlets](/powershell/azure/overview) (Aan de slag met Azure PowerShell-cmdlets) om Azure PowerShell te installeren.
 
 2. Gebruik de volgende cmdlets om snel aan de slag te gaan met implementeren:
 
@@ -186,10 +187,5 @@ Gebruik de volgende voorbeeldsjabloon voor het implementeren van een opslagaccou
 * Zie [Resources implementeren met Resource Manager-sjablonen en Azure CLI](/azure/azure-resource-manager/resource-group-template-deploy-cli) voor meer informatie over hoe u Azure CLI gebruikt voor het implementeren van sjablonen.
 
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

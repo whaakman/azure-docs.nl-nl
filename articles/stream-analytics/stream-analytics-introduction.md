@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
-ms.openlocfilehash: 493a915fb4e3de4cb70324b22beeaae6720a3492
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: a6b1df79f4fc6b09b681755f5adbb7f56faaf225
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -42,7 +42,7 @@ Dagelijks worden enorme hoeveelheden gegevens met hoge snelheid via de kabel get
 * **Connectiviteit:** Stream Analytics maakt rechtstreeks verbinding met Azure Event Hubs en Azure IoT Hubs voor opname van streams, en met de Azure Blob-service voor opname van historische gegevens. Resultaten kunnen vanuit Stream Analytics worden geschreven naar Azure Storage Blobs of Tables, Azure SQL DB, Azure Data Lake Stores, DocumentDB, Event Hubs, Azure Service Bus Topics, of Queues. Ze kunnen ook worden geschreven naar Power BI, waar ze verder kunnen worden verwerkt door werkstromen die via [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) in batchanalyses worden gebruikt of opnieuw als een reeks gebeurtenissen worden verwerkt. Wanneer Event Hubs wordt gebruikt, kunnen meerdere Stream Analytics met andere gegevensbronnen en verwerkingsengines worden gecombineerd zonder het streaming-karakter van de berekeningen te verliezen.  
 
 ## <a name="get-help"></a>Help opvragen
-Voor verdere hulp kunt u mogelijk terecht op het [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Voor verdere hulp kunt u mogelijk terecht op het [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Volgende stappen
 U hebt kennisgemaakt met Stream Analytics, een beheerde service voor streaminganalyse van gegevens afkomstig van het Internet of Things. Raadpleeg de volgende onderwerpen voor meer informatie over deze service:

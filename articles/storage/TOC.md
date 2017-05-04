@@ -4,7 +4,6 @@
 
 # Aan de slag
 
-## [Aan de slag](storage-getting-started-guide.md)
 ## [Een opslagaccount maken](storage-create-storage-account.md)
 
 ## Blob Storage
@@ -166,7 +165,7 @@
 #### [Een back-up maken van stationsmanifesten](storage-import-export-backing-up-drive-manifests.md)
 #### [Diagnoses en het herstel van fouten voor Import/Export-taken](storage-import-export-diagnostics-and-error-recovery.md)
 # Naslaginformatie
-## [PowerShell](/powershell/storage)
+## [PowerShell](/powershell/module/azure.storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
 ### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
@@ -180,7 +179,7 @@
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Blobs, wachtrijen, tabellen en bestanden](/rest/api/storageservices/azure-storage-services-rest-api-reference)
+### [Blobs, wachtrijen, tabellen en bestanden](/rest/api/storageservices)
 ### [Resourceprovider](/rest/api/storagerp)
 ### [Import/export](/rest/api/storageimportexport)
 
