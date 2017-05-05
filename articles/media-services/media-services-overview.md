@@ -74,7 +74,7 @@ Zie [Concepten](media-services-concepts.md) voor Azure Media Services-concepten.
 
 Zie [Stapsgewijze zelfstudies voor Azure Media Services](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series) voor een reeks procedures waarin u kennis kunt maken met de belangrijkste onderdelen van Azure Media Services. Deze reeks biedt een goed overzicht van de concepten en maakt gebruik van het AMSE-hulpprogramma om AMS-taken te demonstreren. Het AMSE-hulpprogramma is een Windows-hulpprogramma. Dit hulpprogramma ondersteunt de meeste taken die u programmatisch kunt uitvoeren met [AMS SDK voor .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK voor Java](https://github.com/Azure/azure-sdk-for-java) of [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
-## <a name="a-idvodscenariosadelivering-media-on-demand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>On-demand media leveren met Azure Media Services: algemene scenario's en taken
+## <a id="vod_scenarios"></a>On-demand media leveren met Azure Media Services: algemene scenario's en taken
 In deze sectie worden algemene scenario's beschreven en vindt u koppelingen naar relevante onderwerpen. Het volgende diagram toont u de belangrijkste onderdelen van het Media Services-platform die zijn betrokken bij de on-demand levering van inhoud.
 
 ![VoD-werkstroom](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
@@ -126,7 +126,7 @@ Media Analytics is een verzameling spraakonderdelen en visuele onderdelen waarme
     Als SAS-locator wordt gebruikt, wordt de inhoud gedownload vanaf Azure Blob Storage. In dit geval hebt u geen gereserveerde streaming-eindpunten in de status Gestart nodig.
 4. Download de inhoud op progressieve wijze.
 
-## <a name="a-idlivescenariosadelivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Live Streaming-gebeurtenissen met Azure Media Services leveren
+## <a id="live_scenarios"></a>Live Streaming-gebeurtenissen met Azure Media Services leveren
 Wanneer u met Live Streaming werkt, maakt u doorgaans gebruik van de volgende onderdelen:
 
 * Een camera die wordt gebruikt voor het uitzenden van een gebeurtenis.
@@ -182,7 +182,7 @@ Media Services ondersteunt de integratie met Azure CDN. Zie [Streaming-eindpunte
 
 ## <a name="scaling-a-media-services-account"></a>Een Media Services-account schalen
 
-U kunt **Media Services** schalen door het aantal **gereserveerde streaming-eenheden** en **gereserveerde coderingseenheden ** op te geven waarmee u uw account wilt inrichten.
+U kunt **Media Services** schalen door het aantal **gereserveerde streaming-eenheden** en **gereserveerde coderingseenheden** op te geven waarmee u uw account wilt inrichten.
 
 U kunt uw Media Services-account schalen door opslagaccounts toe te voegen. Elk opslagaccount is beperkt tot 500 TB. Als u uw opslag wilt uitbreiden buiten de standaardbeperkingen, kunt u meerdere opslagaccounts aan een enkel Media Services-account koppelen.
 Klanten van Media Services kiezen ofwel een **Standard**-streaming-eindpunt of een of meer Premium-**streaming**-eindpunten, afhankelijk van hun behoeften. Standard-streaming-eindpunten zijn geschikt voor de meeste streaming-workloads. Ze bevatten de dezelfde functies als Premium-streaming-eenheden.
