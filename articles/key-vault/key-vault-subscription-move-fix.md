@@ -30,15 +30,11 @@ Wanneer u een nieuwe Key Vault maakt in een abonnement, is het automatisch gekop
 
 Als u bijvoorbeeld Key Vault 'mijnvault' hebt in een abonnement dat is verplaatst van tenant A naar B, kunt u de tenant-ID voor deze Key Vault als volgt wijzigen en het oude toegangsbeleid verwijderen.
 
-<pre>
-$vaultResourceId = (Get-AzureRmKeyVault -VaultName "mijnvault").ResourceId
-$vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties
-$vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId
-$vault.Properties.AccessPolicies = @()
-Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
-</pre>
+-<pre>
+-$vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId $vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties $vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId $vault.Properties.AccessPolicies = @() Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
+-</pre>
 
-Omdat deze Vault zich in tenant A bevond voor de wijziging, is de oorspronkelijke waarde van **$vault.Properties.TenantId** tenant A en is **(Get-AzureRmContext).Tenant.TenantId** tenant B.
+Omdat deze Vault zich in tenant A bevond voor de wijziging, is de oorspronkelijke waarde van **$vault. Properties.TenantId** tenant A en is **(Get-AzureRmContext). Tenant.TenantId** tenant B.
 
 Nu uw Vault is gekoppeld aan de juiste tenant-ID en de oude vermeldingen van het toegangsbeleid zijn verwijderd, kunt u nieuwe vermeldingen van het toegangsbeleid instellen met [Set AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt603625.aspx).
 
