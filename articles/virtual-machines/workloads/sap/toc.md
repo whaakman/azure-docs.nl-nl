@@ -8,19 +8,19 @@
 ## [Integratie met SAP Netweaver](../../../active-directory/active-directory-saas-sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [Integratie met SAP Business ByDesign](../../../active-directory/active-directory-saas-sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 # SAP-oplossingen op Azure
-## SAP HANA
+## Grote SAP HANA-exemplaren
 ### [Overzicht en architectuur](hana-overview-architecture.md)
 ### [Infrastructuur en connectiviteit](hana-overview-infrastructure-connectivity.md)
 ### [SAP HANA installeren](hana-installation.md)
 ### [Hoge beschikbaarheid en herstel na noodgevallen](hana-overview-high-availability-disaster-recovery.md)
 ### [Probleemoplossing en bewaking](troubleshooting-monitoring.md)
+## SAP HANA op virtuele machines
 ### [Enkel exemplaar van SAP HANA](hana-get-started.md)
 ### [Implementatiehandleiding voor S/4 HANA of BW/4 HANA](cal-s4h.md)
-### Back-up maken
-#### [Overzicht](sap-hana-backup-guide.md)
-#### [Back-up op bestandsniveau](sap-hana-backup-file-level.md)
-#### [Momentopnamen van opslag](sap-hana-backup-storage-snapshots.md)
-
+### [Hoge beschikbaarheid in virtuele machines] (sap-hana-high-availability.md)
+### [Overzicht van Backup](sap-hana-backup-guide.md)
+### [Back-up op bestandsniveau](sap-hana-backup-file-level.md)
+### [Back-up van opslagmomentopnamen](sap-hana-backup-storage-snapshots.md)
 ## SAP Netweaver
 ### [Overzicht en architectuur](suse-quickstart.md)
 ### [Plannen en implementeren](planning-guide.md)

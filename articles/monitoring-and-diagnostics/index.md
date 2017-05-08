@@ -1,5 +1,5 @@
 ---
-title: Documentatie voor Azure Monitoring and Diagnostics - zelfstudies, API-verwijzing | Microsoft Docs
+title: Documentatie voor Azure Monitor - zelfstudies, API-verwijzing | Microsoft Docs
 description: Leer hoe u bewakings- en diagnoseservices kunt gebruiken om prestaties bij te houden, veiligheid te bewaken en trends te identificeren. API-verwijzingen, aanbevolen procedures en meer.
 services: monitoring-and-diagnostics
 author: carolz
@@ -13,12 +13,12 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 0d57ccb26a3dde16c50d2e837d392ab8e6fea979
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 475353f5a5abca1e9d6b5fdf4980d0cf33acc744
+ms.lasthandoff: 05/03/2017
 
 ---
-# <a name="monitoring-and-diagnostics-documentation"></a>Documentatie over Monitoring and Diagnostics
+# <a name="azure-monitor-documentation"></a>Documentatie voor Azure Monitor
 
 Leer hoe u bewakings- en diagnoseservices van Azure kunt gebruiken om prestaties bij te houden, veiligheid te bewaken en trends te identificeren. Zelfstudies, API-verwijzingen, aanbevolen procedures en andere documentatie geven u inzicht in het gebruik van bewaking en diagnose en het plannen en implementeren van schaalbare en betrouwbare oplossingen.
 

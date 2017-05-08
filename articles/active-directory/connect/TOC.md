@@ -67,6 +67,7 @@
 ### [Fouten tijdens synchronisatie](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Object is niet gesynchroniseerd](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Wachtwoordsynchronisatie](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [LargeObject-fout veroorzaakt door userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Probleem met LocalDB met limiet van 10 GB oplossen](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Naslaginformatie

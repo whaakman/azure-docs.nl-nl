@@ -32,23 +32,33 @@
 
 ## Beheren
 ### [Betrouwbaarheid van taken](stream-analytics-job-reliability.md)
-### [Taken bewaken](stream-analytics-monitoring.md)
-### [Diagnostische logboeken](stream-analytics-job-diagnostic-logs.md)
 ### [Taken bewaken via een programma](stream-analytics-monitor-jobs.md)
 ### [Taken bewaken met PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [Schalen om doorvoer te vergroten](stream-analytics-scale-jobs.md)
 ### [Schalen voor Machine Learning-functies](stream-analytics-scale-with-machine-learning-functions.md)
 ### [Invoer- en uitvoerreferenties roteren](stream-analytics-login-credentials-inputs-outputs.md)
 
+## Problemen oplossen
+### [Handleiding voor het oplossen van problemen](stream-analytics-troubleshooting-guide.md)
+### [Taken bewaken](stream-analytics-monitoring.md)
+### [Tabblad Resourcestatus](stream-analytics-resource-health.md)
+### [Taakdiagram en metrische gegevens](stream-analytics-job-diagram-with-metrics.md)
+### [Testquery's](stream-analytics-test-query.md)
+### [Voorbeeldinvoergegevens](stream-analytics-sample-data-input.md)
+### [SELECT INTO-foutopsporing](stream-analytics-select-into.md)
+### [Verwerking gebeurtenisvolgordes](stream-analytics-out-of-order-and-late-events.md)
+### [Limieten Event Hub-lezer](stream-analytics-event-hub-consumer-groups.md)
+### [Streamingeenheden optimaliseren](stream-analytics-streaming-unit-consumption.md)
+### [Diagnostische logboeken](stream-analytics-job-diagnostic-logs.md)
+
 ## Automatiseren
 ### [PowerShell met één klik](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Naslaginformatie
-## [PowerShell](/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
+## [PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [Querytaal](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](/rest/api/streamanalytics)
-
 
 # Bronnen
 ## [Releaseopmerkingen](stream-analytics-release-notes.md)
