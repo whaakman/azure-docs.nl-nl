@@ -56,15 +56,16 @@
 # Naslaginformatie
 ## [Overzicht van ondersteunde metrische gegevens](monitoring-supported-metrics.md)
 ## [Bronnen van bewakingsgegevens](monitoring-data-sources.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
+## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
-## [Versiegeschiedenis van Azure Diagnostics](azure-diagnostics-versioning-history.md)
-## [Azure Diagnostics-schema](azure-diagnostics-schema.md)
-### [Diagnostics-schema 1.0](azure-diagnostics-schema-1dot0.md)
-### [Diagnostics-schema 1.2](azure-diagnostics-schema-1dot2.md)
-### [Diagnostics-schema 1.3 tot 1.7](azure-diagnostics-schema-1dot3-and-later.md)
+## [Versiegeschiedenis van Azure Diagnostics-extensie](azure-diagnostics-versioning-history.md)
+## [Extensieschema voor Azure Diagnostics](azure-diagnostics-schema.md)
+### [1.0](azure-diagnostics-schema-1dot0.md)
+### [1.2](azure-diagnostics-schema-1dot2.md)
+### [1.3 tot 1.7](azure-diagnostics-schema-1dot3-and-later.md)
 
 # Resources
 ## [PowerShell-voorbeelden](insights-powershell-samples.md)
 ## [Azure CLI 1.0-voorbeelden](insights-cli-samples.md)
+## [Video's](https://azure.microsoft.com/resources/videos/index/?services=monitor)

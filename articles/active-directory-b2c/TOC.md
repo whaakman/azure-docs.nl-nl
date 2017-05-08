@@ -9,14 +9,14 @@
 ## Snelstartgidsen
 ### [Een iOS-app bouwen](active-directory-b2c-devquickstarts-ios.md)
 ### [Een Android-app bouwen](active-directory-b2c-devquickstarts-android.md)
-### [Een Node.Js-web-API bouwen](active-directory-b2c-devquickstarts-api-node.md)
-### [Een .NET-web-app bouwen](active-directory-b2c-devquickstarts-web-dotnet.md)
-#### [Registreren en aanmelden bij een ASP.NET-web-app](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+### Een .NET-web-app bouwen
+#### [Registreren en aanmelden bij een .NET-web-app](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+#### [Een web-API aanroepen vanuit een .NET-web-app](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 ### [Een .NET-web-API bouwen](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [Een Windows-desktop-app bouwen](active-directory-b2c-devquickstarts-native-dotnet.md)
-### [Een web-API aanroepen vanuit een .NET-web-app](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### [Een Node.Js-web-app bouwen](active-directory-b2c-devquickstarts-web-node.md)
+### [Een Node.Js-web-API bouwen](active-directory-b2c-devquickstarts-api-node.md)
+### [Een .NET-desktop-app bouwen](active-directory-b2c-devquickstarts-native-dotnet.md)
 ### [De Azure AD Graph API gebruiken](active-directory-b2c-devquickstarts-graph-dotnet.md)
-### [Aanmelden toevoegen aan een Node.js-web-app](active-directory-b2c-devquickstarts-web-node.md)
 ## [Veelgestelde vragen](active-directory-b2c-faqs.md)
 
 # Procedures
@@ -53,7 +53,7 @@
 
 # Bronnen
 ## [Prijzen](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
-## [Azure-feedbackforum](http://feedback.azure.com/forums/169401-azure-active-directory)
+## [Azure AD B2C-feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
 ## [Service-updates](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Ondersteuning](active-directory-b2c-support.md)

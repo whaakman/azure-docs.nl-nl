@@ -12,7 +12,6 @@
 ## [Vereisten](expressroute-prerequisites.md)
 ## [Werkstromen](expressroute-workflows.md)
 ## [Routeringsvereisten](expressroute-routing.md)
-## [NAT-vereisten](expressroute-nat.md)
 ## [QoS-vereisten](expressroute-qos.md)
 ## [Circuits verplaatsen van het klassieke model naar Resource Manager](expressroute-move.md)
 
@@ -38,8 +37,9 @@
 
 ## Beste praktijken
 ### [Aanbevolen procedures voor netwerkbeveiliging en cloudservices](../best-practices-network-security.md)
-## [Routering optimaliseren](expressroute-optimize-routing.md)
+### [Routering optimaliseren](expressroute-optimize-routing.md)
 ### [Asymmetrisch routeren](expressroute-asymmetric-routing.md)
+### [NAT voor ExpressRoute](expressroute-routing-nat.md)
 
 ## Problemen oplossen
 ### [ExpressRoute-connectiviteit controleren](expressroute-troubleshooting-expressroute-overview.md)
@@ -47,7 +47,7 @@
 ### [ARP-tabellen ophalen (klassiek)](expressroute-troubleshooting-arp-classic.md)
 
 # Naslaginformatie
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [PowerShell](/powershell/module/azurerm.network)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (klassiek)](https://msdn.microsoft.com/library/azure/dn606310)
 

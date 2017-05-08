@@ -30,6 +30,7 @@
 
 ## Oplossingen gebruiken
 ### [Beheeroplossingen](operations-management-suite-solutions.md)
+### [Doeloplossingen](operations-management-suite-solution-targeting.md)
 ### Inzicht en analyse
 #### [AD-evaluatie](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD-replicatiestatus](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -58,6 +59,7 @@
 ### [Automation-resources](operations-management-suite-solutions-resources-automation.md)
 ### [Zoekopdrachten en waarschuwingen vastleggen](operations-management-suite-solutions-resources-searches-alerts.md)
 ### [Weergaven](operations-management-suite-solutions-resources-views.md)
+### [Aanbevolen procedures](operations-management-suite-solutions-best-practices.md)
 
 ## [Integreren met OMS](operations-management-suite-integration.md)
 

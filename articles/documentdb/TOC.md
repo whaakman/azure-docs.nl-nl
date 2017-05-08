@@ -6,6 +6,7 @@
 ## [Wereldwijde distributie](documentdb-distribute-data-globally.md)
 ## [Regionale failovers](documentdb-regional-failovers.md)
 ## [Beveiliging](documentdb-nosql-database-security.md)
+## [Versleuteling 'at rest'](documentdb-nosql-database-encryption-at-rest.md)
 ## [NoSQL TCO-analyse](https://aka.ms/documentdb-tco-paper)
 ## Scenario's
 ### [Algemene scenario's](documentdb-use-cases.md)

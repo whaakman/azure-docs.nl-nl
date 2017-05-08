@@ -81,6 +81,7 @@
 ### Directe methoden gebruiken
 #### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-direct-methods.md)
 #### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-direct-methods.md)
+#### [Java-back-end/Java-apparaat](iot-hub-java-java-direct-methods.md)
 ### Aan de slag met apparaatbeheer
 #### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-device-management-get-started.md)
 #### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-device-management-get-started.md)
