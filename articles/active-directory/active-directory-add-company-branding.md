@@ -1,5 +1,5 @@
 ---
-title: "De huisstijl van uw bedrijf toevoegen aan uw aanmeldingspagina en pagina’s met een toegangsvenster in Azure Active Directory"
+title: "De huisstijl van uw bedrijf toevoegen aan de aanmeldingspagina en de toegangsvensterpagina’s"
 description: Ontdek hoe u uw huisstijl kunt toevoegen aan de Azure-aanmeldingspagina en aan de toegangsvensterpagina
 services: active-directory
 documentationcenter: 
@@ -8,107 +8,110 @@ manager: femila
 editor: 
 ms.assetid: f74621b4-4ef0-4899-8c0e-0c20347a8c31
 ms.service: active-directory
-ms.workload: identity
+ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/07/2017
+ms.date: 03/03/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 6d4fbfe97288fcb76628b45649b8b678152198a9
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 144132cf0d591e398d5a6ebafb06fd915eec38b8
+ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="add-company-branding-to-sign-in-and-access-panel-pages"></a>De huisstijl van uw bedrijf toevoegen aan de aanmeldingspagina en de pagina’s met een toegangsvenster
-Veel bedrijven willen alle websites en services die ze beheren, een consistent uiterlijk geven. Azure Active Directory biedt hen deze mogelijkheid. IT-professionals kunnen namelijk het uiterlijk van de volgende webpagina’s aanpassen met het bedrijfslogo en afbeeldingen:
+# <a name="add-company-branding-to-your-sign-in-and-access-panel-pages"></a>De huisstijl van uw bedrijf toevoegen aan de aanmeldingspagina en de toegangsvensterpagina’s
+Om verwarring te voorkomen, willen veel bedrijven een consistente look gebruiken voor alle websites en services die ze beheren. Azure Active Directory biedt deze mogelijkheid. U kunt het uiterlijk van de volgende webpagina’s aanpassen en uw eigen bedrijfslogo en kleurenschema toepassen:
 
-* **Aanmeldingspagina** - dit is de pagina die verschijnt wanneer uw werknemers en zakelijke gasten zich aanmelden bij Office 365 of andere toepassingen waarvoor Azure AD wordt gebruikt.
-* **Pagina met toegangsvenster** - het toegangsvenster is een portal op internet waarin u de cloudtoepassingen waartoe uw Azure AD-beheerder u toegang heeft verleend, kunt bekijken en starten. Het toegangsvenster is te vinden op: [https://myapps.microsoft.com](https://myapps.microsoft.com).
+* **Aanmeldingspagina**: dit is de pagina die wordt weergegeven wanneer u zich aanmeldt bij Office 365 of andere toepassingen op internet die gebruikmaken van Azure AD als id-provider. U communiceert met deze pagina tijdens het detecteren van het thuisdomein of om uw referenties in te voeren. Tijdens de detectie van het thuisdomein kan het systeem federatieve gebruikers omleiden naar hun on-premises STS (zoals AD FS).
+* **Pagina met toegangspaneel**: het toegangspaneel is een portal op internet waarmee u de cloudtoepassingen kunt bekijken en gebruiken waartoe uw Azure AD-beheerder u toegang heeft verleend. Als u het toegangsvenster wilt openen, gebruikt u de volgende URL: [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 In dit onderwerp wordt uitgelegd hoe u de aanmeldingspagina en de pagina met het toegangsvenster kunt aanpassen.
 
 > [!NOTE]
-> * De huisstijl van uw bedrijf is alleen beschikbaar als u een upgrade hebt uitgevoerd naar de Premium- of Basic-editie van Azure Active Directory of als u een Office 365-licentie hebt. Zie Azure Active Directory-edities voor meer informatie.
-> 
-> * De Azure Active Directory-edities Premium en Basic zijn beschikbaar voor klanten in China via het wereldwijde exemplaar van Azure Active Directory. De edities Azure Active Directory Premium en Basic worden momenteel niet ondersteund in de Microsoft Azure-service die wordt beheerd door 21Vianet in China. Neem voor meer informatie contact met ons op via het Azure Active Directory-forum.
-
+> * De functie Huisstijl is alleen beschikbaar als u een upgrade hebt uitgevoerd naar de Premium- of Basic-editie van Azure Active Directory of als u Office 365 gebruikt. Zie [Azure Active Directory-edities](active-directory-editions.md) voor meer informatie.
+> * De Azure Active Directory-edities Premium en Basic zijn beschikbaar voor klanten in China via het wereldwijde exemplaar van Azure Active Directory. De edities Azure Active Directory Premium en Basic worden momenteel niet ondersteund in de Microsoft Azure-service die wordt beheerd door 21Vianet in China. Neem voor meer informatie contact met ons op via het [Azure Active Directory-forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>
+>
 
 ## <a name="customizing-the-sign-in-page"></a>De aanmeldingspagina aanpassen
-Gebruikers maken gewoonlijk gebruik van de Azure AD-aanmeldingspagina wanneer ze toegang proberen te krijgen tot de cloudtoepassingen en - services waarop uw bedrijf is geabonneerd.
+Als u browsertoegang nodig hebt om de cloud-apps en -services te openen waar uw organisatie op is geabonneerd, gebruikt u de aanmeldingspagina.
 
-Als u wijzigingen hebt aangebracht in de huisstijl van uw aanmeldingspagina, kan het wel een uur duren voordat de wijzigingen zichtbaar worden voor eindgebruikers.
+Als u wijzigingen hebt aangebracht aan uw aanmeldingspagina, kan het een uur duren voordat de wijzigingen worden weergegeven.
 
-Elementen van de aangepaste huisstijl verschijnen op de aanmeldingspagina van Azure AD wanneer gebruikers een tenant-specifieke URL, zoals https://outlook.com/contoso.com, gebruiken.
+Er wordt alleen een aanmeldingspagina met huisstijl weergegeven wanneer u een service opent met een tenantspecifieke URL, zoals https://outlook.com/**contoso**.com of https://mail.**contoso**.com.
 
-Wanneer gebruikers een service gebruiken via een algemene URL, zoals www.office.com, bevat de aanmeldingspagina nog geen huisstijlgegevens omdat binnen het systeem niet bekend is wie de gebruiker is. De huisstijl wordt echter wel weergegeven nadat gebruikers hun gebruikers-id hebben ingevoerd of een gebruikerstegel hebben geselecteerd.
+Wanneer u een service gebruikt met niet-tenantspecifieke URL’s (bijvoorbeeld https://mail.office365.com), wordt er een aanmeldingspagina zonder huisstijl weergegeven. In dat geval wordt uw huisstijl weergegeven zodra u uw gebruikers-id hebt ingevoerd of een gebruikerstegel hebt geselecteerd.
 
 > [!NOTE]
 > * Uw domeinnaam moet als Actief worden weergegeven in het gedeelte **Active Directory** > **Directory** > **Domeinen** van de klassieke Azure Portal waarin u de huisstijl hebt geconfigureerd.
-> * De huisstijl van de aanmeldingspagina wordt niet meegenomen naar de aanmeldingspagina van persoonlijke Microsoft-accounts. Als uw werknemers of zakelijke gasten zich aanmelden met een persoonlijk Microsoft-account, wordt de huisstijl van uw bedrijf niet weergegeven op hun aanmeldingspagina.
+> * De huisstijl van de aanmeldingspagina wordt niet meegenomen naar de Microsoft-aanmeldingspagina voor klanten. Als u zich met een persoonlijk Microsoft-account aanmeldt, wordt er door Azure AD een reeks gebruikerstegels met huisstijl weergegeven, maar de huisstijl van uw organisatie wordt niet toegepast op de aanmeldingspagina voor Microsoft-accounts.
+>
 >
 
-In de volgende schermafbeeldingen wordt uitgelegd hoe de aanmeldingspagina's worden aangepast.
+Als u op deze pagina uw bedrijfsmerk en -kleuren en andere aanpasbare elementen wilt weergeven, bekijkt u de volgende afbeeldingen om inzicht te krijgen in het verschil tussen de twee ervaringen.
 
-### <a name="scenario-1-contoso-employee-goes-to-a-generic-app-url-for-example-wwwofficecom"></a>Scenario 1: Een Contoso-werknemer gaat naar een algemene URL van een app (bijvoorbeeld www.office.com)
+In de volgende schermafbeelding ziet u een voorbeeld van de Office 365-aanmeldingspagina op een desktopcomputer **vóór** het aanpassen:
 
-In dit voorbeeld meldt een Contoso-gebruiker zich aan bij een mobiele toepassing of webtoepassing met een algemene URL. In de afbeelding aan de linkerkant wordt altijd de app weergegeven en in de afbeelding aan de rechterkant wordt het venster weergegeven dat is bijgewerkt met elementen van de Contoso-huisstijl, waar dat van toepassing is.
+![De Office 365-aanmeldingspagina vóór het aanpassen][1]
 
-![De Office 365-aanmeldingspagina vóór en na de aanpassing][1]
+In de volgende schermafbeelding ziet u een voorbeeld van de Office 365-aanmeldingspagina op een desktopcomputer **na** het aanpassen:
 
-### <a name="scenario-2-contoso-employee-goes-to-contoso-app-thats-restricted-to-internal-users"></a>Scenario 2: Een Contoso-werknemer gaat naar de Contoso-app waarvan de toegang is beperkt tot interne gebruikers
+![De Office 365-aanmeldingspagina na het aanpassen][2]
 
-In dit voorbeeld meldt een Contoso-gebruiker zich aan bij een interne toepassing via een bedrijfsspecifieke URL. In de afbeelding aan de linkerkant wordt de huisstijl van het bedrijf (Contoso) weergegeven. Het interactiedeelvenster aan de rechterkant bevat de Contoso-huisstijl en is bedoeld om Contoso-werknemers te helpen bij de aanmeldingsprocedure.
+In de volgende schermafbeelding ziet u een voorbeeld van de Office 365-aanmeldingspagina op een mobiel apparaat **vóór** het aanpassen:
 
-![beperkt toegankelijke aanmeldingspagina voor een app][2]
+![De Office 365-aanmeldingspagina vóór het aanpassen][3]
 
-### <a name="scenario-3-contoso-employee-goes-to-a-contoso-app-thats-open-to-external-users"></a>Scenario 3: Een Contoso-werknemer gaat naar een Contoso-app die ook toegankelijk is voor externe gebruikers
+In de volgende schermafbeelding ziet u een voorbeeld van de Office 365-aanmeldingspagina op een mobiel apparaat **na** het aanpassen:
 
-In dit voorbeeld melden gebruikers zich aan bij een LoB-toepassing vanuit Contoso, maar de gebruiker kan een Contoso-werknemer, maar ook een externe gebruiker zijn. In de afbeelding aan de linkerkant wordt de eigenaar van de resource (Contoso) weergegeven, net als in scenario \#2 hierboven. Maar deze keer bevat het interactiedeelvenster aan de rechterkant niet de Contoso-huisstijl om aan te geven dat ook externe gebruikers welkom zijn om zich aan te melden.
+![De Office 365-aanmeldingspagina na het aanpassen][4]
 
-![aanmelden bij onbeperkte toegang][3]
+Wanneer u het formaat van een browservenster wijzigt, wordt de grote afbeelding (zoals de afbeelding die eerder is weergegeven) vaak bijgesneden om ervoor te zorgen dat de verhoudingen blijven kloppen. U moet daarom proberen om de belangrijkste visuele elementen zodanig in de afbeelding te plaatsen dat ze altijd in de linkerbovenhoek worden weergegeven (rechtsboven bij talen waarin van rechts naar links wordt geschreven). Dit is belangrijk omdat met het wijzigen van de grootte meestal wordt begonnen in de rechterbenedenhoek, waarna er naar linksboven of van beneden naar boven wordt gewerkt.
 
-### <a name="scenario-4-fabrikam-business-guest-goes-to-contoso-app-thats-open-to-external-users"></a>Scenario 4: Een zakelijke gast van Fabrikam gaat naar de Contoso-app die toegankelijk is voor externe gebruikers
+In de volgende afbeelding ziet u hoe de afbeelding wordt bijgesneden wanneer de grootte van het browservenster van rechts naar links wordt aangepast:
 
-In dit voorbeeld meldt een Contoso-gebruiker zich aan bij een interne toepassing via een bedrijfsspecifieke URL. In de afbeelding aan de linkerkant wordt de huisstijl van het bedrijf (Contoso) weergegeven. Het interactiedeelvenster aan de rechterkant bevat de Contoso-huisstijl en is bedoeld om Contoso-werknemers te helpen bij de aanmeldingsprocedure.
+![][6]
 
-![aanmelden als een externe gebruiker][4]
+Hier ziet u hoe de afbeelding wordt weergegeven wanneer de grootte van het browservenster van beneden naar boven wordt aangepast:
 
+![][7]
 
 ## <a name="what-elements-on-the-page-can-i-customize"></a>Welke elementen op de pagina kan ik aanpassen?
-
 U kunt de volgende elementen op de aanmeldingspagina aanpassen:
 
 ![][5]
 
 | Pagina-element | Locatie op de pagina |
 |:--- | --- |
-| Logo in banner | Wordt in de rechterbovenhoek van de pagina weergegeven. Vervangt het app-logo zodra de organisatie van de gebruiker is vastgesteld (meestal nadat de gebruikersnaam is opgegeven). |
-| Achtergrondafbeelding | Weergegeven als een afbeelding die het hele linkerdeelvenster van de aanmeldingspagina in beslag neemt. Vervangt de afbeelding van de app in aanmeldingsscenario's voor tenants (wanneer gebruikers toegang proberen te krijgen tot een toepassing die is gepubliceerd door hun eigen organisatie of door een organisatie waarvan ze een zakelijke gast zijn).<br>Voor verbindingen met een lage bandbreedte wordt de achtergrondafbeelding vervangen door een achtergrondkleur. Op smalle schermen, zoals die van telefoons, wordt de afbeelding niet weergegeven.<br>De achtergrondafbeelding wordt bijgesneden als gebruikers het formaat van hun browser veranderen. Zorg er bij het ontwerpen van uw achtergrondafbeelding voor dat de belangrijkste visuele elementen in de linkerbovenhoek staan, zodat deze niet uit beeld verdwijnen als de afbeelding wordt bijgesneden. | 
-| Selectievakje Aangemeld blijven | Weergegeven onder het vak **Wachtwoord**. |
-| Tekst van aanmeldingspagina | Standaardtekst moet worden weergegeven boven de paginavoettekst. Deze kan worden gebruikt om nuttige informatie weer te geven voor gebruikers, zoals het telefoonnummer van de helpdesk of een juridische verklaring. |
+| Logo in banner |Wordt in de rechterbovenhoek van de pagina weergegeven. Vervangt het logo dat wordt weergegeven op de doelsite waarop u zich aanmeldt (bijvoorbeeld Office 365 of Azure). |
+| Grote afbeelding/achtergrondkleur |Wordt aan de linkerkant van de pagina weergegeven. Vervangt de afbeelding die wordt weergegeven op de doelsite waarop u zich aanmeldt. In plaats van de grote afbeelding kan de achtergrondkleur worden weergegeven als de verbinding een lage bandbreedte heeft of het scherm erg smal is. |
+| Aangemeld blijven |Dit wordt weergegeven onder het tekstvak voor het wachtwoord. |
+| Tekst van aanmeldingspagina |Wordt boven de paginavoettekst weergegeven als u handige informatie wilt verstrekken voordat iemand zich aanmeldt met een werk- of schoolaccount. U kunt bijvoorbeeld het telefoonnummer van de helpdesk weergeven of een juridische mededeling. |
 
 > [!NOTE]
-> Alle elementen zijn optioneel. Als u bijvoorbeeld een bannerlogo, maar geen afbeelding opgeeft, worden op de aanmeldingspagina uw logo en de afbeelding van de doelsite weergegeven (in dit geval de Office 365-afbeelding van een snelweg in Californië).
+> Alle elementen zijn optioneel. Als u bijvoorbeeld een logo wilt weergeven in de banner, maar geen grote afbeelding wilt gebruiken, wordt uw logo weergegeven op de aanmeldingspagina en de afbeelding voor de doelsite (in dit geval de Office 365-afbeelding van een snelweg in Californië).
+>
 >
 
-Op de aanmeldingspagina kunnen gebruikers er met het selectievakje **Aangemeld blijven** voor zorgen dat ze aangemeld blijven wanneer ze hun browser sluiten en opnieuw openen. Deze optie heeft overigens geen invloed op de sessielevensduur.
+Op de aanmeldingspagina kunnen gebruikers er met het selectievakje **Aangemeld blijven** voor zorgen dat ze aangemeld blijven als ze hun browser sluiten en opnieuw openen. Dit heeft geen invloed op de levensduur van de sessie. U kunt het selectievakje op de aanmeldingspagina van Azure Active Directory verbergen.
 
 Of het selectievakje wordt weergegeven, hangt af van wat er bij **KMSI verbergen** is ingesteld.
 
-![Instelling KMSI verbergen][6]
+![][9]
 
 Als u het selectievakje wilt verbergen, stelt u deze instelling in op **Verborgen**.
 
 > [!NOTE]
-> Sommige functies van SharePoint Online en Office 2010 zijn alleen beschikbaar als gebruikers dit selectievakje kunnen inschakelen. Als u deze instelling instelt op Verborgen, krijgen uw gebruikers mogelijk extra en onverwachte prompts te zien om zich aan te melden.
+> Of sommige functies van SharePoint Online en Office 2010 beschikbaar zijn, hangt ervan of gebruikers dit selectievakje wel of niet kunnen inschakelen. Als u deze instelling instelt op Verborgen, krijgen uw gebruikers mogelijk extra en onverwachte prompts te zien om zich aan te melden.
 >
 >
 
 U kunt alle elementen op deze pagina lokaliseren. Wanneer u een standaardset aangepaste elementen hebt geconfigureerd, kunt u meer versies configureren voor verschillende talen. U kunt ook een combinatie van verschillende elementen gebruiken. U kunt bijvoorbeeld:
 
-* Een standaardafbeelding maken die geschikt is voor alle culturen en vervolgens afzonderlijke versies maken voor Engels- en Franstaligen. Wanneer een browser op een van die twee talen wordt ingesteld, wordt de aangepaste afbeelding weergegeven. Bij alle overige talen wordt de standaardafbeelding weergegeven.
+* Een grote standaardafbeelding maken die geschikt is voor alle culturen en afzonderlijke versies maken voor Engels- en Franstaligen. Wanneer een browser op een van die twee talen wordt ingesteld, wordt de aangepaste afbeelding weergegeven. Bij alle overige talen wordt de standaardafbeelding weergegeven.
 * Voor uw organisatie verschillende logo's configureren (bijvoorbeeld een Japanse en een Hebreeuwse versie).
 
 ## <a name="access-panel-page-customization"></a>De pagina met het toegangspaneel aanpassen
@@ -131,6 +134,10 @@ Stel dat de volgende configuratie wordt gebruikt:
 Als uw voorkeurstaal Duits is, krijgt u het standaardlogo in de banner te zien, maar de Duitse tekst.
 
 Hoewel u technisch gezien een afzonderlijke set zou kunnen configureren voor elke taal die door Azure AD wordt ondersteund, doet u er verstandig aan om het aantal variaties klein te houden. Dit vereenvoudigt het onderhoud en houdt de prestaties goed.
+
+> [!IMPORTANT]
+> Yammer geeft de Azure AD-aanmeldingspagina niet weer voordat de gebruiker zich aanmeldt. De gebruiker ziet de algemene Office 365-aanmeldpagina als eerste en de huisstijlpagina hierna.   
+ 
  
 **Als u de huisstijl van uw bedrijf aan de directory wilt toevoegen, voert u de volgende stappen uit:**
 
@@ -176,31 +183,48 @@ fs3. Klik in de werkbalk bovenaan op **Configureren**.
 8. Klik zo nodig opnieuw op **Huisstijl aanpassen** en herhaal deze stappen voor alle taalspecifieke huisstijlonderdelen die moeten worden verwijderd.
     Alle huisstijlinstellingen zijn verwijderd wanneer u op **Huisstijl aanpassen** klikt en er in het formulier **Standaardhuisstijl aanpassen** geen bestaande instellingen zijn geconfigureerd.
 
+## <a name="testing-and-examples"></a>Testen en voorbeelden
+U doet er verstandig aan om te experimenteren met een testtenant voordat u wijzigingen aanbrengt aan uw productieomgeving.
+
+**Controleren of uw huisstijl is toegepast:**
+
+1. Open een InPrivate- of Incognito-browsersessie.
+2. Ga naar https://outlook.com/contoso.com en vervang contoso.com door het domein dat u hebt aangepast.
+
+Dit geldt ook voor domeinen met de volgende indeling: contoso.onmicrosoft.com.
+
+De volgende twee fictieve aanmeldingspagina’s zijn aangepast. Op basis hiervan kunt u eenvoudiger effectieve aanpassingssets maken:
+
+* [http://aka.ms/aaddemo001](http://aka.ms/aaddemo001)
+* [http://aka.ms/aaddemo002](http://aka.ms/aaddemo002)
+
+Als u de taalspecifieke instellingen wilt testen, moet u de standaardtaalvoorkeuren in uw webbrowser wijzigen in een taal die u hebt ingesteld in de aanpassingen. In Internet Explorer kunt u dit configureren in het menu **Internetopties**.
 
 ## <a name="customizable-elements"></a>Aanpasbare elementen
-Bedrijfslogo’s worden gebruikt voor de aanmeldingspagina en de pagina’s met een toegangsvenster, terwijl andere elementen alleen op de aanmeldingspagina gebruikt worden. In de volgende tabel vindt u meer informatie over de verschillende aanpasbare elementen.
+Sommige aanpasbare elementen in Azure AD hebben meerdere gebruiksmogelijkheden. Zo hoeft u uw bedrijfslogo voor elke directory slechts één keer te configureren, maar wordt het logo voor zowel de aanmeldingspagina als de pagina’s met het toegangsvenster gebruikt. Sommige aanpasbare elementen worden alleen op de aanmeldingspagina gebruikt. In de volgende tabel vindt u meer informatie over de verschillende aanpasbare elementen.
 
 | Naam | Beschrijving | Beperkingen | Aanbevelingen |
 | --- | --- | --- | --- |
-| Bannerlogo |Het bannerlogo wordt weergegeven op de aanmeldingspagina en in het toegangsvenster. |<p>JPG of PNG</p><p>60 x 280 pixels</p><p>10 kB</p> |<p>Gebruik het volledige logo van uw organisatie (inclusief pictogram en logotype)</p><p>Gebruik een hoogte van maximaal 30 pixels om te voorkomen dat er op mobiele apparaten schuifbalken worden weergegeven</p><p>Gebruik een grootte van maximaal 4 kB</p><p>Gebruik een transparant PNG-bestand (ga er niet van uit dat de aanmeldingspagina een witte achtergrond heeft)</p> |
-| Tegellogo | Wordt momenteel niet gebruikt |<p>JPG of PNG</p><p>120 x 120 pixels</p><p>10 kB</p> |<p>Houd het eenvoudig (geen kleine tekst), omdat deze afbeelding tot wel 50% kleiner kan worden gemaakt. |
+| Logo in banner |Het logo in de banner wordt weergegeven op de aanmeldingspagina en in het toegangsvenster. |<p>JPG of PNG</p><p>60 x&280; pixels</p><p>10 kB</p> |<p>Gebruik het volledige logo van uw organisatie (inclusief pictogram en logotype)</p><p>Gebruik een hoogte van maximaal 30 pixels om te voorkomen dat er op mobiele apparaten schuifbalken worden weergegeven</p><p>Gebruik een grootte van maximaal 4 kB</p><p>Gebruik een transparant PNG-bestand (ga er niet van uit dat de aanmeldingspagina een witte achtergrond heeft)</p> |
+| Logo in tegel |In de toekomst wordt deze tekst mogelijk gebruikt om op verschillende plaatsen binnen de omgeving het algemene pictogram voor een werk- of schoolaccount te vervangen (momenteel niet in gebruik op de aanmeldingspagina). |<p>JPG of PNG</p><p>120 x&120; pixels</p><p>10 kB</p> |<p>Houd het eenvoudig (geen kleine tekst), omdat deze afbeelding tot wel 50% kleiner kan worden gemaakt. |
 | </p> | | | |
-| Label met aanmeldnaam van gebruiker | Wordt momenteel niet gebruikt |<p>Unicodetekst, maximaal 50 tekens</p><p>Alleen tekst zonder opmaak (geen koppelingen of HTML-tags)</p> |<p>Houd het kort en eenvoudig</p><p>Vraag uw gebruikers hoe ze het werk- of schoolaccount waar u ze van voorziet, meestal noemen.</p> |
-| Standaardtekst van aanmeldingspagina |Deze standaardtekst wordt onder het formulier van de aanmeldingspagina weergegeven en kan worden gebruikt om aanvullende instructies te geven of om de gebruiker te laten weten waar ze hulp en ondersteuning kunnen krijgen. |<p>Unicodetekst, maximaal 256 tekens</p><p>Alleen tekst zonder opmaak (geen koppelingen of HTML-tags)</p> |Houd het korter dan 250 tekens (ongeveer 3 regels tekst) |
-| Achtergrondafbeelding van aanmeldingspagina | Grote afbeelding die aan de linkerkant van de aanmeldingspagina wordt weergegeven (aan de rechterkant voor v.r.n.l.-talen) wanneer gebruikers toegang proberen te krijgen tot tenant-specifieke URL's. |<p>JPG of PNG</p><p>1420 x 1200</p><p>500 kB</p> |<p>1420 x 1200 pixels</p><p>Belangrijk: houd de afbeelding zo klein mogelijk, liefst kleiner dan 200 kB. Als deze afbeelding te groot is, kan dat de prestaties van de aanmeldingspagina beïnvloeden wanneer de afbeelding niet in het cachegeheugen is opgeslagen</p><p>Deze afbeelding wordt vrijwel altijd bijgesneden om te worden aangepast aan verschillende hoogte-breedteverhoudingen van schermen. Plaats de belangrijkste visuele elementen daarom altijd in de linkerbovenhoek.</p> |
-| Achtergrondkleur van de aanmeldingspagina | Voor verbindingen met een lage bandbreedte wordt deze effen kleur gebruikt in plaats van de achtergrondafbeelding. | Dit moet een RGB-kleur zijn met een hexadecimale notatie (voorbeeld: \#FFFFFF) | Het is een goed idee om de belangrijkste kleur van het bannerlogo te gebruiken. |
+| Gebruikersnaamlabel op aanmeldingspagina |In de toekomst wordt deze tekst mogelijk gebruikt om op verschillende plaatsen binnen de omgeving de algemene tekenreeks voor een werk- of schoolaccount te vervangen (momenteel niet in gebruik op de aanmeldingspagina). U kunt deze tekenreeks instellen op zoiets als 'Contoso-account' of 'Contoso-id'. |<p>Unicodetekst, maximaal 50 tekens</p><p>Alleen tekst zonder opmaak (geen koppelingen of HTML-tags)</p> |<p>Houd het kort en eenvoudig</p><p>Vraag uw gebruikers hoe ze het werk- of schoolaccount waar u ze van voorziet, meestal noemen.</p> |
+| Tekst van aanmeldingspagina |Deze standaardtekst wordt onder het formulier van de aanmeldingspagina weergegeven en kan worden gebruikt om aanvullende instructies te geven of om de gebruiker te laten weten waar hulp en ondersteuning te vinden zijn. |<p>Unicodetekst, maximaal 256 tekens</p><p>Alleen tekst zonder opmaak (geen koppelingen of HTML-tags)</p> |Houd het korter dan 250 tekens (ongeveer 3 regels tekst) |
+| Afbeelding op aanmeldingspagina |Dit is een grote afbeelding die wordt weergegeven op de aanmeldingspagina, links van het aanmeldingsformulier. |<p>JPG of PNG</p><p>1420 x&1200;</p><p>500 kB</p> |<p>1420 x&1200; pixels</p><p>Belangrijk: houd de afbeelding zo klein mogelijk, liefst kleiner dan 200 kB. Als deze afbeelding te groot is, kan dat de prestaties van de aanmeldingspagina beïnvloeden wanneer de afbeelding niet in het cachegeheugen is opgeslagen</p><p>De afbeelding wordt vaak bijgesneden, zodat deze er ook goed uitziet bij een andere beeldverhouding. Houd de primaire visuele elementen in de linkerbovenhoek (in de rechterbovenhoek voor talen die van rechts naar links worden geschreven), omdat de grootte altijd vanuit de rechterbenedenhoek wordt gewijzigd wanneer het browservenster groter of kleiner wordt gemaakt.</p> |
+| Achtergrondkleur van de aanmeldingspagina |De achtergrondkleur van de aanmeldingspagina wordt in het gedeelte links van het aanmeldingsformulier gebruikt. |Dit moet een RGB-kleur zijn met een hexadecimale notatie (voorbeeld: #FFFFFF) |<p>De achtergrondkleur kan in plaats van de grote afbeelding worden weergegeven als er een verbinding is met een lage bandbreedte</p><p>Het is een goed idee om de primaire kleur van het logo in de banner te gebruiken</p> |
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Aan de slag met Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Uw toegangs- en gebruiksrapporten weergeven](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-add-company-branding/signin-page_before-customization.png
-[2]: ./media/active-directory-add-company-branding/signin-page-restricted-app.png
-[3]: ./media/active-directory-add-company-branding/signin-page-open-access.png
-[4]: ./media/active-directory-add-company-branding/signin-page-external-guest.png
-[5]: ./media/active-directory-add-company-branding/which-elements-can-i-customize.png
-[6]: ./media/active-directory-add-company-branding/hide-kmsi.png
+[1]: ./media/active-directory-add-company-branding/SignInPage_beforecustomization.png
+[2]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization.png
+[3]: ./media/active-directory-add-company-branding/SignInPage_mobile_beforecustomization.png
+[4]: ./media/active-directory-add-company-branding/SignInPage_mobile_aftercustomization.png
+[5]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_elements.png
+[6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
+[7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
 
