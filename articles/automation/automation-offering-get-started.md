@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/14/2017
+ms.date: 05/02/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 0f80ac93e3ff1ee95477e4fa5dbe21d61ddf8ead
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 8a04fda8eaf6e14a278941e7bb55b23012f67850
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -98,8 +99,6 @@ Wanneer u in Azure Portal een Automation-account maakt, worden er automatisch tw
 
 Op rollen gebaseerd toegangsbeheer is beschikbaar in Azure Resource Manager voor het toekennen van toegestane acties aan een Azure AD-gebruikersaccount en Uitvoeren als-account, en om die service-principal te verifiëren.  Lees het artikel [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md) voor meer informatie die u helpt bij het ontwikkelen van een model voor het beheren van machtigingen in Automation.  
 
-
-
 #### <a name="authentication-methods"></a>Verificatiemethoden
 De volgende tabel bevat een overzicht van de verschillende verificatiemethoden voor elke omgeving die wordt ondersteund door Azure Automation.
 
@@ -136,6 +135,13 @@ Als u een Automation-account voor een specifieke regio hebt gedefinieerd en de c
 | Australië - zuidoost |ase-jobruntimedata-prod-su1.azure-automation.net |
 | Verenigd Koninkrijk Zuid | uks-jobruntimedata-prod-su1.azure-automation.net |
 | VS (overheid) - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us |
+
+Voor een lijst met IP-adressen in plaats van namen downloadt en bekijkt u het XML-bestand met [Azure-datacenter-IP-adressen](https://www.microsoft.com/download/details.aspx?id=41653) in het Microsoft Downloadcentrum. 
+
+> [!NOTE]
+> Dit bestand bevat de IP-adresbereiken (inclusief bereiken voor Compute, SQL en Storage) die worden gebruikt in de Microsoft Azure-datacenters. Er wordt wekelijks een bijgewerkt bestand geplaatst waarin staat welke bereiken momenteel zijn geïmplementeerd en welke wijzigingen in de toekomst aan de IP-bereiken zullen worden aangebracht. Nieuwe bereiken in het bestand worden gedurende ten minste één week nog niet in de datacenters gebruikt. Download elke week het nieuwe XML-bestand en voer de benodigde wijzigingen uit op uw site om de services die in Azure worden uitgevoerd correct te identificeren. Express Route-gebruikers zullen merken dat dit bestand wordt gebruikt om in de eerste week van elke maand de BGP-advertenties van Azure-ruimte bij te werken. 
+> 
+
 
 ## <a name="implementation"></a>Implementatie
 
@@ -191,27 +197,6 @@ De aanbevolen methode om Automation te implementeren, is door de aanbieding Auto
 8. Klik op **Maken** om verder te gaan met de implementatie van Automation en een OMS-werkruimte. Alle instellingen worden gecontroleerd en daarna wordt geprobeerd de aanbieding in uw abonnement te implementeren.  Dit proces kan enkele seconden duren en u kunt de voortgang bijhouden onder **Meldingen** in het menu. 
 
 Wanneer de aanbieding is geïmplementeerd, kunt u runbooks gaan maken, de beheeroplossingen gebruiken die u hebt ingeschakeld of aan de slag gaan met [Log Analytics](https://docs.microsoft.com/azure/log-analytics) en gegevens verzamelen die zijn gegenereerd door resources in uw cloud- of on-premises omgeving.   
-
-### <a name="resources-included"></a>Beschikbare resources
-Wanneer het Automation-account is gemaakt, worden er automatisch verschillende resources voor u gemaakt. De resources worden in de volgende twee tabellen samengevat:<br>
-
-#### <a name="run-as-account-resources"></a>Resources voor Uitvoeren als-account
-
-| Resource | Beschrijving |
-| --- | --- |
-| AzureAutomationTutorial Runbook | Een voorbeeld van een grafisch runbook dat laat zien hoe u verifieert met behulp van het Uitvoeren als-account en dat alle Resource Managers-resources ophaalt. |
-| AzureAutomationTutorialScript Runbook | Een voorbeeld van een PowerShell-runbook dat laat zien hoe u verifieert met behulp van het Uitvoeren als-account en dat alle Resource Manager-resources ophaalt. |
-| AzureRunAsCertificate | Het certificaatasset dat automatisch wordt gemaakt tijdens het maken van een Automation-account. U kunt ook het volgende PowerShell-script gebruiken voor een bestaand account. Met het certificaat kunt u verifiëren met Azure zodat u Azure Resource Manager-resources kunt beheren vanuit runbooks. Het certificaat is één jaar geldig. |
-| AzureRunAsConnection | Het verbindingsasset dat automatisch wordt gemaakt tijdens het maken van een Automation-account. U kunt ook het PowerShell-script gebruiken voor een bestaand account. |
-
-#### <a name="classic-run-as-account-resources"></a>Resources voor klassiek Uitvoeren als-account
-
-| Resource | Beschrijving |
-| --- | --- |
-| AzureClassicAutomationTutorial Runbook | Een voorbeeld van een grafisch runbook dat alle klassieke virtuele machines die zijn gemaakt met behulp van het klassieke implementatiemodel in een abonnement, ophaalt met het klassieke Uitvoeren als-account (certificaat) en vervolgens de VM-naam en -status schrijft. |
-| AzureClassicAutomationTutorial Script Runbook | Een voorbeeld van een PowerShell-runbook dat alle klassieke virtuele machines in een abonnement ophaalt met het klassieke Uitvoeren als-account (certificaat) en vervolgens de VM-naam en -status schrijft. |
-| AzureClassicRunAsCertificate | Het certificaatasset dat automatisch wordt gemaakt en dat u gebruikt voor verificatie met Azure, zodat u klassieke Azure-resources kunt beheren vanuit runbooks. Het certificaat is één jaar geldig. |
-| AzureClassicRunAsConnection | Het verbindingsasset dat automatisch wordt gemaakt en dat u gebruikt voor verificatie met Azure, zodat u klassieke Azure-resources kunt beheren vanuit runbooks.|
 
 ## <a name="next-steps"></a>Volgende stappen
 * Raadpleeg [Runbooks verifiëren met een Azure Uitvoeren als-account](automation-verify-runas-authentication.md) als u wilt controleren of uw nieuwe Azure Automation-account kan worden geverifieerd met Azure-resources.

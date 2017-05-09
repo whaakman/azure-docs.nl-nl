@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 04/24/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: c3563f3a3fa46d40ba02fe97b3b0ebe3c45caddd
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: af85e4921a2b81c71f1d132c6df591acbe5d3764
+ms.contentlocale: nl-nl
+ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Een virtueel netwerk maken met een site-naar-site-VPN-verbinding met CLI
 
-In dit artikel leest u hoe u de Azure CLI gebruikt om een site-naar-site-VPN-gatewayverbinding te maken vanaf uw on-premises netwerk naar het VNet. De stappen in dit artikel zijn van toepassing op het Resource Manager-implementatiemodel. U kunt deze configuratie ook maken met een ander implementatiehulpprogramma of een ander implementatiemodel door in de volgende lijst een andere optie te selecteren:
+In dit artikel leest u hoe u de Azure CLI gebruikt om een site-naar-site-VPN-gatewayverbinding te maken vanaf uw on-premises netwerk naar het VNet. De stappen in dit artikel zijn van toepassing op het Resource Manager-implementatiemodel. U kunt deze configuratie ook maken met een ander implementatiehulpprogramma of een ander implementatiemodel door in de volgende lijst een andere optie te selecteren:<br>
 
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -48,7 +49,7 @@ Controleer voordat u met de configuratie begint, of aan de volgende criteria is 
 * Een compatibel VPN-apparaat en iemand die dit kan configureren. Zie [Over VPN-apparaten](vpn-gateway-about-vpn-devices.md) voor meer informatie over compatibele VPN-apparaten en -apparaatconfiguratie.
 * Een extern gericht openbaar IPv4-adres voor het VPN-apparaat. Dit IP-adres kan zich niet achter een NAT bevinden.
 * Als u de IP-adresbereiken in uw on-premises netwerkconfiguratie niet kent, moet u contact opnemen met iemand die u hierbij kan helpen en de benodigde gegevens kan verstrekken. Wanneer u deze configuratie maakt, moet u de IP-adresbereikvoorvoegsels opgeven die Azure naar uw on-premises locatie doorstuurt. Geen van de subnetten van uw on-premises netwerk kan overlappen met de virtuele subnetten waarmee u verbinding wilt maken. 
-* De meest recente versie van de CLI-opdrachten (2.0 of hoger). Zie [Azure CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli) voor meer informatie over het installeren van de CLI-opdrachten.
+* De meest recente versie van de CLI-opdrachten (2.0 of hoger). Zie [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli) en [Aan de slag met Azure CLI 2.0](/cli/azure/get-started-with-azure-cli) voor meer informatie over het installeren van de CLI-opdrachten.
 
 ### <a name="example-values"></a>Voorbeeldwaarden
 
@@ -75,42 +76,26 @@ GatewayType             = Vpn
 ConnectionName          = VNet1toSite2
 ```
 
-## <a name="Login"></a>1. Meld u aan bij Azure.
+## <a name="Login"></a>1. Verbinding maken met uw abonnement
 
-Meld u aan bij uw Azure-abonnement met de opdracht [az login](/cli/azure/#login) en volg de instructies op het scherm.
-
-```azurecli
-az login
-```
-
-Als u meer dan één Azure-abonnement hebt, worden alle abonnementen voor het account weergegeven.
-
-```azurecli
-Az account list --all
-```
-
-Geef het abonnement op dat u wilt gebruiken.
-
-```azurecli
-Az account set --subscription <replace_with_your_subscription_id>
-```
+[!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
 ## <a name="2-create-a-resource-group"></a>2. Een resourcegroep maken
 
 In het volgende voorbeeld wordt een resourcegroep met de naam 'TestRG1' gemaakt op de locatie 'eastus'. Als u al een resourcegroep hebt in de regio waarin u uw VNet wilt maken, kunt u desgewenst ook deze gebruiken.
 
 ```azurecli
-az group create -n TestRG1 -l eastus
+az group create --name TestRG1 --location eastus
 ```
 
 ## <a name="VNet"></a>3. Een virtueel netwerk maken
 
-Als u nog geen virtueel netwerk hebt, maakt u er een. Controleer bij het maken van een virtueel netwerk of de adresruimten die u opgeeft, niet overlappen met adresruimten in uw on-premises netwerk. 
+Als u nog geen virtueel netwerk hebt, kunt u er een maken met de opdracht [az network vnet create](/cli/azure/network/vnet#create). Controleer bij het maken van een virtueel netwerk of de adresruimten die u opgeeft, niet overlappen met adresruimten in uw on-premises netwerk. 
 
 In het volgende voorbeeld worden een virtueel netwerk met de naam 'TestVNet1' en een subnet met de naam 'Subnet1' gemaakt.
 
 ```azurecli
-az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.12.0.0/16 -l eastus --subnet-name Subnet1 --subnet-prefix 10.12.0.0/24
+az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.12.0.0/16 --location eastus --subnet-name Subnet1 --subnet-prefix 10.12.0.0/24
 ```
 
 ## 4. <a name="gwsub"></a>Het gatewaysubnet maken
@@ -121,9 +106,11 @@ Voor deze configuratie hebt u ook een gatewaysubnet nodig. De virtuele netwerkga
 
 De grootte van het gatewaysubnet dat u opgeeft, is afhankelijk van de VPN-gatewayconfiguratie die u wilt maken. Het is mogelijk om een klein gatewaysubnet van /29 te maken, maar we raden u aan een groter subnet met meer adressen te maken door /27 of /28 te selecteren. Met een groter gatewaysubnet beschikt u over voldoende IP-adressen voor mogelijke toekomstige configuraties.
 
+Voer de opdracht [az network vnet subnet create](/cli/azure/network/vnet/subnet#create) uit om een subnet voor de gateway te maken.
+
 
 ```azurecli
-az network vnet subnet create --address-prefix 10.12.255.0/27 -n GatewaySubnet -g TestRG1 --vnet-name TestVNet1
+az network vnet subnet create --address-prefix 10.12.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name TestVNet1
 ```
 
 ## <a name="localnet"></a>5. De lokale netwerkgateway maken
@@ -135,20 +122,20 @@ Gebruik de volgende waarden:
 * Het *--gateway-ip-address* is het IP-adres van uw on-premises VPN-apparaat. Het VPN-apparaat kan zich niet achter een NAT bevinden.
 * De *--local-address-prefixes* zijn uw on-premises adresruimten.
 
-In het volgende voorbeeld wordt geïllustreerd hoe u een lokale netwerkgateway met meerdere adresvoorvoegsels toevoegt:
+Gebruik de opdracht [az network local-gateway create](/cli/azure/network/local-gateway#create) om een gateway voor het lokale netwerk met meerdere adresvoorvoegsels toe te voegen:
 
 ```azurecli
-az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
+az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --resource-group TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
 ## <a name="PublicIP"></a>6. Een openbaar IP-adres aanvragen
 
-Vraag een openbaar IP-adres aan dat moet worden toegewezen aan uw virtuele VPN-gateway. Dit is het IP-adres dat u configureert voor het maken van verbinding met uw VPN-apparaat.
+Een VPN Gateway moet een openbaar IP-adres hebben. U vraagt eerst de resource van het IP-adres aan en verwijst hier vervolgens naar bij het maken van uw virtuele netwerkgateway. Het IP-adres wordt dynamisch aan de resource toegewezen wanneer de VPN Gateway wordt gemaakt. VPN Gateway ondersteunt momenteel alleen *dynamische* toewijzing van openbare IP-adressen. U kunt geen toewijzing van een statisch openbaar IP-adres aanvragen. Dit betekent echter niet dat het IP-adres wordt gewijzigd nadat het aan uw VPN Gateway is toegewezen. Het openbare IP-adres verandert alleen wanneer de gateway wordt verwijderd en opnieuw wordt gemaakt. Het verandert niet wanneer de grootte van uw VPN Gateway verandert, wanneer deze gateway opnieuw wordt ingesteld of wanneer andere interne onderhoudswerkzaamheden of upgrades worden uitgevoerd.
 
-De virtuele netwerkgateway voor het Resource Manager-implementatiemodel ondersteunt momenteel alleen openbare IP-adressen met behulp van de dynamische toewijzingsmethode. Dit betekent echter niet dat het IP-adres verandert. Het IP-adres van de VPN-gateway verandert alleen wanneer de gateway wordt verwijderd en opnieuw wordt gemaakt. Het openbare IP-adres van de virtuele netwerkgateway verandert niet wanneer de grootte van uw VPN-gateway verandert, wanneer deze gateway opnieuw wordt ingesteld of wanneer er andere interne onderhoudswerkzaamheden of upgrades worden uitgevoerd. 
+Gebruik de opdracht [az network public-ip create](/cli/azure/network/public-ip#create) om een dynamisch openbaar IP-adres aan te vragen.
 
 ```azurecli
-az network public-ip create -n VNet1GWIP -g TestRG1 --allocation-method Dynamic
+az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocation-method Dynamic
 ```
 
 ## <a name="CreateGateway"></a>7. De VPN-gateway maken
@@ -161,27 +148,29 @@ Gebruik de volgende waarden:
 * Het *--vpn-type* kan *RouteBased* (in sommige documentatie een 'dynamische gateway' genoemd) of *PolicyBased* (in sommige documentatie een 'statische gateway' genoemd) zijn. De instelling is specifiek voor de vereisten van het apparaat waarmee u verbinding maakt. Zie [Informatie over VPN-gatewayconfiguratie-instellingen](vpn-gateway-about-vpn-gateway-settings.md#vpntype) voor meer informatie over soorten VPN-gateways.
 * De *--sku* kan Basic, Standard of HighPerformance zijn. Voor bepaalde SKU's gelden configuratiebeperkingen. Zie [Gateway-SKU's](vpn-gateway-about-vpngateways.md#gateway-skus) voor meer informatie.
 
-Na het uitvoeren van deze opdracht wordt er geen feedback of uitvoer weergegeven. Het duurt ongeveer 45 minuten om een gateway te maken.
+Maak de VPN Gateway met behulp van de opdracht [az network vnet-gateway create](/cli/azure/network/vnet-gateway#create). Als u deze opdracht uitvoert met de parameter --no-wait, ziet u geen feedback of uitvoer. Deze parameter zorgt ervoor dat de gateway op de achtergrond wordt gemaakt. Het duurt ongeveer 45 minuten om een gateway te maken.
 
 ```azurecli
-az network vnet-gateway create -n VNet1GW --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku Standard --no-wait 
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku Standard --no-wait 
 ```
 
 ## <a name="VPNDevice"></a>8. Uw VPN-apparaat configureren
 
-[!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
- Gebruik het volgende voorbeeld om het openbare IP-adres van uw virtuele netwerkgateway te vinden en vervang de waarden door uw eigen waarden. De lijst met openbare IP-adressen wordt in een gemakkelijk leesbare tabelindeling weergegeven.
+[!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
+  Gebruik de opdracht [az network public-ip list](/cli/azure/network/public-ip#list) om het openbare IP-adres van uw virtuele netwerkgateway te vinden. De lijst met openbare IP-adressen wordt in een gemakkelijk leesbare tabelindeling weergegeven.
 
-  ```azurecli
-  az network public-ip list -g TestRG1 -o table
-  ```
+```azurecli
+az network public-ip list --resource-group TestRG1 --output table
+```
 
 ## <a name="CreateConnection"></a>9. De VPN-verbinding maken
 
 Maak de site-naar-site-VPN-verbinding tussen de gateway van uw virtuele netwerk en het on-premises VPN-apparaat. Let vooral op de waarde van de gedeelde sleutel. Deze moet overeenkomen met de geconfigureerde waarde van de gedeelde sleutel voor het VPN-apparaat.
 
+Maak de verbinding met behulp van de opdracht [az network vpn-connection create](/cli/azure/network/vpn-connection#create).
+
 ```azurecli
-az network vpn-connection create -n VNet1toSite2 -g TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
+az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
 ```
 
 Na een korte tijd wordt de verbinding tot stand gebracht.
@@ -194,65 +183,9 @@ Zie [Een VPN-gatewayverbinding controleren](vpn-gateway-verify-connection-resour
 
 ## <a name="common-tasks"></a>Algemene taken
 
-### <a name="to-view-local-network-gateways"></a>Lokale netwerkgateways bekijken
+Deze sectie bevat veelgebruikte opdrachten die nuttig zijn bij het werken met site-naar-siteconfiguraties. Zie [Azure CLI - Networking](/cli/azure/network) (Azure CLI: netwerken) voor een volledige lijst met CLI-netwerkopdrachten.
 
-```azurecli
-az network local-gateway list --resource-group TestRG1
-```
-
-### <a name="modify"></a>IP-adresvoorvoegsels wijzigen voor de gateway van een lokaal netwerk
-Volg de onderstaande instructies als u de voorvoegsels voor de gateway van een lokaal netwerk wilt wijzigen. Elke keer dat u een wijziging aanbrengt, moet de volledige lijst met voorvoegsels worden opgegeven, niet alleen de voorvoegsels die u wilt wijzigen.
-
-- **Als u een verbinding hebt opgegeven**, gebruikt u het onderstaande voorbeeld. Geef de volledige lijst met voorvoegsels op, die bestaat uit de bestaande voorvoegsels en de voorvoegsels die u wilt toevoegen. In dit voorbeeld zijn 10.0.0.0/24 en 20.0.0.0/24 al aanwezig. We voegen de voorvoegsels 30.0.0.0/24 en 40.0.0.0/24 toe.
-
-  ```azurecli
-  az network local-gateway update --local-address-prefixes 10.0.0.0/24 20.0.0.0/24 30.0.0.0/24 40.0.0.0/24 -n VNet1toSite2 -g TestRG1
-  ```
-
-- **Als u geen verbinding hebt opgegeven**, gebruikt u dezelfde opdracht die u gebruikt om een lokale netwerkgateway te maken. U kunt deze opdracht ook gebruiken om het gateway-IP-adres voor het VPN-apparaat bij te werken. Gebruik deze opdracht alleen als u nog geen verbinding hebt. In dit voorbeeld zijn 10.0.0.0/24, 20.0.0.0/24, 30.0.0.0/24 en 40.0.0.0/24 aanwezig. We geven alleen de voorvoegsels op die we willen houden. In dit geval 10.0.0.0/24 en 20.0.0.0/24.
-
-  ```azurecli
-  az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
-  ```
-
-### <a name="modifygwipaddress"></a>Het IP-adres van de gateway wijzigen in dat van een lokale netwerkgateway
-
-Het IP-adres in deze configuratie is het IP-adres van het VPN-apparaat waarmee u verbinding maakt. Als het IP-adres van het VPN-apparaat verandert, kunt u de waarde wijzigen. Het IP-adres kan ook worden gewijzigd als er al een gatewayverbinding is.
-
-```azurecli
-az network local-gateway update --gateway-ip-address 23.99.222.170 -n Site2 -g TestRG1
-```
-
-Controleer of de IP-adresvoorvoegsels zijn opgenomen als u het resultaat weergeeft.
-
-  ```azurecli
-  "localNetworkAddressSpace": { 
-    "addressPrefixes": [ 
-      "10.0.0.0/24", 
-      "20.0.0.0/24", 
-      "30.0.0.0/24" 
-    ] 
-  }, 
-  "location": "eastus", 
-  "name": "Site2", 
-  "provisioningState": "Succeeded",  
-  ```
-
-### <a name="to-view-the-virtual-network-gateway-public-ip-address"></a>Het openbare IP-adres van de virtuele netwerkgateway bekijken
-
-Gebruik het volgende voorbeeld om het openbare IP-adres van de gateway van uw virtuele netwerk te vinden. De lijst met openbare IP-adressen wordt in een gemakkelijk leesbare tabelindeling weergegeven.
-
-```azurecli
-az network public-ip list -g TestRG1 -o table
-```
-
-### <a name="to-verify-the-shared-key-values"></a>De gedeelde sleutelwaarden controleren
-
-Controleer of de waarde van de gedeelde sleutel gelijk is aan de waarde die u voor de configuratie van uw VPN-apparaat hebt gebruikt. Als dat niet het geval is, voert u de verbinding opnieuw uit met de waarde van het apparaat of werkt u het apparaat bij met de waarde die is geretourneerd. De waarden moeten overeenkomen.
-
-```azurecli
-az network vpn-connection shared-key show --connection-name VNet1toSite2 -g TestRG1
-```
+[!INCLUDE [local network gateway common tasks](../../includes/vpn-gateway-common-tasks-cli-include.md)] 
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 1dfd9be47adfcb6de46f26571847a3a6b7f51410
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: afef396c17c62f5b980ac1ffdbfc7a7db7a8cdd2
+ms.contentlocale: nl-nl
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -119,6 +120,10 @@ Zie [Gateway-SKU's](vpn-gateway-about-vpn-gateway-settings.md#gwsku) voor meer i
 
 ### <a name="estimated-aggregate-throughput-by-sku"></a>Geschatte geaggregeerde doorvoer per SKU
 [!INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+
+## <a name="faq"></a>Veelgestelde vragen
+
+Zie [Veelgestelde vragen VPN Gateway](vpn-gateway-vpn-faq.md) voor veelgestelde vragen over VPN Gateway.
 
 ## <a name="next-steps"></a>Volgende stappen
 - De VPN-gatewayconfiguratie plannen. Zie [Planning en ontwerp voor VPN Gateway](vpn-gateway-plan-design.md).

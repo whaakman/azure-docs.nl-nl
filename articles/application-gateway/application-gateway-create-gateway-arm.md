@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 11ecfc993f17c89d4ac4431e9a835000d30afe76
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -107,7 +108,7 @@ In het bovenstaande voorbeeld is er een resourcegroep gemaakt met de naam **appg
 > [!NOTE]
 > Ga naar [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md) (Met PowerShell een toepassingsgateway maken met aangepaste tests) als u voor uw toepassingsgateway een aangepaste test moet configureren. Bekijk [Custom probes and health monitoring](application-gateway-probe-overview.md) (Aangepaste tests en statusbewaking) voor meer informatie.
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Een virtueel netwerk en een subnet maken voor de toepassingsgateway
+## <a name="create-a-virtual-network-and-a-subnet"></a>Een virtueel netwerk en een subnet maken
 
 In het volgende voorbeeld ziet u hoe u een virtueel netwerk maakt met Resource Manager. In dit voorbeeld wordt er een VNET gemaakt voor Application Gateway. Voor Application Gateway is een eigen subnet vereist. Daarom is het gemaakte subnet voor Application Gateway kleiner dan de VNET-adresruimte. Door het gebruik van een kleiner subnet kunnen andere resources, waaronder webservers, in hetzelfde VNET worden geconfigureerd.
 
@@ -135,7 +136,7 @@ Wijs de subnetvariabele toe voor de volgende stappen. Deze variabele wordt doorg
 $subnet=$vnet.Subnets[0]
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Een openbaar IP-adres maken voor de front-endconfiguratie
+## <a name="create-a-public-ip-address"></a>Een openbaar IP-adres maken
 
 Maak de openbare IP-resource **publicIP01** in de resourcegroep **appgw-rg** voor de regio VS - west. Voor Application Gateway kan een openbaar IP-adres, een intern IP-adres of beide worden gebruikt om aanvragen voor de taakverdeling te ontvangen.  In dit voorbeeld wordt er alleen een openbaar IP-adres gebruikt. In het volgende voorbeeld is er geen DNS-naam geconfigureerd voor het maken van het openbare IP-adres.  Application Gateway biedt geen ondersteuning voor aangepaste DNS-namen voor openbare IP-adressen.  Als er een aangepaste naam is vereist voor het openbare eindpunt, moet er een CNAME-record worden gemaakt die verwijst naar de automatisch gegenereerde DNS-naam voor het openbare IP-adres.
 
@@ -219,7 +220,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 > [!NOTE]
 > De standaardwaarde voor **InstanceCount** is 2 en de maximale waarde is 10. De standaardwaarde voor **GatewaySize** is Medium. U kunt kiezen tussen **Standard_Small**, **Standard_Medium** en **Standard_Large**.
 
-## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Een toepassingsgateway maken met behulp van New-AzureRmApplicationGateway
+## <a name="create-the-application-gateway"></a>De toepassingsgateway maken
 
 Maak een toepassingsgateway met alle configuratie-items uit de bovenstaande stappen. In dit voorbeeld heeft de toepassingsgateway de naam **appgwtest**.
 
@@ -233,7 +234,7 @@ Haal DNS- en VIP-details van de toepassingsgateway op van de openbare IP-resourc
 Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
 ```
 
-## <a name="delete-an-application-gateway"></a>Een toepassingsgateway verwijderen
+## <a name="delete-the-application-gateway"></a>De toepassingsgateway verwijderen
 
 Volg deze stappen als u een toepassingsgateway wilt verwijderen:
 
@@ -296,6 +297,14 @@ IpConfiguration          : {
 DnsSettings              : {
                                 "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
                             }
+```
+
+## <a name="delete-all-resources"></a>Alle resources verwijderen
+
+Als u alle resources wilt verwijderen die u in dit artikel hebt gemaakt, voert u de volgende stappen uit:
+
+```powershell
+Remove-AzureRmResourceGroup -Name appgw-RG
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

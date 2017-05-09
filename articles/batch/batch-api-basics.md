@@ -15,10 +15,11 @@ ms.workload: big-compute
 ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 23dfe112411ebc6f47e6a3f09baaf1aa746e6987
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: d05739a4d9f0712c2b4b47432bff97594a11b121
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -337,7 +338,7 @@ U kunt de API’s gebruiken om de id van een [virtueel netwerk (VNet)](../virtua
 
 * Het opgegeven subnet moet communicatie vanuit de Batch-service toestaan om taken te kunnen plannen voor de rekenknooppunten. Als communicatie met de rekenknooppunten wordt geweigerd door een **netwerkbeveiligingsgroep** die is gekoppeld aan het VNet, zet de Batch-service de status van de rekenknooppunten op **Onbruikbaar**. 
 
-* Als het opgegeven VNet bijbehorende netwerkbeveiligingsgroepen heeft, moet binnenkomende communicatie worden ingeschakeld. Voor een Linux-pool moeten de poorten 29876, 29877 en 22 zijn ingeschakeld. Voor een Windows-pool moet poort 3389 zijn ingeschakeld.
+* Als het opgegeven VNet bijbehorende netwerkbeveiligingsgroepen heeft, moet binnenkomende communicatie worden ingeschakeld. Voor zowel Linux- als Windows-pools moeten poort 29876 en 29877 worden ingeschakeld. U kunt optioneel ook respectievelijk poort 22 en 3389 inschakelen (of hier selectief op filteren) voor SSH in Linux-pools of RDP in Windows-pools.
 
 Aanvullende instellingen voor het VNet zijn afhankelijk van de groepstoewijzingsmodus van het Batch-account.
 

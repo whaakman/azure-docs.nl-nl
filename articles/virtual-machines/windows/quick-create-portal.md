@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/13/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 8a86cf64dcd65e74285a1073f7494eba0708ddcd
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: df6f1b86b706d58a5c07a4f3de43a1872da61511
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -36,7 +37,7 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
 
 2. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
 
-3. Selecteer **Compute** op de blade **Nieuw**. Selecteer **Windows Server 2016 Datacenter** op de blade **Compute** en klik daarna op **Maken**.
+3. Selecteer **Compute** op de blade **Nieuw**. Selecteer *Windows Server 2016 Datacenter* op de blade **Compute** en klik daarna op **Maken**.
 
 4. Vul het formulier **Basisinformatie** in voor de virtuele machine. De gebruikersnaam en het wachtwoord die u hier opgeeft, worden gebruikt voor aanmelding bij de virtuele machine. Selecteer een **resourcegroep** of maak een nieuwe. Een resourcegroep is een logische container waarin Azure-resources worden gemaakt en waarin ze collectief worden beheerd. Na het voltooien klikt u op **OK**.
 
@@ -46,21 +47,21 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
 
     ![Schermopname van VM-grootten](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-6. Op de blade Instellingen selecteert u **Ja** onder **Managed Disks gebruiken**. Laat voor de rest de standaardinstellingen staan en klik op **OK**.
+6. Op de blade Instellingen selecteert u *Ja* onder **Managed Disks gebruiken**. Laat voor de rest de standaardinstellingen staan en klik op **OK**.
 
 7. Klik op de pagina Overzicht op **OK** om de implementatie van de virtuele machine te starten.
 
-8. Voor het bewaken van de implementatiestatus klikt u op de virtuele machine. U vindt de virtuele machine op het Azure Portal-dashboard, of door **Virtuele machines** te selecteren in het menu links. Wanneer de virtuele machine is gemaakt, verandert de status van **Implementeren** in **In uitvoering**.
+8. Voor het bewaken van de implementatiestatus klikt u op de virtuele machine. U vindt de virtuele machine op het Azure Portal-dashboard, of door **Virtuele machines** te selecteren in het menu links. Wanneer de virtuele machine is gemaakt, verandert de status van *Implementeren* in *In uitvoering*.
 
 ## <a name="open-port-80-for-web-traffic"></a>Poort 80 openen voor webverkeer 
 
 Als u verkeer voor IIS wilt toestaan, moet u poort 80 openen voor webverkeer. Deze stap helpt u bij het maken van een regel voor een netwerkbeveiligingsgroep (NSG) om binnenkomende verbindingen op poort 80 toe te staan.
 
 1. Ga op de blade van de virtuele machine naar de sectie **Essentials** en klik op de naam van de **resourcegroep**.
-2. Klik op de blade van de resourcegroep op de **netwerkbeveiligingsgroep** in de lijst met resources. De naam van de NSG moet bestaan uit de naam van de virtuele machine, met -nsg toegevoegd aan het einde.
+2. Klik op de blade van de resourcegroep op de **netwerkbeveiligingsgroep** in de lijst met resources. De naam van de netwerkbeveiligingsgroep moet bestaan uit de naam van de VM met *-nsg* toegevoegd aan het einde.
 3. Klik op de kop **Binnenkomende beveiligingsregel** om de lijst met regels voor binnenkomende verbindingen te openen. De lijst moet al een regel voor RDP bevatten.
 4. Klik op **+ Toevoegen** om de blade **Inkomende beveiligingsregel toevoegen** te openen.
-5. In typ bij **Naam** **IIS**. Zorg ervoor dat het **poortbereik** is ingesteld op 80 en **Actie** is ingesteld op **Toestaan**. Klik op **OK**.
+5. In typ bij **Naam** *IIS*. Zorg ervoor dat het **poortbereik** is ingesteld op *80* en dat **Actie** is ingesteld op *Toestaan*. Klik op **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Verbinding maken met de virtuele machine
@@ -88,7 +89,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>De welkomstpagina van IIS weergeven
 
-Nu IIS is geïnstalleerd en poort 80 op de virtuele machine is geopend voor toegang vanaf internet, kunt u een webbrowser van uw keuze gebruiken om de standaardwelkomstpagina van IIS weer te geven. Kijk op de blade voor de virtuele machine wat de waarde is voor **openbare IP-adres** en gebruik dit adres om naar de standaardwebpagina te gaan. 
+Nu IIS is geïnstalleerd en poort 80 op de virtuele machine is geopend voor toegang vanaf internet, kunt u een webbrowser van uw keuze gebruiken om de standaardwelkomstpagina van IIS weer te geven. Kijk op de blade voor de virtuele machine wat de waarde is voor *openbare IP-adres* en gebruik dit adres om naar de standaardwebpagina te gaan. 
 
 ![Standaardsite van IIS](./media/quick-create-powershell/default-iis-website.png) 
 

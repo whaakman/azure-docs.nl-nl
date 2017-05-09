@@ -4,7 +4,7 @@ description: "In dit document wordt uitgelegd hoe Azure Security Center kan word
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
@@ -12,12 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 05/08/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
-ms.lasthandoff: 12/02/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 8dddfc8929ab1a0c44522ed2a2596e2c82e3987d
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -37,10 +38,10 @@ Dit zijn de vier belangrijkste redenen voor partnerintegratie in Security Center
 ## <a name="what-partners-are-integrated-with-security-center"></a>Welke partners zijn geïntegreerd met Security Center?
 Security Center is momenteel geïntegreerd met de volgende partners:
 
-- Endpoint Protection (Trend Micro), 
-- Web Application Firewall (Barracuda, F5 en Imperva, en binnenkort ook Microsoft WAF en Fortinet), 
-- Next Generation Firewall (Check Point en Barracuda, en binnenkort ook Fortinet en Cisco). 
-- Vulnerability Assessment (Qualys - preview). 
+- Endpoint Protection ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html)) 
+- Web Application Firewall ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), [App Gateway WAF](https://azure.microsoft.com/en-us/blog/azure-web-application-firewall-waf-generally-available/)) 
+- Next Generation Firewall ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) en [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html)) 
+- Vulnerability Assessment ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) - preview)  
 
 Het aantal partners in de bestaande categorieën in Security Center zal geleidelijk worden uitgebreid en er zullen nieuwe categorieën worden toegevoegd. 
 
@@ -57,7 +58,7 @@ Security Center kan aanraden om een partneroplossing te implementeren op basis v
 
 Zodra een partneroplossing is geïmplementeerd, kunt u informatie over de status van de oplossing bekijken en basisbeheertaken uitvoeren vanuit de tegel Partneroplossing in het hoofddashboard van Security Center. Lees [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md) voor meer informatie over het beheren van partneroplossingen in Security Center.
 
-![Partnerintegratie](./media/security-center-partner-integration/security-center-partner-integration-fig1-new.png)
+![Partnerintegratie](./media/security-center-partner-integration/security-center-partner-integration-fig1-newUI.png)
 
 
 ## <a name="see-also"></a>Zie ook

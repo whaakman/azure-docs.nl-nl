@@ -11,11 +11,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 04/26/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 1e18f20e202c199036ff2012dcc6d415898cac7f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a6e9e504f4ccb8fb1e0a151dcfe76339fcc8051a
+ms.contentlocale: nl-nl
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,7 +30,7 @@ ms.openlocfilehash: 1e18f20e202c199036ff2012dcc6d415898cac7f
 > 
 > 
 
-Als u zoekaanvragen verzendt naar Azure Search, kunt u naast de werkelijke woorden die in het zoekvak van uw toepassing worden getypt een aantal parameters opgeven. Deze queryparameters bieden een betere controle over de functie voor het zoeken in volledige tekst.
+Als u zoekaanvragen verzendt naar Azure Search, kunt u naast de werkelijke woorden die in het zoekvak van uw toepassing worden getypt een aantal parameters opgeven. Deze queryparameters bieden een betere controle over de [functie voor het zoeken in volledige tekst](search-lucene-query-architecture.md).
 
 Hieronder volgt een lijst met een korte beschrijving van het algemeen gebruik van de queryparameters in Azure Search. Zie de gedetailleerde pagina's over de [REST-API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) en [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters#microsoft_azure_search_models_searchparameters#properties_summary) voor een uitgebreid overzicht van queryparameters en de functie ervan.
 
@@ -59,10 +61,5 @@ Zie het artikel [Zoekresultaten oproepen in Azure Search](search-pagination-page
 
 ## <a name="hit-highlighting"></a>Markeren
 U kunt in Azure Search eenvoudig het exacte aantal zoekresultaten weergeven met behulp van de `highlight`-, `highlightPreTag`- en `highlightPostTag`-parameters. U kunt aangeven in welke *doorzoekbare* velden de tekst moet worden benadrukt. Ook kunt u de exacte tekenreekslabels opgeven die moeten worden toegevoegd aan het begin en einde van de overeenkomstige tekst die Azure Search retourneert.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

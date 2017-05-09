@@ -1,6 +1,6 @@
 **Een nieuw CDN-profiel maken**
 
-1. In [Azure Portal](https://portal.azure.com) klikt u in de linkerbovenhoek op **Nieuw**.  In de blade **Nieuw** selecteert u **Media en CDN** en vervolgens **CDN**.
+1. In [Azure Portal](https://portal.azure.com) klikt u in de linkerbovenhoek op **Nieuw**.  Selecteer op de blade **Nieuw** de optie **Web en mobiel** en vervolgens **CDN**.
    
     De blade met het nieuwe CDN-profiel wordt weergegeven.
    
@@ -13,9 +13,4 @@
     ![Het selecteren van een CDN-prijscategorie](./media/cdn-create-profile/cdn-choose-sku-include.png)
 6. Selecteer het **abonnement** voor dit CDN-profiel.
 7. Klik op de knop **Maken** om het nieuwe profiel te maken. 
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

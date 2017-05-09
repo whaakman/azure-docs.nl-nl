@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: a1ccebd6d53c7f02517c7655bdfb5b3ce3f26090
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7461a0006e57608d9baa538175174788692db5f5
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -42,7 +43,7 @@ az login
 
 Maak een resourcegroep maken met [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
-In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westeurope`.
+In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *Europa West*.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
@@ -52,13 +53,17 @@ az group create --name myResourceGroup --location westeurope
 
 Maak een VM met [az vm create](/cli/azure/vm#create). 
 
-In het volgende voorbeeld wordt een virtuele machine met de naam `myVM` gemaakt. In dit voorbeeld wordt `azureuser` voor de naam van een gebruiker met beheerdersrechten en ` myPassword12` als het wachtwoord gebruikt. Werk deze waarden bij met waarden die geschikt zijn voor uw omgeving. Deze waarden zijn nodig als u verbinding maakt met de virtuele machine.
+In het volgende voorbeeld wordt een VM met de naam *myVM* gemaakt. In dit voorbeeld wordt *azureuser* voor de naam van een gebruiker met beheerdersrechten en *myPassword12* als het wachtwoord gebruikt. Werk deze waarden bij met waarden die geschikt zijn voor uw omgeving. Deze waarden zijn nodig als u verbinding maakt met de virtuele machine.
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
+az vm create `
+  --resource-group myResourceGroup `
+  --name myVM --image win2016datacenter `
+  --admin-username azureuser `
+  --admin-password myPassword12
 ```
 
-Wanneer de virtuele machine is gemaakt, toont de Azure CLI informatie die lijkt op de informatie in het volgende voorbeeld. Noteer het openbare IP-adres. Dit adres wordt gebruikt voor toegang tot de virtuele machine.
+Wanneer de virtuele machine is gemaakt, toont de Azure CLI informatie die lijkt op de informatie in het volgende voorbeeld. Noteer het `publicIpAaddress`. Dit adres wordt gebruikt voor toegang tot de virtuele machine.
 
 ```azurecli
 {
@@ -75,7 +80,7 @@ Wanneer de virtuele machine is gemaakt, toont de Azure CLI informatie die lijkt 
 
 ## <a name="open-port-80-for-web-traffic"></a>Poort 80 openen voor webverkeer 
 
-Standaard worden alleen RDP-verbindingen toegestaan naar virtuele Windows-machines die zijn geïmplementeerd in Azure. Als deze virtuele machine wordt gebruikt als een webserver, moet u poort 80 openen voor verkeer vanaf internet.  Er is maar één opdracht nodig om de gewenste poort te openen.  
+Standaard worden alleen RDP-verbindingen toegestaan naar virtuele Windows-machines die zijn geïmplementeerd in Azure. Als deze virtuele machine wordt gebruikt als een webserver, moet u poort 80 openen voor verkeer vanaf internet. Gebruik de opdracht [az vm open-port](/cli/azure/vm#open-port) om de gewenste poort te openen.  
  
  ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -92,7 +97,7 @@ mstsc /v:<Public IP Address>
 
 ## <a name="install-iis-using-powershell"></a>IIS installeren met behulp van PowerShell
 
-U bent nu aangemeld bij de virtuele machine van Azure en er is nog maar één regel code van PowerShell nodig om IIS te installeren en de regel voor de lokale firewall in te schakelen om webverkeer toe te staan.  Open een PowerShell-prompt en voer de volgende opdracht uit:
+U bent nu aangemeld bij de VM van Azure en er is nog maar één regel code van PowerShell nodig om IIS te installeren en de regel voor de lokale firewall in te schakelen om webverkeer toe te staan. Open een PowerShell-prompt en voer de volgende opdracht uit:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -100,12 +105,12 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>De welkomstpagina van IIS weergeven
 
-Nu IIS is geïnstalleerd en poort 80 op de virtuele machine is geopend voor toegang vanaf internet, kunt u een webbrowser van uw keuze gebruiken om de standaardwelkomstpagina van IIS weer te geven. Zorg ervoor dat u de standaardpagina bezoekt met het `publicIpAddress` dat u hierboven hebt gedocumenteerd. 
+Nu IIS is geïnstalleerd en poort 80 op de virtuele machine is geopend voor toegang vanaf internet, kunt u een webbrowser van uw keuze gebruiken om de standaardwelkomstpagina van IIS weer te geven. Zorg ervoor dat u de standaardpagina bezoekt met het openbare IP-adres dat u hierboven hebt gedocumenteerd. 
 
 ![Standaardsite van IIS](./media/quick-create-powershell/default-iis-website.png) 
 ## <a name="delete-virtual-machine"></a>De virtuele machine verwijderen
 
-Wanneer de virtuele machine niet meer nodig is, kan de volgende opdracht worden gebruikt om de resourcegroep, de virtuele machine zelf en alle gerelateerde resources te verwijderen.
+U kunt de opdracht [az group delete](/cli/azure/group#delete) gebruiken om de resourcegroep, de VM en alle gerelateerde resources te verwijderen wanneer u ze niet meer nodig hebt.
 
 ```azurecli
 az group delete --name myResourceGroup

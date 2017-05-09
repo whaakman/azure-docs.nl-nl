@@ -16,10 +16,11 @@ ms.workload: big-data
 ms.date: 03/17/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 4787928ed066b9aed51a8512deeda6cd49897d82
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 2ab0818646626577a23fb4096fbe863d7525a8f2
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/03/2017
 
 ---
 #<a name="get-started-with-the-storm-starter-samples-for-big-data-analytics-on-linux-based-hdinsight"></a>Aan de slag met Storm Starter-voorbeelden voor big data-analyses in HDInsight op basis van Linux
@@ -36,10 +37,6 @@ Apache Storm is een gedistribueerd, schaalbaar, fouttolerant en realtime bereken
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * **Kennis van SSH en SCP**. Zie [SSH-sleutels gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor informatie.
-
-### <a name="access-control-requirements"></a>Vereisten voor toegangsbeheer
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-a-storm-cluster"></a>Een Storm-cluster maken
 
@@ -190,6 +187,8 @@ Ga terug naar de pagina **Topology summary** voor de word-count-topologie en kli
 ## <a name="delete-the-cluster"></a>Het cluster verwijderen
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#create-clusters) als u een probleem ondervindt met het maken van een HDInsight-cluster.
 
 ## <a id="next"></a>Volgende stappen
 

@@ -15,10 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 8b72a3f26e356af588e9f5c2039bcc525366ce11
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 79e373a69f3b899dea1f10ac447a0284931648f4
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.lasthandoff: 03/01/2017
 > * [Azure Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure Application Gateway is een load balancer in laag&7;. De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud). Application Gateway bevat veel ADC-functies (Application Delivery Controller), waaronder HTTP-taakverdeling, op cookies gebaseerde sessieaffiniteit, SSL-offload (Secure Sockets Layer), aangepaste statustests en ondersteuning voor meerdere locaties. Een volledige lijst met ondersteunde functies vindt u in [Application Gateway Overview](application-gateway-introduction.md) (Overzicht van Application Gateway)
+Azure Application Gateway is een load balancer in laag 7. De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud). Application Gateway bevat veel ADC-functies (Application Delivery Controller), waaronder HTTP-taakverdeling, op cookies gebaseerde sessieaffiniteit, SSL-offload (Secure Sockets Layer), aangepaste statustests en ondersteuning voor meerdere locaties. Een volledige lijst met ondersteunde functies vindt u in [Application Gateway Overview](application-gateway-introduction.md) (Overzicht van Application Gateway)
 
 In dit artikel vindt u meer informatie over de stappen voor het maken, configureren, openen en verwijderen van een toepassingsgateway.
 
@@ -106,11 +107,11 @@ DnsName       :
 
 U kunt de toepassingsgateway configureren met XML of een configuratieobject.
 
-## <a name="configure-the-application-gateway-by-using-xml"></a>De toepassingsgateway configureren met XML
+### <a name="configure-the-application-gateway-by-using-xml"></a>De toepassingsgateway configureren met XML
 
 In het volgende voorbeeld gebruikt u een XML-bestand om alle instellingen voor de toepassingsgateway te configureren en deze door te voeren voor de toepassingsgatewayresource.  
 
-### <a name="step-1"></a>Stap 1
+#### <a name="step-1"></a>Stap 1
 
 Kopieer de volgende tekst naar Kladblok.
 
@@ -211,7 +212,7 @@ In het volgende voorbeeld ziet u hoe u de toepassingsgateway instelt met een con
 </ApplicationGatewayConfiguration>
 ```
 
-### <a name="step-2"></a>Stap 2
+#### <a name="step-2"></a>Stap 2
 
 Vervolgens stelt u de toepassingsgateway in. Gebruik de cmdlet `Set-AzureApplicationGatewayConfig` met een XML-configuratiebestand.
 
@@ -219,14 +220,14 @@ Vervolgens stelt u de toepassingsgateway in. Gebruik de cmdlet `Set-AzureApplica
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
-## <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>De toepassingsgateway configureren met een configuratieobject
+### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>De toepassingsgateway configureren met een configuratieobject
 
 In het volgende voorbeeld ziet u hoe u de toepassingsgateway configureert met configuratieobjecten. Alle configuratie-items moeten afzonderlijk worden geconfigureerd en vervolgens worden toegevoegd aan een configuratieobject voor de toepassingsgateway. Wanneer u het configuratieobject hebt gemaakt, gebruikt u de opdracht `Set-AzureApplicationGateway` om de configuratie door te voeren voor de eerder gemaakte toepassingsgatewayresource.
 
 > [!NOTE]
 > Voordat u aan elk configuratieobject een waarde toewijst, moet u opgeven welk soort object PowerShell voor opslag gebruikt. In de eerste regel voor het maken van het afzonderlijke item wordt gedefinieerd welke `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` er worden gebruikt.
 
-### <a name="step-1"></a>Stap 1
+#### <a name="step-1"></a>Stap 1
 
 Maak alle afzonderlijke configuratie-items.
 
@@ -297,7 +298,7 @@ $rule.Listener = "listener1"
 $rule.BackendAddressPool = "pool1"
 ```
 
-### <a name="step-2"></a>Stap 2
+#### <a name="step-2"></a>Stap 2
 
 Wijs alle afzonderlijke configuratie-items toe aan een configuratieobject voor de toepassingsgateway ($appgwconfig).
 
@@ -385,9 +386,9 @@ Vip           : 138.91.170.26
 DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
-## <a name="delete-an-application-gateway"></a>Een toepassingsgateway verwijderen
+## <a name="delete-the-application-gateway"></a>De toepassingsgateway verwijderen
 
-Ga als volgt te werk om een toepassingsgateway te verwijderen:
+De toepassingsgateway verwijderen:
 
 1. Gebruik de cmdlet `Stop-AzureApplicationGateway` om de gateway te stoppen.
 2. Gebruik de cmdlet `Remove-AzureApplicationGateway` om de gateway te verwijderen.
