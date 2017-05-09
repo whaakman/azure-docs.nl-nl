@@ -1,9 +1,9 @@
 # Overzicht
 ## [Wat is Azure Active Directory?](active-directory-whatis.md)
 ## [Editie kiezen](active-directory-editions.md)
-## [Over Azure-identiteitsbeheer](fundamentals-identity.md)
-## [Een voorbeeld bekijken van de Azure AD Portal-ervaring](active-directory-preview-explainer.md)
 
+## [Over Azure-identiteitsbeheer](identity-fundamentals.md)
+## [Een voorbeeld bekijken van de Azure Portal ervaring](active-directory-preview-explainer.md)
 
 # Aan de slag
 ## [Een Azure AD-tenant verkrijgen](active-directory-howto-tenant.md)
@@ -58,6 +58,7 @@
 ### [Alle groepen weergeven](active-directory-groups-view-azure-portal.md)
 ### [Toegewezen groepen inschakelen](active-directory-accessmanagement-dedicated-groups.md)
 ### [Groepstoegang tot SaaS-apps toevoegen](active-directory-accessmanagement-group-saasapps.md)
+### [Herstellen van een verwijderde Office 365-groep](active-directory-groups-restore-azure-portal.md)
 ### Groepsinstellingen beheren
 #### [Azure Portal](active-directory-groups-settings-azure-portal.md)
 #### [Cmdlets](active-directory-accessmanagement-groups-settings-cmdlets.md)
@@ -110,24 +111,27 @@
 ##### [Onbekende bronnen](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [Afwijkende aanmeldingen](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [Wachtwoorden beheren](active-directory-manage-passwords.md)
-### [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md)
-### [Registreren voor de selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md)
-### [Inschakelen van de selfservice voor wachtwoordherstel door de beheerder](active-directory-passwords.md)
-### [Meer informatie over wachtwoordbeheer](active-directory-passwords-how-it-works.md)
-### [Meer informatie over beleidsregels en beperkingen](active-directory-passwords-policy.md)
-### Wachtwoorden opnieuw instellen
+## [Wachtwoorden beheren](active-directory-passwords.md)
+### Gebruikersdocumenten
+#### [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md)
+#### [Registreren voor de selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md)
+### [Snel aan de slag: een wachtwoord opnieuw instellen via selfservice](active-directory-passwords-getting-started.md)
+### [SSPR licentiëren](active-directory-passwords-licensing.md)
+### [SSPR implementeren](active-directory-passwords-best-practices.md)
+### IT-beheerders: wachtwoorden opnieuw instellen
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
-#### [Klassieke portal](active-directory-create-users-reset-password.md)
-### [Vervalbeleidsregels instellen](active-directory-passwords-set-expiration-policy.md)
-### Wachtwoordbeheer inschakelen
-#### [Aan de slag](active-directory-passwords-getting-started.md)
-#### [Implementeren](active-directory-passwords-best-practices.md)
-#### [Aanpassen](active-directory-passwords-customize.md)
-#### [Rapporten weergeven](active-directory-passwords-get-insights.md)
-#### [Meer informatie](active-directory-passwords-learn-more.md)
-#### [Veelgestelde vragen](active-directory-passwords-faq.md)
-#### [Problemen oplossen](active-directory-passwords-troubleshoot.md)
+#### [Klassieke Azure Portal](active-directory-create-users-reset-password.md)
+### [Meer informatie over SSPR-beleid](active-directory-passwords-policy.md)
+### [Meer informatie over het opnieuw instellen van wachtwoorden](active-directory-passwords-how-it-works.md)
+### [SSPR aanpassen](active-directory-passwords-customize.md)
+### [Gegevens die door SSPR worden gebruikt](active-directory-passwords-data.md)
+### [Rapportage voor SSPR](active-directory-passwords-reporting.md)
+### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Wachtwoord terugschrijven](active-directory-passwords-writeback.md)
+### [Synchronisatie van wachtwoord-hashes](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
+### [Problemen oplossen](active-directory-passwords-troubleshoot.md)
+### [Veelgestelde vragen](active-directory-passwords-faq.md)
+
 
 ## Apparaten beheren
 ### [Apparaten registreren](active-directory-device-registration-overview.md)
@@ -289,6 +293,7 @@
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
 #### [Problemen oplossen](role-based-access-control-troubleshooting.md)
+#### [Resourceproviderbewerkingen](role-based-access-control-resource-provider-operations.md)
 ### [De levensduur van tokens configureren](active-directory-configurable-token-lifetimes.md)
 
 ## Uw identiteiten beveiligen
@@ -341,7 +346,7 @@
 
 
 # Naslaginformatie
-## [PowerShell-cmdlets](/powershell/ )
+## [PowerShell-cmdlets](/powershell/azure/overview)
 ## [Naslaginformatie over de Java-API](/java/api)
 ## [.NET-API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Servicelimieten en -beperkingen](active-directory-service-limits-restrictions.md)

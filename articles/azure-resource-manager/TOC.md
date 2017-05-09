@@ -29,15 +29,19 @@
 ### [Locatie instellen](resource-manager-template-location.md)
 ### [Tags toewijzen](resource-manager-template-tags.md)
 ### [Naam en type van onderliggende resource instellen](resource-manager-template-child-resource.md)
+### [Bron bijwerken](resource-manager-update.md)
+### [Objecten voor parameters gebruiken](resource-manager-objects-as-parameters.md)
 ### [Status delen tussen gekoppelde sjablonen](best-practices-resource-manager-state.md)
 ### [Patronen voor het ontwerpen van sjablonen](best-practices-resource-manager-design-templates.md)
 ## Implementeren
 ### PowerShell
 #### [Sjabloon implementeren](resource-group-template-deploy.md)
 #### [Persoonlijke sjabloon met SAS-token implementeren](resource-manager-powershell-sas-token.md)
+#### [Sjabloon exporteren en opnieuw distribueren](resource-manager-export-template-powershell.md)
 ### Azure CLI
 #### [Sjabloon implementeren](resource-group-template-deploy-cli.md)
 #### [Persoonlijke sjabloon met SAS-token implementeren](resource-manager-cli-sas-token.md)
+#### [Sjabloon exporteren en opnieuw distribueren](resource-manager-export-template-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST-API](resource-group-template-deploy-rest.md)
 ### [Doorlopende integratie met Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -72,7 +76,13 @@
 
 # Naslaginformatie
 ## [Sjabloonfuncties](resource-group-template-functions.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+### [Matrix- en objectfuncties](resource-group-template-functions-array.md)
+### [Vergelijkingsfuncties](resource-group-template-functions-comparison.md)
+### [Implementatiefuncties](resource-group-template-functions-deployment.md)
+### [Numerieke functies](resource-group-template-functions-numeric.md)
+### [Resourcefuncties](resource-group-template-functions-resource.md)
+### [Tekenreeksfuncties](resource-group-template-functions-string.md)
+## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)

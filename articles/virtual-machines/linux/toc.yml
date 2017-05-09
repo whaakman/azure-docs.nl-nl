@@ -4,7 +4,7 @@
   items:
   - name: "Informatie over virtuele machines"
     href: overview.md
-- name: "Snelstartgids"
+- name: "Snelstartgidsen"
   expanded: true
   items:
   - name: "Virtuele machine maken - Azure CLI"
@@ -31,6 +31,8 @@
     href: tutorial-load-balancer.md
   - name: "8 - Netwerken beheren"
     href: tutorial-virtual-network.md
+  - name: "9 - VM-beveiliging beheren"
+    href: tutorial-azure-security.md
 - name: "Voorbeelden"
   items:
   - name: "Azure CLI"
