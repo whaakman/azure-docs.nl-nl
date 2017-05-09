@@ -1,5 +1,5 @@
 ---
-title: "Overzicht van prijscategorieën voor Service Bus Premium en Standard Messaging | Microsoft Docs"
+title: "Overzicht van prijscategorieën voor Azure Service Bus Premium en Standard Messaging | Microsoft Docs"
 description: "Prijscategorieën voor Service Bus Premium en Standard Messaging"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/19/2017
+ms.date: 04/28/2017
 ms.author: darosa;sethm;jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: 606838dbeec5e9762f67159ece1bbc8a78769420
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 72e4c59e1282d97cfc5aa5f55861c6f70d419ce8
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -47,7 +48,7 @@ In de volgende secties wordt een aantal verschillen besproken tussen Premium en 
 
 ### <a name="partitioned-queues-and-topics"></a>Gepartitioneerde wachtrijen en onderwerpen
 
-Gepartitioneerde wachtrijen en onderwerpen worden ondersteund in Premium Messaging, maar ze werken niet hetzelfde als in de Standard- en Basic-lagen van de Service Bus Messaging-service. Premium Messaging gebruikt geen SQL als gegevensarchief en biedt niet meer de mogelijke concurrentie voor resources die hoort bij een gedeeld platform. Partitioneren is daardoor niet nodig voor prestaties. Daarnaast is het aantal partities gewijzigd van 16 partities in de Standard-laag naar twee partities in Premium. Het hebben van twee partities garandeert beschikbaarheid. Dit aantal is beter geschikt voor de Premium-runtime-omgeving. Zie [Gepartitioneerde wachtrijen en onderwerpen](service-bus-partitioning.md) voor meer informatie over partitioneren.
+Gepartitioneerde wachtrijen en onderwerpen worden ondersteund in Premium Messaging. Deze entiteiten worden altijd gepartitioneerd (en kunnen niet worden uitgeschakeld). Gepartitioneerde wachtrijen en onderwerpen in Premium werken niet hetzelfde als in de Standard- en Basic-lagen van Service Bus Messaging. Premium Messaging gebruikt geen SQL als gegevensarchief en biedt niet meer de mogelijke concurrentie voor resources die hoort bij een gedeeld platform. Partitioneren is daardoor niet nodig om prestaties te verbeteren. Daarnaast is het aantal partities gewijzigd van 16 partities in de Standard-laag naar twee partities in Premium. Het hebben van twee partities garandeert beschikbaarheid. Dit aantal is beter geschikt voor de Premium-runtime-omgeving. Zie [Gepartitioneerde wachtrijen en onderwerpen](service-bus-partitioning.md) voor meer informatie over partitioneren.
 
 ### <a name="express-entities"></a>Express-entiteiten
 

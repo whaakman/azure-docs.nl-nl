@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2017
+ms.date: 05/02/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: b0624bde9ab53231768beb0c832a4a49b21a8975
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 03a6c1f20632691c08f5de4afe74eacc6f79608e
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -87,9 +88,14 @@ Als u deze oplossing inschakelt, wordt elke Windows-computer die rechtstreeks is
 U kunt de Windows-computers echter wel toevoegen aan een Hybrid Runbook Worker-groep in uw Automation-account voor ondersteuning van Automation-runbooks, mits u hetzelfde account gebruikt voor zowel de oplossing als het lidmaatschap van de Hybrid Runbook Worker-groep.  Deze functionaliteit is toegevoegd aan versie 7.2.12024.0 van de Hybrid Runbook Worker.  
 
 ## <a name="configuration"></a>Configuratie
-Voer de volgende stappen uit om de oplossing Update Management toe te voegen aan uw OMS-werkruimte en om te controleren of agents wel rapporteren. Windows-agents worden automatisch toegevoegd zonder extra configuratie. 
+Voer de volgende stappen uit om de oplossing Update Management toe te voegen aan uw OMS-werkruimte en om te controleren of agents wel rapporteren. Windows-agents die al met uw werkruimte zijn verbonden, worden automatisch toegevoegd zonder extra configuratie. 
 
-Er zijn drie verschillende manieren waarop u deze oplossing kunt toevoegen: vanuit Azure Marketplace in Azure Portal, door de aanbieding Automation en besturing of de Update Management-oplossing te selecteren, of vanuit de OMS-oplossingengalerie in uw OMS-werkruimte.  Als u al een Automation-account hebt en de OMS-werkruimte is gekoppeld aan dezelfde resourcegroep en regio, kunt u Automation en besturing selecteren om de configuratie te verifiëren. U installeert dan alleen de oplossing en deze wordt vervolgens in beide services geconfigureerd.  Als u de Update Management-oplossing selecteert in Azure Marketplace, ontstaat hetzelfde gedrag.  Als u in uw abonnement geen van beide services hebt geïmplementeerd, volgt u de stappen op de blade **Nieuwe oplossing maken** en bevestigt u dat u de andere vooraf geselecteerde aanbevolen oplossingen wilt installeren.  Optioneel kunt u ook de oplossing Update Management toevoegen aan uw OMS-werkruimte volgens de procedure die is beschreven in [OMS-oplossingen toevoegen](../log-analytics/log-analytics-add-solutions.md). Dit kan via de Oplossingengalerie.  
+U kunt de oplossing implementeren met behulp van de volgende methoden:
+
+* Vanuit de Azure Marketplace in Azure Portal door de aanbieding Automation en besturing of de oplossing Updates beheren te selecteren
+* Vanuit de galerie OMS-oplossingen in uw OMS-werkruimte
+
+Als u al een Automation-account hebt en de OMS-werkruimte is gekoppeld aan dezelfde resourcegroep en regio, kunt u Automation en besturing selecteren om de configuratie te verifiëren. U installeert dan alleen de oplossing en deze wordt vervolgens in beide services geconfigureerd.  Als u de Update Management-oplossing selecteert in Azure Marketplace, ontstaat hetzelfde gedrag.  Als u in uw abonnement geen van beide services hebt geïmplementeerd, volgt u de stappen op de blade **Nieuwe oplossing maken** en bevestigt u dat u de andere vooraf geselecteerde aanbevolen oplossingen wilt installeren.  Optioneel kunt u ook de oplossing Update Management toevoegen aan uw OMS-werkruimte volgens de procedure die is beschreven in [OMS-oplossingen toevoegen](../log-analytics/log-analytics-add-solutions.md). Dit kan via de Oplossingengalerie.  
 
 ### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>Controleren of OMS-agents en Operations Manager-beheergroepen zijn verbonden met OMS
 
@@ -144,7 +150,7 @@ Wanneer de updates zijn beoordeeld voor alle Linux- en Windows-computers in uw w
 > [!NOTE]
 > Virtuele Windows-machines die via Azure Marketplace zijn geïmplementeerd, worden standaard ingesteld voor het automatisch ontvangen van updates van de Windows Update-service.  Dit gedrag wordt niet gewijzigd na het toevoegen van deze oplossing of na het toevoegen van virtuele Windows-machines aan uw werkruimte.  Als u updates niet actief beheert met deze oplossing, wordt het standaardgedrag toegepast (automatisch updates toepassen).  
 
-Voor virtuele machines die zijn gemaakt op basis van de on-demand RHEL-installatiekopieën (Red Hat Enterprise Linux) die beschikbaar zijn in Azure Marketplace, zijn ze geregistreerd voor toegang tot de [Red Hat Update Infrastructure (RHUI)](../virtual-machines/linux/update-infrastructure-redhat.md) die is geïmplementeerd in Azure.  Andere Linux-distributies moeten volgens de ondersteunde methoden worden bijgewerkt vanuit de online distro-bestandsopslagplaats.  
+Voor virtuele machines die zijn gemaakt op basis van de on-demand RHEL-installatiekopieën (Red Hat Enterprise Linux) die beschikbaar zijn in Azure Marketplace, zijn ze geregistreerd voor toegang tot de [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) die is geïmplementeerd in Azure.  Andere Linux-distributies moeten volgens de ondersteunde methoden worden bijgewerkt vanuit de online distro-bestandsopslagplaats.  
 
 ### <a name="viewing-update-deployments"></a>Update-implementaties weergeven
 Klik op de tegel **Update-implementatie** om de lijst met bestaande Update-implementaties weer te geven.  Ze zijn gegroepeerd op status – **Gepland**, **Wordt uitgevoerd** en **voltooid**.<br><br> ![Pagina Planning update-implementaties](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  

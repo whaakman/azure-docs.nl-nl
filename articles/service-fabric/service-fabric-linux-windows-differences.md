@@ -14,16 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 5faf7dc0b544f6fe2f83565cc368e218c6df35af
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 00c1f10f7df865344233143ce9cdf546e64acca0
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Verschillen tussen Service Fabric in Linux (preview) en Service Fabric in Windows (algemeen beschikbaar)
 
-Omdat Service Fabric in Linux een preview-versie is, zijn er enkele functies die wel worden ondersteund in Windows, maar niet in Linux. Wanneer Service Fabric in Linux algemeen beschikbaar komt, zullen de functiesets gelijkwaardig zijn.
+Omdat Service Fabric in Linux een preview-versie is, zijn er enkele functies die wel worden ondersteund in Windows, maar nog niet in Linux. Wanneer Service Fabric in Linux algemeen beschikbaar komt, zullen de functiesets gelijkwaardig zijn.
 
 * Betrouwbare verzamelingen (en betrouwbare stateful services) worden niet ondersteund op Linux.
 * ReverseProxy is niet beschikbaar in Linux.
@@ -38,7 +39,7 @@ Omdat Service Fabric in Linux een preview-versie is, zijn er enkele functies die
 >[!NOTE]
 >Console-omleiding wordt niet ondersteund in productieclusters, ook niet in Windows.
 
-De hulpmiddelen voor ontwikkelaars verschillen. In Windows wordt gebruikgemaakt van VisualStudio, Powershell, VSTS en ETW, en in Linux van Yeoman, Eclipse, Jenkins en LTTng.
+De hulpmiddelen voor ontwikkelaars verschillen ook tussen Windows en Linux. VisualStudio, Powershell VSTS en ETW worden gebruikt op Windows terwijl Yeoman, Eclipse, Jenkins en LTTng op Linux worden gebruikt.
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>PowerShell-cmdlets die niet werken voor een Service Fabric-cluster in Linux
 

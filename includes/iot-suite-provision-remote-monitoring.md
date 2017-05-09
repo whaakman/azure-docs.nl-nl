@@ -1,4 +1,7 @@
 ## <a name="provision-the-solution"></a>De oplossing inrichten
+
+Als u de vooraf geconfigureerde oplossing voor externe controle in uw account nog niet hebt ingericht:
+
 1. Meld u aan bij [azureiotsuite.com][lnk-azureiotsuite] met de referenties van uw Azure-account en klik op **+** om een oplossing te maken.
 2. Klik op de tegel **Externe controle** op **Selecteren**.
 3. Voer een **oplossingsnaam** in voor uw vooraf geconfigureerde oplossing voor externe controle.

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 05/02/2017
 ms.author: ganesr
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 945923d9858ec0ed31272c23268b263f77b5c7a4
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>ExpressRoute-circuits verplaatsen van het klassieke naar het Resource Manager-implementatiemodel
 Dit artikel bevat een overzicht van wat het betekent om een Azure ExpressRoute-circuit te verplaatsen van het klassieke naar het Azure Resource Manager-implementatiemodel.
-
-[!INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 U kunt één ExpressRoute-circuit gebruiken om verbinding te maken met virtuele netwerken die zijn geïmplementeerd in het klassieke en het Resource Manager-implementatiemodel. Een ExpressRoute-circuit kan nu, ongeacht de manier waarop deze is gemaakt, via beide implementatiemodellen worden gekoppeld aan virtuele netwerken.
 
@@ -87,11 +87,11 @@ In deze sectie wordt beschreven wat er wordt ondersteund voor ExpressRoute-circu
 * Wanneer een ExpressRoute-circuit is verplaatst naar het Resource Manager-implementatiemodel, kunt u de levenscyclus van het ExpressRoute-circuit alleen beheren met het Resource Manager-implementatiemodel. Dit betekent dat u handelingen, zoals het toevoegen, bijwerken, verwijderen van peerings, het bijwerken van circuiteigenschappen (zoals bandbreedte, SKU en factureringstype) en het bijwerken en verwijderen van circuits alleen kunt uitvoeren in het Resource Manager-implementatiemodel.
 * Het ExpressRoute-circuit fungeert als een brug tussen het klassieke en het Resource Manager-implementatiemodel. Verkeer tussen virtuele machines in virtuele netwerken in het klassieke implementatiemodel en die in virtuele netwerken in het Resource Manager-implementatiemodel stroomt via ExpressRoute als beide virtuele netwerken zijn gekoppeld aan hetzelfde ExpressRoute-circuit.
 * Abonnementoverschrijdende connectiviteit wordt ondersteund in zowel het klassieke als het Resource Manager-implementatiemodel.
+* Nadat u een ExpressRoute-circuit uit het klassieke model naar het model van Azure Resource Manager hebt verplaatst, kunt u [de virtuele netwerken die zijn gekoppeld aan het ExpressRoute-circuit migreren](expressroute-migration-classic-resource-manager.md).
 
 ## <a name="whats-not-supported"></a>Wat wordt er niet ondersteund
 In deze sectie wordt beschreven wat er niet wordt ondersteund voor ExpressRoute-circuits:
 
-* Het verplaatsen van circuitkoppelingen, gateways en virtuele netwerken van het klassieke naar het Resource Manager-implementatiemodel.
 * Het beheer van de levenscyclus van een ExpressRoute-circuit vanuit het klassieke implementatiemodel.
 * RBAC-ondersteuning (Role-Based Access Control - op rollen gebaseerd toegangsbeheer) voor het klassieke implementatiemodel. U kunt geen RBAC-besturing uitvoeren voor een circuit in het klassieke implementatiemodel. Een beheerder/co-beheerder van het abonnement kan virtuele netwerken koppelen aan of loskoppelen van het circuit.
 
@@ -99,16 +99,12 @@ In deze sectie wordt beschreven wat er niet wordt ondersteund voor ExpressRoute-
 Volg de instructies in [Een ExpressRoute-circuit verplaatsen van het klassieke naar het Resource Manager-implementatiemodel](expressroute-howto-move-arm.md).
 
 ## <a name="next-steps"></a>Volgende stappen
+* [De virtuele netwerken die zijn gekoppeld aan het ExpressRoute-circuit uit het klassieke model migreren naar het model van Azure Resource Manager](expressroute-migration-classic-resource-manager.md)
 * Voor informatie over werkstromen raadpleegt u [ExpressRoute circuit provisioning workflows and circuit states](expressroute-workflows.md) (Werkstromen voor de inrichting van ExpressRoute-circuits en circuittoestanden).
 * Ga als volgt te werk om uw ExpressRoute-verbinding te configureren:
   
   * [Een ExpressRoute-circuit maken](expressroute-howto-circuit-arm.md)
   * [Routering configureren](expressroute-howto-routing-arm.md)
   * [Een virtueel netwerk koppelen aan een ExpressRoute-circuit](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

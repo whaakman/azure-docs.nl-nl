@@ -1,4 +1,4 @@
-### <a name="noconnection"></a>Voorvoegsels wijzigen - geen gatewayverbinding
+### <a name="noconnection"></a>IP-adresvoorvoegsels wijzigen voor de gateway van een lokaal netwerk - geen gatewayverbinding
 
 - Ga als volgt te werk om aanvullende voorvoegsels toe te voegen:
 
@@ -8,7 +8,7 @@
   -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
   ```
 
-- Ga als volgt te werk om een adresvoorvoegsel te verwijderen:<br>
+- Ga als volgt te werk om adresvoorvoegsels te verwijderen:<br>
   Laat de voorvoegsels weg die u niet langer nodig hebt. In dit voorbeeld hebben we voorvoegsel 20.0.0.0/24 (uit het vorige voorbeeld) niet langer nodig, dus werken we de lokale netwerkgateway bij zonder dit voorvoegsel.
 
   ```powershell
@@ -17,13 +17,10 @@
   -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
   ```
 
-### <a name="withconnection"></a>Voorvoegsels wijzigen - bestaande gatewayverbinding
-Als u een gatewayverbinding hebt en u IP-adresvoorvoegsels wilt toevoegen aan of verwijderen uit uw lokale netwerkgateway, moet u de volgende stappen uitvoeren in de volgorde waarin ze staan vermeld. Dit veroorzaakt enige downtime in uw VPN-verbinding.
+### <a name="withconnection"></a>IP-adresvoorvoegsels wijzigen voor de gateway van een lokaal netwerk - bestaande gatewayverbinding
 
-> [!IMPORTANT]
-> Verwijder de VPN-gateway niet. Als u dit wel doet, moet u de stappen nogmaals doorlopen om deze opnieuw te maken. Bovendien moet u uw on-premises VPN-apparaat bijwerken met het nieuwe IP-adres van de VPN-gateway.
-> 
-> 
+Als u een gatewayverbinding hebt en u IP-adresvoorvoegsels wilt toevoegen aan of verwijderen uit uw lokale netwerkgateway, moet u de volgende stappen uitvoeren in de volgorde waarin ze staan vermeld. Dit veroorzaakt enige downtime in uw VPN-verbinding. Als u IP-adresvoorvoegsels wijzigt, hoeft u de VPN-gateway niet te verwijderen. U hoeft alleen de verbinding te verwijderen.
+
 
 1. Verwijder de verbinding.
 

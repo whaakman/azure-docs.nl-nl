@@ -5,7 +5,7 @@ keywords:
 services: time-series-insights
 documentationcenter: 
 author: op-ravi
-manager: santoshb
+manager: jhubbard
 editor: cgronlun
 ms.assetid: 
 ms.service: time-series-insights
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 05/01/2017
 ms.author: omravi
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 5e9ee102c0375c8c1ac0e0ff6bc93989115b7cfa
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 143d48b9fc551ade0d0fd043cdb0cf1f3340a9af
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/02/2017
 
 ---
 
@@ -39,6 +40,7 @@ Beleid voor gegevenstoegang verleent machtigingen voor het uitvoeren van gegeven
 
 De twee typen beleid maken een duidelijke scheiding mogelijk tussen toegang tot het beheer van de omgeving en toegang tot de gegevens in de omgeving. Het is bijvoorbeeld mogelijk om een omgeving zo in te stellen dat de eigenaar/maker van de omgeving geen toegang tot de gegevens heeft. Ook kan aan gebruikers en services die vanuit de omgeving gegevens kunnen lezen, geen toegang worden verleend tot de configuratie van de omgeving.
 
+## <a name="grant-data-access"></a>Gegevenstoegang verlenen
 De volgende stappen laten zien hoe gegevenstoegang wordt verleend aan een gebruiker-principal:
 
 1.    Meld u aan bij [Azure Portal](https://portal.azure.com).

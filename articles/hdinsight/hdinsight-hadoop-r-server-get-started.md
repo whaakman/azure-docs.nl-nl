@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/13/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: bf245d8885e6d6628f182e36e0a9c99a4854873a
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: bf5b1c0a6e76f712e0be1f16ed1a6b2ac78d68de
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -36,13 +37,9 @@ HDInsight bevat een R Server-optie die kan worden geïntegreerd in uw HDInsight-
 > Bij de stappen in dit document wordt ervan uitgegaan dat u een wachtwoord gebruikt.
 
 
-### <a name="access-control-requirements"></a>Vereisten voor toegangsbeheer
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
 ## <a name="automated-cluster-creation"></a>Automatisch een cluster maken
 
-U kunt het maken van HDInsight R Servers automatiseren met ARM-sjablonen, de SDK of PowerShell.
+U kunt het maken van HDInsight R Servers automatiseren met Azure Resource Manager-sjablonen, de SDK of PowerShell.
 
 * Zie [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/) (Een HDInsight-cluster op basis van R Server implementeren) voor het maken van een R Server met een Azure Resource Manager-sjabloon.
 * Zie [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) (In HDInsight op Linux gebaseerde clusters maken met de .NET-SDK) als u een R Server wilt maken met behulp van de .NET-SDK.
@@ -502,7 +499,7 @@ Scriptacties zijn Bash-scripts die worden gebruikt om configuratiewijzigingen aa
 
    * **Parameters**: de R-pakketten die moeten worden geïnstalleerd. Bijvoorbeeld: `bitops stringr arules`
 
-   * **Deze scriptactie opnieuw laten uitvoeren...**: dit moet zijn **ingeschakeld**  
+   * **Deze scriptactie opnieuw laten uitvoeren...** : dit moet zijn **ingeschakeld**  
 
    > [!NOTE]
    > 1. Standaard worden alle R-pakketten geïnstalleerd vanuit een momentopname van de Microsoft MRAN-opslagplaats, consistent met de R Server-versie die is geïnstalleerd.  Als u nieuwere versies van pakketten wilt installeren, kan het zijn dat deze niet compatibel zijn. In dit geval kunt u echter `useCRAN` opgeven als het eerste element van de lijst met pakketten, bijvoorbeeld `useCRAN bitops, stringr, arules`.  
@@ -629,6 +626,10 @@ Zodra alle uit bedrijf genomen worker-knooppunten zijn geconfigureerd om het rek
 * Ga naar de sectie URI's en voeg het IP-adres en de poortgegevens van het worker-knooppunt toe.
 
 ![opdrachtregel worker-knooppunten uit bedrijf nemen](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
+
+## <a name="troubleshoot"></a>Problemen oplossen
+
+Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#create-clusters) als u problemen ondervindt met het maken van HDInsight-clusters.
 
 ## <a name="next-steps"></a>Volgende stappen
 

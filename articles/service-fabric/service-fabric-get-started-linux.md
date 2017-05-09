@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 516b8e517a16dd0d87e02189260166696225fbab
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d01e141ec8ee8da18d38a216f3b13c88f3632801
+ms.contentlocale: nl-nl
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -74,6 +75,13 @@ Wanneer uw bronnen zijn bijgewerkt, kunt u de SDK installeren.
     ```bash
     sudo apt-get install servicefabricsdkcommon
     ```
+    Als u de installatie wilt automatiseren, kunt u de prompt voor de licentieovereenkomst overslaan door de debconf-selecties voor de Service Fabric-pakketten in te stellen. De volgende twee opdrachten kunnen worden uitgevoerd
+    
+    ```bash
+    echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
+    echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
+    ```
+
 2. Voer het SDK-installatiescript uit.
 
     ```bash
@@ -203,6 +211,11 @@ Als u wilt bijwerken naar de nieuwste versie van de SDK en runtime, voert u de v
    sudo apt-get update
    sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
    ```
+   
+> [!NOTE]
+> Als de bovenstaande pakketten worden bijgewerkt, kan dit ertoe leiden dat uw lokale ontwikkelingscluster wordt stopgezet. Start uw lokale cluster opnieuw op na een upgrade door de instructies op deze pagina te volgen
+>
+>
 
 Als u de CLI wilt bijwerken, gaat u naar de map waar u CLI hebt gekloond en voert u `git pull` uit om bij te werken.  Als er voor het bijwerken extra stappen nodig zijn, worden deze in de releaseopmerkingen genoemd. 
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: a7b3f8addbba21e60be0076784ae954f4cedb0b8
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: d29cf81747390fe153c3c6dc330ef738de0cd83a
+ms.contentlocale: nl-nl
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +49,7 @@ Er zijn geen lengtebeperkingen voor het NAT IP-voorvoegsel dat via deze peering 
 > 
 
 ## <a name="nat-requirements-for-microsoft-peering"></a>NAT-vereisten voor Microsoft-peering
-Met het pad voor Microsoft-peering kunt u verbinding maken met Microsoft Cloud-services die niet worden ondersteund via het pad voor openbare Azure-peering. De lijst met services bevat Office 365-services, zoals Exchange Online, SharePoint Online, Skype voor Bedrijven en CRM Online. Microsoft verwacht bidirectionele connectiviteit op de Microsoft-peering te gaan ondersteunen. Verkeer dat is bestemd voor Microsoft Cloud-services moet met SNAT worden omgezet naar geldige openbare IPv4-adressen voordat het het Microsoft-netwerk binnenkomt. Verkeer dat is bestemd voor uw netwerk en afkomstig is van Microsoft Cloud-services, moet met SNAT worden omgezet voordat het uw netwerk binnenkomt. In onderstaande afbeelding ziet u een algemeen beeld van hoe de NAT moet worden ingesteld voor Microsoft-peering.
+Met het pad voor Microsoft-peering kunt u verbinding maken met Microsoft Cloud-services die niet worden ondersteund via het pad voor openbare Azure-peering. De lijst met services bevat Office 365-services, zoals Exchange Online, SharePoint Online, Skype voor Bedrijven en CRM Online. Microsoft verwacht bidirectionele connectiviteit op de Microsoft-peering te gaan ondersteunen. Verkeer dat is bestemd voor Microsoft Cloud-services moet met SNAT worden omgezet naar geldige openbare IPv4-adressen voordat het het Microsoft-netwerk binnenkomt. Verkeer dat is bestemd voor uw netwerk en afkomstig is van Microsoft Cloud-services, moet met SNAT worden omgezet aan de kant van uw internet om [asymmetrische routering](expressroute-asymmetric-routing.md) te voorkomen. In onderstaande afbeelding ziet u een algemeen beeld van hoe de NAT moet worden ingesteld voor Microsoft-peering.
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
@@ -63,7 +64,9 @@ Met het pad voor Microsoft-peering kunt u verbinding maken met Microsoft Cloud-s
 
 ### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Verkeer dat afkomstig is van Microsoft en is bestemd voor Microsoft
 * In bepaalde scenario's moet Microsoft connectiviteit starten met service-eindpunten die worden gehost in uw netwerk. Een typisch voorbeeld van het scenario is connectiviteit met ADFS-servers die vanuit Office 365 wordt gehost in uw netwerk. In dergelijke gevallen moet u vanuit uw netwerk geschikte voorvoegsels naar de Microsoft-peering laten lekken. 
-* U moet verkeer dat is bestemd voor IP-adressen in uw netwerk vanuit Microsoft met SNAT omzetten. 
+* U moet Microsoft-verkeer met SNAT omzetten aan de kant van internet voor service-eindpunten in uw netwerk om [asymmetrische routering](expressroute-asymmetric-routing.md) te voorkomen. Aanvragen **en antwoorden** met een doel-IP die overeenkomt met een route ontvangen via ExpressRoute worden altijd verzonden via ExpressRoute. Er is sprake van asymmetrische routering als de aanvraag is ontvangen via internet en het antwoord wordt verzonden via ExpressRoute. Als het inkomende Microsoft-verkeer met SNAT wordt omgezet aan de kant van internet, wordt antwoordverkeer terug naar de kant van internet gedwongen, waarmee het probleem wordt opgelost.
+
+![Asymmetrische routering met ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 * Raadpleeg de vereisten voor [Routering](expressroute-routing.md) en [QoS](expressroute-qos.md).

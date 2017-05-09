@@ -16,9 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 71c6c5ffacf49b907e3e9f488789f31928b25823
-ms.openlocfilehash: e01a9ef7d223e7a5a06475cf419b73959baa803f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: b76020e3e5855a63c416851d9b9adefdbdc5874a
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -27,7 +29,7 @@ ms.openlocfilehash: e01a9ef7d223e7a5a06475cf419b73959baa803f
 
 
 
-In Azure Container Service is voor Kubernetes een [service-principal voor Azure Active Directory](../active-directory/active-directory-application-objects.md) vereist als serviceaccount voor gebruik met Azure-API's. De service-principal is nodig om resources zoals door gebruikers gedefinieerde routes en de Azure Load Balancer uit laag vier dynamisch te beheren.
+In Azure Container Service is voor Kubernetes een [service-principal voor Azure Active Directory](../active-directory/active-directory-application-objects.md) vereist als serviceaccount voor gebruik met Azure-API's. De service-principal is nodig om resources zoals door [gebruikers gedefinieerde routes](../virtual-network/virtual-networks-udr-overview.md) en de [Azure Load Balancer uit laag vier](../load-balancer/load-balancer-overview.md) dynamisch te beheren.
 
 In dit artikel worden verschillende opties getoond om een service-principal op te geven voor uw Kubernetes-cluster. Bijvoorbeeld: als u de [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) hebt geïnstalleerd en ingesteld, kunt u de opdracht [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) uitvoeren om tegelijkertijd het Kubernetes-cluster en de service-principal te maken.
 
@@ -138,9 +140,4 @@ az vm list-sizes --location westus
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Aan de slag met Kubernetes](container-service-kubernetes-walkthrough.md) in de Cluster Container Service-cluster.
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 
