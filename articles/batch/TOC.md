@@ -7,11 +7,14 @@
 ## [Een Batch-account maken](batch-account-create-portal.md)
 ## [Zelfstudie over Batch .NET](batch-dotnet-get-started.md)
 ## [Zelfstudie over Batch Python](batch-python-tutorial.md)
+## [Zelfstudie over Batch Node.js](batch-nodejs-get-started.md)
 # Procedures
 ## Ontwikkelen
 ### [Toepassingspakketten](batch-application-packages.md)
 ### [Compute-knooppunten automatisch schalen](batch-automatic-scaling.md)
-### [Azure Active Directory-verificatie](batch-aad-auth.md)
+### Azure Active Directory-verificatie
+#### [Azure AD met Batch-service](batch-aad-auth.md)
+#### [Azure AD met Batch Management](batch-aad-auth-management.md)
 ### [Gelijktijdige knooppunttaken](batch-parallel-node-tasks.md)
 ### [Efficiënte lijstquery's](batch-efficient-list-queries.md)
 ### [Taken voor taakvoorbereiding- en -voltooiing](batch-job-prep-release.md)
@@ -27,7 +30,7 @@
 ### [Azure CLI](batch-cli-get-started.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
+## [PowerShell](/powershell/module/azurerm.batch)
 ## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)

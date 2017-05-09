@@ -33,6 +33,7 @@
 
 # Naslaginformatie
 ## [API-overzicht](billing-usage-rate-card-overview.md)
+## [Enterprise Reporting API-overzicht](billing-enterprise-api.md)
 ## [Factuur-REST](/rest/api/billing)
 ## [Gebruiks- en RateCard-REST](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
 ## [Partneroplossing: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)

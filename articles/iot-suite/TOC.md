@@ -11,12 +11,22 @@
 ## [Overzicht van de oplossing voor verbonden bedrijven](iot-suite-connected-factory-overview.md)
 ## [Kennismaken met de oplossing voor controle op afstand](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Kennismaken met de oplossing voor voorspellend onderhoud](iot-suite-predictive-walkthrough.md)
+## [Verbinding maken met uw Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
+### C gebruiken
+#### [Gesimuleerde gegevens](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
+#### [Echte sensoren gebruiken](iot-suite-raspberry-pi-kit-c-get-started-basic.md)
+#### [Firmware-update implementeren](iot-suite-raspberry-pi-kit-c-get-started-advanced.md)
+### Node.js gebruiken
+#### [Gesimuleerde gegevens](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
+#### [Echte sensoren gebruiken](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
+#### [Firmware-update implementeren](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
 
 # Procedures
-## [Uw apparaat aansluiten op de oplossing voor controle op afstand (Windows)](iot-suite-connecting-devices.md)
-## [Uw apparaat aansluiten op de oplossing voor controle op afstand (Linux)](iot-suite-connecting-devices-linux.md)
-## [Uw apparaat aansluiten op de oplossing voor controle op afstand (mbed)](iot-suite-connecting-devices-mbed.md)
-## [Uw apparaat aansluiten op de oplossing voor controle op afstand (Node)](iot-suite-connecting-devices-node.md)
+## Een gesimuleerd apparaat verbinden
+### [C op Windows](iot-suite-connecting-devices.md)
+### [C op Linux](iot-suite-connecting-devices-linux.md)
+### [Node.js](iot-suite-connecting-devices-node.md)
+## [Uw mbed-apparaat verbinden](iot-suite-connecting-devices-mbed.md)
 ## [Een logische app aansluiten op de oplossing voor controle op afstand](iot-suite-logic-apps-tutorial.md)
 ## [Een vooraf geconfigureerde oplossing aanpassen](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Dynamische telemetrie gebruiken bij de oplossing voor controle op afstand](iot-suite-dynamic-telemetry.md)

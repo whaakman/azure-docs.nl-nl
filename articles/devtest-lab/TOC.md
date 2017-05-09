@@ -1,36 +1,34 @@
 # Overzicht
 ## [Over Azure DevTest Labs](devtest-lab-overview.md)
 ## [Concepten](devtest-lab-concepts.md)
+## Scenario's
+### [Labs gebruiken voor training](devtest-lab-training-lab.md)
 
 # Aan de slag
 ## [Lab maken](devtest-lab-create-lab.md)
-## [Formules maken](devtest-lab-create-formulas.md)
-## [VM maken](devtest-lab-add-vm.md)
-## [Basisbeleid voor labs beheren](devtest-lab-get-started-with-lab-policies.md)
-## [Lab maken voor training](devtest-lab-training-lab.md)
-## [Veelgestelde vragen](devtest-lab-faq.md)
+## [Uw eerste virtuele machine maken](devtest-lab-create-first-vm.md)
+## [Startbeleid instellen](devtest-lab-get-started-with-lab-policies.md)
 
 # Procedures
-## Labs beheren
-### [Eigenaars en gebruikers van een lab toevoegen](devtest-lab-add-devtest-user.md)
-### [Al het beleid voor labs beheren](devtest-lab-set-lab-policy.md)
-### [Machtigingen verlenen voor beleid](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
-### [Kostenbeheer configureren](devtest-lab-configure-cost-management.md)
-### [Virtuele netwerken configureren](devtest-lab-configure-vnet.md)
-### [Gedeelde IP-adressen begrijpen](devtest-lab-shared-ip.md)
-### [Lab-aanpassingen automatiseren met behulp van sjablonen en PowerShell](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
-
-## Artefacten beheren
-### [Een artefactenopslagplaats toevoegen](devtest-lab-add-artifact-repo.md)
-### [Aangepaste artefacten maken](devtest-lab-artifact-author.md)
-### [Artefacten beheren](devtest-lab-add-vm-with-artifacts.md)
-
-## VM-basissen en -sjablonen beheren
+## Virtuele machines gebruiken in een lab
+### [Virtuele machines maken](devtest-lab-add-vm.md)
 ### [Een virtuele machine maken die kan worden geclaimd](devtest-lab-add-claimable-vm.md)
-### [Multi-VM-omgevingen en PaaS-resources maken met Azure Resource Manager-sjablonen](devtest-lab-create-environment-from-arm.md)
+
+## Omgevingen gebruiken in een lab
+### [Een omgeving maken](devtest-lab-create-environment-from-arm.md)
+
+## Toegang tot labs beveiligen
+### [Eigenaars en gebruikers van een lab toevoegen](devtest-lab-add-devtest-user.md)
+### [Machtigingen aanpassen met behulp van aangepaste rollen](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
+
+## Een lab configureren
+### [Beleid en planningen instellen](devtest-lab-set-lab-policy.md)
+### [Kostenbeheer configureren](devtest-lab-configure-cost-management.md)
 ### [Marketplace-installatiekopieën configureren](devtest-lab-configure-marketplace-images.md)
-### [Installatiekopieën met formules vergelijken](devtest-lab-comparing-vm-base-image-types.md)
-### [Formules beheren](devtest-lab-manage-formulas.md)
+
+## [Een aangepaste installatiekopie of formule selecteren](devtest-lab-comparing-vm-base-image-types.md)
+
+## Aangepaste installatiekopieën beheren
 ### [Aangepaste installatiekopie maken vanaf een virtuele machine](devtest-lab-create-custom-image-from-vm-using-portal.md)
 ### [Aangepaste installatiekopie van een VHD maken met Azure Portal](devtest-lab-create-template.md)
 ### [Aangepaste installatiekopie van een VHD maken met PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
@@ -38,9 +36,28 @@
 ### [VHD-bestand uploaden met PowerShell](devtest-lab-upload-vhd-using-powershell.md)
 ### [VHD-bestand uploaden met Opslagverkenner](devtest-lab-upload-vhd-using-storage-explorer.md)
 
-# Resources
+## Herbruikbare sjablonen beheren
+### [Een Git-opslagplaats voor artefacten en sjablonen toevoegen](devtest-lab-add-artifact-repo.md)
+### [Aangepaste artefacten maken](devtest-lab-artifact-author.md)
+### [Formules beheren](devtest-lab-manage-formulas.md)
+
+## Virtuele netwerken beheren
+### [Virtuele netwerken configureren](devtest-lab-configure-vnet.md)
+### [Een IP-configuratie-optie selecteren](devtest-lab-shared-ip.md)
+
+# Naslaginformatie
+## [CLI 2.0](/cli/azure/lab)
+## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+### [Labs automatisch maken of wijzigen](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
+## [REST-API](https://docs.microsoft.com/rest/api/dtl/)
+## [Resource Manager-sjablonen](https://github.com/Azure/azure-devtestlab/tree/master/Samples)
+
+
+# Verwant
+## [Veelgestelde vragen](devtest-lab-faq.md)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=devtest-lab)
-## [Prijzen](https://azure.microsoft.com/pricing/details/devtest-lab/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
+## [Teamblog](https://blogs.msdn.microsoft.com/devtestlab/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
+## [Prijzen](https://azure.microsoft.com/pricing/details/devtest-lab/)
