@@ -4,7 +4,7 @@ description: U kunt met het Power BI-inhoudspakket van Azure Security Center gem
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 0ded6bc7-52e8-43b4-8940-0bee137526e3
 ms.service: security-center
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 05/09/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
@@ -32,7 +32,7 @@ U kunt het Azure Security Center-dashboard ook gebruiken voor toegang tot Power 
 
 1. Klik in het **Azure Security Center**-dashboard op de knop **Power BI**.
 
-    ![Verbinding maken met Azure Security Center via Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-newUI-2017.png)
+    ![Verbinding maken met Azure Security Center via Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-1-newUI-2017.png)
 2. De blade **Power BI** wordt geopend aan de rechterkant zoals op het volgende scherm wordt weergegeven:
 
     ![Verbinding maken met Azure Security Center via Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new11-2017.png)
