@@ -1,7 +1,7 @@
 # Overzicht
 ## [Over VPN Gateway](vpn-gateway-about-vpngateways.md)
 ## [Veelgestelde vragen VPN Gateway](vpn-gateway-vpn-faq.md)
-## [Abonnements- en servicebeperkingen](../azure-subscription-service-limits.md)
+## [Abonnements- en servicebeperkingen](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Aan de slag
 ## [Planning en ontwerp voor VPN Gateway](vpn-gateway-plan-design.md)
@@ -46,7 +46,9 @@
 ### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (klassiek)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [Zelfondertekende certificaten voor punt-naar-site maken](vpn-gateway-certificates-point-to-site.md)
+## Zelfondertekende certificaten voor punt-naar-site maken
+### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## [Een VPN-gateway configureren (klassiek)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Problemen oplossen
 ### [VPN-doorvoer naar een VNet valideren](vpn-gateway-validate-throughput-to-vnet.md)
