@@ -5,7 +5,6 @@
 # Aan de slag
 ## [Registreren voor Log Analytics](log-analytics-get-started.md)
 ## [Toegang beheren](log-analytics-manage-access.md)
-## [Proxy en firewall](log-analytics-proxy-firewall.md)
 ## [Gebruiksgegevens](log-analytics-usage.md)
 ## [Veelgestelde vragen over Log Analytics](log-analytics-faq.md)
 ## [Serviceproviders](log-analytics-service-providers.md)
@@ -14,7 +13,7 @@
 ## Gegevens verzamelen
 ### Verbonden bronnen
 #### [Windows-agents](log-analytics-windows-agents.md)
-#### [Linux-agents](log-analytics-linux-agents.md)
+#### [Linux-agents](log-analytics-agent-linux.md)
 #### [Virtuele machines van Azure](log-analytics-azure-vm-extension.md)
 #### [Azure-resources](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
@@ -23,8 +22,12 @@
 ### Gegevensbronnen
 #### [Overzicht van gegevensbronnen](log-analytics-data-sources.md)
 #### [Windows-gebeurtenissen](log-analytics-data-sources-windows-events.md)
+#### [Aangepaste JSON-gegevens](log-analytics-data-sources-json.md)
+#### [Verzamelde prestatiegegevens](log-analytics-data-sources-collectd.md)
+#### [Nagios- en Zabbix-waarschuwingen](log-analytics-data-sources-alerts-nagios-zabbix.md)
 #### [Syslog](log-analytics-data-sources-syslog.md)
 #### [Prestatiemeteritems](log-analytics-data-sources-performance-counters.md)
+#### [Prestaties van Linux-toepassingen](log-analytics-data-sources-linux-applications.md)
 #### [IIS-logboeken](log-analytics-data-sources-iis-logs.md)
 #### [Aangepaste logboeken](log-analytics-data-sources-custom-logs.md)
 #### [Aangepaste velden](log-analytics-custom-fields.md)
@@ -32,6 +35,7 @@
 ### [Overzicht van zoekopdrachten in logboeken](log-analytics-log-searches.md)
 ### [Zoekverwijzing](log-analytics-search-reference.md)
 #### [Reguliere expressies](log-analytics-log-searches-regex.md)
+### [Acties uitvoeren vanuit de zoekresultaten](log-analytics-log-search-takeaction.md)
 ### [Computergroepen](log-analytics-computer-groups.md)
 ## Gegevens analyseren
 ### [Dashboards](log-analytics-dashboards.md)

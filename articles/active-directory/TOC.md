@@ -18,7 +18,9 @@
 
 # Procedures
 ## Plannen en ontwerpen
+### [Inzicht in de Azure AD-architectuur](active-directory-architecture.md)
 ### [Een hybride identiteitsoplossing implementeren](active-directory-hybrid-identity-design-considerations-overview.md)
+
 #### Vereisten bepalen
 ##### [Identity](active-directory-hybrid-identity-design-considerations-business-needs.md)
 ##### [Directory-synchronisatie](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
@@ -91,6 +93,7 @@
 ###    Toegang op programmeerniveau
 #### [Controleverwijzing](active-directory-reporting-api-audit-reference.md)
 #### [Controlevoorbeelden](active-directory-reporting-api-audit-samples.md)
+#### [Gegevens ophalen](active-directory-reporting-api-with-certificates.md)
 #### [Vereisten](active-directory-reporting-api-prerequisites.md)
 #### [Verwijzing voor aanmelden](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Voorbeelden van aanmelden](active-directory-reporting-api-sign-in-activity-samples.md)
@@ -114,6 +117,7 @@
 ## [Wachtwoorden beheren](active-directory-passwords.md)
 ### Gebruikersdocumenten
 #### [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md)
+#### [Aanbevolen procedures voor wachtwoorden](active-directory-secure-passwords.md)
 #### [Registreren voor de selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md)
 ### [Snel aan de slag: een wachtwoord opnieuw instellen via selfservice](active-directory-passwords-getting-started.md)
 ### [SSPR licentiëren](active-directory-passwords-licensing.md)
@@ -159,33 +163,37 @@
 #### [Registerinstellingen bijwerken](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Meer informatie over beveiliging en privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
-### [Externe toegang tot uw apps bieden](active-directory-application-proxy-get-started.md)
-#### [App-Proxy inschakelen](active-directory-application-proxy-enable.md)
-#### [Meer informatie over connectors](application-proxy-understand-connectors.md)
-#### [Apps publiceren](application-proxy-publish-azure-portal.md)
-#### [Beveiliging](application-proxy-security-considerations.md)
-#### [Netwerken](application-proxy-network-topology-considerations.md)
-#### [Extern bureaublad](application-proxy-publish-remote-desktop.md)
-#### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-#### [Publiceren op afzonderlijke netwerken](active-directory-application-proxy-connectors-azure-portal.md)
-#### [Proxyservers](application-proxy-working-with-proxy-servers.md)
-#### [Aangepaste domeinen](active-directory-application-proxy-custom-domains.md)
-#### [Toegang tot apps](active-directory-appssoaccess-whatis.md)
-##### [Azure Portal](application-proxy-sso-azure-portal.md)
-#### [Eenmalige aanmelding met KCD](active-directory-application-proxy-sso-using-kcd.md)
-#### [Eenmalige aanmelding met koppen](application-proxy-ping-access.md)
-#### [Claimbewuste apps](active-directory-application-proxy-claims-aware-apps.md)
-#### [Systeemeigen client-apps](active-directory-application-proxy-native-client.md)
-#### [Aangepaste startpagina](application-proxy-office365-app-launcher.md)
-#### [Voorwaardelijke toegang](active-directory-application-proxy-conditional-access.md)
-#### [Stille installatie](active-directory-application-proxy-silent-installation.md)
-#### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
+### [Toegang tot apps op afstand via App Proxy](active-directory-application-proxy-get-started.md)
+#### Aan de slag
+##### [App-Proxy inschakelen](active-directory-application-proxy-enable.md)
+##### [Apps publiceren](application-proxy-publish-azure-portal.md)
+##### [Aangepaste domeinen](active-directory-application-proxy-custom-domains.md)
+#### [Toegang via eenmalige aanmelding](active-directory-appssoaccess-whatis.md)
+##### [Eenmalige aanmelding met KCD](active-directory-application-proxy-sso-using-kcd.md)
+##### [Eenmalige aanmelding met koppen](application-proxy-ping-access.md)
+##### [Eenmalige aanmelding met wachtwoordkluis](application-proxy-sso-azure-portal.md)
+#### Inzicht in aanbevolen procedures
+##### [Connectors](application-proxy-understand-connectors.md)
+##### [Beveiliging](application-proxy-security-considerations.md)
+##### [Netwerken](application-proxy-network-topology-considerations.md)
+#### 
+#### Geavanceerd configuratie
+##### [Publiceren op afzonderlijke netwerken](active-directory-application-proxy-connectors-azure-portal.md)
+##### [Proxyservers](application-proxy-working-with-proxy-servers.md)
+##### [Claimbewuste apps](active-directory-application-proxy-claims-aware-apps.md)
+##### [Systeemeigen client-apps](active-directory-application-proxy-native-client.md)
+##### [Stille installatie](active-directory-application-proxy-silent-installation.md)
+##### [Aangepaste startpagina](application-proxy-office365-app-launcher.md)
+#### Publicatie-overzicht
+##### [Extern bureaublad](application-proxy-publish-remote-desktop.md)
+##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Problemen oplossen](active-directory-application-proxy-troubleshoot.md)
 #### De klassieke portal gebruiken
 ##### [Connectors downloaden](application-proxy-enable-classic-portal.md)
 ##### [Apps publiceren](active-directory-application-proxy-publish.md)
 ##### [Connectors gebruiken](active-directory-application-proxy-connectors.md)
-
+##### [Voorwaardelijke toegang](active-directory-application-proxy-conditional-access.md)
 
 ### Enterprise-apps beheren
 #### [Gebruikers toewijzen](active-directory-coreapps-assign-user-azure-portal.md)
@@ -297,14 +305,18 @@
 ### [De levensduur van tokens configureren](active-directory-configurable-token-lifetimes.md)
 
 ## Uw identiteiten beveiligen
-### [Voorwaardelijke toegang](active-directory-conditional-access.md)
-#### [Aan de slag](active-directory-conditional-access-azuread-connected-apps.md)
+### [Voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md)
+#### [Aan de slag](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Ondersteunde apps](active-directory-conditional-access-supported-apps.md)
 #### [Meer informatie over apparaatbeleidsregels](active-directory-conditional-access-device-policies.md)
 #### [Toegang tot verbonden apps instellen](active-directory-conditional-access-policy-connected-applications.md)
+#### [Technische naslaginformatie](active-directory-conditional-access-technical-reference.md)
 #### [Veelgestelde vragen](active-directory-conditional-faqs.md)
-#### [Problemen oplossen](active-directory-conditional-access-device-remediation.md)
-#### [Naslaginformatie](active-directory-conditional-access-technical-reference.md)
+#### [Herstel](active-directory-conditional-access-device-remediation.md)
+#### [Klassieke portal](active-directory-conditional-access.md)
+##### [Aan de slag](active-directory-conditional-access-azuread-connected-apps.md)
+
+
 ### Windows Hello
 #### [Verifiëren zonder wachtwoorden](active-directory-azureadjoin-passport.md)
 #### [Windows Hello voor Bedrijven inschakelen](active-directory-azureadjoin-passport-deployment.md)

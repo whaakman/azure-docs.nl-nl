@@ -46,20 +46,22 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Sjabloon](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### [Netwerkinterfaces](virtual-network-network-interface.md)
+### Netwerkinterfaces
+#### [Toevoegen, wijzigen of verwijderen](virtual-network-network-interface.md)
+#### [IP-adressen toevoegen, wijzigen of verwijderen](virtual-network-network-interface-addresses.md)
 
 ### [Openbare IP-adressen](virtual-network-public-ip-address.md)
 
 ### Virtuele machines
-
-#### Statische openbare IP-adressen
+#### [Netwerkinterfaces toevoegen of verwijderen](virtual-network-network-interface-vm.md) 
+#### Een virtuele machine met een statisch openbaar IP-adres maken
 ##### [Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 ##### [CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Sjabloon](virtual-network-deploy-static-pip-arm-template.md)
 ##### [PowerShell (klassiek)](virtual-networks-reserved-public-ip.md)
 
-#### Statische privé IP-adressen
+#### Een virtuele machine met een statisch privé-IP-adres maken
 ##### [Portal](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [CLI](virtual-networks-static-private-ip-arm-cli.md)
@@ -67,14 +69,13 @@
 ##### [PowerShell (klassiek)](virtual-networks-static-private-ip-classic-ps.md)
 ##### [CLI (klassiek)](virtual-networks-static-private-ip-classic-cli.md)
 
-#### Meerdere netwerkinterfaces
-##### [PowerShell](virtual-network-deploy-multinic-arm-ps.md)
-##### [CLI](virtual-network-deploy-multinic-arm-cli.md)
-##### [Sjabloon](virtual-network-deploy-multinic-arm-template.md)
+#### Een virtuele machine met meerdere netwerkinterfaces maken
+##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [PowerShell (klassiek)](virtual-network-deploy-multinic-classic-ps.md)
 ##### [CLI (klassiek)](virtual-network-deploy-multinic-classic-cli.md)
 
-#### Meerdere IP-adressen
+#### Een virtuele machine met meerdere IP-adressen maken
 ##### [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 ##### [CLI](virtual-network-multiple-ip-addresses-cli.md)

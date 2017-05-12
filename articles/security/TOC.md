@@ -1,4 +1,4 @@
-# [Overzicht](security-get-started-overview.md)
+# [Overzicht](azure-security.md)
 ## [Netwerkbeveiliging](security-network-overview.md)
 ## [Opslagbeveiliging](security-storage-overview.md)
 ## [Rekenbeveiliging](security-virtual-machines-overview.md)
@@ -6,6 +6,10 @@
 ## [Identiteitsbeheer](security-identity-management-overview.md)
 ## [IoT-beveiliging](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [Beveiligingsarchitectuur](azure-security-architecture-overview.md)
+### [Operationele beveiliging](azure-operational-security.md)
+### [Geavanceerde detectie van bedreigingen](azure-threat-detection.md)
+### [Logboekregistratie en bewaking](azure-log-audit.md)
+### [Isolatie in de openbare cloud](azure-isolation.md)
 
 # Aan de slag
 ## [Aan de slag met Azure-beveiliging](azure-security-getting-started.md)

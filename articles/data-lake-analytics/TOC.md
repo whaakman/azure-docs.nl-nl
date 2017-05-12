@@ -15,12 +15,12 @@
 
 # Procedures
 ## Ontwikkelen
-### [U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [Basisbeginselen van U-SQL](data-lake-analytics-u-sql-get-started.md)
 ### [U-SQL-vensterfuncties](data-lake-analytics-use-window-functions.md)
 ### [Door de gebruiker gedefinieerde U-SQL-operators](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [U-SQL-Python-extensies](data-lake-analytics-u-sql-python-extensions.md)
 ### [U-SQL-R-extensies](data-lake-analytics-u-sql-r-extensions.md)
-### [Cognitieve functionaliteit van U-SQL](data-lake-analytics-u-sql-cognitive.md)
+### [U-SQL-cognitieve-extensies](data-lake-analytics-u-sql-cognitive.md)
 
 ## Oplossingen maken
 ### [Websitelogboeken analyseren](data-lake-analytics-analyze-weblogs.md)

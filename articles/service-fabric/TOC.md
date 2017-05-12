@@ -20,6 +20,7 @@
 ## [Implementeren van apps op een lokale cluster](service-fabric-get-started-with-a-local-cluster.md)
 ## [Uw eerste cluster maken in Azure](service-fabric-get-started-azure-cluster.md)
 ## [Uw eerste zelfstandige -cluster maken](service-fabric-get-started-standalone-cluster.md)
+## [Uw eerste app in een container maken](service-fabric-get-started-containers.md)
 
 # Procedures
 ## Een toepassing bouwen
@@ -50,14 +51,19 @@
 #### Concepten
 ##### [Levenscyclus van Reliable Services - C#](service-fabric-reliable-services-lifecycle.md)
 ##### [Levenscyclus van Reliable Services - Java](service-fabric-reliable-services-lifecycle-java.md)
+
+#### Betrouwbare verzamelingen
 ##### [Betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md)
+##### [Richtlijnen en aanbevelingen voor betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections-guidelines.md)
+##### [Werken met betrouwbare verzamelingen](service-fabric-work-with-reliable-collections.md)
+##### [Transacties en vergrendelingen](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+##### [Beheer van betrouwbare status en interne werking van betrouwbare verzameling](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### Aan de slag
 ##### [C# op Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java op Linux](service-fabric-reliable-services-quick-start-java.md)
 
 #### Levenscyclus van Reliable Services
-#### [Betrouwbare verzamelingen gebruiken](service-fabric-work-with-reliable-collections.md)
 #### [Configureren](service-fabric-reliable-services-configuration.md)
 #### [Meldingen verzenden](service-fabric-reliable-services-notifications.md)
 #### [Back-up en herstel](service-fabric-reliable-services-backup-restore.md)
