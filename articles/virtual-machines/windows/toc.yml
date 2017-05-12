@@ -31,7 +31,11 @@
     href: tutorial-load-balancer.md
   - name: "8 - Netwerken beheren"
     href: tutorial-virtual-network.md
-  - name: "9 - VM-beveiliging beheren"
+  - name: "9 - Back-ups maken van virtuele machines"
+    href: tutorial-backup-vms.md
+  - name: "10 - Virtuele machines bewaken"
+    href: tutorial-monitoring.md
+  - name: "11 - Beveiliging van virtuele machines beheren"
     href: tutorial-azure-security.md
 
 - name: "Voorbeelden"

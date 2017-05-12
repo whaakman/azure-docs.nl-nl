@@ -80,6 +80,16 @@
 ### [Prijzen](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Meten van gebruik](logic-apps-pricing.md)
 
+# Serverloos
+## Overzicht
+### [Serverloos in Azure](logic-apps-serverless-overview.md)
+## Aan de slag
+### [Een serverloze app maken in Visual Studio](logic-apps-serverless-get-started-vs.md)
+## Scenario's en rondleidingen
+### [Feedback van klanten verzamelen](logic-apps-scenario-social-serverless.md)
+### [Automatische e-mailberichten verzenden](https://channel9.msdn.com/Blogs/Microsoft-Integration/Build-and-Deploy-Serverless-Part-1)
+### [B2B-/EDI-orderverwerking](logic-apps-enterprise-integration-overview.md)
+
 # Naslaginformatie
 ## [Definitietaal van werkstroom](logic-apps-workflow-definition-language.md)
 ## [Werkstroomacties en -triggers](logic-apps-workflow-actions-triggers.md)

@@ -132,8 +132,9 @@
 ## Clusters uitbreiden
 ### [Clusters aanpassen met Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Clusters aanpassen met Script Action](hdinsight-hadoop-customize-cluster-linux.md)
-### [Hive-bibliotheken toevoegen](hdinsight-hadoop-add-hive-libraries.md)
 ### [Scriptacties ontwikkelen](hdinsight-hadoop-script-actions-linux.md)
+### [Mono installeren of bijwerken](hdinsight-hadoop-install-mono.md)
+### [Hive-bibliotheken toevoegen](hdinsight-hadoop-add-hive-libraries.md)
 ### [Giraph gebruiken](hdinsight-hadoop-giraph-install-linux.md)
 ### [Tint gebruiken](hdinsight-hadoop-hue-linux.md)
 ### [R gebruiken](hdinsight-hadoop-r-scripts-linux.md)
@@ -165,6 +166,7 @@
 #### [Ambari-REST-API gebruiken](hdinsight-hadoop-manage-ambari-rest-api.md)
 ### [Opslagaccounts toevoegen](hdinsight-hadoop-add-storage.md)
 ### [Gegevens uploaden voor Hadoop-taken](hdinsight-upload-data.md)
+### [Meerdere HDInsight-clusters met Data Lake Store](hdinsight-multiple-clusters-data-lake-store.md)
 ### [Gegevens importeren en exporteren met Sqoop](hdinsight-use-sqoop.md)
 #### [Verbinding maken met SSH](hdinsight-use-sqoop-mac-linux.md)
 #### [Uitvoeren met cURL](hdinsight-hadoop-use-sqoop-curl.md)
@@ -190,7 +192,7 @@
 #### [Hive-queryprestaties](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Naslaginformatie
-## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [PowerShell](/powershell/module/azurerm.hdinsight)
 ## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)

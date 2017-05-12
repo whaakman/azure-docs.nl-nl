@@ -67,6 +67,7 @@
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [Service-naar-serviceaanroepen](active-directory-protocols-oauth-service-to-service.md)
+### [Namens-stroom](active-directory-protocols-oauth-on-behalf-of.md)
 ### [Ondersteunde token- en claimtypen](active-directory-token-and-claims.md)
 ### [Rollover van ondertekeningssleutel gebruiken](active-directory-signing-key-rollover.md)
 ### [Federatieve metagegevens](active-directory-federation-metadata.md)
@@ -104,4 +105,5 @@
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
 #### [Impliciete stroom](active-directory-v2-protocols-implicit.md)
 #### [Referenties voor OAuth 2.0-client](active-directory-v2-protocols-oauth-client-creds.md)
+#### [Namens-stroom voor OAuth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
 ### [Bereiken](active-directory-v2-scopes.md)

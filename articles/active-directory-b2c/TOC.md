@@ -44,6 +44,7 @@
 ## [Uitbreidbaar beleidsschema](active-directory-b2c-reference-policies.md)
 ## [Verificatieprotocollen](active-directory-b2c-reference-protocols.md)
 ## [Tokens](active-directory-b2c-reference-tokens.md)
+## [Taal aanpassen](active-directory-b2c-reference-language-customization.md)
 
 ## [Beveiligingsbeheer](active-directory-b2c-reference-threat-management.md)
 

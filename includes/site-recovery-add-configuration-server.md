@@ -1,42 +1,46 @@
-1. Voer het installatiebestand voor de geïntegreerde Setup uit.
-2. Selecteer bij **Voordat u begint** de optie **De configuratieserver en processerver installeren**.
-    ![Voordat u begint](./media/site-recovery-add-configuration-server/combined-wiz1.png)
-3. Klik bij **Licentievoorwaarden voor software van derden** op **Ik ga akkoord** om MySQL te downloaden en te installeren.
+1. Run the Unified Setup installation file.
+2. In **Before You Begin**, select **Install the configuration server and process server**.
 
-    ![Software van derden](./media/site-recovery-add-configuration-server/combined-wiz2.png)
-4. Selecteer bij **Registratie** de registratiesleutel die u hebt gedownload uit de kluis.
+    ![Before you start](./media/site-recovery-add-configuration-server/combined-wiz1.png)
 
-    ![Registratie](./media/site-recovery-add-configuration-server/combined-wiz3.png)
-5. Geef bij **Internetinstellingen** op hoe de provider die op de configuratieserver wordt uitgevoerd, via internet verbinding moet maken met Azure Site Recovery.
+3. In **Third Party Software License**, click **I Accept** to download and install MySQL.
 
-   * Als u verbinding wilt maken met de proxy die momenteel op de computer is ingesteld, selecteert u **Verbinding maken met bestaande proxyinstellingen**.
-   * Als u wilt dat de provider rechtstreeks verbinding maakt, selecteert u **Rechtstreeks verbinden zonder proxy**.
-   * Als voor de bestaande proxy verificatie is vereist of als u voor de verbinding met de provider een aangepaste proxy wilt gebruiken, selecteert u **Verbinding maken met aangepaste proxyinstellingen**.
+    ![Third-party software](./media/site-recovery-add-configuration-server/combined-wiz2.png)
+4. In **Registration**, select the registration key you downloaded from the vault.
 
-     * Als u een aangepaste proxy gebruikt, moet u het adres, de poort en de referenties opgeven.
-     * Als u een proxy gebruikt, hebt u, als het goed is, de URL’s die worden beschreven in [Vereisten](#prerequisites), al toegestaan.
+    ![Registration](./media/site-recovery-add-configuration-server/combined-wiz3.png)
+5. In **Internet Settings**, specify how the Provider running on the configuration server connects to Azure Site Recovery over the Internet.
+
+   a. If you want to connect with the proxy that's currently set up on the machine, select **Connect to Azure Site Recovery using a proxy server**.
+
+   b. If you want the Provider to connect directly, select **Connect directly to Azure Site Recovery without a proxy server**.
+
+   c. If the existing proxy requires authentication, or if you want to use a custom proxy for the Provider connection, select **Connect with custom proxy settings**.
+
+     * If you use a custom proxy, you need to specify the address, port, and credentials.
+     * If you're using a proxy, you should have already allowed the URLs described in [Prerequisites](#prerequisites).
 
      ![Firewall](./media/site-recovery-add-configuration-server/combined-wiz4.png)
-6. Tijdens Setup wordt in **Controle op vereisten** gecontroleerd of de installatie kan worden uitgevoerd. Als er een waarschuwing wordt weergegeven over **Synchronisatiecontrole voor algemene tijd**, moet u controleren of de tijd op de systeemklok (instellingen voor **datum en tijd**) overeenkomt met de tijdzone.
+6. In **Prerequisites Check**, Setup runs a check to make sure that installation can run. If a warning appears about the **Global time sync check**, verify that the time on the system clock (**Date and Time** settings) is the same as the time zone.
 
-    ![Vereisten](./media/site-recovery-add-configuration-server/combined-wiz5.png)
-7. Maak bij **MySQL-configuratie** referenties voor aanmelden bij de MySQL-serverinstantie die is geïnstalleerd.
+    ![Prerequisites](./media/site-recovery-add-configuration-server/combined-wiz5.png)
+7. In **MySQL Configuration**, create credentials for logging on to the MySQL server instance that is installed.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
-8. Selecteer bij **Details van de omgeving** of u virtuele VMware-machines wilt repliceren. Als dit zo is, wordt tijdens Setup gecontroleerd of PowerCLI 6.0 is geïnstalleerd.
+8. In **Environment Details**, select whether you're going to replicate VMware VMs. If you are, then Setup checks that PowerCLI 6.0 is installed.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
 
-9. Selecteer bij **Installatielocatie** waar u de binaire bestanden wilt installeren en de cache wilt opslaan. Het station dat u selecteert, moet ten minste 5 GB vrije schijfruimte bevatten, maar wij raden u aan een cachestation te gebruiken met minstens 600 GB vrije ruimte.
+9. In **Install Location**, select where you want to install the binaries and store the cache. The drive you select must have at least 5 GB of disk space available, but we recommend a cache drive with at least 600 GB of free space.
 
-    ![Installatielocatie](./media/site-recovery-add-configuration-server/combined-wiz8.png)
-10. Geef bij **Netwerk selecteren** de listener op (netwerkadapter en SSL-poort) met behulp waarvan de configuratieserver replicatiegegevens verzendt en ontvangt. Poort 9443 is de standaardpoort voor het verzenden en ontvangen van replicatieverkeer, maar u kunt dit poortnummer aanpassen aan de vereisten van de omgeving. Naast poort 9443 wordt ook poort 443 geopend. Deze wordt door een webserver gebruikt om replicatiebewerkingen in te delen. Gebruik poort 443 niet voor het verzenden of ontvangen van replicatieverkeer.
+    ![Install location](./media/site-recovery-add-configuration-server/combined-wiz8.png)
+10. In **Network Selection**, specify the listener (network adapter and SSL port) on which the configuration server sends and receives replication data. Port 9443 is the default port used for sending and receiving replication traffic, but you can modify this port number to suit your environment's requirements. In addition to the port 9443, we also open port 443, which is used by a web server to orchestrate replication operations. Do not use port 443 for sending or receiving replication traffic.
 
-    ![Netwerk selecteren](./media/site-recovery-add-configuration-server/combined-wiz9.png)
+    ![Network selection](./media/site-recovery-add-configuration-server/combined-wiz9.png)
 
 
-11. Lees de informatie bij **Samenvatting** en klik op **Installeren**. Wanneer de installatie is voltooid, wordt er een wachtwoordzin gegenereerd. U hebt deze nodig bij het inschakelen van de replicatie. Kopieer de wachtwoordzin daarom en bewaar deze op een veilige locatie.
+11. In **Summary**, review the information and click **Install**. When installation finishes, a passphrase is generated. You will need this when you enable replication, so copy it and keep it in a secure location.
 
-    ![Samenvatting](./media/site-recovery-add-configuration-server/combined-wiz10.png)
+    ![Summary](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
-Na voltooiing van de registratie wordt de server weergegeven op de blade **Instellingen** > **Servers** in de kluis.
+After registration finishes, the server is displayed on the **Settings** > **Servers** blade in the vault.

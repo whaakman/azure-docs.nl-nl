@@ -50,10 +50,4 @@
 
     ![apparaat bijwerken](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate16m1.png)
 
-9. Nadat de updates zijn geïnstalleerd, wordt hierover een bericht weergegeven op de blade **Apparaatupdates**. Bovendien verandert de softwareversie in **10.0.10289.0**.
-
-    ![apparaat bijwerken](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate17m1.png)
-
-<!--HONumber=Feb17_HO1-->
-
-
+9. Nadat de updates zijn geïnstalleerd, wordt hierover een bericht weergegeven op de blade **Apparaatupdates**. 
