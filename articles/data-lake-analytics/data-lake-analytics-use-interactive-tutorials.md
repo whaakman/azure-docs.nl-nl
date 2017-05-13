@@ -14,20 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: 36677be6bc5599f55f1f15bc145c59033ad20e0a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ca88b355416b4ae4785bc69244185a67756ca916
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="use-azure-data-lake-analytics-interactive-tutorials"></a>Interactieve zelfstudies voor Azure Data Lake Analytics gebruiken
 Azure Portal biedt een interactieve zelfstudie waarmee u snel aan de slag kunt met Data Lake Analytics. In dit artikel leest u hoe u de zelfstudie voor het analyseren van websitelogboeken voltooit.
-
-> [!NOTE]
-> Zie [Websitelogboeken analyseren met Data Lake Analytics](data-lake-analytics-analyze-weblogs.md) als u dezelfde zelfstudie wilt doorlopen met Visual Studio.
-> We blijven interactieve zelfstudies toevoegen aan de portal.
-> 
-> 
 
 Zie voor andere zelfstudies:
 
@@ -87,10 +83,5 @@ Elk Data Lake Analytics-account is afhankelijk van een [Azure Data Lake Store](.
 * [Aan de slag met Data Lake Analytics met Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [U-SQL-scripts ontwikkelen met Data Lake-hulpmiddelen voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Websitelogboeken analyseren met Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
