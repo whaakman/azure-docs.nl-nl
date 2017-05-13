@@ -3,7 +3,6 @@
 ## [Editie kiezen](active-directory-editions.md)
 
 ## [Over Azure-identiteitsbeheer](identity-fundamentals.md)
-## [Een voorbeeld bekijken van de Azure Portal ervaring](active-directory-preview-explainer.md)
 
 # Aan de slag
 ## [Een Azure AD-tenant verkrijgen](active-directory-howto-tenant.md)
@@ -82,7 +81,7 @@
 ### [Gebruikers die risico lopen](active-directory-reporting-security-user-at-risk.md)
 ### [Riskante aanmeldingen](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risicogebeurtenissen](active-directory-reporting-risk-events.md)
-### [Benoemde netwerken](active-directory-known-networks-azure-portal.md)
+### [Benoemde locaties](active-directory-named-locations.md)
 ### [Rapporten migreren](active-directory-reporting-migration.md)
 ### [Retentie](active-directory-reporting-retention.md)
 ### [Wachttijden](active-directory-reporting-latencies-azure-portal.md)

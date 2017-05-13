@@ -16,6 +16,8 @@
 # Procedures
 ## Ontwikkelen
 ### [Basisbeginselen van U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [U-SQL-catalogus](data-lake-analytics-u-sql-catalog.md)
+### [U-SQL-parameters](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [U-SQL-vensterfuncties](data-lake-analytics-use-window-functions.md)
 ### [Door de gebruiker gedefinieerde U-SQL-operators](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [U-SQL-Python-extensies](data-lake-analytics-u-sql-python-extensions.md)

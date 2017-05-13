@@ -20,6 +20,9 @@
 #### [Gesimuleerde gegevens](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
 #### [Echte sensoren gebruiken](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
 #### [Firmware-update implementeren](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
+## Verbinding maken met uw Intel NUC-gateway
+### [Gesimuleerde gegevens](iot-suite-gateway-kit-get-started-simulator.md)
+### [Een echte sensor gebruiken](iot-suite-gateway-kit-get-started-sensortag.md)
 
 # Procedures
 ## Een gesimuleerd apparaat verbinden
@@ -33,6 +36,7 @@
 ## [Een aangepaste regel maken in de oplossing voor controle op afstand](iot-suite-custom-rule.md)
 ## [Apparaatgegevens in de oplossing voor controle op afstand](iot-suite-remote-monitoring-device-info.md)
 ## [Een gateway implementeren voor een verbonden bedrijf](iot-suite-connected-factory-gateway-deployment.md)
+## [Een verbonden factory aanpassen](iot-suite-connected-factory-customize.md)
 
 # Naslaginformatie
 ## [Beveiligingsarchitectuur](iot-security-architecture.md)

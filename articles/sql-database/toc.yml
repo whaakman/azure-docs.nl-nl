@@ -43,6 +43,24 @@
     href: sql-database-security-tutorial.md
   - name: "4 - De prestaties van uw SQL-database verbeteren"
     href: sql-database-performance-tutorial.md
+  - name: "5 - Een multitenant-app maken"
+    href: sql-database-multi-tenant-application.md
+  - name: "6 - Een multitenant-app implementeren"
+    href: sql-database-saas-tutorial.md
+  - name: "7 - Nieuwe tenants inrichten/catalogiseren"
+    href: sql-database-saas-tutorial-provision-and-catalog.md
+  - name: "8 - Prestaties controleren"
+    href: sql-database-saas-tutorial-performance-monitoring.md
+  - name: "9 - Een individuele tenant terugzetten"
+    href: sql-database-saas-tutorial-restore-single-tenant.md
+  - name: "10 - Tenantschema&quot;s beheren"
+    href: sql-database-saas-tutorial-schema-management.md
+  - name: "11 - Ad-hocanalyses uitvoeren"
+    href: sql-database-saas-tutorial-adhoc-analytics.md
+  - name: "12 - Controleren met Log Analytics"
+    href: sql-database-saas-tutorial-log-analytics.md
+  - name: "13 - Tenantanalyses beheren"
+
 - name: "Voorbeelden"
   items:
   - name: "Azure CLI"
@@ -144,7 +162,7 @@
       href: sql-database-long-term-retention.md
     - name: "Databaseherstel"
       href: sql-database-recovery-using-backups.md
-    - name: "Geo-replicatie"
+    - name: "Automatische failover en geo-replicatie"
       href: sql-database-geo-replication-overview.md
     - name: "Aanmeldingen"
       href: sql-database-geo-replication-security-config.md
