@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 0506de98119576aae8f55cc6067f0bee95334c87
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1156135200e05f8a2585467f37805a72d67279ba
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -72,7 +73,7 @@ U kunt voor een openbare IP-resource een DNS-domeinnaamlabel opgeven, zodat *dom
 >
 
 ### <a name="virtual-machines"></a>Virtuele machines
-U kunt een openbaar IP-adres koppelen aan een virtuele [Windows](../virtual-machines/windows/about.md)- of [Linux](../virtual-machines/virtual-machines-linux-about.md)-machine door het toe te wijzen aan de **netwerkinterface**. In het geval van een virtuele machine met meerdere netwerkinterfaces kunt u het adres alleen toewijzen aan de *primaire* netwerkinterface. U kunt een dynamisch of statisch openbaar IP-adres toewijzen aan een virtuele machine.
+U kunt een openbaar IP-adres koppelen aan een virtuele [Windows](../virtual-machines/windows/overview.md)- of [Linux](../virtual-machines/virtual-machines-linux-about.md)-machine door het toe te wijzen aan de **netwerkinterface**. In het geval van een virtuele machine met meerdere netwerkinterfaces kunt u het adres alleen toewijzen aan de *primaire* netwerkinterface. U kunt een dynamisch of statisch openbaar IP-adres toewijzen aan een virtuele machine.
 
 ### <a name="internet-facing-load-balancers"></a>Internetgerichte load balancers
 U kunt een openbaar IP-adres koppelen aan een [Azure Load Balancer](../load-balancer/load-balancer-overview.md) door het toe te wijzen aan de **frontend**-configuratie van de load balancer. Dit openbare IP-adres doet dienst als een virtueel IP-adres (VIP) met taakverdeling. U kunt een dynamisch of statisch openbaar IP-adres toewijzen aan de front-end van een load balancer. U kunt ook meerdere openbare IP-adressen toewijzen aan de front-end van een load balancer, zodat [multi-VIP](../load-balancer/load-balancer-multivip.md)-scenario's, zoals een multitenant-omgeving met op SSL gebaseerde websites, mogelijk zijn.
@@ -116,7 +117,7 @@ Statische privé-IP-adressen worden vaak gebruikt voor:
 * Resources die worden gebruikt door andere apps/resources via een IP-adres.
 
 ### <a name="virtual-machines"></a>Virtuele machines
-Een privé-IP-adres wordt toegewezen aan de **netwerkinterface** van een virtuele [Windows](../virtual-machines/windows/about.md)- of [Linux](../virtual-machines/virtual-machines-linux-about.md)-machine. In geval van een VM met een multi-netwerkinterface, wordt aan elke interface een privé-IP-adres toegewezen. Voor een netwerkinterface kunt u de toewijzingsmethode opgeven als dynamisch of statisch.
+Een privé-IP-adres wordt toegewezen aan de **netwerkinterface** van een virtuele [Windows](../virtual-machines/windows/overview.md)- of [Linux](../virtual-machines/virtual-machines-linux-about.md)-machine. In geval van een VM met een multi-netwerkinterface, wordt aan elke interface een privé-IP-adres toegewezen. Voor een netwerkinterface kunt u de toewijzingsmethode opgeven als dynamisch of statisch.
 
 #### <a name="internal-dns-hostname-resolution-for-vms"></a>Interne DNS-hostnaamomzetting (voor VM's)
 Alle Azure-VM's zijn standaard geconfigureerd met door [Azure beheerde DNS-servers](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution), tenzij u expliciet aangepaste DNS-servers configureert. Deze DNS-servers bieden een interne naamomzetting voor virtuele machines die zich in hetzelfde VNet bevinden.
