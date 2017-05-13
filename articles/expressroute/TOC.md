@@ -63,7 +63,7 @@
 ## [Netwerkblog](https://azure.microsoft.com/blog/topics/networking/)
 ## [Casestudy's](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
-## [Abonnements- en servicebeperkingen](../azure-subscription-service-limits.md)
+## [Abonnements- en servicebeperkingen](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [Een ExpressRoute-circuit maken](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [Privépeering instellen voor uw circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
