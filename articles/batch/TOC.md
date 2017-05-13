@@ -19,6 +19,7 @@
 ### [Efficiënte lijstquery's](batch-efficient-list-queries.md)
 ### [Taken voor taakvoorbereiding- en -voltooiing](batch-job-prep-release.md)
 ### [Compute-knooppunten in Linux](batch-linux-nodes.md)
+### [Virtuele machines met lage prioriteit](batch-low-pri-vms.md)
 ### [Batch-accounts beheren met Batch Management .NET](batch-management-dotnet.md)
 ### [Opdracht- en taakuitvoer behouden](batch-task-output.md)
 ### [MPI-opdrachten uitvoeren in Batch](batch-mpi.md)

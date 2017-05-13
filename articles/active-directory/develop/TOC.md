@@ -78,32 +78,27 @@
 ## [Servicelimieten](../active-directory-service-limits-restrictions.md)
 # v2.0-eindpunt
 ## [Overzicht](active-directory-appmodel-v2-overview.md)
-### [Verschillen](active-directory-v2-compare.md)
 ### [App-typen](active-directory-v2-flows.md)
 ### [Beperkingen](active-directory-v2-limitations.md)
-## Snelstartgidsen
-### Mobile Apps
-#### [iOS](active-directory-v2-devquickstarts-ios.md)
-#### [Windows Phone](active-directory-v2-devquickstarts-wpf.md)
-#### [Android](active-directory-v2-devquickstarts-android.md)
-### Web-apps en -API's
-#### [AngularJS met Node JS](active-directory-v2-devquickstarts-angular-node.md)
-#### [Angular JS met .NET](active-directory-v2-devquickstarts-angular-dotnet.md)
-#### [.NET-web-app](active-directory-v2-devquickstarts-dotnet-web.md)
-#### [.NET-web-API](active-directory-v2-devquickstarts-dotnet-api.md)
-#### [NodeJS-API](active-directory-v2-devquickstarts-node-api.md)
+### [Vergelijking van v1-v2](active-directory-v2-compare.md)
+## Aan de slag
+### Mobiele en desktop-apps
+#### [iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift)
+#### [Android](guidedsetups/active-directory-android.md)
+#### [.NET voor Windows-bureaublad](guidedsetups/active-directory-windesktop.md)
+### Web-apps
+#### [Javascript-SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+#### [ASP.NET-webserver](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS-web-app](active-directory-v2-devquickstarts-node-web.md)
-#### [Web-API van .NET-web-app](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 ## Handleidingen
 ### [Een app registreren](active-directory-v2-app-registration.md)
 ## Naslaginformatie
-### [Naslaginformatie over app-registratie](active-directory-v2-registration-portal.md)
 ### [Verificatiebibliotheken](active-directory-v2-libraries.md)
 ### [v2.0-verificatieprotocollen](active-directory-v2-protocols.md)
-#### [Tokenverwijzing](active-directory-v2-tokens.md)
-#### [OAuth 2.0-autorisatiecodestroom](active-directory-v2-protocols-oauth-code.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
-#### [Impliciete stroom](active-directory-v2-protocols-implicit.md)
-#### [Referenties voor OAuth 2.0-client](active-directory-v2-protocols-oauth-client-creds.md)
+#### [OAuth 2.0-autorisatiecode verlenen](active-directory-v2-protocols-oauth-code.md)
+#### [Impliciete goedkeuring voor OAuth 2.0](active-directory-v2-protocols-implicit.md)
+#### [Referenties voor OAuth 2.0-client verlenen](active-directory-v2-protocols-oauth-client-creds.md)
 #### [Namens-stroom voor OAuth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
+#### [Tokenverwijzing](active-directory-v2-tokens.md)
 ### [Bereiken](active-directory-v2-scopes.md)
