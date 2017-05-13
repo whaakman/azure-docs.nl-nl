@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
-ms.openlocfilehash: eb9e9ca5082559ee0e30ea67bf53229d38f81589
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 33988eaaf926dcd91a1e63ae766e815cda93cf03
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="about-azure-storage-accounts"></a>Over Azure-opslagaccounts
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 
-[!INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Overzicht
 Een Azure-opslagaccount biedt een unieke naamruimte voor het opslaan en openen van uw Azure Storage-gegevensobjecten. Alle objecten in een opslagaccount worden samen gefactureerd als een groep. De gegevens in uw account zijn standaard alleen beschikbaar voor u, de eigenaar van het account.
@@ -126,7 +128,7 @@ We raden u aan de toegangssleutels voor uw opslagaccount regelmatig te wijzigen 
 Dit is het proces voor roulatie van uw toegangssleutels voor opslag:
 
 1. Werk de verbindingsreeksen in uw toepassingscode bij, zodat wordt verwezen naar de secundaire toegangssleutel van het opslagaccount.
-2. Genereer de primaire toegangssleutel voor uw opslagaccount opnieuw. Klik op de blade **Toegangssleutels** op **Sleutel&1; opnieuw genereren**. Klik vervolgens op **Ja** om te bevestigen dat u een nieuwe sleutel wilt genereren.
+2. Genereer de primaire toegangssleutel voor uw opslagaccount opnieuw. Klik op de blade **Toegangssleutels** op **Sleutel 1 opnieuw genereren**. Klik vervolgens op **Ja** om te bevestigen dat u een nieuwe sleutel wilt genereren.
 3. Werk de verbindingsreeksen in uw code bij, zodat deze verwijzen naar de nieuwe primaire toegangssleutel.
 4. Genereer de secundaire toegangssleutel op dezelfde manier opnieuw.
 
@@ -153,15 +155,11 @@ Als het opslagaccount gebruikmaakt van het klassieke implementatiemodel, kunt u 
 Zie [Documentatie bij Azure Virtual Machines](http://azure.microsoft.com/documentation/services/virtual-machines/) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is een gratis, zelfstandige app van Microsoft waarmee u visueel met Azure Storage-gegevens kunt werken in Windows, macOS en Linux.
 * [Azure Blob Storage: Cool Storage-laag en Hot Storage-laag](storage-blob-storage-tiers.md)
 * [Azure Storage-replicatie](storage-redundancy.md)
 * [Azure Storage-verbindingsreeksen configureren](storage-configure-connection-string.md)
 * [Gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md)
 * Ga naar de [blog van het Azure Storage-team](http://blogs.msdn.com/b/windowsazurestorage/).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
