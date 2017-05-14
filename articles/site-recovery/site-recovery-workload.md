@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2017
+ms.date: 05/08/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4149c5e06f1a23864ca0f92f1b7b73f4f66949df
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 1e48b0848c9f286f3bb0b3758403135a4f280bc0
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -89,7 +90,7 @@ Met Azure Site Recovery kunnen SharePoint-implementaties als volgt worden beveil
 * Site Recovery vereenvoudigt het ontwikkelen en testen van SharePoint-toepassingen, omdat er een op de productieomgeving lijkende replica-omgeving wordt gemaakt, die naar wens kan worden gebruikt voor testen en foutopsporing.
 * Door Site Recovery te gebruiken om SharePoint-implementaties te migreren naar Azure, wordt de overstap naar de cloud vereenvoudigd.
 
-[Meer informatie](https://gallery.technet.microsoft.com/SharePoint-DR-Solution-f6b4aeae) over het beveiligen van SharePoint.
+[Meer informatie](site-recovery-sharepoint.md) over het beveiligen van SharePoint.
 
 ## <a name="protect-dynamics-ax"></a>Dynamics AX beveiligen
 Met Azure Site Recovery kunt u op de volgende manier uw Dynamics AX ERP-oplossing beveiligen:
@@ -98,7 +99,7 @@ Met Azure Site Recovery kunt u op de volgende manier uw Dynamics AX ERP-oplossin
 * Site Recovery vereenvoudigt de migratie van Dynamics AX-implementaties naar de cloud (Azure).
 * Site Recovery vereenvoudigt de ontwikkeling en het testen van Dynamics AX-toepassingen door een op de productieomgeving lijkende replica-omgeving te bieden, zodat u naar wens kunt testen en fouten kunt opsporen.
 
-[Meer informatie](https://gallery.technet.microsoft.com/Dynamics-AX-DR-Solution-b2a76281) over het beveiligen van Dynamic AX.
+[Meer informatie](site-recovery-dynamicsax.md) over het beveiligen van Dynamic AX.
 
 ## <a name="protect-rds"></a>Extern bureaublad-services beveiligen
 Met Extern bureaublad-services (ook wel RDS genoemd) worden virtuele-desktopinfrastructuren (VDI) en op sessies gebaseerde bureaubladen en toepassingen ingeschakeld, waardoor gebruikers waar dan ook kunnen werken. Met Azure Site Recovery kunt u het volgende doen:
