@@ -106,6 +106,7 @@
 ### Uploaden van bestanden configureren
 #### [De portal gebruiken](iot-hub-configure-file-upload.md)
 #### [PowerShell gebruiken](iot-hub-configure-file-upload-powershell.md)
+#### [CLI 2.0 gebruiken](iot-hub-configure-file-upload-cli.md)
 ### [IoT-apparaten bulksgewijs beheren](iot-hub-bulk-identity-mgmt.md)
 ### [Metrische gebruiksgegevens](iot-hub-metrics.md)
 ### [Controle van bewerkingen](iot-hub-operations-monitoring.md)
