@@ -1,5 +1,6 @@
 # Overzicht
-## [Overzicht van Azure Monitor](monitoring-overview.md)
+## [Controleprogramma's in Azure](monitoring-overview.md)
+## [Azure Monitor](monitoring-overview-azure-monitor.md)
 ## [Metrische gegevens](monitoring-overview-metrics.md)
 ## [Waarschuwingen](monitoring-overview-alerts.md)
 ## [Automatisch schalen](monitoring-overview-autoscale.md)
@@ -7,12 +8,14 @@
 ## [Actiegroepen](monitoring-action-groups.md)
 ## [Diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md)
 ## [Partnerintegraties](monitoring-partners.md)
-## [Azure Diagnostics](azure-diagnostics.md)
+## [Azure Diagnostics-extensie](azure-diagnostics.md)
 
 
 # Aan de slag
 ## [Aan de slag met Azure Monitor](monitoring-get-started.md)
+## [Aan de slag met automatisch schalen](monitoring-autoscale-get-started.md)
 ## [Rolmachtigingen en -beveiliging](monitoring-roles-permissions-security.md)
+
 
 # Procedures
 ## Waarschuwingen gebruiken
@@ -24,6 +27,8 @@
 ## Automatisch schalen gebruiken
 ### [Aanbevolen procedures voor Automatisch schalen](insights-autoscale-best-practices.md)
 ### [Veelgebruikte gegevens voor automatisch schalen](insights-autoscale-common-metrics.md)
+### [Algemene patronen voor automatisch schalen](monitoring-autoscale-common-scale-patterns.md)
+### [Automatisch schalen met een aangepaste meetwaarde](monitoring-autoscale-scale-by-custom-metric.md)
 ### [VM Scale Sets automatisch schalen met Resource Manager-sjablonen](insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Virtuele machines in een VM Scale Set automatisch schalen](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Webhooks en e-mailmeldingen configureren voor automatisch schalen](insights-autoscale-to-webhook-email.md)
@@ -48,7 +53,7 @@
 ### [Diagnostische instellingen inschakelen met Resource Manager-sjablonen](monitoring-enable-diagnostic-logs-using-template.md)
 ## REST-API gebruiken
 ### [Stapsgewijze instructie voor het gebruik van REST-API](monitoring-rest-api-walkthrough.md)
-## Azure Diagnostics gebruiken
+## Azure Diagnostics-extensie gebruiken
 ### [Verzenden naar Application Insights](azure-diagnostics-configure-application-insights.md)
 ### [Verzenden naar Event Hubs](azure-diagnostics-streaming-event-hubs.md)
 ### [Problemen oplossen](azure-diagnostics-troubleshooting.md)
