@@ -53,6 +53,7 @@
 ### [REST-API](resource-manager-rest-api.md)
 ### [Tags gebruiken om resources te organiseren](resource-group-using-tags.md)
 ### [Resources verplaatsen naar nieuwe groep of abonnement](resource-group-move-resources.md)
+### [Interfacedefinities maken](managed-application-createuidefinition-overview.md)
 ## Toegang beheren
 ### [Service-principal maken met PowerShell](resource-group-authenticate-service-principal.md)
 ### [Service-principal maken met Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -82,6 +83,7 @@
 ### [Numerieke functies](resource-group-template-functions-numeric.md)
 ### [Resourcefuncties](resource-group-template-functions-resource.md)
 ### [Tekenreeksfuncties](resource-group-template-functions-string.md)
+## [Functies voor interfacedefinitie](managed-application-createuidefinition-functions.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
