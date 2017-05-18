@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/13/2017
 ms.author: cgronlun;tedway;olgali
-translationtype: Human Translation
-ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
-ms.openlocfilehash: 50963d47d030d43d1c98dfb9a5878af7b9e99d47
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 247c26b3988664bcf93fb5face6514a3dc74cebc
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -50,7 +52,7 @@ In [Machine Learning Studio](machine-learning-what-is-ml-studio.md) kunt u snel 
 * In de [Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md) kunt u analyseoplossingen van andere proberen of uw eigen oplossing bijdragne. U kunt vragen en opmerkingen over experimenten plaatsen in de community en koppelingen naar experimenten delen via sociale netwerken, zoals LinkedIn en Twitter.
 
   ![Probeer voorspellende experimenten of deel uw eigen experimenten in de Azure Cortana Intelligence Gallery](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
-* Gebruik een grote bibliotheek met [Machine Learning-algoritmen en -modules](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) in Machine Learning Studio om snel aan de slag te gaan met voorspellende modellen. Kies uit voorbeeldexperimenten, R- en Python-pakketten en de allerbeste algoritmen van Microsoft-bedrijven als Xbox en Bing. Breid Studio-modules uit met uw eigen aangepaste [R](machine-learning-r-quickstart.md)- en [Python](machine-learning-execute-python-scripts.md)-scripts.
+* Gebruik een grote bibliotheek met [Machine Learning-algoritmen en -modules](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) in Machine Learning Studio om snel aan de slag te gaan met voorspellende modellen. Kies uit voorbeeldexperimenten, R- en Python-pakketten en de allerbeste algoritmen van Microsoft-bedrijven als Xbox en Bing. Breid Studio-modules uit met uw eigen aangepaste [R](machine-learning-extend-your-experiment-with-r.md)- en [Python](machine-learning-execute-python-scripts.md)-scripts.
 
   ![Wat is predictive analytics? Voorbeeld van een predictive analytics-experiment in Azure Machine Learning Studio](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
@@ -112,9 +114,4 @@ U kunt zich de basiskennis van predictive analytics en machine learning eigen ma
 
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
