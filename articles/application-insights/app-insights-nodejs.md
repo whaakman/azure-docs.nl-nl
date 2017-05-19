@@ -45,7 +45,7 @@ We gaan het instellen van de bewaking voor een app of service stapsgewijs doorne
 [azure-free-offer]: https://azure.microsoft.com/en-us/free/
 [add-aad-user]: https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-create-azure-portal
 
-Meld u nu aan bij [Azure Portal] [ portal] en maak een Application Insights-resource, zoals hieronder wordt geïllustreerd: klik op 'Nieuw' > 'Hulpprogramma's voor ontwikkelaars' > 'Application Insights'. De resource bevat een eindpunt voor het ontvangen van telemetriegegevens, opslag voor deze gegevens, opgeslagen rapporten en dashboards, regel- en waarschuwingsconfiguratie en meer.
+Meld u nu aan bij [Azure Portal][portal] en maak een Application Insights-resource, zoals hieronder wordt geïllustreerd: klik op 'Nieuw' > 'Hulpprogramma's voor ontwikkelaars' > 'Application Insights'. De resource bevat een eindpunt voor het ontvangen van telemetriegegevens, opslag voor deze gegevens, opgeslagen rapporten en dashboards, regel- en waarschuwingsconfiguratie en meer.
 
 ![Een App Insights-resource maken](./media/app-insights-nodejs/03-new_appinsights_resource.png)
 
