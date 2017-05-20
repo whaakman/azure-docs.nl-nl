@@ -24,7 +24,6 @@
 ### [Koppeling naar andere sjablonen](resource-group-linked-templates.md)
 ### [Afhankelijkheid tussen resources definiëren](resource-group-define-dependencies.md)
 ### [Meerdere exemplaren maken](resource-group-create-multiple.md)
-### [Sequentiële lus](resource-manager-sequential-loop.md)
 ### [Locatie instellen](resource-manager-template-location.md)
 ### [Tags toewijzen](resource-manager-template-tags.md)
 ### [Naam en type van onderliggende resource instellen](resource-manager-template-child-resource.md)
@@ -43,8 +42,8 @@
 #### [Persoonlijke sjabloon met SAS-token implementeren](resource-manager-cli-sas-token.md)
 #### [Sjabloon exporteren en opnieuw distribueren](resource-manager-export-template-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
-### [REST API](resource-group-template-deploy-rest.md)
-### [Implementatie meerdere brongroepen](resource-manager-cross-resource-group-deployment.md)
+### [REST-API](resource-group-template-deploy-rest.md)
+### [Implementatie in meerdere resourcegroepen](resource-manager-cross-resource-group-deployment.md)
 ### [Doorlopende integratie met Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Beveiligde waarden doorgeven tijdens implementatie](resource-manager-keyvault-parameter.md)
 

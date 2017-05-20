@@ -3,6 +3,7 @@
 ## Architectuur
 ### [Asymmetrische routering met meerdere netwerkpaden](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Netwerkverkeer beveiligen](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Hub-spoke topologie](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 ### [Aanbevolen procedures voor netwerkbeveiliging](../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Virtuele netwerkapparaten met hoge beschikbaarheid](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha )
 ### [Taakverdelingsmethoden combineren](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)

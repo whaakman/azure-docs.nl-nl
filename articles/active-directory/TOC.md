@@ -1,8 +1,9 @@
 # Overzicht
 ## [Wat is Azure Active Directory?](active-directory-whatis.md)
 ## [Editie kiezen](active-directory-editions.md)
-
-## [Over Azure-identiteitsbeheer](identity-fundamentals.md)
+## [Over Azure-identiteitsbeheer](fundamentals-identity.md)
+## [Inzicht krijgen in Azure-identiteitsoplossingen](understand-azure-identity-solutions.md)
+## [Een voorbeeld bekijken van de Azure Portal ervaring](active-directory-preview-explainer.md)
 
 # Aan de slag
 ## [Een Azure AD-tenant verkrijgen](active-directory-howto-tenant.md)
@@ -91,16 +92,17 @@
 #### [Ontbrekende gegevens in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
 ###    Toegang op programmeerniveau
 #### [Controleverwijzing](active-directory-reporting-api-audit-reference.md)
-#### [Controlevoorbeelden](active-directory-reporting-api-audit-samples.md)
-#### [Gegevens ophalen](active-directory-reporting-api-with-certificates.md)
-#### [Vereisten](active-directory-reporting-api-prerequisites.md)
 #### [Verwijzing voor aanmelden](active-directory-reporting-api-sign-in-activity-reference.md)
+#### [Vereisten](active-directory-reporting-api-prerequisites-azure-portal.md)
+#### [Controlevoorbeelden](active-directory-reporting-api-audit-samples.md)
 #### [Voorbeelden van aanmelden](active-directory-reporting-api-sign-in-activity-samples.md)
+#### [Gegevens ophalen](active-directory-reporting-api-with-certificates.md)
 ### [Klassieke portal](active-directory-view-access-usage-reports.md)
 #### [Azure AD-rapportage](active-directory-reporting-getting-started.md)
 #### [Handleiding over rapportering](active-directory-reporting-guide.md)
 #### [Bekende netwerken](active-directory-known-networks.md)
 #### [API](active-directory-reporting-api-getting-started.md)
+##### [Vereisten](active-directory-reporting-api-prerequisites.md)
 #### [Controlegebeurtenissen](active-directory-reporting-audit-events.md)
 #### [Wachttijden](active-directory-reporting-latencies.md)
 #### [Meldingen](active-directory-reporting-notifications.md)
@@ -171,11 +173,14 @@
 ##### [Eenmalige aanmelding met KCD](active-directory-application-proxy-sso-using-kcd.md)
 ##### [Eenmalige aanmelding met koppen](application-proxy-ping-access.md)
 ##### [Eenmalige aanmelding met wachtwoordkluis](application-proxy-sso-azure-portal.md)
-#### Inzicht in aanbevolen procedures
+#### Concepten
 ##### [Connectors](application-proxy-understand-connectors.md)
 ##### [Beveiliging](application-proxy-security-considerations.md)
 ##### [Netwerken](application-proxy-network-topology-considerations.md)
-#### 
+
+
+##### [Upgraden van TMG of UAG](application-proxy-transition-from-uag-tmg.md)
+
 #### Geavanceerd configuratie
 ##### [Publiceren op afzonderlijke netwerken](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Proxyservers](application-proxy-working-with-proxy-servers.md)
@@ -186,7 +191,6 @@
 #### Publicatie-overzicht
 ##### [Extern bureaublad](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-##### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Problemen oplossen](active-directory-application-proxy-troubleshoot.md)
 #### De klassieke portal gebruiken
 ##### [Connectors downloaden](application-proxy-enable-classic-portal.md)
@@ -201,12 +205,6 @@
 #### [Gebruikers verwijderen](active-directory-coreapps-remove-assignment-azure-portal.md)
 #### [Al mijn apps weergeven](active-directory-coreapps-view-azure-portal.md)
 #### [Inrichting van gebruikersaccount beheren](active-directory-enterprise-apps-manage-provisioning.md)
-
-### Ontwikkelen
-#### [Gebruikers toewijzen](active-directory-applications-guiding-developers-assigning-users.md)
-#### [Groepen toewijzen](active-directory-applications-guiding-developers-assigning-groups.md)
-#### [Toewijzing vereisen](active-directory-applications-guiding-developers-requiring-user-assignment.md)
-#### [LoB-apps ontwikkelen](active-directory-applications-guiding-developers-for-lob-applications.md)
 
 ### [Toegang tot apps beheren](active-directory-managing-access-to-apps.md)
 #### [Selfservice toegang](active-directory-self-service-application-access.md)
@@ -226,7 +224,7 @@
 ##### [Toegangsvenster](active-directory-application-access-panel-content-map.md)
 ##### [Toepassingsproxy](active-directory-application-proxy-content-map.md)
 ##### [Voorwaardelijke toegang](active-directory-application-conditional-access-content-map.md)
-
+### [Apps ontwikkelen](active-directory-applications-guiding-developers-for-lob-applications.md)
 ### [Documentbibliotheek](active-directory-apps-index.md)
 
 ## Uw directory beheren
@@ -294,6 +292,7 @@
 ##### [Per resource](role-based-access-control-configure.md)
 #### [Ingebouwde rollen](role-based-access-built-in-roles.md)
 #### [Aangepaste rollen](role-based-access-control-custom-roles.md)
+#### [Aangepaste rollen toewijzen voor interne en externe gebruikers](role-based-access-control-create-custom-roles-for-internal-external-users.md)
 #### [Rapportage](role-based-access-control-access-change-history-report.md)
 #### Meer manieren om rollen te beheren
 ##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
@@ -306,12 +305,13 @@
 ## Uw identiteiten beveiligen
 ### [Voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md)
 #### [Aan de slag](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Aanbevolen procedures](active-directory-conditional-access-best-practices.md)
+#### [Technische naslaginformatie](active-directory-conditional-access-technical-reference.md)
 #### [Ondersteunde apps](active-directory-conditional-access-supported-apps.md)
 #### [Meer informatie over apparaatbeleidsregels](active-directory-conditional-access-device-policies.md)
 #### [Toegang tot verbonden apps instellen](active-directory-conditional-access-policy-connected-applications.md)
-#### [Technische naslaginformatie](active-directory-conditional-access-technical-reference.md)
-#### [Veelgestelde vragen](active-directory-conditional-faqs.md)
 #### [Herstel](active-directory-conditional-access-device-remediation.md)
+#### [Veelgestelde vragen](active-directory-conditional-faqs.md)
 #### [Klassieke portal](active-directory-conditional-access.md)
 ##### [Aan de slag](active-directory-conditional-access-azuread-connected-apps.md)
 
@@ -332,6 +332,7 @@
 #### [Aanmeldingservaring](active-directory-identityprotection-flows.md)
 #### [Risicogebeurtenissen simuleren](active-directory-identityprotection-playbook.md)
 #### [Gebruikers deblokkeren](active-directory-identityprotection-unblock-howto.md)
+#### [Veelgestelde vragen](active-directory-identity-protection-faqs.md)
 #### [Woordenlijst](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)

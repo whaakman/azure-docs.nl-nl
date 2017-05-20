@@ -9,7 +9,7 @@
 ## [Uw eerste virtuele machine maken](devtest-lab-create-first-vm.md)
 ## [Startbeleid instellen](devtest-lab-get-started-with-lab-policies.md)
 
-# Procedures
+# Handleidingen
 ## Virtuele machines gebruiken in een lab
 ### [Virtuele machines maken](devtest-lab-add-vm.md)
 ### [Een virtuele machine maken die kan worden geclaimd](devtest-lab-add-claimable-vm.md)
@@ -44,6 +44,8 @@
 ## Virtuele netwerken beheren
 ### [Virtuele netwerken configureren](devtest-lab-configure-vnet.md)
 ### [Een IP-configuratie-optie selecteren](devtest-lab-shared-ip.md)
+
+## [Uw lab schalen](devtest-lab-scale-lab.md)
 
 # Naslaginformatie
 ## [CLI 2.0](/cli/azure/lab)

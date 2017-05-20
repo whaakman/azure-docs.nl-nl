@@ -29,6 +29,7 @@
 ### [App-/gebruikersspecifieke orchestrator in DC/OS](container-service-application-specific-marathon.md)
 ### [Een bestandsshare toevoegen](container-service-dcos-fileshare.md)
 ### [Azure Container Registry gebruiken](container-service-dcos-acr.md)
+### [Canary-release met Vamp](container-service-dcos-vamp-canary-release.md)
 ### DC/OS bewaken
 #### [Bewaken met ELK](container-service-monitoring-elk.md)
 #### [Bewaken met OMS](container-service-monitoring-oms.md)
