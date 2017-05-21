@@ -11,6 +11,7 @@
 ## [Overzicht van de oplossing voor verbonden bedrijven](iot-suite-connected-factory-overview.md)
 ## [Kennismaken met de oplossing voor controle op afstand](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Kennismaken met de oplossing voor voorspellend onderhoud](iot-suite-predictive-walkthrough.md)
+## [Kennismaken met de oplossing voor verbonden bedrijven](iot-suite-connected-factory-sample-walkthrough.md)
 ## [Verbinding maken met uw Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
 ### C gebruiken
 #### [Gesimuleerde gegevens](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)

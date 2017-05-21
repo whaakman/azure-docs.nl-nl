@@ -36,6 +36,7 @@
 ### [Geavanceerde HTTP-rapporten genereren](cdn-advanced-http-reports.md)
 ### [Statistieken in realtime bekijken](cdn-real-time-stats.md)
 ### [Prestaties van edge-knooppunt analyseren](cdn-edge-performance.md)
+### [Metrische gegevens exporteren met diagnostische logboeken](cdn-log-analysis.md)
 
 ## Ontwikkelen
 ### [.NET](cdn-app-dev-net.md)

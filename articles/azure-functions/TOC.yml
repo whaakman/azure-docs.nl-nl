@@ -1,128 +1,128 @@
-- name: "Documentatie voor Functions"
+- name: Documentatie voor Functions
   href: index.yml
-- name: "Overzicht"
+- name: Overzicht
   items:
-  - name: "Over Functions"
+  - name: Over Functions
     href: functions-overview.md
-  - name: "Functions Runtime"
+  - name: Functions Runtime
     href: functions-runtime-overview.md
-  - name: "Kiezen tussen Stroom, Logische apps, Functies en WebJobs"
+  - name: 'Kiezen tussen Stroom, Logische apps, Functies en WebJobs'
     href: functions-compare-logic-apps-ms-flow-webjobs.md
-- name: "Snelstartgidsen"
+- name: Snelstartgidsen
   expanded: true
   items:
-  - name: "Functie maken - portal"
+  - name: Functie maken - portal
     href: functions-create-first-azure-function.md
-  - name: "Functie maken - Azure CLI"
+  - name: Functie maken - Azure CLI
     href: functions-create-first-azure-function-azure-cli.md
 #  - name: Create function - Visual Studio
 #    href: functions-create-your-first-function-visual-studio.md
-  - name: "Triggers"
+  - name: Triggers
     items:
-    - name: "Timer"
+    - name: Timer
       href: functions-create-scheduled-function.md
-    - name: "GitHub-webhook"
+    - name: GitHub-webhook
       href: functions-create-github-webhook-triggered-function.md
-    - name: "Blob Storage"
+    - name: Blob Storage
       href: functions-create-storage-blob-triggered-function.md
-    - name: "Queue Storage"
+    - name: Queue Storage
       href: functions-create-storage-queue-triggered-function.md
-  - name: "Integreren"
+  - name: Integreren
     items:
-    - name: "Storage"
+    - name: Storage
       href: functions-integrate-storage-queue-output-binding.md
-#    - name: Cosmos DB
-#      href: functions-integrate-store-unstructured-data-cosmosdb.md
-- name: "Voorbeelden"
+    - name: Cosmos DB
+      href: functions-integrate-store-unstructured-data-cosmosdb.md
+- name: Voorbeelden
   items:
-  - name: "Azure CLI"
+  - name: Azure CLI
     href: functions-cli-samples.md
-- name: "Zelfstudies"
+- name: Zelfstudies
   items:
-  - name: "1 - Functions met Logic Apps"
+  - name: 1 - Functions met Logic Apps
     href: functions-twitter-email.md
-  - name: "2 - Een serverloze API maken"
+  - name: 2 - Een serverloze API maken
     href: functions-create-serverless-api.md
-- name: "Concepten"
+- name: Concepten
   items:
-  - name: "Hostingabonnementen"
+  - name: Hostingabonnementen
     href: functions-scale.md
-  - name: "Triggers en bindingen"
+  - name: Triggers en bindingen
     href: functions-triggers-bindings.md
-- name: "Handleidingen"
+- name: Handleidingen
   items:
-  - name: "Azure Functions testen"
+  - name: Azure Functions testen
     href: functions-test-a-function.md
-  - name: "Lokaal ontwikkelen en fouten opsporen"
+  - name: Lokaal ontwikkelen en fouten opsporen
     href: functions-run-local.md
-  - name: "Instellingen configureren voor een functie-app"
+  - name: Instellingen configureren voor een functie-app
     href: functions-how-to-use-azure-function-app-settings.md
-  - name: "Doorlopende implementatie voor Azure Functions"
+  - name: Doorlopende implementatie voor Azure Functions
     href: functions-continuous-deployment.md
-  - name: "Functions implementeren met behulp van infrastructuur als code"
+  - name: Functions implementeren met behulp van infrastructuur als code
     href: functions-infrastructure-as-code.md
-  - name: "Azure Functions controleren"
+  - name: Azure Functions controleren
     href: functions-monitoring.md
-  - name: "Functions Runtime installeren"
+  - name: Functions Runtime installeren
     href: functions-runtime-install.md
-- name: "Naslaginformatie"
+- name: Naslaginformatie
   items:
-  - name: "Functie-apps ontwikkelen"
+  - name: Functie-apps ontwikkelen
     href: functions-reference.md
     items:
-    - name: "Open API 2.0"
+    - name: Open API 2.0
       href: functions-api-definition.md
-  - name: "Aanbevolen procedures voor Azure Functions"
+  - name: Aanbevolen procedures voor Azure Functions
     href: functions-best-practices.md
-  - name: "Bindingen"
+  - name: Bindingen
     items:
-    - name: "DocumentDB-bindingen"
+    - name: Cosmos DB-bindingen
       href: functions-bindings-documentdb.md
-    - name: "Event Hub-bindingen"
+    - name: Event Hub-bindingen
       href: functions-bindings-event-hubs.md
-    - name: "HTTP- en webhook-bindingen"
+    - name: HTTP- en webhook-bindingen
       href: functions-bindings-http-webhook.md
-    - name: "Mobile Apps-bindingen"
+    - name: Mobile Apps-bindingen
       href: functions-bindings-mobile-apps.md
-    - name: "Notification Hub-uitvoerbinding"
+    - name: Notification Hub-uitvoerbinding
       href: functions-bindings-notification-hubs.md
-    - name: "Service Bus-triggers en -bindingen voor wachtrijen en onderwerpen"
+    - name: Service Bus-triggers en -bindingen voor wachtrijen en onderwerpen
       href: functions-bindings-service-bus.md
-    - name: "SendGrid-bindingen"
+    - name: SendGrid-bindingen
       href: functions-bindings-sendgrid.md
-    - name: "Storage-bindingen"
+    - name: Storage-bindingen
       items:
-      - name: "Blob-bindingen"
+      - name: Blob-bindingen
         href: functions-bindings-storage-blob.md
-      - name: "Wachtrijbindingen"
+      - name: Wachtrijbindingen
         href: functions-bindings-storage-queue.md
-      - name: "Tabelbindingen"
+      - name: Tabelbindingen
         href: functions-bindings-storage-table.md
-      - name: "Bindingen voor externe bestanden"
+      - name: Bindingen voor externe bestanden
         href: functions-bindings-external-file.md
-    - name: "SendGrid-bindingen"
+    - name: SendGrid-bindingen
       href: functions-bindings-sendgrid.md
-    - name: "Timertrigger"
+    - name: Timertrigger
       href: functions-bindings-timer.md
-    - name: "Twilio-uitvoerbinding"
+    - name: Twilio-uitvoerbinding
       href: functions-bindings-twilio.md
-  - name: "Frameworks"
+  - name: Frameworks
     items:
-    - name: "C#"
+    - name: 'C#'
       href: functions-reference-csharp.md
-    - name: "F#"
+    - name: 'F#'
       href: functions-reference-fsharp.md
-    - name: "Javascript"
+    - name: Javascript
       href: functions-reference-node.md
-- name: "Resources"
+- name: Resources
   items:
-  - name: "Prijzen"
+  - name: Prijzen
     href: https://azure.microsoft.com/pricing/details/functions/
-  - name: "MSDN-forum"
+  - name: MSDN-forum
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
-  - name: "Stack Overflow"
+  - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-functions
-  - name: "GitHub-opslagplaats voor Azure Functions"
+  - name: GitHub-opslagplaats voor Azure Functions
     href: https://github.com/Azure/Azure-Functions/
-  - name: "Service-updates"
+  - name: Service-updates
     href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
