@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 73b9448153ec520d77afd1bdb65b9694e7bf7b9e
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: cba0b278d84e25876a8b73cedb7e35f84500fc5e
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -70,27 +70,33 @@ We gaan nu een DocumentDB API-app klonen vanaf github, de verbindingsreeks inste
 
 ## <a name="review-the-code"></a>De code bekijken
 
-Laten we eens kijken wat er precies gebeurt in de app. Open het bestand DocumentDBRepository.cs en u zult zien dat deze regels code de Azure Cosmos DB-resources maken. 
+Laten we eens kijken wat er precies gebeurt in de app. Open het bestand Program.cs en u zult zien dat deze regels code de Azure Cosmos DB-resources maken. 
 
 * De DocumentClient wordt geïnitialiseerd.
 
     ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString); 
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-* Er wordt een nieuwe database gemaakt.
+* Er wordt een nieuwe tabel gemaakt als er nog geen tabel bestaat.
 
     ```csharp
-    await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
+    CloudTable table = tableClient.GetTableReference("people");
+    table.CreateIfNotExists();
     ```
 
-* Er wordt een nieuwe grafiekcontainer gemaakt.
+* Er wordt een nieuwe Table-container gemaakt. Deze code is vergelijkbaar met de reguliere code van de Azure Table Storage-SDK 
 
     ```csharp
-    await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri(DatabaseId),
-        new DocumentCollection { Id = CollectionId },
-        new RequestOptions { OfferThroughput = 1000 });
+    CustomerEntity item = new CustomerEntity()
+                {
+                    PartitionKey = Guid.NewGuid().ToString(),
+                    RowKey = Guid.NewGuid().ToString(),
+                    Email = $"{GetRandomString(6)}@contoso.com",
+                    PhoneNumber = "425-555-0102",
+                    Bio = GetRandomString(1000)
+                };
     ```
 
 ## <a name="update-your-connection-string"></a>Uw verbindingsreeks bijwerken
@@ -106,7 +112,7 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 3. Kopieer de accountnaam van uw Azure Cosmos DB van de portal en geef deze als waarde aan de Accountnaam in de tekenreekswaarde voor PremiumStorageConnection in app.config. In bovenstaande schermopname is de accountnaam cosmos-db-quickstart. Uw accountnaam staat boven aan in de portal.
 
     `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMODB.documents.azure.com" />`
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`
 
 4. Kopieer vervolgens de waarde van uw PRIMAIRE SLEUTEL van de portal en geef deze als waarde aan de AccountKey in PremiumStorageConnectionString. 
 
@@ -114,7 +120,7 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
 5. Kopieer ten slotte uw URI-waarde van de pagina Sleutels van de portal (met de kopieerknop) en geef deze als waarde aan de TableEndpoint van de PremiumStorageConnectionString.
 
-    `TableEndpoint=https://COSMODB.documents.azure.com`
+    `TableEndpoint=https://COSMOSDB.documents.azure.com`
 
     U kunt de StandardStorageConnectionString ongewijzigd laten.
 
@@ -142,7 +148,7 @@ U kunt nu teruggaan naar de Data Explorer en deze nieuwe gegevens bekijken, wijz
 
 Als u deze app niet verder gaat gebruiken, kunt u alle resources verwijderen die door deze Quick Start zijn aangemaakt door onderstaande stappen te volgen in Azure Portal: 
 
-1. Klik in het menu aan de linkerkant in de Azure Portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt. 
+1. Klik in het menu aan de linkerkant in Azure Portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt. 
 2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ de naam van de resource die u wilt verwijderen in het tekstvak en klik vervolgens op **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen

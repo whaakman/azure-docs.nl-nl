@@ -1,6 +1,6 @@
 ---
-title: SaaS als pakket (voorbeeld van een SaaS-toepassing met Azure SQL Database) | Microsoft-documenten
-description: Ontwikkel SaaS-toepassingen met SQL Database
+title: Een Azure SQL Database-voorbeeld-app met meerdere tenants | Microsoft Docs
+description: Inleiding in de Azure SQL Database-voorbeeld-app Wingtip Tickets (WTP)
 keywords: zelfstudie sql-database
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bf5745a788cd9ab6bf2ea8d5d97b8c04f083fc5d
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 265eab8104d8af7c510a88dffb9d70a2b3b37631
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -65,7 +65,7 @@ De volgende zelfstudies bouwen voort op de eerste implementatie van de [SaaS-voo
 
 ## <a name="get-the-wingtip-application-scripts"></a>De scripts van de Wingtip-toepassing downloaden
 
-De scripts en broncode van de toepassing Wingtip Tickets zijn beschikbaar in de [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github-repo. U vindt de scriptbestanden in de map [Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download de map **Learning Modules** naar uw lokale computer en behoud de mapstructuur.
+De scripts en broncode van de Wingtip Tickets-toepassing zijn beschikbaar in de GitHub-opslagplaats [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). U vindt de scriptbestanden in de map [Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download de map **Learning Modules** naar uw lokale computer en behoud de mapstructuur.
 
 ## <a name="working-with-the-wtp-powershell-scripts"></a>Werken met de WTP PowerShell-scripts
 

@@ -1,6 +1,6 @@
 ---
-title: "Analytics-query’s uitvoeren op meerdere tenants (voorbeeld van SaaS-toepassing met behulp van Azure SQL Database) | Microsoft-documenten"
-description: Analytics-query&quot;s uitvoeren op meerdere tenants
+title: Analytics-query&quot;s uitvoeren voor meerdere Azure SQL-databases | Microsoft Docs
+description: Gedistribueerde query&quot;s uitvoeren voor meerdere Azure SQL-databases
 keywords: zelfstudie sql-database
 services: sql-database
 documentationcenter: 
@@ -17,14 +17,14 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b512e2f7833be1947ef7674d6e0266879789ac5a
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: a0742a004b618dda304618bca21ae715552c16e6
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="run-analytics-queries-against-multiple-tenants"></a>Analytics-query's uitvoeren op meerdere tenants
+# <a name="run-distributed-queries-across-multiple-azure-sql-databases"></a>Gedistribueerde query's uitvoeren voor meerdere Azure SQL-databases
 
 In deze zelfstudie voert u analytics-query’s uit op elke tenant in de catalogus. Er wordt een elastische taak gemaakt die de query’s uitvoert. De taak haalt gegevens op en laadt deze in een aparte analytics-database die op de catalogusserver wordt aangemaakt. Op deze database kunnen query’s worden uitgevoerd om inzichten op te doen die verborgen liggen in de alledaagse operationele gegevens van alle tenants. De uitvoer van deze taak is een tabel van de resultaten van de query’s op de analytics-database van de tenant.
 
@@ -37,9 +37,9 @@ In deze zelfstudie leert u het volgende:
 
 Voor het voltooien van deze zelfstudie moet u ervoor zorgen dat aan de volgende vereisten is voldaan:
 
-* De WTP-app moet zijn geïmplementeerd. Zie [De WTP SaaS-toepassing implementeren en verkennen](sql-database-saas-tutorial.md) om de implementatie in minder dan vijf minuten te doen.
-* Azure PowerShell moet zijn geïnstalleerd. Zie [Aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) voor de details
-* De laatste versie SQL Server Management Studio (SSMS) moet zijn geïnstalleerd. [SSMS downloaden en installeren](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+* De WTP-app is geïmplementeerd. Zie [De WTP SaaS-toepassing implementeren en verkennen](sql-database-saas-tutorial.md) om dit in minder dan vijf minuten te doen
+* Azure PowerShell is geïnstalleerd. Zie [Aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) voor meer informatie.
+* De laatste versie van SQL Server Management Studio (SSMS) moet zijn geïnstalleerd. [SSMS downloaden en installeren](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 ## <a name="tenant-operational-analytics-pattern"></a>Operational Analytics-patroon van tenant
 
@@ -47,7 +47,7 @@ Een van de geweldige mogelijkheden met SaaS-toepassingen is het gebruik van de u
 
 ## <a name="get-the-wingtip-application-scripts"></a>De scripts van de Wingtip-toepassing downloaden
 
-De scripts en broncode van de toepassing Wingtip Tickets zijn beschikbaar in de [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github-repo. U vindt de scriptbestanden in de map [Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download de map **Learning Modules** naar uw lokale computer en behoud de mapstructuur.
+De scripts en broncode van de Wingtip Tickets-toepassing zijn beschikbaar in de GitHub-opslagplaats [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). U vindt de scriptbestanden in de map [Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download de map **Learning Modules** naar uw lokale computer en behoud de mapstructuur.
 
 ## <a name="deploy-a-database-for-tenant-analytics-results"></a>Implementeer een database voor de analytics-resultaten van de tenant
 
