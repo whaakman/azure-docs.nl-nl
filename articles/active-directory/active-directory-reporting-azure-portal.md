@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory-rapportage - preview | Microsoft Docs
-description: Bevat een lijst met de diverse beschikbare rapporten voor Azure Active Directory-previews
+
+title: Azure Active Directory-rapportage | Microsoft Docs
+description: Bevat een lijst met de diverse beschikbare rapporten voor Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,19 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
-ms.openlocfilehash: b9cd11954a52600c1cd50155cb7ce9b7d2355cd3
-ms.lasthandoff: 01/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: c7fe995f097c72ab5275249538fe2bb65efac256
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="azure-active-directory-reporting---preview"></a>Azure Active Directory-rapportage - preview
+# <a name="azure-active-directory-reporting"></a>Azure Active Directory-rapportage
 
 
 *Deze documentatie maakt deel uit van de [Azure Active Directory-rapportagegids](active-directory-reporting-guide.md).*
 
-Met rapportage in de Azure Active Directory-preview ziet u alle informatie die u nodig hebt om te bepalen hoe het met uw omgeving gaat. [Wat biedt de preview?](active-directory-preview-explainer.md)
+Met rapporten in Azure Active Directory ontvangt u alle informatie die nodig is om te bepalen hoe het gaat met uw omgeving.
 
 Er zijn twee hoofdonderwerpen waarover wordt gerapporteerd:
 
@@ -64,7 +66,7 @@ Elke rij in de lijst met aanmeldactiviteiten bevat gedetailleerde informatie ove
 * Wat is de status van de aanmelding?
 
 ### <a name="usage-of-managed-applications"></a>Het gebruik van beheerde toepassingen
-Met een toepassingsgerichte weergave van uw aanmeldgegevens kunt u antwoord vinden op vragen zoals:
+Met een toepassingsgerichte weergave van uw aanmeldingsgegevens kunt u antwoord vinden op vragen zoals:
 
 * Wie gebruikt mijn toepassingen?
 * Wat zijn de drie meest gebruikte toepassingen in uw organisatie?

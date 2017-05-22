@@ -12,12 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 24e9f1d7bdf4401d009ba04fb62351b6abda6079
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 773d616b2a5815158971d63d005fae605450ac98
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -29,7 +30,7 @@ Met deze Quickstart leert u in een paar minuten hoe u uw eerste ASP.NET-web-app 
 
 ![ASP.NET-web-app in Azure App Service](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-## <a name="before-you-begin"></a>Voordat u begint
+## <a name="prerequisites"></a>Vereisten
 
 Deze zelfstudie laat u zien hoe u Visual Studio 2017 gebruikt voor het maken van een ASP.NET-web-app en het implementeren ervan in Azure. Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
 
@@ -37,7 +38,7 @@ Deze zelfstudie laat u zien hoe u Visual Studio 2017 gebruikt voor het maken van
 
 ## <a name="create-an-aspnet-web-app"></a>Een ASP.NET-web-app maken
 
-Maak in Visual Studio een nieuw project met `Ctrl` + `Shift` + `N`.
+Maak in Visual Studio een project met `Ctrl`+`Shift`+`N`.
 
 Klik in het dialoogvenster **Nieuw project** op **Visual C# > Web > ASP.NET-webtoepassing (.NET Framework)**.
 
@@ -110,7 +111,7 @@ Configureer in het dialoogvenster **App Service-plan configureren** het nieuwe A
 
 Klik op **OK**.
 
-![Een nieuw App Service-plan maken](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+![Een App Service-plan maken](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
 ## <a name="create-and-publish-the-web-app"></a>De web-app maken en publiceren
 
@@ -165,11 +166,11 @@ Klik vanuit het linkermenu op **App Services** en klik op de naam van uw Azure-w
 
 U bent aangekomen op de _blade_ van uw web-app (een portalpagina die horizontaal wordt geopend). 
 
-Standaard toont de blade van uw web-app de pagina **Overzicht**. Deze pagina geeft u een overzicht van hoe uw app presteert. Hier kunt u ook algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen. De tabbladen aan de linkerkant van de blade tonen de verschillende configuratiepagina's die u kunt openen. 
+Standaard toont de blade van uw web-app de pagina **Overzicht**. Deze pagina geeft u een overzicht van hoe uw app presteert. Hier kunt u ook algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen.  
 
 ![App Service-blade in Azure Portal](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
-Deze tabbladen op de blade bevatten de vele handige functies die kunt u toevoegen aan uw web-app. De volgende lijst bevat slechts enkele van de mogelijkheden:
+De tabbladen aan de linkerkant van de blade tonen de verschillende configuratiepagina's die u kunt openen. De volgende lijst bevat slechts enkele van de mogelijkheden:
 
 - Een aangepaste DNS-naam toewijzen
 - Een aangepast SSL-certificaat binden
@@ -193,5 +194,9 @@ Bevestig dit op de bevestigingsblade door de naam van de resourcegroep **myResou
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk vooraf gemaakte [PowerShell-scripts voor web-apps](app-service-powershell-samples.md).
+> [!div class="nextstepaction"]
+> [Meer informatie over het bouwen van een ASP.NET-app in Azure met SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+
+> [!div class="nextstepaction"]
+> [Voorbeelden van PowerShell-scripts voor web-apps bekijken](app-service-powershell-samples.md)
 

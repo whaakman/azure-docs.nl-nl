@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2017
+ms.date: 05/04/2017
 ms.author: kgremban
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 4f7860b906ab988c918de31d53f4a958e4dea83b
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 526efc5b025f8050f40c49d0a07a9c2713509493
 ms.contentlocale: nl-nl
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -31,9 +31,7 @@ ms.lasthandoff: 04/28/2017
 Azure AD-toepassingsproxy helpt u externe werknemers te ondersteunen door on-premises toepassingen te publiceren voor toegang via internet. Inmiddels moet u [toepassingsproxy al hebben ingeschakeld in de klassieke Azure-portal](active-directory-application-proxy-enable.md). Dit artikel beschrijft de stappen voor het publiceren van toepassingen die worden uitgevoerd op uw lokale netwerk en het bieden van beveiligde externe toegang van buiten uw netwerk. Nadat u de stappen in dit artikel hebt uitgevoerd, bent u klaar om de toepassing te configureren met persoonlijke gegevens of beveiligingsvereisten.
 
 > [!NOTE]
-> De functie toepassingsproxy is alleen beschikbaar als u een upgrade hebt uitgevoerd naar de Premium- of Basic-editie van Azure Active Directory. Zie [Azure Active Directory-edities](active-directory-editions.md) voor meer informatie.
-
-Als u de openbare preview van de toepassingsproxy wilt gebruiken, kunt u [toepassingen publiceren in Azure Portal](application-proxy-publish-azure-portal.md).
+> De functie toepassingsproxy is alleen beschikbaar als u een upgrade hebt uitgevoerd naar de Premium- of Basic-editie van Azure Active Directory. Zie [Azure Active Directory-edities](active-directory-editions.md) voor meer informatie. Als u de toepassingsproxy wilt gebruiken, kunt u [toepassingen publiceren in Azure Portal](application-proxy-publish-azure-portal.md).
 
 ## <a name="publish-an-app-using-the-wizard"></a>Een app publiceren met de wizard
 1. Meld u als beheerder aan in de [klassieke Azure-portal](https://manage.windowsazure.com/).

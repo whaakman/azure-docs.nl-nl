@@ -3,8 +3,8 @@ title: Overzicht van Microsoft Azure Data Lake Analytics | Microsoft Docs
 description: Data Lake Analytics is een Azure Big Data-service waarmee u de inzichten die u uit uw gegevens in de cloud verkrijgt, kunt gebruiken voor uw bedrijfsvoering, ongeacht de omvang en locatie van die gegevens.
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/28/2017
+ms.date: 05/06/2017
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 12d6fe834ed2b31a756123351288eec7ba2a72f7
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: cb2da3515cfe5fd460e16b019d3738f4a9a050bb
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -37,7 +38,7 @@ Azure Data Lake Analytics is een service op aanvraag voor het uitvoeren van anal
     Data Lake Analytics bevat U-SQL, een querytaal die de vertrouwde en eenvoudige declaratieve aard van SQL uitbreidt met de expressieve voordelen van C#. De U-SQL-taal is gebouwd op de dezelfde gedistribueerde runtime die de basis vormt van de big-datasystemen binnen Microsoft. Miljoenen SQL- en .NET-ontwikkelaars kunnen nu hun gegevens verwerken en analyseren met de vaardigheden die ze al hebben.
 * **Moeiteloze integratie met uw IT-investeringen**
   
-    Met Data Lake Analytics kunt u uw bestaande IT-investeringen gebruiken voor identiteitsservices, beheer, beveiliging en datawarehousing. Dit vereenvoudigt het gegevensbeheer en maakt het gemakkelijk om uw huidige gegevenstoepassingen uit te breiden. Data Lake Analytics is geïntegreerd met Active Directory voor het beheer van gebruikers en machtigingen, en biedt ingebouwde functionaliteit voor bewaking en controle.
+    Met Data Lake Analytics kunt u uw bestaande IT-investeringen gebruiken voor identiteitsservices, beheer, beveiliging en datawarehousing. Deze aanpak vereenvoudigt het gegevensbeheer en maakt het gemakkelijk om uw huidige gegevenstoepassingen uit te breiden. Data Lake Analytics is geïntegreerd met Active Directory voor het beheer van gebruikers en machtigingen, en biedt ingebouwde functionaliteit voor bewaking en controle.
 * **Betaalbaar en rendabel**
   
     Data Lake Analytics is een rendabele oplossing voor het uitvoeren van big data-workloads. U betaalt per taak wanneer de gegevens worden verwerkt. Hardware, licenties en servicespecifieke ondersteuningsovereenkomsten zijn niet nodig. Het systeem schaalt automatisch op en af bij het starten en eindigen van de taak, zodat u nooit betaalt voor meer dan u nodig hebt.
@@ -53,24 +54,16 @@ Azure Data Lake Analytics is een service op aanvraag voor het uitvoeren van anal
   * [Aan de slag met Data Lake Analytics met Azure .NET SDK](data-lake-analytics-get-started-net-sdk.md)
   * [U-SQL-scripts ontwikkelen met Data Lake-hulpmiddelen voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
   * [Aan de slag met Azure Data Lake Analytics U-SQL-taal](data-lake-analytics-u-sql-get-started.md)
-* U-SQL en ontwikkelen
-  
-  * [U-SQL-vensterfuncties gebruiken voor Azure Data Lake Analytics-taken](data-lake-analytics-use-window-functions.md)
-  * [Door de gebruiker gedefinieerde U-SQL-operators ontwikkelen voor Data Lake Analytics-taken](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+
 * Beheer
   
   * [Azure Data Lake Analytics beheren met Azure Portal](data-lake-analytics-manage-use-portal.md)
   * [Azure Data Lake Analytics beheren met Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
   * [Azure Data Lake Analytics-taken bewaken en problemen oplossen met Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-  * [Diagnostische logboeken openen voor Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
-* End-to-end zelfstudie
-  
-  * [Interactieve zelfstudies voor Azure Data Lake Analytics gebruiken](data-lake-analytics-use-interactive-tutorials.md)
-  * [Websitelogboeken analyseren met Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
+
 * Laat ons weten wat u ervan vindt
   
-  <!-- Fixing broken links for Azure content migration from ACOM to DOCS. I can't find a suitable substitute for what appears to be a link that is no longer available. I am commenting out for now. The author can investigate in the future. Hyperlink text: Comment on our documentation backlog. Referenced file: data-lake-analytics-documentation-backlog.md -->
   * [Een functieaanvraag indienen](http://aka.ms/adlafeedback)
-  * [Hulp krijgen in de forums](http://aka.ms/adlaforums)
+  * [Hulp krijgen in de MSDN-forums](http://aka.ms/adlaforums)
 
 

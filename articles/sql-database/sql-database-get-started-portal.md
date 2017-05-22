@@ -14,12 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 05/03/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 90761317944b935b76df65d25a2035bfabe71c09
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: dbed7fe1f6ffdb40d445a66890b63baaf7a57f54
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -143,11 +144,8 @@ Nu u een voorbeelddatabase in Azure hebt gemaakt, gebruiken we het ingebouwde hu
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. 
+Als u deze resources niet voor een andere Quick Start/zelfstudie nodig hebt (zie [Volgende stappen](#next-steps)), kunt u ze verwijderen door het volgende te doen:
 
-> [!TIP]
-> Als u van plan bent om door te gaan met andere Quick Starts, verwijdert u de resources die u in deze Quick Start hebt gemaakt niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die door deze Quick Start in Azure Portal zijn gemaakt.
->
 
 1. Klik in het menu links in Azure Portal op **Resourcegroepen** en klik vervolgens op **myResourceGroup**. 
 2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ **myResourceGroup** in het tekstvak en klik vervolgens op **Verwijderen**.

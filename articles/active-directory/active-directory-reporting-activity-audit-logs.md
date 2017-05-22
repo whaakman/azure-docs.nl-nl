@@ -1,6 +1,7 @@
 ---
-title: Controleactiviteitenrapporten in Azure Active Directory Portal - preview | Microsoft Docs
-description: Ontdek de controleactiviteitenrapporten in de previewversie van Azure Active Directory Portal
+
+title: Controleactiviteitenrapporten in Azure Active Directory Portal | Microsoft Docs
+description: Ontdek de controleactiviteitenrapporten in de Azure Active Directory Portal
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,20 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: d88f8bed0cbd14ee49986d6749396731a810034b
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 4065682658bdd99066266b8b4e5e4c4605ff3db9
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="audit-activity-reports-in-the-azure-active-directory-portal---preview"></a>Controleactiviteitenrapporten in Azure Active Directory Portal - preview
+# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Controleactiviteitenrapporten in Azure Active Directory Portal 
 
-Wanneer u rapporten bekijkt in de [previewversie](active-directory-preview-explainer.md) van Azure Active Directory, ontvangt u alle informatie die nodig is om te bepalen hoe het gaat met uw omgeving.
+Met rapporten in Azure Active Directory ontvangt u alle informatie die nodig is om te bepalen hoe het gaat met uw omgeving.
 
-De rapportstructuur in Azure Active Directory bestaat uit de volgende onderdelen:
+De rapportstructuur in Azure AD bestaat uit de volgende onderdelen:
 
 - **Activiteit** 
     - **Aanmeldactiviteiten**: informatie over het gebruik van beheerde toepassingen en aanmeldactiviteiten van gebruikers

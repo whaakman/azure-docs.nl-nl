@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/07/2017
+ms.date: 05/05/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 296f02dd7deb22fd4ca15478b7f90a7688b4304a
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: dea338477ca82eead9e272ed9a1709cb2643f743
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -116,7 +117,18 @@ Nu u een toepassing hebt, kunt u proberen deze uit te voeren.
    
     ![Details van de gebeurtenissenviewer na een failover][diagnostic-events-viewer-detail-post-failover]
 
-## <a name="switch-cluster-mode"></a>De clustermodus wijzigen
+## <a name="cleaning-up-the-local-cluster-optional"></a>Het lokale cluster opschonen (optioneel)
+Voordat u afsluit, is het belangrijk om te onthouden dat het lokale cluster echt is. Als u het foutopsporingsprogramma stopt, worden uw toepassingsexemplaar en de registratie van het toepassingstype verwijderd. Het op de achtergrond uitvoeren van het cluster gaat echter gewoon door. U hebt verschillende mogelijkheden om het cluster te beheren:
+
+1. Als u het cluster wilt verwijderen, maar de toepassingsgegevens en -traceringen wilt behouden, klikt u op **Lokaal cluster stoppen** in het systeemvak.
+2. Als u het cluster volledig wilt verwijderen, klikt u op **Lokaal cluster verwijderen** in het systeemvak van de app. Als u dit doet, verloopt de implementatie mogelijk langzamer wanneer u in Visual Studio op F5 drukt. Verwijder het cluster alleen als u het lokale cluster een tijd niet gaat gebruiken of als u resources wilt vrijmaken.
+
+## <a name="deploy-your-application-to-an-azure-cluster"></a>De toepassing implementeren op een Azure-cluster
+Nu u de toepassing lokaal hebt geïmplementeerd, kunt u dezelfde toepassing implementeren op Azure. Het document [Uw eerste Service Fabric-cluster maken in Azure](service-fabric-get-started-azure-cluster.md) leidt u stapsgewijs door het proces met behulp van Azure PowerShell of de portal.
+
+Zodra u een Azure-cluster hebt ingesteld, kunt u deze toepassing vanuit Visual Studio publiceren naar Azure door de stappen te volgen in het artikel [Publiceren naar een Azure-cluster](service-fabric-publish-app-remote-cluster.md).  
+
+## <a name="switch-cluster-mode-of-your-local-development-cluster"></a>De clustermodus van het lokale ontwikkelingscluster wijzigen
 Het lokale ontwikkelingscluster is standaard geconfigureerd om te worden uitgevoerd als een cluster met vijf knooppunten, wat nuttig is voor het opsporen van fouten in services die worden geïmplementeerd op meerdere knooppunten. Het implementeren van een toepassing op het ontwikkelingscluster met vijf knooppunten kan echter enige tijd in beslag nemen. Als u codewijzigingen snel wilt herhalen zonder uw app op vijf knooppunten uit te voeren, wijzigt u de modus van het ontwikkelingscluster in de modus met één knooppunt. Als u uw code op een cluster met één knooppunt wilt uitvoeren, klikt u met de rechtermuisknop op de Local Cluster Manager op de taakbalk en selecteert u **Clustermodus wijzigen -> één knooppunt**.  
 
 ![De clustermodus wijzigen][switch-cluster-mode]
@@ -136,11 +148,7 @@ U kunt de clustermodus ook wijzigen met behulp van PowerShell:
    
     ![Cluster-installatieuitvoer][cluster-setup-success-1-node]
 
-## <a name="cleaning-up"></a>Opschonen
-Voordat u afsluit, is het belangrijk om te onthouden dat het lokale cluster echt is. Als u het foutopsporingsprogramma stopt, worden uw toepassingsexemplaar en de registratie van het toepassingstype verwijderd. Het op de achtergrond uitvoeren van het cluster gaat echter gewoon door. U hebt verschillende mogelijkheden om het cluster te beheren:
 
-1. Als u het cluster wilt verwijderen, maar de toepassingsgegevens en -traceringen wilt behouden, klikt u op **Lokaal cluster stoppen** in het systeemvak.
-2. Als u het cluster volledig wilt verwijderen, klikt u op **Lokaal cluster verwijderen** in het systeemvak van de app. Als u dit doet, verloopt de implementatie mogelijk langzamer wanneer u in Visual Studio op F5 drukt. Verwijder het cluster alleen als u het lokale cluster een tijd niet gaat gebruiken of als u resources wilt vrijmaken.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Leer hoe u een [cluster maakt in Azure](service-fabric-cluster-creation-via-portal.md) of hoe u een [zelfstandig cluster maakt in Windows](service-fabric-cluster-creation-for-windows-server.md).

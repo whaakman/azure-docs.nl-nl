@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 05/08/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bd2291129a1a61f69e83cb76748d00b9ede6eb6f
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ec658f4c74d54a11684460c0e634303793480152
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -66,7 +67,7 @@ U kunt voor elk abonnement en elke resourcegroep beveiligingsbeleid configureren
    >
 9. Klik in de blade **Beveiligingsbeleid** op **Aan** om de beveiligingsaanbevelingen in te schakelen die u wilt gebruiken voor dit abonnement. Klik op **Preventiebeleid** om opties weer te geven zoals die in de volgende schermafbeelding:
 
-    ![Het beveiligingsbeleid selecteren](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
+    ![Het beveiligingsbeleid selecteren](./media/security-center-policies/security-center-policies-fig4-newUI.png)
 
 Gebruik de volgende tabel als referentie om te begrijpen wat elke optie doet:
 
@@ -82,6 +83,7 @@ Gebruik de volgende tabel als referentie om te begrijpen wat elke optie doet:
 | Controleren voor SQL en bedreigingen detecteren |Hiermee wordt aanbevolen dat de controle van toegang tot de Azure-database wordt ingeschakeld voor naleving, geavanceerde detectie en onderzoek. |
 | Transparent Data Encryption voor SQL |Hiermee wordt aanbevolen dat versleuteling-at-rest wordt ingeschakeld voor uw Azure SQL-databases, gekoppelde back-ups en transactielogboekbestanden. Zelfs bij een inbreuk kunnen uw gegevens niet worden gelezen. |
 | Beoordeling van beveiligingslekken |Hiermee wordt aanbevolen dat een oplossing voor de beoordeling van beveiligingslekken wordt geïnstalleerd op de VM. |
+| Storage-versleuteling |Deze functie is momenteel beschikbaar voor Azure-blobs en -bestanden. Opmerking: Nadat de service Storage-versleuteling is ingeschakeld, worden alleen nieuwe gegevens versleuteld. Alle bestaande bestanden in dit Storage-account zijn nog steeds niet-versleuteld. |
 
 Wanneer u klaar bent met het configureren van alle opties, klikt u op **OK** in de blade **Beveiligingsbeleid** met de aanbevelingen en klikt u vervolgens op **Opslaan** in de blade **Beveiligingsbeleid** met de oorspronkelijke instellingen.
 

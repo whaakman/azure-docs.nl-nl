@@ -4,7 +4,7 @@ description: Dit artikel helpt u aan de slag te gaan met de bewakingsmogelijkhed
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
 ms.service: security-center
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 05/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: d796566676e13b312832dd543f52d3475d877ef8
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: f7f50c305a5ae6ad7bba4e793f4cb6a0735b80b4
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -28,18 +29,17 @@ Dit artikel bevat informatie over het gebruik van de bewakingsmogelijkheden in A
 Bij het woord bewaking wordt misschien gesuggereerd dat er wordt gewacht tot een gebeurtenis plaatsvindt en dat er dan op de situatie wordt gereageerd. Bij beveiligingsbewaking is er echter sprake van een proactieve strategie waarbij uw resources worden gecontroleerd om systemen op te sporen die niet voldoen aan de standaarden of aanbevolen procedures van de organisatie.
 
 ## <a name="monitoring-security-health"></a>Beveiligingsstatus bewaken
-Nadat u een [beveiligingsbeleid](security-center-policies.md) voor de resources van een abonnement hebt ingeschakeld, analyseert Security Center de beveiliging van uw resources om mogelijke beveiligingsproblemen op te sporen. Informatie over uw netwerkconfiguratie is onmiddellijk beschikbaar. Het kan echter wel een uur of langer duren voordat er informatie over de configuratie van een virtuele machine, zoals de status van een beveiligingsupdate en configuratie van het besturingssysteem, beschikbaar komt. U kunt de beveiligingsstatus van uw resources en eventuele problemen bekijken op de blade **Beveiligingsstatus van de resource**. U kunt ook een overzicht van die problemen op de blade **Aanbevelingen** bekijken.
+Nadat u een [beveiligingsbeleid](security-center-policies.md) voor de resources van een abonnement hebt ingeschakeld, analyseert Security Center de beveiliging van uw resources om mogelijke beveiligingsproblemen op te sporen. Informatie over uw netwerkconfiguratie is onmiddellijk beschikbaar. Het kan echter wel een uur of langer duren voordat er informatie over de configuratie van een virtuele machine, zoals de status van een beveiligingsupdate en configuratie van het besturingssysteem, beschikbaar komt. U kunt de beveiligingsstatus van uw resources en eventuele problemen bekijken in het gedeelte **Preventie**. U kunt ook een overzicht van die problemen op de tegel **Aanbevelingen** bekijken.
 
 Zie [Beveiligingsaanbevelingen implementeren in Azure Security Center](security-center-recommendations.md) voor meer informatie over het toepassen van aanbevelingen.
 
-Op de tegel **Beveiligingsstatus van de resource** kunt u de beveiligingsstatus van uw resources bewaken. In het volgende voorbeeld ziet u een aantal problemen met een hoge en gemiddelde ernst en die uw aandacht vereisen. Het ingeschakelde beveiligingsbeleid is van invloed op de typen besturingselementen die worden bewaakt.
+In het gedeelte **Preventie** kunt u de beveiligingsstatus van uw resources bewaken. In het volgende voorbeeld ziet u dat in de tegel van elke resource (Berekenen, Netwerken, Opslag en gegevens, en Toepassing) het totale aantal problemen dat is geïdentificeerd wordt weergegeven.
 
-![De tegel Beveiligingsstatus van de resource](./media/security-center-monitoring/security-center-monitoring-fig1-new001-2017.png)
+![De tegel Beveiligingsstatus van de resource](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
-Als in Security Center een beveiligingsprobleem wordt gevonden dat moet worden verholpen, zoals een virtuele machine met ontbrekende beveiligingsupdates of een subnet zonder een [netwerkbeveiligingsgroep](/virtual-network/virtual-networks-nsg.md), wordt dat hier vermeld.
 
 ### <a name="monitor-compute"></a>Berekenen controleren
-Als u op de tegel **Beveiligingsstatus van de resource** klikt op **Berekenen**, wordt de blade **Berekenen** geopend met daarop drie tabbladen:
+Als u op de tegel **Berekenen** klikt, wordt de blade **Berekenen** geopend met daarop drie tabbladen:
 
 - **Overzicht**: aanbevelingen voor controle en virtuele machines.
 - **Virtuele machines**: lijst met alle virtuele machines en de bijbehorende actuele beveiligingsstatussen.
@@ -119,7 +119,7 @@ Als u een meer beschrijvende uitleg wilt zien over deze aanbeveling, klikt u op 
 ![Aanbevelingen ten aanzien van cloudservices](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
 ### <a name="monitor-virtual-networks"></a>Virtuele netwerken bewaken
-Wanneer u op **Netwerken** in de tegel **Beveiligingsstatus van de resource** klikt, wordt de blade **Netwerken** geopend met meer details, zoals op de volgende schermafbeelding wordt weergegeven:
+Wanneer u op de tegel **Netwerken** klikt, wordt de blade **Netwerken** geopend met meer details, zoals op de volgende schermafbeelding wordt weergegeven:
 
 ![De blade Netwerken](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
@@ -170,11 +170,11 @@ In deze topologieweergave bevat het eerste niveau [virtuele netwerken](../virtua
 
 Het onderste gedeelte van deze blade bevat de aanbevelingen voor deze virtuele machine, vergelijkbaar met wat eerder is beschreven. U kunt op een aanbeveling klikken voor meer informatie of om het benodigde beveiligingsbeheer of de benodigde beveiligingsconfiguratie toe te passen.
 
-### <a name="monitor-data"></a>Gegevens controleren
+### <a name="monitor-storage--data"></a>Opslag en gegevens controleren
 
-Wanneer u op de tegel **Beveiligingsstatus bronnen** op **SQL en gegevens** klikt, wordt de blade **Gegevensbronnen** geopend met aanbevelingen voor SQL en Storage. Ook bevat de blade [aanbevelingen](security-center-sql-service-recommendations.md) voor de algemene integriteitsstatus van de database. Lees voor meer informatie over de versleuteling van opslag [Versleuteling inschakelen voor een Azure-opslagaccount in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
+Wanneer u klikt op **Opslag en gegevens** in het gedeelte **Preventie**, wordt de blade **Gegevensbronnen** geopend met aanbevelingen voor SQL en Storage. Ook bevat de blade [aanbevelingen](security-center-sql-service-recommendations.md) voor de algemene integriteitsstatus van de database. Lees voor meer informatie over de versleuteling van opslag [Versleuteling inschakelen voor een Azure-opslagaccount in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
 
-![Gegevensbronnen](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
+![Gegevensbronnen](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
 
 U kunt onder **SQL-aanbevelingen** op elke aanbeveling klikken voor meer informatie over verdere acties die u kunt ondernemen om een probleem te verhelpen. In het volgende voorbeeld is de aanbeveling **Databasecontrole en detectie van bedreigingen in SQL-databases** uitgevouwen.
 

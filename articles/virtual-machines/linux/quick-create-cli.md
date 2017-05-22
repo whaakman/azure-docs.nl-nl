@@ -13,23 +13,23 @@ ms.devlang: azurecli
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 08fcde4f5bddccb9de5564455937a637054ebb60
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 83b72b046605f6076302d4347afa70707060929e
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 ---
 
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Een virtuele Linux-machine maken met de Azure CLI
 
-De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. In deze handleiding staat informatie over het gebruik van de Azure CLI om een virtuele machine te implementeren met Ubuntu 16.04 LTS. Nadat de server is geïmplementeerd, wordt SSH gebruikt om verbinding te maken met de VM om NGINX te installeren. 
+De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. In deze handleiding staat informatie over het gebruik van de Azure CLI om een virtuele machine met Ubuntu Server te implementeren. Zodra de server is geïmplementeerd, wordt een SSH-verbinding gemaakt en een NGINX-webserver geïnstalleerd.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Controleer ook of de Azure-CLI is geïnstalleerd. Zie voor meer informatie de [Installatiehandleiding van de Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Voor deze zelfstudie is versie 2.0.4 of hoger van de Azure CLI vereist. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure. 
 
@@ -43,10 +43,10 @@ az login
 
 Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
-In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *Europa West*.
+In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
 
 ```azurecli
-az group create --name myResourceGroup --location westeurope
+az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
@@ -65,7 +65,7 @@ Wanneer de virtuele machine is gemaakt, toont de Azure CLI informatie die lijkt 
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "westeurope",
+  "location": "eastus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
@@ -121,7 +121,9 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Zelfstudie voor het maken van virtuele machines met een hoge beschikbaarheid](create-cli-complete.md)
+In deze Snel starten hebt u een eenvoudige virtuele machine geïmplementeerd, een netwerkbeveiligingsgroepregel gemaakt en een webserver geïnstalleerd. Voor meer informatie over virtuele machines in Azure, gaat u verder met de zelfstudie voor virtuele Linux-machines.
 
-[CLI-voorbeelden voor VM-implementatie verkennen](cli-samples.md)
+
+> [!div class="nextstepaction"]
+> [Zelfstudies over virtuele Linux-machines](./tutorial-manage-vm.md)
 

@@ -1,0 +1,8 @@
+U kunt een basiscertificaat gebruiken dat is gegenereerd met een commerciële oplossing (aanbevolen) of u kunt een zelfondertekend certificaat genereren. Raadpleeg het artikel [Een zelfondertekend certificaat voor punt-naar-site-verbindingen maken](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#rootcert) als u een zelfondertekend certificaat gebruikt. Het artikel bevat de specifieke instellingen die nodig zijn voor het genereren van een met P2S compatibel certificaat.
+
+Nadat u het basiscertificaat hebt gemaakt, exporteert u de gegevens van het openbare certificaat (niet de persoonlijke sleutel) als een X.509 CER-bestand dat is gecodeerd met Base64. Vervolgens kunt u de gegevens van het openbare certificaat uploaden naar Azure.
+
+* **Commercieel certificaat:** als u gebruikmaakt van een commerciële oplossing kunt u de bestaande certificaatketen gebruiken. Verkrijg het CER-bestand dat u wilt gebruiken voor het basiscertificaat.
+* **Zelfondertekend basiscertificaat:** als u geen commerciële certificeringsoplossing gebruikt, moet u een zelfondertekend basiscertificaat maken. Het basiscertificaat moet specifieke waarden bevatten om te kunnen werken met een punt-naar-site-verbinding. Raadpleeg de volgende artikelen voor meer informatie:
+  * Zie [Een zelfondertekend basiscertificaat voor punt-naar-site-verbindingen maken](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#rootcert) als u een zelfondertekend basiscertificaat wilt maken.
+  * Zie [Een zelfondertekend basiscertificaat voor punt-naar-site-verbindingen maken](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer) voor informatie over het exporteren van de openbare sleutel (CER-bestand).
