@@ -1,0 +1,5 @@
+Nu dat uw app functioneert, wilt u er wellicht zeker van zijn dat deze ononderbroken werkt, en wilt u de gebruikerstoegang bewaken zodat hoge beschikbaarheid voor uw gebruikers kan worden gegarandeerd. U kunt Azure Portal gebruiken om de beschikbaarheid, latentie, doorvoer en consistentie van uw verzameling te controleren. Elke graaf die is gekoppeld aan de [Service Level Agreements (SLA's) van Azure Cosmos DB ](https://azure.microsoft.com/support/legal/sla/documentdb/), bevat een regel met de quota die zijn vereist volgens de SLA, plus uw werkelijk gebruik. Dit geeft u een duidelijk in hoe uw database presteert. Aanvullende metrische gegevens zoals het gebruik van opslag en het aantal aanvragen per minuut zijn ook opgenomen in de portal
+
+* In Azure Portal in het menu links, onder **Bewaking** klikt u op **Metrische gegevens**.
+
+   ![Taken-app met voorbeeldgegevens](./media/cosmosdb-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)

@@ -1,12 +1,7 @@
+Ontdek hoe u functies maakt met andere soorten triggers of hoe u functies integreert met andere Azure-services.
 
-Deze snelstartgids demonstreert een eenvoudige uitvoering van een basisfunctie die door HTTP wordt geactiveerd. Raadpleeg de volgende onderwerpen voor meer informatie over het gebruik van Azure Functions in uw apps:
 
-* [Aanbevolen procedures voor Azure Functions](../articles/azure-functions/functions-best-practices.md)
-* [Naslaginformatie over Azure Functions voor ontwikkelaars](../articles/azure-functions/functions-reference.md)  
-  Naslaginformatie voor programmeurs over het coderen van functies en het definiëren van triggers en bindingen.
-* [Azure Functions testen](../articles/azure-functions/functions-test-a-function.md)  
-  Beschrijft de verschillende hulpprogramma’s en technieken voor het testen van uw functies.
-* [Azure Functions schalen](../articles/azure-functions/functions-scale.md)  
-  Beschrijft de serviceabonnementen die beschikbaar zijn voor Azure Functions, zoals het hostingabonnement Consumption, en helpt u bij het kiezen van het juiste abonnement. 
-* [Wat is Azure App Service?](../articles/app-service/app-service-value-prop-what-is.md)  
-  Azure Functions maakt gebruik van het Azure App Service-platform voor kernfunctionaliteit zoals implementaties, omgevingsvariabelen en diagnostische procedures. 
++ [Een functie maken die volgens een schema wordt uitgevoerd](../articles/azure-functions/functions-create-scheduled-function.md) 
++ [Een door Storage-wachtrijbericht geactiveerde functie maken](../articles/azure-functions/functions-create-storage-queue-triggered-function.md) 
++ [Een door een GitHub-webhook geactiveerde functie maken](../articles/azure-functions/functions-create-github-webhook-triggered-function.md) 
++ [Berichten aan een Azure Storage-wachtrij toevoegen met behulp van Functies](../articles/azure-functions/functions-integrate-storage-queue-output-binding.md) 
