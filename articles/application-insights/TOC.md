@@ -12,18 +12,20 @@
 ### [Web-apps al live](app-insights-monitor-performance-live-website-now.md)
 ### [Windows-services](app-insights-windows-services.md)
 ### [Windows-bureaublad](app-insights-windows-desktop.md)
+### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Java-apps bewaken
 ### [Web-apps](app-insights-java-get-started.md)
 ### [Web-apps - runtime](app-insights-java-live.md)
 ### [Docker-apps](app-insights-docker.md)
 
+## Node.js-apps bewaken
+### [Node.js](app-insights-nodejs.md)
 
 ## Webpagina's bewaken
 ### [JavaScript](app-insights-javascript.md)
-
+ 
 ## Andere platformen bewaken
-### [Node.js-apps](app-insights-nodejs.md)
 ### [SharePoint-sites](app-insights-sharepoint.md)
 ### [Meer platformen](app-insights-platforms.md)
 
@@ -32,8 +34,8 @@
 ## Plannen en ontwerpen
 ### [Diepe diagnostische gegevens voor web-apps en services](app-insights-devops.md)
 ### [Prestaties in webtoepassingen bewaken](app-insights-web-monitor-performance.md)
-### [Gebruiksanalyse met Application Insights](app-insights-web-track-usage.md)
-### [Application Insights-resources scheiden](app-insights-separate-resources.md)
+### [Ontwikkelings-, test- en productiegegevens scheiden](app-insights-separate-resources.md)
+### [Apps bewaken met meerdere rollen](app-insights-monitor-multi-role-apps.md)
 ### [Hoe kan ik ... in Application Insights?](app-insights-how-do-i.md)
 
 
@@ -50,7 +52,7 @@
 #### [Afhankelijkheden](app-insights-asp-net-dependencies.md)
 #### [Release-aantekeningen](app-insights-annotations.md)
 #### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-
+#### [Snapshot Debugger](app-insights-snapshot-debugger.md)
 
 ### J2EE
 #### [Logboektraceringen](app-insights-java-trace-logs.md)
@@ -87,6 +89,11 @@
 #### [Trends](app-insights-visual-studio-trends.md)
 #### [CodeLens](app-insights-visual-studio-codelens.md)
 
+### Gebruik
+#### [Overzicht](app-insights-usage-overview.md)
+#### [Retentie](app-insights-usage-retention.md)
+#### [Gebruikers, sessies, gebeurtenissen](app-insights-usage-segmentation.md)
+
 ### Analytische gegevens
 
 #### [Overzicht](app-insights-analytics.md)
@@ -107,7 +114,6 @@
 ### [API voor aangepaste gebeurtenissen en metrische gegevens](app-insights-api-custom-events-metrics.md)
 ### [Telemetrie voor filteren en voorverwerking](app-insights-api-filtering-sampling.md)
 ### [Steekproeven](app-insights-sampling.md)
-### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Beheren
 ### [Prijzen en quota beheren](app-insights-pricing.md)
@@ -152,14 +158,14 @@
 ## Nieuws
 
 ### [Blog](https://azure.microsoft.com/blog/tag/application-insights/)
-### [Service-updates](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
+### [Service-updates](https://azure.microsoft.com/updates/?product=application-insights) 
 ### [Releaseopmerkingen bij de SDK](app-insights-release-notes.md)
 ### [Releaseopmerkingen voor Developer Analytics Tools](app-insights-release-notes-vsix.md)
 
 ## [Veelgestelde vragen](app-insights-troubleshoot-faq.md)
 
 ## Help
-### [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
+### [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=ApplicationInsights)  
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
 ### [UserVoice](https://visualstudio.uservoice.com/forums/357324-application-insights)
 ### [Ondersteuning](https://azure.microsoft.com/support/)

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9d523044f5107eea9dfbba17564cc15ec05076c5
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
+ms.openlocfilehash: 1c0f8f3fede88b6e0bace35372a2d54bb53e5182
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/04/2017
 
 ---
 
@@ -33,14 +34,15 @@ U kunt voor uw organisatie efficiënt grootschalige workloads verwerken of uw kl
 > 
 > 
 
-## <a name="azure-accounts-youll-need"></a>Azure-accounts die u nodig hebt
+## <a name="azure-accounts-for-batch-development"></a>Azure-accounts voor Batch-ontwikkeling
 Wanneer u Batch-oplossingen ontwikkelt, gebruikt u de volgende accounts in Microsoft Azure.
 
 * **Azure-account en -abonnement**: als u nog geen Azure-abonnement hebt, kunt u uw [voordelen als MSDN-abonnee][msdn_benefits] activeren of u aanmelden voor een [gratis Azure-account][free_account]. Wanneer u een account maakt, wordt voor u een standaardabonnement gemaakt.
 * **Batch-account**: Batch-resources zoals pools, rekenknooppunten, jobs en taken worden aan een Azure Batch-account gekoppeld. Als uw toepassing een aanvraag indient voor de Batch-service, verifieert deze de aanvraag met de Azure Batch-accountnaam, de URL van het account en een toegangssleutel. U kunt een [Batch-account maken](batch-account-create-portal.md) in Azure Portal.
 * **Storage-account**: Batch bevat ingebouwde ondersteuning voor het werken met bestanden in [Azure Storage][azure_storage]. Vrijwel elk Batch-scenario gebruikt Azure Blob-opslag voor het faseren van de programma's die door de taken worden uitgevoerd en de gegevens die ze verwerken, en voor de opslag van uitvoergegevens die ze genereren. Zie [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md) voor het maken van een opslagaccount.
 
-## <a name="batch-development-apis"></a>Batch-ontwikkelings-API's
+## <a name="batch-service-apis"></a>API’s voor Batch-service
+
 Uw toepassingen en services kunnen direct REST-API-aanroepen verstrekken of een of meer van de volgende clientbibliotheken gebruiken voor het uitvoeren en beheren van uw Azure Batch-workloads.
 
 | API | API-verwijzing | Download | Zelfstudie | Codevoorbeelden | Meer informatie |
@@ -51,14 +53,7 @@ Uw toepassingen en services kunnen direct REST-API-aanroepen verstrekken of een 
 | **Batch Node.js** |[github.io][api_nodejs] |[npm][api_nodejs_npm] |- |- | [Leesmij](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
 | **Batch Java** |[github.io][api_java] |[Maven][api_java_jar] |- |[Leesmij][api_sample_java] | [Leesmij](https://github.com/Azure/azure-batch-sdk-for-java)|
 
-## <a name="batch-command-line-tools"></a>Batch-opdrachtregelprogramma's
-
-De functionaliteit die door de ontwikkeling-API's wordt geboden, is ook beschikbaar via de volgende opdrachtregelprogramma's: 
-
-* [PowerShell-cmdlets voor Batch][batch_ps]: met de Azure Batch-cmdlets in de [Azure PowerShell](/powershell/azure/overview)-module kunt u Batch-resources beheren met PowerShell.
-* [Azure CLI](/cli/azure/overview): de Azure Command-Line Interface (Azure CLI) is een platformoverschrijdende hulpmiddelenset die shellopdrachten biedt voor interactie met vele Azure-services, waaronder Batch.
-
-## <a name="batch-resource-management"></a>Batch-resourcebeheer
+## <a name="batch-management-apis"></a>API’s voor Batch Management
 
 De Azure Resource Manager-API's voor Batch bieden programmatisch toegang tot Batch-accounts. Met deze API's kunt u programmatisch Batch-accounts, quota en toepassingspakketten beheren.  
 
@@ -67,13 +62,25 @@ De Azure Resource Manager-API's voor Batch bieden programmatisch toegang tot Bat
 | **Batch Resource Manager REST** |[docs.microsoft.com][api_rest_mgmt] |N.v.t. |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
 | **Batch Resource Manager .NET** |[docs.microsoft.com][api_net_mgmt] |[NuGet ][api_net_mgmt_nuget] | [Zelfstudie](batch-management-dotnet.md) |[GitHub][api_sample_net] |
 
+## <a name="batch-command-line-tools"></a>Batch-opdrachtregelprogramma's
 
-## <a name="batch-tools"></a>Batch-hulpprogramma's
-Hoewel ze niet zijn vereist voor het bouwen van oplossingen met behulp van Batch, zijn er waardevolle hulpprogramma’s voor de ontwikkeling en foutopsporing van uw Batch-toepassingen en -services.
+Deze opdrachtregelprogramma's bieden dezelfde functionaliteit als de API’s voor de Batch-service en Batch Management: 
 
-* [Azure Portal][portal]: u kunt Batch-pools, -taken en -opdrachten in de Batch-blades van Azure Portal maken, controleren en verwijderen. U kunt de statusinformatie voor deze en andere resources bekijken terwijl u taken uitvoert en zelfs taken downloadt van de Compute-knooppunten in uw pools (download bijvoorbeeld een `stderr.txt` van een mislukte taak bij probleemoplossing). U kunt ook Remote Desktop (RDP)-bestanden downloaden die u kunt gebruiken om aan te melden om knooppunten te berekenen.
+* [PowerShell-cmdlets voor Batch][batch_ps]: met de Azure Batch-cmdlets in de [Azure PowerShell](/powershell/azure/overview)-module kunt u Batch-resources beheren met PowerShell.
+* [Azure CLI](/cli/azure/overview): de Azure Command-Line Interface (Azure CLI) is een platformoverschrijdende hulpmiddelenset die shellopdrachten biedt voor interactie met vele Azure-services, waaronder de Batch-service en Batch Management-service. Zie [Batch-resources beheren met de Azure CLI](batch-cli-get-started.md) voor meer informatie over het gebruik van de Azure CLI met Batch.
+
+## <a name="other-tools-for-application-development"></a>Andere hulpmiddelen voor toepassingsontwikkeling
+
+Hier volgen enkele extra hulpprogramma's die mogelijk nuttig zijn voor het bouwen van uw Batch-toepassingen en -services en het opsporen van fouten daarin:
+
+* [Azure Portal][portal]: u kunt Batch-pools, -taken en -opdrachten in de Batch-blades van Azure Portal maken, controleren en verwijderen. U kunt de statusinformatie voor deze en andere resources bekijken terwijl u taken uitvoert en zelfs taken downloadt van de rekenknooppunten in uw pools. U kunt bijvoorbeeld de `stderr.txt` van een taak downloaden bij het oplossen van problemen. U kunt ook Remote Desktop (RDP)-bestanden downloaden die u kunt gebruiken om aan te melden om knooppunten te berekenen.
 * [Azure Batch Explorer][batch_explorer]: Batch Explorer biedt een vergelijkbare functionaliteit voor Batch resource management als de Azure Portal, maar in een standalone clienttoepassing Windows Presentation Foundation (WPF). U kunt een van de Batch .NET-voorbeeldtoepassingen beschikbaar op [GitHub][github_samples] bouwen met Visual Studio 2015 of hoger en gebruiken voor het bladeren door en het beheren van de resources in uw Batch-account terwijl u uw Batch-oplossingen ontwikkelt en debugt. Bekijk job-, pool- en opdrachtdetails, download bestanden van rekenknooppunten en maak op afstand verbinding met knooppunten met behulp van Remote Desktop (RDP)-bestanden die u kunt downloaden met de Batch Explorer-interface.
 * [Microsoft Azure Storage Explorer][storage_explorer]: hoewel dit strikt genomen geen Azure Batch-hulpprogramma is, is Opslagverkenner wel een waardevol hulpmiddel voor de ontwikkeling en foutopsporing van uw Batch-oplossingen.
+
+## <a name="additional-resources"></a>Aanvullende bronnen
+
+- Zie [Logboekgebeurtenissen voor diagnostische evaluatie en bewaking van de Batch-oplossingen](batch-diagnostics.md) voor meer informatie over het vastleggen van gebeurtenissen van uw Batch-toepassing. Zie [Batch-analyses](batch-analytics.md) voor informatie over gebeurtenissen die worden gegenereerd door de Batch-service.
+- Zie [Omgevingsvariabelen van Azure Batch-rekenknooppunten](batch-compute-node-environment-variables.md) voor meer informatie over omgevingsvariabelen voor rekenknooppunten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

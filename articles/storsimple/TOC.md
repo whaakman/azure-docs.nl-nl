@@ -1,4 +1,5 @@
 # StorSimple Virtual Array
+
 ## Overzicht
 ### [Wat is de oplossing?](storsimple-ova-overview.md)
 
@@ -8,7 +9,7 @@
 #### [Limieten begrijpen](storsimple-ova-limits.md)
 #### [Best praktijken beoordelen](storsimple-ova-best-practices.md)
 
-### Implementeren (Azure Portal)
+### Implementeren
 #### [Implementatie voorbereiden](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [StorSimple Manager-service implementeren](storsimple-virtual-array-manage-service.md)
 #### [Inrichten in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
@@ -16,17 +17,10 @@
 #### [Instellen als bestandsserver](storsimple-virtual-array-deploy3-fs-setup.md)
 #### [Instlelen als iSCSI-server](storsimple-virtual-array-deploy3-iscsi-setup.md)
 
-### Implementeren (klassieke portal)
-#### [Implementatie voorbereiden](storsimple-ova-deploy1-portal-prep.md)
-##### [StorSimple Manager-service implementeren](storsimple-ova-manage-service.md)
-#### [Inrichten in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
-#### [Inrichten in VMware](storsimple-ova-deploy2-provision-vmware.md)
-#### [Instellen als bestandsserver](storsimple-ova-deploy3-fs-setup.md)
-#### [Instlelen als iSCSI-server](storsimple-ova-deploy3-iscsi-setup.md)
-
 ## Procedures
 ### [Beheren via Azure Portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Meest recente update installeren](storsimple-virtual-array-install-update-04.md)
+#### [Meest recente update installeren](storsimple-virtual-array-install-update-05.md)
+##### [Update 0.4 installeren](storsimple-virtual-array-install-update-04.md)
 ##### [Update 0.3 installeren](storsimple-virtual-array-install-update.md)
 #### [Back-ups maken en beheren](storsimple-virtual-array-backup.md)
 #### [Klonen vanaf back-ups](storsimple-virtual-array-clone.md)
@@ -44,22 +38,11 @@
 #### [Problemen vaststellen en oplossen](storsimple-virtual-array-diagnose-problems.md)
 #### [Een ondersteuningsaanvraag registreren](storsimple-virtual-array-log-support-ticket.md)
 
-### [Beheren via de klassieke Azure Portal](storsimple-ova-manager-service-administration.md)
-#### [Meest recente update installeren](storsimple-ova-install-update-01.md)
-#### [Back-ups maken en beheren](storsimple-ova-backup.md)
-#### [Herstellen vanaf back-ups](storsimple-ova-restore.md)
-#### [Failover en DR](storsimple-ova-failover-dr.md)
-#### [Deactiveren en verwijderen](storsimple-ova-deactivate-and-delete-device.md)
-#### [Servicedashboard bewaken](storsimple-ova-service-dashboard.md)
-#### [Wachtwoord voor apparaat wijzigen](storsimple-ova-change-device-admin-password.md)
-#### [ACR's beheren](storsimple-ova-manage-acrs.md)
-#### [Opslagaccounts beheren](storsimple-ova-manage-storage-accounts.md)
-#### [Taken beheren](storsimple-ova-manage-jobs.md)
-#### [MPIO op Windows Server-host configureren](storsimple-ova-configure-mpio-windows-server.md)
 ### [Configureren via lokale webinterface](storsimple-ova-web-ui-admin.md)
 
 ## Releaseopmerkingen
-### [Update 0.4 - actueel](storsimple-virtual-array-update-04-release-notes.md)
+### [Update 0.5 - actueel](storsimple-virtual-array-update-05-release-notes.md)
+### [Update 0.4](storsimple-virtual-array-update-04-release-notes.md)
 ### [Update 0.3](storsimple-ova-update-03-release-notes.md)
 ### [Update 0.2 en 0.1](storsimple-ova-update-01-release-notes.md)
 
@@ -71,6 +54,7 @@
 ### [Beveiligingsoverwegingen](storsimple-security.md)
 
 ## Aan de slag
+
 ### Plannen
 #### [Vereisten beoordelen](storsimple-system-requirements.md)
 #### [Technische specificaties beoordelen](storsimple-technical-specifications-and-compliance.md)
@@ -80,7 +64,6 @@
 ### Installeren
 #### [Veiligheid beoordelen](storsimple-safety.md)
 #### [Een 8100 uitpakken, op een rek monteren en aansluiten](storsimple-8100-hardware-installation.md)
-
 #### [Een 8600 uitpakken, op een rek monteren en aansluiten](storsimple-8600-hardware-installation.md)
 #### [Ondersteunde hardware voor 10 GbE-netwerkinterfaces](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
@@ -96,6 +79,7 @@
 #### [StorSimple Adapter voor SharePoint](storsimple-adapter-for-sharepoint.md)
 
 ## Procedures
+
 ### Beheren
 #### [StorSimple Manager-service gebruiken](storsimple-manager-service-administration.md)
 ##### [Herstellen vanaf back-up](storsimple-restore-from-backup-set-u2.md)
@@ -214,6 +198,7 @@
 ### [Het standaardpad van een blob wijzigen](storsimple-data-manager-change-default-blob-path.md)
 
 # StorSimple voor partners
+
 ## Overzicht
 ### [Wat is de oplossing?](storsimple-partner-csp-overview.md)
 

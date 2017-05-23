@@ -13,12 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: andrela;sstein;carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 119ffa3ac31e0ea6e76f8232f13b4dd8667f78aa
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 0dff167c370fcd2df40aa2ac302d0f09990e1d41
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -33,13 +34,13 @@ In deze Quick Start wordt dit gebruikt als basis voor het maken van de resources
 
 ## <a name="install-net"></a>.NET installeren
 
-Voor de stappen in deze sectie wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met .NET, maar geen ervaring hebt met het werken met Azure SQL Database. Als u niet bekend bent met ontwikkelen met .NET, gaat u naar [Een app bouwen met SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) en selecteert u **C#**. Selecteer vervolgens uw besturingssysteem.
+Voor de stappen in dit gedeelte wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met .NET, maar geen ervaring hebt met het werken met Azure SQL Database. Als u niet bekend bent met ontwikkelen met .NET, gaat u naar [Een app bouwen met SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) en selecteert u **C#**. Selecteer vervolgens uw besturingssysteem.
 
 ### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework en .NET Core**
 
 Visual Studio 2017 Community is een volledig functionele, uitbreidbare en gratis IDE voor het maken van moderne toepassingen voor Android, iOS en Windows, voor web- en databasetoepassingen, en voor cloudservices. U kunt het .NET Framework volledig installeren of alleen .NET Core. De codefragmenten in de Quick Start werken in beide gevallen. Als Visual Studio al is geïnstalleerd op uw computer, kunt u de volgende stappen overslaan.
 
-1. Download het [installatieprogramma](https://go.microsoft.com/fwlink/?LinkId=691978). 
+1. Download het [installatieprogramma voor Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
 2. Voer het installatieprogramma uit en volg de weergegeven opdrachten om de installatie te voltooien.
 
 ### <a name="mac-os"></a>**Mac OS**
@@ -308,13 +309,9 @@ namespace ConsoleApplication1
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
+- [Uw eerste Azure SQL-database ontwerpen](sql-database-design-first-database.md)
+- [.NET-documentatie](https://docs.microsoft.com/dotnet/).
+- [Verbinding maken en query's uitvoeren met SSMS](sql-database-connect-query-ssms.md)
+- [Verbinding maken en query's uitvoeren met Visual Studio Code](sql-database-connect-query-vscode.md).
 
-- zie [.NET-documentatie](https://docs.microsoft.com/dotnet/) voor .NET-documentatie.
-- Als u verbinding wilt maken en query's wilt uitvoeren met behulp van SQL Server Management Studio, raadpleegt u [Verbinding maken en query's uitvoeren met SSMS](sql-database-connect-query-ssms.md)
-- Zie [Verbinding maken en query's uitvoeren met Visual Studio](sql-database-connect-query-vscode.md) als u verbinding wilt maken en query's wilt uitvoeren met Visual Studio Code.
-- Zie [Verbinding maken en query's uitvoeren met PHP](sql-database-connect-query-php.md) als u verbinding wilt maken en query's wilt uitvoeren met PHP.
-- Zie [Verbinding maken en query's uitvoeren met Node.js](sql-database-connect-query-nodejs.md) als u verbinding wilt maken en query's wilt uitvoeren met Node.js.
-- Zie [Verbinding maken en query's uitvoeren met Java](sql-database-connect-query-java.md) als u verbinding wilt maken en query's wilt uitvoeren met Java.
-- Zie [Verbinding maken en query's uitvoeren met Python](sql-database-connect-query-python.md) als u verbinding wilt maken en query's wilt uitvoeren met Python.
-- Zie [Verbinding maken en query's uitvoeren met Ruby](sql-database-connect-query-ruby.md) als u verbinding wilt maken en query's wilt uitvoeren met Ruby.
 

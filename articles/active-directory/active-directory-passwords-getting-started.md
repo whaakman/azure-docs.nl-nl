@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 04/26/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d138f4135d008c746bd5501680392b80a51786fa
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: b4d2819f51506651ebeb5b7b7c2d016c0cfc154d
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -61,15 +61,15 @@ In deze handleiding wordt ervan uitgegaan dat u een werkende proefversie hebt va
 **U hebt op dit moment SSPR geconfigureerd voor uw Azure AD-tenant**. U kunt hier stoppen of doorgaan om het synchroniseren van wachtwoorden met een on-premises AD-domein te configureren.
 
 > [!NOTE]
-> Test self-service voor wachtwoordherstel met een gebruiker en niet als beheerder, aangezien Microsoft sterke verificatievereisten afdwingt voor Azure-accounts van beheerders. Zie ons [artikel met gedetailleerde informatie](active-directory-passwords-how-it-works.md) voor meer informatie over het wachtwoordbeleid voor beheerders.
+> Test self-service voor wachtwoordherstel met een gebruiker en niet als beheerder, aangezien Microsoft sterke verificatievereisten afdwingt voor Azure-accounts van beheerders. Zie ons [artikel over wachtwoordbeleid](active-directory-passwords-policy.md#administrator-password-policy-differences) voor meer informatie over het wachtwoordbeleid voor beheerders.
 
 ## <a name="configure-synchronization-to-existing-identity-source"></a>Synchronisatie met bestaande identiteitsbronnen configureren
 
-Als u on-premises identiteitssynchronisatie met Azure AD wilt inschakelen, moet u [Azure AD Connect](/connect/active-directory-aadconnect.md) installeren en configureren op een server in uw organisatie. Deze toepassing draagt zorg voor het synchroniseren van gebruikers en groepen uit uw bestaande identiteitsbron met uw Azure AD-domein.
+Als u on-premises identiteitssynchronisatie met Azure AD wilt inschakelen, moet u [Azure AD Connect](./connect/active-directory-aadconnect.md) installeren en configureren op een server in uw organisatie. Deze toepassing draagt zorg voor het synchroniseren van gebruikers en groepen uit uw bestaande identiteitsbron met uw Azure AD-domein.
 
-[Aan de slag met Azure AD Connect met Express-instellingen](/connect/active-directory-aadconnect-get-started-express.md)
+[Aan de slag met Azure AD Connect met Express-instellingen](./connect/active-directory-aadconnect-get-started-express.md)
 
-[Upgraden van DirSync of Azure AD Sync naar Azure AD Connect](/connect/active-directory-aadconnect-dirsync-deprecated.md)
+[Upgraden van DirSync of Azure AD Sync naar Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 
 ## <a name="disabling-self-service-password-reset"></a>Self-service voor wachtwoordherstel uitschakelen
 

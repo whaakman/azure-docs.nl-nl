@@ -15,67 +15,57 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/21/2017
 ms.author: shlo
-translationtype: Human Translation
-ms.sourcegitcommit: 260208e7c7a08110eb3c885ef86ec4c18ff42fc9
-ms.openlocfilehash: 40552b5d3cea5b04826c08e7b4b1d046a9fcefba
-ms.lasthandoff: 04/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
+ms.openlocfilehash: c27123ad54bbd6e1d2b416c6bffd4c8560514cdc
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/04/2017
 
 
 ---
-# <a name="introduction-to-azure-data-factory-service-a-data-integration-service-in-the-cloud"></a>Inleiding tot de Azure Data Factory-service, een service voor gegevensintegratie in de cloud
+# <a name="introduction-to-azure-data-factory"></a>Inleiding tot Azure Data Factory 
 ## <a name="what-is-azure-data-factory"></a>Wat is Azure Data Factory?
-Hoe worden zakelijke gegevens in de wereld van big data hergebruikt? Is het mogelijk om gegevens die in de cloud zijn gegenereerd, waardevoller te maken met behulp van referentiegegevens uit on-premises gegevensbronnen of andere ongelijksoortige gegevensbronnen? Wat u dus nodig hebt, is een platform waarop u gegevens uit een groot aantal verschillende gegevensbronnen kunt samenvoegen en verwerken. Azure Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee de **verplaatsing** en **transformatie** van gegevens wordt beheerd en geautomatiseerd. U kunt oplossingen voor gegevensintegratie maken die invoergegevens uit verschillende gegevensarchieven opnemen, deze gegevens transformeren en verwerken, en de uitvoergegevens vervolgens publiceren naar andere gegevensarchieven. 
+Hoe worden zakelijke gegevens in de wereld van big data hergebruikt? Is het mogelijk om gegevens die in de cloud zijn gegenereerd, waardevoller te maken met behulp van referentiegegevens uit on-premises gegevensbronnen of andere ongelijksoortige gegevensbronnen? We nemen een gamingbedrijf als voorbeeld. Het verzamelt veel logboeken die wordt geproduceerd door games in de cloud. Het bedrijf wil deze logboeken analyseren en inzicht krijgen in klantvoorkeuren, demografische gegevens, gebruiksgedrag, enz. Zo wil het mogelijkheden voor bijverkopen en kruisverkopen ontdekken, nieuwe interessante functies ontwikkelen om de groei van het bedrijf te stimuleren en een betere ervaring bieden aan klanten. 
 
-![Diagram: Data Factory-overzicht, een service voor gegevensintegratie](./media/data-factory-introduction/what-is-azure-data-factory.png)
+Voor het analyseren van deze logboeken moet het bedrijf gebruikmaken van de referentiegegevens, zoals klantgegevens, game-informatie en marketingcampagnegegevens, die zich in een on-premises gegevensarchief bevinden. Daarom wil het bedrijf logboekgegevens opnemen uit het gegevensarchief in de cloud en gegevens uit het on-premises gegevensarchief raadplegen. Vervolgens moeten de gegevens worden verwerkt met behulp van Hadoop in de cloud (Azure HDInsight) en moeten de resulterende gegevens worden gepubliceerd in een datawarehouse in de cloud, zoals Azure SQL Data Warehouse, of een on-premises gegevensarchief zoals SQL Server. Deze werkstroom moet wekelijks worden uitgevoerd. 
 
-**Afbeelding1.** Neem gegevens op van verschillende gegevensbronnen en bereid ze voor, transformeer en analyseer ze en publiceer daarna kant-en-klare gegevens die geschikt zijn voor gebruik.
+Hier is een platform nodig waarmee het bedrijf een werkstroom kan maken die gegevens uit zowel een on-premises gegevensarchief als een gegevensarchief in de cloud kan opnemen. Daarnaast moeten deze gegevens kunnen worden getransformeerd of verwerkt met behulp van bestaande rekenservices zoals Hadoop, en moeten deze worden gepubliceerd naar een on-premises gegevensarchief of een gegevensarchief in de cloud. Zo kunnen BI-toepassingen deze gegevens gebruiken. 
 
+![Overzicht van Data Factory](media/data-factory-introduction/what-is-azure-data-factory.png) 
 
-## <a name="what-does-it-offer"></a>Wat wordt er aangeboden? 
-Traditioneel hebben gegevensintegratieprojecten altijd gedraaid rondom het maken van ETL-processen (Extract-Transform-Load) die gegevens ophalen uit verschillende gegevensbronnen binnen een organisatie, deze gegevens transformeren, zodat ze voldoen aan het doelschema van een EDW (Enterprise Data Warehouse), en de gegevens ten slotte laden in een EDW, zoals wordt weergegeven in de volgende afbeelding. Dit EDW wordt vervolgens geopend als één betrouwbare bron voor BI-analyseoplossingen.
+Azure Data Factory is het ideale platform voor dit soort scenario's. Het is een **cloud-gebaseerde gegevensintegratieservice waarmee u gegevensgestuurde werkstromen kunt maken in de cloud en zo gegevensverplaatsing en -transformatie kunt indelen en automatiseren**. Met Azure Data Factory kunt u gegevensgestuurde werkstromen (ook wel pijplijnen) maken en plannen die gegevens uit verschillende gegevensarchieven kunnen opnemen en de gegevens kunnen verwerken/transformeren met behulp van rekenservices zoals Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics en Azure Machine Learning. Daarnaast kunt u de uitvoergegevens publiceren naar gegevensarchieven zoals Azure SQL Data Warehouse, zodat BI-toepassingen (business intelligence) ze kunnen gebruiken.  
 
-![Traditionele ETL](media/data-factory-introduction/traditional-etl.png)
-**Traditionele ETL**
+Het is eerder een EL-platform (Extract-and-Load) en vervolgens een TL-platform (Transform-and-Load) dan een traditioneel ETL-platform (Extract-Transform-and-Load). De transformaties die worden uitgevoerd zijn transformaties/verwerkingen van gegevens met behulp van rekenservices in plaats van uitvoertransformaties, zoals die voor het toevoegen van afgeleide kolommen, het tellen van het aantal rijen, het sorteren van gegevens, enzovoort. 
 
-Het gegevenslandschap voor ondernemingen blijft exponentieel toenemen in omvang, diversiteit en complexiteit, zoals in de volgende afbeelding wordt weergegeven. Het is diverser dan ooit, met on-premises en cloudgegevens in verschillende vormen en snelheden. Gegevensverwerking moet plaatsvinden op verschillende geografische locaties en omvat een combinatie van open-source software, commerciële oplossingen en aangepaste verwerkingsservices, die soms duur zijn en moeilijk te integreren en te onderhouden. De flexibiliteit die nodig is om bij te blijven in het snel veranderende big data-landschap, heeft geleid tot een combinatie van het traditionele EDW met de functionaliteit die vereist is in een modern informatieproductiesysteem. Azure Data Factory is een overkoepelend platform waarin zowel met traditionele EDW's als met innovatieve gegevensgerelateerde functies kan worden gewerkt. Zo krijgen ondernemingen de mogelijkheid om alle beschikbare gegevens in te zetten voor gegevensgestuurde besluitvorming.
-
-![Nieuw big data landschap](media/data-factory-introduction/new-big-data-landscape.png)
-**Nieuwe big data landschap**
-
-De service Azure Data Factory biedt ondernemingen de mogelijkheid om deze diversiteit aan te wenden door een platform te bieden waarop ze **services voor gegevensverwerking, -opslag en -verkeer kunnen bundelen in informatieproductiepijplijnen** en vertrouwde gegevensassets kunnen beheren.
-
-Met de Azure Data Factory-service kunt u:
-- **Eenvoudig met diverse gegevensopslag- en -verwerkingssystemen werken**. 
-
-    Ervoor zorgen dat ondernemingen met gegevens kunnen werken van verschillende typen en opgeslagen op verschillende bronnen. De eerste stap voor het bouwen van een informatieproductiesysteem bestaat uit het verbinden van alle vereiste gegevens- en verwerkingsbronnen, zoals SaaS-services, bestandsshares, FTP en webservices, en het zo nodig verplaatsen van gegevens naar een centrale locatie voor verdere verwerking.
-
-    Zonder Data Factory moeten ondernemingen aangepaste onderdelen voor gegevensverplaatsing ontwikkelen of aangepaste services schrijven om deze gegevensbronnen en verwerking te integreren. Het is duur en lastig om dergelijke systemen te integreren en te onderhouden, en vaak ontbreken de adequate bewakingssystemen, waarschuwingssystemen en besturingselementen die een volledig beheerde service wel kan bieden.
-
-    Met Data Factory kunt u de kopieeractiviteit in een pijplijn gebruiken om gegevens van on-premises gegevensarchieven en gegevensarchieven uit de cloud te verplaatsen naar een gecentraliseerd gegevensarchief in de cloud voor verdere analyse. Zo kunt u bijvoorbeeld gegevens in Azure Data Lake Store verzamelen en later transformeren met behulp van een Azure Data Lake Analytics Compute-service. Of u kunt gegevens verzamelen in Azure Blob Storage en later transformeren met behulp van een Hadoop-cluster van Azure HDInsight.
-- **Gegevens transformeren tot vertrouwde informatie**. 
-
-    Als de gegevens eenmaal in een gecentraliseerd gegevensarchief staan, kunt u gegevenspijplijnen maken en implementeren om de getransformeerde gegevens op betrouwbare wijze en volgens een hanteerbaar en gecontroleerd schema te produceren, en uw productieomgevingen te voorzien van betrouwbare gegevens. Gegevenstransformatie in Azure Data Factory wordt uitgevoerd door transformatieactiviteiten, zoals Hive, Pig, MapReduce, Azure Machine Learning-batchuitvoering en aangepaste C#-activiteiten, uitgevoerd op Azure HDInsight Hadoop-clusters, Azure Machine Learning-VM's of een Azure Batch-groep van virtuele machines.
-- **Gegevenspijplijnen op één plaats bewaken**.
-
-    Bij een gevarieerde gegevensportfolio is het belangrijk dat u beschikt over een betrouwbaar en volledig beeld van uw services voor opslag, verwerking en gegevensverplaatsing. Met Data Factory kunt u snel de status van de volledige gegevenspijplijn vaststellen, problemen identificeren en zo nodig actie ondernemen. Gebruik visuele weergaven om de afkomst van gegevens en de relatie tussen gegevens van de verschillende gegevensbronnen inzichtelijk te maken. Bekijk een compleet historisch overzicht van taakuitvoering, systeemstatus en afhankelijkheden vanuit één controledashboard.
+De gegevens die in Azure Data Factory worden verwerkt en geproduceerd door werkstromen zijn momenteel **tijdgesegmenteerd** (per uur, dagelijks, wekelijks, enzovoort). Een pijplijn kan bijvoorbeeld één keer per dag invoergegevens lezen, gegevens verwerken en uitvoer produceren. U kunt er ook voor kiezen om een werkstroom slechts één keer uit te voeren.  
+  
 
 ## <a name="how-does-it-work"></a>Hoe werkt het? 
-Azure Data Factory wordt gekenmerkt door drie informatieproductiefasen:
+De pijplijnen (gegevensgestuurde werkstromen) in Azure Data Factory voeren normaal gesproken de volgende drie stappen uit:
 
-![Drie informatieproductiefasen](media/data-factory-introduction/three-information-production-stages.png)
+![Drie fasen van Azure Data Factory](media/data-factory-introduction/three-information-production-stages.png)
 
-- **Verbinding maken en verzamelen**: in deze fase worden gegevens uit diverse bronnen op één plek verzameld.
-- **Transformeren en verrijken**: in deze fase worden de verzamelde gegevens verwerkt of getransformeerd.
-- **Publiceren**. In deze fase worden de gegevens zo gepubliceerd dat ze kunnen worden gebruikt door BI-hulpprogramma's, analyseprogramma's en andere toepassingen.
+### <a name="connect-and-collect"></a>Verbinding maken en verzamelen
+Ondernemingen hebben verschillende typen gegevens, opgeslagen op verschillende bronnen. De eerste stap voor het bouwen van een informatieproductiesysteem bestaat uit het verbinden van alle vereiste gegevens- en verwerkingsbronnen, zoals SaaS-services, bestandsshares, FTP en webservices, en het zo nodig verplaatsen van gegevens naar een centrale locatie voor verdere verwerking.
+
+Zonder Data Factory moeten ondernemingen aangepaste onderdelen voor gegevensverplaatsing ontwikkelen of aangepaste services schrijven om deze gegevensbronnen en verwerking te integreren. Het is duur en lastig om dergelijke systemen te integreren en te onderhouden, en vaak ontbreken de adequate bewakingssystemen, waarschuwingssystemen en besturingselementen die een volledig beheerde service wel kan bieden.
+
+Met Data Factory kunt u de kopieeractiviteit in een pijplijn gebruiken om gegevens van on-premises gegevensarchieven en gegevensarchieven uit de cloud te verplaatsen naar een gecentraliseerd gegevensarchief in de cloud voor verdere analyse. Zo kunt u bijvoorbeeld gegevens in Azure Data Lake Store verzamelen en later transformeren met behulp van een Azure Data Lake Analytics Compute-service. Of u kunt gegevens verzamelen in Azure Blob Storage en later transformeren met behulp van een Hadoop-cluster van Azure HDInsight.
+
+### <a name="transform-and-enrich"></a>Transformeren en verrijken
+Als gegevens aanwezig zijn in een gecentraliseerd gegevensarchief in de cloud, wilt u dat de verzamelde gegevens worden verwerkt of getransformeerd met behulp van rekenservices zoals HDInsight Hadoop, Spark, Data Lake Analytics of Machine Learning. U wilt dat de gegevens op een betrouwbare manier en volgens een beheersbare en gecontroleerde planning worden geproduceerd om productieomgevingen te voorzien van vertrouwde gegevens. 
+
+### <a name="publish"></a>Publiceren 
+Lever vanuit de cloud getransformeerde gegevens aan on-premises bronnen zoals SQL Server, of sla de informatie op in uw cloudopslagbronnen voor gebruik door BI- (Business Intelligence) en analysehulpprogramma's en andere toepassingen
 
 ## <a name="key-components"></a>Belangrijkste onderdelen
-Een Azure-abonnement kan een of meer Azure Data Factory-exemplaren (oftewel 'data factory's') hebben. Azure Data Factory bestaat uit vier hoofdonderdelen die samenwerken om een platform te bieden waarop u voor uw gegevensstroom eenvoudige tot complexe indelingen voor gegevenstransformatie en -verplaatsing kunt samenstellen.
+Een Azure-abonnement kan een of meer Azure Data Factory-exemplaren (oftewel 'data factory's') hebben. Azure Data Factory bestaat uit vier hoofdonderdelen die samenwerken om een platform te bieden waarop u voor uw gegevensgestuurde werkstromen kunt maken met stappen voor de verplaatsing en transformatie van gegevens. 
+
+### <a name="pipeline"></a>Pijplijn
+Een data factory kan één of meer pijplijnen hebben. Een pijplijn is een groep activiteiten. De activiteiten in een pijplijn voeren samen een taak uit. Zo kan een pijplijn bijvoorbeeld een groep activiteiten bevatten die gegevens van een Azure-blob opnemen en vervolgens een Hive-query uitvoeren op een HDInsight-cluster om de gegevens te partitioneren. Het voordeel van een pijplijn is dat u de activiteiten kunt beheren als een groep in plaats van afzonderlijke activiteiten. U kunt de pijplijn bijvoorbeeld in zijn geheel implementeren en plannen, in plaats van de afzonderlijke activiteiten. 
 
 ### <a name="activity"></a>Activiteit
-Met activiteiten definieert u welk acties moeten worden uitgevoerd voor uw gegevens. U kunt bijvoorbeeld een kopieeractiviteit gebruiken om gegevens van één gegevensarchief naar een andere te kopiëren. U kunt ook een Hive-activiteit gebruiken, waarmee een Hive-query wordt uitgevoerd voor een Azure HDInsight-cluster om uw gegevens te transformeren of analyseren. Data Factory ondersteunt twee soorten activiteiten: activiteiten voor gegevensverplaatsing en activiteiten voor gegevenstransformatie.
-
-Elke activiteit kan nul of meer invoergegevenssets hebben en een of meer uitvoergegevenssets produceren. 
-
+Een pijplijn kan één of meer activiteiten bevatten. Met activiteiten definieert u welk acties moeten worden uitgevoerd voor uw gegevens. U kunt bijvoorbeeld een kopieeractiviteit gebruiken om gegevens van één gegevensarchief naar een andere te kopiëren. U kunt ook een Hive-activiteit gebruiken, waarmee een Hive-query wordt uitgevoerd voor een Azure HDInsight-cluster om uw gegevens te transformeren of analyseren. Data Factory ondersteunt twee soorten activiteiten: activiteiten voor gegevensverplaatsing en activiteiten voor gegevenstransformatie.
 
 ### <a name="data-movement-activities"></a>Activiteiten voor gegevensverplaatsing
 De kopieeractiviteit in Data Factory kopieert gegevens van een brongegevensarchief naar een sinkgegevensarchief. Data Factory ondersteunt de volgende gegevensarchieven. Gegevens vanuit elke willekeurige bron kunnen naar een sink worden geschreven. Klik op een gegevensarchief voor informatie over het kopiëren van gegevens naar en van dat archief.
@@ -89,16 +79,16 @@ Zie het artikel [Activiteiten voor gegevensverplaatsing](data-factory-data-movem
 
 Zie het artikel [Activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) voor meer informatie.
 
+### <a name="custom-net-activities"></a>Aangepaste .NET-activiteiten
 Als u gegevens wilt verplaatsen naar/van een gegevensarchief dat niet wordt ondersteund door de kopieeractiviteit, of gegevens wilt transformeren met behulp van uw eigen logica, maakt u een **aangepaste .NET-activiteit**. Zie [Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn](data-factory-use-custom-activities.md) voor meer informatie over het maken en gebruiken van een aangepaste activiteit.
 
-### <a name="pipeline"></a>Pijplijn
-Een pijplijn is een groep activiteiten. De activiteiten in een pijplijn voeren samen een taak uit. Zo kan een pijplijn bijvoorbeeld een groep activiteiten bevatten die gegevens van een Azure-blob opnemen en vervolgens een Hive-query uitvoeren op een HDInsight-cluster om de logboekgegevens te partitioneren. Het voordeel van een pijplijn is dat u de activiteiten kunt beheren als een groep in plaats van afzonderlijke activiteiten. U kunt de pijplijn bijvoorbeeld in zijn geheel implementeren en plannen, in plaats van de afzonderlijke activiteiten.
-
 ### <a name="datasets"></a>Gegevenssets
-Gegevenssets vertegenwoordigen gegevensstructuren in de gegevensarchieven die simpelweg verwijzen naar de gegevens die u in uw activiteiten als in- of uitvoer wilt gebruiken. Een Azure Blob-gegevensset benoemt bijvoorbeeld de blobcontainer en -map in de Azure Blob Storage van waaruit de pijplijn de gegevens moet lezen. 
+Voor een activiteit zijn nul of meer gegevenssets nodig als invoer en één of meer gegevenssets als uitvoer. Gegevenssets vertegenwoordigen gegevensstructuren in de gegevensarchieven die simpelweg verwijzen naar de gegevens die u in uw activiteiten als in- of uitvoer wilt gebruiken. Een Azure Blob-gegevensset benoemt bijvoorbeeld de blobcontainer en -map in de Azure Blob Storage van waaruit de pijplijn de gegevens moet lezen. Of een Azure SQL Table-gegevensset bevat de tabel waar de uitvoergegevens worden geschreven door de activiteit. 
 
 ### <a name="linked-services"></a>Gekoppelde services
-Gekoppelde services zijn te vergelijken met verbindingsreeksen, die de verbindingsinformatie bevatten die Data Factory nodig heeft om verbinding te maken met externe bronnen. Als u het op deze manier bekijkt, vertegenwoordigt de gegevensset in feite de structuur van de gegevens en definieert de gekoppelde service de verbinding met de gegevensbron.  Gekoppelde services worden voor twee doeleinden gebruikt in een Data Factory:
+Gekoppelde services zijn te vergelijken met verbindingsreeksen, die de verbindingsinformatie bevatten die Data Factory nodig heeft om verbinding te maken met externe bronnen. Als u het op deze manier bekijkt, vertegenwoordigt de gegevensset in feite de structuur van de gegevens en definieert de gekoppelde service de verbinding met de gegevensbron. Een met Azure Storage gekoppelde service geeft bijvoorbeeld een verbindingsreeks zodat deze verbinding kan maken met het Azure Storage-account. En een Azure Blob-gegevenssets geeft de blobcontainer op, en de map met de gegevens.   
+
+Gekoppelde services worden voor twee doeleinden gebruikt in een Data Factory:
 
 * Als vertegenwoordiging van een **gegevensarchief**, zoals een on-premises SQL Server, een Oracle-database, een bestandsshare of een Azure Blob Storage-account. Zie het gedeelte [Activiteiten voor gegevensverplaatsing](#data-movement-activities) voor een lijst met ondersteunde gegevensarchieven.
 * Ter vertegenwoordiging van een **rekenresource** die de uitvoering van een activiteit kan hosten. De activiteit HDInsightHive wordt bijvoorbeeld uitgevoerd in een HDInsight Hadoop-cluster. Zie de sectie [Activiteiten voor gegevenstransformatie](#data-transformation-activities) voor een lijst met ondersteunde rekenomgevingen.
@@ -110,15 +100,22 @@ Gekoppelde services zijn te vergelijken met verbindingsreeksen, die de verbindin
 ## <a name="supported-regions"></a>Ondersteunde regio’s
 U kunt op dit moment gegevensfactory’s maken in de regio’s **VS - west**, **VS - oost** en **Noord-Europa**. Een gegevensfactory heeft echter wel toegang tot gegevensarchieven en Compute Services in andere Azure-regio’s om gegevens te verplaatsen tussen gegevensarchieven of om gegevens te verwerken middels Compute Services.
 
-Azure Data Factory zelf slaat geen gegevens op. U kunt er gegevensgestuurde stromen mee maken om de verplaatsing van gegevens te beheren tussen [ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) en om er gegevens mee te verwerken middels [Compute Services](data-factory-compute-linked-services.md) in andere regio's of in een on-premises omgeving. U kunt er ook [werkstromen mee bewaken en beheren](data-factory-monitor-manage-pipelines.md) met zowel programmatische als gebruikersinterfacemechanismen.
+Azure Data Factory zelf slaat geen gegevens op. U kunt er gegevensgestuurde werkstromen mee maken om de verplaatsing van gegevens te beheren tussen [ondersteunde gegevensarchieven](#data-movement-activities) en om er gegevens mee te verwerken middels [Compute Services](#data-transformation-activities) in andere regio's of in een on-premises omgeving. U kunt er ook [werkstromen mee bewaken en beheren](data-factory-monitor-manage-pipelines.md) met zowel programmatische als gebruikersinterfacemechanismen.
 
 Hoewel Data Factory alleen beschikbaar is in **VS - west**, **VS - oost** en **Noord-Europa**, is de service die gegevensverplaatsing in Data Factory mogelijk maakt, [wereldwijd](data-factory-data-movement-activities.md#global) beschikbaar in meerdere regio’s. Als een gegevensarchief zich achter een firewall bevindt, worden de gegevens verplaatst middels een [gegevensbeheergateway](data-factory-move-data-between-onprem-and-cloud.md) die is geïnstalleerd in uw on-premises omgeving.
 
 Voorbeeld: uw berekeningsomgevingen, zoals een Azure HDInsight-cluster en Azure Machine Learning, worden uitgevoerd in de regio West-Europa. U kunt een Azure Data Factory-exemplaar maken en gebruiken in Noord-Europa en dit gebruiken om taken te plannen in uw berekeningsomgevingen in West-Europa. Het duurt enkele milliseconden voordat Data Factory de taak in uw berekeningsomgeving activeert, maar de uitvoertijd van de taak verandert niet in uw berekeningsomgeving.
 
-Het plan bestaat om ervoor te zorgen dat in de toekomst Azure Data Factory in alle regio’s wordt ondersteund door Azure.
+## <a name="get-started-with-creating-a-pipeline"></a>Aan de slag met het maken van een pijplijn
+U kunt een van deze hulpprogramma's of API's gebruiken om gegevenspijplijnen te maken in Azure Data Factory: 
 
-## <a name="next-steps"></a>Volgende stappen
+- Azure Portal
+- Visual Studio
+- PowerShell
+- .NET API
+- REST API
+- Azure Resource Manager-sjabloon. 
+
 Volg de stapsgewijze instructies in de onderstaande zelfstudies voor informatie over het bouwen van gegevensfactory’s met gegevenspijplijnen:
 
 | Zelfstudie | Beschrijving |

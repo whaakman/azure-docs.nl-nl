@@ -9,7 +9,7 @@
 
 # Aan de slag
 ## [Virtuele VMware-machines repliceren naar Azure](site-recovery-vmware-to-azure.md)
-## [Fysieke servers repliceren naar Azure](site-recovery-physical-servers-to-azure.md) 
+## [Fysieke servers repliceren naar Azure](site-recovery-physical-servers-to-azure.md)
 ## [Virtuele Hyper-V-machines repliceren naar Azure (met VMM)](site-recovery-vmm-to-azure.md)
 ## [Virtuele Hyper-V-machines repliceren naar Azure](site-recovery-hyper-v-site-to-azure.md)
 ## [Virtuele Hyper-V-machines repliceren naar een secundaire site (met VMM)](site-recovery-vmm-to-vmm.md)
@@ -23,6 +23,7 @@
 ### [Capaciteit plannen en schalen voor VMware-replicatie naar Azure](site-recovery-plan-capacity-vmware.md)
 ### [Implementatieplanner voor VMware-replicatie naar Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner voor Hyper-V-replicatie](site-recovery-capacity-planner.md)
+### [Op rollen gebaseerd toegangsbeheer](site-recovery-role-based-linked-access-control.md)
 
 ## Configureren
 ### [De bronomgeving instellen](site-recovery-set-up-vmware-to-azure.md)
@@ -47,8 +48,8 @@
 ## Workloads
 ### [Active Directory en DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
-### [SharePoint](site-recovery-workload.md#protect-sharepoint)
-### [Dynamics AX](site-recovery-workload.md#protect-dynamics-ax)
+### [SharePoint](site-recovery-sharepoint.md)
+### [Dynamics AX](site-recovery-dynamicsax.md)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)

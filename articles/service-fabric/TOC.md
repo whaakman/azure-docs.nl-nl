@@ -18,6 +18,7 @@
 ### [Java op Linux](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# op Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Implementeren van apps op een lokale cluster](service-fabric-get-started-with-a-local-cluster.md)
+## [.NET-apps in een container implementeren](service-fabric-host-app-in-a-container.md)
 ## [Uw eerste cluster maken in Azure](service-fabric-get-started-azure-cluster.md)
 ## [Uw eerste zelfstandige -cluster maken](service-fabric-get-started-standalone-cluster.md)
 ## [Uw eerste app in een container maken](service-fabric-get-started-containers.md)
@@ -28,6 +29,7 @@
 ### Concepten
 #### [Ondersteunde programmeermodellen](service-fabric-choose-framework.md)
 #### [Toepassingsmodel](service-fabric-application-model.md)
+#### [Hostingmodel](service-fabric-hosting-model.md)
 #### [Servicemanifest-resources](service-fabric-service-manifest-resources.md)
 #### [Servicestatus](service-fabric-concepts-state.md)
 #### [Service partitioneren](service-fabric-concepts-partitioning.md)
@@ -45,6 +47,8 @@
 #### [Overzicht](service-fabric-containers-overview.md)
 #### [Windows-container implementeren](service-fabric-deploy-container.md)
 #### [Linux-container implementeren](service-fabric-deploy-container-linux.md)
+#### [Docker Compose (preview)](service-fabric-docker-compose.md)
+#### [Resourcebeheer voor containers en services](service-fabric-resource-governance.md)
 
 ### Een Reliable Service-service bouwen
 #### [Overzicht](service-fabric-reliable-services-introduction.md)
@@ -57,6 +61,8 @@
 ##### [Richtlijnen en aanbevelingen voor betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections-guidelines.md)
 ##### [Werken met betrouwbare verzamelingen](service-fabric-work-with-reliable-collections.md)
 ##### [Transacties en vergrendelingen](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+##### [Betrouwbare gelijktijdige wachtrij](service-fabric-reliable-services-reliable-concurrent-queue.md)
+##### [Betrouwbare verzamelingserialisatie](service-fabric-reliable-services-reliable-collections-serialization.md)
 ##### [Beheer van betrouwbare status en interne werking van betrouwbare verzameling](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### Aan de slag
@@ -64,9 +70,9 @@
 ##### [Java op Linux](service-fabric-reliable-services-quick-start-java.md)
 
 #### Levenscyclus van Reliable Services
-#### [Configureren](service-fabric-reliable-services-configuration.md)
-#### [Meldingen verzenden](service-fabric-reliable-services-notifications.md)
-#### [Back-up en herstel](service-fabric-reliable-services-backup-restore.md)
+##### [Configureren](service-fabric-reliable-services-configuration.md)
+##### [Meldingen verzenden](service-fabric-reliable-services-notifications.md)
+##### [Back-up en herstel](service-fabric-reliable-services-backup-restore.md)
 
 #### Communiceren met services
 ##### [Communiceren via Betrouwbare services](service-fabric-reliable-services-communication.md)
@@ -100,6 +106,7 @@
 
 ### Communiceren met services
 #### [Servicecommunicatie](service-fabric-connect-and-communicate-with-services.md)
+#### [DNS-service](service-fabric-dnsservice.md)
 #### [Omgekeerde proxy](service-fabric-reverseproxy.md)
 
 ### [Een webfront-end toevoegen](service-fabric-add-a-web-frontend.md)
@@ -208,6 +215,7 @@
 ### [Verbinding maken met een beveiligde cluster](service-fabric-connect-to-secure-cluster.md)
 
 ### [Een cluster beheren met Azure CLI](service-fabric-azure-cli.md)
+### [Patch uitvoeren voor clusterknooppunten](service-fabric-patch-orchestration-application.md)
 
 ### Clusterbronnen beheren en organiseren
 #### [Overzicht van Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
@@ -242,11 +250,13 @@
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 ### [Logboeken verzamelen van een serviceproces](service-fabric-diagnostic-collect-logs-without-an-agent.md)
+### [Windows Server-containers bewaken](service-fabric-diagnostics-containers-windowsserver.md)
 ### [Diagnose in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnose in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Problemen met uw lokale cluster oplossen](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Naslaginformatie
+## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
 ## [Java-API](/java/api/)
 ## [.NET](/dotnet/api/)

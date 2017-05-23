@@ -1,6 +1,7 @@
 ---
-title: Aanmeldactiviteitenrapporten in Azure Active Directory Portal - preview | Microsoft Docs
-description: Ontdek de aanmeldactiviteitenrapporten in de previewversie van Azure Active Directory Portal
+
+title: Aanmeldactiviteitenrapporten in Azure Active Directory Portal | Microsoft Docs
+description: Ontdek de aanmeldactiviteitenrapporten in de Azure Active Directory Portal
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,18 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: f6c0bb59d9eb16da6c7daea2e722e32ac7dbc2d7
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 19cd81c1e6020523d1bea3ec76c957ce22f931ca
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal---preview"></a>Aanmeldactiviteitenrapporten in Azure Active Directory Portal - preview
+# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
-Wanneer u rapporten bekijkt in de [previewversie](active-directory-preview-explainer.md) van Azure Active Directory, ontvangt u alle informatie die nodig is om te bepalen hoe het gaat met uw omgeving.
+Met Azure AD-rapporten (Azure Active Directory) in [Azure Portal](https://portal.azure.com) ontvangt u alle informatie die nodig is om te bepalen hoe het gaat met uw omgeving.
 
 De rapportstructuur in Azure Active Directory bestaat uit de volgende onderdelen:
 
@@ -44,7 +46,7 @@ In de informatie die wordt aangeboden in het rapport over aanmeldactiviteiten va
 * Hoeveel keer hebben gebruikers zich aangemeld gedurende een week?
 * Wat is de status van deze aanmeldingen?
 
-Uw eerste ingangspunt voor alle aanmeldingsactiviteitgegevens is **Aanmeldingen** in het gedeelte activiteit van **Azure Active**. Directory.
+Uw eerste ingangspunt voor alle aanmeldingsactiviteitgegevens is **Aanmeldingen** in het gedeelte activiteit van **Azure Active**.
 
 
 ![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/61.png "Aanmeldingsactiviteit")

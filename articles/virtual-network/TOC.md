@@ -17,14 +17,17 @@
 ### [Netwerkbeveiligingsgroepen](virtual-networks-nsg.md)
 
 ## Implementeren
-### Virtuele netwerken
-#### [Portal](virtual-networks-create-vnet-arm-pportal.md)
-#### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [CLI](virtual-networks-create-vnet-arm-cli.md)
-#### [Sjabloon](virtual-networks-create-vnet-arm-template-click.md)
-#### [Portal (klassiek)](virtual-networks-create-vnet-classic-pportal.md)
-#### [PowerShell (klassiek)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-#### [CLI (klassiek)](virtual-networks-create-vnet-classic-cli.md)
+### Virtuele netwerken (VNet's)
+#### [VNet's maken, wijzigen of verwijderen](virtual-network-manage-network.md)
+#### [Subnetten maken, wijzigen of verwijderen](virtual-network-manage-subnet.md)
+#### [Een VNet maken - meerdere subnetten](virtual-networks-create-vnet-arm-pportal.md) 
+##### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+##### [CLI](virtual-networks-create-vnet-arm-cli.md)
+##### [Sjabloon](virtual-networks-create-vnet-arm-template-click.md)
+#### Een VNet maken - meerdere subnetten (klassiek)
+##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ### Netwerkbeveiligingsgroepen
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -46,8 +49,8 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Sjabloon](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### Netwerkinterfaces
-#### [Toevoegen, wijzigen of verwijderen](virtual-network-network-interface.md)
+### Netwerkinterfaces (NIC's)
+#### [NIC's maken, wijzigen of verwijderen](virtual-network-network-interface.md)
 #### [IP-adressen toevoegen, wijzigen of verwijderen](virtual-network-network-interface-addresses.md)
 
 ### [Openbare IP-adressen](virtual-network-public-ip-address.md)
@@ -81,6 +84,8 @@
 ##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Sjabloon](virtual-network-multiple-ip-addresses-template.md)
 
+#### [Een virtuele machine maken met versneld netwerken](virtual-network-create-vm-accelerated-networking.md)
+
 ### Connectiviteitsscenario's
 #### [Virtueel netwerk (VNet) naar VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 #### [VNet (Resource Manager) naar een VNet (klassiek)](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -98,9 +103,6 @@
 ##### [Voorbeeldtoepassing](virtual-networks-sample-app.md)
 
 ## Configureren
-### Versneld netwerken voor virtuele machines
-#### [Azure Portal](virtual-network-accelerated-networking-portal.md)
-#### [PowerShell](virtual-network-accelerated-networking-powershell.md)
 ### [VM-netwerkdoorvoer optimaliseren](virtual-network-optimize-network-bandwidth.md)
 ### Toegangsbeheerlijsten
 #### [Klassieke portal](virtual-networks-acl.md)

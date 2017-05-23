@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/30/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 06f81b11205085357ba4ba4e2f0d2e1e4c0e940a
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 5120b3f11549c936daacdfab37190a7193fde89f
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -74,9 +75,19 @@ Zie [Connectiviteitsproblemen oplossen](active-directory-aadconnect-troubleshoot
 ## <a name="pages-under-the-section-sync"></a>Pagina's in de sectie Synchronisatie
 
 ### <a name="connect-your-directories"></a>Verbinding maken met uw directory’s
-Azure AD Connect heeft de referenties van een account met de juiste machtigingen nodig om verbinding met uw Active Directory-domeinservice te maken. U kunt het domeingedeelte in NetBios- of FQDN-indeling invoeren, dat wil zeggen FABRIKAM\syncuser of fabrikam.com\syncuser. Dit account mag een normaal gebruikersaccount zijn, omdat alleen de standaard leesmachtigingen nodig zijn. Afhankelijk van uw scenario heeft u echter mogelijk meer machtigingen nodig. Zie [Azure AD Connect Accounts and permissions](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account) voor meer informatie.
+Azure AD Connect heeft de forestnaam en de referenties van een account met de juiste machtigingen nodig om verbinding met uw Active Directory-domeinservice te maken.
 
-![Verbinding maken met Directory](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
+![Verbinding maken met Directory](./media/active-directory-aadconnect-get-started-custom/connectdir01.png)
+
+Nadat u de forestnaam hebt ingevoerd en op **Map toevoegen** hebt geklikt, wordt een pop-upvenster met de volgende opties weergegeven:
+
+| Optie | Beschrijving |
+| --- | --- |
+| Bestaand account gebruiken | Selecteer deze optie als u wilt toestaan dat een bestaand AD DS-account wordt gebruikt door Azure AD Connect om verbinding te maken met de AD-forest tijdens directorysynchronisatie. U kunt het domeingedeelte in NetBios- of FQDN-indeling invoeren, dat wil zeggen FABRIKAM\syncuser of fabrikam.com\syncuser. Dit account mag een normaal gebruikersaccount zijn, omdat alleen de standaard leesmachtigingen nodig zijn. Afhankelijk van uw scenario heeft u echter mogelijk meer machtigingen nodig. Zie [Azure AD Connect Accounts and permissions](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account) voor meer informatie. |
+| Nieuw account maken | Selecteer deze optie als u wilt dat de Azure AD Connect-wizard het AD DS-account maakt dat Azure AD Connect nodig heeft om verbinding te maken met de AD-forest tijdens directorysynchronisatie. Voer wanneer deze optie is geselecteerd de gebruikersnaam en het wachtwoord in voor een enterprisebeheerdersaccount. Het opgegeven enterprisebeheerdersaccount wordt door de Azure AD Connect-wizard gebruikt om het vereiste AD DS-account te maken. U kunt het domeingedeelte in NetBios- of FQDN-indeling invoeren, dat wil zeggen FABRIKAM\administrator of fabrikam.com\administrator. |
+
+![Verbinding maken met Directory](./media/active-directory-aadconnect-get-started-custom/connectdir02.png)
+
 
 ### <a name="azure-ad-sign-in-configuration"></a>Aanmeldconfiguratie Azure AD
 Op deze pagina kunt u bekijken welke UPN-domeinen zich in de on-premises AD DS bevinden en in Azure AD zijn geverifieerd. Daarnaast kunt u op deze pagina het kenmerk configureren dat voor de userPrincipalName moet worden gebruikt.
@@ -99,7 +110,7 @@ Standaard worden alle domeinen en OE's gesynchroniseerd. Van domeinen of OE’s 
 ![Domein- en OE-filters](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png)  
 Op deze pagina in de wizard configureert u filteren op basis van een domein en OE. Als u wijzigingen wilt aanbrengen, gaat u naar [domain-based filtering](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) en [OE filteren](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) voordat u deze wijzigingen aanbrengt. Sommige OE's zijn essentieel voor de functionaliteit en mogen niet worden uitgeschakeld.
 
-Als u OE filteren gebruikt, worden nieuwe OE's die later zijn toegevoegd, standaard gesynchroniseerd. Als u wilt dat nieuwe OE's niet worden gesynchroniseerd, kunt u dit met [OE filteren](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) instellen nadat de wizard is voltooid.
+Als u OE-filters gebruikt met een versie van Azure AD Connect lager dan 1.1.524.0, worden nieuwe OE's die later zijn toegevoegd, standaard gesynchroniseerd. Als u wilt dat nieuwe OE's niet worden gesynchroniseerd, kunt u dit met [OE filteren](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) instellen nadat de wizard is voltooid. Voor Azure AD Connect versie 1.1.524.0 en hoger kunt u aangeven of u wilt dat nieuwe OE's moeten worden gesynchroniseerd of niet.
 
 Als u [Groep filteren](#sync-filtering-based-on-groups) wilt gebruiken, zorgt u ervoor dat de OE met de groep is opgenomen en dat u niet filtert met OE filteren. OE filteren wordt geëvalueerd vóór groep filteren.
 
@@ -108,6 +119,8 @@ Sommige domeinen kunnen ook onbereikbaar zijn door firewallbeperkingen. Deze dom
 Als u deze waarschuwing ziet, verzeker uzelf er dan van dat deze domeinen inderdaad onbereikbaar zijn en de waarschuwing wordt verwacht.
 
 ### <a name="uniquely-identifying-your-users"></a>Uw gebruikers een unieke id geven
+
+#### <a name="select-how-users-should-be-identified-in-your-on-premises-directories"></a>Selecteren hoe gebruikers moeten worden aangeduid in uw on-premises directory’s
 Met de functie Overeenkomend in forests kunt u definiëren hoe gebruikers van uw AD DS-forests worden weergegeven in Azure AD. Een gebruiker kan ofwel slechts één keer in alle forests worden weergegeven of een combinatie van ingeschakelde en uitgeschakelde accounts hebben. De gebruiker kan in sommige forests ook worden weergegeven als een contactpersoon.
 
 ![Uniek](./media/active-directory-aadconnect-get-started-custom/unique.png)
@@ -120,7 +133,15 @@ Met de functie Overeenkomend in forests kunt u definiëren hoe gebruikers van uw
 | sAMAccountName en MailNickName |Deze optie koppelt kenmerken waarbij wordt verwacht dat de aanmeldings-id van de gebruiker gevonden kan worden. |
 | Een specifiek kenmerk |Met deze optie kunt u uw eigen kenmerk selecteren. **Beperking:** Zorg dat u een kenmerk kiest dat al in de metaverse te vinden is. Als u een aangepast kenmerk kiest dat niet in de metaverse staat, kan de wizard niet voltooid worden. |
 
-**Bronanker** - Het kenmerk sourceAnchor is onveranderbaar tijdens de levensduur van een gebruikersobject. Het is de primaire sleutel die de on-premises gebruiker aan de gebruiker in Azure AD koppelt. Omdat het kenmerk niet kan worden gewijzigd, moet u een goed kenmerk kiezen. Een goede kandidaat is objectGUID. Dit kenmerk wordt niet gewijzigd, tenzij het gebruikersaccount worden verplaatst tussen forests/domeinen. In een omgeving met meerdere forests waarin u accounts tussen forests verplaatst, moet een ander kenmerk worden gebruikt, zoals een kenmerk met de id van de werknemer. Vermijd kenmerken die wijzigen wanneer iemand trouwt of een andere taak krijgt. U kunt geen kenmerken met een @-sign gebruiken, dus het e-mailadres en userPrincipalName kunnen niet worden gebruikt. Het kenmerk is ook hoofdlettergevoelig, dus als u een object tussen forests verplaatst, zorg dan dat de hoofdletters en kleine letters hetzelfde blijven. Binaire kenmerken krijgen base64-codering, maar andere kenmerktypen blijven ongecodeerd. In scenario's met federatie en in sommige Azure AD-interfaces wordt dit kenmerk ook wel onveranderbare id genoemd. Meer informatie over het bronanker vindt u in de [ontwerpconcepten](active-directory-aadconnect-design-concepts.md#sourceanchor).
+#### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Selecteren hoe gebruikers moeten worden aangeduid met Azure AD - bronanker
+Het kenmerk sourceAnchor is onveranderbaar tijdens de levensduur van een gebruikersobject. Het is de primaire sleutel die de on-premises gebruiker aan de gebruiker in Azure AD koppelt.
+
+| Instelling | Beschrijving |
+| --- | --- |
+| Azure het bronanker voor mij laten beheren | Selecteer deze optie als u wilt dat Azure AD het kenmerk voor u selecteert. |
+| Een specifiek kenmerk | Selecteer deze optie als u een bestaand AD-kenmerk opgeeft als het kenmerk sourceAnchor. |
+
+Omdat het kenmerk niet kan worden gewijzigd, moet u een goed kenmerk kiezen. Een goede kandidaat is objectGUID. Dit kenmerk wordt niet gewijzigd, tenzij het gebruikersaccount worden verplaatst tussen forests/domeinen. In een omgeving met meerdere forests waarin u accounts tussen forests verplaatst, moet een ander kenmerk worden gebruikt, zoals een kenmerk met de id van de werknemer. Vermijd kenmerken die wijzigen wanneer iemand trouwt of een andere taak krijgt. U kunt geen kenmerken met een @-sign gebruiken, dus het e-mailadres en userPrincipalName kunnen niet worden gebruikt. Het kenmerk is ook hoofdlettergevoelig, dus als u een object tussen forests verplaatst, zorg dan dat de hoofdletters en kleine letters hetzelfde blijven. Binaire kenmerken krijgen base64-codering, maar andere kenmerktypen blijven ongecodeerd. In scenario's met federatie en in sommige Azure AD-interfaces wordt dit kenmerk ook wel onveranderbare id genoemd. Meer informatie over het bronanker vindt u in de [ontwerpconcepten](active-directory-aadconnect-design-concepts.md#sourceanchor).
 
 ### <a name="sync-filtering-based-on-groups"></a>Synchronisatiefilters op basis van groepen
 Met de functie Filteren op groep kunt u bij wijze van proef een kleine subset van objecten synchroniseren. Om deze functie te gebruiken maakt u voor dit doel een groep aan in uw on-premises Active Directory. Voeg vervolgens gebruikers en groepen toe die naar Azure AD moeten worden gesynchroniseerd als directe leden. U kunt later gebruikers aan deze groep toevoegen en eruit verwijderen om de lijst te onderhouden met objecten die in Azure AD aanwezig moeten zijn. Alle objecten die u wilt synchroniseren moet een direct lid van de groep zijn. Gebruikers, groepen, contactpersonen en computers/apparaten moeten allemaal directe leden zijn. Genest groepslidmaatschap is niet opgelost. Wanneer u een groep als lid toevoegt, wordt alleen de groep zelf toegevoegd en niet de leden ervan.
@@ -147,6 +168,7 @@ In dit scherm kunt u de optionele functies voor uw specifieke scenario's selecte
 | Optionele functies | Beschrijving |
 | --- | --- |
 | Hybride implementatie voor Exchange |Met de functie Hybride implementatie voor Exchange kunnen on-premises en in Office 365 meerdere Exchange-postbussen naast elkaar bestaan. Azure AD Connect synchroniseert een specifieke set [kenmerken](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) vanuit Azure AD naar uw on-premises directory. |
+| Openbare e-mailmappen van Exchange | Met de functie Openbare e-mailmappen van Exchange kunt u de voor e-mail ingeschakelde openbare mapobjecten van Active Directory synchroniseren naar Azure AD. |
 | Azure AD-app- en -kenmerkfilters |Door de Azure AD-app- en -kenmerkfilters in te schakelen kan de set gesynchroniseerde kenmerken worden aangepast. Door deze optie worden twee extra configuratiepagina’s aan de wizard toegevoegd. Zie voor meer informatie [Azure AD app and attribute filtering](#azure-ad-app-and-attribute-filtering). |
 | Wachtwoordsynchronisatie |Als u federatie als de oplossing voor aanmelden hebt geselecteerd, dan kunt u deze optie inschakelen. Wachtwoordsynchronisatie kan vervolgens als een backupoptie worden gebruikt. Zie [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) voor meer informatie. </br></br>Als u Pass-through-verificatie hebt geselecteerd, is deze optie standaard ingeschakeld als ondersteuning voor verouderde clients en als back-upoptie. Zie [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) voor meer informatie.|
 | Wachtwoord terugschrijven |Door wachtwoord terugschrijven in te schakelen worden wachtwoordwijzigingen in Azure AD teruggeschreven naar uw on-premises directory. Zie voor meer informatie [Getting started with password management](../active-directory-passwords-getting-started.md). |

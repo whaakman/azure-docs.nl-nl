@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/06/2017
 ms.author: edmaca, yanacai
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: c26ac89bd7ef494331ba309aacf87de03506ac4c
+ms.contentlocale: nl-nl
 ms.lasthandoff: 04/07/2017
 
 
@@ -128,7 +129,7 @@ Data Lake Analytics-taken worden geschreven in de U-SQL-taal. Zie [Aan de slag m
        Namen worden automatisch aangevuld en de leden worden weergegeven voor rijenset, klassen, databases, schema’s en door de gebruiker gedefinieerde objecten (User Defined Objects, UDO’s).
 
        IntelliSense voor catalogusentiteiten (databases, schema's, tabellen, UDO’s enz.) is gerelateerd aan uw Compute-account. U kunt het huidige actieve Compute-account, de database en het schema controleren in de bovenste werkbalk en ze overschakelen via de vervolgkeuzelijsten.
-   * ***-kolommen uitvouwen**
+   * **kolommen * uitvouwen**
 
        Als u rechts van de * klikt, ziet u een blauwe onderstreping onder de *. Houd de muisaanwijzer op de blauwe onderstreping en klik vervolgens op de pijl-omlaag.
        ![Data Lake-hulpprogramma's voor Visual Studio uitvouwen *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)

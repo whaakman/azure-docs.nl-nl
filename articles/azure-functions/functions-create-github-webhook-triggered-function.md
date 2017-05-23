@@ -13,77 +13,95 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/18/2017
+ms.date: 05/02/2017
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: d4354546f3342d65353a86a4cec7d02547ab92e7
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 7423ef26a4a1c49245a1f8df79bbcaabea222596
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Een door een GitHub-webhook geactiveerde functie maken
 
-Informatie over het maken van een functie die wordt geactiveerd door een GitHub-webhook. 
+Ontdek hoe u een functie maakt die wordt geactiveerd door een HTTP-webhookaanvraag met een specifieke GitHub-nettolading.
 
-![Functie-app maken in Azure Portal](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
-
-Voor dit onderwerp zijn de resources vereist die zijn gemaakt in het onderwerp [Create your first function from the Azure portal](functions-create-first-azure-function.md) (Uw eerste functie maken vanuit Azure Portal).
-
-U hebt ook een GitHub-account nodig. U kunt zich [registreren voor een gratis GitHub-account](https://github.com/join) als u er nog geen hebt. 
+![Een door een GitHub-webhook geactiveerde functie in Azure Portal](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
 Het doorlopen van de stappen in dit onderwerp kost u minder dan vijf minuten.
 
-## <a name="find-your-function-app"></a>Uw functie-app zoeken    
+## <a name="prerequisites"></a>Vereisten
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/). 
+Voordat u dit voorbeeld kunt uitvoeren moet u ervoor zorgen dat u het volgende hebt:
 
-2. Typ de naam van uw functie-app in de zoekbalk boven in de portal en selecteer deze in de lijst.
+- Een GitHub-account met ten minste één project.
 
-## <a name="create-function"></a>Een door een GitHub-webhook geactiveerde functie maken
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-1. Klik in uw functie-app op de knop **+** naast **Functies**, klik op de sjabloon **GitHubWebHook** voor de gewenste taal en klik op **Maken**.
-   
-    ![Maak een door een GitHub-webhook geactiveerde functie in Azure Portal.](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-2. Klik op **</> Functie-URL ophalen**, kopieer de waarden en sla deze op. Doe hetzelfde voor **</> GitHub-geheim ophalen**. U hebt deze waarden nodig voor het configureren van de webhook in GitHub. 
+## <a name="create-an-azure-function-app"></a>Een Azure-functie-app maken
 
-    ![De functiecode controleren](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png) 
-         
-Vervolgens maakt u een webhook in uw GitHub-opslagplaats. 
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
+
+![De functie-app is gemaakt.](./media/functions-create-first-azure-function/function-app-create-success.png)
+
+Vervolgens maakt u een functie in de nieuwe functie-app.
+
+<a name="create-function"></a>
+
+## <a name="create-a-github-webhook-triggered-function"></a>Een door een GitHub-webhook geactiveerde functie maken
+
+1. Vouw uw functie-app uit, klik op de knop **+** naast **Functies** en klik op de sjabloon **GitHubWebHook** voor de gewenste taal. **Geef een naam voor de functie op** en klik vervolgens op **Maken**.
+
+1. Klik in de nieuwe functie op **</> Functie-URL ophalen**, kopieer de waarden en sla deze op. Doe hetzelfde voor **</> GitHub-geheim ophalen**. U hebt deze waarden nodig voor het configureren van de webhook in GitHub.
+
+    ![De functiecode controleren](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png)
+
+Vervolgens maakt u een webhook in uw GitHub-opslagplaats.
 
 ## <a name="configure-the-webhook"></a>De webhook configureren
-1. Navigeer naar een van uw opslagplaatsen in GitHub. U kunt ook een opslagplaats gebruiken die u hebt gesplitst.
- 
-2. Klik achtereenvolgens op **Instellingen**, **Webhooks** en **Webhook toevoegen**.
-   
+
+1. Navigeer naar een van uw opslagplaatsen in GitHub. U kunt ook een opslagplaats gebruiken die u hebt gesplitst. Als u een opslagplaats moet splitsen, gebruikt u <https://github.com/Azure-Samples/functions-quickstart>.
+
+1. Klik achtereenvolgens op **Instellingen**, **Webhooks** en **Webhook toevoegen**.
+
     ![Een GitHub-webhook toevoegen](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-3. Plak de URL en het geheim van de functie in **URL voor nettolading** en **Geheim**, en selecteer **Toepassing/JSON** als **inhoudstype**.
+1. Gebruik de instellingen zoals die in de tabel zijn opgegeven en klik vervolgens op **Webhook toevoegen**.
 
-4. Klik op **Ik wil afzonderlijke gebeurtenissen selecteren**, selecteer **Opmerking bij actie item** en klik op **Webhook toevoegen**.
-   
     ![Webhook-URL en geheim instellen](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 
-Nu is de webhook zo geconfigureerd dat de functie wordt geactiveerd wanneer er een nieuwe probleemopmerking wordt toegevoegd. 
+| Instelling | Voorgestelde waarde | Beschrijving |
+|---|---|---|
+| **URL van de nettolading** | Gekopieerde waarde | Gebruik de waarde die wordt geretourneerd door **</> Functie-URL ophalen**. |
+| **Geheim**   | Gekopieerde waarde | Gebruik de waarde die wordt geretourneerd door **</> GitHub-geheim ophalen**. |
+| **Inhoudstype** | application/json | De functie verwacht een JSON-nettolading. |
+| Gebeurtenistriggers | Ik wil afzonderlijke gebeurtenissen selecteren | We willen alleen activeren bij gebeurtenissen met een opmerking bij actie van het item.  |
+| | Opmerking bij actie item |  |
+
+Nu is de webhook zo geconfigureerd dat de functie wordt geactiveerd wanneer er een nieuwe probleemopmerking wordt toegevoegd.
 
 ## <a name="test-the-function"></a>De functie testen
+
 1. Open in uw GitHub-opslagplaats het tabblad **Problemen** in een nieuw browservenster.
 
-2. Klik in het nieuwe venster op **Nieuw probleem**, voer een titel in en klik op **Nieuw probleem verzenden**. 
+1. Klik in het nieuwe venster op **Nieuw probleem**, voer een titel in en klik op **Nieuw probleem verzenden**.
 
-2. Typ een opmerking bij probleem en klik op **Opmerking**. 
+1. Typ een opmerking bij probleem en klik op **Opmerking**.
 
-3. Klik in het andere GitHub-venster op **Bewerken** naast uw nieuwe webhook. Blader omlaag naar **Recente leveringen** en controleer of er een webhookaanvraag is verwerkt door uw functie. 
- 
-    ![Webhook-URL en geheim instellen](./media/functions-create-github-webhook-triggered-function/functions-github-webhook-triggered.png)
+    ![Voeg een opmerking bij de actie van het item van GitHub toe.](./media/functions-create-github-webhook-triggered-function/functions-github-webhook-add-comment.png)
 
-   Het antwoord van de functie zou `New GitHub comment: <Your issue comment text>` moeten bevatten.
+1. Ga terug naar de portal en bekijk de logboeken. Hier ziet u een traceervermelding met de tekst van de nieuwe opmerking.
+
+     ![Bekijk de tekst van de opmerking in de logboeken.](./media/functions-create-github-webhook-triggered-function/function-app-view-logs.png)
+
+## <a name="clean-up-resources"></a>Resources opschonen
+
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
-
-
+U hebt een functie gemaakt die wordt uitgevoerd wanneer er een aanvraag wordt ontvangen van een GitHub-webhook. 
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]Zie [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md) (Azure Functions-HTTP- en webhookbindingen) voor meer informatie over webhooktriggers.

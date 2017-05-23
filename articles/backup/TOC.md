@@ -71,9 +71,11 @@
 ### [Langzame back-ups van bestanden en mappen in Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
 # Concepten
+## [Overzicht van Recovery Services-kluizen](backup-azure-recovery-services-vault-overview.md)
+## [Een Backup-kluis upgraden naar een Recovery Services-kluis](backup-azure-upgrade-backup-to-recovery-services.md)
+## [Een Azure Backup-kluis verwijderen](backup-azure-delete-vault.md)
 ## [Op rollen gebaseerd toegangsbeheer](backup-rbac-rs-vault.md)
 ## [Beveiliging voor hybride back-ups](backup-azure-security-feature.md)
-## [Een Azure Backup-kluis verwijderen](backup-azure-delete-vault.md)
 ## [Offline back-ups configureren](backup-azure-backup-import-export.md)
 ## [De tapewisselaar vervangen](backup-azure-backup-cloud-as-tape.md)
 ## [Toepassingsconsistente back-ups van virtuele Linux-machines](backup-azure-linux-app-consistent.md)

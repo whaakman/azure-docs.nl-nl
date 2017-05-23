@@ -58,6 +58,7 @@
 ### [AD-replicatiestatus](log-analytics-ad-replication-status.md)
 ### [Waarschuwingsbeheer](log-analytics-solution-alert-management.md)
 ### [Azure SQL-analyses](log-analytics-azure-sql.md)
+### [Azure Web Apps-analyse](log-analytics-azure-web-apps-analytics.md)
 ### [Capaciteit en prestaties](log-analytics-capacity.md)
 ### [Tracering wijzigen](log-analytics-change-tracking.md)
 ### [Containers](log-analytics-containers.md)

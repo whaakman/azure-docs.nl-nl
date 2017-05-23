@@ -1,5 +1,6 @@
 # Overzicht
-## [Overzicht van Azure Monitor](monitoring-overview.md)
+## [Controleprogramma's in Azure](monitoring-overview.md)
+## [Azure Monitor](monitoring-overview-azure-monitor.md)
 ## [Metrische gegevens](monitoring-overview-metrics.md)
 ## [Waarschuwingen](monitoring-overview-alerts.md)
 ## [Automatisch schalen](monitoring-overview-autoscale.md)
@@ -7,32 +8,36 @@
 ## [Actiegroepen](monitoring-action-groups.md)
 ## [Diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md)
 ## [Partnerintegraties](monitoring-partners.md)
-## [Azure Diagnostics](azure-diagnostics.md)
+## [Azure Diagnostics-extensie](azure-diagnostics.md)
 
 
 # Aan de slag
 ## [Aan de slag met Azure Monitor](monitoring-get-started.md)
+## [Aan de slag met automatisch schalen](monitoring-autoscale-get-started.md)
 ## [Rolmachtigingen en -beveiliging](monitoring-roles-permissions-security.md)
+
 
 # Procedures
 ## Waarschuwingen gebruiken
 ### [Waarschuwingen configureren in Azure Portal](insights-alerts-portal.md)
 ### [Waarschuwingen configureren met CLI](insights-alerts-command-line-interface.md)
 ### [Waarschuwingen configureren met PowerShell](insights-alerts-powershell.md)
-### [Een webhook configureren voor een metrische waarschuwing](insights-webhooks-alerts.md)
+### [Een metrische waarschuwing een webhook laten aanroepen](insights-webhooks-alerts.md)
 ### [Een metrische waarschuwing maken met een Resource Manager-sjabloon](monitoring-enable-alerts-using-template.md)
 ## Automatisch schalen gebruiken
-### [Aanbevolen procedures voor Automatisch schalen](insights-autoscale-best-practices.md)
-### [Veelgebruikte gegevens voor automatisch schalen](insights-autoscale-common-metrics.md)
+### [Aanbevolen procedures](insights-autoscale-best-practices.md)
+### [Algemene metrische gegevens](insights-autoscale-common-metrics.md)
+### [Algemene patronen](monitoring-autoscale-common-scale-patterns.md)
+### [Automatisch schalen met een aangepaste meetwaarde](monitoring-autoscale-scale-by-custom-metric.md)
 ### [VM Scale Sets automatisch schalen met Resource Manager-sjablonen](insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Virtuele machines in een VM Scale Set automatisch schalen](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Webhooks en e-mailmeldingen configureren voor automatisch schalen](insights-autoscale-to-webhook-email.md)
 ## Het activiteitenlogboek gebruiken
-### [Gebeurtenissen in het activiteitenlogboek bekijken](insights-debugging-with-events.md)
+### [Gebeurtenissen in het activiteitenlogboek bekijken](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Meldingen configureren voor waarschuwingen van het activiteitenlogboek](monitoring-activity-log-alerts.md)
 ### [Het activiteitenlogboek archiveren](monitoring-archive-activity-log.md)
 ### [Activiteitenlogboek streamen naar Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
-### [Bewerkingen controleren met Resource Manager](../azure-resource-manager/resource-group-audit.md)
+### [Bewerkingen controleren met Resource Manager](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Waarschuwingen voor activiteitenlogboek maken Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
 ## Servicemeldingen
 ### [Servicemeldingen bekijken](monitoring-service-notifications.md)
@@ -48,7 +53,7 @@
 ### [Diagnostische instellingen inschakelen met Resource Manager-sjablonen](monitoring-enable-diagnostic-logs-using-template.md)
 ## REST-API gebruiken
 ### [Stapsgewijze instructie voor het gebruik van REST-API](monitoring-rest-api-walkthrough.md)
-## Azure Diagnostics gebruiken
+## Azure Diagnostics-extensie gebruiken
 ### [Verzenden naar Application Insights](azure-diagnostics-configure-application-insights.md)
 ### [Verzenden naar Event Hubs](azure-diagnostics-streaming-event-hubs.md)
 ### [Problemen oplossen](azure-diagnostics-troubleshooting.md)
@@ -59,11 +64,10 @@
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
-## [Versiegeschiedenis van Azure Diagnostics-extensie](azure-diagnostics-versioning-history.md)
 ## [Extensieschema voor Azure Diagnostics](azure-diagnostics-schema.md)
 ### [1.0](azure-diagnostics-schema-1dot0.md)
 ### [1.2](azure-diagnostics-schema-1dot2.md)
-### [1.3 tot 1.7](azure-diagnostics-schema-1dot3-and-later.md)
+### [1.3 en hoger](azure-diagnostics-schema-1dot3-and-later.md)
 
 # Resources
 ## [PowerShell-voorbeelden](insights-powershell-samples.md)

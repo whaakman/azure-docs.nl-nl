@@ -14,10 +14,11 @@ ms.devlang: na
 ms.date: 04/18/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 3c5520f30b75c0e0a2b1aee890f79d01d325d543
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 745e115409a5b1e5e4f343ca0a5bb922272d3020
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -184,7 +185,7 @@ VS Code helpt u opnieuw door beschikbare functies voor te stellen.
 
 ![Functies weergeven](./media/resource-manager-create-first-template/show-functions.png)
 
-De functie staat tussen vierkante haken. De functie [resourceGroup](resource-group-template-functions.md#resourcegroup) retourneert een object met een eigenschap genaamd `location`. De resourcegroep bevat alle verwante resources voor uw oplossing. U kunt de locatie-eigenschap hardcoden op een waarde zoals 'VS - midden', maar dan moet u handmatig de sjabloon wijzigen zodat deze opnieuw wordt geïmplementeerd naar een andere locatie. Met de functie `resourceGroup` kunt u de sjabloon gemakkelijk opnieuw implementeren naar een andere resourcegroep op een andere locatie.
+De functie staat tussen vierkante haken. De functie [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) retourneert een object met een eigenschap genaamd `location`. De resourcegroep bevat alle verwante resources voor uw oplossing. U kunt de locatie-eigenschap hardcoden op een waarde zoals 'VS - midden', maar dan moet u handmatig de sjabloon wijzigen zodat deze opnieuw wordt geïmplementeerd naar een andere locatie. Met de functie `resourceGroup` kunt u de sjabloon gemakkelijk opnieuw implementeren naar een andere resourcegroep op een andere locatie.
 
 De sjabloon ziet er nu als volgt uit:
 
@@ -216,7 +217,7 @@ De sjabloon ziet er nu als volgt uit:
 ## <a name="add-parameters-and-variables"></a>Parameters en variabelen toevoegen
 U hoeft nog maar twee waarden in te stellen in uw sjabloon: **name** en **sku.name**. Voor deze eigenschappen voegt u parameters toe waarmee u deze waarden kunt aanpassen tijdens de implementatie. 
 
-Er gelden enkele beperkingen voor opslagaccountnamen waardoor ze moeilijk in te stellen zijn. De naam moet tussen de 3 en 24 tekens lang zijn, alleen cijfers en kleine letters bevatten en uniek zijn. In plaats van te proberen een unieke waarde te vinden die aan de vereisten voldoet, kunt u de functie [uniqueString](resource-group-template-functions.md#uniquestring) gebruiken om een hash-waarde te genereren. Om deze hashwaarde betekenisvoller te maken, voegt u een voorvoegsel toe waarmee u het als een opslagaccount kunt identificeren na de implementatie. 
+Er gelden enkele beperkingen voor opslagaccountnamen waardoor ze moeilijk in te stellen zijn. De naam moet tussen de 3 en 24 tekens lang zijn, alleen cijfers en kleine letters bevatten en uniek zijn. In plaats van te proberen een unieke waarde te vinden die aan de vereisten voldoet, kunt u de functie [uniqueString](resource-group-template-functions-string.md#uniquestring) gebruiken om een hash-waarde te genereren. Om deze hashwaarde betekenisvoller te maken, voegt u een voorvoegsel toe waarmee u het als een opslagaccount kunt identificeren na de implementatie. 
 
 1. Ga naar het gedeelte **Parameters** van de sjabloon om een voorvoegsel door te geven voor de naam die overeenkomt met uw naamgevingsregels. Voeg een parameter toe aan de sjabloon die een voorvoegsel voor de opslagaccountnaam accepteert:
 

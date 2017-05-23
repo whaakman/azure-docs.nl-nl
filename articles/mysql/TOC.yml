@@ -1,0 +1,105 @@
+- name: Documentatie voor Azure DB voor MySQL
+  href: index.yml
+- name: Overzicht
+  items:
+  - name: Azure DB voor MySQL
+    href: overview.md
+- name: Snelstartgidsen
+  expanded: true
+  items:
+  - name: Database maken - Portal
+    href: quickstart-create-mysql-server-database-using-azure-portal.md
+  - name: Database maken - Azure CLI
+    href: quickstart-create-mysql-server-database-using-azure-cli.md
+- name: Zelfstudies
+  items:
+  - name: 1 - Een database ontwerpen
+    items:
+    - name: Azure Portal
+      href: tutorial-design-database-using-portal.md
+    - name: Azure CLI
+      href: tutorial-design-database-using-cli.md
+  - name: 2 - Een web-app maken
+    items:
+    - name: WordPress - portal
+      href: ../app-service-web/app-service-web-create-web-app-from-marketplace.md?toc=%2fazure%2fmysql%2ftoc.json
+    - name: PHP - Azure CLI
+      href: ../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
+- name: Voorbeelden
+  items:
+  - name: Azure CLI
+    href: sample-scripts-azure-cli.md
+- name: Concepten
+  items:
+  - name: DB en servers
+    items:
+    - name: Servers
+      href: concepts-servers.md
+    - name: Ondersteunde versies
+      href: concepts-supported-versions.md
+  - name: Resources
+    items:
+    - name: Servicelagen
+      href: concepts-service-tiers.md
+    - name: Rekeneenheden en opslageenheden
+      href: concepts-compute-unit-and-storage.md
+    - name: Limieten
+      href: concepts-limits.md
+  - name: Gegevenstoegang en -beveiliging
+    items:
+    - name: Firewall-regels
+      href: concepts-firewall-rules.md
+    - name: SSL configureren
+      href: concepts-ssl-connection-security.md
+  - name: Ontwikkeling
+    items:
+    - name: Verbindingsbibliotheken
+      href: concepts-connection-libraries.md
+    - name: Toepassingen ontwikkelen
+      href: concepts-database-application-development.md
+  - name: Uw database migreren
+    items:
+    - name: Dumpen en terugzetten
+      href: concepts-migrate-dump-restore.md
+    - name: Importeren en exporteren
+      href: concepts-migrate-import-export.md
+- name: Handleidingen
+  items:
+  - name: Een server beheren
+    items:
+    - name: Azure Portal
+      href: howto-create-manage-server-portal.md
+  - name: Firewall-regels
+    items:
+    - name: Azure Portal
+      href: howto-manage-firewall-using-portal.md
+    - name: Azure CLI
+      href: howto-manage-firewall-using-cli.md
+  - name: Een server terugzetten
+    items:
+    - name: Azure Portal
+      href: howto-restore-server-portal.md
+  - name: Toepassingen koppelen
+    items:
+    - name: Verbindingsreeksen instellen
+      href: howto-connection-string.md
+    - name: SSL configureren
+      href: howto-configure-ssl.md
+- name: Naslaginformatie
+  items:
+  - name: Azure CLI
+    href: /cli/azure/mysql
+- name: Resources
+  items:
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/mysql/
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-database-mysql
+  - name: Verzoeken om een functie toe te voegen
+    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+  - name: Beschikbaarheid in regio’s
+    href: https://azure.microsoft.com/regions/services/
+  - name: Ondersteuningsopties
+    href: https://azure.microsoft.com/support/options/

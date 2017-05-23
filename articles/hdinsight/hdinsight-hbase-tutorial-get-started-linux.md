@@ -1,7 +1,7 @@
 ---
 title: Aan de slag met HBase op Azure HDInsight | Microsoft Docs
 description: Volg deze HBase-zelfstudie om Apache HBase met Hadoop te gebruiken in HDInsight. Maak tabellen vanuit de HBase-shell en gebruik Hive om query&quot;s uit te voeren op de tabellen.
-keywords: apache hbase,hbase,hbase-shell,hbase-zelfstudie
+keywords: apache hbase,hbase,hbase-shell,hbase-zelfstudie,beeline
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/22/2017
+ms.date: 05/08/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 4e9ee21a7eac240cccdfac650992063244364185
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: a935fe574bffaad109abd13151c4da1027210014
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -31,7 +31,7 @@ Informatie over het maken van een HBase-cluster in HDInsight, het maken van HBas
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u met deze HBase-zelfstudie begint, moet u beschikken over het volgende:
+Voordat u met deze HBase-zelfstudie begint, moet u beschikken over de volgende zaken:
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Secure Shell (SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
@@ -43,13 +43,13 @@ In de volgende procedure wordt een Azure Resource Manager-sjabloon gebruikt om e
 1. Klik op de volgende afbeelding om de sjabloon in Azure Portal te openen. De sjabloon bevindt zich in een openbare blob-container. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. Voer op de blade **Aangepaste implementatie** het volgende in:
+2. Voer op de blade **Aangepaste implementatie** de volgende waarden in:
    
    * **Abonnement**: selecteer het Azure-abonnement dat wordt gebruikt om het cluster te maken.
-   * **Resourcegroep**: maak een nieuwe Azure-resourcebeheergroep of gebruik een bestaande.
+   * **Resourcegroep**: maak een Azure-resourcebeheergroep of gebruik een bestaande.
    * **Locatie**: geef de locatie van de resourcegroep op. 
-   * **Clusternaam**: voer een naam in voor het HBase-cluster dat u maakt.
-   * **Aanmeldingsgegevens voor het cluster**: de standaardaanmeldingsnaam is **admin**.
+   * **Clusternaam**: voer een naam in voor het HBase-cluster.
+   * **Aanmeldgegevens voor het cluster**: de standaardaanmeldnaam is **admin**.
    * **SSH-gebruikersnaam en -wachtwoord**: de standaardgebruikersnaam is **sshuser**.  U kunt de naam wijzigen.
      
      Andere parameters zijn optioneel.  
@@ -73,7 +73,6 @@ In HBase, wat een implementatie van BigTable is, zien dezelfde gegevens er als v
 
 ![BigTable-gegevens in HDInsight HBase][img-hbase-sample-data-bigtable]
 
-Alles wordt waarschijnlijk duidelijker zodra u de volgende procedure hebt voltooid.  
 
 **De HBase-shell gebruiken**
 
@@ -137,19 +136,14 @@ U kunt een tekstbestand maken en het bestand desgewenst uploaden naar uw eigen o
 3. U kunt de HBase-shell openen en de scanopdracht gebruiken om de tabelinhoud weer te geven.
 
 ## <a name="use-hive-to-query-hbase"></a>Hive gebruiken om een query op HBase uit te voeren
-Met Hive kunt u een query uitvoeren op de gegevens in HBase-tabellen. In deze sectie maakt u een Hive-tabel die is toegewezen aan de HBase-tabel en deze gebruikt om een query voor de gegevens in uw HBase-tabel uit te voeren.
 
-> [!NOTE]
-> Als Hive en HBase zich op verschillende clusters in hetzelfde VNet bevinden, moet u tijdens het aanroepen van de Hive-shell een Zookeeper-quorum doorgeven:
->
->       hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net --hiveconf zookeeper.znode.parent=/hbase-unsecure  
->
->
+Met Hive kunt u een query uitvoeren op de gegevens in HBase-tabellen. In dit gedeelte maakt u een Hive-tabel die is toegewezen aan de HBase-tabel en deze gebruikt om een query voor de gegevens in uw HBase-tabel uit te voeren.
 
 1. Open **PuTTY** en maak verbinding met het cluster.  Zie de instructies in de vorige procedure.
-2. Open de Hive-shell.
-   
-       hive
+2. Gebruik tijdens de SSH-sessie de volgende opdracht om Beeline te starten:
+
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    Zie voor meer informatie over Beeline [Hive gebruiken met Hadoop in HDInsight met Beeline](hdinsight-hadoop-use-hive-beeline.md).
        
 3. Voer het volgende HiveQL-script uit om een Hive-tabel te maken die is toegewezen aan de HBase-tabel. Zorg ervoor dat u met de HBase-shell de voorbeeldtabel hebt gemaakt waarnaar eerder in deze zelfstudie is verwezen voordat u deze instructie uitvoert.
    
@@ -159,31 +153,12 @@ Met Hive kunt u een query uitvoeren op de gegevens in HBase-tabellen. In deze se
         TBLPROPERTIES ('hbase.table.name' = 'Contacts');
 4. Voer het volgende HiveQL-script uit om een query uit te voeren voor de gegevens in de HBase-tabel:
    
-         SELECT count(*) FROM hbasecontacts;
+         SELECT * FROM hbasecontacts;
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>HBase REST API's gebruiken met Curl
-> [!NOTE]
-> Wanneer u Curl of een andere REST-communicatie gebruikt met WebHCat, moet u de aanvragen verifiëren door de gebruikersnaam en het wachtwoord voor de beheerder van het HDInsight-cluster op te geven. U moet ook de clusternaam gebruiken als onderdeel van de URI (Uniform Resource Identifier) die wordt gebruikt om de aanvragen naar de server te verzenden.
-> 
-> Voor de opdrachten in deze sectie vervangt u **USERNAME** door de gebruiker die moet worden geverifieerd bij het cluster en vervangt u **PASSWORD** door het wachtwoord voor het gebruikersaccount. Vervang **CLUSTERNAME** door de naam van uw cluster.
-> 
-> De REST API is beveiligd via [basisverificatie](http://en.wikipedia.org/wiki/Basic_access_authentication). U moet aanvragen altijd uitvoeren via een beveiligde HTTP-verbinding (HTTPS). Zo zorgt u ervoor dat uw referenties veilig worden verzonden naar de server.
-> 
-> 
 
-1. Gebruik een opdrachtregel met de volgende opdracht om te controleren of u verbinding met uw HDInsight-cluster kunt maken:
-   
-        curl -u <UserName>:<Password> \
-        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
-   
-    Het antwoord dat u ontvangt, is vergelijkbaar met het volgende antwoord:
-   
-        {"status":"ok","version":"v1"}
-   
-    In deze opdracht worden de volgende parameters gebruikt:
-   
-   * **-u**: de gebruikersnaam en het wachtwoord voor het verifiëren van de aanvraag.
-   * **-G**: hiermee wordt aangegeven dat dit een GET-aanvraag is.
+De REST API is beveiligd via [basisverificatie](http://en.wikipedia.org/wiki/Basic_access_authentication). U moet aanvragen altijd uitvoeren via een beveiligde HTTP-verbinding (HTTPS). Zo zorgt u ervoor dat uw referenties veilig worden verzonden naar de server.
+
 2. Gebruik de volgende opdracht om een lijst met bestaande HBase-tabellen weer te geven:
    
         curl -u <UserName>:<Password> \
@@ -223,10 +198,20 @@ Met Hive kunt u een query uitvoeren op de gegevens in HBase-tabellen. In deze se
 
 Zie [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest) (Snelzoekgids voor Apache HBase) voor meer informatie over HBase REST.
 
->
 > [!NOTE]
 > Thrift wordt niet ondersteund door HBase in HDInsight.
 >
+> Wanneer u Curl of een andere REST-communicatie gebruikt met WebHCat, moet u de aanvragen verifiëren door de gebruikersnaam en het wachtwoord voor de beheerder van het HDInsight-cluster op te geven. U moet ook de clusternaam gebruiken als onderdeel van de URI (Uniform Resource Identifier) die wordt gebruikt om de aanvragen naar de server te verzenden:
+> 
+>   
+>        curl -u <UserName>:<Password> \
+>        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
+>   
+>    Het antwoord dat u ontvangt, is vergelijkbaar met het volgende antwoord:
+>   
+>        {"status":"ok","version":"v1"}
+   
+
 
 ## <a name="check-cluster-status"></a>De clusterstatus controleren
 HBase in HDInsight wordt geleverd met een webgebruikersinterface voor het bewaken van clusters. Met de webgebruikersinterface kunt u statistieken of informatie over regio's aanvragen.

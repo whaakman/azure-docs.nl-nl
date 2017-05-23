@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d05739a4d9f0712c2b4b47432bff97594a11b121
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f8279eb672e58c7718ffb8e00a89bc1fce31174f
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/03/2017
 
 In dit overzicht van de kernonderdelen van de Azure Batch-service worden de primaire servicefuncties en resources besproken die Batch-ontwikkelaars kunnen gebruiken voor het bouwen van grootschalige parallelle rekenoplossingen.
 
-Of u nu een gedistribueerde rekenkundige toepassing of service ontwikkelt die directe [REST-API][batch_rest_api]-aanroepen uitgeeft of een van de [Batch SDK's](batch-apis-tools.md#batch-development-apis) gebruikt, u maakt gebruik van veel van de resources en functies die in dit artikel worden besproken.
+Of u nu een gedistribueerde rekenkundige toepassing of service ontwikkelt die directe [REST-API][batch_rest_api]-aanroepen uitgeeft of een van de [Batch SDK's](batch-apis-tools.md#azure-accounts-for-batch-development) gebruikt, u maakt gebruik van veel van de resources en functies die in dit artikel worden besproken.
 
 > [!TIP]
 > Zie [Basisbeginselen van Azure Batch](batch-technical-overview.md) voor een introductie op hoger niveau van de Batch-service.
@@ -74,16 +74,15 @@ Een Batch-account is een uniek geïdentificeerde entiteit in de Batch-service. A
 
 U kunt een Azure Batch-account maken met de [Azure Portal](batch-account-create-portal.md) of via een programma, zoals met de [Batch Management .NET-bibliotheek](batch-management-dotnet.md). Wanneer u het account maakt, kunt u een Azure-opslagaccount koppelen.
 
-Batch ondersteunt twee accountconfiguraties, op basis van de eigenschap *groepstoewijzingsmodus*. De twee configuraties geven u toegang tot verschillende mogelijkheden met betrekking tot Batch-[groepen](#pool) (zie verderop in dit artikel). 
+Batch ondersteunt twee accountconfiguraties, op basis van de eigenschap *groepstoewijzingsmodus*. De twee configuraties geven u toegang tot verschillende mogelijkheden met betrekking tot Batch-[groepen](#pool) (zie verderop in dit artikel).
 
 
-* **Batch-service**: dit is de standaardoptie, waarbij achter de schermen virtuele machines met Batch-groepen worden toegewezen in Azure-abonnementen. Gebruik deze accountconfiguratie als Cloud Services-groepen vereist zijn. Deze configuratie kan echter niet worden gebruikt als Virtual Machine-groepen vereist zijn die zijn gemaakt op basis van aangepaste VM-installatiekopieën of die gebruikmaken van een virtueel netwerk. U hebt toegang tot de Batch-API's via verificatie op basis van gedeelde sleutels of [Azure Active Directory-verificatie](batch-aad-auth.md). 
+* **Batch-service**: dit is de standaardoptie, waarbij achter de schermen virtuele machines met Batch-groepen worden toegewezen in Azure-abonnementen. Gebruik deze accountconfiguratie als Cloud Services-groepen vereist zijn. Deze configuratie kan echter niet worden gebruikt als Virtual Machine-groepen vereist zijn die zijn gemaakt op basis van aangepaste VM-installatiekopieën of die gebruikmaken van een virtueel netwerk. U hebt toegang tot de Batch-API's via verificatie op basis van gedeelde sleutels of [Azure Active Directory-verificatie](batch-aad-auth.md). U kunt toegewezen rekenknooppunten of rekenknooppunten met lage prioriteit in pools in de Batch-serviceaccount configureren.
 
-* **Gebruikersabonnement**: gebruik deze accountconfiguratie als Virtual Machine-groepen vereist zijn die zijn gemaakt op basis van aangepaste VM-installatiekopieën of die gebruikmaken van een virtueel netwerk. U hebt alleen toegang tot de Batch-API's met [Azure Active Directory-verificatie](batch-aad-auth.md). Cloud Services-groepen worden niet ondersteund. Batch-reken-VM's worden rechtstreeks in uw Azure-abonnement toegewezen. Voor deze modus moet u een Azure-sleutelkluis voor uw Batch-account instellen.
- 
+* **Gebruikersabonnement**: gebruik deze accountconfiguratie als Virtual Machine-groepen vereist zijn die zijn gemaakt op basis van aangepaste VM-installatiekopieën of die gebruikmaken van een virtueel netwerk. U hebt alleen toegang tot de Batch-API's met [Azure Active Directory-verificatie](batch-aad-auth.md). Cloud Services-groepen worden niet ondersteund. Batch-reken-VM's worden rechtstreeks in uw Azure-abonnement toegewezen. Voor deze modus moet u een Azure-sleutelkluis voor uw Batch-account instellen. U kunt alleen toegewezen rekenknooppunten in pools in de accountconfiguratie van het gebruikersabonnement gebruiken. 
 
 ## <a name="compute-node"></a>Rekenknooppunt
-Een rekenknooppunt is een virtuele machine (VM) van Azure die aan een specifiek deel van de workload van uw toepassing is toegewezen. De grootte van een knooppunt bepaalt het aantal CPU-kernen, de geheugencapaciteit en de grootte van het lokale bestandssysteem die aan het knooppunt worden toegewezen. U kunt pools van Windows- of Linux-knooppunten maken met behulp van Azure Cloud Services of Virtual Machines Marketplace-installatiekopieën. Zie de volgende sectie ([Pool](#pool)) voor meer informatie over deze opties.
+Een rekenknooppunt is een virtuele machine (VM) of cloudservice-VM van Azure die aan een specifiek deel van de workload van uw toepassing is toegewezen. De grootte van een knooppunt bepaalt het aantal CPU-kernen, de geheugencapaciteit en de grootte van het lokale bestandssysteem die aan het knooppunt worden toegewezen. U kunt pools van Windows- of Linux-knooppunten maken met behulp van Azure Cloud Services of Virtual Machines Marketplace-installatiekopieën. Zie de volgende sectie ([Pool](#pool)) voor meer informatie over deze opties.
 
 Knooppunten kunnen elk uitvoerbaar bestand of script uitvoeren dat wordt ondersteund door de besturingssysteemomgeving van het knooppunt. Dit omvat \*.exe \*.cmd, \*.bat en PowerShell-scripts voor Windows - en binaire bestanden, shell- en Python-scripts voor Linux.
 
@@ -117,6 +116,25 @@ Wanneer u een pool maakt, kunt u de volgende kenmerken opgeven. Sommige instelli
   * Het *type besturingssysteem* is ook bepalend voor de versies van .NET die samen met het besturingssysteem zijn geïnstalleerd.
   * Net als bij werkrollen in Cloud Services kan het *type besturingssysteem* worden opgegeven. (Zie de sectie [Informatie over Cloud Services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) in [Overzicht van Cloud Services](../cloud-services/cloud-services-choose-me.md) voor meer informatie over werkrollen.)
   * Net als bij werkrollen verdient het aanbeveling om `*` op te geven voor de *versie van het besturingssysteem*, zodat de knooppunten automatisch worden bijgewerkt en er geen werk vereist is om tegemoet te komen aan nieuwe versies. Er wordt voornamelijk voor een specifieke versie van een besturingssysteem gekozen om ervoor te zorgen dat toepassingen compatibel blijven, en om compatibiliteitstests met eerdere versies te kunnen uitvoeren alvorens toe te staan dat de versie mag worden bijgewerkt. Na de validatie kan de *versie van het besturingssysteem* voor de pool worden bijgewerkt en kan de nieuwe installatiekopie van het besturingssysteem worden geïnstalleerd. Elke actieve taak wordt onderbroken en opnieuw in de wachtrij geplaatst.
+
+* **Type rekenknooppunt** en **beoogd aantal knooppunten**
+
+    Wanneer u een pool maakt, kunt u opgeven welke typen rekenknooppunten u wilt gebruiken en het beoogde aantal. Er zijn twee soorten rekenknooppunten:
+
+    - **Rekenknooppunten met lage prioriteit.** Knooppunten met lage prioriteit profiteren van de overtollige capaciteit in Azure om uw Batch-workloads uit te voeren. Knooppunten met lage prioriteit zijn kosteneffectiever dan toegewezen knooppunten en maken workloads mogelijk met veel rekencapaciteit. Zie voor meer informatie [VM's met lage prioriteit gebruiken met Batch](batch-low-pri-vms.md).
+
+        Rekenknooppunten met lage prioriteit kunnen worden verschoven wanneer Azure onvoldoende overtollige capaciteit heeft. Als een knooppunt wordt verschoven tijdens het uitvoeren van taken, worden de taken opnieuw ingepland en uitgevoerd zodra er weer een rekenknooppunt beschikbaar is. Knooppunten met lage prioriteit zijn een goede optie voor workloads waarbij de voltooiingstijd van de taak flexibel is en het werk over veel knooppunten wordt verdeeld.
+
+        Rekenknooppunten met lage prioriteit zijn alleen beschikbaar voor Batch-accounts die zijn gemaakt met de modus pooltoewijzing ingesteld op **Batch-service**.
+
+    - **Toegewezen rekenknooppunten.** Toegewezen rekenknooppunten zijn gereserveerd voor uw workloads. Ze zijn duurder dan de knooppunten met lage prioriteit, maar ze worden gegarandeerd nooit verschoven.    
+
+    U kunt zowel rekenknooppunten met lage prioriteit als toegewezen rekenknooppunten hebben in dezelfde groep. Elk type knooppunt, &mdash; met lage prioriteit of toegewezen &mdash; is ingesteld op een eigen doel. Hier kunt u het gewenste aantal knooppunten opgeven. 
+        
+    Het aantal rekenknooppunten wordt aangeduid als *beoogd* omdat de pool in sommige gevallen mogelijk niet het gewenste aantal knooppunten bereikt. Een pool kan het doel bijvoorbeeld mogelijk niet bereiken als het eerst het [quotum voor kernen](batch-quota-limit.md) voor uw Batch-account bereikt. De pool kan het doel mogelijk ook niet bereiken als u een formule voor automatisch schalen hebt toegepast die het maximum aantal knooppunten in de pool beperkt.
+
+    Zie [Batch-prijzen](https://azure.microsoft.com/pricing/details/batch/) voor informatie over prijzen voor rekenknooppunten met lage prioriteit en toegewezen rekenknooppunten.
+
 * **Grootte van de knooppunten**
 
     De grootte van rekenknooppunten met **Cloud Services-configuratie** wordt vermeld in [Groottes voor Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Batch ondersteunt Cloud Services van alle grootten met uitzondering van `ExtraSmall`, `STANDARD_A1_V2` en `STANDARD_A2_V2`.
@@ -126,12 +144,11 @@ Wanneer u een pool maakt, kunt u de volgende kenmerken opgeven. Sommige instelli
     Houd bij het selecteren van de grootte van een rekenknooppunt rekening met de kenmerken en vereisten van de toepassingen die u uitvoert op de knooppunten. Houd ook rekening met het feit of bijvoorbeeld de toepassing meerdere threads heeft en hoeveel geheugen deze gebruikt. Zo kunt u gemakkelijker de meest geschikte en voordeligste knooppuntgrootte bepalen. Meestal selecteert u een knooppuntgrootte in de veronderstelling dat er op het knooppunt één taak tegelijk wordt uitgevoerd. Het is echter mogelijk om meerdere taken te hebben (waarbij meerdere toepassingsinstanties [parallel worden uitgevoerd](batch-parallel-node-tasks.md)) op rekenknooppunten tijdens het uitvoeren van de taak. In dat geval kiest u meestal voor een groter knooppunt om te voldoen aan deze opdracht. Zie [Taak planningsbeleid](#task-scheduling-policy) voor meer informatie.
 
     Alle knooppunten in een pool zijn even groot. Als u toepassingen met verschillende systeemvereisten en/of workloadniveaus wilt uitvoeren, moet u afzonderlijke pools maken.
-* **Beoogd aantal knooppunten**
 
-    Dit is het aantal rekenknooppunten dat u in de pool wilt implementeren. Dit wordt aangeduid als *beoogd* omdat de pool in sommige gevallen mogelijk niet het gewenste aantal knooppunten bereikt. Een pool bereikt mogelijk niet het gewenste aantal knooppunten als deze het [kernquotum](batch-quota-limit.md) voor uw Batch-account bereikt of als er een formule voor automatisch vergroten/verkleinen is die u hebt toegepast op de pool die het maximumaantal knooppunten bereikt. Zie de volgende sectie (Beleid voor vergroten/verkleinen).
 * **Beleid voor vergroten/verkleinen**
 
     Voor dynamische workloads kunt u een [formule voor automatisch schalen](#scaling-compute-resources) opstellen en toepassen op een pool. De Batch-service evalueert de formule periodiek en past het aantal knooppunten in de pool aan op basis van verschillende pool-, job- en taakparameters die u kunt opgeven.
+
 * **Taakplanningsbeleid**
 
     De configuratieoptie [Maximumaantal taken per knooppunt](batch-parallel-node-tasks.md) bepaalt het maximumaantal taken dat parallel kan worden uitgevoerd op elk rekenknooppunt in de pool.
@@ -336,7 +353,7 @@ U kunt de API’s gebruiken om de id van een [virtueel netwerk (VNet)](../virtua
 
 * Het VNet heeft genoeg vrije **IP-adressen** nodig om de eigenschap `targetDedicated` van de pool onder te brengen. Als het subnet onvoldoende vrije IP-adressen heeft, wijst de Batch-service de rekenknooppunten in de pool gedeeltelijk toe en wordt er een fout weergegeven voor het aanpassen van de grootte.
 
-* Het opgegeven subnet moet communicatie vanuit de Batch-service toestaan om taken te kunnen plannen voor de rekenknooppunten. Als communicatie met de rekenknooppunten wordt geweigerd door een **netwerkbeveiligingsgroep** die is gekoppeld aan het VNet, zet de Batch-service de status van de rekenknooppunten op **Onbruikbaar**. 
+* Het opgegeven subnet moet communicatie vanuit de Batch-service toestaan om taken te kunnen plannen voor de rekenknooppunten. Als communicatie met de rekenknooppunten wordt geweigerd door een **netwerkbeveiligingsgroep** die is gekoppeld aan het VNet, zet de Batch-service de status van de rekenknooppunten op **Onbruikbaar**.
 
 * Als het opgegeven VNet bijbehorende netwerkbeveiligingsgroepen heeft, moet binnenkomende communicatie worden ingeschakeld. Voor zowel Linux- als Windows-pools moeten poort 29876 en 29877 worden ingeschakeld. U kunt optioneel ook respectievelijk poort 22 en 3389 inschakelen (of hier selectief op filteren) voor SSH in Linux-pools of RDP in Windows-pools.
 
@@ -345,7 +362,7 @@ Aanvullende instellingen voor het VNet zijn afhankelijk van de groepstoewijzings
 ### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>VNets voor pools die zijn ingericht in de Batch-service
 
 In de toewijzingsmodus van de Batch-service kan alleen aan pools van **Cloud Services-configuratie** een VNet worden toegewezen. Het opgegeven VNet moet bovendien een **klassiek** VNet zijn. VNets die zijn gemaakt met het Azure Resource Manager-implementatiemodel, worden niet ondersteund.
-   
+
 
 
 * De *MicrosoftAzureBatch*-service-principal moet de toegangsbeheerrol [Inzender voor klassieke virtuele machines](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) hebben voor het betreffende VNet. In Azure Portal:
@@ -368,7 +385,7 @@ Door [automatisch te vergroten/verkleinen](batch-automatic-scaling.md) kunt u he
 
 U schakelt automatische vergroting/verkleining in door een [formule voor automatisch vergroten/verkleinen](batch-automatic-scaling.md#automatic-scaling-formulas) te schrijven en die formule te koppelen aan een pool. De Batch-service gebruikt deze formule om het doelaantal knooppunten in de pool te bepalen voor het volgende interval voor vergroten/verkleinen (een interval dat u kunt configureren). U kunt de instellingen voor automatisch vergroten/verkleinen voor een pool opgeven wanneer u deze maakt of op een later moment voor een pool inschakelen. U kunt de instellingen voor automatisch vergroten/verkleinen ook bijwerken in een pool waarvoor vergroten/verkleinen is ingeschakeld.
 
-Voor een bepaalde job moet u bijvoorbeeld een groot aantal taken verzenden die moeten worden uitgevoerd. U kunt aan de pool een formule voor vergroten/verkleinen toewijzen die het aantal knooppunten in de pool aanpast op basis van het huidige aantal taken in de wachtrij en de snelheid waarmee de taken in de job worden voltooid. De Batch-service evalueert periodiek de formule en vergroot/verkleint de pool op basis van de workload en uw andere formule-instellingen. De service voegt naar behoefte knooppunten toe, bijvoorbeeld wanneer er veel taken in de wachtrij staan. Ook worden er knooppunten verwijderd wanneer er geen taken actief zijn of in de wachtrij staan. 
+Voor een bepaalde job moet u bijvoorbeeld een groot aantal taken verzenden die moeten worden uitgevoerd. U kunt aan de pool een formule voor vergroten/verkleinen toewijzen die het aantal knooppunten in de pool aanpast op basis van het huidige aantal taken in de wachtrij en de snelheid waarmee de taken in de job worden voltooid. De Batch-service evalueert periodiek de formule en vergroot/verkleint de pool op basis van de workload en uw andere formule-instellingen. De service voegt naar behoefte knooppunten toe, bijvoorbeeld wanneer er veel taken in de wachtrij staan. Ook worden er knooppunten verwijderd wanneer er geen taken actief zijn of in de wachtrij staan.
 
 Een formule voor vergroten/verkleinen kan op de volgende metrische gegevens worden gebaseerd:
 

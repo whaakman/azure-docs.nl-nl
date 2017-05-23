@@ -15,4 +15,3 @@ Geef het abonnement op dat u wilt gebruiken.
 ```azurecli
 az account set --subscription <replace_with_your_subscription_id>
 ```
-

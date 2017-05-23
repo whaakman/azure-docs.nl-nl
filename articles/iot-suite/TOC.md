@@ -11,6 +11,7 @@
 ## [Overzicht van de oplossing voor verbonden bedrijven](iot-suite-connected-factory-overview.md)
 ## [Kennismaken met de oplossing voor controle op afstand](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Kennismaken met de oplossing voor voorspellend onderhoud](iot-suite-predictive-walkthrough.md)
+## [Kennismaken met de oplossing voor verbonden bedrijven](iot-suite-connected-factory-sample-walkthrough.md)
 ## [Verbinding maken met uw Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
 ### C gebruiken
 #### [Gesimuleerde gegevens](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
@@ -20,6 +21,9 @@
 #### [Gesimuleerde gegevens](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
 #### [Echte sensoren gebruiken](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
 #### [Firmware-update implementeren](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
+## Verbinding maken met uw Intel NUC-gateway
+### [Gesimuleerde gegevens](iot-suite-gateway-kit-get-started-simulator.md)
+### [Een echte sensor gebruiken](iot-suite-gateway-kit-get-started-sensortag.md)
 
 # Procedures
 ## Een gesimuleerd apparaat verbinden
@@ -33,6 +37,7 @@
 ## [Een aangepaste regel maken in de oplossing voor controle op afstand](iot-suite-custom-rule.md)
 ## [Apparaatgegevens in de oplossing voor controle op afstand](iot-suite-remote-monitoring-device-info.md)
 ## [Een gateway implementeren voor een verbonden bedrijf](iot-suite-connected-factory-gateway-deployment.md)
+## [Een verbonden factory aanpassen](iot-suite-connected-factory-customize.md)
 
 # Naslaginformatie
 ## [Beveiligingsarchitectuur](iot-security-architecture.md)
