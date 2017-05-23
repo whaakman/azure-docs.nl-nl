@@ -1,27 +1,30 @@
 1. Meld u in een nieuw venster aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in de snelbalk achtereenvolgens op **Nieuw**, **Databases** en **NoSQL (DocumentDB)**.
+2. Klik in het menu links op **Nieuw**, klik op **Databases** en klik vervolgens op **Azure Cosmos DB**.
    
-   ![Schermopname van Azure Portal waarbij Meer services en DocumentDB (NoSQL) zijn gemarkeerd](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
-3. In de blade **Nieuw account** geeft u de gewenste configuratie op voor het DocumentDB-account.
-   
-    ![Schermopname van de nieuwe DocumentDB-blade](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
-   
-   * In het vak **Id** typt u de naam die het DocumentDB-account aanduidt.  Wanneer de **id** is gevalideerd, verschijnt een groen vinkje in het vak **Id**. De waarde van **Id** wordt de hostnaam binnen de URI. De **id** mag alleen kleine letters, cijfers en het minteken ('-') bevatten, en moet tussen de 3 en 50 tekens zijn. Houd er rekening mee dat *documents.azure.com* wordt toegevoegd aan de eindpuntnaam die u kiest. Het resultaat hiervan wordt het eindpunt van uw DocumentDB-account.
-   * Selecteer in het vak **NoSQL-API** de optie **DocumentDB**.  
-   * Selecteer als **Abonnement** het Azure-abonnement dat u voor het DocumentDB-account wilt gebruiken. Als uw account slechts één abonnement heeft, wordt dit account standaard geselecteerd.
-   * In **Resourcegroep** selecteert of maakt u een resourcegroep voor uw DocumentDB-account.  Standaard wordt een nieuwe resourcegroep gemaakt. Zie [Using the Azure portal to manage your Azure resources](../articles/azure-portal/resource-group-portal.md) (Azure Portal gebruiken om uw Azure-resources te beheren) voor meer informatie.
-   * Gebruik **Locatie** om de geografische locatie op te geven waar uw DocumentDB-account moet worden gehost. 
-4. Zodra de opties voor het nieuwe DocumentDB-account zijn geconfigureerd, klikt u op **Maken**. Controleer de hub Meldingen als u de status van de implementatie wilt bekijken.  
-   
-   ![Snel databases maken: schermopname van Notification Hubs, waarop wordt weergegeven dat het DocumentDB-account wordt gemaakt](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
-   
-   ![Schermopname van Notification Hubs, waarop wordt weergegeven dat het DocumentDB-account is gemaakt en naar een resourcegroep is geïmplementeerd - melding van Onlinedatabase maken](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
-5. Nadat het DocumentDB-account is gemaakt, kan het met de standaardinstellingen worden gebruikt. Als u de standaardinstellingen wilt controleren, klikt u op het pictogram **NoSQL (DocumentDB)** in de snelbalk en daarna op uw nieuwe account. Klik vervolgens in het menu Resource op **Standaardconsistentie**.
+   ![Schermopname van Azure Portal waarbij Meer services en Azure Cosmos DB zijn gemarkeerd](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
-   ![Schermopname die u toont hoe u uw Azure DocumentDB-databaseaccount opent in Azure Portal](./media/documentdb-create-dbaccount/azure-documentdb-database-open-account-portal.png)  
+3. Geef op de blade **Nieuw account** de gewenste configuratie op voor het Azure Cosmos DB-account. 
 
-   De standaardconsistentie van het DocumentDB-account is ingesteld op **Sessie**.  U kunt de standaardconsistentie aanpassen door een van de andere consistentieopties te selecteren. Zie [Consistency levels in DocumentDB](../articles/documentdb/documentdb-consistency-levels.md) (Consistentieniveaus in DocumentDB) voor meer informatie over de consistentieniveaus die DocumentDB te bieden heeft.
+    Met Azure Cosmos DB kunt u een van de vier programmeermodellen kiezen: Gremlin (Graph), MongoDB, SQL (DocumentDB) en Tabel (sleutelwaarde). 
+    
+    In deze Quick Start programmeren we met de DocumentDB API, daarom kiest u bij het invullen van het formulier voor **SQL (DocumentDB)**. Maar als u graafgegevens voor een sociale media-app hebt of sleutel/waarde-gegevens (tabel) of gegevens die zijn gemigreerd vanuit een MongoDB-app, vergeet dan niet dat Azure Cosmos DB een maximaal beschikbaar, wereldwijd gedistribueerd databaseserviceplatform heeft te bieden voor al uw bedrijfskritische toepassingen.
 
-[How to: Create a DocumentDB account]: #Howto
-[Next steps]: #NextSteps
-[documentdb-manage]:../articles/documentdb/documentdb-manage.md
+    Vul de blade Nieuw account in en gebruik de gegevens in de schermopname hierbij als richtlijn. Wanneer u het account instelt, kiest u unieke waarden, zodat deze niet precies overeenkomen met de waarden in de schermopname. 
+ 
+    ![Schermopname van de blade Nieuwe Azure Cosmos DB](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+
+    Instelling|Voorgestelde waarde|Beschrijving
+    ---|---|---
+    Id|*Unieke waarde*|Een unieke naam die u kiest om uw Azure Cosmos DB-account aan te duiden. *documents.azure.com* is toegevoegd aan de id die u hebt opgegeven om uw URI te maken. Gebruik daarom een unieke maar identificeerbare id. De id mag alleen kleine letters, cijfers en het minteken ('-') bevatten, en moet tussen de 3 en 50 tekens lang zijn.
+    API|SQL (DocumentDB)|Verderop in dit artikel gaan we programmeren met de [DocumentDB API](../articles/documentdb/documentdb-introduction.md).|
+    Abonnement|*Uw abonnement*|Het Azure-abonnement dat u wilt gebruiken voor uw Azure Cosmos DB-account. 
+    Resourcegroep|*Dezelfde waarde als id*|De nieuwe resourcegroepnaam voor het account. Gebruik dezelfde naam als uw id om het uzelf gemakkelijk te maken. 
+    Locatie|*De regio het dichtst bij uw gebruikers*|De geografische locatie waar u het Azure Cosmos DB-account gaat hosten. Kies de locatie die zich het dichtst bij uw gebruikers bevindt, zodat ze de snelst mogelijke toegang tot de gegevens hebben.
+4. Klik op **Maken** om het account te maken.
+5. Klik op de bovenste werkbalk op **Meldingen** om het implementatieproces te bewaken.
+
+    ![De melding Implementatie is gestart](./media/documentdb-create-dbaccount/azure-documentdb-nosql-notification.png)
+
+6.  Als de implementatie is voltooid, opent u het nieuwe account via de tegel Alle resources. 
+
+    ![DocumentDB-account op de tegel Alle resources](./media/documentdb-create-dbaccount/azure-documentdb-all-resources.png)
