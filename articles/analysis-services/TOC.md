@@ -1,11 +1,10 @@
 # Overzicht
-
 ## [Wat is Azure Analysis Services?](analysis-services-overview.md)
 
-# Aan de slag
-## [Een server maken](analysis-services-create-server.md)
-## [Implementeren op een server](analysis-services-deploy.md)
-## [Verbinding maken](analysis-services-connect.md)
+# Snelstartgidsen
+## [Een server maken - portal](analysis-services-create-server.md)
+## [Een model implementeren - SSDT](analysis-services-deploy.md)
+
 
 # Zelfstudies
 ## Een model maken en implementeren
@@ -31,6 +30,7 @@
 ## [Een server beheren](analysis-services-manage.md)
 ## [Gebruikers beheren](analysis-services-manage-users.md)
 ## [De on-premises gegevensgateway integreren](analysis-services-gateway.md)
+## [Verbinding maken met servers](analysis-services-connect.md)
 ## [Verbinden met Excel](analysis-services-connect-excel.md)
 ## [Verbinden met Power BI](analysis-services-connect-pbi.md)
 ## [Clientbibliotheken ophalen](analysis-services-data-providers.md)

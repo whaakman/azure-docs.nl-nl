@@ -12,6 +12,7 @@
 ### [Web-apps al live](app-insights-monitor-performance-live-website-now.md)
 ### [Windows-services](app-insights-windows-services.md)
 ### [Windows-bureaublad](app-insights-windows-desktop.md)
+### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Java-apps bewaken
 ### [Web-apps](app-insights-java-get-started.md)
@@ -33,7 +34,8 @@
 ## Plannen en ontwerpen
 ### [Diepe diagnostische gegevens voor web-apps en services](app-insights-devops.md)
 ### [Prestaties in webtoepassingen bewaken](app-insights-web-monitor-performance.md)
-### [Application Insights-resources scheiden](app-insights-separate-resources.md)
+### [Ontwikkelings-, test- en productiegegevens scheiden](app-insights-separate-resources.md)
+### [Apps bewaken met meerdere rollen](app-insights-monitor-multi-role-apps.md)
 ### [Hoe kan ik ... in Application Insights?](app-insights-how-do-i.md)
 
 
@@ -112,7 +114,6 @@
 ### [API voor aangepaste gebeurtenissen en metrische gegevens](app-insights-api-custom-events-metrics.md)
 ### [Telemetrie voor filteren en voorverwerking](app-insights-api-filtering-sampling.md)
 ### [Steekproeven](app-insights-sampling.md)
-### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Beheren
 ### [Prijzen en quota beheren](app-insights-pricing.md)

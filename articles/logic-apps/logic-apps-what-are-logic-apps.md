@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: klam
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 11aa3f74d112244cd96278c2b2e3d701e031aee8
 ms.openlocfilehash: 6415b0e1c7feb744c6c13a0ae19ed434b6e9befc
+ms.contentlocale: nl-nl
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -32,7 +34,7 @@ De voordelen van het gebruik van Logic Apps omvatten het volgende:
 * Verbind en synchroniseer ongelijksoortige systemen on-premises verspreid en in de cloud
 * Opbouwen van BizTalk-server, API Management, Azure Functions en Azure Service Bus met eersteklas integratieondersteuning
 
-Logica Apps is een volledig beheerd iPaaS (integratie Platform as a Service) waarmee gebruiker zich geen zorgen moeten maken over het voorzien van hosting, schaalbaarheid, beschikbaarheid en beheer.  Logic Apps zal de schaal automatisch aanpassen in functie van de vraag.
+Logic Apps is een volledig beheerd iPaaS (integration Platform as a Service) waarmee gebruikers zich geen zorgen hoeven te maken over het voorzien van hosting, schaalbaarheid, beschikbaarheid en beheer.  In Logic Apps wordt de automatisch geschaald op basis van vraag.
 
 ![App-ontwerper voor stromen](media/logic-apps-what-are-logic-apps/LogicAppCapture2.png)
 
@@ -77,9 +79,4 @@ In het onderstaande overzicht ziet u enkele belangrijke onderdelen van Logic App
 [tpm]: logic-apps-enterprise-integration-accounts.md
 [xml]: logic-apps-enterprise-integration-b2b.md
 [templates]: logic-apps-use-logic-app-templates.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

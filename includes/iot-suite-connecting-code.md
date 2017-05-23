@@ -4,7 +4,7 @@ De clientbibliotheek van de IoT Hub-serialisatiefunctie maakt gebruik van een mo
 
 1. Voeg de volgende variabelendeclaraties achter de `#include`-instructies toe. Vervang de waarden van de tijdelijke aanduidingen [apparaat-id] en [apparaatsleutel] door de waarden die u voor het apparaat hebt genoteerd in het dashboard van de oplossing voor externe controle. Gebruik de hostnaam van de IoT Hub uit het oplossingsdashboard om [IoTHub-naam] te vervangen. Als uw IoT Hub-hostnaam bijvoorbeeld **contoso.azure devices.net** is, vervangt u [IoTHub-naam] door **contoso**:
    
-    ```
+    ```c
     static const char* deviceId = "[Device Id]";
     static const char* connectionString = "HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]";
     ```
@@ -17,7 +17,7 @@ De clientbibliotheek van de IoT Hub-serialisatiefunctie maakt gebruik van een mo
    - Gewenste eigenschappen die in de apparaatdubbel in IoT Hub zijn ingesteld, kan ontvangen en hierop kan reageren.
    - Kan reageren op de directe methoden **Reboot** en **InitiateFirmwareUpdate** die via de oplossingsportal worden aangeroepen. Met behulp van gerapporteerde eigenschappen stuurt het apparaat informatie over de ondersteunde directe methoden.
    
-    ```
+    ```c
     // Define the Model
     BEGIN_NAMESPACE(Contoso);
 
@@ -90,7 +90,7 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
 
 1. Voeg de volgende functies toe die de gewenste eigenschappen verwerken die in het oplossingsdashboard zijn ingesteld. De volgende gewenste eigenschappen zijn in het model gedefinieerd:
 
-    ```
+    ```c
     void onDesiredTemperatureMeanValue(void* argument)
     {
       /* By convention 'argument' is of the type of the MODEL */
@@ -109,7 +109,7 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
 
 1. Voeg de volgende functies toe die de directe methoden verwerken die via de IoT Hub worden aangeroepen. De volgende directe methoden zijn in het model gedefinieerd:
 
-    ```
+    ```c
     /* Handlers for direct methods */
     METHODRETURN_HANDLE Reboot(Thermostat* thermostat)
     {
@@ -132,7 +132,7 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
 
 1. Voeg de volgende functie toe die een bericht naar de vooraf geconfigureerde oplossing verzendt:
    
-    ```
+    ```c
     /* Send data to IoT Hub */
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
     {
@@ -160,7 +160,7 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
 
 1. Voeg de volgende callbackhandler toe die wordt uitgevoerd wanneer het apparaat nieuwe gerapporteerde eigenschapswaarden naar de vooraf geconfigureerde oplossing heeft verzonden:
 
-    ```
+    ```c
     /* Callback after sending reported properties */
     void deviceTwinCallback(int status_code, void* userContextCallback)
     {
@@ -180,7 +180,7 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
     - Maakt een lus om elke seconde telemetrie te verzenden.
     - Deïnitialiseert alle resources.
 
-      ```
+      ```c
       void remote_monitoring_run(void)
       {
         if (platform_init() != 0)

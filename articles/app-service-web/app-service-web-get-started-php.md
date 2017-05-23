@@ -1,5 +1,5 @@
 ---
-title: Een PHP-toepassing maken in web-app | Microsoft Docs
+title: Een PHP-toepassing maken in Azure web-app | Microsoft Docs
 description: Implementeer in enkele minuten uw eerste PHP-app (Hello World) in een App Service-web-app.
 services: app-service\web
 documentationcenter: 
@@ -12,30 +12,31 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/31/2017
+ms.date: 05/04/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: d5126f3b9fa92ff95eaa8bc06554c49f9836bab9
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0541778e07193c4903a90ce0b91db224bdf60342
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="create-a-php-application-on-web-app"></a>Een PHP-toepassing maken in een web-app
 
-Deze zelfstudie om snel aan de slag te gaan, helpt u bij het ontwikkelen en implementeren van een PHP-app in Azure. We voeren de app uit met behulp van een Azure App Service op basis van Linux, en maken en configureren er een nieuwe web-app in met behulp van de Azure CLI. Vervolgens gebruiken we Git om onze PHP-app te implementeren in Azure.
+Deze zelfstudie om snel aan de slag te gaan, helpt u bij het ontwikkelen en implementeren van een PHP-app in Azure. We voeren de app uit met behulp van een [Azure App Service-plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) en maken en configureren hierin een nieuwe web-app met behulp van de Azure CLI. Vervolgens gebruiken we Git om onze PHP-app te implementeren in Azure.
 
 ![hello-world-in-browser](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
 U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux-computer. Het uitvoeren van alle onderstaande stappen kost u slechts circa 5 minuten.
 
-## <a name="before-you-begin"></a>Voordat u begint
+## <a name="prerequisites"></a>Vereisten
 
-Voordat u dit voorbeeld uitvoert, moet u het volgende lokaal installeren:
+Voordat u dit voorbeeld maakt, moet u de volgende zaken downloaden en installeren:
 
-1. [Git downloaden en installeren](https://git-scm.com/)
-1. [PHP downloaden en installeren](https://php.net)
-1. De [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) downloaden en installeren
+* [Git](https://git-scm.com/)
+* [PHP](https://php.net)
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,9 +47,6 @@ Kloon de opslagplaats van de Hello World-voorbeeld-app naar uw lokale computer.
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
 ```
-
-> [!TIP]
-> U kunt [het voorbeeld ook downloaden](https://github.com/Azure-Samples/php-docs-hello-world/archive/master.zip) als ZIP-bestand en dit uitpakken.
 
 Ga naar de map die de voorbeeldcode bevat.
 
@@ -84,20 +82,8 @@ We gaan nu de Azure CLI 2.0 in een terminalvenster gebruiken om de resources te 
 az login
 ```
 
-## <a name="configure-a-deployment-user"></a>Een implementatiegebruiker configureren
-
-Voor FTP en lokale Git is het noodzakelijk om een implementatiegebruiker te hebben geconfigureerd op de server om uw implementatie te verifiëren. Het maken van een implementatiegebruiker is een eenmalige configuratie. Noteer de gebruikersnaam en het wachtwoord, aangezien deze worden gebruikt in een van de onderstaande stappen.
-
-> [!NOTE]
-> Een implementatiegebruiker is vereist voor FTP- en lokale Git-implementatie naar een web-app.
-> De `username` en `password` zijn op accountniveau en als zodanig verschillend van de referenties van uw Azure-abonnement. **Deze referenties hoeven maar één keer te worden gemaakt**.
->
-
-Gebruik de opdracht [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) om uw referenties op accountniveau te maken.
-
-```azurecli
-az appservice web deployment user set --user-name <username> --password <password>
-```
+<!-- ## Configure a Deployment User -->
+[!INCLUDE [login-to-azure](../../includes/configure-deployment-user.md)]
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -107,24 +93,19 @@ Maak een resourcegroep met de opdracht [az group create](/cli/azure/group#create
 az group create --name myResourceGroup --location westeurope
 ```
 
-## <a name="create-an-azure-app-service"></a>Een Azure App Service maken
+## <a name="create-an-azure-app-service-plan"></a>Een Azure App Service-plan maken
 
-Maak een App Service-plan op basis van Linux met de opdracht [az appservice plan create](/cli/azure/appservice/plan#create).
+Maak een gratis [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) met de opdracht [az appservice plan create](/cli/azure/appservice/plan#create).
 
-> [!NOTE]
-> Een App Service-plan bestaat uit een verzameling van fysieke resources die worden gebruikt voor het hosten van uw apps. Alle toepassingen die zijn toegewezen aan een App Service-plan, delen de gedefinieerde resources, zodat u kosten kunt besparen als u meerdere apps host.
->
-> In App Service-plannen wordt het volgende gedefinieerd:
-> * Regio (Noord-Europa, VS - oost, Zuidoost-Azië)
-> * Exemplaargrootte (klein, normaal, groot)
-> * Schaal (een, twee of drie exemplaren enz.)
-> * SKU (Free, Shared, Basic, Standard, Premium)
->
+<!--
+ An App Service plan represents the collection of physical resources used to ..
+-->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-In het volgende voorbeeld wordt een App Service-plan gemaakt in Linux Workers met de naam `quickStartPlan` en de prijscategorie **Standard**.
+In het volgende voorbeeld wordt een App Service-plan gemaakt met de naam `quickStartPlan` en de prijscategorie **Gratis**.
 
 ```azurecli
-az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku S1 --is-linux
+az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
 ```
 
 Wanneer het App Service-plan is gemaakt, toont de Azure CLI soortgelijke informatie als in het volgende voorbeeld.
@@ -132,7 +113,6 @@ Wanneer het App Service-plan is gemaakt, toont de Azure CLI soortgelijke informa
 ```json
 {
     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-    "kind": "linux",
     "location": "West Europe",
     "sku": {
     "capacity": 1,
@@ -147,9 +127,13 @@ Wanneer het App Service-plan is gemaakt, toont de Azure CLI soortgelijke informa
 
 ## <a name="create-a-web-app"></a>Een webtoepassing maken
 
-Nu er een App Service-plan is gemaakt, maakt u binnen dit `quickStartPlan` App Service-plan een web-app. De web-app geeft ons een hostingruimte voor het implementeren van onze code, evenals een URL waarmee we de geïmplementeerde toepassing kunnen bekijken. Gebruik de opdracht [az appservice web create](/cli/azure/appservice/web#create) om de web-app te maken.
+Nu er een App Service-plan is gemaakt, maakt u binnen dit `quickStartPlan` App Service-plan een [web-app](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview). De web-app geeft ons een hostingruimte voor het implementeren van onze code, evenals een URL waarmee we de geïmplementeerde toepassing kunnen bekijken. Gebruik de opdracht [az appservice web create](/cli/azure/appservice/web#create) om de web-app te maken.
 
-Vervang in de onderstaande opdracht de tijdelijke aanduiding <app_name> door de naam van uw eigen unieke app. De <app_name> wordt gebruikt als de standaard-DNS-site voor de web-app. De naam moet uniek zijn in alle apps in Azure. Later kunt u een aangepaste DNS-vermelding toewijzen aan de web-app voordat u deze beschikbaar maakt voor uw gebruikers.
+Vervang in de onderstaande opdracht de tijdelijke aanduiding `<app_name>` door de naam van uw eigen unieke app. De `<app_name>` wordt gebruikt in de standaard-DNS-site voor de web-app. Als `<app_name>` niet uniek is, wordt het foutbericht "Er bestaan al een website met de naam <naam_app>" weergegeven.
+
+<!-- removed per https://github.com/Microsoft/azure-docs-pr/issues/11878
+You can later map any custom DNS entry to the web app before you expose it to your users.
+-->
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -183,22 +167,11 @@ http://<app_name>.azurewebsites.net
 
 ![app-service-web-service-gemaakt](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
-We hebben nu een lege nieuwe web-app gemaakt in Azure. We gaan nu onze web-app configureren voor het gebruik van PHP en onze app daarin implementeren.
-
-## <a name="configure-to-use-php"></a>Configureren voor het gebruik van PHP
-
-Gebruik de opdracht [az appservice web config update](/cli/azure/app-service/web/config#update) voor het configureren van de web-app voor het gebruik van PHP versie `7.0.x`.
-
-> [!TIP]
-> Voor het instellen van de PHP-versie op deze manier wordt een standaardcontainer gebruikt die wordt geleverd door het platform. Als u uw eigen container wilt gebruiken, raadpleegt u de CLI-verwijzing voor de opdracht [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update).
-
-```azurecli
-az appservice web config update --linux-fx-version "PHP|7.0" --name <app_name> --resource-group myResourceGroup
-```
+We hebben nu een lege nieuwe web-app gemaakt in Azure.
 
 ## <a name="configure-local-git-deployment"></a>Lokale Git-implementatie configureren
 
-U kunt uw web-app op verschillende manieren implementeren, zoals FTP, lokale Git, evenals GitHub, Visual Studio Team Services en Bitbucket.
+U kunt uw web-app op verschillende manieren implementeren, zoals met FTP, lokale Git, evenals GitHub, Visual Studio Team Services en Bitbucket.
 
 Gebruik de opdracht [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) voor het configureren van lokale Git-toegang tot de web-app.
 
@@ -220,9 +193,9 @@ Voeg een externe Azure-instantie toe aan uw lokale Git-opslagplaats.
 git remote add azure <paste-previous-command-output-here>
 ```
 
-Push naar de externe Azure-instantie om uw toepassing te implementeren. U wordt gevraagd naar het wachtwoord dat u eerder hebt opgegeven als onderdeel van het maken van de implementatiegebruiker.
+Push naar de externe Azure-instantie om uw app te implementeren. U wordt gevraagd naar het wachtwoord dat u eerder hebt opgegeven bij het maken van de implementatiegebruiker. Zorg ervoor dat u het wachtwoord dat u hebt gemaakt bij [Een implementatiegebruiker configureren](#configure-a-deployment-user) gebruikt en niet het wachtwoord dat u gebruikt om u aan te melden bij de Azure Portal.
 
-```azurecli
+```bash
 git push azure master
 ```
 
@@ -280,7 +253,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-Als de implementatie is voltooid, gaat u terug naar het browservenster dat is geopend in de stap Bladeren naar de app en klikt u op Vernieuwen.
+Als de implementatie is voltooid, gaat u terug naar het browservenster dat is geopend in de stap **Bladeren naar de app** en klikt u op Vernieuwen.
 
 ![hello-world-in-browser](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -312,6 +285,7 @@ Deze tabbladen op de blade bevatten de vele handige functies die kunt u toevoege
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Volgende stappen
+> [!div class="nextstepaction"]
+> [Voorbeelden van CLI-scripts voor web-apps bekijken](app-service-cli-samples.md)
 
-Bekijk vooraf gemaakte [CLI-scripts voor web-apps](app-service-cli-samples.md).
+

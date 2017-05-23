@@ -1,6 +1,7 @@
 ---
-title: Beveiligingsrapport over gebruikers die risico lopen in de Azure Active Directory-portal - preview | Microsoft Docs
-description: Kom meer te weten over het beveiligingsrapport over gebruikers die risico lopen in de Azure Active Directory-portal - preview
+
+title: Beveiligingsrapport over gebruikers die risico lopen in de Azure Active Directory-portal | Microsoft Docs
+description: Kom meer te weten over het beveiligingsrapport over gebruikers die risico lopen in de Azure Active Directory-portal
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,18 +11,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 349109e0c12a1394f96529a94ab884eeb451d242
-ms.openlocfilehash: 48c504a9ed5bc4ef9f0bff889df031962c5bf6e8
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 01ecb98c02b2a01007c7f76805d4db4b7aeee1f0
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal---preview"></a>Het beveiligingsrapport over gebruikers die risico lopen in de Azure Active Directory-portal - preview
+# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Het beveiligingsrapport over gebruikers die risico lopen in de Azure Active Directory-portal
 
-Met de beveiligingsrapporten in de [preview](active-directory-preview-explainer.md) van Azure Active Directory krijgt u inzicht in de kans op verdachte gebruikersaccounts in uw omgeving. 
+Met de beveiligingsrapporten in Azure Active Directory (Azure AD) krijgt u inzicht in de kans op verdachte gebruikersaccounts in uw omgeving. 
 
 Azure Active Directory detecteert verdachte activiteit die is gekoppeld aan uw gebruikersaccounts. Voor elke gedetecteerde activiteit wordt een record met de naam *risicogebeurtenis* gemaakt. Zie [Risicogebeurtenissen in Azure Active Directory](active-directory-identity-protection-risk-events.md) voor meer informatie. 
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9bd8db6c765f8f702a6e4ea5b17507269d3310d1
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 2916ee6ba4753efdb8823f93c951a4f678b08ae4
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -29,7 +30,7 @@ Deze zelfstudie om snel aan de slag te gaan, helpt u bij het ontwikkelen en impl
 
 U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux-computer. Het uitvoeren van alle onderstaande stappen kost u slechts circa 5 minuten.
 
-## <a name="before-you-begin"></a>Voordat u begint
+## <a name="prerequisites"></a>Vereisten
 
 Voordat u dit voorbeeld uitvoert, moet u het volgende lokaal installeren:
 
@@ -107,7 +108,7 @@ az group create --name myResourceGroup --location westeurope
 
 ## <a name="create-an-azure-app-service"></a>Een Azure App Service maken
 
-Maak een App Service-plan op basis van Linux met de opdracht [az appservice plan create](/cli/azure/appservice/plan#create).
+Maak een App Service-plan met de opdracht [az appservice plan create](/cli/azure/appservice/plan#create).
 
 > [!NOTE]
 > Een App Service-plan bestaat uit een verzameling van fysieke resources die worden gebruikt voor het hosten van uw apps. Alle toepassingen die zijn toegewezen aan een App Service-plan, delen de gedefinieerde resources, zodat u kosten kunt besparen als u meerdere apps host.
@@ -119,7 +120,7 @@ Maak een App Service-plan op basis van Linux met de opdracht [az appservice plan
 > * SKU (Free, Shared, Basic, Standard, Premium)
 >
 
-In het volgende voorbeeld wordt een App Service-plan gemaakt in Linux Workers met de naam `quickStartPlan` en de **gratis** prijscategorie.
+In het volgende voorbeeld wordt een App Service-plan gemaakt met de naam `quickStartPlan` en de **GRATIS** prijscategorie.
 
 ```azurecli
 az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
@@ -290,7 +291,7 @@ http://<app_name>.azurewebsites.net
 
 Deze keer wordt de pagina die het bericht Hello World weergeeft, uitgevoerd met onze Python-code die wordt uitgevoerd als een Azure App Service-web-app.
 
-![]()
+![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 ## <a name="updating-and-deploying-the-code"></a>De code bijwerken en implementeren
 
@@ -309,7 +310,7 @@ git push azure master
 
 Als de implementatie is voltooid, gaat u terug naar het browservenster dat is geopend in de stap Bladeren naar de app en klikt u op Vernieuwen.
 
-![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
+![hello-azure-in-browser](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
 ## <a name="manage-your-new-azure-web-app"></a>Uw nieuwe Azure-web-app beheren
 
@@ -319,13 +320,13 @@ Hiervoor moet u zich aanmelden bij [https://portal.azure.com](https://portal.azu
 
 Klik vanuit het linkermenu op **App Services** en klik op de naam van uw Azure-web-app.
 
-![Navigatie in de portal naar de Azure-web-app](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-list.png)
+![Navigatie in de portal naar de Azure-web-app](./media/app-service-web-get-started-python/app-service-list.png)
 
 U bent aangekomen op de _blade_ van uw web-app (een portalpagina die horizontaal wordt geopend).
 
 Standaard toont de blade van uw web-app de pagina **Overzicht**. Deze pagina geeft u een overzicht van hoe uw app presteert. Hier kunt u ook algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen. De tabbladen aan de linkerkant van de blade tonen de verschillende configuratiepagina's die u kunt openen.
 
-![App Service-blade in Azure Portal](media/app-service-web-get-started-python/Python-docs-hello-world-app-service-detail.png)
+![App Service-blade in Azure Portal](media/app-service-web-get-started-python/app-service-detail.png)
 
 Deze tabbladen op de blade bevatten de vele handige functies die kunt u toevoegen aan uw web-app. De volgende lijst bevat slechts enkele van de mogelijkheden:
 
@@ -341,4 +342,6 @@ Deze tabbladen op de blade bevatten de vele handige functies die kunt u toevoege
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk vooraf gemaakte [CLI-scripts voor web-apps](app-service-cli-samples.md).
+> [!div class="nextstepaction"]
+> [Voorbeelden van CLI-scripts voor web-apps bekijken](app-service-cli-samples.md)
+

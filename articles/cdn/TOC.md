@@ -29,12 +29,14 @@
 ### [Resources bewaken](cdn-resource-health.md)
 ### [Gedrag overschrijven met regels](cdn-rules-engine.md)
 ### [Real-time waarschuwingen](cdn-real-time-alerts.md)
+### [Ondersteuning voor HTTP/2](cdn-http2.md)
 
 ## Analyseren
 ### [Gebruikspatronen analyseren](cdn-analyze-usage-patterns.md)
 ### [Geavanceerde HTTP-rapporten genereren](cdn-advanced-http-reports.md)
 ### [Statistieken in realtime bekijken](cdn-real-time-stats.md)
 ### [Prestaties van edge-knooppunt analyseren](cdn-edge-performance.md)
+### [Metrische gegevens exporteren met diagnostische logboeken](cdn-log-analysis.md)
 
 ## Ontwikkelen
 ### [.NET](cdn-app-dev-net.md)

@@ -1,312 +1,314 @@
-- name: "Documentatie voor Cosmos DB"
+- name: Documentatie voor Cosmos DB
   href: index.yml
-- name: "Overzicht"
+- name: Overzicht
   items:
-  - name: "Over Azure Cosmos DB"
+  - name: Over Azure Cosmos DB
     href: introduction.md
-- name: "Snelstartgidsen"
+  - name: Welkom DocumentDB-klanten
+    href: welcome-documentdb-customers.md
+- name: Snelstartgidsen
   expanded: true
   items:
-  - name: "DocumentDB"
+  - name: DocumentDB
     items:
-    - name: ".NET"
+    - name: .NET
       href: create-documentdb-dotnet.md
-    - name: ".NET Core"
+    - name: .NET Core
       href: create-documentdb-dotnet-core.md
-    - name: "Java"
+    - name: Java
       href: create-documentdb-java.md
-    - name: "Node.js"
+    - name: Node.js
       href: create-documentdb-nodejs.md
-    - name: "Python"
+    - name: Python
       href: create-documentdb-python.md
-    - name: "Xamarin"
+    - name: Xamarin
       href: create-documentdb-xamarin-dotnet.md
-  - name: "MongoDB"
+  - name: MongoDB
     items:
-    - name: "Node.js"
+    - name: Node.js
       href: create-mongodb-nodejs.md
-    - name: ".NET"
+    - name: .NET
       href: create-mongodb-dotnet.md
-    - name: "Java"
+    - name: Java
       href: create-mongodb-java.md
-  - name: "Graph"
+  - name: Graph
     items:
-    - name: ".NET"
+    - name: .NET
       href: create-graph-dotnet.md
-    - name: "Gremlin-console"
+    - name: Gremlin-console
       href: create-graph-gremlin-console.md
-    - name: "Java"
+    - name: Java
       href: create-graph-java.md
-    - name: "Node.js"
+    - name: Node.js
       href: create-graph-nodejs.md
-  - name: "Tabel"
+  - name: Tabel
     items:
-    - name: ".NET"
+    - name: .NET
       href: create-table-dotnet.md
-- name: "Zelfstudies"
+- name: Zelfstudies
   items:
-  - name: "1 - Maken"
+  - name: 1 - Maken
     items:
-    - name: "DocumentDB"
+    - name: DocumentDB
       href: tutorial-develop-documentdb-dotnet.md
-    - name: "MongoDB"
+    - name: MongoDB
       href: tutorial-develop-mongodb.md
-    - name: "Tabel"
+    - name: Tabel
       href: tutorial-develop-table-dotnet.md
-    - name: "Graph"
+    - name: Graph
       href: tutorial-develop-graph-dotnet.md
-  - name: "2 - Importeren"
+  - name: 2 - Importeren
     items:
-    - name: "DocumentDB"
+    - name: DocumentDB
       href: ../documentdb/documentdb-import-data.md
-    - name: "MongoDB"
+    - name: MongoDB
       href: ../documentdb/documentdb-mongodb-migrate.md
-  - name: "3 - Query uitvoeren"
+  - name: 3 - Query uitvoeren
     items:
-    - name: "DocumentDB"
+    - name: DocumentDB
       href: tutorial-query-documentdb.md
-    - name: "MongoDB"
+    - name: MongoDB
       href: tutorial-query-mongodb.md
-    - name: "Tabel"
+    - name: Tabel
       href: tutorial-query-table.md
-    - name: "Graph"
+    - name: Graph
       href: tutorial-query-graph.md
-  - name: "4 - Wereldwijd distribueren"
+  - name: 4 - Wereldwijd distribueren
     items:
-    - name: "DocumentDB"
+    - name: DocumentDB
       href: tutorial-global-distribution-documentdb.md
-    - name: "MongoDB"
+    - name: MongoDB
       href: tutorial-global-distribution-mongodb.md
-    - name: "Tabel"
+    - name: Tabel
       href: tutorial-global-distribution-table.md
-    - name: "Graph"
+    - name: Graph
       href: tutorial-global-distribution-graph.md
-  - name: "5 - Lokaal ontwikkelen"
+  - name: 5 - Lokaal ontwikkelen
     items:
-    - name: "De emulator gebruiken"
+    - name: De emulator gebruiken
       href: ../documentdb/documentdb-nosql-local-emulator.md
-    - name: "Certificaten exporteren"
+    - name: Certificaten exporteren
       href: ../documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md
-- name: "Voorbeelden"
+- name: Voorbeelden
   items:
-  - name: "Azure CLI 2.0"
+  - name: Azure CLI 2.0
     href: cli-samples.md
-  - name: "Azure PowerShell"
+  - name: Azure PowerShell
     href: powershell-samples.md
-- name: "Concepten"
+- name: Concepten
   items:
-  - name: "Wereldwijde distributie"
+  - name: Wereldwijde distributie
     href: ../documentdb/documentdb-distribute-data-globally.md
-  - name: "Partitionering"
+  - name: Partitionering
     href: partition-data.md
-  - name: "Consistentie"
+  - name: Consistentie
     href: ../documentdb/documentdb-consistency-levels.md
-  - name: "Doorvoer"
+  - name: Doorvoer
     href: ../documentdb/documentdb-request-units.md
     items:
-    - name: "Aanvraageenheden per minuut"
+    - name: Aanvraageenheden per minuut
       href: request-units-per-minute.md
-  - name: "API&quot;s met meerdere modellen"
+  - name: API's met meerdere modellen
     items:
-    - name: "DocumentDB"
+    - name: DocumentDB
       href: ../documentdb/documentdb-introduction.md
-    - name: "MongoDB"
+    - name: MongoDB
       href: ../documentdb/documentdb-protocol-mongodb.md
-    - name: "Tabel"
+    - name: Tabel
       href: table-introduction.md
-    - name: "Graph"
+    - name: Graph
       href: graph-introduction.md
-  - name: "Beveiliging"
+  - name: Beveiliging
     href: ../documentdb/documentdb-nosql-database-security.md
-  - name: "TCO"
+  - name: TCO
     href: https://aka.ms/documentdb-tco-paper
-  - name: "Gebruiksvoorbeelden"
+  - name: Gebruiksvoorbeelden
     href: ../documentdb/documentdb-use-cases.md
-- name: "Handleidingen"
+- name: Handleidingen
   items:
-  - name: "Ontwikkelen"
+  - name: Ontwikkelen
     items:
-    - name: "DocumentDB-API"
+    - name: DocumentDB-API
       items:
-      - name: "Resources"
+      - name: Resources
         href: ../documentdb/documentdb-resources.md
-      - name: "SQL-query"
+      - name: SQL-query
         href: ../documentdb/documentdb-sql-query.md
-      - name: "SQL-testomgeving"
+      - name: SQL-testomgeving
         href: https://www.documentdb.com/sql/demo
-      - name: "Partitionering"
+      - name: Partitionering
         href: ../documentdb/documentdb-partition-data.md
-      - name: "Opgeslagen procedures, triggers en UDF&quot;s"
+      - name: 'Opgeslagen procedures, triggers en UDF''s'
         href: ../documentdb/documentdb-programming.md
-      - name: "Prestaties testen"
+      - name: Prestaties testen
         href: ../documentdb/documentdb-performance-testing.md
-      - name: "Tips voor prestaties"
+      - name: Tips voor prestaties
         href: ../documentdb/documentdb-performance-tips.md
-      - name: "Meerdere masters instellen"
+      - name: Meerdere masters instellen
         href: ../documentdb/documentdb-multi-region-writers.md
-      - name: "Datum/tijd"
+      - name: Datum/tijd
         href: ../documentdb/documentdb-working-with-dates.md
-      - name: "Zelfstudies"
+      - name: Zelfstudies
         items:
-        - name: "Schrijf uw eerste app"
+        - name: Schrijf uw eerste app
           items:
-          - name: ".NET"
+          - name: .NET
             href: ../documentdb/documentdb-get-started.md
-          - name: ".NET Core"
+          - name: .NET Core
             href: ../documentdb/documentdb-dotnetcore-get-started.md
-          - name: "Java"
+          - name: Java
             href: ../documentdb/documentdb-java-get-started.md
-          - name: "Node.js"
+          - name: Node.js
             href: ../documentdb/documentdb-nodejs-get-started.md
-          - name: "C++"
+          - name: C++
             href: ../documentdb/documentdb-cpp-get-started.md
-        - name: "Een web-app bouwen"
+        - name: Een web-app bouwen
           items:
-          - name: ".NET"
+          - name: .NET
             href: ../documentdb/documentdb-dotnet-application.md
-          - name: "Xamarin"
+          - name: Xamarin
             href: ../documentdb/documentdb-mobile-apps-with-xamarin.md
-          - name: "Node.js"
+          - name: Node.js
             href: ../documentdb/documentdb-nodejs-application.md
-          - name: "Java"
+          - name: Java
             href: ../documentdb/documentdb-java-application.md
-          - name: "Python Flask"
+          - name: Python Flask
             href: ../documentdb/documentdb-python-application.md
-      - name: "Voorbeelden"
+      - name: Voorbeelden
         items:
-        - name: ".NET-voorbeelden"
+        - name: .NET-voorbeelden
           href: ../documentdb/documentdb-dotnet-samples.md
-        - name: "Node.js-voorbeelden"
+        - name: Node.js-voorbeelden
           href: ../documentdb/documentdb-nodejs-samples.md
-        - name: "Python-voorbeelden"
+        - name: Python-voorbeelden
           href: ../documentdb/documentdb-python-samples.md
-        - name: "SQL-syntaxis"
+        - name: SQL-syntaxis
           href: https://msdn.microsoft.com/library/azure/dn782250.aspx
-        - name: "Overzichtskaart van SQL-grammatica"
+        - name: Overzichtskaart van SQL-grammatica
           href: ../documentdb/documentdb-sql-query-cheat-sheet.md
-      - name: "Resources"
+      - name: Resources
         items:
-        - name: "Stack Overflow"
+        - name: Stack Overflow
           href: http://stackoverflow.com/questions/tagged/azure-documentdb
-        - name: "Video&quot;s"
+        - name: Video's
           href: https://azure.microsoft.com/documentation/videos/index/?services=documentdb
-        - name: "Service-updates"
+        - name: Service-updates
           href: https://azure.microsoft.com/updates/?product=documentdb
-        - name: "Community-portal"
+        - name: Community-portal
           href: ../documentdb/documentdb-community.md
-        - name: "Documentatie over schema agnostisch indexeren"
+        - name: Documentatie over schema agnostisch indexeren
           href: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
-        - name: "S1, S2, S3 buiten gebruik stellen"
+        - name: 'S1, S2, S3 buiten gebruik stellen'
           href: ../documentdb/documentdb-performance-levels.md
-    - name: "MongoDB-API"
+    - name: MongoDB-API
       items:
-      - name: "Verbinding maken met uw MongoDB-account"
+      - name: Verbinding maken met uw MongoDB-account
         href: ../documentdb/documentdb-connect-mongodb-account.md
-      - name: "MongoChef gebruiken"
+      - name: MongoChef gebruiken
         href: ../documentdb/documentdb-mongodb-mongochef.md
-      - name: "Robomongo gebruiken"
+      - name: Robomongo gebruiken
         href: ../documentdb/documentdb-mongodb-robomongo.md
-      - name: "Zelfstudies"
+      - name: Zelfstudies
         items:
-        - name: "Node.js-console-app"
+        - name: Node.js-console-app
           href: ../documentdb/documentdb-mongodb-samples.md
-    - name: "Graph API"
+    - name: Graph API
       items:
-      - name: "Gremlin-ondersteuning"
+      - name: Gremlin-ondersteuning
         href: gremlin-support.md
-    - name: "Tabel-API"
+    - name: Tabel-API
       items:
-      - name: "Table Storage"
+      - name: Table Storage
         href: https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts
-    - name: "Feed wijzigen"
+    - name: Feed wijzigen
       href: ../documentdb/documentdb-change-feed.md
-    - name: "Georuimtelijk"
+    - name: Georuimtelijk
       href: ../documentdb/documentdb-geospatial.md
-    - name: "Indexeren"
+    - name: Indexeren
       href: ../documentdb/documentdb-indexing-policies.md
-  - name: "Beheren"
+  - name: Beheren
     items:
-    - name: "Rendabele lees- en schrijfbewerkingen"
+    - name: Rendabele lees- en schrijfbewerkingen
       href: ../documentdb/documentdb-key-value-store-cost.md
-    - name: "Gegevens automatisch laten verlopen"
+    - name: Gegevens automatisch laten verlopen
       href: ../documentdb/documentdb-time-to-live.md
-    - name: "Back-up en herstel"
+    - name: Back-up en herstel
       href: ../documentdb/documentdb-online-backup-and-restore.md
-    - name: "Regionale failover"
+    - name: Regionale failover
       href: ../documentdb/documentdb-regional-failovers.md
-    - name: "Automatisering"
+    - name: Automatisering
       items:
-      - name: "Azure CLI 1.0 - een account maken"
+      - name: Azure CLI 1.0 - een account maken
         href: ../documentdb/documentdb-automation-resource-manager-cli-nodejs.md
-      - name: "Azure CLI 1.0 - regio&quot;s toevoegen of verwijderen"
+      - name: Azure CLI 1.0 - regio's toevoegen of verwijderen
         href: ../documentdb/documentdb-automation-region-management.md
-      - name: "Azure PowerShell"
+      - name: Azure PowerShell
         href: ../documentdb/documentdb-manage-account-with-powershell.md
-    - name: "Beveiliging"
+    - name: Beveiliging
       items:
-      - name: "Versleuteling &quot;at rest&quot;"
+      - name: Versleuteling 'at rest'
         href: ../documentdb/documentdb-nosql-database-encryption-at-rest.md
-      - name: "Firewallondersteuning"
+      - name: Firewallondersteuning
         href: ../documentdb/documentdb-firewall-support.md
-  - name: "Integreren"
+  - name: Integreren
     items:
-    - name: "Verbinding maken met Spark"
+    - name: Verbinding maken met Spark
       href: ../documentdb/documentdb-spark-connector.md
-    - name: "Een website implementeren met Azure App Service"
+    - name: Een website implementeren met Azure App Service
       href: ../documentdb/documentdb-create-documentdb-website.md
-    - name: "Toepassingslogboeken bijhouden met Logische apps"
+    - name: Toepassingslogboeken bijhouden met Logische apps
       href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
-    - name: "Verbinden aan Azure Functions"
+    - name: Verbinden aan Azure Functions
       href: ../azure-functions/functions-bindings-documentdb.md
-    - name: "Gegevens analyseren met Hadoop"
+    - name: Gegevens analyseren met Hadoop
       href: ../documentdb/documentdb-run-hadoop-with-hdinsight.md
-    - name: "Integreren met Azure Search"
+    - name: Integreren met Azure Search
       href: ../search/search-howto-index-documentdb.md
-    - name: "Gegevens verplaatsen met Azure Data Factory"
+    - name: Gegevens verplaatsen met Azure Data Factory
       href: ../data-factory/data-factory-azure-documentdb-connector.md
-    - name: "Realtime gegevens analyseren met Azure Stream Analytics"
+    - name: Realtime gegevens analyseren met Azure Stream Analytics
       href: ../stream-analytics/stream-analytics-define-outputs.md#documentdb
-    - name: "Een gewijzigde HL7 FHIR-record ophalen met Logic Apps"
+    - name: Een gewijzigde HL7 FHIR-record ophalen met Logic Apps
       href: ../documentdb/documentdb-change-feed-hl7-fhir-logic-apps.md
-    - name: "Sensorgegevens in realtime verwerken"
+    - name: Sensorgegevens in realtime verwerken
       href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
-    - name: "Uw gegevens visualiseren met Power BI"
+    - name: Uw gegevens visualiseren met Power BI
       href: ../documentdb/documentdb-powerbi-visualize.md
-    - name: "Het ODBC-stuurprogramma gebruiken voor gegevensvisualisatie"
+    - name: Het ODBC-stuurprogramma gebruiken voor gegevensvisualisatie
       href: ../documentdb/documentdb-nosql-odbc-driver.md
-- name: "Naslaginformatie"
+- name: Naslaginformatie
   items:
-  - name: "DocumentDB-API&quot;s"
+  - name: DocumentDB-API's
     items:
-    - name: "Java"
+    - name: Java
       href: ../documentdb/documentdb-sdk-java.md
-    - name: ".NET"
+    - name: .NET
       href: ../documentdb/documentdb-sdk-dotnet.md
-    - name: ".NET Core"
+    - name: .NET Core
       href: ../documentdb/documentdb-sdk-dotnet-core.md
-    - name: "Node.js"
+    - name: Node.js
       href: ../documentdb/documentdb-sdk-node.md
-    - name: "Python"
+    - name: Python
       href: ../documentdb/documentdb-sdk-python.md
-    - name: "REST"
+    - name: REST
       href: /rest/api/documentdb/
-    - name: "REST-resourceprovider"
+    - name: REST-resourceprovider
       href: /rest/api/documentdbresourceprovider/
-  - name: "Tabel-API&quot;s"
+  - name: Tabel-API's
     items:
-    - name: ".NET"
+    - name: .NET
       href: table-sdk-dotnet.md
-  - name: "Graph API&quot;s"
+  - name: Graph API's
     items:
-    - name: ".NET"
+    - name: .NET
       href: graph-sdk-dotnet.md
-- name: "Resources"
+- name: Resources
   items:
-  - name: "Prijzen"
+  - name: Prijzen
     href: https://azure.microsoft.com/pricing/details/documentdb/
-  - name: "Veelgestelde vragen"
+  - name: Veelgestelde vragen
     href: ../documentdb/documentdb-faq.md
-  - name: "Stack Overflow"
+  - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-cosmos-db
-  - name: "Gegevensconsistentie uitgelegd aan de hand van honkbal"
+  - name: Gegevensconsistentie uitgelegd aan de hand van honkbal
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913

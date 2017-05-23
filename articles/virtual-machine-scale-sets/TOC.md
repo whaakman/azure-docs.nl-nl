@@ -13,6 +13,7 @@
 ## Een sjabloon maken
 ### [Meer informatie over schaalsetsjablonen](virtual-machine-scale-sets-mvss-start.md)
 ### [Een virtueel netwerk toevoegen](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [Een aangepaste installatiekopie gebruiken](virtual-machine-scale-sets-mvss-custom-image.md)
 
 ## Implementeren
 ### [Maken via de portal](virtual-machine-scale-sets-portal-create.md)

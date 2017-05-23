@@ -1,5 +1,6 @@
 # Overzicht
 ## [Wat is Event Hubs?](event-hubs-what-is-event-hubs.md)
+## [Functies van Event Hubs](event-hubs-features.md)
 ## [Veelgestelde vragen](event-hubs-faq.md)
 
 # Aan de slag

@@ -29,6 +29,10 @@
 ## Beheren
 ### [Batch-PowerShell-cmdlets](batch-powershell-cmdlets-get-started.md)
 ### [Azure CLI](batch-cli-get-started.md)
+#### [Een Batch-account maken](./scripts/batch-cli-sample-create-account.md)
+#### [Een toepassing toevoegen](./scripts/batch-cli-sample-add-application.md)
+#### [Pools beheren](./scripts/batch-cli-sample-manage-pool.md)
+#### [Een functie en taken uitvoeren](./scripts/batch-cli-sample-run-job.md)
 
 # Naslaginformatie
 ## [PowerShell](/powershell/module/azurerm.batch)
@@ -63,7 +67,6 @@
 ## [Service-updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Codevoorbeelden voor C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Codevoorbeelden voor Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-## [CLI-voorbeelden](batch-cli-samples.md)
 ## [Big Compute-resource](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 

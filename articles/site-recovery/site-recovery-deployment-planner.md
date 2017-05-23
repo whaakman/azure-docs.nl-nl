@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 5c716069bdff2a23bf81b2d2d0793a8616cf9c83
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery-implementatieplanner
-Dit artikel is de Azure Site Recovery-gebruikershandleiding voor productie-implementaties van het type VMware naar Azure.
+Dit artikel is de gebruikershandleiding voor de Azure Site Recovery-implementatieplanner voor productie-installaties van het type VMware-naar-Azure.
 
 ## <a name="overview"></a>Overzicht
 
@@ -36,7 +37,7 @@ Het hulpprogramma levert de volgende gegevens:
 
 **Beoordeling van compatibiliteit**
 
-* Beoordeling van geschiktheid van een virtuele machine op basis van het aantal schijven, schijfgrootte, IOPS en verloop
+* Beoordeling van geschiktheid van een VM op basis van het aantal schijven, schijfgrootte, IOPS, verloop en opstarttype (EFI/BIOS)
 * De geschatte vereiste bandbreedte in het netwerk voor replicatie van verschillen
 
 **Vereiste netwerkbandbreedte versus RPO-evaluatie**
@@ -204,6 +205,10 @@ Nadat de profilering is voltooid, kunt u het hulpprogramma uitvoeren in de modus
 | -StartDate | (Optioneel) De begindatum en -tijd in de notatie MM-DD-JJJJ:UU:MM (in 24-uursindeling). Als u *StartDate* opgeeft, moet u ook *EndDate* opgeven. Het rapport wordt dan gegenereerd voor de geprofileerde gegevens die zijn verzameld tussen StartDate en EndDate. |
 | -EndDate | (Optioneel) De einddatum en -tijd in de notatie MM-DD-JJJJ:UU:MM (in 24 uursindeling). Als u *EndDate* opgeeft, moet u ook *StartDate* opgeven. Het rapport wordt dan gegenereerd voor de geprofileerde gegevens die zijn verzameld tussen StartDate en EndDate. |
 | -GrowthFactor | (Optioneel) De groeifactor, uitgedrukt als een percentage. De standaardwaarde is 30 procent. |
+| -UseManagedDisks | (Optioneel) UseManagedDisks - Ja/Nee. Standaard is Ja. Het aantal virtuele machines dat kan worden geplaatst in een enkel opslagaccount, wordt berekend op basis van het feit om een beheerde schijf is geselecteerd voor Failover/Test-failover. |
+
+in een enkel opslagaccount, wordt berekend afgaande op het feit of de Failover/Test-testfailover van virtuele machines is uitgevoerd op een beheerde schijf in plaats van op een niet-beheerde schijf. |
+
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Voorbeeld 1: een rapport met standaardwaarden genereren wanneer de geprofileerde gegevens zich op de lokale schijf bevinden
 ```
@@ -480,7 +485,7 @@ Als de kenmerken van de workload van een schijf overeenkomen met de categorie P2
 
 **NIC's**: het aantal NIC's van de virtuele machine.
 
-**Opstarttype**: het opstarttype van de virtuele machine. Dit kan BIOS of EFI zijn. Op dit moment ondersteunt Azure Site Recovery alleen BIOS-opstarttypen. Alle virtuele machines van het EFI-opstarttype worden vermeld op het werkblad Incompatibele virtuele machines. 
+**Opstarttype**: het opstarttype van de virtuele machine. Dit kan BIOS of EFI zijn. Op dit moment ondersteunt Azure Site Recovery alleen BIOS-opstarttypen. Alle virtuele machines van het EFI-opstarttype worden vermeld op het werkblad Incompatibele virtuele machines.
 
 **Type besturingssysteem**: het type besturingssysteem van de virtuele machine. Dit kan Windows, Linux of een ander besturingssysteem zijn.
 
@@ -517,7 +522,7 @@ Als de kenmerken van de workload van een schijf overeenkomen met de categorie P2
 
 **NIC's**: het aantal NIC's van de virtuele machine.
 
-**Opstarttype**: het opstarttype van de virtuele machine. Dit kan BIOS of EFI zijn. Op dit moment ondersteunt Azure Site Recovery alleen BIOS-opstarttypen. Alle virtuele machines van het EFI-opstarttype worden vermeld op het werkblad Incompatibele virtuele machines. 
+**Opstarttype**: het opstarttype van de virtuele machine. Dit kan BIOS of EFI zijn. Op dit moment ondersteunt Azure Site Recovery alleen BIOS-opstarttypen. Alle virtuele machines van het EFI-opstarttype worden vermeld op het werkblad Incompatibele virtuele machines.
 
 **Type besturingssysteem**: het type besturingssysteem van de virtuele machine. Dit kan Windows, Linux of een ander besturingssysteem zijn.
 
@@ -558,6 +563,15 @@ Ga als volgt te werk om de implementatieplanner bij te werken:
 
 
 ## <a name="version-history"></a>Versiegeschiedenis
+
+### <a name="13"></a>1.3
+Bijgewerkt: 9 mei 2017
+
+De volgende nieuwe functie is toegevoegd:
+
+* Toegevoegd is ondersteuning voor beheerde schijven bij het genereren van rapporten. Het aantal virtuele machines dat kan worden geplaatst in een enkel opslagaccount, wordt berekend op basis van het feit om een beheerde schijf is geselecteerd voor Failover/Test-failover.        
+
+
 ### <a name="12"></a>1.2
 Bijgewerkt: 7 april 2017
 

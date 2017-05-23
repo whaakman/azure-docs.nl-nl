@@ -70,9 +70,9 @@
 ##### [Java op Linux](service-fabric-reliable-services-quick-start-java.md)
 
 #### Levenscyclus van Reliable Services
-#### [Configureren](service-fabric-reliable-services-configuration.md)
-#### [Meldingen verzenden](service-fabric-reliable-services-notifications.md)
-#### [Back-up en herstel](service-fabric-reliable-services-backup-restore.md)
+##### [Configureren](service-fabric-reliable-services-configuration.md)
+##### [Meldingen verzenden](service-fabric-reliable-services-notifications.md)
+##### [Back-up en herstel](service-fabric-reliable-services-backup-restore.md)
 
 #### Communiceren met services
 ##### [Communiceren via Betrouwbare services](service-fabric-reliable-services-communication.md)
@@ -215,6 +215,7 @@
 ### [Verbinding maken met een beveiligde cluster](service-fabric-connect-to-secure-cluster.md)
 
 ### [Een cluster beheren met Azure CLI](service-fabric-azure-cli.md)
+### [Patch uitvoeren voor clusterknooppunten](service-fabric-patch-orchestration-application.md)
 
 ### Clusterbronnen beheren en organiseren
 #### [Overzicht van Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
@@ -249,11 +250,13 @@
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 ### [Logboeken verzamelen van een serviceproces](service-fabric-diagnostic-collect-logs-without-an-agent.md)
+### [Windows Server-containers bewaken](service-fabric-diagnostics-containers-windowsserver.md)
 ### [Diagnose in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnose in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Problemen met uw lokale cluster oplossen](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Naslaginformatie
+## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
 ## [Java-API](/java/api/)
 ## [.NET](/dotnet/api/)

@@ -1,5 +1,5 @@
 # Overzicht
-## [Hadoop](hdinsight-hadoop-introduction.md)
+## [Informatie over HDInsight en Hadoop](hdinsight-hadoop-introduction.md)
 ## [Hadoop-componenten op HDInsight](hdinsight-component-versioning.md)
 ## [R Server](hdinsight-hadoop-r-server-overview.md)
 ## [Apache Spark](hdinsight-apache-spark-overview.md)
@@ -133,6 +133,7 @@
 ### [Clusters aanpassen met Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Clusters aanpassen met Script Action](hdinsight-hadoop-customize-cluster-linux.md)
 ### [Scriptacties ontwikkelen](hdinsight-hadoop-script-actions-linux.md)
+### [Presto installeren en gebruiken](hdinsight-hadoop-install-presto.md)
 ### [Mono installeren of bijwerken](hdinsight-hadoop-install-mono.md)
 ### [Hive-bibliotheken toevoegen](hdinsight-hadoop-add-hive-libraries.md)
 ### [Giraph gebruiken](hdinsight-hadoop-giraph-install-linux.md)
@@ -221,5 +222,6 @@
 ### [Clusters bewaken met Ambari-API](hdinsight-monitor-use-ambari-api.md)
 
 # Resources
+## [Windows-hulpprogramma's voor HDInsight](hdinsight-hadoop-windows-tools.md)
 ## [Hulp op het forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)

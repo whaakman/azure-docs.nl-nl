@@ -1,148 +1,300 @@
 ---
 title: Een netwerk voor contentlevering toevoegen aan een Azure App Service | Microsoft Docs
-description: Voeg aan een Azure App Service een netwerk voor contentlevering toe om uw statische bestanden te leveren vanuit Edge-knooppunten.
+description: Voeg een netwerk voor contentlevering toe aan een Azure App Service, zodat uw statische bestanden altijd worden gecached en geleverd vanaf een server dicht bij uw klanten, overal ter wereld.
 services: app-service
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/03/2017
+ms.date: 05/01/2017
 ms.topic: hero-article
 ms.service: app-service-web
 manager: erikre
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 7ba3737566401152a3171e8926beca188045230c
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 7208abc0e6eaa9067c5bb36a09e1bfd276fe0b0c
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/08/2017
 
 ---
-# <a name="add-a-content-deliver-network-on-an-azure-app-service"></a>Een netwerk voor contentlevering toevoegen aan een Azure App Service
+# <a name="add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Een netwerk voor contentlevering toevoegen aan een Azure App Service
 
-In deze zelfstudie voegt u een CDN (netwerk voor contentlevering) aan uw Azure App Service toe om de statische inhoud beschikbaar te stellen op een randserver. U gaat een CDN-profiel maken, een verzameling van maximaal 10 CDN-eindpunten.
+[Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md) slaat op strategisch geplaatste locaties statische webinhoud in de cache op om een maximale doorvoer voor de levering van inhoud te waarborgen. De CDN vermindert ook de serverbelasting van uw web-app. In deze zelfstudie leest u hoe u Azure CDN toevoegt aan een [web-app in de Azure App Service](app-service-web-overview.md). 
 
-Een Azure-netwerk voor contentlevering (CDN) slaat op strategisch geplaatste locaties statische webinhoud in de cache op om een maximale doorvoer voor de levering van inhoud te waarborgen. Enkele voordelen van het gebruik van de CDN om website-assets op te slaan in de cache:
+In deze zelfstudie leert u het volgende:
 
-* Betere prestaties en gebruikerservaring voor eindgebruikers wanneer er toepassingen worden gebruikt waarbij meerdere retouren zijn vereist om inhoud te laden.
-* Grote schaalbaarheid zodat een korte hoge belasting, bijvoorbeeld wanneer een product wordt gestart, beter kan worden verwerkt.
-* Door de gebruikersaanvragen te distribueren en de inhoud uit te voeren vanaf randservers wordt er minder verkeer naar de oorsprong verzonden.
+> [!div class="checklist"]
+> * Een CDN-eindpunt maken.
+> * Assets in cache vernieuwen.
+> * Queryreeksen gebruiken voor het beheren van versies in cache.
+> * Een aangepast domein gebruiken voor het CDN-eindpunt.
 
-> [!TIP]
-> Controleer de bijgewerkte lijst van [Azure CDN POP-locaties](https://docs.microsoft.com/en-us/azure/cdn/cdn-pop-locations).
->
+Dit is de startpagina van de statische HTML-voorbeeldsite die u gaat gebruiken:
 
-## <a name="deploy-the-sample"></a>Het voorbeeld implementeren
+![Startpagina van voorbeeld-app](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page.png)
 
-Om deze zelfstudie te kunnen volgen, moet u een toepassing in Web App hebben geïmplementeerd. Volg de [statische HTML-snelstartgids](app-service-web-get-started-html.md) om een basis voor deze zelfstudie te creëren.
+## <a name="create-the-web-app"></a>De web-app maken
 
-## <a name="step-1---login-to-azure-portal"></a>Stap 1: Meld u aan bij Azure Portal
+Volg de [Quickstart voor statische HTML](app-service-web-get-started-html.md) om de web-app die u gaat gebruiken te maken, maar sla de stap **Resources opschonen** over.
 
-Eerst opent u uw browser en bladert u naar Azure [Portal](https://portal.azure.com).
+Wanneer u klaar bent met de zelfstudie, houdt u de opdrachtprompt geopend zodat u aanvullende wijzigingen in de web-app verderop in deze zelfstudie kunt implementeren.
 
-## <a name="step-2---create-a-cdn-profile"></a>Stap 2: Maak een CDN-profiel
+### <a name="have-a-custom-domain-ready"></a>Houd een aangepast domein bij de hand
 
-Klik op de knop `+ New` in de linkernavigatie en kies **Web en mobiel**. Selecteer in de categorie Web en mobiel de optie **CDN**.
+U heeft toegang tot het DNS-register voor uw domeinprovider (zoals GoDaddy) nodig om de stap voor het aangepaste domein van deze zelfstudie te voltooien. Als u bijvoorbeeld DNS-vermeldingen voor `contoso.com` en `www.contoso.com` wilt toevoegen, moet u de DNS-instellingen voor het hoofddomein van `contoso.com` kunnen configureren.
 
-Geef de volgende velden op:
+Als u nog geen domeinnaam hebt, overweeg dan de [Zelfstudie over App Service-domeinen](custom-dns-web-site-buydomains-web-app.md) te volgen om een domein aan te schaffen met de Azure Portal. 
 
-| Veld | Voorbeeldwaarde | Beschrijving |
-|---|---|---|
-| Naam | myCDNProfile | Een naam voor het CDN-profiel. |
-| Locatie | West-Europa | Dit is de Azure-locatie waar uw CDN-profielgegevens worden opgeslagen. Dit heeft geen invloed op de locaties van CDN-eindpunten. |
-| Resourcegroep | myResourceGroup | Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups) voor meer informatie over resourcegroepen |
-| Prijscategorie | Standard Akamai | Zie het [CDN Overview](../cdn/cdn-overview.md#azure-cdn-features) (CDN-overzicht) voor een vergelijking van prijscategorieën. |
+## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
-Klik op **Create**.
+Open een browser en navigeer naar de [Azure Portal](https://portal.azure.com).
 
-Open de resourcegroephub vanuit de linkernavigatie en selecteer **myResourceGroup**. Selecteer in de lijst met resources **myCDNProfile**.
+## <a name="create-a-cdn-profile-and-endpoint"></a>Een CDN-profiel en -eindpunt maken
 
-![azure-cdn-profile-gemaakt](media/app-service-web-tutorial-content-delivery-network/azure-cdn-profile-created.png)
+Selecteer in het navigatiedeelvenster links **App Services** en selecteer vervolgens de app die u hebt gemaakt in de [Quickstart voor statische HTML](app-service-web-get-started-html.md).
 
-## <a name="step-3---create-a-cdn-endpoint"></a>Stap 3: Maak een CDN-eindpunt
+![Een App Service-app in de portal selecteren](media/app-service-web-tutorial-content-delivery-network/portal-select-app-services.png)
 
-Klik op **+ Eindpunt** vanuit de opdrachten naast het zoekvak. Hiermee wordt de blade voor het maken van een eindpunt geopend.
+Selecteer op de pagina **App Service** in het gedeelte **Instellingen** de optie **Netwerken > Azure CDN configureren voor uw app**.
 
-Geef de volgende velden op:
+![CDN selecteren in de portal](media/app-service-web-tutorial-content-delivery-network/portal-select-cdn.png)
 
-| Veld | Voorbeeldwaarde | Beschrijving |
-|---|---|
-| Naam |  | Deze naam wordt gebruikt om toegang te krijgen tot uw resources in de cache in het domein `<endpointname>.azureedge.net` |
-| Oorsprongtype | Web-app | Als u een oorsprongtype selecteert, kunt u voor de resterende velden beschikken over contextmenu's. Als u een aangepaste oorsprong selecteert, wordt er een tekstveld voor de hostnaam van de oorsprong weergegeven. |
-| Hostnaam van oorsprong | |  De vervolgkeuzelijst bevat alle beschikbare oorsprongen van het oorsprongtype dat u hebt opgegeven. Als u Aangepaste oorsprong als Oorsprongtype hebt geselecteerd, voert u nu het domein in van de aangepaste oorsprong  |
+Geef op de pagina **Azure Content Delivery Network** de instellingen voor **Nieuw eindpunt** op zoals aangegeven in de tabel.
 
-Klik op **Add**.
+![Een profiel en eindpunt maken in de portal](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint.png)
 
-Het eindpunt wordt gemaakt en nadat het Content Delivery Network-eindpunt is gemaakt, wordt de status bijgewerkt naar **actief**.
+| Instelling | Voorgestelde waarde | Beschrijving |
+| ------- | --------------- | ----------- |
+| **CDN-profiel** | myCDNProfile | Selecteer **Nieuwe maken** om een nieuw CDN-profiel te maken. Een CDN-profiel is een verzameling van CDN-eindpunten van dezelfde prijscategorie. |
+| **Prijscategorie** | Standard Akamai | De [prijscategorie](../cdn/cdn-overview.md#azure-cdn-features) geeft de provider en de beschikbare functies aan. We gebruiken Standard Akamai in deze zelfstudie. |
+| **Naam van CDN-eindpunt** | Een unieke naam in het domein azureedge.net | U heeft toegang tot uw resources in de cache via het domein  *\<endpointname>.azureedge.net*.
 
-![azure-cdn-endpoint-gemaakt](media/app-service-web-tutorial-content-delivery-network/azure-cdn-endpoint-created.png)
+Selecteer **Maken**.
 
-## <a name="step-4---serve-from-azure-cdn"></a>Stap 4: Uitvoeren vanuit Azure CDN
+Azure maakt het profiel en het eindpunt. Het nieuwe eindpunt wordt weergegeven in de lijst **Eindpunten** op dezelfde pagina, wanneer het de status **Actief** heeft.
 
-Wanneer het CDN-eindpunt **Actief** is, moet u vanuit het CDN-eindpunt inhoud kunnen openen.
+![Nieuw eindpunt in lijst](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint-in-list.png)
 
-Als u de [statische HTML-snelstartgids](app-service-web-get-started-html.md) als basis voor deze zelfstudie hebt gebruikt, zijn de volgende mappen beschikbaar op het CDN: `css`, `img` en `js`.
+### <a name="test-the-cdn-endpoint"></a>Het CDN-eindpunt testen
 
-De inhoudspaden tussen de Web App-URL `http://<app_name>.azurewebsites.net/img/` en de URL van het CDN-eindpunt `http://<endpointname>.azureedge.net/img/` zijn hetzelfde. Dat betekent dat u statische inhoud gewoon kunt vervangen door het domein van het CDN-eindpunt, om deze inhoud vanuit het CDN te laten leveren.
+Als u de prijscategorie Verizon hebt geselecteerd, duurt het doorgaans ongeveer 90 minuten voor het eindpunt is ingericht. In Akamai duurt het inrichten enkele minuten
 
-U gaat nu een eerste afbeelding van het CDN-eindpunt ophalen door in uw webbrowser de volgende URL te volgen:
+De voorbeeld-app heeft een `index.html`-bestand en de mappen *css*, *img* en *js* met andere statische assets. De inhoudspaden voor al deze bestanden zijn op het CDN-eindpunt hetzelfde. De volgende URL's bieden bijvoorbeeld toegang tot het bestand *bootstrap.css* in de map *css*:
 
-```bash
-http://<endpointname>.azureedge.net/img/03-enterprise.png
+```
+http://<appname>.azurewebsites.net/css/bootstrap.css
 ```
 
-Wanneer de statische inhoud beschikbaar is op het CDN, kunt u uw toepassing bijwerken om het CDN-eindpunt te gebruiken om de inhoud aan de eindgebruiker te leveren.
+```
+http://<endpointname>.azureedge.net/css/bootstrap.css
+```
 
-Afhankelijk van de taal waarin uw site is gebouwd, kunnen er vele structuren zijn die u helpen bij CDN-terugval. ASP.NET biedt bijvoorbeeld ondersteuning voor [bundeling en minificatie](https://docs.microsoft.com/en-us/aspnet/mvc/overview/performance/bundling-and-minification#using-a-cdn), waarmee ook CDN-terugvalmogelijkheden worden ingeschakeld.
+Gebruik een browser om naar de volgende URL te navigeren. Hier ziet u dezelfde pagina die u eerder in een Azure-web-app hebt uitgevoerd, maar de gegevens worden nu aangeleverd vanuit het CDN.
 
-Als uw taal geen ingebouwde CDN-terugvalondersteuning of bibliotheek voor CDN-terugval heeft, kunt u een JavaScript-structuur zoals [FallbackJS](http://fallback.io/) gebruiken. Deze biedt ondersteuning voor het laden van [scripts](https://github.com/dolox/fallback/tree/master/examples/loading-scripts), [opmaakmodellen](https://github.com/dolox/fallback/tree/master/examples/loading-stylesheets) en [afbeeldingen](https://github.com/dolox/fallback/tree/master/examples/loading-images).
+```
+http://<endpointname>.azureedge.net/index.html
+```
 
-## <a name="step-5---purge-the-cdn"></a>Stap 5: het CDN leegmaken
+![Startpagina van voorbeeldapp waarvoor de gegevens vanuit CDN worden geleverd](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page-cdn.png)
 
-Soms moet het CDN worden leeggemaakt, bijvoorbeeld als u wilt dat inhoud vóór de Time to Live (TTL) vervalt.
+U ziet dat Azure CDN de assets van de oorspronkelijke web-app heeft opgehaald en gegevens verstuurt vanaf het CDN-eindpunt. 
 
-U kunt het Azure CDN handmatig leegmaken vanaf de blade CDN-profiel of de blade CDN-eindpunt. Als u ervoor kiest om het CDN leeg te maken vanaf de profielpagina, moet u selecteren welk eindpunt u wilt leegmaken.
+Vernieuw de pagina om ervoor te zorgen dat deze pagina is opgeslagen in de cache in het CDN. Er zijn soms twee aanvragen van hetzelfde asset vereist voordat het CDN de gevraagde inhoud in de cache opslaat.
 
-Als u inhoud wilt verwijderen, typt u de inhoudspaden die u wilt leegmaken. Als u een afzonderlijk bestand wilt verwijderen, geeft u het volledige bestandspad door. Als u een specifieke map wilt leegmaken en vernieuwen, geeft u een padsegment door.
+Zie voor meer informatie over het maken van Azure CDN-profielen en -eindpunten [Aan de slag met Azure CDN](../cdn/cdn-create-new-endpoint.md).
 
-Wanneer u alle inhoudspaden hebt opgegeven die u wilt leegmaken, klikt u op **Leegmaken**.
+## <a name="purge-the-cdn"></a>Het CDN leegmaken
 
-![app-service-web-opschonen-cdn](media/app-service-web-tutorial-content-delivery-network/app-service-web-purge-cdn.png)
+Het CDN vernieuwt periodiek de behorende resources uit de oorspronkelijke web-app op basis van de configuratie van de time-to-live (TTL). De standaard-TTL is 7 dagen.
 
-## <a name="step-6---map-a-custom-domain"></a>Stap 6: Een aangepast domein toewijzen
+Soms moet u wellicht het CDN vernieuwen voordat de TTL is verlopen. Bijvoorbeeld wanneer u bijgewerkte inhoud in de web-app implementeert. U kunt de resources in het CDN handmatig opschonen om te vernieuwen. 
 
-Door een aangepast domein toe te wijzen aan uw CDN-eindpunt, voorziet u in een uniform domein voor uw webtoepassing.
+In dit gedeelte van de zelfstudie implementeert u een wijziging in de web-app en schoont u het CDN op zodat de bijbehorende cache wordt vernieuwd.
 
-Maak een CNAME-record bij uw domeinregistrar als u een aangepast domein aan uw CDN-eindpunt wilt toewijzen.
+### <a name="deploy-a-change-to-the-web-app"></a>Een wijziging implementeren in de web-app
 
-> [!NOTE]
-> Een CNAME-record is een DNS-functie die een brondomein, bijvoorbeeld `www.contosocdn.com` of `static.contosocdn.com`, toewijst aan een doeldomein.
+Open het bestand `index.html` en voeg toe '- V2' toe aan de kop H1, zoals wordt weergegeven in het volgende voorbeeld: 
 
-In dit geval voegt u het brondomein `static.contosocdn.com` toe, dat naar het doeldomein wijst dat het CDN-eindpunt is.
+```
+<h1>Azure App Service - Sample Static HTML Site - V2</h1>
+```
 
-| brondomein | doeldomein |
-|---|---|
-| static.contosocdn.com | &lt;eindpuntnaam&gt;.azureedge.net |
+Voer uw wijziging door en implementeer deze naar de web-app.
 
-Klik op de blade Overzicht van CDN-eindpunt op de knop `+ Custom domain`.
+```bash
+git commit -am "version 2"
+git push azure master
+```
 
-Ga in het dialoogvenster naar de blade Een aangepast domein toevoegen en voer daar uw aangepaste domein in, inclusief het subdomein. Voer bijvoorbeeld de domeinnaam in de notatie `static.contosocdn.com` in.
+Als de implementatie is voltooid, ziet u de wijziging als u naar de URL vn de web-app bladert.
 
-Klik op **Add**.
+```
+http://<appname>.azurewebsites.net/index.html
+```
 
-## <a name="step-7---version-content"></a>Stap 7: Versie-inhoud
+![V2 in de titel van de web-app](media/app-service-web-tutorial-content-delivery-network/v2-in-web-app-title.png)
 
-In de linkernavigatie van het CDN-eindpunt selecteert u **Cache** onder de kop Instellingen.
+Als u naar de CDN-eindpunt-URL van de startpagina bladert, wordt de wijziging niet weergegeven omdat de in de cache opgeslagen versie in het CDN nog niet is verlopen. 
 
-Op de blade **Cache** kunt u configureren hoe het CDN queryreeksen in de aanvraag moet afhandelen.
+```
+http://<endpointname>.azureedge.net/index.html
+```
 
-> [!NOTE]
-> Voor een beschrijving van de opties voor het cachegedrag van querytekenreeksen raadpleegt u het onderwerp [Control Azure CDN caching behavior with query strings](../cdn/cdn-query-string.md) (Het cachegedrag van queryreeksen in Azure CDN beheren).
+![Geen V2 in de titel van het CDN](media/app-service-web-tutorial-content-delivery-network/no-v2-in-cdn-title.png)
 
-Selecteer **Elke unieke URL in de cache opslaan** in de vervolgkeuzelijst Cachegedrag van queryreeks.
+### <a name="purge-the-cdn-in-the-portal"></a>Het CDN leegmaken in de portal
 
-Klik op **Opslaan**.
+Schoon het CDN op zodat het de in de cache opgeslagen versie vernieuwt.
+
+Selecteer in de linkernavigatie in de portal de optie **Resourcegroepen** en selecteer vervolgens de resourcegroep die u hebt gemaakt voor uw web-app (myResourceGroup).
+
+![Resourcegroep selecteren](media/app-service-web-tutorial-content-delivery-network/portal-select-group.png)
+
+Selecteer uw CDN-eindpunt in de lijst met resources.
+
+![Eindpunt selecteren](media/app-service-web-tutorial-content-delivery-network/portal-select-endpoint.png)
+
+Klik boven aan de pagina **Eindpunt** op **Leegmaken**.
+
+![Leegmaken selecteren](media/app-service-web-tutorial-content-delivery-network/portal-select-purge.png)
+
+Typ u de inhoudspaden die u wilt leegmaken. Als u een afzonderlijk bestand wilt verwijderen, geeft u het volledige bestandspad door. Als u een map wilt leegmaken en vernieuwen, geeft u een padsegment door. Zorg ervoor dat `index.html` een van de paden is, gezien u deze hebt gewijzigd.
+
+Klik onder aan de pagina op **Leegmaken**.
+
+![Pagina leegmaken](media/app-service-web-tutorial-content-delivery-network/app-service-web-purge-cdn.png)
+
+### <a name="verify-that-the-cdn-is-updated"></a>Controleren of het CDN is bijgewerkt
+
+Wacht totdat de aanvraag voor het leegmaken is verwerkt. Dit duurt doorgaans enkele minuten. Selecteer het belpictogram boven aan de pagina om de huidige status te bekijken. 
+
+![Melding voor leegmaken](media/app-service-web-tutorial-content-delivery-network/portal-purge-notification.png)
+
+Blader naar de URL van het CDN-eindpunt voor `index.html`. U ziet nu de V2 die u hebt toegevoegd aan de titel op de startpagina. U ziet dat de CDN-cache is vernieuwd.
+
+```
+http://<endpointname>.azureedge.net/index.html
+```
+
+![V2 in de titel van het CDN](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title.png)
+
+Zie voor meer informatie [Een Azure CDN-eindpunt leegmaken](../cdn/cdn-purge-endpoint.md). 
+
+## <a name="use-query-strings-to-version-content"></a>Queryreeksen gebruiken om inhoud een versie te geven
+
+Het Azure CDN biedt de volgende opties voor cachegedrag:
+
+* Queryreeksen negeren
+* Queryreeksen in de cache opslaan overslaan
+* Elke unieke URL in de cache opslaan 
+
+De eerste optie is de standaardoptie. Hierbij bevat de cache slechts één versie van een asset, ongeacht de gebruikte queryreeks in de URL die toegang geeft tot deze cache. 
+
+In dit gedeelte van de zelfstudie wijzigt u het cachegedrag zodat elke unieke URL in de cache wordt opgeslagen.
+
+### <a name="change-the-cache-behavior"></a>Het gedrag van de cache wijzigen
+
+Selecteer in de Azure Portal op de pagina **CDN-eindpunt** de optie **Cache**.
+
+Selecteer **Elke unieke URL in de cache opslaan** in de vervolgkeuzelijst **Cachegedrag van queryreeks**.
+
+Selecteer **Opslaan**.
+
+![Selecteer cachegedrag van queryreeks](media/app-service-web-tutorial-content-delivery-network/portal-select-caching-behavior.png)
+
+### <a name="verify-that-unique-urls-are-cached-separately"></a>Controleren of de unieke URL's afzonderlijk in de cache worden opgeslagen
+
+Navigeer in een browser naar de startpagina op het CDN-eindpunt, maar de volgende queryreeks toe: 
+
+```
+http://<endpointname>.azureedge.net/index.html?q=1
+```
+
+Het CDN retourneert de huidige inhoud van de web-app, met 'V2' in de kop. 
+
+Vernieuw de pagina om ervoor te zorgen dat deze pagina is opgeslagen in de cache in het CDN. 
+
+Open `index.html`, wijzig 'V2' in 'V3' en implementeer de wijziging. 
+
+```bash
+git commit -am "version 3"
+git push azure master
+```
+
+Ga in een browser naar de URL van het CDN-eindpunt met een nieuwe querytekenreeks zoals `q=2`. Het CDN haalt het huidige `index.html`-bestand op en 'V3' wordt weergegeven.  Als u echter naar het CDN-eindpunt navigeert met de querytekenreeks `q=1`, ziet u 'V2'.
+
+```
+http://<endpointname>.azureedge.net/index.html?q=2
+```
+
+![V3 in de titel in het CDN, queryreeks 2](media/app-service-web-tutorial-content-delivery-network/v3-in-cdn-title-qs2.png)
+
+```
+http://<endpointname>.azureedge.net/index.html?q=1
+```
+
+![V2 in de titel in het CDN, queryreeks 1](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title-qs1.png)
+
+Deze uitvoer laat zien dat elke queryreeks anders wordt verwerkt: q=1 is al eerder gebruikt, dus de inhoud in de cache wordt geretourneerd (V2), maar q=2 is nieuw, dus de meest recente inhoud van de web-app wordt opgehaald en geretourneerd (V3).
+
+Zie [Cachegedrag in Azure CDN bepalen met queryreeksen](../cdn/cdn-query-string.md) voor meer informatie.
+
+## <a name="map-a-custom-domain-to-a-cdn-endpoint"></a>Een aangepast domein aan een CDN-eindpunt toewijzen
+
+U wijst uw aangepaste domein toe aan uw CDN-eindpunt door een CNAME-record te maken. Een CNAME-record is een DNS-functie die een brondomein toewijst aan een doeldomein. U kunt bijvoorbeeld `cdn.contoso.com` of `static.contoso.com` toewijzen aan `contoso.azureedge.net`.
+
+Als u geen aangepaste domeinnaam hebt, overweeg dan de [Zelfstudie over App Service-domeinen](custom-dns-web-site-buydomains-web-app.md) te volgen om een domein aan te schaffen met de Azure Portal. 
+
+### <a name="find-the-hostname-to-use-with-the-cname"></a>De hostnaam voor gebruik met de CNAME vinden
+
+Zorg er in de Azure Portal op de pagina **Eindpunt** voor dat **Overzicht** is geselecteerd in de navigatiebalk aan de linkerkant en selecteer vervolgens de knop **+ Aangepast domein** boven aan de pagina.
+
+![Aangepast domein toevoegen selecteren](media/app-service-web-tutorial-content-delivery-network/portal-select-add-domain.png)
+
+Op de pagina **Een aangepast domein toevoegen** ziet u de naam van de eindpunthost die u kunt gebruiken om een CNAME-record te maken. De hostnaam is afgeleid van de URL van uw CDN-eindpunt: **&lt;EndpointName>. azureedge.net**. 
+
+![Een domeinpagina toevoegen](media/app-service-web-tutorial-content-delivery-network/portal-add-domain.png)
+
+### <a name="configure-the-cname-with-your-domain-registrar"></a>De CNAME configureren met uw domeinregistrar
+
+Navigeer naar de website van uw domeinregistrar en ga naar het gedeelte voor het maken van DNS-records. U vindt dit in een gedeelte zoals **Domeinnaam**, **DNS** of **Serverbeheernaam**.
+
+Zoek het gedeelte voor het beheren van CNAME's. Mogelijk moet u naar een pagina met geavanceerde instellingen gaan en de woorden CNAME, Alias of Subdomeinen zoeken.
+
+Maak een nieuwe CNAME-record die uw gekozen subdomein (bijvoorbeeld **statisch** of **cdn**) toewijst aan de **Hostnaam van eindpunt** die eerder in de portal werd weergegeven. 
+
+### <a name="enter-the-custom-domain-in-azure"></a>Voer het aangepast domein in Azure in
+
+Ga terug naar de pagina **Een aangepast domein toevoegen** en voer in het dialoogvenster uw aangepaste domein in, inclusief het subdomein. Geef bijvoorbeeld `cdn.contoso.com` op.   
+   
+Azure controleert of de CNAME-record voor de domeinnaam die u hebt ingevoerd bestaat. Als de CNAME juist is, wordt uw aangepaste domein gevalideerd.
+
+Het even kan duren voordat de CNAME-record is doorgeven aan de naamservers op het internet. Als uw domein is niet meteen wordt gevalideerd, en u denkt dat de CNAME-record klopt, wacht dan een paar minuten en probeer het opnieuw.
+
+### <a name="test-the-custom-domain"></a>Het aangepaste domein testen
+
+Ga in een browser naar het bestand `index.html` op uw aangepaste domein (bijvoorbeeld `cdn.contoso.com/index.html`) om te controleren of het resultaat hetzelfde is als wanneer u rechtstreeks naar `<endpointname>azureedge.net/index.html` gaat.
+
+![Startpagina van voorbeeldapp met URL van aangepast domein](media/app-service-web-tutorial-content-delivery-network/home-page-custom-domain.png)
+
+Zie voor meer informatie [Azure CDN-inhoud toewijzen aan een aangepast domein](../cdn/cdn-map-content-to-custom-domain.md).
+
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Wat is Azure CDN?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-* [HTTPS op een aangepast Azure CDN-domein inschakelen](../cdn/cdn-custom-ssl.md)
-* [De prestaties verbeteren door bestanden in Azure CDN te comprimeren](../cdn/cdn-improve-performance.md)
-* [Vooraf assets op een Azure CDN-eindpunt laden](../cdn/cdn-preload-endpoint.md)
+In deze zelfstudie heeft u het volgende geleerd:
+
+> [!div class="checklist"]
+> * Een CDN-eindpunt maken.
+> * Assets in cache vernieuwen.
+> * Queryreeksen gebruiken voor het beheren van versies in cache.
+> * Een aangepast domein gebruiken voor het CDN-eindpunt.
+
+In de volgende artikelen vindt u informatie over het optimaliseren van CDN.
+
+> [!div class="nextstepaction"]
+> [De prestaties verbeteren door bestanden in Azure CDN te comprimeren](../cdn/cdn-improve-performance.md)
+
+> [!div class="nextstepaction"]
+> [Vooraf assets op een Azure CDN-eindpunt laden](../cdn/cdn-preload-endpoint.md)
+
 
