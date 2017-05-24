@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: renash
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e773fd4917c7a96201d94d31b2098a3486d27900
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 4e2422e8651d6fd17df2670e78606d1caeaf64ce
 ms.contentlocale: nl-nl
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -676,14 +676,11 @@ U kunt ook het [artikel voor het oplossen van problemen met Azure-bestanden](sto
     
     U kunt het [artikel voor het oplossen van problemen met Azure-bestanden](storage-troubleshoot-file-connection-problems.md) raadplegen voor richtlijnen voor end-to-end-probleemoplossing.               
 
-18. **Hoe kan ik versleuteling aan de serverzijde inschakelen voor Azure Files?**
-> [!NOTE]
-> [Versleuteling aan de serverzijde](storage-service-encryption.md) voor Azure Files is momenteel in preview. Neem contact op met [SSEDiscussion](mailto:ssediscussions@microsoft.com) als u tijdens de preview-periode vragen hebt.
-
-    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal](https://portal.azure.com). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
+18. **Hoe kan ik versleuteling aan de serverzijde inschakelen voor Azure File Storage?**
     
-    We plan to support enabling encryption for file storage with [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md), and the [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in the future. 
-    See [Storage Service Encryption](storage-service-encryption.md) for more information about encryption at rest in Azure Storage, and you can contact ssediscussions@microsoft.com if you have questions during the preview.
+    [Serverversleuteling](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) voor de Azure File Storage-service is in het algemeen beschikbaar in alle regio's en openbare en nationale clouds. U kunt serverversleuteling inschakelen voor de File Storage-service met behulp van [Azure Portal](https://ms.portal.azure.com/),[Microsoft Azure Storage Resource Provider API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts), [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx) of [Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/storage-azure-cli/).
+    
+    Nadat serverversleuteling is ingeschakeld in Azure File Storage, worden nieuwe gegevens die worden geschreven naar dat opslagaccount automatisch versleuteld. Deze functie is beschikbaar voor alle nieuwe gegevens die worden geschreven naar bestaande of nieuwe shares in een bestaand of nieuw opslagaccount. Er zijn geen extra kosten verbonden aan het inschakelen van deze functie. Meer informatie over [het inschakelen van serverversleuteling in de Azure File Storage-service](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
 
 ## <a name="next-steps"></a>Volgende stappen
 Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.

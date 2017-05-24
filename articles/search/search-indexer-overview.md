@@ -1,6 +1,6 @@
 ---
 title: Indexeerfuncties in Azure Search | Microsoft Docs
-description: Azure SQL database, DocumentDB of Azure-opslag verkennen om doorzoekbare gegevens op te halen en een Azure Search-index te vullen.
+description: Azure SQL database, Azure Cosmos DB of Azure Storage verkennen om doorzoekbare gegevens op te halen en een Azure Search-index te vullen.
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 4bcd31a200024a182ee3d5a21bcbcb621fed595f
-ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 52b154895fca9fc465a9c6cc2fb6bf2d5384b057
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -27,9 +29,9 @@ ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
 > * [Overzicht](search-indexer-overview.md)
 > * [Portal](search-import-data-portal.md)
 > * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [DocumentDB](search-howto-index-documentdb.md)
-> * [Blob Storage (voorbeeld)](search-howto-indexing-azure-blob-storage.md)
-> * [Table Storage (voorbeeld)](search-howto-indexing-azure-tables.md)
+> * [Azure Cosmos DB](search-howto-index-documentdb.md)
+> * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+> * [Azure-tabelopslag](search-howto-indexing-azure-tables.md)
 >
 >
 
@@ -40,7 +42,7 @@ U kunt een indexeerfunctie gebruiken voor de opname van gegevens of een combinat
 U kunt indexeerfuncties op verzoek uitvoeren of op basis van een terugkerend schema voor gegevensvernieuwing, dat zo vaak als elke 15 minuten kan worden uitgevoerd. Als u vaker updates wilt uitvoeren, hebt u een pushmodel nodig dat tegelijkertijd gegevens in Azure Search en uw externe gegevensbron bijwerkt.
 
 ## <a name="approaches-for-creating-and-managing-indexers"></a>Strategieën voor het maken en beheren van indexeerfuncties
-U kunt voor algemeen beschikbare indexeerfuncties zoals Azure SQL of DocumentDB met behulp van deze methoden indexeerfuncties maken en beheren:
+U kunt voor algemeen beschikbare indexeerfuncties zoals Azure SQL of Azure Cosmos DB met behulp van deze methoden indexeerfuncties maken en beheren:
 
 * [Portal > Wizard Gegevens importeren](search-get-started-portal.md)
 * [Service REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx)
@@ -56,7 +58,7 @@ Een indexeerfunctie automatiseert bepaalde taken met betrekking tot de opname va
 Een indexeerfunctie haalt gegevens op uit een **gegevensbron** die informatie, zoals een verbindingsreeks, bevat. Momenteel worden de volgende gegevensbronnen ondersteund:
 
 * [Azure SQL Database of SQL Server op een virtuele Azure-machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), wordt gebruikt om tekst op te halen uit PDF-bestanden, Office-documenten, HTML of XML
 * [Azure-tabelopslag](search-howto-indexing-azure-tables.md)
 
@@ -69,14 +71,9 @@ De definitie van de indexeerfunctie is een constructie die de index, gegevensbro
 Nu u het uitgangspunt hebt begrepen, is de volgende stap de vereisten en taken te bekijken die specifiek zijn voor elk gegevensbrontype.
 
 * [Azure SQL Database of SQL Server op een virtuele Azure-machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), wordt gebruikt om tekst op te halen uit PDF-bestanden, Office-documenten, HTML of XML
 * [Azure-tabelopslag](search-howto-indexing-azure-tables.md)
-* [Indexeren van CSV-blobs met de indexeerfunctie Azure Search Blob (voorbeeld)](search-howto-index-csv-blobs.md)
-* [Indexeren van JSON-blobs met de indexeerfunctie Azure Search Blob (voorbeeld)](search-howto-index-json-blobs.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+* [Indexeren van CSV-blobs met de indexeerfunctie Azure Search Blob](search-howto-index-csv-blobs.md)
+* [Indexeren van JSON-blobs met de indexeerfunctie Azure Search Blob](search-howto-index-json-blobs.md)
 

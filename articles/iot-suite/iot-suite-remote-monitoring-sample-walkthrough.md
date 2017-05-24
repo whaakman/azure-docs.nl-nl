@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: dc8ee6a0f17c20c5255d95c7b6f636d89ffe3aee
-ms.openlocfilehash: 9bd4232670256ec7889dd367ea2ea01a2845e789
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 57544151cc020e5170ebd231b5e4d8f424aeada0
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -50,7 +51,7 @@ Via elk gesimuleerd apparaat kunnen de volgende berichttypen worden verzonden na
 | Telemetrie |Via een apparaat wordt periodiek een bericht verzonden over **telemetrie** waarin gesimuleerde waarden voor de temperatuur en vochtigheid worden gemeld die zijn verzameld met de gesimuleerde sensoren van het apparaat. |
 
 > [!NOTE]
-> De oplossing slaat de lijst met opdrachten die door het apparaat worden ondersteund op in een DocumentDB-database en niet in de apparaatdubbel.
+> De oplossing slaat de lijst met opdrachten die door het apparaat worden ondersteund, op in een Cosmos DB-database en niet in de apparaatdubbel.
 > 
 > 
 
@@ -229,10 +230,10 @@ De ASA-taken voor **apparaatgegevens** en **regels** voeren hun gegevens uit naa
 De oplossing maakt gebruik van Azure Blob-opslag om alle ruwe en samengevatte telemetriegegevens op de apparaten in de oplossing te behouden. Met de portal worden de telemetriegegevens uit de blobopslag gelezen om de grafieken te vullen. Voor het weergeven van waarschuwingen leest de oplossingsportal de gegevens uit de blobopslag, waarin is vastgelegd wanneer telemetriewaarden de geconfigureerde drempelwaarden hebben overschreden. In de oplossing wordt blobopslag ook gebruikt om de drempelwaarden vast te leggen die u in de oplossingsportal hebt ingesteld.
 
 ## <a name="webjobs"></a>Webtaken
-De webtaken in de oplossing hosten niet alleen de apparaatsimulatoren maar ook de **gebeurtenisprocessor** die wordt uitgevoerd in een Azure-webtaak die opdrachtantwoorden verwerkt. Met behulp van berichten met reacties op opdrachten wordt de opdrachtgeschiedenis van het apparaat bijgewerkt (opgeslagen in de DocumentDB-database).
+De webtaken in de oplossing hosten niet alleen de apparaatsimulatoren maar ook de **gebeurtenisprocessor** die wordt uitgevoerd in een Azure-webtaak die opdrachtantwoorden verwerkt. Met behulp van berichten met reacties op opdrachten wordt de opdrachtgeschiedenis van het apparaat bijgewerkt (opgeslagen in de Cosmos DB-database).
 
-## <a name="documentdb"></a>DocumentDB
-De oplossing maakt gebruik van een DocumentDB-database om informatie op te slaan over de apparaten die zijn verbonden aan de oplossing. Deze informatie omvat de geschiedenis van opdrachten die vanuit de oplossingsportal naar apparaten zijn verzonden en van methoden die vanuit de oplossingsportal zijn aangeroepen.
+## <a name="cosmos-db"></a>Cosmos DB
+De oplossing maakt gebruik van een Cosmos DB-database om informatie op te slaan over de apparaten die zijn verbonden met de oplossing. Deze informatie omvat de geschiedenis van opdrachten die vanuit de oplossingsportal naar apparaten zijn verzonden en van methoden die vanuit de oplossingsportal zijn aangeroepen.
 
 ## <a name="solution-portal"></a>Oplossingsportal
 
@@ -244,7 +245,7 @@ Deze pagina in de webtoepassing maakt gebruik van Power BI javascript-besturings
 ### <a name="device-list"></a>Lijst met apparaten
 Op deze pagina van de oplossingsportal kunt u het volgende doen:
 
-* Nieuwe apparaten inrichten. Met deze actie wordt het unieke apparaat-id ingesteld en de verificatiesleutel gegenereerd. Er wordt informatie over het apparaat geschreven naar het IoT Hub-identiteitsregister en de oplossingsspecifieke DocumentDB-database.
+* Nieuwe apparaten inrichten. Met deze actie wordt het unieke apparaat-id ingesteld en de verificatiesleutel gegenereerd. Er wordt informatie over het apparaat geschreven naar het IoT Hub-identiteitsregister en de oplossingsspecifieke Cosmos DB-database.
 * Apparaateigenschappen beheren. Deze actie omvat het weergeven van bestaande eigenschappen en het bijwerken met nieuwe eigenschappen.
 * Opdrachten naar een apparaat verzenden.
 * De opdrachtgeschiedenis voor een apparaat weergeven.
@@ -271,3 +272,4 @@ U kunt verder aan de slag gaan met IoT Suite door de volgende artikelen te lezen
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+

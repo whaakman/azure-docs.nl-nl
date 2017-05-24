@@ -1,14 +1,14 @@
 ---
-title: Zelfstudie voor Python Flask-webtoepassingen voor Azure DocumentDB | Microsoft Docs
-description: Bekijk een databasezelfstudie over het gebruik van DocumentDB voor het opslaan van en de toegang tot gegevens uit een Python Flask-webtoepassing die wordt gehost in Azure. Oplossingen voor het ontwikkelen van toepassingen zoeken.
+title: Zelfstudie voor Python Flask-webtoepassingen voor Azure Cosmos DB | Microsoft Docs
+description: Bekijk een databasezelfstudie over het gebruik van Azure Cosmos DB voor het opslaan van en de toegang tot gegevens uit een Python Flask-webtoepassing die wordt gehost in Azure. Oplossingen voor het ontwikkelen van toepassingen zoeken.
 keywords: Toepassingsontwikkeling, python flask, python-webtoepassing, python-webontwikkeling
-services: documentdb
+services: cosmosdb
 documentationcenter: python
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
@@ -16,14 +16,15 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: syamk
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 4f05075efea0f0fd8ca4424f771d3991a65c6d67
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 68b3fd109291551294b58b3cda75fd6a9619b4b4
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="build-a-python-flask-web-application-using-documentdb"></a>Een Python Flask-webtoepassing bouwen met DocumentDB
+# <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Een Python Flask-webtoepassing bouwen met Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [.NET voor MongoDB](documentdb-mongodb-application.md)
@@ -33,13 +34,13 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-In deze zelfstudie wordt uitgelegd hoe u Azure DocumentDB gebruikt voor het opslaan van en de toegang tot gegevens uit een Python-webtoepassing die wordt gehost in Azure. Verondersteld wordt dat u enige ervaring hebt met het gebruik van Python en Azure Websites.
+In deze zelfstudie wordt uitgelegd hoe u Azure Cosmos DB gebruikt voor het opslaan van en de toegang tot gegevens uit een Python-webtoepassing die wordt gehost in Azure. Verondersteld wordt dat u enige ervaring hebt met het gebruik van Python en Azure Websites.
 
 In deze zelfstudie komen de volgende onderwerpen aan bod:
 
-1. Een DocumentDB-account maken en inrichten.
+1. Een Cosmos DB-account maken en inrichten.
 2. Een Python MVC-toepassing maken.
-3. Verbinding maken met en gebruiken van Azure DocumentDB via uw webtoepassing.
+3. Verbinding maken met en gebruiken van Cosmos DB via uw webtoepassing.
 4. De webtoepassing implementeren naar Azure Websites.
 
 In deze zelfstudie bouwt u een eenvoudige stemtoepassing waarmee u kunt stemmen.
@@ -53,7 +54,7 @@ Voordat u de instructies in dit artikel uitvoert, moet het volgende zijn geïnst
  
     OF 
 
-    Een lokale installatie van de [Azure DocumentDB-emulator](documentdb-nosql-local-emulator.md).
+    Een lokale installatie van de [Azure Cosmos DB-emulator](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2013](http://www.visualstudio.com/) of hoger, of [Visual Studio Express]() (de gratis versie). De instructies in deze zelfstudie zijn specifiek geschreven voor Visual Studio 2015. 
 * Python Tools for Visual Studio van [GitHub](http://microsoft.github.io/PTVS/). In deze zelfstudie wordt gebruikgemaakt van Python Tools for VS 2015. 
 * Versie 2.4 of hoger van de Azure Python SDK voor Visual Studio is beschikbaar via [azure.com](https://azure.microsoft.com/downloads/). Wij hebben de Microsoft Azure SDK voor Python 2.7 gebruikt
@@ -68,8 +69,8 @@ Voordat u de instructies in dit artikel uitvoert, moet het volgende zijn geïnst
 
 * Microsoft Visual C++ Compiler voor Python 2.7 uit het [Microsoft Downloadcentrum][3].
 
-## <a name="step-1-create-a-documentdb-database-account"></a>Stap 1: een DocumentDB-databaseaccount maken
-Begin met het maken van een DocumentDB-account. Als u al een account hebt of de DocumentDB-emulator gebruikt voor deze zelfstudie, kunt u direct doorgaan naar [Stap 2: een nieuwe Python Flask-webtoepassing maken](#step-2:-create-a-new-python-flask-web-application).
+## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>Stap 1: een Azure Cosmos DB-databaseaccount maken
+Begin met het maken van een Cosmos DB-account. Als u al een account hebt of de Azure Cosmos DB-emulator gebruikt voor deze zelfstudie, kunt u direct doorgaan naar [Stap 2: een nieuwe Python Flask-webtoepassing maken](#step-2:-create-a-new-python-flask-web-application).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -155,7 +156,7 @@ class VoteForm(Form):
 
 ### <a name="add-the-required-imports-to-viewspy"></a>De vereiste imports toevoegen aan views.py
 1. Vouw in Solution Explorer de map **tutorial** uit en open het bestand **views.py**. 
-2. Voeg de volgende importinstructies boven aan het bestand **views.py** toe en sla het bestand vervolgens op. Hiermee worden de PythonSDK van DocumentDB en de Flask-pakketten geïmporteerd.
+2. Voeg de volgende importinstructies boven aan het bestand **views.py** toe en sla het bestand vervolgens op. Hiermee worden de PythonSDK van Cosmos DB en de Flask-pakketten geïmporteerd.
    
     ```python
     from forms import VoteForm
@@ -202,7 +203,7 @@ def create():
 ```
 
 > [!TIP]
-> De methode **CreateCollection** maakt voor de derde parameter gebruik van de optionele parameter **RequestOptions**. Deze kan worden gebruikt om het aanbiedingstype (OfferType) voor de verzameling op te geven. Als er geen waarde voor OfferType is opgegeven, wordt het standaard-OfferType gebruikt om de verzameling te maken. Zie [Prestatieniveaus in DocumentDB](documentdb-performance-levels.md) voor meer informatie over DocumentDB-aanbiedingstypen (OfferType).
+> De methode **CreateCollection** maakt voor de derde parameter gebruik van de optionele parameter **RequestOptions**. Deze kan worden gebruikt om het aanbiedingstype (OfferType) voor de verzameling op te geven. Als er geen waarde voor OfferType is opgegeven, wordt het standaard-OfferType gebruikt om de verzameling te maken. Zie [Performance levels in Azure Cosmos DB](documentdb-performance-levels.md) (Prestatieniveaus in Azure Cosmos DB) voor meer informatie over Cosmos DB-aanbiedingstypen.
 > 
 > 
 
@@ -314,7 +315,7 @@ def vote():
     ```html
     {% extends "layout.html" %}
     {% block content %}
-    <h2>Python + DocumentDB Voting Application.</h2>
+    <h2>Python + Azure Cosmos DB Voting Application.</h2>
     <h3>This is a sample DocumentDB voting application using PyDocumentDB</h3>
     <p><a href="{{ url_for('create') }}" class="btn btn-primary btn-large">Create/Clear the Voting Database &raquo;</a></p>
     <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
@@ -336,7 +337,7 @@ def vote():
     DOCUMENTDB_COLLECTION = 'voting collection'
     DOCUMENTDB_DOCUMENT = 'voting document'
     ```
-3. Navigeer in [Azure Portal](https://portal.azure.com/) naar de blade **Sleutels** door op **Bladeren** en **DocumentDB-accounts** te klikken. Dubbelklik op de naam van het account dat u wilt gebruiken en klik vervolgens op de knop **Sleutels** in het gebied **Essentials**. Kopieer op de blade **Sleutels** de **URI**-waarde en plak deze in het bestand **config.py** als waarde voor de eigenschap **DOCUMENTDB\_HOST**. 
+3. Navigeer in [Azure Portal](https://portal.azure.com/) naar de blade **Sleutels** door op **Bladeren** en **Azure Cosmos DB-accounts** te klikken. Dubbelklik op de naam van het account dat u wilt gebruiken en klik vervolgens op de knop **Sleutels** in het gebied **Essentials**. Kopieer op de blade **Sleutels** de **URI**-waarde en plak deze in het bestand **config.py** als waarde voor de eigenschap **DOCUMENTDB\_HOST**. 
 4. Terug in Azure Portal kopieert u op de blade **Sleutels** de waarde van de **primaire sleutel** of de **secundaire sleutel** en plakt u deze in het bestand **config.py** als waarde voor de eigenschap **DOCUMENTDB\_KEY**.
 5. Voeg de volgende regel toe aan het bestand **\_\_init\_\_.py**. 
    
@@ -358,7 +359,7 @@ def vote():
 1. Bouw de oplossing op door op **Ctrl**+**Shift**+**B** te drukken.
 2. Zodra de opbouwbewerking is voltooid, start u de website door op **F5** te drukken. Uw scherm ziet er nu als volgt uit:
    
-    ![Schermopname van de Python + DocumentDB-stemtoepassing in een webbrowser](./media/documentdb-python-application/image16.png)
+    ![Schermopname van de Python + Azure Cosmos DB-stemtoepassing in een webbrowser](./media/documentdb-python-application/image16.png)
 3. Klik op **Create/Clear the Voting Database** (De stemdatabase maken/wissen) om de database te genereren.
    
     ![Schermopname van de Create Page (Pagina maken) maken van de webtoepassing – ontwikkelingsgegevens](./media/documentdb-python-application/image17.png)
@@ -371,7 +372,7 @@ def vote():
 6. Stop de foutopsporing voor het project door op Shift + F5 te drukken.
 
 ## <a name="step-5-deploy-the-web-application-to-azure-websites"></a>Stap 5: de webtoepassing implementeren naar Azure Websites
-Zodra de volledige toepassing correct werkt met DocumentDB, kunt u de toepassing implementeren naar Azure Websites.
+Zodra de volledige toepassing correct werkt met Cosmos DB, kunt u de toepassing implementeren naar Azure Websites.
 
 1. Klik in Solution Explorer met de rechtermuisknop op het project (zorg ervoor dat de toepassing niet meer lokaal wordt uitgevoerd) en selecteer **Publiceren**.  
    
@@ -398,7 +399,7 @@ Als dit de eerste Python-app is die u op uw computer uitvoert, moet u ervoor zor
 Als er een foutbericht wordt weergegeven op uw stempagina en u het project een andere naam dan **zelfstudie** hebt gegeven, moet u ervoor zorgen dat **\_\_init\_\_.py** verwijst naar de juiste projectnaam in de regel: `import tutorial.view`.
 
 ## <a name="next-steps"></a>Volgende stappen
-Gefeliciteerd. U hebt zojuist uw eerste Python-webtoepassing met Azure DocumentDB gemaakt en gepubliceerd naar Azure Websites.
+Gefeliciteerd. U hebt zojuist uw eerste Python-webtoepassing met Cosmos DB gemaakt en gepubliceerd naar Azure Websites.
 
 Dit onderwerp wordt regelmatig bijgewerkt en verbeterd op basis van uw feedback.  Zodra u de zelfstudie hebt voltooid, verzoeken we u de stemknoppen boven of onder aan de pagina te gebruiken en ons feedback te geven met betrekking tot de verbeteringen die u graag zou willen zien. Als u graag rechtstreeks contact wilt opnemen, voegt u uw e-mailadres ook toe aan uw reactie.
 

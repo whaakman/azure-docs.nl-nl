@@ -1,68 +1,84 @@
 ---
-title: Inleiding tot DocumentDB, een JSON-database | Microsoft Docs
-description: Meer informatie over Azure DocumentDB, een NoSQL JSON-database. Deze documentdatabase is gebouwd voor big data, een elastische schaalbaarheid en een hoge beschikbaarheid.
+title: 'Azure Cosmos DB: DocumentDB-API | Microsoft Docs'
+description: Leer hoe u Azure Cosmos DB gebruikt om query&quot;s uit te voeren voor grote aantallen JSON-documenten en hoe u deze met een lage latentie opslaat met behulp van SQL en JavaScript).
 keywords: json-database, documentdatabase
-services: documentdb
+services: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: 686cdd2b-704a-4488-921e-8eefb70d5c63
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/14/2017
+ms.date: 05/04/2017
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 4f6ae0c3c40a10f75b46c6e44b0aa9e8ce440b4d
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 60cc7b5acf0a8c54d8927e992b2189f49af1db3c
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="introduction-to-documentdb-a-nosql-json-database"></a>Inleiding tot DocumentDB: een NoSQL JSON-database
-## <a name="what-is-documentdb"></a>Wat is DocumentDB?
-DocumentDB is een volledig beheerde NoSQL-databaseservice die is gebouwd voor snelle en voorspelbare prestaties, hoge beschikbaarheid, elastisch schalen, globale distributie en een gebruiksvriendelijke manier van ontwikkelen. DocumentDB is een NoSQl-database zonder schema en biedt rijke en vertrouwde mogelijkheden voor SQL-query‘s met consistente lage latenties voor JSON-gegevens. Hierdoor wordt 99% van de leesbewerkingen in minder dan 10 milliseconden verwerkt en 99% van de schrijfbewerkingen in minder dan 15 milliseconden. Door deze unieke voordelen is DocumentDB zeer geschikt voor internet, mobiel, games en IoT, en voor veel andere toepassingen die naadloze schaling en globale replicatie nodig hebben.
+# <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Inleiding in Azure Cosmos DB: DocumentDB-API
 
-## <a name="how-can-i-learn-about-documentdb"></a>Hoe kan ik meer informatie krijgen over DocumentDB?
-Als u snel meer te weten wilt komen over DocumentDB en een demonstratie wilt bekijken, volgt u de volgende drie stappen: 
+[Azure Cosmos DB](../cosmos-db/introduction.md) is de wereldwijd gedistribueerde databaseservice met meerdere modellen van Microsoft voor essentiële toepassingen. Azure Cosmos DB biedt [gebruiksklare wereldwijde distributie](../documentdb/documentdb-distribute-data-globally.md), [elastisch schalen van doorvoer en opslag](../cosmos-db/partition-data.md), latentie die wereldwijd in het 99e percentiel onder de 10 milliseconden blijft, [vijf goed gedefinieerde consistentieniveaus](../documentdb/documentdb-consistency-levels.md) en een gegarandeerd hoge beschikbaarheid, allemaal op basis van [toonaangevende serviceovereenkomsten](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/). Met Azure Cosmos DB worden [gegevens automatisch geïndexeerd](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), zonder dat u te maken krijgt met schema- en indexbeheer. Azure Cosmos DB beschikt over meerdere modellen en ondersteunt modellen voor document-, sleutelwaarde-, grafiek- en kolomgegevens. 
 
-1. Bekijk de video [What is DocumentDB?](https://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) (Wat is DocumentDB?) waarin u in twee minuten kennismaakt met de voordelen van het gebruik van DocumentDB.
-2. Bekijk de drie minuten durende video [Create DocumentDB on Azure](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) (DocumentDB op Azure maken), waarin wordt uitgelegd hoe u aan de slag kunt met DocumentDB door gebruik te maken van Azure Portal.
+![Azure DocumentDB-API](./media/documentdb-introduction/cosmosdb-documentdb.png) 
+
+Met de DocumentDB-API biedt Azure Cosmos DB rijke en vertrouwde [SQL-querymogelijkheden](documentdb-sql-query.md) met consistente lage latenties voor JSON-gegevens zonder schema. In dit artikel krijgt u een overzicht van de Azure Cosmos DB DocumentDB-API en leert u hoe u deze kunt gebruiken om grote hoeveelheden JSON-gegevens op te slaan, hoe u er query's voor uitvoert met een latentie van milliseconden en hoe u het schema eenvoudig kunt veranderen. 
+
+## <a name="how-can-i-learn-about-the-documentdb-api"></a>Hoe kan ik meer informatie krijgen over de DocumentDB-API?
+Als u snel meer te weten wilt komen over de DocumentDB-API en een demonstratie wilt bekijken, volgt u de volgende drie stappen: 
+
+1. Bekijk de video [What is Azure Cosmos DB?](https://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) (Wat is Azure Cosmos DB?) waarin u kennismaakt met de voordelen van het gebruik van Azure Cosmos DB.
+2. Bekijk de drie minuten durende video [Create Azure Cosmos DB on Azure](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) (Azure Cosmos DB op Azure maken), waarin wordt uitgelegd hoe u aan de slag kunt met Azure Cosmos DB door gebruik te maken van Azure Portal.
 3. Bezoek de [Query Playground](http://www.documentdb.com/sql/demo)(Queryspeelplaats) waar u verschillende activiteiten kunt doorlopen om meer te leren over de geavanceerde queryfunctionaliteit die beschikbaar is in DocumentDB. Ga vervolgens naar het tabblad Sandbox en voer uw eigen SQL-query's uit en experimenteer met DocumentDB.
 
 Kom vervolgens terug naar dit artikel waar dieper op de zaken wordt ingegaan.  
 
-## <a name="what-capabilities-and-key-features-does-documentdb-offer"></a>Welke mogelijkheden en belangrijke functies biedt DocumentDB?
-Azure DocumentDB biedt de volgende belangrijke mogelijkheden en voordelen:
+## <a name="what-capabilities-and-key-features-does-azure-cosmos-db-offer"></a>Welke mogelijkheden en belangrijke functies biedt Azure Cosmos DB?
+Azure Cosmos DB biedt via de DocumentDB-API de volgende belangrijke mogelijkheden en voordelen:
 
-* **Elastische schaalbare doorvoer en opslag:** U kunt uw DocumentDB JSON-database eenvoudig omhoog of omlaag schalen om te voldoen aan de behoeften van uw toepassing. Uw gegevens worden opgeslagen op SSD-schijven (Solid State Disks) voor lage voorspelbare latenties. DocumentDB ondersteunt containers voor het opslaan van de JSON-gegevens die verzamelingen worden genoemd, waarvan de opslaggrootte en ingerichte doorvoer vrijwel onbeperkt kan worden geschaald. Wanneer uw toepassing groeit, kunt u DocumentDB probleemloos schalen met voorspelbare prestaties. 
-* **Replicatie voor meerdere regio's:** DocumentDB repliceert uw gegevens transparant naar alle regio's die u aan uw DocumentDB-account hebt gekoppeld, zodat u toepassingen kunt ontwikkelen waarvoor globale toegang tot gegevens is vereist, en die tegelijkertijd zorgen voor een balans tussen consistentie, beschikbaarheid en prestaties, allemaal met overeenkomstige garanties. DocumentDB biedt transparante regionale failover met multihoming-API's en de mogelijkheid om doorvoer en opslag wereldwijd elastisch te schalen. Zie [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md) (Gegevens globaal distribueren met DocumentDB) voor meer informatie.
-* **Ad-hocquery's met bekende SQL-syntaxis:** U kunt heterogene JSON-documenten in DocumentDB opslaan en query's op deze documenten uitvoeren via een bekende SQL-syntaxis. DocumentDB maakt gebruik van een uiterst gelijktijdige, vergrendelingsvrije, indexeringstechnologie op basis van een logboekenstructuur om alle documentinhoud automatisch te indexeren. Zodoende kunt u realtime query's uitvoeren zonder dat u schemahints, secundaire indexen of weergaven hoeft op te geven. Zie [Query's in DocumentDB uitvoeren](documentdb-sql-query.md) voor meer informatie. 
-* **Uitvoeren van JavaScript in de database:** Express-toepassingslogica als opgeslagen procedures en triggers en door de gebruiker gedefinieerde functies (UDF's) met standaard-JavaScript. Zodoende kan uw toepassingslogica worden toegepast op gegevens zonder dat u zich zorgen hoeft te maken over onjuiste overeenkomsten tussen de toepassing en het databaseschema. Met DocumentDB kan de JavaScript-toepassingslogica volledig transactioneel en rechtstreeks worden uitgevoerd in de database-engine. Dankzij de diepe integratie van JavaScript kunnen de bewerkingen INSERT, REPLACE, DELETE en SELECT als geïsoleerde transactie worden uitgevoerd vanuit een JavaScript-programma. Zie [Programmeren op de DocumentDB-server](documentdb-programming.md) voor meer informatie.
-* **Instelbare consistentieniveaus:** Selecteer een van de vier goed gedefinieerde consistentieniveaus voor een optimale balans tussen de consistentie en prestaties. Voor query's en leesbewerkingen biedt DocumentDB vier verschillende consistentieniveaus: sterk, gebonden-verouderd, sessie en mogelijk. Op basis van deze gedetailleerde, goed gedefinieerde consistentieniveaus kunt u een goede balans vinden tussen de consistentie, beschikbaarheid en latentie. Zie [Consistentieniveaus gebruiken om de beschikbaarheid en prestaties in DocumentDB te maximaliseren](documentdb-consistency-levels.md) voor meer informatie.
-* **Volledig beheerd:** Elimineer de noodzaak om database- en machineresources te beheren. U hoeft voor een volledig beheerde Microsoft Azure-service geen virtuele machines te beheren, software te implementeren en te configureren, schaalwijzigingen te beheren of complexe upgrades voor gegevenslagen uit te voeren. Er wordt automatisch een back-up van elke database gemaakt en de databases worden automatisch beveiligd tegen regionale fouten. U kunt gemakkelijk een DocumentDB-account toevoegen en capaciteit inrichten als u dit nodig hebt, waardoor u zich kunt richten op uw toepassing in plaats van het besturingssysteem en het beheren van uw database. 
-* **Open ontwerp:** U kunt snel aan de slag door gebruik te maken van bestaande vaardigheden en hulpprogramma's. U kunt op een eenvoudige en gebruiksvriendelijke manier programmeren voor DocumentDB. Bovendien hebt u geen nieuwe hulpprogramma's nodig en hoeft u geen aangepaste uitbreidingen voor JSON of JavaScript te gebruiken. De volledige databasefunctionaliteit, inclusief CRUD-, query- en JavaScript-verwerking, is toegankelijk via een eenvoudige RESTful HTTP-interface. DocumentDB is geschikt voor bestaande indelingen, talen en standaarden, terwijl daarnaast waardevolle databasemogelijkheden worden geboden.
-* **Automatisch indexeren:** alle documenten in de database worden standaard automatisch geïndexeerd in DocumentDB. Er wordt geen schema verwacht of vereist en er hoeven geen secundaire indexen te worden gemaakt. Wilt u niet alles indexeren? Maakt u zich geen zorgen. U kunt ook [paden uitschakelen in uw JSON-bestand](documentdb-indexing-policies.md).
-* **Compatibiliteit met MongoDB-apps:** met DocumentDB: API voor MongoDB kunt u DocumentDB-databases gebruiken als het gegevensarchief voor apps die zijn geschreven voor MongoDB. Door bestaande stuurprogramma's voor MongDB-databases te gebruiken, kan uw toepassing die is geschreven voor MongoDB, nu dus communiceren met DocumentDB en DocumentDB-databases kan gebruiken in plaats van MongoDB-databases. In veel gevallen hoeft u alleen een verbindingsreeks te wijzigen als u wilt overschakelen van het gebruik van MongoDB naar DocumentDB . Meer informatie vindt u in [Wat is DocumentDB: API voor MongoDB?](documentdb-protocol-mongodb.md)
+* **Elastisch schaalbare doorvoer en opslag:** u kunt uw JSON-database eenvoudig omhoog of omlaag schalen om te voldoen aan de behoeften van uw toepassing. Uw gegevens worden opgeslagen op SSD-schijven (Solid State Disks) voor lage voorspelbare latenties. Azure Cosmos DB ondersteunt containers voor het opslaan van JSON-gegevens (zogenaamde 'verzamelingen'), waarvan de opslaggrootte en ingerichte doorvoer vrijwel onbeperkt kan worden geschaald. Naarmate uw toepassing groeit, kunt u Azure Cosmos DB probleemloos elastisch schalen met voorspelbare prestaties. 
 
-## <a name="data-management"></a>Hoe worden gegevens beheerd in DocumentDB?
-JSON-gegevens in Azure DocumentDB worden beheerd via goed gedefinieerde databaseresources. Deze resources worden gerepliceerd voor hoge beschikbaarheid en zijn uniek adresseerbaar op basis van hun logische URI. DocumentDB biedt voor alle resources een eenvoudig RESTful-programmeermodel op basis van HTTP. 
 
-Het DocumentDB-databaseaccount is een unieke naamruimte die u toegang biedt tot Azure DocumentDB. Voordat u een databaseaccount kunt maken, moet u een Azure-abonnement hebben. Dit abonnement geeft u toegang tot diverse Azure-services. 
+* **Replicatie voor meerdere regio's:** Azure Cosmos DB repliceert uw gegevens transparant naar alle regio's die u aan uw Azure Cosmos DB-account hebt gekoppeld, zodat u toepassingen kunt ontwikkelen waarvoor wereldwijde toegang tot gegevens is vereist, en die tegelijkertijd zorgen voor een balans tussen consistentie, beschikbaarheid en prestaties, allemaal met overeenkomstige garanties. Azure Cosmos DB biedt transparante regionale failover met multihoming-API's en de mogelijkheid om doorvoer en opslag wereldwijd elastisch te schalen. Zie [Distribute data globally with Azure Cosmos DB](documentdb-distribute-data-globally.md) (Gegevens wereldwijd distribueren met Azure Cosmos DB) voor meer informatie.
 
-Alle resources binnen DocumentDB worden gemodelleerd en opgeslagen als JSON-documenten. Resources worden beheerd als items, oftewel JSON-documenten met metagegevens, en als feeds, oftewel verzamelingen items. Sets met items bevinden zich in hun respectieve feeds.
+* **Ad-hocquery's met bekende SQL-syntaxis:** u kunt heterogene JSON-documenten opslaan en query's op deze documenten uitvoeren via een bekende SQL-syntaxis. Azure Cosmos DB maakt gebruik van een vrijwel gelijktijdige en vergrendelingsvrije indexeringstechnologie op basis van een logboekenstructuur om alle documentinhoud automatisch te indexeren. Zodoende kunt u realtime query's uitvoeren zonder dat u schemahints, secundaire indexen of weergaven hoeft op te geven. Zie [Query Azure Cosmos DB](documentdb-sql-query.md) (Query's uitvoeren voor Azure Cosmos DB) voor meer informatie. 
+* **Uitvoeren van JavaScript in de database:** Express-toepassingslogica als opgeslagen procedures en triggers en door de gebruiker gedefinieerde functies (UDF's) met standaard-JavaScript. Zodoende kan uw toepassingslogica worden toegepast op gegevens zonder dat u zich zorgen hoeft te maken over onjuiste overeenkomsten tussen de toepassing en het databaseschema. Met de DocumentDB-API kan de JavaScript-toepassingslogica volledig transactioneel en rechtstreeks worden uitgevoerd in de database-engine. Dankzij de diepe integratie van JavaScript kunnen de bewerkingen INSERT, REPLACE, DELETE en SELECT als geïsoleerde transactie worden uitgevoerd vanuit een JavaScript-programma. Zie [Programmeren op de DocumentDB-server](documentdb-programming.md) voor meer informatie.
 
-De onderstaande afbeelding toont u relaties tussen de DocumentDB-resources:
+* **Instelbare consistentieniveaus:** selecteer een van de vijf goed gedefinieerde consistentieniveaus voor een optimale balans tussen consistentie en prestaties. Voor query's en leesbewerkingen biedt Azure Cosmos DB vijf verschillende consistentieniveaus: sterk, gebonden-verouderd, sessie, consistent voorvoegsel en mogelijk. Op basis van deze gedetailleerde, goed gedefinieerde consistentieniveaus kunt u een goede balans vinden tussen de consistentie, beschikbaarheid en latentie. Zie [Consistentieniveaus gebruiken om de beschikbaarheid en prestaties te maximaliseren](documentdb-consistency-levels.md) voor meer informatie.
 
-![De hiërarchische relatie tussen resources in DocumentDB, een NoSQL JSON-database][1] 
+* **Volledig beheerd:** Elimineer de noodzaak om database- en machineresources te beheren. U hoeft voor een volledig beheerde Microsoft Azure-service geen virtuele machines te beheren, software te implementeren en te configureren, schaalwijzigingen te beheren of complexe upgrades voor gegevenslagen uit te voeren. Er wordt automatisch een back-up van elke database gemaakt en de databases worden automatisch beveiligd tegen regionale fouten. U kunt gemakkelijk een Azure Cosmos DB-account toevoegen en capaciteit inrichten als u dit nodig hebt, waardoor u zich kunt richten op uw toepassing in plaats van op beheer en uitvoer van uw database. 
+
+* **Open ontwerp:** U kunt snel aan de slag door gebruik te maken van bestaande vaardigheden en hulpprogramma's. U kunt op een eenvoudige en gebruiksvriendelijke manier programmeren voor de DocumentDB-API. Bovendien hebt u geen nieuwe hulpprogramma's nodig en hoeft u geen aangepaste uitbreidingen voor JSON of JavaScript te gebruiken. De volledige databasefunctionaliteit, inclusief CRUD-, query- en JavaScript-verwerking, is toegankelijk via een eenvoudige RESTful HTTP-interface. De DocumentDB-API is geschikt voor bestaande indelingen, talen en standaarden, terwijl daarnaast waardevolle databasemogelijkheden worden geboden.
+
+* **Automatisch indexeren:** alle documenten in de database worden standaard automatisch geïndexeerd in Azure Cosmos DB. Er wordt geen schema verwacht of vereist en er hoeven geen secundaire indexen te worden gemaakt. Wilt u niet alles indexeren? Maakt u zich geen zorgen. U kunt ook [paden uitschakelen in uw JSON-bestand](documentdb-indexing-policies.md).
+
+## <a name="data-management"></a>Hoe beheer ik gegevens met de DocumentDB-API?
+Met de DocumentDB-API kunt u JSON-gegevens beheren via goed gedefinieerde databaseresources. Deze resources worden gerepliceerd voor hoge beschikbaarheid en zijn uniek adresseerbaar op basis van hun logische URI. DocumentDB biedt voor alle resources een eenvoudig RESTful-programmeermodel op basis van HTTP. 
+
+
+Het Azure Cosmos DB-databaseaccount is een unieke naamruimte die u toegang biedt tot Azure Cosmos DB. Voordat u een databaseaccount kunt maken, moet u een Azure-abonnement hebben. Dit abonnement geeft u toegang tot diverse Azure-services. 
+
+Alle resources binnen Azure Cosmos DB worden gemodelleerd en opgeslagen als JSON-documenten. Resources worden beheerd als items, oftewel JSON-documenten met metagegevens, en als feeds, oftewel verzamelingen items. Sets met items bevinden zich in hun respectieve feeds.
+
+De onderstaande afbeelding toont u de relaties tussen de Azure Cosmos DB-resources:
+
+![De hiërarchische relatie tussen de resources in Azure Cosmos DB][1] 
 
 Een databaseaccount bestaat uit een set databases die elk meerdere verzamelingen bevatten. Elk verzameling kan opgeslagen procedures, triggers, UDF's, documenten en verwante bijlagen bevatten. Er zijn ook gebruikers aan een database gekoppeld. Elke gebruiker beschikt over een set machtigingen voor toegang tot verschillende andere verzamelingen, opgeslagen procedures, triggers, UDF's, documenten of bijlagen. Databases, gebruikers, machtigingen en verzamelingen zijn door het systeem gedefinieerde resources met bekende schema's. Documenten, opgeslagen procedures, triggers, UDF's en bijlagen bevatten echter willekeurige, door de gebruiker gedefinieerde JSON-inhoud.  
 
-## <a name="develop"></a> Hoe kan ik apps ontwikkelen met DocumentDB?
-Azure DocumentDB ontsluit resources via een REST API die kan worden aangeroepen via elke taal waarmee HTTP-/HTTPS-aanvragen kunnen worden gemaakt. Daarnaast biedt DocumentDB programmeringsbibliotheken voor verschillende veelgebruikte talen en is het compatibel met MongoDB API's. Dankzij de clientbibliotheken kunt u in vele opzichten eenvoudiger met Azure DocumentDB werken, doordat ze de gegevens voor adrescaching, uitzonderingsbeheer, automatische nieuwe pogingen enzovoort verwerken. Bibliotheken zijn momenteel beschikbaar voor de volgende talen en platformen:  
+> [!NOTE]
+> Omdat de DocumentDB-API eerder beschikbaar was dan de Azure DocumentDB-service, kunt u doorgaan met het inrichten, bewaken en beheren van accounts die zijn gemaakt via de Azure Resource Management REST-API of hulpprogramma's met behulp van de Azure DocumentDB- en Azure Cosmos DB-resourcenamen. De namen worden door elkaar gebruikt wanneer wordt verwezen naar de Azure DocumentDB-API's. 
+
+## <a name="develop"></a> Hoe kan ik apps ontwikkelen met de DocumentDB-API?
+
+Azure Cosmos DB ontsluit resources via de DocumentDB REST-API, die kan worden aangeroepen via elke taal waarmee HTTP-/HTTPS-aanvragen kunnen worden gedaan. Daarnaast worden er voor de DocumentDB-API programmeringsbibliotheken geboden voor verschillende veelgebruikte talen. Dankzij de clientbibliotheken kunt u in vele opzichten eenvoudiger met de API werken, doordat ze de gegevens voor adrescaching, uitzonderingsbeheer, automatische nieuwe pogingen enzovoort verwerken. Bibliotheken zijn momenteel beschikbaar voor de volgende talen en platformen:  
 
 | Downloaden | Documentatie |
 | --- | --- |
@@ -74,23 +90,24 @@ Azure DocumentDB ontsluit resources via een REST API die kan worden aangeroepen 
 | [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python-bibliotheek](http://azure.github.io/azure-documentdb-python/) |
 | N.v.t. | [API voor MongoDB](documentdb-protocol-mongodb.md)
 
-Met behulp van de [Azure DocumentDB-emulator](documentdb-nosql-local-emulator.md) kunt u uw toepassing lokaal ontwikkelen en testen, kosteloos en zonder een Azure-abonnement te maken. Als u tevreden bent over hoe uw toepassing werkt in de DocumentDB-emulator, kunt u overstappen naar een Azure DocumentDB-account in de cloud.
 
-DocumentDB biedt naast de eenvoudige maak-, lees-, bijwerk- en verwijderbewerkingen een geavanceerde SQL-queryinterface voor het ophalen van JSON-documenten en ondersteuning aan de serverzijde voor de transactionele uitvoering van JavaScript-toepassingslogica. De interfaces voor het uitvoeren van query's en scripts zijn beschikbaar via alle platformbibliotheken en REST API's. 
+Met behulp van de [Azure Cosmos DB-emulator](documentdb-nosql-local-emulator.md) kunt u uw toepassing lokaal ontwikkelen en testen met de DocumentDB-API, kosteloos en zonder dat u een Azure-abonnement hoeft te nemen. Als u tevreden bent over hoe uw toepassing in de emulator werkt, kunt u overstappen naar een Azure Cosmos DB-account in de cloud.
+
+De DocumentDB-API biedt naast de eenvoudige maak-, lees-, bijwerk- en verwijderbewerkingen een geavanceerde SQL-queryinterface voor het ophalen van JSON-documenten en ondersteuning aan de serverzijde voor de transactionele uitvoering van JavaScript-toepassingslogica. De interfaces voor het uitvoeren van query's en scripts zijn beschikbaar via alle platformbibliotheken en REST API's. 
 
 ### <a name="sql-query"></a>SQL-query
-Azure DocumentDB biedt ondersteuning voor documentquery's die gebruikmaken van een SQL-taal, die verankerd ligt in het JavaScript-typesysteem, en voor expressies met ondersteuning voor relationele, hiërarchische en ruimtelijke query's. De quertytaal van DocumentDB is een eenvoudige maar krachtige interface om query's op JSON-documenten uit te voeren. De taal ondersteunt een subset van de ANSI SQL-grammatica en zorgt voor een diepe integratie van JavaScript-object-, -matrix-, -objectconstructie- en functieaanroepen. DocumentDB levert het querymodel zonder een expliciet schema of indexeringshints van de ontwikkelaar.
+De DocumentDB-API biedt ondersteuning voor documentquery's die gebruikmaken van een SQL-taal die verankerd ligt in het JavaScript-typesysteem, en voor expressies met ondersteuning voor relationele, hiërarchische en ruimtelijke query's. De quertytaal van DocumentDB is een eenvoudige maar krachtige interface om query's op JSON-documenten uit te voeren. De taal ondersteunt een subset van de ANSI SQL-grammatica en zorgt voor een diepe integratie van JavaScript-object-, -matrix-, -objectconstructie- en functieaanroepen. DocumentDB levert het querymodel zonder een expliciet schema of indexeringshints van de ontwikkelaar.
 
-Door de gebruiker gedefinieerde functies (UDF's) kunnen worden geregistreerd met DocumentDB en er kan als onderdeel van een SQL-query naar worden verwezen, waarmee de grammatica ter ondersteuning van aangepaste toepassingslogica wordt uitgebreid. Deze UDF zijn geschreven als JavaScript-programma's en worden uitgevoerd binnen de database. 
+Door de gebruiker gedefinieerde functies (UDF's) kunnen worden geregistreerd met de DocumentDB-API en er kan als onderdeel van een SQL-query naar worden verwezen, waarmee de grammatica ter ondersteuning van aangepaste toepassingslogica wordt uitgebreid. Deze UDF zijn geschreven als JavaScript-programma's en worden uitgevoerd binnen de database. 
 
-Voor .NET-ontwikkelaars bevat DocumentDB een LINQ-queryprovider als onderdeel van de [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx). 
+Voor .NET-ontwikkelaars bevat de DocumentDB [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) een LINQ-queryprovider. 
 
 ### <a name="transactions-and-javascript-execution"></a>Transacties en JavaScript uitvoeren
-Met DocumentDB kunt u toepassingslogica schrijven als benoemde programma's die volledig zijn geschreven in JavaScript. Deze programma's worden geregistreerd voor een verzameling en kunnen databasebewerkingen uitvoeren op de documenten binnen een bepaalde verzameling. JavaScript kan worden geregistreerd voor uitvoering als een trigger, opgeslagen procedure of als een door de gebruiker gedefinieerde functie. Met triggers en opgeslagen procedures kunt u documenten maken, lezen, bijwerken en verwijderen, terwijl de functies die door de gebruiker zijn gedefinieerd, worden uitgevoerd als onderdeel van de logica voor het uitvoeren van een query, zonder schrijftoegang tot de verzameling.
+Met de DocumentDB-API kunt u toepassingslogica schrijven als benoemde programma's die volledig zijn geschreven in JavaScript. Deze programma's worden geregistreerd voor een verzameling en kunnen databasebewerkingen uitvoeren op de documenten binnen een bepaalde verzameling. JavaScript kan worden geregistreerd voor uitvoering als een trigger, opgeslagen procedure of als een door de gebruiker gedefinieerde functie. Met triggers en opgeslagen procedures kunt u documenten maken, lezen, bijwerken en verwijderen, terwijl de functies die door de gebruiker zijn gedefinieerd, worden uitgevoerd als onderdeel van de logica voor het uitvoeren van een query, zonder schrijftoegang tot de verzameling.
 
-De JavaScript-uitvoering in DocumentDB is gemodelleerd naar de concepten die worden ondersteund door relationele databasesystemen, met JavaScript als een moderne vervanger van Transact-SQL. Alle JavaScript-logica wordt uitgevoerd binnen een ambient ACID-transactie met het isolatieniveau Snapshot. Als er tijdens de uitvoering een JavaScript-uitzondering optreedt, wordt de volledige transactie afgebroken.
+De JavaScript-uitvoering in de DocumentDB-API is gemodelleerd op basis van de concepten die worden ondersteund door relationele databasesystemen, met JavaScript als een moderne vervanger van Transact-SQL. Alle JavaScript-logica wordt uitgevoerd binnen een ambient ACID-transactie met het isolatieniveau Snapshot. Als er tijdens de uitvoering een JavaScript-uitzondering optreedt, wordt de volledige transactie afgebroken.
 
-## <a name="are-there-any-online-courses-on-documentdb"></a>Zijn er online cursussen over DocumentDB?
+## <a name="are-there-any-online-courses-on-azure-cosmos-db"></a>Zijn er online cursussen over Azure Cosmos DB?
 
 Ja, er is een [Microsoft Virtual Academy](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847)-cursus over Azure DocumentDB. 
 
@@ -99,15 +116,7 @@ Ja, er is een [Microsoft Virtual Academy](https://mva.microsoft.com/en-US/traini
 >
 
 ## <a name="next-steps"></a>Volgende stappen
-Hebt u al een Azure-account? Dan kunt u aan de slag met DocumentDB in [Azure Portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB) door [een DocumentDB-databaseaccount te maken](documentdb-create-account.md).
-
-Hebt u geen Azure-account? U kunt:
-
-* Meld u aan voor een [gratis proefversie van Azure](https://azure.microsoft.com/free/). U hebt dan 30 dagen en €170 om alle Azure-services te proberen. 
-* Als u een MSDN-abonnement hebt, komt u in aanmerking voor [$&150; aan gratis Azure-tegoed per maand](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dit tegoed kunt u gebruiken voor elke willekeurige Azure-service. 
-* Download de [Azure DocumentDB-emulator](documentdb-nosql-local-emulator.md) om uw toepassing lokaal te ontwikkelen.
-
-Als u vervolgens meer wilt leren, kunt u ons [leertraject](https://azure.microsoft.com/documentation/learning-paths/documentdb/) bezoeken om door alle beschikbare leerresources te bladeren. 
+Hebt u al een Azure-account? Vervolgens kunt u aan de slag met Azure Cosmos DB door onze [Quick Starts](../cosmos-db/create-documentdb-dotnet.md) te volgen. Deze bieden informatie over hoe u een account maakt en aan de slag gaat met Cosmos DB.
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
 
