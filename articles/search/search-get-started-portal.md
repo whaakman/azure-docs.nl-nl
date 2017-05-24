@@ -13,12 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/22/2017
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e03d0ff92b0ad6d34314c55d98972997769d09f0
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -199,7 +200,7 @@ U hebt nu een zoekindex die gereed is om op te vragen. **Search explorer** is ee
 
   Als u afzonderlijke onderdelen wilt weergeven, klikt u op **Index**, **Indexeerfunctie** of op de tegel **Gegevensbronnen** op uw dashboard om een lijst met bestaande objecten weer te geven. Zie [Index bijwerken (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index) voor informatie over indexbewerkingen waarvoor opnieuw bouwen niet is vereist.
 
-+ Probeer de hulpprogramma's en stappen met andere gegevensbronnen. De voorbeeldgegevensset (`realestate-us-sample`) komt uit een Azure SQL-database die kan worden verkend met Azure Search. Naast Azure SQL Database kan Azure Search ook een index uit platte gegevensstructuren in Azure Table-opslag, Blob-opslag, SQL Server op een virtuele Azure-machine en DocumentDB verkennen of afleiden. Al deze gegevensbronnen worden ondersteund in de wizard. In code kunt u een index gemakkelijk vullen met behulp van een *indexeerfunctie*.
++ Probeer de hulpprogramma's en stappen met andere gegevensbronnen. De voorbeeldgegevensset (`realestate-us-sample`) komt uit een Azure SQL-database die kan worden verkend met Azure Search. Naast Azure SQL Database kan Azure Search ook een index uit platte gegevensstructuren in Azure Table Storage, Blob Storage of SQL Server op een Azure-VM en Azure Cosmos DB verkennen of afleiden. Al deze gegevensbronnen worden ondersteund in de wizard. In code kunt u een index gemakkelijk vullen met behulp van een *indexeerfunctie*.
 
 + Alle andere gegevensbronnen die geen indexeerfunctie zijn, worden ondersteund via een pushmodel, waarbij de code nieuwe en gewijzigde rijensets in JSON naar de index pusht. Zie [Documenten toevoegen, bijwerken of verwijderen in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) voor meer informatie.
 

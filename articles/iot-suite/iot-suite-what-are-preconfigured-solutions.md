@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: fba7f5f33d1a0d39219a6790e1d5c6b4515b794c
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 29e8639a6f1f0c2733d24dda78975ea7cfb6107a
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -107,7 +108,7 @@ Met de IoT Hub-functie voor apparaatbeheer kunt u de apparaateigenschappen beher
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 De vooraf geconfigureerde oplossing maakt gebruik van drie [Azure Stream Analytics][lnk-asa]-jobs (ASA) voor het filteren van de telemetriestroom vanaf de apparaten:
 
-* *De job DeviceInfo* voert gegevens uit naar een Event Hub die apparaatregistratiespecifieke berichten doorstuurt naar het apparaatregister van de oplossing (een DocumentDB-database). Dit bericht wordt verzonden wanneer een apparaat de eerste keer verbinding maakt of reageert op een opdracht voor het **wijzigen van de apparaatstatus**.
+* *De taak DeviceInfo* voert gegevens uit naar een Event Hub die berichten specifiek voor apparaatregistratie doorstuurt naar het apparaatregister van de oplossing (een Azure Cosmos DB-database). Dit bericht wordt verzonden wanneer een apparaat de eerste keer verbinding maakt of reageert op een opdracht voor het **wijzigen van de apparaatstatus**.
 * *De job Telemetry* verzendt alle onbewerkte telemetrie naar Azure Blob Storage voor koude opslag en berekent telemetrieaggregaties die op het dashboard van de oplossing worden weergegeven.
 * *De job Rules* filtert de telemetriestroom op waarden die groter zijn dan regeldrempelwaarden en voert de gegevens uit naar een Event Hub. Wanneer een regel wordt gestart, wordt deze gebeurtenis in het portaldashboard van de oplossing weergegeven als een nieuwe rij in de alarmhistorietabel. Deze regels kunnen ook een actie activeren op basis van de instellingen die zijn gedefinieerd in de weergaven **Regels** en **Acties** van de oplossingsportal.
 
@@ -117,10 +118,10 @@ In deze vooraf geconfigureerde oplossing maken de ASA-jobs deel uit van de **bac
 In deze vooraf geconfigureerde oplossing maakt de gebeurtenisprocessor deel uit van de **back-end van de IoT-oplossing** in een typische [IoT-oplossingsarchitectuur][lnk-what-is-azure-iot].
 
 De ASA-jobs **DeviceInfo** en **Rules** verzenden hun uitvoer naar Event Hubs voor levering aan andere back-endservices. De oplossing maakt gebruik van een [EventProcessorHost][lnk-event-processor]-instantie, die in een [WebJob][lnk-web-job] wordt uitgevoerd, om de berichten van deze Event Hubs te lezen. De **EventProcessorHost** gebruikt:
-- De gegevens in **DeviceInfo** om de apparaatgegevens in de DocumentDB-database bij te werken.
+- De gegevens in **DeviceInfo** om de apparaatgegevens in de Azure Cosmos DB-database bij te werken.
 - De gegevens in **Regels** om de logische app aan te roepen en de weergave Waarschuwingen in de portal van de oplossing bij te werken.
 
-## <a name="device-identity-registry-device-twin-and-documentdb"></a>Register voor apparaat-id's, apparaatdubbel en DocumentDB
+## <a name="device-identity-registry-device-twin-and-cosmos-db"></a>Register voor apparaat-id's, apparaatdubbel en Cosmos DB
 Elke IoT Hub bevat een [register voor apparaat-id's][lnk-identity-registry] waarin apparaatsleutels worden opgeslagen. IoT Hub gebruikt deze informatie om apparaten te verifiëren; een apparaat moet zijn geregistreerd en over een geldige sleutel beschikken voordat het verbinding kan maken met de hub.
 
 Een [apparaatdubbel][lnk-device-twin] is een JSON-document dat wordt beheerd door de IoT Hub. Een apparaatdubbel voor een apparaat bevat:
@@ -129,9 +130,9 @@ Een [apparaatdubbel][lnk-device-twin] is een JSON-document dat wordt beheerd doo
 - Gewenste eigenschappen die u naar het apparaat wilt verzenden. U kunt deze eigenschappen in de oplossingsportal instellen.
 - Tags die alleen in de apparaatdubbel bestaan en niet op het apparaat. U kunt deze tags gebruiken om lijsten van apparaten in de oplossingsportal te filteren.
 
-Deze oplossing gebruikt apparaatdubbels om metagegevens van apparaten te beheren. De oplossing gebruikt ook een DocumentDB-database. Hierin worden aanvullende oplossingsspecifieke apparaatgegevens opgeslagen, zoals de opdrachten die door elk apparaat worden ondersteund en de opdrachtgeschiedenis.
+Deze oplossing gebruikt apparaatdubbels om metagegevens van apparaten te beheren. De oplossing gebruikt ook een Cosmos DB-database. Hierin worden aanvullende oplossingsspecifieke apparaatgegevens opgeslagen, zoals de opdrachten die door elk apparaat worden ondersteund en de opdrachtgeschiedenis.
 
-De oplossing moet ook de gegevens in het register voor apparaat-id's gesynchroniseerd houden met de inhoud van de DocumentDB-database. **EventProcessorHost** gebruikt de gegevens uit de Stream Analytics-job **DeviceInfo** om de synchronisatie te beheren.
+De oplossing moet ook de gegevens in het register voor apparaat-id's gesynchroniseerd houden met de inhoud van de Cosmos DB-database. **EventProcessorHost** gebruikt de gegevens uit de Stream Analytics-job **DeviceInfo** om de synchronisatie te beheren.
 
 ## <a name="solution-portal"></a>Oplossingsportal
 ![oplossingsportal][img-dashboard]
@@ -168,3 +169,4 @@ Nu u weet wat een vooraf geconfigureerde oplossing is, kunt u aan de slag met he
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-getstarted-factory]: iot-suite-connected-factory-overview.md
+

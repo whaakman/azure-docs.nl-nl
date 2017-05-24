@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: add8cf22430c9e7af47e6d3c242fbd25797dd099
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: c64e352a0a814b869703e1b00a6a0698f19b0ff9
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -36,9 +36,19 @@ In dit artikel wordt beschreven hoe u een VNet met een punt-naar-site-verbinding
 >
 >
 
-Met een punt-naar-site-configuratie (P2S) kunt u een beveiligde verbinding maken tussen een afzonderlijke clientcomputer en een virtueel netwerk. P2S is een VPN-verbinding via SSTP (Secure Socket Tunneling Protocol). Punt-naar-site-verbindingen zijn handig als u verbinding wilt maken met uw VNet vanaf een externe locatie, zoals vanaf thuis of een conferentie, of wanneer u slechts enkele clients hebt die verbinding moeten maken met een virtueel netwerk. Voor P2S-verbindingen hebt u geen VPN-apparaat of een openbaar IP-adres nodig. U brengt de VPN-verbinding tot stand vanaf de clientcomputer. Voor meer informatie over punt-naar-site-verbindingen leest u de [Veelgestelde vragen over punt-naar-site](#faq) onder aan dit artikel.
+Met een punt-naar-site-configuratie (P2S) kunt u een beveiligde verbinding maken tussen een afzonderlijke clientcomputer en een virtueel netwerk. P2S is een VPN-verbinding via SSTP (Secure Socket Tunneling Protocol). Punt-naar-site-verbindingen zijn handig als u verbinding wilt maken met uw VNet vanaf een externe locatie, zoals vanaf thuis of een conferentie, of wanneer u slechts enkele clients hebt die verbinding moeten maken met een virtueel netwerk. Voor P2S-verbindingen hebt u geen VPN-apparaat of een openbaar IP-adres nodig. U brengt de VPN-verbinding tot stand vanaf de clientcomputer. 
+
 
 ![Punt-naar-site-diagram](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
+
+Voor P2S-verbindingen is het volgende vereist:
+
+* Een dynamische VPN-gateway.
+* De openbare sleutel (CER-bestand) voor een basiscertificaat, geüpload naar Azure. Dit wordt beschouwd als een vertrouwd certificaat en wordt gebruikt voor verificatie.
+* Op basis van het basiscertificaat wordt een clientcertificaat gegenereerd voor installatie op elke clientcomputer die wordt verbonden. Dit certificaat wordt gebruikt voor clientverificatie.
+* Op elke clientcomputer die wordt verbonden, moet bovendien een VPN-clientconfiguratiepakket worden gegenereerd en geïnstalleerd. Het clientconfiguratiepakket configureert de systeemeigen VPN-client die zich al op het systeem bevindt, met de benodigde informatie om verbinding te maken met het VNet.
+
+Voor meer informatie over punt-naar-site-verbindingen leest u de [Veelgestelde vragen over punt-naar-site](#faq) onder aan dit artikel.
 
 ### <a name="example-settings"></a>Voorbeeldinstellingen
 
@@ -98,7 +108,7 @@ In deze stap maakt u een gatewaysubnet en een gateway voor dynamische routering.
 3. Selecteer op de blade **Nieuwe VPN-verbinding** de optie **Punt-naar-site**.
 
   ![Verbindingstype punt-naar-site](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
-4. Voeg voor **Clientadresruimte** het IP-adresbereik toe. Dit is het bereik van waaruit de VPN-clients een IP-adres ontvangen wanneer er verbinding wordt gemaakt. Verwijder het automatisch ingevulde bereik en voeg uw eigen bereik toe.
+4. Voeg voor **Clientadresruimte** het IP-adresbereik toe. Dit is het bereik van waaruit de VPN-clients een IP-adres ontvangen wanneer er verbinding wordt gemaakt. Gebruik een privé-IP-adresbereik dat niet overlapt met de on-premises locatie waarvanaf u verbinding maakt of met het VNet waarmee u verbinding wilt maken. U kunt het automatisch ingevulde bereik verwijderen en daarna het privé-IP-adresbereik toevoegen dat u wilt gebruiken.
 
   ![Clientadresruimte](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
 5. Selecteer het selectievakje **Gateway onmiddellijk maken**.
@@ -116,11 +126,11 @@ In deze stap maakt u een gatewaysubnet en een gateway voor dynamische routering.
 9. Selecteer het **Routeringstype** voor uw gateway. P2S-configuraties vereisen een **Dynamisch** routeringstype. Klik op **OK** wanneer u klaar bent met het configureren van deze blade.
 
   ![Routeringstype configureren](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
-10. Klik op de blade **Nieuwe VPN-verbinding** op **OK** (onder aan de blade) om te beginnen met het maken van uw virtuele netwerkgateway. Het maken van een VPN-gateway kan tot 45 minuten duren.
+10. Klik op de blade **Nieuwe VPN-verbinding** op **OK** (onder aan de blade) om te beginnen met het maken van uw virtuele netwerkgateway. Een VPN-gateway wordt binnen maximaal 45 minuten voltooid. De daadwerkelijke instelduur hangt af van de gateway-SKU die u selecteert.
 
 ## <a name="generatecerts"></a>Sectie 2 - Certificaten maken
 
-Certificaten worden door Azure gebruikt om VPN-clients voor punt-naar-site-VPN's te verifiëren.
+Certificaten worden door Azure gebruikt om VPN-clients voor punt-naar-site-VPN's te verifiëren. U uploadt de informatie van de openbare sleutel over het basiscertificaat naar Azure. De openbare sleutel wordt dan beschouwd als 'vertrouwd'. Clientcertificaten moeten worden gegenereerd op basis van het vertrouwde basiscertificaat en geïnstalleerd op elke clientcomputer. Dit gebeurt in het certificaatarchief Certificates-Current user/Personal. Het certificaat wordt gebruikt om de client te verifiëren bij het maken van verbinding met het VNet. Zie [Certificaten voor punt-naar-site](vpn-gateway-certificates-point-to-site.md) voor meer informatie over het genereren en installeren van certificaten.
 
 ### <a name="cer"></a>Deel 1: De openbare sleutel (.cer) voor het basiscertificaat verkrijgen
 
@@ -132,7 +142,7 @@ Certificaten worden door Azure gebruikt om VPN-clients voor punt-naar-site-VPN's
 
 ## <a name="upload"></a>Sectie 3: Het CER-bestand van het basiscertificaat uploaden
 
-Nadat de gateway is gemaakt, kunt u het .cer-bestand voor een vertrouwd basiscertificaat uploaden naar Azure. U kunt bestanden voor maximaal twintig basiscertificaten uploaden. U uploadt de persoonlijke sleutel voor het basiscertificaat niet naar Azure. Zodra het .cer-bestand is geüpload, gebruikt Azure dit voor het verifiëren van clients die verbinding maken met het virtuele netwerk.
+Wanneer de gateway is gemaakt, uploadt u het CER-bestand (dat de informatie over de openbare sleutel bevat) voor een vertrouwd basiscertificaat naar Azure. U uploadt de persoonlijke sleutel voor het basiscertificaat niet naar Azure. Nadat het CER-bestand is geüpload, kan Azure daarmee clients met een geïnstalleerd clientcertificaat (gemaakt op basis van het vertrouwde basiscertificaat) verifiëren. Indien nodig kunt u later aanvullende vertrouwde basiscertificaatbestanden uploaden (maximaal 20).  
 
 1. Klik in het gedeelte **VPN-verbindingen** van de blade voor uw VNet op de afbeelding **clients** om de blade **Punt-naar-site VPN-verbinding** te openen.
 
@@ -149,9 +159,9 @@ Nadat de gateway is gemaakt, kunt u het .cer-bestand voor een vertrouwd basiscer
 
 ## <a name="vpnclientconfig"></a>Sectie 4: De client configureren
 
-Als u verbinding wilt maken met een VNet met behulp van een punt-naar-site-VPN, moet elke client een configuratiepakket voor de VPN-client installeren. Met het pakket wordt geen VPN-client geïnstalleerd. U kunt hetzelfde configuratiepakket voor de VPN-client gebruiken op elke clientcomputer, mits de versie overeenkomt met de architectuur van de client. Zie voor de lijst met ondersteunde clientbesturingssystemen de [Veelgestelde vragen over punt-naar-site-verbindingen](#faq) onderaan dit artikel.
+Als u verbinding wilt maken met een VNet met behulp van een punt-naar-site-VPN, moet op elke client een pakket worden geïnstalleerd om de systeemeigen Windows VPN-client te configureren. Het configuratiepakket configureert de systeemeigen Windows VPN-client met de instellingen die nodig zijn om verbinding te maken met het virtuele netwerk, en als u een DNS-server voor uw VNet hebt opgegeven, bevat het pakket het IP-adres van de DNS-server die de client gaat gebruiken voor naamomzetting. Als u de opgegeven DNS-server later wijzigt, na het genereren van het clientconfiguratiepakket, moet u een nieuw clientconfiguratiepakket genereren om op uw clientcomputers te installeren.
 
-Het configuratiepakket configureert de systeemeigen Windows VPN-client met de instellingen die nodig zijn om verbinding te maken met het virtuele netwerk, en als u een DNS-server voor uw VNet hebt opgegeven, bevat het pakket het IP-adres van de DNS-server die de client gaat gebruiken voor naamomzetting. Als u de opgegeven DNS-server later wijzigt, na het genereren van het clientconfiguratiepakket, moet u een nieuw clientconfiguratiepakket genereren om op uw clientcomputers te installeren.
+U kunt hetzelfde configuratiepakket voor de VPN-client gebruiken op elke clientcomputer, mits de versie overeenkomt met de architectuur van de client. Zie voor de lijst met ondersteunde clientbesturingssystemen de [Veelgestelde vragen over punt-naar-site-verbindingen](#faq) onderaan dit artikel.
 
 ### <a name="part-1-generate-and-install-the-vpn-client-configuration-package"></a>Deel 1: Het configuratiepakket voor de VPN-client downloaden en installeren
 

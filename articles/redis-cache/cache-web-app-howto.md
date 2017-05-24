@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/27/2017
+ms.date: 05/09/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 076a85b7b965f163255e919eb61700aef0d1fc18
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f23f71cc01eccf17d36885f786de9a7517606803
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -190,7 +191,7 @@ Meer informatie over dit pakket vindt u op de NuGet-pagina [EntityFramework](htt
 
     ```xml
     <connectionStrings>
-        <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
 
@@ -203,10 +204,13 @@ Meer informatie over dit pakket vindt u op de NuGet-pagina [EntityFramework](htt
         <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
       </configSections>
       <connectionStrings>
-        <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
       </connectionStrings>
       ...
       ```
+
+    > [!NOTE]
+    > De verbindingsreeks kan afwijken, afhankelijk van de versie van Visual Studio en de SQL Server Express-editie die zijn gebruikt voor het voltooien van de zelfstudie. De web.config-sjabloon moet overeenkomstig uw installatie worden geconfigureerd. Het kan `Data Source`-vermeldingen zoals `(LocalDB)\v11.0` (van SQL Server Express 2012) of `Data Source=(LocalDB)\MSSQLLocalDB` (van SQL Server Express 2014 en hoger) bevatten. Zie [SQL Server 2016 Express LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb) voor meer informatie over verbindingsreeksen en SQL Express-versies.
 
 ### <a name="add-the-controller"></a>De controller toevoegen
 1. Druk op **F6** om het project te bouwen. 

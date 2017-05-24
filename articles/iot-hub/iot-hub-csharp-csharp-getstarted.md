@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 03/16/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 33ddab887ade0d788129367eec4db7e70f35e0b9
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 68d409c7c7ce14c988d8335f6ed54e9be69bcba7
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -243,7 +244,7 @@ Als u aan de slag wilt gaan met IoT Hub en andere IoT-scenario's wilt verkennen,
 
 * [Verbinding maken met uw apparaat][lnk-connect-device]
 * [Aan de slag met apparaatbeheer][lnk-device-management]
-* [Aan de slag met de IoT Gateway-SDK][lnk-gateway-SDK]
+* [Aan de slag met IoT Edge][lnk-gateway-SDK]
 
 Raadpleeg de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] voor meer informatie over hoe u uw IoT-oplossing uitbreidt en apparaat-naar-cloud-berichten op schaal verwerkt.
 

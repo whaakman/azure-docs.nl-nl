@@ -1,6 +1,6 @@
 ---
 title: Gegevens importeren in Azure Search via de portal | Microsoft Docs
-description: Gebruik de wizard Gegevens importeren van Azure Search in de Azure Portal om Azure-gegevens te verkennen vanuit NoSQL DocumentDB, Blob Storage, Table Storage, SQL Database en SQL Server op virtuele Azure-machines.
+description: Gebruik de wizard Gegevens importeren van Azure Search in Azure Portal om Azure-gegevens te verkennen vanuit NoSQL Azure Cosmos DB, Blob Storage, Table Storage, SQL Database en SQL Server op Azure-VM&quot;s.
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 02/08/2017
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: d19a85e127b548e5f8979358879e8b9354934904
-ms.openlocfilehash: c03c26d0e5ea2529162262664412f4f8f7e854dc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -32,17 +34,17 @@ Intern configureert de wizard een *indexeerfunctie* en roept deze aan, waarmee v
 * Een te wijzigen indexschema maken op basis van de brongegevensstructuur
 * JSON-documenten in een index laden met behulp van een rijenset die is opgehaald uit de gegevensbron
 
-U kunt deze werkstroom met voorbeeldgegevens uitproberen in DocumentDB. Ga naar [Aan de slag met Azure Search in de Azure Portal](search-get-started-portal.md) voor instructies.
+U kunt deze werkstroom met voorbeeldgegevens uitproberen in Azure Cosmos DB. Ga naar [Aan de slag met Azure Search in de Azure Portal](search-get-started-portal.md) voor instructies.
 
 > [!NOTE]
-> U kunt de wizard **Gegevens importeren** laden vanuit het dashboard DocumentDB om indexering voor die gegevensbron te vereenvoudigen. Ga in het linkernavigatiedeelvenster naar **Verzamelingen** > **Azure Search toevoegen** om aan de slag te gaan.
+> U kunt de wizard **Gegevens importeren** laden vanuit het dashboard Azure Cosmos DB om indexering voor die gegevensbron te vereenvoudigen. Ga in het linkernavigatiedeelvenster naar **Verzamelingen** > **Azure Search toevoegen** om aan de slag te gaan.
 
 ## <a name="data-sources-supported-by-the-import-data-wizard"></a>Gegevensbronnen die worden ondersteund door de wizard Gegevens importeren
 De wizard Gegevens importeren ondersteunt de volgende gegevensbronnen: 
 
 * Azure SQL Database
 * Relationele SQL Server-gegevens op een virtuele machine van Azure
-* Azure DocumentDB
+* Azure Cosmos DB
 * Azure Blob Storage
 * Azure Table Storage
 
@@ -58,7 +60,7 @@ Een platte gegevensset is een vereiste invoer. U kunt slechts importeren uit é�
 | **Bestaande gegevensbron** |Als u al indexeerfuncties hebt gedefinieerd in uw zoekservice, kunt u een bestaande gegevensbrondefinitie voor een andere import selecteren. |
 | **Azure SQL Database** |De servicenaam, referenties voor een databasegebruiker met leesmachtiging en de naam van een database kunnen worden opgegeven op de pagina of via een ADO.NET-verbindingsreeks. Kies de verbindingsreeksoptie om eigenschappen te bekijken of aan te passen. <br/><br/>De tabel of weergave die de rijenset bevat, moet worden opgegeven op de pagina. Deze optie wordt weergegeven nadat de verbinding tot stand is gebracht, waarna een vervolgkeuzelijst wordt weergegeven zodat u een selectie kunt maken. |
 | **SQL Server op virtuele Azure-machine** |Geef een FQDN-servicenaam, gebruikers-ID en wachtwoord en de database als een verbindingsreeks op. Voor het gebruik van deze gegevensbron moet u eerder een certificaat hebben geïnstalleerd in het lokale archief dat de verbinding versleutelt. Zie [SQL VM-verbinding met Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md) voor instructies. <br/><br/>De tabel of weergave die de rijenset bevat, moet worden opgegeven op de pagina. Deze optie wordt weergegeven nadat de verbinding tot stand is gebracht, waarna een vervolgkeuzelijst wordt weergegeven zodat u een selectie kunt maken. |
-| **DocumentDB** |Vereisten zijn het account, de database en de verzameling. Alle documenten in de verzameling worden opgenomen in de index. U kunt een query definiëren om de rijenset plat te maken of te filteren of voor het detecteren van gewijzigde documenten voor verdere gegevensvernieuwingsbewerkingen. |
+| **Azure Cosmos DB** |Vereisten zijn het account, de database en de verzameling. Alle documenten in de verzameling worden opgenomen in de index. U kunt een query definiëren om de rijenset plat te maken of te filteren of voor het detecteren van gewijzigde documenten voor verdere gegevensvernieuwingsbewerkingen. |
 | **Azure Blob Storage** |Vereisten zijn het opslagaccount en een container. Als blob-namen een virtuele naamconventie voor groeperingsdoeleinden volgen, kunt u desgewenst het gedeelte van de virtuele map van de naam als een map onder de container opgeven. Zie [Blob Storage indexeren](search-howto-indexing-azure-blob-storage.md) voor meer informatie. |
 | **Azure-tabelopslag** |Vereisten zijn het opslagaccount en een tabelnaam. U kunt desgewenst een query opgeven om een subset van de tabellen op te halen. Zie [Table Storage indexeren](search-howto-indexing-azure-tables.md) voor meer informatie. |
 
@@ -113,16 +115,11 @@ Bewerkingen waarvoor de index niet opnieuw hoeft te worden gemaakt, zijn onder a
 Bekijk deze koppelingen voor meer informatie over indexeerfuncties:
 
 * [Azure SQL Database indexeren](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB indexeren](search-howto-index-documentdb.md)
+* [Azure Cosmos DB indexeren](search-howto-index-documentdb.md)
 * [Blob Storage indexeren](search-howto-indexing-azure-blob-storage.md)
 * [Table Storage indexeren](search-howto-indexing-azure-tables.md)
 
 <!--Image references-->
 [1]: ./media/search-import-data-portal/search-import-data-command.png
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

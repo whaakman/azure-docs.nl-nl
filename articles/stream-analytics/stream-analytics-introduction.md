@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: a6b1df79f4fc6b09b681755f5adbb7f56faaf225
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 42f77fbea2ac9572940e8c428999c79d6b4b6e23
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -39,7 +40,7 @@ Dagelijks worden enorme hoeveelheden gegevens met hoge snelheid via de kabel get
 * **Lage kosten:** Als een cloudservice is Stream Analytics geoptimaliseerd om gebruikers een realtime-analyseoplossing te bieden die zowel qua implementatie als qua onderhoud niet duur is. De service is zo gemaakt dat u betaalt voor gebruik op basis van het aantal gebruikte streamingeenheden en de hoeveelheid gegevens die door het systeem wordt verwerkt. Gebruik wordt berekend op basis van het aantal gebeurtenissen dat wordt verwerkt en de hoeveelheid computercapaciteit binnen het cluster die nodig is om de respectieve Stream Analytics-taken af te handelen.  
 * **Referentiegegevens:** Stream Analytics biedt gebruikers de mogelijkheid om referentiegegevens op te geven en te gebruiken. Dit kunnen historische gegevens zijn of gewone niet-streaminggegevens die minder vaak worden gewijzigd. Het systeem vereenvoudigt het gebruik van referentiegegevens zodat ze kunnen worden behandeld als elke andere gebeurtenisstroom, om te worden samengevoegd met andere gebeurtenisstromen die in realtime worden opgenomen om transformaties uit te voeren.  
 * **Door de gebruiker gedefinieerde functies:** Stream Analytics kan worden geïntegreerd in Azure Machine Learning om functieaanroepen te definiëren in de Machine Learning-service als onderdeel van een Stream Analytics-query. Hiermee worden de mogelijkheden van Stream Analytics uitgebreid om gebruik te maken van bestaande Azure Machine Learning-oplossingen. Raadpleeg de [zelfstudie over Machine Learning-integratie](stream-analytics-machine-learning-integration-tutorial.md) voor meer informatie hierover.
-* **Connectiviteit:** Stream Analytics maakt rechtstreeks verbinding met Azure Event Hubs en Azure IoT Hubs voor opname van streams, en met de Azure Blob-service voor opname van historische gegevens. Resultaten kunnen vanuit Stream Analytics worden geschreven naar Azure Storage Blobs of Tables, Azure SQL DB, Azure Data Lake Stores, DocumentDB, Event Hubs, Azure Service Bus Topics, of Queues. Ze kunnen ook worden geschreven naar Power BI, waar ze verder kunnen worden verwerkt door werkstromen die via [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) in batchanalyses worden gebruikt of opnieuw als een reeks gebeurtenissen worden verwerkt. Wanneer Event Hubs wordt gebruikt, kunnen meerdere Stream Analytics met andere gegevensbronnen en verwerkingsengines worden gecombineerd zonder het streaming-karakter van de berekeningen te verliezen.  
+* **Connectiviteit:** Stream Analytics maakt rechtstreeks verbinding met Azure Event Hubs en Azure IoT Hubs voor opname van streams, en met de Azure Blob-service voor opname van historische gegevens. Resultaten kunnen vanuit Stream Analytics worden geschreven naar Azure Storage Blobs of Tables, Azure SQL DB, Azure Data Lake Stores, Azure Cosmos DB, Event Hubs, Azure Service Bus Topics of Queues. Ze kunnen ook worden geschreven naar Power BI, waar ze verder kunnen worden verwerkt door werkstromen die via [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) in batchanalyses worden gebruikt of opnieuw als een reeks gebeurtenissen worden verwerkt. Wanneer Event Hubs wordt gebruikt, kunnen meerdere Stream Analytics met andere gegevensbronnen en verwerkingsengines worden gecombineerd zonder het streaming-karakter van de berekeningen te verliezen.  
 
 ## <a name="get-help"></a>Help opvragen
 Voor verdere hulp kunt u mogelijk terecht op het [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)

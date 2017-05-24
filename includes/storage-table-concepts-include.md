@@ -11,12 +11,12 @@ U kunt Tabelservice gebruiken om grote sets gestructureerde, niet-relationele ge
 ## <a name="table-service-concepts"></a>Concepten van Table Service
 De Tabelservice bevat de volgende onderdelen:
 
-![Table1][Table1]
+![Diagram met Table service-onderdelen][Table1]
 
 * **URL-indeling:** voor tabellen in een account wordt code met de volgende adresindeling gebruikt:   
   http://`<storage account>`.table.core.windows.net/`<table>`  
   
-  U kunt rechtstreeks naar Azure-tabellen verwijzen met dit adres met het OData-protocol. Zie [OData.org][OData.org] voor meer informatie
+  U kunt rechtstreeks naar Azure-tabellen verwijzen met dit adres met het OData-protocol. Zie [OData.org][OData.org] voor meer informatie.
 * **Opslagaccount:** Alle toegang tot Azure Storage vindt plaats via een opslagaccount. Zie [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) (Schaalbaarheids- en prestatiedoelen in Azure Storage) voor meer informatie over opslagaccountcapaciteit.
 * **Tabel**: een tabel is een verzameling entiteiten. Met tabellen wordt geen schema voor entiteiten afgedwongen, wat betekent dat één tabel entiteiten kan bevatten die verschillende sets eigenschappen hebben. Het aantal tabellen dat een opslagaccount kan bevatten, wordt alleen beperkt door de capaciteitslimiet van het opslagaccount.
 * **Entiteit**: een entiteit is een set eigenschappen die vergelijkbaar is met een databaserij. Een entiteit kan maximaal 1 MB groot zijn.
@@ -26,8 +26,3 @@ Zie [Understanding the Table Service Data Model](https://msdn.microsoft.com/libr
 
 [Table1]: ./media/storage-table-concepts-include/table1.png
 [OData.org]: http://www.odata.org/
-
-
-<!--HONumber=Nov16_HO2-->
-
-
