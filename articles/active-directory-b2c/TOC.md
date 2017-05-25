@@ -47,7 +47,7 @@
 ## [De gebruikersinterface aanpassen](active-directory-b2c-reference-ui-customization.md)
 ### [Hulpprogramma voor aanpassing](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Taal aanpassen](active-directory-b2c-reference-language-customization.md)
-## [De rapportage-API gebruiken](active-directory-b2c-refererence-usage-reporting-api.md)
+## [De rapportage-API gebruiken](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Het opnieuw instellen van wachtwoorden configureren via selfservice](active-directory-b2c-reference-sspr.md)
 
 # Identity-ervaringsframework
@@ -59,8 +59,8 @@
 ### SAML-providers configureren
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### RESTful-API's integreren
-#### [Aanvullende claims verkrijgen](active-directory-b2c-rest-api-step-custom.md)
 #### [Gebruikersinvoer valideren](active-directory-b2c-rest-api-validation-custom.md)
+#### [Aanvullende claims verkrijgen](active-directory-b2c-rest-api-step-custom.md)
 ### Aanmelding aanpassen
 #### [Gebruikersinvoer configureren](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Gebruikersinterface aanpassen](active-directory-b2c-ui-customization-custom.md)
@@ -79,7 +79,6 @@
 ## [Regionale beschikbaarheid en opslaglocaties](active-directory-b2c-reference-tenant-type.md)
 ## [Facturering inschakelen](active-directory-b2c-how-to-enable-billing.md)
 ## [Beveiligingsbeheer](active-directory-b2c-reference-threat-management.md)
-## [Beperkingen](active-directory-b2c-limitations.md)
 ## [Problemen bij het maken van een map](active-directory-b2c-support-create-directory.md)
 
 # Verwant

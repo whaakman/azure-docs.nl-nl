@@ -21,6 +21,8 @@
     href: luis-concept-entity-types.md
   - name: Utterances
     href: luis-concept-utterance.md
+  - name: Functies
+    href: luis-concept-feature.md
   - name: Ondersteuning voor meerdere talen
     href: luis-concept-language-support.md
 - name: Handleidingen
