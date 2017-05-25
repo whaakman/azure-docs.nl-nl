@@ -76,7 +76,6 @@
 ### Reach
 #### [Aan de slag met het gebruik en beheer van pushes](mobile-engagement-how-tos.md)
 #### [Emoji's verzenden in meldingen](mobile-engagement-use-emoji-with-push.md)
-#### [Persoonlijke meldingen verzenden](mobile-engagement-send-personalized-notifications.md)
 
 ### Service-API 's openen
 #### [REST](mobile-engagement-dotnet-rest-service-api.md)
@@ -145,10 +144,5 @@
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

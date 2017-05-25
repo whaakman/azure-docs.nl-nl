@@ -30,7 +30,6 @@
 ### [C op Windows](iot-suite-connecting-devices.md)
 ### [C op Linux](iot-suite-connecting-devices-linux.md)
 ### [Node.js](iot-suite-connecting-devices-node.md)
-## [Uw mbed-apparaat verbinden](iot-suite-connecting-devices-mbed.md)
 ## [Een logische app aansluiten op de oplossing voor controle op afstand](iot-suite-logic-apps-tutorial.md)
 ## [Een vooraf geconfigureerde oplossing aanpassen](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Dynamische telemetrie gebruiken bij de oplossing voor controle op afstand](iot-suite-dynamic-telemetry.md)
