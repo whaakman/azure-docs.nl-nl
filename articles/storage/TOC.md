@@ -117,6 +117,7 @@
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 ## Controleren en problemen oplossen
+### [Problemen met Opslagverkenner oplossen](storage-explorer-troubleshooting.md)
 ### Metrische gegevens en logboekregistratie
 #### [Storage Analytics](storage-analytics.md)
 #### [Meetwaarden inschakelen en weergeven](storage-enable-and-view-metrics.md)

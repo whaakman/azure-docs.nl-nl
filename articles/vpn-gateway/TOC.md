@@ -21,9 +21,13 @@
 ### [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Azure Portal (klassiek)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### Zelfondertekende certificaten voor punt-naar-site genereren
+#### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+#### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## Een verbinding tussen VNet's configureren
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Azure-CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Azure Portal (klassiek)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## Een VNet-naar-VNet-verbinding tussen implementatiemodellen configureren
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -46,9 +50,6 @@
 ### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (klassiek)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## Zelfondertekende certificaten voor punt-naar-site maken
-### [PowerShell](vpn-gateway-certificates-point-to-site.md)
-### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## [Een VPN-gateway configureren (klassiek)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Problemen oplossen
 ### [VPN-doorvoer naar een VNet valideren](vpn-gateway-validate-throughput-to-vnet.md)
@@ -56,9 +57,9 @@
 # Naslaginformatie
 ## [PowerShell](/powershell/module/azurerm.network)
 ## [PowerShell (klassiek)](/powershell/module/azure/?view=azuresmps-3.7.0)
-## [REST](https://msdn.microsoft.com/library/mt163859)
+## [REST](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways)
 ## [REST (klassiek)](https://msdn.microsoft.com/library/jj154113)
-## [Azure-CLI](https://docs.microsoft.com/cli/azure/network)
+## [Azure-CLI](https://docs.microsoft.com/cli/azure/network/vnet-gateway)
 
 # Verwant
 ## [Virtueel netwerk](/azure/virtual-network/)

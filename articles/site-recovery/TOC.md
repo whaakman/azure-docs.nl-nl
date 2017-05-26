@@ -18,12 +18,13 @@
 
 # Procedures
 ## Plannen
-### [Vereisten voor implementatie](site-recovery-prereq.md)
+### [Vereisten voor Azure-replicatie](site-recovery-prereq.md)
 ### [Netwerkinfrastructuur plannen](site-recovery-network-design.md)
+### [Netwerktoewijzing plannen](site-recovery-network-mapping.md)
 ### [Capaciteit plannen en schalen voor VMware-replicatie naar Azure](site-recovery-plan-capacity-vmware.md)
 ### [Implementatieplanner voor VMware-replicatie naar Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner voor Hyper-V-replicatie](site-recovery-capacity-planner.md)
-### [Op rollen gebaseerd toegangsbeheer](site-recovery-role-based-linked-access-control.md)
+### [VM-replicatie beheren met op rollen gebaseerde toegang](site-recovery-role-based-linked-access-control.md)
 
 ## Configureren
 ### [De bronomgeving instellen](site-recovery-set-up-vmware-to-azure.md)
@@ -53,6 +54,8 @@
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)
+### [Webtoepassingen op basis van IIS](site-recovery-iis.md)
+### [Citrix XenApp en XenDesktop](site-recovery-citrix-xenapp-and-xendesktop.md)
 ### [Andere workloads](site-recovery-workload.md#workload-summary)
 ## Replicatie automatiseren
 ### [Hyper-V-replicatie naar Azure automatiseren (zonder VMM)](site-recovery-deploy-with-powershell-resource-manager.md)

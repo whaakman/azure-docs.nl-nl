@@ -24,6 +24,8 @@
 
 # Procedures
 
+## [Gebruikersgegevens migreren vanuit Azure RemoteApp](remoteapp-migrate.md)
+## [Migreren naar Citrix XenApp Essentials](remoteapp-migrate-citrix.md)
 ## Een RemoteApp-verzameling maken
 ### [Welke verzameling hebt u nodig?](remoteapp-collections.md)
 ### [Een cloudverzameling maken](remoteapp-create-cloud-deployment.md)
@@ -69,8 +71,3 @@
 ## [Prijzen](https://azure.microsoft.com/pricing/details/remoteapp/)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)
-
-
-<!--HONumber=Nov16_HO4-->
-
-

@@ -39,9 +39,9 @@
       href: concepts-server-logs.md
   - name: Resources
     items:
-    - name: Servicelagen
+    - name: Prijscategorieën
       href: concepts-service-tiers.md
-    - name: Rekeneenheden en opslageenheden
+    - name: Rekeneenheden
       href: concepts-compute-unit-and-storage.md
     - name: Limieten
       href: concepts-limits.md

@@ -12,9 +12,9 @@
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Een gesimuleerde gateway gebruiken 
-#### [Simulatie op Linux](iot-hub-linux-gateway-sdk-get-started.md)
-#### [Simulatie op Windows](iot-hub-windows-gateway-sdk-get-started.md)
+### Een gesimuleerde gateway gebruiken
+#### [Simulatie op Linux](iot-hub-linux-iot-edge-get-started.md)
+#### [Simulatie op Windows](iot-hub-windows-iot-edge-get-started.md)
 
 ### Een fysiek apparaat gebruiken
 #### [Raspberry Pi met Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
@@ -28,9 +28,9 @@
 #### [Adafruit Feather M0 met Arduino IDE](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 #### Het IoT Gateway-startpakket gebruiken
-##### [Intel NUC instellen als IoT-gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-##### [Een IoT-gateway aan IoT Hub koppelen](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-##### [Een IoT-gateway gebruiken voor gegevensconversie](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Intel NUC instellen als gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+##### [De gateway aan IoT Hub koppelen](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+##### [De gateway gebruiken voor gegevensconversie](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
 ## [Berichten op cloudapparaten beheren met iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 ## [IoT Hub-berichten opslaan in Azure-gegevensopslag](iot-hub-store-data-in-azure-table-storage.md)
@@ -78,6 +78,7 @@
 ### Aan de slag met apparaatdubbels
 #### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-twin-getstarted.md)
 #### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-twin-getstarted.md)
+#### [.NET-back-end/.NET-apparaat](iot-hub-csharp-csharp-twin-getstarted.md)
 ### Directe methoden gebruiken
 #### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-direct-methods.md)
 #### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-direct-methods.md)
@@ -85,6 +86,7 @@
 ### Aan de slag met apparaatbeheer
 #### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-device-management-get-started.md)
 #### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-device-management-get-started.md)
+#### [Java-back-end/Java-apparaat](iot-hub-java-java-device-management-getstarted.md)
 ### Dubbeleigenschappen gebruiken
 #### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-twin-how-to-configure.md)
@@ -118,9 +120,9 @@
 ### [Uw IoT-implementatie beveiligen](iot-hub-security-deployment.md)
 ## IoT Edge
 ### Een apparaat simuleren
-#### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
-#### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [Een echt apparaat gebruiken](iot-hub-gateway-sdk-physical-device.md)
+#### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
+#### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
+### [Een echt apparaat gebruiken](iot-hub-iot-edge-physical-device.md)
 
 # Naslaginformatie
 ## [Azure CLI 2.0 Preview](/cli/azure/iot)
@@ -154,3 +156,4 @@
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT-ontwikkelaarscentrum](https://azure.microsoft.com/develop/iot/)
 ## [Azure Certified voor IoT-apparaatcatalogus](https://catalog.azureiotsuite.com/)
+## [Technische casestudy's](https://microsoft.github.io/techcasestudies/#technology=IoT)

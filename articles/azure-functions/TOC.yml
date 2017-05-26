@@ -45,12 +45,22 @@
     href: functions-create-serverless-api.md
 - name: Concepten
   items:
-  - name: Hostingabonnementen
+  - name: Verbruik en App Service-plannen
     href: functions-scale.md
   - name: Triggers en bindingen
     href: functions-triggers-bindings.md
+  - name: Talen
+    items:
+    - name: 'Concepten van C#-functies'
+      href: functions-reference-csharp.md
+    - name: 'Concepten van F#-functies'
+      href: functions-reference-fsharp.md
+    - name: Concepten van JavaScript-functies
+      href: functions-reference-node.md    
 - name: Handleidingen
   items:
+  - name: Ontwikkelaarsgids
+    href: functions-reference.md
   - name: Azure Functions testen
     href: functions-test-a-function.md
   - name: Lokaal ontwikkelen en fouten opsporen
@@ -65,15 +75,14 @@
     href: functions-monitoring.md
   - name: Functions Runtime installeren
     href: functions-runtime-install.md
+  - name: Verbinding maken met SQL Database
+    href: functions-scenario-database-table-cleanup.md
+  - name: Een Open API 2.0-definitie maken
+    href: functions-api-definition-getting-started.md     
+  - name: Aanbevolen procedures voor Azure Functions
+    href: functions-best-practices.md     
 - name: Naslaginformatie
   items:
-  - name: Functie-apps ontwikkelen
-    href: functions-reference.md
-    items:
-    - name: Open API 2.0
-      href: functions-api-definition.md
-  - name: Aanbevolen procedures voor Azure Functions
-    href: functions-best-practices.md
   - name: Bindingen
     items:
     - name: Cosmos DB-bindingen
@@ -106,14 +115,8 @@
       href: functions-bindings-timer.md
     - name: Twilio-uitvoerbinding
       href: functions-bindings-twilio.md
-  - name: Frameworks
-    items:
-    - name: 'C#'
-      href: functions-reference-csharp.md
-    - name: 'F#'
-      href: functions-reference-fsharp.md
-    - name: Javascript
-      href: functions-reference-node.md
+  - name: OpenAPI-verwijzing
+    href: functions-api-definition.md     
 - name: Resources
   items:
   - name: Prijzen

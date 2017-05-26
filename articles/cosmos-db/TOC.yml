@@ -5,7 +5,7 @@
   - name: Over Azure Cosmos DB
     href: introduction.md
   - name: Welkom DocumentDB-klanten
-    href: welcome-documentdb-customers.md
+    href: https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
 - name: Snelstartgidsen
   expanded: true
   items:
@@ -236,6 +236,12 @@
       href: ../documentdb/documentdb-online-backup-and-restore.md
     - name: Regionale failover
       href: ../documentdb/documentdb-regional-failovers.md
+    - name: Doorvoer instellen
+      href: ../documentdb/documentdb-set-throughput.md
+    - name: SLA's bewaken
+      href: ../documentdb/documentdb-monitor-accounts.md
+    - name: Sleutels en consistentie beheren
+      href: ../documentdb/documentdb-manage-account.md
     - name: Automatisering
       items:
       - name: Azure CLI 1.0 - een account maken
@@ -250,10 +256,14 @@
         href: ../documentdb/documentdb-nosql-database-encryption-at-rest.md
       - name: Firewallondersteuning
         href: ../documentdb/documentdb-firewall-support.md
+      - name: Toegang tot gegevens beveiligen
+        href: ../documentdb/documentdb-secure-access-to-data.md
   - name: Integreren
     items:
     - name: Verbinding maken met Spark
       href: ../documentdb/documentdb-spark-connector.md
+    - name: Verbinding maken met Spark GraphX
+      href: spark-connector-graph.md      
     - name: Een website implementeren met Azure App Service
       href: ../documentdb/documentdb-create-documentdb-website.md
     - name: Toepassingslogboeken bijhouden met Logische apps

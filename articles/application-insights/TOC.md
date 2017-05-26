@@ -35,7 +35,7 @@
 ### [Diepe diagnostische gegevens voor web-apps en services](app-insights-devops.md)
 ### [Prestaties in webtoepassingen bewaken](app-insights-web-monitor-performance.md)
 ### [Ontwikkelings-, test- en productiegegevens scheiden](app-insights-separate-resources.md)
-### [Apps bewaken met meerdere rollen](app-insights-monitor-multi-role-apps.md)
+### [Apps met meerdere onderdelen bewaken](app-insights-monitor-multi-role-apps.md)
 ### [Hoe kan ik ... in Application Insights?](app-insights-how-do-i.md)
 
 
@@ -139,7 +139,7 @@
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [REST](https://dev.applicationinsights.io/)
+## [API voor gegevenstoegang](https://dev.applicationinsights.io/)
 ## [Gegevensmodel](application-insights-data-model.md)
 ### [Aanvraag](application-insights-data-model-request-telemetry.md)
 ### [Afhankelijkheid](application-insights-data-model-dependency-telemetry.md)
@@ -147,6 +147,7 @@
 ### [Tracering](application-insights-data-model-trace-telemetry.md)
 ### [Gebeurtenis](application-insights-data-model-event-telemetry.md)
 ### [Gegevens](application-insights-data-model-metric-telemetry.md)
+### [Context](application-insights-data-model-context.md)
 ## [Telemetriecorrelatie](application-insights-correlation.md)
 
 # Resources

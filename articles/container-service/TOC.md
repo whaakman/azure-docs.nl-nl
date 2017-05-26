@@ -10,7 +10,6 @@
 ## [Cluster implementeren - Portal](container-service-deployment.md)
 ## [Cluster implementeren - Azure CLI](container-service-create-acs-cluster-cli.md)
 ## [CI/CD met Kubernetes en Jenkins](container-service-kubernetes-jenkins.md)
-## [CI/CD met DC/OS en VSTS](container-service-setup-ci-cd.md)
 ## [CI/CD met Docker Swarm en VSTS](container-service-docker-swarm-setup-ci-cd.md)
 
 # Concepten
@@ -44,6 +43,7 @@
 #### [Bewaken met OMS](container-service-kubernetes-oms.md)
 #### [Bewaken met Datadog](container-service-kubernetes-datadog.md)
 #### [Bewaken met Sysdig](container-service-kubernetes-sysdig.md)
+#### [Bewaken met CoScale](container-service-kubernetes-coscale.md)
 ## Beheren met Docker Swarm
 ### [Docker CLI en Docker Compose](container-service-docker-swarm.md)
 
