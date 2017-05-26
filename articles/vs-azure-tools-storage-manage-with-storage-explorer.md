@@ -81,7 +81,7 @@ Voor Azure Stack Proof of Concept (POC) dient u het Azure Stack-basiscertificaat
 
 3. Zoek naar **AzureStackCertificationAuthority** onder **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates**. 
 
-4. Klik met de rechtermuisknop op het item, selecteer **Alle taken** > **Exporteren** en volg de instructies voor het exporteren van het certificaat met **Base64 encoded X.509 (*.CER)**.  
+4. Klik met de rechtermuisknop op het item, selecteer **Alle taken** > **Exporteren** en volg de instructies voor het exporteren van het certificaat met **Base64 encoded X.509 (.CER)**.  
 
     Het geëxporteerde certificaat zal worden gebruikt in de volgende stap.   
 
