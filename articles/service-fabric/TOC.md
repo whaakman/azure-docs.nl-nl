@@ -49,6 +49,7 @@
 #### [Linux-container implementeren](service-fabric-deploy-container-linux.md)
 #### [Docker Compose (preview)](service-fabric-docker-compose.md)
 #### [Resourcebeheer voor containers en services](service-fabric-resource-governance.md)
+#### [Volume en stuurprogramma's voor logboekregistratie](service-fabric-containers-volume-logging-drivers.md)
 
 ### Een Reliable Service-service bouwen
 #### [Overzicht](service-fabric-reliable-services-introduction.md)
@@ -69,10 +70,9 @@
 ##### [C# op Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java op Linux](service-fabric-reliable-services-quick-start-java.md)
 
-#### Levenscyclus van Reliable Services
-##### [Configureren](service-fabric-reliable-services-configuration.md)
-##### [Meldingen verzenden](service-fabric-reliable-services-notifications.md)
-##### [Back-up en herstel](service-fabric-reliable-services-backup-restore.md)
+#### [Configureren](service-fabric-reliable-services-configuration.md)
+#### [Meldingen verzenden](service-fabric-reliable-services-notifications.md)
+#### [Back-up en herstel](service-fabric-reliable-services-backup-restore.md)
 
 #### Communiceren met services
 ##### [Communiceren via Betrouwbare services](service-fabric-reliable-services-communication.md)
@@ -87,12 +87,12 @@
 ### Een Reliable Actor-service bouwen
 #### [Overzicht](service-fabric-reliable-actors-introduction.md)
 #### Concepten
-#### [Architectuur](service-fabric-reliable-actors-platform.md)
-#### [Levenscyclus en garbagecollection](service-fabric-reliable-actors-lifecycle.md)
-#### [Statusbeheer](service-fabric-reliable-actors-state-management.md)
-#### [Polymorfisme](service-fabric-reliable-actors-polymorphism.md)
-#### [Herintreding](service-fabric-reliable-actors-reentrancy.md)
-#### [Typeserialisatie](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+##### [Architectuur](service-fabric-reliable-actors-platform.md)
+##### [Levenscyclus en garbagecollection](service-fabric-reliable-actors-lifecycle.md)
+##### [Statusbeheer](service-fabric-reliable-actors-state-management.md)
+##### [Polymorfisme](service-fabric-reliable-actors-polymorphism.md)
+##### [Herintreding](service-fabric-reliable-actors-reentrancy.md)
+##### [Typeserialisatie](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 #### Aan de slag
 ##### [C# op Windows](service-fabric-reliable-actors-get-started.md)
@@ -108,6 +108,7 @@
 #### [Servicecommunicatie](service-fabric-connect-and-communicate-with-services.md)
 #### [DNS-service](service-fabric-dnsservice.md)
 #### [Omgekeerde proxy](service-fabric-reverseproxy.md)
+#### [Omgekeerde proxy voor veilige communicatie configureren](service-fabric-reverseproxy-configure-secure-communication.md)
 
 ### [Een webfront-end toevoegen](service-fabric-add-a-web-frontend.md)
 

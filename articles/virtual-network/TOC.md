@@ -17,17 +17,13 @@
 ### [Netwerkbeveiligingsgroepen](virtual-networks-nsg.md)
 
 ## Implementeren
-### Virtuele netwerken (VNet's)
-#### [VNet's maken, wijzigen of verwijderen](virtual-network-manage-network.md)
-#### [Subnetten maken, wijzigen of verwijderen](virtual-network-manage-subnet.md)
-#### [Een VNet maken - meerdere subnetten](virtual-networks-create-vnet-arm-pportal.md) 
-##### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-##### [CLI](virtual-networks-create-vnet-arm-cli.md)
-##### [Sjabloon](virtual-networks-create-vnet-arm-template-click.md)
-#### Een VNet maken - meerdere subnetten (klassiek)
-##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [CLI](virtual-networks-create-vnet-classic-cli.md)
+### [Virtuele netwerken](virtual-networks-create-vnet-arm-pportal.md)
+#### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+#### [CLI](virtual-networks-create-vnet-arm-cli.md)
+#### [Sjabloon](virtual-networks-create-vnet-arm-template-click.md)
+#### [Portal (klassiek)](virtual-networks-create-vnet-classic-pportal.md)
+#### [PowerShell (klassiek)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+#### [CLI (klassiek)](virtual-networks-create-vnet-classic-cli.md)
 
 ### Netwerkbeveiligingsgroepen
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -49,14 +45,9 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Sjabloon](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### Netwerkinterfaces (NIC's)
-#### [NIC's maken, wijzigen of verwijderen](virtual-network-network-interface.md)
-#### [IP-adressen toevoegen, wijzigen of verwijderen](virtual-network-network-interface-addresses.md)
-
 ### [Openbare IP-adressen](virtual-network-public-ip-address.md)
 
 ### Virtuele machines
-#### [Netwerkinterfaces toevoegen of verwijderen](virtual-network-network-interface-vm.md) 
 #### Een virtuele machine met een statisch openbaar IP-adres maken
 ##### [Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
@@ -103,20 +94,29 @@
 ##### [Voorbeeldtoepassing](virtual-networks-sample-app.md)
 
 ## Configureren
-### [VM-netwerkdoorvoer optimaliseren](virtual-network-optimize-network-bandwidth.md)
+
 ### Toegangsbeheerlijsten
 #### [Klassieke portal](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
-### [Naamomzetting voor virtuele machines en cloudservices](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+### Virtuele machines
+#### [Netwerkinterfaces toevoegen of verwijderen](virtual-network-network-interface-vm.md)
+#### [Naamomzetting voor virtuele machines en cloudservices](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+#### [Netwerkdoorvoer optimaliseren](virtual-network-optimize-network-bandwidth.md)
+#### [Hostnamen weergeven en wijzigen](virtual-networks-viewing-and-modifying-hostnames.md)
 
 ## Beheren
+### [Virtuele netwerken](virtual-network-manage-network.md)
+#### [Subnets](virtual-network-manage-subnet.md)
+#### [Peerings](virtual-network-manage-peering.md)
 ### Netwerkbeveiligingsgroepen
 #### [Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [CLI](virtual-network-manage-nsg-arm-cli.md)
 #### [Logboeken](virtual-network-nsg-manage-log.md)
+### Netwerkinterfaces (NIC's)
+#### [NIC's maken, wijzigen of verwijderen](virtual-network-network-interface.md)
+#### [IP-adressen toevoegen, wijzigen of verwijderen](virtual-network-network-interface-addresses.md)
 ### Virtuele machines
-#### [Hostnamen weergeven en wijzigen](virtual-networks-viewing-and-modifying-hostnames.md)
 #### [Een VM verplaatsen naar een ander subnet](virtual-networks-move-vm-role-to-subnet.md)
 
 ## Problemen oplossen

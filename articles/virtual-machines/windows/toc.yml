@@ -55,7 +55,8 @@
     href: network-overview.md
   - name: Schaalsets van virtuele machines
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Instance Metadata Service 
+  - name: Instance Metadata Service
+ 
     href: ../virtual-machines-instancemetadataservice-overview.md
   - name: Containers
     href: containers.md
@@ -180,10 +181,7 @@
       href: prepare-for-upload-vhd-image.md
     - name: Een installatiekopie van een beheerde schijf maken
       href: capture-image-resource.md
-    - name: >-
-        Een virtuele machine maken vanaf een gegeneraliseerde installatiekopie van een
-        beheerde schijf
-
+    - name: Een virtuele machine maken vanaf een gegeneraliseerde installatiekopie van een beheerde schijf
       href: create-vm-generalized-managed.md
   - name: VM-opslag beheren
     items:
@@ -373,12 +371,12 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: RDP-wachtwoord opnieuw instellen
       href: reset-rdp.md
+    - name: Diagnostische gegevens over opstarten
+ 
+      href: boot-diagnostics.md
     - name: Een virtuele machine maken
       href: troubleshoot-deployment-new-vm.md
-    - name: >-
-        Een virtuele machine opnieuw starten of het formaat van een virtuele machine
-        wijzigen
-
+    - name: Een virtuele machine opnieuw starten of het formaat van een virtuele machine wijzigen
       href: restart-resize-error-troubleshooting.md
     - name: Toegang tot toepassingen
       href: troubleshoot-app-connection.md
@@ -386,10 +384,9 @@
       href: allocation-failure.md
     - name: Een virtuele machine opnieuw implementeren
       href: redeploy-to-new-node.md
-    - name: >-
-        Virtuele harde schijf koppelen bij het oplossen van problemen met een virtuele
-        machine
-
+    - name: Veelvoorkomende foutberichten
+      href: error-messages.md
+    - name: Virtuele harde schijf koppelen bij het oplossen van problemen met een virtuele machine
       items:
       - name: Azure PowerShell
         href: troubleshoot-recovery-disks.md

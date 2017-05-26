@@ -57,7 +57,8 @@
     href: azure-vm-network-overview.md
   - name: Schaalsets van virtuele machines
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
-  - name: Instance Metadata Service 
+  - name: Instance Metadata Service
+ 
     href: ../virtual-machines-instancemetadataservice-overview.md
   - name: Containers
     href: containers.md
@@ -170,10 +171,7 @@
       href: update-agent.md
     - name: Back-ups maken met Recovery Services
       href: ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: >-
-        Een virtuele Red Hat-machine koppelen aan een Azure Active
-        Directory-domeinservice
-
+    - name: Een virtuele Red Hat-machine koppelen aan een Azure Active Directory-domeinservice
       href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
   - name: Verbinding maken met SSH
     items:
@@ -184,10 +182,7 @@
         href: create-ssh-keys-detailed.md
     - name: SSH-sleutels gebruiken met Windows voor virtuele Linux-machines
       href: ssh-from-windows.md
-    - name: >-
-        Extern bureaublad gebruiken om verbinding te maken met een virtuele
-        Linux-machine
-
+    - name: Extern bureaublad gebruiken om verbinding te maken met een virtuele Linux-machine
       href: use-remote-desktop.md
   - name: VM-installatiekopieën beheren
     items:
@@ -302,6 +297,8 @@
       href: extensions-customscript.md
     - name: OMS-agentextensie
       href: extensions-oms.md
+    - name: De diagnostische Linux-extensie
+      href: diagnostic-extension.md
   - name: Toepassingen uitvoeren
     items:
     - name: Cloud Foundry
@@ -359,19 +356,24 @@
       href: migration-classic-resource-manager-faq.md
   - name: Problemen oplossen
     items:
-    - name: SSH-verbindingsproblemen oplossen
+    - name: SSH-verbindingen
       href: troubleshoot-ssh-connection.md
       items:
       - name: Gedetailleerde stappen voor het oplossen van problemen
         href: detailed-troubleshoot-ssh-connection.md
-    - name: Problemen met toegang tot toepassingen oplossen
+    - name: Diagnostische gegevens over opstarten
+ 
+      href: boot-diagnostics.md
+    - name: Toegang tot toepassingen
       href: troubleshoot-app-connection.md
-    - name: Toewijzingsfouten oplossen
+    - name: Toewijzingsfouten
       href: allocation-failure.md
-    - name: Oplossen van implementatieproblemen
+    - name: Implementatieproblemen
       href: troubleshoot-deployment-new-vm.md
     - name: Een virtuele machine opnieuw implementeren naar een nieuw Azure-knooppunt
       href: redeploy-to-new-node.md
+    - name: Veelvoorkomende foutberichten
+      href: error-messages.md
     - name: Virtuele harde schijf koppelen voor het oplossen van problemen
       items:
       - name: Azure CLI

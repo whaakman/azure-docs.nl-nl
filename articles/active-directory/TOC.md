@@ -1,7 +1,7 @@
 # Overzicht
 ## [Wat is Azure Active Directory?](active-directory-whatis.md)
 ## [Editie kiezen](active-directory-editions.md)
-## [Over Azure-identiteitsbeheer](fundamentals-identity.md)
+## [Over Azure-identiteitsbeheer](identity-fundamentals.md)
 ## [Inzicht krijgen in Azure-identiteitsoplossingen](understand-azure-identity-solutions.md)
 ## [Een voorbeeld bekijken van de Azure Portal ervaring](active-directory-preview-explainer.md)
 
@@ -90,7 +90,7 @@
 ### Problemen oplossen
 #### [Ontbrekende controlegegevens](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Ontbrekende gegevens in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
-###    Toegang op programmeerniveau
+###    [Toegang op programmeerniveau](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Controleverwijzing](active-directory-reporting-api-audit-reference.md)
 #### [Verwijzing voor aanmelden](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Vereisten](active-directory-reporting-api-prerequisites-azure-portal.md)
@@ -115,7 +115,7 @@
 ##### [Onbekende bronnen](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [Afwijkende aanmeldingen](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [Wachtwoorden beheren](active-directory-passwords.md)
+## [Wachtwoorden beheren](active-directory-passwords-overview.md)
 ### Gebruikersdocumenten
 #### [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md)
 #### [Aanbevolen procedures voor wachtwoorden](active-directory-secure-passwords.md)
@@ -298,6 +298,7 @@
 ##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
+#### [Verhoogde bevoegdheden voor tenantbeheerders](role-based-access-control-tenant-admin-access.md)
 #### [Problemen oplossen](role-based-access-control-troubleshooting.md)
 #### [Resourceproviderbewerkingen](role-based-access-control-resource-provider-operations.md)
 ### [De levensduur van tokens configureren](active-directory-configurable-token-lifetimes.md)

@@ -39,9 +39,9 @@
       href: concepts-supported-versions.md
   - name: Resources
     items:
-    - name: Servicelagen
+    - name: Prijscategorieën
       href: concepts-service-tiers.md
-    - name: Rekeneenheden en opslageenheden
+    - name: Rekeneenheden
       href: concepts-compute-unit-and-storage.md
     - name: Limieten
       href: concepts-limits.md
@@ -85,6 +85,8 @@
       href: howto-connection-string.md
     - name: SSL configureren
       href: howto-configure-ssl.md
+    - name: Web-app
+      href: howto-connect-webapp.md
 - name: Naslaginformatie
   items:
   - name: Azure CLI

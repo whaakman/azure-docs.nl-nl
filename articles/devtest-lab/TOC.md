@@ -13,6 +13,7 @@
 ## Virtuele machines gebruiken in een lab
 ### [Virtuele machines maken](devtest-lab-add-vm.md)
 ### [Een virtuele machine maken die kan worden geclaimd](devtest-lab-add-claimable-vm.md)
+### [Virtuele machines maken en beheren met Azure CLI](devtest-lab-vmcli.md)
 
 ## Omgevingen gebruiken in een lab
 ### [Een omgeving maken](devtest-lab-create-environment-from-arm.md)
