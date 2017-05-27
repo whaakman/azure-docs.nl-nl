@@ -3,7 +3,7 @@ title: Prestaties van Azure-web-apps controleren | Microsoft Docs
 description: Prestaties controleren voor Azure-web-apps. Laad- en reactietijd voor grafieken, afhankelijkheidsinformatie en waarschuwingen instellen voor prestaties.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: azure-portal
@@ -11,12 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/30/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: c6f25b8cf8c133f44644db1507958b2176efa230
-ms.lasthandoff: 04/13/2017
+ms.date: 05/05/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: da09e09bb0605da583716e125f5d961bfb7af0c7
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -40,9 +41,19 @@ Als u al een web-app uitvoert in Azure, is er al sprake van enige controle: freq
 2. **Instrumenteer uw web-app** nadat Application Insights is geïnstalleerd. 
    
     ![Uw web-app instrumenteren](./media/app-insights-azure-web-apps/restart-web-app-for-insights.png)
+
+   **Schakel bewaking aan clientzijde in** voor paginaweergave- en gebruikerstelemetrie.
+
+   * Selecteer Instellingen > Toepassingsinstellingen
+   * Voeg een nieuw sleutelwaardepaar toe bij App-instellingen: 
+   
+    Sleutel: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
+    
+    Waarde:`true`
+   * Sla de instellingen op met **Opslaan** en start de app opnieuw met **Opnieuw opstarten**.
 3. **Controleer uw app**.  [Verken de gegevens](#explore-the-data).
 
-Desgewenst kunt u de app later opnieuw bouwen en implementeren met Application Insights.
+Desgewenst kunt u de app later bouwen met Application Insights.
 
 *Hoe kan ik Application Insights verwijderen of overschakelen naar verzending naar een andere resource?*
 
@@ -104,6 +115,7 @@ Gebruik de [Analytics-querytaal](app-insights-analytics-tour.md) voor krachtiger
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Voer de profiler uit in uw live app](app-insights-profiler.md).
+* [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample): Azure Functions bewaken met Application Insights
 * [Schakel diagnostische Azure-gegevens in](app-insights-azure-diagnostics.md) om te verzenden naar Application Insights.
 * [Controleer metrische gegevens voor servicestatus](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) om ervoor te zorgen dat de service beschikbaar is en reageert.
 * [Ontvang waarschuwingsmeldingen](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) wanneer er operationele gebeurtenissen plaatsvinden of metrische gegevens een drempelwaarde overschrijden.

@@ -3,7 +3,7 @@ title: De beschikbaarheid en reactiesnelheid van een website bewaken | Microsoft
 description: Stel webtests in Application Insights in. Ontvang een waarschuwing wanneer een website niet meer beschikbaar is of traag reageert.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
@@ -11,30 +11,29 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 5893f8126b0f18ac0d56e434a8e495380bd605d5
-ms.lasthandoff: 04/13/2017
+ms.date: 04/26/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0916c10afd526abaaf6c8e1e3aa311af5c7d84cd
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>De beschikbaarheid en reactiesnelheid van een website bewaken
-Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u webtests instellen om de beschikbaarheid en responsiviteit te bewaken. [Azure Application Insights](app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
+Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u tests instellen om de beschikbaarheid en responsiviteit te bewaken. [Azure Application Insights](app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
 
-![Voorbeeld van een webtest](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
+U kunt beschikbaarheidstests instellen voor alle HTTP- en HTTPS-eindpunten die toegankelijk zijn op het openbare internet. U hoeft niks toe te voegen aan de website die u test. Het hoeft niet eens uw site te zijn: u kunt ook een REST API-service testen waarvan u afhankelijk bent.
 
-U kunt webtests instellen voor alle HTTP- en HTTPS-eindpunten die toegankelijk zijn op het openbare internet. U hoeft niks toe te voegen aan de website die u test. Het hoeft niet eens uw site te zijn: u kunt ook een REST API-service testen waarvan u afhankelijk bent.
-
-Er zijn twee soorten webtests:
+Er zijn twee soorten beschikbaarheidstests:
 
 * [URL-pingtest](#create): een eenvoudige test die u in Azure Portal kunt instellen.
 * [Webtest met meerdere stappen](#multi-step-web-tests): deze test kunt u in Visual Studio Enterprise maken en uploaden naar de portal.
 
-Per toepassingsresource kunt u maximaal 10 webtests maken.
+Per toepassingsresource kunt u maximaal 25 beschikbaarheidstests maken.
 
-## <a name="create"></a>1. Een resource openen voor uw webtestrapporten
+## <a name="create"></a>1. Een resource openen voor uw beschikbaarheidstestrapporten
 
 **Als u Application Insights al hebt geconfigureerd** voor uw web-app, opent u de Application Insights-bron in [Azure Portal](https://portal.azure.com).
 
@@ -45,11 +44,11 @@ Per toepassingsresource kunt u maximaal 10 webtests maken.
 Klik op **Alle resources** om de blade Overzicht van de nieuwe resource te openen.
 
 ## <a name="setup"></a>2. Een URL-pingtest aanmaken
-Open de blade Beschikbaarheid en voeg een webtest toe.
+Open de blade Beschikbaarheid en voeg een test toe.
 
 ![Vul in elk geval de URL van uw website in](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-* **De URL** kan iedere webpagina zijn die u wilt testen, maar deze moet zichtbaar zijn vanaf het openbare internet. De URL kan ook een querytekenreeks bevatten, zodat u bijvoorbeeld kunt oefenen met uw database. Als de URL naar een omleiding is opgelost, kunnen we deze tot maximaal 10 omleidingen opvolgen.
+* **De URL** kan iedere webpagina zijn die u wilt testen, maar deze moet zichtbaar zijn vanaf het openbare internet. De URL kan een queryreeks bevatten. Zo kunt u bijvoorbeeld oefenen met uw database. Als de URL naar een omleiding is opgelost, kunnen we deze tot maximaal 10 omleidingen opvolgen.
 * **Parseren van afhankelijke aanvragen**: als deze optie is ingeschakeld, vraagt de test om afbeeldingen, scripts, stijlbestanden en andere bestanden die deel van de geteste webpagina uitmaken. De opgenomen reactietijd is inclusief de tijd die nodig is om deze bestanden op te halen. De test mislukt als al deze resources niet succesvol kunnen worden gedownload binnen de timeout voor de hele test. 
 
     Als de optie niet is ingeschakeld, vraagt de test alleen het bestand op van de URL die u hebt opgegeven.
@@ -71,30 +70,38 @@ Open de blade Beschikbaarheid en voeg een webtest toe.
 Voeg meer tests toe. U kunt bijvoorbeeld uw startpagina testen of controleren of uw database wordt uitgevoerd, door de URL te testen voor een zoekopdracht.
 
 
-## <a name="monitor"></a>3. De testresultaten bekijken
+## <a name="monitor"></a>3. De resultaten van de beschikbaarheidstest bekijken
 
-Klik na 5 minuten op **Vernieuwen** om de testresultaten weer te geven. 
+Klik na een paar minuten op **Vernieuwen** om de testresultaten weer te geven. 
 
-![Samenvatting van de resultaten op de Startblade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
+![Samenvatting van de resultaten op de Startblade](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
 
-Klik op een balk op de samenvattingschart voor een detailoverzicht van deze periode.
+Het spreidingsdiagram laat u voorbeelden van de testresultaten met details over de diagnostische teststappen zien. De testengine slaat diagnostische gegevens op voor tests met fouten. Bij geslaagde tests wordt diagnostische informatie voor een subset van de uitvoeringen opgeslagen. Beweeg de muisaanwijzer over een van de groene/rode punten om de tijdstempel, duur, locatie en naam van de test te bekijken. Klik op een punt in het spreidingsdiagram om de details van een testresultaat te bekijken.  
+
+Selecteer een bepaalde test of locatie, of verklein de periode om meer resultaten te zien uit de periode die voor u van belang is. Gebruik Search Explorer om resultaten van alle uitvoeringen weer te geven, of gebruik Analytics-query's om aangepaste rapporten uit te voeren op deze gegevens.
+
+Naast de onbewerkte resultaten kunt u twee metrische beschikbaarheidsgegevens gebruiken in Metrics Explorer: 
+
+1. Beschikbaarheid: percentage van de tests die zijn geslaagd, bekeken over alle testuitvoeringen. 
+2. Testduur: gemiddelde testduur van alle testuitvoeringen.
+
+U kunt filters toepassen op de testnaam of -locatie om trends van een bepaalde test en/of locatie te analyseren.
 
 ## <a name="edit"></a> Tests bekijken en bewerken
 
 Selecteer op de pagina Overzicht een specifieke test. Hier kunt u de specifieke resultaten bekijken en de test bewerken of tijdelijk uitschakelen.
 
-![Een webtest bewerken of uitschakelen](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
+![Een webtest bewerken of uitschakelen](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
 
-Mogelijk wilt u uw webtests uitschakelen wanneer u onderhoud gaat uitvoeren aan uw service.
-
+Het is verstandig beschikbaarheidstests of de regels voor waarschuwingen die eraan zijn gekoppeld uit te schakelen wanneer u onderhoud uitvoert op uw service. 
 
 ## <a name="failures"></a>Als u mislukte tests ziet
 Klik op een rode punt.
 
-![Op een rode punt klikken](./media/app-insights-monitor-web-app-availability/open-instance.png)
+![Op een rode punt klikken](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
 
 
-Vanuit een webtestresultaat kunt u:
+Vanuit het resultaat van een beschikbaarheidstest kunt u:
 
 * De reactie inspecteren die is ontvangen van uw server.
 * De telemetrie openen die door uw server-app is verzonden tijdens het verwerken van de mislukte aanvraag.
@@ -104,7 +111,7 @@ Vanuit een webtestresultaat kunt u:
 
 *Zien de resultaten er goed uit, maar wordt de test toch als mislukt aangeduid?* Controleer alle afbeeldingen, scripts, stijlmodellen en andere bestanden geladen door de pagina. Als één van deze mislukt, wordt de test gerapporteerd als mislukt, zelfs als de html-pagina correct laadt.
 
-*Zijn er geen verwante items?* Dat komt mogelijk doordat er [steekproeven](app-insights-sampling.md) worden genomen.
+*Zijn er geen verwante items?* Als u Application Insights hebt ingesteld voor uw app aan serverzijde, kan dit komen doordat er [steekproeven](app-insights-sampling.md) worden uitgevoerd. 
 
 ## <a name="multi-step-web-tests"></a>Webtests met meerdere stappen
 U kunt een scenario bewaken dat bestaat uit een reeks URL's. Als u bijvoorbeeld een verkoopwebsite bewaakt, kunt u testen of het toevoegen van items aan de winkelwagen goed werkt.
@@ -149,7 +156,7 @@ Gebruik Visual Studio Enterprise om een websessie op te nemen.
     ![Open in Visual Studio het bestand .webtest en klik op Uitvoeren.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 #### <a name="2-upload-the-web-test-to-application-insights"></a>2. De webtest uploaden naar Application Insights
-1. Maak in de Application Insights-portal een nieuwe webtest.
+1. Maak in de Application Insights-portal een webtest.
 
     ![Kies op de blade Webtests de optie Toevoegen.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
 2. Selecteer de test met meerdere stappen en upload het .webtest-bestand.
@@ -240,7 +247,7 @@ Open op de blade Overzicht **Instellingen**, **Prestatietests**. Als u een test 
 Wanneer de test voltooid is, worden de responstijden en succespercentages weergegeven.
 
 ## <a name="automation"></a>Automatisering
-* Gebruik [PowerShell-scripts](app-insights-powershell.md#add-an-availability-test) om automatisch een webtest in te stellen.
+* Gebruik [PowerShell-scripts om automatisch een beschikbaarheidstest in te stellen](app-insights-powershell.md#add-an-availability-test).
 * Stel een [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) in die wordt aangeroepen wanneer er een waarschuwing wordt gegenereerd.
 
 ## <a name="qna"></a>Vragen? Problemen?
@@ -252,7 +259,7 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
     ondersteunen TLS 1.1 en TLS 1.2.
 * *Is er een verschil tussen webtests en beschikbaarheidstests?*
 
-    De twee termen worden door elkaar gebruikt.
+    De twee voorwaarden kunnen door elkaar worden gebruikt. 'Beschikbaarheidstest' is een algemenere term waar niet alleen webtests met meerdere stappen, maar ook tests met enkele URL-ping onder vallen.
 * *Ik wil graag beschikbaarheidstests gebruiken op onze interne server die achter een firewall wordt uitgevoerd.*
 
     Er zijn twee mogelijke oplossingen:
@@ -291,4 +298,3 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-

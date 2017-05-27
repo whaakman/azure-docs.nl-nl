@@ -1,58 +1,94 @@
 ---
-title: Uw eerste Azure-functie maken | Microsoft Docs
-description: Bouw uw eerste Azure-functie, een toepassing zonder server, in minder dan twee minuten.
+title: Uw eerste functie maken vanuit Azure Portal | Microsoft Docs
+description: Leer hoe u uw eerste serverloze Azure-functie kunt maken met behulp van Azure Portal.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
 editor: 
 tags: 
-ms.assetid: 4a1669e7-233e-4ea2-9b83-b8624f2dbe59
+ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.service: functions
 ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/14/2016
+ms.date: 05/10/2017
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: a797910e286cd2aacf5a8aa6c509e2b0f5f60276
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: abd508631787ba5f839a4ae2ea82e76c4bfab425
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="create-your-first-azure-function"></a>Uw eerste Azure-functie maken
+# <a name="create-your-first-function-in-the-azure-portal"></a>Uw eerste functie maken in Azure Portal
 
-In dit onderwerp wordt beschreven hoe u de snelstartgids voor Azure Functions in de portal kunt gebruiken voor het maken van een eenvoudige 'hallo wereld'-functie die wordt opgeroepen met een HTTP-aanvraag. Zie [Overzicht van Azure Functions](functions-overview.md) voor meer informatie.
+Met Azure Functions kunt u uw code in een serverloze omgeving uitvoeren zonder dat u eerst een virtuele machine moet maken of een webtoepassing moet publiceren. In dit onderwerp leert u hoe met Azure Functions een 'Hallo wereld-functie' in Azure Portal kunt maken.
 
-U dient een Azure-account te hebben voordat u begint. Er zijn [gratis accounts](https://azure.microsoft.com/free/) beschikbaar. U kunt ook [Azure Functions proberen](https://azure.microsoft.com/try/app-service/functions/) zonder te registreren bij Azure.
+![Functie-app maken in Azure Portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
-## <a name="create-a-function-from-the-portal-quickstart"></a>Een functie maken vanuit de snelstartgids voor de portal
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-1. Ga naar de [Azure Functions-portal](https://functions.azure.com/signin) en meld u aan met uw Azure-account. 
- 
-2. Typ een unieke **Naam** voor uw nieuwe functie-app of accepteer de automatisch gegenereerde naam, selecteer de gewenste **Regio** en klik op **Maken en aan de slag**. Een geldige naam bevat alleen kleine letters, cijfers en afbreekstreepjes. Het onderstrepingsteken (**_**) is niet toegestaan.
+Het doorlopen van de stappen in dit onderwerp kost u minder dan vijf minuten.
 
-3. Klik in het tabblad **Snelstartgids** op **WebHook en API** en kies een taal voor uw functie. Klik vervolgens op **Een functie maken**. Er wordt een nieuwe, vooraf gedefinieerde functie gemaakt in uw gekozen taal. 
+## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+
+Meld u aan bij [Azure Portal](https://portal.azure.com/).
+
+## <a name="create-a-function-app"></a>Een functie-app maken
+
+U moet een functie-app hebben die als host fungeert voor de uitvoering van uw functies. Met een functie-app kunt u functies groeperen in een logische eenheid, zodat u resources eenvoudiger kunt beheren, implementeren en delen. 
+
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
+
+![De functie-app is gemaakt.](./media/functions-create-first-azure-function/function-app-create-success.png)
+
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+
+Vervolgens maakt u een functie in de nieuwe functie-app.
+
+## <a name="create-function"></a>Een door HTTP geactiveerde functie maken
+
+1. Vouw de nieuwe functie-app uit en klik vervolgens op de knop  **+**  naast **Functies**.
+
+2.  Op de pagina **Ga snel aan de slag** klikt u op **WebHook en API**, kiest u een taal voor uw functie en klikt u op **Deze functie maken**. 
    
-    ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+    ![De Quick Start van Azure Functions in Azure Portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-4. (Optioneel) Op dit punt in de snelstartgids kunt u ervoor kiezen om een rondleiding te volgen over de Azure Functions-functionaliteit in de portal. Nadat u de rondleiding hebt voltooid of overgeslagen, kunt u de nieuwe functie testen door een HTTP-aanvraag te verzenden.
+Een functie wordt gemaakt in de door u gekozen taal met de sjabloon voor een door HTTP geactiveerde functie. U kunt de nieuwe functie uitvoeren door een HTTP-aanvraag te verzenden.
 
 ## <a name="test-the-function"></a>De functie testen
-[!INCLUDE [Functions quickstart test](../../includes/functions-quickstart-test.md)]
 
-## <a name="watch-the-video"></a>Video bekijken
-In de volgende video laten we zien hoe u de eenvoudige stappen in deze zelfstudie uitvoert. 
+1. Klik in de nieuwe functie op **</> Functie-URL ophalen** en kopieer de **functie-URL**. 
 
-> [!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-your-first-Azure-Function-simple/player]
-> 
+    ![De functie-URL vanuit Azure Portal kopiëren](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
+2. Plak de URL van de HTTP-aanvraag in de adresbalk van uw browser. Voeg de queryreeks `&name=<yourname>` toe aan de URL en voer de aanvraag uit. Hieronder ziet u het antwoord op de GET-aanvraag dat door de functie wordt geretourneerd, weergegeven in de browser:
+
+    ![Het antwoord van de functie in de browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+
+    De aanvraag-URL bevat een sleutel die standaard is vereist, en waarmee u via HTTP toegang hebt tot de functie.   
+
+## <a name="view-the-function-logs"></a>De functielogboeken weergeven 
+
+Wanneer uw functie wordt uitgevoerd, wordt traceringsinformatie naar de logboeken geschreven. Als u de trace-uitvoer van de vorige uitvoering wilt zien, gaat u terug naar de functie in de portal en klikt u op de pijl-omhoog onder aan het scherm om de **logboeken** uit te klappen. 
+
+![De viewer voor functielogboeken in Azure Portal.](./media/functions-create-first-azure-function/function-view-logs.png)
+
+## <a name="clean-up-resources"></a>Resources opschonen
+
+[!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+U hebt een functie-app met een eenvoudige door HTTP geactiveerde functie gemaakt.  
+
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+Zie [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md) (Azure Functions-HTTP- en webhookbindingen) voor meer informatie.
+
+
 
 
