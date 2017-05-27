@@ -3,7 +3,7 @@ title: Een live ASP.NET-web-app bewaken met Azure Application Insights | Microso
 description: Bewaak de prestaties van een website zonder de website opnieuw te implementeren. Werkt met ASP.NET-web-apps die on-premises worden gehost, die in virtuele machines worden gehost en die via Azure worden gehost.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -11,12 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/08/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 88abdb41a403f9c1dc85e574c655c532ee9b1eb5
-ms.lasthandoff: 04/13/2017
+ms.date: 05/05/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 769377af7bf62d35c45c6e2e7b0ae3311b784894
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -59,6 +60,20 @@ Als uw toepassing wordt uitgevoerd als Azure-webservice, leest u hier hoe u bewa
     ![Klik door naar Application Insights](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
 
 [Cloud- en VM-apps bewaken](app-insights-azure.md).
+
+### <a name="enable-client-side-monitoring-in-azure"></a>Bewaking aan clientzijde in Azure inschakelen
+
+Als u Application Insights in Azure hebt ingeschakeld, kunt u de paginaweergave en gebruikerstelemetrie toevoegen.
+
+1. Selecteer Instellingen > Toepassingsinstellingen
+2.  Voeg een nieuw sleutelwaardepaar toe bij App-instellingen: 
+   
+    Sleutel: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
+    
+    Waarde:`true`
+3. Sla de instellingen op met **Opslaan** en start de app opnieuw met **Opnieuw opstarten**.
+
+De Application Insights JavaScript-SDK is nu opgenomen in elke webpagina.
 
 ## <a name="monitor-a-live-iis-web-app"></a>Een live IIS-web-app bewaken
 
