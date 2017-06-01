@@ -2,7 +2,6 @@
 ## [Wat is Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Aan de slag
-## [Interactieve zelfstudie: logboeken van een website analyseren](data-lake-analytics-use-interactive-tutorials.md)
 ## [Azure Portal](data-lake-analytics-get-started-portal.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [.NET-SDK](data-lake-analytics-get-started-net-sdk.md)
@@ -27,6 +26,8 @@
 
 ## Oplossingen maken
 ### [Websitelogboeken analyseren](data-lake-analytics-analyze-weblogs.md)
+### [Interactieve zelfstudie: logboeken van een website analyseren](data-lake-analytics-use-interactive-tutorials.md)
+
 
 ## Beheren
 ### [Azure Portal](data-lake-analytics-manage-use-portal.md)

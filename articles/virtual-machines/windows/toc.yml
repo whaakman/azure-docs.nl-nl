@@ -130,6 +130,8 @@
     items:
     - name: Overzicht van het maken van een virtuele machine
       href: creation-choices.md
+    - name: Een virtuele machine maken vanaf een gespecialiseerde VHD
+      href: create-vm-specialized.md
     - name: Een virtuele machine maken met een sjabloon
       href: ps-template.md
     - name: 'Een virtuele machine maken met C#'
@@ -215,20 +217,6 @@
       href: expand-data-disks.md
     - name: 'D: als gegevensschijf gebruiken'
       href: change-drive-letter.md
-    - name: Virtuele machines maken met behulp van niet-beheerde schijven
-      items:
-      - name: Een VHD uploaden
-        href: upload-image.md
-      - name: Een niet-beheerde installatiekopie maken
-        href: capture-image.md
-      - name: Een niet-beheerde virtuele machine maken vanaf een gegeneraliseerde VHD
-        href: create-vm-generalized.md
-      - name: Een virtuele machine kopiëren
-        href: vhd-copy.md
-      - name: Een virtuele machine maken vanaf een gespecialiseerde VHD
-        href: create-vm-specialized.md
-      - name: Een niet-beheerde gegevensschijf koppelen
-        href: attach-disk-portal.md
   - name: VM-netwerken
     href: ps-common-network-ref.md
     items:
@@ -341,10 +329,8 @@
       items:
       - name: Migreren van Amazon Web Services (AWS) naar Azure
         href: aws-to-azure.md
-    - name: Uploaden en een virtuele machine maken op basis van gegeneraliseerde VHD
-      href: upload-generalized-managed.md
-    - name: Uploaden en een virtuele machine maken op basis van gespecialiseerde VHD
-      href: upload-specialized.md
+      - name: Uploaden en een virtuele machine maken op basis van gegeneraliseerde VHD
+        href: upload-generalized-managed.md
     - name: Migreren van een klassieke implementatie naar Azure Resource Manager
       href: migration-classic-resource-manager-overview.md
       items:

@@ -11,7 +11,7 @@
 ## [Aanbevolen procedures](sql-data-warehouse-best-practices.md)
 ## [Beheren](sql-data-warehouse-overview-manage.md)
 ## [Ondersteuning krijgen](sql-data-warehouse-get-started-create-support-ticket.md)
-## [Problemen oplossen](sql-data-warehouse-troubleshoot.md)
+
 
 # Procedures
 
@@ -114,7 +114,7 @@
 
 ### [Overzicht](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Columnstore-compressie](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Query's](sql-data-warehouse-manage-monitor.md)
+### [Controle](sql-data-warehouse-manage-monitor.md)
 ### [Workload](sql-data-warehouse-develop-concurrency.md)
 
 ## Beveiliging
@@ -126,6 +126,9 @@
 ### [Versleuteling](sql-data-warehouse-encryption-tde.md)
 ### [Versleuteling met T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 ### [Detectie van bedreigingen](sql-data-warehouse-security-threat-detection.md)
+
+## Problemen oplossen
+### [Problemen oplossen](sql-data-warehouse-troubleshoot.md)
 
 # Naslaginformatie
 
