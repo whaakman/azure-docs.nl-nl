@@ -64,7 +64,6 @@
 #### [Portal](resource-group-create-service-principal-portal.md)
 ### [Verificatie-API om toegang te krijgen tot abonnementen](resource-manager-api-authentication.md)
 ### [Resources vergrendelen](resource-group-lock-resources.md)
-### [Beveiligingsoverwegingen](best-practices-resource-manager-security.md)
 
 ## Resourcebeleid instellen
 ### [Wat is een resourcebeleid?](resource-manager-policy.md)

@@ -13,34 +13,41 @@
 ## Pakketopname beheren
 ### [Portal](network-watcher-packet-capture-manage-portal.md)
 ### [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-### [CLI](network-watcher-packet-capture-manage-cli.md)
+### [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
+### [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
 ### [REST](network-watcher-packet-capture-manage-rest.md)
 ## IP-stromen naar en van een VM verifiëren
 ### [Portal](network-watcher-check-ip-flow-verify-portal.md)
 ### [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
-### [CLI](network-watcher-check-ip-flow-verify-cli.md)
+### [CLI 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
+### [CLI 2.0](network-watcher-check-ip-flow-verify-cli.md)
 ### [REST](network-watcher-check-ip-flow-verify-rest.md)
 ## Volgende hop analyseren
 ### [Portal](network-watcher-check-next-hop-portal.md)
 ### [PowerShell](network-watcher-check-next-hop-powershell.md)
-### [CLI](network-watcher-check-next-hop-cli.md)
+### [CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
+### [CLI 2.0](network-watcher-check-next-hop-cli.md)
 ### [REST](network-watcher-check-next-hop-rest.md)
 ## Topologie van uw netwerk weergeven
 ### [PowerShell](network-watcher-topology-powershell.md)
-### [CLI](network-watcher-topology-cli.md)
+### [CLI 1.0](network-watcher-topology-cli-nodejs.md)
+### [CLI 2.0](network-watcher-topology-cli.md)
 ### [REST](network-watcher-topology-rest.md)
 ## Problemen met VPN Gateway en -verbindingen oplossen
 ### [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-### [CLI](network-watcher-troubleshoot-manage-cli.md)
+### [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
+### [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
 ### [REST](network-watcher-troubleshoot-manage-rest.md)
 ## Weergave van netwerkbeveiligingsgroep analyseren
 ### [PowerShell](network-watcher-security-group-view-powershell.md)
-### [CLI](network-watcher-security-group-view-cli.md)
+### [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
+### [CLI 2.0](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
 ## NSG-stroomlogboeken configureren
 ### [Portal](network-watcher-nsg-flow-logging-portal.md)
 ### [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-### [CLI](network-watcher-nsg-flow-logging-cli.md)
+### [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
+### [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
 ### [REST](network-watcher-nsg-flow-logging-rest.md)
 # Procedures
 ## [VPN Gateway bewaken met Azure Automation](network-watcher-monitor-with-azure-automation.md)

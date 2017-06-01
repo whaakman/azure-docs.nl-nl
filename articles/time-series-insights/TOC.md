@@ -12,7 +12,9 @@
 ## [Een IoT Hub-gebeurtenisbron maken](time-series-insights-how-to-add-an-event-source-iothub.md)
 ## [Uw omgeving schalen](time-series-insights-how-to-scale-your-environment.md)
 ## [Problemen vaststellen en oplossen](time-series-insights-diagnose-and-solve-problems.md)
-## [Gegevens opvragen met C#](time-series-insights-query-data-csharp.md)
+## Ontwikkelen
+### [Verificatie en autorisatie](time-series-insights-authentication-and-authorization.md)
+### [Gegevens opvragen met C#](time-series-insights-query-data-csharp.md)
 
 # Naslaginformatie
 ## [Query-API](/rest/api/time-series-insights/time-series-insights-reference-queryapi)

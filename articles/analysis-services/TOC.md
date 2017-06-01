@@ -1,5 +1,6 @@
 # Overzicht
 ## [Wat is Azure Analysis Services?](analysis-services-overview.md)
+## [Ondersteunde gegevensbronnen](analysis-services-datasource.md)
 
 # Snelstartgidsen
 ## [Een server maken - portal](analysis-services-create-server.md)
@@ -17,7 +18,7 @@
 ### [Les 6: Metingen maken](tutorials/aas-lesson-6-create-measures.md)  
 ### [Les 7: Key performance indicators maken](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
 ### [Les 8: Perspectieven maken](tutorials/aas-lesson-8-create-perspectives.md) 
-### [Les 9: Hiërarchieën maken](tutorials/aas-lesson-9-create-hierarchies.md)  
+### [Les 9: Hiërarchieën maken](tutorials/aas-lesson-9-create-hierarchies.md) 
 ### [Les 10: Partities maken](tutorials/aas-lesson-10-create-partitions.md) 
 ### [Les 11: Rollen maken](tutorials/aas-lesson-11-create-roles.md)
 ### [Les 12: Analyseren in Excel](tutorials/aas-lesson-12-analyze-in-excel.md)
@@ -36,7 +37,6 @@
 ## [Clientbibliotheken ophalen](analysis-services-data-providers.md)
 ## [Back-up en herstel](analysis-services-backup.md)
 ## [Hoge beschikbaarheid](analysis-services-bcdr.md)
-## [Gegevensbronverbindingen](analysis-services-datasource.md)
 ## [Een ODC-bestand maken](analysis-services-odc.md)
 
 # Naslaginformatie
