@@ -5,6 +5,7 @@
 ## [Inzicht krijgen in Azure-identiteitsoplossingen](understand-azure-identity-solutions.md)
 ## [Een voorbeeld bekijken van de Azure Portal ervaring](active-directory-preview-explainer.md)
 
+
 # Aan de slag
 ## [Een Azure AD-tenant verkrijgen](active-directory-howto-tenant.md)
 ## [Meld u aan voor Azure AD Premium](active-directory-get-started-premium.md)
@@ -14,7 +15,8 @@
 ### [Klassieke portal](active-directory-licensing-what-is.md)
 ## [Azure kopen voor uw organisatie](sign-up-organization.md)
 ## [Veelgestelde vragen](active-directory-faq.md)
-## [Zelfstudies voor SaaS-app](active-directory-saas-tutorial-list.md)
+## [Ondersteuning voor Azure Active Directory verkrijgen](active-directory-troubleshooting-support-howto.md)
+## [Zelfstudies voor SaaS-app-integratie](active-directory-saas-tutorial-list.md)
 
 # Procedures
 ## Plannen en ontwerpen

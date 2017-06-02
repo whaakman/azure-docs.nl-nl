@@ -61,6 +61,9 @@
 ### [Weergaven](operations-management-suite-solutions-resources-views.md)
 ### [Aanbevolen procedures](operations-management-suite-solutions-best-practices.md)
 
+## Beheerscenario's
+### [Analytische gegevens verzamelen van runbook](operations-management-suite-runbook-datacollect.md)
+
 ## [Integreren met OMS](operations-management-suite-integration.md)
 
 # Naslaginformatie

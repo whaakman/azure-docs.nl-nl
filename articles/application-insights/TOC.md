@@ -116,7 +116,7 @@
 ### [Steekproeven](app-insights-sampling.md)
 
 ## Beheren
-### [Prijzen en quota beheren](app-insights-pricing.md)
+### [Prijzen en gegevensvolume beheren](app-insights-pricing.md)
 ### [Toepassingsprestaties bewaken met Application Insights voor SCOM](app-insights-scom.md)
 
 ## Exporteren

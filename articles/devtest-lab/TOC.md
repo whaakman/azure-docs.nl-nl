@@ -2,6 +2,7 @@
 ## [Over Azure DevTest Labs](devtest-lab-overview.md)
 ## [Concepten](devtest-lab-concepts.md)
 ## Scenario's
+### [Labs gebruiken voor ontwikkelaars](devtest-lab-developer-lab.md)
 ### [Labs gebruiken voor training](devtest-lab-training-lab.md)
 
 # Aan de slag

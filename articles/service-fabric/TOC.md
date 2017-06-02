@@ -235,25 +235,27 @@
 
 ### [Verbinding maken met een beveiligde cluster](service-fabric-connect-to-secure-cluster.md)
 
-## Status van toepassing en cluster inspecteren
-### [Service Fabric-status bewaken](service-fabric-health-introduction.md)
-### [Servicestatus rapporteren en controleren](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-### [Aangepaste statusrapporten toevoegen](service-fabric-report-health.md)
-### [Problemen met systeemstatusrapporten oplossen](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-### [Statusrapporten weergeven](service-fabric-view-entities-aggregated-health.md)
-
 ## Bewaken en diagnoses uitvoeren
 ### [Toepassingen bewaken en er diagnoses op uitvoeren](service-fabric-diagnostics-overview.md)
-### Services lokaal bewaken en er diagnoses op uitvoeren
-#### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
-#### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-### Diagnostische logboeken van Azure
-#### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
-#### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
-### [Logboeken verzamelen van een serviceproces](service-fabric-diagnostic-collect-logs-without-an-agent.md)
-### [Windows Server-containers bewaken](service-fabric-diagnostics-containers-windowsserver.md)
-### [Diagnose in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
-### [Diagnose in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+### Gebeurtenissen genereren
+#### [Gebeurtenissen op infrastructuurniveau genereren](service-fabric-diagnostics-event-generation-infra.md)
+##### [Reliable Services-gebeurtenissen](service-fabric-reliable-services-diagnostics.md)
+##### [Reliable Actors-gebeurtenissen](service-fabric-reliable-actors-diagnostics.md)
+#### [Gebeurtenissen op toepassingsniveau genereren](service-fabric-diagnostics-event-generation-app.md)
+### Status van toepassing en cluster inspecteren
+#### [Service Fabric-status bewaken](service-fabric-health-introduction.md)
+#### [Servicestatus rapporteren en controleren](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+#### [Aangepaste statusrapporten toevoegen](service-fabric-report-health.md)
+#### [Problemen met systeemstatusrapporten oplossen](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+#### [Statusrapporten weergeven](service-fabric-view-entities-aggregated-health.md)
+### Gebeurtenissen samenstellen
+#### [Gebeurtenissen samenstellen met EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
+#### Gebeurtenissen samenstellen met Azure Diagnostics
+##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
+### Gebeurtenissen analyseren
+#### [Gebeurtenissen analyseren met Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+#### [Gebeurtenissen analyseren met OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Problemen met uw lokale cluster oplossen](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Naslaginformatie

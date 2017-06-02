@@ -1,13 +1,14 @@
 # Overzicht
 ## [Wat is Site Recovery?](site-recovery-overview.md)
-## [Hoe werkt Site Recovery?](site-recovery-components.md)
+## [Hoe werkt Site Recovery?](site-recovery-azure-to-azure-architecture.md)
 ## [Hoe werkt Hyper-V-replicatie naar Azure?](site-recovery-hyper-v-azure-architecture.md)
 ## [Welke workloads kunt u beveiligen?](site-recovery-workload.md)
-## [Ondersteuningsmatrix voor Site Recovery](site-recovery-support-matrix-to-azure.md)
+## [Ondersteuningsmatrix voor Site Recovery](site-recovery-support-matrix-azure-to-azure.md)
 ## [Veelgestelde vragen](site-recovery-faq.md)
 ## [Een inleiding bekijken](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Aan de slag
+## [Virtuele Azure-machines repliceren (preview)](site-recovery-azure-to-azure.md)
 ## [Virtuele VMware-machines repliceren naar Azure](site-recovery-vmware-to-azure.md)
 ## [Fysieke servers repliceren naar Azure](site-recovery-physical-servers-to-azure.md)
 ## [Virtuele Hyper-V-machines repliceren naar Azure (met VMM)](site-recovery-vmm-to-azure.md)
@@ -18,9 +19,10 @@
 
 # Procedures
 ## Plannen
-### [Vereisten voor Azure-replicatie](site-recovery-prereq.md)
-### [Netwerkinfrastructuur plannen](site-recovery-network-design.md)
-### [Netwerktoewijzing plannen](site-recovery-network-mapping.md)
+### [Vereisten voor Azure-replicatie](site-recovery-azure-to-azure-prereq.md)
+### [Uitgaande netwerkverbindingen plannen voor virtuele Azure-machines (preview)](site-recovery-azure-to-azure-networking-guidance.md)
+### [Netwerkinfrastructuur voor on-premises machines plannen](site-recovery-network-design.md)
+### [Netwerktoewijzing plannen](site-recovery-network-mapping-azure-to-azure.md)
 ### [Capaciteit plannen en schalen voor VMware-replicatie naar Azure](site-recovery-plan-capacity-vmware.md)
 ### [Implementatieplanner voor VMware-replicatie naar Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner voor Hyper-V-replicatie](site-recovery-capacity-planner.md)
@@ -33,19 +35,21 @@
 ### [De Mobility-service voor VMware-replicatie implementeren](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [De Mobility-service implementeren met behulp van System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 #### [De Mobility-service implementeren met behulp van Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
-### [Replicatie inschakelen](site-recovery-replicate-vmware-to-azure.md)
+### [Replicatie inschakelen](site-recovery-replicate-azure-to-azure.md)
 ## Failover en failback
-### [Door failover beveiligde machines](site-recovery-failover.md)
 ### [Herstelplannen instellen](site-recovery-create-recovery-plans.md)
 #### [Azure-runbooks aan herstelplannen toevoegen](site-recovery-runbook-automation.md)
 ### [Een testfailover uitvoeren](site-recovery-test-failover-to-azure.md)
-### [Machines opnieuw beveiligen na een failover](site-recovery-how-to-reprotect.md)
+### [Door failover beveiligde machines](site-recovery-failover.md)
+### [Machines opnieuw beveiligen na een failover](site-recovery-how-to-reprotect-azure-to-azure.md)
 ### [Failback vanaf Azure](site-recovery-failback-azure-to-vmware.md)
 
 ## Migreren
 ### [Migreren naar Azure](site-recovery-migrate-to-azure.md)
 ### [Migreren tussen Azure-regio's](site-recovery-migrate-azure-to-azure.md)
 ### [AWS Windows-instanties migreren naar Azure](site-recovery-migrate-aws-to-azure.md)
+### [Gemigreerde machines naar een andere Azure-regio repliceren](site-recovery-azure-to-azure-after-migration.md)
+
 ## Workloads
 ### [Active Directory en DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
@@ -68,7 +72,9 @@
 ### [Uitgeschaalde processervers beheren](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [VCenter-servers beheren](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Servers verwijderen en beveiliging uitschakelen](site-recovery-manage-registration-and-protection.md)
-## [Controleren en problemen oplossen](site-recovery-monitoring-and-troubleshooting.md)
+## Controleren en problemen oplossen
+### [Problemen met replicatie van een virtuele Azure-machine](site-recovery-azure-to-azure-troubleshoot-errors.md)
+### [Problemen met replicatie van on-premises naar Azure](site-recovery-monitoring-and-troubleshooting.md)
 
 # Naslaginformatie
 ## [PowerShell](/powershell/module/azurerm.siterecovery)

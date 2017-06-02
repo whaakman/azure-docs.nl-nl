@@ -32,6 +32,7 @@
 ### [Aanmeldingsopties voor gebruiker](active-directory-aadconnect-user-signin.md)
 ### [Ondersteuning van meerdere domeinen voor federeren](active-directory-aadconnect-multiple-domains.md)
 ### [Automatische upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
+### [Een SAML 2.0-id-provider (IdP) gebruiken voor eenmalige aanmelding](active-directory-aadconnect-federation-saml-idp.md)
 
 
 
