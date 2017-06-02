@@ -41,6 +41,7 @@
 ### [Onboarding van machines voor beheer](automation-dsc-onboarding.md)
 ### [DSC-configuraties compileren](automation-dsc-compile.md)
 ### [Doorlopende implementatie met Chocolatey](automation-dsc-cd-chocolatey.md)
+### [Azure Automation DSC-rapportagegegevens doorsturen aan OMS Log Analytics](automation-dsc-diagnostics.md)
 ## Automatiseringsactiva beheren
 ### [Certificaten](automation-certificates.md)
 ### [Verbindingen](automation-connections.md)

@@ -10,6 +10,7 @@
 ### [Geavanceerde detectie van bedreigingen](azure-threat-detection.md)
 ### [Logboekregistratie en bewaking](azure-log-audit.md)
 ### [Isolatie in de openbare cloud](azure-isolation.md)
+### [Technische mogelijkheden voor beveiliging](azure-security-technical-capabilities.md)
 
 # Aan de slag
 ## [Aan de slag met Azure-beveiliging](azure-security-getting-started.md)
@@ -18,6 +19,7 @@
 
 ## Netwerkbeveiliging
 ### [Aanbevolen procedures voor netwerkbeveiliging](azure-security-network-security-best-practices.md)
+###[Azure-netwerkbeveiliging](azure-network-security.md)
 ### [Grensbeveiliging](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Veilige hybride netwerkarchitectuur](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
 

@@ -140,6 +140,14 @@
       href: move-vm.md
     - name: Virtuele machines met hoge beschikbaarheid maken
       href: create-cli-complete.md
+    - name: Ansible
+      items:
+      - name: Installeren en configureren
+        href: ansible-install-configure.md
+      - name: Basis-VM maken
+        href: ansible-create-vm.md
+      - name: Volledige virtuele machine maken
+        href: ansible-create-complete-vm.md
     - name: Een app implementeren met een VM-sjabloon
       items:
       - name: Overzicht van de zelfstudie
@@ -194,7 +202,7 @@
       href: upload-vhd.md
     - name: Een bestaande virtuele machine in een installatiekopie vastleggen
       href: capture-image.md
-    - name: Door Azure goedgekeurde installatiekopieën maken
+    - name: Azure-installatiekopieën maken
       items:
       - name: Ubuntu
         href: create-upload-ubuntu.md
@@ -206,6 +214,8 @@
         href: create-upload-centos.md
       - name: Oracle Linux
         href: oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: create-upload-openbsd.md
   - name: VM-opslag beheren
     items:
     - name: Azure Managed Disks

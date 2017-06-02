@@ -69,7 +69,7 @@
     href: functions-how-to-use-azure-function-app-settings.md
   - name: Doorlopende implementatie voor Azure Functions
     href: functions-continuous-deployment.md
-  - name: Functions implementeren met behulp van infrastructuur als code
+  - name: Resource-implementatie automatiseren
     href: functions-infrastructure-as-code.md
   - name: Azure Functions controleren
     href: functions-monitoring.md
@@ -85,35 +85,31 @@
   items:
   - name: Bindingen
     items:
-    - name: Cosmos DB-bindingen
+    - name: Blob Storage
+      href: functions-bindings-storage-blob.md
+    - name: Cosmos DB
       href: functions-bindings-documentdb.md
-    - name: Event Hub-bindingen
+    - name: Event Hub
       href: functions-bindings-event-hubs.md
-    - name: HTTP- en webhook-bindingen
+    - name: Extern bestand
+      href: functions-bindings-external-file.md
+    - name: HTTP en webhooks
       href: functions-bindings-http-webhook.md
-    - name: Mobile Apps-bindingen
+    - name: Mobile Apps
       href: functions-bindings-mobile-apps.md
-    - name: Notification Hub-uitvoerbinding
+    - name: Notification Hubs
       href: functions-bindings-notification-hubs.md
-    - name: Service Bus-triggers en -bindingen voor wachtrijen en onderwerpen
+    - name: Queue Storage
+      href: functions-bindings-storage-queue.md
+    - name: SendGrid
+      href: functions-bindings-sendgrid.md
+    - name: Service Bus
       href: functions-bindings-service-bus.md
-    - name: SendGrid-bindingen
-      href: functions-bindings-sendgrid.md
-    - name: Storage-bindingen
-      items:
-      - name: Blob-bindingen
-        href: functions-bindings-storage-blob.md
-      - name: Wachtrijbindingen
-        href: functions-bindings-storage-queue.md
-      - name: Tabelbindingen
-        href: functions-bindings-storage-table.md
-      - name: Bindingen voor externe bestanden
-        href: functions-bindings-external-file.md
-    - name: SendGrid-bindingen
-      href: functions-bindings-sendgrid.md
-    - name: Timertrigger
+    - name: Table Storage
+      href: functions-bindings-storage-table.md
+    - name: Timer
       href: functions-bindings-timer.md
-    - name: Twilio-uitvoerbinding
+    - name: Twilio
       href: functions-bindings-twilio.md
   - name: OpenAPI-verwijzing
     href: functions-api-definition.md     

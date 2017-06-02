@@ -11,6 +11,7 @@
 ## [Cluster implementeren - Azure CLI](container-service-create-acs-cluster-cli.md)
 ## [CI/CD met Kubernetes en Jenkins](container-service-kubernetes-jenkins.md)
 ## [CI/CD met Docker Swarm en VSTS](container-service-docker-swarm-setup-ci-cd.md)
+## [CI/CD met Docker Swarm-modus en VSTS met behulp van de ACS-engine](container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md)
 
 # Concepten
 ## [Beveiligde containers](container-service-security.md)

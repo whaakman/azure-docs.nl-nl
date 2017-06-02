@@ -7,6 +7,7 @@
 ## [Een logische app maken](logic-apps-create-a-logic-app.md)
 ## [Sjablonen voor logische apps](logic-apps-use-logic-app-templates.md)
 ## [Logische apps maken met sjablonen](logic-apps-arm-provision.md)
+## [MABS-apps verplaatsen naar logische apps](logic-apps-move-from-mabs.md)
 
 # Procedures
 ## Ontwikkelen
@@ -80,6 +81,7 @@
 ### [Prijzen](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Meten van gebruik](logic-apps-pricing.md)
 
+
 # Serverloos
 ## Overzicht
 ### [Serverloos in Azure](logic-apps-serverless-overview.md)
@@ -128,6 +130,8 @@
 ### [Twitter](../connectors/connectors-create-api-twitter.md)
 ### [X12](logic-apps-enterprise-integration-x12.md)
 ### [XML-validatie](logic-apps-enterprise-integration-xml-validation.md)
+
+## [Connectors: volledige informatie](https://docs.microsoft.com/connectors/)
 ## Schema-geschiedenis
 ### [Algemene beschikbaarheid](logic-apps-schema-2016-04-01.md)
 ### [Preview](logic-apps-schema-2015-08-01.md)

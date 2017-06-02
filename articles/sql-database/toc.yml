@@ -13,14 +13,12 @@
     href: sql-database-get-started-cli.md
   - name: Database maken - PowerShell
     href: sql-database-get-started-powershell.md
-  - name: Beheren
+  - name: Verbinding maken en query's uitvoeren
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
     - name: VS-code
       href: sql-database-connect-query-vscode.md
-  - name: Verbinding maken
-    items:
     - name: .NET
       href: sql-database-connect-query-dotnet.md
     - name: PHP
@@ -37,7 +35,7 @@
   items:
   - name: 1 - Nieuwe SQL-database maken/ontwerpen
     href: sql-database-design-first-database.md
-  - name: 2 - Bestaande SQL-server migreren
+  - name: 2 - SQL Server-DB migreren
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - Uw SQL-database beveiligen
     href: sql-database-security-tutorial.md
@@ -45,6 +43,8 @@
     href: sql-database-performance-tutorial.md
   - name: 5 - Een multitenant-app maken
     href: sql-database-multi-tenant-application.md
+  - name: 6 - Een geografisch gedistribueerde database implementeren
+    href: sql-database-implement-geo-distributed-database.md 
   - name: Wingtip SaaS-zelfstudies
     items:
     - name: Wingtip SaaS-inleiding
@@ -55,15 +55,15 @@
       href: sql-database-saas-tutorial-provision-and-catalog.md
     - name: Prestaties bewaken
       href: sql-database-saas-tutorial-performance-monitoring.md
+    - name: Bewaken met Log Analytics
+      href: sql-database-saas-tutorial-log-analytics.md
     - name: Een individuele tenant terugzetten
       href: sql-database-saas-tutorial-restore-single-tenant.md
     - name: Tenantschema's beheren
       href: sql-database-saas-tutorial-schema-management.md
     - name: Ad-hocanalyses uitvoeren
       href: sql-database-saas-tutorial-adhoc-analytics.md
-    - name: Bewaken met Log Analytics
-      href: sql-database-saas-tutorial-log-analytics.md
-    - name: Tenantanalyses beheren
+    - name: Tenantanalyses uitvoeren
       href: sql-database-saas-tutorial-tenant-analytics.md
 - name: Voorbeelden
   items:
@@ -145,7 +145,7 @@
       href: sql-database-ssms-mfa-authentication.md
     - name: Controleren
       href: sql-database-auditing.md
-    - name: Controle en TDS
+    - name: Tabel controleren en TDS
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Detectie van bedreigingen
       href: sql-database-threat-detection.md
@@ -355,6 +355,8 @@
       href: sql-database-xevent-code-event-file.md
     - name: Uitgebreide gebeurtenissen - ringbuffer
       href: sql-database-xevent-code-ring-buffer.md
+    - name: Diagnostische logboeken
+      href: sql-database-metrics-diag-logging.md
   - name: Beheren
     items:
     - name: Azure Automation
