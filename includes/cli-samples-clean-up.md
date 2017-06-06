@@ -2,6 +2,6 @@
 
 Voer de volgende opdracht uit om uw resources op te schonen:
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```

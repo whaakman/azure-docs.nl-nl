@@ -12,11 +12,13 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/19/2017
+ms.date: 06/05/2017
 ms.author: sutalasi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 28e905a20d878eab1428a4b88113544aa742124a
 ms.openlocfilehash: 9c34ea792aa561b8155a915845ffb857dfef7a90
+ms.contentlocale: nl-nl
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -86,9 +88,4 @@ ms.openlocfilehash: 9c34ea792aa561b8155a915845ffb857dfef7a90
 
     > [!NOTE]
     > U kunt een replicatiebeleid niet verwijderen als er een of meer configuratieservers aan zijn gekoppeld. Zorg ervoor dat het beleid niet door gerepliceerde items wordt gebruikt en verwijder alle gekoppelde configuratieservers voordat u het beleid verwijdert.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
