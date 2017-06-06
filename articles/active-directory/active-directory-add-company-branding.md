@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 05/23/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 144132cf0d591e398d5a6ebafb06fd915eec38b8
-ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: c558bd5f2b7fae91483cc2c6724c40442bb65045
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/05/2017
 
 
 ---
@@ -205,12 +205,12 @@ Sommige aanpasbare elementen in Azure AD hebben meerdere gebruiksmogelijkheden. 
 
 | Naam | Beschrijving | Beperkingen | Aanbevelingen |
 | --- | --- | --- | --- |
-| Logo in banner |Het logo in de banner wordt weergegeven op de aanmeldingspagina en in het toegangsvenster. |<p>JPG of PNG</p><p>60 x&280; pixels</p><p>10 kB</p> |<p>Gebruik het volledige logo van uw organisatie (inclusief pictogram en logotype)</p><p>Gebruik een hoogte van maximaal 30 pixels om te voorkomen dat er op mobiele apparaten schuifbalken worden weergegeven</p><p>Gebruik een grootte van maximaal 4 kB</p><p>Gebruik een transparant PNG-bestand (ga er niet van uit dat de aanmeldingspagina een witte achtergrond heeft)</p> |
-| Logo in tegel |In de toekomst wordt deze tekst mogelijk gebruikt om op verschillende plaatsen binnen de omgeving het algemene pictogram voor een werk- of schoolaccount te vervangen (momenteel niet in gebruik op de aanmeldingspagina). |<p>JPG of PNG</p><p>120 x&120; pixels</p><p>10 kB</p> |<p>Houd het eenvoudig (geen kleine tekst), omdat deze afbeelding tot wel 50% kleiner kan worden gemaakt. |
+| Logo in banner |Het logo in de banner wordt weergegeven op de aanmeldingspagina en in het toegangsvenster. |<p>JPG of PNG</p><p>60 x 280 pixels</p><p>10 kB</p> |<p>Gebruik het volledige logo van uw organisatie (inclusief pictogram en logotype)</p><p>Gebruik een hoogte van maximaal 30 pixels om te voorkomen dat er op mobiele apparaten schuifbalken worden weergegeven</p><p>Gebruik een grootte van maximaal 4 kB</p><p>Gebruik een transparant PNG-bestand (ga er niet van uit dat de aanmeldingspagina een witte achtergrond heeft)</p> |
+| Logo in tegel |In de toekomst wordt deze tekst mogelijk gebruikt om op verschillende plaatsen binnen de omgeving het algemene pictogram voor een werk- of schoolaccount te vervangen (momenteel niet in gebruik op de aanmeldingspagina). |<p>JPG of PNG</p><p>120 x 120 pixels</p><p>10 kB</p> |<p>Houd het eenvoudig (geen kleine tekst), omdat deze afbeelding tot wel 50% kleiner kan worden gemaakt. |
 | </p> | | | |
 | Gebruikersnaamlabel op aanmeldingspagina |In de toekomst wordt deze tekst mogelijk gebruikt om op verschillende plaatsen binnen de omgeving de algemene tekenreeks voor een werk- of schoolaccount te vervangen (momenteel niet in gebruik op de aanmeldingspagina). U kunt deze tekenreeks instellen op zoiets als 'Contoso-account' of 'Contoso-id'. |<p>Unicodetekst, maximaal 50 tekens</p><p>Alleen tekst zonder opmaak (geen koppelingen of HTML-tags)</p> |<p>Houd het kort en eenvoudig</p><p>Vraag uw gebruikers hoe ze het werk- of schoolaccount waar u ze van voorziet, meestal noemen.</p> |
 | Tekst van aanmeldingspagina |Deze standaardtekst wordt onder het formulier van de aanmeldingspagina weergegeven en kan worden gebruikt om aanvullende instructies te geven of om de gebruiker te laten weten waar hulp en ondersteuning te vinden zijn. |<p>Unicodetekst, maximaal 256 tekens</p><p>Alleen tekst zonder opmaak (geen koppelingen of HTML-tags)</p> |Houd het korter dan 250 tekens (ongeveer 3 regels tekst) |
-| Afbeelding op aanmeldingspagina |Dit is een grote afbeelding die wordt weergegeven op de aanmeldingspagina, links van het aanmeldingsformulier. |<p>JPG of PNG</p><p>1420 x&1200;</p><p>500 kB</p> |<p>1420 x&1200; pixels</p><p>Belangrijk: houd de afbeelding zo klein mogelijk, liefst kleiner dan 200 kB. Als deze afbeelding te groot is, kan dat de prestaties van de aanmeldingspagina beïnvloeden wanneer de afbeelding niet in het cachegeheugen is opgeslagen</p><p>De afbeelding wordt vaak bijgesneden, zodat deze er ook goed uitziet bij een andere beeldverhouding. Houd de primaire visuele elementen in de linkerbovenhoek (in de rechterbovenhoek voor talen die van rechts naar links worden geschreven), omdat de grootte altijd vanuit de rechterbenedenhoek wordt gewijzigd wanneer het browservenster groter of kleiner wordt gemaakt.</p> |
+| Afbeelding op aanmeldingspagina |Dit is een grote afbeelding die wordt weergegeven op de aanmeldingspagina, links van het aanmeldingsformulier. |<p>JPG of PNG</p><p>1420 x 1200</p><p>500 kB</p> |<p>1420 x 1200 pixels</p><p>Belangrijk: houd de afbeelding zo klein mogelijk, liefst kleiner dan 200 kB. Als deze afbeelding te groot is, kan dat de prestaties van de aanmeldingspagina beïnvloeden wanneer de afbeelding niet in het cachegeheugen is opgeslagen</p><p>De afbeelding wordt vaak bijgesneden, zodat deze er ook goed uitziet bij een andere beeldverhouding. Houd de primaire visuele elementen in de linkerbovenhoek (in de rechterbovenhoek voor talen die van rechts naar links worden geschreven), omdat de grootte altijd vanuit de rechterbenedenhoek wordt gewijzigd wanneer het browservenster groter of kleiner wordt gemaakt.</p> |
 | Achtergrondkleur van de aanmeldingspagina |De achtergrondkleur van de aanmeldingspagina wordt in het gedeelte links van het aanmeldingsformulier gebruikt. |Dit moet een RGB-kleur zijn met een hexadecimale notatie (voorbeeld: #FFFFFF) |<p>De achtergrondkleur kan in plaats van de grote afbeelding worden weergegeven als er een verbinding is met een lage bandbreedte</p><p>Het is een goed idee om de primaire kleur van het logo in de banner te gebruiken</p> |
 
 ## <a name="next-steps"></a>Volgende stappen
