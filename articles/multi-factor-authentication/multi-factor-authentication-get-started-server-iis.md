@@ -1,4 +1,4 @@
----
+﻿---
 title: IIS-verificatie en Azure MFA Server | Microsoft Docs
 description: Dit is de pagina Azure Multi-Factor Authentication die u helpt bij het implementeren van IIS-verificatie en de Azure Multi-Factor Authentication-server.
 services: multi-factor-authentication
