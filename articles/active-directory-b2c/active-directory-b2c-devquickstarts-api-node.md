@@ -3,7 +3,7 @@ title: 'Azure AD B2C: Een web-API beveiligen met behulp van Node.js | Microsoft 
 description: Een Node.js web-API ontwikkelen die tokens accepteert van een B2C-tenant
 services: active-directory-b2c
 documentationcenter: 
-author: xerners
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: fc2b9af8-fbda-44e0-962a-8b963449106a
