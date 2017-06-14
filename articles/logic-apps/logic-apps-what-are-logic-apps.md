@@ -1,4 +1,4 @@
-﻿---
+---
 title: Verbinding maken met apps en gegevens integreren met werkstromen - Azure Logic Apps | Microsoft Docs
 description: Maak werkstromen en automatiseer processen door met apps verbinding te maken en gegevens te integreren met Azure Logic Apps.
 author: kevinlam1
@@ -23,7 +23,7 @@ ms.lasthandoff: 01/25/2017
 
 ---
 # <a name="what-are-logic-apps"></a>Wat zijn Logic Apps?
-Logic Apps biedt een manier om schaalbare integraties en workflows in de cloud te vereenvoudigen en te implementeren. Het biedt een visuele designer om uw proces te modelleren en te automatiseren als een reeks stappen bekend als een werkstroom. Er zijn [vele connectoren](../connectors/apis-list.md) in de cloud en on-premises om snel te integreren over services en protocollen. Een logic app begint met een trigger (zoals “Wanneer is een account toegevoegd aan Dynamics CRM”) en na het starten kunnen vele combinaties, acties, conversies en voorwaardelijke logica beginnen.
+Logic Apps biedt een manier om schaalbare integraties en workflows in de cloud te vereenvoudigen en te implementeren. Het biedt een visuele designer om uw proces te modelleren en te automatiseren als een reeks stappen bekend als een werkstroom.  Er zijn [vele connectoren](../connectors/apis-list.md) in de cloud en on-premises om snel te integreren over services en protocollen.  Een logic app begint met een trigger (zoals “Wanneer is een account toegevoegd aan Dynamics CRM”) en na het starten kunnen vele combinaties, acties, conversies en voorwaardelijke logica beginnen.
 
 De voordelen van het gebruik van Logic Apps omvatten het volgende:  
 
