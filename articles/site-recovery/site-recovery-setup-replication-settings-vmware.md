@@ -8,7 +8,7 @@ manager: rochakm
 editor: rayne-wiselman
 ms.assetid: 8e7d868e-00f3-4e8b-9a9e-f23365abf6ac
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/21/2017
 2. Selecteer **Replicatiebeleid** onder **Voor VMware en fysieke machines**.
 3. Selecteer **+Replicatiebeleid**.
 
-      ![Replicatiebeleid maken](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
+    ![Replicatiebeleid maken](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
 
 4. Voer de naam van het beleid in.
 

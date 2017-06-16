@@ -8,7 +8,7 @@ manager: garavd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
@@ -108,8 +108,8 @@ De schijven op de virtuele Azure-machine na de failover zijn de volgende:
 
 **Gastbesturingssysteemschijf#** | **Stationsletter** | **Gegevenstype op de schijf**
 --- | --- | ---
-DISK0 |    C:\ | Besturingssysteemschijf
-Disk1 |    E:\ | Tijdelijke opslag</br /> </br />Azure voegt deze schijf toe en wijst de eerste beschikbare stationsletter toe.
+DISK0 | C:\ | Besturingssysteemschijf
+Disk1 | E:\ | Tijdelijke opslag</br /> </br />Azure voegt deze schijf toe en wijst de eerste beschikbare stationsletter toe.
 Disk2 | D:\ | SQL-systeemdatabase en gebruikersdatabase1
 Disk3 | G:\ | Gebruikersdatabase2
 
@@ -141,13 +141,13 @@ Er zijn twee manieren om dit pad maken:
 3. Voer de volgende sqlcmd uit om het tempdb-pad in een nieuw pad te wijzigen.
 
         sqlcmd -A -S SalesDB        **Use your SQL DBname**
-        USE master;        
-        GO        
-        ALTER DATABASE tempdb        
+        USE master;     
+        GO      
+        ALTER DATABASE tempdb       
         MODIFY FILE (NAME = tempdev, FILENAME = 'E:\MSSQL\tempdata\tempdb.mdf');
-        GO        
-        ALTER DATABASE tempdb        
-        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');        
+        GO      
+        ALTER DATABASE tempdb       
+        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');       
         GO
 
 
@@ -173,9 +173,9 @@ De configuratie van de Azure-VM-schijven in het vorige voorbeeld:
 **Gastbesturingssysteemschijf#** | **Stationsletter** | **Gegevenstype op de schijf**
 --- | --- | ---
 DISK0 | C:\ | Besturingssysteemschijf
-Disk1 |    E:\ | Tijdelijke opslag</br /> </br />Azure voegt deze schijf toe en wijst de eerste beschikbare stationsletter toe.
-Disk2 |    D:\ | SQL-systeemdatabase en gebruikersdatabase1
-Disk3 |    G:\ | Gebruikersdatabase2
+Disk1 | E:\ | Tijdelijke opslag</br /> </br />Azure voegt deze schijf toe en wijst de eerste beschikbare stationsletter toe.
+Disk2 | D:\ | SQL-systeemdatabase en gebruikersdatabase1
+Disk3 | G:\ | Gebruikersdatabase2
 
 
 #### <a name="vmware-to-azure"></a>VMware naar Azure
@@ -186,8 +186,8 @@ Schijven op de virtuele VMWare-machine (oorspronkelijke locatie) na de geplande 
 **Gastbesturingssysteemschijf#** | **Stationsletter** | **Gegevenstype op de schijf**
 --- | --- | ---
 DISK0 | C:\ | Besturingssysteemschijf
-Disk1 |    D:\ | SQL-systeemdatabase en gebruikersdatabase1
-Disk2 |    G:\ | Gebruikersdatabase2
+Disk1 | D:\ | SQL-systeemdatabase en gebruikersdatabase1
+Disk2 | G:\ | Gebruikersdatabase2
 
 #### <a name="hyper-v-to-azure"></a>Hyper-V naar Azure
 Wanneer er een failback naar de oorspronkelijke locatie wordt uitgevoerd, blijft de schijfconfiguratie voor de virtuele failback-machine hetzelfde als van de oorspronkelijke virtuele machine-schijf voor Hyper-V. Schijven die zijn uitgesloten van Hyper-V-site naar Azure, zijn beschikbaar op de virtuele failback-machine.
@@ -196,7 +196,7 @@ Schijven op de virtuele Hyper-V-machine (oorspronkelijke locatie) na de geplande
 
 **Schijfnaam** | **Gastbesturingssysteemschijf#** | **Stationsletter** | **Gegevenstype op de schijf**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 |    C:\ | Besturingssysteemschijf
+DB-Disk0-OS | DISK0 |   C:\ | Besturingssysteemschijf
 DB-Disk1 | Disk1 | D:\ | SQL-systeemdatabase en gebruikersdatabase1
 DB-Disk2 (uitgesloten schijf) | Disk2 | E:\ | Tijdelijke bestanden
 DB-Disk3 (uitgesloten schijf) | Disk3 | F:\ | SQL-tempdb-database (mappad (F:\MSSQL\Data\)
