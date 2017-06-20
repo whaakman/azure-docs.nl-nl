@@ -1,6 +1,6 @@
 ---
 title: Azure-oplossingen voor het internet der dingen (IoT-suite) | Microsoft Docs
-description: "Overzicht van een voorbeeldoplossing met IoT-architectuur en hoe deze is gekoppeld aan apparaten, de Azure IoT Hub-service, Azure IoT-apparaat-SDK&quot;s, Azure IoT-service-SDK’s en andere Azure-services."
+description: "Overzicht van een voorbeeldoplossing met IoT-architectuur en hoe deze is gekoppeld aan apparaten, de Azure IoT Hub-service, Azure IoT-apparaat-SDK's, Azure IoT-service-SDK’s en andere Azure-services."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 06/16/2017
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: e95d02e706b87eaa355951a34bbaa3abf2ac2370
+ms.contentlocale: nl-nl
 ms.lasthandoff: 01/24/2017
 
 
