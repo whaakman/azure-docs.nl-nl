@@ -5,27 +5,28 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/25/2017
+ms.date: 06/15/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: H1Hack27Feb2017,it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 20afeb3ba290ddf728d2b52c076c7a57fadc77c6
 ms.openlocfilehash: 4014bf0217e25ea9bc8473ef2383279e5eb79b87
+ms.contentlocale: nl-nl
 ms.lasthandoff: 02/28/2017
 
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Authenticatie met de mobiele app integreren met Azure Multi-Factor Authentication-server
 
-De Microsoft verificator-app biedt een extra optie voor verificatie buiten de band. In plaats van tijdens het aanmelden een automatisch telefoongesprek met de gebruiker tot stand te brengen of hem een sms-bericht te sturen, verzendt Azure Multi-Factor Authentication een melding naar de Microsoft verificator-app op de smartphone of tablet van de gebruiker. De gebruiker hoeft in de app enkel op **Verifiëren** te tikken (of een pincode in te voeren en op Verifiëren te tikken) om de aanmelding te voltooien. 
+De Microsoft verificator-app biedt een extra optie voor verificatie buiten de band. In plaats van tijdens het aanmelden een automatisch telefoongesprek met de gebruiker tot stand te brengen of hem een sms-bericht te sturen, verzendt Azure Multi-Factor Authentication een melding naar de Microsoft verificator-app op de smartphone of tablet van de gebruiker. De gebruiker hoeft in de app enkel op **Verifiëren** te tikken (of een pincode in te voeren en op Verifiëren te tikken) om de aanmelding te voltooien.
 
-Het gebruik van een mobiele app voor verificatie in twee stappen wordt aanbevolen wanneer het telefonische bereik onbetrouwbaar is. Als u de app als een OATH-tokengenerator gebruikt, hebt u geen netwerk- of internetverbinding nodig. 
+Het gebruik van een mobiele app voor verificatie in twee stappen wordt aanbevolen wanneer het telefonische bereik onbetrouwbaar is. Als u de app als een OATH-tokengenerator gebruikt, hebt u geen netwerk- of internetverbinding nodig.
 
 Voor de installatie van de gebruikersportal op een andere server dan de Azure Multi-Factor Authentication-server moeten de volgende stappen worden uitgevoerd:
 
@@ -51,10 +52,10 @@ Als u de Microsoft verificator-app wilt gebruiken, is het volgende vereist om de
 
 
 ## <a name="install-the-web-service-sdk"></a>De webservice-SDK installeren
-Als de webservice-SDK van de Azure Multi-Factor Authentication nog niet op de Azure MFA-server (Multi-Factor Authentication) is geïnstalleerd, gaat u naar die server en opent u de Azure MFA-server. 
+Als de webservice-SDK van de Azure Multi-Factor Authentication nog niet op de Azure MFA-server (Multi-Factor Authentication) is geïnstalleerd, gaat u naar die server en opent u de Azure MFA-server.
 
 1. Klik op het pictogram van de webservice-SDK.
-2. Klik op **Webservice-SDK installeren** en volg de aanwijzingen die worden weergegeven. 
+2. Klik op **Webservice-SDK installeren** en volg de aanwijzingen die worden weergegeven.
 
 De webservice-SDK moet met een SSL-certificaat worden beveiligd. Voor dit doel kan een zelfondertekend certificaat worden gebruikt. Importeer het certificaat in het certificaatarchief Vertrouwde basiscertificeringsinstanties van het account Lokale computer op de webserver van de gebruikersportal, zodat daar het certificaat wordt vertrouwd wanneer de SSL-verbinding tot stand wordt gebracht.
 
@@ -65,7 +66,7 @@ Voordat u de webservice voor mobiele apps installeert, moet u op de volgende det
 
 * Als de gebruikersportal van Azure MFA al is geïnstalleerd op de internetgerichte server, kunnen de gebruikersnaam, het wachtwoord en de URL uit het bestand web.config van de gebruikersportal naar de webservice-SDK worden gekopieerd.
 * Het is handig om een webbrowser te openen op de internetgerichte webserver en te navigeren naar de URL van de webservice-SDK die in het bestand web.config is ingevoerd. Als de browser de webservice kan bereiken, wordt u normaal om referenties gevraagd. Geef de gebruikersnaam en het wachtwoord op precies zoals deze in het bestand web.config zijn ingevoerd. Controleer of er geen certificaatwaarschuwingen of -fouten worden weergegeven.
-* Als zich vóór de webserver van de webservice voor mobiele apps een omgekeerde proxy of firewall bevindt en SSL-offloading wordt uitvoert, kunt u het bestand web.config van de webservice voor mobiele apps bewerken, zodat de webservice voor mobiele apps http in plaats van https kan gebruiken. SSL is nog steeds vereist vanuit de mobiele app naar de firewall/omgekeerde proxy. Voeg de volgende sleutel toe aan de sectie \<appSettings\>: 
+* Als zich vóór de webserver van de webservice voor mobiele apps een omgekeerde proxy of firewall bevindt en SSL-offloading wordt uitvoert, kunt u het bestand web.config van de webservice voor mobiele apps bewerken, zodat de webservice voor mobiele apps http in plaats van https kan gebruiken. SSL is nog steeds vereist vanuit de mobiele app naar de firewall/omgekeerde proxy. Voeg de volgende sleutel toe aan de sectie \<appSettings\>:
 
         <add key="SSL_REQUIRED" value="false"/>
 
@@ -79,11 +80,11 @@ Voordat u de webservice voor mobiele apps installeert, moet u op de volgende det
 
   De korte naam voor de virtuele map wordt aanbevolen omdat gebruikers tijdens de activering de URL voor de webservice voor mobiele apps op hun mobiele apparaat moeten invoeren.
 
-4. Wanneer het Azure-installatiebestand MultiFactorAuthenticationMobileAppWebServiceSetup is geïnstalleerd, bladert u naar C:\inetpub\wwwroot\PA (of de overeenkomstige map op basis van de naam van de virtuele map) en bewerkt u het bestand web.config. 
+4. Wanneer het Azure-installatiebestand MultiFactorAuthenticationMobileAppWebServiceSetup is geïnstalleerd, bladert u naar C:\inetpub\wwwroot\PA (of de overeenkomstige map op basis van de naam van de virtuele map) en bewerkt u het bestand web.config.
 
 5. Zoek de sleutels WEB_SERVICE_SDK_AUTHENTICATION_USERNAME en WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD. Stel de waarde voor de gebruikersnaam en het wachtwoord in van het serviceaccount dat lid is van de veiligheidsgroep PhoneFactor Admins. Dit kan hetzelfde account zijn dat ook is gebruikt als de identiteit van de gebruikersportal van Azure Multi-Factor Authentication, als die eerder is geïnstalleerd. Zorg ervoor dat u de gebruikersnaam en het wachtwoord invoert tussen de aanhalingstekens aan het einde van de regel (value=””/>). Gebruik een gekwalificeerde gebruikersnaam, bijvoorbeeld domein\gebruikersnaam of computer\gebruikersnaam.  
 
-6. Zoek de instelling Service_pfwssdk_PfWsSdk van PF Mobile App Web. Wijzig de waarde van *http://localhost:4898/PfWsSdk.asmx* in de URL van de webservice-SDK die wordt uitgevoerd op de Azure Multi-Factor Authentication-server (bijvoorbeeld https://computer1.domein.lokaal/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx). 
+6. Zoek de instelling Service_pfwssdk_PfWsSdk van PF Mobile App Web. Wijzig de waarde van *http://localhost:4898/PfWsSdk.asmx* in de URL van de webservice-SDK die wordt uitgevoerd op de Azure Multi-Factor Authentication-server (bijvoorbeeld https://computer1.domein.lokaal/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx).
 
   Omdat voor deze verbinding SSL wordt gebruikt, moet u naar de webservice-SDK verwijzen met behulp van de servernaam en niet met het IP-adres. Er moet een SSL-certificaat voor de servernaam zijn uitgegeven en de URL moet overeenkomen met de naam op het certificaat. Mogelijk wordt de servernaam niet vanuit de internetgerichte server in een IP-adres omgezet. In dat geval voegt u een vermelding toe aan het hostbestand op die server, om de naam van de Azure Multi-Factor Authentication-server toe te wijzen aan het IP-adres ervan. Sla het bestand web.config op nadat de wijzigingen zijn aangebracht.
 
