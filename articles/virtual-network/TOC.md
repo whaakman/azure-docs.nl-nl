@@ -40,12 +40,7 @@
 #### [PowerShell (klassiek)](virtual-network-create-udr-classic-ps.md)
 #### [CLI (klassiek)](virtual-network-create-udr-classic-cli.md)
 
-### Peering op virtueel netwerk
-#### [Portal](virtual-networks-create-vnetpeering-arm-portal.md)
-#### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
-#### [Sjabloon](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-### [Openbare IP-adressen](virtual-network-public-ip-address.md)
+### [Peering op virtueel netwerk](virtual-network-create-peering.md)
 
 ### Virtuele machines
 #### Een virtuele machine met een statisch openbaar IP-adres maken
@@ -118,6 +113,7 @@
 #### [IP-adressen toevoegen, wijzigen of verwijderen](virtual-network-network-interface-addresses.md)
 ### Virtuele machines
 #### [Een VM verplaatsen naar een ander subnet](virtual-networks-move-vm-role-to-subnet.md)
+### [Openbare IP-adressen](virtual-network-public-ip-address.md)
 
 ## Problemen oplossen
 ### Netwerkbeveiligingsgroepen

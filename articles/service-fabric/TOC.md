@@ -200,13 +200,13 @@
 #### [Verwijderen](service-fabric-cluster-delete.md)
 
 ### Zelfstandige clusters
-#### [Inhoud van het zelfstandige pakket](service-fabric-cluster-standalone-package-contents.md)
 #### [Implementatie plannen en voorbereiden](service-fabric-cluster-standalone-deployment-preparation.md)
 #### Maken
 ##### [On-premises maken](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Op virtuele machines in Azure maken](service-fabric-cluster-creation-with-windows-azure-vms.md)
 ##### [Beveiligen met behulp van certificaten](service-fabric-windows-cluster-x509-security.md)  
 ##### [Beveiligen met behulp van Windows-beveiliging](service-fabric-windows-cluster-windows-security.md)
+##### [Inhoud van het zelfstandige pakket](service-fabric-cluster-standalone-package-contents.md)
 #### [Schalen](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Toegangsbeheer instellen](service-fabric-cluster-security-roles.md)
 #### [Configureren](service-fabric-cluster-manifest.md)
@@ -232,8 +232,6 @@
 #### [Een cluster in balans brengen](service-fabric-cluster-resource-manager-balancing.md)
 #### [Beperking](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Servicebeweging](service-fabric-cluster-resource-manager-movement-cost.md)
-
-### [Verbinding maken met een beveiligde cluster](service-fabric-connect-to-secure-cluster.md)
 
 ## Bewaken en diagnoses uitvoeren
 ### [Toepassingen bewaken en er diagnoses op uitvoeren](service-fabric-diagnostics-overview.md)
@@ -261,8 +259,9 @@
 # Naslaginformatie
 ## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
-## [Java-API](/java/api/)
-## [.NET](/dotnet/api/)
+## [Azure-CLI](/cli/azure/sf)
+## [Java-API](/java/api/overview/azure/servicefabric)
+## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 
 # Resources

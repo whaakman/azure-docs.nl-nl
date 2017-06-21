@@ -155,7 +155,7 @@
 #### [Een bestaande webservice opnieuw trainen](machine-learning-retrain-existing-resource-manager-based-web-service.md)
 #### [Problemen oplossen](machine-learning-troubleshooting-retraining-models.md)
 ### Modellen gebruiken
-#### [Overzicht](machine-learning-connect-to-azure-machine-learning-web-service.md)
+#### [Overzicht](machine-learning-consume-web-services.md)
 #### [Excel gebruiken](machine-learning-consuming-from-excel.md)
 #### [Excel-invoegtoepassing gebruiken](machine-learning-excel-add-in-for-web-services.md)
 #### [Een web-appsjabloon gebruiken](machine-learning-consume-web-service-with-web-app-template.md)

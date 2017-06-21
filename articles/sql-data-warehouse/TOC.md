@@ -48,6 +48,7 @@
 #### [Gegevenstypen](sql-data-warehouse-tables-data-types.md)
 #### [Gedistribueerde tabellen](sql-data-warehouse-tables-distribute.md)
 #### [Indexen](sql-data-warehouse-tables-index.md)
+#### [Identity](sql-data-warehouse-tables-identity.md)
 #### [Partities](sql-data-warehouse-tables-partition.md)
 #### [Statistieken](sql-data-warehouse-tables-statistics.md)
 #### [Tijdelijk](sql-data-warehouse-tables-temporary.md)
