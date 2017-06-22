@@ -30,31 +30,34 @@
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Azure-CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Azure Portal (klassiek)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-## IPSec-/IKE-beleid voor verbindingen configureren
-### [PowerShell](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 ## Een VNet-naar-VNet-verbinding tussen implementatiemodellen configureren
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
-## [Gelijktijdige site-naar-site- en ExpressRoute-verbindingen configureren](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
+## Gelijktijdige site-naar-site- en ExpressRoute-verbindingen configureren
+### [PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Meerdere site-to-siteverbindingen configureren
 ### [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [PowerShell (klassiek)](vpn-gateway-multi-site.md)
 ## Meerdere op beleid gebaseerde VPN-apparaten verbinden
 ### [PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md)
-## [Een BGP configureren voor een VPN-gateway](vpn-gateway-bgp-resource-manager-ps.md)
+## IPSec-/IKE-beleid voor verbindingen configureren
+### [PowerShell](vpn-gateway-ipsecikepolicy-rm-powershell.md)
+## Maximaal beschikbare actief-actief-verbindingen configureren
+### [PowerShell](vpn-gateway-activeactive-rm-powershell.md)
+## Een BGP configureren voor een VPN-gateway
+### [PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
 ## Geforceerde tunneling configureren
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell (klassiek)](vpn-gateway-about-forced-tunneling.md)
-## [Maximaal beschikbare actief-actief-verbindingen configureren](vpn-gateway-activeactive-rm-powershell.md)
-## Azure-VPN-gateways beheren
-### [Een VPN-gateway opnieuw instellen](vpn-gateway-resetgw-classic.md)
-### [Een gateway verwijderen met Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
-### [Een gateway verwijderen met PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-### [Een gateway verwijderen met PowerShell klassiek](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## Gateway-instellingen van lokaal netwerk aanpassen
 ### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
-### [CLI](vpn-gateway-modify-local-network-gateway-cli.md)
+### [Azure-CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Een VPN-gatewayverbinding verifiëren](vpn-gateway-verify-connection-resource-manager.md)
+## [Een VPN-gateway opnieuw instellen](vpn-gateway-resetgw-classic.md)
+## Een VPN-gateway verwijderen
+### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
+### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+### [PowerShell (klassiek)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Een VPN-gateway configureren (klassiek)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Problemen oplossen
 ### [VPN-doorvoer naar een VNet valideren](vpn-gateway-validate-throughput-to-vnet.md)

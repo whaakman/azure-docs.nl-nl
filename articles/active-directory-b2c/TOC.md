@@ -3,6 +3,7 @@
 # Aan de slag
 ## [Een Azure AD B2C-directory maken](active-directory-b2c-get-started.md)
 ## [Uw toepassing registreren](active-directory-b2c-app-registration.md)
+## [Ingebouwd beleid](active-directory-b2c-reference-policies.md)
 ## Mobiele en bureaubladapps
 ### [Overzicht](active-directory-b2c-reference-oauth-code.md)
 ### iOS
@@ -24,6 +25,7 @@
 ### [JavaScript met Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## Web-API's
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
 ### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [Een .NET-web-API aanroepen](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
@@ -63,6 +65,7 @@
 #### [Aanvullende claims verkrijgen](active-directory-b2c-rest-api-step-custom.md)
 ### Aanmelding aanpassen
 #### [Gebruikersinvoer configureren](active-directory-b2c-configure-signup-self-asserted-custom.md)
+#### [Aangepaste kenmerken](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Gebruikersinterface aanpassen](active-directory-b2c-ui-customization-custom.md)
 #### [Tokens aanpassen](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 ### Problemen oplossen
@@ -74,7 +77,6 @@
 ## Woordenlijst
 ### [Soorten toepassingen](active-directory-b2c-apps.md)
 ### [Verificatieprotocollen](active-directory-b2c-reference-protocols.md)
-### [Ingebouwd beleid](active-directory-b2c-reference-policies.md)
 ### [Tokens](active-directory-b2c-reference-tokens.md)
 ## [Regionale beschikbaarheid en opslaglocaties](active-directory-b2c-reference-tenant-type.md)
 ## [Facturering inschakelen](active-directory-b2c-how-to-enable-billing.md)

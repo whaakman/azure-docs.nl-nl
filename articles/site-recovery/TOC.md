@@ -72,9 +72,10 @@
 ### [Uitgeschaalde processervers beheren](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [VCenter-servers beheren](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Servers verwijderen en beveiliging uitschakelen](site-recovery-manage-registration-and-protection.md)
-## Controleren en problemen oplossen
+## Problemen oplossen
+### [Logboeken verzamelen](site-recovery-monitoring-and-troubleshooting.md)
 ### [Problemen met replicatie van een virtuele Azure-machine](site-recovery-azure-to-azure-troubleshoot-errors.md)
-### [Problemen met replicatie van on-premises naar Azure](site-recovery-monitoring-and-troubleshooting.md)
+### [Problemen met replicatie van on-premises naar Azure](site-recovery-vmware-to-azure-protection-troubleshoot.md)
 
 # Naslaginformatie
 ## [PowerShell](/powershell/module/azurerm.siterecovery)

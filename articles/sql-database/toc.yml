@@ -45,26 +45,6 @@
     href: sql-database-multi-tenant-application.md
   - name: 6 - Een geografisch gedistribueerde database implementeren
     href: sql-database-implement-geo-distributed-database.md 
-  - name: Wingtip SaaS-zelfstudies
-    items:
-    - name: Wingtip SaaS-inleiding
-      href: sql-database-wtp-overview.md
-    - name: Het Wingtip SaaS-voorbeeld implementeren
-      href: sql-database-saas-tutorial.md
-    - name: Nieuwe tenants inrichten/catalogiseren
-      href: sql-database-saas-tutorial-provision-and-catalog.md
-    - name: Prestaties bewaken
-      href: sql-database-saas-tutorial-performance-monitoring.md
-    - name: Bewaken met Log Analytics
-      href: sql-database-saas-tutorial-log-analytics.md
-    - name: Een individuele tenant terugzetten
-      href: sql-database-saas-tutorial-restore-single-tenant.md
-    - name: Tenantschema's beheren
-      href: sql-database-saas-tutorial-schema-management.md
-    - name: Ad-hocanalyses uitvoeren
-      href: sql-database-saas-tutorial-adhoc-analytics.md
-    - name: Tenantanalyses uitvoeren
-      href: sql-database-saas-tutorial-tenant-analytics.md
 - name: Voorbeelden
   items:
   - name: Azure CLI
@@ -175,25 +155,12 @@
       href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
     - name: App-upgrades
       href: sql-database-manage-application-rolling-upgrade.md
-  - name: Ontwikkeling
+  - name: Databaseontwikkeling
     items:
     - name: Overzicht
       href: sql-database-develop-overview.md
     - name: Connectiviteit
       href: sql-database-libraries.md
-    - name: App-ontwerp - SaaS
-      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-    - name: Beveiliging - SaaS
-      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-    - name: Poorten - ADO.NET
-      href: sql-database-develop-direct-route-ports-adonet-v12.md
-    - name: App verifiëren
- 
-      href: sql-database-client-id-keys.md
-    - name: Foutberichten
-      href: sql-database-develop-error-messages.md
-    - name: Dapper
-      href: sql-database-elastic-scale-working-with-dapper.md
     - name: JSON-gegevens
       href: sql-database-json-features.md
     - name: In het geheugen
@@ -231,8 +198,6 @@
       href: sql-database-monitoring-with-dmvs.md
     - name: Prestatierichtlijnen
       href: sql-database-performance-guidance.md
-    - name: Batchverwerking
-      href: sql-database-use-batching-to-improve-performance.md
     - name: Uitgebreide gebeurtenissen
       href: sql-database-xevent-db-diff-from-svr.md
     - name: Compatibiliteitsniveaus
@@ -365,6 +330,25 @@
       href: sql-database-ssms-remoteapp.md
     - name: SSMS - MFA
       href: sql-database-ssms-mfa-authentication-configure.md
+  - name: Apps ontwikkelen
+    items:
+    - name: Poorten - ADO.NET
+      href: sql-database-develop-direct-route-ports-adonet-v12.md
+    - name: App verifiëren
+ 
+      href: sql-database-client-id-keys.md
+    - name: Foutberichten
+      href: sql-database-develop-error-messages.md
+    - name: Dapper
+      href: sql-database-elastic-scale-working-with-dapper.md
+    - name: Batchverwerking voor perf
+      href: sql-database-use-batching-to-improve-performance.md
+    - name: Ontwerp van SaaS-app
+      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+    - name: Beveiliging van SaaS-app
+      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+    - name: Zelfstudie voor SaaS-app
+      href: sql-database-wtp-overview.md
 - name: Naslaginformatie
   items:
   - name: PowerShell
@@ -444,5 +428,3 @@
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
     - name: Aangepast dashboard voor een elastische pool
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
-
-

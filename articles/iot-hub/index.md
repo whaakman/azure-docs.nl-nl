@@ -13,10 +13,10 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 8252bc979fdeb034384fc65e416643de8ef97031
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 02c0d1834ee5e4b6aeebccc0d25bba49f8e5afe2
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/01/2017
 
 ---
 
@@ -145,7 +145,7 @@ Meer informatie over hoe u IoT Hub gebruikt om miljarden IoT-items (Internet der
                 <div class="card">
                     <div class="cardText">
                         <h3>Opdrachtregel</h3>
-                        <p><a href="/cli/azure/iot">Azure-CLI</a></p>
+                        <p><a href="/cli/azure/iot">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -159,11 +159,10 @@ Meer informatie over hoe u IoT Hub gebruikt om miljarden IoT-items (Internet der
                         <h3>Talen</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET (service)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (apparaten)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">Apparaat-SDK voor C</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (service)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (apparaten)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.11/index.html">Node (service)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.12/index.html">Node (apparaten)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/">SDK's voor Azure IoT</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdk-node/">SDK's voor Node.js</a></p>
                         <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
                     </div>
                 </div>
@@ -178,6 +177,7 @@ Meer informatie over hoe u IoT Hub gebruikt om miljarden IoT-items (Internet der
                         <h3>REST</h3>
                         <p><a href="/rest/api/iothub/iothubresource">REST (resourceprovider)</a></p>
                         <p><a href="/rest/api/iothub/deviceapi">REST (apparaatidentiteiten)</a></p>
+                        <p><a href="/rest/api/iothub/devicetwinapi">REST (apparaatdubbels)</a></p>
                         <p><a href="/rest/api/iothub/httpruntime">REST (apparaatberichten)</a></p>
                         <p><a href="/rest/api/iothub/jobapi">REST (taken)</a></p>
                     </div>
