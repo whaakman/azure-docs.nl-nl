@@ -16,12 +16,13 @@
 ### [Probleemoplossing en bewaking](troubleshooting-monitoring.md)
 ## SAP HANA op virtuele machines
 ### [Enkel exemplaar van SAP HANA](hana-get-started.md)
-### [Implementatiehandleiding voor S/4 HANA of BW/4 HANA](cal-s4h.md)
+### [Implementatiehandleiding voor S/4 HANA of BW/4 HANA SAP CAL](cal-s4h.md)
 ### [Hoge beschikbaarheid in virtuele machines](sap-hana-high-availability.md)
 ### [Overzicht van Backup](sap-hana-backup-guide.md)
 ### [Back-up op bestandsniveau](sap-hana-backup-file-level.md)
 ### [Back-up van opslagmomentopnamen](sap-hana-backup-storage-snapshots.md)
 ## SAP Netweaver
+### [Implementatiehandleiding voor SAP IDES op Windows/SQL Server SAP CAL](sap-cal-ides-erp6-ehp7-sp3-sql.md)
 ### [Overzicht en architectuur](suse-quickstart.md)
 ### [Plannen en implementeren](planning-guide.md)
 ### [Hoge beschikbaarheid](high-availability-guide.md)

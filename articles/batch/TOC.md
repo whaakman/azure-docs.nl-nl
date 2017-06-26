@@ -22,6 +22,8 @@
 ### [Virtuele machines met lage prioriteit](batch-low-pri-vms.md)
 ### [Batch-accounts beheren met Batch Management .NET](batch-management-dotnet.md)
 ### [Opdracht- en taakuitvoer behouden](batch-task-output.md)
+#### [Uitvoer met de Batch-API behouden](batch-task-output-files.md)
+#### [Uitvoer behouden met File Conventions-bibliotheek](batch-task-output-file-conventions.md)
 ### [MPI-opdrachten uitvoeren in Batch](batch-mpi.md)
 ### [Taakafhankelijkheden](batch-task-dependencies.md)
 ### [Gebruikersaccounts voor het uitvoeren van taken](batch-user-accounts.md)

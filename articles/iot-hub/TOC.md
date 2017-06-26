@@ -6,13 +6,15 @@
 # [Aan de slag](iot-hub-get-started.md)
 
 ## Uw apparaat instellen
-### Een gesimuleerd apparaat gebruiken
+### [Een apparaat simuleren op uw pc](iot-hub-get-started-simulated.md)
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Een fysiek apparaat gebruiken
+### [Een online simulator gebruiken](iot-hub-raspberry-pi-web-simulator-get-started.md)
+
+### [Een fysiek apparaat gebruiken](iot-hub-get-started-physical.md)
 #### [Raspberry Pi met Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi met C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
@@ -28,15 +30,14 @@
 ##### [De gateway aan IoT Hub koppelen](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [De gateway gebruiken voor gegevensconversie](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
-### [Een online apparaatsimulator gebruiken](iot-hub-raspberry-pi-web-simulator-get-started.md)
-
-## [Berichten op cloudapparaten beheren met iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-## [IoT Hub-berichten opslaan in Azure-gegevensopslag](iot-hub-store-data-in-azure-table-storage.md)
-## [Gegevensvisualisatie in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
-## [Gegevensvisualisatie met Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
-## [Weersvoorspelling met behulp van Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
-## [Apparaatbeheer met iothub-explorer](iot-hub-device-management-iothub-explorer.md)
-## [Externe bewaking en meldingen met Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+## Uitgebreide IoT-scenario 's
+### [Berichten op cloudapparaten beheren met iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+### [IoT Hub-berichten opslaan in Azure-gegevensopslag](iot-hub-store-data-in-azure-table-storage.md)
+### [Gegevensvisualisatie in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
+### [Gegevensvisualisatie met Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
+### [Weersvoorspelling met behulp van Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+### [Apparaatbeheer met iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+### [Externe bewaking en meldingen met Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # Procedures
 ## Plannen
@@ -54,13 +55,13 @@
 ##### [Aangepaste eindpunten en routeringsregels gebruiken voor apparaat-naar-cloud-berichten](iot-hub-devguide-messages-read-custom.md)
 ##### [Cloud-naar-apparaat-berichten verzenden vanuit IoT Hub](iot-hub-devguide-messages-c2d.md)
 ##### [IoT Hub-berichten maken en lezen](iot-hub-devguide-messages-construct.md)
+##### [Een communicatieprotocol kiezen](iot-hub-devguide-protocols.md)
 #### [Bestanden vanaf een apparaat uploaden](iot-hub-devguide-file-upload.md)
 #### [Apparaatidentiteiten beheren](iot-hub-devguide-identity-registry.md)
 #### [Toegang tot IoT Hub regelen](iot-hub-devguide-security.md)
 #### [Meer informatie over apparaatdubbels](iot-hub-devguide-device-twins.md)
 #### [Directe methoden aanroepen op een apparaat](iot-hub-devguide-direct-methods.md)
 #### [Taken op meerdere apparaten plannen](iot-hub-devguide-jobs.md)
-#### [Een communicatieprotocol kiezen](iot-hub-devguide-protocols.md)
 #### [IoT Hub-eindpunten](iot-hub-devguide-endpoints.md)
 #### [Querytaal](iot-hub-devguide-query-language.md)
 #### [Quota en beperkingen](iot-hub-devguide-quotas-throttling.md)
@@ -122,7 +123,8 @@
 ### [Best practices voor beveiliging](iot-hub-security-best-practices.md)
 ### [Beveiligingsarchitectuur](iot-hub-security-architecture.md)
 ### [Uw IoT-implementatie beveiligen](iot-hub-security-deployment.md)
-## IoT Edge
+## Azure IoT Edge
+### [Overzicht](iot-hub-iot-edge-overview.md)
 ### Aan de slag
 #### [Linux](iot-hub-linux-iot-edge-get-started.md)
 #### [Windows](iot-hub-windows-iot-edge-get-started.md)
@@ -130,9 +132,22 @@
 #### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
 #### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
 ### [Een echt apparaat gebruiken](iot-hub-iot-edge-physical-device.md)
+### Een module maken
+#### [Java](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-java-modules-windows-10ubuntu-linux-14)
+#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-net-modules-windows-10)
+#### [Node.js](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-javascript-modules-windows-10ubuntu-linux-14)
+### Ontwikkelen
+#### [.NET Framework](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample)
+#### [.NET Core-module](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_module_sample)
+#### [Beheerde .NET Core-gateway](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_managed_gateway)
+#### [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample)
+#### [Node.js](https://github.com/Azure/iot-edge/tree/master/samples/nodejs_simple_sample)
+#### [Module dynamisch toevoegen](https://github.com/Azure/iot-edge/tree/master/samples/dynamically_add_module_sample)
+#### [Out of process-proxy-module](https://github.com/Azure/iot-edge/tree/master/samples/proxy_sample)
+#### [Systeemeigen module-host](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Naslaginformatie
-## [Azure CLI 2.0](/cli/azure/iot)
+## [Azure-CLI](/cli/azure/iot)
 ## [.NET (service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (apparaten)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (service)](/java/api/com.microsoft.azure.sdk.iot.service)
@@ -164,4 +179,4 @@
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT-ontwikkelaarscentrum](https://azure.microsoft.com/develop/iot/)
 ## [Azure Certified voor IoT-apparaatcatalogus](https://catalog.azureiotsuite.com/)
-## [Technische casestudy's](https://microsoft.github.io/techcasestudies/#technology=IoT)
+## [Technische casestudy's](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)

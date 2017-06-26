@@ -1,6 +1,7 @@
 # Overzicht
 
 ## [Inleiding](storage-introduction.md)
+## [Kies blobs, bestanden of gegevensschijven](storage-decide-blobs-files-disks.md)
 
 # Aan de slag
 
@@ -50,6 +51,7 @@
 ### [Een beheerde schijf toevoegen aan een virtuele Linux-machine](../virtual-machines/linux/add-disk.md)
 ### [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+### [Beheerde schijven gebruiken in Resource Manager-sjablonen](storage-using-managed-disks-template-deployments.md)
 
 # Procedures
 ## [Een opslagaccount maken](storage-create-storage-account.md)
@@ -70,7 +72,8 @@
 ### [Voorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Bestanden gebruiken
 ### [Overzicht](/rest/api/storageservices/File-Service-Concepts)
-### [Problemen met Azure-bestanden oplossen](storage-troubleshoot-file-connection-problems.md)
+### [Problemen met Azure Files oplossen - Windows](storage-troubleshoot-windows-file-connection-problems.md)
+### [Problemen met Azure Files oplossen - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 ### [Voorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Schijven gebruiken
 ### [Schijven en VHD's voor virtuele Windows-machines](storage-about-disks-and-vhds-windows.md)
@@ -109,6 +112,7 @@
 ## Beveiligen
 ### [Beveiligingshandleiding ](storage-security-guide.md)
 ### [Versleuteling van data-at-rest](storage-service-encryption.md)
+### [Versleuteling 'at rest' met sleutels van de klant](storage-service-encryption-customer-managed-keys.md)
 ### [Gedeelde sleutelverificatie](https://msdn.microsoft.com/library/dd179428.aspx)
 ### [Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Zelfstudie: Blobs versleutelen en ontsleutelen met Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
@@ -130,7 +134,8 @@
 ### [Richtlijnen voor herstel na noodgeval](storage-disaster-recovery-guidance.md)
 ## Gegevens overdragen
 ### [Gegevens verplaatsen van en naar opslag](storage-moving-data.md)
-### [AzCopy-opdrachtregelprogramma](storage-use-azcopy.md)
+### [AzCopy in Windows](storage-use-azcopy.md)
+### [AzCopy in Linux](storage-use-azcopy-linux.md)
 ### [De Import/Export-service gebruiken](storage-import-export-service.md)
 ### [Het Import/Export-hulpprogramma gebruiken](storage-import-export-tool-how-to.md)
 #### [Het Import/Export-hulpprogramma instellen](storage-import-export-tool-setup.md)

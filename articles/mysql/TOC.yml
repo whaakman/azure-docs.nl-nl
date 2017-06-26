@@ -11,6 +11,12 @@
     href: quickstart-create-mysql-server-database-using-azure-portal.md
   - name: Database maken - Azure CLI
     href: quickstart-create-mysql-server-database-using-azure-cli.md
+  - name: Verbinding maken en query uitvoeren
+    items:
+    - name: PHP
+      href: connect-php.md
+    - name: Java
+      href: connect-java.md
 - name: Zelfstudies
   items:
   - name: 1 - Een database ontwerpen
@@ -81,12 +87,16 @@
       href: howto-restore-server-portal.md
   - name: Toepassingen koppelen
     items:
-    - name: Verbindingsreeksen instellen
+    - name: Verbindingsreeksen
       href: howto-connection-string.md
     - name: SSL configureren
       href: howto-configure-ssl.md
-    - name: Web-app
+    - name: Web-apps
       href: howto-connect-webapp.md
+  - name: Parameters van de server configureren
+    items:
+    - name: Azure Portal
+      href: howto-server-parameters.md
 - name: Naslaginformatie
   items:
   - name: Azure CLI
@@ -99,6 +109,8 @@
     href: https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-database-mysql
+  - name: Video's
+    href: videos.md
   - name: Verzoeken om een functie toe te voegen
     href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
   - name: Beschikbaarheid in regio’s

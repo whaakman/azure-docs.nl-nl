@@ -102,7 +102,11 @@
 ### [Veelvoorkomende implementatieproblemen](cloud-services-troubleshoot-deployment-problems.md)
 ### [Rol is niet gestart](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Richtlijnen voor herstel](cloud-services-disaster-recovery-guidance.md)
-### [Veelgestelde vragen over Cloud Services](cloud-services-faq.md)
+### Veelgestelde vragen over Cloud Services
+#### [Veelgestelde vragen over beschikbaarheid van toepassingen en services](cloud-services-application-and-service-availability-faq.md)
+#### [Veelgestelde vragen over configuratie en beheer](cloud-services-configuration-and-management-faq.md)
+#### [Veelgestelde vragen over connectiviteit en netwerken](cloud-services-connectivity-and-networking-faq.md)
+#### [Veelgestelde vragen over implementatie](cloud-services-deployment-faq.md)
 
 # Naslaginformatie
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)

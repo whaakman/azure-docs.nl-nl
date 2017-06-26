@@ -43,6 +43,7 @@
 ### Azure
 #### [Profiler](app-insights-profiler.md)
 #### [Diagnostics](app-insights-azure-diagnostics.md)
+#### [Previews](app-insights-previews.md)
 
 ### ASP.NET
 #### [Meer telemetrie verzamelen](app-insights-asp-net-more.md)
@@ -91,8 +92,9 @@
 
 ### Gebruik
 #### [Overzicht](app-insights-usage-overview.md)
-#### [Retentie](app-insights-usage-retention.md)
 #### [Gebruikers, sessies, gebeurtenissen](app-insights-usage-segmentation.md)
+#### [Retentie](app-insights-usage-retention.md)
+#### [Werkmappen](app-insights-usage-workbooks.md)
 
 ### Analytische gegevens
 
@@ -108,6 +110,7 @@
 ### [Resources maken](app-insights-powershell-script-create-resource.md)
 ### [Waarschuwingen instellen](app-insights-powershell-alerts.md)
 ### [Azure diagnostics ophalen](app-insights-powershell-azure-diagnostics.md)
+### [Automatiseren met Microsoft Flow](app-insights-automate-with-flow.md)
 
 ## Ontwikkelen
 

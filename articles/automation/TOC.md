@@ -11,7 +11,7 @@
 ### [Zelfstandig Automation-account maken](automation-create-standalone-account.md)
 ### [Azure AD-gebruikersaccount maken](automation-create-aduser-account.md)
 ### [Verificatie configureren met AWS](automation-config-aws-account.md)
-### [Uitvoeren als-account voor Azure maken met PowerShell](automation-update-account-powershell.md)
+### [Het Automation uitvoeren als-account maken](automation-create-runas-account.md)
 ### [Automation-accountconfiguratie valideren](automation-verify-runas-authentication.md)
 ### [Toegangsbeheer op basis van rollen](automation-role-based-access-control.md)
 ### [Automation-account beheren](automation-manage-account.md)
@@ -56,12 +56,12 @@
 ### [Een Azure VM-waarschuwing verhelpen](automation-azure-vm-alert-integration.md)
 ### [Een virtuele machine starten/stoppen met JSON-tags](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Resourcegroep verwijderen](automation-scenario-remove-resourcegroup.md)
-### [Virtuele machines starten/stoppen buiten kantooruren](automation-solution-vm-management.md)
 ### [Bronbeheerintegratie met GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Bronbeheerintegratie met VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ## Oplossingen
 ### [Tracering wijzigen](../log-analytics/log-analytics-change-tracking.md)
 ### [Updatebeheer](../operations-management-suite/oms-solution-update-management.md)
+### [Virtuele machines starten/stoppen buiten kantooruren](automation-solution-vm-management.md)
 ## Bewaken
 ### [Azure Automation-taakgegevens doorsturen naar Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Azure Automation-account loskoppelen van Log Analytics](automation-unlink-from-log-analytics.md)

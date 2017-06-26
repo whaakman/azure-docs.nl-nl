@@ -1,6 +1,6 @@
 # Overzicht
 ## [Wat is Resource Manager?](resource-group-overview.md)
-## [Ondersteunde services](resource-manager-supported-services.md)
+## [Resourceproviders en -typen](resource-manager-supported-services.md)
 ## [Resource Manager en klassieke implementatie](resource-manager-deployment-model.md)
 ## [Abonnementsgovernance](resource-manager-subscription-governance.md)
 ## [Beheerde toepassingen](managed-application-overview.md)
@@ -67,12 +67,13 @@
 
 ## Resourcebeleid instellen
 ### [Wat is een resourcebeleid?](resource-manager-policy.md)
-### [Beleidstoewijzing portal](resource-manager-policy-portal.md)
-### [Beleidstoewijzing script](resource-manager-policy-create-assign.md)
-### [Beleid voor resourcetags](resource-manager-policy-tags.md)
-### [Opslagbeleid](resource-manager-policy-storage.md)
-### [Beleid voor virtuele Linux-machines](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Beleid voor virtuele Windows-machines](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Portal gebruiken voor het toewijzen van beleid](resource-manager-policy-portal.md)
+### [Scripts gebruiken voor het toewijzen van beleid](resource-manager-policy-create-assign.md)
+### Voorbeelden
+#### [Resourcetags](resource-manager-policy-tags.md)
+#### [Storage](resource-manager-policy-storage.md)
+#### [Linux-VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Windows-VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Beheerde toepassingen gebruiken
 ### [Beheerde toepassing publiceren](managed-application-publishing.md)

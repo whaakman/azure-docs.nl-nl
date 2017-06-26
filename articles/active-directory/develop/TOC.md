@@ -1,4 +1,5 @@
 # [Overzicht](active-directory-developers-guide.md)
+## [Waarom Azure AD?](https://azure.microsoft.com/develop/identity/signin/)
 ## [Basisprincipes van Auth](active-directory-authentication-scenarios.md)
 ## [App-typen](active-directory-authentication-scenarios.md#application-types-and-scenarios)
 # Aan de slag
@@ -71,6 +72,7 @@
 ### [Ondersteunde token- en claimtypen](active-directory-token-and-claims.md)
 ### [Rollover van ondertekeningssleutel gebruiken](active-directory-signing-key-rollover.md)
 ### [Federatieve metagegevens](active-directory-federation-metadata.md)
+### [Certificaatreferenties](active-directory-certificate-credentials.md)
 ## [Objecten voor toepassingen](active-directory-application-objects.md)
 ### [Apps en Azure AD](active-directory-how-applications-are-added.md)
 ## [Toepassingsmanifest](active-directory-application-manifest.md)
@@ -101,4 +103,5 @@
 #### [Referenties voor OAuth 2.0-client verlenen](active-directory-v2-protocols-oauth-client-creds.md)
 #### [Namens-stroom voor OAuth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
 #### [Tokenverwijzing](active-directory-v2-tokens.md)
+#### [Certificaatreferenties](active-directory-certificate-credentials.md)
 ### [Bereiken](active-directory-v2-scopes.md)

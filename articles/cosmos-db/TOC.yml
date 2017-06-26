@@ -13,8 +13,6 @@
     items:
     - name: .NET
       href: create-documentdb-dotnet.md
-    - name: .NET Core
-      href: create-documentdb-dotnet-core.md
     - name: Java
       href: create-documentdb-java.md
     - name: Node.js
@@ -135,7 +133,7 @@
       items:
       - name: Resources
         href: documentdb-resources.md
-      - name: SQL-query
+      - name: SQL-query's
         href: documentdb-sql-query.md
       - name: SQL-testomgeving
         href: https://www.documentdb.com/sql/demo
@@ -188,12 +186,10 @@
           href: documentdb-nodejs-samples.md
         - name: Python-voorbeelden
           href: documentdb-python-samples.md
-        - name: SQL-syntaxis
-          href: https://msdn.microsoft.com/library/azure/dn782250.aspx
-        - name: Overzichtskaart van SQL-grammatica
-          href: documentdb-sql-query-cheat-sheet.md
       - name: Resources
         items:
+        - name: Overzichtskaart van SQL-grammatica
+          href: documentdb-sql-query-cheat-sheet.md
         - name: Stack Overflow
           href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
         - name: Video's
@@ -302,6 +298,8 @@
       href: /rest/api/documentdb/
     - name: REST-resourceprovider
       href: /rest/api/documentdbresourceprovider/
+    - name: SQL
+      href: documentdb-sql-query-reference.md
   - name: Tabel-API's
     items:
     - name: .NET

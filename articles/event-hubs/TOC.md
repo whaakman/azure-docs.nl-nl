@@ -19,13 +19,11 @@
 
 # Procedures
 ## Plannen en ontwerpen
-### [🔧 Algemene scenario's voor integratie met Azure-services](event-hubs-common-integrations.md)
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Overzicht van authenticatie- en beveiligingsmodellen](event-hubs-authentication-and-security-model-overview.md)
 ### [Beschikbaarheid en consistentie](event-hubs-availability-and-consistency.md)
+### [Doorvoereenheden automatisch schalen](event-hubs-auto-inflate.md)
 ## Ontwikkelen
-### [🔧 Fouten afhandelen en het opnieuw proberen](event-hubs-handling-errors-retry.md)
-### [🔧 Prestaties en schaal beheren](event-hubs-performance-scale.md)
 ### [Beschikbare API's](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
