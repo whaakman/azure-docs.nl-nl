@@ -3,8 +3,10 @@
 ## [OMS-architectuur](operations-management-suite-architecture.md)
 
 # Aan de slag
-## Rondleidingen
-### [Serviceoverzicht](operations-management-suite-walkthrough-servicemap.md)
+## [Log Analytics](../log-analytics/log-analytics-get-started.md)
+## [Automatisering](../automation/automation-offering-get-started.md)
+## [Een back-up maken](../backup/backup-introduction-to-azure-backup.md)
+## [Site Recovery](../site-recovery/site-recovery-overview.md)
 
 
 # Procedures
@@ -35,13 +37,15 @@
 #### [AD-evaluatie](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD-replicatiestatus](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Waarschuwingsbeheer](../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-#### [Serviceoverzicht](operations-management-suite-service-map.md)
-##### [Configureren](operations-management-suite-service-map-configure.md)
 #### [Azure Networking Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Containers](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Key Vault-analyse](../log-analytics/log-analytics-azure-key-vault.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Netwerkprestatiemeter](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Service Fabric-analyse](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### Serviceoverzicht
+##### [Kennismaking](operations-management-suite-walkthrough-servicemap.md)
+##### [Gebruiken](operations-management-suite-service-map.md)
+##### [Configureren](operations-management-suite-service-map-configure.md)
 #### [SQL-evaluatie](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Upgradeanalyse](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)

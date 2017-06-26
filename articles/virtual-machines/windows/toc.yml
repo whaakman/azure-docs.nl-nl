@@ -140,6 +140,14 @@
       href: csharp-template.md
     - name: Een virtuele machine maken met Chef
       href: chef-automation.md
+    - name: Een virtuele machine maken met Python
+      href: python.md
+    - name: Een virtuele machine maken met Terraform
+      items:
+      - name: Installeren en configureren
+        href: ../terraform-install-configure.md
+      - name: Een basisinfrastructuur maken
+        href: ../terraform-create-complete-vm.md      
     - name: Een virtuele machine maken die populaire toepassingsframeworks uitvoert
       href: app-frameworks.md
     - name: Een virtuele machine verplaatsen naar een ander abonnement
@@ -185,13 +193,10 @@
       href: capture-image-resource.md
     - name: Een virtuele machine maken vanaf een gegeneraliseerde installatiekopie van een beheerde schijf
       href: create-vm-generalized-managed.md
+    - name: Een installatiekopie maken met Packer
+      href: build-image-with-packer.md
   - name: VM-opslag beheren
     items:
-    - name: Azure Managed Disks
-      href: ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      items:
-      - name: Veelgestelde vragen
-        href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Een beheerde schijf maken
       href: create-managed-disk-ps.md
     - name: Virtuele machines migreren naar beheerde schijven
@@ -215,6 +220,8 @@
       href: expand-os-disk.md
     - name: Een gegevensschijf uitbreiden
       href: expand-data-disks.md
+    - name: Een bestandsshare gebruiken
+      href: mount-azure-file-storage.md
     - name: 'D: als gegevensschijf gebruiken'
       href: change-drive-letter.md
   - name: VM-netwerken
@@ -348,6 +355,8 @@
         href: migration-classic-resource-manager-faq.md
   - name: Problemen oplossen
     items:
+    - name: Het opnieuw opstarten van systemen begrijpen
+      href: understand-vm-reboot.md
     - name: Verbindingen met extern bureaublad
       href: troubleshoot-rdp-connection.md
       items:

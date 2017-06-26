@@ -11,6 +11,7 @@
 ### [Logboekregistratie en bewaking](azure-log-audit.md)
 ### [Isolatie in de openbare cloud](azure-isolation.md)
 ### [Technische mogelijkheden voor beveiliging](azure-security-technical-capabilities.md)
+### [Governance in Azure](governance-in-azure.md)
 
 # Aan de slag
 ## [Aan de slag met Azure-beveiliging](azure-security-getting-started.md)

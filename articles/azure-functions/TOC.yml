@@ -4,8 +4,6 @@
   items:
   - name: Over Functions
     href: functions-overview.md
-  - name: Functions Runtime
-    href: functions-runtime-overview.md
   - name: 'Kiezen tussen Stroom, Logische apps, Functies en WebJobs'
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Snelstartgidsen
@@ -15,8 +13,8 @@
     href: functions-create-first-azure-function.md
   - name: Functie maken - Azure CLI
     href: functions-create-first-azure-function-azure-cli.md
-#  - name: Create function - Visual Studio
-#    href: functions-create-your-first-function-visual-studio.md
+  - name: Functie maken - Visual Studio
+    href: functions-create-your-first-function-visual-studio.md
   - name: Triggers
     items:
     - name: Timer
@@ -33,16 +31,16 @@
       href: functions-integrate-storage-queue-output-binding.md
     - name: Cosmos DB
       href: functions-integrate-store-unstructured-data-cosmosdb.md
-- name: Voorbeelden
-  items:
-  - name: Azure CLI
-    href: functions-cli-samples.md
 - name: Zelfstudies
   items:
   - name: 1 - Functions met Logic Apps
     href: functions-twitter-email.md
   - name: 2 - Een serverloze API maken
     href: functions-create-serverless-api.md
+- name: Voorbeelden
+  items:
+  - name: Azure CLI
+    href: functions-cli-samples.md
 - name: Concepten
   items:
   - name: Verbruik en App Service-plannen
@@ -51,36 +49,49 @@
     href: functions-triggers-bindings.md
   - name: Talen
     items:
-    - name: 'Concepten van C#-functies'
+    - name: 'C#-script'
+ 
       href: functions-reference-csharp.md
-    - name: 'Concepten van F#-functies'
+    - name: .NET-klassenbibliotheek
+      href: functions-dotnet-class-library.md
+    - name: 'F#'
       href: functions-reference-fsharp.md
-    - name: Concepten van JavaScript-functies
+    - name: Javascript
       href: functions-reference-node.md    
+  - name: Prestatieoverwegingen
+    href: functions-best-practices.md 
+  - name: Functions-proxy's
+    href: functions-proxies.md 
+  - name: Functions Runtime
+    href: functions-runtime-overview.md
 - name: Handleidingen
   items:
-  - name: Ontwikkelaarsgids
-    href: functions-reference.md
-  - name: Azure Functions testen
-    href: functions-test-a-function.md
-  - name: Lokaal ontwikkelen en fouten opsporen
-    href: functions-run-local.md
-  - name: Instellingen configureren voor een functie-app
+  - name: Ontwikkelen
+    items: 
+     - name: Ontwikkelaarsgids
+       href: functions-reference.md
+     - name: Functies testen
+       href: functions-test-a-function.md
+     - name: Lokaal ontwikkelen en fouten opsporen
+       href: functions-run-local.md
+  - name: Implementeren
+    items:
+    - name: Doorlopende implementatie
+      href: functions-continuous-deployment.md
+    - name: Resource-implementatie automatiseren
+      href: functions-infrastructure-as-code.md
+    - name: On-premises functies
+      href: functions-runtime-install.md
+  - name: Configureren
     href: functions-how-to-use-azure-function-app-settings.md
-  - name: Doorlopende implementatie voor Azure Functions
-    href: functions-continuous-deployment.md
-  - name: Resource-implementatie automatiseren
-    href: functions-infrastructure-as-code.md
-  - name: Azure Functions controleren
+  - name: Bewaken
     href: functions-monitoring.md
-  - name: Functions Runtime installeren
-    href: functions-runtime-install.md
-  - name: Verbinding maken met SQL Database
-    href: functions-scenario-database-table-cleanup.md
-  - name: Een Open API 2.0-definitie maken
-    href: functions-api-definition-getting-started.md     
-  - name: Aanbevolen procedures voor Azure Functions
-    href: functions-best-practices.md     
+  - name: Integreren
+    items:   
+    - name: Verbinding maken met SQL Database
+      href: functions-scenario-database-table-cleanup.md
+    - name: Een Open API 2.0-definitie maken
+      href: functions-api-definition-getting-started.md         
 - name: Naslaginformatie
   items:
   - name: Bindingen
@@ -117,10 +128,14 @@
   items:
   - name: Prijzen
     href: https://azure.microsoft.com/pricing/details/functions/
+  - name: Regionale beschikbaarheid
+    href: https://azure.microsoft.com/regions/services/
   - name: MSDN-forum
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-functions
+  - name: Twitter
+    href: https://twitter.com/azurefunctions
   - name: GitHub-opslagplaats voor Azure Functions
     href: https://github.com/Azure/Azure-Functions/
   - name: Service-updates

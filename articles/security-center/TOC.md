@@ -5,11 +5,13 @@
 ## Scenario's
 ### [Reageren op incidenten](security-center-incident-response.md)
 ### [Aanbevelingen gebruiken om de beveiliging te verbeteren](security-center-using-recommendations.md)
+## [Platformmigratie](security-center-platform-migration.md)
 
 # Aan de slag
 ## [Snel starten](security-center-get-started.md)
 ## [Planning en bewerkingen](security-center-planning-and-operations-guide.md)
 ## [Machtigingen](security-center-permissions.md)
+## [Ondersteunde platforms](security-center-os-coverage.md)
 ## [Partnerintegratie](security-center-partner-integration.md)
 ## [Veelgestelde vragen](security-center-faq.md)
 

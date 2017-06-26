@@ -50,6 +50,7 @@
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell (klassiek)](vpn-gateway-about-forced-tunneling.md)
 ## Gateway-instellingen van lokaal netwerk aanpassen
+### [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ### [Azure-CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Een VPN-gatewayverbinding verifiëren](vpn-gateway-verify-connection-resource-manager.md)
@@ -59,6 +60,7 @@
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (klassiek)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Een VPN-gateway configureren (klassiek)](vpn-gateway-configure-vpn-gateway-mp.md)
+## [Gateway-SKU's (oud)](vpn-gateway-about-skus-legacy.md)
 ## Problemen oplossen
 ### [VPN-doorvoer naar een VNet valideren](vpn-gateway-validate-throughput-to-vnet.md)
 

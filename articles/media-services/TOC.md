@@ -6,7 +6,13 @@
 ## [Uw ontwikkelaarsomgeving instellen](media-services-set-up-computer.md)
 ###[.NET](media-services-dotnet-how-to-use.md)
 ###[REST](media-services-rest-how-to-use.md)  
-## Verbinding maken via een programma
+## [AAD-verificatie gebruiken voor toegang tot API](media-services-use-aad-auth-to-access-ams-api.md)
+###[Portal gebruiken voor het beheren van AAD-verificatie](media-services-portal-get-started-with-aad.md)
+###[Toegang tot API met .NET](media-services-dotnet-get-started-with-aad.md)
+###[Toegang tot API met REST](media-services-rest-connect-with-aad.md)
+###[De CLI gebruiken om een AAD-app te maken en configureren](media-services-cli-create-and-configure-aad-app.md)
+###[PowerShell gebruiken om een AAD-app te maken en configureren](media-services-powershell-create-and-configure-aad-app.md)
+## Verbinding maken met ACS-sleutels via een programma
 ### [.NET](media-services-dotnet-connect-programmatically.md)
 ### [REST](media-services-rest-connect-programmatically.md)
 
@@ -214,7 +220,7 @@
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [PowerShell (Service Management)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media)
+## [REST](/rest/api/media/mediaservice)  
 
 # Bronnen
 ## [Releaseopmerkingen](media-services-release-notes.md)

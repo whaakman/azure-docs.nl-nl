@@ -21,6 +21,9 @@
 ### [Tenant-id wijzigen](key-vault-subscription-move-fix.md)
 ### [Beschikbaarheid en redundantie](key-vault-disaster-recovery-guidance.md)
 ### [Uw Key Vault beveiligen](key-vault-secure-your-key-vault.md)
+### [Overzicht beveiligingsgebieden](key-vault-ovw-security-worlds.md)
+### [Overzicht van voorlopig verwijderen](key-vault-ovw-soft-delete.md)
+### [Overzicht van sleutels van opslagaccount](key-vault-ovw-storage-keys.md)
 
 ## Automatiseren
 ### [Azure Automation](automation-manage-key-vault.md)
@@ -43,7 +46,7 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Resources
-## [Over sleutels en geheimen](https://msdn.microsoft.com/en-us/library/azure/dn903623)
+## [Informatie over sleutels, geheimen en certificaten](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
 ## [Codevoorbeelden](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blog](http://blogs.technet.com/b/kv/)

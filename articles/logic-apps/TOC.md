@@ -45,10 +45,12 @@
 ### [EDIFACT-bedrijfsintegratie](logic-apps-enterprise-integration-edifact.md)
 ### [EDIFACT-codering](logic-apps-enterprise-integration-edifact-encode.md)
 ### [EDIFACT-decodering](logic-apps-enterprise-integration-edifact-decode.md)
+### [EDIFACT-documenten met een UNH2.5-segment verwerken](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 ### [X12-bedrijfsintegratie](logic-apps-enterprise-integration-x12.md)
 ### [X12-codering](logic-apps-enterprise-integration-x12-encode.md)
 ### [X12-decodering](logic-apps-enterprise-integration-x12-decode.md)
 ### [Herstel na noodgevallen](logic-apps-enterprise-integration-b2b-business-continuity.md)
+### [Fouten en oplossingen](logic-apps-enterprise-integration-b2b-list-errors-solutions.md)
 
 ## Toegang tot on-premises gegevens
 ### [Verbinding maken met on-premises gegevens](logic-apps-gateway-connection.md)
@@ -75,7 +77,6 @@
 ### [Logische apps aanroepen met Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Verwerking van fouten en uitzonderingen toevoegen](logic-apps-scenario-error-and-exception-handling.md)
 ### [B2B-verwerking](logic-apps-enterprise-integration-b2b.md)
-### [EDIFACT-documenten met een UNH2.5-segment verwerken](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 
 ## Prijzen en facturering
 ### [Prijzen](https://azure.microsoft.com/pricing/details/logic-apps/)
@@ -116,6 +117,7 @@
 ### [HTTP-webhook](../connectors/connectors-native-webhook.md)
 ### [Informix](../connectors/connectors-create-api-informix.md)
 ### [Integratieaccount](logic-apps-enterprise-integration-metadata.md)
+### [MQ](../connectors/connectors-create-api-mq.md)
 ### [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md)
 ### [Oracle Database](../connectors/connectors-create-api-oracledatabase.md)
 ### [Vraag/antwoord](../connectors/connectors-native-reqres.md)

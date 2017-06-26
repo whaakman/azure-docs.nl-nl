@@ -17,11 +17,21 @@
 ## [Veelgestelde vragen](active-directory-faq.md)
 ## [Ondersteuning voor Azure Active Directory verkrijgen](active-directory-troubleshooting-support-howto.md)
 ## [Zelfstudies voor SaaS-app-integratie](active-directory-saas-tutorial-list.md)
+## Azure AD-besturingselementen
+### [Toegangsbeoordeling voltooien](active-directory-azure-ad-controls-complete-an-access-review.md)
+### [Toegangsbeoordeling maken](active-directory-azure-ad-controls-create-an-access-review.md)
+### [Een toegangscontrole uitvoeren](active-directory-azure-ad-controls-perform-an-access-review.md)
+
 
 # Procedures
 ## Plannen en ontwerpen
 ### [Inzicht in de Azure AD-architectuur](active-directory-architecture.md)
+### [E-mailbeleid en -configuraties beveiligen](secure-email-introduction.md)
+#### [Aanbevolen beleid](secure-email-recommended-policies.md)
+#### [E-mailbeleid en -configuraties implementeren](secure-email-deploy-recommended-policies.md)
+#### [Servicebeschrijvingen van EMS en Office 365](secure-email-ems-office365-service-descriptions.md)
 ### [Een hybride identiteitsoplossing implementeren](active-directory-hybrid-identity-design-considerations-overview.md)
+### [Claimtoewijzing in Azure Active Directory](active-directory-claims-mapping.md)
 
 #### Vereisten bepalen
 ##### [Identity](active-directory-hybrid-identity-design-considerations-business-needs.md)
@@ -43,6 +53,16 @@
 ### Gebruikers toevoegen
 #### [Azure Portal](active-directory-users-create-azure-portal.md)
 #### [Klassieke portal](active-directory-create-users.md)
+### Azure AD-besturingselementen
+#### [Toegang voor gasten met toegangsbeoordelingen](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
+#### [Gebruikerstoegang met beoordelingen beheren](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
+
+### [Licenties toewijzen met behulp van groepen](active-directory-licensing-whatis-azure-portal.md)
+#### [Licenties toewijzen aan een groep](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Licentieproblemen in een groep vaststellen en oplossen](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
+#### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
+#### [PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
 
 ### [Gebruikers uit andere directory's toevoegen (klassieke portal)](active-directory-create-users-external.md)
 ### [Gebruikers verwijderen](active-directory-users-delete-user-azure-portal.md)
@@ -50,6 +70,8 @@
 ### [Een wachtwoord opnieuw instellen](active-directory-users-reset-password-azure-portal.md)
 ### [Werkgegevens van gebruikers beheren](active-directory-users-work-info-azure-portal.md)
 ### [Accounts delen](active-directory-sharing-accounts.md)
+
+
 
 ## [Groepen en leden beheren](active-directory-manage-groups.md)
 ### Groepen beheren
@@ -59,6 +81,12 @@
 ### [Groepsleden beheren](active-directory-groups-members-azure-portal.md)
 ### [Eigenaren van groepen beheren](active-directory-accessmanagement-managing-group-owners.md)
 ### [Groepslidmaatschap beheren](active-directory-groups-membership-azure-portal.md)
+### [Licenties toewijzen met behulp van groepen](active-directory-licensing-whatis-azure-portal.md)
+#### [Licenties toewijzen aan een groep](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Licentieproblemen in een groep vaststellen en oplossen](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
+#### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
+#### [PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
 ### [Alle groepen weergeven](active-directory-groups-view-azure-portal.md)
 ### [Toegewezen groepen inschakelen](active-directory-accessmanagement-dedicated-groups.md)
 ### [Groepstoegang tot SaaS-apps toevoegen](active-directory-accessmanagement-group-saasapps.md)
@@ -69,12 +97,6 @@
 ### Geavanceerde regels maken
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 #### [Klassieke portal](active-directory-accessmanagement-groups-with-advanced-rules.md)
-### [Groepslicenties](active-directory-licensing-whatis-azure-portal.md)
-#### [Licenties toewijzen aan een groep](active-directory-licensing-group-assignment-azure-portal.md)
-#### [Licentieproblemen van een groep vaststellen en oplossen](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
-#### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
-#### [PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
 ### [Selfservicegroepen instellen](active-directory-accessmanagement-self-service-group-management.md)
 ### [Problemen oplossen](active-directory-accessmanagement-troubleshooting.md)
 
@@ -92,13 +114,14 @@
 ### Problemen oplossen
 #### [Ontbrekende controlegegevens](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Ontbrekende gegevens in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
-###    [Toegang op programmeerniveau](active-directory-reporting-api-getting-started-azure-portal.md)
+#### [Azure Active Directory-activiteitenlogboek registreert inhoudspakketfouten](active-directory-reporting-troubleshoot-content-pack.md)
+### [Toegang op programmeerniveau](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Controleverwijzing](active-directory-reporting-api-audit-reference.md)
 #### [Verwijzing voor aanmelden](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Vereisten](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Controlevoorbeelden](active-directory-reporting-api-audit-samples.md)
 #### [Voorbeelden van aanmelden](active-directory-reporting-api-sign-in-activity-samples.md)
-#### [Gegevens ophalen](active-directory-reporting-api-with-certificates.md)
+#### [Certificaten gebruiken](active-directory-reporting-api-with-certificates.md)
 ### [Klassieke portal](active-directory-view-access-usage-reports.md)
 #### [Azure AD-rapportage](active-directory-reporting-getting-started.md)
 #### [Handleiding over rapportering](active-directory-reporting-guide.md)
@@ -165,6 +188,8 @@
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Registerinstellingen bijwerken](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Meer informatie over beveiliging en privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+### Azure AD-besturingselementen
+####[Programma's en hun besturingselementen beheren](active-directory-azure-ad-controls-manage-programs-and-controls.md)
 
 ### [Toegang tot apps op afstand via App Proxy](active-directory-application-proxy-get-started.md)
 #### Aan de slag

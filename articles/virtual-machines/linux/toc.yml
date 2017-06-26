@@ -140,6 +140,12 @@
       href: move-vm.md
     - name: Virtuele machines met hoge beschikbaarheid maken
       href: create-cli-complete.md
+    - name: Terraform
+      items:
+      - name: Installeren en configureren
+        href: ../terraform-install-configure.md
+      - name: Een basisinfrastructuur maken
+        href: ../terraform-create-complete-vm.md
     - name: Ansible
       items:
       - name: Installeren en configureren
@@ -202,6 +208,8 @@
       href: upload-vhd.md
     - name: Een bestaande virtuele machine in een installatiekopie vastleggen
       href: capture-image.md
+    - name: Een installatiekopie maken met Packer
+      href: build-image-with-packer.md
     - name: Azure-installatiekopieën maken
       items:
       - name: Ubuntu
@@ -312,7 +320,11 @@
   - name: Toepassingen uitvoeren
     items:
     - name: Cloud Foundry
-      href: cloudfoundry-get-started.md
+      items:
+      - name: Overzicht
+        href: cloudfoundry-get-started.md
+      - name: Uw eerste app implementeren
+        href: cloudfoundry-deploy-your-first-app.md
     - name: Overzicht van Data Science VM
       href: ../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: MongoDB
@@ -366,6 +378,8 @@
       href: migration-classic-resource-manager-faq.md
   - name: Problemen oplossen
     items:
+    - name: Het opnieuw opstarten van systemen begrijpen
+      href: understand-vm-reboot.md
     - name: SSH-verbindingen
       href: troubleshoot-ssh-connection.md
       items:

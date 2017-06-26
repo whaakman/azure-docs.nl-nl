@@ -4,6 +4,7 @@
 
 # Aan de slag
 ## [Een naamruimte maken](relay-create-namespace-portal.md)
+## [Een hybride on-premises/cloudtoepassing maken](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Hybride verbindingen
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Node](relay-hybrid-connections-node-get-started.md)

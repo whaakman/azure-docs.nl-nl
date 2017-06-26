@@ -29,8 +29,8 @@
 ### [Algemene metrische gegevens](insights-autoscale-common-metrics.md)
 ### [Algemene patronen](monitoring-autoscale-common-scale-patterns.md)
 ### [Automatisch schalen met een aangepaste meetwaarde](monitoring-autoscale-scale-by-custom-metric.md)
-### [VM Scale Sets automatisch schalen met Resource Manager-sjablonen](insights-advanced-autoscale-virtual-machine-scale-sets.md)
-### [Virtuele machines in een VM Scale Set automatisch schalen](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+### [VM-schaalsets automatisch schalen met Resource Manager-sjablonen](insights-advanced-autoscale-virtual-machine-scale-sets.md)
+### [Machines automatisch schalen in een VM-schaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Webhooks en e-mailmeldingen configureren voor automatisch schalen](insights-autoscale-to-webhook-email.md)
 ## Het activiteitenlogboek gebruiken
 ### [Gebeurtenissen in het activiteitenlogboek bekijken](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
@@ -39,10 +39,10 @@
 ### [Activiteitenlogboek streamen naar Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 ### [Bewerkingen controleren met Resource Manager](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Waarschuwingen voor activiteitenlogboek maken Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-## Servicemeldingen
+## Servicemeldingen gebruiken
 ### [Servicemeldingen bekijken](monitoring-service-notifications.md)
 ### [Waarschuwingen voor servicemeldingen configureren](monitoring-activity-log-alerts-on-service-notifications.md)
-## Actiegroepen
+## Actiegroepen gebruiken
 ### [Meer informatie over webhook-schema](monitoring-activity-log-alerts-webhook.md)
 ### [Gedrag SMS-waarschuwingen](monitoring-sms-alert-behavior.md)
 ### [Beperking waarschuwingsaantallen](monitoring-alerts-rate-limiting.md)

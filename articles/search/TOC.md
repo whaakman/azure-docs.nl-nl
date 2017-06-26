@@ -78,6 +78,7 @@
 ## [Service REST (voorbeeld)](search-api-2015-02-28-preview.md)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/search/)
 ## Demosites
+### [Search Analyzer-demo](http://alice.unearth.ai/)
 ### [Takenlijst-app](http://aka.ms/azjobsdemo)
 ### [Live demo-apps](https://searchsamples.azurewebsites.net/)
 ## Cursusmateriaal en zelfstudie

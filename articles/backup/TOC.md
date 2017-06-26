@@ -48,7 +48,7 @@
 #### [Virtuele machines geïmplementeerd met Resource Manager voorbereiden](backup-azure-arm-vms-prepare.md)
 ### Uw omgeving plannen
 #### [VM-back-upinfrastructuur plannen](backup-azure-vms-introduction.md)
-### Back-ups maken van servers en workloads
+### Back-ups maken van virtuele machines
 #### [Back-ups maken van virtuele Azure-machines naar back-upkluis](backup-azure-vms.md)
 #### [Back-ups maken van virtuele Azure-machines naar een Recovery Services-kluis](backup-azure-arm-vms.md)
 #### [Back-ups maken van versleutelde virtuele machines](backup-azure-vms-encryption.md)

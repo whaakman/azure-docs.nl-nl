@@ -3,43 +3,38 @@
 
 # Aan de slag
 ## [Azure Portal](data-lake-analytics-get-started-portal.md)
-## [PowerShell](data-lake-analytics-get-started-powershell.md)
-## [.NET-SDK](data-lake-analytics-get-started-net-sdk.md)
-## [Java-SDK](data-lake-analytics-get-started-java-sdk.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-## [Azure CLI](data-lake-analytics-get-started-cli.md)
+## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI 2.0](data-lake-analytics-get-started-cli2.md)
-## [REST-API](data-lake-analytics-get-started-rest-api.md)
-## [Python](data-lake-analytics-get-started-python.md)
 
 # Procedures
-## Ontwikkelen
+
+## Data Lake Analytics-accounts beheren
+### [Azure Portal](data-lake-analytics-manage-use-portal.md)
+### [Azure CLI](data-lake-analytics-manage-use-cli.md)
+### [PowerShell](data-lake-analytics-manage-use-powershell.md)
+### [.NET-SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
+### [Python SDK](data-lake-analytics-manage-use-python-sdk.md)
+### [Java-SDK](data-lake-analytics-manage-use-java-sdk.md)
+### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### [Toegang tot diagnostische logboeken](data-lake-analytics-diagnostic-logs.md)
+
+## U-SQL-programma’s ontwikkelen
 ### [Basisbeginselen van U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [Naslaginformatie over de U-SQL-taal](https://msdn.microsoft.com/library/azure/mt591959)
 ### [U-SQL-catalogus](data-lake-analytics-u-sql-catalog.md)
 ### [U-SQL-samenvoegingen](data-lake-analytics-u-sql-combine-data-with-joins.md)
-### [U-SQL-parameters](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [U-SQL-vensterfuncties](data-lake-analytics-use-window-functions.md)
 ### [Door de gebruiker gedefinieerde U-SQL-operators](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [U-SQL-Python-extensies](data-lake-analytics-u-sql-python-extensions.md)
 ### [U-SQL-R-extensies](data-lake-analytics-u-sql-r-extensions.md)
 ### [U-SQL-cognitieve-extensies](data-lake-analytics-u-sql-cognitive.md)
-
-## Oplossingen maken
-### [Websitelogboeken analyseren](data-lake-analytics-analyze-weblogs.md)
-### [Interactieve zelfstudie: logboeken van een website analyseren](data-lake-analytics-use-interactive-tutorials.md)
-
-
-## Beheren
-### [Azure Portal](data-lake-analytics-manage-use-portal.md)
-### [Azure CLI](data-lake-analytics-manage-use-cli.md)
-### [PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [.NET-SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
-### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [Code en gegevens structureren met U-SQL-catalogus](data-lake-analytics-use-u-sql-catalog.md)
+### [Websitelogboeken analyseren](data-lake-analytics-analyze-weblogs.md)
+### [De interactieve zelfstudie voor U-SQL gebruiken](data-lake-analytics-use-interactive-tutorials.md)
 
-## Problemen oplossen
+## Fouten in U-SQL-programma’s opsporen
 ### [Taken controleren en problemen oplossen](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-### [Toegang tot diagnostische logboeken](data-lake-analytics-diagnostic-logs.md)
 ### [Problemen met C#-code opsporen in U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 ### [Job Browser en Job View gebruiken](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Vertex Execution View gebruiken](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
@@ -49,7 +44,6 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
-## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
 ## [REST](/rest/api/datalakeanalytics/)
 ## [CLI 2.0](https://docs.microsoft.com/cli/azure/dla)
 
