@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: marsma
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: e9cfcdd9d6e36c1154b91904da60483825ff8b94
+ms.contentlocale: nl-nl
 ms.lasthandoff: 04/25/2017
 
 ---
@@ -53,7 +54,7 @@ Zie [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.co
 Voeg de volgende **using**-instructies aan het begin van het bestand `Program.cs` toe:
 
 ```csharp
-using Microsoft.Azure; // Namespace for CloudConfigurationManager
+using Microsoft.WindowsAzure; // Namespace for CloudConfigurationManager
 using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
 using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 ```
