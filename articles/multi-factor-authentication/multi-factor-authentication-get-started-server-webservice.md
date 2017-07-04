@@ -39,9 +39,9 @@ Voor de installatie van de gebruikersportal op een andere server dan de Azure Mu
 
 Als u de Microsoft verificator-app wilt gebruiken, is het volgende vereist om de app correct te laten communiceren met de webservice voor mobiele apps:
 
-* Azure Multi-Factor Authentication-server versie&6;.0 of hoger.
+* Azure Multi-Factor Authentication-server versie 6.0 of hoger.
 * De webservice voor mobiele apps moet zijn geïnstalleerd op een internetgerichte webserver waarop Microsoft® [Internet Information Services (IIS) 7.x of hoger](http://www.iis.net/) wordt uitgevoerd.
-* ASP.NET versie&4;.0.30319 moet zijn geïnstalleerd en geregistreerd en zijn ingesteld op Toegestaan.
+* ASP.NET versie 4.0.30319 moet zijn geïnstalleerd en geregistreerd en zijn ingesteld op Toegestaan.
 * Vereiste functieservices omvatten ASP.NET en compatibiliteit met IIS 6-metabase.
 * Webservice voor mobiele apps moet toegankelijk zijn via een openbare URL.
 * Webservice voor mobiele apps moet met een SSL-certificaat zijn beveiligd.
