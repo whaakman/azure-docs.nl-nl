@@ -1,14 +1,14 @@
 ---
 title: 'Azure Cosmos DB: een web-app ontwikkelen met .NET en de MongoDB-API | Microsoft-documenten'
 description: "Biedt een voorbeeld van .NET-code die u kunt gebruiken om verbinding te maken met de MongoDB-API van Azure Cosmos DB en er query’s op uit te voeren"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 68dccb429a9214e62daad9c161ffb8ad2a7b9a0b
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: b95afa4dd3cd264ea911c7aa809c7862f9576da8
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -34,13 +34,14 @@ Deze Quick Start laat zien hoe u een Azure Cosmos DB-account, een documentdataba
 Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+<a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/cosmosdb-create-dbaccount-mongodb.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
-We gaan nu een MongoDB API-app klonen vanaf github, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
+We gaan nu een MongoDB API-app klonen vanaf GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
 
 1. Open een venster in een git-terminal zoals git bash en `cd` naar een werkmap.  
 
@@ -122,7 +123,7 @@ U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicati
 
 ## <a name="review-slas-in-the-azure-portal"></a>SLA’s bekijken in Azure Portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -136,6 +137,6 @@ Als u deze app niet verder gaat gebruiken, kunt u alle resources verwijderen die
 In deze Quick Start hebt u geleerd hoe een Azure Cosmos DB-account kunt maken en een web-app kunt uitvoeren met de API voor MongoDB. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren. 
 
 > [!div class="nextstepaction"]
-> [Gegevens importeren in Azure Cosmos DB voor de MongoDB-API](../documentdb/documentdb-mongodb-migrate.md)
+> [Gegevens importeren in Azure Cosmos DB voor de MongoDB-API](mongodb-migrate.md)
 
 

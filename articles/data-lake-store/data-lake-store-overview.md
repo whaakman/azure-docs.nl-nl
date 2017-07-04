@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
+ms.contentlocale: nl-nl
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -55,7 +57,7 @@ In Azure Data Lake Store kunnen alle gegevens worden opgeslagen in de oorspronke
 
 Containers voor gegevens van Azure Data Lake Store zijn eigenlijk mappen en bestanden. U werkt met de opgeslagen gegevens met behulp van SDK's, Azure Portal en Azure Powershell. Als u uw gegevens in het archief plaats via deze interfaces en de juiste containers gebruikt, kunt u allerlei soorten gegevens opslaan. Data Lake Store voert geen speciale verwerking van gegevens uit op basis van het type gegevens dat wordt opgeslagen.
 
-## <a name="a-namedatalakestoresecurityasecuring-data-in-azure-data-lake-store"></a><a name="DataLakeStoreSecurity"></a>Gegevens beveiligen in Azure Data Lake Store
+## <a name="DataLakeStoreSecurity"></a>Gegevens beveiligen in Azure Data Lake Store
 Azure Data Lake Store maakt gebruik van Azure Active Directory voor verificatie en toegangsbeheerlijsten (ACL’s) om toegang tot uw gegevens te beheren.
 
 | Functie | Beschrijving |
@@ -101,10 +103,5 @@ Als u liever video's bekijkt voor meer informatie, biedt Data Lake Store video's
 * [Apache Sqoop gebruiken om gegevens te verplaatsen tussen relationele bronnen en Azure Data Lake Store](https://mix.office.com/watch/1butcdjxmu114)
 * [Organisatie van gegevens met behulp van Azure Data Factory voor Azure Data Lake Store](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Gegevens beveiligen in Azure Data Lake Store](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

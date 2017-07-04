@@ -1,31 +1,31 @@
 ---
 title: 'Azure Cosmos DB: een console-app ontwikkelen met Java en de MongoDB-API | Microsoft Docs'
 description: "Biedt een voorbeeld van Java-code dat u kunt gebruiken om verbinding te maken met de MongoDB-API van Azure Cosmos DB en er query’s op uit te voeren"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: java
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 22bce387c2b33759c1b83247f253c72fb3132739
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 1683afd842294b3b45ae4d0e53bbecdccadc1ed5
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: een MongoDB-API-console-app ontwikkelen met Java en Azure Portal
 
-Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafen en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
+Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
 Deze Quick Start laat zien hoe u een Azure Cosmos DB-account, een documentdatabase en een verzameling kunt maken met behulp van Azure Portal. U gaat vervolgens een console-app ontwikkelen en implementeren op het [MongoDB Java-stuurprogramma](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
@@ -39,13 +39,13 @@ Deze Quick Start laat zien hoe u een Azure Cosmos DB-account, een documentdataba
 
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
 
-[!INCLUDE [mongodb-create-dbaccount](../../includes/cosmosdb-create-dbaccount-mongodb.md)]
+[!INCLUDE [mongodb-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ## <a name="add-a-collection"></a>Een verzameling toevoegen
 
 Geef uw nieuwe database de naam **db**, en uw nieuwe verzameling **verz**.
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
@@ -92,7 +92,7 @@ Laten we eens kijken wat er precies gebeurt in de app. Open het bestand `Program
 
     ```java
     Document queryResult = collection.find(Filters.eq("fruit", "apple")).first();
-    System.out.println(queryResult.toJson());        
+    System.out.println(queryResult.toJson());       
     ```
 
 ## <a name="update-your-connection-string"></a>Uw verbindingsreeks bijwerken
@@ -109,11 +109,11 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
 2. Voer `mvn exec:java -D exec.mainClass=GetStarted.Program` uit op een terminal om uw Java-toepassing te starten.
 
-U kunt nu [Robomongo](../documentdb/documentdb-mongodb-robomongo.md) / [Studio 3T](../documentdb/documentdb-mongodb-mongochef.md) gebruiken om query’s op deze nieuwe gegevens uit te voeren, ze te wijzigen en er op een ander manier mee te werken.
+U kunt nu [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mongochef.md) gebruiken om query’s op deze nieuwe gegevens uit te voeren, ze te wijzigen en er op een ander manier mee te werken.
 
 ## <a name="review-slas-in-the-azure-portal"></a>SLA’s bekijken in Azure Portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -127,7 +127,7 @@ Als u deze app niet verder gaat gebruiken, kunt u alle resources verwijderen die
 In deze Quick Start hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken, hoe u een verzameling kunt maken met Data Explorer en hebt u een console-app uitgevoerd. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren. 
 
 > [!div class="nextstepaction"]
-> [MongoDB-gegevens importeren in Azure Cosmos DB](../documentdb/documentdb-mongodb-migrate.md)
+> [MongoDB-gegevens importeren in Azure Cosmos DB](mongodb-migrate.md)
 
 
 
