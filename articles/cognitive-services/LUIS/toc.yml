@@ -1,79 +1,79 @@
-- name: LUIS-documentatie
+- name: LUIS Documentation
   href: ../index.md
-- name: Overzicht
+- name: Overview
   items: 
-  - name: Meer informatie over de Language Understanding Intelligent Service
+  - name: Learn about Language Understanding Intelligent Service
     href: Home.md
-- name: Snelstartgidsen
+- name: Quickstarts
   expanded: true
   items: 
-  - name: Een nieuwe app maken
+  - name: Create a new app
     href: luis-get-started-create-app.md
-- name: Zelfstudies
+- name: Tutorials
   items: 
-  - name: LUIS integreren met een bot met behulp van Node.js
+  - name: Integrate LUIS with a bot using Node.js
     href: luis-nodejs-tutorial-build-bot-framework-sample.md
-- name: Concepten
+- name: Concepts
   items: 
   - name: Intents
     href: luis-concept-intent.md
-  - name: Entiteiten
+  - name: Entities
     href: luis-concept-entity-types.md
   - name: Utterances
     href: luis-concept-utterance.md
-  - name: Functies
+  - name: Features
     href: luis-concept-feature.md
-  - name: Ondersteuning voor meerdere talen
+  - name: Support for multiple languages
     href: luis-concept-language-support.md
-- name: Handleidingen
+- name: How-to guides
   items: 
-  - name: Uw app plannen
+  - name: Plan your app
     href: Plan-your-app.md
-  - name: Een LUIS-app bouwen
+  - name: Build a LUIS app
     items: 
-    - name: Een nieuwe app starten
+    - name: Start a new app
       href: Create-new-app.md
-    - name: Intents toevoegen
+    - name: Add intents
       href: Add-intents.md
-    - name: Utterances toevoegen
+    - name: Add utterances
       href: Add-example-utterances.md
-    - name: Entiteiten toevoegen
+    - name: Add entities
       href: Add-entities.md
-    - name: Prestaties verbeteren met behulp van functies
+    - name: Improve performance using features
       href: Add-Features.md
-    - name: De app trainen en testen
+    - name: Train and test the app
       href: Train-Test.md
-    - name: Actief leren gebruiken
+    - name: Use active learning
       href: Label-Suggested-Utterances.md
-    - name: Uw app publiceren
+    - name: Publish your app
       href: PublishApp.md
-  - name: Vooraf gemaakte modellen
+  - name: Prebuilt models
     items: 
-    - name: Vooraf gemaakte entiteiten gebruiken
+    - name: Use prebuilt entities
       href: Pre-builtEntities.md
-    - name: Vooraf gemaakte domeinen gebruiken
+    - name: Use prebuilt domains
       href: luis-how-to-use-prebuilt-domains.md
-    - name: De vooraf gemaakte Cortana-app gebruiken
+    - name: Use the Cortana prebuilt app
       href: Cortana-Prebuilt-App.md
-  - name: Uw LUIS-app beheren
+  - name: Manage your LUIS app
     items: 
-    - name: Uw app bewaken met behulp van het dashboard
+    - name: Monitor your app using the dashboard
       href: App-Dashboard.md
-    - name: Sleutels beheren
+    - name: Manage keys
       href: Manage-Keys.md
-    - name: Abonnementssleutels maken
+    - name: Create subscription keys
       href: AzureIbizaSubscription.md
-    - name: Versies beheren
+    - name: Manage versions
       href: luis-how-to-manage-versions.md
-    - name: Samenwerken aan een LUIS-app
+    - name: Collaborate on a LUIS app
       href: luis-how-to-collaborate.md    
-- name: Naslaginformatie
+- name: Reference
   items: 
-  - name: API's ontwerpen
+  - name: Authoring APIs
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
-  - name: Eindpunt-API
+  - name: Endpoint API
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78      
-  - name: SDK's
+  - name: SDKs
     items:
     - name: Android
       href: https://github.com/Microsoft/Cognitive-LUIS-Android
@@ -85,5 +85,7 @@
       href: https://github.com/Microsoft/Cognitive-LUIS-Windows
 - name: Resources
   items: 
-  - name: Veelgestelde vragen over LUIS
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: LUIS FAQ
     href: luis-resources-faq.md
