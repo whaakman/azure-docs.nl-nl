@@ -1,11 +1,14 @@
 # Overzicht
 ## [Wat is Azure Analysis Services?](analysis-services-overview.md)
 ## [Ondersteunde gegevensbronnen](analysis-services-datasource.md)
+## [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md)
 
 # Snelstartgidsen
 ## [Een server maken - portal](analysis-services-create-server.md)
 ## [Een model implementeren - SSDT](analysis-services-deploy.md)
 
+# Voorbeelden
+## [Analysis Services-voorbeelden op GitHub](https://github.com/Microsoft/Analysis-Services)
 
 # Zelfstudies
 ## Een model maken en implementeren
@@ -29,9 +32,9 @@
 
 # Uitleg 
 ## [Een server beheren](analysis-services-manage.md)
-## [Gebruikers beheren](analysis-services-manage-users.md)
+## [Databasegebruikers beheren](analysis-services-database-users.md)
+## [Serverbeheerders beheren](analysis-services-server-admins.md)
 ## [De on-premises gegevensgateway integreren](analysis-services-gateway.md)
-## [Verbinding maken met servers](analysis-services-connect.md)
 ## [Verbinden met Excel](analysis-services-connect-excel.md)
 ## [Verbinden met Power BI](analysis-services-connect-pbi.md)
 ## [Clientbibliotheken ophalen](analysis-services-data-providers.md)
@@ -44,13 +47,15 @@
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
+## [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # Resources
 ## [Blog van Analysis Services-team](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
-## [Feedback](https://feedback.azure.com/forums/556165-azure-analysis-services)
-## [StackOverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
-## [Prijzen](https://azure.microsoft.com/pricing/details/analysis-services/)
-## [Video's](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Status van Azure](https://azure.microsoft.com/status/)
+## [Feedback](https://feedback.azure.com/forums/556165-azure-analysis-services)
+## [Prijzen](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [StackOverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
+## [Video's](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 

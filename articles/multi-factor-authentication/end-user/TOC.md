@@ -14,8 +14,5 @@
 ### [Aanmelden via uw telefoon](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Veelgestelde vragen](microsoft-authenticator-app-faq.md)
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)

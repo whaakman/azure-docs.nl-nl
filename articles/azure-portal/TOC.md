@@ -32,7 +32,8 @@
 ## [Voorbeelden om snel aan de slag te gaan met Azure Insights PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
 ## [Voorbeelden om snel aan de slag te gaan met Azure Insights CLI](../monitoring-and-diagnostics/insights-cli-samples.md)
 
-# Bronnen
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-management-portal)
 

@@ -70,7 +70,8 @@
 ### [Portal gebruiken voor het toewijzen van beleid](resource-manager-policy-portal.md)
 ### [Scripts gebruiken voor het toewijzen van beleid](resource-manager-policy-create-assign.md)
 ### Voorbeelden
-#### [Resourcetags](resource-manager-policy-tags.md)
+#### [Tags](resource-manager-policy-tags.md)
+#### [Naamconventies](resource-manager-policy-naming-convention.md)
 #### [Storage](resource-manager-policy-storage.md)
 #### [Linux-VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Windows-VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -119,8 +120,9 @@
 ## [REST](/rest/api/resources/)
 
 # Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+## [Service-updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Beperkingsaanvragen](resource-manager-request-limits.md)
 ## [Asynchrone bewerkingen bijhouden](resource-manager-async-operations.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
-## [Service-updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)

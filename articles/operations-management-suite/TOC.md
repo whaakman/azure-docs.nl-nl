@@ -36,6 +36,7 @@
 ### Inzicht en analyse
 #### [AD-evaluatie](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD-replicatiestatus](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [Status van agent](oms-solution-agenthealth.md)
 #### [Waarschuwingsbeheer](../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Azure Networking Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Containers](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -73,3 +74,5 @@
 # Naslaginformatie
 ## [SDK](operations-management-suite-sdk.md)
 
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)

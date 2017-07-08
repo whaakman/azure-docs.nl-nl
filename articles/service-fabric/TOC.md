@@ -2,11 +2,11 @@
 # Overzicht
 ## [Wat is Service Fabric?](service-fabric-overview.md)
 ## [Uitleg over microservices](service-fabric-overview-microservices.md)
+## [Grote afbeelding](service-fabric-content-roadmap.md)
 ## [Toepassingsscenario's](service-fabric-application-scenarios.md)
 ## [Patronen en scenario's](service-fabric-patterns-and-scenarios.md)
 ## [Architectuur](service-fabric-architecture.md)
 ## [Terminologie](service-fabric-technical-overview.md)
-## [Inleiding](service-fabric-content-roadmap.md)
 
 # Aan de slag
 ## De ontwikkelomgeving instellen
@@ -131,6 +131,10 @@
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
+### Integreren met API Management
+#### [Overzicht](service-fabric-api-management-overview.md)
+#### [Snel starten](service-fabric-api-management-quick-start.md)
+
 ### Migreren uit Cloud Services
 #### [Cloud Services vergelijken met Service Fabric](service-fabric-cloud-services-migration-differences.md)
 #### [Migreren naar Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -142,6 +146,7 @@
 ### [Meer informatie over de instelling ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Toepassingen implementeren of verwijderen
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient-API's](service-fabric-deploy-remove-applications-fabricclient.md)
 ### Een upgrade van een app uitvoeren
@@ -215,7 +220,8 @@
 ### [Een cluster visualiseren](service-fabric-visualizing-your-cluster.md)
 ### [Verbinding maken met een beveiligde cluster](service-fabric-connect-to-secure-cluster.md)
 
-### [Een cluster beheren met Azure CLI](service-fabric-azure-cli.md)
+### [Een cluster beheren met XPlat CLI](service-fabric-azure-cli.md)
+### [Een cluster beheren met Azure CLI 2.0-opdrachten](service-fabric-azure-cli-2-0.md)
 ### [Patch uitvoeren voor clusterknooppunten](service-fabric-patch-orchestration-application.md)
 
 ### Clusterbronnen beheren en organiseren
@@ -258,18 +264,19 @@
 
 # Naslaginformatie
 ## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
-## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
+## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Azure-CLI](/cli/azure/sf)
 ## [Java-API](/java/api/overview/azure/servicefabric)
 ## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 
 # Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Veelgestelde vragen over Service Fabric](service-fabric-common-questions.md)
-## [Ondersteuningsopties voor Service Fabric](service-fabric-support.md)
-## [Voorbeeldcode](http://aka.ms/servicefabricsamples)
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
-## [Prijzen](https://azure.microsoft.com/pricing/details/service-fabric/)
-## [Service-updates](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
+## [Prijzen](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Voorbeeldcode](http://aka.ms/servicefabricsamples)
+## [Ondersteuningsopties voor Service Fabric](service-fabric-support.md)
+## [Service-updates](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)

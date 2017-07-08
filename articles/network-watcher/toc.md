@@ -69,9 +69,10 @@
 ## [Virtueel netwerk](/azure/virtual-network/)
 ## [Virtuele machines](/azure/virtual-machines/)
 ## [VPN Gateway](/azure/vpn-gateway/)
-# Bronnen
-## [Prijzen](https://azure.microsoft.com/pricing/details/network-watcher/)
-## [SLA](https://azure.microsoft.com/support/legal/sla/)
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/network-watcher)
+## [Prijzen](https://azure.microsoft.com/pricing/details/network-watcher/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=network-watcher)
+## [SLA](https://azure.microsoft.com/support/legal/sla/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/network-watcher)

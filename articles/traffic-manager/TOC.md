@@ -40,11 +40,12 @@
 ## [Load Balancer](/azure/load-balancer/)
 ## [Azure DNS](/azure/dns/)
 
-# Bronnen
-## [Prijzen](https://azure.microsoft.com/pricing/details/traffic-manager/)
-## [SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
-## [Servicelimieten](../azure-subscription-service-limits.md#traffic-manager-limits)
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Prijzen](https://azure.microsoft.com/pricing/details/traffic-manager/)
+## [Servicelimieten](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=traffic-manager)
+## [SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
 ## [Video's](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)

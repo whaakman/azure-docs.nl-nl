@@ -1,10 +1,9 @@
 # Overzicht
 ## [Wat is Azure Active Directory?](active-directory-whatis.md)
-## [Editie kiezen](active-directory-editions.md)
+## [Een editie kiezen](active-directory-editions.md)
 ## [Over Azure-identiteitsbeheer](identity-fundamentals.md)
 ## [Inzicht krijgen in Azure-identiteitsoplossingen](understand-azure-identity-solutions.md)
-## [Een voorbeeld bekijken van de Azure Portal ervaring](active-directory-preview-explainer.md)
-
+## [Een hybride identiteitsoplossing kiezen](choose-hybrid-identity-solution.md)
 
 # Aan de slag
 ## [Een Azure AD-tenant verkrijgen](active-directory-howto-tenant.md)
@@ -13,14 +12,16 @@
 ## Azure AD-licenties beheren
 ### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
 ### [Klassieke portal](active-directory-licensing-what-is.md)
-## [Azure kopen voor uw organisatie](sign-up-organization.md)
+### [Licenties toewijzen met behulp van groepen](active-directory-licensing-whatis-azure-portal.md)
+#### [Licenties toewijzen aan een groep](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Licentieproblemen in een groep vaststellen en oplossen](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
+#### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
+#### [PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
 ## [Veelgestelde vragen](active-directory-faq.md)
 ## [Ondersteuning voor Azure Active Directory verkrijgen](active-directory-troubleshooting-support-howto.md)
 ## [Zelfstudies voor SaaS-app-integratie](active-directory-saas-tutorial-list.md)
-## Azure AD-besturingselementen
-### [Toegangsbeoordeling voltooien](active-directory-azure-ad-controls-complete-an-access-review.md)
-### [Toegangsbeoordeling maken](active-directory-azure-ad-controls-create-an-access-review.md)
-### [Een toegangscontrole uitvoeren](active-directory-azure-ad-controls-perform-an-access-review.md)
+
 
 
 # Procedures
@@ -53,9 +54,7 @@
 ### Gebruikers toevoegen
 #### [Azure Portal](active-directory-users-create-azure-portal.md)
 #### [Klassieke portal](active-directory-create-users.md)
-### Azure AD-besturingselementen
-#### [Toegang voor gasten met toegangsbeoordelingen](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-#### [Gebruikerstoegang met beoordelingen beheren](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
+
 
 ### [Licenties toewijzen met behulp van groepen](active-directory-licensing-whatis-azure-portal.md)
 #### [Licenties toewijzen aan een groep](active-directory-licensing-group-assignment-azure-portal.md)
@@ -106,11 +105,13 @@
 ### [Gebruikers die risico lopen](active-directory-reporting-security-user-at-risk.md)
 ### [Riskante aanmeldingen](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risicogebeurtenissen](active-directory-reporting-risk-events.md)
-### [Benoemde locaties](active-directory-named-locations.md)
-### [Rapporten migreren](active-directory-reporting-migration.md)
 ### [Retentie](active-directory-reporting-retention.md)
 ### [Wachttijden](active-directory-reporting-latencies-azure-portal.md)
 ### [Veelgestelde vragen](active-directory-reporting-faq.md)
+### Taken
+#### [Benoemde locaties configureren](active-directory-named-locations.md)
+#### [Activiteitenrapporten vinden](active-directory-reporting-migration.md)
+#### [Het Power BI-inhoudspakket van Azure Active Directory gebruiken](active-directory-reporting-power-bi-content-pack-how-to.md)  
 ### Problemen oplossen
 #### [Ontbrekende controlegegevens](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Ontbrekende gegevens in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -188,8 +189,7 @@
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Registerinstellingen bijwerken](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Meer informatie over beveiliging en privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
-### Azure AD-besturingselementen
-####[Programma's en hun besturingselementen beheren](active-directory-azure-ad-controls-manage-programs-and-controls.md)
+
 
 ### [Toegang tot apps op afstand via App Proxy](active-directory-application-proxy-get-started.md)
 #### Aan de slag
@@ -215,6 +215,7 @@
 ##### [Systeemeigen client-apps](active-directory-application-proxy-native-client.md)
 ##### [Stille installatie](active-directory-application-proxy-silent-installation.md)
 ##### [Aangepaste startpagina](application-proxy-office365-app-launcher.md)
+##### [Inlinelinks vertalen](application-proxy-link-translation.md)
 #### Publicatie-overzicht
 ##### [Extern bureaublad](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
@@ -399,9 +400,10 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
 # Resources
-## [Prijzen](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Azure-feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+## [Prijzen](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Service-updates](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
-## [Service-updates](https://azure.microsoft.com/updates/?product=active-directory)
-## [Azure-feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)

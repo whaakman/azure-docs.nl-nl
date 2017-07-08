@@ -63,9 +63,10 @@
 ## [Virtuele machines](/azure/virtual-machines/)
 ## [Load balancer](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
-# Bronnen
-## [Prijzen](https://azure.microsoft.com/pricing/details/application-gateway/)
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)
+## [Prijzen](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)

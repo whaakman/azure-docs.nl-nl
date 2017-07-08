@@ -27,11 +27,12 @@
 ## [Concepten van ontwikkelaars](data-catalog-developer-concepts.md)
 ## [Voorbeelden voor ontwikkelaars](data-catalog-samples.md)
 
-# Bronnen
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Sneltoetsen voor Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
-## [Terminologie](data-catalog-terminology.md)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
+## [Prijzen](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [Releaseopmerkingen](data-catalog-whats-new.md)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=data-catalog)
-## [Prijzen](https://azure.microsoft.com/pricing/details/data-catalog/)
-## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
+## [Terminologie](data-catalog-terminology.md)

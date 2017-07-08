@@ -26,3 +26,5 @@
 # Verwant
 ## [Azure Active Directory](/azure/active-directory/)
 ## [Op rollen gebaseerd toegangsbeheer](../role-based-access-control-what-is.md)
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)

@@ -5,6 +5,7 @@
 ## [Een omgeving maken](time-series-insights-get-started.md)
 ## [Gegevenstoegang verlenen](time-series-insights-data-access.md)
 ## [Een gebeurtenisbron maken](time-series-insights-add-event-source.md)
+## [Een referentiegegevensset maken](time-series-insights-add-reference-data-set.md)
 ## [Gebeurtenissen verzenden](time-series-insights-send-events.md)
 
 # Procedures
@@ -15,6 +16,7 @@
 ## Ontwikkelen
 ### [Verificatie en autorisatie](time-series-insights-authentication-and-authorization.md)
 ### [Gegevens opvragen met C#](time-series-insights-query-data-csharp.md)
+### [Referentiegegevens beheren met C#](time-series-insights-manage-reference-data-csharp.md)
 
 # Naslaginformatie
 ## [Query-API](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
@@ -26,4 +28,5 @@
 ## [Azure Stream Analytics](/azure/stream-analytics/)
 
 # Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/time-series-insights/)

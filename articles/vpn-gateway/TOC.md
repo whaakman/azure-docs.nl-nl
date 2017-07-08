@@ -63,6 +63,10 @@
 ## [Gateway-SKU's (oud)](vpn-gateway-about-skus-legacy.md)
 ## Problemen oplossen
 ### [VPN-doorvoer naar een VNet valideren](vpn-gateway-validate-throughput-to-vnet.md)
+### [Door de community voorgestelde VPN- of firewallinstellingen voor apparaten](vpn-gateway-third-party-settings.md)
+### [Probleem met het verbindingstype punt-naar-site](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+### [Site-naar-Site-verbinding wordt herhaaldelijk verbroken](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
+### [Kan geen Site-naar-Site-verbinding maken](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
 
 # Naslaginformatie
 ## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
@@ -80,6 +84,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking)
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/vpn-gateway)

@@ -8,7 +8,7 @@
 
 # Procedures
 ## [Azure AD Connect Health-Agent installeren](active-directory-aadconnect-health-agent-install.md)
-## [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md) (Azure AD Connect Health-bewerkingen)
+## [Azure AD Connect Health-bewerkingen](active-directory-aadconnect-health-operations.md)
 ## [Fouten tijdens synchronisatie](../active-directory-aadconnect-troubleshoot-sync-errors.md)
 
 # Naslaginformatie
@@ -20,10 +20,6 @@
 ## [Ontwerphandleiding voor hybride identiteit](../active-directory-hybrid-identity-design-considerations-overview.md)
 
 # Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ##[Veelgestelde vragen over Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

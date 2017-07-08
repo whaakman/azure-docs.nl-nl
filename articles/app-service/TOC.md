@@ -146,14 +146,15 @@
 ### [Streaminglogboekbestanden en de console](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Problemen met behulp van Visual Studio oplossen](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-# Bronnen
-## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
+# Resources
 ## [Naslaginformatie voor App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Aanbevolen procedures](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
+## [Prijzen](https://azure.microsoft.com/pricing/details/app-service/)  
+## [REST](https://docs.microsoft.com/rest/api/appservice/)
+## [Service-updates](https://azure.microsoft.com/updates/?product=app-service) 
+## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
 ## [Resources voor WebJobs](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
-## [REST](https://docs.microsoft.com/rest/api/appservice/)
-## [Prijzen](https://azure.microsoft.com/pricing/details/app-service/)  
-## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
-## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
-## [Service-updates](https://azure.microsoft.com/updates/?product=app-service) 

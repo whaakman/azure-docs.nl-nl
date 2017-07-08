@@ -139,11 +139,12 @@
 ## [Systeemweergaven T-SQL](sql-data-warehouse-reference-tsql-system-views.md)
 ## [PowerShell-cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
 
-# Bronnen
-## [Prijzen](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
-## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
-## [Service-updates](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Prijzen](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [Service-updates](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Partners

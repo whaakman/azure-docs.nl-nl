@@ -77,7 +77,8 @@
 ## [Storage REST](/rest/api/storageservices)
 
 
-# Bronnen
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [Regionale beschikbaarheid](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

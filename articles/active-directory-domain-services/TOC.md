@@ -7,10 +7,10 @@
 ## [Compatibele software van derden](active-directory-ds-compatible-software.md)
 
 # Aan de slag
-## [Beheergroepen maken](active-directory-ds-getting-started.md)
+## [Beheergroepen maken](active-directory-ds-getting-started-create-group.md)
 ## [Virtuele netwerken maken of selecteren](active-directory-ds-getting-started-vnet.md)
 ## [Azure AD DS inschakelen](active-directory-ds-getting-started-enableaadds.md)
-## [DNS-instellingen bijwerken](active-directory-ds-getting-started-dns.md)
+## [DNS-instellingen bijwerken](active-directory-ds-getting-started-update-dns.md)
 ## Wachtwoordsynchronisatie inschakelen
 ### [Alleen cloud-tenant](active-directory-ds-getting-started-password-sync.md)
 ### [Gesynchroniseerde tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
@@ -41,12 +41,8 @@
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 # Resources
-## [Prijzen](https://azure.microsoft.com/pricing/details/active-directory-ds/)
 ## [Azure AD-feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)
-## [Service-updates](https://azure.microsoft.com/updates/?product=active-directory-ds)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Contact opnemen](active-directory-ds-contact-us.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+## [Prijzen](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [Service-updates](https://azure.microsoft.com/updates/?product=active-directory-ds)

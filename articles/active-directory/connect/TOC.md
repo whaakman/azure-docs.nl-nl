@@ -104,6 +104,7 @@
 ## [Ontwerphandleiding voor hybride identiteit](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
 
 
-# Bronnen
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ##[Veelgestelde vragen over Azure AD Connect](active-directory-aadconnect-faq.md)
 ##[Afschaffing van DirSync](active-directory-aadconnect-dirsync-deprecated.md)

@@ -45,7 +45,7 @@
 ## [Logboekanalyse voor Azure Load Balancer](load-balancer-monitor-log.md)
 ## [DHCPv6 configureren voor Linux-VM's](load-balancer-ipv6-for-linux.md)
 ## Problemen oplossen
-### [Troubleshoot Azure Load Balancer](load-balancer-troubleshoot.md) (Problemen met Azure Load Balancer oplossen)
+### [Problemen met Azure Load Balancer oplossen](load-balancer-troubleshoot.md)
 
 # Naslaginformatie
 ## [PowerShell](/powershell/module/azurerm.network)
@@ -66,6 +66,7 @@
 ## [Traffic Manager](/azure/traffic-manager/)
 ## [DNS](/azure/dns/)
 
-# Bronnen
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/load-balancer/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=load-balancer)

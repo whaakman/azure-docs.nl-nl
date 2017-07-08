@@ -113,9 +113,10 @@
 ### [Beveiligingshandleiding ](storage-security-guide.md)
 ### [Versleuteling van data-at-rest](storage-service-encryption.md)
 ### [Versleuteling 'at rest' met sleutels van de klant](storage-service-encryption-customer-managed-keys.md)
-### [Gedeelde sleutelverificatie](https://msdn.microsoft.com/library/dd179428.aspx)
+### [Gedeelde sleutelverificatie](/rest/api/storageservices/Authentication-for-the-Azure-Storage-Services)
 ### [Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Zelfstudie: Blobs versleutelen en ontsleutelen met Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
+### [Veilige overdracht vereisen](storage-require-secure-transfer.md)
 ### Clientversleuteling
 #### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
@@ -200,12 +201,13 @@
 ### [Controleren, problemen vaststellen en problemen oplossen](storage-monitoring-diagnosing-troubleshooting-classic-portal.md)
 ### [Zelfstudie voor problemen oplossen](storage-e2e-troubleshooting-classic-portal.md)
 
-# Bronnen
-## [Prijzen](https://azure.microsoft.com/pricing/details/storage/blobs/)
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Azure Storage-clienthulpprogramma's](storage-explorers.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+## [Prijzen](https://azure.microsoft.com/pricing/details/storage/blobs/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=storage)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=storage)
 
 ## Azure Opslagverkenner

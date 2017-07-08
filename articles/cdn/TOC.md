@@ -10,7 +10,11 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Cross-origin-resources delen](cdn-cors.md)
-
+## Inhoud optimaliseren
+### [Optimalisatieoverzicht](cdn-optimization-overview.md)
+####[Optimalisatie van grote bestanden](cdn-large-file-optimization.md)
+####[Optimalisatie van mediastreaming](cdn-media-streaming-optimization.md)
+ 
 ## Beheren
 ### [HTTPS op een aangepast domein inschakelen](cdn-custom-ssl.md)
 ### [Beheren met PowerShell](cdn-manage-powershell.md)
@@ -54,12 +58,13 @@
 
 # Resources
 ##  [Verwijzing regelengine](cdn-rules-engine-reference.md)
-### [Voorwaardelijke expressies regelengine](cdn-rules-engine-reference-conditional-expressions.md)
-### [Criteria voor overeenkomst regelengine](cdn-rules-engine-reference-match-conditions.md)
-### [Functies regelengine](cdn-rules-engine-reference-features.md)
 ## [POP-locaties Azure CDN](cdn-pop-locations.md)
-## [Service-updates](https://azure.microsoft.com/updates/?product=cdn)
-## [Prijzen](https://azure.microsoft.com/pricing/details/cdn/)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
+## [Prijzen](https://azure.microsoft.com/pricing/details/cdn/)
+## [Service-updates](https://azure.microsoft.com/updates/?product=cdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
+### [Voorwaardelijke expressies regelengine](cdn-rules-engine-reference-conditional-expressions.md)
+### [Functies regelengine](cdn-rules-engine-reference-features.md)
+### [Criteria voor overeenkomst regelengine](cdn-rules-engine-reference-match-conditions.md)

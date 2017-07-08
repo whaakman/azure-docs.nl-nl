@@ -74,6 +74,8 @@
        href: functions-test-a-function.md
      - name: Lokaal ontwikkelen en fouten opsporen
        href: functions-run-local.md
+     - name: Ontwikkelen in Visual Studio
+       href: functions-develop-vs.md
   - name: Implementeren
     items:
     - name: Doorlopende implementatie
@@ -100,7 +102,7 @@
       href: functions-bindings-storage-blob.md
     - name: Cosmos DB
       href: functions-bindings-documentdb.md
-    - name: Event Hub
+    - name: Event Hubs
       href: functions-bindings-event-hubs.md
     - name: Extern bestand
       href: functions-bindings-external-file.md
@@ -126,6 +128,8 @@
     href: functions-api-definition.md     
 - name: Resources
   items:
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Prijzen
     href: https://azure.microsoft.com/pricing/details/functions/
   - name: Regionale beschikbaarheid

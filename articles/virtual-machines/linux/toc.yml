@@ -37,7 +37,7 @@
     href: tutorial-monitoring.md
   - name: 11 - Beveiliging van virtuele machines beheren
     href: tutorial-azure-security.md
-  - name: 12 - Jenkins CI/CD
+  - name: 12 - Jenkins implementeren
     href: tutorial-jenkins-github-docker-cicd.md
 - name: Voorbeelden
   items:
@@ -204,6 +204,8 @@
       href: cli-ps-findimage.md
     - name: Aangepaste VM-installatiekopieën maken
       href: create-upload-generic.md
+    - name: Een VHD downloaden
+      href: download-vhd.md
     - name: Aangepaste VM-installatiekopieën uploaden
       href: upload-vhd.md
     - name: Een bestaande virtuele machine in een installatiekopie vastleggen
@@ -331,6 +333,8 @@
       href: install-mongodb.md
     - name: MySQL
       href: mysql-install.md
+    - name: OpenShift
+      href: openshift-get-started.md
     - name: PostgreSQL
       href: postgresql-install.md
     - name: LAMP-stack implementeren
@@ -378,6 +382,8 @@
       href: migration-classic-resource-manager-faq.md
   - name: Problemen oplossen
     items:
+    - name: Linux-VM-wachtwoord opnieuw instellen
+      href: virtual-machines-linux-reset-password.md
     - name: Het opnieuw opstarten van systemen begrijpen
       href: understand-vm-reboot.md
     - name: SSH-verbindingen
@@ -393,6 +399,8 @@
     - name: Toewijzingsfouten
       href: allocation-failure.md
     - name: Implementatieproblemen
+      href: troubleshoot-deploy-vm.md
+    - name: Een virtuele machine maken
       href: troubleshoot-deployment-new-vm.md
     - name: Een virtuele machine opnieuw implementeren naar een nieuw Azure-knooppunt
       href: redeploy-to-new-node.md
@@ -424,6 +432,8 @@
   items:
   - name: Auteursjablonen
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Communitysjablonen
     href: https://azure.microsoft.com/documentation/templates
   - name: Prijzen

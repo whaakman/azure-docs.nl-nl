@@ -24,8 +24,9 @@
 
 ## [Container Service](/azure/container-service/)
 
-# Bronnen
-## [Beschikbaarheid in regio's](https://azure.microsoft.com/regions/services/)
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/container-registry/)
+## [Beschikbaarheid in regio’s](https://azure.microsoft.com/regions/services/)
 ## [Service-updates](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-container-registry)
