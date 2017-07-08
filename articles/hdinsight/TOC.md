@@ -75,7 +75,7 @@
 ### [Externe pakketten gebruiken met Jupyter-met behulp van scriptacties](hdinsight-apache-spark-python-package-installation.md)
 ### [Een lokaal Jupyter-notitieblok gebruiken](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Externe taken met Livy](hdinsight-apache-spark-livy-rest-interface.md)
-### [Externe foutenopsporing voor taken met IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+### [Externe foutenopsporing voor taken met IntelliJ via VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Resources beheren](hdinsight-apache-spark-resource-manager.md)
 ### [Taken bijhouden en fouten opsporen](hdinsight-apache-spark-job-debugging.md)
 ### [Bekende problemen](hdinsight-apache-spark-known-issues.md)
@@ -107,6 +107,7 @@
 ## Kafka (preview) gebruiken
 ### [Kafka-gegevens repliceren](hdinsight-apache-kafka-mirroring.md)
 ### [De opslag en schaalbaarheid van Kafka configureren](hdinsight-apache-kafka-scalability.md)
+### [Hoge beschikbaarheid van gegevens configureren](hdinsight-apache-kafka-high-availability.md)
 ### [Gebruiken met Virtual Networks](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [Gebruiken met Spark (Structured Streaming)](hdinsight-apache-kafka-spark-structured-streaming.md)
 ### [Gebruiken met Spark (DStream)](hdinsight-apache-spark-with-kafka.md)
@@ -116,7 +117,7 @@
 ### [Java MapReduce-programma's ontwikkelen](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Scalding MapReduce-taken ontwikkelen](hdinsight-hadoop-mapreduce-scalding.md)
 ### [HDInsight-hulpprogramma's gebruiken om Spark-apps te maken](hdinsight-apache-spark-eclipse-tool-plugin.md)
-### [HDInsight-hulpprogramma's gebruiken om fouten in Spark-apps op afstand op te sporen](hdinsight-apache-spark-intellij-tool-debug-remotely.md)
+### [HDInsight-hulpprogramma's gebruiken om fouten in Spark-apps op afstand op te sporen via SSH](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 ### [Lege edge-knooppunten gebruiken](hdinsight-apps-use-edge-node.md)
 ### [Streaming Python-programma's ontwikkelen](hdinsight-hadoop-streaming-python.md)
 ### [JSON-documenten verwerken en analyseren](hdinsight-using-json-in-hive.md)
@@ -226,7 +227,8 @@
 ### [Clusters bewaken met Ambari-API](hdinsight-monitor-use-ambari-api.md)
 
 # Resources
-## [Microsoft Professional-programma voor Big Data](https://academy.microsoft.com/en-us/professional-program/big-data/)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Hulp op het forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+## [Microsoft Professional-programma voor Big Data](https://academy.microsoft.com/en-us/professional-program/big-data/)
 ## [Windows-hulpprogramma's voor HDInsight](hdinsight-hadoop-windows-tools.md)

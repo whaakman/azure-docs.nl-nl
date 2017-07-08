@@ -91,6 +91,8 @@
 ## [Een Azure Backup-kluis verwijderen](backup-azure-delete-vault.md)
 ## [Op rollen gebaseerd toegangsbeheer](backup-rbac-rs-vault.md)
 ## [Beveiliging voor hybride back-ups](backup-azure-security-feature.md)
+## [Azure Backup-rapporten configureren](backup-azure-configure-reports.md)
+## [Gegevensmodel voor Azure Backup-rapporten](backup-azure-reports-data-model.md)
 ## [Offline back-ups configureren](backup-azure-backup-import-export.md)
 ## [De tapewisselaar vervangen](backup-azure-backup-cloud-as-tape.md)
 ## [Toepassingsconsistente back-ups van virtuele Linux-machines](backup-azure-linux-app-consistent.md)
@@ -100,7 +102,8 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # Resources
-## [Prijzen](https://azure.microsoft.com/pricing/details/backup/)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
-## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=backup)
+## [Prijzen](https://azure.microsoft.com/pricing/details/backup/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=backup)
+## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=backup)

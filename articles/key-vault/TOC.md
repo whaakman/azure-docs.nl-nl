@@ -14,16 +14,18 @@
 ### [Servicelimieten](key-vault-service-limits.md)
 ### [HSM-beveiligde sleutels](key-vault-hsm-protected-keys.md)
 ### [Migreren naar .NET 2.0](key-vault-dotnet2api-release-notes.md)
+### Overzichten
+#### [Overzicht beveiligingsgebieden](key-vault-ovw-security-worlds.md)
+#### [Overzicht van voorlopig verwijderen](key-vault-ovw-soft-delete.md)
+#### [Overzicht van beperking](key-vault-ovw-throttling.md)
 
 ## Beheren
 ### [Logboekregistratie van Azure Key Vault](key-vault-logging.md)
 ### [Toegang achter firewalls](key-vault-access-behind-firewall.md)
 ### [Tenant-id wijzigen](key-vault-subscription-move-fix.md)
+### [Groepen gebruiken om toegang te verlenen](key-vault-group-permissions-for-apps.md)
 ### [Beschikbaarheid en redundantie](key-vault-disaster-recovery-guidance.md)
 ### [Uw Key Vault beveiligen](key-vault-secure-your-key-vault.md)
-### [Overzicht beveiligingsgebieden](key-vault-ovw-security-worlds.md)
-### [Overzicht van voorlopig verwijderen](key-vault-ovw-soft-delete.md)
-### [Overzicht van sleutels van opslagaccount](key-vault-ovw-storage-keys.md)
 
 ## Automatiseren
 ### [Azure Automation](automation-manage-key-vault.md)
@@ -47,7 +49,8 @@
 
 # Resources
 ## [Informatie over sleutels, geheimen en certificaten](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
-## [Codevoorbeelden](https://www.microsoft.com/download/details.aspx?id=45343)
-## [Prijzen](https://azure.microsoft.com/pricing/details/key-vault/)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Blog](http://blogs.technet.com/b/kv/)
+## [Codevoorbeelden](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
+## [Prijzen](https://azure.microsoft.com/pricing/details/key-vault/)

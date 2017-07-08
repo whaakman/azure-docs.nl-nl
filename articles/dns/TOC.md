@@ -61,9 +61,10 @@
 ## [Traffic Manager](/azure/traffic-manager/)
 ## [Web-apps](/azure/app-service-web/)
 
-# Bronnen
-## [Service-updates](https://azure.microsoft.com/updates/?product=dns)
-## [Prijzen](https://azure.microsoft.com/pricing/details/dns/)
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+## [Functieverzoeken](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Netwerkblog](http://azure.microsoft.com/blog/topics/networking)
-## [Functieverzoeken](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
+## [Prijzen](https://azure.microsoft.com/pricing/details/dns/)
+## [Service-updates](https://azure.microsoft.com/updates/?product=dns)

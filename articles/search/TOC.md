@@ -73,21 +73,22 @@
 ## [REST (beheer)](/rest/api/searchmanagement)
 
 # Resources
-## [Service-updates](https://azure.microsoft.com/updates/?product=search)
 ## [API-versies](search-api-versions.md)
-## [Service REST (voorbeeld)](search-api-2015-02-28-preview.md)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/search/)
+## [Service REST (voorbeeld)](search-api-2015-02-28-preview.md)
+## [Service-updates](https://azure.microsoft.com/updates/?product=search)
+## Cursusmateriaal en zelfstudie
 ## Demosites
-### [Search Analyzer-demo](http://alice.unearth.ai/)
+## Partner en community
+### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [Takenlijst-app](http://aka.ms/azjobsdemo)
 ### [Live demo-apps](https://searchsamples.azurewebsites.net/)
-## Cursusmateriaal en zelfstudie
-### [Virtuele academie](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
-### [Video's en zelfstudies](search-video-demo-tutorial-list.md)
-### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-## Partner en community
 ### [Relationele gegevens modelleren](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [Faceting op meerdere niveaus](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
+### [Search Analyzer-demo](http://alice.unearth.ai/)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
-### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Video's en zelfstudies](search-video-demo-tutorial-list.md)
+### [Virtuele academie](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)

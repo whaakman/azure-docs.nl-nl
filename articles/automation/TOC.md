@@ -25,16 +25,17 @@
 ### [Onderliggende runbooks](automation-child-runbooks.md)
 ### [Runbook-uitvoer](automation-runbook-output-and-messages.md)
 ### [Integratie van bronbeheer](automation-source-control-integration.md)
-## Runbooks automatiseren
+## Automatiseren
 ### [Een runbook starten](automation-starting-a-runbook.md)
 ### [Een runbook starten vanuit een webhook](automation-webhooks.md)
-### [Runbooks uitvoeren in uw datacenter](automation-hybrid-runbook-worker.md)
+### [Runbooks uitvoeren op Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
 ### [Invoerparameters voor runbook configureren](automation-runbook-input-parameters.md)
 ### [Foutafhandeling in grafische runbooks](automation-runbook-graphical-error-handling.md)
 ### [Een runbook-taak volgen](automation-runbook-execution.md)
 ### [Runbook-instellingen wijzigen](automation-runbook-settings.md)
 ### [Azure Automation-gegevens beheren](automation-managing-data.md)
 ### [Azure Automation Runbook aanroepen vanuit een Log Analytics-waarschuwing](automation-invoke-runbook-from-omsla-alert.md)
+### [Een JSON-object doorgeven aan een Azure Automation-runbook](automation-pass-json-string.md)
 ## Configuration Management (DSC) implementeren
 ### [Overzicht van Desired State Configuration (DSC)](automation-dsc-overview.md)
 ### [Aan de slag](automation-dsc-getting-started.md)
@@ -42,7 +43,7 @@
 ### [DSC-configuraties compileren](automation-dsc-compile.md)
 ### [Doorlopende implementatie met Chocolatey](automation-dsc-cd-chocolatey.md)
 ### [Azure Automation DSC-rapportagegegevens doorsturen aan OMS Log Analytics](automation-dsc-diagnostics.md)
-## Automatiseringsactiva beheren
+## Assets beheren
 ### [Certificaten](automation-certificates.md)
 ### [Verbindingen](automation-connections.md)
 ### [Referenties](automation-credentials.md)
@@ -50,7 +51,7 @@
 ### [Schema's](automation-schedules.md)
 ### [Variabelen](automation-variables.md)
 ### [Azure PowerShell-modules bijwerken](automation-update-azure-modules.md)
-## Scenario's automatiseren
+## Scenario's
 ### [Runbook-galerie](automation-runbook-gallery.md)
 ### [Een Amazon Web Service-VM maken](automation-scenario-aws-deployment.md)
 ### [Een Azure VM-waarschuwing verhelpen](automation-azure-vm-alert-integration.md)
@@ -58,6 +59,7 @@
 ### [Resourcegroep verwijderen](automation-scenario-remove-resourcegroup.md)
 ### [Bronbeheerintegratie met GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Bronbeheerintegratie met VSTS](automation-scenario-source-control-integration-with-VSTS.md)
+### [Azure Automation Runbook aanroepen vanuit een Log Analytics-waarschuwing](automation-invoke-runbook-from-omsla-alert.md)
 ## Oplossingen
 ### [Tracering wijzigen](../log-analytics/log-analytics-change-tracking.md)
 ### [Updatebeheer](../operations-management-suite/oms-solution-update-management.md)
@@ -78,12 +80,13 @@
 ## [REST](/rest/api/automation)
 ## [REST (klassiek)](https://msdn.microsoft.com/library/azure/mt163781)
 # Resources
-## [Releaseopmerkingen](https://azure.microsoft.com/updates/?product=automation)
-## [Prijzen](https://azure.microsoft.com/pricing/details/automation/)  
+## [Introductievideo over Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
+## [Azure Automation-training](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
+## [Prijzen](https://azure.microsoft.com/pricing/details/automation/)  
+## [Releaseopmerkingen](https://azure.microsoft.com/updates/?product=automation)
+## [Service-updates](https://azure.microsoft.com/updates/?product=automation)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=automation)
-## [Service-updates](https://azure.microsoft.com/updates/?product=automation)
-## [Azure Automation-training](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
-## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/automation/)
-## [Introductievideo over Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)

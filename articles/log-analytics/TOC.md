@@ -56,15 +56,17 @@
 ### [Activity Log Analytics](log-analytics-activity.md)
 ### [AD-evaluatie](log-analytics-ad-assessment.md)
 ### [AD-replicatiestatus](log-analytics-ad-replication-status.md)
+### [Status van agent](../operations-management-suite/oms-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Waarschuwingsbeheer](log-analytics-solution-alert-management.md)
+### [Application Insights-connector](log-analytics-app-insights-connector.md)
 ### [Azure SQL-analyses](log-analytics-azure-sql.md)
 ### [Azure Web Apps-analyse](log-analytics-azure-web-apps-analytics.md)
 ### [Capaciteit en prestaties](log-analytics-capacity.md)
 ### [Tracering wijzigen](log-analytics-change-tracking.md)
 ### [Containers](log-analytics-containers.md)
 ### [Analytische gegevens voor DNS](log-analytics-dns.md)
-### [IT Service Management Connector in OMS](log-analytics-itsmc-overview.md)
-#### [IT Service Management-verbindingen in OMS](log-analytics-itsmc-connections.md)
+### [IT Service Management Connector](log-analytics-itsmc-overview.md)
+#### [IT Service Management-verbindingen](log-analytics-itsmc-connections.md)
 ### [Key Vault](log-analytics-azure-key-vault.md)
 ### Logic Apps B2B-berichten
 #### [Logic Apps B2B-berichtoplossing](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
@@ -89,6 +91,7 @@
 ### [PowerShell-cmdlets](log-analytics-powershell-workspace-configuration.md)
 ### [Resource Manager-sjablonen](log-analytics-template-workspace-configuration.md)
 ### [API voor zoeken in logboeken](log-analytics-log-search-api.md)
+#### [Python](log-analytics-log-search-api-python.md)
 ### [Waarschuwings-API](log-analytics-api-alerts.md)
 
 # Naslaginformatie
@@ -96,6 +99,7 @@
 ## [REST](/rest/api/loganalytics)
 
 # Resources
-## [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=log-analytics)
+## [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)

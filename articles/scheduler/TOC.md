@@ -24,12 +24,13 @@
 ## [PowerShell](/powershell/module/azurerm.scheduler)
 ## [REST](/rest/api/scheduler)
 
-# Bronnen
-## [Prijzen](https://azure.microsoft.com/pricing/details/scheduler/)
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
+## [Prijzen](https://azure.microsoft.com/pricing/details/scheduler/)
+## [Service-updates](https://azure.microsoft.com/updates/?product=scheduler)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
-## [Service-updates](https://azure.microsoft.com/updates/?product=scheduler)
 
 
 

@@ -50,7 +50,8 @@
 ## [IoT Hub](/azure/iot-hub/)
 ## [Machine Learning](/azure/machine-learning/)
 
-# Bronnen
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Veelgestelde vragen](iot-suite-faq.md)
 ## [Leertraject voor IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 

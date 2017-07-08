@@ -1,6 +1,6 @@
 # Overzicht
 ## [Wat is Application Insights?](app-insights-overview.md)
-## [Prestatiebewaking in een DevOps-cyclus](app-insights-detect-triage-diagnose.md)
+## [Overzicht van prestatiebewaking voor DevOps](app-insights-detect-triage-diagnose.md)
 
 # Aan de slag
 ## Azure bewaken
@@ -80,7 +80,6 @@
 #### [Zoeken](app-insights-diagnostic-search.md)
 #### [Metrische gegevens](app-insights-metrics-explorer.md)
 #### [Livestream](app-insights-live-stream.md)
-
 #### [Toepassingskaart](app-insights-app-map.md)
 #### [HockeyApp-gegevens](app-insights-hockeyapp-bridge-app.md)
 
@@ -93,6 +92,7 @@
 ### Gebruik
 #### [Overzicht](app-insights-usage-overview.md)
 #### [Gebruikers, sessies, gebeurtenissen](app-insights-usage-segmentation.md)
+#### [Trechters](app-insights-understand-usage-patterns.md)
 #### [Retentie](app-insights-usage-retention.md)
 #### [Werkmappen](app-insights-usage-workbooks.md)
 
@@ -111,6 +111,7 @@
 ### [Waarschuwingen instellen](app-insights-powershell-alerts.md)
 ### [Azure diagnostics ophalen](app-insights-powershell-azure-diagnostics.md)
 ### [Automatiseren met Microsoft Flow](app-insights-automate-with-flow.md)
+### [Automatiseren met een logische app van Azure](automate-with-logic-apps.md)
 
 ## Ontwikkelen
 
@@ -154,6 +155,7 @@
 ## [Telemetriecorrelatie](application-insights-correlation.md)
 
 # Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 
 ## [Talen en platforms](app-insights-platforms.md)
 

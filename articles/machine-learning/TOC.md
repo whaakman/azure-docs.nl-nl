@@ -193,6 +193,10 @@
 ### [Verzamelingen](machine-learning-gallery-collections.md)
 ### [Aangepaste modules](machine-learning-gallery-custom-modules.md)
 
+## Cortana Intelligence-partneroplossingen
+### [Publicatiehandleiding voor Cortana Intelligence](cortana-intelligence-appsource-publishing-guide.md)
+### [Evaluatieprogramma voor Cortana Intelligence-oplossing](cortana-intelligence-appsource-evaluation-tool.md)
+
 ## Cortana Analytics
 ### API's
 #### [Detectie van afwijkingen](machine-learning-apps-anomaly-detection-api.md)
@@ -206,7 +210,8 @@
 ##### [Playbook](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
 ##### [Instellen](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 
-# Bronnen
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 
 ## [Net# neurale-netwerkentaal](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/machine-learning/)

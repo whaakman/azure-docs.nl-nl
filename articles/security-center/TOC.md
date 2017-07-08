@@ -71,6 +71,7 @@
 ## [Azure Security](/azure/security/)
 
 # Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Blog over veiligheid, privacy en naleving met betrekking tot Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Prijzen](security-center-pricing.md)
 ## [Overzicht van services](https://azure.microsoft.com/services/security-center/)

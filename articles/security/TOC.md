@@ -42,6 +42,7 @@
 #### [Aan de slag met Azure-logboekintegratie](security-azure-log-integration-get-started.md)
 #### [Controlelogboeken van Azure Active Directory integreren](security-azure-log-integration-ad.md)
 #### [Waarschuwingen van Beveiligingscentrum integreren](security-azure-log-integration-security-center.md)
+#### [Logboeken van Key Vault integreren met Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [Veelgestelde vragen](security-azure-log-integration-faq.md)
 
 ## Identiteitsbeheer
@@ -72,9 +73,10 @@
 ## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # Resources
-## [Blog over beveiliging en naleving](http://blogs.msdn.com/b/azuresecurity/)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [MVP-programma voor Azure-beveiliging](azure-security-mvp.md)
 ## [Adviezen voor cyberbeveiliging](azure-security-cyber-services.md)
+## [Blog over beveiliging en naleving](http://blogs.msdn.com/b/azuresecurity/)
 ## [Beveiligingscursussen van Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Beveiligingsvideo's op Kanaal 9](security-channel-nine.md)
 ## [Threat Modeling Tool](azure-security-threat-modeling-tool.md)

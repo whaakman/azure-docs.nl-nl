@@ -64,9 +64,10 @@
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST](/rest/api/notificationhubs)
 
-# Bronnen
-## [Prijzen](https://azure.microsoft.com/pricing/details/notification-hubs/)
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs)
+## [Prijzen](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [Service-updates](https://azure.microsoft.com/updates/?product=notification-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-notificationhub)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)
-## [Service-updates](https://azure.microsoft.com/updates/?product=notification-hubs)
