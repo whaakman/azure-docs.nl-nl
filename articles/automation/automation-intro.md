@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 15456a887aab29ac6c4ee74d15b8b8ef8d3047d3
-ms.openlocfilehash: 4e7488f954ce50298aba0da83ae07f7a0de6a73d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: e37e79f3990d920a656330c4f4c5cf7748183441
+ms.contentlocale: nl-nl
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -50,7 +52,7 @@ Wilt u liever kijken dan lezen? Bekijk de onderstaande video van de Microsoft Ig
 [Azure Automation DSC](automation-dsc-overview.md) is een cloudoplossing voor PowerShell DSC waarmee services worden geboden die zijn vereist voor bedrijfsomgevingen.  U kunt uw DSC-resources in Azure Automation beheren en configuraties toepassen op virtuele of fysieke machines waarmee deze worden opgehaald van een DSC-pull-server in de Azure-cloud.  Het biedt ook rapportageservices waarmee u wordt geïnformeerd over belangrijke gebeurtenissen zoals wanneer knooppunten zijn afgeweken van de toegewezen configuratie en wanneer een nieuwe configuratie is toegepast. 
 
 ## <a name="creating-your-own-dsc-configurations-with-azure-automation"></a>Uw eigen DSC-configuraties maken met Azure Automation
-Met [DSC-configuraties](automation-dsc-overview.md#azure-automation-dsc-terms) wordt de gewenste status van een knooppunt opgeven.  Dezelfde configuratie kan door meerdere knooppunten worden toegepast om ervoor te zorgen dat ze allemaal dezelfde status houden.  U kunt een configuratie maken met een teksteditor op uw lokale machine en deze vervolgens importeren in Azure Automation, waar u deze kunt compileren en op knooppunten kunt toepassen.
+Met [DSC-configuraties](automation-dsc-overview.md) wordt de gewenste status van een knooppunt opgeven.  Dezelfde configuratie kan door meerdere knooppunten worden toegepast om ervoor te zorgen dat ze allemaal dezelfde status houden.  U kunt een configuratie maken met een teksteditor op uw lokale machine en deze vervolgens importeren in Azure Automation, waar u deze kunt compileren en op knooppunten kunt toepassen.
 
 ## <a name="getting-modules-and-configurations"></a>Modules en configuraties ophalen
 U kunt [PowerShell-modules](automation-runbook-gallery.md#modules-in-powershell-gallery) ophalen die cmdlets bevatten die u kunt gebruiken in uw runbooks, en DSC-configuraties uit de [PowerShell-galerie](http://www.powershellgallery.com/). U kunt deze galerie starten vanuit Azure Portal en modules rechtstreeks in Azure Automation importeren, of ze handmatig downloaden en importeren. U kunt de modules niet rechtstreeks installeren vanuit Azure Portal, maar u kunt ze downloaden en installeren zoals u bij elke andere module zou doen. 
@@ -83,10 +85,5 @@ Er zijn verschillende bronnen beschikbaar waar u meer informatie kunt vinden ove
 
 ## <a name="can-i-provide-feedback"></a>Mag ik feedback geven?
 **Ja, feedback is welkom.** Als u een Azure Automation-runbookoplossing of een integratiemodule zoekt, plaatst u een scriptaanvraag in Scriptcentrum. Als u feedback wilt geven of functieaanvragen hebt voor Azure Automation, plaatst u deze op [UserVoice](http://feedback.windowsazure.com/forums/34192--general-feedback). Bedankt! 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 05/08/2017
 ms.author: danlep
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 48b3a3090573718ff5d3ba70e93567e6428ff59b
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 33a1ab822f2900fd51d801f94ad8679fe65ba21f
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -104,7 +104,7 @@ In het volgende voorbeeld wordt één manier getoond om de parameters door te ge
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Optie 2: een service-principal genereren tijdens het maken van het cluster met `az acs create`
 
-Als u de opdracht [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) hebt uitgevoerd om het Kubernetes-cluster te maken, hebt u de optie om automatisch een service-principal te laten maken.
+Als u de opdracht [`az acs create`](/cli/azure/acs#create) hebt uitgevoerd om het Kubernetes-cluster te maken, hebt u de optie om automatisch een service-principal te laten maken.
 
 Net zoals bij andere opties voor het maken van Kubernetes-clusters kunt u parameters voor een bestaande service-principal opgeven tijdens het uitvoeren van `az acs create`. Als u deze parameters echter weglaat, maakt de Azure CLI er automatisch een voor gebruik met Container Service. Dit vindt transparant plaats tijdens de implementatie. 
 

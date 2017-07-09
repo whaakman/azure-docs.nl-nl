@@ -1,5 +1,3 @@
-## <a name="create-a-service-namespace"></a>Een servicenaamruimte maken
-
 Als u Service Bus-wachtrijen in Azure wilt gebruiken, moet u eerst een naamruimte maken. Een naamruimte biedt een scoping container voor het verwerken van Service Bus-resources in uw toepassing. 
 
 Ga als volgt te werk om een naamruimte te maken:
@@ -16,6 +14,7 @@ Ga als volgt te werk om een naamruimte te maken:
 8. Klik op **Create**. Uw naamruimte wordt nu gemaakt en ingeschakeld. U moet wellicht enkele minuten wachten terwijl de resources voor uw account worden ingericht.
 
 ### <a name="obtain-the-management-credentials"></a>De beheerreferenties ophalen
+
 1. Klik in de lijst met naamruimten op de zojuist gemaakte naam voor de naamruimte.
 2. Klik in de naamruimte-blade op **Beleid voor gedeelde toegang**.
 3. Klik in de blade **Beleid voor gedeelde toegang** op **RootManageSharedAccessKey**.

@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect in Microsoft Cloud Duitsland
-description: "Azure AD Connect integreert uw on-premises directory&quot;s met Azure Active Directory. Hiermee kunt u een algemene identiteit bieden voor Office 365, Azure en SaaS toepassingen die zijn geïntegreerd met Azure AD."
+description: "Azure AD Connect integreert uw on-premises directory's met Azure Active Directory. Hiermee kunt u een algemene identiteit bieden voor Office 365, Azure en SaaS toepassingen die zijn geïntegreerd met Azure AD."
 keywords: inleiding tot Azure AD Connect, overzicht Azure AD Connect, wat is Azure AD Connect, Active Directory installeren, Duitsland, Zwarte Woud
 services: active-directory
 documentationcenter: 
@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: a6bb1c4b3a4972cdab9b99c548ef918a4d1070a0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 780728950199bac6a317767ef1db4462b3fe6ffd
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -35,9 +37,8 @@ Op dit moment moeten veel van de scenario's in [Microsoft Cloud Duitsland](https
 * De volgende functies zijn niet beschikbaar:
   * Azure AD Connect Health (Engelstalig)
   * Automatische updates
-  * Wachtwoord terugschrijven
-
-## <a name="download"></a>Download
+ 
+## <a name="download"></a>Downloaden
 U kunt Azure AD Connect downloaden via de Azure AD Connect-blade in de portal.  Volg de onderstaande instructies om de Azure AD Connect-blade te vinden.
 
 ### <a name="the-azure-ad-connect-blade"></a>De Azure AD Connect-blade
@@ -64,10 +65,5 @@ Als u Azure AD Connect wilt installeren, kunt u [deze](active-directory-aadconne
 
 ## <a name="advanced-features-and-additional-information"></a>Geavanceerde functies en aanvullende informatie
 Zie [Uw on-premises identiteiten integreren met Azure Active Directory](active-directory-aadconnect.md) voor meer informatie en tips over aangepaste instellingen en geavanceerde configuraties.  Deze pagina bevat informatie over en koppelingen naar aanvullende richtlijnen.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 05/15/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 57544151cc020e5170ebd231b5e4d8f424aeada0
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: c6d76cc741a6d932a506017781e45bc9b8f8c640
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Walkthrough over vooraf geconfigureerde oplossing voor externe controle
-## <a name="introduction"></a>Inleiding
+
 De [vooraf geconfigureerde oplossing][lnk-preconfigured-solutions] voor externe controle met IoT Suite is een implementatie van een end-to-endoplossing voor controle voor meerdere computers die op externe locaties worden gebruikt. De oplossing combineert belangrijke Azure-services voor een algemene implementatie van het bedrijfsscenario. U kunt de oplossing gebruiken als uitgangspunt voor uw eigen implementatie en u kunt deze [aanpassen][lnk-customize] aan uw eigen specifieke zakelijke vereisten.
 
 In dit artikel wordt stapsgewijs een aantal belangrijke elementen van externe controle beschreven, zodat u beter begrijpt hoe dit werkt. Deze kennis helpt u bij:
@@ -34,14 +34,17 @@ In dit artikel wordt stapsgewijs een aantal belangrijke elementen van externe co
 * Het ontwerpen van uw eigen IoT-oplossing die gebruikmaakt van Azure-services.
 
 ## <a name="logical-architecture"></a>Logische architectuur
+
 Het volgende diagram geeft een overzicht van de logische onderdelen van de vooraf geconfigureerde oplossing:
 
 ![Logische architectuur](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 ## <a name="simulated-devices"></a>Gesimuleerde apparaten
+
 In de vooraf geconfigureerde oplossing vertegenwoordigt het gesimuleerde apparaat een koelapparaat (zoals een airconditioner of een luchtververser in een gebouw). Wanneer u de vooraf geconfigureerde oplossing implementeert, richt u ook automatisch vier gesimuleerde apparaten in waarop een [Azure-webtaak][lnk-webjobs] wordt uitgevoerd. Met de gesimuleerde apparaten kunt u eenvoudig het gedrag van de oplossing bekijken zonder dat u fysieke apparaten hoeft te implementeren. Zie de zelfstudie [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm] (Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe controle) als u een echt fysiek apparaat wilt implementeren.
 
 ### <a name="device-to-cloud-messages"></a>Apparaat-naar-cloud-berichten
+
 Via elk gesimuleerd apparaat kunnen de volgende berichttypen worden verzonden naar IoT Hub:
 
 | Bericht | Beschrijving |
@@ -52,10 +55,9 @@ Via elk gesimuleerd apparaat kunnen de volgende berichttypen worden verzonden na
 
 > [!NOTE]
 > De oplossing slaat de lijst met opdrachten die door het apparaat worden ondersteund, op in een Cosmos DB-database en niet in de apparaatdubbel.
-> 
-> 
 
 ### <a name="properties-and-device-twins"></a>Eigenschappen en apparaatdubbels
+
 De gesimuleerde apparaten verzenden de volgende apparaateigenschappen als *gerapporteerde eigenschappen* naar de [dubbele][lnk-device-twins] in de IoT Hub. Het apparaat verzendt gerapporteerde eigenschappen bij het opstarten en als reactie op een opdracht of methode voor het **wijzigen van de apparaatstatus**.
 
 | Eigenschap | Doel |
@@ -78,6 +80,7 @@ De gesimuleerde apparaten verzenden de volgende apparaateigenschappen als *gerap
 | System.InstalledRAM |Hoeveelheid RAM-geheugen dat op het apparaat is geïnstalleerd |
 
 De simulator voorziet deze eigenschappen in de gesimuleerde apparaten van voorbeeldwaarden. Telkens wanneer de simulator een gesimuleerd apparaat initialiseert, rapporteert het apparaat de vooraf gedefinieerde metagegevens als gerapporteerde eigenschappen aan IoT Hub. Gerapporteerde eigenschappen kunnen alleen worden bijgewerkt door het apparaat. Als u een gerapporteerde eigenschap wilt wijzigen, stelt u in de oplossingsportal een gewenste eigenschap in. Het is de verantwoordelijkheid van het apparaat om:
+
 1. Regelmatig gewenste eigenschappen op te halen uit de IoT Hub.
 2. Diens configuratie bij te werken met de gewenste eigenschapswaarde.
 3. De nieuwe waarde weer als een gerapporteerde eigenschap terug te sturen naar de hub.
@@ -88,6 +91,7 @@ Vanuit het dashboard van de oplossing kunt u *gewenste eigenschappen* gebruiken 
 > De code van het gesimuleerde apparaat gebruikt alleen de gewenste eigenschappen **Desired.Config.TemperatureMeanValue** en **Desired.Config.TelemetryInterval** om de gerapporteerde eigenschappen bij te werken die naar IoT Hub worden teruggestuurd. Alle andere aanvragen om gewenste eigenschappen te wijzigen worden in het gesimuleerde apparaat genegeerd.
 
 ### <a name="methods"></a>Methoden
+
 De gesimuleerde apparaten kunnen de volgende methoden ([directe methoden][lnk-direct-methods]) afhandelen die via de IoT Hub vanuit oplossingsportal zijn geactiveerd:
 
 | Methode | Beschrijving |
@@ -98,7 +102,8 @@ De gesimuleerde apparaten kunnen de volgende methoden ([directe methoden][lnk-di
 
 Sommige methoden gebruiken gerapporteerde eigenschappen om te rapporteren over hun voortgang. Zo simuleert de methode **InitiateFirmwareUpdate** bijvoorbeeld een asynchrone uitvoering van de update op het apparaat. De methode keert onmiddellijk terug naar het apparaat terwijl de asynchrone taak met behulp van gerapporteerde eigenschappen statusupdates naar het dashboard van de oplossing blijft verzenden.
 
-### <a name="commands"></a>Opdrachten 
+### <a name="commands"></a>Opdrachten
+
 De gesimuleerde apparaten kunnen de volgende opdrachten (cloud-naar-apparaat-berichten) afhandelen die vanuit de oplossingsportal via de IoT Hub worden verzonden:
 
 | Opdracht | Beschrijving |
@@ -112,10 +117,9 @@ De gesimuleerde apparaten kunnen de volgende opdrachten (cloud-naar-apparaat-ber
 
 > [!NOTE]
 > Zie [Cloud-to-device communications guidance][lnk-c2d-guidance] (Richtlijnen voor communicatie tussen cloud en apparaat) voor een vergelijking van deze opdrachten (berichten van cloud naar apparaat) en methoden (directe methoden).
-> 
-> 
 
 ## <a name="iot-hub"></a>IoT Hub
+
 De [IoT Hub][lnk-iothub] neemt gegevens op die vanaf de apparaten worden verzonden naar de cloud, en maakt ze beschikbaar voor de ASA-taken (Azure Stream Analytics). Voor elke stream maakt de ASA-taak gebruik van een afzonderlijke IoT Hub-consumentengroep om de stroom berichten van de apparaten te lezen.
 
 De IoT Hub in de oplossing doet ook het volgende:
@@ -127,6 +131,7 @@ De IoT Hub in de oplossing doet ook het volgende:
 - Plant taken voor het instellen van eigenschappen voor meerdere apparaten of voor het aanroepen van methoden op meerdere apparaten.
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
+
 Bij de oplossing voor externe controle worden via [ASA][lnk-asa]-apparaatberichten (Azure Stream Analytics) die zijn ontvangen via de IoT Hub, verzonden naar andere back-endonderdelen voor verwerking of opslag. Met verschillende ASA-taken worden specifieke functies uitgevoerd gebaseerd op de inhoud van de berichten.
 
 **Taak 1: apparaatgegevens** filtert berichten met apparaatgegevens uit de binnenkomende berichtenstroom en stuurt deze naar een Event Hub-eindpunt. Via een apparaat worden berichten met apparaatgegevens verzonden bij het opstarten en als reactie op een opdracht **SendDeviceInfo**. Tijdens deze taak wordt gebruikgemaakt van de volgende querydefinitie om berichten over **apparaatgegevens** te identificeren:
@@ -224,15 +229,19 @@ GROUP BY
 ```
 
 ## <a name="event-hubs"></a>Event Hubs
+
 De ASA-taken voor **apparaatgegevens** en **regels** voeren hun gegevens uit naar Event Hubs die zo kunnen worden doorgestuurd naar de **gebeurtenisprocessor** die actief is in de webtaak.
 
 ## <a name="azure-storage"></a>Azure-opslag
+
 De oplossing maakt gebruik van Azure Blob-opslag om alle ruwe en samengevatte telemetriegegevens op de apparaten in de oplossing te behouden. Met de portal worden de telemetriegegevens uit de blobopslag gelezen om de grafieken te vullen. Voor het weergeven van waarschuwingen leest de oplossingsportal de gegevens uit de blobopslag, waarin is vastgelegd wanneer telemetriewaarden de geconfigureerde drempelwaarden hebben overschreden. In de oplossing wordt blobopslag ook gebruikt om de drempelwaarden vast te leggen die u in de oplossingsportal hebt ingesteld.
 
 ## <a name="webjobs"></a>Webtaken
+
 De webtaken in de oplossing hosten niet alleen de apparaatsimulatoren maar ook de **gebeurtenisprocessor** die wordt uitgevoerd in een Azure-webtaak die opdrachtantwoorden verwerkt. Met behulp van berichten met reacties op opdrachten wordt de opdrachtgeschiedenis van het apparaat bijgewerkt (opgeslagen in de Cosmos DB-database).
 
 ## <a name="cosmos-db"></a>Cosmos DB
+
 De oplossing maakt gebruik van een Cosmos DB-database om informatie op te slaan over de apparaten die zijn verbonden met de oplossing. Deze informatie omvat de geschiedenis van opdrachten die vanuit de oplossingsportal naar apparaten zijn verzonden en van methoden die vanuit de oplossingsportal zijn aangeroepen.
 
 ## <a name="solution-portal"></a>Oplossingsportal
@@ -240,9 +249,11 @@ De oplossing maakt gebruik van een Cosmos DB-database om informatie op te slaan 
 De oplossingsportal is een webtoepassing die als onderdeel van de vooraf geconfigureerde oplossing wordt geïmplementeerd. De belangrijkste pagina's in de oplossingsportal zijn het dashboard en de lijst met apparaten.
 
 ### <a name="dashboard"></a>Dashboard
+
 Deze pagina in de webtoepassing maakt gebruik van Power BI javascript-besturingselementen (zie [PowerBI-visuals repo](https://www.github.com/Microsoft/PowerBI-visuals)) om de telemetriegegevens van de apparaten te visualiseren. De oplossing maakt gebruik van de ASA-telemetrietaak om de telemetriegegevens naar de blobopslag te schrijven.
 
 ### <a name="device-list"></a>Lijst met apparaten
+
 Op deze pagina van de oplossingsportal kunt u het volgende doen:
 
 * Nieuwe apparaten inrichten. Met deze actie wordt het unieke apparaat-id ingesteld en de verificatiesleutel gegenereerd. Er wordt informatie over het apparaat geschreven naar het IoT Hub-identiteitsregister en de oplossingsspecifieke Cosmos DB-database.
@@ -252,6 +263,7 @@ Op deze pagina van de oplossingsportal kunt u het volgende doen:
 * Apparaten in- en uitschakelen.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 De volgende TechNet-blogberichten bieden meer details over de vooraf geconfigureerde oplossing voor externe controle:
 
 * [IoT Suite - Under The Hood - Remote Monitoring (IoT Suite - achter de schermen - externe controle)](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)

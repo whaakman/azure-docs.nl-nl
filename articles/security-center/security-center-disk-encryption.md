@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 859c0bf3afec46e07b8b8da73fffbc37f3f7959d
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: d3817d44bb21162afe799fd13368fbf902521416
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -53,7 +54,7 @@ Azure PowerShell-versie 1.2.1 of hoger moet op uw computer geïnstalleerd zijn. 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Download het configuratiescript met vereisten voor Azure Disk Encryption en voer dit uit.
 Het configuratiescript met vereisten voor Azure Disk Encryption installeert alle vereisten voor het versleutelen van uw Azure Virtual Machines.
 
-1. Ga naar de GitHub-pagina met het [installatiescript voor vereisten voor Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+1. Ga naar de GitHub-pagina met het [installatiescript voor vereisten voor Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 2. Klik op de GitHub-pagina op de knop **Onbewerkt**.
 3. Gebruik **CTRL-A** om alle tekst op de pagina te selecteren en gebruik vervolgens **CTRL-C** om alle tekst op de pagina naar het klembord te kopiëren.
 4. Open **Kladblok** en plak de gekopieerde tekst in Kladblok.
@@ -81,7 +82,7 @@ Het script met vereisten voor Azure Disk Encryption vraagt u na het openen om de
 * **Naam resourcegroep**: naam van de resourcegroep waar u de Key Vault in wilt plaatsen.  Als er nog geen resourcegroep met de door u ingevulde naam bestaat, wordt deze aangemaakt. Als u al een resourcegroep hebt die u in dit abonnement wilt gebruiken, vul dan de naam van die resourcegroep in.
 * **Naam Key Vault**: naam van de sleutelkluis waar versleutelingssleutels in moeten worden geplaatst. Als u nog geen Key Vault hebt met de door u ingevulde naam bestaat, wordt deze aangemaakt. Als u al een Key Vault hebt die u wilt gebruiken, vul dan de naam van die Key Vault in.
 * **Locatie**: de locatie van de Key Vault. Zorg ervoor dat de Key Vault en de VM’s die moeten worden versleuteld, zich op dezelfde locatie bevinden. Als u de locatie niet weet, volg dan de stappen verderop in dit artikel om deze te vinden.
-* **Naam Azure Active Directory-toepassing** : naam van de Azure Active Directory-toepassing die wordt gebruikt om geheimen over te schrijven naar de Key Vault. Als er nog geen toepassing met deze naam bestaat, wordt deze aangemaakt. Als u al een Azure Active Directory-toepassing hebt die u wilt gebruiken, vul dan de naam van die Azure Active Directory-toepassing in.
+* **Naam Azure Active Directory-toepassing **: naam van de Azure Active Directory-toepassing die wordt gebruikt om geheimen over te schrijven naar de Key Vault. Als er nog geen toepassing met deze naam bestaat, wordt deze aangemaakt. Als u al een Azure Active Directory-toepassing hebt die u wilt gebruiken, vul dan de naam van die Azure Active Directory-toepassing in.
 
 > [!NOTE]
 > Als u wilt weten waarom u een Azure Active Directory-toepassing moet maken, zie dan het gedeelte *Register an application with Azure Active Directory* in het artikel [Getting Started with Azure Key Vault](../key-vault/key-vault-get-started.md).
