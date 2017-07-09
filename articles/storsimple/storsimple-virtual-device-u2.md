@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: d9ba200dba2b1460a9d3c9ba07e2bca54c30b53a
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: ead9fcc5ec582420d731faccb7abba0dc815ed84
+ms.contentlocale: nl-nl
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -69,7 +70,7 @@ In de volgende gedeelten worden de configuratievereisten voor het virtuele StorS
 #### <a name="azure-requirements"></a>Azure-vereisten
 Voordat u het virtuele apparaat inricht, moet u de volgende voorbereidingen treffen in uw Azure-omgeving:
 
-* Voor het virtuele apparaat [configureert u een virtueel netwerk in Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Als u Premium-opslag gebruikt, moet u een virtueel netwerk maken in een Azure-regio die ondersteuning biedt voor Premium-opslag. De Premium Storage-regio's zijn regio's die overeenkomen met de rij voor *Schijfruimte* in de lijst met [Azure Services per regio](https://azure.microsoft.com/en-us/regions/services).
+* Voor het virtuele apparaat [configureert u een virtueel netwerk in Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Als u Premium-opslag gebruikt, moet u een virtueel netwerk maken in een Azure-regio die ondersteuning biedt voor Premium-opslag. De Premium Storage-regio's zijn regio's die overeenkomen met de rij voor *Schijfruimte* in de lijst met [Azure Services per regio](https://azure.microsoft.com/en-us/regions/services).
 * Het is raadzaam om de standaard-DNS-server van Azure te gebruiken. Geef liever geen eigen naam op voor de DNS-server. Als uw DNS-servernaam niet geldig is of als de DNS-server IP-adressen niet correct kan omzetten, mislukt het maken van het virtuele apparaat.
 * Punt-naar-site en site-naar-site zijn optioneel, maar niet vereist. Als u wilt, kunt u deze opties configureren in meer geavanceerde scenario's.
 * U kunt [virtuele Azure-machines](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (hostservers) maken in het virtuele netwerk; deze maken gebruik van de volumes die beschikbaar worden gesteld door het virtuele apparaat. Deze servers moeten aan de volgende vereisten voldoen:                             

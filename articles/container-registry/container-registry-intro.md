@@ -17,10 +17,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 25301f1bbacdf2f1e3d04ed3470eafd31098ea32
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: bc0c8ccad64166582dcb3f7162280a8772abc6b3
+ms.contentlocale: nl-nl
+ms.lasthandoff: 06/21/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Inleiding tot privé-Docker-containerregisters
@@ -39,7 +40,7 @@ Voor achtergrondinformatie over Docker en containers raadpleegt u:
 Haal installatiekopieën op vanuit een Azure-containerregister en push ze naar verschillende implementatiedoelen:
 
 * **Schaalbare indelingssystemen** die toepassingen in een container beheren voor verschillende hostclusters, waaronder [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) en [Kubernetes](http://kubernetes.io/docs/).
-* **Azure-services** die het bouwen en uitvoeren van toepassingen op schaal ondersteunen, waaronder [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md), [Service Fabric](../service-fabric/index.md) en andere.
+* **Azure-services** die het bouwen en uitvoeren van toepassingen op schaal ondersteunen, waaronder [Container Service](../container-service/index.yml), [App Service](/app-service/index.md), [Batch](../batch/index.md), [Service Fabric](../service-fabric/index.md) en andere.
 
 Ontwikkelaars kunnen ook naar een containerregister pushen als onderdeel van een ontwikkelingswerkstroom met containers. Bijvoorbeeld naar een containerregister vanuit doorlopende integratie- implementatieprogramma's als [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) of [Jenkins](https://jenkins.io/).
 
@@ -69,6 +70,6 @@ Ontwikkelaars kunnen ook naar een containerregister pushen als onderdeel van een
 * [Een containerregister maken met Azure Portal](container-registry-get-started-portal.md)
 * [Een containerregister maken met de Azure-CLI](container-registry-get-started-azure-cli.md)
 * [Uw eerste installatiekopie pushen met de Docker-CLI](container-registry-get-started-docker-cli.md)
-* Raadpleeg [deze zelfstudie](../container-service/container-service-setup-ci-cd.md) voor informatie over hoe u een doorlopende integratie- en implementatiewerkstroom maakt met Visual Studio Team Services, Azure Container Service en Azure Container Registry.
+* Raadpleeg [deze zelfstudie](../container-service/container-service-docker-swarm-setup-ci-cd.md) voor informatie over hoe u een doorlopende integratie- en implementatiewerkstroom maakt met Visual Studio Team Services, Azure Container Service en Azure Container Registry.
 * Als u een privé-Docker-register in Azure wilt instellen (zonder een openbaar eindpunt), raadpleegt u [Uw eigen privé-Docker-register in Azure implementeren](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
 

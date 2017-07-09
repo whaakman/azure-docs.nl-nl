@@ -1,10 +1,10 @@
 ---
 title: Aan de slag met Data Lake Analytics met REST API| Microsoft Docs
-description: WebHDFS REST-API&quot;s gebruiken om bewerkingen uit te voeren in Data Lake Analytics
+description: WebHDFS REST-API's gebruiken om bewerkingen uit te voeren in Data Lake Analytics
 services: data-lake-analytics
 documentationcenter: 
-author: mumian
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 5e133d92-baaa-44c9-890c-ab2d85c91122
 ms.service: data-lake-analytics
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/03/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 2fea3686b1484406d31c5447c7d3d7e2451b827e
-ms.openlocfilehash: 1898b3d6aa1a9ccbc9f4427cf994c02f9fa35abd
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 332d7af2539eea8890745005104ac5b0921c2b7f
+ms.contentlocale: nl-nl
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -345,11 +347,5 @@ De uitvoer is vergelijkbaar met:
 * Zie [Azure Data Lake Analytics beheren met Azure Portal](data-lake-analytics-manage-use-portal.md) voor informatie over beheertaken.
 * Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor een overzicht van Data Lake Analytics.
 * Als u dezelfde zelfstudie wilt bekijken met een ander hulpprogramma, klikt u op de tabselectors boven aan de pagina.
-* Zie [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md) (Diagnostische logboeken openen voor Azure Data Lake Analytics) voor logboekregistratie van diagnostische informatie.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
