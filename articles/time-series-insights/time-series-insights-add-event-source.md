@@ -15,42 +15,49 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9dc394c0da34a8ee2796c6114e7f2f647c5345a1
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: ffa2eaf3680e68ac14aabf49b6308caeb173fd43
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/01/2017
 
 ---
 
-# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-azure-portal"></a>Een gebeurtenisbron voor uw Time Series Insights-omgeving maken met Azure Portal
+<a id="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal" class="xliff"></a>
 
-Een Time Series Insights-gebeurtenisbron is afgeleid van een gebeurtenis-broker, zoals Azure Event Hubs. Time Series Insights maakt rechtstreeks verbinding met gebeurtenisbronnen en neemt de gegevensstroom op zonder dat gebruikers ook maar één coderegel hoeven te schrijven. Op dit moment ondersteunt Time Series Insights Azure Event Hubs en Azure IoT Hubs. In de toekomst worden meer gebeurtenisbronnen toegevoegd.
+# Een gebeurtenisbron voor uw Time Series Insights-omgeving maken met de Ibiza-portal
 
-## <a name="steps-to-add-an-event-source-to-your-environment"></a>Stappen voor het toevoegen van een gebeurtenisbron aan uw omgeving
+Een Time Series Insights-gebeurtenisbron is afgeleid van een gebeurtenis-broker, zoals Azure Event Hubs. Time Series Insights maakt rechtstreeks verbinding met gebeurtenisbronnen en neemt de gegevensstroom op zonder dat gebruikers ook maar één coderegel hoeven te schrijven. Op dit moment biedt Time Series Insights ondersteuning voor Azure Event Hubs en Azure IoT Hubs. In de toekomst worden er meer gebeurtenisbronnen toegevoegd.
 
-1.    Meld u aan bij [Azure Portal](https://portal.azure.com).
-2.    Klik op Alle resources in het menu aan de linkerkant van Azure Portal.
-3.    Selecteer uw Time Series Insights-omgeving.
+<a id="steps-to-add-an-event-source-to-your-environment" class="xliff"></a>
 
-  ![Een Time Series Insights-gebeurtenisbron maken](media/add-event-source/getstarted-create-eventsource1.png)
+## Stappen voor het toevoegen van een gebeurtenisbron aan uw omgeving
 
-4.    Selecteer Gebeurtenisbronnen en klik op + Toevoegen.
+1.  Meld u aan bij de [Ibiza-portal](https://portal.azure.com).
+2.  Klik op Alle resources in het menu aan de linkerkant van de Ibiza-portal.
+3.  Selecteer uw Time Series Insights-omgeving.
 
-  ![Een Time Series Insights-gebeurtenisbron maken - Details](media/add-event-source/getstarted-create-eventsource2.png)
+  ![Een Time Series Insights-gebeurtenisbron maken](media/add-event-source/getstarted-create-event-source-1.png)
 
-5.    Geef de naam op van de gebeurtenisbron. Deze naam is gekoppeld aan alle gebeurtenissen afkomstig uit deze gebeurtenisbron en komt tijdens het uitvoeren van query's beschikbaar.
-6.    Selecteer een Event Hub uit de lijst Event Hub-resources in het huidige abonnement of kies de importeeroptie Event Hub-instellingen handmatig opgeven om een Event Hub uit een ander abonnement op te geven. Gebeurtenissen moeten worden gepubliceerd in de JSON-indeling.
-7.    Selecteer het beleid met leesmachtigingen voor Event Hub.
-8.    Specificeer de Event Hub-consumergroep.
+4.  Selecteer Gebeurtenisbronnen en klik op + Toevoegen.
+
+  ![Een Time Series Insights-gebeurtenisbron maken - Details](media/add-event-source/getstarted-create-event-source-2.png)
+
+5.  Geef de naam op van de gebeurtenisbron. Deze naam is gekoppeld aan alle gebeurtenissen afkomstig uit deze gebeurtenisbron en komt tijdens het uitvoeren van query's beschikbaar.
+6.  Selecteer een Event Hub in de lijst met Event Hub-bronnen in het huidige abonnement. Kies anders de importoptie Event Hub-instellingen handmatig opgeven om een Event Hub op te geven in een ander abonnement. Gebeurtenissen moeten worden gepubliceerd in de JSON-indeling.
+7.  Selecteer het beleid met leesmachtigingen voor Event Hub.
+8.  Specificeer de Event Hub-consumergroep.
 
   > [!IMPORTANT]
   > Deze consumergroep mag niet worden gebruikt door een andere service (zoals een Stream Analytics-taak of een andere Time Series Insights-omgeving). Als de consumergroep wordt gebruikt door andere services, wordt de leesbewerking negatief beïnvloed voor deze omgeving en de andere services. Als u $Default als consumergroep selecteert, kan dit leiden tot mogelijk hergebruik door andere lezers.
 
-9.    Klik op Maken.
+9.  Klik op Maken.
 
 Wanneer de gebeurtenisbron is gemaakt, begint Time Series Insights automatisch met het streamen van gegevens naar uw omgeving.
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 
 * [Gebeurtenissen verzenden](time-series-insights-send-events.md) naar de gebeurtenisbron
 * Uw omgeving bekijken in de [Time Series Insights-portal](https://insights.timeseries.azure.com)

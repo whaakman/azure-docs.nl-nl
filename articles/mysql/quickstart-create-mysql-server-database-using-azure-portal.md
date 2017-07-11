@@ -5,123 +5,159 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
-ms.service: mysql
-ms.devlang: na
+editor: jasonwhowell
+ms.service: mysql-database
 ms.topic: hero-article
-ms.tgt_pltfrm: portal
-ms.date: 05/10/2017
+ms.date: 06/14/2017
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 25bfd2c6c25ddb8747dec58fdc68f904f81127fa
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: dba50b369fb87d5f6d5118038c75392bd719cc10
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="create-an-azure-database-for-mysql-server-using-azure-portal"></a>Een Azure-database voor MySQL-server maken met behulp van Azure Portal
+<a id="create-an-azure-database-for-mysql-server-using-azure-portal" class="xliff"></a>
 
-Dit artikel leidt u stapsgewijs door de Azure Portal zodat u in ongeveer vijf minuten een voorbeeld van een Azure-database voor MySQL-server kunt maken. 
+# Een Azure-database voor MySQL-server maken met behulp van Azure Portal
+Dit artikel leidt u stapsgewijs door de Azure-portal zodat u in ongeveer vijf minuten een Azure-database voor MySQL-server kunt maken. 
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+<a id="log-in-to-azure" class="xliff"></a>
+
+## Meld u aan bij Azure.
 Open uw webbrowser en ga naar de [Microsoft Azure Portal](https://portal.azure.com/). Voer uw referenties in om u aan te melden bij de portal. De standaardweergave is uw service-dashboard.
 
-![Azure Portal - aanmelden en dashboard](./media/quickstart-create-mysql-server-database-using-azure-portal/1_portal-login.png)
+<a id="create-azure-database-for-mysql-server" class="xliff"></a>
 
-## <a name="create-azure-database-for-mysql-server"></a>Een Azure-database voor MySQL-server maken
+## Een Azure-database voor MySQL-server maken
+1. Klik op de knop **Nieuw** in de linkerbovenhoek van de Azure-portal.
 
-1. Ga naar **Databases** > **MySQL**. Als u Azure Database voor MySQL Server niet kunt vinden in de categorie **Databases**, klikt u op **Alles zien** om alle beschikbare database-services weer te geven. U kunt ook **MySQL** in het zoekvak typen om de service snel te vinden.
+2. Selecteer **Databases** op de pagina **Nieuw** en selecteer **Azure Database voor MySQL** op de pagina **Databases**. U kunt ook **MySQL** in het zoekvak van de pagina Nieuw typen om de service te vinden.
 ![Azure Portal - nieuw - database - MySQL](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
 
-2. Klik op het pictogram **MySQL** en klik vervolgens op **Maken**.
-In ons voorbeeld vult u de volgende informatie in op de pagina Azure-database voor MySQL:
+3. Vul het formulier voor gegevens van nieuwe server in met de volgende informatie, zoals in de voorgaande afbeelding wordt weergegeven:
 
-| **Formulierveld** | **Beschrijving van veld** |
-|----------------|-----------------------|
-| *Servernaam* | mysqlserver4demo (servernaam is globaal uniek) |
-| *Abonnement* | MySQLaaS (selecteer in vervolgkeuzelijst) |
-| *Resourcegroep* | myresource (maak een resourcegroep of gebruik een bestaande resourcegroep) |
-| *Aanmeldgegevens van serverbeheerder* | myadmin (stel accountnaam van beheerder in) |
-| *Wachtwoord* | stel wachtwoord voor beheerdersaccount in |
-| *Wachtwoord bevestigen* | bevestig wachtwoord voor beheerdersaccount |
-| *Locatie* | Noord-Europa (kies tussen **Noord-Europa** en **West-V.S.**) |
-| *Versie* | 5.6 (kies versie van MySQL server) |
-| *Prestaties configureren* | Basic (kies **Prestatielaag**, **Rekeneenheden**, **Opslag** en klik vervolgens op **OK**) |
+| **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld** |
+|---|---|---|
+| *Servernaam* | myserver4demo  | Servernaam moet globaal uniek zijn. |
+| *Abonnement* | mysubscription | Selecteer uw abonnement in de vervolgkeuzelijst. |
+| *Resourcegroep* | myResourceGroup | Maak een nieuwe resourcegroep of selecteer een bestaande. |
+| *Aanmeldgegevens van serverbeheerder* | myadmin | Geef de naam van een beheerdersaccount op in de MySQL-engine. |
+| *Wachtwoord* |  | Stel een wachtwoord voor het beheerdersaccount in. |
+| *Wachtwoord bevestigen* |  | Bevestig het wachtwoord voor het beheerdersaccount. |
+| *Locatie* |  | Selecteer een beschikbare regio. |
+| *Versie* | 5.7 | Kies de nieuwste versie. |
+| *Prijscategorie* | Basic, 50 rekeneenheden, 50 opslag (GB)  | Kies **Prijscategorie**, **Rekeneenheden**, **Opslag (GB)** en klik vervolgens op **OK**. |
+| *Vastmaken aan dashboard* | Selecteren | Het is raadzaam dit selectievakje in te schakelen zodat u de server later gemakkelijk kunt terugvinden |
 
-![Azure Portal - maak MySQL aan door de vereiste invoer voor het formulier te verstrekken](./media/quickstart-create-mysql-server-database-using-azure-portal/3_create-server.png)
+   Klik op **Prijscategorie** om de prijscategorie en het prestatieniveau voor de nieuwe database op te geven. Selecteer voor deze Quick Start de laag Basic, 50 rekeneenheden en 50 GB bijbehorende opslag. Klik vervolgens op **OK** om de prijscategorie op te slaan.
+   
+   ![Azure Portal - maak MySQL aan door de vereiste invoer voor het formulier te verstrekken](./media/quickstart-create-mysql-server-database-using-azure-portal/3_create-server.png)
 
-Na enkele minuten is uw Azure-database voor MySQL-server ingericht en gebruiksklaar. U kunt op de knop **Meldingen** (belpictogram) op de werkbalk klikken om het implementatieproces te volgen.
+   Klik vervolgens op **Maken**. Na een minuut of twee wordt een nieuwe Azure-database voor de MySQL-server uitgevoerd in de cloud. Klik op de knop **Meldingen** (belpictogram) op de werkbalk om het implementatieproces te volgen.
 
-> [!TIP]
-> Aangeraden wordt de Azure-services in dezelfde regio te plaatsen en de dichtstbijzijnde locatie te kiezen. Daarnaast kunt de optie **Vastmaken aan dashboard** selecteren om uw implementaties gemakkelijk te kunnen volgen.
+<a id="configure-the-firewall" class="xliff"></a>
 
-## <a name="configure-the-firewall"></a>De firewall configureren
-Voordat u vanaf uw client voor het eerst verbinding maakt met Azure Database voor MySQL, moet u de firewall configureren en het IP-adres van het openbare netwerk van de client aan de whitelist toevoegen.
+## De firewall configureren
+Voordat u voor het eerst verbinding maakt met Azure Database voor MySQL, moet u de firewall configureren en het IP-adres (of adresbereik) van het openbare netwerk van de client aan de whitelist toevoegen.
 
-1. Klik op uw zojuist gemaakte server en klik vervolgens op **Instellingen**.
-  ![Azure Portal - MySQL - knop Instellingen](./media/quickstart-create-mysql-server-database-using-azure-portal/4_server-settings.png)
+1. Nadat de implementatie is voltooid, klikt u op **Alle resources** in het menu links en voert u de naam **myserver4demo** in om te zoeken naar de zojuist gemaakte server. Klik op de servernaam in de zoekresultaten. De pagina Overzicht wordt geopend voor uw server en biedt opties voor verdere configuratie.
 
-2. Klik in de sectie **ALGEMEEN** op **Firewallinstellingen**. U kunt op **Mijn IP toevoegen** klikken om het IP-adres van uw lokale computer toe te voegen of u kunt een reeks IP-adressen configureren. Vergeet niet op **Opslaan** te klikken nadat u de regels hebt gemaakt.
+2. Op de serverblade selecteert u **Verbindingsbeveiliging**.
+
+3. Klik op **Mijn IP toevoegen** om het IP-adres van uw lokale computer toe te voegen of configureer een reeks IP-adressen. Vergeet niet op **Opslaan** te klikken nadat u de regels hebt gemaakt.
   ![Azure Portal - firewallregel toevoegen en opslaan](./media/quickstart-create-mysql-server-database-using-azure-portal/5_firewall-settings.png)
 
-## <a name="get-connection-information"></a>Verbindingsgegevens ophalen
+<a id="get-connection-information" class="xliff"></a>
+
+## Verbindingsgegevens ophalen
 Haal de FQDN (fully qualified domain name) op voor uw Azure MySQL-server in de Azure Portal. U gebruikt de FQDN om verbinding met uw server te maken met behulp van het opdrachtregelprogramma **mysql.exe**.
 
-1.    In [Azure Portal](https://portal.azure.com/) klikt u op **Alle resources** in het menu links en vervolgens op uw Azure-database voor MySQL-server.
+1.  In [Azure Portal](https://portal.azure.com/) klikt u op **Alle resources** in het menu links en vervolgens op uw Azure-database voor MySQL-server.
 
-2.    Klik op **Eigenschappen**. Noteer de **SERVERNAAM** en **AANMELDGEGEVENS VAN DE SERVERBEHEERDER**.
-In dit voorbeeld is de servernaam *mysql4doc.database.windows.net* en de aanmeldgegevens van de serverbeheerder zijn *mysqladmin@mysql4doc*.
+2.  Klik op **Eigenschappen**. Noteer de **SERVERNAAM** en **AANMELDGEGEVENS VAN DE SERVERBEHEERDER**.
+In dit voorbeeld is de servernaam *myserver4demo.mysql.database.azure.com* en de aanmeldgegevens van de serverbeheerder zijn *myadmin@myserver4demo*.
 
-## <a name="connect-to-the-server-using-mysqlexe-command-line-tool"></a>Maak verbinding met de server met behulp van het opdrachtregelprogramma mysqlexe
-U kunt meerdere databases maken binnen een MySQL-server. Er is geen limiet aan het aantal databases dat kan worden gemaakt, maar meerdere databases delen wel dezelfde serverresources.  Maak verbinding met uw server met het opdrachtregelprogramma **mysql.exe**. Open de **Azure Cloud Shell** in de portal en voer het volgende in:
+<a id="connect-to-the-server-using-mysqlexe-command-line-tool" class="xliff"></a>
 
-1. Maak verbinding met de server met behulp van het opdrachtregelprogramma **mysql**:
-```dos
- mysql -h mysqlserver4demo.database.windows.net -u myadmin@mysqlserver4demo -p
+## Maak verbinding met de server met behulp van het opdrachtregelprogramma mysqlexe
+Gebruik het [opdrachtregelprogramma mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) om een verbinding tot stand te brengen met uw Azure-database voor MySQL-server. U kunt het opdrachtregelprogramma mysql uitvoeren in de browser met behulp van de Azure Cloud Shell of het opdrachtregelprogramma starten vanaf uw eigen computer met behulp van de lokaal geïnstalleerde mysql-hulpprogramma's. Als u de Azure Cloud Shell wilt starten, klikt u op de knop `Try It` in een codeblok in dit artikel of gaat u naar de [Azure-portal](https://portal.azure.com) en klikt u op het pictogram `>_` in de bovenste werkbalk rechts. 
+
+1. Typ de opdracht voor verbinding:
+```azurecli-interactive
+mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 ```
 
-2. Bekijk de status van de server:
-```dos
- mysql> status
+2. Geef de status van de server weer om de functionaliteit van de verbinding te controleren. Typ `status` op de prompt mysql> zodra de server is verbonden.
+```sql
+status
 ```
-  ![Opdrachtprompt - mysql opdrachtregelvoorbeeld](./media/quickstart-create-mysql-server-database-using-azure-portal/7_connect-to-server.png)
+
+   ![Opdrachtprompt - voorbeeld van opdrachtregel mysql](./media/quickstart-create-mysql-server-database-using-azure-portal/7_connect-to-server.png)
+
+   > [!TIP]
+   > Zie [MySQL 5.7 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) (MySQL 5.7-handleiding, hoofdstuk 4.5.1) voor aanvullende opdrachten.
+
+3. Maak een lege database door de opdracht `CREATE DATABASE` te typen op de prompt mysql>.
+
+   ```sql
+   CREATE DATABASE quickstartdb;
+   ```
+
+   Een Azure-database voor MySQL-server kan een of meerdere databases bevatten. U kunt kiezen voor het maken van één database per server om gebruik te maken van alle resources of voor meerdere databases om de resources te delen. Er is geen limiet aan het aantal databases dat kan worden gemaakt, maar meerdere databases delen wel dezelfde serverresources.  
+
+4. Geef een lijst met databases weer door de opdracht `SHOW DATABASES` te typen bij de prompt mysql>.
+
+   ```sql
+   SHOW DATABASES;
+   ```
+
+<a id="connect-to-the-server-using-the-mysql-workbench-gui-tool" class="xliff"></a>
+
+## Maak verbinding met de server met het MySQL Workbench GUI-hulpprogramma
+1.  Start de toepassing MySQL Workbench op uw clientcomputer. U kunt MySQL Workbench [hier](https://dev.mysql.com/downloads/workbench/) downloaden en installeren.
+
+2.  In het dialoogvenster **Nieuwe verbinding instellen** voert u de volgende gegevens in op het tabblad **Parameters**:
+
+   ![nieuwe verbinding instellen](./media/quickstart-create-mysql-server-database-using-azure-portal/setup-new-connection.png)
+
+| **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld** |
+|---|---|---|
+|   *Verbindingsnaam* | Demo-verbinding| Geef een label op voor deze verbinding. |
+| *Verbindingsmethode* | Standard (TCP/IP) | Standard (TCP/IP) is voldoende. |
+| *Hostnaam* | myserver4demo.mysql.database.azure.com | Gebruik de volledig gekwalificeerde servernaam voor uw server. |
+| *Poort* | 3306 | Gebruik de standaardpoort 3306. |
+| *Gebruikersnaam* | myadmin@myserver4demo  | Gebruik de aanmeldgegevens van de serverbeheerder u eerder hebt genoteerd met een @-teken en de naam van de server. |
+| *Wachtwoord* | Uw wachtwoord | Klik op de knop Opslaan in de kluis... om het wachtwoord op te slaan. |
+
+Klik op **Verbinding testen** om te controleren of alle parameters juist zijn geconfigureerd. Klik op OK om de verbinding op te slaan. 
+
+> [!NOTE]
+> SSL wordt standaard afgedwongen op uw server. Om verbinding te kunnen maken, is hiervoor aanvullende configuratie nodig. Zie [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (SSL-connectiviteit in uw toepassing configureren om veilig verbinding te maken met Azure-database voor MySQL) voor meer informatie.  Als u SSL wilt uitschakelen voor deze zelfstudie, gaat u naar de Azure-portal en klikt u op de pagina Verbindingsbeveiliging om de wisselknop SSL-verbinding afdwingen uit te schakelen.
+
+<a id="clean-up-resources" class="xliff"></a>
+
+## Resources opschonen
+Verwijder alle resources die u in deze Quick Start hebt gemaakt door de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) te verwijderen.
 
 > [!TIP]
-> Zie [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) (MySQL 5.6-handleiding, hoofdstuk 4.5.1) voor aanvullende opdrachten.
+> Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als u van plan bent om door te gaan met andere Quick Starts, verwijdert u de resources die u in deze Quick Start hebt gemaakt niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die tijdens deze Quick Start in Azure Portal zijn gemaakt.
 
-## <a name="connect-to-the-server-using-the-mysql-workbench-gui-tool"></a>Maak verbinding met de server met het MySQL Workbench GUI-hulpprogramma
-1.    Start de toepassing MySQL Workbench op uw clientcomputer. U kunt MySQL Workbench [hier](https://dev.mysql.com/downloads/workbench/) downloaden en installeren.
+1.  Klik in het menu links in Azure Portal op **Resourcegroepen** en klik vervolgens op **myresourcegroup**.
+2.  Klik op de pagina van uw resourcegroep op **Verwijderen**, typ **myresourcegroup** in het tekstvak en klik vervolgens op Verwijderen.
 
-2.    In het dialoogvenster **Nieuwe verbinding instellen** voert u de volgende gegevens in op het tabblad **Parameters**:
+Als u de zojuist gemaakte server wilt verwijderen:
+1.  In het menu links in Azure Portal klikt u op PostgreSQL-servers en zoekt u naar de server die u zojuist hebt gemaakt
+2.  Op de pagina Overzicht klikt u op de knop Verwijderen in het deelvenster bovenaan ![Azure Database voor MySQL - Server verwijderen](./media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
+3.  Controleer de naam van de server die u wilt verwijderen en bekijk welke databases onder de server vallen. Geef **myserver4demo** op in het tekstvak en klik vervolgens op Verwijderen.
 
-| **Parameters** | **Beschrijving** |
-|----------------|-----------------|
-|    *Verbindingsnaam* | geef een naam op voor deze verbinding (dit kan van alles zijn) |
-| *Verbindingsmethode* | kies Standard (TCP/IP) |
-| *Hostnaam* | mycliserver.database.windows.net (SERVERNAAM die u eerder hebt genoteerd) |
-| *Poort* | 3306 |
-| *Gebruikersnaam* | myadmin@mycliserver (AANMELDGEGEVENS VAN SERVERBEHEERDER die u eerder hebt genoteerd) |
-| *Wachtwoord* | u kunt het wachtwoord van het beheerdersaccount in de kluis opslaan |
 
-![nieuwe verbinding instellen](./media/quickstart-create-mysql-server-database-using-azure-portal/setup-new-connection.png)
+<a id="next-steps" class="xliff"></a>
 
-3.    Klik op **Verbinding testen** om te controleren of alle parameters juist zijn geconfigureerd.
-
-4.    U kunt nu op de verbinding klikken die zojuist is gemaakt om verbinding te maken met de server.
-
-> SSL wordt standaard afgedwongen op uw server. Om verbinding te kunnen maken, is hiervoor aanvullende configuratie nodig . Zie [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (SSL-connectiviteit in uw toepassing configureren om veilig verbinding te maken met Azure-database voor MySQL) voor meer informatie.  Als SSL wilt uitschakelen voor deze Quick Start, kunt u naar Verbindingsbeveiliging in de portal gaan om het afdwingen van SSL uit te schakelen.
-
-## <a name="clean-up-resources"></a>Resources opschonen
-
-Als u deze resources niet voor een andere Quick Start/zelfstudie nodig hebt, kunt u ze verwijderen door het volgende te doen:
-
-1. Klik in het menu links in Azure Portal op **Resourcegroepen** en klik vervolgens op **myresource**. 
-2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ **myresource** in het tekstvak en klik vervolgens op **Verwijderen**.
-
-## <a name="next-steps"></a>Volgende stappen
+## Volgende stappen
 
 > [!div class="nextstepaction"]
 > [Uw eerste Azure-database voor MySQL-database ontwerpen](./tutorial-design-database-using-portal.md)

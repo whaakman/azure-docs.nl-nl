@@ -12,28 +12,33 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/23/2017
+ms.date: 6/28/2017
 ms.author: subramar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 00c1f10f7df865344233143ce9cdf546e64acca0
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 68c7e1f3f51ca5bec30a0f71aaccbafa58078e69
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Verschillen tussen Service Fabric in Linux (preview) en Service Fabric in Windows (algemeen beschikbaar)
+<a id="differences-between-service-fabric-on-linux-preview-and-windows-generally-available" class="xliff"></a>
 
-Omdat Service Fabric in Linux een preview-versie is, zijn er enkele functies die wel worden ondersteund in Windows, maar nog niet in Linux. Wanneer Service Fabric in Linux algemeen beschikbaar komt, zullen de functiesets gelijkwaardig zijn.
+# Verschillen tussen Service Fabric in Linux (preview) en Service Fabric in Windows (algemeen beschikbaar)
 
-* Betrouwbare verzamelingen (en betrouwbare stateful services) worden niet ondersteund op Linux.
-* ReverseProxy is niet beschikbaar in Linux.
-* Zelfstandig installatieprogramma is niet beschikbaar in Linux.
-* In Linux wordt geen XML-schemavalidatie voor manifestbestanden uitgevoerd. 
-* Console-omleiding wordt niet ondersteund in Linux. 
-* De Fault Analysis Service (FAS) is niet beschikbaar in Linux.
-* Azure Active Directory wordt niet ondersteund in Linux.
-* Sommige CLI-opdrachtequivalenten van Powershell-opdrachten zijn niet beschikbaar.
+Omdat Service Fabric in Linux een preview-versie is, zijn er enkele functies die wel worden ondersteund in Windows, maar nog niet in Linux. Wanneer Service Fabric in Linux algemeen beschikbaar komt, zullen de functiesets gelijkwaardig zijn. In toekomstige versies worden de verschillen in functies steeds kleiner. De meest recente versies (tussen versie 5.6 voor Windows en versie 5.5 voor Linux) hebben de volgende verschillen: 
+
+* Betrouwbare verzamelingen (en betrouwbare stateful services) 
+* ReverseProxy 
+* Zelfstandig installatieprogramma 
+* XML-schemavalidatie voor manifestbestanden 
+* Consoleomleiding 
+* De Fault Analysis Service (FAS)
+* Docker Compose-volume en logboekregistratiestuurprogramma's voor containers 
+* Resourcebeheer voor containers en services 
+* DNS-service
+* Ondersteuning van Azure Active Directory
+* CLI-opdrachtequivalenten van bepaalde Powershell-opdrachten 
 * Voor een Linux-cluster kan maar een deel van de Powershell-opdrachten worden uitgevoerd (zoals in de volgende sectie wordt uitgelegd).
 
 >[!NOTE]
@@ -41,7 +46,9 @@ Omdat Service Fabric in Linux een preview-versie is, zijn er enkele functies die
 
 De hulpmiddelen voor ontwikkelaars verschillen ook tussen Windows en Linux. VisualStudio, Powershell VSTS en ETW worden gebruikt op Windows terwijl Yeoman, Eclipse, Jenkins en LTTng op Linux worden gebruikt.
 
-## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>PowerShell-cmdlets die niet werken voor een Service Fabric-cluster in Linux
+<a id="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster" class="xliff"></a>
+
+## PowerShell-cmdlets die niet werken voor een Service Fabric-cluster in Linux
 
 * Invoke-ServiceFabricChaosTestScenario
 * Invoke-ServiceFabricFailoverTestScenario
@@ -99,7 +106,9 @@ De hulpmiddelen voor ontwikkelaars verschillen ook tussen Windows en Linux. Visu
 
 
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 * [Uw ontwikkelomgeving voorbereiden in Linux](service-fabric-get-started-linux.md)
 * [Uw ontwikkelomgeving voorbereiden in OSX](service-fabric-get-started-mac.md)
 * [Uw eerste Service Fabric Java-toepassing in Linux maken en implementeren met behulp van Yeoman](service-fabric-create-your-first-linux-application-with-java.md)

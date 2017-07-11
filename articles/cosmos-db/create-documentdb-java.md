@@ -1,35 +1,39 @@
 ---
 title: 'Azure Cosmos DB: een toepassing bouwen met Java en de DocumentDB API | Microsoft Docs'
 description: "Biedt een voorbeeld van Java-code dat u kunt gebruiken om verbinding te maken met de DocumentDB API van Azure Cosmos DB en er query’s op uit te voeren"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 06/27/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c0ed076521291bac61049c13045553c9f64cd565
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: c178646f0ec10cb08e90c1eda544a2488782187f
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: een DocumentDB API-app ontwikkelen met Java en Azure Portal
+<a id="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal" class="xliff"></a>
 
-Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafen en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
+# Azure Cosmos DB: een DocumentDB API-app ontwikkelen met Java en Azure Portal
 
-Deze Quick Start laat zien hoe u een Azure Cosmos DB-account, een documentdatabase en een verzameling kunt maken met behulp van Azure Portal. Vervolgens ontwikkelt u een console-app die is gebouwd op de [DocumentDB Java-API](../documentdb/documentdb-sdk-java.md) en voert u deze uit.
+Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Vereisten
+Deze Quick Start laat zien hoe u een Azure Cosmos DB-account, een documentdatabase en een verzameling kunt maken met behulp van Azure Portal. Vervolgens ontwikkelt u een console-app die is gebouwd op de [DocumentDB Java-API](documentdb-sdk-java.md) en voert u deze uit.
+
+<a id="prerequisites" class="xliff"></a>
+
+## Vereisten
 
 * Voordat u met dit voorbeeld aan de slag gaat, moet u aan de volgende vereisten voldoen:
    * JDK 1.7+ (voer `apt-get install default-jdk` uit als u niet over JDK beschikt)
@@ -37,15 +41,21 @@ Deze Quick Start laat zien hoe u een Azure Cosmos DB-account, een documentdataba
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-database-account"></a>Een databaseaccount maken
+<a id="create-a-database-account" class="xliff"></a>
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+## Een databaseaccount maken
 
-## <a name="add-a-collection"></a>Een verzameling toevoegen
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+<a id="add-a-collection" class="xliff"></a>
 
-## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
+## Een verzameling toevoegen
+
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+
+<a id="clone-the-sample-application" class="xliff"></a>
+
+## De voorbeeldtoepassing klonen
 
 We gaan nu een DocumentDB API-app klonen vanuit GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
 
@@ -54,12 +64,14 @@ We gaan nu een DocumentDB API-app klonen vanuit GitHub, de verbindingsreeks inst
 2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-java-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
     ```
 
-## <a name="review-the-code"></a>De code bekijken
+<a id="review-the-code" class="xliff"></a>
 
-Laten we eens kijken wat er precies gebeurt in de app. Open het bestand `app.js` en u zult zien dat deze regels code de Azure Cosmos DB-resources maken. 
+## De code bekijken
+
+Laten we eens kijken wat er precies gebeurt in de app. Open het bestand `Program.java`. Zoek de regels code waarmee de Azure Cosmos DB-resources worden gemaakt. 
 
 * De `DocumentClient` is geïnitialiseerd.
 
@@ -126,7 +138,9 @@ Laten we eens kijken wat er precies gebeurt in de app. Open het bestand `app.js`
     }
     ```    
 
-## <a name="update-your-connection-string"></a>Uw verbindingsreeks bijwerken
+<a id="update-your-connection-string" class="xliff"></a>
+
+## Uw verbindingsreeks bijwerken
 
 Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app.
 
@@ -140,35 +154,41 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
     `"https://FILLME.documents.azure.com"`
 
-4. Vervolgens kopieert u de waarde van de PRIMAIRE SLEUTEL vanuit de portal en geeft u deze als waarde aan de hoofdsleutel voor de DocumentClient-constructor in 'Program.java'. U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Azure Cosmos DB. 
-
-    `config.primaryKey "FILLME"`
+4. Vervolgens kopieert u de waarde van de PRIMAIRE SLEUTEL vanuit de portal en vervangt u de tweede parameter FILL ME door de sleutel uit de DocumentClient-constructor in Program.java. U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Azure Cosmos DB. 
     
-## <a name="run-the-app"></a>De app uitvoeren
+<a id="run-the-app" class="xliff"></a>
 
-1. Voer `mvn package` uit op een terminal zodat de vereiste npm-modules worden geïnstalleerd.
+## De app uitvoeren
+
+1. Voer `mvn package` uit op een terminal om de vereiste Java-pakketten te installeren.
 
 2. Voer `mvn exec:java -D exec.mainClass=GetStarted.Program` uit op een terminal om uw Java-toepassing te starten.
 
 U kunt nu teruggaan naar Data Explorer en deze nieuwe gegevens bekijken, wijzigen, een query erop uitvoeren of er iets anders mee doen. 
 
-## <a name="review-slas-in-the-azure-portal"></a>SLA’s bekijken in Azure Portal
+<a id="review-slas-in-the-azure-portal" class="xliff"></a>
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+## SLA’s bekijken in Azure Portal
 
-## <a name="clean-up-resources"></a>Resources opschonen
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+
+<a id="clean-up-resources" class="xliff"></a>
+
+## Resources opschonen
 
 Als u deze app niet verder gaat gebruiken, kunt u alle resources verwijderen die door deze Quick Start zijn aangemaakt door onderstaande stappen te volgen in Azure Portal:
 
 1. Klik in het menu aan de linkerkant in Azure Portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt. 
 2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ de naam van de resource die u wilt verwijderen in het tekstvak en klik vervolgens op **Verwijderen**.
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 
 In deze Quick Start hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken, hoe u een verzameling kunt maken met Data Explorer en hebt u een app uitgevoerd. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren. 
 
 > [!div class="nextstepaction"]
-> [Gegevens importeren in Azure Cosmos DB](../documentdb/documentdb-import-data.md)
+> [Gegevens importeren in Azure Cosmos DB](import-data.md)
 
 
 

@@ -1,0 +1,3 @@
+Met Azure Functions Core-hulpprogramma's kunt u Azure Functions-projecten uitvoeren op uw lokale ontwikkelcomputer. De eerste keer dat u een functie vanuit Visual Studio start, wordt u gevraagd deze hulpprogramma's te installeren.  
+
+Als u uw functie wilt testen, klikt u met de rechtermuisknop op het projectknooppunt in **Solution Explorer** en selecteert u **Fouten opsporen** > **Nieuwe instantie starten**. Accepteer desgevraagd de aanvraag van Visual Studio om Azure Functions Core (CLI)-hulpprogramma's te downloaden en installeren.  Mogelijk moet u ook een firewall-uitzondering inschakelen zodat de hulpprogramma's de HTTP-aanvragen kunnen afhandelen.

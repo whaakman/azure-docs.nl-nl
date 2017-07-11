@@ -12,20 +12,25 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2017
+ms.date: 06/29/2016
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 0407eab7e70649999ba07730425366b7b62e4e7a
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 6f0f6d6399d53ae2ef81454e4d686e6cc59151c2
+ms.contentlocale: nl-nl
+ms.lasthandoff: 06/30/2017
 
 
 ---
 
-# <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Service Fabric-invoegtoepassing voor de ontwikkeling van Eclipse Java-toepassingen
+<a id="service-fabric-plug-in-for-eclipse-java-application-development" class="xliff"></a>
+
+# Service Fabric-invoegtoepassing voor de ontwikkeling van Eclipse Java-toepassingen
 Eclipse is een van de meest gebruikte Integrated Development Environments (IDE's) voor Java-ontwikkelaars. In dit artikel wordt beschreven hoe u een Eclipse-ontwikkelomgeving instelt voor gebruik met Azure Service Fabric. Ontdek hoe u de Service Fabric-invoegtoepassing installeert en een Service Fabric-toepassing implementeert in een lokaal of extern Service Fabric-cluster in Eclipse Neon.
 
-## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse-neon"></a>De Service Fabric-invoegtoepassing installeren of bijwerken in Eclipse Neon
+<a id="install-or-update-the-service-fabric-plug-in-in-eclipse-neon" class="xliff"></a>
+
+## De Service Fabric-invoegtoepassing installeren of bijwerken in Eclipse Neon
 U kunt een Service Fabric-invoegtoepassing in Eclipse installeren. De invoegtoepassing vereenvoudigt het proces voor het maken en implementeren van Java-services.
 
 1.  Zorg ervoor dat u de nieuwste versie van Eclipse Neon en de nieuwste versie van Buildship (1.0.17 of hoger) hebt geïnstalleerd:
@@ -34,18 +39,21 @@ U kunt een Service Fabric-invoegtoepassing in Eclipse installeren. De invoegtoep
     -   Als u updates voor Eclipse Neon wilt zoeken en installeren, gaat u naar **Help** > **Check for Updates**.
 
 2.  Als u de Service Fabric-invoegtoepassing wilt installeren, gaat u in Eclipse Neon naar **Help** > **Install New Software**.
-  1.    Voer in het vak **Work with** **http://dl.windowsazure.com/eclipse/servicefabric** in.
+  1.    Geef in het vak **Work with** **http://dl.microsoft.com/eclipse** op.
   2.    Klik op **Add**.
-    ![De Service Fabric-invoegtoepassing voor Eclipse Neon][sf-eclipse-plugin-install]
+
+         ![De Service Fabric-invoegtoepassing voor Eclipse Neon][sf-eclipse-plugin-install]
   3.    Selecteer de Fabric Service-invoegtoepassing en klik op **Next**.
   4.    Voer de installatiestappen uit en accepteer de licentievoorwaarden voor Microsoft-software.
 
 Als u de Service Fabric-invoegtoepassing al hebt geïnstalleerd, controleert u of u de meest recente versie gebruikt. Ga naar **Help** > **Installation Details** om te controleren of er updates beschikbaar zijn. Selecteer Service Fabric in de lijst met geïnstalleerde invoegtoepassingen en klik op **Update**. Beschikbare updates worden geïnstalleerd.
 
 > [!NOTE]
-> Als de installatie of update van de Service Fabric-invoegtoepassing traag verloopt, kan dit het gevolg zijn van een instelling in Eclipse. Eclipse verzamelt metagegevens over alle wijzigingen in updatesites die zijn geregistreerd bij uw exemplaar van Eclipse. Als u het proces voor het controleren op en installeren van updates van Service Fabric-invoegtoepassingen wilt versnellen, gaat u naar **Available Software Sites**. Schakel de selectievakjes uit voor alle sites, behalve voor de site die naar de Fabric Service-invoegtoepassing wijst op locatie (http://dl.windowsazure.com/eclipse/servicefabric).
+> Als de installatie of update van de Service Fabric-invoegtoepassing traag verloopt, kan dit het gevolg zijn van een instelling in Eclipse. Eclipse verzamelt metagegevens over alle wijzigingen in updatesites die zijn geregistreerd bij uw exemplaar van Eclipse. Als u het proces voor het controleren op en installeren van updates van Service Fabric-invoegtoepassingen wilt versnellen, gaat u naar **Available Software Sites**. Schakel de selectievakjes uit voor alle sites, behalve voor de site die naar de locatie van de Fabric Service-invoegtoepassing wijst (http://dl.microsoft.com/eclipse/azure/servicefabric).
 
-## <a name="create-a-service-fabric-application-in-eclipse"></a>Een Service Fabric-toepassing maken in Eclipse
+<a id="create-a-service-fabric-application-in-eclipse" class="xliff"></a>
+
+## Een Service Fabric-toepassing maken in Eclipse
 
 1.  Ga in Eclipse Neon naar **File** > **New** > **Other**. Selecteer **Fabric Service Project** en klik op **Next**.
 
@@ -71,7 +79,9 @@ Als u de Service Fabric-invoegtoepassing al hebt geïnstalleerd, controleert u o
 
     ![Nieuw Service Fabric-project pagina 6][create-application/p6]
 
-## <a name="build-and-deploy-a-service-fabric-application-in-eclipse"></a>Een Service Fabric-toepassing maken en implementeren in Eclipse
+<a id="build-and-deploy-a-service-fabric-application-in-eclipse" class="xliff"></a>
+
+## Een Service Fabric-toepassing maken en implementeren in Eclipse
 
 1.  Klik met de rechtermuisknop op de nieuwe Service Fabric-toepassing en selecteer **Service Fabric**.
 
@@ -103,7 +113,9 @@ U kunt de Service Fabric-toepassing ook implementeren met behulp van Eclipse-uit
 
 De toepassing is binnen enkele ogenblikken gemaakt en geïmplementeerd. U kunt de implementatiestatus controleren in Service Fabric Explorer.  
 
-## <a name="add-a-service-fabric-service-to-your-service-fabric-application"></a>Een Service Fabric-service toevoegen aan uw Service Fabric-toepassing
+<a id="add-a-service-fabric-service-to-your-service-fabric-application" class="xliff"></a>
+
+## Een Service Fabric-service toevoegen aan uw Service Fabric-toepassing
 
 Voer de volgende stappen uit als u een Service Fabric-service aan een bestaande Service Fabric-toepassing wilt toevoegen:
 
@@ -124,7 +136,17 @@ Voer de volgende stappen uit als u een Service Fabric-service aan een bestaande 
 
     ![Service aan Service Fabric toevoegen pagina 4][add-service/p4]
 
-## <a name="upgrade-your-service-fabric-java-application"></a>Uw Service Fabric Java-toepassing upgraden
+<a id="edit-manifest-versions-of-your-service-fabric-java-application" class="xliff"></a>
+
+## Manifestversies van uw Service Fabric Java-toepassing bewerken
+
+Als u manifestversies wilt bewerken, klikt u met de rechtermuisknop op het project, gaat u naar **Service Fabric** en selecteert u **Edit Manifest Versions...** in de vervolgkeuzelijst. In de wizard kunt u de manifestversies bijwerken voor het toepassingsmanifest, servicemanifest en de versies voor de pakketten **Code**, **Config** en **Data**.
+
+Als u de optie **Automatically update application and service versions** inschakelt en vervolgens een versie bijwerkt, worden de manifestversies automatisch bijgewerkt. Als u bijvoorbeeld eerst het selectievakje inschakelt, vervolgens de versie van **Code** bijwerkt van 0.0.0 naar 0.0.1 en op **Finish** klikt, worden de versies van het servicemanifest en toepassingsmanifest automatisch bijgewerkt naar 0.0.1.
+
+<a id="upgrade-your-service-fabric-java-application" class="xliff"></a>
+
+## Uw Service Fabric Java-toepassing upgraden
 
 Stel dat u voor een upgradescenario het project **App1** hebt gemaakt met behulp van de Service Fabric-invoegtoepassing in Eclipse. U hebt dit vervolgens met behulp van de invoegtoepassing geïmplementeerd om een toepassing met de naam **fabric:/App1Application** te maken. Het toepassingstype is **App1AppicationType** en de toepassingsversie is 1.0. Nu wilt u een toepassingsupgrade uitvoeren zonder de beschikbaarheid van de toepassing te onderbreken.
 
@@ -142,7 +164,7 @@ De toepassingsupgrade duurt enkele minuten. U kunt de upgrade van de toepassing 
 
 <!-- Images -->
 
-[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
+[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-eclipse/service-fabric-eclipse-plugin.png
 
 [create-application/p1]:./media/service-fabric-get-started-eclipse/create-application/p1.png
 [create-application/p2]:./media/service-fabric-get-started-eclipse/create-application/p2.png

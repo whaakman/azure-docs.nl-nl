@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: e32ffa81f7465682579eec92087b98aebbe3c4a8
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 8dbc951416d577fa7f534c2eab1605c6bee61fce
+ms.contentlocale: nl-nl
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Aan de slag met het maken van een interne load balancer (klassiek) voor cloudservices
+<a id="get-started-creating-an-internal-load-balancer-classic-for-cloud-services" class="xliff"></a>
+
+# Aan de slag met het maken van een interne load balancer (klassiek) voor cloudservices
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -30,7 +34,9 @@ ms.openlocfilehash: e32ffa81f7465682579eec92087b98aebbe3c4a8
 > [!IMPORTANT]
 > Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md).  Dit artikel gaat over het gebruik van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Lees [meer informatie over het uitvoeren van deze stappen met het Resource Manager-model](load-balancer-get-started-ilb-arm-ps.md).
 
-## <a name="configure-internal-load-balancer-for-cloud-services"></a>Een interne load balancer configureren voor cloudservices
+<a id="configure-internal-load-balancer-for-cloud-services" class="xliff"></a>
+
+## Een interne load balancer configureren voor cloudservices
 
 Een interne load balancer wordt ondersteund voor zowel virtuele machines als cloudservices. Een eindpunt van een interne load balancer in een cloudservice buiten een regionaal virtueel netwerk is alleen toegankelijk in de cloudservice.
 
@@ -39,7 +45,9 @@ De interne load balancer moet worden geconfigureerd wanneer de eerste implementa
 > [!IMPORTANT]
 > Om de volgende stappen uit te kunnen voeren, moet er al een virtueel netwerk voor de cloudimplementatie zijn gemaakt. U hebt de naam van het virtuele netwerk en van het subnet nodig om de Interne taakverdeling te kunnen maken.
 
-### <a name="step-1"></a>Stap 1
+<a id="step-1" class="xliff"></a>
+
+### Stap 1
 
 Open het serviceconfiguratiebestand (.cscfg) voor de cloudimplementatie in Visual Studio en voeg de volgende sectie toe om de Interne taakverdeling te maken onder het laatste '`</Role>`'-item van de netwerkconfiguratie.
 
@@ -53,7 +61,7 @@ Open het serviceconfiguratiebestand (.cscfg) voor de cloudimplementatie in Visua
 </NetworkConfiguration>
 ```
 
-U gaat nu de waarden voor het netwerkconfiguratiebestand toevoegen om te zien hoe het eruitziet. In het voorbeeld wordt ervan uitgegaan dat u een subnet test_vnet hebt gemaakt met subnet 10.0.0.0/24 met de naam test_subnet en een statisch IP-adres 10.0.0.4. De load balancer wordt testLB genoemd.
+U gaat nu de waarden voor het netwerkconfiguratiebestand toevoegen om te zien hoe het eruitziet. In het voorbeeld wordt ervan uitgegaan dat u een Vnet test_vnet hebt gemaakt met subnet 10.0.0.0/24 met de naam test_subnet en een statisch IP-adres 10.0.0.4. De load balancer wordt testLB genoemd.
 
 ```xml
 <NetworkConfiguration>
@@ -67,7 +75,9 @@ U gaat nu de waarden voor het netwerkconfiguratiebestand toevoegen om te zien ho
 
 Voor meer informatie over het load balancer-schema raadpleegt u [Add Load Balancer](https://msdn.microsoft.com/library/azure/dn722411.aspx) (Load balancer toevoegen).
 
-### <a name="step-2"></a>Stap 2
+<a id="step-2" class="xliff"></a>
+
+### Stap 2
 
 Wijzig het servicedefinitiebestand (.csdef) om eindpunten aan de Interne taakverdeling toe te voegen. Op het moment dat er een rolinstantie wordt gemaakt, voegt het servicedefinitiebestand de rolinstanties aan de Interne taakverdeling toe.
 
@@ -91,15 +101,12 @@ U gaat nu met dezelfde waarden uit bovenstaand voorbeeld de waarden aan het serv
 
 Het netwerkverkeer krijgt een gelijke taakverdeling met load balancer testLB die poort 80 gebruikt voor binnenkomende aanvragen en verzendt naar werkrolinstanties, eveneens op poort 80.
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 
 [Een distributiemodus voor de load balancer configureren met bron-IP-affiniteit](load-balancer-distribution-mode.md)
 
 [TCP-time-outinstellingen voor inactiviteit voor de load balancer configureren](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

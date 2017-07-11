@@ -12,23 +12,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: c9d5fdc2ff27454b2492751034b43658ee9d46c5
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: ed78d25f2bac0a9996f1796ee503f31a36940977
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/01/2017
 
 
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-cli-20-preview"></a>Aan de slag met Azure Data Lake Store met Azure CLI 2.0 (preview)
+<a id="get-started-with-azure-data-lake-store-using-azure-cli-20" class="xliff"></a>
+
+# Aan de slag met Azure Data Lake Store met Azure CLI 2.0
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [.NET-SDK](data-lake-store-get-started-net-sdk.md)
 > * [Java-SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST-API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
@@ -40,27 +42,25 @@ Ontdek hoe u met de Azure CLI 2.0 een Azure Data Lake Store-account maakt en bas
 De Azure CLI 2.0 is de nieuwe opdrachtregelervaring van Azure voor het beheer van Azure-resources. Deze kan worden gebruikt in Mac OS, Linux en Windows. Zie [Overview of Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview) (Overzicht van Azure CLI 2.0) voor meer informatie. U kunt ook zoeken in de [Naslaggegevens van Azure Data Lake Store CLI 2.0](https://docs.microsoft.com/cli/azure/dls), voor een volledige lijst met opdrachten en syntaxis.
 
 
-## <a name="prerequisites"></a>Vereisten
+<a id="prerequisites" class="xliff"></a>
+
+## Vereisten
 Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Azure CLI 2.0**: zie [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (Azure CLI 2.0 installeren) voor instructies.
 
-## <a name="authentication"></a>Verificatie
+<a id="authentication" class="xliff"></a>
 
-In dit artikel wordt een eenvoudigere verificatiemethode voor Data Lake Store gebruikt waarbij u zich als een eindgebruiker aanmeldt. Het toegangsniveau voor het account en bestandssysteem van Data Lake Store wordt vervolgens bepaald door het toegangsniveau van de aangemelde gebruiker. Er zijn echter ook andere manieren om te verifiëren in Data Lake Store, zoals **verificatie door eindgebruikers** en **service-naar-serviceverificatie**. Zie [Verifiëren met Data Lake Store met behulp van Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) voor instructies en meer informatie over verificatie.
+## Verificatie
 
-## <a name="enable-data-lake-store-preview-in-azure-cli-20"></a>Data Lake Store (preview) inschakelen in Azure CLI 2.0
-
-Data Lake Store CLI 2.0 is momenteel beschikbaar als preview-versie en wordt niet standaard ingeschakeld wanneer u Azure CLI 2.0 installeert. Voer de volgende opdracht uit om Data Lake Store CLI 2.0 in te schakelen.
-
-```azurecli
-az component update --add dls
-```
+In dit artikel wordt een eenvoudigere verificatiemethode voor Data Lake Store gebruikt waarbij u zich als een eindgebruiker aanmeldt. Het toegangsniveau voor het account en bestandssysteem van Data Lake Store wordt vervolgens bepaald door het toegangsniveau van de aangemelde gebruiker. Er zijn echter ook andere manieren om te verifiëren in Data Lake Store, zoals **verificatie door eindgebruikers** en **service-naar-serviceverificatie**. Zie [Eindgebruikersverificatie](data-lake-store-end-user-authenticate-using-active-directory.md) of [Service-to-serviceverificatie](data-lake-store-authenticate-using-active-directory.md) voor instructies en meer informatie over verificatie.
 
 
-## <a name="log-in-to-your-azure-subscription"></a>Aanmelden bij uw Azure-abonnement
+<a id="log-in-to-your-azure-subscription" class="xliff"></a>
+
+## Aanmelden bij uw Azure-abonnement
 
 1. Meld u aan bij uw Azure-abonnement.
 
@@ -76,7 +76,9 @@ az component update --add dls
     az account set --subscription <subscription id> 
     ```
 
-## <a name="create-an-azure-data-lake-store-account"></a>Een Azure Data Lake Store-account maken
+<a id="create-an-azure-data-lake-store-account" class="xliff"></a>
+
+## Een Azure Data Lake Store-account maken
 
 1. Maak een nieuwe resourcegroep. Geef in de volgende opdracht de parameterwaarden op die u wilt gebruiken. Als de locatienaam spaties bevat, moet deze tussen dubbele aanhalingstekens worden geplaatst. Bijvoorbeeld “VS-oost 2”. 
    
@@ -90,7 +92,9 @@ az component update --add dls
     az dls account create --account mydatalakestore --resource-group myresourcegroup
     ```
 
-## <a name="create-folders-in-a-data-lake-store-account"></a>Mappen maken in een Data Lake Store-account
+<a id="create-folders-in-a-data-lake-store-account" class="xliff"></a>
+
+## Mappen maken in een Data Lake Store-account
 
 U kunt mappen maken onder uw Azure Data Lake Store-account voor het beheren en opslaan van gegevens. Gebruik de volgende opdracht om in de hoofdmap van Data Lake Store een map te maken met de naam **mynewfolder**.
 
@@ -103,7 +107,9 @@ az dls fs create --account mydatalakestore --path /mynewfolder --folder
 > 
 >
 
-## <a name="upload-data-to-a-data-lake-store-account"></a>Gegevens uploaden naar een Data Lake Store-account
+<a id="upload-data-to-a-data-lake-store-account" class="xliff"></a>
+
+## Gegevens uploaden naar een Data Lake Store-account
 
 U kunt gegevens direct naar het hoogste niveau in Data Lake Store uploaden of naar een map die u in het account hebt gemaakt. De codefragmenten hieronder laten zien hoe u voorbeeldgegevens uploadt naar de map (**mynewfolder**) die u in de voorgaande sectie hebt gemaakt.
 
@@ -119,7 +125,9 @@ az dls fs upload --account mydatalakestore --source-path "C:\SampleData\Ambulanc
 >
 
 
-## <a name="list-files-in-a-data-lake-store-account"></a>Bestanden in een Data Lake Store-account weergeven
+<a id="list-files-in-a-data-lake-store-account" class="xliff"></a>
+
+## Bestanden in een Data Lake Store-account weergeven
 
 Gebruik de volgende opdracht om de bestanden in een Data Lake Store-account weer te geven.
 
@@ -147,7 +155,9 @@ De uitvoer ziet er ongeveer als volgt uit:
         }
     ]
 
-## <a name="rename-download-and-delete-data-from-a-data-lake-store-account"></a>Gegevens in een Data Lake Store-account een nieuwe naam geven, downloaden en verwijderen 
+<a id="rename-download-and-delete-data-from-a-data-lake-store-account" class="xliff"></a>
+
+## Gegevens in een Data Lake Store-account een nieuwe naam geven, downloaden en verwijderen 
 
 * **Als u de naam van een bestand wilt wijzigen**, gebruikt u de volgende opdracht:
   
@@ -157,7 +167,7 @@ De uitvoer ziet er ongeveer als volgt uit:
 
 * **Als u een bestand wilt downloaden**, gebruikt u de volgende opdracht: Zorg ervoor dat het doelpad dat u opgeeft al bestaat.
   
-    ```azurecli        
+    ```azurecli     
     az dls fs download --account mydatalakestore --source-path /mynewfolder/vehicle1_09142014_copy.csv --destination-path "C:\mysampledata\vehicle1_09142014_copy.csv"
     ```
 
@@ -178,7 +188,9 @@ De uitvoer ziet er ongeveer als volgt uit:
     az dls fs delete --account mydatalakestore --path /mynewfolder --recurse
     ```
 
-## <a name="work-with-permissions-and-acls-for-a-data-lake-store-account"></a>Machtigingen en ACL's gebruiken voor een Data Lake Store-account
+<a id="work-with-permissions-and-acls-for-a-data-lake-store-account" class="xliff"></a>
+
+## Machtigingen en ACL's gebruiken voor een Data Lake Store-account
 
 In deze sectie vindt u informatie over het beheer van ACL's en machtigingen met de Azure CLI 2.0. Zie [Toegangsbeheer in Azure Data Lake Store](data-lake-store-access-control.md) voor gedetailleerde informatie over de implementatie van ACL's in Azure Data Lake Store.
 
@@ -238,7 +250,9 @@ In deze sectie vindt u informatie over het beheer van ACL's en machtigingen met 
     az dls fs access remove-all --account mydatalakestore --path /mynewfolder
     ```
     
-## <a name="delete-a-data-lake-store-account"></a>Een Data Lake Store-account verwijderen
+<a id="delete-a-data-lake-store-account" class="xliff"></a>
+
+## Een Data Lake Store-account verwijderen
 Gebruik de volgende opdracht om een Data Lake Store-account te verwijderen.
 
 ```azurecli
@@ -247,7 +261,9 @@ az dls account delete --account mydatalakestore
 
 Wanneer dit wordt gevraagd, typt u **Y** om het account te verwijderen.
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 
 * [Naslaggegevens van Azure Data Lake Store CLI 2.0](https://docs.microsoft.com/cli/azure/dls)
 * [Gegevens in Data Lake Store beveiligen](data-lake-store-secure-data.md)
