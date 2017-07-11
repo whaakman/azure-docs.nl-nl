@@ -13,15 +13,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/06/2016
+ms.date: 05/17/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 0ab72bd4ad531d1162726c6f5548fa253a4f5265
-ms.openlocfilehash: 6e5ccae8837491e042b85ba4b7d42227e194cb94
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 9d4b28416376482247127698bec7c99b83308885
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="my-first-graphical-runbook"></a>Mijn eerste grafische runbook
+<a id="my-first-graphical-runbook" class="xliff"></a>
+
+# Mijn eerste grafische runbook
 
 > [!div class="op_single_selector"]
 > * [Grafisch](automation-first-runbook-graphical.md)
@@ -30,27 +34,33 @@ ms.openlocfilehash: 6e5ccae8837491e042b85ba4b7d42227e194cb94
 > 
 > 
 
-In deze zelfstudie wordt stap voor stap het maken van een [grafisch runbook](automation-runbook-types.md#graphical-runbooks) in Azure Automation beschreven.  We beginnen met een eenvoudig runbook dat we testen en publiceren terwijl we uitleggen hoe u de status van de runbooktaak kunt bijhouden.  Vervolgens wijzigen we het runbook zodat Azure-resources daadwerkelijk worden beheerd, in dit geval door een virtuele machine van Azure te starten.  Daarna maken we het runbook krachtiger door runbookparameters en voorwaardelijke koppelingen toe te voegen.
+In deze zelfstudie wordt stap voor stap het maken van een [grafisch runbook](automation-runbook-types.md#graphical-runbooks) in Azure Automation beschreven.  We beginnen met een eenvoudig runbook dat we testen en publiceren terwijl we uitleggen hoe u de status van de runbooktaak kunt bijhouden.  Vervolgens wijzigen we het runbook zodanig dat Azure-resources daadwerkelijk worden beheerd, in dit geval door een virtuele machine van Azure te starten.  Daarna ronden we de zelfstudie af door het runbook geavanceerder te maken. Dit doen we door runbookparameters en voorwaardelijke koppelingen toe te voegen.
 
-## <a name="prerequisites"></a>Vereisten
+<a id="prerequisites" class="xliff"></a>
+
+## Vereisten
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Azure-abonnement.  Als u nog geen abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of <a href="/pricing/free-account/" target="_blank">[u aanmelden voor een gratis account](https://azure.microsoft.com/free/).
-* [Uitvoeren als-account voor Azure](automation-sec-configure-azure-runas-account.md) om het runbook te bevatten en Azure-resources te verifiëren.  Dit account moet machtigingen hebben om de virtuele machine te starten en stoppen.
+* [Azure Automation-account](automation-sec-configure-azure-runas-account.md) voor het runbook en verificatie van Azure-resources.  Dit account moet machtigingen hebben om de virtuele machine te starten en stoppen.
 * Een virtuele machine van Azure.  We stoppen en starten deze machine, dus het mag geen productiemachine zijn.
 
-## <a name="step-1---create-new-runbook"></a>Stap 1: nieuw runbook maken
+<a id="step-1---create-runbook" class="xliff"></a>
+
+## Stap 1: runbook maken
 We beginnen met het maken van een eenvoudig runbook waarmee de tekst *Hallo wereld* als uitvoer wordt gegeven.
 
 1. Open uw Automation-account in Azure Portal.  
    Op de Automation-accountpagina vindt u een beknopte weergave van de resources in dit account.  U zou al enkele assets moeten hebben.  De meeste daarvan zijn de modules die automatisch zijn opgenomen in een nieuw Automation-account.  Ook moet u de referentieasset hebben die wordt genoemd in de [vereisten](#prerequisites).
-2. Klik op de tegel **Runbooks** om de lijst met runbooks te openen.<br> ![Besturingselement Runbooks](media/automation-first-runbook-graphical/runbooks-control.png)
+2. Klik op de tegel **Runbooks** om de lijst met runbooks te openen.<br> ![Besturingselement Runbooks](media/automation-first-runbook-graphical/runbooks-resources-tile.png)
 3. Maak een nieuw runbook door te klikken op de knop **Een runbook toevoegen** en daarna op **Een nieuw runbook maken**.
 4. Geef het runbook de naam *MyFirstRunbook-Graphical*.
 5. In dit geval gaan we een [grafisch runbook](automation-graphical-authoring-intro.md) maken, dus selecteer **Grafisch** voor **Runbooktype**.<br> ![Nieuw runbook](media/automation-first-runbook-graphical/create-new-runbook.png)<br>
 6. Klik op **Maken** om het runbook te maken en de grafische editor te openen.
 
-## <a name="step-2---add-activities-to-the-runbook"></a>Stap 2: activiteiten toevoegen aan het runbook
+<a id="step-2---add-activities-to-the-runbook" class="xliff"></a>
+
+## Stap 2: activiteiten toevoegen aan het runbook
 Met het besturingselement Bibliotheek aan de linkerkant van de editor kunt u activiteiten selecteren die u aan uw runbook wilt toevoegen.  We gaan een cmdlet **Write-Output** toevoegen om tekst als uitvoer van het runbook te krijgen.
 
 1. Klik in het besturingselement Bibliotheek in het zoektekstvak en typ **Write-Output**.  De zoekresultaten worden eronder weergegeven. <br> ![Microsoft.PowerShell.Utility](media/automation-first-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
@@ -65,35 +75,41 @@ Met het besturingselement Bibliotheek aan de linkerkant van de editor kunt u act
 8. Typ in het vak **Expressie** de tekst *"Hallo wereld"* en klik vervolgens tweemaal op **OK** om terug te gaan naar het papier.<br> ![PowerShell-expressie](media/automation-first-runbook-graphical/expression-hello-world.png)
 9. Klik op **Opslaan** om het runbook op te slaan.<br> ![Runbook opslaan](media/automation-first-runbook-graphical/runbook-toolbar-save-revised20165.png)
 
-## <a name="step-3---test-the-runbook"></a>Stap 3: het runbook testen
+<a id="step-3---test-the-runbook" class="xliff"></a>
+
+## Stap 3: het runbook testen
 Voordat we het runbook publiceren om het beschikbaar te maken in productie, willen we het testen om er zeker van te zijn dat het goed werkt.  Wanneer u een runbook test, voert u de **concept**versie uit en geeft u de uitvoer interactief weer.
 
 1. Klik op **Testvenster** om de blade Test te openen.<br> ![Testvenster](media/automation-first-runbook-graphical/runbook-toolbar-test-revised20165.png)
 2. Klik op **Start** om de test te starten.  Dit moet de enige ingeschakelde optie zijn.
 3. Een [runbooktaak](automation-runbook-execution.md) wordt gemaakt en de status ervan wordt in het venster weergegeven.  
-   In eerste instantie is de taakstatus *In de wachtrij geplaatst*. Hiermee wordt aangegeven dat er wordt gewacht tot in de cloud een runbook-werkrol beschikbaar is.  De taakstatus verandert daarna in *Starten* wanneer een werkrol de taak claimt en daarna in *Wordt uitgevoerd* wanneer het runbook daadwerkelijk wordt uitgevoerd.  
+   In eerste instantie is de taakstatus *In de wachtrij geplaatst*. Hiermee wordt aangegeven dat er wordt gewacht tot er in de cloud een runbook worker beschikbaar is.  De taakstatus verandert daarna in *Starten* wanneer een werkrol de taak claimt en daarna in *Wordt uitgevoerd* wanneer het runbook daadwerkelijk wordt uitgevoerd.  
 4. Wanneer de runbooktaak is voltooid, wordt de uitvoer ervan weergegeven. In ons geval zouden we *Hallo wereld* moeten zien.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
 5. Sluit de blade Test om terug te gaan naar het papier.
 
-## <a name="step-4---publish-and-start-the-runbook"></a>Stap 4: het runbook publiceren en starten
-Het runbook dat we zojuist hebben gemaakt, bevindt zich nog steeds in de modus Concept. We moeten het publiceren voordat we het in productie kunnen uitvoeren.  Wanneer u een runbook publiceert, overschrijft u de bestaande gepubliceerde versie met de conceptversie.  In ons geval hebben we nog geen gepubliceerde versie omdat we het runbook zojuist hebben gemaakt.
+<a id="step-4---publish-and-start-the-runbook" class="xliff"></a>
+
+## Stap 4: het runbook publiceren en starten
+Het runbook dat we hebben gemaakt, bevindt zich nog steeds in de modus Concept. We moeten het publiceren voordat we het in productie kunnen uitvoeren.  Wanneer u een runbook publiceert, overschrijft u de bestaande gepubliceerde versie met de conceptversie.  In ons geval hebben we nog geen gepubliceerde versie omdat we het runbook zojuist hebben gemaakt.
 
 1. Klik op **Publiceren** om het runbook te publiceren en klik vervolgens op **Ja** wanneer hierom wordt gevraagd.<br> ![Publiceren](media/automation-first-runbook-graphical/runbook-toolbar-publish-revised20166.png)
 2. Als u naar links schuift om het runbook weer te geven op de blade **Runbooks**, wordt de **Ontwerpstatus** **Gepubliceerd** getoond.
 3. Schuif terug naar rechts om de blade voor **MyFirstRunbook** weer te geven.  
    Met de opties bovenaan kunnen we het runbook starten, plannen dat het op een bepaald moment in de toekomst start of een [webhook](automation-webhooks.md) maken zodat het kan worden gestart via een HTTP-aanroep.
 4. We willen het runbook starten, dus klikt u op **Starten** en vervolgens op **Ja** wanneer hierom wordt gevraagd.<br> ![Runbook starten](media/automation-first-runbook-graphical/runbook-controls-start-revised20165.png)
-5. Een taakblade wordt geopend voor de runbooktaak die we zojuist hebben gemaakt.  We kunnen deze blade sluiten, maar in dit geval laten we de blade open zodat we de voortgang van de taak kunnen bekijken.
+5. Er wordt een taakblade geopend voor de runbooktaak die we hebben gemaakt.  We kunnen deze blade sluiten, maar in dit geval laten we de blade open zodat we de voortgang van de taak kunnen bekijken.
 6. De taakstatus wordt weergegeven in **Taakoverzicht** en komt overeen met de statuswaarden die we zagen toen we het runbook testten.<br> ![Taakoverzicht](media/automation-first-runbook-graphical/runbook-job-summary.png)
 7. Zodra voor het runbook de status *Voltooid* wordt weergegeven, klikt u op **Uitvoer**. De blade **Uitvoer** wordt geopend en we zien onze tekst *Hallo wereld* in het deelvenster.<br> ![Taakoverzicht](media/automation-first-runbook-graphical/runbook-job-output.png)  
 8. Sluit de blade Uitvoer.
 9. Klik op **Alle logboeken** om de blade Streams voor de runbooktaak te openen.  We zouden alleen *Hallo wereld* moeten zien in de uitvoerstroom, maar er kunnen ook andere stromen voor een runbooktaak worden weergegeven, zoals Uitgebreid en Fout als hiernaar wordt geschreven met het runbook.<br> ![Taakoverzicht](media/automation-first-runbook-graphical/runbook-job-AllLogs.png)
 10. Sluit de blade Alle logboeken en de blade Taak om terug te gaan naar de blade MyFirstRunbook.
-11. Klik op **Taken** om de blade Taken voor dit runbook te openen.  Hiermee worden alle taken weergegeven die met dit runbook zijn gemaakt. We zouden slechts één weergegeven taak moeten zien, aangezien we de taak slechts eenmaal hebben uitgevoerd.<br> ![Taken](media/automation-first-runbook-graphical/runbook-control-jobs.png)
+11. Klik op **Taken** om de blade Taken voor dit runbook te openen.  Op deze blade worden alle taken weergegeven die met dit runbook zijn gemaakt. We zouden slechts één weergegeven taak moeten zien, aangezien we de taak slechts eenmaal hebben uitgevoerd.<br> ![Taken](media/automation-first-runbook-graphical/runbook-control-jobs.png)
 12. U kunt op deze taak klikken om hetzelfde taakvenster te openen dat we hebben bekeken toen we het runbook startten.  Hiermee kunt u teruggaan in de tijd en de details bekijken van elke taak die voor een bepaald runbook is gemaakt.
 
-## <a name="step-5---create-variable-assets"></a>Stap 5: variabele assets maken
-We hebben ons runbook getest en gepubliceerd, maar tot nu toe doet het nog niets nuttigs. We willen dat er Azure-resources mee worden beheerd.  Voordat we het runbook configureren voor verificatie, maken we een variabele die het abonnements-id moet bevatten en verwijzen we hiernaar nadat we de activiteit hebben ingesteld om te verifiëren in stap 6 hieronder.  Door een verwijzing naar de abonnementscontext op te nemen, kunt u eenvoudig werken met verschillende abonnementen.  Voordat u verder gaat, kopieert u uw abonnements-id uit de optie Abonnementen in het deelvenster Navigatie.  
+<a id="step-5---create-variable-assets" class="xliff"></a>
+
+## Stap 5: variabele assets maken
+We hebben ons runbook getest en gepubliceerd, maar tot nu toe doet het nog niets nuttigs. We willen dat er Azure-resources mee worden beheerd.  Voordat we het runbook configureren voor verificatie, maken we een variabele die het abonnements-id moet bevatten en verwijzen we hiernaar nadat we de activiteit hebben ingesteld om te verifiëren in stap 6 hieronder.  Door een verwijzing naar de abonnementscontext op te nemen, kunt u eenvoudig werken met verschillende abonnementen.  Voordat u verdergaat, kopieert u uw abonnements-id uit de optie Abonnementen in het deelvenster Navigatie.  
 
 1. Klik op de blade Automation-accounts op de tegel **Assets**. De blade **Assets** wordt geopend.
 2. Klik op de blade Assets op de tegel **Variabelen**.
@@ -101,7 +117,9 @@ We hebben ons runbook getest en gepubliceerd, maar tot nu toe doet het nog niets
 4. Voer op de blade Nieuwe variabele, in het vak **Naam**, **AzureSubscriptionId** in en voer in het vak **Waarde** uw abonnements-id in.  Behoud *tekenreeks* voor het **type** en de standaardwaarde voor **Versleuteling**.  
 5. Klik op **Maken** om de variabele te maken.  
 
-## <a name="step-6---add-authentication-to-manage-azure-resources"></a>Stap 6: verificatie toevoegen voor het beheren van Azure-resources
+<a id="step-6---add-authentication-to-manage-azure-resources" class="xliff"></a>
+
+## Stap 6: verificatie toevoegen voor het beheren van Azure-resources
 Nu we een variabele hebben die onze abonnements-id kan bevatten, kunnen we ons runbook configureren voor verificatie met de Uitvoeren als-referenties waarnaar wordt verwezen in de [vereisten](#prerequisites).  Dit doen we door de Uitvoeren als-verbinding voor Azure **Asset** en de cmdlet **Add-AzureRMAccount** toe te voegen aan het papier.  
 
 1. Open de grafische editor door te klikken op **Bewerken** op de blade MyFirstRunbook.<br> ![Runbook bewerken](media/automation-first-runbook-graphical/runbook-controls-edit-revised20165.png)
@@ -110,11 +128,11 @@ Nu we een variabele hebben die onze abonnements-id kan bevatten, kunnen we ons r
 4. Selecteer op het papier **AzureRunAsConnection** en typ in het besturingselementvenster Configuratie **Uitvoeren als-verbinding ophalen** in het tekstvak **Label**.  Dit is de verbinding.
 5. Typ in het besturingselement Bibliotheek **Add-AzureRmAccount** in het zoektekstvak.
 6. Voeg **Add-AzureRmAccount** toe aan het papier.<br> ![Add-AzureRMAccount](media/automation-first-runbook-graphical/search-powershell-cmdlet-addazurermaccount.png)
-7. Beweeg de muisaanwijzer over **Uitvoeren als-verbinding ophalen** totdat een cirkel wordt weergegeven aan de onderkant van de vorm. Klik op de cirkel en sleep de pijl naar **Add-AzureRmAccount**.  De pijl die u zojuist hebt gemaakt, is een *koppeling*.  Het runbook wordt gestart met **Uitvoeren als-verbinding ophalen** en vervolgens wordt **Add-AzureRmAccount** uitgevoerd.<br> ![Koppeling tussen activiteiten maken](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
+7. Beweeg de muisaanwijzer over **Uitvoeren als-verbinding ophalen** totdat een cirkel wordt weergegeven aan de onderkant van de vorm. Klik op de cirkel en sleep de pijl naar **Add-AzureRmAccount**.  De pijl die u hebt gemaakt, is een *koppeling*.  Het runbook wordt gestart met **Uitvoeren als-verbinding ophalen** en vervolgens wordt **Add-AzureRmAccount** uitgevoerd.<br> ![Koppeling tussen activiteiten maken](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 8. Selecteer op het papier **Add-AzureRmAccount** en typ in het besturingselementvenster Configuratie **Aanmelden bij Azure** in het tekstvak **Label**.
 9. Klik op **Parameters**, waarna de blade Parameterconfiguratie van activiteit wordt weergegeven.
-10. **Add-AzureRmAccount** bevat meerdere parametersets, dus moeten we er een selecteren voordat we parameterwaarden kunnen opgeven.  Klik op **Parameterset** en selecteer vervolgens de parameterset **ServicePrincipalCertificate**.
-11. Zodra u de parameterset hebt geselecteerd, worden de parameters weergegeven op de blade Parameterconfiguratie van activiteit.  Klik op **APPLICATIONID**.<br> ![Parameters voor Azure RM-account toevoegen](media/automation-first-runbook-graphical/add-azurermaccount-parameterset.png)
+10. **Add-AzureRmAccount** bevat meerdere parametersets, dus moeten we er een selecteren voordat we parameterwaarden kunnen opgeven.  Klik op **Parameterset** en selecteer vervolgens de parameterset **ServicePrincipalCertificatewithSubscriptionId**.
+11. Zodra u de parameterset hebt geselecteerd, worden de parameters weergegeven op de blade Parameterconfiguratie van activiteit.  Klik op **APPLICATIONID**.<br> ![Parameters voor Azure RM-account toevoegen](media/automation-first-runbook-graphical/add-azurermaccount-params.png)
 12. Selecteer op de blade Parameterwaarde de optie **Uitvoer van activiteit** voor de **gegevensbron** en selecteer **Uitvoeren als-verbinding ophalen** in de lijst. In het tekstvak **Pad naar veld** typt u **ApplicationId** en vervolgens klikt u op **OK**.  We geven de naam van de eigenschap voor het pad naar het veld op omdat de uitvoer van de activiteit een object met meerdere eigenschappen bevat.
 13. Klik op **CERTIFICATETHUMBPRINT** en selecteer op de blade Parameterwaarde de optie **Uitvoer van activiteit** voor de **gegevensbron**.  Selecteer **Uitvoeren als-verbinding ophalen** in de lijst, typ in het tekstvak **Pad naar veld** **CertificateThumbprint** en klik vervolgens op **OK**.
 14. Klik op **SERVICEPRINCIPAL** en selecteer op de blade Parameterwaarde **ConstantValue** voor de **gegevensbron**, klik op de optie **Waar** en klik vervolgens op **OK**.
@@ -130,22 +148,26 @@ Nu we een variabele hebben die onze abonnements-id kan bevatten, kunnen we ons r
 
 Uw runbook zou er op dit punt als volgt moeten uitzien: <br>![Configuratie runbookverificatie](media/automation-first-runbook-graphical/runbook-auth-config.png)
 
-## <a name="step-7---add-activity-to-start-a-virtual-machine"></a>Stap 7: activiteit toevoegen om een virtuele machine te starten
-We voegen nu een activiteit **Start-AzureRmVM** toe om een virtuele machine te starten.  U kunt elke virtuele machine in uw Azure-abonnement selecteren en voorlopig hardcoderen we deze naam in de cmdlet.
+<a id="step-7---add-activity-to-start-a-virtual-machine" class="xliff"></a>
+
+## Stap 7: activiteit toevoegen om een virtuele machine te starten
+Hier voegen we een activiteit **Start-AzureRmVM** toe om een virtuele machine te starten.  U kunt elke virtuele machine in uw Azure-abonnement selecteren en voorlopig hardcoderen we deze naam in de cmdlet.
 
 1. Typ in het besturingselement Bibliotheek **Start-AzureRm** in het zoektekstvak.
 2. Voeg **Start-AzureRmVM** toe aan het papier, klik erop en sleep het onder **Abonnements-id opgeven**.
 3. Beweeg de muisaanwijzer over **Abonnements-id opgeven** totdat een cirkel wordt weergegeven aan de onderkant van de vorm.  Klik op de cirkel en sleep de pijl naar **Start-AzureRmVM**.
 4. Selecteer **Start-AzureRmVM**.  Klik op **Parameters** en vervolgens op **Parameterset** om de sets voor **Start-AzureRmVM** weer te geven.  Selecteer de parameterset **ResourceGroupNameParameterSetName**. Naast **ResourceGroupName** en **Name** staan uitroeptekens.  Hiermee wordt aangegeven dat dit vereiste parameters zijn.  Voor beide parameters worden tekenreekswaarden verwacht.
-5. Selecteer **Name**.  Selecteer **PowerShell-expressie** voor de **gegevensbron** en typ de naam van de virtuele machine tussen dubbele aanhalingstekens die we met dit runbook gaan starten.  Klik op **OK**.<br>![Start-AzureRmVM Naam Parameter Waarde](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
+5. Selecteer **Name**.  Selecteer **PowerShell-expressie** bij **Gegevensbron** en typ tussen dubbele aanhalingstekens de naam van de virtuele machine die we met dit runbook gaan starten.  Klik op **OK**.<br>![Start-AzureRmVM Naam Parameter Waarde](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
 6. Selecteer **ResourceGroupName**. Gebruik **PowerShell-expressie** voor de **gegevensbron** en typ de naam van de resourcegroep tussen dubbele aanhalingstekens.  Klik op **OK**.<br> ![Start-AzureRmVM-parameters](media/automation-first-runbook-graphical/startazurermvm-params.png)
 7. Klik op Testvenster zodat we het runbook kunnen testen.
 8. Klik op **Start** om de test te starten.  Nadat deze is voltooid, controleert u of de virtuele machine is gestart.
 
 Uw runbook zou er op dit punt als volgt moeten uitzien: <br>![Configuratie runbookverificatie](media/automation-first-runbook-graphical/runbook-startvm.png)
 
-## <a name="step-8---add-additional-input-parameters-to-the-runbook"></a>Stap 8: aanvullende invoerparameters toevoegen aan het runbook
-Met ons runbook wordt momenteel de virtuele machine gestart in de resourcegroep die we hebben opgegeven in de cmdlet **Start-AzureRmVM**, maar ons runbook zou nuttiger zijn als we beide konden opgeven wanneer het runbook wordt gestart.  We voegen nu invoerparameters aan het runbook toe om deze functionaliteit te bieden.
+<a id="step-8---add-additional-input-parameters-to-the-runbook" class="xliff"></a>
+
+## Stap 8: aanvullende invoerparameters toevoegen aan het runbook
+Met ons runbook wordt op dit moment de virtuele machine gestart in de resourcegroep die we hebben opgegeven in de cmdlet **Start-AzureRmVM**.  Ons runbook zou nuttiger zijn als we beide namen konden opgeven op het moment dat het runbook wordt gestart.  We gaan daarom invoerparameters toevoegen aan het runbook om deze functionaliteit te bieden.
 
 1. Open de grafische editor door te klikken op **Bewerken** in het deelvenster **MyFirstRunbook**.
 2. Klik op **Invoer en uitvoer** en vervolgens op **Invoer toevoegen** om het deelvenster Invoerparameter van runbook te openen.<br> ![Invoer en uitvoer van runbook](media/automation-first-runbook-graphical/runbook-toolbar-InputandOutput-revised20165.png)
@@ -161,7 +183,9 @@ Met ons runbook wordt momenteel de virtuele machine gestart in de resourcegroep 
 12. Klik op **Starten** om het runbook te starten.  Typ waarden voor **VMName** en **ResourceGroupName** voor de virtuele machine die u wilt starten.<br> ![Runbook starten](media/automation-first-runbook-graphical/runbook-start-inputparams.png)
 13. Wanneer het runbook is voltooid, controleert u of de virtuele machine is gestart.
 
-## <a name="step-9---create-a-conditional-link"></a>Stap 9: een voorwaardelijke koppeling maken
+<a id="step-9---create-a-conditional-link" class="xliff"></a>
+
+## Stap 9: een voorwaardelijke koppeling maken
 We zullen het runbook nu wijzigen zodat alleen wordt geprobeerd de virtuele machine te starten als deze nog niet is gestart.  We doen dit door een cmdlet **Get-AzureRmVM** toe te voegen aan het runbook waarmee de exemplaarniveaustatus van de virtuele machine wordt opgehaald. We voegen vervolgens een PowerShell Workflow-codemodule genaamd **Status ophalen** toe met een PowerShell-codefragment om te bepalen of de status van de virtuele machine 'actief' of 'gestopt' is.  Met een voorwaardelijke koppeling van de module **Status ophalen** wordt **Start-AzureRmVM** alleen uitgevoerd als de huidige uitvoeringsstatus 'gestopt' is.  Ten slotte zorgen we dat een bericht wordt weergegeven waarin staat of de virtuele machine is gestart of niet, met de PowerShell-cmdlet Write-Output.
 
 1. Open **MyFirstRunbook** in de grafische editor.
@@ -206,14 +230,11 @@ We zullen het runbook nu wijzigen zodat alleen wordt geprobeerd de virtuele mach
 29. Sla het runbook op en open het testvenster.
 30. Start het runbook als de virtuele machine is gestopt; deze zou moeten starten.
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 * Zie voor meer informatie over grafisch ontwerpen [Grafisch ontwerpen in Azure Automation](automation-graphical-authoring-intro.md)
 * Zie [Mijn eerste PowerShell-runbook](automation-first-runbook-textual-powershell.md) om aan de slag te gaan met PowerShell-runbooks
 * Zie [Mijn eerste PowerShell Workflow-runbook](automation-first-runbook-textual.md) om aan de slag te gaan met PowerShell Workflow-runbooks
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

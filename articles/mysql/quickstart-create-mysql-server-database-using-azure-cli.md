@@ -5,81 +5,87 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: mysql-database
-ms.devlang: na
+ms.devlang: azure-cli
 ms.topic: hero-article
-ms.tgt_pltfrm: portal
-ms.workload: 
-ms.date: 05/10/2017
+ms.date: 06/13/2017
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 574299dd64120d75a1a36cb2ded0fdd269292570
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 04fc441aee7a4c8adc4f02d5e51b2d9e64400f55
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
-# <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Een Azure-database voor MySQL-server maken met behulp van Azure CLI
-In deze Quick Start wordt beschreven hoe u Azure CLI gebruikt om binnen ongeveer vijf minuten een Azure-database voor MySQL-server in een Azure-resourcegroep te maken. De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts.
+<a id="create-an-azure-database-for-mysql-server-using-azure-cli" class="xliff"></a>
 
-Controleer of de nieuwste versie van [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) is geïnstalleerd om deze Quick Start te voltooien. 
+# Een Azure-database voor MySQL-server maken met behulp van Azure CLI
+In deze Quick Start wordt beschreven hoe u Azure CLI gebruikt om binnen ongeveer vijf minuten een Azure-database voor MySQL-server in een Azure-resourcegroep te maken. De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Meld u aan bij uw Azure-abonnement met de opdracht [az login](/cli/azure/#login) en volg de instructies op het scherm.
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
-```azurecli
-az login
+Als u meerdere abonnementen hebt, kiest u het abonnement waarin de resource is opgenomen of wordt gefactureerd. Selecteer een specifiek abonnements-ID in uw account met de opdracht [az account set](/cli/azure/account#set).
+```azurecli-interactive
+az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
-Volg de instructies in de opdrachtprompt om https://aka.ms/devicelog in uw browser te openen en voer de code in die in de **opdrachtprompt** wordt gegenereerd.
 
-## <a name="create-a-resource-group"></a>Een resourcegroep maken
+<a id="create-a-resource-group" class="xliff"></a>
+
+## Een resourcegroep maken
 Maak een [Azure-resourcegroep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) met de opdracht [az group create](https://docs.microsoft.com/cli/azure/group#create). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en groepsgewijs worden beheerd.
 
-In het volgende voorbeeld wordt een resourcegroep met de naam `mycliresource` gemaakt op de locatie `westus`.
+In het volgende voorbeeld wordt een resourcegroep met de naam `myresourcegroup` gemaakt op de locatie `westus`.
 
-```azurecli
-az group create --name mycliresource --location westus
+```azurecli-interactive
+az group create --name myresourcegroup --location westus
 ```
 
-## <a name="create-an-azure-database-for-mysql-server"></a>Een Azure-database voor MySQL-server maken
+<a id="create-an-azure-database-for-mysql-server" class="xliff"></a>
+
+## Een Azure-database voor MySQL-server maken
 Als u een Azure-database voor MySQL-server wilt maken, gebruikt u de opdracht **az mysql server create**. Een server kan meerdere databases beheren. Een aparte database wordt doorgaans gebruikt voor elk project of voor elke gebruiker.
 
-In het volgende voorbeeld wordt een Azure-database voor MySQL-server gemaakt die zich in `westus` bevindt in de resourcegroep `mycliresource` met de naam `mycliserver`. De server heeft aanmeldgegevens voor de beheerder met de naam `myadmin` en het wachtwoord `Password01!`. De server wordt gemaakt met de **Basic**-prestatielaag en **50** rekeneenheden die tussen alle databases op de server worden gedeeld. U kunt berekeningen en opslag omhoog of omlaag schalen afhankelijk van de behoeften van de toepassing.
+In het volgende voorbeeld wordt een Azure-database voor MySQL-server gemaakt die zich in `westus` bevindt in de resourcegroep `myresourcegroup` met de naam `myserver4demo`. De server heeft aanmeldgegevens voor de beheerder met de naam `myadmin` en het wachtwoord `Password01!`. De server wordt gemaakt met de **Basic**-prestatielaag en **50** rekeneenheden die tussen alle databases op de server worden gedeeld. U kunt berekeningen en opslag omhoog of omlaag schalen afhankelijk van de behoeften van de toepassing.
 
-```azurecli
-az mysql server create --resource-group mycliresource --name mycliserver--location westus --user myadmin --password Password01! --performance-tier Basic --compute-units 50
+```azurecli-interactive
+az mysql server create --resource-group myresourcegroup --name myserver4demo --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
 ```
 
-![Een Azure-database voor MySQL-server maken met behulp van Azure CLI](./media/quickstart-create-mysql-server-database-using-azure-cli/3_az-mysq-server-create.png)
+<a id="configure-firewall-rule" class="xliff"></a>
 
-## <a name="configure-firewall-rule"></a>Firewallregel configureren
+## Firewallregel configureren
 Maak een Azure-database-firewallregel op MySQL-serverniveau met de opdracht **az mysql server firewall-rule create**. Een firewallregel op serverniveau maakt een externe toepassing mogelijk, zoals het opdrachtregelprogramma **mysql.exe** of MySQL Workbench om verbinding te maken met uw server via de MySQL-servicefirewall van Azure. 
 
 In het volgende voorbeeld wordt een firewallregel gemaakt voor een vooraf gedefinieerd adresbereik. In dit voorbeeld is dit het volledige bereik van IP-adressen.
 
-```azurecli
-az mysql server firewall-rule create --resource-group mycliresource --server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+```azurecli-interactive
+az mysql server firewall-rule create --resource-group myresourcegroup --server myserver4demo --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
-## <a name="configure-ssl-settings"></a>SSL-instellingen configureren
-Standaard worden SSL-verbindingen tussen uw server en clienttoepassingen afgedwongen.  Hiermee wordt voor beveiliging van gegevens 'in beweging' gezorgd door de gegevensstroom via internet t versleutelen.  We schakelen SSL-verbindingen voor uw server uit om deze Quick Start gemakkelijk te maken.  Dit wordt niet aangeraden voor productieservers.  Zie [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (SSL-connectiviteit in uw toepassing configureren om veilig verbinding te maken met Azure-database voor MySQL) voor meer informatie.
+<a id="configure-ssl-settings" class="xliff"></a>
+
+## SSL-instellingen configureren
+Standaard worden SSL-verbindingen tussen uw server en clienttoepassingen afgedwongen.  Hiermee wordt voor beveiliging van gegevens 'in beweging' gezorgd door de gegevensstroom via internet t versleutelen.  Om deze Quickstart makkelijker te maken, schakelen we SSL-verbindingen uit voor uw server.  Dit wordt afgeraden voor productieservers.  Zie [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (SSL-connectiviteit in uw toepassing configureren om veilig verbinding te maken met Azure-database voor MySQL) voor meer informatie.
 
 In het volgende voorbeeld wordt het afdwingen van SSL op uw MySQL-server uitgeschakeld.
  
- ```azurecli
- az mysql server update --resource-group mycliresource --name mycliserver -g -n --ssl-enforcement Disabled
+ ```azurecli-interactive
+ az mysql server update --resource-group myresourcegroup --name myserver4demo -g -n --ssl-enforcement Disabled
  ```
 
-## <a name="get-the-connection-information"></a>De verbindingsgegevens ophalen
+<a id="get-the-connection-information" class="xliff"></a>
+
+## De verbindingsgegevens ophalen
 
 Als u verbinding met uw server wilt maken, moet u hostgegevens en toegangsreferenties opgeven.
 
-```azurecli
-az mysql server show --resource-group mycliresource --name mycliserver
+```azurecli-interactive
+az mysql server show --resource-group myresourcegroup --name myserver4demo
 ```
 
 Het resultaat wordt in JSON-indeling weergegeven. Noteer de **fullyQualifiedDomainName** en de **administratorLogin**.
@@ -87,11 +93,11 @@ Het resultaat wordt in JSON-indeling weergegeven. Noteer de **fullyQualifiedDoma
 {
   "administratorLogin": "myadmin",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "mycliserver.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mycliresource/providers/Microsoft.DBforMySQL/servers/mycliserver",
+  "fullyQualifiedDomainName": "myserver4demo.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver4demo",
   "location": "westus",
-  "name": "mycliserver",
-  "resourceGroup": "mycliresource",
+  "name": "myserver4demo",
+  "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 50,
     "family": null,
@@ -107,24 +113,26 @@ Het resultaat wordt in JSON-indeling weergegeven. Noteer de **fullyQualifiedDoma
 }
 ```
 
-## <a name="connect-to-the-server-using-the-mysqlexe-command-line-tool"></a>Verbinding maken met de server met het opdrachtregelprogramma mysql.exe
-Als u verbinding wilt maken met uw server met behulp van het opdrachtregelprogramma **mysql.exe**, zorgt u ervoor dat u MySQL op uw computer hebt geïnstalleerd.  U kunt MySQL [hier](https://dev.mysql.com/downloads/) downloaden.
+<a id="connect-to-the-server-using-the-mysqlexe-command-line-tool" class="xliff"></a>
 
-Open de opdrachtprompt en voer het volgende in: 
+## Verbinding maken met de server met het opdrachtregelprogramma mysql.exe
+Maak verbinding met de server met behulp van het opdrachtregelprogramma **mysql.exe**. U kunt MySQL [hier](https://dev.mysql.com/downloads/) downloaden en vervolgens op uw computer installeren. In plaats daarvan kunt u ook op de knop **Try It** klikken in codevoorbeelden, of op `>_` op de werkbalk rechtsboven in Azure Portal, en de **Azure Cloud Shell** starten.
+
+Typ de volgende opdrachten: 
 
 1. Maak verbinding met de server met behulp van het opdrachtregelprogramma **mysql**:
-```dos
- mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
+```azurecli-interactive
+ mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 ```
 
 2. Bekijk de status van de server:
-```dos
+```sql
  mysql> status
 ```
-Als alles goed gaat, geeft het opdrachtregelprogramma de volgende uitvoer weer:
+Als alles goed gaat, geeft het opdrachtregelprogramma de volgende tekst weer:
 
 ```dos
-C:\Users\v-chenyh>mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
+C:\Users\>mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 Enter password: ***********
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 65512
@@ -149,7 +157,7 @@ SSL:                    Not in use
 Using delimiter:        ;
 Server version:         5.6.26.0 MySQL Community Server (GPL)
 Protocol version:       10
-Connection:             mycliserver.database.windows.net via TCP/IP
+Connection:             myserver4demo.mysql.database.azure.com via TCP/IP
 Server characterset:    latin1
 Db     characterset:    latin1
 Client characterset:    gbk
@@ -164,37 +172,41 @@ mysql>
 ```
 
 > [!TIP]
-> Zie [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) (MySQL 5.6-handleiding, hoofdstuk 4.5.1) voor aanvullende opdrachten.
+> Zie [hoofdstuk 4.5.1 in de Engelstalige naslaghandleiding van MySQL 5.7](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) voor aanvullende opdrachten.
 
-## <a name="connect-to-the-server-using-the-mysql-workbench-gui-tool"></a>Verbinding maken met de server met het MySQL Workbench GUI-hulpprogramma
-1.    Start de toepassing MySQL Workbench op uw clientcomputer. U kunt MySQL Workbench [hier](https://dev.mysql.com/downloads/workbench/) downloaden en installeren.
+<a id="connect-to-the-server-using-the-mysql-workbench-gui-tool" class="xliff"></a>
 
-2.    In het dialoogvenster **Nieuwe verbinding instellen** voert u de volgende gegevens in op het tabblad **Parameters**:
+## Maak verbinding met de server met het MySQL Workbench GUI-hulpprogramma
+1.  Start de toepassing MySQL Workbench op uw clientcomputer. U kunt MySQL Workbench [hier](https://dev.mysql.com/downloads/workbench/) downloaden en installeren.
 
-| **Parameters** | **Beschrijving** |
-|----------------|-----------------|
-|    *Verbindingsnaam* | geef een naam op voor deze verbinding (dit kan van alles zijn) |
-| *Verbindingsmethode* | kies Standard (TCP/IP) |
-| *Hostnaam* | mycliserver.database.windows.net (SERVERNAAM die u eerder hebt genoteerd) |
-| *Poort* | 3306 |
-| *Gebruikersnaam* | myadmin@mycliserver (AANMELDGEGEVENS VAN SERVERBEHEERDER die u eerder hebt genoteerd) |
-| *Wachtwoord* | u kunt het wachtwoord van het beheerdersaccount in de kluis opslaan |
+2.  In het dialoogvenster **Nieuwe verbinding instellen** voert u de volgende gegevens in op het tabblad **Parameters**:
 
-![nieuwe verbinding instellen](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
+   ![nieuwe verbinding instellen](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 
-3.    Klik op **Verbinding testen** om te controleren of alle parameters juist zijn geconfigureerd.
+| **Instelling** | **Voorgestelde waarde** | **Beschrijving** |
+|---|---|---|
+|   Verbindingsnaam | Mijn verbinding | Geef een label op voor deze verbinding (dit kan van alles zijn) |
+| Verbindingsmethode | kies Standard (TCP/IP) | TCP/IP-protocol gebruiken om verbinding te maken met Azure Database voor MySQL> |
+| Hostnaam | myserver4demo.mysql.database.azure.com | De servernaam die u eerder hebt genoteerd. |
+| Poort | 3306 | De standaardpoort voor MySQL wordt gebruikt. |
+| Gebruikersnaam | myadmin@myserver4demo | De aanmeldgegevens van een serverbeheerder die u eerder hebt genoteerd. |
+| Wachtwoord | **** | Gebruik het wachtwoord voor het beheerdersaccount dat u eerder hebt geconfigureerd. |
 
-4.    U kunt nu op de verbinding klikken die zojuist is gemaakt om verbinding te maken met de server.
+Klik op **Verbinding testen** om te controleren of alle parameters juist zijn geconfigureerd.
+U kunt nu op de verbinding klikken om verbinding te maken met de server.
 
-## <a name="clean-up-resources"></a>Resources opschonen
+<a id="clean-up-resources" class="xliff"></a>
 
-Als u deze resources niet voor een andere Quick Start/zelfstudie nodig hebt, kunt u ze verwijderen door het volgende te doen: 
+## Resources opschonen
+Als u deze resources niet voor een andere Quickstart of zelfstudie nodig hebt, kunt u ze verwijderen met de volgende opdracht: 
 
-```azurecli
-az group delete --name mycliresource
+```azurecli-interactive
+az group delete --name myresourcegroup
 ```
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 
 > [!div class="nextstepaction"]
 > [Een MySQL-database ontwerpen met Azure CLI](./tutorial-design-database-using-cli.md)

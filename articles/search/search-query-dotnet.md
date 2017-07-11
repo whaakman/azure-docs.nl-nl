@@ -11,15 +11,19 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 05/19/2017
 ms.author: brjohnst
-translationtype: Human Translation
-ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
-ms.openlocfilehash: 88d5148806e58d61b7b64327e07809eea5126211
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: ffc27db4de5bd699dbd8175930a597fb85947140
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/22/2017
 
 
 ---
-# <a name="query-your-azure-search-index-using-the-net-sdk"></a>Een query uitvoeren in uw Azure Search-index met behulp van de .NET SDK
+<a id="query-your-azure-search-index-using-the-net-sdk" class="xliff"></a>
+
+# Een query uitvoeren in uw Azure Search-index met behulp van de .NET SDK
 > [!div class="op_single_selector"]
 > * [Overzicht](search-query-overview.md)
 > * [Portal](search-explorer.md)
@@ -34,7 +38,9 @@ Voordat u deze procedure begint, moet u al [een Azure Search-index hebben gemaak
 
 Alle voorbeeldcode in dit artikel is geschreven in C#. U vindt de volledige broncode [op GitHub](http://aka.ms/search-dotnet-howto).
 
-## <a name="identify-your-azure-search-services-query-api-key"></a>De query api-sleutel voor de Azure Search-service vaststellen
+<a id="identify-your-azure-search-services-query-api-key" class="xliff"></a>
+
+## De query api-sleutel voor de Azure Search-service vaststellen
 Nu u een Azure Search-index hebt gemaakt, bent u bijna zover om query's uit te geven met behulp van de .NET SDK. Eerst moet u een van de query api-sleutels ophalen die is gegenereerd voor de zoekservice die u hebt ingericht. De .NET SDK verzendt deze api-sleutel bij elke aanvraag voor uw service. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
 1. Als u de API-sleutels van uw service wilt opzoeken, moet u zich aanmelden bij [Azure Portal](https://portal.azure.com/)
@@ -48,29 +54,41 @@ Uw service heeft zowel *administratorsleutels* als *querysleutels*.
 
 U kunt gebruikmaken van een van de query-sleutel om een query in een index uit te voeren. De administratorsleutels kunnen ook worden gebruikt voor query's, maar u moet gebruikmaken van een querysleutel in de toepassingscode, aangezien dit het [principe van minimale bevoegdheden](https://en.wikipedia.org/wiki/Principle_of_least_privilege) volgt.
 
-## <a name="create-an-instance-of-the-searchindexclient-class"></a>Een instantie van de klasse SearchIndexClient maken
+<a id="create-an-instance-of-the-searchindexclient-class" class="xliff"></a>
+
+## Een instantie van de klasse SearchIndexClient maken
 Om query's uit te geven met de Azure Search .NET SDK, moet u een instantie van klasse `SearchIndexClient` maken. Deze klasse heeft verschillende constructors. De gewenste constructor krijgt de naam van uw zoekservice, de naam van de index en een `SearchCredentials`-object als parameters. `SearchCredentials` verpakt uw api-sleutel.
 
-Met de code hieronder maakt u een nieuwe `SearchIndexClient` voor de index "hotels" (gemaakt in [Een Azure Search-index maken met behulp van de .NET SDK](search-create-index-dotnet.md)) met waarden voor de naam van de zoekservice en de api-sleutel die zijn opgeslagen in het configuratiebestand van de toepassing (`app.config` of `web.config`):
+Met de code hieronder maakt u een nieuwe `SearchIndexClient` voor de index "hotels" (gemaakt in [Een Azure Search-index maken met behulp van de .NET SDK](search-create-index-dotnet.md)) met waarden voor de naam van de zoekservice en de api-sleutel die zijn opgeslagen in het configuratiebestand van de toepassing (`appsettings.json` in het geval van de [voorbeeldtoepassing](http://aka.ms/search-dotnet-howto)):
 
 ```csharp
-string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
-string queryApiKey = ConfigurationManager.AppSettings["SearchServiceQueryApiKey"];
+private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
+{
+    string searchServiceName = configuration["SearchServiceName"];
+    string queryApiKey = configuration["SearchServiceQueryApiKey"];
 
-SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels", new SearchCredentials(queryApiKey));
+    SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels", new SearchCredentials(queryApiKey));
+    return indexClient;
+}
 ```
 
 `SearchIndexClient` heeft een `Documents`-eigenschap. Deze eigenschap bevat alle methoden die u nodig hebt om een query uit te voeren in een Azure Search-index.
 
-## <a name="query-your-index"></a>Een query uitvoeren in uw index
+<a id="query-your-index" class="xliff"></a>
+
+## Een query uitvoeren in uw index
 Zoeken met de .NET SDK is net zo eenvoudig als het aanroepen van de `Documents.Search`-methode op uw `SearchIndexClient`. Deze methode heeft een aantal parameters, waaronder de zoektekst, en een `SearchParameters`-object dat kan worden gebruikt om de query te verfijnen.
 
-#### <a name="types-of-queries"></a>Typen query 's
+<a id="types-of-queries" class="xliff"></a>
+
+#### Typen query 's
 De twee belangrijkste [querytypen](search-query-overview.md#types-of-queries) die u zult gebruiken zijn `search` en `filter`. Een `search`-query zoekt naar een of meer voorwaarden in alle *doorzoekbare* velden in de index. Een `filter`-query evalueert een Booleaanse expressie op alle *filterbare* velden in een index.
 
 Zoekopdrachten en filters worden allebei uitgevoerd met behulp van de `Documents.Search`-methode. Een zoekopdracht kan worden doorgegeven aan de `searchText`-parameter, terwijl een filterexpressie kan worden doorgegeven in de eigenschap `Filter` van de `SearchParameters`-klasse. Als u wilt filteren zonder te zoeken, geeft u `"*"` door voor de `searchText`-parameter. Om te zoeken zonder te filteren, stelt u de eigenschap `Filter` niet in of geeft u niet door aan een `SearchParameters`-instantie.
 
-#### <a name="example-queries"></a>Voorbeelden van query 's
+<a id="example-queries" class="xliff"></a>
+
+#### Voorbeelden van query 's
 De volgende voorbeeldcode laat zien hoe u op verschillende manieren een query kunt uitvoeren in de index "hotels", die is gedefinieerd in [Een Azure Search-index maken met behulp van de .NET SDK](search-create-index-dotnet.md#DefineIndex). De documenten die worden geretourneerd met de zoekresultaten zijn instanties van de klasse `Hotel`, die is gedefinieerd in [Gegevens importeren in Azure Search met behulp van de .NET SDK](search-import-data-dotnet.md#HotelClass). De voorbeeldcode maakt gebruik van een `WriteDocuments`-methode om de zoekresultaten in de console uit te voeren. Deze methode wordt in de volgende sectie beschreven.
 
 ```csharp
@@ -127,7 +145,9 @@ results = indexClient.Documents.Search<Hotel>("motel", parameters);
 WriteDocuments(results);
 ```
 
-## <a name="handle-search-results"></a>Zoekresultaten verwerken
+<a id="handle-search-results" class="xliff"></a>
+
+## Zoekresultaten verwerken
 De methode `Documents.Search` retourneert een `DocumentSearchResult`-object dat de resultaten van de query bevat. In het voorbeeld in de vorige sectie is gebruikgemaakt van een methode met de naam `WriteDocuments` om de zoekresultaten in de console uit te voeren:
 
 ```csharp
@@ -165,10 +185,5 @@ ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Descript
 ```
 
 De bovenstaande voorbeeldcode maakt gebruik van de console om de zoekresultaten uit te voeren. U moet ook zoekresultaten in uw eigen toepassing weergeven. Zie [dit voorbeeld op GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample) voor een voorbeeld van hoe zoekresultaten in een ASP.NET MVC-gebaseerde webtoepassing worden weergegeven.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

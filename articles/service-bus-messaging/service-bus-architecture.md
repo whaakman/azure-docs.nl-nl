@@ -12,19 +12,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2017
+ms.date: 05/18/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 3df12cd8700a75c1288967e86cd92e6ed4886d59
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: ced46c64c1c105aa987759e05ab3680bc399f9a0
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="service-bus-architecture"></a>Service Bus-architectuur
+<a id="service-bus-architecture" class="xliff"></a>
+
+# Service Bus-architectuur
 Dit artikel beschrijft de berichtverwerkingsarchitectuur van Azure Service Bus.
 
-## <a name="service-bus-scale-units"></a>Service Bus-schaaleenheden
+<a id="service-bus-scale-units" class="xliff"></a>
+
+## Service Bus-schaaleenheden
 Service Bus is georganiseerd op *schaaleenheden*. Een schaaleenheid is een implementatie-eenheid en bevat alle vereiste onderdelen om de service uit te voeren. Elke regio implementeert een of meer Service Bus-schaaleenheden.
 
 Een Service Bus-naamruimte is toegewezen aan een schaaleenheid. De schaaleenheid verwerkt alle typen Service Bus-entiteiten: relays en Brokered Messaging-entiteiten (wachtrijen, onderwerpen, abonnementen). Een Service Bus-schaaleenheid bestaat uit de volgende onderdelen:
@@ -34,22 +39,30 @@ Een Service Bus-naamruimte is toegewezen aan een schaaleenheid. De schaaleenheid
 * **Een gateway-store.** De gateway-store bevat de gegevens voor elke entiteit die is gedefinieerd in deze schaaleenheid. De gateway-store is bovenop een SQL Azure-database geïmplementeerd.
 * **Meerdere berichten-stores.** Berichten-stores bevatten de berichten van alle wachtrijen, onderwerpen en abonnementen die zijn gedefinieerd in deze schaaleenheid. Het bevat ook alle abonnementsgegevens. Tenzij [gepartitioneerde berichtentiteiten](service-bus-partitioning.md) is ingeschakeld, wordt een wachtrij of onderwerp toegewezen aan één berichten-store. Abonnementen worden opgeslagen in dezelfde berichten-store als het bovenliggende onderwerp. Met uitzondering van de Service Bus [Premium Messaging](service-bus-premium-messaging.md), worden berichten-stores bovenop SQL Azure-databases geïmplementeerd.
 
-## <a name="containers"></a>Containers
+<a id="containers" class="xliff"></a>
+
+## Containers
 Aan elke berichtentiteit is een specifieke container toegewezen. Een container is een logische constructie die gebruikmaakt van precies één berichten-store om alle relevante gegevens voor deze container op te slaan. Elke container is toegewezen aan een berichtbrokerknooppunt. Er zijn meestal meer containers dan berichtbrokerknooppunten. Elk berichtbrokerknooppunt laadt daarom meerdere containers. De distributie van containers naar een berichtbrokerknooppunt is zodanig georganiseerd dat alle berichtbrokerknooppunten evenwichtig worden belast. Als het belastingspatroon verandert (als bijvoorbeeld een van de containers erg wordt belast), of als een berichtbrokerknooppunt tijdelijk niet beschikbaar is, worden de containers herverdeeld over de berichtbrokerknooppunten.
 
-## <a name="processing-of-incoming-messaging-requests"></a>Verwerken van inkomende berichtaanvragen
+<a id="processing-of-incoming-messaging-requests" class="xliff"></a>
+
+## Verwerken van inkomende berichtaanvragen
 Wanneer een client een verzoek naar Service Bus verzendt, wordt het via de Azure Load Balancer doorgestuurd naar een van de gateway-knooppunten. Het gateway-knooppunt machtigt de aanvraag. Als de aanvraag heeft betrekking op een berichtentiteit (wachtrij, onderwerp, abonnement), zoekt het gateway-knooppunt de entiteit op in de gateway-store en bepaalt in welke bericht-store de entiteit zich bevindt. Vervolgens controleert het knooppunt welk berichtbrokerknooppunt deze container gebruikt en stuurt het bericht naar de betreffende berichtbrokerknooppunt. Het berichtbrokerknooppunt verwerkt de aanvraag en werkt de entiteitsstatus bij in de container-store. Het berichtbrokerknooppunt verzendt vervolgens het antwoord terug naar het gateway-knooppunt, wat een juiste reactie terugstuurt naar de client die de oorspronkelijke aanvraag heeft gedaan.
 
-![Verwerken van inkomende berichtaanvragen](./media/service-bus-architecture/IC690644.png)
+![Verwerken van inkomende berichtaanvragen](./media/service-bus-architecture/ic690644.png)
 
-## <a name="processing-of-incoming-relay-requests"></a>Verwerken van inkomende relay-aanvragen
-Wanneer een client een verzoek naar Service Bus verzendt, wordt het via de Azure Load Balancer doorgestuurd naar een van de gateway-knooppunten. Als de aanvraag een aanvraag voor luisteren is, maakt het gateway-knooppunt een nieuwe relay. Als de aanvraag een verbindingsaanvraag is voor een specifieke relay, verzendt het gateway-knooppunt de verbindingsaanvraag door naar het gateway-knooppunt dat eigenaar is van de relay. Het gateway-knooppunt dat eigenaar is van de relay verzendt een ontmoetingsaanvraag naar de luisterende client om een tijdelijk kanaal te maken naar het gateway-knooppunt dat de verbindingsaanvraag heeft ontvangen.
+<a id="processing-of-incoming-relay-requests" class="xliff"></a>
+
+## Verwerken van inkomende relay-aanvragen
+Wanneer een client een verzoek naar de [Azure Relay](/azure/service-bus-relay/)-service verzendt, wordt het via de Azure Load Balancer doorgestuurd naar een van de gateway-knooppunten. Als de aanvraag een aanvraag voor luisteren is, maakt het gateway-knooppunt een nieuwe relay. Als de aanvraag een verbindingsaanvraag is voor een specifieke relay, verzendt het gateway-knooppunt de verbindingsaanvraag door naar het gateway-knooppunt dat eigenaar is van de relay. Het gateway-knooppunt dat eigenaar is van de relay verzendt een ontmoetingsaanvraag naar de luisterende client om een tijdelijk kanaal te maken naar het gateway-knooppunt dat de verbindingsaanvraag heeft ontvangen.
 
 Wanneer de relay-verbinding tot stand is gebracht, kunnen de clients berichten uitwisselen via het gateway-knooppunt dat wordt gebruikt voor de ontmoeting.
 
-![Verwerken van inkomende WCF Relay-aanvragen](./media/service-bus-architecture/IC690645.png)
+![Verwerken van inkomende WCF Relay-aanvragen](./media/service-bus-architecture/ic690645.png)
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 Nu u een overzicht van de werking van de Service Bus-architectuur hebt gelezen, kunt u de volgende koppelingen bezoeken voor meer informatie:
 
 * [Overzicht van Service Bus-berichten](service-bus-messaging-overview.md)

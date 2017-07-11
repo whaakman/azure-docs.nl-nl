@@ -16,18 +16,20 @@ ms.workload: na
 ms.date: 05/08/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: fd5e1083c65068c7f6b019838586b1bc7e37aa9f
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 3011fd608ba83561c319e57c8a7b5a4f3c4c2284
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
-# <a name="connected-factory-preconfigured-solution-walkthrough"></a>Walkthrough voor de vooraf geconfigureerde oplossing Connected Factory
+<a id="connected-factory-preconfigured-solution-walkthrough" class="xliff"></a>
+
+# Walkthrough voor de vooraf geconfigureerde oplossing Connected Factory
 
 De [vooraf geconfigureerd oplossing][lnk-preconfigured-solutions] Connected Factory uit IoT Suite is een implementatie van een end-to-endoplossing waarmee:
 
-* Gesimuleerde industriële apparaten met OPC UA-servers in gesimuleerde fabrieksproductielijnen en echte OPC UA-serverapparaten kunnen worden verbonden.
+* Gesimuleerde industriële apparaten met OPC UA-servers in gesimuleerde fabrieksproductielijnen en echte OPC UA-serverapparaten kunnen worden verbonden. Zie de [veelgestelde vragen][lnk-faq] voor meer informatie over OPC UA.
 * Operationele KPI's en OEE van die apparaten en productielijnen kunnen worden bekeken.
 * U kunt bekijken hoe cloudgebaseerde toepassingen kunnen worden gebruikt om te werken met OPC UA-serversystemen.
 * U verbinding kunt maken met uw eigen OPC UA-serverapparaten.
@@ -42,13 +44,17 @@ In dit artikel wordt stapsgewijs een aantal belangrijke elementen van de oplossi
 * Het plannen van een aanpassing van de oplossing zodat deze voldoet aan uw eigen specifieke vereisten.
 * Het ontwerpen van uw eigen IoT-oplossing die gebruikmaakt van Azure-services.
 
-## <a name="logical-architecture"></a>Logische architectuur
+<a id="logical-architecture" class="xliff"></a>
+
+## Logische architectuur
 
 Het volgende diagram geeft een overzicht van de logische onderdelen van de vooraf geconfigureerde oplossing:
 
 ![Logische architectuur van Connected Factory][connected-factory-logical]
 
-## <a name="simulation"></a>Simulatie
+<a id="simulation" class="xliff"></a>
+
+## Simulatie
 
 De gesimuleerde stations en de gesimuleerde productie-uitvoeringssystemen (MES) vormen samen een fabrieksproductielijn. De gesimuleerde apparaten en de OPC Publisher Module zijn gebaseerd op de [OPC UA .NET Standard][lnk-OPC-UA-NET-Standard] die is gepubliceerd door de OPC Foundation.
 
@@ -56,23 +62,31 @@ OPC Proxy en OPC Publisher worden als modules geïmplementeerd op basis van [Azu
 
 Alle simulatie-onderdelen worden uitgevoerd in Docker-containers die worden gehost in een Azure Linux VM. De simulatie wordt standaard geconfigureerd voor het uitvoeren van acht gesimuleerde productielijnen.
 
-## <a name="simulated-production-line"></a>Gesimuleerde productielijn
+<a id="simulated-production-line" class="xliff"></a>
+
+## Gesimuleerde productielijn
 
 In een productielijn worden onderdelen geproduceerd. Deze bestaat uit verschillende stations: een montagestation, een teststation en een verpakkingsstation.
 
 De simulatie wordt uitgevoerd en werkt de gegevens bij die worden vrijgegeven via de OPC UA-knooppunten. Alle stations uit de gesimuleerde productielijn worden via OPC UA beheerd door de MES.
 
-## <a name="simulated-manufacturing-execution-system"></a>Gesimuleerd systeem voor de productie-uitvoering
+<a id="simulated-manufacturing-execution-system" class="xliff"></a>
+
+## Gesimuleerd systeem voor de productie-uitvoering
 
 De MES bewaakt alle stations in de productielijn via OPC UA om wijzigingen in de stationsstatus te detecteren. Er worden OPC UA-methoden aangeroepen om de stations te bedienen en producten worden van station naar station verplaatst tot ze voltooid zijn.
 
-## <a name="gateway-opc-publisher-module"></a>Gateway OPC Publisher Module
+<a id="gateway-opc-publisher-module" class="xliff"></a>
+
+## Gateway OPC Publisher Module
 
 OPC Publisher Module wordt verbonden met de OPC UA-servers van de stations en wordt geabonneerd op de OPC-knooppunten die moeten worden gepubliceerd. De module converteert de knooppuntgegevens naar de JSON-indeling, versleutelt deze en verstuurt ze naar IoT Hub als OPC UA Pub/Sub-berichten.
 
 OPC Publisher Module vereist slechts één uitgaande HTTPS-poort (443) en kan gebruikmaken van de bestaande bedrijfsinfrastructuur.
 
-## <a name="gateway-opc-proxy-module"></a>Gateway OPC Proxy Module
+<a id="gateway-opc-proxy-module" class="xliff"></a>
+
+## Gateway OPC Proxy Module
 
 Gateway OPC UA Proxy stuurt binaire OPC UA-opdrachten en bedieningsberichten door en vereist slechts één uitgaande HTTPS-poort (443). De module kan gebruikmaken van de bestaande bedrijfsinfrastructuur, zoals Web Proxies.
 
@@ -80,7 +94,9 @@ Er wordt gebruikgemaakt van IoT Hub-apparaatmethoden om TCP/IP-gegevens in pakke
 
 Het binaire OPC UA-protocol dat wordt doorgegeven via de proxy zelf maakt gebruik van UA-verificatie en -versleuteling.
 
-## <a name="azure-time-series-insights"></a>Azure Time Series Insights
+<a id="azure-time-series-insights" class="xliff"></a>
+
+## Azure Time Series Insights
 
 De Gateway OPC Publisher Module wordt geabonneerd op OPC UA-serverknooppunten, zodat wijzigingen in de gegevenswaarden kunnen worden gedetecteerd. Als er een gegevenswijziging wordt gedetecteerd in een van de knooppunten, stuurt deze module berichten naar Azure IoT Hub.
 
@@ -104,20 +120,28 @@ Daarnaast worden de tijdreeksen voor OEE- en KPI-topologie berekend in de app zo
 
 De tijdreeksweergave van knooppuntgegevens is rechtstreeks uit TSI afkomstig, met een sortering op basis van de periode.
 
-## <a name="iot-hub"></a>IoT Hub
+<a id="iot-hub" class="xliff"></a>
+
+## IoT Hub
 [IoT Hub][lnk-IoT Hub] ontvangt gegevens die vanaf OPC Publisher Module worden verzonden naar de cloud, en maakt ze beschikbaar voor de Azure TSI-service. 
 
 De IoT Hub in de oplossing doet ook het volgende:
 - Een identiteitsregister beheren waarin de id's van OPC Publisher Modules en OPC Proxy Modules worden opgeslagen.
 - Handelen als transportkanaal voor bidirectionele communicatie van de OPC Proxy Module.
 
-## <a name="azure-storage"></a>Azure Storage
+<a id="azure-storage" class="xliff"></a>
+
+## Azure Storage
 Voor de oplossing wordt gebruikgemaakt van Azure Blob Storage voor schijfopslag voor de VM en om implementatiegegevens op te slaan.
 
-## <a name="web-app"></a>Web-app
+<a id="web-app" class="xliff"></a>
+
+## Web-app
 De web-app die wordt geïmplementeerd als onderdeel van de vooraf geconfigureerde oplossing, bestaat uit een ingebouwde OPC UA-client, biedt verwerking van waarschuwingen en biedt visualisatie van de telemetrie.
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 
 U kunt verder aan de slag gaan met IoT Suite door de volgende artikelen te lezen:
 
@@ -130,5 +154,6 @@ U kunt verder aan de slag gaan met IoT Suite door de volgende artikelen te lezen
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
-[lnk-Azure-IoT-Gateway]: https://github.com/azure/azure-iot-gateway-sdk
+[lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
+[lnk-faq]: iot-suite-faq.md

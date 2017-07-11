@@ -13,16 +13,19 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 04/21/2017
+ms.date: 05/22/2017
 ms.author: brjohnst
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 52dcb10495c564c5d8058b9c786b4cd331b6ae18
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 0531b5c3b63a3fa54bb331f3d8d09c8119e789ea
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/22/2017
 
 
 ---
-# <a name="create-an-azure-search-index-using-the-net-sdk"></a>Een index voor Azure Search maken met behulp van de .NET SDK
+<a id="create-an-azure-search-index-using-the-net-sdk" class="xliff"></a>
+
+# Een index voor Azure Search maken met behulp van de .NET SDK
 > [!div class="op_single_selector"]
 > * [Overzicht](search-what-is-an-index.md)
 > * [Portal](search-create-index-portal.md)
@@ -40,7 +43,9 @@ Voordat u de stappen in dit artikel uitvoert en een index maakt, moet u eerst [e
 >
 >
 
-## <a name="identify-your-azure-search-services-admin-api-key"></a>De admin api-sleutel voor de Azure Search-service vaststellen
+<a id="identify-your-azure-search-services-admin-api-key" class="xliff"></a>
+
+## De admin api-sleutel voor de Azure Search-service vaststellen
 Nu u een Azure Search-service hebt ingericht, bent u bijna klaar om aanvragen te verzenden voor uw service-eindpunt met de .NET SDK. Eerst moet u een van de admin api-sleutels ophalen die is gegenereerd voor de zoekservice die u hebt ingericht. De .NET SDK verzendt deze api-sleutel bij elke aanvraag voor uw service. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
 1. Als u de API-sleutels van uw service wilt opzoeken, meldt u zich aan bij [Azure Portal](https://portal.azure.com/)
@@ -56,16 +61,22 @@ Als u een index wilt maken, kunt u de primaire of secundaire administratorsleute
 
 <a name="CreateSearchServiceClient"></a>
 
-## <a name="create-an-instance-of-the-searchserviceclient-class"></a>Een instantie van de klasse SearchServiceClient maken
+<a id="create-an-instance-of-the-searchserviceclient-class" class="xliff"></a>
+
+## Een instantie van de klasse SearchServiceClient maken
 Als u de Azure Search .NET SDK wilt gebruiken, moet u een instantie van de klasse `SearchServiceClient` maken. Deze klasse heeft verschillende constructors. De gewenste constructor krijgt u de naam van uw zoekservice en een `SearchCredentials`-object als parameters. `SearchCredentials` verpakt uw api-sleutel.
 
-Met de code hieronder wordt een nieuwe `SearchServiceClient` gemaakt die werkt met de naam van de zoekservice en de api-sleutel, die zijn opgeslagen in het configuratiebestand van de toepassing (`app.config` of `web.config`):
+Met de code hieronder wordt een nieuwe `SearchServiceClient` gemaakt die werkt met de naam van de zoekservice en de api-sleutel die zijn opgeslagen in het configuratiebestand van de toepassing (`appsettings.json` in het geval van de [voorbeeldtoepassing](http://aka.ms/search-dotnet-howto)):
 
 ```csharp
-string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
-string adminApiKey = ConfigurationManager.AppSettings["SearchServiceAdminApiKey"];
+private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
+{
+    string searchServiceName = configuration["SearchServiceName"];
+    string adminApiKey = configuration["SearchServiceAdminApiKey"];
 
-SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
+    SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
+    return serviceClient;
+}
 ```
 
 `SearchServiceClient` heeft een `Indexes`-eigenschap. Deze eigenschap bevat alle methoden die u nodig hebt om een index voor Azure Search te maken, weergeven, bijwerken of verwijderen.
@@ -77,7 +88,9 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 
 <a name="DefineIndex"></a>
 
-## <a name="define-your-azure-search-index"></a>Uw Azure Search-index definiëren
+<a id="define-your-azure-search-index" class="xliff"></a>
+
+## Uw Azure Search-index definiëren
 Uw index is met één aanroep naar de methode `Indexes.Create` gemaakt. Deze methode gebruikt een `Index`-object als parameter voor uw Azure Search-index. U moet een `Index`-object maken en dit als volgt initialiseren:
 
 1. Stel de eigenschap `Name` van het `Index`-object in op de naam van de index.
@@ -93,13 +106,19 @@ Wanneer u uw index opzet, is het belangrijk dat u in uw achterhoofd houdt wat de
 In ons voorbeeld is de index 'hotels' genoemd en zijn de velden gedefinieerd met een modelklasse. Elke eigenschap van de modelklasse heeft kenmerken die het zoekgerelateerde gedrag van het bijbehorende indexveld bepalen. De modelklasse wordt als volgt gedefinieerd:
 
 ```csharp
+using System;
+using Microsoft.Azure.Search;
+using Microsoft.Azure.Search.Models;
+using Microsoft.Spatial;
+using Newtonsoft.Json;
+
 // The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
 // It ensures that Pascal-case property names in the model class are mapped to camel-case
 // field names in the index.
 [SerializePropertyNamesAsCamelCase]
 public partial class Hotel
 {
-    [Key]
+    [System.ComponentModel.DataAnnotations.Key]
     [IsFilterable]
     public string HotelId { get; set; }
 
@@ -161,7 +180,9 @@ var definition = new Index()
 };
 ```
 
-## <a name="create-the-index"></a>De index maken
+<a id="create-the-index" class="xliff"></a>
+
+## De index maken
 Nu u een geïnitialiseerd `Index`-object hebt, kunt u de index maken door `Indexes.Create` aan te roepen op uw `SearchServiceClient`-object:
 
 ```csharp
@@ -181,7 +202,9 @@ serviceClient.Indexes.Delete("hotels");
 > 
 > 
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 Als u een index voor Azure Search hebt gemaakt, kunt u [de inhoud naar de index uploaden](search-what-is-data-import.md), zodat u kunt beginnen met het zoeken van gegevens.
 
 

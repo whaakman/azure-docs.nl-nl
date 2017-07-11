@@ -8,52 +8,67 @@ manager: jwhit
 editor: 
 ms.assetid: c413efcd-d750-4b22-b34b-15bcaa03934a
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/14/2017
+ms.date: 06/14/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 4674985363bc1267449e018ab15a53757a8fd32d
-ms.lasthandoff: 03/15/2017
-
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: site-recovery-azure-to-azure-architecture
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: e8faa2c7cde18fc08f0255e80f0acdb961082fcb
+ms.contentlocale: nl-nl
+ms.lasthandoff: 06/16/2017
 
 ---
-# <a name="how-does-azure-site-recovery-work"></a>Hoe werkt Azure Site Recovery?
 
-Dit artikel beschrijft de onderliggende architectuur van de [Azure Site Recovery](site-recovery-overview.md)-service en de onderdelen daarvan.
+
+<a id="how-does-azure-site-recovery-work-for-on-premises-infrastructure" class="xliff"></a>
+
+# Hoe werkt Azure Site Recovery voor een on-premises infrastructuur?
+
+> [!div class="op_single_selector"]
+> * [Virtuele Azure-machines repliceren](site-recovery-azure-to-azure-architecture.md)
+> * [On-premises virtuele machines repliceren](site-recovery-components.md)
+
+Dit artikel beschrijft de onderliggende architectuur van de [Azure Site Recovery](site-recovery-overview.md)-service en van de onderdelen die het repliceren van workloads van on-premises naar Azure mogelijk maken.
 
 U kunt onder aan dit artikel of op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) opmerkingen plaatsen.
 
 
-## <a name="replicate-to-azure"></a>Repliceren naar Azure
+<a id="replicate-to-azure" class="xliff"></a>
 
-U kunt het volgende repliceren naar Azure:
+## Repliceren naar Azure
+
+U kunt de volgende on-premises infrastructuur repliceren naar Azure en beveiligen:
 
 - **VMware**: on-premises virtuele VMware-machines die worden uitgevoerd op een [ondersteunde host](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). U kunt virtuele VMware-machines met een [ondersteund besturingssysteem](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) repliceren.
 - **Hyper-V**: on-premises virtuele Hyper-V-machines die worden uitgevoerd op [ondersteunde hosts](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
 - **Fysieke machines**: on-premises fysieke servers waarop Windows of Linux wordt uitgevoerd, op [ondersteunde besturingssystemen](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions). U kunt virtuele Hyper-V-machines repliceren waarop gastbesturingssystemen worden uitgevoerd die [worden ondersteund door Hyper-V en Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
-## <a name="vmware-to-azure"></a>VMware naar Azure
+<a id="vmware-to-azure" class="xliff"></a>
+
+## VMware naar Azure
 
 Dit is wat u nodig hebt om virtuele VMware-machines te repliceren naar Azure.
 
 Onderwerp | Onderdeel | Details
 --- | --- | ---
-**Azure** | U hebt in Azure een Azure-account, een Azure-opslagaccount en een Azure-netwerk nodig. | Opslag en netwerk kunnen Resource Manager-accounts of klassieke accounts zijn.<br/><br/>  Gerepliceerde gegevens worden opgeslagen in het opslagaccount. Azure-VM’s worden gemaakt met de gerepliceerde gegevens bij failover van uw on-premises site. De Azure-VM's maken verbinding met het virtuele Azure-netwerk wanneer ze worden gemaakt.
 **Configuratieserver** | Een enkele beheerserver (virtuele VMware-machine) voert alle on-premises onderdelen uit (de configuratieserver, de processerver en de hoofddoelserver) | De configuratieserver coördineert de communicatie tussen on-premises en Azure, en beheert de gegevensreplicatie.
  **Processerver**:  | standaard geïnstalleerd op de configuratieserver. | Fungeert als replicatiegateway. Dit onderdeel ontvangt replicatiegegevens, optimaliseert de gegevens met caching, compressie en codering, en verzendt ze naar de Azure-opslag.<br/><br/> De processerver verwerkt ook de push-installatie van de Mobility-service naar beveiligde computers en voert automatische detectie van virtuele VMware-machines uit.<br/><br/> Naarmate uw implementatie groeit, kunt u extra, afzonderlijk toegewezen processervers toevoegen om het toenemende replicatieverkeer af te handelen.
  **Hoofddoelserver** | Standaard geïnstalleerd op de on-premises configuratieserver. | Hier worden de replicatiegegevens tijdens de failback vanuit Azure afgehandeld.<br/><br/> Als de hoeveelheid failbackverkeer hoog is, kunt u een afzonderlijke hoofddoelserver voor failback implementeren.
-**VMware-servers** | Virtuele VMware-machines worden gehost op vSphere ESXi-servers. Het wordt aangeraden om een vCenter-server te gebruiken om de hosts te beheren. | U voegt VMware-servers toe aan uw Recovery Services-kluis.<br/><br/> I
-**Gerepliceerde machines** | De Mobility-service wordt geïnstalleerd op elke virtuele VMware-machine die u wilt repliceren. Deze kan handmatig worden geïnstalleerd op elke computer, of met een push-installatie van de processerver.
+**VMware-servers** | Virtuele VMware-machines worden gehost op vSphere ESXi-servers. Het wordt aangeraden om een vCenter-server te gebruiken om de hosts te beheren. | U voegt VMware-servers toe aan uw Recovery Services-kluis.<br/><br/>
+**Gerepliceerde machines** | De Mobility-service wordt geïnstalleerd op elke virtuele VMware-machine die u wilt repliceren. Deze kan handmatig worden geïnstalleerd op elke computer, of met een push-installatie van de processerver.| -
 
 **Afbeelding 1: onderdelen van VMware naar Azure**
 
 ![Onderdelen](./media/site-recovery-components/arch-enhanced.png)
 
-### <a name="replication-process"></a>Replicatieproces
+<a id="replication-process" class="xliff"></a>
+
+### Replicatieproces
 
 1. U stelt de implementatie, met inbegrip van Azure-onderdelen, en een Recovery Services-kluis in. In de kluis geeft u de replicatiebron en het replicatiedoel op, stelt u de configuratieserver in, voegt u VMware-servers toe, maakt u een replicatiebeleid, implementeert u de Mobility-service, schakelt u de replicatie in en voert u een failovertest uit.
 2.  Machines beginnen met de replicatie volgens het replicatiebeleid. Een initiële kopie van de gegevens wordt gerepliceerd naar Azure Storage.
@@ -69,45 +84,35 @@ Onderwerp | Onderdeel | Details
 
 ![Verbeterd](./media/site-recovery-components/v2a-architecture-henry.png)
 
-### <a name="failover-and-failback"></a>Failover en failback
+<a id="failover-and-failback" class="xliff"></a>
+
+### Failover en failback
 
 1. Wanneer u hebt gecontroleerd of de testfailover is geslaagd, kunt u naar behoefte niet-geplande failovers naar Azure uitvoeren. Geplande failover wordt niet ondersteund.
 2. U kunt een failover van één machine uitvoeren of [herstelplannen](site-recovery-create-recovery-plans.md) maken om failovers van meerdere virtuele machines uit te voeren.
 3. Wanneer u een failover uitvoert, worden er replica-VM's gemaakt in Azure. U geeft een failover toegang tot de workload via de replica van de Azure-VM.
 4. Als uw primaire on-premises site weer beschikbaar is, kunt u een failback uitvoeren. U stelt een infrastructuur voor failback in, start de replicatie van de machine vanaf de secundaire site naar de primaire site en voert een niet-geplande failover uit vanaf de secundaire site. Nadat u deze failover doorvoert, worden de gegevens teruggeplaatst op de on-premises site en moet u de replicatie naar Azure opnieuw inschakelen. [Meer informatie](site-recovery-failback-azure-to-vmware.md)
 
-Er zijn enkele vereisten voor een failback:
-
-
-- **Tijdelijke processerver in Azure**: als u na een failover een failback vanuit Azure wilt uitvoeren, moet u een virtuele Azure-machine hebben geconfigureerd als processerver, om de replicatie vanuit Azure af te handelen. U kunt deze virtuele machine verwijderen wanneer de failback is voltooid.
-- **VPN-verbinding**: voor de failback moet u een VPN-verbinding (of Azure ExpressRoute) hebben ingesteld van het Azure-netwerk naar de on-premises site.
-- **Afzonderlijke on-premises hoofddoelserver**: op de on-premises hoofddoelserver wordt de failback afgehandeld. De hoofddoelserver wordt standaard op de beheerserver geïnstalleerd, maar als u een failback van grotere hoeveelheden verkeer uitvoert, kunt u voor dit doel beter een afzonderlijke on-premises hoofddoelserver instellen.
-- **Failbackbeleid**: als u wilt repliceren naar de on-premises site, hebt u een failbackbeleid nodig. Dit wordt automatisch gemaakt wanneer u uw replicatiebeleid maakt.
-
 **Afbeelding 3: failback van VMware/fysieke failback**
 
 ![Failback](./media/site-recovery-components/enhanced-failback.png)
 
-## <a name="physical-to-azure"></a>Fysiek naar Azure
+<a id="physical-to-azure" class="xliff"></a>
+
+## Fysiek naar Azure
 
 Wanneer u fysieke on-premises servers naar Azure wilt repliceren, gebruikt u dezelfde onderdelen en processen als bij een replicatie van [VMware naar Azure](#vmware-replication-to-azure). Houd echter de volgende verschillen in gedachten:
 
 - U kunt als configuratieserver een fysieke server gebruiken in plaats van een virtuele VMware-machine
 - U hebt een on-premises VMware-infrastructuur nodig voor failback. U kunt geen failback uitvoeren naar een fysieke computer.
 
-## <a name="hyper-v-to-azure"></a>Hyper-V naar Azure
+<a id="hyper-v-to-azure" class="xliff"></a>
 
-Dit is wat u nodig hebt om virtuele Hyper V-machines te repliceren naar Azure.
+## Hyper-V naar Azure
 
-**Onderwerp** | **Onderdeel** | **Details**
---- | --- | ---
-**Azure** | U hebt in Azure een Microsoft Azure-account, een Azure-opslagaccount en een Azure-netwerk nodig. | Opslag en netwerk kunnen Resource Manager-gebaseerd of klassieke accounts zijn.<br/><br/> Gerepliceerde gegevens worden opgeslagen in het opslagaccount. Azure-VM’s worden gemaakt met de gerepliceerde gegevens bij failover van uw on-premises site.<br/><br/> De Azure-VM's maken verbinding met het virtuele Azure-netwerk wanneer ze worden gemaakt.
-**VMM-server** | Hyper-V-hosts die zich in VMM-clouds bevinden | Als Hyper-V-hosts in VMM-clouds worden beheerd, kunt u de VMM-server registreren in de Recovery Services-kluis.<br/><br/> U installeert de Site Recovery-provider op de VMM-server om replicatie te beheren met Azure.<br/><br/> U hebt ingestelde logische en VM-netwerken nodig om netwerktoewijzing te configureren. Een netwerk met virtuele machines moet zijn gekoppeld aan een logisch netwerk dat verbinding heeft met de cloud.
-**Hyper-V-host** | Hyper-V-servers kunnen worden geïmplementeerd met of zonder de VMM-server. | Als er geen VMM-server is, wordt de Site Recovery-provider geïnstalleerd op de host, zodat replicatie via internet kan worden beheerd met Site Recovery. Als er een VMM-server is, wordt de provider daarop geïnstalleerd en niet op de host.<br/><br/> De Recovery Services-agent wordt geïnstalleerd op de host om de gegevensreplicatie af te handelen.<br/><br/> De communicatie vanuit zowel de Provider als de agent is beveiligd en versleuteld. De gerepliceerde gegevens in de Azure-opslag zijn eveneens versleuteld.
-**Virtuele Hyper-V-machines** | U hebt één of meer virtuele machines nodig op de Hyper-V-hostserver. | Er hoeft niets verplicht op virtuele machines te worden geïnstalleerd
+<a id="replication-process" class="xliff"></a>
 
-
-### <a name="replication-process"></a>Replicatieproces
+### Replicatieproces
 
 1. U stelt de Azure-onderdelen in. Wij raden u aan om opslag- en netwerkaccounts in te stellen voordat u begint met de Site Recovery-implementatie.
 2. U maakt een Replication Services-kluis voor Site Recovery en configureert de kluisinstellingen, waaronder:
@@ -118,7 +123,9 @@ Dit is wat u nodig hebt om virtuele Hyper V-machines te repliceren naar Azure.
 4. Verschillen in de gegevens worden bijgehouden en de replicatie van deltaverschillen naar Azure begint nadat de initiële replicatie is voltooid. Bijgehouden wijzigingen voor een item worden opgeslagen in een .hrl-bestand.
 5. U voert een testfailover uit om te controleren of alles werkt.
 
-### <a name="failover-and-failback-process"></a>Failover- en failbackproces
+<a id="failover-and-failback-process" class="xliff"></a>
+
+### Failover- en failbackproces
 
 1. U kunt een geplande of niet-geplande [failover](site-recovery-failover.md) uitvoeren van on-premises virtuele Hyper-V-machines naar Azure. Als u een geplande failover uitvoert, worden de virtuele bronmachines afgesloten om gegevensverlies te voorkomen.
 2. U kunt een failover van één machine uitvoeren of [herstelplannen](site-recovery-create-recovery-plans.md) maken om de failover van meerdere virtuele machines te coördineren.
@@ -135,7 +142,9 @@ Dit is wat u nodig hebt om virtuele Hyper V-machines te repliceren naar Azure.
 ![Onderdelen](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
 
-## <a name="replicate-to-a-secondary-site"></a>Repliceren naar een secundaire site
+<a id="replicate-to-a-secondary-site" class="xliff"></a>
+
+## Repliceren naar een secundaire site
 
 U kunt de volgende zaken repliceren naar uw secundaire site:
 
@@ -144,15 +153,18 @@ U kunt de volgende zaken repliceren naar uw secundaire site:
 - **Hyper-V**: on-premises virtuele Hyper-V-machines die worden uitgevoerd op [ondersteunde Hyper-V-hosts](site-recovery-support-matrix-to-sec-site.md#on-premises-servers) die worden beheerd in VMM-clouds. [Ondersteunde hosts](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). U kunt virtuele Hyper-V-machines repliceren waarop gastbesturingssystemen worden uitgevoerd die [worden ondersteund door Hyper-V en Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
 
-## <a name="vmwarephysical-to-a-secondary-site"></a>Van VMware/fysieke server naar een secundaire site
+<a id="vmwarephysical-to-a-secondary-site" class="xliff"></a>
+
+## Van VMware/fysieke server naar een secundaire site
 
 U repliceert virtuele VMware-machines of fysieke servers naar een secundaire site met InMage Scout.
 
-### <a name="components"></a>Onderdelen
+<a id="components" class="xliff"></a>
+
+### Onderdelen
 
 **Onderwerp** | **Onderdeel** | **Details**
 --- | --- | ---
-**Azure** | InMage Scout. | Voor het gebruik van InMage Scout hebt u een Azure-abonnement nodig.<br/><br/> Nadat u een Recovery Services-kluis hebt gemaakt, downloadt u InMage Scout en installeert u de nieuwste updates om de implementatie in te stellen.
 **Processerver** | Bevindt zich op de primaire site | U implementeert de processerver voor het afhandelen van caching, compressie en gegevensoptimalisatie.<br/><br/> Hier wordt ook de push-installatie van de Unified Agent afgehandeld naar computers die u wilt beveiligen.
 **Configuratieserver** | Bevindt zich op de secundaire site | De configuratieserver dient om uw implementatie te beheren, te configureren en te bewaken met behulp van de beheerwebsite of de vContinuum-console.
 **vContinuum-server** | Optioneel. Deze wordt geïnstalleerd op dezelfde locatie als de configuratieserver. | De vContinuum-server biedt een console voor het beheren en controleren van de beveiligde omgeving.
@@ -161,7 +173,9 @@ U repliceert virtuele VMware-machines of fysieke servers naar een secundaire sit
 **VM's/fysieke servers** |  De Unified Agent wordt geïnstalleerd op virtuele VMware-machines of fysieke servers die u wilt repliceren. | De agent fungeert als communicatieprovider tussen alle onderdelen.
 
 
-### <a name="replication-process"></a>Replicatieproces
+<a id="replication-process" class="xliff"></a>
+
+### Replicatieproces
 
 1. U stelt de onderdeelservers in op elke site (configuratie, proces, hoofddoel) en installeert de Unified Agent op de machines die u wilt repliceren.
 2. Na de initiële replicatie verzendt de agent op elke machine deltareplicatiewijzigingen naar de processerver.
@@ -173,19 +187,22 @@ U repliceert virtuele VMware-machines of fysieke servers naar een secundaire sit
 
 
 
-## <a name="hyper-v-to-a-secondary-site"></a>Van Hyper-V naar een secundaire site
+<a id="hyper-v-to-a-secondary-site" class="xliff"></a>
+
+## Van Hyper-V naar een secundaire site
 
 Dit is wat u nodig hebt om virtuele Hyper V-machines te repliceren naar een secundaire site.
 
 
 **Onderwerp** | **Onderdeel** | **Details**
 --- | --- | ---
-**Azure** | U hebt een Microsoft Azure-account nodig. |
 **VMM-server** | Het wordt aanbevolen om één VMM-beheerserver te gebruiken op de primaire site en één op de secundaire site | Elke VMM-server moet verbinding met internet hebben.<br/><br/> Elke server moet ten minste één VMM-privécloud hebben met de Hyper-V-profielset.<br/><br/> U installeert de Azure Site Recovery-provider op de VMM-server. De Provider coördineert en stuurt replicatie met de Site Recovery-service via internet. De communicatie tussen de Provider en Azure is beveiligd en versleuteld.
 **Hyper-V-server** |  U hebt een of meer Hyper-V-hostservers nodig die zich bevinden in de primaire en secundaire VMM-clouds.<br/><br/> Servers moeten verbinding met het internet hebben.<br/><br/> Gegevens worden tussen de primaire en secundaire Hyper-V-hostservers via het LAN of VPN gerepliceerd met behulp van Kerberos of verificatie via certificaat.  
 **Virtuele Hyper-V-machines** | Bevindt zich op de Hyper-V-bronhostserver. | De bronhostserver moet ten minste één VM hebben die u wilt repliceren.
 
-### <a name="replication-process"></a>Replicatieproces
+<a id="replication-process" class="xliff"></a>
+
+### Replicatieproces
 
 1. U stelt het Azure-account in.
 2. U maakt een Replication Services-kluis voor Site Recovery en configureert de kluisinstellingen, waaronder:
@@ -201,7 +218,9 @@ Dit is wat u nodig hebt om virtuele Hyper V-machines te repliceren naar een secu
 
 ![On-premises naar on-premises](./media/site-recovery-components/arch-onprem-onprem.png)
 
-### <a name="failover-and-failback"></a>Failover en failback
+<a id="failover-and-failback" class="xliff"></a>
+
+### Failover en failback
 
 1. U kunt een geplande of niet-geplande [failover](site-recovery-failover.md) uitvoeren tussen on-premises sites. Als u een geplande failover uitvoert, worden de virtuele bronmachines afgesloten om gegevensverlies te voorkomen.
 2. U kunt een failover van één machine uitvoeren of [herstelplannen](site-recovery-create-recovery-plans.md) maken om de failover van meerdere virtuele machines te coördineren.
@@ -211,7 +230,9 @@ Dit is wat u nodig hebt om virtuele Hyper V-machines te repliceren naar een secu
 7. Als u de primaire site weer de actieve locatie wilt maken, start u een geplande failover van de secundaire site naar de primaire site, gevolgd door nog een omgekeerde replicatie.
 
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 
 - [Meer informatie](site-recovery-hyper-v-azure-architecture.md) over de replicatiewerkstroom in Hyper-V.
 - [Vereisten controleren](site-recovery-prereq.md)

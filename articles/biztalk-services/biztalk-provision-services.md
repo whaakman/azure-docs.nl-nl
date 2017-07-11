@@ -14,20 +14,28 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 299a6fb23cd0fa725324bbdbdc669ff125a99d1b
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="create-biztalk-services-using-the-azure-portal"></a>BizTalk Services maken met de Azure Portal
+<a id="create-biztalk-services-using-the-azure-portal" class="xliff"></a>
+
+# BizTalk Services maken met de Azure Portal
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 
 > [!TIP]
 > Als u zich wilt aanmelden bij de Azure Portal, moet u een Azure-account en een Azure-abonnement hebben. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
-> 
-> 
 
-## <a name="create-a-biztalk-service"></a>Een BizTalk Service maken
+
+<a id="create-a-biztalk-service" class="xliff"></a>
+
+## Een BizTalk Service maken
 Afhankelijk van de versie die u kiest, zijn mogelijk niet alle BizTalk Service-instellingen beschikbaar.
 
 1. Meld u aan bij de [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
@@ -65,10 +73,8 @@ Afhankelijk van de versie die u kiest, zijn mogelijk niet alle BizTalk Service-i
     </td>
     </tr>
     </table>
-   Selecteer de pijl VOLGENDE.
-5. Voer de opslag- en database-instellingen in:
-   
-    <table border="1">
+Selecteer de pijl VOLGENDE.
+5. Voer de opslag- en database-instellingen in:  <table border="1">
     <tr>
     <td><strong>Opslagaccount voor bewaken/archiveren</strong></td>
     <td>Selecteer een bestaand opslagaccount of maak een nieuw opslagaccount. <br/><br/>Als u een nieuw opslagaccount maakt, voert u de <strong>naam van het opslagaccount</strong> in.</td>
@@ -78,21 +84,19 @@ Afhankelijk van de versie die u kiest, zijn mogelijk niet alle BizTalk Service-i
     <td>Als u een bestaande Azure SQL Database gebruikt, kan deze niet worden gebruikt door een andere BizTalk Service. U hebt de aanmeldingsgegevens nodig die u hebt ingevoerd bij het maken van de Azure SQL Database-server.<br/><br/><strong>TIP</strong> Maak de traceringsdatabase en het opslagaccount voor bewaken/archiveren in dezelfde regio als de BizTalk Service.</td>
     </tr>
     </table>
-   Selecteer de pijl VOLGENDE.
-6. Voer de database-instellingen in:
-   
-    <table border="1">
+Selecteer de pijl VOLGENDE.
+6. Voer de database-instellingen in:  <table border="1">
     <tr>
     <td><strong>Naam</strong></td>
     <td>Beschikbaar als in het vorige scherm <strong>Een nieuw SQL Database-exemplaar</strong> is geselecteerd.
     <br/><br/>
-    Voer de naam van de SQL Database in die moet worden gebruikt door uw BizTalk Service.</td>
+Voer de naam van de SQL Database in die moet worden gebruikt door uw BizTalk Service.</td>
     </tr>
     <tr>
     <td><strong>Server</strong></td>
     <td>Beschikbaar als in het vorige scherm <strong>Een nieuw SQL Database-exemplaar</strong> is geselecteerd.
     <br/><br/>
-    Selecteer een bestaande SQL Database-server of maak een nieuwe SQL Database-server.</td>
+Selecteer een bestaande SQL Database-server of maak een nieuwe SQL Database-server.</td>
     </tr>
     <tr>
     <td><strong>Aanmeldingsnaam voor server</strong></td>
@@ -115,12 +119,14 @@ Als u klaar bent, wordt de Azure BizTalk Service gemaakt. Deze kunt u nu gebruik
 
 Afhankelijk van de status van de BizTalk Service zijn er bepaalde bewerkingen die niet kunnen worden voltooid. Ga naar de [statusgrafiek van BizTalk Services](biztalk-service-state-chart.md) voor een lijst van deze bewerkingen.
 
-## <a name="post-provisioning-steps"></a>Stappen na de inrichting
+<a id="post-provisioning-steps" class="xliff"></a>
+
+## Stappen na de inrichting
 * [Het certificaat installeren op een lokale computer](#InstallCert)
 * [Een certificaat dat gereed is voor productie toevoegen](#AddCert)
 * [De Access Control-naamruimte ophalen](#ACS)
 
-#### <a name="a-nameinstallcertainstall-the-certificate-on-a-local-computer"></a><a name="InstallCert"></a>Het certificaat installeren op een lokale computer
+#### <a name="InstallCert"></a>Het certificaat installeren op een lokale computer
 Bij het inrichten van de BizTalk Service wordt er een zelfondertekend certificaat gemaakt en gekoppeld aan uw BizTalk Service-abonnement. U moet dit certificaat downloaden en installeren op de computers waarop u BizTalk Service-toepassingen wilt implementeren of waarmee u berichten wilt verzenden naar een BizTalk Service-eindpunt.
 
 1. Meld u aan bij de [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
@@ -130,13 +136,13 @@ Bij het inrichten van de BizTalk Service wordt er een zelfondertekend certificaa
    ![SSL-certificaat wijzigen][QuickGlance]
 5. Dubbelklik op het certificaat en doorloop de wizard om het certificaat te installeren. Zorg ervoor dat u het certificaat installeert in het archief van de **vertrouwde basiscertificeringsinstanties**.
 
-#### <a name="a-nameaddcertaadd-a-production-ready-certificate"></a><a name="AddCert"></a>Een certificaat dat gereed is voor productie toevoegen
+#### <a name="AddCert"></a>Een certificaat dat gereed is voor productie toevoegen
 Het zelfondertekende certificaat wordt automatisch gemaakt wanneer BizTalk Services wordt gemaakt. Het is alleen bedoeld voor gebruik in ontwikkelomgevingen. Vervang het in productiescenario's door een certificaat dat gereed is voor productie.
 
 1. Selecteer op het tabblad **Dashboard** de optie **SSL-certificaat bijwerken**.
 2. Blader naar uw persoonlijke SSL-certificaat (*Certificaatnaam*.pfx) dat de naam van uw BizTalk Service bevat, voer het wachtwoord in en klik op het vinkje.
 
-#### <a name="a-nameacsaget-the-access-control-namespace"></a><a name="ACS"></a>De Access Control-naamruimte ophalen
+#### <a name="ACS"></a>De Access Control-naamruimte ophalen
 1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Selecteer **BIZTALK SERVICES** in het navigatiedeelvenster links. Selecteer vervolgens uw BizTalk Service.
 3. Selecteer in de taakbalk **Verbindingsgegevens**:  
@@ -159,19 +165,21 @@ De Access Control Service-identiteit is een set referenties waarmee toepassingen
 
 [Uw ACS-naamruimte beheren](https://msdn.microsoft.com/library/azure/hh674478.aspx) geeft een lijst weer met de volgende richtlijnen en aanbevelingen.
 
-## <a name="requirements-explained"></a>Uitleg van de vereisten
+<a id="requirements-explained" class="xliff"></a>
+
+## Uitleg van de vereisten
 Deze vereisten zijn niet van toepassing op de editie Free.
 
 <table border="1">
 <tr bgcolor="FAF9F9">
         <td><strong>Wat u nodig hebt</strong></td>
-        <td><strong>Waarom u het nodig hebt</strong></td>
+        <td><strong>Waarom u dit nodig hebt</strong></td>
 </tr>
 <tr>
 <td>Azure-abonnement</td>
 <td>Het abonnement bepaalt wie zich kan aanmelden bij de Azure Portal. De accounthouder maakt het abonnement via <a HREF="https://account.windowsazure.com/Subscriptions"> Azure-abonnementen</a>.
 <br/><br/>
-Het Azure-account kan meerdere abonnementen hebben en worden beheerd door iedereen die is gemachtigd. De houder van uw Azure-account kan bijvoorbeeld een abonnement met de naam <em>BizTalkServiceAbonnement</em> maken en de BizTalk-beheerders binnen uw bedrijf (bijvoorbeeld ContosoBTSAdmins@live.com)) toegang geven tot dit abonnement. In dit scenario melden de BizTalk-beheerders zich aan bij de Azure Portal en hebben zij volledige beheerdersrechten voor alle gehoste services in het abonnement, waaronder Azure BizTalk Services. De BizTalk-beheerders zijn niet de houders van het Azure-account en hebben daarom geen toegang tot factureringsgegevens.
+Het Azure-account kan meerdere abonnementen hebben en worden beheerd door iedereen die is gemachtigd. De houder van uw Azure-account kan bijvoorbeeld een abonnement met de naam <em>BizTalkServiceAbonnement</em> maken en de BizTalk-beheerders binnen uw bedrijf (bijvoorbeeld ContosoBTSAdmins@live.com) toegang geven tot dit abonnement. In dit scenario melden de BizTalk-beheerders zich aan bij de Azure Portal en hebben zij volledige beheerdersrechten voor alle gehoste services in het abonnement, waaronder Azure BizTalk Services. De BizTalk-beheerders zijn niet de houders van het Azure-account en hebben daarom geen toegang tot factureringsgegevens.
 <br/><br/>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Abonnementen en opslagaccounts beheren in Azure Portal</a> geeft u meer informatie.
 </td>
@@ -243,7 +251,9 @@ Er kan een nieuw of ander certificaat worden toegevoegd nadat de BizTalk Service
 
 
 
-## <a name="hybrid-connections"></a>Hybride verbindingen
+<a id="hybrid-connections" class="xliff"></a>
+
+## Hybride verbindingen
 Wanneer u een Azure BizTalk Service maakt, is het tabblad **Hybride verbindingen** beschikbaar:
 
 ![Tabblad Hybride verbindingen][HybridConnectionTab]
@@ -252,10 +262,14 @@ Hybride verbindingen worden gebruikt om verbinding te maken tussen een Azure-web
 
  Zie [Hybride verbindingen](integration-hybrid-connection-overview.md) voor meer informatie, waaronder het maken en beheren van hybride verbindingen.
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 Nu u een BizTalk Service hebt gemaakt, is het tijd om uzelf bekend te maken met [de tabbladen Dashboard, Bewaken en Schalen van BizTalk Services](biztalk-dashboard-monitor-scale-tabs.md). U kunt nu toepassingen maken met uw BizTalk Service. Ga naar [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197) om te beginnen met het maken van toepassingen.
 
-## <a name="see-also"></a>Zie ook
+<a id="see-also" class="xliff"></a>
+
+## Zie ook
 * [BizTalk Services: grafiek van edities](biztalk-editions-feature-chart.md)<br/>
 * [BizTalk Services: statusgrafiek](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: back-ups maken en herstellen](biztalk-backup-restore.md)<br/>
@@ -271,9 +285,4 @@ Nu u een BizTalk Service hebt gemaakt, is het tijd om uzelf bekend te maken met 
 [QuickGlance]: ./media/biztalk-provision-services/WABS_QuickGlance.png
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

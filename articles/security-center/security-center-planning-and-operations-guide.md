@@ -4,7 +4,7 @@ description: Dit document helpt u met uw planning voordat u overstapt op het Azu
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
 ms.service: security-center
@@ -12,19 +12,28 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 06/16/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 71fdf71d48959856697603c765e299f8a40b089e
-ms.lasthandoff: 12/07/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: c502e4363dbaa37455d1aad90d1e9fa855fd09b0
+ms.contentlocale: nl-nl
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="azure-security-center-planning-and-operations-guide"></a>Plannings- en bedieningsgids voor Azure Security Center
+<a id="azure-security-center-planning-and-operations-guide" class="xliff"></a>
+
+# Plannings- en bedieningsgids voor Azure Security Center
 Deze gids is bedoeld voor IT-specialisten, IT-architecten, gegevensbeveiligingsanalisten en cloudbeheerders die willen gaan werken met Azure Security Center.
 
-## <a name="planning-guide"></a>Planningsgids
+>[!NOTE] 
+>Vanaf begin juni 2017 zal Security Center de Microsoft Monitoring Agent gebruiken voor het verzamelen en opslaan van gegevens. Zie [Migratie van Azure Security Center-platform](security-center-platform-migration.md) voor meer informatie. De informatie in dit artikel beschrijft functionaliteit van Security Center na de overstap naar de Microsoft Monitoring Agent.
+>
+
+<a id="planning-guide" class="xliff"></a>
+
+## Planningsgids
 Deze gids bevat een reeks stappen en taken die u kunt volgen om uw gebruik van Azure Security Center te optimaliseren op basis van de beveiligingsvereisten en het cloudbeheermodel van uw organisatie. Als u optimaal wilt profiteren van Security Center, is het belangrijk te begrijpen hoe verschillende personen of teams binnen uw organisatie de service gaan gebruiken om te voldoen aan alle vereisten voor veilige ontwikkeling en gebruik, bewaking, bestuur en reactie op incidenten. De belangrijkste gebieden waarmee u rekening moet houden bij het plannen van het gebruik van Security Center zijn:
 
 * Beveiligingsrollen en toegangsbeheer
@@ -38,12 +47,13 @@ In de volgende sectie leert u hoe u voor elk van deze gebieden een planning maak
 > [!NOTE]
 > Raadpleeg de [Azure Security Center frequently asked questions (Veelgestelde vragen over het Azure Beveiligingscentrum)](security-center-faq.md) voor een lijst met veelgestelde vragen die ook nuttig kunnen zijn tijdens de ontwerp- en planningsfase.
 > 
-> 
 
-## <a name="security-roles-and-access-controls"></a>Beveiligingsrollen en toegangsbeheer
+<a id="security-roles-and-access-controls" class="xliff"></a>
+
+## Beveiligingsrollen en toegangsbeheer
 Afhankelijk van de grootte en de structuur van uw organisatie kunnen meerdere individuen en teams het Beveiligingscentrum gebruiken om verschillende beveiligingstaken uit te voeren. In het volgende diagram vindt u een voorbeeld met fictieve personen en hun respectieve rollen en beveiligingsverantwoordelijkheden:
 
-![Rollen](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-ga.png)
+![Rollen](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
 Met Security Center kunnen deze personen voldoen aan deze verschillende verantwoordelijkheden. Bijvoorbeeld:
 
@@ -72,12 +82,17 @@ Met Security Center kunnen deze personen voldoen aan deze verschillende verantwo
 **Sam (beveiligingsanalist)**
 
 * Onderzoekt aanvallen
-* Lost waarschuwingen op of werkt samen met eigenaar cloud-workload om herstelstappen toe te passen 
+* Werkt samen met de eigenaar van de workload in de cloud om herstelstappen toe te passen 
 
-Security Center gebruikt [op rollen gebaseerd toegangsbeheer (RBAC)](../active-directory/role-based-access-control-configure.md), dat [ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md) biedt die kunnen worden toegewezen aan gebruikers, groepen en services in Azure. Wanneer gebruikers Security Center openen, zien ze alleen informatie met betrekking tot resources waartoe ze toegang hebben. Dit betekent dat aan de gebruiker de rol van de eigenaar, bijdrager of lezer is toegewezen voor het abonnement of de resourcegroep waartoe een resource behoort. 
+Security Center gebruikt [op rollen gebaseerd toegangsbeheer (RBAC)](../active-directory/role-based-access-control-configure.md), dat [ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md) biedt die kunnen worden toegewezen aan gebruikers, groepen en services in Azure. Wanneer gebruikers Security Center openen, zien ze alleen informatie met betrekking tot resources waartoe ze toegang hebben. Dit betekent dat aan de gebruiker de rol van de eigenaar, bijdrager of lezer is toegewezen voor het abonnement of de resourcegroep waartoe een resource behoort. Naast deze rollen zijn er twee specifieke Security Center-rollen:
+
+- **Beveiligingslezer**: een gebruiker die deel uitmaakt van deze rol heeft weergaverechten voor Security Center, en kan dus onder andere aanbevelingen, waarschuwingen, beleid en statusinformatie bekijken, maar kan geen wijzigingen aanbrengen.
+- **Beveiligingsbeheerder**: dezelfde machtigingen als de rol Beveiligingslezer, maar kan ook het beveiligingsbeleid bijwerken, en aanbevelingen en waarschuwingen verwijderen.
+
+De hierboven beschreven Security Center-rollen hebben geen toegang tot andere servicegebieden van Azure, zoals Storage, Web & Mobile of Internet of Things.  
 
 > [!NOTE]
-> Een gebruiker moet ten minste een abonnementseigenaar, resourcegroepeigenaar of bijdrager zijn om Security Center in Azure te kunnen zien.
+> Een gebruiker moet ten minste een abonnementseigenaar, resourcegroepeigenaar of medewerker zijn om Security Center in Azure te kunnen zien. 
 > 
 > 
 
@@ -89,22 +104,22 @@ Wanneer gebruik wordt gemaakt van de personen in het vorige diagram, zou de volg
 
 **David (IT-beveiliging)**
 
-* Abonnementseigenaar/medewerker
+* Abonnementseigenaar/medewerker of beveiligingsbeheerder
 
 **Judy (beveiligingsbewerkingen)**
 
-* Abonnementslezer voor het bekijken van waarschuwingen
-* Abonnementseigenaar/medewerker die nodig is om waarschuwingen te verwijderen
+* Abonnementslezer of beveiligingslezer voor het bekijken van waarschuwingen
+* Abonnementseigenaar/medewerker of beveiligingsbeheerder voor het verwijderen van waarschuwingen
 
 **Sam (beveiligingsanalist)**
 
 * Abonnementslezer voor het bekijken van waarschuwingen
-* Abonnementseigenaar/medewerker die nodig is om waarschuwingen op te lossen of te verwijderen
-* Toegang tot opslag is mogelijk vereist
+* Abonnementseigenaar/medewerker voor het verwijderen van waarschuwingen
+* Toegang tot de werkruimte is mogelijk vereist
 
 Andere belangrijke informatie om rekening mee te houden:
 
-* Alleen abonnementseigenaren en bijdragers kunnen een beveiligingsbeleid bewerken
+* Alleen abonnementseigenaren/medewerkers en beveiligingsbeheerders kunnen een beveiligingsbeleid bewerken
 * Alleen abonnements- en resourcegroepeigenaren en bijdragers kunnen beveiligingsaanbevelingen voor een resource toepassen
 
 Bij het plannen van het toegangsbeheer met het RBAC voor Security Center moet u zeker weten wie in uw organisatie het Security Center gaat gebruiken. Ook moet u weten welke typen taken zij gaan uitvoeren en RBAC vervolgens dienovereenkomstig configureren.
@@ -114,106 +129,76 @@ Bij het plannen van het toegangsbeheer met het RBAC voor Security Center moet u 
 > 
 > 
 
-## <a name="security-policies-and-recommendations"></a>Beveiligingsbeleid en aanbevelingen
-Een beveiligingsbeleid bepaalt welke set besturingselementen wordt aanbevolen voor resources binnen het opgegeven abonnement of de opgegeven resourcegroep. In Security Center definieert u de beleidsregels op grond van de beveiligingsvereisten van uw bedrijf en het type toepassingen of de gevoeligheid van de gegevens.
+<a id="security-policies-and-recommendations" class="xliff"></a>
+
+## Beveiligingsbeleid en aanbevelingen
+Een beveiligingsbeleid bepaalt welke set besturingselementen wordt aanbevolen voor resources binnen het opgegeven abonnement. In Security Center definieert u de beleidsregels op grond van de beveiligingsvereisten van uw bedrijf en het type toepassingen of de gevoeligheid van de gegevens.
 
 Beleidsregels die zijn ingeschakeld op abonnementsniveau, worden automatisch doorgegeven naar alle resourcegroepen binnen het abonnement, zoals weergegeven in het volgende diagram:
 
-![Beveiligingsbeleid](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig2-ga.png)
-
-Zoals weergegeven in de afbeelding hierboven, kan beveiligingsbeleid voor resourcegroepen worden overgenomen van het abonnementsniveau.
-
-In sommige scenario's waarin u resources in een resourcegroep hebt die een andere set beleidsregels vereisen, kunt u overname uitschakelen en aangepaste beleidsregels toepassen op een specifieke resourcegroep.
-
-Als u aangepaste beleidsregels in bepaalde resourcegroepen nodig hebt, moet u overname in de resourcegroep uitschakelen en de beveiligingsbeleidsregels wijzigen. Als u bijvoorbeeld een paar workloads hebt waarvoor het beleid voor SQL Transparent Data Encryption niet nodig is, schakelt u het beleid uit op het abonnementsniveau en schakelt u het alleen in binnen de resourcegroepen waar SQL TDE vereist is.
-
-Wanneer u begint met het maken van aangepaste beleidsregels voor verschillende resourcegroepen, moet u uw beleidsimplementatie plannen in de wetenschap dat bij een beleidsconflict (abonnement versus resourcegroep) het resourcegroepbeleid voorrang heeft.
+![Beveiligingsbeleid](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig2-newUI.png)
 
 > [!NOTE]
 > Als u moet controleren welke beleidsregels zijn gewijzigd, kunt u dat doen met de [Azure controlelogboeken](https://blogs.msdn.microsoft.com/cloud_solution_architect/2015/03/10/audit-logs-for-azure-events/). Beleidswijzigingen worden altijd geregistreerd in Azure controlelogboeken.
 > 
 > 
 
-### <a name="security-recommendations"></a>Aanbevelingen voor beveiliging
-Voordat u beleidsregels voor veiligheid configureert, moet u elk van de [aanbevelingen voor beveiliging](security-center-recommendations.md) controleren en bepalen of deze beleidsregels geschikt zijn voor uw verschillende abonnementen en resourcegroepen. Het is ook belangrijk te begrijpen welke actie wordt ondernomen om de aanbevelingen voor beveiliging toe te passen.
+<a id="security-recommendations" class="xliff"></a>
 
-**Eindpuntbeveiliging**: als er op een virtuele machine geen oplossing voor eindpuntbeveiliging is ingeschakeld, wordt in Security Center aangeraden er een te installeren. Als u de voorkeur geeft aan een oplossing voor eindpuntbeveiliging die u on-premises al hebt doorgevoerd, moet u besluiten of u dezelfde antimalware voor uw Azure VM’s gaat gebruiken. Security Center biedt verschillende opties voor eindpuntbeveiliging.  U kunt de gratis Microsoft Antimalware gebruiken of u kunt kiezen uit een lijst met oplossingen voor eindpuntbeveiliging van geïntegreerde partners. Lees het artikel [Eindpuntbeveiliging inschakelen in Azure Security Center](security-center-install-endpoint-protection.md) voor meer informatie over het implementeren van antimalware met behulp van Security Center.
-
-**Systeemupdates**: Security Center identificeert virtuele machines waarvoor beveiligings- of kritieke besturingssysteemupdates ontbreken voor IaaS- en cloudservices (PaaS). Bedenk wie verantwoordelijk is voor het toepassen van updates wanneer deze nodig zijn en de manier waarop ze worden toegepast. Veel organisaties gebruiken WSUS, Windows Update of een ander hulpprogramma.
-
-**Basislijnconfiguraties**: als besturingssysteemconfiguraties van virtuele machines niet overeenkomen met de aanbevolen basislijnen, wordt een aanbeveling opgehaald. Controleer de set basislijnen [hier](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) en bekijk hoe besturingssysteemconfiguraties worden toegepast.
-
-**Schijfversleuteling**: als u schijven voor virtuele machines hebt die niet zijn versleuteld, raadt Security Center aan om Azure Disk Encryption toe te passen. Deze functie maakt gebruik van BitLocker voor Windows en DM-Crypt voor Linux om volumeversleuteling voor het besturingssysteem en gegevensschijven te bieden. Via deze aanbeveling wordt u doorgestuurd naar een [handleiding](security-center-disk-encryption.md) met stap-voor-stap-instructies om deze versleuteling uit te voeren.
-
-Let op: er zijn verschillende versleutelingsscenario's die u moet toepassen. U moet een planning maken voor de unieke vereisten van elk van deze scenario's:
-
-* Versleuteling van nieuwe Azure Virtual Machines vanaf VHD's die u hebt versleuteld met behulp van uw eigen versleutelingssleutels
-* Versleuteling van nieuwe Azure Virtual Machines die zijn gemaakt op basis van de Azure-galerie
-* Versleuteling van Azure Virtual Machines die al onder Azure worden uitgevoerd
-
-De planningsvereisten zijn verschillend voor elk van deze scenario's. Raadpleeg het [whitepaper Azure Disk Encryption](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0) voor meer informatie over elk van deze scenario's.
-
-**Web Application Firewall**: in Security Center worden virtuele machines geïdentificeerd waarop webtoepassingen worden uitgevoerd, en wordt aangeraden een Web Application Firewall (WAF) te installeren. Evalueer de beschikbare partneroplossingen om te bepalen welke het meest geschikt is voor uw organisatie en bepaal hoe de oplossing in licentie wordt gegeven (partners ondersteunen mogelijk Bring Your Own License en/of 'pay-as-you-go'-modellen). Lees het artikel [Een firewall voor een webtoepassing toevoegen in Azure Security Center](security-center-add-web-application-firewall.md) voor meer informatie over het implementeren van een firewall voor een webtoepassing in uw Azure VM's met behulp van Azure Security Center.
-
-**Next Generation Firewall**: hiermee kunt u een virtueel apparaat van toonaangevende leveranciers installeren, met inbegrip van Check Point en binnenkort ook Cisco en Fortinet. Hiermee wordt meer netwerkbeveiliging toegevoegd dan met de netwerkbeveiligingsgroepen die in Azure zijn ingebouwd. Security Center detecteert implementaties waarvoor Next Generation Firewall wordt aanbevolen en biedt u de mogelijkheid een virtuele toepassing in te richten.
-
-**Virtuele netwerken**: in Security Center worden de infrastructuur en configuratie van uw [Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) beoordeeld om te controleren of [netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md) zijn toegepast en correct zijn geconfigureerd met regels voor binnenkomend verkeer. U moet bepalen welke verkeersregels moeten worden gedefinieerd en dit doorgeven aan de personen die de verwante beveiligingsaanbevelingen moeten toepassen.
+### Aanbevelingen voor beveiliging
+Voordat u beleidsregels voor veiligheid configureert, moet u elk van de [aanbevelingen voor beveiliging](security-center-recommendations.md) controleren en bepalen of deze beleidsregels geschikt zijn voor uw verschillende abonnementen en resourcegroepen. Het is ook belangrijk om te begrijpen welke actie moet worden ondernomen om aan de slag te gaan met [beveiligingsaanbevelingen](https://docs.microsoft.com/en-us/azure/security-center/security-center-recommendations) en wie in uw organisatie verantwoordelijk is voor het controleren op nieuwe aanbevelingen en het nemen van de benodigde stappen.
 
 Security Center raadt u aan om voor de beveiliging contactgegevens voor uw Azure-abonnement te verstrekken. Deze informatie wordt gebruikt door Microsoft om contact met u op te nemen als door Microsoft Security Response Center (MSRC) wordt gedetecteerd dat uw klantgegevens zijn geopend door een illegale of niet-geautoriseerde derde. Lees [Contactgegevens voor beveiliging verstrekken in Azure Security Center](security-center-provide-security-contact-details.md) voor meer informatie over het inschakelen van deze mogelijkheid.
 
-## <a name="data-collection-and-storage"></a>Gegevensverzameling en -opslag
-We raden nadrukkelijk aan om gegevensverzameling in te schakelen voor elk van uw abonnementen, omdat dit ervoor zorgt dat beveiligingsbewaking beschikbaar is voor alle virtuele machines. Gegevensverzameling wordt ingeschakeld via de Azure Monitoring Agent (ASMAgentLauncher.exe) en de extensie Azure Security Monitoring (ASMMonitoringAgent.exe).
+<a id="data-collection-and-storage" class="xliff"></a>
 
-De extensie Azure Security Monitoring scant op verschillende, voor beveiliging relevante configuraties en verzamelt beveiligingslogboeken vanaf de virtuele machine. Deze gegevens worden verzonden naar een opslagaccount die u opgeeft. De scanmanager (ASMSoftwareScanner.exe) wordt ook geïnstalleerd op de virtuele machine en wordt gebruikt als een patchscanner.
+## Gegevensverzameling en -opslag
+Azure Security Center maakt gebruik van de Microsoft Monitoring Agent. Dit is dezelfde agent die ook wordt gebruikt door de Operations Management Suite en de Log Analytics-service om beveiligingsgegevens van uw virtuele machines te verzamelen. Gegevens die worden verzameld van deze agent worden opgeslagen in uw Log Analytics-werkruimte(n).
 
-De ASM-agent (Azure Security Monitoring) heeft de volgende basisvoetafdruk:
+<a id="agent" class="xliff"></a>
 
-* 3 MB geheugen voor het grootste deel met potentiële pieken van 10 MB wanneer een scenario elke 12 uur wordt uitgevoerd.  
-* Minimale CPU van permanente proces en scanners. 
-* Minimaal schijfgebruik.
+### Agent
 
-ASM-agent bevat een keten van processen die een totaal van ongeveer 30 MB in het geheugen kunnen bereiken.  Elke Monitoring-agentinstantie kan maximaal 3 GB van de schijf gebruiken. Elke instantie wordt beperkt tot 20% CPU, hoewel dit in de praktijk veel minder is. 
+Nadat gegevensverzameling is ingeschakeld in het beveiligingsbeleid, wordt de Microsoft Monitoring Agent (voor [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) of [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)) geïnstalleerd op alle ondersteunde virtuele machines van Azure en op nieuwe virtuele machines die worden gemaakt.  Als de Microsoft Monitoring Agent al op de virtuele machine is geïnstalleerd, maakt Azure Security Center gebruik van de huidige geïnstalleerde agent. Het proces van de agent is ontworpen om niet-invasief te zijn en minimale invloed te hebben op de prestaties van de virtuele machine.
 
-Nadat gegevensverzameling is ingeschakeld in het beveiligingsbeleid, worden de bewakingsagent en extensies automatisch geïnstalleerd op alle bestaande en nieuw ondersteunde virtuele machines die zijn ingericht in Azure.  Het proces van de agent is ontworpen om niet-invasief te zijn en minimale invloed te hebben op de prestaties van de virtuele machine.
+De Microsoft Monitoring Agent voor Windows vereist TCP-poort 443. Zie de [Handleiding voor het oplossen van problemen met Azure Security Center](security-center-troubleshooting-guide.md) voor meer informatie.
 
-> [!NOTE]
-> Lees de [Gids voor het oplossen van problemen met Azure Security Center](security-center-troubleshooting-guide.md) om problemen met de Azure Security Monitoring Agent op te lossen.
-> 
-> 
-
-Als u gegevensverzameling op een bepaald moment wilt uitschakelen, kunt u dat doen in het beveiligingsbeleid. Selecteer de menuoptie Agents verwijderen om eerder geïmplementeerde bewakingsagents te verwijderen.
+Als u gegevensverzameling op een bepaald moment wilt uitschakelen, kunt u dat doen in het beveiligingsbeleid. Omdat de Microsoft Monitoring Agent kan worden gebruikt door andere Azure-services voor beheer en controle, wordt de agent niet automatisch verwijderd wanneer u het verzamelen van gegevens uitschakelt in Security Center. U kunt de agent indien nodig echter handmatig verwijderen.
 
 > [!NOTE]
-> Lees de [Azure Security Center frequently asked questions (FAQ)](security-center-faq.md) als u een lijst met ondersteunde virtuele machines nodig hebt.
+> Lees de [veelgestelde vragen over Azure Security Center](security-center-faq.md) (Engelstalig) als u een lijst met ondersteunde virtuele machines nodig hebt.
 > 
-> 
 
-Voor elke regio waarin u virtuele machines uitvoert, kiest u de opslagaccount waarin de gegevens worden opgeslagen die zijn verzameld bij deze virtuele machines. Als u geen opslagaccount voor elke regio kiest, wordt er een voor u gemaakt. U kunt de opslaglocatie per regio kiezen of alle gegevens opslaan op een centrale locatie. Hoewel het beveiligingsbeleid kan worden ingesteld op het niveau van het Azure-abonnement en op dat van de resourcegroep, kan de regio voor uw opslagaccount alleen worden geselecteerd op abonnementsniveau.
+<a id="workspace" class="xliff"></a>
 
-Als u een opslagaccount gebruikt die wordt gedeeld tussen verschillende Azure-resources, lees dan het artikel [Azure Storage Scalability and Performance Targets](../storage/storage-scalability-targets.md) voor meer informatie over formaatlimieten en beperkingen. Uw abonnement heeft ook limieten voor de opslagaccount. Bekijk [Limieten, quota’s en beperkingen voor Azure-abonnementen en services](../azure-subscription-service-limits.md) voor meer informatie over deze limieten.
+### Werkruimte
 
-Kosten voor deze opslag zijn niet inbegrepen bij de prijs van de service voor Security Center en worden afzonderlijk in rekening gebracht tegen de gebruikelijke [tarieven voor Azure-opslag](https://azure.microsoft.com/pricing/details/storage/). Vanuit planningsperspectief moet u zich bewust zijn dat Beveiligingscentrum gegevens toevoegt aan uw Azure Storage, waarmee de kosten mogelijk met 1 tot 3 dollars per jaar toenemen.
+Gegevens die (namens Azure Security Center) via de Microsoft Monitoring Agent worden verzameld, worden opgeslagen in een bestaande Log Analytics-werkruimte die is gekoppeld aan uw Azure-abonnement, of in een nieuwe werkruimte, rekening houdend met de geolocatie van de virtuele machine. 
 
-Prestatie- en schaalbaarheidsoverwegingen moeten ook worden gepland op grond van de grootte van uw Azure-omgeving en de resources die uw opslagaccount gebruiken. Raadpleeg de [Controlelijst voor prestaties en schaalbaarheid van Microsoft Azure Storage](../storage/storage-performance-checklist.md) voor meer informatie.
+In Azure Portal kunt u bladeren om een overzicht te zien van uw Log Analytics-werkruimten, inclusief alle werkruimten die door Azure Security Center zijn gemaakt. Er wordt een gerelateerde resourcegroep gemaakt voor nieuwe werkruimten. Beide volgen deze naamconventie: 
+
+* Werkruimte: *DefaultWorkspace-[abonnements-id]-[geolocatie]*
+* Resourcegroep: *DefaultResouceGroup-[geolocatie]*
+
+Voor werkruimten die zijn gemaakt door Azure Security Center worden gegevens 30 dagen bewaard. Voor bestaande werkruimten is de bewaarperiode gebaseerd op de prijscategorie van de werkruimte.
 
 > [!NOTE]
 > Microsoft doet er alles aan om de privacy van gegevens te beschermen en deze gegevens te beveiligen. Microsoft voldoet aan strikte nalevings- en beveiligingsrichtlijnen - van het schrijven van code tot de uitvoering van een service. Lees [Gegevensbeveiliging van Azure Security Center](security-center-data-security.md) voor meer informatie over de verwerking van gegevens en privacy.
 > 
-> 
 
-## <a name="ongoing-security-monitoring"></a>Continue beveiligingsbewaking
+<a id="ongoing-security-monitoring" class="xliff"></a>
+
+## Continue beveiligingsbewaking
 Na de eerste configuratie en toepassing van aanbevelingen voor Security Center, komen in de volgende stap de operationele processen voor Security Center ter sprake.
 
-Als u vanuit Azure Portal naar Security Center wilt gaan, klikt u op **Bladeren** en typt u **Beveiligingscentrum** in het veld **Filter**. De gebruiker ziet de gefilterde resultaten.
+Als u vanuit Azure Portal naar Security Center wilt gaan, klikt u op **Bladeren** en typt u **Beveiligingscentrum** in het veld **Filter**. De weergaven die de gebruiker krijgt, zijn op basis van deze toegepaste filters. In het volgende voorbeeld ziet u een omgeving waarin heel wat problemen moeten worden opgelost:
 
-Security Center heeft geen invloed op uw normale operationele procedures. Het bewaakt uw implementaties passief en doet aanbevelingen op grond van het beveiligingsbeleid dat u hebt ingeschakeld.
+![dashboard](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig6.png)
 
-Het dashboard van Security Center bestaat uit twee hoofdonderdelen:
+> [!NOTE]
+> Security Center heeft geen invloed op uw normale operationele procedures. Het bewaakt uw implementaties passief en doet aanbevelingen op grond van het beveiligingsbeleid dat u hebt ingeschakeld.
 
-* Preventie
-* Detectie
-
-Wanneer u gegevensverzameling in Security Center voor het eerst inschakelt voor uw huidige Azure-omgeving, moet u alle aanbevelingen doornemen. Dit kunt u doen op de blade **Aanbevelingen** of per resource (**Virtuele Machine**, **Netwerken**, **SQL** en **Toepassing**).
+Wanneer u Security Center voor het eerst inschakelt voor uw huidige Azure-omgeving, moet u alle aanbevelingen doornemen. Dit kunt u doen op de tegel **Aanbevelingen** of per resource (**Compute**, **Netwerken**, **Opslag en gegevens** en **Toepassingen**).
 
 Zodra u alle aanbevelingen hebt toegepast, wordt de sectie **Preventie** groen voor alle toegepaste resources. Continue bewaking wordt op dit punt eenvoudiger omdat u alleen acties onderneemt op basis van wijzigingen in de resourcebeveiligingsstatus en aanbevelingstegels.
 
@@ -224,27 +209,31 @@ De sectie **Detectie** is meer reactief en betreft waarschuwingen over problemen
 > 
 > 
 
-### <a name="monitoring-for-new-or-changed-resources"></a>Bewaking voor nieuwe of gewijzigde resources
+<a id="monitoring-for-new-or-changed-resources" class="xliff"></a>
+
+### Bewaking voor nieuwe of gewijzigde resources
 De meeste Azure-omgevingen zijn dynamisch, met nieuwe resources die regelmatig omhoog en omlaag worden verplaatst, met configuraties of wijzigingen enz. Security Center zorgt ervoor dat de beveiligingsstatus van deze nieuwe resources voor u goed zichtbaar is.
 
 Wanneer u nieuwe resources (virtuele machines, SQL Databases) toevoegt aan uw Azure-omgeving, detecteert Security Center deze resources automatisch en begint het de beveiliging ervan te bewaken. Dit omvat ook PaaS-webrollen en -werkrollen. Als gegevensverzameling wordt ingeschakeld in het [beveiligingsbeleid](security-center-policies.md), worden er automatisch extra bewakingsmogelijkheden ingeschakeld voor uw virtuele machines.
 
-![Belangrijke gebieden](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-ga.png)
+![Belangrijke gebieden](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
 
-1. Ga voor virtuele machines naar de tegel **Resourcebeveiligingsstatus** en klik op **Virtuele Machines**. Problemen bij het inschakelen van gegevensverzameling of verwante aanbevelingen worden zichtbaar in de sectie **Aanbevelingen voor bewaking**.
+1. Voor virtuele machines klikt u op **Compute**, in het gedeelte **Preventie**. Problemen bij het inschakelen van gegevensverzameling of verwante aanbevelingen worden weergegeven op het tabblad **Overzicht**, in het gedeelte **Aanbevelingen ten aanzien van controle**.
 2. Geef de **aanbevelingen** weer om te zien welke beveiligingsrisico's mogelijk zijn geïdentificeerd voor de nieuwe resource.
 3. Het is heel gebruikelijk dat wanneer nieuwe virtuele machines worden toegevoegd aan uw omgeving, eerst alleen het besturingssysteem wordt geïnstalleerd. De resource-eigenaar heeft wellicht enige tijd nodig om andere apps te implementeren die door deze VM’s worden gebruikt.  In het ideale geval moet u de uiteindelijke doelstelling van deze workload kennen. Wordt het een toepassingsserver? Op grond van wat deze nieuwe workload gaat worden, kunt u het juiste **beveiligingsbeleid** inschakelen. Dit is de derde stap in deze werkstroom.
 4. Naarmate nieuwe resources worden toegevoegd aan uw Azure-omgeving, kunnen er nieuwe waarschuwingen worden weergegeven in de tegel **Beveiligingswaarschuwingen**. Controleer altijd of er nieuwe waarschuwingen in deze tegel worden weergegeven en neem maatregelen op grond van de aanbevelingen van Security Center.
 
 U zult ook regelmatig de status van bestaande resources willen controleren om configuratiewijzigingen te identificeren die hebben geleid tot beveiligingsrisico's, afwijking van aanbevolen basislijnen en beveiligingswaarschuwingen. Begin bij het dashboard van Security Center. Van daaruit hebt u drie belangrijke gebieden die u consequent moet controleren.
 
-![Bewerkingen](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4.png)
+![Bewerkingen](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
 
-1. Het venster **Recourcebeveiligingsstatus** biedt snel toegang tot uw belangrijkste resources. Gebruik deze optie om uw virtuele machines, netwerken, SQL en toepassingen te bewaken.
+1. Het venster **Preventie** biedt snel toegang tot uw belangrijkste resources. Gebruik deze optie voor het bewaken van Compute, Netwerken, Opslag en gegevens en Toepassingen.
 2. In het venster **Aanbevelingen** kunt u de aanbevelingen van Security Center controleren. Tijdens de continue bewaking merkt u misschien dat u niet dagelijks aanbevelingen krijgt. Dit is normaal omdat u alle aanbevelingen hebt gevolgd bij de eerste configuratie van Security Center. Daarom bevat deze sectie niet elke dag nieuwe informatie en hoeft u deze alleen te raadplegen wanneer dat nodig is.
-3. Het paneel **Detectie** kan ofwel heel vaak, of zeer incidenteel veranderen. Controleer altijd uw beveiligingswaarschuwingen en neem maatregelen op grond van de aanbevelingen van Security Center.
+3. Het venster **Detectie** kan ofwel heel vaak, of zeer incidenteel veranderen. Controleer altijd uw beveiligingswaarschuwingen en neem maatregelen op grond van de aanbevelingen van Security Center.
 
-## <a name="incident-response"></a>Reageren op incidenten
+<a id="incident-response" class="xliff"></a>
+
+## Reageren op incidenten
 Security Center detecteert en waarschuwt voor bedreigingen wanneer deze optreden. Organisaties moeten controleren op nieuwe beveiligingswaarschuwingen en zo nodig maatregelen nemen om het probleem verder te onderzoeken of de aanval af te weren. Lees [Detectiemogelijkheden van Azure Security](security-center-detection-capabilities.md) voor meer informatie over de werking van detectie van bedreigingen van Azure Security Center.
 
 Hoewel dit artikel niet de bedoeling heeft om u te helpen uw eigen plan voor het reageren op incidenten te maken, maken we gebruik van Microsoft Azure Security Response in de cloud-levenscyclus als de basis voor fasen voor het reageren op incidenten. In het volgende diagram ziet u de fasen:
@@ -254,7 +243,6 @@ Hoewel dit artikel niet de bedoeling heeft om u te helpen uw eigen plan voor het
 > [!NOTE]
 > U kunt de [Computer Security Incident Handling Guide](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) van het National Institute of Standards and Technology (NIST) gebruiken als richtlijn om uw eigen plan te ontwikkelen.
 > 
-> 
 
 U kunt waarschuwingen van Security Center gebruiken tijdens de volgende fasen:
 
@@ -262,7 +250,7 @@ U kunt waarschuwingen van Security Center gebruiken tijdens de volgende fasen:
 * **Beoordelen**: de eerste beoordeling uitvoeren voor meer informatie over de verdachte activiteiten.
 * **Diagnose uitvoeren**: de herstelstappen gebruiken voor het uitvoeren van de technische procedure om het probleem op te lossen.
 
-Elke beveiligingswaarschuwing bevat informatie die kan worden gebruikt om beter te begrijpen wat de aard van de aanval is en om mogelijke oplossingen voor te stellen. Sommige waarschuwingen bevatten ook koppelingen naar meer informatie of naar andere informatiebronnen binnen Azure. U kunt de verschafte informatie gebruiken om verder onderzoek te doen en om te beginnen met risicobeperking.
+Elke beveiligingswaarschuwing bevat informatie die kan worden gebruikt om beter te begrijpen wat de aard van de aanval is en om mogelijke oplossingen voor te stellen. Sommige waarschuwingen bevatten ook koppelingen naar meer informatie of naar andere informatiebronnen binnen Azure. U kunt de weergegeven informatie gebruiken voor verder onderzoek en om te beginnen met risicobeperking. Bovendien kunt u zoeken in beveiligingsgegevens die zijn opgeslagen in uw werkruimte.
 
 Het volgende voorbeeld betreft een verdachte RDP-activiteit die op dat moment plaatsvindt:
 
@@ -277,7 +265,9 @@ In de video [Reageren op incidenten met Azure Security Center & Microsoft Operat
 > 
 > 
 
-## <a name="see-also"></a>Zie ook
+<a id="see-also" class="xliff"></a>
+
+## Zie ook
 In dit document hebt u kunnen lezen hoe u een planning kunt maken voor het overstappen op Security Center. Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
 * [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md)

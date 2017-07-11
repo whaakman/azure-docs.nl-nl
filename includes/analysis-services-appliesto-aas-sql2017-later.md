@@ -1,0 +1,1 @@
+**VAN TOEPASSING OP:**![yes](media/analysis-services-appliesto/yes.png)Azure Analysis Services![ja](media/analysis-services-appliesto/yes.png)SQL Server Analysis Services (vanaf 2017)

@@ -14,14 +14,16 @@ ms.date: 04/22/2017
 ms.author: dkshir
 ms.custom: na
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: d0ccbcfa5fc8006590951707f7162f7864110f38
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 572dfc8965957c4667d4124b045ffbb835786a94
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
-# <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>Uw gesimuleerde apparaat verbinding laten maken met uw IoT Hub met Python
+<a id="connect-your-simulated-device-to-your-iot-hub-using-python" class="xliff"></a>
+
+# Uw gesimuleerde apparaat verbinding laten maken met uw IoT Hub met Python
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 Aan het einde van deze zelfstudie hebt u twee Python-apps:
@@ -41,6 +43,10 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 * [Node.js 4.0 of hoger][lnk-node-download]. Zorg ervoor dat u de 32-bits of 64-bits installatie gebruikt, zoals vereist door uw configuratie. Dit is nodig voor het installeren van het [hulpprogramma IoT Hub-verkenner][lnk-iot-hub-explorer].
 * Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.
 
+> [!NOTE]
+> De *pip*-pakketten voor `azure-iothub-service-client` en `azure-iothub-device-client` zijn momenteel alleen beschikbaar voor het Windows-besturingssysteem. Voor Linux/Mac OS raadpleegt u de specifieke secties voor die besturingssystemen in het Engelstalige artikel [Prepare your development environment for Python][lnk-python-devbox].
+> 
+
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 U hebt nu uw IoT-hub gemaakt. Gebruik de IoT Hub-hostnaam en de IoT Hub-verbindingsreeks in de rest van deze zelfstudie.
@@ -49,7 +55,9 @@ U hebt nu uw IoT-hub gemaakt. Gebruik de IoT Hub-hostnaam en de IoT Hub-verbindi
 > U kunt uw IoT Hub ook gemakkelijk via een opdrachtregel maken met behulp van de op Python of Node.js gebaseerde Azure CLI. Het artikel [Create an IoT hub using the Azure CLI 2.0][lnk-azure-cli-hub] (Een IoT Hub maken met behulp van de Azure CLI 2.0) bevat de snelle stappen om dit te doen. 
 > 
 
-## <a name="create-a-device-identity"></a>Een apparaat-id maken
+<a id="create-a-device-identity" class="xliff"></a>
+
+## Een apparaat-id maken
 Dit gedeelte bevat de stappen om een Python-console-app te maken die een apparaat-id kan maken in het id-register van uw IoT Hub. Een apparaat kan alleen verbinding maken met de IoT Hub als het vermeld staat in het id-register. Zie het gedeelte **Id-register** in de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie. Wanneer u deze consoletoepassing uitvoert, worden er een unieke apparaat-id en sleutel gegenereerd waarmee uw apparaat zichzelf kan identificeren tijdens het verzenden van apparaat-naar-cloud-berichten naar IoT Hub.
 
 1. Open een opdrachtprompt en installeer de **SDK voor de Azure IoT Hub-service voor Python**. Sluit de opdrachtprompt na de installatie van de SDK.
@@ -134,7 +142,9 @@ Dit gedeelte bevat de stappen om een Python-console-app te maken die een apparaa
 > 
 
 
-## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
+<a id="create-a-simulated-device-app" class="xliff"></a>
+
+## Een gesimuleerde apparaattoepassing maken
 Dit gedeelte bevat de stappen voor het maken van een Python-console-app die een apparaat simuleert en apparaat-naar-cloud-berichten naar uw IoT Hub verzendt.
 
 1. Open een nieuwe opdrachtprompt en installeer als volgt de apparaat-SDK voor Azure IoT Hub voor Python. Sluit de opdrachtprompt na de installatie.
@@ -251,7 +261,9 @@ Dit gedeelte bevat de stappen voor het maken van een Python-console-app die een 
 > 
 > 
 
-## <a name="receive-messages-from-your-simulated-device"></a>Berichten ontvangen van uw gesimuleerde apparaat
+<a id="receive-messages-from-your-simulated-device" class="xliff"></a>
+
+## Berichten ontvangen van uw gesimuleerde apparaat
 Als u telemetrieberichten van uw apparaat wilt ontvangen, moet u een met [Event Hubs][lnk-event-hubs-overview] compatibel eindpunt gebruiken dat wordt weergegeven door de IoT Hub die de apparaat-naar-cloud-berichten leest. Raadpleeg de zelfstudie [Aan de slag met Event Hubs][lnk-eventhubs-tutorial] voor informatie over het verwerken van berichten van Event Hubs voor de Event Hub-compatibele eindpunten van uw IoT Hub. Event Hubs biedt nog geen ondersteuning voor telemetrie in Python. U kunt een op Event Hubs gebaseerde console-app met [Node.js](iot-hub-node-node-getstarted.md#D2C_node) of [.NET](iot-hub-csharp-csharp-getstarted.md#D2C_csharp) maken voor het lezen van de apparaat-naar-cloud-berichten van de IoT Hub. In deze zelfstudie wordt uitgelegd hoe u het [hulpprogramma IoT Hub-verkenner][lnk-iot-hub-explorer] kunt gebruiken om deze apparaatberichten te lezen.
 
 1. Open een opdrachtprompt en installeer de IoT Hub-verkenner. 
@@ -277,7 +289,9 @@ Als u telemetrieberichten van uw apparaat wilt ontvangen, moet u een met [Event 
 
     ![Apparaat-naar-cloud-berichten met Python][2]
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U hebt deze apparaat-id gebruikt om de gesimuleerde apparaattoepassing in staat te stellen apparaat-naar-cloud-berichten te verzenden naar de IoT-hub. U hebt de berichten bekeken die door de IoT Hub werden ontvangen met behulp van het hulpprogramma IoT Hub-verkenner. 
 
 Ga naar [deze Git Hub-opslagplaats][lnk-python-github] om de Python-SDK voor gebruik met Azure IoT Hub verder te verkennen. Als u de berichtmogelijkheden van de service-SDK van Azure IoT Hub voor Python wilt controleren, kunt u [iothub_messaging_sample.py][lnk-messaging-sample] downloaden en uitvoeren. Voor simulatie aan de apparaatzijde met behulp van de apparaat-SDK van Azure IoT Hub voor Python, kunt u [iothub_client_sample.py][lnk-client-sample] downloaden en uitvoeren.
@@ -286,9 +300,10 @@ Als u aan de slag wilt gaan met IoT Hub en andere IoT-scenario's wilt verkennen,
 
 * [Verbinding maken met uw apparaat][lnk-connect-device]
 * [Aan de slag met apparaatbeheer][lnk-device-management]
-* [Aan de slag met Azure IoT Edge][lnk-gateway-SDK]
+* [Aan de slag met Azure IoT Edge][lnk-iot-edge]
 
 Raadpleeg de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] voor meer informatie over hoe u uw IoT-oplossing uitbreidt en apparaat-naar-cloud-berichten op schaal verwerkt.
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
 <!-- Images. -->
 [1]: ./media/iot-hub-python-getstarted/createdevice.png
@@ -311,6 +326,7 @@ Raadpleeg de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
+[lnk-python-devbox]: https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md
 
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
@@ -318,6 +334,6 @@ Raadpleeg de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 

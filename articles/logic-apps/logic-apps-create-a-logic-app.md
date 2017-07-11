@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/31/2017
-ms.author: jehollan; estfan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6634f0ee88e68f2fcb09fd7534a88677e8efa029
-ms.lasthandoff: 04/03/2017
+ms.author: LADocs; jehollan; estfan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 204bf123509729b60b55c306050cef54aa7fecc5
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/17/2017
 
 ---
 
-# <a name="create-your-first-logic-app-workflow-to-automate-processes-between-cloud-apps-and-cloud-services"></a>Uw eerste werkstroom voor logische apps maken om processen tussen cloud-apps en cloudservices te automatiseren
+<a id="create-your-first-logic-app-workflow-to-automate-processes-between-cloud-apps-and-cloud-services" class="xliff"></a>
+
+# Uw eerste werkstroom voor logische apps maken om processen tussen cloud-apps en cloudservices te automatiseren
 
 Zonder dat u code hoeft te schrijven, kunt u bedrijfsprocessen eenvoudiger en sneller automatiseren door werkstromen te maken en uit te voeren met [Azure Logic Apps](logic-apps-what-are-logic-apps.md). Het eerste voorbeeld laat zien hoe u een eenvoudige werkstroom voor logische apps maakt waarmee een RSS-feed wordt gecontroleerd op nieuwe inhoud op een website. Als er nieuwe items worden weergegeven in de feed van de website, verstuurt de logische app een e-mail vanuit een account van Outlook of Gmail.
 
@@ -39,9 +42,11 @@ Verder zijn nog deze items nodig voor het voorbeeld:
     > [!TIP]
     > Als u een persoonlijk [Microsoft-account](https://account.microsoft.com/account) hebt, beschikt u over een Outlook.com-account. Als u een werk- of schoolaccount hebt van Azure, hebt u een **Office 365 Outlook**-account.
 
-* Een koppeling naar de RSS-feed van een website. In dit voorbeeld wordt de RSS-feed voor de website [Channel 9 op MSDN](https://channel9.msdn.com/) gebruikt:`https://s.ch9.ms/Feeds/RSS`
+* Een koppeling naar de RSS-feed van een website. In dit voorbeeld wordt de [RSS-feed voor de populairste artikelen van de website CNN.com](http://rss.cnn.com/rss/cnn_topstories.rss) gebruikt: `http://rss.cnn.com/rss/cnn_topstories.rss`
 
-## <a name="add-a-trigger-that-starts-your-workflow"></a>Een trigger toevoegen voor het starten van de werkstroom
+<a id="add-a-trigger-that-starts-your-workflow" class="xliff"></a>
+
+## Een trigger toevoegen voor het starten van de werkstroom
 
 Een [*trigger*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) is een gebeurtenis waardoor de werkstroom voor uw logische app wordt gestart. Het is ook het eerste item dat uw logische app nodig heeft.
 
@@ -74,7 +79,7 @@ Een [*trigger*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) is een g
      U kunt ook andere waarden opgeven voor **Frequentie** en **Interval**. 
      Deze instellingen bepalen hoe vaak de logische app op nieuwe items controleert. Alle gevonden items tijdens die periode worden geretourneerd.
 
-     In dit voorbeeld gaan we elke dag controleren of er nieuwe items zijn gepost op de MSDN-website Channel 9.
+     In dit voorbeeld gaan we elke dag controleren of er populaire artikelen zijn gepost op de CNN-website.
 
      ![Trigger instellen met RSS-feed, frequentie en interval](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 
@@ -85,7 +90,9 @@ Een [*trigger*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) is een g
    Wanneer u de app opslaat, is de app meteen live. Op dit moment controleert de logische app alleen op nieuwe items in de opgegeven RSS-feed. 
    We gaan dit voorbeeld zinvoller maken door een actie toe te voegen die de logische app uitvoert nadat de trigger is geactiveerd.
 
-## <a name="add-an-action-that-responds-to-your-trigger"></a>Een actie toevoegen die op de trigger reageert
+<a id="add-an-action-that-responds-to-your-trigger" class="xliff"></a>
+
+## Een actie toevoegen die op de trigger reageert
 
 Een [*actie*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) is een taak die wordt uitgevoerd tijdens de werkstroom voor de logische app. Nadat u een trigger hebt toegevoegd aan uw logische app, kunt u een actie toevoegen om bewerkingen uit te voeren op gegevens die met deze trigger worden gegenereerd. In ons voorbeeld gaan we nu een actie toevoegen waarmee een e-mail wordt verstuurd wanneer er nieuwe items in de RSS-feed van de website staan.
 
@@ -138,7 +145,9 @@ Een [*actie*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) is een taa
 
 U weet nu hoe u een logische app kunt maken en uitvoeren. Daarnaast hebt u geleerd hoe eenvoudig het is om werkstromen te maken voor het automatiseren van processen en hoe u cloud-apps en cloudservices kunt integreren. Allemaal zonder één regel code te hoeven schrijven.
 
-## <a name="manage-your-logic-app"></a>Uw logische app beheren
+<a id="manage-your-logic-app" class="xliff"></a>
+
+## Uw logische app beheren
 
 Voorbeelden van taken om uw app te beheren, zijn het controleren van de status, het bewerken van instellingen, het bekijken van de geschiedenis, en het uitschakelen of zelfs verwijderen van de app.
 
@@ -158,13 +167,17 @@ Voorbeelden van taken om uw app te beheren, zijn het controleren van de status, 
    | Uw app tijdelijk uitschakelen | Kies **Overzicht** en kies vervolgens **Uitschakelen** op de opdrachtbalk. | 
    | De app verwijderen | Kies **Overzicht** en kies vervolgens **Verwijderen** op de opdrachtbalk. Voer de naam van de logische app in en kies **Verwijderen**. | 
 
-## <a name="get-help"></a>Help opvragen
+<a id="get-help" class="xliff"></a>
+
+## Help opvragen
 
 Ga naar het [Forum voor Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) om vragen te stellen, vragen te beantwoorden en te zien wat andere gebruikers van Azure Logic Apps aan het doen zijn.
 
 Ter verbetering van Azure Logic Apps en connectors kunt u stemmen op ideeën of ideeën indien op de [site voor gebruikersfeedback van Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 
 *  [Voorwaarden toevoegen en werkstromen uitvoeren](../logic-apps/logic-apps-use-logic-app-features.md)
 *     [Sjablonen voor logische app](../logic-apps/logic-apps-use-logic-app-templates.md)

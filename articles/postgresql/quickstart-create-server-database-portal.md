@@ -9,26 +9,32 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 06/19/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c67ada15c11b81021ff5e6f6e5edc5cb530ece98
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 7bbf70786bff83ad3cfae9cb9b893f41736874b5
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
-# <a name="create-an-azure-database-for-postgresql-in-the-azure-portal"></a>Een Azure Database voor PostgreSQL-server maken in Azure Portal
+<a id="create-an-azure-database-for-postgresql-in-the-azure-portal" class="xliff"></a>
+
+# Een Azure Database voor PostgreSQL-server maken in Azure Portal
 
 Azure Database voor PostgreSQL is een beheerde service waarmee u PostgreSQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. In deze Quick Start ontdekt u hoe u een Azure Database voor PostgreSQL-server maakt in Azure Portal.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+<a id="log-in-to-the-azure-portal" class="xliff"></a>
+
+## Aanmelden bij Azure Portal
 
 Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-## <a name="create-an-azure-database-for-postgresql"></a>Een Azure Database voor PostgreSQL-server maken
+<a id="create-an-azure-database-for-postgresql" class="xliff"></a>
+
+## Een Azure Database voor PostgreSQL-server maken
 
 Een Azure Database voor PostgreSQL-server wordt gemaakt met een gedefinieerde set [reken- en opslagresources](./concepts-compute-unit-and-storage.md). De server wordt gemaakt in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md).
 
@@ -61,7 +67,9 @@ Volg deze stappen voor het maken van een Azure Database voor PostgreSQL-server:
    
   De database **postgres** wordt gemaakt op uw server. De database [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) is een standaarddatabase die kan worden gebruikt door gebruikers, hulpprogramma's en toepassingen van derden. 
 
-## <a name="configure-a-server-level-firewall-rule"></a>Een serverfirewallregel configureren
+<a id="configure-a-server-level-firewall-rule" class="xliff"></a>
+
+## Een serverfirewallregel configureren
 
 De Azure Database voor PostgreSQL-service maakt een firewall op serverniveau. De firewall voorkomt dat externe toepassingen en hulpprogramma's verbinding maken met de server of databases op de server, tenzij er een firewallregel wordt gemaakt om de firewall te openen voor specifieke IP-adressen. 
 
@@ -80,7 +88,9 @@ De Azure Database voor PostgreSQL-service maakt een firewall op serverniveau. De
   > De Azure PostgreSQL-server communiceert via poort 5432. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 5432 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u alleen verbinding maken met uw Azure SQL Database-server als uw IT-afdeling poort 5432 openstelt.
   >
 
-## <a name="get-the-connection-information"></a>De verbindingsgegevens ophalen
+<a id="get-the-connection-information" class="xliff"></a>
+
+## De verbindingsgegevens ophalen
 
 Wanneer u de Azure Database voor PostgreSQL-server maakt, wordt de standaarddatabase **postgres** ook gemaakt. Als u verbinding met uw databaseserver wilt maken, moet u hostgegevens en toegangsreferenties opgeven.
 
@@ -93,7 +103,9 @@ Wanneer u de Azure Database voor PostgreSQL-server maakt, wordt de standaarddata
 
  ![Azure Database voor PostgreSQL - Aanmeldgegevens van de serverbeheerder](./media/quickstart-create-database-portal/6-server-name.png)
 
-## <a name="connect-to-postgresql-database-using-psql-in-cloud-shell"></a>Verbinding maken met een PostgreSQL-database met behulp van psql in Cloud Shell
+<a id="connect-to-postgresql-database-using-psql-in-cloud-shell" class="xliff"></a>
+
+## Verbinding maken met een PostgreSQL-database met behulp van psql in Cloud Shell
 
 U gaat nu het opdrachtregelprogramma psql gebruiken om verbinding te maken met de Azure Database voor PostgreSQL-server. 
 1. Open Azure Cloud Shell via het terminalpictogram in het navigatiedeelvenster bovenaan.
@@ -124,7 +136,9 @@ CREATE DATABASE mypgsqldb;
 \c mypgsqldb
 ```
 
-## <a name="connect-to-postgresql-database-using-pgadmin"></a>Verbinding maken met een PostgreSQL-database met behulp van pgAdmin
+<a id="connect-to-postgresql-database-using-pgadmin" class="xliff"></a>
+
+## Verbinding maken met een PostgreSQL-database met behulp van pgAdmin
 
 Verbinding maken met een Azure PostgreSQL-server met behulp van het GUI-hulpprogramma _pgAdmin_
 1.  Start de toepassing _pgAdmin_ op uw clientcomputer. U kunt _pgAdmin_ installeren via http://www.pgadmin.org/.
@@ -154,7 +168,9 @@ Verbinding maken met een Azure PostgreSQL-server met behulp van het GUI-hulpprog
  ![pgAdmin - Maken - Database](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
 
-## <a name="clean-up-resources"></a>Resources opschonen
+<a id="clean-up-resources" class="xliff"></a>
+
+## Resources opschonen
 Verwijder alle resources die u in deze Quick Start hebt gemaakt door de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) te verwijderen.
 
 > [!TIP]
@@ -168,7 +184,9 @@ Als u de zojuist gemaakte server wilt verwijderen:
 2.  Op de pagina Overzicht klikt u op Verwijderen in het deelvenster bovenaan ![Azure Database voor PostgreSQL - Server verwijderen](./media/quickstart-create-database-portal/12-delete.png)
 3.  Controleer de naam van de server die u wilt verwijderen en bekijk welke databases onder de server vallen. Voer **mypgserver-20170401** in in het tekstvak en klik vervolgens op Verwijderen.
 
-## <a name="next-steps"></a>Volgende stappen
-- Migreer uw database met behulp van [Exporteren en importeren](./howto-migrate-using-export-and-import.md) of [Dump maken en terugzetten](./howto-migrate-using-dump-and-restore.md).
-- Zie [PostgreSQL-server maken - CLI](./quickstart-create-server-database-azure-cli.md) voor informatie over het maken van een Azure Database voor PostgreSQL-server met Azure CLI.
-- Zie [Over de Azure Database voor PostgreSQL-service](./overview.md) voor een technisch overzicht.
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
+> [!div class="nextstepaction"]
+> [Een database migreren met behulp van Exporteren en Importeren](./howto-migrate-using-export-and-import.md)
+

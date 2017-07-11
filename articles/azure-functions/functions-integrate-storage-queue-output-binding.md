@@ -15,27 +15,29 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0e2501b0eb218d3c8a62dd4959b08ff85ec565eb
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: d1ddfbe9a0a0c7c7e0a060776938bd68a87e1ba5
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/26/2017
 
 ---
-# <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Berichten aan een Azure Storage-wachtrij toevoegen met behulp van Functions
+<a id="add-messages-to-an-azure-storage-queue-using-functions" class="xliff"></a>
+
+# Berichten aan een Azure Storage-wachtrij toevoegen met behulp van Functions
 
 In Azure Functions bieden invoer- en uitvoerbindingen een verklarende manier om verbinding te maken met externe servicegegevens vanuit uw functie. In dit onderwerp vindt u informatie over hoe u een bestaande functie kunt bijwerken door een uitvoerbinding toe te voegen waarmee u berichten naar Azure Queue Storage verzendt.  
 
 ![Bekijk het bericht in de logboeken.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
-Het doorlopen van de stappen in dit onderwerp kost u minder dan vijf minuten.
+<a id="prerequisites" class="xliff"></a>
 
-## <a name="prerequisites"></a>Vereisten 
+## Vereisten 
 
 [!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
 
-U moet ook de [Microsoft Azure Storage Explorer](http://storageexplorer.com/) downloaden en installeren. 
+* [Microsoft Azure Storage Explorer](http://storageexplorer.com/) installeren.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
 
@@ -43,11 +45,11 @@ U moet ook de [Microsoft Azure Storage Explorer](http://storageexplorer.com/) do
  
 1. Vouw de functie-app en de functie uit.
 
-2. Klik op **Integreren** en **+ Nieuwe uitvoer**. Klik vervolgens op **Azure Queue Storage** en klik op **Selecteren**.
+2. Selecteer **Integreren** en **+ Nieuwe uitvoer**. Selecteer vervolgens **Azure Queue Storage** en selecteer **Selecteren**.
     
     ![Voeg een Queue Storage-uitvoerbinding toe aan een functie in Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Gebruik de instellingen zoals die in de tabel zijn opgegeven en klik vervolgens op **Opslaan**: 
+3. Gebruik de instellingen zoals opgegeven in de tabel en selecteer vervolgens **Opslaan**: 
 
     ![Voeg een Queue Storage-uitvoerbinding toe aan een functie in Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -59,9 +61,11 @@ U moet ook de [Microsoft Azure Storage Explorer](http://storageexplorer.com/) do
 
 Nu u een uitvoerbinding hebt gedefinieerd, moet u de code bijwerken, zodat u de binding kunt gebruiken om berichten aan een wachtrij toe te voegen.  
 
-## <a name="update-the-function-code"></a>De functiecode bijwerken
+<a id="update-the-function-code" class="xliff"></a>
 
-1. Klik op de functie om de functiecode in de editor weer te geven. 
+## De functiecode bijwerken
+
+1. Selecteer de functie om de functiecode in de editor weer te geven. 
 
 2. Werk de functiedefinitie voor een C#-functie als volgt bij om de **outQueueItem**-opslagbindingsparameter toe te voegen. Sla deze stap over voor een JavaScript-functie.
 
@@ -84,13 +88,15 @@ Nu u een uitvoerbinding hebt gedefinieerd, moet u de code bijwerken, zodat u de 
     outQueueItem.Add("Name passed to the function: " + name);     
     ```
 
-4. Klik op **Opslaan** om de wijzigingen op te slaan.
+4. Selecteer **Opslaan** om de wijzigingen op te slaan.
 
 De waarde die aan de HTTP-trigger wordt doorgegeven, is opgenomen in een bericht dat aan de wachtrij wordt toegevoegd.
  
-## <a name="test-the-function"></a>De functie testen 
+<a id="test-the-function" class="xliff"></a>
 
-1. Nadat de codewijzigingen zijn opgeslagen, klikt u op **Uitvoeren**. 
+## De functie testen 
+
+1. Nadat de codewijzigingen zijn opgeslagen, selecteert u **Uitvoeren**. 
 
     ![Voeg een Queue Storage-uitvoerbinding toe aan een functie in Azure Portal.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
@@ -98,32 +104,38 @@ De waarde die aan de HTTP-trigger wordt doorgegeven, is opgenomen in een bericht
 
 Vervolgens kunt u verbinding maken met uw opslagaccount om de nieuwe wachtrij en het bericht dat u hieraan hebt toegevoegd te controleren. 
 
-## <a name="connect-to-the-queue"></a>Verbinding met de wachtrij maken
+<a id="connect-to-the-queue" class="xliff"></a>
+
+## Verbinding met de wachtrij maken
 
 Sla de eerste drie stappen over als u Storage Explorer al hebt geïnstalleerd en met uw opslagaccount hebt verbonden.    
 
-1. Klik in de functie op **Integreren** en op de nieuwe **Azure Queue Storage**-uitvoerbinding en vouw vervolgens **Documentatie** uit. Kopieer de **Accountnaam** en de **Accountsleutel**. Met deze referenties kunt u verbinding maken met het opslagaccount.
+1. Selecteer in de functie **Integreren** en de nieuwe **Azure Queue Storage**-uitvoerbinding, en vouw vervolgens **Documentatie** uit. Kopieer de **Accountnaam** en de **Accountsleutel**. Met deze referenties kunt u verbinding maken met het opslagaccount.
  
     ![Haal de verbindingsreferenties voor het opslagaccount op.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
-2. Voer het hulpprogramma [Microsoft Azure Storage Explorer](http://storageexplorer.com/) uit, klik op het verbindingspictogram aan de linkerkant, kies **Een opslagaccountnaam en -sleutel gebruiken** en klik op **Volgende**.
+2. Voer het hulpprogramma [Microsoft Azure Storage Explorer](http://storageexplorer.com/) uit, selecteer het verbindingspictogram aan de linkerkant, kies **Een opslagaccountnaam en -sleutel gebruiken** en selecteer **Volgende**.
 
     ![Voer het hulpprogramma Storage Account Explorer uit.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
     
-3. Voer de **Accountnaam** en de **Accountsleutel** van stap 1 in. Klik op **Volgende** en vervolgens op **Verbinding maken**. 
+3. Plak de **accountnaam** en **accountsleutel** uit stap 1 in de bijbehorende velden, en selecteer vervolgens **Volgende** en **Verbinden**. 
   
-    ![Voer de opslagreferenties in en maak verbinding.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
+    ![Plak de opslagreferenties en maak verbinding.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
 4. Vouw het gekoppelde opslagaccount uit. Klik met de rechtermuisknop op **Wachtrijen** en controleer of er een wachtrij met de naam **myqueue-items** bestaat. Er moet ook al een bericht in de wachtrij worden weergegeven.  
  
     ![Maak een opslagwachtrij.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  
 
-## <a name="clean-up-resources"></a>Resources opschonen
+<a id="clean-up-resources" class="xliff"></a>
+
+## Resources opschonen
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 
 U hebt een uitvoerbinding aan een bestaande functie toegevoegd. 
 

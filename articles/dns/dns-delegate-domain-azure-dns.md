@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 992b08a1e88062923d0775c59b8baf93fee5364b
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 33b3ec24432ff1268860b9a2e9d5098600a8dedc
+ms.contentlocale: nl-nl
+ms.lasthandoff: 06/16/2017
 
 ---
 
-# <a name="delegate-a-domain-to-azure-dns"></a>Een domein delegeren naar Azure DNS
+<a id="delegate-a-domain-to-azure-dns" class="xliff"></a>
+
+# Een domein delegeren naar Azure DNS
 
 Met Azure DNS kunt u een DNS-zone hosten en de DNS-records voor een domein in Azure beheren. Het domein moet vanaf het bovenliggende domein worden gedelegeerd naar Azure DNS om ervoor te zorgen dat DNS-query's voor een domein Azure DNS bereiken. Houd er rekening mee Azure DNS is niet de domeinregistrar. In dit artikel wordt uitgelegd hoe u uw domein delegeert naar Azure DNS.
 
@@ -28,7 +31,9 @@ Voor domeinen die bij een registrar worden gekocht, zal de registrar u de optie 
 
 Stel dat u het domein contoso.net koopt en een zone met de naam contoso.net in Azure DNS maakt. Als eigenaar van het domein zal uw registrar u de optie bieden om de adressen van de naamserver (oftewel de NS-records) te configureren voor uw domein. De registrar slaat deze NS-records op in het bovenliggende domein, in dit geval .net. Clients over de hele wereld kunnen dan naar uw domein in de Azure DNS-zone worden omgeleid wanneer ze DNS-records omzetten in contoso.net.
 
-## <a name="create-a-dns-zone"></a>Een DNS-zone maken
+<a id="create-a-dns-zone" class="xliff"></a>
+
+## Een DNS-zone maken
 
 1. Aanmelden bij Azure Portal
 1. Klik in het menu Hub en klik op **Nieuw > Netwerken >** en klik vervolgens op **DNS-zone** om de blade DNS-zone maken te openen.
@@ -47,11 +52,13 @@ Stel dat u het domein contoso.net koopt en een zone met de naam contoso.net in A
 > [!NOTE]
 > De resourcegroep verwijst naar de locatie van de resourcegroep en heeft geen invloed op de DNS-zone. De locatie van de DNS-zone is altijd 'global' en wordt niet weergegeven.
 
-## <a name="retrieve-name-servers"></a>Naamservers ophalen
+<a id="retrieve-name-servers" class="xliff"></a>
+
+## Naamservers ophalen
 
 Voordat u uw DNS-zone naar Azure DNS kunt delegeren, moet u eerst de servernamen voor uw zone weten. Telkens wanneer er een zone wordt gemaakt, wijst Azure DNS naamservers uit een groep toe.
 
-1. Nu de DNS-zone is gemaakt, klikt u in het deelvenster **Favorieten** van Azure Portal op **Alle resources**. Klik op de blade **Alle resources** op de DNS-zone **contoso.net**. Als het abonnement dat u hebt geselecteerd, al verschillende resources heeft, kunt u **contoso.net** invoeren in het vak Filteren op naam... om gemakkelijk toegang te krijgen tot de toepassingsgateway. 
+1. Nu de DNS-zone is gemaakt, klikt u in het deelvenster **Favorieten** van Azure Portal op **Alle resources**. Klik op de blade **Alle resources** op de DNS-zone **contoso.net**. Als het abonnement dat u hebt geselecteerd, al verschillende resources heeft, kunt u **contoso.net** invoeren in het vak Filteren op naam… voor eenvoudige toegang tot de toepassingsgateway. 
 
 1. U vindt de naamservers op de blade DNS-zone. In dit voorbeeld zijn de naamservers ns1-01.azure-dns.com, ns2 01.azure dns.net, ns3-01.azure-dns.org en ns4-01.azure-dns.info aan de zone contoso.net toegewezen:
 
@@ -61,7 +68,9 @@ Azure DNS maakt automatisch gezaghebbende NS-records in uw zone die de toegeweze
 
 De volgende voorbeelden geven ook de stappen voor het ophalen van naamservers voor een zone in Azure DNS met PowerShell en Azure CLI.
 
-### <a name="powershell"></a>PowerShell
+<a id="powershell" class="xliff"></a>
+
+### PowerShell
 
 ```powershell
 # The record name "@" is used to refer to records at the top of the zone.
@@ -83,7 +92,9 @@ Records           : {ns1-07.azure-dns.com., ns2-07.azure-dns.net., ns3-07.azure-
 Metadata          :
 ```
 
-### <a name="azure-cli"></a>Azure CLI
+<a id="azure-cli" class="xliff"></a>
+
+### Azure CLI
 
 ```azurecli
 az network dns record-set show --resource-group contosoRG --zone-name contoso.net --type NS --name @
@@ -117,7 +128,9 @@ Het volgende voorbeeld is het antwoord.
 }
 ```
 
-## <a name="delegate-the-domain"></a>Het domein delegeren
+<a id="delegate-the-domain" class="xliff"></a>
+
+## Het domein delegeren
 
 Nu de DNS-zone is gemaakt en u de naamservers hebt, moet het bovenliggende domein worden bijgewerkt met de Azure DNS-naamservers. Elke registrar heeft zijn eigen hulpprogramma's voor DNS-beheer om de naamserverrecords voor een domein te wijzigen. Ga naar de DNS-beheerpagina van de registrar, bewerk de NS-records en vervang de NS-records door de records die door Azure DNS zijn gemaakt.
 
@@ -125,7 +138,9 @@ Wanneer u een domein naar Azure DNS delegeert, moet u de naamservernamen gebruik
 
 U moet niet glue records gebruiken om naar het IP-adres van de Azure DNS-naamserver te wijzen, aangezien deze IP-adressen in de toekomst kunnen worden gewijzigd. Delegeringen die gebruikmaken van de naamservernamen in uw eigen zone, ook wel vanity naamservers genoemd, worden momenteel niet ondersteund in Azure DNS.
 
-## <a name="verify-name-resolution-is-working"></a>Controleren of de naamomzetting werkt
+<a id="verify-name-resolution-is-working" class="xliff"></a>
+
+## Controleren of de naamomzetting werkt
 
 Nadat het delegeren is voltooid, kunt u controleren of de naamomzetting werkt door een hulpprogramma zoals nslookup te gebruiken om een query op de SOA-record voor uw zone uit te voeren (die ook automatisch wordt gemaakt wanneer de zone wordt gemaakt).
 
@@ -151,7 +166,9 @@ expire = 604800 (7 days)
 default TTL = 300 (5 mins)
 ```
 
-## <a name="delegate-sub-domains-in-azure-dns"></a>Subdomeinen delegeren in Azure DNS
+<a id="delegate-sub-domains-in-azure-dns" class="xliff"></a>
+
+## Subdomeinen delegeren in Azure DNS
 
 Als u een afzonderlijke onderliggende zone wilt instellen, kunt u een subdomein delegeren in Azure DNS. Stel dat u contoso.net hebt ingesteld en gedelegeerd in Azure DNS en vervolgens een afzonderlijke onderliggende zone, partners.contoso.net, wilt instellen.
 
@@ -159,7 +176,9 @@ Als u een afzonderlijke onderliggende zone wilt instellen, kunt u een subdomein 
 2. Zoek de gezaghebbende NS-records in de onderliggende zone om de naamservers op te halen die de onderliggende zone in Azure DNS hosten.
 3. Delegeer de onderliggende zone door NS-records in de bovenliggende te configureren die wijzen naar de onderliggende zone.
 
-### <a name="create-a-dns-zone"></a>Een DNS-zone maken
+<a id="create-a-dns-zone" class="xliff"></a>
+
+### Een DNS-zone maken
 
 1. Aanmelden bij Azure Portal
 1. Klik in het menu Hub en klik op **Nieuw > Netwerken >** en klik vervolgens op **DNS-zone** om de blade DNS-zone maken te openen.
@@ -178,9 +197,11 @@ Als u een afzonderlijke onderliggende zone wilt instellen, kunt u een subdomein 
 > [!NOTE]
 > De resourcegroep verwijst naar de locatie van de resourcegroep en heeft geen invloed op de DNS-zone. De locatie van de DNS-zone is altijd 'global' en wordt niet weergegeven.
 
-### <a name="retrieve-name-servers"></a>Naamservers ophalen
+<a id="retrieve-name-servers" class="xliff"></a>
 
-1. Nu de DNS-zone is gemaakt, klikt u in het deelvenster **Favorieten** van Azure Portal op **Alle resources**. Klik op de blade **Alle resources** op de DNS-zone **partners.contoso.net**. Als het abonnement dat u hebt geselecteerd, al verschillende resources heeft, kunt u **partners.contoso.net** invoeren in het vak Filteren op naam... om gemakkelijk toegang te krijgen tot de DNS-zone.
+### Naamservers ophalen
+
+1. Nu de DNS-zone is gemaakt, klikt u in het deelvenster **Favorieten** van Azure Portal op **Alle resources**. Klik op de blade **Alle resources** op de DNS-zone **partners.contoso.net**. Als het abonnement dat u hebt geselecteerd, al verschillende resources heeft, kunt u **partners.contoso.net** invoeren in het vak Filteren op naam… voor eenvoudige toegang tot de DNS-zone.
 
 1. U vindt de naamservers op de blade DNS-zone. In dit voorbeeld zijn de naamservers ns1-01.azure-dns.com, ns2 01.azure dns.net, ns3-01.azure-dns.org en ns4-01.azure-dns.info aan de zone contoso.net toegewezen:
 
@@ -188,7 +209,9 @@ Als u een afzonderlijke onderliggende zone wilt instellen, kunt u een subdomein 
 
 Azure DNS maakt automatisch gezaghebbende NS-records in uw zone die de toegewezen naamservers bevatten.  Als u de namen van de naamservers wilt weergeven via Azure PowerShell of Azure CLI, hoeft u deze records alleen maar op te halen.
 
-### <a name="create-name-server-record-in-parent-zone"></a>Een naamserverrecord maken in de bovenliggende zone
+<a id="create-name-server-record-in-parent-zone" class="xliff"></a>
+
+### Een naamserverrecord maken in de bovenliggende zone
 
 1. Navigeer in Azure Portal naar de DNS-zone **contoso.net**.
 1. Klik op **Recordset toevoegen**
@@ -205,11 +228,15 @@ Azure DNS maakt automatisch gezaghebbende NS-records in uw zone die de toegeweze
    ![DNS-naamserver](./media/dns-domain-delegation/partnerzone.png)
 
 
-### <a name="delegating-sub-domains-in-azure-dns-with-other-tools"></a>Subdomeinen in Azure DNS delegeren met andere hulpprogramma’s
+<a id="delegating-sub-domains-in-azure-dns-with-other-tools" class="xliff"></a>
+
+### Subdomeinen in Azure DNS delegeren met andere hulpprogramma’s
 
 De volgende voorbeelden geven de stappen voor het delegeren van subdomeinen in Azure DNS met PowerShell en CLI:
 
-#### <a name="powershell"></a>PowerShell
+<a id="powershell" class="xliff"></a>
+
+#### PowerShell
 
 In het volgende PowerShell-voorbeeld kunt u zien hoe dit werkt. Dezelfde stappen kunnen ook worden uitgevoerd via Azure Portal of via de platformoverschrijdende CLI van Azure.
 
@@ -247,7 +274,9 @@ partners.contoso.com
     default TTL = 300 (5 mins)
 ```
 
-#### <a name="azure-cli"></a>Azure CLI
+<a id="azure-cli" class="xliff"></a>
+
+#### Azure CLI
 
 ```azurecli
 #!/bin/bash
@@ -294,15 +323,19 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 az network dns record-set ns add-record --resource-group contosorg --zone-name contoso.net --record-set-name partners --nsdname ns4-09.azure-dns.info.
 ```
 
-## <a name="delete-all-resources"></a>Alle resources verwijderen
+<a id="delete-all-resources" class="xliff"></a>
+
+## Alle resources verwijderen
 
 Als u alle resources wilt verwijderen die u in dit artikel hebt gemaakt, voert u de volgende stappen uit:
 
-1. Klik in het deelvenster **Favorieten** van Azure Portal op **Alle resources**. Klik op de blade Alle resources op de resourcegroep **contosorg**. Als het abonnement dat u hebt geselecteerd, al verschillende resources heeft, kunt u **contosorg** invoeren in het vak **Filteren op naam...** om gemakkelijk toegang te krijgen tot de resourcegroep.
+1. Klik in het deelvenster **Favorieten** van Azure Portal op **Alle resources**. Klik op de blade Alle resources op de resourcegroep **contosorg**. Als het abonnement dat u hebt geselecteerd, al verschillende resources heeft, kunt u **contosorg** invoeren in het vak **Filteren op naam...** voor eenvoudige toegang tot de resourcegroep.
 1. Klik op de blade **contosorg** op de knop **Verwijderen**.
-1. De portal vereist dat u de naam van de resourcegroep typt om te bevestigen dat u deze wilt verwijderen. Klik op **Verwijderen**, typ *contosorg* als naam van de resourcegroep en klik op **Verwijderen**. Als u een resourcegroep verwijdert, worden alle resources binnen de resourcegroep verwijderd. Zorg er dus altijd voor dat u de inhoud van een resourcegroep bevestigt, voordat u deze verwijdert. Alle resources die zich in de resourcegroep bevinden en de resourcegroep zelf worden verwijderd. Dit proces duurt enkele minuten.
+1. De portal vereist dat u de naam van de resourcegroep typt om te bevestigen dat u deze wilt verwijderen. Typ *contosorg* als naam van de resourcegroep en klik op **Verwijderen**. Als u een resourcegroep verwijdert, worden alle resources binnen de resourcegroep verwijderd. Zorg er dus altijd voor dat u de inhoud van een resourcegroep bevestigt, voordat u deze verwijdert. Alle resources die zich in de resourcegroep bevinden en de resourcegroep zelf worden verwijderd. Dit proces duurt enkele minuten.
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 
 [DNS-zones beheren](dns-operations-dnszones.md)
 

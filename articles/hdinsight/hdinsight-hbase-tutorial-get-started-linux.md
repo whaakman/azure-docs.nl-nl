@@ -1,7 +1,7 @@
 ---
-title: Aan de slag met HBase op Azure HDInsight | Microsoft Docs
-description: Volg deze HBase-zelfstudie om Apache HBase met Hadoop te gebruiken in HDInsight. Maak tabellen vanuit de HBase-shell en gebruik Hive om query&quot;s uit te voeren op de tabellen.
-keywords: apache hbase,hbase,hbase-shell,hbase-zelfstudie,beeline
+title: Aan de slag met een HBase-voorbeeld in HDInsight - Azure | Microsoft Docs
+description: Voer dit voorbeeld voor Apache HBase uit om aan de slag te gaan in HDInsight. Maak tabellen vanuit de HBase-shell en gebruik Hive om query&quot;s uit te voeren op de tabellen.
+keywords: hbase-opdracht, hbase-voorbeeld
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -9,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,27 +17,33 @@ ms.topic: get-started-article
 ms.date: 05/09/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 5f9b421571fa98d9881a9e955b05041de124f922
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 5bac1fcc39d052dd1bd9bf710a45a3494b70cae9
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
-# <a name="hbase-tutorial-get-started-using-apache-hbase-in-hdinsight"></a>HBase-zelfstudie: aan de slag met Apache HBase in HDInsight
+<a id="get-started-with-an-apache-hbase-example-in-hdinsight" class="xliff"></a>
+
+# Aan de slag met een voorbeeld van Apache HBase in HDInsight
 
 Informatie over het maken van een HBase-cluster in HDInsight, het maken van HBase-tabellen en het uitvoeren van query's op tabellen met Hive. Zie [Overzicht van HDInsight HBase][hdinsight-hbase-overview] voor algemene informatie over HBase.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="prerequisites"></a>Vereisten
-Voordat u met deze HBase-zelfstudie begint, moet u beschikken over de volgende zaken:
+<a id="prerequisites" class="xliff"></a>
+
+## Vereisten
+Voordat u begint met dit HBase-voorbeeld, moet u beschikken over de volgende items:
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Secure Shell (SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
 * [curl](http://curl.haxx.se/download.html).
 
-## <a name="create-hbase-cluster"></a>Een HBase-cluster maken
+<a id="create-hbase-cluster" class="xliff"></a>
+
+## Een HBase-cluster maken
 In de volgende procedure wordt een Azure Resource Manager-sjabloon gebruikt om een Linux 3.4-gebaseerd HBase-cluster en het afhankelijke standaard Azure Storage-opslagaccount te maken. Zie [Op Linux gebaseerde Hadoop-clusters maken in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) voor meer inzicht in de parameters die voor deze procedure worden gebruikt en andere methoden voor het maken van clusters.
 
 1. Klik op de volgende afbeelding om de sjabloon in Azure Portal te openen. De sjabloon bevindt zich in een openbare blob-container. 
@@ -62,7 +68,9 @@ In de volgende procedure wordt een Azure Resource Manager-sjabloon gebruikt om e
 > 
 > 
 
-## <a name="create-tables-and-insert-data"></a>Tabellen maken en gegevens invoegen
+<a id="create-tables-and-insert-data" class="xliff"></a>
+
+## Tabellen maken en gegevens invoegen
 U kunt SSH gebruiken om verbinding te maken met HBase-clusters en vervolgens HBase Shell gebruiken om HBase-tabellen te maken, gegevens in te voegen en een query voor gegevens uit te voeren. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
 Voor de meeste mensen worden de gegevens weergegeven in een tabelindeling:
@@ -76,7 +84,7 @@ In HBase, wat een implementatie van BigTable is, zien dezelfde gegevens er als v
 
 **De HBase-shell gebruiken**
 
-1. Voer de volgende opdracht uit in SSH:
+1. Voer de volgende HBase-opdracht uit in SSH:
    
         hbase shell
 2. Maak een HBase met twee kolomfamilies:
@@ -135,7 +143,9 @@ U kunt een tekstbestand maken en het bestand desgewenst uploaden naar uw eigen o
         hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
 3. U kunt de HBase-shell openen en de scanopdracht gebruiken om de tabelinhoud weer te geven.
 
-## <a name="use-hive-to-query-hbase"></a>Hive gebruiken om een query op HBase uit te voeren
+<a id="use-hive-to-query-hbase" class="xliff"></a>
+
+## Hive gebruiken om een query op HBase uit te voeren
 
 Met Hive kunt u een query uitvoeren op de gegevens in HBase-tabellen. In dit gedeelte maakt u een Hive-tabel die is toegewezen aan de HBase-tabel en deze gebruikt om een query voor de gegevens in uw HBase-tabel uit te voeren.
 
@@ -155,7 +165,9 @@ Met Hive kunt u een query uitvoeren op de gegevens in HBase-tabellen. In dit ged
    
          SELECT count(rowkey) FROM hbasecontacts;
 
-## <a name="use-hbase-rest-apis-using-curl"></a>HBase REST API's gebruiken met Curl
+<a id="use-hbase-rest-apis-using-curl" class="xliff"></a>
+
+## HBase REST API's gebruiken met Curl
 
 De REST API is beveiligd via [basisverificatie](http://en.wikipedia.org/wiki/Basic_access_authentication). U moet aanvragen altijd uitvoeren via een beveiligde HTTP-verbinding (HTTPS). Zo zorgt u ervoor dat uw referenties veilig worden verzonden naar de server.
 
@@ -213,7 +225,9 @@ Zie [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest) (Sn
    
 
 
-## <a name="check-cluster-status"></a>De clusterstatus controleren
+<a id="check-cluster-status" class="xliff"></a>
+
+## De clusterstatus controleren
 HBase in HDInsight wordt geleverd met een webgebruikersinterface voor het bewaken van clusters. Met de webgebruikersinterface kunt u statistieken of informatie over regio's aanvragen.
 
 **De HBase-hoofdinterface openen**
@@ -232,16 +246,22 @@ HBase in HDInsight wordt geleverd met een webgebruikersinterface voor het bewake
   - taken
   - softwarekenmerken
 
-## <a name="delete-the-cluster"></a>Het cluster verwijderen
+<a id="delete-the-cluster" class="xliff"></a>
+
+## Het cluster verwijderen
 Om inconsistenties te voorkomen, wordt u aangeraden de HBase-tabellen uit te schakelen voordat u het cluster verwijdert.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="troubleshoot"></a>Problemen oplossen
+<a id="troubleshoot" class="xliff"></a>
+
+## Problemen oplossen
 
 Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#create-clusters) als u problemen ondervindt met het maken van HDInsight-clusters.
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 In deze HBase-zelfstudie voor HDInsight hebt u geleerd hoe u een HBase-cluster maakt en hoe u tabellen maakt en de gegevens in deze tabellen vanuit de HBase-shell weergeeft. U hebt ook geleerd hoe u een Hive-query op gegevens in HBase-tabellen uitvoert en hoe u de HBase C# REST API's gebruikt om een HBase-tabel te maken en gegevens op te halen uit de tabel.
 
 Voor meer informatie zie:

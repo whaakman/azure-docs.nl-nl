@@ -13,19 +13,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 06/02/2017
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: 21d2c20a3ac8dc4fee0680028d6c004c80a3ae38
-ms.openlocfilehash: 2835e4e8be2a11b659118f836d53c84a2c021263
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 0a1e23cd52ab5c10791a11d93753b54eb1c1b71a
+ms.contentlocale: nl-nl
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Veelgestelde vragen over Azure Machine Learning: facturering, mogelijkheden, beperkingen en ondersteuning
+<a id="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support" class="xliff"></a>
+
+# Veelgestelde vragen over Azure Machine Learning: facturering, mogelijkheden, beperkingen en ondersteuning
 U vindt hier een aantal veelgestelde vragen en de bijbehorende antwoorden die betrekking hebben op Azure Machine Learning, een cloudservice voor het ontwikkelen van voorspellende modellen en operationele oplossingen via webservices. Deze veelgestelde vragen gaan over het gebruik van de service, zoals het factureringsmodel, de mogelijkheden, beperkingen en ondersteuning.
 
-## <a name="general-questions"></a>Algemene vragen
+**Hebt u een vraag die u hier niet kunt vinden?**
+
+Azure Machine Learning heeft ook een forum op MSDN waar leden van de Data Science-community vragen kunnen stellen over Azure Machine Learning. Het forum wordt bewaakt door het Azure Machine Learning-team. Ga naar het [Azure Machine Learning-forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) om antwoorden te zoeken of een nieuwe vraag te posten.
+
+<a id="general-questions" class="xliff"></a>
+
+## Algemene vragen
 **Wat is Azure Machine Learning?**
 
 Azure Machine Learning is een volledig beheerde service waarmee u voorspellende analytische oplossingen in de cloud kunt maken, testen, gebruiken en beheren. Via een browser kunt u zich eenvoudig aanmelden, gegevens uploaden en direct aan de slag gaan met Machine Learning-experimenten. U kunt voorspellende modellen, een groot palet modules en een bibliotheek van sjablonen slepen en neerzetten, zodat u algemene taken snel en eenvoudig kunt uitvoeren. Zie het [service-overzicht van Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) voor meer informatie. Zie [Inleiding op Azure Machine Learning](machine-learning-what-is-machine-learning.md) voor een introductie, waarin de belangrijkste termen en begrippen worden behandeld.
@@ -42,7 +51,7 @@ Zie [Wat is Machine Learning Studio?](machine-learning-what-is-ml-studio.md) voo
 
 Met de Machine Learning API-service kunt u voorspellende modellen implementeren als schaalbare en fouttolerante webservices, zoals de modellen die zijn gemaakt in Machine Learning Studio. De webservices die met de Machine Learning API-service worden gemaakt, zijn REST-API's die een interface bieden voor de communicatie tussen externe toepassingen en uw predictive analytics-modellen.
 
-Zie [Verbinding maken met een Machine Learning-webservice](machine-learning-connect-to-azure-machine-learning-web-service.md) voor meer informatie.
+Zie [How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md) (Azure Machine Learning-webservice gebruiken) voor meer informatie.
 
 **Waar worden mijn klassieke webservices weergegeven? Waar staan mijn nieuwe webservices (op basis van Azure Resource Manager)?**
 
@@ -50,7 +59,9 @@ Webservices die zijn gemaakt met het klassieke implementatiemodel en webservices
 
 Klassieke webservices worden ook weergegeven op het tabblad **Webservices** in [Machine Learning Studio](http://studio.azureml.net).
 
-## <a name="azure-machine-learning-questions"></a>Vragen over Azure Machine Learning
+<a id="azure-machine-learning-questions" class="xliff"></a>
+
+## Vragen over Azure Machine Learning
 **Wat zijn Microsoft Azure Machine Learning-webservices?**
 
 Machine Learning-webservices bieden een interface tussen een toepassing en een scoremodel voor Machine Learning-werkstromen. Met behulp van de Azure Machine Learning-webservice kan een externe toepassing in realtime communiceren met een scoremodel voor Machine Learning-werkstromen. Een aanroep gericht aan een Machine Learning-webservice retourneert voorspellingsresultaten naar een externe toepassing. Tijdens een aanroep aan een webservice wordt een API-sleutel doorgegeven die is gemaakt tijdens de implementatie van de webservice. Een Machine Learning-webservice is gebaseerd op REST, een populaire architectuur voor webprogrammering.
@@ -72,8 +83,12 @@ U kunt ook de Microsoft Excel-voorbeeldwerkmap gebruiken die voor u is gemaakt. 
 
 Zie voor de nieuwste updates [Wat is nieuw in Azure Machine Learning?](machine-learning-whats-new.md)
 
-## <a name="machine-learning-studio-questions"></a>Vragen over Machine Learning Studio
-### <a name="import-and-export-data-for-machine-learning"></a>Gegevens importeren en exporteren voor Machine Learning
+<a id="machine-learning-studio-questions" class="xliff"></a>
+
+## Vragen over Machine Learning Studio
+<a id="import-and-export-data-for-machine-learning" class="xliff"></a>
+
+### Gegevens importeren en exporteren voor Machine Learning
 **Welke gegevensbronnen worden door Machine Learning ondersteund?**
 
 U kunt op drie manieren gegevens downloaden naar een Machine Learning Studio-experiment:
@@ -117,7 +132,9 @@ Als u een kleine hoeveelheid gegevens hebt en deze via een HTTP-URL beschikbaar 
 
 U vindt meer informatie over de ingebouwde beeldregistratiefunctie in het gedeelte [Afbeeldingen importeren][image-reader].
 
-### <a name="modules"></a>Modules
+<a id="modules" class="xliff"></a>
+
+### Modules
 **Het algoritme, de gegevensbron, de gegevensindeling of de gegevenstransformatiebewerking die ik zoek, staat niet in Azure Machine Learning Studio. Wat kan ik doen?**
 
 U kunt naar het [forum met feedback van gebruikers](http://go.microsoft.com/fwlink/?LinkId=404231) gaan om de functieaanvragen te zien die we volgen. Voeg uw stem toe aan een aanvraag als u een mogelijkheid zoekt die al eerder is aangevraagd. Als de mogelijkheid die u zoekt niet bestaat, maakt u een nieuwe aanvraag. In dit forum kunt u ook de status van uw aanvraag bekijken. We houden deze lijst nauwkeurig bij en werken de status van de beschikbaarheid van functies regelmatig bij. Bovendien kunt u indien nodig met de ingebouwde ondersteuning voor R en Python aangepaste transformaties maken.
@@ -134,7 +151,9 @@ Nee, Predictive Model Markup Language (PMML) wordt niet ondersteund. U kunt aang
 
 U kunt maximaal vier modules parallel in een experiment uitvoeren.
 
-### <a name="data-processing"></a>Gegevensverwerking
+<a id="data-processing" class="xliff"></a>
+
+### Gegevensverwerking
 **Kan ik gegevens in het experiment interactief visualiseren (anders dan een R-visualisatie)?**
 
 U kunt de gegevens visualiseren en statistieken opvragen door te klikken op de uitvoer van een module.
@@ -143,7 +162,9 @@ U kunt de gegevens visualiseren en statistieken opvragen door te klikken op de u
 
 Omdat er mogelijk grote hoeveelheden gegevens naar een browser worden verzonden, wordt de gegevensgrootte beperkt om te voorkomen dat Machine Learning Studio trager wordt. Om alle gegevens of resultaten te visualiseren, kunt u de gegevens beter downloaden en Excel of een ander programma gebruiken.
 
-### <a name="algorithms"></a>Algoritmen
+<a id="algorithms" class="xliff"></a>
+
+### Algoritmen
 **Welke bestaande algoritmen worden ondersteund in Machine Learning Studio?**
 
 Machine Learning Studio biedt geavanceerde algoritmen, zoals schaalbare beslissingsstructuren, Bayesiaanse aanbevelingssystemen, Deep Neural Networks en Decision Jungles die zijn ontwikkeld door Microsoft Research. Ook bevat het schaalbare open-source machine learning-pakketten, zoals Vowpal Wabbit. Machine Learning Studio ondersteunt machine learning-algoritmen voor multiklassen en binaire classificatie, regressie en clusters. Bekijk de volledige lijst van [Machine Learning-modules][machine-learning-modules].
@@ -176,7 +197,9 @@ Nee.
 
 Op dit moment kunt u alleen R gebruiken om nieuwe aangepaste modules te maken.
 
-### <a name="r-module"></a>R-module
+<a id="r-module" class="xliff"></a>
+
+### R-module
 **Welke R-pakketten zijn beschikbaar in Machine Learning Studio?**
 
 Machine Learning Studio ondersteunt momenteel ruim 400 CRAN R-pakketten. Hier vindt u de [huidige lijst](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) van alle pakketten. Zie ook [Uw experiment uitbreiden met R](machine-learning-extend-your-experiment-with-r.md) voor meer informatie over hoe u deze lijst zelf kunt ophalen. Als het pakket dat u wilt niet in deze lijst staat, geeft u de naam op van het pakket op het [forum met feedback van gebruikers](http://go.microsoft.com/fwlink/?LinkId=404231).
@@ -189,7 +212,9 @@ Ja, zie [Aangepaste R-modules in Azure Machine Learning maken](machine-learning-
 
 Nee, er is geen REPL-omgeving (Read-Eval-Print-Loop) voor R in de studio.
 
-### <a name="python-module"></a>Python-module
+<a id="python-module" class="xliff"></a>
+
+### Python-module
 **Kan ik een aangepaste Python-module maken?**
 
 Momenteel niet, maar u kunt een of meer [Execute Python Script][python]-modules gebruiken voor hetzelfde resultaat.
@@ -198,13 +223,19 @@ Momenteel niet, maar u kunt een of meer [Execute Python Script][python]-modules 
 
 U kunt de Jupyter Notebooks in Machine Learning Studio gebruiken. Zie [Jupyter Notebooks introduceren in Azure Machine Learning Studio](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx) voor meer informatie.
 
-## <a name="web-service"></a>Webservice
-### <a name="retrain"></a>Retrain
+<a id="web-service" class="xliff"></a>
+
+## Webservice
+<a id="retrain" class="xliff"></a>
+
+### Retrain
 **Hoe kan ik Retrain programmatisch uitvoeren voor Azure Machine Learning-modellen?**
 
 Gebruik de Retraining API's. Zie [Machine Learning-modellen programmatisch opnieuw trainen](machine-learning-retrain-models-programmatically.md) voor meer informatie. Voorbeeldcode is ook beschikbaar in de [Microsoft Azure Machine Learning Retraining-demo](https://azuremlretrain.codeplex.com/).
 
-### <a name="create"></a>Maken
+<a id="create" class="xliff"></a>
+
+### Maken
 **Kan ik het model lokaal of in een toepassing implementeren die geen internetverbinding heeft?**
 
 Nee.
@@ -213,10 +244,12 @@ Nee.
 
 Zie de [limieten voor een Azure-abonnement](../azure-subscription-service-limits.md).
 
-### <a name="use"></a>Gebruiken
+<a id="use" class="xliff"></a>
+
+### Gebruiken
 **Wanneer moet ik mijn voorspellende model uitvoeren als een batchuitvoeringsservice en niet als een Request Response-service?**
 
-De Request Response-service (RSS) is een schaalbare webservice met weinig latentie die wordt gebruikt om een interface te creëren voor staatloze modellen die worden gemaakt en geïmplementeerd vanuit de experimentele omgeving. De batchuitvoeringsservice (BES) is een service voor het asynchroon scoren van een batch gegevensrecords. De invoer voor BES is net als de gegevensinvoer die door RRS wordt gebruikt. Het belangrijkste verschil is dat BES een blok records uit diverse bronnen leest, zoals Azure Blob Storage, Azure Table Storage, Azure SQL Database, HDInsight (hive query) en HTTP-bronnen. Zie [Machine Learning-webservices gebruiken](machine-learning-consume-web-services.md) voor meer informatie.
+De Request Response-service (RSS) is een schaalbare webservice met weinig latentie die wordt gebruikt om een interface te creëren voor staatloze modellen die worden gemaakt en geïmplementeerd vanuit de experimentele omgeving. De batchuitvoeringsservice (BES) is een service voor het asynchroon scoren van een batch gegevensrecords. De invoer voor BES is net als de gegevensinvoer die door RRS wordt gebruikt. Het belangrijkste verschil is dat BES een blok records uit diverse bronnen leest, zoals Azure Blob Storage, Azure Table Storage, Azure SQL Database, HDInsight (hive query) en HTTP-bronnen. Zie [How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md) (Azure Machine Learning-webservice gebruiken) voor meer informatie.
 
 **Hoe kan ik het model voor de geïmplementeerde webservice bijwerken?**
 
@@ -241,7 +274,9 @@ Nee, u kunt ook webservices rechtstreeks met behulp van Jupyter Notebooks en RSt
 
 Zie [Machine Learning Module-foutcodes](https://msdn.microsoft.com/library/azure/dn905910.aspx) voor een lijst met foutcodes en beschrijvingen.
 
-## <a name="scalability"></a>Schaalbaarheid
+<a id="scalability" class="xliff"></a>
+
+## Schaalbaarheid
 **Wat is de schaalbaarheid van de webservice?**
 
 Het standaardeindpunt is momenteel voorzien van 20 gelijktijdige RRS-aanvragen per eindpunt. Dit kan worden geschaald tot 200 gelijktijdige aanvragen per eindpunt. Elke webservice kan tot 10.000 eindpunten per webservice worden geschaald, zoals beschreven in [Een webservice schalen](machine-learning-scaling-webservice.md). Voor BES kunnen op elk eindpunt 40 aanvragen tegelijk worden verwerkt; extra aanvragen worden in de wachtrij geplaatst. De aanvragen in de wachtrij worden automatisch uitgevoerd terwijl de wachtrij afneemt.
@@ -279,10 +314,12 @@ Rijen en kolommen zijn beperkt tot de .NET-beperking van Max Int: 2.147.483.647.
 
 Nee.  
 
-## <a name="security-and-availability"></a>Beveiliging en beschikbaarheid
+<a id="security-and-availability" class="xliff"></a>
+
+## Beveiliging en beschikbaarheid
 **Wie heeft standaard toegang tot het HTTP-eindpunt voor de webservice? Hoe beperk ik de toegang tot het eindpunt?**
 
-Na de implementatie van een webservice wordt een standaardeindpunt voor de service gemaakt. Het standaardeindpunt kan worden aangeroepen met de API-sleutel. U kunt meer eindpunten toevoegen met behulp van hun eigen sleutels van de klassieke Azure-portal of programmatisch met de Web Service Management API's. Voor het aanroepen van de webservice is een toegangssleutel vereist. Zie [Verbinding maken met een Machine Learning-webservice](machine-learning-connect-to-azure-machine-learning-web-service.md) voor meer informatie.
+Na de implementatie van een webservice wordt een standaardeindpunt voor de service gemaakt. Het standaardeindpunt kan worden aangeroepen met de API-sleutel. U kunt meer eindpunten toevoegen met behulp van hun eigen sleutels van de klassieke Azure-portal of programmatisch met de Web Service Management API's. Voor het aanroepen van de webservice is een toegangssleutel vereist. Zie [How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md) (Azure Machine Learning-webservice gebruiken) voor meer informatie.
 
 **Wat gebeurt er als mijn Azure-opslagaccount niet kan worden gevonden?**
 
@@ -296,7 +333,9 @@ Voor Machine Learning Studio hebben gebruikers een Azure-opslagaccount nodig om 
 
 Als u de toegangssleutel voor een opslagaccount hebt gewijzigd, moet u de toegangssleutel in de klassieke Azure-portal opnieuw synchroniseren in de werkruimte.  
 
-## <a name="support-and-training"></a>Ondersteuning en training
+<a id="support-and-training" class="xliff"></a>
+
+## Ondersteuning en training
 **Waar kan ik training krijgen voor Azure Machine Learning?**
 
 Het [Azure Machine Learning-documentatiecentrum](https://azure.microsoft.com/services/machine-learning/) bevat video’s voor zelfstudie en handleidingen. Deze stapsgewijze instructies zijn een inleiding op de services en bevatten een uitleg van hoe het hele proces, van het importeren van gegevens, het opruimen van gegevens, het ontwikkelen van voorspellende modellen tot de implementatie in productie met Azure Machine Learning, in zijn werk gaat.
@@ -311,7 +350,9 @@ Voor technische ondersteuning voor Azure Machine Learning gaat u naar [de onders
 
 Azure Machine Learning heeft ook een communityforum op MSDN waar u vragen kunt stellen over Azure Machine Learning. Het forum wordt bewaakt door het Azure Machine Learning-team. Ga naar het [Azure-forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
-## <a name="billing-questions"></a>Vragen over facturering
+<a id="billing-questions" class="xliff"></a>
+
+## Vragen over facturering
 **Hoe werkt de facturering in Machine Learning?**
 
 Azure Machine Learning bestaat uit twee onderdelen: Machine Learning Studio en Machine Learning-webservices.
@@ -375,7 +416,9 @@ Ja. Zie voor meer informatie, [Prijzen van Machine Learning](https://azure.micro
 
 De Machine Learning-service is een multitenant service. De werkelijke rekenresources die worden gebruikt op de back-end variëren en zijn geoptimaliseerd voor prestaties en voorspelbaarheid.
 
-### <a name="management-of-new-resource-manager-based-web-services"></a>Beheer van nieuwe (op Resource Manager gebaseerde) webservices
+<a id="management-of-new-resource-manager-based-web-services" class="xliff"></a>
+
+### Beheer van nieuwe (op Resource Manager gebaseerde) webservices
 **Wat gebeurt er als ik mijn plan verwijder?**
 
 Het plan wordt verwijderd uit uw abonnement en u wordt naar rato gefactureerd.
@@ -411,7 +454,9 @@ Hoeveelheden worden naar rato opgenomen. Het duurt maximaal 24 uur voordat deze 
 
 Het exemplaar wordt verwijderd uit het abonnement en u wordt naar rato gefactureerd.
 
-### <a name="sign-up-for-new-resource-manager-based-web-services-plans"></a>Aanmelden voor nieuwe (op Resource Manager gebaseerde) webservicesplannen
+<a id="sign-up-for-new-resource-manager-based-web-services-plans" class="xliff"></a>
+
+### Aanmelden voor nieuwe (op Resource Manager gebaseerde) webservicesplannen
 **Hoe registreer ik me voor een plan?**
 
 Er zijn twee manieren om abonnementen te maken.
@@ -440,7 +485,9 @@ De nieuwe abonnementen zijn beschikbaar in de drie productieregio‘s waar de ni
 
 Ja. Planprijzen variëren per regio. Wanneer u een webservice implementeert in een andere regio, moet u aan de webservice een plan toewijzen dat specifiek is voor deze regio. Zie [Producten beschikbaar per regio]( https://azure.microsoft.com/regions/services/) voor meer informatie.
 
-### <a name="new-web-services-overages"></a>Nieuwe webservices - overschrijdingen
+<a id="new-web-services-overages" class="xliff"></a>
+
+### Nieuwe webservices - overschrijdingen
 **Hoe kan ik controleren of mijn webserviceverbruik de limiet overschrijdt?**
 
 Op de pagina Plannen in de Azure Machine Learning-webservicesportal kunt u het verbruik van al uw plannen bekijken. Meld u aan bij de portal en klik op de menuoptie **Plannen**.
@@ -461,12 +508,16 @@ Voor een BES-workload worden op dezelfde manier kosten in rekening gebracht. De 
 
 Stel dat er een Standard S1-overschrijding is en dat u 100 taken per dag verzendt die elk uit 500 rijen bestaan waarvoor elk 0,72 seconden nodig zijn om ze uit te voeren. Uw maandelijkse overschrijdingskosten zijn dan (100 taken per dag = 3100 taken/mnd * $ 0,50/1K aan API-transacties) $ 1,55 aan productie-API-transactiekosten en (500 rijen * 0,72 sec * 3100 taken * $ 2/uur) $ 620 aan productie-API-rekenuren. Dit is een totaal van $ 621,55.
 
-### <a name="azure-machine-learning-classic-web-services"></a>Microsoft Azure Machine Learning-webservices
+<a id="azure-machine-learning-classic-web-services" class="xliff"></a>
+
+### Microsoft Azure Machine Learning-webservices
 **Is betalen per gebruik nog steeds beschikbaar?**
 
 Ja, klassieke webservices zijn nog steeds beschikbaar in Azure Machine Learning.  
 
-### <a name="azure-machine-learning-free-and-standard-tier"></a>Azure Machine Learning gratis laag en Standard-laag
+<a id="azure-machine-learning-free-and-standard-tier" class="xliff"></a>
+
+### Azure Machine Learning gratis laag en Standard-laag
 **Wat is inbegrepen bij de gratis laag van Machine Learning?**
 
 De gratis laag van Azure Machine Learning is bedoeld om een gedetailleerde inleiding te bieden tot Azure Machine Learning Studio. Het enige wat u nodig hebt om u te registreren, is een Microsoft-account. De gratis laag omvat gratis toegang tot één Azure Machine Learning Studio-werkruimte per [Microsoft-account](https://www.microsoft.com/account/default.aspx). In deze laag kunt u maximaal 10 GB aan opslagruimte gebruiken en kunt u modellen uitvoeren als tijdelijke API's. Werkbelastingen uit een gratis laag worden niet gedekt door een SLA en zijn alleen bedoeld voor ontwikkeling en persoonlijk gebruik. 
@@ -533,7 +584,9 @@ Uw experimenten kopiëren van de gratis laag naar de Standard-laag:
    Alle bijbehorende gegevenssets, het getrainde model, enzovoort, worden samen met het experiment naar de Standard-werkruimte gekopieerd.
 5. U moet het experiment opnieuw uitvoeren en de webservice opnieuw publiceren in de Standard-werkruimte.
 
-### <a name="studio-workspace"></a>Studio-werkruimte
+<a id="studio-workspace" class="xliff"></a>
+
+### Studio-werkruimte
 **Krijg ik verschillende facturen voor de verschillende werkruimten?**
 
 Kosten voor werkruimten worden voor elke toepasselijke meter afzonderlijk berekend in een enkele factuur.
@@ -542,7 +595,9 @@ Kosten voor werkruimten worden voor elke toepasselijke meter afzonderlijk bereke
 
 De Machine Learning-service is een multitenant service. De werkelijke rekenresources die worden gebruikt op de back-end variëren en zijn geoptimaliseerd voor prestaties en voorspelbaarheid.
 
-### <a name="guest-access"></a>Toegang voor gasten
+<a id="guest-access" class="xliff"></a>
+
+### Toegang voor gasten
 **Wat is toegang voor gasten voor Azure Machine Learning Studio?**
 
 Toegang voor gasten is een proefervaring waarvoor beperkingen gelden. U kunt in Azure Machine Learning Studio gratis en zonder verificatie experimenten maken en uitvoeren. Gastsessies zijn niet-permanent (kunnen niet worden opgeslagen) en zijn beperkt tot acht uur. Andere beperkingen zijn: geen ondersteuning voor R en Python, geen tijdelijke API's en beperkte gegevenssetgrootte en opslagcapaciteiten. Ter vergelijking: gebruikers die zich aanmelden met een Microsoft-account, hebben volledige toegang tot de gratis laag van Machine Learning Studio die zojuist is beschreven. Dit omvat onder andere een permanente werkruimte en uitgebreidere mogelijkheden. Kies voor de gratis versie van Machine Learning door te klikken op **Aan de slag** op [https://studio.azureml.net](https://studio.azureml.net) en door **Toegang voor gasten** te selecteren of u aan te melden met een Microsoft-account.

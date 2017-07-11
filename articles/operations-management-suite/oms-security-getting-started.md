@@ -4,7 +4,7 @@ description: In dit document leest u hoe u met de mogelijkheden van Beveiliging 
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
@@ -13,22 +13,29 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 06/13/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 5753511d26c06f385fd4ff717d8592c321338172
+ms.contentlocale: nl-nl
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Aan de slag met Beveiliging en controle van Operations Management Suite
+<a id="getting-started-with-operations-management-suite-security-and-audit-solution" class="xliff"></a>
+
+# Aan de slag met Beveiliging en controle van Operations Management Suite
 In dit document worden alle opties beschreven, zodat u snel aan de slag kunt met de mogelijkheden van Beveiliging en controle van Operations Management Suite (OMS).
 
-## <a name="what-is-oms"></a>Wat is OMS?
+<a id="what-is-oms" class="xliff"></a>
+
+## Wat is OMS?
 Microsoft Operations Management Suite (OMS) is een cloudoplossing voor IT-beheer van Microsoft waarmee u uw on-premises en cloudinfrastructuur kunt beheren en beveiligen. Lees het artikel [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx) voor meer informatie over OMS.
 
-## <a name="oms-security-and-audit-dashboard"></a>OMS-dashboard Beveiliging en controle
+<a id="oms-security-and-audit-dashboard" class="xliff"></a>
+
+## OMS-dashboard Beveiliging en controle
 De oplossing OMS Beveiliging en controle geeft een uitgebreid overzicht van de IT-beveiliging van uw organisatie met ingebouwde zoekquery's voor belangrijke problemen die uw aandacht nodig hebben. Het dashboard **Beveiliging en controle** is het startscherm voor alles wat betrekking heeft op beveiliging in OMS. Het zorgt voor hoogwaardig inzicht in de beveiligingsstatus van uw computers. Ook kunnen op het startscherm alle gebeurtenissen van de afgelopen 24 uur, 7 dagen of een ander tijdsbestek worden weergegeven. Voer deze stappen uit voor toegang tot het dashboard **Beveiliging en controle**:
 
 1. Klik in het hoofddashboard **Microsoft Operations Management Suite** op de tegel **Instellingen** aan de linkerkant.
@@ -59,7 +66,9 @@ Het OMS-dashboard Beveiliging en controle is ingedeeld in vier hoofdcategorieën
 > 
 > 
 
-## <a name="security-domains"></a>Beveiligingsdomeinen
+<a id="security-domains" class="xliff"></a>
+
+## Beveiligingsdomeinen
 Bij het bewaken van resources is het belangrijk dat u snel toegang kunt krijgen tot de huidige status van uw omgeving. Het is echter ook belangrijk dat u gebeurtenissen die in het verleden zijn opgetreden, kunt herleiden voor beter inzicht in wat er op een bepaald punt in tijd in uw omgeving gebeurt. 
 
 > [!NOTE]
@@ -82,7 +91,9 @@ Het zoekresultaat is verdeeld over twee deelvensters. In het linkerdeelvenster z
 > 
 > 
 
-### <a name="antimalware-assessment"></a>Antimalware-evaluatie
+<a id="antimalware-assessment" class="xliff"></a>
+
+### Antimalware-evaluatie
 Met deze optie kunt u snel computers met onvoldoende beveiliging en computers die door malware zijn aangetast identificeren. De evaluatiestatus voor malware en gedetecteerde bedreigingen op de bewaakte servers worden gelezen en vervolgens worden de gegevens voor verwerking naar de OMS-service in de cloud verzonden. Servers waarop bedreigingen zijn gedetecteerd en servers met onvoldoende beveiliging worden weergegeven in het dashboard voor malware-evaluatie, dat toegankelijk is via de tegel **Antimalware-evaluatie**. 
 
 ![malware-evaluatie](./media/oms-security-getting-started/oms-getting-started-fig4-ga.png)
@@ -98,7 +109,9 @@ Wanneer u op de blade **Zoeken** klikt, wordt net als bij andere live-tegels in 
 
 Als u op de naam van de computer klikt, wordt de beveiligingsstatus voor deze computer chronologisch weergegeven. Dat is heel handig voor scenario's waarin u moet weten of de antimalware ooit is geïnstalleerd en op een bepaald moment is verwijderd.   
 
-### <a name="update-assessment"></a>Update-evaluatie
+<a id="update-assessment" class="xliff"></a>
+
+### Update-evaluatie
 Met deze optie kunt u snel de algemene blootstelling aan mogelijke beveiligingsproblemen vaststellen en bepalen of en hoe essentieel deze updates zijn voor uw omgeving. Met de oplossing OMS Beveiliging en controle worden deze updates alleen gevisualiseerd. De werkelijke gegevens zijn afkomstig van [de oplossing voor updatebeheer](oms-solution-update-management.md). Dit is een andere module van OMS. Hier ziet u een voorbeeld van de updates:
 
 ![systeemupdates](./media/oms-security-getting-started/oms-getting-started-fig6-new.png)
@@ -108,7 +121,9 @@ Met deze optie kunt u snel de algemene blootstelling aan mogelijke beveiligingsp
 > 
 > 
 
-### <a name="identity-and-access"></a>Identiteit en toegang
+<a id="identity-and-access" class="xliff"></a>
+
+### Identiteit en toegang
 Identiteit moet de controlelaag voor uw onderneming zijn. Het beveiligen van uw identiteit moet de hoogste prioriteit hebben. De omheining rond bedrijven vormde vroeger een van de primaire verdedigingslinies. Doordat gegevens en apps steeds vaker naar de cloud worden verplaatst, is identiteit tegenwoordig de nieuwe omheining. 
 
 > [!NOTE]
@@ -128,32 +143,50 @@ U kunt de informatie in dit dashboard onmiddellijk gebruiken om mogelijk verdach
 
 In het gedetailleerde rapport staat belangrijke informatie over deze gebeurtenis, waaronder: de doelcomputer, het type aanmelding (in dit geval netwerkaanmelding), de activiteit (in dit geval gebeurtenis 4625) en een uitgebreide tijdlijn van elke poging. 
 
-### <a name="computers"></a>Computers
+<a id="computers" class="xliff"></a>
+
+### Computers
 Deze tegel kan worden gebruikt voor toegang tot alle computers met actieve beveiligingsgebeurtenissen. Wanneer u op deze tegel klikt, ziet u een lijst met computers met beveiligingsgebeurtenissen en het aantal gebeurtenissen op elke computer:
 
 ![Computers](./media/oms-security-getting-started/oms-getting-started-fig9.JPG)
 
 U kunt uw onderzoek voortzetten door op elke computer te klikken en de gebeurtenissen die zijn gemarkeerd te controleren.
 
-### <a name="threat-intelligence"></a>Bedreigingsinformatie
+<a id="threat-intelligence" class="xliff"></a>
+
+### Bedreigingsinformatie
 
 Door de optie Bedreigingsinformatie te gebruiken in OMS Beveiliging en controle, kunnen IT-beheerders beveiligingsbedreigingen identificeren voor de omgeving. Zo kunnen ze bijvoorbeeld bepalen of een bepaalde computer deel uitmaakt van een botnet. Computers kunnen knooppunten worden in een botnet wanneer aanvallers malware installeren waarmee de computer wordt verbonden met de bedieningscentrale. Er kunnen ook potentiële bedreigingen mee worden geïdentificeerd die afkomstig zijn van underground communicatiekanalen zoals darknet. Lees [Beveiligingswaarschuwingen in de oplossing Beveiliging en controle van Operations Management Suite bewaken en erop reageren](oms-security-responding-alerts.md) voor meer informatie over bedreigingsinformatie.
 
-### <a name="baseline-assessment"></a>Basislijnevaluatie
+In sommige scenario's ziet u mogelijk een potentieel schadelijke IP-adres dat is geopend vanaf een bewaakte computer:
+
+![kaart met gegevens van bedreigingen](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+
+Deze waarschuwing en anderen binnen dezelfde categorie worden gegenereerd via OMS-beveiliging door gebruik te maken van [bedreigingsinformatie van Microsoft](https://youtu.be/O4WtxgUrDc8). Deze informatie over bedreigingen wordt verzameld door Microsoft, maar ook gekocht van toonaangevende leveranciers van dit type informatie. De informatie wordt regelmatig bijgewerkt en aangepast als er nieuwe bedreigingen zijn ontdekt. Vanwege de aard van de informatie, moet deze worden gecombineerd met andere bronnen van beveiligingsgegevens tijdens het [onderzoeken](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) van een beveiligingswaarschuwing. 
+
+<a id="baseline-assessment" class="xliff"></a>
+
+### Basislijnevaluatie
 
 Microsoft definieert samen met brancheorganisaties en overheidsinstanties overal ter wereld een Windows-configuratie die garandeert dat maximaal beveiligde serverimplementaties worden gebruikt. Deze configuratie bestaat uit een verzameling registersleutels, controlebeleidsinstellingen en beveiligingsbeleidsinstellingen, gecombineerd met waarden die door Microsoft voor deze instellingen worden aanbevolen. Deze verzameling staat bekend als de beveiligingsbasislijn. Lees [Basislijnevaluatie in de oplossing Beveiliging en controle in Operations Management Suite](oms-security-baseline.md) voor meer informatie over deze optie.
 
-### <a name="azure-security-center"></a>Azure Security Center
+<a id="azure-security-center" class="xliff"></a>
+
+### Azure Security Center
 Deze tegel is in feite een snelkoppeling voor toegang tot het Azure Security Center-dashboard. Lees [Aan de slag met Azure Security Center](../security-center/security-center-get-started.md) voor meer informatie over deze oplossing.
 
-## <a name="notable-issues"></a>Problemen die aandacht vereisen
+<a id="notable-issues" class="xliff"></a>
+
+## Problemen die aandacht vereisen
 Het belangrijkste doel van deze groep opties is een snel overzicht te geven van de problemen u in uw omgeving door ze in te delen in de categorieën Kritiek, Waarschuwing en Ter informatie. De tegel voor het type actieve problemen is een visualisatie van deze problemen, maar u kunt er niet meer informatie mee bekijken. Daarvoor dient het onderste gedeelte van deze tegel. Daarin staan de naam van het probleem (NAAM), het aantal objecten waarvoor het probleem is opgetreden (AANTAL) en hoe kritiek het is (ERNST).
 
 ![Problemen die aandacht vereisen](./media/oms-security-getting-started/oms-getting-started-fig10.JPG)
 
 Deze problemen zijn al aan bod gekomen in andere gebieden van de groep **Beveiligingsdomeinen** die het doel van deze weergave versterkt: de belangrijkste problemen in uw omgeving op één plek visualiseren.
 
-## <a name="detections-preview"></a>Detecties (preview)
+<a id="detections-preview" class="xliff"></a>
+
+## Detecties (preview)
 Deze optie heeft als belangrijkste doel de IT-afdeling toestaan mogelijke bedreigingen voor de omgeving en de ernst van deze bedreigingen vast te stellen.
 
 ![Bedreigingsinformatie](./media/oms-security-getting-started/oms-getting-started-fig12.png)
@@ -165,14 +198,18 @@ Deze optie kan tijdens een [onderzoek naar de incidentrespons](https://blogs.msd
 > 
 > 
 
-## <a name="threat-intelligence"></a>Bedreigingsinformatie
+<a id="threat-intelligence" class="xliff"></a>
+
+## Bedreigingsinformatie
 Met de nieuwe sectie Bedreigingsinformatie van de oplossing Beveiliging en controle kunt u aanvalspatronen op verschillende manieren visualiseren: het totale aantal servers met schadelijk uitgaand IP-verkeer, het type schadelijke dreigingen en een kaart waarop wordt aangegeven waar deze IP-adressen van afkomstig zijn. U kunt in de kaart werken en op de IP-adressen klikken voor meer informatie.
 
 Gele punaises op de kaart geven inkomend verkeer van schadelijke IP-adressen aan. Het is niet ongebruikelijk dat voor servers die verbinding hebben met internet schadelijk inkomend verkeer wordt aangegeven. Het is wel raadzaam deze pogingen te controleren om er zeker van te zijn dat ze zijn mislukt. Deze indicatoren zijn gebaseerd op IIS-logboeken, WireData en logboeken van Windows Firewall.  
 
 ![Bedreigingsinformatie](./media/oms-security-getting-started/oms-getting-started-fig11-ga.png)
 
-## <a name="common-security-queries"></a>Algemene beveiligingsquery's
+<a id="common-security-queries" class="xliff"></a>
+
+## Algemene beveiligingsquery's
 Met de lijst met beschikbare algemene beveiligingquery's kunt u snel toegang krijgen tot informatie over de resource en deze aan te passen op basis van de behoeften van uw omgeving. Deze algemene query's zijn onder meer:
 
 * Alle beveiligingsactiviteiten
@@ -186,7 +223,9 @@ Met de lijst met beschikbare algemene beveiligingquery's kunt u snel toegang kri
 * Aanmeldingsactiviteit per account
 * Accounts die op afstand worden aangemeld bij computer computer01.contoso.com (vervangen door uw eigen computernaam)
 
-## <a name="see-also"></a>Zie ook
+<a id="see-also" class="xliff"></a>
+
+## Zie ook
 In dit document hebt u kennis gemaakt met de oplossing Beveiliging en controle van OMS. Raadpleeg de volgende artikelen voor meer informatie over OMS Beveiliging:
 
 * [Overzicht van Operations Management Suite (OMS)](operations-management-suite-overview.md)

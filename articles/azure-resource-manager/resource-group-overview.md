@@ -12,19 +12,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/09/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 4b7192b22d1583be2b2ab027b040c9a2fce8a293
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: db97edd3c4fbfdbe955c49cc9a58de30c5085305
+ms.contentlocale: nl-nl
+ms.lasthandoff: 06/13/2017
 
 
 ---
-# <a name="azure-resource-manager-overview"></a>Overzicht van Azure Resource Manager
+<a id="azure-resource-manager-overview" class="xliff"></a>
+
+# Overzicht van Azure Resource Manager
 De infrastructuur voor uw toepassing bestaat meestal uit veel onderdelen, zoals een virtuele machine, een opslagaccount en een virtueel netwerk, of een webtoepassing, database, databaseserver en services van derden. Deze onderdelen moet u niet zien als afzonderlijke entiteiten, maar als onderdelen die één entiteit vormen en aan elkaar zijn gerelateerd en afhankelijk zijn van elkaar. U implementeert, beheert en bewaakt deze onderdelen als groep. Met Azure Resource Manager kunt u met de resources als groep in uw oplossing werken. U kunt alle resources voor uw oplossing implementeren, bijwerken of verwijderen in een enkele, gecoördineerde bewerking. Voor implementatie gebruikt u een sjabloon. Deze sjabloon kan voor verschillende omgevingen worden gebruikt, zoals testen, faseren en productie. Resource Manager biedt beveiliging, controle en tagfuncties die u na de implementatie helpen bij het beheren van uw resources. 
 
-## <a name="terminology"></a>Terminologie
+<a id="terminology" class="xliff"></a>
+
+## Terminologie
 Als u nog geen ervaring hebt met de Azure Resource Manager, zijn er enkele termen die u mogelijk niet kent.
 
 * **resource** - een beheerbaar item dat beschikbaar is via Azure. Sommige algemene resources zijn een virtuele machine, opslagaccount, webtoepassing en virtueel netwerk, maar er zijn er veel meer.
@@ -33,7 +38,9 @@ Als u nog geen ervaring hebt met de Azure Resource Manager, zijn er enkele terme
 * **Resource Manager sjabloon** - Een JavaScript Object Notation (JSON)-bestand dat één of meer resources definieert die worden geïmplementeerd op een resourcegroep. Het definieert ook de afhankelijkheden tussen de geïmplementeerde resources. De sjabloon kan worden gebruikt om de resources consistent en herhaaldelijk te implementeren. Zie [Sjabloonimplementatie](#template-deployment).
 * **declaratieve syntaxis** - een syntaxis waarmee u kunt aangeven 'Dit is wat ik wil maken' zonder hiervoor de nodige reeks programmeeropdrachten te hoeven maken. De sjabloon Resource Manager is een voorbeeld van een declaratieve syntaxis. In het bestand definieert u de eigenschappen voor de infrastructuur te implementeren naar Azure. 
 
-## <a name="the-benefits-of-using-resource-manager"></a>De voordelen van Resource Manager
+<a id="the-benefits-of-using-resource-manager" class="xliff"></a>
+
+## De voordelen van Resource Manager
 Resource Manager biedt diverse voordelen:
 
 * U kunt alle resources voor uw oplossing implementeren, beheren en bewaken als groep, in plaats van deze resources afzonderlijk te verwerken.
@@ -46,14 +53,18 @@ Resource Manager biedt diverse voordelen:
 
 Resource Manager biedt een nieuwe manier om uw oplossingen te implementeren en te beheren. Als u het eerdere implementatiemodel hebt gebruikt en meer te weten wilt komen over de wijzigingen, leest u [Resource Manager-implementatie en klassieke implementatie begrijpen](resource-manager-deployment-model.md).
 
-## <a name="consistent-management-layer"></a>Consistente beheerlaag
+<a id="consistent-management-layer" class="xliff"></a>
+
+## Consistente beheerlaag
 Resource Manager biedt een consistente beheerlaag voor de taken die u uitvoert via Azure PowerShell, Azure CLI, Azure portal, REST API en ontwikkelhulpprogramma's. Alle hulpprogramma's gebruiken een gemeenschappelijke set bewerkingen. U kunt de hulpprogramma's gebruiken die voor u het meest geschikt zijn en u kunt ze zonder problemen door elkaar gebruiken. 
 
 In de volgende afbeelding ziet u hoe alle hulpprogramma's werken met dezelfde Azure Resource Manager-API. Via de API worden aanvragen doorgegeven aan de Resource Manager-service, waar de aanvragen worden geverifieerd en geautoriseerd. De aanvragen worden vervolgens via Resource Manager naar de juiste resourceproviders geleid.
 
 ![Resource Manager-aanvraagmodel](./media/resource-group-overview/consistent-management-layer.png)
 
-## <a name="guidance"></a>Richtlijnen
+<a id="guidance" class="xliff"></a>
+
+## Richtlijnen
 Met de volgende tips kunt u profiteren van alle mogelijkheden die Resource Manager voor uw oplossingen biedt.
 
 1. Definieer en implementeer uw infrastructuur via de declaratieve syntaxis in de Resource Manager-sjablonen, in plaats van via imperatieve opdrachten.
@@ -65,7 +76,9 @@ Ga voor aanbevelingen over sjablonen naar [Aanbevolen procedures voor het maken 
 
 Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](resource-manager-subscription-governance.md).
 
-## <a name="resource-groups"></a>Resourcegroepen
+<a id="resource-groups" class="xliff"></a>
+
+## Resourcegroepen
 Er zijn een aantal belangrijke factoren waarmee u rekening moet houden bij het definiëren van de resourcegroep:
 
 1. Alle resources in uw groep moeten dezelfde levenscyclus hebben. U implementeert ze samen, werkt ze samen bij en verwijdert ze samen. Als een resource, zoals een databaseserver, in een andere implementatiecyclus moet werken, moet deze in een andere resourcegroep worden geplaatst.
@@ -78,44 +91,18 @@ Er zijn een aantal belangrijke factoren waarmee u rekening moet houden bij het d
 
 Als u een resourcegroep maakt, moet u voor die resourcegroep een locatie opgeven. U vraagt zich misschien af: 'Waarom heeft een resourcegroep een locatie nodig? En als de resources andere locaties kunnen hebben dan de resourcegroep, wat is dan het nut van een locatie voor de resourcegroep?' De resourcegroep slaat metagegevens op over de resources. Dat is de reden waarom u moet aangeven waar die metagegevens moeten worden opgeslagen als u een locatie voor de resourcegroep opgeeft. In verband met nalevingsvereisten moet u er mogelijk voor zorgen dat uw gegevens worden opgeslagen in een bepaalde regio.
 
-## <a name="resource-providers"></a>Resourceproviders
+<a id="resource-providers" class="xliff"></a>
+
+## Resourceproviders
 Elke resourceprovider biedt een set resources en bewerkingen voor werken met een Azure-service. Als u bijvoorbeeld sleutels en geheimen wilt opslaan, werkt u met de resourceprovider **Microsoft.KeyVault**. Deze resourceprovider biedt een resourcetype **kluizen** voor het maken van de sleutelkluis. 
 
-Voordat u aan de slag gaat met de implementatie van uw resources, dient u inzicht te hebben in de beschikbare resourceproviders. Als u de namen van resourceproviders en resources kent, bent u beter in staat resources te definiëren die u wilt implementeren in Azure.
+De naam van een resourcetype heeft deze syntaxis: **{resourceprovider}/{resourcetype}**. Het type sleutelkluis wordt bijvoorbeeld geschreven als **Microsoft.KeyVault\vaults**.
 
-U kunt alle resourceproviders bekijken via de portal. Selecteer op de blade voor uw abonnement de optie **Resourceproviders**:
+Voordat u aan de slag gaat met de implementatie van uw resources, dient u inzicht te hebben in de beschikbare resourceproviders. Als u de namen van resourceproviders en resources kent, bent u beter in staat resources te definiëren die u wilt implementeren in Azure. Bovendien moet u voor elk resourcetype de geldige locaties en API-versies weten. Zie [Resourceproviders en -typen](resource-manager-supported-services.md) voor meer informatie.
 
-![resourceproviders weergeven](./media/resource-group-overview/view-resource-providers.png)
+<a id="template-deployment" class="xliff"></a>
 
-U kunt alle resourceproviders ophalen met de volgende PowerShell-cmdlet:
-
-```powershell
-Get-AzureRmResourceProvider -ListAvailable
-```
-
-Bij Azure CLI 2.0 haalt u alle resourceproviders op met de volgende opdracht:
-
-```azurecli
-az provider list
-```
-
-U kunt in de lijst met resultaten zoeken naar de resourceproviders die u wilt gebruiken.
-
-Als u meer informatie over een resourceprovider wilt, voegt u de naamruimte van de provider toe aan de opdracht. De opdracht geeft u de ondersteunde resourcetypen voor de resourceprovider en de ondersteunde locaties en API-versies voor elk resourcetype. Met de volgende PowerShell-cmdlet krijgt u informatie over Microsoft.Compute:
-
-```powershell
-(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
-```
-
-Bij Azure CLI 2.0 haalt u de ondersteunde resourcetypen, locaties en API-versies voor Microsoft.Compute op met de volgende opdracht:
-
-```azurecli
-az provider show --namespace Microsoft.Compute
-```
-
-Zie voor meer informatie [Resource Manager-providers, -regio’s, -API-versies en -schema's](resource-manager-supported-services.md).
-
-## <a name="template-deployment"></a>Sjabloonimplementatie
+## Sjabloonimplementatie
 Met Resource Manager kunt u een sjabloon maken (in JSON-indeling) waarmee de infrastructuur en configuratie van uw Azure-oplossing worden gedefinieerd. Door het gebruik van een sjabloon kunt u gedurende de levenscyclus de oplossing herhaaldelijk implementeren en erop vertrouwen dat uw resources consistent worden geïmplementeerd. Wanneer u een oplossing vanaf de portal maakt, bevat de oplossing automatisch een sjabloon voor de implementatie. U hoeft de sjabloon niet helemaal zelf te maken. U kunt beginnen met de sjabloon voor uw oplossing en deze aanpassen aan uw specifieke behoeften. U kunt een sjabloon voor een bestaande resourcegroep ophalen door de huidige status van de resourcegroep te exporteren of door de sjabloon die is gebruikt voor een bepaalde implementatie, weer te geven. Raadplegen van de [geëxporteerde sjabloon](resource-manager-export-template.md) is een handige manier om de syntaxis van de sjabloon te leren kennen.
 
 Voor meer informatie over de indeling van de sjabloon en hoe u deze samenstelt, raadpleegt u [Uw eerste Azure Resource Manager-sjabloon maken](resource-manager-create-first-template.md). Als u de JSON-syntaxis voor resourcetypen wilt bekijken, raadpleegt u [Define resources in Azure Resource Manager templates](/azure/templates/) (Resources definiëren in Azure Resource Manager-sjablonen).
@@ -187,7 +174,9 @@ Nadat u de sjabloon hebt gedefinieerd, kunt u de resources in Azure implementere
 * [Resources implementeren met Resource Manager-sjablonen en Azure Portal](resource-group-template-deploy-portal.md)
 * [Resources implementeren met Resource Manager-sjablonen en Resource Manager REST API](resource-group-template-deploy-rest.md)
 
-## <a name="tags"></a>Tags
+<a id="tags" class="xliff"></a>
+
+## Tags
 Resource Manager biedt een tagfunctie waarmee u resources kunt categoriseren volgens uw vereisten voor beheer of facturering. Gebruik tags wanneer u een verzameling complexe resourcegroepen en resources hebt en u deze assets moet visualiseren op een manier die relevant voor u is. U kunt bijvoorbeeld resources taggen die een vergelijkbare rol hebben in uw organisatie of bij dezelfde afdeling horen. Zonder tags kunnen gebruikers in uw organisatie meerdere resources maken die later mogelijk moeilijk zijn te identificeren en te beheren. Bijvoorbeeld als u alle resources voor een bepaald project wilt verwijderen. Als deze resources niet van een tag zijn voorzien voor het project, moet u er handmatig naar zoeken. Taggen kan een belangrijke manier zijn om onnodige kosten in uw abonnement te voorkomen. 
 
 Resources hoeven niet tot dezelfde resourcegroep te behoren om een tag te kunnen delen. U kunt uw eigen tagtaxonomie maken om ervoor te zorgen dat alle gebruikers in uw organisatie gebruikmaken van veelgebruikte tags en niet per ongeluk afwijkende tags toepassen (zoals 'afd' in plaats van 'afdeling').
@@ -225,7 +214,9 @@ U kunt ook getagde resources via Azure Portal weergeven.
 
 Het [gebruiksrapport](../billing/billing-understand-your-bill.md) voor uw abonnement bevat tagnamen en -waarden, zodat u de kosten op basis van tags kunt opdelen. Zie [Tags gebruiken om uw Azure-resources te organiseren](resource-group-using-tags.md) voor meer informatie over tags.
 
-## <a name="access-control"></a>Toegangsbeheer
+<a id="access-control" class="xliff"></a>
+
+## Toegangsbeheer
 Met Resource Manager kunt u bepalen wie er toegang heeft tot bepaalde acties voor uw organisatie. Op rollen gebaseerd toegangsbeheer (RBAC) is in het beheerplatform geïntegreerd. Resource Manager past dat toegangsbeheer toe op alle services in uw resourcegroep. 
 
 Er zijn twee belangrijke concepten die u moet begrijpen als u werkt met op rollen gebaseerd toegangsbeheer:
@@ -260,10 +251,14 @@ In sommige gevallen wilt u code of scripts uitvoeren die toegang hebben tot reso
 
 U kunt kritieke resources ook expliciet vergrendelen om te voorkomen dat gebruikers deze wijzigen of verwijderen. Zie voor meer informatie [Resources vergrendelen met Azure Resource Manager](resource-group-lock-resources.md).
 
-## <a name="activity-logs"></a>Activiteitenlogboeken
+<a id="activity-logs" class="xliff"></a>
+
+## Activiteitenlogboeken
 Resource Manager registreert alle bewerkingen waarmee een resource wordt gemaakt, gewijzigd of verwijderd. U kunt de activiteitenlogboeken gebruiken om fouten te vinden bij foutoplossing of om te controleren hoe een gebruiker in uw organisatie een resource heeft gewijzigd. Selecteer **Activiteitenlogboeken** op de blade **Instellingen** voor een resourcegroep om de logboeken in te zien. U kunt de logboeken filteren op veel verschillende waarden, inclusief welke gebruiker de bewerking heeft gestart. Zie voor meer informatie over het werken met de activiteitenlogboeken [View activity logs to manage Azure resources](resource-group-audit.md) (Activiteitenlogboeken weergeven met Resource Manager).
 
-## <a name="customized-policies"></a>Aangepast beleid
+<a id="customized-policies" class="xliff"></a>
+
+## Aangepast beleid
 Met Resource Manager kunt u aangepaste beleidsregels maken voor het beheer van resources. De soorten beleid die u maakt, kunnen diverse scenario's bevatten. U kunt een naamgevingsconventie voor resources afdwingen, u kunt beperken welke typen resources en resource-exemplaren kunnen worden geïmplementeerd of u kunt beperken welke regio's als host voor een bepaald type resource kunnen fungeren. U kunt een tagwaarde voor resources verplicht stellen, om te organiseren dat facturering per afdeling plaatsvindt. U maakt beleid om kostenverlaging te stimuleren en consistentie binnen uw abonnement te waarborgen. 
 
 U definieert beleid met JSON en past dat beleid vervolgens toe op uw abonnement of binnen een resourcegroep. Beleidsregels zijn anders dan op rollen gebaseerd toegangsbeheer, omdat ze worden toegepast op resourcetypen.
@@ -286,7 +281,9 @@ Het volgende voorbeeld bevat een beleid dat zorgt voor consistentie van tags doo
 
 Er zijn nog veel meer soorten beleid die u kunt maken. Zie voor meer informatie [Beleid gebruiken voor het beheren van resources en toegang](resource-manager-policy.md).
 
-## <a name="sdks"></a>SDK's
+<a id="sdks" class="xliff"></a>
+
+## SDK's
 Azure SDK's zijn beschikbaar voor meerdere talen en platforms.
 Elk van deze taalimplementaties is beschikbaar via zijn ecosystem package manager en GitHub.
 
@@ -305,25 +302,37 @@ Hier vindt u onze Open Source SDK-opslagplaatsen. We ontvangen graag uw feedback
 > 
 > 
 
-## <a name="samples"></a>Voorbeelden
-### <a name="net"></a>.NET
+<a id="samples" class="xliff"></a>
+
+## Voorbeelden
+<a id="net" class="xliff"></a>
+
+### .NET
 * [Azure-resources en -resourcegroepen beheren](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 * [Een VM waarvoor SSH is ingeschakeld, met een sjabloon implementeren](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
 
-### <a name="java"></a>Java
+<a id="java" class="xliff"></a>
+
+### Java
 * [Azure-resources beheren](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource/)
 * [Azure-resourcegroepen beheren](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
 * [Een VM waarvoor SSH is ingeschakeld, met een sjabloon implementeren](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
 
-### <a name="nodejs"></a>Node.js
+<a id="nodejs" class="xliff"></a>
+
+### Node.js
 * [Azure-resources en -resourcegroepen beheren](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
 * [Een VM waarvoor SSH is ingeschakeld, met een sjabloon implementeren](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
 
-### <a name="python"></a>Python
+<a id="python" class="xliff"></a>
+
+### Python
 * [Azure-resources en -resourcegroepen beheren](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
 * [Een VM waarvoor SSH is ingeschakeld, met een sjabloon implementeren](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
 
-### <a name="ruby"></a>Ruby
+<a id="ruby" class="xliff"></a>
+
+### Ruby
 * [Azure-resources en -resourcegroepen beheren](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 * [Een VM waarvoor SSH is ingeschakeld, met een sjabloon implementeren](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
@@ -331,7 +340,9 @@ Naast deze voorbeelden kunt u in de galerievoorbeelden zoeken.
 
 [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) | [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python) | [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 * Zie voor een eenvoudige introductie in het werken met sjablonen [Een Azure Resource Manager-sjabloon uit bestaande resources exporteren](resource-manager-export-template.md).
 * Voor een uitgebreider overzicht van hoe u een sjabloon maakt, raadpleegt u [Uw eerste Azure Resource Manager-sjabloon maken](resource-manager-create-first-template.md).
 * Zie [Sjabloonfuncties](resource-group-template-functions.md) voor inzicht in de functies die u in een sjabloon kunt gebruiken.

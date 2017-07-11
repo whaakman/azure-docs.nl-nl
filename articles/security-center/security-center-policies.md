@@ -4,7 +4,7 @@ description: In dit document leest u hoe u beveiligingsbeleid configureert in Az
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
 ms.service: security-center
@@ -12,60 +12,49 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/16/2017
 ms.author: yurid
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ec658f4c74d54a11684460c0e634303793480152
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 2593e6846c897644017083b49ad4ba8219696c6c
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="set-security-policies-in-azure-security-center"></a>Beveiligingsbeleid instellen in Azure Security Center
+<a id="set-security-policies-in-azure-security-center" class="xliff"></a>
+
+# Beveiligingsbeleid instellen in Azure Security Center
 Dit document helpt u om beveiligingsbeleid in Security Center te configureren door u te begeleiden bij de stappen die nodig zijn om deze taak uit te voeren.
 
-## <a name="what-are-security-policies"></a>Wat is beveiligingsbeleid?
-Een beveiligingsbeleid bepaalt welke set besturingselementen wordt aanbevolen voor resources binnen het opgegeven abonnement of de opgegeven resourcegroep. In Security Center definieert u beleid voor uw Azure-abonnementen of -resourcegroep overeenkomstig de behoeften van uw bedrijf en het type toepassingen of de vertrouwelijkheid van de gegevens in elk abonnement.
+>[!NOTE] 
+>Vanaf begin juni 2017 zal Security Center de Microsoft Monitoring Agent gebruiken voor het verzamelen en opslaan van gegevens. Zie [Migratie van Azure Security Center-platform](security-center-platform-migration.md) voor meer informatie. De informatie in dit artikel beschrijft functionaliteit van Security Center na de overstap naar de Microsoft Monitoring Agent.
+>
+
+<a id="what-are-security-policies" class="xliff"></a>
+
+## Wat is beveiligingsbeleid?
+Een beveiligingsbeleid bepaalt welke set besturingselementen wordt aanbevolen voor resources binnen het opgegeven abonnement. In Security Center definieert u beleid voor uw Azure-abonnementen overeenkomstig de behoeften van uw bedrijf en het type toepassingen of de vertrouwelijkheid van de gegevens in elk abonnement.
 
 Zo kunnen er voor resources die worden gebruikt voor ontwikkeling of tests, andere beveiligingsvereisten zijn dan voor resources die worden gebruikt voor productietoepassingen. Ook kan voor toepassingen met gereglementeerde gegevens, zoals persoonsgegevens, een hoger beveiligingsniveau vereist zijn. Beveiligingsbeleid dat in Azure Security Center is ingeschakeld, bepaalt de beveiligingsaanbevelingen en bewaking om u te helpen mogelijke beveiligingsproblemen te identificeren en bedreigingen te verhelpen. Lees de [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) (Plannings- en bedieningsgids voor Azure Security Center) voor meer informatie over hoe u kunt bepalen welke optie het geschiktst is voor u.
 
-## <a name="set-security-policies-for-subscriptions"></a>Beveiligingsbeleid instellen voor abonnementen
-U kunt voor elk abonnement en elke resourcegroep beveiligingsbeleid configureren. Het beveiligingsbeleid kan alleen worden gewijzigd door een eigenaar of bijdrager van het abonnement. Meld u aan bij de Azure-portal en voer de volgende stappen uit om beveiligingsbeleid te configureren in Security Center:
+<a id="set-security-policies" class="xliff"></a>
+
+## Beveiligingsbeleid instellen
+U kunt voor elk abonnement beveiligingsbeleid configureren. Het beveiligingsbeleid kan alleen worden gewijzigd door een eigenaar of bijdrager van het abonnement. Meld u aan bij de Azure-portal en voer de volgende stappen uit om beveiligingsbeleid te configureren in Security Center:
 
 1. Klik op de tegel **Beleid** op het dashboard van Security Center.
-2. Selecteer in de blade **Beveiligingsbeleid - Het beleid per abonnement of resourcegroep definiëren** die wordt weergegeven, het abonnement waarvoor u het beveiligingsbeleid wilt inschakelen. Als u een beveiligingsbeleid voor een resourcegroep wilt inschakelen in plaats van voor het hele abonnement, bladert u omlaag naar de volgende sectie waar het instellen van beveiligingsbeleid voor resourcegroepen wordt besproken.
+2. Selecteer in de blade Beveiligingsbeleid die wordt weergegeven, het abonnement waarvoor u het beveiligingsbeleid wilt inschakelen.
 
     ![Beleid definiëren](./media/security-center-policies/security-center-policies-fig1-ga.png)
-3. De blade **Beveiligingsbeleid** voor het geselecteerde abonnement wordt geopend met een reeks opties die vergelijkbaar zijn met de opties in de volgende schermafbeelding:
-
-    ![Gegevensverzameling inschakelen](./media/security-center-policies/security-center-policies-fig2-ga.png)
-
-    De opties die beschikbaar zijn op deze blade:
+3. De blade **Beveiligingsbeleid** voor het geselecteerde abonnement wordt geopend met een reeks opties. De opties die beschikbaar zijn op deze blade:
 
    * **Preventiebeleid**: met deze optie kunt u beleidsregels per abonnement of resourcegroep configureren.  
    * **E-mailmelding**: gebruik deze optie als u wilt dat er een e-mailbericht wordt verzonden de eerste keer dat een waarschuwing op die dag plaatsvindt, en voor waarschuwingen met een hoge urgentie. E-mailvoorkeuren kunnen alleen worden geconfigureerd voor abonnementsbeleid. Lees [Contactgegevens voor beveiliging verstrekken in Azure Security Center](security-center-provide-security-contact-details.md) voor meer informatie over het configureren van een e-mailmelding.
    * **Prijscategorie**: gebruik deze optie om een upgrade van de geselecteerde prijscategorie uit te voeren. Zie de pagina [Security Center-prijzen](security-center-pricing.md) voor meer informatie over tariefopties.
-4. Zorg ervoor dat de optie **Gegevens van virtuele machines verzamelen** is ingesteld op **Aan**. Met deze optie worden er automatisch logboekgegevens verzameld voor bestaande en nieuwe resources.
+4. Zorg ervoor dat de optie **Gegevens van virtuele machines verzamelen** is ingesteld op **Aan**. Met deze optie kunt u automatisch logboekgegevens verzamelen voor bestaande en nieuwe resources, met behulp van Microsoft Monitoring Agent. Dit is dezelfde agent die ook wordt gebruikt door de Operations Management Suite en Log Analytics-service. Gegevens die via deze agent worden verzameld, worden opgeslagen in een bestaande Log Analytics-werkruimte die is gekoppeld aan uw Azure-abonnement, of in nieuwe werkruimten, rekening houdend met de geografische locatie van de virtuele machine.
 
-   > [!NOTE]
-   > U kunt het beste gegevensverzameling inschakelen voor al uw abonnementen, omdat dit ervoor zorgt dat beveiligingsbewaking beschikbaar is voor alle bestaande en nieuwe VM's. Bij het inschakelen van gegevensverzameling wordt de bewakingsagent geïnstalleerd. Als u het verzamelen van gegevens nu niet vanaf deze locatie wilt inschakelen, kunt u dit later doen vanuit de weergaven voor de **status** en **aanbevelingen**. U kunt het verzamelen van gegevens ook alleen voor het abonnement of bepaalde VM's inschakelen. Zie [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center) voor meer informatie over de ondersteunde VM's.
-   >
-   >
-5. Als uw opslagaccount nog niet is geconfigureerd, wordt bij het openen van **Beveiligingsbeleid** mogelijk een waarschuwing weergegeven, zoals die in de volgende schermafbeelding. Als u geen opslagaccount voor elke regio kiest, wordt er een voor u gemaakt.
-
-    ![Opslagselectie](./media/security-center-policies/security-center-policies-fig2.png)
-6. Als deze waarschuwing wordt weergegeven, klikt u op deze optie en selecteert u de regio zoals in de volgende schermafbeelding:
-
-    ![Opslagselectie](./media/security-center-policies/security-center-policies-fig3-ga.png)
-7. Voor elke regio waarin u virtuele machines uitvoert, kiest u het opslagaccount waarin de gegevens worden opgeslagen die zijn verzameld bij deze virtuele machines. Hierdoor wordt het eenvoudig om gegevens in hetzelfde geografische gebied te bewaren met het oog op privacy en ten behoeve van de onafhankelijkheid van de gegevens. Nadat u heb besloten welke regio u wilt gebruiken, selecteert u de regio en selecteert u vervolgens het opslagaccount.
-8. Klik in de blade **Opslagaccounts kiezen** op **OK**.
-
-   > [!NOTE]
-   > U kunt de gegevens van virtuele machines in verschillende regio's desgewenst samenvoegen in één centraal opslagaccount. Zie [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center) voor meer informatie.
-   >
-   >
-9. Klik in de blade **Beveiligingsbeleid** op **Aan** om de beveiligingsaanbevelingen in te schakelen die u wilt gebruiken voor dit abonnement. Klik op **Preventiebeleid** om opties weer te geven zoals die in de volgende schermafbeelding:
+5. Klik in de blade **Beveiligingsbeleid** op **Preventiebeleid** om de beschikbare opties te zien. Klik op **Aan** om de beveiligingsaanbevelingen in te schakelen die relevant zijn voor dit abonnement.
 
     ![Het beveiligingsbeleid selecteren](./media/security-center-policies/security-center-policies-fig4-newUI.png)
 
@@ -78,30 +67,23 @@ Gebruik de volgende tabel als referentie om te begrijpen wat elke optie doet:
 | Eindpuntbeveiliging |Hiermee wordt aanbevolen dat voor alle virtuele machines in Windows eindpuntbeveiliging wordt ingericht om virussen, spyware en andere schadelijke software op te sporen en te verwijderen. |
 | Schijfversleuteling |Hiermee wordt aanbevolen om schijfversleuteling in te schakelen in alle virtuele machines om de beveiliging van opgeslagen gegevens te verbeteren. |
 | Netwerkbeveiligingsgroepen |Hiermee wordt aanbevolen om [netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md) te configureren om binnenkomend en uitgaand verkeer naar VM's met openbare eindpunten te beheren. Netwerkbeveiligingsgroepen die worden geconfigureerd voor een subnet, worden overgenomen door alle netwerkinterfaces van virtuele machines, tenzij anders is aangegeven. Behalve dat wordt gecontroleerd of een netwerkbeveiligingsgroep is geconfigureerd, worden met deze beleidsregel ook de beveiligingsregels voor binnenkomend verkeer beoordeeld die binnenkomend verkeer toestaan. |
-| Web Application Firewall |Hiermee wordt aanbevolen om een Web Application Firewall in te richten op virtuele machines wanneer een van de volgende omstandigheden waar is:</br></br>[Openbaar IP op exemplaarniveau](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) wordt gebruikt, en de beveiligingsregels voor binnenkomend verkeer van de gekoppelde netwerkbeveiligingsgroep worden geconfigureerd om toegang tot poort 80/443 toe te staan.</br></br>IP met taakverdeling wordt gebruikt en de bijbehorende taakverdeling en de inkomende NAT-regels (Network Address Translation worden geconfigureerd om toegang tot poort 80/443 toe te staan. (Zie [Azure Resource Manager-ondersteuning voor load balancer](../load-balancer/load-balancer-arm.md) voor meer informatie.) |
+| Web Application Firewall |Hiermee wordt aanbevolen om een Web Application Firewall in te richten op virtuele machines wanneer een van de volgende omstandigheden waar is: </br></br>[Openbaar IP op exemplaarniveau](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) wordt gebruikt, en de beveiligingsregels voor binnenkomend verkeer van de gekoppelde netwerkbeveiligingsgroep worden geconfigureerd om toegang tot poort 80/443 toe te staan.</br></br>IP met taakverdeling wordt gebruikt en de bijbehorende taakverdeling en de inkomende NAT-regels (Network Address Translation worden geconfigureerd om toegang tot poort 80/443 toe te staan. (Zie [Azure Resource Manager-ondersteuning voor load balancer](../load-balancer/load-balancer-arm.md) voor meer informatie.) |
 | Next Generation Firewall |Hiermee wordt meer netwerkbeveiliging toegevoegd dan met de netwerkbeveiligingsgroepen die in Azure zijn ingebouwd. Security Center detecteert implementaties waarvoor een Next Generation Firewall wordt aanbevolen en biedt u de mogelijkheid een virtuele toepassing in te richten. |
 | Controleren voor SQL en bedreigingen detecteren |Hiermee wordt aanbevolen dat de controle van toegang tot de Azure-database wordt ingeschakeld voor naleving, geavanceerde detectie en onderzoek. |
-| Transparent Data Encryption voor SQL |Hiermee wordt aanbevolen dat versleuteling-at-rest wordt ingeschakeld voor uw Azure SQL-databases, gekoppelde back-ups en transactielogboekbestanden. Zelfs bij een inbreuk kunnen uw gegevens niet worden gelezen. |
+| SQL-versleuteling |Hiermee wordt aanbevolen dat versleuteling-at-rest wordt ingeschakeld voor uw Azure SQL-databases, gekoppelde back-ups en transactielogboekbestanden. Zelfs bij een inbreuk kunnen uw gegevens niet worden gelezen. |
 | Beoordeling van beveiligingslekken |Hiermee wordt aanbevolen dat een oplossing voor de beoordeling van beveiligingslekken wordt geïnstalleerd op de VM. |
 | Storage-versleuteling |Deze functie is momenteel beschikbaar voor Azure-blobs en -bestanden. Opmerking: Nadat de service Storage-versleuteling is ingeschakeld, worden alleen nieuwe gegevens versleuteld. Alle bestaande bestanden in dit Storage-account zijn nog steeds niet-versleuteld. |
 
 Wanneer u klaar bent met het configureren van alle opties, klikt u op **OK** in de blade **Beveiligingsbeleid** met de aanbevelingen en klikt u vervolgens op **Opslaan** in de blade **Beveiligingsbeleid** met de oorspronkelijke instellingen.
 
-## <a name="set-security-policies-for-resource-groups"></a>Beveiligingsbeleid instellen voor resourcegroepen
-Als u liever per resourcegroep een beveiligingsbeleid configureert, zijn de stappen gelijk aan de stappen die u hebt gebruikt voor het instellen van beveiligingsbeleid voor abonnementen. Het belangrijkste verschil is dat u de naam van het abonnement moet uitvouwen en de resourcegroep moet selecteren waarvoor u het unieke beveiligingsbeleid wilt configureren:
-
-![Resourcegroep selecteren](./media/security-center-policies/security-center-policies-fig5-ga.png)
-
-Nadat u de resourcegroep hebt geselecteerd, wordt de blade **Beveiligingsbeleid** geopend. De optie **Overname** is standaard ingeschakeld. Dat betekent dat alle beveiligingsbeleidsregels voor deze resourcegroep worden overgenomen van het abonnementsniveau. U kunt deze configuratie wijzigen als u een aangepast beveiligingsbeleid voor een resourcegroep wilt. Als dat het geval is, moet u **Uniek** selecteren en de wijzigingen onder de optie **Preventiebeleid** aanbrengen.
-
-![Beveiligingsbeleid per resourcegroep](./media/security-center-policies/security-center-policies-fig6-ga.png)
-
 > [!NOTE]
-> Als er een conflict is tussen het beleid op abonnementsniveau en het beleid op het niveau van de resourcegroep, heeft het beleid op het niveau van de resourcegroep voorrang.
+> De prijscategorie is nog steeds van toepassing op het niveau van de resourcegroep. Bezoek voor meer informatie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/).
 >
 >
 
-## <a name="see-also"></a>Zie ook
+<a id="see-also" class="xliff"></a>
+
+## Zie ook
 In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid configureert in Azure Security Center. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
 
 * [Plannings- en bedieningsgids voor Azure Security Center](security-center-planning-and-operations-guide.md). Leer de ontwerpoverwegingen kennen en leer deze in te plannen als u de overstap naar Azure Security Center wilt maken.

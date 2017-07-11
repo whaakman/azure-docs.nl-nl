@@ -12,16 +12,19 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 3/10/2017
+ms.date: 6/14/2017
 ms.author: markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 8883ff1601c521d05068452b1b58cadaee1a941f
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 61328e32763faea90074fc6d499e660c4109ab6d
+ms.contentlocale: nl-nl
+ms.lasthandoff: 06/16/2017
 
 
 ---
-# <a name="first-look-backing-up-azure-virtual-machines"></a>Eerste blik: een back-up maken van virtuele machines van Azure
+<a id="first-look-backing-up-azure-virtual-machines" class="xliff"></a>
+
+# Eerste blik: een back-up maken van virtuele machines van Azure
 > [!div class="op_single_selector"]
 > * [Virtuele machines beveiligen met een Recovery Services-kluis](backup-azure-vms-first-look-arm.md)
 > * [Virtuele machines van Azure beveiligen met een back-upkluis](backup-azure-vms-first-look.md)
@@ -43,15 +46,21 @@ Voor de volgende zelfstudie gelden de volgende vereisten:
 >
 >
 
-## <a name="create-a-backup-vault"></a>Een back-upkluis maken
+<a id="create-a-backup-vault" class="xliff"></a>
+
+## Een back-upkluis maken
 Een back-upkluis is een entiteit waarmee alle back-ups en herstelpunten worden opgeslagen die in de loop van de tijd zijn gemaakt. De back-upkluis bevat ook het back-upbeleid dat wordt toegepast op de virtuele machines waarvan een back-up wordt gemaakt.
 
 > [!IMPORTANT]
-> Vanaf maart 2017 is het niet meer mogelijk om de klassieke portal te gebruiken voor het maken van back-upkluizen. Bestaande back-upkluizen worden nog wel ondersteund en het is mogelijk om [Azure PowerShell te gebruiken voor het maken van back-upkluizen](./backup-client-automation-classic.md#create-a-backup-vault). U wordt echter geadviseerd om voor alle implementaties Recovery Services-kluizen te maken, aangezien toekomstige verbeteringen alleen van toepassing zullen zijn op Recovery Services-kluizen.
+> Vanaf maart 2017 is het niet meer mogelijk om de klassieke portal te gebruiken voor het maken van back-upkluizen.
+> U kunt uw back-upkluizen nu upgraden naar Recovery Services-kluizen. Zie voor meer informatie het artikel [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md) (Een back-upkluis upgraden naar een Recovery Services-kluis). Microsoft adviseert om uw back-upkluizen te upgraden naar Recovery Services-kluizen.<br/> **Vanaf 1 november 2017**:
+>- Alle resterende back-upkluizen worden automatisch omgezet in Recovery Services-kluizen.
+>- Het is niet mogelijk om via de klassieke portal toegang te krijgen tot uw back-upgegevens. In plaats daarvan gebruikt u Azure Portal voor toegang tot uw back-upgegevens in Recovery Services-kluizen.
+>
 
+<a id="discover-and-register-azure-virtual-machines" class="xliff"></a>
 
-
-## <a name="discover-and-register-azure-virtual-machines"></a>Virtuele machines van Azure detecteren en registreren
+## Virtuele machines van Azure detecteren en registreren
 Voordat u de VM met een kluis registreert, moet u het detectieproces uitvoeren om nieuwe VM's weer te geven. Er wordt een lijst met virtuele machines in het abonnement weergegeven, samen met aanvullende informatie zoals de naam van de cloudservice en de regio.
 
 1. Meld u aan bij de [klassieke Azure Portal](http://manage.windowsazure.com/)
@@ -98,12 +107,16 @@ Voordat u de VM met een kluis registreert, moet u het detectieproces uitvoeren o
 
     ![Registratie van status 2](./media/backup-azure-vms/register-status02.png)
 
-## <a name="install-the-vm-agent-on-the-virtual-machine"></a>De VM-agent op de virtuele machine installeren
+<a id="install-the-vm-agent-on-the-virtual-machine" class="xliff"></a>
+
+## De VM-agent op de virtuele machine installeren
 De Azure VM-agent moet worden geïnstalleerd op de virtuele Azure-machine om de Backup-extensie te kunnen gebruiken. Als uw VM is gemaakt vanuit de Azure-galerie, is de VM-agent al aanwezig op de VM. U kunt verder gaan met [Uw VM's beschermen](backup-azure-vms-first-look.md#create-the-backup-policy).
 
 Als uw VM is gemigreerd van een on-premises datacenter, is de VM-agent waarschijnlijk niet op de VM geïnstalleerd. U moet de VM-agent op de virtuele machine installeren voordat u doorgaat met het beveiligen van de VM. Zie de [sectie VM-agent van het artikel Back-ups van VM's maken](backup-azure-vms-prepare.md#vm-agent) voor gedetailleerde stappen voor het installeren van de VM-agent.
 
-## <a name="create-the-backup-policy"></a>Het back-upbeleid maken
+<a id="create-the-backup-policy" class="xliff"></a>
+
+## Het back-upbeleid maken
 Voordat u de eerste back-uptaak activeert, stelt u een schema in voor het maken van momentopnamen van de back-up. Het schema voor het maken van momentopnamen en de duur dat deze momentopnamen worden bewaard, vormen samen het back-upbeleid. De informatie over deze bewaarperiode is gebaseerd op het zogenaamde grootvader-vader-zoon-rotatieschema.
 
 1. Navigeer naar de back-upkluis in **Recovery Services** in de klassieke Azure Portal en klik op **Geregistreerde items**.
@@ -140,7 +153,9 @@ Voordat u de eerste back-uptaak activeert, stelt u een schema in voor het maken 
 
     Nu dat u het beleid hebt ingesteld, gaat u naar de volgende stap en voert u de eerste back-up uit.
 
-## <a name="initial-backup"></a>Eerste back-up
+<a id="initial-backup" class="xliff"></a>
+
+## Eerste back-up
 Als een virtuele machine is beveiligd met een beleid, kunt u deze relatie bekijken op het tabblad **Beveiligde items**. Totdat de eerste back-up wordt uitgevoerd, staat de **beveiligingsstatus** op **Beveiligd - (eerste back-up in behandeling)**. Standaard is de eerste geplande back-up de *eerste back-up*.
 
 ![Back-up in behandeling](./media/backup-azure-vms-first-look/protection-pending-border.png)
@@ -164,13 +179,17 @@ Als u de eerste back-up nu wilt starten, doet u het volgende:
    >
    >
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 Nu u een back-up hebt gemaakt van een VM, zijn er verschillende volgende stappen die van belang kunnen zijn. De meeste logische stap is om uzelf vertrouwd te maken met het herstellen van gegevens op een VM. Er zijn ook beheertaken waarmee u leert hoe u uw gegevens veilig kunt houden en de kosten kunt minimaliseren.
 
 * [Uw virtuele machines beheren en controleren](backup-azure-manage-vms.md)
 * [Virtuele machines herstellen](backup-azure-restore-vms.md)
 * [Hulp bij het oplossen van problemen](backup-azure-vms-troubleshoot.md)
 
-## <a name="questions"></a>Vragen?
+<a id="questions" class="xliff"></a>
+
+## Vragen?
 Als u vragen hebt of als er een functie is die u graag opgenomen zag worden, [stuurt u ons feedback](http://aka.ms/azurebackup_feedback).
 

@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c7062721017176b4caacbd48a513c2610058b835
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: d3908e2984889656a70b5295eab19164ad3bfa95
+ms.contentlocale: nl-nl
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Zelfstudie: uw eerste Azure-gegevensfactory bouwen met Azure PowerShell
+<a id="tutorial-build-your-first-azure-data-factory-using-azure-powershell" class="xliff"></a>
+
+# Zelfstudie: uw eerste Azure-gegevensfactory bouwen met Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Overzicht en vereisten](data-factory-build-your-first-pipeline.md)
 > * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
@@ -34,17 +37,23 @@ ms.lasthandoff: 04/27/2017
 
 In dit artikel gebruikt u Azure PowerShell voor het maken van uw eerste Azure-gegevensfactory. Als u de zelfstudie wilt volgen met andere hulpprogramma's/SDK's, selecteert u een van de opties uit de vervolgkeuzelijst.
 
+De pijplijn in deze zelfstudie heeft één activiteit: **HDInsight-componentactiviteit**. Deze activiteit voert een Hive-script uit op een Azure HDInsight-cluster dat invoergegevens transformeert om uitvoergegevens te produceren. De pijplijn is gepland on één keer per maand tussen de opgegeven begin- en eindtijd te worden uitgevoerd. 
+
 > [!NOTE]
 > Met de gegevenspijplijn in deze zelfstudie worden invoergegevens getransformeerd in uitvoergegevens. Er worden bijvoorbeeld geen gegevens gekopieerd van een brongegevensarchief naar een doelgegevensarchief. Zie [Zelfstudie: gegevens kopiëren van Blob Storage naar SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor informatie over het kopiëren van gegevens met Azure Data Factory.
 > 
-> U kunt twee activiteiten koppelen (de ene activiteit na de andere laten uitvoeren) door de uitvoergegevensset van één activiteit in te stellen als invoergegevensset voor een andere activiteit. Zie [Planning en uitvoering in Data Factory](data-factory-scheduling-and-execution.md) voor gedetailleerde informatie. 
+> Een pijplijn kan meer dan één activiteit hebben. Ook kunt u twee activiteiten koppelen (de ene activiteit na de andere laten uitvoeren) door de uitvoergegevensset van één activiteit in te stellen als invoergegevensset voor een andere activiteit. Zie [Planning en uitvoering in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) voor meer informatie.
 
-## <a name="prerequisites"></a>Vereisten
+<a id="prerequisites" class="xliff"></a>
+
+## Vereisten
 * Lees het artikel [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) en voer de **vereiste** stappen uit.
 * Volg de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/overview) om de meest recente versie van Azure PowerShell te installeren op uw computer.
 * (optioneel) Dit artikel omvat niet alle Data Factory-cmdlets. Zie [Naslaginformatie voor Data Factory-cmdlets](/powershell/module/azurerm.datafactories) (Data Factory Cmdlet Reference) voor uitgebreide documentatie over Data Factory-cmdlets.
 
-## <a name="create-data-factory"></a>Een gegevensfactory maken
+<a id="create-data-factory" class="xliff"></a>
+
+## Een gegevensfactory maken
 In deze stap gebruikt u Azure PowerShell om een Azure-gegevensfactory met de naam **FirstDataFactoryPSH** te maken. Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één of meer activiteiten bevatten. Bijvoorbeeld een kopieeractiviteit om gegevens van een bron- naar een doelgegevensopslagplaats te kopiëren en een HDInsight Hive-activiteit om een Hive-script uit te voeren voor het transformeren van invoergegevens. U begint in deze stap met het maken van de gegevensfactory.
 
 1. Open Azure PowerShell en voer de volgende opdracht uit. Houd Azure PowerShell open tot het einde van deze zelfstudie. Als u het programma sluit en opnieuw opent, moet u deze opdrachten opnieuw uitvoeren.
@@ -54,7 +63,7 @@ In deze stap gebruikt u Azure PowerShell om een Azure-gegevensfactory met de naa
     ```    
    * Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven.
     ```PowerShell
-    Get-AzureRmSubscription    
+    Get-AzureRmSubscription 
     ```
    * Voer de volgende opdracht uit om het abonnement te selecteren waarmee u wilt werken. Dit moet hetzelfde abonnement zijn als het abonnement dat u in de Azure Portal gebruikt.
     ```PowerShell
@@ -92,10 +101,14 @@ Houd rekening met de volgende punten:
 
 Voordat u een pijplijn maakt, moet u eerst enkele Data Factory-entiteiten maken. U maakt eerst gekoppelde services om gegevensopslag/berekeningen te koppelen aan uw gegevensopslag, vervolgens definieert u welke invoer- en uitvoergegevenssets de invoer- en uitvoergegevens in de gekoppelde gegevensopslag vertegenwoordigen en daarna maakt u de pijplijn met een activiteit waarvoor gebruik wordt gemaakt van die gegevenssets.
 
-## <a name="create-linked-services"></a>Gekoppelde services maken
-In deze stap koppelt u uw Azure Storage-account en een on-demand Azure HDInsight-cluster aan uw gegevensfactory. Het Azure Storage-account bevat de in- en uitvoergegevens van de pijplijn in dit voorbeeld. De gekoppelde HDInsight-service wordt gebruikt om het Hive-script uit te voeren dat is opgegeven in de activiteit van de pijplijn in dit voorbeeld. Geef aan welk(e) gegevensarchief/rekenservices er in uw scenario worden gebruikt. Koppel die services aan de gegevensfactory door gekoppelde services te maken.
+<a id="create-linked-services" class="xliff"></a>
 
-### <a name="create-azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service maken
+## Gekoppelde services maken
+In deze stap koppelt u uw Azure Storage-account en een on-demand Azure HDInsight-cluster aan uw gegevensfactory. Het Azure Storage-account bevat de in- en uitvoergegevens van de pijplijn in dit voorbeeld. De gekoppelde HDInsight-service wordt gebruikt om een Hive-script uit te voeren dat is opgegeven in de activiteit van de pijplijn in dit voorbeeld. Geef aan welk(e) gegevensarchief/rekenservices er in uw scenario worden gebruikt. Koppel die services aan de gegevensfactory door gekoppelde services te maken.
+
+<a id="create-azure-storage-linked-service" class="xliff"></a>
+
+### Een gekoppelde Azure Storage-service maken
 In deze stap koppelt u uw Azure Storage-account aan uw gegevensfactory. U gebruikt hetzelfde Azure Storage-account om invoer- en uitvoergegevens en het HQL-scriptbestand op te slaan.
 
 1. Maak een JSON-bestand met de naam StorageLinkedService.json in de map C:\ADFGetStarted. Geef dit bestand de volgende inhoud. Maak de map ADFGetStarted als deze nog niet bestaat.
@@ -131,7 +144,9 @@ In deze stap koppelt u uw Azure Storage-account aan uw gegevensfactory. U gebrui
     ```
     Als u Azure PowerShell gedurende deze zelfstudie sluit, moet u de volgende keer dat u Azure PowerShell opent, de cmdlet **Get-AzureRmDataFactory** uitvoeren om de zelfstudie te voltooien.
 
-### <a name="create-azure-hdinsight-linked-service"></a>Een gekoppelde HDInsight-service maken
+<a id="create-azure-hdinsight-linked-service" class="xliff"></a>
+
+### Een gekoppelde HDInsight-service maken
 In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. Het HDInsight-cluster wordt automatisch gemaakt tijdens runtime en wordt verwijderd wanneer het verwerken is voltooid en het cluster gedurende een opgegeven tijdsperiode niet actief is geweest. U kunt uw eigen HDInsight-cluster gebruiken in plaats van een on-demand HDInsight-cluster. Zie [Gekoppelde services berekenen](data-factory-compute-linked-services.md) voor meer informatie.
 
 1. Maak een JSON-bestand met de naam **HDInsightOnDemandLinkedService**.json in de map **C:\ADFGetStarted**. Geef dit bestand de volgende inhoud.
@@ -142,7 +157,6 @@ In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. H
       "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-          "version": "3.2",
           "clusterSize": 1,
           "timeToLive": "00:30:00",
           "linkedServiceName": "StorageLinkedService"
@@ -154,7 +168,6 @@ In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. H
 
    | Eigenschap | Beschrijving |
    |:--- |:--- |
-   | Version |Geeft aan dat de versie van het gemaakte HDInsight-cluster 3.2 zal zijn. |
    | ClusterSize |Geeft de grootte van het HDInsight-cluster aan. |
    | TimeToLive |Geeft aan hoelang het HDInsight-cluster inactief moet zijn voordat het wordt verwijderd. |
    | linkedServiceName |Geeft het opslagaccount aan dat wordt gebruikt voor het opslaan van de logboeken die door HDInsight worden gegenereerd |
@@ -174,10 +187,14 @@ In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. H
     New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
     ```
 
-## <a name="create-datasets"></a>Gegevenssets maken
+<a id="create-datasets" class="xliff"></a>
+
+## Gegevenssets maken
 In deze stap maakt u gegevenssets die de invoer- en uitvoergegevens voor Hive-verwerking vertegenwoordigen. Deze gegevenssets verwijzen naar de **StorageLinkedService** die u eerder in deze zelfstudie hebt gemaakt. De gekoppelde service verwijst naar een Azure-opslagaccount en in de gegevenssets vindt u de container, map en bestandsnaam in de opslag van de invoer- en uitvoergegevens.
 
-### <a name="create-input-dataset"></a>Invoergegevensset maken
+<a id="create-input-dataset" class="xliff"></a>
+
+### Invoergegevensset maken
 1. Maak een JSON-bestand met de naam **InputTable.json** in de map **C:\ADFGetStarted**. Geef dit bestand de volgende inhoud:
 
     ```json
@@ -222,7 +239,9 @@ In deze stap maakt u gegevenssets die de invoer- en uitvoergegevens voor Hive-ve
     New-AzureRmDataFactoryDataset $df -File .\InputTable.json
     ```
 
-### <a name="create-output-dataset"></a>Uitvoergegevensset maken
+<a id="create-output-dataset" class="xliff"></a>
+
+### Uitvoergegevensset maken
 U maakt nu de uitvoergegevensset die staat voor de uitvoergegevens die worden opgeslagen in de Azure-blobopslag.
 
 1. Maak een JSON-bestand met de naam **OutputTable.json** in de map **C:\ADFGetStarted**. Geef dit bestand de volgende inhoud:
@@ -254,7 +273,9 @@ U maakt nu de uitvoergegevensset die staat voor de uitvoergegevens die worden op
     New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
     ```
 
-## <a name="create-pipeline"></a>Pijplijn maken
+<a id="create-pipeline" class="xliff"></a>
+
+## Pijplijn maken
 In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit. Het invoersegment wordt elke maand beschikbaar gesteld (frequentie: Maand, interval: 1), evenals het uitvoersegment. Ook de plannereigenschap van de activiteit wordt op maandelijks ingesteld. De instellingen voor de uitvoergegevensset en de activiteitenplanner moeten overeenkomen. Op dit moment wordt de planning gebaseerd op de uitvoergegevensset. Daarom moet u ook een uitvoergegevensset maken als er tijdens de activiteit geen uitvoer wordt geproduceerd. Als er voor de activiteit geen invoer nodig is, kunt u het maken van de invoergegevensset overslaan. De eigenschappen die in de volgende JSON worden gebruikt, worden aan het einde van dit gedeelte beschreven.
 
 1. Maak een JSON-bestand met de naam MyFirstPipelinePSH.json in de map C:\ADFGetStarted. Geef dit bestand de volgende inhoud:
@@ -328,7 +349,9 @@ In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit. He
     ```
 3. U hebt uw eerste pijplijn gemaakt met Azure PowerShell!
 
-## <a name="monitor-pipeline"></a>De pijplijn bewaken
+<a id="monitor-pipeline" class="xliff"></a>
+
+## De pijplijn bewaken
 In deze stap gebruikt u Azure PowerShell om te bewaken wat er gebeurt in een Azure-gegevensfactory.
 
 1. Voer **Get-AzureRmDataFactory** uit en wijs de uitvoer toe aan een **$df**-variabele.
@@ -341,7 +364,7 @@ In deze stap gebruikt u Azure PowerShell om te bewaken wat er gebeurt in een Azu
     ```PowerShell
     Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
     ```
-    De StartDateTime die u hier opgeeft, is dezelfde begintijd die u hebt opgegeven in de JSON van de pijplijn. De uitvoer ziet er als volgt uit.
+    De StartDateTime die u hier opgeeft, is dezelfde begintijd die u hebt opgegeven in de JSON van de pijplijn. Hier volgt een voorbeeld van uitvoer:
 
     ```PowerShell
     ResourceGroupName : ADFTutorialResourceGroup
@@ -361,7 +384,7 @@ In deze stap gebruikt u Azure PowerShell om te bewaken wat er gebeurt in een Azu
     Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
     ```
 
-    De uitvoer ziet er als volgt uit.
+    Hier volgt een voorbeeld van uitvoer: 
 
     ```PowerShell
     Id                  : 0f6334f2-d56c-4d48-b427-d4f0fb4ef883_635268096000000000_635292288000000000_AzureBlobOutput
@@ -393,7 +416,9 @@ In deze stap gebruikt u Azure PowerShell om te bewaken wat er gebeurt in een Azu
 >
 >
 
-## <a name="summary"></a>Samenvatting
+<a id="summary" class="xliff"></a>
+
+## Samenvatting
 In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt voor het verwerken van gegevens. Dit hebt u gedaan door Hive-script uit te voeren op een HDInsight Hadoop-cluster. U hebt in de Azure Portal de Data Factory-editor gebruikt om de volgende stappen uit te voeren:
 
 1. U hebt een Azure-**gegevensfactory** gemaakt.
@@ -403,10 +428,14 @@ In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt voor het verwerken v
 3. U hebt twee **gegevenssets** gemaakt, waarin de invoer- en uitvoergegevens van de HDInsight Hive-activiteit in de pijplijn worden beschreven.
 4. U hebt een **pijplijn** gemaakt met een **HDInsight Hive**-activiteit.
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDInsight-activiteit) waarvoor een Hive-script wordt uitgevoerd op een on-demand Azure HDInsight-cluster. Zie [Zelfstudie: gegevens van een Azure-blob kopiëren naar Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor meer informatie over het gebruiken van een kopieeractiviteit om gegevens van een Azure-blob te kopiëren naar Azure SQL.
 
-## <a name="see-also"></a>Zie ook
+<a id="see-also" class="xliff"></a>
+
+## Zie ook
 | Onderwerp | Beschrijving |
 |:--- |:--- |
 | [Data Factory-cmdlet-verwijzing](/powershell/module/azurerm.datafactories) |Zie de uitgebreide documentatie over Data Factory-cmdlets |
