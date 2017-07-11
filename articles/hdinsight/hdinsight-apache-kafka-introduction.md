@@ -1,6 +1,6 @@
 ---
-title: Inleiding tot Apache Kafka in HDInsight | Microsoft Docs
-description: Meer informatie over Apache Kafka in HDInsight. Wat het is, wat het doet en waar u voorbeelden en gegevens kunt vinden om aan de slag te gaan.
+title: Inleiding tot Apache Kafka in HDInsight - Azure | Microsoft Docs
+description: 'Meer informatie over Apache Kafka in HDInsight: wat het is, wat het doet en waar u voorbeelden en gegevens kunt vinden om aan de slag te gaan.'
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,20 +13,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 06/15/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: ca48abcdc9f9d05648a4b03bdb5fec7b4a5b7cce
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: f6a49be148ded1a90a642b83d3d70a83e572f4e4
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/17/2017
 
 ---
-# <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Inleiding tot Apache Kafka in HDInsight (preview)
+<a id="introducing-apache-kafka-on-hdinsight-preview" class="xliff"></a>
+
+# Inleiding tot Apache Kafka in HDInsight (preview)
 
 [Apache Kafka](https://kafka.apache.org) is een open-source gedistribueerd streamingplatform dat kan worden gebruikt voor het bouwen van pijplijnen en toepassingen voor realtime streaming van gegevens. Kafka biedt ook berichtenbrokerfunctionaliteit vergelijkbaar met een berichtenwachtrij, waarmee u benoemde gegevensstromen kunt publiceren en zich erop kunt abonneren. Kafka in HDInsight biedt u een beheerde, zeer schaalbare en maximaal beschikbare service in Microsoft Azure Cloud.
 
-## <a name="why-use-kafka-on-hdinsight"></a>Waarom Kafka op HDInsight gebruiken?
+<a id="why-use-kafka-on-hdinsight" class="xliff"></a>
+
+## Waarom Kafka op HDInsight gebruiken?
 
 Kafka biedt de volgende functies:
 
@@ -40,7 +44,15 @@ Kafka biedt de volgende functies:
 
 * Fouttolerantie: partities kunnen worden gerepliceerd tussen knooppunten voor fouttolerantie.
 
-## <a name="use-cases"></a>Gebruiksvoorbeelden
+* Integratie met Azure Managed Disks: beheerde schijven bieden een hogere schaal en doorvoer voor de schijven die worden gebruikt met de virtuele machines in het HDInsight-cluster.
+
+    Beheerde schijven zijn standaard ingeschakeld voor Kafka in HDInsight. Het aantal schijven dat per knooppunt wordt gebruikt, kan worden geconfigureerd tijdens het maken in HDInsight. Zie [Azure Managed Disks](../storage/storage-managed-disks-overview.md) voor meer informatie over beheerde schijven.
+
+    Zie [Increase scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md) (Schaalbaarheid verhogen van Kafka in HDInsight) voor informatie over het configureren van beheerde schijven met Kafka in HDInsight.
+
+<a id="use-cases" class="xliff"></a>
+
+## Gebruiksvoorbeelden
 
 * **Berichten**: omdat het publicatie-/abonnementspatroon voor berichten wordt ondersteund, wordt Kafka vaak gebruikt als berichtenbroker.
 
@@ -50,7 +62,9 @@ Kafka biedt de volgende functies:
 
 * **Transformatie**: met streamverwerking kunt u de gegevens uit meerdere invoeronderwerpen combineren en vertalen naar één of meer uitvoeronderwerpen.
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 
 Gebruik de volgende koppelingen voor meer informatie over het gebruik van Apache Kafka in HDInsight:
 

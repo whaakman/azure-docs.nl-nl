@@ -12,17 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 03/09/2017
+ms.date: 06/14/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 9fd40892c77630bd4f0b7abf5c3458a6dc200402
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 74a0837b7149236faa45ef2cda0a0aee7c46a31b
 ms.contentlocale: nl-nl
-ms.lasthandoff: 03/10/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
-# <a name="what-is-azure-relay"></a>Wat is Azure Relay?
+<a id="what-is-azure-relay" class="xliff"></a>
+
+# Wat is Azure Relay?
+
 De Azure Relay-service maakt het uitvoeren van hybride toepassingen mogelijk doordat u services die zich in een bedrijfsnetwerk bevinden, veilig kunt blootstellen aan de openbare cloud zonder dat u een firewallverbinding hoeft te openen en zonder dat wijzigingen in de infrastructuur van een bedrijfsnetwerk zijn vereist. Met Relay wordt een groot aantal verschillende transportprotocollen en webservicestandaarden ondersteund.
 
 De Relay-service biedt ondersteuning voor traditioneel verkeer in één richting, aanvraag-/antwoordverkeer en peer-to-peerverkeer. De service ondersteunt tevens gebeurtenisdistributie via internet voor scenario's voor publiceren/abonneren en bidirectionele socket-communicatie voor verbeterde point-to-point-efficiëntie. 
@@ -34,7 +37,7 @@ De belangrijkste mogelijkheden met Relay zijn bidirectionele, uit de buffer geha
 Azure Relay heeft twee functies:
 
 1. [Hybride verbindingen](#hybrid-connections): maakt gebruik van websockets op basis van open standaarden, waardoor scenario's met meerdere platforms worden ingeschakeld.
-2. [WCF-relays](#wcf-relays): maakt gebruik van WCF (Windows Communication Foundation) om externe procedureaanroepen in te schakelen. WCF-relay is de oude Relay-aanbieding die veel klanten mogelijk al gebruiken met hun WCF-programmeringsmodellen.
+2. [WCF-relays](#wcf-relays): maakt gebruik van WCF (Windows Communication Foundation) om externe procedureaanroepen in te schakelen. WCF-relay is de oude relay-aanbieding die veel klanten mogelijk al gebruiken met hun WCF-programmeringsmodellen.
 
 Zowel met Hybride verbindingen als met WCF-relays wordt een beveiligde verbinding ingeschakeld naar activa die bestaan binnen een bedrijfsnetwerk. Of u de ene of de andere methode gebruikt is afhankelijk van uw specifieke behoeften, zoals wordt beschreven in de volgende tabel:
 
@@ -47,16 +50,28 @@ Zowel met Hybride verbindingen als met WCF-relays wordt een beveiligde verbindin
 | **Open protocol op basis van standaarden** | |x |
 | **Meerdere RPC-programmeringsmodellen** | |x |
 
-## <a name="hybrid-connections"></a>Hybride verbindingen
+<a id="hybrid-connections" class="xliff"></a>
+
+## Hybride verbindingen
+
 De functie [Hybride verbindingen van Azure Relay](relay-hybrid-connections-protocol.md) is een veilige open-protocolversie van de bestaande Relay-functies en kan op elk platform en in elke taal worden geïmplementeerd. De enige vereiste hiervoor zijn de standaardmogelijkheden van WebSocket, die expliciet de WebSocket-API omvat in veelgebruikte webbrowsers. Hybride verbindingen zijn gebaseerd op HTTP en WebSockets.
 
-## <a name="wcf-relays"></a>WCF-relays
+<a id="wcf-relays" class="xliff"></a>
+
+## WCF-relays
+
 De WCF-Relay werkt voor het volledige .NET Framework (NETFX) en voor WCF. U start de verbinding tussen uw on-premises service en de Relay-service met een reeks WCF-relaybindingen. Achter de schermen worden de Relay-bindingen toegewezen aan nieuwe transportbindingselementen die zijn ontworpen om WCF-kanaalonderdelen te maken die kunnen worden geïntegreerd met de Service Bus in de cloud.
 
-## <a name="service-history"></a>Servicegeschiedenis
-De functie Hybride verbindingen vervangt de vorige functie, genaamd BizTalk Services, die is gebouwd op de Azure Service Bus WCF-relay. De mogelijkheden van de nieuwe hybride verbindingen zijn een aanvulling op de bestaande WCF-relay. De mogelijkheden van deze twee services bestaan voorlopig naast elkaar in de Relay-service. De twee services delen een gateway, maar zijn verder afzonderlijke implementaties.
+<a id="service-history" class="xliff"></a>
 
-## <a name="next-steps"></a>Volgende stappen:
+## Servicegeschiedenis
+
+De functie Hybride verbindingen vervangt de vorige functie, genaamd BizTalk Services, die is gebouwd op de Azure Service Bus WCF-relay. De mogelijkheden van de nieuwe hybride verbindingen zijn een aanvulling op de bestaande WCF-relay. De mogelijkheden van deze twee services bestaan voorlopig naast elkaar in de Azure Relay-service. De twee services delen een gateway, maar zijn verder afzonderlijke implementaties.
+
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen:
+
 * [Veelgestelde vragen over Relay](relay-faq.md)
 * [Een naamruimte maken](relay-create-namespace-portal.md)
 * [Aan de slag met .NET](relay-hybrid-connections-dotnet-get-started.md)

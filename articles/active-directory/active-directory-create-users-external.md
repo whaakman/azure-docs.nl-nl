@@ -12,25 +12,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/14/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 7b506668b3025774edec25b6a37b83a47d702cb0
-ms.openlocfilehash: b2eaddc631087d8b7b94e40f508bdd5da5229736
-ms.lasthandoff: 01/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 661470454775d43ce88410a6c995bbcc5e06264c
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Add users from other directories or partner companies in Azure Active Directory (Engelstalig)
+<a id="add-users-from-other-directories-or-partner-companies-in-azure-active-directory" class="xliff"></a>
+
+# Add users from other directories or partner companies in Azure Active Directory (Engelstalig)
 > [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-users-create-external-azure-portal.md)
+> * [Azure Portal](active-directory-users-create-external-azure-portal.md )
 > * [Klassieke Azure Portal](active-directory-create-users-external.md)
 >
 >
 
 In dit artikel wordt uitgelegd hoe u gebruikers kunt toevoegen van andere directory's in Azure Active Directory of gebruikers van partnerbedrijven. Zie [Add new users to Azure Active Directory](active-directory-create-users.md) (Engelstalig) voor meer informatie over het toevoegen van nieuwe gebruikers in uw organisatie en het toevoegen van gebruikers die Microsoft-accounts hebben. Toegevoegde gebruikers hebben standaard geen gebruikersrechten, maar u kunt op elk gewenst moment rollen aan ze toewijzen.
 
-## <a name="add-a-user"></a>Een gebruiker toevoegen
+<a id="add-a-user" class="xliff"></a>
+
+## Een gebruiker toevoegen
 1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com) met een account met globale beheerdersrechten voor de directory.
 2. Selecteer **Active Directory** en open vervolgens uw directory.
 3. Selecteer de tab **Gebruikers** en selecteer vervolgens in de opdrachtbalk **Gebruiker toevoegen**.
@@ -44,19 +49,22 @@ In dit artikel wordt uitgelegd hoe u gebruikers kunt toevoegen van andere direct
 > [!IMPORTANT]
 > Als uw organisatie meer dan één domein gebruikt, is het nuttig op de hoogte te zijn van de volgende problemen die zich kunnen voordoen bij het toevoegen van een gebruikersaccount:
 >
-> * Als u gebruikersaccounts met dezelfde UPN (user principal name) wilt toevoegen in meerdere domeinen, voegt u bijvoorbeeld **eerst** geoffgrisso@contoso.onmicrosoft.com, toe, **gevolgd door** geoffgrisso@contoso.com.
-> * Voeg geoffgrisso@contoso.com **niet** vóór geoffgrisso@contoso.onmicrosoft.com toe. De volgorde is belangrijk en het kan lastig zijn verkeerd ingevoerde adressen ongedaan te maken.
->
+> * Als u gebruikersaccounts met dezelfde UPN (user principal name) wilt toevoegen in meerdere domeinen, voegt u bijvoorbeeld **eerst** geoffgrisso@contoso.onmicrosoft.com toe, **gevolgd door** geoffgrisso@contoso.com.
+> * Voeg geoffgrisso@contoso.com **niet** vóór geoffgrisso@contoso.onmicrosoft.com toe.
 >
 
 Als u informatie wijzigt voor een gebruiker wiens identiteit is gesynchroniseerd met uw on-premises Active Directory-service, kunt u de gebruikersinformatie niet wijzigen in de klassieke Azure-portal. Gebruik uw beheerhulpprogramma's voor on-premises Active Directory om de gebruikersinformatie te wijzigen.
 
-## <a name="add-external-users"></a>Externe gebruikers toevoegen
+<a id="add-external-users" class="xliff"></a>
+
+## Externe gebruikers toevoegen
 U kunt ook gebruikers toevoegen van een andere Azure AD-directory waar u lid van bent, of van partnerbedrijven. Hiervoor uploadt u een CSV-bestand. Als u een externe gebruiker wilt toevoegen, selecteert u voor **Type gebruiker** de optie **Gebruiker in een andere Microsoft Azure AD-directory** of **Gebruikers in partnerbedrijven**.
 
 Gebruikers van beide typen zijn afkomstig van een andere directory en worden toegevoegd als **externe gebruikers**. Externe gebruikers kunnen samenwerken met andere gebruikers in een directory, zonder dat nieuwe accounts of referenties hoeven worden toegevoegd. Externe gebruikers melden zich aan met de gegevens van hun eigen directory, en die verificatie werkt ook voor andere directory's waaraan ze zijn toegevoegd.
 
-## <a name="external-user-management-and-limitations"></a>Beheer van externe gebruikers en beperkingen
+<a id="external-user-management-and-limitations" class="xliff"></a>
+
+## Beheer van externe gebruikers en beperkingen
 Wanneer u een gebruiker vanuit een andere directory toevoegt aan uw directory, wordt die gebruiker beschouwd als een externe gebruiker in uw directory. De weergavenaam en de gebruikersnaam worden gekopieerd vanuit hun oorspronkelijke directory en gebruikt voor extern gebruik in uw directory. Vanaf dat moment zijn de eigenschappen van het externe gebruikersaccount geheel onafhankelijk. Als de eigenschappen van de gebruiker worden gewijzigd in de oorspronkelijke directory, gelden die wijzigingen niet voor het externe gebruikersaccount in uw directory.
 
 De enige connectie tussen de twee accounts is dat de gebruiker altijd wordt geverifieerd met de oorspronkelijke directory of met een Microsoft-account. Daarom wordt er voor een externe gebruiker geen optie weergegeven voor het herstellen van het wachtwoord of voor het inschakelen van meervoudige verificatie. Op dit moment is het verificatiebeleid van de oorspronkelijke directory of het Microsoft-account het enige dat wordt geëvalueerd wanneer de gebruiker zich aanmeldt.
@@ -68,21 +76,17 @@ De enige connectie tussen de twee accounts is dat de gebruiker altijd wordt geve
 
 Als een gebruiker is verwijderd uit de oorspronkelijke directory of als hij of zij het Microsoft-account opzegt, bestaat de externe gebruiker nog steeds in uw directory. De gebruiker in uw directory heeft echter geen toegang meer tot resources, omdat hij of zij zich niet kan aanmelden met een oorspronkelijke directory of een Microsoft-account.
 
-### <a name="services-that-currently-support-access-by-azure-ad-external-users"></a>Services die momenteel toegang door externe gebruikers van Azure AD ondersteunen
+<a id="services-that-currently-support-access-by-azure-ad-external-users" class="xliff"></a>
+
+### Services die momenteel toegang door externe gebruikers van Azure AD ondersteunen
 * De **klassieke Azure-portal**: hier kan een externe gebruiker die beheerder is van meerdere directory's die directory's beheren.
 * **SharePoint Online**: als extern delen is ingeschakeld, heeft een externe gebruiker toegang tot geautoriseerde resources van SharePoint Online.
 * **Dynamics CRM**: externe gebruikers die via PowerShell over een licentie beschikken, hebben toegang tot geautoriseerde resources in Dynamics CRM.
 * **Dynamics AX**: externe gebruikers die via PowerShell over een licentie beschikken, hebben toegang tot geautoriseerde resources in Dynamics AX. De beperkingen voor [externe gebruikers van Azure AD](#known-limitations-of-azure-ad-external-users) zijn ook van toepassing op gebruikers in Dynamics AX.
 
-### <a name="known-limitations-of-azure-ad-external-users"></a>Bekende beperkingen voor externe gebruikers van Azure AD
-* Externe gebruikers die beheerders zijn, kunnen geen gebruikers van partnerbedrijven toevoegen aan directory's (B2B-samenwerking) buiten de oorspronkelijke directory
-* Externe gebruikers kunnen niet instemmen met multitenant-toepassingen in directory's buiten hun oorspronkelijke directory
-* PowerBI ondersteunt momenteel geen toegang voor externe gebruikers
-* De Office-portal biedt geen ondersteuning voor de licentieverlening van externe gebruikers
-* Wat betreft Azure AD PowerShell zijn externe gebruikers aangemeld via hun oorspronkelijke directory en kunnen ze geen directory's beheren waarin zij externe gebruikers zijn
-* Tijdens de configuratie van de Dynamics CRM Outlook-invoegtoepassing moeten externe gebruikers mogelijk handmatig de URL van de Dynamics CRM Online-tenant invoeren in plaats van 'CRM Online' te selecteren
+<a id="next-steps" class="xliff"></a>
 
-## <a name="whats-next"></a>Volgend onderwerp
+## Volgende stappen
 * [Nieuwe gebruikers toevoegen aan Azure Active Directory](active-directory-create-users.md)
 * [Azure AD beheren](active-directory-administer.md)
 * [Wachtwoorden beheren in Azure AD](active-directory-manage-passwords.md)

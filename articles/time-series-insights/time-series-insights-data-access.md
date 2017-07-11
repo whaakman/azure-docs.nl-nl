@@ -16,14 +16,16 @@ ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: omravi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 143d48b9fc551ade0d0fd043cdb0cf1f3340a9af
+ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
+ms.openlocfilehash: e975c6d8f217bc73948c0c046204b16b1a742bc7
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/20/2017
 
 ---
 
-# <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Gegevenstoegang verlenen tot een Time Series Insights-omgeving met Azure Portal
+<a id="grant-data-access-to-a-time-series-insights-environment-using-azure-portal" class="xliff"></a>
+
+# Gegevenstoegang verlenen tot een Time Series Insights-omgeving met Azure Portal
 
 Time Series Insights-omgevingen hebben twee onafhankelijke typen toegangsbeleid:
 
@@ -36,11 +38,13 @@ Beleid voor beheertoegang verleent machtigingen die betrekking hebben op de conf
 *    maken en verwijderen van de omgeving, gebeurtenisbronnen, referentiegegevenssets, en
 *    beheer van het beleid voor gegevenstoegang.
 
-Beleid voor gegevenstoegang verleent machtigingen voor het uitvoeren van gegevensquery's, evenals voor het bewerken van referentiegegevens in de omgeving, en van opgeslagen gedeelde query's en perspectieven die aan de omgeving zijn gekoppeld.
+Beleid voor gegevenstoegang verleent machtigingen voor het uitvoeren van gegevensquery's, het bewerken van referentiegegevens in de omgeving en het delen van opgeslagen query's en perspectieven die aan de omgeving zijn gekoppeld.
 
 De twee typen beleid maken een duidelijke scheiding mogelijk tussen toegang tot het beheer van de omgeving en toegang tot de gegevens in de omgeving. Het is bijvoorbeeld mogelijk om een omgeving zo in te stellen dat de eigenaar/maker van de omgeving geen toegang tot de gegevens heeft. Ook kan aan gebruikers en services die vanuit de omgeving gegevens kunnen lezen, geen toegang worden verleend tot de configuratie van de omgeving.
 
-## <a name="grant-data-access"></a>Gegevenstoegang verlenen
+<a id="grant-data-access" class="xliff"></a>
+
+## Gegevenstoegang verlenen
 De volgende stappen laten zien hoe gegevenstoegang wordt verleend aan een gebruiker-principal:
 
 1.    Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -70,7 +74,9 @@ De volgende stappen laten zien hoe gegevenstoegang wordt verleend aan een gebrui
 
   ![Beheren van de Time Series Insights-bron - resultaten](media/data-access/getstarted-grant-data-access5.png)
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 
 * [Een gebeurtenisbron maken](time-series-insights-add-event-source.md)
 * [Gebeurtenissen verzenden](time-series-insights-send-events.md) naar de gebeurtenisbron

@@ -1,17 +1,37 @@
-Wanneer u een virtuele netwerkgateway maakt, moet u de gewenste gateway-SKU opgeven. Wanneer u een hogere gateway-SKU selecteert, wordt meer CPU en bandbreedte van het netwerk toegewezen aan de gateway. Daardoor kan de gateway hogere netwerkdoorvoer aan het virtuele netwerk ondersteunen.
+Wanneer u een virtuele netwerkgateway maakt, moet u de gewenste gateway-SKU opgeven. Selecteer de SKU's die aan uw vereisten voldoen op basis van de typen werkbelasting, doorvoer, functies en SLA's.
 
-VPN Gateway kan de volgende SKU’s gebruiken:
+[!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
 
-* Basic
-* Standard
-* HighPerformance
+[!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
-VPN Gateway maakt geen gebruik van de gateway-SKU UltraPerformance. Meer informatie over de SKU UltraPerformance vindt u in het document [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
+###  <a name="workloads"></a>Productie *vs.* werkbelastingen voor ontwikkelen en testen
 
-Houd rekening met het volgende als u een SKU selecteert:
+Vanwege de verschillen in SLA's en functiesets, raden we de volgende SKU's aan voor productie *vs.* ontwikkelen en testen:
 
-* Als u een PolicyBased VPN-type gebruikt, moet u Basis-SKU gebruiken. PolicyBased VPN-verbindingen (voorheen statische routering) worden niet ondersteund op andere SKU's.
-* BGP wordt niet ondersteund op de basis-SKU.
-* ExpressRoute-VPN-Gateway-configuraties die naast elkaar bestaan, worden niet ondersteund in de basis-SKU.
-* Actief-actief S2S VPN-gatewayverbindingen kunnen alleen worden geconfigureerd op de HighPerformance SKU.
+| **Workload**                       | **SKU's**               |
+| ---                                | ---                    |
+| **Productie, kritieke werkbelastingen** | VpnGw1, VpnGw2, VpnGw3 |
+| **Ontwikkelen en testen of conceptontwerpen**   | Basic                  |
+|                                    |                        |
 
+Als u de oude SKU's gebruikt, zijn de aanbevelingen voor de productie-SKU Standard- en HighPerformance-SKU's. Zie [Gateway-SKU's (oud)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md) voor informatie over de oude SKU's.
+
+###  <a name="feature"></a>Gateway-SKU-functiesets
+
+De nieuwe gateway SKU's stroomlijnen de functiesets die worden aangeboden op de gateways:
+
+| **SKU**| **Functies**|
+| ---    | ---         |
+| VpnGw1<br>VpnGw2<br>VpnGw3|Op route gebaseerde VPN met maximaal 30 tunnels* <br>P2S, BGP, actief-actief, aangepast IPsec/IKE-beleid, ExpressRoute/VPN samen <br><br>* U kunt "PolicyBasedTrafficSelectors" configureren om een op route gebaseerde VPN-gateway (VpnGw1, VpnGw2, VpnGw3) te verbinden met meerdere on-premises, op beleid gebaseerde firewallapparaten. Raadpleeg [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) (VPN-gateways verbinden met meerdere on-premises,op beleid gebaseerde VPN-apparaten met behulp van PowerShell) voor meer informatie. |
+|Basic   | Op route gebaseerd: 10 tunnels met P2S<br>Op beleid gebaseerd (IKEv1): 1 tunnel; geen P2S|
+|        |             |
+
+###  <a name="resize"></a>Het formaat van gateway-SKU's wijzigen
+
+1. U kunt wisselen tussen VpnGw1-, VpnGw2- en VpnGw3-SKU's.
+2. Als u met de oude gateway-SKU's werkt, kunt u wisselen tussen Basic-, Standard- en HighPerformance-SKU's.
+2. U kunt**niet** wisselen van Basic-/Standard-/HighPerformance-SKU's naar de nieuwe VpnGw2-/VpnGw1-/VpnGw3-SKU's. U moet in plaats daarvan naar de nieuwe SKU's [migreren](#migrate).
+
+###  <a name="migrate"></a>Van oude SKU's naar nieuwe SKU's migreren
+
+[!INCLUDE [Migrate SKU](./vpn-gateway-migrate-legacy-sku-include.md)]

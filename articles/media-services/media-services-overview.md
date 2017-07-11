@@ -1,5 +1,5 @@
 ---
-title: Overzicht van Azure Media Services en algemene scenario&quot;s | Microsoft Docs
+title: Overzicht van Azure Media Services en algemene scenario's | Microsoft Docs
 description: Dit onderwerp bevat een overzicht van Azure Media Services
 services: media-services
 documentationcenter: 
@@ -12,16 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/05/2017
+ms.date: 06/29/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: f22b87fc5bdfe2db5de39adaafe9c71d8c32b26a
-ms.lasthandoff: 01/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 42baa7a6e80468e47dda1e652fc2bbd20e5a4ee6
+ms.contentlocale: nl-nl
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="azure-media-services-overview-and-common-scenarios"></a>Overzicht van Azure Media Services en algemene scenario's
+<a id="azure-media-services-overview-and-common-scenarios" class="xliff"></a>
+
+# Overzicht van Azure Media Services en algemene scenario's
 
 Microsoft Azure Media Services is een uitbreidbaar cloudplatform waarmee ontwikkelaars schaalbare toepassingen voor mediabeheer en -levering kunnen ontwikkelen. Media Services is gebaseerd op de REST API's waarmee u veilig video- of audio-inhoud kunt uploaden, opslaan, coderen en verpakken, zowel voor levering on demand als levering via livestreaming aan verschillende clients (bijvoorbeeld tv, pc en mobiele apparaten).
 
@@ -29,7 +32,9 @@ U kunt end-to-end-werkstromen volledig met Media Services bouwen. U kunt er ook 
 
 U kunt uw inhoud live streamen of on demand leveren. Dit onderwerp bevat algemene scenario's voor het leveren van uw inhoud: [live](media-services-overview.md#live_scenarios) of [on demand](media-services-overview.md#vod_scenarios). Het onderwerp bevat ook koppelingen naar andere relevante onderwerpen.
 
-## <a name="sdks-and-tools"></a>SDK's en hulpprogramma's
+<a id="sdks-and-tools" class="xliff"></a>
+
+## SDK's en hulpprogramma's
 
 Als u Media Services-oplossingen wilt maken, kunt u het volgende gebruiken:
 
@@ -51,14 +56,17 @@ Klik op de afbeelding om deze in volledig formaat weer te geven.
 
 U kunt [hier](https://media.windows.net/API/$metadata?api-version=2.15) het hele model bekijken.  
 
+<a id="media-services-learning-paths" class="xliff"></a>
 
-## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
+## Media Services-leertrajecten
 U kunt hier de AMS-leertrajecten bekijken:
 
 * [Werkstroom voor AMS Live Streaming](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 * [Werkstroom voor AMS On Demand Streaming](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-## <a name="prerequisites"></a>Vereisten
+<a id="prerequisites" class="xliff"></a>
+
+## Vereisten
 
 Als u Azure Media Services wilt gaan gebruiken, moet u over het volgende beschikken:
 
@@ -69,7 +77,9 @@ Als u Azure Media Services wilt gaan gebruiken, moet u over het volgende beschik
     U vindt ook meer informatie over [verbinding maken via een programma](media-services-dotnet-connect-programmatically.md).
 4. Een streaming-eindpunt (Standard of Premium) in de status Gestart.  Zie [Managing streaming endpoints](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-manage-streaming-endpoints) (Streaming-eindpunten beheren) voor meer informatie.
 
-## <a name="concepts-and-overview"></a>Concepten en overzicht
+<a id="concepts-and-overview" class="xliff"></a>
+
+## Concepten en overzicht
 Zie [Concepten](media-services-concepts.md) voor Azure Media Services-concepten.
 
 Zie [Stapsgewijze zelfstudies voor Azure Media Services](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series) voor een reeks procedures waarin u kennis kunt maken met de belangrijkste onderdelen van Azure Media Services. Deze reeks biedt een goed overzicht van de concepten en maakt gebruik van het AMSE-hulpprogramma om AMS-taken te demonstreren. Het AMSE-hulpprogramma is een Windows-hulpprogramma. Dit hulpprogramma ondersteunt de meeste taken die u programmatisch kunt uitvoeren met [AMS SDK voor .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK voor Java](https://github.com/Azure/azure-sdk-for-java) of [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
@@ -82,7 +92,9 @@ In deze sectie worden algemene scenario's beschreven en vindt u koppelingen naar
 >[!NOTE]
 >Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben.
 
-### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Inhoud in de opslag beveiligen en niet-versleutelde streamingmedia leveren
+<a id="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted" class="xliff"></a>
+
+### Inhoud in de opslag beveiligen en niet-versleutelde streamingmedia leveren
 1. Upload een tussentijds bestand van hoge kwaliteit naar een asset.
 
     Het is raadzaam de optie voor opslagversleuteling toe te passen op de uitvoerasset om de inhoud in de opslag te beveiligen.
@@ -95,7 +107,9 @@ In deze sectie worden algemene scenario's beschreven en vindt u koppelingen naar
 4. Publiceer de asset door een OnDemand-locator te maken.
 5. Stream de gepubliceerde inhoud.
 
-### <a name="protect-content-in-storage-deliver-dynamically-encrypted-streaming-media"></a>De inhoud in de opslag beveiligen, dynamisch versleutelde streamingmedia leveren
+<a id="protect-content-in-storage-deliver-dynamically-encrypted-streaming-media" class="xliff"></a>
+
+### De inhoud in de opslag beveiligen, dynamisch versleutelde streamingmedia leveren
 
 1. Upload een tussentijds bestand van hoge kwaliteit naar een asset. Pas de optie voor opslagversleuteling toe op de asset.
 2. Codeer de assets als een set Adaptive Bitrate MP4-bestanden. Pas de optie voor opslagversleuteling toe op de uitvoerasset.
@@ -105,7 +119,9 @@ In deze sectie worden algemene scenario's beschreven en vindt u koppelingen naar
 6. Publiceer de asset door een OnDemand-locator te maken.
 7. Stream de gepubliceerde inhoud.
 
-### <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>Media Analytics gebruiken om inzichten aan uw video's te ontlenen waarvoor een actie kan worden uitgevoerd
+<a id="use-media-analytics-to-derive-actionable-insights-from-your-videos" class="xliff"></a>
+
+### Media Analytics gebruiken om inzichten aan uw video's te ontlenen waarvoor een actie kan worden uitgevoerd
 Media Analytics is een verzameling spraakonderdelen en visuele onderdelen waarmee organisaties en bedrijven gemakkelijker inzichten aan hun video's kunnen ontlenen waarvoor een actie kan worden uitgevoerd. Zie [Overzicht van Azure Media Services Analytics](media-services-analytics-overview.md) voor meer informatie.
 
 1. Upload een tussentijds bestand van hoge kwaliteit naar een asset.
@@ -118,7 +134,9 @@ Media Analytics is een verzameling spraakonderdelen en visuele onderdelen waarme
    * **Samenvatting van de video**: [gebruik Azure Media Video Thumbnails om een samenvatting van een video te maken](media-services-video-summarization.md)
 3. Media Analytics-mediaprocessoren produceren MP4- of JSON-bestanden. Als een Mediaprocessor een MP4-bestand produceert, kunt u het bestand progressief downloaden. Als een mediaprocessor een JSON-bestand produceert, kunt u het bestand downloaden via Azure Blob Storage.
 
-### <a name="deliver-progressive-download"></a>Een progressieve download leveren
+<a id="deliver-progressive-download" class="xliff"></a>
+
+### Een progressieve download leveren
 1. Upload een tussentijds bestand van hoge kwaliteit naar een asset.
 2. Codeer het bestand naar één MP4-bestand.
 3. Publiceer de asset door een OnDemand- of SAS-locator te maken.
@@ -158,45 +176,78 @@ Een **kanaal** vertegenwoordigt een pijplijn voor de verwerking van inhoud voor 
 
 * Een on-premises live codering verzendt een stream met één bitsnelheid naar het kanaal dat is ingeschakeld voor het uitvoeren van de live codering met Media Services in een van de volgende indelingen: RTP (MPEG-TS), RTMP of Smooth Streaming (gefragmenteerde MP4). Het kanaal codeert de inkomende single-bitrate stream vervolgens live naar een (adaptieve) multi-bitrate videostream. Desgevraagd levert Media Services de stream aan klanten.
 
-### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Werken met kanalen die een multi-bitrate livestream van on-premises encoders ontvangen (pass-through)
+<a id="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through" class="xliff"></a>
+
+### Werken met kanalen die een multi-bitrate livestream van on-premises encoders ontvangen (pass-through)
 Het volgende diagram toont de belangrijkste onderdelen van het AMS-platform die betrokken zijn bij de **passthrough**-werkstroom.
 
 ![Live-werkstroom][live-overview2]
 
 Zie [Werken met kanalen die een multi-bitrate livestream van on-premises coderingsprogramma’s ontvangen](media-services-live-streaming-with-onprem-encoders.md) voor meer informatie.
 
-### <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Werken met kanalen waarmee Live Encoding kan worden uitgevoerd met Azure Media Services
+<a id="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services" class="xliff"></a>
+
+### Werken met kanalen waarmee Live Encoding kan worden uitgevoerd met Azure Media Services
 Het volgende diagram toont de belangrijke onderdelen van het AMS-platform die betrokken zijn bij de Live Streaming-werkstroom waarbij een kanaal live codering kan uitvoeren met Media Services.
 
 ![Live-werkstroom][live-overview1]
 
 Zie [Werken met kanalen waarmee Live Encoding kan worden uitgevoerd met Azure Media Services](media-services-manage-live-encoder-enabled-channels.md) voor meer informatie.
 
-## <a name="consuming-content"></a>Inhoud gebruiken
+<a id="supported-media-processors" class="xliff"></a>
+
+## Ondersteunde media-processors
+
+|Naam|Status|Datacenters
+|---|---|---|
+|Azure Media Face Detector|Preview|Alle|
+|Azure Media Hyperlapse|Preview|Alle|
+|Azure Media Indexer|Algemene beschikbaarheid|Alle|
+|Azure Media Motion Detector|Preview|Alle|
+|Azure Media OCR|Preview|Alle|
+|Azure Media Redactor|Preview|Alle|
+|Azure Media Stabilizer|Preview|Alle|
+|Azure Media Video Thumbnails|Preview|Alle|
+|Media Encoder Standard|Algemene beschikbaarheid|Alle|
+|Media Indexer v2|Preview|Overal behalve China en regio federale overheid|
+|Media Encoder Premium Workflow|Algemene beschikbaarheid|Overal behalve China|
+
+<a id="consuming-content" class="xliff"></a>
+
+## Inhoud gebruiken
 Azure Media Services biedt de hulpprogramma's die u nodig hebt om geavanceerde, dynamische clientspelertoepassingen te maken voor de meeste platforms, waaronder: iOS-apparaten, Android-apparaten, Windows, Windows Phone, Xbox en settopboxen. In dit onderwerp vindt u koppelingen naar SDK's en frameworks voor spelers die u kunt gebruiken om uw eigen clienttoepassingen te ontwikkelen die kunnen worden gebruikt voor streamingmedia van Media Services.
 
 [Videospelertoepassingen ontwikkelen](media-services-develop-video-players.md)
 
-## <a name="enabling-azure-cdn"></a>Azure CDN inschakelen
+<a id="enabling-azure-cdn" class="xliff"></a>
+
+## Azure CDN inschakelen
 Media Services ondersteunt de integratie met Azure CDN. Zie [Streaming-eindpunten in een Media Services-account beheren](media-services-portal-manage-streaming-endpoints.md) voor meer informatie over het inschakelen van Azure CDN.
 
-## <a name="scaling-a-media-services-account"></a>Een Media Services-account schalen
+<a id="scaling-a-media-services-account" class="xliff"></a>
+
+## Een Media Services-account schalen
 
 U kunt **Media Services** schalen door het aantal **gereserveerde streaming-eenheden** en **gereserveerde coderingseenheden** op te geven waarmee u uw account wilt inrichten.
 
 U kunt uw Media Services-account schalen door opslagaccounts toe te voegen. Elk opslagaccount is beperkt tot 500 TB. Als u uw opslag wilt uitbreiden buiten de standaardbeperkingen, kunt u meerdere opslagaccounts aan een enkel Media Services-account koppelen.
-Klanten van Media Services kiezen ofwel een **Standard**-streaming-eindpunt of een of meer Premium-**streaming**-eindpunten, afhankelijk van hun behoeften. Standard-streaming-eindpunten zijn geschikt voor de meeste streaming-workloads. Ze bevatten de dezelfde functies als Premium-streaming-eenheden.
-Standard-streaming-eindpunten zijn geschikt voor de meeste streaming-workloads. In de volgende gevallen kunt u beter schaaleenheden toewijzen: als u een geavanceerde workload hebt of als de capaciteitsvereisten voor streaming niet overeenkomen met de doorvoerdoelen van een Standard-streaming-eindpunt; of als u de capaciteit van de service StreamingEndpoint zo wilt kunnen regelen dat u de toenemende bandbreedtebehoeften kunt afhandelen door schaaleenheden (ook wel 'Premium-streaming-eenheden' genoemd) aan te passen.
+Klanten van Media Services kiezen ofwel een **Standard**-streaming-eindpunt of een of meer Premium-**streaming**-eindpunten, afhankelijk van hun behoeften. Standard-streaming-eindpunten zijn geschikt voor de meeste streaming-workloads. Ze bevatten de dezelfde functies als Premium-streaming-eenheden. In de volgende gevallen kunt u beter schaaleenheden toewijzen: als u een geavanceerde workload hebt of als de capaciteitsvereisten voor streaming niet overeenkomen met de doorvoerdoelen van een Standard-streaming-eindpunt; of als u de capaciteit van de service StreamingEndpoint zo wilt kunnen regelen dat u de toenemende bandbreedtebehoeften kunt afhandelen door schaaleenheden (ook wel 'Premium-streaming-eenheden' genoemd) aan te passen.
 
 [Dit](media-services-portal-scale-streaming-endpoints.md) onderwerp bevat koppelingen naar relevante onderwerpen.
 
-## <a name="support"></a>Ondersteuning
+<a id="support" class="xliff"></a>
+
+## Ondersteuning
 [Ondersteuning van Azure](https://azure.microsoft.com/support/options/) biedt ondersteuningsopties voor Azure, met inbegrip van Media Services.
 
-## <a name="provide-feedback"></a>Feedback geven
+<a id="provide-feedback" class="xliff"></a>
+
+## Feedback geven
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="service-level-agreement-sla"></a>Service Level Agreement (SLA)
+<a id="service-level-agreement-sla" class="xliff"></a>
+
+## Service Level Agreement (SLA)
 * Voor Media Services-codering wordt een beschikbaarheid van 99,9% voor REST API-transacties gegarandeerd.
 * Wanneer er een Standard- of Premium-streaming-eindpunt is gekocht, worden service-aanvragen voor streaming beantwoord met een beschikbaarheidsgarantie van 99,9% voor bestaande media-inhoud.
 * Voor livekanalen wordt gegarandeerd dat de actieve kanalen minimaal 99,9% van de tijd over een externe verbinding beschikken.

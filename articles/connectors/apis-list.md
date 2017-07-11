@@ -13,46 +13,52 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 06/21/2017
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e1e6ef74e7d14b94b2ed9d61c4d122bdb11786a6
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 1e2dad92647630c8b9a4e7676eee9288c87daf44
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="connectors-list"></a>Lijst van connectors
+<a id="connectors-list" class="xliff"></a>
+
+# Lijst van connectors
 > [!TIP]
-> De [volledige alfabetische lijst](#az) in dit onderwerp bevat alle beschikbare connectors die u in uw Logic Apps kunt gebruiken. [Swagger voor connectors](/connectors/) bevat de Swagger-gegevens voor elke connector.
+> De [volledige alfabetische lijst](#az) in dit onderwerp bevat alle beschikbare connectors die u in uw Logic Apps kunt gebruiken. [Connectorgegevens](/connectors/) geeft alle triggers en acties weer die in de swagger zijn gedefinieerd, plus eventuele beperkingen voor elke connector.
 
-Connectors zijn een integraal onderdeel van het maken van logische apps. Met behulp van deze connectors kunt u uw on-premises en cloudtoepassingen echt uitbreiden om verschillende acties uit te voeren voor gegevens die u maakt en gegevens die u al hebt. De connectors zijn beschikbaar in de volgende categorieën: 
+Connectors vormen een integraal onderdeel van het maken van logische apps. Met behulp van deze connectors kunt u uw on-premises en cloudtoepassingen echt uitbreiden om verschillende acties uit te voeren voor gegevens die u maakt en gegevens die u al hebt. De connectors zijn beschikbaar in de volgende categorieën: 
 
-* **Standaardconnectors**: automatisch beschikbaar en inbegrepen wanneer u logische apps gebruikt. Een aantal voorbeelden zijn Service Bus, DropBox, GoogleDrive, Power BI, Oracle Database en OneDrive.
+* **Standaardconnectors**: automatisch beschikbaar en inbegrepen wanneer u logische apps gebruikt. Een aantal voorbeelden zijn Service Bus, Power BI, Oracle Database en OneDrive.
 
 * **Integratieaccountconnectors**: beschikbaar wanneer u een integratieaccount aanschaft. Met behulp van deze connectors kunt u XML transformeren en valideren, business-to-business-berichten verwerken met AS2/X12/EDIFACT en platte bestanden coderen en decoderen. Als u met BizTalk Server werkt, zijn deze connectors zeer geschikt om uw BizTalk-werkstromen naar Azure uit te breiden.  
 
     BizTalk Server heeft ook een [Logic Apps-adapter](https://msdn.microsoft.com/library/mt787163.aspx) die ontvangt van en verzendt naar een logische app.
 
-* **Bedrijfsconnectors**: bevat MQ en SAP. Deze vormen extra kosten. 
+* **Bedrijfsconnectors**: bevat MQ en SAP. Beschikbaar tegen een meerprijs. 
 
 In [Logic Apps-prijzen](https://azure.microsoft.com/pricing/details/logic-apps/) en [Prijsmodel](../logic-apps/logic-apps-pricing.md) vindt u meer informatie over de kosten. 
 
-## <a name="popular-connectors"></a>Populaire connectors
+<a id="popular-connectors" class="xliff"></a>
+
+## Populaire connectors
 Er zijn duizenden toepassingen en miljoenen uitvoeringen die succesvol data en informatie verwerken met behulp van deze connectors. De volgende tabel bevat de meest populaire connectors en een aantal favorieten van onze gebruikers:
 
 | |  |  |  |
 | --- | --- | --- | --- |
 | [![API Icon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc] | U kunt deze connector gebruiken als u taken wilt automatiseren met uw opslagaccount. Ondersteunt CRUD-bewerkingen (maken, lezen, bijwerken en verwijderen). | [![API Icon][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | Hiermee kunt u functies maken die aangepaste fragmenten van C# of node.js uitvoeren en deze functies vervolgens gebruiken in uw logische apps.  |
-| [![API Icon][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | Dit is een van de meest populaire connectors. Deze bevat triggers en acties voor het automatiseren van werkstromen met leads en meer. | [![API Icon][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Hiermee kunt u gebeurtenissen gebruiken en publiceren op een Event Hub. U kunt bijvoorbeeld uitvoer van uw logische app ophalen met Event Hubs en dan verzenden naar een realtime analytics-provider. |
+| [![API Icon][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | Een van de populairste connectors. Deze bevat triggers en acties voor het automatiseren van werkstromen met leads en meer. | [![API Icon][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Hiermee kunt u gebeurtenissen gebruiken en publiceren op een Event Hub. U kunt bijvoorbeeld uitvoer van uw logische app ophalen met Event Hubs en de uitvoer vervolgens verzenden naar een realtime analytics-provider. |
 | [![API Icon][FTPicon]<br/>**FTP**][FTPdoc] | Als uw FTP-server via internet toegankelijk is, kunt u werkstromen automatiseren om met bestanden en mappen te werken. <br/><br/>SFTP is ook beschikbaar met de SFTP-connector. | [![API Icon][HTTPicon]<br/>**HTTP**][httpdoc] | Hiermee kunt u logische apps gebruiken om via HTTP te communiceren met een willekeurig eindpunt. |
 | [![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Hiermee krijgt u veel triggers en nog veel meer acties om Office 365-e-mail en -gebeurtenissen binnen uw werkstromen te gebruiken. <br/><br/>Deze connector bevat een actie voor een *goedkeurings-e-mails* om vakantieaanvragen, onkostennota's enzovoort goed te keuren. <br/><br/>Office 365-gebruikers zijn ook beschikbaar met de connector Office 365-gebruikers.| [![API Icon][HTTP-Requesticon]<br/>**Aanvraag/antwoord**][HTTP-Requestdoc] | Deze connector biedt een HTTPS-URL. Als de logische app een aanvraag voor deze URL ontvangt, wordt de logische app gestart. |
 | [![API Icon][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Hiermee kunt u zich eenvoudig aanmelden met uw Salesforce-account om toegang te krijgen tot objecten (zoals leads) en meer. |  [![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | De meest populaire connector binnen logische apps. Deze bevat triggers en acties voor asynchrone berichten en publiceren/abonneren met wachtrijen, abonnementen en onderwerpen. |
 |  [![API Icon][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | We raden deze connector aan als u met SharePoint werkt en automatisering handig voor u zou zijn. Kan worden gebruikt met een on-premises SharePoint en SharePoint Online. | [![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | Een van de meest gebruikte connectors. Deze kan verbinding maken met een on-premises SQL Server en Azure SQL Database. | 
 | [![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc] | Hiermee kunt u zich eenvoudig aanmelden met een Twitter-account en vervolgens een werkstroom starten wanneer er een nieuwe tweet wordt geplaatst. U kunt deze tweets vervolgens opslaan in een SQL Database of SharePoint-lijst. | | | 
 
-## <a name="integration-account-connectors"></a>Integratieaccountconnectoren 
+<a id="integration-account-connectors" class="xliff"></a>
+
+## Integratieaccountconnectoren 
 
 De Enterprise Integration Pack (EIP) bevat connectors die erg bekend zijn in de BizTalk Server-community. Wanneer u een [integratieaccount](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) aanschaft, krijgt u de volgende connectors: 
 
@@ -62,16 +68,20 @@ De Enterprise Integration Pack (EIP) bevat connectors die erg bekend zijn in de 
 [![API Icon][flatfileicon]<br/>**Codering</br> van plat bestand**][flatfiledoc] | [![API Icon][flatfiledecodeicon]<br/>**Decodering</br> van plat bestand**][flatfiledecodedoc] | [![API Icon][integrationaccounticon]<br/>**Integratie-<br/>account**][integrationaccountdoc] | [![API Icon][xmltransformicon]<br/>**XML<br/>transformeren**][xmltransformdoc] |
 | [![API Icon][x12icon]<br/>**X12</br>-decodering**][x12decode] | [![API Icon][x12icon]<br/>**X12</br>-codering**][x12encode] | [![API Icon][xmlvalidateicon]<br/>**XML<br/>-validatie**][xmlvalidatedoc] | |
 
-## <a name="enterprise-connectors"></a>Bedrijfsconnectoren
+<a id="enterprise-connectors" class="xliff"></a>
+
+## Bedrijfsconnectoren
 
 Hiermee maakt u verbinding met uw zakelijke toepassingen binnen uw logische apps.
 
 |  |  |
 | --- | --- |
-|![API-pictogram][MQicon]<br/>**MQ**|[![API Icon][SAPicon]<br/>**SAP**][sapconnector]|
+|[![API Icon][MQicon]<br/>**MQ**][mqdoc]|[![API Icon][SAPicon]<br/>**SAP**][sapconnector]|
 
 
 ## <a name="az"></a>Volledige alfabetische lijst
+
+[Connectorgegevens](/connectors/) geeft alle triggers en acties weer die in de swagger zijn gedefinieerd, plus eventuele beperkingen voor elke connector.
 
 | | | | | | | | | | | | | |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -80,12 +90,14 @@ Hiermee maakt u verbinding met uw zakelijke toepassingen binnen uw logische apps
 
 | | |
 |---|---|
-|<a name="1"></a>10to8 Appointment Scheduling<br/><br/><a name="a"></a>Act!<br/>appFigures<br/>[AS2][as2doc]<br/>Asana<br/>Azure Active Directory<br/>Azure API Management<br/>Azure App Services<br/>Azure Automation<br/>[Azure Blob Storage][azureblobstoragedoc]<br/>Azure Data Lake<br/>Azure Cosmos DB<br/>[Azure Functions][azure-functionsdoc]<br/>[Azure Logic Apps][nested-logic-appdoc]<br/>AzureML<br/>Azure-wachtrijen<br/>Azure Resource Manager<br/>[Azure SQL Database][sql-serverdoc]<br/><br/><a name="b"></a>Basecamp 2<br/>Basecamp 3<br/>Benchmark Email<br/>Bing Zoeken<br/>Bitbucket<br/>Bitly<br/>BizTalk Server<br/>Blogger<br/>Box<br/>Buffer<br/><br/><a name="c"></a>Campfire<br/>Capsule CRM<br/>Chatter<br/>Cognitive Services - Computer Vision-API<br/>Cognitive Services - Face-API<br/>Cognitive Services - LUIS<br/>Cognitive Services - Tekstanalyse<br/>Common Data Service<br/>[Aangepaste API's/web-apps][api/web-appdoc]<br/><br/><a name="d"></a>Gegevensbewerkingen<br/>[DB2][db2doc]<br/>Disqus<br/>DocuSign<br/>Do Until<br/>Dropbox<br/>[Dynamics 365 CRM Online][Dynamics-365doc]<br/>Dynamics 365 for Financials<br/>Dynamics 365 for Operations<br/>Dynamics NAV<br/><br/><a name="e"></a>Easy Redmine<br/>EDIFACT<br/>[Event Hubs][event-hubs-doc]<br/>Eventbrite<br/><br/><a name="f"></a>Facebook<br/>[Bestandssysteem][filesystemdoc]<br/>[Plat bestand][flatfiledoc]<br/>FreshBooks<br/>Freshdesk<br/>[FTP][ftpdoc]<br/><br/><a name="g"></a>GitHub<br/>Gmail<br/>Google Agenda<br/>Google Contactpersonen<br/>Google Drive<br/>Google Sheets<br/>Google Tasks<br/>GoToMeeting<br/>GoToTraining<br/>GoToWebinar<br/><br/><a name="h"></a>Harvest<br/>HelloSign<br/>HipChat<br/>[HTTP][httpdoc]<br/>[HTTP + Swagger][http-swaggerdoc]<br/>[HTTP-webhook][webhookdoc]<br/><br/><a name="i"></a>[Informix][informixdoc]<br/>Infusionsoft<br/>Inoreader<br/>Insightly<br/>Instagram<br/>Instapaper<br/>Integratieaccount<br/>Intercom | <a name="j"></a>JIRA<br/><br/><a name="l"></a>LeanKit<br/>LiveChat<br/><br/><a name="m"></a>MailChimp<br/>Mandrill<br/>Middelgroot<br/>Microsoft Translator<br/>MQ<br/>MSN weer<br/>Muhimbi PDF<br/>MySQL<br/><br/><a name="n"></a>Nexmo<br/><br/><a name="o"></a>[Office 365 Outlook][office365-outlookdoc]<br/>Office 365-gebruikers<br/>Office 365 Video<br/>OneDrive<br/>OneDrive voor Bedrijven<br/>OneNote (Bedrijven)<br/>[Oracle Database][oracle-db-doc]<br/>Outlook Customer<br/>Outlook-taken<br/>Outlook.com<br/><br/><a name="p"></a>PagerDuty<br/>Paylocity<br/>Pinterest<br/>Pipedrive<br/>Pivotal Tracker<br/>PostgreSQL<br/>Power BI<br/>Project Online<br/><br/><a name="r"></a>Redmine<br/>[Aanvraag/antwoord][http-requestdoc]<br/>RSS<br/><br/><a name="s"></a>[Salesforce][salesforcedoc]<br/>[SAP Application Server][sapconnector]<br/>[SAP Message Server][sapconnector]<br/>[Planning][recurrencedoc]<br/>Bereik<br/>SendGrid<br/>[Service Bus][service-busdoc]<br/>SFTP<br/>[SharePoint Online][sharepointdoc]<br/>[SharePoint Server][sharepointdoc]<br/>Slack<br/>Smartsheet<br/>SMTP<br/>SparkPost<br/>[SQL Server][sql-serverdoc]<br/>Stripe<br/>Switch Case<br/>SurveyMonkey<br/><br/><a name="t"></a>Teradata<br/>Todoist<br/>Toodledo<br/>[XML transformeren][xmltransformdoc]<br/>Trello<br/>Twilio<br/>[Twitter][twitterdoc]<br/>Typeform<br/><br/><a name="u"></a>UserVoice<br/><br/><a name="v"></a>Variabelen<br/>Vimeo<br/>Visual Studio Team Services<br/><br/><a name="w"></a>WebMerge<br/>WordPress<br/>Wunderlist<br/><br/><a name="x"></a>[X12][x12doc]<br/>[XML-validatie][xmlvalidatedoc]<br/><br/><a name="y"></a>Yammer<br/>YouTube<br/><br/><a name="z"></a>Zendesk |
+|<a name="1"></a>10to8 Appointment Scheduling<br/><br/><a name="a"></a>Act!<br/>Adobe Creative Cloud<br/>appFigures<br/>[AS2][as2doc]<br/>Asana<br/>Azure Active Directory (AD)<br/>Azure API Management<br/>Azure App Services<br/>Azure Application<br/>Azure Automation<br/>[Azure Blob Storage][azureblobstoragedoc]<br/>Azure Data Lake<br/>Azure DocumentDB (Cosmos DB)<br/>[Azure Functions][azure-functionsdoc]<br/>[Azure Logic Apps][nested-logic-appdoc]<br/>AzureML<br/>Azure-wachtrijen<br/>Azure Resource Manager<br/>[Azure SQL Database][sql-serverdoc]<br/><br/><a name="b"></a>Basecamp 2<br/>Basecamp 3<br/>Batch<br/>Benchmark Email<br/>Bing Zoeken<br/>Bitbucket<br/>Bitly<br/>BizTalk Server<br/>Blogger<br/>Box<br/>Buffer<br/><br/><a name="c"></a>Calendly<br/>Campfire<br/>Capsule CRM<br/>Chatter<br/>Cognito Forms<br/>Cognitive Services - Computer Vision-API<br/>Cognitive Services - Face-API<br/>Cognitive Services - LUIS<br/>Cognitive Services - Tekstanalyse<br/>Common Data Service<br/>Content Conversion<br/>Control-Terminate<br/>[Aangepaste API's/web-apps][api/web-appdoc]<br/><br/><a name="d"></a>Gegevensbewerkingen<br/>[DB2][db2doc]<br/>Disqus<br/>DocuSign<br/>Do Until<br/>Dropbox<br/>[Dynamics 365 CRM Online][Dynamics-365doc]<br/>Dynamics 365 for Financials<br/>Dynamics 365 for Operations<br/>Dynamics NAV<br/><br/><a name="e"></a>Easy Redmine<br/>EDIFACT<br/>[Event Hubs][event-hubs-doc]<br/>Eventbrite<br/><br/><a name="f"></a>Facebook<br/>[Bestandssysteem][filesystemdoc]<br/>[Plat bestand][flatfiledoc]<br/>FreshBooks<br/>Freshdesk<br/>Freshservice<br/>[FTP][ftpdoc]<br/><br/><a name="g"></a>GitHub<br/>Gmail<br/>Google Agenda<br/>Google Contactpersonen<br/>Google Drive<br/>Google Sheets<br/>Google Tasks<br/>GoToMeeting<br/>GoToTraining<br/>GoToWebinar<br/><br/><a name="h"></a>Harvest<br/>HelloSign<br/>HipChat<br/>[HTTP][httpdoc]<br/>[HTTP + Swagger][http-swaggerdoc]<br/>[HTTP-webhook][webhookdoc]<br/><br/><a name="i"></a>[Informix][informixdoc]<br/>Infusionsoft<br/>Inoreader<br/>Insightly<br/>Instagram<br/>Instapaper<br/>Integratieaccount<br/>Intercom | <a name="j"></a>JotForm<br/>JIRA<br/><br/><a name="l"></a>LeanKit<br/>LiveChat<br/><br/><a name="m"></a>MailChimp<br/>Mandrill<br/>Middelgroot<br/>Microsoft Forms<br/>Microsoft Teams<br/>Microsoft Translator<br/>[MQ][mqdoc]<br/>MSN weer<br/>Muhimbi PDF<br/>MySQL<br/><br/><a name="n"></a>Nexmo<br/><br/><a name="o"></a>[Office 365 Outlook][office365-outlookdoc]<br/>Office 365-gebruikers<br/>Office 365 Video<br/>OneDrive<br/>OneDrive voor Bedrijven<br/>OneNote (Bedrijven)<br/>[Oracle Database][oracle-db-doc]<br/>Outlook Customer Manager<br/>Outlook-taken<br/>Outlook.com<br/><br/><a name="p"></a>PagerDuty<br/>Parserr<br/>Paylocity<br/>Pinterest<br/>Pipedrive<br/>Pivotal Tracker<br/>Planner<br/>PostgreSQL<br/>Power BI<br/>Project Online<br/><br/><a name="r"></a>Redmine<br/>[Aanvraag/antwoord][http-requestdoc]<br/>RSS<br/><br/><a name="s"></a>[Salesforce][salesforcedoc]<br/>[SAP Application Server][sapconnector]<br/>[SAP Message Server][sapconnector]<br/>[Planning][recurrencedoc]<br/>Bereik<br/>SendGrid<br/>Berichten verzenden naar batch<br/>[Service Bus][service-busdoc]<br/>SFTP<br/>[SharePoint Online][sharepointdoc]<br/>[SharePoint Server][sharepointdoc]<br/>Slack<br/>Smartsheet<br/>SMTP<br/>SparkPost<br/>[SQL Server][sql-serverdoc]<br/>Stripe<br/>SurveyMonkey<br/>Switch Case<br/><br/><a name="t"></a>Teamwork Projects<br/>Teradata<br/>Todoist<br/>Toodledo<br/>[XML transformeren][xmltransformdoc]<br/>Trello<br/>Twilio<br/>[Twitter][twitterdoc]<br/>Typeform<br/><br/><a name="u"></a>UserVoice<br/><br/><a name="v"></a>Variabelen<br/>Vimeo<br/>Visual Studio Team Services<br/><br/><a name="w"></a>WebMerge<br/>WordPress<br/>Wunderlist<br/><br/><a name="x"></a>[X12][x12doc]<br/>[XML-validatie][xmlvalidatedoc]<br/><br/><a name="y"></a>Yammer<br/>YouTube<br/><br/><a name="z"></a>Zendesk |
 
 > [!TIP]
 > Als u wilt beginnen met Azure Logic Apps en u zich nog niet hebt aangemeld voor een Azure-account, gaat u naar [Logic Apps uitproberen](https://tryappservice.azure.com/?appservice=logic). U kunt onmiddellijk een tijdelijke logische app maken. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
 
-## <a name="connectors-as-triggers-and-actions"></a>Connectors als triggers en acties
+<a id="connectors-as-triggers-and-actions" class="xliff"></a>
+
+## Connectors als triggers en acties
 
 Een **trigger** start een exemplaar van uw logische app of voert deze uit. Sommige connectors bieden triggers die aan uw app doorgeven dat er specifieke gebeurtenissen plaatsvinden. De FTP-connector heeft bijvoorbeeld de trigger `OnUpdatedFile`, die uw logische app start wanneer een bestand is bijgewerkt. 
 
@@ -105,7 +117,9 @@ Connectors bieden ook de **acties** die u in uw werkstroom kunt gebruiken. Uw lo
 > In [Overzicht van connectors](connectors-overview.md) vindt u gedetailleerdere informatie over triggers en acties. 
 
 
-## <a name="message-manipulation-actions"></a>Acties voor berichtbewerking
+<a id="message-manipulation-actions" class="xliff"></a>
+
+## Acties voor berichtbewerking
 
 Logische apps bevatten ingebouwde acties waarmee u nettoladinggegevens kunt wijzigen of bewerken. De ingebouwde connector **Gegevensbewerkingen** bevat de volgende acties: 
 
@@ -116,21 +130,29 @@ Logische apps bevatten ingebouwde acties waarmee u nettoladinggegevens kunt wijz
 | **Matrix filteren** (query) | Filter een resultatenset op de vermeldingen waarin u geïnteresseerd bent. Zoek bijvoorbeeld naar alle tweets met `#Azure` en 'filter' de geretourneerde tweets vervolgens om alleen resultaten te retourneren die `Tweeted_by_followers > 50` zijn. |
 | **Koppelen** | Koppel een matrix met een delimeter. De bewerking Sleuteltermen detecteren retourneert bijvoorbeeld een matrix met sleuteltermen. U kunt ze 'koppelen' met een `,` of iets vergelijkbaars. In plaats van `["Some", "Phrase"]` hebt u dan `"Some, Phrase"`. |
 | **JSON parseren** | Parseer en krijg toegang tot waarden van een JSON-object in de ontwerper. Als uw Azure-functie bijvoorbeeld een JSON-nettolading retourneert, kunt u deze parseren om later toegang te krijgen tot de JSON-eigenschappen in een andere stap. De actie valideert ook dat de JSON overeenkomt met het opgegeven schema tijdens runtime. | 
-| **Selecteren** | Selecteer bepaalde eigenschappen van een matrix voor verdere verwerking. Als u records vermeldt vanuit SQL en er 15 kolommen worden geretourneerd, selecteert u slechts enkele van die kolommen voor verdere verwerking (de uitvoer is een matrix met alleen de geselecteerde eigenschappen). |
+| **Selecteren** | Selecteer bepaalde eigenschappen van een matrix voor verdere verwerking. Als u records vermeldt vanuit SQL en er 15 kolommen worden geretourneerd, selecteert u slechts enkele van die kolommen voor verdere verwerking. De uitvoer is een matrix die alleen de door u geselecteerde eigenschappen bevat. |
 
-## <a name="custom-connectors-and-azure-certification"></a>Aangepaste connectors en Azure-certificering 
+<a id="custom-connectors-and-azure-certification" class="xliff"></a>
+
+## Aangepaste connectors en Azure-certificering 
 
 Als u API's wilt aanroepen waarmee aangepaste code wordt uitgevoerd of die niet beschikbaar zijn als connectors, kunt u het Logic Apps-platform uitbreiden door [op REST gebaseerde API Apps te maken als aangepaste connectors](../logic-apps/logic-apps-create-api-app.md). 
 
 Als u uw aangepaste API Apps openbaar wilt maken en beschikbaar wilt maken voor gebruik in Azure, verzendt u uw nominaties naar het [Microsoft Azure Certified-programma](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
 
-## <a name="get-help"></a>Help opvragen
+<a id="get-help" class="xliff"></a>
+
+## Help opvragen
 
 Ga naar het [forum voor Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) om vragen te stellen, vragen te beantwoorden en te zien wat andere gebruikers van Azure Logic Apps aan het doen zijn.
 
 Ter verbetering van Azure Logic Apps en connectors kunt u stemmen op ideeën of ideeën indienen op de [site voor gebruikersfeedback van Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Volgende stappen
+Ontbreekt er een onderwerp over connectors of bepaalde belangrijke details? Zo ja, help ons dan door onze bestaande onderwerpen uit te breiden of uw eigen te schrijven. Onze documentatie is open source en wordt gehost op GitHub. Ga aan de slag in onze [GitHub-opslagplaats](https://github.com/Microsoft/azure-docs). 
+
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 * [Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md)
 * [Aangepaste API's maken voor logische apps](../logic-apps/logic-apps-create-api-app.md)
 * [Uw logische apps bewaken](../logic-apps/logic-apps-monitor-your-logic-apps.md)
@@ -152,6 +174,7 @@ Ter verbetering van Azure Logic Apps en connectors kunt u stemmen op ideeën of 
 [nested-logic-appdoc]: ../logic-apps/logic-apps-http-endpoint.md "Logische apps integreren met geneste werkstromen"
 [office365-outlookdoc]: ./connectors-create-api-office365-outlook.md "Uw Office 365-account koppelen. E-mailberichten verzenden en ontvangen, uw agenda en contactpersonen beheren, en meer"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Verbinding maken met een Oracle-database om rijen toe te voegen, in te voegen, te verwijderen en meer"
+[mqdoc]: ./connectors-create-api-mq.md "Verbinding maken met MQ on-premises of Azure en berichten verzenden en ontvangen"
 [recurrencedoc]:  ./connectors-native-recurrence.md "Terugkerende acties voor logische apps activeren"
 [salesforcedoc]: ./connectors-create-api-salesforce.md "Verbinding maken met uw Salesforce-account. Accounts, potentiële klanten en verkoopkansen beheren, en meer"
 [sapconnector]: ../logic-apps/logic-apps-using-sap-connector.md "Verbinding maken met een on-premises SAP-systeem"

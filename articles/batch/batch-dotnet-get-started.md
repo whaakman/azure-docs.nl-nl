@@ -12,17 +12,20 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 91fab2cd7ad2babd567380308698f0608dda4cbf
-ms.lasthandoff: 05/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 5144c27ccbef6cc0e1e8c0b168bbfd86b736331b
+ms.contentlocale: nl-nl
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Ga aan de slag met het bouwen van oplossingen met de Batch-clientbibliotheek voor .NET
+<a id="get-started-building-solutions-with-the-batch-client-library-for-net" class="xliff"></a>
+
+# Ga aan de slag met het bouwen van oplossingen met de Batch-clientbibliotheek voor .NET
 
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
@@ -35,10 +38,14 @@ Ontdek in dit artikel de basisbeginselen van [Azure Batch][azure_batch] en de [B
 
 ![Werkstroom van de Batch-oplossing (basis)][11]<br/>
 
-## <a name="prerequisites"></a>Vereisten
+<a id="prerequisites" class="xliff"></a>
+
+## Vereisten
 In dit artikel wordt ervan uitgegaan dat u praktische kennis hebt van C# en Visual Studio. Er wordt ook van uitgegaan dat u voldoet aan de vereisten voor het maken van een account die hieronder zijn opgegeven voor Azure en de Batch- en Storage-services.
 
-### <a name="accounts"></a>Accounts
+<a id="accounts" class="xliff"></a>
+
+### Accounts
 * **Azure-account**: als u nog geen Azure-abonnement hebt, [maakt u een gratis Azure-account][azure_free_account].
 * **Batch-account**: als u al een Azure-abonnement hebt, [maakt u een Azure Batch-account](batch-account-create-portal.md).
 * **Opslagaccount**: zie [Een opslagaccount maken](../storage/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md).
@@ -48,18 +55,26 @@ In dit artikel wordt ervan uitgegaan dat u praktische kennis hebt van C# en Visu
 >
 >
 
-### <a name="visual-studio"></a>Visual Studio
+<a id="visual-studio" class="xliff"></a>
+
+### Visual Studio
 U moet beschikken over **Visual Studio 2015 of hoger** om het voorbeeldproject te kunnen maken. U vindt gratis en evaluatieversies van Visual Studio in het [overzicht van Visual Studio-producten][visual_studio].
 
-### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial*-codevoorbeeld
+<a id="dotnettutorial-code-sample" class="xliff"></a>
+
+### *DotNetTutorial*-codevoorbeeld
 Het [DotNetTutorial][github_dotnettutorial]-voorbeeld is een van de vele Batch-codevoorbeelden die u vindt in de opslagplaats [azure-batch-samples][github_samples] in GitHub. U kunt alle voorbeelden downloaden door te klikken op **Clone or download > Download ZIP** (Klonen of downloaden > ZIP downloaden) op de introductiepagina van de opslagplaats of door te klikken op de koppeling van de directe download [azure batch-samples-master.zip][github_samples_zip]. Nadat u de inhoud van het ZIP-bestand hebt uitgepakt, vindt u de oplossing in deze map:
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
-### <a name="azure-batch-explorer-optional"></a>Azure Batch Explorer (optioneel)
+<a id="azure-batch-explorer-optional" class="xliff"></a>
+
+### Azure Batch Explorer (optioneel)
 [Azure Batch Explorer][github_batchexplorer] is een gratis hulpprogramma dat is opgenomen in de opslagplaats [azure-batch-samples][github_samples] in GitHub. Hoewel het niet is vereist om deze zelfstudie te voltooien, kan het nuttig zijn bij de ontwikkeling en foutopsporing van uw Batch-oplossingen.
 
-## <a name="dotnettutorial-sample-project-overview"></a>Overzicht DotNetTutorial-voorbeeldproject
+<a id="dotnettutorial-sample-project-overview" class="xliff"></a>
+
+## Overzicht DotNetTutorial-voorbeeldproject
 Het *DotNetTutorial*-codevoorbeeld is een Visual Studio-oplossing die uit twee projecten bestaat: **DotNetTutorial** en **TaskApplication**.
 
 * **DotNetTutorial** is de clienttoepassing die met de Batch- en Storage-services communiceert voor het uitvoeren van een parallelle workload op rekenknooppunten (virtuele machines). DotNetTutorial wordt uitgevoerd op uw lokale werkstation.
@@ -83,7 +98,9 @@ Het volgende diagram illustreert de primaire bewerkingen die worden uitgevoerd d
 
 Zoals al is vermeld, voert niet elke Batch-oplossing exact deze stappen uit en kan een oplossing ook veel meer stappen bevatten. De voorbeeldtoepassing *DotNetTutorial* toont echter de algemene processen die u in een Batch-oplossing terugvindt.
 
-## <a name="build-the-dotnettutorial-sample-project"></a>Het *DotNetTutorial*-voorbeeldproject maken
+<a id="build-the-dotnettutorial-sample-project" class="xliff"></a>
+
+## Het *DotNetTutorial*-voorbeeldproject maken
 Voordat u het voorbeeld met succes kunt uitvoeren, moet u in het *DotNetTutorial*-project in het bestand `Program.cs` Batch- en Storage-accountreferenties opgeven. Als u dit nog niet hebt gedaan, opent u de oplossing in Visual Studio door te dubbelklikken op het oplossingsbestand `DotNetTutorial.sln`. U kunt de oplossing ook vanuit Visual Studio openen met het menu **Bestand > Openen > Project/Oplossing**.
 
 Open `Program.cs` in het project *DotNetTutorial*. Voeg daarna uw referenties toe zoals deze boven in het bestand zijn vermeld:
@@ -124,7 +141,9 @@ In de volgende secties wordt de voorbeeldtoepassing uitgesplitst in de stappen d
 
 Navigeer naar de bovenkant van de methode `MainAsync` in het bestand `Program.cs` van het *DotNetTutorial*-project om bij stap 1 te starten. Elke stap hieronder volgt min of meer de voortgang van de methodeaanroepen in `MainAsync`.
 
-## <a name="step-1-create-storage-containers"></a>Stap 1: opslagcontainers maken
+<a id="step-1-create-storage-containers" class="xliff"></a>
+
+## Stap 1: opslagcontainers maken
 ![Containers maken in Azure Storage][1]
 <br/>
 
@@ -192,7 +211,9 @@ Zodra de containers zijn gemaakt, kan de toepassing nu de bestanden uploaden die
 >
 >
 
-## <a name="step-2-upload-task-application-and-data-files"></a>Stap 2: taaktoepassings- en gegevensbestanden uploaden
+<a id="step-2-upload-task-application-and-data-files" class="xliff"></a>
+
+## Stap 2: taaktoepassings- en gegevensbestanden uploaden
 ![Taaktoepassings- en invoer(gegevens)bestanden uploaden naar containers][2]
 <br/>
 
@@ -269,7 +290,9 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 }
 ```
 
-### <a name="resourcefiles"></a>ResourceFiles
+<a id="resourcefiles" class="xliff"></a>
+
+### ResourceFiles
 [ResourceFile][net_resourcefile] levert aan taken in Batch de URL naar een bestand in Azure Storage dat naar een rekenknooppunt wordt gedownload voordat deze taak wordt uitgevoerd. De eigenschap [ResourceFile.BlobSource][net_resourcefile_blobsource] geeft de volledige URL van het bestand zoals dit zich in Azure Storage bevindt. De URL kan ook een Shared Access Signature (SAS) bevatten, die veilige toegang tot het bestand biedt. De meeste typen taken in Batch .NET bevatten een eigenschap *ResourceFiles*, waaronder:
 
 * [CloudTask][net_task]
@@ -279,7 +302,9 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 
 De DotNetTutorial-voorbeeldtoepassing gebruikt niet de taaktypen JobPreparationTask of JobReleaseTask. Meer informatie hierover vindt u in [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md) (Jobvoorbereidings- en jobvoltooiingstaken uitvoeren op Azure Batch-rekenknooppunten).
 
-### <a name="shared-access-signature-sas"></a>Shared Access Signature (SAS)
+<a id="shared-access-signature-sas" class="xliff"></a>
+
+### Shared Access Signature (SAS)
 Shared Access Signatures zijn tekenreeksen die, wanneer ze deel uitmaken van een URL, beveiligde toegang bieden tot containers en blobs in Azure Storage. De DotNetTutorial-toepassing maakt gebruik van Shared Access Signature-URL's voor blobs en containers en toont aan hoe u deze SAS-tekenreeksen van de Storage-service kunt ophalen.
 
 * **Shared Access Signatures voor blobs**: StartTask van de pool in DotNetTutorial maakt gebruik van Shared Access Signatures voor blobs wanneer het de binaire bestanden van toepassingen en invoergegevensbestanden uit Storage downloadt (zie stap 3 hieronder). De methode `UploadFileToContainerAsync` in het bestand `Program.cs` van DotNetTutorial bevat de code die de Shared Access Signature van elke blob verkrijgt. Dit gebeurt door het aanroepen van [CloudBlob.GetSharedAccessSignature][net_sas_blob].
@@ -290,13 +315,15 @@ Shared Access Signatures zijn tekenreeksen die, wanneer ze deel uitmaken van een
 >
 >
 
-## <a name="step-3-create-batch-pool"></a>Stap 3: Batch-pool maken
+<a id="step-3-create-batch-pool" class="xliff"></a>
+
+## Stap 3: Batch-pool maken
 ![Een Batch-pool maken][3]
 <br/>
 
 Een Batch-**pool** is een verzameling rekenknooppunten (virtuele machines) waarop Batch de taken van een job uitvoert.
 
-Nadat *DotNetTutorial* de toepassing en gegevensbestanden naar het opslagaccount heeft geüpload, start het zijn interactie met de Batch-service met behulp van de Batch .NET-bibliotheek. Hiervoor wordt eerst een [BatchClient][net_batchclient] gemaakt:
+Zodra de toepassing en gegevensbestanden naar het Storage-account zijn geüpload met Azure Storage-API's, worden er door *DotNetTutorial* aanroepen naar de Batch-service gedaan met API's uit de Batch .NET-bibliotheek. De code maakt eerst een [BatchClient][net_batchclient]:
 
 ```csharp
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(
@@ -309,7 +336,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
     ...
 ```
 
-Daarna wordt een pool van rekenknooppunten gemaakt in het Batch-account met een aanroep naar `CreatePoolIfNotExistsAsync`. `CreatePoolIfNotExistsAsync` maakt gebruik van de methode [BatchClient.PoolOperations.CreatePool][net_pool_create] om een pool te maken in de Batch-service.
+Daarna wordt in het voorbeeld met behulp van een aanroep naar `CreatePoolIfNotExistsAsync` een pool van rekenknooppunten in het Batch-account gemaakt. `CreatePoolIfNotExistsAsync` gebruikt de methode [BatchClient.PoolOperations.CreatePool][net_pool_create] om een nieuwe pool te maken in de Batch-service:
 
 ```csharp
 private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, string poolId, IList<ResourceFile> resourceFiles)
@@ -323,7 +350,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
         // Batch service. This CloudPool instance is therefore considered "unbound," and we can modify its properties.
         pool = batchClient.PoolOperations.CreatePool(
             poolId: poolId,
-            targetDedicated: 3,                                                         // 3 compute nodes
+            targetDedicatedComputeNodes: 3,                                             // 3 compute nodes
             virtualMachineSize: "small",                                                // single-core, 1.75 GB memory, 225 GB disk
             cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));   // Windows Server 2012 R2
 
@@ -365,7 +392,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 Wanneer u een pool maakt met [CreatePool][net_pool_create], geeft u meerdere parameters op, zoals het aantal rekenknooppunten, de [grootte van de knooppunten](../cloud-services/cloud-services-sizes-specs.md) en het besturingssysteem van de knooppunten. In *DotNetTutorial* gebruiken we [CloudServiceConfiguration][net_cloudserviceconfiguration] om Windows Server 2012 R2 op te geven vanuit [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). Door echter een [VirtualMachineConfiguration][net_virtualmachineconfiguration] op te geven, kunt u pools van knooppunten maken die zijn gemaakt op basis van installatiekopieën van Marketplace, die zowel Windows- als Linux-installatiekopieën bevatten. Zie [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Linux-rekenknooppunten in Azure Batch-pools inrichten) voor meer informatie.
 
 > [!IMPORTANT]
-> De rekenresources in Batch worden in rekening gebracht. Om uw kosten te beperken, kunt u `targetDedicated` verlagen naar 1 voordat u het voorbeeld uitvoert.
+> De rekenresources in Batch worden in rekening gebracht. Om uw kosten te beperken, kunt u `targetDedicatedComputeNodes` verlagen naar 1 voordat u het voorbeeld uitvoert.
 >
 >
 
@@ -385,7 +412,9 @@ Opmerkelijk in het bovenstaande codefragment is ook het gebruik van twee omgevin
 >
 >
 
-## <a name="step-4-create-batch-job"></a>Stap 4: Batch-job maken
+<a id="step-4-create-batch-job" class="xliff"></a>
+
+## Stap 4: Batch-job maken
 ![Een Batch-job maken][4]<br/>
 
 Een Batch-**job** is een verzameling taken en is gekoppeld aan een pool van rekenknooppunten. De taken in een job worden uitgevoerd op de rekenknooppunten van de gekoppelde pool.
@@ -412,7 +441,9 @@ private static async Task CreateJobAsync(
 
 Nu een job is gemaakt, worden er taken aan toegevoegd die het werk verrichten.
 
-## <a name="step-5-add-tasks-to-job"></a>Stap 5: taken toevoegen aan job
+<a id="step-5-add-tasks-to-job" class="xliff"></a>
+
+## Stap 5: taken toevoegen aan job
 ![Taken toevoegen aan job][5]<br/>
 *(1) Taken worden toegevoegd aan de job, (2) de taken worden gepland om op knooppunten te worden uitgevoerd en (3) de taken downloaden de te verwerken gegevensbestanden*
 
@@ -503,7 +534,9 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 }
 ```
 
-## <a name="step-6-monitor-tasks"></a>Stap 6: taken controleren
+<a id="step-6-monitor-tasks" class="xliff"></a>
+
+## Stap 6: taken controleren
 ![Taken controleren][6]<br/>
 *De clienttoepassing (1) controleert taken op de status Voltooid en Geslaagd en (2) de taken uploaden resultaatgegevens naar Azure Storage*
 
@@ -558,7 +591,7 @@ private static async Task<bool> MonitorTasks(
 
     // All tasks have reached the "Completed" state, however, this does not
     // guarantee all tasks completed successfully. Here we further check each task's
-    // ExecutionInfo property to ensure that it did not encounter a scheduling error
+    // ExecutionInfo property to ensure that it did not encounter a failure
     // or return a non-zero exit code.
 
     // Update the detail level to populate only the task id and executionInfo
@@ -568,32 +601,25 @@ private static async Task<bool> MonitorTasks(
 
     foreach (CloudTask task in tasks)
     {
-        // Populate the task's properties with the latest info from the
-        // Batch service
+        // Populate the task's properties with the latest info from the Batch service
         await task.RefreshAsync(detail);
 
-        if (task.ExecutionInformation.SchedulingError != null)
+        if (task.ExecutionInformation.Result == TaskExecutionResult.Failure)
         {
-            // A scheduling error indicates a problem starting the task on the node.
-            // It is important to note that the task's state can be "Completed," yet
-            // still have encountered a scheduling error.
+            // A task with failure information set indicates there was a problem with the task. It is important to note that
+            // the task's state can be "Completed," yet still have encountered a failure.
 
             allTasksSuccessful = false;
 
-            Console.WriteLine("WARNING: Task [{0}] encountered a scheduling error: {1}",
-                task.Id,
-                task.ExecutionInformation.SchedulingError.Message);
-        }
-        else if (task.ExecutionInformation.ExitCode != 0)
-        {
-            // A non-zero exit code may indicate that the application executed by
-            // the task encountered an error during execution. As not every
-            // application returns non-zero on failure by default (e.g. robocopy),
-            // your implementation of error checking may differ from this example.
+            Console.WriteLine("WARNING: Task [{0}] encountered a failure: {1}", task.Id, task.ExecutionInformation.FailureInformation.Message);
+            if (task.ExecutionInformation.ExitCode != 0)
+            {
+                // A non-zero exit code may indicate that the application executed by the task encountered an error
+                // during execution. As not every application returns non-zero on failure by default (e.g. robocopy),
+                // your implementation of error checking may differ from this example.
 
-            allTasksSuccessful = false;
-
-            Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
+                Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
+            }
         }
     }
 
@@ -606,7 +632,9 @@ private static async Task<bool> MonitorTasks(
 }
 ```
 
-## <a name="step-7-download-task-output"></a>Stap 7: taakuitvoer downloaden
+<a id="step-7-download-task-output" class="xliff"></a>
+
+## Stap 7: taakuitvoer downloaden
 ![Taakuitvoer downloaden uit Storage][7]<br/>
 
 Nu de taak is voltooid, kan de uitvoer van de taken worden gedownload uit Azure Storage. Dat gebeurt met een aanroep van `DownloadBlobsFromContainerAsync` in het *DotNetTutorial*-bestand `Program.cs`:
@@ -644,7 +672,9 @@ private static async Task DownloadBlobsFromContainerAsync(
 >
 >
 
-## <a name="step-8-delete-containers"></a>Stap 8: containers verwijderen
+<a id="step-8-delete-containers" class="xliff"></a>
+
+## Stap 8: containers verwijderen
 Omdat gegevens die zich in Azure Storage bevinden, in rekening worden gebracht, doet u er altijd goed aan blobs te verwijderen die niet langer nodig zijn voor uw Batch-taken. In het DotNetTutorial-bestand `Program.cs` wordt dit gedaan met drie aanroepen naar de Help-methode `DeleteContainerAsync`:
 
 ```csharp
@@ -675,7 +705,9 @@ private static async Task DeleteContainerAsync(
 }
 ```
 
-## <a name="step-9-delete-the-job-and-the-pool"></a>Stap 9: de job en de pool verwijderen
+<a id="step-9-delete-the-job-and-the-pool" class="xliff"></a>
+
+## Stap 9: de job en de pool verwijderen
 In de laatste stap wordt u gevraagd de job en de pool te verwijderen die door de DotNetTutorial-toepassing zijn gemaakt. Hoewel jobs en taken zelf niet in rekening worden gebracht, worden rekenknooppunten *wel* in rekening gebracht. Daarom is het raadzaam om knooppunten alleen toe te wijzen als dat nodig is. Het verwijderen van ongebruikte pools kan een onderdeel zijn van uw onderhoudsprocedure.
 
 [JobOperations][net_joboperations] en [PoolOperations][net_pooloperations] van BatchClient hebben beide overeenkomstige verwijderingsmethoden, die worden aangeroepen wanneer de gebruiker de verwijdering bevestigt:
@@ -703,7 +735,9 @@ if (response != "n" && response != "no")
 >
 >
 
-## <a name="run-the-dotnettutorial-sample"></a>Het *DotNetTutorial*-voorbeeld uitvoeren
+<a id="run-the-dotnettutorial-sample" class="xliff"></a>
+
+## Het *DotNetTutorial*-voorbeeld uitvoeren
 Wanneer u de voorbeeldtoepassing uitvoert, lijkt de uitvoer van de console op die hieronder. Bij het uitvoeren wordt bij `Awaiting task completion, timeout in 00:30:00...` gewacht wanneer de rekenknooppunten van de pool worden gestart. Gebruik [Azure Portal][azure_portal] om uw pool, rekenknooppunten, job en taken tijdens en na de uitvoering te controleren. Gebruik [Azure Portal][azure_portal] of [Azure Opslagverkenner][storage_explorers] om de Storage-resources (containers en blobs) weer te geven die door de toepassing zijn gemaakt.
 
 Wanneer u de toepassing uitvoert in de standaardconfiguratie, bedraagt de uitvoeringstijd doorgaans **ongeveer 5 minuten**.
@@ -739,7 +773,9 @@ Delete pool? [yes] no: yes
 Sample complete, hit ENTER to exit...
 ```
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 Breng gerust wijzigingen aan in *DotNetTutorial* en *TaskApplication* om met verschillende rekenscenario's te experimenteren. Probeer bijvoorbeeld een uitvoeringsvertraging toe te voegen aan *TaskApplication*, bijvoorbeeld met [Thread.Sleep][net_thread_sleep], om langlopende taken te simuleren en ze in de portal te controleren. Probeer meer taken toe te voegen of het aantal rekenknooppunten aan te passen. Voeg logica toe om te controleren op een bestaande pool en het gebruik ervan toe te staan om de uitvoeringssnelheid te verhogen (*hint*: bekijk het bestand `ArticleHelpers.cs` in het project [Microsoft.Azure.Batch.Samples.Common][github_samples_common] in [azure-batch-samples][github_samples]).
 
 Nu u vertrouwd bent met de basiswerkstroom van een Batch-oplossing, is het tijd om kennis te maken met de aanvullende functies van de Batch-service.

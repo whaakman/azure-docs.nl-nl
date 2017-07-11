@@ -13,35 +13,37 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 05/31/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: e6cf8797d08609f847e33f88e78fbcd3f3743a08
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: ba8db575c8731e4f9067a6635e745da12c8667dd
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/01/2017
 
 ---
-# <a name="create-a-function-triggered-by-azure-queue-storage"></a>Een door Azure Queue Storage geactiveerde functie maken
+<a id="create-a-function-triggered-by-azure-queue-storage" class="xliff"></a>
+
+# Een door Azure Queue Storage geactiveerde functie maken
 
 Ontdek hoe u een functie maakt die wordt geactiveerd wanneer er berichten worden verzonden naar een Azure Storage-wachtrij.
 
 ![Bekijk het bericht in de logboeken.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
-Het doorlopen van de stappen in dit onderwerp kost u minder dan vijf minuten.
+<a id="prerequisites" class="xliff"></a>
 
-## <a name="prerequisites"></a>Vereisten
-
-Voordat u dit voorbeeld kunt uitvoeren moet u ervoor zorgen dat u het volgende hebt gedaan:
+## Vereisten
 
 - De [Microsoft Azure Storage Explorer](http://storageexplorer.com/) downloaden en installeren.
 
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+- Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-## <a name="create-an-azure-function-app"></a>Een Azure-functie-app maken
+<a id="create-an-azure-function-app" class="xliff"></a>
+
+## Een Azure-functie-app maken
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -51,21 +53,31 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
 
 <a name="create-function"></a>
 
-## <a name="create-a-queue-triggered-function"></a>Een door een wachtrij geactiveerde functie maken
+<a id="create-a-queue-triggered-function" class="xliff"></a>
 
-Vouw uw functie-app uit, klik op de knop **+** naast **Functies** en klik op de sjabloon **QueueTrigger** voor de gewenste taal. Gebruik vervolgens de instellingen zoals die in de tabel zijn opgegeven en klik op **Maken**.
+## Een door een wachtrij geactiveerde functie maken
 
-![Maak de door de opslagwachtrij geactiveerde functie.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+1. Vouw de functie-app uit en klik op de knop **+** naast **Functies**. Als dit de eerste functie in de functie-app is, selecteert u **Aangepaste functie**. U ziet nu de volledige set het functiesjablonen.
 
-| Instelling | Voorgestelde waarde | Beschrijving |
-|---|---|---|
-| **Wachtrijnaam**   | myqueue-items    | De naam van de wachtrij waarmee u verbinding moet maken in uw opslagaccount. |
-| **Opslagaccountverbinding** | AzureWebJobStorage | U kunt de opslagaccountverbinding gebruiken die al door de functie-app wordt gebruikt of u kunt een nieuwe maken.  |
-| **Een naam voor de functie opgeven** | Uniek in uw functie-app | Naam van deze door een wachtrij geactiveerde functie. |
+    ![De Quick Start-pagina van Functions in Azure Portal](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
+
+2. Selecteer de sjabloon **QueueTrigger** voor de gewenste taal en gebruik de instellingen die zijn opgegeven in de tabel.
+
+    ![Maak de door de opslagwachtrij geactiveerde functie.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    
+    | Instelling | Voorgestelde waarde | Beschrijving |
+    |---|---|---|
+    | **Wachtrijnaam**   | myqueue-items    | De naam van de wachtrij waarmee u verbinding moet maken in uw opslagaccount. |
+    | **Opslagaccountverbinding** | AzureWebJobStorage | U kunt de opslagaccountverbinding gebruiken die al door de functie-app wordt gebruikt of u kunt een nieuwe maken.  |
+    | **Een naam voor de functie opgeven** | Uniek in uw functie-app | Naam van deze door een wachtrij geactiveerde functie. |
+
+3. Klik op **Maken** om de functie te maken.
 
 Vervolgens maakt u verbinding met uw Azure Storage-account en maakt u de opslagwachtrij **myqueue-items**.
 
-## <a name="create-the-queue"></a>De wachtrij maken
+<a id="create-the-queue" class="xliff"></a>
+
+## De wachtrij maken
 
 1. Klik in de functie op **Integreren**, vouw **Documentatie** uit en kopieer de **Accountnaam** en de **Accountsleutel**. Met deze referenties kunt u verbinding maken met het opslagaccount. Als u uw opslagaccount al hebt verbonden, gaat u naar stap 4.
 
@@ -85,7 +97,9 @@ Vervolgens maakt u verbinding met uw Azure Storage-account en maakt u de opslagw
 
 Nu u een opslagwachtrij hebt, kunt u de functie testen door een bericht toe te voegen aan de wachtrij.
 
-## <a name="test-the-function"></a>De functie testen
+<a id="test-the-function" class="xliff"></a>
+
+## De functie testen
 
 1. Blader in Azure Portal naar de functie, vouw de **Logboeken** onderaan de pagina uit en zorg ervoor dat logboekstreaming niet wordt onderbroken.
 
@@ -101,11 +115,15 @@ Nu u een opslagwachtrij hebt, kunt u de functie testen door een bericht toe te v
 
 1. Klik in Storage Explorer op **Vernieuwen** en controleer of het bericht is verwerkt en niet langer in de wachtrij staat.
 
-## <a name="clean-up-resources"></a>Resources opschonen
+<a id="clean-up-resources" class="xliff"></a>
+
+## Resources opschonen
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 
 U hebt een functie gemaakt die wordt uitgevoerd wanneer er een bericht wordt toegevoegd aan een opslagwachtrij.
 

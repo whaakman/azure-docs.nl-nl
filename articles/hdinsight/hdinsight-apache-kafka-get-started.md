@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Apache Kafka in HDInsight | Microsoft Docs
-description: Leer de basisbeginselen van het maken en werken met Kafka op HDInsight.
+title: Met Apache Kafka beginnen - HDInsight | Microsoft Docs
+description: Informatie over het maken van een Apache Kafka-cluster in Azure HDInsight. Informatie over het maken van onderwerpen, abonnees en consumenten.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,37 +13,37 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/14/2017
+ms.date: 06/23/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 695c6bd0a08e88be2d8e28eb15d903f3ae1eccaf
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 80d4aced5e4f4b053b3b5f30a6fc383f1c4d6d27
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 07/04/2017
 
 ---
-# <a name="get-started-with-apache-kafka-preview-on-hdinsight"></a>Aan de slag met Apache Kafka (preview) in HDInsight
+<a id="start-with-apache-kafka-preview-on-hdinsight" class="xliff"></a>
 
-[Apache Kafka](https://kafka.apache.org) is een open-source gedistribueerd streamingplatform dat beschikbaar is met HDInsight. Het wordt vaak gebruikt als een berichtenbroker, omdat het een functionaliteit biedt die vergelijkbaar is met een publicatie-/abonnementswachtrij voor berichten. In dit document vindt u informatie over het maken van een Kafka in HDInsight-cluster en het verzenden en ontvangen van gegevens in een Java-toepassing.
+# Met Apache Kafka (preview) in HDInsight beginnen
+
+Informatie over het maken en gebruiken van een [Apache Kafka](https://kafka.apache.org)-cluster in Azure HDInsight. Kafka is een open-source, gedistribueerd streamingplatform dat beschikbaar is met HDInsight. Het wordt vaak gebruikt als een berichtenbroker, omdat het een functionaliteit biedt die vergelijkbaar is met een publicatie-/abonnementswachtrij voor berichten.
 
 > [!NOTE]
 > Momenteel zijn er twee versies van Kafka beschikbaar met HDInsight: 0.9.0 (HDInsight 3.4) en 0.10.0 (HDInsight 3.5). Voor de stappen in dit document wordt ervan uitgegaan dat u Kafka in HDInsight 3.5 gebruikt.
 
-## <a name="prerequisite"></a>Vereiste
-
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Om deze Apache Kafka-zelfstudie te voltooien, moet u beschikken over het volgende:
+<a id="prerequisites" class="xliff"></a>
 
-* **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
-* **Kennis van SSH en SCP**. Zie [SSH-sleutels gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor informatie.
+## Vereisten
 
 * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) of een equivalent, zoals OpenJDK.
 
 * [Apache Maven](http://maven.apache.org/) 
 
-## <a name="create-a-kafka-cluster"></a>Een Kafka-cluster maken
+<a id="create-a-kafka-cluster" class="xliff"></a>
+
+## Een Kafka-cluster maken
 
 Gebruik de volgende stappen om een Kafka in HDInsight-cluster te maken:
 
@@ -74,27 +74,38 @@ Gebruik de volgende stappen om een Kafka in HDInsight-cluster te maken:
      
     ![Clustertype selecteren](./media/hdinsight-apache-kafka-get-started/set-hdinsight-cluster-type.png)
 
-    > [!NOTE]
-    > Als uw Azure-abonnement geen toegang geeft tot de Kafka-preview, worden er instructies voor preview-toegang weergegeven. De weergegeven instructies zijn vergelijkbaar met de volgende afbeelding:
-    >
-    > ![Preview-bericht: Als u een beheerde Apache Kafka-cluster in HDInsight wilt implementeren, stuur ons dan een e-mail om toegang tot de preview te vragen](./media/hdinsight-apache-kafka-get-started/no-kafka-preview.png)
-
 4. Nadat u het clustertype hebt geselecteerd, gebruikt u de knop __Selecteren__ om het clustertype te selecteren. Gebruik vervolgens de knop __Volgende__ om de basisconfiguratie te voltooien.
 
 5. Op de blade **Opslag** selecteert of maakt u een opslagaccount. Voor de stappen in dit document laat u de andere velden in deze blade op de standaardwaarden. Gebruik de knop __Volgende__ om de opslagconfiguratie op te slaan.
 
     ![De instellingen van het opslagaccount voor HDInsight configureren](./media/hdinsight-apache-kafka-get-started/set-hdinsight-storage-account.png)
 
-6. Controleer op de blade **Samenvatting** de configuratie van het cluster. Gebruik de koppeling __Bewerken__ om onjuiste instellingen te wijzigen. Gebruik tot slot de knop __Maken__ om het cluster te maken.
+6. Selecteer op de blade __Toepassingen (optioneel)__ __volgende__ om door te gaan. Er zijn geen toepassingen vereist voor dit voorbeeld.
+
+7. Selecteer op de blade __Clustergrootte__ __Volgende__ om door te gaan.
+
+    > [!WARNING]
+    > Om beschikbaarheid van Kafka op HDInsight te garanderen, moet uw cluster ten minste drie werkknooppunten bevatten.
+
+    ![De Kafka-clustergrootte instellen](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
+
+    > [!NOTE]
+    > De waarde voor de schijven per werkknooppunt bepaalt de schaalbaarheid van Kafka op HDInsight. Zie voor meer informatie [Configure storage and scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md).
+
+8. Selecteer op de blade __Geavanceerde instellingen__ __Volgende__ om door te gaan.
+
+9. Controleer op de blade **Samenvatting** de configuratie van het cluster. Gebruik de koppeling __Bewerken__ om onjuiste instellingen te wijzigen. Gebruik tot slot de knop __Maken__ om het cluster te maken.
    
     ![Samenvatting clusterconfiguratie](./media/hdinsight-apache-kafka-get-started/hdinsight-configuration-summary.png)
    
     > [!NOTE]
     > Het kan tot 20 minuten duren om het cluster te maken.
 
-## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
+<a id="connect-to-the-cluster" class="xliff"></a>
 
-Gebruik SSH in uw client om verbinding te maken met het cluster. Als u gebruikmaakt van Linux, Unix, Mac OS of Bash in Windows 10, gebruikt u de volgende opdracht:
+## Verbinding maken met het cluster
+
+Gebruik SSH in uw client om verbinding te maken met het cluster:
 
 ```ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net```
 
@@ -104,7 +115,7 @@ Voer het wachtwoord van het SSH-account in wanneer hierom wordt gevraagd.
 
 Zie [SSH-sleutels gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor informatie.
 
-##<a id="getkafkainfo"></a>Informatie over Zookeeper- en brokerhosts ophalen
+## <a id="getkafkainfo"></a>Informatie over Zookeeper- en brokerhosts ophalen
 
 Wanneer u met Kafka werkt, moet u twee hostwaarden weten: de *Zookeeper*-hosts en de *brokerhosts*. Deze hosts worden gebruikt met de Kafka-API en veel van de hulpprogramma's die bij Kafka worden meegeleverd.
 
@@ -116,12 +127,12 @@ Gebruik de volgende stappen om omgevingsvariabelen te maken die de hostinformati
     sudo apt -y install jq
     ```
 
-2. Gebruik de volgende opdrachten om de omgevingsvariabelen in te stellen met informatie die is verkregen van Ambari. Vervang __KAFKANAME__ door de naam van het Kafka-cluster. Vervang __wachtwoord__ door het aanmeldingswachtwoord (beheerder) die u hebt gebruikt bij het maken van het cluster.
+2. Gebruik de volgende opdrachten om de omgevingsvariabelen in te stellen met informatie die is verkregen van Ambari. Vervang __CLUSTERNAME__ door de naam van uw Kafka-cluster. Vervang __wachtwoord__ door het aanmeldingswachtwoord (beheerder) die u hebt gebruikt bij het maken van het cluster.
 
     ```bash
-    export KAFKAZKHOSTS=`curl --silent -u admin:'PASSWORD' -G http://headnodehost:8080/api/v1/clusters/KAFKANAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
+    export KAFKAZKHOSTS=`curl --silent -u admin:'PASSWORD' -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
 
-    export KAFKABROKERS=`curl --silent -u admin:'PASSWORD' -G http://headnodehost:8080/api/v1/clusters/KAFKANAME/services/HDFS/components/DATANODE | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'`
+    export KAFKABROKERS=`curl --silent -u admin:'PASSWORD' -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'`
 
     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
     echo '$KAFKABROKERS='$KAFKABROKERS
@@ -136,16 +147,18 @@ Gebruik de volgende stappen om omgevingsvariabelen te maken die de hostinformati
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
    
     > [!WARNING]
-    > Ga er niet van uit dat de informatie die uit deze sessie naar voren komt altijd accuraat is. Als u het cluster schaalt, worden er nieuwe brokers toegevoegd of verwijderd. Als er een fout optreedt en een knooppunt is vervangen, kan de hostnaam van het knooppunt veranderen. 
-    > 
+    > Ga er niet van uit dat de informatie die uit deze sessie naar voren komt altijd accuraat is. Als u het cluster schaalt, worden er nieuwe brokers toegevoegd of verwijderd. Als er een fout optreedt en een knooppunt is vervangen, kan de hostnaam van het knooppunt veranderen.
+    >
     > Haal de informatie over de Zookeeper- en brokerhosts kort voordat u deze gebruikt pas op, om er zeker van te zijn dat de gegevens geldig zijn.
 
-## <a name="create-a-topic"></a>Een onderwerp maken
+<a id="create-a-topic" class="xliff"></a>
+
+## Een onderwerp maken
 
 Kafka slaat gegevensstromen op in categorieën, zogenaamde *onderwerpen*. Wanneer er een SSH-verbinding is gemaakt met het hoofdknooppunt van het cluster, gebruikt u een script dat bij Kafka is meegeleverd om een onderwerp te maken:
 
 ```bash
-/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
+/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
 ```
 
 Met deze opdracht brengt u een verbinding met Zookeeper tot stand met behulp van de hostinformatie die is opgeslagen in `$KAFKAZKHOSTS`. Maak vervolgens een Kafka-onderwerp met de naam **test**. U kunt controleren of het onderwerp is gemaakt door met het volgende script een lijst van de onderwerpen te genereren:
@@ -156,7 +169,9 @@ Met deze opdracht brengt u een verbinding met Zookeeper tot stand met behulp van
 
 Met deze opdracht krijgt u een lijst van Kafka-onderwerpen, waaronder het onderwerp **test**.
 
-## <a name="produce-and-consume-records"></a>Records maken en gebruiken
+<a id="produce-and-consume-records" class="xliff"></a>
+
+## Records maken en gebruiken
 
 Kafka slaat *records* op in onderwerpen. Records worden geproduceerd door *producenten* en worden gebruikt door *consumenten*. Producenten halen records op uit Kafka-*brokers*. Elk werkrolknooppunt in uw HDInsight-cluster is een Kafka-broker.
 
@@ -173,14 +188,16 @@ Gebruik de volgende stappen om records op te slaan in het testonderwerp dat u ee
 2. Gebruik een script dat bij Kafka is meegeleverd om records in het onderwerp te lezen:
    
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic test --from-beginning
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
     ```
    
-    Hiermee haalt u de records van het onderwerp op en geeft u deze weer. Met `--from-beginning` wordt de consument gevraagd om bij het begin van de stream te beginnen, zodat alle records worden opgehaald.
+    Met deze opdracht haalt u de records van het onderwerp op en geeft u deze weer. Met `--from-beginning` wordt de consument gevraagd om bij het begin van de stream te beginnen, zodat alle records worden opgehaald.
 
 3. Gebruik __Ctrl + C__ om de consument te stoppen.
 
-## <a name="producer-and-consumer-api"></a>Producent- en consument-API
+<a id="producer-and-consumer-api" class="xliff"></a>
+
+## Producent- en consument-API
 
 U kunt records ook programmatisch maken en gebruiken met behulp van de [Kafka-API's](http://kafka.apache.org/documentation#api). Gebruik de volgende stappen om een op Java gebaseerde producent en consument te downloaden en bouwen:
 
@@ -192,12 +209,12 @@ U kunt records ook programmatisch maken en gebruiken met behulp van de [Kafka-AP
 
     * **Consument**: hiermee kunnen records in een onderwerp worden gelezen.
 
-2. In de opdrachtregel in uw ontwikkelingsomgeving wijzigt u de directory's in de locatie van de directory `Producer-Consumer` van het voorbeeld. Vervolgens gebruikt u de volgende opdracht om een JAR-pakket te maken:
-   
+2. Wijzig de mappen in de locatie van de map `Producer-Consumer` van het voorbeeld en gebruik vervolgens deze opdracht om een JAR-pakket te maken:
+
     ```
     mvn clean package
     ```
-   
+
     Met deze opdracht maakt u een directory met de naam `target`, die een bestand met de naam `kafka-producer-consumer-1.0-SNAPSHOT.jar` bevat.
 
 3. Gebruik de volgende opdrachten om het bestand `kafka-producer-consumer-1.0-SNAPSHOT.jar` te kopiëren naar uw HDInsight-cluster:
@@ -208,13 +225,13 @@ U kunt records ook programmatisch maken en gebruiken met behulp van de [Kafka-AP
    
     Vervang **SSHUSER** door de SSH-gebruiker van uw cluster en vervang **CLUSTERNAME** door de naam van het cluster. Voer het wachtwoord van de SSH-gebruiker in wanneer hierom wordt gevraagd.
 
-4. Nadat de opdracht `scp` klaar is met het kopiëren van het bestand, maakt u een SSH-verbinding met het cluster en gebruikt u het volgende om records te schrijven naar het testonderwerp dat u eerder hebt gemaakt.
-   
+4. Als de `scp`-opdracht het bestand heeft gekopieerd, maakt u verbinding met het cluster met behulp van SSH. Gebruik de volgende opdracht om records naar het testonderwerp te schrijven:
+
     ```bash
     ./kafka-producer-consumer.jar producer $KAFKABROKERS
     ```
-   
-    Met deze opdracht wordt de producent gestart en worden er records geschreven. Een teller geeft aan hoeveel records er zijn geschreven.
+
+    Een teller geeft aan hoeveel records er zijn geschreven.
 
     > [!NOTE]
     > Als u de fout Toegang geweigerd ontvangt, gebruikt u de volgende opdracht om het bestand uitvoerbaar te maken: ```chmod +x kafka-producer-consumer.jar```
@@ -229,7 +246,9 @@ U kunt records ook programmatisch maken en gebruiken met behulp van de [Kafka-AP
 
 6. Gebruik __Ctrl + C__ om de consument af te sluiten.
 
-### <a name="multiple-consumers"></a>Meerdere consumenten
+<a id="multiple-consumers" class="xliff"></a>
+
+### Meerdere consumenten
 
 Een belangrijk concept bij Kafka is dat consumenten een consumentengroep (gedefinieerd door een groeps-id) gebruiken bij het lezen van records. Door dezelfde groep voor meerdere consumenten te gebruiken, worden leestaken voor onderwerpen gelijk verdeeld. Elke consument in de groep ontvangt een deel van de records. Voer de volgende stappen uit om dit proces in actie te zien:
 
@@ -240,7 +259,7 @@ Een belangrijk concept bij Kafka is dat consumenten een consumentengroep (gedefi
     ```
 
     > [!NOTE]
-    > Aangezien dit een nieuwe SSH-sessie is, moet u de opdrachten in het gedeelte [Informatie over Zookeeper- en brokerhosts ophalen](#getkafkainfo) gebruiken om `$KAFKABROKERS` in te stellen.
+    > Gebruik de opdrachten in het gedeelte [Informatie over Zookeeper- en brokerhosts ophalen](#getkafkainfo) om `$KAFKABROKERS` in te stellen voor deze SSH-sessie.
 
 2. Voor elke sessie worden nu de records geteld die worden ontvangen van het onderwerp. Het totaal van beide sessies moet hetzelfde zijn als wat u eerder ontving van één consument.
 
@@ -251,7 +270,9 @@ Gebruik door clients binnen dezelfde groep wordt verwerkt door de partities voor
 
 Records worden in Kafka opgeslagen in de volgorde waarin deze worden ontvangen binnen een partitie. Als u records *binnen een partitie* op volgorde wilt leveren, maakt u een consumentengroep waarvan het aantal consumentexemplaren gelijk is aan het aantal partities. Als u records *binnen het onderwerp* op volgorde wilt leveren, maakt u een consumentengroep met slechts één consumentexemplaar.
 
-## <a name="streaming-api"></a>Streaming-API
+<a id="streaming-api" class="xliff"></a>
+
+## Streaming-API
 
 De streaming-API is in versie 0.10.0 aan Kafka toegevoegd. Eerdere versies zijn afhankelijk van Apache Spark of Storm voor streamverwerking.
 
@@ -260,11 +281,11 @@ De streaming-API is in versie 0.10.0 aan Kafka toegevoegd. Eerdere versies zijn 
     Dit project bevat slechts één klasse: `Stream`. Deze leest records van het eerder gemaakte onderwerp `test`. De gelezen woorden worden geteld, en elk woord en de telling worden verzonden een onderwerp met de naam `wordcounts`. Het onderwerp `wordcounts` wordt in een latere stap in dit gedeelte gemaakt.
 
 2. In de opdrachtregel in uw ontwikkelingsomgeving wijzigt u de directory's in de locatie van de directory `Streaming`. Vervolgens gebruikt u de volgende opdracht om een JAR-pakket te maken:
-   
-    ```
+
+    ```bash
     mvn clean package
     ```
-   
+
     Met deze opdracht maakt u een directory met de naam `target`, die een bestand met de naam `kafka-streaming-1.0-SNAPSHOT.jar` bevat.
 
 3. Gebruik de volgende opdrachten om het bestand `kafka-streaming-1.0-SNAPSHOT.jar` te kopiëren naar uw HDInsight-cluster:
@@ -278,7 +299,7 @@ De streaming-API is in versie 0.10.0 aan Kafka toegevoegd. Eerdere versies zijn 
 4. Nadat de opdracht `scp` klaar is met het kopiëren van het bestand, maakt u een SSH-verbinding met het cluster en gebruikt u de volgende opdracht om het onderwerp `wordcounts` te maken:
 
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic wordcounts --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcounts --zookeeper $KAFKAZKHOSTS
     ```
 
 5. Start vervolgens het streamingproces met behulp van de volgende opdracht:
@@ -326,20 +347,29 @@ De streaming-API is in versie 0.10.0 aan Kafka toegevoegd. Eerdere versies zijn 
 
 7. Gebruik __Ctrl + C__ om de consument af te sluiten. Gebruik vervolgens de opdracht `fg` om de streamingtaak weer op de voorgrond uit te voeren. Gebruik __Ctrl + C__ om af te sluiten.
 
-## <a name="delete-the-cluster"></a>Het cluster verwijderen
+<a id="delete-the-cluster" class="xliff"></a>
+
+## Het cluster verwijderen
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="troubleshoot"></a>Problemen oplossen
+<a id="troubleshoot" class="xliff"></a>
+
+## Problemen oplossen
 
 Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#create-clusters) als u problemen ondervindt met het maken van HDInsight-clusters.
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 
 In dit document hebt u de basisbeginselen geleerd van hoe u met Apache Kafka in HDInsight werkt. Gebruik de volgende documenten voor meer informatie over het werken met Kafka:
 
+* [Hoge beschikbaarheid van uw gegevens met Kafka in HDInsight](hdinsight-apache-kafka-high-availability.md)
+* [De schaalbaarheid verhogen door beheerde schijven met Kafka in HDInsight te configureren](hdinsight-apache-kafka-scalability.md)
 * [Documentatie voor Apache Kafka](http://kafka.apache.org/documentation.html) op kafka.apache.org.
 * [MirrorMaker gebruiken voor het maken van een replica van Kafka in HDInsight](hdinsight-apache-kafka-mirroring.md)
 * [Apache Storm gebruiken met Kafka in HDInsight](hdinsight-apache-storm-with-kafka.md)
 * [Apache Spark gebruiken met Kafka in HDInsight](hdinsight-apache-spark-with-kafka.md)
 * [Verbinding maken met Kafka via een Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md)
+

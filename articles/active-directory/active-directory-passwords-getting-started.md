@@ -6,25 +6,31 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/12/2017
 ms.author: joflore
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: b4d2819f51506651ebeb5b7b7c2d016c0cfc154d
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 663041285f7b64a8f38ace91bcb3673f46c1218a
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="quick-start-azure-ad-self-service-password-reset"></a>Quick Start: wachtwoorden opnieuw instellen voor Azure AD via self-service
+<a id="quick-start-azure-ad-self-service-password-reset" class="xliff"></a>
 
-## <a name="rapidly-deploy-self-service-password-reset"></a>Wachtwoorden snel opnieuw instellen via self-service
+# Quick Start: wachtwoorden opnieuw instellen voor Azure AD via self-service
+
+<a id="rapidly-deploy-self-service-password-reset" class="xliff"></a>
+
+## Wachtwoorden snel opnieuw instellen via self-service
 
 De self-service voor wachtwoordherstel (SSPR) biedt een eenvoudige manier voor IT-beheerders om gebruikers in staat te stellen hun eigen wachtwoord of account opnieuw in te stellen of te ontgrendelen. Het systeem biedt gedetailleerde rapporten zodat u kunt volgen wanneer gebruikers het systeem gebruiken. U ontvangt ook meldingen om u te waarschuwen over misbruik.
 
@@ -63,19 +69,25 @@ In deze handleiding wordt ervan uitgegaan dat u een werkende proefversie hebt va
 > [!NOTE]
 > Test self-service voor wachtwoordherstel met een gebruiker en niet als beheerder, aangezien Microsoft sterke verificatievereisten afdwingt voor Azure-accounts van beheerders. Zie ons [artikel over wachtwoordbeleid](active-directory-passwords-policy.md#administrator-password-policy-differences) voor meer informatie over het wachtwoordbeleid voor beheerders.
 
-## <a name="configure-synchronization-to-existing-identity-source"></a>Synchronisatie met bestaande identiteitsbronnen configureren
+<a id="configure-synchronization-to-existing-identity-source" class="xliff"></a>
+
+## Synchronisatie met bestaande identiteitsbronnen configureren
 
 Als u on-premises identiteitssynchronisatie met Azure AD wilt inschakelen, moet u [Azure AD Connect](./connect/active-directory-aadconnect.md) installeren en configureren op een server in uw organisatie. Deze toepassing draagt zorg voor het synchroniseren van gebruikers en groepen uit uw bestaande identiteitsbron met uw Azure AD-domein.
 
-[Aan de slag met Azure AD Connect met Express-instellingen](./connect/active-directory-aadconnect-get-started-express.md)
+* [Upgraden van DirSync of Azure AD Sync naar Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
+* [Aan de slag met Azure AD Connect met Express-instellingen](./connect/active-directory-aadconnect-get-started-express.md)
+* [Configureer write-back van wachtwoord](active-directory-passwords-writeback.md#configuring-password-writeback) om wachtwoorden van Azure AD terug te schrijven naar uw on-premises directory.
 
-[Upgraden van DirSync of Azure AD Sync naar Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
+<a id="disabling-self-service-password-reset" class="xliff"></a>
 
-## <a name="disabling-self-service-password-reset"></a>Self-service voor wachtwoordherstel uitschakelen
+## Self-service voor wachtwoordherstel uitschakelen
 
 Het uitschakelen van self-service voor wachtwoordherstel is heel eenvoudig. Open uw Azure AD-tenant en ga naar **Wachtwoordherstel**, **Eigenschappen**. Kies **Niemand** onder **Self-service voor wachtwoord opnieuw instellen is ingeschakeld**
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 De volgende koppelingen bieden aanvullende informatie over wachtwoordherstel met behulp van Azure AD
 
 * [**Licentieverlening**](active-directory-passwords-licensing.md): uw Azure AD-licentieverlening configureren

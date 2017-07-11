@@ -15,16 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 7c70129ebf4bacc28400cf68418bf898e4e646d2
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 97da0f4dc5d5528bfb803eefe9037651939a8efd
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/26/2017
 
 
 ---
-# <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Aan de slag met de vooraf geconfigureerde oplossing voor verbonden factory's
+<a id="get-started-with-the-connected-factory-preconfigured-solution" class="xliff"></a>
 
-## <a name="introduction"></a>Inleiding
+# Aan de slag met de vooraf geconfigureerde oplossing voor verbonden factory's
+
+<a id="introduction" class="xliff"></a>
+
+## Inleiding
 
 [Vooraf geconfigureerde oplossingen][lnk-preconfigured-solutions] voor Azure IoT Suite zijn voorzien van meerdere Azure IoT-services om totaaloplossingen te leveren voor het implementeren van algemene IoT-bedrijfsscenario's. De vooraf geconfigureerde oplossing voor *verbonden factory's* maakt verbinding met en controleert uw industriële apparaten. U kunt de oplossing gebruiken om de gegevensstroom van uw apparaten te analyseren en operationele productiviteit en winstgevendheid te bevorderen.
 
@@ -39,15 +44,19 @@ U hebt een actief Azure-abonnement nodig om deze zelfstudie te voltooien.
 > 
 > 
 
-## <a name="provision-the-solution"></a>De oplossing inrichten
+<a id="provision-the-solution" class="xliff"></a>
+
+## De oplossing inrichten
 
 1. Meld u aan bij azureiotsuite.com met de referenties van uw Azure-account en klik op **+** om een oplossing te maken.
 2. Klik op de tegel **Verbonden factory** op **Selecteren**.
-3. Voer een **oplossingsnaam** in voor uw vooraf geconfigureerde oplossing voor externe controle.
+3. Voer een **oplossingsnaam** in voor uw verbonden vooraf geconfigureerde oplossing.
 4. Selecteer het **abonnement** dat en de **regio** die u wilt gebruiken voor het inrichten van de oplossing.
 5. Klik op **Oplossing maken** om het inrichtingsproces te starten. Doorgaans duurt het enkele minuten om dit proces uit te voeren.
 
-### <a name="while-you-wait-for-the-provisioning-process-to-complete"></a>Doe het volgende terwijl u wacht tot het inrichtingsproces is voltooid
+<a id="while-you-wait-for-the-provisioning-process-to-complete" class="xliff"></a>
+
+### Doe het volgende terwijl u wacht tot het inrichtingsproces is voltooid
 
 1. Klik op de tegel voor uw oplossing met de status **Inrichten**.
 2. Tijdens de implementatie van Azure-services in uw Azure-abonnement verschijnen verschillende **inrichtingstatuswaarden**.
@@ -59,7 +68,9 @@ U hebt een actief Azure-abonnement nodig om deze zelfstudie te voltooien.
 
 Zijn er voor uw oplossing bepaalde details niet vermeld, die u wel verwacht had te zien? Geef ons suggesties voor functies op [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
-## <a name="scenario-overview"></a>Overzicht van scenario's
+<a id="scenario-overview" class="xliff"></a>
+
+## Overzicht van scenario's
 
 Wanneer u de vooraf geconfigureerde oplossing voor verbonden factory's implementeert, wordt deze vooraf ingevuld met de resources waarmee u een algemeen industrieel scenario kunt doorlopen. In dit scenario rapporteren verschillende factory's die zijn verbonden met de oplossing, de gegevenswaarden die vereist zijn voor het berekenen van de algemene apparatuurefficiëntie (overall equipment efficiency, OEE) en de key performance indicators (KPI's). De volgende gedeelten laten u zien hoe u:
 
@@ -69,7 +80,9 @@ Wanneer u de vooraf geconfigureerde oplossing voor verbonden factory's implement
 
 Een belangrijke functie van dit scenario is dat u al deze acties extern kunt uitvoeren vanuit het dashboard van de oplossing. U hebt geen fysieke toegang tot de apparaten nodig.
 
-## <a name="view-the-solution-dashboard"></a>Het oplossingsdashboard bekijken
+<a id="view-the-solution-dashboard" class="xliff"></a>
+
+## Het oplossingsdashboard bekijken
 
 Vanaf het dashboard van de oplossing kunt u de geïmplementeerde oplossing beheren. Het is een hiërarchische weergave van een overkoepelende factoryconfiguratie. U kunt bijvoorbeeld de OEE en KPI's weergeven, nieuwe knooppunten voor telemetrie publiceren en waarschuwingen uitvoeren.
 
@@ -83,13 +96,15 @@ Vanaf het dashboard van de oplossing kunt u de geïmplementeerde oplossing beher
 
 Het dashboard bevat de volgende informatie:
 
-* Een paneel met een **factorylijst** waarin de status, locatie en huidige productieconfiguratie in de oplossing worden weergegeven. Wanneer u de oplossing voor het eerst uitvoert, zijn er een paar gesimuleerde apparaten. De simulatie van de productielijn bestaat uit drie echte OPC UA-servers per productielijn die gesimuleerde taken uitvoeren en gegevens delen. 
+* Een paneel met een **factorylijst** waarin de status, locatie en huidige productieconfiguratie in de oplossing worden weergegeven. Wanneer u de oplossing voor het eerst uitvoert, zijn er een paar gesimuleerde apparaten. De simulatie van de productielijn bestaat uit drie echte OPC UA-servers per productielijn die gesimuleerde taken uitvoeren en gegevens delen. Zie de [veelgestelde vragen][lnk-faq] voor meer informatie over OPC UA.
 * Een **kaart** die de locatie aangeeft van elk apparaat dat met de oplossing is verbonden. De oplossing kan de Bing Kaarten-API gebruiken om informatie op de kaart tekenen. Als de Bing Kaarten Enterprise-API is ingeschakeld voor uw abonnement, wordt deze functie automatisch gebruikt. Als dit niet het geval is, leest u de [veelgestelde vragen][lnk-faq] voor meer informatie over hoe u de kaart dynamisch kunt maken.
 * Een paneel **Waarschuwingen** dat waarschuwingen weergeeft die worden gegenereerd wanneer een telemetrie- of OEE-/KPI-waarde een bepaalde drempelwaarde overschrijdt.
 * Een paneel **Overall Equipment Efficiency** dat de OEE-waarden weergeeft voor de hele onderneming of voor de factory, de productielijn of het station die/dat u bekijkt. Deze waarde wordt geaggregeerd van de stationsweergave naar het ondernemingsniveau. De OEE-gegevens en de bijbehorende elementen kunnen nader worden geanalyseerd.
 * Een paneel **Key Performance Indicators** dat het aantal geproduceerde eenheden weergeeft en de energie die wordt verbruikt door de hele onderneming of door de factory, de productielijn of het station die/dat u bekijkt. Deze waarden worden geaggregeerd van de stationsweergave naar het ondernemingsniveau.
 
-## <a name="view-factories"></a>Factory's weergeven
+<a id="view-factories" class="xliff"></a>
+
+## Factory's weergeven
 
 Het paneel *Factory's* geeft de geografische locatie van alle factory's in de oplossing weer, samen met hun status en de huidige productieconfiguratie. U kunt in de lijst met locaties naar de andere niveaus in de oplossingshiërarchie navigeren. De rijen in de lijst zijn hyperlinks die gekoppeld zijn aan details van de productielijnen op die locatie. U kunt vervolgens inzoomen op de details van de productielijn en de weergave op stationsniveau. U kunt ook een filter toepassen op de lijst.
 
@@ -107,13 +122,17 @@ Het paneel *Factory's* geeft de geografische locatie van alle factory's in de op
 
 6. Als u details voor een bepaald knooppunt in het station wilt bekijken, klikt u op de rij in de lijst. Met deze actie wordt het contextpaneel met Time Series Insights-visualisaties gestart. Klik op de grafieken voor verdere analyse in de Time Series Insights-verkenner.
 
-## <a name="view-map"></a>Kaart weergeven
+<a id="view-map" class="xliff"></a>
+
+## Kaart weergeven
 
 Als u met uw abonnement toegang hebt tot de Bing Kaarten-API, wordt op de kaart *Factory's* de geografische locatie en de status van alle factory's in de oplossing weergegeven. Klik op de locaties op de kaart om in te zoomen op de locatiedetails.
 
 ![Kaart van vooraf geconfigureerde oplossing voor verbonden factory's][cf-img-map]
 
-## <a name="view-alerts"></a>Waarschuwingen weergeven
+<a id="view-alerts" class="xliff"></a>
+
+## Waarschuwingen weergeven
 
 Het paneel **Waarschuwingsgeschiedenis** geeft de waarschuwingen weer die worden gegenereerd wanneer een gemelde waarde of een berekende OEE-/KPI-waarde de geconfigureerde drempelwaarde overschrijdt. Dit paneel geeft waarschuwingen weer van elk niveau van de hiërarchie, van de weergave op stationsniveau tot de overkoepelende weergave. De waarschuwingen bevatten een beschrijving van de waarschuwing, de datum, de tijd, de locatie en het aantal instanties. Aan de hand van de Time Series Insights-gegevens krijgt u inzicht in de gegevens die de waarschuwing hebben veroorzaakt. Waar van toepassing worden de Time Series Insights-gegevens weergegeven in de waarschuwingen. Als u beheerder bent, kunt u standaardacties uitvoeren voor de waarschuwingen, zoals:
 
@@ -139,7 +158,9 @@ Eventueel kunt u complexere acties uitvoeren. Voor het OPC UA-drukknooppunt van 
 
 4. In het paneel Waarschuwingen zijn verschillende acties voor de waarschuwing beschikbaar. Kies de gewenste optie en klik op de knop voor het uitvoeren van de actie.
 
-## <a name="view-overall-equipment-efficiency"></a>Algemene apparatuurefficiëntie weergeven
+<a id="view-overall-equipment-efficiency" class="xliff"></a>
+
+## Algemene apparatuurefficiëntie weergeven
 
 De OEE bepaalt de efficiëntie van het productieproces met behulp van operationele parameters gerelateerd aan cruciale productie. OEE is een standaardmeeteenheid binnen de industrie die wordt berekend door de beschikbaarheidswaarde te vermenigvuldigen met de prestatiewaarde en de kwaliteitswaarde: OEE = beschikbaarheid x prestaties x kwaliteit.
 
@@ -155,7 +176,9 @@ De OEE bepaalt de efficiëntie van het productieproces met behulp van operatione
 
     ![TSI-verkenner van vooraf geconfigureerde oplossing voor verbonden factory's][cf-img-tsi-explorer]
 
-## <a name="view-key-performance-indicators"></a>Key performance indicators weergeven
+<a id="view-key-performance-indicators" class="xliff"></a>
+
+## Key performance indicators weergeven
 
 De oplossing biedt twee key performance indicators: *eenheden per uur* en *energieverbruik in kWh*.
 
@@ -165,15 +188,21 @@ De oplossing biedt twee key performance indicators: *eenheden per uur* en *energ
 
 2. Als u het aantal eenheden per uur of het energieverbruik verder wilt analyseren voor een willekeurig niveau in de hiërarchiegegevens, klikt u op de meter voor geproduceerde eenheden of energieverbruik in het paneel **Key Performance Indicators**. Er wordt een contextpaneel weergegeven met Time Series Insights-visualisaties waarmee u gegevens van het afgelopen uur, de afgelopen 24 uur en de afgelopen 7 dagen kunt bekijken.
 
-## <a name="scenario-review"></a>Samenvatting van scenario
+<a id="scenario-review" class="xliff"></a>
+
+## Samenvatting van scenario
 
 In dit scenario hebt u de OEE- en KPI-waarden van uw factory's gecontroleerd in het dashboard. Vervolgens hebt u Time Series Insights gebruikt om meer informatie te krijgen voor het verder inzoomen op de telemetriegegevens voor OEE en KPI's om te helpen bij het detecteren van afwijkingen. U hebt ook het paneel Waarschuwingen gebruikt om problemen met uw factory's te bekijken en de beschikbare acties gebruikt om de waarschuwing te verhelpen.
 
-## <a name="other-features"></a>Andere functies
+<a id="other-features" class="xliff"></a>
+
+## Andere functies
 
 De volgende gedeelten beschrijven een aantal extra functies van de vooraf geconfigureerde oplossing voor verbonden factory's die niet aan bod zijn gekomen in het voorgaande scenario.
 
-## <a name="apply-filters"></a>Filters toepassen
+<a id="apply-filters" class="xliff"></a>
+
+## Filters toepassen
 
 1. Klik op de **dubbele punthaak** om een lijst met beschikbare filters weer te geven in het paneel met factorylocaties of het paneel Waarschuwingen.
 
@@ -192,7 +221,9 @@ De volgende gedeelten beschrijven een aantal extra functies van de vooraf geconf
 
 5. Als u een filter wilt wissen, klikt u op de trechter en vervolgens op Filter in het filtercontextpaneel. De tekst **Alle** wordt weergegeven in de tabellen met factory's en waarschuwingen.
 
-## <a name="browse-an-opc-ua-server"></a>Door een OPC UA-server bladeren
+<a id="browse-an-opc-ua-server" class="xliff"></a>
+
+## Door een OPC UA-server bladeren
 
 Wanneer u de vooraf geconfigureerde oplossing implementeert, worden er automatisch gesimuleerde OPC UA-servers ingericht die u met de oplossingsbrowser kunt doorbladeren. Deze servers zijn *gesimuleerde OPC UA-servers*. Gesimuleerde servers maken het voor u gemakkelijk om te experimenteren met een vooraf geconfigureerde oplossing zonder dat u echte, fysieke servers hoeft te implementeren. Raadpleeg de zelfstudie [Connect your OPC UA device to the connected factory preconfigured solution][lnk-connect-cf] (Uw OPC UA-apparaat koppelen aan de vooraf geconfigureerde oplossing voor verbonden factory's) als u een echte OPC UA-server aan de oplossing wilt koppelen.
 
@@ -212,7 +243,9 @@ Wanneer u de vooraf geconfigureerde oplossing implementeert, worden er automatis
 
 5. Klik met de rechtermuisknop op een item om het knooppunt te lezen, te schrijven, te publiceren of aan te roepen. Welke acties er beschikbaar zijn, is afhankelijk van uw machtigingen en de kenmerken van het knooppunt. Met de optie voor lezen wordt een contextpaneel weergegeven met de waarde van dat knooppunt. Met de optie voor schrijven wordt een contextpaneel weergegeven waarin u een nieuwe waarde kunt invoeren. Met de optie voor aanroepen wordt een knooppunt weergegeven waarin u de parameters voor het aanroepen kunt invoeren.
 
-## <a name="publish-a-node"></a>Een knooppunt publiceren
+<a id="publish-a-node" class="xliff"></a>
+
+## Een knooppunt publiceren
 
 Wanneer u door een *gesimuleerde OPC UA-server* bladert, kunt u ook nieuwe knooppunten publiceren. Vervolgens kunt u de telemetrie van deze knooppunten in de oplossing analyseren. De *gesimuleerde OPC UA-servers* maken het gemakkelijk om te experimenteren met een vooraf geconfigureerde oplossing zonder dat u echte, fysieke apparaten hoeft te implementeren.
 
@@ -228,7 +261,9 @@ Wanneer u door een *gesimuleerde OPC UA-server* bladert, kunt u ook nieuwe knoop
 
     ![Succesvolle publicatie van vooraf geconfigureerde oplossing voor verbonden factory's][cf-img-publish-success]
 
-## <a name="command-and-control"></a>Opdracht en controle
+<a id="command-and-control" class="xliff"></a>
+
+## Opdracht en controle
 
 Met de verbonden factory kunt u uw industriële apparaten rechtstreeks vanuit de cloud beheren en bedienen. U kunt deze functie gebruiken om te reageren op waarschuwingen die door het apparaat worden gegenereerd. U kunt bijvoorbeeld vanuit de cloud een opdracht naar het apparaat verzenden. U vindt de beschikbare opdrachten in het knooppunt **StationCommands** in de browserstructuur van de OPC UA-servers. In dit scenario opent u een overdrukventiel op de verzamelplaats van een productielijn in München. U moet de rol van **beheerder** hebben voor de implementatie van de vooraf geconfigureerde oplossing om de opdracht- en bedieningsfuncties te kunnen gebruiken.
 
@@ -253,7 +288,9 @@ Met de verbonden factory kunt u uw industriële apparaten rechtstreeks vanuit de
     ![Aanroepen voltooid van vooraf geconfigureerde oplossing voor verbonden factory's][cf-img-call-success]
 
 
-## <a name="behind-the-scenes"></a>Achter de schermen
+<a id="behind-the-scenes" class="xliff"></a>
+
+## Achter de schermen
 
 Wanneer u een vooraf geconfigureerde oplossing implementeert, maakt het implementatieproces meerdere resources in het door u geselecteerde Azure-abonnement. U kunt deze resources weergeven in Azure [Portal][lnk-portal]. Het implementatieproces maakt een **resourcegroep** met een naam die is gebaseerd op de naam die u voor uw vooraf geconfigureerde oplossing hebt gekozen:
 
@@ -268,7 +305,9 @@ Wanneer u klaar bent, kunt u de vooraf geconfigureerde oplossing verwijderen uit
 > [!NOTE]
 > Verwijder de oplossing op de site [azureiotsuite.com][lnk-azureiotsuite]. Zo zorgt u ervoor dat alles met betrekking tot de vooraf geconfigureerde oplossing wordt verwijderd. Verwijder de resourcegroep niet in de portal.
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 
 Nu u een werkende vooraf geconfigureerde oplossing hebt geïmplementeerd, kunt u doorgaan met IoT Suite door de volgende artikels te lezen:
 
@@ -303,7 +342,7 @@ Nu u een werkende vooraf geconfigureerde oplossing hebt geïmplementeerd, kunt u
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-portal]: http://portal.azure.com/
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-faq]: iot-suite-faq.md

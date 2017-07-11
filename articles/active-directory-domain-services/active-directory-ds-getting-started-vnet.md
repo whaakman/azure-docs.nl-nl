@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: een virtueel netwerk maken of selecteren | Microsoft Docs'
-description: Aan de slag met Azure Active Directory Domain Services
+description: Azure Active Directory Domain Services inschakelen met behulp van de klassieke Azure-portal
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,20 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 06/28/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: cb372232492e8f98ff1543798b92b4b60fc25021
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 457519b00b65b0157effe2d4aba033a1c99852e8
+ms.contentlocale: nl-nl
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="create-or-select-a-virtual-network-for-azure-active-directory-domain-services"></a>Een virtueel netwerk voor Azure Active Directory Domain Services maken of selecteren
-## <a name="before-you-begin"></a>Voordat u begint
+<a id="create-or-select-a-virtual-network-for-azure-active-directory-domain-services" class="xliff"></a>
+
+# Een virtueel netwerk voor Azure Active Directory Domain Services maken of selecteren
+<a id="before-you-begin" class="xliff"></a>
+
+## Voordat u begint
 Raadpleeg [Networking considerations for Azure AD Domain Services](active-directory-ds-networking.md) (Overwegingen voor netwerken voor Azure AD Domain Services).
 
-## <a name="task-2-create-an-azure-virtual-network"></a>Taak 2: een virtueel netwerk van Azure maken
+<a id="task-2-create-an-azure-virtual-network" class="xliff"></a>
+
+## Taak 2: een virtueel netwerk van Azure maken
 De volgende configuratietaak bestaat uit het maken van een virtueel Azure-netwerk met daarbinnen een subnet. U schakelt Azure Active Directory Domain Services in dit subnet binnen uw virtuele netwerk in. Als u een bestaand virtueel netwerk hebt dat u wilt gebruiken, kunt u deze stap overslaan.
 
 > [!NOTE]
@@ -36,7 +43,7 @@ De volgende configuratietaak bestaat uit het maken van een virtueel Azure-netwer
 
 Volg deze configuratie-instructies als u een virtueel Azure-netwerk wilt maken waarin Azure Active Directory Domain Services moet zijn ingeschakeld:
 
-1. Ga naar de [klassieke Azure Portal](https://manage.windowsazure.com).
+1. Ga naar de [klassieke Azure-portal](https://manage.windowsazure.com).
 2. Selecteer **Netwerken** in het linkerdeelvenster.
 
     ![Knooppunt Netwerken](./media/active-directory-domain-services-getting-started/networks-node.png)  
@@ -45,12 +52,12 @@ Volg deze configuratie-instructies als u een virtueel Azure-netwerk wilt maken w
 
     ![Venster Virtuele netwerken](./media/active-directory-domain-services-getting-started/virtual-networks.png)
 4. Klik op **Netwerkservices** en selecteer **Virtueel netwerk**.
-    
+
     ![Virtueel netwerk - Snel maken](./media/active-directory-domain-services-getting-started/virtual-network-quickcreate.png)
 5. Klik op **Snel maken** om een virtueel netwerk te maken.
-    
-6. Geef een **Naam** op voor het virtuele netwerk en stel desgewenst het volgende in: 
-    * U kunt ervoor kiezen om **Adresruimte** of **Maximum aantal VM’s** op te geven voor dit netwerk. 
+
+6. Geef een **Naam** op voor het virtuele netwerk en stel desgewenst het volgende in:
+    * U kunt ervoor kiezen om **Adresruimte** of **Maximum aantal VM’s** op te geven voor dit netwerk.
     * U kunt de instelling van **DNS-server** voorlopig op **Geen** laten staan. U kunt de instelling bijwerken nadat u Azure Active Directory Domain Services hebt ingeschakeld.
 7. Selecteer een ondersteunde Azure-regio selecteert in de vervolgkeuzelijst **Locatie**.  
     Zie de pagina [Azure-services per regio](https://azure.microsoft.com/regions/#services/) om te bekijken in welke Azure-regio's Azure Active Directory Domain Services beschikbaar is.
@@ -60,12 +67,15 @@ Volg deze configuratie-instructies als u een virtueel Azure-netwerk wilt maken w
 9. Nadat u het virtuele netwerk hebt gemaakt, selecteert u dit virtuele netwerk en klikt u op het tabblad **Configureren**.
 
     ![Een subnet maken](./media/active-directory-domain-services-getting-started/create-vnet-properties.png)
-10. Klik onder **Virtual Network-adresruimten** op **Subnet toevoegen** en geef een subnet op met de naam **AaddsSubnet**. 
+10. Klik onder **Virtual Network-adresruimten** op **Subnet toevoegen** en geef een subnet op met de naam **AaddsSubnet**.
 
     ![Een subnet voor Azure Active Directory Domain Services maken](./media/active-directory-domain-services-getting-started/create-vnet-add-subnet.png)
 
 11. Klik op **Opslaan** om het subnet te maken.
 
-## <a name="next-steps"></a>Volgende stappen
-Taak 3: [Azure Active Directory Domain Services inschakelen](active-directory-ds-getting-started-enableaadds.md)
+
+<a id="next-step" class="xliff"></a>
+
+## Volgende stap
+[Taak 3: Azure Active Directory Domain Services inschakelen](active-directory-ds-getting-started-enableaadds.md)
 

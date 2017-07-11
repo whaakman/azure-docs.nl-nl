@@ -12,14 +12,16 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 23e833b9eb926c81fd8c02cd96d43da8cffcaa43
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/16/2017
 
 ---
 
-# <a name="get-started-with-batch-sdk-for-nodejs"></a>Aan de slag met de Batch-SDK voor Node.js
+<a id="get-started-with-batch-sdk-for-nodejs" class="xliff"></a>
+
+# Aan de slag met de Batch-SDK voor Node.js
 
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
@@ -30,15 +32,21 @@ ms.lasthandoff: 05/04/2017
 
 Ontdek de basis voor het bouwen van een Batch-client in Node.js met behulp van de [Azure Batch Node.js-SDK](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). Er wordt een stapsgewijze benadering gebruikt om inzicht te krijgen in een scenario voor een Batch-toepassing. Daarna wordt de toepassing met een Node.js-client ingesteld.  
 
-## <a name="prerequisites"></a>Vereisten
+<a id="prerequisites" class="xliff"></a>
+
+## Vereisten
 In dit artikel wordt ervan uitgegaan dat u praktische kennis hebt van Node.js en vertrouwd bent met Linux. Er wordt ook van uitgegaan dat u een Azure-account hebt ingesteld met toegangsrechten voor het maken van Batch- en Storage-services.
 
 Het wordt aangeraden om [Technisch overzicht van Azure Batch](batch-technical-overview.md) door te nemen voordat u de stappen uit dit artikel doorloopt.
 
-## <a name="the-tutorial-scenario"></a>Het zelfstudiescenario
+<a id="the-tutorial-scenario" class="xliff"></a>
+
+## Het zelfstudiescenario
 U krijgt eerst meer informatie over het Batch-werkstroomscenario. Er is een eenvoudig script geschreven in Python waarmee alle CSV-bestanden uit een Azure Blob Storage-container worden gedownload en waarmee ze naar JSON worden geconverteerd. Als u meerdere oplagaccountcontainers tegelijk wilt verwerken, kunt u het script als een Azure Batch-taak implementeren.
 
-## <a name="azure-batch-architecture"></a>Azure Batch-architectuur
+<a id="azure-batch-architecture" class="xliff"></a>
+
+## Azure Batch-architectuur
 In het volgende diagram staat hoe u het Python-script kunt schalen met Azure Batch en een Node.js-client.
 
 ![Azure Batch-scenario](./media/batch-nodejs-get-started/BatchScenario.png)
@@ -56,11 +64,15 @@ De Node.js-client implementeert een Batch-taak met een voorbereidingstaak (dit w
 >
 >
 
-## <a name="build-the-application"></a>De toepassing bouwen
+<a id="build-the-application" class="xliff"></a>
+
+## De toepassing bouwen
 
 U gaat nu het stapsgewijze proces volgen om de Node.js-client te bouwen:
 
-### <a name="step-1-install-azure-batch-sdk"></a>Stap 1: de Azure Batch-SDK installeren
+<a id="step-1-install-azure-batch-sdk" class="xliff"></a>
+
+### Stap 1: de Azure Batch-SDK installeren
 
 U kunt de Azure Batch-SDK voor Node.js installeren met de installatieopdracht npm.
 
@@ -73,7 +85,9 @@ Met deze opdracht wordt de meest recente versie van de Azure Batch Node-SDK geï
 >
 >
 
-### <a name="step-2-create-an-azure-batch-account"></a>Stap 2: een Azure Batch-account maken
+<a id="step-2-create-an-azure-batch-account" class="xliff"></a>
+
+### Stap 2: een Azure Batch-account maken
 
 U kunt het maken via [Azure Portal](batch-account-create-portal.md) of vanaf de opdrachtregel ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](https://docs.microsoft.com/cli/azure/overview)).
 
@@ -93,7 +107,9 @@ Elk Batch-account heeft bijbehorende toegangssleutels. Deze sleutels zijn nodig 
 
 Kopieer en bewaar de benodigde sleutel voor gebruik in de volgende stappen.
 
-### <a name="step-3-create-an-azure-batch-service-client"></a>Stap 3: een Azure Batch-serviceclient maken
+<a id="step-3-create-an-azure-batch-service-client" class="xliff"></a>
+
+### Stap 3: een Azure Batch-serviceclient maken
 Met de volgende codefragmenten wordt als eerste de Azure Batch Node.js-module geïmporteerd en daarna wordt een Batch-serviceclient gemaakt. U moet eerst een SharedKeyCredentials-object maken met de Batch-accountsleutel die u in de vorige stap hebt gekopieerd.
 
 ```nodejs
@@ -127,7 +143,9 @@ Zie de schermafbeelding:
 
 
 
-### <a name="step-4-create-an-azure-batch-pool"></a>Stap 4: een Azure Batch-pool maken
+<a id="step-4-create-an-azure-batch-pool" class="xliff"></a>
+
+### Stap 4: een Azure Batch-pool maken
 Een Azure Batch-pool bestaat uit meerdere virtuele machines (ook wel Batch-knooppunten genoemd). De Azure Batch-service implementeert de taken op deze knooppunten en beheert ze. U kunt de volgende configuratieparameters definiëren voor uw pool.
 
 * Type VM-installatiekopie
@@ -262,7 +280,9 @@ Hieronder staat een voorbeeldresultaatobject dat is geretourneerd door de functi
 ```
 
 
-### <a name="step-4-submit-an-azure-batch-job"></a>Stap 4: een Azure Batch-taak verzenden
+<a id="step-4-submit-an-azure-batch-job" class="xliff"></a>
+
+### Stap 4: een Azure Batch-taak verzenden
 Een Azure Batch-taak is een logische groep vergelijkbare taken. In dit scenario is dit 'CSV omzetten in JSON'. Bij elke taak worden er hier CSV-bestanden omgezet die aanwezig zijn in Azure Storage-containers.
 
 Deze taken worden gelijktijdig uitgevoerd en op verschillende knooppunten geïmplementeerd, of ingedeeld door de Azure Batch-service.
@@ -272,7 +292,9 @@ Deze taken worden gelijktijdig uitgevoerd en op verschillende knooppunten geïmp
 >
 >
 
-#### <a name="preparation-task"></a>Voorbereidingstaak
+<a id="preparation-task" class="xliff"></a>
+
+#### Voorbereidingstaak
 
 De VM-knooppunten die worden gemaakt, zijn lege Ubuntu-knooppunten. U moet als vereiste vaak een reeks programma's installeren.
 Normaal gesproken is er voor Linux-knooppunten een Shell-script waarmee de vereiste onderdelen worden geïnstalleerd voordat de eigenlijke taken worden uitgevoerd. Dit kunnen echter alle programmeerbare uitvoerbare bestanden zijn.
@@ -319,7 +341,9 @@ Als er geen vereiste onderdelen hoeven te worden geïnstalleerd voor het uitvoer
 ```
 
 
-### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>Stap 5: Azure Batch-taken voor een taak verzenden
+<a id="step-5-submit-azure-batch-tasks-for-a-job" class="xliff"></a>
+
+### Stap 5: Azure Batch-taken voor een taak verzenden
 
 Nu de taak voor het verwerken van CSV-bestanden is gemaakt, maakt u taken voor die taak. Als u vier containers hebt, maakt u vier taken, één voor elke container.
 
@@ -359,7 +383,9 @@ Met de code worden meerdere taken aan de pool toegevoegd. Alle taken worden uitg
 
 De portal biedt een gedetailleerd overzicht van de taken en de taakstatus. U kunt ook de lijst- en ophaalfuncties in de Azure Node-SDK gebruiken. U vindt meer informatie in de documentatie ([koppeling](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html)).
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 
 - Lees het artikel [Overzicht van Azure Batch-functies](batch-api-basics.md). Dit is raadzaam als u niet vertrouwd bent met de service.
 - Zie de [naslaginformatie voor Batch Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) voor informatie over de Batch-API.

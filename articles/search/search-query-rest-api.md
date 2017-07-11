@@ -13,13 +13,17 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
-ms.openlocfilehash: 449110cfda1a08b73b5e21cbf495e59f32d80339
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 1976a514b4469704dcba9381c5fcbe8805a11ecd
+ms.contentlocale: nl-nl
+ms.lasthandoff: 06/08/2017
 
 ---
 
-# <a name="query-your-azure-search-index-using-the-rest-api"></a>Een query uitvoeren in uw Azure Search-index met behulp van de REST-API
+<a id="query-your-azure-search-index-using-the-rest-api" class="xliff"></a>
+
+# Een query uitvoeren in uw Azure Search-index met behulp van de REST-API
 > [!div class="op_single_selector"]
 >
 > * [Overzicht](search-query-overview.md)
@@ -31,9 +35,11 @@ ms.openlocfilehash: 449110cfda1a08b73b5e21cbf495e59f32d80339
 
 In dit artikel wordt beschreven hoe u een query uitvoert in uw index met behulp van de [Azure Search REST-API](https://docs.microsoft.com/rest/api/searchservice/).
 
-Voordat u deze procedure begint, moet u al [een Azure Search-index hebben gemaakt](search-what-is-an-index.md) en moet deze index [gevuld zijn met gegevens](search-what-is-data-import.md).
+Voordat u deze procedure begint, moet u al [een Azure Search-index hebben gemaakt](search-what-is-an-index.md) en moet deze index [gevuld zijn met gegevens](search-what-is-data-import.md). Zie [How full text search works in Azure Search](search-lucene-query-architecture.md) (Hoe zoeken in volledige tekst werkt in Azure Search) voor achtergrondinformatie.
 
-## <a name="identify-your-azure-search-services-query-api-key"></a>De query api-sleutel voor de Azure Search-service vaststellen
+<a id="identify-your-azure-search-services-query-api-key" class="xliff"></a>
+
+## De query api-sleutel voor de Azure Search-service vaststellen
 Een belangrijk onderdeel van elke zoekbewerking in de REST-API van Azure Search is de *api-sleutel* die is gegenereerd voor de service die u hebt ingericht. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
 1. Als u de API-sleutels van uw service wilt opzoeken, kunt u zich aanmelden bij [Azure Portal](https://portal.azure.com/)
@@ -47,7 +53,9 @@ Uw service heeft zowel *administratorsleutels* als *querysleutels*.
 
 U kunt gebruikmaken van een van de query-sleutel om een query in een index uit te voeren. De administratorsleutels kunnen ook worden gebruikt voor query's, maar u moet gebruikmaken van een querysleutel in de toepassingscode, aangezien dit het [principe van minimale bevoegdheden](https://en.wikipedia.org/wiki/Principle_of_least_privilege) volgt.
 
-## <a name="formulate-your-query"></a>Uw query formuleren
+<a id="formulate-your-query" class="xliff"></a>
+
+## Uw query formuleren
 Er zijn twee manieren om [in de index te zoeken met behulp van de REST-API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). De ene manier is om een HTTP POST-aanvraag uit te geven waarbij uw queryparameters worden gedefinieerd in een JSON-object in de aanvraagtekst. De andere manier is om een HTTP GET-aanvraag uit te geven waarbij uw queryparameters worden gedefinieerd in de aanvraag-URL. POST heeft [soepelere limieten](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) met betrekking tot de grootte van queryparameters dan GET. Daarom wordt u aangeraden POST te gebruiken, tenzij er speciale omstandigheden zijn waarin het gebruik van GET beter zou zijn.
 
 Voor zowel POST als GET moet u in de aanvraag-URL de *servicenaam*, de *indexnaam* en de juiste *API-versie* (de huidige API-versie is `2016-09-01` op het moment van publicatie van dit document) opgeven. Voor GET geeft u in de *querytekenreeks* aan het einde van de URL de queryparameters op. Hieronder vindt u de URL-indeling:
@@ -56,7 +64,9 @@ Voor zowel POST als GET moet u in de aanvraag-URL de *servicenaam*, de *indexnaa
 
 De indeling voor POST is hetzelfde, maar met alleen de api-versie in de queryreeksparameters.
 
-#### <a name="example-queries"></a>Voorbeelden van query 's
+<a id="example-queries" class="xliff"></a>
+
+#### Voorbeelden van query 's
 Hier volgen een paar voorbeeldquery's op een index met de naam "hotels". Deze query's worden weergegeven in zowel de GET als POST-indeling.
 
 Zoeken in de hele index op de term 'budget' en alleen het veld `hotelName` retourneren:
@@ -98,10 +108,14 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-## <a name="submit-your-http-request"></a>De HTTP-aanvraag verzenden
+<a id="submit-your-http-request" class="xliff"></a>
+
+## De HTTP-aanvraag verzenden
 Nu u uw query hebt geformuleerd als onderdeel van uw HTTP-aanvraag-URL (voor GET) of hoofdtekst (voor POST), kunt u uw aanvraagheaders definiëren en uw query verzenden.
 
-#### <a name="request-and-request-headers"></a>Aanvragen en aanvraagheaders
+<a id="request-and-request-headers" class="xliff"></a>
+
+#### Aanvragen en aanvraagheaders
 U moet twee aanvraagheaders definiëren voor GET en drie voor POST:
 
 1. De `api-key`-header moet worden ingesteld op de querysleutel uit stap I hierboven. U kunt ook een administratorsleutel gebruiken voor de header `api-key`, maar het wordt aanbevolen de querysleutel te gebruiken aangezien deze exclusieve alleen-lezentoegang biedt tot indexen en documenten.
@@ -163,9 +177,4 @@ Als een queryaanvraag is gelukt, wordt de statuscode `200 OK` weergegeven. De zo
 ```
 
 Ga naar de sectie "Antwoord" van [Documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) voor meer informatie. Zie [HTTP-statuscodes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes) voor meer informatie over andere HTTP-statuscodes die kunnen worden geretourneerd in geval van storing.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

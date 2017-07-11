@@ -1,0 +1,1 @@
+Een [resourcegroep](../articles/azure-resource-manager/resource-group-overview.md#terminology) is een logische container waarin Azure-resources, zoals web-apps, databases en opslagaccounts, worden geïmplementeerd en beheerd.

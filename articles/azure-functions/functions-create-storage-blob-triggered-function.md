@@ -13,33 +13,36 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 05/31/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: c0d1271bc083688bbc72bd2556546c2f738e7345
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: a55f28fad4c70e49e417d2856568791b313ad1eb
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/20/2017
 
 ---
-# <a name="create-a-function-triggered-by-azure-blob-storage"></a>Een door Azure Blob Storage geactiveerde functie maken
+<a id="create-a-function-triggered-by-azure-blob-storage" class="xliff"></a>
+
+# Een door Azure Blob Storage geactiveerde functie maken
 
 Ontdek hoe u een functie maakt die wordt geactiveerd wanneer bestanden worden geüpload naar of bijgewerkt in Azure Blob Storage.
 
 ![Bekijk het bericht in de logboeken.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Vereisten
+<a id="prerequisites" class="xliff"></a>
 
-Voordat u dit voorbeeld kunt uitvoeren moet u ervoor zorgen dat u het volgende hebt gedaan:
+## Vereisten
 
-- De [Microsoft Azure Storage Explorer](http://storageexplorer.com/) downloaden en installeren.
-
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
++ De [Microsoft Azure Storage Explorer](http://storageexplorer.com/) downloaden en installeren.
++ Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-## <a name="create-an-azure-function-app"></a>Een Azure-functie-app maken
+<a id="create-an-azure-function-app" class="xliff"></a>
+
+## Een Azure-functie-app maken
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -49,21 +52,31 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
 
 <a name="create-function"></a>
 
-## <a name="create-a-blob-storage-triggered-function"></a>Een door Blob Storage geactiveerde functie maken
+<a id="create-a-blob-storage-triggered-function" class="xliff"></a>
 
-Vouw uw functie-app uit, klik op de knop **+** naast **Functies** en klik op de sjabloon **BlobTrigger** voor de gewenste taal. Gebruik vervolgens de instellingen zoals die in de tabel zijn opgegeven en klik op **Maken**.
+## Een door Blob Storage geactiveerde functie maken
 
-![Maak de door Blob Storage geactiveerde functie.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+1. Vouw de functie-app uit en klik op de knop **+** naast **Functies**. Als dit de eerste functie in de functie-app is, selecteert u **Aangepaste functie**. U ziet nu de volledige set het functiesjablonen.
 
-| Instelling | Voorgestelde waarde | Beschrijving |
-|---|---|---|
-| **Pad**   | mycontainer/{name}    | Locatie in Blob Storage die wordt bewaakt. De bestandsnaam van de blob wordt doorgegeven in de binding als de _naam_-parameter.  |
-| **Opslagaccountverbinding** | AzureWebJobStorage | U kunt de opslagaccountverbinding gebruiken die al door de functie-app wordt gebruikt of u kunt een nieuwe maken.  |
-| **Een naam voor de functie opgeven** | Uniek in uw functie-app | Naam van deze door een wachtrij geactiveerde functie. |
+    ![De Quick Start-pagina van Functions in Azure Portal](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
+
+2. Selecteer de sjabloon **BlobTrigger** voor de gewenste taal en gebruik de instellingen die zijn opgegeven in de tabel.
+
+    ![Maak de door Blob Storage geactiveerde functie.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+
+    | Instelling | Voorgestelde waarde | Beschrijving |
+    |---|---|---|
+    | **Pad**   | mycontainer/{name}    | Locatie in Blob Storage die wordt bewaakt. De bestandsnaam van de blob wordt doorgegeven in de binding als de _naam_-parameter.  |
+    | **Opslagaccountverbinding** | AzureWebJobStorage | U kunt de opslagaccountverbinding gebruiken die al door de functie-app wordt gebruikt of u kunt een nieuwe maken.  |
+    | **Een naam voor de functie opgeven** | Uniek in uw functie-app | Naam van deze door Blob geactiveerde functie. |
+
+3. Klik op **Maken** om de functie te maken.
 
 Vervolgens maakt u verbinding met uw Azure Storage-account en maakt u de **mycontainer**-container.
 
-## <a name="create-the-container"></a>De container maken
+<a id="create-the-container" class="xliff"></a>
+
+## De container maken
 
 1. Klik in de functie op **Integreren**, vouw **Documentatie** uit en kopieer de **Accountnaam** en de **Accountsleutel**. Met deze referenties kunt u verbinding maken met het opslagaccount. Als u uw opslagaccount al hebt verbonden, gaat u naar stap 4.
 
@@ -83,7 +96,9 @@ Vervolgens maakt u verbinding met uw Azure Storage-account en maakt u de **mycon
 
 U hebt nu een blob-container en u kunt de functie testen door een bestand naar de container te uploaden.
 
-## <a name="test-the-function"></a>De functie testen
+<a id="test-the-function" class="xliff"></a>
+
+## De functie testen
 
 1. Blader in Azure Portal naar de functie, vouw de **Logboeken** onderaan de pagina uit en zorg ervoor dat logboekstreaming niet wordt onderbroken.
 
@@ -100,14 +115,19 @@ U hebt nu een blob-container en u kunt de functie testen door een bestand naar d
     >[!NOTE]
     > Wanneer uw functie-app in het standaardverbruiksabonnement wordt uitgevoerd, kan er een vertraging van maximaal een aantal minuten zitten tussen de blob die wordt toegevoegd of bijgewerkt en de functie die wordt geactiveerd. Overweeg om uw functie-app in een App Service-plan uit te voeren, als u lage latentie in uw door blob geactiveerde functies nodig hebt.
 
-## <a name="clean-up-resources"></a>Resources opschonen
+<a id="clean-up-resources" class="xliff"></a>
+
+## Resources opschonen
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 
 U hebt een functie gemaakt die wordt uitgevoerd wanneer er een blob wordt toegevoegd aan of bijgewerkt in Blob Storage. 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Zie [Azure Functions Blob storage bindings](functions-bindings-storage-blob.md) (Blob-opslagbindingen in Azure Functions) voor meer informatie over de Blob-opslagtriggers.
+

@@ -14,15 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: briz
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 352c42ddeef5537f9b912ddfe6a72b6b5342835b
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 7ae476dbaf51ae90cc3c5948b0ec8901d7a536da
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="overview-of-device-management-with-iot-hub"></a>Overzicht van apparaatbeheer met IoT Hub
-## <a name="introduction"></a>Inleiding
+<a id="overview-of-device-management-with-iot-hub" class="xliff"></a>
+
+# Overzicht van apparaatbeheer met IoT Hub
+<a id="introduction" class="xliff"></a>
+
+## Inleiding
 Azure IoT Hub biedt de functies en het uitbreidingsmodel waarmee apparaat- en back-end-ontwikkelaars krachtige beheeroplossingen voor apparaten kunnen bouwen. Apparaten variëren van beperkte sensoren en microcontrollers met één doel tot krachtige gateways die communicatie routeren voor groepen apparaten.  Bovendien verschillen de gebruiksvoorbeelden en de vereisten voor IoT-operators aanzienlijk in de verschillende sectoren.  Ondanks deze variatie biedt apparaatbeheer met IoT Hub mogelijkheden, patronen en codebibliotheken die geschikt zijn voor een groot aantal apparaten en eindgebruikers.
 
 Een essentieel onderdeel van het maken van een geslaagde enterprise-IoT-oplossing is het bieden van een strategie voor hoe operators omgaan met het continue beheer van de apparaten in hun bedrijf. IoT-operators hebben eenvoudige en betrouwbare hulpprogramma's en toepassingen nodig waarmee ze zich kunnen concentreren op de strategische aspecten van hun werk. Dit artikel bevat:
@@ -32,7 +37,9 @@ Een essentieel onderdeel van het maken van een geslaagde enterprise-IoT-oplossin
 * Een beschrijving van de levenscyclus van het apparaat.
 * Een overzicht van de algemene patronen van apparaatbeheer.
 
-## <a name="device-management-principles"></a>Principes van apparaatbeheer
+<a id="device-management-principles" class="xliff"></a>
+
+## Principes van apparaatbeheer
 IoT zorgt voor unieke apparaatbeheeruitdagingen en elke oplossing van enterprise-klasse moet rekening houden met de volgende principes:
 
 ![Afbeelding Principes van apparaatbeheer][img-dm_principles]
@@ -46,7 +53,9 @@ IoT zorgt voor unieke apparaatbeheeruitdagingen en elke oplossing van enterprise
     * Geolocatie van apparaat
 * **Vele rollen bedienen**: ondersteuning voor de unieke werkstromen en processen van IoT-bewerkingsrollen is cruciaal. Beheerders moeten in harmonie met de gegeven beperkingen van interne IT-afdelingen werken.  Ze moeten ook duurzame manieren vinden om in realtime gegevens over apparaatbewerkingen door te sturen naar toezichthouders en andere zakelijke leidinggevende rollen.
 
-## <a name="device-lifecycle"></a>Levenscyclus van apparaat
+<a id="device-lifecycle" class="xliff"></a>
+
+## Levenscyclus van apparaat
 Er is een set algemene fasen voor apparaatbeheer die hetzelfde zijn voor alle enterprise-IoT-projecten. In Azure IoT zijn er vijf fasen binnen de levenscyclus van een apparaat:
 
 ![De vijf fasen van de levenscyclus van een Azure IoT-apparaat: plannen, inrichten, configureren, bewaken, buiten gebruik stellen][img-device_lifecycle]
@@ -64,12 +73,14 @@ Binnen elk van deze vijf fasen zijn er verschillende vereisten voor de apparaato
     *Meer weten*: [Rechtstreekse methoden gebruiken][lnk-c2d-methods], [Een rechtstreekse methode aanroepen op een apparaat][lnk-methods-devguide], [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties], [Taken plannen en uitzenden][lnk-jobs], [Taken op meerdere apparaten plannen][lnk-jobs-devguide].
 * **Bewaken**: de verzamelde status van alle apparaten bewaken, de status van lopende bewerkingen bewaken en operators attenderen op problemen die mogelijk hun aandacht vereisen.  Pas de apparaatdubbel toe, zodat apparaten in realtime bewerkingsvoorwaarden en de status van de update-bewerkingen kunnen rapporteren. Bouw krachtige dashboardrapporten die de meeste directe problemen melden via apparaatdubbel-query's.
   
-    *Meer weten*: [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties], [IoT Hub-querytaal voor apparaatdubbels en taken][lnk-query-language].
+    *Meer weten*: [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties], [IoT Hub query language for device twins, jobs, and message routing][lnk-query-language] (IoT Hub-querytaal voor apparaatdubbels, taken en berichtroutering).
 * **Buiten gebruik stellen**: apparaten vervangen of uit bedrijf nemen na een storing, upgradecyclus of aan het einde van de levensduur.  Gebruik de apparaatdubbel om apparaatgegevens te onderhouden als het fysieke apparaat wordt vervangen, of te archiveren als het apparaat buiten gebruik wordt gesteld. Gebruik het id-register van IoT Hub voor het veilig intrekken van apparaat-id's en -referenties.
   
     *Meer weten*: [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties], [Apparaatidentiteiten beheren][lnk-identity-registry].
 
-## <a name="device-management-patterns"></a>Patronen voor apparaatbeheer
+<a id="device-management-patterns" class="xliff"></a>
+
+## Patronen voor apparaatbeheer
 Met IoT Hub wordt de volgende set apparaatbeheerpatronen mogelijk gemaakt.  In de [Zelfstudies apparaatbeheer][lnk-get-started] wordt uitgebreid beschreven hoe u deze patronen zo kunt uitbreiden dat ze exact aansluiten bij uw scenario en hoe u nieuwe patronen ontwerpt op basis van deze kernsjablonen.
 
 * **Opnieuw opstarten**: via de back-endtoepassing wordt het apparaat met een rechtstreekse methode geïnformeerd dat er opnieuw wordt opgestart.  Het apparaat maakt gebruik van de gerapporteerde eigenschappen om de opstartstatus van het apparaat bij te werken.
@@ -88,7 +99,9 @@ Met IoT Hub wordt de volgende set apparaatbeheerpatronen mogelijk gemaakt.  In d
   
     ![Afbeelding van het proces- en statuspatroon van apparaatbeheerrapportage][img-report_progress_pattern]
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 U kunt de mogelijkheden, patronen en codebibliotheken die IoT Hub biedt voor apparaatbeheer, gebruiken voor het maken van IoT-toepassingen die voldoen aan de enterprise-IoT-operatorvereisten in elke fase van de levenscyclus van een apparaat.
 
 Zie de zelfstudie [Aan de slag met apparaatbeheer][lnk-get-started] voor meer informatie over de functies voor apparaatbeheer in IoT Hub.

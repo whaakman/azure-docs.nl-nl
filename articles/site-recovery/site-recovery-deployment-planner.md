@@ -8,24 +8,28 @@ manager: garavd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/21/2017
+ms.date: 06/29/2017
 ms.author: nisoneji
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 5c716069bdff2a23bf81b2d2d0793a8616cf9c83
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: a6fdab66a6a41e352d07e3b6f3c58eb331c0d93f
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery-implementatieplanner
+<a id="azure-site-recovery-deployment-planner" class="xliff"></a>
+
+# Azure Site Recovery-implementatieplanner
 Dit artikel is de gebruikershandleiding voor de Azure Site Recovery-implementatieplanner voor productie-installaties van het type VMware-naar-Azure.
 
-## <a name="overview"></a>Overzicht
+<a id="overview" class="xliff"></a>
+
+## Overzicht
 
 Voordat u een virtuele VMware-machine gaat beveiligen met behulp van Site Recovery, moet u voldoende bandbreedte toewijzen om de gewenste RPO (Recovery Point Objective) te kunnen halen. Bepaal de bandbreedte op basis van de dagelijkse veranderingssnelheid van gegevens. Zorg ervoor dat on-premises het juiste aantal configuratieservers en processervers wordt geïmplementeerd.
 
@@ -63,12 +67,14 @@ Het hulpprogramma levert de volgende gegevens:
 >Gezien de verwachte toename van het gebruik in de loop van de tijd, wordt bij alle hierboven genoemde berekeningen een groeifactor van 30 procent gehanteerd voor kenmerken van de werkbelasting en wordt de 95e-percentielwaarde van alle metrische profileringsgegevens (IOPS voor lezen/schrijven, verloop,enzovoort) gebruikt. Beide elementen (groeifactor en percentielberekening) kunnen worden geconfigureerd. Zie de sectie 'Overwegingen voor groeifactor' voor meer informatie over de groeifactor. Zie de sectie 'Percentielwaarde gebruikt voor de berekening' voor meer informatie over de percentielwaarde.
 >
 
-## <a name="requirements"></a>Vereisten
+<a id="requirements" class="xliff"></a>
+
+## Vereisten
 Het hulpprogramma heeft twee belangrijke fasen: profileren en rapporten genereren. Er is ook een derde optie, waarmee alleen doorvoer wordt berekend. Raadpleeg de volgende tabel voor de vereisten voor de server waarop de profilering en meting van de doorvoersnelheid worden uitgevoerd:
 
 | Serververeiste | Beschrijving|
 |---|---|
-|Profileren en meten van doorvoer| <ul><li>Besturingssysteem: Microsoft Windows Server 2012 R2<br>(bij voorkeur met minimaal de [aanbevolen waarden voor de configuratieserver](https://aka.ms/asr-v2a-on-prem-components))</li><li>Machineconfiguratie: 8 vCPU's, 16 GB RAM, 300 GB harde schijf</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)</li><li>[Microsoft Visual C++ Redistributable voor Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internettoegang tot Azure vanaf deze server</li><li>Azure Storage-account</li><li>Beheerderstoegang op de server</li><li>Minimaal 100 GB vrije schijfruimte (uitgaande van 1000 virtuele machines met een gemiddelde van elk drie schijven, geprofileerd voor 30 dagen)</li><li>Het niveau voor VMware vCenter-statistieken moet worden ingesteld op niveau 2 of hoger</li></ul>|
+|Profileren en meten van doorvoer| <ul><li>Besturingssysteem: Microsoft Windows Server 2012 R2<br>(bij voorkeur met minimaal de [aanbevolen waarden voor de configuratieserver](https://aka.ms/asr-v2a-on-prem-components))</li><li>Machineconfiguratie: 8 vCPU's, 16 GB RAM, 300 GB harde schijf</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Microsoft Visual C++ Redistributable voor Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internettoegang tot Azure vanaf deze server</li><li>Azure Storage-account</li><li>Beheerderstoegang op de server</li><li>Minimaal 100 GB vrije schijfruimte (uitgaande van 1000 virtuele machines met een gemiddelde van elk drie schijven, geprofileerd voor 30 dagen)</li><li>Het niveau voor VMware vCenter-statistieken moet worden ingesteld op niveau 2 of hoger</li></ul>|
 | Rapporten genereren | Een Windows-pc of Windows-server met Microsoft Excel 2013 of hoger |
 | Gebruikersmachtigingen | Alleen-lezen-machtiging voor het gebruikersaccount dat tijdens het profileren wordt gebruikt voor toegang tot de VMware vCenter-server of VMware vSphere ESXi-host |
 
@@ -77,7 +83,9 @@ Het hulpprogramma heeft twee belangrijke fasen: profileren en rapporten generere
 >Het hulpprogramma kan alleen worden gebruikt voor het profileren van virtuele machines met VMDK- en RDM-schijven. Profilering van virtuele machines met iSCSI- of NFS-schijven is niet mogelijk. Hoewel iSCSI- en NFS-schijven in Site Recovery wel worden ondersteund voor VMware-servers, kan het hulpprogramma deze schijftypen niet zien. Dit komt doordat de implementatieplanner zich niet in de gast bevindt en voor de profilering alleen prestatiemeteritems van vCenter worden gebruikt.
 >
 
-## <a name="download-and-extract-the-public-preview"></a>De openbare preview downloaden en uitpakken
+<a id="download-and-extract-the-public-preview" class="xliff"></a>
+
+## De openbare preview downloaden en uitpakken
 1. Download de nieuwste versie van de [openbare preview van de Site Recovery-implementatieplanner](https://aka.ms/asr-deployment-planner).  
 Het hulpprogramma bevindt zich in een gecomprimeerde map. De huidige versie van het hulpprogramma ondersteunt alleen het scenario van VMware naar Azure.
 
@@ -95,7 +103,9 @@ De map bevat meerdere bestanden en submappen. Het uitvoerbare bestand is ASRDepl
 
     E:\ASR Deployment Planner-Preview_v1.2\ ASR Deployment Planner-Preview_v1.2\ ASRDeploymentPlanner.exe
 
-## <a name="capabilities"></a>Functionaliteit
+<a id="capabilities" class="xliff"></a>
+
+## Functionaliteit
 Het opdrachtregelprogramma (ASRDeploymentPlanner.exe) kunt u uitvoeren in een van de volgende drie modi:
 
 1. Profileren  
@@ -104,13 +114,17 @@ Het opdrachtregelprogramma (ASRDeploymentPlanner.exe) kunt u uitvoeren in een va
 
 Voer het hulpprogramma eerst uit in de profileringsmodus om gegevensverloop en IOPS te verzamelen voor de virtuele machine. Voer het hulpprogramma daarna uit om het rapport te genereren en de netwerkbandbreedte en opslagvereisten te bepalen.
 
-## <a name="profiling"></a>Profileren
+<a id="profiling" class="xliff"></a>
+
+## Profileren
 In de profileringsmodus maakt de implementatieplanner verbinding met de vCenter-server of de vSphere ESXi-host om prestatiegegevens te verzamelen over de virtuele machine.
 
 * Profileren heeft geen invloed op de prestaties van de virtuele machines in de productieomgeving omdat er geen rechtstreekse verbinding met de machines wordt gemaakt. Alle prestatiegegevens worden verzameld van de vCenter-server of vSphere ESXi-host.
 * Om ervoor te zorgen dat het profileren een minimaal effect heeft op de server, wordt de vCenter-server of vSphere ESXi-host slechts om de 15 minuten bevraagd. Dit heeft geen gevolgen voor de nauwkeurigheid van de profilering omdat het hulpprogramma alle prestatiemeteritemgegevens per minuut opslaat.
 
-### <a name="create-a-list-of-vms-to-profile"></a>Een lijst maken met de virtuele machines die u wilt profileren
+<a id="create-a-list-of-vms-to-profile" class="xliff"></a>
+
+### Een lijst maken met de virtuele machines die u wilt profileren
 U moet eerst een lijst maken met de virtuele machines die u wilt profileren. U kunt alle namen van virtuele machines op een vCenter-server of vSphere ESXi-host opvragen met behulp van de opdrachten van VMware vSphere PowerCLI in de volgende procedure. Een andere manier is om de beschrijvende namen of IP-adressen van de virtuele machines die u wilt profileren handmatig toe te voegen aan een bestand.
 
 1. Meld u aan bij de virtuele machine waarop VMware vSphere PowerCLI is geïnstalleerd in.
@@ -130,7 +144,9 @@ Vervang &lsaquo;servernaam&rsaquo;, &lsaquo;gebruikersnaam&rsaquo;, &lsaquo;wach
 
     ![Lijst met namen van virtuele machines in de implementatieplanner](./media/site-recovery-deployment-planner/profile-vm-list.png)
 
-### <a name="start-profiling"></a>Profileren starten
+<a id="start-profiling" class="xliff"></a>
+
+### Profileren starten
 Als u de lijst met te profileren virtuele machines hebt opgesteld, kunt u het hulpprogramma uitvoeren in de profileringsmodus. Hier volgt een lijst met verplichte en optionele parameters van het hulpprogramma die u in de profileringsmodus kunt uitvoeren.
 
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
@@ -140,7 +156,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Operation | StartProfiling |
 | -Server | De FQDN-naam of het IP-adres van de vCenter-server of vSphere ESXi-host waarvan de virtuele machines moeten worden geprofileerd.|
 | -User | De naam van de gebruiker die verbinding maakt met de vCenter-server of vSphere ESXi-host. De gebruiker moet ten minste alleen-lezen-toegang hebben.|
-| -VMListFile |    Het bestand met de lijst met virtuele machines die u wilt profileren. Het bestandspad kan absoluut of relatief zijn. Het bestand moet per regel één naam of IP-adres van een virtuele machine bevatten. De namen van de virtuele machines in het bestand moeten identiek zijn met de namen van de virtuele machine op de vCenter-server of vSphere ESXi-host.<br>Het bestand ProfileVMList bevat bijvoorbeeld de volgende virtuele machines:<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
+| -VMListFile | Het bestand met de lijst met virtuele machines die u wilt profileren. Het bestandspad kan absoluut of relatief zijn. Het bestand moet per regel één naam of IP-adres van een virtuele machine bevatten. De namen van de virtuele machines in het bestand moeten identiek zijn met de namen van de virtuele machine op de vCenter-server of vSphere ESXi-host.<br>Het bestand ProfileVMList bevat bijvoorbeeld de volgende virtuele machines:<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
 | -NoOfDaysToProfile | Het aantal dagen dat profilering moet worden uitgevoerd. Het is raadzaam om profilering langer dan 15 dagen uit te voeren om ervoor te zorgen dat het workloadpatroon in uw omgeving in de opgegeven periode goed wordt waargenomen, zodat er een nauwkeurige aanbeveling kan worden gedaan. |
 | -Directory | (Optioneel) Het UNC-pad (Universal Naming Convention) of het pad naar de lokale directory voor het opslaan van gegevens die tijdens de profilering worden gegenereerd. Als u geen directorynaam opgeeft, wordt de directory met de naam 'ProfiledData' onder het huidige pad gebruikt als de standaarddirectory. |
 | -Password | (Optioneel) Het wachtwoord om verbinding te maken met de vCenter-server of vSphere ESXi-host. Als u nu geen wachtwoord opgeeft, wordt u erom gevraagd wanneer de opdracht wordt uitgevoerd.|
@@ -162,18 +178,24 @@ De configuraties van de virtuele machines worden eenmaal aan het begin van de pr
 
 Met de profileringsopdracht worden meerdere bestanden gegenereerd in de directory voor profilering. Verwijder deze bestanden niet, aangezien dit gevolgen heeft voor het genereren van de rapporten.
 
-#### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Voorbeeld 1: virtuele machines 30 dagen profileren en de doorvoer van on-premises naar Azure bepalen
+<a id="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure" class="xliff"></a>
+
+#### Voorbeeld 1: virtuele machines 30 dagen profileren en de doorvoer van on-premises naar Azure bepalen
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  30  -User vCenterUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
-#### <a name="example-2-profile-vms-for-15-days"></a>Voorbeeld 2: virtuele machines 15 dagen profileren
+<a id="example-2-profile-vms-for-15-days" class="xliff"></a>
+
+#### Voorbeeld 2: virtuele machines 15 dagen profileren
 
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  15  -User vCenterUser1
 ```
 
-#### <a name="example-3-profile-vms-for-1-hour-for-a-quick-test-of-the-tool"></a>Voorbeeld 3: virtuele machines 1 uur profileren om het hulpprogramma kort te testen
+<a id="example-3-profile-vms-for-1-hour-for-a-quick-test-of-the-tool" class="xliff"></a>
+
+#### Voorbeeld 3: virtuele machines 1 uur profileren om het hulpprogramma kort te testen
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  0.04  -User vCenterUser1
 ```
@@ -184,7 +206,9 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_Pro
 >* Wanneer de accountnaam en -sleutel worden doorgegeven, meet het hulpprogramma de doorvoer tijdens de laatste stap van de profilering. Als het hulpprogramma wordt beëindigd voordat de profilering is voltooid, wordt de doorvoer niet berekend. Als u de doorvoer wilt weten voordat het rapport wordt gegenereerd, kunt u de bewerking GetThroughput uitvoeren vanuit de opdrachtregelconsole. Anders wordt bevat het gegenereerde rapport geen informatie over de doorvoer.
 
 
-## <a name="generate-a-report"></a>Een rapport genereren
+<a id="generate-a-report" class="xliff"></a>
+
+## Een rapport genereren
 Het hulpprogramma genereert een Microsoft Excel-bestand met ingeschakelde macro's (XLSM-bestand) als de rapportuitvoer, met daarin een overzicht van alle aanbevelingen voor de implementatie. Het rapport heeft de naam DeploymentPlannerReport_<*unieke numerieke id*>.xlsm en wordt in de opgegeven directory geplaatst.
 
 Nadat de profilering is voltooid, kunt u het hulpprogramma uitvoeren in de modus voor het genereren van een rapport. Hieronder ziet u een tabel met verplichte en optionele parameters van het hulpprogramma die u kunt uitvoeren in de profileringsmodus.
@@ -205,44 +229,55 @@ Nadat de profilering is voltooid, kunt u het hulpprogramma uitvoeren in de modus
 | -StartDate | (Optioneel) De begindatum en -tijd in de notatie MM-DD-JJJJ:UU:MM (in 24-uursindeling). Als u *StartDate* opgeeft, moet u ook *EndDate* opgeven. Het rapport wordt dan gegenereerd voor de geprofileerde gegevens die zijn verzameld tussen StartDate en EndDate. |
 | -EndDate | (Optioneel) De einddatum en -tijd in de notatie MM-DD-JJJJ:UU:MM (in 24 uursindeling). Als u *EndDate* opgeeft, moet u ook *StartDate* opgeven. Het rapport wordt dan gegenereerd voor de geprofileerde gegevens die zijn verzameld tussen StartDate en EndDate. |
 | -GrowthFactor | (Optioneel) De groeifactor, uitgedrukt als een percentage. De standaardwaarde is 30 procent. |
-| -UseManagedDisks | (Optioneel) UseManagedDisks - Ja/Nee. Standaard is Ja. Het aantal virtuele machines dat kan worden geplaatst in een enkel opslagaccount, wordt berekend op basis van het feit om een beheerde schijf is geselecteerd voor Failover/Test-failover. |
+| -UseManagedDisks | (Optioneel) UseManagedDisks - Ja/Nee. Standaard is Ja. Het aantal virtuele machines dat kan worden ondergebracht in een enkel opslagaccount, wordt berekend afgaande op het feit of de Failover/Test-testfailover van virtuele machines is uitgevoerd op een beheerde schijf in plaats van op een niet-beheerde schijf. |
 
-in een enkel opslagaccount, wordt berekend afgaande op het feit of de Failover/Test-testfailover van virtuele machines is uitgevoerd op een beheerde schijf in plaats van op een niet-beheerde schijf. |
+<a id="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive" class="xliff"></a>
 
-
-#### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Voorbeeld 1: een rapport met standaardwaarden genereren wanneer de geprofileerde gegevens zich op de lokale schijf bevinden
+#### Voorbeeld 1: een rapport met standaardwaarden genereren wanneer de geprofileerde gegevens zich op de lokale schijf bevinden
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Voorbeeld 2: een rapport genereren wanneer de geprofileerde gegevens zich op een externe server bevinden
+<a id="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server" class="xliff"></a>
+
+#### Voorbeeld 2: een rapport genereren wanneer de geprofileerde gegevens zich op een externe server bevinden
 De gebruiker moet lees-/schrijftoegang hebben voor de externe directory.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Voorbeeld 3: een rapport genereren met specifieke bandbreedte en het doel IR te voltooien binnen de opgegeven periode
+<a id="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time" class="xliff"></a>
+
+#### Voorbeeld 3: een rapport genereren met specifieke bandbreedte en het doel IR te voltooien binnen de opgegeven periode
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -Bandwidth 100 -GoalToCompleteIR 24
 ```
 
-#### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Voorbeeld 4: een rapport genereren met een groeifactor van 5% in plaats van de standaardwaarde 30%
+<a id="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent" class="xliff"></a>
+
+#### Voorbeeld 4: een rapport genereren met een groeifactor van 5% in plaats van de standaardwaarde 30%
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
-#### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Voorbeeld 5: een rapport genereren met een subset geprofileerde gegevens
+<a id="example-5-generate-a-report-with-a-subset-of-profiled-data" class="xliff"></a>
+
+#### Voorbeeld 5: een rapport genereren met een subset geprofileerde gegevens
 U hebt gedurende 30 dagen gegevens geprofileerd en u wilt een rapport genereren voor slechts 20 van de 30 dagen.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 ```
 
-#### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>Voorbeeld 6: een rapport genereren voor 5 minuten RPO
+<a id="example-6-generate-a-report-for-5-minute-rpo" class="xliff"></a>
+
+#### Voorbeeld 6: een rapport genereren voor 5 minuten RPO
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
-## <a name="percentile-value-used-for-the-calculation"></a>Percentielwaarde die voor de berekening wordt gebruikt
+<a id="percentile-value-used-for-the-calculation" class="xliff"></a>
+
+## Percentielwaarde die voor de berekening wordt gebruikt
 **Welke standaardpercentielwaarde met betrekking tot de prestatiegerelateerde metrische gegevens die tijdens de profilering zijn verzameld, wordt tijdens het genereren van het rapport gebruikt?**
 
 Het hulpprogramma wordt standaard ingesteld op de 95e-percentielwaarde van de IOPS voor lezen/schrijven, de IOPS voor schrijven en de gegevensverloop die tijdens het profileren van de virtuele machines zijn verzameld. Deze waarde zorgt ervoor dat een piek (100e-percentielwaarde) die vanwege tijdelijke gebeurtenissen kan ontstaan op virtuele machines, niet wordt gebruikt om de vereisten te bepalen van het doel-opslagaccount en de bron-bandbreedte. Voorbeelden van tijdelijke gebeurtenissen zijn het één keer per dag uitvoeren van een back-up, het periodiek indexeren van een database, het genereren van analyserapporten en andere vergelijkbare activiteiten die op een bepaald moment actief zijn.
@@ -254,7 +289,9 @@ Het gebruik van de 95e-percentielwaarde biedt een waarheidsgetrouw beeld van de 
 <add key="DataChurnPercentile" value="95" />
 ```
 
-## <a name="growth-factor-considerations"></a>Overwegingen voor groeifactor
+<a id="growth-factor-considerations" class="xliff"></a>
+
+## Overwegingen voor groeifactor
 **Waarom moet ik rekening houden met een groeifactor bij het plannen van implementaties?**
 
 Het is essentieel dat u in uw workloadkenmerken rekening houdt met groei (mogelijke toename in gebruik na verloop van tijd). Als de beveiliging eenmaal is ingeschakeld en uw workloadkenmerken vervolgens veranderen, is het namelijk niet mogelijk om over te schakelen naar een ander opslagaccount voor beveiliging zonder eerst de beveiliging uit te schakelen en opnieuw in te schakelen.
@@ -278,7 +315,9 @@ Het gegenereerde Microsoft Excel-rapport bevat de volgende informatie:
 
 ![Implementatieplanner](./media/site-recovery-deployment-planner/dp-report.png)
 
-## <a name="get-throughput"></a>Doorvoer bepalen
+<a id="get-throughput" class="xliff"></a>
+
+## Doorvoer bepalen
 
 Als u een schatting wilt maken van de doorvoer die Site Recovery tijdens de replicatie van on-premises naar Azure kan behalen, moet u het hulpprogramma uitvoeren in de GetThroughput-modus. Het hulpprogramma berekent de doorvoer vanaf de server waarop het hulpprogramma wordt uitgevoerd. Deze server voldoet bij voorkeur aan de aanbevelingen voor de configuratieserver. Als u al infrastructuuronderdelen van Site Recovery on-premises hebt geïmplementeerd, moet u het hulpprogramma uitvoeren op de configuratieserver.
 
@@ -299,7 +338,9 @@ Het hulpprogramma maakt in de opgegeven directory verschillende asrvhdfile<#>.vh
 
 De doorvoer wordt op een gegeven moment gemeten. Dit is de maximale doorvoer die Site Recovery tijdens de replicatie kan behalen, mits alle andere factoren gelijk blijven. Als een bepaalde toepassing bijvoorbeeld op hetzelfde netwerk meer bandbreedte gaat gebruiken, varieert de werkelijke doorvoer tijdens de replicatie. Als u GetThroughput uitvoert vanaf een configuratieserver, is het hulpprogramma niet op de hoogte van beveiligde virtuele machines en actieve replicatie. Het resultaat van de gemeten doorvoer verschilt als de GetThroughput-bewerking wordt uitgevoerd terwijl er sprake is van een groot gegevensverloop op de beveiligde virtuele machines. Het verdient daarom aanbeveling het hulpprogramma tijdens de profilering op verschillende tijdstippen uit te voeren om na te gaan welke doorvoersnelheden op verschillende momenten kunnen worden behaald. Het rapport bevat de laatst gemeten doorvoer in het hulpprogramma.
 
-### <a name="example"></a>Voorbeeld
+<a id="example" class="xliff"></a>
+
+### Voorbeeld
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_ProfiledData -VMListFile E:\vCenter1_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
@@ -318,9 +359,13 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 >
 >  4. Wijzig de Site Recovery-instellingen op de processerver om [de voor replicatie gebruikte netwerkbandbreedte te vergroten](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 
-## <a name="recommendations-with-desired-rpo-as-input"></a>Aanbevelingen met gewenste RPO als invoer
+<a id="recommendations-with-desired-rpo-as-input" class="xliff"></a>
 
-### <a name="profiled-data"></a>Geprofileerde gegevens
+## Aanbevelingen met gewenste RPO als invoer
+
+<a id="profiled-data" class="xliff"></a>
+
+### Geprofileerde gegevens
 
 ![De weergave met geprofileerde gegevens in de implementatieplanner](./media/site-recovery-deployment-planner/profiled-data-period.png)
 
@@ -330,7 +375,9 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 **Gewenste RPO**: het gewenste beoogde herstelpunt (RPO) voor uw implementatie. Standaard wordt de vereiste netwerkbandbreedte berekend voor de RPO-waarden van 15, 30 en 60 minuten. Op basis van de selectie worden de betrokken waarden bijgewerkt op het blad. Als u tijdens het genereren van het rapport de parameter *DesiredRPOinMin* hebt gebruikt, wordt de betreffende waarde weergegeven in deze vervolgkeuzelijst.
 
-### <a name="profiling-overview"></a>Overzicht van profilering
+<a id="profiling-overview" class="xliff"></a>
+
+### Overzicht van profilering
 
 ![Resultaten van profilering in de implementatieplanner](./media/site-recovery-deployment-planner/profiling-overview.png)
 
@@ -342,7 +389,9 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 **Gewenste RPO**: het gewenste beoogde herstelpunt (Recovery Point Objective [RPO]) in minuten. Het rapport wordt gegenereerd voor drie RPO-waarden: 15 (standaard), 30 en 60 minuten. De aanbeveling voor bandbreedte in het rapport wordt gewijzigd op basis van uw selectie in de vervolgkeuzelijst Gewenste RPO in de rechterbovenhoek van het blad. Als u het rapport hebt gegenereerd met een aangepaste waarde voor de parameter *-DesiredRPO*, wordt deze aangepaste waarde als standaardwaarde weergegeven in de vervolgkeuzelijst Gewenste RPO.
 
-### <a name="required-network-bandwidth-mbps"></a>Vereiste netwerkbandbreedte (Mbps)
+<a id="required-network-bandwidth-mbps" class="xliff"></a>
+
+### Vereiste netwerkbandbreedte (Mbps)
 
 ![Vereiste netwerkbandbreedte in de implementatieplanner](./media/site-recovery-deployment-planner/required-network-bandwidth.png)
 
@@ -366,28 +415,38 @@ Als u het hulpprogramma uitvoert op een configuratieserver of processerver die a
 
 Voor alle Enterprise-implementaties van Site Recovery wordt het gebruik van [ExpressRoute](https://aka.ms/expressroute) aanbevolen.
 
-### <a name="required-storage-accounts"></a>Vereiste opslagaccounts
+<a id="required-storage-accounts" class="xliff"></a>
+
+### Vereiste opslagaccounts
 De volgende grafiek geeft het totale aantal opslagaccounts aan (Standard Storage en Premium Storage) dat is vereist voor het beveiligen van alle compatibele virtuele machines. Zie de sectie 'VM-opslagplaatsing' voor meer informatie over welk opslagaccount u moet gebruiken voor elke virtuele machine.
 
 ![Vereiste opslagaccounts in de implementatieplanner](./media/site-recovery-deployment-planner/required-azure-storage-accounts.png)
 
-### <a name="required-number-of-azure-cores"></a>Vereiste aantal Azure-kerngeheugens
+<a id="required-number-of-azure-cores" class="xliff"></a>
+
+### Vereiste aantal Azure-kerngeheugens
 Dit is het totale aantal kerngeheugens dat moet worden ingesteld vóór failover of testfailover van de compatibele virtuele machines. Als er in het abonnement onvoldoende kerngeheugens beschikbaar zijn, kan Site Recovery geen virtuele machines maken op het moment van een failover of testfailover.
 
 ![Vereiste aantal Azure-kerngeheugens in de implementatieplanner](./media/site-recovery-deployment-planner/required-number-of-azure-cores.png)
 
-### <a name="required-on-premises-infrastructure"></a>Vereiste on-premises infrastructuur
+<a id="required-on-premises-infrastructure" class="xliff"></a>
+
+### Vereiste on-premises infrastructuur
 Het totale aantal configuratieservers en aanvullende processervers dat moet worden geconfigureerd voor het beveiligen van alle compatibele virtuele machines. Afhankelijk van de ondersteunde [aanbevelingen voor de configuratieserver](https://aka.ms/asr-v2a-on-prem-components), kan het hulpprogramma extra servers aanbevelen. De aanbeveling wordt gebaseerd op wat het grootst is: het gegevensverloop per dag of het maximum aantal beveiligde virtuele machines (uitgaande van gemiddeld drie schijven per virtuele machine), ongeacht wat het eerste wordt bereikt op de configuratieserver of de aanvullende processerver. De details van het totale verloop per dag en het totale aantal beveiligde schijven vindt u in de sectie Invoer.
 
 ![Vereiste on-premises infrastructuur in de implementatieplanner](./media/site-recovery-deployment-planner/required-on-premises-infrastructure.png)
 
-### <a name="what-if-analysis"></a>Wat als-analyse
+<a id="what-if-analysis" class="xliff"></a>
+
+### Wat als-analyse
 Deze analyse beschrijft hoeveel schendingen zich kunnen voordoen tijdens de profileringsperiode wanneer u een lagere bandbreedte instelt om 90% van de tijd aan de RPO te voldoen. Op elke dag kunnen er een of meer RPO-schendingen optreden. De grafiek toont de piek-RPO van de dag.
 Op basis van deze analyse kunt u besluiten of het aantal RPO-schendingen voor alle dagen en de hoogste RPO per dag acceptabel zijn in combinatie met de opgegeven lagere bandbreedte. Als u dat vindt, kunt u de lagere bandbreedte toewijzen voor replicatie. Zo niet, dan stelt u de hogere bandbreedte in zoals voorgesteld om altijd aan de RPO te voldoen.
 
 ![Wat-als analyse in de implementatieplanner](./media/site-recovery-deployment-planner/what-if-analysis.png)
 
-### <a name="recommended-vm-batch-size-for-initial-replication"></a>Aanbevolen VM-batchgrootte voor de initiële replicatie
+<a id="recommended-vm-batch-size-for-initial-replication" class="xliff"></a>
+
+### Aanbevolen VM-batchgrootte voor de initiële replicatie
 In deze sectie ziet u een aanbeveling voor het aantal virtuele machines die gelijktijdig kunnen worden beveiligd om de initiële replicatie binnen 72 uur met de voorgestelde bandbreedte af te ronden om gedurende de ingestelde tijd altijd te voldoen aan de gewenste RPO. Deze waarde is kunt u aanpassen. Gebruik hiervoor de parameter *GoalToCompleteIR* tijdens het genereren van het rapport.
 
 In de grafiek ziet u het bereik met bandbreedtewaarden en de berekende grootte voor de batch virtuele machines waarmee de initiële replicatie binnen 72 uur kan worden voltooid, uitgaande van de gemiddelde grootte van de gedetecteerde virtuele machines binnen de volledige set compatibele virtuele machines.
@@ -396,12 +455,16 @@ In de openbare preview bevat het rapport geen informatie over de virtuele machin
 
 ![Aanbevolen VM-batchgrootte](./media/site-recovery-deployment-planner/recommended-vm-batch-size.png)
 
-### <a name="growth-factor-and-percentile-values-used"></a>Groeifactor en gebruikte percentielwaarden
+<a id="growth-factor-and-percentile-values-used" class="xliff"></a>
+
+### Groeifactor en gebruikte percentielwaarden
 Deze sectie onder aan het werkblad toont de percentielwaarde die voor alle prestatiemeteritems van de geprofileerde virtuele machines wordt gebruikt (standaard is dit het 95e percentiel), plus de groeifactor in procenten die in alle berekeningen wordt gebruikt (standaard 30%).
 
 ![Groeifactor en gebruikte percentielwaarden](./media/site-recovery-deployment-planner/max-iops-and-data-churn-setting.png)
 
-## <a name="recommendations-with-available-bandwidth-as-input"></a>Aanbevelingen met beschikbare bandbreedte als invoer
+<a id="recommendations-with-available-bandwidth-as-input" class="xliff"></a>
+
+## Aanbevelingen met beschikbare bandbreedte als invoer
 
 ![Aanbevelingen met beschikbare bandbreedte als invoer](./media/site-recovery-deployment-planner/profiling-overview-bandwidth-input.png)
 
@@ -409,7 +472,9 @@ Het is mogelijk dat u om wat voor reden dan ook niet meer dan x Mbps bandbreedte
 
 ![Haalbare RPO voor 500 Mbps bandbreedte](./media/site-recovery-deployment-planner/achievable-rpos.png)
 
-## <a name="input"></a>Invoer
+<a id="input" class="xliff"></a>
+
+## Invoer
 Het werkblad Invoer biedt een overzicht van de geprofileerde VMware-omgeving.
 
 ![Overzicht van de geprofileerde VMware-omgeving](./media/site-recovery-deployment-planner/Input.png)
@@ -433,7 +498,9 @@ Het werkblad Invoer biedt een overzicht van de geprofileerde VMware-omgeving.
 **Waargenomen typisch gegevensverloop per dag (GB)**: het gemiddelde gegevensverloop dat voor alle profileringsdagen is vastgesteld. Dit aantal wordt gebruikt als een van de invoerwaarden om het aantal configuratieservers en aanvullende processenservers te bepalen dat in de implementatie moet worden gebruikt.
 
 
-## <a name="vm-storage-placement"></a>VM-opslagplaatsing
+<a id="vm-storage-placement" class="xliff"></a>
+
+## VM-opslagplaatsing
 
 ![VM-opslagplaatsing](./media/site-recovery-deployment-planner/vm-storage-placement.png)
 
@@ -451,7 +518,9 @@ Het werkblad Invoer biedt een overzicht van de geprofileerde VMware-omgeving.
 
 **Te plaatsen virtuele machines**: een lijst van alle virtuele machines die in het opgegeven opslagaccount moeten worden geplaatst voor optimale prestaties en optimaal gebruik.
 
-## <a name="compatible-vms"></a>Compatibele VM's
+<a id="compatible-vms" class="xliff"></a>
+
+## Compatibele VM's
 ![Excel-werkblad met compatibele VM's](./media/site-recovery-deployment-planner/compatible-vms.png)
 
 **VM-naam**: de naam of het IP-adres van de virtuele machine dat wordt gebruikt in het bestand dat is opgegeven voor VMListFile wanneer een rapport wordt gegenereerd. Deze kolom bevat ook de schijven (VMDK's) die aan de virtuele machines zijn gekoppeld. Om onderscheid te maken tussen virtuele machines van vCenter met dubbele namen of IP-adressen, bevatten de namen de naam van de ESXi-host. De vermelde ESXi-host is de host waar de virtuele machine werd geplaatst op het moment van detectie door het hulpprogramma tijdens de profileringsperiode.
@@ -489,7 +558,9 @@ Als de kenmerken van de workload van een schijf overeenkomen met de categorie P2
 
 **Type besturingssysteem**: het type besturingssysteem van de virtuele machine. Dit kan Windows, Linux of een ander besturingssysteem zijn.
 
-## <a name="incompatible-vms"></a>Niet-compatibele VM's
+<a id="incompatible-vms" class="xliff"></a>
+
+## Niet-compatibele VM's
 
 ![Excel-werkblad met niet-compatibele VM's](./media/site-recovery-deployment-planner/incompatible-vms.png)
 
@@ -527,22 +598,26 @@ Als de kenmerken van de workload van een schijf overeenkomen met de categorie P2
 **Type besturingssysteem**: het type besturingssysteem van de virtuele machine. Dit kan Windows, Linux of een ander besturingssysteem zijn.
 
 
-## <a name="site-recovery-limits"></a>Site Recovery-limieten
+<a id="site-recovery-limits" class="xliff"></a>
+
+## Site Recovery-limieten
 
 **Beoogde replicatieopslag** | **Gemiddelde I/O-grootte van bronschijf** |**Gemiddeld gegevensverloop van bronschijf** | **Totale gegevensverloop van bronschijf per dag**
 ---|---|---|---
-Standard Storage | 8 kB    | 2 Mbps | 168 GB per schijf
-Premium P10-schijf | 8 kB    | 2 Mbps | 168 GB per schijf
-Premium P10-schijf | 16 kB | 4 Mbps |    336 GB per schijf
+Standard Storage | 8 kB | 2 Mbps | 168 GB per schijf
+Premium P10-schijf | 8 kB | 2 Mbps | 168 GB per schijf
+Premium P10-schijf | 16 kB | 4 Mbps | 336 GB per schijf
 Premium P10-schijf | 32 kB of meer | 8 MBps | 672 GB per schijf
-Premium P20- of P30-schijf | 8 kB    | 5 Mbps | 421 GB per schijf
+Premium P20- of P30-schijf | 8 kB  | 5 Mbps | 421 GB per schijf
 Premium P20- of P30-schijf | 16 kB of meer |10 Mbps | 842 GB per schijf
 
 Dit zijn gemiddelden uitgaande van een I/O-overlapping van 30%. Site Recovery kan een hogere doorvoer verwerken op basis van overlappingsverhouding, grotere schrijfgrootten en daadwerkelijk workload-I/O-gedrag. De bovenstaande waarden zijn gebaseerd op een typische backlog van ongeveer vijf minuten. Dat wil zeggen dat de gegevens na het uploaden binnen vijf minuten worden verwerkt en er een herstelpunt is gemaakt.
 
 Deze limieten zijn gebaseerd op onze tests, maar dekken niet alle mogelijke toepassings-I/O-combinaties. De werkelijke resultaten kunnen variëren op basis van uw toepassings-I/O-combinatie. Voor optimale resultaten, zelfs na het plannen van de implementatie, is het altijd beter om toepassingen uitgebreid te testen met behulp van een testfailover. Zo krijgt u een nauwkeurig inzicht in de prestaties.
 
-## <a name="updating-the-deployment-planner"></a>De implementatieplanner bijwerken
+<a id="updating-the-deployment-planner" class="xliff"></a>
+
+## De implementatieplanner bijwerken
 Ga als volgt te werk om de implementatieplanner bij te werken:
 
 1. Download de nieuwste versie van de [Azure Site Recovery-implementatieplanner](https://aka.ms/asr-deployment-planner).
@@ -562,9 +637,13 @@ Ga als volgt te werk om de implementatieplanner bij te werken:
   >Elke nieuwe implementatieplanner is een cumulatieve update van het ZIP-bestand. U hoeft dus niet de nieuwste bestanden naar de vorige map te kopiëren. U kunt een nieuwe map maken en deze gebruiken.
 
 
-## <a name="version-history"></a>Versiegeschiedenis
+<a id="version-history" class="xliff"></a>
 
-### <a name="13"></a>1.3
+## Versiegeschiedenis
+
+<a id="13" class="xliff"></a>
+
+### 1.3
 Bijgewerkt: 9 mei 2017
 
 De volgende nieuwe functie is toegevoegd:
@@ -572,7 +651,9 @@ De volgende nieuwe functie is toegevoegd:
 * Toegevoegd is ondersteuning voor beheerde schijven bij het genereren van rapporten. Het aantal virtuele machines dat kan worden geplaatst in een enkel opslagaccount, wordt berekend op basis van het feit om een beheerde schijf is geselecteerd voor Failover/Test-failover.        
 
 
-### <a name="12"></a>1.2
+<a id="12" class="xliff"></a>
+
+### 1.2
 Bijgewerkt: 7 april 2017
 
 De volgende oplossingen zijn toegevoegd:
@@ -584,7 +665,9 @@ De volgende oplossingen zijn toegevoegd:
 * Er werd een onjuist rapport gegenereerd als de landinstellingen stonden ingesteld op een andere taal dan Engels.
 
 
-### <a name="11"></a>1.1
+<a id="11" class="xliff"></a>
+
+### 1.1
 Bijgewerkt: 9 maart 2017
 
 De volgende problemen zijn verholpen:
@@ -592,7 +675,9 @@ De volgende problemen zijn verholpen:
 * Het hulpprogramma kan geen virtuele machines profileren als het vCenter twee of meer virtuele machines met dezelfde naam of hetzelfde IP-adres bevat voor verschillende ESXi-hosts.
 * Kopiëren en zoeken is uitgeschakeld voor de werkbladen Compatibele VM's en Incompatibele VM's.
 
-### <a name="10"></a>1.0
+<a id="10" class="xliff"></a>
+
+### 1.0
 Bijgewerkt: 23 februari 2017
 
 De openbare preview 1.0 van de Azure Site Recovery-implementatieplanner heeft de volgende bekende problemen (die in toekomstige updates worden verholpen):
