@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/23/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
+ms.translationtype: HT
 ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
 ms.openlocfilehash: 28aede545c738137ff04257214e4a3f42792d85c
 ms.contentlocale: nl-nl
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
-# <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Aan de slag met Azure Multi-Factor Authentication en Active Directory Federation Services
+<a id="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services" class="xliff"></a>
+
+# Aan de slag met Azure Multi-Factor Authentication en Active Directory Federation Services
 <center>![Cloud](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 Als uw organisatie met behulp van AD FS uw on-premises Active Directory heeft gefedereerd met Azure Active Directory, zijn er twee opties voor het gebruik van Azure Multi-Factor Authentication.
@@ -44,7 +45,9 @@ Valkuilen met app-wachtwoorden voor federatieve gebruikers:
 * U raakt on-premises mogelijkheden voor logboekregistratie bij verificatie voor app-wachtwoorden kwijt.
 * Account uitschakelen/verwijderen kan met Directory-synchronisatie tot drie uur duren, waardoor uitschakelen/verwijderen van app-wachtwoorden in de cloudidentiteit wordt vertraagd.
 
-## <a name="next-steps"></a>Volgende stappen
+<a id="next-steps" class="xliff"></a>
+
+## Volgende stappen
 Zie voor meer informatie over het instellen van Azure Multi-Factor Authentication of van de Azure Multi-Factor Authentication-server met AD FS de volgende artikelen:
 
 * [Cloudresources beveiligen met behulp van Azure Multi-Factor Authentication en AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
