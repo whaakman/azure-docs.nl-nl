@@ -1,13 +1,8 @@
-**Niet-beheerde schijven (standaard) van virtuele machines: limieten per schijf**
+**Standard unmanaged virtual machine disks: per disk limits**
 
-| VM-laag | VM in Basic-laag | VM in Standard-laag |
+| VM Tier | Basic Tier VM | Standard Tier VM |
 | --- | --- | --- |
-| Schijfgrootte |1023 GB |1023 GB |
-| Max 8 KB IOPS per permanente schijf |300 |500 |
-| Maximumaantal schijven die max. IOPS uitvoeren |66 |40 |
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+| Disk size |4095 GB |4095 GB |
+| Max 8 KB IOPS per persistent disk |300 |500 |
+| Max number of disks performing max IOPS |66 |40 |
 
