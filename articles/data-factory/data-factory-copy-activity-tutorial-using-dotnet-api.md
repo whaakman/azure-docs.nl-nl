@@ -20,7 +20,6 @@ ms.openlocfilehash: 59d8b23291adb1e680e70898f5bb82bb699be19d
 ms.contentlocale: nl-nl
 ms.lasthandoff: 06/14/2017
 
-
 ---
 <a id="tutorial-create-a-pipeline-with-copy-activity-using-net-api" class="xliff"></a>
 
@@ -146,7 +145,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
     <?xml version="1.0" encoding="utf-8" ?>
     <configuration>
         <appSettings>
-            <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+            <add key="ActiveDirectoryEndpoint" value="https://login.microsoftonline.com/" />
             <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
             <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 
