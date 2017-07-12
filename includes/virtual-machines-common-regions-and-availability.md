@@ -1,102 +1,135 @@
-# <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Regio's en beschikbaarheid voor virtuele machines in Azure
-Het is belangrijk om inzicht te hebben in hoe en waar uw virtuele machines (VM's) in Azure werken, evenals in wat uw mogelijkheden zijn om de prestaties, beschikbaarheid en redundantie te maximaliseren. Azure werkt vanuit diverse datacentra, op locaties overal wereld. Deze datacenters worden gegroepeerd in geografische regio's, waardoor u flexibiliteit heeft bij het kiezen waar u uw toepassingen ontwikkelt. Dit artikel biedt een overzicht van de mogelijkheden van Azure op het gebied van beschikbaarheid en redundantie.
+<a id="regions-and-availability-for-virtual-machines-in-azure" class="xliff"></a>
 
-## <a name="what-are-azure-regions"></a>Wat zijn Azure-regio's?
-Met Azure kunt u resources, zoals virtuele machines, maken in afgebakende geografische regio's, zoals 'VS - West', 'Noord Europa' of 'Zuidoost-Azië'. Er zijn wereldwijd momenteel 30 Azure-regio's. U kunt zelf de [lijst met regio's en bijbehorende locaties](https://azure.microsoft.com/regions/) bekijken. In elke regio bevinden zich meerdere datacenters, om te zorgen voor voldoende redundantie en beschikbaarheid. Hierdoor heeft u bij het bouwen van uw toepassingen de flexibiliteit om uw virtuele machines zo dicht mogelijk bij uw gebruikers te plaatsen en aan eventuele juridische, nalevings- of belastingvereisten te voldoen.
+# Regions and availability for virtual machines in Azure
+It is important to understand how and where your virtual machines (VMs) operate in Azure, along with your options to maximize performance, availability, and redundancy. Azure operates in multiple datacenters around the world. These datacenters are grouped in to geographic regions, giving you flexibility in choosing where to build your applications. This article provides you with an overview of the availability and redundancy features of Azure.
 
-## <a name="special-azure-regions"></a>Speciale Azure-regio's
-Er zijn een aantal speciale Azure-regio's die u bij het bouwen van uw toepassingen om juridische of nalevingsredenen kunt overwegen. Voorbeelden van dergelijke speciale regio's zijn:
+<a id="what-are-azure-regions" class="xliff"></a>
 
-* **VS (overheid) - Virginia** en **VS (overheid) - Iowa**
-  * Een fysiek en logisch van netwerken afgeschermd exemplaar van Azure voor de Amerikaanse overheid en zijn partners, bediend door gecontroleerde Amerikaanse staatsburgers. Dit exemplaar beschikt over aanvullende nalevingscertificeringen, zoals [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) en [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Meer informatie over [Azure Government](https://azure.microsoft.com/features/gov/).
-* **China - noord** en **China - oost**
-  * Deze regio's zijn beschikbaar via een unieke samenwerking tussen Microsoft en 21Vianet, waarbij Microsoft niet rechtstreeks de datacentra onderhoudt. Zie meer informatie over [Microsoft Azure in China](http://www.windowsazure.cn/).
-* **Duitsland - centraal** en **Duitsland - noordoost**
-  * Deze regio’s worden momenteel beschikbaar gesteld via een nieuw model voor gegevensbeheerders, waarin de klantgegevens in Duitsland verblijven, in beheer van T-Systems, een dochteronderneming van Deutsche Telekom, dat als de Duitse gegevensbeheerder optreedt.
+## What are Azure regions?
+Azure allows you to create resources, such as VMs, in defined geographic regions like 'West US', 'North Europe', or 'Southeast Asia'. There are currently 30 Azure regions around the world. You can review the [list of regions and their locations](https://azure.microsoft.com/regions/). Within each region, multiple datacenters exist to provide for redundancy and availability. This approach gives you flexibility when building your applications to create VMs closest to your users and to meet any legal, compliance, or tax purposes.
 
-## <a name="region-pairs"></a>Regioparen
-Elke Azure-regio is gekoppeld aan een andere regio binnen hetzelfde geografische gebied (zoals VS, Europa of Azië). Hierdoor kunnen resources, zoals VM-opslag, worden gerepliceerd op een andere locatie binnen hetzelfde geografische gebied, zodat de kans wordt beperkt dat beide regio’s tegelijkertijd worden beïnvloed door natuurrampen, onrusten, stroomstoringen of fysieke netwerkuitval. Het gebruik van regioparen biedt meer voordelen:
+<a id="special-azure-regions" class="xliff"></a>
 
-* In het geval van een bredere Azure-storing krijgt van elk paar één regio prioriteit, om te zorgen dat toepassingen zo snel mogelijk weer beschikbaar zijn. 
-* Geplande Azure-updates worden voor gepaarde regio’s één voor één geïmplementeerd, om downtime en het risico op niet-beschikbare toepassingen te beperken.
-* Gegevens blijven voor juridische en belastingdoeleinden voor ieder paar binnen hetzelfde geografische gebied (met uitzondering van Brazilië - zuid).
+## Special Azure regions
+There are some special Azure regions for compliance or legal purposes that you may wish to use when building out your applications. These special regions include:
 
-Voorbeelden van regioparen zijn:
+* **US Gov Virginia** and **US Gov Iowa**
+  * A physical and logical network-isolated instance of Azure for US government agencies and partners, operated by screened US persons. Includes additional compliance certifications such as [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) and [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Read more about [Azure Government](https://azure.microsoft.com/features/gov/).
+* **China East** and **China North**
+  * These regions are available through a unique partnership between Microsoft and 21Vianet, whereby Microsoft does not directly maintain the datacenters. See more about [Microsoft Azure in China](http://www.windowsazure.cn/).
+* **Germany Central** and **Germany Northeast**
+  * These regions are currently available via a data trustee model whereby customer data remains in Germany under control of T-Systems, a Deutsche Telekom company, acting as the German data trustee.
 
-| Primair | Secundair |
+<a id="region-pairs" class="xliff"></a>
+
+## Region pairs
+Each Azure region is paired with another region within the same geography (such as US, Europe, or Asia). This approach allows for the replication of resources, such as VM storage, across a geography that should reduce the likelihood of natural disasters, civil unrest, power outages, or physical network outages affecting both regions at once. Additional advantages of region pairs include:
+
+* In the event of a wider Azure outage, one region is prioritized out of every pair to help reduce the time to restore for applications. 
+* Planned Azure updates are rolled out to paired regions one at a time to minimize downtime and risk of application outage.
+* Data continues to reside within the same geography as its pair (except for Brazil South) for tax and law enforcement jurisdiction purposes.
+
+Examples of region pairs include:
+
+| Primary | Secondary |
 |:--- |:--- |
-| VS - west |VS - oost |
-| Noord-Europa |West-Europa |
-| Zuidoost-Azië |Oost-Azië |
+| West US |East US |
+| North Europe |West Europe |
+| Southeast Asia |East Asia |
 
-U vindt de volledige [lijst met regioparen hier](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
+You can see the full [list of regional pairs here](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
-## <a name="feature-availability"></a>Beschikbaarheid van functies
-Sommige services of VM-functies zijn alleen beschikbaar in bepaalde regio's, zoals specifieke VM-grootten of opslagtypen. Er zijn ook een aantal algemene Azure-services waarvoor u geen specifieke regio hoeft te kiezen, zoals [Azure Active Directory](../articles/active-directory/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md) en [Azure DNS](../articles/dns/dns-overview.md). Als hulp bij het ontwerpen van de omgeving van uw toepassing, kunt u de [beschikbaarheid van Azure-services per regio](https://azure.microsoft.com/regions/#services) raadplegen. 
+<a id="feature-availability" class="xliff"></a>
 
-## <a name="storage-availability"></a>Opslagbeschikbaarheid
-Inzicht in Azure-regio's en geografische locaties wordt belangrijk wanneer u gaat kijken naar de verschillende opties voor opslagreplicatie. U hebt verschillende replicatieopties, afhankelijk van het opslagtype.
+## Feature availability
+Some services or VM features are only available in certain regions, such as specific VM sizes or storage types. There are also some global Azure services that do not require you to select a particular region, such as [Azure Active Directory](../articles/active-directory/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md), or [Azure DNS](../articles/dns/dns-overview.md). To assist you in designing your application environment, you can check the [availability of Azure services across each region](https://azure.microsoft.com/regions/#services). 
+
+<a id="storage-availability" class="xliff"></a>
+
+## Storage availability
+Understanding Azure regions and geographies becomes important when you consider the available storage replication options. Depending on the storage type, you have different replication options.
 
 **Azure Managed Disks**
-* Lokaal redundante opslag (LRS)
-  * Uw gegevens worden drie keer gerepliceerd in de regio waar u uw storage-account hebt gemaakt.
+* Locally redundant storage (LRS)
+  * Replicates your data three times within the region in which you created your storage account.
 
-**Schijven voor opslag op basis van een account**
-* Lokaal redundante opslag (LRS)
-  * Uw gegevens worden drie keer gerepliceerd in de regio waar u uw storage-account hebt gemaakt.
-* Zone-redundante opslag (ZRS)
-  * Uw gegevens worden binnen twee of drie faciliteiten in één regio of tussen twee regio's driemaal gerepliceerd.
-* Geografisch redundante opslag (GRS)
-  * Uw gegevens worden gerepliceerd naar een secundaire regio, honderden kilometers van de primaire regio.
-* Geografisch redundante opslag met leestoegang (RA-GRS)
-  * Uw gegevens worden gerepliceerd naar een secundaire regio, net als bij GRS, maar vervolgens biedt de secundaire locatie alleen-lezen toegang tot de gegevens.
+**Storage account-based disks**
+* Locally redundant storage (LRS)
+  * Replicates your data three times within the region in which you created your storage account.
+* Zone redundant storage (ZRS)
+  * Replicates your data three times across two to three facilities, either within a single region or across two regions.
+* Geo-redundant storage (GRS)
+  * Replicates your data to a secondary region that is hundreds of miles away from the primary region.
+* Read-access geo-redundant storage (RA-GRS)
+  * Replicates your data to a secondary region, as with GRS, but also then provides read-only access to the data in the secondary location.
 
-De volgende tabel geeft een overzicht van de verschillen tussen de typen opslagreplicatie:
+The following table provides a quick overview of the differences between the storage replication types:
 
-| Replicatiestrategie | LRS | ZRS | GRS | RA-GRS |
+| Replication strategy | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Gegevens worden gerepliceerd bij meerdere faciliteiten. |Nee |Ja |Ja |Ja |
-| Gegevens kunnen worden gelezen vanaf de secundaire locatie en vanaf de primaire locatie. |Nee |Nee |Nee |Ja |
-| Het aantal exemplaren van de gegevens op afzonderlijke knooppunten. |3 |3 |6 |6 |
+| Data is replicated across multiple facilities. |No |Yes |Yes |Yes |
+| Data can be read from the secondary location and from the primary location. |No |No |No |Yes |
+| Number of copies of data maintained on separate nodes. |3 |3 |6 |6 |
 
-Meer informatie over [Azure Storage-replicatieopties vindt u hier](../articles/storage/storage-redundancy.md). Zie voor meer informatie over beheerde schijven [overzicht Azure Managed Disks](../articles/storage/storage-managed-disks-overview.md).
+You can read more about [Azure Storage replication options here](../articles/storage/storage-redundancy.md). For more information about managed disks, see [Azure Managed Disks overview](../articles/storage/storage-managed-disks-overview.md).
 
-### <a name="storage-costs"></a>Opslagkosten
-De kosten zijn afhankelijk van het opslagtype en de beschikbaarheid die u selecteert.
+<a id="storage-costs" class="xliff"></a>
+
+### Storage costs
+Prices vary depending on the storage type and availability that you select.
 
 **Azure Managed Disks**
-* Premium Managed Disks worden ondersteund door SSD's (solid state drives) en Standard Managed Disks worden ondersteund door traditionele draaiende schijven. Voor zowel Premium als Standard Managed Disks worden kosten in rekening gebracht op basis van de ingerichte capaciteit van de schijf.
+* Premium Managed Disks are backed by Solid State Drives (SSDs) and Standard Managed Disks are backed by regular spinning disks. Both Premium and Standard Managed Disks are charged based on the provisioned capacity for the disk.
 
-**Niet-beheerde schijven**
-* Premium-opslag wordt ondersteund door SSD's (solid state drives) en wordt in rekening gebracht op basis van de capaciteit van de schijf.
-* Standaard opslag wordt ondersteund door traditionele draaiende schijven en wordt in rekening gebracht op basis van de gebruikte capaciteit en de gewenste opslagbeschikbaarheid.
-  * Voor RA-GRS wordt een toeslag in rekening gebracht voor de gegevensoverdracht voor geo-replicatie, voor de bandbreedtekosten van het repliceren van gegevens naar een andere Azure-regio.
+**Unmanaged disks**
+* Premium storage is backed by Solid State Drives (SSDs) and is charged based on the capacity of the disk.
+* Standard storage is backed by regular spinning disks and is charged based on the in-use capacity and desired storage availability.
+  * For RA-GRS, there is an additional Geo-Replication Data Transfer charge for the bandwidth of replicating that data to another Azure region.
 
-Zie [prijzen van Azure Storage](https://azure.microsoft.com/pricing/details/storage/) voor informatie over prijzen van de verschillende opslagtypen en beschikbaarheidsopties.
+See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for pricing information on the different storage types and availability options.
 
-## <a name="azure-images"></a>Installatiekopieën van Azure
-In Azure worden virtuele machines gemaakt op basis van een installatiekopie. Deze komen meestal van de [Azure Marketplace](https://azure.microsoft.com/marketplace/), waar partners installatiekopieën met volledig vooraf geconfigureerde besturingssystemen of toepassingen beschikbaar kunnen stellen.
+<a id="azure-images" class="xliff"></a>
 
-Als u een virtuele machine maakt op basis van een installatiekopie in de Azure Marketplace, werkt u eigenlijk met sjablonen. Azure Resource Manager-sjablonen zijn declaratieve JavaScript Object Notation (JSON)-bestanden die kunnen worden gebruikt voor het maken van complexe toepassingsomgevingen met virtuele machines, opslag, virtuele netwerken, enzovoort. Lees meer over het gebruik van [Azure Resource Manager-sjablonen](../articles/azure-resource-manager/resource-group-overview.md), inclusief hoe u zelf [sjablonen kunt maken](../articles/resource-group-authoring-templates.md).
+## Azure images
+In Azure, VMs are created from an image. Typically, images are from the [Azure Marketplace](https://azure.microsoft.com/marketplace/) where partners can provide pre-configured complete OS or application images.
 
-U kunt ook uw eigen aangepaste installatiekopieën maken en ze uploaden met [Azure CLI](../articles/virtual-machines/linux/upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of [Azure PowerShell](../articles/virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) om snel virtuele machines te maken die zijn afgestemd op uw eigen specifieke vereisten.
+When you create a VM from an image in the Azure Marketplace, you are actually working with templates. Azure Resource Manager templates are declarative JavaScript Object Notation (JSON) files that can be used to create complex application environments comprising VMs, storage, virtual networking, etc. You can read more about using [Azure Resource Manager templates](../articles/azure-resource-manager/resource-group-overview.md), including how to [build your own templates](../articles/resource-group-authoring-templates.md).
 
-## <a name="availability-sets"></a>Beschikbaarheidssets
-Een beschikbaarheidsset is een logische groepering van virtuele machines waaruit Azure kan begrijpen hoe uw toepassing is ontworpen, om zo redundantie en beschikbaarheid te kunnen bieden. Het wordt aanbevolen binnen een beschikbaarheidsset twee of meer virtuele machines te maken, om een toepassing zo maximaal beschikbaar te maken en te voldoen aan de [99,95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Wanneer een enkele virtuele machine gebruikmaakt van [Azure Premium Storage](../articles/storage/storage-premium-storage.md), is de Azure SLA van toepassing op niet-gepland onderhoud. Een beschikbaarheidsset bestaat uit twee extra groepen, om zo te beschermen tegen hardwarestoringen en om veilig updates te kunnen toepassen: foutdomeinen (FD's) en update-domeinen (UD's).
+You can also create your own custom images and upload them using [Azure CLI](../articles/virtual-machines/linux/upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Azure PowerShell](../articles/virtual-machines/windows/upload-generalized-managed.md) to quickly create custom VMs to your specific build requirements.
 
-![Concepttekening van een configuratie met een updatedomein en een foutdomein](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
+<a id="availability-sets" class="xliff"></a>
 
-Lees meer over het beheren van de beschikbaarheid van [Linux-VM's](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of [Windows VM's](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## Availability sets
+An availability set is a logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability. It is recommended that two or more VMs are created within an availability set to provide for a highly available application and to meet the [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). When a single VM is using [Azure Premium Storage](../articles/storage/storage-premium-storage.md), the Azure SLA applies for unplanned maintenance events. An availability set is compromised of two additional groupings that protect against hardware failures and allow updates to safely be applied - fault domains (FDs) and update domains (UDs).
 
-### <a name="fault-domains"></a>Foutdomeinen
-Een foutdomein is een logische groep onderliggende hardware met een gemeenschappelijke voeding en netwerkswitch, vergelijkbaar met een rack in een on-premises datacenter. Wanneer u virtuele machines in een beschikbaarheidsset maakt, verdeelt het Azure-platform uw virtuele machines automatisch tussen deze foutdomeinen. Deze aanpak beperkt de gevolgen van mogelijke problemen met de fysieke hardware, netwerkstoringen of stroomonderbrekingen.
+![Conceptual drawing of the update domain and fault domain configuration](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
-#### <a name="managed-disk-fault-domains-and-availability-sets"></a>Foutdomeinen en beschikbaarheidssets met Managed Disks
-Voor virtuele machines die gebruikmaken van [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md) en deel uitmaken van een beheerde beschikbaarheidsset, worden de virtuele machines afgestemd op Managed Disk-foutdomeinen. Deze afstemming zorgt ervoor dat alle beheerde schijven die zijn gekoppeld aan een virtuele machine, zich binnen hetzelfde Managed Disk-foutdomein bevinden. In een beheerde beschikbaarheidsset kunnen alleen virtuele machines met beheerde schijven worden gemaakt. Het aantal Managed Disk-foutdomeinen verschilt per regio: er zijn twee of drie Managed Disk-foutdomeinen per regio.
+You can read more about how to manage the availability of [Linux VMs](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Windows VMs](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-### <a name="update-domains"></a>Updatedomeinen
-Een updatedomein is een logische groep onderliggende hardware die op hetzelfde moment onderhoud kan ondergaan of opnieuw kan worden opgestart. Wanneer u virtuele machines in een beschikbaarheidsset maakt, verdeelt het Azure-platform uw virtuele machines automatisch tussen deze updatedomeinen. Deze aanpak zorgt ervoor dat altijd ten minste één exemplaar van uw toepassing beschikbaar blijft wanneer er periodiek onderhoud wordt uitgevoerd aan het Azure-platform. De volgorde waarin updatedomeinen opnieuw worden opgestart, verloopt tijdens gepland onderhoud niet altijd sequentieel, maar er wordt slechts één updatedomein tegelijk opnieuw opgestart.
+<a id="fault-domains" class="xliff"></a>
 
-## <a name="next-steps"></a>Volgende stappen
-U kunt nu deze functies voor beschikbaarheid en redundantie gaan gebruiken om uw eigen Azure-omgeving te bouwen. Zie voor informatie over aanbevolen procedures de [aanbevolen procedures voor Azure-beschikbaarheid](../articles/best-practices-availability-checklist.md).
+### Fault domains
+A fault domain is a logical group of underlying hardware that share a common power source and network switch, similar to a rack within an on-premises datacenter. As you create VMs within an availability set, the Azure platform automatically distributes your VMs across these fault domains. This approach limits the impact of potential physical hardware failures, network outages, or power interruptions.
+
+<a id="managed-disk-fault-domains-and-availability-sets" class="xliff"></a>
+
+#### Managed Disk fault domains and availability sets
+For VMs using [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md), VMs are aligned with managed disk fault domains when using a managed availability set. This alignment ensures that all the managed disks attached to a VM are within the same managed disk fault domain. Only VMs with managed disks can be created in a managed availability set. The number of managed disk fault domains varies by region - either two or three managed disk fault domains per region.
+
+![Managed Disk FDs](./media/virtual-machines-common-manage-availability/md-fd.png)
+
+> [!IMPORTANT]
+> The number of fault domains for managed availability sets varies by region - either two or three per region. The following table shows the number per region
+
+[!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
+
+<a id="update-domains" class="xliff"></a>
+
+### Update domains
+An update domain is a logical group of underlying hardware that can undergo maintenance or be rebooted at the same time. As you create VMs within an availability set, the Azure platform automatically distributes your VMs across these update domains. This approach ensures that at least one instance of your application always remains running as the Azure platform undergoes periodic maintenance. The order of update domains being rebooted may not proceed sequentially during planned maintenance, but only one update domain is rebooted at a time.
+
+<a id="next-steps" class="xliff"></a>
+
+## Next steps
+You can now start to use these availability and redundancy features to build your Azure environment. For best practices information, see [Azure availability best practices](../articles/best-practices-availability-checklist.md).
 

@@ -1,18 +1,13 @@
-Als u een Premium-cache wilt maken, meldt u zich aan bij [Azure Portal](https://portal.azure.com) en klikt u op **Nieuw** > **Databases** > **Redis-cache**.
+To create a premium cache, sign-in to the [Azure portal](https://portal.azure.com) and click **New** > **Databases** > **Redis Cache**.
 
-![Cache maken](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
+![Create cache](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 
 > [!NOTE]
-> U kunt caches niet alleen in Azure Portal maken. U kunt ze ook maken met Resource Manager-sjablonen, PowerShell of Azure CLI. Voor meer informatie over het maken van een Azure Redis Cache raadpleegt u [Een cache maken](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+> In addition to creating caches in the Azure portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Redis Cache, see [Create a cache](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 > 
 > 
 
-Als u Premium-functies wilt configureren, selecteert u eerst een van de Premium-prijscategorieën op de blade **Uw prijscategorie kiezen**.
+To configure premium features, first select one of the premium pricing tiers in the **Pricing tier** drop-down list. For more information about each pricing tier, click **View full pricing details** and select a pricing tier from the **Choose your pricing tier** blade.
 
-![Uw prijscategorie kiezen](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+![Choose your pricing tier](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
 
