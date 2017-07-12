@@ -19,7 +19,9 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/23/2017
 
 ---
-#<a name="service-fabric-documentation"></a>Documentatie over Service Fabric
+<a id="service-fabric-documentation" class="xliff"></a>
+
+#Documentatie over Service Fabric
 
 Meer informatie over hoe u Service Fabric gebruikt om schaalbare en betrouwbare microservices te verpakken, implementeren en beheren. Zelfstudies, API-verwijzingen en codevoorbeelden laten zien hoe u dit middlewareplatform gebruikt voor het bouwen en beheren van toepassingen op cloudschaal.
 
