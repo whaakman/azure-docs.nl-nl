@@ -15,14 +15,15 @@ ms.topic: get-started-article
 ms.date: 07/05/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 42dcc653b50698cf8ce8145dfb51f27be7ece440
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4d7704c03bece51957efa2a56577b8808cc62c79
 ms.contentlocale: nl-nl
-ms.lasthandoff: 04/12/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-# <a name="you-cant-get-there-from-here-on-a-windows-device"></a>U kunt daar niet komen vanaf deze locatie op een Windows-apparaat
+# U kunt daar niet komen vanaf deze locatie op een Windows-apparaat
+<a id="you-cant-get-there-from-here-on-a-windows-device" class="xliff"></a>
 
 Tijdens een poging om bijvoorbeeld het SharePoint Online-intranet van uw organisatie te openen, krijgt u een pagina te zien waarop staat dat *u geen toegang hebt*. U ziet deze pagina omdat de beheerder voorwaardelijk toegangsbeleid heeft geconfigureerd op basis waarvan de toegang tot resources in uw organisatie onder bepaalde omstandigheden wordt geblokkeerd. Uiteindelijk kan het nodig zijn om contact op te nemen met de helpdesk of beheerder, maar voordat u dit doet, is er een aantal dingen dat u eerst zelf kunt proberen.
 
@@ -39,7 +40,8 @@ Als u een **Windows**-apparaat gebruikt, controleert u het volgende:
 
 
 
-## <a name="supported-browser"></a>Ondersteunde browser
+## Ondersteunde browser
+<a id="supported-browser" class="xliff"></a>
 
 Als de beheerder voorwaardelijk toegangsbeleid heeft geconfigureerd, hebt u alleen toegang tot de resources van uw organisatie vanaf een ondersteunde browser. Op een Windows-apparaat worden alleen **Internet Explorer** en **Edge** ondersteund.
 
@@ -47,10 +49,11 @@ U kunt eenvoudig vaststellen of u geen toegang hebt tot een resource vanwege een
 
 ![Scenario](./media/active-directory-conditional-access-device-remediation/02.png "Berichten over ontoegankelijke toepassingen voor niet-ondersteunde browsers")
 
-De enige oplossing is een browser te gebruiken die de toepassing ondersteunt voor uw apparaatplatform. Zie [Ondersteunde browsers](active-directory-conditional-access-supported-apps.md#supported-browsers) voor een volledige lijst met ondersteunde browsers.  
+De enige oplossing is een browser te gebruiken die de toepassing ondersteunt voor uw apparaatplatform. Zie [Ondersteunde browsers](active-directory-conditional-access-supported-apps.md#supported-browsers-for-device-based-policies) voor een volledige lijst met ondersteunde browsers.  
 
 
-## <a name="supported-versions-of-windows"></a>Ondersteunde versies van Windows
+## Ondersteunde versies van Windows
+<a id="supported-versions-of-windows" class="xliff"></a>
 
 Het volgende moet waar zijn over het Windows-besturingssysteem op uw apparaat: 
 
@@ -58,7 +61,8 @@ Het volgende moet waar zijn over het Windows-besturingssysteem op uw apparaat:
 - Als u een Windows-serverbesturingssysteem uitvoert op het apparaat, moet dit Windows Server 2008 R2 of later zijn. 
 
 
-## <a name="compliant-device"></a>Compatibel apparaat
+## Compatibel apparaat
+<a id="compliant-device" class="xliff"></a>
 
 Mogelijk heeft de beheerder voorwaardelijk toegangsbeleid geconfigureerd op basis waarvan toegang tot de resources van uw organisatie alleen mogelijk is vanaf compatibele apparaten. Het apparaat moet zijn gekoppeld aan uw on-premises Active Directory of aan uw Azure Active Directory om compatibel te zijn.
 
@@ -67,7 +71,8 @@ U kunt eenvoudig vaststellen of u geen toegang hebt tot een resource vanwege een
 ![Scenario](./media/active-directory-conditional-access-device-remediation/01.png "Berichten over ontoegankelijke toepassingen voor niet-geregistreerde apparaten")
 
 
-### <a name="is-your-device-joined-to-an-on-premises-active-directory"></a>Is het apparaat gekoppeld aan een on-premises Active Directory?
+### Is het apparaat gekoppeld aan een on-premises Active Directory?
+<a id="is-your-device-joined-to-an-on-premises-active-directory" class="xliff"></a>
 
 **Als het apparaat is gekoppeld aan een on-premises Active Directory in uw organisatie:**
 
@@ -79,7 +84,8 @@ U kunt eenvoudig vaststellen of u geen toegang hebt tot een resource vanwege een
 6. Als dezelfde pagina wordt weergegeven, klikt u op de koppeling **Meer details** en neemt u met deze gegevens contact op met de beheerder.
 
 
-### <a name="is-your-device-not-joined-to-an-on-premises-active-directory"></a>Is het apparaat niet gekoppeld aan een on-premises Active Directory?
+### Is het apparaat niet gekoppeld aan een on-premises Active Directory?
+<a id="is-your-device-not-joined-to-an-on-premises-active-directory" class="xliff"></a>
 
 Als het apparaat niet is gekoppeld aan een on-premises Active Directory en Windows 10 op het apparaat wordt uitgevoerd, hebt u twee opties:
 
@@ -94,7 +100,8 @@ Als het apparaat:
 
 
 
-#### <a name="azure-ad-join-on-windows-10"></a>Azure AD Join op Windows 10
+#### Azure AD Join op Windows 10
+<a id="azure-ad-join-on-windows-10" class="xliff"></a>
 
 De stappen voor het koppelen van een apparaat aan Azure AD zijn afhankelijk van de versie van Windows 10 die erop wordt uitgevoerd. Voer de opdracht **winver** uit om te bepalen welke versie van het Windows 10-besturingssysteem u hebt: 
 
@@ -121,7 +128,8 @@ De stappen voor het koppelen van een apparaat aan Azure AD zijn afhankelijk van 
 6. Probeer opnieuw toegang te krijgen tot de toepassing.
 
 
-#### <a name="workplace-join-on-windows-81"></a>Workplace Join op Windows 8.1
+#### Workplace Join op Windows 8.1
+<a id="workplace-join-on-windows-81" class="xliff"></a>
 
 Als uw apparaat niet in een domein is opgenomen en Windows 8.1 op het apparaat wordt uitgevoerd, kunt u de volgende stappen uitvoeren om een Workplace Join uit te voeren en het apparaat in te schrijven bij Microsoft Intune:
 
@@ -134,7 +142,8 @@ Als uw apparaat niet in een domein is opgenomen en Windows 8.1 op het apparaat w
 
 
 
-#### <a name="add-your-work-or-school-account-to-windows"></a>Uw werk- of schoolaccount toevoegen aan Windows 
+#### Uw werk- of schoolaccount toevoegen aan Windows
+<a id="add-your-work-or-school-account-to-windows" class="xliff"></a> 
 
 
 **Windows 10 Jubileumupdate (versie 1607)**
@@ -158,7 +167,8 @@ Als uw apparaat niet in een domein is opgenomen en Windows 8.1 op het apparaat w
 
 
 
-## <a name="next-steps"></a>Volgende stappen
+## Volgende stappen
+<a id="next-steps" class="xliff"></a>
 [Voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access.md)
 
 

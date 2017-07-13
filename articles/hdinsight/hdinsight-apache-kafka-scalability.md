@@ -14,17 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/14/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 84c7048bbd608b0b99215d74f71960dc9d1158ef
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 1b3e0d06c8b25158e421f02b587b4ae4836d80ad
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 
-<a id="configure-storage-and-scalability-for-apache-kafka-on-hdinsight" class="xliff"></a>
-
 # Opslag en schaalbaarheid configureren voor Apache Kafka in HDInsight
+<a id="configure-storage-and-scalability-for-apache-kafka-on-hdinsight" class="xliff"></a>
 
 Leer hoe u het aantal beheerde schijven configureert dat wordt gebruikt in Apache Kafka in HDInsight.
 
@@ -34,9 +33,8 @@ In het volgende diagram ziet u een vergelijking tussen Kafka in HDInsight voorda
 
 ![Diagram waarin Kafka in HDInsight wordt weergegeven met één virtuele harde schijf per VM versus meerdere beheerde schijven per VM](./media/hdinsight-apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
-<a id="configure-managed-disks-azure-portal" class="xliff"></a>
-
 ## Beheerde schijven configureren: Azure Portal
+<a id="configure-managed-disks-azure-portal" class="xliff"></a>
 
 1. Volg de stappen in [Een HDInsight-cluster maken](hdinsight-hadoop-create-linux-clusters-portal.md) voor de algemene stappen voor het maken van een cluster met behulp van de portal. Voltooi het creatieproces met behulp van de portal niet.
 
@@ -47,9 +45,8 @@ In het volgende diagram ziet u een vergelijking tussen Kafka in HDInsight voorda
 
     ![Afbeelding van de blade Clustergrootte met de schijven gemarkeerd per werkknooppunt](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
 
-<a id="configure-managed-disks-resource-manager-template" class="xliff"></a>
-
 ## Beheerde schijven configureren: Resource Manager-sjabloon
+<a id="configure-managed-disks-resource-manager-template" class="xliff"></a>
 
 Als u het aantal schijven wilt beheren dat wordt gebruikt in de werkknooppunten van een Kafka-cluster, gebruikt u de volgende sectie van de sjabloon:
 
@@ -63,9 +60,8 @@ Als u het aantal schijven wilt beheren dat wordt gebruikt in de werkknooppunten 
 
 Op [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json) vindt u een volledige sjabloon waarin wordt weergegeven hoe u beheerde schijven kunt configureren.
 
-<a id="next-steps" class="xliff"></a>
-
 ## Volgende stappen
+<a id="next-steps" class="xliff"></a>
 
 Zie de volgende documenten voor meer informatie over het werken Kafka in HDInsight:
 
@@ -74,4 +70,4 @@ Zie de volgende documenten voor meer informatie over het werken Kafka in HDInsig
 * [Apache Spark gebruiken met Kafka in HDInsight](hdinsight-apache-spark-with-kafka.md)
 * [Verbinding maken met Kafka via een Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md)
 
-* [HDInsight-blog over beheerde schijven met Kafka](https://azure.microsoft.com/blog/announcing-hdinsight-kafka-public-preview-with-azure-managed-disks)
+* [HDInsight-blog over beheerde schijven met Kafka](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/)
