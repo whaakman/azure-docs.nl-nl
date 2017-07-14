@@ -1,145 +1,286 @@
 # Overzicht
+
 ## [Wat is Site Recovery?](site-recovery-overview.md)
+
 ## Hoe werkt Site Recovery?
+
 ### [Azure naar Azure-architectuur](site-recovery-azure-to-azure-architecture.md)
+
 ### [Hyper-V naar Azure-architectuur](site-recovery-architecture-hyper-v-to-azure.md)
+
 ### [Replicatie naar een secundaire site-architectuur](site-recovery-architecture-to-secondary-site.md)
+
 ## [Welke workloads kunt u beveiligen?](site-recovery-workload.md)
+
 ## Ondersteuningsmatrix voor Site Recovery
+
 ### [Ondersteuning voor Azure naar Azure](site-recovery-support-matrix-azure-to-azure.md)
+
 ### [Ondersteuning voor on-premises naar Azure](site-recovery-support-matrix-to-azure.md)
+
 ### [Ondersteuning voor on-premises naar secundaire site](site-recovery-support-matrix-to-sec-site.md)
+
 ## [Veelgestelde vragen](site-recovery-faq.md)
+
 ## [Een inleiding bekijken](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
+
 # Aan de slag
+
 ## [Replicatie van virtuele Azure-machines (preview)](site-recovery-azure-to-azure.md)
+
 ## [Virtuele VMware-machines repliceren naar Azure](vmware-walkthrough-overview.md)
+
 ### [Stap 1: de architectuur analyseren](vmware-walkthrough-architecture.md)
+
 ### [Stap 2: de vereisten en beperkingen controleren](vmware-walkthrough-prerequisites.md)
+
 ### [Stap 3: de capaciteit plannen](vmware-walkthrough-capacity.md)
+
 ### [Stap 4: netwerken plannen](vmware-walkthrough-network.md)
+
 ### [Stap 5: Azure voorbereiden](vmware-walkthrough-prepare-azure.md)
+
 ### [Stap 6: VMware voorbereiden](vmware-walkthrough-prepare-vmware.md)
+
 ### [Stap 7: een kluis maken](vmware-walkthrough-create-vault.md)
+
 ### [Stap 8: bron en doel instellen](vmware-walkthrough-source-target.md)
+
 ### [Stap 9: een replicatiebeleid maken](vmware-walkthrough-replication.md)
+
 ### [Stap 10: de Mobility-service installeren](vmware-walkthrough-install-mobility.md)
+
 ### [Stap 11: replicatie inschakelen](vmware-walkthrough-enable-replication.md)
+
 ### [Stap 12: een testfailover uitvoeren](vmware-walkthrough-test-failover.md)
+
 ## [Virtuele Hyper-V-machines repliceren naar Azure](hyper-v-site-walkthrough-overview.md)
+
 ### [Stap 1: de architectuur analyseren](hyper-v-site-walkthrough-architecture.md)
+
 ### [Stap 2: de vereisten en beperkingen controleren](hyper-v-site-walkthrough-prerequisites.md)
+
 ### [Stap 3: de capaciteit plannen](hyper-v-site-walkthrough-capacity.md)
+
 ### [Stap 4: netwerken plannen](hyper-v-site-walkthrough-network.md)
+
 ### [Stap 5: Azure voorbereiden](hyper-v-site-walkthrough-prepare-azure.md)
+
 ### [Stap 6: Hyper-V-hosts voorbereiden](hyper-v-site-walkthrough-prepare-hyper-v.md)
+
 ### [Stap 7: een kluis maken](hyper-v-site-walkthrough-create-vault.md)
+
 ### [Stap 8: bron en doel instellen](hyper-v-site-walkthrough-source-target.md)
+
 ### [Stap 9: een replicatiebeleid maken](hyper-v-site-walkthrough-replication.md)
+
 ### [Stap 10: replicatie inschakelen](hyper-v-site-walkthrough-enable-replication.md)
+
 ### [Stap 11: een testfailover uitvoeren](hyper-v-site-walkthrough-test-failover.md)
+
 ## [Virtuele Hyper-V-machines repliceren naar Azure (met VMM)](site-recovery-vmm-to-azure.md)
+
 ## [Fysieke servers repliceren naar Azure](physical-walkthrough-overview.md)
+
 ### [Stap 1: de architectuur analyseren](physical-walkthrough-architecture.md)
+
 ### [Stap 2: de vereisten en beperkingen controleren](physical-walkthrough-prerequisites.md)
+
 ### [Stap 3: de capaciteit plannen](physical-walkthrough-capacity.md)
+
 ### [Stap 4: netwerken plannen](physical-walkthrough-network.md)
+
 ### [Stap 5: Azure voorbereiden](physical-walkthrough-prepare-azure.md)
+
 ### [Stap 6: een kluis maken](physical-walkthrough-create-vault.md)
+
 ### [Stap 7: bron en doel instellen](physical-walkthrough-source-target.md)
+
 ### [Stap 8: een replicatiebeleid maken](physical-walkthrough-replication.md)
+
 ### [Stap 9: de Mobility-service installeren](physical-walkthrough-install-mobility.md)
+
 ### [Stap 10: replicatie inschakelen](physical-walkthrough-enable-replication.md)
+
 ### [Stap 11: een testfailover uitvoeren](physical-walkthrough-test-failover.md)
+
 ## [Virtuele Hyper-V-machines repliceren naar een secundaire site (met VMM)](site-recovery-vmm-to-vmm.md)
+
 ## [Virtuele VMware-machines en fysieke servers repliceren naar een secundaire site](site-recovery-vmware-to-vmware.md)
+
 ## [Virtuele VMware-machines repliceren naar Azure in een multitenant-implementatie (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
 
+
 # Procedures
+
 ## Plannen
+
 ### [Vereisten voor Azure-replicatie](site-recovery-azure-to-azure-prereq.md)
+
 ### Netwerken plannen
+
 #### [Netwerken plannen voor replicatie van Azure naar Azure (preview)](site-recovery-azure-to-azure-networking-guidance.md)
+
 #### [Netwerken plannen voor replicatie van on-premises machine](site-recovery-network-design.md)
+
 #### [Netwerktoewijzing plannen voor replicatie van virtuele Azure-machines](site-recovery-network-mapping-azure-to-azure.md)
+
 #### [Netwerktoewijzing plannen voor replicatie van virtuele Hyper-V-machines](site-recovery-network-mapping.md)
+
 ### Capaciteit en schaalbaarheid plannen
+
 #### [Capaciteit plannen voor VMware-replicatie naar Azure](site-recovery-plan-capacity-vmware.md)
+
 #### [Implementatieplanner voor VMware-replicatie naar Azure](site-recovery-deployment-planner.md)
+
 #### [Capacity Planner voor Hyper-V-replicatie](site-recovery-capacity-planner.md)
+
 ### [Op rollen gebaseerde toegang plannen voor VM-replicatie](site-recovery-role-based-linked-access-control.md)
+
 ## Configureren
+
 ### De bronomgeving instellen
+
 #### [Bronomgeving voor VMware naar Azure](site-recovery-set-up-vmware-to-azure.md)
+
 #### [Bronomgeving voor fysiek naar Azure](site-recovery-set-up-physical-to-azure.md)
+
 ### De doelomgeving instellen
+
 #### [Doelomgeving voor VMware naar Azure](site-recovery-prepare-target-vmware-to-azure.md)
+
 #### [Doelomgeving voor fysiek naar Azure](site-recovery-prepare-target-physical-to-azure.md)
+
 ### [Replicatie-instellingen configureren](site-recovery-setup-replication-settings-vmware.md)
+
 ### [De Mobility-service voor VMware-replicatie implementeren](site-recovery-vmware-to-azure-install-mob-svc.md)
+
 #### [De Mobility-service implementeren met behulp van System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
+
 #### [De Mobility-service implementeren met behulp van Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
+
 ### Replicatie inschakelen
+
 #### [Replicatie van Azure naar Azure inschakelen](site-recovery-replicate-azure-to-azure.md)
+
 #### [Replicatie van VMware naar Azure inschakelen](site-recovery-replicate-vmware-to-azure.md)
+
 ## Failover en failback
+
 ### [Herstelplannen instellen](site-recovery-create-recovery-plans.md)
+
 #### [Azure-runbooks aan herstelplannen toevoegen](site-recovery-runbook-automation.md)
+
 ### Een testfailover uitvoeren
+
 #### [Een testfailover naar Azure uitvoeren](site-recovery-test-failover-to-azure.md)
+
 #### [Een testfailover tussen twee VMM-clouds uitvoeren](site-recovery-test-failover-vmm-to-vmm.md)
+
 ### [Door failover beveiligde machines](site-recovery-failover.md)
+
 ### Machines opnieuw beveiligen na een failover
+
 #### [Beveiliging van een secundaire Azure-regio omzetten naar die voor een primaire regio](site-recovery-how-to-reprotect-azure-to-azure.md)
+
 #### [Beveiliging van Azure naar on-premises omzetten](site-recovery-how-to-reprotect.md)
+
 ### Failback vanaf Azure
+
 #### [Failback van Azure naar VMware](site-recovery-failback-azure-to-vmware.md)
+
 #### [Failback van Azure naar Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md)
+
 ## Migreren
+
 ### [Migreren naar Azure](site-recovery-migrate-to-azure.md)
+
 ### [Migreren tussen Azure-regio's](site-recovery-migrate-azure-to-azure.md)
+
 ### [AWS Windows-instanties migreren naar Azure](site-recovery-migrate-aws-to-azure.md)
+
 ### [Gemigreerde machines naar een andere Azure-regio repliceren](site-recovery-azure-to-azure-after-migration.md)
+
 ## Workloads
+
 ### [Active Directory en DNS](site-recovery-active-directory.md)
+
 ### [SQL Server repliceren](site-recovery-sql.md)
+
 ### [SharePoint](site-recovery-sharepoint.md)
+
 ### [Dynamics AX](site-recovery-dynamicsax.md)
+
 ### [RDS](site-recovery-workload.md#protect-rds)
+
 ### [Exchange](site-recovery-workload.md#protect-exchange)
+
 ### [SAP](site-recovery-workload.md#protect-sap)
+
 ### [Webtoepassingen op basis van IIS](site-recovery-iis.md)
+
 ### [Citrix XenApp en XenDesktop](site-recovery-citrix-xenapp-and-xendesktop.md)
+
 ### [Andere workloads](site-recovery-workload.md#workload-summary)
+
 ## Replicatie automatiseren
+
 ### [Hyper-V-replicatie naar Azure automatiseren (zonder VMM)](site-recovery-deploy-with-powershell-resource-manager.md)
+
 ### [Hyper-V-replicatie naar Azure automatiseren (met VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+
 ### [Hyper-V-replicatie naar een secundaire site automatiseren (met VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
+
 ## Beheren
+
 ### [Processervers in Azure beheren](site-recovery-vmware-setup-azure-ps-resource-manager.md)
+
 ### [De configuratieserver beheren](site-recovery-vmware-to-azure-manage-configuration-server.md)
+
 ### [Uitgeschaalde processervers beheren](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
+
 ### [VCenter-servers beheren](site-recovery-vmware-to-azure-manage-vCenter.md)
+
 ### [Servers verwijderen en beveiliging uitschakelen](site-recovery-manage-registration-and-protection.md)
 
+### [Recovery Services-kluis verwijderen](delete-vault.md)
+
+
 ## Controleren en problemen oplossen
+
 ### [Problemen met replicatie van Azure naar Azure](site-recovery-azure-to-azure-troubleshoot-errors.md)
+
 ### [Problemen met replicatie van on-premises naar Azure](site-recovery-vmware-to-azure-protection-troubleshoot.md)
+
 ### [Verzamelen van logboeken en oplossen van on-premises problemen](site-recovery-monitoring-and-troubleshooting.md)
 
+
 # Naslaginformatie
+
 ## [PowerShell](/powershell/module/azurerm.siterecovery)
+
 ## [PowerShell klassiek](/powershell/module/azure/?view=azuresmps-3.7.0)
+
 ## [REST](https://msdn.microsoft.com/en-us/library/mt750497)
 
+
 # Verwant
+
 ## [Azure Automation](/azure/automation/)
 
+
 # Resources
+
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+
 ## [Blog](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
+
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
+
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
+
 ## [Prijzen](https://azure.microsoft.com/pricing/details/site-recovery/)
+
 ## [Service-updates](https://azure.microsoft.com/updates/?product=site-recovery)
+
