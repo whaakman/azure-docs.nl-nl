@@ -1,23 +1,25 @@
-### <a name="determine-the-dns-name-of-the-virtual-machine"></a>Determine the DNS name of the virtual machine
-To connect to the SQL Server Database Engine from another computer, you must know the Domain Name System (DNS) name of the virtual machine. (This is the name the internet uses to identify the virtual machine. You can use the IP address, but the IP address might change when Azure moves resources for redundancy or maintenance. The DNS name will be stable because it can be redirected to a new IP address.)  
+### De DNS-naam van de virtuele machine achterhalen
+<a id="determine-the-dns-name-of-the-virtual-machine" class="xliff"></a>
+Als u vanaf een andere computer verbinding wilt maken met de database-engine van SQL Server, moet u de DNS-naam (Domain Name System) van de virtuele machine weten. (Dit is de naam waaraan de virtuele machine op internet wordt herkend. U kunt ook het IP-adres gebruiken, maar dit kan veranderen wanneer Azure resources verplaatst wegens redundantie of onderhoud. De DNS-naam blijft hetzelfde omdat deze kan worden omgeleid naar een nieuw IP-adres.)  
 
-1. In the Azure Portal (or from the previous step), select **Virtual machines (classic)**.
-2. Select your SQL VM.
-3. On the **Virtual machine** blade, copy the **DNS name** for the virtual machine.
+1. Selecteer **Virtuele machines (klassiek)** in Azure Portal (of vanuit de vorige stap).
+2. Selecteer uw SQL-VM.
+3. Selecteer op de blade **Virtuele machine** de **DNS-naam** van de virtuele machine.
    
-    ![DNS name](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
+    ![DNS-naam](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 
-### <a name="connect-to-the-database-engine-from-another-computer"></a>Connect to the Database Engine from another computer
-1. On a computer connected to the internet, open SQL Server Management Studio.
-2. In the **Connect to Server** or **Connect to Database Engine** dialog box, in the **Server name** box, enter the DNS name of the virtual machine (determined in the previous task) and a public endpoint port number in the format of *DNSName,portnumber* such as **mysqlvm.cloudapp.net,57500**.
+### Verbinding maken met de Database-engine vanaf een andere computer
+<a id="connect-to-the-database-engine-from-another-computer" class="xliff"></a>
+1. Open SQL Server Management Studio op een computer die is verbonden met internet.
+2. In het dialoogvenster **Verbinding maken met server** of **Verbinding maken met database-engine** typt u in het vak **Servernaam** de DNS-naam van de virtuele machine (zoals bepaald in de vorige taak) en het poortnummer van een openbaar eindpunt. Gebruik hiervoor de notatie *DNSnaam,poortnummer*, bijvoorbeeld **mysqlvm.cloudapp.net,57500**.
    
-    ![Connect using SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
+    ![Verbinding maken met behulp van SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
    
-    If you don't remember the public endpoint port number you previously created, you can find it in the **Endpoints** area of the **Virtual machine** blade.
+    Als u het eerder gekozen poortnummer van het openbare eindpunt niet meer weet, kunt u dit terugvinden in het gedeelte **Eindpunten** van de blade **Virtuele machine**.
    
-    ![Public Port](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
-3. In the **Authentication** box, select **SQL Server Authentication**.
-4. In the **Login** box, type the name of a login that you created in an earlier task.
-5. In the **Password** box, type the password of the login that you create in an earlier task.
-6. Click **Connect**.
+    ![Openbare poort](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
+3. Kies in het vak **Verificatie** **SQL Server-verificatie**.
+4. Typ in het vak **Aanmelding** de naam van een aanmelding die u eerder hebt gemaakt.
+5. Typ in het vak **Wachtwoord** het wachtwoord van de aanmelding die u eerder hebt gemaakt.
+6. Klik op **Verbinden**.
 
