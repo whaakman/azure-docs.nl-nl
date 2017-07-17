@@ -1,5 +1,4 @@
 ---
-
 title: Rapport Riskante aanmeldingen in de Azure Active Directory-portal | Microsoft Docs
 description: Meer informatie over het rapport Riskante aanmeldingen in de Azure Active Directory-portal
 services: active-directory
@@ -11,17 +10,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: e21b7733bc0f6b8625fbdcec3529ad603ce306c1
 ms.contentlocale: nl-nl
 ms.lasthandoff: 05/08/2017
 
-
 ---
-# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Het rapport Riskante aanmeldingen in de Azure Active Directory-portal
+# Het rapport Riskante aanmeldingen in de Azure Active Directory-portal
+<a id="risky-sign-ins-report-in-the-azure-active-directory-portal" class="xliff"></a>
 
 Met de beveiligingsrapporten in Azure Active Directory (Azure AD) krijgt u inzicht in de kans op verdachte gebruikersaccounts in uw omgeving. 
 
@@ -38,7 +38,8 @@ In [Azure Portal](https://portal.azure.com) kunt u de beveiligingsrapporten vind
 ![Riskante aanmeldingen](./media/active-directory-reporting-security-risky-sign-ins/10.png)
 
 
-## <a name="azure-active-directory-free-and-basic-edition"></a>Gratis en Basic edities van Azure Active Directory
+## Gratis en Basic edities van Azure Active Directory
+<a id="azure-active-directory-free-and-basic-edition" class="xliff"></a>
 
 De edities Gratis en Basic van Azure Active Directory bieden u een lijst met riskante aanmeldingen die zijn gedetecteerd voor uw gebruikers. Het rapport Riskante gebeurtenissen geeft u informatie over:
 
@@ -63,7 +64,8 @@ Op basis van uw onderzoek van de riskante aanmelding kunt u uw feedback naar Azu
 
 Zie voor meer informatie [Risico's handmatig sluiten](active-directory-identityprotection.md#closing-risk-events-manually).
 
-## <a name="azure-active-directory-premium-editions"></a>Premium edities van Azure Active Directory
+## Premium edities van Azure Active Directory
+<a id="azure-active-directory-premium-editions" class="xliff"></a>
 
 Het rapport Riskante aanmeldingen in de Azure Active Directory-portal biedt u het volgende:
 
@@ -112,7 +114,8 @@ Hiermee opent u de blade **Details** voor deze risicogebeurtenis. Op de blade **
 
 
 
-## <a name="next-steps"></a>Volgende stappen
+## Volgende stappen
+<a id="next-steps" class="xliff"></a>
 
 - Zie [Azure Active Directory Identity Protection](active-directory-identityprotection.md) voor meer informatie over Azure Active Directory Identity Protection.
 

@@ -12,19 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 0e8ae05b5f8644d4dfd0e6205224cabfb0919531
 ms.contentlocale: nl-nl
 ms.lasthandoff: 05/26/2017
 
-
 ---
-<a id="sign-in-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a>
-
 # Aanmeldactiviteitenrapporten in Azure Active Directory Portal
+<a id="sign-in-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a>
 
 Met Azure AD-rapporten (Azure Active Directory) in [Azure Portal](https://portal.azure.com) ontvangt u alle informatie die nodig is om te bepalen hoe het gaat met uw omgeving.
 
@@ -39,26 +38,22 @@ De rapportstructuur in Azure Active Directory bestaat uit de volgende onderdelen
 
 In dit onderwerp vindt u meer informatie over de aanmeldactiviteiten.
 
+## Vereiste
 <a id="pre-requisite" class="xliff"></a>
 
-## Vereiste
-
-<a id="who-can-access-the-data" class="xliff"></a>
-
 ### Wie heeft er toegang tot de gegevens?
+<a id="who-can-access-the-data" class="xliff"></a>
 * Gebruikers met de rol Beveiligingsbeheerder of Beveiligingslezer
 * Globale beheerders
 * Alle gebruiker (niet-beheerders) hebben toegang tot hun eigen aanmeldingen 
 
-<a id="what-azure-ad-license-do-you-need-to-access-sign-in-activity" class="xliff"></a>
-
 ### Welke Azure AD-licentie heb ik nodig voor toegang tot aanmeldingsactiviteiten?
+<a id="what-azure-ad-license-do-you-need-to-access-sign-in-activity" class="xliff"></a>
 * Uw tenant moet beschikken over een Azure AD Premium-licentie om het rapport met alle aanmeldingsactiviteiten te kunnen raadplegen
 
 
-<a id="signs-in-activities" class="xliff"></a>
-
 ## Aanmeldactiviteiten
+<a id="signs-in-activities" class="xliff"></a>
 
 In de informatie die wordt aangeboden in het rapport over aanmeldactiviteiten van gebruikers, vindt u antwoord op vragen zoals:
 
@@ -94,9 +89,8 @@ Wanneer u op een item in de lijstweergave klikt, krijgt u er alle beschikbare in
 ![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/43.png "Aanmeldingsactiviteit")
 
 
-<a id="filtering-sign-in-activities" class="xliff"></a>
-
 ## Aanmeldingsactiviteiten filteren
+<a id="filtering-sign-in-activities" class="xliff"></a>
 
 Als u de gerapporteerde gegevens wilt beperken tot een bepaald niveau, kunt u de aanmeldingsgegevens filteren met de volgende velden:
 
@@ -132,9 +126,8 @@ Met het filter **aanmeldingsstatus** kunt u een van de volgende filters selecter
 - Fout
 
 
-<a id="sign-in-activities-shortcuts" class="xliff"></a>
-
 ## Snelkoppelingen voor aanmeldingsactiviteiten
+<a id="sign-in-activities-shortcuts" class="xliff"></a>
 
 Naast Azure Active Directory biedt de Azure Portal twee extra toegangspunten voor aanmeldingsactiviteitgegevens:
 
@@ -142,9 +135,8 @@ Naast Azure Active Directory biedt de Azure Portal twee extra toegangspunten voo
 - Bedrijfstoepassingen
 
 
-<a id="users-and-groups-sign-ins-activities" class="xliff"></a>
-
 ### Aanmeldingsactiviteiten van gebruikers en groepen
+<a id="users-and-groups-sign-ins-activities" class="xliff"></a>
 
 In de informatie die wordt aangeboden in het rapport over aanmeldingsactiviteiten van gebruikers, vindt u antwoord op vragen zoals:
 
@@ -180,9 +172,8 @@ Met de optie **Aanmeldingen** krijgt u een volledig overzicht van alle gebruiker
 
 
 
-<a id="usage-of-managed-applications" class="xliff"></a>
-
 ## Het gebruik van beheerde toepassingen
+<a id="usage-of-managed-applications" class="xliff"></a>
 
 Met een toepassingsgerichte weergave van uw aanmeldingsgegevens kunt u antwoord vinden op vragen zoals:
 
@@ -215,9 +206,8 @@ Met de optie **Aanmeldingen** krijgt u een volledig overzicht van alle aanmeldin
 
 
 
-<a id="next-steps" class="xliff"></a>
-
 ## Volgende stappen
+<a id="next-steps" class="xliff"></a>
 Zie de [Azure Active Directory-rapportagegids](active-directory-reporting-guide.md).
 
 
