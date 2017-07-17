@@ -199,10 +199,6 @@
 
 ### [Risicogebeurtenissen](active-directory-reporting-risk-events.md)
 
-### [Retentie](active-directory-reporting-retention.md)
-
-### [Wachttijden](active-directory-reporting-latencies-azure-portal.md)
-
 ### [Veelgestelde vragen](active-directory-reporting-faq.md)
 
 ### Taken
@@ -212,7 +208,15 @@
 #### [Activiteitenrapporten vinden](active-directory-reporting-migration.md)
 
 #### [Het Power BI-inhoudspakket van Azure Active Directory gebruiken](active-directory-reporting-power-bi-content-pack-how-to.md)
-  
+
+### Naslaginformatie
+
+#### [Retentie](active-directory-reporting-retention.md)
+
+#### [Wachttijden](active-directory-reporting-latencies-azure-portal.md)
+
+#### [Foutcodes voor aanmeldingsactiviteit](active-directory-reporting-activity-sign-ins-errors.md)
+
 ### Problemen oplossen
 
 #### [Ontbrekende controlegegevens](active-directory-reporting-troubleshoot-missing-audit-data.md)
@@ -416,6 +420,8 @@
 ##### [Extern bureaublad](application-proxy-publish-remote-desktop.md)
 
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+
+##### [Microsoft Teams](application-proxy-teams.md)
 
 #### [Problemen oplossen](active-directory-application-proxy-troubleshoot.md)
 
