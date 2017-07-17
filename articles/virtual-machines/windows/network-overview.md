@@ -13,17 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 07/17/2017
 ms.author: davidmu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: cda53c43d4524ddcc8139f60f6b605a1f26c2658
+ms.contentlocale: nl-nl
 ms.lasthandoff: 04/27/2017
-
 
 ---
 
-# <a name="virtual-networks-and-windows-virtual-machines-in-azure"></a>Virtuele netwerken en virtuele Windows-machines in Azure 
+# Virtuele netwerken en virtuele Windows-machines in Azure
+<a id="virtual-networks-and-windows-virtual-machines-in-azure" class="xliff"></a> 
 
 Wanneer u een virtuele Azure-machine maakt, moet u een [virtueel netwerk](../../virtual-network/virtual-networks-overview.md) (VNet) maken of een bestaand VNet gebruiken. U moet ook bepalen hoe uw virtuele machines kunnen worden geopend via de VNet. Het is belangrijk om [een planning te maken voordat u resources maakt](../../virtual-network/virtual-network-vnet-plan-design-arm.md) en ervoor te zorgen dat u op de hoogte bent van de [limieten van netwerkresources](../../azure-subscription-service-limits.md#networking-limits).
 
@@ -44,7 +45,8 @@ Naast deze basisresources, moet u ook deze optionele resources overwegen:
 - Netwerkbeveiligingsgroepen
 - Load balancers 
 
-## <a name="network-interfaces"></a>Netwerkinterfaces
+## Netwerkinterfaces
+<a id="network-interfaces" class="xliff"></a>
 
 Een [netwerkinterface (NIC)](../../virtual-network/virtual-network-network-interface.md) is de onderlinge verbinding tussen een virtuele machine en een virtueel netwerk (VNet). Een virtuele machine moet ten minste één NIC hebben, maar kan er meer dan een hebben, afhankelijk van de grootte van de virtuele machine die u maakt. Meer informatie over het aantal NIC's dat elke VM-grootte ondersteunt, vindt u in [Grootten voor virtuele machines in Azure](sizes.md). 
 
@@ -63,7 +65,8 @@ Deze tabel bevat de methoden die u kunt gebruiken voor het maken van een netwerk
 | [Azure CLI](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md) | Als u de ID wilt opgeven van het openbare IP-adres dat u eerder hebt gemaakt, gebruikt u [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) met de parameter **--public-ip-address**. |
 | [Sjabloon](../../virtual-network/virtual-network-deploy-multinic-arm-template.md) | Gebruik [Netwerkinterface in een virtueel netwerk met openbaar IP-adres](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) als richtlijn voor het implementeren van een netwerkinterface met behulp van een sjabloon. |
 
-## <a name="ip-addresses"></a>IP-adressen 
+## IP-adressen
+<a id="ip-addresses" class="xliff"></a> 
 
 U kunt deze soorten [IP-adressen](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) toewijzen aan een NIC in Azure:
 
@@ -87,7 +90,8 @@ Deze tabel bevat de methoden die u kunt gebruiken voor het maken van een IP-adre
 
 Nadat u een openbaar IP-adres hebt gemaakt, kunt u dit aan een virtuele machine koppelen door het aan een NIC toe te wijzen.
 
-## <a name="virtual-network-and-subnets"></a>Virtueel netwerk en subnetten
+## Virtueel netwerk en subnetten
+<a id="virtual-network-and-subnets" class="xliff"></a>
 
 Een subnet is een bereik met IP-adressen in de VNet. U kunt u een VNET onderverdelen in meerdere subnetten voor organisatie- en beveiligingsdoeleinden. Elke NIC in een virtuele machine is verbonden met één subnet in één VNet. NIC’s die verbonden zijn met (dezelfde of verschillende) subnetten binnen een VNET kunnen met elkaar communiceren zonder extra configuratie.
 
@@ -97,7 +101,7 @@ Als u binnen een organisatie werkt waarin iemand anders verantwoordelijk is voor
 
 Standaard zijn er geen beveiligingsgrenzen tussen subnetten, zodat virtuele machines in elk van deze subnetten met elkaar kunnen communiceren. U kunt echter netwerkbeveiligingsgroepen (NSG's) instellen, waarmee u het netwerkverkeer naar en van subnetten en naar en van virtuele machines kunt beheren. 
 
-Deze tabel bevat de methoden die u kunt gebruiken voor het maken van een VNet en subnetten.    
+Deze tabel bevat de methoden die u kunt gebruiken voor het maken van een VNet en subnetten. 
 
 | Methode | Beschrijving |
 | ------ | ----------- |
@@ -106,7 +110,8 @@ Deze tabel bevat de methoden die u kunt gebruiken voor het maken van een VNet en
 | [Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md) | Het subnet en de VNet worden op hetzelfde moment gemaakt. Geef een **--subnet-name**-parameter op voor [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) met de subnetnaam. |
 | [Sjabloon](../../virtual-network/virtual-networks-create-vnet-arm-template-click.md) | De eenvoudigste manier om een VNet en subnetten te maken is door een bestaande sjabloon te downloaden, zoals [Virtueel netwerk met twee subnetten](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), en deze aan uw behoeften aan te passen. |
 
-## <a name="network-security-groups"></a>Netwerkbeveiligingsgroepen
+## Netwerkbeveiligingsgroepen
+<a id="network-security-groups" class="xliff"></a>
 
 Een [netwerkbeveiligingsgroep (NSG)](../../virtual-network/virtual-networks-nsg.md) bevat een lijst met ACL-regels (Access Control List, toegangsbeheerlijst) waarmee netwerkverkeer naar subnetten, NIC’s of beide wordt toegestaan of geweigerd. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke NIC’s die zijn verbonden met een subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle virtuele machines in dat subnet. U kunt het verkeer naar een afzonderlijke NIC beperken door een NSG rechtstreeks aan een NIC te koppelen.
 
@@ -127,7 +132,8 @@ Deze tabel bevat de methoden die u kunt gebruiken voor het maken van een netwerk
 | [Azure CLI](../../virtual-network/virtual-networks-create-nsg-arm-cli.md) | Gebruik [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) om de NSG te maken. Gebruik [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) om regels toe te voegen aan de NSG. Gebruik [az network vnet subnet update](https://docs.microsoft.com/en-us/cli/azure/network/vnet/subnet#update) om de NSG toe te voegen aan het subnet. |
 | [Sjabloon](../../virtual-network/virtual-networks-create-nsg-arm-template.md) | Gebruik [Een netwerkbeveiligingsgroep maken](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) als richtlijn voor het implementeren van een netwerkbeveiligingsgroep met behulp van een sjabloon. |
 
-## <a name="load-balancers"></a>Load balancers
+## Load balancers
+<a id="load-balancers" class="xliff"></a>
 
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) zorgt dat uw toepassingen een hoge beschikbaarheid hebben en goede netwerkprestaties leveren. Een load balancer kan worden geconfigureerd om [inkomend internetverkeer te reguleren](../../load-balancer/load-balancer-internet-overview.md) voor virtuele machines of [verkeer tussen virtuele machines in een VNet te reguleren](../../load-balancer/load-balancer-internal-overview.md). Een load balancer kan ook verkeer tussen on-premises computers en virtuele machines in een cross-premises netwerk reguleren, of extern verkeer doorsturen naar een specifieke virtuele machine.
 
@@ -159,7 +165,8 @@ Deze tabel bevat de methoden die u kunt gebruiken voor het maken van een interne
 | [Azure CLI](../../load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Gebruik de opdracht [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) voor het maken van de eerste load balancer-configuratie. Gebruik [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) met de parameter **--private-ip-address** voor het definiëren van het privé IP-adres. Gebruik [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) om de configuratie van de back-end-adrespool toe te voegen. Gebruik [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) om NAT-regels toe te voegen. Gebruik [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) om de load balancer-regels toe te voegen. Gebruik [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) om de tests toe te voegen.|
 | [Sjabloon](../../load-balancer/load-balancer-get-started-ilb-arm-template.md) | Gebruik [2 virtuele machines in een load balancer en NAT-regels configureren op de LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) als richtlijn voor het implementeren van een load balancer met behulp van een sjabloon. |
 
-## <a name="vms"></a>VM's
+## VM's
+<a id="vms" class="xliff"></a>
 
 Virtuele machines kunnen worden gemaakt in dezelfde VNet en ze kunnen verbinding met elkaar maken met behulp van privé IP-adressen. Ze kunnen zelfs verbinding maken als ze zich in verschillende subnetten bevinden zonder de noodzaak een gateway te configureren of openbare IP-adressen te gebruiken. Als u virtuele machines in een VNet wilt plaatsen, maakt u de VNet, en als u elke virtuele machine maakt, wijst u deze toe aan de VNet en het subnet. VM's verkrijgen hun netwerkinstellingen tijdens de implementatie of tijdens het opstarten.  
 
@@ -175,7 +182,8 @@ Deze tabel bevat de methoden die u kunt gebruiken voor het maken van een virtuel
 | [Azure PowerShell](../virtual-machines-windows-ps-create.md) | Omvat het gebruik van [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) om de NIC die u eerder hebt gemaakt aan de VM-configuratie toe te voegen. |
 | [Sjabloon](ps-template.md) | Gebruik [Zeer eenvoudige implementatie van een virtuele Windows-machine](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) als richtlijn voor het implementeren van een virtuele machine met behulp van een sjabloon. |
 
-## <a name="next-steps"></a>Volgende stappen
+## Volgende stappen
+<a id="next-steps" class="xliff"></a>
 
 - Het configureren van [door de gebruiker gedefinieerde routes en doorsturen via IP](../../virtual-network/virtual-networks-udr-overview.md). 
 - Het configureren van [VNet-naar-VNet-verbindingen](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).

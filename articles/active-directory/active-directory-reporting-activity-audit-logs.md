@@ -1,5 +1,4 @@
 ---
-
 title: Controleactiviteitenrapporten in Azure Active Directory Portal | Microsoft Docs
 description: Ontdek de controleactiviteitenrapporten in de Azure Active Directory Portal
 services: active-directory
@@ -15,17 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/05/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
 ms.contentlocale: nl-nl
 ms.lasthandoff: 05/26/2017
 
-
 ---
-<a id="audit-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a>
-
-# Controleactiviteitenrapporten in Azure Active Directory Portal 
+# Controleactiviteitenrapporten in Azure Active Directory Portal
+<a id="audit-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a> 
 
 Met rapporten in Azure Active Directory ontvangt u alle informatie die nodig is om te bepalen hoe het gaat met uw omgeving.
 
@@ -40,17 +38,15 @@ De rapportstructuur in Azure AD bestaat uit de volgende onderdelen:
 
 In dit onderwerp vindt u meer informatie over de controleactiviteiten.
  
-<a id="who-can-access-the-data" class="xliff"></a>
-
 ## Wie heeft er toegang tot de gegevens?
+<a id="who-can-access-the-data" class="xliff"></a>
 * Gebruikers met de rol Beveiligingsbeheerder of Beveiligingslezer
 * Globale beheerders
 * Afzonderlijke gebruikers (niet-beheerders) kunnen hun eigen activiteiten zien
 
 
-<a id="audit-logs" class="xliff"></a>
-
 ## Controlelogboeken
+<a id="audit-logs" class="xliff"></a>
 
 In de controlelogboeken in Azure Active Directory staan records van systeemactiviteiten voor naleving.  
 Uw eerste beginpunt voor alle controlegegevens is **Controlelogboeken** in het gedeelte **Activiteit** van **Azure Active Directory**.
@@ -80,9 +76,8 @@ Wanneer u op een item in de lijstweergave klikt, krijgt u er alle beschikbare in
 ![Controlelogboeken](./media/active-directory-reporting-activity-audit-logs/22.png "Controlelogboeken")
 
 
-<a id="filtering-audit-logs" class="xliff"></a>
-
 ## Controlelogboeken filteren
+<a id="filtering-audit-logs" class="xliff"></a>
 
 Als u de gerapporteerde gegevens wilt beperken tot een niveau dat geschikt is voor u, kunt u de controlegegevens filteren met de volgende velden:
 
@@ -142,18 +137,16 @@ Het filter **activiteit** is gebaseerd op de selectie die u maakt voor de catego
 U kunt de lijst met alle controle-activiteiten opvragen met behulp van de Graph API https://graph.windows.net/$tenantdomein/activities/auditActivityTypes?api-version=beta, waarbij u $tenantdomain vervangt door de naam van uw domein, of raadpleeg het artikel [Azure Active Directory audit report events](active-directory-reporting-audit-events.md#list-of-audit-report-events) (Gebeurtenissen in Azure Active Directory-controlerapporten).
 
 
-<a id="audit-logs-shortcuts" class="xliff"></a>
-
 ## Snelkoppelingen naar controlelogboeken
+<a id="audit-logs-shortcuts" class="xliff"></a>
 
 Naast **Azure Active Directory** biedt de Azure Portal twee extra beginpunten voor gegevenscontrole:
 
 - Gebruikers en groepen
 - Bedrijfstoepassingen
 
-<a id="users-and-groups-audit-logs" class="xliff"></a>
-
 ### Controlelogboeken voor gebruikers en groepen
+<a id="users-and-groups-audit-logs" class="xliff"></a>
 
 Met de controlerapporten op basis van gebruikers en groepen krijgt u antwoord op vragen zoals:
 
@@ -177,9 +170,8 @@ Als u alleen controlegegevens wilt bekijken die aan gebruikers en groepen zijn g
 
 ![Controlelogboeken](./media/active-directory-reporting-activity-audit-logs/93.png "Controlelogboeken")
 
-<a id="enterprise-applications-audit-logs" class="xliff"></a>
-
 ### Controlelogboeken voor bedrijfstoepassingen
+<a id="enterprise-applications-audit-logs" class="xliff"></a>
 
 Met de controlerapporten op basis van toepassingen krijgt u antwoord op vragen zoals:
 
@@ -198,9 +190,8 @@ U kunt deze weergave verder filteren naar alleen **Groepen** of alleen **Gebruik
 ![Controlelogboeken](./media/active-directory-reporting-activity-audit-logs/25.png "Controlelogboeken")
 
 
-<a id="next-steps" class="xliff"></a>
-
 ## Volgende stappen
+<a id="next-steps" class="xliff"></a>
 Zie de [Azure Active Directory-rapportagegids](active-directory-reporting-guide.md).
 
 
