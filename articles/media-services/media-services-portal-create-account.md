@@ -1,5 +1,5 @@
 ---
-title: " Een Azure Media Services-account maken via Azure Portal | Microsoft Docss"
+title: Een Azure Media Services-account maken via Azure Portal | Microsoft Docs
 description: In deze zelfstudie wordt stapsgewijs uitgelegd hoe u een Azure Media Services-account maakt via Azure Portal.
 services: media-services
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 07/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 7ef0383ae88dcb8beb4b30792eaf60dec2911507
-ms.openlocfilehash: 08b8629502f99fc46fbe28ad17cd173f11259721
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 9ab5368c173f016f44546d6c8acb360598f5f5ab
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Een Azure Media Services-account maken met Azure Portal
@@ -40,13 +41,10 @@ Voor toegang tot Media Services zijn twee gekoppelde accounts vereist:
 
 * Een Media Services-account. Met uw account hebt u toegang tot een set Media Services in de cloud die beschikbaar zijn in Azure. Er wordt geen echte media-inhoud opgeslagen in een Media Services-account. In plaats daarvan worden de metagegevens over de media-inhoud en taken voor de verwerking van media opgeslagen in uw account. Op het moment dat u het account maakt, selecteert u een beschikbare Media Services-regio. De regio die u selecteert, is een datacenter waarin de records met metagegevens voor uw account worden opgeslagen.
   
-    Beschikbare Media Services-regio's (AMS) zijn onder meer: Noord-Europa, West-Europa, VS - west, VS - oost, Zuidoost-Azië, Azië, Japan - west, Japan - oost. Media Services gebruikt geen affiniteitsgroepen.
-  
-    AMS is nu ook beschikbaar in de volgende datacenters: Brazilië - zuid, India, westen, India - zuid en India, midden. U kunt Azure Portal nu gebruiken om Media Service-accounts te maken en diverse taken uit te voeren die hier worden beschreven. Live Encoding is echter niet ingeschakeld in deze datacenters. Bovendien zijn niet alle soorten gereserveerde coderingseenheden beschikbaar in deze datacenters.
-  
-  * Brazilië - zuid: alleen Standard en Basic gereserveerde coderingseenheden zijn beschikbaar.
-  * India - west, India - zuid: 
 * Een Azure Storage-account. Storage-accounts moeten zich in dezelfde geografische regio bevinden als het Media Services-account. Wanneer u een Media Services-account maakt, kunt u een bestaand opslagaccount in dezelfde regio kiezen. U kunt ook een nieuw opslagaccount maken in dezelfde regio. Als u een Media Services-account verwijdert, worden de blobs in uw gerelateerde opslagaccount niet verwijderd.
+
+> [!NOTE]
+> Zie [Scenarios and availability of Media Services features across datacenters](scenarios-and-availability.md#a-idavailabilitya-availability-of-media-services-features-across-datacenters) (Scenario's en beschikbaarheid van Media Services-functies via datacenters) voor meer informatie over de beschikbaarheid van Azure Media Services-functies in verschillende regio's.
 
 ## <a name="create-an-ams-account"></a>Een AMS-account maken
 In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.
@@ -74,35 +72,21 @@ In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.
     >[!NOTE]
     >Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. 
    
-    ![Media Services-instellingen](./media/media-services-create-account/media-services-settings.png)
-   
-    Als u uw AMS-account wilt beheren (bijvoorbeeld video's uploaden, assets coderen, de voortgang van een taak bewaken), gebruikt u het venster **Instellingen**.
+## <a name="to-manage-your-ams-account"></a>Uw AMS-account beheren
 
-## <a name="manage-keys"></a>Sleutels beheren
-U hebt de accountnaam en de primaire-sleutelgegevens nodig om programmatisch toegang te krijgen tot het Media Services-account.
+Selecteer **Instellingen** aan de linkerkant van de portal als u uw AMS-account wilt beheren, bijvoorbeeld om via programmacode verbinding te maken met de AMS-API, video's te uploaden, assets te coderen, beveiliging van inhoud te configureren of de taakvoortgang te bekijken). Ga vanuit **Instellingen** naar een van de beschikbare blades (zoals **API-toegang**, **Assets**, **Taken** of **Inhoudsbeveiliging**).
 
-1. Selecteer uw account in Azure Portal. 
-   
-    Het venster **Instellingen** wordt aan de rechterkant weergegeven. 
-2. Selecteer in het venster **Instellingen** de optie **Sleutels**. 
-   
-    In het venster **Sleutels beheren** worden de accountnaam en de primaire en secundaire sleutel weergegeven. 
-3. Klik op de knop Kopiëren om de waarden te kopiëren.
-   
-    ![Media Services-sleutels](./media/media-services-create-account/media-services-keys.png)
 
 ## <a name="next-steps"></a>Volgende stappen
+
 U kunt nu bestanden uploaden naar uw AMS-account. Zie [Bestanden uploaden](media-services-portal-upload-files.md) voor meer informatie.
+
+Als u van plan bent om via programmacode toegang te krijgen tot de AMS-API, raadpleegt u [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md) (Toegang tot de API van Azure Media Services met Azure AD-verificatie).
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Feedback geven
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

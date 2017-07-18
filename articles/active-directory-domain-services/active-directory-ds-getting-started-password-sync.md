@@ -12,44 +12,55 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 06/30/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: b7b5f92c0093faa96a367fc95d459b1babd99789
-ms.lasthandoff: 04/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4b6da997f44860dccb2aa2571ce099ab2d0231f3
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/08/2017
 
 
 ---
-# <a name="enable-password-synchronization-with-azure-active-directory-domain-services"></a>Wachtwoordsynchronisatie inschakelen met Azure Active Directory Domain Services
-Tijdens de vorige taken hebt u Azure Active Directory Domain Services (AD DS) ingeschakeld voor uw Azure Active Directory-tenant (Azure AD). De volgende taak bestaat uit het inschakelen van referentie-hashes, die nodig zijn voor de synchronisatie van NTLM- (NT LAN Manager) en Kerberos-verificatie met Azure Active Directory Domain Services. Wanneer u de referentiesynchronisatie hebt ingesteld, kunnen gebruikers zich bij het beheerde domein aanmelden met hun zakelijke referenties.
+# <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Wachtwoordsynchronisatie inschakelen voor Azure Active Directory Domain Services
+Tijdens de vorige taken hebt u Azure Active Directory Domain Services ingeschakeld voor uw Azure Active Directory-tenant (Azure AD). De volgende taak bestaat uit het inschakelen dat referentie-hashes voor NTLM- (NT LAN Manager) en Kerberos-verificatie moeten worden gesynchroniseerd met Azure AD Domain Services. Wanneer u de referentiesynchronisatie hebt ingesteld, kunnen gebruikers zich bij het beheerde domein aanmelden met hun zakelijke referenties.
 
-De procedures verschillen, afhankelijk van of uw organisatie een Azure AD-tenant in de cloud heeft of kan synchroniseren met uw on-premises directory via Azure AD Connect.
+De vereiste stappen voor gebruikersaccounts in de cloud en gebruikersaccounts die worden gesynchroniseerd vanuit uw on-premises map met Azure AD Connect, verschillen.  Als uw Azure AD-tenant een combinatie van heeft van cloudgebruikers en gebruikers van uw on-premises AD, moet u beide stappen uitvoeren.
+
+<br>
 
 > [!div class="op_single_selector"]
-> * [Azure AD-tenant in de cloud](active-directory-ds-getting-started-password-sync.md)
-> * [Gesynchroniseerde Azure AD-tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+> * **Cloudgebruikersaccounts**: [synchroniseer de wachtwoorden voor cloudgebruikersaccounts met uw beheerde domein](active-directory-ds-getting-started-password-sync.md)
+> * **On-premises gebruikersaccounts**: [synchroniseer de wachtwoorden voor gebruikersaccounts die zijn gesynchroniseerd vanuit uw on-premises AD met uw beheerde domein](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 >
 >
 
-## <a name="task-5-enable-password-synchronization-with-azure-active-directory-domain-services-for-a-cloud-only-azure-ad-tenant"></a>Taak 5: wachtwoordsynchronisatie met Azure Active Directory Domain Services inschakelen voor een Azure AD-tenant die zich alleen in de cloud bevindt
-Voor de verificatie van gebruikers in het beheerde domein heeft Azure Active Directory Domain Services referentie-hashes nodig in een indeling die geschikt is voor NTLM- en Kerberos-verificatie. Tenzij u Azure Active Directory Domain Services voor uw tenant inschakelt, maakt of bewaart Azure AD geen referentie-hashes in de vereiste indeling voor NTLM- of Kerberos-verificatie. Om veiligheidsredenen slaat Azure AD ook geen referenties op in niet-gecodeerde vorm. Azure AD biedt daarom geen manier voor het genereren van deze NTLM- of Kerberos-referentie-hashes op basis van bestaande referenties van gebruikers.
+<br>
+
+## <a name="task-5-enable-password-synchronization-to-your-managed-domain-for-cloud-only-user-accounts"></a>Taak 5: wachtwoordsynchronisatie met uw beheerde domein voor cloudgebruikersaccounts inschakelen
+Voor de verificatie van gebruikers in het beheerde domein heeft Azure Active Directory Domain Services referentie-hashes nodig in een indeling die geschikt is voor NTLM- en Kerberos-verificatie. Totdat u Azure Active Directory Domain Services voor uw tenant inschakelt, maakt of bewaart Azure AD geen referentie-hashes in de vereiste indeling voor NTLM- of Kerberos-verificatie. Om veiligheidsredenen slaat Azure AD ook geen wachtwoorden op in niet-gecodeerde vorm. Azure AD biedt daarom geen manier voor het automatisch genereren van deze NTLM- of Kerberos-referentie-hashes op basis van bestaande referenties van gebruikers.
 
 > [!NOTE]
-> Als uw organisatie een Azure AD-tenant in de cloud heeft, moeten gebruikers die Azure Active Directory Domain Services willen gebruiken, hun wachtwoord wijzigen.
+> Als uw organisatie gebruikersaccounts in de cloud heeft, moeten gebruikers die Azure Active Directory Domain Services willen gebruiken, hun wachtwoord wijzigen. Een cloudgebruikersaccount is een account dat is gemaakt in uw Azure AD-directory via de Azure portal of Azure AD PowerShell-cmdlets. Deze gebruikersaccounts zijn niet gesynchroniseerd vanuit een on-premises map.
 >
 >
 
 Door deze wachtwoordwijziging worden de referentie-hashes die door Azure Active Directory Domain Services zijn vereist voor Kerberos- en NTLM-verificatie, gegenereerd in Azure AD. U kunt wachtwoorden laten verlopen voor alle gebruikers in de tenant die Azure Active Directory Domain Services moeten gebruiken of aan de gebruikers doorgeven dat ze hun wachtwoord moeten wijzigen.
 
-### <a name="enable-ntlm-and-kerberos-credential-hash-generation-for-a-cloud-only-azure-ad-tenant"></a>Het genereren van hashes voor NTLM- en Kerberos-referenties inschakelen voor een Azure AD-tenant in de cloud
+### <a name="enable-ntlm-and-kerberos-credential-hash-generation-for-a-cloud-only-user-account"></a>Het genereren van hashes voor NTLM- en Kerberos-referenties inschakelen voor een cloudgebruikersaccount
 Hier vindt u de instructies voor het wijzigen van het wachtwoord die u moet doorgeven aan gebruikers:
 
 1. Ga naar de pagina [Azure AD-toegangsvenster](http://myapps.microsoft.com) voor uw organisatie.
-2. Selecteer het tabblad **Profiel** in het venster Toegangsvenster.
-3. Klik op de tegel **Wachtwoord wijzigen**.
 
-    ![De tegel Wachtwoord wijzigen in het Azure AD-toegangsvenster](./media/active-directory-domain-services-getting-started/user-change-password.png)
+    ![Open het deelvenster Azure AD Access](./media/active-directory-domain-services-getting-started/access-panel.png)
+
+2. In de rechterbovenhoek klikt u op uw naam en selecteert u **Profiel** in het menu.
+
+    ![Selecteer het profiel](./media/active-directory-domain-services-getting-started/select-profile.png)
+
+3. Op de pagina **Profiel** klikt u op **Wachtwoord wijzigen**.
+
+    ![Klik op 'Wachtwoord wijzigen'](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
    > [!NOTE]
    > Als u de optie **Wachtwoord wijzigen** niet ziet in het venster Toegangsvenster, controleert u of uw organisatie [Wachtwoordbeheer in Azure AD](../active-directory/active-directory-passwords-getting-started.md) heeft geconfigureerd.
@@ -63,7 +74,7 @@ Hier vindt u de instructies voor het wijzigen van het wachtwoord die u moet door
 
 Een paar minuten nadat u uw wachtwoord hebt gewijzigd, kunt u het nieuwe wachtwoord gebruiken in Azure Active Directory Domain Services. Na ongeveer 20 minuten kunt u zich met uw gewijzigde wachtwoord aanmelden bij computers die zijn gekoppeld aan het beheerde domein.
 
-## <a name="next-steps"></a>Volgende stappen
+## <a name="related-content"></a>Gerelateerde inhoud
 * [Uw eigen wachtwoord bijwerken](../active-directory/active-directory-passwords-update-your-own-password.md)
 * [Aan de slag met wachtwoordbeheer in Azure AD](../active-directory/active-directory-passwords-getting-started.md)
 * [Wachtwoordsynchronisatie met Azure Active Directory Domain Services inschakelen voor een gesynchroniseerde Azure AD-tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)

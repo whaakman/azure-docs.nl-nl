@@ -22,9 +22,11 @@ De nieuwe gateway SKU's stroomlijnen de functiesets die worden aangeboden op de 
 
 | **SKU**| **Functies**|
 | ---    | ---         |
-| VpnGw1<br>VpnGw2<br>VpnGw3|Op route gebaseerde VPN met maximaal 30 tunnels* <br>P2S, BGP, actief-actief, aangepast IPsec/IKE-beleid, ExpressRoute/VPN samen <br><br>* U kunt "PolicyBasedTrafficSelectors" configureren om een op route gebaseerde VPN-gateway (VpnGw1, VpnGw2, VpnGw3) te verbinden met meerdere on-premises, op beleid gebaseerde firewallapparaten. Raadpleeg [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) (VPN-gateways verbinden met meerdere on-premises,op beleid gebaseerde VPN-apparaten met behulp van PowerShell) voor meer informatie. |
 |Basic   | Op route gebaseerd: 10 tunnels met P2S<br>Op beleid gebaseerd (IKEv1): 1 tunnel; geen P2S|
+| VpnGw1, VpnGw2, VpnGw3 |Op route gebaseerde VPN met maximaal 30 tunnels (*) <br>P2S, BGP, actief-actief, aangepast IPsec/IKE-beleid, ExpressRoute/VPN samen |
 |        |             |
+
+(*) U kunt "PolicyBasedTrafficSelectors" configureren om een op route gebaseerde VPN-gateway (VpnGw1, VpnGw2, VpnGw3) te verbinden met meerdere on-premises, op beleid gebaseerde firewallapparaten. Raadpleeg [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) (VPN-gateways verbinden met meerdere on-premises,op beleid gebaseerde VPN-apparaten met behulp van PowerShell) voor meer informatie.
 
 ###  <a name="resize"></a>Het formaat van gateway-SKU's wijzigen
 

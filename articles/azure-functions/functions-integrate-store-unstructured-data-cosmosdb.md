@@ -14,35 +14,29 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 07/08/2017
 ms.author: rachelap
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 785bd144805a472ae457f9a3323d512b5cbf055d
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 492c916a493bb8d5c5415fc517506e5c1ccffc56
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 07/10/2017
 
 ---
-<a id="store-unstructured-data-using-azure-functions-and-cosmos-db" class="xliff"></a>
-
-# Ongestructureerde gegevens opslaan met behulp van Azure Functions en Cosmos DB
+# <a name="store-unstructured-data-using-azure-functions-and-cosmos-db"></a>Ongestructureerde gegevens opslaan met behulp van Azure Functions en Cosmos DB
 
 Azure Cosmos DB is een geweldige manier om ongestructureerde gegevens en JSON-gegevens op te slaan. Cosmos DB biedt, in combinatie met Azure Functions, een snelle en eenvoudige manier om gegevens op te slaan met veel minder code dan nodig is voor het opslaan van gegevens in een relationele database.
 
 Deze zelfstudie laat stapsgewijs zien hoe u Azure Portal gebruikt om een Azure-functie te maken waarmee ongestructureerde gegevens kunnen worden opgeslagen in een Cosmos DB-document. 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-<a id="create-a-function" class="xliff"></a>
-
-## Een functie maken
+## <a name="create-a-function"></a>Een functie maken
 
 Maak een nieuwe C#-generieke webhook met de naam `MyTaskList`.
 
@@ -51,9 +45,7 @@ Maak een nieuwe C#-generieke webhook met de naam `MyTaskList`.
 
 ![Functie-app voor een nieuwe C#-generieke webhook toevoegen](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-new-functionapp.png)
 
-<a id="add-an-output-binding" class="xliff"></a>
-
-## Een uitvoerbinding toevoegen
+## <a name="add-an-output-binding"></a>Een uitvoerbinding toevoegen
 
 Een Azure-functie kan één trigger bevatten en een willekeurig aantal invoer- of uitvoerbindingen. In dit voorbeeld maken we gebruik van een HTTP-aanvraag als trigger en van het Cosmos DB-document als de uitvoerbinding.
 
@@ -94,9 +86,7 @@ U moet ook de verbinding met de Cosmos DB-database configureren.
 1. Klik op de knop *OK*. U moet mogelijk enkele minuten wachten totdat de resources zijn gemaakt met Azure.
 1. Klik op de knop *Opslaan*.
 
-<a id="update-the-function-code" class="xliff"></a>
-
-## De functiecode bijwerken
+## <a name="update-the-function-code"></a>De functiecode bijwerken
 
 Vervang de functiecodesjabloon door:
 
@@ -137,9 +127,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, out object taskDoc
 
 In dit codevoorbeeld worden de queryreeksen van de HTTP-aanvraag gelezen en toegewezen als leden van een `taskDocument`-object. Met het `taskDocument`-object worden de gegevens automatisch opgeslagen in de Cosmos DB-database en wordt de database zelfs automatisch gemaakt bij het eerste gebruik.
 
-<a id="test-the-function-and-database" class="xliff"></a>
-
-## De functie en database testen
+## <a name="test-the-function-and-database"></a>De functie en database testen
 
 1. Klik op het tabblad Functie op de koppeling *Test* aan de rechterkant van de portal. Voer vervolgens de volgende HTTP-queryreeksen in:
 
@@ -165,19 +153,13 @@ Bevestig dat er een vermelding is gemaakt in de Cosmos DB-database.
 
 Als de gegevens zich in het document bevinden, hebt u een Azure-functie gemaakt waarmee ongestructureerde gegevens kunnen worden opgeslagen in een Cosmos DB-database.
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Resources opschonen
+## <a name="clean-up-resources"></a>Resources opschonen
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
-
-Raadpleeg de volgende onderwerpen voor meer informatie over Azure Functions:
-
-[!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
+## <a name="next-steps"></a>Volgende stappen
 
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
+
+Zie [Azure Functions Cosmos DB bindings](functions-bindings-documentdb.md) (Bindingen tussen Azure Functions en Cosmos DB) voor meer informatie over de binding met een Cosmos DB database.
 

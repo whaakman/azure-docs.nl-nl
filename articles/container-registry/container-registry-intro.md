@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: bc0c8ccad64166582dcb3f7162280a8772abc6b3
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: f9dff5384838521c309a2d2a5ebb5376c90159fb
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Inleiding tot privé-Docker-containerregisters
@@ -52,6 +52,8 @@ Ontwikkelaars kunnen ook naar een containerregister pushen als onderdeel van een
 * **Register**: maak een of meerdere containerregisters in uw Azure-abonnement. Elk register wordt ondersteund door een standaard-Azure-[opslagaccount](../storage/storage-introduction.md) op dezelfde locatie. Maak een register op dezelfde Azure-locatie als uw implementaties om te profiteren van lokale opslag dichtbij in het netwerk van uw containerinstallatiekopieën. Een volledig gekwalificeerde registernaam heeft de notatie `myregistry.azurecr.io`.
 
   U kunt [toegang beheren](container-registry-authentication.md) tot een containerregister met behulp van een [service-principal](../active-directory/active-directory-application-objects.md) ondersteund door Azure Active Directory of een opgegeven beheeraccount. Voer de standaardopdracht `docker login` uit om deze te verifiëren met een register.
+
+* **Beheerd register**: een laag die meer mogelijkheden voor registers biedt, in drie SKU's: Basic, Standard en Premium. De installatiekopieën in deze SKU's worden opgeslagen in opslagaccounts die worden beheerd met de Azure-service Container Registries. Hierdoor neemt niet alleen de betrouwbaarheid toe, maar komen er ook nieuwe functies beschikbaar. Voorbeelden van nieuwe mogelijkheden zijn integratie van webhooks, verificatie van opslagplaats met Azure Active Directory en ondersteuning voor verwijderfunctionaliteit. Gebruikers kunnen bij het maken van registers kiezen tussen beheerde registers of het maken van een register waarvoor hun eigen opslagaccounts als back-up fungeren.
 
 * **Opslagplaats**: een register bevat een of meer opslagplaatsen. Dit zijn groepen met containerinstallatiekopieën. Azure Container Registry ondersteunt naamruimten voor opslagplaatsen op meerdere niveaus. Met deze functie kunt u verzamelingen van installatiekopieën maken die gerelateerd zijn aan een specifieke app, of verzamelingen apps die gerelateerd zijn aan specifieke ontwikkelingsteams of operationele teams. Bijvoorbeeld:
 

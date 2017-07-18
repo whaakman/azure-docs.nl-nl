@@ -18,22 +18,18 @@ ms.topic: hero-article
 ms.date: 06/20/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: bc43936310c48f4dad54c829c7511cf2ad5f83af
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4076b1e7ab3a70009217a1deff72da4bff0dc871
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-<a id="azure-sql-database-use-visual-studio-code-to-connect-and-query-data" class="xliff"></a>
-
-# Azure SQL Database: Visual Studio Code gebruiken om verbinding te maken en query's uit te voeren voor gegevens
+# <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL Database: Visual Studio Code gebruiken om verbinding te maken en query's uit te voeren voor gegevens
 
 [Visual Studio Code](https://code.visualstudio.com/docs) is een grafische code-editor voor Linux, Mac OS en Windows die ondersteuning biedt voor extensies, waaronder de [mssql-extensie](https://aka.ms/mssql-marketplace) voor het uitvoeren van query's in Microsoft SQL Server, Azure SQL Database en SQL Data Warehouse. In deze Quick Start ziet u hoe u Visual Studio Code gebruikt om verbinding te maken met een Azure SQL-database en vervolgens Transact-SQL-instructies gebruikt om gegevens in de database te zoeken, in te voegen, bij te werken en te verwijderen.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 In deze Quick Start wordt dit gebruikt als basis voor het maken van de resources die u hebt gemaakt in een van deze Quick Starts:
 
@@ -43,13 +39,9 @@ In deze Quick Start wordt dit gebruikt als basis voor het maken van de resources
 
 Voordat u begint, zorgt u ervoor dat u de nieuwste versie van [Visual Studio Code](https://code.visualstudio.com/Download) hebt geïnstalleerd en dat de [mssql-extensie](https://aka.ms/mssql-marketplace) is geladen. Zie [VS Code installeren](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) voor hulp bij het installeren van de mssql-extensie. Zie ook [mssql voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
 
-<a id="configure-vs-code" class="xliff"></a>
+## <a name="configure-vs-code"></a>VS-code configureren 
 
-## VS-code configureren 
-
-<a id="mac-os" class="xliff"></a>
-
-### **Mac OS**
+### <a name="mac-os"></a>**Mac OS**
 Voor Mac OS moet u OpenSSL installeren. Dit is een vereiste voor DotNet Core waarvan de mssql-extensie gebruikmaakt. Open de terminal en voer de volgende opdrachten in om **brew** en **OpenSSL** te installeren. 
 
 ```bash
@@ -61,21 +53,15 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
-<a id="linux-ubuntu" class="xliff"></a>
-
-### **Linux (Ubuntu)**
+### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 
 Er is geen speciale configuratie vereist.
 
-<a id="windows" class="xliff"></a>
-
-### **Windows**
+### <a name="windows"></a>**Windows**
 
 Er is geen speciale configuratie vereist.
 
-<a id="get-connection-information" class="xliff"></a>
-
-## Verbindingsgegevens ophalen
+## <a name="sql-server-connection-information"></a>SQL Server-verbindingsgegevens
 
 Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure SQL-database. U hebt de volledig gekwalificeerde servernaam, databasenaam en aanmeldingsgegevens in de volgende procedures nodig.
 
@@ -83,13 +69,11 @@ Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azur
 2. Selecteer **SQL-databases** in het menu links en klik op uw database op de pagina **SQL-databases**. 
 3. Op de pagina **Overzicht** voor de database controleert u de volledig gekwalificeerde servernaam zoals in de volgende afbeelding wordt weergegeven. U kunt de cursor boven de servernaam houden om de optie **Klik om te kopiëren** naar boven te halen.
 
-   ![verbindingsgegevens](./media/sql-database-get-started-portal/server-name.png) 
+   ![verbindingsgegevens](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 4. Als u de aanmeldingsgegevens voor uw Azure SQL Database-server bent vergeten, gaat u naar de SQL Database-serverpagina om de beheerdersnaam voor de server weer te geven en, indien nodig, het wachtwoord opnieuw in te stellen. 
 
-<a id="set-language-mode-to-sql" class="xliff"></a>
-
-## Taalmodus instellen op SQL
+## <a name="set-language-mode-to-sql"></a>Taalmodus instellen op SQL
 
 Zorg ervoor dat de taalmodus in Visual Studio Code is ingesteld op **SQL** om mssql-opdrachten en T-SQL IntelliSense in te schakelen.
 
@@ -100,9 +84,7 @@ Zorg ervoor dat de taalmodus in Visual Studio Code is ingesteld op **SQL** om ms
 
    ![SQL-taalmodus](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
 
-<a id="connect-to-your-database" class="xliff"></a>
-
-## Verbinding maken met uw database
+## <a name="connect-to-your-database"></a>Verbinding maken met uw database
 
 Gebruik Visual Studio Code om verbinding te maken met uw Azure SQL Database-server.
 
@@ -134,9 +116,7 @@ Gebruik Visual Studio Code om verbinding te maken met uw Azure SQL Database-serv
 
    ![Verbindingsstatus](./media/sql-database-connect-query-vscode/vscode-connection-status.png)
 
-<a id="query-data" class="xliff"></a>
-
-## Querygegevens
+## <a name="query-data"></a>Querygegevens
 
 Gebruik de volgende code om op categorie een query uit te voeren voor de 20 populairste producten. Gebruik de Transact-SQL-instructie [SELECT](https://msdn.microsoft.com/library/ms189499.aspx).
 
@@ -153,9 +133,7 @@ Gebruik de volgende code om op categorie een query uit te voeren voor de 20 popu
 
     ![Query’s uitvoeren](./media/sql-database-connect-query-vscode/query.png)
 
-<a id="insert-data" class="xliff"></a>
-
-## Gegevens invoegen
+## <a name="insert-data"></a>Gegevens invoegen
 
 Gebruik de volgende code om een nieuw product in te voegen in de tabel SalesLT.Product. Gebruik de Transact-SQL-instructie [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
 
@@ -183,9 +161,7 @@ Gebruik de volgende code om een nieuw product in te voegen in de tabel SalesLT.P
 
 2. Druk op **CTRL+SHIFT+E** om een nieuwe rij in te voegen in de tabel Product.
 
-<a id="update-data" class="xliff"></a>
-
-## Gegevens bijwerken
+## <a name="update-data"></a>Gegevens bijwerken
 
 Gebruik de volgende code om het nieuwe product bij te werken dat u eerder hebt toegevoegd. Gebruik de Transact-SQL-instructie [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
 
@@ -199,9 +175,7 @@ Gebruik de volgende code om het nieuwe product bij te werken dat u eerder hebt t
 
 2. Druk op **CTRL+SHIFT+E** om de opgegeven rij in de tabel Product bij te werken.
 
-<a id="delete-data" class="xliff"></a>
-
-## Gegevens verwijderen
+## <a name="delete-data"></a>Gegevens verwijderen
 
 Gebruik de volgende code om het nieuwe product te verwijderen dat u eerder hebt toegevoegd. Gebruik de Transact-SQL-instructie [DELETE](https://msdn.microsoft.com/library/ms189835.aspx).
 
@@ -214,9 +188,7 @@ Gebruik de volgende code om het nieuwe product te verwijderen dat u eerder hebt 
 
 2. Druk op **CTRL+SHIFT+E** om de opgegeven rij in de tabel Product te verwijderen.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 - Als u verbinding wilt maken en query's wilt uitvoeren met behulp van SQL Server Management Studio, raadpleegt u [Verbinding maken en query's uitvoeren met SSMS](sql-database-connect-query-ssms.md).
 - Zie het blogbericht [Create a database IDE with MSSQL extension](https://msdn.microsoft.com/magazine/mt809115) voor een MSDN-artikel over het gebruik van Visual Studio Code.

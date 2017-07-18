@@ -1,6 +1,4 @@
-<a id="number-of-fault-domains-per-region" class="xliff"></a>
-
-### Aantal foutdomeinen per regio
+### <a name="number-of-fault-domains-per-region"></a>Aantal foutdomeinen per regio
 
 | Regio              | Maximum aantal foutdomeinen  |
 |---------------------|-------------------------|
@@ -20,12 +18,15 @@
 | Verenigd Koninkrijk Zuid            | 2                       |
 | Verenigd Koninkrijk West             | 2                       |
 |                     |                         |
-| Oost-Azië           | 3                       |
+| Oost-Azië           | 2                       |
 | Zuidoost-Azië     | 2                       |
 | Japan - oost          | 2                       |
 | Japan - west          | 2                       |
 | Zuid-India         | 2                       |
 | Centraal-India       | 2                       |
+| West-India          | 2                       |
+| Korea - centraal       | 2                       |
+| Korea - zuid         | 2                       |
 |                     |                         |
 | Australië - oost      | 2                       |
 | Australië - zuidoost | 2                       |

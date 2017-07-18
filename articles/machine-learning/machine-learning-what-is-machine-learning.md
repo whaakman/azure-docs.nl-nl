@@ -13,21 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 07/12/2017
 ms.author: cgronlun;tedway;olgali
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 247c26b3988664bcf93fb5face6514a3dc74cebc
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: a9b47429779417afa664156cd824aa044f7bf04c
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
-# <a name="introduction-to-azure-machine-learning-in-the-cloud"></a>Inleiding tot Azure Machine Learning in de cloud
-## <a name="what-is-machine-learning"></a>Wat is machine learning?
-Machine learning is een techniek van gegevenswetenschap die computers helpt om te leren uit bestaande gegevens om toekomstig gedrag, resultaten en trends te voorspellen.  
+# <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Inleiding tot machine learning in de Azure-cloud
 
-Deze prognoses of voorspellingen op basis van machine learning kunnen apps en apparaten slimmer maken. Wanneer u online winkelt, helpt machine learning op basis van wat u eerder hebt gekocht, bij het aanraden van andere producten waarvoor u mogelijk belangstelling hebt. Wanneer uw creditcard wordt gebruikt, vergelijkt machine learning de transactie met een database van transacties om fraude te detecteren. Wanneer uw robotstoftzuiger een kamer stofzuigt, helpt machine learning bij het besluiten wanneer de taak klaar is.
+## <a name="what-is-machine-learning"></a>Wat is machine learning?
+Machine learning is een techniek van gegevenswetenschap die computers in staat stelt om op basis van bestaande gegevens, toekomstig gedrag, resultaten en trends te voorspellen. Met behulp van machine learning kunnen computers leren zonder dat ze expliciet worden geprogrammeerd.
+
+Prognoses of voorspellingen op basis van machine learning kunnen apps en apparaten slimmer maken. Wanneer u online winkelt, helpt machine learning op basis van wat u eerder hebt gekocht, bij het aanraden van andere producten waarvoor u mogelijk belangstelling hebt. Wanneer uw creditcard wordt gebruikt, vergelijkt machine learning de transactie met een database van transacties om fraude te detecteren. Wanneer uw robotstoftzuiger een kamer stofzuigt, helpt machine learning bij het besluiten wanneer de taak klaar is.
 
 Probeer de videoreeks [Gegevenswetenschap voor beginners](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) voor een kort overzicht. Zonder jargo of wiskunde introduceert Gegevenswetenschap voor beginners machine learning en de leidt u door een eenvoudig voorspelmodel.
 

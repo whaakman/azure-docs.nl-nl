@@ -1,5 +1,5 @@
 ---
-title: Gegevens uploaden naar Azure Search met behulp van de REST-API | Microsoft Docs
+title: Gegevens uploaden (REST-API - Azure Search) | Microsoft Docs
 description: Informatie over het uploaden van gegevens naar een index in Azure Search met behulp van de REST-API
 services: search
 documentationcenter: 
@@ -15,9 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
-ms.openlocfilehash: 7c1c14055507d77dfcefe87694167ca5a2fcfb97
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/12/2017
 
 ---
 
@@ -179,9 +181,4 @@ Zie [Documenten toevoegen, bijwerken of verwijderen](https://docs.microsoft.com/
 
 ## <a name="next-steps"></a>Volgende stappen
 Na het vullen van uw Azure Search-index bent u gereed om query's uit te geven om te zoeken naar documenten. Zie [Een query uitvoeren in uw Azure-zoekindex](search-query-overview.md) voor meer informatie.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

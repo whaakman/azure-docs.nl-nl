@@ -1,6 +1,6 @@
 ---
 title: Redgate gebruiken om gegevens in uw Azure datawarehouse te laden | Microsoft Docs
-description: Leer hoe u Data Platform Studio van Redgate kunt gebruiken voor datawarehousingscenario&quot;s.
+description: Leer hoe u Data Platform Studio van Redgate kunt gebruiken voor datawarehousingscenario's.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
-ms.openlocfilehash: cb0b5489ccfabb0e2a4ee412162a18930073b309
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: a38b237d5bfc0450c1ca79b53a5784dbb9bf8602
 ms.contentlocale: nl-nl
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 07/10/2017
 
 
 
@@ -44,7 +44,7 @@ In deze zelfstudie ziet u hoe u [DPS van Redgate](http://www.red-gate.com/produc
 ### <a name="create-or-identify-resources"></a>Resources maken of identificeren
 Voordat u met deze zelfstudie begint, moet u beschikken over:
 
-* **Een on-premise SQL Server-database**: de gegevens die u wilt importeren naar SQL Data Warehouse, moeten afkomstig zijn van een on-premises SQL-server (versie 2008R2 of hoger). Met DPS kunnen gegevens niet rechtstreeks worden geïmporteerd uit een Azure SQL-database of uit tekstbestanden.
+* **Een on-premises SQL Server-database**: de gegevens die u wilt importeren naar SQL Data Warehouse, moeten afkomstig zijn van een on-premises SQL-server (versie 2008R2 of hoger). Met DPS kunnen gegevens niet rechtstreeks worden geïmporteerd uit een Azure SQL-database of uit tekstbestanden.
 * **Azure-opslagaccount**: met DPS worden de gegevens klaargezet in de Azure Blob-opslag voordat ze in SQL Data Warehouse worden geladen. Het opslagaccount moet het standaardimplementatiemodel Resource Manager gebruiken in plaats van het klassieke implementatiemodel. Als u geen opslagaccount hebt, leert u hoe u er een kunt maken. 
 * **SQL Data Warehouse**: in deze zelfstudie wordt getoond hoe gegevens worden verplaatst van een on-premises SQL-server naar SQL Data Warehouse. U hebt daarom een onlinedatawarehouse nodig. Als u nog geen datawarehouse hebt, leert u hoe u er een moet inrichten om een SQL-datawarehouse te maken.
 

@@ -15,16 +15,14 @@ ms.topic: hero-article
 ms.date: 05/04/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 3c7bbb1342d381b2940a9e1ceb56d905fbc33a74
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 9a53216e326e63bd4fe36c0e5d5d5e85b2098d8c
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/10/2017
 
 ---
-<a id="create-a-php-web-app-in-azure" class="xliff"></a>
-
-# Een PHP-web-app maken in Azure
+# <a name="create-a-php-web-app-in-azure"></a>Een PHP-web-app maken in Azure
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze Quickstart laat zien hoe u een PHP-app naar Azure Web Apps implementeert. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en gebruikt Git om voorbeeldcode van PHP in de web-app te implementeren.
 
@@ -32,9 +30,7 @@ ms.lasthandoff: 06/21/2017
 
 U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux-computer. Vanaf het moment dat de vereiste onderdelen zijn geïnstalleerd, duurt het ongeveer vijf minuten om de stappen uit te voeren.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
@@ -47,9 +43,7 @@ Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
-<a id="download-the-sample" class="xliff"></a>
-
-## Het voorbeeld downloaden
+## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
 Voer in een terminalvenster de volgende opdracht uit om de opslagplaats van de voorbeeld-app te klonen op uw lokale computer.
 
@@ -65,9 +59,7 @@ Ga naar de map die de voorbeeldcode bevat.
 cd php-docs-hello-world
 ```
 
-<a id="run-the-app-locally" class="xliff"></a>
-
-## De app lokaal uitvoeren
+## <a name="run-the-app-locally"></a>De app lokaal uitvoeren
 
 Voer de toepassing lokaal uit door een terminalvenster te openen en de opdracht `php` te gebruiken om de ingebouwde PHP-webserver te starten.
 
@@ -77,7 +69,7 @@ php -S localhost:8080
 
 Open een webbrowser en ga naar de voorbeeld-app op http://localhost:8080.
 
-Het bericht **Hello World** uit de voorbeeld-app wordt weergegeven op de pagina.
+Het bericht **Hallo wereld** uit de voorbeeld-app wordt weergegeven op de pagina.
 
 ![Voorbeeld-app die lokaal wordt uitgevoerd](media/app-service-web-get-started-php/localhost-hello-world-in-browser.png)
 
@@ -126,9 +118,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
    cc39b1e..25f1805  master -> master
 ```
 
-<a id="browse-to-the-app" class="xliff"></a>
-
-## Bladeren naar de app
+## <a name="browse-to-the-app"></a>Bladeren naar de app
 
 Blader naar de geïmplementeerde toepassing via uw webbrowser.
 
@@ -142,9 +132,7 @@ De PHP-voorbeeldcode wordt uitgevoerd in een web-app van Azure App Service.
 
 **Gefeliciteerd!** U hebt uw eerste PHP-app geïmplementeerd in App Service.
 
-<a id="update-and-redeploy-the-code" class="xliff"></a>
-
-## De code bijwerken en opnieuw implementeren
+## <a name="update-and-redeploy-the-code"></a>De code bijwerken en opnieuw implementeren
 
 Open met behulp van een lokale teksteditor het bestand `index.php` binnen de PHP-app en breng een kleine wijziging aan in de tekst in de tekenreeks naast `echo`:
 
@@ -163,9 +151,7 @@ Wanneer de implementatie is voltooid, gaat u terug naar het browservenster dat i
 
 ![Bijgewerkte voorbeeld-app die wordt uitgevoerd in Azure](media/app-service-web-get-started-php/hello-azure-in-browser.png)
 
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
-
-## Uw nieuwe Azure-web-app beheren
+## <a name="manage-your-new-azure-web-app"></a>Uw nieuwe Azure-web-app beheren
 
 Ga naar <a href="https://portal.azure.com" target="_blank">Azure Portal</a> om de web-app te beheren die u hebt gemaakt.
 
@@ -181,9 +167,7 @@ Het linkermenu bevat een aantal pagina's voor het configureren van uw app.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
 > [PHP met MySQL](app-service-web-tutorial-php-mysql.md)

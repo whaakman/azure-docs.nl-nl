@@ -1,5 +1,5 @@
 ---
-title: Uw eerste Azure Search-index bouwen via de portal | Microsoft Docs
+title: 'Zelfstudie: uw eerste Azure Search-index maken via de portal | Microsoft Docs'
 description: Gebruik in Azure Portal de vooraf gedefinieerde voorbeeldgegevens om een index te genereren. Probeer zoekopdrachten in volledige tekst, filters, facetten, fuzzy zoekopdrachten, geosearch en meer.
 services: search
 documentationcenter: 
@@ -13,17 +13,16 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 05/01/2017
+ms.date: 06/26/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e03d0ff92b0ad6d34314c55d98972997769d09f0
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
-# <a name="build-and-query-your-first-azure-search-index-in-the-portal"></a>Uw eerste Azure Search-index bouwen en een query uitvoeren via de portal
+# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>Zelfstudie: uw eerste Azure Search-index maken via de portal
 
 Begin in Azure Portal met een vooraf gedefinieerde set voorbeeldgegevens om snel een index te genereren met behulp van de wizard **Gegevens importeren**. Probeer zoekopdrachten in volledige tekst, filters, facetten, fuzzy zoekopdrachten en geosearch met **Search Explorer**.  
 
@@ -45,7 +44,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u beschikt over een [Azure-abonneme
 Als u niet direct een service wilt inrichten, kunt u ook een zes minuten durende demonstratie bekijken van de stappen in deze zelfstudie. De demonstratie ziet u na ongeveer drie minuten in deze [Azure Search-overzichtsvideo](https://channel9.msdn.com/Events/Connect/2016/138).
 
 ## <a name="find-your-service"></a>Uw service vinden
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Open het servicedashboard van uw Azure Search-service. Als u de servicetegel niet hebt vastgemaakt aan het dashboard, kunt u de service op de volgende manier vinden: 
    
    * Klik in de Jumpbar onder aan het linkernavigatiedeelvenster op **Meer services**.
