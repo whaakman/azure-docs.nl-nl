@@ -20,31 +20,27 @@ ms.openlocfilehash: ffb134085c8555b22a317213622ca6c9490497d8
 ms.contentlocale: nl-nl
 ms.lasthandoff: 06/28/2017
 
-
 ---
-<a id="create-a-service-bus-namespace-using-the-azure-portal" class="xliff"></a>
-
 # Een Service Bus-naamruimte maken met de Azure-portal
+<a id="create-a-service-bus-namespace-using-the-azure-portal" class="xliff"></a>
 
 Een naamruimte is een scoping container voor alle berichtenonderdelen. Er kunnen zich meerdere wachtrijen en onderwerpen in één naamruimte bevinden, en naamruimten fungeren vaak als toepassingscontainers. Er zijn twee manieren om een Service Bus-naamruimte te maken:
 
 1. Azure-portal (dit artikel)
 2. [Resource Manager-sjablonen][create-namespace-using-arm]
 
-<a id="create-a-namespace-in-the-azure-portal" class="xliff"></a>
-
 ## Een naamruimte in de Azure-portal maken
+<a id="create-a-namespace-in-the-azure-portal" class="xliff"></a>
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 Gefeliciteerd. U hebt nu een naamruimte voor Service Bus-berichten gemaakt.
 
-<a id="next-steps" class="xliff"></a>
-
 ## Volgende stappen
+<a id="next-steps" class="xliff"></a>
 
 Bekijk onze [GitHub-voorbeelden][github-samples], die enkele meer geavanceerde functies van de Azure Service Bus Messaging-service tonen.
 
 [create-namespace-using-arm]: service-bus-resource-manager-overview.md
-[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+[github-samples]: https://github.com/Azure/azure-service-bus/tree/master/samples
 
