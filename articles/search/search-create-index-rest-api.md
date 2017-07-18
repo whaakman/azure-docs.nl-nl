@@ -1,5 +1,5 @@
 ---
-title: Een index voor Azure Search maken met behulp van de REST API | Microsoft Docs
+title: Een index maken (REST-API - Azure Search) | Microsoft Docs
 description: Een index in code maken met behulp van de Azure Search HTTP REST-API.
 services: search
 documentationcenter: 
@@ -15,9 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
-ms.openlocfilehash: 7f4bccda8a7cebff0d80627320d34062d4d55add
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 9a64d1436471e406b7d9b700257d3dd96b5edcde
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Een index voor Azure Search maken met behulp van de REST-API.
@@ -107,9 +109,4 @@ Als u klaar bent met een index en deze weer wilt verwijderen, roept u de aanvraa
 
 ## <a name="next-steps"></a>Volgende stappen
 Als u een index voor Azure Search hebt gemaakt, kunt u [de inhoud naar de index uploaden](search-what-is-data-import.md), zodat u kunt beginnen met het zoeken van gegevens.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

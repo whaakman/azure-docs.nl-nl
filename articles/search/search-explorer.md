@@ -1,5 +1,5 @@
 ---
-title: Een query uitvoeren op uw Azure Search-index met Azure Portal | Microsoft Docs
+title: Een query uitvoeren voor een index (Portal - Azure Search) | Microsoft Docs
 description: Een zoekopdracht in de Search Explorer van Azure Portal uitvoeren.
 services: search
 manager: jhubbard
@@ -11,15 +11,16 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 07/10/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a23372112e17703a3399e1bdc9eaf73b85a1f80d
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: dd68d8ed073bf7b8666ddef35a2f1f84df690b4b
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/12/2017
 
 ---
-# <a name="query-your-azure-search-index-using-the-azure-portal"></a>Een query uitvoeren op uw Azure Search-index met Azure Portal
+# <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>Een query uitvoeren voor een Azure Search-index met behulp van Search Explorer van Azure Portal
 > [!div class="op_single_selector"]
 > * [Overzicht](search-query-overview.md)
 > * [Portal](search-explorer.md)
@@ -28,34 +29,43 @@ ms.openlocfilehash: a23372112e17703a3399e1bdc9eaf73b85a1f80d
 > 
 > 
 
-In dit artikel wordt beschreven hoe u een query op de Azure Search-index kunt uitvoeren in Azure Portal.
+In dit artikel ziet u hoe u een query kunt uitvoeren voor een Azure Search-index met behulp van **Search Explorer** van Azure Portal. U kunt Search Explorer gebruiken om eenvoudige of volledige Lucene-queryreeksen te verzenden naar elke bestaande index in uw service.
 
-Voordat u deze procedure begint, moet u al [een Azure Search-index hebben gemaakt](search-what-is-an-index.md) en moet deze index [gevuld zijn met gegevens](search-what-is-data-import.md).
+## <a name="open-the-service-dashboard"></a>De servicedashboard openen
+1. Klik in de snelbalk aan de linkerkant van [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) op **Alle resources**.
+2. Selecteer uw Azure Search-service.
 
-## <a name="i-go-to-your-azure-search-blade"></a>I. Naar uw Azure Search-blade gaan
-1. Klik op Alle resources in het menu aan de linkerkant van [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
-2. Selecteer uw Azure Search-service
+## <a name="select-an-index"></a>Een index selecteren
 
-## <a name="ii-select-the-index-you-would-like-to-search"></a>II. De index selecteren waarin u wilt zoeken
-1. Selecteer de index waarin u wilt zoeken vanaf de tegel Indexen.
+Selecteer via de tegel **Indexen** de index waarin u wilt zoeken.
 
-![](./media/search-explorer/pick-index.png)
+   ![](./media/search-explorer/pick-index.png)
 
-## <a name="iii-click-on-the-search-explorer-tile"></a>III. Op de tegel Search Explorer klikken
-![](./media/search-explorer/search-explorer-tile.png)
+## <a name="open-search-explorer"></a>Search Explorer openen
 
-## <a name="iii-start-searching"></a>III. Beginnen met zoeken
-1. Als u wilt zoeken in uw Azure Search-index, begint u te typen in het veld *Querytekenreeks* en kiest u vervolgens **Zoeken**.
+Klik op de tegel Search Explorer om de zoekbalk en het resultatenvenster te openen.
+
+   ![](./media/search-explorer/search-explorer-tile.png)
+
+## <a name="start-searching"></a>Beginnen met zoeken
+
+Wanneer u Search Explorer gebruikt, kunt u [queryparameters](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) opgeven om de query te formuleren.
+
+1. Typ in **Queryreeks** een query en druk vervolgens op **Zoeken**. 
+
+   De queryreeks wordt automatisch geparseerd in de juiste aanvraag-URL om een HTTP-aanvraag te verzenden naar de Azure Search REST-API.   
    
-   * Wanneer u de Search Explorer gebruikt, kunt u een van de [queryparameters](https://msdn.microsoft.com/library/dn798927.aspx) opgeven
-2. De queryresultaten worden in de sectie *Resultaten* weergegeven in de onbewerkte JSON zoals u die zou ontvangen in een HTTP-antwoordtekst als u een zoekaanvraag zou doen in de Azure Search REST-API.
-3. De queryreeks worden automatisch verdeeld in de juiste aanvraag-URL om een HTPP-aanvraag te verzenden naar de Azure Search REST-API.
+   U kunt elke geldige eenvoudige of volledige Lucene-querysyntaxis gebruiken om de aanvraag te maken. Het teken `*` komt overeen met een lege of niet-opgegeven zoekopdracht die alle documenten in willekeurige volgorde retourneert.
 
-![](./media/search-explorer/search-bar.png)
+2. In **Resultaten** worden de queryresultaten weergegeven als onbewerkte JSON, identiek aan de nettolading die wordt geretourneerd in een HTTP-antwoordtekst wanneer aanvragen via een programma worden uitgegeven.
 
+   ![](./media/search-explorer/search-bar.png)
 
+## <a name="next-steps"></a>Volgende stappen
 
+De volgende resources bieden extra informatie over querysyntaxis en voorbeelden.
 
-<!--HONumber=Nov16_HO2-->
-
-
+ + [Vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
+ + [Lucene-querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+ + [Voorbeelden van Lucene-querysyntaxis](https://docs.microsoft.com/azure/search/search-query-lucene-examples) 
+ + [OData-filterexpressiesyntaxis](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) 

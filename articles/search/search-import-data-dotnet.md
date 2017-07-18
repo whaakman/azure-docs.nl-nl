@@ -1,5 +1,5 @@
 ---
-title: Gegevens uploaden naar Azure Search met behulp van de .NET SDK | Microsoft Docs
+title: Gegevens uploaden (.NET - Azure Search) | Microsoft Docs
 description: Informatie over het uploaden van gegevens naar een index in Azure Search met behulp van de .NET SDK.
 services: search
 documentationcenter: 
@@ -15,10 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/13/2017
 ms.author: brjohnst
-translationtype: Human Translation
-ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
-ms.openlocfilehash: 3c8f30583ebcb5b4e4182bd2770079882c088c50
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 7676262b7bca47444aee7b10a131c01e6b697e7b
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Gegevens uploaden naar Azure Search met behulp van de .NET SDK
@@ -236,10 +237,5 @@ Daarom wordt u aangeraden nullbare typen in uw modelklassen te gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 Na het vullen van uw Azure Search-index bent u gereed om query's uit te geven om te zoeken naar documenten. Zie [Een query uitvoeren in uw Azure-zoekindex](search-query-overview.md) voor meer informatie.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

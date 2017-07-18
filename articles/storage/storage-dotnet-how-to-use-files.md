@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure File Storage in Windows | Microsoft Docs
-description: Sla bestandsgegevens met Azure File Storage op in de cloud en koppel de bestandsshare in de cloud vanuit een virtuele machine van Azure of vanuit een on-premises toepassing waarop Windows wordt uitgevoerd.
+title: Ontwikkelen voor Azure File Storage met .NET | Microsoft Docs
+description: Informatie over het ontwikkelen van .NET-toepassingen en -services die gebruikmaken van Azure File Storage voor het opslaan van gegevens uit een bestand.
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
@@ -12,269 +12,40 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/27/2017
+ms.date: 05/27/2017
 ms.author: renash
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 4e2422e8651d6fd17df2670e78606d1caeaf64ce
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: e26da88ef1803d47d7286c5ae836ac9c041dadd1
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
-# <a name="get-started-with-azure-file-storage-on-windows"></a>Aan de slag met Azure File Storage in Windows
+
+# <a name="develop-for-azure-file-storage-with-net"></a>Ontwikkelen voor Azure File Storage met .NET 
+> [!NOTE]
+> In dit artikel leest u hoe u Azure File Storage beheert met .NET-code. Raadpleeg voor meer informatie over Azure File Storage, de [Inleiding tot Azure File Storage](storage-files-introduction.md).
+>
+
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
-[!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
-
-Zie [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md) (Azure File Storage gebruiken met Linux) voor meer informatie over het gebruik van File Storage met Linux.
-
-Zie [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files) (Schaalbaarheids- en prestatiedoelen in Azure Storage) voor meer informatie over de schaalbaarheids- en prestatiedoelen van File Storage.
-
-[!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
-
-[!INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
-
-## <a name="video-using-azure-file-storage-with-windows"></a>Video: Azure File Storage gebruiken met Windows
-Hier volgt een video waarin u ziet hoe u Azure-bestandsshares maakt en gebruikt in Windows.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Windows/player]
-> 
-> 
-
 ## <a name="about-this-tutorial"></a>Over deze zelfstudie
-In deze zelfstudie maakt u kennis met de basisprincipes van het werken met Microsoft Azure File Storage. In deze zelfstudie leert u het volgende:
+In deze zelfstudie worden de basisbeginselen uitgelegd van het gebruik van .NET voor het ontwikkelen van toepassingen of services die Azure File Storage gebruiken voor het opslaan van gegevens uit een bestand. In deze zelfstudie maakt u een eenvoudige consoletoepassing en laten we zien hoe u basisbewerkingen uitvoert met .NET en Azure File Storage:
 
-* Azure Portal of PowerShell gebruiken om een nieuwe bestandsshare in Azure te maken, een map toe te voegen, een lokaal bestand te uploaden naar de share en de bestanden in de map weer te geven.
-* De bestandsshare koppelen op dezelfde manier waarop u een SMB-share koppelt.
-* De clientbibliotheek van Azure Storage voor .NET gebruiken om de bestandsshare te openen vanuit een on-premises toepassing. Een consoletoepassing maken en de volgende acties uitvoeren met de bestandsshare:
-  * De inhoud van een bestand in de share naar het consolevenster schrijven.
-  * Een quotum (maximumgrootte) voor de bestandsshare instellen.
-  * Een Shared Access Signature maken voor een bestand dat gebruikmaakt van een gedeeld toegangsbeleid dat voor de share is gedefinieerd.
-  * Een bestand kopiëren naar een ander bestand in hetzelfde opslagaccount.
-  * Een bestand kopiëren naar een blob in hetzelfde opslagaccount.
+* De inhoud van een bestand ophalen
+* Een quotum (maximumgrootte) voor de bestandsshare instellen.
+* Een Shared Access Signature (SAS-sleutel) maken voor een bestand dat gebruikmaakt van een gedeeld toegangsbeleid dat voor de share is gedefinieerd.
+* Een bestand kopiëren naar een ander bestand in hetzelfde opslagaccount.
+* Een bestand kopiëren naar een blob in hetzelfde opslagaccount.
 * Metrische gegevens van Azure Storage gebruiken voor het oplossen van problemen
 
-File Storage wordt nu ondersteund voor alle opslagaccounts. U kunt dus een bestaand opslagaccount gebruiken of een nieuw opslagaccount maken. Zie [How to create a storage account](storage-create-storage-account.md#create-a-storage-account) (Een opslagaccount maken) voor informatie over het maken van een nieuw opslagaccount.
+> [!Note]  
+> Omdat Azure File Storage toegankelijk is via SMB, is het mogelijk om eenvoudige toepassingen te schrijven die toegang hebben tot de Azure-bestandsshare met behulp van de standaard System.IO-klassen voor i/o-bestanden. In dit artikel wordt beschreven hoe u toepassingen schrijft die gebruikmaken van de Azure Storage .NET SDK, die gebruikmaakt van de [Azure File storage REST-API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) voor communicatie met Azure File Storage. 
 
-## <a name="use-the-azure-portal-to-manage-a-file-share"></a>Azure Portal gebruiken om een bestandsshare te beheren
-Met [Azure Portal](https://portal.azure.com) beschikken klanten over een gebruikersinterface voor het beheren van bestandsshares. Vanuit de portal kunt u het volgende:
 
-* De bestandsshare maken
-* Bestanden uploaden naar en downloaden van de bestandsshare
-* Het werkelijke gebruik van elke bestandsshare controleren
-* Het quotum van de sharegrootte aanpassen
-* De opdracht `net use` uitvoeren om de bestandsshare te koppelen vanuit een Windows-client
-
-### <a name="create-file-share"></a>Bestandsshare maken
-1. Meld u aan bij Azure Portal.
-2. Klik in het navigatiemenu op **Opslagaccounts** of **Opslagaccounts (klassiek)**.
-   
-    ![Schermafbeelding van het maken van een bestandsshare in de portal](./media/storage-dotnet-how-to-use-files/files-create-share-0.png)
-3. Kies uw opslagaccount.
-   
-    ![Schermafbeelding van het maken van een bestandsshare in de portal](./media/storage-dotnet-how-to-use-files/files-create-share-1.png)
-4. Kies de service Bestanden.
-   
-    ![Schermafbeelding van het maken van een bestandsshare in de portal](./media/storage-dotnet-how-to-use-files/files-create-share-2.png)
-5. Klik op Bestandsshares en volg de koppeling om uw eerste bestandsshare te maken.
-   
-    ![Schermafbeelding van het maken van een bestandsshare in de portal](./media/storage-dotnet-how-to-use-files/files-create-share-3.png)
-6. Vul de naam en de grootte (maximaal 5120 GB) van de bestandsshare in om uw eerste bestandsshare te maken. Wanneer de bestandsshare is gemaakt, kunt u deze koppelen vanuit elk bestandssysteem dat SMB 2.1 of SMB 3.0 ondersteunt.
-   
-    ![Schermafbeelding van het maken van een bestandsshare in de portal](./media/storage-dotnet-how-to-use-files/files-create-share-4.png)
-
-### <a name="upload-and-download-files"></a>Bestanden uploaden en downloaden
-1. Kies een bestaande bestandsshare.
-   
-    ![Schermafbeelding van het uploaden en downloaden van bestanden vanuit de portal](./media/storage-dotnet-how-to-use-files/files-upload-download-1.png)
-2. Klik op **Uploaden** om de gebruikersinterface voor het uploaden van bestanden te openen.
-   
-    ![Schermafbeelding van het uploaden van bestanden vanuit de portal](./media/storage-dotnet-how-to-use-files/files-upload-download-2.png)
-3. Klik met de rechtermuisknop op een bestand en kies **Downloaden** om het te downloaden naar een lokale bestemming.
-   
-    ![Schermafbeelding van het downloaden van een bestand vanuit de portal](./media/storage-dotnet-how-to-use-files/files-upload-download-3.png)
-
-### <a name="manage-file-share"></a>Bestandsshare beheren
-1. Klik op **Quotum** als u de grootte van de bestandsshare wilt wijzigen (maximaal 5120 GB).
-   
-    ![Schermafbeelding van de configuratie van het quotum van de bestandsshare](./media/storage-dotnet-how-to-use-files/files-manage-1.png)
-2. Klik op **Verbinden** om de opdrachtregel op te halen voor het koppelen van de bestandsshare vanuit Windows.
-   
-    ![Schermafbeelding van het koppelen van de bestandsshare](./media/storage-dotnet-how-to-use-files/files-manage-2.png)
-   
-    ![Schermafbeelding van het koppelen van de bestandsshare](./media/storage-dotnet-how-to-use-files/files-manage-3.png)
-   
-   > [!TIP]
-   > Als u de toegangssleutel voor opslag voor de koppeling wilt weten, klikt u in uw opslagaccount op **Instellingen** en vervolgens op **Toegangssleutels**.
-   > 
-   > 
-   
-    ![Schermafbeelding van het zoeken van de toegangssleutel voor het opslagaccount.](./media/storage-dotnet-how-to-use-files/files-manage-4.png)
-   
-    ![Schermafbeelding van het zoeken van de toegangssleutel voor het opslagaccount.](./media/storage-dotnet-how-to-use-files/files-manage-5.png)
-
-## <a name="use-powershell-to-manage-a-file-share"></a>PowerShell gebruiken voor het beheren van een bestandsshare
-U kunt ook Azure PowerShell gebruiken om bestandsshares te maken en te beheren.
-
-### <a name="install-the-powershell-cmdlets-for-azure-storage"></a>PowerShell-cmdlets voor Azure Storage installeren
-U bereidt het gebruik van PowerShell voor door de Azure PowerShell-cmdlets te downloaden en te installeren. Zie [How to install and configure Azure PowerShell](/powershell/azure/overview) (Azure PowerShell installeren en configureren) voor het installatiepunt en de installatie-instructies.
-
-> [!NOTE]
-> Het wordt aanbevolen om de meest recente Azure PowerShell-module te downloaden en te installeren, of hiernaar te upgraden.
-> 
-> 
-
-Open een Azure PowerShell-venster door op **Start** te klikken en **Windows PowerShell** te typen. In het PowerShell-venster wordt de Azure Powershell-module voor u geladen.
-
-### <a name="create-a-context-for-your-storage-account-and-key"></a>Een context maken voor uw opslagaccount en -sleutel
-Nu gaat u de context van het opslagaccount maken. De context bestaat uit de naam en accountsleutel van het opslagaccount. Voor instructies voor het kopiëren van de accountsleutel uit [Azure Portal](https://portal.azure.com) raadpleegt u [Opslagtoegangssleutels bekijken en kopiëren](storage-create-storage-account.md#view-and-copy-storage-access-keys).
-
-Vervang `storage-account-name` en `storage-account-key` in het volgende voorbeeld door de naam en sleutel van uw opslagaccount.
-
-```powershell
-# create a context for account and key
-$ctx=New-AzureStorageContext storage-account-name storage-account-key
-```
-
-### <a name="create-a-new-file-share"></a>Een nieuwe bestandsshare maken
-Maak vervolgens de nieuwe share met de naam `logs`.
-
-```powershell
-# create a new share
-$s = New-AzureStorageShare logs -Context $ctx
-```
-
-U hebt nu een bestandsshare in File Storage. Nu gaan we een map en een bestand toevoegen.
-
-> [!IMPORTANT]
-> De naam van de bestandsshare mag alleen uit kleine letters bestaan. Zie [Naming and Referencing Shares, Directories, Files, and Metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx) (Shares, mappen, bestanden en metagegevens een naam geven en hiernaar verwijzen) voor meer informatie over de naamgeving van bestandsshares en bestanden.
-> 
-> 
-
-### <a name="create-a-directory-in-the-file-share"></a>Een map maken in de bestandsshare
-Maak vervolgens een map in de share. In het volgende voorbeeld wordt de map `CustomLogs` genoemd.
-
-```powershell
-# create a directory in the share
-New-AzureStorageDirectory -Share $s -Path CustomLogs
-```
-
-### <a name="upload-a-local-file-to-the-directory"></a>Een lokaal bestand uploaden naar de map
-Upload nu een lokaal bestand naar de map. In het volgende voorbeeld wordt een bestand geüpload vanuit `C:\temp\Log1.txt`. Bewerk het bestandspad zo dat het wijst naar een geldig bestand op uw lokale computer.
-
-```powershell
-# upload a local file to the new directory
-Set-AzureStorageFileContent -Share $s -Source C:\temp\Log1.txt -Path CustomLogs
-```
-
-### <a name="list-the-files-in-the-directory"></a>De bestanden in de map weergeven
-Als u het bestand in de map wilt zien, kunt u alle bestanden in de map weergeven. Deze opdracht retourneert de bestanden en eventuele submappen in de map CustomLogs.
-
-```powershell
-# list files in the new directory
-Get-AzureStorageFile -Share $s -Path CustomLogs | Get-AzureStorageFile
-```
-
-Get-AzureStorageFile retourneert een lijst met bestanden en mappen voor elk mapobject dat daaraan is doorgegeven. "Get-AzureStorageFile -Share $s" retourneert een lijst met bestanden en mappen in de hoofdmap. Voor een lijst met bestanden in een submap moet u de submap doorgeven aan Get-AzureStorageFile. Het volgende gebeurt: het eerste deel van de opdracht, tot aan de pipe, retourneert een mapexemplaar van de submap CustomLogs. Daarna wordt dit doorgegeven via Get-AzureStorageFile, en worden de bestanden en mappen in CustomLogs geretourneerd.
-
-### <a name="copy-files"></a>Bestanden kopiëren
-Vanaf versie 0.9.7 van Azure PowerShell kunt u een bestand kopiëren naar een ander bestand, een bestand naar een blob of een blob naar een bestand. Hieronder ziet u hoe u deze kopieerbewerkingen uitvoert met PowerShell-cmdlets.
-
-```powershell
-# copy a file to the new directory
-Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt -DestShareName destshare -DestFilePath destdir/hellocopy.txt -Context $srcCtx -DestContext $destCtx
-
-# copy a blob to a file directory
-Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
-```
-
-## <a name="mount-the-file-share"></a>De bestandsshare koppelen
-Dankzij ondersteuning voor SMB 3.0 ondersteunt File Storage nu versleuteling en permanente ingangen vanuit SMB 3.0-clients. Ondersteuning voor versleuteling houdt in dat SMB 3.0-clients een bestandsshare vanaf elke locatie kunnen koppelen, onder andere vanaf:
-
-* Een virtuele machine van Azure in dezelfde regio (wordt ook ondersteund door SMB 2.1)
-* Een virtuele machine van Azure in een andere regio (alleen SMB 3.0)
-* Een on-premises clienttoepassing (alleen SMB 3.0)
-
-Wanneer een client File Storage opent, hangt de gebruikte SMB-versie af van de SMB-versie die door het besturingssysteem wordt ondersteund. In de onderstaande tabel vindt u een overzicht van de ondersteuning voor Windows-clients. Raadpleeg dit blog voor meer informatie over [SMB-versies](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx).
-
-| Windows-client | Ondersteunde SMB-versie |
-|:--- |:--- |
-| Windows 7 |SMB 2.1 |
-| Windows Server 2008 R2 |SMB 2.1 |
-| Windows 8 |SMB 3.0 |
-| Windows Server 2012 |SMB 3.0 |
-| Windows Server 2012 R2 |SMB 3.0 |
-| Windows 10 |SMB 3.0 |
-
-### <a name="mount-the-file-share-from-an-azure-virtual-machine-running-windows"></a>De bestandsshare koppelen vanaf een virtuele machine in Azure waarop Windows wordt uitgevoerd
-Als voorbeeld van het koppelen van een Azure-bestandsshare maken we nu een virtuele machine in Azure waarop Windows wordt uitgevoerd en maken we op afstand verbinding om de share te koppelen.
-
-1. Maak eerst een nieuwe virtuele machine in Azure door de instructies te volgen in [Create a Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Een virtuele machine voor Windows maken in Azure Portal).
-2. Maak daarna op afstand verbinding met de virtuele machine door de instructies te volgen in [Log on to a Windows virtual machine using the Azure portal](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Aanmelden bij een virtuele machine met Windows met behulp van Azure Portal).
-3. Open een PowerShell-venster op de virtuele machine.
-
-### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>De referenties van het opslagaccount voor de virtuele machine persistent maken
-Voordat u de bestandsshare kunt koppelen, moet u eerst de referenties van het opslagaccount op de virtuele machine persistent maken. Met deze stap kan Windows automatisch opnieuw verbinding maken met de bestandsshare wanneer de virtuele machine opnieuw wordt opgestart. Als u de accountreferenties persistent wilt maken, voert u de opdracht `cmdkey` uit vanuit het PowerShell-venster op de virtuele machine. Vervang `<storage-account-name>` door de naam van uw opslagaccount en `<storage-account-key>` door de sleutel van uw opslagaccount. U moet het domein 'AZURE' expliciet opgeven conform onderstaand voorbeeld. 
-
-```
-cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
-```
-
-Windows maakt nu opnieuw verbinding met de bestandsshare wanneer de virtuele machine opnieuw wordt opgestart. U kunt controleren of de share opnieuw is verbonden door de opdracht `net use` uit te voeren vanuit een PowerShell-venster.
-
-Referenties worden alleen persistent in de context waarin `cmdkey` wordt uitgevoerd. Als u een toepassing ontwikkelt die als een service wordt uitgevoerd, moet u ook de referenties in die context persistent maken.
-
-### <a name="mount-the-file-share-using-the-persisted-credentials"></a>De bestandsshare koppelen met behulp van de persistente referenties 
-Wanneer u een externe verbinding met de virtuele machine hebt, kunt u de opdracht `net use` met de volgende syntaxis uitvoeren om de bestandsshare te koppelen. Vervang `<storage-account-name>` door de naam van uw opslagaccount en `<share-name>` door de naam van de File Storage-share.
-
-```
-net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
-
-example :
-net use z: \\samples.file.core.windows.net\logs
-```
-
-Omdat u de referenties van het opslagaccount in de vorige stap persistent hebt gemaakt, hoeft u ze niet op te geven met de opdracht `net use`. Als u uw referenties nog niet persistent hebt gemaakt, neem ze dan als een parameter op die wordt doorgegeven aan de opdracht `net use`, zoals wordt weergegeven in het volgende voorbeeld.
-
-```
-net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:AZURE\<storage-account-name> <storage-account-key>
-
-example :
-net use z: \\samples.file.core.windows.net\logs /u:AZURE\samples <storage-account-key>
-```
-
-Nu kunt u de File Storage-share, net zoals ieder ander station, gebruiken vanaf de virtuele machine. U kunt standaardbestandsopdrachten uitvoeren vanaf de opdrachtprompt, of de gekoppelde share en de inhoud ervan bekijken vanuit de Verkenner. Ook met behulp van de standaard Windows-API's voor bestands-I/O, zoals de API’s die worden verstrekt door de [System.IO-naamruimten](http://msdn.microsoft.com/library/gg145019.aspx) in het .NET Framework, kunt u code uitvoeren op de virtuele machine die toegang heeft tot de bestandsshare.
-
-U kunt de bestandsshare ook koppelen vanuit een functie die wordt uitgevoerd in een Azure-cloudservice, door op afstand verbinding te maken met die functie.
-
-### <a name="mount-the-file-share-from-an-on-premises-client-running-windows"></a>De bestandsshare koppelen vanuit een on-premises client waarop Windows wordt uitgevoerd
-Als u de bestandsshare wilt koppelen vanuit een on-premises client, moet u eerst de volgende stappen uitvoeren:
-
-* Installeer een versie van Windows die ondersteuning biedt voor SMB 3.0. Windows gebruikt SMB 3.0-versleuteling om gegevens veilig over te brengen tussen uw on-premises client en de Azure-bestandsshare in de cloud.
-* Open internettoegang voor poort 445 (TCP uitgaand) in uw lokale netwerk, zoals door het SMB-protocol wordt vereist.
-
-> [!NOTE]
-> Sommige internetproviders blokkeren poort 445, dus misschien moet u contact opnemen met uw serviceprovider.
-> 
-> 
-
-### <a name="unmount-the-file-share"></a>De bestandsshare ontkoppelen
-Als u de bestandsshare wilt ontkoppelen, kunt u opdracht `net use` met optie `/delete` gebruiken.
-
-```
-net use <drive-letter> /delete
-
-example :
-net use z: /delete
-```
-
-## <a name="develop-with-file-storage"></a>Ontwikkelen met File Storage
-Voor het schrijven van code die File Storage aanroept, kunt u de opslagclientbibliotheken voor .NET en Java of de REST API van Azure Storage gebruiken. In het voorbeeld in deze sectie ziet u hoe u met een bestandsshare werkt door vanuit een eenvoudige consoletoepassing die wordt uitgevoerd op het bureaublad gebruik te maken van de [Azure Storage-clientbibliotheek voor .NET](https://msdn.microsoft.com/library/mt347887.aspx).
-
-### <a name="create-the-console-application-and-obtain-the-assembly"></a>De consoletoepassing maken en de assembly verkrijgen
+## <a name="create-the-console-application-and-obtain-the-assembly"></a>De consoletoepassing maken en de assembly verkrijgen
 Maak in Visual Studio een nieuwe Windows-consoletoepassing. De volgende stappen laten zien hoe u een consoletoepassing maakt in Visual Studio 2017, maar de stappen zijn hetzelfde in andere versies van Visual Studio.
 
 1. Selecteer **Bestand** > **Nieuw** > **Project**
@@ -287,7 +58,7 @@ Alle codevoorbeelden in deze zelfstudie kunnen worden toegevoegd aan de methode 
 
 U kunt de Azure Storage-clientbibliotheek gebruiken in elk type .NET-toepassing, waaronder een Azure-cloudservice of -web-app en bureaublad- en mobiele toepassingen. In deze gids gebruiken we een consoletoepassing voor de eenvoud.
 
-### <a name="use-nuget-to-install-the-required-packages"></a>NuGet gebruiken om de vereiste pakketten te installeren
+## <a name="use-nuget-to-install-the-required-packages"></a>NuGet gebruiken om de vereiste pakketten te installeren
 Er zijn twee pakketten waarnaar u in uw project moet verwijzen om deze zelfstudie te kunnen voltooien:
 
 * [Microsoft Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): dit pakket biedt programmatisch toegang tot gegevensbronnen in uw opslagaccount.
@@ -299,7 +70,7 @@ Met NuGet kunt u beide pakketten verkrijgen. Volg deze stappen:
 2. Zoek online naar 'WindowsAzure.Storage' en klik op **Installeren** om de Storage-clientbibliotheek en de afhankelijkheden ervan te installeren.
 3. Zoek online naar 'WindowsAzure.ConfigurationManager' en klik op **Installeren** om Azure Configuration Manager te installeren.
 
-### <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Uw opslagaccountreferenties opslaan in het bestand app.config
+## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Uw opslagaccountreferenties opslaan in het bestand app.config
 Vervolgens slaat u uw referenties op in het bestand app.config van het project. Bewerk het bestand app.config zo dat het op het volgende voorbeeld lijkt, waarbij u `myaccount` vervangt door de naam van het opslagaccount, en `mykey` door de sleutel van het opslagaccount.
 
 ```xml
@@ -315,27 +86,25 @@ Vervolgens slaat u uw referenties op in het bestand app.config van het project. 
 ```
 
 > [!NOTE]
-> De nieuwste versie van de Azure-opslagemulator biedt geen ondersteuning voor File Storage. De verbindingsreeks werkt alleen met File Storage als de reeks verwijst naar een Azure-opslagaccount in de cloud.
-> 
-> 
+> De nieuwste versie van de Azure-opslagemulator biedt geen ondersteuning voor Azure File Storage. De verbindingsreeks werkt alleen met Azure File Storage als de reeks verwijst naar een Azure-opslagaccount in de cloud.
 
-### <a name="add-using-directives"></a>Using-instructies toevoegen
+## <a name="add-using-directives"></a>Using-instructies toevoegen
 Open het bestand `Program.cs` in Solution Explorer en plaats de volgende using-instructies aan het begin van het bestand.
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
 using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
-using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage
-using Microsoft.WindowsAzure.Storage.File; // Namespace for File storage
+using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Azure Blobs
+using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
 ```
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-### <a name="access-the-file-share-programmatically"></a>Via een programma toegang krijgen tot de bestandsshare
+## <a name="access-the-file-share-programmatically"></a>Via een programma toegang krijgen tot de bestandsshare
 Vervolgens voegt u de volgende code aan de methode `Main()` (na de hierboven weergegeven code) toe om de verbindingsreeks op te halen. Met deze code wordt een verwijzing opgehaald naar het bestand dat we eerder hebben gemaakt en wordt de inhoud ervan weergegeven in het consolevenster.
 
 ```csharp
-// Create a CloudFileClient object for credentialed access to File storage.
+// Create a CloudFileClient object for credentialed access to Azure File storage.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -368,7 +137,7 @@ if (share.Exists())
 
 Voer de consoletoepassing uit om de uitvoer te zien.
 
-### <a name="set-the-maximum-size-for-a-file-share"></a>De maximale grootte voor een bestandsshare instellen
+## <a name="set-the-maximum-size-for-a-file-share"></a>De maximale grootte voor een bestandsshare instellen
 Vanaf versie 5.x van de Azure Storage-clientbibliotheek kunt u het quotum (de maximumgrootte) voor een bestandsshare instellen, in gigabytes. U kunt ook controleren hoeveel gegevens er momenteel zijn opgeslagen in de share.
 
 Door het quotum voor een share in te stellen, kunt u de totale grootte instellen van de bestanden die zijn opgeslagen in de share. Als de totale grootte van de bestanden in de share het quotum voor de share overschrijdt, kunnen clients bestaande bestanden niet meer vergroten en geen nieuwe bestanden meer maken, tenzij deze bestanden leeg zijn.
@@ -380,7 +149,7 @@ In onderstaand voorbeeld ziet u hoe u het huidige gebruik voor een share control
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to File storage.
+// Create a CloudFileClient object for credentialed access to Azure File storage.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -415,7 +184,7 @@ In het volgende voorbeeld wordt een beleid voor gedeelde toegang gemaakt op een 
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to File storage.
+// Create a CloudFileClient object for credentialed access to Azure File storage.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -454,9 +223,9 @@ if (share.Exists())
 }
 ```
 
-Voor meer informatie over het maken en gebruiken van handtekeningen voor gedeelde toegang, raadpleegt u [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Shared Access Signatures (SAS) gebruiken) en [Create and use a SAS with Blob storage](storage-dotnet-shared-access-signature-part-2.md) (Een SAS maken en gebruiken met Blob Storage).
+Voor meer informatie over het maken en gebruiken van handtekeningen voor gedeelde toegang, raadpleegt u [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Shared Access Signatures (SAS) gebruiken) en [Create and use a SAS with Azure Blobs](storage-dotnet-shared-access-signature-part-2.md) (Een SAS maken en gebruiken met Azure Blobs).
 
-### <a name="copy-files"></a>Bestanden kopiëren
+## <a name="copy-files"></a>Bestanden kopiëren
 Vanaf versie 5.x van de Azure Storage-clientbibliotheek kunt u een bestand kopiëren naar een ander bestand, een bestand naar een blob of een blob naar een bestand. In de volgende secties ziet u hoe u deze kopieerbewerkingen uitvoert via een programma.
 
 U kunt ook AzCopy gebruiken om een bestand naar een ander bestand te kopiëren of om een blob naar een bestand te kopiëren of omgekeerd. Zie [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md) (Gegevensoverdracht met het AzCopy-opdrachtregelprogramma).
@@ -466,16 +235,14 @@ U kunt ook AzCopy gebruiken om een bestand naar een ander bestand te kopiëren o
 > 
 > 
 
-**Een bestand kopiëren naar een ander bestand**
-
-In het volgende voorbeeld wordt een bestand gekopieerd naar een ander bestand in dezelfde share. Omdat met deze kopieerbewerking bestanden in hetzelfde opslagaccount worden gekopieerd, kunt u verificatie met gedeelde sleutel gebruiken om de kopie te maken.
+**Een bestand kopiëren naar een ander bestand** In het volgende voorbeeld wordt een bestand gekopieerd naar een ander bestand in dezelfde share. Omdat met deze kopieerbewerking bestanden in hetzelfde opslagaccount worden gekopieerd, kunt u verificatie met gedeelde sleutel gebruiken om de kopie te maken.
 
 ```csharp
 // Parse the connection string for the storage account.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to File storage.
+// Create a CloudFileClient object for credentialed access to Azure File storage.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -512,16 +279,14 @@ if (share.Exists())
 }
 ```
 
-**Een bestand kopiëren naar een blob**
-
-In het volgende voorbeeld wordt een bestand gemaakt en vervolgens gekopieerd naar een blob in hetzelfde opslagaccount. In het voorbeeld wordt een SAS voor het bronbestand gemaakt, die tijdens de kopieerbewerking door de service wordt gebruikt om toegang tot het bronbestand te verifiëren.
+**Een bestand kopiëren naar een blob** In het volgende voorbeeld wordt een bestand gemaakt en vervolgens gekopieerd naar een blob in hetzelfde opslagaccount. In het voorbeeld wordt een SAS voor het bronbestand gemaakt, die tijdens de kopieerbewerking door de service wordt gebruikt om toegang tot het bronbestand te verifiëren.
 
 ```csharp
 // Parse the connection string for the storage account.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to File storage.
+// Create a CloudFileClient object for credentialed access to Azure File storage.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Create a new file share, if it does not already exist.
@@ -562,12 +327,14 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 Op dezelfde manier kunt u een blob naar een bestand kopiëren. Als het bronobject een blob is, maakt u een SAS om tijdens de kopieerbewerking de toegang tot de blob te verifiëren.
 
-## <a name="troubleshooting-file-storage-using-metrics"></a>Problemen met File Storage oplossen met metrische gegevens
-Azure Storage Analytics ondersteunt nu metrische gegevens voor File Storage. Met metrische gegevens kunt u aanvragen volgen en problemen diagnosticeren.
+## <a name="troubleshooting-azure-file-storage-using-metrics"></a>Problemen met Azure File Storage oplossen met metrische gegevens
+Azure Storage Analytics ondersteunt nu metrische gegevens voor Azure File Storage. Met metrische gegevens kunt u aanvragen volgen en problemen diagnosticeren.
 
-U kunt metrische gegevens voor File Storage inschakelen vanuit [Azure Portal](https://portal.azure.com). U kunt metrische gegevens ook inschakelen via een programma. Daarvoor roept u de bewerking Set File Service Properties aan via de REST API of een van de analogen daarvan in de Storage-clientbibliotheek.
 
-In het volgende codevoorbeeld ziet u hoe u de Storage-clientbibliotheek voor .NET gebruikt om metrische gegevens in te schakelen voor File Storage.
+U kunt metrische gegevens voor Azure File Storage inschakelen vanuit de [Azure Portal](https://portal.azure.com). U kunt metrische gegevens ook inschakelen via een programma. Daarvoor roept u de bewerking Set File Service Properties aan via de REST API of een van de analogen daarvan in de Storage-clientbibliotheek.
+
+
+In het volgende codevoorbeeld ziet u hoe u de Storage-clientbibliotheek voor .NET gebruikt om metrische gegevens in te schakelen voor Azure File Storage.
 
 Voeg behalve de instructies die u hierboven hebt toegevoegd, ook de volgende `using`-instructies toe aan het bestand `Program.cs`:
 
@@ -576,7 +343,7 @@ using Microsoft.WindowsAzure.Storage.File.Protocol;
 using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 ```
 
-Blob, Table en Queue Storage gebruiken het gedeelde type `ServiceProperties` in de `Microsoft.WindowsAzure.Storage.Shared.Protocol`-naamruimte. File Storage heeft echter een eigen type, het type `FileServiceProperties`, in de `Microsoft.WindowsAzure.Storage.File.Protocol`-naamruimte. De code kan echter alleen worden gecompileerd als er vanuit uw code naar beide naamruimten wordt verwezen.
+Azure Blobs, Azure Table en Azure Queues gebruiken het gedeelde type `ServiceProperties` in de `Microsoft.WindowsAzure.Storage.Shared.Protocol`-naamruimte. Azure File Storage heeft echter een eigen type, het type `FileServiceProperties`, in de `Microsoft.WindowsAzure.Storage.File.Protocol`-naamruimte. De code kan echter alleen worden gecompileerd als er vanuit uw code naar beide naamruimten wordt verwezen.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -619,68 +386,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
-U kunt ook het [artikel voor het oplossen van problemen met Azure-bestanden](storage-troubleshoot-file-connection-problems.md) raadplegen voor richtlijnen voor end-to-end-probleemoplossing. 
-
-## <a name="file-storage-faq"></a>Veelgestelde vragen over File Storage
-1. **Wordt verificatie op basis van Active Directory door File Storage ondersteund?**
-   
-    Op dit moment wordt verificatie op basis van AD of ACL's nog niet ondersteund, maar deze mogelijkheid staat wel in onze lijst met functieaanvragen. Op dit moment worden Azure Storage-accountsleutels gebruikt voor verificatie naar de bestandsshare. We bieden een tijdelijke oplossing met Shared Access Signatures (SAS) via de REST API of de clientbibliotheken. Met SAS kunt u tokens met specifieke machtigingen genereren die geldig zijn gedurende een bepaald tijdsinterval. U kunt bijvoorbeeld een token genereren met alleen-lezen toegang tot een bepaald bestand. Iedereen die over dit token beschikt gedurende de tijd dat het geldig is, heeft alleen-lezen toegang tot dit bestand.
-   
-    SAS wordt alleen ondersteund via de REST API of clientbibliotheken. Wanneer u de bestandsshare koppelt via het SMB-protocol, kunt u geen SAS gebruiken om toegang tot de inhoud ervan te delegeren. 
-
-2. **Hoe verstrek ik via een webbrowser toegang tot een specifiek bestand?**
-   Met SAS kunt u tokens met specifieke machtigingen genereren die geldig zijn gedurende een bepaald tijdsinterval. U kunt bijvoorbeeld een token genereren met alleen-lezen toegang tot een bepaald bestand voor een bepaalde periode. Iedereen die deze URL heeft, kan rechtstreeks via elke webbrowser downloaden zolang de URL geldig is. SAS-sleutels kunnen eenvoudig worden gegenereerd vanuit een gebruikersinterface zoals Opslagverkenner.
-
-3.   **Wat zijn de verschillende manieren om toegang te krijgen tot bestanden in Azure File Storage?**
-    U kunt de bestandsshare koppelen op uw lokale computer met het SMB 3.0-protocol, of gebruikmaken van hulpprogramma's zoals [Opslagverkenner](http://storageexplorer.com/) of Cloudberry om toegang te krijgen tot bestanden in de bestandsshare. Vanuit uw toepassing kunt u clientbibliotheken, REST API of Powershell gebruiken om toegang te krijgen tot uw bestanden in de Azure-bestandsshare.
-    
-4.   **Hoe kan ik de Azure-bestandsshare op mijn lokale computer koppelen?** U kunt de bestandsshare via het SMB-protocol koppelen zolang poort 445 (TCP uitgaand) is geopend en de client het SMB 3.0-protocol ondersteunt (*bijvoorbeeld* Windows 8 of Windows Server 2012). Neem contact op met uw lokale ISP-provider om de poort te deblokkeren. In de tussentijd kunt u uw bestanden weergeven met Opslagverkenner of andere software van derden zoals Cloudberry.
-
-5. **Telt het netwerkverkeer tussen een virtuele machine van Azure en een bestandsshare mee als externe bandbreedte die wordt verrekend met het abonnement?**
-   
-    Als de bestandsshare en de virtuele machine zich in verschillende regio's bevinden, wordt het verkeer tussen hen in rekening gebracht als externe bandbreedte.
-6. **Is het netwerkverkeer gratis tussen een virtuele machine en een bestandsshare in dezelfde regio?**
-   
-    Ja. Het is gratis als het verkeer plaatsvindt in dezelfde regio.
-7. **Is de verbinding vanaf on-premises virtuele machines met Azure File Storage afhankelijk van Azure ExpressRoute?**
-   
-    Nee. Als u niet over ExpressRoute beschikt, hebt u nog steeds toegang tot de bestandsshare vanaf een on-premises computer, zolang poort 445 (TCP uitgaand) is geopend voor internettoegang. Indien gewenst kunt u ExpressRoute echter met File Storage gebruiken.
-8. **Is een 'File Share Witness' voor een failovercluster een van de toepassingen voor Azure File Storage?**
-   
-    Dit wordt momenteel niet ondersteund.
-9. **File Storage wordt op dit moment toch alleen gerepliceerd via LRS of GRS?**  
-   
-    We willen RA-GRS ook gaan ondersteunen, maar we kunnen nog niet zeggen op welke termijn dit gaat gebeuren.
-10. **Wanneer kan ik bestaande opslagaccounts gebruiken voor Azure File Storage?**
-   
-    Azure File Storage is nu ingeschakeld voor alle opslagaccounts.
-11. **Wordt een naamswijziging ook toegevoegd aan de REST API?**
-   
-    Naamswijzigingen worden nog niet ondersteund in onze REST API.
-12. **Zijn geneste shares mogelijk, dus een share onder een share?**
-    
-    Nee. De bestandsshare is het virtuele stuurprogramma dat u kunt koppelen. Geneste shares worden dus niet ondersteund.
-13. **Is het mogelijk om alleen-lezen of alleen-schrijven machtigingen op te geven voor mappen in de share?**
-    
-    Dit niveau van controle over machtigingen is niet mogelijk wanneer u de bestandsshare koppelt via SMB. U kunt dit echter wel bereiken door een Shared Access Signature (SAS) te maken via de REST API of clientbibliotheken.  
-14. **Het uitpakken van bestanden in File Storage ging erg traag. Wat moet ik doen?**
-    
-    Als u veel bestanden wilt overbrengen naar File Storage, kunt u beter gebruikmaken van AzCopy, Azure Powershell (Windows) of de Azure CLI (Linux/Unix). Deze hulpprogramma's zijn geoptimaliseerd voor netwerkoverdracht.
-15. **Er is een patch beschikbaar voor het oplossen van prestatieproblemen met Azure-bestanden**
-    
-    Het Windows-team heeft onlangs een patch uitgebracht voor een prestatieprobleem dat zich voordoet wanneer de klant Azure File Storage opent vanuit Windows 8.1 of Windows Server 2012 R2. Meer informatie vindt u in het bijbehorende KB-artikel [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/kb/3114025) (Prestatieproblemen wanneer u Azure File Storage opent vanuit Windows 8.1 of Server 2012 R2).
-16. **Azure File Storage gebruiken met IBM MQ**
-    
-    IBM heeft een document uitgegeven om IBM MQ-klanten te helpen bij de configuratie van Azure File Storage met hun service. Voor meer informatie raadpleegt u [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service) (IBM MQ-wachtrijbeheer voor meerdere instanties instellen met Microsoft Azure File-service.
-17. **Hoe kan ik fouten bij Azure File Storage oplossen?**
-    
-    U kunt het [artikel voor het oplossen van problemen met Azure-bestanden](storage-troubleshoot-file-connection-problems.md) raadplegen voor richtlijnen voor end-to-end-probleemoplossing.               
-
-18. **Hoe kan ik versleuteling aan de serverzijde inschakelen voor Azure File Storage?**
-    
-    [Serverversleuteling](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) voor de Azure File Storage-service is in het algemeen beschikbaar in alle regio's en openbare en nationale clouds. U kunt serverversleuteling inschakelen voor de File Storage-service met behulp van [Azure Portal](https://ms.portal.azure.com/),[Microsoft Azure Storage Resource Provider API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts), [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx) of [Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/storage-azure-cli/).
-    
-    Nadat serverversleuteling is ingeschakeld in Azure File Storage, worden nieuwe gegevens die worden geschreven naar dat opslagaccount automatisch versleuteld. Deze functie is beschikbaar voor alle nieuwe gegevens die worden geschreven naar bestaande of nieuwe shares in een bestaand of nieuw opslagaccount. Er zijn geen extra kosten verbonden aan het inschakelen van deze functie. Meer informatie over [het inschakelen van serverversleuteling in de Azure File Storage-service](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+U kunt ook het [artikel voor het oplossen van problemen met Azure File Storage](storage-troubleshoot-file-connection-problems.md) raadplegen voor richtlijnen voor end-to-end-probleemoplossing.
 
 ## <a name="next-steps"></a>Volgende stappen
 Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.
@@ -703,5 +409,4 @@ Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.
 * [Azure File storage is now generally available (Azure File Storage is nu algemeen beschikbaar)](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
 * [Inside Azure File Storage (Een kijkje achter de schermen van Azure File Storage)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introducing Microsoft Azure File Service (Introductie van Microsoft Azure File-service)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Persisting connections to Microsoft Azure Files (Permanente verbindingen met Microsoft Azure-bestanden)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
-
+* [Persisting connections to Microsoft Azure File Storage (Permanente verbindingen met Microsoft Azure File Storage)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

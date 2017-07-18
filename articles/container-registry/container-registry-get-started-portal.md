@@ -17,19 +17,18 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: e74c5428f0e31d9d3cf06b85aa8cefde868e9d67
-ms.lasthandoff: 03/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 2cd5a08cc74473be594fc3c7a4fb934d65ffe0ab
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/12/2017
 
 ---
 
 # <a name="create-a-private-docker-container-registry-using-the-azure-portal"></a>Een privé-Docker-containerregister maken met Azure Portal
-Gebruik Azure Portal om een containerregister te maken en de instellingen ervan te beheren. U kunt ook containerregisters maken en beheren met de [Azure CLI 2.0-opdrachten](container-registry-get-started-azure-cli.md) of programmatisch met de [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) voor Container Registry.
+Gebruik Azure Portal om een containerregister te maken en de instellingen ervan te beheren. U kunt ook containerregisters maken en beheren met de [Azure CLI 2.0-opdrachten](container-registry-get-started-azure-cli.md), [Azure PowerShell](https://go.microsoft.com/fwlink/p/?linkid=834376) of programmatisch met de [REST API](container-registry-get-started-powershell.md) voor Container Registry.
 
 Zie [het overzicht](container-registry-intro.md) voor meer achtergrondinformatie en concepten.
-
-
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
 1. Klik in [Azure Portal](https://portal.azure.com) op **+ Nieuw**.

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 07/13/2017
 ms.author: ryanwi;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: c0c5ab8a9db60ff375b7d823e40f83cbc4d2b4c3
-ms.lasthandoff: 04/07/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ad284e152dcf44f27fb53340dd641d95b103db78
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Aan de slag met het implementeren en bijwerken van toepassingen op uw lokale cluster
@@ -114,7 +114,7 @@ Nu de toepassing is geïmplementeerd, gaan we de details van de app in Power She
    
     ![Lijst met services voor de toepassing in PowerShell][ps-getsfsvc]
    
-    Deze toepassing bestaat uit twee services: het webfront-end en de stateful service die de woorden beheert.
+    Deze toepassing bestaat uit twee services: het webfront-end en de stateful service waarmee de woorden worden beheerd.
 3. Bekijk ten slotte de lijst met partities voor WordCountService:
    
     ```powershell

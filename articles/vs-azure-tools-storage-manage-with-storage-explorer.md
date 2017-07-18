@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: fbcd35529c5d2360f5b0c9de4d3c9c4a08a0cc8f
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 83a6543a8fd95139fdcb6c031979382b4736a4ad
 ms.contentlocale: nl-nl
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Aan de slag met Opslagverkenner (Preview)
@@ -113,7 +112,7 @@ Voor Azure Stack Proof of Concept (POC) dient u het Azure Stack-basiscertificaat
     De details voor elk veld zijn als volgt:
 
     * **De naam van de omgeving**: dit veld kan worden aangepast door de gebruiker.
-    * **Instantie**: deze waarde dient https://login.windows.net te zijn. Gebruik https://login.chinacloudapi.cn voor Azure China.
+    * **Instantie**: deze waarde dient https://login.microsoftonline.com te zijn. Gebruik https://login.chinacloudapi.cn voor Azure China.
     * **Resource-id voor aanmelden**: haal deze waarde op door middel van het volgende PowerShell-script:
 
         Als u een cloudbeheerder bent:

@@ -1,12 +1,15 @@
 ### <a name="create-a-console-application"></a>Een consoletoepassing maken
-* Start Visual Studio en maak een nieuwe consoletoepassing.
+
+Start eerst Visual Studio en maak een nieuw project van het type **Consoletoepassing (.NET Framework)**.
 
 ### <a name="add-the-relay-nuget-package"></a>Het pakket Relay NuGet toevoegen
-1. Klik met de rechtermuisknop op het nieuwe project en selecteer **NuGet-pakketten beheren**.
+
+1. Klik met de rechtermuisknop op het nieuwe project en klik op **NuGet-pakketten beheren**.
 2. Klik op het tabblad **Bladeren**, zoek naar 'Microsoft Azure Relay' en selecteer het item **Microsoft Azure Relay**. Klik op **Installeren** om de installatie te voltooien en sluit vervolgens dit dialoogvenster.
 
 ### <a name="write-some-code-to-receive-messages"></a>Code schrijven om berichten te ontvangen
-1. Vervang de bestaande `using`-instructies boven in het bestand Program.cs door de volgende instructies:
+
+1. Vervang de bestaande `using`-instructies bovenaan het bestand Program.cs door de volgende `using`-instructies:
    
     ```csharp
     using System;
@@ -15,7 +18,7 @@
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. Voeg constanten toe aan de klasse `Program` voor de verbindingsgegevens van de hybride verbinding. Vervang de tijdelijke aanduidingen tussen punthaken door de juiste waarden die zijn verkregen bij het maken van de hybride verbinding. Zorg ervoor dat u de volledig gekwalificeerde naamruimte gebruikt:
+2. Voeg constanten toe aan de klasse `Program` voor de gegevens van de hybride verbinding. Vervang de tijdelijke aanduidingen tussen haakjes door de waarden die u hebt verkregen bij het maken van de hybride verbinding. Zorg ervoor dat u de volledig gekwalificeerde naamruimte gebruikt:
    
     ```csharp
     private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
@@ -23,7 +26,7 @@
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. Voeg de volgende nieuwe methode met de naam `ProcessMessagesOnConnection` toe aan de klasse `Program`:
+3. Voeg de volgende methode met de naam `ProcessMessagesOnConnection` toe aan de klasse `Program`:
    
     ```csharp
     // Method is used to initiate connection
@@ -119,13 +122,13 @@
         await listener.CloseAsync(cts.Token);
     }
     ```
-5. Voeg de volgende coderegel toe aan de methode `Main` in de klasse `Program`.
+5. Voeg de volgende coderegel toe aan de methode `Main` in de klasse `Program`:
    
     ```csharp
     RunAsync().GetAwaiter().GetResult();
     ```
    
-    Zo zou het bestand Program.cs er moeten uitzien:
+    Het voltooide bestand Program.cs zou er als volgt moeten uitzien:
    
     ```csharp
     namespace Server

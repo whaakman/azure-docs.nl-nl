@@ -1,10 +1,13 @@
 ### <a name="create-a-nodejs-application"></a>Een Node.js-toepassing maken
-* Maak een nieuw JavaScript-bestand met de naam `sender.js`.
+
+Maak een nieuw JavaScript-bestand met de naam `sender.js`.
 
 ### <a name="add-the-relay-npm-package"></a>Het pakket Relay NPM toevoegen
-* Voer `npm install hyco-ws` uit vanaf een Node-opdrachtprompt in de projectmap.
+
+Voer `npm install hyco-ws` uit vanaf een Node-opdrachtprompt in de projectmap.
 
 ### <a name="write-some-code-to-send-messages"></a>Code schrijven om berichten te verzenden
+
 1. Plaats de volgende `constants` boven aan het bestand `sender.js`.
    
     ```js
@@ -15,12 +18,13 @@
             output: process.stdout
         });;
     ```
-2. Voeg de volgende Relay `constants` toe aan `sender.js` voor de verbindingsgegevens van de hybride verbinding. Vervang de tijdelijke aanduidingen tussen punthaken door de juiste waarden die zijn verkregen bij het maken van de hybride verbinding.
+2. Voeg de volgende constanten toe aan het bestand `sender.js` voor de gegevens van de hybride verbinding. Vervang de tijdelijke aanduidingen tussen punthaken door de waarden die u hebt verkregen bij het maken van de hybride verbinding.
    
-   1. `const ns`: de Relay-naamruimte (gebruik FQDN, bijvoorbeeld `{namespace}.servicebus.windows.net`)
-   2. `const path`: de naam van de hybride verbinding
-   3. `const keyrule`: de naam van de SAS-sleutel
-   4. `const key`: de waarde van de SAS-sleutel
+   1. `const ns`: de Relay-naamruimte. Zorg ervoor dat u de volledig gekwalificeerde naamruimte gebruikt, bijvoorbeeld `{namespace}.servicebus.windows.net`.
+   2. `const path`: de naam van de hybride verbinding.
+   3. `const keyrule`: de naam van de SAS-sleutel.
+   4. `const key`: de waarde van de SAS-sleutel.
+
 3. Voeg de volgende code toe aan het bestand `sender.js`:
    
     ```js
@@ -40,7 +44,7 @@
         }
     );
     ```
-    Zo zou het bestand listener.js er moeten uitzien:
+    Het bestand sender.js moet er als volgt uitzien:
    
     ```js
     const WebSocket = require('hyco-ws');
