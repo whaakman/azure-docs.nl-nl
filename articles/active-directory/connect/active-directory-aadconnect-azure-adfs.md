@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/27/2017
+ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
@@ -23,9 +23,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 07/04/2017
 
 ---
-<a id="deploying-active-directory-federation-services-in-azure" class="xliff"></a>
-
-# Active Directory Federation Services in Azure implementeren
+# <a name="deploying-active-directory-federation-services-in-azure"></a>Active Directory Federation Services in Azure implementeren
 AD FS biedt vereenvoudigde, beveiligde identiteitsfederatie en mogelijkheden voor eenmalige webaanmelding (SSO of Single Sign-on). Federatie met Azure AD of O365 biedt gebruikers de mogelijkheid om zich te verifiëren met on-premises referenties en toegang te krijgen tot alle bronnen in de cloud. Daarom is het echter wel heel belangrijk dat u beschikt over een maximaal beschikbare AD FS-infrastructuur voor toegang tot zowel on-premises resources als resources in de cloud. De implementatie van AD FS in Azure kan helpen met minimale inspanningen de vereiste hoge beschikbaarheid te bewerkstelligen.
 De implementatie van AD FS in Azure heeft verschillende voordelen, waaronder de volgende:
 
@@ -34,9 +32,7 @@ De implementatie van AD FS in Azure heeft verschillende voordelen, waaronder de 
 * **Grensoverschrijdende redundantie**: met de geografische redundantie van Azure kunt u er zeker van zijn dat uw infrastructuur maximaal beschikbaar is over de hele wereld
 * **Gemakkelijk te beheren**: met de sterk vereenvoudigde beheeropties in Azure Portal is het beheer van uw infrastructuur zeer eenvoudig en probleemloos 
 
-<a id="design-principles" class="xliff"></a>
-
-## Ontwerpprincipes
+## <a name="design-principles"></a>Ontwerpprincipes
 ![Implementatie-ontwerp](./media/active-directory-aadconnect-azure-adfs/deployment.png)
 
 In het bovenstaande diagram ziet u de aanbevolen basistopologie om de AD FS-infrastructuur in Azure te implementeren. Hieronder worden de beginselen van de verschillende onderdelen van de topologie toegelicht:
@@ -49,14 +45,10 @@ In het bovenstaande diagram ziet u de aanbevolen basistopologie om de AD FS-infr
 * **Opslagaccounts**: twee opslagaccounts worden aanbevolen. Het gebruik van één opslagaccount kan leiden tot het ontstaan van één potentieel risico waardoor de implementatie niet meer beschikbaar is in het onwaarschijnlijke scenario waarin het opslagaccount uitvalt. Met twee opslagaccounts kan er één opslagaccount worden gekoppeld aan elke storingslijn.
 * **Netwerkscheiding**: implementeer webtoepassingsproxyservers in een afzonderlijk DMZ-netwerk. U kunt één virtueel netwerk verdelen in twee subnetten en de webtoepassingsproxyserver(s) in een geïsoleerd subnet implementeren. U kunt gewoon de instellingen voor de netwerkbeveiligingsgroep voor elk subnet configureren en alleen de vereiste communicatie tussen de twee subnetten toestaan. Meer informatie vindt u hieronder per implementatiescenario
 
-<a id="steps-to-deploy-ad-fs-in-azure" class="xliff"></a>
-
-## Stappen voor het implementeren van AD FS in Azure
+## <a name="steps-to-deploy-ad-fs-in-azure"></a>Stappen voor het implementeren van AD FS in Azure
 De stappen die in deze sectie worden beschreven, vormen een handleiding voor de implementatie van de hieronder beschreven AD FS-infrastructuur in Azure.
 
-<a id="1-deploying-the-network" class="xliff"></a>
-
-### 1. Het netwerk implementeren
+### <a name="1-deploying-the-network"></a>1. Het netwerk implementeren
 Zoals hierboven is beschreven, kunt u twee subnetten in één virtueel netwerk maken, maar ook twee volledig verschillende virtuele netwerken (VNets). Dit artikel gaat over de implementatie van één virtueel netwerk en de verdeling daarvan in twee subnetten. Dit is momenteel een gemakkelijkere benadering, omdat u voor twee afzonderlijke VNets een VNet naar een VNet-gateway nodig hebt voor communicatie.
 
 **1.1 Virtueel netwerk maken**
@@ -108,16 +100,12 @@ U hebt een verbinding met on-premises nodig om de domeincontroller (DC) in Azure
 ExpressRoute heeft de voorkeur. Met ExpressRoute kunt u particuliere verbindingen maken tussen Azure-datacenters en infrastructuur on-premises of in een co-locatie-omgeving. ExpressRoute-verbindingen gaan niet via het openbare internet. Dat maakt ze betrouwbaarder en sneller, en geeft ze lagere latenties en een betere beveiliging dan gewone verbindingen via internet.
 Hoewel ExpressRoute wordt aanbevolen, kunt u elke verbindingsmethode kiezen die het meest geschikt is voor uw organisatie. Zie [Technisch overzicht van ExpressRoute](https://aka.ms/Azure/ExpressRoute) voor meer informatie over ExpressRoute en de verschillende connectiviteitsopties met ExpressRoute.
 
-<a id="2-create-storage-accounts" class="xliff"></a>
-
-### 2. Opslagaccount maken
+### <a name="2-create-storage-accounts"></a>2. Opslagaccount maken
 Als u een hoge beschikbaarheid wilt behouden en afhankelijkheid van één opslagaccount wilt vermijden, kunt u twee opslagaccounts maken. Verdeel de machines in elke beschikbaarheidsset in twee groepen en wijs vervolgens aan elke groep een afzonderlijk opslagaccount toe.
 
 ![Opslagaccount maken](./media/active-directory-aadconnect-azure-adfs/storageaccount1.png)
 
-<a id="3-create-availability-sets" class="xliff"></a>
-
-### 3. Beschikbaarheidssets maken
+### <a name="3-create-availability-sets"></a>3. Beschikbaarheidssets maken
 Maak voor elke rol (DC/AD FS en WAP) beschikbaarheidssets die minimaal twee machines bevatten. Hiermee kunt u een hogere beschikbaarheid voor elke rol bereiken. Bij het maken van de beschikbaarheidssets is het essentieel dat u de volgende zaken bepaalt:
 
 * **Foutdomeinen**: virtuele machines in hetzelfde foutdomein delen dezelfde voedingsbron en fysieke netwerkswitch. Minimaal twee foutdomeinen worden aanbevolen. De standaardwaarde is 3. U kunt dit voor deze implementatie zo laten staan
@@ -132,9 +120,7 @@ Maak de volgende beschikbaarheidssets
 | contosodcset |DC/ADFS |3 |5 |
 | contosowapset |WAP |3 |5 |
 
-<a id="4-deploy-virtual-machines" class="xliff"></a>
-
-### 4. Virtuele machines implementeren
+### <a name="4-deploy-virtual-machines"></a>4. Virtuele machines implementeren
 In de volgende stap gaat u de virtuele machines implementeren waarop de verschillende rollen in uw infrastructuur worden uitgevoerd. De aanbevolen configuratie is minimaal twee machines per beschikbaarheidsset. Maak voor de basisimplementatie vier virtuele machines.
 
 | Machine | Rol | Subnet | Beschikbaarheidsset | Storage-account | IP-adres |
@@ -150,9 +136,7 @@ Wanneer de implementatie is voltooid, moet het deelvenster van de virtuele machi
 
 ![Virtuele machines geïmplementeerd](./media/active-directory-aadconnect-azure-adfs/virtualmachinesdeployed_noadfs.png)
 
-<a id="5-configuring-the-domain-controller--ad-fs-servers" class="xliff"></a>
-
-### 5. De domeincontroller/AD FS-servers configureren
+### <a name="5-configuring-the-domain-controller--ad-fs-servers"></a>5. De domeincontroller/AD FS-servers configureren
  Om inkomende aanvragen te kunnen verifiëren, moet AD FS contact opnemen met de domeincontroller. Om de kostbare reis van Azure naar on-premises DC voor verificatie te besparen, wordt u geadviseerd om een replica van de domeincontroller in Azure te implementeren. Voor hoge beschikbaarheid doet u er verstandig aan een beschikbaarheidsset van ten minste twee domeincontrollers te maken.
 
 | Domeincontroller | Rol | Storage-account |
@@ -163,9 +147,7 @@ Wanneer de implementatie is voltooid, moet het deelvenster van de virtuele machi
 * Wijzig het niveau van de twee servers in replicadomeincontrollers bij DNS
 * Configureer de AD FS-servers door met serverbeheer de AD FS-rol te installeren.
 
-<a id="6-deploying-internal-load-balancer-ilb" class="xliff"></a>
-
-### 6. Interne load balancer (ILB) implementeren
+### <a name="6-deploying-internal-load-balancer-ilb"></a>6. Interne load balancer (ILB) implementeren
 **6.1. De ILB maken**
 
 U implementeert een ILB door in Azure Portal Load Balancers te selecteren en op Toevoegen (+) te klikken.
@@ -226,9 +208,7 @@ Voor een doeltreffende verdeling van het verkeer moet de ILB worden geconfiguree
 Ga naar de DNS-server en maak een CNAME voor de ILB. Dit moet de CNAME zijn voor de federatieservice met het IP-adres dat verwijst naar het IP-adres van de ILB. Als het IP-adres van de ILB bijvoorbeeld 10.3.0.8 is en de geïnstalleerde federatieservice fs.contoso.com is, maakt u een CNAME voor fs.contoso.com die naar 10.3.0.8 verwijst.
 Op die manier komt alle communicatie met betrekking tot fs.contoso.com terecht bij de ILB en wordt deze correct gerouteerd.
 
-<a id="7-configuring-the-web-application-proxy-server" class="xliff"></a>
-
-### 7. De webtoepassingsproxyserver configureren
+### <a name="7-configuring-the-web-application-proxy-server"></a>7. De webtoepassingsproxyserver configureren
 **7.1. De webtoepassingsproxyservers configureren om de AD FS-servers te bereiken**
 
 U moet ervoor zorgen dat de webtoepassingsproxyservers de AD FS-servers achter de ILB kunnen bereiken. Daarom maakt u in de map %systemroot%\system32\drivers\etc\hosts een record voor de ILB. De DN-naam (Distinguished Name) moet de naam van de federatieservice zijn, bijvoorbeeld fs.contoso.com. De IP-vermelding moet het IP-adres van de ILB zijn (in het voorbeeld is dit 10.3.0.8).
@@ -238,9 +218,7 @@ U moet ervoor zorgen dat de webtoepassingsproxyservers de AD FS-servers achter d
 Nadat u ervoor hebt gezorgd dat de webtoepassingsproxyservers de AD FS-servers achter de ILB kunnen bereiken, kunt u de webtoepassingsproxyservers installeren. Webtoepassingsproxyservers hoeven niet te worden toegevoegd aan het domein. Installeer de webtoepassingsproxyrollen op de twee webtoepassingsproxyservers door de rol Externe toegang te selecteren. Serverbeheer leidt u door de WAP-installatie.
 Zie [De webtoepassingsproxyserver installeren en configureren](https://technet.microsoft.com/library/dn383662.aspx) voor meer informatie over het implementeren van WAP.
 
-<a id="8--deploying-the-internet-facing-public-load-balancer" class="xliff"></a>
-
-### 8.  De internetgerichte (openbare) load balancer implementeren
+### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  De internetgerichte (openbare) load balancer implementeren
 **8.1.  Internetgerichte (openbare) load balancer maken**
 
 Selecteer Load Balancers in Azure Portal en klik op Toevoegen. Voer in het deelvenster Load Balancer maken de volgende informatie in
@@ -285,9 +263,7 @@ Volg dezelfde stappen als in ILB om de taakverdelingsregel voor TCP 443 te confi
 
 ![Taakverdelingsregels van internetgerichte load balancer configureren](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
 
-<a id="9-securing-the-network" class="xliff"></a>
-
-### 9. Het netwerk beveiligen
+### <a name="9-securing-the-network"></a>9. Het netwerk beveiligen
 **9.1. Het interne subnet beveiligen**
 
 Over het algemeen hebt u de volgende regels nodig om het interne subnet doeltreffend te beveiligen (in de hieronder vermelde volgorde)
@@ -317,9 +293,7 @@ Over het algemeen hebt u de volgende regels nodig om het interne subnet doeltref
 > 
 > 
 
-<a id="10-test-the-ad-fs-sign-in" class="xliff"></a>
-
-### 10. De aanmelding bij AD FS testen
+### <a name="10-test-the-ad-fs-sign-in"></a>10. De aanmelding bij AD FS testen
 De gemakkelijkste manier om AD FS te testen, is met de pagina IdpInitiatedSignon.aspx. Daartoe moet IdpInitiatedSignOn in de eigenschappen van AD FS worden ingeschakeld. Volg onderstaande stappen om uw AD FS-installatie te controleren
 
 1. Voer onderstaande cmdlet met PowerShell uit op de AD FS-server om deze in te schakelen.
@@ -333,9 +307,7 @@ Bij een geslaagde aanmelding wordt een soortgelijk positief bericht weergegeven:
 
 ![Test geslaagd](./media/active-directory-aadconnect-azure-adfs/test2.png)
 
-<a id="template-for-deploying-ad-fs-in-azure" class="xliff"></a>
-
-## Sjabloon voor de implementatie van AD FS in Azure
+## <a name="template-for-deploying-ad-fs-in-azure"></a>Sjabloon voor de implementatie van AD FS in Azure
 De sjabloon implementeert een installatie voor 6 machines, 2 elk voor domeincontrollers, AD FS en WAP.
 
 [Implementatiesjabloon voor AD FS in Azure](https://github.com/paulomarquesc/adfs-6vms-regular-template-based)
@@ -370,9 +342,7 @@ U kunt een bestaand virtueel netwerk gebruiken of een nieuw VNET maken tijdens h
 | AdminUserName |De naam van de lokale beheerder van de virtuele machines |
 | AdminPassword |Het wachtwoord van de lokale beheerdersaccount van de virtuele machines |
 
-<a id="additional-resources" class="xliff"></a>
-
-## Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende bronnen
 * [Beschikbaarheidssets](https://aka.ms/Azure/Availability) 
 * [Azure Load Balancer](https://aka.ms/Azure/ILB)
 * [Interne load balancer](https://aka.ms/Azure/ILB/Internal)
@@ -381,9 +351,7 @@ U kunt een bestaand virtueel netwerk gebruiken of een nieuw VNET maken tijdens h
 * [Virtuele netwerken van Azure](https://aka.ms/Azure/VNet)
 * [Koppelingen voor AD FS en webtoepassingsproxy](http://aka.ms/ADFSLinks) 
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * [Uw on-premises identiteiten integreren met Azure Active Directory](active-directory-aadconnect.md)
 * [De AD FS configureren en beheren met Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [AD FS-implementaties in meerdere regio’s in Azure, met maximale beschikbaarheid dankzij Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
