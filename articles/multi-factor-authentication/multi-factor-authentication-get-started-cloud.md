@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 554931e96e073ec2f2f68df2297e1ee21f5eda87
+ms.contentlocale: nl-nl
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Aan de slag met Azure Multi-Factor Authentication in de cloud
@@ -77,24 +77,28 @@ Als u de [status](multi-factor-authentication-whats-next.md) met [Azure AD Power
 
 Het gebruik van PowerShell is dan een optie om bulksgewijs gebruikers in te schakelen. Momenteel bevat Azure Portal geen functie voor het bulksgewijs inschakelen van gebruikers, en dus moet u elke gebruiker afzonderlijk selecteren. Dit kan veel tijd kosten als u een groot aantal gebruikers hebt. Als u een PowerShell-script maakt met behulp van het onderstaande, kunt u door een lijst met gebruikers gaan en ze inschakelen.
 
-        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
-        $st.State = “Enabled”
-        $sta = @($st)
-        Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
+```PowerShell
+
+$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+$st.RelyingParty = "*"
+$st.State = "Enabled"
+$sta = @($st)
+Set-MsolUser -UserPrincipalName "bsimon@contoso.com" -StrongAuthenticationRequirements $sta
+```
 
 Hier volgt een voorbeeld:
 
-    $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
-    foreach ($user in $users)
-    {
-        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
-        $st.State = “Enabled”
-        $sta = @($st)
-        Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
-    }
-
+```Powershell
+$users = @("bsimon@contoso.com", "jsmith@contoso.com", "ljacobson@contoso.com")
+foreach ($user in $users)
+{
+   $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+   $st.RelyingParty = "*"
+   $st.State = "Enabled"
+   $sta = @($st)
+   Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
+}
+```
 
 Zie voor meer informatie [Gebruikersstatussen in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
 

@@ -20,18 +20,13 @@ ms.openlocfilehash: 8a5d0c60e101f4038dff6f76c8f23dbb2b44661c
 ms.contentlocale: nl-nl
 ms.lasthandoff: 06/28/2017
 
-
 ---
-<a id="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure" class="xliff"></a>
-
-# Een Node.js-RESTful-API maken en deze implementeren in een API-app in Azure
+# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Een Node.js-RESTful-API maken en deze implementeren in een API-app in Azure
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 In deze snelstartgids wordt uitgelegd hoe u een [Express](http://expressjs.com/)-framework REST API in Node.js kunt maken met behulp van een [Swagger](http://swagger.io/)-definitie en deze kunt implementeren als een [API-app](app-service-api-apps-why-best-platform.md) op Azure. U maakt de app met opdrachtregelprogramma's, configureert resources met de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) en implementeert de app met Git.  Wanneer u klaar bent, hebt u een werkende voorbeeld-REST API die wordt uitgevoerd op Azure.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 * [Git](https://git-scm.com/)
 * [Node.js en NPM](https://nodejs.org/)
@@ -42,9 +37,7 @@ In deze snelstartgids wordt uitgelegd hoe u een [Express](http://expressjs.com/)
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
-<a id="prepare-your-environment" class="xliff"></a>
-
-## Uw omgeving voorbereiden
+## <a name="prepare-your-environment"></a>Uw omgeving voorbereiden
 
 1. Voer in een terminalvenster de volgende opdracht uit om het voorbeeld naar uw lokale machine te klonen.
 
@@ -65,9 +58,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
     npm install -g generator-swaggerize
     ```
 
-<a id="generate-nodejs-code" class="xliff"></a>
-
-## Node.js-code genereren 
+## <a name="generate-nodejs-code"></a>Node.js-code genereren 
 
 In deze sectie van de zelfstudie wordt een API-ontwikkelingswerkstroom getoond waarin u eerst Swagger-metagegevens maakt en deze vervolgens gebruikt om automatisch servercode voor de API te genereren. 
 
@@ -89,9 +80,7 @@ Wijzig de map naar de map *start* en voer `yo swaggerize` uit. Swaggerize maakt 
    ? Your email: frank@fabrikam.net
    ```
    
-<a id="customize-the-project-code" class="xliff"></a>
-
-## De projectcode aanpassen
+## <a name="customize-the-project-code"></a>De projectcode aanpassen
 
 1. Kopieer de map *lib* naar de map *ContactList* die door `yo swaggerize` is gemaakt en wijzig de map naar *ContactList*.
 
@@ -149,6 +138,9 @@ Wijzig de map naar de map *start* en voer `yo swaggerize` uit. Swaggerize maakt 
     var swaggerize = require('swaggerize-express');
     var swaggerUi = require('swaggerize-ui'); 
     var path = require('path');
+    var fs = require("fs");
+    
+    fs.existsSync = fs.existsSync || require('path').existsSync;
 
     var app = express();
 
@@ -173,9 +165,7 @@ Wijzig de map naar de map *start* en voer `yo swaggerize` uit. Swaggerize maakt 
 
     Deze code brengt een aantal kleine wijzigingen aan zodat deze werkt met Azure App Service en maakt een interactieve webinterface voor uw API beschikbaar.
 
-<a id="test-the-api-locally" class="xliff"></a>
-
-### De API lokaal testen
+### <a name="test-the-api-locally"></a>De API lokaal testen
 
 1. De Node.js-app starten
     ```bash
@@ -239,9 +229,7 @@ In deze sectie kunt u de Azure CLI 2.0 gebruiken om de resources te maken om de 
 5. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
 
 
-<a id="deploy-the-api-with-git" class="xliff"></a>
-
-## De API implementeren met Git
+## <a name="deploy-the-api-with-git"></a>De API implementeren met Git
 
 Implementeer uw code in de API-app door doorvoeracties van uw lokale Git-opslagplaats naar Azure App Service te pushen.
 
@@ -268,9 +256,7 @@ Implementeer uw code in de API-app door doorvoeracties van uw lokale Git-opslagp
 
 5. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
  
-<a id="test-the-api--in-azure" class="xliff"></a>
-
-## De API testen in Azure
+## <a name="test-the-api--in-azure"></a>De API testen in Azure
 
 1. Open http://app_name.azurewebsites.net/contacts in een browservenster. Dezelfde JSON wordt geretourneerd als toen u de aanvraag eerder in de zelfstudie lokaal indiende.
 
@@ -298,9 +284,7 @@ Implementeer uw code in de API-app door doorvoeracties van uw lokale Git-opslagp
 
     U kunt nu updates voor de voorbeeld-API implementeren in Azure door doorvoeracties naar de Azure Git-opslagplaats te pushen.
 
-<a id="clean-up" class="xliff"></a>
-
-## Opruimen
+## <a name="clean-up"></a>Opruimen
 
 Voer de volgende Azure CLI-opdracht uit als u alle resources wilt verwijderen die door deze snelstartgids zijn gemaakt:
 
@@ -308,9 +292,7 @@ Voer de volgende Azure CLI-opdracht uit als u alle resources wilt verwijderen di
 az group delete --name myResourceGroup
 ```
 
-<a id="next-step" class="xliff"></a>
-
-## Volgende stap 
+## <a name="next-step"></a>Volgende stap 
 > [!div class="nextstepaction"]
 > [API-apps van JavaScript-clients gebruiken met CORS](app-service-api-cors-consume-javascript.md)
 
