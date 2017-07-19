@@ -65,7 +65,7 @@ In de voorbeelden in dit artikel worden de volgende waarden gebruikt. U kunt dez
   * FrontEnd: 10.11.0.0/24
   * Back-end: 10.12.0.0/24 (optioneel voor deze oefening)
 * **Gatewaysubnet**: 10.11.255.0/27
-* **Resourcegroep: **TestRG1
+* **Resourcegroep:** TestRG1
 * **Locatie:** VS - oost
 * **DNS-server:** 8.8.8.8 (optioneel voor deze oefening)
 * **Lokale sitenaam:** Site2

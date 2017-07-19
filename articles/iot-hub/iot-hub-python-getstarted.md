@@ -77,6 +77,8 @@ Dit gedeelte bevat de stappen om een Python-console-app te maken die een apparaa
     CONNECTION_STRING = "[IoTHub Connection String]"
     DEVICE_ID = "MyFirstPythonDevice"
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 3. Voeg de volgende functie toe om bepaalde apparaatgegevens af te drukken.
 
     ```python
