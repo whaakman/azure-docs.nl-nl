@@ -94,6 +94,8 @@ In dit gedeelte gaat u een Node.js-consoletoepassing maken die een apparaat-id m
       }
     }
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 7. Sla het bestand **CreateDeviceIdentity.js** op en sluit het.
 8. Als u de toepassing **createdeviceidentity** wilt uitvoeren, geeft u de volgende opdracht op in het opdrachtprompt in de map createdeviceidentity:
    

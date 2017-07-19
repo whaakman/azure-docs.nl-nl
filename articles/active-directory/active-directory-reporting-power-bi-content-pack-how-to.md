@@ -20,15 +20,13 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/22/2017
 
 ---
-# Azure Active Directory Power BI Content Pack gebruiken
-<a id="how-to-use-the-azure-active-directory-power-bi-content-pack" class="xliff"></a>
+# <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI Content Pack gebruiken
 
 Voor u als IT-beheerder is het enorm belangrijk om te weten hoe uw gebruikers functies van Azure Active Directory implementeren en gebruiken. Deze informatie is vereist om uw IT-infrastructuur en communicatie te plannen om zo het gebruik van AAD-functies te vergroten en het rendement te optimaliseren. Power BI Content Pack voor Azure Active Directory biedt u de mogelijkheid om uw gegevens verder te analyseren, zodat u begrijpt hoe u deze gegevens kunt gebruiken voor het verzamelen van inzichten die nog beter laten zien hoe Azure Active Directory wordt ingezet voor de verschillende toepassingsmogelijkheden die een belangrijke rol spelen in uw organisatie.  Met de integratie van Azure Active Directory-API's in Power BI kunt u eenvoudig de vooraf samengestelde inhoudspakketten downloaden en met behulp van de krachtige visualisatie-opties van Power BI inzicht verkrijgen in alle activiteiten binnen uw Azure Active Directory. U kunt uw eigen dashboard maken en dit dashboard vervolgens eenvoudig delen met andere personen binnen uw organisatie. 
 
 In dit onderwerp krijgt u stapsgewijze instructies voor het installeren en gebruiken van het inhoudspakket in uw omgeving.
 
-## Installeren
-<a id="installation" class="xliff"></a>  
+## <a name="installation"></a>Installeren  
 
 **Power BI Content Pack installeren:**
 
@@ -69,13 +67,11 @@ In dit onderwerp krijgt u stapsgewijze instructies voor het installeren en gebru
  
     ![Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/08.png) 
 
-## Wat kan ik doen met dit inhoudspakket?
-<a id="what-can-i-do-with-this-content-pack" class="xliff"></a>
+## <a name="what-can-i-do-with-this-content-pack"></a>Wat kan ik doen met dit inhoudspakket?
 
 Voordat we gaan bespreken wat u allemaal kunt doen met dit inhoudspakket, krijgt u eerst een kort overzicht van de verschillende rapporten in het inhoudspakket. De rapportgegevens hebben betrekking op de **afgelopen 30 dagen**.
 
-### Rapporten die zijn opgenomen in deze versie van het inhoudspakket met Azure Active Directory-logboeken
-<a id="reports-included-in-this-version-of-azure-active-directory-logs-content-pack" class="xliff"></a>
+### <a name="reports-included-in-this-version-of-azure-active-directory-logs-content-pack"></a>Rapporten die zijn opgenomen in deze versie van het inhoudspakket met Azure Active Directory-logboeken
 
 **App-gebruik en trends**: krijg een duidelijk beeld van de apps die worden gebruikt in uw organisatie en welke apps het meest worden gebruikt en wanneer. Gebruik dit rapport om inzicht te krijgen in de manier waarop een app die u onlangs hebt uitgerold in uw organisatie, wordt gebruikt of om vast te stellen welke apps populair zijn. Aan de hand van deze informatie kunt u het gebruik van de app verbeteren als deze momenteel niet wordt gebruikt.
 
@@ -87,7 +83,7 @@ Voordat we gaan bespreken wat u allemaal kunt doen met dit inhoudspakket, krijgt
  
 U kunt inzoomen op details door op een bepaalde datum of locatie te klikken.
 
-**Unieke gebruikers per app**: bekijk een weergave van alle unieke gebruikers die een bepaalde app gebruiken. Het betreft hier alleen gebruikers die het** gelukt is om zich aan te melden bij een toepassing.
+**Unieke gebruikers per app**: bekijk een weergave van alle unieke gebruikers die een bepaalde app gebruiken. Het betreft hier alleen gebruikers die *het* gelukt is om zich aan te melden bij een toepassing.
 
 **Apparaataanmeldingen**: bekijk gegevens over het type besturingssysteem en de browsers die door gebruikers in uw organisatie worden gebruikt, met inbegrip van de volgende gedetailleerde informatie over de gebruikers:
 
@@ -100,8 +96,7 @@ Met dit rapport kunt u een beeld krijgen van de verschillende apparaatprofielen 
 
 **SSPR-trechter**: bekijk informatie over de manier waarop wachtwoorden opnieuw worden ingesteld in uw organisatie. U kunt zien hoe vaak er is geprobeerd een wachtwoord opnieuw in te stellen via het hulpprogramma SSPR en hoe vaak dit is gelukt. Analyseer de SSPR-trechter om te achterhalen waarom het in bepaalde gevallen niet lukt om wachtwoorden opnieuw in te stellen met SSPR. Dit rapport geeft een beter beeld van de manier waarop het SSPR-hulpprogramma wordt ingezet binnen uw organisatie, zodat u de juiste beslissingen kunt nemen.
 
-## Het inhoudspakket Azure AD-activiteit aanpassen
-<a id="customizing-azure-ad-activity-content-pack" class="xliff"></a>
+## <a name="customizing-azure-ad-activity-content-pack"></a>Het inhoudspakket Azure AD-activiteit aanpassen
 
 **Visualisatie wijzigen**: u kunt een rapportvisualisatie wijzigen door te klikken op **Rapport bewerken** en de gewenste visualisatie te selecteren.
  
@@ -129,15 +124,13 @@ Met dit rapport kunt u een beeld krijgen van de verschillende apparaatprofielen 
 
 
 
-## Dagelijks vernieuwen van het Power BI-rapport plannen
-<a id="scheduling-a-daily-refresh-of-your-power-bi-report" class="xliff"></a>
+## <a name="scheduling-a-daily-refresh-of-your-power-bi-report"></a>Dagelijks vernieuwen van het Power BI-rapport plannen
 
 Als u het Power BI-rapport dagelijks automatisch wilt bijwerken, gaat u naar **Gegevenssets > Instellingen > Geplande vernieuwing** en geeft u de onderstaande instellingen op.
  
 ![Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/15.png) 
 
-## Bijwerken naar een nieuwere versie van het inhoudspakket
-<a id="updating-to-newer-version-of-content-pack" class="xliff"></a>
+## <a name="updating-to-newer-version-of-content-pack"></a>Bijwerken naar een nieuwere versie van het inhoudspakket
 
 Als u uw inhoudspakket wilt bijwerken naar een nieuwere versie:
 
@@ -149,8 +142,7 @@ Als u uw inhoudspakket wilt bijwerken naar een nieuwere versie:
 
 Zodra de nieuwe versie van het inhoudspakket zonder problemen werkt, kunt u de oude versie desgewenst verwijderen door de onderliggende rapporten en gegevenssets te verwijderen die aan dat inhoudspakket zijn gekoppeld.
 
-## Nog steeds problemen?
-<a id="still-having-issues" class="xliff"></a> 
+## <a name="still-having-issues"></a>Nog steeds problemen? 
 
 Raadpleeg onze [handleiding voor het oplossen van problemen](active-directory-reporting-troubleshoot-content-pack.md). Voor algemene hulp met Power BI raadpleegt u deze [Help-artikelen](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-started/).
  

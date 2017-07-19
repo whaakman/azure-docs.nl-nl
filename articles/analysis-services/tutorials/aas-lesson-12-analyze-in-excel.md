@@ -22,9 +22,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-12-analyze-in-excel" class="xliff"></a>
-
-# Les 12: Analyseren in Excel
+# <a name="lesson-12-analyze-in-excel"></a>Les 12: Analyseren in Excel
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -34,19 +32,13 @@ U kunt deze les alleen voltooien als Excel is geïnstalleerd op dezelfde compute
   
 Geschatte tijd voor het voltooien van deze les: **5 minuten**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten  
+## <a name="prerequisites"></a>Vereisten  
 Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 11: Rollen maken](../tutorials/aas-lesson-11-create-roles.md).  
   
-<a id="browse-using-the-default-and-internet-sales-perspectives" class="xliff"></a>
-
-## Bladeren met behulp van de perspectieven Default en Internet Sales  
+## <a name="browse-using-the-default-and-internet-sales-perspectives"></a>Bladeren met behulp van de perspectieven Default en Internet Sales  
 In deze eerste taken gaat u door het model bladeren met behulp van zowel het perspectief Default, dat alle modelobjecten bevat, als het perspectief Internet Sales dat u eerder hebt gemaakt. Het perspectief Internet Sales zorgt ervoor dat het tabelobject DimCustomer wordt uitgesloten van weergave.  
   
-<a id="to-browse-by-using-the-default-perspective" class="xliff"></a>
-
-#### Bladeren met behulp van het perspectief Default:  
+#### <a name="to-browse-by-using-the-default-perspective"></a>Bladeren met behulp van het perspectief Default:  
   
 1.  Klik op het menu **Model** > **Analyze in Excel**.  
   
@@ -54,13 +46,11 @@ In deze eerste taken gaat u door het model bladeren met behulp van zowel het per
   
     Excel wordt geopend met een nieuwe werkmap. Er wordt met behulp van het huidige gebruikersaccount verbinding gemaakt met de gegevensbron en het perspectief Default wordt gebruikt om te bepalen welke velden worden weergegeven. Er wordt automatisch een draaitabel toegevoegd aan het werkblad.  
   
-3.  U ziet dat in**** de lijst met draaitabellen in Excel de metinggroepen **DimDate** en **FactInternetSales** worden weergegeven. De tabellen **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** en **FactInternetSales** met de bijbehorende kolommen worden ook weergegeven.  
+3.  U ziet dat in**de lijst met** draaitabellen in Excel de metinggroepen **DimDate** en **FactInternetSales** worden weergegeven. De tabellen **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** en **FactInternetSales** met de bijbehorende kolommen worden ook weergegeven.  
   
 4.  Sluit Excel af zonder de werkmap op te slaan.  
   
-<a id="to-browse-by-using-the-internet-sales-perspective" class="xliff"></a>
-
-#### Bladeren met behulp van het perspectief Internet Sales:  
+#### <a name="to-browse-by-using-the-internet-sales-perspective"></a>Bladeren met behulp van het perspectief Internet Sales:  
   
 1.  Klik op het menu **Model** en klik vervolgens op **Analyze in Excel**.  
   
@@ -74,14 +64,10 @@ In deze eerste taken gaat u door het model bladeren met behulp van zowel het per
     
 4.  Sluit Excel af zonder de werkmap op te slaan.  
   
-<a id="browse-by-using-roles" class="xliff"></a>
-
-## Bladeren met behulp van rollen  
+## <a name="browse-by-using-roles"></a>Bladeren met behulp van rollen  
 Rollen zijn een belangrijk onderdeel van elke tabellair model. Gebruikers kunnen alleen gegevens raadplegen en analyseren met behulp van het model als ze ten minste één rol hebben. De functie Analyse in Excel is een manier om de rollen te testen die u hebt gedefinieerd.  
   
-<a id="to-browse-by-using-the-sales-manager-user-role" class="xliff"></a>
-
-#### Bladeren met behulp van de gebruikersrol Sales Manager:  
+#### <a name="to-browse-by-using-the-sales-manager-user-role"></a>Bladeren met behulp van de gebruikersrol Sales Manager:  
   
 1.  Klik in SSDT op het menu **Model** en klik vervolgens op **Analyze in Excel**.  
   
@@ -91,9 +77,7 @@ Rollen zijn een belangrijk onderdeel van elke tabellair model. Gebruikers kunnen
       
 3.  Sluit Excel af zonder de werkmap op te slaan.  
   
-<a id="whats-next" class="xliff"></a>
-
-## Volgende stappen
+## <a name="whats-next"></a>Volgende stappen
 Ga naar de volgende les: [Les 13: Implementeren](../tutorials/aas-lesson-13-deploy.md).
 
   

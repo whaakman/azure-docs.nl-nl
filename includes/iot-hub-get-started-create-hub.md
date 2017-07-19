@@ -10,6 +10,8 @@ Een IoT Hub maken waarmee uw gesimuleerde apparaat-app verbinding kan maken. De 
     ![Blade IoT Hub][2]
    
    1. In het vak **Naam** typt u een naam voor uw IoT Hub. Als de **naam** geldig en beschikbaar is, verschijnt er een groen vinkje in het vak **Naam**.
+    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
+   
    1. Selecteer een [prijs- en schaalcategorie][lnk-pricing]. Voor deze zelfstudie is geen bepaalde laag vereist. Gebruik voor deze zelfstudie de gratis F1-laag.
    1. Maak in **Resourcegroep** een nieuwe resourcegroep of selecteer een bestaande. Zie [Resourcegroepen gebruiken om Azure-resources te beheren][lnk-resource-groups] voor meer informatie.
    1. In **Locatie** selecteert u de locatie voor het hosten van uw IoT Hub. Voor deze zelfstudie kiest uw dichtstbijzijnde locatie.
