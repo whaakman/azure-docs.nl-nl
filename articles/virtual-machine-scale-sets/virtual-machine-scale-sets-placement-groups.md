@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/7/2017
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: a226bdfeb1e1e70f31b2728db594042578e5f21f
-ms.openlocfilehash: 7ccb76695a6ca0d9f1ff79f05de6a5c071510a43
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 9e9eae1623e55c1c05e97aa0b836819ce5dc16f9
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Werken met grote virtuele-machineschaalsets
@@ -41,7 +42,7 @@ Overweeg de volgende vereisten voordat u beslist of uw toepassing doeltreffend g
 - Laag-7 taakverdeling met de Azure Application Gateway wordt voor alle schaalsets ondersteund.
 - Een schaalset wordt gedefinieerd met één subnet. Zorg dat het subnet een adresruimte heeft die groot genoeg is voor alle virtuele machines die u nodig hebt. Standaard wordt een schaalset te groot ingericht (dat wil zeggen dat er tijdens de implementatie of bij het uitschalen extra virtuele machines worden gemaakt, waarvoor u niet hoeft te betalen), om de betrouwbaarheid en prestaties van de implementatie te verbeteren. Zorg daarom voor een adresruimte die 20% groter is dan het aantal virtuele machines waarnaar u wilt gaan schalen.
 - Als u veel virtuele machines wilt gaan implementeren, moeten de quotumlimieten voor uw rekenkernen mogelijk worden verhoogd.
-- Fout- en upgradedomeinen zijn alleen consistent binnen een plaatsingsgroep. Deze architectuur verandert niet de algemene beschikbaarheid van een schaalset, omdat virtuele machines evenredig worden verdeeld over verschillende fysieke hardware. Als u moet garanderen dat twee virtuele machines zich op verschillende hardware bevinden, betekent dit echter wel dat u ervoor moet zorgen dat ze zich in verschillende foutdomeinen in dezelfde plaatsingsgroep bevinden. Het foutdomein en de id van de plaatsingsgroep worden weergegeven in de _exemplaarweergave _ van een schaalset-VM. U kunt de exemplaarweergave van een schaalset-VM bekijken in de [Azure Resource Explorer](https://resources.azure.com/).
+- Fout- en upgradedomeinen zijn alleen consistent binnen een plaatsingsgroep. Deze architectuur verandert niet de algemene beschikbaarheid van een schaalset, omdat virtuele machines evenredig worden verdeeld over verschillende fysieke hardware. Als u moet garanderen dat twee virtuele machines zich op verschillende hardware bevinden, betekent dit echter wel dat u ervoor moet zorgen dat ze zich in verschillende foutdomeinen in dezelfde plaatsingsgroep bevinden. Het foutdomein en de id van de plaatsingsgroep worden weergegeven in de _exemplaarweergave_  van een schaalset-VM. U kunt de exemplaarweergave van een schaalset-VM bekijken in de [Azure Resource Explorer](https://resources.azure.com/).
 
 
 ## <a name="creating-a-large-scale-set"></a>Een grote schaalset maken
@@ -85,14 +86,5 @@ Als u een bestaande VM-schaalset geschikt wilt maken voor schaling naar meer dan
 >[!NOTE] 
 U kunt een schaalset zo wijzigen dat deze in plaats van slechts één plaatsingsgroep (de standaardinstelling) ondersteuning biedt voor meerdere plaatsingsgroepen. Andersom is echter niet mogelijk. Zorg daarom dat u begrijpt waarvoor de eigenschappen van grote schaalsets dienen, voordat u deze converteert. Zorg er met name voor dat u laag-4 taakverdeling niet nodig hebt met de Azure Load Balancer.
 
-## <a name="additional-notes"></a>Aanvullende opmerkingen
-Ondersteuning voor grote schaalsets, schaalsets waaraan gegevensschijven zijn gekoppeld en Azure Managed Disks zijn toegevoegd aan de [_preview-versie van&30;-4-2016_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) van de Microsoft.Compute API. U kunt elke SDK of elk opdrachtregelhulpprogramma gemaakt met deze of een hogere versie van de API gebruiken.
-
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
