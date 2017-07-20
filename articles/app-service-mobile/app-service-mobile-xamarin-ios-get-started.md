@@ -3,7 +3,7 @@ title: Aan de slag met Azure App Service Mobile Apps voor Xamarin.iOS-apps | Mic
 description: Volg deze zelfstudie om aan de slag te gaan met Mobile Apps voor Xamarin.iOS-ontwikkeling.
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: ed289d0755bbad08de01b0f311d14f5514ce0631
+ms.contentlocale: nl-nl
 ms.lasthandoff: 02/16/2017
-
 
 ---
 # <a name="create-a-xamarinios-app"></a>Een Xamarin.iOS-app maken
@@ -38,8 +38,8 @@ Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden vol
 
 > [!NOTE]
 > Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/mobile/). U kunt onmiddellijk een tijdelijke en eenvoudige mobiele app maken in App Service: u hebt geen creditcard nodig en u bent tot niets verplicht.
-> 
-> 
+>
+>
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Een back-end voor mobiele apps van Azure maken
 Volg deze stappen voor het maken van een back-end voor mobiele apps.
@@ -56,24 +56,24 @@ Volg de onderstaande stappen voor het configureren van het serverproject voor he
 ## <a name="download-and-run-the-xamarinios-app"></a>De Xamarin iOS-app downloaden en uitvoeren
 1. Open de [Azure Portal] in een browservenster.
 2. Klik op de blade Instellingen voor uw Mobile App op **Aan de slag** > **Xamarin.iOS**. Klik in stap 3 op **Een nieuwe app maken** als deze optie nog niet is geselecteerd.  Klik vervolgens op de knop **Downloaden**.
-   
+
       Een clienttoepassing die verbinding maakt met uw mobiele back-end wordt gedownload. Sla het gecomprimeerde projectbestand op uw lokale computer op en noteer de opslaglocatie.
 3. Pak het project uit dat u hebt gedownload en open het in Xamarin Studio (of Visual Studio).
-   
+
     ![][9]
-   
+
     ![][8]
 4. Druk op F5 om het project te bouwen en de app te starten in de iPhone-emulator.
 5. Typ in de app zinvolle tekst, zoals *Xamarin leren kennen*, en klik vervolgens op de knop **+**.
-   
+
     ![][10]
-   
+
     Gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor mobiele apps en de gegevens worden weergegeven in de lijst.
 
 > [!NOTE]
 > U kunt de code die toegang geeft tot uw back-end voor mobiele apps, controleren om gegevens in het QSTodoService.cs C#-bestand op te vragen en in te voegen.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Offlinesynchronisatie toevoegen aan uw app](app-service-mobile-xamarin-ios-get-started-offline-data.md)

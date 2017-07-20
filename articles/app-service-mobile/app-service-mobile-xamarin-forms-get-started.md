@@ -3,7 +3,7 @@ title: Aan de slag met Mobile Apps met behulp van Xamarin.Forms
 description: Volg deze zelfstudie om aan de slag te gaan met Azure Mobile Apps voor Xamarin.Forms-ontwikkeling
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 6b8c5c2ac2e721c4d6f73c7c17f34eadc041e0c9
+ms.contentlocale: nl-nl
 ms.lasthandoff: 01/20/2017
-
 
 ---
 # <a name="create-a-xamarinforms-app"></a>Een Xamarin.Forms-app maken
@@ -33,13 +33,13 @@ Het voltooien van deze zelfstudie is een vereiste voor alle andere zelfstudies o
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Een actief Azure-account. Als u geen account hebt, kunt u zich aanmelden voor een proefversie van Azure en maximaal tien gratis mobiele apps krijgen die u ook na de proefperiode kunt blijven gebruiken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
-* Visual Studio met Xamarin. Zie [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Installeren en instellen voor Visual Studio en Xamarin) voor instructies. 
+* Visual Studio met Xamarin. Zie [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Installeren en instellen voor Visual Studio en Xamarin) voor instructies.
 * Een Mac met Xcode v7.0 of hoger en waarop Xamarin Studio Community is geïnstalleerd. Zie [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Installeren en instellen voor Visual Studio en Xamarin) en [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (Instructies voor installatie, configuratie en verificatie voor Mac-gebruikers) (MSDN).
 
 > [!NOTE]
 > Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/mobile/). Hier kunt u direct een tijdelijke en eenvoudige Mobile App maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
-> 
-> 
+>
+>
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Een nieuwe back-end voor mobiele apps van Azure maken
 Volg deze stappen voor het maken van een nieuwe back-end voor mobiele apps.
@@ -60,12 +60,12 @@ Laten we beginnen:
 
 1. Op uw Mac of Windows-computer opent u [Azure Portal] in een browservenster.
 2. Klik op de blade Instellingen voor uw mobiele app op **Aan de slag** (onder Mobiel) > **Xamarin.Forms**. Klik in stap 3 op  **Een nieuwe app maken** als deze optie nog niet is geselecteerd.  Klik vervolgens op de knop **Downloaden**.
-   
+
    Er wordt een project gedownload dat een clienttoepassing bevat die is verbonden met uw mobiele app. Sla het gecomprimeerde projectbestand op uw lokale computer op en noteer de opslaglocatie.
 3. Pak het project uit dat u hebt gedownload en open het in Xamarin Studio of Visual Studio.
-   
+
    ![][9]
-   
+
    ![][8]
 
 ## <a name="optional-run-the-ios-project"></a>(Optioneel) Het iOS-project uitvoeren
@@ -80,11 +80,11 @@ Deze sectie gaat over het uitvoeren van het Xamarin iOS-project voor iOS-apparat
 2. Klik in het menu **Bouwen** op **Configuration Manager**.
 3. In het dialoogvenster **Configuration Manager** schakelt u de selectievakjes **Bouwen** en **Implementeren** van het iOS-project in.
 4. Druk op de toets **F5** om het project te bouwen en de app te starten in de iPhone-emulator.
-   
+
    > [!NOTE]
    > Als u problemen ondervindt bij het bouwen, voert u NuGet Package Manager uit en voert u een update uit naar de nieuwste versie van de Xamarin-ondersteuningspakketten. Soms kunnen de Quickstart-projecten achterblijven bij updates naar de nieuwste versie.    
-   > 
-   > 
+   >
+   >
 
 Typ in de app zinvolle tekst, zoals *Xamarin leren kennen*, en klik vervolgens op de knop **+**.
 
@@ -94,8 +94,8 @@ Hierdoor wordt een POST-aanvraag verzonden naar de nieuwe back-end voor mobiele 
 
 > [!NOTE]
 > U vindt de code die toegang geeft tot de back-end voor mobiele apps in het TodoItemManager.cs C#-bestand van het 'portable class library'-project van uw oplossing.
-> 
-> 
+>
+>
 
 ## <a name="optional-run-the-android-project"></a>(Optioneel) Het Android-project uitvoeren
 Deze sectie gaat over het uitvoeren van het Xamarin Droid-project voor Android-apparaten. Als u niet met Android-apparaten werkt, kunt u deze sectie overslaan.
@@ -109,11 +109,11 @@ Deze sectie gaat over het uitvoeren van het Xamarin Droid-project voor Android-a
 2. Klik in het menu **Bouwen** op **Configuration Manager**.
 3. In het dialoogvenster **Configuration Manager** schakelt u de selectievakjes **Bouwen** en **Implementeren** van het Android-project in.
 4. Druk op de toets **F5** om het project te bouwen en de apps te starten in een Android-emulator.
-   
+
    > [!NOTE]
    > Als u problemen ondervindt bij het bouwen, voert u NuGet Package Manager uit en voert u een update uit naar de nieuwste versie van de Xamarin-ondersteuningspakketten. Soms kunnen de Quickstart-projecten achterblijven bij updates naar de nieuwste versie.    
-   > 
-   > 
+   >
+   >
 
 Typ in de app zinvolle tekst, zoals *Xamarin leren kennen*, en klik vervolgens op de knop **+**.
 
@@ -123,8 +123,8 @@ Hierdoor wordt een POST-aanvraag verzonden naar de nieuwe back-end voor mobiele 
 
 > [!NOTE]
 > U vindt de code die toegang geeft tot de back-end voor mobiele apps in het TodoItemManager.cs C#-bestand van het 'portable class library'-project van uw oplossing.
-> 
-> 
+>
+>
 
 ## <a name="optional-run-the-windows-project"></a>(Optioneel) Het Windows-project uitvoeren
 Deze sectie gaat over het uitvoeren van het project Xamarin WinApp voor Windows-apparaten. Als u niet met Windows-apparaten werkt, kunt u deze sectie overslaan.
@@ -134,11 +134,11 @@ Deze sectie gaat over het uitvoeren van het project Xamarin WinApp voor Windows-
 2. Klik in het menu **Bouwen** op **Configuration Manager**.
 3. In het dialoogvenster **Configuration Manager** schakelt u de selectievakjes **Bouwen** en **Implementeren** in van het Windows-project dat u hebt gekozen.
 4. Druk op de toets **F5** om het project te bouwen en de apps te starten in een Windows-emulator.
-   
+
    > [!NOTE]
    > Als u problemen ondervindt bij het bouwen, voert u NuGet Package Manager uit en voert u een update uit naar de nieuwste versie van de Xamarin-ondersteuningspakketten. Soms kunnen de Quickstart-projecten achterblijven bij updates naar de nieuwste versie.    
-   > 
-   > 
+   >
+   >
 
 Typ in de app zinvolle tekst, zoals *Xamarin leren kennen*, en klik vervolgens op de knop **+**.
 
@@ -148,8 +148,8 @@ Hierdoor wordt een POST-aanvraag verzonden naar de nieuwe back-end voor mobiele 
 
 > [!NOTE]
 > U vindt de code die toegang geeft tot de back-end voor mobiele apps in het TodoItemManager.cs C#-bestand van het 'portable class library'-project van uw oplossing.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Verificatie toevoegen aan uw app](app-service-mobile-xamarin-forms-get-started-users.md)  
@@ -159,7 +159,7 @@ Hierdoor wordt een POST-aanvraag verzonden naar de nieuwe back-end voor mobiele 
 * [Offlinesynchronisatie voor uw app inschakelen](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   Informatie over het toevoegen van offlineondersteuning aan uw app met een back-end voor mobiele apps. Met offlinesynchronisatie kunnen eindgebruikers interactie aangaan met een mobiele app&mdash;gegevens weergeven, toevoegen of wijzigen&mdash;ook als er geen netwerkverbinding is.
 * [De beheerde client gebruiken voor Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
-  Informatie over het werken met SDK voor beheerde clients in uw Xamarin-app. 
+  Informatie over het werken met SDK voor beheerde clients in uw Xamarin-app.
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]:#getting-started
@@ -180,5 +180,4 @@ Hierdoor wordt een POST-aanvraag verzonden naar de nieuwe back-end voor mobiele 
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure Portal]: https://portal.azure.com/
-
 
