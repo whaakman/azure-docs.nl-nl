@@ -3,7 +3,7 @@ title: Wat zijn Mobile Apps?
 description: Lees welke voordelen App Service heeft voor de mobiele apps in uw onderneming.
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
+author: dhei
 manager: yochayk
 editor: 
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
 ms.openlocfilehash: 8ce0a0e7b06f85090c07052056ddd67b97b2ee8b
+ms.contentlocale: nl-nl
 ms.lasthandoff: 04/29/2017
-
 
 ---
 # <a name="getting-started"> </a>Wat is Mobile Apps?
@@ -38,14 +38,14 @@ Met *Mobile Apps* in *Azure App Service* kunnen ontwikkelaars van ondernemingen 
 De volgende functies zijn belangrijk wanneer u mobiele apps ontwikkelt die zijn ingeschakeld voor de cloud:
 
 * **Verificatie en autorisatie** - U kunt kiezen uit de steeds groeiende lijst met identiteitsproviders, waaronder Azure Active Directory voor ondernemingsverificatie, plus sociaalnetwerkproviders zoals Twitter, Facebook, Google en Microsoft-account.  Mobile Apps van Azure biedt een OAuth 2.0-service voor elke provider.  Daarnaast kunt u de SDK voor de identiteitsprovider integreren voor providerspecifieke functionaliteit.
-  
+
   Lees meer over onze [verificatiefuncties].
 * **Gegevenstoegang** - Mobile Apps van Azure biedt een voor mobiele apparaten geschikte OData v3-gegevensbron die is gekoppeld aan SQL Azure of een on-premises SQL Server.  Deze service kan worden gebaseerd op Entity Framework, zodat u eenvoudig kunt integreren met andere NoSQL- en SQL-gegevensproviders, zoals [Azure-tabelopslag], MongoDB, [DocumentDB] en SaaS API-providers, zoals Office 365 en Salesforce.com.
 * **Offline synchronisatie** - Met onze client-SDK's kunt u eenvoudig robuuste en responsieve mobiele toepassingen bouwen die werken met een offlinegegevensset die automatisch kan worden gesynchroniseerd met de back-endgegevens, met ondersteuning van conflictoplossing.
-  
+
   Lees meer over onze [gegevensfuncties].
 * **Pushmeldingen** - Onze client-SDK's kunnen probleemloos worden geïntegreerd met de registratiemogelijkheden van Azure Notification Hubs, zodat u pushmeldingen naar miljoenen gebruikers tegelijk kunt verzenden.
-  
+
   Lees meer over onze [functies voor pushmeldingen].
 * **Client-SDK's** - Wij bieden een volledige set client-SDK's voor systeemeigen ontwikkeling ([iOS], [Android] en [Windows]), platformoverschrijdende ontwikkeling ([Xamarin voor iOS en Android], [Xamarin Forms]) en hybride toepassingsontwikkeling ([Apache Cordova]).  Elke client-SDK is beschikbaar met een MIT-licentie en is open source.
 
@@ -53,19 +53,19 @@ De volgende functies zijn belangrijk wanneer u mobiele apps ontwikkelt die zijn 
 De volgende platformfuncties komen eigenlijk altijd van pas voor mobiele productiesites.
 
 * **Automatische schaling** - Met App Service kunt u snel omhoog of omlaag schalen om in te spelen op de inkomende belasting van klanten. U kunt handmatig het aantal virtuele machines en de grootte ervan selecteren of automatische schaling instellen, zodat de back-end voor uw mobiele app wordt geschaald op basis van uw belasting of schema.
-  
+
   Lees meer over [Automatische schaling].
 * **Faseringsomgevingen** - Met App Service kunt u meerdere versies van uw site uitvoeren, zodat u A/B-tests, tests in de productieomgeving als onderdeel van een groter DevOps-plan en in-place fasering van een nieuwe back-end kunt uitvoeren.
-  
+
   Lees meer over [Faseringsomgevingen].
 * **Doorlopende implementatie** - App Service kan worden geïntegreerd met algemene SCM-systemen, zodat u automatisch een nieuwe versie van uw back-end kunt implementeren door een vertakking van uw SCM-systeem te pushen.
-  
+
   Lees meer over [implementatieopties].
 * **Virtuele netwerken** - App Service kan verbinding maken met on-premises resources met behulp van een virtueel netwerk, ExpressRoute of hybride verbindingen.
-  
+
   Lees meer over [hybride verbindingen], [virtuele netwerken] en [ExpressRoute].
 * **Geïsoleerde/toegewezen omgevingen** - App Service kan worden uitgevoerd in een volledig geïsoleerde en toegewezen omgeving zodat Azure App Service-apps veilig en op grote schaal kunnen worden uitgevoerd.  Dit is ideaal voor toepassingsworkloads die op grote schaal worden uitgevoerd, of waarvoor isolatie of beveiligde netwerktoegang nodig is.
-  
+
   Leer meer over [App Service-omgevingen].
 
 ## <a name="getting-started"></a>Aan de slag
@@ -76,8 +76,8 @@ Zie [Azure App Service] voor meer informatie over het Azure App Service-platform
 
 > [!NOTE]
 > Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/mobile/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
-> 
-> 
+>
+>
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
