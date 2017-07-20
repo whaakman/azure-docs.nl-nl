@@ -3,7 +3,7 @@ title: Snelstartgids - Azure Kubernetes-cluster voor Linux | Microsoft Docs
 description: Leer snel een Kubernetes-cluster te maken voor Linux-containers in Azure Container Service met de Azure CLI.
 services: container-service
 documentationcenter: 
-author: anhowe
+author: neilpeterson
 manager: timlt
 editor: 
 tags: acs, azure-container-service, kubernetes
@@ -14,42 +14,28 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/31/2017
-ms.author: anhowe
+ms.date: 07/18/2017
+ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 25043f6bf5e5ab3def8563bd2c096b79706bfec1
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 3be2079d205d6bfd4c796e5f6abcd7ac5fe595a2
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 
-<a id="deploy-kubernetes-cluster-for-linux-containers" class="xliff"></a>
-
-# Kubernetes-cluster voor Linux-containers implementeren
+# <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Kubernetes-cluster voor Linux-containers implementeren
 
 De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. In deze handleiding vindt u informatie over het gebruik van de Azure CLI voor de implementatie van een [Kubernetes](https://kubernetes.io/docs/home/)-cluster in [Azure Container Service](container-service-intro.md). Zodra het cluster is geïmplementeerd, verbindt u het met het Kubernetes `kubectl`-opdrachtregelprogramma en implementeert u uw eerste Linux-container.
 
-Voor deze zelfstudie is versie 2.0.4 of hoger van de Azure CLI vereist. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze Quickstart gebruikmaken van Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
-<a id="log-in-to-azure" class="xliff"></a>
-
-## Meld u aan bij Azure. 
-
-Meld u aan bij uw Azure-abonnement met de opdracht [az login](/cli/azure/#login) en volg de instructies op het scherm.
-
-```azurecli-interactive
-az login
-```
-
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Een resourcegroep maken
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische groep waarin Azure-resources worden geïmplementeerd en beheerd. 
 
@@ -59,9 +45,7 @@ In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* 
 az group create --name myResourceGroup --location eastus
 ```
 
-<a id="create-kubernetes-cluster" class="xliff"></a>
-
-## Een Kubernetes-cluster maken
+## <a name="create-kubernetes-cluster"></a>Een Kubernetes-cluster maken
 Maak een Kubernetes-cluster in Azure Container Service met de opdracht [az acs create](/cli/azure/acs#create). 
 
 In het volgende voorbeeld wordt een cluster gemaakt met de naam *myK8sCluster* met een Linux-hoofdknooppunt en twee knooppunten van de Linux-agent. In dit voorbeeld worden SSH-sleutels gemaakt, als deze zich nog niet in de standaardlocaties bevinden. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`. Werk de clusternaam bij met een naam die geschikt is voor uw omgeving. 
@@ -77,9 +61,7 @@ az acs create --orchestrator-type=kubernetes \
 
 Na enkele minuten is de opdracht voltooid en ziet u informatie over uw implementatie.
 
-<a id="install-kubectl" class="xliff"></a>
-
-## Kubectl installeren
+## <a name="install-kubectl"></a>Kubectl installeren
 
 Gebruik [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), de Kubernetes-opdrachtregelclient, als u vanaf uw clientcomputer verbinding wilt maken met het Kubernetes-cluster. 
 
@@ -91,9 +73,7 @@ In het volgende voorbeeld van Azure CLI wordt `kubectl` op uw systeem geïnstall
 az acs kubernetes install-cli 
 ```
 
-<a id="connect-with-kubectl" class="xliff"></a>
-
-## Verbinden met kubectl
+## <a name="connect-with-kubectl"></a>Verbinden met kubectl
 
 Als u `kubectl` zo wilt configureren dat er verbinding wordt gemaakt met uw Kubernetes-cluster, voert u de opdracht [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) uit. In het volgende voorbeeld wordt de clusterconfiguratie voor uw Kubernetes-cluster gedownload.
 
@@ -118,9 +98,7 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 ```
 
 
-<a id="deploy-an-nginx-container" class="xliff"></a>
-
-## Een NGINX-container implementeren
+## <a name="deploy-an-nginx-container"></a>Een NGINX-container implementeren
 
 U kunt een Docker-container uitvoeren binnen een Kubernetes-*schil*, die een of meer containers bevat. 
 
@@ -135,9 +113,7 @@ Als u wilt zien dat de container wordt uitgevoerd, voert u het volgende uit:
 kubectl get pods
 ```
 
-<a id="view-the-nginx-welcome-page" class="xliff"></a>
-
-## De welkomstpagina van NGINX weergeven
+## <a name="view-the-nginx-welcome-page"></a>De welkomstpagina van NGINX weergeven
 Als u de NGINX-server beschikbaar wilt maken met een openbaar IP-adres, typt u de volgende opdracht:
 
 ```azurecli-interactive
@@ -165,9 +141,7 @@ U kunt de gewenste webbrowser gebruiken om de standaard NGINX-welkomstpagina wee
 ![Afbeelding van bladeren naar Nginx](media/container-service-kubernetes-walkthrough/kubernetes-nginx4.png)  
 
 
-<a id="delete-cluster" class="xliff"></a>
-
-## Cluster verwijderen
+## <a name="delete-cluster"></a>Cluster verwijderen
 U kunt de opdracht [az group delete](/cli/azure/group#delete) gebruiken om de resourcegroep, de containerservice en alle gerelateerde resources te verwijderen wanneer u het cluster niet meer nodig hebt.
 
 ```azurecli-interactive 
@@ -175,9 +149,7 @@ az group delete --name myResourceGroup
 ```
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 In deze snelstartgids hebt u een Kubernetes-cluster geïmplementeerd, het verbonden met `kubectl` en een schil met een NGINX-container geïmplementeerd. Voor meer informatie over Azure Container Service gaat u naar de zelfstudie Kubernetes-cluster.
 

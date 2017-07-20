@@ -1,6 +1,6 @@
 ---
 title: Schijven uitsluiten van beveiliging met Azure Site Recovery | Microsoft Docs
-description: In dit artikel wordt beschreven waarom en hoe u een of meer VM-schijven kunt uitsluiten van replicatie voor VMware-naar-Azure- en Hyper-V-naar-Azure-scenario&quot;s.
+description: In dit artikel wordt beschreven waarom en hoe u een of meer VM-schijven kunt uitsluiten van replicatie voor VMware-naar-Azure- en Hyper-V-naar-Azure-scenario's.
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 6e52a647e817b64e331937c0b0f1d44f9f6c11a0
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: fccbe88e3c0c2b2f3e9958f5f2f27adc017e4d03
 ms.contentlocale: nl-nl
-ms.lasthandoff: 04/06/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="exclude-disks-from-replication"></a>Schijven uitsluiten van replicatie
@@ -51,7 +50,7 @@ Op dezelfde wijze kunt u met de volgende stappen een schijf optimaliseren waarop
 ## <a name="how-to-exclude-disks-from-replication"></a>Hoe sluit ik schijven uit van replicatie?
 
 ### <a name="vmware-to-azure"></a>VMware naar Azure
-Volg de werkstroom [Replicatie inschakelen](site-recovery-vmware-to-azure.md#enable-replication) om een virtuele machine te beveiligen vanuit de Azure Site Recovery-portal. Gebruik in de vierde stap van de werkstroom de kolom **TE REPLICEREN SCHIJF** om schijven uit te sluiten van replicatie. Standaard worden alle schijven geselecteerd voor replicatie. Schakel de selectievakjes uit bij schijven die u wilt uitsluiten van replicatie en volg daarna de stappen voor het inschakelen van de replicatie.
+Volg de werkstroom [Replicatie inschakelen](site-recovery-vmware-to-azure.md) om een virtuele machine te beveiligen vanuit de Azure Site Recovery-portal. Gebruik in de vierde stap van de werkstroom de kolom **TE REPLICEREN SCHIJF** om schijven uit te sluiten van replicatie. Standaard worden alle schijven geselecteerd voor replicatie. Schakel de selectievakjes uit bij schijven die u wilt uitsluiten van replicatie en volg daarna de stappen voor het inschakelen van de replicatie.
 
 ![Schijven uitsluiten van replicatie en replicatie inschakelen voor VMware-naar-Azure-failback](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
 
@@ -67,7 +66,7 @@ Volg de werkstroom [Replicatie inschakelen](site-recovery-vmware-to-azure.md#ena
 >
 
 ### <a name="hyper-v-to-azure"></a>Hyper-V naar Azure
-Volg de werkstroom [Replicatie inschakelen](site-recovery-hyper-v-site-to-azure.md#enable-replication) om een virtuele machine te beveiligen vanuit de Azure Site Recovery-portal. Gebruik in de vierde stap van de werkstroom de kolom **TE REPLICEREN SCHIJF** om schijven uit te sluiten van replicatie. Standaard worden alle schijven geselecteerd voor replicatie. Schakel de selectievakjes uit bij schijven die u wilt uitsluiten van replicatie en volg daarna de stappen voor het inschakelen van de replicatie.
+Volg de werkstroom [Replicatie inschakelen](site-recovery-hyper-v-site-to-azure.md) om een virtuele machine te beveiligen vanuit de Azure Site Recovery-portal. Gebruik in de vierde stap van de werkstroom de kolom **TE REPLICEREN SCHIJF** om schijven uit te sluiten van replicatie. Standaard worden alle schijven geselecteerd voor replicatie. Schakel de selectievakjes uit bij schijven die u wilt uitsluiten van replicatie en volg daarna de stappen voor het inschakelen van de replicatie.
 
 ![Schijven uitsluiten van replicatie en replicatie inschakelen voor Hyper-V-naar-Azure-failback](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
