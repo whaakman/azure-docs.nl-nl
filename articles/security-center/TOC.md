@@ -19,6 +19,7 @@
 
 ## Voorkomen
 ### [Beveiligingsbeleid instellen](security-center-policies.md)
+### [Just-in-time-toegang](security-center-just-in-time.md)
 ### [Aanbevelingen voor beveiliging implementeren](security-center-recommendations.md)
 
 ### [Aanbevelingen voor toepassingen](security-center-application-recommendations.md)
