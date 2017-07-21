@@ -85,8 +85,6 @@
           href: preserving-maintenance.md
         - name: Onderhoud met herstart
           href: impactful-maintenance.md
-        - name: Planning
-          href: planned-maintenance-schedule.md
     - name: Formaten van virtuele machines
       href: sizes.md
       items:
@@ -419,6 +417,8 @@
               href: troubleshoot-recovery-disks.md
             - name: Azure Portal
               href: troubleshoot-recovery-disks-portal.md
+        - name: PerfInsights gebruiken voor het oplossen van prestatieproblemen
+          href: how-to-use-perfInsights.md
 - name: Naslaginformatie
   items:
     - name: Azure CLI

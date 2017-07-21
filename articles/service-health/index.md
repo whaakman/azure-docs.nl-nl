@@ -13,16 +13,15 @@ ms.topic: landing-page
 ms.date: 07/07/2017
 ms.author: bernardm
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: d95507be7af7eb69cbab4e11a2aa6af1a9775b0c
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 1452c1dd56829d162d464c4a359fa8c86ce74a6b
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# Documentatie over Azure Service Health
-<a id="azure-service-health-documentation" class="xliff"></a>
+# <a name="azure-service-health-documentation"></a>Documentatie over Azure Service Health
 
-Service Health helpt u bij het stellen van een diagnose en het krijgen van ondersteuning wanneer een Azure-probleem van invloed is op uw resources. Het biedt u informatie over de huidige en eerdere status van uw resources en helpt u problemen verhelpen. Het biedt technische ondersteuning als u hulp nodig hebt bij problemen met Azure-services.
+Azure Service Health biedt gepersonaliseerde begeleiding en ondersteuning als problemen in Azure-services gevolgen voor u hebben en helpt u om u voor te bereiden op toekomstig gepland onderhoud. Azure Service Health waarschuwt u en uw teams via gerichte en flexibele meldingen.
 <ul class="panelContent cardsFTitle">
     <li>
         <a href="/azure/service-health/service-health-overview">

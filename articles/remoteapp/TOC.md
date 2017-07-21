@@ -25,6 +25,7 @@
 # Procedures
 
 ## [Gebruikersgegevens migreren vanuit Azure RemoteApp](remoteapp-migrate.md)
+## [Migreren naar MyCloudIT](remoteapp-migrate-mycloudit.md)
 ## [Migreren naar Citrix XenApp Essentials](remoteapp-migrate-citrix.md)
 ## Een RemoteApp-verzameling maken
 ### [Welke verzameling hebt u nodig?](remoteapp-collections.md)

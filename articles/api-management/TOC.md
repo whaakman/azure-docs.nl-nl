@@ -46,6 +46,10 @@
 ### [Configureren met behulp van Git](api-management-configuration-repository-git.md)
 ### [Controleren met behulp van Azure Monitor](api-management-howto-use-azure-monitor.md)
 ### [Op rollen gebaseerd toegangsbeheer gebruiken](api-management-role-based-access-control.md)
+### Integreren met Service Fabric
+#### [Overzicht](../service-fabric/service-fabric-api-management-overview.md)
+#### [Snel starten](../service-fabric/service-fabric-api-management-quick-start.md)
+
 # Naslaginformatie
 ## [PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)

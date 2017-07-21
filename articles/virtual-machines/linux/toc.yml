@@ -375,6 +375,8 @@
               href: classic/hpcpack-cluster-namd.md
         - name: SAP op Azure
           href: ../workloads/sap/get-started.md
+        - name: Oracle op Azure
+          href: ../workloads/oracle/oracle-considerations.md
     - name: Docker op virtuele machines
       items:
         - name: Docker-hosts maken met de Azure Docker-VM-extensie

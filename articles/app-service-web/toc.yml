@@ -2,345 +2,361 @@
   href: index.yml
 - name: Overzicht
   items:
-  - name: Meer informatie over Web Apps
-    href: app-service-web-overview.md
-  - name: Hostingopties vergelijken
-    href: choose-web-site-cloud-service-vm.md
+    - name: Meer informatie over Web Apps
+      href: app-service-web-overview.md
+    - name: Hostingopties vergelijken
+      href: choose-web-site-cloud-service-vm.md
 - name: Snelstartgidsen
   expanded: true
   items:
-  - name: Een .NET-app maken
-    href: app-service-web-get-started-dotnet.md
-  - name: Een Node.js-app maken
-    href: app-service-web-get-started-nodejs.md
-  - name: Een PHP-app maken
-    href: app-service-web-get-started-php.md
-  - name: Een Java-app maken
-    href: app-service-web-get-started-java.md
-  - name: Een Python-app maken
-    href: app-service-web-get-started-python.md
-  - name: Een statische HTML-site maken
-    href: app-service-web-get-started-html.md
+    - name: Een .NET-app maken
+      href: app-service-web-get-started-dotnet.md
+    - name: Een Node.js-app maken
+      href: app-service-web-get-started-nodejs.md
+    - name: Een PHP-app maken
+      href: app-service-web-get-started-php.md
+    - name: Een Java-app maken
+      href: app-service-web-get-started-java.md
+    - name: Een Python-app maken
+      href: app-service-web-get-started-python.md
+    - name: Een statische HTML-site maken
+      href: app-service-web-get-started-html.md
 - name: Zelfstudies
   items:
-  - name: 1 - .NET met SQL-database
-    href: app-service-web-tutorial-dotnet-sqldatabase.md
-  - name: 1 - Node.js met MongoDB
-    href: app-service-web-tutorial-nodejs-mongodb-app.md
-  - name: 1 - PHP met MySQL
-    href: app-service-web-tutorial-php-mysql.md 
-  - name: 1 - WordPress met MySQL
-    href: app-service-web-create-web-app-from-marketplace.md
-  - name: 1 - Python met PostgreSQL
-    href: app-service-web-tutorial-docker-python-postgresql-app.md
-  - name: 2 - Aangepast domein toewijzen
-    href: app-service-web-tutorial-custom-domain.md
-  - name: 3 - SSL-certificaat binden
-    href: app-service-web-tutorial-custom-ssl.md
-  - name: 4 - CDN toevoegen
-    href: app-service-web-tutorial-content-delivery-network.md
-#  - name: 5 - Monitor your app
-#    href: app-service-web-tutorial-monitoring.md
+    - name: 1 - .NET met SQL-database
+      href: app-service-web-tutorial-dotnet-sqldatabase.md
+    - name: 1 - Node.js met MongoDB
+      href: app-service-web-tutorial-nodejs-mongodb-app.md
+    - name: 1 - PHP met MySQL
+      href: app-service-web-tutorial-php-mysql.md
+    - name: 1 - WordPress met MySQL
+      href: app-service-web-create-web-app-from-marketplace.md
+    - name: 1 - Python met PostgreSQL
+      href: app-service-web-tutorial-docker-python-postgresql-app.md
+    - name: 2 - Aangepast domein toewijzen
+      href: app-service-web-tutorial-custom-domain.md
+    - name: 3 - SSL-certificaat binden
+      href: app-service-web-tutorial-custom-ssl.md
+    - name: 4 - CDN toevoegen
+      href: app-service-web-tutorial-content-delivery-network.md
 - name: Voorbeelden
   items:
-  - name: Azure CLI
-    href: app-service-cli-samples.md
-  - name: PowerShell
-    href: app-service-powershell-samples.md
+    - name: Azure CLI
+      href: app-service-cli-samples.md
+    - name: PowerShell
+      href: app-service-powershell-samples.md
 - name: Concepten
   items:
-  - name: De werking van App Service
-    href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: App Service-abonnementen
-    href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: App Service-omgeving
-    href: ../app-service/app-service-environment/intro.md
-  - name: Verificatie en autorisatie
-    href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: Verificatie met on-premises AD
-    href: web-sites-authentication-authorization.md
+    - name: De werking van App Service
+      href: >-
+        ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    - name: App Service-abonnementen
+      href: >-
+        ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    - name: App Service-omgeving
+      href: ../app-service/app-service-environment/intro.md
+    - name: Verificatie en autorisatie
+      href: >-
+        ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    - name: Verificatie met on-premises AD
+      href: web-sites-authentication-authorization.md
 - name: Handleidingen
   items:
-  - name: Uw app ontwikkelen
-    items:
-    - name: ASP.NET
+    - name: Uw app ontwikkelen
       items:
-      - name: ASP.NET-app met SQL-database
-        href: web-sites-dotnet-get-started.md
-      - name: Een ASP.NET Core-app ontwikkelen met VS-code
-        href: web-sites-create-web-app-using-vscode.md
-    - name: PHP
+        - name: ASP.NET
+          items:
+            - name: ASP.NET-app met SQL-database
+              href: web-sites-dotnet-get-started.md
+            - name: Een ASP.NET Core-app ontwikkelen met VS-code
+              href: web-sites-create-web-app-using-vscode.md
+        - name: PHP
+          items:
+            - name: Laravel-app met MySQL
+              href: app-service-web-php-get-started.md
+            - name: Een PHP-project opzetten
+              href: web-sites-php-configure.md
+            - name: Een WordPress-multisite instellen
+              href: web-sites-php-convert-wordpress-multisite.md
+        - name: Node.js
+          items:
+            - name: Sails.js-app met NOSQL-database
+              href: app-service-web-nodejs-sails.md
+            - name: O.js gebruiken
+              href: web-sites-nodejs-iojs.md
+            - name: Fouten opsporen in een Node.js-app
+              href: web-sites-nodejs-debug.md
+        - name: Java
+          items:
+            - name: Java-app met Eclipse
+              href: app-service-web-eclipse-create-hello-world-web-app.md
+            - name: Java-app met IntelliJ
+              href: app-service-web-intellij-create-hello-world-web-app.md
+            - name: De Azure-SDK voor Java gebruiken
+              href: java-create-azure-website-using-java-sdk.md
+            - name: Een bestaande app uploaden
+              href: web-sites-java-add-app.md
+        - name: Python
+          items:
+            - name: Django-app met MySQL
+              href: web-sites-python-ptvs-django-mysql.md
+        - name: E-mails versturen met SendGrid
+          href: sendgrid-dotnet-how-to-send-email.md
+        - name: Runtime configureren
+          items:
+            - name: PHP op Windows
+              href: web-sites-php-configure.md
+            - name: Java
+              href: web-sites-java-add-app.md
+            - name: Python
+              href: web-sites-python-configure.md
+        - name: Toepassing configureren
+          items:
+            - name: App-instellingen gebruiken
+              href: web-sites-configure.md
+        - name: Web-app op Linux
+          items:
+            - name: Overzicht
+              href: app-service-linux-intro.md
+            - name: Een web-app op Linux maken
+              href: app-service-linux-how-to-create-web-app.md
+            - name: Ruby-web-app op Linux
+              href: app-service-linux-ruby-get-started.md
+            - name: Node.js-web-app op Linux
+              href: app-service-linux-using-nodejs-pm2.md
+            - name: .NET Core-web-app op Linux
+              href: app-service-linux-using-dotnetcore.md
+            - name: Aangepaste Docker-web-app op Linux
+              href: app-service-linux-using-custom-docker-image.md
+            - name: Verbinding maken via SSH
+              href: app-service-linux-ssh-support.md
+            - name: Doorlopende implementatie
+              href: app-service-linux-ci-cd.md
+            - name: Veelgestelde vragen over web-apps op Linux
+              href: app-service-linux-faq.md
+    - name: Implementeren in Azure
+      href: web-sites-deploy.md
       items:
-      - name: Laravel-app met MySQL
-        href: app-service-web-php-get-started.md
-      - name: Een PHP-project opzetten
-        href: web-sites-php-configure.md
-      - name: Een WordPress-multisite instellen
-        href: web-sites-php-convert-wordpress-multisite.md
-    - name: Node.js
+        - name: Implementeren via FTP
+          href: app-service-deploy-ftp.md
+        - name: Implementeren via cloudsynchronisatie
+          href: app-service-deploy-content-sync.md
+        - name: Doorlopend implementeren
+          href: app-service-continuous-deployment.md
+        - name: Implementeren in fasering
+          href: web-sites-staged-publishing.md
+        - name: Implementeren vanuit lokale Git
+          href: app-service-deploy-local-git.md
+        - name: Implementeren met sjabloon
+          href: app-service-deploy-complex-application-predictably.md
+        - name: Flexibele implementatie
+          href: app-service-agile-software-development.md
+        - name: Bètaversie testen
+          href: app-service-web-test-in-production-controlled-test-flight.md
+        - name: Implementatiereferenties instellen
+          href: app-service-deployment-credentials.md
+        - name: Aangepast domein toewijzen
+          items:
+            - name: Een domein kopen
+              href: custom-dns-web-site-buydomains-web-app.md
+            - name: Domeinen toewijzen met Traffic Manager
+              href: web-sites-traffic-manager-custom-domain-name.md
+            - name: GoDaddy-domeinen toewijzen
+              href: web-sites-godaddy-custom-domain-name.md
+            - name: Een actief domein migreren
+              href: app-service-custom-domain-name-migrate.md
+        - name: Migreren vanuit IIS
+          href: web-sites-migration-from-iis-server.md
+        - name: Testen tijdens productie
+          href: app-service-web-test-in-production-get-start.md
+        - name: Functionaliteit toevoegen aan een web-app
+          href: app-service-web-get-started-2.md
+    - name: Verbinding maken met database/resources
       items:
-      - name: Sails.js-app met NOSQL-database
-        href: app-service-web-nodejs-sails.md
-      - name: O.js gebruiken
-        href: web-sites-nodejs-iojs.md
-      - name: Fouten opsporen in een Node.js-app
-        href: web-sites-nodejs-debug.md
-    - name: Java
+        - name: Verbinding maken met on-premises gegevens
+          href: web-sites-hybrid-connection-get-started.md
+        - name: Verbinding maken met Azure VNet
+          href: web-sites-integrate-with-vnet.md
+        - name: Verbinding maken met Azure VNet met behulp van PowerShell
+          href: app-service-vnet-integration-powershell.md
+        - name: Verbinding maken met MongoDB in een virtuele Azure-machine
+          href: web-sites-dotnet-store-data-mongodb-vm.md
+    - name: App beveiligen
       items:
-      - name: Java-app met Eclipse
-        href: app-service-web-eclipse-create-hello-world-web-app.md
-      - name: Java-app met IntelliJ
-        href: app-service-web-intellij-create-hello-world-web-app.md
-      - name: De Azure-SDK voor Java gebruiken
-        href: java-create-azure-website-using-java-sdk.md
-      - name: Een bestaande app uploaden
-        href: web-sites-java-add-app.md
-    - name: Python
+        - name: Gebruikers verifiëren
+          items:
+            - name: Verifiëren met Azure AD
+              href: >-
+                ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+            - name: Verifiëren met Facebook
+              href: >-
+                ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+            - name: Verifiëren met Google
+              href: >-
+                ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+            - name: Verifiëren met een Microsoft-account
+              href: >-
+                ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+            - name: Verifiëren met Twitter
+              href: >-
+                ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+            - name: Verifiëren met on-premises AD
+              href: web-sites-authentication-authorization.md
+            - name: App met een multitenant-database
+              href: web-sites-dotnet-entity-framework-row-level-security.md
+        - name: HTTPS afdwingen
+          href: 'web-sites-configure-ssl-certificate.md#enforce-https-on-your-app'
+        - name: Wederzijdse TLS-verificatie configureren
+          href: app-service-web-configure-tls-mutual-auth.md
+    - name: App schalen
       items:
-      - name: Django-app met MySQL
-        href: web-sites-python-ptvs-django-mysql.md
-    - name: E-mails versturen met SendGrid
-      href: sendgrid-dotnet-how-to-send-email.md
-    - name: Runtime configureren
+        - name: Omhoog schalen
+          href: web-sites-scale.md
+        - name: Uitschalen
+          href: >-
+            ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+        - name: Taken verdelen met Traffic Manager
+          href: web-sites-traffic-manager.md
+        - name: Schalen met App Service-omgevingen
+          href: >-
+            ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+        - name: Azure CDN gebruiken voor wereldwijd bereik
+          href: cdn-websites-with-cdn.md
+        - name: Verbinding maken met Redis Cache via Memcache
+          href: web-sites-connect-to-redis-using-memcache-protocol.md
+        - name: Een Redis-cache maken
+          href: >-
+            ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+        - name: Sessiestatus beheren met Azure Redis Cache
+          href: web-sites-dotnet-session-state-caching.md
+    - name: Bewaken
       items:
-      - name: PHP op Windows
-        href: web-sites-php-configure.md
-      - name: Java
-        href: web-sites-java-add-app.md
-      - name: Python
-        href: web-sites-python-configure.md
-    - name: Toepassing configureren
+        - name: Apps bewaken
+          href: web-sites-monitor.md
+        - name: Logboeken inschakelen
+          href: web-sites-enable-diagnostic-log.md
+        - name: Logboeken streamen
+          href: web-sites-streaming-logs-and-console.md
+    - name: Back-up maken van inhoud
       items:
-      - name: App-instellingen gebruiken
-        href: web-sites-configure.md
-    - name: Web-app op Linux
+        - name: Een back-up maken van uw app
+          href: web-sites-backup.md
+        - name: Uw app terugzetten vanuit de back-up
+          href: web-sites-restore.md
+        - name: Een back-up maken met REST-API
+          href: websites-csm-backup.md
+    - name: App-resources beheren
       items:
-      - name: Overzicht
-        href: app-service-linux-intro.md
-      - name: Een web-app op Linux maken
-        href: app-service-linux-how-to-create-web-app.md
-      - name: Ruby-web-app op Linux
-        href: app-service-linux-ruby-get-started.md
-      - name: Node.js-web-app op Linux
-        href: app-service-linux-using-nodejs-pm2.md
-      - name: .NET Core-web-app op Linux
-        href: app-service-linux-using-dotnetcore.md
-      - name: Aangepaste Docker-web-app op Linux
-        href: app-service-linux-using-custom-docker-image.md
-      - name: Verbinding maken via SSH
-        href: app-service-linux-ssh-support.md
-      - name: Doorlopende implementatie
-        href: app-service-linux-ci-cd.md
-      - name: Veelgestelde vragen over web-apps op Linux
-        href: app-service-linux-faq.md
-  - name: Implementeren in Azure
-    href: web-sites-deploy.md
-    items:
-    - name: Implementeren via FTP
-      href: app-service-deploy-ftp.md
-    - name: Implementeren via cloudsynchronisatie
-      href: app-service-deploy-content-sync.md
-    - name: Doorlopend implementeren
-      href: app-service-continuous-deployment.md
-    - name: Implementeren in fasering
-      href: web-sites-staged-publishing.md
-    - name: Implementeren vanuit lokale Git
-      href: app-service-deploy-local-git.md
-    - name: Implementeren met sjabloon
-      href: app-service-deploy-complex-application-predictably.md
-    - name: Flexibele implementatie
-      href: app-service-agile-software-development.md
-    - name: Bètaversie testen
-      href: app-service-web-test-in-production-controlled-test-flight.md
-    - name: Implementatiereferenties instellen
-      href: app-service-deployment-credentials.md
-    - name: Aangepast domein toewijzen
+        - name: Een app klonen met PowerShell
+          href: app-service-web-app-cloning.md
+        - name: Een app klonen met de portal
+          href: app-service-web-app-cloning-portal.md
+        - name: Resources verplaatsen
+          href: app-service-move-resources.md
+        - name: Azure Resource Manager gebruiken met PowerShell
+          href: app-service-web-app-azure-resource-manager-powershell.md
+        - name: Apps beheren met Azure Automation
+          href: automation-manage-web-app.md
+    - name: App Service-omgeving
       items:
-      - name: Een domein kopen
-        href: custom-dns-web-site-buydomains-web-app.md
-      - name: Domeinen toewijzen met Traffic Manager
-        href: web-sites-traffic-manager-custom-domain-name.md
-      - name: GoDaddy-domeinen toewijzen
-        href: web-sites-godaddy-custom-domain-name.md
-      - name: Een actief domein migreren
-        href: app-service-custom-domain-name-migrate.md
-    - name: Migreren vanuit IIS
-      href: web-sites-migration-from-iis-server.md
-    - name: Testen tijdens productie
-      href: app-service-web-test-in-production-get-start.md
-    - name: Functionaliteit toevoegen aan een web-app
-      href: app-service-web-get-started-2.md
-  - name: Verbinding maken met database/resources
-    items:
-    - name: Verbinding maken met on-premises gegevens
-      href: web-sites-hybrid-connection-get-started.md
-    - name: Verbinding maken met Azure VNet
-      href: web-sites-integrate-with-vnet.md
-    - name: Verbinding maken met Azure VNet met behulp van PowerShell
-      href: app-service-vnet-integration-powershell.md
-    - name: Verbinding maken met MongoDB in een virtuele Azure-machine
-      href: web-sites-dotnet-store-data-mongodb-vm.md
-  - name: App beveiligen
-    items:
-    - name: Gebruikers verifiëren
-      items:
-      - name: Verifiëren met Azure AD
-        href: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: Verifiëren met Facebook
-        href: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: Verifiëren met Google
-        href: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: Verifiëren met een Microsoft-account
-        href: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: Verifiëren met Twitter
-        href: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: Verifiëren met on-premises AD
-        href: web-sites-authentication-authorization.md
-      - name: App met een multitenant-database
-        href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: HTTPS afdwingen
-      href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
-    - name: Wederzijdse TLS-verificatie configureren
-      href: app-service-web-configure-tls-mutual-auth.md
-  - name: App schalen
-    items:
-    - name: Omhoog schalen
-      href: web-sites-scale.md
-    - name: Uitschalen
-      href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: Taken verdelen met Traffic Manager
-      href: web-sites-traffic-manager.md
-    - name: Schalen met App Service-omgevingen
-      href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: Azure CDN gebruiken voor wereldwijd bereik
-      href: cdn-websites-with-cdn.md
-    - name: Verbinding maken met Redis Cache via Memcache
-      href: web-sites-connect-to-redis-using-memcache-protocol.md
-    - name: Een Redis-cache maken
-      href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: Sessiestatus beheren met Azure Redis Cache
-      href: web-sites-dotnet-session-state-caching.md
-  - name: Bewaken
-    items:
-    - name: Apps bewaken
-      href: web-sites-monitor.md
-    - name: Logboeken inschakelen
-      href: web-sites-enable-diagnostic-log.md
-    - name: Logboeken streamen
-      href: web-sites-streaming-logs-and-console.md
-  - name: Back-up maken van inhoud
-    items:
-    - name: Een back-up maken van uw app
-      href: web-sites-backup.md
-    - name: Uw app terugzetten vanuit de back-up
-      href: web-sites-restore.md
-    - name: Een back-up maken met REST-API
-      href: websites-csm-backup.md
-  - name: App-resources beheren
-    items:
-    - name: Een app klonen met PowerShell
-      href: app-service-web-app-cloning.md
-    - name: Een app klonen met de portal
-      href: app-service-web-app-cloning-portal.md
-    - name: Resources verplaatsen
-      href: app-service-move-resources.md
-    - name: Azure Resource Manager gebruiken met PowerShell
-      href: app-service-web-app-azure-resource-manager-powershell.md
-    - name: Apps beheren met Azure Automation
-      href: automation-manage-web-app.md
-  - name: App Service-omgeving
-    items:
-    - name: Een App Service-omgeving gebruiken
-      href: ../app-service/app-service-environment/using-an-ase.md
-    - name: Een externe App Service-omgeving maken
-      href: ../app-service/app-service-environment/create-external-ase.md
-    - name: Maken met Azure Resource Manager
-      href: ../app-service/app-service-environment/create-from-template.md
-    - name: Maken met een interne load balancer
-      href: ../app-service/app-service-environment/create-ilb-ase.md
-    - name: Aandachtspunten voor netwerken
-      href: ../app-service/app-service-environment/network-info.md
-    - name: Aangepaste instellingen configureren
-      href: ./app-service-app-service-environment-custom-settings.md
-    - name: Integreren met een firewall voor webtoepassingen
-      href: ./app-service-app-service-environment-web-application-firewall.md
-    - name: Geografisch verspreide schaal
-      href: ./app-service-app-service-environment-geo-distributed-scale.md
+        - name: Een App Service-omgeving gebruiken
+          href: ../app-service/app-service-environment/using-an-ase.md
+        - name: Een externe App Service-omgeving maken
+          href: ../app-service/app-service-environment/create-external-ase.md
+        - name: Maken met Azure Resource Manager
+          href: ../app-service/app-service-environment/create-from-template.md
+        - name: Maken met een interne load balancer
+          href: ../app-service/app-service-environment/create-ilb-ase.md
+        - name: Aandachtspunten voor netwerken
+          href: ../app-service/app-service-environment/network-info.md
+        - name: Aangepaste instellingen configureren
+          href: ./app-service-app-service-environment-custom-settings.md
+        - name: Integreren met een firewall voor webtoepassingen
+          href: ./app-service-app-service-environment-web-application-firewall.md
+        - name: Geografisch verspreide schaal
+          href: ./app-service-app-service-environment-geo-distributed-scale.md
+        - name: Adreslijst voor beheer
+          href: ../app-service/app-service-environment/management-addresses.md
 - name: Naslaginformatie
   items:
-  - name: CLI 2.0
-    href: /cli/azure/appservice
-  - name: PowerShell
-    href: /powershell
-  - name: REST API
-    href: /rest/api/appservice/
-  - name: App Service-omgeving
-    href: ../app-service/app-service-environment/readme.md
+    - name: CLI 2.0
+      href: /cli/azure/appservice
+    - name: PowerShell
+      href: /powershell
+    - name: REST API
+      href: /rest/api/appservice/
+    - name: App Service-omgeving
+      href: ../app-service/app-service-environment/readme.md
 - name: Resources
   items:
-  - name: Azure-roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Problemen oplossen
-    items:
-    - name: Problemen met Visual Studio oplossen
-      href: web-sites-dotnet-troubleshoot-visual-studio.md
-    - name: Problemen met Node.js-app oplossen
-      href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
-    - name: Problemen met HTTP 502 en 503 oplossen
-      href: app-service-web-troubleshoot-http-502-http-503.md
-    - name: Prestatieproblemen oplossen
-      href: app-service-web-troubleshoot-performance-degradation.md
-    - name: Veelgestelde vragen
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Problemen oplossen
       items:
-      - name: 'Veelgestelde vragen over beschikbaarheid, prestaties en toepassing'
-        href: app-service-web-availability-performance-application-issues-faq.md
-      - name: Veelgestelde vragen over implementatie
-        href: app-service-web-deployment-faq.md
-      - name: Veelgestelde vragen over open-sourcetechnologieën
-        href: app-service-web-open-source-technologies-faq.md
-      - name: Veelgestelde vragen over configuratie en beheer
-        href: app-service-web-configuration-and-management-faq.md
-  - name: App Service-omgeving v1
-    items:
-    - name: Overzicht
-      href: app-service-app-service-environment-intro.md
-    - name: Een App Service-omgeving maken
-      href: app-service-web-how-to-create-an-app-service-environment.md
-    - name: Een web-app maken in een App Service-omgeving
-      href: app-service-web-how-to-create-a-web-app-in-an-ase.md
-    - name: Een interne load balancer gebruiken
-      href: app-service-environment-with-internal-load-balancer.md
-    - name: Een App Service-omgeving configureren
-      href: app-service-web-configure-an-app-service-environment.md
-    - name: Apps schalen in een App Service-omgeving
-      href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
-    - name: Overzicht van netwerkarchitectuur
-      href: app-service-app-service-environment-network-architecture-overview.md
-    - name: Een gelaagde beveiligingsarchitectuur implementeren
-      href: app-service-app-service-environment-layered-security.md
-    - name: Inkomend verkeer beheren
-      href: app-service-app-service-environment-control-inbound-traffic.md
-    - name: Veilig verbinding maken met back-endresources
-      href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
-    - name: Details van netwerkconfiguratie met ExpressRoute
-      href: app-service-app-service-environment-network-configuration-expressroute.md
-    - name: Automatisch schalen in een App Service-omgeving
-      href: ../app-service/app-service-environment-auto-scale.md
-  - name: Prijzen
-    href: https://azure.microsoft.com/pricing/details/app-service/
-  - name: Quotumgegevens
-    href: ../azure-subscription-service-limits.md#app-service-limits
-  - name: Service-updates en release-opmerkingen
-    href: https://azure.microsoft.com/updates/?product=app-service
-  - name: Aanbevolen procedures
-    href: app-service-best-practices.md
-  - name: Voorbeelden
-    href: https://azure.microsoft.com/resources/samples/?service=app-service
-  - name: Video's
-    href: https://azure.microsoft.com/resources/videos/index/?services=app-service
-  - name: Kookboeken
-    items:
-    - name: Referentiearchitecturen
-      href: ../guidance/guidance-ra-app-service.md
-    - name: Implementatiescripts
-      href: https://azure.microsoft.com/documentation/scripts/
+        - name: Problemen met Visual Studio oplossen
+          href: web-sites-dotnet-troubleshoot-visual-studio.md
+        - name: Problemen met Node.js-app oplossen
+          href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
+        - name: Problemen met HTTP 502 en 503 oplossen
+          href: app-service-web-troubleshoot-http-502-http-503.md
+        - name: Prestatieproblemen oplossen
+          href: app-service-web-troubleshoot-performance-degradation.md
+        - name: Veelgestelde vragen
+          items:
+            - name: >-
+                Veelgestelde vragen over beschikbaarheid, prestaties en
+                toepassing
+              href: >-
+                app-service-web-availability-performance-application-issues-faq.md
+            - name: Veelgestelde vragen over implementatie
+              href: app-service-web-deployment-faq.md
+            - name: Veelgestelde vragen over open-sourcetechnologieën
+              href: app-service-web-open-source-technologies-faq.md
+            - name: Veelgestelde vragen over configuratie en beheer
+              href: app-service-web-configuration-and-management-faq.md
+    - name: App Service-omgeving v1
+      items:
+        - name: Overzicht
+          href: app-service-app-service-environment-intro.md
+        - name: Een App Service-omgeving maken
+          href: app-service-web-how-to-create-an-app-service-environment.md
+        - name: Een web-app maken in een App Service-omgeving
+          href: app-service-web-how-to-create-a-web-app-in-an-ase.md
+        - name: Een interne load balancer gebruiken
+          href: app-service-environment-with-internal-load-balancer.md
+        - name: Een App Service-omgeving configureren
+          href: app-service-web-configure-an-app-service-environment.md
+        - name: Apps schalen in een App Service-omgeving
+          href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
+        - name: Overzicht van netwerkarchitectuur
+          href: app-service-app-service-environment-network-architecture-overview.md
+        - name: Een gelaagde beveiligingsarchitectuur implementeren
+          href: app-service-app-service-environment-layered-security.md
+        - name: Inkomend verkeer beheren
+          href: app-service-app-service-environment-control-inbound-traffic.md
+        - name: Veilig verbinding maken met back-endresources
+          href: >-
+            app-service-app-service-environment-securely-connecting-to-backend-resources.md
+        - name: Details van netwerkconfiguratie met ExpressRoute
+          href: >-
+            app-service-app-service-environment-network-configuration-expressroute.md
+        - name: Automatisch schalen in een App Service-omgeving
+          href: ../app-service/app-service-environment-auto-scale.md
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/app-service/'
+    - name: Quotumgegevens
+      href: '../azure-subscription-service-limits.md#app-service-limits'
+    - name: Service-updates en release-opmerkingen
+      href: 'https://azure.microsoft.com/updates/?product=app-service'
+    - name: Aanbevolen procedures
+      href: app-service-best-practices.md
+    - name: Voorbeelden
+      href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
+    - name: Video's
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
+    - name: Kookboeken
+      items:
+        - name: Referentiearchitecturen
+          href: ../guidance/guidance-ra-app-service.md
+        - name: Implementatiescripts
+          href: 'https://azure.microsoft.com/documentation/scripts/'

@@ -20,6 +20,7 @@
 ### [VM’s controleren met v2.x van de diagnostische VM-extensie](diagnostic-extension-v2.md)
 ### [Aangepaste gegevens invoeren](inject-custom-data.md)
 ### [Wachtwoorden of sleutels voor Linux opnieuw instellen, SSH-problemen oplossen en schijven controleren](reset-access.md)
+### [Onderhoud](planned-maintenance-schedule.md)
 ### [Een Docker-host maken via CLI](cli-use-docker.md)
 ### [Een Docker-host maken via de portal](portal-use-docker.md)
 ### [Docker gebruiken met Swarm](../../virtual-machines-linux-docker-swarm.md)
