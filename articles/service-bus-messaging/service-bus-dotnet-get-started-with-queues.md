@@ -20,16 +20,11 @@ ms.openlocfilehash: 02d0ce093bc42cffa4f3993826c61c8aeca4d033
 ms.contentlocale: nl-nl
 ms.lasthandoff: 07/01/2017
 
-
 ---
-<a id="get-started-with-service-bus-queues" class="xliff"></a>
-
-# Aan de slag met Service Bus-wachtrijen
+# <a name="get-started-with-service-bus-queues"></a>Aan de slag met Service Bus-wachtrijen
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-<a id="what-will-be-accomplished" class="xliff"></a>
-
-## Wat wordt bereikt
+## <a name="what-will-be-accomplished"></a>Wat wordt bereikt
 Deze zelfstudie bestaat uit de volgende stappen:
 
 1. Een Service Bus-naamruimte maken met de Azure-portal.
@@ -37,50 +32,36 @@ Deze zelfstudie bestaat uit de volgende stappen:
 3. Een consoletoepassing schrijven om een bericht te verzenden.
 4. Een consoletoepassing schrijven om de berichten te ontvangen die in de vorige stap werden verzonden.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 1. [Visual Studio 2015 of hoger](http://www.visualstudio.com). In de voorbeelden in deze zelfstudie wordt Visual Studio 2017 gebruikt.
 2. Een Azure-abonnement.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-<a id="1-create-a-namespace-using-the-azure-portal" class="xliff"></a>
-
-## 1. Een naamruimte maken met de Azure-portal
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Een naamruimte maken met de Azure-portal
 Als u al een Service Bus Messaging-naamruimte hebt gemaakt, gaat u naar het gedeelte [Een wachtrij maken met de Azure-portal](#2-create-a-queue-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-<a id="2-create-a-queue-using-the-azure-portal" class="xliff"></a>
-
-## 2. Een wachtrij maken met de Azure-portal
+## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Een wachtrij maken met de Azure-portal
 Als u al een Service Bus-wachtrij hebt gemaakt, gaat u naar het gedeelte [Berichten naar de wachtrij verzenden](#3-send-messages-to-the-queue).
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-<a id="3-send-messages-to-the-queue" class="xliff"></a>
-
-## 3. Berichten naar de wachtrij verzenden
+## <a name="3-send-messages-to-the-queue"></a>3. Berichten naar de wachtrij verzenden
 We maken een C#-consoletoepassing met Visual Studio om berichten naar de wachtrij te verzenden.
 
-<a id="create-a-console-application" class="xliff"></a>
-
-### Een consoletoepassing maken
+### <a name="create-a-console-application"></a>Een consoletoepassing maken
 
 Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Framework)**.
 
-<a id="add-the-service-bus-nuget-package" class="xliff"></a>
-
-### Het Service Bus NuGet-pakket toevoegen
+### <a name="add-the-service-bus-nuget-package"></a>Het Service Bus NuGet-pakket toevoegen
 1. Klik met de rechtermuisknop op het nieuwe project en selecteer **NuGet-pakketten beheren**.
 2. Klik op het tabblad **Bladeren**, zoek naar **Microsoft Azure Service Bus** en selecteer het item **WindowsAzure.ServiceBus**. Klik op **Installeren** om de installatie te voltooien en sluit vervolgens dit dialoogvenster.
    
     ![Een NuGet-pakket selecteren][nuget-pkg]
 
-<a id="write-some-code-to-send-a-message-to-the-queue" class="xliff"></a>
-
-### Code schrijven om een bericht naar de wachtrij te verzenden
+### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Code schrijven om een bericht naar de wachtrij te verzenden
 1. Voeg boven in het bestand Program.cs de volgende `using`-instructie toe.
    
     ```csharp
@@ -95,7 +76,6 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Framework)**.
     var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
     var message = new BrokeredMessage("This is a test message!");
 
-    Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
     Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
     client.Send(message);
@@ -126,7 +106,6 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Framework)**.
                 var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
                 var message = new BrokeredMessage("This is a test message!");
 
-                Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
                 Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
                 client.Send(message);
@@ -141,9 +120,7 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Framework)**.
    
       ![Berichtgrootte][queue-message]
 
-<a id="4-receive-messages-from-the-queue" class="xliff"></a>
-
-## 4. Berichten ontvangen uit de wachtrij
+## <a name="4-receive-messages-from-the-queue"></a>4. Berichten ontvangen uit de wachtrij
 
 1. Als u berichten wilt ontvangen die u zojuist hebt verzonden, maakt u een nieuwe consoletoepassing en voegt u een verwijzing toe naar het Service Bus-pakket NuGet, zoals ook met de voorgaande verzendtoepassing is gedaan.
 2. Voeg boven in het bestand Program.cs de volgende `using`-instructie toe.
@@ -204,9 +181,7 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Framework)**.
 
 Gefeliciteerd. U hebt nu een wachtrij gemaakt, een bericht verzonden en een bericht ontvangen.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Bekijk onze [GitHub-opslagplaats met voorbeelden](https://github.com/Azure/azure-service-bus/tree/master/samples) die enkele van de meer geavanceerde functies van Service Bus Messaging laten zien.
 

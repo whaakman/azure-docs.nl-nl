@@ -13,6 +13,3 @@
 ### [Aan de slag met de app](microsoft-authenticator-app-how-to.md)
 ### [Aanmelden via uw telefoon](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Veelgestelde vragen](microsoft-authenticator-app-faq.md)
-
-# Resources
-## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
