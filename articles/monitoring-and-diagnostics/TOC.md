@@ -74,3 +74,4 @@
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [PowerShell-voorbeelden](insights-powershell-samples.md)
 ## [Video's](https://azure.microsoft.com/resources/videos/index/?services=monitor)
+## [Snelstartsjablonen](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

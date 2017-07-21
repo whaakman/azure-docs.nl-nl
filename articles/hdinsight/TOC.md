@@ -1,475 +1,241 @@
 # Overzicht
-
 ## [Informatie over HDInsight en Hadoop](hdinsight-hadoop-introduction.md)
-
 ## [Hadoop-componenten op HDInsight](hdinsight-component-versioning.md)
-
 ## [R Server](hdinsight-hadoop-r-server-overview.md)
-
 ## [Apache Spark](hdinsight-apache-spark-overview.md)
-
 ## [HBase](hdinsight-hbase-overview.md)
-
 ## [Apache Storm](hdinsight-storm-overview.md)
-
 ## [Kafka (preview)](hdinsight-apache-kafka-introduction.md)
-
 ## [Aan een domein gekoppelde HDInsight-clusters (preview)](hdinsight-domain-joined-introduction.md)
-
 ## Releaseopmerkingen
-
 ### [Recent](hdinsight-release-notes.md)
-
 ### [Archief](hdinsight-release-notes-archive.md)
 
-
 # Aan de slag
-
 ## [Beginnen met Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
-
 ## [Beginnen met Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
-
 ## [Beginnen met R Server](hdinsight-hadoop-r-server-get-started.md)
-
 ## [Beginnen met HBase en NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
-
 ## [Beginnen met Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
-
 ## [Beginnen met Interactive Hive (preview)](hdinsight-hadoop-use-interactive-hive.md)
-
 ## [Beginnen met Kafka (preview)](hdinsight-apache-kafka-get-started.md)
-
 ## [Hadoop-sandbox](hdinsight-hadoop-emulator-get-started.md)
-
 ## [Data Lake-hulpprogramma's met Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
-
 ## [Hulpprogramma's voor Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
-
 ## [HDInsight op basis van Azure Storage](hdinsight-hadoop-use-blob-storage.md)
-
 ## [HDInsight op basis van Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md)
 
-
 # Procedures
-
 ## Hadoop gebruiken voor batch-query 's
-
 ### [Hive met Hadoop](hdinsight-use-hive.md)
-
 #### [De Hive-weergave gebruiken](hdinsight-hadoop-use-hive-ambari-view.md)
-
 #### [Beeline gebruiken](hdinsight-hadoop-use-hive-beeline.md)
-
 #### [cURL gebruiken](hdinsight-hadoop-use-hive-curl.md)
-
 #### [PowerShell gebruiken](hdinsight-hadoop-use-hive-powershell.md)
-
 #### [.NET-SDK gebruiken](hdinsight-hadoop-use-hive-dotnet-sdk.md)
-
 #### [HDInsight-hulpprogramma's voor Visual Studio gebruiken](hdinsight-hadoop-use-hive-visual-studio.md)
-
 #### [Extern bureaublad gebruiken](hdinsight-hadoop-use-hive-remote-desktop.md)
-
 #### [De queryconsole gebruiken](hdinsight-hadoop-use-hive-query-console.md)
-
 ### [Een Java UDF gebruiken met Hive](hdinsight-hadoop-hive-java-udf.md)
-
 ### [MapReduce gebruiken met Hadoop](hdinsight-use-mapreduce.md)
-
 #### [SSH gebruiken](hdinsight-hadoop-use-mapreduce-ssh.md)
-
 #### [cURL gebruiken](hdinsight-hadoop-use-mapreduce-curl.md)
-
 #### [PowerShell gebruiken](hdinsight-hadoop-use-mapreduce-powershell.md)
-
 #### [Extern bureaublad gebruiken](hdinsight-hadoop-use-mapreduce-remote-desktop.md)
-
 ### [De MapReduce-voorbeelden uitvoeren](hdinsight-hadoop-run-samples-linux.md)
-
 ### [Pig gebruiken met Hadoop](hdinsight-use-pig.md)
-
 #### [SSH en Pig gebruiken](hdinsight-hadoop-use-pig-ssh.md)
-
 #### [PowerShell gebruiken](hdinsight-hadoop-use-pig-powershell.md)
-
 #### [.NET-SDK gebruiken](hdinsight-hadoop-use-pig-dotnet-sdk.md)
-
 #### [cURL gebruiken](hdinsight-hadoop-use-pig-curl.md)
-
 #### [Extern bureaublad gebruiken](hdinsight-hadoop-use-pig-remote-desktop.md)
-
 ### [DataFu gebruiken met Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
-
 ### [On-demand clusters](hdinsight-hadoop-create-linux-clusters-adf.md)
-
 ### [Hadoop-taken indienen](hdinsight-submit-hadoop-jobs-programmatically.md)
-
 ## R Server gebruiken
-
 ### [Opslagopties](hdinsight-hadoop-r-server-storage.md)
-
 ### [RStudio installeren](hdinsight-hadoop-r-server-install-r-studio.md)
-
 ### [Contexten berekenen](hdinsight-hadoop-r-server-compute-contexts.md)
-
 ### [ScaleR en SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
-
 ## Spark gebruiken voor in-memory verwerking
-
 ### [Met Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
-
 ### [Met BI-hulpprogramma's](hdinsight-apache-spark-use-bi-tools.md)
-
 ### [Een zelfstandige app maken](hdinsight-apache-spark-create-standalone-application.md)
-
 ### [Apps maken met Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
-
 ### [Apps maken met IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
-
 ### [Streaming-gebeurtenissen verwerken](hdinsight-apache-spark-eventhub-streaming.md)
-
 ### [HVAC-prestaties voorspellen](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-
 ### [Resultaten van voedingsinspectie voorspellen](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-
 ### [Websitelogboeken analyseren](hdinsight-apache-spark-custom-library-website-log-analysis.md)
-
 ### [Caffe gebruiken voor deep learning](hdinsight-deep-learning-caffe-spark.md)
-
 ### [Met Microsoft Cognitive Toolkit gebruiken](hdinsight-apache-spark-microsoft-cognitive-toolkit.md)
-
 ### [Zeppelin-notitieblokken gebruiken](hdinsight-apache-spark-zeppelin-notebook.md)
-
 ### [Jupyter-notitieblokkernels](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-
 ### [Externe pakketten gebruiken met Jupyter-met behulp van magic-pakket voor cellen](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-
 ### [Externe pakketten gebruiken met Jupyter-met behulp van scriptacties](hdinsight-apache-spark-python-package-installation.md)
-
 ### [Een lokaal Jupyter-notitieblok gebruiken](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-
 ### [Externe taken met Livy](hdinsight-apache-spark-livy-rest-interface.md)
-
 ### [Externe foutenopsporing voor taken met IntelliJ via VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-
 ### [Resources beheren](hdinsight-apache-spark-resource-manager.md)
-
 ### [Taken bijhouden en fouten opsporen](hdinsight-apache-spark-job-debugging.md)
-
 ### [Bekende problemen](hdinsight-apache-spark-known-issues.md)
-
 ## HBase gebruiken
-
 ### [Phoenix en SQLLine gebruiken](hdinsight-hbase-phoenix-squirrel-linux.md)
-
 ### [Real-time tweets analyseren](hdinsight-hbase-analyze-twitter-sentiment.md)
-
 ### [Clusters maken in een virtueel netwerk](hdinsight-hbase-provision-vnet.md)
-
 ### [HBase-replicatie configureren](hdinsight-hbase-replication.md)
-
 ### [Een app met Java ontwikkelen](hdinsight-hbase-build-java-maven-linux.md)
-
 ## Storm gebruiken
-
 ### [Topologieën implementeren en beheren](hdinsight-storm-deploy-monitor-topology-linux.md)
-
 ### [Apps voor gegevensverwerking ontwikkelen in SCP](hdinsight-storm-scp-programming-guide.md)
-
 ### [Storm-voorbeelden](hdinsight-storm-example-topology.md)
-
 #### [Schrijven naar Data Lake Store](hdinsight-storm-write-data-lake-store.md)
-
 #### [Op Java gebaseerde topologieën ontwikkelen met Maven](hdinsight-storm-develop-java-topology.md)
-
 #### [C#-topologieën ontwikkelen met Hadoop-hulpprogramma's](hdinsight-storm-develop-csharp-visual-studio-topology.md)
-
 #### [Actuele onderwerpen op Twitter bepalen](hdinsight-storm-twitter-trending.md)
-
 #### [Gebeurtenissen verwerken met C#-topologieën](hdinsight-storm-develop-csharp-event-hub-topology.md)
-
 #### [Gebeurtenissen verwerken met Java-topologieën](hdinsight-storm-develop-java-event-hub-topology.md)
-
 #### [Power BI gebruiken met een topologie](hdinsight-storm-power-bi-topology.md)
-
 #### [Real-time sensorgegevens analyseren](hdinsight-storm-sensor-data-analysis.md)
-
 #### [Voertuigsensorgegevens verwerken](hdinsight-storm-iot-eventhub-documentdb.md)
-
 #### [Gebeurtenissen gedurende een periode correleren](hdinsight-storm-correlation-topology.md)
-
 #### [Topologieën ontwikkelen met Python](hdinsight-storm-develop-python-topology.md)
-
 ## Aan domein gekoppeld HDInsight (preview) gebruiken
-
 ### [Configureren](hdinsight-domain-joined-configure.md)
-
 ### [Beheren](hdinsight-domain-joined-manage.md)
-
 ### [Hive-beleid configureren](hdinsight-domain-joined-run-hive.md)
-
 ## Kafka (preview) gebruiken
-
 ### [Kafka-gegevens repliceren](hdinsight-apache-kafka-mirroring.md)
-
 ### [De opslag en schaalbaarheid van Kafka configureren](hdinsight-apache-kafka-scalability.md)
-
 ### [Hoge beschikbaarheid van gegevens configureren](hdinsight-apache-kafka-high-availability.md)
-
 ### [Gebruiken met Virtual Networks](hdinsight-apache-kafka-connect-vpn-gateway.md)
-
 ### [Gebruiken met Spark (Structured Streaming)](hdinsight-apache-kafka-spark-structured-streaming.md)
-
 ### [Gebruiken met Spark (DStream)](hdinsight-apache-spark-with-kafka.md)
-
 ### [Gebruiken met Storm](hdinsight-apache-storm-with-kafka.md)
-
 ## Ontwikkelen
-
 ### [Streaming C# MapReduce-programma's ontwikkelen](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
-
 ### [Java MapReduce-programma's ontwikkelen](hdinsight-develop-deploy-java-mapreduce-linux.md)
-
 ### [Scalding MapReduce-taken ontwikkelen](hdinsight-hadoop-mapreduce-scalding.md)
-
 ### [HDInsight-hulpprogramma's gebruiken om Spark-apps te maken](hdinsight-apache-spark-eclipse-tool-plugin.md)
-
 ### [HDInsight-hulpprogramma's gebruiken om fouten in Spark-apps op afstand op te sporen via SSH](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-
 ### [Lege edge-knooppunten gebruiken](hdinsight-apps-use-edge-node.md)
-
 ### [Streaming Python-programma's ontwikkelen](hdinsight-hadoop-streaming-python.md)
-
 ### [JSON-documenten verwerken en analyseren](hdinsight-using-json-in-hive.md)
-
 ### [Gegevens met Avro-bibliotheek serialiseren](hdinsight-dotnet-avro-serialization.md)
-
 ### [Door gebruiker gedefinieerde C#-functies gebruiken](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
-
 ### [Python gebruiken met Hive en Pig](hdinsight-python.md)
-
 ## Big data analyseren
-
 ### [Analyseren met Power Query](hdinsight-connect-excel-power-query.md)
-
 ### [Excel verbinden met Hadoop](hdinsight-connect-excel-hive-odbc-driver.md)
-
 ### [Verbinding maken met het Hive JDBC-stuurprogramma](hdinsight-connect-hive-jdbc-driver.md)
-
 ### [Opgeslagen sensorgegevens analyseren](hdinsight-hive-analyze-sensor-data.md)
-
 ### [Opgeslagen tweets analyseren](hdinsight-analyze-twitter-data-linux.md)
-
 ### [Gegevens over vertraagde vluchten analyseren](hdinsight-analyze-flight-delay-data-linux.md)
-
 ### [Aanbevelingen genereren met Mahout](hdinsight-hadoop-mahout-linux-mac.md)
-
 ### [Websitelogboeken met Hive analyseren](hdinsight-hive-analyze-website-log.md)
-
 ### [Application Insights-logboekbestanden met telemetrie analyseren](hdinsight-spark-analyze-application-insight-logs.md)
-
 ## Clusters uitbreiden
-
 ### [Clusters aanpassen met Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
-
 ### [Clusters aanpassen met Script Action](hdinsight-hadoop-customize-cluster-linux.md)
-
+### [HDInsight verbinden met uw on-premises netwerk](connect-on-premises-network.md)
 ### [Scriptacties ontwikkelen](hdinsight-hadoop-script-actions-linux.md)
-
 ### [Presto installeren en gebruiken](hdinsight-hadoop-install-presto.md)
-
 ### [Mono installeren of bijwerken](hdinsight-hadoop-install-mono.md)
-
 ### [Hive-bibliotheken toevoegen](hdinsight-hadoop-add-hive-libraries.md)
-
 ### [Giraph gebruiken](hdinsight-hadoop-giraph-install-linux.md)
-
 ### [Tint gebruiken](hdinsight-hadoop-hue-linux.md)
-
 ### [R gebruiken](hdinsight-hadoop-r-scripts-linux.md)
-
 ### [Solr gebruiken](hdinsight-hadoop-solr-install-linux.md)
-
 ### [Virtual Network gebruiken](hdinsight-extend-hadoop-virtual-network.md)
-
 ### [Zeppelin gebruiken](hdinsight-apache-spark-zeppelin-notebook.md)
-
 ### HDInsight-toepassingen bouwen
-
 #### [HDInsight-apps installeren](hdinsight-apps-install-applications.md)
-
 #### [Aangepaste apps installeren](hdinsight-apps-install-custom-applications.md)
-
 #### [RES gebruiken voor het installeren van apps](https://msdn.microsoft.com/library/mt706515.aspx)
-
 #### [HDInsight-apps publiceren naar Azure Marketplace](hdinsight-apps-publish-applications.md)
-
 ## Beveiligen
-
 ### [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
-
 ### [SSH-tunneling gebruiken](hdinsight-linux-ambari-ssh-tunnel.md)
-
 ### [Toegang tot gegevens beperken](hdinsight-storage-sharedaccesssignature-permissions.md)
-
 ## Beheren
-
 ### [Linux-clusters maken](hdinsight-hadoop-provision-linux-clusters.md)
-
 #### [Azure PowerShell gebruiken](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-
 #### [cURL en de Azure REST-API gebruiken](hdinsight-hadoop-create-linux-clusters-curl-rest.md)
-
 #### [.NET-SDK gebruiken](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-
 #### [Azure CLI gebruiken](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
-
 #### [Azure Portal gebruiken](hdinsight-hadoop-create-linux-clusters-portal.md)
-
 #### [Azure Resource Manager-sjablonen gebruiken](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
-
 ### [Hadoop-clusters beheren](hdinsight-administer-use-portal-linux.md)
-
 #### [.NET-SDK gebruiken](hdinsight-administer-use-dotnet-sdk.md)
-
 #### [Azure PowerShell gebruiken](hdinsight-administer-use-powershell.md)
-
 #### [Azure CLI gebruiken](hdinsight-administer-use-command-line.md)
-
 ### [Clusters beheren met Ambari-webinterface](hdinsight-hadoop-manage-ambari.md)
-
 #### [Ambari-REST-API gebruiken](hdinsight-hadoop-manage-ambari-rest-api.md)
-
 ### [Opslagaccounts toevoegen](hdinsight-hadoop-add-storage.md)
-
 ### [Gegevens uploaden voor Hadoop-taken](hdinsight-upload-data.md)
-
 ### [Meerdere HDInsight-clusters met Data Lake Store](hdinsight-multiple-clusters-data-lake-store.md)
-
 ### [Gegevens importeren en exporteren met Sqoop](hdinsight-use-sqoop.md)
-
 #### [Verbinding maken met SSH](hdinsight-use-sqoop-mac-linux.md)
-
 #### [Uitvoeren met cURL](hdinsight-hadoop-use-sqoop-curl.md)
-
 #### [Uitvoeren met .NET-SDK](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
-
 #### [Uitvoeren met PowerShell](hdinsight-hadoop-use-sqoop-powershell.md)
-
 ### [Oozie gebruiken voor werkstromen](hdinsight-use-oozie-linux-mac.md)
-
 ### [Op tijd gebaseerde Oozie-coördinatoren gebruiken](hdinsight-use-oozie-coordinator-time.md)
-
 ### [Cluster en servicepoorten en URI's](hdinsight-hadoop-port-settings-for-services.md)
-
 ### [Migreren naar ontwikkelingsprogramma's van Resource Manager](hdinsight-hadoop-development-using-azure-resource-manager.md)
-
 ### [Beschikbaarheid en betrouwbaarheid](hdinsight-high-availability-linux.md)
-
 ### [HDInsight-cluster upgraden naar nieuwere versie](hdinsight-upgrade-cluster.md)
-
 ### [OS-patches voor HDInsight-cluster](hdinsight-os-patching.md)
-
 ## [Problemen oplossen](hdinsight-troubleshoot-guide.md)
-
 ### [Problemen met HBASE oplossen](hdinsight-troubleshoot-hbase.md)
-
 ### [Problemen met HDFS oplossen](hdinsight-troubleshoot-hdfs.md)
-
 ### [Problemen met HIVE oplossen](hdinsight-troubleshoot-hive.md)
-
 ### [Problemen met Spark oplossen](hdinsight-troubleshoot-spark.md)
-
 ### [Problemen met STORM oplossen](hdinsight-troubleshoot-storm.md)
-
 ### [Problemen met YARN oplossen](hdinsight-troubleshoot-yarn.md)
-
 ### Resources
-
 #### [Informatie over het gebruik van HDInsight in Linux](hdinsight-hadoop-linux-information.md)
-
 #### [Hadoop-geheugen en -prestaties](hdinsight-hadoop-stack-trace-error-messages.md)
-
 #### [Toegang tot Hadoop YARN-toepassingslogboeken in Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-
 #### [Heapdumps voor Hadoop-services inschakelen](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-
 #### [HDInsight-logboekbestanden analyseren](hdinsight-debug-jobs.md)
-
 #### [Inzicht in problemen met WebHCat en deze oplossen](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
-
 #### [Hive-instellingen om fouten van het type 'onvoldoende geheugen' op te lossen](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
-
 #### [Ambari-weergaven gebruiken om fouten in Tez-taken op te sporen](hdinsight-debug-ambari-tez-view.md)
-
 #### [Hive-query's optimaliseren](hdinsight-hadoop-optimize-hive-query.md)
 
-
 # Naslaginformatie
-
 ## [PowerShell](/powershell/module/azurerm.hdinsight)
-
 ## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
-
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
-
 ## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
-
 ## [REST](/rest/api/hdinsight/)
-
 ## [REST (Spark)](/rest/api/hdinsightspark/)
 
-
 # Verwant
-
 ## Windows-clusters
-
 ### [Windows-clusters migreren naar Linux-clusters](hdinsight-migrate-from-windows-to-linux.md)
-
 ### [.NET-oplossingen migreren naar Linux-clusters](hdinsight-hadoop-migrate-dotnet-to-linux.md)
-
 ### [Voorbeelden van Hadoop MapReduce uitvoeren](hdinsight-run-samples.md)
-
 ### [Solr in clusters gebruiken](hdinsight-hadoop-solr-install-linux.md)
-
 ### [Giraph gebruiken om grootschalige grafieken te verwerken](hdinsight-hadoop-giraph-install.md)
-
 ### [Oozie gebruiken voor werkstromen](hdinsight-use-oozie.md)
-
 ### [Storm-topologieën implementeren en beheren](hdinsight-storm-deploy-monitor-topology.md)
-
 ### [Maven gebruiken om Java-toepassingen te maken](hdinsight-hbase-build-java-maven.md)
-
 ### [De Tez-gebruikersinterface gebruiken om problemen met Tez-taken op te sporen](hdinsight-debug-tez-ui.md)
-
 ### [Aanpassingen aanbrengen met Script Action](hdinsight-hadoop-customize-cluster.md)
-
 ### [Toegang tot YARN-toepassingslogboeken](hdinsight-hadoop-access-yarn-app-logs.md)
-
 ### [Apache Phoenix en SQuirreL gebruiken](hdinsight-hbase-phoenix-squirrel.md)
-
 ### [Filmaanbevelingen genereren met Mahout](hdinsight-mahout.md)
-
 ### [Gegevens over vertraagde vluchten analyseren](hdinsight-analyze-flight-delay-data.md)
-
 ### [Scriptacties ontwikkelen](hdinsight-hadoop-script-actions.md)
-
 ### [Twitter-gegevens analyseren](hdinsight-analyze-twitter-data.md)
-
 ### [Clusters beheren met Azure Portal](hdinsight-administer-use-management-portal.md)
-
 ### [Clusters bewaken met Ambari-API](hdinsight-monitor-use-ambari-api.md)
 
-
 # Resources
-
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
-
 ## [Hulp op het forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
-
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
-
 ## [Microsoft Professional-programma voor Big Data](https://academy.microsoft.com/en-us/professional-program/big-data/)
-
 ## [Windows-hulpprogramma's voor HDInsight](hdinsight-hadoop-windows-tools.md)
-

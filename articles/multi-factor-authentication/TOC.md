@@ -15,6 +15,7 @@
 ### [Instellingen configureren](multi-factor-authentication-whats-next.md)
 ### [Rapporten in MFA](multi-factor-authentication-manage-reports.md)
 ### [Bestaande netwerkbeleidservers gebruiken](multi-factor-authentication-nps-extension.md)
+#### [Geavanceerde configuratie voor NPS-extensie](nps-extension-advanced-configuration.md)
 ### [Een verificatieprovider maken](multi-factor-authentication-get-started-auth-provider.md)
 ### Azure MFA on-premises
 #### [De gebruikersportal installeren](multi-factor-authentication-get-started-portal.md)
