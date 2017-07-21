@@ -21,8 +21,6 @@
 #### [Queue Storage en verbonden services](../storage/vs-storage-cloud-services-getting-started-queues.md)
 #### [Table Storage en verbonden services](../storage/vs-storage-cloud-services-getting-started-tables.md)
 ### Pakketten configureren voor doorlopend bouwen en implementeren
-#### [Visual Studio Team Services en Git](cloud-services-continuous-delivery-use-vso-git.md)
-#### [Visual Studio Team Services](cloud-services-continuous-delivery-use-vso.md)
 #### [TFS en Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Verkeersregels voor een rol configureren](cloud-services-enable-communication-role-instances.md)
 ### [Levenscyclusgebeurtenissen van cloudservices verwerken](cloud-services-role-lifecycle-dotnet.md)

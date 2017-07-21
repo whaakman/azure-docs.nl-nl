@@ -7,6 +7,7 @@
 ## [URL-routering](application-gateway-url-route-overview.md)
 ## [Multi-site](application-gateway-multi-site-overview.md)
 ## [End-to-end-SSL](application-gateway-backend-ssl.md)
+## [Omleiding](application-gateway-redirect-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
 ## [Servicelimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Aan de slag
@@ -37,6 +38,8 @@
 ## Hosting van meerdere sites configureren
 ### [Portal](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
+## Omleiding configureren
+### [PowerShell](application-gateway-configure-redirect-powershell.md)
 ## Statuscontroles configureren
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
