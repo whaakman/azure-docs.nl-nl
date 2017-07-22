@@ -1,6 +1,6 @@
 ---
 title: Wat is Azure Sleutelkluis? | Microsoft Docs
-description: Met Azure Key Vault kunt u de cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services worden gebruikt. Klanten kunnen met Azure Key Vault sleutels en geheimen versleutelen (zoals verificatiesleutels, opslagaccountsleutels, gegevensversleutelingssleutels, PFX-bestanden en wachtwoorden) door gebruik te maken van sleutels die worden beveiligd met HSM&quot;s.
+description: Met Azure Key Vault kunt u de cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services worden gebruikt. Klanten kunnen met Azure Key Vault sleutels en geheimen versleutelen (zoals verificatiesleutels, opslagaccountsleutels, gegevensversleutelingssleutels, PFX-bestanden en wachtwoorden) door gebruik te maken van sleutels die worden beveiligd met HSM's.
 services: key-vault
 documentationcenter: 
 author: cabailey
@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/07/2017
+ms.date: 07/19/2017
 ms.author: cabailey
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: f9dba42681f69406f9066a63140f74e3f5ec41dd
-
+ms.contentlocale: nl-nl
+ms.lasthandoff: 12/07/2016
 
 ---
 # <a name="what-is-azure-key-vault"></a>Wat is Azure Sleutelkluis?
@@ -59,9 +60,4 @@ Zie [Over sleutels, geheimen en certificaten](https://msdn.microsoft.com/library
 
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

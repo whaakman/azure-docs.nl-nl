@@ -13,12 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
+ms.date: 07/20/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.reviewer: jesakowi
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 095497656a1c6ed1fe5322b6015de750d8fd6f15
 ms.openlocfilehash: 3706ed729a525526a415d3a3367e6b8245ead812
-
+ms.contentlocale: nl-nl
+ms.lasthandoff: 12/06/2016
 
 ---
 
@@ -215,10 +217,5 @@ In het geval van FabrikamMail, ziet dit er ongeveer als volgt uit:
 (**ClientId** is de service-principal object-id van FabrikamMail (de id die zojuist is gemaakt), **PrincipalId** is de gebruikersobject-id (van de gebruiker die toestemming heeft gegeven), **ResourceId** is de service-principal object-id van Exchange en het bereik is de machtiging in Exchange waar toestemming voor is gegeven).
 
 Als gebruikers geen toestemming mogen geven, krijgen ze een scherm te zien waarin staat dat machtiging is vereist.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
