@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/24/2016
+ms.date: 07/19/2017
 ms.author: cabailey
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: c45695129c1795b44b933a6d60e2f21a98542f7d
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 73b4ae4b7baca434c6aed99a2e59a9102b0d96ed
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="get-started-with-azure-key-vault"></a>Aan de slag met Azure Sleutelkluis
@@ -172,7 +171,7 @@ De toepassing registreren in Azure Active Directory:
 10. Kopieer de client-id-waarde op deze pagina. Deze waarde gebruikt in de volgende stap om machtigingen voor uw kluis in te stellen.
 
 ## <a id="authorize"></a>De toepassing toestemming geven om de sleutel of het geheim te gebruiken
-Als u de toepassing toegang wilt verlenen toegang tot de sleutel of het geheim in de kluis, gebruikt u de cmdlet  [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
+Als u de toepassing toegang wilt verlenen toegang tot de sleutel of het geheim in de kluis, gebruikt u de cmdlet [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
 
 Als bijvoorbeeld uw kluisnaam **ContosoKeyVault** is en de toepassing die u wilt hosten de client-id 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed heeft, kunt u het volgende uitvoeren om de toepassing toestemming te geven om ondertekenings- en versleutelingsbewerking met de sleutels in uw kluis uit te voeren:
 

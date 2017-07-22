@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: b53e7f5454cd97f013fdce052f0a990a44958dee
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 475b0cea9be58c9b6fa13645e3c19cc3b689aab2
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Virtuele Hyper-V-machines in VMM-clouds repliceren naar Azure met Site Recovery in Azure Portal
@@ -59,7 +59,7 @@ Volg de stappen in het artikel om deze implementatiestappen te voltooien:
 **Vereiste voor ondersteuning** | **Details**
 --- | ---
 **Azure** | Meer informatie over [Azure-vereisten](site-recovery-prereq.md#azure-requirements).
-**On-premises servers** | [Meer informatie](site-recovery-prereq.md#disaster-recovery-of-hyper-v-virtual-machines-in-virtual-machine-manager-clouds-to-azure) over de vereisten voor de on-premises VMM-server en Hyper-V-hosts.
+**On-premises servers** | [Meer informatie](site-recovery-prereq.md#disaster-recovery-of-hyper-v-vms-in-vmm-clouds-to-azure) over de vereisten voor de on-premises VMM-server en Hyper-V-hosts.
 **On-premises Hyper-V-VM's** | VM's die u wilt repliceren, moeten worden uitgevoerd op een [ondersteund besturingssysteem](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) en voldoen aan de [Azure-vereisten](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 **Azure-URL's** | De VMM-server moet toegang hebben tot deze URL's:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> Als u op IP-adressen gebaseerde firewallregels gebruikt, controleert u of de regels communicatie met Azure toestaan.<br/></br> Sta de [IP-adresbereiken voor Azure Datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653) en de HTTPS-poort (443) toe.<br/></br> Sta de IP-adresbereiken voor de Azure-regio van uw abonnement en voor de regio VS - west toe (deze worden gebruikt voor toegangs- en identiteitsbeheer).
 
