@@ -290,7 +290,8 @@
 ## Bewaken en diagnoses uitvoeren
 ### [Toepassingen bewaken en er diagnoses op uitvoeren](service-fabric-diagnostics-overview.md)
 ### Gebeurtenissen genereren
-#### [Gebeurtenissen op infrastructuurniveau genereren](service-fabric-diagnostics-event-generation-infra.md)
+#### [Gebeurtenissen genereren op platformniveau](service-fabric-diagnostics-event-generation-infra.md)
+##### [Operationele kanaal](service-fabric-diagnostics-event-generation-operational.md)
 ##### [Reliable Services-gebeurtenissen](service-fabric-reliable-services-diagnostics.md)
 ##### [Reliable Actors-gebeurtenissen](service-fabric-reliable-actors-diagnostics.md)
 ##### [Metrische gegevens voor prestaties](service-fabric-diagnostics-event-generation-perf.md)
