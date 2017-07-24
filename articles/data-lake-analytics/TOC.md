@@ -6,7 +6,6 @@
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI 2.0](data-lake-analytics-get-started-cli2.md)
-## [Handleiding voor programmeren met U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Procedures
 
@@ -37,6 +36,7 @@
 ### [Job Browser en Job View gebruiken](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Vertex Execution View gebruiken](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 ### [VSCode lokaal uitvoeren en lokaal fouten opsporen](data-lake-tools-for-vscode-local-run-and-debug.md)
+### [Handleiding voor programmeren met U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Naslaginformatie
 ## [PowerShell](/powershell/module/azurerm.datalakeanalytics)

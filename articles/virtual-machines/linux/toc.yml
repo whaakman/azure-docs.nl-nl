@@ -404,6 +404,10 @@
           href: migration-classic-resource-manager-faq.md
     - name: Problemen oplossen
       items:
+        - name: >-
+            Ondersteuning voor het toevoegen van een virtuele Azure-machine aan
+            een bestaande beschikbaarheidsset
+          href: ../virtual-machines-availability-set-supportability.md
         - name: Linux-VM-wachtwoord opnieuw instellen
           href: virtual-machines-linux-reset-password.md
         - name: Het opnieuw opstarten van systemen begrijpen

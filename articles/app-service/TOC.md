@@ -140,6 +140,7 @@
 ## Integreren
 ### [Toegang tot on-premises resources via hybride verbindingen](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [E-mail verzenden via SendGrid met Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Exporteren naar PowerApps en Microsoft Flow](app-service-export-api-to-powerapps-and-flow.md)
 
 ## Problemen oplossen
 ### [Diagnostische logboekregistratie inschakelen](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)

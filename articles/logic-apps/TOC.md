@@ -62,14 +62,14 @@
 
 ## Beheren en bewaken
 ### [Logische apps beheren met Visual Studio](logic-apps-manage-from-vs.md)
-### [Logische apps controleren](logic-apps-monitor-your-logic-apps.md)
 ### [Integratieaccounts beheren](logic-apps-enterprise-integration-accounts.md)
+### [Status logische apps controleren](logic-apps-monitor-your-logic-apps.md)
 ### [B2B-berichten controleren](logic-apps-monitor-b2b-message.md)
+#### [B2B-berichten bijhouden in OMS](logic-apps-track-b2b-messages-omsportal.md)
+#### [B2B-berichten in OMS opvragen](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 #### [Volgschema voor AS2](logic-apps-track-integration-account-as2-tracking-schemas.md)
 #### [Volgschema voor X12](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Aangepaste volgschema's](logic-apps-track-integration-account-custom-tracking-schema.md)
-#### [B2B-berichten bijhouden in OMS](logic-apps-track-b2b-messages-omsportal.md)
-#### [Berichten in OMS opvragen](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 
 ## Voorbeelden, scenario's en rondleidingen
 ### [Overzicht](logic-apps-examples-and-scenarios.md)
@@ -81,7 +81,6 @@
 ## Prijzen en facturering
 ### [Prijzen](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Meten van gebruik](logic-apps-pricing.md)
-
 
 # Serverloos
 ## Overzicht

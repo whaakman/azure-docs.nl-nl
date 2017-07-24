@@ -3,18 +3,40 @@
 ## [Wat is Azure Backup?](backup-introduction-to-azure-backup.md)
 
 # Aan de slag
+## [Back-ups maken van virtuele Azure-machines](backup-azure-vms-first-look-arm.md)
 ## [Back-ups maken van bestanden en mappen](backup-try-azure-backup-in-10-mins.md)
-## [Back-ups maken van virtuele Azure-machines](backup-azure-vms-first-look.md)
-## [Azure-VM's beschermen](backup-azure-vms-first-look-arm.md)
+## [Back-ups maken van VMware-servers](backup-azure-backup-server-vmware.md)
 
 # Procedures
-## PowerShell gebruiken
-### [Virtuele Azure-machines in Azure Portal](backup-azure-vms-automation.md)
-### [Virtuele Azure-machines in de klassieke portal](backup-azure-vms-classic-automation.md)
-### [DPM in Azure Portal](backup-dpm-automation.md)
-### [DPM in klassieke portal](backup-dpm-automation-classic.md)
-### [Windows Server in Azure Portal](backup-client-automation.md)
-### [Windows Server in klassieke portal](backup-client-automation-classic.md)
+## Azure-VM's
+### De virtuele machine voorbereiden
+#### [Virtuele machines geïmplementeerd met Resource Manager voorbereiden](backup-azure-arm-vms-prepare.md)
+#### [Virtuele Azure-machines voorbereiden](backup-azure-vms-prepare.md)
+### Uw omgeving plannen
+#### [VM-back-upinfrastructuur plannen](backup-azure-vms-introduction.md)
+### Back-ups maken van virtuele machines
+#### [Back-ups maken van virtuele Azure-machines naar een Recovery Services-kluis](backup-azure-arm-vms.md)
+#### [Back-ups maken van versleutelde virtuele machines](backup-azure-vms-encryption.md)
+#### [Back-ups maken van virtuele Azure-machines naar back-upkluis](backup-azure-vms.md)
+### Virtuele machines beheren en controleren
+#### [Back-ups van virtuele Azure-machines beheren in Azure Portal](backup-azure-manage-vms.md)
+#### [Waarschuwingen voor virtuele Azure-machines controleren in Azure Portal](backup-azure-monitor-vms.md)
+#### [Back-ups van virtuele Azure-machines beheren en controleren in klassieke portal](backup-azure-manage-vms-classic.md)
+### Gegevens van virtuele machines herstellen
+#### [Bestanden herstellen vanuit back-ups van virtuele Azure-machines](backup-azure-restore-files-from-vm.md)
+#### [Virtuele machines die zijn geïmplementeerd met Resource Manager herstellen in Azure Portal](backup-azure-arm-restore-vms.md)
+#### [Versleutelde virtuele machines terugzetten](backup-azure-vms-encryption.md)
+#### [Virtuele machines herstellen in Azure](backup-azure-restore-vms.md)
+#### [Key Vault-sleutel en -geheim voor versleutelde virtuele machines terugzetten met Azure Backup](backup-azure-restore-key-secret.md)
+
+
+## Windows-bestanden en -mappen
+### [Windows Server met het implementatiemodel van Resource Manager](backup-configure-vault.md)
+### [Windows Server met het klassieke implementatiemodel](backup-configure-vault-classic.md)
+### [Recovery Services-kluizen beheren en controleren](backup-azure-manage-windows-server.md)
+### [Back-upkluizen beheren met het klassieke implementatiemodel](backup-azure-manage-windows-server-classic.md)
+### [Bestanden herstellen op een Windows Server met het implementatiemodel van Resource Manager](backup-azure-restore-windows-server.md)
+### [Bestanden herstellen op een Windows Server met het klassieke implementatiemodel](backup-azure-restore-windows-server-classic.md)
 
 ## Azure Backup-server
 ### [Beveiligingsmatrix voor Azure Backup Server](backup-mabs-protection-matrix.md)
@@ -30,9 +52,6 @@
 #### [Azure Backup Server gebruiken om back-ups te maken van een SharePoint-farm](backup-azure-backup-sharepoint-mabs.md)
 #### [Azure Backup Server gebruiken om back-ups te maken van SQL](backup-azure-sql-mabs.md)
 #### [Systeemstatus beveiligen en bare metal recovery](backup-mabs-system-state-and-bmr.md)
-### Problemen oplossen
-#### [Problemen oplossen met Azure Backup Server](backup-azure-mabs-troubleshoot.md)
-
 
 ## Data Protection Manager
 ### [DPM-workloads voorbereiden in Azure Portal](backup-azure-dpm-introduction.md)
@@ -42,48 +61,31 @@
 ### [DPM gebruiken om back-ups van SQL Server-workloads te maken](backup-azure-backup-sql.md)
 ### [DPM gebruiken om back-ups te maken van een SharePoint-farm](backup-azure-backup-sharepoint.md)
 
-## Azure-VM's
-### De virtuele machine voorbereiden
-#### [Virtuele Azure-machines voorbereiden](backup-azure-vms-prepare.md)
-#### [Virtuele machines geïmplementeerd met Resource Manager voorbereiden](backup-azure-arm-vms-prepare.md)
-### Uw omgeving plannen
-#### [VM-back-upinfrastructuur plannen](backup-azure-vms-introduction.md)
-### Back-ups maken van virtuele machines
-#### [Back-ups maken van virtuele Azure-machines naar back-upkluis](backup-azure-vms.md)
-#### [Back-ups maken van virtuele Azure-machines naar een Recovery Services-kluis](backup-azure-arm-vms.md)
-#### [Back-ups maken van versleutelde virtuele machines](backup-azure-vms-encryption.md)
-### Virtuele machines beheren en controleren
-#### [Back-ups van virtuele Azure-machines beheren en controleren in klassieke portal](backup-azure-manage-vms-classic.md)
-#### [Back-ups van virtuele Azure-machines beheren in Azure Portal](backup-azure-manage-vms.md)
-#### [Waarschuwingen voor virtuele Azure-machines controleren in Azure Portal](backup-azure-monitor-vms.md)
-### Gegevens van virtuele machines herstellen
-#### [Bestanden herstellen vanuit back-ups van virtuele Azure-machines](backup-azure-restore-files-from-vm.md)
-#### [Virtuele machines herstellen in Azure](backup-azure-restore-vms.md)
-#### [Virtuele machines die zijn geïmplementeerd met Resource Manager herstellen in Azure Portal](backup-azure-arm-restore-vms.md)
-#### [Key Vault-sleutel en -geheim voor versleutelde virtuele machines terugzetten met Azure Backup](backup-azure-restore-key-secret.md)
-#### [Versleutelde virtuele machines terugzetten](backup-azure-vms-encryption.md)
-
 ## Azure SQL Database
 ### [Langetermijnretentie van back-ups configureren](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
 ### [Back-ups in een Recovery Services-kluis weergeven](../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json)
 ### [Back-ups herstellen vanuit een langetermijnretentie](../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
 ### [Langetermijnback-ups van Azure SQL verwijderen](../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json)
 
-## Windows-bestanden en -mappen
-### [Windows Server met het klassieke implementatiemodel](backup-configure-vault-classic.md)
-### [Windows Server met het implementatiemodel van Resource Manager](backup-configure-vault.md)
-### [Back-upkluizen beheren met het klassieke implementatiemodel](backup-azure-manage-windows-server-classic.md)
-### [Recovery Services-kluizen beheren en controleren](backup-azure-manage-windows-server.md)
-### [Bestanden herstellen op een Windows Server met het implementatiemodel van Resource Manager](backup-azure-restore-windows-server.md)
-### [Bestanden herstellen op een Windows Server met het klassieke implementatiemodel](backup-azure-restore-windows-server-classic.md)
+## PowerShell gebruiken
+### [Virtuele Azure-machines in Azure Portal](backup-azure-vms-automation.md)
+### [Virtuele Azure-machines in de klassieke portal](backup-azure-vms-classic-automation.md)
+### [DPM in Azure Portal](backup-dpm-automation.md)
+### [DPM in klassieke portal](backup-dpm-automation-classic.md)
+### [Windows Server in Azure Portal](backup-client-automation.md)
+### [Windows Server in klassieke portal](backup-client-automation-classic.md)
 
-## [Veelgestelde vragen](backup-azure-backup-faq.md)
+## Veelgestelde vragen
+### [Veelgestelde vragen over Recovery Services-kluis](backup-azure-backup-faq.md)
+### [Veelgestelde vragen over Azure VM-back-ups](backup-azure-vm-backup-faq.md)
+### [Veelgestelde vragen over het maken van back-ups van bestandsmappen met behulp van de Azure Backup-agent](backup-azure-file-folder-backup-faq.md)
 
 ## Problemen oplossen
 ### [Problemen met back-ups van virtuele Azure-machines in Azure Portal](backup-azure-vms-troubleshoot.md)
 ### [Problemen met back-ups van virtuele Azure-machines in klassieke portal](backup-azure-vms-troubleshoot-classic.md)
 ### [Back-up maken van virtuele Azure-machine mislukt: kan niet communiceren met de VM-agent voor de status van de momentopname - time-out opgetreden tijdens uitvoeren van subtaak voor momentopname van VM](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Langzame back-ups van bestanden en mappen in Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
+### [Problemen oplossen met Azure Backup Server](backup-azure-mabs-troubleshoot.md)
 
 # Concepten
 ## [Overzicht van Recovery Services-kluizen](backup-azure-recovery-services-vault-overview.md)
