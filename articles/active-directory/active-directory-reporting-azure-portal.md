@@ -1,7 +1,6 @@
 ---
-
 title: Azure Active Directory-rapportage | Microsoft Docs
-description: Bevat een lijst met de diverse beschikbare rapporten voor Azure Active Directory
+description: Biedt een algemeen overzicht van Azure Active Directory-rapportage.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -13,190 +12,110 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/13/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: c7fe995f097c72ab5275249538fe2bb65efac256
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 738c8f4a56586b87f03973ec258b0a3023affa60
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="azure-active-directory-reporting"></a>Azure Active Directory-rapportage
 
+Met Azure Active Directory-rapportage krijgt u inzicht in hoe uw omgeving presteert.  
+Met de gegevens kunt u het volgende doen:
 
-*Deze documentatie maakt deel uit van de [Azure Active Directory-rapportagegids](active-directory-reporting-guide.md).*
+- Vaststellen hoe uw apps en services door uw gebruikers worden gebruikt
+- Potentiële risico's detecteren die invloed hebben op de status van uw omgeving
+- Problemen oplossen waardoor uw gebruikers hun werk niet kunnen doen  
 
-Met rapporten in Azure Active Directory ontvangt u alle informatie die nodig is om te bepalen hoe het gaat met uw omgeving.
+De rapportagearchitectuur is afhankelijk van twee belangrijke zaken:
 
-Er zijn twee hoofdonderwerpen waarover wordt gerapporteerd:
+- Beveiligingsrapporten
+- Activiteitsrapporten
 
-* **Aanmeldactiviteiten**: informatie over het gebruik van beheerde toepassingen en aanmeldactiviteiten van gebruikers
-* **Controlelogboeken**: informatie over systeemactiviteit van gebruikers, groepsbeheer, uw beheerde toepassingen en directory-activiteiten
+![Rapportage](./media/active-directory-reporting-azure-portal/01.png)
 
-Afhankelijk van het bereik van de gegevens die u zoekt, kunt u de rapporten openen door op **Gebruikers en groepen** of **Bedrijfstoepassingen** te klikken in de lijst met services in [Azure Portal](https://portal.azure.com).
 
-## <a name="sign-in-activities"></a>Aanmeldactiviteiten
-### <a name="user-sign-in-activities"></a>Aanmeldactiviteiten van gebruikers
-In de informatie die wordt aangeboden in het rapport over aanmeldactiviteiten van gebruikers, vindt u antwoord op vragen zoals:
 
-* Wat is het aanmeldingspatroon van een gebruiker?
-* Hoeveel keer hebben gebruikers zich aangemeld gedurende een week?
-* Wat is de status van deze aanmeldingen?
+## <a name="security-reports"></a>Beveiligingsrapporten
 
-Uw beginpunt voor deze gegevens is de aanmeldingsgrafiek van gebruikers in het gedeelte **Overzicht** onder **Gebruikers en groepen**.
+Met de beveiligingsrapporten in Azure Active Directory kunt u de identiteiten van uw organisatie beschermen.  
+Er zijn in Azure Active Directory twee soorten beveiligingsrapporten:
 
- ![Rapportage](./media/active-directory-reporting-azure-portal/05.png "Rapportage")
+- **Gebruikers voor wie wordt aangegeven dat ze risico lopen**: in het rapport [Gebruikers voor wie wordt aangegeven dat ze risico lopen](active-directory-reporting-security-user-at-risk.md) krijgt u een overzicht van gebruikersaccounts die mogelijk zijn aangetast.
 
-In de aanmeldingsgrafiek van gebruikers ziet u alle aanmeldingen van alle gebruikers gedurende een bepaalde periode. De standaard ingestelde periode is 30 dagen.
+- **Riskante aanmeldingen**: in het beveiligingsrapport [Riskante aanmeldingen](active-directory-reporting-security-risky-sign-ins.md) krijgt u een idee van aanmeldingspogingen die mogelijk zijn uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount is. 
 
-![Rapportage](./media/active-directory-reporting-azure-portal/02.png "Rapportage")
+**Welke Azure AD-licentie heb ik nodig voor toegang tot een beveiligingsrapport?**  
+Alle edities van Azure Active Directory bieden rapporten over gebruikers voor wie wordt aangegeven dat ze risico lopen en rapporten over riskante aanmeldingen.  
+Het detailniveau van rapporten verschilt wel per editie: 
 
-Als u op een dag in de aanmeldingsgrafiek klikt, ziet u een gedetailleerd overzicht van de aanmeldactiviteiten.
+- In de edities **Azure Active Directory Free en Basic** hebt u toegang tot een lijst die gebruikers bevat voor wie wordt aangegeven dat ze risico lopen, evenals riskante aanmeldingen. 
 
-![Rapportage](./media/active-directory-reporting-azure-portal/03.png "Rapportage")
+- De editie **Azure Active Directory Premium 1** bevat een uitgebreider model waarmee u ook bepaalde onderliggende risicogebeurtenissen kunt onderzoeken die voor elk rapport zijn gedetecteerd. 
 
-Elke rij in de lijst met aanmeldactiviteiten bevat gedetailleerde informatie over de geselecteerde aanmelding, zoals:
+- De editie **Azure Active Directory Premium 2** biedt u de meest gedetailleerde informatie over de onderliggende risicogebeurtenissen. Deze editie stelt u ook in staat beveiligingsbeleidsregels te configureren die automatisch op de geconfigureerde risiconiveaus reageren.
 
-* Wie heeft zich aangemeld?
-* Wat was de gerelateerde UPN?
-* Welke toepassing was het aanmeldingsdoel?
-* Wat is het IP-adres van de persoon die zich heeft aangemeld?
-* Wat is de status van de aanmelding?
 
-### <a name="usage-of-managed-applications"></a>Het gebruik van beheerde toepassingen
-Met een toepassingsgerichte weergave van uw aanmeldingsgegevens kunt u antwoord vinden op vragen zoals:
+## <a name="activity-reports"></a>Activiteitsrapporten
 
-* Wie gebruikt mijn toepassingen?
-* Wat zijn de drie meest gebruikte toepassingen in uw organisatie?
-* Ik heb onlangs een toepassing geïmplementeerd. Hoe gaat het ermee?
+Er zijn in Azure Active Directory twee soorten activiteitsrapporten:
 
-Uw beginpunt voor deze gegevens is het overzicht van de drie populairste toepassingen in uw organisatie volgens het rapport van de laatste 30 dagen. Het overzicht vindt u in het gedeelte **Overzicht** onder **Bedrijfstoepassingen**.
+- **Audittrails**: het [activiteitenrapport voor audittrails](active-directory-reporting-activity-audit-logs.md) biedt u toegang tot de geschiedenis van elke taak die in uw tenant is uitgevoerd.
 
- ![Rapportage](./media/active-directory-reporting-azure-portal/06.png "Rapportage")
+- **Aanmeldingen**: met het [activiteitenrapport voor aanmeldingen](active-directory-reporting-activity-sign-ins.md) kunt u bepalen wie de taken heeft uitgevoerd die in het audittrailrapport zijn gerapporteerd.
 
-In de grafiek over appgebruik staat een wekelijks overzicht van alle aanmeldingen bij de drie populairste toepassingen gedurende een bepaalde periode. De standaard ingestelde periode is 30 dagen.
 
-![Rapportage](./media/active-directory-reporting-azure-portal/78.png "Rapportage")
 
-Als u wilt, kunt u de focus instellen op een specifieke toepassing.
+De **audittrailrapporten** bieden records van systeemactiviteiten in het kader van naleving.
+Met de geleverde gegevens kunt u onder andere de volgende veelvoorkomende vragen beantwoorden:
 
-![Rapportage](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Rapportage")
+- Iemand in mijn tenant heeft toegang gekregen tot een beheerdersgroep. Wie heeft diegene toegang verleend? 
 
-Als u op een dag in de appgebruikgrafiek klikt, ziet u een gedetailleerd overzicht van de aanmeldactiviteiten.
+- Ik wil een lijst weergeven met gebruikers die zich in een specifieke app hebben aangemeld sinds ik de app onlangs heb toegevoegd en wil weten of de app het goed doet
 
-![Rapportage](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Rapportage")
+- Ik wil weten hoe vaak er in mijn tenant een wachtwoord opnieuw is ingesteld
 
-Met de optie **Aanmeldingen** krijgt u een volledig overzicht van alle aanmeldingsgebeurtenissen voor uw toepassingen.
 
-![Rapportage](./media/active-directory-reporting-azure-portal/85.png "Rapportage")
+**Welke Azure AD-licentie heb ik nodig voor toegang tot audittrailrapporten?**  
+Het audittrailrapport is beschikbaar voor functies waarvoor u licenties hebt. Als u een licentie voor een specifieke functie hebt, hebt u ook toegang tot de audittrailgegevens hiervan.
 
-Met de kolomkiezer kunt u kiezen welke gegevensvelden u wilt weergeven.
+Zie **Comparing generally available features of the Free, Basic, and Premium editions** (Algemeen beschikbare functies van de Free-, Basic- en Premium-edities vergelijken) in [Azure Active Directory features and capabilities](https://www.microsoft.com/cloud-platform/azure-active-directory-features) (Functies en mogelijkheden van Azure Active Directory) voor meer informatie.   
 
-![Rapportage](./media/active-directory-reporting-azure-portal/column_chooser.png "Rapportage")
 
-### <a name="filtering-sign-ins"></a>Aanmeldingen filteren
-U kunt de aanmeldingen filteren om de hoeveelheid weergegeven gegevens te beperken. Gebruik daarvoor de volgende informatie:
 
-* Datum en tijd 
-* UPN van gebruiker
-* De naam van de toepassing
-* De clientnaam
-* Aanmeldingsstatus
+Het **aanmeldactiviteitenrapport** helpt u antwoorden te vinden op vragen zoals:
 
-![Rapportage](./media/active-directory-reporting-azure-portal/293.png "Rapportage")
+- Wat is het aanmeldingspatroon van een gebruiker?
+- Hoeveel keer hebben gebruikers zich aangemeld gedurende een week?
+- Wat is de status van deze aanmeldingen?
 
-Een andere manier waarop u het aantal aanmeldactiviteiten kunt filteren, is door te zoeken naar specifieke vermeldingen.
-Met deze zoekmethode kunt u zoeken naar aanmeldingen van specifieke **gebruikers** of **groepen** en bij specifieke **toepassingen**.
 
-![Rapportage](./media/active-directory-reporting-azure-portal/84.png "Rapportage")
+**Welke Azure AD-licentie heb ik nodig voor toegang tot het aanmeldactiviteitenrapport?**  
+Uw tenant moet beschikken over een Azure AD Premium-licentie om het rapport met aanmeldactiviteiten te kunnen openen.
 
-## <a name="audit-logs"></a>Controlelogboeken
-In de controlelogboeken in Azure Active Directory staan records van systeemactiviteiten voor naleving.
 
-Er zijn drie hoofdcategorieën voor controlegerelateerde activiteiten in Azure Portal:
+## <a name="programmatic-access"></a>Toegang op programmeerniveau
 
-* Gebruikers en groepen   
-* Toepassingen
-* Directory   
+De rapportage van Azure Active Directory biedt u naast de gebruikersinterface ook [toegang op programmeerniveau](active-directory-reporting-api-getting-started-azure-portal.md) tot de rapportagegegevens. De gegevens van deze rapporten kunnen zeer nuttig zijn voor uw toepassingen, zoals SIEM-systemen, audit- en business intelligence-hulpprogramma's. De API's van Azure AD Reporting bieden toegang tot de gegevens op programmeerniveau via een set op REST-gebaseerde API's. U kunt deze API's vanuit een groot aantal computertalen en hulpprogramma's aanroepen. 
 
-Zie de [lijst met rapporten over controlegebeurtenissen](active-directory-reporting-audit-events.md#list-of-audit-report-events) voor een volledig overzicht van alle rapporten over controleactiviteiten.
-
-Uw beginpunt voor alle controlegegevens is **Controlelogboeken** in het gedeelte **Activiteit** van **Azure Active Directory**.
-
-![Controle](./media/active-directory-reporting-azure-portal/61.png "Controle")
-
-Een controlelogboek heeft een lijstweergave met daarin de actoren (wie), de activiteiten (wat) en de doelen.
-
-![Controle](./media/active-directory-reporting-azure-portal/345.png "Controle")
-
-Wanneer u op een item in de lijstweergave klikt, krijgt u er meer informatie over te zien.
-
-![Controle](./media/active-directory-reporting-azure-portal/873.png "Controle")
-
-### <a name="users-and-groups-audit-logs"></a>Controlelogboeken voor gebruikers en groepen
-Met de controlerapporten op basis van gebruikers en groepen krijgt u antwoord op vragen zoals:
-
-* Welke soorten updates zijn toegepast op de gebruikers?
-* Hoeveel gebruikers zijn gewijzigd?
-* Hoeveel wachtwoorden zijn gewijzigd?
-* Wat heeft een beheerder in een directory gedaan?
-* Welke groepen zijn toegevoegd?
-* Zijn er groepen met wijzigingen in het lidmaatschap?
-* Zijn de eigenaren van een groep gewijzigd?
-* Welke licenties zijn toegewezen aan een groep of een gebruiker?
-
-Als u alleen de controlegegevens wilt bekijken die zijn gerelateerd aan gebruikers en groepen, kunt u een gefilterde weergave openen via **Controlelogboeken** in het gedeelte **Activiteit** van **Gebruikers en groepen**.
-
-![Controle](./media/active-directory-reporting-azure-portal/93.png "Controle")
-
-### <a name="application-audit-logs"></a>Controlelogboeken van toepassingen
-Met de controlerapporten op basis van toepassingen krijgt u antwoord op vragen zoals:
-
-* Welke toepassingen zijn toegevoegd of bijgewerkt?
-* Welke toepassingen zijn verwijderd?
-* Is de service-principal van een toepassing gewijzigd?
-* Zijn de namen van toepassingen gewijzigd?
-* Wie heeft toestemming gegeven voor een toepassing?
-
-Als u alleen de controlegegevens wilt bekijken die zijn gerelateerd aan toepassingen, kunt u een gefilterde weergave openen via **Controlelogboeken** in het gedeelte **Activiteit** van **Bedrijfstoepassingen**.
-
-![Controle](./media/active-directory-reporting-azure-portal/134.png "Controle")
-
-### <a name="filtering-audit-logs"></a>Controlelogboeken filteren
-U kunt de aanmeldingen filteren om de hoeveelheid weergegeven gegevens te beperken. Gebruik daarvoor de volgende informatie:
-
-* Datum en tijd
-* UPN van de actor
-* Type activiteit
-* Activiteit
-
-![Controle](./media/active-directory-reporting-azure-portal/356.png "Controle")
-
-De inhoud van de lijst **Activiteitstype** is gekoppeld aan uw ingangspunt voor deze blade.  
-Als uw ingangspunt Azure Active Directory is, bevat deze lijst alle mogelijke activiteitstypen:
-
-* Toepassing 
-* Groep 
-* Gebruiker
-* Apparaat
-* Directory
-* Beleid
-* Overige
-
-![Controle](./media/active-directory-reporting-azure-portal/825.png "Controle")
-
-De vermelde activiteiten worden ingedeeld per activiteitstype.
-Als u bijvoorbeeld **Groep** hebt geselecteerd als **activiteitstype**, bevat de lijst **Activiteit** alleen groepsgerelateerde activiteiten.   
-
-![Controle](./media/active-directory-reporting-azure-portal/654.png "Controle")
-
-Een andere manier waarop u de vermeldingen in een controlelogboek kunt filteren, is door te zoeken naar specifieke vermeldingen.
-
-![Controle](./media/active-directory-reporting-azure-portal/237.png "Controle")
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de [Azure Active Directory-rapportagegids](active-directory-reporting-guide.md).
+
+Als u meer wilt weten over de verschillende soorten rapporten in Azure Active Directory, raadpleegt u:
+
+- [Rapport voor Gebruikers voor wie wordt aangegeven dat ze risico lopen](active-directory-reporting-security-user-at-risk.md)
+- [Rapport voor riskante aanmeldingen](active-directory-reporting-security-risky-sign-ins.md)
+- [Rapport voor audittrails](active-directory-reporting-activity-audit-logs.md)
+- [Rapport voor aanmeldlogboeken](active-directory-reporting-activity-sign-ins.md)
+
+Als u meer weten wilt over het openen van de rapportagegegevens met de rapportage-API, raadpleegt u: 
+
+- [Aan de slag met de Azure Active Directory Reporting-API](active-directory-reporting-api-getting-started-azure-portal.md)
 
 
+<!--Image references-->
+[1]: ./media/active-directory-reporting-azure-portal/ic195031.png

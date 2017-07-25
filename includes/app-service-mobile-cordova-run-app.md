@@ -1,7 +1,8 @@
 
 1. Ga naar [Azure Portal].
-2. Klik op **Door alles bladeren** > **Mobile Apps** > de back-end die u hebt gemaakt.
+2. Klik op **App Services** > de back-end die u hebt gemaakt.
 3. Klik in de instellingen van de mobiele app op **Snelstartgids** > **Cordova**.
+![Azure Portal met Quick Start voor Mobile Apps gemarkeerd][quickstart]
 4. Selecteer onder **Uw clienttoepassing configureren** de optie **Een nieuwe app maken** en klik vervolgens op **Downloaden**.
 2. Pak het gedownloade zip-bestand uit in een map op uw harde schijf, navigeer naar het oplossingsbestand (.sln) en open dit met Visual Studio.
 3. Kies in Visual Studio het oplossingsplatform (Android, iOS of Windows) in de vervolgkeuzelijst naast de begin-pijl. Selecteer een specifiek implementatieapparaat of een emulator door op de vervolgkeuzelijst op de groene pijl te klikken. U kunt het standaard-Android-platform en de standaard-Ripple-emulator gebruiken. Voor geavanceerdere zelfstudies (bijv. over pushmeldingen) moet u een ondersteund apparaat of ondersteunde emulator selecteren.
@@ -10,13 +11,10 @@
 
 De back-end voegt gegevens van de aanvraag toe aan de TodoItem-tabel in de SQL Database en stuurt informatie over de nieuw opgeslagen items terug naar de mobiele app. Deze gegevens worden in de lijst in de mobiele app weergegeven.
 
-![](./media/app-service-mobile-cordova-quickstart/quickstart-startup.png)
-
 U kunt stap 3 t/m 5 herhalen voor andere platforms.
 
+<!-- Images. -->
+[quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png
+
+<!-- URLs -->
 [Azure Portal]: https://portal.azure.com/
-
-
-<!--HONumber=Dec16_HO1-->
-
-

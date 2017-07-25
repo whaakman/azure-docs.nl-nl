@@ -16,10 +16,6 @@ In het dialoogvenster **App-service maken** gebruikt u de hostinginstellingen zo
 | **[App-serviceabonnement](../articles/azure-functions/functions-scale.md)** | Verbruiksabonnement | Zorg dat u het **Verbruik** kiest onder **Grootte** wanneer u een nieuw abonnement maakt.  |
 | **[Opslagaccount](../articles/storage/storage-create-storage-account.md#create-a-storage-account)** | Wereldwijd unieke naam | Gebruik een bestaand opslagaccount of maak een nieuw.   |
 
-Klik op **Maken** om in Azure een functie-app met deze instellingen te maken. 
-
-Nadat het inrichten voltooid is, klikt u op **Publiceren** om uw projectcode te implementeren in de nieuwe functie-app. 
+Klik op **Maken** om in Azure een functie-app met deze instellingen te maken. Noteer nadat het inrichtingsproces is voltooid de **Site-URL**. Dit is het adres van de functie-app in Azure. 
 
 ![Lokale Azure-runtime](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
-
-Noteer de **Site-URL**, dit is het adres van de functie-app in Azure. 

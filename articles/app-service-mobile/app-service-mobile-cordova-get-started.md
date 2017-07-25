@@ -3,8 +3,8 @@ title: Een Cordova-app maken in Azure App Service Mobile Apps| Microsoft Docs
 description: Volg deze zelfstudie om aan de slag te gaan met back-ends voor mobiele apps van Azure voor Apache Cordova-ontwikkeling.
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 tags: 
 keywords: cordova,javascript,mobiel,client
@@ -14,13 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 10/30/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: bf5691dbf4aaae585373de454ad7a0672dd17b84
-ms.openlocfilehash: aab35cdbbc6dc73551ca436985b51e5fe7a50fb6
-ms.lasthandoff: 12/01/2016
-
+ms.date: 07/07/2017
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 251e36364d0440890dc30dc5267be9f775d95933
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="create-an-apache-cordova-app"></a>Een Apache Cordova-app maken
@@ -34,7 +34,7 @@ Het volgen van deze zelfstudie is een vereiste voor alle andere Apache Cordova-z
 ## <a name="prerequisites"></a>Vereisten
 Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
-* Een pc met [Visual Studio Community 2015] of hoger.
+* Een pc met [Visual Studio Community 2017] of hoger.
 * [Visual Studio Tools for Apache Cordova].
 * Een [actief Azure-account](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -74,7 +74,7 @@ Informatie over het gebruik van de SDK's.
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2017]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Offlinegegevens]: app-service-mobile-offline-data-sync.md
 [Verificatie]: app-service-mobile-auth.md

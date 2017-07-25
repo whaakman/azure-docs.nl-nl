@@ -15,17 +15,14 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 06/19/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 0265503689e189a3e2e30c2ae9fff39641647d0c
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: d1b887e68b1040ea9340235cd215028300c14fac
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
-<a id="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app" class="xliff"></a>
-
-# Azure Cosmos DB: een bestaande Node.js MongoDB-web-app migreren 
+# <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: een bestaande Node.js MongoDB-web-app migreren 
 
 Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
@@ -40,16 +37,12 @@ Als u klaar bent, beschikt u over een MEAN-toepassing (MongoDB, Express, Angular
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten 
+## <a name="prerequisites"></a>Vereisten 
 Naast Azure CLI moet u [Node.js](https://nodejs.org/) en [Git](http://www.git-scm.com/downloads) lokaal geïnstalleerd hebben om `npm`- en `git`-opdrachten uit te voeren.
 
 U moet bekend zijn met de basisbegrippen van Node.js. Deze Quick Start is niet bedoeld als hulp bij het ontwikkelen van Node.js-toepassingen in het algemeen.
 
-<a id="clone-the-sample-application" class="xliff"></a>
-
-## De voorbeeldtoepassing klonen
+## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
 Open een venster in een git-terminal zoals git bash en `cd` naar een werkmap.  
 
@@ -59,9 +52,7 @@ Voer de volgende opdrachten uit om de voorbeeldopslagplaats te klonen. Deze voor
 git clone https://github.com/prashanthmadi/mean
 ```
 
-<a id="run-the-application" class="xliff"></a>
-
-## De toepassing uitvoeren
+## <a name="run-the-application"></a>De toepassing uitvoeren
 
 Installeer de vereiste pakketten en start de toepassing.
 
@@ -71,9 +62,7 @@ npm install
 npm start
 ```
 
-<a id="log-in-to-azure" class="xliff"></a>
-
-## Meld u aan bij Azure.
+## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
 Als u een geïnstalleerde Azure CLI gebruikt, meldt u zich aan bij uw Azure-abonnement met de opdracht [az login](/cli/azure/#login) en volgt u de instructies op het scherm. U kunt deze stap overslaan als u de Azure Cloud Shell gebruikt.
 
@@ -81,17 +70,13 @@ Als u een geïnstalleerde Azure CLI gebruikt, meldt u zich aan bij uw Azure-abon
 az login 
 ``` 
    
-<a id="add-the-azure-cosmos-db-module" class="xliff"></a>
-
-## De Azure Cosmos DB-module toevoegen
+## <a name="add-the-azure-cosmos-db-module"></a>De Azure Cosmos DB-module toevoegen
 
 Als u van een geïnstalleerde Azure CLI gebruikmaakt, controleert u of het onderdeel `cosmosdb` al is geïnstalleerd door de opdracht `az` uit te voeren. Als `cosmosdb` in de lijst met basisopdrachten staat, gaat u verder met de volgende opdracht. U kunt deze stap overslaan als u de Azure Cloud Shell gebruikt.
 
 Als `cosmosdb` niet in de lijst met basisopdrachten staat, installeert u [Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Een resourcegroep maken
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 Maak een [resourcegroep](../azure-resource-manager/resource-group-overview.md) met de opdracht [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources, zoals web-apps, databases en opslagaccounts, worden geïmplementeerd en beheerd. 
 
@@ -103,16 +88,14 @@ Als u van Azure Cloud Shell gebruikmaakt, klikt u op **Uitproberen**, volgt u de
 az group create --name myResourceGroup --location "West Europe"
 ```
 
-<a id="create-an-azure-cosmos-db-account" class="xliff"></a>
-
-## Maak een Azure Cosmos DB-account
+## <a name="create-an-azure-cosmos-db-account"></a>Maak een Azure Cosmos DB-account
 
 Maak een Azure Cosmos DB-account met de opdracht [az cosmosdb create](/cli/azure/cosmosdb#create).
 
-Vervang in de volgende opdracht waar u de plaatsaanduiding `<cosmosdb_name>` ziet staan, de accountnaam met uw unieke Azure Cosmos DB-accountnaam. Deze unieke naam wordt gebruikt als onderdeel van uw Azure Cosmos DB-eindpunt (`https://<cosmosdb_name>.documents.azure.com/`), dus de naam moet uniek zijn binnen alle Azure Cosmos DB-accounts in Azure. 
+Vervang in de volgende opdracht waar u de plaatsaanduiding `<cosmosdb-name>` ziet staan, de accountnaam met uw unieke Azure Cosmos DB-accountnaam. Deze unieke naam wordt gebruikt als onderdeel van uw Azure Cosmos DB-eindpunt (`https://<cosmosdb-name>.documents.azure.com/`), dus de naam moet uniek zijn binnen alle Azure Cosmos DB-accounts in Azure. 
 
 ```azurecli-interactive
-az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
+az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
 ```
 
 De parameter `--kind MongoDB` maakt MongoDB-clientverbindingen mogelijk.
@@ -122,17 +105,17 @@ Wanneer de Azure Cosmos DB-account wordt gemaakt toont de Azure CLI informatie d
 ```json
 {
   "databaseAccountOfferType": "Standard",
-  "documentEndpoint": "https://<cosmosdb_name>.documents.azure.com:443/",
+  "documentEndpoint": "https://<cosmosdb-name>.documents.azure.com:443/",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Document
-DB/databaseAccounts/<cosmosdb_name>",
+DB/databaseAccounts/<cosmosdb-name>",
   "kind": "MongoDB",
   "location": "West Europe",
-  "name": "<cosmosdb_name>",
+  "name": "<cosmosdb-name>",
   "readLocations": [
     {
-      "documentEndpoint": "https://<cosmosdb_name>-westeurope.documents.azure.com:443/",
+      "documentEndpoint": "https://<cosmosdb-name>-westeurope.documents.azure.com:443/",
       "failoverPriority": 0,
-      "id": "<cosmosdb_name>-westeurope",
+      "id": "<cosmosdb-name>-westeurope",
       "locationName": "West Europe",
       "provisioningState": "Succeeded"
     }
@@ -141,9 +124,9 @@ DB/databaseAccounts/<cosmosdb_name>",
   "type": "Microsoft.DocumentDB/databaseAccounts",
   "writeLocations": [
     {
-      "documentEndpoint": "https://<cosmosdb_name>-westeurope.documents.azure.com:443/",
+      "documentEndpoint": "https://<cosmosdb-name>-westeurope.documents.azure.com:443/",
       "failoverPriority": 0,
-      "id": "<cosmosdb_name>-westeurope",
+      "id": "<cosmosdb-name>-westeurope",
       "locationName": "West Europe",
       "provisioningState": "Succeeded"
     }
@@ -151,64 +134,46 @@ DB/databaseAccounts/<cosmosdb_name>",
 } 
 ```
 
-<a id="connect-your-nodejs-application-to-the-database" class="xliff"></a>
-
-## Uw Node.js-toepassing verbinden met de database
+## <a name="connect-your-nodejs-application-to-the-database"></a>Uw Node.js-toepassing verbinden met de database
 
 In deze stap verbindt u uw MEAN.js-voorbeeldtoepassing met een Azure Cosmos DB-database die u zojuist hebt gemaakt, met behulp van een MongoDB-verbindingsreeks. 
 
-<a id="retrieve-the-key" class="xliff"></a>
-
-## De sleutel ophalen
-
-U hebt de databasesleutel nodig om verbinding te kunnen maken met een Azure Cosmos DB-database. Gebruik de opdracht [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys) om de primaire sleutel op te halen.
-
-```azurecli-interactive
-az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
-```
-
-De Azure CLI voert informatie uit die lijkt op het volgende voorbeeld. 
-
-```json
-{
-  "primaryMasterKey": "RUayjYjixJDWG5xTqIiXjC...",
-  "primaryReadonlyMasterKey": "...",
-  "secondaryMasterKey": "...",
-  "secondaryReadonlyMasterKey": "..."
-}
-```
-
-Kopieer de waarde van `primaryMasterKey` naar een teksteditor. U hebt deze informatie nodig voor de volgende stap.
-
 <a name="devconfig"></a>
-<a id="configure-the-connection-string-in-your-nodejs-application" class="xliff"></a>
-
-## Configureer de verbindingsreeks in uw Node.js-toepassing
+## <a name="configure-the-connection-string-in-your-nodejs-application"></a>Configureer de verbindingsreeks in uw Node.js-toepassing
 
 Open `config/env/local-development.js` in uw MEAN.js-opslagplaats.
 
-Vervang de inhoud van dit bestand door de volgende code. Zorg dat u ook de twee plaatsaanduidingen `<cosmosdb_name>` vervangt door uw Azure Cosmos DB-accountnaam en de plaatsaanduiding `<primary_master_key>` door de sleutel die u in de vorige stap had gekopieerd.
+Vervang de inhoud van dit bestand door de volgende code. Zorg ervoor dat u ook de twee `<cosmosdb-name>`-plaatsaanduidingen vervangt door de naam van uw Azure Cosmos DB-account.
 
 ```javascript
 'use strict';
 
 module.exports = {
   db: {
-    uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean-dev?ssl=true&sslverifycertificate=false'
+    uri: 'mongodb://<cosmosdb-name>:<primary_master_key>@<cosmosdb-name>.documents.azure.com:10250/mean-dev?ssl=true&sslverifycertificate=false'
   }
 };
 ```
 
-> [!NOTE] 
-> De optie `ssl=true` is belangrijk omdat [Azure Cosmos DB SSL vereist](connect-mongodb-account.md#connection-string-requirements). 
->
->
+## <a name="retrieve-the-key"></a>De sleutel ophalen
+
+U hebt de databasesleutel nodig om verbinding te kunnen maken met een Azure Cosmos DB-database. Gebruik de opdracht [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys) om de primaire sleutel op te halen.
+
+```azurecli-interactive
+az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
+```
+
+De Azure CLI voert informatie uit die lijkt op het volgende voorbeeld. 
+
+```json
+"RUayjYjixJDWG5xTqIiXjC..."
+```
+
+Kopieer de waarde van `primaryMasterKey`. Plak deze op de `<primary_master_key>` in `local-development.js`.
 
 Sla uw wijzigingen op.
 
-<a id="run-the-application-again" class="xliff"></a>
-
-### Voer de toepassing opnieuw uit.
+### <a name="run-the-application-again"></a>Voer de toepassing opnieuw uit.
 
 Voer `npm start` opnieuw uit. 
 
@@ -224,9 +189,7 @@ De MEAN.js-voorbeeldtoepassing slaat gebruikersgegevens op in de database. Als h
 
 ![MEAN.js maakt een geslaagde verbinding met MongoDB](./media/create-mongodb-nodejs/mongodb-connect-success.png)
 
-<a id="view-data-in-data-explorer" class="xliff"></a>
-
-## Gegevens bekijken in Data Explorer
+## <a name="view-data-in-data-explorer"></a>Gegevens bekijken in Data Explorer
 
 Gegevens die door een Azure Cosmos DB worden opgeslagen, kunnen in de Azure Portal bekeken worden en u kunt query’s erop uitvoeren en business-logic toepassen.
 
@@ -237,9 +200,7 @@ Typ ‘Azure Cosmos DB’ in het bovenste vak Zoeken. Wanneer uw Cosmos DB-accou
 ![Data Explorer in de Azure Portal](./media/create-mongodb-nodejs/cosmosdb-connect-mongodb-data-explorer.png)
 
 
-<a id="deploy-the-nodejs-application-to-azure" class="xliff"></a>
-
-## De Node.js-toepassing implementeren naar Azure
+## <a name="deploy-the-nodejs-application-to-azure"></a>De Node.js-toepassing implementeren naar Azure
 
 In deze step implementeert u uw met MongoDB verbonden Node.js -toepassing naar Azure Cosmos DB.
 
@@ -250,8 +211,13 @@ Open `config/env/production.js` in uw MEAN.js-opslagplaats.
 Vervang in het object `db` de waarde van `uri` zoals getoond in het volgende voorbeeld. Zorg dat u de plaatsaanduidingen vervangt zoals eerder beschreven.
 
 ```javascript
-'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
+'mongodb://<cosmosdb-name>:<primary_master_key>@<cosmosdb-name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
 ```
+
+> [!NOTE] 
+> De optie `ssl=true` is belangrijk omdat [Azure Cosmos DB SSL vereist](connect-mongodb-account.md#connection-string-requirements). 
+>
+>
 
 Voer in de terminal al uw wijzigingen door in Git. U kunt beide opdrachten kopiëren om ze samen uit te voeren.
 
@@ -259,18 +225,14 @@ Voer in de terminal al uw wijzigingen door in Git. U kunt beide opdrachten kopi�
 git add .
 git commit -m "configured MongoDB connection string"
 ```
-<a id="clean-up-resources" class="xliff"></a>
-
-## Resources opschonen
+## <a name="clean-up-resources"></a>Resources opschonen
 
 Als u deze app niet verder gaat gebruiken, kunt u alle resources verwijderen die door deze Quick Start zijn aangemaakt door onderstaande stappen te volgen in Azure Portal:
 
 1. Klik in het menu aan de linkerkant in Azure Portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt. 
 2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ de naam van de resource die u wilt verwijderen in het tekstvak en klik vervolgens op **Verwijderen**.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 In deze Quick Start hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken en hebt u een MongoDB-verzameling gemaakt met Data Explorer. U kunt uw MongoDB-gegevens nu naar Azure Cosmos DB migreren.  
 

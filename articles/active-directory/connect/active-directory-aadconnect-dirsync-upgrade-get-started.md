@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: e358f6d1937a45f375777cea1153b975a745a719
-ms.openlocfilehash: 08ba157ba783d00069750cdc1c80d13111b6a670
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 7049af4567947d3d799a38c5a3940ba25a2c0f18
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/13/2017
 
 ---
 
@@ -134,7 +136,7 @@ Als u minder dan 50.000 objecten hebt, maar nog steeds een parallelle implementa
 1. Start het Azure AD Connect-installatieprogramma (MSI) op.
 2. Als u het venster **Welkom bij Azure AD Connect** ziet, sluit u de installatiewizard door te klikken op 'X' in de rechterbovenhoek van het venster.
 3. Open een opdrachtprompt.
-4. Voer de volgende opdracht uit vanaf de locatie waar Azure AD Connect is geïnstalleerd (Standaard: C:\Program Files\Microsoft Azure Active Directory Connect) `AzureADConnect.exe /ForceExport`
+4. Voer de volgende opdracht uit vanaf de locatie waar Azure AD Connect is geïnstalleerd (standaard: C:\Program Files\Microsoft Azure Active Directory Connect): `AzureADConnect.exe /ForceExport`.
 5. Klik op de knop **Instellingen exporteren**. Als u Azure AD Connect op een afzonderlijke server installeert, worden deze instellingen gemigreerd van uw huidige DirSync naar de nieuwe Azure AD Connect-installatie.
 
 ![Analyse voltooid](./media/active-directory-aadconnect-dirsync-upgrade-get-started/forceexport.png)
@@ -147,7 +149,7 @@ Wanneer u Azure AD Connect installeert op een nieuwe server, gaat deze ervan uit
 1. Start het Azure AD Connect-installatieprogramma (MSI) op.
 2. Als u het venster **Welkom bij Azure AD Connect** ziet, sluit u de installatiewizard door te klikken op 'X' in de rechterbovenhoek van het venster.
 3. Open een opdrachtprompt.
-4. Voer de volgende opdracht uit vanaf de locatie waar Azure AD Connect is geïnstalleerd (Standaard: C:\Program Files\Microsoft Azure Active Directory Connect):  `AzureADConnect.exe /migrate`.
+4. Voer de volgende opdracht uit vanaf de locatie waar Azure AD Connect is geïnstalleerd (Standaard: C:\Program Files\Microsoft Azure Active Directory Connect): `AzureADConnect.exe /migrate`.
    De Azure AD Connect-installatiewizard wordt gestart en geeft het volgende scherm weer:  
    ![Voer uw Azure AD-referenties in](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ImportSettings.png)
 5. Selecteer het instellingenbestand dat is geëxporteerd vanuit uw DirSync-installatie.
@@ -184,7 +186,7 @@ Als u de wijzigingen die op het punt staan geëxporteerd te worden naar Azure AD
 U kunt van DirSync overschakelen naar Azure AD wanneer u deze stappen hebt uitgevoerd en blij bent met het resultaat.
 
 ### <a name="uninstall-dirsync-old-server"></a>DirSync verwijderen (oude server)
-* Zoek in **Programma's en onderdelen ** naar **Windows Azure Active Directory-synchronisatie**
+* Zoek in **Programma's en onderdelen**  naar **Windows Azure Active Directory-synchronisatie**
 * **Windows Azure Active Directory-synchronisatie** verwijderen
 * Het verwijderen kan tot 15 minuten duren.
 
@@ -216,9 +218,4 @@ Kom meer te weten over deze functies, die tijdens de installatie zijn ingeschake
 Kom meer te weten over deze veelvoorkomende onderwerpen: [Scheduler en het activeren van de synchronisatie](active-directory-aadconnectsync-feature-scheduler.md).
 
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory ](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
