@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 769377af7bf62d35c45c6e2e7b0ae3311b784894
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 457ba9c9f74bc9d88800607a2f78a3c3c96cea07
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Web-apps tijdens runtime instrumenteren met Application Insights
@@ -42,10 +41,10 @@ Hier volgt een samenvatting van wat elke route u biedt:
 | [Meer gedetailleerde uitzonderingen](app-insights-asp-net-exceptions.md) | |Ja |
 | [Diagnostische gegevens over afhankelijkheid](app-insights-asp-net-dependencies.md) |Op .NET 4.6+, maar minder details |Ja, volledige details: resultaatcodes, SQL-opdrachttekst, HTTP-woord|
 | [Systeemprestatiemeteritems](app-insights-performance-counters.md) |Ja |Ja |
-| [API voor aangepaste telemetrie][api] |Ja | |
-| [Integratie traceerlogboeken](app-insights-asp-net-trace-logs.md) |Ja | |
-| [Paginaweergave en gebruikersgegevens](app-insights-javascript.md) |Ja | |
-| Opnieuw opbouwen van code is niet nodig |Nee | |
+| [API voor aangepaste telemetrie][api] |Ja |Nee |
+| [Integratie traceerlogboeken](app-insights-asp-net-trace-logs.md) |Ja |Nee |
+| [Paginaweergave en gebruikersgegevens](app-insights-javascript.md) |Ja |Nee |
+| Code moet worden herbouwd |Ja | Nee |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>Een live Azure-web-app bewaken

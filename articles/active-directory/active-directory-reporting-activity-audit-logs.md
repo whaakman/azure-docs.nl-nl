@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: f2d0332d815c82d7d47625e020de2e9c5099deeb
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# Controleactiviteitenrapporten in Azure Active Directory Portal
-<a id="audit-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a> 
+# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Controleactiviteitenrapporten in Azure Active Directory Portal 
 
 Met rapporten in Azure Active Directory ontvangt u alle informatie die nodig is om te bepalen hoe het gaat met uw omgeving.
 
@@ -38,15 +37,13 @@ De rapportstructuur in Azure AD bestaat uit de volgende onderdelen:
 
 In dit onderwerp vindt u meer informatie over de controleactiviteiten.
  
-## Wie heeft er toegang tot de gegevens?
-<a id="who-can-access-the-data" class="xliff"></a>
+## <a name="who-can-access-the-data"></a>Wie heeft er toegang tot de gegevens?
 * Gebruikers met de rol Beveiligingsbeheerder of Beveiligingslezer
 * Globale beheerders
 * Afzonderlijke gebruikers (niet-beheerders) kunnen hun eigen activiteiten zien
 
 
-## Controlelogboeken
-<a id="audit-logs" class="xliff"></a>
+## <a name="audit-logs"></a>Controlelogboeken
 
 In de controlelogboeken in Azure Active Directory staan records van systeemactiviteiten voor naleving.  
 Uw eerste beginpunt voor alle controlegegevens is **Controlelogboeken** in het gedeelte **Activiteit** van **Azure Active Directory**.
@@ -76,8 +73,7 @@ Wanneer u op een item in de lijstweergave klikt, krijgt u er alle beschikbare in
 ![Controlelogboeken](./media/active-directory-reporting-activity-audit-logs/22.png "Controlelogboeken")
 
 
-## Controlelogboeken filteren
-<a id="filtering-audit-logs" class="xliff"></a>
+## <a name="filtering-audit-logs"></a>Controlelogboeken filteren
 
 Als u de gerapporteerde gegevens wilt beperken tot een niveau dat geschikt is voor u, kunt u de controlegegevens filteren met de volgende velden:
 
@@ -134,19 +130,17 @@ Wanneer u **Groep** selecteert als **type activiteitsresource**, krijgt u een ex
 
 Het filter **activiteit** is gebaseerd op de selectie die u maakt voor de categorie en het type activiteitsresource. U kunt een specifieke activiteit of alle activiteiten selecteren. 
 
-U kunt de lijst met alle controle-activiteiten opvragen met behulp van de Graph API https://graph.windows.net/$tenantdomein/activities/auditActivityTypes?api-version=beta, waarbij u $tenantdomain vervangt door de naam van uw domein, of raadpleeg het artikel [Azure Active Directory audit report events](active-directory-reporting-audit-events.md#list-of-audit-report-events) (Gebeurtenissen in Azure Active Directory-controlerapporten).
+U kunt de lijst met alle controle-activiteiten opvragen met behulp van de Graph API https://graph.windows.net/$tenantdomein/activities/auditActivityTypes?api-version=beta, waarbij u $tenantdomain vervangt door de naam van uw domein, of raadpleeg het artikel [Azure Active Directory audit report events](active-directory-reporting-audit-events.md) (Gebeurtenissen in Azure Active Directory-controlerapporten).
 
 
-## Snelkoppelingen naar controlelogboeken
-<a id="audit-logs-shortcuts" class="xliff"></a>
+## <a name="audit-logs-shortcuts"></a>Snelkoppelingen naar controlelogboeken
 
 Naast **Azure Active Directory** biedt de Azure Portal twee extra beginpunten voor gegevenscontrole:
 
 - Gebruikers en groepen
 - Bedrijfstoepassingen
 
-### Controlelogboeken voor gebruikers en groepen
-<a id="users-and-groups-audit-logs" class="xliff"></a>
+### <a name="users-and-groups-audit-logs"></a>Controlelogboeken voor gebruikers en groepen
 
 Met de controlerapporten op basis van gebruikers en groepen krijgt u antwoord op vragen zoals:
 
@@ -170,8 +164,7 @@ Als u alleen controlegegevens wilt bekijken die aan gebruikers en groepen zijn g
 
 ![Controlelogboeken](./media/active-directory-reporting-activity-audit-logs/93.png "Controlelogboeken")
 
-### Controlelogboeken voor bedrijfstoepassingen
-<a id="enterprise-applications-audit-logs" class="xliff"></a>
+### <a name="enterprise-applications-audit-logs"></a>Controlelogboeken voor bedrijfstoepassingen
 
 Met de controlerapporten op basis van toepassingen krijgt u antwoord op vragen zoals:
 
@@ -190,8 +183,8 @@ U kunt deze weergave verder filteren naar alleen **Groepen** of alleen **Gebruik
 ![Controlelogboeken](./media/active-directory-reporting-activity-audit-logs/25.png "Controlelogboeken")
 
 
-## Volgende stappen
-<a id="next-steps" class="xliff"></a>
-Zie de [Azure Active Directory-rapportagegids](active-directory-reporting-guide.md).
+## <a name="next-steps"></a>Volgende stappen
+
+Zie [Azure Active Directory-rapportage](active-directory-reporting-azure-portal.md) voor een overzicht van de rapportage.
 
 

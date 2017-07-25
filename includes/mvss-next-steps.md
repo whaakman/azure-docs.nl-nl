@@ -1,9 +1,11 @@
-You can deploy the preceding template by following the [Azure Resource Manager documentation](../articles/azure-resource-manager/resource-group-template-deploy.md).
+U kunt de voorgaande sjabloon implementeren met behulp van de [Azure Resource Manager-documentatie](../articles/azure-resource-manager/resource-group-template-deploy.md).
 
-You can start this tutorial series from the [minimum viable scale set template article](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md).
+U kunt deze zelfstudiereeks starten vanuit het [artikel over de sjabloon voor minimaal levensvatbare schaalsets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md).
 
-You can see how to modify the [minimum viable scale set template](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) to [deploy the scale set into an existing virtual network](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md).
+U kunt zien hoe u de [sjabloon voor minimaal levensvatbare schaalsets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) kunt aanpassen om [de schaalset te implementeren in een bestaand virtueel netwerk](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md).
 
-You can see how to modify the [minimum viable scale set template](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) to [deploy the scale set with a custom image](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-custom-image.md).
+U kunt zien hoe u de [sjabloon voor minimaal levensvatbare schaalsets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) kunt aanpassen om [de schaalset te implementeren met een aangepaste installatiekopie](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-custom-image.md).
 
-For more general information about scale sets, refer to the [scale set overview page](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
+U kunt zien hoe u de [sjabloon voor minimaal levensvatbare schaalsets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) kunt aanpassen om [een Linux-schaalset te implementeren met een gastgebaseerde automatische schaal](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md).
+
+Raadpleeg de [overzichtspagina voor schaalsets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) voor meer algemene informatie over schaalsets.

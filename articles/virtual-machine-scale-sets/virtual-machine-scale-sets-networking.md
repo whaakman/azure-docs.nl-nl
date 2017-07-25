@@ -13,24 +13,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/06/2017
+ms.date: 07/17/2017
 ms.author: guybo
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 1c9487be5415d05a8699f458259d872591280d3d
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: a8520c6d8962cc362fc935f6b515a299c0ce75b3
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Netwerken voor virtuele-machineschaalsets in Azure
 
 Wanneer u een virtuele-machineschaalset van Azure instelt via de portal, zijn bepaalde netwerkeigenschappen standaard ingesteld, bijvoorbeeld een Azure Load Balancer met binnenkomende NAT-regels. In dit artikel wordt beschreven hoe u een aantal van de meer geavanceerde netwerkfuncties gebruikt die u kunt configureren met schaalsets.
 
-U kunt alle functies die in dit artikel configureren met behulp van Azure Resource Manager-sjablonen. Er zijn ook Azure CLI-voorbeelden toegevoegd voor bepaalde functies. Gebruik de versie van juli 2017 of later van de CLI. Aanvullende voorbeelden van CLI en PowerShell worden binnenkort toegevoegd.
+U kunt alle functies die in dit artikel configureren met behulp van Azure Resource Manager-sjablonen. Er zijn ook Azure CLI- en PowerShell-voorbeelden toegevoegd voor bepaalde functies. Gebruik CLI 2.10 en PowerShell 4.2.0 of hoger.
 
 ## <a name="accelerated-networking"></a>Versneld netwerken
-[Versnelde netwerken](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-vm-accelerated-networking) in Azure verbetert de prestaties van het netwerk door het inschakelen van I/O-virtualisatie met één hoofdmap (SR-IOV) bij een virtuele machine. Als u versneld netwerken wilt gebruiken met schaalsets, stelt u enableAcceleratedNetworking in op _true_ in de instelling networkInterfaceConfigurations van uw schaalset. Bijvoorbeeld:
+[Versnelde netwerken](../virtual-network/virtual-network-create-vm-accelerated-networking.md) in Azure verbetert de prestaties van het netwerk door het inschakelen van I/O-virtualisatie met één hoofdmap (SR-IOV) bij een virtuele machine. Als u versneld netwerken wilt gebruiken met schaalsets, stelt u enableAcceleratedNetworking in op **true** in de instelling networkInterfaceConfigurations van uw schaalset. Bijvoorbeeld:
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -59,9 +58,9 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 
 ## <a name="configurable-dns-settings"></a>Configureerbare DNS-instellingen
 Standaard nemen schaalsets de specifieke DNS-instellingen van het VNET en het subnet waarin ze zijn gemaakt over. U kunt de DNS-instellingen voor een schaalset echter rechtstreeks configureren.
-
+~
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Een schaal met configureerbare DNS-servers maken
-Als u een schaalset met een aangepaste DNS-configuratie met CLI 2.0 wilt maken, voegt u het argument--dns-servers toe aan de opdracht _vmss create_ gevolgd door met spaties gescheiden IP-adressen. Bijvoorbeeld:
+Als u een schaalset met een aangepaste DNS-configuratie met CLI 2.0 wilt maken, voegt u het argument **--dns-servers** toe aan de opdracht **vmss create** gevolgd door met spaties gescheiden IP-adressen. Bijvoorbeeld:
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
 ```
@@ -73,9 +72,9 @@ Als u aangepaste DNS-servers wilt configureren in een Azure-sjabloon, voegt u de
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Een schaalset maken met de configureerbare domeinnamen van virtuele machines
-Als u een schaalset wilt maken met een aangepaste DNS-naam voor virtuele machines met CLI 2.0, voegt u het argument _--vm-domain-name_ toe aan de opdracht _vmss create_, gevolgd door een tekenreeks met de domeinnaam.
+Als u een schaalset wilt maken met een aangepaste DNS-naam voor virtuele machines met CLI 2.0, voegt u het argument **--vm-domain-name** toe aan de opdracht **vmss create**, gevolgd door een tekenreeks met de domeinnaam.
 
-Als u de domeinnaam wilt instellen in een Azure-sjabloon, voegt u de eigenschap dnsSettings toe aan het gedeelte networkInterfaceConfigurations van de schaalset. Bijvoorbeeld:
+Als u de domeinnaam wilt instellen in een Azure-sjabloon, voegt u de eigenschap **dnsSettings** toe aan het gedeelte **networkInterfaceConfigurations** van de schaalset. Bijvoorbeeld:
 
 ```json
 "networkProfile": {
@@ -109,84 +108,7 @@ Als u de domeinnaam wilt instellen in een Azure-sjabloon, voegt u de eigenschap 
 
 De uitvoer voor de DNS-naam van een afzonderlijke virtuele machine heeft de volgende notatie: 
 ```
-<vmname><vmindex>.<specifiedVmssDomainNameLabel>
-```
-
-## <a name="ipv6-preview-for-public-ips-and-load-balancer-pools"></a>IPv6-preview voor openbare IP-adressen en Load Balancer-groepen
-U kunt openbare IPv6-adressen configureren op een Azure Load Balancer en verbindingen routeren naar back-endpools van virtuele-machineschaalsets. IPv6 kan momenteel alleen in preview worden gebruikt. Als u IPv6 wilt gebruiken, moet u eerst een openbare IPv6-adresresource maken. Bijvoorbeeld:
-```json
-{
-    "apiVersion": "2016-03-30",
-    "type": "Microsoft.Network/publicIPAddresses",
-    "name": "[parameters('ipv6PublicIPAddressName')]",
-    "location": "[parameters('location')]",
-    "properties": {
-        "publicIPAddressVersion": "IPv6",
-        "publicIPAllocationMethod": "Dynamic",
-        "dnsSettings": {
-            "domainNameLabel": "[parameters('dnsNameforIPv6LbIP')]"
-        }
-    }
-}
-```
-Configureer vervolgens de front-end-IP-configuraties van uw load balancer voor IPv4 en IPv6, indien nodig:
-
-```json
-"frontendIPConfigurations": [
-    {
-        "name": "LoadBalancerFrontEndIPv6",
-        "properties": {
-            "publicIPAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('ipv6PublicIPAddressName'))]"
-            }
-        }
-    }
-]
-```
-Definieer de vereiste back-endpools:
-```json
-"backendAddressPools": [
-    {
-        "name": "BackendPoolIPv4"
-    },
-    {
-        "name": "BackendPoolIPv6"
-    }
-]
-```
-Definieer eventuele load-balancerregels:
-```json
-{
-    "name": "LBRuleIPv6-46000",
-    "properties": {
-        "frontendIPConfiguration": {
-            "id": "[variables('ipv6FrontEndIPConfigID')]"
-        },
-        "backendAddressPool": {
-            "id": "[variables('ipv6LbBackendPoolID')]"
-        },
-        "protocol": "tcp",
-        "frontendPort": 46000,
-        "backendPort": 60001,
-        "probe": {
-            "id": "[variables('ipv4ipv6lbProbeID')]"
-        }
-    }
-}
-```
-Verwijs ten slotte naar de IPv6-pool in de sectie IP-configuraties van de eigenschappen van de schaalset:
-```json
-{
-    "name": "ipv6IPConfig",
-    "properties": {
-        "privateIPAddressVersion": "IPv6",
-        "loadBalancerBackendAddressPools": [
-            {
-                "id": "[variables('ipv6LbBackendPoolID')]"
-            }
-        ]
-    }
-}
+<vm><vmindex>.<specifiedVmssDomainNameLabel>
 ```
 
 ## <a name="public-ipv4-per-virtual-machine"></a>Openbare IPv4 per virtuele machine
@@ -195,9 +117,9 @@ Virtuele machines in Azure-schaalsets hebben meestal geen eigen openbaar IP-adre
 In sommige gevallen hebben virtuele machines van een schaalset echter hun eigen openbare IP-adressen nodig. Dit is bijvoorbeeld het geval bij games, waarbij een console rechtstreeks verbinding moet maken met een virtuele cloudmachine, die de physics van de game verwerkt. Een ander voorbeeld is de situatie waarbij virtuele machines externe verbindingen met elkaar moeten maken via regio's in een gedistribueerde database.
 
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Een schaalset met een openbaar IP-adres per virtuele machine maken
-Als u een schaalset wilt maken waarmee een openbaar IP-adres wordt toegewezen aan elke virtuele machine met CLI 2.0, voegt u de parameter _--public-ip-per-vm_ toe aan de opdracht _vmss create_. 
+Als u een schaalset wilt maken waarmee een openbaar IP-adres wordt toegewezen aan elke virtuele machine met CLI 2.0, voegt u de parameter **--public-ip-per-vm** toe aan de opdracht **vmss create**. 
 
-Als u een schaalset maakt met een Azure-sjabloon, zorg er dan voor dat de API-versie van de resource Microsoft.Compute/virtualMachineScaleSets ten minste 2017-03-30 is en voeg de JSON-eigenschap _publicIpAddressConfiguration_ toe aan het gedeelte ipConfigurations van de schaalset. Bijvoorbeeld:
+Als u een schaalset maakt met een Azure-sjabloon, zorg er dan voor dat de API-versie van de resource Microsoft.Compute/virtualMachineScaleSets ten minste **2017-03-30** is en voeg de JSON-eigenschap **publicIpAddressConfiguration** toe aan het gedeelte ipConfigurations van de schaalset. Bijvoorbeeld:
 
 ```json
 "publicIpAddressConfiguration": {
@@ -210,11 +132,21 @@ Als u een schaalset maakt met een Azure-sjabloon, zorg er dan voor dat de API-ve
 Voorbeeldsjabloon: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Query’s uitvoeren op de openbare IP-adressen van de virtuele machines in een schaalset
-U kunt de openbare IP-adressen die zijn toegewezen aan de virtuele machines van de schaalset met CLI 2.0 in een lijst weergeven met de opdracht _az vmss list-instance-public-ips_.
+U kunt de openbare IP-adressen die zijn toegewezen aan de virtuele machines van de schaalset met CLI 2.0 in een lijst weergeven met de opdracht **az vmss list-instance-public-ips**.
 
-U kunt ook query’s uitvoeren op de openbare IP-adressen die zijn toegewezen aan de virtuele machines in de schaalset met de [Azure Resource Explorer](https://resources.azure.com) of de REST API van Azure met versie _2017-03-30_ of hoger.
+Gebruik de opdracht _Get-AzureRmPublicIpAddress_ om openbare IP-adressen voor schaalsets weer te geven met behulp van PowerShell. Bijvoorbeeld:
+```PowerShell
+PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
+```
 
-Als u de openbare IP-adressen van een schaalset wilt bekijken met behulp van de Resource Explorer, bekijkt u het gedeelte _publicipaddresses_ onder uw schaalset. Bijvoorbeeld: https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
+U kunt ook query’s uitvoeren op de openbare IP-adressen door rechtstreeks naar de resource-id van de openbare IP-adresconfiguratie te verwijzen. Bijvoorbeeld:
+```PowerShell
+PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
+```
+
+Query’s uitvoeren op de openbare IP-adressen die zijn toegewezen aan de virtuele machines in de schaalset met de [Azure Resource Explorer](https://resources.azure.com) of de REST API van Azure met versie **2017-03-30** of hoger.
+
+Als u de openbare IP-adressen van een schaalset wilt bekijken met behulp van de Resource Explorer, bekijkt u het gedeelte **publicipaddresses** onder uw schaalset. Bijvoorbeeld: https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
 
 ```
 GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30

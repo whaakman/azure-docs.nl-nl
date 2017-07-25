@@ -1,163 +1,138 @@
 ---
-title: Uw eerste Azure-microservices-app maken | Microsoft Docs
-description: Een Service Fabric-toepassing met Visual Studio maken, implementeren en foutopsporing uitvoeren
+title: Een betrouwbare Azure Service Fabric-service maken met C#
+description: Een betrouwbare Service-toepassing die is gebouwd op Azure Service Fabric met Visual Studio maken, implementeren en er foutopsporing op toepassen.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: vturecek
 ms.assetid: c3655b7b-de78-4eac-99eb-012f8e042109
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/05/2017
+ms.date: 06/28/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: dea338477ca82eead9e272ed9a1709cb2643f743
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: f93298e6483fd8c9dfda835964aeebd1a430af69
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/15/2017
 
 ---
-# <a name="create-your-first-azure-service-fabric-application"></a>Uw eerste Azure Service Fabric-toepassing maken
-> [!div class="op_single_selector"]
-> * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
-> * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
-> 
-> 
 
-De Service Fabric SDK bevat een invoegtoepassing voor Visual Studio voor sjablonen en hulpprogramma's om Service Fabric-toepassingen te maken, te implementeren en foutopsporing uit te voeren. In dit onderwerp vindt u meer informatie over het maken van uw eerste toepassing in Visual Studio 2017 of Visual Studio 2015.
+# <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Uw eerste stateful betrouwbare Service Fabric-servicetoepassing maken met C#
+
+Lees hoe u uw eerste Service Fabric-toepassing voor .NET in Windows in slechts een paar minuten kunt implementeren. Wanneer u klaar bent, hebt u een lokaal cluster uitgevoerd met een betrouwbare servicetoepassing.
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u begint, zorgt u ervoor dat u [uw ontwikkelingsomgeving hebt ingesteld](service-fabric-get-started.md).
 
-## <a name="video-walkthrough"></a>Video-overzicht
-De volgende video leidt u door de stappen in deze zelfstudie:
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
-> 
-> 
+Voordat u begint, zorgt u ervoor dat u [uw ontwikkelingsomgeving hebt ingesteld](service-fabric-get-started.md). Dit omvat het installeren van de Service Fabric SDK en Visual Studio 2017 of 2015.
 
 ## <a name="create-the-application"></a>De toepassing maken
-Een Service Fabric-toepassing kan een of meer services bevatten, elk met een specifieke functie met betrekking tot het leveren van de functionaliteit van de toepassing. Met de wizard Nieuw project kunt u een toepassingsproject maken, samen met uw eerste serviceproject. U kunt desgewenst later meer services toevoegen.
 
-1. Visual Studio starten als beheerder.
-2. Klik op **Bestand > Nieuw Project > Cloud > Service Fabric-toepassing**.
-3. Geef een naam op voor de toepassing en klik op **OK**.
+Start Visual Studio als **beheerder**.
+
+Maak een project met `CTRL`+`SHIFT`+`N`
+
+Kies in het dialoogvenster **Nieuw Project** de optie **Cloud > Service Fabric-toepassing**.
+
+Noem de toepassing **MyApplication** en druk op **OK**.
+
    
-    ![Dialoogvenster voor nieuw project in Visual Studio][1]
-4. Kies op de volgende pagina **Stateful** als het eerste servicetype om in uw toepassing op te nemen. Geef het servicetype een naam en klik op **OK**.
-   
-    ![Dialoogvenster voor nieuwe service in Visual Studio][2]
-   
-   > [!NOTE]
-   > Zie [Service Fabric programming model overview](service-fabric-choose-framework.md) (Overzicht van het Service Fabric-programmeermodel) voor meer informatie over de opties.
-   > 
-   > 
-   
-    Visual Studio maakt het toepassingsproject en het stateful service-project en geeft deze weer in Solution Explorer.
-   
-    ![Solution Explorer na het maken van de stateful service-toepassing][3]
-   
-    Het toepassingsproject bevat geen directe code. Het verwijst naar een reeks serviceprojecten. Daarnaast bevat het project drie andere typen inhoud:
-   
-   * **Profielen publiceren**: deze optie wordt gebruikt voor het beheren van voorkeuren voor tools voor verschillende omgevingen.
-   * **Scripts**: bevat een PowerShell-script voor het implementeren van/bijwerken van uw toepassing. Visual Studio gebruikt het script-achter-de-schermen. Het script kan ook rechtstreeks op de opdrachtregel worden aangeroepen.
-   * **Toepassingsdefinitie**: bevat het toepassingsmanifest onder *ApplicationPackageRoot*. Gekoppelde bestanden met toepassingsparameters vindt u onder *ApplicationParameters*, die de toepassing definiëren en waarmee u deze specifiek voor een bepaalde omgeving kunt configureren.
-     
-     Zie [Aan de slag met Reliable Services](service-fabric-reliable-services-quick-start.md) voor een overzicht van de inhoud van het serviceproject.
+![Dialoogvenster voor nieuw project in Visual Studio][1]
+
+In het volgende dialoogvenster kunt u elk type Service Fabric-toepassing maken. Kies voor deze snelstartgids **Stateful service**.
+
+Noem de service **MyStatefulService** en druk op **OK**.
+
+![Dialoogvenster voor nieuwe service in Visual Studio][2]
+
+
+Visual Studio maakt het toepassingsproject en het stateful service-project en geeft deze weer in Solution Explorer.
+
+![Solution Explorer na het maken van de stateful service-toepassing][3]
+
+Het toepassingsproject (**MyApplication**) bevat geen directe code. Het verwijst naar een reeks serviceprojecten. Daarnaast bevat het project drie andere typen inhoud:
+
+* **Profielen publiceren**  
+Profielen voor het implementeren van verschillende omgevingen.
+
+* **Scripts**  
+PowerShell-script voor het implementeren/bijwerken van uw toepassing.
+
+* **Toepassingsdefinitie**  
+Bevat het bestand ApplicationManifest.xml onder *ApplicationPackageRoot* waarin de samenstelling van uw toepassing wordt beschreven. Bijbehorende toepassingsparameterbestanden bevinden zich onder *ApplicationParameters*, dat kan worden gebruikt om omgevingsspecifieke parameters op te geven. Visual Studio selecteert een toepassingsparameterbestand dat is opgegeven in het bijbehorende publicatieprofiel tijdens de implementatie in een specifieke omgeving.
+    
+Zie [Aan de slag met Reliable Services](service-fabric-reliable-services-quick-start.md) voor een overzicht van de inhoud van het serviceproject.
 
 ## <a name="deploy-and-debug-the-application"></a>De toepassing implementeren en fouten opsporen in de toepassing
-Nu u een toepassing hebt, kunt u proberen deze uit te voeren.
 
-1. Druk op F5 in Visual Studio om de toepassing voor foutopsporing te implementeren.
+Nu u een toepassing hebt, kunt u deze uitvoeren.
+
+Druk op `F5` in Visual Studio om de toepassing voor foutopsporing te implementeren.
+
+>[!NOTE]
+>De eerste keer dat u de toepassing lokaal uitvoert en implementeert, wordt door Visual Studio een lokaal cluster voor foutopsporing gemaakt. Dit kan enige tijd duren. De status van het maken van het cluster wordt weergegeven in het Visual Studio-uitvoervenster.
+
+Als het cluster gereed is, ontvangt u een melding van de lokale toepassing die het systeemvak voor het cluster beheert en die in de SDK is opgenomen.
    
-   > [!NOTE]
-   > De implementatie duurt de eerste keer enige tijd omdat Visual Studio een lokaal ontwikkelingscluster maakt. Een lokaal cluster voert dezelfde platformcode uit als op een cluster met meerdere machines, alleen op één computer. U ziet de status van het maken van het cluster in het Visual Studio-uitvoervenster.
-   > 
-   > 
+![Melding van het systeemvak van het lokale cluster][4]
+
+Als de toepassing wordt gestart, geeft Visual Studio automatisch de **diagnostische logboeken met gebeurtenissen** weer, waarin u de traceringsuitvoer van uw services kunt bekijken.
    
-    Als het cluster gereed is, ontvangt u een melding van de lokale toepassing die het systeemvak voor het cluster beheert en die in de SDK is opgenomen.
+![Diagnostische logboeken][5]
+
+De stateful servicesjabloon die wij hebben gebruikt, toont alleen de itemwaarde die wordt verhoogd in de methode `RunAsync` van **MyStatefulService.cs**.
+
+Vouw een van de gebeurtenissen uit voor meer informatie, zoals het knooppunt waarop de code wordt uitgevoerd. In dit geval is het \_Node\_2. Dit kan anders zijn op uw machine.
    
-    ![Melding van het systeemvak van het lokale cluster][4]
-2. Als de toepassing wordt gestart, geeft Visual Studio automatisch de diagnostische logboeken met gebeurtenissen weer, waarin u de traceringsuitvoer van de service kunt bekijken.
-   
-    ![Diagnostische logboeken][5]
-   
-    Als het gaat om een stateful servicesjabloon, geven de berichten de itemwaarde weer die wordt verhoogd in de methode `RunAsync` van MyStatefulService.cs.
-3. Vouw een van de gebeurtenissen uit voor meer informatie, zoals het knooppunt waarop de code wordt uitgevoerd. In dit geval is het _Node_2. Dit kan anders zijn op uw machine.
-   
-    ![Details van de gebeurtenissenviewer][6]
-   
-    Het lokale cluster bevat vijf knooppunten die worden gehost op een enkele computer. Het lijkt op een cluster met vijf knooppunten, waarbij de knooppunten zich op afzonderlijke computers bevinden. We bekijken een van de knooppunten op het lokale cluster om het verlies van gegevens van een machine te simuleren en tegelijkertijd te oefenen met de foutopsporingsfunctie.
-   
-   > [!NOTE]
-   > De diagnostische gebeurtenissen van de toepassingen die worden gegenereerd door de projectsjabloon, maken gebruik van de klasse `ServiceEventSource`. Zie [Services lokaal bewaken en onderzoeken](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) voor meer informatie.
-   > 
-   > 
-4. Zoek de klasse in uw serviceproject die is afgeleid van StatefulService (bijvoorbeeld MyStatefulService) en stel een onderbrekingspunt in op de eerste regel van de methode `RunAsync`.
-   
-    ![Onderbrekingspunt in de stateful service RunAsync-methode][7]
-5. Klik met de rechtermuisknop op het systeemvak Lokaal clusterbeheer en kies **Lokaal cluster beheren** om Service Fabric Explorer te starten.
-   
-    ![Start Service Fabric Explorer vanuit Lokaal clusterbeheer][systray-launch-sfx]
-   
-    Service Fabric Explorer biedt een visuele representatie van een cluster, waaronder de set toepassingen die is geïmplementeerd en de set fysieke knooppunten waaruit het cluster bestaat. Zie [Uw cluster visualiseren](service-fabric-visualizing-your-cluster.md) voor meer informatie over Service Fabric Explorer.
-6. Vouw in het linkerdeelvenster **Cluster > Knooppunten** uit en zoek het knooppunt waarop uw code wordt uitgevoerd.
-7. Klik op **Acties > uitschakelen (opnieuw opstarten)** simuleren een machine opnieuw te starten. Of deactiveer het knooppunt vanuit de lijst met knooppunten in het linkerdeelvenster.
-   
-    ![Een knooppunt in Service Fabric Explorer stoppen][sfx-stop-node]
-   
-    U ziet uw onderbrekingspunt in Visual Studio, terwijl de berekening die u uitvoerde op één knooppunt naadloos wordt overgenomen door een ander.
-8. Terugkeren naar de details van de gebeurtenisviewer en de berichten bekijken. De teller blijft oplopen in stappen, zelfs als de gebeurtenissen daadwerkelijk afkomstig zijn uit een ander knooppunt.
-   
-    ![Details van de gebeurtenissenviewer na een failover][diagnostic-events-viewer-detail-post-failover]
+![Details van de gebeurtenissenviewer][6]
+
+Het lokale cluster bevat vijf knooppunten die worden gehost op een enkele computer. In een productieomgeving wordt elk knooppunt gehost op een afzonderlijke fysieke of virtuele machine. We bekijken een van de knooppunten op het lokale cluster om het verlies van gegevens van een machine te simuleren en tegelijkertijd te oefenen met de foutopsporingsfunctie.
+
+Open in de **Solution Explorer** **MyStatefulService.cs**. 
+
+Zoek de `RunAsync`-methode op en stel een onderbrekingspunt in op de eerste regel van de methode.
+
+![Onderbrekingspunt in de stateful service RunAsync-methode][7]
+
+Start **Service Fabric Explorer** door met de rechtermuisknop op het systeemvak **Lokaal clusterbeheer** te klikken en kies **Lokaal cluster beheren**.
+
+![Start Service Fabric Explorer vanuit Lokaal clusterbeheer][systray-launch-sfx]
+
+[**Service Fabric Explorer** ](service-fabric-visualizing-your-cluster.md) biedt een visuele weergave van een cluster. Deze bevat de set toepassingen die erin zijn geïmplementeerd en de set van fysieke knooppunten waaruit het cluster bestaat.
+
+Vouw in het linkerdeelvenster **Cluster > Knooppunten** uit en zoek het knooppunt waarop uw code wordt uitgevoerd.
+
+Klik op **Acties > uitschakelen (opnieuw opstarten)** simuleren een machine opnieuw te starten.
+
+![Een knooppunt in Service Fabric Explorer stoppen][sfx-stop-node]
+
+U ziet uw onderbrekingspunt in Visual Studio, terwijl de berekening die u uitvoerde op één knooppunt naadloos wordt overgenomen door een ander.
+
+
+Ga nu terug naar de details van de gebeurtenisviewer en bekijk de berichten. De teller blijft oplopen in stappen, zelfs als de gebeurtenissen daadwerkelijk afkomstig zijn uit een ander knooppunt.
+
+![Details van de gebeurtenissenviewer na een failover][diagnostic-events-viewer-detail-post-failover]
 
 ## <a name="cleaning-up-the-local-cluster-optional"></a>Het lokale cluster opschonen (optioneel)
-Voordat u afsluit, is het belangrijk om te onthouden dat het lokale cluster echt is. Als u het foutopsporingsprogramma stopt, worden uw toepassingsexemplaar en de registratie van het toepassingstype verwijderd. Het op de achtergrond uitvoeren van het cluster gaat echter gewoon door. U hebt verschillende mogelijkheden om het cluster te beheren:
 
-1. Als u het cluster wilt verwijderen, maar de toepassingsgegevens en -traceringen wilt behouden, klikt u op **Lokaal cluster stoppen** in het systeemvak.
-2. Als u het cluster volledig wilt verwijderen, klikt u op **Lokaal cluster verwijderen** in het systeemvak van de app. Als u dit doet, verloopt de implementatie mogelijk langzamer wanneer u in Visual Studio op F5 drukt. Verwijder het cluster alleen als u het lokale cluster een tijd niet gaat gebruiken of als u resources wilt vrijmaken.
+Vergeet niet dat dit lokale cluster echt bestaat. Als u het foutopsporingsprogramma stopt, worden uw toepassingsexemplaar en de registratie van het toepassingstype verwijderd. Het op de achtergrond uitvoeren van het cluster gaat echter gewoon door. Wanneer u klaar bent om het lokale cluster te stoppen, is er een aantal opties.
 
-## <a name="deploy-your-application-to-an-azure-cluster"></a>De toepassing implementeren op een Azure-cluster
-Nu u de toepassing lokaal hebt geïmplementeerd, kunt u dezelfde toepassing implementeren op Azure. Het document [Uw eerste Service Fabric-cluster maken in Azure](service-fabric-get-started-azure-cluster.md) leidt u stapsgewijs door het proces met behulp van Azure PowerShell of de portal.
+### <a name="keep-application-and-trace-data"></a>Toepassing behouden en gegevens traceren
 
-Zodra u een Azure-cluster hebt ingesteld, kunt u deze toepassing vanuit Visual Studio publiceren naar Azure door de stappen te volgen in het artikel [Publiceren naar een Azure-cluster](service-fabric-publish-app-remote-cluster.md).  
+Sluit het cluster af door met de rechtermuisknop op het systeemvak **Lokaal clusterbeheer** te klikken en kies vervolgens **Lokaal cluster stoppen**.
 
-## <a name="switch-cluster-mode-of-your-local-development-cluster"></a>De clustermodus van het lokale ontwikkelingscluster wijzigen
-Het lokale ontwikkelingscluster is standaard geconfigureerd om te worden uitgevoerd als een cluster met vijf knooppunten, wat nuttig is voor het opsporen van fouten in services die worden geïmplementeerd op meerdere knooppunten. Het implementeren van een toepassing op het ontwikkelingscluster met vijf knooppunten kan echter enige tijd in beslag nemen. Als u codewijzigingen snel wilt herhalen zonder uw app op vijf knooppunten uit te voeren, wijzigt u de modus van het ontwikkelingscluster in de modus met één knooppunt. Als u uw code op een cluster met één knooppunt wilt uitvoeren, klikt u met de rechtermuisknop op de Local Cluster Manager op de taakbalk en selecteert u **Clustermodus wijzigen -> één knooppunt**.  
+### <a name="delete-the-cluster-and-all-data"></a>Het cluster en alle gegevens verwijderen
 
-![De clustermodus wijzigen][switch-cluster-mode]
+Verwijder het cluster door met de rechtermuisknop op het systeemvak **Lokaal clusterbeheer** te klikken en kies vervolgens **Lokaal cluster verwijderen**. 
 
-Als u van clustermodus wisselt, wordt het ontwikkelingscluster gereset en worden alle toepassingen verwijderd die op het cluster zijn ingericht of worden uitgevoerd.
-
-U kunt de clustermodus ook wijzigen met behulp van PowerShell:
-
-1. Start een nieuw PowerShell-venster als beheerder.
-2. Voer het installatiescript van het  cluster uit wat in de SDK-map staat:
-   
-    ```powershell
-    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
-    ```
-   
-    Het installeren van een cluster duurt even. Nadat Setup is voltooid, ziet u soortgelijke uitvoer als deze:
-   
-    ![Cluster-installatieuitvoer][cluster-setup-success-1-node]
-
-
+Als u deze optie kiest, implementeert Visual Studio het cluster de volgende keer dat u de toepassing uitvoert opnieuw. Kies deze optie als u het lokale cluster een tijdje niet gaat gebruiken of als u resources moet vrijmaken.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Leer hoe u een [cluster maakt in Azure](service-fabric-cluster-creation-via-portal.md) of hoe u een [zelfstandig cluster maakt in Windows](service-fabric-cluster-creation-for-windows-server.md).
-* Maak een service met het programmeermodel [Reliable Services](service-fabric-reliable-services-quick-start.md) of [Reliable Actors](service-fabric-reliable-actors-get-started.md).
-* Probeer een [Windows-container](service-fabric-deploy-container.md) of een bestaande app te implementeren als een [uitvoerbaar gastbestand](service-fabric-deploy-existing-app.md).
-* Leer hoe u uw services met de [front-end van een webservice](service-fabric-add-a-web-frontend.md) verbindt met internet.
-* Voer een [praktijkoefening](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) uit en maak een staatloze service, configureer de controle en statusrapporten en voer een toepassingsupgrade uit.
-* Meer informatie over [ondersteuningsopties voor Service Fabric](service-fabric-support.md)
-
+Meer informatie over [betrouwbare services](service-fabric-reliable-services-introduction.md).
 <!-- Image References -->
 
 [1]: ./media/service-fabric-create-your-first-application-in-visual-studio/new-project-dialog.png

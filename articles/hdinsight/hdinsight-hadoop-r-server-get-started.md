@@ -13,26 +13,21 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/28/2017
+ms.date: 07/13/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: a42138ae234313c7c6cbfcaa8b851ad47f82133b
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: ee4298b91f4e2b215b5faabaad96323f4ef234b8
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
-<a id="get-started-using-r-server-on-hdinsight" class="xliff"></a>
-
-# Aan de slag met R Server op HDInsight
+# <a name="get-started-using-r-server-on-hdinsight"></a>Aan de slag met R Server op HDInsight
 
 HDInsight bevat een R Server-optie die kan worden geïntegreerd in uw HDInsight-cluster. Met deze optie kunnen R-scripts gebruikmaken van Spark en MapReduce om gedistribueerde berekeningen uit te voeren. In dit document leert u hoe u een R Server op HDInsight-cluster maakt. Vervolgens voert u een R-script uit waarin wordt gedemonstreerd hoe Spark wordt gebruikt voor gedistribueerde R-berekeningen.
 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 * **Een Azure-abonnement**: voordat u aan deze zelfstudie begint, moet u beschikken over een Azure-abonnement. Raadpleeg het artikel [Een gratis proefversie van Microsoft Azure krijgen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) voor meer informatie.
 * **Een SSH-client (Secure Shell)**: er wordt een SSH-client gebruikt om extern verbinding te maken met het HDInsight-cluster en om opdrachten rechtstreeks uit te voeren op het cluster. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
@@ -42,9 +37,7 @@ HDInsight bevat een R Server-optie die kan worden geïntegreerd in uw HDInsight-
 > Bij de stappen in dit document wordt ervan uitgegaan dat u een wachtwoord gebruikt.
 
 
-<a id="automated-cluster-creation" class="xliff"></a>
-
-## Automatisch een cluster maken
+## <a name="automated-cluster-creation"></a>Automatisch een cluster maken
 
 U kunt het maken van HDInsight R Servers automatiseren met Azure Resource Manager-sjablonen, de SDK of PowerShell.
 
@@ -54,9 +47,7 @@ U kunt het maken van HDInsight R Servers automatiseren met Azure Resource Manage
 
 
 <a name="create-hdi-custer-with-aure-portal"></a>
-<a id="create-the-cluster-using-the-azure-portal" class="xliff"></a>
-
-## Het cluster maken met Azure Portal
+## <a name="create-the-cluster-using-the-azure-portal"></a>Het cluster maken met Azure Portal
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
@@ -162,9 +153,7 @@ U kunt het maken van HDInsight R Servers automatiseren met Azure Resource Manage
    >
 
 <a name="connect-to-rstudio-server"></a>
-<a id="connect-to-rstudio-server" class="xliff"></a>
-
-## Verbinding maken met RStudio Server
+## <a name="connect-to-rstudio-server"></a>Verbinding maken met RStudio Server
 
 Als u ervoor hebt gekozen om de RStudio Server Community-editie op te nemen in de installatie, hebt u op twee manieren toegang tot de aanmeldingspagina van RStudio.
 
@@ -182,9 +171,7 @@ Als u ervoor hebt gekozen om de RStudio Server Community-editie op te nemen in d
    > Ongeacht welke methode u kiest, de eerste keer dat u zich aanmeldt moet u zich twee keer verifiëren.  Bij de eerste verificatie geeft u de *gebruikers-id* en het *wachtwoord* voor de beheerder op voor het cluster. Bij de tweede prompt geeft u de *gebruikers-id* en het *wachtwoord* voor SSH op. Bij alle volgende aanmeldingen zijn alleen de *gebruikers-id* en het *wachtwoord* voor SSH vereist.
 
 <a name="connect-to-edge-node"></a>
-<a id="connect-to-the-r-server-edge-node" class="xliff"></a>
-
-## Verbinding maken met het R Server Edge-knooppunt
+## <a name="connect-to-the-r-server-edge-node"></a>Verbinding maken met het R Server Edge-knooppunt
 
 Verbinding maken met het R Server Edge-knooppunt van het HDInsight-cluster met SSH met de opdracht:
 
@@ -208,9 +195,7 @@ Zodra er verbinding is gemaakt, wordt er een prompt weergegeven die er ongeveer 
     sername@ed00-myrser:~$
 
 <a name="enable-concurrent-users"></a>
-<a id="enable-multiple-concurrent-users" class="xliff"></a>
-
-## Meerdere gelijktijdige gebruikers inschakelen
+## <a name="enable-multiple-concurrent-users"></a>Meerdere gelijktijdige gebruikers inschakelen
 
 U kunt meerdere gelijktijdige gebruikers inschakelen door meer gebruikers voor het Edge-knooppunt toe te voegen waarop de RStudio-community-versie wordt uitgevoerd.
 
@@ -239,16 +224,12 @@ Omdat RStudio Server Community op het Edge-knooppunt van het cluster wordt uitge
 2. Meer Linux-gebruikers toevoegen in Edge-knooppunt
 3. RStudio Community-versie gebruiken met de gemaakte gebruiker
 
-<a id="step-1-use-the-created-ssh-user-to-log-in-to-the-edge-node" class="xliff"></a>
-
-### Stap 1: de SSH-gebruiker gebruiken om u aan te melden bij het Edge-knooppunt
+### <a name="step-1-use-the-created-ssh-user-to-log-in-to-the-edge-node"></a>Stap 1: de SSH-gebruiker gebruiken om u aan te melden bij het Edge-knooppunt
 
 Download een SSH-hulpprogramma (zoals Putty) en gebruik de bestaande SSH-gebruiker om u aan te melden. Volg de instructies in [Verbinding maken met HDInsight (Hadoop) via SSH](hdinsight-hadoop-linux-use-ssh-unix.md) voor toegang tot het Edge-knooppunt. Het adres van het Edge-knooppunt voor R Server op HDInsight-cluster is: *clusternaam-ed-ssh.azurehdinsight.net*
 
 
-<a id="step-2-add-more-linux-users-in-edge-node" class="xliff"></a>
-
-### Stap 2: meer Linux-gebruikers toevoegen in Edge-knooppunt
+### <a name="step-2-add-more-linux-users-in-edge-node"></a>Stap 2: meer Linux-gebruikers toevoegen in Edge-knooppunt
 
 Om een gebruiker toe te voegen aan het Edge-knooppunt, voert u de volgende opdrachten uit:
 
@@ -262,9 +243,7 @@ De volgende items moeten worden geretourneerd:
 Als u wordt gevraagd naar 'Huidig Kerberos-wachtwoord:', drukt u op **Enter** om dit te negeren. De `-m`-optie in de opdracht `useradd` geeft aan dat het systeem een basismap voor de gebruiker maakt die vereist is voor RStudio Community-versie.
 
 
-<a id="step-3-use-rstudio-community-version-with-the-user-created" class="xliff"></a>
-
-### Stap 3: RStudio Community-versie gebruiken met de gemaakte gebruiker
+### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>Stap 3: RStudio Community-versie gebruiken met de gemaakte gebruiker
 
 Gebruik de gebruiker die is gemaakt voor het aanmelden bij RStudio:
 
@@ -355,9 +334,7 @@ U ziet ook dat de zojuist toegevoegde gebruikers geen hoofdmapbevoegdheden in he
 
 
 <a name="use-r-console"></a>
-<a id="use-the-r-console" class="xliff"></a>
-
-## De R-console gebruiken
+## <a name="use-the-r-console"></a>De R-console gebruiken
 
 1. Gebruik tijdens de SSH-sessie de volgende opdracht om de R-console te starten:  
 
@@ -393,9 +370,7 @@ U ziet ook dat de zojuist toegevoegde gebruikers geen hoofdmapbevoegdheden in he
     rxHadoopListFiles("wasbs:///")
 
 
-<a id="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client" class="xliff"></a>
-
-## R Server op HDI gebruiken vanaf een extern exemplaar van Microsoft R Server of Microsoft R Client
+## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>R Server op HDI gebruiken vanaf een extern exemplaar van Microsoft R Server of Microsoft R Client
 
 Het is mogelijk toegang in te stellen voor de HDI Hadoop Spark compute-context van een extern exemplaar van Microsoft R Server of Microsoft R Client dat wordt uitgevoerd op een desktop of laptop. Zie de subsectie **Using Microsoft R Server as a Hadoop Client** (Microsoft R Server als Hadoop-client gebruiken) in [Create a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started.md) (Een compute-context voor Spark maken). Hiervoor moet u de volgende opties opgeven wanneer u de RxSpark-compute-context definieert op uw laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches en sshProfileScript. Bijvoorbeeld:
 
@@ -423,9 +398,7 @@ Het is mogelijk toegang in te stellen voor de HDI Hadoop Spark compute-context v
     )
 
 
-<a id="use-a-compute-context" class="xliff"></a>
-
-## Een compute-context gebruiken
+## <a name="use-a-compute-context"></a>Een compute-context gebruiken
 
 Met een compute-context kunt u bepalen of een berekening lokaal op het Edge-knooppunt wordt uitgevoerd of wordt gedistribueerd naar de verschillende knooppunten in het HDInsight-cluster.
 
@@ -549,9 +522,7 @@ Met een compute-context kunt u bepalen of een berekening lokaal op het Edge-knoo
    > U kunt ook MapReduce gebruiken om de berekening te distribueren naar verschillende clusterknooppunten. Zie [Opties voor compute-context voor R Server op HDInsight](hdinsight-hadoop-r-server-compute-contexts.md) voor meer informatie over compute-context.
 
 
-<a id="distribute-r-code-to-multiple-nodes" class="xliff"></a>
-
-## R-code distribueren naar meerdere knooppunten
+## <a name="distribute-r-code-to-multiple-nodes"></a>R-code distribueren naar meerdere knooppunten
 
 Met R Server kunt u gemakkelijk bestaande R-code uitvoeren op verschillende knooppunten in het cluster door gebruik te maken van `rxExec`. Deze functie is handig bij het uitvoeren van een parameteropschoning of van simulaties. Hier volgt een voorbeeldcode van het gebruik van `rxExec`:
 
@@ -576,9 +547,7 @@ Als u nog steeds de Spark- of MapReduce-context gebruikt, wordt door deze opdrac
     "wn3-myrser"
 
 
-<a id="accessing-data-in-hive-and-parquet" class="xliff"></a>
-
-## Toegang tot gegevens in Hive en Parquet
+## <a name="accessing-data-in-hive-and-parquet"></a>Toegang tot gegevens in Hive en Parquet
 
 Dankzij een functie die beschikbaar is in R Server 9.1, hebt u nu direct toegang tot de gegevens in Hive en Parquet, zodat deze kunnen worden gebruikt voor ScaleR-functies in de Spark-compute-context. Deze mogelijkheden zijn beschikbaar via nieuwe functies voor ScaleR-gegevensbronnen (genaamd RxHiveData en RxParquetData) die gebruikmaken van Spark SQL om gegevens rechtstreeks in Spark DataFrame te laden voor analyse met ScaleR.  
 
@@ -618,9 +587,7 @@ Hieronder ziet u code met voorbeeldcode bij het gebruik van de nieuwe functies:
 Raadpleeg de online-Help in R Server via de opdrachten `?RxHivedata` en `?RxParquetData` voor aanvullende informatie over het gebruik van deze nieuwe functies.  
 
 
-<a id="install-additional-r-packages-on-the-edge-node" class="xliff"></a>
-
-## Extra R-pakketten op het Edge-knooppunt installeren
+## <a name="install-additional-r-packages-on-the-edge-node"></a>Extra R-pakketten op het Edge-knooppunt installeren
 
 Als u extra R-pakketten wilt installeren op het Edge-knooppunt, kunt u `install.packages()` rechtstreeks vanuit de R-console gebruiken wanneer u via SSH bent verbonden met het Edge-knooppunt. Als u echter R-pakketten wilt installeren op de worker-knooppunten van het cluster, moet u een scriptactie gebruiken.
 
@@ -667,9 +634,7 @@ Scriptacties zijn Bash-scripts die worden gebruikt om configuratiewijzigingen aa
 4. Selecteer **Maken** om het script uit te voeren. Nadat het script is voltooid, zijn de R-pakketten beschikbaar op alle werkknooppunten.
 
 
-<a id="using-microsoft-r-server-operationalization" class="xliff"></a>
-
-## Microsoft R Server-uitoefening gebruiken
+## <a name="using-microsoft-r-server-operationalization"></a>Microsoft R Server-uitoefening gebruiken
 
 Wanneer de gegevensmodellering is voltooid, kunt u het model uitvoeren om voorspellingen te maken. Voer de stappen hieronder uit om Microsoft R Server-uitoefening te configureren:
 
@@ -677,10 +642,15 @@ Ten eerste, SSH op het Edge-knooppunt. Bijvoorbeeld:
 
     ssh -L USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-Nadat u SSH hebt gebruikt, wijzigt u de map in de volgende map en sudo in de dotnet-dll:
+Nadat u SSH hebt gebruikt, wijzigt u de map voor de relevante versie en sudo in de dotnet-dll: 
 
-    cd /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil
-    sudo dotnet Microsoft.DeployR.Utils.AdminUtil.dll
+- Voor Microsoft R Server 9.1:
+
+    cd /usr/lib64/microsoft-r/rserver/o16n/9.1.0   sudo dotnet Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll
+
+- Voor Microsoft R Server 9.0:
+
+    cd /usr/lib64/microsoft-deployr/9.0.1   sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
 Ga als volgt te werk om Microsoft R Server-uitoefening te configureren met een alles-in-één configuratie:
 
@@ -703,9 +673,7 @@ Als optionele stap kunt u Diagnostische controles uitvoeren door als volgt een d
 
 In dit stadium is de configuratie voor uitoefening voltooid. U kunt nu het pakket mrsdeploy op de RClient gebruiken om verbinding te maken met het Uitoefening op Edge-knooppunt en de bijbehorende functies gaan gebruiken, zoals [externe uitvoering](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) en [webservices](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette). Afhankelijk van of het cluster is ingesteld in een virtueel netwerk of niet, moet u mogelijk forward tunneling via SSH-aanmelding instellen voor de poort. In de volgende secties wordt uitgelegd hoe u deze tunnel instelt.
 
-<a id="rserver-cluster-on-virtual-network" class="xliff"></a>
-
-### RServer-cluster in een virtueel netwerk
+### <a name="rserver-cluster-on-virtual-network"></a>RServer-cluster in een virtueel netwerk
 
 Zorg ervoor dat u verkeer via poort 12800 naar het Edge-knooppunt toestaat. Op deze manier kunt u het Edge-knooppunt gebruiken om verbinding te maken met de functie Uitoefening.
 
@@ -721,9 +689,7 @@ Zorg ervoor dat u verkeer via poort 12800 naar het Edge-knooppunt toestaat. Op d
 
 Als de `remoteLogin()` geen verbinding kan maken met het Edge-knooppunt maar als u wel verbinding hebt via SSH, moet u controleren of de regel op basis waarvan verkeer via poort 12800 is toegestaan, juist is ingesteld of niet. Als dit probleem zich blijft voordoen, kunt u een tijdelijke oplossing gebruiken door forward tunneling via SSH in te stellen voor de poort. Raadpleeg de volgende sectie voor meer informatie.
 
-<a id="rserver-cluster-not-set-up-on-virtual-network" class="xliff"></a>
-
-### RServer-cluster is niet ingesteld in het virtuele netwerk
+### <a name="rserver-cluster-not-set-up-on-virtual-network"></a>RServer-cluster is niet ingesteld in het virtuele netwerk
 
 Als het cluster niet is ingesteld in het virtuele netwerk vnet of als u problemen ondervindt met de connectiviteit via dit netwerk, kunt u forward tunneling via SSH instellen voor de poort:
 
@@ -745,13 +711,9 @@ Zodra de SSH-sessie actief is, wordt het verkeer bij poort 12800 op uw computer 
     )
 
 
-<a id="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes" class="xliff"></a>
+## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>Hoe werkt het schalen van rekenknooppunten in Microsoft R Server-uitoefening op worker-knooppunten in HDInsight?
 
-## Hoe werkt het schalen van rekenknooppunten in Microsoft R Server-uitoefening op worker-knooppunten in HDInsight?
-
-<a id="decommission-the-worker-nodes" class="xliff"></a>
-
-### De worker-knooppunten uit bedrijf nemen
+### <a name="decommission-the-worker-nodes"></a>De worker-knooppunten uit bedrijf nemen
 
 Microsoft R Server wordt momenteel niet beheerd via Yarn. Als de werkknooppunten niet uit bedrijf worden genomen, werkt de resourcemanager Yarn niet zoals verwacht, omdat in dit geval niet wordt gedetecteerd welke resources de server bevat. Om deze sitatie te voorkomen raden we u aan de werkknooppunten uit bedrijf te nemen voordat u de rekenknooppunten uitschaalt.
 
@@ -770,9 +732,7 @@ Stappen voor het uit bedrijf nemen van worker-knooppunten:
 * Hef de selectie van de werkknooppunten op en selecteer de hoofdknooppunten
 * Selecteer **Acties** > **Geselecteerde hosts** > **Hosts** > **Alle onderdelen opnieuw starten**
 
-<a id="configure-compute-nodes-on-each-decommissioned-worker-nodes" class="xliff"></a>
-
-### Rekenknooppunten configureren op elk uit bedrijf genomen worker-knooppunt
+### <a name="configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Rekenknooppunten configureren op elk uit bedrijf genomen worker-knooppunt
 
 1. SSH op elk uit bedrijf genomen werkknooppunt.
 2. Voer het beheerprogramma uit met behulp van `dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll`.
@@ -780,9 +740,7 @@ Stappen voor het uit bedrijf nemen van worker-knooppunten:
 4. Voer C in om optie C. Rekenknooppunt te selecteren. Hiermee configureert u het rekenknooppunt op het werkknooppunt.
 5. Sluit het beheerprogramma.
 
-<a id="add-compute-nodes-details-on-web-node" class="xliff"></a>
-
-### Details van rekenknooppunten toevoegen op het webknooppunt
+### <a name="add-compute-nodes-details-on-web-node"></a>Details van rekenknooppunten toevoegen op het webknooppunt
 
 Zodra alle uit bedrijf genomen werkknooppunten zijn geconfigureerd om het rekenknooppunt uit te voeren, keert u terug naar het Edge-knooppunt en voegt u de IP-adressen van de uit bedrijf genomen werkknooppunten toe in de configuratie van het Microsoft R Server-webknooppunt:
 
@@ -793,16 +751,12 @@ Zodra alle uit bedrijf genomen werkknooppunten zijn geconfigureerd om het rekenk
     ![opdrachtregel worker-knooppunten uit bedrijf nemen](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
 
 
-<a id="troubleshoot" class="xliff"></a>
-
-## Problemen oplossen
+## <a name="troubleshoot"></a>Problemen oplossen
 
 Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#create-clusters) als u problemen ondervindt met het maken van HDInsight-clusters.
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Nu zou u moeten weten hoe u een nieuw HDInsight-cluster maakt met de R Server en de basisbeginselen van het gebruik van de R-console van een SSH-sessie. In de volgende onderwerpen worden andere manieren beschreven om R Server op HDInsight te beheren en ermee te werken:
 

@@ -9,10 +9,10 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 06/19/2017
+ms.date: 07/12/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 2b81b9e1ae2abfd332bd6048b7643b4245ca374b
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: c065d692d2a4ac369cb13a70d09b30498e6c9106
 ms.contentlocale: nl-nl
 ms.lasthandoff: 07/13/2017
 
@@ -38,12 +38,12 @@ Volg deze stappen voor het maken van een Azure Database voor PostgreSQL-server:
  ![Azure Database voor PostgreSQL - De database maken](./media/quickstart-create-database-portal/1-create-database.png)
 
 3.  Vul het formulier voor gegevens van nieuwe server in met de volgende informatie, zoals in de voorgaande afbeelding wordt weergegeven:
-    - Servernaam: **mypgserver-20170401** (de servernaam verwijst naar een DNS-naam en moet daarom wereldwijd uniek zijn) 
+    - Servernaam: **mypgserver 20170401** (kies een unieke servernaam, omdat deze naam wordt toegewezen aan de DNS-naam)
     - Abonnement: als u meerdere abonnementen hebt, kiest u het abonnement waarin de resource bestaat of waarvoor wordt gefactureerd.
     - Resourcegroep: **myresourcegroup**
     - De aanmeldgegevens van de serverbeheerder (gebruikersnaam en wachtwoord)
-    - Locatie
-    - PostgreSQL-versie
+    - Locatie: kies de dichtstbijzijnde locatie.
+    - PostgreSQL-versie: kies de meest recente versie.
 
   > [!IMPORTANT]
   > De beheerdersaanmelding bij de server en het wachtwoord die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze Quick Start. Onthoud of noteer deze informatie voor later gebruik.

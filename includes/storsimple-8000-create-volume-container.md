@@ -1,7 +1,6 @@
 <!--author=alkohli last changed: 06/22/17-->
 
-#### Een volumecontainer maken
-<a id="to-create-a-volume-container" class="xliff"></a>
+#### <a name="to-create-a-volume-container"></a>Een volumecontainer maken
 1. Ga naar de StorSimple-apparaatbeheerservice en klik op **Apparaten**. Selecteer en klik op een apparaat in de lijst in tabelvorm met apparaten. 
 
     ![De blade Volumecontainer](./media/storsimple-8000-create-volume-container/createvolumecontainer1.png)
@@ -13,7 +12,7 @@
 3. Doe het volgende op de blade **Volumecontainer toevoegen**:
    
    1. Het apparaat wordt automatisch geselecteerd.
-   2. Geef een **naam** op voor uw volumecontainer. De naam moet 3 tot 32 tekens lang zijn.
+   2. Geef een **naam** op voor uw volumecontainer. De naam moet 3 tot 32 tekens lang zijn. U kunt de naam van een volumecontainer niet wijzigen zodra deze is gemaakt.
    3. Schakel **Versleuteling van cloudopslag inschakelen** in om versleuteling in te schakelen van de gegevens die van het apparaat naar de cloud worden verzonden.
    4. Geef een **versleutelingssleutel voor cloudopslag** van 8 tot 32 tekens op en bevestig deze. De sleutel wordt door het apparaat gebruikt voor toegang tot versleutelde gegevens.
    5. Selecteer een **opslagaccount** om aan deze volumecontainer te koppelen. U kunt een bestaand opslagaccount kiezen of het standaardaccount dat is gegenereerd toen de service werd gemaakt. U kunt ook de optie **Nieuwe toevoegen** gebruiken om een opslagaccount op te geven dat niet is gekoppeld aan dit serviceabonnement.

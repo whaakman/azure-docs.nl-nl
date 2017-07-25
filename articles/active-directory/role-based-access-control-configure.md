@@ -5,20 +5,20 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2017
+ms.date: 07/17/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 9fb0fdf1a2a48c5c9daf7d0ec22e85221bfb6b28
-ms.lasthandoff: 04/07/2017
-
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: aff943e797da93e95563c3de3f064dbbfc30a384
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>Op rollen gebaseerd toegangsbeheer gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement
@@ -41,7 +41,7 @@ U kunt zien wie toegang heeft tot een resource, resourcegroep of abonnement op d
    
     ![Schermafbeelding van de blade Gebruikers - overgenomen en toegewezen toegang](./media/role-based-access-control-configure/view-access.png)
 
-U ziet dat aan bepaalde gebruikers de toegang is **Toegewezen** en dat voor andere gebruikers de toegang is **Overgenomen**. De toegang is specifiek toegewezen aan de resourcegroep of is overgenomen van een toewijzing aan het bovenliggende abonnement.
+U ziet dat het bereik van sommige rollen is ingesteld op **Deze resource**, terwijl andere zijn **Overgenomen** vanuit een ander bereik. De toegang is specifiek toegewezen aan de resourcegroep of is overgenomen van een toewijzing aan het bovenliggende abonnement.
 
 > [!NOTE]
 > Klassieke abonnementsbeheerders en co-beheerders worden beschouwd als eigenaar van het abonnement in het nieuwe RBAC-model.
@@ -60,9 +60,10 @@ U verleent toegang vanuit de resource en resourcegroep die of het abonnement dat
 Nadat u een roltoewijzing hebt toegevoegd, wordt deze weergegeven op de blade **Gebruikers**.
 
 ## <a name="remove-access"></a>Toegang verwijderen
-1. Gebruik de selectievakjes op de blade Toegangsbeheer om een of meer roltoewijzingen te selecteren.
+1. Houd de cursor boven de naam van de toewijzing die u wilt verwijderen. Naast de naam wordt nu een selectievakje weergegeven.
+2. Gebruik de selectievakjes om een of meer roltoewijzingen te selecteren.
 2. Selecteer **Verwijderen**.  
-3. Er verschijnt een venster waarin u wordt gevraagd de actie te bevestigen. Selecteer **Ja** om de roltoewijzingen te verwijderen.
+3. Selecteer **Ja** om het verwijderen te bevestigen.
 
 Overgenomen toewijzingen kunnen niet worden verwijderd. Als u een overgenomen toewijzing wilt verwijderen, dient u dit te doen in het bereik waarin de roltoewijzing is gemaakt. In de kolom **Bereik**, naast **Overgenomen**, vindt u een koppeling waarmee u naar de resources gaat waaraan deze rol is toegewezen. Ga naar de resource die hier wordt weergegeven om de roltoewijzing te verwijderen.
 

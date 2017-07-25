@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/12/2017-->
+<!--author=alkohli last changed: 07/19/2017-->
 
 #### <a name="to-create-a-volume"></a>Een volume maken
 1. Selecteer en klik op uw apparaat in de lijst in tabelvorm met apparaten op de blade **Apparaten**. Klik op **Volume toevoegen**.
@@ -11,7 +11,7 @@
 
    2. Selecteer in de vervolgkeuzelijst de volumecontainer waaraan u een volume wilt toevoegen. 
 
-   3.  een **naam** voor het volume.
+   3.  een **naam** voor het volume. U kunt de naam van een volume niet wijzigen wanneer het volume is gemaakt.
 
    4. Selecteer in de vervolgkeuzelijst het **Type** voor het volume. Voor workloads waarvoor lokale garanties, lage latenties en betere prestaties vereist zijn, selecteert u een **lokaal vastgemaakt** volume. Voor alle overige gegevens selecteert u een **gelaagd** volume. Als u dit volume gebruikt voor de archivering van gegevens, schakelt u **Dit volume gebruiken voor minder frequent gebruikte gearchiveerde gegevens** in.
       

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/03/2017
+ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: fac46780cfd591a00ce73ea1bb4ce73893d22967
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 31ac18add9c3fd956e0d37b1e0c1a510265c22e6
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -38,7 +38,7 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
 
 1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
 
-2. Selecteer **Berekenen**, selecteer **Windows Server 2016 Datacenter** en zorg ervoor dat **Resource Manager** het geselecteerde implementatiemodel is. Klik op de knop **Maken**. 
+2. Selecteer **Compute** en vervolgens **Windows Server 2016 Datacenter**. 
 
 3. Geef de informatie van de virtuele machine op. De gebruikersnaam en het wachtwoord die u hier opgeeft, worden gebruikt voor aanmelding bij de virtuele machine. Na het voltooien klikt u op **OK**.
 
@@ -48,7 +48,7 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
 
     ![Schermopname van VM-grootten](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. Op de blade Instellingen selecteert u **Ja** onder **Managed Disks gebruiken**. Laat voor de rest de standaardinstellingen staan en klik op **OK**.
+5. Handhaaf op de blade Instellingen de standaardwaarden en klik op **OK**.
 
 6. Klik op de pagina Overzicht op **OK** om de implementatie van de virtuele machine te starten.
 

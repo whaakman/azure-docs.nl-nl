@@ -16,19 +16,19 @@ ms.date: 05/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 103d64ea73c309f387ff90d181f472ad246d3026
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 2734a90284432ee218efb4fea68684de4b069dd6
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# <a name="connect-your-simulated-device-to-your-iot-hub-using-net"></a>Uw gesimuleerde apparaat verbinding laten maken met uw IoT Hub met .NET
+# <a name="connect-your-device-to-your-iot-hub-using-net"></a>Uw apparaat verbinding laten maken met uw IoT Hub met .NET
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 Aan het eind van deze zelfstudie beschikt u over drie .NET-consoletoepassingen:
 
-* **CreateDeviceIdentity**: deze toepassing maakt een apparaat-id en de bijbehorende beveiligingssleutel waarmee uw gesimuleerde apparaat-app kan worden verbonden.
-* **ReadDeviceToCloudMessages**: deze toepassing geeft de telemetrie weer die is verzonden door uw gesimuleerde apparaat-app.
+* **CreateDeviceIdentity**: deze toepassing maakt een apparaat-id en de bijbehorende beveiligingssleutel waarmee uw apparaat-app kan worden verbonden.
+* **ReadDeviceToCloudMessages**: deze toepassing geeft de telemetrie weer die is verzonden door uw apparaat-app.
 * **SimulatedDevice**: deze toepassing koppelt uw IoT-hub aan de apparaat-id die u eerder hebt gemaakt en verzendt iedere seconde een telemetriebericht via het MQTT-protocol.
 
 U kunt de Visual Studio-oplossing downloaden of klonen om zo de beschikking te krijgen over de drie apps van Github.
@@ -99,7 +99,7 @@ In dit gedeelte maakt u een .NET-consoletoepassing die apparaat-naar-cloud-beric
     }
    ```
    
-    Deze methode gebruikt een exemplaar van **EventHubReceiver** om berichten te ontvangen van alle apparaat-naar-cloud ontvangstpartities van de IoT-hub. U geeft nu een `DateTime.Now` parameter door bij het maken van het object **EventHubReceiver**, zodat alleen berichten worden ontvangen die zijn verzonden nadat het object is gestart. Dit filter is handig in een testomgeving, omdat u zo de huidige reeks berichten kunt zien. In een productieomgeving moet de code ervoor zorgen dat alle berichten worden verwerkt. Zie voor meer informatie de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial].
+    Deze methode gebruikt een exemplaar van **EventHubReceiver** om berichten te ontvangen van alle apparaat-naar-cloud ontvangstpartities van de IoT-hub. U geeft nu een `DateTime.Now` parameter door bij het maken van het object **EventHubReceiver**, zodat alleen berichten worden ontvangen die zijn verzonden nadat het object is gestart. Dit filter is handig in een testomgeving, omdat u zo de huidige reeks berichten kunt zien. In een productieomgeving moet de code ervoor zorgen dat alle berichten worden verwerkt. Zie voor meer informatie de zelfstudie [IoT Hub-apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial].
 7. Voeg tot slot de volgende regels toe aan de methode **Main**:
    
    ```csharp
@@ -125,7 +125,7 @@ In dit gedeelte maakt u een .NET-consoletoepassing die apparaat-naar-cloud-beric
     Task.WaitAll(tasks.ToArray());
    ```
 
-## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
+## <a name="create-a-device-app"></a>Een apparaat-app maken
 In deze sectie maakt u een .NET-consoletoepassing die een apparaat simuleert dat apparaat-naar-cloud-berichten naar een IoT Hub verzendt.
 
 1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toe aan de huidige oplossing met behulp van de projectsjabloon **Console App (.NET Framework)**. Zorg ervoor dat de versie van .NET Framework minimaal 4.5.1 is. Noem het project **SimulatedDevice**.
@@ -193,7 +193,7 @@ In deze sectie maakt u een .NET-consoletoepassing die een apparaat simuleert dat
    
    Met de methode **Create** maakt u in een .NET Framework-app standaard een **DeviceClient**-exemplaar dat het AMQP-protocol gebruikt om te communiceren met IoT Hub (UWP- en PCL-clients gebruiken standaard HTTP.) Als u het MQTT- of HTTP-protocol wilt gebruiken, moet u de **Create**-methode overschrijven. Zo kunt u zelf het protocol bepalen. Als u het HTTP-protocol gebruikt, dient u ook het NuGet-pakket **Microsoft.AspNet.WebApi.Client** toe te voegen om uw project op te nemen in de naamruimte **System.Net.Http.Formatting**.
 
-In deze zelfstudie doorloopt u de stappen voor het maken van een IoT Hub-app voor gestimuleerde apparaten. U kunt ook de Visual Studio-extensie [Connected Service for Azure IoT Hub][lnk-connected-service] gebruiken om de benodigde code toe te voegen aan de apparaat-app.
+In deze handleiding doorloopt u de stappen voor het maken van een IoT Hub-apparaat-app. U kunt ook de Visual Studio-extensie [Connected Service for Azure IoT Hub][lnk-connected-service] gebruiken om de benodigde code toe te voegen aan de apparaat-app.
 
 > [!NOTE]
 > Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. Bij de productiecode moet u een beleid voor opnieuw proberen implementeren (zoals exponentieel uitstel), zoals aangegeven in het MSDN-artikel [Transient Fault Handling][lnk-transient-faults] (Afhandeling van tijdelijke fouten).
@@ -206,7 +206,7 @@ U kunt nu de apps uitvoeren.
 1. Klik in Solution Explorer, in Visual Studio, met de rechtermuisknop op uw oplossing en klik vervolgens op **Set StartUp projects**. Klik op **Multiple startup projects** en klik vervolgens op **Start** als de actie voor beide projecten **ProcessDeviceToCloudMessages** en **SimulatedDevice**.
    
     ![Eigenschappen van opstartprojecten][41]
-2. Druk op **F5** om beide apps uit te voeren. De console-uitvoer van de **SimulatedDevice**-app toont de berichten die uw gesimuleerde apparaat-app verzendt naar uw IoT-hub. De console-uitvoer van de **ReadDeviceToCloudMessages**-app toont de berichten die uw IoT-hub ontvangt.
+2. Druk op **F5** om beide apps uit te voeren. De console-uitvoer van de **SimulatedDevice**-app toont de berichten die uw apparaat-app verzendt naar uw IoT-hub. De console-uitvoer van de **ReadDeviceToCloudMessages**-app toont de berichten die uw IoT-hub ontvangt.
    
     ![Console-uitvoer van apps][42]
 3. De tegel **Gebruik** in [Azure Portal][lnk-portal] toont het aantal berichten dat is verzonden naar de IoT-hub:
@@ -214,7 +214,7 @@ U kunt nu de apps uitvoeren.
     ![Tegel Usage in Azure Portal][43]
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u een IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U hebt deze apparaat-id gebruikt om de gesimuleerde apparaattoepassing in staat te stellen apparaat-naar-cloud-berichten te verzenden naar de IoT-hub. Ook hebt u een app gemaakt die de berichten weergeeft die worden ontvangen door de IoT-hub. 
+In deze zelfstudie hebt u een IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U hebt deze apparaat-id gebruikt om de apparaat-app in staat te stellen apparaat-naar-cloud-berichten te verzenden naar de IoT-hub. Ook hebt u een app gemaakt die de berichten weergeeft die worden ontvangen door de IoT-hub. 
 
 Als u aan de slag wilt gaan met IoT Hub en andere IoT-scenario's wilt verkennen, leest u deze artikelen:
 

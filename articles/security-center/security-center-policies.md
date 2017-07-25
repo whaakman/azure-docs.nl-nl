@@ -12,35 +12,28 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 2593e6846c897644017083b49ad4ba8219696c6c
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: aefec15c72c6cf8389a29b03be70abb4c7f020b9
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
-<a id="set-security-policies-in-azure-security-center" class="xliff"></a>
-
-# Beveiligingsbeleid instellen in Azure Security Center
+# <a name="set-security-policies-in-azure-security-center"></a>Beveiligingsbeleid instellen in Azure Security Center
 Dit document helpt u om beveiligingsbeleid in Security Center te configureren door u te begeleiden bij de stappen die nodig zijn om deze taak uit te voeren.
 
 >[!NOTE] 
 >Vanaf begin juni 2017 zal Security Center de Microsoft Monitoring Agent gebruiken voor het verzamelen en opslaan van gegevens. Zie [Migratie van Azure Security Center-platform](security-center-platform-migration.md) voor meer informatie. De informatie in dit artikel beschrijft functionaliteit van Security Center na de overstap naar de Microsoft Monitoring Agent.
 >
 
-<a id="what-are-security-policies" class="xliff"></a>
-
-## Wat is beveiligingsbeleid?
+## <a name="what-are-security-policies"></a>Wat is beveiligingsbeleid?
 Een beveiligingsbeleid bepaalt welke set besturingselementen wordt aanbevolen voor resources binnen het opgegeven abonnement. In Security Center definieert u beleid voor uw Azure-abonnementen overeenkomstig de behoeften van uw bedrijf en het type toepassingen of de vertrouwelijkheid van de gegevens in elk abonnement.
 
 Zo kunnen er voor resources die worden gebruikt voor ontwikkeling of tests, andere beveiligingsvereisten zijn dan voor resources die worden gebruikt voor productietoepassingen. Ook kan voor toepassingen met gereglementeerde gegevens, zoals persoonsgegevens, een hoger beveiligingsniveau vereist zijn. Beveiligingsbeleid dat in Azure Security Center is ingeschakeld, bepaalt de beveiligingsaanbevelingen en bewaking om u te helpen mogelijke beveiligingsproblemen te identificeren en bedreigingen te verhelpen. Lees de [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) (Plannings- en bedieningsgids voor Azure Security Center) voor meer informatie over hoe u kunt bepalen welke optie het geschiktst is voor u.
 
-<a id="set-security-policies" class="xliff"></a>
-
-## Beveiligingsbeleid instellen
+## <a name="set-security-policies"></a>Beveiligingsbeleid instellen
 U kunt voor elk abonnement beveiligingsbeleid configureren. Het beveiligingsbeleid kan alleen worden gewijzigd door een eigenaar of bijdrager van het abonnement. Meld u aan bij de Azure-portal en voer de volgende stappen uit om beveiligingsbeleid te configureren in Security Center:
 
 1. Klik op de tegel **Beleid** op het dashboard van Security Center.
@@ -49,7 +42,7 @@ U kunt voor elk abonnement beveiligingsbeleid configureren. Het beveiligingsbele
     ![Beleid definiëren](./media/security-center-policies/security-center-policies-fig1-ga.png)
 3. De blade **Beveiligingsbeleid** voor het geselecteerde abonnement wordt geopend met een reeks opties. De opties die beschikbaar zijn op deze blade:
 
-   * **Preventiebeleid**: met deze optie kunt u beleidsregels per abonnement of resourcegroep configureren.  
+   * **Preventiebeleid**: met deze optie kunt u beleidsregels per abonnement configureren.  
    * **E-mailmelding**: gebruik deze optie als u wilt dat er een e-mailbericht wordt verzonden de eerste keer dat een waarschuwing op die dag plaatsvindt, en voor waarschuwingen met een hoge urgentie. E-mailvoorkeuren kunnen alleen worden geconfigureerd voor abonnementsbeleid. Lees [Contactgegevens voor beveiliging verstrekken in Azure Security Center](security-center-provide-security-contact-details.md) voor meer informatie over het configureren van een e-mailmelding.
    * **Prijscategorie**: gebruik deze optie om een upgrade van de geselecteerde prijscategorie uit te voeren. Zie de pagina [Security Center-prijzen](security-center-pricing.md) voor meer informatie over tariefopties.
 4. Zorg ervoor dat de optie **Gegevens van virtuele machines verzamelen** is ingesteld op **Aan**. Met deze optie kunt u automatisch logboekgegevens verzamelen voor bestaande en nieuwe resources, met behulp van Microsoft Monitoring Agent. Dit is dezelfde agent die ook wordt gebruikt door de Operations Management Suite en Log Analytics-service. Gegevens die via deze agent worden verzameld, worden opgeslagen in een bestaande Log Analytics-werkruimte die is gekoppeld aan uw Azure-abonnement, of in nieuwe werkruimten, rekening houdend met de geografische locatie van de virtuele machine.
@@ -81,9 +74,7 @@ Wanneer u klaar bent met het configureren van alle opties, klikt u op **OK** in 
 >
 >
 
-<a id="see-also" class="xliff"></a>
-
-## Zie ook
+## <a name="see-also"></a>Zie ook
 In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid configureert in Azure Security Center. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
 
 * [Plannings- en bedieningsgids voor Azure Security Center](security-center-planning-and-operations-guide.md). Leer de ontwerpoverwegingen kennen en leer deze in te plannen als u de overstap naar Azure Security Center wilt maken.

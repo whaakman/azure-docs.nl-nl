@@ -1,10 +1,4 @@
-``*.accesscontrol.windows.net``: Used for access control and identity management<br/><br/>``\*.backup.windowsazure.com``: Used for replication data transfer and orchestration <br/><br/> ``\*.blob.core.windows.net``: Used for access to the storage account that stores replicated data<br/><br/> ``\*.hypervrecoverymanager.windowsazure.com``: Used for replication management operations and orchestration<br/><br/>
-``time.nist.gov`` and ``time.windows.com``: Used to check time synchronization between system and global time
+``*.accesscontrol.windows.net``. Wordt gebruikt voor toegangs- en identiteitsbeheer.<br/><br/>``\*.backup.windowsazure.com``. Wordt gebruikt voor overdracht en coördinatie van replicatiegegevens. <br/><br/> ``\*.blob.core.windows.net``. Wordt gebruikt voor toegang tot het opslagaccount waarin de gerepliceerde gegevens worden opgeslagen.<br/><br/> ``\*.hypervrecoverymanager.windowsazure.com``. Wordt gebruikt voor bewerkingen en coördinatie in het kader van replicatiebeheer.<br/><br/>
+``time.nist.gov`` en ``time.windows.com``. Wordt gebruikt om de tijdsynchronisatie tussen de systeemtijd en de algemene tijd te controleren.
 <br/><br/>
-
-URLs for Azure Government Cloud:
-
-- .ugv.hypervrecoverymanager.windowsazure.us
-- .ugv.backup.windowsazure.us
-- .ugi.hypervrecoverymanager.windowsazure.us
-- .ugi.backup.windowsazure.us
+URL's voor de Azure Government-cloud:<br/>- .ugv.hypervrecoverymanager.windowsazure.us<br/>- .ugv.backup.windowsazure.us<br/>- .ugi.hypervrecoverymanager.windowsazure.us<br/>- .ugi.backup.windowsazure.us

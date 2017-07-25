@@ -4,7 +4,7 @@ description: Informatie over het installeren van Data Lake-tools voor Visual Stu
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
-manager: saveenr
+manager: jhubbard
 editor: cgronlun
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.service: data-lake-analytics
@@ -14,26 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/28/2017
 ms.author: saveenr, yanacai
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 401e2d84e5e2eb9f66a16b299fbb93bd1943e04b
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 7bbbb08ff635477a88403a3ae6bd3486d31838ef
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
-<a id="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio" class="xliff"></a>
-
-# U-SQL-scripts ontwikkelen met Data Lake-tools voor Visual Studio
+# <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>U-SQL-scripts ontwikkelen met Data Lake-tools voor Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 
 Informatie over het gebruik van de Visual Studio voor het maken van Azure Data Lake Analytics-accounts, het definiëren van taken in [U-SQL](data-lake-analytics-u-sql-get-started.md) en het verzenden van taken naar de Data Lake Analytics-service. Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor meer informatie over Data Lake Analytics.
 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 * **Visual Studio**: alle versies behalve Express worden ondersteund.
     * Visual Studio 2017
@@ -42,17 +37,13 @@ Informatie over het gebruik van de Visual Studio voor het maken van Azure Data L
 * **Microsoft Azure SDK voor .NET** versie 2.7.1 of hoger.  U kunt dit installeren met het [webplatforminstallatieprogramma](http://www.microsoft.com/web/downloads/platform.aspx).
 * Een **Data Lake Analytics**-account. Zie [Aan de slag met Azure Data Lake Analytics met Azure Portal](data-lake-analytics-get-started-portal.md) om een account te maken.
 
-<a id="install-azure-data-lake-tools-for-visual-studio" class="xliff"></a>
-
-## Azure Data Lake-tools voor Visual Studio installeren 
+## <a name="install-azure-data-lake-tools-for-visual-studio"></a>Azure Data Lake-tools voor Visual Studio installeren 
 
 Download en installeer Azure Data Lake-tools voor Visual Studio [via het Downloadcentrum](http://aka.ms/adltoolsvs). Na installatie moet u zich het volgende realiseren:
 * Het knooppunt **Server Explorer** > **Azure** bevat een **Data Lake Analytics**-knooppunt. 
 * Het menu **Extra** bevat een **Data Lake**-item.
 
-<a id="connect-to-an-azure-data-lake-analytics-account" class="xliff"></a>
-
-## Verbinding maken met een Azure Data Lake Analytics-account
+## <a name="connect-to-an-azure-data-lake-analytics-account"></a>Verbinding maken met een Azure Data Lake Analytics-account
 
 1. Open Visual Studio.
 2. Open Server Explorer via **Weergave** > **Server Explorer**.
@@ -60,9 +51,7 @@ Download en installeer Azure Data Lake-tools voor Visual Studio [via het Downloa
 4. In Server Explorer selecteert u **Azure** > **Data Lake Analytics**. U ziet een lijst met uw Data Lake Analytics-accounts.
 
 
-<a id="write-your-first-u-sql-script" class="xliff"></a>
-
-## Uw eerste U-SQL-script schrijven
+## <a name="write-your-first-u-sql-script"></a>Uw eerste U-SQL-script schrijven
 
 De volgende tekst is een eenvoudig U-SQL-script. Hiermee wordt een kleine gegevensset gedefinieerd en wordt die als het bestand `/data.csv` gegevensset geschreven naar de gebruikelijke Data Lake Store.
 
@@ -79,9 +68,7 @@ OUTPUT @a
     USING Outputters.Csv();
 ```
 
-<a id="submit-a-data-lake-analytics-job" class="xliff"></a>
-
-### Een Data Lake Analytics-taak verzenden
+### <a name="submit-a-data-lake-analytics-job"></a>Een Data Lake Analytics-taak verzenden
 
 1. Selecteer **Bestand** > **Nieuw** > **Project**.
 
@@ -108,28 +95,22 @@ OUTPUT @a
    * **Gegevens** bevat alle invoer en uitvoer.
    * **Diagnostische gegevens** biedt een geavanceerde analyse van de taakuitvoering en de prestatieoptimalisatie.
 
-<a id="to-check-job-state" class="xliff"></a>
-
-### De taakstatus controleren
+### <a name="to-check-job-state"></a>De taakstatus controleren
 
 1. In Server Explorer selecteert u **Azure** > **Data Lake Analytics**. 
 2. Vouw de Data Lake Analytics-accountnaam uit.
 3. Dubbelklik op **Taken**.
 4. Selecteer de taak die u eerder hebt verzonden.
 
-<a id="to-see-the-output-of-a-job" class="xliff"></a>
-
-### De uitvoer van een taak bekijken
+### <a name="to-see-the-output-of-a-job"></a>De uitvoer van een taak bekijken
 
 1. In Server Explorer bladert u naar de taak die u hebt verzonden.
 2. Klik op het tabblad **Gegevens**.
 3. Op het tabblad **Taakuitvoer** selecteert u het bestand `"/data.csv"`.
 
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Volgende stappen
 
-## Volgende stappen
-
-* Aan de slag met Data Lake Analytics met behulp van [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) 
+* [U-SQL-scripts uitvoeren op uw eigen werkstation voor tests en foutopsporing](data-lake-analytics-data-lake-tools-local-run.md)
 * [Problemen met C#-code oplossen in U-SQL-taken](data-lake-analytics-debug-u-sql-jobs.md)
 * [De Azure Data Lake-tools gebruiken voor Visual Studio-code](data-lake-analytics-data-lake-tools-for-vscode.md)
 

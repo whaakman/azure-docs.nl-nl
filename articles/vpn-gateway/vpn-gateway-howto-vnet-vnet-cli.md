@@ -15,19 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: a05c878f876eadc5160ef9765f764595cade76a9
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: cad933cc453f1bfdbf29914ca3a9a6029108e70f
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
-<a id="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli" class="xliff"></a>
+# <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Een VPN-gatewayverbinding tussen VNets configureren met behulp van Azure CLI
 
-# Een VPN-gatewayverbinding tussen VNets configureren met behulp van Azure CLI
-
-In dit artikel wordt beschreven hoe u een VPN-gatewayverbinding tussen virtuele netwerken maakt. De virtuele netwerken kunnen zich in dezelfde of verschillende regio's bevinden en tot dezelfde of verschillende abonnementen behoren. De stappen in dit artikel zijn van toepassing op het Resource Manager-implementatiemodel en Azure CLI. U kunt deze configuratie ook maken met een ander implementatiehulpprogramma of een ander implementatiemodel door in de volgende lijst een andere optie te selecteren:
+In dit artikel wordt beschreven hoe u een VPN-gatewayverbinding tussen virtuele netwerken maakt. De virtuele netwerken kunnen zich in dezelfde of verschillende regio's bevinden en tot dezelfde of verschillende abonnementen behoren. Wanneer u VNets uit verschillende abonnementen koppelt, hoeven de abonnementen niet aan dezelfde Active Directory-tenant gekoppeld te zijn. De stappen in dit artikel zijn van toepassing op het Resource Manager-implementatiemodel en Azure CLI. U kunt deze configuratie ook maken met een ander implementatiehulpprogramma of een ander implementatiemodel door in de volgende lijst een andere optie te selecteren:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -45,9 +42,7 @@ VNet-naar-VNet-communicatie kan worden gecombineerd met configuraties voor meerd
 
 ![Over verbindingen](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
 
-<a id="why-connect-virtual-networks" class="xliff"></a>
-
-### Waarom virtuele netwerken koppelen?
+### <a name="why-connect-virtual-networks"></a>Waarom virtuele netwerken koppelen?
 
 U wilt virtuele netwerken wellicht koppelen om de volgende redenen:
 
@@ -61,9 +56,7 @@ U wilt virtuele netwerken wellicht koppelen om de volgende redenen:
 
 Zie voor meer informatie over verbindingen tussen VNets de [Veelgestelde vragen over VNet-naar-VNet](#faq) aan het einde van dit artikel.
 
-<a id="which-set-of-steps-should-i-use" class="xliff"></a>
-
-### Welke stappen moet ik gebruiken?
+### <a name="which-set-of-steps-should-i-use"></a>Welke stappen moet ik gebruiken?
 
 In dit artikel ziet u twee verschillende reeksen stappen. Een reeks stappen voor [VNets die zich in hetzelfde abonnement bevinden](#samesub) en een andere voor [VNets die zich in verschillende abonnementen bevinden](#difsub).
 
@@ -71,9 +64,7 @@ In dit artikel ziet u twee verschillende reeksen stappen. Een reeks stappen voor
 
 ![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-<a id="before-you-begin" class="xliff"></a>
-
-### Voordat u begint
+### <a name="before-you-begin"></a>Voordat u begint
 
 Installeer eerst de meest recente versie van de CLI-opdrachten (2.0 of hoger). Zie [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli) voor meer informatie over het installeren van de CLI-opdrachten.
 
@@ -192,15 +183,11 @@ In de voorbeelden worden de volgende waarden gebruikt:
   az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-<a id="step-4---create-the-connections" class="xliff"></a>
-
-### Stap 4: de verbindingen maken
+### <a name="step-4---create-the-connections"></a>Stap 4: de verbindingen maken
 
 U hebt nu twee VNets met VPN-gateways. De volgende stap is het maken van VPN-gatewayverbindingen tussen de gateways voor de virtuele netwerken. Als u de bovenstaande voorbeelden hebt gebruikt, bevinden uw VNet-gateways zich in verschillende resourcegroepen. Wanneer de gateways zich in verschillende resourcegroepen bevinden, moet u de resource-id's voor elke gateway bepalen en opgeven wanneer u een verbinding maakt. Als uw VNets zich in dezelfde resourcegroep bevinden, kunt u de [tweede set instructies](#samerg) gebruiken omdat u de resource-id's niet hoeft op te geven.
 
-<a id="to-connect-vnets-that-reside-in-different-resource-groups" class="xliff"></a>
-
-### VNets verbinden die zich in verschillende resourcegroepen bevinden
+### <a name="to-connect-vnets-that-reside-in-different-resource-groups"></a>VNets verbinden die zich in verschillende resourcegroepen bevinden
 
 1. U kunt de resource-id van VNet1GW in de uitvoer van de volgende opdracht vinden:
 
@@ -269,7 +256,7 @@ U hebt nu twee VNets met VPN-gateways. De volgende stap is het maken van VPN-gat
 
 ![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
-In dit scenario worden TestVNet1 en TestVNet5 met elkaar verbonden. De VNets behoren tot verschillende abonnementen. Met de stappen voor deze configuratie voegt u nog een VNet-naar-VNet-verbinding toe om TestVNet1 te verbinden met TestVNet5.
+In dit scenario worden TestVNet1 en TestVNet5 met elkaar verbonden. De VNets behoren tot verschillende abonnementen. De abonnementen hoeven niet aan dezelfde Active Directory-tenant gekoppeld te zijn. Met de stappen voor deze configuratie voegt u nog een VNet-naar-VNet-verbinding toe om TestVNet1 te verbinden met TestVNet5.
 
 ### <a name="TestVNet1diff"></a>Stap 5: TestVNet1 maken en configureren
 
@@ -333,9 +320,7 @@ Deze stap moet worden uitgevoerd in de context van het nieuwe abonnement, abonne
   az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-<a id="step-8---create-the-connections" class="xliff"></a>
-
-### Stap 8: de verbindingen maken
+### <a name="step-8---create-the-connections"></a>Stap 8: de verbindingen maken
 
 Omdat de gateways tot verschillende abonnementen behoren, is deze stap opgesplitst in twee CLI-sessies, aangeduid als **[Abonnement 1]** en **[Abonnement 5]**. Als u wilt schakelen tussen abonnementen, gebruikt u "az account list --all" om de abonnementen die beschikbaar zijn voor uw account weer te geven. Gebruik vervolgens "az account set --subscription <subscriptionID>" om over te schakelen naar het abonnement dat u wilt gebruiken.
 
@@ -381,9 +366,7 @@ Omdat de gateways tot verschillende abonnementen behoren, is deze stap opgesplit
 ## <a name="faq"></a>Veelgestelde vragen over VNet-naar-VNet
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 * Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Raadpleeg de [Documentatie voor Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie.
 * Voor meer informatie over BGP raadpleegt u [BGP Overview](vpn-gateway-bgp-overview.md) (BGP-overzicht) en [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (BGP configureren).

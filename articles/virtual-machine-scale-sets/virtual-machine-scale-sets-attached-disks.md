@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: d991adb8fa8f71a8785327be244ad9749a837dfd
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 451d3c956b863ab90f86509fd80a5c96e27525ce
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Virtuele-machineschaalsets in Azure en gekoppelde gegevensschijven
@@ -112,7 +112,7 @@ az vmss disk detach -g dsktest -n dskvmss --lun 2
 U kunt ook een schijf verwijderen uit een schaalset door een invoerwaarde uit de eigenschap _dataDisks_ te verwijderen in het _storageProfile_ en de wijziging toe te passen. 
 
 ## <a name="additional-notes"></a>Aanvullende opmerkingen
-Er is ondersteuning voor Azure Managed Disks en aan schaalsets gekoppelde gegevensschijven toegevoegd aan de [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json)-versie van de Microsoft.Compute API. U kunt elke SDK of elk opdrachtregelhulpprogramma gemaakt met deze of een hogere versie van de API gebruiken.
+Er is ondersteuning voor Azure Managed Disks en aan schaalsets gekoppelde gegevensschijven beschikbaar in API [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) of hoger van de Microsoft.Compute API.
 
 Bij de eerste implementatie van ondersteuning voor gekoppelde schijven voor schaalsets, kunt u geen gegevensschijven koppelen aan of loskoppelen van afzonderlijke virtuele machines in een schaalset.
 

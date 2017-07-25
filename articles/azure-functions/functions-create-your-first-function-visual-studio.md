@@ -16,17 +16,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: rachelap, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 2d539dd51834e935f9c5f7a6be42011ffe9e0870
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: be7a9979ba7e6aa26c60b24bcc892ca35af3c1fc
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
-# <a name="create-your-first-function-using-visual-studio"></a>Uw eerste functie maken met Visual Studio 
+# <a name="create-your-first-function-using-visual-studio"></a>Uw eerste functie maken met Visual Studio
 
-Met Azure Functions kunt u uw code in een serverloze omgeving uitvoeren zonder dat u eerst een virtuele machine moet maken of een webtoepassing moet publiceren. 
+Met Azure Functions kunt u uw code in een serverloze omgeving uitvoeren zonder dat u eerst een virtuele machine moet maken of een webtoepassing moet publiceren.
+
+> [!IMPORTANT]
+> In dit onderwerp wordt een Preview-versie van Visual Studio gebruikt om de stappen uit te voeren. Zorg ervoor dat u [Visual Studio 2017 Preview versie 15.3](https://www.visualstudio.com/vs/preview/) hebt geïnstalleerd voordat u verder gaat.
 
 In dit onderwerp leert u hoe u met de Azure Function Tools voor Visual Studio 2017 lokaal een 'Hallo wereld'-functie kunt maken en testen. Vervolgens publiceert u de functiecode op Azure.
 
@@ -37,7 +39,7 @@ In dit onderwerp leert u hoe u met de Azure Function Tools voor Visual Studio 20
 Voor deze zelfstudie installeert u het volgende:
 
 * [Visual Studio 2017 Preview versie 15.3](https://www.visualstudio.com/vs/preview/), waaronder de **Azure-ontwikkel**workload.
-    
+
     ![Visual Studio 2017 installeren met de Azure-ontwikkelworkload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

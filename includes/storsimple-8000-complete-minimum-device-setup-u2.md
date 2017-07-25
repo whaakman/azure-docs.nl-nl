@@ -1,9 +1,10 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-<a id="to-complete-the-minimum-storsimple-device-setup" class="xliff"></a>
+#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>De minimale StorSimple-apparaatinstelling voltooien
 
-#### De minimale StorSimple-apparaatinstelling voltooien
-
+   > [!NOTE]
+   > U kunt de naam van het apparaat niet wijzigen nadat de minimale apparaatinstelling is voltooid.
+   
 1. Selecteer en klik op uw apparaat in de lijst in tabelvorm met apparaten op de blade **Apparaten**. Het apparaat heeft de status **Gereed voor configuratie**. De blade **Apparaat configureren** wordt geopend.
 
      ![Netwerkinterfaces voor de minimale StorSimple-apparaatinstelling](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig1.png)
@@ -27,9 +28,6 @@
 1. Klik op **OK**. De apparaatconfiguratie wordt gestart. Wanneer de configuratie is voltooid, krijgt u een melding. De status van het apparaat verandert in **Online** op de blade **Apparaten**.
 
     ![Netwerkinterfaces voor de minimale StorSimple-apparaatinstelling](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
-
-   > [!NOTE]
-   > U kunt alle andere apparaatinstellingen op elk gewenst moment wijzigen door de blade **Apparaatinstellingen** te openen.
 
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx

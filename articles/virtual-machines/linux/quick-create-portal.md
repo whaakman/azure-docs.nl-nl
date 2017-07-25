@@ -13,28 +13,24 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 8c51af189e8086a509d44546882e1b26605dddae
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: d009020e86fdfed6a45b5b63b9664c623bcb1843
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
-<a id="create-a-linux-virtual-machine-with-the-azure-portal" class="xliff"></a>
-
-# Een virtuele Linux-machine maken met Azure Portal
+# <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Een virtuele Linux-machine maken met Azure Portal
 
 Virtuele Azure-machines kunnen worden gemaakt via Azure Portal. Deze methode biedt een gebruikersinterface op basis van een browser voor het maken en configureren van virtuele machines en alle verwante resources. In deze Quick Start gaat u een virtuele machine maken en een webserver installeren op de VM.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-<a id="create-ssh-key-pair" class="xliff"></a>
-
-## Een SSH-sleutelpaar maken
+## <a name="create-ssh-key-pair"></a>Een SSH-sleutelpaar maken
 
 U hebt een SSH-sleutelpaar nodig om deze Quick Start te volgen. Als u een bestaand SSH-sleutelpaar hebt, kunt u deze stap overslaan.
 
@@ -44,19 +40,15 @@ In een Bash-shell voert u deze opdracht uit en volgt u de aanwijzingen op het sc
 ssh-keygen -t rsa -b 2048
 ```
 
-<a id="log-in-to-azure" class="xliff"></a>
-
-## Meld u aan bij Azure. 
+## <a name="log-in-to-azure"></a>Meld u aan bij Azure. 
 
 Meld u via http://portal.azure.com aan bij Azure Portal.
 
-<a id="create-virtual-machine" class="xliff"></a>
-
-## Virtuele machine maken
+## <a name="create-virtual-machine"></a>Virtuele machine maken
 
 1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
 
-2. Selecteer **Berekenen**, selecteer **Ubuntu Server 16.04 LTS** en zorg ervoor dat **Resource Manager** het geselecteerde implementatiemodel is. Klik op de knop **Maken**. 
+2. Selecteer **Compute** en selecteer vervolgens **Ubuntu Server 16.04 LTS**. 
 
 3. Geef de informatie van de virtuele machine op. Bij **Verificatietype** selecteert u **Openbare SSH-sleutel**. Wanneer u uw openbare SSH-sleutel plakt, verwijdert u alle voorloop- en volgspaties. Na het voltooien klikt u op **OK**.
 
@@ -66,16 +58,14 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
 
     ![Schermopname van VM-grootten](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. Op de blade Instellingen selecteert u **Ja** onder **Managed Disks gebruiken**. Laat voor de rest de standaardinstellingen staan en klik op **OK**.
+5. Handhaaf op de blade Instellingen de standaardwaarden en klik op **OK**.
 
 6. Klik op de pagina Overzicht op **OK** om de implementatie van de virtuele machine te starten.
 
 7. De VM wordt aan het dashboard van de Azure Portal vastgemaakt. Zodra de implementatie is voltooid, wordt de samenvattingsblade van de VM automatisch geopend.
 
 
-<a id="connect-to-virtual-machine" class="xliff"></a>
-
-## Verbinding maken met de virtuele machine
+## <a name="connect-to-virtual-machine"></a>Verbinding maken met de virtuele machine
 
 Maak een SSH-verbinding met de virtuele machine.
 
@@ -89,9 +79,7 @@ Maak een SSH-verbinding met de virtuele machine.
 ssh azureuser@40.112.21.50
 ```
 
-<a id="install-nginx" class="xliff"></a>
-
-## NGINX installeren
+## <a name="install-nginx"></a>NGINX installeren
 
 Gebruik het volgende bash-script om pakketbronnen bij te werken en het meest recente NGINX-pakket te installeren. 
 
@@ -108,9 +96,7 @@ sudo apt-get -y install nginx
 Wanneer u klaar bent, sluit u de SSH-sessie af en geeft u de VM-eigenschappen op in de Azure Portal.
 
 
-<a id="open-port-80-for-web-traffic" class="xliff"></a>
-
-## Poort 80 openen voor webverkeer 
+## <a name="open-port-80-for-web-traffic"></a>Poort 80 openen voor webverkeer 
 
 Een netwerkbeveiligingsgroep (NSG) beveiligt binnenkomend en uitgaand verkeer. Wanneer een VM wordt gemaakt in de Azure Portal, wordt een inkomende regel gemaakt op poort 22 voor SSH-verbindingen. Omdat deze VM fungeert als host voor een webserver, moet een NSG-regel worden gemaakt voor poort 80.
 
@@ -122,23 +108,17 @@ Een netwerkbeveiligingsgroep (NSG) beveiligt binnenkomend en uitgaand verkeer. W
 6. Klik op **OK**.
 
 
-<a id="view-the-nginx-welcome-page" class="xliff"></a>
-
-## De welkomstpagina van NGINX weergeven
+## <a name="view-the-nginx-welcome-page"></a>De welkomstpagina van NGINX weergeven
 
 Als NGINX is geïnstalleerd en poort 80 is geopend voor de VM, is de webserver nu toegankelijk vanaf het internet. Open een webbrowser en voer het openbare IP-adres van de VM in. U vindt het openbare IP-adres op de blade Virtuele machines in Azure Portal.
 
 ![Standaardsite van NGINX](./media/quick-create-cli/nginx.png) 
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Resources opschonen
+## <a name="clean-up-resources"></a>Resources opschonen
 
 Wanneer u de virtuele machine niet meer nodig hebt, verwijdert u de resourcegroep, de machine zelf én alle gerelateerde resources. Hiervoor selecteert u de resourcegroep op de blade van de virtuele machine en klikt u op **Verwijderen**.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 In deze Snel starten hebt u een eenvoudige virtuele machine geïmplementeerd, een netwerkbeveiligingsgroepregel gemaakt en een webserver geïnstalleerd. Voor meer informatie over virtuele machines in Azure, gaat u verder met de zelfstudie voor virtuele Linux-machines.
 
