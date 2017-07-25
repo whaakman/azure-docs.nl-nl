@@ -15,28 +15,24 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 2b447bcc5930550af3996cb40925ab59d203dc7c
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: b5a7f3ebe5e95d3838e71b7b17b91e85da0d51a2
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/21/2017
 
 ---
-<a id="create-an-aspnet-web-app-in-azure" class="xliff"></a>
-
-# Een ASP.NET-web-app maken in Azure
+# <a name="create-an-aspnet-web-app-in-azure"></a>Een ASP.NET-web-app maken in Azure
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze Quickstart laat zien hoe uw eerste ASP.NET-web-app implementeert in Azure Web Apps. Als u klaar bent, hebt u een resourcegroep die bestaat uit een App Service-plan en een Azure-web-app met een geïmplementeerde webtoepassing.
 
 ![ASP.NET-web-app in Azure App Service](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-* Installeer [Visual Studio 2017](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) met de volgende workloads:
+* Installeer [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de volgende workloads:
     - **ASP.NET- en web-ontwikkeling**
     - **Azure-ontwikkeling**
 
@@ -44,9 +40,7 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-<a id="create-an-aspnet-web-app" class="xliff"></a>
-
-## Een ASP.NET-web-app maken
+## <a name="create-an-aspnet-web-app"></a>Een ASP.NET-web-app maken
 
 Maak in Visual Studio een project door **Bestand > Nieuw > Project** te selecteren. 
 
@@ -66,9 +60,7 @@ Selecteer in het menu **Fouten opsporen > Starten zonder foutopsporing** om de w
 
 ![De app lokaal uitvoeren](./media/app-service-web-get-started-dotnet/local-web-app.png)
 
-<a id="publish-to-azure" class="xliff"></a>
-
-## Publiceren naar Azure
+## <a name="publish-to-azure"></a>Publiceren naar Azure
 
 Klik in **Solution Explorer** met de rechtermuisknop op het project **myFirstAzureWebApp**-en selecteer **Publiceren**.
 
@@ -80,11 +72,9 @@ Zorg ervoor dat **Microsoft Azure App Service** is geselecteerd en selecteer dan
 
 Hiermee opent u het dialoogvenster **App Service maken**, waarmee u alle Azure-resources kunt maken die nodig zijn voor het uitvoeren van uw ASP.NET-web-app in Azure.
 
-<a id="sign-in-to-azure" class="xliff"></a>
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-## Aanmelden bij Azure
-
-Selecteer **Een account toevoegen** in het dialoogvenster **App Service maken** en meld u vervolgens aan bij uw Azure-abonnement. Als u al bent aangemeld, moet u ervoor zorgen dat dit account uw Azure-abonnement bevat. U kunt het aangemelde account selecteren om het juiste account toe te voegen.
+Selecteer **Een account toevoegen** in het dialoogvenster **App Service maken** en meld u vervolgens aan bij uw Azure-abonnement. Als u al bent aangemeld, selecteert u het account met het gewenste abonnement uit de vervolgkeuzelijst.
 
 > [!NOTE]
 > Als u al bent aangemeld, selecteert u **Maken** nog niet.
@@ -93,11 +83,7 @@ Selecteer **Een account toevoegen** in het dialoogvenster **App Service maken** 
    
 ![Aanmelden bij Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
 
-Als u bent aangemeld, kunt u in dit dialoogvenster alle resources gaan maken die u nodig hebt voor een Azure-web-app.
-
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Een resourcegroep maken
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
@@ -105,9 +91,7 @@ Selecteer **Nieuw** naast **Resourcegroep**.
 
 Geef de resourcegroep de naam **myResourceGroup** en selecteer **OK**.
 
-<a id="create-an-app-service-plan" class="xliff"></a>
-
-## Een App Service-plan maken
+## <a name="create-an-app-service-plan"></a>Een App Service-plan maken
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
@@ -125,13 +109,9 @@ Gebruik in het dialoogvenster **App Service-plan configureren** de instellingen 
 
 Selecteer **OK**.
 
-<a id="create-and-publish-the-web-app" class="xliff"></a>
+## <a name="create-and-publish-the-web-app"></a>De web-app maken en publiceren
 
-## De web-app maken en publiceren
-
-Typ in het veld **Web-app-naam** een unieke app-naam (geldige tekens zijn `a-z`, `0-9` en `-`). De URL van de web-app is `http://<app_name>.azurewebsites.net`, waarbij `<app_name>` de naam van uw web-app is. 
-
-U kunt de automatisch gegenereerde naam accepteren, die uiteraard uniek is.
+Voer bij **Web-appnaam** een unieke appnaam in (geldige tekens zijn `a-z`, `0-9` en `-`) of accepteer de automatisch gegenereerde unieke naam. De URL van de web-app is `http://<app_name>.azurewebsites.net`, waarbij `<app_name>` de naam van uw web-app is.
 
 Selecteer **Maken** om de Azure-resources te gaan maken.
 
@@ -141,13 +121,11 @@ Zodra de wizard is voltooid, wordt de ASP.NET-web-app naar Azure gepubliceerd. D
 
 ![Gepubliceerde ASP.NET-web-app in Azure](./media/app-service-web-get-started-dotnet/published-azure-web-app.png)
 
-De URL maakt gebruik van de web-appnaam die u eerder hebt opgegeven, met de notatie `http://<app_name>.azurewebsites.net`. 
+De naam van de web-app die is opgegeven in de [stap voor maken en publiceren](#create-and-publish-the-web-app), wordt gebruikt als URL-voorvoegsel in de indeling `http://<app_name>.azurewebsites.net`.
 
 Gefeliciteerd, uw ASP.NET-web-app wordt live uitgevoerd in Azure App Service.
 
-<a id="update-the-app-and-redeploy" class="xliff"></a>
-
-## De app bijwerken en opnieuw implementeren
+## <a name="update-the-app-and-redeploy"></a>De app bijwerken en opnieuw implementeren
 
 Open vanuit de **Solution Explorer** _Views\Home\Index.cshtml_.
 
@@ -168,9 +146,7 @@ Als het publiceren is voltooid, start Visual Studio een browser waarin de URL va
 
 ![Bijgewerkte ASP.NET-web-app in Azure](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-<a id="manage-the-azure-web-app" class="xliff"></a>
-
-## De Azure-web-app beheren
+## <a name="manage-the-azure-web-app"></a>De Azure-web-app beheren
 
 Ga naar <a href="https://portal.azure.com" target="_blank">Azure Portal</a> om de web-app te beheren.
 
@@ -186,9 +162,7 @@ Het linkermenu bevat een aantal pagina's voor het configureren van uw app.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
 > [ASP.NET met SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
