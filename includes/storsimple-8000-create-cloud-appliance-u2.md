@@ -5,7 +5,7 @@
     ![StorSimple- cloudapparaat maken](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
 3. Geef de volgende gegevens op de blade **Cloudapparaat maken** op.
    
-    ![StorSimple- cloudapparaat maken](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2.png)
+    ![StorSimple- cloudapparaat maken](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
    
    1. **Naam**: een unieke naam voor uw cloudapparaat.
    2. **Model**: het model van het cloudapparaat. Een 8010-apparaat biedt 30 TB Standard-opslag terwijl 8020 64 TB Premium Storage heeft. Geef 8010 op om ophaalscenario's op itemniveau vanuit back-ups te implementeren. Selecteer 8020 om workloads met hoge prestaties en lage latentie te implementeren of voor gebruik als een tweede apparaat voor herstel na noodgevallen.
