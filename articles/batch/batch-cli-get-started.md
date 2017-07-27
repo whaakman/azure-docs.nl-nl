@@ -181,7 +181,7 @@ De volgende tips kunnen helpen bij het oplossen van problemen met Azure CLI:
 * Gebruik `-v` en `-vv` om **uitgebreide** opdrachtuitvoer weer te geven. Als u de vlag `-vv` toevoegt, toont de Azure CLI de werkelijke REST-aanvragen en -antwoorden. Deze schakelopties zijn handig voor het weergeven van de volledige foutuitvoer.
 * U kunt **opdrachtuitvoer weergeven als JSON** met de `--json`-optie. `az batch pool show pool001 --json` wordt bijvoorbeeld weergegeven als eigenschappen van pool001 in de JSON-indeling. Vervolgens kunt u deze uitvoer kopiëren en aanpassen om te worden gebruikt in een `--json-file` (zie [JSON-bestanden](#json-files) eerder in dit artikel).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
-* Het [Batch-forum] [ batch_forum] wordt gecontroleerd door leden van het Batch-team. U kunt hier vragen posten als u problemen hebt of hulp nodig hebt met een bepaalde bewerking.
+* Het [Batch-forum][batch_forum] wordt gecontroleerd door leden van het Batch-team. U kunt hier vragen posten als u problemen hebt of hulp nodig hebt met een bepaalde bewerking.
 
 ## <a name="next-steps"></a>Volgende stappen
 
