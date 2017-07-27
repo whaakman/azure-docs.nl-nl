@@ -66,7 +66,7 @@
 ## [SQLRuleAction-syntaxis](service-bus-messaging-sql-rule-action.md)
 
 # Resources
-## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [MSDN-forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
 ## [Prijsdetails](service-bus-pricing-billing.md)

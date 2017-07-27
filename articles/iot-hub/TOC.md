@@ -173,7 +173,7 @@
 # Resources
 ## [Azure Certified voor IoT-apparaatcatalogus](https://catalog.azureiotsuite.com/)
 ## [Azure IoT-ontwikkelaarscentrum](https://azure.microsoft.com/develop/iot/)
-## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Hulpprogramma DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [Hulpprogramma iothub-diagnostics](https://github.com/Azure/iothub-diagnostics)
 ## [Hulpprogramma iothub-explorer](https://github.com/Azure/iothub-explorer)

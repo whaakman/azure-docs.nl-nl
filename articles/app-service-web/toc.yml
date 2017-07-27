@@ -48,16 +48,13 @@
 - name: Concepten
   items:
     - name: De werking van App Service
-      href: >-
-        ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: App Service-abonnementen
-      href: >-
-        ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: App Service-omgeving
       href: ../app-service/app-service-environment/intro.md
     - name: Verificatie en autorisatie
-      href: >-
-        ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: Verificatie met on-premises AD
       href: web-sites-authentication-authorization.md
 - name: Handleidingen
@@ -161,8 +158,6 @@
               href: custom-dns-web-site-buydomains-web-app.md
             - name: Domeinen toewijzen met Traffic Manager
               href: web-sites-traffic-manager-custom-domain-name.md
-            - name: GoDaddy-domeinen toewijzen
-              href: web-sites-godaddy-custom-domain-name.md
             - name: Een actief domein migreren
               href: app-service-custom-domain-name-migrate.md
         - name: Migreren vanuit IIS
@@ -186,20 +181,15 @@
         - name: Gebruikers verifiëren
           items:
             - name: Verifiëren met Azure AD
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Verifiëren met Facebook
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Verifiëren met Google
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Verifiëren met een Microsoft-account
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Verifiëren met Twitter
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Verifiëren met on-premises AD
               href: web-sites-authentication-authorization.md
             - name: App met een multitenant-database
@@ -213,20 +203,17 @@
         - name: Omhoog schalen
           href: web-sites-scale.md
         - name: Uitschalen
-          href: >-
-            ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: Taken verdelen met Traffic Manager
           href: web-sites-traffic-manager.md
         - name: Schalen met App Service-omgevingen
-          href: >-
-            ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: Azure CDN gebruiken voor wereldwijd bereik
           href: cdn-websites-with-cdn.md
         - name: Verbinding maken met Redis Cache via Memcache
           href: web-sites-connect-to-redis-using-memcache-protocol.md
         - name: Een Redis-cache maken
-          href: >-
-            ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: Sessiestatus beheren met Azure Redis Cache
           href: web-sites-dotnet-session-state-caching.md
     - name: Bewaken
@@ -260,8 +247,7 @@
     - name: Integreren
       items:
         - name: Exporteren naar PowerApps en Microsoft Flow
-          href: >-
-            ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: App Service-omgeving
       items:
         - name: Een App Service-omgeving gebruiken
@@ -308,11 +294,8 @@
           href: app-service-web-troubleshoot-performance-degradation.md
         - name: Veelgestelde vragen
           items:
-            - name: >-
-                Veelgestelde vragen over beschikbaarheid, prestaties en
-                toepassing
-              href: >-
-                app-service-web-availability-performance-application-issues-faq.md
+            - name: 'Veelgestelde vragen over beschikbaarheid, prestaties en toepassing'
+              href: app-service-web-availability-performance-application-issues-faq.md
             - name: Veelgestelde vragen over implementatie
               href: app-service-web-deployment-faq.md
             - name: Veelgestelde vragen over open-sourcetechnologieën
@@ -340,11 +323,9 @@
         - name: Inkomend verkeer beheren
           href: app-service-app-service-environment-control-inbound-traffic.md
         - name: Veilig verbinding maken met back-endresources
-          href: >-
-            app-service-app-service-environment-securely-connecting-to-backend-resources.md
+          href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
         - name: Details van netwerkconfiguratie met ExpressRoute
-          href: >-
-            app-service-app-service-environment-network-configuration-expressroute.md
+          href: app-service-app-service-environment-network-configuration-expressroute.md
         - name: Automatisch schalen in een App Service-omgeving
           href: ../app-service/app-service-environment-auto-scale.md
     - name: Prijzen

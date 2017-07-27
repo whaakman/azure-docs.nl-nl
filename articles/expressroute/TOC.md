@@ -19,12 +19,15 @@
 ## Een circuit maken en wijzigen
 ### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
+### [Azure-CLI](howto-circuit-cli.md)
 ## Een peeringconfiguratie maken en wijzigen
 ### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
+### [Azure-CLI](howto-routing-cli.md)
 ## Een virtueel netwerk koppelen aan een ExpressRoute-circuit
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
+### [Azure-CLI](howto-linkvnet-cli.md)
 ## Een virtuele netwerkgateway configureren voor ExpressRoute
 ### [Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
@@ -60,7 +63,7 @@
 ## [Traffic Manager](/azure/traffic-manager/)
 
 # Resources
-## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Casestudy's](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [Netwerkblog](https://azure.microsoft.com/blog/topics/networking/)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/expressroute/)
