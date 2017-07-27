@@ -15,4 +15,4 @@
 # Naslaginformatie
 ## [Azure CLI 2.0](/cli/azure) 
 # Resources
-## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)

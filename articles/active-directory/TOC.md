@@ -384,7 +384,7 @@
 
 # Resources
 ## [Azure-feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)
-## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=active-directory)

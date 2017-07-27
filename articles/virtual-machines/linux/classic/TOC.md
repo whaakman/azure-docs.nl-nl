@@ -66,6 +66,7 @@
 ## Problemen oplossen
 ### [VM-implementaties](troubleshoot-deployment-new-vm.md)
 ### [Een VM opnieuw opstarten of het formaat wijzigen](restart-resize-error-troubleshooting.md)
+### [Virtuele harde schijf koppelen bij het oplossen van problemen met een virtuele machine](troubleshoot-recovery-disks-portal.md)
 
 # Naslaginformatie
 ## [PowerShell](/powershell/azure/overview)
@@ -79,7 +80,7 @@
 
 
 # Resources
-## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [Regionale beschikbaarheid](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

@@ -20,6 +20,6 @@
 ## [Ontwerphandleiding voor hybride identiteit](../active-directory-hybrid-identity-design-considerations-overview.md)
 
 # Resources
-## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Veelgestelde vragen over Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 

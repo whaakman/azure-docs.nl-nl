@@ -81,7 +81,8 @@
 ### [Toegang tot een toepassing](../../virtual-machines-windows-troubleshoot-app-connection.md)
 ### [Problemen met de klassieke implementatie bij het maken van een nieuwe VM](troubleshoot-deployment-new-vm.md)
 ### [Problemen met de klassieke implementatie bij het opnieuw opstarten of wijzigen van het formaat van een bestaande VM](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-## [RDP-wachtwoord opnieuw instellen](reset-rdp.md)
+### [RDP-wachtwoord opnieuw instellen](reset-rdp.md)
+### [Virtuele harde schijf koppelen bij het oplossen van problemen met een virtuele machine](troubleshoot-recovery-disks-portal.md)
 
 # Naslaginformatie
 ## [PowerShell](/powershell/azure/overview)
@@ -95,7 +96,7 @@
 ## [Storage REST](/rest/api/storageservices)
 
 # Resources
-## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
 ## [Regionale beschikbaarheid](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

@@ -1,218 +1,109 @@
 # [Overzicht](active-directory-developers-guide.md)
-
 ## [Waarom Azure AD?](https://azure.microsoft.com/develop/identity/signin/)
-
 ## [Basisprincipes van Auth](active-directory-authentication-scenarios.md)
-
 ## [App-typen](active-directory-authentication-scenarios.md#application-types-and-scenarios)
-
 # Aan de slag
-
 ## Mobiele en desktop-apps
-
 ### [Overzicht](active-directory-authentication-scenarios.md#native-application-to-web-api)
-
 ### [iOS](active-directory-devquickstarts-ios.md)
-
 ### [Android](active-directory-devquickstarts-android.md)
-
 ### [.NET](active-directory-devquickstarts-dotnet.md)
-
 ### [Windows](active-directory-devquickstarts-windowsstore.md)
-
 ### [Xamarin](active-directory-devquickstarts-xamarin.md)
-
 ### [Cordova](active-directory-devquickstarts-cordova.md)
-
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
-
 ## Web-apps
-
 ### [Overzicht](active-directory-authentication-scenarios.md#web-browser-to-web-application)
-
 ### [ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)
-
 ### [Java](active-directory-devquickstarts-webapp-java.md)
-
 ### [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)
-
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
-
 ## Apps met één pagina
-
 ### [Overzicht](active-directory-authentication-scenarios.md#single-page-application-spa)
-
 ### [Angular JS](active-directory-devquickstarts-angular.md)
-
 ### [Javascript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi)
-
 ## Web-API's
-
 ### [Overzicht](active-directory-authentication-scenarios.md#web-application-to-web-api)
-
 ### [ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)
-
 ### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
-
 ## Service-naar-service
-
 ### [Overzicht](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)
-
 ### [.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)
-
 ### [Referenties voor OAuth 2.0-client](active-directory-protocols-oauth-service-to-service.md)
-
 # Handleidingen
-
 ## [Registratie van toepassing](active-directory-integrating-applications.md)
-
 ## [Apps met meerdere tenants](active-directory-devhowto-multi-tenant-overview.md)
-
 ## OAuth en OpenID Connect
-
 ### [OpenID Connect-protocol](active-directory-protocols-openid-connect-code.md)
-
 ### [OAuth 2.0-verificatiecode verlenen](active-directory-protocols-oauth-code.md)
-
 ### [Impliciete goedkeuring voor OAuth 2.0](active-directory-dev-understanding-oauth2-implicit-grant.md)
-
 ## [SAML 2.0](active-directory-saml-protocol-reference.md)
-
 ### [Claims aanpassen](active-directory-saml-claims-customization.md)
-
 ### [Fouten opsporen van op SAML gebaseerde SSO](active-directory-saml-debugging.md)
-
 ### [SAML-protocol voor eenmalige aanmelding](active-directory-single-sign-on-protocol-reference.md)
-
 ### [SAML-protocol voor eenmalige afmelding](active-directory-single-sign-out-protocol-reference.md)
-
 ### [Een tenant maken](active-directory-howto-tenant.md)
-
 ## [Huisstijlrichtlijnen](active-directory-branding-guidelines.md)
-
 ## Mobiele en desktop-SSO
-
 ### [SSO inschakelen op Android](active-directory-sso-android.md)
-
 ### [SSO inschakelen op iOS](active-directory-sso-ios.md)
-
 ## [Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md)
-
 ## [Gebruikers inrichten met SCIM](../active-directory-scim-provisioning.md)
-
 ## [Azure AD Graph API](active-directory-graph-api.md)
-
 ### [Aan de slag met AAD Graph](active-directory-graph-api-quickstart.md)
-
 ## [AppSource-certificering](active-directory-devhowto-appsource-certified.md)
-
 ## [Azure AD-app-galerie](active-directory-app-gallery-listing.md)
-
 ## [Office 365-verkopersdashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
-
 ## Werken met Visual Studio
-
 ### [Aan de slag met aan Visual Studio gekoppelde services](vs-active-directory-dotnet-getting-started.md)
-
 ### [Fout tijdens de verificatiedetectie](vs-active-directory-error.md)
-
 ### [Aan de slag met Web API](vs-active-directory-webapi-getting-started.md)
-
 ### [Wat is er gebeurd met mijn Web API-project?](vs-active-directory-webapi-what-happened.md)
-
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
-
 # Naslaginformatie
-
 ## [Auth-bibliotheken (ADAL)](active-directory-authentication-libraries.md)
-
 ## [Codevoorbeelden](active-directory-code-samples.md)
-
 ## [Woordenlijst](active-directory-dev-glossary.md)
-
 ## [Verificatieprotocollen](active-directory-authentication-protocols.md)
-
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
-
 ### [Oauth](active-directory-protocols-oauth-code.md)
-
 ### [Service-naar-serviceaanroepen](active-directory-protocols-oauth-service-to-service.md)
-
 ### [Namens-stroom](active-directory-protocols-oauth-on-behalf-of.md)
-
 ### [Ondersteunde token- en claimtypen](active-directory-token-and-claims.md)
-
 ### [Rollover van ondertekeningssleutel gebruiken](active-directory-signing-key-rollover.md)
-
 ### [Federatieve metagegevens](active-directory-federation-metadata.md)
-
 ### [Certificaatreferenties](active-directory-certificate-credentials.md)
-
 ## [Objecten voor toepassingen](active-directory-application-objects.md)
-
 ### [Apps en Azure AD](active-directory-how-applications-are-added.md)
-
 ## [Toepassingsmanifest](active-directory-application-manifest.md)
-
 ## [Levensduur van tokens](../active-directory-configurable-token-lifetimes.md)
-
 ## [Servicelimieten](../active-directory-service-limits-restrictions.md)
-
 # v2.0-eindpunt
-
 ## [Overzicht](active-directory-appmodel-v2-overview.md)
-
 ### [App-typen](active-directory-v2-flows.md)
-
 ### [Beperkingen](active-directory-v2-limitations.md)
-
 ### [Vergelijking van v1-v2](active-directory-v2-compare.md)
-
 ## Aan de slag
-
 ### Mobiele en desktop-apps
-
 #### [iOS](guidedsetups/active-directory-ios.md)
-
 #### [Android](guidedsetups/active-directory-android.md)
-
 #### [.NET voor Windows-bureaublad](guidedsetups/active-directory-windesktop.md)
-
 ### Web-apps
-
 #### [Javascript-SPA](guidedsetups/active-directory-javascriptspa.md)
-
 #### [ASP.NET-webserver](guidedsetups/active-directory-aspnetwebapp.md)
-
 #### [NodeJS-web-app](active-directory-v2-devquickstarts-node-web.md)
-
 ## Handleidingen
-
 ### [Een app registreren](active-directory-v2-app-registration.md)
-
 ## Naslaginformatie
-
 ### [Verificatiebibliotheken](active-directory-v2-libraries.md)
-
 ### [v2.0-verificatieprotocollen](active-directory-v2-protocols.md)
-
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
-
 #### [OAuth 2.0-autorisatiecode verlenen](active-directory-v2-protocols-oauth-code.md)
-
 #### [Impliciete goedkeuring voor OAuth 2.0](active-directory-v2-protocols-implicit.md)
-
 #### [Referenties voor OAuth 2.0-client verlenen](active-directory-v2-protocols-oauth-client-creds.md)
-
 #### [Namens-stroom voor OAuth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
-
 #### [Tokenverwijzing](active-directory-v2-tokens.md)
-
 #### [Certificaatreferenties](active-directory-certificate-credentials.md)
-
 ### [Bereiken](active-directory-v2-scopes.md)
-
 # Resources
-
-## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
-
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)

@@ -16,7 +16,8 @@
 ### [2 - Een .NET-toepassing implementeren met behulp van Docker Compose](service-fabric-host-app-in-a-container.md)
 
 # Voorbeelden
-## [PowerShell](service-fabric-powershell-samples.md) 
+## [PowerShell](service-fabric-powershell-samples.md)
+## [Azure-CLI](samples-cli.md)
 # Concepten
 ## [Uitleg over microservices](service-fabric-overview-microservices.md)
 ## [Grote afbeelding](service-fabric-content-roadmap.md)

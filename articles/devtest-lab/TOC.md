@@ -67,3 +67,7 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/devtest-lab/)
+
+
+# Resources
+## [Azure-roadmap](https://azure.microsoft.com/en-us/roadmap/?category=developer-tools)
