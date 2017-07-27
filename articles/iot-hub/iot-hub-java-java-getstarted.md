@@ -16,10 +16,10 @@ ms.date: 06/29/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 7f0fbaf5d8e0379fc67ad62ea7c9ab63c6737150
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 0c8a4b518c6946781c2340f79ab479612b595c74
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-java"></a>Uw apparaat verbinding laten maken met uw IoT Hub met Java
@@ -303,12 +303,8 @@ In dit gedeelte maakt u een Java-consoletoepassing die apparaat-naar-cloud-beric
     mvn clean package -DskipTests
     ```
 
-<<<<<<< HEAD
 ## <a name="create-a-device-app"></a>Een apparaat-app maken
-=======
-## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
-
->>>>>>> In dit gedeelte maakt u een Java-consoletoepassing die een apparaat simuleert dat apparaat-naar-cloud-berichten naar een IoT Hub verzendt.
+In dit gedeelte maakt u een Java-consoletoepassing die een apparaat simuleert dat apparaat-naar-cloud-berichten naar een IoT Hub verzendt.
 
 1. Maak een Maven-project in de map iot-java-get-started die u hebt gemaakt in het gedeelte *Een apparaat-id maken* en noem dit **simulated-device**. Gebruik hiervoor de volgende opdracht in uw opdrachtvenster. Let op: dit is één enkele, lange opdracht:
 
@@ -378,19 +374,10 @@ In dit gedeelte maakt u een Java-consoletoepassing die apparaat-naar-cloud-beric
       }
     }
     ```
-<<<<<<< HEAD
 9. Voeg de volgende geneste **EventCallback**-klasse toe binnen de **App**-klasse om de bevestigingsstatus weer te geven die wordt geretourneerd door de IoT-hub wanneer deze een bericht verwerkt van de apparaat-app. Met deze methode wordt ook een bericht verstuurd aan de hoofdthread in de app wanneer het bericht is verwerkt:
    
-    ```
-    private static class EventCallback implements IotHubEventCallback
-    {
-=======
-
-9. Add the following nested **EventCallback** class inside the **App** class to display the acknowledgement status that the IoT hub returns when it processes a message from the simulated device app. This method also notifies the main thread in the app when the message has been processed:
-
     ```java
     private static class EventCallback implements IotHubEventCallback {
->>>>>>> master
       public void execute(IotHubStatusCode status, Object context) {
         System.out.println("IoT Hub responded to message with status: " + status.name());
    
@@ -500,11 +487,7 @@ U kunt nu de apps uitvoeren.
     ![De tegel Gebruik in Azure Portal met het aantal berichten dat is verzonden naar IoT Hub][43]
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U hebt deze apparaat-id gebruikt om de apparaat-app in staat te stellen apparaat-naar-cloud-berichten te verzenden naar de IoT-hub. Ook hebt u een app gemaakt die de berichten weergeeft die worden ontvangen door de IoT-hub. 
-=======
-
-In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U hebt deze apparaat-id gebruikt om de gesimuleerde apparaattoepassing in staat te stellen apparaat-naar-cloud-berichten te verzenden naar de IoT-hub. Ook hebt u een app gemaakt die de berichten weergeeft die worden ontvangen door de IoT-hub.
->>>>>>> model
+In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U hebt deze apparaat-id gebruikt om de apparaat-app in staat te stellen apparaat-naar-cloud-berichten te verzenden naar de IoT-hub. Ook hebt u een app gemaakt die de berichten weergeeft die worden ontvangen door de IoT-hub.
 
 Als u aan de slag wilt gaan met IoT Hub en andere IoT-scenario's wilt verkennen, leest u deze artikelen:
 

@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 05/19/2017
 ms.author: brjohnst
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 0185d898f5443cc03135cb1692a54194a82b1e50
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 52bd0fd4cf70401dcf881c7f28d5cd91397bb059
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>Een query uitvoeren in uw Azure Search-index met behulp van de .NET SDK
@@ -33,7 +33,8 @@ In dit artikel wordt beschreven hoe u een query uitvoert in uw index met behulp 
 
 Voordat u deze procedure begint, moet u al [een Azure Search-index hebben gemaakt](search-what-is-an-index.md) en moet deze index [gevuld zijn met gegevens](search-what-is-data-import.md).
 
-Alle voorbeeldcode in dit artikel is geschreven in C#. U vindt de volledige broncode [op GitHub](http://aka.ms/search-dotnet-howto).
+> [!NOTE]
+> Alle voorbeeldcode in dit artikel is geschreven in C#. U vindt de volledige broncode [op GitHub](http://aka.ms/search-dotnet-howto). Voor een uitgebreidere walkthrough van de voorbeeldcode kunt ook meer lezen over de [.NET-SDK voor Azure Search](search-howto-dotnet-sdk.md).
 
 ## <a name="identify-your-azure-search-services-query-api-key"></a>De query api-sleutel voor de Azure Search-service vaststellen
 Nu u een Azure Search-index hebt gemaakt, bent u bijna zover om query's uit te geven met behulp van de .NET SDK. Eerst moet u een van de query api-sleutels ophalen die is gegenereerd voor de zoekservice die u hebt ingericht. De .NET SDK verzendt deze api-sleutel bij elke aanvraag voor uw service. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.

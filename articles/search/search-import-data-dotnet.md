@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 01/13/2017
 ms.author: brjohnst
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 7676262b7bca47444aee7b10a131c01e6b697e7b
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: bdd952869143c6ca6374bb9264db5bcba1f32b50
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Gegevens uploaden naar Azure Search met behulp van de .NET SDK
@@ -34,7 +34,8 @@ In dit artikel wordt beschreven hoe u met behulp van de [Azure Search .NET SDK](
 
 Voordat u deze procedure begint, moet u al [een Azure Search-index hebben gemaakt](search-what-is-an-index.md). In dit artikel wordt ervan uitgegaan dat u al een `SearchServiceClient`-object hebt gemaakt, zoals uiteengezet in [Een Azure Search-index maken met de.NET SDK](search-create-index-dotnet.md#CreateSearchServiceClient).
 
-Alle voorbeeldcode in dit artikel is geschreven in C#. U vindt de volledige broncode [op GitHub](http://aka.ms/search-dotnet-howto).
+> [!NOTE]
+> Alle voorbeeldcode in dit artikel is geschreven in C#. U vindt de volledige broncode [op GitHub](http://aka.ms/search-dotnet-howto). Voor een uitgebreidere walkthrough van de voorbeeldcode kunt ook meer lezen over de [.NET-SDK voor Azure Search](search-howto-dotnet-sdk.md).
 
 Om documenten in uw index te pushen met behulp van de .NET SDK, moet u het volgende doen:
 

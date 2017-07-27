@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 9ab5368c173f016f44546d6c8acb360598f5f5ab
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: f6bcb18a04be9a802e14b960a1e2d04a71a691cc
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Een Azure Media Services-account maken met Azure Portal
@@ -44,7 +44,7 @@ Voor toegang tot Media Services zijn twee gekoppelde accounts vereist:
 * Een Azure Storage-account. Storage-accounts moeten zich in dezelfde geografische regio bevinden als het Media Services-account. Wanneer u een Media Services-account maakt, kunt u een bestaand opslagaccount in dezelfde regio kiezen. U kunt ook een nieuw opslagaccount maken in dezelfde regio. Als u een Media Services-account verwijdert, worden de blobs in uw gerelateerde opslagaccount niet verwijderd.
 
 > [!NOTE]
-> Zie [Scenarios and availability of Media Services features across datacenters](scenarios-and-availability.md#a-idavailabilitya-availability-of-media-services-features-across-datacenters) (Scenario's en beschikbaarheid van Media Services-functies via datacenters) voor meer informatie over de beschikbaarheid van Azure Media Services-functies in verschillende regio's.
+> Zie [Scenarios and availability of Media Services features across datacenters](scenarios-and-availability.md#availability) (Scenario's en beschikbaarheid van Media Services-functies via datacenters) voor meer informatie over de beschikbaarheid van Azure Media Services-functies in verschillende regio's.
 
 ## <a name="create-an-ams-account"></a>Een AMS-account maken
 In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.
