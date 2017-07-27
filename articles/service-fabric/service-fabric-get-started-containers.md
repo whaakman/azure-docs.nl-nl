@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 07/18/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 8c9d6c65666b5ffedf058e0a83d4fc41fff80235
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 0c0b567d353fd77f72170a4bf807ec0d2585e357
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 07/22/2017
 
 ---
 
@@ -164,43 +164,155 @@ De installatiekopie naar het containerregister pushen:
 docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## <a name="create-and-package-the-containerized-service-in-visual-studio"></a>De beperkte service maken en verpakken in Visual Studio
-De Service Fabric SDK en hulpprogramma's bieden een servicesjabloon waarmee u een container kunt implementeren in een Service Fabric-cluster.
+## <a name="create-the-containerized-service-in-visual-studio"></a>De beperkte service maken in Visual Studio
+De Service Fabric SDK en hulpprogramma's bieden een servicesjabloon waarmee u een containertoepassing kunt maken.
 
 1. Start Visual Studio.  Selecteer **Bestand** > **Nieuw** > **Project**.
 2. Selecteer **Service Fabric-toepassing**, geef deze de naam MyFirstContainer en klik op **OK**.
 3. Selecteer **Gastcontainer** in de lijst met **servicesjablonen**.
 4. Voer bij **Naam van installatiekopie** het volgende in: myregistry.azurecr.io/samples/helloworldapp. Dit is de installatiekopie die u naar uw containeropslagplaats hebt gepusht. 
 5. Geef de service een naam en klik op **OK**.
-6. Als de beperkte service een eindpunt voor communicatie nodig heeft, kunt u nu het protocol, de poort en het type toevoegen aan een ```Endpoint``` in het bestand ServiceManifest.xml. Voor deze snelstartgids luistert de containerservice naar poort 80: 
 
-    ```xml
+## <a name="configure-communication"></a>Communicatie configureren
+De containerservice heeft een eindpunt voor communicatie nodig. Voeg een `Endpoint`-element met het protocol, de poort en het type toe aan het bestand ServiceManifest.xml. Voor deze snelstartgids luistert de containerservice naar poort 8081.  In dit voorbeeld wordt een ingestelde poort 8081 gebruikt.  Als er geen poort is opgegeven, wordt een willekeurige poort uit het poortbereik van de toepassing gekozen.  
+
+```xml
+<Resources>
+  <Endpoints>
     <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="8081" Protocol="http"/>
-    ```
-    Door ```UriScheme``` op te geven wordt het eindpunt van de container automatisch geregistreerd bij de Service Fabric Naming-service voor meer zichtbaarheid. Een volledig voorbeeld van een ServiceManifest.xml-bestand vindt u aan het einde van dit artikel. 
-7. Configureer de poorttoewijzing poort-naar-host voor de container door een ```PortBinding```-beleid op te geven in ```ContainerHostPolicies``` van het bestand ApplicationManifest.xml.  Voor dit artikel geldt: ```ContainerPort``` is 8081 (de container gebruikt poort 80, zoals opgegeven in het bestand Dockerfile) en ```EndpointRef``` is Guest1TypeEndpoint (het eindpunt dat is gedefinieerd in het servicemanifest).  Binnenkomende aanvragen naar de service op poort 8081 worden toegewezen aan poort 80 in de container.  Als de container moet verifiëren bij een persoonlijke privéopslagplaats, voegt u ```RepositoryCredentials``` toe.  Voeg voor dit artikel de accountnaam en het wachtwoord in voor het containerregister myregistry.azurecr.io. 
-
-    ```xml
-    <Policies>
-        <ContainerHostPolicies CodePackageRef="Code">
-            <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
-        </ContainerHostPolicies>
-    </Policies>
-    ```
-
-    Een volledig voorbeeld van een ApplicationManifest.xml-bestand vindt u aan het einde van dit artikel.
-8. Configureer het eindpunt voor de clusterverbinding, zodat u de toepassing in het cluster kunt publiceren.  U vindt het eindpunt voor de clientverbinding op de blade Overzicht voor het cluster in [Azure Portal](https://portal.azure.com). Open in Solution Explorer *Cloud.xml* onder **MyFirstContainer**->**PublishProfiles**.  Voeg de clusternaam en verbindingspoort toe aan **ClusterConnectionParameters**.  Bijvoorbeeld:
-    ```xml
-    <ClusterConnectionParameters ConnectionEndpoint="containercluster.westus2.cloudapp.azure.com:19000" />
-    ```
+  </Endpoints>
+</Resources>
+```
     
-9. Sla alle bestanden op en bouw uw project.  
+Als u een eindpunt opgeeft, publiceert Service Fabric het eindpunt naar de Naming-service.  Andere services die in dit cluster worden uitgevoerd, kunnen deze container dan omzetten.  U kunt ook communicatie van container naar container laten plaatsvinden met behulp van een [omgekeerde proxy](service-fabric-reverseproxy.md).  Communicatie wordt uitgevoerd door de omgekeerde proxy de HTTP-poort voor luisteren en de naam van de services waarmee u wilt communiceren door te geven als omgevingsvariabelen. 
 
-10. Klik in Solution Explorer met de rechtermuisknop op **MyFirstContainer** en selecteer **Package** om uw toepassing in te pakken. 
+## <a name="configure-and-set-environment-variables"></a>Omgevingsvariabelen configureren en instellen
+Er kunnen omgevingsvariabelen worden opgegeven voor ieder codepakket in het servicemanifest. Deze functie is beschikbaar voor alle services, ongeacht of ze zijn geïmplementeerd als containers, processen of uitvoerbare gastbestanden. U kunt waarden van omgevingsvariabelen overschrijven in het toepassingsmanifest of ze opgeven als toepassingsparameters tijdens de implementatie.
+
+Het volgende XML-fragment voor het servicemanifest toont een voorbeeld van het opgeven van omgevingsvariabelen voor een codepakket:
+```xml
+<CodePackage Name="Code" Version="1.0.0">
+  ...
+  <EnvironmentVariables>
+    <EnvironmentVariable Name="HttpGatewayPort" Value=""/>    
+  </EnvironmentVariables>
+</CodePackage>
+```
+
+Deze omgevingsvariabelen kunnen worden overschreven in het toepassingsmanifest:
+
+```xml
+<ServiceManifestImport>
+  <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+    <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
+  </EnvironmentOverrides>
+  ...
+</ServiceManifestImport>
+```
+
+## <a name="configure-container-port-to-host-port-mapping-and-container-to-container-discovery"></a>Poort-naar-host-toewijzing voor containers en container-naar-container-detectie configureren
+Configureer een hostpoort voor communicatie met de container. De poortbinding wijst de poort toe waarop de service binnen de container luistert naar een poort op de host. Voeg een element `PortBinding` toe aan het element `ContainerHostPolicies` van het bestand ApplicationManifest.xml.  Voor dit artikel geldt: `ContainerPort` is 80 (de container gebruikt poort 80, zoals opgegeven in het bestand Dockerfile) en `EndpointRef` is 'Guest1TypeEndpoint' (het eindpunt dat eerder is gedefinieerd in het servicemanifest).  Binnenkomende aanvragen naar de service op poort 8081 worden toegewezen aan poort 80 in de container. 
+
+```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code">
+    <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+  </ContainerHostPolicies>
+</Policies>
+```
+
+## <a name="configure-container-registry-authentication"></a>Verificatie containerregister configureren
+Configureer de verificatie van het containerregister `RepositoryCredentials` door toe te voegen aan `ContainerHostPolicies` van het bestand ApplicationManifest.xml. Voeg het account en wachtwoord toe aan het containerregister myregistry.azurecr.io, waardoor de service voor de containerinstallatiekopie uit de opslagplaats kan downloaden.
+
+```xml
+<Policies>
+    <ContainerHostPolicies CodePackageRef="Code">
+        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+        <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+    </ContainerHostPolicies>
+</Policies>
+```
+
+We raden aan het wachtwoord van de opslagplaats te versleutelen door middel van een versleutelingscertificaat dat naar alle knooppunten van het cluster wordt geïmplementeerd. Wanneer Service Fabric het servicepakket naar het cluster implementeert, wordt het versleutelingscertificaat gebruikt om de versleutelde tekst te ontsleutelen.  De cmdlet Invoke-ServiceFabricEncryptText wordt gebruikt om de gecodeerde tekst voor het wachtwoord te maken, die wordt toegevoegd aan het bestand ApplicationManifest.xml.
+
+Het volgende script maakt een nieuw zelfondertekend certificaat en exporteert het naar een PFX-bestand.  Het certificaat wordt geïmporteerd in een bestaande sleutelkluis en geïmplementeerd naar het Service Fabric-cluster.
+
+```powershell
+# Variables.
+$certpwd = ConvertTo-SecureString -String "Pa$$word321!" -Force -AsPlainText
+$filepath = "C:\MyCertificates\dataenciphermentcert.pfx"
+$subjectname = "dataencipherment"
+$vaultname = "mykeyvault"
+$certificateName = "dataenciphermentcert"
+$groupname="myclustergroup"
+$clustername = "mycluster"
+
+$subscriptionId = "subscription ID"
+
+Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionId $subscriptionId
+
+# Create a self signed cert, export to PFX file.
+New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject $subjectname -Provider 'Microsoft Enhanced Cryptographic Provider v1.0' `
+| Export-PfxCertificate -FilePath $filepath -Password $certpwd
+
+# Import the certificate to an existing key vault.  The key vault must be enabled for deployment.
+$cer = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certificateName -FilePath $filepath -Password $certpwd
+
+Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
+
+# Add the certificate to all the VMs in the cluster.
+Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
+```
+Versleutel het wachtwoord met behulp van de cmdlet [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps).
+
+```powershell
+$text = "=P==/==/=8=/=+u4lyOB=+=nWzEeRfF="
+Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint $cer.Thumbprint -Text $text -StoreLocation Local -StoreName My
+```
+
+Vervang het wachtwoord door de versleutelde tekst die wordt geretourneerd door de cmdlet [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) en stel `PasswordEncrypted` in op 'true'.
+
+```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code">
+    <RepositoryCredentials AccountName="myregistry" Password="MIIB6QYJKoZIhvcNAQcDoIIB2jCCAdYCAQAxggFRMIIBTQIBADA1MCExHzAdBgNVBAMMFnJ5YW53aWRhdGFlbmNpcGhlcm1lbnQCEFfyjOX/17S6RIoSjA6UZ1QwDQYJKoZIhvcNAQEHMAAEg
+gEAS7oqxvoz8i6+8zULhDzFpBpOTLU+c2mhBdqXpkLwVfcmWUNA82rEWG57Vl1jZXe7J9BkW9ly4xhU8BbARkZHLEuKqg0saTrTHsMBQ6KMQDotSdU8m8Y2BR5Y100wRjvVx3y5+iNYuy/JmM
+gSrNyyMQ/45HfMuVb5B4rwnuP8PAkXNT9VLbPeqAfxsMkYg+vGCDEtd8m+bX/7Xgp/kfwxymOuUCrq/YmSwe9QTG3pBri7Hq1K3zEpX4FH/7W2Zb4o3fBAQ+FuxH4nFjFNoYG29inL0bKEcTX
+yNZNKrvhdM3n1Uk/8W2Hr62FQ33HgeFR1yxQjLsUu800PrYcR5tLfyTB8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBybgM5NUV8BeetUbMR8mJhgFBrVSUsnp9B8RyebmtgU36dZiSObDsI
+NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==" PasswordEncrypted="true"/>
+    <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+  </ContainerHostPolicies>
+</Policies>
+```
+
+## <a name="configure-isolation-mode"></a>Isolatiemodus configureren
+Windows ondersteunt twee isolatiemodi voor containers: proces en Hyper-V. Met de procesisolatiemodus delen alle containers die worden uitgevoerd op dezelfde hostcomputer de kernel met de host. Met de Hyper-V-isolatiemodus hebben de kernels een scheiding tussen elke Hyper-V-container en de containerhost. De isolatiemodus is in het manifestbestand van de toepassing opgegeven in het element `ContainerHostPolicies`. De isolatiemodi die kunnen worden opgegeven zijn `process`, `hyperv` en `default`. De standaardmodus voor isolatie wordt standaard ingesteld op `process` op Windows Server-hosts en op `hyperv` op hosts met Windows 10. Het volgende codefragment toont hoe de isolatiemodus wordt opgegeven in het manifestbestand van de toepassing.
+
+```xml
+<ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
+```
+
+## <a name="configure-resource-governance"></a>Resourcebeheer configureren
+[Resourcebeheer](service-fabric-resource-governance.md) beperkt de resources die de container op de host kan gebruiken. Het element `ResourceGovernancePolicy`, dat is opgegeven in het toepassingsmanifest, wordt gebruikt om resourcebeperkingen te declareren voor een servicecodepakket. Er kunnen resourcebeperkingen worden ingesteld voor de volgende resources: geheugen, MemorySwap, CpuShares (relatief CPU-gewicht), MemoryReservationInMB, BlkioWeight (relatief BlockIO-gewicht).  In dit voorbeeld krijgt het servicepakket Guest1Pkg één kern op de clusterknooppunten waar het wordt geplaatst.  Geheugenlimieten zijn absoluut, dus het codepakket wordt beperkt tot 1024 MB aan geheugen (en een gegarandeerde flexibele reservering hierop). Codepakketten (containers of processen) kunnen niet meer geheugen toewijzen dan deze limiet. Een poging dit toch te doen, leidt tot een Onvoldoende geheugen-uitzondering. Voor een effectieve handhaving van resourcebeperkingen moeten voor alle pakketten binnen een servicepakket geheugenlimieten zijn opgegeven.
+
+```xml
+<ServiceManifestImport>
+  <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+  <Policies>
+    <ServicePackageResourceGovernancePolicy CpuCores="1"/>
+    <ResourceGovernancePolicy CodePackageRef="Code" MemoryInMB="1024"  />
+  </Policies>
+</ServiceManifestImport>
+```
 
 ## <a name="deploy-the-container-application"></a>De containertoepassing implementeren
-Klik in Solution Explorer met de rechtermuisknop op **MyFirstContainer** en selecteer **Publish** om uw toepassing te publiceren.
+Sla al uw wijzigingen op en bouw de toepassing. Klik in Solution Explorer met de rechtermuisknop op **MyFirstContainer** en selecteer **Publish** om uw toepassing te publiceren.
+
+Voer bij **Verbindingseindpunt** het beheereindpunt voor het cluster in.  Bijvoorbeeld: 'containercluster.westus2.cloudapp.azure.com:19000'. U vindt het eindpunt voor de clientverbinding op de blade Overzicht voor het cluster in [Azure Portal](https://portal.azure.com).
+
+Klik op **Publish**. 
 
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is een webhulpprogramma voor het inspecteren en beheren van toepassingen en knooppunten in een Service Fabric-cluster. Open een browser, ga naar http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ en volg de implementatie van de toepassing.  De toepassing wordt geïmplementeerd, maar heeft een foutstatus totdat de installatiekopie is gedownload op de clusterknooppunten (wat enige tijd kan duren, afhankelijk van de grootte van de installatiekopie): ![Fout][1]
 
@@ -243,12 +355,12 @@ Dit zijn de volledige manifesten voor de service en toepassing die in dit artike
         <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
       </ContainerHost>
     </EntryPoint>
-    <!-- Pass environment variables to your container: -->
-    <!--
+    <!-- Pass environment variables to your container: -->    
     <EnvironmentVariables>
-      <EnvironmentVariable Name="VariableName" Value="VariableValue"/>
+      <EnvironmentVariable Name="HttpGatewayPort" Value=""/>
+      <EnvironmentVariable Name="BackendServiceName" Value=""/>
     </EnvironmentVariables>
-    -->
+    
   </CodePackage>
 
   <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
@@ -281,12 +393,21 @@ Dit zijn de volledige manifesten voor de service en toepassing die in dit artike
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+    <EnvironmentOverrides CodePackageRef="FrontendService.Code">
+      <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
+    </EnvironmentOverrides>
     <ConfigOverrides />
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
-        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+        <RepositoryCredentials AccountName="myregistry" Password="MIIB6QYJKoZIhvcNAQcDoIIB2jCCAdYCAQAxggFRMIIBTQIBADA1MCExHzAdBgNVBAMMFnJ5YW53aWRhdGFlbmNpcGhlcm1lbnQCEFfyjOX/17S6RIoSjA6UZ1QwDQYJKoZIhvcNAQEHMAAEg
+gEAS7oqxvoz8i6+8zULhDzFpBpOTLU+c2mhBdqXpkLwVfcmWUNA82rEWG57Vl1jZXe7J9BkW9ly4xhU8BbARkZHLEuKqg0saTrTHsMBQ6KMQDotSdU8m8Y2BR5Y100wRjvVx3y5+iNYuy/JmM
+gSrNyyMQ/45HfMuVb5B4rwnuP8PAkXNT9VLbPeqAfxsMkYg+vGCDEtd8m+bX/7Xgp/kfwxymOuUCrq/YmSwe9QTG3pBri7Hq1K3zEpX4FH/7W2Zb4o3fBAQ+FuxH4nFjFNoYG29inL0bKEcTX
+yNZNKrvhdM3n1Uk/8W2Hr62FQ33HgeFR1yxQjLsUu800PrYcR5tLfyTB8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBybgM5NUV8BeetUbMR8mJhgFBrVSUsnp9B8RyebmtgU36dZiSObDsI
+NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==" PasswordEncrypted="true"/>
         <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
       </ContainerHostPolicies>
+      <ServicePackageResourceGovernancePolicy CpuCores="1"/>
+      <ResourceGovernancePolicy CodePackageRef="Code" MemoryInMB="1024"  />
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
