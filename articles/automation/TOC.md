@@ -60,6 +60,7 @@
 ### [Bronbeheerintegratie met GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Bronbeheerintegratie met VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ### [Azure Automation Runbook aanroepen vanuit een Log Analytics-waarschuwing](automation-invoke-runbook-from-omsla-alert.md)
+### [Een Azure Resource Manager-sjabloon in een Azure Automation-PowerShell-runbook implementeren](automation-deploy-template-runbook.md)
 ## Oplossingen
 ### [Tracering wijzigen](../log-analytics/log-analytics-change-tracking.md)
 ### [Updatebeheer](../operations-management-suite/oms-solution-update-management.md)
@@ -82,7 +83,7 @@
 # Resources
 ## [Introductievideo over Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 ## [Azure Automation-training](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
-## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Prijzen](https://azure.microsoft.com/pricing/details/automation/)  

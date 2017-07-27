@@ -1,14 +1,10 @@
 # Overzicht
 ## [Wat is Azure Analysis Services?](analysis-services-overview.md)
 ## [Ondersteunde gegevensbronnen](analysis-services-datasource.md)
-## [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md)
 
 # Snelstartgidsen
 ## [Een server maken - portal](analysis-services-create-server.md)
 ## [Een model implementeren - SSDT](analysis-services-deploy.md)
-
-# Voorbeelden
-## [Analysis Services-voorbeelden op GitHub](https://github.com/Microsoft/Analysis-Services)
 
 # Zelfstudies
 ## Een model maken en implementeren
@@ -30,16 +26,20 @@
 ### [Aanvullende les: Dynamische beveiliging](tutorials/aas-supplemental-lesson-dynamic-security.md)
 ### [Aanvullende les: Onregelmatige hiërarchieën](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
+# Concepten
+## [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md)
+## [Hoge beschikbaarheid](analysis-services-bcdr.md)
+
 # Uitleg 
+## [Een model maken in Azure Portal (preview)](analysis-services-create-model-portal.md)
 ## [Een server beheren](analysis-services-manage.md)
 ## [Databasegebruikers beheren](analysis-services-database-users.md)
 ## [Serverbeheerders beheren](analysis-services-server-admins.md)
-## [De on-premises gegevensgateway integreren](analysis-services-gateway.md)
+## [Een on-premises gegevensgateway installeren](analysis-services-gateway.md)
 ## [Verbinden met Excel](analysis-services-connect-excel.md)
 ## [Verbinden met Power BI](analysis-services-connect-pbi.md)
 ## [Clientbibliotheken ophalen](analysis-services-data-providers.md)
 ## [Back-up en herstel](analysis-services-backup.md)
-## [Hoge beschikbaarheid](analysis-services-bcdr.md)
 ## [Een ODC-bestand maken](analysis-services-odc.md)
 
 # Naslaginformatie
@@ -50,9 +50,10 @@
 ## [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # Resources
+## [Voorbeelden van Analysis Services-code op GitHub](https://github.com/Microsoft/Analysis-Services)
 ## [Blog van Analysis Services-team](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
-## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Status van Azure](https://azure.microsoft.com/status/)
 ## [Feedback](https://feedback.azure.com/forums/556165-azure-analysis-services)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/analysis-services/)

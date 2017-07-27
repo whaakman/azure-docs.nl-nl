@@ -59,8 +59,9 @@
 ### [Problemen oplossen](azure-diagnostics-troubleshooting.md)
 
 # Naslaginformatie
-## [Overzicht van ondersteunde metrische gegevens](monitoring-supported-metrics.md)
 ## [Bronnen van bewakingsgegevens](monitoring-data-sources.md)
+## [Overzicht van ondersteunde metrische gegevens](monitoring-supported-metrics.md)
+## [Gebeurtenisschema in het activiteitenlogboek](monitoring-activity-log-schema.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
@@ -71,7 +72,7 @@
 
 # Resources
 ## [Azure CLI 1.0-voorbeelden](insights-cli-samples.md)
-## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [PowerShell-voorbeelden](insights-powershell-samples.md)
 ## [Video's](https://azure.microsoft.com/resources/videos/index/?services=monitor)
 ## [Snelstartsjablonen](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Azure Container Instances
+metadata:
+  title: Documentatie voor Azure Container Instances - zelfstudies | Microsoft Docs
+  description: 'Azure Container Instances biedt u een zeer snelle en eenvoudige methode voor het uitvoeren van een container in Azure, waarbij het niet nodig is om virtuele machines in te richten of het serviceniveau te verhogen.'
+  services: container-instances
+  author: carolz
+  manager: carolz
+  ms.service: container-instances
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/26/2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Container Instances biedt u een zeer snelle en eenvoudige methode voor het uitvoeren van een container in Azure, waarbij het niet nodig is om virtuele machines in te richten of het serviceniveau te verhogen. Als u een volledige oplossing voor het inrichten van containers nodig hebt, raadpleegt u de <a href="/azure/container-service/kubernetes/">documentatie voor Kubernetes op Azure Container Service</a>. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u containers maakt en beheert.'
+sections:
+  - title: QuickStarts van vijf minuten
+    items:
+      - type: paragraph
+        text: Leer hoe u containerinstallatiekopieën implementeert met Azure Container Instances.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/container-instances/media/container-instances.png
+            text: Een container maken
+            href: /azure/container-instances/container-instances-quickstart
+  - title: Zelfstudies met stapsgewijze instructies
+    items:
+      - type: paragraph
+        text: Leer hoe u code verpakt in een containerinstallatiekopie en deze uitvoert in Azure Container Instances.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Een toepassing verpakken in een containerinstallatiekopie</a>
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Een Azure Container Registry maken en de containerinstallatiekopie uploaden</a>
+          - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">De containerinstallatiekopie implementeren in Azure Container Instances</a>
