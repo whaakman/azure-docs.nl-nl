@@ -135,9 +135,7 @@
 #### [Meetwaarden inschakelen en weergeven](storage-enable-and-view-metrics.md)
 #### [Controleren, problemen vaststellen en problemen oplossen](storage-monitoring-diagnosing-troubleshooting.md)
 #### [Zelfstudie voor problemen oplossen](storage-e2e-troubleshooting.md)
-### Schijfverwijderingsfouten oplossen
-#### [In een implementatie van Resource Manager](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
-#### [In een klassieke implementatie](storage-cannot-delete-storage-account-container-vhd.md)
+### [Schijfverwijderingsfouten oplossen](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
 ### [Problemen met het opslaan van bestanden oplossen](storage-troubleshoot-file-connection-problems.md)
 ## Gegevens overdragen
 ### [Gegevens verplaatsen van en naar opslag](storage-moving-data.md)
@@ -208,7 +206,7 @@
 ### [Zelfstudie voor problemen oplossen](storage-e2e-troubleshooting-classic-portal.md)
 
 # Resources
-## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=storage)
 ## [Azure Storage-clienthulpprogramma's](storage-explorers.md)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/storage/blobs/)

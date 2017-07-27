@@ -17,7 +17,7 @@
 ### Back-ups maken van virtuele machines
 #### [Back-ups maken van virtuele Azure-machines naar een Recovery Services-kluis](backup-azure-arm-vms.md)
 #### [Back-ups maken van versleutelde virtuele machines](backup-azure-vms-encryption.md)
-#### [Back-ups maken van virtuele Azure-machines naar back-upkluis](backup-azure-vms.md)
+#### [Back-ups maken van virtuele Azure-machines](backup-azure-vms.md)
 ### Virtuele machines beheren en controleren
 #### [Back-ups van virtuele Azure-machines beheren in Azure Portal](backup-azure-manage-vms.md)
 #### [Waarschuwingen voor virtuele Azure-machines controleren in Azure Portal](backup-azure-monitor-vms.md)
@@ -57,7 +57,7 @@
 ### [DPM-workloads voorbereiden in Azure Portal](backup-azure-dpm-introduction.md)
 ### [DPM-workloads voorbereiden in klassieke portal](backup-azure-dpm-introduction-classic.md)
 ### [System Center DPM gebruiken om back-ups te maken van Exchange Server](backup-azure-backup-exchange-server.md)
-### [Gegevens in de back-upkluis herstellen op een andere DPM-server](backup-azure-alternate-dpm-server.md)
+### [Gegevens herstellen naar een andere DPM-server](backup-azure-alternate-dpm-server.md)
 ### [DPM gebruiken om back-ups van SQL Server-workloads te maken](backup-azure-backup-sql.md)
 ### [DPM gebruiken om back-ups te maken van een SharePoint-farm](backup-azure-backup-sharepoint.md)
 
@@ -90,11 +90,12 @@
 # Concepten
 ## [Overzicht van Recovery Services-kluizen](backup-azure-recovery-services-vault-overview.md)
 ## [Een Backup-kluis upgraden naar een Recovery Services-kluis](backup-azure-upgrade-backup-to-recovery-services.md)
-## [Een Azure Backup-kluis verwijderen](backup-azure-delete-vault.md)
+## [Een Recovery Services-kluis verwijderen](backup-azure-delete-vault.md)
 ## [Op rollen gebaseerd toegangsbeheer](backup-rbac-rs-vault.md)
 ## [Beveiliging voor hybride back-ups](backup-azure-security-feature.md)
 ## [Azure Backup-rapporten configureren](backup-azure-configure-reports.md)
 ## [Gegevensmodel voor Azure Backup-rapporten](backup-azure-reports-data-model.md)
+## [Log Analytics-gegevensmodel voor Azure Backup](backup-azure-log-analytics-data-model.md)
 ## [Offline back-ups configureren](backup-azure-backup-import-export.md)
 ## [De tapewisselaar vervangen](backup-azure-backup-cloud-as-tape.md)
 ## [Toepassingsconsistente back-ups van virtuele Linux-machines](backup-azure-linux-app-consistent.md)

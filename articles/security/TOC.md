@@ -1,5 +1,6 @@
 # [Overzicht](azure-security.md)
 ## [Netwerkbeveiliging](security-network-overview.md)
+## [Databasebeveiliging](azure-database-security-overview.md)
 ## [Opslagbeveiliging](security-storage-overview.md)
 ## [Rekenbeveiliging](security-virtual-machines-overview.md)
 ## [Beveiligingsbeheer en -controle](security-management-and-monitoring-overview.md)
@@ -12,6 +13,7 @@
 ### [Isolatie in de openbare cloud](azure-isolation.md)
 ### [Technische mogelijkheden voor beveiliging](azure-security-technical-capabilities.md)
 ### [Governance in Azure](governance-in-azure.md)
+### [Versleuteling van inactieve gegevens](azure-security-encryption-atrest.md)
 
 # Aan de slag
 ## [Aan de slag met Azure-beveiliging](azure-security-getting-started.md)
@@ -51,6 +53,7 @@
 ## PaaS-services
 ### [PaaS-implementaties beveiligen](security-paas-deployments.md)
 #### [PaaS-toepassingen voor web en mobiel beveiligen met SQL](security-paas-applications-using-sql.md)
+#### [Best practices voor SQL Database](azure-database-security-best-practices.md)
 #### [PaaS-toepassingen voor web en mobiel beveiligen met App Services](security-paas-applications-using-app-services.md)
 
 ## Internet of Things
@@ -73,7 +76,7 @@
 ## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # Resources
-## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [MVP-programma voor Azure-beveiliging](azure-security-mvp.md)
 ## [Adviezen voor cyberbeveiliging](azure-security-cyber-services.md)
 ## [Blog over beveiliging en naleving](http://blogs.msdn.com/b/azuresecurity/)

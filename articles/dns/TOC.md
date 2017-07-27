@@ -40,6 +40,7 @@
 ## [DNS-zones en records beschermen](dns-protect-zones-recordsets.md)
 ## [DNS-bewerkingen automatiseren met de .NET-SDK](dns-sdk.md)
 
+## [Azure DNS integreren met Azure-resources](dns-custom-domain.md)
 ## Problemen oplossen
 ### [Handleiding voor het oplossen van problemen](dns-troubleshoot.md)
 
@@ -62,7 +63,7 @@
 ## [Web-apps](/azure/app-service-web/)
 
 # Resources
-## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Functieverzoeken](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Netwerkblog](http://azure.microsoft.com/blog/topics/networking)
