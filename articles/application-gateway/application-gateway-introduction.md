@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/10/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 17fc7e6a19b835e08360d1bf638d69aabb14e121
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c9aafa13ebdeeb84a35e55e25650f334ddc71af5
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Overzicht van Application Gateway
@@ -103,4 +103,6 @@ Zie [Application Gateway FAQ](application-gateway-faq.md) (Veelgestelde vragen o
 Nadat u informatie hebt opgedaan over Application Gateway, kunt u [een toepassingsgateway maken](application-gateway-create-gateway-portal.md) of [een SSL-offload voor een toepassingsgateway maken](application-gateway-ssl-arm.md) voor taakverdeling van HTTPS-verbindingen.
 
 Voor meer informatie over het maken van een toepassingsgateway met behulp van URL-gebaseerd routeren van content gaat u naar [Een toepassingsgateway maken met behulp van URL-gebaseerde routering](application-gateway-create-url-route-arm-ps.md).
+
+Zie [Azure Networking]((../networking/networking-overview.md) voor meer informatie over andere belangrijke netwerkmogelijkheden van Azure.
 

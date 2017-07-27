@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/14/2017
+ms.date: 07/21/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 46766e29287ca130e68aa0f027cbb1ded2526af3
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 5f57cbdb1678dd61eda449d2103125d8db83892e
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Gegevensgebruik analyseren in Log Analytics
@@ -110,13 +110,15 @@ Het diagram *Gegevensvolume in een langere periode* toont het totale volume van 
 
 Het diagram *Gegevensvolume per oplossing* toont de hoeveelheid gegevens die wordt verzonden door elke oplossing en de oplossingen die de meeste gegevens verzenden. Het diagram bovenaan toont het totale volume van de gegevens die in een bepaalde periode door elke oplossing worden verzonden. Aan de hand van deze informatie kunt u bepalen of een oplossing meer gegevens, ongeveer dezelfde hoeveelheid gegevens of minder gegevens gedurende een bepaalde periode verzendt. De lijst met oplossingen toont de 10 oplossingen die de meeste gegevens verzendt. 
 
+Deze twee grafieken geven alle gegevens weer. Sommige gegevens zijn betaald, andere gegevens zijn gratis. Als u zich wilt richten op gegevens die betaald zijn, neemt u op de zoekpagina `IsBillable=true` op in de query.  
+
 ![gegevensvolumediagrammen](./media/log-analytics-usage/log-analytics-usage-data-volume.png)
 
 Bekijk het diagram *Gegevensvolume in een langere periode*. Klik op de naam van de computer om de oplossingen en gegevenstypen te bekijken die de meeste gegevens verzenden voor een specifieke computer. Klik op de naam van de eerste computer in de lijst.
 
 Op de volgende schermafbeelding verzendt het gegevenstype *Log Management / Perf* de meeste gegevens voor de computer. 
-![gegevensvolume voor een computer](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
 
+![gegevensvolume voor een computer](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
 
 Ga vervolgens terug naar het dashboard *Gebruik* en bekijk het diagram *Gegevensvolume per oplossing*. Klik op de naam van de oplossing in de lijst voor een overzicht van de computers die de meeste gegevens voor een oplossing verzenden. Klik op de naam van de eerste oplossing in de lijst. 
 
@@ -124,16 +126,31 @@ Op de volgende schermafbeelding is te zien dat de computer *acmetomcat* de meest
 
 ![gegevensvolume voor een oplossing](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)
 
+Voer indien nodig extra analyses uit om grote volumes binnen een oplossing of gegevenstype te identificeren. Voorbeelden van query's zijn:
+
++ **Beveiligingsoplossing**
+  - `Type=SecurityEvent | measure count() by EventID`
++ **Logboekbeheeroplossing**
+  - `Type=Usage Solution=LogManagement IsBillable=true | measure count() by DataType`
++ **Perf-gegevenstype**
+  - `Type=Perf | measure count() by CounterPath`
+  - `Type=Perf | measure count() by CounterName`
++ **Gebeurtenisgegevenstype**
+  - `Type=Event | measure count() by EventID`
+  - `Type=Event | measure count() by EventLog, EventLevelName`
++ **Syslog-gegevenstype**
+  - `Type=Syslog | measure count() by Facility, SeverityLevel`
+  - `Type=Syslog | measure count() by ProcessName`
 
 Gebruik de volgende stappen om het volume van de logboeken die worden verzameld te beperken:
 
 | Bron van hoog gegevensvolume | Het gegevensvolume verminderen |
 | -------------------------- | ------------------------- |
-| Beveiligingsgebeurtenissen            | Selecteer [normale of minimale beveiligingsgebeurtenissen](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Wijzig het beleid voor beveiligingscontrole. Schakel bijvoorbeeld gebeurtenissen van het type [Filterplatform controleren](https://technet.microsoft.com/library/dd772749(WS.10).aspx) uit. |
+| Beveiligingsgebeurtenissen            | Selecteer [normale of minimale beveiligingsgebeurtenissen](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Wijzig het beleid voor beveiligingscontrole zodat alleen de gewenste gebeurtenissen worden verzameld. Controleer vooral de noodzaak voor het verzamelen van gebeurtenissen voor <br> - [filterplatform controleren](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [register controleren](https://docs.microsoft.com/windows/device-security/auditing/audit-registry)<br> - [bestandssysteem controleren](https://docs.microsoft.com/windows/device-security/auditing/audit-file-system)<br> - [kernel-object controleren](https://docs.microsoft.com/windows/device-security/auditing/audit-kernel-object)<br> - [greepbewerking controleren](https://docs.microsoft.com/windows/device-security/auditing/audit-handle-manipulation)<br> - [verwijderbare opslag controleren](https://docs.microsoft.com/windows/device-security/auditing/audit-removable-storage) |
 | Prestatiemeteritems       | Wijzig de [Prestatiemeteritemconfiguratie](log-analytics-data-sources-performance-counters.md) in: <br> - Frequentie van het verzamelen van gegevens beperken <br> - Aantal prestatiemeteritems beperken |
 | Gebeurtenislogboeken                 | Wijzig [Configuratie van gebeurtenislogboek](log-analytics-data-sources-windows-events.md) in: <br> - Aantal verzamelde gebeurtenislogboeken beperken <br> - Alleen vereiste gebeurtenisniveaus verzamelen. Bijvoorbeeld, gebeurtenissen op *informatie*niveau niet verzamelen |
 | Syslog                     | Wijzig de [syslog-configuratie](log-analytics-data-sources-syslog.md) in: <br> - Aantal verzamelde installaties beperken <br> - Alleen vereiste gebeurtenisniveaus verzamelen. Bijvoorbeeld, gebeurtenissen op *informatie*- en *foutopsporings*niveau niet verzamelen |
-| Oplossingsgegevens van computers die de oplossing niet nodig hebben | Gebruik [oplossingstargeting](../operations-management-suite/operations-management-suite-solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers.
+| Oplossingsgegevens van computers die de oplossing niet nodig hebben | Gebruik [oplossingstargeting](../operations-management-suite/operations-management-suite-solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Controleren of er meer knooppunten zijn dan verwacht
 Als u gebruikmaakt van de prijscategorie *per knooppunt (OMS)*, worden de kosten berekend op basis van het aantal knooppunten en oplossingen die u gebruikt. In de sectie *Aanbiedingen* van het dashboard met gebruiksgegevens kunt u zien hoeveel knooppunten van elke aanbieding er worden gebruikt.
@@ -148,4 +165,9 @@ Gebruik [oplossingstargeting](../operations-management-suite/operations-manageme
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Zoekopdrachten in logboeken in Log Analytics](log-analytics-log-searches.md) voor meer informatie over het gebruik van de zoektaal. U kunt zoekquery’s gebruiken om aanvullende analyses uit te voeren op de gebruiksgegevens.
 * Gebruik de stappen in [Een waarschuwingsregel maken](log-analytics-alerts-creating.md#create-an-alert-rule) om een melding te krijgen wanneer aan een zoekcriterium wordt voldaan
+* Gebruik [oplossingstargeting](../operations-management-suite/operations-management-suite-solution-targeting.md) om alleen van de vereiste groepen computers gegevens te verzamelen
+* Selecteer [normale of minimale beveiligingsgebeurtenissen](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/)
+* Wijzig de [prestatiemeteritemconfiguratie](log-analytics-data-sources-performance-counters.md)
+* Wijzig de [gebeurtenislogboekconfiguratie](log-analytics-data-sources-windows-events.md)
+* Wijzig de [syslog-configuratie](log-analytics-data-sources-syslog.md)
 
