@@ -22,32 +22,24 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/21/2017
 
 ---
-<a id="use-azure-vm-agents-for-continuous-integration-with-jenkins" class="xliff"></a>
-
-# Azure VM-agents gebruiken voor continue integratie met Jenkins
+# <a name="use-azure-vm-agents-for-continuous-integration-with-jenkins"></a>Azure VM-agents gebruiken voor continue integratie met Jenkins
 
 In deze Quickstart ziet u hoe u met de invoegtoepassing Jenkins Azure VM Agents een on-demand Linux-agent (Ubuntu) maakt in Azure.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
 * Als u nog geen Jenkins-master hebt, kunt u beginnen met de [oplossingssjabloon](install-jenkins-solution-template.md). 
 * Raadpleeg [Een Azure-service-principal maken met de Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) als u nog geen Azure-service-principal hebt.
 
-<a id="install-azure-vm-agents-plugin" class="xliff"></a>
-
-## Azure VM Agents-invoegtoepassing installeren
+## <a name="install-azure-vm-agents-plugin"></a>Azure VM Agents-invoegtoepassing installeren
 
 Als u begint vanuit de [oplossingssjabloon](install-jenkins-solution-template.md), wordt de invoegtoepassing Azure VM Agents geïnstalleerd in de Jenkins-master.
 
-Anders installeert u de****  invoegtoepassing vanuit het dashboard van Jenkins.
+Anders installeert u de**invoegtoepassing** vanuit het dashboard van Jenkins.
 
-<a id="configure-the-plugin" class="xliff"></a>
-
-## De invoegtoepassing configureren
+## <a name="configure-the-plugin"></a>De invoegtoepassing configureren
 
 * Klik in het dashboard van Jenkins op **Manage Jenkins -> Configure System ->**. Ga naar de onderkant van de pagina en zoek de sectie met de vervolgkeuzelijst **Add new cloud**. Selecteer **Microsoft Azure VM Agents** in de lijst.
 * Selecteer een bestaand account in de vervolgkeuzelijst Azure Credentials.  Als u een nieuwe **Microsoft Azure-service-principal** wilt toevoegen, geeft u waarden op voor: Subscription ID, Client ID, Client Secret en OAuth 2.0 Token Endpoint.
@@ -57,13 +49,9 @@ Anders installeert u de****  invoegtoepassing vanuit het dashboard van Jenkins.
 * Klik op **Verify configuration** om er zeker van te zijn dat de configuratie juist is.
 * Sla de configuratie op en ga verder met de volgende stap.
 
-<a id="template-configuration" class="xliff"></a>
+## <a name="template-configuration"></a>Sjabloonconfiguratie
 
-## Sjabloonconfiguratie
-
-<a id="general-configuration" class="xliff"></a>
-
-### Algemene configuratie
+### <a name="general-configuration"></a>Algemene configuratie
 Configureer vervolgens een sjabloon die u wilt gebruiken voor het definiëren van een Azure VM-agent. 
 
 * Klik op **Add** om een sjabloon toe te voegen. 
@@ -76,9 +64,7 @@ Configureer vervolgens een sjabloon die u wilt gebruiken voor het definiëren va
 
 ![Algemene configuratie](./media/jenkins-azure-vm-agents/general-config.png)
 
-<a id="image-configuration" class="xliff"></a>
-
-### Configuratie van installatiekopie
+### <a name="image-configuration"></a>Configuratie van installatiekopie
 
 Als u een Linux-agent (Ubuntu) wilt maken, selecteert u **Image reference** en gebruikt u de volgende configuratie als voorbeeld. Raadpleeg [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) voor de nieuwste ondersteunde Azure-installatiekopieën.
 
@@ -102,9 +88,7 @@ sudo apt-get install -y openjdk-7-jdk
 * Klik op **Verify Template** om de configuratie te controleren.
 * Klik op **Opslaan**.
 
-<a id="create-a-job-in-jenkins" class="xliff"></a>
-
-## Een taak maken in Jenkins
+## <a name="create-a-job-in-jenkins"></a>Een taak maken in Jenkins
 
 * Klik in het dashboard van Jenkins op **New Item**. 
 * Voer een naam in, selecteer **Freestyle project** en klik op **OK**.
@@ -113,9 +97,7 @@ sudo apt-get install -y openjdk-7-jdk
 
 ![Een taak instellen](./media/jenkins-azure-vm-agents/job-config.png)
 
-<a id="build-your-new-project" class="xliff"></a>
-
-## Het nieuwe project bouwen
+## <a name="build-your-new-project"></a>Het nieuwe project bouwen
 
 * Ga terug naar het dashboard van Jenkins.
 * Klik met de rechtermuisknop op de nieuwe taak die u hebt gemaakt en klik vervolgens op **Build now**. De bewerking wordt gestart. 
@@ -123,9 +105,7 @@ sudo apt-get install -y openjdk-7-jdk
 
 ![Console-uitvoer](./media/jenkins-azure-vm-agents/console-output.png)
 
-<a id="reference" class="xliff"></a>
-
-## Naslaginformatie
+## <a name="reference"></a>Naslaginformatie
 
 * Video van Azure Friday: [Continuous Integration with Jenkins Using Azure VM Agents](https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents) (Continue integratie met Jenkins met behulp van Azure VM-agents)
 * Ondersteuningsinformatie en configuratie-opties: de Engelstalige wiki van Jenkins [Azure VM Agents plugin](https://wiki.jenkins-ci.org/display/JENKINS/Azure+VM+Agents+Plugin) 
