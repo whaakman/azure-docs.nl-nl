@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/29/2017
+ms.date: 07/27/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
@@ -22,9 +22,7 @@ ms.lasthandoff: 06/30/2017
 
 ---
 
-<a id="update-your-automation-account-authentication-with-run-as-accounts" class="xliff"></a>
-
-# Uw Automation-account bijwerken met Uitvoeren als-accounts 
+# <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Uw Automation-account bijwerken met Uitvoeren als-accounts 
 In de volgende gevallen kunt u een bestaand Automation-account bijwerken vanuit de portal of met PowerShell:
 
 * U maakt wel een Automation-account, maar geen Uitvoeren als-account.
@@ -32,9 +30,7 @@ In de volgende gevallen kunt u een bestaand Automation-account bijwerken vanuit 
 * U gebruikt al een Automation-account voor het beheer van klassieke resources en u wilt dit bijwerken, zodat u het klassieke Uitvoeren als-account kunt gebruiken in plaats van een nieuw account te maken, en uw runbooks en activa daarnaartoe te migreren.   
 * U wilt een Uitvoeren als-account maken en een klassiek Uitvoeren als-account via een certificaat dat is uitgegeven door de certificeringsinstantie van uw bedrijf.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 * Het script kan alleen worden uitgevoerd in Windows 10 en Windows Server 2016 met Azure Resource Manager-modules 3.0.0 en hoger. Uitvoeren wordt niet ondersteund in eerdere versies van Windows.
 * Azure PowerShell 1.0 en hoger. Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor meer informatie over de PowerShell 1.0-release.
@@ -46,9 +42,7 @@ Ga als volgt te werk om de waarden op te halen voor *SubscriptionID*, *ResourceG
 2. Selecteer op de blade **Alle instellingen** onder **Accountinstellingen** de optie **Eigenschappen**. 
 3. Let op de waarden op de blade **Eigenschappen**.<br><br> ![De blade Eigenschappen voor het Automation-account](media/automation-create-runas-account/automation-account-properties.png)  
 
-<a id="required-permissions-to-update-your-automation-account" class="xliff"></a>
-
-### Machtigingen die zijn vereist om een Automation-account bij te werken
+### <a name="required-permissions-to-update-your-automation-account"></a>Machtigingen die zijn vereist om een Automation-account bij te werken
 Als u een Automation-account wilt bijwerken, moet u de volgende specifieke machtigingen en bevoegdheden hebben om dit onderwerp te voltooien.   
  
 * Uw AD-gebruikersaccount moet worden toegevoegd aan een rol die machtigingen heeft die equivalent zijn aan de rol Inzender voor Microsoft.Automation-resources. Dit is beschreven in het artikel [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md#contributor-role-permissions).  
@@ -56,9 +50,7 @@ Als u een Automation-account wilt bijwerken, moet u de volgende specifieke macht
 
 Als u geen lid bent van het Active Directory-exemplaar van het abonnement voordat u wordt toegevoegd aan de rol van globale beheerder/medebeheerder van het abonnement, wordt u als gast toegevoegd aan Active Directory. In dat geval wordt de waarschuwing 'U bent niet gemachtigd om…' weergegeven op de blade **Automation-account toevoegen**. Gebruikers die zijn toegevoegd aan de rol van globale beheerder/medebeheerder, kunnen worden verwijderd uit het Active Directory-exemplaar van het abonnement en opnieuw worden toegevoegd, zodat ze een volledige gebruiker worden in Active Directory. U kunt deze situatie controleren door in het deelvenster **Azure Active Directory** van Azure Portal **Gebruikers en groepen** te selecteren. Selecteer vervolgens **Alle gebruikers**, de specifieke gebruiker en **Profiel**. De waarde van het kenmerk **Gebruikerstype** onder het gebruikersprofiel mag niet gelijk zijn aan **Gast**.
 
-<a id="create-run-as-account-from-the-portal" class="xliff"></a>
-
-## Uitvoeren als-account maken vanuit de portal
+## <a name="create-run-as-account-from-the-portal"></a>Uitvoeren als-account maken vanuit de portal
 In deze sectie voert u de volgende stappen uit om een Azure Automation-account bij te werken vanuit Azure Portal.  U maakt de Uitvoeren als- en klassieke Uitvoeren als-accounts afzonderlijk, en als u geen resources in de klassieke Azure-portal hoeft te beheren, hoeft u alleen een Azure Uitvoeren als-account te maken.  
 
 Tijdens dit proces worden de volgende items in uw Automation-account gemaakt.
@@ -79,9 +71,7 @@ Tijdens dit proces worden de volgende items in uw Automation-account gemaakt.
 3. Afhankelijk van welk account u nodig hebt, selecteert u **Uitvoeren als-account van Azure**  of **Klassiek Uitvoeren als-account van Azure**.  Na deze selectie wordt de blade **Uitvoeren als-account toevoegen** of **Klassiek Uitvoeren als-account toevoegen** weergegeven. Controleer de overzichtsgegevens en klik op **Maken** om verder te gaan met het maken van een Uitvoeren als-account.  
 4. Terwijl Azure het Uitvoeren als-account maakt, kunt u de voortgang volgen onder **Meldingen** in het menu en een banner waarin wordt vermeld dat het account wordt gemaakt.  Dit proces kan enkele minuten duren.  
 
-<a id="create-run-as-account-using-powershell-script" class="xliff"></a>
-
-## Uitvoeren als-account maken met een PowerShell-script
+## <a name="create-run-as-account-using-powershell-script"></a>Uitvoeren als-account maken met een PowerShell-script
 Dit PowerShell-script biedt ondersteuning voor de volgende configuraties:
 
 * Een Uitvoeren als-account maken met een zelfondertekend certificaat.
@@ -166,7 +156,7 @@ Afhankelijk van de configuratieoptie die u selecteert, maakt het script de volge
 
         $KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
         $KeyCredential.StartDate = $CurrentDate
-        $KeyCredential.EndDate= [DateTime]$PfxCert.GetExpirationDateString()
+        $KeyCredential.EndDate = Get-Date $PfxCert.GetExpirationDateString()
         $KeyCredential.EndDate = $KeyCredential.EndDate.AddDays(-1)
         $KeyCredential.KeyId = $KeyId
         $KeyCredential.CertValue  = $keyValue
@@ -307,8 +297,6 @@ Let op het volgende nadat het script is uitgevoerd:
 * Gebruik dit certificaat als u een klassiek Uitvoeren als-account hebt gemaakt met een openbaar certificaat (.cer-bestand). Volg de instructies voor het [uploaden van een API-beheercertificaat naar de klassieke Azure-portal](../azure-api-management-certs.md) en valideer de configuratie van de referenties met klassieke implementatieresources met behulp van de [Voorbeeldcode voor verificatie bij Resource Manager-resources](automation-verify-runas-authentication.md#classic-run-as-authentication). 
 * Als u *geen* klassiek Uitvoeren als-account hebt gemaakt, verifieert u met Resource Manager-resources en valideert u de configuratie van de referenties met behulp van de [voorbeeldcode om verificatie met Service Management-resources uit te voeren](automation-verify-runas-authentication.md#automation-run-as-authentication).
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * Zie [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md) (Toepassingsobjecten en service-principalobjecten) voor meer informatie over service-principals.
 * Voor meer informatie over certificaten en Azure-services raadpleegt u [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md) (Overzicht van certificaten voor Azure Cloud Services).
