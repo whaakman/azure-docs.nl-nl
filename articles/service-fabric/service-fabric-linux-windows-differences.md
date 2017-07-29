@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2017
+ms.date: 7/27/2017
 ms.author: subramar
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
@@ -20,11 +20,8 @@ ms.openlocfilehash: 68c7e1f3f51ca5bec30a0f71aaccbafa58078e69
 ms.contentlocale: nl-nl
 ms.lasthandoff: 06/30/2017
 
-
 ---
-<a id="differences-between-service-fabric-on-linux-preview-and-windows-generally-available" class="xliff"></a>
-
-# Verschillen tussen Service Fabric in Linux (preview) en Service Fabric in Windows (algemeen beschikbaar)
+# <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Verschillen tussen Service Fabric in Linux (preview) en Service Fabric in Windows (algemeen beschikbaar)
 
 Omdat Service Fabric in Linux een preview-versie is, zijn er enkele functies die wel worden ondersteund in Windows, maar nog niet in Linux. Wanneer Service Fabric in Linux algemeen beschikbaar komt, zullen de functiesets gelijkwaardig zijn. In toekomstige versies worden de verschillen in functies steeds kleiner. De meest recente versies (tussen versie 5.6 voor Windows en versie 5.5 voor Linux) hebben de volgende verschillen: 
 
@@ -46,9 +43,7 @@ Omdat Service Fabric in Linux een preview-versie is, zijn er enkele functies die
 
 De hulpmiddelen voor ontwikkelaars verschillen ook tussen Windows en Linux. VisualStudio, Powershell VSTS en ETW worden gebruikt op Windows terwijl Yeoman, Eclipse, Jenkins en LTTng op Linux worden gebruikt.
 
-<a id="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster" class="xliff"></a>
-
-## PowerShell-cmdlets die niet werken voor een Service Fabric-cluster in Linux
+## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>PowerShell-cmdlets die niet werken voor een Service Fabric-cluster in Linux
 
 * Invoke-ServiceFabricChaosTestScenario
 * Invoke-ServiceFabricFailoverTestScenario
@@ -106,9 +101,7 @@ De hulpmiddelen voor ontwikkelaars verschillen ook tussen Windows en Linux. Visu
 
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * [Uw ontwikkelomgeving voorbereiden in Linux](service-fabric-get-started-linux.md)
 * [Uw ontwikkelomgeving voorbereiden in OSX](service-fabric-get-started-mac.md)
 * [Uw eerste Service Fabric Java-toepassing in Linux maken en implementeren met behulp van Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
