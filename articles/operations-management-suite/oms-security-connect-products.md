@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 07/18/2017
 ms.author: yurid
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
 ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
+ms.contentlocale: nl-nl
 ms.lasthandoff: 12/06/2016
-
 
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Uw beveiligingsproducten koppelen aan de beveiligings- en controleoplossing van de Operations Management Suite (OMS) 
@@ -90,11 +90,13 @@ Op de computer met de agent moeten de gebeurtenissen vanuit de syslog-daemon wor
     ```
 6. Voer de onderstaande opdracht in en bekijk het resultaat om te controleren of er fouten in het logboek van de OMS-agent staan:
 
-    ```    
+    ``` 
     tail /var/opt/microsoft/omsagent/log/omsagent.log
     ```
 
 ## <a name="reviewing-collected-security-events"></a>Verzamelde beveiligingsgebeurtenissen controleren
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 Wanneer de configuratie is voltooid, wordt de beveiligingsgebeurtenis opgenomen door OMS Security. Als u de gebeurtenissen wilt visualiseren, opent u Zoeken in logboeken en voert u de opdracht *Type=CommonSecurityLog* in in het zoekveld. Druk vervolgens op ENTER. In het volgende voorbeeld ziet u het resultaat van deze opdracht. In dit geval zijn in OMS Security al beveiligingslogboeken van meerdere leveranciers opgenomen:
    
