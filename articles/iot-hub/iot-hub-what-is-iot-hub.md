@@ -23,9 +23,7 @@ ms.lasthandoff: 06/20/2017
 
 
 ---
-<a id="overview-of-the-azure-iot-hub-service" class="xliff"></a>
-
-# Overzicht van de service Azure IoT Hub
+# <a name="overview-of-the-azure-iot-hub-service"></a>Overzicht van de service Azure IoT Hub
 
 Welkom bij Azure IoT Hub. Dit artikel biedt een overzicht van Azure IoT Hub en een beschrijving van waarom u deze service moet gebruiken als u een Internet of Things-oplossing (IoT) gaat implementeren. Azure IoT Hub is een volledig beheerde service die stabiele en veilige tweerichtingscommunicatie tussen miljoenen IoT-apparaten en de back-end van een oplossing mogelijk maakt. Azure IoT Hub:
 
@@ -45,9 +43,7 @@ Raadpleeg [Internet of Things security from the ground up][lnk-security-ground-u
 > [!NOTE]
 > Zie [Microsoft Azure IoT Reference Architecture][lnk-refarch] (Referentiearchitectuur voor Microsoft Azure IoT) voor een uitgebreide beschrijving van de IoT-architectuur.
 
-<a id="iot-device-connectivity-challenges" class="xliff"></a>
-
-## Uitdagingen met de connectiviteit van IoT-apparaten
+## <a name="iot-device-connectivity-challenges"></a>Uitdagingen met de connectiviteit van IoT-apparaten
 
 Dankzij IoT Hub en de apparaatbibliotheken kunt u nu op een betrouwbare en veilige manier apparaten verbinden met de back-end van een oplossing. IoT-apparaten:
 
@@ -61,9 +57,7 @@ Dankzij IoT Hub en de apparaatbibliotheken kunt u nu op een betrouwbare en veili
 
 Naast de bovenstaande vereisten moet een IoT-oplossing schaalbaar, veilig en betrouwbaar zijn. De resulterende reeks connectiviteitsvereisten is moeilijk te implementeren en tijdrovend als u conventionele technologieën gebruikt, zoals webcontainers en berichtenbrokers.
 
-<a id="why-use-azure-iot-hub" class="xliff"></a>
-
-## Waarom Azure IoT Hub gebruiken?
+## <a name="why-use-azure-iot-hub"></a>Waarom Azure IoT Hub gebruiken?
 
 Naast een scala aan opties voor communicatie [van apparaat naar cloud][lnk-d2c-guidance] en [cloud naar apparaat][lnk-c2d-guidance], waaronder berichten, bestandsoverdracht en methoden voor aanvraag/antwoord, biedt Azure IoT Hub de volgende oplossingen voor uitdagingen op het gebied van apparaatconnectiviteit:
 
@@ -84,9 +78,7 @@ Naast een scala aan opties voor communicatie [van apparaat naar cloud][lnk-d2c-g
 
 * **Schalen**. Azure IoT Hub schaalt naar miljoenen gelijktijdig verbonden apparaten en miljoenen gebeurtenissen per seconde.
 
-<a id="gateways" class="xliff"></a>
-
-## Gateways
+## <a name="gateways"></a>Gateways
 
 Een gateway in een IoT-oplossing is doorgaans een [protocolgateway][lnk-iotedge] die is geïmplementeerd in de cloud of een [veldgateway][lnk-field-gateway] die lokaal is geïmplementeerd in uw apparaten. Een protocolgateway vertaalt protocollen, bijvoorbeeld MQTT naar AMQP. Een veldgateway kan perifere analyses uitvoeren, tijdgebonden beslissingen nemen waardoor de wachttijden worden verminderd, apparaatbeheerservices bieden, beveiligings- en privacybeperkingen opleggen en protocollen vertalen. Beide gatewaytypen fungeren als schakels tussen uw apparaten en uw IoT-hub.
 
@@ -94,9 +86,7 @@ Een veldgateway onderscheidt zich van een eenvoudig verkeersrouteringsapparaat (
 
 Een oplossing kan zowel een protocolgateway als een veldgateway bevatten.
 
-<a id="how-does-iot-hub-work" class="xliff"></a>
-
-## Hoe werkt IoT Hub?
+## <a name="how-does-iot-hub-work"></a>Hoe werkt IoT Hub?
 
 Azure IoT Hub implementeert het [service-ondersteunde communicatiepatroon][lnk-service-assisted-pattern] dat interacties tussen uw apparaten en de back-end van uw oplossing overbrengt. Het doel van de service-ondersteunde communicatie is het opzetten van betrouwbare tweerichtingscommunicatiepaden tussen een besturingssysteem, zoals IoT Hub, en apparaten voor speciale doeleinden die worden geïmplementeerd in mogelijk niet betrouwbare fysieke ruimtes. Het patroon gaat uit van de volgende principes:
 
@@ -118,9 +108,7 @@ Leveranciers van mobiele oplossingen hebben op zeer grote schaal het serviceonde
 
 IoT Hub wordt via het openbare-peeringpad van ExpressRoute ondersteund.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Zie [Berichten verzenden en ontvangen met IoT Hub][lnk-send-messages] om te leren hoe u berichten verzendt vanaf een apparaat en ontvangt via IoT Hub. U leert er ook om berichtroutes te configureren.
 

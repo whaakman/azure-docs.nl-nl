@@ -12,18 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
-ms.openlocfilehash: 4eee1b3f30c9e47983af5c1dfa60fe0deb8c2cc8
+ms.reviewer: jeffsta
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 7a82dcddcd051c88c2a6a515ed2353961307182a
 ms.contentlocale: nl-nl
-ms.lasthandoff: 02/08/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>How Azure subscriptions are associated with Azure Active Directory (Hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory)
 In dit artikel wordt informatie geboden over problemen met het aanmelden bij Microsoft Azure en verwante problemen, zoals problemen met de relatie tussen een Azure-abonnement en de Azure Active Directory (Azure AD).
+
+> [!IMPORTANT]
+> Microsoft raadt u aan Azure AD te beheren met het [Azure AD-beheercentrum](https://aad.portal.azure.com) in Azure Portal in plaats van de klassieke Azure portal waarnaar in dit artikel wordt verwezen.
 
 ## <a name="accounts-that-you-can-use-to-sign-in"></a>Accounts die u kunt gebruiken om u aan te melden
 We beginnen met de accounts die u kunt gebruiken om u aan te melden. Er zijn twee typen: een Microsoft-account (voorheen bekend als Microsoft Live ID) en een werk- of schoolaccount dat is opgeslagen in Azure AD.
@@ -120,8 +124,7 @@ Als u beide directory’s wilt beheren in de klassieke Azure Portal, voltooit u 
 ## <a name="next-steps"></a>Volgende stappen
 * Als u meer wilt weten over het wijzigen van de beheerders van een Azure-abonnement, ziet u [Azure-beheerdersrollen toevoegen of wijzigen](../billing/billing-add-change-azure-subscription-administrator.md)
 * Als u meer wilt weten over hoe de toegang tot resources wordt beheerd in Microsoft Azure, ziet u [Inzicht krijgen in toegang tot resources in Azure](active-directory-understanding-resource-access.md)
-* Zie [Beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles.md) voor meer informatie over het toewijzen van rollen in Azure AD.
-* [Als organisatie registreren voor Azure](sign-up-organization.md)
+* Zie [Beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) voor meer informatie over het toewijzen van rollen in Azure AD.
 
 <!--Image references-->
 [1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png

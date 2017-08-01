@@ -21,9 +21,7 @@ ms.lasthandoff: 05/26/2017
 
 
 ---
-<a id="monitor-availability-and-responsiveness-of-any-web-site" class="xliff"></a>
-
-# De beschikbaarheid en reactiesnelheid van een website bewaken
+# <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>De beschikbaarheid en reactiesnelheid van een website bewaken
 Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u tests instellen om de beschikbaarheid en responsiviteit te bewaken. [Azure Application Insights](app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
 
 U kunt beschikbaarheidstests instellen voor alle HTTP- en HTTPS-eindpunten die toegankelijk zijn op het openbare internet. U hoeft niks toe te voegen aan de website die u test. Het hoeft niet eens uw site te zijn: u kunt ook een REST API-service testen waarvan u afhankelijk bent.
@@ -68,9 +66,7 @@ Open de blade Beschikbaarheid en voeg een test toe.
 
     U kunt een [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) instellen die wordt aangeroepen wanneer er een waarschuwing wordt gegenereerd. (Merk op dat, momenteel, queryparameters niet worden doorgegeven als Eigenschappen.)
 
-<a id="test-more-urls" class="xliff"></a>
-
-### Meer URL’s testen
+### <a name="test-more-urls"></a>Meer URL’s testen
 Voeg meer tests toe. U kunt bijvoorbeeld uw startpagina testen of controleren of uw database wordt uitgevoerd, door de URL te testen voor een zoekopdracht.
 
 
@@ -117,9 +113,7 @@ Vanuit het resultaat van een beschikbaarheidstest kunt u:
 
 *Zijn er geen verwante items?* Als u Application Insights hebt ingesteld voor uw app aan serverzijde, kan dit komen doordat er [steekproeven](app-insights-sampling.md) worden uitgevoerd. 
 
-<a id="multi-step-web-tests" class="xliff"></a>
-
-## Webtests met meerdere stappen
+## <a name="multi-step-web-tests"></a>Webtests met meerdere stappen
 U kunt een scenario bewaken dat bestaat uit een reeks URL's. Als u bijvoorbeeld een verkoopwebsite bewaakt, kunt u testen of het toevoegen van items aan de winkelwagen goed werkt.
 
 > [!NOTE] 
@@ -132,9 +126,7 @@ Als u een test met meerdere stappen wilt maken, neemt u het scenario op met Visu
 > U kunt in uw tests geen gecodeerde functies of lussen gebruiken. De test moet volledig zijn opgenomen in het .webtest-script. U kunt echter wel standaard-invoegtoepassingen gebruiken.
 >
 
-<a id="1-record-a-scenario" class="xliff"></a>
-
-#### 1. Een scenario opnemen
+#### <a name="1-record-a-scenario"></a>1. Een scenario opnemen
 Gebruik Visual Studio Enterprise om een websessie op te nemen.
 
 1. Maak een project om de webprestaties te testen.
@@ -163,9 +155,7 @@ Gebruik Visual Studio Enterprise om een websessie op te nemen.
 
     ![Open in Visual Studio het bestand .webtest en klik op Uitvoeren.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
-<a id="2-upload-the-web-test-to-application-insights" class="xliff"></a>
-
-#### 2. De webtest uploaden naar Application Insights
+#### <a name="2-upload-the-web-test-to-application-insights"></a>2. De webtest uploaden naar Application Insights
 1. Maak in de Application Insights-portal een webtest.
 
     ![Kies op de blade Webtests de optie Toevoegen.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
@@ -175,17 +165,13 @@ Gebruik Visual Studio Enterprise om een websessie op te nemen.
 
     Stel de testlocaties, frequentie en waarschuwingsparameters op dezelfde manier in als voor pingtests.
 
-<a id="3-see-the-results" class="xliff"></a>
-
-#### 3. De resultaten weergeven
+#### <a name="3-see-the-results"></a>3. De resultaten weergeven
 
 Bekijk de testresultaten om mogelijke fouten te ontdekken. Dit doet u op dezelfde manier als voor tests met één URL.
 
 Bovendien kunt u de testresultaten downloaden om ze in Visual Studio weer te geven.
 
-<a id="too-many-failures" class="xliff"></a>
-
-#### Te veel fouten?
+#### <a name="too-many-failures"></a>Te veel fouten?
 
 * Een veelvoorkomende reden voor het mislukken van een test is dat het uitvoeren ervan te lang duurt. Het uitvoeren van de test mag niet langer dan twee minuten duren.
 
@@ -193,9 +179,7 @@ Bovendien kunt u de testresultaten downloaden om ze in Visual Studio weer te gev
 
 * De webtest moet volledig zijn opgenomen in het .webtest-script. U kunt in de test geen gecodeerde functies gebruiken.
 
-<a id="plugging-time-and-random-numbers-into-your-multi-step-test" class="xliff"></a>
-
-### Tijd en willekeurige cijfers invoegen in uw test met meerdere stappen
+### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Tijd en willekeurige cijfers invoegen in uw test met meerdere stappen
 Stel dat u een hulpprogramma test dat tijdsafhankelijke gegevens ontvangt van een externe feed (bijvoorbeeld een feed met aandelenkoersen). Wanneer u uw webtest opneemt, moet u specifieke tijden gebruiken, maar u stelt deze in als testparameters: StartTime en EndTime.
 
 ![Een webtest met parameters](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
@@ -218,26 +202,18 @@ Web Test invoegtoepassingen bieden de manier om parameters voor tijden toe te vo
 
 Upload uw test nu naar de portal. Het gebruikt de dynamische waarden bij elke uitvoering van de test.
 
-<a id="dealing-with-sign-in" class="xliff"></a>
-
-## Omgaan met aanmelden
+## <a name="dealing-with-sign-in"></a>Omgaan met aanmelden
 Als uw gebruikers zich aanmelden bij uw app, hebt u verschillende functies om de aanmelding te simuleren, zodat u pagina’s na het aanmelden kunt testen. Welke aanpak u gebruikt, hangt af van het type beveiliging van de app.
 
 In alle gevallne moet u een account maken in uw toepassing voor testdoeleinden. Beperk indien mogelijk de machtigingen voor dit testaccount, zodat webtests echte gebruikers niet beïnvloeden.
 
-<a id="simple-username-and-password" class="xliff"></a>
-
-### Eenvoudige gebruikersnaam en wachtwoord
+### <a name="simple-username-and-password"></a>Eenvoudige gebruikersnaam en wachtwoord
 Een webtest op de gebruikelijke manier registreren. Verwijder eerst de cookies.
 
-<a id="saml-authentication" class="xliff"></a>
-
-### SAML-verificatie
+### <a name="saml-authentication"></a>SAML-verificatie
 Gebruik de beschikbare SAML-invoegtoepassing voor webtests.
 
-<a id="client-secret" class="xliff"></a>
-
-### Clientgeheim
+### <a name="client-secret"></a>Clientgeheim
 Als uw app een aanmeldroute heeft die een klantgeheim omvat, gebruik dan deze route. Azure Active Directory (AAD) is een voorbeeld van een service die aanmelden met een clientgeheim bevat. In AAD is het klantgeheim de App Key.
 
 Hier is een voorbeeldwebtest van een Azure web-app met een App Key:
@@ -250,9 +226,7 @@ Hier is een voorbeeldwebtest van een Azure web-app met een App Key:
 
 Zorg ervoor dat de webtest een eigenlijke client is - dit wil zeggen: een eigen app in AAD heeft - en zijn clientId + App Key gebruikt. Uw service onder de test heeft ook een eigen app in AAD: de appID URI van deze app wordt weergegeven in het “resource”-veld tijdens de webtest.
 
-<a id="open-authentication" class="xliff"></a>
-
-### Open verificatie
+### <a name="open-authentication"></a>Open verificatie
 Een voorbeeld van open verificatie is het aanmelden met uw Microsoft- of Google-account. Veel apps die OAuth gebruiken, bieden een alternatief met clientgeheim, zodat uw eerste tactiek moet zijn deze mogelijkheid te onderzoeken.
 
 Als uw test moet aanmelden met OAuth, is de algemene benadering:
@@ -265,9 +239,7 @@ Als uw test moet aanmelden met OAuth, is de algemene benadering:
   (Visual Studio probeert de testparameters toe te voegen, maar voegt de parameters voor de tokens niet correct toe.)
 
 
-<a id="performance-tests" class="xliff"></a>
-
-## Prestatietests
+## <a name="performance-tests"></a>Prestatietests
 U kunt een belastingtest op uw website uitvoeren. Zoals de beschikbaarheidstest kunt enkel- of meervoudige aanvragen sturen vanuit onze punten over de hele wereld verspreid. In tegenstelling tot een beschikbaarheidstest worden vele verzoeken verzonden, waarmee meerdere gelijktijdige gebruikers worden gesimuleerd.
 
 Open op de blade Overzicht **Instellingen**, **Prestatietests**. Als u een test maakt, wordt u uitgenodigd om verbinding te maken met een Visual Studio Team Services-account of om er een te maken.
@@ -281,9 +253,7 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 > Gebruik [Live Stream](app-insights-live-stream.md) en [Profiler](app-insights-profiler.md) om de effecten van een prestatietest te volgen.
 >
 
-<a id="automation" class="xliff"></a>
-
-## Automatisering
+## <a name="automation"></a>Automatisering
 * Gebruik [PowerShell-scripts om automatisch een beschikbaarheidstest in te stellen](app-insights-powershell.md#add-an-availability-test).
 * Stel een [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) in die wordt aangeroepen wanneer er een waarschuwing wordt gegenereerd.
 

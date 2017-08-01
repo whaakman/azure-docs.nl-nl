@@ -24,9 +24,7 @@ ms.lasthandoff: 06/20/2017
 
 ---
 
-<a id="create-a-windows-virtual-machine-with-the-azure-cli" class="xliff"></a>
-
-# Een virtuele Windows-machine maken met de Azure CLI
+# <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a>Een virtuele Windows-machine maken met de Azure CLI
 
 De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. In deze handleiding staat informatie over het gebruik van de Azure CLI om een virtuele machine te implementeren met Windows Server 2016. Als de implementatie is voltooid, maken we verbinding met de server en installeren we ISS.
 
@@ -38,9 +36,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze Quickstart gebruikmaken van Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Een resourcegroep maken
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 Maak een resourcegroep maken met [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
@@ -50,9 +46,7 @@ In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* 
 az group create --name myResourceGroup --location eastus
 ```
 
-<a id="create-virtual-machine" class="xliff"></a>
-
-## Virtuele machine maken
+## <a name="create-virtual-machine"></a>Virtuele machine maken
 
 Maak een VM met [az vm create](/cli/azure/vm#create). 
 
@@ -81,9 +75,7 @@ Wanneer de virtuele machine is gemaakt, toont de Azure CLI informatie die lijkt 
 }
 ```
 
-<a id="open-port-80-for-web-traffic" class="xliff"></a>
-
-## Poort 80 openen voor webverkeer 
+## <a name="open-port-80-for-web-traffic"></a>Poort 80 openen voor webverkeer 
 
 Standaard worden alleen RDP-verbindingen toegestaan naar virtuele Windows-machines die zijn geïmplementeerd in Azure. Als deze virtuele machine wordt gebruikt als een webserver, moet u poort 80 openen voor verkeer vanaf internet. Gebruik de opdracht [az vm open-port](/cli/azure/vm#open-port) om de gewenste poort te openen.  
  
@@ -92,9 +84,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
 
-<a id="connect-to-virtual-machine" class="xliff"></a>
-
-## Verbinding maken met de virtuele machine
+## <a name="connect-to-virtual-machine"></a>Verbinding maken met de virtuele machine
 
 Gebruik de volgende opdracht om een sessie met een extern bureaublad te starten voor de virtuele machine. Vervang het IP-adres door het openbare IP-adres van de virtuele machine. Wanneer u hierom wordt gevraagd, typt u de referenties die zijn gebruikt bij het maken van de virtuele machine.
 
@@ -102,9 +92,7 @@ Gebruik de volgende opdracht om een sessie met een extern bureaublad te starten 
 mstsc /v:<Public IP Address>
 ```
 
-<a id="install-iis-using-powershell" class="xliff"></a>
-
-## IIS installeren met behulp van PowerShell
+## <a name="install-iis-using-powershell"></a>IIS installeren met behulp van PowerShell
 
 U bent nu aangemeld bij de VM van Azure en er is nog maar één regel code van PowerShell nodig om IIS te installeren en de regel voor de lokale firewall in te schakelen om webverkeer toe te staan. Open een PowerShell-prompt en voer de volgende opdracht uit:
 
@@ -112,17 +100,13 @@ U bent nu aangemeld bij de VM van Azure en er is nog maar één regel code van P
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-<a id="view-the-iis-welcome-page" class="xliff"></a>
-
-## De welkomstpagina van IIS weergeven
+## <a name="view-the-iis-welcome-page"></a>De welkomstpagina van IIS weergeven
 
 Nu IIS is geïnstalleerd en poort 80 op de virtuele machine is geopend voor toegang vanaf internet, kunt u een webbrowser van uw keuze gebruiken om de standaardwelkomstpagina van IIS weer te geven. Zorg ervoor dat u de standaardpagina bezoekt met het openbare IP-adres dat u hierboven hebt gedocumenteerd. 
 
 ![Standaardsite van IIS](./media/quick-create-powershell/default-iis-website.png) 
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Resources opschonen
+## <a name="clean-up-resources"></a>Resources opschonen
 
 U kunt de opdracht [az group delete](/cli/azure/group#delete) gebruiken om de resourcegroep, de VM en alle gerelateerde resources te verwijderen wanneer u ze niet meer nodig hebt.
 
@@ -130,9 +114,7 @@ U kunt de opdracht [az group delete](/cli/azure/group#delete) gebruiken om de re
 az group delete --name myResourceGroup
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 In deze Snel starten hebt u een eenvoudige virtuele machine geïmplementeerd, een netwerkbeveiligingsgroepregel gemaakt en een webserver geïnstalleerd. Voor meer informatie over virtuele machines in Azure, gaat u verder met de zelfstudie voor virtuele Windows-machines.
 

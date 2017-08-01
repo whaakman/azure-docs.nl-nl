@@ -24,23 +24,17 @@ ms.lasthandoff: 06/15/2017
 
 
 ---
-<a id="create-an-azure-sql-database-in-the-azure-portal" class="xliff"></a>
-
-# Een Azure SQL-database maken in Azure Portal
+# <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Een Azure SQL-database maken in Azure Portal
 
 In deze Quick Start leert u hoe u een SQL-database maakt in Azure. Azure SQL Database is een Database-as-a-Service-oplossing waarmee u maximaal beschikbare SQL Server-databases kunt uitvoeren en schalen in de cloud. In deze Quick Start ziet u hoe u aan de slag gaat door een SQL-database te maken met behulp van Azure Portal.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-<a id="log-in-to-the-azure-portal" class="xliff"></a>
-
-## Aanmelden bij Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
 Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-<a id="create-a-sql-database" class="xliff"></a>
-
-## Een SQL-database maken
+## <a name="create-a-sql-database"></a>Een SQL-database maken
 
 Een Azure SQL-database wordt gemaakt met een gedefinieerde set [reken- en opslagresources](sql-database-service-tiers.md). De database is gemaakt in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) en in een [logische Azure SQL Database-server](sql-database-features.md). 
 
@@ -96,9 +90,7 @@ Volg deze stappen voor het maken van een SQL-database met de voorbeeldgegevens v
 
    ![melding](./media/sql-database-get-started-portal/notification.png)
 
-<a id="create-a-server-level-firewall-rule" class="xliff"></a>
-
-## Een serverfirewallregel maken
+## <a name="create-a-server-level-firewall-rule"></a>Een serverfirewallregel maken
 
 De service SQL Database maakt een firewall op serverniveau die voorkomt dat externe toepassingen en hulpmiddelen verbinding maken met de server of databases op de server, tenzij er een firewallregel is gemaakt om de firewall te openen voor specifieke IP-adressen. Volg deze stappen om een [SQL Database-firewallregel op serverniveau](sql-database-firewall-configure.md) te maken voor het IP-adres van de client en connectiviteit via de SQL Database-firewall alleen voor uw IP-adres toe te staan. 
 
@@ -132,9 +124,7 @@ U kunt nu verbinding maken met de SQL Database-server en de bijbehorende databas
 > Voor alle Azure-services is toegang via de SQL Database-firewall standaard ingeschakeld. Klik op **UIT** op deze pagina om dit voor alle Azure-services uit te schakelen.
 >
 
-<a id="query-the-sql-database" class="xliff"></a>
-
-## Query's uitvoeren op de SQL-database
+## <a name="query-the-sql-database"></a>Query's uitvoeren op de SQL-database
 
 Nu u een voorbeelddatabase in Azure hebt gemaakt, gebruiken we het ingebouwde hulpprogramma voor query's binnen Azure Portal om te bevestigen dat u verbinding kunt maken met de database en query's kunt uitvoeren voor de gegevens. 
 
@@ -165,9 +155,7 @@ Nu u een voorbeelddatabase in Azure hebt gemaakt, gebruiken we het ingebouwde hu
 
 7. Sluit de pagina **Query-editor** en de pagina **Extra**.
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Resources opschonen
+## <a name="clean-up-resources"></a>Resources opschonen
 
 Als u deze resources niet voor een andere Quick Start/zelfstudie nodig hebt (zie [Volgende stappen](#next-steps)), kunt u ze verwijderen door het volgende te doen:
 
@@ -175,9 +163,7 @@ Als u deze resources niet voor een andere Quick Start/zelfstudie nodig hebt (zie
 1. Klik in het menu links in Azure Portal op **Resourcegroepen** en klik vervolgens op **myResourceGroup**. 
 2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ **myResourceGroup** in het tekstvak en klik vervolgens op **Verwijderen**.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Nu u een database hebt, kunt u verbinding maken met een hulpprogramma naar keuze en hiermee query's uitvoeren. Klik op de onderstaande hulpprogramma's voor meer informatie:
 

@@ -23,9 +23,7 @@ ms.lasthandoff: 05/18/2017
 
 ---
 
-<a id="get-started-with-azure-dns-using-the-azure-portal" class="xliff"></a>
-
-# Aan de slag met Azure DNS met behulp van Azure Portal
+# <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Aan de slag met Azure DNS met behulp van Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-getstarted-portal.md)
@@ -37,9 +35,7 @@ Dit artikel leidt u stapsgewijs door de procedure voor het maken van uw eerste D
 
 Een DNS-zone wordt gebruikt om de DNS-records voor een bepaald domein te hosten. Als u uw domein wilt hosten in Azure DNS, moet u een DNS-zone maken voor die domeinnaam. Alle DNS-records voor uw domein worden vervolgens gemaakt binnen deze DNS-zone. Tot slot moet u de naamservers voor het domein configureren om de DNS-zone te publiceren naar internet. Deze stappen worden hieronder afzonderlijk beschreven.
 
-<a id="create-a-dns-zone" class="xliff"></a>
-
-## Een DNS-zone maken
+## <a name="create-a-dns-zone"></a>Een DNS-zone maken
 
 1. Aanmelden bij Azure Portal
 2. Klik in het menu Hub en klik op **Nieuw > Netwerken >** en klik vervolgens op **DNS-zone** om de blade DNS-zone maken te openen.
@@ -59,9 +55,7 @@ Een DNS-zone wordt gebruikt om de DNS-records voor een bepaald domein te hosten.
 > [!NOTE]
 > De resourcegroep verwijst naar de locatie van de resourcegroep en heeft geen invloed op de DNS-zone. De locatie van de DNS-zone is altijd 'global' en wordt niet weergegeven.
 
-<a id="create-a-dns-record" class="xliff"></a>
-
-## Een DNS-record maken
+## <a name="create-a-dns-record"></a>Een DNS-record maken
 
 In het volgende voorbeeld ziet u hoe de nieuwe 'A'-record wordt gemaakt. Voor andere typen en voor het wijzigen van bestaande records, raadpleegt u [Manage DNS records and record sets by using the Azure portal](dns-operations-recordsets-portal.md) (DNS-records en -recordsets beheren met behulp van Azure Portal). 
 
@@ -79,18 +73,14 @@ In het volgende voorbeeld ziet u hoe de nieuwe 'A'-record wordt gemaakt. Voor an
    |**TTL-eenheid**|Uren|Maateenheid van de TTL-waarde.|
    |**IP-adres**|ipAddressValue| Dit is het IP-adres dat de DNS-record oplost.|
 
-<a id="view-records" class="xliff"></a>
-
-## Records weergeven
+## <a name="view-records"></a>Records weergeven
 
 In het onderste gedeelte van de blade van de DNS-zone ziet u de records voor de DNS-zone. U ziet de standaardrecords voor DNS en SOA, die in elke zone worden gemaakt, plus alle nieuwe records die u hebt gemaakt.
 
 ![zone](./media/dns-getstarted-portal/viewzone500.png)
 
 
-<a id="update-name-servers" class="xliff"></a>
-
-## Naamservers bijwerken
+## <a name="update-name-servers"></a>Naamservers bijwerken
 
 Wanneer uw DNS-zone en -records correct zijn ingesteld, moet u uw domeinnaam configureren voor het gebruik van de Azure DNS-naamservers . Op die manier kunnen andere gebruikers op internet uw DNS-records vinden.
 
@@ -100,9 +90,7 @@ De naamservers voor de zone worden verstrekt in Azure Portal:
 
 Deze naamservers moeten worden geconfigureerd met de domeinnaamregistrar (waar u de domeinnaam hebt gekocht). Uw registrar biedt u de mogelijkheid om de naamservers voor het domein in te stellen. Zie [Uw domein delegeren naar Azure DNS](dns-domain-delegation.md) voor meer informatie.
 
-<a id="delete-all-resources" class="xliff"></a>
-
-## Alle resources verwijderen
+## <a name="delete-all-resources"></a>Alle resources verwijderen
 
 Als u alle resources wilt verwijderen die u in dit artikel hebt gemaakt, voert u de volgende stappen uit:
 
@@ -111,9 +99,7 @@ Als u alle resources wilt verwijderen die u in dit artikel hebt gemaakt, voert u
 1. De portal vereist dat u de naam van de resourcegroep typt om te bevestigen dat u deze wilt verwijderen. Klik op **Verwijderen**, typ *MyResourceGroup* als naam van de resourcegroep en klik op **Verwijderen**. Als u een resourcegroep verwijdert, worden alle resources binnen de resourcegroep verwijderd. Zorg er dus altijd voor dat u de inhoud van een resourcegroep bevestigt, voordat u deze verwijdert. Alle resources die zich in de resourcegroep bevinden en de resourcegroep zelf worden verwijderd. Dit proces duurt enkele minuten.
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Zie [Azure DNS Overview](dns-overview.md) (Overzicht van Azure DNS) voor meer informatie over Azure DNS.
 

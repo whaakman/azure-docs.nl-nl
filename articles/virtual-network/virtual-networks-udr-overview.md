@@ -23,9 +23,7 @@ ms.lasthandoff: 05/31/2017
 
 
 ---
-<a id="user-defined-routes-and-ip-forwarding" class="xliff"></a>
-
-# Door de gebruiker gedefinieerde routes en doorsturen via IP
+# <a name="user-defined-routes-and-ip-forwarding"></a>Door de gebruiker gedefinieerde routes en doorsturen via IP
 
 Als u virtuele machines (VM's) aan een virtueel netwerk (VNet) in Azure toevoegt, ziet u dat de virtuele machines automatisch met elkaar kunnen communiceren via het netwerk. U hoeft geen gateway op te geven, ook niet als de virtuele machines tot verschillende subnetten behoren. Hetzelfde geldt voor de communicatie tussen VM's en internet. Als er een hybride verbinding is tussen Azure en uw eigen datacentrum, is er zelfs communicatie met uw on-premises netwerk mogelijk.
 
@@ -53,9 +51,7 @@ In de volgende afbeelding ziet u een voorbeeld van door de gebruiker gedefinieer
 > 
 > 
 
-<a id="route-resource" class="xliff"></a>
-
-## Bron routeren
+## <a name="route-resource"></a>Bron routeren
 Pakketten worden gerouteerd via een TCP/IP-netwerk op basis van een routetabel die op elk knooppunt van het fysieke netwerk is gedefinieerd. Een routetabel is een verzameling van afzonderlijke routes waarmee wordt bepaald waarnaar pakketten worden doorgestuurd op basis van het doel-IP-adres. Een route bestaat uit het volgende:
 
 | Eigenschap | Beschrijving | Beperkingen | Overwegingen |
@@ -72,18 +68,14 @@ Sommige van de NextHopType-waarden hebben verschillende namen in Azure PowerShel
 * Internet is Internet
 * Geen is Geen
 
-<a id="system-routes" class="xliff"></a>
-
-### Systeemroutes
+### <a name="system-routes"></a>Systeemroutes
 Elk subnet dat in een virtueel netwerk wordt gemaakt, wordt automatisch gekoppeld aan een routetabel met de volgende systeemrouteregels:
 
 * **Lokale VNnet-regel**: deze regel wordt automatisch gemaakt voor elk subnet in een virtueel netwerk. Hiermee wordt aangegeven dat er een directe koppeling tussen de VM's in het VNET is zonder tussenliggende volgende hop.
 * **On-premises regel**: deze regel wordt toegepast op al het verkeer naar het on-premises adresbereik en maakt gebruik van VPN-gateway als bestemming voor de volgende hop.
 * **Internetregel**: met deze regel wordt al het verkeer afgehandeld dat bestemd is voor het openbare internet (adresvoorvoegsel 0.0.0.0/0) en wordt gebruikgemaakt van de internetgateway van de infrastructuur als de volgende hop voor al het verkeer dat bestemd is voor internet.
 
-<a id="user-defined-routes" class="xliff"></a>
-
-### Door de gebruiker gedefinieerde routes
+### <a name="user-defined-routes"></a>Door de gebruiker gedefinieerde routes
 Voor de meeste omgevingen hebt u alleen de systeemroutes nodig die al zijn gedefinieerd door Azure. In bepaalde gevallen moet u echter een routetabel maken en een of meer routes toevoegen, zoals bij:
 
 * Geforceerde tunneling naar internet via uw on-premises netwerk.
@@ -104,9 +96,7 @@ Zie [Routes maken en 'Doorsturen via IP' inschakelen in Azure](virtual-network-c
 > 
 > 
 
-<a id="bgp-routes" class="xliff"></a>
-
-### BGP-routes
+### <a name="bgp-routes"></a>BGP-routes
 Als u een ExpressRoute-verbinding tussen uw on-premises netwerk en Azure hebt, kunt u BGP configureren voor het propageren van routes van uw on-premises netwerk naar Azure. Deze BGP-routes worden op dezelfde manier gebruikt als systeemroutes en door de gebruiker gedefinieerde routes in elk Azure-subnet. Zie [Inleiding tot ExpressRoute](../expressroute/expressroute-introduction.md) voor meer informatie.
 
 > [!IMPORTANT]
@@ -114,16 +104,12 @@ Als u een ExpressRoute-verbinding tussen uw on-premises netwerk en Azure hebt, k
 > 
 > 
 
-<a id="ip-forwarding" class="xliff"></a>
-
-## Doorsturen via IP
+## <a name="ip-forwarding"></a>Doorsturen via IP
 Zoals hierboven beschreven, worden door de gebruiker gedefinieerde routes meestal gemaakt om verkeer door te sturen naar een virtueel apparaat. Een virtueel apparaat is niets meer dan een virtuele machine waarop een toepassing wordt uitgevoerd om netwerkverkeer op een bepaalde manier af te handelen, zoals een firewall of een NAT-apparaat.
 
 Deze VM op het virtuele apparaat moet in staat zijn om binnenkomend verkeer te ontvangen dat niet is geadresseerd aan zichzelf. Om met een VM verkeer te kunnen ontvangen dat is geadresseerd aan andere bestemmingen, moet u Doorsturen via IP inschakelen voor die VM. Dit is een Azure-instelling, niet een instelling in het gastbesturingssysteem.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * Ontdek hoe u [routes maakt in het implementatiemodel van Resource Manager](virtual-network-create-udr-arm-template.md) en deze koppelt aan subnetten. 
 * Ontdek hoe u [routes maakt in het klassieke implementatiemodel](virtual-network-create-udr-classic-ps.md) en deze koppelt aan subnetten.
 

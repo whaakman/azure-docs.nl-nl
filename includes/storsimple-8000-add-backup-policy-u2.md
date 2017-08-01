@@ -1,44 +1,42 @@
 <!--author=alkohli last changed: 02/10/17-->
 
-<a id="to-add-a-storsimple-backup-policy" class="xliff"></a>
+#### <a name="to-add-a-storsimple-backup-policy"></a>Een StorSimple-back-upbeleid toevoegen
 
-#### To add a StorSimple backup policy
+1. Ga naar uw StorSimple-apparaat en klik op **Back-upbeleid**.
 
-1. Go to your StorSimple device and click **Backup policy**.
-
-2. In the **Backup policy** blade, click **+ Add policy** from the command bar.
+2. Klik op de blade **Back-upbeleid** op **+ Beleid toevoegen** vanuit de opdrachtbalk.
    
-    ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol1.png)
+    ![Een back-upbeleid toevoegen](./media/storsimple-8000-add-backup-policy-u2/addbupol1.png)
 
-3. In the **Create backup policy** blade, do the following steps:
+3. Voer de volgende stappen uit op de blade **Back-upbeleid maken**:
    
-   1. **Select device** is automatically populated based on the device you selected.
+   1. **Apparaat selecteren** wordt automatisch ingevuld op basis van het apparaat dat u hebt geselecteerd.
    
-   2. Specify a backup **Policy name** that contains between 3 and 150 characters.
+   2. Geef een **back-upbeleidsnaam** op van 3 tot 150 tekens. Als het beleid is gemaakt, kunt u het beleid niet hernoemen.
        
-   3. To assign volumes to this backup policy, select **Add volumes** and then from the tabular listing of volumes, click the check box(es) to assign one or more volumes to this backup policy.
+   3. Als u volumes wilt toewijzen aan dit back-upbeleid, selecteert u **Volumes toevoegen** en klikt u vervolgens vanuit de lijst in tabelvorm met volumesop het selectievakje uit om een of meer volumes toe te wijzen aan het back-upbeleid.
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol2.png)
+       ![Een back-upbeleid toevoegen](./media/storsimple-8000-add-backup-policy-u2/addbupol2.png)
 
-   4. To define a schedule for this backup policy, click **First schedule** and then modify the following parameters:
+   4. Als u een planning voor het back-upbeleid wilt definiëren, klikt u op **Eerste planning** en wijzigt u vervolgens de volgende parameters:
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol3.png)
+       ![Een back-upbeleid toevoegen](./media/storsimple-8000-add-backup-policy-u2/addbupol3.png)
 
-       1. For **Snapshot type**, select **Cloud** or **Local**.
+       1. Selecteer voor **Type momentopname** de optie **Cloud** of **Lokaal**.
 
-       2. Indicate the frequency of backups (specify a number and then choose **Days** or **Weeks** from the drop-down list.
+       2. Geef de frequentie van de back-ups aan (geef een aantal op en kies **Dagen** of **Weken** in de vervolgkeuzelijst).
 
-       3. Enter a retention schedule.
+       3. Voer een bewaarschema in.
 
-       4. Enter a time and date for the backup policy to begin.
+       4. Voer een begintijd en -datum in voor het back-upbeleid.
 
-       5. Click **OK** to define the schedule.
+       5. Klik op **OK** om de planning te definiëren.
 
-   5. Click **Create** to create a backup policy.
+   5. Klik op **Maken** om een back-upbeleid te maken.
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol4.png)
+       ![Een back-upbeleid toevoegen](./media/storsimple-8000-add-backup-policy-u2/addbupol4.png)
    
-   6. You are notified when the backup policy is created. The newly added policy is displayed in the tabular view on the **Backup Policy** blade.
+   6. U krijgt een melding wanneer het back-upbeleid is gemaakt. Het nieuwe beleid wordt in tabelvorm weergegeven op de blade **Back-upbeleid**.
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol7.png)
+       ![Een back-upbeleid toevoegen](./media/storsimple-8000-add-backup-policy-u2/addbupol7.png)
 

@@ -22,9 +22,7 @@ ms.lasthandoff: 06/21/2017
 
 
 ---
-<a id="prepare-your-development-environment" class="xliff"></a>
-
-# Uw ontwikkelomgeving voorbereiden
+# <a name="prepare-your-development-environment"></a>Uw ontwikkelomgeving voorbereiden
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
@@ -34,12 +32,8 @@ ms.lasthandoff: 06/21/2017
 
  Als u [Azure Service Fabric-toepassingen][1] op uw ontwikkelmachine wilt bouwen en uitvoeren, moet u de runtime, de SDK en de hulpprogramma's installeren. U moet er ook voor zorgen dat de Windows PowerShell-scripts die in de SDK zijn opgenomen, kunnen worden uitgevoerd.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
-<a id="supported-operating-system-versions" class="xliff"></a>
-
-### Ondersteunde versies van besturingssystemen
+## <a name="prerequisites"></a>Vereisten
+### <a name="supported-operating-system-versions"></a>Ondersteunde versies van besturingssystemen
 De volgende versies van besturingssystemen worden ondersteund voor de ontwikkeling:
 
 * Windows 7
@@ -53,27 +47,19 @@ De volgende versies van besturingssystemen worden ondersteund voor de ontwikkeli
 > 
 > 
 
-<a id="install-the-sdk-and-tools" class="xliff"></a>
-
-## De SDK en hulpprogramma's installeren
-<a id="to-use-visual-studio-2017" class="xliff"></a>
-
-### Visual Studio 2017 gebruiken
+## <a name="install-the-sdk-and-tools"></a>De SDK en hulpprogramma's installeren
+### <a name="to-use-visual-studio-2017"></a>Visual Studio 2017 gebruiken
 De hulpprogramma's voor Service Fabric vormen een onderdeel van de Azure-workload voor ontwikkeling en beheer in Visual Studio 2017. Schakel deze workload in als onderdeel van de Visual Studio-installatie.
 Bovendien moet u de Microsoft Azure Service Fabric SDK installeren met behulp van het webplatforminstallatieprogramma.
 
 * [Microsoft Azure Service Fabric SDK installeren][core-sdk]
 
-<a id="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later" class="xliff"></a>
-
-### Visual Studio 2015 gebruiken (hiervoor is Visual Studio 2015 Update 2 of later vereist)
+### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Visual Studio 2015 gebruiken (hiervoor is Visual Studio 2015 Update 2 of later vereist)
 Hulpprogramma's voor Service Fabric worden in Visual Studio 2015 geïnstalleerd samen met de SDK met behulp van het webplatforminstallatieprogramma:
 
 * [De SDK en hulpprogramma's voor Microsoft Azure Service Fabric installeren][full-bundle-vs2015]
 
-<a id="sdk-installation-only" class="xliff"></a>
-
-### Alleen SDK-installatie
+### <a name="sdk-installation-only"></a>Alleen SDK-installatie
 Als u alleen de SDK nodig hebt, kunt u dit pakket installeren:
 * [Microsoft Azure Service Fabric SDK installeren][core-sdk]
 
@@ -91,18 +77,14 @@ De huidige previewversies zijn:
 
 Zie [Ondersteuning voor Service Fabric](service-fabric-support.md) voor een lijst met ondersteunde versies.
 
-<a id="enable-powershell-script-execution" class="xliff"></a>
-
-## Uitvoering van PowerShell-script inschakelen
+## <a name="enable-powershell-script-execution"></a>Uitvoering van PowerShell-script inschakelen
 Service Fabric gebruikt Windows PowerShell-scripts om een lokaal ontwikkelcluster te maken en om toepassingen vanuit Visual Studio te implementeren. Standaard worden deze scripts door Windows geblokkeerd zodat ze niet worden uitgevoerd. Als u ze wilt inschakelen, moet u het PowerShell-uitvoeringsbeleid wijzigen. Open PowerShell als een beheerder en voer de volgende opdracht in:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nu u uw ontwikkelingsomgeving hebt ingesteld, kunt u apps ontwikkelen en uitvoeren.
 
 * [Uw eerste Service Fabric-toepassing in Visual Studio maken](service-fabric-create-your-first-application-in-visual-studio.md)

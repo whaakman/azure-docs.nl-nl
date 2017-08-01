@@ -23,8 +23,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/07/2017
 
 ---
-# Wachtwoordherstel implementeren voor gebruikers
-<a id="roll-out-password-reset-for-users" class="xliff"></a>
+# <a name="roll-out-password-reset-for-users"></a>Wachtwoordherstel implementeren voor gebruikers
 
 De meeste klanten volgen de onderstaande stappen voor een soepel verloop van de implementatie van de functionaliteit voor self-service voor wachtwoordherstel.
 
@@ -41,8 +40,7 @@ De meeste klanten volgen de onderstaande stappen voor een soepel verloop van de 
 8. U kunt ervoor kiezen registratie op elk gewenst moment af te dwingen en gebruikers te vereisen hun verificatiegegevens na een bepaalde periode opnieuw te bevestigen. Als u niet wilt dat uw gebruikers zich moeten registreren, kunt u [wachtwoordherstel implementeren zonder registratie door eindgebruikers te vereisen](active-directory-passwords-data.md).
 9. Controleer in de loop van de tijd gebruikers die zich hebben geregistreerd en gebruikmaken van de service door de [rapporten die worden verstrekt door Azure AD](active-directory-passwords-reporting.md) te bekijken.
 
-## Implementatie op basis van e-mail
-<a id="email-based-rollout" class="xliff"></a>
+## <a name="email-based-rollout"></a>Implementatie op basis van e-mail
 
 Veel klanten vinden een e-mailcampagne, met eenvoudig te gebruiken instructies, de eenvoudigste manier om gebruikers self-service voor wachtwoordherstel te laten gebruiken. [We hebben drie eenvoudige e-mailberichten gemaakt die u als sjabloon kunt gebruiken om te helpen bij uw implementatie.](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16)
 
@@ -50,8 +48,7 @@ Veel klanten vinden een e-mailcampagne, met eenvoudig te gebruiken instructies, 
 * De e-mailsjabloon **Nu beschikbaar** die moet worden gebruikt op de dag van de lancering om gebruikers ertoe te zetten zich te registreren en hun verificatiegegevens te bevestigen, zodat ze self-service voor wachtwoordherstel kunnen gebruiken als ze het nodig hebben.
 * De e-mailsjabloon **Herinnering voor aanmelding** die enkele dagen tot weken na implementatie moet worden gebruikt om gebruikers eraan te herinneren zich te registreren hun verificatiegegevens te bevestigen.
 
-## Uw eigen wachtwoordportal maken
-<a id="creating-your-own-password-portal" class="xliff"></a>
+## <a name="creating-your-own-password-portal"></a>Uw eigen wachtwoordportal maken
 
 Veel van onze klanten kiezen ervoor een webpagina te hosten en een DNS-basisvermelding te maken, zoals https://passwords.contoso.com. Ze vullen deze pagina met koppelingen naar de functionaliteit van Azure AD voor wachtwoordherstel, registratie voor wachtwoordherstel, portals voor het wijzigen van het wachtwoord en andere organisatiespecifieke informatie. In e-mailberichten of flyers die u verstuurt, kunt u een in huisstijl opgemaakte, gemakkelijk te onthouden URL opnemen die gebruikers kunnen raadplegen wanneer ze de services moeten gebruiken.
 
@@ -59,8 +56,7 @@ Veel van onze klanten kiezen ervoor een webpagina te hosten en een DNS-basisverm
 * Portal voor registratie voor wachtwoordherstel: http://aka.ms/ssprsetup
 * Portal voor wijzigen wachtwoord: https://account.activedirectory.windowsazure.com/ChangePassword.aspx
 
-## Gedwongen registratie gebruiken
-<a id="using-enforced-registration" class="xliff"></a>
+## <a name="using-enforced-registration"></a>Gedwongen registratie gebruiken
 
 Als u wilt dat uw gebruikers zich registreren voor wachtwoordherstel, kunt u hen dwingen zich te registreren wanneer ze zich aanmelden via Azure AD. U kunt deze optie inschakelen via de blade **Wachtwoordherstel** van uw directory door de optie **Vereisen dat gebruikers zich bij aanmelding registreren?** te kiezen op het tabblad **Registratie**.
 
@@ -68,18 +64,15 @@ Beheerders kunnen gebruikers verplichten om zich na een bepaalde periode opnieuw
 
 Nadat u deze optie hebt ingeschakeld, zien gebruikers een bericht dat hen informeert dat de beheerder vereist dat ze hun verificatiegegevens controleren.
 
-## Verificatiegegevens invullen
-<a id="populate-authentication-data" class="xliff"></a>
+## <a name="populate-authentication-data"></a>Verificatiegegevens invullen
 
 Als u [verificatiegegevens voor uw gebruikers invult](active-directory-passwords-data.md), hoeven gebruikers zich niet te registreren voor wachtwoordherstel om gebruik te kunnen maken van self-service voor wachtwoordherstel. Zolang gebruikers de verificatiegegevens hebben gedefinieerd die voldoen aan het beleid voor wachtwoordherstel dat u hebt gedefinieerd hebben, kunnen gebruikers hun wachtwoord opnieuw instellen.
 
-## Self-service voor wachtwoordherstel uitschakelen
-<a id="disabling-self-service-password-reset" class="xliff"></a>
+## <a name="disabling-self-service-password-reset"></a>Self-service voor wachtwoordherstel uitschakelen
 
 Het uitschakelen van self-service voor wachtwoordherstel is heel eenvoudig. Open uw Azure AD-tenant en ga naar **Wachtwoordherstel**, **Eigenschappen**. Kies **Niemand** onder **Self-service voor wachtwoord opnieuw instellen is ingeschakeld**
 
-## Volgende stappen
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Volgende stappen
 
 De volgende koppelingen bieden aanvullende informatie over wachtwoordherstel met behulp van Azure AD
 

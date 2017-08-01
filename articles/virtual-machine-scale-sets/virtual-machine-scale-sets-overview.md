@@ -24,9 +24,7 @@ ms.lasthandoff: 07/04/2017
 
 
 ---
-<a id="what-are-virtual-machine-scale-sets-in-azure" class="xliff"></a>
-
-# Wat zijn virtuele-machineschaalsets in Azure?
+# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Wat zijn virtuele-machineschaalsets in Azure?
 Virtuele-machineschaalsets vormen een compute-resource van Azure die u kunt gebruiken om een set identieke VM's te implementeren en te beheren. Met behulp van schaalsets worden alle virtuele machines op dezelfde manier geconfigureerd en automatisch geschaald. U hoeft de virtuele machines dus niet vooraf in te richten. Hierdoor wordt het gemakkelijker om grootschalige services te ontwikkelen voor Big Compute, big data en beperkte workloads.
 
 Voor toepassingen die compute-resources in en uit moeten schalen, worden schaalaanpassingen impliciet verdeeld over fout- en updatedomeinen. Raadpleeg de [aankondiging in de Azure-blog](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/) voor een verdere introductie van schaalsets.
@@ -36,9 +34,7 @@ Bekijk voor meer informatie over schaalsets deze video's:
 * [Mark Russinovich vertelt over Azure-schaalsets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
 * [Guy Bowerman over virtuele-machineschaalsets](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-<a id="creating-and-managing-scale-sets" class="xliff"></a>
-
-## Schaalsets maken en beheren
+## <a name="creating-and-managing-scale-sets"></a>Schaalsets maken en beheren
 U kunt een schaalset maken in [Azure Portal](https://portal.azure.com) door **nieuw** te selecteren en **schaal** in de zoekbalk te typen. **Virtuele-machineschaalset** wordt vermeld in de resultaten. Daarna vult u de vereiste velden in om uw schaalset aan te passen en te implementeren. Er zijn in de portal ook opties om basisregels voor automatisch schalen in te stellen op basis van CPU-gebruik.
 
 U kunt schaalsets definiëren en implementeren met behulp van JSON-sjablonen en [REST API's](https://msdn.microsoft.com/library/mt589023.aspx), net als individuele virtuele machines in Azure Resource Manager. U kunt daarom alle standaardimplementatiemethoden van Azure Resource Manager gebruiken. Zie [Azure Resource Manager-sjablonen samenstellen](../azure-resource-manager/resource-group-authoring-templates.md) voor meer informatie over sjablonen.
@@ -47,9 +43,7 @@ In de [GitHub-opslagplaats voor Azure Quickstart-sjablonen](https://github.com/A
 
 Voor de Quick Start-sjabloonvoorbeelden is een knop 'Implementeren naar Azure' in het Leesmij-bestand gekoppeld aan de implementatiefunctie van de portal. Als u de schaalset wilt implementeren, klikt u op de knop en vult u vervolgens de vereiste parameters in de portal in. 
 
-<a id="scaling-a-scale-set-out-and-in" class="xliff"></a>
-
-## Een schaalset in- en uitschalen
+## <a name="scaling-a-scale-set-out-and-in"></a>Een schaalset in- en uitschalen
 U kunt de capaciteit van een schaalset in Azure Portal wijzigen door te klikken op het gedeelte **Schalen** in **Instellingen**. 
 
 Gebruik de opdracht **Schalen** in [Azure CLI](https://github.com/Azure/azure-cli) om de capaciteit van de schaalset op de opdrachtregel te wijzigen. Gebruik bijvoorbeeld deze opdracht om een schaalset in te stellen op een capaciteit van 10 VM's:
@@ -70,9 +64,7 @@ Als u het aantal virtuele machines in een schaalset wilt verhogen of verlagen me
 
 Als u een Azure Resource Manager-sjabloon opnieuw wilt implementeren om de capaciteit te wijzigen, kunt u een veel kleinere sjabloon definiëren die alleen het eigenschappenpakket **SKU** met de bijgewerkte capaciteit bevat. [Hier volgt een voorbeeld](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
-<a id="autoscale" class="xliff"></a>
-
-## Automatisch schalen
+## <a name="autoscale"></a>Automatisch schalen
 
 Een schaalset kan optioneel worden geconfigureerd met instellingen voor automatisch schalen wanneer deze wordt gemaakt in Azure Portal. Het aantal VM's kan vervolgens worden verhoogd of verlaagd op basis van het gemiddelde CPU-gebruik. 
 
@@ -93,18 +85,14 @@ Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGr
 
 In [Ondersteunde metrische gegevens met Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md) vindt u onder de kop Microsoft.Compute/virtualMachineScaleSets een lijst met geldige metrische gegevens die u kunt schalen. Er zijn ook meer geavanceerde opties voor automatisch schalen beschikbaar, waaronder automatisch schalen op basis van een planning en het gebruik van webhooks om te integreren met waarschuwingssystemen.
 
-<a id="monitoring-your-scale-set" class="xliff"></a>
-
-## Uw schaalset controleren
+## <a name="monitoring-your-scale-set"></a>Uw schaalset controleren
 In [Azure Portal](https://portal.azure.com) ziet u de schaalsets en de bijbehorende eigenschappen. De portal biedt ook ondersteuning voor beheerbewerkingen. U kunt beheerbewerkingen zowel op schaalsets uitvoeren als op afzonderlijke VM's binnen een schaalset. De portal biedt ook een aanpasbare grafiek over het resourcegebruik. 
 
 Als u de onderliggende JSON-definitie van een Azure-resource wilt weergeven of bewerken, kunt u ook [Azure Resource Explorer](https://resources.azure.com) gebruiken. Schaalsets vormen een resource onder de Microsoft.Compute Azure-resourceprovider. Op deze site kunt u ze zien door op de volgende koppelingen te klikken:
 
 **Abonnementen** > **uw abonnement** > **resourceGroups** > **providers** > **Microsoft.Compute** > **virtualMachineScaleSets** > **uw schaalset** > enzovoort.
 
-<a id="scale-set-scenarios" class="xliff"></a>
-
-## Scenario's voor schaalsets
+## <a name="scale-set-scenarios"></a>Scenario's voor schaalsets
 In dit gedeelte wordt een aantal typische scenario's voor schaalsets genoemd. Deze scenario's worden toegepast voor een aantal van de hogere Azure-services, zoals Batch, Service Fabric en Container Service.
 
 * **RDP of SSH gebruiken om verbinding te maken met instanties van schaalset**: binnen een virtueel netwerk wordt een schaalset gemaakt. Er worden standaard geen openbare IP-adressen toegewezen aan afzonderlijke VM's in de schaalset. Met dit beleid voorkomt u de kosten en het overheadbeheer die nodig zijn om afzonderlijke openbare IP-adressen aan alle knooppunten in het rekenraster toe te wijzen. Als u rechtstreekse externe verbindingen met virtuele machines in de schaalset nodig hebt, kunt u een schaalset configureren om automatisch openbare IP-adressen toe te wijzen aan nieuwe virtuele machines. U kunt ook verbinding maken met VM's vanuit andere resources in uw virtuele netwerk waaraan openbare IP-adressen kunnen worden toegewezen, bijvoorbeeld load balancers en zelfstandige virtuele machines. 
@@ -134,17 +122,13 @@ In dit gedeelte wordt een aantal typische scenario's voor schaalsets genoemd. De
   
    In [dit voorbeeld](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) van deze benadering wordt met [Azure Container Service](https://azure.microsoft.com/services/container-service/) een cluster geïmplementeerd op basis van schaalsets met een container-orchestrator.
 
-<a id="scale-set-performance-and-scale-guidance" class="xliff"></a>
-
-## Richtlijnen voor prestaties en schaal van schaalsets
+## <a name="scale-set-performance-and-scale-guidance"></a>Richtlijnen voor prestaties en schaal van schaalsets
 * Een schaalset biedt ondersteuning voor maximaal 1000 VM's. Als u uw eigen aangepaste VM-installatiekopieën wilt maken en uploaden, is de limiet 100. Zie [Werken met grote schaalsets voor virtuele machines](virtual-machine-scale-sets-placement-groups.md) voor overwegingen bij het gebruik van grote virtuele-machineschaalsets.
 * U hoeft vooraf geen Azure-opslagaccounts te maken om schaalsets te kunnen gebruiken. Schaalsets bieden ondersteuning voor beheerde schijven in Azure. Hierdoor hoeft u zich geen zorgen meer te maken over de prestaties als u veel schijven per opslagaccount gebruikt. Zie voor meer informatie [Schaalsets en beheerde schijven voor virtuele Azure-machines](virtual-machine-scale-sets-managed-disks.md).
 * Overweeg om Azure Premium-opslag te gebruiken in plaats van Azure-opslag voor snellere, beter te voorspellen VM-inrichting en verbeterde IO-prestaties.
 * Het aantal VM's dat u kunt maken, is beperkt tot het kernquotum van de regio waarin u ze implementeert. Mogelijk moet u contact opnemen met klantondersteuning om de limiet voor uw rekenquotum te verhogen, zelfs als u nu een hoge limiet hebt voor het aantal cores dat u gebruikt met Azure Cloud Services. Voer de volgende Azure CLI-opdracht uit om uw quotum op te vragen: `azure vm list-usage`. Of voer deze PowerShell-opdracht uit: `Get-AzureRmVMUsage`.
 
-<a id="frequently-asked-questions-for-scale-sets" class="xliff"></a>
-
-## Veelgestelde vragen over schaalsets
+## <a name="frequently-asked-questions-for-scale-sets"></a>Veelgestelde vragen over schaalsets
 **V:** Hoeveel virtuele machines kan een schaalset bevatten?
 
 **A:** Een schaalset kan 0-1000 virtuele machines bevatten op basis van platforminstallatiekopieën, of 0-100 virtuele machines op basis van aangepaste installatiekopieën. 

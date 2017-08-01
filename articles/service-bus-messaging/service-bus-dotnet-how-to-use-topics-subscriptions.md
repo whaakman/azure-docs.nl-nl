@@ -22,15 +22,11 @@ ms.lasthandoff: 07/01/2017
 
 
 ---
-<a id="get-started-with-service-bus-topics" class="xliff"></a>
-
-# Aan de slag met Service Bus-onderwerpen
+# <a name="get-started-with-service-bus-topics"></a>Aan de slag met Service Bus-onderwerpen
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-<a id="what-will-be-accomplished" class="xliff"></a>
-
-## Wat wordt bereikt
+## <a name="what-will-be-accomplished"></a>Wat wordt bereikt
 
 Deze zelfstudie bestaat uit de volgende stappen:
 
@@ -40,26 +36,20 @@ Deze zelfstudie bestaat uit de volgende stappen:
 4. Een consoletoepassing schrijven om een bericht te verzenden naar het onderwerp.
 5. Een consoletoepassing schrijven om dit bericht te ontvangen met het abonnement.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 1. [Visual Studio 2015 of hoger](http://www.visualstudio.com). In de voorbeelden in deze zelfstudie wordt Visual Studio 2017 gebruikt.
 2. Een Azure-abonnement.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-<a id="1-create-a-namespace-using-the-azure-portal" class="xliff"></a>
-
-## 1. Een naamruimte maken met de Azure-portal
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Een naamruimte maken met de Azure-portal
 
 Als u al een Service Bus Messaging-naamruimte hebt gemaakt, gaat u naar het gedeelte [Een onderwerp maken met de Azure-portal](#2-create-a-topic-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-<a id="2-create-a-topic-using-the-azure-portal" class="xliff"></a>
-
-## 2. Een onderwerp maken met de Azure-portal
+## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Een onderwerp maken met de Azure-portal
 
 1. Meld u aan bij [Azure Portal][azure-portal].
 2. Klik in het navigatiedeelvenster links van de portal op **Service Bus** (als u geen **Service Bus** ziet, klik dan op **Meer services**).
@@ -74,9 +64,7 @@ Als u al een Service Bus Messaging-naamruimte hebt gemaakt, gaat u naar het gede
     ![Selecteer Nieuw][createtopic3]
 6. Klik onder aan de blade op **Maken**.
 
-<a id="3-create-a-subscription-to-the-topic" class="xliff"></a>
-
-## 3. Een abonnement op het onderwerp maken
+## <a name="3-create-a-subscription-to-the-topic"></a>3. Een abonnement op het onderwerp maken
 
 1. In het resourcesdeelvenster van de portal klik u op de naamruimte die u in stap 1 hebt gemaakt en klikt u op de naam van het onderwerp dat u in stap 2 hebt gemaakt.
 2. Klik aan de bovenkant van het overzichtsvenster op het plusteken (+) naast **Abonnement** om een abonnement toe te voegen aan dit onderwerp.
@@ -85,30 +73,22 @@ Als u al een Service Bus Messaging-naamruimte hebt gemaakt, gaat u naar het gede
 
 3. Voer een naam in voor het abonnement. Houd voor de overige opties de standaardwaarden aan.
 
-<a id="4-send-messages-to-the-topic" class="xliff"></a>
-
-## 4. Berichten naar het onderwerp verzenden
+## <a name="4-send-messages-to-the-topic"></a>4. Berichten naar het onderwerp verzenden
 
 We maken een C#-consoletoepassing met Visual Studio om berichten naar het onderwerp te verzenden.
 
-<a id="create-a-console-application" class="xliff"></a>
-
-### Een consoletoepassing maken
+### <a name="create-a-console-application"></a>Een consoletoepassing maken
 
 Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Framework)**.
 
-<a id="add-the-service-bus-nuget-package" class="xliff"></a>
-
-### Het Service Bus NuGet-pakket toevoegen
+### <a name="add-the-service-bus-nuget-package"></a>Het Service Bus NuGet-pakket toevoegen
 
 1. Klik met de rechtermuisknop op het nieuwe project en selecteer **NuGet-pakketten beheren**.
 2. Klik op het tabblad **Bladeren**, zoek naar **Microsoft Azure Service Bus** en selecteer het item **WindowsAzure.ServiceBus**. Klik op **Installeren** om de installatie te voltooien en sluit vervolgens dit dialoogvenster.
    
     ![Een NuGet-pakket selecteren][nuget-pkg]
 
-<a id="write-some-code-to-send-a-message-to-the-topic" class="xliff"></a>
-
-### Code schrijven om een bericht naar het onderwerp te verzenden
+### <a name="write-some-code-to-send-a-message-to-the-topic"></a>Code schrijven om een bericht naar het onderwerp te verzenden
 
 1. Voeg boven in het bestand Program.cs de volgende `using`-instructie toe.
    
@@ -170,9 +150,7 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Framework)**.
    
       ![Berichtgrootte][topic-message]
 
-<a id="5-receive-messages-from-the-subscription" class="xliff"></a>
-
-## 5. Berichten ontvangen van het abonnement
+## <a name="5-receive-messages-from-the-subscription"></a>5. Berichten ontvangen van het abonnement
 
 1. Als u de berichten wilt ontvangen die u zojuist hebt verzonden, maakt u een nieuwe consoletoepassing en voegt u een verwijzing toe naar het Service Bus-pakket NuGet, zoals ook met de voorgaande zendtoepassing is gedaan.
 2. Voeg boven in het bestand Program.cs de volgende `using`-instructie toe.
@@ -233,9 +211,7 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Framework)**.
 
 Gefeliciteerd. U hebt nu een onderwerp en een abonnement gemaakt, een bericht verzonden en dat bericht ontvangen.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Bekijk onze [GitHub-opslagplaats met voorbeelden](https://github.com/Azure/azure-service-bus/tree/master/samples) die enkele van de meer geavanceerde functies van Service Bus Messaging laten zien.
 

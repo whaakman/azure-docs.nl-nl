@@ -22,9 +22,7 @@ ms.lasthandoff: 06/01/2017
 
 
 ---
-<a id="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs" class="xliff"></a>
-
-# Azure Data Lake Analytics beheren met Azure SDK voor Node.js
+# <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Azure Data Lake Analytics beheren met Azure SDK voor Node.js
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 U kunt de Azure SDK voor Node.js gebruiken voor het beheren van Azure Data Lake Analytics-accounts, taken en -catalogussen. Voor informatie over het beheer met andere hulpprogramma’s klikt u op het tabblad Select bovenaan.
@@ -36,23 +34,17 @@ Momenteel wordt ondersteund:
 * **REST-API-versie voor Catalog: 2015-10-01-preview**
 * **REST-API-versie voor Job: 2016-03-20-preview**
 
-<a id="features" class="xliff"></a>
-
-## Functies
+## <a name="features"></a>Functies
 * Accountbeheer: maken, ophalen, weergeven, bijwerken en verwijderen.
 * Taakbeheer: verzenden, ophalen, weergeven en annuleren.
 * Catalogusbeheer: ophalen en weergeven.
 
-<a id="how-to-install" class="xliff"></a>
-
-## Installeren
+## <a name="how-to-install"></a>Installeren
 ```bash
 npm install azure-arm-datalake-analytics
 ```
 
-<a id="authenticate-using-azure-active-directory" class="xliff"></a>
-
-## Verifiëren met Azure Active Directory
+## <a name="authenticate-using-azure-active-directory"></a>Verifiëren met Azure Active Directory
  ```javascript
  var msrestAzure = require('ms-rest-azure');
  //user authentication
@@ -61,9 +53,7 @@ npm install azure-arm-datalake-analytics
  var credentials = new msRestAzure.ApplicationTokenCredentials('your-client-id', 'your-domain', 'your-secret');
  ```
 
-<a id="create-the-data-lake-analytics-client" class="xliff"></a>
-
-## De Data Lake Analytics-client maken
+## <a name="create-the-data-lake-analytics-client"></a>De Data Lake Analytics-client maken
 ```javascript
 var adlaManagement = require("azure-arm-datalake-analytics");
 var acccountClient = new adlaManagement.DataLakeAnalyticsAccountClient(credentials, 'your-subscription-id');
@@ -71,9 +61,7 @@ var jobClient = new adlaManagement.DataLakeAnalyticsJobClient(credentials, 'azur
 var catalogClient = new adlaManagement.DataLakeAnalyticsCatalogClient(credentials, 'azuredatalakeanalytics.net');
 ```
 
-<a id="create-a-data-lake-analytics-account" class="xliff"></a>
-
-## Een Data Lake Analytics-account maken
+## <a name="create-a-data-lake-analytics-account"></a>Een Data Lake Analytics-account maken
 ```javascript
 var util = require('util');
 var resourceGroupName = 'testrg';
@@ -122,9 +110,7 @@ client.account.create(resourceGroupName, accountName, accountToCreate, function 
 });
 ```
 
-<a id="get-a-list-of-jobs" class="xliff"></a>
-
-## Een lijst met taken ophalen
+## <a name="get-a-list-of-jobs"></a>Een lijst met taken ophalen
 ```javascript
 var util = require('util');
 var accountName = 'testadlaacct';
@@ -137,9 +123,7 @@ jobClient.job.list(accountName, function (err, result, request, response) {
 });
 ```
 
-<a id="get-a-list-of-databases-in-the-data-lake-analytics-catalog" class="xliff"></a>
-
-## Een lijst met databases ophalen in de Data Lake Analytics-catalogus ophalen
+## <a name="get-a-list-of-databases-in-the-data-lake-analytics-catalog"></a>Een lijst met databases ophalen in de Data Lake Analytics-catalogus ophalen
 ```javascript
 var util = require('util');
 var accountName = 'testadlaacct';
@@ -152,9 +136,7 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 });
 ```
 
-<a id="see-also" class="xliff"></a>
-
-## Zie ook
+## <a name="see-also"></a>Zie ook
 * [Microsoft Azure SDK voor Node.js](https://github.com/azure/azure-sdk-for-node)
 * [Microsoft Azure SDK voor Node.js - Data Lake Store-beheer](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
 

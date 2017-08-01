@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2017
+ms.date: 07/25/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 2fda7dc07d01bcd0629d1fa80ec9262e80af4c5f
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
 ms.contentlocale: nl-nl
-ms.lasthandoff: 02/13/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>De directory voor uw Office 365-abonnement in Azure beheren
 In dit artikel wordt beschreven hoe u met behulp van de klassieke Azure-portal een directory beheert die voor een Office 365-abonnement is gemaakt. U moet de servicebeheerder of medebeheerder van een Azure-abonnement zijn om u aan te melden bij de klassieke Azure-portal. Als u nog geen Azure-abonnement hebt, kunt u zich vandaag aanmelden voor een [gratis proefperiode van 30 dagen](https://azure.microsoft.com/trial/get-started-active-directory/) en via deze koppeling binnen vijf minuten uw eerste cloudoplossing implementeren. Gebruik het werk- of schoolaccount waarmee u zich aanmeldt bij Office 365.
+
+> [!IMPORTANT]
+> Microsoft raadt u aan Azure AD te beheren met het [Azure AD-beheercentrum](https://aad.portal.azure.com) in Azure Portal in plaats van de klassieke Azure portal waarnaar in dit artikel wordt verwezen.
 
 Nadat u het Azure-abonnement hebt voltooid, kunt u zich aanmelden bij de klassieke Azure-portal en hebt u toegang tot Azure-services. Klik op de Active Directory-extensie om dezelfde directory te beheren waarmee uw Office 365-gebruikers worden geverifieerd.
 
@@ -41,7 +44,7 @@ Hij wil de gebruikersidentiteiten in de Contoso-directory beheren terwijl hij is
 In dit geval zijn de twee directory's onafhankelijk van elkaar.
 
 ## <a name="to-manage-two-independent-directories"></a>Twee onafhankelijke directory's beheren
-Jaap Kleefstra moet de volgende stappen uitvoeren om beide directory's te kunnen beheren terwijl hij is aangemeld bij Azure als msmith@hotmail.com,:
+Jaap Kleefstra moet de volgende stappen uitvoeren om beide directory's te kunnen beheren terwijl hij is aangemeld bij Azure als msmith@hotmail.com:
 
 > [!NOTE]
 > Deze stappen kunnen alleen worden uitgevoerd wanneer een gebruiker is aangemeld met een Microsoft-account. Als de gebruiker is aangemeld met een werk- of schoolaccount, is de optie **Bestaande directory gebruiken** niet beschikbaar. Een werk- of schoolaccount kan alleen worden geverifieerd aan de hand van de basisdirectory van het account (de directory waarin het werk- of schoolaccount is opgeslagen, en die eigendom is van het bedrijf of de school).
@@ -51,7 +54,7 @@ Jaap Kleefstra moet de volgende stappen uitvoeren om beide directory's te kunnen
 1. Meld u bij de [klassieke Azure-portal](https://manage.windowsazure.com) aan als msmith@hotmail.com.
 2. Klik achtereenvolgens op **Nieuw** > **App Services** > **Active Directory** > **Directory** > **Aangepast maken**.
 3. Klik op Bestaande directory gebruiken en schakel het selectievakje **Ik kan nu worden afgemeld** in.
-4. Meld u aan bij de klassieke Azure-portal als globale beheerder van Contoso.onmicrosoft.com (bijvoorbeeld msmith@contoso.com)).
+4. Meld u aan bij de klassieke Azure-portal als globale beheerder van Contoso.onmicrosoft.com (bijvoorbeeld msmith@contoso.com).
 5. Wanneer u wordt gevraagd **De Contoso-directory gebruiken met Azure?**, klikt u op **Doorgaan**.
 6. Klik op **Nu afmelden**.
 7. Meld u bij de klassieke Azure-portal aan als msmith@hotmail.com. De Contoso-directory en de Standaarddirectory worden weergegeven in de Active Directory-extensie.
@@ -61,7 +64,7 @@ Wanneer u deze stappen hebt uitgevoerd, is msmith@hotmail.com een globale beheer
 ## <a name="to-administer-resources-as-the-global-admin"></a>Resources beheren als globale beheerder
 Stel nu dat Dena Vloet websites en databaseresources moet beheren die zijn gekoppeld aan het Azure-abonnement van msmith@hotmail.com. Voordat ze dit kan doen, moet Jaap Kleefstra deze extra stappen uitvoeren:
 
-1. Zich aanmelden bij de [klassieke Azure-portal](https://manage.windowsazure.com) met het servicebeheerdersaccount voor het Azure-abonnement (in dit voorbeeld msmith@hotmail.com)).
+1. Zich aanmelden bij de [klassieke Azure-portal](https://manage.windowsazure.com) met het servicebeheerdersaccount voor het Azure-abonnement (in dit voorbeeld msmith@hotmail.com).
 2. Het abonnement overbrengen naar de Contoso-directory: klik achtereenvolgens op **Instellingen** > **Abonnementen** > selecteer het abonnement > **Directory bewerken** > selecteer **Contoso (Contoso.com)**. Als onderdeel van de overdracht worden werk- of schoolaccounts die medebeheerder zijn van het abonnement, verwijderd.
 3. Dena Vloet toevoegen als medebeheerder van het abonnement: klik achtereenvolgens op **Instellingen** > **Beheerders** > selecteer het abonnement > **Toevoegen** > typ **JohnDoe@Contoso.com**.
 

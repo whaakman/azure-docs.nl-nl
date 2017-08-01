@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 475b0cea9be58c9b6fa13645e3c19cc3b689aab2
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 8a03e28045019a4beb423d95a4fa00637cd66294
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Virtuele Hyper-V-machines in VMM-clouds repliceren naar Azure met Site Recovery in Azure Portal
@@ -164,6 +164,11 @@ Installeer de Azure Site Recovery-provider op de VMM-server en registreer de ser
 
      ![internet](./media/site-recovery-vmm-to-azure/provider13.PNG)
 7. Accepteer of wijzig de locatie van het SSL-certificaat dat automatisch is gegenereerd voor gegevensversleuteling. Dit certificaat wordt gebruikt als u gegevensversleuteling inschakelt voor een cloud die door Azure wordt beveiligd in de Azure Site Recovery-portal. Bewaar dit certificaat op een veilige plaats. Als gegevensversleuteling is ingeschakeld, moet u de gegevens eerst ontsleutelen wanneer u een failover naar Azure uitvoert.
+
+    > [!NOTE]
+    > Het is raadzaam de versleutelingsfunctie die wordt geleverd door Azure te gebruiken voor het versleutelen van data-at-rest in plaats van de gegevensversleutelingsoptie die door Azure Site Recovery wordt geboden. De versleutelingsfunctie die wordt verstrekt door Azure kan worden ingeschakeld voor een opslagaccount en zorgt voor betere prestaties omdat de versleuteling/ontsleuteling wordt verwerkt door Azure Storage.
+    > [Meer informatie over de Storage-versleutelingsservice van Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    
 8. Geef in **Servernaam** een beschrijvende naam op om de VMM-server in de kluis te identificeren. Geef in een clusterconfiguratie de VMM-clusterrolnaam op.
 9. Geef in **Cloudmetagegevens synchroniseren** aan of u metagegevens wilt synchroniseren voor alle clouds op de VMM-server met de kluis. Deze actie hoeft op elke server slechts één keer te worden uitgevoerd. Als u niet alle clouds wilt synchroniseren, laat u deze instelling uitgeschakeld en synchroniseert u elke cloud afzonderlijk in de cloudeigenschappen in de VMM-console. Klik op **Registreren** om het proces te voltooien.
 
@@ -425,6 +430,12 @@ Waar:
 * **/Credentials**: een verplichte parameter waarmee de locatie wordt opgegeven waarop het registratiesleutelbestand zich bevindt.  
 * **/FriendlyName**: een verplichte parameter voor de naam van de Hyper-V-hostserver die wordt weergegeven in de Azure Site Recovery-portal.
 * * **/EncryptionEnabled**: een optionele parameter voor wanneer u virtuele Hyper-V-machines in VMM-clouds repliceert naar Azure. Geef op of u virtuele machines in Azure wilt versleutelen (versleuteling voor data-at-rest). Controleer of de naam van het bestand de extensie **.pfx** heeft. Versleuteling is standaard uitgeschakeld.
+
+    > [!NOTE]
+    > Het is raadzaam de versleutelingsfunctie die wordt geleverd door Azure te gebruiken voor het versleutelen van data-at-rest in plaats van de versleutelingsoptie (de optie EncryptionEnabled) die door Azure Site Recovery wordt geboden. De versleutelingsfunctie die wordt verstrekt door Azure kan worden ingeschakeld voor een opslagaccount en zorgt voor betere prestaties omdat de versleuteling/ontsleuteling wordt uitgevoerd door Azure  
+    > Storage.
+    > [Meer informatie over de Storage-versleutelingsservice in Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    
 * **/proxyAddress**: een optionele parameter waarmee het adres van de proxyserver wordt opgegeven.
 * **/proxyport**: een optionele parameter waarmee de poort van de proxyserver wordt opgegeven.
 * **/proxyUsername**: een optionele parameter waarmee de proxygebruikersnaam wordt opgegeven (als er voor de proxyserver verificatie is vereist).

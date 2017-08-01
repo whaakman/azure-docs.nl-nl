@@ -22,9 +22,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="what-are-logic-apps" class="xliff"></a>
-
-# Wat zijn Logic Apps?
+# <a name="what-are-logic-apps"></a>Wat zijn Logic Apps?
 Logic Apps biedt een manier om schaalbare integraties en workflows in de cloud te vereenvoudigen en te implementeren. Het biedt een visuele designer om uw proces te modelleren en te automatiseren als een reeks stappen bekend als een werkstroom.  Er zijn [vele connectoren](../connectors/apis-list.md) in de cloud en on-premises om snel te integreren over services en protocollen.  Een logic app begint met een trigger (zoals 'Wanneer een account is toegevoegd aan Dynamics CRM') en na het starten kunnen vele combinaties van acties, conversies en voorwaardelijke logica beginnen.
 
 De voordelen van het gebruik van Logic Apps omvatten het volgende:  
@@ -48,9 +46,7 @@ Zoals eerder vermeld kunt u met Logic Apps bedrijfsprocessen automatiseren. Hier
 
 Dergelijke scenario's kunnen worden geconfigureerd via de visuele ontwerper, zonder dat hiervoor ook maar één regel code hoeft te worden geschreven. Ga nu aan de slag met het [bouwen van een logische app][create].  Na het schrijven - kan een logische app[snel worden geïmplementeerd en opnieuw geconfigureerd](../logic-apps/logic-apps-create-deploy-template.md) over verschillende omgevingen en regio’s.
 
-<a id="why-logic-apps" class="xliff"></a>
-
-## Waarom Logic Apps?
+## <a name="why-logic-apps"></a>Waarom Logic Apps?
 Logic App brengt snelheid en schaalbaarheid naar de integratieruimte van de onderneming.  Het gebruiksgemak van de ontwerper, de diversiteit van beschikbare triggers en acties en krachtige beheerstools maken het centraliseren van uw API’s eenvoudiger dan ooit.  Aangezien bedrijven steeds meer streven naar digitalisering, kunt u met Logic Apps oude en ultramoderne systemen met elkaar verbinden.
 
 Bovendien kunt u met onze [Enterprise Integration Account][biztalk] schalen naar volgroeide integratiescenario's met de kracht van [XML-messaging][xml], [handelspartnerbeheer][tpm] en meer.
@@ -61,9 +57,7 @@ Bovendien kunt u met onze [Enterprise Integration Account][biztalk] schalen naar
 * **Ingebakken uitbreidbaarheid** - Ziet u niet de connector die u nodig hebt? Logic Apps is ontworpen om te werken met uw eigen API’s en code; u kunt gemakkelijk uw eigen API-app maken om te gebruiken als aangepaste connector of beroep doen op een [Azure Function](https://functions.azure.com) om exclusieve snippets code on-demand uit te voeren. 
 * **Echte paardenkracht bij integratie** - Start eenvoudig en groei wanneer dat nodig is. Met Logic Apps kunt u de kracht van BizTalk, de toonaangevende integratieoplossing van Microsoft, gebruiken om integratieprofessionals de oplossingen te laten bouwen die ze nodig hebben. Meer informatie over het [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
 
-<a id="logic-app-concepts" class="xliff"></a>
-
-## Concept van Logic Apps
+## <a name="logic-app-concepts"></a>Concept van Logic Apps
 In het onderstaande overzicht ziet u enkele belangrijke onderdelen van Logic Apps. 
 
 * **Werkstroom** - Met Logic Apps kunt u uw bedrijfsprocessen grafisch weergeven als een reeks stappen of als een werkstroom.
@@ -72,9 +66,7 @@ In het onderstaande overzicht ziet u enkele belangrijke onderdelen van Logic App
 * **Acties** - Elke stap na de trigger in een werkstroom wordt een actie genoemd. Elke actie verwijst normaal naar een bewerking op uw beheerde connector of aangepaste API-apps.
 * **Enterprise Integration Pack** - Voor meer geavanceerde integratiescenario’s omvat Logic Apps functies van BizTalk. BizTalk is Microsoft’s toonaangevende integratieplatform. De Enterprise Integration Pack-connectoren zorgen ervoor dat u gemakkelijk validering, transpformatie en meer kunt opnemen in uw Logic App-workflows.
 
-<a id="getting-started" class="xliff"></a>
-
-## Aan de slag
+## <a name="getting-started"></a>Aan de slag
 * Als u aan de slag wilt met Logic Apps, volgt u de zelfstudie [Een logische app maken][create].  
 * [Algemene voorbeelden en scenario's weergeven](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Met Logic Apps kunt u bedrijfsprocessen automatiseren](http://channel9.msdn.com/Events/Build/2016/T694) 

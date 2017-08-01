@@ -23,9 +23,7 @@ ms.lasthandoff: 06/03/2017
 
 ---
 
-<a id="lesson-2-get-data" class="xliff"></a>
-
-# Les 2: Gegevens ophalen
+# <a name="lesson-2-get-data"></a>Les 2: Gegevens ophalen
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -35,18 +33,12 @@ Met behulp van Get Data kunt u gegevens importeren uit een groot aantal gegevens
   
 Geschatte tijd voor het voltooien van deze les: **10 minuten**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten  
+## <a name="prerequisites"></a>Vereisten  
 Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 1: Een nieuw project voor een tabellair model maken](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
-<a id="create-a-connection" class="xliff"></a>
-
-## Een verbinding maken  
+## <a name="create-a-connection"></a>Een verbinding maken  
   
-<a id="to-create-a-connection-to-the-adventureworksdw2014-database" class="xliff"></a>
-
-#### Een verbinding maken met de database AdventureWorksDW2014:  
+#### <a name="to-create-a-connection-to-the-adventureworksdw2014-database"></a>Een verbinding maken met de database AdventureWorksDW2014:  
   
 1.  Klik in Tabular Model Explorer met de rechtermuisknop op **Data Sources** > **Import from Data Source**.  
   
@@ -74,14 +66,10 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
 Als u op OK klikt, wordt Query Editor geopend. In de volgende sectie gaat u de gegevens selecteren die u wilt importeren.
 
   
-<a id="filter-the-table-data" class="xliff"></a>
-
-## De tabelgegevens filteren  
+## <a name="filter-the-table-data"></a>De tabelgegevens filteren  
 Tabellen in de voorbeelddatabase AdventureWorksDW2014 bevatten gegevens die niet nodig zijn voor het model. Indien mogelijk moet u alle onnodige gegevens uitfilteren om ruimte te besparen die anders door het model in het geheugen wordt gebruikt. U gaat een aantal van de kolommen uit tabellen uitfilteren, zodat deze niet worden geïmporteerd in de werkruimtedatabase, of in de modeldatabase nadat deze is geïmplementeerd. 
   
-<a id="to-filter-the-table-data-before-importing" class="xliff"></a>
-
-#### De tabelgegevens filteren voordat u gaat importeren:  
+#### <a name="to-filter-the-table-data-before-importing"></a>De tabelgegevens filteren voordat u gaat importeren:  
   
 1.  Selecteer de tabel **DimCustomer** in Query Editor. U ziet een weergave van de tabel DimCustomer uit de gegevensbron (de voorbeelddatabase AdventureWorksDWQ2014). 
   
@@ -151,9 +139,7 @@ Tabellen in de voorbeelddatabase AdventureWorksDW2014 bevatten gegevens die niet
 ## <a name="Import"></a>De geselecteerde tabellen en kolomgegevens importeren  
 U hebt nu de overbodige gegevens uitgefilterd en kunt dus de rest van de gegevens gaan importeren. De wizard zorgt ervoor dat de tabelgegevens samen met eventuele relaties tussen tabellen worden geïmporteerd. Er worden nieuwe tabellen en kolommen gemaakt in het model en gegevens die u hebt uitgefilterd, worden niet geïmporteerd.  
   
-<a id="to-import-the-selected-tables-and-column-data" class="xliff"></a>
-
-#### De geselecteerde tabellen en kolomgegevens importeren:  
+#### <a name="to-import-the-selected-tables-and-column-data"></a>De geselecteerde tabellen en kolomgegevens importeren:  
   
 1.  Bekijk de selecties. Als alles er goed uitziet, klikt u op **Import**. In het dialoogvenster Data Processing ziet u de voortgangsstatus van het importeren van gegevens uit de gegevensbron naar de database in de werkruimte.
   
@@ -162,20 +148,14 @@ U hebt nu de overbodige gegevens uitgefilterd en kunt dus de rest van de gegeven
 2.  Klik op **Sluiten**.  
 
   
-<a id="save-your-model-project" class="xliff"></a>
-
-## Het modelproject opslaan  
+## <a name="save-your-model-project"></a>Het modelproject opslaan  
 Het is belangrijk om uw modelproject vaak op te slaan.  
   
-<a id="to-save-the-model-project" class="xliff"></a>
-
-#### Het modelproject opslaan:  
+#### <a name="to-save-the-model-project"></a>Het modelproject opslaan:  
   
 -   Klik op **File** > **Save All**.  
   
-<a id="whats-next" class="xliff"></a>
-
-## Volgende stappen
+## <a name="whats-next"></a>Volgende stappen
 [Les 3: Als gegevenstabel markeren](../tutorials/aas-lesson-3-mark-as-date-table.md).
 
   

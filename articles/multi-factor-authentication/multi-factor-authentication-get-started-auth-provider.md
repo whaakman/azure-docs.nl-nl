@@ -23,9 +23,7 @@ ms.lasthandoff: 06/30/2017
 
 ---
 
-<a id="getting-started-with-an-azure-multi-factor-auth-provider" class="xliff"></a>
-
-# Aan de slag met een Azure Multi-Factor Authentication-provider
+# <a name="getting-started-with-an-azure-multi-factor-auth-provider"></a>Aan de slag met een Azure Multi-Factor Authentication-provider
 Verificatie in twee stappen is standaard beschikbaar voor globale beheerders van Azure Active Directory- en Office 365-gebruikers. Als u echter wilt profiteren van [geavanceerde functies](multi-factor-authentication-whats-next.md), moet u de volledige versie van Azure Multi-Factor Authentication (MFA) aanschaffen.
 
 Een Azure Multi-Factor Authentication-provider wordt gebruikt om te kunnen profiteren van de functies van de volledige versie van Azure MFA. Deze is bestemd voor gebruikers die **geen licenties via Azure MFA, Azure AD Premium of Enterprise Mobility + Security (EMS)** hebben.  Azure MFA, Azure AD Premium en EMS bevatten standaard de volledige versie van Azure MFA. Als u licenties hebt, hebt u geen Azure Multi-Factor Authentication-provider nodig.
@@ -35,17 +33,13 @@ Een Azure Multi-Factor Authentication-provider is vereist als u de SDK wilt down
 > [!IMPORTANT]
 > Als u de SDK wilt downloaden, moet u een Azure Multi-Factor Authentication-provider maken, zelfs als u Azure MFA, AAD Premium of EMS-licenties hebt.  Als u een Azure Multi-Factor Authentication-provider voor dit doeleinde maakt en al licenties hebt, moet u ervoor zorgen dat u de provider maakt met het model **Per ingeschakelde gebruiker**. Koppel de provider vervolgens aan de map die de licenties voor Azure MFA, Azure AD Premium of EMS bevat. Deze configuratie zorgt ervoor dat u alleen een rekening ontvangt als u meer unieke gebruikers hebt die verificatie in twee stappen gebruiken dan het aantal licenties dat u in uw bezit hebt.
 
-<a id="what-is-an-azure-multi-factor-auth-provider" class="xliff"></a>
-
-## Wat is een Azure Multi-Factor Authentication-provider?
+## <a name="what-is-an-azure-multi-factor-auth-provider"></a>Wat is een Azure Multi-Factor Authentication-provider?
 
 Als u geen licenties voor Azure Multi-Factor Authentication hebt, kunt u een verificatieprovider maken om verificatie in twee stappen te vereisen voor uw gebruikers. Als u een aangepaste app ontwikkelt en Azure MFA wilt inschakelen, maakt u een verificatieprovider en [downloadt u de SDK](multi-factor-authentication-sdk.md).
 
 Er zijn twee soorten verificatieproviders. Het verschil tussen beide heeft te maken met de wijze waarop uw Azure-abonnement in rekening wordt gebracht. De optie Per verificatie berekent het aantal verificaties die in een maand op uw tenant worden uitgevoerd. Deze optie wordt aanbevolen als u een aantal gebruikers hebt die slechts sporadisch verifiëren, bijvoorbeeld als u MFA vereist voor een aangepaste toepassing. De optie Per gebruiker berekent het aantal personen in uw tenant die in een maand verificatie in twee stappen uitvoeren. Deze optie wordt aanbevolen als u een aantal gebruikers met licenties hebt, maar MFA wilt uitbreiden naar meer gebruikers buiten de restricties van uw licentie.
 
-<a id="create-a-multi-factor-auth-provider" class="xliff"></a>
-
-## Een Multi-Factor Authentication-provider maken
+## <a name="create-a-multi-factor-auth-provider"></a>Een Multi-Factor Authentication-provider maken
 Voer de volgende stappen uit om een Azure Multi-Factor Authentication-provider te maken.
 
 1. Meld u aan als beheerder bij de [klassieke Azure Portal](https://manage.windowsazure.com).

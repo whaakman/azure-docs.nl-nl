@@ -21,9 +21,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/21/2017
 
 ---
-<a id="azure-active-directory-for-developers" class="xliff"></a>
-
-# Azure Active Directory voor ontwikkelaars
+# <a name="azure-active-directory-for-developers"></a>Azure Active Directory voor ontwikkelaars
 Azure Active Directory is een identiteitsservice in de cloud waarmee ontwikkelaars ervoor kunnen zorgen dat elke gebruiker met een werk- of schoolaccount ondersteund door Microsoft zich veilig kan aanmelden.  In deze documentatie wordt beschreven hoe u Azure AD-ondersteuning aan uw toepassing kunt toevoegen met de standaardverificatieprotocollen OAuth en OpenID Connect.
 
 | | |
@@ -31,9 +29,7 @@ Azure Active Directory is een identiteitsservice in de cloud waarmee ontwikkelaa
 |[Basisprincipes van Auth](active-directory-authentication-scenarios.md) | Een inleiding tot verificatie met Azure AD |
 |[Soorten toepassingen](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Een overzicht van de verificatiescenario's die worden ondersteund door Azure AD |                                
                                                                               
-<a id="get-started" class="xliff"></a>
-
-## Aan de slag
+## <a name="get-started"></a>Aan de slag
 In deze stapsgewijze installaties leert u hoe u onze verificatiebibliotheken kunt gebruiken om Azure Active Directory-gebruikers aan te melden.
 
 |  |  |  |  |
@@ -44,9 +40,7 @@ In deze stapsgewijze installaties leert u hoe u onze verificatiebibliotheken kun
 | <center>![Web-API's](./media/active-directory-developers-guide/Web_API.png)<br />Web-API's</center> | [Overzicht](active-directory-authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[NodeJS](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
 | <center>![Service naar service](./media/active-directory-developers-guide/Service_App.png)<br />Service naar service</center> | [Overzicht](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)<br /><br />[Referenties voor OAuth 2.0-client](active-directory-protocols-oauth-service-to-service.md) |  |
 
-<a id="guides" class="xliff"></a>
-
-## Handleidingen
+## <a name="guides"></a>Handleidingen
 In deze artikelen wordt beschreven hoe u algemene taken kunt uitvoeren met Azure Active Directory.
 
 |                                                                           |  |
@@ -56,9 +50,7 @@ In deze artikelen wordt beschreven hoe u algemene taken kunt uitvoeren met Azure
 |[OAuth en OpenID Connect](active-directory-protocols-openid-connect-code.md)| Gebruikers aanmelden en web-API's aanroepen via onze moderne auth-protocollen |
 |[Meer handleidingen...](active-directory-developers-guide-index.md#guides)        |     |
 
-<a id="reference" class="xliff"></a>
-
-## Naslaginformatie
+## <a name="reference"></a>Naslaginformatie
 Deze artikelen bieden gedetailleerde informatie over de API's, protocolberichten en termen die worden gebruikt in Azure Active Directory.
 
 |                                                                                   | |
@@ -68,9 +60,7 @@ Deze artikelen bieden gedetailleerde informatie over de API's, protocolberichten
 | [Woordenlijst](active-directory-dev-glossary.md)                                      | Termen en definities van woorden die in deze documenten worden gebruikt |
 | [Meer referentiemateriaal...](active-directory-developers-guide-index.md#reference)|     |
 
-<a id="help--support" class="xliff"></a>
-
-## Help en ondersteuning
+## <a name="help--support"></a>Help en ondersteuning
 Dit zijn de aanbevolen plaatsen voor hulp bij het ontwikkelen met Azure Active Directory.
 
 |  |  

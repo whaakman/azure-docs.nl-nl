@@ -22,21 +22,15 @@ ms.lasthandoff: 05/31/2017
 
 
 ---
-<a id="create-a-lab-in-azure-devtest-labs" class="xliff"></a>
-
-# Een lab maken in Azure DevTest Labs
+# <a name="create-a-lab-in-azure-devtest-labs"></a>Een lab maken in Azure DevTest Labs
 Een lab in Azure DevTest Labs is de infrastructuur die een groep resources omvat, zoals VM's (virtuele machines), waarmee u deze resources beter kunt beheren door limieten en quota op te geven. In dit artikel wordt uitgelegd hoe u een lab maakt met behulp van Azure Portal.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Als u een lab wilt maken, hebt u het volgende nodig:
 
 * Een Azure-abonnement. Zie [Azure aanschaffen](https://azure.microsoft.com/pricing/purchase-options/) of [Gratis proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie over Azure-aankoopopties. U moet de eigenaar van het abonnement zijn om het lab te maken.
 
-<a id="steps-to-create-a-lab-in-azure-devtest-labs" class="xliff"></a>
-
-## Stappen voor het maken van een lab in Azure DevTest Labs
+## <a name="steps-to-create-a-lab-in-azure-devtest-labs"></a>Stappen voor het maken van een lab in Azure DevTest Labs
 In de volgende stappen ziet u hoe u Azure Portal kunt gebruiken om een lab te maken in Azure DevTest Labs. 
 
 1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -63,9 +57,7 @@ In de volgende stappen ziet u hoe u Azure Portal kunt gebruiken om een lab te ma
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Wanneer u uw lab hebt gemaakt, kunt u onder andere de volgende stappen uitvoeren:
 
 * [Toegang tot een lab beveiligen](devtest-lab-add-devtest-user.md).

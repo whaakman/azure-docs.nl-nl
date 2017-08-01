@@ -22,34 +22,24 @@ ms.lasthandoff: 05/18/2017
 
 
 ---
-<a id="get-started-with-azure-cloud-services-and-aspnet" class="xliff"></a>
+# <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Aan de slag met Azure Cloud Services en ASP.NET
 
-# Aan de slag met Azure Cloud Services en ASP.NET
-
-<a id="overview" class="xliff"></a>
-
-## Overzicht
+## <a name="overview"></a>Overzicht
 Deze zelfstudie laat zien hoe u een .NET-toepassing met meerdere lagen maakt met een ASP.NET MVC-front-end en deze implementeert in een [Azure-cloudservice](cloud-services-choose-me.md). De toepassing gebruikt [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), de [Azure Blob-service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) en de [Azure Queue-service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). U kunt [het Visual Studio-project downloaden uit de ](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) uit de MSDN-codegalerie.
 
 In de zelfstudie leert u hoe u de toepassing lokaal maakt en uitvoert, hoe u deze in Azure implementeert en uitvoert in de cloud, en hoe u deze van het begin af aan bouwt. Desgewenst kunt u de toepassing eerst van het begin af aan bouwen en vervolgens later de test doen en stappen implementeren.
 
-<a id="contoso-ads-application" class="xliff"></a>
-
-## Toepassing Contoso Ads
+## <a name="contoso-ads-application"></a>Toepassing Contoso Ads
 De toepassing is een bulletinboard voor advertenties. Gebruikers maken een advertentie door de tekst in te voeren en een afbeelding te uploaden. Ze kunnen een lijst met advertenties bekijken met miniatuurafbeeldingen. Als ze een advertentie selecteren om de details te bekijken, kunnen ze de afbeelding op volledige grootte weergeven.
 
 ![Advertentielijst](./media/cloud-services-dotnet-get-started/list.png)
 
 De toepassing maakt gebruik van het [wachtrijgerichte werkpatroon](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) om de CPU te ontlasten bij het maken van miniatuurweergaven voor een back-endproces (een CPU-intensieve bewerking).
 
-<a id="alternative-architecture-websites-and-webjobs" class="xliff"></a>
-
-## Alternatieve architectuur: Websites en WebJobs
+## <a name="alternative-architecture-websites-and-webjobs"></a>Alternatieve architectuur: Websites en WebJobs
 Deze zelfstudie laat zien hoe u de front-end en back-end uitvoert in een cloudservice van Azure. Een alternatieve methode is het uitvoeren van de front-end op een [Azure-website](/services/web-sites/) en het gebruiken van de functie [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) (momenteel als voorbeeld) voor de back-end. Zie [Aan de slag met de Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md) voor een zelfstudie waarin gebruik wordt gemaakt van WebJobs. Zie [Vergelijking van Azure-websites, cloudservices en virtuele machines](../app-service-web/choose-web-site-cloud-service-vm.md) voor meer informatie over het kiezen van de services die het meest geschikt zijn voor uw scenario.
 
-<a id="what-youll-learn" class="xliff"></a>
-
-## Wat u leert
+## <a name="what-youll-learn"></a>Wat u leert
 * De computer klaarmaken voor het ontwikkelen van Azure door de Azure SDK te installeren.
 * Een Visual Studio-cloudserviceproject maken met een ASP.NET MVC-webrol en -werkrol.
 * Het cloudserviceproject lokaal testen met behulp van de Azure-opslagemulator.
@@ -57,9 +47,7 @@ Deze zelfstudie laat zien hoe u de front-end en back-end uitvoert in een cloudse
 * Bestanden uploaden en deze opslaan in de Azure Blob-service.
 * De Azure Queue-service gebruiken voor communicatie tussen lagen.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 In de zelfstudie wordt ervan uitgegaan dat u bekend bent met de [basisconcepten van Azure-cloudservices](cloud-services-choose-me.md), waaronder de concepten *webrol* en *werkrol*.  Ook wordt ervan uitgegaan dat u weet hoe u in Visual Studio werkt met [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)- of [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)-projecten. De voorbeeldtoepassing gebruikt MVC, maar het meeste in de zelfstudie geldt ook voor Web Forms.
 
 U kunt de app lokaal zonder Azure-abonnement uitvoeren, maar u hebt wel een abonnement nodig om de toepassing in de cloud te implementeren. Als u geen account hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) of [zich aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
@@ -72,9 +60,7 @@ De instructies in de zelfstudie zijn van toepassing op een van de volgende produ
 
 Als u deze niet hebt, wordt Visual Studio mogelijk automatisch geïnstalleerd wanneer u de Azure SDK installeert.
 
-<a id="application-architecture" class="xliff"></a>
-
-## Toepassingsarchitectuur
+## <a name="application-architecture"></a>Toepassingsarchitectuur
 De app slaat de advertenties met behulp van Entity Framework Code First op in een SQL-database om de tabellen te maken en toegang te krijgen tot de gegevens. Voor elke advertentie slaat de database twee URL's op: één voor de afbeelding op volledige grootte en één voor de miniatuur.
 
 ![Advertentietabel](./media/cloud-services-dotnet-get-started/adtable.png)
@@ -85,9 +71,7 @@ Wanneer een gebruiker een afbeelding uploadt, slaat de front-end (die wordt uitg
 
 [!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
-<a id="download-and-run-the-completed-solution" class="xliff"></a>
-
-## De voltooide oplossing downloaden en uitvoeren
+## <a name="download-and-run-the-completed-solution"></a>De voltooide oplossing downloaden en uitvoeren
 1. Download de [voltooide oplossing](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) en pak deze uit.
 2. Start Visual Studio.
 3. Kies in het menu **File** de optie **Open Project**, ga naar de locatie waar u de oplossing hebt gedownload en open het oplossingsbestand.
@@ -120,9 +104,7 @@ U hebt de toepassing volledig op uw lokale computer uitgevoerd, zonder verbindin
 
 In de volgende sectie configureert u de oplossing voor het gebruik van Azure-cloudbronnen voor wachtrijen, blobs en de toepassingsdatabase wanneer deze wordt uitgevoerd in de cloud. U kunt eventueel lokaal blijven uitvoeren maar wel cloudopslag en databaseresources gebruiken. Het is alleen een kwestie van verbindingsreeksen instellen. We leggen u uit hoe u dit doet.
 
-<a id="deploy-the-application-to-azure" class="xliff"></a>
-
-## De toepassing implementeren in Azure
+## <a name="deploy-the-application-to-azure"></a>De toepassing implementeren in Azure
 U voert de volgende stappen uit voor het uitvoeren van de toepassing in de cloud:
 
 * Een Azure-cloudservice maken.
@@ -132,9 +114,7 @@ U voert de volgende stappen uit voor het uitvoeren van de toepassing in de cloud
 * De oplossing configureren voor het gebruik van uw Azure-opslagaccount als deze wordt uitgevoerd in Azure.
 * Het project implementeren in uw Azure-cloudservice.
 
-<a id="create-an-azure-cloud-service" class="xliff"></a>
-
-### Een Azure-cloudservice maken
+### <a name="create-an-azure-cloud-service"></a>Een Azure-cloudservice maken
 Een Azure-cloudservice is de omgeving waarin de toepassing wordt uitgevoerd.
 
 1. Open [Azure Portal](https://portal.azure.com) in uw browser.
@@ -154,9 +134,7 @@ Een Azure-cloudservice is de omgeving waarin de toepassing wordt uitgevoerd.
 
     ![Nieuwe cloudservice](./media/cloud-services-dotnet-get-started/newcs.png)
 
-<a id="create-an-azure-sql-database" class="xliff"></a>
-
-### Een Azure SQL-database maken
+### <a name="create-an-azure-sql-database"></a>Een Azure SQL-database maken
 Wanneer de app wordt uitgevoerd in de cloud, gebruikt deze een cloudgebaseerde database.
 
 1. Klik in [Azure Portal](https://portal.azure.com) op **Nieuw > Databases > SQL-database**.
@@ -181,9 +159,7 @@ Wanneer de app wordt uitgevoerd in de cloud, gebruikt deze een cloudgebaseerde d
     ![Nieuwe SQL-databaseserver](./media/cloud-services-dotnet-get-started/newdbserver.png)
 10. Klik op **Create**.
 
-<a id="create-an-azure-storage-account" class="xliff"></a>
-
-### Een Azure-opslagaccount maken
+### <a name="create-an-azure-storage-account"></a>Een Azure-opslagaccount maken
 Een Azure-opslagaccount biedt resources voor het opslaan van wachtrij- en blobgegevens in de cloud.
 
 In een echte toepassing maakt u meestal afzonderlijke accounts voor toepassingsgegevens versus logboekgegevens, en afzonderlijke accounts voor testgegevens versus productiegegevens. Voor deze zelfstudie gebruikt u slechts één account.
@@ -210,9 +186,7 @@ In een echte toepassing maakt u meestal afzonderlijke accounts voor toepassingsg
 
     Op de afbeelding ziet u een opslagaccount met de URL `csvccontosoads.core.windows.net`.
 
-<a id="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure" class="xliff"></a>
-
-### De oplossing configureren voor het gebruik van uw Azure SQL-database als deze wordt uitgevoerd in Azure
+### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>De oplossing configureren voor het gebruik van uw Azure SQL-database als deze wordt uitgevoerd in Azure
 Het webproject en het werkrolproject hebben elk hun eigen databaseverbindingsreeks. Beide projecten moeten verwijzen naar de Azure SQL-database wanneer de app wordt uitgevoerd in Azure.
 
 U gebruikt een [Web.config-transformatie](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) voor de webrol en een cloudserviceomgevingsinstelling voor de werkrol.
@@ -253,9 +227,7 @@ U gebruikt een [Web.config-transformatie](http://www.asp.net/mvc/tutorials/deplo
      ![Databaseverbindingsreeks voor werkrol](./media/cloud-services-dotnet-get-started/workerdbcs.png)
 11. Sla uw wijzigingen op.  
 
-<a id="configure-the-solution-to-use-your-azure-storage-account-when-it-runs-in-azure" class="xliff"></a>
-
-### De oplossing configureren voor het gebruik van uw Azure-opslagaccount als deze wordt uitgevoerd in Azure
+### <a name="configure-the-solution-to-use-your-azure-storage-account-when-it-runs-in-azure"></a>De oplossing configureren voor het gebruik van uw Azure-opslagaccount als deze wordt uitgevoerd in Azure
 Azure-opslagaccountverbindingsreeksen voor het webrolroject en het werkrolproject worden opgeslagen in de omgevingsinstellingen in het cloudserviceproject. Elk project heeft één reeks instellingen die moeten worden gebruikt wanneer de toepassing lokaal wordt uitgevoerd en een tweede reeks instellingen voor het uitvoeren van de toepassing in de cloud. U gaat de cloudomgevingsinstellingen voor zowel het webrolproject als het werkrolproject bijwerken.
 
 1. Klik in **Solution Explorer** met de rechtermuisknop op **ContosoAdsWeb** (onder **Roles** in het **ContosoAdsCloudService**-project) en klik vervolgens op **Properties**.
@@ -309,9 +281,7 @@ Het bestand *ServiceConfiguration.Cloud.cscfg* bevat de waarden die u in Visual 
 
 De `<Instances>`-instelling geeft het aantal virtuele machines aan waarop de werkrolcode door Azure wordt uitgevoerd. De sectie [Volgende stappen](#next-steps) bevat koppelingen naar meer informatie over het uitbreiden van een cloudservice,
 
-<a id="deploy-the-project-to-azure" class="xliff"></a>
-
-### Het project implementeren in Azure
+### <a name="deploy-the-project-to-azure"></a>Het project implementeren in Azure
 1. Klik in **Solution Explorer** met de rechtermuisknop op het **ContosoAdsCloudService**-cloudproject en selecteer vervolgens **Publish**.
 
    ![Het menu Publish](./media/cloud-services-dotnet-get-started/pubmenu.png)
@@ -341,9 +311,7 @@ De `<Instances>`-instelling geeft het aantal virtuele machines aan waarop de wer
 >
 >
 
-<a id="create-the-application-from-scratch" class="xliff"></a>
-
-## De toepassing vanaf het begin maken
+## <a name="create-the-application-from-scratch"></a>De toepassing vanaf het begin maken
 Als u de [voltooide toepassing](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) nog niet hebt gedownload, doe dit dan nu. U kopieert de bestanden uit het gedownloade project naar het nieuwe project.
 
 Het maken van de Contoso Ads-toepassing omvat de volgende stappen:
@@ -356,9 +324,7 @@ Het maken van de Contoso Ads-toepassing omvat de volgende stappen:
 
 Nadat de oplossing is gemaakt, bekijkt u de code die uniek is voor cloudserviceprojecten en voor Azure-blobs en -wachtrijen.
 
-<a id="create-a-cloud-service-visual-studio-solution" class="xliff"></a>
-
-### Met Visual Studio een cloudserviceoplossing maken
+### <a name="create-a-cloud-service-visual-studio-solution"></a>Met Visual Studio een cloudserviceoplossing maken
 1. Kies in Visual Studio in het menu **File** de optie **New Project**.
 2. Vouw in het linkerdeelvenster van het dialoogvenster **New Project** de optie **Visual C#** uit en kies **Cloud**-sjablonen. Kies vervolgens de sjabloon voor **Azure Cloud Service**.
 3. Geef het project en de oplossing de naam ContosoAdsCloudService en klik op **OK**.
@@ -380,9 +346,7 @@ Nadat de oplossing is gemaakt, bekijkt u de code die uniek is voor cloudservicep
 
     Zowel vanuit het webrolproject als vanuit het werkrolproject moet u verwijzen naar de Entity Framework- context en het bijbehorende gegevensmodel. Als alternatief kunt u de aan Entity Framework gerelateerde klassen definiëren in het webrolproject en hier vanuit het werkrolproject naar verwijzen. Gebruikt u deze alternatieve methode, dan bevat uw werkrolproject echter een verwijzing naar webassembly's die niet nodig zijn.
 
-<a id="update-and-add-nuget-packages" class="xliff"></a>
-
-### NuGet-pakketten bijwerken en toevoegen
+### <a name="update-and-add-nuget-packages"></a>NuGet-pakketten bijwerken en toevoegen
 1. Open het dialoogvenster **Manage NuGet Packages** voor de oplossing.
 2. Selecteer boven aan het venster de optie **Updates**.
 3. Zoek het *WindowsAzure.Storage*-pakket op en selecteer dit als het in de lijst staat. Selecteer vervolgens de web- en werkprojecten die u wilt bijwerken. Klik vervolgens op **Update**.
@@ -392,9 +356,7 @@ Nadat de oplossing is gemaakt, bekijkt u de code die uniek is voor cloudservicep
 5. Zoek het NuGet pakket *EntityFramework* op en installeer het in alle drie de projecten.
 6. Zoek het NuGet-pakket *Microsoft.WindowsAzure.ConfigurationManager* op en installeer het in het werkrolproject.
 
-<a id="set-project-references" class="xliff"></a>
-
-### Projectverwijzingen instellen
+### <a name="set-project-references"></a>Projectverwijzingen instellen
 1. Stel in het project ContosoAdsWeb een verwijzing in naar het project ContosoAdsCommon. Klik met de rechtermuisknop op het project ContosoAdsWeb en klik vervolgens op **References** - **Add References**. Selecteer in het dialoogvenster **Reference Manager** de optie **Solution – Projects** (in het linkerdeelvenster). Selecteer vervolgens **ContosoAdsCommon** en klik op **OK**.
 2. Stel in het project ContosoAdsWorker een verwijzing in naar het project ContosoAdsCommon.
 
@@ -403,9 +365,7 @@ Nadat de oplossing is gemaakt, bekijkt u de code die uniek is voor cloudservicep
 
     Deze assembly wordt gebruikt door de back-end om afbeeldingen te converteren naar miniatuurweergaven.
 
-<a id="configure-connection-strings" class="xliff"></a>
-
-### Verbindingsreeksen configureren
+### <a name="configure-connection-strings"></a>Verbindingsreeksen configureren
 In deze sectie configureert u Azure Storage- en SQL-verbindingsreeksen om lokaal te testen. In de implementatie-instructies eerder in deze handleiding wordt uitgelegd hoe u verbindingsreeksen instelt wanneer de app wordt uitgevoerd in de cloud.
 
 1. Open in het project ContosoAdsWeb het bestand Web.config en voeg na het `configSections`-element het volgende `connectionStrings`-element toe.
@@ -439,9 +399,7 @@ In deze sectie configureert u Azure Storage- en SQL-verbindingsreeksen om lokaal
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
        ```
 
-<a id="add-code-files" class="xliff"></a>
-
-### Codebestanden toevoegen
+### <a name="add-code-files"></a>Codebestanden toevoegen
 In deze sectie kopieert u codebestanden vanuit de gedownloade oplossing naar de nieuwe oplossing. In de volgende secties worden belangrijke onderdelen van deze code weergegeven en uitgelegd.
 
 Als u bestanden wilt toevoegen aan een project of map, klikt u met de rechtermuisknop op het project of de map en klikt u vervolgens op **Add** - **Existing Item**. Selecteer de gewenste bestanden en klik op **Add**. Als u wordt gevraagd of u de bestaande bestanden wilt vervangen, klikt u op **Yes**.
@@ -464,9 +422,7 @@ De volgende secties geven uitleg over de code voor het werken met de Azure-omgev
 * [Aan de slag met EF 6 en MVC 5](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
 * [Inleiding tot asynchrone programmering in .NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
-<a id="contosoadscommon---adcs" class="xliff"></a>
-
-### ContosoAdsCommon - Ad.cs
+### <a name="contosoadscommon---adcs"></a>ContosoAdsCommon - Ad.cs
 Het bestand Ad.cs definieert een enum voor advertentiecategorieën en een POCO-entiteitsklasse voor advertentie-informatie.
 
 ```csharp
@@ -510,9 +466,7 @@ public class Ad
 }
 ```
 
-<a id="contosoadscommon---contosoadscontextcs" class="xliff"></a>
-
-### ContosoAdsCommon - ContosoAdsContext.cs
+### <a name="contosoadscommon---contosoadscontextcs"></a>ContosoAdsCommon - ContosoAdsContext.cs
 De klasse ContosoAdsContext geeft aan dat de Ad-klasse wordt gebruikt in een DbSet-verzameling, die door Entity Framework wordt opgeslagen in een SQL-database.
 
 ```csharp
@@ -531,9 +485,7 @@ public class ContosoAdsContext : DbContext
 
 De klasse heeft twee constructors. De eerste hiervan wordt gebruikt door het webproject en specificeert de naam van een verbindingsreeks die is opgeslagen in het bestand Web.config. Met de tweede constructor kunt u items doorgeven in de werkelijke verbindingsreeks die wordt gebruikt door het werkrolproject, omdat deze geen Web.config-bestand heeft. U weet al waar deze verbindingsreeks is opgeslagen. Later ziet u hoe de code de verbindingsreeks ophaalt bij het instantiëren van de DbContext-klasse.
 
-<a id="contosoadsweb---globalasaxcs" class="xliff"></a>
-
-### ContosoAdsWeb - Global.asax.cs
+### <a name="contosoadsweb---globalasaxcs"></a>ContosoAdsWeb - Global.asax.cs
 Code die wordt aangeroepen vanuit de `Application_Start`-methode maakt een blobcontainer met *afbeeldingen* en een wachtrij met *afbeeldingen* als deze nog niet bestaan. Wanneer u begint met het gebruik van een nieuw opslagaccount of de opslagemulator op een andere computer gaat gebruiken, zorgt dit ervoor dat de vereiste blobcontainer en wachtrij automatisch worden gemaakt.
 
 De code krijgt toegang tot het opslagaccount door gebruik te maken van de opslagverbindingsreeks uit het *.cscfg*-bestand.
@@ -566,14 +518,10 @@ var imagesQueue = queueClient.GetQueueReference("images");
 imagesQueue.CreateIfNotExists();
 ```
 
-<a id="contosoadsweb---layoutcshtml" class="xliff"></a>
-
-### ContosoAdsWeb - \_Layout.cshtml
+### <a name="contosoadsweb---layoutcshtml"></a>ContosoAdsWeb - \_Layout.cshtml
 Het bestand *_Layout.cshtml* stelt de naam van de app in de kop- en voettekst in en maakt een menu-item 'Ads'.
 
-<a id="contosoadsweb---viewshomeindexcshtml" class="xliff"></a>
-
-### ContosoAdsWeb - Views\Home\Index.cshtml
+### <a name="contosoadsweb---viewshomeindexcshtml"></a>ContosoAdsWeb - Views\Home\Index.cshtml
 Het bestand *Views\Home\Index.cshtml* geeft categoriekoppelingen weer op de startpagina. De koppelingen geven de integerwaarde van de `Category`-enum door in een queryreeksvariabele naar de pagina Ads Index.
 
 ```razor
@@ -583,9 +531,7 @@ Het bestand *Views\Home\Index.cshtml* geeft categoriekoppelingen weer op de star
 <li>@Html.ActionLink("All", "Index", "Ad", null, null)</li>
 ```
 
-<a id="contosoadsweb---adcontrollercs" class="xliff"></a>
-
-### ContosoAdsWeb - AdController.cs
+### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
 In het bestand *AdController.cs* roept de constructor de `InitializeStorage`-methode aan voor het maken van Azure Storage Client-bibliotheekobjecten die een API leveren voor het werken met blobs en wachtrijen.
 
 Vervolgens haalt de code een verwijzing op naar de blobcontainer met *afbeeldingen*, zoals u eerder hebt gezien in *Global.asax.cs*. Tijdens het uitvoeren hiervan wordt standaard [beleid voor opnieuw proberen](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) ingesteld dat geschikt is voor een web-app. Toepassing van het standaardbeleid voor opnieuw proberen met exponentieel uitstel kan ertoe leiden dat de web-app bij een tijdelijke fout langer dan een minuut blijft hangen vanwege herhaalde pogingen om het opnieuw te proberen. Het beleid dat hier is opgegeven, schrijft voor dat er na elke poging drie seconden wordt gewacht en dat het aantal pogingen maximaal drie bedraagt.
@@ -682,9 +628,7 @@ private static async Task DeleteAdBlobAsync(Uri blobUri)
 }
 ```
 
-<a id="contosoadsweb---viewsadindexcshtml-and-detailscshtml" class="xliff"></a>
-
-### ContosoAdsWeb - Views\Ad\Index.cshtml en Details.cshtml
+### <a name="contosoadsweb---viewsadindexcshtml-and-detailscshtml"></a>ContosoAdsWeb - Views\Ad\Index.cshtml en Details.cshtml
 Het bestand *Index.cshtml* geeft de miniaturen en de overige advertentiegegevens weer.
 
 ```razor
@@ -697,9 +641,7 @@ Het bestand *Details.cshtml* geeft de afbeelding op volledige grootte weer.
 <img src="@Html.Raw(Model.ImageURL)" />
 ```
 
-<a id="contosoadsweb---viewsadcreatecshtml-and-editcshtml" class="xliff"></a>
-
-### ContosoAdsWeb - Views\Ad\Create.cshtml en Edit.cshtml
+### <a name="contosoadsweb---viewsadcreatecshtml-and-editcshtml"></a>ContosoAdsWeb - Views\Ad\Create.cshtml en Edit.cshtml
 De bestanden *Create.cshtml* en *Edit.cshtml* specificeren formuliercodering waarmee de controller het `HttpPostedFileBase`-object kan ophalen.
 
 ```razor
@@ -712,9 +654,7 @@ Een `<input>`-element vertelt de browser dat deze een dialoogvenster voor bestan
 <input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
 ```
 
-<a id="contosoadsworker---workerrolecs---onstart-method" class="xliff"></a>
-
-### ContosoAdsWorker - WorkerRole.cs - OnStart-methode
+### <a name="contosoadsworker---workerrolecs---onstart-method"></a>ContosoAdsWorker - WorkerRole.cs - OnStart-methode
 De Azure werkrolomgeving roept de `OnStart`-methode aan in de `WorkerRole`-klasse wanneer de werkrol begint en roept de `Run`-methode aan wanneer de `OnStart`-methode is voltooid.
 
 De `OnStart`-methode haalt de databaseverbindingsreeks op uit het bestand *.cscfg* en geeft deze door aan de Entity Framework DbContext-klasse. Er hoeft geen provider te worden opgegeven; standaard wordt de SQLClient-provider gebruikt.
@@ -726,9 +666,7 @@ db = new ContosoAdsContext(dbConnString);
 
 Hierna haalt de methode een verwijzing op naar het opslagaccount en maakt deze de blobcontainer en de wachtrij als deze nog niet bestaan. De code hiervoor is vergelijkbaar met wat u al hebt gezien in de `Application_Start`-methode voor de webrol.
 
-<a id="contosoadsworker---workerrolecs---run-method" class="xliff"></a>
-
-### ContosoAdsWorker - WorkerRole.cs - Run-methode
+### <a name="contosoadsworker---workerrolecs---run-method"></a>ContosoAdsWorker - WorkerRole.cs - Run-methode
 De `Run`-methode wordt aangeroepen wanneer het initialisatiewerk van de `OnStart`-methode is voltooid. De methode voert een oneindige lus uit die controleert op nieuwe berichten in de wachtrij en verwerkt deze wanneer ze binnenkomen.
 
 ```csharp
@@ -804,37 +742,27 @@ Deze code leest de database om de afbeeldings-URL op te halen, converteert de af
 >
 >
 
-<a id="troubleshooting" class="xliff"></a>
-
-## Problemen oplossen
+## <a name="troubleshooting"></a>Problemen oplossen
 Voor het geval u tegen problemen aanloopt terwijl u de instructies in deze zelfstudie volgt, vindt u hier een aantal veelvoorkomende fouten en aanwijzingen om deze op te lossen.
 
-<a id="serviceruntimeroleenvironmentexception" class="xliff"></a>
-
-### ServiceRuntime.RoleEnvironmentException
+### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException
 Het `RoleEnvironment`-object wordt verstrekt door Azure wanneer u een toepassing in Azure uitvoert of wanneer u deze lokaal uitvoert met behulp van de Azure-rekenemulator.  Als deze fout bij lokale uitvoering optreedt, controleert u of het project ContosoAdsCloudService is ingesteld als opstartproject. Zo zorgt u ervoor dat het project wordt uitgevoerd met behulp van de Azure-rekenemulator.
 
 De toepassing gebruikt de Azure RoleEnvironment onder meer voor het ophalen van verbindingsreekswaarden die zijn opgeslagen in de *.cscfg*-bestanden. Een andere oorzaak van deze uitzondering kan dan ook te maken hebben met een ontbrekende verbindingsreeks. Controleer of u de instelling StorageConnectionString in het project ContosoAdsWeb voor zowel de cloudconfiguratie als de lokale configuratie hebt gemaakt en of u ook in het project ContosoAdsWorker beide verbindingsreeksen voor beide configuraties hebt gemaakt. Als u in de hele oplossing een zoekopdracht **Find All** uitvoert voor StorageConnectionString, moet u deze in 6 bestanden 9 maal vinden.
 
-<a id="cannot-override-to-port-xxx-new-port-below-minimum-allowed-value-8080-for-protocol-http" class="xliff"></a>
-
-### Kan niet overschrijven naar poort xxx. Nieuwe poort onder minimaal toegestane waarde 8080 voor http-protocol
+### <a name="cannot-override-to-port-xxx-new-port-below-minimum-allowed-value-8080-for-protocol-http"></a>Kan niet overschrijven naar poort xxx. Nieuwe poort onder minimaal toegestane waarde 8080 voor http-protocol
 Wijzig het poortnummer dat door het webproject wordt gebruikt. Klik met de rechtermuisknop op het project ContosoAdsWeb en klik vervolgens op **Properties**. Klik op het tabblad **Web** en wijzig het poortnummer in de instelling **Project Url**.
 
 Raadpleeg de volgende sectie voor een alternatieve oplossing voor dit probleem.
 
-<a id="other-errors-when-running-locally" class="xliff"></a>
-
-### Andere fouten bij lokale uitvoering
+### <a name="other-errors-when-running-locally"></a>Andere fouten bij lokale uitvoering
 Standaard maken nieuwe cloudserviceprojecten gebruik van de expresversie van de Azure-rekenemulator om de Azure-omgeving te simuleren. Dit is een basisversie van de volledige rekenemulator. Onder bepaalde omstandigheden werkt de volledige emulator wel, maar de expresversie niet.  
 
 Als u het project wilt wijzigen voor gebruik van de volledige emulator, klikt u met de rechtermuisknop op het project ContosoAdsCloudService en klikt u vervolgens op **Properties**. Klik in het venster **Properties** op het tabblad **Web** en schakel vervolgens het keuzerondje **Use Full Emulator** in.
 
 Als u de toepassing wilt uitvoeren met de volledige emulator, moet u Visual Studio openen met beheerdersrechten.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 In het kader van deze 'Aan de slag'-zelfstudie is de Contoso Ads-toepassing met opzet eenvoudig gehouden. De toepassing gebruikt bijvoorbeeld geen [afhankelijkheidsinjectie](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection), geen [patronen voor opslagplaatsen en werkeenheden](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), geen [interface voor logboekregistratie](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), geen [EF Code First-migraties](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) voor het beheren van wijzigingen in het gegevensmodel, geen [EF-verbindingstolerantie](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) voor het beheren van tijdelijke netwerkfouten, enzovoort.
 
 Hier volgen enkele voorbeelden, in oplopende volgorde van complexiteit, van cloudservicetoepassingen waarin meer code wordt gebruikt:

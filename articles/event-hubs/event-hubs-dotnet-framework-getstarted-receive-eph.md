@@ -22,13 +22,9 @@ ms.lasthandoff: 06/14/2017
 
 
 ---
-<a id="receive-events-from-azure-event-hubs-using-the-net-framework" class="xliff"></a>
+# <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Gebeurtenissen ontvangen van Azure Event Hubs met behulp van het .NET Framework
 
-# Gebeurtenissen ontvangen van Azure Event Hubs met behulp van het .NET Framework
-
-<a id="introduction" class="xliff"></a>
-
-## Inleiding
+## <a name="introduction"></a>Inleiding
 
 Event Hubs is een service die grote hoeveelheden gebeurtenisgegevens (telemetrie) van verbonden apparaten en toepassingen verwerkt. Nadat u gegevens in Event Hubs hebt verzameld, kunt u de gegevens opslaan met behulp van een opslagcluster of transformeren met een provider van realtime-analyses. Deze functie voor grootschalige gebeurtenisverzameling en -verwerking is een belangrijk onderdeel van de architectuur van moderne toepassingen, met inbegrip van het Internet der dingen (IoT).
 
@@ -36,24 +32,18 @@ In deze zelfstudie ziet u hoe u een .NET Framework-consoletoepassing schrijft di
 
 De [EventProcessorHost][EventProcessorHost] is een .NET-klasse die het ontvangen van gebeurtenissen van Event Hubs vereenvoudigt door permanente controlepunten en parallelle ontvangst van deze Event Hubs te beheren. Met de [EventProcessorHost][Event Processor Host] kunt u gebeurtenissen splitsen over meerdere ontvangers, zelfs als deze worden gehost in verschillende knooppunten. In dit voorbeeld wordt het gebruik van de [EventProcessorHost][EventProcessorHost] gedemonstreerd voor één ontvanger. In het voorbeeld [Uitgeschaalde gebeurtenisverwerking][Scale out Event Processing with Event Hubs] ziet u hoe u de [EventProcessorHost][EventProcessorHost] gebruikt met meerdere ontvangers.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
 * [Microsoft Visual Studio 2015 of hoger](http://visualstudio.com). In de schermafbeeldingen in deze zelfstudie wordt Visual Studio 2017 gebruikt.
 * Een actief Azure-account. Als u geen Azure-account hebt, kunt u binnen een paar minuten een gratis account maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/free/) voor meer informatie.
 
-<a id="create-an-event-hubs-namespace-and-an-event-hub" class="xliff"></a>
-
-## Een Event Hubs-naamruimte en een Event Hub maken
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Een Event Hubs-naamruimte en een Event Hub maken
 
 In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naamruimte van het type Event Hubs te maken en de beheerreferenties te verkrijgen die de toepassing nodig heeft om met de Event Hub te communiceren. Volg de procedure in [dit artikel](event-hubs-create.md) om een naamruimte en Event Hub te maken en ga daarna verder met de volgende stappen in deze zelfstudie.
 
-<a id="create-an-azure-storage-account" class="xliff"></a>
-
-## Een Azure Storage-account maken
+## <a name="create-an-azure-storage-account"></a>Een Azure Storage-account maken
 
 Als u de [EventProcessorHost][EventProcessorHost] wilt gebruiken, moet u een [Azure Storage-account][Azure Storage account] hebben:
 
@@ -69,9 +59,7 @@ Als u de [EventProcessorHost][EventProcessorHost] wilt gebruiken, moet u een [Az
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
-<a id="create-a-receiver-console-application" class="xliff"></a>
-
-## Een consoletoepassing voor ontvangers maken
+## <a name="create-a-receiver-console-application"></a>Een consoletoepassing voor ontvangers maken
 
 1. Maak in Visual Studio een nieuw Visual C# bureaublad-app-project met behulp van de projectsjabloon**Consoletoepassing**. Noem het project **Ontvanger**.
    
@@ -177,9 +165,7 @@ Gefeliciteerd. U hebt nu met behulp van de EventProcessorHost berichten ontvange
 > 
 > 
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Nu u een werkende toepassing hebt gebouwd die een Event Hub maakt en gegevens verzendt en ontvangt, kunt u via de volgende koppelingen meer informatie opdoen:
 

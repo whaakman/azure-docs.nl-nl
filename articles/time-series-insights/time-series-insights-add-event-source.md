@@ -23,15 +23,11 @@ ms.lasthandoff: 07/01/2017
 
 ---
 
-<a id="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal" class="xliff"></a>
-
-# Een gebeurtenisbron voor uw Time Series Insights-omgeving maken met de Ibiza-portal
+# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Een gebeurtenisbron voor uw Time Series Insights-omgeving maken met de Ibiza-portal
 
 Een Time Series Insights-gebeurtenisbron is afgeleid van een gebeurtenis-broker, zoals Azure Event Hubs. Time Series Insights maakt rechtstreeks verbinding met gebeurtenisbronnen en neemt de gegevensstroom op zonder dat gebruikers ook maar één coderegel hoeven te schrijven. Op dit moment biedt Time Series Insights ondersteuning voor Azure Event Hubs en Azure IoT Hubs. In de toekomst worden er meer gebeurtenisbronnen toegevoegd.
 
-<a id="steps-to-add-an-event-source-to-your-environment" class="xliff"></a>
-
-## Stappen voor het toevoegen van een gebeurtenisbron aan uw omgeving
+## <a name="steps-to-add-an-event-source-to-your-environment"></a>Stappen voor het toevoegen van een gebeurtenisbron aan uw omgeving
 
 1.  Meld u aan bij de [Ibiza-portal](https://portal.azure.com).
 2.  Klik op Alle resources in het menu aan de linkerkant van de Ibiza-portal.
@@ -55,9 +51,7 @@ Een Time Series Insights-gebeurtenisbron is afgeleid van een gebeurtenis-broker,
 
 Wanneer de gebeurtenisbron is gemaakt, begint Time Series Insights automatisch met het streamen van gegevens naar uw omgeving.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 * [Gebeurtenissen verzenden](time-series-insights-send-events.md) naar de gebeurtenisbron
 * Uw omgeving bekijken in de [Time Series Insights-portal](https://insights.timeseries.azure.com)

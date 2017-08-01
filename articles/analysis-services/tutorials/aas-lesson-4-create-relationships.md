@@ -22,9 +22,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-4-create-relationships" class="xliff"></a>
-
-# Les 4: Relaties maken
+# <a name="lesson-4-create-relationships"></a>Les 4: Relaties maken
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -32,19 +30,13 @@ In deze les gaat u de relaties controleren die automatisch zijn gemaakt tijdens 
   
 Geschatte tijd voor het voltooien van deze les: **10 minuten**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten  
+## <a name="prerequisites"></a>Vereisten  
 Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 3: Als gegevenstabel markeren](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
-<a id="review-existing-relationships-and-add-new-relationships" class="xliff"></a>
-
-## Bestaande relaties controleren en nieuwe relaties toevoegen  
+## <a name="review-existing-relationships-and-add-new-relationships"></a>Bestaande relaties controleren en nieuwe relaties toevoegen  
 Bij het importeren van gegevens met behulp van Get Data zijn zeven tabellen opgehaald uit de database AdventureWorksDW2014. Over het algemeen is het zo dat bij het importeren van gegevens uit een relationele gegevensbron, bestaande relaties automatisch samen met de gegevens worden geïmporteerd. Voordat u echter verdergaat met het ontwerpen van uw model, moet u controleren of deze relaties tussen tabellen correct zijn gemaakt. Voor deze zelfstudie gaat u drie nieuwe relaties toevoegen.  
   
-<a id="to-review-existing-relationships" class="xliff"></a>
-
-#### Bestaande relaties controleren:  
+#### <a name="to-review-existing-relationships"></a>Bestaande relaties controleren:  
   
 1.  Klik op het menu **Model** > **Model View** > **Diagram View**.  
 
@@ -73,9 +65,7 @@ Bij het importeren van gegevens met behulp van Get Data zijn zeven tabellen opge
   
     Als een van de relaties ontbreekt, controleert u of het model de volgende tabellen bevat: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory en FactInternetSales. Als tabellen uit dezelfde verbonden gegevensbron op verschillende momenten worden geïmporteerd, worden eventuele relaties tussen deze tabellen niet overgenomen en moeten deze handmatig worden gemaakt.  
 
-<a id="take-a-closer-look" class="xliff"></a>
-
-### Diagramweergave
+### <a name="take-a-closer-look"></a>Diagramweergave
 In de diagramweergave ziet u een pijl, een sterretje en een nummer op de lijnen die de relatie tussen tabellen aangeven.
 
 ![aas-lesson4-line](../tutorials/media/aas-lesson4-line.png)
@@ -88,9 +78,7 @@ Deze functies zijn bedoeld voor geavanceerde gegevensmodellering en vallen buite
 
 In sommige gevallen moet u mogelijk aanvullende relaties maken tussen tabellen in het model om ondersteuning in te bouwen voor bepaalde bedrijfslogica. Voor deze zelfstudie moet u drie extra relaties maken tussen de tabel FactInternetSales en de tabel DimDate.  
   
-<a id="to-add-new-relationships-between-tables" class="xliff"></a>
-
-#### Nieuwe relaties tussen tabellen toevoegen:  
+#### <a name="to-add-new-relationships-between-tables"></a>Nieuwe relaties tussen tabellen toevoegen:  
   
 1.  Ga in de ontwerpfunctie voor modellen naar de tabel **FactInternetSales** en sleep de kolom **OrderDate** naar de kolom **Date** in de tabel **DimDate**.  
 
@@ -109,9 +97,7 @@ In sommige gevallen moet u mogelijk aanvullende relaties maken tussen tabellen i
     
      ![aas-lesson4-newinactive](../tutorials/media/aas-lesson4-newinactive.png)
   
-<a id="whats-next" class="xliff"></a>
-
-## Volgende stappen
+## <a name="whats-next"></a>Volgende stappen
 [Les 5: Berekende kolommen maken](../tutorials/aas-lesson-5-create-calculated-columns.md).
   
   

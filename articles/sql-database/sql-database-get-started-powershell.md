@@ -24,9 +24,7 @@ ms.lasthandoff: 06/23/2017
 
 ---
 
-<a id="create-a-single-azure-sql-database-using-powershell" class="xliff"></a>
-
-# Een individuele Azure SQL Database maken met PowerShell
+# <a name="create-a-single-azure-sql-database-using-powershell"></a>Een individuele Azure SQL Database maken met PowerShell
 
 PowerShell wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. Deze handleiding geeft meer informatie over het gebruik van PowerShell voor het implementeren van een Azure SQL-database in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) in een [logische Azure SQL Database-server](sql-database-features.md).
 
@@ -34,9 +32,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 Voor deze zelfstudie is module versie 4.0 of hoger van Azure PowerShell vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). 
 
-<a id="log-in-to-azure" class="xliff"></a>
-
-## Meld u aan bij Azure.
+## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
 Meld u aan bij uw Azure-abonnement met de opdracht [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) en volg de instructies op het scherm.
 
@@ -44,9 +40,7 @@ Meld u aan bij uw Azure-abonnement met de opdracht [Add-AzureRmAccount](/powersh
 Add-AzureRmAccount
 ```
 
-<a id="create-variables" class="xliff"></a>
-
-## Variabelen maken
+## <a name="create-variables"></a>Variabelen maken
 
 Definieer variabelen voor gebruik in de scripts in deze Quick Start.
 
@@ -67,18 +61,14 @@ $endip = "0.0.0.0"
 $databasename = "mySampleDatabase"
 ```
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Een resourcegroep maken
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 Maak een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en groepsgewijs worden beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westeurope`.
 
 ```powershell
 New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 ```
-<a id="create-a-logical-server" class="xliff"></a>
-
-## Een logische server maken
+## <a name="create-a-logical-server"></a>Een logische server maken
 
 Als u een [logische Azure SQL Database-server](sql-database-features.md) wilt maken, gebruikt u de opdracht [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver). Een logische server bevat een groep met databases die worden beheerd als groep. In het volgende voorbeeld wordt een server met een willekeurige naam gemaakt in de resourcegroep met een beheerdersaccount met de gebruikersnaam `ServerAdmin` en het wachtwoord `ChangeYourAdminPassword1`. U kunt deze vooraf gedefinieerde waarden vervangen.
 
@@ -89,9 +79,7 @@ New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 ```
 
-<a id="configure-a-server-firewall-rule" class="xliff"></a>
-
-## Een serverfirewallregel configureren
+## <a name="configure-a-server-firewall-rule"></a>Een serverfirewallregel configureren
 
 Maak een [firewallregel op Azure SQL Database-serverniveau](sql-database-firewall-configure.md) met de opdracht [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule). Een firewallregel op serverniveau kan een externe toepassing, zoals SQL Server Management Studio of het hulpprogramma SQLCMD verbinding laten maken met een SQL-database via de firewall van de SQL Database-service. In het volgende voorbeeld wordt de firewall alleen geopend voor andere Azure-resources. Voor externe connectiviteit wijzigt u het IP-adres in een correct adres voor uw omgeving. Als u alle IP-adressen wilt openen, gebruikt u 0.0.0.0 als beginadres en 255.255.255.255 als eindadres.
 
@@ -105,9 +93,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 > SQL Database communiceert via poort 1433. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 1433 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u alleen verbinding maken met uw Azure SQL Database-server als uw IT-afdeling poort 1433 openstelt.
 >
 
-<a id="create-a-database-in-the-server-with-sample-data" class="xliff"></a>
-
-## Een database op de server maken met voorbeeldgegevens
+## <a name="create-a-database-in-the-server-with-sample-data"></a>Een database op de server maken met voorbeeldgegevens
 
 Maak een database met een [prestatieniveau van S0](sql-database-service-tiers.md) in de server met de opdracht [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase). In het volgende voorbeeld wordt een database met de naam `mySampleDatabase` gemaakt en worden de gegevens uit het AdventureWorksLT-voorbeeld in deze database geladen. U kunt deze vooraf gedefinieerde waarden desgewenst vervangen. (Andere Quick Starts in deze verzameling zijn echter op de waarden in deze Quick Start gebaseerd.)
 
@@ -119,9 +105,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
     -RequestedServiceObjectiveName "S0"
 ```
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Resources opschonen
+## <a name="clean-up-resources"></a>Resources opschonen
 
 Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. 
 
@@ -133,9 +117,7 @@ Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd.
 Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Nu u een database hebt, kunt u verbinding maken met een hulpprogramma naar keuze en hiermee query's uitvoeren. Klik op de onderstaande hulpprogramma's voor meer informatie:
 

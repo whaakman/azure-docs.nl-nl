@@ -23,9 +23,7 @@ ms.lasthandoff: 06/07/2017
 
 
 ---
-<a id="configure-expressroute-and-site-to-site-coexisting-connections" class="xliff"></a>
-
-# Gelijktijdige ExpressRoute- en site-to-site-verbindingen configureren
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Gelijktijdige ExpressRoute- en site-to-site-verbindingen configureren
 > [!div class="op_single_selector"]
 > * [PowerShell - Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell - Klassiek](expressroute-howto-coexist-classic.md)
@@ -39,21 +37,15 @@ Configuratie van gelijktijdige site-naar-site-VPN- en ExpressRoute-verbindingen 
 > 
 > 
 
-<a id="limits-and-limitations" class="xliff"></a>
-
-## Limieten en beperkingen
+## <a name="limits-and-limitations"></a>Limieten en beperkingen
 * **Transitroutering wordt niet ondersteund.** U kunt niet (via Azure) routeren tussen uw lokale netwerk dat is verbonden via site-naar-site-VPN en uw lokale netwerk dat is verbonden via ExpressRoute.
 * **Basic SKU-gateway wordt niet ondersteund.** U moet een niet-basic SKU-gateway gebruiken voor zowel de [ExpressRoute gateway](expressroute-about-virtual-network-gateways.md) als de [VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Alleen een op route gebaseerde VPN-gateway wordt ondersteund.** U moet een op route gebaseerde [VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) gebruiken.
 * **Statische route moet worden geconfigureerd voor de VPN-gateway.** Als uw lokale netwerk is verbonden met ExpressRoute en een site-naar-site-VPN, moet u in uw lokale netwerk een statische route hebben geconfigureerd voor het routeren van de site-naar-site-VPN-verbinding met het openbare internet.
 * **ExpressRoute-gateway moet eerst worden geconfigureerd en gekoppeld aan een circuit.** U moet eerst de ExpressRoute-gateway maken en deze koppelen aan een circuit voordat u de site-naar-site-VPN-gateway kunt toevoegen.
 
-<a id="configuration-designs" class="xliff"></a>
-
-## Configuratie-ontwerpen
-<a id="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute" class="xliff"></a>
-
-### Een site-naar-site-VPN configureren als een failoverpad voor ExpressRoute
+## <a name="configuration-designs"></a>Configuratie-ontwerpen
+### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Een site-naar-site-VPN configureren als een failoverpad voor ExpressRoute
 U kunt een site-naar-site-VPN-verbinding configureren als een back-up voor ExpressRoute. Dit geldt alleen voor virtuele netwerken die zijn gekoppeld aan het pad voor persoonlijke Azure-peering. Er is geen op VPN gebaseerde failoveroplossing voor services die toegankelijk zijn via openbare Azure- en Microsoft-peerings. Het ExpressRoute-circuit is altijd de primaire koppeling. Gegevens worden alleen via het site-naar-site-VPN-pad geleid als het ExpressRoute-circuit niet beschikbaar is.
 
 > [!NOTE]
@@ -63,9 +55,7 @@ U kunt een site-naar-site-VPN-verbinding configureren als een back-up voor Expre
 
 ![Naast elkaar gebruiken](media/expressroute-howto-coexist-resource-manager/scenario1.jpg)
 
-<a id="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute" class="xliff"></a>
-
-### Een site-naar-site-VPN configureren om verbinding te maken met sites die niet zijn verbonden via ExpressRoute
+### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>Een site-naar-site-VPN configureren om verbinding te maken met sites die niet zijn verbonden via ExpressRoute
 U kunt uw netwerk zodanig configureren dat sommige sites rechtstreeks verbinding maken met Azure via site-naar-site-VPN en sommige sites verbinding maken via ExpressRoute. 
 
 ![Naast elkaar gebruiken](media/expressroute-howto-coexist-resource-manager/scenario2.jpg)
@@ -75,9 +65,7 @@ U kunt uw netwerk zodanig configureren dat sommige sites rechtstreeks verbinding
 > 
 > 
 
-<a id="selecting-the-steps-to-use" class="xliff"></a>
-
-## De stappen selecteren die u gaat gebruiken
+## <a name="selecting-the-steps-to-use"></a>De stappen selecteren die u gaat gebruiken
 Er zijn twee verschillende procedures waaruit u kunt kiezen. Welke configuratieprocedure u selecteert, is afhankelijk van het gegeven of u een nieuw virtueel netwerk wilt maken of een bestaand virtueel netwerk hebt waarmee u verbinding wilt maken.
 
 * Ik heb geen VNet en moet er een maken.
@@ -223,9 +211,7 @@ Als het gatewaysubnet /27 of groter is en het virtuele netwerk is verbonden via 
   ```
 5. U hebt op dit moment een VNet zonder gateways. Als u nieuwe gateways wilt maken en uw verbindingen wilt voltooien, kunt u doorgaan met [Stap 4 - Een ExpressRoute-gateway maken](#gw). Deze stap vindt u in de voorgaande reeks stappen.
 
-<a id="to-add-point-to-site-configuration-to-the-vpn-gateway" class="xliff"></a>
-
-## Punt-naar-site-configuratie toevoegen aan de VPN-gateway
+## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Punt-naar-site-configuratie toevoegen aan de VPN-gateway
 Volg onderstaande stappen om punt-naar-site-configuratie toe te voegen aan uw VPN-gateway in een installatie waarbij ze naast elkaar kunnen worden gebruikt.
 
 1. Voeg een VPN-clientadresgroep toe.
@@ -246,8 +232,6 @@ Volg onderstaande stappen om punt-naar-site-configuratie toe te voegen aan uw VP
 
 Zie [Een punt-naar-site-verbinding configureren](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md) voor meer informatie over punt-naar-site-VPN.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Voor meer informatie over ExpressRoute raadpleegt u de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md).
 

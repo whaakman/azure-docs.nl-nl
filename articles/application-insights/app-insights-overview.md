@@ -20,18 +20,14 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 05/19/2017
 
 ---
-<a id="what-is-application-insights" class="xliff"></a>
-
-# Wat is Application Insights?
+# <a name="what-is-application-insights"></a>Wat is Application Insights?
 Application Insights is een uitbreidbare APM-service (Application Performance Management) voor webontwikkelaars op meerdere platforms. Hiermee kunt u uw livewebtoepassing controleren. Afwijkende prestaties worden automatisch gedetecteerd. De service bevat krachtige analysehulpmiddelen om u te helpen bij het vaststellen van problemen en te begrijpen wat gebruikers daadwerkelijk doen met uw app.  De service is bedoeld om u te helpen de prestaties en bruikbaarheid van uw apps continu te verbeteren. Het werkt voor apps op uiteenlopende platforms, waaronder .NET, Node.js en J2EE, on-premises of in de cloud gehost. De service kan ook worden geïntegreerd met uw devOps-proces en bevat verbindingspunten naar verschillende hulpmiddelen voor ontwikkelaars.
 
 ![Breng statistieken van gebruikersactiviteiten in kaart of zoom in op specifieke gebeurtenissen.](./media/app-insights-overview/00-sample.png)
 
 [Bekijk het introductiefilmpje](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
-<a id="how-does-application-insights-work" class="xliff"></a>
-
-## Hoe werkt Application Insights?
+## <a name="how-does-application-insights-work"></a>Hoe werkt Application Insights?
 U installeert een klein instrumentatiepakket in uw toepassing en u stelt een Application Insights-resource in de Microsoft Azure Portal in. Met dit instrumentatiepakket wordt uw app gecontroleerd en worden telemetriegegevens naar de portal verzonden. (De toepassing kan op elke locatie worden uitgevoerd - deze hoeft niet te worden gehost in Azure.)
 
 U kunt niet alleen de webservicetoepassing instrumenteren, maar ook de onderdelen die op de achtergrond worden uitgevoerd en de JavaScript-code van de webpagina's zelf. 
@@ -44,14 +40,10 @@ Bovendien kunt u telemetrie ophalen uit de hostomgevingen, zoals gegevens van pr
 Al deze telemetrie-gegevensstromen worden geïntegreerd in de Azure Portal, waar u krachtige analyse- en zoekhulpmiddelen kunt loslaten op de onbewerkte gegevens.
 
 
-<a id="whats-the-overhead" class="xliff"></a>
-
-### Wat is de impact?
+### <a name="whats-the-overhead"></a>Wat is de impact?
 De impact op de prestaties van uw app is erg klein. De aanroepen voor het bijhouden van het appgebruik blokkeren uw app niet en worden batchgewijs in een afzonderlijke thread verzonden.
 
-<a id="what-does-application-insights-monitor" class="xliff"></a>
-
-## Wat wordt er door Application Insights gecontroleerd?
+## <a name="what-does-application-insights-monitor"></a>Wat wordt er door Application Insights gecontroleerd?
 
 Application Insights is bedoeld voor het ontwikkelingsteam en helpt u om te begrijpen hoe de app presteert en op welke manier de app wordt gebruikt. Met deze service kunt u het volgende controleren:
 
@@ -66,9 +58,7 @@ Application Insights is bedoeld voor het ontwikkelingsteam en helpt u om te begr
 * **Diagnostische traceerlogboeken** van uw app - met behulp hiervan kunt u de samenhang vaststellen tussen traceergebeurtenissen en aanvragen.
 * **Aangepaste gebeurtenissen en functies voor het verzamelen van metrische gegevens** die u zelf schrijft in de client- of servercode - hiermee kunt u zakelijke gebeurtenissen bijhouden, zoals het aantal verkochte artikelen of gewonnen spellen.
 
-<a id="where-do-i-see-my-telemetry" class="xliff"></a>
-
-## Waar kan ik mijn telemetrie bekijken?
+## <a name="where-do-i-see-my-telemetry"></a>Waar kan ik mijn telemetrie bekijken?
 
 Er zijn tal van manieren om uw gegevens te verkennen. Lees de volgende artikelen:
 
@@ -89,40 +79,30 @@ Er zijn tal van manieren om uw gegevens te verkennen. Lees de volgende artikelen
 | [**REST API**](https://dev.applicationinsights.io/)<br/>Schrijf code voor het uitvoeren van query's op uw functies voor het verzamelen van metrische gegevens en op onbewerkte gegevens.| ![REST API](./media/app-insights-overview/rest-tn.png) |
 | [**Continue export**](app-insights-export-telemetry.md)<br/>Exporteer onbewerkte gegevens bulksgewijs naar de opslag zodra de gegevens binnenkomen. |![Exporteren](./media/app-insights-overview/export-tn.png) |
 
-<a id="how-do-i-use-application-insights" class="xliff"></a>
+## <a name="how-do-i-use-application-insights"></a>Hoe kan ik Application Insights gebruiken?
 
-## Hoe kan ik Application Insights gebruiken?
-
-<a id="monitor" class="xliff"></a>
-
-### Bewaken
+### <a name="monitor"></a>Bewaken
 Installeer Application Insights in uw app, stel de [beschikbaarheidswebtests](app-insights-monitor-web-app-availability.md) in en ga als volgt te werk:
 
 * Stel een [dashboard](app-insights-dashboards.md) in voor uw teamkamer om de laadtijd, reactiesnelheid en prestaties van uw afhankelijkheden, paginalaadacties en AJAX-aanroepen in de gaten te houden.
 * Ga na welke aanvragen het langzaamst worden verwerkt en de meeste fouten vertonen.
 * Bekijk [Live Stream](app-insights-live-stream.md) wanneer u een nieuwe release implementeert, zodat u onmiddellijk op de hoogte bent van een eventuele afname van de prestaties.
 
-<a id="detect-diagnose" class="xliff"></a>
-
-### Fouten detecteren en een diagnose stellen
+### <a name="detect-diagnose"></a>Fouten detecteren en een diagnose stellen
 Ga als volgt te werk als u een waarschuwing ontvangt of een probleem detecteert:
 
 * Beoordeel hoeveel gebruikers last hebben van het probleem.
 * Ga na of er een verband is tussen fouten en uitzonderingen, afhankelijkheidsaanroepen en traceringen.
 * Bekijk de informatie van Profiler, momentopnamen, stackdumps en traceerlogboeken.
 
-<a id="build-measure-learn" class="xliff"></a>
-
-### Meten is weten
+### <a name="build-measure-learn"></a>Meten is weten
 [Meet de effectiviteit](app-insights-usage-overview.md) van elke nieuwe functie die u implementeert.
 
 * Maak plannen om te meten hoe klanten de nieuwe gebruikerservaring of zakelijke functies gebruiken.
 * Schrijf aangepaste telemetrie in uw code.
 * Baseer de volgende ontwikkelingscyclus op de harde bewijzen die uw telemetrie u bieden.
 
-<a id="get-started" class="xliff"></a>
-
-## Aan de slag
+## <a name="get-started"></a>Aan de slag
 Application Insights is een van de vele services die worden gehost binnen Microsoft Azure en telemetrie wordt naar deze service verzonden om te worden geanalyseerd en gepresenteerd. Dus voor u aan de slag kunt gaan, hebt u eerst een abonnement op [Microsoft Azure](http://azure.com) nodig. U kunt zich gratis aanmelden en als u kiest voor het basis[prijsplan](https://azure.microsoft.com/pricing/details/application-insights/) van Application Insights, hebt u geen kosten totdat het gebruik van uw toepassing zodanig is toegenomen dat er sprake is van substantieel gebruik. Als uw organisatie al een abonnement heeft, kan uw Microsoft-account aan dat abonnement worden toegevoegd.
 
 Er zijn verschillende manieren om van start te gaan. Begin op de manier die voor u het beste werkt. U kunt later ook andere manieren gebruiken.
@@ -140,9 +120,7 @@ Er zijn verschillende manieren om van start te gaan. Begin op de manier die voor
 * **[Beschikbaarheidstests](app-insights-monitor-web-app-availability.md)** - ping uw website regelmatig vanaf onze servers.
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Gebruik tijdens runtime:
 
 * [IIS-server](app-insights-monitor-performance-live-website-now.md)
@@ -154,9 +132,7 @@ Gebruik tijdens het ontwikkelen:
 * [Java](app-insights-java-get-started.md)
 * [Node.js](app-insights-nodejs.md)
 
-<a id="support-and-feedback" class="xliff"></a>
-
-## Ondersteuning en feedback
+## <a name="support-and-feedback"></a>Ondersteuning en feedback
 * Vragen en problemen:
   * [Problemen oplossen][qna]
   * [MSDN-forum](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
@@ -166,9 +142,7 @@ Gebruik tijdens het ontwikkelen:
 * Blog:
   * [Application Insights-blog](https://azure.microsoft.com/blog/tag/application-insights)
 
-<a id="videos" class="xliff"></a>
-
-## Video's
+## <a name="videos"></a>Video's
 
 [![Introductievideo](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 

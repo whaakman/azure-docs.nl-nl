@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 93f80018d71368c800abd3dceb42b2ab51e60659
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 346e7abf862330afe64dc5685737a9301d7d861a
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Grootschalige parallelle rekenoplossingen ontwikkelen met Batch
@@ -47,7 +46,7 @@ De volgende werkstroom op hoog niveau is gangbaar voor bijna alle toepassingen e
 In de volgende secties worden deze en andere resources van Batch besproken waarmee u uw gedistribueerde rekenkundige scenario kunt uitvoeren.
 
 > [!NOTE]
-> U hebt een [Batch-account](#account) nodig om de Batch-service te kunnen gebruiken. Bovendien wordt voor vrijwel alle oplossingen een [Azure-opslagaccount][azure_storage] gebruikt om bestanden op te slaan en op te halen. Batch ondersteunt momenteel alleen het opslagaccounttype **Algemeen**, zoals beschreven in stap 5 van [Een opslagaccount maken](../storage/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md).
+> U hebt een [Batch-account](#account) nodig om de Batch-service te kunnen gebruiken. Voor de meeste Batch-oplossingen wordt ook een [Azure-opslagaccount][azure_storage] gebruikt om bestanden op te slaan en op te halen. Batch ondersteunt momenteel alleen het opslagaccounttype **Algemeen**, zoals is beschreven in stap 5 van [Een opslagaccount maken](../storage/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md).
 >
 >
 
@@ -74,35 +73,51 @@ Een Batch-account is een uniek geïdentificeerde entiteit in de Batch-service. A
 
 U kunt een Azure Batch-account maken met de [Azure Portal](batch-account-create-portal.md) of via een programma, zoals met de [Batch Management .NET-bibliotheek](batch-management-dotnet.md). Wanneer u het account maakt, kunt u een Azure-opslagaccount koppelen.
 
-Batch ondersteunt twee accountconfiguraties en u moet bij het maken van een Batch-account de juiste configuratie selecteren. Het verschil tussen de twee accountconfiguraties zit in de manier waarop Batch-[pools](#pool) voor het account worden toegewezen. U kunt pools van rekenknooppunten toewijzen in een abonnement dat wordt beheerd door Azure Batch of u kunt ze toewijzen in uw eigen abonnement. De eigenschap *pooltoewijzingsmodus* voor het account bepaalt welke configuratie er wordt gebruikt. 
+### <a name="pool-allocation-mode"></a>Pooltoewijzingsmodus
 
-Bedenk bij uw keuze van een accountconfiguratie welke configuratie het best bij uw scenario past:
+Wanneer u een Batch-account maakt, kunt u opgeven hoe [pools](#pool) rekenknooppunten worden toegewezen. U kunt pools rekenknooppunten toewijzen in een abonnement dat wordt beheerd door Azure Batch of u kunt ze toewijzen in uw eigen abonnement. Op basis van de eigenschap *pooltoewijzingsmodus* voor het account wordt bepaald waar pools worden toegewezen. 
 
-* **Batch-service**: Batch-service is de standaardaccountconfiguratie. Als een account met deze configuratie is gemaakt, worden Batch-pools achter de schermen toegewezen in abonnementen die met Azure worden beheerd. Houd rekening met de volgende belangrijke kenmerken van de accountconfiguratie Batch-service:
+Bedenk bij het kiezen van een pooltoewijzingsmodus welke modus het beste bij uw scenario past:
 
-    - De accountconfiguratie Batch-service ondersteunt zowel Cloud Services- als VM-pools.
-    - De accountconfiguratie Batch-service ondersteunt toegang tot de Batch-API's via verificatie op basis van gedeelde sleutels of [Azure Active Directory-verificatie](batch-aad-auth.md). 
-    - In de accountconfiguratie Batch-service kunt u toegewezen rekenknooppunten of rekenknooppunten met lage prioriteit in pools gebruiken.
-    - Gebruik de accountconfiguratie Batch-service niet als u van plan bent om Azure VM-pools te maken vanuit VM-installatiekopieën of als u een virtueel netwerk wilt gaan gebruiken. Gebruik uw account in plaats daarvan met de accountconfiguratie Gebruikersabonnement.
-    - VM-pools die zijn ingericht in een account met de accountconfiguratie Batch-service moeten worden gemaakt via [Azure Virtual Machines Marketplace][vm_marketplace]-installatiekopieën.
+* **Batch-service**: Batch-service is de standaardmodus voor pooltoewijzing, waarbij pools achter de schermen van door Azure beheerde abonnementen worden toegewezen. Houd rekening met de volgende belangrijke informatie over de pooltoewijzingsmodus Batch-service:
 
-* **Gebruikersabonnement**: met de accountconfiguratie Gebruikersabonnement worden Batch-pools toegewezen in het Azure-abonnement waarin het account is gemaakt. Houd rekening met de volgende belangrijke kenmerken van de accountconfiguratie Gebruikersabonnement:
+    - De pooltoewijzingsmodus Batch-service ondersteunt zowel cloudservice- als VM-pools.
+    - De pooltoewijzingsmodus Batch-service biedt ondersteuning voor verificatie op basis van gedeelde sleutels en [Azure Active Directory-verificatie](batch-aad-auth.md) (Azure AD). 
+    - In de pooltoewijzingsmodus Batch-service kunt u toegewezen rekenknooppunten of rekenknooppunten met lage prioriteit in pools gebruiken.
+    - Gebruik de pooltoewijzingsmodus Batch-service niet als u van plan bent om Azure VM-pools te maken vanuit VM-installatiekopieën of als u een virtueel netwerk wilt gaan gebruiken. Maak uw account in plaats daarvan met de pooltoewijzingsmodus Gebruikersabonnement.
+    - VM-pools die zijn ingericht in een account met de pooltoewijzingsmodus Batch-service moeten worden gemaakt via [Azure Virtual Machines Marketplace][vm_marketplace]-installatiekopieën.
+
+* **Gebruikersabonnement**: met de pooltoewijzingsmodus Gebruikersabonnement worden Batch-pools toegewezen in het Azure-abonnement waarin het account is gemaakt. Houd rekening met de volgende belangrijke informatie over de pooltoewijzingsmodus Gebruikersabonnement:
      
-    - De accountconfiguratie Gebruikersabonnement ondersteunt alleen VM-pools. Cloud Services-pools worden niet ondersteund.
-    - Gebruik de accountconfiguratie Gebruikersabonnement als u VM-pools wilt maken vanuit aangepaste VM-installatiekopieën of als u een virtueel netwerk met VM-pools wilt gebruiken.  
-    - U moet aanvragen voor de Batch-service verifiëren met [Azure Active Directory-verificatie](batch-aad-auth.md). 
-    - Voor de accountconfiguratie Gebruikersaccount moet u een Azure-sleutelkluis voor uw Batch-account instellen. 
-    - U kunt alleen toegewezen rekenknooppunten gebruiken in pools die zijn gemaakt met de accountconfiguratie Gebruikersabonnement. Knooppunten met lage prioriteit worden niet ondersteund.
-    - VM-pools die zijn ingericht in een account met de accountconfiguratie Gebruikersabonnement kunnen worden gemaakt via [Azure Virtual Machines Marketplace][vm_marketplace]-installatiekopieën of via aangepaste installatiekopieën die u verstrekt.
+    - De pooltoewijzingsmodus Gebruikersabonnement ondersteunt alleen VM-pools. Cloud Services-pools worden niet ondersteund.
+    - Gebruik de pooltoewijzingsmodus Gebruikersabonnement als u VM-pools wilt maken vanuit aangepaste VM-installatiekopieën of als u een virtueel netwerk met VM-pools wilt gebruiken.  
+    - U moet [Azure Active Directory-verificatie](batch-aad-auth.md) gebruiken met pools die zijn toegewezen in het gebruikersabonnement. 
+    - U moet een Azure-sleutelkluis instellen voor uw Batch-account als de pooltoewijzingsmodus Gebruikersabonnement is. 
+    - U kunt alleen toegewezen rekenknooppunten gebruiken in pools die zijn gemaakt met de pooltoewijzingsmodus Gebruikersabonnement. Knooppunten met lage prioriteit worden niet ondersteund.
+    - VM-pools die zijn ingericht in een account met de pooltoewijzingsmodus Gebruikersabonnement kunnen worden gemaakt via [Azure Virtual Machines Marketplace][vm_marketplace]-installatiekopieën of via aangepaste installatiekopieën die u verstrekt.
 
-> [!IMPORTANT]
-> Batch ondersteunt momenteel alleen het opslagaccounttype Algemeen, zoals is beschreven in stap 5 van [Een opslagaccount maken](../storage/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md). Uw Batch-taken (inclusief standaardtaken, begintaken, jobvoorbereidingstaken en jobvrijgevingstaken) moeten bronbestanden opgeven die zich bevinden in algemene opslagaccounts.
->
->
+In de volgende tabel worden de pooltoewijzingsmodi Batch-service en Gebruikersabonnement met elkaar vergeleken.
+
+| **Pooltoewijzingsmodus:**                 | **Batch-service**                                                                                       | **Gebruikersabonnement**                                                              |
+|-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| **Pools worden toegewezen in:**               | Een door Azure beheerd abonnement                                                                           | Het gebruikersabonnement waarin het Batch-account is gemaakt                        |
+| **Ondersteunde configuraties:**             | <ul><li>Cloudserviceconfiguratie</li><li>Virtuele-machineconfiguratie (Linux en Windows)</li></ul> | <ul><li>Virtuele-machineconfiguratie (Linux en Windows)</li></ul>                |
+| **Ondersteunde VM-installatiekopieën:**                  | <ul><li>Azure Marketplace-installatiekopieën</li></ul>                                                              | <ul><li>Azure Marketplace-installatiekopieën</li><li>Aangepaste installatiekopieën</li></ul>                   |
+| **Ondersteunde typen rekenknooppunten:**         | <ul><li>Toegewezen knooppunten</li><li>Knooppunten met lage prioriteit</li></ul>                                            | <ul><li>Toegewezen knooppunten</li></ul>                                                  |
+| **Ondersteunde verificatie:**             | <ul><li>Gedeelde sleutel</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
+| **Azure Key Vault vereist:**             | Nee                                                                                                      | Ja                                                                                |
+| **Kerngeheugenquotum:**                           | Bepaald op basis van het Batch-kerngeheugenquotum                                                                          | Bepaald op basis van het kerngeheugenquotum van het abonnement                                              |
+| **Azure Virtual Network-ondersteuning (VNet):** | Pools die zijn gemaakt met de cloudserviceconfiguratie                                                      | Pools die zijn gemaakt met de virtuele-machineconfiguratie                               |
+| **VNet-implementatiemodel ondersteund:**      | VNets die zijn gemaakt met het klassieke implementatiemodel                                                             | VNets die zijn gemaakt met het klassieke implementatiemodel of met Azure Resource Manager |
+## <a name="azure-storage-account"></a>Azure-opslagaccount
+
+Bij de meeste Batch-oplossingen wordt gebruikgemaakt van Azure Storage om resourcebestanden en uitvoerbestanden op te slaan.  
+
+Batch ondersteunt momenteel alleen het opslagaccounttype Algemeen, zoals is beschreven in stap 5 van [Een opslagaccount maken](../storage/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md). Uw Batch-taken (inclusief standaardtaken, begintaken, jobvoorbereidingstaken en jobvrijgevingstaken) moeten bronbestanden opgeven die zich bevinden in algemene opslagaccounts.
 
 
 ## <a name="compute-node"></a>Rekenknooppunt
-Een rekenknooppunt is een virtuele machine (VM) of cloudservice-VM van Azure die aan een specifiek deel van de workload van uw toepassing is toegewezen. De grootte van een knooppunt bepaalt het aantal CPU-kernen, de geheugencapaciteit en de grootte van het lokale bestandssysteem die aan het knooppunt worden toegewezen. U kunt pools van Windows- of Linux-knooppunten maken met behulp van Azure Cloud Services of Virtual Machines Marketplace-installatiekopieën. Zie de volgende sectie ([Pool](#pool)) voor meer informatie over deze opties.
+Een rekenknooppunt is een virtuele machine (VM) of cloudservice-VM van Azure die aan een specifiek deel van de workload van uw toepassing is toegewezen. De grootte van een knooppunt bepaalt het aantal CPU-kernen, de geheugencapaciteit en de grootte van het lokale bestandssysteem die aan het knooppunt worden toegewezen. U kunt pools van Windows- of Linux-knooppunten maken met behulp van Azure Cloud Services, [Azure Virtual Machines Marketplace][vm_marketplace]-installatiekopieën of aangepaste installatiekopieën die u voorbereidt. Zie de volgende sectie ([Pool](#pool)) voor meer informatie over deze opties.
 
 Knooppunten kunnen elk uitvoerbaar bestand of script uitvoeren dat wordt ondersteund door de besturingssysteemomgeving van het knooppunt. Dit omvat \*.exe \*.cmd, \*.bat en PowerShell-scripts voor Windows - en binaire bestanden, shell- en Python-scripts voor Linux.
 
@@ -134,9 +149,11 @@ Wanneer u een pool maakt, kunt u de volgende kenmerken opgeven. Sommige instelli
 Deze instellingen worden nader beschreven in de volgende secties.
 
 > [!IMPORTANT]
-> Batch-accounts die met de configuratie Batch-service zijn gemaakt, hebben een standaardquotum dat het aantal kernen in een Batch-account beperkt. Het aantal kernen komt overeen met het aantal rekenknooppunten. U vindt de standaardquota en instructies voor het [verhogen van een quotum](batch-quota-limit.md#increase-a-quota) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md) (Quota en limieten voor de Azure Batch-service). Als een pool niet het beoogde aantal knooppunten bereikt, ligt dit mogelijk aan het kernquotum.
+> Batch-accounts die met de pooltoewijzingsmodus Batch-service zijn gemaakt, hebben een standaardquotum waarmee het aantal kernen in een Batch-account wordt beperkt. Het aantal kernen komt overeen met het aantal rekenknooppunten. U vindt de standaardquota en instructies voor het [verhogen van een quotum](batch-quota-limit.md#increase-a-quota) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md) (Quota en limieten voor de Azure Batch-service). Als een pool niet het beoogde aantal knooppunten bereikt, ligt dit mogelijk aan het kernquotum.
 >
->Batch-accounts die zijn gemaakt met de configuratie Gebruikersabonnement hebben niks van doen met Batch-service-quota. In plaats daarvan delen ze het kernquotum voor het opgegeven abonnement. Zie [Virtual Machines limits](../azure-subscription-service-limits.md#virtual-machines-limits) (Limieten voor Virtuele Machines) in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md) (Azure-abonnement en servicelimieten, -quota en -beperkingen) voor meer informatie.
+>Batch-accounts die met de pooltoewijzingsmodus Gebruikersabonnement zijn gemaakt, hebben niets van doen met Batch-servicequota. In plaats daarvan delen ze het kernquotum voor het opgegeven abonnement. Zie [Virtual Machines limits](../azure-subscription-service-limits.md#virtual-machines-limits) (Limieten voor Virtuele Machines) in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md) (Azure-abonnement en servicelimieten, -quota en -beperkingen) voor meer informatie.
+>
+>
 
 ### <a name="compute-node-operating-system-and-version"></a>Besturingssysteem en versie van rekenknooppunt
 
@@ -158,7 +175,12 @@ Zie de sectie [Account](#account) voor informatie over het instellen van de pool
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Aangepaste installatiekopieën voor VM-pools
 
-Als u aangepaste installatiekopieën voor uw VM-pools wilt gebruiken, maak dan een Batch-account met de accountconfiguratie Gebruikersaccount. Met deze configuratie worden Batch-pools toegewezen binnen het abonnement waarin het account zich bevindt. Zie de sectie [Account](#account) voor informatie over het instellen van de pooltoewijzingsmodus wanneer u een Batch-account maakt.
+Als u een aangepaste installatiekopie voor uw VM-pools wilt gebruiken, maakt u een Batch-account met de pooltoewijzingsmodus Gebruikersaccount. In deze modus worden Batch-pools toegewezen binnen het abonnement waarin het account zich bevindt. Zie de sectie [Account](#account) voor informatie over het instellen van de pooltoewijzingsmodus wanneer u een Batch-account maakt.
+
+Als u een aangepaste installatiekopie wilt maken, moet u de kopie voorbereiden door deze te generaliseren. Zie [Een Azure Linux VM vastleggen om als sjabloon te gebruiken](../virtual-machines/linux/capture-image-nodejs.md) voor meer informatie over het maken van aangepaste Linux-installatiekopieën op basis van Azure VM's. Zie [Aangepaste VM-installatiekopieën maken met Azure PowerShell](../virtual-machines/windows/tutorial-custom-images.md) voor meer informatie over het maken van aangepaste Windows-installatiekopieën op basis van Azure VM's. Houd bij het maken van uw installatiekopie rekening met het volgende:
+
+- Zorg ervoor dat de basisinstallatiekopie voor het besturingssysteem die u gebruikt om uw Batch-pools in te richten geen vooraf geïnstalleerde Azure-extensies bevat, zoals de extensie Aangepast script. Als de installatiekopie een vooraf geïnstalleerde extensie bevat, kunnen er binnen Azure problemen optreden bij het implementeren van de VM.
+- Zorg ervoor dat in de basisinstallatiekopie van het besturingssysteem die u opgeeft, gebruik wordt gemaakt van het reguliere tijdelijke station. De Batch-knooppuntagent verwacht momenteel namelijk het reguliere tijdelijke station.
 
 Als u met behulp van een aangepaste installatiekopie een pool wilt maken met de virtuele-machineconfiguratie, hebt u een of meer standaard Azure Storage-accounts nodig voor het opslaan van uw aangepaste VHD-installatiekopieën. Aangepaste installatiekopieën worden opgeslagen als blobs. Als u bij het maken van een pool wilt verwijzen naar uw aangepaste installatiekopieën, geeft u voor de eigenschap [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) van de eigenschap [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf) de URI's op van de VHD-blobs van de aangepaste installatiekopieën.
 
@@ -166,7 +188,7 @@ Zorg dat uw opslagaccounts voldoen aan de volgende criteria:
 
 - De opslagaccounts die de VHD-blobs van de aangepaste installatiekopieën bevatten, moeten behoren tot hetzelfde abonnement als het Batch-account (het gebruikersabonnement).
 - De opgegeven opslagaccounts moeten zich in dezelfde regio bevinden als het Batch-account.
-- Op dit moment worden alleen standaardopslagaccounts ondersteund. In de toekomst zal ook Azure Premium-opslag worden ondersteund.
+- Op dit moment worden alleen algemene standaardopslagaccounts ondersteund. In de toekomst zal ook Azure Premium-opslag worden ondersteund.
 - U kunt één opslagaccount opgeven met meerdere aangepaste VHD-blobs of meerdere opslagaccounts die elk één blob hebben. Voor betere prestaties raden we u aan om meerdere opslagaccounts te gebruiken.
 - Een unieke VHD-blob van aangepaste installatiekopieën kan maximaal 40 Linux VM-exemplaren of 20 Windows VM-exemplaren ondersteunen. U moet kopieën van de VHD-blob maken als u pools met meer virtuele machines wilt maken. Zo moeten er voor een pool met 200 Windows VM's 10 unieke VHD-blobs worden opgegeven voor de eigenschap **osDisk**.
 
@@ -418,26 +440,46 @@ Als, aan het andere uiteinde van het spectrum, het onmiddellijk starten van jobs
 
 Een gecombineerde benadering wordt meestal gebruikt voor het verwerken van een variabele, maar continue workload. U kunt een pool hebben waarnaar meerdere taken worden verzonden en het aantal knooppunten omhoog of omlaag schalen volgens de jobbelasting (zie [Rekenresources vergroten/verkleinen](#scaling-compute-resources) in de volgende sectie). U kunt dit reactief doen, op basis van de huidige workload, of proactief als de workload kan worden voorspeld.
 
-## <a name="pool-network-configuration"></a>Netwerkconfiguratie pool
+## <a name="virtual-network-vnet-and-firewall-configuration"></a>Configuratie van virtuele netwerken (VNet) en firewalls 
 
-U kunt een subnet-id van een [virtueel netwerk (VNet)](../virtual-network/virtual-networks-overview.md) van Azure opgeven waarin de rekenknooppunten van de pool moeten worden gemaakt wanneer u een pool van rekenknooppunten maakt in Azure Batch.
+Wanneer u een pool rekenknooppunten inricht in Azure Batch kunt u deze pool koppelen aan een subnet van een virtueel netwerk van [Azure (VNet)](../virtual-network/virtual-networks-overview.md). Zie [Een virtueel Azure-netwerk met subnetten maken](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) voor meer informatie over het maken van een VNet met subnetten. 
 
-* Het VNet moet aan de volgende vereisten voldoen:
+ * Het VNet dat is gekoppeld aan een pool moet zich hier bevinden:
 
    * In dezelfde Azure-**regio** als het Azure Batch-account.
    * In hetzelfde Azure-**abonnement** als het Azure Batch-account.
 
 * Welke type VNet wordt ondersteund, is afhankelijk van de manier waarop worden toegewezen voor het Batch-account:
-    - Als het Batch-account is gemaakt met de eigenschap **poolAllocationMode** ingesteld op 'BatchService', moet het opgegeven VNet een klassiek VNet zijn.
-    - Als het Batch-account is gemaakt met de eigenschap **poolAllocationMode** ingesteld op 'UserSubscription', kan het opgegeven VNet een klassiek VNet of een Azure Resource Manager-VNet zijn. Pools moeten met een virtuele-machineconfiguratie worden gemaakt om een VNet te kunnen gebruiken. Pools die met een cloudserviceconfiguratie zijn gemaakt, worden niet ondersteund.
 
-* Als het Batch-account is gemaakt met de eigenschap **poolAllocationMode** ingesteld op 'BatchService', moet u machtigingen voor de Batch-service-principal opgeven om toegang te krijgen tot het VNet. De Batch-service-principal 'Microsoft Azure Batch' of 'MicrosoftAzureBatch' moet de rol [Classic Virtual Machine Contributor Role-Based Access Control (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) hebben voor het betreffende VNet. Als de opgegeven RBAC-rol niet is opgegeven, retourneert de Batch-service foutcode 400 (ongeldige aanvraag).
+    - Als de pooltoewijzingsmodus van uw Batch-account is ingesteld op Batch-service,kunt u een VNet toewijzen aan de pools de zijn gemaakt op basis van de **Cloud Services-configuratie**. Bovendien moet het opgegeven VNet worden gemaakt met het klassieke implementatiemodel. VNets die zijn gemaakt met het Azure Resource Manager-implementatiemodel, worden niet ondersteund.
+ 
+    - Als de pooltoewijzingsmodus van uw Batch-account is ingesteld op Gebruikersabonnement,kunt u een VNet toewijzen aan de pools de zijn gemaakt op basis van de **VM-configuratie**. Pools die met de **cloudserviceconfiguratie** zijn gemaakt, worden niet ondersteund. Het bijbehorende VNet kan worden gemaakt met het Azure Resource Manager-implementatiemodel of het klassieke implementatiemodel.
+
+    Zie de sectie [Pooltoewijzingsmodus](#pool-allocation-mode) voor een tabel met een overzicht van de VNet-ondersteuning bij de pooltoewijzingsmodus.
+
+* Als de pooltoewijzingsmodus van uw Batch-account is ingesteld op Batch-service, moet u machtigingen voor de Batch-service-principal opgeven om toegang te krijgen tot het VNet. Het VNet moet de toegangsbeheerrol [Inzender voor klassieke virtuele machines](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) (RBAC) toewijzen aan de Batch-service-principal. Als de opgegeven RBAC-rol niet is opgegeven, retourneert de Batch-service foutcode 400 (ongeldige aanvraag). De rol toevoegen in Azure Portal:
+
+    1. Selecteer het **VNet** en open vervolgens **Toegangsbeheer (IAM)** > **Rollen** > **Inzender voor virtuele machines** > **Toevoegen**.
+    2. Selecteer op de blade **Machtigingen toevoegen** de rol **Inzender voor virtuele machines**.
+    3. Zoek op de blade **Machtigingen toevoegen** naar de Batch-API. Zoek deze tekenreeksen totdat u de API hebt gevonden:
+        1. **MicrosoftAzureBatch**.
+        2. **Microsoft Azure Batch**. Nieuwere Azure AD-tenants kunnen deze naam gebruiken.
+        3. **ddbf3205-c6bd-46ae-8127-60eb93363864** is de id voor de Batch-API. 
+    3. Selecteer de Batch-API-service-principal. 
+    4. Klik op **Opslaan**.
+
+        ![De rol van VM-inzender toewijzen aan de Batch-service-principal](./media/batch-api-basics/iam-add-role.png)
+
 
 * Het opgegeven subnet moet voldoende vrije **IP-adressen** hebben voor het totale aantal doelknooppunten; dus de som van de eigenschappen `targetDedicatedNodes` en `targetLowPriorityNodes` van de pool. Als het subnet onvoldoende vrije IP-adressen heeft, wijst de Batch-service de rekenknooppunten in de pool gedeeltelijk toe en wordt er een fout weergegeven voor het aanpassen van de grootte.
 
 * Het opgegeven subnet moet communicatie vanuit de Batch-service toestaan om taken te kunnen plannen voor de rekenknooppunten. Als communicatie met de rekenknooppunten wordt geweigerd door een **netwerkbeveiligingsgroep** die is gekoppeld aan het VNet, zet de Batch-service de status van de rekenknooppunten op **Onbruikbaar**.
 
-* Als aan het opgegeven VNet NSG’s (netwerkbeveiligingsgroepen) zijn gekoppeld, moeten een paar gereserveerde poorten worden ingeschakeld voor binnenkomende communicatie. Voor pools die zijn gemaakt met een virtuele-machineconfiguratie schakelt u poort 29876 en 29877 in, evenals poort 22 voor Linux en poort 3389 voor Windows. Voor pools die zijn gemaakt met een cloudserviceconfiguratie schakelt u poort 10100, 20100 en 30100 in. Daarnaast schakelt u uitgaande verbindingen naar Azure Storage in op poort 443.
+* Als aan het opgegeven VNet **NSG’s (netwerkbeveiligingsgroepen)** en/of een **firewall** zijn gekoppeld, moeten een paar gereserveerde systeempoorten worden ingeschakeld voor binnenkomende communicatie:
+
+- Voor pools die zijn gemaakt met een virtuele-machineconfiguratie schakelt u poort 29876 en 29877 in, evenals poort 22 voor Linux en poort 3389 voor Windows. 
+- Voor pools die zijn gemaakt met een cloudserviceconfiguratie schakelt u poort 10100, 20100 en 30100 in. 
+- Schakel uitgaande verbindingen naar Azure Storage in op poort 443. Zorg er ook voor dat uw Azure Storage-eindpunt kan worden omgezet door alle aangepaste DNS-servers die u beschikbaar maakt voor uw VNet. Vooral URL's met de indeling `<account>.table.core.windows.net` moeten kunnen worden omgezet.
 
     In de volgende tabel vindt u een beschrijving van de binnenkomende poorten die u moet inschakelen voor pools die u hebt gemaakt met de virtuele-machineconfiguratie:
 
@@ -451,29 +493,6 @@ U kunt een subnet-id van een [virtueel netwerk (VNet)](../virtual-network/virtua
     |    Uitgaande poort(en)    |    Doel    |    Voegt Batch NSG's toe?    |    Vereist opdat VM bruikbaar is?    |    Actie van gebruiker    |
     |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
     |    443    |    Azure Storage    |    Nee    |    Ja    |    Als u NSG's toevoegt, zorg dan dat deze poort is geopend voor uitgaand verkeer.    |
-
-
-Aanvullende instellingen voor het VNet zijn afhankelijk van de groepstoewijzingsmodus van het Batch-account.
-
-### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>VNets voor pools die zijn ingericht in de Batch-service
-
-In de toewijzingsmodus van de Batch-service kan alleen aan pools van **Cloud Services-configuratie** een VNet worden toegewezen. Het opgegeven VNet moet bovendien een **klassiek** VNet zijn. VNets die zijn gemaakt met het Azure Resource Manager-implementatiemodel, worden niet ondersteund.
-
-
-
-* De *MicrosoftAzureBatch*-service-principal moet de toegangsbeheerrol [Inzender voor klassieke virtuele machines](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) hebben voor het betreffende VNet. In Azure Portal:
-
-  * Selecteer het **VNet** en vervolgens **Toegangsbeheer (IAM)** > **Rollen** > **Inzender voor klassieke virtuele machines** > **Toevoegen**
-  * Voer 'MicrosoftAzureBatch' in het veld **Zoeken** in
-  * Schakel het selectievakje **MicrosoftAzureBatch** in
-  * Selecteer de knop **Selecteren**.
-
-
-
-### <a name="vnets-for-pools-provisioned-in-a-user-subscription"></a>VNets voor pools die zijn ingericht in een gebruikersabonnement
-
-In de toewijzingsmodus Gebruikersabonnement worden alleen pools van **Virtuele-machineconfiguratie** ondersteund en kan alleen hieraan een VNet worden toegewezen. Het opgegeven VNet moet bovendien zijn gebaseerd op **Resource Manager**. VNets die zijn gemaakt met het klassieke implementatiemodel, worden niet ondersteund.
-
 
 
 ## <a name="scaling-compute-resources"></a>Rekenresources vergroten/verkleinen
@@ -538,7 +557,7 @@ Taakfouten kunnen worden onderverdeeld in deze categorieën:
 ### <a name="debugging-application-failures"></a>Foutopsporing van toepassingsfouten
 * `stderr` en `stdout`
 
-    Bij het uitvoeren van een toepassing kan deze een diagnostische uitvoer produceren die handig is voor het oplossen van problemen. Zoals eerder is vermeld in [Bestanden en mappen](#files-and-directories), verzendt de Batch-service standaarduitvoer en standaardfoutuitvoer naar de bestanden `stdout.txt` en `stderr.txt` in de taakmap in het rekenknooppunt. U kunt de Azure Portal of een van de Batch-SDK's gebruiken om deze bestanden te downloaden. U kunt deze en andere bestanden bijvoorbeeld ophalen om problemen op te lossen met behulp van [ComputeNode.GetNodeFile][net_getfile_node] en [CloudTask.GetNodeFile][net_getfile_task] in de .NET-bibliotheek van Batch.
+    Bij het uitvoeren van een toepassing kan deze een diagnostische uitvoer produceren die handig is voor het oplossen van problemen. Zoals eerder is vermeld in [Bestanden en mappen](#files-and-directories), verzendt de Batch-service standaarduitvoer en standaardfoutuitvoer naar de bestanden `stdout.txt` en `stderr.txt` in de taakmap in het rekenknooppunt. U kunt Azure Portal of een van de Batch-SDK's gebruiken om deze bestanden te downloaden. U kunt deze en andere bestanden bijvoorbeeld ophalen om problemen op te lossen met behulp van [ComputeNode.GetNodeFile][net_getfile_node] en [CloudTask.GetNodeFile][net_getfile_task] in de .NET-bibliotheek van Batch.
 
 * **Taakafsluitcodes**
 
@@ -550,7 +569,7 @@ Van tijd tot tijd kunnen taken mislukken of worden onderbroken. In de taaktoepas
 Het is ook mogelijk dat een onregelmatig probleem ertoe leidt dat een taak vastloopt of dat de uitvoering ervan te lang duurt. U kunt de maximale uitvoeringsinterval voor een taak instellen. Als de maximale uitvoeringsinterval wordt overschreden, onderbreekt de Batch-service de taaktoepassing.
 
 ### <a name="connecting-to-compute-nodes"></a>Verbinding maken met rekenknooppunten
-U kunt extra foutopsporing en probleemoplossing uitvoeren door u op afstand aan te melden bij een rekenknooppunt. U kunt via de Azure Portal een RDP-bestand (Remote Desktop Protocol) downloaden voor Windows-knooppunten en SSH-verbindingsinformatie (Secure Shell) verkrijgen voor Linux-knooppunten. U kunt dit ook doen met behulp van de Batch-API's. Bijvoorbeeld met [Batch .NET][net_rdpfile] of [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
+U kunt extra foutopsporing en probleemoplossing uitvoeren door u op afstand aan te melden bij een rekenknooppunt. U kunt via Azure Portal een RDP-bestand (Remote Desktop Protocol) downloaden voor Windows-knooppunten en SSH-verbindingsinformatie (Secure Shell) verkrijgen voor Linux-knooppunten. U kunt dit ook doen met behulp van de Batch-API's. Bijvoorbeeld met [Batch .NET][net_rdpfile] of [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
 > Als u via RDP of SSH verbinding wilt maken met een knooppunt, moet u in het knooppunt eerst een gebruiker maken. Hiervoor kunt u Azure Portal gebruiken, [een gebruikersaccount toevoegen aan een knooppunt][rest_create_user] met behulp van de Batch REST-API, de methode [ComputeNode.CreateComputeNodeUser][net_create_user] aanroepen in Batch .NET of de methode [add_user][py_add_user] aanroepen in de Batch Python-module.

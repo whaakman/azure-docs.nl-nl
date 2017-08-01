@@ -22,17 +22,13 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/20/2017
 
 ---
-<a id="create-your-first-java-web-app-in-azure" class="xliff"></a>
-
-# Uw eerste Java-web-app in Azure maken
+# <a name="create-your-first-java-web-app-in-azure"></a>Uw eerste Java-web-app in Azure maken
 
 De functie [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) van [Azure App Service](../app-service/app-service-value-prop-what-is.md) biedt een zeer schaalbare webhostingservice met self-patchfunctie. In deze Quickstart leert u hoe u een Java-web-app implementeert in App Service met behulp van de [Eclipse IDE voor Java EE-ontwikkelaars](http://www.eclipse.org/).
 
 !['Hello Azure'! voorbeeld van web-app](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 Deze onderdelen moeten zijn geïnstalleerd om deze Quickstart te kunnen voltooien:
 
@@ -41,9 +37,7 @@ Deze onderdelen moeten zijn geïnstalleerd om deze Quickstart te kunnen voltooie
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-<a id="create-a-dynamic-web-project-in-eclipse" class="xliff"></a>
-
-## Een dynamisch webproject maken in Eclipse
+## <a name="create-a-dynamic-web-project-in-eclipse"></a>Een dynamisch webproject maken in Eclipse
 
 Selecteer in Eclipse **Bestand** > **Nieuw** > **Dynamisch webproject**.
 
@@ -51,9 +45,7 @@ Geef het project in het dialoogvenster **Nieuw dynamisch webproject** de naam **
    
 ![Het dialoogvenster Nieuw dynamisch webproject](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
-<a id="add-a-jsp-page" class="xliff"></a>
-
-### Een JSP-pagina toevoegen
+### <a name="add-a-jsp-page"></a>Een JSP-pagina toevoegen
 
 Geef Projectverkenner weer als dat nu niet het geval is.
 
@@ -81,9 +73,7 @@ Vervang in het bestand index.jsp het element `<body></body>` door de volgende co
 
 Sla de wijzigingen op.
 
-<a id="publish-the-web-app-to-azure" class="xliff"></a>
-
-## De web-app publiceren in Azure
+## <a name="publish-the-web-app-to-azure"></a>De web-app publiceren in Azure
 
 Klik in Projectverkenner met de rechtermuisknop op het project en selecteer vervolgens **Azure** > **Publiceren als Azure Web App**.
 
@@ -93,9 +83,7 @@ Laat in het dialoogvenster **Azure-aanmelding** de optie **Interactief** ingesch
 
 Volg de instructies om u aan te melden.
 
-<a id="deploy-web-app-dialog-box" class="xliff"></a>
-
-### Het dialoogvenster Web-app implementeren
+### <a name="deploy-web-app-dialog-box"></a>Het dialoogvenster Web-app implementeren
 
 Nadat u zich hebt aangemeld bij uw Azure-account, wordt het dialoogvenster **Web-app implementeren** weergegeven.
 
@@ -103,9 +91,7 @@ Selecteer **Maken**.
 
 ![Het dialoogvenster Web-app implementeren](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
 
-<a id="create-app-service-dialog-box" class="xliff"></a>
-
-### Het dialoogvenster App Service maken
+### <a name="create-app-service-dialog-box"></a>Het dialoogvenster App Service maken
 
 Het dialoogvenster **App Service** wordt weergegeven met standaardwaarden. De numerieke waarde **170602185241** in de volgende afbeelding is anders in het dialoogvenster dat u ziet.
 
@@ -126,9 +112,7 @@ In het dialoogvenster **App Service maken**:
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-<a id="resource-group-tab" class="xliff"></a>
-
-### Het tabblad Resourcegroep
+### <a name="resource-group-tab"></a>Het tabblad Resourcegroep
 
 Selecteer het tabblad **Resourcegroep**. Gebruik de gegenereerde standaardwaarde voor de resourcegroep.
 
@@ -150,9 +134,7 @@ De web-app wordt gemaakt in Azure Toolkit en de voortgang wordt in een dialoogve
 
 ![Het voortgangsvenster voor het maken van een App Service](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
 
-<a id="deploy-web-app-dialog-box" class="xliff"></a>
-
-### Het dialoogvenster Web-app implementeren
+### <a name="deploy-web-app-dialog-box"></a>Het dialoogvenster Web-app implementeren
 
 Selecteer **Implementeren in hoofdmap** in het dialoogvenster **Web-app implementeren**. Als u een app-service hebt in *wingtiptoys.azurewebsites.net* en u niet in de hoofdmap implementeert, wordt de web-app met de naam **MyFirstJavaOnAzureWebApp** geïmplementeerd in *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
 
@@ -170,9 +152,7 @@ Gefeliciteerd. De web-app is nu geïmplementeerd in Azure.
 
 !['Hello Azure'! voorbeeld van web-app](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-<a id="update-the-web-app" class="xliff"></a>
-
-## De web-app bijwerken
+## <a name="update-the-web-app"></a>De web-app bijwerken
 
 Wijzig de tekst van de JSP-voorbeeldcode.
 
@@ -196,9 +176,7 @@ Selecteer de web-app en selecteer **Implementeren** om de wijzigingen te publice
 
 Wanneer de koppeling **Publiceren** wordt weergegeven, selecteert u deze om naar de web-app te bladeren en de wijzigingen te bekijken.
 
-<a id="manage-the-web-app" class="xliff"></a>
-
-## De web-app beheren
+## <a name="manage-the-web-app"></a>De web-app beheren
 
 Ga naar <a href="https://portal.azure.com" target="_blank">Azure Portal</a> om de web-app te zien die u hebt gemaakt.
 
@@ -218,9 +196,7 @@ De pagina **Overzicht** wordt weergegeven. Deze pagina geeft u een overzicht van
 
 [!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
 > [Aangepast domein toewijzen](app-service-web-tutorial-custom-domain.md)

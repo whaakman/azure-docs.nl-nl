@@ -22,9 +22,7 @@ ms.lasthandoff: 05/17/2017
 
 
 ---
-<a id="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard" class="xliff"></a>
-
-# Zelfstudie: een pijplijn maken met de kopieeractiviteit middels de Data Factory-wizard Kopiëren
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Zelfstudie: een pijplijn maken met de kopieeractiviteit middels de Data Factory-wizard Kopiëren
 > [!div class="op_single_selector"]
 > * [Overzicht en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
@@ -41,14 +39,10 @@ Met de **Wizard Kopiëren** van Azure Data Factory maakt u snel een gegevenspijp
 
 Deze zelfstudie laat zien hoe u een Azure-gegevensfactory kunt maken, de wizard Kopiëren kunt starten en een reeks stappen kunt uitvoeren om informatie over uw scenario voor gegevensopname/-verplaatsing op te geven. Nadat u de stappen in de wizard hebt voltooid, maakt de wizard automatisch een pijplijn met een kopieeractiviteit om gegevens te kopiëren uit een Azure Blob-opslag naar Azure SQL-databases. Zie het artikel [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over kopieeractiviteiten.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 U dient eerst te voldoen aan de vereisten in het artikel [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voordat u deze zelfstudie volgt.
 
-<a id="create-data-factory" class="xliff"></a>
-
-## Een gegevensfactory maken
+## <a name="create-data-factory"></a>Een gegevensfactory maken
 In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADFTutorialDataFactory** te maken.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -77,9 +71,7 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
    
    ![Startpagina van de gegevensfactory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-<a id="launch-copy-wizard" class="xliff"></a>
-
-## De wizard Kopiëren starten
+## <a name="launch-copy-wizard"></a>De wizard Kopiëren starten
 1. Klik op de blade Gegevensfactory op **Gegevens kopiëren [PREVIEW]** om de **wizard Kopiëren** te starten. 
    
    > [!NOTE]
@@ -141,9 +133,7 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
     
     ![Hulpprogramma voor kopiëren - Prestatie-instellingen](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
-<a id="launch-monitor-and-manage-application" class="xliff"></a>
-
-## Monitor starten en toepassing beheren
+## <a name="launch-monitor-and-manage-application"></a>Monitor starten en toepassing beheren
 1. Klik op de pagina **Implementatie** op de koppeling: `Click here to monitor copy pipeline`.
    
    ![Hulpprogramma voor kopiëren - Implementeren voltooid](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
@@ -159,9 +149,7 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
 
     Zie het artikel [Pijplijnen bewaken en beheren met behulp van de app voor bewaking](data-factory-monitor-manage-app.md) voor meer informatie over het gebruik van deze toepassing.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u voor een kopieerbewerking een Azure Blob-opslag gebruikt als brongegevensarchief en een Azure SQL-database als doelgegevensarchief. De volgende tabel bevat een lijst met gegevensarchieven die worden ondersteund als bron en doel voor de kopieeractiviteit: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]

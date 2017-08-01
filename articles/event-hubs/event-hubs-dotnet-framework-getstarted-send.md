@@ -22,13 +22,9 @@ ms.lasthandoff: 06/14/2017
 
 
 ---
-<a id="send-events-to-azure-event-hubs-using-the-net-framework" class="xliff"></a>
+# <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Gebeurtenissen verzenden naar Azure Event Hubs met behulp van .NET Framework
 
-# Gebeurtenissen verzenden naar Azure Event Hubs met behulp van .NET Framework
-
-<a id="introduction" class="xliff"></a>
-
-## Inleiding
+## <a name="introduction"></a>Inleiding
 
 Event Hubs is een service die grote hoeveelheden gebeurtenisgegevens (telemetrie) van verbonden apparaten en toepassingen verwerkt. Nadat u gegevens in Event Hubs hebt verzameld, kunt u de gegevens opslaan met behulp van een opslagcluster of transformeren met een provider van realtime-analyses. Deze functie voor grootschalige gebeurtenisverzameling en -verwerking is een belangrijk onderdeel van de architectuur van moderne toepassingen, met inbegrip van het Internet der dingen (IoT).
 
@@ -39,15 +35,11 @@ Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden vol
 * [Microsoft Visual Studio 2015 of hoger](http://visualstudio.com). In de schermafbeeldingen in deze zelfstudie wordt Visual Studio 2017 gebruikt.
 * Een actief Azure-account. Als u geen Azure-account hebt, kunt u binnen een paar minuten een gratis account maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/free/) voor meer informatie.
 
-<a id="create-an-event-hubs-namespace-and-an-event-hub" class="xliff"></a>
-
-## Een Event Hubs-naamruimte en een Event Hub maken
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Een Event Hubs-naamruimte en een Event Hub maken
 
 In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naamruimte van het type Event Hubs te maken en de beheerreferenties te verkrijgen die de toepassing nodig heeft om met de Event Hub te communiceren. Volg de procedure in [dit artikel](event-hubs-create.md) om een naamruimte en Event Hub te maken en ga daarna verder met de volgende stappen in deze zelfstudie.
 
-<a id="create-a-sender-console-application" class="xliff"></a>
-
-## Een consoletoepassing voor afzenders maken
+## <a name="create-a-sender-console-application"></a>Een consoletoepassing voor afzenders maken
 
 In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar uw Event Hub verzendt.
 
@@ -111,9 +103,7 @@ In deze sectie schrijft u een Windows-consoletoepassing die gebeurtenissen naar 
   
 Gefeliciteerd. U hebt nu berichten verzonden naar een Event Hub.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nu u een werkende toepassing hebt gebouwd die een Event Hub maakt en gegevens verzendt, kunt u naar de volgende scenario's gaan:
 
 * [Gebeurtenissen ontvangen met de gebeurtenisprocessorhost](event-hubs-dotnet-framework-getstarted-receive-eph.md)

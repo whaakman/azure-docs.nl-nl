@@ -22,9 +22,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-5-create-calculated-columns" class="xliff"></a>
-
-# Les 5: Berekende kolommen maken
+# <a name="lesson-5-create-calculated-columns"></a>Les 5: Berekende kolommen maken
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -36,18 +34,12 @@ Dit is trouwens ook de les waarin we voor het eerst DAX (Data Analysis Expressio
   
 Geschatte tijd voor het voltooien van deze les: **15 minuten**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten  
+## <a name="prerequisites"></a>Vereisten  
 Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 4: Relaties maken](../tutorials/aas-lesson-4-create-relationships.md). 
   
-<a id="create-calculated-columns" class="xliff"></a>
-
-## Berekende kolommen maken  
+## <a name="create-calculated-columns"></a>Berekende kolommen maken  
   
-<a id="create-a-monthcalendar-calculated-column-in-the-dimdate-table" class="xliff"></a>
-
-#### Een berekende kolom MonthCalendar maken in de tabel DimDate:  
+#### <a name="create-a-monthcalendar-calculated-column-in-the-dimdate-table"></a>Een berekende kolom MonthCalendar maken in de tabel DimDate:  
   
 1.  Klik op het menu **Model** > **Model View** > **Data View**.  
   
@@ -73,9 +65,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
   
 De berekende kolom MonthCalendar bevat een sorteerbare naam voor de maanden.  
   
-<a id="create-a-dayofweek-calculated-column-in-the-dimdate-table" class="xliff"></a>
-
-#### Een berekende kolom DayOfWeek maken in de tabel DimDate:  
+#### <a name="create-a-dayofweek-calculated-column-in-the-dimdate-table"></a>Een berekende kolom DayOfWeek maken in de tabel DimDate:  
   
 1.  Zorg dat de tabel **DimDate** nog actief is en klik vervolgens op het menu **Column** en **Add Column**.  
   
@@ -96,9 +86,7 @@ De berekende kolom MonthCalendar bevat een sorteerbare naam voor de maanden.
   
 De berekende kolom DayOfWeek bevat een sorteerbare naam voor de dagen van de week.  
   
-<a id="create-a-productsubcategoryname-calculated-column-in-the-dimproduct-table" class="xliff"></a>
-
-#### Een berekende kolom ProductSubcategoryName maken in de tabel DimProduct:  
+#### <a name="create-a-productsubcategoryname-calculated-column-in-the-dimproduct-table"></a>Een berekende kolom ProductSubcategoryName maken in de tabel DimProduct:  
   
   
 1.  Schuif in de tabel **DimProduct** helemaal naar de rechterkant van de tabel. U ziet dat de meest rechtse kolom de naam **Add Column** (cursief) heeft. Klik op de kolomkop van deze kolom.  
@@ -113,9 +101,7 @@ De berekende kolom DayOfWeek bevat een sorteerbare naam voor de dagen van de wee
   
 De berekende kolom ProductSubcategoryName wordt gebruikt voor het maken van een hiërarchie in de tabel DimProduct, die gegevens bevat uit de kolom EnglishProductSubcategoryName in de tabel DimProductSubcategory. Hiërarchieën kunnen niet meer dan één tabel omvatten. U gaat later hiërarchieën maken in les 9.  
   
-<a id="create-a-productcategoryname-calculated-column-in-the-dimproduct-table" class="xliff"></a>
-
-#### Een berekende kolom ProductCategoryName maken in de tabel DimProduct:  
+#### <a name="create-a-productcategoryname-calculated-column-in-the-dimproduct-table"></a>Een berekende kolom ProductCategoryName maken in de tabel DimProduct:  
   
 1.  Zorg dat de tabel **DimProduct** nog actief is en klik vervolgens op het menu **Column** en **Add Column**.  
   
@@ -129,9 +115,7 @@ De berekende kolom ProductSubcategoryName wordt gebruikt voor het maken van een 
   
 De berekende kolom ProductCategoryName wordt gebruikt voor het maken van een hiërarchie in de tabel DimProduct, die gegevens bevat uit de kolom EnglishProductCategoryName in de tabel DimProductCategory. Hiërarchieën kunnen niet meer dan één tabel omvatten.  
   
-<a id="create-a-margin-calculated-column-in-the-factinternetsales-table" class="xliff"></a>
-
-#### Een berekende kolom Margin maken in de tabel FactInternetSales:  
+#### <a name="create-a-margin-calculated-column-in-the-factinternetsales-table"></a>Een berekende kolom Margin maken in de tabel FactInternetSales:  
   
 1.  Selecteer in de ontwerpfunctie voor modellen de tabel **FactInternetSales**.  
   
@@ -149,9 +133,7 @@ De berekende kolom ProductCategoryName wordt gebruikt voor het maken van een hi�
       
     De berekende kolom Margin wordt gebruikt voor het analyseren van winstmarge voor elke verkoop.  
   
-<a id="whats-next" class="xliff"></a>
-
-## Volgende stappen
+## <a name="whats-next"></a>Volgende stappen
 [Les 6: Metingen maken](../tutorials/aas-lesson-6-create-measures.md).
   
   

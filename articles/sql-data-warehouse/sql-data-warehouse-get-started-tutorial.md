@@ -23,32 +23,24 @@ ms.lasthandoff: 06/14/2017
 
 
 ---
-<a id="get-started-with-sql-data-warehouse" class="xliff"></a>
-
-# Aan de slag met SQL Data Warehouse
+# <a name="get-started-with-sql-data-warehouse"></a>Aan de slag met SQL Data Warehouse
 
 In deze zelfstudie wordt beschreven hoe u gegevens kunt inrichten en laden in Azure SQL Data Warehouse. U leert ook de basisbeginselen voor schalen, onderbreken en afstemmen. Na deze zelfstudie bent u er klaar voor om uw datawarehouse te verkennen en een query voor dit datawarehouse uit te voeren.
 
 **Geschatte tijd om dit te voltooien:** dit is een end-to-end-zelfstudie met voorbeeldcode. Als aan de vereisten wordt voldaan, duurt het ongeveer 30 minuten om deze te voltooien. 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 Aangenomen wordt dat u bekend bent met de basisbeginselen van SQL Data Warehouse. Zie [Wat is SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md) als u eerst wat meer informatie nodig hebt. 
 
-<a id="sign-up-for-microsoft-azure" class="xliff"></a>
-
-### Registreren voor Microsoft Azure
+### <a name="sign-up-for-microsoft-azure"></a>Registreren voor Microsoft Azure
 Als u nog geen Microsoft Azure-account hebt, moet u zich registreren voordat u deze service kunt gebruiken. Deze stap kunt u overslaan als u al een account hebt. 
 
 1. Ga naar de accountpagina [https://azure.microsoft.com/account/](https://azure.microsoft.com/account/)
 2. Maak een gratis Azure-account of koop een account.
 3. Volg de instructies
 
-<a id="install-appropriate-sql-client-drivers-and-tools" class="xliff"></a>
-
-### Toepasselijke stuurprogramma's en hulpprogramma's installeren voor SQL-client
+### <a name="install-appropriate-sql-client-drivers-and-tools"></a>Toepasselijke stuurprogramma's en hulpprogramma's installeren voor SQL-client
 
 De meeste SQL-clienthulpprogramma's kunnen verbinding maken met SQL Data Warehouse met behulp van JDBC, ODBC of ADO.NET. Vanwege het grote aantal T-SQL-functies waarvoor SQL Data Warehouse ondersteuning biedt, zijn sommige clienttoepassingen niet volledig compatibel met SQL Data Warehouse.
 
@@ -58,9 +50,7 @@ Als u een Windows-besturingssysteem gebruikt, raden we u aan te kiezen voor [Vis
 
 [!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-<a id="create-a-sql-data-warehouse" class="xliff"></a>
-
-## Een SQL Data Warehouse maken
+## <a name="create-a-sql-data-warehouse"></a>Een SQL Data Warehouse maken
 
 SQL Data Warehouse is een speciaal databasetype dat is ontworpen voor parallelle verwerking op zeer grote schaal. De database wordt gedistribueerd over meerdere knooppunten en query's worden parallel verwerkt. SQL Data Warehouse heeft een besturingselementknooppunt waarmee de activiteiten van alle knooppunten worden ingedeeld. De knooppunten zelf maken gebruik van SQL Database om uw gegevens te beheren.  
 
@@ -68,9 +58,7 @@ SQL Data Warehouse is een speciaal databasetype dat is ontworpen voor parallelle
 > Het maken van een SQL Data Warehouse kan een nieuwe factureerbare service tot gevolg hebben.  Zie [Prijzen van SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) voor meer informatie.
 >
 
-<a id="create-a-data-warehouse" class="xliff"></a>
-
-### Een datawarehouse maken
+### <a name="create-a-data-warehouse"></a>Een datawarehouse maken
 
 1. Meld u aan bij de [Azure Portal](https://portal.azure.com).
 2. Klik op **Nieuw** > **Databases** > **SQL Data Warehouse**.
@@ -101,16 +89,12 @@ SQL Data Warehouse is een speciaal databasetype dat is ontworpen voor parallelle
 
 5. U hoeft niets te doen. Het datawarehouse wordt automatisch geïmplementeerd. Dit proces duurt normaal gesproken enkele minuten. U ontvangt een waarschuwing via de portal als het datawarehouse klaar is voor gebruik. 
 
-<a id="connect-to-sql-data-warehouse" class="xliff"></a>
-
-## Verbinding maken met SQL Data Warehouse
+## <a name="connect-to-sql-data-warehouse"></a>Verbinding maken met SQL Data Warehouse
 
 In deze zelfstudie leert u SSMS (SQL Server Management Studio) te gebruiken om verbinding te maken met het datawarehouse. U kunt verbinding maken met SQL Data Warehouse via deze ondersteunde connectoren: ADO.NET, JDBC, ODBC en PHP. Let op: de functionaliteit van hulpprogramma's die niet door Microsoft worden ondersteund, is mogelijk beperkt.
 
 
-<a id="get-connection-information" class="xliff"></a>
-
-### Verbindingsgegevens ophalen
+### <a name="get-connection-information"></a>Verbindingsgegevens ophalen
 
 Als u verbinding wilt maken met het datawarehouse, moet u eerst verbinding maken via de logische SQL-server die u hebt gemaakt in [Vereisten].
 
@@ -135,15 +119,11 @@ U kunt ook een Azure Active Directory-beheerdersaccount hebben. Hier gaan we ver
 Hierna bespreken we het maken van extra aanmeldingen en gebruikers.
 
 
-<a id="create-a-database-user" class="xliff"></a>
-
-## Een databasegebruiker maken
+## <a name="create-a-database-user"></a>Een databasegebruiker maken
 
 In deze stap maakt u een gebruikersaccount voor toegang tot het datawarehouse. We laten ook zien hoe u deze gebruiker de mogelijkheid kunt geven om query's uit te voeren met zeer veel geheugen en CPU-resources.
 
-<a id="notes-about-resource-classes-for-allocating-resources-to-queries" class="xliff"></a>
-
-### Opmerkingen over resourceklassen voor het toewijzen van resources aan query's
+### <a name="notes-about-resource-classes-for-allocating-resources-to-queries"></a>Opmerkingen over resourceklassen voor het toewijzen van resources aan query's
 
 - Als u uw gegevens wilt beveiligen, kunt u beter niet het serverbeheerdersaccount gebruiken om query's uit te voeren voor de productiedatabases. Dit account heeft de meeste bevoegdheden van alle gebruikers. Als u het gebruikt om bewerkingen uit te voeren op gebruikersgegevens, lopen uw gegevens mogelijk risico. Aangezien het serverbeheerdersaccount is bedoeld om beheerbewerkingen uit te voeren, wordt voor de uitvoering van deze bewerkingen bovendien slechts een kleine hoeveelheid geheugen en CPU-resources toegewezen. 
 
@@ -151,9 +131,7 @@ In deze stap maakt u een gebruikersaccount voor toegang tot het datawarehouse. W
 
 - Voor een optimale compressie van gegevens moet de gebruiker bewerkingen meestal laden met grote of extra grote resourcetoewijzingen. Meer informatie over resourceklassen vindt u [hier](./sql-data-warehouse-develop-concurrency.md#resource-classes):
 
-<a id="create-an-account-that-can-control-a-database" class="xliff"></a>
-
-### Een account maken waarmee een database kan worden beheerd
+### <a name="create-an-account-that-can-control-a-database"></a>Een account maken waarmee een database kan worden beheerd
 
 Omdat u momenteel bent aangemeld als serverbeheerder, bent u gemachtigd om aanmeldingen en gebruikers te maken.
 
@@ -185,9 +163,7 @@ Omdat u momenteel bent aangemeld als serverbeheerder, bent u gemachtigd om aanme
     > Als de databasenaam afbreekstreepjes bevat, omsluit u deze met haken. 
     >
 
-<a id="give-the-user-medium-resource-allocations" class="xliff"></a>
-
-### De gebruiker middelgrote resourcetoewijzingen geven
+### <a name="give-the-user-medium-resource-allocations"></a>De gebruiker middelgrote resourcetoewijzingen geven
 
 1. Voer deze T-SQL-opdracht uit om de gebruiker lid te maken van de middelgrote resourceklasse met de naam mediumrc. 
 
@@ -203,9 +179,7 @@ Omdat u momenteel bent aangemeld als serverbeheerder, bent u gemachtigd om aanme
     ![Aanmelden met nieuwe aanmeldgegevens](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
 
-<a id="load-data-from-azure-blob-storage" class="xliff"></a>
-
-## Gegevens laden vanuit Azure-blobopslag
+## <a name="load-data-from-azure-blob-storage"></a>Gegevens laden vanuit Azure-blobopslag
 
 U bent nu klaar om gegevens te laden in het datawarehouse. In deze stap wordt beschreven hoe u gegevens over taxi's in New York kunt laden uit een openbare Azure Storage-blob. 
 
@@ -214,9 +188,7 @@ U bent nu klaar om gegevens te laden in het datawarehouse. In deze stap wordt be
 - Raadpleeg het [laadoverzicht](sql-data-warehouse-overview-load.md) voor informatie over het overbrengen van gegevens naar Azure-blobopslag of het rechtstreeks vanuit de bron laden van gegevens in SQL Data Warehouse.
 
 
-<a id="define-external-data" class="xliff"></a>
-
-### Externe gegevens definiëren
+### <a name="define-external-data"></a>Externe gegevens definiëren
 
 1. Maak een hoofdsleutel. U hoeft maar één hoofdsleutel per database te maken. 
 
@@ -447,9 +419,7 @@ U bent nu klaar om gegevens te laden in het datawarehouse. In deze stap wordt be
     ;
 ```
 
-<a id="import-the-data-from-azure-blob-storage" class="xliff"></a>
-
-### Importeer de gegevens vanuit Azure-blobopslag.
+### <a name="import-the-data-from-azure-blob-storage"></a>Importeer de gegevens vanuit Azure-blobopslag.
 
 SQL Data Warehouse ondersteunt een sleutelinstructie met de naam CREATE TABLE AS SELECT (CTAS). Deze instructie maakt een nieuwe tabel op basis van de resultaten van een selecteerinstructie. De nieuwe tabel heeft dezelfde gegevenstypen en kolommen als de resultaten van de selecteerinstructie.  Dit is een elegante manier om gegevens te importeren uit Azure-blobopslag naar SQL Data Warehouse.
 
@@ -571,15 +541,11 @@ SQL Data Warehouse ondersteunt een sleutelinstructie met de naam CREATE TABLE AS
     ![Geladen gegevens bekijken](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
 
 
-<a id="improve-query-performance" class="xliff"></a>
-
-## Queryprestaties verbeteren
+## <a name="improve-query-performance"></a>Queryprestaties verbeteren
 
 Er zijn verschillende manieren om de queryprestaties te verbeteren en om de snelle prestaties te bereiken waarvoor SQL Data Warehouse is ontworpen.  
 
-<a id="see-the-effect-of-scaling-on-query-performance" class="xliff"></a>
-
-### Het effect van schalen op de queryprestaties bekijken 
+### <a name="see-the-effect-of-scaling-on-query-performance"></a>Het effect van schalen op de queryprestaties bekijken 
 
 U kunt de queryprestaties verbeteren door resources te schalen. Dit doet u door het DWU-serviceniveau voor uw datawarehouse te wijzigen. Elk serviceniveau kost meer, maar u kunt op elk gewenst moment terugschalen of resources onderbreken. 
 
@@ -619,9 +585,7 @@ Eerst gaan we de bewerking omlaag schalen naar 100 DWU, zodat we een idee krijge
 > SQL Data Warehouse gebruikt MPP (Massively Parallel Processing). Query's die scannen of analytische functies uitvoeren op miljoenen rijen, ervaren de ware kracht van Azure SQL Data Warehouse.
 >
 
-<a id="see-the-effect-of-statistics-on-query-performance" class="xliff"></a>
-
-### Het effect van statistieken op de queryprestaties bekijken
+### <a name="see-the-effect-of-statistics-on-query-performance"></a>Het effect van statistieken op de queryprestaties bekijken
 
 1. Een query uitvoeren die de tabel Date met de tabel Trip samenvoegt
 
@@ -673,9 +637,7 @@ Eerst gaan we de bewerking omlaag schalen naar 100 DWU, zodat we een idee krijge
 
 3. Voer de query in Vereisten opnieuw uit en kijk of er prestatieverschillen zijn. De verschillen in de prestaties van query's zijn niet zo ingrijpend als wanneer u omhoog schaalt, maar u zou wel een versnelling moeten zien. 
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 U bent nu klaar om query’s uit te voeren en te verkennen. Bekijk onze aanbevolen procedures en tips.
 
@@ -683,9 +645,7 @@ Als u klaar bent voor vandaag, zorg dan dat u uw exemplaar onderbreekt. U kunt e
 
 ![Onderbreken](./media/sql-data-warehouse-get-started-tutorial/pause.png)
 
-<a id="useful-readings" class="xliff"></a>
-
-## Handige documentatie
+## <a name="useful-readings"></a>Handige documentatie
 
 [Gelijktijdigheid en werklastbeheer][]
 

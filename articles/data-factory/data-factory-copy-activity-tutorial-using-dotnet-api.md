@@ -21,9 +21,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/14/2017
 
 ---
-<a id="tutorial-create-a-pipeline-with-copy-activity-using-net-api" class="xliff"></a>
-
-# Zelfstudie: een pijplijn maken met de kopieeractiviteit in .NET API
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Zelfstudie: een pijplijn maken met de kopieeractiviteit in .NET API
 > [!div class="op_single_selector"]
 > * [Overzicht en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
@@ -45,17 +43,13 @@ Een pijplijn kan meer dan één activiteit hebben. Ook kunt u twee activiteiten 
 > 
 > In de gegevenspijplijn in deze zelfstudie worden gegevens van een brongegevensarchief gekopieerd naar een doelgegevensarchief. Zie [Zelfstudie: een pijplijn maken om gegevens te transformeren met een Hadoop-cluster](data-factory-build-your-first-pipeline.md) voor meer informatie over het transformeren van gegevens met Azure Data Factory.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 * Neem [Overzicht van de zelfstudie en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) door voor een overzicht van de zelfstudie en voer de **vereiste** stappen uit.
 * Visual Studio 2012 of 2013 of 2015
 * Download en installeer [Azure .NET SDK](http://azure.microsoft.com/downloads/)
 * Azure PowerShell. Volg de instructies in [Azure PowerShell installeren en configureren](../powershell-install-configure.md) om Azure PowerShell te installeren op uw computer. Azure PowerShell wordt gebruikt om een Azure Active Directory-toepassing te maken.
 
-<a id="create-an-application-in-azure-active-directory" class="xliff"></a>
-
-### Een toepassing maken in Azure Active Directory
+### <a name="create-an-application-in-azure-active-directory"></a>Een toepassing maken in Azure Active Directory
 Maak een Azure Active Directory-toepassing, maak een service-principal voor de toepassing en wijs deze toe aan de rol **Inzender Data Factory**.
 
 1. Start **PowerShell**.
@@ -122,9 +116,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
 * Toepassings-id
 * Wachtwoord (opgegeven in de eerste opdracht)
 
-<a id="walkthrough" class="xliff"></a>
-
-## Walkthrough
+## <a name="walkthrough"></a>Walkthrough
 1. Maak met behulp van Visual Studio 2012/2013/2015 een C# .NET-consoletoepassing.
    1. Open **Visual Studio** 2012/2013/2015.
    2. Klik op **File**, houd de muisaanwijzer op **New** en klik op **Project**.
@@ -524,9 +516,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
    * Pijplijn: **PipelineBlobSample**
 20. Controleer of de twee werknemersrecords zijn gemaakt in de tabel **emp** in de opgegeven Azure SQL-database.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Zie [Naslaginformatie over de .NET API voor Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) voor volledige documentatie over .NET API voor Data Factory.
 
 In deze zelfstudie hebt u voor een kopieerbewerking een Azure Blob-opslag gebruikt als brongegevensarchief en een Azure SQL-database als doelgegevensarchief. De volgende tabel bevat een lijst met gegevensarchieven die worden ondersteund als bron en doel voor de kopieeractiviteit: 

@@ -24,9 +24,7 @@ ms.lasthandoff: 06/01/2017
 
 
 ---
-<a id="back-up-azure-virtual-machines-to-recovery-services-vaults" class="xliff"></a>
-
-# Back-ups maken van virtuele Azure-machines naar Recovery Services-kluizen
+# <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Back-ups maken van virtuele Azure-machines naar Recovery Services-kluizen
 > [!div class="op_single_selector"]
 > * [Virtuele machines beveiligen met een Recovery Services-kluis](backup-azure-vms-first-look-arm.md)
 > * [Virtuele machines beveiligen met een back-upkluis](backup-azure-vms-first-look.md)
@@ -56,9 +54,7 @@ Kijk [hier](backup-azure-vms-prepare.md#limitations-when-backing-up-and-restorin
 
 Afhankelijk van het aantal virtuele machines dat u wilt beveiligen, kunt u vanaf verschillende beginpunten starten. Als u in één bewerking een back-up wilt maken van meerdere virtuele machines, gaat u naar de Recovery Services-kluis en [start u de back-uptaak vanuit het dashboard van de kluis](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). Als u een back-up van één virtuele machine wilt maken, kunt u de back-uptaak starten vanaf de VM-beheerblade.
 
-<a id="configure-the-backup-job-from-the-vm-management-blade" class="xliff"></a>
-
-## De back-uptaak configureren vanaf de VM-beheerblade
+## <a name="configure-the-backup-job-from-the-vm-management-blade"></a>De back-uptaak configureren vanaf de VM-beheerblade
 
 Voer de volgende stappen uit als u de back-uptaak wilt configureren vanaf de VM-beheerblade in Azure Portal. Deze stappen zijn niet van toepassing op virtuele machines in de klassieke portal.
 
@@ -126,18 +122,14 @@ Voer de volgende stappen uit als u de back-uptaak wilt configureren vanaf de VM-
 
   Implementatiemeldingen laten u weten dat de back-uptaak is geactiveerd en dat u de voortgang van de taak op de pagina Back-uptaken kunt controleren.
 
-<a id="configure-the-backup-job-from-the-recovery-services-vault" class="xliff"></a>
-
-## De back-uptaak configureren vanuit de Recovery Services-kluis
+## <a name="configure-the-backup-job-from-the-recovery-services-vault"></a>De back-uptaak configureren vanuit de Recovery Services-kluis
 Als u de back-uptaak wilt configureren, moet u de volgende stappen voltooien.  
 
 1. Maak een Recovery Services-kluis voor een virtuele machine.
 2. Gebruik Azure Portal om een scenario te selecteren, een beleid voor back-ups in te stellen en te bepalen welke items er moeten worden beveiligd.
 3. De eerste back-up uitvoeren.
 
-<a id="create-a-recovery-services-vault-for-a-vm" class="xliff"></a>
-
-## Een Recovery Services-kluis voor een VM maken
+## <a name="create-a-recovery-services-vault-for-a-vm"></a>Een Recovery Services-kluis voor een VM maken
 Een Recovery Services-kluis is een entiteit waarmee alle back-ups en herstelpunten worden opgeslagen die in de loop van de tijd zijn gemaakt. De Recovery Services-kluis bevat ook het back-upbeleid dat wordt toegepast op de beveiligde VM's.
 
 > [!NOTE]
@@ -191,9 +183,7 @@ Een Recovery Services-kluis maken:
 
 Nu u uw kluis hebt gemaakt, leert u hoe u de opslagreplicatie instelt.
 
-<a id="set-storage-replication" class="xliff"></a>
-
-### Opslagreplicatie instellen
+### <a name="set-storage-replication"></a>Opslagreplicatie instellen
 U kunt met de optie voor opslagreplicatie kiezen tussen geografisch redundante opslag en lokaal redundante opslag. Uw kluis heeft standaard geografisch redundante opslag. Als de Recovery Services-kluis uw primaire back-up is, laat u de opslagoptie voor replicatie ingesteld op geografisch redundante opslag. Kies lokaal redundante opslag als u een goedkopere optie wilt die minder duurzaam is. U vindt meer informatie over de opties voor [geografisch redundante](../storage/storage-redundancy.md#geo-redundant-storage) en [lokaal redundante](../storage/storage-redundancy.md#locally-redundant-storage) opslag in het [overzicht van Azure Storage-replicatie](../storage/storage-redundancy.md).
 
 De instelling voor opslagreplicatie bewerken:
@@ -218,9 +208,7 @@ De instelling voor opslagreplicatie bewerken:
     Uw kluis heeft standaard geografisch redundante opslag. Als Azure uw primaire eindpunt is voor back-upopslag, blijf dan **Geografisch redundant** gebruiken. Als Azure niet uw primaire eindpunt is voor back-upopslag, kiest u **Lokaal redundant**, zodat u de kosten voor Azure-opslag verlaagt. U vindt meer informatie over de opties voor [geografisch redundante](../storage/storage-redundancy.md#geo-redundant-storage) en [lokaal redundante ](../storage/storage-redundancy.md#locally-redundant-storage) opslag in dit [overzicht van opslagredundantie](../storage/storage-redundancy.md).
 
 
-<a id="select-a-backup-goal-set-policy-and-define-items-to-protect" class="xliff"></a>
-
-## Een back-doel selecteren, beleid instellen en definiëren welke items moeten worden beveiligd
+## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Een back-doel selecteren, beleid instellen en definiëren welke items moeten worden beveiligd
 Voordat u een VM met een kluis registreert, voert u het detectieproces uit om ervoor te zorgen dat nieuwe virtuele machines die zijn toegevoegd aan het abonnement, worden geïdentificeerd. Er wordt een query uitgevoerd om de virtuele Azure-machines in het abonnement weer te geven, samen met aanvullende informatie zoals de naam van de cloudservice en de regio. In Azure Portal wordt met scenario verwezen naar wat u in de Recovery Services-kluis wilt opnemen. Het beleid is de planning voor hoe vaak en wanneer er herstelpunten worden gemaakt. Het beleid bevat ook de bewaartermijn voor de herstelpunten.
 
 1. Als er al een Recovery Services-kluis is geopend, gaat u verder met stap 2. Anders klikt u in het menu Hub op **Meer services**, typt u **Recovery Services** in de lijst met resources en klikt u op **Recovery Services-kluizen**.
@@ -268,9 +256,7 @@ Voordat u een VM met een kluis registreert, voert u het detectieproces uit om er
 
 Nadat de back-up is ingeschakeld, wordt het back-upbeleid volgens het schema uitgevoerd. Ga echter verder om de eerste back-uptaak te starten.
 
-<a id="initial-backup" class="xliff"></a>
-
-## Eerste back-up
+## <a name="initial-backup"></a>Eerste back-up
 Als u een back-upbeleid op de virtuele machine hebt geïmplementeerd, betekent dit niet dat er een back-up van de gegevens is gemaakt. De eerste geplande back-up (zoals gedefinieerd in het back-upbeleid) is standaard de eerste back-up. Totdat de eerste back-up plaatsvindt, wordt voor de status van de laatste back-up op de blade **Back-uptaken** de tekst **Waarschuwing (eerste back-up in behandeling)** weergegeven.
 
 ![Back-up in behandeling](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
@@ -334,9 +320,7 @@ De eerste back-uptaak uitvoeren:
 
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
-<a id="install-the-vm-agent-on-the-virtual-machine" class="xliff"></a>
-
-## De VM-agent op de virtuele machine installeren
+## <a name="install-the-vm-agent-on-the-virtual-machine"></a>De VM-agent op de virtuele machine installeren
 Deze informatie wordt verstrekt voor het geval u deze nodig hebt. De Azure VM-agent moet worden geïnstalleerd op de virtuele Azure-machine om de Backup-extensie te kunnen gebruiken. Als uw VM echter is gemaakt vanuit de Azure-galerie, is de VM-agent al aanwezig op de virtuele machine. Op VM's die zijn gemigreerd vanuit on-premises datacenters, is geen VM-agent geïnstalleerd. In dat geval moet de VM-agent worden geïnstalleerd. Als u problemen ondervindt bij het maken van een back-up van de virtuele Azure-machine, controleert u of de Azure VM-agent correct is geïnstalleerd op de virtuele machine (zie de volgende tabel). Als u een aangepaste VM maakt, [zorgt u ervoor dat het selectievakje **De VM-agent installeren** is ingeschakeld](../virtual-machines/windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) voordat de virtuele machine wordt ingericht.
 
 Meer informatie over de [VM-agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) en [hoe u deze installeert](../virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
@@ -349,25 +333,17 @@ De volgende tabel bevat aanvullende informatie over de VM-agent voor Windows- en
 | De VM-agent bijwerken |Om de VM-agent bij te werken hoeft u alleen de [binaire bestanden voor de VM-agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) opnieuw te installeren. <br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |Volg de instructies voor het [bijwerken van de Linux VM-agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |
 | De installatie van de VM-agent valideren |<li>Ga naar de map *C:\WindowsAzure\Packages* in de Azure VM. <li>Het bestand WaAppAgent.exe moet hier aanwezig zijn.<li> Klik met de rechtermuisknop op het bestand, ga naar **Eigenschappen** en selecteer vervolgens het tabblad **Details**. In het veld Productversie moet versie 2.6.1198.718 of hoger worden weergegeven. |N.v.t. |
 
-<a id="backup-extension" class="xliff"></a>
-
-### Backup-extensie
+### <a name="backup-extension"></a>Backup-extensie
 Nadat de VM-agent op de virtuele machine is geïnstalleerd, installeert de Azure Backup-service de Backup-extensie in de VM-agent. De Azure Backup-service wordt probleemloos bijgewerkt en er wordt zonder tussenkomst van de gebruiker een patch voor de Backup-extensie uitgevoerd.
 
 De Backup-service installeert de back-upextensie, zelfs als de virtuele machine niet wordt uitgevoerd. Bij een actieve VM is de kans het grootst dat een toepassingsconsistent herstelpunt wordt verkregen. De Azure Backup-service blijft echter back-ups van de VM maken, zelfs als deze is uitgeschakeld en de extensie niet kan worden geïnstalleerd. Dit type back-up wordt aangeduid als Offline VM en het herstelpunt is *consistent vastlopen*.
 
-<a id="troubleshooting-information" class="xliff"></a>
-
-## Informatie over probleemoplossing
+## <a name="troubleshooting-information"></a>Informatie over probleemoplossing
 Als u problemen hebt bij het uitvoeren van de taken in dit artikel, raadpleegt u de [richtlijnen voor probleemoplossing](backup-azure-vms-troubleshoot.md).
 
-<a id="pricing" class="xliff"></a>
-
-## Prijzen
+## <a name="pricing"></a>Prijzen
 De kosten voor het maken van back-ups van virtuele Azure-machines is gebaseerd op het aantal beveiligde exemplaren. Zie voor een definitie van een beveiligd exemplaar [Wat is een beveiligd exemplaar?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance) Zie voor een voorbeeld van het berekenen van de kosten voor het maken van back-ups van een virtuele machine [Hoe worden beveiligde exemplaren berekend?](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances) Zie de pagina met prijzen van Azure Backup voor meer informatie over [de prijzen van Backup](https://azure.microsoft.com/pricing/details/backup/).
 
-<a id="questions" class="xliff"></a>
-
-## Vragen?
+## <a name="questions"></a>Vragen?
 Als u vragen hebt of als er een functie is die u graag opgenomen zag worden, [stuurt u ons feedback](http://aka.ms/azurebackup_feedback).
 

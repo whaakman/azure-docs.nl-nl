@@ -24,9 +24,7 @@ ms.lasthandoff: 06/20/2017
 
 ---
 
-<a id="create-a-linux-virtual-machine-with-the-azure-cli" class="xliff"></a>
-
-# Een virtuele Linux-machine maken met de Azure CLI
+# <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Een virtuele Linux-machine maken met de Azure CLI
 
 De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. In deze handleiding staat informatie over het gebruik van de Azure CLI om een virtuele machine met Ubuntu Server te implementeren. Zodra de server is geïmplementeerd, wordt een SSH-verbinding gemaakt en een NGINX-webserver geïnstalleerd.
 
@@ -36,9 +34,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze Quickstart gebruikmaken van Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Een resourcegroep maken
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
@@ -48,9 +44,7 @@ In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* 
 az group create --name myResourceGroup --location eastus
 ```
 
-<a id="create-virtual-machine" class="xliff"></a>
-
-## Virtuele machine maken
+## <a name="create-virtual-machine"></a>Virtuele machine maken
 
 Maak een VM met de opdracht [az vm create](/cli/azure/vm#create). 
 
@@ -75,9 +69,7 @@ Wanneer de virtuele machine is gemaakt, toont de Azure CLI informatie die lijkt 
 }
 ```
 
-<a id="open-port-80-for-web-traffic" class="xliff"></a>
-
-## Poort 80 openen voor webverkeer 
+## <a name="open-port-80-for-web-traffic"></a>Poort 80 openen voor webverkeer 
 
 Standaard worden alleen SSH-verbindingen toegestaan naar virtuele Linux-machines die zijn geïmplementeerd in Azure. Als deze virtuele machine wordt gebruikt als een webserver, moet u poort 80 openen voor verkeer vanaf internet. Gebruik de opdracht [az vm open-port](/cli/azure/vm#open-port) om de gewenste poort te openen.  
  
@@ -85,9 +77,7 @@ Standaard worden alleen SSH-verbindingen toegestaan naar virtuele Linux-machines
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
-<a id="ssh-into-your-vm" class="xliff"></a>
-
-## SSH in uw virtuele machine
+## <a name="ssh-into-your-vm"></a>SSH in uw virtuele machine
 
 Gebruik de volgende opdracht om een SSH-sessie te starten voor de virtuele machine. Vervang *<publicIpAddress>* door het juiste openbare IP-adres van uw virtuele machine.  In ons voorbeeld hierboven was *40.68.254.142* ons IP-adres.
 
@@ -95,9 +85,7 @@ Gebruik de volgende opdracht om een SSH-sessie te starten voor de virtuele machi
 ssh <publicIpAddress>
 ```
 
-<a id="install-nginx" class="xliff"></a>
-
-## NGINX installeren
+## <a name="install-nginx"></a>NGINX installeren
 
 Gebruik het volgende bash-script om pakketbronnen bij te werken en het meest recente NGINX-pakket te installeren. 
 
@@ -111,18 +99,14 @@ apt-get -y update
 apt-get -y install nginx
 ```
 
-<a id="view-the-nginx-welcome-page" class="xliff"></a>
-
-## De welkomstpagina van NGINX weergeven
+## <a name="view-the-nginx-welcome-page"></a>De welkomstpagina van NGINX weergeven
 
 Nu NGINX is geïnstalleerd en poort 80 op de virtuele machine is geopend voor toegang vanaf internet, kunt u een webbrowser van uw keuze gebruiken om de standaardwelkomstpagina van NGINX weer te geven. Zorg ervoor dat u de standaardpagina bezoekt met het *publicIpAddress* dat u hierboven hebt gedocumenteerd. 
 
 ![Standaardsite van NGINX](./media/quick-create-cli/nginx.png) 
 
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Resources opschonen
+## <a name="clean-up-resources"></a>Resources opschonen
 
 U kunt de opdracht [az group delete](/cli/azure/group#delete) gebruiken om de resourcegroep, de VM en alle gerelateerde resources te verwijderen wanneer u ze niet meer nodig hebt.
 
@@ -130,9 +114,7 @@ U kunt de opdracht [az group delete](/cli/azure/group#delete) gebruiken om de re
 az group delete --name myResourceGroup
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 In deze Snel starten hebt u een eenvoudige virtuele machine geïmplementeerd, een netwerkbeveiligingsgroepregel gemaakt en een webserver geïnstalleerd. Voor meer informatie over virtuele machines in Azure, gaat u verder met de zelfstudie voor virtuele Linux-machines.
 

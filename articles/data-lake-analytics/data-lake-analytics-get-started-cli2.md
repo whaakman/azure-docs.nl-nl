@@ -21,24 +21,18 @@ ms.lasthandoff: 06/20/2017
 
 
 ---
-<a id="get-started-with-azure-data-lake-analytics-using-azure-cli-20" class="xliff"></a>
-
-# Aan de slag met Azure Data Lake Analytics met Azure CLI 2.0
+# <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Aan de slag met Azure Data Lake Analytics met Azure CLI 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 In deze zelfstudie ontwikkelt u een taak voor het lezen van een TSV-bestand (door tabs gescheiden waarden) en het converteren ervan naar een CSV-bestand (door komma's gescheiden waarden). Als u dezelfde zelfstudie wilt volgen met andere ondersteunde hulpprogramma's, gebruikt u de vervolgkeuzelijst boven aan deze sectie.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure CLI 2.0**. Zie [Azure CLI installeren en configureren](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-<a id="log-in-to-azure" class="xliff"></a>
-
-## Meld u aan bij Azure.
+## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
 Aanmelden bij uw Azure-abonnement:
 
@@ -57,9 +51,7 @@ Een specifiek abonnement gebruiken:
 az account set --subscription <subscription id>
 ```
 
-<a id="create-data-lake-analytics-account" class="xliff"></a>
-
-## Een Data Lake Analytics-account maken
+## <a name="create-data-lake-analytics-account"></a>Een Data Lake Analytics-account maken
 U hebt een Data Lake Analytics-account nodig voordat u taken kunt uitvoeren. Geef de volgende items op om een Data Lake Analytics-account te maken:
 
 * **Azure-resourcegroep**. Er moet een Data Lake Analytics-account zijn gemaakt binnen een Azure-resourcegroep. Met [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) kunt u met de resources in uw toepassing als groep gebruiken. U kunt alle resources voor uw toepassing implementeren, bijwerken of verwijderen in een enkele, gecoördineerde bewerking.  
@@ -105,9 +97,7 @@ az dla account list
 az dla account show --account "<Data Lake Analytics Account Name>"            
 ```
 
-<a id="upload-data-to-data-lake-store" class="xliff"></a>
-
-## Gegevens uploaden naar Data Lake Store
+## <a name="upload-data-to-data-lake-store"></a>Gegevens uploaden naar Data Lake Store
 In deze zelfstudie verwerkt u een aantal zoeklogboeken.  Het zoeklogboek kan worden opgeslagen in de Data Lake Store of Azure Blob-opslag.
 
 Azure Portal biedt een gebruikersinterface waarmee u een aantal voorbeeldbestanden kunt kopiëren naar het Data Lake Store-account, waaronder een zoeklogboekbestand. Zie [Brongegevens voorbereiden](data-lake-analytics-get-started-portal.md) om de gegevens te uploaden naar het Data Lake Store-standaardaccount.
@@ -121,9 +111,7 @@ az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 
 Data Lake Analytics heeft ook toegang tot Azure Blob-opslag.  Zie [De Azure CLI gebruiken met Azure Storage](../storage/storage-azure-cli.md) voor informatie over het uploaden van gegevens naar Azure Blob-opslag.
 
-<a id="submit-data-lake-analytics-jobs" class="xliff"></a>
-
-## Data Lake Analytics-taken verzenden
+## <a name="submit-data-lake-analytics-jobs"></a>Data Lake Analytics-taken verzenden
 Data Lake Analytics-taken worden geschreven in de U-SQL-taal. Zie [Aan de slag met de U-SQL-taal](data-lake-analytics-u-sql-get-started.md) en [Naslaginformatie voor de U-SQL-taal](http://go.microsoft.com/fwlink/?LinkId=691348) voor meer informatie over U-SQL.
 
 **Een Data Lake Analytics-taakscript maken**
@@ -192,9 +180,7 @@ az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<
 az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
 ```
 
-<a id="retrieve-job-results" class="xliff"></a>
-
-##Taakresultaten ophalen
+##<a name="retrieve-job-results"></a>Taakresultaten ophalen
 
 Wanneer een taak is voltooid, kunt u de volgende opdrachten gebruiken om de uitvoerbestanden weer te geven en te downloaden:
 
@@ -211,9 +197,7 @@ Bijvoorbeeld:
 az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "C:\DLA\myfile.csv"
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 * Zie [Data Lake Analytics](https://docs.microsoft.com/cli/azure/dla) voor het naslagdocument van Data Lake Analytics CLI 2.0.
 * Zie [Data Lake Store](https://docs.microsoft.com/cli/azure/dls) voor het naslagdocument van Data Lake Store CLI 2.0.

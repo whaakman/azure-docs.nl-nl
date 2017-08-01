@@ -22,9 +22,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-6-create-measures" class="xliff"></a>
-
-# Les 6: Metingen maken
+# <a name="lesson-6-create-measures"></a>Les 6: Metingen maken
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -38,18 +36,12 @@ In deze les gaat u metingen maken door een DAX-formule in te voeren op de formul
   
 Geschatte tijd voor het voltooien van deze les: **30 minuten**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten  
+## <a name="prerequisites"></a>Vereisten  
 Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 5: Berekende kolommen maken](../tutorials/aas-lesson-5-create-calculated-columns.md).  
   
-<a id="create-measures" class="xliff"></a>
-
-## Metingen maken  
+## <a name="create-measures"></a>Metingen maken  
   
-<a id="to-create-a-dayscurrentquartertodate-measure-in-the-dimdate-table" class="xliff"></a>
-
-#### Een meting DaysCurrentQuarterToDate maken in de tabel DimDate:  
+#### <a name="to-create-a-dayscurrentquartertodate-measure-in-the-dimdate-table"></a>Een meting DaysCurrentQuarterToDate maken in de tabel DimDate:  
   
 1.  Klik in de ontwerpfunctie voor modellen op de tabel **DimDate**.  
   
@@ -68,9 +60,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
     In tegenstelling tot berekende kolommen kunt u in formules voor het maken van een meting de naam van de meting typen, gevolgd door een dubbele punt en de formule-expressie.
 
   
-<a id="to-create-a-daysincurrentquarter-measure-in-the-dimdate-table" class="xliff"></a>
-
-#### Een meting DaysInCurrentQuarter maken in de tabel DimDate:  
+#### <a name="to-create-a-daysincurrentquarter-measure-in-the-dimdate-table"></a>Een meting DaysInCurrentQuarter maken in de tabel DimDate:  
   
 1.  Zorg dat de tabel **DimDate** nog steeds actief is in de ontwerpfunctie voor modellen en klik in het metingenraster op de lege cel onder de meting die u hebt gemaakt.  
   
@@ -82,9 +72,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
   
     Bij het maken van een vergelijking tussen een onvolledige periode en de vorige periode, moet de formule het aandeel berekenen van de periode die is verstreken en dit vergelijken met hetzelfde aandeel in de vorige periode. In dit geval kan met [DaysCurrentQuarterToDate]/[DaysInCurrentQuarter] het aandeel voor de huidige periode worden vastgesteld.  
   
-<a id="to-create-an-internetdistinctcountsalesorder-measure-in-the-factinternetsales-table" class="xliff"></a>
-
-#### Een meting InternetDistinctCountSalesOrder maken in de tabel FactInternetSales  
+#### <a name="to-create-an-internetdistinctcountsalesorder-measure-in-the-factinternetsales-table"></a>Een meting InternetDistinctCountSalesOrder maken in de tabel FactInternetSales  
   
 1.  Klik op de tabel **FactInternetSales**.   
   
@@ -99,9 +87,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
 4.  Klik in het metingenraster op de nieuwe meting en ga vervolgens in het venster **Properties** naar **Measure Name** en wijzig de naam van de meting in **InternetDistinctCountSalesOrder**. 
  
   
-<a id="to-create-additional-measures-in-the-factinternetsales-table" class="xliff"></a>
-
-#### Aanvullende metingen maken in de tabel FactInternetSales:  
+#### <a name="to-create-additional-measures-in-the-factinternetsales-table"></a>Aanvullende metingen maken in de tabel FactInternetSales:  
   
 1.  Maak met behulp van de functie AutoSom de volgende metingen:  
 
@@ -144,9 +130,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
   
 Metingen die zijn gemaakt voor de tabel FactInternetSales kunnen worden gebruikt om essentiële financiële gegevens te analyseren (zoals omzet, kosten en winstmarge) voor items die zijn gedefinieerd met het filter dat de gebruiker heeft geselecteerd.  
   
-<a id="whats-next" class="xliff"></a>
-
-## Volgende stappen
+## <a name="whats-next"></a>Volgende stappen
 [Les 7: Key Performance Indicators maken](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
 
   

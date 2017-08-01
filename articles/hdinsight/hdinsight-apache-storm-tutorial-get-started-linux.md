@@ -23,8 +23,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 07/08/2017
 
 ---
-#Aan de slag met Apache Storm in HDInsight met behulp van Storm-Starter-voorbeelden
-<a id="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples" class="xliff"></a>
+#<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Aan de slag met Apache Storm in HDInsight met behulp van Storm-Starter-voorbeelden
 
 Leer hoe u Apache Storm gebruikt in HDInsight aan de hand van de Storm-Starter-voorbeelden.
 
@@ -33,8 +32,7 @@ Apache Storm is een gedistribueerd, schaalbaar, fouttolerant en realtime bereken
 > [!IMPORTANT]
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-## Vereisten
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -42,8 +40,7 @@ Apache Storm is een gedistribueerd, schaalbaar, fouttolerant en realtime bereken
 
 * **Kennis van SSH en SCP**. Zie [SSH-sleutels gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor informatie.
 
-## Een Storm-cluster maken
-<a id="create-a-storm-cluster" class="xliff"></a>
+## <a name="create-a-storm-cluster"></a>Een Storm-cluster maken
 
 Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
 
@@ -89,8 +86,7 @@ Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
     > [!NOTE]
     > Het kan tot 20 minuten duren om het cluster te maken.
 
-## Een Storm Starter-voorbeeld uitvoeren in HDInsight
-<a id="run-a-storm-starter-sample-on-hdinsight" class="xliff"></a>
+## <a name="run-a-storm-starter-sample-on-hdinsight"></a>Een Storm Starter-voorbeeld uitvoeren in HDInsight
 
 1. Maak verbinding met het HDInsight-cluster via SSH:
 
@@ -116,8 +112,7 @@ Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
 
 Wilt u de bron van de Storm Starter-voorbeelden bekijken? U vindt de code hier: [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter). Deze koppeling is voor Storm 1.0.x, die bij HDInsight 3.5 wordt geleverd. Gebruik voor andere versies van Storm de knop __Vertakking__ boven aan de pagina om een andere Storm-versie te selecteren.
 
-## De topologie bewaken
-<a id="monitor-the-topology" class="xliff"></a>
+## <a name="monitor-the-topology"></a>De topologie bewaken
 
 De Storm-gebruikersinterface biedt een webinterface voor het werken met actieve topologieën en is opgenomen in uw HDInsight-cluster.
 
@@ -187,13 +182,11 @@ Voer de volgende stappen uit voor het bewaken van de topologie met behulp van de
 
     In dit voorbeeld komt het woord **seven** 1.493.957 keer voor. Dit getal is het aantal keer dat het woord is gevonden sinds deze topologie is gestart.
 
-## De topologie stoppen
-<a id="stop-the-topology" class="xliff"></a>
+## <a name="stop-the-topology"></a>De topologie stoppen
 
 Ga terug naar de pagina **Topology summary** voor de word-count-topologie en klik vervolgens op de knop **Kill** in de sectie **Topology actions**. Wanneer hierom wordt gevraagd, voert u 10 in voor het aantal seconden dat moet worden gewacht voordat de topologie wordt gestopt. Na de time-outperiode wordt de topologie niet meer weergegeven als u het gedeelte **Storm UI** van het dashboard bezoekt.
 
-## Het cluster verwijderen
-<a id="delete-the-cluster" class="xliff"></a>
+## <a name="delete-the-cluster"></a>Het cluster verwijderen
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 

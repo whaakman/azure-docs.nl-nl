@@ -22,12 +22,8 @@ ms.lasthandoff: 06/30/2017
 
 
 ---
-<a id="update-dns-settings-for-the-azure-virtual-network" class="xliff"></a>
-
-# DNS-instellingen bijwerken voor het virtuele Azure-netwerk
-<a id="task-4-update-dns-settings-for-the-azure-virtual-network" class="xliff"></a>
-
-## Taak 4: DNS-instellingen bijwerken voor het virtuele Azure-netwerk
+# <a name="update-dns-settings-for-the-azure-virtual-network"></a>DNS-instellingen bijwerken voor het virtuele Azure-netwerk
+## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Taak 4: DNS-instellingen bijwerken voor het virtuele Azure-netwerk
 In de voorgaande configuratietaken hebt u Azure Active Directory Domain Services ingeschakeld voor uw directory. De volgende taak is om ervoor te zorgen dat computers binnen het virtuele netwerk verbinding kunnen maken met deze services en ze kunnen gebruiken. In dit artikel werkt u de DNS-serverinstellingen voor het virtuele netwerk zo bij dat deze verwijzen naar de twee IP-adressen waarop Azure Active Directory Domain Services beschikbaar is op het virtuele netwerk.
 
 > [!NOTE]
@@ -56,8 +52,6 @@ Voer de volgende stappen uit om de DNS-serverinstellingen bij te werken voor het
 >
 >
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Taak 5: [wachtwoordsynchronisatie inschakelen voor Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)
 

@@ -21,17 +21,13 @@ ms.lasthandoff: 05/19/2017
 
 
 ---
-<a id="manually-configure-application-insights-for-net-applications" class="xliff"></a>
-
-# Application Insights handmatig configureren voor .NET-toepassingen
+# <a name="manually-configure-application-insights-for-net-applications"></a>Application Insights handmatig configureren voor .NET-toepassingen
 
 U kunt [Application Insights](app-insights-overview.md) configureren voor het bewaken van allerlei verschillende toepassingen of toepassingsrollen, onderdelen of microservices. Voor web-apps en services biedt Visual Studio [configuratie in één stap](app-insights-asp-net.md). Voor andere typen .NET-toepassingen, zoals back-end-serverfuncties of -desktoptoepassingen, kunt u Application Insights handmatig configureren.
 
 ![Voorbeeld van grafieken met prestatiebewaking](./media/app-insights-windows-services/10-perf.png)
 
-<a id="before-you-start" class="xliff"></a>
-
-#### Voordat u begint
+#### <a name="before-you-start"></a>Voordat u begint
 
 U hebt de volgende zaken nodig:
 
@@ -42,9 +38,7 @@ U hebt de volgende zaken nodig:
 
 De 'resource' is de plek waar uw gegevens worden verzameld en weergegeven in Azure Portal. U moet beslissen of u een nieuwe resource maakt of een bestaande gaat delen.
 
-<a id="part-of-a-larger-app-use-existing-resource" class="xliff"></a>
-
-### Onderdeel van een grotere app: bestaande resource gebruiken
+### <a name="part-of-a-larger-app-use-existing-resource"></a>Onderdeel van een grotere app: bestaande resource gebruiken
 
 Als de webtoepassing verschillende onderdelen heeft (zoals een front-end web-app en een of meer back-end services), moet u telemetriegegevens van alle onderdelen naar dezelfde resource verzenden. Op deze manier kunnen de onderdelen worden weergegeven in één toepassingsoverzicht en is het mogelijk om een aanvraag van het ene naar het andere onderdeel te traceren.
 
@@ -52,9 +46,7 @@ Dus als u al andere onderdelen van deze app bewaakt, gebruikt u gewoon dezelfde 
 
 Open de resource in [Azure Portal](https://portal.azure.com/). 
 
-<a id="self-contained-app-create-a-new-resource" class="xliff"></a>
-
-### Zelfstandige app: nieuwe resource maken
+### <a name="self-contained-app-create-a-new-resource"></a>Zelfstandige app: nieuwe resource maken
 
 Als de nieuwe app helemaal losstaat van andere toepassingen, moet de app een eigen resource hebben.
 
@@ -64,9 +56,7 @@ Meld u aan bij de [Azure Portal](https://portal.azure.com/) en maak een nieuwe A
 
 Het gekozen toepassingstype bepaalt de standaardinhoud van de resourceblades.
 
-<a id="2-copy-the-instrumentation-key" class="xliff"></a>
-
-## 2. De instrumentatiesleutel kopiëren
+## <a name="2-copy-the-instrumentation-key"></a>2. De instrumentatiesleutel kopiëren
 De sleutel identificeert de bron. U gaat de sleutel straks installeren in de SDK om gegevens om te leiden naar de resource.
 
 ![Op Eigenschappen klikken, de sleutel selecteren en op Ctrl + C drukken](./media/app-insights-windows-services/02-props-asp.png)
@@ -89,18 +79,14 @@ De installatie en configuratie van het Application Insights-pakket varieert, afh
    
     Ja. Kies Microsoft.ApplicationInsights als u de API alleen wilt gebruiken voor het verzenden van uw eigen telemetriegegevens. Het pakket voor Windows Server bevat de API plus een aantal andere pakketten, zoals prestatiemeterverzameling en afhankelijkheidsbewaking. 
 
-<a id="to-upgrade-to-future-package-versions" class="xliff"></a>
-
-### Upgraden naar toekomstige pakketversies
+### <a name="to-upgrade-to-future-package-versions"></a>Upgraden naar toekomstige pakketversies
 Van tijd tot tijd brengen we een nieuwe versie van de SDK uit.
 
 Als u wilt upgraden naar een [nieuwe release van het pakket](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/), opent u NuGet-pakketbeheer opnieuw en filtert u op geïnstalleerde pakketten. Selecteer **Microsoft.ApplicationInsights.WindowsServer** en kies **Upgraden**.
 
 Als u aanpassingen in ApplicationInsights.config hebt aangebracht, slaat u hiervan een kopie op voordat u de upgrade uitvoert. Voeg vervolgens uw wijzigingen samen in de nieuwe versie.
 
-<a id="4-send-telemetry" class="xliff"></a>
-
-## 4. Telemetrie verzenden
+## <a name="4-send-telemetry"></a>4. Telemetrie verzenden
 **Als u alleen het API-pakket hebt geïnstalleerd:**
 
 * Stel de instrumentatiesleutel in code in, bijvoorbeeld in`main()`: 
@@ -133,31 +119,23 @@ Zoek naar gegevens in de overzichtsgrafieken. Aanvankelijk ziet u slechts één 
 
 Klik in een grafiek voor gedetailleerdere metrische gegevens. [Meer informatie over metrische gegevens.](app-insights-web-monitor-performance.md)
 
-<a id="no-data" class="xliff"></a>
-
-### Zijn er geen gegevens?
+### <a name="no-data"></a>Zijn er geen gegevens?
 * Gebruik de toepassing om verschillende pagina's te openen, zodat er telemetrie wordt gegenereerd.
 * Open de tegel [Zoeken](app-insights-diagnostic-search.md) om afzonderlijke gebeurtenissen te bekijken. Soms kan het even duren voordat de metrische gegevens van gebeurtenissen zijn opgehaald.
 * Wacht een paar seconden en klik op **Vernieuwen**. De grafieken worden regelmatig vernieuwd, maar u kunt ze ook handmatig vernieuwen als u op bepaalde gegevens wacht.
 * Zie [Probleemoplossing](app-insights-troubleshoot-faq.md).
 
-<a id="publish-your-app" class="xliff"></a>
-
-## Uw app publiceren
+## <a name="publish-your-app"></a>Uw app publiceren
 Implementeer nu uw toepassing naar uw server of naar Azure en bekijk hoe de gegevens worden verzameld.
 
 ![Visual Studio gebruiken om uw app te publiceren](./media/app-insights-windows-services/15-publish.png)
 
 Wanneer u de foutopsporingsmodus gebruikt, wordt de telemetrie direct doorgegeven, zodat u binnen enkele seconden gegevens ziet verschijnen. Wanneer u uw app in de Release-configuratie implementeert, duurt het langer om gegevens te verzamelen.
 
-<a id="no-data-after-you-publish-to-your-server" class="xliff"></a>
-
-### Ziet u geen gegevens nadat u uw app naar uw server hebt gepubliceerd?
+### <a name="no-data-after-you-publish-to-your-server"></a>Ziet u geen gegevens nadat u uw app naar uw server hebt gepubliceerd?
 Open poorten voor uitgaand verkeer in de firewall van uw server. Raadpleeg [deze pagina](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses) voor de lijst met vereiste adressen 
 
-<a id="trouble-on-your-build-server" class="xliff"></a>
-
-### Problemen op uw buildserver?
+### <a name="trouble-on-your-build-server"></a>Problemen op uw buildserver?
 Raadpleeg dit artikel voor [Probleemoplossing](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 > [!NOTE]
@@ -166,15 +144,11 @@ Raadpleeg dit artikel voor [Probleemoplossing](app-insights-asp-net-troubleshoot
 > 
 > 
 
-<a id="video" class="xliff"></a>
-
-## Video
+## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * [Voeg meer telemetrie](app-insights-asp-net-more.md) toe om een volledig inzicht in uw toepassing te krijgen.
 
 

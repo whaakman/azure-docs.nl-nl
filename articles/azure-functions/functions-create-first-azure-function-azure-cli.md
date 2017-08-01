@@ -20,17 +20,13 @@ ms.lasthandoff: 06/20/2017
 
 ---
 
-<a id="create-your-first-function-using-the-azure-cli" class="xliff"></a>
-
-# Uw eerste functie maken met Azure CLI
+# <a name="create-your-first-function-using-the-azure-cli"></a>Uw eerste functie maken met Azure CLI
 
 In deze Quick Start-zelfstudie wordt stapsgewijs uitgelegd hoe u Azure Functions kunt gebruiken om uw eerste functie te maken. Azure CLI gebruikt u om een functie-app te maken. Het is de serverloze infrastructuur die als host fungeert voor uw functie. De functiecode zelf wordt geïmplementeerd vanuit een voorbeeldopslagplaats in GitHub.    
 
 U kunt de onderstaande stappen volgen op een Mac-, Windows- of Linux-computer. 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten 
+## <a name="prerequisites"></a>Vereisten 
 
 Voordat u dit voorbeeld kunt uitvoeren moet u ervoor zorgen dat u het volgende hebt:
 
@@ -44,9 +40,7 @@ Voordat u dit voorbeeld kunt uitvoeren moet u ervoor zorgen dat u het volgende h
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Een resourcegroep maken
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 Maak een resourcegroep met de opdracht [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources, zoals functie-apps, databases en opslagaccounts worden geïmplementeerd en beheerd.
 
@@ -55,9 +49,7 @@ In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
-<a id="create-an-azure-storage-account" class="xliff"></a>
-
-## Een Azure Storage-account maken
+## <a name="create-an-azure-storage-account"></a>Een Azure Storage-account maken
 
 Functions gebruikt een Azure Storage-account om de status van uw functies en andere informatie erover te onderhouden. Maak een opslagaccount in de resourcegroep die u hebt gemaakt met behulp van de opdracht [az storage account create](/cli/azure/storage/account#create).
 
@@ -87,9 +79,7 @@ Nadat het opslagaccount is gemaakt, toont Azure CLI soortgelijke informatie als 
 }
 ```
 
-<a id="create-a-function-app" class="xliff"></a>
-
-## Een functie-app maken
+## <a name="create-a-function-app"></a>Een functie-app maken
 
 U moet een functie-app hebben die als host fungeert voor de uitvoering van uw functies. De functie-app biedt een omgeving waarin uw functiecode zonder server kan worden uitgevoerd. U kunt er functies mee groeperen in een logische eenheid, zodat u resources eenvoudiger kunt beheren, implementeren en delen. Een functie-app maken met behulp van de opdracht [az functionapp create](/cli/azure/functionapp#create). 
 
@@ -122,9 +112,7 @@ Nadat de functie-app is gemaakt, toont Azure CLI soortgelijke informatie als in 
 
 Nu u een functie-app hebt, kunt u de werkelijke functiecode vanuit de voorbeeldopslagplaats in GitHub implementeren.
 
-<a id="deploy-your-function-code" class="xliff"></a>
-
-## Uw functiecode implementeren  
+## <a name="deploy-your-function-code"></a>Uw functiecode implementeren  
 
 Er zijn verschillende manieren om uw functiecode te maken in uw nieuwe functie app. In dit onderwerp wordt verbinding gemaakt met een voorbeeldopslagplaats in GitHub. Net als voorheen moet u in de volgende code de plaatsaanduiding `<app_name>` vervangen door de naam van de functie-app die u hebt gemaakt. 
 
@@ -148,9 +136,7 @@ Nadat de implementatiebron is ingesteld, wordt door Azure CLI informatie weergeg
 }
 ```
 
-<a id="test-the-function" class="xliff"></a>
-
-## De functie testen
+## <a name="test-the-function"></a>De functie testen
 
 Gebruik cURL om de geïmplementeerde functie te testen op een Mac- of Linux-computer of met Bash op Windows. Voer de volgende cURL-opdracht uit, waarbij u de plaatsaanduiding `<app_name>` vervangt door de naam van de functie-app die u hebt gemaakt. Voeg de queryreeks `&name=<yourname>` toe aan de URL.
 
@@ -166,9 +152,7 @@ Als cURL niet beschikbaar is op uw opdrachtregel, moet u gewoon de dezelfde URL 
    
 ![Het antwoord van de functie weergegeven in een browser.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-browser.png)  
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Resources opschonen
+## <a name="clean-up-resources"></a>Resources opschonen
 
 Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als u van plan bent om door te gaan met andere Quick Starts of met de zelfstudies, verwijdert u de resources die u in deze Quick Start hebt gemaakt niet. Als u niet wilt doorgaan, gebruikt u de volgende opdracht om alle resources die via deze Quick Start zijn gemaakt, te verwijderen:
 
@@ -177,9 +161,7 @@ az group delete --name myResourceGroup
 ```
 Typ `y` wanneer u daarom wordt gevraagd.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

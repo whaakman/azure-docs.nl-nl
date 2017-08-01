@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 9776bd4f703227f49f83f563489cfa7c44604fb8
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 1dc728cf6497d8ba0d35a7e41e51a52c5ca6d7df
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Ga aan de slag met het bouwen van oplossingen met de Batch-clientbibliotheek voor .NET
@@ -105,7 +104,7 @@ private const string StorageAccountKey  = "";
 ```
 
 > [!IMPORTANT]
-> Zoals eerder vermeld, moet u in Azure Storage momenteel de referenties voor een **algemeen** opslagaccount opgeven. Uw Batch-toepassingen gebruiken Blob Storage in het opslagaccount van het type **voor algemeen gebruik**. Geef niet de referenties op voor een opslagaccount die is gemaakt door het accounttype *Blob Storage* te selecteren.
+> Zoals eerder vermeld, moet u in Azure Storage momenteel de referenties voor een opslagaccount voor **algemeen gebruik**t opgeven. Uw Batch-toepassingen gebruiken Blob Storage in het opslagaccount van het type **voor algemeen gebruik**. Geef niet de referenties op voor een opslagaccount die is gemaakt door het accounttype *Blob Storage* te selecteren.
 >
 >
 
@@ -363,7 +362,12 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 }
 ```
 
-Wanneer u een pool maakt met [CreatePool][net_pool_create], geeft u meerdere parameters op, zoals het aantal rekenknooppunten, de [grootte van de knooppunten](../cloud-services/cloud-services-sizes-specs.md) en het besturingssysteem van de knooppunten. In *DotNetTutorial* gebruiken we [CloudServiceConfiguration][net_cloudserviceconfiguration] om Windows Server 2012 R2 op te geven vanuit [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). Door echter een [VirtualMachineConfiguration][net_virtualmachineconfiguration] op te geven, kunt u pools van knooppunten maken die zijn gemaakt op basis van installatiekopieën van Marketplace, die zowel Windows- als Linux-installatiekopieën bevatten. Zie [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Linux-rekenknooppunten in Azure Batch-pools inrichten) voor meer informatie.
+Wanneer u een pool maakt met [CreatePool][net_pool_create], geeft u meerdere parameters op, zoals het aantal rekenknooppunten, de [grootte van de knooppunten](../cloud-services/cloud-services-sizes-specs.md) en het besturingssysteem van de knooppunten. In *DotNetTutorial* gebruiken we [CloudServiceConfiguration][net_cloudserviceconfiguration] om Windows Server 2012 R2 op te geven vanuit [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). 
+
+U kunt ook pools van rekenknooppunten maken die virtuele Azure-machines zijn door de [VirtualMachineConfiguration][net_virtualmachineconfiguration] op te geven voor uw pool. U kunt een pool van VM-rekenknooppunten maken vanuit een Windows of [Linux-installatiekopie](batch-linux-nodes.md). De bron voor uw VM-installatiekopieën kan zijn:
+
+- De [Azure Virtual Machines Marketplace][vm_marketplace], die gebruiksklare Windows- en Linux-installatiekopieën biedt. 
+- Een aangepaste installatiekopie die u voorbereidt en aanlevert. Zie [Grootschalige parallelle rekenoplossingen ontwikkelen met Batch](batch-api-basics.md#pool) voor meer informatie over aangepaste installatiekopieën.
 
 > [!IMPORTANT]
 > De rekenresources in Batch worden in rekening gebracht. Om uw kosten te beperken, kunt u `targetDedicatedComputeNodes` verlagen naar 1 voordat u het voorbeeld uitvoert.
@@ -788,6 +792,7 @@ Nu u vertrouwd bent met de basiswerkstroom van een Batch-oplossing, is het tijd 
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/vs/
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Containers maken in Azure Storage"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Taaktoepassings- en invoer(gegevens)bestanden uploaden naar containers"

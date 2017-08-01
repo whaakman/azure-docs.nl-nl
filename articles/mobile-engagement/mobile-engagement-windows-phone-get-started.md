@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
-ms.openlocfilehash: 3f1f8d74eb2f562991b351cae87c372897644cf8
-ms.lasthandoff: 03/01/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: c05a3a24ea8cc663edb8232dc31d664be77a9597
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-phone-silverlight-apps"></a>Aan de slag met Azure Mobile Engagement voor Windows Phone Silverlight-apps
@@ -26,6 +26,9 @@ ms.lasthandoff: 03/01/2017
 
 In dit onderwerp leest u hoe u Azure Mobile Engagement gebruikt om inzicht te krijgen in het gebruik van uw apps, en om pushmeldingen te verzenden aan gesegmenteerde gebruikers van een Windows Phone Silverlight-toepassing.
 Deze zelfstudie laat een eenvoudig broadcast-scenario met Mobile Engagement zien. In deze zelfstudie maakt u een lege Windows Phone Silverlight-app die basisgegevens verzamelt en pushmeldingen ontvangt via Microsoft Push Notification Service (MPNS).
+
+> [!NOTE]
+> Projecten met Windows Phone 8.1 en een eerdere versie worden niet ondersteund in Visual Studio 2017.  Zie [Geschikte platforms voor Visual Studio 2017 en compatibiliteit](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs) voor meer informatie.
 
 > [!NOTE]
 > Als u ontwikkelt voor Windows Phone 8.1 (zonder Silverlight), raadpleegt u de [universele Windows-zelfstudie](mobile-engagement-windows-store-dotnet-get-started.md).
@@ -42,10 +45,10 @@ Voor deze zelfstudie hebt u het volgende nodig:
 > 
 > 
 
-## <a name="a-idsetup-azmeasetup-mobile-engagement-for-your-windows-phone-app"></a><a id="setup-azme"></a>Mobile Engagement instellen voor uw Windows Phone-app
+## <a id="setup-azme"></a>Mobile Engagement instellen voor uw Windows Phone-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
+## <a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
 Deze zelfstudie toont een ‘basisintegratie’, de minimale set die vereist is voor het verzamelen van gegevens en verzenden van een pushmelding. De volledige integratiedocumentatie is te vinden in de [Mobile Engagement Windows Phone SDK-integratie](mobile-engagement-windows-phone-sdk-overview.md).
 
 We gaan een eenvoudige app maken met Visual Studio ter illustratie van de integratie.
@@ -92,7 +95,7 @@ U hebt nu een nieuwe Windows Phone Silverlight-app gemaakt waarin de Azure Mobil
                EngagementAgent.Instance.OnActivated(e);
             }
 
-## <a name="a-idmonitoraenable-real-time-monitoring"></a><a id="monitor"></a>Realtime-bewaking inschakelen
+## <a id="monitor"></a>Realtime-bewaking inschakelen
 U dient ten minste één scherm (activiteit) naar de back-end van Mobile Engagement te sturen om te beginnen met het verzenden van gegevens en ervoor te zorgen dat de gebruikers actief zijn.
 
 1. Voeg in MainPage.xaml.cs de instructie `using` toe:
@@ -109,10 +112,10 @@ U dient ten minste één scherm (activiteit) naar de back-end van Mobile Engagem
    
     b. Vervang `phone:PhoneApplicationPage` in de XML-tagnaam met `engagement:EngagementPage`.
 
-## <a name="a-idmonitoraconnect-app-with-real-time-monitoring"></a><a id="monitor"></a>App verbinden met realtime-bewaking
+## <a id="monitor"></a>App verbinden met realtime-bewaking
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegrate-pushaenable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Pushmeldingen en in-app-berichten inschakelen
+## <a id="integrate-push"></a>Pushmeldingen en in-app-berichten inschakelen
 Met Mobile Engagement kunt u communiceren met uw gebruikers en ze bereiken met pushmeldingen en in-app-berichten in de context van campagnes. Deze module heet REACH in de Mobile Engagement-portal.
 In de volgende secties stelt u de app in om die te ontvangen.
 
@@ -142,7 +145,7 @@ Nieuwe mogelijkheden toevoegen aan uw bestand `WMAppManifest.xml`:
 
 U bent nu klaar. Nu controleren we of u hebt deze basisintegratie juist hebt uitgevoerd.
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Een melding verzenden naar uw app
+## <a id="send"></a>Een melding verzenden naar uw app
 [!INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
 Er moet nu een melding op uw apparaat worden weergegeven, als een in-app-melding indien de app is geopend, of anders als een toast-melding zoals in dit voorbeeld: 

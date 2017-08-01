@@ -19,14 +19,10 @@ ms.lasthandoff: 06/26/2017
 
 ---
 
-<a id="azure-database-for-postgresql-use-java-to-connect-and-query-data" class="xliff"></a>
-
-# Azure Database voor PostgreSQL: Java gebruiken om verbinding te maken en query's voor gegevens uit te voeren
+# <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Azure Database voor PostgreSQL: Java gebruiken om verbinding te maken en query's voor gegevens uit te voeren
 In deze snelstartgids ziet u hoe u met behulp van een Java-toepassing verbinding maakt met een Azure Database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In de stappen van dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Java, maar geen ervaring hebt met het werken met Azure Database voor PostgreSQL.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 In deze snelstartgids worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
 - [Database maken - Portal](quickstart-create-server-database-portal.md)
 - [Database maken - Azure CLI](quickstart-create-server-database-azure-cli.md)
@@ -35,9 +31,7 @@ U moet ook het volgende doen:
 - Download het [PostgreSQL JDBC-stuurprogramma](https://jdbc.postgresql.org/download.html) dat hoort bij uw versie van Java en de Java Development Kit.
 - Neem het PostgreSQL JDBC jar-bestand (bijvoorbeeld postgresql-42.1.1.jar) op in het klassepad van uw toepassing. Zie de [gegevens van het klassepad](https://jdbc.postgresql.org/documentation/head/classpath.html) voor meer informatie.
 
-<a id="get-connection-information" class="xliff"></a>
-
-## Verbindingsgegevens ophalen
+## <a name="get-connection-information"></a>Verbindingsgegevens ophalen
 Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure Database voor PostgreSQL. U hebt de volledig gekwalificeerde servernaam en aanmeldingsreferenties nodig.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
@@ -47,9 +41,7 @@ Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azur
  ![Azure Database voor PostgreSQL - Aanmeldgegevens van de serverbeheerder](./media/connect-java/1-connection-string.png)
 5. Als u uw aanmeldingsgegevens voor de server bent vergeten, gaat u naar de pagina **Overzicht** om de aanmeldingsnaam van de serverbeheerder weer te geven en indien nodig het wachtwoord opnieuw in te stellen.
 
-<a id="connect-create-table-and-insert-data" class="xliff"></a>
-
-## Verbinden, tabel maken en gegevens invoegen
+## <a name="connect-create-table-and-insert-data"></a>Verbinden, tabel maken en gegevens invoegen
 Gebruik de volgende code om verbinding te maken en de gegevens te laden met de functie met een SQL-instructie **INSERT**. De methoden [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) en [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) worden gebruikt om verbinding maken met de tabel, de tabel neer te zetten en de tabel te maken. Het object [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) wordt gebruikt voor het bouwen van de INSERT-opdrachten, waarbij setString() en setInt() worden gebruikt om de parameterwaarden te koppelen. Met de methode [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) wordt de opdracht voor elke set parameters uitgevoerd. 
 
 Vervang de parameters voor host, database, gebruiker en wachtwoord door de waarden die u hebt opgegeven tijdens het maken van uw eigen server en database.
@@ -149,9 +141,7 @@ public class CreateTableInsertRows {
 }
 ```
 
-<a id="read-data" class="xliff"></a>
-
-## Gegevens lezen
+## <a name="read-data"></a>Gegevens lezen
 Gebruik de volgende code om de gegevens te lezen met de SQL-instructie **SELECT**. De methoden [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) en [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) worden gebruikt om verbinding te maken met de SELECT-instructie en deze te maken en uit te voeren. De resultaten worden verwerkt met behulp van een [ResultSet](https://www.postgresql.org/docs/7.4/static/jdbc-query.html)-object. 
 
 Vervang de parameters voor host, database, gebruiker en wachtwoord door de waarden die u hebt opgegeven tijdens het maken van uw eigen server en database.
@@ -238,9 +228,7 @@ public class ReadTable {
 
 ```
 
-<a id="update-data" class="xliff"></a>
-
-## Gegevens bijwerken
+## <a name="update-data"></a>Gegevens bijwerken
 Gebruik de volgende code om de gegevens te wijzigen met de SQL-instructie **UPDATE**. De methoden [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) en [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) worden gebruikt om verbinding te maken en de UPDATE-instructie voor te bereiden en uit te voeren. 
 
 Vervang de parameters voor host, database, gebruiker en wachtwoord door de waarden die u hebt opgegeven tijdens het maken van uw eigen server en database.
@@ -320,9 +308,7 @@ public class UpdateTable {
     }
 }
 ```
-<a id="delete-data" class="xliff"></a>
-
-## Gegevens verwijderen
+## <a name="delete-data"></a>Gegevens verwijderen
 Gebruik de volgende code om de gegevens te verwijderen met de SQL-instructie **DELETE**. De methoden [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) en [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) worden gebruikt om verbinding te maken en de UPDATE-instructie voor te bereiden, uit te voeren en te verwijderen. 
 
 Vervang de parameters voor host, database, gebruiker en wachtwoord door de waarden die u hebt opgegeven tijdens het maken van uw eigen server en database.
@@ -402,9 +388,7 @@ public class DeleteTable {
 }
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
 > [Een database migreren met behulp van Exporteren en Importeren](./howto-migrate-using-export-and-import.md)
 

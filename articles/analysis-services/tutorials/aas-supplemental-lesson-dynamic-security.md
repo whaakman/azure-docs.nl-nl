@@ -15,16 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: cd74b0cb0d58036cc7b1198a58649ba38e386322
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 4e97a558ae1a2601b5275a73164b483351f03857
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/26/2017
 
 ---
-<a id="supplemental-lesson---dynamic-security" class="xliff"></a>
-
-# Aanvullende les: Dynamische beveiliging
+# <a name="supplemental-lesson---dynamic-security"></a>Aanvullende les: Dynamische beveiliging
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -38,19 +36,13 @@ De taken die uniek zijn voor dit scenario van het tabellaire model Adventure Wor
   
 Geschatte tijd voor het voltooien van deze les: **30 minuten**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten  
+## <a name="prerequisites"></a>Vereisten  
 Deze aanvullende les maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u alle vorige lessen hebben voltooid.  
   
-<a id="add-the-dimsalesterritory-table-to-the-aw-internet-sales-tabular-model-project" class="xliff"></a>
-
-## De tabel DimSalesTerritory toevoegen aan het tabellaire project AW Internet Sales  
+## <a name="add-the-dimsalesterritory-table-to-the-aw-internet-sales-tabular-model-project"></a>De tabel DimSalesTerritory toevoegen aan het tabellaire project AW Internet Sales  
 Als u dynamische beveiliging wilt implementeren voor dit Adventure Works-scenario, moet u twee aanvullende tabellen toevoegen aan uw model. De eerste tabel die u toevoegt, is DimSalesTerritory (als Sales Territorium) uit dezelfde database met AdventureWorksDW. U gaat later een rijfilter toepassen op de tabel SalesTerritory om de specifieke gegevens te definiëren die de aangemelde gebruiker kan raadplegen.  
   
-<a id="to-add-the-dimsalesterritory-table" class="xliff"></a>
-
-#### De tabel DimSalesTerritory toevoegen:  
+#### <a name="to-add-the-dimsalesterritory-table"></a>De tabel DimSalesTerritory toevoegen:  
   
 1.  Klik in Tabular Model Explorer > **Data Sources** met de rechtermuisknop op uw verbinding en klik vervolgens op **Import New Tables**.  
 
@@ -66,14 +58,10 @@ Als u dynamische beveiliging wilt implementeren voor dit Adventure Works-scenari
   
 9. Als de tabel is geïmporteerd, klikt u op **Close**.  
 
-<a id="add-a-table-with-user-name-data" class="xliff"></a>
-
-## Een tabel toevoegen met gegevens van gebruikersnamen  
+## <a name="add-a-table-with-user-name-data"></a>Een tabel toevoegen met gegevens van gebruikersnamen  
 De tabel DimEmployee in de voorbeelddatabase AdventureWorksDW bevat gebruikers uit het domein AdventureWorks. Deze gebruikersnamen bestaan niet in uw eigen omgeving. U moet daarom een tabel maken in het model met een klein aantal (ten minste drie) werkelijke gebruikers uit uw organisatie. Deze gebruikers voegt u vervolgens als leden toe aan de nieuwe rol. U hoeft niet de wachtwoorden voor deze gebruikersnamen niet te weten, maar u moet wel bestaande Windows-gebruikersnamen uit uw eigen domein opgeven.  
   
-<a id="to-add-an-employeesecurity-table" class="xliff"></a>
-
-#### Een tabel EmployeeSecurity toevoegen:  
+#### <a name="to-add-an-employeesecurity-table"></a>Een tabel EmployeeSecurity toevoegen:  
   
 1.  Open Microsoft Excel en maak een werkblad.  
   
@@ -106,14 +94,10 @@ De tabel DimEmployee in de voorbeelddatabase AdventureWorksDW bevat gebruikers u
   
     Er wordt een nieuwe tabel gemaakt met de naam EmployeeSecurity, met daarin werknemersgegevens die zijn gekopieerd uit het werkblad SampleEmployee.  
   
-<a id="create-relationships-between-factinternetsales-dimgeography-and-dimsalesterritory-table" class="xliff"></a>
-
-## Relaties maken tussen de tabellen FactInternetSales, DimGeography en DimSalesTerritory  
+## <a name="create-relationships-between-factinternetsales-dimgeography-and-dimsalesterritory-table"></a>Relaties maken tussen de tabellen FactInternetSales, DimGeography en DimSalesTerritory  
 De tabellen FactInternetSales, DimGeography en DimSalesTerritory hebben een gemeenschappelijke kolom, namelijk SalesTerritoryId. De kolom SalesTerritoryId in de tabel DimSalesTerritory bevat waarden met een andere id voor elke verkoopregio.  
   
-<a id="to-create-relationships-between-the-factinternetsales-dimgeography-and-the-dimsalesterritory-table" class="xliff"></a>
-
-#### Relaties maken tussen de tabellen FactInternetSales, DimGeography en DimSalesTerritory:  
+#### <a name="to-create-relationships-between-the-factinternetsales-dimgeography-and-the-dimsalesterritory-table"></a>Relaties maken tussen de tabellen FactInternetSales, DimGeography en DimSalesTerritory:  
   
 1.  Zorg dat de diagramweergave actief is en sleep vervolgens in de tabel **DimGeography** de kolom **SalesTerritoryId** naar de kolom **SalesTerritoryId** in de tabel **DimSalesTerritory**.  
   
@@ -121,28 +105,20 @@ De tabellen FactInternetSales, DimGeography en DimSalesTerritory hebben een geme
   
     De eigenschap Active voor deze relatie staat op False, wat betekent dat de relatie niet actief is. De tabel FactInternetSales heeft al een andere actieve relatie.  
   
-<a id="hide-the-employeesecurity-table-from-client-applications" class="xliff"></a>
-
-## De tabel EmployeeSecurity verbergen in clienttoepassingen  
-In deze taak gaat u de tabel EmployeeSecurity verbergen, zodat deze niet wordt weergegeven in de lijst met velden in een clienttoepassing. Als u een tabel verbergt, betekent dit trouwens niet automatisch dat de tabel is beveiligd. Gebruikers kunnen nog steeds gegevens uit de tabel EmployeeSecurity opvragen als ze weten hoe dat moet. Als u de gegevens in de tabel EmployeeSecurity wilt beveiligen, om te voorkomen dat gebruikers via een query gegevens kunnen opvragen, moet u in een latere taak een filter toepassen.  
+## <a name="hide-the-employeesecurity-table-from-client-applications"></a>De tabel EmployeeSecurity verbergen in clienttoepassingen  
+In deze taak gaat u de tabel EmployeeSecurity verbergen, zodat deze niet wordt weergegeven in de lijst met velden in een clienttoepassing. Als u een tabel verbergt, betekent dit niet automatisch dat de tabel is beveiligd. Gebruikers kunnen nog steeds gegevens uit de tabel EmployeeSecurity opvragen als ze weten hoe dat moet. Als u de gegevens in de tabel EmployeeSecurity wilt beveiligen, om te voorkomen dat gebruikers via een query gegevens kunnen opvragen, moet u in een latere taak een filter toepassen.  
   
-<a id="to-hide-the-employeesecurity-table-from-client-applications" class="xliff"></a>
-
-#### De tabel EmployeeSecurity verbergen in clienttoepassingen:  
+#### <a name="to-hide-the-employeesecurity-table-from-client-applications"></a>De tabel EmployeeSecurity verbergen in clienttoepassingen:  
   
 -   Klik in de diagramweergave van de ontwerpfunctie voor modellen met de rechtermuisknop op de tabelkop **Employee** en klik vervolgens op **Hide from Client Tools**.  
   
-<a id="create-a-sales-employees-by-territory-user-role" class="xliff"></a>
-
-## Een gebruikersrol Sales Employees by Territory maken  
+## <a name="create-a-sales-employees-by-territory-user-role"></a>Een gebruikersrol Sales Employees by Territory maken  
 In deze taak gaat u een gebruikersrol maken. Deze taak omvat het definiëren van een rijfilter waarmee wordt bepaald welke rijen van de tabel DimSalesTerritory zichtbaar zijn voor gebruikers. Het filter wordt vervolgens in de richting een-op-veel toegepast op alle andere tabellen die zijn gerelateerd aan DimSalesTerritory. U gaat ook een filter toepassen waarmee u de hele tabel EmployeeSecurity beveiligt tegen query's door gebruikers die geen lid zijn van de rol.  
   
 > [!NOTE]  
 > De rol Sales Employees by Territory die u in deze les maakt, zorgt ervoor dat leden van de rol alleen verkoopgegevens voor hun verkoopregio kunnen raadplegen (of opvragen). Als u een gebruiker als lid toevoegt aan de rol Sales Employees by Territory die ook beschikt over een rol die is gemaakt in [Les 11: Rollen maken](../tutorials/aas-lesson-11-create-roles.md), ontstaat er een combinatie van machtigingen. Wanneer een gebruiker meerdere rollen heeft, worden de machtigingen, en de rijfilters die voor elke rol zijn gedefinieerd, gecombineerd. De gebruiker beschikt dan over de hoogste machtigingen die het resultaat zijn van de combinatie van rollen.  
   
-<a id="to-create-a-sales-employees-by-territory-user-role" class="xliff"></a>
-
-#### Een gebruikersrol Sales Employees by Territory maken:  
+#### <a name="to-create-a-sales-employees-by-territory-user-role"></a>Een gebruikersrol Sales Employees by Territory maken:  
   
 1.  Klik in SSDT op het menu **Model** en klik vervolgens op **Roles**.  
   
@@ -185,14 +161,10 @@ In deze taak gaat u een gebruikersrol maken. Deze taak omvat het definiëren van
   
 10. Klik in Role Manager op **OK**.  
   
-<a id="test-the-sales-employees-by-territory-user-role" class="xliff"></a>
-
-## De gebruikersrol Sales Employees by Territory testen  
+## <a name="test-the-sales-employees-by-territory-user-role"></a>De gebruikersrol Sales Employees by Territory testen  
 In deze taak gebruikt u de functie Analyse in Excel van SSDT om de effectiviteit van de gebruikersrol Sales Employees by Territory te testen. U gaat een van de gebruikersnamen opgeven die u hebt toegevoegd aan de tabel EmployeeSecurity en als een lid van de rol. Deze gebruikersnaam wordt vervolgens daadwerkelijk gebruikt om verbinding te maken tussen Excel en het model.  
   
-<a id="to-test-the-sales-employees-by-territory-user-role" class="xliff"></a>
-
-#### De gebruikersrol Sales Employees by Territory testen:  
+#### <a name="to-test-the-sales-employees-by-territory-user-role"></a>De gebruikersrol Sales Employees by Territory testen:  
   
 1.  Klik in SSDT op het menu **Model** en klik vervolgens op **Analyze in Excel**.  
   
@@ -214,9 +186,7 @@ In deze taak gebruikt u de functie Analyse in Excel van SSDT om de effectiviteit
   
     Deze gebruiker kan dan geen gegevens van internetverkopen inzien of opvragen voor andere verkoopregio's. Deze beperking is van toepassing omdat het rijfilter dat is gedefinieerd voor de tabel DimSalesTerritory, voor de gebruikersrol Sales Employees by Territory, gegevens beveiligt voor alle gegevens die betrekking hebben op andere verkoopregio's.  
   
-<a id="see-also" class="xliff"></a>
-
-## Zie ook  
+## <a name="see-also"></a>Zie ook  
 [USERNAME, functie (DAX)](https://msdn.microsoft.com/library/hh230954.aspx)  
 [LOOKUPVALUE, functie (DAX)](https://msdn.microsoft.com/library/gg492170.aspx)  
 [CUSTOMDATA, functie (DAX)](https://msdn.microsoft.com/library/hh213140.aspx)  

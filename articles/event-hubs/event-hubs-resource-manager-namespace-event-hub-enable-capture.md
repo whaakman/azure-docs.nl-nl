@@ -22,9 +22,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template" class="xliff"></a>
-
-# Een Event Hubs-naamruimte met een gebeurtenishub maken en Capture inschakelen met behulp van een Azure Resource Manager-sjabloon
+# <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template"></a>Een Event Hubs-naamruimte met een gebeurtenishub maken en Capture inschakelen met behulp van een Azure Resource Manager-sjabloon
 In dit artikel wordt beschreven u hoe u een Azure Resource Manager-sjabloon gebruikt om een Event Hubs-naamruimte te maken met één exemplaar van de gebeurtenishub en de functie Capture op de gebeurtenishub in te schakelen. In het artikel wordt beschreven hoe u kunt aangeven welke resources worden geïmplementeerd en hoe u de parameters definieert die bij de uitvoering van de implementatie zijn opgegeven. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen
 
 Zie [Azure Resource Manager-sjablonen samenstellen][Authoring Azure Resource Manager templates] voor meer informatie over het maken van sjablonen.
@@ -38,9 +36,7 @@ Zie voor de volledige sjabloon de [sjabloon Event hub and enable Capture][Event 
 > 
 > 
 
-<a id="what-will-you-deploy" class="xliff"></a>
-
-## Wat wilt u implementeren?
+## <a name="what-will-you-deploy"></a>Wat wilt u implementeren?
 Met deze sjabloon implementeert u een Event Hubs-naamruimte met een gebeurtenishub en schakelt u tevens [Event Hubs Cinapture](event-hubs-capture-overview.md) in.
 
 [Event Hubs](event-hubs-what-is-event-hubs.md) is een verwerkingsservice van gebeurtenissen, die wordt gebruikt om zeer grote hoeveelheden gebeurtenissen en telemetriegegevens verzamelt in Azure met een lage latentie en hoge betrouwbaarheid. Met Event Hubs Capture kunt u automatisch de gegevensstroom in uw gebeurtenishubs bezorgen in een Azure Blob-opslag van uw keuze binnen een opgegeven periode of grootte van uw keuze.
@@ -49,16 +45,12 @@ Klik op de volgende knop om de implementatie automatisch uit te voeren:
 
 [![Implementeren in Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
-<a id="parameters" class="xliff"></a>
-
-## Parameters
+## <a name="parameters"></a>Parameters
 Met Azure Resource Manager kunt u parameters definiëren voor waarden die u wilt opgeven wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie met de naam `Parameters` die alle parameterwaarden bevat. U moet een parameter definiëren voor de waarden die variëren op basis van het project dat u wilt implementeren of op basis van de omgeving waarin u gaat implementeren. Definieer geen parameters voor waarden die altijd hetzelfde blijven. De waarde van elke parameter wordt gebruikt in de sjabloon voor het definiëren van de resources die worden geïmplementeerd.
 
 De sjabloon definieert de volgende parameters.
 
-<a id="eventhubnamespacename" class="xliff"></a>
-
-### eventHubNamespaceName
+### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 De naam van de Event Hubs-naamruimte die wordt gemaakt.
 
 ```json
@@ -70,9 +62,7 @@ De naam van de Event Hubs-naamruimte die wordt gemaakt.
 }
 ```
 
-<a id="eventhubname" class="xliff"></a>
-
-### eventHubName
+### <a name="eventhubname"></a>eventHubName
 De naam van de gebeurtenishub die in de Event Hubs-naamruimte wordt gemaakt.
 
 ```json
@@ -84,9 +74,7 @@ De naam van de gebeurtenishub die in de Event Hubs-naamruimte wordt gemaakt.
 }
 ```
 
-<a id="messageretentionindays" class="xliff"></a>
-
-### messageRetentionInDays
+### <a name="messageretentionindays"></a>messageRetentionInDays
 Het aantal dagen dat u de berichten in de gebeurtenishub wilt bewaren. 
 
 ```json
@@ -101,9 +89,7 @@ Het aantal dagen dat u de berichten in de gebeurtenishub wilt bewaren.
  }
 ```
 
-<a id="partitioncount" class="xliff"></a>
-
-### partitionCount
+### <a name="partitioncount"></a>partitionCount
 Het aantal partities dat in de gebeurtenishub wordt gemaakt.
 
 ```json
@@ -118,9 +104,7 @@ Het aantal partities dat in de gebeurtenishub wordt gemaakt.
  }
 ```
 
-<a id="captureenabled" class="xliff"></a>
-
-### captureEnabled
+### <a name="captureenabled"></a>captureEnabled
 Capture inschakelen op de gebeurtenishub.
 
 ```json
@@ -135,9 +119,7 @@ Capture inschakelen op de gebeurtenishub.
     }
  }
 ```
-<a id="captureencodingformat" class="xliff"></a>
-
-### captureEncodingFormat
+### <a name="captureencodingformat"></a>captureEncodingFormat
 De coderingsindeling die u opgeeft voor het serialiseren van de gebeurtenisgegevens.
 
 ```json
@@ -152,9 +134,7 @@ De coderingsindeling die u opgeeft voor het serialiseren van de gebeurtenisgegev
 }
 ```
 
-<a id="capturetime" class="xliff"></a>
-
-### captureTime
+### <a name="capturetime"></a>captureTime
 Het tijdsinterval waarin Event Hubs Capture begint met het vastleggen van de gegevens naar Azure Blob-opslag.
 
 ```json
@@ -169,9 +149,7 @@ Het tijdsinterval waarin Event Hubs Capture begint met het vastleggen van de geg
 }
 ```
 
-<a id="capturesize" class="xliff"></a>
-
-### captureSize
+### <a name="capturesize"></a>captureSize
 De grootte waarbij Event Hubs Capture begint met het vastleggen van de gegevens naar Azure Blob-opslag.
 
 ```json
@@ -186,9 +164,7 @@ De grootte waarbij Event Hubs Capture begint met het vastleggen van de gegevens 
 }
 ```
 
-<a id="destinationstorageaccountresourceid" class="xliff"></a>
-
-### destinationStorageAccountResourceId
+### <a name="destinationstorageaccountresourceid"></a>destinationStorageAccountResourceId
 Capture vereist een resource-id van het Azure Storage-account om te kunnen vastleggen naar uw gewenste opslagaccount.
 
 ```json
@@ -200,9 +176,7 @@ Capture vereist een resource-id van het Azure Storage-account om te kunnen vastl
  }
 ```
 
-<a id="blobcontainername" class="xliff"></a>
-
-### blobContainerName
+### <a name="blobcontainername"></a>blobContainerName
 De blob-container waarin uw gebeurtenisgegevens worden vastgelegd.
 
 ```json
@@ -215,9 +189,7 @@ De blob-container waarin uw gebeurtenisgegevens worden vastgelegd.
 ```
 
 
-<a id="apiversion" class="xliff"></a>
-
-### apiVersion
+### <a name="apiversion"></a>apiVersion
 De API-versie van de sjabloon.
 
 ```json
@@ -230,9 +202,7 @@ De API-versie van de sjabloon.
  }
 ```
 
-<a id="resources-to-deploy" class="xliff"></a>
-
-## Resources om te implementeren
+## <a name="resources-to-deploy"></a>Resources om te implementeren
 Hiermee maakt u een naamruimte van het type **EventHubs** met een gebeurtenishub en wordt Capture ingeschakeld.
 
 ```json
@@ -280,29 +250,21 @@ Hiermee maakt u een naamruimte van het type **EventHubs** met een gebeurtenishub
    ]
 ```
 
-<a id="commands-to-run-deployment" class="xliff"></a>
-
-## Opdrachten om implementatie uit te voeren
+## <a name="commands-to-run-deployment"></a>Opdrachten om implementatie uit te voeren
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-<a id="powershell" class="xliff"></a>
-
-## PowerShell
+## <a name="powershell"></a>PowerShell
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json
 ```
 
-<a id="azure-cli" class="xliff"></a>
-
-## Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 ```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 U kunt Event Hubs Capture ook configureren via de [Azure-portal](https://portal.azure.com). Zie voor meer informatie [Event Hubs Capture inschakelen met behulp van de Azure-portal](event-hubs-capture-enable-through-portal.md).
 

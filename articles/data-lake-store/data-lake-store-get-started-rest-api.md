@@ -22,9 +22,7 @@ ms.lasthandoff: 06/07/2017
 
 
 ---
-<a id="get-started-with-azure-data-lake-store-using-rest-apis" class="xliff"></a>
-
-# Aan de slag met Azure Data Lake Store met REST-API's
+# <a name="get-started-with-azure-data-lake-store-using-rest-apis"></a>Aan de slag met Azure Data Lake Store met REST-API's
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -44,21 +42,15 @@ In dit artikel leest u hoe u WebHDFS REST-API's en Data Lake Store REST-API's ge
 > 
 > 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **Een Azure Active Directory-toepassing maken**. U gebruikt de Azure AD-toepassing om de Data Lake Store-toepassing te verifiëren in Azure AD. Er zijn verschillende manieren om te verifiëren in Azure AD, zoals **verificatie door eindgebruikers** en **service-naar-serviceverificatie**. Zie [Eindgebruikersverificatie](data-lake-store-end-user-authenticate-using-active-directory.md) of [Service-to-serviceverificatie](data-lake-store-authenticate-using-active-directory.md) voor instructies en meer informatie over verificatie.
 * [cURL](http://curl.haxx.se/). In dit artikel wordt cURL gebruikt om te laten zien hoe u REST API-aanroepen maakt voor een Data Lake Store-account.
 
-<a id="how-do-i-authenticate-using-azure-active-directory" class="xliff"></a>
-
-## Hoe verifieer ik met Azure Active Directory?
+## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Hoe verifieer ik met Azure Active Directory?
 Er zijn twee benaderingen voor verificatie met Azure Active Directory.
 
-<a id="end-user-authentication-interactive" class="xliff"></a>
-
-### Eindgebruikersverificatie (interactief)
+### <a name="end-user-authentication-interactive"></a>Eindgebruikersverificatie (interactief)
 In dit scenario wordt de gebruiker via de toepassing gevraagd om zich te melden en worden alle bewerkingen uitgevoerd in de context van de gebruiker. Voer de volgende stappen uit voor interactieve verificatie.
 
 1. Leid de gebruiker via de toepassing om naar de volgende URL:
@@ -99,9 +91,7 @@ In dit scenario wordt de gebruiker via de toepassing gevraagd om zich te melden 
 
 Zie [De stroom voor autorisatiecodetoekenning](https://msdn.microsoft.com/library/azure/dn645542.aspx) voor meer informatie over interactieve gebruikersverificatie.
 
-<a id="service-to-service-authentication-non-interactive" class="xliff"></a>
-
-### Service-naar-serviceverificatie (niet interactief)
+### <a name="service-to-service-authentication-non-interactive"></a>Service-naar-serviceverificatie (niet interactief)
 In dit scenario verstrekt de toepassing zijn eigen referenties om bewerkingen uit te voeren. Daarvoor moet u een POST-aanvraag uitgeven, zoals in het voorbeeld hieronder. 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -116,9 +106,7 @@ De uitvoer van deze aanvraag bevat een verificatietoken (in de onderstaande uitv
 
 In dit artikel wordt de **niet-interactieve** benadering gebruikt. Zie [Service-naar-service-aanroepen met referenties](https://msdn.microsoft.com/library/azure/dn645543.aspx) voor meer informatie over niet-interactieve (service-naar-service) aanroepen.
 
-<a id="create-a-data-lake-store-account" class="xliff"></a>
-
-## Een Data Lake Store-account maken
+## <a name="create-a-data-lake-store-account"></a>Een Data Lake Store-account maken
 Deze bewerking is gebaseerd op de REST-API-aanroep die [hier](https://msdn.microsoft.com/library/mt694078.aspx) wordt gedefinieerd.
 
 Gebruik de volgende cURL-opdracht: Vervang **\<yourstorename>** door de naam van uw Data Lake Store.
@@ -135,9 +123,7 @@ Vervang \<`REDACTED`\> in de bovenstaande opdracht door het verificatietoken dat
     "properties": {}
     }    
 
-<a id="create-folders-in-a-data-lake-store-account" class="xliff"></a>
-
-## Mappen maken in een Data Lake Store-account
+## <a name="create-folders-in-a-data-lake-store-account"></a>Mappen maken in een Data Lake Store-account
 Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory) wordt gedefinieerd.
 
 Gebruik de volgende cURL-opdracht: Vervang **\<yourstorename>** door de naam van uw Data Lake Store.
@@ -150,9 +136,7 @@ Als de bewerking is geslaagd, wordt een antwoord van de volgende strekking weerg
 
     {"boolean":true}
 
-<a id="list-folders-in-a-data-lake-store-account" class="xliff"></a>
-
-## Mappen weergeven in Data Lake Store-account
+## <a name="list-folders-in-a-data-lake-store-account"></a>Mappen weergeven in Data Lake Store-account
 Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory) wordt gedefinieerd.
 
 Gebruik de volgende cURL-opdracht: Vervang **\<yourstorename>** door de naam van uw Data Lake Store.
@@ -180,9 +164,7 @@ Als de bewerking is geslaagd, wordt een antwoord van de volgende strekking weerg
     }
     }
 
-<a id="upload-data-into-a-data-lake-store-account" class="xliff"></a>
-
-## Gegevens uploaden naar een Data Lake Store-account
+## <a name="upload-data-into-a-data-lake-store-account"></a>Gegevens uploaden naar een Data Lake Store-account
 Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File) wordt gedefinieerd.
 
 Gebruik de volgende cURL-opdracht: Vervang **\<yourstorename>** door de naam van uw Data Lake Store.
@@ -204,9 +186,7 @@ De uitvoer lijkt op het volgende:
     HTTP/1.1 201 Created
     ...
 
-<a id="read-data-from-a-data-lake-store-account" class="xliff"></a>
-
-## Gegevens lezen uit een Data Lake Store-account
+## <a name="read-data-from-a-data-lake-store-account"></a>Gegevens lezen uit een Data Lake Store-account
 Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File) wordt gedefinieerd.
 
 Het lezen van gegevens uit een Data Lake Store is een proces dat uit twee stappen bestaat.
@@ -230,9 +210,7 @@ Als het goed is, wordt ongeveer de volgende uitvoer weergegeven:
 
     Hello, Data Lake Store user!
 
-<a id="rename-a-file-in-a-data-lake-store-account" class="xliff"></a>
-
-## Bestandsnamen wijzigen in een Data Lake Store-account
+## <a name="rename-a-file-in-a-data-lake-store-account"></a>Bestandsnamen wijzigen in een Data Lake Store-account
 Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory) wordt gedefinieerd.
 
 Als u de naam van een bestand wil wijzigen, gebruikt u de volgende cURL-opdracht. Vervang **\<yourstorename>** door de naam van uw Data Lake Store.
@@ -246,9 +224,7 @@ Als het goed is, wordt ongeveer de volgende uitvoer weergegeven:
 
     {"boolean":true}
 
-<a id="delete-a-file-from-a-data-lake-store-account" class="xliff"></a>
-
-## Een bestand verwijderen uit een Data Lake Store-account
+## <a name="delete-a-file-from-a-data-lake-store-account"></a>Een bestand verwijderen uit een Data Lake Store-account
 Deze bewerking is gebaseerd op de WebHDFS REST-API-aanroep die [hier](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory) wordt gedefinieerd.
 
 Gebruik de volgende cURL-opdracht als u een bestand wilt verwijderen. Vervang **\<yourstorename>** door de naam van uw Data Lake Store.
@@ -262,9 +238,7 @@ Als het goed is, wordt ongeveer de volgende uitvoer weergegeven:
 
     {"boolean":true}
 
-<a id="delete-a-data-lake-store-account" class="xliff"></a>
-
-## Een Data Lake Store-account verwijderen
+## <a name="delete-a-data-lake-store-account"></a>Een Data Lake Store-account verwijderen
 Deze bewerking is gebaseerd op de REST-API-aanroep die [hier](https://msdn.microsoft.com/library/mt694075.aspx) wordt gedefinieerd.
 
 Gebruik de volgende cURL-opdracht als u een Data Lake Store-account wilt verwijderen. Vervang **\<yourstorename>** door de naam van uw Data Lake Store.
@@ -277,9 +251,7 @@ Als het goed is, wordt ongeveer de volgende uitvoer weergegeven:
     ...
     ...
 
-<a id="see-also" class="xliff"></a>
-
-## Zie ook
+## <a name="see-also"></a>Zie ook
 * [Open Source Big Data-toepassingen die compatibel zijn met Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
 
 

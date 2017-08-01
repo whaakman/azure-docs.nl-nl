@@ -1,36 +1,32 @@
 ---
 title: Gebeurtenissen verzenden naar een Azure Time Series Insights-omgeving | Microsoft Docs
-description: In deze zelfstudie wordt uitgelegd hoe u gebeurtenissen naar uw Time Series Insights-omgeving verzendt
+description: In deze zelfstudie worden de stappen besproken voor het verzenden van gebeurtenissen naar uw Time Series Insights-omgeving
 keywords: 
-services: time-series-insights
+services: tsi
 documentationcenter: 
 author: venkatgct
-manager: almineev
-editor: cgronlun
+manager: jhubbard
+editor: 
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 07/21/2017
 ms.author: venkatja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 9f2d3b57a42efb7b04566278d3267b3cdbed713a
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/24/2017
 
 ---
-<a id="send-events-to-a-time-series-insights-environment-via-event-hub" class="xliff"></a>
-
-# Gebeurtenissen verzenden naar een Time Series Insights-omgeving via Event Hub
+# <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Gebeurtenissen verzenden naar een Time Series Insights-omgeving met Event Hub
 
 In deze zelfstudie wordt uitgelegd hoe u een Event Hub maakt en configureert, en een voorbeeldtoepassing uitvoert om gebeurtenissen te verzenden. Als u een bestaande Event Hub hebt die al gebeurtenissen in JSON-indeling bevat, kunt u deze zelfstudie overslaan en uw omgeving bekijken in [Time Series Insights](https://insights.timeseries.azure.com).
 
-<a id="configure-an-event-hub" class="xliff"></a>
-
-## Een Event Hub configureren
+## <a name="configure-an-event-hub"></a>Een Event Hub configureren
 1. Voor het maken van uw Event Hub volgt u de instructies in de Event Hub-[documentatie](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
 2. Zorg ervoor dat u een consumergroep maakt die uitsluitend door uw Time Series Insights-gebeurtenisbron wordt gebruikt.
@@ -46,18 +42,14 @@ In deze zelfstudie wordt uitgelegd hoe u een Event Hub maakt en configureert, en
 
   ![Een nieuw beleid voor gedeelde toegang toevoegen](media/send-events/shared-access-policy-2.png)  
 
-<a id="create-time-series-insights-event-source" class="xliff"></a>
+## <a name="create-time-series-insights-event-source"></a>Een Time Series Insights-gebeurtenisbron maken
+1. Als u nog geen gebeurtenisbron hebt gemaakt, volgt u [deze instructies](time-series-insights-add-event-source.md) om een gebeurtenisbron te maken.
 
-## Een Time Series Insights-gebeurtenisbron maken
-1. Als u nog geen gebeurtenisbron hebt gemaakt, volgt u de instructies die [hier](time-series-insights-add-event-source.md) worden gegeven om een gebeurtenisbron te maken.
-
-2. Geef 'deviceTimestamp' op als de naam van de tijdstempeleigenschap. Deze eigenschap wordt gebruikt als de werkelijke tijdstempel in het csharp-voorbeeld. De naam van de tijdstempeleigenschap is hoofdlettergevoelig en waarden moeten de indeling __jjjj-MM-ddTUU. FFFFFFFK__ hebben wanneer ze als JSON worden verzonden naar een Event Hub. Als de eigenschap niet aanwezig is in de gebeurtenis, wordt de tijd gebruikt waarop de gebeurtenis in de wachtrij van de Event Hub is geplaatst.
+2. Geef 'deviceTimestamp' op als de naam van de tijdstempeleigenschap. Deze eigenschap wordt gebruikt als de werkelijke tijdstempel in het csharp-voorbeeld. De naam van de tijdstempeleigenschap is hoofdlettergevoelig en waarden moeten de indeling __jjjj-MM-ddTUU. FFFFFFFK__ volgen wanneer ze als JSON worden verzonden naar een Event Hub. Als de eigenschap niet aanwezig is in de gebeurtenis, wordt de tijd gebruikt waarop de gebeurtenis in de wachtrij van de Event Hub is geplaatst.
 
   ![Gebeurtenisbron maken](media/send-events/event-source-1.png)
 
-<a id="sample-code-to-push-events" class="xliff"></a>
-
-## Voorbeeldcode uitvoeren om gebeurtenissen te pushen
+## <a name="sample-code-to-push-events"></a>Voorbeeldcode uitvoeren om gebeurtenissen te pushen
 1. Ga naar het Event Hub-beleid 'MySendPolicy' en kopieer de verbindingsreeks met de beleidssleutel.
 
   ![MySendPolicy-verbindingsreeks kopiëren](media/send-events/sample-code-connection-string.png)
@@ -131,16 +123,10 @@ namespace Microsoft.Rdx.DataGenerator
 }
 
 ```
-<a id="supported-json-shapes" class="xliff"></a>
+## <a name="supported-json-shapes"></a>Ondersteunde JSON-vormen
+### <a name="sample-1"></a>Voorbeeld 1
 
-## Ondersteunde JSON-vormen
-<a id="sample-1" class="xliff"></a>
-
-### Voorbeeld 1
-
-<a id="input" class="xliff"></a>
-
-#### Invoer
+#### <a name="input"></a>Invoer
 
 Een eenvoudig JSON-object.
 
@@ -150,21 +136,15 @@ Een eenvoudig JSON-object.
     "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
-<a id="output---1-event" class="xliff"></a>
-
-#### Uitvoer - 1 gebeurtenis
+#### <a name="output---1-event"></a>Uitvoer - 1 gebeurtenis
 
 |id|tijdstempel|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 
-<a id="sample-2" class="xliff"></a>
+### <a name="sample-2"></a>Voorbeeld 2
 
-### Voorbeeld 2
-
-<a id="input" class="xliff"></a>
-
-#### Invoer
+#### <a name="input"></a>Invoer
 Een JSON-matrix met twee JSON-objecten. Elk JSON-object wordt omgezet in een gebeurtenis.
 ```json
 [
@@ -178,21 +158,15 @@ Een JSON-matrix met twee JSON-objecten. Elk JSON-object wordt omgezet in een geb
     }
 ]
 ```
-<a id="output---2-events" class="xliff"></a>
-
-#### Uitvoer - 2 gebeurtenissen
+#### <a name="output---2-events"></a>Uitvoer - 2 gebeurtenissen
 
 |id|tijdstempel|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
-<a id="sample-3" class="xliff"></a>
+### <a name="sample-3"></a>Voorbeeld 3
 
-### Voorbeeld 3
-
-<a id="input" class="xliff"></a>
-
-#### Invoer
+#### <a name="input"></a>Invoer
 
 Een JSON-object met een geneste JSON-matrix met twee JSON-objecten.
 ```json
@@ -211,9 +185,7 @@ Een JSON-object met een geneste JSON-matrix met twee JSON-objecten.
 }
 
 ```
-<a id="output---2-events" class="xliff"></a>
-
-#### Uitvoer - 2 gebeurtenissen
+#### <a name="output---2-events"></a>Uitvoer - 2 gebeurtenissen
 Houd er rekening mee dat de eigenschap 'location' naar elk van de gebeurtenissen wordt gekopieerd.
 
 |location|events.id|events.timestamp|
@@ -221,13 +193,9 @@ Houd er rekening mee dat de eigenschap 'location' naar elk van de gebeurtenissen
 |WestUs|device1|2016-01-08T01:08:00Z|
 |WestUs|device2|2016-01-08T01:17:00Z|
 
-<a id="sample-4" class="xliff"></a>
+### <a name="sample-4"></a>Voorbeeld 4
 
-### Voorbeeld 4
-
-<a id="input" class="xliff"></a>
-
-#### Invoer
+#### <a name="input"></a>Invoer
 
 Een JSON-object met een geneste JSON-matrix met twee JSON-objecten. Uit deze invoer blijkt dat de algemene eigenschappen kunnen worden vertegenwoordigd door het complexe JSON-object.
 
@@ -260,18 +228,14 @@ Een JSON-object met een geneste JSON-matrix met twee JSON-objecten. Uit deze inv
     ]
 }
 ```
-<a id="output---2-events" class="xliff"></a>
-
-#### Uitvoer - 2 gebeurtenissen
+#### <a name="output---2-events"></a>Uitvoer - 2 gebeurtenissen
 
 |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 * Uw omgeving bekijken in de [Time Series Insights-portal](https://insights.timeseries.azure.com)
 

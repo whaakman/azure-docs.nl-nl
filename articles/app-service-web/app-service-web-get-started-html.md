@@ -22,9 +22,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/21/2017
 
 ---
-<a id="create-a-static-html-web-app-in-azure" class="xliff"></a>
-
-# Een statische HTML-web-app maken in Azure
+# <a name="create-a-static-html-web-app-in-azure"></a>Een statische HTML-web-app maken in Azure
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze Quickstart laat zien hoe u een eenvoudige HTML+CSS-site naar Azure Web Apps implementeert. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en u gebruikt Git om HTML-voorbeeldinhoud in de web-app te implementeren.
 
@@ -32,9 +30,7 @@ ms.lasthandoff: 06/21/2017
 
 U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux-computer. Vanaf het moment dat de vereiste onderdelen zijn geïnstalleerd, duurt het ongeveer vijf minuten om de stappen uit te voeren.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
@@ -45,9 +41,7 @@ Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
-<a id="download-the-sample" class="xliff"></a>
-
-## Het voorbeeld downloaden
+## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
 Voer in een terminalvenster de volgende opdracht uit om de opslagplaats van de voorbeeld-app te klonen op uw lokale computer.
 
@@ -57,9 +51,7 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 
 Dit terminalvenster gebruikt u om alle opdrachten in deze Quickstart uit te voeren.
 
-<a id="view-the-html" class="xliff"></a>
-
-## De HTML weergeven
+## <a name="view-the-html"></a>De HTML weergeven
 
 Ga naar de map die de voorbeeld-HTML bevat. Open het bestand *index.html* in uw browser.
 
@@ -109,9 +101,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-<a id="browse-to-the-app" class="xliff"></a>
-
-## Bladeren naar de app
+## <a name="browse-to-the-app"></a>Bladeren naar de app
 
 Ga in een browser naar de URL van de Azure-web-app:
 
@@ -125,9 +115,7 @@ De pagina wordt als een web-app uitgevoerd in Azure App Service.
 
 **Gefeliciteerd!** U hebt uw eerste HTML-app geïmplementeerd in App Service.
 
-<a id="update-and-redeploy-the-app" class="xliff"></a>
-
-## De app bijwerken en opnieuw implementeren
+## <a name="update-and-redeploy-the-app"></a>De app bijwerken en opnieuw implementeren
 
 Open het bestand de *index.html* in een teksteditor en wijzig wat code. Wijzig bijvoorbeeld de tekst van de H1-kop 'Azure App Service - Sample Static HTML Site' in 'Azure App Service'.
 
@@ -142,9 +130,7 @@ Als de implementatie is voltooid, vernieuwt u uw browser om de wijzigingen te be
 
 ![Bijgewerkte startpagina van voorbeeld-app](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
-
-## Uw nieuwe Azure-web-app beheren
+## <a name="manage-your-new-azure-web-app"></a>Uw nieuwe Azure-web-app beheren
 
 Ga naar <a href="https://portal.azure.com" target="_blank">Azure Portal</a> om de web-app te beheren die u hebt gemaakt.
 
@@ -160,9 +146,7 @@ Het linkermenu bevat een aantal pagina's voor het configureren van uw app.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
 > [Aangepast domein toewijzen](app-service-web-tutorial-custom-domain.md)

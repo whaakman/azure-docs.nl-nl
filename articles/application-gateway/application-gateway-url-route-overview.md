@@ -22,9 +22,7 @@ ms.lasthandoff: 06/07/2017
 
 
 ---
-<a id="url-path-based-routing-overview" class="xliff"></a>
-
-# Overzicht van op URL-pad gebaseerde routering
+# <a name="url-path-based-routing-overview"></a>Overzicht van op URL-pad gebaseerde routering
 
 Met op URL-pad gebaseerde routering kunt u verkeer routeren naar back-endserverpools die zijn gebaseerd op de URL-paden van de aanvraag. 
 
@@ -36,9 +34,7 @@ In het volgende voorbeeld verzorgt de toepassingsgateway het verkeer voor contos
 
 Aanvragen voor http://contoso.com/video* worden gerouteerd naar VideoServerPool en http://contoso.com/images* naar ImageServerPool. Als geen van de padpatronen overeenkomen, wordt DefaultServerPool geselecteerd.
     
-<a id="urlpathmap-configuration-element" class="xliff"></a>
-
-## Configuratie-element UrlPathMap
+## <a name="urlpathmap-configuration-element"></a>Configuratie-element UrlPathMap
 
 Het element UrlPathMap wordt gebruikt om padpatronen op te geven voor back-endservergroepstoewijzingen. Het volgende codevoorbeeld is het fragment van het urlPathMap-element van het sjabloonbestand.
 
@@ -76,9 +72,7 @@ Het element UrlPathMap wordt gebruikt om padpatronen op te geven voor back-endse
 
 U kunt een [Resource Manager-sjabloon met op URL gebaseerde routering](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) bekijken voor meer informatie.
 
-<a id="pathbasedrouting-rule" class="xliff"></a>
-
-## PathBasedRouting-regel
+## <a name="pathbasedrouting-rule"></a>PathBasedRouting-regel
 
 RequestRoutingRule van type PathBasedRouting wordt gebruikt voor het verbinden van een listener met een urlPathMap. Alle aanvragen die zijn ontvangen voor deze listener, worden gerouteerd op basis van een beleid dat is opgegeven in urlPathMap.
 Fragment van PathBasedRouting-regel:
@@ -103,9 +97,7 @@ Fragment van PathBasedRouting-regel:
 ]
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Nadat u meer hebt geleerd over routering van op URL gebaseerde inhoud, gaat u naar [Een toepassingsgateway maken met behulp van URL-gebaseerde routering](application-gateway-create-url-route-portal.md) om een toepassingsgateway te maken met URL-routeringsregels.
 

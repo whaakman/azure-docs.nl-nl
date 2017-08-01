@@ -22,15 +22,11 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="what-is-event-hubs" class="xliff"></a>
-
-# Wat is Event Hubs?
+# <a name="what-is-event-hubs"></a>Wat is Event Hubs?
 
 Azure Event Hubs is een uiterst schaalbaar platform voor het streamen van gegevens en een gebeurtenisopneemservice die miljoenen gebeurtenissen per seconde kan opnemen en verwerken. Event Hubs kan gebeurtenissen, gegevens of telemetrie die wordt geproduceerd door gedistribueerde software en apparaten verwerken en opslaan. Gegevens die naar een Event Hub worden verzonden, kunnen worden omgezet en opgeslagen via een provider voor realtime analytische gegevens of batchverwerking/opslagadapters. Event Hubs biedt mogelijkheden voor klein- en grootschalige scenario’s voor [publiceren/abonneren](https://msdn.microsoft.com/library/aa560414.aspx). Hierbij fungeert de service als toegangspunt voor big data.
 
-<a id="why-use-event-hubs" class="xliff"></a>
-
-## Het nut van Event Hubs
+## <a name="why-use-event-hubs"></a>Het nut van Event Hubs
 
 De verwerkingsmogelijkheden voor gebeurtenissen en telemetrie van Event Hubs zijn ideaal voor:
 
@@ -40,9 +36,7 @@ De verwerkingsmogelijkheden voor gebeurtenissen en telemetrie van Event Hubs zij
 
 Event Hubs maakt bijvoorbeeld het bijhouden van het gebruik van mobiele apps mogelijk, evenals het verzamelen van informatie over gegevensverkeer van web-farms, het vastleggen van spelgebeurtenissen in consolegames en het verzamelen van telemetriegegevens van industriële machines, verbonden voertuigen of andere apparaten.
 
-<a id="azure-event-hubs-overview" class="xliff"></a>
-
-## Overzicht van Azure Event Hubs
+## <a name="azure-event-hubs-overview"></a>Overzicht van Azure Event Hubs
 
 De algemene rol die Event Hubs in oplossingsarchitecturen speelt, is die van 'voordeur' van een gebeurtenispijplijn. We spreken ook wel van een *event ingestor*. Een event ingestor is een onderdeel dat of een service die zich tussen gebeurtenisuitgever en gebeurtenisconsumer bevindt en de productie van de gebeurtenisstroom loskoppelt van het gebruik van de betreffende gebeurtenissen. U ziet deze architectuur in de volgende afbeelding:
 
@@ -50,9 +44,7 @@ De algemene rol die Event Hubs in oplossingsarchitecturen speelt, is die van 'vo
 
 Event Hubs biedt de mogelijkheid voor het verwerken van een berichtenstroom, maar sommige van de kenmerken wijken af van wat u gewend bent bij traditionele zakelijke tools voor berichtenverzending. De mogelijkheden van Event Hubs zijn gebaseerd op maximale doorvoer en scenario's voor de verwerking van gebeurtenissen. Event Hubs wijkt af van [Azure Service Bus](https://azure.microsoft.com/services/service-bus/)-messaging en implementeert niet alle berichtenmogelijkheden die beschikbaar zijn voor [Service Bus messaging](/azure/service-bus-messaging/)-entiteiten, zoals onderwerpen.
 
-<a id="event-hubs-features" class="xliff"></a>
-
-## Functies van Event Hubs
+## <a name="event-hubs-features"></a>Functies van Event Hubs
 
 Event Hubs bevat de volgende belangrijke elementen:
 
@@ -66,9 +58,7 @@ Event Hubs bevat de volgende belangrijke elementen:
 
 Zie voor technische informatie over deze en andere functies van Event Hubs het [Overzicht van functies voor Event Hubs](event-hubs-features.md). 
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Zie [Prijzen van Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) voor gedetailleerde informatie over prijzen van Event Hubs.
 

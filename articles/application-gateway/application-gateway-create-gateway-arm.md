@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 6d38dd6802a25b147fd014b4d26ca432ca87a07d
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="create-start-or-delete-an-application-gateway-by-using-azure-resource-manager"></a>Een toepassingsgateway maken, openen of verwijderen met Azure Resource Manager
@@ -171,10 +170,10 @@ In dit voorbeeld zijn er twee back-endpools voor het verzenden van netwerkverkee
 
 ### <a name="step-3"></a>Stap 3
 
-Configureer de toepassingsgateway door voor het netwerkverkeer met load balancing in de back-endpool **poolsetting01** in te stellen. Elke back-endpool kan een eigen instelling van de back-endpool hebben.  Back-end-HTTP-instellingen worden gebruikt door regels om verkeer te verzenden naar de juiste back-endpoolleden. Met back-end-HTTP-instellingen wordt bepaald welk protocol en welke poort moeten worden gebruikt voor het verzenden van verkeer naar de back-endpoolleden. Sessies op basis van cookies worden ook bepaald door de back-end-HTTP-instellingen.  Als sessieaffiniteit op basis van cookies is ingeschakeld, wordt verkeer verzonden naar dezelfde back-end als bij de vorige aanvragen voor elk pakket.
+Configureer de toepassingsgateway door voor het netwerkverkeer met load balancing in de back-endpool **poolsetting** in te stellen. Elke back-endpool kan een eigen instelling van de back-endpool hebben.  Back-end-HTTP-instellingen worden gebruikt door regels om verkeer te verzenden naar de juiste back-endpoolleden. Met back-end-HTTP-instellingen wordt bepaald welk protocol en welke poort moeten worden gebruikt voor het verzenden van verkeer naar de back-endpoolleden. Sessies op basis van cookies worden ook bepaald door de back-end-HTTP-instellingen.  Als sessieaffiniteit op basis van cookies is ingeschakeld, wordt verkeer verzonden naar dezelfde back-end als bij de vorige aanvragen voor elk pakket.
 
 ```powershell
-$poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
+$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
 ```
 
 ### <a name="step-4"></a>Stap 4
@@ -206,7 +205,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol
 Maak een load balancer-routeringsregel met de naam **rule01** voor het configureren van het load balancer-gedrag. De regel bestaat uit de back-endpoolinstellingen, listener en back-endpool die zijn gemaakt in de vorige stappen. Verkeer wordt doorgestuurd naar de desbetreffende back-end op basis van de gedefinieerde criteria.
 
 ```powershell
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting01 -HttpListener $listener -BackendAddressPool $pool
+$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
 ### <a name="step-8"></a>Stap 8
