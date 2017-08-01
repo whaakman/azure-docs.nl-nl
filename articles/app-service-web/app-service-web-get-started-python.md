@@ -15,25 +15,21 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 233db1cb74a6c81cf044953ecdf6e9de6cc50ee8
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 754c381cb242e0bdf7c56bd2a763d46acc80fbda
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
-<a id="create-a-python-web-app-in-azure" class="xliff"></a>
-
-# Een Python-web-app maken in Azure
+# <a name="create-a-python-web-app-in-azure"></a>Een Python-web-app maken in Azure
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze snelstartgids helpt u bij het ontwikkelen en implementeren van een Python-app in Azure Web Apps. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en gebruikt Git om voorbeeldcode van Python in de web-app te implementeren.
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux-computer. Vanaf het moment dat de vereiste onderdelen zijn geïnstalleerd, duurt het ongeveer vijf minuten om de stappen uit te voeren.
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 Vereisten voor het voltooien van deze zelfstudie:
 
@@ -46,9 +42,7 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
-<a id="download-the-sample" class="xliff"></a>
-
-## Het voorbeeld downloaden
+## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
 Voer in een terminalvenster de volgende opdracht uit om de opslagplaats van de voorbeeld-app te klonen op uw lokale computer.
 
@@ -64,9 +58,13 @@ Ga naar de map die de voorbeeldcode bevat.
 cd Python-docs-hello-world
 ```
 
-<a id="run-the-app-locally" class="xliff"></a>
+## <a name="run-the-app-locally"></a>De app lokaal uitvoeren
 
-## De app lokaal uitvoeren
+Installeer de vereiste pakketten met `pip`.
+
+```bash
+pip install -r requirements.txt
+```
 
 Voer de toepassing lokaal uit door een terminalvenster te openen en de opdracht `Python` te gebruiken om de ingebouwde Python-webserver te starten.
 
@@ -96,9 +94,7 @@ Druk in uw terminalvenster op **Ctrl + C** om de webserver af te sluiten.
 
 U hebt een lege, nieuwe web-app gemaakt in Azure.
 
-<a id="configure-to-use-python" class="xliff"></a>
-
-## Configureren voor het gebruik van Python
+## <a name="configure-to-use-python"></a>Configureren voor het gebruik van Python
 
 Gebruik de opdracht [az webapp config set](/cli/azure/webapp/config#set) om de web-app te configureren voor het gebruik van Python versie `3.4`.
 
@@ -155,9 +151,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-<a id="browse-to-the-app" class="xliff"></a>
-
-## Bladeren naar de app
+## <a name="browse-to-the-app"></a>Bladeren naar de app
 
 Blader naar de geïmplementeerde toepassing via uw webbrowser.
 
@@ -171,9 +165,7 @@ De Python-voorbeeldcode wordt uitgevoerd in een web-app van Azure App Service.
 
 **Gefeliciteerd!** U hebt uw eerste Python-app geïmplementeerd naar App Service.
 
-<a id="update-and-redeploy-the-code" class="xliff"></a>
-
-## De code bijwerken en opnieuw implementeren
+## <a name="update-and-redeploy-the-code"></a>De code bijwerken en opnieuw implementeren
 
 Gebruik een lokale teksteditor om het bestand `main.py` in de Python-app te openen en breng een kleine wijziging aan in de tekst naast de instructie `return`:
 
@@ -192,9 +184,7 @@ Wanneer de implementatie is voltooid, gaat u terug naar het browservenster dat i
 
 ![Bijgewerkte voorbeeld-app die wordt uitgevoerd in Azure](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
-
-## Uw nieuwe Azure-web-app beheren
+## <a name="manage-your-new-azure-web-app"></a>Uw nieuwe Azure-web-app beheren
 
 Ga naar <a href="https://portal.azure.com" target="_blank">Azure Portal</a> om de web-app te beheren die u hebt gemaakt.
 
@@ -210,9 +200,7 @@ Het linkermenu bevat een aantal pagina's voor het configureren van uw app.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
 > [Python met PostgreSQL](app-service-web-tutorial-docker-python-postgresql-app.md)
