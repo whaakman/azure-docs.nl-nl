@@ -22,9 +22,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-11-create-roles" class="xliff"></a>
-
-# Les 11: Rollen maken
+# <a name="lesson-11-create-roles"></a>Les 11: Rollen maken
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -45,18 +43,12 @@ Omdat gebruikers- en groepsaccounts van Windows uniek zijn binnen uw organisatie
   
 Geschatte tijd voor het voltooien van deze les: **15 minuten**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten  
+## <a name="prerequisites"></a>Vereisten  
 Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 10: Partities maken](../tutorials/aas-lesson-10-create-partitions.md).  
   
-<a id="create-roles" class="xliff"></a>
-
-## Rollen maken  
+## <a name="create-roles"></a>Rollen maken  
   
-<a id="to-create-a-sales-manager-user-role" class="xliff"></a>
-
-#### Een gebruikersrol Sales Manager maken:  
+#### <a name="to-create-a-sales-manager-user-role"></a>Een gebruikersrol Sales Manager maken:  
   
 1.  Klik in Tabular Model Explorer met de rechtermuisknop op **Roles** > **Roles**.  
   
@@ -70,9 +62,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
   
 5.  Optioneel: Klik op het tabblad **Members** en klik vervolgens op **Add**. Voer in het dialoogvenster **Select Users or Groups** de Windows-gebruikers of -groepen van uw organisatie in die u wilt toewijzen aan de rol.  
   
-<a id="to-create-a-sales-analyst-us-user-role" class="xliff"></a>
-
-#### Een gebruikersrol Sales Analyst US maken:  
+#### <a name="to-create-a-sales-analyst-us-user-role"></a>Een gebruikersrol Sales Analyst US maken:  
   
 1.  Klik in Role Manager op **New**.    
   
@@ -91,9 +81,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
   
 6.  Optioneel: Klik op het tabblad **Members** en klik vervolgens op **Add**. Voer in het dialoogvenster **Select Users or Groups** de Windows-gebruikers of -groepen van uw organisatie in die u wilt toewijzen aan de rol.  
   
-<a id="to-create-an-administrator-user-role" class="xliff"></a>
-
-#### Een gebruikersrol Administrator maken:  
+#### <a name="to-create-an-administrator-user-role"></a>Een gebruikersrol Administrator maken:  
   
 1.  Klik op **Nieuw**.  
   
@@ -104,9 +92,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
 4.  Optioneel: Klik op het tabblad **Members** en klik vervolgens op **Add**. Voer in het dialoogvenster **Select Users or Groups** de Windows-gebruikers of -groepen van uw organisatie in die u wilt toewijzen aan de rol. 
   
   
-<a id="whats-next" class="xliff"></a>
-
-## Volgende stappen
+## <a name="whats-next"></a>Volgende stappen
 [Les 12: Analyseren in Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).
 
   

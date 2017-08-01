@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met Azure Active Directory Premium
-description: In dit onderwerp wordt beschreven hoe u zich kunt registreren voor de Azure Active Directory Premium-editie via de website voor volumelicenties.
+description: Hier wordt beschreven hoe u zich kunt registreren voor de Azure Active Directory Premium-editie via de website voor volumelicenties.
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,17 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 73cbbce9ae3d727632b8cac2a29c2b1b92332ae7
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: fac41a05c97088b55f07455133d960687227af0e
 ms.contentlocale: nl-nl
-ms.lasthandoff: 12/07/2016
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="getting-started-with-azure-active-directory-premium"></a>Aan de slag met Azure Active Directory Premium
+In dit artikel leest u hoe u aan de slag gaat met de Azure Active Directory Premium-editie die u hebt aangeschaft via het volumelicentieprogramma. Zie [Azure Active Directory editions](active-directory-editions.md) (Azure Active Directory-edities) als u nog niet bekend bent met de verschillende edities van Azure Active Directory.  
+
+> [!IMPORTANT]
+> Microsoft raadt u aan Azure AD te beheren met het [Azure AD-beheercentrum](https://aad.portal.azure.com) in Azure Portal in plaats van de klassieke Azure portal waarnaar in dit artikel wordt verwezen. 
+
 U kunt zich op verschillende manieren registreren voor Active Directory Premium: 
 
 **Azure of Office 365** - Als Azure- of Office 365-abonnee kunt u Active Directory Premium online kopen. Zie [How to Purchase Azure Active Directory Premium - Existing Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) (Azure Active Directory Premium aanschaffen - bestaande klanten) of [How to Purchase Azure Active Directory Premium - New Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers) (Azure Active Directory Premium aanschaffen - nieuwe klanten) voor gedetailleerde instructies.  
@@ -29,8 +34,6 @@ U kunt zich op verschillende manieren registreren voor Active Directory Premium:
 **Enterprise Mobility Suite** - Met Enterprise Mobility + Security (voorheen Enterprise Mobility Suite) kunnen organisaties voordelig gebruikmaken van de volgende services die zijn gecombineerd in één licentieabonnement: Active Directory Premium, Azure Rights Management, Microsoft Intune. Zie de website van [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) (Engelstalig) voor meer informatie. Klik [hier](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0) voor een gratis proefversie van 30 dagen.
 
 **Microsoft Volume Licensing** - Azure Active Directory Premium is beschikbaar via een [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 of meer licenties) of het [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)-programma (5-250 licenties).
-
-In dit onderwerp leest u hoe u aan de slag gaat met de Azure Active Directory Premium-editie die u hebt aangeschaft via het volumelicentieprogramma. Zie [Azure Active Directory editions](active-directory-editions.md) (Azure Active Directory-edities) als u nog niet bekend bent met de verschillende edities van Azure Active Directory.  
 
 > [!NOTE]
 > De Azure Active Directory-edities Premium en Basic zijn beschikbaar voor klanten in China via het wereldwijde exemplaar van Azure Active Directory. De edities Azure Active Directory Premium en Basic worden momenteel niet ondersteund in de Microsoft Azure-service die wordt beheerd door 21Vianet in China. Neem contact met ons op via het [Azure Active Directory-forum](https://feedback.azure.com/forums/169401-azure-active-directory/) voor meer informatie.

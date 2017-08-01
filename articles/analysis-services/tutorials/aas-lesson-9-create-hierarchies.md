@@ -22,9 +22,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-9-create-hierarchies" class="xliff"></a>
-
-# Les 9: Hiërarchieën maken
+# <a name="lesson-9-create-hierarchies"></a>Les 9: Hiërarchieën maken
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -34,18 +32,12 @@ U maakt hiërarchieën met de *diagramweergave* van de ontwerpfunctie voor model
   
 Geschatte tijd voor het voltooien van deze les: **20 minuten**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten  
+## <a name="prerequisites"></a>Vereisten  
 Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 8: Perspectieven maken](../tutorials/aas-lesson-8-create-perspectives.md).  
   
-<a id="create-hierarchies" class="xliff"></a>
-
-## Hiërarchieën maken  
+## <a name="create-hierarchies"></a>Hiërarchieën maken  
   
-<a id="to-create-a-category-hierarchy-in-the-dimproduct-table" class="xliff"></a>
-
-#### Een hiërarchie Category maken in de tabel DimProduct:  
+#### <a name="to-create-a-category-hierarchy-in-the-dimproduct-table"></a>Een hiërarchie Category maken in de tabel DimProduct:  
   
 1.  Klik in de ontwerpfunctie voor modellen (in de diagramweergave) met de rechtermuisknop op de tabel **DimProduct** > **Create Hierarchy**. Er wordt onderaan het tabelvenster een nieuwe hiërarchie weergegeven. Wijzig de naam van de hiërarchie in **Category**.  
   
@@ -64,9 +56,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
 
     ![aas-lesson9-category](../tutorials/media/aas-lesson9-category.png)
   
-<a id="to-create-hierarchies-in-the-dimdate-table" class="xliff"></a>
-
-#### Hiërarchieën maken in de tabel DimDate:  
+#### <a name="to-create-hierarchies-in-the-dimdate-table"></a>Hiërarchieën maken in de tabel DimDate:  
   
 1.  Maak in de tabel **DimDate** een hiërarchie met de naam **Calendar**.  
   
@@ -91,9 +81,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
     *  WeekNumberOfYear
     *  DayNumberOfWeek
   
-<a id="whats-next" class="xliff"></a>
-
- ## Volgende stappen
+ ## <a name="whats-next"></a>Volgende stappen
 [Les 10: Partities maken](../tutorials/aas-lesson-10-create-partitions.md). 
   
   

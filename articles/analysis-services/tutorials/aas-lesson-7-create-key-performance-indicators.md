@@ -22,9 +22,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-7-create-key-performance-indicators" class="xliff"></a>
-
-# Les 7: Key Performance Indicators maken
+# <a name="lesson-7-create-key-performance-indicators"></a>Les 7: Key Performance Indicators maken
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -32,18 +30,12 @@ In deze les gaat u Key Performance Indicators (KPI's) maken. KPI's worden gebrui
   
 Geschatte tijd voor het voltooien van deze les: **15 minuten**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten  
+## <a name="prerequisites"></a>Vereisten  
 Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 6: Metingen maken](../tutorials/aas-lesson-6-create-measures.md).   
   
-<a id="create-key-performance-indicators" class="xliff"></a>
-
-## Key Performance Indicators maken  
+## <a name="create-key-performance-indicators"></a>Key Performance Indicators maken  
   
-<a id="to-create-an-internetcurrentquartersalesperformance-kpi" class="xliff"></a>
-
-#### Een KPI InternetCurrentQuarterSalesPerformance maken:  
+#### <a name="to-create-an-internetcurrentquartersalesperformance-kpi"></a>Een KPI InternetCurrentQuarterSalesPerformance maken:  
   
 1.  Klik in de ontwerpfunctie voor modellen op de tabel **FactInternetSales**.  
   
@@ -74,9 +66,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
   
     In het metingenraster ziet u nu een pictogram naast de meting **InternetCurrentQuarterSalesPerformance**. Dit pictogram geeft aan dat deze meting fungeert als een basislijn voor een KPI.  
   
-<a id="to-create-an-internetcurrentquartermarginperformance-kpi" class="xliff"></a>
-
-#### Een KPI InternetCurrentQuarterMarginPerformance maken:  
+#### <a name="to-create-an-internetcurrentquartermarginperformance-kpi"></a>Een KPI InternetCurrentQuarterMarginPerformance maken:  
   
 1.  Klik in metingenraster voor de tabel **FactInternetSales** op een lege cel.  
   
@@ -94,9 +84,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
   
 6.  Selecteer bij **Select icon style** de reeks met een ruit (rood), driehoek (geel) en cirkel (groen), en klik vervolgens op **OK**.  
   
-<a id="whats-next" class="xliff"></a>
-
-## Volgende stappen
+## <a name="whats-next"></a>Volgende stappen
 [Les 8: Perspectieven maken](../tutorials/aas-lesson-8-create-perspectives.md).
   
   

@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2017
+ms.date: 07/24/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: d49f7986e09a90c5c4c49c0d3963d0cd8514713a
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
-<a id="azure-security-center-platform-migration" class="xliff"></a>
-
-# Migratie van Azure Security Center-platform
+# <a name="azure-security-center-platform-migration"></a>Migratie van Azure Security Center-platform
 
 Vanaf begin juni 2017 implementeert Azure Security Center belangrijke wijzigingen in de manier waarop beveiligingsgegevens worden verzameld en opgeslagen.  Deze wijzigingen bieden nieuwe mogelijkheden, zoals de mogelijkheid om eenvoudig beveiligingsgegevens te zoeken en een betere afstemming op andere Azure-services voor beheer en controle.
 
@@ -32,17 +29,13 @@ Vanaf begin juni 2017 implementeert Azure Security Center belangrijke wijziginge
 > De platformmigratie heeft geen invloed op uw productieresources en u hoeft geen actie te ondernemen.
 
 
-<a id="whats-happening-during-this-platform-migration" class="xliff"></a>
-
-## Wat gebeurt er tijdens deze platformmigratie?
+## <a name="whats-happening-during-this-platform-migration"></a>Wat gebeurt er tijdens deze platformmigratie?
 
 Voorheen gebruikte Security Center de Azure Monitoring Agent voor het verzamelen van beveiligingsgegevens van uw virtuele machines. Dit is inclusief informatie over beveiligingsconfiguraties, die worden gebruikt voor het identificeren van kwetsbaarheden, en beveiligingsgebeurtenissen, die worden gebruikt voor het detecteren van bedreigingen. Deze gegevens werden opgeslagen in uw opslagaccounts in Azure.
 
 Voortaan maakt Security Center gebruik van de Microsoft Monitoring Agent. Dit is dezelfde agent die wordt gebruikt door de Operations Management Suite en de Log Analytics-service. Gegevens die via deze agent worden verzameld, worden opgeslagen in een bestaande *Log Analytics*-[werkruimte](../log-analytics/log-analytics-manage-access.md) die is gekoppeld aan uw Azure-abonnement, of in nieuwe werkruimten, rekening houdend met de geolocatie van de virtuele machine.
 
-<a id="agent" class="xliff"></a>
-
-## Agent
+## <a name="agent"></a>Agent
 
 Als onderdeel van de overgang wordt de Microsoft Monitoring Agent (voor [Windows](../log-analytics/log-analytics-windows-agents.md) of [Linux](../log-analytics/log-analytics-linux-agents.md)) geïnstalleerd op alle virtuele machines van Azure waarop momenteel gegevens worden verzameld.  Als de Microsoft Monitoring Agent al op de virtuele machine is geïnstalleerd, maakt Security Center gebruik van de huidige geïnstalleerde agent.
 
@@ -56,13 +49,11 @@ De Microsoft Monitoring Agent voor Windows vereist het gebruik van TCP-poort 443
 > [!NOTE] 
 > Omdat de Microsoft Monitoring Agent kan worden gebruikt door andere Azure-services voor beheer en controle, wordt de agent niet automatisch verwijderd wanneer u gegevens verzamelen uitschakelt in Security Center. U kunt de agent echter zo nodig handmatig verwijderen.
 
-<a id="workspace" class="xliff"></a>
-
-## Werkruimte
+## <a name="workspace"></a>Werkruimte
 
 Zoals eerder beschreven, worden gegevens die (namens Security Center) via de Microsoft Monitoring Agent worden verzameld, opgeslagen in een bestaande Log Analytics-werkruimte die is gekoppeld aan uw Azure-abonnement, of in nieuwe werkruimten, rekening houdend met de geolocatie van de virtuele machine.
 
-In de Azure Portal kunt u bladeren om een overzicht te zien van uw Log Analytics-werkruimten, inclusief alle werkruimten die door Security Center zijn gemaakt. Een gerelateerde resourcegroep wordt gemaakt voor nieuwe werkruimten. Werkruimten en resourcegroepen volgen beide deze naamconventie:
+In Azure Portal kunt u bladeren om een overzicht te zien van uw Log Analytics-werkruimten, inclusief alle werkruimten die door Security Center zijn gemaakt. Een gerelateerde resourcegroep wordt gemaakt voor nieuwe werkruimten. Werkruimten en resourcegroepen volgen beide deze naamconventie:
 
 - Werkruimte: *Standaardwerkruimte-[abonnement-ID]-[geo]*
 - Resourcegroep: *Standaardresoucegroep-[geo]* 
@@ -72,16 +63,12 @@ Voor werkruimten die zijn gemaakt door Security Center worden gegevens 30 dagen 
 > [!NOTE]
 > Gegevens die eerder door Security Center werden verzameld, blijven aanwezig in uw opslagaccounts. Nadat de migratie is voltooid, kunt u deze opslagaccounts verwijderen.
 
-<a id="oms-security-solution" class="xliff"></a>
-
-### OMS-beveiligingsoplossing 
+### <a name="oms-security-solution"></a>OMS-beveiligingsoplossing 
 
 Voor bestaande klanten die geen OMS-beveiligingsoplossing hebben geïnstalleerd, installeert Microsoft deze in hun werkruimte. De oplossing is echter alleen gericht op virtuele machines van Azure. U moet deze oplossing niet verwijderen, omdat er geen automatisch herstel is als dit wordt gedaan via de OMS-beheerconsole.
 
 
-<a id="other-updates" class="xliff"></a>
-
-## Andere Updates
+## <a name="other-updates"></a>Andere Updates
 
 Samen met de platformmigratie rollen we een aantal kleine updates uit:
 
@@ -90,5 +77,6 @@ Samen met de platformmigratie rollen we een aantal kleine updates uit:
 - [Prijzen](https://azure.microsoft.com/pricing/details/security-center/) zijn pro rato per uur (voorheen was dit per dag). Voor sommige klanten zal dit leiden tot kostenbesparingen.
 - Gegevensverzameling is vereist en wordt automatisch ingeschakeld voor klanten in de prijscategorie Standard.
 - Azure Security Center start met het detecteren van antimalware-oplossingen die niet zijn geïmplementeerd via Azure-extensies. Detectie van Symantec Endpoint Protection en Defender voor Windows 2016 zal als eerste beschikbaar zijn.
+- Preventiebeleid en -meldingen kunnen alleen worden alleen geconfigureerd op *abonnementsniveau*, maar de prijzen kunnen nog steeds worden ingesteld op *resourcegroepniveau*
 
 

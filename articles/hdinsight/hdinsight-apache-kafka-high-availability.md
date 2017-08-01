@@ -21,15 +21,11 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/28/2017
 
 ---
-<a id="high-availability-of-your-data-with-apache-kafka-preview-on-hdinsight" class="xliff"></a>
-
-# Hoge beschikbaarheid van uw gegevens met Apache Kafka (preview) in HDInsight
+# <a name="high-availability-of-your-data-with-apache-kafka-preview-on-hdinsight"></a>Hoge beschikbaarheid van uw gegevens met Apache Kafka (preview) in HDInsight
 
 Informatie over het configureren van partitiereplica's voor Kafka-onderwerpen om te profiteren van de onderliggende rek-configuratie van de hardware. Deze configuratie waarborgt de beschikbaarheid van gegevens die zijn opgeslagen in Apache Kafka op HDInsight.
 
-<a id="fault-and-update-domains-with-kafka" class="xliff"></a>
-
-## Probleem- en updatedomeinen met Kafka
+## <a name="fault-and-update-domains-with-kafka"></a>Probleem- en updatedomeinen met Kafka
 
 Een foutdomein is een logische groepering van de onderliggende hardware in een Azure-datacenter. Elk foutdomein deelt een algemene voedingsbron en netwerkswitch. De virtuele machines en beheerde schijven die de knooppunten in een HDInsight-cluster implementeren zijn verdeeld over deze foutdomeinen. Deze architectuur beperkt de potentiële impact van problemen met de fysieke hardware.
 
@@ -38,9 +34,7 @@ Elke Azure-regio heeft een bepaald aantal foutdomeinen. Zie de [Beschikbaarheids
 > [!IMPORTANT]
 > Kafka is niet bekend met foutdomeinen. Wanneer u een onderwerp in Kafka maakt, is het daarom mogelijk dat alle partitiereplica's in hetzelfde foutdomein worden opgeslagen. Als oplossing voor dit probleem bieden we het [Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools) (hulpprogramma voor het opnieuw indelen van Kafka-partities).
 
-<a id="when-to-rebalance-partition-replicas" class="xliff"></a>
-
-## Wanneer partitiereplica 's opnieuw moeten worden ingedeeld
+## <a name="when-to-rebalance-partition-replicas"></a>Wanneer partitiereplica 's opnieuw moeten worden ingedeeld
 
 Om de hoogst mogelijke beschikbaarheid van uw Kafka-gegevens te waarborgen, moet u de partitiereplica's voor uw onderwerp op de volgende tijden opnieuw indelen:
 
@@ -48,9 +42,7 @@ Om de hoogst mogelijke beschikbaarheid van uw Kafka-gegevens te waarborgen, moet
 
 * wanneer u een cluster opschaalt
 
-<a id="replication-factor" class="xliff"></a>
-
-## Replicatiefactor
+## <a name="replication-factor"></a>Replicatiefactor
 
 > [!IMPORTANT]
 > Wij raden het gebruik aan van een Azure-regio die drie foutdomeinen bevat en van een replicatiefactor van 3.
@@ -59,17 +51,13 @@ Als u een regio met slechts twee foutdomeinen moet gebruiken, gebruik dan een re
 
 Zie het document [Aan de slag met Apache Kafka in HDInsight](hdinsight-apache-kafka-get-started.md) voor een voorbeeld van het maken van onderwerpen en instellen van de replicatiefactor.
 
-<a id="how-to-rebalance-partition-replicas" class="xliff"></a>
-
-## Hoe partitiereplica 's opnieuw moeten worden ingedeeld
+## <a name="how-to-rebalance-partition-replicas"></a>Hoe partitiereplica 's opnieuw moeten worden ingedeeld
 
 Gebruik het [Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools) (hulpprogramma voor het opnieuw indelen van Kafka-partities) om de geselecteerde onderwerpen opnieuw in te delen. Dit hulpprogramma moet vanaf een SSH-sessie naar het hoofdknooppunt van het Kafka-cluster worden uitgevoerd.
 
 Zie het document [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie over verbinding maken met HDInsight met behulp van SSH.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 * [Schaalbaarheid van Kafka in HDInsight](hdinsight-apache-kafka-scalability.md)
 * [Spiegeling met Kafka in HDInsight](hdinsight-apache-kafka-mirroring.md)

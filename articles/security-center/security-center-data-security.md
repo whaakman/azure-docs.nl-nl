@@ -22,9 +22,7 @@ ms.lasthandoff: 06/17/2017
 
 
 ---
-<a id="azure-security-center-data-security" class="xliff"></a>
-
-# Gegevensbeveiliging in Azure Security Center
+# <a name="azure-security-center-data-security"></a>Gegevensbeveiliging in Azure Security Center
 Om klanten te helpen bedreigingen te voorkomen, te detecteren en erop te reageren, verzamelt en verwerkt Azure Security Center gegevens over beveiliging, zoals configuratie-informatie, metagegevens, gebeurtenislogboeken, crashdumpbestanden en nog veel meer. Microsoft voldoet aan strikte nalevings- en beveiligingsrichtlijnen - van het schrijven van code tot de uitvoering van een service.
 
 In dit artikel wordt uitgelegd hoe gegevens worden beheerd en beveiligd in Azure Security Center.
@@ -34,9 +32,7 @@ In dit artikel wordt uitgelegd hoe gegevens worden beheerd en beveiligd in Azure
 >
 
 
-<a id="data-sources" class="xliff"></a>
-
-## Gegevensbronnen
+## <a name="data-sources"></a>Gegevensbronnen
 Azure Security Center analyseert gegevens uit de volgende bronnen om inzicht in uw beveiligingsstatus te geven, beveiligingsproblemen te identificeren, oplossingen aan te raden en actieve bedreigingen te detecteren:
 
 - Azure Services: gebruikt informatie over de configuratie van de Azure-services die u hebt geïmplementeerd door te communiceren met de resourceprovider van die service.
@@ -45,18 +41,14 @@ Azure Security Center analyseert gegevens uit de volgende bronnen om inzicht in 
 - Uw virtuele machines en servers: gebruikt configuratiegegevens en informatie over beveiligingsgebeurtenissen, zoals Windows-gebeurtenis- en auditlogboeken, IIS-logboeken, syslog-berichten en crashdumpbestanden van uw virtuele machines. Bovendien kan Azure Security Center wanneer er een waarschuwing wordt gemaakt een momentopname maken van de beïnvloede VM-schijf en machine-artefacten gekoppeld aan de waarschuwing van de VM-schijf, zoals een registerbestand, extraheren voor onderzoeksdoeleinden.
 
 
-<a id="data-protection" class="xliff"></a>
-
-## Gegevensbeveiliging
+## <a name="data-protection"></a>Gegevensbeveiliging
 **Scheiding van gegevens**: gegevens worden op een logische manier apart van elkaar gehouden, in elk onderdeel van de service. Alle gegevens worden gemarkeerd per organisatie. Deze markering blijft aanwezig gedurende de levenscyclus van de gegevens en deze wordt afgedwongen op elke laag van de service.
 
 **Gegevenstoegang**: om beveiligingsaanbevelingen te doen en mogelijke beveiligingsrisico's te onderzoeken, kunnen medewerkers van Microsoft gegevens die zijn verzameld of geanalyseerd door Azure-services openen, waaronder crashdumpbestanden, procesgebeurtenissen, momentopnamen van de VM-schijf en artefacten, die onbedoeld klantgegevens of persoonlijke gegevens bevatten van uw virtuele machines. We voldoen aan de [voorwaarden voor Microsoft Online Services en de Privacyverklaring](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), die stellen dat Microsoft niet de klantgegevens gebruikt of gegevens ervan afleidt voor reclame- of vergelijkbare commerciële doeleinden. We gebruiken klantgegevens alleen indien nodig om u Azure-services te bieden, met inbegrip van doeleinden die compatibel zijn met het leveren van die services. U behoudt alle rechten op de klantgegevens.
 
 **Gegevensgebruik**: Microsoft gebruikt informatie over patronen en bedreigingen die worden gezien tussen meerdere tenants voor het verbeteren van onze mogelijkheden voor voorkoming en detectie; wij doen dit in overeenstemming met de privacyverplichtingen beschreven in onze [Privacyverklaring](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
 
-<a id="data-location" class="xliff"></a>
-
-## Gegevenslocatie
+## <a name="data-location"></a>Gegevenslocatie
 
 **Uw werkruimte(n)**: er wordt een werkruimte opgegeven voor de volgende geografische gebieden, en gegevens die worden verzameld van uw virtuele machines in Azure, waaronder crashdumps en bepaalde typen waarschuwingsgegevens, worden opgeslagen in de dichtstbijzijnde werkruimte. 
 
@@ -78,18 +70,14 @@ Azure Security Center verzamelt tijdelijke kopieën van uw crashdumpbestanden en
 Machine-artefacten worden centraal opgeslagen in dezelfde regio als de virtuele machine. 
 
 
-<a id="managing-data-collection-from-virtual-machines" class="xliff"></a>
-
-## Gegevensverzameling van virtuele machines beheren
+## <a name="managing-data-collection-from-virtual-machines"></a>Gegevensverzameling van virtuele machines beheren
 
 Wanneer u Security Center inschakelt in Azure, wordt gegevensverzameling ingeschakeld voor elk van uw Azure-abonnementen. U kunt gegevensverzameling voor uw abonnementen ook inschakelen in het gedeelte Beveiligingsbeleid van Azure Security Center. Wanneer gegevensverzameling is ingeschakeld, levert Azure Security Center de Microsoft Monitoring Agent op alle bestaande, ondersteunde virtuele machines in Azure en op nieuwe virtuele machines die worden gemaakt. De Microsoft Monitoring Agent scant op verschillende aan beveiliging gerelateerde configuraties en legt gebeurtenissen vast in [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx)-traceringen (ETW). Bovendien worden door het besturingssysteem gebeurtenislogboekgebeurtenissen gegenereerd tijdens het uitvoeren van de machine. Voorbeelden van dergelijke gegevens zijn: besturingssysteemtype en -versie, besturingssysteemlogboeken (Windows-gebeurtenislogboeken), actieve processen, computernaam, IP-adressen, aangemelde gebruiker en tenant-ID. De Microsoft Monitoring Agent leest vermeldingen in gebeurtenislogboeken en ETW-traceringen en kopieert deze voor analyse naar uw werkruimte(n). De Microsoft Monitoring Agent kopieert ook crashdumpbestanden naar uw werkruimte(n).
 
 Als u de gratis variant van Azure Security Center gebruikt, kunt u het verzamelen van gegevens van virtuele machines ook uitschakelen in het beveiligingsbeleid. Het verzamelen van gegevens is vereist voor abonnementen uit de prijscategorie Standard. De verzameling van momentopnamen en artefacten voor de VM-schijf is nog steeds ingeschakeld, zelfs als het verzamelen van gegevens is uitgeschakeld.
 
 
-<a id="see-also" class="xliff"></a>
-
-## Zie ook
+## <a name="see-also"></a>Zie ook
 In dit document hebt u geleerd hoe gegevens worden beheerd en beveiligd in Azure Security Center. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
 
 * [Plannings- en bedieningsgids voor het Azure Beveiligingscentrum](security-center-planning-and-operations-guide.md): leer de ontwerpoverwegingen kennen en plan hiervoor bij de overstap naar Azure Security Center.

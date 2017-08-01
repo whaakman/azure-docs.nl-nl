@@ -22,9 +22,7 @@ ms.lasthandoff: 05/31/2017
 
 
 ---
-<a id="create-biztalk-services-using-the-azure-portal" class="xliff"></a>
-
-# BizTalk Services maken met de Azure Portal
+# <a name="create-biztalk-services-using-the-azure-portal"></a>BizTalk Services maken met de Azure Portal
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -33,9 +31,7 @@ ms.lasthandoff: 05/31/2017
 > Als u zich wilt aanmelden bij de Azure Portal, moet u een Azure-account en een Azure-abonnement hebben. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 
-<a id="create-a-biztalk-service" class="xliff"></a>
-
-## Een BizTalk Service maken
+## <a name="create-a-biztalk-service"></a>Een BizTalk Service maken
 Afhankelijk van de versie die u kiest, zijn mogelijk niet alle BizTalk Service-instellingen beschikbaar.
 
 1. Meld u aan bij de [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
@@ -119,9 +115,7 @@ Als u klaar bent, wordt de Azure BizTalk Service gemaakt. Deze kunt u nu gebruik
 
 Afhankelijk van de status van de BizTalk Service zijn er bepaalde bewerkingen die niet kunnen worden voltooid. Ga naar de [statusgrafiek van BizTalk Services](biztalk-service-state-chart.md) voor een lijst van deze bewerkingen.
 
-<a id="post-provisioning-steps" class="xliff"></a>
-
-## Stappen na de inrichting
+## <a name="post-provisioning-steps"></a>Stappen na de inrichting
 * [Het certificaat installeren op een lokale computer](#InstallCert)
 * [Een certificaat dat gereed is voor productie toevoegen](#AddCert)
 * [De Access Control-naamruimte ophalen](#ACS)
@@ -165,9 +159,7 @@ De Access Control Service-identiteit is een set referenties waarmee toepassingen
 
 [Uw ACS-naamruimte beheren](https://msdn.microsoft.com/library/azure/hh674478.aspx) geeft een lijst weer met de volgende richtlijnen en aanbevelingen.
 
-<a id="requirements-explained" class="xliff"></a>
-
-## Uitleg van de vereisten
+## <a name="requirements-explained"></a>Uitleg van de vereisten
 Deze vereisten zijn niet van toepassing op de editie Free.
 
 <table border="1">
@@ -251,9 +243,7 @@ Er kan een nieuw of ander certificaat worden toegevoegd nadat de BizTalk Service
 
 
 
-<a id="hybrid-connections" class="xliff"></a>
-
-## Hybride verbindingen
+## <a name="hybrid-connections"></a>Hybride verbindingen
 Wanneer u een Azure BizTalk Service maakt, is het tabblad **Hybride verbindingen** beschikbaar:
 
 ![Tabblad Hybride verbindingen][HybridConnectionTab]
@@ -262,14 +252,10 @@ Hybride verbindingen worden gebruikt om verbinding te maken tussen een Azure-web
 
  Zie [Hybride verbindingen](integration-hybrid-connection-overview.md) voor meer informatie, waaronder het maken en beheren van hybride verbindingen.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nu u een BizTalk Service hebt gemaakt, is het tijd om uzelf bekend te maken met [de tabbladen Dashboard, Bewaken en Schalen van BizTalk Services](biztalk-dashboard-monitor-scale-tabs.md). U kunt nu toepassingen maken met uw BizTalk Service. Ga naar [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197) om te beginnen met het maken van toepassingen.
 
-<a id="see-also" class="xliff"></a>
-
-## Zie ook
+## <a name="see-also"></a>Zie ook
 * [BizTalk Services: grafiek van edities](biztalk-editions-feature-chart.md)<br/>
 * [BizTalk Services: statusgrafiek](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: back-ups maken en herstellen](biztalk-backup-restore.md)<br/>

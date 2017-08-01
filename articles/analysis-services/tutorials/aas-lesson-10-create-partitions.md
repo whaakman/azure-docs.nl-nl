@@ -22,9 +22,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-10-create-partitions" class="xliff"></a>
-
-# Les 10: Partities maken
+# <a name="lesson-10-create-partitions"></a>Les 10: Partities maken
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -32,18 +30,12 @@ In deze les gaat u partities maken om de tabel FactInternetSales op te splitsen 
   
 Geschatte tijd voor het voltooien van deze les: **15 minuten**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten  
+## <a name="prerequisites"></a>Vereisten  
 Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 9: Hiërarchieën maken](../tutorials/aas-lesson-9-create-hierarchies.md).  
   
-<a id="create-partitions" class="xliff"></a>
-
-## Partities maken  
+## <a name="create-partitions"></a>Partities maken  
   
-<a id="to-create-partitions-in-the-factinternetsales-table" class="xliff"></a>
-
-#### Partities maken in de tabel FactInternetSales:  
+#### <a name="to-create-partitions-in-the-factinternetsales-table"></a>Partities maken in de tabel FactInternetSales:  
   
 1.  Vouw in Tabular Model Explorer het gedeelte **Tables** uit en klik vervolgens met de rechtermuisknop op **FactInternetSales** > **Partitions**.  
   
@@ -72,9 +64,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
     Deze instructie bepaalt dat deze partitie alleen gegevens moet weergeven uit de rijen waarvoor de OrderDate in het kalenderjaar 2010 valt, zoals ingesteld in de component Filtered Rows.  
   
   
-<a id="to-create-a-partition-for-the-2011-year" class="xliff"></a>
-
-#### Een partitie maken voor het jaar 2011:  
+#### <a name="to-create-a-partition-for-the-2011-year"></a>Een partitie maken voor het jaar 2011:  
   
 1.  Klik in de lijst met partities op de partitie **FactInternetSales2010** die u hebt gemaakt en klik vervolgens op **Copy**.  Wijzig de partitienaam in **FactInternetSales2011**. 
 
@@ -93,33 +83,23 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
    
     ```  
   
-<a id="to-create-partitions-for-2012-2013-and-2014" class="xliff"></a>
-
-#### Partities maken voor 2012, 2013 en 2014:  
+#### <a name="to-create-partitions-for-2012-2013-and-2014"></a>Partities maken voor 2012, 2013 en 2014:  
   
 - Volg de vorige stappen om partities te maken voor 2012, 2013 en 2014, en wijzig vervolgens de jaartallen in de component Filtered Rows, zodat alleen rijen voor dat jaar worden opgenomen. 
   
 
-<a id="delete-the-factinternetsales-partition" class="xliff"></a>
-
-## De partitie FactInternetSales verwijderen
+## <a name="delete-the-factinternetsales-partition"></a>De partitie FactInternetSales verwijderen
 We hebben nu partities voor elk jaar en kunnen dus de partitie FactInternetSales verwijderen, zodat er geen overlap ontstaat als er bij het verwerken van partities de optie Process all kiezen.
 
-<a id="to-delete-the-factinternetsales-partition" class="xliff"></a>
-
-#### De partitie FactInternetSales verwijderen:
+#### <a name="to-delete-the-factinternetsales-partition"></a>De partitie FactInternetSales verwijderen:
 -  Klik op de partitie FactInternetSales en klik vervolgens op **Delete**.
 
 
 
-<a id="process-partitions" class="xliff"></a>
-
-## Partities verwerken  
+## <a name="process-partitions"></a>Partities verwerken  
 In Partition Manager kunt u in de kolom **Last Processed** van de nieuwe partities zien dat deze partities nog nooit zijn verwerkt. Wanneer u partities maakt, moet u een bewerking Process Partitions of Process Table uitvoeren om de gegevens in deze partities te vernieuwen.  
   
-<a id="to-process-the-factinternetsales-partitions" class="xliff"></a>
-
-#### De FactInternetSales-partities verwerken:  
+#### <a name="to-process-the-factinternetsales-partitions"></a>De FactInternetSales-partities verwerken:  
   
 1.  Klik op **OK** om Partition Manager te sluiten.  
   
@@ -137,8 +117,6 @@ In Partition Manager kunt u in de kolom **Last Processed** van de nieuwe partiti
   
     ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
   
-<a id="whats-next" class="xliff"></a>
-
- ## Volgende stappen
+ ## <a name="whats-next"></a>Volgende stappen
 Ga naar de volgende les: [Les 11: Rollen maken](../tutorials/aas-lesson-11-create-roles.md). 
 

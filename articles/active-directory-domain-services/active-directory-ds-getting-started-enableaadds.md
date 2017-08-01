@@ -22,13 +22,9 @@ ms.lasthandoff: 06/30/2017
 
 
 ---
-<a id="enable-azure-active-directory-domain-services-using-the-azure-classic-portal" class="xliff"></a>
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-classic-portal"></a>Azure Active Directory Domain Services inschakelen met behulp van de klassieke Azure-portal
 
-# Azure Active Directory Domain Services inschakelen met behulp van de klassieke Azure-portal
-
-<a id="task-3-enable-azure-active-directory-domain-services" class="xliff"></a>
-
-## Taak 3: Azure Active Directory Domain Services inschakelen
+## <a name="task-3-enable-azure-active-directory-domain-services"></a>Taak 3: Azure Active Directory Domain Services inschakelen
 In deze taak schakelt u Azure Active Directory Domain Services (Azure AD DS) in voor uw map door de volgende stappen uit te voeren:
 
 1. Ga naar de [klassieke Azure-portal](https://manage.windowsazure.com).
@@ -99,8 +95,6 @@ In deze taak schakelt u Azure Active Directory Domain Services (Azure AD DS) in 
 >
 >
 
-<a id="next-step" class="xliff"></a>
-
-## Volgende stap
+## <a name="next-step"></a>Volgende stap
 [Taak 4: DNS-instellingen bijwerken voor het virtuele Azure-netwerk](active-directory-ds-getting-started-update-dns.md)
 

@@ -23,9 +23,7 @@ ms.lasthandoff: 05/20/2017
 
 ---
 
-<a id="grant-data-access-to-a-time-series-insights-environment-using-azure-portal" class="xliff"></a>
-
-# Gegevenstoegang verlenen tot een Time Series Insights-omgeving met Azure Portal
+# <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Gegevenstoegang verlenen tot een Time Series Insights-omgeving met Azure Portal
 
 Time Series Insights-omgevingen hebben twee onafhankelijke typen toegangsbeleid:
 
@@ -42,9 +40,7 @@ Beleid voor gegevenstoegang verleent machtigingen voor het uitvoeren van gegeven
 
 De twee typen beleid maken een duidelijke scheiding mogelijk tussen toegang tot het beheer van de omgeving en toegang tot de gegevens in de omgeving. Het is bijvoorbeeld mogelijk om een omgeving zo in te stellen dat de eigenaar/maker van de omgeving geen toegang tot de gegevens heeft. Ook kan aan gebruikers en services die vanuit de omgeving gegevens kunnen lezen, geen toegang worden verleend tot de configuratie van de omgeving.
 
-<a id="grant-data-access" class="xliff"></a>
-
-## Gegevenstoegang verlenen
+## <a name="grant-data-access"></a>Gegevenstoegang verlenen
 De volgende stappen laten zien hoe gegevenstoegang wordt verleend aan een gebruiker-principal:
 
 1.    Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -74,9 +70,7 @@ De volgende stappen laten zien hoe gegevenstoegang wordt verleend aan een gebrui
 
   ![Beheren van de Time Series Insights-bron - resultaten](media/data-access/getstarted-grant-data-access5.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 * [Een gebeurtenisbron maken](time-series-insights-add-event-source.md)
 * [Gebeurtenissen verzenden](time-series-insights-send-events.md) naar de gebeurtenisbron

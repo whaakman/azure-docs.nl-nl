@@ -12,13 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 07/24/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
-ms.openlocfilehash: 7d2cc99925e01f8135f04f5863f798e13d7413e3
-ms.lasthandoff: 02/11/2017
-
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 2cc2b63312b331a19c61cd7b59a4cac78edf32e6
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="managing-groups-in-azure-active-directory"></a>Groepen beheren in Azure Active Directory
@@ -35,6 +38,9 @@ Een van de functies van het gebruikersbeheer van Azure Active Directory (Azure A
 * Resources die zich buiten de directory bevinden, zoals SaaS-toepassingen, Azure-services, SharePoint-sites of on-premises resources.
 
 Bovendien kan een resource-eigenaar de toegang tot een resource ook toewijzen aan een Azure AD-groep die eigendom is van iemand anders. Met deze toewijzing wordt leden van die groep toegang verleend tot de resource. Daarna kan de eigenaar van de groep het lidmaatschap van de groep beheren. Dit houdt in dat de eigenaar van de resource de machtiging voor het toewijzen van gebruikers aan de resource delegeert naar de eigenaar van de groep.
+
+> [!IMPORTANT]
+> Microsoft raadt u aan Azure AD te beheren met het [Azure AD-beheercentrum](https://aad.portal.azure.com) in Azure Portal in plaats van de klassieke Azure portal waarnaar in dit artikel wordt verwezen. Zie [Een groep maken en leden toevoegen in Azure Active Directory](active-directory-groups-create-azure-portal.md) voor informatie over het beheren van groepen in het Azure AD-beheercentrum.
 
 ## <a name="how-do-i-create-a-group"></a>Hoe maak ik een groep?
 Afhankelijk van de services waarop uw organisatie is geabonneerd, kunt u een groep maken met behulp van een van de volgende opties:

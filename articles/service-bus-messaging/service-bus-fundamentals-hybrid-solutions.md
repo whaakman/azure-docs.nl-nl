@@ -22,15 +22,11 @@ ms.lasthandoff: 06/17/2017
 
 
 ---
-<a id="azure-service-bus" class="xliff"></a>
-
-# Azure Service Bus
+# <a name="azure-service-bus"></a>Azure Service Bus
 
 Een toepassing of service moet vaak communiceren met andere toepassingen of services, ongeacht of de toepassing of service in de cloud of on-premises wordt uitgevoerd. Microsoft Azure biedt Service Bus om dit op een veelzijdige, handige manier te doen. In dit artikel wordt een overzicht gegeven van deze technologie en wordt beschreven wat de service inhoudt en waarom u deze zou kunnen overwegen.
 
-<a id="service-bus-fundamentals" class="xliff"></a>
-
-## Grondbeginselen van Service Bus
+## <a name="service-bus-fundamentals"></a>Grondbeginselen van Service Bus
 
 Verschillende situaties vragen om verschillende communicatiemethoden. Soms is het de beste oplossing als toepassingen berichten verzenden en ontvangen via een eenvoudige wachtrij. In andere gevallen is een gewone wachtrij niet voldoende en voldoet een wachtrij met een mechanisme voor publiceren en abonneren beter. In sommige gevallen is alleen een verbinding tussen toepassingen nodig en is er geen behoefte aan een wachtrij. Service Bus biedt alle drie de opties, zodat uw toepassingen op verschillende manieren met elkaar kunnen communiceren.
 
@@ -52,9 +48,7 @@ Windows-toepassingen kunnen WCF (Windows Communication Foundation) gebruiken om 
 
 Het is belangrijk te begrijpen dat toepassingen die Service Bus gebruiken overal kunnen worden uitgevoerd, hoewel Service Bus zelf wordt uitgevoerd in de cloud (dat wil zeggen, in Azure-datacenters van Microsoft). U kunt Service Bus bijvoorbeeld gebruiken om verbinding te maken met toepassingen die worden uitgevoerd in Azure, of toepassingen die worden uitgevoerd binnen uw eigen datacenter. U kunt Service Bus ook gebruiken om verbinding te maken met een toepassing die wordt uitgevoerd in Azure of een ander cloudplatform met een on-premises toepassing, of met een tablet of telefoon. Het is zelfs mogelijk huishoudelijke apparaten, sensoren en andere apparaten te verbinden met een centrale toepassing of met elkaar. Service Bus is een communicatiemechanisme in de cloud dat vanaf vrijwel elke locatie toegankelijk is. De manier waarop u Service Bus gebruikt, hangt af van de taak van uw toepassingen.
 
-<a id="queues" class="xliff"></a>
-
-## Wachtrijen
+## <a name="queues"></a>Wachtrijen
 
 Stel dat u met twee toepassingen verbinding wilt maken via een Service Bus-wachtrij. In afbeelding 2 ziet u deze situatie.
 
@@ -78,9 +72,7 @@ Ziet u wat er hier kan gebeuren? Hetzelfde bericht kan dus tweemaal worden bezor
 
 Wachtrijen zijn handig in tal van situaties. Met behulp van wachtrijen kunnen toepassingen zelfs communiceren wanneer ze niet tegelijkertijd worden uitgevoerd. Dit is met name handig bij batchtoepassingen en mobiele toepassingen. Een wachtrij met meerdere ontvangers biedt ook automatische taakverdeling, aangezien verzonden berichten worden verdeeld over deze ontvangers.
 
-<a id="topics" class="xliff"></a>
-
-## Onderwerpen
+## <a name="topics"></a>Onderwerpen
 
 Hoewel ze handig zijn, zijn wachtrijen niet altijd de juiste oplossing. Service Bus-onderwerpen komen soms beter van pas. Afbeelding 3 laat dit zien.
 
@@ -96,9 +88,7 @@ Een *onderwerp* lijkt in veel opzichten op een wachtrij. Afzenders verzenden ber
 
 Net zoals het geval is voor wachtrijen, kunnen abonnees van een onderwerp berichten lezen met [ReceiveAndDelete of PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode). In tegenstelling tot wachtrijen kan echter een enkel bericht dat naar een onderwerp is verzonden door meerdere abonnementen worden ontvangen. Deze benadering, doorgaans aangeduid met *publiceren en abonneren* (of *pub/sub*), is nuttig wanneer meerdere toepassingen in dezelfde berichten zijn geïnteresseerd. Door het juiste filter te definiëren, kunnen abonnees alleen het gedeelte van de berichtenstroom ontvangen dat ze nodig hebben.
 
-<a id="relays" class="xliff"></a>
-
-## Relays
+## <a name="relays"></a>Relays
 
 Wachtrijen en onderwerpen bieden allebei asynchrone communicatie in één richting via een broker. Het verkeer stroomt in één richting en er is geen directe verbinding tussen afzenders en ontvangers. Maar wat als u dit niet wilt? Stel dat uw toepassingen berichten moeten verzenden en berichten moeten ontvangen, of stel dat u een rechtstreekse koppeling tussen uw toepassingen wilt en geen broker nodig hebt voor het opslaan van berichten. Voor dit soort scenario's biedt Service Bus *relays*, zoals weergegeven in afbeelding 4.
 
@@ -118,15 +108,11 @@ In tegenstelling tot wachtrijen en onderwerpen, maken toepassingen Relays niet e
 
 Relays zijn de juiste oplossing wanneer rechtstreekse communicatie tussen toepassingen nodig is. Denk bijvoorbeeld aan een reserveringssysteem voor een luchtvaartmaatschappij dat wordt uitgevoerd in een on-premises datacenter en dat toegankelijk moet zijn via incheckbalies, mobiele apparaten en andere computers. Toepassingen die op al deze systemen worden uitgevoerd, zouden op Service Bus Relays in de cloud kunnen vertrouwen voor communicatie, waar ze ook worden uitgevoerd.
 
-<a id="summary" class="xliff"></a>
-
-## Samenvatting
+## <a name="summary"></a>Samenvatting
 
 Het verbinden van toepassingen is altijd onderdeel geweest van het ontwikkelen van complete oplossingen. De verscheidenheid van scenario's waarin toepassingen en services met elkaar moeten communiceren, zal toenemen naarmate meer toepassingen en apparaten zijn verbonden met internet. Service Bus is erop gericht om deze essentiële functie gemakkelijker te implementeren en op grotere schaal beschikbaar te maken door cloudtechnologieën te leveren die deze communicatie mogelijk maken via wachtrijen, onderwerpen en relays.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 U hebt kennisgemaakt met de grondbeginselen van Azure Service Bus. Klik op de volgende koppelingen voor meer informatie.
 

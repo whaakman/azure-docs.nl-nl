@@ -23,9 +23,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="configure-a-point-to-site-connection-to-a-vnet-using-the-azure-portal" class="xliff"></a>
-
-# Een punt-naar-site-verbinding met een VNet configureren met Azure Portal
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-azure-portal"></a>Een punt-naar-site-verbinding met een VNet configureren met Azure Portal
 
 In dit artikel wordt beschreven hoe u een VNet met een punt-naar-site-verbinding maakt in het Resource Manager-implementatiemodel met behulp van Azure Portal. U kunt deze configuratie ook maken met een ander implementatiehulpprogramma of een ander implementatiemodel door in de volgende lijst een andere optie te selecteren:
 
@@ -87,9 +85,7 @@ Voordat u het virtuele netwerk verbindt met een gateway, moet u eerst het gatewa
 
 De schermafbeeldingen in deze sectie worden gegeven als voorbeeld. Zorg ervoor dat u het adresbereik GatewaySubnet gebruikt dat overeenkomt met de vereiste waarden voor uw configuratie.
 
-<a id="to-create-a-gateway-subnet" class="xliff"></a>
-
-### Een gatewaysubnet maken
+### <a name="to-create-a-gateway-subnet"></a>Een gatewaysubnet maken
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
@@ -106,9 +102,7 @@ Punt-naar-site-verbindingen vereisen de volgende instellingen:
 * Gatewaytype: VPN
 * VPN-type: op route gebaseerd
 
-<a id="to-create-a-virtual-network-gateway" class="xliff"></a>
-
-### De gateway van een virtueel netwerk maken
+### <a name="to-create-a-virtual-network-gateway"></a>De gateway van een virtueel netwerk maken
 
 [!INCLUDE [create a vnet gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
@@ -156,9 +150,7 @@ Als u verbinding wilt maken met een VNet met behulp van een punt-naar-site-VPN, 
 
 U kunt hetzelfde configuratiepakket voor de VPN-client gebruiken op elke clientcomputer, mits de versie overeenkomt met de architectuur van de client. Zie voor de lijst met ondersteunde clientbesturingssystemen de [Veelgestelde vragen over punt-naar-site-verbindingen](#faq) onderaan dit artikel.
 
-<a id="step-1---download-the-client-configuration-package" class="xliff"></a>
-
-### Stap 1: Download het configuratiepakket voor de VPN-client
+### <a name="step-1---download-the-client-configuration-package"></a>Stap 1: Download het configuratiepakket voor de VPN-client
 
 1. Klik op de blade **Punt-naar-site-configuratie** op **VPN-client downloaden** om de blade **VPN-client downloaden** te openen. Het duurt enkele minuten om het pakket te genereren.
 
@@ -167,9 +159,7 @@ U kunt hetzelfde configuratiepakket voor de VPN-client gebruiken op elke clientc
 
   ![VPN-client downloaden 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
 
-<a id="step-2---install-the-client-configuration-package" class="xliff"></a>
-
-### Stap 2: Het configuratiepakket voor de client installeren
+### <a name="step-2---install-the-client-configuration-package"></a>Stap 2: Het configuratiepakket voor de client installeren
 
 1. Kopieer het configuratiebestand lokaal op de computer die u wilt verbinden met het virtuele netwerk. 
 2. Dubbelklik op het EXE-bestand om het pakket te installeren op de clientcomputer. Omdat u het configuratiepakket hebt gemaakt, is het niet ondertekend en ziet u mogelijk een waarschuwing. Als u een Windows SmartScreen-melding ontvangt, klikt u op **Meer info** (links) en klikt u vervolgens op **Toch uitvoeren** om het pakket te installeren.
@@ -225,15 +215,11 @@ Als u geen verbinding met een virtuele machine kunt maken via P2S, gebruikt u 'i
 
 U kunt vertrouwde basiscertificaat toevoegen in en verwijderen uit Azure. Wanneer u een basiscertificaat verwijdert, kunnen clients met een certificaat dat is gegenereerd op basis van dat basiscertificaat niet worden geverifieerd, en kunnen ze dus geen verbinding maken. Als u wilt dat clients kunnen worden geverifieerd en verbinding kunnen maken, moet u een nieuw clientcertificaat installeren dat is gegenereerd op basis van een basiscertificaat dat wordt vertrouwd (is geüpload) in Azure.
 
-<a id="to-add-a-trusted-root-certificate" class="xliff"></a>
-
-### Een vertrouwd basiscertificaat toevoegen
+### <a name="to-add-a-trusted-root-certificate"></a>Een vertrouwd basiscertificaat toevoegen
 
 U kunt maximaal 20 vertrouwde .cer-basiscertificaatbestanden toevoegen aan Azure. Zie voor instructies de sectie [Een vertrouwd basiscertificaat uploaden](#uploadfile) in dit artikel.
 
-<a id="to-remove-a-trusted-root-certificate" class="xliff"></a>
-
-### Een vertrouwd basiscertificaat verwijderen
+### <a name="to-remove-a-trusted-root-certificate"></a>Een vertrouwd basiscertificaat verwijderen
 
 1. Als u een vertrouwd basiscertificaat wilt verwijderen, gaat u naar de blade **Punt-naar-site-configuratie** voor uw virtuele netwerkgateway.
 2. In het gedeelte **Basiscertificaat** van de blade, zoekt u het certificaat dat u wilt verwijderen.
@@ -245,9 +231,7 @@ U kunt clientcertificaten intrekken. Met de certificaatintrekkingslijst kunt u s
 
 De algemene procedure is het basiscertificaat te gebruiken om de toegang te beheren op het team- of organisatieniveau, terwijl u ingetrokken clientcertificaten gebruikt voor nauwkeuriger toegangsbeheer bij afzonderlijke gebruikers.
 
-<a id="to-revoke-a-client-certificate" class="xliff"></a>
-
-### Een clientcertificaat intrekken
+### <a name="to-revoke-a-client-certificate"></a>Een clientcertificaat intrekken
 
 U kunt een clientcertificaat intrekken door de vingerafdruk toe te voegen aan de intrekkingslijst.
 
@@ -263,8 +247,6 @@ U kunt een clientcertificaat intrekken door de vingerafdruk toe te voegen aan de
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Virtuele machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie. Zie [Azure and Linux VM Network Overview](../virtual-machines/linux/azure-vm-network-overview.md) (Overzicht van Azure- en Linux-VM-netwerken) voor meer informatie over netwerken en virtuele machines.
 

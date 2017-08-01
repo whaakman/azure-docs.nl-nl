@@ -22,12 +22,8 @@ ms.lasthandoff: 06/16/2017
 
 
 ---
-<a id="net-on-premisescloud-hybrid-application-using-azure-wcf-relay" class="xliff"></a>
-
-# Hybride .NET on-premises/cloudtoepassing met Azure WCF Relay
-<a id="introduction" class="xliff"></a>
-
-## Inleiding
+# <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Hybride .NET on-premises/cloudtoepassing met Azure WCF Relay
+## <a name="introduction"></a>Inleiding
 
 In dit artikel wordt beschreven hoe u een hybride cloudtoepassing opbouwt met Microsoft Azure en Visual Studio. Bij deze zelfstudie wordt ervan uitgegaan dat u nog geen ervaring hebt met Azure. In minder dan 30 minuten beschikt u over een toepassing die meerdere Azure-resources gebruikt en wordt uitgevoerd in de cloud.
 
@@ -38,9 +34,7 @@ U leert:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-<a id="how-azure-relay-helps-with-hybrid-solutions" class="xliff"></a>
-
-## Hoe Azure hulp biedt bij hybride oplossingen
+## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>Hoe Azure hulp biedt bij hybride oplossingen
 
 Bedrijfsoplossingen bestaan meestal uit een combinatie van aangepaste code die is geschreven voor nieuwe en unieke zakelijke vereisten en bestaande functionaliteit van oplossingen en systemen die al aanwezig zijn.
 
@@ -48,18 +42,14 @@ Oplossingsarchitecten gaan nu vaak over op de cloud om gemakkelijk aan schaalver
 
 [Azure Relay](https://azure.microsoft.com/services/service-bus/) is bedoeld voor de gebruikstoepassing waarbij bestaande WCF-webservices (Windows Communication Foundation) veilig toegankelijk worden gemaakt voor oplossingen die zich buiten de bedrijfsperimeter bevinden, zonder dat er hiervoor tussenkomende wijzigingen in de infrastructuur van een bedrijfsnetwerk nodig zijn. Dergelijke relayservices worden nog steeds gehost binnen hun bestaande omgeving, maar ze dragen het luisteren naar binnenkomende sessies en aanvragen over aan de relayservice in de cloud. Ook beveiligt Azure Relay deze services tegen onbevoegde toegang door [SAS (Shared Access Signature)](../service-bus-messaging/service-bus-sas.md)-verificatie te gebruiken.
 
-<a id="solution-scenario" class="xliff"></a>
-
-## Oplossingsscenario
+## <a name="solution-scenario"></a>Oplossingsscenario
 In deze zelfstudie maakt u een ASP.NET-website waarmee u een lijst met producten op de pagina met de productinventaris kunt bekijken.
 
 ![][0]
 
 In de zelfstudie wordt ervan uitgegaan dat u productgegevens in een bestaand on-premises systeem hebt en wordt Azure Relay gebruikt om dat systeem te bereiken. Dit wordt gesimuleerd door een webservice die in een eenvoudige consoletoepassing wordt uitgevoerd en wordt ondersteund door een set producten in het geheugen. U kunt deze consoletoepassing op uw eigen computer uitvoeren en de webrol in Azure implementeren. Als u dit doet, ziet u hoe de webrol die in het Azure-datacenter wordt uitgevoerd inderdaad uw computer aanroept, ondanks dat de computer bijna zeker achter ten minste één firewall en een NAT-laag (Network Address Translation) blijft.
 
-<a id="set-up-the-development-environment" class="xliff"></a>
-
-## De ontwikkelomgeving instellen
+## <a name="set-up-the-development-environment"></a>De ontwikkelomgeving instellen
 
 Voordat u Azure-toepassingen kunt ontwikkelen, dient u de hulpprogramma's te downloaden en uw ontwikkelomgeving in te stellen:
 
@@ -69,23 +59,17 @@ Voordat u Azure-toepassingen kunt ontwikkelen, dient u de hulpprogramma's te dow
 4. Klik in het **webplatforminstallatieprogramma** op **Installeren** om door te gaan met de installatie.
 5. Nadat de installatie is voltooid, hebt u alles wat u nodig hebt om te starten met het ontwikkelen van de app. De SDK bevat hulpprogramma's waarmee u eenvoudig Azure-toepassingen kunt ontwikkelen in Visual Studio.
 
-<a id="create-a-namespace" class="xliff"></a>
-
-## Een naamruimte maken
+## <a name="create-a-namespace"></a>Een naamruimte maken
 
 Als u de relayfuncties in Azure wilt gebruiken, moet u eerst een servicenaamruimte maken. Een naamruimte biedt een scoping container voor het verwerken van Azure-resources in uw toepassing. Volg [deze instructies](relay-create-namespace-portal.md) om een Relay-naamruimte te maken.
 
-<a id="create-an-on-premises-server" class="xliff"></a>
-
-## Een on-premises server maken
+## <a name="create-an-on-premises-server"></a>Een on-premises server maken
 
 U bouwt eerst een on-premises (model)systeem voor de productcatalogus op. Dit is redelijk eenvoudig; u kunt dit zien als het representeren van een werkelijk on-premises productcatalogussysteem met een volledige serviceoppervlak dat we proberen te integreren.
 
 Dit project is een Visual Studio-consoletoepassing en gebruikt het [Azure Service Bus NuGet-pakket](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) om de Service Bus-bibliotheken en configuratie-instellingen op te nemen.
 
-<a id="create-the-project" class="xliff"></a>
-
-### Het project maken
+### <a name="create-the-project"></a>Het project maken
 
 1. Start Microsoft Visual Studio met administratorbevoegdheden. Om dit te doen, klikt u met de rechtermuisknop op het pictogram van het Visual Studio-programma en vervolgens op **Als administrator uitvoeren**.
 2. Klik in het menu **Bestand** van Visual Studio op **Nieuw** en klik vervolgens op **Project**.
@@ -227,15 +211,11 @@ Dit project is een Visual Studio-consoletoepassing en gebruikt het [Azure Servic
     ```
 14. Druk op **Ctrl+Shift+B** of klik in het menu **Bouwen** op **Oplossing opbouwen** en controleer de juistheid van uw werk tot nu toe.
 
-<a id="create-an-aspnet-application" class="xliff"></a>
-
-## Een ASP.NET-toepassing maken
+## <a name="create-an-aspnet-application"></a>Een ASP.NET-toepassing maken
 
 In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens worden weergegeven die u uit uw productservice hebt opgehaald.
 
-<a id="create-the-project" class="xliff"></a>
-
-### Het project maken
+### <a name="create-the-project"></a>Het project maken
 
 1. Zorg ervoor dat Visual Studio met administratorbevoegdheden wordt uitgevoerd.
 2. Klik in het menu **Bestand** van Visual Studio op **Nieuw** en klik vervolgens op **Project**.
@@ -257,9 +237,7 @@ In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens wor
 
     ![][17]
 
-<a id="modify-the-web-application" class="xliff"></a>
-
-### De webtoepassing wijzigen
+### <a name="modify-the-web-application"></a>De webtoepassing wijzigen
 
 1. In het bestand Product.cs in Visual Studio vervangt u de bestaande naamruimtedefinitie door de volgende code.
 
@@ -340,9 +318,7 @@ In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens wor
    ```
 8. U kunt de nauwkeurigheid van uw werk tot nu toe controleren door op **Ctrl+Shift+B** te drukken om het project op te bouwen.
 
-<a id="run-the-app-locally" class="xliff"></a>
-
-### De app lokaal uitvoeren
+### <a name="run-the-app-locally"></a>De app lokaal uitvoeren
 
 Voer de toepassing uit om te controleren of deze werkt.
 
@@ -352,9 +328,7 @@ Voer de toepassing uit om te controleren of deze werkt.
 
    ![][21]
 
-<a id="put-the-pieces-together" class="xliff"></a>
-
-## De softwareonderdelen samenstellen
+## <a name="put-the-pieces-together"></a>De softwareonderdelen samenstellen
 
 In de volgende stap koppelt u de on-premises productenserver aan de ASP.NET-toepassing.
 
@@ -422,9 +396,7 @@ In de volgende stap koppelt u de on-premises productenserver aan de ASP.NET-toep
 
 14. Klik op **OK** in het dialoogvenster **Eigenschappenvensters**.
 
-<a id="run-the-project-locally" class="xliff"></a>
-
-## Het project lokaal uitvoeren
+## <a name="run-the-project-locally"></a>Het project lokaal uitvoeren
 
 Test de toepassing lokaal door in Visual Studio op **F5** te drukken. De on-premises server (**ProductsServer**) moet eerst worden gestart en vervolgens moet de **ProductsPortal**-toepassing worden gestart in een browservenster. De productinventaris bevat nu de gegevens die zijn opgehaald uit het on-premises systeem van de productservice.
 
@@ -434,9 +406,7 @@ Klik op **Vernieuwen** op de pagina **ProductsPortal**. Elke keer dat u de pagin
 
 Sluit beide toepassingen voordat u doorgaat met de volgende stap.
 
-<a id="deploy-the-productsportal-project-to-an-azure-web-app" class="xliff"></a>
-
-## Het project ProductsPortal in een Azure-web-app implementeren
+## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>Het project ProductsPortal in een Azure-web-app implementeren
 
 De volgende stap is het opnieuw publiceren van de frontend van de Azure-web-app **ProductsPortal**. Ga als volgt te werk:
 
@@ -453,9 +423,7 @@ De volgende stap is het opnieuw publiceren van de frontend van de Azure-web-app 
 
 3. Sluit het browservenster om het uitvoeren van de toepassing te stoppen.
 
-<a id="set-productsportal-as-web-app" class="xliff"></a>
-
-### ProductsPortal instellen als web-app
+### <a name="set-productsportal-as-web-app"></a>ProductsPortal instellen als web-app
 
 Voordat u de toepassing in de cloud uitvoert, moet u ervoor zorgen dat **ProductsPortal** vanuit Visual Studio als een web-app wordt uitgevoerd.
 
@@ -468,9 +436,7 @@ Voordat u de toepassing in de cloud uitvoert, moet u ervoor zorgen dat **Product
 4. Klik in het menu **Bestand** in Visual Studio op **Alles opslaan**.
 5. Klik in het menu Bouwen in Visual Studio op **Oplossing opnieuw opbouwen**.
 
-<a id="run-the-application" class="xliff"></a>
-
-## De toepassing uitvoeren
+## <a name="run-the-application"></a>De toepassing uitvoeren
 
 1. Druk op F5 om de toepassing op te bouwen en uit te voeren. De on-premises server (de **ProductsServer**-consoletoepassing) moet eerst worden gestart en vervolgens moet de **ProductsPortal**-toepassing worden gestart in een browservenster (zie de volgende schermopname). U ziet weer dat de productinventaris gegevens bevat die zijn opgehaald uit het on-premises systeem van de productservice en dat die gegevens in de web-app worden weergegeven. Controleer de URL om ervoor te zorgen dat **ProductsPortal** als een Azure-web-app wordt uitgevoerd in de cloud.
 
@@ -486,9 +452,7 @@ Voordat u de toepassing in de cloud uitvoert, moet u ervoor zorgen dat **Product
 
     ![][38]
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Raadpleeg de volgende resources voor meer informatie over Azure Relay:  
 

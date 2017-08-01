@@ -25,9 +25,7 @@ ms.lasthandoff: 05/12/2017
 
 
 ---
-<a id="connect-to-azure-hdinsight-and-run-hive-queries-using-data-lake-tools-for-visual-studio" class="xliff"></a>
-
-# Verbinding maken met Azure HDInsight en Hive-query's uitvoeren met behulp van Data Lake Tools voor Visual Studio
+# <a name="connect-to-azure-hdinsight-and-run-hive-queries-using-data-lake-tools-for-visual-studio"></a>Verbinding maken met Azure HDInsight en Hive-query's uitvoeren met behulp van Data Lake Tools voor Visual Studio
 
 Leer hoe u Data Lake Tools voor Visual Studio gebruikt om verbinding te maken met Hadoop-clusters in [Azure HDInsight](hdinsight-hadoop-introduction.md) en Hive-query's uit te voeren. Zie [Inleiding tot HDInsight](hdinsight-hadoop-introduction.md) en [Aan de slag met HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) voor meer informatie over het gebruik van HDInsight. Zie [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md) (C#-topologieën ontwikkelen voor Apache Storm op HDInsight met behulp van Data Lake Tools voor Visual Studio) voor meer informatie over het maken van verbinding met een Storm-cluster.
 
@@ -48,17 +46,13 @@ Al u deze zelfstudie wilt voltooien en Data Lake Tools in Visual Studio wilt geb
     > 
     > 
 
-<a id="install-data-lake-tools-for-visual-studio" class="xliff"></a>
-
-## Data Lake Tools voor Visual Studio installeren
+## <a name="install-data-lake-tools-for-visual-studio"></a>Data Lake Tools voor Visual Studio installeren
 
 Data Lake Tools is standaard geïnstalleerd voor Visual Studio 2017. U kunt deze voor oudere versies installeren met het [webplatforminstallatieprogramma](https://www.microsoft.com/web/downloads/). U moet de optie kiezen die overeenkomt met uw versie van Visual Studio. Als u Visual Studio niet hebt geïnstalleerd, kunt u de meest recente Visual Studio Community en Azure SDK installeren met het [webplatforminstallatieprogramma](https://www.microsoft.com/web/downloads/):
 
 ![Data Lake Tools voor Visual Studio webplatforminstallatieprogramma.](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.wpi.png "Data Lake Tools voor Visual Studio installeren met het webplatforminstallatieprogramma")
 
-<a id="connect-to-azure-subscriptions" class="xliff"></a>
-
-## Verbinding maken met Azure-abonnementen
+## <a name="connect-to-azure-subscriptions"></a>Verbinding maken met Azure-abonnementen
 Met Data Lake Tools voor Visual Studio kunt u verbinding maken met uw HDInsight-clusters, enkele eenvoudige beheerbewerkingen uitvoeren en Hive-query's uitvoeren.
 
 > [!NOTE]
@@ -92,9 +86,7 @@ Nadat u verbinding met uw Azure-abonnement hebt gemaakt, kunt u het volgende:
 
 * Klik in het menu **Extra** op **HDInsight** en klik vervolgens op **MSDN-forum** om vragen te stellen of klik op **Feedback geven**.
 
-<a id="navigate-the-linked-resources" class="xliff"></a>
-
-## Door de gekoppelde resources navigeren
+## <a name="navigate-the-linked-resources"></a>Door de gekoppelde resources navigeren
 In Server Explorer worden het standaardaccount voor opslag en alle gekoppelde opslagaccounts weergegeven. Als u het standaardopslagaccount uitvouwt, kunt u de containers op het opslagaccount zien. Het standaardopslagaccount en de standaardcontainer worden gemarkeerd. U kunt ook met de rechtermuisknop op een van de containers klikken om de inhoud weer te geven.
 
 ![Lijst met gekoppelde resources in Server Explorer van Data Lake Tools voor Visual Studio](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.linked.resources.png "lijst met gekoppelde resources")
@@ -103,18 +95,14 @@ Nadat u een container hebt geopend, kunt u met de volgende knoppen blobs uploade
 
 ![Blob-bewerkingen in Server Explorer van Data Lake Tools voor Visual Studio](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png "blobs uploaden, verwijderen en downloaden")
 
-<a id="run-a-hive-query" class="xliff"></a>
-
-## Een Hive-query uitvoeren
+## <a name="run-a-hive-query"></a>Een Hive-query uitvoeren
 [Apache Hive](http://hive.apache.org) is een datawarehouse-infrastructuur die is gebouwd op Hadoop om overzichten, query's en analyses te leveren. Data Lake Tools voor Visual Studio biedt ondersteuning voor het uitvoeren van Hive-query's vanuit Visual Studio. Zie [Hive gebruiken met HDInsight](hdinsight-use-hive.md) voor meer informatie over Hive.
 
 Het testen van een Hive-script op een HDInsight-cluster neemt vrij veel tijd in beslag. Dit kan enkele minuten of langer duren. Data Lake Tools voor Visual Studio kan het Hive-script lokaal valideren zonder dat er verbinding hoeft te worden gemaakt met een live cluster.
 
 Met Data Lake Tools voor Visual Studio kunnen gebruikers ook in de Hive-taak kijken door de YARN-logboeken van bepaalde Hive-taken te verzamelen en op te halen.
 
-<a id="view-the-hivesampletable" class="xliff"></a>
-
-### De **hivesampletable** bekijken
+### <a name="view-the-hivesampletable"></a>De **hivesampletable** bekijken
 Alle HDInsight-clusters bevatten een voorbeeld van een Hive-tabel met de naam*hivesampletable*. Deze tabel wordt gebruikt om te laten zien hoe u een lijst met Hive-tabellen maakt, het tabelschema weergeeft en de rijen in de Hive-tabel vermeldt.
 
 **Een lijst met Hive-tabellen maken en het Hive-tabelschema weergeven**
@@ -128,9 +116,7 @@ Alle HDInsight-clusters bevatten een voorbeeld van een Hive-tabel met de naam*hi
    
    ![Data Lake Tools: HDInsight Hive Visual Studio-schemaquery](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.hive.schema.png "Resultaten van Hive-query")
 
-<a id="create-hive-tables" class="xliff"></a>
-
-### Hive-tabellen maken
+### <a name="create-hive-tables"></a>Hive-tabellen maken
 U kunt de GUI of Hive-query's gebruiken om een Hive-tabel te maken. Zie [Hive-query's uitvoeren](#run.queries) voor meer informatie over het gebruik van Hive-query's.
 
 **Een Hive-tabel maken**
@@ -183,9 +169,7 @@ Er zijn twee manieren om Hive-query's te maken en uit te voeren:
 3. Dubbelklik in **Solution Explorer** op **Script.hql** om het script te openen.
 4. Als u het Hive-script wilt valideren, klikt u op de knop **Script valideren** of klikt u met de rechtermuisknop in de Hive-editor en klikt u in het contextmenu vervolgens op **Script valideren**.
 
-<a id="view-hive-jobs" class="xliff"></a>
-
-### Hive-taken weergeven
+### <a name="view-hive-jobs"></a>Hive-taken weergeven
 U kunt taakquery's, taakuitvoer, logboekbestanden van taken en Yarn-logboekbestanden voor Hive-taken weergeven. Zie de vorige schermafbeelding voor meer informatie.
 
 Met de meest recente versie van de hulpprogramma’s kunt u in de Hive-taak kijken door de YARN-logboeken van bepaalde Hive-taken te verzamelen en op te halen. Een YARN-logboek kan u helpen om prestatieproblemen te onderzoeken. Zie [Programmacode gebruiken om toegang te krijgen tot HDInsight-toepassingslogboeken](hdinsight-hadoop-access-yarn-app-logs.md) voor informatie over hoe HDInsight YARN-logboeken verzamelt.
@@ -198,9 +182,7 @@ Met de meest recente versie van de hulpprogramma’s kunt u in de Hive-taak kijk
    
     ![Data Lake Tools: Hive-taken in HDInsight Visual Studio Tools weergeven](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "Hive-taken weergeven")
 
-<a id="faster-path-hive-execution-via-hiveserver2" class="xliff"></a>
-
-### Sneller pad voor het uitvoeren van Hive via HiveServer2
+### <a name="faster-path-hive-execution-via-hiveserver2"></a>Sneller pad voor het uitvoeren van Hive via HiveServer2
 > [!NOTE]
 > Deze functie werkt alleen op HDInsight-cluster versie 3.2 en nieuwer.
 > 
@@ -229,9 +211,7 @@ Het uitvoeren van query's via HiveServer2 biedt verschillende prestatievoordelen
 | Taakgeschiedenis weergeven |Als een query wordt uitgevoerd via HiveServer2, blijft de taakgeschiedenis (taaklogboek, taakuitvoer) niet behouden. De toepassing kan worden weergegeven in de gebruikersinterface van YARN met beperkte informatie. |Als een query wordt uitgevoerd via WebHCat, blijft de taakgeschiedenis (taaklogboek, taakuitvoer) bewaard en kan deze worden weergegeven met Visual Studio/HDInsight SDK/PowerShell. |
 | Venster sluiten |Uitvoeren via HiveServer2 is een 'synchrone' methode. Dit betekent dat de vensters geopend moet blijven. Als de vensters worden gesloten, wordt de queryuitvoering geannuleerd. |Verzenden via WebHCat is een 'asynchrone' methode. Dit betekent dat u de query via WebHCat kunt verzenden en Visual Studio kunt sluiten. U kunt op elk gewenst moment terugkeren om de resultaten te bekijken. |
 
-<a id="tez-hive-job-performance-graph" class="xliff"></a>
-
-### Prestatiegrafiek Tez Hive-taak
+### <a name="tez-hive-job-performance-graph"></a>Prestatiegrafiek Tez Hive-taak
 Data Lake Tools bieden ondersteuning voor de weergave van de prestatiegrafieken voor de Hive-taken die worden uitgevoerd door de Tez-uitvoeringsengine. Zie [Hive in HDInsight gebruiken](hdinsight-use-hive.md) voor informatie over het inschakelen van Tez. Nadat u een Hive-taak in Visual Studio hebt ingediend, wordt in Visual Studio de grafiek weergegeven als de taak is voltooid.  Mogelijk moet u op de knop **Vernieuwen** klikken om de meest recente taakstatus op te halen.
 
 > [!NOTE]
@@ -243,28 +223,20 @@ Data Lake Tools bieden ondersteuning voor de weergave van de prestatiegrafieken 
 
 De weergave Hive Operator is toegevoegd aan deze release voor meer inzicht in uw Hive-query. U hoeft alleen maar te dubbelklikken op de hoekpunten van de taakgrafiek om alle operators in het hoekpunt weer te geven. U kunt ook een bepaalde operator aanwijzen om meer informatie over deze operator weer te geven.
 
-<a id="task-execution-view-for-hive-on-tez-jobs" class="xliff"></a>
-
-### Taakuitvoeringsweergave voor Hive op Tez-taken
+### <a name="task-execution-view-for-hive-on-tez-jobs"></a>Taakuitvoeringsweergave voor Hive op Tez-taken
 De taakuitvoeringsweergave voor Hive op Tez-taken kan worden gebruikt om gestructureerde en gevisualiseerde informatie voor Hive-taken en meer taakdetails op te halen. Bij prestatieproblemen kunt u de weergave gebruiken om meer details op te vragen. Bijvoorbeeld hoe elke taak functioneert en de gedetailleerde informatie over elke taak (gegevens lezen/schrijven, start-/eindtijd van het schema enzovoort), zodat u de taakconfiguraties of de systeemarchitectuur op basis van de gevisualiseerde informatie kunt optimaliseren.
 
 ![Data Lake Visual Studio Tools taakuitvoeringsweergave](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png "Taakuitvoeringsweergave")
 
-<a id="run-pig-scripts" class="xliff"></a>
-
-## Pig-scripts uitvoeren
+## <a name="run-pig-scripts"></a>Pig-scripts uitvoeren
 Data Lake Tools voor Visual Studio ondersteunt het maken en verzenden van Pig-scripts naar HDInsight-clusters. Gebruikers kunnen een Pig-project maken op basis van een sjabloon en het script vervolgens verzenden naar HDInsight-clusters.
 
-<a id="feedbacks--known-issues" class="xliff"></a>
-
-## Feedback en bekende problemen
+## <a name="feedbacks--known-issues"></a>Feedback en bekende problemen
 * Momenteel worden de HiveServer2-resultaten weergegeven als tekst. Dit is niet ideaal. Er wordt momenteel gewerkt aan een oplossing.
 * Als de resultaten zijn gestart met NULL-waarden, worden de resultaten momenteel niet weergegeven. Dit probleem is opgelost en als u vastloopt op dit probleem, kunt u ons een e-mail sturen of contact opnemen met het ondersteuningsteam.
 * Het HQL-script dat door Visual Studio wordt gemaakt, word gecodeerd op basis van de lokale regio-instellingen van de gebruiker. Het script wordt mogelijk niet correct uitgevoerd als de gebruiker het script als een binair bestand uploadt naar het cluster.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe u de Data Lake (HDInsight) Tools kunt gebruiken om vanuit Visual Studio verbinding te maken met HDInsight-clusters en hoe u een Hive-query uitvoert. Zie voor meer informatie:
 
 * [Hadoop Hive in HDInsight gebruiken](hdinsight-use-hive.md)

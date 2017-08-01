@@ -22,9 +22,7 @@ ms.lasthandoff: 06/15/2017
 
 
 ---
-<a id="how-does-on-premises-machine-replication-to-a-secondary-site-work-in-site-recovery" class="xliff"></a>
-
-# Hoe werkt de replicatie van on-premises virtuele machines naar een secundaire site in Site Recovery?
+# <a name="how-does-on-premises-machine-replication-to-a-secondary-site-work-in-site-recovery"></a>Hoe werkt de replicatie van on-premises virtuele machines naar een secundaire site in Site Recovery?
 
 In dit artikel worden de onderdelen en processen beschreven die betrokken zijn bij het repliceren van on-premises virtuele machines en fysieke servers naar Azure, met behulp van de [Azure Site Recovery](site-recovery-overview.md)-service.
 
@@ -34,14 +32,10 @@ U kunt de volgende onderdelen repliceren naar een secundaire on-premises site:
 
 U kunt onder aan dit artikel of op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) opmerkingen plaatsen.
 
-<a id="replicate-hyper-v-vms-to-a-secondary-on-premises-site" class="xliff"></a>
-
-## Virtuele machines van Hyper-V repliceren naar een secundaire on-premises site
+## <a name="replicate-hyper-v-vms-to-a-secondary-on-premises-site"></a>Virtuele machines van Hyper-V repliceren naar een secundaire on-premises site
 
 
-<a id="architectural-components" class="xliff"></a>
-
-### Architectuuronderdelen
+### <a name="architectural-components"></a>Architectuuronderdelen
 
 Dit is wat u nodig hebt om virtuele Hyper V-machines te repliceren naar een secundaire site.
 
@@ -52,9 +46,7 @@ Dit is wat u nodig hebt om virtuele Hyper V-machines te repliceren naar een secu
 **Hyper-V-server** |  U hebt een of meer Hyper-V-hostservers nodig die zich bevinden in de primaire en secundaire VMM-clouds.<br/><br/> Servers moeten verbinding met het internet hebben.<br/><br/> Gegevens worden tussen de primaire en secundaire Hyper-V-hostservers via het LAN of VPN gerepliceerd met behulp van Kerberos of verificatie via certificaat.  
 **Virtuele Hyper-V-machines** | Bevindt zich op de Hyper-V-bronhostserver. | De bronhostserver moet ten minste één VM hebben die u wilt repliceren.
 
-<a id="replication-process" class="xliff"></a>
-
-### Replicatieproces
+### <a name="replication-process"></a>Replicatieproces
 
 1. U stelt het Azure-account in.
 2. U maakt een Replication Services-kluis voor Site Recovery en configureert de kluisinstellingen, waaronder:
@@ -70,9 +62,7 @@ Dit is wat u nodig hebt om virtuele Hyper V-machines te repliceren naar een secu
 
 ![On-premises naar on-premises](./media/site-recovery-components/arch-onprem-onprem.png)
 
-<a id="failover-and-failback-process" class="xliff"></a>
-
-### Failover- en failbackproces
+### <a name="failover-and-failback-process"></a>Failover- en failbackproces
 
 1. U kunt een geplande of niet-geplande [failover](site-recovery-failover.md) uitvoeren tussen on-premises sites. Als u een geplande failover uitvoert, worden de virtuele bronmachines afgesloten om gegevensverlies te voorkomen.
 2. U kunt een failover van één machine uitvoeren of [herstelplannen](site-recovery-create-recovery-plans.md) maken om de failover van meerdere virtuele machines te coördineren.
@@ -84,16 +74,12 @@ Dit is wat u nodig hebt om virtuele Hyper V-machines te repliceren naar een secu
 
 
 
-<a id="replicate-vmware-vmsphysical-servers-to-a-secondary-site" class="xliff"></a>
-
-## Virtuele VMware-machines/fysieke servers repliceren naar een secundaire site
+## <a name="replicate-vmware-vmsphysical-servers-to-a-secondary-site"></a>Virtuele VMware-machines/fysieke servers repliceren naar een secundaire site
 
 U repliceert virtuele machines van VMware of fysieke servers naar een secundaire site met InMage Scout, en met behulp van deze architectuuronderdelen:
 
 
-<a id="architectural-components" class="xliff"></a>
-
-### Architectuuronderdelen
+### <a name="architectural-components"></a>Architectuuronderdelen
 
 **Onderdeel** | **Locatie** | **Details**
 --- | --- | ---
@@ -106,9 +92,7 @@ U repliceert virtuele machines van VMware of fysieke servers naar een secundaire
 **VM's/fysieke servers** |  De Unified Agent wordt geïnstalleerd op virtuele VMware-machines of fysieke servers die u wilt repliceren. | De agent fungeert als communicatieprovider tussen alle onderdelen.
 
 
-<a id="replication-process" class="xliff"></a>
-
-### Replicatieproces
+### <a name="replication-process"></a>Replicatieproces
 
 1. U stelt de onderdeelservers in op elke site (configuratie, proces, hoofddoel) en installeert de Unified Agent op de machines die u wilt repliceren.
 2. Na de initiële replicatie verzendt de agent op elke machine deltareplicatiewijzigingen naar de processerver.
@@ -119,9 +103,7 @@ U repliceert virtuele machines van VMware of fysieke servers naar een secundaire
 ![VMware naar VMware](./media/site-recovery-components/vmware-to-vmware.png)
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 De [ondersteuningsmatrix](site-recovery-support-matrix-to-sec-site.md) controleren
 

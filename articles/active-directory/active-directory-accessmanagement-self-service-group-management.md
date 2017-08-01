@@ -12,25 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 07/27/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
-ms.openlocfilehash: be84686351255585c3484f5ab8dad37b92462e2b
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 92681a42ff1eb7e9bfa834308833b96749cbd078
 ms.contentlocale: nl-nl
-ms.lasthandoff: 02/14/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="setting-up-azure-active-directory-for-self-service-group-management"></a>Azure Active Directory instellen voor groepsbeheer met self-service
 Zelfservicegroepsbeheer zorgt ervoor dat gebruikers beveiligingsgroepen of Office 365-groepen kan maken en beheren in de Azure Active Directory (Azure AD). Gebruikers kunnen ook vragen om lidmaatschap van een beveiligingsgroep of Office 365-groep en de eigenaar van de groep kan lidmaatschap goedkeuren of ontkennen. Op deze manier kan dagelijkse beheer van groepslidmaatschap worden overgedragen aan de mensen die de bedrijfscontext voor het desbetreffende lidmaatschap begrijpen. Functies van het zelfservicegroepsbeheer zijn enkel bechikbaar voor beveiligingsgroepen en Office 365-groepen, maar niet voor beveiligingsgroepen met mail of distributielijsten.
 
+> [!IMPORTANT]
+> Microsoft raadt u aan Azure AD te beheren met het [Azure AD-beheercentrum](https://aad.portal.azure.com) in Azure Portal in plaats van de klassieke Azure portal waarnaar in dit artikel wordt verwezen.
+
 Groepsbeheer met self-service bestaat momenteel uit twee kernscenario's: gedelegeerd groepsbeheer en groepsbeheer met self-service.
 
-* **Gedelegeerd groepsbeheer**
-    Een voorbeeld is een beheerder die toegang beheert tot een SaaS-toepassing die het bedrijf gebruikt. Het beheren van deze gebruiksrechten is omslachtig en daarom vraagt de beheerder de eigenaar van het bedrijf om een nieuwe groep te maken. De beheerder wijst de toegang voor de toepassing toe aan de nieuwe groep en voegt aan de groep alle personen die al toegang hebben tot de toepassing. De bedrijfseigenaar kan meer gebruikers toevoegen en deze gebruikers worden automatisch ingericht op de toepassing. De bedrijfseigenaar hoeft niet op de beheerder te wachten om de toegang voor gebruikers te beheren. Als de beheerder dezelfde toelating verleent aan een beheerder in ander ebedrijfsgroep, dan zal die persoon ook de toegang voor zijn eigen gebruikers kunnen beheren. Noch de bedrijfseigenaar, noch de beheerder kunnen elkaars gebruikers bekijken of beheren. De beheerder kan nog steeds alle gebruikers die toegang tot de toepassing hebben zien en zonodig de toegangsrechten blokkeren.
-* **Zelfservicegroepsmanagement**
-    Een voorbeeld van dit scenario zijn twee gebruikers die allebei SharePoint Online-sites hebben die ze onafhankelijk hebben ingesteld. Ze willen elkaars teams toegang geven tot hun sites. Hiervoor kunnen ze in Azure AD een groep maken en in SharePoint selecteert elk van hen de groep waartoe ze op hun sites toegang willen verlenen. Wanneer iemand toegang wil, kan dit worden aangevraagd bij het toegangspaneel en na goedkeuring wordt automatisch toegang verleend tot beide SharePoint Online-sites. Later beslist één van hen dat alle personen die de site openen ook toegang moeten krijgen tot een specifieke SaaS-toepassing. De beheerder van de SaaS-toepassing kan toegangsrechten toevoegen voor de toepassing aan de SharePoint Online-site. Vanaf dan verlenen alle goedgekeurde verzoeken toegang tot de twee SharePoint Online-sites en ook tot deze SaaS-toepassing.
+* **Gedelegeerd groepsbeheer** Een voorbeeld is een beheerder die toegang beheert tot een SaaS-toepassing die het bedrijf gebruikt. Het beheren van deze gebruiksrechten is omslachtig en daarom vraagt de beheerder de eigenaar van het bedrijf om een nieuwe groep te maken. De beheerder wijst de toegang voor de toepassing toe aan de nieuwe groep en voegt aan de groep alle personen die al toegang hebben tot de toepassing. De bedrijfseigenaar kan meer gebruikers toevoegen en deze gebruikers worden automatisch ingericht op de toepassing. De bedrijfseigenaar hoeft niet op de beheerder te wachten om de toegang voor gebruikers te beheren. Als de beheerder dezelfde toelating verleent aan een beheerder in ander ebedrijfsgroep, dan zal die persoon ook de toegang voor zijn eigen gebruikers kunnen beheren. Noch de bedrijfseigenaar, noch de beheerder kunnen elkaars gebruikers bekijken of beheren. De beheerder kan nog steeds alle gebruikers die toegang tot de toepassing hebben zien en zonodig de toegangsrechten blokkeren.
+* **Self-service voor groepsbeheer** Een voorbeeld van dit scenario zijn twee gebruikers die allebei SharePoint Online-sites hebben die ze onafhankelijk hebben ingesteld. Ze willen elkaars teams toegang geven tot hun sites. Hiervoor kunnen ze in Azure AD een groep maken en in SharePoint selecteert elk van hen de groep waartoe ze op hun sites toegang willen verlenen. Wanneer iemand toegang wil, kan dit worden aangevraagd bij het toegangspaneel en na goedkeuring wordt automatisch toegang verleend tot beide SharePoint Online-sites. Later beslist één van hen dat alle personen die de site openen ook toegang moeten krijgen tot een specifieke SaaS-toepassing. De beheerder van de SaaS-toepassing kan toegangsrechten toevoegen voor de toepassing aan de SharePoint Online-site. Vanaf dan verlenen alle goedgekeurde verzoeken toegang tot de twee SharePoint Online-sites en ook tot deze SaaS-toepassing.
 
 ## <a name="making-a-group-available-for-end-user-self-service"></a>Een groep beschikbaar maken voor self-service door eindgebruikers
 1. Open in het [Klassieke Azure-portal](https://manage.windowsazure.com) uw Azure AD-directory.

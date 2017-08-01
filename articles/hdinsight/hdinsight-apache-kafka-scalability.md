@@ -22,8 +22,7 @@ ms.lasthandoff: 07/13/2017
 
 ---
 
-# Opslag en schaalbaarheid configureren voor Apache Kafka in HDInsight
-<a id="configure-storage-and-scalability-for-apache-kafka-on-hdinsight" class="xliff"></a>
+# <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>Opslag en schaalbaarheid configureren voor Apache Kafka in HDInsight
 
 Leer hoe u het aantal beheerde schijven configureert dat wordt gebruikt in Apache Kafka in HDInsight.
 
@@ -33,8 +32,7 @@ In het volgende diagram ziet u een vergelijking tussen Kafka in HDInsight voorda
 
 ![Diagram waarin Kafka in HDInsight wordt weergegeven met één virtuele harde schijf per VM versus meerdere beheerde schijven per VM](./media/hdinsight-apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
-## Beheerde schijven configureren: Azure Portal
-<a id="configure-managed-disks-azure-portal" class="xliff"></a>
+## <a name="configure-managed-disks-azure-portal"></a>Beheerde schijven configureren: Azure Portal
 
 1. Volg de stappen in [Een HDInsight-cluster maken](hdinsight-hadoop-create-linux-clusters-portal.md) voor de algemene stappen voor het maken van een cluster met behulp van de portal. Voltooi het creatieproces met behulp van de portal niet.
 
@@ -45,8 +43,7 @@ In het volgende diagram ziet u een vergelijking tussen Kafka in HDInsight voorda
 
     ![Afbeelding van de blade Clustergrootte met de schijven gemarkeerd per werkknooppunt](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
 
-## Beheerde schijven configureren: Resource Manager-sjabloon
-<a id="configure-managed-disks-resource-manager-template" class="xliff"></a>
+## <a name="configure-managed-disks-resource-manager-template"></a>Beheerde schijven configureren: Resource Manager-sjabloon
 
 Als u het aantal schijven wilt beheren dat wordt gebruikt in de werkknooppunten van een Kafka-cluster, gebruikt u de volgende sectie van de sjabloon:
 
@@ -60,8 +57,7 @@ Als u het aantal schijven wilt beheren dat wordt gebruikt in de werkknooppunten 
 
 Op [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json) vindt u een volledige sjabloon waarin wordt weergegeven hoe u beheerde schijven kunt configureren.
 
-## Volgende stappen
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Volgende stappen
 
 Zie de volgende documenten voor meer informatie over het werken Kafka in HDInsight:
 

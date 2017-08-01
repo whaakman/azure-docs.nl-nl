@@ -1,6 +1,6 @@
 Als u een resource wilt taggen tijdens de implementatie, voegt u het element `tags` toe aan de resource die u wilt implementeren. Geef de naam en waarde van de tag op.
 
-### <a name="apply-literal-value-to-tag-name"></a>Letterlijke waarde toepassen op tagnaam
+### <a name="apply-a-literal-value-to-the-tag-name"></a>Een letterlijke waarde toepassen op de tagnaam
 In het volgende voorbeeld wordt een opslagaccount weergegeven met twee tags (`Dept` en `Environment`) die zijn ingesteld op letterlijke waarden:
 
 ```json
@@ -27,7 +27,7 @@ In het volgende voorbeeld wordt een opslagaccount weergegeven met twee tags (`De
 }
 ```
 
-### <a name="apply-object-to-tag-element"></a>Object toepassen op tagelement
+### <a name="apply-an-object-to-the-tag-element"></a>Een object toepassen op het tagelement
 U kunt een objectparameter definiëren waarmee verschillende tags worden opgeslagen en dit object vervolgens toepassen op het tagelement. Elke eigenschap in het object wordt een afzonderlijke tag voor de resource. Het volgende voorbeeld heeft een parameter met de naam `tagValues` die wordt toegepast op het tagelement.
 
 ```json
@@ -60,7 +60,7 @@ U kunt een objectparameter definiëren waarmee verschillende tags worden opgesla
 }
 ```
 
-### <a name="apply-json-string-to-tag-name"></a>JSON-tekenreeks toepassen op de tagnaam
+### <a name="apply-a-json-string-to-the-tag-name"></a>Een JSON-tekenreeks toepassen op de tagnaam
 
 Als u veel waarden wilt opslaan in een enkele tag, past u een JSON-tekenreeks toe die de waarden vertegenwoordigt. De volledige JSON-tekenreeks wordt opgeslagen als een tag met maximaal 256 tekens. Het volgende voorbeeld heeft een enkele tag met de naam `CostCenter` die verschillende waarden uit een JSON-tekenreeks bevat:  
 
@@ -86,7 +86,3 @@ Als u veel waarden wilt opslaan in een enkele tag, past u een JSON-tekenreeks to
     ]
 }
 ```
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -22,25 +22,19 @@ ms.lasthandoff: 06/16/2017
 
 
 ---
-<a id="get-started-with-azure-data-lake-analytics-using-azure-powershell" class="xliff"></a>
-
-# Aan de slag met Azure Data Lake Analytics met Azure PowerShell
+# <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Aan de slag met Azure Data Lake Analytics met Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Informatie over het gebruik van Azure PowerShell om Azure Data Lake Analytics-accounts te maken en vervolgens U SQL-taken te verzenden en uit te voeren. Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor meer informatie over Data Lake Analytics.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 Voordat u met deze zelfstudie begint, moet u beschikken over de volgende informatie:
 
 * **Een Azure Data Lake Analytics-account**. Zie [Aan de slag met Data Lake Analytics](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
 * **Een werkstation met Azure PowerShell**. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview).
 
-<a id="log-in-to-azure" class="xliff"></a>
-
-## Meld u aan bij Azure.
+## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
 In deze zelfstudie wordt ervan uitgegaan dat u al bekend bent met het gebruik van Azure PowerShell. Het is voornamelijk belangrijk dat u weet hoe u zich aanmeldt bij Azure. Zie [Aan de slag met Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps) als u hulp nodig hebt.
 
@@ -67,9 +61,7 @@ SubscriptionName      : ContosoSubscription
 CurrentStorageAccount :
 ```
 
-<a id="preparing-for-the-tutorial" class="xliff"></a>
-
-## Voorbereiding voor de zelfstudie
+## <a name="preparing-for-the-tutorial"></a>Voorbereiding voor de zelfstudie
 
 De PowerShell-fragmenten in deze zelfstudie gebruiken deze variabelen om deze informatie op te slaan:
 
@@ -80,17 +72,13 @@ $adla = "<DataLakeAnalyticsAccountName>"
 $location = "East US 2"
 ```
 
-<a id="get-information-about-a-data-lake-analytics-account" class="xliff"></a>
-
-## Informatie krijgen over een Data Lake Analytics-account
+## <a name="get-information-about-a-data-lake-analytics-account"></a>Informatie krijgen over een Data Lake Analytics-account
 
 ```
 Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla  
 ```
 
-<a id="submit-a-u-sql-job" class="xliff"></a>
-
-## Een U-SQL-taak verzenden
+## <a name="submit-a-u-sql-job"></a>Een U-SQL-taak verzenden
 
 Maak een PowerShell-variabele om het U-SQL-script op te slaan.
 
@@ -143,9 +131,7 @@ Download het uitvoerbestand.
 Export-AdlStoreItem -AccountName $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
-<a id="see-also" class="xliff"></a>
-
-## Zie ook
+## <a name="see-also"></a>Zie ook
 * Als u dezelfde zelfstudie wilt bekijken met een ander hulpprogramma, klikt u op de tabselectors boven aan de pagina.
 * Zie [Aan de slag met de Azure Data Lake Analytics U-SQL-taal](data-lake-analytics-u-sql-get-started.md) om U-SQL te leren.
 * Zie [Azure Data Lake Analytics beheren met Azure Portal](data-lake-analytics-manage-use-portal.md) voor informatie over beheertaken.

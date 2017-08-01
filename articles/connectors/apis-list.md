@@ -23,9 +23,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="connectors-list" class="xliff"></a>
-
-# Lijst van connectors
+# <a name="connectors-list"></a>Lijst van connectors
 > [!TIP]
 > De [volledige alfabetische lijst](#az) in dit onderwerp bevat alle beschikbare connectors die u in uw Logic Apps kunt gebruiken. [Connectorgegevens](/connectors/) geeft alle triggers en acties weer die in de swagger zijn gedefinieerd, plus eventuele beperkingen voor elke connector.
 
@@ -41,9 +39,7 @@ Connectors vormen een integraal onderdeel van het maken van logische apps. Met b
 
 In [Logic Apps-prijzen](https://azure.microsoft.com/pricing/details/logic-apps/) en [Prijsmodel](../logic-apps/logic-apps-pricing.md) vindt u meer informatie over de kosten. 
 
-<a id="popular-connectors" class="xliff"></a>
-
-## Populaire connectors
+## <a name="popular-connectors"></a>Populaire connectors
 Er zijn duizenden toepassingen en miljoenen uitvoeringen die succesvol data en informatie verwerken met behulp van deze connectors. De volgende tabel bevat de meest populaire connectors en een aantal favorieten van onze gebruikers:
 
 | |  |  |  |
@@ -56,9 +52,7 @@ Er zijn duizenden toepassingen en miljoenen uitvoeringen die succesvol data en i
 |  [![API Icon][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | We raden deze connector aan als u met SharePoint werkt en automatisering handig voor u zou zijn. Kan worden gebruikt met een on-premises SharePoint en SharePoint Online. | [![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | Een van de meest gebruikte connectors. Deze kan verbinding maken met een on-premises SQL Server en Azure SQL Database. | 
 | [![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc] | Hiermee kunt u zich eenvoudig aanmelden met een Twitter-account en vervolgens een werkstroom starten wanneer er een nieuwe tweet wordt geplaatst. U kunt deze tweets vervolgens opslaan in een SQL Database of SharePoint-lijst. | | | 
 
-<a id="integration-account-connectors" class="xliff"></a>
-
-## Integratieaccountconnectoren 
+## <a name="integration-account-connectors"></a>Integratieaccountconnectoren 
 
 De Enterprise Integration Pack (EIP) bevat connectors die erg bekend zijn in de BizTalk Server-community. Wanneer u een [integratieaccount](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) aanschaft, krijgt u de volgende connectors: 
 
@@ -68,9 +62,7 @@ De Enterprise Integration Pack (EIP) bevat connectors die erg bekend zijn in de 
 [![API Icon][flatfileicon]<br/>**Codering</br> van plat bestand**][flatfiledoc] | [![API Icon][flatfiledecodeicon]<br/>**Decodering</br> van plat bestand**][flatfiledecodedoc] | [![API Icon][integrationaccounticon]<br/>**Integratie-<br/>account**][integrationaccountdoc] | [![API Icon][xmltransformicon]<br/>**XML<br/>transformeren**][xmltransformdoc] |
 | [![API Icon][x12icon]<br/>**X12</br>-decodering**][x12decode] | [![API Icon][x12icon]<br/>**X12</br>-codering**][x12encode] | [![API Icon][xmlvalidateicon]<br/>**XML<br/>-validatie**][xmlvalidatedoc] | |
 
-<a id="enterprise-connectors" class="xliff"></a>
-
-## Bedrijfsconnectoren
+## <a name="enterprise-connectors"></a>Bedrijfsconnectoren
 
 Hiermee maakt u verbinding met uw zakelijke toepassingen binnen uw logische apps.
 
@@ -95,9 +87,7 @@ Hiermee maakt u verbinding met uw zakelijke toepassingen binnen uw logische apps
 > [!TIP]
 > Als u wilt beginnen met Azure Logic Apps en u zich nog niet hebt aangemeld voor een Azure-account, gaat u naar [Logic Apps uitproberen](https://tryappservice.azure.com/?appservice=logic). U kunt onmiddellijk een tijdelijke logische app maken. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
 
-<a id="connectors-as-triggers-and-actions" class="xliff"></a>
-
-## Connectors als triggers en acties
+## <a name="connectors-as-triggers-and-actions"></a>Connectors als triggers en acties
 
 Een **trigger** start een exemplaar van uw logische app of voert deze uit. Sommige connectors bieden triggers die aan uw app doorgeven dat er specifieke gebeurtenissen plaatsvinden. De FTP-connector heeft bijvoorbeeld de trigger `OnUpdatedFile`, die uw logische app start wanneer een bestand is bijgewerkt. 
 
@@ -117,9 +107,7 @@ Connectors bieden ook de **acties** die u in uw werkstroom kunt gebruiken. Uw lo
 > In [Overzicht van connectors](connectors-overview.md) vindt u gedetailleerdere informatie over triggers en acties. 
 
 
-<a id="message-manipulation-actions" class="xliff"></a>
-
-## Acties voor berichtbewerking
+## <a name="message-manipulation-actions"></a>Acties voor berichtbewerking
 
 Logische apps bevatten ingebouwde acties waarmee u nettoladinggegevens kunt wijzigen of bewerken. De ingebouwde connector **Gegevensbewerkingen** bevat de volgende acties: 
 
@@ -132,17 +120,13 @@ Logische apps bevatten ingebouwde acties waarmee u nettoladinggegevens kunt wijz
 | **JSON parseren** | Parseer en krijg toegang tot waarden van een JSON-object in de ontwerper. Als uw Azure-functie bijvoorbeeld een JSON-nettolading retourneert, kunt u deze parseren om later toegang te krijgen tot de JSON-eigenschappen in een andere stap. De actie valideert ook dat de JSON overeenkomt met het opgegeven schema tijdens runtime. | 
 | **Selecteren** | Selecteer bepaalde eigenschappen van een matrix voor verdere verwerking. Als u records vermeldt vanuit SQL en er 15 kolommen worden geretourneerd, selecteert u slechts enkele van die kolommen voor verdere verwerking. De uitvoer is een matrix die alleen de door u geselecteerde eigenschappen bevat. |
 
-<a id="custom-connectors-and-azure-certification" class="xliff"></a>
-
-## Aangepaste connectors en Azure-certificering 
+## <a name="custom-connectors-and-azure-certification"></a>Aangepaste connectors en Azure-certificering 
 
 Als u API's wilt aanroepen waarmee aangepaste code wordt uitgevoerd of die niet beschikbaar zijn als connectors, kunt u het Logic Apps-platform uitbreiden door [op REST gebaseerde API Apps te maken als aangepaste connectors](../logic-apps/logic-apps-create-api-app.md). 
 
 Als u uw aangepaste API Apps openbaar wilt maken en beschikbaar wilt maken voor gebruik in Azure, verzendt u uw nominaties naar het [Microsoft Azure Certified-programma](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
 
-<a id="get-help" class="xliff"></a>
-
-## Help opvragen
+## <a name="get-help"></a>Help opvragen
 
 Ga naar het [forum voor Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) om vragen te stellen, vragen te beantwoorden en te zien wat andere gebruikers van Azure Logic Apps aan het doen zijn.
 
@@ -150,9 +134,7 @@ Ter verbetering van Azure Logic Apps en connectors kunt u stemmen op ideeën of 
 
 Ontbreekt er een onderwerp over connectors of bepaalde belangrijke details? Zo ja, help ons dan door onze bestaande onderwerpen uit te breiden of uw eigen te schrijven. Onze documentatie is open source en wordt gehost op GitHub. Ga aan de slag in onze [GitHub-opslagplaats](https://github.com/Microsoft/azure-docs). 
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * [Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md)
 * [Aangepaste API's maken voor logische apps](../logic-apps/logic-apps-create-api-app.md)
 * [Uw logische apps bewaken](../logic-apps/logic-apps-monitor-your-logic-apps.md)

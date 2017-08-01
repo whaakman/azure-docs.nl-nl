@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 05/11/2017
+ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a818a41e2e11926c2dee27e081ae8ffc0a4a6298
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Batch-resources beheren met Azure CLI
@@ -78,7 +77,7 @@ Ten behoeve van dit artikel laten we zien hoe u zich interactief aanmeldt bij Az
 az login
 ```
 
-De opdracht `az login` retourneert een token dat u gebruikt om u te verifiëren, zoals hier wordt weergegeven. Volg de weergegeven instructies om een webpagina te openen en het token naar Azure te verzenden:
+De opdracht `az login` retourneert een token dat u kunt gebruiken om u te verifiëren, zoals hier wordt weergegeven. Volg de weergegeven instructies om een webpagina te openen en het token naar Azure te verzenden:
 
 ![Meld u aan bij Azure.](./media/batch-cli-get-started/az-login.png)
 
@@ -119,6 +118,10 @@ Er zijn twee mogelijkheden voor verificatie van uw Batch-account:
     ```
 
 De voorbeelden in de sectie [Voorbeelden van shell-scripts](#sample-shell-scripts) laten zien hoe u zich met de Azure CLI aanmeldt bij uw Batch-account met zowel Azure AD als een gedeelde sleutel.
+
+## <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Azure Batch CLI-sjablonen en -bestandsoverdracht gebruiken (preview)
+
+U kunt de Azure CLI gebruiken om Batch-taken end-to-end uit te voeren zonder code te schrijven. Batch-sjabloonbestanden ondersteunen het maken van pools, jobs en taken met de Azure CLI. U kunt de Azure CLI ook gebruiken om jobinvoerbestanden te uploaden naar het Azure Storage-account dat is gekoppeld aan het Batch-account en de jobuitvoerbestanden ervan downloaden. Zie [Azure Batch CLI sjablonen en -bestandsoverdracht gebruiken (preview)](batch-cli-templates.md) voor meer informatie.
 
 ## <a name="sample-shell-scripts"></a>Voorbeelden van shell-scripts
 
@@ -187,7 +190,7 @@ De volgende tips kunnen helpen bij het oplossen van problemen met Azure CLI:
 
 * Raadpleeg de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview) voor meer informatie over de Azure CLI.
 * Meer informatie over Batch-resources vindt u in dit Engelstalige [overzicht van Azure Batch voor ontwikkelaars](batch-api-basics.md).
-* Zie [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md) (Toepassingen implementeren naar rekenknooppunten met Batch-toepassingspakketten) voor informatie over het gebruik van deze functie voor het beheren en implementeren van de toepassingen die u uitvoert op Batch-rekenknooppunten.
+* Zie [Azure Batch CLI-sjablonen en -bestandsoverdracht gebruiken (preview)](batch-cli-templates.md) voor meer informatie over het gebruik van Batch-sjablonen voor het maken van pools, jobs en taken zonder code te schrijven.
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md

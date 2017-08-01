@@ -22,22 +22,16 @@ ms.lasthandoff: 06/16/2017
 
 
 ---
-<a id="get-started-with-azure-data-lake-analytics-using-azure-portal" class="xliff"></a>
-
-# Aan de slag met Azure Data Lake Analytics met Azure Portal
+# <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Aan de slag met Azure Data Lake Analytics met Azure Portal
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Informatie over het gebruik van Azure Portal voor het maken van Azure Data Lake Analytics-accounts, het definiëren van taken in [U-SQL](data-lake-analytics-u-sql-get-started.md), en het verzenden van taken naar de Data Lake Analytics-service. Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor meer informatie over Data Lake Analytics.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 Voordat u met deze zelfstudie begint, moet u een **Azure-abonnement** hebben. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 
-<a id="create-a-data-lake-analytics-account" class="xliff"></a>
-
-## Een Data Lake Analytics-account maken
+## <a name="create-a-data-lake-analytics-account"></a>Een Data Lake Analytics-account maken
 
 U maakt nu tegelijkertijd een Data Lake Analytics- en een Data Lake Store-account.  Deze stap is eenvoudig en duurt maar ongeveer 60 seconden om te voltooien.
 
@@ -53,9 +47,7 @@ U maakt nu tegelijkertijd een Data Lake Analytics- en een Data Lake Store-accoun
 5. Klik op **Create**. 
 
 
-<a id="your-first-u-sql-script" class="xliff"></a>
-
-## Uw eerste U-SQL-script
+## <a name="your-first-u-sql-script"></a>Uw eerste U-SQL-script
 
 De volgende tekst is een zeer eenvoudig U-SQL-script. Het scrip is alleen bedoeld om een kleine gegevensset in het script mee te definiëren en deze gegevensset vervolgens naar de standaard Data Lake Store te schrijven als een bestand met de naam `/data.csv`.
 
@@ -72,9 +64,7 @@ OUTPUT @a
     USING Outputters.Csv();
 ```
 
-<a id="submit-a-u-sql-job" class="xliff"></a>
-
-## Een U-SQL-taak verzenden
+## <a name="submit-a-u-sql-job"></a>Een U-SQL-taak verzenden
 
 1. Klik in het Data Lake Analytics-account op **New Job**.
 2. Plak de tekst van het hierboven weergegeven U-SQL-script. 
@@ -83,9 +73,7 @@ OUTPUT @a
 5. Zie [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md) (Data Lake Analytics-taken bewaken en fouten oplossen) als de taak is mislukt.
 6. Klik op het tabblad **Output** en klik vervolgens op `SearchLog-from-Data-Lake.csv`. 
 
-<a id="see-also" class="xliff"></a>
-
-## Zie ook
+## <a name="see-also"></a>Zie ook
 
 * Zie [U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) om aan de slag te gaan met het ontwikkelen van U-SQL-toepassingen.
 * Zie [Aan de slag met de Azure Data Lake Analytics U-SQL-taal](data-lake-analytics-u-sql-get-started.md) om U-SQL te leren.

@@ -11,43 +11,75 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: hero-article
 ms.date: 06/29/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: f3e7e57993b5253a895640854672da431c00854b
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: a80adae0359aac6aa8c9e7922e3f4c3883dd8056
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
-<a id="azure-database-for-postgresql-use-go-language-to-connect-and-query-data" class="xliff"></a>
+# <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>Azure Database voor PostgreSQL: Go-taal gebruiken om verbinding te maken en gegevens op te vragen
+In deze snelstartgids ziet u hoe u met behulp van code in de [Go](https://golang.org/)-taal (golang) verbinding maakt met een Azure-database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met Go, maar geen ervaring hebt met het werken met Azure Database voor PostgreSQL.
 
-# Azure Database voor PostgreSQL: Go-taal gebruiken om verbinding te maken en gegevens op te vragen
-In deze snelstartgids ziet u hoe u met behulp van code in de [Go](https://golang.org/)-taal verbinding maakt met een Azure Database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met Go, maar geen ervaring hebt met het werken met Azure Database voor PostgreSQL.
-
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 In deze snelstartgids worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
 - [Database maken - Portal](quickstart-create-server-database-portal.md)
 - [Database maken - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
-<a id="install-go-and-pq" class="xliff"></a>
+## <a name="install-go-and-pq-connector"></a>Go en de pq-connector installeren
+Installeer [Go](https://golang.org/doc/install) en het [Pure Go Postgres-stuurprogramma (pq)](https://github.com/lib/pq) op uw computer. Volg de stappen voor uw platform uit:
 
-## Go en pq installeren
-- Download en installeer Go volgens de [installatie-instructies](https://golang.org/doc/install) die overeenkomen met uw platform.
-- Maak een map voor uw project, bijvoorbeeld C:\Postgresql\. Wijzig de map via de opdrachtregel in de projectmap, zoals `cd C:\Postgres\`.
-- Download het [Pure Go Postgres-stuurprogramma (pq)](https://github.com/lib/pq) in de projectmap door in dezelfde map de opdracht `go get github.com/lib/pq` te typen.
+### <a name="windows"></a>Windows
+1. [Download](https://golang.org/dl/) en installeer Go voor Microsoft Windows volgens de [installatie-instructies](https://golang.org/doc/install).
+2. Open de opdrachtprompt vanuit het Startmenu.
+3. Maak een map voor uw project, bijvoorbeeld: `mkdir  %USERPROFILE%\go\src\postgresqlgo`.
+4. Wijzig de map in de projectmap, bijvoorbeeld `cd %USERPROFILE%\go\src\postgresqlgo`.
+5. Stel de omgevingsvariabele voor GOPATH zo in dat deze verwijst naar de broncodemap. `set GOPATH=%USERPROFILE%\go`.
+6. Installeer het [Pure Go Postgres-stuurprogramma (pq)](https://github.com/lib/pq) door de opdracht `go get github.com/lib/pq` uit te voeren.
 
-<a id="build-and-run-go-code" class="xliff"></a>
+   Kortom: installeer Go en voer vervolgens deze opdrachten uit in de opdrachtprompt:
+   ```cmd
+   mkdir  %USERPROFILE%\go\src\postgresqlgo
+   cd %USERPROFILE%\go\src\postgresqlgo
+   set GOPATH=%USERPROFILE%\go
+   go get github.com/lib/pq
+   ```
 
-## Go-code schrijven en uitvoeren 
-- Sla de code op in een tekstbestand met de extensie *.go en sla het op in de projectmap, bijvoorbeeld `C:\postgres\read.go`.
-- Om de code uit te voeren, verandert u de map in de projectmap `cd postgres`, typt u de opdracht `go run read.go` om de toepassing te compileren en voert u de toepassing uit.
-- Als u de code wilt bouwen in een systeemeigen toepassing, `go build read.go`, en start u read.exe om de toepassing uit te voeren.
+### <a name="linux-ubuntu"></a>Linux (Ubuntu)
+1. Open de Bash-shell. 
+2. Installeer Go door `sudo apt-get install golang-go` uit te voeren.
+3. Maak in de basismap een map voor uw project, bijvoorbeeld `mkdir -p ~/go/src/postgresqlgo/`.
+4. Wijzig de map in de map, bijvoorbeeld `cd ~/go/src/postgresqlgo/`.
+5. Stel de omgevingsvariabele GOPATH zo in dat deze verwijst naar een geldige bronmap, zoals de Go-map in uw huidige basismap. Voer `export GOPATH=~/go` in de Bash-shell uit om de Go-map toe te voegen als GOPATH voor de huidige shellsessie.
+6. Installeer het [Pure Go Postgres-stuurprogramma (pq)](https://github.com/lib/pq) door de opdracht `go get github.com/lib/pq` uit te voeren.
 
-<a id="get-connection-information" class="xliff"></a>
+   Kortom: voer deze Bash-opdrachten uit:
+   ```bash
+   sudo apt-get install golang-go
+   mkdir -p ~/go/src/postgresqlgo/
+   cd ~/go/src/postgresqlgo/
+   export GOPATH=~/go/
+   go get github.com/lib/pq
+   ```
 
-## Verbindingsgegevens ophalen
+### <a name="apple-macos"></a>Apple macOS
+1. Download en installeer Go volgens de [installatie-instructies](https://golang.org/doc/install) die overeenkomen met uw platform. 
+2. Open de Bash-shell. 
+3. Maak in de basismap een map voor uw project, bijvoorbeeld `mkdir -p ~/go/src/postgresqlgo/`.
+4. Wijzig de map in de map, bijvoorbeeld `cd ~/go/src/postgresqlgo/`.
+5. Stel de omgevingsvariabele GOPATH zo in dat deze verwijst naar een geldige bronmap, zoals de Go-map in uw huidige basismap. Voer `export GOPATH=~/go` in de Bash-shell uit om de Go-map toe te voegen als GOPATH voor de huidige shellsessie.
+6. Installeer het [Pure Go Postgres-stuurprogramma (pq)](https://github.com/lib/pq) door de opdracht `go get github.com/lib/pq` uit te voeren.
+
+   Kortom: installeer Go en voer deze Bash-opdrachten uit:
+   ```bash
+   mkdir -p ~/go/src/postgresqlgo/
+   cd ~/go/src/postgresqlgo/
+   export GOPATH=~/go/
+   go get github.com/lib/pq
+   ```
+
+## <a name="get-connection-information"></a>Verbindingsgegevens ophalen
 Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure Database voor PostgreSQL. U hebt de volledig gekwalificeerde servernaam en aanmeldingsreferenties nodig.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
@@ -57,15 +89,20 @@ Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azur
  ![Azure Database voor PostgreSQL - Aanmeldgegevens van de serverbeheerder](./media/connect-go/1-connection-string.png)
 5. Als u uw aanmeldingsgegevens voor de server bent vergeten, gaat u naar de pagina **Overzicht** om de aanmeldingsnaam van de serverbeheerder weer te geven. Stel het wachtwoord indien nodig opnieuw in.
 
-<a id="connect-and-create-a-table" class="xliff"></a>
+## <a name="build-and-run-go-code"></a>Go-code schrijven en uitvoeren 
+1. Als u Golang-code wilt schrijven, gebruikt u een eenvoudige teksteditor zoals Kladblok in Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) of [Nano](https://www.nano-editor.org/) in Ubuntu en TextEdit in macOS. Als u liever een uitgebreidere Interactive Development Environment (IDE) gebruikt, gaat u aan de slag met [Gogland](https://www.jetbrains.com/go/) van Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) van Microsoft of [Atom](https://atom.io/).
+2. Plak de Golang-code uit de secties hieronder in tekstbestanden en sla deze in de projectmap op met de bestandsextensie \*.go, zoals het pad `%USERPROFILE%\go\src\postgresqlgo\createtable.go` (voor Windows) of het pad `~/go/src/postgresqlgo/createtable.go` (voor Linux).
+3. Zoek de constanten `HOST`, `DATABASE`, `USER` en `PASSWORD` in de code en vervang de voorbeeldwaarden door uw eigen waarden.  
+4. Open de opdrachtprompt of de bash-shell. Wijzig de map in de projectmap. Voorbeeld voor Windows: `cd %USERPROFILE%\go\src\postgresqlgo\`. Voorbeeld voor Linux: `cd ~/go/src/postgresqlgo/`. Sommige van de vermelde IDE-omgevingen bieden mogelijkheden voor foutopsporing en runtime zonder dat daarvoor shell-opdrachten zijn vereist.
+5. Voer de code uit door de opdracht `go run createtable.go` te typen. De toepassing wordt nu gecompileerd en uitgevoerd. 
+6. Als u de code wilt bouwen in een systeemeigen toepassing, kunt u ook `go build createtable.go` gebruiken en vervolgens `createtable.exe` starten om de toepassing uit te voeren.
 
-## Verbinding maken en een tabel maken
+## <a name="connect-and-create-a-table"></a>Verbinding maken en een tabel maken
 Gebruik de volgende code om een tabel te verbinden en te maken met de SQL-instructie **CREATE TABLE**, gevolgd door **INSERT INTO**-instructies om rijen in de tabel toe te voegen.
 
 Met de code worden drie pakketten geïmporteerd: het [sql-pakket](https://golang.org/pkg/database/sql/), het [pq-pakket](http://godoc.org/github.com/lib/pq) als een stuurprogramma om te communiceren met de Postgres-server, en het [fmt-pakket](https://golang.org/pkg/fmt/) voor de weergave van invoer en uitvoer op de opdrachtregel.
 
 In de code wordt de methode [sql.Open()](http://godoc.org/github.com/lib/pq#Open) aangeroepen om verbinding te maken met Azure Database voor PostgreSQL, en wordt de verbinding gecontroleerd met de methode [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Er wordt telkens gebruikgemaakt van een [database-ingang](https://golang.org/pkg/database/sql/#DB), die de verbindingsgroep voor de databaseserver bevat. In de code wordt de methode [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) meerdere keren aangeroepen om diverse SQL-opdrachten uit te voeren. Telkens wordt een aangepaste checkError()-methode gebruikt om te controleren of er fouten zijn opgetreden en af te sluiten als er een fout is opgetreden.
-
 
 Vervang de parameters `HOST`, `DATABASE`, `USER` en `PASSWORD` door uw eigen waarden. 
 
@@ -126,9 +163,7 @@ func main() {
 }
 ```
 
-<a id="read-data" class="xliff"></a>
-
-## Gegevens lezen
+## <a name="read-data"></a>Gegevens lezen
 Gebruik de volgende code om verbinding te maken en de gegevens te lezen met de SQL-instructie **SELECT**. 
 
 Met de code worden drie pakketten geïmporteerd: het [sql-pakket](https://golang.org/pkg/database/sql/), het [pq-pakket](http://godoc.org/github.com/lib/pq) als een stuurprogramma om te communiceren met de Postgres-server, en het [fmt-pakket](https://golang.org/pkg/fmt/) voor de weergave van invoer en uitvoer op de opdrachtregel.
@@ -195,9 +230,7 @@ func main() {
 }
 ```
 
-<a id="update-data" class="xliff"></a>
-
-## Gegevens bijwerken
+## <a name="update-data"></a>Gegevens bijwerken
 Gebruik de volgende code om verbinding te maken en de gegevens bij te werken met de SQL-instructie **UPDATE**.
 
 Met de code worden drie pakketten geïmporteerd: het [sql-pakket](https://golang.org/pkg/database/sql/), het [pq-pakket](http://godoc.org/github.com/lib/pq) als een stuurprogramma om te communiceren met de Postgres-server, en het [fmt-pakket](https://golang.org/pkg/fmt/) voor de weergave van invoer en uitvoer op de opdrachtregel.
@@ -250,9 +283,7 @@ func main() {
 }
 ```
 
-<a id="delete-data" class="xliff"></a>
-
-## Gegevens verwijderen
+## <a name="delete-data"></a>Gegevens verwijderen
 Gebruik de volgende code om verbinding te maken en de gegevens te lezen met de SQL-instructie **DELETE**. 
 
 Met de code worden drie pakketten geïmporteerd: het [sql-pakket](https://golang.org/pkg/database/sql/), het [pq-pakket](http://godoc.org/github.com/lib/pq) als een stuurprogramma om te communiceren met de Postgres-server, en het [fmt-pakket](https://golang.org/pkg/fmt/) voor de weergave van invoer en uitvoer op de opdrachtregel.
@@ -305,9 +336,7 @@ func main() {
 }
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
-> [Een database migreren met behulp van Exporteren en Importeren](./howto-migrate-using-export-and-import.md)
+> [Een database migreren met behulp van Exporteren en importeren](./howto-migrate-using-export-and-import.md)
 

@@ -22,16 +22,12 @@ ms.lasthandoff: 06/01/2017
 
 ---
 
-<a id="create-your-first-azure-resource-manager-template" class="xliff"></a>
-
-# Uw eerste Azure Resource Manager-sjabloon maken
+# <a name="create-your-first-azure-resource-manager-template"></a>Uw eerste Azure Resource Manager-sjabloon maken
 In dit onderwerp worden de stappen beschreven voor het maken van uw eerste Azure Resource Manager-sjabloon. Resource Manager-sjablonen zijn JSON-bestanden die de resources definiëren die u voor uw oplossing moet implementeren. Zie [Overzicht van Azure Resource Manager](resource-group-overview.md) voor inzicht in de concepten die gerelateerd zijn aan het implementeren en beheren van uw Azure-oplossingen. Zie [Een Azure Resource Manager-sjabloon uit bestaande resources exporteren](resource-manager-export-template.md) als u een sjabloon voor bestaande resources wilt maken.
 
 U hebt een JSON-editor nodig om sjablonen te maken en reviseren. [Visual Studio Code](https://code.visualstudio.com/) is een lichte, open-source, platformoverschrijdende code-editor. Het programma ondersteunt het maken en bewerken van Resource Manager-sjablonen via een extensie. In dit onderwerp wordt ervan uitgegaan dat u VS Code gebruikt. Als u een andere JSON-editor (zoals Visual Studio) hebt, kunt u die editor gebruiken.
 
-<a id="get-vs-code-and-extension" class="xliff"></a>
-
-## VS Code en extensie ophalen
+## <a name="get-vs-code-and-extension"></a>VS Code en extensie ophalen
 1. U kunt VS Code installeren via [https://code.visualstudio.com/](https://code.visualstudio.com/).
 
 2. Installeer de extensie voor [Azure Resource Manager-hulpprogramma's](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) door Snel openen te starten (Ctrl + P) en het volgende uit te voeren: 
@@ -42,9 +38,7 @@ U hebt een JSON-editor nodig om sjablonen te maken en reviseren. [Visual Studio 
 
 3. Start VS Code opnieuw op wanneer u daarom wordt gevraagd om de extensie in te schakelen.
 
-<a id="create-blank-template" class="xliff"></a>
-
-## Lege sjabloon maken
+## <a name="create-blank-template"></a>Lege sjabloon maken
 
 Laten we beginnen met een lege sjabloon die alleen de basisgedeelten van een sjabloon bevat.
 
@@ -65,9 +59,7 @@ Laten we beginnen met een lege sjabloon die alleen de basisgedeelten van een sja
 
 3. Sla dit bestand op als **azuredeploy.json**. 
 
-<a id="add-storage-account" class="xliff"></a>
-
-## Opslagaccount toevoegen
+## <a name="add-storage-account"></a>Opslagaccount toevoegen
 1. Voeg het opslagaccount toe in het gedeelte **Resources** van de sjabloon om het opslagaccount te definiëren voor implementatie. Kijk naar de [sjabloonverwijzing voor opslagaccounts](/azure/templates/microsoft.storage/storageaccounts) om de waarden te vinden die voor het opslagaccount beschikbaar zijn. Kopieer de JSON die wordt weergegeven voor het opslagaccount. 
 
 3. Plak de JSON in het gedeelte **Resources** van uw sjabloon, zoals wordt weergegeven in het volgende voorbeeld: 
@@ -114,9 +106,7 @@ Laten we beginnen met een lege sjabloon die alleen de basisgedeelten van een sja
   
   Het vorige voorbeeld bevat veel plaatsaanduidingswaarden en een aantal eigenschappen die u mogelijk niet nodig hebt in uw opslagaccount.
 
-<a id="set-values-for-storage-account" class="xliff"></a>
-
-## Waarden voor opslagaccount instellen
+## <a name="set-values-for-storage-account"></a>Waarden voor opslagaccount instellen
 
 U kunt nu waarden voor uw opslagaccount instellen. 
 
@@ -183,9 +173,7 @@ De sjabloon ziet er nu als volgt uit:
 }
 ```
 
-<a id="add-template-function" class="xliff"></a>
-
-## Sjabloonfunctie toevoegen
+## <a name="add-template-function"></a>Sjabloonfunctie toevoegen
 
 U kunt functies gebruiken in uw sjabloon om de syntaxis van de sjabloon te vereenvoudigen en om waarden op te halen die alleen beschikbaar zijn wanneer de sjabloon wordt geïmplementeerd. Zie [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md) voor een volledig overzicht van de sjabloonfuncties.
 
@@ -228,9 +216,7 @@ De sjabloon ziet er nu als volgt uit:
 }
 ```
 
-<a id="add-parameters-and-variables" class="xliff"></a>
-
-## Parameters en variabelen toevoegen
+## <a name="add-parameters-and-variables"></a>Parameters en variabelen toevoegen
 U hoeft nog maar twee waarden in te stellen in uw sjabloon: **name** en **sku.name**. Voor deze eigenschappen voegt u parameters toe waarmee u deze waarden kunt aanpassen tijdens de implementatie. 
 
 Er gelden enkele beperkingen voor opslagaccountnamen waardoor ze moeilijk in te stellen zijn. De naam moet tussen de 3 en 24 tekens lang zijn, alleen cijfers en kleine letters bevatten en uniek zijn. In plaats van te proberen een unieke waarde te vinden die aan de vereisten voldoet, kunt u de functie [uniqueString](resource-group-template-functions-string.md#uniquestring) gebruiken om een hash-waarde te genereren. Om deze hashwaarde betekenisvoller te maken, voegt u een voorvoegsel toe waarmee u het als een opslagaccount kunt identificeren na de implementatie. 
@@ -305,9 +291,7 @@ Er gelden enkele beperkingen voor opslagaccountnamen waardoor ze moeilijk in te 
 
 4. Sla het bestand op.
 
-<a id="final-template" class="xliff"></a>
-
-## Laatste sjabloon
+## <a name="final-template"></a>Laatste sjabloon
 
 Na het voltooien van de stappen in dit artikel ziet uw sjabloon er als volgt uit:
 
@@ -361,9 +345,7 @@ Na het voltooien van de stappen in dit artikel ziet uw sjabloon er als volgt uit
 }
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * De sjabloon is voltooid en u kunt deze nu implementeren op uw abonnement. Zie [Resources implementeren op Azure](resource-manager-quickstart-deploy.md) voor de implementatie.
 * Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md) voor meer informatie over de structuur van een sjabloon.
 * Zie de [Azure-snelstartsjablonen](https://azure.microsoft.com/documentation/templates/) voor volledige sjablonen voor verschillende soorten oplossingen.

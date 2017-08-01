@@ -23,9 +23,7 @@ ms.lasthandoff: 06/28/2017
 ---
 
 
-<a id="how-does-hyper-v-replication-to-azure-work-in-site-recovery" class="xliff"></a>
-
-# Hoe werkt Hyper-V-replicatie naar Azure in Site Recovery?
+# <a name="how-does-hyper-v-replication-to-azure-work-in-site-recovery"></a>Hoe werkt Hyper-V-replicatie naar Azure in Site Recovery?
 
 
 In dit artikel worden de onderdelen en processen beschreven die worden gebruikt bij het repliceren van on-premises virtuele Hyper-V-machines naar Azure met de [Azure Site Recovery](site-recovery-overview.md)-service.
@@ -36,9 +34,7 @@ U kunt onder aan dit artikel of op het [Azure Recovery Services-forum](https://s
 
 
 
-<a id="architectural-components" class="xliff"></a>
-
-## Architectuuronderdelen
+## <a name="architectural-components"></a>Architectuuronderdelen
 
 De volgende onderdelen worden gebruikt bij het repliceren van Hyper-V-VM's naar Azure.
 
@@ -60,17 +56,13 @@ Meer informatie over de implementatievereisten en de vereisten voor elk van deze
 ![Onderdelen](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
 
-<a id="replication-process" class="xliff"></a>
-
-## Replicatieproces
+## <a name="replication-process"></a>Replicatieproces
 
 **Afbeelding 3: replicatie en herstelproces voor Hyper-V-replicatie naar Azure**
 
 ![werkstroom](./media/site-recovery-components/arch-hyperv-azure-workflow.png)
 
-<a id="enable-protection" class="xliff"></a>
-
-### Beveiliging inschakelen
+### <a name="enable-protection"></a>Beveiliging inschakelen
 
 1. Nadat u de beveiliging voor een Hyper-V-VM in Azure Portal of on-premises hebt ingeschakeld, start **Beveiliging inschakelen**.
 2. Met deze taak wordt gecontroleerd of de machine voldoet aan de vereisten. Hierna wordt [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) aangeroepen om replicatie in te stellen op basis van de instellingen die u hebt geconfigureerd.
@@ -79,9 +71,7 @@ Meer informatie over de implementatievereisten en de vereisten voor elk van deze
         ![Takenlijst](media/site-recovery-hyper-v-azure-architecture/image1.png)
         ![Inzoomen op beveiliging inschakelen](media/site-recovery-hyper-v-azure-architecture/image2.png)
 
-<a id="replicate-the-initial-data" class="xliff"></a>
-
-### De initiële gegevens repliceren
+### <a name="replicate-the-initial-data"></a>De initiële gegevens repliceren
 
 1. Er wordt een [Hyper-V VM-momentopname](https://technet.microsoft.com/library/dd560637.aspx) gemaakt wanneer de initiële replicatie wordt geactiveerd.
 2. Virtuele harde schijven worden één voor één gerepliceerd totdat ze allemaal naar Azure zijn gekopieerd. Het kan even duren, afhankelijk van de VM-grootte en de netwerkbandbreedte. Zie [How to manage on-premises to Azure protection network bandwidth usage](https://support.microsoft.com/kb/3056159) (On-premises beheren aan de hand van de door Azure-beveiliging gebruikte netwerkbandbreedte) om uw netwerkgebruik te optimaliseren.
@@ -90,25 +80,19 @@ Meer informatie over de implementatievereisten en de vereisten voor elk van deze
 5. Als de initiële replicatie is voltooid, wordt de VM-momentopname verwijderd. Verschillen in het logboek worden gesynchroniseerd en samengevoegd op de bovenliggende schijf.
 
 
-<a id="finalize-protection" class="xliff"></a>
-
-### Beveiliging voltooien
+### <a name="finalize-protection"></a>Beveiliging voltooien
 
 1. Wanneer de eerste replicatie is voltooid, configureert de taak **Beveiliging van de virtuele machine voltooien** de netwerkinstellingen en overige instellingen na de replicatie zodanig dat de virtuele machine is beveiligd.
     ![Taak Beveiliging voltooien](media/site-recovery-hyper-v-azure-architecture/image3.png)
 2. Als u repliceert naar Azure, moet u mogelijk de instellingen voor de virtuele machine zo aanpassen dat deze gereed is voor failover. Nu kunt u een failovertest uitvoeren om te controleren of alles werkt zoals het hoort.
 
-<a id="replicate-the-delta" class="xliff"></a>
-
-### De delta repliceren
+### <a name="replicate-the-delta"></a>De delta repliceren
 
 1. Na de initiële replicatie start de deltasynchronisatie in overeenstemming met de replicatie-instellingen.
 2. De Hyper-V Replica-replicatietracker houdt de wijzigingen op een virtuele harde schijf bij in .hrl-bestanden. Elke schijf die voor replicatie is geconfigureerd, heeft een bijbehorend .hrl-bestand. Dit logboek wordt naar het opslagaccount van de klant verzonden nadat de initiële replicatie is voltooid. Wanneer een logboek naar Azure wordt verzonden, worden de wijzigingen in de primaire schijf bijgehouden in een ander logboekbestand in dezelfde map.
 3. Tijdens de initiële replicatie en replicatie van verschillen, kunt u de virtuele machine in de VM-weergave bewaken. [Meer informatie](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines).  
 
-<a id="synchronize-replication" class="xliff"></a>
-
-### Replicatie synchroniseren
+### <a name="synchronize-replication"></a>Replicatie synchroniseren
 
 1. Als de replicatie van verschillen mislukt en een volledige replicatie veel bandbreedte of tijd zou kosten, wordt de virtuele machine gemarkeerd voor hersynchronisatie. Als de HRL-bestanden bijvoorbeeld 50% van de schijfgrootte in beslag nemen, wordt de virtuele machine gemarkeerd voor hersynchronisatie.
 2.  Met een hersynchronisatie wordt de hoeveelheid verzonden gegevens geminimaliseerd door controlesommen van de bron- en doel-VM's te berekenen en alleen de verschilgegevens te verzenden. Hersynchronisatie maakt gebruik van een vaste-blokalgoritme voor verdelen in segmenten, waarbij bron- en doelbestanden in vaste segmenten worden verdeeld. Voor elk segment worden controlesommen gegenereerd en vervolgens vergeleken om te bepalen welke blokken van de bron op het doel moeten worden toegepast.
@@ -117,9 +101,7 @@ Meer informatie over de implementatievereisten en de vereisten voor elk van deze
     ![Handmatig opnieuw synchroniseren](media/site-recovery-hyper-v-azure-architecture/image4.png)
 
 
-<a id="retry-logic" class="xliff"></a>
-
-### Logica voor opnieuw proberen
+### <a name="retry-logic"></a>Logica voor opnieuw proberen
 
 Als er een replicatiefout optreedt, wordt de replicatie automatisch opnieuw geprobeerd. Deze logica kan in twee categorieën worden ingedeeld:
 
@@ -130,9 +112,7 @@ Als er een replicatiefout optreedt, wordt de replicatie automatisch opnieuw gepr
 
 
 
-<a id="failover-and-failback-process" class="xliff"></a>
-
-## Failover- en failbackproces
+## <a name="failover-and-failback-process"></a>Failover- en failbackproces
 
 1. U kunt een geplande of niet-geplande [failover](site-recovery-failover.md) uitvoeren van on-premises virtuele Hyper-V-machines naar Azure. Als u een geplande failover uitvoert, worden de virtuele bronmachines afgesloten om gegevensverlies te voorkomen.
 2. U kunt een failover van één machine uitvoeren of [herstelplannen](site-recovery-create-recovery-plans.md) maken om de failover van meerdere virtuele machines te coördineren.
@@ -143,9 +123,7 @@ Als er een replicatiefout optreedt, wordt de replicatie automatisch opnieuw gepr
 
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 De [ondersteuningsmatrix](site-recovery-support-matrix-to-azure.md) controleren
 

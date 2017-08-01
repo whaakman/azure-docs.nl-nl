@@ -22,9 +22,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 07/04/2017
 
 ---
-<a id="start-with-apache-kafka-preview-on-hdinsight" class="xliff"></a>
-
-# Met Apache Kafka (preview) in HDInsight beginnen
+# <a name="start-with-apache-kafka-preview-on-hdinsight"></a>Met Apache Kafka (preview) in HDInsight beginnen
 
 Informatie over het maken en gebruiken van een [Apache Kafka](https://kafka.apache.org)-cluster in Azure HDInsight. Kafka is een open-source, gedistribueerd streamingplatform dat beschikbaar is met HDInsight. Het wordt vaak gebruikt als een berichtenbroker, omdat het een functionaliteit biedt die vergelijkbaar is met een publicatie-/abonnementswachtrij voor berichten.
 
@@ -33,17 +31,13 @@ Informatie over het maken en gebruiken van een [Apache Kafka](https://kafka.apac
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) of een equivalent, zoals OpenJDK.
 
 * [Apache Maven](http://maven.apache.org/) 
 
-<a id="create-a-kafka-cluster" class="xliff"></a>
-
-## Een Kafka-cluster maken
+## <a name="create-a-kafka-cluster"></a>Een Kafka-cluster maken
 
 Gebruik de volgende stappen om een Kafka in HDInsight-cluster te maken:
 
@@ -101,9 +95,7 @@ Gebruik de volgende stappen om een Kafka in HDInsight-cluster te maken:
     > [!NOTE]
     > Het kan tot 20 minuten duren om het cluster te maken.
 
-<a id="connect-to-the-cluster" class="xliff"></a>
-
-## Verbinding maken met het cluster
+## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
 
 Gebruik SSH in uw client om verbinding te maken met het cluster:
 
@@ -151,9 +143,7 @@ Gebruik de volgende stappen om omgevingsvariabelen te maken die de hostinformati
     >
     > Haal de informatie over de Zookeeper- en brokerhosts kort voordat u deze gebruikt pas op, om er zeker van te zijn dat de gegevens geldig zijn.
 
-<a id="create-a-topic" class="xliff"></a>
-
-## Een onderwerp maken
+## <a name="create-a-topic"></a>Een onderwerp maken
 
 Kafka slaat gegevensstromen op in categorieën, zogenaamde *onderwerpen*. Wanneer er een SSH-verbinding is gemaakt met het hoofdknooppunt van het cluster, gebruikt u een script dat bij Kafka is meegeleverd om een onderwerp te maken:
 
@@ -169,9 +159,7 @@ Met deze opdracht brengt u een verbinding met Zookeeper tot stand met behulp van
 
 Met deze opdracht krijgt u een lijst van Kafka-onderwerpen, waaronder het onderwerp **test**.
 
-<a id="produce-and-consume-records" class="xliff"></a>
-
-## Records maken en gebruiken
+## <a name="produce-and-consume-records"></a>Records maken en gebruiken
 
 Kafka slaat *records* op in onderwerpen. Records worden geproduceerd door *producenten* en worden gebruikt door *consumenten*. Producenten halen records op uit Kafka-*brokers*. Elk werkrolknooppunt in uw HDInsight-cluster is een Kafka-broker.
 
@@ -195,9 +183,7 @@ Gebruik de volgende stappen om records op te slaan in het testonderwerp dat u ee
 
 3. Gebruik __Ctrl + C__ om de consument te stoppen.
 
-<a id="producer-and-consumer-api" class="xliff"></a>
-
-## Producent- en consument-API
+## <a name="producer-and-consumer-api"></a>Producent- en consument-API
 
 U kunt records ook programmatisch maken en gebruiken met behulp van de [Kafka-API's](http://kafka.apache.org/documentation#api). Gebruik de volgende stappen om een op Java gebaseerde producent en consument te downloaden en bouwen:
 
@@ -246,9 +232,7 @@ U kunt records ook programmatisch maken en gebruiken met behulp van de [Kafka-AP
 
 6. Gebruik __Ctrl + C__ om de consument af te sluiten.
 
-<a id="multiple-consumers" class="xliff"></a>
-
-### Meerdere consumenten
+### <a name="multiple-consumers"></a>Meerdere consumenten
 
 Een belangrijk concept bij Kafka is dat consumenten een consumentengroep (gedefinieerd door een groeps-id) gebruiken bij het lezen van records. Door dezelfde groep voor meerdere consumenten te gebruiken, worden leestaken voor onderwerpen gelijk verdeeld. Elke consument in de groep ontvangt een deel van de records. Voer de volgende stappen uit om dit proces in actie te zien:
 
@@ -270,9 +254,7 @@ Gebruik door clients binnen dezelfde groep wordt verwerkt door de partities voor
 
 Records worden in Kafka opgeslagen in de volgorde waarin deze worden ontvangen binnen een partitie. Als u records *binnen een partitie* op volgorde wilt leveren, maakt u een consumentengroep waarvan het aantal consumentexemplaren gelijk is aan het aantal partities. Als u records *binnen het onderwerp* op volgorde wilt leveren, maakt u een consumentengroep met slechts één consumentexemplaar.
 
-<a id="streaming-api" class="xliff"></a>
-
-## Streaming-API
+## <a name="streaming-api"></a>Streaming-API
 
 De streaming-API is in versie 0.10.0 aan Kafka toegevoegd. Eerdere versies zijn afhankelijk van Apache Spark of Storm voor streamverwerking.
 
@@ -347,21 +329,15 @@ De streaming-API is in versie 0.10.0 aan Kafka toegevoegd. Eerdere versies zijn 
 
 7. Gebruik __Ctrl + C__ om de consument af te sluiten. Gebruik vervolgens de opdracht `fg` om de streamingtaak weer op de voorgrond uit te voeren. Gebruik __Ctrl + C__ om af te sluiten.
 
-<a id="delete-the-cluster" class="xliff"></a>
-
-## Het cluster verwijderen
+## <a name="delete-the-cluster"></a>Het cluster verwijderen
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-<a id="troubleshoot" class="xliff"></a>
-
-## Problemen oplossen
+## <a name="troubleshoot"></a>Problemen oplossen
 
 Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#create-clusters) als u problemen ondervindt met het maken van HDInsight-clusters.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 In dit document hebt u de basisbeginselen geleerd van hoe u met Apache Kafka in HDInsight werkt. Gebruik de volgende documenten voor meer informatie over het werken met Kafka:
 

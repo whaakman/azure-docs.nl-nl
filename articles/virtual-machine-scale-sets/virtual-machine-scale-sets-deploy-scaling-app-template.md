@@ -24,20 +24,14 @@ ms.lasthandoff: 06/09/2017
 
 ---
 
-<a id="deploy-an-autoscaling-app-using-a-template" class="xliff"></a>
-
-# Een automatisch schalende app implementeren met een sjabloon
+# <a name="deploy-an-autoscaling-app-using-a-template"></a>Een automatisch schalende app implementeren met een sjabloon
 
 [Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) zijn bijzonder handig om groepen gerelateerde resources te implementeren. In deze zelfstudie wordt verder ingegaan op [Een eenvoudige schaalset implementeren](virtual-machine-scale-sets-mvss-start.md) en wordt beschreven hoe u een eenvoudige, automatisch schalende toepassing kunt implementeren op een schaalset met een Azure Resource Manager-sjabloon.  U kunt automatisch schalen ook instellen met PowerShell, CLI of de portal. Zie het [overzicht van automatisch schalen](virtual-machine-scale-sets-autoscale-overview.md) voor meer informatie.
 
-<a id="two-quickstart-templates" class="xliff"></a>
-
-## Twee snelstartsjablonen
+## <a name="two-quickstart-templates"></a>Twee snelstartsjablonen
 Wanneer u een schaalset implementeert, kunt u nieuwe software installeren op een platforminstallatiekopie met een [VM-extensie](../virtual-machines/virtual-machines-windows-extensions-features.md). Een VM-extensie is een kleine toepassing waarmee configuratie- en automatiseringstaken na de implementatie worden uitgevoerd op virtuele Azure-machines, zoals het implementeren van een app. In [Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) vindt u twee voorbeeldsjablonen waarin u kunt zien hoe u een automatisch schalende toepassing implementeert op een schaalset met VM-extensies.
 
-<a id="python-http-server-on-linux" class="xliff"></a>
-
-### Python HTTP-server op Linux
+### <a name="python-http-server-on-linux"></a>Python HTTP-server op Linux
 Met de voorbeeldsjabloon [Python HTTP-server op Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) wordt een eenvoudige, automatisch schalende toepassing geïmplementeerd die wordt uitgevoerd op een Linux-schaalset.  Op elke VM in de schaalset worden [Bottle](http://bottlepy.org/docs/dev/), een Python-webframework, en een eenvoudige HTTP-server geïmplementeerd met behulp van een VM-extensie met een aangepast script. De schaalset schaalt omhoog wanneer gemiddeld CPU-gebruik over alle VM's hoger is dan 60% en schaalt omlaag wanneer het gemiddelde CPU-gebruik lager is dan 30%.
 
 Naast de schaalsetresource worden met de voorbeeldsjabloon *azuredeploy.json* ook de resources voor het virtuele netwerk, het openbare IP-adres, de load balancer en instellingen voor automatisch schalen gedeclareerd.  Zie [Linux-schaalset met automatisch schalen](virtual-machine-scale-sets-linux-autoscale.md) voor meer informatie over het maken van deze resources in een sjabloon.
@@ -67,9 +61,7 @@ In de sjabloon *azuredeploy.json* wordt met de eigenschap `extensionProfile` van
           }
 ```
 
-<a id="aspnet-mvc-application-on-windows" class="xliff"></a>
-
-### ASP.NET MVC-toepassing in Windows
+### <a name="aspnet-mvc-application-on-windows"></a>ASP.NET MVC-toepassing in Windows
 Met de voorbeeldsjabloon [ASP.NET MVC-toepassing in Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) wordt een eenvoudige ASP.NET MVC-app geïmplementeerd die wordt uitgevoerd in IIS op een Windows-schaalset.  IIS en de MVC-app worden geïmplementeerd met de VM-extensie [PowerShell Desired State Configuration (DSC)](virtual-machine-scale-sets-dsc.md).  De schaalset schaalt omhoog (één VM-exemplaar tegelijk) wanneer het CPU-gebruik gedurende vijf minuten hoger is dan 50%. 
 
 Naast de schaalsetresource worden met de voorbeeldsjabloon *azuredeploy.json* ook de resources voor het virtuele netwerk, het openbare IP-adres, de load balancer en instellingen voor automatisch schalen gedeclareerd. In deze sjabloon kunt u ook een toepassingsupgrade bekijken.  Zie [Windows-schaalset met automatisch schalen](virtual-machine-scale-sets-windows-autoscale.md) voor meer informatie over het maken van deze resources in een sjabloon.
@@ -104,14 +96,10 @@ In de sjabloon *azuredeploy.json* wordt met de eigenschap `extensionProfile` van
           }
 ```
 
-<a id="deploy-the-template" class="xliff"></a>
-
-## De sjabloon implementeren
+## <a name="deploy-the-template"></a>De sjabloon implementeren
 U kunt de sjabloon [Python HTTP-server op Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) of [ASP.NET MVC-toepassing in Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) het eenvoudigst implementeren met de knop **Implementeren in Azure** in de Leesmij-bestanden in GitHub.  U kunt ook PowerShell of Azure CLI gebruiken om de voorbeeldsjablonen te implementeren.
 
-<a id="powershell" class="xliff"></a>
-
-### PowerShell
+### <a name="powershell"></a>PowerShell
 Kopieer de bestanden voor [Python HTTP-server op Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) of [ASP.NET MVC-toepassing in Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) van de GitHub-opslagplaats naar een map op uw lokale computer.  Open het bestand *azuredeploy.parameters.json* en werk de standaardwaarden van de parameters `vmssName`, `adminUsername` en `adminPassword` bij. Sla het volgende PowerShell-script voor *deploy.ps1* op in dezelfde map als de sjabloon *azuredeploy.json*. Als u de voorbeeldsjabloon wilt implementeren, voert u het script *deploy.ps1* uit vanuit een PowerShell-opdrachtvenster.
 
 ```powershell
@@ -198,9 +186,7 @@ if(Test-Path $parametersFilePath) {
 }
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
 

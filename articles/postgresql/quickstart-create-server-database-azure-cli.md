@@ -17,9 +17,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/20/2017
 
 ---
-<a id="create-an-azure-database-for-postgresql-using-the-azure-cli" class="xliff"></a>
-
-# Een Azure-database voor PostgreSQL maken met de Azure CLI
+# <a name="create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Een Azure-database voor PostgreSQL maken met de Azure CLI
 Azure Database voor PostgreSQL is een beheerde service waarmee u PostgreSQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. Deze Quick Start laat zien hoe u een Azure-database voor PostgreSQL-server kunt maken in een [Azure resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) met de Azure CLI.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
@@ -33,18 +31,14 @@ Als u meerdere abonnementen hebt, kiest u het juiste abonnement waarin de resour
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Een resourcegroep maken
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 Maak een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met de opdracht [az group create](/cli/azure/group#create). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en groepsgewijs worden beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam `myresourcegroup` gemaakt op de locatie `westus`.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
 
-<a id="create-an-azure-database-for-postgresql-server" class="xliff"></a>
-
-## Een Azure-database voor PostgreSQL-server maken
+## <a name="create-an-azure-database-for-postgresql-server"></a>Een Azure-database voor PostgreSQL-server maken
 
 Maak een [Azure-database voor PostgreSQL-server](overview.md) met behulp van de opdracht [az postgres server create](/cli/azure/postgres/server#create). Een server bevat een groep met databases die worden beheerd als groep. 
 
@@ -59,9 +53,7 @@ az postgres server create --resource-group myresourcegroup --name mypgserver-201
 De database **postgres** wordt standaard gemaakt op uw server. De database [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) is een standaarddatabase die kan worden gebruikt door gebruikers, hulpprogramma's en toepassingen van derden. 
 
 
-<a id="configure-a-server-level-firewall-rule" class="xliff"></a>
-
-## Een serverfirewallregel configureren
+## <a name="configure-a-server-level-firewall-rule"></a>Een serverfirewallregel configureren
 
 Maak een Azure PostgreSQL-firewallregel op serverniveau met de opdracht [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create). Met een firewallregel op serverniveau kan een externe toepassing, zoals [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) of [PgAdmin](https://www.pgadmin.org/) verbinding maken met uw server via de firewall van de Azure PostgreSQL-service. 
 
@@ -73,9 +65,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 > [!NOTE]
 > De Azure PostgreSQL-server communiceert via poort 5432. Als u verbinding maakt vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 5432 mogelijk niet toegestaan door de firewall van uw netwerk. Vraag aan de IT-afdeling of ze poort 5432 willen openen, zodat u verbinding kunt maken met uw Azure SQL Database-server.
 
-<a id="get-the-connection-information" class="xliff"></a>
-
-## De verbindingsgegevens ophalen
+## <a name="get-the-connection-information"></a>De verbindingsgegevens ophalen
 
 Als u verbinding met uw server wilt maken, moet u hostgegevens en toegangsreferenties opgeven.
 ```azurecli-interactive
@@ -107,9 +97,7 @@ Het resultaat wordt in JSON-indeling weergegeven. Noteer de **aanmeldgegevens va
 }
 ```
 
-<a id="connect-to-postgresql-database-using-psql" class="xliff"></a>
-
-## Verbinding maken met een PostgreSQL-database met behulp van psql
+## <a name="connect-to-postgresql-database-using-psql"></a>Verbinding maken met een PostgreSQL-database met behulp van psql
 
 Als op uw clientcomputer PostgreSQL is geïnstalleerd, kunt u een lokale instantie van [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) gebruiken om verbinding te maken met een Azure PostgreSQL-server. We gaan nu het opdrachtregelprogramma psql gebruiken om verbinding te maken met de Azure PostgreSQL-server.
 
@@ -134,9 +122,7 @@ CREATE DATABASE mypgsqldb;
 \c mypgsqldb
 ```
 
-<a id="connect-to-postgresql-database-using-pgadmin" class="xliff"></a>
-
-## Verbinding maken met een PostgreSQL-database met behulp van pgAdmin
+## <a name="connect-to-postgresql-database-using-pgadmin"></a>Verbinding maken met een PostgreSQL-database met behulp van pgAdmin
 
 Verbinding maken met een Azure PostgreSQL-server met behulp van het GUI-hulpprogramma _pgAdmin_
 1.  Start de toepassing _pgAdmin_ op uw clientcomputer. U kunt _pgAdmin_ installeren via http://www.pgadmin.org/.
@@ -160,9 +146,7 @@ Verbinding maken met een Azure PostgreSQL-server met behulp van het GUI-hulpprog
  ![pgAdmin - Maken - Database](./media/quickstart-create-server-database-azure-cli/3-pgadmin-database.png)
 
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Resources opschonen
+## <a name="clean-up-resources"></a>Resources opschonen
 
 Verwijder alle resources die u in deze Quick Start hebt gemaakt door de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) te verwijderen.
 
@@ -178,9 +162,7 @@ Als u alleen de zojuist gemaakte server wilt verwijderen, kunt u de opdracht [az
 az postgres server delete --resource-group myresourcegroup --name mypgserver-20170401
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
 > [Een database migreren met behulp van Exporteren en importeren](./howto-migrate-using-export-and-import.md)
 

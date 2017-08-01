@@ -23,17 +23,13 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/26/2017
 
 ---
-<a id="add-messages-to-an-azure-storage-queue-using-functions" class="xliff"></a>
-
-# Berichten aan een Azure Storage-wachtrij toevoegen met behulp van Functions
+# <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Berichten aan een Azure Storage-wachtrij toevoegen met behulp van Functions
 
 In Azure Functions bieden invoer- en uitvoerbindingen een verklarende manier om verbinding te maken met externe servicegegevens vanuit uw functie. In dit onderwerp vindt u informatie over hoe u een bestaande functie kunt bijwerken door een uitvoerbinding toe te voegen waarmee u berichten naar Azure Queue Storage verzendt.  
 
 ![Bekijk het bericht in de logboeken.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten 
+## <a name="prerequisites"></a>Vereisten 
 
 [!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
 
@@ -61,9 +57,7 @@ In Azure Functions bieden invoer- en uitvoerbindingen een verklarende manier om 
 
 Nu u een uitvoerbinding hebt gedefinieerd, moet u de code bijwerken, zodat u de binding kunt gebruiken om berichten aan een wachtrij toe te voegen.  
 
-<a id="update-the-function-code" class="xliff"></a>
-
-## De functiecode bijwerken
+## <a name="update-the-function-code"></a>De functiecode bijwerken
 
 1. Selecteer de functie om de functiecode in de editor weer te geven. 
 
@@ -92,9 +86,7 @@ Nu u een uitvoerbinding hebt gedefinieerd, moet u de code bijwerken, zodat u de 
 
 De waarde die aan de HTTP-trigger wordt doorgegeven, is opgenomen in een bericht dat aan de wachtrij wordt toegevoegd.
  
-<a id="test-the-function" class="xliff"></a>
-
-## De functie testen 
+## <a name="test-the-function"></a>De functie testen 
 
 1. Nadat de codewijzigingen zijn opgeslagen, selecteert u **Uitvoeren**. 
 
@@ -104,9 +96,7 @@ De waarde die aan de HTTP-trigger wordt doorgegeven, is opgenomen in een bericht
 
 Vervolgens kunt u verbinding maken met uw opslagaccount om de nieuwe wachtrij en het bericht dat u hieraan hebt toegevoegd te controleren. 
 
-<a id="connect-to-the-queue" class="xliff"></a>
-
-## Verbinding met de wachtrij maken
+## <a name="connect-to-the-queue"></a>Verbinding met de wachtrij maken
 
 Sla de eerste drie stappen over als u Storage Explorer al hebt geïnstalleerd en met uw opslagaccount hebt verbonden.    
 
@@ -127,15 +117,11 @@ Sla de eerste drie stappen over als u Storage Explorer al hebt geïnstalleerd en
     ![Maak een opslagwachtrij.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Resources opschonen
+## <a name="clean-up-resources"></a>Resources opschonen
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 U hebt een uitvoerbinding aan een bestaande functie toegevoegd. 
 

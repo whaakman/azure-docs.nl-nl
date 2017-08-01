@@ -23,9 +23,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal" class="xliff"></a>
-
-# Azure Cosmos DB: een DocumentDB API-webapp ontwikkelen met .NET en Azure Portal
+# <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: een DocumentDB API-webapp ontwikkelen met .NET en Azure Portal
 
 Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
@@ -33,32 +31,24 @@ Deze Quick Start laat zien hoe u een Azure Cosmos DB-account, een documentdataba
 
 ![Taken-app met voorbeeldgegevens](./media/create-documentdb-dotnet/azure-comosdb-todo-app-list.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 <a id="create-account"></a>
-<a id="create-a-database-account" class="xliff"></a>
-
-## Een databaseaccount maken
+## <a name="create-a-database-account"></a>Een databaseaccount maken
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 <a id="create-collection"></a>
-<a id="add-a-collection" class="xliff"></a>
-
-## Een verzameling toevoegen
+## <a name="add-a-collection"></a>Een verzameling toevoegen
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 <a id="add-sample-data"></a>
-<a id="add-sample-data" class="xliff"></a>
-
-## Voorbeeldgegevens toevoegen
+## <a name="add-sample-data"></a>Voorbeeldgegevens toevoegen
 
 U kunt nu gegevens aan uw nieuwe verzameling toevoegen met behulp van Data Explorer.
 
@@ -86,9 +76,7 @@ U kunt nu gegevens aan uw nieuwe verzameling toevoegen met behulp van Data Explo
  
      U kunt Data Explorer ook gebruiken voor het maken van opgeslagen procedures, UDF's en triggers om bedrijfslogica aan de serverzijde uit te voeren en doorvoer te schalen. In Data Explorer wordt alle ingebouwde programmatische gegevenstoegang zichtbaar die beschikbaar is in de API's, maar biedt eenvoudige toegang tot uw gegevens in Azure Portal.
 
-<a id="clone-the-sample-application" class="xliff"></a>
-
-## De voorbeeldtoepassing klonen
+## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
 We gaan nu een DocumentDB API-app klonen vanuit GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
 
@@ -102,9 +90,7 @@ We gaan nu een DocumentDB API-app klonen vanuit GitHub, de verbindingsreeks inst
 
 3. Open vervolgens het todo-oplossingenbestand in Visual Studio. 
 
-<a id="review-the-code" class="xliff"></a>
-
-## De code bekijken
+## <a name="review-the-code"></a>De code bekijken
 
 Laten we eens kijken wat er precies gebeurt in de app. Open het bestand DocumentDBRepository.cs en u zult zien dat deze regels code de Azure Cosmos DB-resources maken. 
 
@@ -129,9 +115,7 @@ Laten we eens kijken wat er precies gebeurt in de app. Open het bestand Document
         new RequestOptions { OfferThroughput = 1000 });
     ```
 
-<a id="update-your-connection-string" class="xliff"></a>
-
-## Uw verbindingsreeks bijwerken
+## <a name="update-your-connection-string"></a>Uw verbindingsreeks bijwerken
 
 Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app.
 
@@ -149,9 +133,7 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
     `<add key="authKey" value="FILLME" />`
     
-<a id="run-the-web-app" class="xliff"></a>
-
-## De web-app uitvoeren
+## <a name="run-the-web-app"></a>De web-app uitvoeren
 1. Klik in Visual Studio met de rechtermuisknop op het project in **Solution Explorer** en klik vervolgens op **NuGet-pakketten beheren**. 
 
 2. Typ in het NuGet-vak **Bladeren** *DocumentDB*.
@@ -166,24 +148,18 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
 U kunt nu teruggaan naar Data Explorer en deze nieuwe gegevens bekijken, wijzigen, een query erop uitvoeren of er iets anders mee doen. 
 
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
-
-## SLA’s bekijken in Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>SLA’s bekijken in Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Resources opschonen
+## <a name="clean-up-resources"></a>Resources opschonen
 
 Als u deze app niet verder gaat gebruiken, kunt u alle resources verwijderen die door deze Quick Start zijn aangemaakt door onderstaande stappen te volgen in Azure Portal:
 
 1. Klik in het menu aan de linkerkant in Azure Portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt. 
 2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ de naam van de resource die u wilt verwijderen in het tekstvak en klik vervolgens op **Verwijderen**.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 In deze Quick Start hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken, hoe u een verzameling kunt maken met Data Explorer en hebt u een web-app uitgevoerd. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren. 
 

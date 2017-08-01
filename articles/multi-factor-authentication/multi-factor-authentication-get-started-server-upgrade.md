@@ -22,14 +22,10 @@ ms.lasthandoff: 06/08/2017
 
 
 ---
-<a id="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server" class="xliff"></a>
-
-# De PhoneFactor-agent upgraden naar Azure Multi-Factor Authentication-server
+# <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>De PhoneFactor-agent upgraden naar Azure Multi-Factor Authentication-server
 Als u PhoneFactor-agent versie 5.x of ouder wilt upgraden naar Azure Multi-Factor Authentication-server, verwijdert u eerst de PhoneFactor-agent en alle bijbehorende onderdelen. Vervolgens kunnen de Multi-Factor Authentication-server en de bijbehorende onderdelen worden geïnstalleerd.
 
-<a id="uninstall-the-phonefactor-agent" class="xliff"></a>
-
-## De PhoneFactor-agent verwijderen
+## <a name="uninstall-the-phonefactor-agent"></a>De PhoneFactor-agent verwijderen
 
 1. Maak eerst een back-up van het PhoneFactor-gegevensbestand. De standaardlocatie voor installatie is C:\Program Files\PhoneFactor\Data\Phonefactor.pfdata.
 
@@ -50,9 +46,7 @@ Als u PhoneFactor-agent versie 5.x of ouder wilt upgraden naar Azure Multi-Facto
 
 5. Verwijder de PhoneFactor-agent via Windows Programma's en onderdelen.
 
-<a id="install-the-multi-factor-authentication-server" class="xliff"></a>
-
-## Installeer de Multi-Factor Authentication-server
+## <a name="install-the-multi-factor-authentication-server"></a>Installeer de Multi-Factor Authentication-server
 
 Het installatiepad wordt opgehaald uit het register van de vorige installatie van de PhoneFactor-agent. De installatielocatie is dus dezelfde (bijvoorbeeld C:\Program Files\PhoneFactor). Nieuwe installaties hebben een ander standaardinstallatiepad (bijvoorbeeld C:\Program Files\Multi-Factor Authentication Server). Het gegevensbestand van de vorige PhoneFactor-agent moet tijdens de installatie worden bijgewerkt zodat u uw gebruikers en instellingen niet kwijt bent na de installatie van de nieuwe Multi-Factor Authentication-server.
 
@@ -82,9 +76,7 @@ Het installatiepad wordt opgehaald uit het register van de vorige installatie va
 
   5. Ga naar de installatielocatie van de webservice voor mobiele apps (bijvoorbeeld C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) en bewerk het bestand web.config. Kopieer de waarden in de secties appSettings en applicationSettings van het oorspronkelijke bestand web.config, waarvan u vóór de upgrade een back-up hebt gemaakt, naar het nieuwe bestand web.config. Als tijdens de installatie van de webservice-SDK de nieuwe standaardnaam van de virtuele map is aangehouden, wijzigt u de URL in de sectie applicationSettings om naar de juiste locatie te verwijzen. Als in het vorige bestand web.config nog andere standaardinstellingen zijn gewijzigd, past u dezelfde wijzigingen ook toe op het nieuwe bestand web.config.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 - [De gebruikersportal installeren](multi-factor-authentication-get-started-portal.md) voor de Azure Multi-Factor Authentication-server.
 

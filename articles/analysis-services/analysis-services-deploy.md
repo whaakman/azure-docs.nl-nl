@@ -23,14 +23,10 @@ ms.lasthandoff: 06/03/2017
 
 
 ---
-<a id="deploy-a-model-from-ssdt" class="xliff"></a>
-
-# Een model implementeren vanuit SSDT
+# <a name="deploy-a-model-from-ssdt"></a>Een model implementeren vanuit SSDT
 Wanneer u een server in uw Azure-abonnement hebt gemaakt, kunt u een tabellaire modeldatabase op de server implementeren. U kunt SQL Server Data Tools (SSDT) gebruiken om een project voor een tabellair model te bouwen en implementeren waaraan u werkt. 
 
-<a id="before-you-begin" class="xliff"></a>
-
-## Voordat u begint
+## <a name="before-you-begin"></a>Voordat u begint
 Om aan de slag te gaan, hebt u het volgende nodig:
 
 * **Analysis Services-server** in Azure. Zie [Create an Azure Analysis Services server in Azure portal](analysis-services-create-server.md) (Een Azure Analysis Services-server maken in Azure Portal) voor meer informatie.
@@ -42,9 +38,7 @@ Om aan de slag te gaan, hebt u het volgende nodig:
 > 
 > 
 
-<a id="to-deploy-a-tabular-model-from-ssdt" class="xliff"></a>
-
-## Een tabellair model implementeren vanuit SSDT
+## <a name="to-deploy-a-tabular-model-from-ssdt"></a>Een tabellair model implementeren vanuit SSDT
 
 1. Voordat u kunt gaan implementeren, moet u de naam van de server weten. In **Azure Portal** > server > **Overview** > **Servernaam**,kopieer de servernaam.
    
@@ -63,16 +57,12 @@ Om aan de slag te gaan, hebt u het volgende nodig:
 Dat is alles!
 
 
-<a id="but-something-went-wrong" class="xliff"></a>
-
-## Maar er is iets verkeerd gegaan
+## <a name="but-something-went-wrong"></a>Maar er is iets verkeerd gegaan
 Als de implementatie mislukt tijdens het implementeren van metagegevens, is de kans groot dat SSDT geen verbinding kan maken met de server. Zorg ervoor dat u verbinding kunt maken met de server met behulp van SSMS. Controleer vervolgens of de eigenschap Deployment Server voor het project juist is ingesteld.
 
 Als de implementatie mislukt bij een tabel, komt dat waarschijnlijk omdat de server geen verbinding kan maken met een gegevensbron. Als uw gegevensbron on-premises in het netwerk van uw organisatie is opgeslagen, moet u een [on-premises gegevensgateway](analysis-services-gateway.md) installeren.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Uw tabellaire model is nu geïmplementeerd op de server en dus kunt u verbinding gaan maken met het model. Maak [verbinding via SSMS](analysis-services-manage.md) om het model te beheren. [Maak verbinding met een clienthulpprogramma](analysis-services-connect.md) zoals Power BI, Power BI Desktop of Excel om rapporten te gaan maken.
 
 

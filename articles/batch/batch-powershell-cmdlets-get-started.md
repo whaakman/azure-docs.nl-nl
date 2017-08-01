@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 5e1819a9f081284fa03e9355730689629166006f
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 015096a48e5287af6b225f16a38fac328ed28630
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Batch-resources beheren met PowerShell-cmdlets
@@ -101,7 +100,7 @@ Gebruik cmdlets zoals **New-AzureBatchPool**, **New-AzureBatchJob** en **New-Azu
 Wanneer u veel van deze cmdlets gebruikt, moet u niet alleen een BatchContext-object doorgeven, maar ook objecten maken of doorgeven die gedetailleerde resource-instellingen bevatten, zoals weergegeven in het volgende voorbeeld. Raadpleeg de gedetailleerde Help-informatie voor elke cmdlet voor meer voorbeelden.
 
 ### <a name="create-a-batch-pool"></a>Batch-pool maken
-Wanneer u een Batch-pool maakt of bijwerkt, selecteert u een cloud-serviceconfiguratie of een virtuele-machineconfiguratie voor het besturingssysteem op de rekenknooppunten (zie [Batch feature overview](batch-api-basics.md#pool) (Overzicht van Batch-functies)). Uw keuze bepaalt of van de rekenknooppunten een installatiekopie wordt gemaakt met een van de [Azure-gastbesturingssysteemreleases](../cloud-services/cloud-services-guestos-update-matrix.md#releases) of met een van de ondersteunde VM-images voor Linux of Windows in de Azure Marketplace.
+Wanneer u een Batch-pool maakt of bijwerkt, selecteert u de cloudserviceconfiguratie of de virtuele-machineconfiguratie voor het besturingssysteem op de rekenknooppunten (zie [Overzicht van Batch-functies](batch-api-basics.md#pool)). Als u de cloudserviceconfiguratie opgeeft, worden uw rekenknooppunten gerepliceerd met één van de [Azure-gastbesturingssysteemversies](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Als u de VM-configuratie opgeeft, kunt u één van de ondersteunde Linux- of Windows-VM-installatiekopieën opgeven die worden vermeld in de [Azure Virtual Machines Marketplace][vm_marketplace], of u geeft een aangepaste installatiekopie op die u hebt gemaakt.
 
 Bij het uitvoeren van **New-AzureBatchPool** geeft u de instellingen van het besturingssysteem door in een PSCloudServiceConfiguration- of PSVirtualMachineConfiguration-object. Met de volgende cmdlet wordt bijvoorbeeld een nieuwe Batch-pool gemaakt met rekenknooppunten met de grootte Klein in de cloudserviceconfiguratie, met een installatiekopie van de meest recente versie van het besturingssysteem van type 3 (Windows Server 2012). Hier geeft de parameter **CloudServiceConfiguration** de variabele *$configuration* op als het PSCloudServiceConfiguration-object. Met de parameter **BatchContext** wordt een eerder gedefinieerde variabele *$context* opgegeven als het BatchAccountContext-object.
 
@@ -241,4 +240,4 @@ Nu hebt u de eigenschappen van de adresgroep bijgewerkt in de Batch-service. Voo
 * Zie [Naslaginformatie over Azure Batch-cmdlets](/powershell/module/azurerm.batch/#batch) voor gedetailleerde cmdlet-syntaxis en voorbeelden.
 * Zie [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md) (Toepassingen implementeren naar rekenknooppunten met Batch-toepassingspakketten) voor meer informatie over toepassingen en toepassingspakketten in Batch.
 
-
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/

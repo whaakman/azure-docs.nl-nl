@@ -22,8 +22,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 07/06/2017
 
 ---
-# Een Node.js-web-app maken in Azure
-<a id="create-a-nodejs-web-app-in-azure" class="xliff"></a>
+# <a name="create-a-nodejs-web-app-in-azure"></a>Een Node.js-web-app maken in Azure
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze Quickstart laat zien hoe u een Node.js-app naar Azure Web Apps implementeert. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en gebruikt Git om voorbeeldcode van Node.js in de web-app te implementeren.
 
@@ -31,8 +30,7 @@ ms.lasthandoff: 07/06/2017
 
 U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux-computer. Vanaf het moment dat de vereiste onderdelen zijn geïnstalleerd, duurt het ongeveer vijf minuten om de stappen uit te voeren.
 
-## Vereisten
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Vereisten
 
 Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
@@ -45,8 +43,7 @@ Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
-## Het voorbeeld downloaden
-<a id="download-the-sample" class="xliff"></a>
+## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
 Voer in een terminalvenster de volgende opdracht uit om de opslagplaats van de voorbeeld-app te klonen op uw lokale computer.
 
@@ -62,8 +59,7 @@ Ga naar de map die de voorbeeldcode bevat.
 cd nodejs-docs-hello-world
 ```
 
-## De app lokaal uitvoeren
-<a id="run-the-app-locally" class="xliff"></a>
+## <a name="run-the-app-locally"></a>De app lokaal uitvoeren
 
 Voer de toepassing lokaal uit door een terminalvenster te openen en met het script `npm start` de ingebouwde Node.js HTTP-server te starten.
 
@@ -131,8 +127,7 @@ To https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
  * [new branch]      master -> master
 ```
 
-## Bladeren naar de app
-<a id="browse-to-the-app" class="xliff"></a>
+## <a name="browse-to-the-app"></a>Bladeren naar de app
 
 Blader naar de geïmplementeerde toepassing via uw webbrowser.
 
@@ -146,8 +141,7 @@ De Node.js-voorbeeldcode wordt uitgevoerd in een web-app van Azure App Service.
 
 **Gefeliciteerd!** U hebt uw eerste Node.js-app geïmplementeerd in App Service.
 
-## De code bijwerken en opnieuw implementeren
-<a id="update-and-redeploy-the-code" class="xliff"></a>
+## <a name="update-and-redeploy-the-code"></a>De code bijwerken en opnieuw implementeren
 
 Open met een teksteditor het bestand `index.js` binnen de Node.js-app en breng een kleine wijziging aan in de tekst in de aanroep naar `response.end`:
 
@@ -166,8 +160,7 @@ Als de implementatie is voltooid, gaat u terug naar het browservenster dat is ge
 
 ![Bijgewerkte voorbeeld-app die wordt uitgevoerd in Azure](media/app-service-web-get-started-nodejs-poc/hello-azure-in-browser.png)
 
-## Uw nieuwe Azure-web-app beheren
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
+## <a name="manage-your-new-azure-web-app"></a>Uw nieuwe Azure-web-app beheren
 
 Ga naar <a href="https://portal.azure.com" target="_blank">Azure Portal</a> om de web-app te beheren die u hebt gemaakt.
 
@@ -183,8 +176,7 @@ Het linkermenu bevat een aantal pagina's voor het configureren van uw app.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## Volgende stappen
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
 > [Node.js met MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)

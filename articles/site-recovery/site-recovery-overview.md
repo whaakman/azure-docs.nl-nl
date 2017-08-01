@@ -22,15 +22,11 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="what-is-site-recovery" class="xliff"></a>
-
-# Wat is Site Recovery?
+# <a name="what-is-site-recovery"></a>Wat is Site Recovery?
 
 Welkom bij de Azure Site Recovery-service! In dit artikel vindt u een kort overzicht van de service.
 
-<a id="business-continuity-and-disaster-recovery-bdcr-with-azure-recovery-services" class="xliff"></a>
-
-## Bedrijfscontinuïteit en herstel na noodgevallen (BCDR) met Azure Recovery Services
+## <a name="business-continuity-and-disaster-recovery-bdcr-with-azure-recovery-services"></a>Bedrijfscontinuïteit en herstel na noodgevallen (BCDR) met Azure Recovery Services
 
 Als organisatie moet u nagaan hoe u uw gegevens kunt beveiligen en apps/workloads kunt uitvoeren wanneer geplande en niet-geplande uitval optreedt.
 
@@ -45,9 +41,7 @@ Met Site Recovery kunt u replicatie beheren voor:
 - On-premises virtuele machines en fysieke servers die worden gerepliceerd naar Azure of naar een secundaire site.
 
 
-<a id="what-does-site-recovery-provide" class="xliff"></a>
-
-## Wat biedt Site Recovery?
+## <a name="what-does-site-recovery-provide"></a>Wat biedt Site Recovery?
 
 **Functie** | **Details**
 --- | ---
@@ -66,9 +60,7 @@ Met Site Recovery kunt u replicatie beheren voor:
 **Netwerkinstellingen beheren** | Site Recovery kan worden geïntegreerd met Azure voor eenvoudig toepassingsnetwerkbeheer, waaronder het reserveren van IP-adressen, het configureren van load balancers en het integreren van Azure Traffic Manager voor het efficiënt schakelen tussen netwerken.
 
 
-<a id="what-can-i-replicate" class="xliff"></a>
-
-## Wat kan ik repliceren?
+## <a name="what-can-i-replicate"></a>Wat kan ik repliceren?
 
 **Ondersteund** | **Details**
 --- | ---
@@ -79,17 +71,13 @@ Met Site Recovery kunt u replicatie beheren voor:
 **Welke workloads kan ik repliceren?** | U kunt iedere werkload repliceren die wordt uitgevoerd op een ondersteunde replicatiemachine. Daarnaast heeft het Site Recovery-team specifieke tests uitgevoerd voor een [aantal apps](site-recovery-workload.md#workload-summary).
 
 
-<a id="azure-portal-considerations" class="xliff"></a>
-
-## Overwegingen voor Azure Portal
+## <a name="azure-portal-considerations"></a>Overwegingen voor Azure Portal
 
 * Site Recovery kan worden geïmplementeerd in [Azure Portal](https://portal.azure.com).
 * In de klassieke Azure Portal kunt u Site Recovery beheren met het klassieke model voor het beheren van services.
 - De klassieke portal moet alleen worden gebruikt voor het onderhouden van de bestaande Site Recovery-implementaties. U kunt via de klassieke portal geen nieuwe kluizen maken.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [workloadondersteuning](site-recovery-workload.md)
 * Aan de slag met [Azure VM-replicatie tussen regio's](site-recovery-azure-to-azure.md), [VMware-replicatie naar Azure](vmware-walkthrough-overview.md) of [Hyper-V-replicatie naar Azure](hyper-v-site-walkthrough-overview.md).
 

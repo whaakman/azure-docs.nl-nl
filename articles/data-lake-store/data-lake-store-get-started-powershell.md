@@ -22,9 +22,7 @@ ms.lasthandoff: 07/01/2017
 
 
 ---
-<a id="get-started-with-azure-data-lake-store-using-azure-powershell" class="xliff"></a>
-
-# Aan de slag met Azure Data Lake Store met Azure PowerShell
+# <a name="get-started-with-azure-data-lake-store-using-azure-powershell"></a>Aan de slag met Azure Data Lake Store met Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -39,22 +37,16 @@ ms.lasthandoff: 07/01/2017
 
 Lees hoe u met Azure PowerShell een Azure Data Lake Store-account maakt en basisbewerkingen uitvoert, zoals het maken van mappen, uploaden en downloaden van gegevensbestanden, verwijderen van uw account enzovoort. Zie [Overzicht van Data Lake Store](data-lake-store-overview.md) voor meer informatie over Data Lake Store.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaan:
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 of hoger**. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview).
 
-<a id="authentication" class="xliff"></a>
-
-## Authentication
+## <a name="authentication"></a>Authentication
 In dit artikel wordt een eenvoudigere verificatiemethode met Data Lake Store gebruikt, waarbij u wordt gevraagd de referenties van uw Azure-account in te voeren. Het toegangsniveau voor het account en bestandssysteem van Data Lake Store wordt vervolgens bepaald door het toegangsniveau van de aangemelde gebruiker. Er zijn echter ook andere manieren om te verifiëren in Data Lake Store, zoals **verificatie door eindgebruikers** en **service-naar-serviceverificatie**. Zie [Verificatie door eindgebruikers](data-lake-store-end-user-authenticate-using-active-directory.md) of [Service-to-serviceverificatie](data-lake-store-authenticate-using-active-directory.md) voor instructies en meer informatie over verificatie.
 
-<a id="create-an-azure-data-lake-store-account" class="xliff"></a>
-
-## Een Azure Data Lake Store-account maken
+## <a name="create-an-azure-data-lake-store-account"></a>Een Azure Data Lake Store-account maken
 1. Open vanaf het bureaublad een nieuw Windows PowerShell-venster en voer het volgende fragment in om u aan te melden bij uw Azure-account, het abonnement in te stellen en de Data Lake Store-provider te registreren. Wanneer u wordt gevraagd om u aan te melden, zorg dan dat u zich aanmeldt als een van de beheerders/eigenaars van het abonnement:
 
         # Log in to your Azure account
@@ -86,9 +78,7 @@ In dit artikel wordt een eenvoudigere verificatiemethode met Data Lake Store geb
 
     De uitvoer hiervan moet **waar** zijn.
 
-<a id="create-directory-structures-in-your-azure-data-lake-store" class="xliff"></a>
-
-## Mapstructuren maken in uw Azure Data Lake Store
+## <a name="create-directory-structures-in-your-azure-data-lake-store"></a>Mapstructuren maken in uw Azure Data Lake Store
 U kunt onder uw Azure Data Lake Store-account mappen maken om gegevens te beheren en op te slaan.
 
 1. Geef een hoofdmap op.
@@ -105,9 +95,7 @@ U kunt onder uw Azure Data Lake Store-account mappen maken om gegevens te behere
 
     ![Map controleren](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Map controleren")
 
-<a id="upload-data-to-your-azure-data-lake-store" class="xliff"></a>
-
-## Gegevens uploaden naar uw Azure Data Lake Store
+## <a name="upload-data-to-your-azure-data-lake-store"></a>Gegevens uploaden naar uw Azure Data Lake Store
 Als u gegevens uploadt naar Data Lake Store, kunt u dat direct naar het hoogste niveau doen of naar een map die u in het account hebt gemaakt. In de codefragmenten hieronder ziet u hoe u voorbeeldgegevens uploadt naar de map (**mynewfolder**) die u in de voorgaande sectie hebt gemaakt.
 
 Als u nog geen voorbeeldgegevens hebt om te uploaden, kunt u de map **Ambulance Data** uit de [Azure Data Lake Git-opslagplaats](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData) gebruiken. Download het bestand en sla het in een lokale map op uw computer op, bijvoorbeeld C:\sampledata\.
@@ -115,9 +103,7 @@ Als u nog geen voorbeeldgegevens hebt om te uploaden, kunt u de map **Ambulance 
     Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\sampledata\vehicle1_09142014.csv" -Destination $myrootdir\mynewdirectory\vehicle1_09142014.csv
 
 
-<a id="rename-download-and-delete-data-from-your-data-lake-store" class="xliff"></a>
-
-## Gegevens in uw Data Lake Store een nieuwe naam geven, downloaden en verwijderen
+## <a name="rename-download-and-delete-data-from-your-data-lake-store"></a>Gegevens in uw Data Lake Store een nieuwe naam geven, downloaden en verwijderen
 Als u de naam van een bestand wilt wijzigen, gebruikt u de volgende opdracht:
 
     Move-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $myrootdir\mynewdirectory\vehicle1_09142014.csv -Destination $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
@@ -134,18 +120,14 @@ Wanneer dit wordt gevraagd, typt u **Y** om het item te verwijderen. Als u meer 
 
     Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
 
-<a id="delete-your-azure-data-lake-store-account" class="xliff"></a>
-
-## Uw Azure Data Lake Store-account verwijderen
+## <a name="delete-your-azure-data-lake-store-account"></a>Uw Azure Data Lake Store-account verwijderen
 Gebruik de volgende opdracht om uw Data Lake Store-account te verwijderen.
 
     Remove-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
 Wanneer dit wordt gevraagd, typt u **Y** om het account te verwijderen.
 
-<a id="performance-guidance-while-using-powershell" class="xliff"></a>
-
-## Prestatierichtlijnen bij het gebruik van PowerShell
+## <a name="performance-guidance-while-using-powershell"></a>Prestatierichtlijnen bij het gebruik van PowerShell
 
 Hieronder volgen de belangrijkste instellingen die u kunt aanpassen voor de beste prestaties wanneer u PowerShell gebruikt met Data Lake Store:
 
@@ -160,9 +142,7 @@ Met deze opdracht worden bestanden vanuit Azure Data Lake Store naar de lokale s
 
     Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Store account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
 
-<a id="how-do-i-determine-the-value-to-set-for-these-parameters" class="xliff"></a>
-
-### Hoe bepaal ik welke waarden ik moet instellen voor deze parameters?
+### <a name="how-do-i-determine-the-value-to-set-for-these-parameters"></a>Hoe bepaal ik welke waarden ik moet instellen voor deze parameters?
 
 Hier volgen een aantal richtlijnen.
 
@@ -199,9 +179,7 @@ Hier volgen een aantal richtlijnen.
 
     De **ConcurrentFileCount** is **2,4**, wat we kunnen afronden naar **2**.
 
-<a id="further-tuning" class="xliff"></a>
-
-### Verder afstemmen
+### <a name="further-tuning"></a>Verder afstemmen
 
 Mogelijk is verder afstemmen nodig omdat u werkt met bestanden van uiteenlopende groottes. De bovenstaande berekening werkt goed als alle of de meeste bestanden ongeveer 10 GB zijn. Als het echter bestanden van zeer uiteenlopende groottes betreft, waarbij veel bestanden kleiner zijn, kunt u de PerFileThreadCount verlagen. Als we de PerFileThreadCount verlagen, kunnen we de ConcurrentFileCount verhogen. Als we er vanuit gaan dat de meeste bestanden kleiner dan 5 GB zijn, kunnen we onze berekening opnieuw doen:
 
@@ -211,9 +189,7 @@ De **ConcurrentFileCount** is nu 96/20 = 4,8, wat kan worden afgerond naar **4**
 
 U kunt deze instellingen blijven aanpassen door de **PerFileThreadCount** te verhogen of te verlagen, afhankelijk van de verdeling van de bestandsgroottes.
 
-<a id="limitation" class="xliff"></a>
-
-### Beperking
+### <a name="limitation"></a>Beperking
 
 * **Het aantal bestanden is lager dan de ConcurrentFileCount**: als het aantal bestanden dat u uploadt lager is dan de **ConcurrentFileCount** die u hebt berekend, dient u de **ConcurrentFileCount** te verlagen tot deze gelijk is met het aantal bestanden. U kunt eventuele overblijvende threads gebruiken om de **PerFileThreadCount** te verhogen.
 
@@ -223,9 +199,7 @@ U kunt deze instellingen blijven aanpassen door de **PerFileThreadCount** te ver
 
 * **Beperkingsfouten**: er treden mogelijk beperkingsfouten op als uw gelijktijdigheid te hoog is. Als er beperkingsfouten optreden, dient u uw gelijktijdigheid te verkleinen of contact met ons op te nemen.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 * [Gegevens in Data Lake Store beveiligen](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics gebruiken met Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight gebruiken met Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

@@ -13,36 +13,41 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 07/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: e0e658fc392bf6a53f777f22a2e0b6e7bd742f97
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 8bad198488c4940a83eb32ec02122a91d47ca86c
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-overview"></a>Overzicht van de vooraf geconfigureerde oplossing voor voorspeld onderhoud
 
 De [vooraf geconfigureerde oplossing][lnk_preconfigured_solutions] voor *voorspellend onderhoud* is een van de vooraf geconfigureerde oplossingen van [Microsoft Azure IoT Suite][lnk_iot_suite]. Deze oplossing integreert het in realtime verzamelen van telemetriegegevens met een voorspellend model dat is gemaakt met behulp van [Azure Machine Learning][lnk-machine-learning].
 
-Met Azure IoT Suite kan een bedrijf snel en eenvoudig verbinding maken met assets en deze controleren, en gegevens in realtime analyseren. De vooraf geconfigureerde oplossing voor voorspeld onderhoud neemt de gegevens en gebruikt uitgebreide dashboards en visualisaties om u nieuwe bedrijfsinformatie te bieden waardoor u efficiënter kunt werken en meer inkomsten kunt genereren.
+Met Azure IoT Suite kunt u snel en eenvoudig verbinding maken met assets en deze controleren, en telemetriegegevens in realtime analyseren in dashboards en visualisaties. De oplossing voor predictief onderhoud bevat dashboards en visualisaties om u nieuwe bedrijfsinformatie te bieden waardoor u efficiënter kunt werken en meer inkomsten kunt genereren.
 
 ## <a name="the-scenario"></a>Het scenario
-Fabrikam is een regionale luchtvaartmaatschappij die zich toelegt op het leveren van een uitstekende klantervaring tegen concurrerende prijzen. Een oorzaak van vertragingen zijn onderhoudsproblemen, waarbij het onderhoud van vliegtuigmotoren een bijzondere uitdaging vormt. Dat er problemen met motoren ontstaan tijdens de vlucht moet koste wat kost worden voorkomen. Fabrikam inspecteert om die reden regelmatig de motoren en houdt zich aan een strikte planning voor het plegen van onderhoud. Vliegtuigmotoren slijten echter niet allemaal even snel. Soms wordt er onnodig onderhoud uitgevoerd op motoren. En wat belangrijker is, er doen zich soms problemen voor die ervoor zorgen dat een vliegtuig aan de grond moet blijven totdat het onderhoud is uitgevoerd. Deze problemen hebben kostbare vertragingen tot gevolg, in het bijzonder als een vliegtuig zich op een locatie bevindt waar de juiste technici of onderdelen niet beschikbaar zijn.
 
-De motoren van de vliegtuigen van Fabrikam zijn uitgerust met sensoren die de toestand van de motor tijdens de vlucht in de gaten houden. Fabrikam maakt gebruik van de vooraf geconfigureerde oplossing voor voorspellend onderhoud voor het verzamelen van de sensorgegevens die tijdens de vlucht worden verzameld. Na jarenlang operationele gegevens van engines te hebben verzameld, hebben de gegevensanalisten van Fabrikam een model samengesteld waarmee ze de nog resterende bruikbare levensduur van een vliegtuigmotor kunnen voorspellen. Ze hebben een correlatie ontdekt tussen de gegevens van vier van de motorsensoren en de slijtage van de motor die uiteindelijk tot problemen leidt. Hoewel Fabrikam doorgaat met het uitvoeren van regelmatige inspecties om de veiligheid te garanderen, kan het bedrijf nu de modellen gebruiken om na elke vlucht de resterende bruikbare levensduur van elke motor te berekenen. Het model gebruikt de telemetrie die tijdens de vlucht vanuit de machines is verzameld. Fabrikam is nu in staat om toekomstige probleempunten te voorspellen en om van tevoren onderhoud en reparatiewerkzaamheden te plannen.
+Fabrikam is een regionale luchtvaartmaatschappij die zich toelegt op het leveren van een uitstekende klantervaring tegen concurrerende prijzen. Een oorzaak van vertragingen zijn onderhoudsproblemen, waarbij het onderhoud van vliegtuigmotoren een bijzondere uitdaging vormt. Motorproblemen tijdens de vlucht moeten koste wat kost worden voorkomen. Fabrikam inspecteert om die reden regelmatig de motoren en volgt een planning voor het plegen van onderhoud. Vliegtuigmotoren slijten echter niet allemaal even snel. Soms wordt er onnodig onderhoud uitgevoerd op motoren. En wat belangrijker is, er doen zich soms problemen voor die ervoor zorgen dat een vliegtuig aan de grond moet blijven totdat het onderhoud is uitgevoerd. Deze problemen kunnen erg kostbaar zijn, in het bijzonder als een vliegtuig zich op een locatie bevindt waar de juiste technici of onderdelen niet beschikbaar zijn.
+
+De motoren van de vliegtuigen van Fabrikam zijn uitgerust met sensoren die de toestand van de motor tijdens de vlucht in de gaten houden. Fabrikam maakt gebruik van de oplossing voor predictief onderhoud voor het verzamelen van de sensorgegevens die tijdens de vlucht worden verzameld. Na jarenlang operationele gegevens van engines te hebben verzameld, hebben de gegevensanalisten van Fabrikam een model samengesteld waarmee ze de nog resterende bruikbare levensduur van een vliegtuigmotor kunnen voorspellen. Het model gebruikt een correlatie tussen gegevens van vier van de motorsensoren en de slijtage van de motor die uiteindelijk tot problemen leidt. Hoewel Fabrikam doorgaat met het uitvoeren van regelmatige inspecties om de veiligheid te garanderen, kan het bedrijf nu de modellen gebruiken om na elke vlucht de resterende bruikbare levensduur van elke motor te berekenen. Het model gebruikt de telemetrie die tijdens de vlucht vanuit de machines is verzameld. Fabrikam is nu in staat om toekomstige probleempunten te voorspellen en om van tevoren onderhoud en reparatiewerkzaamheden te plannen.
 
 > [!NOTE]
 > Het model van de oplossing maakt gebruik van de reële slijtagegegevens van de motor.
 
-Door het punt te voorspellen waarop onderhoud vereist is, kan Fabrikam zijn activiteiten zo optimaliseren dat de kosten worden verminderd. Onderhoudscoördinatoren werken met planners:
+Door het punt te voorspellen waarop onderhoud vereist is, kan Fabrikam zijn activiteiten zo optimaliseren dat de kosten worden verminderd.
+
+Onderhoudscoördinatoren werken met planners:
 
 - Om onderhoud zo te plannen dat dit samenvalt met een moment waarop een vliegtuig op een bepaalde locatie aan de grond staat.
 - Om ervoor te zorgen dat er voldoende tijd is om het vliegtuig buiten bedrijf te stellen zonder het vliegschema te verstoren.
 - Om technici zo in te plannen dat het onderhoud van het vliegtuig efficiënt en wordt uitgevoerd zonder dat er vertragingen ontstaan.
 
-Magazijnbeheerders ontvangen de onderhoudsplannen zodat zij hun bestelproces en hun voorraad met reserveonderdelen kunnen optimaliseren. Door al deze factoren is Fabrikam in staat om de tijd die vliegtuigen aan de grond staan te minimaliseren, de operationele kosten te verlagen en kan het bedrijf de veiligheid van de passagiers en bemanning garanderen.
+Magazijnbeheerders ontvangen de onderhoudsplannen zodat zij hun bestelproces en hun voorraad met reserveonderdelen kunnen optimaliseren.
+
+Door deze activiteiten is Fabrikam in staat om de tijd die vliegtuigen aan de grond staan te minimaliseren, de operationele kosten te verlagen en kan het bedrijf de veiligheid van de passagiers en bemanning garanderen.
 
 Als u beter wilt begrijpen welke mogelijkheden [Azure IoT Suite][lnk_iot_suite] biedt die klanten nodig hebben om het potentieel van voorspellend onderhoud te realiseren, bekijkt u deze [infographic][lnk_infographic].
 
@@ -50,7 +55,7 @@ Als u beter wilt begrijpen welke mogelijkheden [Azure IoT Suite][lnk_iot_suite] 
 
 De oplossing gebruikt een bestaand Azure Machine Learning-model dat als sjabloon beschikbaar is om te laten zien hoe deze mogelijkheden werken op basis van telemetriegegevens die zijn verzameld via IoT Suite-services. Microsoft heeft een [regressiemodel][lnk_regression_model] van een vliegtuigmotor ontwikkeld op basis van algemeen beschikbare gegevens<sup>\[1\]</sup>, evenals richtlijnen met stappen voor het gebruik van het model.
 
-De vooraf geconfigureerde Azure IoT-oplossing voor voorspellende onderhoud maakt gebruik van het regressiemodel dat op basis van deze sjabloon is gemaakt. Het model is geïmplementeerd in uw Azure-abonnement en is toegankelijk via een automatisch gegenereerde API. De oplossing omvat een subset met de testgegevens voor 4 (van in totaal 100) motoren en de 4 (van in totaal 21) gegevensstromen van sensoren. Deze gegevens leveren een accuraat resultaat op van het getrainde model.
+De Azure IoT-oplossing voor predictief onderhoud maakt gebruik van het regressiemodel dat op basis van deze sjabloon is gemaakt. Het model is geïmplementeerd in uw Azure-abonnement en is toegankelijk via een automatisch gegenereerde API. De oplossing omvat een subset met de testgegevens voor 4 (van in totaal 100) motoren en de 4 (van in totaal 21) gegevensstromen van sensoren. Deze gegevens leveren een accuraat resultaat op van het getrainde model.
 
 *\[1\] A. Saxena en K. Goebel (2008). 'Turbofan Engine Degradation Simulation Data Set', NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
@@ -86,17 +91,19 @@ Zijn er voor uw oplossing bepaalde details niet vermeld, die u wel verwacht had 
 Deze sectie helpt u bij de gebruikersinterface van de oplossing.
 
 ### <a name="predictive-maintenance-dashboard"></a>Dashboard voorspeld onderhoud
+
 Voor deze pagina in de webtoepassing wordt gebruikgemaakt van PowerBI JavaScript-besturingselementen (zie de [PowerBI-opslagplaats voor visualisaties][lnk-powerbi]) voor het visualiseren van:
 
 * De uitvoergegevens van de Stream Analytics-jobs in Blob Storage.
 * De resterende levensduur en aantal cycli per vliegtuigmotor.
 
 ### <a name="observing-the-behavior-of-the-cloud-solution"></a>Het gedrag van de cloudoplossing observeren
-Navigeer in de Azure-portal naar de resourcegroep met de naam van de oplossing die u hebt gekozen om de ingerichte resources weer te geven.
+
+Navigeer in Azure Portal naar de resourcegroep met de naam van de oplossing die u hebt gekozen om de ingerichte resources weer te geven.
 
 ![][img-resource-group]
 
-Wanneer u de vooraf geconfigureerde oplossing inricht, krijgt u een e-mailbericht met een koppeling naar de Machine Learning-werkruimte. U kunt ook naar de Machine Learning-werkruimte navigeren vanaf de tegel op de [azureiotsuite.com][lnk-azureiotsuite]-pagina voor de ingerichte oplossing wanneer de oplossing de status **Gereed** heeft.
+Wanneer u de vooraf geconfigureerde oplossing inricht, krijgt u een e-mailbericht met een koppeling naar de Machine Learning-werkruimte. U kunt ook naar de Machine Learning-werkruimte navigeren vanaf de [azureiotsuite.com][lnk-azureiotsuite]-pagina voor de ingerichte oplossing. Op deze pagina is een tegel beschikbaar wanneer de oplossing de status **Gereed** heeft.
 
 ![][img-machine-learning]
 
@@ -104,11 +111,11 @@ In de oplossingsportal kunt u zien dat het voorbeeld is ingericht met vier gesim
 
 ![][img-simulation-stopped]
 
-Klik op **Simulatie starten** om de simulatie te starten, waarbij u de sensorgeschiedenis, de resterende levensduur, het aantal cycli en de geschiedenis van de resterende levensduur in het dashboard ziet verschijnen.
+Klik op **Simulatie starten** om te beginnen met de simulatie. Het dashboard wordt ingevuld met de sensorgeschiedenis, de resterende levensduur, de cycli en de geschiedenis van de resterende levensduur.
 
 ![][img-simulation-running]
 
-Wanneer de resterende levensduur minder dan 160 is (een willekeurige drempel gekozen ter illustratie), verschijnt in de oplossingsportal een waarschuwingssymbool naast de weergegeven resterende levensduur en wordt de vliegtuigmotor geel gemarkeerd. Zoals u merkt, vertonen de waarden van de resterende levensduur een algemene neerwaartse trend, maar stijgen en dalen die waarden vaak. Dit gedrag wordt veroorzaakt door de verschillende lengten van de cycli en de nauwkeurigheid van het model.
+Wanneer de resterende levensduur minder dan 160 is (een willekeurige drempelwaarde gekozen ter illustratie), verschijnt in de oplossingsportal een waarschuwingssymbool naast de weergegeven resterende levensduur. De oplossingsportal geeft ook de vliegtuigmotor geel gemarkeerd weer. Zoals u merkt, vertonen de waarden van de resterende levensduur een algemene neerwaartse trend, maar stijgen en dalen die waarden vaak. Dit gedrag wordt veroorzaakt door de verschillende lengten van de cycli en de nauwkeurigheid van het model.
 
 ![][img-simulation-warning]
 
@@ -122,7 +129,7 @@ U kunt de simulatie op elk punt stoppen, maar wanneer u op **Simulatie starten**
 
 Meer informatie hoe Azure IoT werkt in scenario's voor voorspellend onderhoud vindt u in [Capture value from the Internet of Things][lnk_capture_value] (Waarde toevoegen via het Internet of Things).
 
-Volg een [walkthrough][lnk-predictive-walkthrough] over de vooraf geconfigureerde oplossing voor voorspellend onderhoud.
+Volg een [walkthrough][lnk-predictive-walkthrough] over de oplossing voor predictief onderhoud.
 
 U kunt ook enkele van de andere functies en mogelijkheden van de vooraf geconfigureerde IoT Suite-oplossingen verkennen:
 

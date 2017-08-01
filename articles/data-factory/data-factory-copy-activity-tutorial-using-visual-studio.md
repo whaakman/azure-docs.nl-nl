@@ -22,9 +22,7 @@ ms.lasthandoff: 05/22/2017
 
 
 ---
-<a id="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio" class="xliff"></a>
-
-# Zelfstudie: een pijplijn maken met de kopieeractiviteit in Visual Studio
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Zelfstudie: een pijplijn maken met de kopieeractiviteit in Visual Studio
 > [!div class="op_single_selector"]
 > * [Overzicht en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
@@ -46,9 +44,7 @@ Een pijplijn kan meer dan één activiteit hebben. Ook kunt u twee activiteiten 
 > [!NOTE] 
 > In de gegevenspijplijn in deze zelfstudie worden gegevens van een brongegevensarchief gekopieerd naar een doelgegevensarchief. Zie [Zelfstudie: een pijplijn maken om gegevens te transformeren met een Hadoop-cluster](data-factory-build-your-first-pipeline.md) voor meer informatie over het transformeren van gegevens met Azure Data Factory.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 1. Lees het artikel [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) en voer de **vereiste** stappen uit.       
 2. Als u Data Factory-exemplaren wilt maken, moet u lid zijn van de rol [Inzender Data Factory](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) op abonnements-/resourcegroepsniveau.
 3. De volgende zaken moeten op uw computer zijn geïnstalleerd: 
@@ -56,9 +52,7 @@ Een pijplijn kan meer dan één activiteit hebben. Ook kunt u twee activiteiten 
    * Download de Azure SDK voor Visual Studio 2013 of Visual Studio 2015. Ga naar de [Azure-downloadpagina](https://azure.microsoft.com/downloads/) en klik in het gedeelte **.NET** op **VS 2013** of **VS 2015**.
    * Download de nieuwste Azure Data Factory-invoegtoepassing voor Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) of [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). U kunt de invoegtoepassing ook als volgt bijwerken: klik in het menu op **Extra** -> **Extensies en updates** -> **Online** -> **Visual Studio-galerie** -> **Microsoft Azure Data Factory-hulpprogramma's voor Visual Studio** -> **Bijwerken**.
 
-<a id="steps" class="xliff"></a>
-
-## Stappen
+## <a name="steps"></a>Stappen
 Hier volgen de stappen die u uitvoert als onderdeel van deze zelfstudie:
 
 1. **Gekoppelde services** maken in de gegevensfactory. In deze stap maakt u twee gekoppelde services van het type: Azure Storage en Azure SQL Database. 
@@ -76,9 +70,7 @@ Hier volgen de stappen die u uitvoert als onderdeel van deze zelfstudie:
     Met de kopieeractiviteit worden gegevens uit een blob in de Azure-blobopslag naar een tabel in de Azure SQL-database gekopieerd. U kunt een kopieeractiviteit gebruiken in een pijplijn om gegevens uit ondersteunde bronnen te kopiëren naar een ondersteunde bestemming. Zie het artikel [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md#supported-data-stores-and-formats) voor een lijst met ondersteunde gegevensarchieven. 
 4. Maak een Azure-**gegevensfactory** tijdens het implementeren van de Data Factory-entiteiten (gekoppelde services, gegevenssets/tabellen en pijplijnen). 
 
-<a id="create-visual-studio-project" class="xliff"></a>
-
-## Een Visual Studio-project maken
+## <a name="create-visual-studio-project"></a>Een Visual Studio-project maken
 1. Open **Visual Studio 2015**. Klik op **File**, houd de muisaanwijzer op **New** en klik op **Project**. Het dialoogvenster **New Project** wordt weergegeven.  
 2. Selecteer in het dialoogvenster **New Project** de sjabloon **DataFactory** en klik op **Empty Data Factory Project**.  
    
@@ -87,9 +79,7 @@ Hier volgen de stappen die u uitvoert als onderdeel van deze zelfstudie:
    
     ![Solution Explorer](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
 
-<a id="create-linked-services" class="xliff"></a>
-
-## Gekoppelde services maken
+## <a name="create-linked-services"></a>Gekoppelde services maken
 U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en compute-services aan de gegevensfactory te koppelen. In deze zelfstudie gebruikt u niet een willekeurige compute-service, zoals Azure HDInsight of Azure Data Lake Analytics. U gebruikt twee gegevensarchieven van het type Azure Storage (bron) en Azure SQL Database (doel). 
 
 Daarom maakt u twee gekoppelde services van het type: Azure Storage en AzureSqlDatabase.  
@@ -100,9 +90,7 @@ De gekoppelde Azure SGL-service koppelt uw Azure SQL-database aan de gegevensfac
 
 Met gekoppelde services worden gegevensarchieven of compute-services gekoppeld aan een Azure Data Factory. Zie [Ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) voor alle bronnen en sinks die worden ondersteund door de kopieerbewerking. Zie [Gekoppelde services berekenen](data-factory-compute-linked-services.md) voor de lijst met compute-services die worden ondersteund door Data Factory. In deze zelfstudie gebruikt u geen compute-service. 
 
-<a id="create-the-azure-storage-linked-service" class="xliff"></a>
-
-### De gekoppelde Azure Storage-service maken
+### <a name="create-the-azure-storage-linked-service"></a>De gekoppelde Azure Storage-service maken
 1. Klik in **Solution Explorer** met de rechtermuisknop op **Linked Services**. Houd de muisaanwijzer op **Add** en klik op **New Item**.      
 2. Selecteer in het dialoogvenster **Add New Item** de optie **Azure Storage Linked Service** in de lijst en klik op **Add**. 
    
@@ -114,9 +102,7 @@ Met gekoppelde services worden gegevensarchieven of compute-services gekoppeld a
 
     Zie het artikel [Azure Blob Storage-connector](data-factory-azure-blob-connector.md#linked-service-properties) voor meer informatie over de JSON-eigenschappen in de definitie van de gekoppelde service.
 
-<a id="create-the-azure-sql-linked-service" class="xliff"></a>
-
-### De gekoppelde Azure SQL-service maken
+### <a name="create-the-azure-sql-linked-service"></a>De gekoppelde Azure SQL-service maken
 1. Klik met de rechtermuisknop opnieuw op het knooppunt **Linked Services** in **Solution Explorer**. Houd de muisaanwijzer op **Add** en klik op **New Item**. 
 2. Selecteer deze keer **Azure SQL Linked Service** en klik op **Add**. 
 3. In het bestand **AzureSqlLinkedService1.json** vervangt u `<servername>`, `<databasename>`, `<username@servername>` en `<password>` door de namen van uw Azure SQL-server, -database en -gebruikersaccount en voert u uw wachtwoord in.    
@@ -125,18 +111,14 @@ Met gekoppelde services worden gegevensarchieven of compute-services gekoppeld a
     Zie [Azure SQL Database-connector](data-factory-azure-sql-connector.md#linked-service-properties) voor meer informatie over deze JSON-eigenschappen.
 
 
-<a id="create-datasets" class="xliff"></a>
-
-## Gegevenssets maken
+## <a name="create-datasets"></a>Gegevenssets maken
 In de vorige stap hebt u gekoppelde services gemaakt om uw Azure-opslagaccount en Azure SQL-database aan de gegevensfactory te koppelen. In deze stap definieert u twee gegevenssets, InputDataset en OutputDataset genaamd, die staan voor de invoer- en uitvoergegevens die zijn opgeslagen in de gegevensarchieven waarnaar wordt verwezen door respectievelijk de AzureStorageLinkedService1 en de AzureSqlLinkedService1.
 
 De gekoppelde Azure Storage-service geeft de verbindingsreeks op die de Data Factory-service tijdens runtime gebruikt om verbinding te maken met uw Azure-opslagaccount. En de blobgegevensset voor invoer (InputDataset) geeft de container en de map met de invoergegevens op.  
 
 Op dezelfde manier geeft de gekoppelde Azure SQL Database-service de verbindingsreeks op die de Data Factory-service in runtime gebruikt om verbinding te maken met uw Azure SQL-database. En de uitvoergegevensset van de SQL-tabel (OututDataset) geeft de tabel in de database op waarnaar de gegevens uit de blobopslag worden gekopieerd. 
 
-<a id="create-input-dataset" class="xliff"></a>
-
-### Invoergegevensset maken
+### <a name="create-input-dataset"></a>Invoergegevensset maken
 In deze stap maakt u een gegevensset met de naam InputDataset die verwijst naar een blobbestand (emp.txt) in de hoofdmap van een blobcontainer (adftutorial) in Azure Storage. Deze container wordt vertegenwoordigd door de gekoppelde AzureStorageLinkedService1-service. Als u geen waarde voor de fileName hebt opgeven (of hebt overgeslagen), worden gegevens uit alle blobs in de invoermap naar het doel gekopieerd. In deze zelfstudie geeft u een waarde op voor de fileName. 
 
 Hier kunt u de term 'tabellen' gebruiken in plaats van 'gegevenssets'. Een tabel is een rechthoekige gegevensset en is het enige type gegevensset dat nu wordt ondersteund. 
@@ -191,9 +173,7 @@ Hier kunt u de term 'tabellen' gebruiken in plaats van 'gegevenssets'. Een tabel
 
     Zie het [artikel over Azure Blob-connectoren](data-factory-azure-blob-connector.md#dataset-properties) voor meer informatie over deze JSON-eigenschappen.   
 
-<a id="create-output-dataset" class="xliff"></a>
-
-### Uitvoergegevensset maken
+### <a name="create-output-dataset"></a>Uitvoergegevensset maken
 In deze stap maakt u een uitvoergegevensset met de naam **OutputDataset**. Deze gegevensset wijst naar een SQL-tabel in de Azure SQL-database die wordt vertegenwoordigd door **AzureSqlLinkedService1**. 
 
 1. Klik in **Solution Explorer** opnieuw met de rechtermuisknop op **Tables**. Houd de muisaanwijzer op **Add** en klik op **New Item**.
@@ -239,9 +219,7 @@ In deze stap maakt u een uitvoergegevensset met de naam **OutputDataset**. Deze 
 
     Zie het [artikel over Azure SQL-connectoren](data-factory-azure-sql-connector.md#dataset-properties) voor meer informatie over deze JSON-eigenschappen.
 
-<a id="create-pipeline" class="xliff"></a>
-
-## Pijplijn maken
+## <a name="create-pipeline"></a>Pijplijn maken
 In deze stap maakt u een pijplijn met een **kopieeractiviteit** die gebruikmaakt van **InputDataset** als invoer en **OutputDataset** als uitvoer.
 
 Momenteel is de uitvoergegevensset dat wat de planning aanstuurt. In deze zelfstudie is de uitvoergegevensset geconfigureerd voor het produceren van een segment eenmaal per uur. De pijplijn heeft een begintijd en eindtijd die één dag uit elkaar liggen, ofwel 24 uur. Daarom worden 24 segmenten van de uitvoergegevensset door de pijplijn geproduceerd. 
@@ -308,9 +286,7 @@ Momenteel is de uitvoergegevensset dat wat de planning aanstuurt. In deze zelfst
 
     Zie het artikel [Pijplijnen maken](data-factory-create-pipelines.md) voor beschrijvingen van JSON-eigenschappen in de definitie van een pijplijn. Zie [Gegevensverplaatsingsactiviteiten](data-factory-data-movement-activities.md) voor beschrijvingen van JSON-eigenschappen in de definitie van een kopieeractiviteit. Zie het [artikel over Azure Blob-connectoren](data-factory-azure-blob-connector.md) voor beschrijvingen van JSON-eigenschappen die worden ondersteund door BlobSource. Zie het [artikel over Azure SQL Database-connectoren](data-factory-azure-sql-connector.md) voor beschrijvingen van JSON-eigenschappen die worden ondersteund door SqlSink.
 
-<a id="publishdeploy-data-factory-entities" class="xliff"></a>
-
-## Data Factory-entiteiten publiceren/implementeren
+## <a name="publishdeploy-data-factory-entities"></a>Data Factory-entiteiten publiceren/implementeren
 In deze stap publiceert u Data Factory-entiteiten (gekoppelde services, gegevenssets en pijplijn) die u eerder hebt gemaakt. U specificeert ook de naam van de nieuwe gegevensfactory die moet worden gemaakt voor deze entiteiten.  
 
 1. Klik met de rechtermuisknop op het project in Solution Explorer. Klik vervolgens op **Publish**. 
@@ -368,9 +344,7 @@ Houd rekening met de volgende punten:
 > [!IMPORTANT]
 > Als u Data Factory-exemplaren wilt maken, moet u beheerder/co-beheerder van het Azure-abonnement zijn
 
-<a id="monitor-pipeline" class="xliff"></a>
-
-## De pijplijn bewaken
+## <a name="monitor-pipeline"></a>De pijplijn bewaken
 Navigeer naar de startpagina van uw gegevensfactory:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -385,9 +359,7 @@ Navigeer naar de startpagina van uw gegevensfactory:
     ![Startpagina van de gegevensfactory](media/data-factory-copy-activity-tutorial-using-visual-studio/data-factory-home-page.png)
 5. Volg de instructies in [Gegevenssets en pijplijn bewaken](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) voor het bewaken van de pijplijn en gegevenssets die u tijdens deze zelfstudie hebt gemaakt. Visual Studio biedt momenteel geen ondersteuning voor het bewaken van Data Factory-pijplijnen. 
 
-<a id="summary" class="xliff"></a>
-
-## Samenvatting
+## <a name="summary"></a>Samenvatting
 In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt om gegevens te kopiëren van een Azure-blob naar een Azure SQL-database. U hebt Visual Studio gebruikt om de gegevensfactory, gekoppelde services, gegevenssets en pijplijn te maken. In deze zelfstudie hebt u de volgende hoofdstappen uitgevoerd:  
 
 1. U hebt een Azure-**gegevensfactory** gemaakt.
@@ -401,9 +373,7 @@ Zie [Zelfstudie: uw eerste pijplijn maken om gegevens te transformeren met een H
 
 U kunt twee activiteiten koppelen (de ene activiteit na de andere laten uitvoeren) door de uitvoergegevensset van één activiteit in te stellen als invoergegevensset voor een andere activiteit. Zie [Planning en uitvoering in Data Factory](data-factory-scheduling-and-execution.md) voor gedetailleerde informatie. 
 
-<a id="view-all-data-factories-in-server-explorer" class="xliff"></a>
-
-## Alle gegevensfactory’s weergeven in Server Explorer
+## <a name="view-all-data-factories-in-server-explorer"></a>Alle gegevensfactory’s weergeven in Server Explorer
 In deze sectie wordt beschreven hoe u Server Explorer in Visual Studio gebruikt voor het weergeven van alle gegevensfactory’s in uw Azure-abonnement en het maken van een Visual Studio-project op basis van een bestaande gegevensfactory. 
 
 1. Klik in het menu van **Visual Studio** op **View** en vervolgens op **Server Explorer**.
@@ -411,26 +381,20 @@ In deze sectie wordt beschreven hoe u Server Explorer in Visual Studio gebruikt 
 
     ![Server Explorer](./media/data-factory-copy-activity-tutorial-using-visual-studio/server-explorer.png)
 
-<a id="create-a-visual-studio-project-for-an-existing-data-factory" class="xliff"></a>
-
-## Een Visual Studio-project maken voor een bestaande gegevensfactory
+## <a name="create-a-visual-studio-project-for-an-existing-data-factory"></a>Een Visual Studio-project maken voor een bestaande gegevensfactory
 
 - Klik met de rechtermuisknop op een gegevensfactory in Server Explorer en selecteer **Export Data Factory to New Project** om een Visual Studio-project te maken op basis van een bestaande gegevensfactory.
 
     ![Een gegevensfactory exporteren naar een VS-project](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
 
-<a id="update-data-factory-tools-for-visual-studio" class="xliff"></a>
-
-## Data Factory-hulpprogramma's voor Visual Studio bijwerken
+## <a name="update-data-factory-tools-for-visual-studio"></a>Data Factory-hulpprogramma's voor Visual Studio bijwerken
 Voer de volgende stappen uit om Azure Data Factory-hulpprogramma's voor Visual Studio bij te werken:
 
 1. Klik in het menu op **Extra** en selecteer **Extensies en updates**. 
 2. Selecteer **Updates** in het linkerdeelvenster en selecteer vervolgens **Visual Studio-galerie**.
 3. Selecteer **Azure Data Factory-hulpprogramma's voor Visual Studio** en klik op **Bijwerken**. Als u deze vermelding niet ziet, beschikt u al over de nieuwste versie van de hulpprogramma's. 
 
-<a id="use-configuration-files" class="xliff"></a>
-
-## Configuratiebestanden gebruiken
+## <a name="use-configuration-files"></a>Configuratiebestanden gebruiken
 U kunt in Visual Studio configuratiebestanden gebruiken om de eigenschappen voor gekoppelde services/tabellen/pijplijnen anders te configureren voor elke omgeving.
 
 Overweeg de volgende JSON-definitie te gebruiken voor een gekoppelde Azure Storage-service. Geef **connectionString** op met verschillende waarden voor accountname en accountkey op basis van de omgeving (ontwikkeling/tests/productie) waarin u Data Factory-entiteiten implementeert. U kunt dit gedrag bewerkstelligen door een afzonderlijk configuratiebestand te gebruiken voor elke omgeving.
@@ -448,9 +412,7 @@ Overweeg de volgende JSON-definitie te gebruiken voor een gekoppelde Azure Stora
 }
 ```
 
-<a id="add-a-configuration-file" class="xliff"></a>
-
-### Een configuratiebestand toevoegen
+### <a name="add-a-configuration-file"></a>Een configuratiebestand toevoegen
 Voeg een configuratiebestand voor elke omgeving toe door de volgende stappen uit te voeren:   
 
 1. Klik met de rechtermuisknop op het Data Factory-project in uw Visual Studio-oplossing, houd de muisaanwijzer op **Add** en klik op **New item**.
@@ -515,9 +477,7 @@ Voeg een configuratiebestand voor elke omgeving toe door de volgende stappen uit
     }
     ```
 
-<a id="property-names-with-spaces" class="xliff"></a>
-
-### Eigenschapnamen met spaties
+### <a name="property-names-with-spaces"></a>Eigenschapnamen met spaties
 Als de naam van een eigenschap spaties bevat, gebruikt u vierkante haken, zoals in het volgende voorbeeld wordt weergegeven (databaseservernaam):
 
 ```json
@@ -527,9 +487,7 @@ Als de naam van een eigenschap spaties bevat, gebruikt u vierkante haken, zoals 
  }
 ```
 
-<a id="deploy-solution-using-a-configuration" class="xliff"></a>
-
-### Een oplossing implementeren met behulp van een configuratie
+### <a name="deploy-solution-using-a-configuration"></a>Een oplossing implementeren met behulp van een configuratie
 Wanneer u Azure Data Factory-entiteiten publiceert in de VS, kunt u opgeven welke configuratie u voor die publicatiebewerking wilt gebruiken.
 
 Entiteiten publiceren in een Azure Data Factory-project via een configuratiebestand:   
@@ -545,15 +503,11 @@ Entiteiten publiceren in een Azure Data Factory-project via een configuratiebest
 
 Tijdens de implementatie worden de waarden van het configuratiebestand gebruikt voor de eigenschappen in de JSON-bestanden voor Data Factory-entiteiten voordat de entiteiten worden geïmplementeerd in de Azure Data Factory-service.   
 
-<a id="use-azure-key-vault" class="xliff"></a>
-
-## Azure Key Vault gebruiken
+## <a name="use-azure-key-vault"></a>Azure Key Vault gebruiken
 Het wordt niet aangeraden en het is vaak in strijd met het beveiligingsbeleid om gevoelige gegevens, zoals verbindingsreeksen, op te slaan in de codeopslagplaats. Zie het voorbeeld [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish) op GitHub voor meer informatie over de opslag van vertrouwelijke gegevens in Azure Key Vault en het gebruik daarvan tijdens de publicatie van Data Factory-entiteiten. Met de extensie Secure Publish voor Visual Studio kunnen de geheimen worden opgeslagen in Key Vault en worden alleen verwijzingen naar deze geheimen opgegeven in de gekoppelde services/implementatieconfiguraties. Deze verwijzingen worden opgelost wanneer u Data Factory-entiteiten publiceert naar Azure. Deze bestanden kunnen vervolgens worden doorgevoerd naar een bronopslagplaats zonder dat er geheimen worden weergegeven.
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u voor een kopieerbewerking een Azure Blob-opslag gebruikt als brongegevensarchief en een Azure SQL-database als doelgegevensarchief. De volgende tabel bevat een lijst met gegevensarchieven die worden ondersteund als bron en doel voor de kopieeractiviteit: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]

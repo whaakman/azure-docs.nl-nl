@@ -23,17 +23,13 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/07/2017
 
 ---
-<a id="create-a-function-in-azure-that-is-triggered-by-a-timer" class="xliff"></a>
-
-# Maak een functie in Azure die wordt geactiveerd door een timer
+# <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Maak een functie in Azure die wordt geactiveerd door een timer
 
 Ontdek hoe u Azure Functions gebruikt om een functie te maken die wordt uitgevoerd op basis van een schema dat u definieert.
 
 ![Functie-app maken in Azure Portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 
 Vereisten voor het voltooien van deze zelfstudie:
 
@@ -41,9 +37,7 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-<a id="create-an-azure-function-app" class="xliff"></a>
-
-## Een Azure-functie-app maken
+## <a name="create-an-azure-function-app"></a>Een Azure-functie-app maken
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -53,9 +47,7 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
 
 <a name="create-function"></a>
 
-<a id="create-a-timer-triggered-function" class="xliff"></a>
-
-## Een door een timer geactiveerde functie maken
+## <a name="create-a-timer-triggered-function"></a>Een door een timer geactiveerde functie maken
 
 1. Vouw de functie-app uit en klik op de knop **+** naast **Functies**. Als dit de eerste functie in de functie-app is, selecteert u **Aangepaste functie**. U ziet nu de volledige set het functiesjablonen.
 
@@ -78,9 +70,7 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
 
 U kunt het schema voor de functie wijzigen zodat deze minder vaak wordt uitgevoerd (bijvoorbeeld één keer per uur). 
 
-<a id="update-the-timer-schedule" class="xliff"></a>
-
-## Het timerschema bijwerken
+## <a name="update-the-timer-schedule"></a>Het timerschema bijwerken
 
 1. Vouw de functie uit en klik op **Integreren**. Dit is waar u de invoer- en uitvoerbindingen voor de functie definieert en het schema instelt. 
 
@@ -90,15 +80,11 @@ U kunt het schema voor de functie wijzigen zodat deze minder vaak wordt uitgevoe
 
 U hebt nu een functie die één keer per uur wordt uitgevoerd. 
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Resources opschonen
+## <a name="clean-up-resources"></a>Resources opschonen
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 U hebt een functie gemaakt die wordt uitgevoerd op basis van een schema.
 

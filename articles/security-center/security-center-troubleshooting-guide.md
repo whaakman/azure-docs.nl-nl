@@ -22,18 +22,14 @@ ms.lasthandoff: 06/17/2017
 
 
 ---
-<a id="azure-security-center-troubleshooting-guide" class="xliff"></a>
-
-# Handleiding voor het oplossen van problemen met Azure Security Center
+# <a name="azure-security-center-troubleshooting-guide"></a>Handleiding voor het oplossen van problemen met Azure Security Center
 Deze handleiding is bedoeld voor IT-specialisten, informatiebeveiligingsanalisten en cloudbeheerders van organisaties die Azure Security Center gebruiken en biedt procedures voor het oplossen van problemen met Azure Security Center.
 
 >[!NOTE] 
 >Vanaf begin juni 2017 zal Security Center de Microsoft Monitoring Agent gebruiken voor het verzamelen en opslaan van gegevens. Zie [Migratie van Azure Security Center-platform](security-center-platform-migration.md) voor meer informatie. De informatie in dit artikel beschrijft functionaliteit van Security Center na de overstap naar de Microsoft Monitoring Agent.
 >
 
-<a id="troubleshooting-guide" class="xliff"></a>
-
-## Handleiding voor het oplossen van problemen
+## <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 In deze handleiding wordt uitgelegd hoe u problemen oplost die betrekking hebben op Security Center. In de meeste gevallen vindt probleemoplossing in Security Center plaats door eerst de records in het [Controlelogboek](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) van het onderdeel met de fout te raadplegen. Met controlelogboeken kunt u het volgende bepalen:
 
 * Welke bewerkingen er hebben plaatsgevonden
@@ -44,9 +40,7 @@ In deze handleiding wordt uitgelegd hoe u problemen oplost die betrekking hebben
 
 In het controlelogboek staan alle schrijfbewerkingen (PUT, POST, DELETE) die op uw resources zijn uitgevoerd, maar er staan geen leesbewerkingen (GET) in.
 
-<a id="microsoft-monitoring-agent" class="xliff"></a>
-
-## Microsoft Monitoring Agent
+## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
 Security Center maakt gebruik van de Microsoft Monitoring Agent. Dit is dezelfde agent die ook wordt gebruikt door de Operations Management Suite en de Log Analytics-service om beveiligingsgegevens van uw virtuele machines in Azure te verzamelen. Nadat het verzamelen van gegevens is ingeschakeld en de agent juist is geïnstalleerd op de doelcomputer, wordt als het goed is dit proces uitgevoerd:
 
 * HealthService.exe
@@ -60,9 +54,7 @@ Als u wilt zien welke versie van de agent u hebt, opent u **Taakbeheer**, zoekt 
 ![File](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
    
 
-<a id="microsoft-monitoring-agent-installation-scenarios" class="xliff"></a>
-
-## Installatiescenario's voor Microsoft Monitoring Agent
+## <a name="microsoft-monitoring-agent-installation-scenarios"></a>Installatiescenario's voor Microsoft Monitoring Agent
 Er zijn twee installatiescenario's die verschillende resultaten kunnen opleveren bij het installeren van Microsoft Monitoring Agent op uw computer. Dit zijn de ondersteunde scenario's:
 
 * **Agent automatisch geïnstalleerd door Security Center**: in dit scenario kunt u de waarschuwingen op beide locaties bekijken, in Security Center en door te zoeken in logboeken. U ontvangt e-mailmeldingen op het e-mailadres dat is geconfigureerd in het beveiligingsbeleid voor het abonnement waarvan de resource deel uitmaakt.
@@ -73,9 +65,7 @@ Er zijn twee installatiescenario's die verschillende resultaten kunnen opleveren
 > U kunt het gedrag uit het tweede scenario voorkomen door de nieuwste versie van de agent te downloaden.
 > 
 
-<a id="troubleshooting-monitoring-agent-network-requirements" class="xliff"></a>
-
-## Problemen oplossen met de netwerkvereisten voor de Monitoring Agent
+## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Problemen oplossen met de netwerkvereisten voor de Monitoring Agent
 Agents kunnen alleen verbinding maken met Security Center en zich daarbij registreren als ze toegang hebben tot netwerkbronnen, inclusief de poortnummers en domein-URL's.
 
 - Voor proxyservers moet u ervoor zorgen dat de juiste resources voor de proxyserver zijn geconfigureerd in de instellingen voor de agent. Lees dit artikel voor meer informatie over [het wijzigen van de proxy-instellingen](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
@@ -93,9 +83,7 @@ De volgende tabel bevat de resources die nodig zijn voor communicatie.
 Als er problemen zijn tijdens het onboarden van de agent, leest u het artikel [Onboarding-problemen van Operations Management Suite oplossen](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
 
-<a id="troubleshooting-endpoint-protection-not-working-properly" class="xliff"></a>
-
-## Oplossen van problemen met niet goed werkende eindpuntbeveiliging
+## <a name="troubleshooting-endpoint-protection-not-working-properly"></a>Oplossen van problemen met niet goed werkende eindpuntbeveiliging
 
 De gastagent is het bovenliggende proces van alles wat de [Microsoft Antimalware](../security/azure-security-antimalware.md)-extensie doet. Wanneer het proces van de gastagent mislukt, kan de Microsoft Antimalware die wordt uitgevoerd als onderliggend proces van de gastagent ook mislukken.  In dergelijke scenario's wordt aanbevolen de volgende opties te controleren:
 
@@ -109,22 +97,16 @@ De gastagent is het bovenliggende proces van alles wat de [Microsoft Antimalware
 
 De gebruikersinterface van Microsoft Antimalware is standaard uitgeschakeld. Zie [Enabling Microsoft Antimalware User Interface on Azure Resource Manager VMs Post Deployment](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/09/enabling-microsoft-antimalware-user-interface-post-deployment/) (De Microsoft Antimalware-gebruikersinterface inschakelen op Azure Resource Manager-VM's na implementatie) voor meer informatie over hoe u deze kunt inschakelen.
 
-<a id="troubleshooting-problems-loading-the-dashboard" class="xliff"></a>
-
-## Problemen oplossen met het laden van het dashboard
+## <a name="troubleshooting-problems-loading-the-dashboard"></a>Problemen oplossen met het laden van het dashboard
 
 Als u problemen ondervindt met het laden van het dashboard van Security Center, moet u ervoor zorgen dat de gebruiker die het Security Center-abonnement registreert (de eerste gebruiker die Security Center voor het abonnement opent) en de gebruiker die het verzamelen van gegevens inschakelt, in het abonnement de rol van *Eigenaar* of *Inzender* hebben. Vanaf dat moment kunnen ook gebruikers die in het abonnement de rol van *Lezer* hebben, het dashboard weergeven, en waarschuwingen, aanbevelingen en het beleid bekijken.
 
-<a id="contacting-microsoft-support" class="xliff"></a>
-
-## Contact opnemen met Microsoft-ondersteuning
+## <a name="contacting-microsoft-support"></a>Contact opnemen met Microsoft-ondersteuning
 Bepaalde problemen kunnen worden geïdentificeerd aan de hand van de richtlijnen in dit artikel. Andere problemen vindt u ook beschreven in het openbare [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter) van Security Center. Als u aanvullende hulp nodig hebt om bepaalde problemen op te lossen, kunt u via **Azure Portal** een nieuwe ondersteuningsaanvraag openen. Dit doet u als volgt: 
 
 ![Microsoft-ondersteuning](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-<a id="see-also" class="xliff"></a>
-
-## Zie ook
+## <a name="see-also"></a>Zie ook
 In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid configureert in Azure Security Center. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
 
 * [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) (Gids voor de planning en werking van Azure Security Center): leer de ontwerpoverwegingen kennen en leer hiervoor te plannen voor de overstap naar Azure Security Center.

@@ -25,24 +25,18 @@ ms.lasthandoff: 05/12/2017
 
 
 ---
-<a id="hadoop-tutorial-get-started-using-hadoop-in-hdinsight" class="xliff"></a>
-
-# Hadoop-zelfstudie: aan de slag met Hadoop in HDInsight
+# <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Hadoop-zelfstudie: aan de slag met Hadoop in HDInsight
 
 Informatie over het maken van [Hadoop](http://hadoop.apache.org/)-clusters in HDInsight en het uitvoeren van Hive-taken in HDInsight. [Apache Hive](https://hive.apache.org/) is het meest populaire onderdeel in het Hadoop-ecosysteem. Momenteel wordt HDInsight geleverd met zes verschillende clustertypen: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interactive Hive (Preview)](hdinsight-hadoop-use-interactive-hive.md) en [R Server](hdinsight-hadoop-r-server-overview.md).  Elk clustertype ondersteunt een andere set onderdelen. Alle zes de clustertypen ondersteunen Hive. Zie voor een lijst van ondersteunde onderdelen in HDInsight [Wat is er nieuw in de Hadoop-clusterversies geleverd door HDInsight?](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten
+## <a name="prerequisites"></a>Vereisten
 Voordat u met deze zelfstudie begint, moet u over de volgende onderdelen beschikken:
 
 * **Azure-abonnement**: voor het maken van een gratis proefaccount van één maand, bezoekt u [azure.microsoft.com/free](https://azure.microsoft.com/free).
 
-<a id="create-cluster" class="xliff"></a>
-
-## Cluster maken
+## <a name="create-cluster"></a>Cluster maken
 
 De meeste Hadoop-taken zijn batchtaken. U maakt een cluster, voert enkele taken uit en verwijdert het cluster vervolgens. In deze sectie maakt u een Hadoop-cluster in HDInsight met behulp van een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-template-deploy.md). Het maken van een Azure Resource Manager-sjabloon is niet vereist voor deze zelfstudie. Zie [HDInsight-clusters maken](hdinsight-hadoop-provision-linux-clusters.md) voor andere methoden om clusters te maken en inzicht te krijgen in de eigenschappen die worden gebruikt in deze zelfstudie. Gebruik de kiezer boven aan de pagina om opties voor het maken van clusters te selecteren.
 
@@ -83,9 +77,7 @@ De Resource Manager-sjabloon die in deze zelfstudie wordt gebruikt, bevindt zich
    ![Aan de slag met clusterinstellingen in HDInsight op basis van Linux](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "HDInsight-clustereigenschappen")
 
 
-<a id="run-hive-queries" class="xliff"></a>
-
-## Hive-query's uitvoeren
+## <a name="run-hive-queries"></a>Hive-query's uitvoeren
 [Apache Hive](hdinsight-use-hive.md) is het meest populaire onderdeel dat in HDInsight wordt gebruikt. Er zijn veel manieren om Hive-taken uit te voeren in HDInsight. In deze zelfstudie gebruikt u de Ambari Hive-weergave in de portal om een aantal Hive-taken uit te voeren. Voor andere methoden voor het indienen van Hive-taken raadpleegt u [Hive gebruiken in HDInsight](hdinsight-use-hive.md).
 
 1. In de vorige schermafbeelding klikt u op **Clusterdashboard** en vervolgens op **HDInsight-clusterdashboard**.  U kunt ook bladeren naar **https://&lt;ClusterName>. azurehdinsight.net**, waarbij &lt;ClusterName> het cluster is dat u hebt gemaakt in de vorige sectie om Ambari te openen.
@@ -118,9 +110,7 @@ De Resource Manager-sjabloon die in deze zelfstudie wordt gebruikt, bevindt zich
 
 Nadat u een Hive-taak hebt voltooid, kunt u [de resultaten exporteren naar een Azure SQL-database of een SQL Server-database](hdinsight-use-sqoop-mac-linux.md). U kunt ook [de resultaten weergeven in Excel](hdinsight-connect-excel-power-query.md). Zie voor meer informatie over het gebruik van Hive in HDInsight [Hive en HiveQL gebruiken met Hadoop in HDInsight voor het analyseren van een voorbeeldbestand van de Apache-log4j](hdinsight-use-hive.md).
 
-<a id="clean-up-the-tutorial" class="xliff"></a>
-
-## De zelfstudie opschonen
+## <a name="clean-up-the-tutorial"></a>De zelfstudie opschonen
 Nadat u de zelfstudie hebt voltooid, kunt u het cluster verwijderen. Met HDInsight worden uw gegevens opgeslagen in Azure Storage zodat u een cluster veilig kunt verwijderen wanneer deze niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Aangezien de kosten voor het cluster vaak zoveel hoger zijn dan de kosten voor opslag, is het financieel gezien logischer clusters te verwijderen wanneer ze niet worden gebruikt. 
 
 > [!NOTE]
@@ -134,15 +124,11 @@ Nadat u de zelfstudie hebt voltooid, kunt u het cluster verwijderen. Met HDInsig
 2. Klik vanuit het portal-dashboard op de tegel met de naam van de resourcegroep die u hebt gebruikt toen u het cluster maakte.
 3. Klik op **Verwijderen** op de resource-blade om de resourcegroep die het cluster en het standaardopslagaccount bevat, te verwijderen. Of klik op de clusternaam op de tegel **Resources** en klik vervolgens op **Verwijderen** op de cluster-blade. Als u de resourcegroep verwijdert, wordt ook het opslagaccount verwijderd. Als u het opslagaccount wilt behouden, verwijdert u alleen het cluster.
 
-<a id="troubleshoot" class="xliff"></a>
-
-## Problemen oplossen
+## <a name="troubleshoot"></a>Problemen oplossen
 
 Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#create-clusters) als u problemen ondervindt met het maken van HDInsight-clusters.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u geleerd hoe u een HDInsight-cluster op basis van Linux maakt met behulp van een Resource Manager-sjabloon, en hoe u eenvoudige Hive-query's uitvoert.
 
 Zie de volgende artikelen voor meer informatie over het analyseren van gegevens met HDInsight:

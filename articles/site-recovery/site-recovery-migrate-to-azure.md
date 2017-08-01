@@ -22,9 +22,7 @@ ms.lasthandoff: 06/16/2017
 
 
 ---
-<a id="migrate-to-azure-with-site-recovery" class="xliff"></a>
-
-# Migreren naar Azure met Site Recovery
+# <a name="migrate-to-azure-with-site-recovery"></a>Migreren naar Azure met Site Recovery
 
 Lees dit artikel voor een overzicht van hoe u de service Azure Site Recovery gebruikt om virtuele machines en fysieke servers te migreren.
 
@@ -38,15 +36,11 @@ Dit artikel beschrijft de implementatie in [Azure Portal](https://portal.azure.c
 U kunt onder aan dit artikel eventuele opmerkingen plaatsen. Technische vragen kunt u stellen op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-<a id="what-do-we-mean-by-migration" class="xliff"></a>
-
-## Wat wordt precies bedoeld met 'migreren’?
+## <a name="what-do-we-mean-by-migration"></a>Wat wordt precies bedoeld met 'migreren’?
 
 U kunt Site Recovery implementeren voor de replicatie van on-premises virtuele machines en fysieke servers, naar Azure of naar een secundaire site. U repliceert machines, voert een failover uit vanaf de primaire site wanneer er storingen optreden en voert een failback uit naar de primaire site wanneer deze wordt hersteld. Daarnaast kunt u Site Recovery gebruiken om virtuele machines en fysieke servers te migreren naar Azure, zodat gebruikers deze kunnen gebruiken als virtuele Azure-machines. Migratie brengt replicatie en failover van de primaire site naar Azure met zich mee, evenals een volledig migratiebeheer.
 
-<a id="what-can-site-recovery-migrate" class="xliff"></a>
-
-## Wat kan er met Site Recovery worden gemigreerd?
+## <a name="what-can-site-recovery-migrate"></a>Wat kan er met Site Recovery worden gemigreerd?
 
 U kunt:
 
@@ -54,9 +48,7 @@ U kunt:
 - [Azure IaaS-VM's](site-recovery-migrate-azure-to-azure.md) migreren tussen Azure-regio's. Momenteel wordt in dit scenario alleen migratie ondersteund, dus geen failback.
 - Migreer [AWS Windows-exemplaren](site-recovery-migrate-aws-to-azure.md) naar Azure IaaS-VM's. Momenteel wordt in dit scenario alleen migratie ondersteund, dus geen failback.
 
-<a id="migrate-on-premises-vms-and-physical-servers" class="xliff"></a>
-
-## Virtuele machines en fysieke servers on-premises migreren
+## <a name="migrate-on-premises-vms-and-physical-servers"></a>Virtuele machines en fysieke servers on-premises migreren
 
 Als u on-premises virtuele Hyper-V-machines, virtuele VMware-machines en fysieke servers wilt migreren, volgt u bijna dezelfde stappen als bij normale replicatie.
 
@@ -71,24 +63,18 @@ Als u on-premises virtuele Hyper-V-machines, virtuele VMware-machines en fysieke
 
 ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
-<a id="migrate-between-azure-regions" class="xliff"></a>
-
-## Migreren tussen Azure-regio's
+## <a name="migrate-between-azure-regions"></a>Migreren tussen Azure-regio's
 
 Met Site Recovery kunt u virtuele Azure-machines migreren tussen gebieden. In dit scenario wordt alleen migratie ondersteund. Met andere woorden: u kunt de virtuele Azure-machines repliceren en een failover naar een andere regio uitvoeren, maar u kunt geen failback uitvoeren. In dit scenario stelt u een Recovery Services-kluis in en implementeert u een on-premises configuratieserver om de replicatie te beheren. Daarna voegt u deze toe aan de kluis en geeft u replicatie-instellingen op. U schakelt replicatie in voor de machines die u wilt migreren en voert een snelle testfailover uit. Daarna voert u een niet-geplande failover uit met de optie **Volledige migratie**.
 
-<a id="migrate-aws-to-azure" class="xliff"></a>
-
-## AWS migreren naar Azure
+## <a name="migrate-aws-to-azure"></a>AWS migreren naar Azure
 
 U kunt AWS-exemplaren naar Azure-VM's migreren. In dit scenario wordt alleen migratie ondersteund. Met andere woorden, u kunt de Azure-exemplaren repliceren en een failover naar Azure uitvoeren, maar u kunt geen failback uitvoeren. Voor migratiedoeleinden worden AWS-exemplaren op dezelfde manier afgehandeld als fysieke servers. U stelt een Recovery Services-kluis in en implementeert een on-premises configuratieserver om de replicatie te beheren. Daarna voegt u deze toe aan de kluis en geeft u replicatie-instellingen op. U schakelt replicatie in voor de machines die u wilt migreren en voert een snelle testfailover uit. Daarna voert u een niet-geplande failover uit met de optie **Volledige migratie**.
 
 
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 - [Virtuele VMware-machines migreren naar Azure](site-recovery-vmware-to-azure.md)
 - [Virtuele Hyper-V-machines in VMM-clouds migreren naar Azure](site-recovery-vmm-to-azure.md)

@@ -22,9 +22,7 @@ ms.lasthandoff: 05/31/2017
 
 
 ---
-<a id="how-to-use-azure-redis-cache" class="xliff"></a>
-
-# Azure Redis-cache gebruiken
+# <a name="how-to-use-azure-redis-cache"></a>Azure Redis-cache gebruiken
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -48,9 +46,7 @@ In deze handleiding wordt beschreven hoe u de client [StackExchange.Redis][Stack
 
 <a name="getting-started-cache-service"></a>
 
-<a id="get-started-with-azure-redis-cache" class="xliff"></a>
-
-## Aan de slag met Azure Redis-cache
+## <a name="get-started-with-azure-redis-cache"></a>Aan de slag met Azure Redis-cache
 Het is gemakkelijk om aan de slag te gaan met Azure Redis-cache Allereerst richt u een cache in en configureert u deze. Vervolgens configureert u de cacheclients, zodat deze toegang krijgen tot de cache. Nadat de cacheclients zijn geconfigureerd, kunt u deze gaan gebruiken.
 
 * [De cache maken][Create the cache]
@@ -58,32 +54,24 @@ Het is gemakkelijk om aan de slag te gaan met Azure Redis-cache Allereerst richt
 
 <a name="create-cache"></a>
 
-<a id="create-a-cache" class="xliff"></a>
-
-## Een cache maken
+## <a name="create-a-cache"></a>Een cache maken
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-<a id="to-access-your-cache-after-its-created" class="xliff"></a>
-
-### Voor toegang tot de cache nadat deze is gemaakt
+### <a name="to-access-your-cache-after-its-created"></a>Voor toegang tot de cache nadat deze is gemaakt
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
 Zie [Azure Redis-cache configureren](cache-configure.md) voor meer informatie over het configureren van uw cache. 
 
 <a name="NuGet"></a>
 
-<a id="configure-the-cache-clients" class="xliff"></a>
-
-## De cacheclients configureren
+## <a name="configure-the-cache-clients"></a>De cacheclients configureren
 [!INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 Nadat uw clientproject is geconfigureerd voor het opslaan in de cache, kunt u de technieken die in de volgende gedeelten worden beschreven, gebruiken om met uw cache te werken.
 
 <a name="working-with-caches"></a>
 
-<a id="working-with-caches" class="xliff"></a>
-
-## Werken met caches
+## <a name="working-with-caches"></a>Werken met caches
 De stappen in deze sectie beschrijven hoe u met uw cache algemene taken uitvoert.
 
 * [Verbinding maken met de cache][Connect to the cache]
@@ -92,9 +80,7 @@ De stappen in deze sectie beschrijven hoe u met uw cache algemene taken uitvoert
 
 <a name="connect-to-cache"></a>
 
-<a id="connect-to-the-cache" class="xliff"></a>
-
-## Verbinding maken met de cache
+## <a name="connect-to-the-cache"></a>Verbinding maken met de cache
 Als u via een programma met een cache wilt werken, hebt u een verwijzing naar de cache nodig. Voeg het volgende toe boven aan alle bestanden die u wilt gebruiken om met de client StackExchange.Redis toegang te krijgen tot een Azure Redis-cache.
 
     using StackExchange.Redis;
@@ -162,9 +148,7 @@ Nu u weet hoe u verbinding maakt met een exemplaar van een Azure Redis-cache en 
 
 <a name="add-object"></a>
 
-<a id="add-and-retrieve-objects-from-the-cache" class="xliff"></a>
-
-## Objecten toevoegen aan en ophalen uit de cache
+## <a name="add-and-retrieve-objects-from-the-cache"></a>Objecten toevoegen aan en ophalen uit de cache
 Items kunnen worden opgeslagen in en opgehaald uit de cache met behulp van de `StringSet`- en `StringGet`-methoden.
 
     // If key1 exists, it is overwritten.
@@ -190,9 +174,7 @@ Als u de vervaldatum van een item in de cache wilt opgeven, gebruikt u de parame
 
     cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
-<a id="work-with-net-objects-in-the-cache" class="xliff"></a>
-
-## Werken met .NET-objecten in de cache
+## <a name="work-with-net-objects-in-the-cache"></a>Werken met .NET-objecten in de cache
 Azure Redis Cache kan zowel .NET-objecten als oudere gegevenstypen opslaan in de cache, maar voordat een .NET-object in de cache kan worden opgeslagen, moet het worden geserialiseerd. Deze serialisatie van het .NET-object is de verantwoordelijkheid van de ontwikkelaar van de toepassing. Het geeft de ontwikkelaar flexibiliteit bij de keuze van de serializer.
 
 Een eenvoudige manier om objecten te serialiseren is met de serialisatiemethoden `JsonConvert` in [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1). Hiermee serialiseert u van en naar JSON. In het volgende voorbeeld worden gegevens opgehaald en ingesteld met een exemplaar van het object `Employee`.
@@ -217,9 +199,7 @@ Een eenvoudige manier om objecten te serialiseren is met de serialisatiemethoden
 
 <a name="next-steps"></a>
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Nu u de basisprincipes hebt geleerd, kunt u deze koppelingen volgen voor meer informatie over Azure Redis-cache.
 
 * Bekijk de ASP.NET-providers voor Azure Redis-cache.

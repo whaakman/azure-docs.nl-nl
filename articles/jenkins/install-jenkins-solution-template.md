@@ -23,9 +23,7 @@ ms.lasthandoff: 06/30/2017
 
 ---
 
-<a id="create-your-first-jenkins-master-on-a-linux-ubuntu-vm-on-azure" class="xliff"></a>
-
-# Uw eerste Jenkins-master op een Linux (Ubuntu)-VM op Azure maken
+# <a name="create-your-first-jenkins-master-on-a-linux-ubuntu-vm-on-azure"></a>Uw eerste Jenkins-master op een Linux (Ubuntu)-VM op Azure maken
 
 Deze Quick Start toont hoe u de nieuwste stabiele Jenkins-versie installeert op een Linux (Ubuntu 14.04 TNS)-VM samen met de hulpprogramma's en invoegtoepassingen die zijn geconfigureerd om te werken met Azure. Tot de hulpmiddelen behoren:
 <ul>
@@ -46,9 +44,7 @@ In deze zelfstudie leert u het volgende:
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-<a id="create-the-vm-in-azure-by-deploying-the-solution-template-for-jenkins" class="xliff"></a>
-
-## Maak de virtuele machine in Azure door de oplossingssjabloon voor Jenkins te implementeren
+## <a name="create-the-vm-in-azure-by-deploying-the-solution-template-for-jenkins"></a>Maak de virtuele machine in Azure door de oplossingssjabloon voor Jenkins te implementeren
 
 Met Azure-snelstartsjablonen kunt u snel en betrouwbaar complexe technologie in Azure implementeren.  Met Azure Resource Manager kunt u uw toepassingen inrichten aan de hand van een [declaratieve sjabloon.](https://azure.microsoft.com/en-us/resources/templates/?term=jenkins) U kunt in één enkele sjabloon meerdere services plus de bijbehorende afhankelijkheden implementeren. U gebruikt dezelfde sjabloon om uw toepassing herhaaldelijk te implementeren in elke fase van de levenscyclus van de toepassing.
 
@@ -85,17 +81,13 @@ Nadat de validatie is geslaagd, klikt u op **OK** om de sjabloon en de parameter
 
 Selecteer vervolgens **Kopen** voor het inrichten van alle resources.
 
-<a id="setup-ssh-port-forwarding" class="xliff"></a>
-
-## Doorsturen via SSH-poort instellen
+## <a name="setup-ssh-port-forwarding"></a>Doorsturen via SSH-poort instellen
 
 Standaard gebruikt de Jenkins-instantie het http-protocol en luistert op poort 8080. Gebruikers moeten niet worden geverifieerd via onbeveiligde protocollen.
     
 Stel doorsturen via poort in voor het weergeven van de Jenkins-gebruikersinterface op uw lokale machine.
 
-<a id="if-you-are-using-windows" class="xliff"></a>
-
-### Als u van Windows gebruikmaakt:
+### <a name="if-you-are-using-windows"></a>Als u van Windows gebruikmaakt:
 
 Installeer PuTTY en voer deze opdracht uit als u een wachtwoord gebruikt voor het beveiligen van Jenkins:
 ```
@@ -110,9 +102,7 @@ Als u SSH gebruikt, moet u deze opdracht uitvoeren:
 putty -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
 
-<a id="if-you-are-using-linux-or-mac" class="xliff"></a>
-
-### Als u een Linux- of Mac gebruikt:
+### <a name="if-you-are-using-linux-or-mac"></a>Als u een Linux- of Mac gebruikt:
 
 Als u een wachtwoord gebruikt voor het beveiligen van uw Jenkins-master moet u deze opdracht uitvoeren:
 ```
@@ -125,9 +115,7 @@ Als u SSH gebruikt, moet u deze opdracht uitvoeren:
 ssh -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
 
-<a id="connect-to-jenkins" class="xliff"></a>
-
-## Verbinding maken met Jenkins
+## <a name="connect-to-jenkins"></a>Verbinding maken met Jenkins
 Nadat u uw tunnel hebt gestart, gaat u naar http://localhost: 8080/ op uw lokale machine.
 
 Ontgrendel het Jenkins-dashboard voor de eerste keer met het initiële beheerderswachtwoord.
@@ -146,9 +134,7 @@ Uw Jenkins-instantie is nu gereed om te gebruiken. U kunt een alleen-lezen weerg
 
 ![Jenkins is klaar.](./media/install-jenkins-solution-template/jenkins-welcome.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie hebt u:
 

@@ -24,9 +24,7 @@ ms.lasthandoff: 07/04/2017
 
 
 ---
-<a id="use-data-lake-store-with-azure-hdinsight-clusters" class="xliff"></a>
-
-# Data Lake Store gebruiken met Azure HDInsight-clusters
+# <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Data Lake Store gebruiken met Azure HDInsight-clusters
 
 Als u gegevens wilt analyseren in een HDInsight-cluster, kunt u de gegevens opslaan in [Azure Storage](../storage/storage-introduction.md), [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) of beide. Met beide opslagopties kunt u de HDInsight-clusters die worden gebruikt voor berekeningen, veilig verwijderen zonder dat er gebruikersgegevens verloren gaan.
 
@@ -37,9 +35,7 @@ In dit artikel wordt beschreven hoe Data Lake Store werkt met HDInsight-clusters
 > 
 > 
 
-<a id="availabilities-for-hdinsight-clusters" class="xliff"></a>
-
-## Beschikbaarheid van HDInsight-clusters
+## <a name="availabilities-for-hdinsight-clusters"></a>Beschikbaarheid van HDInsight-clusters
 
 Hadoop ondersteunt een notatie van het standaardbestandssysteem. Het standaardbestandssysteem impliceert een standaardschema en instantie. De toepassing kan ook worden gebruikt om relatieve paden om te zetten. Wanneer u het HDInsight-cluster maakt, kunt u in Azure Storage een blobcontainer opgeven als het standaardbestandssysteem. Met HDInsight 3.5 en latere versies kunt u ook Azure Storage of Azure Data Lake Store als het standaardbestandssysteem selecteren met een paar uitzonderingen. 
 
@@ -63,9 +59,7 @@ Op dit moment ondersteunt slechts een deel van de HDInsight-clustertypen/-versie
 Het gebruik van Data Lake Store als extra opslagaccount heeft geen invloed op de prestaties of de mogelijkheid om te lezen of schrijven naar Azure-opslag vanuit het cluster.
 
 
-<a id="use-data-lake-store-as-default-storage" class="xliff"></a>
-
-## Data Lake Store als standaardopslag gebruiken
+## <a name="use-data-lake-store-as-default-storage"></a>Data Lake Store als standaardopslag gebruiken
 
 Wanneer HDInsight met Data Lake Store als standaardopslag is geïmplementeerd, worden de clusterbestanden in Data Lake Store op de volgende locatie opgeslagen:
 
@@ -87,9 +81,7 @@ Om Data Lake Store te gebruiken als standaardopslag, moet u de service-principal
 Zie [Configure Data Lake store access](#configure-data-lake-store-access) voor meer informatie over het maken van service-principal en het verlenen van toegang.
 
 
-<a id="use-data-lake-store-as-additional-storage" class="xliff"></a>
-
-## Data Lake Store als extra opslag gebruiken
+## <a name="use-data-lake-store-as-additional-storage"></a>Data Lake Store als extra opslag gebruiken
 
 U kunt ook Data Lake Store gebruiken als extra opslag voor het cluster. In dergelijke gevallen kan de standaardopslag voor het cluster een Azure Storage Blob of een Data Lake Store-account zijn. Als u HDInsight-taken uitvoert voor gegevens die in Data Lake Store als extra opslag zijn opgeslagen, dient u het volledige pad naar de bestanden te gebruiken. Bijvoorbeeld:
 
@@ -104,15 +96,11 @@ Om een Data Lake Store als extra opslagruimte te kunnen gebruiken, moet u alleen
 Zie [Configure Data Lake store access](#configure-data-lake-store-access) voor meer informatie over het maken van service-principal en het verlenen van toegang.
 
 
-<a id="use-more-than-one-data-lake-store-accounts" class="xliff"></a>
-
-## Meerdere Data Lake Store-accounts gebruiken
+## <a name="use-more-than-one-data-lake-store-accounts"></a>Meerdere Data Lake Store-accounts gebruiken
 
 Een Data Lake Store-account als extra toevoegen en het toevoegen van meerdere Data Lake Store-accounts wordt bereikt door het HDInsight-cluster te machtigen voor gegevens in een of meer Data Lake Store-accounts. Zie [Toegang tot Data Lake Store configureren](#configure-data-lake-store-access).
 
-<a id="configure-data-lake-store-access" class="xliff"></a>
-
-## Toegang tot Data Lake Store configureren
+## <a name="configure-data-lake-store-access"></a>Toegang tot Data Lake Store configureren
 
 Voor het configureren van toegang tot de Data Lake Store vanuit uw HDInsight-cluster moet u een Azure Active Directory (Azure AD) service-principal hebben. Alleen een Azure AD-beheerder kan een service-principal maken. De service-principal moet worden gemaakt met een certificaat. Zie voor meer informatie [Toegang tot Data Lake Store configureren](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md#configure-data-lake-store-access) en [Service-principal maken met zelfondertekend certificaat](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
 
@@ -120,9 +108,7 @@ Voor het configureren van toegang tot de Data Lake Store vanuit uw HDInsight-clu
 > Als u Azure Data Lake Store als extra opslag voor HDInsight-cluster wilt gebruiken, is het raadzaam dat te doen terwijl u het cluster maakt zoals beschreven in dit artikel. Azure Data Lake Store als extra opslagruimte toevoegen aan een bestaand HDInsight-cluster is een ingewikkeld proces en gevoelig voor fouten.
 >
 
-<a id="access-files-from-the-cluster" class="xliff"></a>
-
-## Bestanden openen vanuit het cluster
+## <a name="access-files-from-the-cluster"></a>Bestanden openen vanuit het cluster
 
 Er is een aantal manieren waarop u de bestanden in Data Lake Store vanuit een HDInsight-cluster kunt openen.
 
@@ -142,9 +128,7 @@ Er is een aantal manieren waarop u de bestanden in Data Lake Store vanuit een HD
 
         /example/data/sample.log
 
-<a id="create-hdinsight-clusters-with-access-to-data-lake-store" class="xliff"></a>
-
-## HDInsight-clusters maken met toegang tot Data Lake Store
+## <a name="create-hdinsight-clusters-with-access-to-data-lake-store"></a>HDInsight-clusters maken met toegang tot Data Lake Store
 
 Gebruik de volgende koppelingen voor gedetailleerde instructies over het maken van HDInsight-clusters met toegang tot Data Lake Store.
 
@@ -154,9 +138,7 @@ Gebruik de volgende koppelingen voor gedetailleerde instructies over het maken v
 * [Azure-sjablonen gebruiken](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe u HDFS-compatibele Azure Data Lake Store kunt gebruiken met HDInsight. Zodoende kunt u een schaalbare, duurzame, archiveringsoplossing voor gegevensverzameling bouwen en HDInsight gebruiken om de informatie te ontsluiten in de opgeslagen gestructureerde en ongestructureerde gegevens.
 
 Zie voor meer informatie:

@@ -22,25 +22,19 @@ ms.lasthandoff: 06/05/2017
 
 ---
 
-<a id="create-a-relay-namespace-using-the-azure-portal" class="xliff"></a>
-
-# Een Relay-naamruimte maken met behulp van Azure Portal
+# <a name="create-a-relay-namespace-using-the-azure-portal"></a>Een Relay-naamruimte maken met behulp van Azure Portal
 Een naamruimte is een algemene container voor al uw Azure Relay-onderdelen. Er kunnen zich meerdere relays in één naamruimte bevinden, en naamruimten fungeren vaak als toepassingscontainers. Er zijn momenteel twee verschillende manieren om een relay-naamruimte te maken.
 
 1. Azure-portal (dit artikel)
 2. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)-sjablonen
 
-<a id="create-a-namespace-in-the-azure-portal" class="xliff"></a>
-
-## Een naamruimte in Azure Portal maken
+## <a name="create-a-namespace-in-the-azure-portal"></a>Een naamruimte in Azure Portal maken
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
 Gefeliciteerd. U hebt nu een relay-naamruimte gemaakt.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen:
+## <a name="next-steps"></a>Volgende stappen:
 * [Veelgestelde vragen over Relay](relay-faq.md)
 * [Aan de slag met .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Aan de slag met knooppunten](relay-hybrid-connections-node-get-started.md)

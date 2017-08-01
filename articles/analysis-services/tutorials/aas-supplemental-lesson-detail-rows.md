@@ -22,9 +22,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="supplemental-lesson---detail-rows" class="xliff"></a>
-
-# Aanvullende les: Detailrijen
+# <a name="supplemental-lesson---detail-rows"></a>Aanvullende les: Detailrijen
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -32,14 +30,10 @@ In deze aanvullende les gaat u DAX Editor gebruiken voor het definiëren van een
   
 Geschatte tijd voor het voltooien van deze les: **10 minuten**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten  
+## <a name="prerequisites"></a>Vereisten  
 Deze aanvullende les maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. U kunt de taken in deze aanvullende les pas uitvoeren nadat u alle voorgaande lessen hebt afgerond of het voorbeeldproject Adventure Works Internet Sales hebt voltooid.  
   
-<a id="what-do-we-need-to-solve" class="xliff"></a>
-
-## Wat moeten we oplossen?
+## <a name="what-do-we-need-to-solve"></a>Wat moeten we oplossen?
 Laten we eens kijken naar de details van onze meting InternetTotalSales, voordat we een detailrijenexpressie gaan toevoegen.
 
 1.  Klik in SSDT op het menu **Model** > **Analyze in Excel** om Excel te openen met een lege draaitabel.
@@ -54,13 +48,9 @@ Laten we eens kijken naar de details van onze meting InternetTotalSales, voordat
   
 Wat we graag willen zien is een tabel met kolommen en rijen met gegevens die bijdragen aan het geaggregeerde resultaat van onze meting InternetTotalSales. Dit kan door een detailrijenexpressie toe te voegen als een eigenschap van de meting.
 
-<a id="add-a-detail-rows-expression" class="xliff"></a>
+## <a name="add-a-detail-rows-expression"></a>Een detailrijenexpressie maken
 
-## Een detailrijenexpressie maken
-
-<a id="to-create-a-detail-rows-expression" class="xliff"></a>
-
-#### Een detailrijenexpressie maken: 
+#### <a name="to-create-a-detail-rows-expression"></a>Een detailrijenexpressie maken: 
   
 1. Klik in SSDT, in het metingenraster van de tabel FactInternetSales, op de meting **InternetTotalSales**. 
 
@@ -92,9 +82,7 @@ Wat we graag willen zien is een tabel met kolommen en rijen met gegevens die bij
 5. Implementeer het model opnieuw.
 
   
-<a id="see-also" class="xliff"></a>
-
-## Zie ook  
+## <a name="see-also"></a>Zie ook  
 [SELECTCOLUMNS Function (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)  (SELECTCOLUMNS, functie (DAX))  
 [Aanvullende les: Dynamische beveiliging](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Aanvullende les: Onregelmatige hiërarchieën](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  

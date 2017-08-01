@@ -23,16 +23,12 @@ ms.lasthandoff: 06/05/2017
 
 
 ---
-<a id="what-is-azure-data-catalog" class="xliff"></a>
-
-# Wat is Azure Data Catalog?
+# <a name="what-is-azure-data-catalog"></a>Wat is Azure Data Catalog?
 Azure Data Catalog is een volledig beheerde cloudservice waarvan de gebruikers de gegevensbronnen die ze nodig hebben, kunnen opzoeken en inzichten kunnen verkrijgen uit de gegevensbronnen die ze vinden. Tegelijkertijd helpt Data Catalog organisaties meer waarde te halen uit hun bestaande investeringen. 
 
 Met Data Catalog kan elke gebruiker (analist, gegevenswetenschapper of ontwikkelaar) gegevensbronnen opzoeken, begrijpen en gebruiken. Data Catalog bevat een crowdsourcingmodel met metagegevens en aantekeningen. Het is een centrale locatie waar alle gebruikers van een organisatie hun kennis kunnen bijdragen en kunnen bouwen aan een community en cultuur van gegevens.
 
-<a id="discovery-challenges-for-data-consumers" class="xliff"></a>
-
-## Problemen met detectie voor gegevensgebruikers
+## <a name="discovery-challenges-for-data-consumers"></a>Problemen met detectie voor gegevensgebruikers
 Detectie van zakelijke gegevensbronnen is traditioneel een organisch proces op basis van specifieke kennis. Voor bedrijven die het meeste uit hun gegevensassets willen halen, leidt deze benadering tot talloze uitdagingen:
 
 * Gebruikers zijn er mogelijk niet van op de hoogte dat een gegevensbron bestaat, tenzij ze ermee in aanraking komen als onderdeel van een ander proces. Er is geen centrale locatie waar gegevensbronnen zijn geregistreerd.
@@ -41,9 +37,7 @@ Detectie van zakelijke gegevensbronnen is traditioneel een organisch proces op b
 * Als gebruikers vragen over een gegevensasset hebben, moeten ze de expert die of het team dat verantwoordelijk is voor de gegevens zien te vinden en ze offline benaderen. Er is geen expliciete relatie tussen gegevens en personen met een deskundige blik op het beoogde gebruik ervan.
 * Tenzij een gebruiker het proces voor het aanvragen van toegang tot de gegevensbron begrijpt, kan hij met detectie van de gegevensbron en de bijbehorende documentatie nog steeds geen toegang krijgen tot de gegevens.
 
-<a id="discovery-challenges-for-data-producers" class="xliff"></a>
-
-## Problemen met detectie voor gegevensproducenten
+## <a name="discovery-challenges-for-data-producers"></a>Problemen met detectie voor gegevensproducenten
 Terwijl gegevensgebruikers voor deze eerder vermelde uitdagingen staan, hebben gebruikers die verantwoordelijk zijn voor het maken en onderhouden van gegevensassets hun eigen uitdagingen:
 
 * Het annoteren van gegevensbronnen met beschrijvende metagegevens is vaak verspilde moeite. Clienttoepassingen negeren doorgaans beschrijvingen die zijn opgeslagen in de gegevensbron.
@@ -53,9 +47,7 @@ Terwijl gegevensgebruikers voor deze eerder vermelde uitdagingen staan, hebben g
 
 Gezamenlijk vormen deze uitdagingen een aanzienlijke belemmering voor bedrijven die gebruik van en kennis over zakelijke gegevens willen aansporen en promoten.
 
-<a id="azure-data-catalog-can-help" class="xliff"></a>
-
-## Azure Data Catalog kan helpen
+## <a name="azure-data-catalog-can-help"></a>Azure Data Catalog kan helpen
 Data Catalog is ontworpen om deze problemen te verhelpen en ervoor te zorgen dat ondernemingen het meeste uit hun bestaande gegevensassets kunnen halen. Data Catalog helpt door te zorgen dat gegevensbronnen gemakkelijk kunnen worden gedetecteerd en begrijpelijk zijn voor de gebruikers die met de gegevens omgaan.
 
 Data Catalog levert een cloudservice waarin een gegevensbron kan worden geregistreerd. De gegevens blijven op de bestaande locatie, maar een kopie van de metagegevens wordt toegevoegd aan Data Catalog, samen met een verwijzing naar de locatie van de gegevensbron. Deze metagegevens worden ook geïndexeerd zodat elke gegevensbron gemakkelijk kan worden gedetecteerd via zoekopdrachten, en begrijpelijk is voor gebruikers die de gegevensbron detecteren.
@@ -68,9 +60,7 @@ Tegelijkertijd kunnen gebruikers bijdragen aan de catalogus door tags, documenta
 
 ![Mogelijkheden van Data Catalog](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
 
-<a id="learn-more-about-data-catalog" class="xliff"></a>
-
-## Meer informatie over Data Catalog
+## <a name="learn-more-about-data-catalog"></a>Meer informatie over Data Catalog
 Zie voor meer informatie over de mogelijkheden van Data Catalog:
 
 * [Gegevensbronnen registreren](data-catalog-how-to-register.md)
@@ -83,9 +73,7 @@ Zie voor meer informatie over de mogelijkheden van Data Catalog:
 * [De zakelijke woordenlijst instellen](data-catalog-how-to-business-glossary.md)
 * [Veelgestelde vragen](data-catalog-frequently-asked-questions.md)
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Als u aan de slag wilt gaan met Data Catalog, gaat u naar:
 * [Microsoft Azure Data Catalog](https://www.azuredatacatalog.com)
 * [Aan de slag met Azure Data Catalog](data-catalog-get-started.md)

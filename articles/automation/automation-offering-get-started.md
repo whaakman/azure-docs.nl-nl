@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 0e80e0a1c334bcca0bb15dd16c54306a60f2486e
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 7ef31d7d72844c0ed3be0701549e49e26aac9abf
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -35,9 +35,9 @@ Azure Automation is een SaaS-toepassing (Software als een service) die een schaa
 
 Runbooks die u uitvoert in Azure, worden uitgevoerd op Automation-sandboxes, die op het Azure-platform als een virtuele PaaS-machine (platform als een service) worden gehost.  Automation-sandboxes bieden isolatie van tenants voor alle aspecten van de uitvoering van runbooks: modules, opslag, geheugen, netwerkcommunicatie, taakstromen enzovoort. Deze rol wordt beheerd door de service. U kunt deze niet beheren vanuit uw Azure- of Azure Automation-account.         
 
-Als u de implementatie en het beheer van resources in uw lokale datacenter of andere cloudservices wilt automatiseren, kunt u nadat u een Automation-account hebt gemaakt, een of meer computers aanwijzen om de HRW-rol ([Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)) uit te voeren.  Op elke HRW moet de Microsoft Management Agent (MMA) zijn geïnstalleerd. Deze moet een verbinding hebben met een Log Analytics-werkruimte en een Automation-account.  Log Analytics wordt gebruikt om de installatie te starten, de MMA-agent te onderhouden en de functionaliteit van de HRW te controleren.  De levering van runbooks en de instructie om ze uit te voeren, worden verzorgd door Azure Automation.
+Als u de implementatie en het beheer van resources in uw lokale datacenter of andere cloudservices wilt automatiseren, kunt u nadat u een Automation-account hebt gemaakt, een of meer computers aanwijzen om de HRW-rol ([Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)) uit te voeren.  Op elke HRW moet de Microsoft Management Agent zijn geïnstalleerd. Deze moet een verbinding hebben met een Log Analytics-werkruimte en een Automation-account.  Log Analytics wordt gebruikt om de installatie te starten, de Microsoft Management Agent te onderhouden en de functionaliteit van de HRW te bewaken.  De levering van runbooks en de instructie om ze uit te voeren, worden verzorgd door Azure Automation.
 
-U kunt meerdere HRW’s implementeren voor hoge beschikbaarheid voor uw runbooks, voor een gelijkmatige verdeling van runbooktaken en (in sommige gevallen) om ze toe te wijzen aan bepaalde workloads of omgevingen.  HRW communiceert met de Automation-service via uitgaande TCP-poort 443.  Wanneer er een runbook op een HRW in uw datacenter wordt uitgevoerd en u het runbook ook beheertaken voor andere computers of services in het datacenter wilt laten uitvoeren, moet u het runbook mogelijk ook toegang geven tot andere poorten.  Als het IT-beveiligingsbeleid niet toestaat dat computers in het netwerk verbinding maken met internet, raadpleegt u het artikel [OMS-gateway](../log-analytics/log-analytics-oms-gateway.md). De gateway fungeert als een proxy voor de HRW om taakstatusinformatie te verzamelen en configuratiegegevens van uw Automation-account te ontvangen.
+U kunt meerdere HRW’s implementeren voor hoge beschikbaarheid voor uw runbooks, voor een gelijkmatige verdeling van runbooktaken en (in sommige gevallen) om ze toe te wijzen aan bepaalde workloads of omgevingen.  De Microsoft Monitoring Agent op de HRW communiceert met de Automation-service via TCP-poort 443. Er zijn daarbij geen firewallvereisten voor binnenkomend verkeer.  Wanneer er een runbook op een HRW in de omgeving wordt uitgevoerd en u het runbook ook beheertaken voor andere computers of services in de omgeving wilt laten uitvoeren, moet u het runbook mogelijk ook toegang geven tot andere poorten.  Als het IT-beveiligingsbeleid niet toestaat dat computers in het netwerk verbinding maken met internet, raadpleegt u het artikel [OMS-gateway](../log-analytics/log-analytics-oms-gateway.md). De gateway fungeert als een proxy voor de HRW om taakstatusinformatie te verzamelen en configuratiegegevens van uw Automation-account te ontvangen.
 
 Runbooks die op een HRW worden uitgevoerd, werken in de context van het lokale systeemaccount op de computer. Dit is de aanbevolen beveiligingscontext voor het uitvoeren van beheertaken op de lokale Windows-computer. Als u het runbook taken wilt laten uitvoeren voor resources buiten de lokale computer, moet u mogelijk beveiligde referentieassets in het Automation-account definiëren. U moet deze referenties vanuit het runbook kunnen gebruiken voor verificatie bij de externe resource. U kunt de assets [Referentie](automation-credentials.md), [Certificaat](automation-certificates.md) en [Verbinding](automation-connections.md) in uw runbook gebruiken met cmdlets waarmee u referenties kunt opgeven, zodat u ze kunt verifiëren.
 

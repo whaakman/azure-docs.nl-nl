@@ -22,9 +22,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-3-mark-as-date-table" class="xliff"></a>
-
-# Les 3: Als gegevenstabel markeren
+# <a name="lesson-3-mark-as-date-table"></a>Les 3: Als gegevenstabel markeren
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -38,23 +36,17 @@ Voordat we de gegevenstabel en de gegevenskolom gaan markeren, is dit een goed m
   
 Geschatte tijd voor het voltooien van deze les: **3 minuten**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten  
+## <a name="prerequisites"></a>Vereisten  
 Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 2: Gegevens ophalen](../tutorials/aas-lesson-2-get-data.md). 
 
-<a id="to-rename-the-fulldatealternatekey-column" class="xliff"></a>
-
-### De naam wijzigen van de kolom FullDateAlternateKey:
+### <a name="to-rename-the-fulldatealternatekey-column"></a>De naam wijzigen van de kolom FullDateAlternateKey:
 
 1.  Klik in de ontwerpfunctie voor modellen op de tabel **DimDate**.
 
 2.  Dubbelklik op de kop van de kolom **FullDateAlternateKey** en wijzig de naam in **Date**.
 
   
-<a id="to-set-mark-as-date-table" class="xliff"></a>
-
-### De tabel als gegevenstabel markeren:  
+### <a name="to-set-mark-as-date-table"></a>De tabel als gegevenstabel markeren:  
   
 1.  Selecteer de kolom **Date** en zorg vervolgens dat in het venster **Properties**, onder **Date Type**, de optie **Date** is geselecteerd.  
   
@@ -65,9 +57,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
     ![aas-lesson3-date-table](../tutorials/media/aas-lesson3-date-table.png)
   
 
-<a id="whats-next" class="xliff"></a>
-
-## Volgende stappen
+## <a name="whats-next"></a>Volgende stappen
 [Les 4: Relaties maken](../tutorials/aas-lesson-4-create-relationships.md).
   
 

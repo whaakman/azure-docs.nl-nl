@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 07/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9b2947d9ce00083c168635811395bc86b3e60b78
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: a68a8fdc3976ade0d1036d5ed58c8b2eb6d32a5d
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Leidraad voor vooraf geconfigureerde oplossing voor voorspeld onderhoud
 
-## <a name="introduction"></a>Inleiding
-
-De vooraf geconfigureerde IoT-Suite-oplossing voor voorspeld onderhoud is een totaaloplossing voor een bedrijfsscenario die het punt voorspelt waarop naar verwachting een fout optreedt. U kunt deze vooraf geconfigureerde oplossing proactief gebruiken voor activiteiten zoals het optimaliseren van onderhoud. In de oplossing worden belangrijke Azure IoT Suite-services gecombineerd, zoals IoT Hub, Stream Analytics en een [Azure Machine Learning][lnk-machine-learning]-werkruimte. Deze werkruimte bevat een model, gebaseerd op een openbare verzameling voorbeeldgegevens, om de resterende bruikbare levensduur (RUL) van een vliegtuigmotor te voorspellen. De oplossing implementeert het IoT-bedrijfsscenario volledig als een beginpunt zodat u een oplossing kunt plannen en implementeren die voldoet aan uw eigen specifieke zakelijke vereisten.
+De vooraf geconfigureerde oplossing voor predictief onderhoud is een totaaloplossing voor een bedrijfsscenario die het punt voorspelt waarop naar verwachting een fout optreedt. U kunt deze vooraf geconfigureerde oplossing proactief gebruiken voor activiteiten zoals het optimaliseren van onderhoud. In de oplossing worden belangrijke Azure IoT Suite-services gecombineerd, zoals IoT Hub, Stream Analytics en een [Azure Machine Learning][lnk-machine-learning]-werkruimte. Deze werkruimte bevat een model, gebaseerd op een openbare verzameling voorbeeldgegevens, om de resterende bruikbare levensduur (RUL) van een vliegtuigmotor te voorspellen. De oplossing implementeert het IoT-bedrijfsscenario volledig als een beginpunt zodat u een oplossing kunt plannen en implementeren die voldoet aan uw eigen specifieke zakelijke vereisten.
 
 ## <a name="logical-architecture"></a>Logische architectuur
 
@@ -34,7 +32,7 @@ Het volgende diagram geeft een overzicht van de logische onderdelen van de voora
 
 ![][img-architecture]
 
-De blauwe items zijn Azure-services die zijn ingericht in de regio die u selecteert wanneer u de vooraf geconfigureerde oplossing inricht. De lijst met regio's waar u de vooraf geconfigureerde oplossing kunt implementeren, wordt weergegeven op de pagina [Inrichting][lnk-azureiotsuite].
+De blauwe items zijn Azure-services die zijn ingericht in de regio waar u de vooraf geconfigureerde oplossing hebt geïmplementeerd. De lijst met regio's waar u de vooraf geconfigureerde oplossing kunt implementeren, wordt weergegeven op de pagina [Inrichting][lnk-azureiotsuite].
 
 Het groene item is een gesimuleerd apparaat dat een vliegtuigmotor vertegenwoordigt. Meer informatie over deze gesimuleerde apparaten vindt u in het volgende gedeelte.
 
@@ -58,13 +56,17 @@ De gesimuleerde apparaten kunnen de volgende opdrachten verwerken die zijn verzo
 IoT Hub biedt een bevestiging van apparaatopdrachten.
 
 ## <a name="azure-stream-analytics-job"></a>Azure Stream Analytics-job
-**Job: Telemetrie** verwerkt de inkomende telemetriestroom van het apparaat met behulp van twee instructies. De eerste selecteert alle telemetrie van de apparaten en verzendt deze gegevens naar de Blob Storage waar ze in de web-app worden weergegeven. De tweede instructie berekent de gemiddelde sensorwaarden gedurende een sliding window van twee minuten en verzendt deze gegevens via Event Hub naar een **gebeurtenisprocessor**.
+
+**Job: Telemetrie** verwerkt de inkomende telemetriestroom van het apparaat met behulp van twee instructies:
+
+* De eerste selecteert alle telemetrie van de apparaten en verzendt deze gegevens naar Blob Storage. Hier worden ze weergegeven in de webtoepassing.
+* De tweede instructie berekent de gemiddelde sensorwaarden gedurende een sliding window van twee minuten en verzendt deze gegevens via Event Hub naar een **gebeurtenisprocessor**.
 
 ## <a name="event-processor"></a>Gebeurtenisprocessor
 De **gebeurtenisprocessorhost** wordt uitgevoerd in een Azure-webtaak. De **gebeurtenisverwerking** neemt de gemiddelde sensorwaarden voor een voltooide cyclus. Vervolgens worden deze waarden doorgegeven aan een API die het getrainde model de RUL voor een motor laat berekenen. De API wordt weergegeven met een Machine Learning-werkruimte die is ingericht als onderdeel van de oplossing.
 
 ## <a name="machine-learning"></a>Machine Learning
-Het Machine Learning-onderdeel maakt gebruikt van een model dat is afgeleid van gegevens die zijn verzameld bij echte vliegtuigmotoren. U kunt naar de Machine Learning-werkruimte navigeren vanaf de tegel op de pagina [azureiotsuite.com][lnk-azureiotsuite] voor de ingerichte oplossing wanneer de oplossing de status **Gereed** heeft.
+Het Machine Learning-onderdeel maakt gebruikt van een model dat is afgeleid van gegevens die zijn verzameld bij echte vliegtuigmotoren. U kunt naar de Machine Learning-werkruimte navigeren vanaf de tegel op de [azureiotsuite.com][lnk-azureiotsuite]-pagina voor de vooraf ingerichte oplossing. De tegel is beschikbaar wanneer de oplossing de status **Gereed** heeft.
 
 
 ## <a name="next-steps"></a>Volgende stappen

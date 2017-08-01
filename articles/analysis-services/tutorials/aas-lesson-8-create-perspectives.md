@@ -22,9 +22,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-8-create-perspectives" class="xliff"></a>
-
-# Les 8: Perspectieven maken
+# <a name="lesson-8-create-perspectives"></a>Les 8: Perspectieven maken
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -36,18 +34,12 @@ In deze les leert u hoe u perspectieven maakt en hoe u de hulpmiddelen van het p
   
 Geschatte tijd voor het voltooien van deze les: **5 minuten**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten  
+## <a name="prerequisites"></a>Vereisten  
 Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 7: Key Performance Indicators maken](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
   
-<a id="create-perspectives" class="xliff"></a>
-
-## Perspectieven maken  
+## <a name="create-perspectives"></a>Perspectieven maken  
   
-<a id="to-create-an-internet-sales-perspective" class="xliff"></a>
-
-#### Een perspectief Internet Sales maken:  
+#### <a name="to-create-an-internet-sales-perspective"></a>Een perspectief Internet Sales maken:  
   
 1.  Klik op het menu **Model** > **Perspectives** > **Create and Manage**.  
   
@@ -61,9 +53,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
   
     In een latere les gebruikt u de functie Analyseren van Excel om dit perspectief te testen. De lijst met draaitabelvelden van Excel bevat dan alle tabellen, behalve de tabel DimCustomer.  
 
-<a id="whats-next" class="xliff"></a>
-
-## Volgende stappen
+## <a name="whats-next"></a>Volgende stappen
 [Les 9: Hiërarchieën maken](../tutorials/aas-lesson-9-create-hierarchies.md).
   
   

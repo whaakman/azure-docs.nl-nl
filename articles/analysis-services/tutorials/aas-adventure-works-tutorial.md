@@ -22,9 +22,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="azure-analysis-services---adventure-works-tutorial" class="xliff"></a>
-
-# Azure Analysis Services - Adventure Works-zelfstudie
+# <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works-zelfstudie
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -32,9 +30,7 @@ Deze zelfstudie bestaat uit een aantal lessen waarin u leert hoe u met behulp va
 
 Als u geen ervaring hebt met Analysis Services en tabellaire modellen, is het volgen van deze zelfstudie de snelste manier om te leren hoe u een eenvoudig tabellair model maakt en implementeert. Zodra aan alle vereisten is voldaan, zal het afronden van de zelfstudie twee tot drie uur duren.  
   
-<a id="what-you-learn" class="xliff"></a>
-
-## Wat u leert   
+## <a name="what-you-learn"></a>Wat u leert   
   
 -   Een nieuw project voor een tabellair model maken op het **compatibiliteitsniveau 1400** in SSDT.
   
@@ -52,9 +48,7 @@ Als u geen ervaring hebt met Analysis Services en tabellaire modellen, is het vo
   
 -   Een tabellair model implementeren op een **Azure Analysis Services**-server of een on-premises SQL Server 2017 Analysis Services-server.  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten  
+## <a name="prerequisites"></a>Vereisten  
 Voor deze zelfstudie hebt u het volgende nodig:  
   
 -   Een exemplaar van Azure Analysis Services of SQL Server 2017 Analysis Services waarnaar het model moet worden geïmplementeerd. Meld u aan voor een gratis [proefversie van Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) en [maak een server](../analysis-services-create-server.md). U kunt zich ook registreren voor [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp) en dit product downloaden. 
@@ -69,9 +63,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 -   Een clienttoepassing zoals [Power BI Desktop](https://powerbi.microsoft.com/desktop/) of Excel. 
 
-<a id="scenario" class="xliff"></a>
-
-## Scenario  
+## <a name="scenario"></a>Scenario  
 Deze zelfstudie is gebaseerd op Adventure Works Cycles, een fictief bedrijf. Adventure Works is een grote multinational die stalen en composiet fietsen bouwt en distribueert naar commerciële markten in Noord-Amerika, Europa en Azië. Het bedrijf heeft 500 werknemers. Bovendien maakt Adventure Works gebruik van verschillende regionale verkoopteams op de verschillende markten. Uw project bestaat uit het maken van een tabellair model dat verkoop- en marketingpersoneel kan gebruiken om gegevens van internetverkopen te analyseren in de AdventureWorksDW-database.  
   
 U moet verschillende lessen afronden om de zelfstudie te voltooien. In elke les moet u enkele taken uitvoeren. Om de les te voltooien, moeten de taken in volgorde worden uitgevoerd. Het is mogelijk dat een bepaalde les verschillende taken bevat die een vergelijkbare uitkomst opleveren, maar waarvoor dan net iets andere stappen worden gebruikt. Hiermee wordt aangetoond dat er vaak meer dan één manier is om een taak te voltooien en wordt u uitgedaagd om de vaardigheden toe te passen die u in eerdere lessen en taken hebt geleerd.  
@@ -81,9 +73,7 @@ Het doel van de lessen is om u met behulp van een aantal functies in SSDT te hel
 Deze zelfstudie bevat geen lessen over het beheren van een server in Azure Portal, het beheren van een server of database met behulp van SSMS of het bladeren door modelgegevens met een clienttoepassing. 
 
 
-<a id="lessons" class="xliff"></a>
-
-## Lessen  
+## <a name="lessons"></a>Lessen  
 Deze zelfstudie bevat de volgende lessen:  
   
 |Les|Geschatte tijdsduur|  
@@ -102,9 +92,7 @@ Deze zelfstudie bevat de volgende lessen:
 |[Les 12: Analyseren in Excel](../tutorials/aas-lesson-12-analyze-in-excel.md)|5 minuten| 
 |[Les 13: Implementeren](../tutorials/aas-lesson-13-deploy.md)|5 minuten|  
   
-<a id="supplemental-lessons" class="xliff"></a>
-
-## Aanvullende lessen  
+## <a name="supplemental-lessons"></a>Aanvullende lessen  
 Deze lessen zijn niet vereist om de zelfstudie te voltooien, maar kunnen bijdragen aan een beter begrip van de geavanceerde functies voor het ontwerpen van een tabellair model.  
   
 |Les|Geschatte tijdsduur|  
@@ -114,9 +102,7 @@ Deze lessen zijn niet vereist om de zelfstudie te voltooien, maar kunnen bijdrag
 |[Onregelmatige hiërarchieën](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)|20 minuten| 
 
   
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen  
+## <a name="next-steps"></a>Volgende stappen  
 Ga naar [Les 1: Een nieuw project voor een tabellair model maken](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md) om te beginnen met de zelfstudie.  
   
   

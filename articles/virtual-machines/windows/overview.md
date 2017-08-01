@@ -23,8 +23,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 05/31/2017
 
 ---
-# Overzicht van virtuele Windows-machines in Azure
-<a id="overview-of-windows-virtual-machines-in-azure" class="xliff"></a>
+# <a name="overview-of-windows-virtual-machines-in-azure"></a>Overzicht van virtuele Windows-machines in Azure
 
 Azure Virtual Machines (VM) vormen een van de diverse typen [schaalbare on-demand computerresources](../../app-service-web/choose-web-site-cloud-service-vm.md) die Azure biedt. Normaal gesproken kiest u voor een VM wanneer u meer controle nodig hebt over de computeromgeving dan andere opties bieden. In dit artikel vindt u informatie over wat u moet overwegen voordat u een VM maakt, hoe u deze maakt en hoe u deze beheert.
 
@@ -38,8 +37,7 @@ Virtuele machines in Azure kunnen op verschillende manieren worden gebruikt. Een
 
 Het aantal virtuele machines dat uw toepassing gebruikt, kan omhoog worden geschaald naar wat is vereist om te voldoen aan uw behoeften.
 
-## Waar moet ik over nadenken voordat ik een VM maak?
-<a id="what-do-i-need-to-think-about-before-creating-a-vm" class="xliff"></a>
+## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Waar moet ik over nadenken voordat ik een VM maak?
 Er is altijd een groot aantal [overwegingen bij het ontwerpen](infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) wanneer u de infrastructuur van een toepassing verder uitwerkt in Azure. Deze aspecten van een VM zijn belangrijk om over na te denken voordat u begint:
 
 * De namen van uw toepassingsresources
@@ -50,14 +48,12 @@ Er is altijd een groot aantal [overwegingen bij het ontwerpen](infrastructure-vi
 * De configuratie van de VM nadat deze is gestart
 * De gerelateerde resources die de VM nodig heeft
 
-### Naamgeving
-<a id="naming" class="xliff"></a>
+### <a name="naming"></a>Naamgeving
 Een virtuele machine krijgt een [naam](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) toegewezen en er wordt een computernaam geconfigureerd als onderdeel van het besturingssysteem. De naam van een VM mag uit maximaal 15 tekens bestaan.
 
 Als u Azure gebruikt voor het maken van de schijf van het besturingssysteem, zijn de computernaam en de naam van de virtuele machine hetzelfde. Als u [uw eigen installatiekopie uploadt en gebruikt](upload-generalized-managed.md), eentje die een eerder geconfigureerd besturingssysteem bevat, en deze gebruikt om een virtuele machine maakt, kunnen de namen anders zijn. We raden u aan tijdens het uploaden van uw eigen installatiekopiebestand de computer in het besturingssysteem en de virtuele machine hetzelfde te noemen.
 
-### Locaties
-<a id="locations" class="xliff"></a>
+### <a name="locations"></a>Locaties
 Alle resources die in Azure zijn gemaakt, worden verdeeld over meerdere [geografische regio's](https://azure.microsoft.com/regions/) over de hele wereld. Normaal gesproken heet de regio **locatie** wanneer u een VM maakt. Voor een VM geeft de locatie aan waar de virtuele harde schijven zijn opgeslagen.
 
 In deze tabel staan enkele manieren om een lijst met beschikbare locaties te verkrijgen.
@@ -68,18 +64,15 @@ In deze tabel staan enkele manieren om een lijst met beschikbare locaties te ver
 | Azure PowerShell |Gebruik de opdracht [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). |
 | REST API |Gebruik de bewerking [Locaties vermelden](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
 
-### VM-grootte
-<a id="vm-size" class="xliff"></a>
+### <a name="vm-size"></a>VM-grootte
 De [grootte](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) van de VM die u gebruikt, wordt bepaald door de workload die u wilt uitvoeren. De grootte die u vervolgens kiest, bepaalt factoren als processorsnelheid, geheugen en opslagcapaciteit. Azure biedt een groot aantal verschillende grootten voor verschillende manieren van gebruik.
 
 Azure rekent een [uurprijs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) op basis van de grootte en het besturingssysteem van de VM. Voor niet-hele uren worden alleen de minuten van gebruik in rekening gebracht. De opslag wordt afzonderlijk berekend en in rekening gebracht.
 
-### VM-limieten
-<a id="vm-limits" class="xliff"></a>
+### <a name="vm-limits"></a>VM-limieten
 Uw abonnement heeft een standaard [quotumlimiet](../../azure-subscription-service-limits.md) ingebouwd die de implementatie van veel VM’s voor uw project kan beïnvloeden. De huidige limiet per abonnement is 20 VM's per regio. Limieten kunnen worden verhoogd door een ondersteuningsticket in te dienen met een aanvraag voor een verhoging.
 
-### Schijven en installatiekopieën voor een besturingssysteem
-<a id="operating-system-disks-and-images" class="xliff"></a>
+### <a name="operating-system-disks-and-images"></a>Schijven en installatiekopieën voor een besturingssysteem
 Virtuele machines maken gebruik van [virtuele harde schijven (VHD's)](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor de opslag van het besturingssysteem (OS) en de gegevens. VHD's worden ook gebruikt voor de installatiekopieën waarmee u een besturingssysteem kunt installeren. 
 
 Azure biedt veel [marketplace-installatiekopieën](https://azure.microsoft.com/marketplace/virtual-machines/) voor gebruik met verschillende versies en typen van de Windows Server-besturingssystemen. Marketplace-installatiekopieën worden aangeduid met uitgever, aanbieding, SKU en versie van de installatiekopie (de versie wordt meestal gespecificeerd als meest recente). 
@@ -94,8 +87,7 @@ In deze tabel ziet u een aantal manieren waarop u de gegevens voor een installat
 
 U kunt ervoor kiezen om [uw eigen installatiekopie te uploaden en te gebruiken](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account). Wanneer u dit doet, worden de uitgeversnaam, aanbieding en SKU niet gebruikt.
 
-### Extensies
-<a id="extensions" class="xliff"></a>
+### <a name="extensions"></a>Extensies
 VM-[extensies](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) geven uw VM meer mogelijkheden via de post-implementatieconfiguratie en geautomatiseerde taken.
 
 Deze algemene taken kunnen worden uitgevoerd met extensies:
@@ -104,8 +96,7 @@ Deze algemene taken kunnen worden uitgevoerd met extensies:
 * **Configuraties implementeren en beheren**: de [PowerShell Desired State Configuration (DSC)-extensie](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) helpt bij het instellen van DSC op een VM voor het beheren van configuraties en omgevingen.
 * **Diagnostische gegevens verzamelen**: de [Azure Diagnostics-extensie](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) helpt u bij het configureren van de VM voor het verzamelen van diagnostische gegevens die kunnen worden gebruikt voor het bewaken van de status van uw toepassing.
 
-### Gerelateerde resources
-<a id="related-resources" class="xliff"></a>
+### <a name="related-resources"></a>Gerelateerde resources
 De resources in deze tabel worden gebruikt door de VM en moeten bestaan of worden gemaakt wanneer de VM wordt gemaakt.
 
 | Resource | Vereist | Beschrijving |
@@ -117,8 +108,7 @@ De resources in deze tabel worden gebruikt door de VM en moeten bestaan of worde
 | [Netwerkinterface](../../virtual-network/virtual-network-network-interface.md) |Ja |De netwerkinterface van de VM moet in het netwerk communiceren. |
 | [Gegevensschijven](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Nee |De VM kan gegevensschijven bevatten om opslagmogelijkheden uit te breiden. |
 
-## Hoe kan ik mijn eerste VM maken?
-<a id="how-do-i-create-my-first-vm" class="xliff"></a>
+## <a name="how-do-i-create-my-first-vm"></a>Hoe kan ik mijn eerste VM maken?
 U hebt verschillende mogelijkheden voor het maken van uw VM. De keuze die u maakt, is afhankelijk van de omgeving waarin u zich bevindt. 
 
 Deze tabel bevat informatie om u te helpen uw VM te maken.
@@ -133,12 +123,10 @@ Deze tabel bevat informatie om u te helpen uw VM te maken.
 
 U hoopt natuurlijk dat alles goed gaat, maar soms gaat er iets fout. Als deze situatie u ooit overkomt, bekijkt u de informatie in [Problemen met Resource Manager-implementatie bij het maken van een virtuele Windows-machine in Azure oplossen](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## Hoe beheer ik de VM die ik heb gemaakt?
-<a id="how-do-i-manage-the-vm-that-i-created" class="xliff"></a>
+## <a name="how-do-i-manage-the-vm-that-i-created"></a>Hoe beheer ik de VM die ik heb gemaakt?
 VM's kunnen worden beheerd via een op een browser gebaseerde portal, opdrachtregelprogramma's met ondersteuning voor het uitvoeren van scripts of rechtstreeks via API's. Typische beheertaken die u uitvoert, zijn bijvoorbeeld: informatie over een VM ophalen, u aanmelden op een VM, de beschikbaarheid beheren en back-ups maken.
 
-### Informatie over een VM ophalen
-<a id="get-information-about-a-vm" class="xliff"></a>
+### <a name="get-information-about-a-vm"></a>Informatie over een VM ophalen
 In deze tabel ziet u enkele van de manieren waarop u informatie over een VM kunt ophalen.
 
 | Methode | Beschrijving |
@@ -148,22 +136,18 @@ In deze tabel ziet u enkele van de manieren waarop u informatie over een VM kunt
 | REST API |Gebruik de bewerking [VM-informatie ophalen](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) voor het verkrijgen van informatie over een VM. |
 | Client-SDK 's |Zie voor meer informatie over het gebruik van C# voor het beheren van VM's [Virtuele machines van Azure beheren met behulp van Azure Resource Manager en C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 
-### Aanmelden bij de VM
-<a id="log-on-to-the-vm" class="xliff"></a>
+### <a name="log-on-to-the-vm"></a>Aanmelden bij de VM
 U gebruikt de knop [Verbinden](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) in de Azure Portal om een Extern bureaublad-sessie te starten. Soms kan er iets fout gaan wanneer u probeert om een externe verbinding te gebruiken. Als deze situatie u overkomt, raadpleegt u de help-informatie in [Problemen oplossen met Extern bureaublad-verbindingen met een virtuele Windows-machine in Azure](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-### Beschikbaarheid beheren
-<a id="manage-availability" class="xliff"></a>
+### <a name="manage-availability"></a>Beschikbaarheid beheren
 Het is belangrijk dat u begrijpt hoe u [hoge beschikbaarheid garandeert](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor uw toepassing. Deze configuratie bestaat onder meer uit het maken van meerdere VM’s om ervoor te zorgen dat er ten minste één wordt uitgevoerd.
 
 Om uw implementatie te laten voldoen aan onze 99.95 VM Service Level Agreement, moet u twee of meer VM's waarop uw workload wordt uitgevoerd, implementeren binnen een [beschikbaarheidsset](infrastructure-availability-sets-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Deze configuratie zorgt ervoor dat uw virtuele machines worden verdeeld over meerdere foutdomeinen en worden geïmplementeerd op hosts met verschillende onderhoudsvensters. In de volledige [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) wordt de gegarandeerde beschikbaarheid van Azure als geheel uitgelegd.
 
-### Een back-up maken van de VM
-<a id="back-up-the-vm" class="xliff"></a>
+### <a name="back-up-the-vm"></a>Een back-up maken van de VM
 In zowel Azure Backup als Azure Site Recovery-services wordt een [Recovery Services-kluis](../../backup/backup-introduction-to-azure-backup.md) gebruikt voor het beveiligen van gegevens en assets. U kunt een Recovery Services-kluis gebruiken om [back-ups voor door Resource Manager geïmplementeerde virtuele machines te implementeren en te beheren met behulp van PowerShell](../../backup/backup-azure-vms-automation.md). 
 
-## Volgende stappen
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Volgende stappen
 * Als u met Linux-VM's wilt werken, bekijkt u [Azure en Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Meer informatie over de richtlijnen voor het instellen van uw infrastructuur vindt u in het [Voorbeeldoverzicht van Azure-infrastructuur](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Zorg ervoor dat u zich houdt aan de [Aanbevolen procedures voor het uitvoeren van een Windows-VM op Azure](guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

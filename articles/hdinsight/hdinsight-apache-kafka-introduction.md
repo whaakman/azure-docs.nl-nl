@@ -22,15 +22,11 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/17/2017
 
 ---
-<a id="introducing-apache-kafka-on-hdinsight-preview" class="xliff"></a>
-
-# Inleiding tot Apache Kafka in HDInsight (preview)
+# <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Inleiding tot Apache Kafka in HDInsight (preview)
 
 [Apache Kafka](https://kafka.apache.org) is een open-source gedistribueerd streamingplatform dat kan worden gebruikt voor het bouwen van pijplijnen en toepassingen voor realtime streaming van gegevens. Kafka biedt ook berichtenbrokerfunctionaliteit vergelijkbaar met een berichtenwachtrij, waarmee u benoemde gegevensstromen kunt publiceren en zich erop kunt abonneren. Kafka in HDInsight biedt u een beheerde, zeer schaalbare en maximaal beschikbare service in Microsoft Azure Cloud.
 
-<a id="why-use-kafka-on-hdinsight" class="xliff"></a>
-
-## Waarom Kafka op HDInsight gebruiken?
+## <a name="why-use-kafka-on-hdinsight"></a>Waarom Kafka op HDInsight gebruiken?
 
 Kafka biedt de volgende functies:
 
@@ -50,9 +46,7 @@ Kafka biedt de volgende functies:
 
     Zie [Increase scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md) (Schaalbaarheid verhogen van Kafka in HDInsight) voor informatie over het configureren van beheerde schijven met Kafka in HDInsight.
 
-<a id="use-cases" class="xliff"></a>
-
-## Gebruiksvoorbeelden
+## <a name="use-cases"></a>Gebruiksvoorbeelden
 
 * **Berichten**: omdat het publicatie-/abonnementspatroon voor berichten wordt ondersteund, wordt Kafka vaak gebruikt als berichtenbroker.
 
@@ -62,9 +56,7 @@ Kafka biedt de volgende functies:
 
 * **Transformatie**: met streamverwerking kunt u de gegevens uit meerdere invoeronderwerpen combineren en vertalen naar één of meer uitvoeronderwerpen.
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Gebruik de volgende koppelingen voor meer informatie over het gebruik van Apache Kafka in HDInsight:
 

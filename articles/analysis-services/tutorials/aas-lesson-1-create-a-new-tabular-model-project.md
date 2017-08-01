@@ -22,9 +22,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-1-create-a-new-tabular-model-project" class="xliff"></a>
-
-# Les 1: Een nieuw project voor een tabellair model maken
+# <a name="lesson-1-create-a-new-tabular-model-project"></a>Les 1: Een nieuw project voor een tabellair model maken
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -32,18 +30,12 @@ In deze les gebruikt u SQL Server Data Tools (SSDT) om een nieuw project voor ee
   
 Geschatte tijd voor het voltooien van deze les: **10 minuten**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten  
+## <a name="prerequisites"></a>Vereisten  
 Dit is de eerste les in een zelfstudie over het ontwerpen van een tabellair model. U kunt deze les alleen voltooien als aan verschillende vereisten is voldaan. Zie [Azure Analysis Services - Adventure Works-zelfstudie](../tutorials/aas-adventure-works-tutorial.md) voor meer informatie.  
   
-<a id="create-a-new-tabular-model-project" class="xliff"></a>
-
-## Een nieuw project voor een tabellair model maken  
+## <a name="create-a-new-tabular-model-project"></a>Een nieuw project voor een tabellair model maken  
   
-<a id="to-create-a-new-tabular-model-project" class="xliff"></a>
-
-#### Een nieuw project voor een tabellair model maken:  
+#### <a name="to-create-a-new-tabular-model-project"></a>Een nieuw project voor een tabellair model maken:  
   
 1.  Open in SSDT het menu **File** en klik op **New** > **Project**.  
   
@@ -66,9 +58,7 @@ Dit is de eerste les in een zelfstudie over het ontwerpen van een tabellair mode
     Als u SQL Server 2017 / Azure Analysis Services (1400) niet ziet staan in de vervolgkeuzelijst Compatibility level, gebruikt u niet de nieuwste versie van SQL Server Data Tools. Zie [SQL Server Data Tools installeren](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) om de nieuwste versie te downloaden.  
       
   
-<a id="understanding-the-ssdt-tabular-model-authoring-environment" class="xliff"></a>
-
-## Overzicht van de SSDT-ontwerpomgeving voor tabellaire modellen  
+## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>Overzicht van de SSDT-ontwerpomgeving voor tabellaire modellen  
 U hebt net een nieuw project voor een tabellair model gemaakt. Het is handig om nu eerst even de omgeving van SSDT voor het ontwerpen van tabellaire modellen te bekijken.  
   
 Nadat uw project is gemaakt, wordt het geopend in SSDT. Aan de rechterkant, bij **Tabular Model Explorer**, ziet u een structuurweergave van de objecten in uw model. Aangezien u nog geen gegevens hebt geïmporteerd, zijn de mappen leeg. Klik met de rechtermuisknop op een objectmap om bewerkingen uit te voeren. De beschikbare opties zijn ook op te roepen via de menubalk. Tijdens het doorlopen van de stappen van deze zelfstudie, kunt u Tabular Model Explorer gebruiken om door verschillende objecten in uw modelproject te bladeren.
@@ -92,9 +82,7 @@ Tijdens de installatie van SSDT, zijn er een paar nieuwe menuopdrachten toegevoe
 Bekijk enkele dialoogvensters en locaties voor verschillende functies die specifiek zijn voor het ontwerpen van tabellaire modellen. Hoewel sommige items nog niet actief zijn, kunt u zo toch een goed beeld krijgen de ontwerpomgeving voor tabellaire modellen.  
   
 
-<a id="whats-next" class="xliff"></a>
-
-## Volgende stappen
+## <a name="whats-next"></a>Volgende stappen
 [Les 2: Gegevens ophalen](../tutorials/aas-lesson-2-get-data.md).
 
   

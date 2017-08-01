@@ -22,9 +22,7 @@ ms.contentlocale: nl-nl
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="supplemental-lesson---ragged-hierarchies" class="xliff"></a>
-
-# Aanvullende les: Onregelmatige hiërarchieën
+# <a name="supplemental-lesson---ragged-hierarchies"></a>Aanvullende les: Onregelmatige hiërarchieën
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -36,20 +34,14 @@ Tabellaire modellen op het compatibiliteitsniveau 1400 hebben een extra eigensch
   
 Geschatte tijd voor het voltooien van deze les: **20 minuten**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Vereisten  
+## <a name="prerequisites"></a>Vereisten  
 Deze aanvullende les maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. U kunt de taken in deze aanvullende les pas uitvoeren nadat u alle voorgaande lessen hebt afgerond of het voorbeeldproject Adventure Works Internet Sales hebt voltooid. 
 
 Als u tijdens de zelfstudie het project AW Internet Sales hebt gemaakt, bevat het model nog geen gegevens of hiërarchieën die onregelmatig zijn. Om deze aanvullende les te voltooien, moet u eerst het probleem introduceren door een paar extra tabellen toe te voegen, en relaties, berekende kolommen, een meting en een nieuwe hiërarchie Organization te maken. Dat gedeelte neemt ongeveer 15 minuten in beslag. Vervolgens hebt u nog maar een paar minuten nodig om het probleem op te lossen.  
 
-<a id="add-tables-and-objects" class="xliff"></a>
-
-## Tabellen en objecten toevoegen
+## <a name="add-tables-and-objects"></a>Tabellen en objecten toevoegen
   
-<a id="to-add-new-tables-to-your-model" class="xliff"></a>
-
-### Nieuwe tabellen toevoegen aan uw model
+### <a name="to-add-new-tables-to-your-model"></a>Nieuwe tabellen toevoegen aan uw model
   
 1.  Vouw in Tabular Model Explorer de optie **Data Sources** uit, klik met de rechtermuisknop op uw verbinding en klik vervolgens op **Import New Tables**.
   
@@ -120,9 +112,7 @@ Als u tijdens de zelfstudie het project AW Internet Sales hebt gemaakt, bevat he
 
     Zoals u ziet in de draaitabel, bevat de hiërarchie onregelmatige rijen. Er zijn veel rijen waarin lege leden worden weergegeven.
 
-<a id="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property" class="xliff"></a>
-
-## Het probleem met de onregelmatige hiërarchie oplossen door de eigenschap Hide Members in te stellen
+## <a name="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property"></a>Het probleem met de onregelmatige hiërarchie oplossen door de eigenschap Hide Members in te stellen
 
 1.  Ga naar **Tabular Model Explorer** en vouw **Tables** > **DimEmployee** > **Hierarchies** > **Organization** uit.
 
@@ -136,9 +126,7 @@ Als u tijdens de zelfstudie het project AW Internet Sales hebt gemaakt, bevat he
 
     Dat ziet er al veel beter uit.
 
-<a id="see-also" class="xliff"></a>
-
-## Zie ook   
+## <a name="see-also"></a>Zie ook   
 [Les 9: Hiërarchieën maken](../tutorials/aas-lesson-9-create-hierarchies.md)  
 [Aanvullende les: Dynamische beveiliging](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Aanvullende les: Detailrijen](../tutorials/aas-supplemental-lesson-detail-rows.md)  

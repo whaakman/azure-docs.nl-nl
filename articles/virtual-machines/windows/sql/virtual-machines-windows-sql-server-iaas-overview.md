@@ -23,9 +23,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="overview-of-sql-server-on-azure-virtual-machines" class="xliff"></a>
-
-# Overzicht van SQL Server op virtuele machines in Azure
+# <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Overzicht van SQL Server op virtuele machines in Azure
 In dit onderwerp wordt beschreven hoe u SQL Server kunt uitvoeren op virtuele machines (VM's) in Azure. Ook vindt u hier [koppelingen naar portalinstallatiekopieën](#option-1-create-a-sql-vm-with-per-minute-licensing) en een overzicht van [algemene taken](#manage-your-sql-vm).
 
 > [!NOTE]
@@ -33,9 +31,7 @@ In dit onderwerp wordt beschreven hoe u SQL Server kunt uitvoeren op virtuele ma
 > 
 > 
 
-<a id="overview" class="xliff"></a>
-
-## Overzicht
+## <a name="overview"></a>Overzicht
 Als u een databasebeheerder of een ontwikkelaar bent, kunt u met VM's in Azure de on-premises SQL Server-werkbelastingen en toepassingen naar de cloud verplaatsen. De volgende video geeft een technisch overzicht van virtuele machines met SQL Server in Azure.
 
 > [!VIDEO https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016/player]
@@ -61,9 +57,7 @@ In de video komen de volgende onderwerpen ter sprake:
 > 
 > 
 
-<a id="scenarios" class="xliff"></a>
-
-## Scenario's
+## <a name="scenarios"></a>Scenario's
 U kunt er om vele redenen voor kiezen om uw gegevens in Azure te hosten. Als uw toepassing wordt verplaatst naar Azure, kunt u de prestaties verbeteren door ook de gegevens te verplaatsen. Maar er zijn nog andere voordelen. U hebt automatisch toegang tot meerdere datacenters voor een wereldwijde aanwezigheid en herstel na een noodgeval. De gegevens zijn ook zeer goed beveiligd en duurzaam.
 
 SQL Server dat wordt uitgevoerd op virtuele machines in Azure is één mogelijkheid om relationele gegevens in Azure op te slaan. Het is een goede keuze voor verschillende scenario's. U wilt bijvoorbeeld de virtuele machine in Azure zo identiek mogelijk aan een on-premises computer met SQL Server configureren. Of u wilt misschien aanvullende toepassingen en services uitvoeren op dezelfde databaseserver. Er zijn twee belangrijke informatiebronnen die u helpen nog meer scenario's en overwegingen te bedenken:
@@ -71,16 +65,12 @@ SQL Server dat wordt uitgevoerd op virtuele machines in Azure is één mogelijkh
 * In [SQL Server op virtuele machines in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/) vindt u een overzicht van de beste scenario's voor het gebruik van SQL Server op virtuele machines in Azure. 
 * Zie [Een SQL Server-optie voor de cloud kiezen: Azure SQL (PaaS) Database of SQL Server op virtuele machines in Azure (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md) voor een gedetailleerde vergelijking tussen SQL Database en SQL Server dat wordt uitgevoerd op een virtuele machine.
 
-<a id="create-a-new-sql-vm" class="xliff"></a>
-
-## Een nieuwe SQL-VM maken
+## <a name="create-a-new-sql-vm"></a>Een nieuwe SQL-VM maken
 De volgende gedeelten bevatten directe koppelingen naar Azure Portal voor de galerie met installatiekopieën van virtuele SQL Server-machines. Afhankelijk van de installatiekopie die u selecteert, kunt u de SQL Server-licentiekosten betalen per minuut of uw eigen licentie gebruiken (Bring Your Own Licence, BYOL).
 
 Stapsgewijze richtlijnen voor het maken van een nieuwe virtuele SQL-machine vindt u in de zelfstudie [Een virtuele SQL Server-machine inrichten in Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). Bekijk ook de [Aanbevolen procedures voor de beste prestaties voor virtuele SQL Server-machines](virtual-machines-windows-sql-performance.md), waarin wordt uitgelegd hoe u de juiste machinegrootte selecteert, evenals andere functies die tijdens het inrichten beschikbaar zijn.
 
-<a id="option-1-create-a-sql-vm-with-per-minute-licensing" class="xliff"></a>
-
-## Optie 1: een SQL-VM maken met licentiekosten per minuut
+## <a name="option-1-create-a-sql-vm-with-per-minute-licensing"></a>Optie 1: een SQL-VM maken met licentiekosten per minuut
 De volgende tabel bevat een matrix met de laatste SQL Server-installatiekopieën in de galerie met virtuele machines. Klik op een koppeling om te beginnen met het maken van een nieuwe virtuele SQL-machine met de versie, de editie en het besturingssysteem die u hebt opgegeven. 
 
 > [!TIP]
@@ -114,48 +104,32 @@ In aanvulling op deze lijst zijn er ook andere combinaties van SQL Server-versie
 > [!NOTE]
 > Het is niet mogelijk om de licentie voor een SQL Server-VM waarbij per minuut wordt betaald te wijzigen in uw eigen licentie. Als u dit wilt doen, moet u een nieuwe BYOL-VM maken en uw databases naar de nieuwe VM migreren. 
 
-<a id="manage-your-sql-vm" class="xliff"></a>
-
-## Uw virtuele SQL-machine beheren
+## <a name="manage-your-sql-vm"></a>Uw virtuele SQL-machine beheren
 Na het inrichten van uw virtuele SQL Server-machine zijn er verschillende optionele beheertaken die u kunt uitvoeren. Met betrekking tot bepaalde aspecten kunt u SQL Server op exact dezelfde manier configureren en beheren als u met een on-premises SQL Server-exemplaar zou doen. Andere taken zijn echter specifiek voor Azure. In de volgende secties worden enkele van deze taken uitgelicht. Ook vindt u er koppelingen naar meer informatie.
 
-<a id="connect-to-the-vm" class="xliff"></a>
-
-### Verbinding maken met de virtuele machine
+### <a name="connect-to-the-vm"></a>Verbinding maken met de virtuele machine
 Een van de meest elementaire beheerfasen is het verbinding maken met uw virtuele machine met SQL Server via hulpprogramma's als SQL Server Management Studio (SSMS). Zie [Connect to a SQL Server Virtual Machine on Azure](virtual-machines-windows-sql-connect.md) (Verbinding maken met een virtuele machine met SQL Server in Azure) voor instructies voor het verbinding maken met uw nieuwe virtuele machine met SQL Server.
 
-<a id="migrate-your-data" class="xliff"></a>
-
-### Uw gegevens migreren
+### <a name="migrate-your-data"></a>Uw gegevens migreren
 Als u een bestaande database hebt, doet u er verstandig aan deze te verplaatsen naar uw nieuw ingerichte virtuele SQL-machine. Zie [Een database migreren naar SQL Server op een virtuele machine in Azure](virtual-machines-windows-migrate-sql.md) voor een lijst met migratieopties en begeleiding bij de migratie.
 
-<a id="configure-high-availability" class="xliff"></a>
-
-### Hoge beschikbaarheid configureren
+### <a name="configure-high-availability"></a>Hoge beschikbaarheid configureren
 Als u hoge beschikbaarheid nodig hebt, overweeg dan SQL Server-beschikbaarheidsgroepen te configureren. Hierbij combineert u meerdere virtuele machines in Azure tot een virtueel netwerk. In Azure Portal vindt u een sjabloon voor het instellen van deze configuratie. Zie [Een AlwaysOn-beschikbaarheidsgroep configureren op virtuele machines in Azure Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor meer informatie. Als u de beschikbaarheidsgroep en de bijbehorende listener handmatig wilt configureren, raadpleegt u [AlwaysOn-beschikbaarheidsgroepen configureren op virtuele machines in Azure](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
 Raadpleeg voor andere overwegingen met betrekking tot hoge beschikbaarheid [Hoge beschikbaarheid en herstel na een noodgeval voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
-<a id="back-up-your-data" class="xliff"></a>
-
-### Een back-up maken van uw gegevens
+### <a name="back-up-your-data"></a>Een back-up maken van uw gegevens
 Azure VM's kunnen gebruikmaken van [geautomatiseerde back-ups](virtual-machines-windows-sql-automated-backup.md), waarbij er regelmatig back-ups in Blob Storage worden gemaakt van uw database. U kunt deze techniek ook handmatig gebruiken. Zie [Azure Storage gebruiken voor back-up en herstel van SQL Server](virtual-machines-windows-use-storage-sql-server-backup-restore.md) voor meer informatie. Zie [Back-up en herstel voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md) voor een overzicht van alle opties voor back-up en herstel.
 
-<a id="automate-updates" class="xliff"></a>
-
-### Updates automatiseren
+### <a name="automate-updates"></a>Updates automatiseren
 Azure VM's kunnen [geautomatiseerde patching](virtual-machines-windows-sql-automated-patching.md) gebruiken om een onderhoudsvenster te plannen voor het automatisch installeren van belangrijke Windows- en SQL Server-updates.
 
-<a id="customer-experience-improvement-program-ceip" class="xliff"></a>
-
-### Programma voor kwaliteitsverbetering (CEIP)
+### <a name="customer-experience-improvement-program-ceip"></a>Programma voor kwaliteitsverbetering (CEIP)
 Het programma voor kwaliteitsverbetering (CEIP) is standaard ingeschakeld. Met dit programma worden regelmatig rapporten naar Microsoft verzonden zodat SQL Server kan worden verbeterd. Er hoeft voor het programma voor kwaliteitsverbetering geen beheertaak worden uitgevoerd, tenzij u het na het inrichten wilt uitschakelen. U kunt het programma voor kwaliteitsverbetering aanpassen of uitschakelen door via Extern bureaublad verbinding te maken met de virtuele machine. Voer vervolgens het hulpprogramma **SQL Server-fouten- en gebruiksrapportage** uit. Volg de instructies voor het uitschakelen van rapportage. 
 
 Zie de sectie over het programma voor kwaliteitsverbetering in het onderwerp [Licentievoorwaarden accepteren](https://msdn.microsoft.com/library/ms143343.aspx) voor meer informatie. 
 
-<a id="next-steps" class="xliff"></a>
-
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Zie [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's) en de [pagina met prijzen voor Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) als u vragen hebt over prijzen. Selecteer de doeleditie van SQL Server in de lijst **Besturingssysteem/software**. Geef vervolgens de prijzen weer voor virtuele machines van verschillende grootten.
 
