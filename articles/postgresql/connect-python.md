@@ -12,10 +12,10 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/07/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 3cd090b02887857a68271f021e3580e05660d1dc
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: f6ae1ef3855711a86333857f26400f29dfd7c54e
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database voor PostgreSQL: Python gebruiken om verbinding te maken en gegevens op te vragen
@@ -50,7 +50,7 @@ Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azur
 
 ## <a name="how-to-run-python-code"></a>Python-code uitvoeren
 - Maak in uw favoriete teksteditor een nieuw bestand met de naam postgres.py en sla het bestand op in een projectmap. Kopieer hieronder een fragment met voorbeeldcode, plak dit in het tekstbestand en sla het bestand op. Zorg ervoor dat u UTF-8-codering selecteert als u het bestand opslaat in Windows. 
-- Voor het uitvoeren van de code opent u het opdrachtprompt of de bash-shell. Ga naar de projectmap, zoals `cd postgresql`. Typ vervolgens de python-opdracht, gevolgd door de bestandsnaam, zoals `python postgresql.py`.
+- Voor het uitvoeren van de code opent u het opdrachtprompt of de bash-shell. Ga naar de projectmap, zoals `cd postgresql`. Typ vervolgens de python-opdracht, gevolgd door de bestandsnaam, zoals `python postgres.py`.
 
 > [!NOTE]
 > Vanaf versie 3 van Python ziet u mogelijk de fout `SyntaxError: Missing parentheses in call to 'print'` wanneer u de onderstaande codeblokken uitvoert. Als dat gebeurt, vervangt u elke aanroep van de opdracht `print "string"` door een functieaanroep met haakjes, zoals `print("string")`.
