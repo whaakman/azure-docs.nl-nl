@@ -40,6 +40,7 @@
 ### [Handleiding voor programmeren met U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Naslaginformatie
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-analytics)
 ## [PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
@@ -53,5 +54,6 @@
 ## [Feedback geven op UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=data-lake-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)

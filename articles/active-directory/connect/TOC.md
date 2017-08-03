@@ -38,6 +38,7 @@
 ##### [Snel starten](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Huidige beperkingen](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [Hoe werkt het?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
+##### [Preview-agents bijwerken](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)
 ##### [Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Veelgestelde vragen](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Problemen oplossen](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
@@ -82,6 +83,7 @@
 ### [Probleem met LocalDB met limiet van 10 GB oplossen](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Naslaginformatie
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Tolerantie voor synchronisatie- en duplicatiekenmerken identificeren](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Voor hybride identiteit benodigde poorten en protocollen](active-directory-aadconnect-ports.md)
 ## [Functies in preview](active-directory-aadconnect-feature-preview.md)
@@ -109,3 +111,5 @@
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Veelgestelde vragen over Azure AD Connect](active-directory-aadconnect-faq.md)
 ##[Afschaffing van DirSync](active-directory-aadconnect-dirsync-deprecated.md)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
+

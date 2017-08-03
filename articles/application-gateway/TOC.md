@@ -8,6 +8,7 @@
 ## [Multi-site](application-gateway-multi-site-overview.md)
 ## [End-to-end-SSL](application-gateway-backend-ssl.md)
 ## [Omleiding](application-gateway-redirect-overview.md)
+## [Ondersteuning voor meerdere tenants](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
 ## [Servicelimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Aan de slag
@@ -16,7 +17,8 @@
 #### [Portal](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
-#### [Azure CLI](application-gateway-create-gateway-cli.md)
+#### [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md)
+#### [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
 #### [PowerShell (klassiek)](application-gateway-create-gateway.md)
 ### Intern
 #### [PowerShell](application-gateway-ilb-arm.md)
@@ -40,6 +42,8 @@
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Omleiding configureren
 ### [PowerShell](application-gateway-configure-redirect-powershell.md)
+## Web-apps als leden van back-end-pools configureren
+### [PowerShell](application-gateway-web-app-powershell.md)
 ## Statuscontroles configureren
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
@@ -70,6 +74,7 @@
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)

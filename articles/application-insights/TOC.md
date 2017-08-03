@@ -42,6 +42,7 @@
 ## Configureren
 ### Azure
 #### [Profiler](app-insights-profiler.md)
+#### [Profiler inschakelen](enable-profiler-cloud-services.md)
 #### [Diagnostics](app-insights-azure-diagnostics.md)
 #### [Previews](app-insights-previews.md)
 
@@ -140,7 +141,7 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Naslaginformatie
-## [Analytische gegevens](app-insights-analytics-reference.md)
+## [Analytische gegevens](https://docs.loganalytics.io/)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
@@ -154,6 +155,7 @@
 ### [Gegevens](application-insights-data-model-metric-telemetry.md)
 ### [Context](application-insights-data-model-context.md)
 ## [Telemetriecorrelatie](application-insights-correlation.md)
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=application-insights)
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
@@ -161,6 +163,7 @@
 ## [Talen en platforms](app-insights-platforms.md)
 
 ## [Prijzen](https://azure.microsoft.com/pricing/details/application-insights/)  
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 
 ## Nieuws
 

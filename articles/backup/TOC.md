@@ -3,8 +3,8 @@
 ## [Wat is Azure Backup?](backup-introduction-to-azure-backup.md)
 
 # Aan de slag
-## [Back-ups maken van virtuele Azure-machines](backup-azure-vms-first-look-arm.md)
-## [Back-ups maken van bestanden en mappen](backup-try-azure-backup-in-10-mins.md)
+## [Back-ups maken van Azure-VM's](backup-azure-vms-first-look-arm.md)
+## [Back-ups maken van Windows Server of Windows-computers](backup-try-azure-backup-in-10-mins.md)
 ## [Back-ups maken van VMware-servers](backup-azure-backup-server-vmware.md)
 
 # Procedures
@@ -27,16 +27,19 @@
 #### [Virtuele machines die zijn geïmplementeerd met Resource Manager herstellen in Azure Portal](backup-azure-arm-restore-vms.md)
 #### [Versleutelde virtuele machines terugzetten](backup-azure-vms-encryption.md)
 #### [Virtuele machines herstellen in Azure](backup-azure-restore-vms.md)
-#### [Key Vault-sleutel en -geheim voor versleutelde virtuele machines terugzetten met Azure Backup](backup-azure-restore-key-secret.md)
+#### [Key Vault-sleutel en -geheim voor versleutelde virtuele machines terugzetten](backup-azure-restore-key-secret.md)
 
 
-## Windows-bestanden en -mappen
-### [Windows Server met het implementatiemodel van Resource Manager](backup-configure-vault.md)
-### [Windows Server met het klassieke implementatiemodel](backup-configure-vault-classic.md)
+## Windows Server
+### [Back-ups maken van Windows Server-bestanden en -mappen](backup-configure-vault.md)
+### [Back-ups maken van Windows Server-systeemstatus](backup-azure-system-state.md)
+### [Bestanden herstellen van Azure naar Windows Server](backup-azure-restore-windows-server.md)
+### [Windows Server-systeemstatus herstellen](backup-azure-restore-system-state.md)
 ### [Recovery Services-kluizen beheren en controleren](backup-azure-manage-windows-server.md)
-### [Back-upkluizen beheren met het klassieke implementatiemodel](backup-azure-manage-windows-server-classic.md)
-### [Bestanden herstellen op een Windows Server met het implementatiemodel van Resource Manager](backup-azure-restore-windows-server.md)
-### [Bestanden herstellen op een Windows Server met het klassieke implementatiemodel](backup-azure-restore-windows-server-classic.md)
+### Back-ups maken en terugzetten met behulp van de klassieke portal
+#### [Windows Server met het klassieke implementatiemodel](backup-configure-vault-classic.md)
+#### [Back-upkluizen beheren met het klassieke implementatiemodel](backup-azure-manage-windows-server-classic.md)
+#### [Bestanden herstellen op een Windows Server met het klassieke implementatiemodel](backup-azure-restore-windows-server-classic.md)
 
 ## Azure Backup-server
 ### [Beveiligingsmatrix voor Azure Backup Server](backup-mabs-protection-matrix.md)
@@ -108,5 +111,6 @@
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/backup/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=backup)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=backup)

@@ -31,12 +31,22 @@
 #### [IIS-logboeken](log-analytics-data-sources-iis-logs.md)
 #### [Aangepaste logboeken](log-analytics-data-sources-custom-logs.md)
 #### [Aangepaste velden](log-analytics-custom-fields.md)
+
 ## Querygegevens
 ### [Overzicht van zoekopdrachten in logboeken](log-analytics-log-searches.md)
 ### [Zoekverwijzing](log-analytics-search-reference.md)
 #### [Reguliere expressies](log-analytics-log-searches-regex.md)
 ### [Acties uitvoeren vanuit de zoekresultaten](log-analytics-log-search-takeaction.md)
 ### [Computergroepen](log-analytics-computer-groups.md)
+
+## Nieuwe zoekopdrachten in logboeken
+### [Uw werkruimte bijwerken](log-analytics-log-search-upgrade.md)
+### [Veelgestelde vragen](log-analytics-log-search-faq.md)
+### [Overzicht van zoekopdrachten in logboeken](log-analytics-log-search-new.md)
+### [Portals voor zoekopdrachten in logboeken](log-analytics-log-search-portals.md)
+#### [Het portal voor zoekopdrachten in logboeken gebruiken](log-analytics-log-search-log-search-portal.md)
+### [Overstappen van een verouderde taal](log-analytics-log-search-transition.md)
+
 ## Gegevens analyseren
 ### [Dashboards](log-analytics-dashboards.md)
 ### [Designer weergeven](log-analytics-view-designer.md)
@@ -101,5 +111,6 @@
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=log-analytics)
 ## [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)

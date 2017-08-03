@@ -23,8 +23,12 @@
 ### [MFA vereisen](../active-directory-privileged-identity-management-how-to-require-mfa.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ### [Het controlelogboek gebruiken](../active-directory-privileged-identity-management-how-to-use-audit-log.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 
+# Naslaginformatie
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # Verwant
 ## [Azure Active Directory](/azure/active-directory/)
 ## [Op rollen gebaseerd toegangsbeheer](../role-based-access-control-what-is.md)
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

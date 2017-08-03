@@ -24,10 +24,6 @@
 # Procedures
 ## Plannen en ontwerpen
 ### [Inzicht in de Azure AD-architectuur](active-directory-architecture.md)
-### [Aanbevolen beveiligingsbeleid en -configuraties](secure-email-introduction.md)
-#### [Aanbevolen beleid voor e-mailbeveiliging](secure-email-recommended-policies.md)
-##### [Aanbevolen beleid voor e-mailbeveiliging implementeren](secure-email-deploy-recommended-policies.md)
-#### [Overzicht van EMS- en Office 365-services](secure-email-ems-office365-service-descriptions.md)
 ### [Een hybride identiteitsoplossing implementeren](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Claimtoewijzing in Azure Active Directory](active-directory-claims-mapping.md)
 #### Vereisten bepalen
@@ -167,7 +163,6 @@
 ## Apps beheren
 ### [Overzicht](active-directory-enable-sso-scenario.md)
 ### [Aan de slag](active-directory-integrating-applications-getting-started.md)
-
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Registerinstellingen bijwerken](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Meer informatie over beveiliging en privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
@@ -178,7 +173,7 @@
 ##### [App-Proxy inschakelen](active-directory-application-proxy-enable.md)
 ##### [Apps publiceren](application-proxy-publish-azure-portal.md)
 ##### [Aangepaste domeinen](active-directory-application-proxy-custom-domains.md)
-#### [Toegang via eenmalige aanmelding](active-directory-appssoaccess-whatis.md)
+#### [Eenmalige aanmelding](application-proxy-sso-overview.md)
 ##### [Eenmalige aanmelding met KCD](active-directory-application-proxy-sso-using-kcd.md)
 ##### [Eenmalige aanmelding met koppen](application-proxy-ping-access.md)
 ##### [Eenmalige aanmelding met wachtwoordkluis](application-proxy-sso-azure-portal.md)
@@ -219,6 +214,7 @@
 
 ### [Toegang tot apps beheren](active-directory-managing-access-to-apps.md)
 #### [Selfservice toegang](active-directory-self-service-application-access.md)
+#### [Toegang via eenmalige aanmelding](active-directory-appssoaccess-whatis.md)
 #### [Certificaten voor SSO](active-directory-sso-certs.md)
 #### [Beperkingen voor tenants](active-directory-tenant-restrictions.md)
 #### [SCIM gebruiken voor het inrichten van gebruikers](active-directory-scim-provisioning.md)
@@ -370,6 +366,7 @@
 
 
 # Naslaginformatie
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [PowerShell-cmdlets](/powershell/azure/overview)
 ## [Naslaginformatie over de Java-API](/java/api)
 ## [.NET-API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
@@ -387,6 +384,7 @@
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)

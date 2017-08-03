@@ -173,6 +173,7 @@
 
 # Naslaginformatie
 
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=machine-learning)
 ## [PowerShell-module (nieuw)](/powershell/module/azurerm.machinelearning)
 ## [PowerShell-module (klassiek)](machine-learning-powershell-module.md)
 ## [Naslaginformatie over algoritmen en modules](https://msdn.microsoft.com/library/azure/dn905974.aspx)
@@ -215,6 +216,7 @@
 
 ## [Net# neurale-netwerkentaal](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)

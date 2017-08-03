@@ -8,6 +8,7 @@
 ## [Zelfstudie over Batch .NET](batch-dotnet-get-started.md)
 ## [Zelfstudie over Batch Python](batch-python-tutorial.md)
 ## [Zelfstudie over Batch Node.js](batch-nodejs-get-started.md)
+## [Service voor batch-rendering](batch-rendering-service.md)
 # Procedures
 ## Ontwikkelen
 ### [Toepassingspakketten](batch-application-packages.md)
@@ -15,6 +16,7 @@
 ### Azure Active Directory-verificatie
 #### [Azure AD met Batch-service](batch-aad-auth.md)
 #### [Azure AD met Batch Management](batch-aad-auth-management.md)
+### [Rekenintensieve VM’s](batch-pool-compute-intensive-sizes.md)
 ### [Gelijktijdige knooppunttaken](batch-parallel-node-tasks.md)
 ### [Efficiënte lijstquery's](batch-efficient-list-queries.md)
 ### [Taken voor taakvoorbereiding- en -voltooiing](batch-job-prep-release.md)
@@ -36,8 +38,8 @@
 #### [Een toepassing toevoegen](./scripts/batch-cli-sample-add-application.md)
 #### [Pools beheren](./scripts/batch-cli-sample-manage-pool.md)
 #### [Een functie en taken uitvoeren](./scripts/batch-cli-sample-run-job.md)
-
 # Naslaginformatie
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
 ## [PowerShell](/powershell/module/azurerm.batch)
 ## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
@@ -69,6 +71,7 @@
 ## [Codevoorbeelden voor C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/batch/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Codevoorbeelden voor Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)

@@ -179,6 +179,7 @@
 #### [Een back-up maken van stationsmanifesten](storage-import-export-backing-up-drive-manifests.md)
 #### [Diagnoses en het herstel van fouten voor Import/Export-taken](storage-import-export-diagnostics-and-error-recovery.md)
 # Naslaginformatie
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=storage)
 ## [PowerShell](/powershell/module/azure.storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
@@ -210,6 +211,7 @@
 ## [Azure Storage-clienthulpprogramma's](storage-explorers.md)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=storage)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=storage)
@@ -218,6 +220,7 @@
 ### [Opslagverkenner (preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Blobs beheren met Opslagverkenner (preview)](../vs-azure-tools-storage-explorer-blobs.md)
 ### [Opslagverkenner (preview) gebruiken met Azure File Storage](../vs-azure-tools-storage-explorer-files.md)
+### [Releaseopmerkingen voor Opslagverkenner (preview)](../vs-azure-tools-storage-explorer-relnotes.md)
 
 ## NuGet-pakketten
 ### [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

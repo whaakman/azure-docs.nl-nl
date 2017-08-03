@@ -146,6 +146,9 @@
 ### [Streaminglogboekbestanden en de console](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Problemen met behulp van Visual Studio oplossen](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
+# Naslaginformatie
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=app-service)
+
 # Resources
 ## [Naslaginformatie voor App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -153,6 +156,7 @@
 ## [Aanbevolen procedures](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
 ## [Prijzen](https://azure.microsoft.com/pricing/details/app-service/)  
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [REST](https://docs.microsoft.com/rest/api/appservice/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=app-service) 
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 

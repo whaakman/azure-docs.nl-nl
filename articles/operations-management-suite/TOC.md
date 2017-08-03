@@ -29,6 +29,7 @@
 ### [Malware-evaluatie](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Systeemupdate-evaluatie](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Verbinding maken met beveiligingsproducten](oms-security-connect-products.md)
+### [Evaluatie van de webbasislijn](oms-security-web-baseline-assessment.md)
 
 ## Oplossingen gebruiken
 ### [Beheeroplossingen](operations-management-suite-solutions.md)
@@ -77,3 +78,4 @@
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

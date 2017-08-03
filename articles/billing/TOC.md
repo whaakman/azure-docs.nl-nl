@@ -44,3 +44,4 @@
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Contact opnemen met ondersteuning](../azure-supportability/how-to-create-azure-support-request.md)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

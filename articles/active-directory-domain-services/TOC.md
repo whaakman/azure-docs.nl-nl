@@ -47,6 +47,9 @@
 ### [De Azure Portal-ervaring (Preview) inschakelen](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Fouten met niet-overeenkomende tenants oplossen](active-directory-ds-mismatched-tenant-error.md)
 
+# Naslaginformatie
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # Verwant
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
@@ -57,4 +60,5 @@
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Contact opnemen](active-directory-ds-contact-us.md)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=active-directory-ds)

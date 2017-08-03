@@ -15,3 +15,4 @@
 ### [Veelgestelde vragen](microsoft-authenticator-app-faq.md)
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

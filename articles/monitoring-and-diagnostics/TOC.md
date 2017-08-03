@@ -59,6 +59,7 @@
 ### [Problemen oplossen](azure-diagnostics-troubleshooting.md)
 
 # Naslaginformatie
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=monitor)
 ## [Bronnen van bewakingsgegevens](monitoring-data-sources.md)
 ## [Overzicht van ondersteunde metrische gegevens](monitoring-supported-metrics.md)
 ## [Gebeurtenisschema in het activiteitenlogboek](monitoring-activity-log-schema.md)
@@ -74,5 +75,6 @@
 ## [Azure CLI 1.0-voorbeelden](insights-cli-samples.md)
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [PowerShell-voorbeelden](insights-powershell-samples.md)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Video's](https://azure.microsoft.com/resources/videos/index/?services=monitor)
 ## [Snelstartsjablonen](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

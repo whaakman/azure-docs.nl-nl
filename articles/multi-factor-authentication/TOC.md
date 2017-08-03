@@ -51,3 +51,4 @@
 ### [NPS-uitbreidingsfouten](multi-factor-authentication-nps-errors.md)
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

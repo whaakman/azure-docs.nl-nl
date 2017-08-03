@@ -45,8 +45,11 @@
 ## Schalen
 ###[Bijwerken naar een andere grootte en laag](cache-how-to-scale.md)
 ###[Redis-cluster gebruiken om in/uit te schalen](cache-how-to-premium-clustering.md)
+## Integreren met Spring Boot
+###[Een app voor Spring Boot-initialisatie met Redis-Cache gebruiken](cache-java-spring-boot-initializer-with-redis-cache.md)
 
 # Naslaginformatie
+## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=redis-cache)
 ## [PowerShell](/powershell/module/azurerm.rediscache)
 ## [Azure CLI 2.0 Preview](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)

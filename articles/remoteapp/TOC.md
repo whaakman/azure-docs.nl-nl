@@ -71,5 +71,6 @@
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=remoteapp)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)

@@ -52,6 +52,7 @@
 ### [Bestandscompressie](cdn-troubleshoot-compression.md)
 
 # Naslaginformatie
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 ## [PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
@@ -66,6 +67,7 @@
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/cdn/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=cdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=cdn)

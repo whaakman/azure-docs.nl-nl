@@ -54,6 +54,7 @@
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Veelgestelde vragen](iot-suite-faq.md)
 ## [Leertraject voor IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 
 
 
