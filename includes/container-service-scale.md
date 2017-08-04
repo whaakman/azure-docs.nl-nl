@@ -32,7 +32,7 @@ Als u het aantal agentknooppunten wilt wijzigen, voert u de opdracht `az acs sca
 Voer bijvoorbeeld de volgende opdracht in als u het aantal agents in het voorgaande cluster naar 10 wilt wijzigen:
 
 ```azurecli
-azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
+az acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
 De Azure CLI 2.0 retourneert een JSON-tekenreeks die de nieuwe configuratie van de containerservice vertegenwoordigt, inclusief het aantal nieuwe agents.
