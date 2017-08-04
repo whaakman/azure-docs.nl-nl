@@ -22,10 +22,6 @@
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Sjabloon](virtual-networks-create-vnet-arm-template-click.md)
-#### Klassiek
-##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ### Netwerkbeveiligingsgroepen
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -99,6 +95,12 @@
 ##### [DMZ met firewall, UDR en NSG’s](virtual-networks-dmz-nsg-fw-udr-asm.md)
 ##### [Voorbeeldtoepassing](virtual-networks-sample-app.md)
 
+### Klassiek
+#### [Virtueel netwerk](create-virtual-network-classic.md)
+##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [CLI](virtual-networks-create-vnet-classic-cli.md)
+
 ## Configureren
 ### Virtuele machines
 #### [Netwerkinterfaces toevoegen of verwijderen](virtual-network-network-interface-vm.md)
@@ -140,6 +142,7 @@
 ### [Kan virtuele netwerken niet detecteren](virtual-network-troubleshoot-cannot-delete-vnet.md)
 
 # Naslaginformatie
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [PowerShell (klassiek)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)
@@ -162,4 +165,5 @@
 ## [Netwerkblog](http://azure.microsoft.com/blog/topics/networking)
 ## [Netwerkforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/virtual-network)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)

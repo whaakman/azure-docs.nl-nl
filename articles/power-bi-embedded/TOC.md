@@ -24,6 +24,7 @@
 ### [Beveiliging op rijniveau in Power BI Embedded](power-bi-embedded-rls.md)
 
 # Naslaginformatie
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=power-bi-embedded)
 ## [PowerShell](/powershell/module/azurerm.powerbiembedded)
 ## [.NET Azure Resource Manager](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [.NET-SDK downloaden](https://www.nuget.org/profiles/powerbi)
@@ -38,5 +39,6 @@
 ## [Git-repo voor JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
 ## [Git-repo voor Power BI C#](https://github.com/Microsoft/PowerBI-CSharp)
 ## [Power BI-community](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Voorbeeldtoepassing](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)

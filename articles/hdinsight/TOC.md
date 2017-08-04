@@ -99,7 +99,6 @@
 #### [Gebeurtenissen verwerken met Java-topologieën](hdinsight-storm-develop-java-event-hub-topology.md)
 #### [Power BI gebruiken met een topologie](hdinsight-storm-power-bi-topology.md)
 #### [Real-time sensorgegevens analyseren](hdinsight-storm-sensor-data-analysis.md)
-#### [Voertuigsensorgegevens verwerken](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [Gebeurtenissen gedurende een periode correleren](hdinsight-storm-correlation-topology.md)
 #### [Topologieën ontwikkelen met Python](hdinsight-storm-develop-python-topology.md)
 ## Aan domein gekoppeld HDInsight (preview) gebruiken
@@ -137,6 +136,7 @@
 ### [Websitelogboeken met Hive analyseren](hdinsight-hive-analyze-website-log.md)
 ### [Application Insights-logboekbestanden met telemetrie analyseren](hdinsight-spark-analyze-application-insight-logs.md)
 ## Clusters uitbreiden
+### [Opslagaccounts met ingeschakelde beveiliging gebruiken](hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)
 ### [Clusters aanpassen met Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Clusters aanpassen met Script Action](hdinsight-hadoop-customize-cluster-linux.md)
 ### [HDInsight verbinden met uw on-premises netwerk](connect-on-premises-network.md)
@@ -207,6 +207,7 @@
 #### [Hive-query's optimaliseren](hdinsight-hadoop-optimize-hive-query.md)
 
 # Naslaginformatie
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight)
 ## [PowerShell](/powershell/module/azurerm.hdinsight)
 ## [.NET (Hadoop)](https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
@@ -240,4 +241,5 @@
 ## [Hulp op het forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 ## [Microsoft Professional-programma voor Big Data](https://academy.microsoft.com/en-us/professional-program/big-data/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Windows-hulpprogramma's voor HDInsight](hdinsight-hadoop-windows-tools.md)

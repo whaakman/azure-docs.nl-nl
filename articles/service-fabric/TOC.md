@@ -16,6 +16,7 @@
 ### [2 - Een .NET-toepassing implementeren met behulp van Docker Compose](service-fabric-host-app-in-a-container.md)
 
 # Voorbeelden
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
 ## [Azure-CLI](samples-cli.md)
 # Concepten
@@ -131,7 +132,6 @@
 ### Een containerservice bouwen
 #### [Een Windows-containertoepassing maken](service-fabric-get-started-containers.md)
 #### [Een Linux-containertoepassing maken](service-fabric-get-started-containers-linux.md)
-#### [Windows-container implementeren](service-fabric-deploy-container.md)
 #### [Linux-container implementeren](service-fabric-deploy-container-linux.md)
 #### [Docker Compose (preview)](service-fabric-docker-compose.md)
 #### [Resourcebeheer voor containers en services](service-fabric-resource-governance.md)
@@ -328,6 +328,7 @@
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Voorbeeldcode](http://aka.ms/servicefabricsamples)
 ## [Ondersteuningsopties](service-fabric-support.md)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=service-fabric)

@@ -5,3 +5,4 @@
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=compute)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

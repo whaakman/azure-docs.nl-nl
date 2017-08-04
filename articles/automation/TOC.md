@@ -28,7 +28,6 @@
 ## Automatiseren
 ### [Een runbook starten](automation-starting-a-runbook.md)
 ### [Een runbook starten vanuit een webhook](automation-webhooks.md)
-### [Runbooks uitvoeren op Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
 ### [Invoerparameters voor runbook configureren](automation-runbook-input-parameters.md)
 ### [Foutafhandeling in grafische runbooks](automation-runbook-graphical-error-handling.md)
 ### [Een runbook-taak volgen](automation-runbook-execution.md)
@@ -36,6 +35,9 @@
 ### [Azure Automation-gegevens beheren](automation-managing-data.md)
 ### [Azure Automation Runbook aanroepen vanuit een Log Analytics-waarschuwing](automation-invoke-runbook-from-omsla-alert.md)
 ### [Een JSON-object doorgeven aan een Azure Automation-runbook](automation-pass-json-string.md)
+## Hybrid Runbook Worker
+### [Hybrid Runbook Worker implementeren](automation-hybrid-runbook-worker.md)
+### [Runbooks op werkrol uitvoeren](automation-hrw-run-runbooks.md)
 ## Configuration Management (DSC) implementeren
 ### [Overzicht van Desired State Configuration (DSC)](automation-dsc-overview.md)
 ### [Aan de slag](automation-dsc-getting-started.md)
@@ -87,6 +89,7 @@
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Prijzen](https://azure.microsoft.com/pricing/details/automation/)  
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Releaseopmerkingen](https://azure.microsoft.com/updates/?product=automation)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=automation)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)

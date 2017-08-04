@@ -42,6 +42,7 @@
 ### [Event Hub maken en implementeren met een Resource Manager-sjabloon](event-hubs-resource-manager-namespace-event-hub.md)
 
 # Naslaginformatie
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
 ## Java
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
 ### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
@@ -60,6 +61,7 @@
 ## [Codevoorbeelden](event-hubs-samples.md)
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/event-hubs/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)

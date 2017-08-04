@@ -68,6 +68,7 @@
 
 # Naslaginformatie
 
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=search)
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (beheer)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (beheer)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
@@ -78,6 +79,7 @@
 ## [API-versies](search-api-versions.md)
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/search/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service REST (voorbeeld)](search-api-2015-02-28-preview.md)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=search)
 ## Cursusmateriaal en zelfstudie

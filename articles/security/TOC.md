@@ -3,6 +3,7 @@
 ## [Databasebeveiliging](azure-database-security-overview.md)
 ## [Opslagbeveiliging](security-storage-overview.md)
 ## [Rekenbeveiliging](security-virtual-machines-overview.md)
+## [Operationele beveiliging](azure-operational-security-overview.md)
 ## [Beveiligingsbeheer en -controle](security-management-and-monitoring-overview.md)
 ## [Identiteitsbeheer](security-identity-management-overview.md)
 ## [IoT-beveiliging](../iot-suite/iot-security-architecture.md#security-in-iot)
@@ -35,6 +36,8 @@
 ### [Aanbevolen procedures voor IaaS-workloads ](azure-security-iaas.md)
 ### [Microsoft Antimalware](azure-security-antimalware.md)
 ### [Schijfversleuteling voor IaaS-VM's](azure-security-disk-encryption.md)
+#### [Veelgestelde vragen over schijfversleuteling](azure-security-disk-encryption-faq.md)
+#### [Problemen met schijfversleuteling oplossen](azure-security-disk-encryption-tsg.md)
 ### [Een Azure-VM versleutelen](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## Beveiligingsbeheer en -controle
@@ -53,8 +56,10 @@
 ## PaaS-services
 ### [PaaS-implementaties beveiligen](security-paas-deployments.md)
 #### [PaaS-toepassingen voor web en mobiel beveiligen met SQL](security-paas-applications-using-sql.md)
-#### [Best practices voor SQL Database](azure-database-security-best-practices.md)
+#### [Aanbevolen procedures voor SQL Database](azure-database-security-best-practices.md)
+#### [Controlelijst voor SQL Database-beveiliging](azure-database-security-checklist.md)
 #### [PaaS-toepassingen voor web en mobiel beveiligen met App Services](security-paas-applications-using-app-services.md)
+####[Controlelijst voor operationele beveiliging](azure-operational-security-checklist.md)
 
 ## Internet of Things
 ### [Uw IoT-implementatie beveiligen](../iot-suite/iot-suite-security-deployment.md)
@@ -79,6 +84,7 @@
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [MVP-programma voor Azure-beveiliging](azure-security-mvp.md)
 ## [Adviezen voor cyberbeveiliging](azure-security-cyber-services.md)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Blog over beveiliging en naleving](http://blogs.msdn.com/b/azuresecurity/)
 ## [Beveiligingscursussen van Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Beveiligingsvideo's op Kanaal 9](security-channel-nine.md)

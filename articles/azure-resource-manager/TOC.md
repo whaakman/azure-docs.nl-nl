@@ -7,10 +7,11 @@
 
 # Aan de slag
 ## [Sjabloon exporteren](resource-manager-export-template.md)
-## [Uw eerste sjabloon maken](resource-manager-create-first-template.md)
+## [Een sjabloon maken en implementeren](resource-manager-create-first-template.md)
 ## [Visual Studio met Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Voorbeelden
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
 ## PowerShell
 ### [Sjabloon implementeren](resource-manager-samples-powershell-deploy.md)
 
@@ -102,6 +103,7 @@
 ### [Matrix- en objectfuncties](resource-group-template-functions-array.md)
 ### [Vergelijkingsfuncties](resource-group-template-functions-comparison.md)
 ### [Implementatiefuncties](resource-group-template-functions-deployment.md)
+### [Logische functies](resource-group-template-functions-logical.md)
 ### [Numerieke functies](resource-group-template-functions-numeric.md)
 ### [Resourcefuncties](resource-group-template-functions-resource.md)
 ### [Tekenreeksfuncties](resource-group-template-functions-string.md)
@@ -129,6 +131,7 @@
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Beperkingsaanvragen](resource-manager-request-limits.md)

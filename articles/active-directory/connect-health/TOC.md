@@ -12,6 +12,7 @@
 ## [Fouten tijdens synchronisatie](../active-directory-aadconnect-troubleshoot-sync-errors.md)
 
 # Naslaginformatie
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Versiegeschiedenis van Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 # Verwant
@@ -22,4 +23,4 @@
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Veelgestelde vragen over Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
-
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

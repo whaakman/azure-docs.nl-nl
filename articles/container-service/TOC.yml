@@ -6,3 +6,5 @@
   items:
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=containers'
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'

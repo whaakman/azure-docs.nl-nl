@@ -12,14 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2017
+ms.date: 08/02/2017
 ms.author: markvi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: 5c60fa737c0133482af8b653f795bf9086c39969
 ms.contentlocale: nl-nl
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Azure Active Directory-architectuur begrijpen
@@ -31,10 +30,10 @@ Met Azure AD kunt u gebruikers en groepen maken en beheren, en machtigingen insc
 De geografisch verspreide architectuur van Azure AD combineert uitgebreide controle, geautomatiseerde omleidingen, failover en herstelmogelijkheden. Hierdoor kunnen we onze klanten beschikbaarheid en prestaties op bedrijfsniveau bieden.
 
 In dit artikel worden de volgende elementen van de architectuur besproken:
- *    Servicearchitectuurontwerp
- *    Schaalbaarheid 
- *    Continue beschikbaarheid
- *    Datacenters
+ *  Servicearchitectuurontwerp
+ *  Schaalbaarheid 
+ *  Continue beschikbaarheid
+ *  Datacenters
 
 ### <a name="service-architecture-design"></a>Servicearchitectuurontwerp
 De meest voorkomende manier om een schaalbaar, maximaal beschikbaar en gegevensrijk systeem te bouwen, is met onafhankelijke bouwstenen of schaaleenheden voor de Azure AD-gegevenslaag. Schaaleenheden worden *partities* genoemd. 
@@ -87,7 +86,7 @@ Azure AD werkt met verschillende datacenters met de volgende kenmerken:
 
  * De gatewayservice omvat verificatie, Graph en andere AD-services. De taakverdeling van deze services wordt via de gateway beheerd. Als er via transactionele tests beschadigde servers worden gedetecteerd, wordt er automatisch een failover uitgevoerd. Op basis van deze tests wordt het verkeer dynamisch via de gateway naar de goede datacenters geleid.
  * Voor *leesbewerkingen* beschikt de map over secundaire replica's en bijbehorende front-end-services in een actief-actief-configuratie die in meerdere datacenters actief is. Mocht er een storing optreden die een heel datacenter treft, dan wordt het verkeer automatisch naar een ander datacenter geleid.
- *    Voor *schrijfbewerkingen* vindt voor de map failover plaats van de primaire (hoofd)replica naar verschillende datacenters, via geplande failoverprocedures (de nieuwe primaire replica wordt gesynchroniseerd naar de oude) of via failoverprocedures voor noodgevallen. Duurzaamheid van gegevens wordt bereikt door een willekeurige doorvoering te repliceren naar minstens twee datacenters.
+ *  Voor *schrijfbewerkingen* vindt voor de map failover plaats van de primaire (hoofd)replica naar verschillende datacenters, via geplande failoverprocedures (de nieuwe primaire replica wordt gesynchroniseerd naar de oude) of via failoverprocedures voor noodgevallen. Duurzaamheid van gegevens wordt bereikt door een willekeurige doorvoering te repliceren naar minstens twee datacenters.
 
 **Gegevensconsistentie**
 

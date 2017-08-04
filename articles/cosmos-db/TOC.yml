@@ -5,8 +5,7 @@
     - name: Over Azure Cosmos DB
       href: introduction.md
     - name: Welkom DocumentDB-klanten
-      href: >-
-        https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
+      href: 'https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/'
 - name: Snelstartgidsen
   expanded: true
   items:
@@ -138,6 +137,8 @@
               href: documentdb-resources.md
             - name: SQL-query's
               href: documentdb-sql-query.md
+            - name: SQL-queryprestaties
+              href: documentdb-sql-query-metrics.md
             - name: SQL-testomgeving
               href: 'https://www.documentdb.com/sql/demo'
             - name: Partitionering
@@ -195,8 +196,7 @@
                 - name: Stack Overflow
                   href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
                 - name: Video's
-                  href: >-
-                    https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db
+                  href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Service-updates
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
                 - name: Community-portal
@@ -224,8 +224,7 @@
         - name: Tabel-API
           items:
             - name: Table Storage
-              href: >-
-                https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts
+              href: 'https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts'
         - name: Feed wijzigen
           href: change-feed.md
         - name: Georuimtelijk
@@ -284,8 +283,12 @@
           href: powerbi-visualize.md
         - name: Het ODBC-stuurprogramma gebruiken voor gegevensvisualisatie
           href: odbc-driver.md
+        - name: Spring Boot Starter gebruiken met DocumentDB-API's
+          href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: Naslaginformatie
   items:
+    - name: Codevoorbeelden
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
     - name: DocumentDB-API's
       items:
         - name: Java

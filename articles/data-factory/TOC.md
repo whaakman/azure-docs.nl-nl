@@ -93,6 +93,7 @@
 ### [Problemen oplossen met behulp van Data Management Gateway](data-factory-troubleshoot-gateway-issues.md)
 
 # Naslaginformatie
+## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory)
 ## [PowerShell](/powershell/module/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST](/rest/api/datafactory/)
@@ -104,6 +105,7 @@
 ## [Leertraject](https://azure.microsoft.com/documentation/learning-paths/data-factory)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/data-factory/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Releaseopmerkingen voor Data Management Gateway](data-factory-gateway-release-notes.md)
 ## [Verzoeken om een functie](https://feedback.azure.com/forums/270578-azure-data-factory)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=data-factory)

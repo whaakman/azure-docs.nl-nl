@@ -30,3 +30,4 @@
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/time-series-insights/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

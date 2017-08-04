@@ -101,3 +101,4 @@
 ## [Volgende stappen](azure-operations-guide.md#next-steps)
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

@@ -16,3 +16,4 @@
 ## [Azure CLI 2.0](/cli/azure) 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

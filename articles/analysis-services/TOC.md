@@ -57,6 +57,7 @@
 ## [Status van Azure](https://azure.microsoft.com/status/)
 ## [Feedback](https://feedback.azure.com/forums/556165-azure-analysis-services)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [StackOverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Video's](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 
