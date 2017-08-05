@@ -197,8 +197,8 @@ De uitvoer ziet er ongeveer zo uit:
   - het hoofdimplementatiedomein dat u hebt geconfigureerd voor toewijzing aan het externe-IP-adres voor binnenkomend verkeer van Kubernetes (hier is dat `squillace.io`)
 
   Roep `draft init` aan. In het configuratieproces wordt u dan om de bovenstaande waarden gevraagd. De eerste keer dat u het proces uitvoert, ziet het er ongeveer als volgt uit.
-    ```
-    draft init
+ ```bash
+    $ draft init
     Creating pack ruby...
     Creating pack node...
     Creating pack gradle...
