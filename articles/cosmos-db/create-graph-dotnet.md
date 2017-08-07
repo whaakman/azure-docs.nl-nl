@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/14/2017
+ms.date: 07/28/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 1794341ed0d4519eef7f065d04ccf86a7e48a4a4
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: a973b81ea5b06c5826cc31c399aae9dec43f5b72
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-graph-api"></a>Azure Cosmos DB: een .NET-toepassing ontwikkelen met de Graph API
@@ -54,7 +54,7 @@ We gaan nu een Graph API-app klonen vanaf GitHub, de verbindingsreeks instellen 
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started.git
     ```
 
-3. Open vervolgens het oplossingenbestand in Visual Studio. 
+3. Open vervolgens Visual Studio en open het oplossingenbestand. 
 
 ## <a name="review-the-code"></a>De code bekijken
 
@@ -103,23 +103,19 @@ Laten we eens kijken wat er precies gebeurt in de app. Open het bestand Program.
 
 Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app.
 
-1. Klik in Azure Portal in uw Azure Cosmos DB-account in het linkernavigatiegedeelte op **Overzicht**. U kopieert de **Gremlin URI**-waarde in de volgende stap naar het bestand App.config. 
+1. Open het bestand App.config in Visual Studio 2017. 
 
-    ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-graph-dotnet/gremlin-uri.png)
-
-    Als de **Gremlin URI**-waarde leeg is, kunt u de waarde van de pagina **Sleutels** in de portal genereren met behulp van de **URI**-waarde, waarbij https:// wordt verwijderd en documenten in grafieken worden gewijzigd. 
-
-2. Open het bestand App.config in Visual Studio 2017. 
-
-3. Kopieer uw **Gremlin URI**-waarde vanaf de portal en geef deze als waarde aan de eindpuntsleutel in App.config. 
-
-    `<add key="Endpoint" value="FILLME.graphs.azure.com:443" />`
-
-4. Klik als u weer terug bent in Azure Portal op **Sleutels** in het navigatiemenu links, kopieer de waarde van uw **primaire sleutel** uit de portal en geef deze als waarde aan de AuthKey-sleutel in App.config. Sla vervolgens uw wijzigingen op. 
-
-    `<add key="AuthKey" value="FILLME" />`
+2. Klik in Azure Portal in uw Azure Cosmos DB-account in het linkernavigatiegedeelte op **Sleutels**. 
 
     ![Een primaire sleutel bekijken en kopiëren in Azure Portal, op de pagina Sleutels](./media/create-graph-dotnet/keys.png)
+
+3. Kopieer uw **URI**-waarde vanuit de portal en geef deze als waarde aan de eindpuntsleutel in App.config. U kunt de knop Kopiëren gebruiken zoals weergegeven op de vorige schermafbeelding om de waarde te kopiëren.
+
+    `<add key="Endpoint" value="https://FILLME.documents.azure.com:443" />`
+
+4. Kopieer vervolgens de waarde van uw **PRIMAIRE SLEUTEL** vanuit de portal en geef deze als authKey-waarde in App.config. Sla daarna uw wijzigingen op. 
+
+    `<add key="AuthKey" value="FILLME" />`
 
 U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Azure Cosmos DB. 
 
@@ -131,6 +127,8 @@ U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicati
 
 3. Installeer vanuit de resultaten het pakket met de bibliotheek **Microsoft.Azure.Graphs**. Hiermee installeert u het pakket met de bibliotheek met graafextensies van Azure Cosmos DB en alle afhankelijkheden.
 
+    Als u een bericht ontvangt over het controleren van wijzigingen in de oplossing, klikt u op **OK**. Als u een bericht ontvangt over het accepteren van de licentie, klikt u op **Accepteren**.
+
 4. Klik op CTRL+F5 om de toepassing te starten.
 
    In het consolevenster worden de hoekpunten en randen weergegeven die aan de graaf worden toegevoegd. Zodra het script is voltooid, drukt u tweemaal op ENTER om het consolevenster te sluiten. 
@@ -139,9 +137,13 @@ U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicati
 
 U kunt nu teruggaan naar Data Explorer in Azure Portal en door uw nieuwe graafgegevens bladeren en er query’s op uitvoeren.
 
-* De nieuwe database wordt in Data Explorer weergegeven in het deelvenster Verzamelingen. Vouw **graphdb**, **graphcoll** uit en klik vervolgens op **Graaf**.
+1. De nieuwe database wordt in Data Explorer weergegeven in het deelvenster Grafieken. Vouw **graphdb**, **graphcollz** uit en klik vervolgens op **Grafiek**.
 
-    De gegevens die worden gegenereerd door de voorbeeldapp worden weergegeven in het deelvenster Grafen.
+2. Klik op de knop **Filter toepassen** om de standaardquery te gebruiken om alle verticies in de grafiek weer te geven. De gegevens die worden gegenereerd door de voorbeeldapp worden weergegeven in het deelvenster Grafen.
+
+    U kunt op de grafiek in- en uitzoomen, u kunt u de grafiek uitvouwen voor meer ruimte, extra verticies toevoegen en verticies verplaatsen in de weergaveruimte.
+
+    ![De grafiek weergeven in Data Explorer in Azure Portal](./media/create-graph-dotnet/graph-explorer.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>SLA’s bekijken in Azure Portal
 

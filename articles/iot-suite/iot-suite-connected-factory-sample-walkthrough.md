@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 07/27/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 3011fd608ba83561c319e57c8a7b5a4f3c4c2284
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 81ecd5771be544e250ea0df31aa274f0850527ad
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Walkthrough voor de vooraf geconfigureerde oplossing Connected Factory
@@ -47,6 +46,13 @@ In dit artikel wordt stapsgewijs een aantal belangrijke elementen van de oplossi
 Het volgende diagram geeft een overzicht van de logische onderdelen van de vooraf geconfigureerde oplossing:
 
 ![Logische architectuur van Connected Factory][connected-factory-logical]
+
+## <a name="communication-patterns"></a>Communicatiepatronen
+
+Voor de oplossing wordt gebruikgemaakt van de [OPC UA Pub/Sub-specificatie](https://opcfoundation.org/news/opc-foundation-news/opc-foundation-announces-support-of-publish-subscribe-for-opc-ua/) voor het verzenden van OPC UA-telemetriegegevens naar IoT Hub in JSON-indeling. Voor de oplossing wordt gebruikgemaakt van de IoT Edge-module [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) voor dit doeleinde.
+
+Als onderdeel van de oplossing is ook een OPC UA-client geïntegreerd in een webtoepassing, die verbinding kan maken met on-premises OPC UA-servers. De client maakt gebruik van een [omgekeerde proxy](https://wikipedia.org/wiki/Reverse_proxy) en ontvangt hulp van IoT Hub om verbinding te maken zonder dat er open poorten in de on-premises firewall nodig zijn. Dit communicatiepatroon heet [door service ondersteunde communicatie](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/). Voor de oplossing wordt gebruikgemaakt van de IoT Edge-module [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy/) voor dit doeleinde.
+
 
 ## <a name="simulation"></a>Simulatie
 

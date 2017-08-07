@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 6/7/2017
 ms.author: mlearned
-ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 748f1994d0ee5b6c6a988bca8e5b694b29c0b8c5
+ms.custom: Jenkins
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: f892ec7bd61124f7958a50ebdfb49c7310d4ee18
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -66,7 +66,7 @@ In het tabblad **Basisinstellingen configureren**:
 * Verificatietype: maak een instantie die wordt beveiligd door een wachtwoord of [openbare SSH-sleutel](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows). Als u een wachtwoord gebruikt, moet dat aan 3 van de volgende voorwaarden voldoen: één kleine letter, één hoofdletter, één cijfer en één speciaal teken.
 * Laat het Jenkins-releasetype op **TNS** staan
 * Selecteer een abonnement.
-* Maak een nieuwe resourcegroep of selecteer een bestaande.
+* Maak een resourcegroep of gebruik een bestaande resourcegroep die leeg is. 
 * Selecteer een locatie.
 
 Op het tabblad **Extra opties configureren**:

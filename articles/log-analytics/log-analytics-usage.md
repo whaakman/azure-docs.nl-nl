@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/21/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 5f57cbdb1678dd61eda449d2103125d8db83892e
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Gegevensgebruik analyseren in Log Analytics
@@ -141,6 +141,8 @@ Voer indien nodig extra analyses uit om grote volumes binnen een oplossing of ge
 + **Syslog-gegevenstype**
   - `Type=Syslog | measure count() by Facility, SeverityLevel`
   - `Type=Syslog | measure count() by ProcessName`
++ **AzureDiagnostics**-gegevenstype
+  - `Type=AzureDiagnostics | measure count() by ResourceProvider, ResourceId`
 
 Gebruik de volgende stappen om het volume van de logboeken die worden verzameld te beperken:
 
@@ -150,6 +152,7 @@ Gebruik de volgende stappen om het volume van de logboeken die worden verzameld 
 | Prestatiemeteritems       | Wijzig de [Prestatiemeteritemconfiguratie](log-analytics-data-sources-performance-counters.md) in: <br> - Frequentie van het verzamelen van gegevens beperken <br> - Aantal prestatiemeteritems beperken |
 | Gebeurtenislogboeken                 | Wijzig [Configuratie van gebeurtenislogboek](log-analytics-data-sources-windows-events.md) in: <br> - Aantal verzamelde gebeurtenislogboeken beperken <br> - Alleen vereiste gebeurtenisniveaus verzamelen. Bijvoorbeeld, gebeurtenissen op *informatie*niveau niet verzamelen |
 | Syslog                     | Wijzig de [syslog-configuratie](log-analytics-data-sources-syslog.md) in: <br> - Aantal verzamelde installaties beperken <br> - Alleen vereiste gebeurtenisniveaus verzamelen. Bijvoorbeeld, gebeurtenissen op *informatie*- en *foutopsporings*niveau niet verzamelen |
+| AzureDiagnostics           | Wijzig de resourcelogboekverzameling om: <br> - Het aantal resources dat logboeken naar Log Analytics verzendt te verkleinen <br> - Alleen vereiste logboeken te verzamelen |
 | Oplossingsgegevens van computers die de oplossing niet nodig hebben | Gebruik [oplossingstargeting](../operations-management-suite/operations-management-suite-solution-targeting.md) om gegevens te verzamelen van alleen de vereiste groepen computers. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Controleren of er meer knooppunten zijn dan verwacht

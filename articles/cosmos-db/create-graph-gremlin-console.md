@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: hero-article
-ms.date: 07/14/2017
+ms.date: 07/27/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 82ddc351359318dab82c95d3e3b9b97ba3e3b4a8
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 1749c4233e2b90f0a207033276b31093f7bf667f
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Zelfstudie Azure Cosmos DB: gebruik de Gremlin-console om objecten te maken, query’s op grafen uit te voeren en door grafen te gaan
@@ -66,6 +66,9 @@ U moet ook de [Gremlin-console](http://tinkerpop.apache.org/) installeren. Gebru
 
 3. Voer in de terminal `bin/gremlin.bat` of `bin/gremlin.sh` uit of start de [Gremlinc-console](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
 4. Voer in de terminal `:remote connect tinkerpop.server conf/remote-secure.yaml` uit om verbinding te maken met uw appservice.
+
+    > [!TIP]
+    > Als u de foutmelding `No appenders could be found for logger` ontvangt, moet u controleren of u de serialisatiefunctiewaarde in het bestand afstand secure.yaml hebt bijgewerkt, zoals beschreven in stap 2. 
 
 Goed gedaan. Nu we configuratie hebben voltooid, gaan we een aantal consoleopdrachten uitvoeren.
 

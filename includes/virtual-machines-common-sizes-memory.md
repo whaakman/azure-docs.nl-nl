@@ -1,9 +1,9 @@
 
-* De M-serie biedt het hoogste aantal CPU's (maximaal 128 vCPU's) en het grootste geheugen (maximaal 2.0 TiB) van alle virtuele machines in de cloud.  Dit is ideaal voor zeer grote databases of andere toepassingen die zo kunnen profiteren van een groot aantal CPU’s en grote hoeveelheden geheugen.
+* De M-serie biedt het hoogste aantal vCPU's (maximaal 128 vCPU's) en het grootste geheugen (maximaal 2.0 TiB) van alle virtuele machines in de cloud.  Dit is ideaal voor zeer grote databases of andere toepassingen die zo kunnen profiteren van een groot aantal vCPU’s en grote hoeveelheden geheugen.
 
-* Hun tegenhangers uit de Dv2-serie, D-serie, G-serie en DS/GS-serie zijn ideaal voor toepassingen waarvoor snellere CPU's of betere prestaties van de lokale schijf zijn vereist of de geheugeneisen hoger zijn.  Ze bieden een krachtige combinatie voor vele toepassingen op bedrijfsniveau.
+* Hun tegenhangers uit de Dv2-serie, D-serie, G-serie en DS/GS-serie zijn ideaal voor toepassingen waarvoor snellere CPU's of betere prestaties van de tijdelijke opslag zijn vereist, of waarvoor de geheugeneisen hoger zijn.  Ze bieden een krachtige combinatie voor vele toepassingen op bedrijfsniveau.
 
-* Virtuele machines uit de D-serie zijn ontworpen voor het uitvoeren van toepassingen die meer rekenvermogen en tijdelijke schijfprestaties vereisen. Virtuele machines uit de D-serie hebben snellere processors, een hogere geheugen-naar-core-snelheid en een SSD (solid-state drive) voor de tijdelijke schijf. Voor meer informatie leest u de aankondiging in de Azure-blog [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (Nieuwe grootten van virtuele machines uit de D-serie).
+* Virtuele machines uit de D-serie zijn ontworpen voor het uitvoeren van toepassingen die meer rekenvermogen en tijdelijke schijfprestaties vereisen. Virtuele machines uit de D-serie hebben snellere processors, een hogere geheugen-naar-vCPU-snelheid en een SSD (solid-state drive) voor tijdelijke opslag. Voor meer informatie leest u de aankondiging in de Azure-blog [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (Nieuwe grootten van virtuele machines uit de D-serie).
 
 * De Dv2-serie, de opvolger van de oorspronkelijke D-serie, heeft een krachtigere CPU. De CPU van de Dv2-serie is ongeveer 35% sneller dan de CPU van de D-serie. Deze is gebaseerd op de nieuwste generatie Intel Xeon® E5-2673 v3-processor van 2,4 GHz (Haswell). Met Intel Turbo Boost Technology 2.0 kunnen ze maar liefst 3,1 GHz bereiken. De Dv2-serie heeft dezelfde geheugen- en schijfconfiguraties als de D-serie.
 
@@ -14,14 +14,15 @@ ACU: 160-190
 
 Exemplaren uit de ESv3-serie zijn gebaseerd op Intel XEON ® E5-2673 v4-processors van 2,3 GHz (Broadwell) en kunnen maar liefst 3,5 GHz bereiken door de Intel Turbo Boost Technology 2.0 en maken gebruik van Premium Storage. Ev3-exemplaren zijn ideaal voor geheugenintensieve bedrijfstoepassingen.
 
-| Grootte             | vCPU | Geheugen: GiB | Lokale SSD: GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en lokale schijven: IOPS/MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
-|------------------|-----------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
-| Standard_E2s_v3  | 2         | 16          | 32             | 4              | 4,000 / 32 (50)                                                       | 3200 / 48                                | 2/gemiddeld                                   |
-| Standard_E4s_v3  | 4         | 32          | 64             | 8              | 8,000 / 64 (100)                                                      | 6400 / 96                                | 2/gemiddeld                                   |
-| Standard_E8s_v3  | 8         | 64          | 128            | 16             | 16,000 / 128 (200)                                                    | 12.800 / 192                              | 4/hoog                                       |
-| Standard_E16s_v3 | 16        | 128         | 256            | 32             | 32,000 / 256 (400)                                                    | 25.600 / 384                              | 8/hoog                                       |
-| Standard_E32s_v3 | 32        | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51.200 / 768                              | 8/zeer hoog                             |
-| Standard_E64s_v3 | 64        | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8/zeer hoog                             |
+
+| Grootte             | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
+|------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
+| Standard_E2s_v3  | 2      | 16          | 32             | 4              | 4,000 / 32 (50)                                                       | 3200 / 48                                | 2/gemiddeld                                   |
+| Standard_E4s_v3  | 4      | 32          | 64             | 8              | 8,000 / 64 (100)                                                      | 6400 / 96                                | 2/gemiddeld                                   |
+| Standard_E8s_v3  | 8      | 64          | 128            | 16             | 16,000 / 128 (200)                                                    | 12.800 / 192                              | 4/hoog                                       |
+| Standard_E16s_v3 | 16     | 128         | 256            | 32             | 32,000 / 256 (400)                                                    | 25.600 / 384                              | 8/hoog                                       |
+| Standard_E32s_v3 | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51.200 / 768                              | 8/zeer hoog                             |
+| Standard_E64s_v3 | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8/zeer hoog                                  |
 
 
 
@@ -33,21 +34,22 @@ Exemplaren uit de Ev3-serie zijn gebaseerd op Intel XEON ® E5-2673 v4-processor
 
 Gegevensschijfopslag wordt apart van virtuele machines in rekening gebracht. Als u Premium Storage-schijven wilt gebruiken, gebruik dan de ESv3-grootten. De prijs- en factureringsmeters voor de ESv3-grootten zijn gelijk aan die van de Ev3-serie. 
 
-| Grootte             | vCPU | Geheugen: GiB | Lokale SSD: GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en lokale schijven: IOPS/MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
-|------------------|-----------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
-| Standard_E2_v3  | 2         | 16          | 32             | 4              | 4,000 / 32 (50)                                                       | 3200 / 48                                | 2/gemiddeld                                   |
-| Standard_E4_v3  | 4         | 32          | 64             | 8              | 8,000 / 64 (100)                                                      | 6400 / 96                                | 2/gemiddeld                                   |
-| Standard_E8_v3  | 8         | 64          | 128            | 16             | 16,000 / 128 (200)                                                    | 12.800 / 192                              | 4/hoog                                       |
-| Standard_E16_v3 | 16        | 128         | 256            | 32             | 32,000 / 256 (400)                                                    | 25.600 / 384                              | 8/hoog                                       |
-| Standard_E32_v3 | 32        | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51.200 / 768                              | 8/zeer hoog                             |
-| Standard_E64_v3 | 64        | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8/zeer hoog                             |
+
+| Grootte            | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Max. aantal NIC's/netwerkbandbreedte |
+|-----------------|-----------|-------------|----------------|----------------|----------------------------------------------------------|------------------------------|
+| Standard_E2_v3  | 2         | 16          | 50             | 4              | 3000/46/23                                               | 2/gemiddeld                 |
+| Standard_E4_v3  | 4         | 32          | 100            | 8              | 6000/93/46                                               | 2/gemiddeld                 |
+| Standard_E8_v3  | 8         | 64          | 200            | 16             | 12000/187/93                                             | 4/hoog                     |
+| Standard_E16_v3 | 16        | 128         | 400            | 32             | 24000/375/187                                            | 8/hoog                     |
+| Standard_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8/zeer hoog           |
+| Standard_E64_v3 | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8/zeer hoog           |
 
 
 ## <a name="m-series"></a>M-serie*
 
 ACU: 160-180
 
-| Grootte            | vCPU | Geheugen: GiB | Lokale SSD: GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en lokale schijven: IOPS/MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
+| Grootte            | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
 | Standard_M64ms  | 64   | 1792        | 2048           | 32             | 80,000 / 800 (6348)       | 40.000 / 1,000                            | 8 / 16000          |
 | Standard_M128s** | 128  | 2048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80.000 / 2000                            | 8 / 25000          |
@@ -64,7 +66,7 @@ ACU: 160-180
 
 ACU: 180 - 240
 
-| Grootte | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en lokale schijven: IOPS/MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
+| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_GS1 |2 |28 |56 |4 |10.000 / 100 (264) |5000 / 125 |2 / 2000 |
 | Standard_GS2 |4 |56 |112 |8 |20.000 / 200 (528) |10.000 / 250 |2 / 4000 |
@@ -83,7 +85,7 @@ ACU: 180 - 240
 
 ACU: 180 - 240
 
-| Grootte         | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Maximale lokale schijfdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
+| Grootte         | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 4 / 4 x 500                       | 2 / 2000                     |
 | Standard_G2  | 4         | 56          | 768            | 12.000 / 187 / 93                                         | 8 / 8 x 500                       | 2 / 4000                     |
@@ -99,7 +101,7 @@ ACU: 180 - 240
 
 ACU: 210 - 250
 
-| Grootte | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en lokale schijven: IOPS/MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
+| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11_v2 |2 |14 |28 |4 |8000 / 64 (72) |6400 / 96 |2 / 1500 |
 | Standard_DS12_v2 |4 |28 |56 |8 |16.000 / 128 (144) |12.800 / 192 |4 / 3000 |
@@ -119,7 +121,7 @@ ACU: 210 - 250
 
 ACU: 210 - 250
 
-| Grootte              | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Maximale lokale schijfdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
+| Grootte              | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11_v2   | 2         | 14          | 100            | 6000 / 93 / 46                                           | 4 / 4 x 500                         | 2 / 1500                     |
 | Standard_D12_v2   | 4         | 28          | 200            | 12.000 / 187 / 93                                         | 8 / 8 x 500                         | 4 / 3000                     |
@@ -137,7 +139,7 @@ ACU: 210 - 250
 
 ACU: 160
 
-| Grootte | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en lokale schijven: IOPS/MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
+| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11 |2 |14 |28 |4 |8000 / 64 (72) |6400 / 64 |2 / 1000 |
 | Standard_DS12 |4 |28 |56 |8 |16.000 / 128 (144) |12.800 / 128 |4 / 2000 |
@@ -151,7 +153,7 @@ ACU: 160
 
 ACU: 160
 
-| Grootte         | CPU-kernen | Geheugen: GiB | Lokale SSD: GiB | Maximale lokale schijfdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
+| Grootte         | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 4 / 4 x 500                         | 2 / 1000                     |
 | Standard_D12 | 4         | 28          | 200            | 12.000 / 187 / 93                                         | 8 / 8 x 500                         | 4 / 2000                     |

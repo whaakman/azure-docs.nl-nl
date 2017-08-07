@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/20/2017
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
-ms.openlocfilehash: b8115f1fb72b0ba89fd0c8afa3358878a0fab92b
-ms.lasthandoff: 12/14/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 70a1d0acb8ec9bbb591f696281ea5e975b443a15
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Wat is Azure Machine Learning Studio?
@@ -78,7 +78,7 @@ Een experiment bestaat uit gegevenssets die gegevens leveren aan analytische mod
 * Alle ingangspoorten voor modules moeten een verbinding hebben met de gegevensstroom
 * Voor elke module moeten alle vereiste parameters zijn ingesteld
 
-U kunt een geheel nieuw experiment maken, maar u kunt ook een bestaand voorbeeldexperiment als sjabloon gebruiken. Voor meer informatie raadpleegt u [Use sample experiments to create new experiments](machine-learning-sample-experiments.md) (Voorbeeldexperimenten gebruiken om nieuwe experimenten te maken).
+U kunt een geheel nieuw experiment maken, maar u kunt ook een bestaand voorbeeldexperiment als sjabloon gebruiken. Zie [Voorbeeldexperimenten kopiëren om nieuwe experimenten voor Machine Learning te maken](machine-learning-sample-experiments.md) voor meer informatie.
 
 Voor een voorbeeld van het maken van een eenvoudig experiment raadpleegt u [Create a simple experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md) (Een eenvoudig experiment maken in Azure Machine Learning Studio).
 

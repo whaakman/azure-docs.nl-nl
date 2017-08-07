@@ -1,18 +1,18 @@
 <!-- A-series - compute-intensive instances, H-series -->
 
-The A8-A11 and H-series sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. The A8-A11 series uses Intel Xeon E5-2670 @ 2.6 GHZ and the H-series uses Intel Xeon E5-2667 v3 @ 3.2 GHz. 
+Grootten uit de A8-A11- en H-serie worden ook wel *rekenintensieve exemplaren* genoemd. De hardware waarop deze grootten worden uitgevoerd, is ontworpen en geoptimaliseerd voor rekenintensieve en netwerkintensieve toepassingen, waaronder HPC-clustertoepassingen (high-performance computing), modellerings- en simulatietoepassingen. De A8-A11-serie gebruikt Intel Xeon E5-2670 @ 2,6 GHZ en de H-serie gebruikt Intel Xeon E5-2667 v3 @ 3,2 GHz. 
 
-Azure H-series virtual machines are the next generation high performance computing VMs aimed at high end computational needs, like molecular modeling, and computational fluid dynamics. These 8 and 16 core VMs are built on the Intel Haswell E5-2667 V3 processor technology featuring DDR4 memory and local SSD based storage. 
+Virtuele Azure-machines uit de H-serie zijn de volgende generatie HPC-VM's, gericht op intensieve rekenbehoeften, zoals moleculaire modellering en numerieke stromingsleer. Deze VM's met 8 en 16 vCPU zijn gebaseerd op de Intel Haswell E5 2667 V3 processor-technologie met DDR4-geheugen en tijdelijke op SSD gebaseerde opslag. 
 
-In addition to the substantial CPU power, the H-series offers diverse options for low latency RDMA networking using FDR InfiniBand and several memory configurations to support memory intensive computational requirements.
+Naast een zeer hoge CPU-kracht biedt de H-serie ook verschillende opties voor RDMA-netwerken met lage latentie met gebruik van FDR InfiniBand, evenals verschillende geheugenconfiguraties om geheugenintensieve rekenvereisten te ondersteunen.
 
 
 
-## <a name="h-series"></a>H-series
+## <a name="h-series"></a>H-serie
 
 ACU: 290-300
 
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max disk throughput: IOPS | Max NICs |
+| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Max. doorvoer schijf: IOPS | Max. aantal NIC's |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8 |8 |56 |1000 |16 |16 x 500 |2  |
 | Standard_H16 |16 |112 |2000 |32 |32 x 500 |4 |
@@ -21,24 +21,24 @@ ACU: 290-300
 | Standard_H16r* |16 |112 |2000 |32 |32 x 500 |4  |
 | Standard_H16mr* |16 |224 |2000 |32 |32 x 500 |4 |
 
-*For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.
+*Toegewezen RDMA-back-endnetwerk is ingeschakeld voor MPI-toepassingen via FDR InfiniBand-netwerk, dat zeer lage latentie en hoge bandbreedte biedt.
 
 <br>
 
 
 
-## <a name="a-series---compute-intensive-instances"></a>A-series - compute-intensive instances
+## <a name="a-series---compute-intensive-instances"></a>A-serie: rekenintensieve exemplaren
 
 ACU: 225
 
-| Size | CPU cores | Memory: GiB | Local HDD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs|
+| Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (HDD): GiB | Max. aantal gegevensschijven | Max. doorvoer gegevensschijf: IOPS | Max. aantal NIC's|
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8* |8 |56 |382 |16 |16x500 |2 |
-| Standard_A9* |16 |112 |382 |16 |16x500 |4 |
-| Standard_A10 |8 |56 |382 |16 |16x500 |2  |
-| Standard_A11 |16 |112 |382 |16 |16x500 |4 |
+| Standard_A8* |8 |56 |382 |16 |16 x 500 |2 |
+| Standard_A9* |16 |112 |382 |16 |16 x 500 |4 |
+| Standard_A10 |8 |56 |382 |16 |16 x 500 |2  |
+| Standard_A11 |16 |112 |382 |16 |16 x 500 |4 |
 
-*For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.
+*Toegewezen RDMA-back-endnetwerk is ingeschakeld voor MPI-toepassingen via FDR InfiniBand-netwerk, dat zeer lage latentie en hoge bandbreedte biedt.
 
 <br>
 

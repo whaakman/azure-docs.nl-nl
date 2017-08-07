@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: harshja
-ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 526efc5b025f8050f40c49d0a07a9c2713509493
+ms.custom: it-pro; oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -63,9 +63,9 @@ Azure AD-toepassingsproxy helpt u externe werknemers te ondersteunen door on-pre
 6. Schakel het selectievakje onder aan het scherm in om de wizard te voltooien. De toepassing is nu gedefinieerd in Azure AD.
 
 ## <a name="assign-users-and-groups-to-the-application"></a>Gebruikers en groepen toewijzen aan de toepassing
-U dient uw gebruikers individueel of in groepen toe te wijzen, zodat zij toegang krijgen tot uw gepubliceerde toepassing. (Vergeet niet om ook aan uzelf toegang te verlenen.) Hiervoor moet elke gebruiker beschikken over een licentie voor Azure Basic of hoger. U kunt licenties afzonderlijk of aan groepen toewijzen. Zie [Assigning users to an application](active-directory-applications-guiding-developers-assigning-users.md) (Gebruikers toewijzen aan een toepassing) voor meer informatie. 
+U dient uw gebruikers individueel of in groepen toe te wijzen, zodat zij toegang krijgen tot uw gepubliceerde toepassing. (Vergeet niet om ook aan uzelf toegang te verlenen.) Elke gebruiker die u toewijst, moet beschikken over een licentie voor Azure Basic of hoger. U kunt licenties afzonderlijk of aan groepen toewijzen. Zie [Gebruikers toewijzen aan een toepassing](active-directory-applications-guiding-developers-assigning-users.md) voor meer informatie. 
 
-Voor apps waarbij verificatie vooraf is vereist, worden hierbij machtigingen verleend voor het gebruik van de app. Voor apps waarbij geen verificatie vooraf is vereist, kunnen gebruikers nog steeds aan de app worden toegewezen zodat deze wordt weergegeven in de lijst met toepassingen, zoals MyApps.
+Voor apps waarbij verificatie vooraf is vereist, wordt bij het toewijzen van een gebruiker een machtiging verleend voor het gebruik van de app. Voor apps waarbij geen verificatie vooraf is vereist, kan de gebruiker na het toewijzen de toepassing openen via het toegangsvenster.
 
 1. Nadat u de wizard App toevoegen hebt voltooid, wordt de pagina Snel starten weergegeven voor uw toepassing. Selecteer **Gebruikers en groepen** om de toegang tot de app te beheren.
    
@@ -90,7 +90,7 @@ Op de pagina Configureren kunt u gepubliceerde apps aanpassen of geavanceerde op
 
 Nadat u toepassingen hebt gepubliceerd met Azure Active Directory-toepassingsproxy, worden ze weergegeven in de lijst Toepassingen in Azure AD en kunt u ze daar beheren.
 
-Als u de services voor toepassingsproxy uitschakelt nadat u toepassingen hebt gepubliceerd, zijn de toepassingen niet langer toegankelijk van buiten uw particuliere netwerk. Hiermee worden de toepassingen niet verwijderd.
+Als u de services voor toepassingsproxy uitschakelt nadat u toepassingen hebt gepubliceerd, zijn de toepassingen niet langer toegankelijk van buiten uw particuliere netwerk. Uw gebruikers kunnen de toepassingen nog wel gewoon on-premises openen.
 
 Als u een toepassing wilt bekijken en controleren of deze toegankelijk is, dubbelklikt u op de naam van de toepassing. Als de service voor toepassingsproxy is uitgeschakeld en de toepassing niet beschikbaar is, wordt er boven aan het scherm een waarschuwing weergegeven.
 

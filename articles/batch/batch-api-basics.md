@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 346e7abf862330afe64dc5685737a9301d7d861a
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 824f900545136428f6e377c52e2dda7e3ab97cfe
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Grootschalige parallelle rekenoplossingen ontwikkelen met Batch
@@ -177,10 +177,14 @@ Zie de sectie [Account](#account) voor informatie over het instellen van de pool
 
 Als u een aangepaste installatiekopie voor uw VM-pools wilt gebruiken, maakt u een Batch-account met de pooltoewijzingsmodus Gebruikersaccount. In deze modus worden Batch-pools toegewezen binnen het abonnement waarin het account zich bevindt. Zie de sectie [Account](#account) voor informatie over het instellen van de pooltoewijzingsmodus wanneer u een Batch-account maakt.
 
-Als u een aangepaste installatiekopie wilt maken, moet u de kopie voorbereiden door deze te generaliseren. Zie [Een Azure Linux VM vastleggen om als sjabloon te gebruiken](../virtual-machines/linux/capture-image-nodejs.md) voor meer informatie over het maken van aangepaste Linux-installatiekopieën op basis van Azure VM's. Zie [Aangepaste VM-installatiekopieën maken met Azure PowerShell](../virtual-machines/windows/tutorial-custom-images.md) voor meer informatie over het maken van aangepaste Windows-installatiekopieën op basis van Azure VM's. Houd bij het maken van uw installatiekopie rekening met het volgende:
+Als u een aangepaste installatiekopie wilt maken, moet u de kopie voorbereiden door deze te generaliseren. Zie [Een Azure Linux VM vastleggen om als sjabloon te gebruiken](../virtual-machines/linux/capture-image-nodejs.md) voor meer informatie over het maken van aangepaste Linux-installatiekopieën op basis van Azure VM's. Zie [Aangepaste VM-installatiekopieën maken met Azure PowerShell](../virtual-machines/windows/tutorial-custom-images.md) voor meer informatie over het maken van aangepaste Windows-installatiekopieën op basis van Azure VM's. 
 
-- Zorg ervoor dat de basisinstallatiekopie voor het besturingssysteem die u gebruikt om uw Batch-pools in te richten geen vooraf geïnstalleerde Azure-extensies bevat, zoals de extensie Aangepast script. Als de installatiekopie een vooraf geïnstalleerde extensie bevat, kunnen er binnen Azure problemen optreden bij het implementeren van de VM.
-- Zorg ervoor dat in de basisinstallatiekopie van het besturingssysteem die u opgeeft, gebruik wordt gemaakt van het reguliere tijdelijke station. De Batch-knooppuntagent verwacht momenteel namelijk het reguliere tijdelijke station.
+> [!IMPORTANT]
+> Houd bij het maken van uw aangepaste installatiekopie rekening met het volgende:
+> - Zorg ervoor dat de basisinstallatiekopie voor het besturingssysteem die u gebruikt om uw Batch-pools in te richten geen vooraf geïnstalleerde Azure-extensies bevat, zoals de extensie Aangepast script. Als de installatiekopie een vooraf geïnstalleerde extensie bevat, kunnen er binnen Azure problemen optreden bij het implementeren van de VM.
+> - Zorg ervoor dat in de basisinstallatiekopie van het besturingssysteem die u opgeeft, gebruik wordt gemaakt van het reguliere tijdelijke station. De Batch-knooppuntagent verwacht momenteel namelijk het reguliere tijdelijke station.
+>
+>
 
 Als u met behulp van een aangepaste installatiekopie een pool wilt maken met de virtuele-machineconfiguratie, hebt u een of meer standaard Azure Storage-accounts nodig voor het opslaan van uw aangepaste VHD-installatiekopieën. Aangepaste installatiekopieën worden opgeslagen als blobs. Als u bij het maken van een pool wilt verwijzen naar uw aangepaste installatiekopieën, geeft u voor de eigenschap [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) van de eigenschap [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf) de URI's op van de VHD-blobs van de aangepaste installatiekopieën.
 

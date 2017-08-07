@@ -1,6 +1,6 @@
 ---
 title: Via C# verbinding maken met Azure Database voor MySQL | Microsoft Docs
-description: Deze snelstartgids bevat een voorbeeld van C#-code (.Net) dat u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit een Azure Database voor MySQL.
+description: Deze snelstartgids bevat een voorbeeld van C#-code (.NET) dat u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit een Azure Database voor MySQL.
 services: MySQL
 author: seanli1988
 ms.author: seal
@@ -12,10 +12,10 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: ffe3ae320a61031cf314cc1d70e0c093b033f85c
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: e0db2d0a59d62eebbb624a3ad32f19fa634ad5db
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -28,43 +28,9 @@ In deze snelstartgids worden de resources die in een van deze handleidingen zijn
 - [Een Azure-database voor een MySQL-server maken met behulp van Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 U moet ook het volgende doen:
-- [.Net Framework](https://www.microsoft.com/net/download) installeren
-- [Visual Studio](https://www.visualstudio.com/downloads/) installeren
-- [ODBC-stuurprogramma voor MySQL](https://dev.mysql.com/downloads/connector/odbc/) installeren 
-
-## <a name="install-visual-studio-and-net"></a>Visual Studio en .NET installeren
-Voor de stappen in dit gedeelte wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met .NET.
-
-### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework en .NET Core**
-Visual Studio 2017 Community is een volledig functionele, uitbreidbare en gratis IDE voor het maken van moderne toepassingen voor Android, iOS en Windows, voor web- en databasetoepassingen, en voor cloudservices. U kunt het .NET Framework volledig installeren of alleen .NET Core. De codefragmenten in de Quick Start werken in beide gevallen. Als Visual Studio al is geïnstalleerd op uw computer, kunt u de volgende stappen overslaan.
-
-1. Download het [installatieprogramma voor Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
-2. Voer het installatieprogramma uit en volg de weergegeven opdrachten om de installatie te voltooien.
-
-### <a name="mac-os"></a>**Mac OS**
-Open de terminal en navigeer naar een map waar u van plan bent een .NET Core-project te maken. Voer de volgende opdrachten in voor het installeren van **Brew**, **OpenSSL** en **.NET Core**. 
-
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install openssl
-mkdir -p /usr/local/lib
-ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-```
-
-Installeer .NET Core op Mac OS. Download het [officiële installatieprogramma](https://go.microsoft.com/fwlink/?linkid=843444). Met dit installatieprogramma installeert u de hulpprogramma's en plaats u ze op het PAD, zodat u .net kunt uitvoeren vanuit de console
-
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-Open de terminal en navigeer naar een map waar u van plan bent een .NET Core-project te maken. Voer de volgende opdrachten in om **.NET Core** te installeren.
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-sudo apt-get update
-sudo apt-get install dotnet-dev-1.0.1
-```
-
+- Installeer [.NET](https://www.microsoft.com/net/download). Volg de stappen in het gekoppelde artikel om .NET specifiek voor uw platform (Windows, Ubuntu Linux en Mac OS) te installeren. 
+- Installeer [Visual Studio](https://www.visualstudio.com/downloads/).
+- Installeer [ODBC-stuurprogramma voor MySQL](https://dev.mysql.com/downloads/connector/odbc/).
 
 ## <a name="get-connection-information"></a>Verbindingsgegevens ophalen
 Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure Database voor MySQL. U hebt de volledig gekwalificeerde servernaam en aanmeldingsreferenties nodig.

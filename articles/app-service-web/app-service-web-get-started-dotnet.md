@@ -16,17 +16,19 @@ ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: b5a7f3ebe5e95d3838e71b7b17b91e85da0d51a2
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 567d7d29fde875690ee4dc6dd5752e86fa77ff40
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="create-an-aspnet-web-app-in-azure"></a>Een ASP.NET-web-app maken in Azure
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze Quickstart laat zien hoe uw eerste ASP.NET-web-app implementeert in Azure Web Apps. Als u klaar bent, hebt u een resourcegroep die bestaat uit een App Service-plan en een Azure-web-app met een geïmplementeerde webtoepassing.
 
-![ASP.NET-web-app in Azure App Service](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
+Bekijk de video om de inhoud van deze snelstartgids in actie te zien en doorloop de stappen daarna zelf om uw eerste .NET-app op Azure te publiceren.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
 ## <a name="prerequisites"></a>Vereisten
 

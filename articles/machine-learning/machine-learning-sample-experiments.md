@@ -1,6 +1,7 @@
 ---
-title: "Voorbeeldexperimenten van Machine Learning kopiëren | Microsoft Docs"
+title: "Voorbeeldexperimenten van Machine Learning kopiëren - Azure | Microsoft Docs"
 description: Leer hoe u voorbeeldexperimenten voor Machine Learning gebruikt om met Cortana Intelligence Gallery en Microsoft Azure Machine Learning nieuwe experimenten te maken.
+keywords: machine learning voorbeelden, voorbeeldexperiment, machine learning voorbeeld
 services: machine-learning
 documentationcenter: 
 author: cjgronlund
@@ -12,18 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 07/28/2017
 ms.author: cgronlun;olgali
-translationtype: Human Translation
-ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
-ms.openlocfilehash: 7b2bca108770a79a693a408a628ccc6370c36b7c
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: a6c8ca83e3a4020cb1ea0f1c14299f1aee3bdca5
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="copy-sample-experiments-to-create-new-machine-learning-experiments"></a>Voorbeeldexperimenten kopiëren om nieuwe experimenten voor Machine Learning te maken
+# <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>Voorbeeldexperimenten kopiëren om nieuwe experimenten voor Machine Learning te maken
 Leer hoe u met voorbeeldexperimenten van [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) aan de slag gaat in plaats van experimenten voor Machine Learning helemaal opnieuw te maken. U kunt de voorbeelden gebruiken om uw eigen Machine Learning-oplossing te maken.
 
-In de galerie bevinden zich voorbeeldexperimenten van het Microsoft Azure Machine Learning-team en voorbeelden die door de Machine Learning-community zijn gedeeld. Hier kunt u ook vragen stellen of opmerkingen plaatsen over experimenten.
+De galerie bevat voorbeeldexperimenten van het Microsoft Azure Machine Learning-team en voorbeelden die door de Machine Learning-community zijn gedeeld. Hier kunt u ook vragen stellen of opmerkingen plaatsen over experimenten.
 
 Bekijk de video [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) (Werk van anderen kopiëren om gegevenswetenschap uit te voeren) uit de serie [Data Science for Beginners](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) (Gegevenswetenschap voor beginners). Deze video duurt 3 minuten.
 
@@ -39,9 +41,9 @@ Op deze pagina ziet u **onlangs toegevoegde** experimenten, of scroll omlaag om 
 Door alle experimenten bladeren:
 
 1. Klik boven aan de pagina op **Browse all**.
-2. Selecteer onder **Refine by**, in het gedeelte **Categories**, de optie **Experiment** om alle experimenten in de galerie weer te geven.
+2. Selecteer aan de linkerkant onder **Refine by**, in het gedeelte **Categories**, de optie **Experiment** om alle experimenten in de galerie weer te geven.
 3. U kunt op verschillende manieren experimenten vinden die aan uw vereisten voldoen:
-   * **Selecteer filters aan de linkerkant.** Als u bijvoorbeeld door experimenten wilt bladeren die gebruikmaken van een PCA-algoritme voor de detectie van afwijkingen, selecteert u **Experiment** onder **Categories**, en **PCA-Based Anomaly Detection** onder **Algorithms Used**. (Als u dat algoritme niet ziet, klikt u op **Show All** aan de onderkant van de lijst.)<br></br>
+   * **Selecteer filters aan de linkerkant.** Als u bijvoorbeeld door experimenten wilt bladeren die gebruikmaken van een PCA-algoritme voor de detectie van afwijkingen, selecteert u **Experiment** onder **Categories** en klikt u op **Show all**. Kies vervolgens onder **Algorithms Used** de optie **PCA-Based Anomaly Detection**. <br></br>
      ![Filters selecteren](./media/machine-learning-sample-experiments/refine-the-view.png)
    * **Het zoekvak gebruiken.** Als u bijvoorbeeld experimenten wilt vinden die door Microsoft zijn aangedragen en die betrekking hebben op cijferherkenning waarbij gebruik wordt gemaakt van een algoritme van twee klassen voor ondersteuningsvectormachines, voert u 'digit recognition' (cijferherkenning) in het zoekvak in. Selecteer vervolgens de filters **Experiment**, **Microsoft content only** en **Two-Class Support Vector Machine**:<br></br>
      ![Het zoekvak gebruiken](./media/machine-learning-sample-experiments/search-for-experiments.png)
@@ -55,21 +57,16 @@ Door alle experimenten bladeren:
     >
     >
 
-## <a name="use-a-template-in-machine-learning-studio"></a>Een sjabloon gebruiken in Machine Learning Studio
+## <a name="create-a-new-experiment-using-an-example-as-a-template"></a>Een nieuw experiment maken op basis van een sjabloon
 U kunt ook een nieuw experiment in Machine Learning Studio maken op basis van een sjabloon uit de Galerie.
 
 1. Meld u bij [Studio](https://studio.azureml.net) aan met uw Microsoft-accountreferenties en klik vervolgens op **New** om een nieuw experiment te maken.
 2. Blader door de voorbeelden en klik op een van de voorbeelden.
 
-Er wordt een nieuw experiment gemaakt in de werkruimte op basis van het voorbeeldexperiment als sjabloon.
+Er wordt een nieuw experiment gemaakt in de Machine Learning Studio-werkruimte op basis van het voorbeeldexperiment als sjabloon.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Gegevens importeren uit diverse bronnen](machine-learning-data-science-import-data.md)
 * [Snelstartzelfstudie voor de programmeertaal R in Machine Learning](machine-learning-r-quickstart.md)
 * [Een Machine Learning-webservice implementeren](machine-learning-publish-a-machine-learning-web-service.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

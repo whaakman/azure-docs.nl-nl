@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 07/14/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 153b4cc668fdebd28cec5f3d95093a595064202a
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 6d14719938af0ce825955389824441e111024869
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: een Node.js-toepassing ontwikkelen met de Graph API
@@ -141,9 +141,11 @@ module.exports = config;
 
 U kunt nu teruggaan naar Data Explorer in Azure Portal en uw nieuwe graafgegevens bekijken, aanpassen en bewerken en er query's op uitvoeren.
 
-De nieuwe database wordt in Data Explorer weergegeven in het deelvenster **Verzamelingen**. Vouw **graphdb**, **graphcoll** uit en klik vervolgens op **Graaf**.
+De nieuwe database wordt in Data Explorer weergegeven in het deelvenster **Grafieken**. Vouw de database uit, gevolgd door de verzameling en klik vervolgens op **Grafiek**.
 
-De gegevens die worden gegenereerd door de voorbeeldapp worden weergegeven in het deelvenster **Grafen**.
+De gegevens die worden gegenereerd door de voorbeeld-app worden weergegeven op het volgende deelvenster binnen het tabblad **Grafiek** wanneer u op tabblad **Filter toepassen** klikt.
+
+Probeer `g.V()` voltooien met `.has('firstName', 'Thomas')` om het filter te testen. Houd er rekening mee dat de waarde hoofdlettergevoelig is.
 
 ## <a name="review-slas-in-the-azure-portal"></a>SLA’s bekijken in Azure Portal
 

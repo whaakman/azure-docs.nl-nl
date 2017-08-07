@@ -10,87 +10,74 @@ tags:
 keywords: Azure Functions, functies, gebeurtenisverwerking, Cosmos DB, dynamisch berekenen, architectuur zonder server
 ms.assetid: 
 ms.service: functions
-ms.devlang: multiple
+ms.devlang: csharp
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 07/08/2017
-ms.author: rachelap
+ms.date: 08/03/2017
+ms.author: rachelap, glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 492c916a493bb8d5c5415fc517506e5c1ccffc56
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 00e9a76fed5743d7d74bafd333b87edf59a4f8bb
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-cosmos-db"></a>Ongestructureerde gegevens opslaan met behulp van Azure Functions en Cosmos DB
 
-Azure Cosmos DB is een geweldige manier om ongestructureerde gegevens en JSON-gegevens op te slaan. Cosmos DB biedt, in combinatie met Azure Functions, een snelle en eenvoudige manier om gegevens op te slaan met veel minder code dan nodig is voor het opslaan van gegevens in een relationele database.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is een geweldige manier om ongestructureerde gegevens en JSON-gegevens op te slaan. Cosmos DB biedt, in combinatie met Azure Functions, een snelle en eenvoudige manier om gegevens op te slaan met veel minder code dan nodig is voor het opslaan van gegevens in een relationele database.
 
-Deze zelfstudie laat stapsgewijs zien hoe u Azure Portal gebruikt om een Azure-functie te maken waarmee ongestructureerde gegevens kunnen worden opgeslagen in een Cosmos DB-document. 
+In Azure Functions bieden invoer- en uitvoerbindingen een verklarende manier om verbinding te maken met externe servicegegevens vanuit uw functie. In dit onderwerp wordt uitgelegd hoe u een bestaande C#-functie kunt bijwerken voor het toevoegen van een uitvoerbinding die niet-gestructureerde gegevens in een Cosmos-DB-document opslaat. 
+
+![Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
+Vereisten voor het voltooien van deze zelfstudie:
+
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
-
-## <a name="create-a-function"></a>Een functie maken
-
-Maak een nieuwe C#-generieke webhook met de naam `MyTaskList`.
-
-1. Vouw de lijst met bestaande functies uit en klik op het plusteken (+) om een nieuwe functie te maken
-1. Selecteer GenericWebHook-CSharp en geef deze de naam `MyTaskList`
-
-![Functie-app voor een nieuwe C#-generieke webhook toevoegen](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-new-functionapp.png)
 
 ## <a name="add-an-output-binding"></a>Een uitvoerbinding toevoegen
 
-Een Azure-functie kan één trigger bevatten en een willekeurig aantal invoer- of uitvoerbindingen. In dit voorbeeld maken we gebruik van een HTTP-aanvraag als trigger en van het Cosmos DB-document als de uitvoerbinding.
+1. Vouw de functie-app en de functie uit.
 
-1. Klik op het tabblad *Integreren* van de functie om de trigger en bindingen van de functie weer te geven en te wijzigen.
-1. Kies de koppeling *Nieuwe uitvoer* rechtsboven op de pagina.
+1. Selecteer rechts boven op de pagina **Integreren** en **+ Nieuwe uitvoer**. Kies **Azure Cosmos DB**, en klik op **Selecteren**.
 
-Opmerking: De HTTP-aanvraagtrigger is al geconfigureerd. De Cosmos DB-documentbinding moet echter worden toegevoegd.
+    ![Een Cosmos DB-uitvoerbinding toevoegen](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
 
-![Nieuwe Cosmos DB-uitvoerbinding toevoegen](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
+3. Gebruik de **Azure Cosmos DB-uitvoer**instellingen zoals opgegeven in de tabel: 
 
-1. Voer de vereiste gegevens in voor het maken van de binding. Gebruik de onderstaande tabel om de waarden te bepalen.
+    ![Cosmos DB-uitvoerbinding configureren](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
 
-![Cosmos DB-uitvoerbinding configureren](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
+    | Instelling      | Voorgestelde waarde  | Beschrijving                                |
+    | ------------ | ---------------- | ------------------------------------------ |
+    | **Parameternaam van document** | taskDocument | Naam die in code verwijst naar het Cosmos DB-object. |
+    | **Databasenaam** | taskDatabase | Naam van database waarin documenten worden opgeslagen. |
+    | **Naam van verzameling** | TaskCollection | Naam van verzameling met Cosmos DB-databases. |
+    | **Indien waar, worden de Cosmos-DB-database en -verzameling gemaakt** | Geselecteerd | De verzameling bestaat nog niet, dus moet u deze maken. |
 
-|  Veld | Waarde  |
-|---|---|
-| Parameternaam van document | Naam die in code verwijst naar het Cosmos DB-object |
-| Databasenaam | Naam van database waarin documenten worden opgeslagen |
-| Naam van verzameling | Naam van groepering met Cosmos DB-databases |
-| Wilt u de Cosmos-database en verzameling voor u laten maken? | Ja of nee |
-| Cosmos DB-accountverbinding | Verbindingsreeks die verwijst naar de Cosmos DB-database |
+4. Selecteer **Nieuw** naast het label **Cosmos DB-documentverbinding** en selecteer **+ Nieuwe maken**. 
 
-U moet ook de verbinding met de Cosmos DB-database configureren.
+5. Gebruik de instellingen voor **Nieuw account** zoals opgegeven in de tabel: 
 
-1. Klik op de koppeling Nieuw naast het label *Cosmos DB-documentverbinding.
-1. Vul de velden in en selecteer de vereiste opties voor het maken van het Cosmos DB-document.
+    ![Cosmos DB-verbinding configureren](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-CosmosDB.png)
 
-![Cosmos DB-verbinding configureren](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-CosmosDB.png)
+    | Instelling      | Voorgestelde waarde  | Beschrijving                                |
+    | ------------ | ---------------- | ------------------------------------------ |
+    | **ID** | Naam van de database | Unieke id voor de Cosmos DB-database  |
+    | **API** | SQL (DocumentDB) | Selecteer de documentdatabase-API.  |
+    | **Abonnement** | Azure-abonnement | Azure-abonnement  |
+    | **Resourcegroep** | myResourceGroup |  Gebruik de bestaande resourcegroep die uw functie-app bevat. |
+    | **Locatie**  | West-Europa | Selecteer een locatie die zich in de buurt van uw functie-app bevindt of van andere apps die gebruikmaken van de opgeslagen documenten.  |
 
-|  Veld | Waarde  |
-|---|---|
-| Id | Unieke id voor de Cosmos DB-database  |
-| NoSQL-API | Cosmos DB of MongoDB  |
-| Abonnement | MSDN-abonnement  |
-| Resourcegroep  | Maak een nieuwe groep of selecteer een bestaande groep.  |
-| Locatie  | West-Europa  |
-
-1. Klik op de knop *OK*. U moet mogelijk enkele minuten wachten totdat de resources zijn gemaakt met Azure.
-1. Klik op de knop *Opslaan*.
+6. Klik op **OK** om de database te maken. Het maken van de database kan een paar minuten duren. Nadat de database is gemaakt, wordt de verbindingsreeks voor de database opgeslagen als een functie-app-instelling. De naam van deze app-instelling wordt ingevoegd in **Cosmos DB-accountverbinding**. 
+ 
+8. Nadat de verbindingsreeks is ingesteld, selecteert u **Opslaan** om de binding te maken.
 
 ## <a name="update-the-function-code"></a>De functiecode bijwerken
 
-Vervang de functiecodesjabloon door:
-
-Let op: de code voor dit voorbeeld wordt alleen weergegeven in C#.
+Vervang de bestaande C#-functiecode door het volgende:
 
 ```csharp
 using System.Net;
@@ -124,38 +111,31 @@ public static HttpResponseMessage Run(HttpRequestMessage req, out object taskDoc
 }
 
 ```
-
-In dit codevoorbeeld worden de queryreeksen van de HTTP-aanvraag gelezen en toegewezen als leden van een `taskDocument`-object. Met het `taskDocument`-object worden de gegevens automatisch opgeslagen in de Cosmos DB-database en wordt de database zelfs automatisch gemaakt bij het eerste gebruik.
+In dit codevoorbeeld worden de queryreeksen van de HTTP-aanvraag gelezen en toegewezen aan het velden in het `taskDocument`-object. De `taskDocument`-binding verzendt de objectgegevens van deze bindingsparameter voor opslag in de gebonden documentdatabase. De database wordt de eerste keer dat de functie wordt uitgevoerd gemaakt.
 
 ## <a name="test-the-function-and-database"></a>De functie en database testen
 
-1. Klik op het tabblad Functie op de koppeling *Test* aan de rechterkant van de portal. Voer vervolgens de volgende HTTP-queryreeksen in:
+1. Vouw het rechtervenster uit en selecteer **Testen**. Klik onder **Query** op **+ Parameter toevoegen** en voeg de volgende parameters toe aan de querytekenreeks:
 
-| Queryreeksen | Waarde |
-|---|---|
-| naam | Chris P. Bacon |
-| taak | Een BLT-sandwich maken |
-| einddatum | 12/05/2017 |
+    + `name`
+    + `task`
+    + `duedate`
 
-1. Klik op de koppeling *Uitvoeren*.
-1. Controleer of de functie een antwoordcode *HTTP 200 OK* heeft geretourneerd.
+2. Klik op **Uitvoeren** en controleer of een 200-status wordt geretourneerd.
 
-![Cosmos DB-uitvoerbinding configureren](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png)
+    ![Cosmos DB-uitvoerbinding configureren](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png)
 
-Bevestig dat er een vermelding is gemaakt in de Cosmos DB-database.
+1. Vouw aan de linkerkant van Azure Portal de pictogrammenbalk uit, typ `cosmos` in het zoekveld en selecteer **Azure Cosmos DB**.
 
-1. Ga naar uw database in Azure Portal en selecteer de vermelding.
-1. Selecteer de optie *Data Explorer*.
-1. Vouw de knooppunten uit totdat u de vermeldingen van het document bereikt.
-1. Bevestig de databasevermelding. De database bevat naast uw gegevens nog aanvullende metagegevens.
+    ![Zoeken naar de Cosmos DB-service](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
 
-![Cosmos DB-vermelding controleren](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
+2. Selecteer de database die u hebt gemaakt en selecteer vervolgens **Data Explorer**. Vouw de knooppunten **Verzamelingen** uit, selecteer het nieuwe document en controleer of het document uw querytekenreekswaarden, samen met enkele aanvullende metagegevens, bevat. 
 
-Als de gegevens zich in het document bevinden, hebt u een Azure-functie gemaakt waarmee ongestructureerde gegevens kunnen worden opgeslagen in een Cosmos DB-database.
+    ![Cosmos DB-vermelding controleren](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 
-## <a name="clean-up-resources"></a>Resources opschonen
+U hebt een binding toegevoegd aan uw HTTP-trigger die niet-gestructureerde gegevens in een Cosmos-DB-database opslaat.
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
+[!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

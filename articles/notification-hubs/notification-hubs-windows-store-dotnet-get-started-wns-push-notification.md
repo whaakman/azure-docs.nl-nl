@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 9353ad6df121ebd2e92a5d34214c32e852ed60a3
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 9b50f1cca81348b69f7ff2d702c6c72871afe0a0
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="getting-started-with-notification-hubs-for-windows-universal-platform-apps"></a>Aan de slag met Notification Hubs voor Windows Universal Platform-apps
@@ -49,33 +48,30 @@ Het voltooien van deze zelfstudie is een vereiste voor alle andere Notification 
 Als u pushmeldingen naar UWP-apps wilt verzenden, moet u uw app aan de Windows Store koppelen. Vervolgens moet u de Notification Hub configureren voor integratie met WNS.
 
 1. Als u uw app nog niet hebt geregistreerd, gaat u naar het [Windows-ontwikkelaarscentrum](https://dev.windows.com/overview), meldt u zich aan met uw Microsoft-account en klikt u vervolgens op **Een nieuwe app maken**.
-2. Typ een naam voor uw app en klik op **App-naam reserveren**.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-name.png)
-   
-   Hiermee maakt u een nieuwe Windows Store-registratie voor uw app.
-3. Maak in Visual Studio een nieuw project voor Visual C# Store-apps met de sjabloon **Blank App** (Lege app) en klik op **OK**.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-windows-universal-app.png)
+
+2. Typ een naam voor uw app en klik op **App-naam reserveren**. Hiermee maakt u een nieuwe Windows Store-registratie voor uw app.
+
+3. Maak in Visual Studio een nieuw project voor Visual C# Store-apps met de universele sjabloon **Lege app** van Windows en klik op **OK**.
+
 4. Accepteer de standaardwaarden voor het doel en de minimale platformversies.
-5. Klik in Solution Explorer met de rechtermuisknop op het Windows Store-app-project, klik op **Store** en klik vervolgens op **App aan de Store koppelen**.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png)
 
-   Hierop wordt de wizard **Uw app koppelen aan Windows Store** weergegeven.
+5. Klik in Solution Explorer met de rechtermuisknop op het Windows Store-app-project, klik op **Store** en klik vervolgens op **App aan de Store koppelen**. Hierop wordt de wizard **Uw app koppelen aan Windows Store** weergegeven.
 
-1. Klik in de wizard op **Aanmelden** en meldt u vervolgens aan met uw Microsoft-account.
-2. Klik op de app die u in stap 2 hebt geregistreerd, klik op **Volgende** en klik vervolgens op **Koppelen**.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-app-name.png)
-   
-   Hierdoor worden de vereiste registratiegegevens voor Windows Store toegevoegd aan het toepassingsmanifest.
-3. De pagina [Windows-ontwikkelaarscentrum](http://go.microsoft.com/fwlink/p/?LinkID=266582) wordt opnieuw weergegeven. Klik voor uw nieuwe app op **Services**, klik op **Pushmeldingen** en klik vervolgens op **Live Services-site** onder **Windows Push Notification Services (WNS) en Microsoft Azure Mobile Apps**.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-live-services.png)
-4. Onthoud het wachtwoord voor het **Toepassingsgeheim** op de registratiepagina voor uw app en de **Beveiligings-id (SID) pakket** die zich in de platforminstellingen van de **Windows Store** bevindt.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-push-auth.png)
+6. Meld u in de wizard aan met uw Microsoft-account.
+
+7. Klik op de app die u in stap 2 hebt geregistreerd, klik op **Volgende** en klik vervolgens op **Koppelen**. Hierdoor worden de vereiste registratiegegevens voor Windows Store toegevoegd aan het toepassingsmanifest.
+
+8. Klik als u weer terug bent op de pagina [Windows-ontwikkelaarscentrum](http://dev.windows.com/overview) voor uw nieuwe app op **Services**, klik op **Pushmeldingen** en klik vervolgens op **WNS/MPNS**.
+
+9. Klik op **Nieuwe melding**.
+
+10. Klik op de sjabloon **Leeg (pop-up)** en klik vervolgens op **OK**.
+
+11. Voer een **Naam** voor de melding en een visueel **Context**bericht in. Klik vervolgens op **Opslaan als concept**.
+
+12. Navigeer naar de [portal voor app-registratie](http://apps.dev.microsoft.com) en meld u aan.
+
+13. Klik op de naam van uw toepassing. Noteer het wachtwoord voor het **Toepassingsgeheim** en de **Beveiligings-id (SID) pakket** die zich in de platforminstellingen van de **Windows Store** bevindt.
 
      > [AZURE.WARNING]
     Het toepassingsgeheim en de pakket-SID zijn belangrijke beveiligingsreferenties. Deel deze waarden met niemand en distribueer ze niet met uw app.
@@ -137,8 +133,6 @@ De Notification Hub is nu geconfigureerd om te werken met WNS en u hebt de verbi
    
     Hiermee wordt gegarandeerd dat de kanaal-URI in uw Notification Hub wordt geregistreerd telkens wanneer de toepassing wordt gestart.
 6. Druk op de toets **F5** om de app uit te voeren. Er wordt een pop-upvenster met de registratiesleutel weergegeven.
-   
-     ![][19]
 
 Uw app is nu gereed om pop-upmeldingen te ontvangen.
 
@@ -162,9 +156,8 @@ Als u meldingen wilt verzenden met een .NET-consoletoepassing, voert u de volgen
 
 1. Klik met de rechtermuisknop op de oplossing, selecteer **Toevoegen** en **Nieuw project**. Klik vervolgens onder **Visual C#** op **Windows** en **Consoletoepassing** en klik op **OK**.
    
-     ![][13]
-   
     Hiermee voegt u een nieuwe Visual C#-consoletoepassing toe aan de oplossing. U kunt dit ook in een afzonderlijke oplossing doen.
+
 2. Klik in Visual Studio achtereenvolgens op **Extra**, **NuGet Package Manager** en **Package Manager-console**.
    
     Hiermee wordt de Package Manager-console in Visual Studio weergegeven.
@@ -199,8 +192,6 @@ Als u meldingen wilt verzenden met een .NET-consoletoepassing, voert u de volgen
          SendNotificationAsync();
          Console.ReadLine();
 7. Klik met de rechtermuisknop op het consoletoepassingsproject in Visual Studio en klik op **Instellen als opstartproject** om het project als opstartproject in te stellen. Druk vervolgens op de toets **F5** om de toepassing uit te voeren.
-   
-     ![][14]
    
     U ontvangt een pop-upmelding op alle geregistreerde apparaten. Als u op de banner van de pop-up klikt of tikt, wordt de app geladen.
 

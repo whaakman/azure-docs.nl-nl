@@ -3,7 +3,7 @@ title: Uw API beveiligen met Azure API Management | Microsoft Docs
 description: Informatie over het beveiligen van uw API met beleidsregels voor quota en (frequentie)beperking.
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 450dc368-d005-401d-ae64-3e1a2229b12f
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 73c9675490f95f68450716cd67e58df9c84daef8
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 9dba928b78c11213d4b0098986561b09678444eb
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Uw API beveiligen met frequentielimieten met behulp van Azure API Management
@@ -53,7 +54,7 @@ Klik op **Product toevoegen** om het dialoogvenster **Nieuw product toevoegen** 
 
 Typ **Gratis proefversie** in het vak **Titel**.
 
-Typ in het vak **Beschrijving** de volgende tekst:  **Abonnees kunnen 10 aanroepen/minuut uitvoeren met maximaal 200 aanroepen/week, waarna toegang wordt geweigerd.**
+Typ in het vak **Beschrijving** de volgende tekst: **Abonnees kunnen 10 aanroepen/minuut uitvoeren met maximaal 200 aanroepen/week, waarna toegang wordt geweigerd.**
 
 Producten in API Management kunnen worden beveiligd of open zijn. Voor beveiligde producten is een abonnement vereist voordat ze kunnen worden gebruikt. Open producten kunnen zonder abonnement worden gebruikt. Zorg ervoor dat **Abonnement vereisen** is ingeschakeld voor het maken van een beveiligd product waarvoor een abonnement is vereist. Dit is de standaardinstelling.
 
@@ -95,7 +96,9 @@ Selecteer **Echo-API** en klik vervolgens op **Opslaan**.
 ![Echo-API toevoegen][api-management-add-echo-api]
 
 ## <a name="policies"> </a>Aanroepfrequentielimiet- en quotumbeleidsregels configureren
-Frequentielimieten en quota worden geconfigureerd in de beleidseditor. Klik op **Beleidsregels** in het menu **API Management** aan de linkerkant. Klik in de lijst **Product** op **Gratis proefversie**.
+Frequentielimieten en quota worden geconfigureerd in de beleidseditor. De twee beleidsregels die we in deze zelfstudie toevoegen, zijn [Aanroepfrequentie per abonnement beperken](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) en [Gebruiksquotum per abonnement instellen](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Dit beleid moeten worden toegepast op het productbereik.
+
+Klik op **Beleidsregels** in het menu **API Management** aan de linkerkant. Klik in de lijst **Product** op **Gratis proefversie**.
 
 ![Productbeleid][api-management-product-policy]
 
@@ -103,11 +106,11 @@ Klik op **Beleid toevoegen** om de beleidssjabloon te importeren en begin met he
 
 ![Beleid toevoegen][api-management-add-policy]
 
-Als u beleidsregels wilt invoegen, plaatst u de cursor in de sectie **inbound** of **outbound** van de beleidssjabloon. Frequentielimiet- en quotumbeleidsregels zijn inkomende beleidsregels, dus plaats de cursor in het inkomende element.
+Frequentielimiet- en quotumbeleidsregels zijn inkomende beleidsregels, dus plaats de cursor in het inkomende element.
 
 ![Beleidseditor][api-management-policy-editor-inbound]
 
-De twee beleidsregels die we in deze zelfstudie toevoegen, zijn [Aanroepfrequentie per abonnement beperken](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) en [Gebruiksquotum per abonnement instellen](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota).
+beleid Blader door de lijst met beleidsregels en zoek de beleidsvermelding **Aanroepfrequentie per abonnement beperken**.
 
 ![Beleidsinstructies][api-management-limit-policies]
 
@@ -121,7 +124,7 @@ Nadat de cursor in het **inkomende** beleidselement is geplaatst, klikt u op de 
 </rate-limit>
 ```
 
-**Aanroepfrequentie per abonnement** kan op productniveau worden gebruikt en kan ook worden gebruikt op het niveau van de API en de afzonderlijke bewerkingsnaam. In deze zelfstudie worden alleen beleidsregels op productniveau gebruikt, dus verwijder de elementen **api** en **operation** uit het element **rate-limit**, zodat alleen het buitenste element **rate-limit** overblijft, zoals in het volgende voorbeeld wordt getoond.
+Zoals u in het codefragment kunt zien, kunt u met het beleid limieten instellen voor de API's en bewerkingen van het product. In deze zelfstudie maken we geen gebruik van die mogelijkheid, dus verwijder de elementen **api** en **operation** uit het element **rate-limit**, zodat alleen het buitenste element **rate-limit** overblijft, zoals in het volgende voorbeeld wordt getoond.
 
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
@@ -145,7 +148,7 @@ Als u het beleid **Gebruiksquotum per abonnement instellen** wilt configureren, 
 </quota>
 ```
 
-Omdat dit beleid ook is bedoeld voor productniveau, verwijdert u de naamelementen **api** en **operation**, zoals wordt getoond in het volgende voorbeeld.
+Net als het beleid **Gebruiksquotum per abonnement instellen** kunt u met het beleid **Gebruiksquotum per abonnement instellen** limieten instellen voor de API's en bewerkingen van het product. In deze zelfstudie maken we geen gebruik van die mogelijkheid, dus verwijder de elementen **api** en **operation** uit het element **quota**, zoals in het volgende voorbeeld wordt getoond.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
@@ -323,9 +326,4 @@ Wanneer het beleid voor een frequentielimiet van 10 aanroepen per minuut van kra
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

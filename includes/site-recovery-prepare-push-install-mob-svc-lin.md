@@ -1,21 +1,22 @@
-### <a name="prepare-for-a-push-installation-on-a-linux-server"></a>Prepare for a push installation on a Linux server
+### <a name="prepare-for-a-push-installation-on-a-linux-server"></a>Een push-installatie voorbereiden op een Linux-server
 
-1. Ensure that there’s network connectivity between the Linux computer and the process server.
-2. Create an account that the process server can use to access the computer. The account should be a **root** user on the source Linux server. (Use this account only for the push installation and for updates.)
-3. Check that the /etc/hosts file on the source Linux server has entries that map the local hostname to IP addresses associated with all network adapters.
-4. Install the latest openssh, openssh-server, and openssl packages on the computer that you want to replicate.
-5. Ensure that Secure Shell (SSH) is enabled and running on port 22.
-6. Enable SFTP subsystem and password authentication in the sshd_config file:
-  1.  Sign in as **root**.
-  2.  In the file /etc/ssh/sshd_config file, find the line that begins with **PasswordAuthentication**.
-  3.  Uncomment the line and change the value to **yes**.
-  4.  Find the line that begins with **Subsystem** and uncomment the line.
+1. Zorg dat er een netwerkverbinding is tussen de Linux-computer en de processerver.
+2. Maak een account dat op de processerver kan worden gebruikt voor toegang tot de computer. Het account moet een **rootgebruiker** zijn op de Linux-bronserver. (Gebruik dit account alleen voor de push-installatie en voor updates.)
+3. Controleer of het bestand /etc/hosts op de Linux-bronserver vermeldingen bevat die de lokale hostnaam toewijzen aan IP-adressen die zijn gekoppeld aan alle netwerkadapters.
+4. Installeer de meest recente openssh, openssh-server en openssl-pakketten op de computer die u wilt repliceren.
+5. Zorg ervoor dat SSH (Secure Shell) is ingeschakeld en wordt uitgevoerd op poort 22.
+6. Schakel het SFTP-subsysteem en wachtwoordverificatie in het bestand sshd_config in:
+  1.  Meld u aan als **rootgebruiker**.
+  2.  In het bestand /etc/ssh/sshd_config zoekt u de regel die begint met **PasswordAuthentication**.
+  3.  Verwijder opmerkingen bij de regel en wijzig de waarde in **ja**.
+  4.  Zoek de regel die begint met **Subsystem** en verwijder opmerkingen bij de regel.
 
      ![Linux](./media/site-recovery-prepare-push-install-mob-svc-lin/mobility2.png)
+  5. Start de service **sshd** opnieuw.
 
-7. Add the account that you created in CSPSConfigtool.
-    1.  Sign in to your configuration server.
-    2.  Open **cspsconfigtool.exe**. (It's available as a shortcut on the desktop and in the %ProgramData%\home\svsystems\bin folder.)
-    3.  On the **Manage Accounts** tab, click **Add Account**.
-    4.  Add the account you created. 
-    5.  Enter the credentials you use when you enable replication for a computer.
+7. Voeg het account toe dat u hebt gemaakt in CSPSConfigtool.
+    1.  Meld u aan bij de configuratieserver.
+    2.  Open **cspsconfigtool.exe**. (Als snelkoppeling beschikbaar op het bureaublad en in de map %ProgramData%\home\svsystems\bin.)
+    3.  Klik op het tabblad **Accounts beheren** op **Account toevoegen**.
+    4.  Voeg het account toe dat u hebt gemaakt. 
+    5.  Voer de referenties in die u gebruikt wanneer u replicatie voor een computer inschakelt.
