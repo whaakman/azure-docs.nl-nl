@@ -14,7 +14,7 @@ Vanwege de verschillen in SLA's en functiesets, raden we de volgende SKU's aan v
 | **Ontwikkelen en testen of conceptontwerpen**   | Basic                  |
 |                                    |                        |
 
-Als u de oude SKU's gebruikt, zijn de aanbevelingen voor de productie-SKU Standard- en HighPerformance-SKU's. Zie [Gateway-SKU's (oud)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md) voor informatie over de oude SKU's.
+Als u de oude SKU's gebruikt, zijn de aanbevelingen voor de productie-SKU Standard- en HighPerformance-SKU's. Zie [Gateway-SKU's (verouderde SKU's)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md) voor informatie over de oude SKU's.
 
 ###  <a name="feature"></a>Gateway-SKU-functiesets
 

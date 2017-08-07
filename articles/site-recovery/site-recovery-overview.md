@@ -14,19 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/25/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: a442d398cf5c54b00dc92ebcbe62597fb3ece30c
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: aa657c92f347f7529affee78ad1842e5e066b74d
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="what-is-site-recovery"></a>Wat is Site Recovery?
 
 Welkom bij de Azure Site Recovery-service! In dit artikel vindt u een kort overzicht van de service.
 
-## <a name="business-continuity-and-disaster-recovery-bdcr-with-azure-recovery-services"></a>Bedrijfscontinuïteit en herstel na noodgevallen (BCDR) met Azure Recovery Services
+## <a name="business-continuity-and-disaster-recovery-bcdr-with-azure-recovery-services"></a>Bedrijfscontinuïteit en herstel na noodgevallen (BCDR) met Azure Recovery Services
 
 Als organisatie moet u nagaan hoe u uw gegevens kunt beveiligen en apps/workloads kunt uitvoeren wanneer geplande en niet-geplande uitval optreedt.
 

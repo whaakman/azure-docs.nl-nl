@@ -12,14 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/24/2017
+ms.date: 07/26/2017
 ms.author: marsma
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 1cab34785d6e4f7751245ebf77b29fa8dc3c685b
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 98670b60daca7091e09ce2ab03cf2eaff015070e
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Inleiding tot Microsoft Azure Storage
@@ -110,13 +109,19 @@ Bij het ontwerpen van schaalbare toepassingen worden toepassingsonderdelen vaak 
 Een opslagaccount kan een onbeperkt aantal wachtrijen bevatten. Een wachtrij kan een onbeperkt aantal berichten bevatten, tot de capaciteitslimiet van het opslagaccount is bereikt. Afzonderlijke berichten kunnen maximaal 64 kB groot zijn.
 
 ## <a name="file-storage"></a>File Storage
-Azure File Storage biedt cloudgebaseerde SMB-bestandsshares, zodat u oudere toepassingen die afhankelijk zijn van bestandsshares snel en zonder kostbare regeneraties naar Azure kunt migreren. Met Azure File Storage kunnen toepassingen die worden uitgevoerd in Azure Virtual Machines of Cloud Services een bestandsshare in de cloud koppelen zoals een bureaubladtoepassing een gewone SMB-share koppelt. Daarna kan een willekeurig aantal toepassingsonderdelen de File Storage-share tegelijkertijd koppelen en gebruiken.
+De Azure Files-service stelt u in staat om zeer beschikbare netwerkbestandsshares in te stellen die toegankelijk zijn via het standaard SMB-protocol (Server Message Block). Dit betekent dat meerdere VM's dezelfde bestanden kunnen delen met zowel lees- als schrijftoegang. U kunt de bestanden ook lezen met behulp van de REST-interface of de opslagclientbibliotheken.
 
-Omdat een File Storage-share een standaard-SMB-bestandsshare is, hebben toepassingen die in Azure worden uitgevoerd, toegang tot de gegevens in de share via I/O API's van het bestandssysteem. Dat betekent dat ontwikkelaars bestaande code en vaardigheden kunnen inzetten voor het migreren van bestaande toepassingen. IT-professionals kunnen PowerShell-cmdlets gebruiken om File Storage-shares te maken, te koppelen en te beheren als onderdeel van het beheer van Azure-toepassingen.
+Eén ding dat Azure File Storage onderscheidt van bestanden in een zakelijke bestandsshare is het feit dat u overal ter wereld toegang hebt tot de bestanden via een URL die verwijst naar het bestand, en een SAS-token (Shared Access Signature) bevat. U kunt SAS-tokens genereren. Met deze tokens hebt u gedurende een opgegeven tijdperiode toegang tot een specifiek privéasset.
 
-Net als de andere Azure Storage-services, maakt ook File Storage gebruik van een REST-API voor toegang tot gegevens in een share. On-premises toepassingen kunnen de REST-API van File Storage aanroepen voor toegang tot gegevens in een bestandsshare. Op deze manier kan een onderneming ervoor kiezen om enkele oudere toepassingen naar Azure te migreren en andere toepassingen te blijven uitvoeren binnen hun organisatie. Houd er rekening mee dat het koppelen van een bestandsshare alleen mogelijk is voor toepassingen die worden uitgevoerd in Azure. Een on-premises toepassing heeft mogelijk alleen toegang tot de bestandsshare via de REST-API.
+Bestandsshares kunnen worden gebruikt voor veelvoorkomende scenario's:
 
-Gedistribueerde toepassingen kunnen File Storage ook gebruiken voor het opslaan en delen van nuttige toepassingsgegevens en het ontwikkelen en testen van hulpprogramma's. Een toepassing kan bijvoorbeeld configuratiebestanden en diagnostische gegevens, zoals logboeken, meetgegevens en crashdumps, opslaan in een File Storage-share, zodat deze beschikbaar zijn voor meerdere virtuele machines of rollen. Ontwikkelaars en beheerders kunnen hulpprogramma's die ze nodig hebben om te een toepassing te bouwen of beheren, opslaan in een File Storage-share die beschikbaar is voor alle onderdelen, in plaats van de hulpprogramma's te installeren op elke virtuele machine of rolinstantie.
+* Veel on-premises toepassingen maken gebruik van bestandsshares. Met deze functie kunt u gemakkelijker toepassingen die gegevens delen, migreren naar Azure. Als u de bestandsshare koppelt aan dezelfde stationsletter die wordt gebruikt voor de on-premises toepassing, werkt het gedeelte van de toepassing dat toegang heeft tot de bestandsshare, (vrijwel) ongewijzigd.
+
+* Configuratiebestanden kunnen worden opgeslagen in een bestandsshare en zijn toegankelijk vanaf meerdere VM's. Hulpprogramma's en hulpmiddelen die worden gebruikt door meerdere ontwikkelaars in een groep, kunnen worden opgeslagen in een bestandsshare. Hierdoor kan iedereen ze vinden en maakt iedereen ook gebruik van dezelfde versie.
+
+* Diagnostische logboeken, metrische gegevens en crashdumps zijn slechts drie voorbeelden van gegevens die naar een bestandsshare kunnen worden geschreven, en later verwerkt of geanalyseerd.
+
+Op dit moment worden verificatie op basis van Active Directory en toegangsbeheerlijsten (ACL's) niet ondersteund, maar ondersteuning hiervan wordt in de toekomst beschikbaar. De opslagaccountreferenties worden gebruikt voor verificatie voor toegang tot de bestandsshare. Dit betekent dat iedereen met de gekoppelde share volledige lees-/schrijftoegang tot de share heeft.
 
 ## <a name="access-to-blob-table-queue-and-file-resources"></a>Toegang tot Blob-, Table-, Queue- en File-resources
 Standaard heeft alleen de eigenaar van het opslagaccount toegang tot resources in het opslagaccount. Voor de beveiliging van uw gegevens moet elke aanvraag die bij resources in uw account wordt gedaan, worden geverifieerd. De verificatie is afhankelijk van een gedeelde-sleutelmodel. Blobs kunnen ook worden geconfigureerd om anonieme verificatie te ondersteunen.

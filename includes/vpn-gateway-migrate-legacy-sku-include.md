@@ -1,8 +1,9 @@
 > [!NOTE]
-> Het openbare IP-adres van de VPN-gateway verandert wanneer u deze van een oude SKU naar een nieuwe SKU migreert.
+> * Het openbare IP-adres van de VPN-gateway verandert wanneer u deze van een oude SKU naar een nieuwe SKU migreert.
+> * U kunt geen klassieke VPN-gateways migreren naar de nieuwe SKU's. Klassieke VPN-gateways kunnen alleen de verouderde (oude) SKU's gebruiken.
 > 
 
-U kunt het formaat van uw Azure VPN-gateways niet rechtstreeks wijzigen tussen de oude SKU's en de nieuwe SKU-families. Als u VPN-gateways in het Resource Manager-implementatiemodel hebt die de oudere versie van de SKU's gebruiken, kunt u naar de nieuwe SKU's migreren. Als u wilt migreren, verwijdert u de bestaande VPN-gateway voor het virtuele netwerk en maakt u een nieuwe.
+U kunt het formaat van uw Azure VPN-gateways niet wijzigen tussen de oude SKU's en de nieuwe SKU-families. Als u VPN-gateways in het Resource Manager-implementatiemodel hebt die de oudere versie van de SKU's gebruiken, kunt u naar de nieuwe SKU's migreren. Als u wilt migreren, verwijdert u de bestaande VPN-gateway voor het virtuele netwerk en maakt u een nieuwe.
 
 Migratiewerkstroom:
 

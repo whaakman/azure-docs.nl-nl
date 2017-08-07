@@ -12,10 +12,10 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.date: 06/23/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 9f393e9ab1b3b6ab7f1ff085d625362d50adc97c
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: b9382de2b8c672670213d9f5d0daf1eb0bff8c78
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 
@@ -28,42 +28,9 @@ In deze snelstartgids worden de resources die in een van deze handleidingen zijn
 - [Database maken - CLI](quickstart-create-server-database-azure-cli.md)
 
 U moet ook het volgende doen:
-- [.NET Framework](https://www.microsoft.com/net/download) installeren
-- [Visual Studio](https://www.visualstudio.com/downloads/) installeren
-- [Npgsql](http://www.npgsql.org/doc/index.html) installeren 
-
-## <a name="install-visual-studio-and-net"></a>Visual Studio en .NET installeren
-Voor de stappen in dit gedeelte wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met .NET.
-
-### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework en .NET Core**
-Visual Studio 2017 Community is een volledig functionele, uitbreidbare en gratis IDE voor het maken van moderne toepassingen voor Android, iOS en Windows, voor web- en databasetoepassingen, en voor cloudservices. U kunt het .NET Framework volledig installeren of alleen .NET Core. De codefragmenten in de Quick Start werken in beide gevallen. Als Visual Studio al is geïnstalleerd op uw computer, kunt u de volgende stappen overslaan.
-
-1. Download het [installatieprogramma voor Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
-2. Voer het installatieprogramma uit en volg de weergegeven opdrachten om de installatie te voltooien.
-
-### <a name="mac-os"></a>**Mac OS**
-Open de terminal en navigeer naar een map waar u van plan bent een .NET Core-project te maken. Voer de volgende opdrachten in voor het installeren van **Brew**, **OpenSSL** en **.NET Core**. 
-
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install openssl
-mkdir -p /usr/local/lib
-ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-```
-
-Installeer .NET Core op Mac OS. Download het [officiële installatieprogramma](https://go.microsoft.com/fwlink/?linkid=843444). Met dit installatieprogramma installeert u de hulpprogramma's en plaats u ze op het PAD, zodat u dotnet kunt uitvoeren vanuit de console
-
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-Open de terminal en navigeer naar een map waar u van plan bent een .NET Core-project te maken. Voer de volgende opdrachten in om **.NET Core** te installeren.
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-sudo apt-get update
-sudo apt-get install dotnet-dev-1.0.1
-```
+- Installeer [.NET Framework](https://www.microsoft.com/net/download). Volg de stappen in het gekoppelde artikel om .NET specifiek voor uw platform (Windows, Ubuntu Linux en Mac OS) te installeren. 
+- Installeer [Visual Studio](https://www.visualstudio.com/downloads/) of Visual Studio Code om code in te voeren en te bewerken.
+- Installeer de bibliotheek [Npgsql](http://www.npgsql.org/doc/index.html) zoals hieronder wordt beschreven.
 
 ## <a name="install-npgsql-references-into-your-visual-studio-solution"></a>Npgsql-verwijzingen installeren in uw Visual Studio-oplossing
 Gebruik de open source ADO.Net-bibliotheek Npgsql om vanuit de C#-toepassing verbinding te maken met PostgreSQL. NuGet vergemakkelijkt het downloaden en beheren van de verwijzingen.

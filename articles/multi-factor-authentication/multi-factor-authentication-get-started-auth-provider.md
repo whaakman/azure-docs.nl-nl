@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/28/2017
+ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 977640041f4b58a751848c96e2aa48eb2b284154
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: ed14a5a762bab20a1ccde699504dd21f25009b52
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 
@@ -40,7 +40,7 @@ Als u geen licenties voor Azure Multi-Factor Authentication hebt, kunt u een ver
 Er zijn twee soorten verificatieproviders. Het verschil tussen beide heeft te maken met de wijze waarop uw Azure-abonnement in rekening wordt gebracht. De optie Per verificatie berekent het aantal verificaties die in een maand op uw tenant worden uitgevoerd. Deze optie wordt aanbevolen als u een aantal gebruikers hebt die slechts sporadisch verifiëren, bijvoorbeeld als u MFA vereist voor een aangepaste toepassing. De optie Per gebruiker berekent het aantal personen in uw tenant die in een maand verificatie in twee stappen uitvoeren. Deze optie wordt aanbevolen als u een aantal gebruikers met licenties hebt, maar MFA wilt uitbreiden naar meer gebruikers buiten de restricties van uw licentie.
 
 ## <a name="create-a-multi-factor-auth-provider"></a>Een Multi-Factor Authentication-provider maken
-Voer de volgende stappen uit om een Azure Multi-Factor Authentication-provider te maken.
+Voer de volgende stappen uit om een Azure Multi-Factor Authentication-provider te maken. Azure Multi-Factor Authentication-providers kunnen alleen worden gemaakt in de klassieke Azure Portal. Als u zich niet kunt aanmelden bij de klassieke Azure Portal, controleert u of de Azure AD-tenant is [gekoppeld aan een Azure-abonnement](../active-directory/active-directory-how-subscriptions-associated-directory.md). 
 
 1. Meld u aan als beheerder bij de [klassieke Azure Portal](https://manage.windowsazure.com).
 2. Selecteer aan de linkerkant **Active Directory**.
@@ -66,13 +66,26 @@ Voer de volgende stappen uit om een Azure Multi-Factor Authentication-provider t
       * Per verificatie – koopmodel waarin per verificatie wordt betaald. Wordt doorgaans gebruikt in scenario's die gebruikmaken van Azure Multi-Factor Authentication in een toepassing waarmee consumenten te maken krijgen.
       * Per ingeschakelde gebruiker – koopmodel waarin voor elke ingeschakelde gebruiker wordt betaald. Wordt doorgaans gebruikt om werknemers toegang te geven tot toepassingen zoals Office 365. Kies deze optie als sommige gebruikers al een licentie voor Azure MFA hebben.
    3. **Adreslijst**: de Azure Active Directory-tenant waaraan de Multi-Factor Authentication-provider is gekoppeld. Houd rekening met het volgende:
-      * U hebt geen Azure AD-adreslijst nodig om een Multi-Factor Authentication-provider te maken. Laat het vak leeg als u van plan bent alleen de Azure Multi-Factor Authentication-server of -SDK te gebruiken.
+      * U hebt geen Azure AD-adreslijst nodig om een Multi-Factor Authentication-provider te maken. Laat dit vak leeg als u alleen van plan bent de Azure Multi-Factor Authentication-server of -SDK te downloaden.
       * De Multi-Factor Authentication-provider moet worden gekoppeld aan een Azure AD-adreslijst om te kunnen profiteren van de geavanceerde functies.
-      * Azure AD Connect, AAD Sync of DirSync zijn alleen vereist als u uw on-premises Active Directory-omgeving synchroniseert met een Azure AD-adreslijst.  Als u alleen een Azure AD-adreslijst gebruikt die niet wordt gesynchroniseerd, is dit niet vereist.
-        
-        ![Een MFA-provider maken](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
+      * Er kan slechts één Multi-Factor Authentication-provider worden gekoppeld aan één Azure AD-adreslijst.  
+      ![Een MFA-provider maken](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
 
-8. Nadat u op Maken hebt gedrukt, wordt de Multi-Factor Authentication-provider gemaakt en wordt er een bericht weergegeven: **Er is een Multi-Factor Authentication-provider gemaakt**. Klik op **OK**.
+8. Nadat u op Maken hebt gedrukt, wordt de Multi-Factor Authentication-provider gemaakt en wordt er een bericht weergegeven: **Er is een Multi-Factor Authentication-provider gemaakt**. Klik op **OK**.  
    
    ![Een MFA-provider maken](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)  
+
+## <a name="manage-your-multi-factor-auth-provider"></a>Een Multi-Factor Authentication-provider beheren
+
+U kunt het gebruiksmodel (per ingeschakelde gebruiker of per verificatie) niet wijzigen nadat een MFA-provider is gemaakt. U kunt de MFA-provider echter verwijderen en vervolgens een nieuwe maken met een ander gebruiksmodel.
+
+Als de huidige Multi-Factor Authentication-provider is gekoppeld aan een Azure AD-adreslijst (ook wel een Azure AD-tenant genoemd), kunt u de MFA-provider gerust verwijderen en er een maken die is gekoppeld aan dezelfde Azure AD-tenant. Als u voldoende licenties voor MFA, Azure AD Premium of EMS (Enterprise Mobility + Security) hebt voor alle gebruikers voor wie MFA is ingeschakeld, kunt u de MFA-provider ook helemaal verwijderen.
+
+Als de MFA-provider niet is gekoppeld aan een Azure AD-tenant, of als u de nieuwe MFA-provider koppelt aan een andere Azure AD-tenant, worden de gebruikersinstellingen en configuratieopties niet overgedragen. Bestaande Azure MFA-servers moeten ook opnieuw worden geactiveerd met behulp van de activeringsreferenties die worden gegenereerd door de nieuwe MFA-provider. Als u de MFA-servers opnieuw activeert om ze te koppelen aan de nieuwe MFA-provider, is dit niet van invloed op telefonische verificatie en verificatie via een sms-bericht. Mobiele app-meldingen werken echter niet meer voor gebruikers totdat ze de mobiele app opnieuw activeren.
+
+## <a name="next-steps"></a>Volgende stappen
+
+[De Multi-Factor Authentication-SDK downloaden](multi-factor-authentication-sdk.md)
+
+[Multi-Factor Authentication-instellingen configureren](multi-factor-authentication-whats-next.md)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 7aa1363c3d4164edb5199a21e75b2b08a3218bf5
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 8ef8a1cc2393f0befbf83c3124b67b405ae06898
 ms.contentlocale: nl-nl
-ms.lasthandoff: 04/12/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>De Azure AD Connect Health-agent installeren
@@ -37,6 +37,7 @@ In de volgende tabel ziet u een lijst vereisten voor het gebruik van Azure AD Co
 | SSL-controle voor uitgaand verkeer is gefilterd of uitgeschakeld | De agentregistratiestap of het uploaden van gegevens kan mislukken als er in de netwerklaag een SSL-inspectie of blokkering is voor uitgaand verkeer. |
 | Firewallpoorten op de server waarop de agent wordt uitgevoerd. |De volgende firewallpoorten moeten open zijn, anders kan de agent niet communiceren met de eindpunten van de Azure AD Health-service.</br></br><li>TCP-poort 443</li><li>TCP-poort 5671</li> |
 | Sta de volgende websites toe als verbeterde beveiliging van Internet Explorer is ingeschakeld |Als verbeterde beveiliging van Internet Explorer is ingeschakeld, moeten de volgende websites worden toegestaan op de server waarop u de agent wilt installeren.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>De federatieve server van uw organisatie moet worden vertrouwd door Azure Active Directory. Bijvoorbeeld: https://sts.contoso.com</li> |
+|FIPS uitschakelen|FIPS wordt niet ondersteund door Azure AD Connect Health-agents.|
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>De Azure AD Connect Health-agent voor AD FS installeren
 Dubbelklik op het .exe-bestand dat u hebt gedownload om de installatie van de agent te starten. Klik in het eerste scherm op Installeren.
@@ -90,7 +91,7 @@ Als u de functie Gebruiksanalyse wilt gebruiken om gegevens te verzamelen en te 
 1. Klik op **Start**, ga naar **Programma's**, ga naar **Systeembeheer** en klik vervolgens op **Lokaal beveiligingsbeleid**.
 2. Navigeer naar de map **Beveiligingsinstellingen\Lokaal beleid\Gebruikersrechtenbeheer** en dubbelklik op Beveiligingscontrole genereren.
 3. Controleer op het tabblad **Lokale beveiligingsinstelling** of het AD FS 2.0-serviceaccount wordt vermeld. Als dit niet zo is, klikt u op **Gebruiker of groep toevoegen**, voegt u het account toe aan de lijst en klikt u op **OK**.
-4. Als u de controle wilt inschakelen, opent u een opdrachtprompt met verhoogde bevoegdheden en voert u de volgende opdracht uit:<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
+4. Als u de controle wilt inschakelen, opent u een opdrachtprompt met verhoogde bevoegdheden en voert u de volgende opdracht uit: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
 5. Sluit Lokaal beveiligingsbeleid en open de module Beheer. Als u de module Beheer wilt openen, klikt u op **Start**, gaat u naar **Programma's**, gaat u naar **Systeembeheer** en klikt u vervolgens op AD FS 2.0-beheer.
 6. Klik in het deelvenster Acties op Federation Service-eigenschappen bewerken.
 7. Klik in het dialoogvenster **Federation Service-eigenschappen** op het tabblad **Gebeurtenissen**.
@@ -111,7 +112,7 @@ Als u de functie Gebruiksanalyse wilt gebruiken om gegevens te verzamelen en te 
 1. Open **Lokaal beveiligingsbeleid**. Dit doet u door naar **Serverbeheer** te gaan op het startscherm, of door Serverbeheer te openen via de taakbalk op het bureaublad en door vervolgens op **Extra/Lokaal beveiligingsbeleid** te klikken.
 2. Navigeer naar de map **Beveiligingsinstellingen\Lokaal beleid\Gebruikersrechten toewijzen** en dubbelklik op **Beveiligingscontrole genereren**.
 3. Controleer op het tabblad **Lokale beveiligingsinstelling** of het AD FS-serviceaccount wordt vermeld. Als dit niet zo is, klikt u op **Gebruiker of groep toevoegen**, voegt u het AD FS-serviceaccount toe aan de lijst en klikt u op **OK**.
-4. Als u de controle wilt inschakelen, opent u een opdrachtprompt met verhoogde bevoegdheden en voert u de volgende opdracht uit:<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
+4. Als u de controle wilt inschakelen, opent u een opdrachtprompt met verhoogde bevoegdheden en voert u de volgende opdracht uit: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
 5. Sluit **Lokaal beveiligingsbeleid** en open vervolgens de module **AD FS-beheer** (klik in Serverbeheer op Extra en selecteer vervolgens AD FS-beheer).
 6. Klik in het deelvenster Acties op **Federation Service-eigenschappen bewerken**.
 7. Klik in het dialoogvenster Federation Service-eigenschappen op het tabblad **Gebeurtenissen**.

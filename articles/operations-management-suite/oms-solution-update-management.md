@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/09/2017
+ms.date: 07/27/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 8f83f5d13cb61709653f255c756dc78453073626
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: e463102a4b21253e28b01d6d149aba55bab18674
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="update-management-solution-in-oms"></a>De oplossing voor updatebeheer in OMS
@@ -65,10 +64,10 @@ Op de doelcomputers wordt gelijktijdig ook de implementatie uitgevoerd op de dat
     > [!NOTE]
     > De Windows-agent kan niet tegelijkertijd door System Center Configuration Manager worden beheerd.  
     >
-* CentOS 6 (x86/x64) en 7 (x64)
-* Red Hat Enterprise 6 (x86/x64) en 7 (x64)
-* SUSE Linux Enterprise Server 11 (x86/x64) en 12 (x64)
-* Ubuntu 12.04 LTS en nieuwer x86/x64  
+* CentOS 6 (x86/x64) en 7 (x64)  
+* Red Hat Enterprise 6 (x86/x64) en 7 (x64)  
+* SUSE Linux Enterprise Server 11 (x86/x64) en 12 (x64)  
+* Ubuntu 12.04 LTS en nieuwer x86/x64   
     > [!NOTE]  
     > Om te voorkomen dat updates buiten een onderhoudsperiode in Ubuntu worden toegepast, moet u het pakket Unattended-Upgrade opnieuw configureren en automatische updates uitschakelen. Zie [het onderwerp Automatic Updates in de Engelstalige Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html) voor meer informatie.
 
@@ -79,6 +78,9 @@ Op de doelcomputers wordt gelijktijdig ook de implementatie uitgevoerd op de dat
     >
 
 Raadpleeg [Operations Management Suite-agent voor Linux](https://github.com/microsoft/oms-agent-for-linux) voor meer informatie over het installeren van de OMS-agent voor Linux en om de nieuwste versie te downloaden.  Raadpleeg [Operations Management Suite-agent voor Windows](../log-analytics/log-analytics-windows-agents.md) voor meer informatie over het installeren van de OMS-agent voor Windows.  
+
+### <a name="permissions"></a>Machtigingen
+Als u update-implementaties wilt maken, moet de rol Bijdrager aan u worden toegewezen voor zowel het Automation-account als voor de Log Analytics-werkruimte.  
 
 ## <a name="solution-components"></a>Oplossingsonderdelen
 Deze oplossing bestaat uit de volgende resources die zijn toegevoegd aan uw Automation-account en rechtstreeks verbonden agents of verbonden Operations Manager-beheergroepen.
@@ -156,7 +158,7 @@ Wanneer u de oplossing Updatebeheer toevoegt aan uw OMS-werkruimte wordt de tege
 ## <a name="viewing-update-assessments"></a>Update-evaluaties weergeven
 Klik op de tegel **Updatebeheer** om het dashboard **Updatebeheer** te openen.<br><br> ![Dashboard overzicht updatebeheer](./media/oms-solution-update-management/update-management-dashboard.png)<br>
 
-Dit dashboard biedt een gedetailleerd overzicht van de updatestatus, ingesteld op type besturingssysteem en updateclassificatie (kritiek, beveiligingsgerelateerd of anders, zoals bij een definitie-update). De tegel **Update-implementaties** verwijst u naar de pagina Update-implementaties, waar u planningen, updates die momenteel worden uitgevoerd en voltooide implementaties kunt bekijken. U kunt hier ook nieuwe implementaties plannen.  
+Dit dashboard biedt een gedetailleerd overzicht van de updatestatus, ingesteld op type besturingssysteem en updateclassificatie (kritiek, beveiligingsgerelateerd of anders, zoals bij een definitie-update). De resultaten op elke tegel van dit dashboard bevatten alleen updates die zijn goedgekeurd voor implementatie. Dit is gebaseerd op de synchronisatiebron van de computers.   De tegel **Update-implementaties** verwijst u naar de pagina Update-implementaties, waar u planningen, updates die momenteel worden uitgevoerd en voltooide implementaties kunt bekijken. U kunt hier ook nieuwe implementaties plannen.  
 
 U kunt een logboekzoekopdracht uitvoeren voor het retourneren van alle records. Hiervoor klikt u op de specifieke tegel of voert u een query voor een bepaalde categorie en vooraf gedefinieerde criteria uit. Selecteer dan één optie uit de lijst die beschikbaar is in de kolom **Algemene updatequery's**.    
 
@@ -310,6 +312,17 @@ De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 Deze sectie bevat informatie over het oplossen van problemen met de oplossing Update Management.  
+
+### <a name="how-do-i-troubleshoot-onboarding-issues"></a>Hoe kan ik problemen met onboarding oplossen?
+Als u problemen ondervindt tijdens de onboarding van de oplossing of een virtuele machine, gaat u naar het gebeurtenislogboek **Toepassings- en servicelogboeken\Operations Manager** voor gebeurtenissen met gebeurtenis-id 4502 en het gebeurtenisbericht met **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.  In de volgende tabel worden specifieke foutberichten weergegeven, plus een mogelijke oplossing voor elk van deze fouten.  
+
+| Bericht | Reden | Oplossing |   
+|----------|----------|----------|  
+| Kan de machine niet registreren voor patchbeheer,<br>Registratie is mislukt met uitzondering<br>System.InvalidOperationException: {"Message":"Machine is al<br>geregistreerd bij een ander account. "} | Machine is al vrijgegeven aan een andere werkruimte voor updatebeheer | Voer het opruimen van oude artefacten uit door [de hybride runbookgroep te verwijderen](../automation/automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|  
+| Kan de machine niet registreren voor patchbeheer,<br>Registratie is mislukt met uitzondering<br>System.Net.Http.HttpRequestException: Er is een fout opgetreden tijdens het verzenden van de aanvraag. ---><br>System.Net.WebException: De onderliggende verbinding<br>is gesloten: Er is een onverwachte fout<br>opgetreden tijdens het ontvangen. ---> System.ComponentModel.Win32Exception:<br>De client en server kunnen niet communiceren,<br>omdat ze geen gemeenschappelijk algoritme hebben | Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](../automation/automation-offering-get-started.md#network-planning)|  
+| Kan de machine niet registreren voor patchbeheer,<br>Registratie is mislukt met uitzondering<br>Newtonsoft.Json.JsonReaderException: Fout tijdens het parseren van oneindig positieve waarde. | Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](../automation/automation-offering-get-started.md#network-planning)| 
+| Het certificaat dat is doorgegeven door de service <wsid>.oms.opinsights.azure.com<br>is niet uitgegeven door een certificeringsinstantie<br>die wordt gebruikt voor Microsoft-services. Neem contact op met<br>de netwerkbeheerder om na te gaan of er een proxy wordt uitgevoerd waarmee<br>TLS/SSL-communicatie wordt onderschept. |Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](../automation/automation-offering-get-started.md#network-planning)|  
+| Kan de machine niet registreren voor patchbeheer,<br>Registratie is mislukt met uitzondering<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Maken van een zelfondertekend certificaat is mislukt. ---><br>System.UnauthorizedAccessException: Toegang is geweigerd. | Genereren van zelfondertekend certificaat is mislukt | Controleer of het systeemaccount<br>leestoegang heeft tot de map:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
 
 ### <a name="how-do-i-troubleshoot-update-deployments"></a>Hoe kan ik problemen met update-implementaties oplossen?
 U kunt de resultaten bekijken van het runbook dat verantwoordelijk is voor het implementeren van de updates uit de geplande update-implementatie. Ga daarvoor naar de blade Taken van uw Automation-account dat is gekoppeld aan de OMS-werkruimte die deze oplossing ondersteunt.  Het runbook **Patch-MicrosoftOMSComputer** is een onderliggend runbook dat is gericht op een specifieke beheerde computer. Als u de gedetailleerde stroom bekijkt, komt u meer te weten over die implementatie.  In de uitvoer staat welke vereiste updates van toepassing zijn, wat de downloadstatus is en wat de installatiestatus is. Ook wordt er aanvullende informatie geboden.<br><br> ![De taakstatus van de update-implementatie](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>

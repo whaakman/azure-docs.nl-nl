@@ -1,57 +1,60 @@
-## <a name="create-an-iot-hub"></a>Create an IoT hub
+## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
-1. In the [Azure portal](https://portal.azure.com/), click **New** > **Internet of Things** > **IoT Hub**.
+1. Klik in [Azure Portal](https://portal.azure.com/) op **Nieuw** > **Internet of Things** > **IoT-hub**.
 
-   ![Create an IoT hub in the Azure portal](../articles/iot-hub/media/iot-hub-create-hub-and-device/1_create-azure-iot-hub-portal.png)
-2. In the **IoT hub** pane, enter the following information for your IoT hub:
+   ![Een IoT-hub maken in Azure Portal](../articles/iot-hub/media/iot-hub-create-hub-and-device/1_create-azure-iot-hub-portal.png)
+2. Voer in het deelvenster **IoT Hub** deelvenster de volgende informatie in voor uw IoT-hub:
 
-     **Name**: Enter the name of your IoT hub. If the name you enter is valid, a green check mark appears.
+     **Naam**: voer de naam in van uw IoT-hub. Als de door u opgegeven naam geldig is, wordt er een groen vinkje weergegeven.
 
-     **Pricing and scale tier**: Select the **F1 - Free** tier. This option is sufficient for this demo. For more information, see the [Pricing and scale tier](https://azure.microsoft.com/pricing/details/iot-hub/).
+     **Prijs- en schaalniveau**: selecteer het niveau **F1 - gratis**. Deze optie is voldoende voor deze demo. Zie [Prijs- en schaalniveau](https://azure.microsoft.com/pricing/details/iot-hub/) voor meer informatie.
 
-     **Resource group**: Create a resource group to host the IoT hub or use an existing one. For more information, see [Use resource groups to manage your Azure resources](../articles/azure-resource-manager/resource-group-portal.md).
+     **Resourcegroep**: maak een resourcegroep voor het hosten van de IoT-hub of gebruik een bestaande. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../articles/azure-resource-manager/resource-group-portal.md) voor meer informatie.
 
-     **Location**: Select the closest location to you where the IoT hub is created.
+     **Locatie**: selecteer de dichtstbijzijnde locatie in uw buurt waar de IoT-hub is gemaakt.
 
-     **Pin to dashboard**: Select this option for easy access to your IoT hub from the dashboard.
+     **Vastmaken aan dashboard**: selecteer deze optie voor eenvoudige toegang tot uw IoT-hub vanuit het dashboard.
 
-   ![Enter information to create your IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/2_fill-in-fields-for-azure-iot-hub-portal.png)
+   ![Informatie invoeren voor het maken van uw IoT-hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/2_fill-in-fields-for-azure-iot-hub-portal.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-3. Click **Create**. Your IoT hub might take a few minutes to create. You can see progress in the **Notifications** pane.
+3. Klik op **Create**. Het maken van de IoT-hub kan een paar minuten duren. U kunt de voortgang bekijken in het deelvenster **Meldingen**.
 
-   ![See progress notifications for your IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/3_notification-azure-iot-hub-creation-progress-portal.png)
+   ![Meldingen over de voortgang van uw IoT-hub bekijken](../articles/iot-hub/media/iot-hub-create-hub-and-device/3_notification-azure-iot-hub-creation-progress-portal.png)
 
-4. After your IoT hub is created, click it on the dashboard. Make a note of the **Hostname**, and then click **Shared access policies**.
+4. Nadat uw IoT-hub is gemaakt, klikt u erop in het dashboard. Noteer de **Hostname** (Hostnaam) en klik vervolgens op **Shared access policies** (Gedeeld toegangsbeleid).
 
-   ![Get the hostname of your IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/4_get-azure-iot-hub-hostname-portal.png)
+   ![De hostnaam van uw IoT-hub ophalen](../articles/iot-hub/media/iot-hub-create-hub-and-device/4_get-azure-iot-hub-hostname-portal.png)
 
-5. In the **Shared access policies** pane, click the **iothubowner** policy, and then copy and make a note of the **Connection string** of your IoT hub. For more information, see [Control access to IoT Hub](../articles/iot-hub/iot-hub-devguide-security.md).
+5. Klik in het deelvenster **Gedeeld toegangsbeleid** op het beleid **iothubowner** en kopieer en noteer de **Verbindingsreeks** van uw IoT-hub. Zie voor meer informatie [Toegang tot IoT Hub regelen](../articles/iot-hub/iot-hub-devguide-security.md).
 
-   ![Get your IoT hub connection string](../articles/iot-hub/media/iot-hub-create-hub-and-device/5_get-azure-iot-hub-connection-string-portal.png)
+> [!NOTE] 
+U hoeft deze iothubowner-verbindingsreeks niet te installeren voor deze zelfstudie. U hebt deze echter mogelijk na het voltooien van deze configuratie nodig voor een aantal van de zelfstudies over andere IoT-scenario's.
 
-## <a name="register-a-device-in-the-iot-hub-for-your-device"></a>Register a device in the IoT hub for your device
+   ![Uw IoT-hub-verbindingsreeks ophalen](../articles/iot-hub/media/iot-hub-create-hub-and-device/5_get-azure-iot-hub-connection-string-portal.png)
 
-1. In the [Azure portal](https://portal.azure.com/), open your IoT hub.
+## <a name="register-a-device-in-the-iot-hub-for-your-device"></a>Een apparaat in de IoT-hub voor uw apparaat registreren
 
-2. Click **Device Explorer**.
-3. In the Device Explorer pane, click **Add** to add a device to your IoT hub. Then do the following:
+1. Open uw IoT-hub in [Azure Portal](https://portal.azure.com/).
 
-   **Device ID**: Enter the ID of the new device. Device IDs are case sensitive.
+2. Klik op **Apparatenverkenner**.
+3. Klik in het deelvenster Apparatenverkenner op **Toevoegen** om een apparaat toe te voegen aan uw IoT-hub. Ga daarna als volgt te werk:
 
-   **Authentication Type**: Select **Symmetric Key**.
+   **Apparaat-ID**: voer de ID van het nieuwe apparaat in. Apparaat-id's zijn hoofdlettergevoelig.
 
-   **Auto Generate Keys**: Select this check box.
+   **Verificatietype**: selecteer **Symmetrische sleutel**.
 
-   **Connect device to IoT Hub**: Click **Enable**.
+   **Automatisch sleutels genereren**: schakel dit selectievakje in.
 
-   ![Add a device in the Device Explorer of your IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
+   **Het apparaat verbinden met IoT Hub**: klik op **Inschakelen**.
+
+   ![Een apparaat in de Apparatenverkenner toevoegen aan uw IoT-hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-4. Click **Save**.
-5. After the device is created, open the device in the **Device Explorer** pane.
-6. Make a note of the primary key of the connection string.
+4. Klik op **Opslaan**.
+5. Nadat het apparaat is gemaakt, opent u het apparaat in het deelvenster **Apparatenverkenner**.
+6. Noteer de primaire sleutel van de verbindingsreeks.
 
-   ![Get the device connection string](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_get-device-connection-string-in-device-explorer-portal.png)
+   ![De verbindingsreeks ophalen](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_get-device-connection-string-in-device-explorer-portal.png)

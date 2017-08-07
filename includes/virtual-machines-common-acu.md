@@ -2,16 +2,16 @@
 
 
 
-We have created the concept of the Azure Compute Unit (ACU) to provide a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs.  ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark. 
+We hebben het concept van de ACU (Azure Compute Unit) ontwikkeld om een manier te bieden waarop rekenprestaties (CPU) van Azure-SKU's met elkaar kunnen worden vergeleken. Op die manier kunt u eenvoudig bepalen welke SKU hoogstwaarschijnlijk aan uw prestatiebehoeften zal voldoen.  ACU is momenteel gestandaardiseerd op 100 voor een kleine virtuele machine (Standard_A1). Alle andere SKU's geven vervolgens weer hoeveel sneller die SKU een standaardbenchmark ongeveer kan uitvoeren. 
 
 > [!IMPORTANT]
-> The ACU is only a guideline.  The results for your workload may vary. 
+> De ACU is slechts een richtlijn.  De resultaten voor uw workload kunnen verschillen. 
 > 
 > 
 
 <br>
 
-| SKU Family | ACU/Core |
+| SKU-familie | ACU |
 | --- | --- |
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 |
 | [A1-A4](../articles/virtual-machines/windows/sizes-general.md) |100 |
@@ -35,6 +35,6 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 | [L4s-L32s](../articles/virtual-machines/windows/sizes-storage.md) |180 - 240* |
 | [M](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) | 160-180** |
 
-ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost.  The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
+ACU's die met een * zijn gemarkeerd, maken gebruik van Intel® Turbo-technologie om de CPU-frequentie te verhogen en nóg betere prestaties te leveren.  Hoe groot die extra prestaties zijn, is afhankelijk van de VM-grootte, de workload en de andere workloads die op dezelfde host worden uitgevoerd.
 
 **Hyper-threaded. 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: da09e09bb0605da583716e125f5d961bfb7af0c7
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: b25f3dd41c8dc381258bb42d8802ba4b56e05903
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="monitor-azure-web-app-performance"></a>Prestaties van Azure-web-apps controleren
@@ -31,7 +30,7 @@ U kunt de controle configureren door de app op twee manieren te instrumenteren:
 * **Buildtime**: u kunt een pakket installeren in uw app in ontwikkeling. Deze optie is veelzijdiger. Naast dezelfde standaardpakketten kunt u code schrijven voor het aanpassen van de telemetrie of voor het verzenden van uw eigen telemetrie. U kunt specifieke activiteiten of gebeurtenissen vastleggen volgens de semantiek van uw app-domein. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Runtime-instrumentatiesleutel met Application Insights
-Als u al een web-app uitvoert in Azure, is er al sprake van enige controle: frequentie van aanvragen en fouten. Voeg Application Insights toe om de controle uit te breiden met reactietijden, controle van het aanroepen van afhankelijkheden, slimme detectie en de krachtige Analytics-querytaal. 
+Als u al een web-app uitvoert in Azure, is er al sprake van enige controle: frequentie van aanvragen en fouten. Voeg Application Insights toe om de controle uit te breiden met reactietijden, controle van het aanroepen van afhankelijkheden, slimme detectie en de krachtige Log Analytics-querytaal. 
 
 1. **Selecteer Application Insights** in het Azure-configuratiescherm voor uw web-app.
    
@@ -102,7 +101,7 @@ Application Insights kan gedetailleerdere telemetrie verstrekken door een SDK in
    
     U kunt [zoekacties aanpassen](app-insights-diagnostic-search.md).
 
-Gebruik de [Analytics-querytaal](app-insights-analytics-tour.md) voor krachtigere zoekacties in uw telemetrie.
+Gebruik de [Log Analytics-querytaal](app-insights-analytics-tour.md) voor krachtigere zoekacties in uw telemetrie.
 
 ## <a name="more-telemetry"></a>Meer telemetrie
 

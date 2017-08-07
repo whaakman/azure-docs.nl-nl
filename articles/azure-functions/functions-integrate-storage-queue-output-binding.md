@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: d1ddfbe9a0a0c7c7e0a060776938bd68a87e1ba5
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 3eae02f7cf756e8e24d4f1952d12c37f2ad4b400
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Berichten aan een Azure Storage-wachtrij toevoegen met behulp van Functions
@@ -35,8 +35,6 @@ In Azure Functions bieden invoer- en uitvoerbindingen een verklarende manier om 
 
 * [Microsoft Azure Storage Explorer](http://storageexplorer.com/) installeren.
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
-
 ## <a name="add-binding"></a>Een uitvoerbinding toevoegen
  
 1. Vouw de functie-app en de functie uit.
@@ -45,7 +43,7 @@ In Azure Functions bieden invoer- en uitvoerbindingen een verklarende manier om 
     
     ![Voeg een Queue Storage-uitvoerbinding toe aan een functie in Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Gebruik de instellingen zoals opgegeven in de tabel en selecteer vervolgens **Opslaan**: 
+3. Gebruik de instellingen zoals opgegeven in de tabel: 
 
     ![Voeg een Queue Storage-uitvoerbinding toe aan een functie in Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -55,6 +53,8 @@ In Azure Functions bieden invoer- en uitvoerbindingen een verklarende manier om 
     | **Opslagaccountverbinding** | AzureWebJobStorage | U kunt de opslagaccountverbinding gebruiken die al door de functie-app wordt gebruikt of u kunt een nieuwe maken.  |
     | **Naam van de berichtparameter** | outQueueItem | De naam van de uitvoerbindingparameter. | 
 
+4. Klik op **Opslaan** om de binding toe te voegen.
+ 
 Nu u een uitvoerbinding hebt gedefinieerd, moet u de code bijwerken, zodat u de binding kunt gebruiken om berichten aan een wachtrij toe te voegen.  
 
 ## <a name="update-the-function-code"></a>De functiecode bijwerken

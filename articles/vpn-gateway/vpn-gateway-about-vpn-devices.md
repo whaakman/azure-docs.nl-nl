@@ -15,36 +15,36 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: yushwang;cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 8a7419c7a759060dc91f11ec94085ff0afd4a457
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: c8e1db0a5488b1296206a4d557e47599edc59a88
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>VPN-apparaten en IPSec-/IKE-parameters voor site-naar-site-VPN-gateway-verbindingen
 
-U hebt een VPN-apparaat nodig om een cross-premises site-naar-site-VPN-verbinding te configureren. Site-naar-site-verbindingen kunnen worden gebruikt om een hybride oplossing te maken of wanneer u beveiligde verbindingen wilt maken tussen uw on-premises netwerken en virtuele netwerken. Dit artikel bevat de lijst met IPSec-/IKE-parameters voor Azure VPN-gateways en een lijst met gevalideerde VPN-apparaten die verbinding kunnen maken met Azure VPN-gateways.
-
+U hebt een VPN-apparaat nodig om een cross-premises site-naar-site-VPN-verbinding te configureren. Site-naar-site-verbindingen kunnen worden gebruikt om een hybride oplossing te maken of wanneer u beveiligde verbindingen wilt maken tussen uw on-premises netwerken en virtuele netwerken. Dit artikel bevat een lijst met gevalideerde VPN-apparaten en een lijst met IPSec-/IKE-parameters voor VPN-gateways.
 
 > [!IMPORTANT]
-> Raadpleeg [Bekende compatibiliteitsproblemen](#known) als u problemen ondervindt met de connectiviteit tussen uw lokale VPN-apparaten en Azure VPN-gateways. 
+> Raadpleeg [Bekende compatibiliteitsproblemen](#known) als u problemen ondervindt met de connectiviteit tussen uw lokale VPN-apparaten en VPN-gateways.
+>
+>
 
+### <a name="items-to-note-when-viewing-the-tables"></a>Waar u op moet letten wanneer u de tabellen bekijkt:
 
-###<a name="items-to-note-when-viewing-the-tables"></a>Waar u op moet letten wanneer u de tabellen bekijkt:
-
-* Er is een terminologiewijziging voor Azure VPN-gateways. Er is geen wijziging in de functionaliteit. Alleen de namen worden gewijzigd.
+* Er is een terminologiewijziging voor Azure VPN-gateways. Alleen de namen zijn gewijzigd. Er is geen wijziging in de functionaliteit.
   * Statische routering = PolicyBased
   * Dynamische routering = RouteBased
-* De specificaties voor een VPN-gateway met hoge prestaties en een RouteBased VPN-gateway zijn hetzelfde, tenzij anders wordt vermeld. Zo zijn de gevalideerde VPN-apparaten die compatibel zijn met RouteBased VPN-gateways ook compatibel met de Azure VPN-gateway met hoge prestaties.
+* De specificaties voor een HighPerformance-VPN-gateway en een RouteBased VPN-gateway zijn hetzelfde, tenzij anders wordt vermeld. Zo zijn de gevalideerde VPN-apparaten die compatibel zijn met RouteBased VPN-gateways, ook compatibel met de HighPerformance VPN-gateway.
+
+## <a name="devicetable"></a>Gevalideerde VPN-apparaten en apparaatconfiguratiehandleidingen
 
 > [!NOTE]
 > Wanneer u een S2S-verbinding configureert, hebt u een openbaar IPv4-adres voor het VPN-apparaat nodig.
->                
+>
 
-## <a name="devicetable"></a>Gevalideerde VPN-apparaten en apparaatconfiguratiehandleidingen
-We hebben samen met apparaatleveranciers een reeks standaard VPN-apparaten gevalideerd. Alle apparaten in de apparaatfamilies die in onderstaande lijst zijn opgenomen, kunnen met Azure VPN-gateways worden gebruikt. Zie [VPN-gateways](vpn-gateway-about-vpngateways.md) om het type gateway te verifiëren dat u moet maken voor de oplossing die u wilt configureren.
+We hebben samen met apparaatleveranciers een reeks standaard VPN-apparaten gevalideerd. Alle apparaten in de apparaatfamilies in de volgende lijst kunnen met VPN-gateways worden gebruikt. Zie [Over VPN-gatewayinstellingen](vpn-gateway-about-vpn-gateway-settings.md#vpntype) voor informatie over welk VPN-type u moet gebruiken (PolicyBased of RouteBased) voor de VPN-gatewayoplossing die u wilt configureren.
 
 Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen die overeenkomen met de betreffende apparaatstuurprogrammafamilie. De koppelingen naar configuratie-instructies worden naar beste vermogen geleverd. Voor ondersteuning van VPN-apparaten neemt u contact op met de fabrikant van uw apparaat.
 
@@ -77,9 +77,11 @@ Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen d
 (*) Routers uit de ISR 7200-serie bieden alleen ondersteuning voor PolicyBased VPN-verbindingen.
 
 ## <a name="additionaldevices"></a>Niet-gevalideerde VPN-apparaten
+
 Als uw apparaat niet in de tabel met gevalideerde VPN-apparaten wordt vermeld, werkt het misschien toch met een site-naar-site-verbinding. Neem contact op met de fabrikant van uw apparaat voor aanvullende ondersteuning en configuratie-instructies.
 
 ## <a name="editing"></a>Voorbeelden van het bewerken van apparaatconfiguraties
+
 Nadat u het bij het VPN-apparaat meegeleverde configuratievoorbeeld hebt gedownload, moet u enkele waarden veranderen zodat ze overeenkomen met de instellingen voor uw omgeving.
 
 ### <a name="to-edit-a-sample"></a>U bewerkt een voorbeeld als volgt:
@@ -102,8 +104,9 @@ Nadat u het bij het VPN-apparaat meegeleverde configuratievoorbeeld hebt gedownl
 | &lt;SP_PresharedKey&gt; |Deze informatie is specifiek voor uw virtuele netwerk en u vindt deze in de beheerportal onder Sleutel beheren. |
 
 ## <a name="ipsec"></a>IPSec-/IKE-parameters
+
 > [!NOTE]
-> Hoewel de waarden in de volgende tabel worden ondersteund door de Azure VPN-gateway, bestaat er momenteel geen mechanisme om vanuit de Azure VPN-gateway een specifieke combinatie van algoritmen of parameters op te geven of te selecteren. U moet eventuele beperkingen vanuit het on-premises VPN-apparaat opgeven. Bovendien moet u **MSS** vastzetten op **1350**.
+> Hoewel de waarden in de volgende tabel worden ondersteund in de VPN-gateway, bestaat er momenteel geen mechanisme om vanuit de VPN-gateway een specifieke combinatie van algoritmen of parameters op te geven of te selecteren. U moet eventuele beperkingen vanuit het on-premises VPN-apparaat opgeven. Bovendien moet u **MSS** vastzetten op **1350**.
 > 
 >
 
@@ -114,6 +117,7 @@ In de volgende tabellen:
 * IKE Phase 2 wordt ook 'Quick Mode' genoemd
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Parameters voor IKE Phase 1 (Main Mode)
+
 | **Eigenschap**          |**PolicyBased**    | **RouteBased**    |
 | ---                   | ---               | ---               |
 | IKE-versie           |IKEv1              |IKEv2              |
@@ -123,6 +127,7 @@ In de volgende tabellen:
 | SA-levensduur           |28.800 seconden     |28.800 seconden     |
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Parameters voor IKE Phase 2 (Quick Mode)
+
 | **Eigenschap**                  |**PolicyBased**| **RouteBased**                              |
 | ---                           | ---           | ---                                         |
 | IKE-versie                   |IKEv1          |IKEv2                                        |
@@ -134,9 +139,11 @@ In de volgende tabellen:
 
 
 ### <a name ="RouteBasedOffers"></a>Aanbiedingen RouteBased VPN IPsec Security Association (IKE Quick Mode SA)
+
 De volgende tabel bevat aanbiedingen van IPSec-SA (IKE Quick Mode). De aanbiedingen staan in volgorde van voorkeur waarin de aanbieding is gepresenteerd of geaccepteerd.
 
 #### <a name="azure-gateway-as-initiator"></a>Azure-gateway als initiator
+
 |-  |**Versleuteling**|**Verificatie**|**PFS-groep**|
 |---| ---          |---               |---          |
 | 1 |GCM AES256    |GCM (AES256)      |Geen         |
@@ -147,6 +154,7 @@ De volgende tabel bevat aanbiedingen van IPSec-SA (IKE Quick Mode). De aanbiedin
 | 6 |3DES          |SHA256            |Geen         |
 
 #### <a name="azure-gateway-as-responder"></a>Azure-Gateway als antwoorder
+
 |-  |**Versleuteling**|**Verificatie**|**PFS-groep**|
 |---| ---          | ---              |---          |
 | 1 |GCM AES256    |GCM (AES256)      |Geen         |
@@ -176,7 +184,7 @@ De volgende tabel bevat aanbiedingen van IPSec-SA (IKE Quick Mode). De aanbiedin
 | 25|AES128        |SHA256            |14           |
 | 26|3DES          |SHA1              |14           |
 
-* U kunt IPsec ESP NULL-versleuteling opgeven met RouteBased VPN-gateways en VPN-gateways met hoge prestaties. Op null gebaseerde versleuteling biedt geen beveiliging voor gegevens tijdens de overdracht. Dit mag alleen worden gebruikt wanneer maximale doorvoer en minimale latentie zijn vereist.  Clients kunnen ervoor kiezen dit te gebruiken voor communicatie tussen VNET's of wanneer elders in de oplossing versleuteling wordt toegepast.
+* U kunt IPsec ESP NULL-versleuteling opgeven met RouteBased VPN-gateways en HighPerformance VPN-gateways. Op null gebaseerde versleuteling biedt geen beveiliging voor gegevens tijdens de overdracht. Dit mag alleen worden gebruikt wanneer maximale doorvoer en minimale latentie zijn vereist. Clients kunnen ervoor kiezen dit te gebruiken voor communicatie tussen VNET's of wanneer elders in de oplossing versleuteling wordt toegepast.
 * Gebruik voor cross-premises connectiviteit via internet de standaardinstellingen voor Azure VPN-gateways met versleuteling en hash-algoritmen die in de tabel hierboven worden vermeld, om beveiliging van uw kritieke communicatie te waarborgen.
 
 ## <a name="known"></a>Bekende compatibiliteitsproblemen
@@ -193,4 +201,3 @@ De volgende tabel bevat aanbiedingen van IPSec-SA (IKE Quick Mode). De aanbiedin
 1. Controleer de firmwareversie van uw Palo Alto Networks-apparaat. Als de PAN-OS-versie ouder is dan 7.1.4, voert u een upgrade uit naar 7.1.4.
 2. Op het Palo Alto Networks-apparaat wijzigt u de levensduur van de beveiligingskoppeling fase 2 (of de beveiligingskoppeling in snelle modus) in 28.800 seconden (8 uur) wanneer er verbinding met de Azure VPN-gateway wordt gemaakt.
 3. Als het connectiviteitsprobleem zich nog steeds voordoet, opent u een ondersteuningsaanvraag via de Azure-portal.
-
