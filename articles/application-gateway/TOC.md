@@ -27,16 +27,20 @@
 ## Web Application Firewall configureren
 ### [Portal](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
+### [Azure CLI 2.0](application-gateway-web-application-firewall-cli.md)
 ## Regels voor Web Application Firewall aanpassen
 ### [Portal](application-gateway-customize-waf-rules-portal.md)
+### [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
 ## Configureren voor SSL-offload
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (klassiek)](application-gateway-ssl.md)
+### [Azure CLI 2.0](application-gateway-ssl.md)
 ### [Beleid en end-to-end](application-gateway-end-to-end-ssl-powershell.md)
 ## Routering op basis van URL-pad configureren
 ### [Portal](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
+### [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
 ## Hosting van meerdere sites configureren
 ### [Portal](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)

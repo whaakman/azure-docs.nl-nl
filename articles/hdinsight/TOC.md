@@ -94,7 +94,6 @@
 #### [Schrijven naar Data Lake Store](hdinsight-storm-write-data-lake-store.md)
 #### [Op Java gebaseerde topologieën ontwikkelen met Maven](hdinsight-storm-develop-java-topology.md)
 #### [C#-topologieën ontwikkelen met Hadoop-hulpprogramma's](hdinsight-storm-develop-csharp-visual-studio-topology.md)
-#### [Actuele onderwerpen op Twitter bepalen](hdinsight-storm-twitter-trending.md)
 #### [Gebeurtenissen verwerken met C#-topologieën](hdinsight-storm-develop-csharp-event-hub-topology.md)
 #### [Gebeurtenissen verwerken met Java-topologieën](hdinsight-storm-develop-java-event-hub-topology.md)
 #### [Power BI gebruiken met een topologie](hdinsight-storm-power-bi-topology.md)
