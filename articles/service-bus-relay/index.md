@@ -1,10 +1,12 @@
 ---
 layout: LandingPage
 title: Documentatie voor Service Bus Relay
-description: Ontdek hoe de Azure Relay-service werkt in een hybride cloud en on-premises omgeving, met handleidingen, zelfstudies, video&quot;s, API-verwijzingen en meer.
-translationtype: Human Translation
-ms.sourcegitcommit: ef8188d6790dac8b420348887c480cd4fdab07c4
-ms.openlocfilehash: 911ad28e0e93b9b46b368de2cfbbbbc9f1183b7b
+description: Ontdek hoe de Azure Relay-service werkt in een hybride cloud en on-premises omgeving, met handleidingen, zelfstudies, video's, API-verwijzingen en meer.
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 43d2c5ca34e4903a41160496fdb4d975cb665de7
+ms.contentlocale: nl-nl
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="service-bus-relay-documentation"></a>Documentatie voor Service Bus Relay
@@ -30,7 +32,7 @@ Ontdek hoe de Azure Relay-service hybride toepassingen in on-premises en cloudom
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus-relay">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -112,8 +114,8 @@ Ontdek hoe de Azure Relay-service hybride toepassingen in on-premises en cloudom
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Voorbeelden</h3>
-                        <p><a href="/azure/service-bus-relay/service-bus-relay-samples">Voorbeelden van Service Bus Relay</a></p>
+                        <h3>Opdrachtregel</h3>
+                        <p><a href="/powershell/module/azurerm.servicebus">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -124,9 +126,8 @@ Ontdek hoe de Azure Relay-service hybride toepassingen in on-premises en cloudom
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.relay">Microsoft.Azure.Relay</a></p>
+                        <h3>Talen</h3>
+                        <p><a href="/dotnet/api/overview/azure/service-bus-relay">.NET</a></p>
                     </div>
                 </div>
             </div>
@@ -137,17 +138,12 @@ Ontdek hoe de Azure Relay-service hybride toepassingen in on-premises en cloudom
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Overige</h3>
-                        <p><a href="service-bus-relay-port-settings.md">Poortinstellingen</a></p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/servicebus/">Naslaginformatie over REST-API</a></p>
                    </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

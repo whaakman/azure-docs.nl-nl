@@ -2,9 +2,11 @@
 layout: LandingPage
 title: Documentatie over Service Bus-berichten
 description: Meer informatie over het instellen van berichten die toepassingen en services in on-premises en cloudomgevingen verbinden.
-translationtype: Human Translation
-ms.sourcegitcommit: 5b76339cc3ca28b523ecf825d7bccc18587aafc8
-ms.openlocfilehash: b990c273b6b76ef7277904f739aa81b8ab6a6ff6
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 559bbabe07ae50b2cc83fad5e867c23c9272d6ab
+ms.contentlocale: nl-nl
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="service-bus-messaging-documentation"></a>Documentatie over Service Bus-berichten
@@ -30,7 +32,7 @@ De berichtenservice biedt betrouwbare levering van informatie als brokered of ex
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus-messaging">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -76,9 +78,8 @@ De berichtenservice biedt betrouwbare levering van informatie als brokered of ex
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.servicebus">Microsoft.Azure.Management.ServiceBus</a></p>
+                        <h3>Opdrachtregel</h3>
+                        <p><a href="/powershell/module/azurerm.servicebus">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -90,8 +91,9 @@ De berichtenservice biedt betrouwbare levering van informatie als brokered of ex
                 <div class="card">
                     <div class="cardText">
                         <h3>Talen</h3>
-                        <p><a href="service-bus-powershell-how-to-provision.md">PowerShell</a></p>
-                        <p><a href="/rest/api/servicebus">REST</a></p>
+                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Framework</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.servicebus">.NET Standard</a></p>
+                        <p><a href="/java/api/overview/azure/servicebus">Java</a></p>
                     </div>
                 </div>
             </div>
@@ -102,20 +104,12 @@ De berichtenservice biedt betrouwbare levering van informatie als brokered of ex
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Overige</h3>
-                        <p><a href="service-bus-messaging-exceptions.md">Uitzonderingen</a></p>
-                        <p><a href="service-bus-quotas.md">Quota</a></p>
-                        <p><a href="service-bus-messaging-sql-filter.md">SQLFilter-syntaxis</a></p>
-                        <p><a href="service-bus-messaging-sql-rule-action.md">SQLRuleAction-syntaxis</a></p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/servicebus/">Naslaginformatie over REST-API</a></p>
                    </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

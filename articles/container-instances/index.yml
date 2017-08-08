@@ -37,3 +37,11 @@ sections:
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Een toepassing verpakken in een containerinstallatiekopie</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Een Azure Container Registry maken en de containerinstallatiekopie uploaden</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">De containerinstallatiekopie implementeren in Azure Container Instances</a>
+  - title: Naslaginformatie
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Azure CLI
+            html: <p><a href="/cli/azure/container">Azure CLI 2.0</a></p>
