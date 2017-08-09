@@ -1,3 +1,3 @@
-## <a name="configure-a-deployment-user"></a>Een implementatiegebruiker configureren  
+## <a name="create-a-deployment-user"></a>Een implementatiegebruiker maken  
 
 [!INCLUDE [Configure a deployment user](configure-deployment-user-no-h.md)]

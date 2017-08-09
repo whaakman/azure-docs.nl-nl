@@ -136,7 +136,7 @@
 ### [Dynamics AX](site-recovery-dynamicsax.md)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
-### [SAP](site-recovery-workload.md#protect-sap)
+### [SAP](site-recovery-sap.md)
 ### [Webtoepassingen op basis van IIS](site-recovery-iis.md)
 ### [Citrix XenApp en XenDesktop](site-recovery-citrix-xenapp-and-xendesktop.md)
 ### [Andere workloads](site-recovery-workload.md#workload-summary)
