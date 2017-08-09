@@ -4,8 +4,9 @@
 # Zelfstudies
 ## [CI/CD met VSTS](https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins)
 ## [Jenkins en Kubernetes integreren](/azure/container-service/container-service-kubernetes-jenkins)
-## [Implementeren naar App Service](/azure/jenkins/execute-cli-jenkins-pipeline)
+## [Jenkins en de Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline)
 ## [Docker, GitHub en Jenkins](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
+## [Implementeren naar App Service](/azure/jenkins/deploy-Jenkins-app-service-plugin)
 # Handleidingen
 ## [Jenkins op Azure beveiligen](https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/)
 # Resources
