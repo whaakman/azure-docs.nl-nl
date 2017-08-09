@@ -15,33 +15,31 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: a6d3a6f6e3457c84c5a7dc7d3601ef9495c060fe
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: e911e787cd1e29b2bbeaa648869c50245f2dd9ba
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/22/2017
 
 ---
 
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Een Azure-bestandsshare koppelen en de share openen in Windows
 [Azure File Storage](storage-dotnet-how-to-use-files.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen worden gekoppeld in Windows en Windows Server. In dit artikel ziet u drie verschillende manieren om een Azure-bestandsshare in Windows te koppelen: met de File Explorer-gebruikersinterface, via PowerShell en via de opdrachtprompt. 
 
-Om een Azure-bestandsshare te koppelen buiten de Azure-regio waarin deze wordt gehost, bijvoorbeeld on-premises of in een andere Azure-regio, moet het besturingssysteem ondersteuning bieden voor SMB 3.x. In de volgende tabel wordt de SMB-versie van recente Windows-versies weergegeven:
+Als u een Azure-bestandsshare wilt koppelen buiten de Azure-regio waarin deze wordt gehost, bijvoorbeeld on-premises of in een andere Azure-regio, moet het besturingssysteem ondersteuning bieden voor SMB 3.0. 
 
-| Windows-versie | SMB-versie | Ondersteunt koppelen vanuit Azure VM | Ondersteunt koppelen vanuit on-premises | Minimaal aanbevolen KB |
-|----|----|----|----|----|
-| Windows 10 versie 1703 | SMB 3.1.1 | Ja | Ja | |
-| Windows Server 2016 | SMB 3.1.1 | Ja | Ja | [KB4015438](https://support.microsoft.com/help/4015438) |
-| Windows 10 versie 1607 | SMB 3.1.1 | Ja | Ja | [KB4015438](https://support.microsoft.com/help/4015438) | 
-| Windows 10 versie 1511 | SMB 3.1.1 | Ja | Ja | [KB4013198](https://support.microsoft.com/help/4013198) |
-| Windows 10 versie 1507 | SMB 3.1.1 | Ja | Ja | [KB4012606](https://support.microsoft.com/help/4012606) | 
-| Windows 8.1 | SMB 3.0.2 | Ja | Ja | [KB4012216](https://support.microsoft.com/help/4012216) |
-| Windows Server 2012 R2 | SMB 3.0.2 | Ja | Ja | [KB4012216](https://support.microsoft.com/help/4012216) |
-| Windows Server 2012 | SMB 3.0 | Ja | Ja | [KB4012214](https://support.microsoft.com/help/4012214) |
-| Windows 7 | SMB 2.1 | Ja | Nee | [KB4012215](https://support.microsoft.com/help/4012215) |
-| Windows Server 2008 R2 | SMB 2.1 | Ja | Nee | [KB4012215](https://support.microsoft.com/help/4012215) |
+Afhankelijk van de versie van het besturingssysteem kan een Azure-bestandsshare on-premises op een Windows-machine worden gekoppeld of op een virtuele Azure-machine. In de onderstaande tabel ziet u de mogelijkheden: 
+
+| Windows-versie        | SMB-versie |Koppelbaar op Azure-VM|Koppelbaar on-premises|
+|------------------------|-------------|---------------------|---------------------|
+| Windows 7              | SMB 2.1     | Ja                 | Nee                  |
+| Windows Server 2008 R2 | SMB 2.1     | Ja                 | Nee                  |
+| Windows 8              | SMB 3.0     | Ja                 | Ja                 |
+| Windows Server 2012    | SMB 3.0     | Ja                 | Ja                 |
+| Windows Server 2012 R2 | SMB 3.0     | Ja                 | Ja                 |
+| Windows 10             | SMB 3.0     | Ja                 | Ja                 |
 
 > [!Note]  
-> We raden altijd aan de meest recente KB voor uw versie van Windows te nemen. De minimaal aanbevolen KB is bedoeld om het meest recente pakket met SMB-fixes te bieden aan IT-beheerders die niet houden van updates.
+> We raden altijd aan de meest recente KB voor uw versie van Windows te nemen.
 
 ## <a name="aprerequisites-for-mounting-azure-file-share-with-windows"></a></a>Vereisten voor het koppelen van een Azure-bestandsshare met Windows 
 * **Naam van het opslagaccount**: voor het koppelen van een Azure-bestandsshare hebt u de naam van het opslagaccount nodig.
@@ -144,3 +142,4 @@ Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.
 ### <a name="reference"></a>Naslaginformatie
 * [Naslaginformatie over de Storage-clientbibliotheek voor .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Naslaginformatie over REST API voor bestandsservices](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+
