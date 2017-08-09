@@ -1,10 +1,10 @@
 # Overzicht
 ## [Wat is Azure Analysis Services?](analysis-services-overview.md)
-## [Ondersteunde gegevensbronnen](analysis-services-datasource.md)
 
 # Snelstartgidsen
 ## [Een server maken - portal](analysis-services-create-server.md)
-## [Een model implementeren - SSDT](analysis-services-deploy.md)
+## [Een server maken - PowerShell](analysis-services-create-powershell.md)
+## [Een model implementeren - Visual Studio](analysis-services-deploy.md)
 
 # Zelfstudies
 ## Een model maken en implementeren
@@ -27,6 +27,7 @@
 ### [Aanvullende les: Onregelmatige hiërarchieën](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
 # Concepten
+## [Ondersteunde gegevensbronnen](analysis-services-datasource.md)
 ## [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md)
 ## [Hoge beschikbaarheid](analysis-services-bcdr.md)
 

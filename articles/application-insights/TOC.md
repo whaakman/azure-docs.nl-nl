@@ -92,6 +92,7 @@
 
 ### Gebruik
 #### [Overzicht](app-insights-usage-overview.md)
+#### [Gebruikerscontext verzenden](app-insights-usage-send-user-context.md)
 #### [Gebruikers, sessies, gebeurtenissen](app-insights-usage-segmentation.md)
 #### [Trechters](usage-funnels.md)
 #### [Retentie](app-insights-usage-retention.md)
