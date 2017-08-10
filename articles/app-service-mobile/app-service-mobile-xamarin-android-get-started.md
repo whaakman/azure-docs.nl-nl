@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 4d34bb29df95ae83952d8f421f3f2a9118ad5e1d
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 6b41fd8090dd771fc40769c134bad258b3d4bd36
 ms.contentlocale: nl-nl
-ms.lasthandoff: 01/20/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="create-a-xamarinandroid-app"></a>Een Xamarin.Android-app maken
@@ -37,12 +37,7 @@ Het voltooien van deze zelfstudie is een vereiste voor alle andere Mobile Apps-z
 Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
 * Een actief Azure-account. Als u geen account hebt, meld u zich aan voor een proefversie van Azure en ontvangt u maximaal 10 gratis mobiele apps. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
-* Visual Studio met Xamarin. Zie [Installeren en instellen voor Visual Studio en Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) voor instructies.
-
-> [!NOTE]
-> Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/mobile/).  U kunt onmiddellijk een tijdelijke mobiele starter-app in App Service maken. U hebt geen creditcard nodig en u doet geen toezeggingen.
->
->
+* Visual Studio met Xamarin. Zie [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Installeren en instellen voor Visual Studio en Xamarin) voor instructies.
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Een back-end voor mobiele apps van Azure maken
 Volg deze stappen voor het maken van een back-end voor mobiele apps.
