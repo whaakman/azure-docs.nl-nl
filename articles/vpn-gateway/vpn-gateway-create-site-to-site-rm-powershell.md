@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/31/2017
+ms.date: 08/09/2017
 ms.author: cherylmc
 ms.translationtype: HT
 ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
@@ -38,7 +38,7 @@ In dit artikel leest u hoe u PowerShell gebruikt om een site-naar-site-VPN-gatew
 
 Een site-naar-site-VPN-gatewayverbinding wordt gebruikt om een on-premises netwerk via een IPsec-/IKE-VPN-tunnel (IKEv1 of IKEv2) te verbinden met een virtueel Azure-netwerk. Voor dit type verbinding moet er on-premises een VPN-apparaat aanwezig zijn waaraan een extern openbaar IP-adres is toegewezen. Zie [Overzicht van VPN Gateway](vpn-gateway-about-vpngateways.md) voor meer informatie over VPN-gateways.
 
-![Diagram: cross-premises site-naar-site-VPN-gatewayverbinding](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-connection-diagram.png)
+![Diagram: cross-premises site-naar-site-VPN-gatewayverbinding](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-diagram.png)
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -56,22 +56,22 @@ In de voorbeelden in dit artikel worden de volgende waarden gebruikt. U kunt dez
 ```
 #Example values
 
-VnetName                = testvnet 
-ResourceGroup           = testrg 
-Location                = West US 
-AddressSpace            = 10.0.0.0/16 
+VnetName                = TestVNet1
+ResourceGroup           = TestRG1
+Location                = East US 
+AddressSpace            = 10.11.0.0/16 
 SubnetName              = Subnet1 
-Subnet                  = 10.0.1.0/28 
-GatewaySubnet           = 10.0.0.0/27
-LocalNetworkGatewayName = LocalSite
+Subnet                  = 10.11.1.0/28 
+GatewaySubnet           = 10.11.0.0/27
+LocalNetworkGatewayName = Site2
 LNG Public IP           = <VPN device IP address> 
-Local Address Prefixes  = 10.0.0.0/24','20.0.0.0/24
-Gateway Name            = vnetgw1
-PublicIP                = gwpip
+Local Address Prefixes  = 10.0.0.0/24, 20.0.0.0/24
+Gateway Name            = VNet1GW
+PublicIP                = VNet1GWIP
 Gateway IP Config       = gwipconfig1 
 VPNType                 = RouteBased 
 GatewayType             = Vpn 
-ConnectionName          = myGWConnection
+ConnectionName          = VNet1toSite2
 
 ```
 
@@ -95,7 +95,7 @@ In dit voorbeeld worden een virtueel netwerk en een gatewaysubnet gemaakt. Zie [
 Een resourcegroep maken:
 
 ```powershell
-New-AzureRmResourceGroup -Name testrg -Location 'West US'
+New-AzureRmResourceGroup -Name TestRG1 -Location 'East US'
 ```
 
 Maak uw virtuele netwerk.
@@ -103,14 +103,14 @@ Maak uw virtuele netwerk.
 1. Stel de variabelen in.
 
   ```powershell
-  $subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/27
-  $subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
+  $subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.11.0.0/27
+  $subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix 10.11.1.0/28
   ```
 2. Maak het VNet.
 
   ```powershell
-  New-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg `
-  -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
+  New-AzureRmVirtualNetwork -Name TestVNet1 -ResourceGroupName TestRG1 `
+  -Location 'East US' -AddressPrefix 10.11.0.0/16 -Subnet $subnet1, $subnet2
   ```
 
 ### <a name="gatewaysubnet"></a>Een gatewaysubnet toevoegen aan een virtueel netwerk dat u al hebt gemaakt
@@ -118,12 +118,12 @@ Maak uw virtuele netwerk.
 1. Stel de variabelen in.
 
   ```powershell
-  $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
+  $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG1 -Name TestVet1
   ```
 2. Maak het gatewaysubnet.
 
   ```powershell
-  Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/27 -VirtualNetwork $vnet
+  Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.11.0.0/27 -VirtualNetwork $vnet
   ```
 3. Stel de configuratie in.
 
@@ -143,15 +143,15 @@ Gebruik de volgende waarden:
 Ga als volgt te werk als u een lokale netwerkgateway met één adresvoorvoegsel wilt toevoegen:
 
   ```powershell
-  New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
-  -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.0.0.0/24'
+  New-AzureRmLocalNetworkGateway -Name Site2 -ResourceGroupName TestRG1 `
+  -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.0.0.0/24'
   ```
 
 Ga als volgt te werk als u een lokale netwerkgateway met meerdere adresvoorvoegsels wilt toevoegen:
 
   ```powershell
-  New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
-  -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
+  New-AzureRmLocalNetworkGateway -Name Site2 -ResourceGroupName TestRG1 `
+  -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
   ```
 
 IP-adresvoorvoegsels wijzigen voor uw lokale netwerkgateway:<br>
@@ -164,7 +164,7 @@ Een VPN Gateway moet een openbaar IP-adres hebben. U vraagt eerst de resource va
 Vraag een openbaar IP-adres aan dat wordt toegewezen aan de VPN Gateway van uw virtuele netwerk.
 
 ```powershell
-$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
+$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
 ## <a name="GatewayIPConfig"></a>5. De IP-adresseringsconfiguratie voor de gateway maken
@@ -172,7 +172,7 @@ $gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Locati
 De gatewayconfiguratie bepaalt welk subnet en openbaar IP-adres moeten worden gebruikt. Gebruik het volgende voorbeeld om de gatewayconfiguratie te maken:
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg
+$vnet = Get-AzureRmVirtualNetwork -Name TestVNet1 -ResourceGroupName TestRG1
 $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 ```
@@ -188,8 +188,8 @@ Gebruik de volgende waarden:
 * Selecteer de gateway-SKU die u wilt gebruiken. Voor bepaalde SKU's gelden configuratiebeperkingen. Zie [Gateway-SKU's](vpn-gateway-about-vpn-gateway-settings.md#gwsku) voor meer informatie. Als er een fout optreedt bij het maken van de VPN-gateway met betrekking tot de GatewaySku, controleert u of u de nieuwste versie van de PowerShell-cmdlets hebt geïnstalleerd.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
+New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
+-Location 'East US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased -GatewaySku VpnGw1
 ```
 
@@ -201,7 +201,7 @@ Voor site-naar-site-verbindingen met een on-premises netwerk is een VPN-apparaat
 - Het openbare IP-adres van de gateway van uw virtuele netwerk. U kunt het openbare IP-adres weergeven met behulp van Azure Portal, PowerShell of de CLI. Gebruik het volgende voorbeeld om het openbare IP-adres van uw virtuele netwerkgateway te vinden met behulp van PowerShell:
 
   ```powershell
-  Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
+  Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG1
   ```
 
 [!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
@@ -213,14 +213,14 @@ Maak vervolgens de site-naar-site-VPN-verbinding tussen de gateway van uw virtue
 
 1. Stel de variabelen in.
   ```powershell
-  $gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-  $local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+  $gateway1 = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
+  $local = Get-AzureRmLocalNetworkGateway -Name Site2 -ResourceGroupName TestRG1
   ```
 
 2. Maak de verbinding.
   ```powershell
-  New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName testrg `
-  -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+  New-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite2 -ResourceGroupName TestRG1 `
+  -Location 'East US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
   ```
 
