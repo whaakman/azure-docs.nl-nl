@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 06/23/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 6a51fcf4f4494e5b32ccf6dabb19f8d004bb20d4
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: ddc364f2a0b8a8bb0a4a2c3a563c007470415991
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -29,28 +29,6 @@ In deze snelstartgids worden de resources die in een van deze handleidingen zijn
 
 U moet ook het volgende doen:
 - [Node.js](https://nodejs.org) installeren
-- Installeer het [pg](https://www.npmjs.com/package/pg)-pakket. 
-
-## <a name="install-nodejs"></a>Node.js installeren 
-Afhankelijk van uw platform, doet u het volgende om Node.js te installeren:
-
-### <a name="mac-os"></a>**Mac OS**
-Voer de volgende opdrachten in om **brew** te installeren, een eenvoudig te gebruiken pakketbeheerprogramma voor Mac OS X en **Node.js**.
-
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install node
-```
-
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-Voer de volgende opdrachten in om **Node.js** en **NPM**, het pakketbeheerprogramma voor Node.js, te installeren.
-
-```bash
-sudo apt-get install -y nodejs npm
-```
-
-### <a name="windows"></a>**Windows**
-Ga naar de [downloadpagina van Node.js](https://nodejs.org/en/download/) en selecteer het gewenste Windows-installatieprogramma.
 
 ## <a name="install-pg-client"></a>pg-client installeren
 Installeer [pg](https://www.npmjs.com/package/pg), een niet-blokkerende JavaScript-client voor Node.js die handig is om verbinding maken met en query's uit te voeren in PostgreSQL.
@@ -89,64 +67,49 @@ U kunt Node.js starten vanuit de Bash-shell of opdrachtprompt van Windows door `
 Gebruik de volgende code om verbinding te maken en de gegevens te laden met de SQL-instructies **CREATE TABLE** EN **INSERT INTO**.
 Het object [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) wordt gebruikt voor interactie met de PostgreSQL-server. De functie [pg.Client.Connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) wordt gebruikt om verbinding met de server te maken. De functie [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) wordt gebruikt om de SQL-query uit te voeren op de PostgreSQL-database. 
 
-Vervang de parameters host, dbname, user en password door de waarden die u hebt opgegeven tijdens het maken van de server en database. 
+Vervang de parameters host, dbname, user en password door de waarden die u hebt opgegeven tijdens het maken van de server en database.
 
 ```javascript
 const pg = require('pg');
 
-var config =
-{
+const config = {
     host: 'mypgserver-20170401.postgres.database.azure.com',
     user: 'mylogin@mypgserver-20170401',
     password: '<server_admin_password>',
-    database: 'mypgsqldb',
+    database: '<name_of_database>',
     port: 5432,
     ssl: true
 };
 
 const client = new pg.Client(config);
 
-client.connect(function (err)
-{
-    if (err)
-        throw err;
-    else
-    {
+client.connect(err => {
+    if (err) throw err;
+    else {
         queryDatabase();
     }
 });
 
-function queryDatabase()
-{
-    client.query(
-        ' \
-            DROP TABLE IF EXISTS inventory; \
-            CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER); \
-            INSERT INTO inventory (name, quantity) VALUES (\'banana\', 150); \
-            INSERT INTO inventory (name, quantity) VALUES (\'orange\', 154); \
-            INSERT INTO inventory (name, quantity) VALUES (\'apple\', 100); \
-        ',
-        function (err)
-    {
-        console.log("Connection established");
+function queryDatabase() {
+    const query = `
+        DROP TABLE IF EXISTS inventory;
+        CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);
+        INSERT INTO inventory (name, quantity) VALUES ('banana', 150);
+        INSERT INTO inventory (name, quantity) VALUES ('orange', 154);
+        INSERT INTO inventory (name, quantity) VALUES ('apple', 100);
+    `;
 
-        if (err)
-            throw err;
-        else
-        {
-            client.end(function (err)
-            {
-                if (err)
-                    throw err;
-
-                // Else closing connection finished without error
-                console.log("Closed client connection");
-            });
-
-            console.log("Finished execution, exiting now");
-            process.exit()
-        }
-    });
+    client
+        .query(query)
+        .then(() => {
+            console.log('Table created successfully!');
+            client.end(console.log('Closed client connection'));
+        })
+        .catch(err => console.log(err))
+        .then(() => {
+            console.log('Finished execution, exiting now');
+            process.exit();
+        });
 }
 ```
 
@@ -158,53 +121,41 @@ Vervang de parameters host, dbname, user en password door de waarden die u hebt 
 ```javascript
 const pg = require('pg');
 
-var config =
-{
+const config = {
     host: 'mypgserver-20170401.postgres.database.azure.com',
     user: 'mylogin@mypgserver-20170401',
     password: '<server_admin_password>',
-    database: 'mypgsqldb',
+    database: '<name_of_database>',
     port: 5432,
     ssl: true
 };
 
-
 const client = new pg.Client(config);
 
-client.connect(function (err)
-{
-    if (err)
-        throw err;
-
-    else
-    {
-        console.log("Connected to Azure Database for PostgreSQL server:" + config.host);
-        queryDatabase();
-    }
+client.connect(err => {
+    if (err) throw err;
+    else { queryDatabase(); }
 });
 
-function queryDatabase()
-{
-    // Declare array to hold query result set
-    const results = [];
+function queryDatabase() {
+  
+    console.log(`Running query to PostgreSQL server: ${config.host}`);
 
-    console.log("Running query to PostgreSQL server:" + config.host);
+    const query = 'SELECT * FROM inventory;';
 
-    // Perform query
-    var query = client.query('SELECT * FROM inventory;');
+    client.query(query)
+        .then(res => {
+            const rows = res.rows;
 
-    // Print result set
-    query.on('row', function(row)
-    {
-        console.log("Read " + JSON.stringify(row));
-    });
+            rows.map(row => {
+                console.log(`Read: ${JSON.stringify(row)}`);
+            });
 
-    // Exit program after execution
-    query.on('end', function(row)
-    {
-        console.log("Finished execution, exiting now");
-        process.exit()
-    });
+            process.exit();
+        })
+        .catch(err => {
+            console.log(err);
+        });
 }
 ```
 
@@ -216,51 +167,39 @@ Vervang de parameters host, dbname, user en password door de waarden die u hebt 
 ```javascript
 const pg = require('pg');
 
-var config =
-{
+const config = {
     host: 'mypgserver-20170401.postgres.database.azure.com',
     user: 'mylogin@mypgserver-20170401',
     password: '<server_admin_password>',
-    database: 'mypgsqldb',
+    database: '<name_of_database>',
     port: 5432,
     ssl: true
 };
 
 const client = new pg.Client(config);
 
-client.connect(function (err)
-{
-    if (err)
-        throw err;
-    else
-    {
+client.connect(err => {
+    if (err) throw err;
+    else {
         queryDatabase();
-    }   
+    }
 });
 
-function queryDatabase()
-{
-    client.query('UPDATE inventory SET quantity= 1000 WHERE name=\'banana\';', function (err, result)
-    {
-        console.log("Connection established");
+function queryDatabase() {
+    const query = `UPDATE inventory 
+                   SET quantity= 1000 WHERE name='banana';`;
 
-        if (err)
-            throw err;
-        else
-        {
-            client.end(function (err)
-            {
-                if (err)
-                    throw err;
-                
-                // Else closing connection finished without error
-                console.log("Closed client connection");
-            });             
-        }
-
-        console.log("Finished execution, exiting now");
-        process.exit()
-    });
+    client
+        .query(query)
+        .then(() => {
+            console.log('Update completed succesfully!');
+            client.end(console.log('Closed client connection'));
+        })
+        .catch(err => console.log(err))
+        .then(() => {
+            console.log('Finished execution, exiting now');
+            process.exit();
+        });
 }
 ```
 
@@ -322,5 +261,5 @@ function queryDatabase()
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
-> [Een database migreren met behulp van Exporteren en Importeren](./howto-migrate-using-export-and-import.md)
+> [Een database migreren met behulp van Exporteren en importeren](./howto-migrate-using-export-and-import.md)
 

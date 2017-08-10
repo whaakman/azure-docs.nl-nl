@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: syntaxc4
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: ed289d0755bbad08de01b0f311d14f5514ce0631
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 8dc965df2cd45366970effb29f246b0045a94717
 ms.contentlocale: nl-nl
-ms.lasthandoff: 02/16/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="create-a-xamarinios-app"></a>Een Xamarin.iOS-app maken
@@ -35,11 +35,6 @@ Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden vol
 * Een actief Azure-account. Als u geen account hebt, meldt u zich aan voor een proefversie van Azure en krijgt u maximaal tien gratis mobiele apps die u ook na de proefperiode kunt blijven gebruiken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 * Visual Studio met Xamarin. Zie [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Installeren en instellen voor Visual Studio en Xamarin) voor instructies.
 * Een Mac met Xcode v7.0 of hoger en waarop Xamarin Studio Community is geïnstalleerd. Zie [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Installeren en instellen voor Visual Studio en Xamarin) en [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (Instructies voor installatie, configuratie en verificatie voor Mac-gebruikers) (MSDN).
-
-> [!NOTE]
-> Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/mobile/). U kunt onmiddellijk een tijdelijke en eenvoudige mobiele app maken in App Service: u hebt geen creditcard nodig en u bent tot niets verplicht.
->
->
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Een back-end voor mobiele apps van Azure maken
 Volg deze stappen voor het maken van een back-end voor mobiele apps.
