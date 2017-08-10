@@ -23,6 +23,8 @@
   items:
     - name: Relatie met orchestrators
       href: container-instances-orchestrator-relationship.md
+    - name: Containergroepen
+      href: container-instances-container-groups.md
 - name: Handleidingen
   items:
     - name: Groepen met meerdere containers implementeren

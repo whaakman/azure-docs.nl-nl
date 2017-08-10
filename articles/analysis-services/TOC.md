@@ -1,13 +1,27 @@
 # Overzicht
 ## [Wat is Azure Analysis Services?](analysis-services-overview.md)
+## [Ondersteunde gegevensbronnen](analysis-services-datasource.md)
+## [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md)
+## [Compatibiliteitsniveau](analysis-services-compat-level.md)
+## [Hoge beschikbaarheid](analysis-services-bcdr.md)
 
-# Snelstartgidsen
-## [Een server maken - portal](analysis-services-create-server.md)
-## [Een server maken - PowerShell](analysis-services-create-powershell.md)
-## [Een model implementeren - Visual Studio](analysis-services-deploy.md)
+# Aan de slag
+## [Een server maken in Azure Portal](analysis-services-create-server.md)
+## [Een server maken met PowerShell](analysis-services-create-powershell.md)
+## [Een model implementeren vanuit Visual Studio](analysis-services-deploy.md)
+## [Een model maken in Azure Portal (preview)](analysis-services-create-model-portal.md)
 
-# Zelfstudies
-## Een model maken en implementeren
+# Uitleg 
+## [Een server beheren](analysis-services-manage.md)
+## [Databasegebruikers beheren](analysis-services-database-users.md)
+## [Serverbeheerders beheren](analysis-services-server-admins.md)
+## [Een on-premises gegevensgateway installeren](analysis-services-gateway.md)
+## [Clientbibliotheken ophalen](analysis-services-data-providers.md)
+## [Back-up en herstel](analysis-services-backup.md)
+## [Verbinden met Excel](analysis-services-connect-excel.md)
+## [Verbinden met Power BI](analysis-services-connect-pbi.md)
+## [Een ODC-bestand maken](analysis-services-odc.md)
+## Zelfstudies
 ### [Adventure Works-zelfstudie](tutorials/aas-adventure-works-tutorial.md)
 ### [Les 1: Een nieuw modelproject maken in tabelvorm](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 ### [Les 2: Gegevens ophalen](tutorials/aas-lesson-2-get-data.md)
@@ -24,24 +38,7 @@
 ### [Les 13: implementeren](tutorials/aas-lesson-13-deploy.md)
 ### [Aanvullende les: Detailrijen](tutorials/aas-supplemental-lesson-detail-rows.md)
 ### [Aanvullende les: Dynamische beveiliging](tutorials/aas-supplemental-lesson-dynamic-security.md)
-### [Aanvullende les: Onregelmatige hiërarchieën](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
-
-# Concepten
-## [Ondersteunde gegevensbronnen](analysis-services-datasource.md)
-## [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md)
-## [Hoge beschikbaarheid](analysis-services-bcdr.md)
-
-# Uitleg 
-## [Een model maken in Azure Portal (preview)](analysis-services-create-model-portal.md)
-## [Een server beheren](analysis-services-manage.md)
-## [Databasegebruikers beheren](analysis-services-database-users.md)
-## [Serverbeheerders beheren](analysis-services-server-admins.md)
-## [Een on-premises gegevensgateway installeren](analysis-services-gateway.md)
-## [Verbinden met Excel](analysis-services-connect-excel.md)
-## [Verbinden met Power BI](analysis-services-connect-pbi.md)
-## [Clientbibliotheken ophalen](analysis-services-data-providers.md)
-## [Back-up en herstel](analysis-services-backup.md)
-## [Een ODC-bestand maken](analysis-services-odc.md)
+### [Aanvullende les: Onregelmatige hiërarchieën](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Naslaginformatie
 ## [PowerShell](analysis-services-powershell.md)
