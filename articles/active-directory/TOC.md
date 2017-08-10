@@ -9,6 +9,7 @@
 ## [Een Azure AD-tenant verkrijgen](active-directory-howto-tenant.md)
 ## [Meld u aan voor Azure AD Premium](active-directory-get-started-premium.md)
 ## [Azure-abonnementen koppelen](active-directory-how-subscriptions-associated-directory.md)
+## [Snelstartgids: Self-service voor wachtwoord opnieuw instellen](active-directory-passwords-getting-started.md)
 ## Azure AD-licenties beheren
 ### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
 ### [Klassieke portal](active-directory-licensing-what-is.md)
@@ -18,7 +19,7 @@
 #### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
 #### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
 #### [PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
-## [Ondersteuning voor Azure Active Directory verkrijgen](active-directory-troubleshooting-support-howto.md)
+## [Ondersteuning verkrijgen voor Azure Active Directory](active-directory-troubleshooting-support-howto.md)
 ## [Zelfstudies voor SaaS-app-integratie](active-directory-saas-tutorial-list.md)
 
 # Procedures
@@ -78,6 +79,7 @@
 #### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
 #### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
 #### [PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
+### [Vervaldatum instellen voor Office 365-groepen](active-directory-groups-lifecycle-azure-portal.md)
 ### [Alle groepen weergeven](active-directory-groups-view-azure-portal.md)
 ### [Toegewezen groepen inschakelen](active-directory-accessmanagement-dedicated-groups.md)
 ### [Groepstoegang tot SaaS-apps toevoegen](active-directory-accessmanagement-group-saasapps.md)
@@ -124,7 +126,6 @@
 #### [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md)
 #### [Aanbevolen procedures voor wachtwoorden](active-directory-secure-passwords.md)
 #### [Registreren voor de selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md)
-### [Snel aan de slag: een wachtwoord opnieuw instellen via selfservice](active-directory-passwords-getting-started.md)
 ### [SSPR licentiëren](active-directory-passwords-licensing.md)
 ### [SSPR implementeren](active-directory-passwords-best-practices.md)
 ### IT-beheerders: wachtwoorden opnieuw instellen

@@ -19,6 +19,7 @@
 ### [Rekenintensieve VM’s](batch-pool-compute-intensive-sizes.md)
 ### [Gelijktijdige knooppunttaken](batch-parallel-node-tasks.md)
 ### [Taken tellen aan de hand van de status](batch-get-task-counts.md)
+### [Een pool maken met een aangepaste installatiekopie](batch-custom-images.md)
 ### [Efficiënte lijstquery's](batch-efficient-list-queries.md)
 ### [Taken voor taakvoorbereiding- en -voltooiing](batch-job-prep-release.md)
 ### [Compute-knooppunten in Linux](batch-linux-nodes.md)

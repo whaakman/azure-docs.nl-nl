@@ -28,10 +28,12 @@
 ### [Patronen voor multitenancy-ontwerpen](search-modeling-multitenant-saas-applications.md)
 
 ## Ontwikkelen
+### [API-versies](search-api-versions.md)
 ### [Upgrade uitvoeren voor de SDK](search-dotnet-sdk-migration.md)
 ### [Upgrade uitvoeren voor de REST-API](search-api-migration.md)
 ### [Complexe gegevenstypen modelleren](search-howto-complex-data-types.md)
 ### [Gelijktijdige updates verwerken](search-howto-concurrency.md)
+### [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=search)
 
 ## Beheren
 ### Azure Search beheren
@@ -68,31 +70,33 @@
 
 # Naslaginformatie
 
-## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=search)
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (beheer)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (beheer)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (beheer)](/rest/api/searchmanagement)
+## [Service REST (voorbeeld)](search-api-2015-02-28-preview.md)
 
 # Resources
-## [API-versies](search-api-versions.md)
+
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=web-mobile)
+## [Veelgestelde vragen](search-faq-frequently-asked-questions.md)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/search/)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
-## [Service REST (voorbeeld)](search-api-2015-02-28-preview.md)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=search)
 ## Cursusmateriaal en zelfstudie
-## Demosites
-## Partner en community
-### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
-### [Takenlijst-app](http://aka.ms/azjobsdemo)
-### [Live demo-apps](https://searchsamples.azurewebsites.net/)
-### [Relationele gegevens modelleren](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
-### [Faceting op meerdere niveaus](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [Search Analyzer-demo](http://alice.unearth.ai/)
-### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Video's en zelfstudies](search-video-demo-tutorial-list.md)
 ### [Virtuele academie](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
+## Demosites
+### [Search Analyzer-demo](http://alice.unearth.ai/)
+### [Live demo-apps](https://searchsamples.azurewebsites.net/)
+### [Takenlijst-app](http://aka.ms/azjobsdemo)
+## Partner en community
+### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
+### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
+### [blog: Relationele gegevens modelleren](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
+### [[blog: Faceting op meerdere niveaus](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
+
+
+
