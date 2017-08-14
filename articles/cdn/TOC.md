@@ -10,6 +10,8 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Cross-origin-resources delen](cdn-cors.md)
+### [Een aangepast domein aan CDN toewijzen](cdn-map-content-to-custom-domain.md)
+### [HTTPS op een aangepast domein inschakelen](cdn-custom-ssl.md)
 ## Inhoud optimaliseren
 ### [Optimalisatieoverzicht](cdn-optimization-overview.md)
 ####[Optimalisatie van grote bestanden](cdn-large-file-optimization.md)
@@ -17,12 +19,10 @@
 ####[Dynamische siteversnelling](cdn-dynamic-site-acceleration.md)
  
 ## Beheren
-### [HTTPS op een aangepast domein inschakelen](cdn-custom-ssl.md)
 ### [Beheren met PowerShell](cdn-manage-powershell.md)
 ### TTL (Time to Live) configureren
 #### [Web Apps/Cloud Services, ASP.NET of IIS-inhoud](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Inhoud van de Storage-blobservice](cdn-manage-expiration-of-blob-content.md)
-### [Een aangepast domein aan CDN toewijzen](cdn-map-content-to-custom-domain.md)
 ### [Toegang beperken per land](cdn-restrict-access-by-country.md)
 ### [De prestaties verbeteren door bestanden te comprimeren](cdn-improve-performance.md)
 ### Cache-inhoud op queryreeks

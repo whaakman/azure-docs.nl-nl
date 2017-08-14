@@ -105,9 +105,6 @@
       href: consistency-levels.md
     - name: Doorvoer
       href: request-units.md
-      items:
-        - name: Aanvraageenheden per minuut
-          href: request-units-per-minute.md
     - name: API's met meerdere modellen
       items:
         - name: DocumentDB
