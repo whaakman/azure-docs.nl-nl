@@ -4,13 +4,13 @@
 ## [Beschikbaarheid](configure-availability.md)
 ## [Veelgestelde vragen](faq.md)
 
-# [Aan de slag](../opensource-links.md)
+# Aan de slag
 ## [Een Linux-VM maken via de portal](createportal.md)
 ## [Azure CLI installeren](../../../cli-install-nodejs.md)
 ## [SSH-sleutels maken](../mac-create-ssh-keys.md)
 
 # Procedures
-## [Compute](../intro-on-azure.md)
+## Compute
 ### [Een aangepaste VM maken](create-custom.md)
 ### [Een VM vastleggen](capture-image.md)
 ### [Extern bureaublad gebruiken met een Linux-VM](remote-desktop.md)

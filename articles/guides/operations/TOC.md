@@ -81,8 +81,6 @@
 ### [Een opslagaccount maken](../../storage/storage-create-storage-account.md#create-a-storage-account)
 ### [Azure PowerShell gebruiken met Azure Storage](../../storage/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [De Azure CLI gebruiken met Azure Storage](../../storage/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Richtlijnen voor opslaginfrastructuur voor Windows](../../virtual-machines/windows/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Richtlijnen voor opslaginfrastructuur voor Linux](../../virtual-machines/linux/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Storage-clienthulpprogramma's](../../storage/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [REST API-naslaginformatie voor Azure Storage-services](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
 ### [Handtekeningen voor gedeelde toegang gebruiken](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
