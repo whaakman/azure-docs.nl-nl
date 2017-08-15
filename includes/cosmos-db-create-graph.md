@@ -1,9 +1,9 @@
-U kunt Data Explorer nu gebruiken voor het maken van een grafiekcontainer en om gegevens toe te voegen aan uw database. 
+U kunt nu het hulpprogramma Data Explorer in Azure Portal gebruiken om een grafiekdatabase te maken. 
 
-1. Klik In Azure Portal in het navigatiemenu op **Data Explorer**. 
-2. Klik op de blade Data Explorer op **Nieuwe graaf** en vul vervolgens de pagina in met behulp van de volgende gegevens.
+1. Klik in Azure Portal in het navigatiemenu links op **Data Explorer (preview-versie)**. 
+2. Klik op de blade **Data Explorer (preview-versie)** op **Nieuwe grafiek**. Vul vervolgens de pagina in met behulp van de volgende gegevens.
 
-    ![Data Explorer in Azure Portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
+    ![Data Explorer in de Azure Portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
 
     Instelling|Voorgestelde waarde|Beschrijving
     ---|---|---

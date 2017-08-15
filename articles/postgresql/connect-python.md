@@ -1,6 +1,6 @@
 ---
 title: Vanuit Python verbinding maken met Azure Database voor PostgreSQL | Microsoft Docs
-description: Biedt een voorbeeld van Python-code dat u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit een Azure Database voor PostgreSQL.
+description: Deze snelstartgids bevat een voorbeeld van Python-code dat u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit een Azure Database voor PostgreSQL.
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -10,12 +10,12 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 07/07/2017
+ms.date: 08/10/2017
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: f6ae1ef3855711a86333857f26400f29dfd7c54e
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 0d52a7728e2292946e9328065b973ca7ad37b4f5
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database voor PostgreSQL: Python gebruiken om verbinding te maken en gegevens op te vragen
@@ -49,7 +49,7 @@ Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azur
 5. Als u uw aanmeldingsgegevens voor de server bent vergeten, gaat u naar de pagina **Overzicht** om de aanmeldingsnaam van de serverbeheerder weer te geven en indien nodig het wachtwoord opnieuw in te stellen.
 
 ## <a name="how-to-run-python-code"></a>Python-code uitvoeren
-- Maak in uw favoriete teksteditor een nieuw bestand met de naam postgres.py en sla het bestand op in een projectmap. Kopieer hieronder een fragment met voorbeeldcode, plak dit in het tekstbestand en sla het bestand op. Zorg ervoor dat u UTF-8-codering selecteert als u het bestand opslaat in Windows. 
+- Maak in uw favoriete teksteditor een nieuw bestand met de naam postgres.py en sla het bestand op in een projectmap. Kopieer hieronder een fragment met voorbeeldcode en plak dit in het tekstbestand. Vervang de parameters host, dbname, user en password door de waarden die u hebt opgegeven tijdens het maken van de server en database. Sla het bestand op. Zorg ervoor dat u UTF-8-codering selecteert als u het bestand opslaat in Windows. 
 - Voor het uitvoeren van de code opent u het opdrachtprompt of de bash-shell. Ga naar de projectmap, zoals `cd postgresql`. Typ vervolgens de python-opdracht, gevolgd door de bestandsnaam, zoals `python postgres.py`.
 
 > [!NOTE]

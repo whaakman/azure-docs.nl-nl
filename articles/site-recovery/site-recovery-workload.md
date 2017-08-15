@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 6037c1ea1655aa027a0933b1eea5f864103cfd5b
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 88f20287e2a6935b9694a25a21b607d658b8eb68
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Welke workloads kunt u met Azure Site Recovery beveiligen?
@@ -127,11 +126,12 @@ Met Site Recovery wordt Exchange als volgt beveiligd:
 ## <a name="protect-sap"></a>SAP beveiligen
 Gebruik Site Recovery om uw SAP-implementatie als volgt te beveiligen:
 
-* Beveilig de gehele SAP-implementatie door verschillende implementatielagen te repliceren naar Azure of naar een secundaire site.
+* Schakel beveiliging van SAP NetWeaver en niet-NetWeaver-productietoepassingen die on-premises worden uitgevoerd in door onderdelen naar Azure te repliceren.
+* Schakel beveiliging van SAP NetWeaver en niet-NetWeaver-productietoepassingen die in Azure worden uitgevoerd in door onderdelen naar een ander Azure-datacenter te repliceren.
 * Vereenvoudig de cloudmigratie door Site Recovery te gebruiken om uw SAP-implementatie te migreren naar Azure.
-* Vereenvoudig SAP-ontwikkeling en -tests door naar behoeven een op de productieomgeving lijkende replica-omgeving te maken, zodat u toepassingen kunt testen en foutopsporing kunt uitvoeren.
+* Vereenvoudig SAP-projectupgrades, tests en het maken van prototypen door een on-demand een productiekloon te maken voor het testen van SAP-toepassingen.
 
-[Meer informatie](http://aka.ms/asr-sap) over het beveiligen van SAP.
+[Meer informatie](site-recovery-sap.md) over het beveiligen van SAP.
 
 ## <a name="protect-iis"></a>IIS beveiligen
 Gebruik Site Recovery om uw IIS-implementatie als volgt te beveiligen:
@@ -152,11 +152,11 @@ Gebruik Site Recovery om de Citrix XenApp- en XenDesktop-implementaties te bevei
 * Schakel beveiliging voor de Citrix XenApp- en XenDesktop-implementaties in door verschillende implementatielagen te repliceren in Azure, inclusief (AD DNS-server, SQL Database-server, Citrix Delivery Controller, StoreFront-server, XenApp Master (VDA), Citrix XenApp-licentieserver).
 * Vereenvoudig de cloudmigratie door Site Recovery te gebruiken om de Citrix XenApp- en XenDesktop-implementaties te migreren naar Azure.
 * Vereenvoudig Citrix XenApp-/XenDesktop-tests door een op de productieomgeving lijkende replica-omgeving op aanvraag te maken voor tests en foutopsporing.
-* Deze oplossing is alleen van toepassing op virtuele bureaubladen en virtuele niet-clientbureaubladen in een Windows Server-besturingssysteem. Dit komt omdat voor virtuele clientbureaubladen licentieverlening nog niet wordt ondersteund in Azure. 
+* Deze oplossing is alleen van toepassing op virtuele bureaubladen en virtuele niet-clientbureaubladen in een Windows Server-besturingssysteem. Dit komt omdat voor virtuele clientbureaubladen licentieverlening nog niet wordt ondersteund in Azure.
 [Meer informatie](https://azure.microsoft.com/pricing/licensing-faq/) over licentieverlening voor clientbureaubladen en serverdesktops in Azure.
 
-[Meer informatie](site-recovery-citrix-xenapp-and-xendesktop.md) over het beveiligen van Citrix XenApp- en XenDesktop-implementaties. U kunt ook [dit technische document van Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) raadplegen, waarin deze informatie eveneens is opgenomen. 
+[Meer informatie](site-recovery-citrix-xenapp-and-xendesktop.md) over het beveiligen van Citrix XenApp- en XenDesktop-implementaties. U kunt ook [dit technische document van Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) raadplegen, waarin deze informatie eveneens is opgenomen.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Vereisten controleren](site-recovery-prereq.md) 
+[Vereisten controleren](site-recovery-prereq.md)
 

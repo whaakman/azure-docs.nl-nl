@@ -13,13 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: hero-article
-ms.date: 07/10/2017
+ms.date: 08/08/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 01418c00f94edcb810b23e828273a7e749925177
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 3a43472ad2be4a0fd6f7126f72433acd8b5f25fd
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>PHP gebruiken om een query uit te voeren voor een Azure SQL-database
@@ -40,9 +40,9 @@ Zorg ervoor dat u over het volgende beschikt om deze beknopte zelfstudie te volt
 
 - U hebt PHP en verwante software voor uw besturingssysteem geïnstalleerd.
 
-    - **MacOS**: installeer Homebrew en PHP, installeer het ODBC-stuurprogramma en SQLCMD, en installeer vervolgens het PHP-stuurprogramma voor SQL Server. Zie [Stap 1.2, 1.3 en 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
-    - **Ubuntu**: installeer PHP en andere vereiste pakketten, en installeer vervolgens het PHP-stuurprogramma voor SQL Server. Zie [Stap 1.2 en 2.1](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
-    - **Windows**: installeer de nieuwste versie van PHP voor IIS Express, de nieuwste versie van Microsoft-stuurprogramma's voor SQL Server in IIS Express, Chocolatey, het ODBC-stuurprogramma en SQLCMD. Zie [Stap 1.2 en 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).    
+    - **MacOS**: installeer Homebrew en PHP, installeer het ODBC-stuurprogramma en SQLCMD, en installeer vervolgens het PHP-stuurprogramma voor SQL Server. Zie [stap 1.2, 1.3 en 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
+    - **Ubuntu**: installeer PHP en andere vereiste pakketten, en installeer vervolgens het PHP-stuurprogramma voor SQL Server. Zie [stap 1.2 en 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
+    - **Windows**: installeer de nieuwste versie van PHP voor IIS Express, de nieuwste versie van Microsoft-stuurprogramma's voor SQL Server in IIS Express, Chocolatey, het ODBC-stuurprogramma en SQLCMD. Zie [stap 1.2 en 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).    
 
 ## <a name="sql-server-connection-information"></a>SQL Server-verbindingsgegevens
 

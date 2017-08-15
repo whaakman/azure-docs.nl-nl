@@ -1,11 +1,10 @@
-* If the unmanaged disk is in a storage account previously encrypted through Azure Storage Service Encryption, you can't convert it to a managed disk. For steps to copy and use these virtual hard disks (VHDs) in managed disks, see the [Managed disks and Azure Storage Service Encryption](#managed-disks-and-azure-storage-service-encryption) section later in this article.
 
-* The conversion requires a restart of the VM, so schedule the migration of your VMs during a pre-existing maintenance window. 
+* Voor de conversie moet de VM opnieuw worden opgestart. Plan daarom de migratie van uw VM's tijdens een reeds bestaand onderhoudsvenster. 
 
-* The conversion is not reversible. 
+* De conversie kan niet ongedaan worden gemaakt. 
 
-* Be sure to test the conversion. Migrate a test virtual machine before you perform the migration in production.
+* Test de conversie. Migreer de test-VM voordat u de migratie in de productieomgeving uitvoert.
 
-* During the conversion, you deallocate the VM. The VM receives a new IP address when it is started after the conversion. If needed, you can [assign a static IP address](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) to the VM.
+* Tijdens de conversie moet u de toewijzing van de VM ongedaan maken. De VM ontvangt een nieuw IP-adres wanneer deze na de conversie wordt opgestart. Indien vereist kunt u [een statisch IP-adres toewijzen](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) aan de VM.
 
-* The original VHDs and the storage account used by the VM before conversion are not deleted. They continue to incur charges. To avoid being billed for these artifacts, delete the original VHD blobs after you verify that the conversion is complete.
+* De oorspronkelijke VHD's en het opslagaccount die vóór de conversie werden gebruikt door de VM worden niet verwijderd. Hiervoor worden nog altijd kosten in rekening gebracht. Als u wilt voorkomen dat er kosten worden doorberekend voor de artefacten, verwijdert u de oorspronkelijke VHD-blobs nadat u hebt gecontroleerd of de conversie is voltooid.

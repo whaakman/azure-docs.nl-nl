@@ -16,18 +16,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: nepeters
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: a278f76fc0ac2aa42633ed0ce2ad4fbc4e7290da
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 7c96a5b9bc2cb6cea60b200c22e4e4e1d49d8d08
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Kubernetes-cluster voor Linux-containers implementeren
 
-In deze snelstartgids wordt een Kubernetes-cluster geïmplementeerd met behulp van de Azure CLI. Vervolgens wordt er een toepassing met meerdere containers die bestaat uit een web-front-end en een Redis-exemplaar geïmplementeerd en uitgevoerd op het cluster. Zodra de toepassing is voltooid, is deze toegankelijk via internet.
+In deze snelstartgids wordt een Kubernetes-cluster geïmplementeerd met behulp van de Azure CLI. Vervolgens wordt er een toepassing met meerdere containers die bestaat uit een web-front-end en een Redis-exemplaar, geïmplementeerd en uitgevoerd op het cluster. Zodra de toepassing is voltooid, is deze toegankelijk via internet. 
+
+De voorbeeldtoepassing gebruikt in dit document is geschreven in Python. De concepten en de stappen die hier worden beschreven, kunnen worden gebruikt om een containerinstallatiekopie te implementeren in een Kubernetes-cluster. De code-, Dockerfile- en vooraf gemaakte Kubernetes-manifestbestanden die zijn gerelateerd aan dit project, zijn beschikbaar op [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git).
 
 ![Afbeelding van browsen naar Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
@@ -69,7 +71,7 @@ Uitvoer:
 Maak een Kubernetes-cluster in Azure Container Service met de opdracht [az acs create](/cli/azure/acs#create). In het volgende voorbeeld wordt een cluster gemaakt met de naam *myK8sCluster* met een Linux-hoofdknooppunt en drie knooppunten van de Linux-agent.
 
 ```azurecli-interactive 
-az acs create --orchestrator-type=kubernetes --resource-group myResourceGroup --name=myK8sCluster --generate-ssh-keys 
+az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys 
 ```
 
 Na enkele minuten is de opdracht voltooid en retourneert deze informatie over het cluster in json-indeling. 
@@ -80,7 +82,7 @@ Als u een Kubernetes-cluster wilt beheren, gebruikt u [kubectl](https://kubernet
 
 Als u Azure CloudShell gebruikt, is kubectl al geïnstalleerd. Als u lokaal wilt installeren, kunt u de opdracht [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) gebruiken.
 
-Als u kubectl zo wilt configureren dat de client verbinding maakt met uw Kubernetes-cluster, voert u de opdracht [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) uit. In deze stap worden referenties gedownload en wordt Kubernetes CLI geconfigureerd voor het gebruik ervan.
+Als u kubectl zo wilt configureren dat de client verbinding maakt met uw Kubernetes-cluster, voert u de opdracht [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) uit. In deze stap worden referenties gedownload en wordt Kubernetes CLI geconfigureerd voor het gebruik van deze referenties.
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
@@ -104,9 +106,9 @@ k8s-master-14ad53a1-0   Ready,SchedulingDisabled   10m       v1.6.6
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 
-Een Kubernetes-manifestbestand definieert een gewenste status voor het cluster, inclusief zaken zoals welke containerinstallatiekopieën moeten worden uitgevoerd. In dit voorbeeld worden met behulp van een manifest alle objecten gemaakt die nodig zijn om de Azure Vote-toepassing uit te voeren. 
+In een Kubernetes-manifestbestand wordt een gewenste status voor het cluster gedefinieerd, inclusief zaken zoals welke containerinstallatiekopieën moeten worden uitgevoerd. In dit voorbeeld worden met behulp van een manifest alle objecten gemaakt die nodig zijn om de Azure Vote-toepassing uit te voeren. 
 
-Maak een bestand met de naam `azure-vote.yaml` en kopieer hierin de volgende YAML.
+Maak een bestand met de naam `azure-vote.yaml` en kopieer hierin de volgende YAML. Als u werkt in Azure Cloud Shell, kan dit bestand worden gemaakt met behulp van vi of Nano, zoals bij een virtueel of fysiek systeem.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -226,3 +228,4 @@ Voor meer informatie over Azure Container Service en een volledig voorbeeld van 
 
 > [!div class="nextstepaction"]
 > [Een ACS Kubernetes-cluster beheren](./container-service-tutorial-kubernetes-prepare-app.md)
+

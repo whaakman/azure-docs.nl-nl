@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 1dc728cf6497d8ba0d35a7e41e51a52c5ca6d7df
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 3c7a6ac092854bc2d78ac23079d168cf8b5a2201
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Ga aan de slag met het bouwen van oplossingen met de Batch-clientbibliotheek voor .NET
@@ -745,6 +745,7 @@ Nu u vertrouwd bent met de basiswerkstroom van een Batch-oplossing, is het tijd 
 * Lees het artikel [Overzicht van Azure Batch-functies](batch-api-basics.md). Dit is raadzaam als u niet vertrouwd bent met de service.
 * Lees ook de andere artikelen over Batch-ontwikkeling die vermeld zijn onder **Ontwikkeling nader bekeken** in het [Batch-leertraject][batch_learning_path].
 * Bekijk een andere implementatie van de verwerking van de workload 'eerste N woorden' met behulp van Batch in het voorbeeld [TopNWords][github_topnwords].
+* Bekijk de [opmerkingen bij de release](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/Batch/DataPlane/changelog.md#azurebatch-release-notes) van Batch .NET voor de meest recente wijzigingen in de bibliotheek.
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/

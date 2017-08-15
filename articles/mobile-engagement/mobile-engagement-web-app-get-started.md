@@ -14,10 +14,11 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: abcb04e4e0a3ae4fdba3a4ded20b3846ac3b21e6
+ms.contentlocale: nl-nl
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Aan de slag met Azure Mobile Engagement voor web-apps
@@ -25,10 +26,13 @@ ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
 
 In dit onderwerp wordt beschreven hoe u met Azure Mobile Engagement uw gebruik van web-apps leert te begrijpen.
 
+> [!NOTE]
+> De Azure Mobile Engagement-service wordt in maart 2018 beëindigd en is momenteel alleen beschikbaar voor bestaande klanten. Zie [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/) voor meer informatie.
+
 Voor deze zelfstudie hebt u het volgende nodig:
 
 * Visual Studio 2015 of een andere editor van uw keuze
-* [Web SDK](http://aka.ms/P7b453) 
+* [Web SDK](http://aka.ms/P7b453)
 
 Deze Web SDK bevindt zich nog in de previewfase en ondersteunt momenteel alleen Analytics en biedt geen ondersteuning voor het verzenden van pushmeldingen in browsers of apps. 
 
@@ -40,7 +44,7 @@ Deze Web SDK bevindt zich nog in de previewfase en ondersteunt momenteel alleen 
 ## <a name="setup-mobile-engagement-for-your-web-app"></a>Mobile Engagement instellen voor uw web-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
+## <a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
 Deze zelfstudie toont een 'basisintegratie'. Dit is de minimale set die vereist is voor het verzamelen van gegevens.
 
 We gaan een elementaire web-app maken met Visual Studio ter illustratie van de integratie, maar u kunt de stappen ook volgen met elke webtoepassing die buiten Visual Studio is gemaakt. 
@@ -114,10 +118,5 @@ Dit zijn alle methoden die momenteel bij Web SDK beschikbaar zijn die u voor ana
 <!-- Images. -->
 [1]: ./media/mobile-engagement-web-app-get-started/visual-studio-solution-js.png
 [2]: ./media/mobile-engagement-web-app-get-started/session.png
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

@@ -1,130 +1,130 @@
-## <a name="meaning-of-migration-of-iaas-resources-from-classic-to-resource-manager"></a>Meaning of migration of IaaS resources from classic to Resource Manager
-Before we drill down into the details, let's look at the difference between data-plane and management-plane operations on the IaaS resources.
+## <a name="meaning-of-migration-of-iaas-resources-from-classic-to-resource-manager"></a>Betekenis van de migratie van IaaS-resources van het klassieke implementatiemodel naar Resource Manager
+Voordat we op de details inzoomen, bekijken we het verschil tussen bewerkingen van de IaaS-resources op het gegevensvlak en op het beheervlak.
 
-* *Management/Control plane* describes the calls that come into the management/control plane or the API for modifying resources. For example, operations like creating a VM, restarting a VM, and updating a virtual network with a new subnet manage the running resources. They don't directly affect connecting to the instances.
-* *Data plane* (application) describes the runtime of the application itself and involves interaction with instances that don’t go through the Azure API. Accessing your website or pulling data from a running SQL Server instance or a MongoDB server would be considered data plane or application interaction. Copying a blob from a storage account and accessing a public IP address to RDP or SSH into the virtual machine also are data plane. These operations keep the application running across compute, networking, and storage.
+* Het *beheer-/controlevlak* beschrijft de aanroepen die in het beheer-/controlevlak of de API worden gedaan om resources te wijzigen. Bewerkingen zoals het maken van een VM, opnieuw starten van een VM en het bijwerken van een virtueel netwerk met een nieuw subnet beheren de actieve resources. Ze niet rechtstreeks van invloed op de verbinding met de exemplaren.
+* Het *gegevensvlak* (toepassing) beschrijft de runtime van de toepassing zelf en heeft te maken met de interactie met exemplaren die niet door de Azure API hoeven. Toegang verkrijgen tot uw website of het binnenhalen van gegevens vanaf een actief SQL Server-exemplaar of een MongoDB-server kan worden gezien als interactie op het gegevensvlak of toepassingsinteractie. Het kopiëren van een blob in een opslagaccount en toegang verkrijgen tot een openbaar IP-adres via RDP of SSH in de virtuele machine vallen ook binnen het gegevensvlak. Deze bewerkingen zorgen ervoor dat de toepassing uitgevoerd blijft worden bij het berekenen, het netwerken en de opslag.
 
-![Screenshot that illustrates difference between management/control plane and data plane](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
-
-> [!NOTE]
-> In some migration scenarios, the Azure platform stops, deallocates, and restarts your virtual machines. This incurs a short data-plane downtime.
->
->
-
-## <a name="the-migration-experience"></a>The migration experience
-Before you start the migration experience, the following is recommended:
-
-* Ensure that the resources that you want to migrate don't use any unsupported features or configurations. Usually the platform detects these issues and generates an error.
-* If you have VMs that are not in a virtual network, they will be stopped and deallocated as part of the prepare operation. If you don't want to lose the public IP address, look into reserving the IP address before triggering the prepare operation. However, if the VMs are in a virtual network, they are not stopped and deallocated.
-* Plan your migration during non-business hours to accommodate for any unexpected failures that might happen during migration.
-* Download the current configuration of your VMs by using PowerShell, command-line interface (CLI) commands, or REST APIs to make it easier for validation after the prepare step is complete.
-* Update your automation/operationalization scripts to handle the Resource Manager deployment model before you start the migration. You can optionally do GET operations when the resources are in the prepared state.
-* Evaluate the RBAC policies that are configured on the classic IaaS resources, and plan for after the migration is complete.
-
-The migration workflow is as follows
-
-![Screenshot that shows the migration workflow](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-workflow.png)
+![Schermopname die het verschil tussen het beheer-/controlevlak en het gegevensvlak weergeeft](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
 
 > [!NOTE]
-> All the operations described in the following sections are idempotent. If you have a problem other than an unsupported feature or a configuration error, it is recommended that you retry the prepare, abort, or commit operation. The Azure platform tries the action again.
+> In sommige scenario's voor migratie stopt het Azure-platform, maakt de toewijzingen ongedaan en start uw virtuele machines opnieuw op. Dit leidt tot een korte uitvaltijd voor het gegevensvlak.
 >
 >
 
-### <a name="validate"></a>Validate
-The validate operation is the first step in the migration process. The goal of this step is to analyze data in the background for the resources under migration and return success/failure if the resources are capable of migration.
+## <a name="the-migration-experience"></a>De migratie-ervaring
+We raden u aan het volgende te doen voordat u de migratie-ervaring start:
 
-You select the virtual network or the hosted service (if it’s not a virtual network) that you want to validate for migration.
+* Zorg ervoor dat de resources die u wilt migreren geen niet-ondersteunde functies of configuraties gebruiken. Meestal detecteert het platform deze problemen en genereert een fout.
+* Als u virtuele machines hebt die zich niet in een virtueel netwerk bevinden, worden deze gestopt en de toewijzing ongedaan gemaakt als onderdeel van de voorbereidingsbewerking. Als u het openbare IP-adres niet wilt verliezen, kunt u kijken of u het IP-adres kunt reserveren voordat u de voorbereidingsbewerking activeert. Als de virtuele machines zich echter in een virtueel netwerk bevinden, worden ze niet gestopt en wordt de toewijzing niet ongedaan gemaakt.
+* Plan de migratie buiten kantooruren zodat u de tijd hebt om onverwachte fouten die kunnen ontstaan tijdens de migratie op te lossen.
+* Download de huidige configuratie van uw virtuele machines met behulp van PowerShell, CLI-opdrachten (opdrachtregelinterface) of REST API's om de validatie eenvoudiger te maken nadat de voorbereidingsstap is voltooid.
+* Werk voordat u de migratie start uw scripts voor automatisering/uitvoering bij zodat ze het implementatiemodel van Resource Manager kunnen verwerken. Desgewenst kunt u GET-bewerkingen uitvoeren wanneer de resources de status Voorbereid hebben.
+* Evalueer de RBAC-beleidsregels die zijn geconfigureerd op de klassieke IaaS-resources en plan ze in voor wanneer de migratie voltooid is.
 
-* If the resource is not capable of migration, the Azure platform lists all the reasons for why it’s not supported for migration.
+De migratiewerkstroom verloopt als volgt
 
-When validating storage services you will find the migrated account in a resource group named the same as your storage account with "-Migrated" appended.  For example if your storage account is named "mystorage" you will find the Azure Resource Manager enabled resource in a resource group named "mystorage-Migrated" and it will contain a storage account named "mystorage".
-
-### <a name="prepare"></a>Prepare
-The prepare operation is the second step in the migration process. The goal of this step is to simulate the transformation of the IaaS resources from classic to Resource Manager resources and present this side by side for you to visualize.
-
-You select the virtual network or the hosted service (if it’s not a virtual network) that you want to prepare for migration.
-
-* If the resource is not capable of migration, the Azure platform stops the migration process and lists the reason why the prepare operation failed.
-* If the resource is capable of migration, the Azure platform first locks down the management-plane operations for the resources under migration. For example, you are not able to add a data disk to a VM under migration.
-
-The Azure platform then starts the migration of metadata from classic to Resource Manager for the migrating resources.
-
-After the prepare operation is complete, you have the option of visualizing the resources in both classic and Resource Manager. For every cloud service in the classic deployment model, the Azure platform creates a resource group name that has the pattern `cloud-service-name>-Migrated`.
+![Schermafbeelding van de migratiewerkstroom](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-workflow.png)
 
 > [!NOTE]
-> It is not possible to select the name of Resource Group created for migrated resources (i.e. "-Migrated") but after migration is complete, you can use Azure Resource Manager move feature to move resources to any Resource Group you want. To read more about this see [Move resources to new resource group or subscription](../articles/resource-group-move-resources.md)
+> Alle bewerkingen die worden beschreven in de volgende secties zijn idempotent. Als er een probleem optreedt dat niets te maken heeft met een niet-ondersteunde functie of een configuratiefoutbericht, raden we u aan om de voorbereidings-, afbrekings- of doorvoerbewerking opnieuw te proberen. Het Azure-platform probeert de actie opnieuw uit te voeren.
+>
+>
 
-Here are two screens that show the result after a succesful Prepare operation. First screen shows a Resource Group that contains the original cloud service. Second screen shows the new "-Migrated" resource group that contains the equivalent Azure Resource Manager resources.
+### <a name="validate"></a>Valideren
+De bewerking Valideren is de eerste stap in het migratieproces. Het doel van deze stap is het op de achtergrond analyseren van gegevens voor de resources die worden gemigreerd en rapporteren of de resources geschikt zijn voor migratie.
 
-![Screenshot that shows Portal classic cloud service](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-classic.png)
+U selecteert het virtuele netwerk dat of de gehoste service die (indien dit niet een virtueel netwerk is) u wilt valideren voor migratie.
 
-![Screenshot that shows Portal Azure Resource Manager resources in Prepare](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
+* Als de resource niet geschikt is voor migratie, geeft het Azure-platform alle redenen weer waarom deze niet wordt ondersteund voor migratie.
+
+Wanneer u opslagservices valideert, wordt het gemigreerde account in een resourcegroep geplaatst met de naam van uw opslagaccount met '-gemigreerd' toegevoegd.  Als de naam van uw opslagaccount bijvoorbeeld 'mijnopslag' is, vindt u de resource met Azure Resource Manager ingeschakeld in een resourcegroep met de naam 'mijnopslag-gemigreerd'. Deze groep bevat een opslagaccount met de naam 'mijnopslag'.
+
+### <a name="prepare"></a>Voorbereiden
+De bewerking Voorbereiden is de tweede stap in het migratieproces. Het doel van deze stap is om de transformatie van de IaaS-resources van klassieke resources naar Resource Manager-resources te simuleren en deze naast elkaar weer te geven zodat u ze kunt bekijken.
+
+U selecteert het virtuele netwerk dat of de gehoste service die (indien dit niet een virtueel netwerk is) u wilt voorbereiden voor migratie.
+
+* Als de resource niet geschikt is voor migratie, stopt het Azure-platform het migratieproces en wordt de reden waarom de bewerking Voorbereiden is mislukt weergegeven.
+* Als de resource kan worden gemigreerd, vergrendelt het Azure-platform eerst de bewerkingen binnen het beheervlak voor de resources die worden gemigreerd. U kunt bijvoorbeeld geen gegevensschijf toevoegen aan een virtuele machine die wordt gemigreerd.
+
+Het Azure-platform start vervolgens de migratie van metagegevens van de klassieke versie naar Resource Manager voor de resources die worden gemigreerd.
+
+Nadat de bewerking Voorbereiden is voltooid, hebt u de optie om de resources in zowel de klassieke versie als de Resource Manager te visualiseren. Voor elke cloudservice in het klassieke implementatiemodel maakt het Azure-platform een resourcegroepnaam met de indeling `cloud-service-name>-Migrated`.
 
 > [!NOTE]
-> Virtual Machines that are not in a classic Virtual Network are stopped deallocated in this phase of migration.
->
->
+> Het is niet mogelijk de naam van de resourcegroep die is gemaakt voor de gemigreerde resources te selecteren ('-gemigreerd'), maar nadat de migratie is voltooid, kunt u de Azure Resource Manager-functie gebruiken om resources te verplaatsen naar een resourcegroep naar keuze. Zie [Resources verplaatsen naar een nieuwe resourcegroep of een nieuw abonnement](../articles/resource-group-move-resources.md) voor meer informatie
 
-### <a name="check-manual-or-scripted"></a>Check (manual or scripted)
-In the check step, you can optionally use the configuration that you downloaded earlier to validate that the migration looks correct. Alternatively, you can sign in to the portal and spot check the properties and resources to validate that metadata migration looks good.
+Hier vindt u twee schermafbeeldingen die het resultaat van een geslaagde voorbereidingsbewerking weergegeven. De eerste schermafbeelding geeft een resourcegroep met de oorspronkelijke cloudservice weer. De tweede schermafbeelding geeft de nieuwe '-gemigreerd ' resourcegroep met de equivalente Azure Resource Manager-resources weer.
 
-If you are migrating a virtual network, most configuration of virtual machines is not restarted. For applications on those VMs, you can validate that the application is still up and running.
+![Schermafbeelding van portal met klassieke cloudservice](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-classic.png)
 
-You can test your monitoring/automation and operational scripts to see if the VMs are working as expected and if your updated scripts work correctly. Only GET operations are supported when the resources are in the prepared state.
-
-There is no set time window before which you need to commit the migration. You can take as much time as you want in this state. However, the management plane is locked for these resources until you either abort or commit.
-
-If you see any issues, you can always abort the migration and go back to the classic deployment model. After you go back, the Azure platform will open the management-plane operations on the resources so that you can resume normal operations on those VMs in the classic deployment model.
-
-### <a name="abort"></a>Abort
-Abort is an optional step that you can use to revert your changes to the classic deployment model and stop the migration.
+![Schermafbeelding van Azure Resource Manager-resources in voorbereiding](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
 
 > [!NOTE]
-> This operation cannot be executed after you have triggered the commit operation.     
+> Virtuele machines die zich niet in een klassiek virtueel netwerk bevinden, worden in deze fase van de migratie gestopt en de toewijzing wordt ongedaan gemaakt.
 >
 >
 
-### <a name="commit"></a>Commit
-After you finish the validation, you can commit the migration. Resources do not appear anymore in classic and are available only in the Resource Manager deployment model. The migrated resources can be managed only in the new portal.
+### <a name="check-manual-or-scripted"></a>Controleren (handmatig of gepland)
+In de stap Controleren kunt desgewenst u de configuratie gebruiken die u eerder hebt gedownload om te valideren dat de migratie is gelukt. U kunt zich ook aanmelden bij de portal en de eigenschappen en resources controleren om er zeker van te zijn dat de migratie van de metagegevens er goed uitziet.
+
+Als u een virtueel netwerk migreert, wordt de configuratie van virtuele machines meestal niet opnieuw opgestart. U kunt valideren of de toepassingen op deze VM’s nog steeds actief zijn.
+
+U kunt uw bewaking/automatisering en operationele scripts testen om te zien of de virtuele machines werken zoals verwacht en of uw bijgewerkte scripts goed werken. Alleen GET-bewerkingen worden ondersteund wanneer de resources de status Voorbereid hebben.
+
+U hoeft de migratie niet binnen een bepaalde tijd door te voeren. U kunt zoveel tijd nemen als u wilt in deze fase. Het beheervlak is echter wel vergrendeld voor deze resources totdat u de migratie afbreekt of doorvoert.
+
+Als er problemen zijn, kunt u altijd de migratie altijd afbreken en terugkeren naar het klassieke implementatiemodel. Nadat u bent teruggegaan, opent het Azure-platform de beheervlakbewerkingen voor de resources zodat u kunt de normale bewerkingen op deze virtuele machines in het klassieke implementatiemodel kunt hervatten.
+
+### <a name="abort"></a>Afbreken
+Afbreken is een optionele stap waarmee u uw wijzigingen aan het klassieke implementatiemodel ongedaan kunt maken en de migratie kunt stoppen.
 
 > [!NOTE]
-> This is an idempotent operation. If it fails, it is recommended that you retry the operation. If it continues to fail, create a support ticket or create a forum post with a ClassicIaaSMigration tag on our [VM forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows).
+> Deze bewerking kan niet meer worden uitgevoerd nadat u de doorvoerbewerking hebt geactiveerd.     
+>
+>
+
+### <a name="commit"></a>Doorvoeren
+Nadat de validatie is voltooid, kunt u de migratie doorvoeren. Resources worden niet meer weergegeven in de klassieke versie en zijn alleen beschikbaar in het Resource Manager-implementatiemodel. De gemigreerde resources kunnen alleen in de nieuwe portal worden beheerd.
+
+> [!NOTE]
+> Dit is een idempotente bewerking. Als deze mislukt, raden we aan om de bewerking opnieuw te proberen. Als de bewerking blijft mislukken, maakt u een ondersteuningsticket of een bericht met de tag ClassicIaaSMigration op ons [VM-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows).
 >
 >
 <br>
-Here is a flowchart of the steps during a migration process
+Hier volgt een stroomdiagram van de stappen tijdens een migratie
 
-![Screenshot that shows the migration steps](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
+![Schermafbeelding van de migratiestappen](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
 
-## <a name="translation-of-classic-to-azure-resource-manager-resources"></a>Translation of classic to Azure Resource Manager resources
-You can find the classic and Resource Manager representations of the resources in the following table. Other features and resources are not currently supported.
+## <a name="translation-of-classic-to-azure-resource-manager-resources"></a>De vertaling van klassieke resources naar Azure Resource Manager-resources
+U vindt de klassieke en de Resource Manager-versies van de resources in de volgende tabel. Andere functies en resources worden momenteel niet ondersteund.
 
-| Classic representation | Resource Manager representation | Detailed notes |
+| Klassieke weergave | Weergave van de Resource Manager | Gedetailleerde opmerkingen |
 | --- | --- | --- |
-| Cloud service name |DNS name |During migration, a new resource group is created for every cloud service with the naming pattern `<cloudservicename>-migrated`. This resource group contains all your resources. The cloud service name becomes a DNS name that is associated with the public IP address. |
-| Virtual machine |Virtual machine |VM-specific properties are migrated unchanged. Certain osProfile information, like computer name, is not stored in the classic deployment model and remains empty after migration. |
-| Disk resources attached to VM |Implicit disks attached to VM |Disks are not modeled as top-level resources in the Resource Manager deployment model. They are migrated as implicit disks under the VM. Only disks that are attached to a VM are currently supported. Resource Manager VMs can now use classic storage accounts, which allows the disks to be easily migrated without any updates. |
-| VM extensions |VM extensions |All the resource extensions, except XML extensions, are migrated from the classic deployment model. |
-| Virtual machine certificates |Certificates in Azure Key Vault |If a cloud service contains service certificates, a new Azure key vault per cloud service and moves the certificates into the key vault. The VMs are updated to reference the certificates from the key vault. <br><br> **NOTE:** Please do not delete the keyvault as it can cause the VM to go into a failed state. We're working on improving things in the backend so that Key Vaults can be deleted safely or moved along with the VM to a new subscription. |
-| WinRM configuration |WinRM configuration under osProfile |Windows Remote Management configuration is moved unchanged, as part of the migration. |
-| Availability-set property |Availability-set resource | Availability-set specification was a property on the VM in the classic deployment model. Availability sets become a top-level resource as part of the migration. The following configurations are not supported: multiple availability sets per cloud service, or one or more availability sets along with VMs that are not in any availability set in a cloud service. |
-| Network configuration on a VM |Primary network interface |Network configuration on a VM is represented as the primary network interface resource after migration. For VMs that are not in a virtual network, the internal IP address changes during migration. |
-| Multiple network interfaces on a VM |Network interfaces |If a VM has multiple network interfaces associated with it, each network interface becomes a top-level resource as part of the migration in the Resource Manager deployment model, along with all the properties. |
-| Load-balanced endpoint set |Load balancer |In the classic deployment model, the platform assigned an implicit load balancer for every cloud service. During migration, a new load-balancer resource is created, and the load-balancing endpoint set becomes load-balancer rules. |
-| Inbound NAT rules |Inbound NAT rules |Input endpoints defined on the VM are converted to inbound network address translation rules under the load balancer during the migration. |
-| VIP address |Public IP address with DNS name |The virtual IP address becomes a public IP address and is associated with the load balancer. |
-| Virtual network |Virtual network |The virtual network is migrated, with all its properties, to the Resource Manager deployment model. A new resource group is created with the name `-migrated`. |
-| Reserved IPs |Public IP address with static allocation method |Reserved IPs associated with the load balancer are migrated, along with the migration of the cloud service or the virtual machine. Unassociated reserved IP migration is not currently supported. |
-| Public IP address per VM |Public IP address with dynamic allocation method |The public IP address associated with the VM is converted as a public IP address resource, with the allocation method set to static. |
-| NSGs |NSGs |Network security groups associated with a subnet are cloned as part of the migration to the Resource Manager deployment model. The NSG in the classic deployment model is not removed during the migration. However, the management-plane operations for the NSG are blocked when the migration is in progress. |
-| DNS servers |DNS servers |DNS servers associated with a virtual network or the VM are migrated as part of the corresponding resource migration, along with all the properties. |
-| UDRs |UDRs |User-defined routes associated with a subnet are cloned as part of the migration to the Resource Manager deployment model. The UDR in the classic deployment model is not removed during the migration. The management-plane operations for the UDR are blocked when the migration is in progress. |
-| IP forwarding property on a VM's network configuration |IP forwarding property on the NIC |The IP forwarding property on a VM is converted to a property on the network interface during the migration. |
-| Load balancer with multiple IPs |Load balancer with multiple public IP resources |Every public IP associated with the load balancer is converted to a public IP resource and associated with the load balancer after migration. |
-| Internal DNS names on the VM |Internal DNS names on the NIC |During migration, the internal DNS suffixes for the VMs are migrated to a read-only property named “InternalDomainNameSuffix” on the NIC. The suffix remains unchanged after migration and VM resolution should continue to work as previously. |
-| Virtual Network Gateway |Virtual Network Gateway |Virtual Network Gateway properties are migrated unchanged. The VIP associated with the gateway does not change either. |
-| Local network site |Local Network Gateway |Local network site properties are migrated unchanged to a new resource called Local Network Gateway. This represent on premises address prefixes and remote gateway IP. |
-| Connections references |Connection |Connectivity references between gateway and local network site in network configuration is represented by a newly created resource called Connection in resource manager after migration. All properties of connectivity reference in network configuration files are copied unchanged to the newly created Connection resource. VNet to VNet connectivity in classic is achieved by creating two IPsec tunnels to local network sites representing the VNets. This is transformed to Vnet2Vnet connection type in resource manager model without requiring local network gateways. |
+| Naam cloudservice |DNS-naam |Tijdens de migratie wordt een nieuwe resourcegroep gemaakt voor elke cloudservice met het naamgevingspatroon `<cloudservicename>-migrated`. Deze resourcegroep bevat al uw resources. De naam van de cloudservice wordt een DNS-naam die is gekoppeld aan het openbare IP-adres. |
+| Virtuele machine |Virtuele machine |VM-specifieke eigenschappen worden ongewijzigd gemigreerd. Bepaalde osProfile-gegevens, zoals de naam van de computer, worden niet opgeslagen in het klassieke implementatiemodel en blijven leeg na de migratie. |
+| Schijfresources die zijn gekoppeld aan de VM |Impliciete schijven die zijn gekoppeld aan de VM |Schijven worden niet gemodelleerd als resources op het hoogste niveau in het Resource Manager-implementatiemodel. Ze worden gemigreerd als impliciete schijven onder de virtuele machine. Alleen de schijven die zijn gekoppeld aan een virtuele machine worden momenteel ondersteund. Virtuele Resource Manager-machines kunnen nu gebruikmaken van klassieke opslagaccounts, waardoor de schijven eenvoudig zonder de updates kunnen worden gemigreerd. |
+| VM-extensies |VM-extensies |Alle de resource-extensies, met uitzondering van XML-extensies, worden gemigreerd vanuit het klassieke implementatiemodel. |
+| Certificaten van virtuele machine |Certificaten in Azure Key Vault |Als een cloudservice servicecertificaten bevat, wordt er een nieuwe Azure-sleutelkluis per cloudservice gemaakt en worden de certificaten verplaatst naar de sleutelkluis. De virtuele machines worden bijgewerkt zodat ze verwijzen naar de certificaten van de sleutelkluis. <br><br> **OPMERKING:** Verwijder de sleutelkluis niet. Dit kan ertoe leiden dat de VM de status Mislukt krijgt. We proberen de back-end te verbeteren zodat sleutelkluizen veilig kunnen worden verwijderd of samen met de virtuele machine naar een nieuw abonnement kunnen worden verplaatst. |
+| WinRM-configuratie |WinRM-configuratie in osProfile |De Windows Remote Management-configuratie wordt ongewijzigd verplaatst als onderdeel van de migratie. |
+| Eigenschap van beschikbaarheidsset |Resource van beschikbaarheidsset | Het specificeren van beschikbaarheidssets was een eigenschap van de virtuele machine in het klassieke implementatiemodel. Beschikbaarheidssets worden een resource op het hoogste niveau als onderdeel van de migratie. De volgende configuraties worden niet ondersteund: meerdere beschikbaarheidssets per cloudservice of één of meer beschikbaarheidssets samen met de virtuele machines die zich niet in een beschikbaarheidsset in een cloudservice bevinden. |
+| Netwerkconfiguratie op een virtuele machine |Primaire netwerkinterface |De netwerkconfiguratie op een virtuele machine wordt weergegeven als de resource primaire netwerkinterface na de migratie. Het interne IP-adres van virtuele machines die zich niet in een virtueel netwerk bevinden, wordt gewijzigd tijdens de migratie. |
+| Meerdere netwerkinterfaces in een VM |Netwerkinterfaces |Als aan een virtuele machine meerdere netwerkinterfaces zijn gekoppeld, wordt elke netwerkinterface een resource op het hoogste niveau als onderdeel van de migratie naar het Resource Manager-implementatiemodel, samen met alle eigenschappen. |
+| Eindpuntset met gelijke taakverdeling |Load balancer |In het klassieke implementatiemodel wees het platform een impliciete load balancer toe aan elke cloudservice. Tijdens de migratie wordt een nieuwe load-balancerresource gemaakt. De eindpuntset met gelijke taakverdeling wordt omgezet in load-balancerregels. |
+| Inkomende NAT-regels |Inkomende NAT-regels |Invoereindpunten die zijn gedefinieerd op de virtuele machine worden tijdens de migratie geconverteerd naar binnenkomende vertaalregels voor netwerkadressen onder de load balancer. |
+| VIP-adres |Openbaar IP-adres met DNS-naam |Het virtuele IP-adres verandert in een openbaar IP-adres en is gekoppeld aan de load balancer. Een virtueel IP-adres kan alleen worden gemigreerd als er een invoereindpunt aan is toegewezen. |
+| Virtueel netwerk |Virtueel netwerk |Het virtuele netwerk wordt met alle eigenschappen gemigreerd naar het Resource Manager-implementatiemodel. Er wordt een nieuwe resourcegroep gemaakt met de naam `-migrated`. |
+| Gereserveerde IP-adressen |Openbaar IP-adres met een statische toewijzingsmethode |Gereserveerd IP-adressen die zijn gekoppeld aan de load balancer worden gemigreerd, samen met de migratie van de cloudservice of de virtuele machine. Niet-gekoppelde gereserveerde IP-migratie wordt momenteel niet ondersteund. |
+| Openbaar IP-adres per VM |Openbaar IP-adres met een dynamische toewijzingsmethode |Het openbare IP-adres dat is gekoppeld aan de virtuele machine wordt geconverteerd naar een openbare IP-adresresource. De toewijzingsmethode wordt ingesteld op statisch. |
+| NSG's |NSG's |Netwerkbeveiligingsgroepen die zijn gekoppeld aan een subnet worden gekloond als onderdeel van de migratie naar het Resource Manager-implementatiemodel. De NSG in het klassieke implementatiemodel wordt niet verwijderd tijdens de migratie. De bewerkingen op het beheervlak voor de NSG worden echter geblokkeerd wanneer de migratie wordt uitgevoerd. |
+| DNS-servers |DNS-servers |DNS-servers die zijn gekoppeld aan een virtueel netwerk of de virtuele machine worden gemigreerd als onderdeel van de bijbehorende resourcemigratie, samen met alle eigenschappen. |
+| UDR's |UDR's |Door de gebruiker gedefinieerde routes die zijn gekoppeld aan een subnet worden gekloond als onderdeel van de migratie naar het Resource Manager-implementatiemodel. De UDR in het klassieke implementatiemodel wordt niet verwijderd tijdens de migratie. De bewerkingen op het beheervlak voor de UDR worden geblokkeerd wanneer de migratie wordt uitgevoerd. |
+| De eigenschap Doorsturen via IP op de netwerkconfiguratie van een virtuele machine |De eigenschap Doorsturen via IP op de NIC |De eigenschap Doorsturen via IP op een virtuele machine wordt tijdens de migratie geconverteerd naar een eigenschap op de netwerkinterface. |
+| Load balancer met meerdere IP-adressen |Load balancer met meerdere openbare IP-resources |Elke openbaar IP-adres dat is gekoppeld aan de load balancer wordt omgezet in een openbare IP-resource en gekoppeld aan de load balancer na de migratie. |
+| Interne DNS-namen op de virtuele machine |Interne DNS-namen op de NIC |Tijdens de migratie worden de interne DNS-achtervoegsels voor de virtuele machines gemigreerd naar een alleen-lezeneigenschap met de naam 'InternalDomainNameSuffix' op de NIC. Het achtervoegsel blijft ongewijzigd na de migratie en de VM-resolutie moet blijven werken als voorheen. |
+| Gateway voor een virtueel netwerk |Gateway voor een virtueel netwerk |Eigenschappen van de gateway voor virtuele netwerken worden ongewijzigd gemigreerd. Het VIP dat is gekoppeld aan de gateway wordt ook niet gewijzigd. |
+| Lokale netwerksite |Lokale netwerkgateway |Eigenschappen van de lokale netwerksite worden ongewijzigd gemigreerd aan een nieuwe resource met de naam Lokale netwerkgateway. Deze bevat on-premises adresvoorvoegsels en een externe gateway-IP. |
+| Verwijzingen naar verbindingen |Verbinding |Na de migratie worden de verwijzingen naar verbindingen tussen de gateway en de lokale netwerksite in de netwerkconfiguratie in Resource Manager vertegenwoordigd door een nieuwe resource met de naam Verbinding. Alle eigenschappen van verwijzingen naar verbindingen tussen netwerkconfiguratiebestanden worden ongewijzigd gekopieerd naar de nieuwe resource Verbinding. Verbindingen tussen VNets worden in de klassieke versie tot stand gebracht door twee IPsec-tunnels te maken naar lokale netwerksites die de VNets vertegenwoordigen. Dit wordt in het Resource Manager-model omgezet naar het verbindingstype Vnet2Vnet. Hiervoor zijn geen lokale netwerkgateways vereist. |
 
-## <a name="changes-to-your-automation-and-tooling-after-migration"></a>Changes to your automation and tooling after migration
-As part of migrating your resources from the Classic deployment model to the Resource Manager deployment model, you have to update your existing automation or tooling to ensure that it continues to work after the migration.
+## <a name="changes-to-your-automation-and-tooling-after-migration"></a>Wijzigingen aanbrengen in uw automatisering en hulpprogramma’s na de migratie
+U moet uw bestaande automatisering of hulpprogramma’s bijwerken om ervoor te zorgen dat de blijven werken blijft werken na de migratie. Dit is onderdeel van de migratie van uw resources van het klassieke implementatiemodel naar het Resource Manager-implementatiemodel.

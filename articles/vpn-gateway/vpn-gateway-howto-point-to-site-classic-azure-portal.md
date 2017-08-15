@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2017
+ms.date: 08/03/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 6735049b6068d9afe192b6ea4450e970fcf5f7d4
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 6b0faf24963c6055ce7c54b9d46b5aa0851f40b2
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Een punt-naar-site-verbinding naar een VNet configureren met behulp van verificatie via een certificaat (klassiek): Azure Portal
@@ -95,7 +95,7 @@ Als u nog geen virtueel netwerk hebt, maakt u er een. De schermafbeeldingen dien
 
   ![Tegel Virtueel netwerk maken](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png)
 10. Wanneer het virtuele netwerk is gemaakt, wordt op de pagina met netwerken in de klassieke Azure-portal **Gemaakt** vermeld onder **Status**.
-11. Voeg een DNS-server toe (optioneel). Nadat u uw virtuele netwerk hebt gemaakt, kunt u het IP-adres van een DNS-server voor naamomzetting toevoegen. De DNS-server die u opgeeft moet een DNS-server zijn die de namen voor de resources in uw VNet kan omzetten.<br>Open de instellingen voor het virtuele netwerk, klik op de DNS-servers en voeg het IP-adres toe van de DNS-server die u wilt gebruiken om een DNS-server toe te voegen. Het clientconfiguratiepakket dat u in een later stadium maakt, bevat de IP-adressen van de DNS-servers die u in deze instelling opgeeft. Als u de lijst met DNS-servers in de toekomst moet bijwerken, kunt u nieuwe VPN-clientconfiguratiepakketten genereren die overeenkomen met de bijgewerkte lijst.
+11. Voeg een DNS-server toe (optioneel). Nadat u uw virtuele netwerk hebt gemaakt, kunt u het IP-adres van een DNS-server voor naamomzetting toevoegen. Het IP-adres dat u opgeeft voor de DNS-server, moet het adres zijn van een DNS-server die de namen van de resources in uw VNet kan omzetten.<br>Open de instellingen voor het virtuele netwerk, klik op de DNS-servers en voeg het IP-adres toe van de DNS-server die u wilt gebruiken om een DNS-server toe te voegen.
 
 ### <a name="gateway"></a>Deel 2: Een gatewaysubnet en een gateway voor dynamische routering maken
 
@@ -161,7 +161,7 @@ Wanneer de gateway is gemaakt, uploadt u het CER-bestand (dat de informatie over
 
 ## <a name="vpnclientconfig"></a>Sectie 4: De client configureren
 
-Als u verbinding wilt maken met een VNet met behulp van een punt-naar-site-VPN, moet op elke client een pakket worden geïnstalleerd om de systeemeigen Windows VPN-client te configureren. Het configuratiepakket configureert de systeemeigen Windows VPN-client met de instellingen die nodig zijn om verbinding te maken met het virtuele netwerk, en als u een DNS-server voor uw VNet hebt opgegeven, bevat het pakket het IP-adres van de DNS-server die de client gaat gebruiken voor naamomzetting. Als u de opgegeven DNS-server later wijzigt, na het genereren van het clientconfiguratiepakket, moet u een nieuw clientconfiguratiepakket genereren om op uw clientcomputers te installeren.
+Als u verbinding wilt maken met een VNet met behulp van een punt-naar-site-VPN, moet op elke client een pakket worden geïnstalleerd om de systeemeigen Windows VPN-client te configureren. Met het configuratiepakket wordt de systeemeigen Windows VPN-client geconfigureerd met de instellingen die nodig zijn om verbinding te maken met het virtuele netwerk.
 
 U kunt hetzelfde configuratiepakket voor de VPN-client gebruiken op elke clientcomputer, mits de versie overeenkomt met de architectuur van de client. Zie voor de lijst met ondersteunde clientbesturingssystemen de [Veelgestelde vragen over punt-naar-site-verbindingen](#faq) onderaan dit artikel.
 

@@ -13,24 +13,23 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 08/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 0b15399cade0a9dc21b2274a64172d65f2f4e877
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: e9a3aedfb6e55696e1525e226fada1062fd5eda8
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="deploy-a-model-from-ssdt"></a>Een model implementeren vanuit SSDT
 Wanneer u een server in uw Azure-abonnement hebt gemaakt, kunt u een tabellaire modeldatabase op de server implementeren. U kunt SQL Server Data Tools (SSDT) gebruiken om een project voor een tabellair model te bouwen en implementeren waaraan u werkt. 
 
-## <a name="before-you-begin"></a>Voordat u begint
+## <a name="prerequisites"></a>Vereisten
 Om aan de slag te gaan, hebt u het volgende nodig:
 
 * **Analysis Services-server** in Azure. Zie [Create an Azure Analysis Services server in Azure portal](analysis-services-create-server.md) (Een Azure Analysis Services-server maken in Azure Portal) voor meer informatie.
-* **Project voor tabellair model** in SSDT of een bestaand tabellair model op het compatibiliteitsniveau 1200 of hoger. Nog nooit zo'n project gemaakt? Volg dan eerst de [Adventure Works-zelfstudie](https://msdn.microsoft.com/library/hh231691.aspx).
+* **Project voor tabellair model** in SSDT of een bestaand tabellair model op het compatibiliteitsniveau 1200 of hoger. Nog nooit zo'n project gemaakt? Raadpleeg de [Adventure Works Internet sales tabular modeling tutorial](https://msdn.microsoft.com/library/hh231691.aspx) (Zelfstudie voor tabellaire modellen bij Adventure Works-internetverkoop).
 * **On-premises gateway**: als een of meer gegevensbronnen on-premises zijn opgeslagen in het netwerk van uw organisatie, moet u een [on-premises gegevensgateway](analysis-services-gateway.md) installeren. De gateway is nodig om uw server in de cloud verbinding te laten maken met uw on-premises gegevensbronnen om gegevens in het model te verwerken en te vernieuwen.
 
 > [!TIP]
@@ -57,7 +56,7 @@ Om aan de slag te gaan, hebt u het volgende nodig:
 Dat is alles!
 
 
-## <a name="but-something-went-wrong"></a>Maar er is iets verkeerd gegaan
+## <a name="troubleshooting"></a>Problemen oplossen
 Als de implementatie mislukt tijdens het implementeren van metagegevens, is de kans groot dat SSDT geen verbinding kan maken met de server. Zorg ervoor dat u verbinding kunt maken met de server met behulp van SSMS. Controleer vervolgens of de eigenschap Deployment Server voor het project juist is ingesteld.
 
 Als de implementatie mislukt bij een tabel, komt dat waarschijnlijk omdat de server geen verbinding kan maken met een gegevensbron. Als uw gegevensbron on-premises in het netwerk van uw organisatie is opgeslagen, moet u een [on-premises gegevensgateway](analysis-services-gateway.md) installeren.

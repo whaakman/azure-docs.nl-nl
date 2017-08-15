@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 07/12/2017
+ms.date: 08/04/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: c065d692d2a4ac369cb13a70d09b30498e6c9106
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: e89058a500aeb542ae4c7dc6bb4a9b9ae54db7f2
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -33,30 +33,32 @@ Meld u aan bij [Azure Portal](https://portal.azure.com).
 Een Azure Database voor PostgreSQL-server wordt gemaakt met een gedefinieerde set [reken- en opslagresources](./concepts-compute-unit-and-storage.md). De server wordt gemaakt in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md).
 
 Volg deze stappen voor het maken van een Azure Database voor PostgreSQL-server:
-1.  Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+1.  Klik op de knop **Nieuw** (+) in de linkerbovenhoek van Azure Portal.
 2.  Selecteer **Databases** op de pagina **Nieuw** en selecteer **Azure Database voor PostgreSQL** op de pagina **Databases**.
  ![Azure Database voor PostgreSQL - De database maken](./media/quickstart-create-database-portal/1-create-database.png)
 
 3.  Vul het formulier voor gegevens van nieuwe server in met de volgende informatie, zoals in de voorgaande afbeelding wordt weergegeven:
-    - Servernaam: **mypgserver 20170401** (kies een unieke servernaam, omdat deze naam wordt toegewezen aan de DNS-naam)
-    - Abonnement: als u meerdere abonnementen hebt, kiest u het abonnement waarin de resource bestaat of waarvoor wordt gefactureerd.
-    - Resourcegroep: **myresourcegroup**
-    - De aanmeldgegevens van de serverbeheerder (gebruikersnaam en wachtwoord)
-    - Locatie: kies de dichtstbijzijnde locatie.
-    - PostgreSQL-versie: kies de meest recente versie.
+
+    Instelling|Voorgestelde waarde|Beschrijving
+    ---|---|---
+    Servernaam |*mypgserver-20170401*|Kies een unieke naam ter identificatie van uw Azure-database voor PostgreSQL-server. De domeinnaam *postgres.database.azure.com* wordt toegevoegd aan de naam van de server die u opgeeft voor de toepassingen waarmee verbinding moet worden gemaakt. De servernaam mag alleen kleine letters, cijfers en het koppelteken (-) bevatten en moet 3 tot 63 tekens lang zijn.
+    Abonnement|*Uw abonnement*|Het Azure-abonnement dat u wilt gebruiken voor uw server. Als u meerdere abonnementen hebt, kiest u het juiste abonnement waarin de resource zal worden gefactureerd.
+    Resourcegroep|*myresourcegroup*| U kunt een nieuwe resourcegroepnaam maken of een bestaande naam uit uw abonnement gebruiken.
+    Aanmeldgegevens van serverbeheerder |*mylogin*| Maak uw eigen aanmeldingsaccount die moet worden gebruikt wanneer verbinding wordt gemaakt met de server. De aanmeldingsnaam voor de beheerder kan niet 'azure_superuser', 'azure_pg_admin', 'admin', ' administrator', 'root', 'guest' of 'public' zijn en mag niet beginnen met 'pg_'.
+    Wachtwoord |*Uw keuze* | Maak een nieuw wachtwoord voor het beheerdersaccount voor de server. Het moet 8 tot 128 tekens bevatten. Uw wachtwoord moet tekens bevatten uit drie van de volgende categorieën: Nederlandse hoofdletters, Nederlandse kleine letters, cijfers (0-9) en niet-alfanumerieke tekens (!, $, #, %, etc.).
+    Locatie|*De regio het dichtst bij uw gebruikers*| Kies de locatie die het dichtst bij uw gebruikers is.
+    PostgreSQL-versie|*Kies de nieuwste versie*| Kies de meest recente versie, tenzij u specifieke vereisten hebt.
+    Prijscategorie | **Basic**, **50 rekeneenheden**, **50 GB** | Klik op **Prijscategorie** om de servicelaag en het prestatieniveau voor de nieuwe database op te geven. Kies de prijscategorie Basic op het tabblad bovenaan. Klik aan de linkerkant van de schuifregelaar Rekeneenheden zodat de waarde zo laag mogelijk is voor deze snelstartgids. Klik vervolgens op **OK** om de geselecteerde prijscategorie op te slaan. Zie de volgende schermafbeelding.
+    | Vastmaken aan dashboard | Selecteren | Selecteer de optie **Vastmaken aan dashboard** om het eenvoudig bijhouden van uw server op de eerste dashboardpagina van uw Azure Portal in te schakelen.
 
   > [!IMPORTANT]
   > De beheerdersaanmelding bij de server en het wachtwoord die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze Quick Start. Onthoud of noteer deze informatie voor later gebruik.
 
-4.  Klik op **Prijscategorie** om de servicelaag en het prestatieniveau voor de nieuwe database op te geven. Selecteer voor deze Quick Start de laag **Basic**, **50 rekeneenheden** en **50 GB** bijbehorende opslag.
- ![Azure Database voor PostgreSQL - De servicelaag kiezen](./media/quickstart-create-database-portal/2-service-tier.png)
-5.  Klik op **OK**.
-6.  Klik op **Maken** om de server in te richten. De inrichting duurt een paar minuten.
+    ![Azure Database voor PostgreSQL - De prijscategorie kiezen](./media/quickstart-create-database-portal/2-service-tier.png)
 
-  > [!TIP]
-  > Schakel de optie **Vastmaken aan dashboard** in om uw implementaties eenvoudig te kunnen volgen.
+4.  Klik op **Maken** om de server in te richten. Het inrichten duurt enkele minuten, maximaal 20 minuten.
 
-7.  Klik op de werkbalk op **Meldingen** om het implementatieproces te bewaken.
+5.  Klik op de werkbalk op **Meldingen** om het implementatieproces te bewaken.
  ![Azure Database voor PostgreSQL - Meldingen bekijken](./media/quickstart-create-database-portal/3-notifications.png)
    
   De database **postgres** wordt gemaakt op uw server. De database [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) is een standaarddatabase die kan worden gebruikt door gebruikers, hulpprogramma's en toepassingen van derden. 
@@ -65,64 +67,87 @@ Volg deze stappen voor het maken van een Azure Database voor PostgreSQL-server:
 
 De Azure Database voor PostgreSQL-service maakt een firewall op serverniveau. De firewall voorkomt dat externe toepassingen en hulpprogramma's verbinding maken met de server of databases op de server, tenzij er een firewallregel wordt gemaakt om de firewall te openen voor specifieke IP-adressen. 
 
-1.  Nadat de implementatie is voltooid, klikt u op **Alle resources** in het menu links en voert u de naam **mypgserver-20170401** in om te zoeken naar de zojuist gemaakte server. Klik op de servernaam in de zoekresultaten. De pagina **Overzicht** wordt geopend voor uw server en biedt opties voor verdere configuratie.
+1.  Ga naar de server nadat de implementatie is voltooid. Indien nodig u kunt zoeken. Klik bijvoorbeeld op **Alle resources** in het menu links en voer de naam van de server (bijvoorbeeld mypgserver-20170401) in om te zoeken naar de zojuist gemaakte server. Klik op de servernaam in de zoekresultaten. De pagina Overzicht wordt geopend voor uw server en biedt opties voor verdere configuratie.
  
- ![Azure Database voor PostgreSQL - Zoeken naar de server ](./media/quickstart-create-database-portal/4-locate.png)
+    ![Azure Database voor PostgreSQL - Zoeken naar de server ](./media/quickstart-create-database-portal/4-locate.png)
 
-2.  Op de serverblade selecteert u **Verbindingsbeveiliging**. 
-3.  Klik in het tekstvak onder **Regelnaam** en voeg een nieuwe firewallregel toe om het IP-bereik voor connectiviteit op de goedgekeurde lijst te plaatsen. In deze Quick Start gaat u alle IP-adressen toestaan door het volgende in te voeren: **Regelnaam = AllowAllIps**, **Begin-IP-adres = 0.0.0.0** en **Eind-IP-adres = 255.255.255.255**. Klik daarna op **Opslaan**. U kunt een firewallregel voor een IP-bereik zodat u vanaf uw netwerk verbinding kunt maken.
+2.  Op de serverpagina selecteert u **Verbindingsbeveiliging**. 
+    ![Azure Database voor PostgreSQL - Een firewallregel maken](./media/quickstart-create-database-portal/5-firewall-2.png)
 
- ![Azure Database voor PostgreSQL - Een firewallregel maken](./media/quickstart-create-database-portal/5-firewall-2.png)
+3.  Klik onder de kop **Firewallregels** in het lege tekstvak in de kolom **Regelnaam** om te beginnen met het maken van de firewallregel. 
 
-4.  Klik op **Opslaan** en klik vervolgens op **X** om de pagina **Verbindingsbeveiliging** te sluiten.
+    In deze snelstartgids staan we alle IP-adressen toe in de server door de volgende waarden in te vullen in het tekstvak in elke kolom:
 
-  > [!NOTE]
-  > De Azure PostgreSQL-server communiceert via poort 5432. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 5432 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u alleen verbinding maken met uw Azure SQL Database-server als uw IT-afdeling poort 5432 openstelt.
+    Regelnaam | Start-IP | Eind-IP 
+    ---|---|---
+    AllowAllIps |  0.0.0.0 | 255.255.255.255
+
+4. Klik in de bovenste werkbalk van de pagina Verbindingsbeveiliging op **Opslaan**. Klik op **X** om de pagina Verbindingsbeveiliging te sluiten.
+
+    > [!NOTE]
+    > De Azure PostgreSQL-server communiceert via poort 5432. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 5432 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u alleen verbinding maken met uw Azure SQL Database-server als uw IT-afdeling poort 5432 openstelt.
   >
 
 ## <a name="get-the-connection-information"></a>De verbindingsgegevens ophalen
 
-Wanneer u de Azure Database voor PostgreSQL-server maakt, wordt de standaarddatabase **postgres** ook gemaakt. Als u verbinding met uw databaseserver wilt maken, moet u hostgegevens en toegangsreferenties opgeven.
+Wanneer u de Azure Database voor PostgreSQL-server maakt, wordt de standaarddatabase met de naam **postgres** gemaakt. Voor verbinding met uw databaseserver, moet u de volledige servernaam en aanmeldingsreferenties van de beheerder intrekken. U hebt deze waarden mogelijk al eerder in dit snelstartartikel genoteerd. Als u niet hebt gedaan, kunt u de servernaam en aanmeldingsgegevens gemakkelijk terugvinden op de overzichtspagina voor servers in de Azure portal.
 
-1. In het menu links in Azure Portal klikt u op **Alle resources** en zoekt u naar de server die u zojuist hebt gemaakt: **mypgserver-20170401**.
-
-  ![Azure Database voor PostgreSQL - Zoeken naar de server ](./media/quickstart-create-database-portal/4-locate.png)
-
-2. Klik op de servernaam **mypgserver-20170401**.
-3. Selecteer de pagina **Overzicht** van de server. Noteer de **servernaam** en de **gebruikersnaam van de serverbeheerder**.
+1. Open de pagina **Overzicht** van de server. Noteer de **servernaam** en de **gebruikersnaam van de serverbeheerder**.
+    Beweeg de muisaanwijzer de cursor over elk veld. Het kopieerpictogram wordt rechts van de tekst weergegeven. Klik op het kopieerpictogram indien nodig om de waarden te kopiëren.
 
  ![Azure Database voor PostgreSQL - Aanmeldgegevens van de serverbeheerder](./media/quickstart-create-database-portal/6-server-name.png)
 
 ## <a name="connect-to-postgresql-database-using-psql-in-cloud-shell"></a>Verbinding maken met een PostgreSQL-database met behulp van psql in Cloud Shell
 
-U gaat nu het opdrachtregelprogramma psql gebruiken om verbinding te maken met de Azure Database voor PostgreSQL-server. 
+Er zijn een aantal toepassingen die kunt gebruiken om verbinding te maken met uw Azure Database voor PostgreSQL-server. We gaan eerst het opdrachtregelprogramma psql gebruiken om te laten zien hoe u verbinding maakt met de server.  U kunt een webbrowser en de Azure Cloud Shell gebruiken zoals hier wordt beschreven, zonder dat u extra software hoeft te installeren. Als het hulpprogramma psql lokaal op uw computer is geïnstalleerd, kunt u dit ook gebruiken om verbinding te maken.
+
 1. Open Azure Cloud Shell via het terminalpictogram in het navigatiedeelvenster bovenaan.
 
    ![Azure Database voor PostgreSQL - Azure Cloud Shell-terminalpictogram](./media/quickstart-create-database-portal/7-cloud-console.png)
 
-2. Azure Cloud Shell wordt geopend in uw browser zodat u bash-opdrachten kunt invoeren.
+2. Azure Cloud Shell wordt geopend in uw browser zodat u bash shell-opdrachten kunt invoeren.
 
    ![Azure-Database voor PostgreSQL - Azure Shell-bash-prompt](./media/quickstart-create-database-portal/8-bash.png)
 
-3. Maak bij de Cloud Shell-prompt verbinding met uw Azure Database voor PostgreSQL-server door de psql-opdrachtregel te typen bij de prompt. De volgende indeling wordt gebruikt om verbinding te maken met een Azure Database voor PostgreSQL-server via het [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html)-hulpprogramma:
-   ```bash
-   psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
-   ```
+3. Maak bij de Cloud Shell-prompt verbinding met een database in uw Azure Database voor PostgreSQL-server door de psql-opdrachtregel te typen bij de groene prompt.
 
-   Met de volgende opdracht maakt u bijvoorbeeld verbinding met de standaarddatabase **postgres** op uw PostgreSQL-server **mypgserver-20170401.postgres.database.azure.com** met behulp van toegangsreferenties. Gebruik altijd poort **5432** wanneer u verbinding gaat maken. Voer het wachtwoord van de serverbeheerder in wanneer dat wordt gevraagd. Gebruik spaties tussen de --schakelopties in de opdracht zoals wordt weergegeven, maar gebruik geen spaties tussen de gelijktekens en de parameterwaarden.
+    De volgende indeling wordt gebruikt om verbinding te maken met een Azure Database voor PostgreSQL-server via het [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html)-hulpprogramma:
+    ```bash
+    psql --host=<yourserver> --port=<port> --username=<server admin login> --dbname=<database name>
+    ```
 
-   ```bash
-   psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
-   ```
-4.  Wanneer u met de server bent verbonden, maakt u in het prompt een lege database.
-```bash
-CREATE DATABASE mypgsqldb;
-```
+    De volgende opdracht maakt bijvoorbeeld verbinding met een voorbeeldserver:
+
+    ```bash
+    psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
+    ```
+
+    psql parameter |Voorgestelde waarde|Beschrijving
+    ---|---|---
+    --host | *servernaam* | Geef de waarde van de servernaam op die u hebt gebruikt toen u de Azure Database voor PostgreSQL hebt gemaakt. Onze weergegeven voorbeeldserver mypgserver-20170401.postgres.database.azure.com. Gebruik de FQDN (Fully Qualified Domain Name) (\*. postgres.database.azure.com) zoals weergegeven in het voorbeeld. Volg de vorige sectie om de verbindingsgegevens op te halen als u de servernaam bent vergeten. 
+    --poort | **5432** | Gebruik altijd poort 5432 bij het verbinden met Azure Database voor PostgreSQL. 
+    --gebruikersnaam | *aanmeldnaam van serverbeheerder* |Typ de gebruikersnaam van de serverbeheerder die u hebt opgegeven toen u de Azure Database voor PostgreSQL hebt gemaakt. Volg de vorige sectie om de verbindingsgegevens op te halen als u de gebruikersnaam bent vergeten.  De indeling is *username@servername*.
+    --dbnaam | **postgres** | Gebruik de standaardnaam voor de database *postgres* die door het systeem is gegenereerd voor de eerste verbinding. Later kunt u uw eigen database maken.
+
+    Na het uitvoeren van de psql-opdracht met uw eigen parameterwaarden, wordt u gevraagd het beheerderswachtwoord van de server in te voeren. Dit is het wachtwoord dat u hebt opgegeven tijdens het maken van de server. 
+
+    psql parameter |Voorgestelde waarde|Beschrijving
+    ---|---|---
+    wachtwoord | *uw beheerderswachtwoord* | Houd er rekening mee dat de getypte wachtwoordtekens niet worden weergegeven op de bash-prompt. Druk op enter nadat u de tekens hebt getypt om te verifiëren en verbinding te maken.
+
+4.  Wanneer u met de server bent verbonden, maakt u in het prompt een lege database door de volgende opdracht te typen:
+    ```bash
+    CREATE DATABASE mypgsqldb;
+    ```
 
 5.  In het prompt voert u de volgende opdracht uit om verbinding te maken met de zojuist gemaakte database **mypgsqldb**.
-```bash
-\c mypgsqldb
-```
+    ```bash
+    \c mypgsqldb
+    ```
+
+6.  Typ \q en druk op ENTER om psql af te sluiten. U kunt de Azure Cloud Shell sluiten.
+
+U hebt nu verbinding met de Azure Database voor PostgreSQL en hebt een lege gebruikersdatabase gemaakt. Ga verder met de volgende sectie om verbinding te maken via een ander algemeen hulpprogramma: pgAdmin.
 
 ## <a name="connect-to-postgresql-database-using-pgadmin"></a>Verbinding maken met een PostgreSQL-database met behulp van pgAdmin
 

@@ -1,5 +1,5 @@
 ---
-title: 'Quick Start: Azure AD-self-service voor wachtwoordherstel | Microsoft Docs'
+title: 'Snelstartgids: Azure AD-SSPR | Microsoft Docs'
 description: Wachtwoorden snel opnieuw instellen voor Azure AD via self-service
 services: active-directory
 keywords: 
@@ -13,17 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 52f89520fef8fc9ddb6e8e10a59ec35600affb2a
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: c41a16a3c43064a094b0980bc1a8294b093c6130
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/08/2017
 
 ---
-# <a name="quick-start-azure-ad-self-service-password-reset"></a>Quick Start: wachtwoorden opnieuw instellen voor Azure AD via self-service
+# <a name="quickstart-azure-ad-self-service-password-reset"></a>Snelstartgids: Azure AD-selfservice voor wachtwoordherstel
+
+> [!IMPORTANT]
+> **Bent u hier terechtgekomen omdat u problemen ondervindt met het aanmelden?** Als dat het geval is, vindt u hier meer informatie over het [wijzigen en opnieuw instellen van uw eigen wachtwoord](active-directory-passwords-update-your-own-password.md).
 
 ## <a name="rapidly-deploy-self-service-password-reset"></a>Wachtwoorden snel opnieuw instellen via self-service
 
@@ -72,11 +75,17 @@ Als u on-premises identiteitssynchronisatie met Azure AD wilt inschakelen, moet 
 * [Aan de slag met Azure AD Connect met Express-instellingen](./connect/active-directory-aadconnect-get-started-express.md)
 * [Configureer write-back van wachtwoord](active-directory-passwords-writeback.md#configuring-password-writeback) om wachtwoorden van Azure AD terug te schrijven naar uw on-premises directory.
 
-## <a name="disabling-self-service-password-reset"></a>Self-service voor wachtwoordherstel uitschakelen
+## <a name="disabling-self-service-password-reset"></a>Selfservice voor wachtwoordherstel uitschakelen
 
-Het uitschakelen van self-service voor wachtwoordherstel is heel eenvoudig. Open uw Azure AD-tenant en ga naar **Wachtwoordherstel > Eigenschappen**. Kies **Niemand** onder **Self-service voor wachtwoord opnieuw instellen is ingeschakeld**
+Het uitschakelen van selfservice voor wachtwoordherstel is heel eenvoudig. Open de Azure AD-tenant en ga naar **Wachtwoordherstel > Eigenschappen**. Kies **Geen** onder **Selfservice voor wachtwoord opnieuw instellen is ingeschakeld**
 
 ## <a name="next-steps"></a>Volgende stappen
+
+In deze snelstartgids hebt u geleerd hoe u selfservice voor wachtwoordherstel kunt configureren voor uw gebruikers. Volg de onderstaande koppeling naar de portal om naar Azure Portal te gaan en deze stappen te voltooien.
+
+> [!div class="nextstepaction"]
+> [Selfservice voor wachtwoordherstel inschakelen](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+
 De volgende koppelingen bieden aanvullende informatie over wachtwoordherstel met behulp van Azure AD
 
 * [**Licentieverlening**](active-directory-passwords-licensing.md): uw Azure AD-licentieverlening configureren

@@ -17,10 +17,10 @@ ms.topic: get-started-article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 6f204f2f0dca33e68b9853af3c94934af65ca1f9
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: a765aeffbaa7fd94aa0ef8e3885c03e5b5098c6e
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Vragen over de Azure Backup-service
@@ -53,8 +53,9 @@ Het is niet mogelijk om de inhoud van een Backup-kluis te migreren naar een Reco
 Herstelpunten van klassieke virtuele machines in een back-upkluis worden niet automatisch naar de Recovery Services-kluis gemigreerd wanneer u de virtuele machine van de klassieke naar de Resource Manager-modus migreert. Volg deze stappen om de back-ups van uw virtuele machine over te dragen:
 
 1. Ga in de Backup-kluis naar het tabblad **Beveiligde items** en selecteer de virtuele machine. Klik op [Beveiliging stoppen](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Laat de optie *Gekoppelde back-upgegevens verwijderen* **uitgeschakeld**.
-2. Migreer de virtuele machines van de klassieke modus naar de Resource Manager-modus. Zorg ervoor dat de opslagruimte en de netwerkgegevens die corresponderen met de virtuele machine, ook naar de Resource Manager-modus worden gemigreerd.
-3. Maak een Recovery Services-kluis en configureer de back-up op de gemigreerde virtuele machine met behulp van de actie **Back-up** bovenaan in het dashboard van de kluis. Zie het artikel [Virtuele Azure-machines beveiligen met een Recovery Services-kluis](backup-azure-vms-first-look-arm.md) voor meer informatie over het maken van back-ups van virtuele machines naar een Recovery Services-kluis.
+2. Verwijder de back-up-/momentopname-extensie uit de VM.
+3. Migreer de virtuele machines van de klassieke modus naar de Resource Manager-modus. Zorg ervoor dat de opslagruimte en de netwerkgegevens die corresponderen met de virtuele machine, ook naar de Resource Manager-modus worden gemigreerd.
+4. Maak een Recovery Services-kluis en configureer de back-up op de gemigreerde virtuele machine met behulp van de actie **Back-up** bovenaan in het dashboard van de kluis. Zie het artikel [Virtuele Azure-machines beveiligen met een Recovery Services-kluis](backup-azure-vms-first-look-arm.md) voor meer informatie over het maken van back-ups van virtuele machines naar een Recovery Services-kluis.
 
 ## <a name="azure-backup-agent"></a>Azure Backup-agent
 Een uitgebreide lijst met vragen vindt u in [FAQ on Azure file-folder backup](backup-azure-file-folder-backup-faq.md) (Veelgestelde vragen over het maken van back-ups van Azure-bestandsmappen)

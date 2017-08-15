@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 4b649379ce41a4d6cea93b42fc492fdc0940e689
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 75c3279d2d02cb3c6e949d191c88a1eb18b58a27
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="url-path-based-routing-overview"></a>Overzicht van op URL-pad gebaseerde routering
@@ -33,7 +32,10 @@ In het volgende voorbeeld verzorgt de toepassingsgateway het verkeer voor contos
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
 Aanvragen voor http://contoso.com/video* worden gerouteerd naar VideoServerPool en http://contoso.com/images* naar ImageServerPool. Als geen van de padpatronen overeenkomen, wordt DefaultServerPool geselecteerd.
-    
+
+> [!IMPORTANT]
+> Regels worden verwerkt in de volgorde die wordt weergegeven in de portal. Het is raadzaam om eerst listeners voor meerdere locaties te configureren voordat u een basislistener configureert.  Dit zorgt ervoor dat verkeer naar de juiste back-end wordt geleid. Als een basislistener als eerste wordt weergegeven en overeenkomt met een inkomende aanvraag, wordt deze door die listener verwerkt.
+
 ## <a name="urlpathmap-configuration-element"></a>Configuratie-element UrlPathMap
 
 Het element UrlPathMap wordt gebruikt om padpatronen op te geven voor back-endservergroepstoewijzingen. Het volgende codevoorbeeld is het fragment van het urlPathMap-element van het sjabloonbestand.
@@ -68,7 +70,7 @@ Het element UrlPathMap wordt gebruikt om padpatronen op te geven voor back-endse
 ```
 
 > [!NOTE]
-> PathPattern: deze instelling is een lijst van padpatronen voor aanpassing. Elk hiervan moet beginnen met / en de enige plaats waar een "*" is toegestaan, is aan het einde na een "/". De tekenreeks die is ingevoerd in de padvergelijking, bevat geen tekst na de eerste ? of # en die tekens zijn hier niet toegestaan.
+> PathPattern: deze instelling is een lijst van padpatronen voor aanpassing. Elk hiervan moet beginnen met / en de enige plaats waar een * is toegestaan, is aan het einde na een /. De tekenreeks die is ingevoerd in de padvergelijking, bevat geen tekst na de eerste ? of # en die tekens zijn hier niet toegestaan.
 
 U kunt een [Resource Manager-sjabloon met op URL gebaseerde routering](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) bekijken voor meer informatie.
 
