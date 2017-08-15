@@ -13,89 +13,62 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 07/03/2017
+ms.date: 08/01/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 625baa2df8b137779ed846c584a138cc15e89a3f
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 94d228f38a760b40f1acb4685702e6244f03bb5d
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-Azure Analysis Services biedt een krachtige, cloudgebaseerde oplossing voor het modelleren van gegevens. Het is een volledig beheerd Platform as a Service (PaaS), hecht geïntegreerd met de Azure Data Platform-services. Met de uiterst effectieve OLAP-engine voor gegevensanalyse brengt Analysis Services een uitgebreide semantische modellaag aan tussen grote, complexe en vaak totaal verschillende gegevensbronnen. U kunt het semantische gegevensmodel definiëren door gegevens te combineren. Zo ontstaat een krachtige, naadloos in uw omgeving passende analysetool waarmee u geavanceerde, interactieve analyses uitvoert in state-of-the-art clienthulpprogramma's.
+Azure Analysis Services biedt een krachtige, cloudgebaseerde oplossing voor het modelleren van gegevens. Het is een volledig beheerd Platform as a Service (PaaS), geïntegreerd met de Azure Data Platform-services. 
+
+Met Analysis Services kunt u gegevens uit meerdere bronnen verfijnen en combineren, metrische gegevens definiëren, en de gegevens beveiligen in één vertrouwd semantisch gegevensmodel. Het gegevensmodel biedt een gemakkelijkere en snellere manier om door enorme hoeveelheden gegevens te bladeren met behulp van clienttoepassingen zoals Power BI, Excel, Reporting Services, apps van derden en aangepaste apps.
 
 ![Gegevensbronnen](./media/analysis-services-overview/aas-overview-data-sources.png)
 
-
 Bekijk [deze video](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) om te zien hoe Azure Analysis Services aansluit bij de overige BI-voorzieningen van Microsoft en waarom het zinvol is om uw gegevensmodellen over te brengen naar de cloud.
 
-<!--
->[!VIDEO https://channel9.msdn.com/series/Azure-Analysis-Services/Azure-Analysis-Services-overview/player]
->
->
--->
-
 ## <a name="built-on-sql-server-analysis-services"></a>Gebaseerd op SQL Server Analysis Services
-Azure Analysis Services is compatibel met de voor u bekende SQL Server Analysis Services Enterprise Edition. Azure Analysis Services ondersteunt tabellaire modellen met het compatibiliteitsniveau 1200 en 1400. Partities, beveiliging op rijniveau, bidirectionele relaties en vertalingen worden allemaal ondersteund. De in-memory en DirectQuery-modi staan garant voor razendsnelle query's in omvangrijke en complexe gegevenssets.
+Azure Analysis Services is compatibel met veel geweldige functies die al deel uitmaken van SQL Server Analysis Services Enterprise Edition. Azure Analysis Services ondersteunt tabellaire modellen met het [compatibiliteitsniveau](https://docs.microsoft.com/sql/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services) 1200 en 1400. Partities, beveiliging op rijniveau, bidirectionele relaties en vertalingen worden allemaal ondersteund. De in-memory en DirectQuery-modi staan garant voor razendsnelle query's in omvangrijke en complexe gegevenssets.
 
 De tabellaire modellen kunnen snel worden ontwikkeld en zijn in hoge mate aanpasbaar. Voor ontwikkelaars bevatten de tabellaire modellen ook Tabular Object Model (TOM) om modelobjecten te beschrijven. TOM wordt in JSON weergegeven via [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) en in de AMO Data Definition Language met behulp van de naamruimte [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx).
 
-Nieuwe functies in tabellaire modellen met compatibiliteitsniveau 1400 bieden ondersteuning voor detailrijen, beveiliging op objectniveau, een onregelmatige hiërarchie, een moderne Get Data-ervaring in SSDT voor gegevens en talloze andere verbeteringen. En omdat de onderliggende metagegevens van de modellen identiek zijn, kunnen bestaande tabellaire on-premises modellen eenvoudig worden gemigreerd naar de cloud.
-
-
 ## <a name="better-with-azure"></a>Beter met Azure
-Azure Analysis Services kan worden geïntegreerd met veel Azure-gegevensservices, zodat u geavanceerde analyseoplossingen kunt bouwen.
+Azure Analysis Services kan worden geïntegreerd met veel Azure-services, zodat u geavanceerde analyseoplossingen kunt creëren. Integratie met [Azure Active Directory](../active-directory/active-directory-whatis.md) biedt beveiligde, op rollen gebaseerde toegang tot kritieke gegevens. Integreer met [Azure Data Factory](../data-factory/data-factory-introduction.md)-pijplijnen door een activiteit toe te voegen die gegevens in het model laadt. [Azure Automation](../automation/automation-intro.md) en [Azure Functions](../azure-functions/functions-overview.md) kunnen worden gebruikt voor de eenvoudige indeling van modellen met behulp van aangepaste code.
 
-Azure Analysis Services kan gegevens betrekken uit Azure SQL Database, Azure SQL Data Warehouse en Azure Blob Storage. U kunt in Azure grootschalige datawarehouse-oplossingen bouwen met behulp van een hub-and-spoke-model, waarbij zich in het midden een SQL-datawarehouse bevindt met daaromheen meerdere BI-modellen voor verschillende bedrijfsonderdelen of aandachtsgebieden.
+## <a name="get-up-and-running-quickly"></a>Snel aan de slag
+In Azure Portal kunt u binnen enkele minuten [een server maken](analysis-services-create-server.md). En met behulp van Azure Resource Manager-[sjablonen](../azure-resource-manager/resource-manager-create-first-template.md) en PowerShell kunt u servers inrichten aan de hand van een declaratieve sjabloon. Met één enkele sjabloon kunt u meerdere services implementeren, samen met andere Azure-onderdelen, zoals opslagaccounts en Azure Functions. 
 
-Met Azure Data Factory kunt u de verplaatsing en transformatie van gegevens regelen, onmisbare functionaliteit in elke grote BI-/analyseoplossing. Azure Analysis Services kan worden geïntegreerd in elke Azure Data Factory-pijplijn door een activiteit toe te voegen die gegevens in het model laadt. Voor eenvoudige indelingsgerelateerde taken in modellen met behulp van aangepaste code kunnen bovendien ook Azure Automation en Azure Functions worden gebruikt.
+Nadat u een server hebt gemaakt, kunt u rechtstreeks in Azure Portal een tabellair model maken. Met de nieuwe functie [Web Designer](analysis-services-create-model-portal.md) (preview-versie) kunt u verbinding maken met een Azure SQL-database of een Azure SQL Data Warehouse-gegevensbron, maar ook een pbix-bestand uit Power BI Desktop importeren. De relaties tussen de tabellen worden automatisch aangebracht. Bovendien kunt u rechtstreeks vanuit uw browser metingen instellen en het model.bim-bestand in JSON-indeling bewerken.
 
-Azure Analysis Services is daarnaast sterk geïntegreerd met Azure Active Directory, zodat u kunt profiteren van veilige, op rollen gebaseerde toegang tot uw belangrijkste gegevens.
-
-## <a name="pricing"></a>Prijzen
+## <a name="scale-to-your-needs"></a>Schalen naar uw behoeften
 Azure Analysis Services is beschikbaar in de servicelagen Developer, Basic en Standard. Binnen elke servicelaag variëren de abonnementskosten afhankelijk van verwerkingskracht, QPU's en geheugen. Wanneer u een server maakt, selecteert u binnen een servicelaag een abonnement. U kunt een abonnement binnen dezelfde servicelaag omhoog of omlaag bijstellen en ook upgraden naar een hogere servicelaag. U kunt echter niet downgraden naar een lagere servicelaag.
 
-![Servicelaag upgraden](./media/analysis-services-overview/aas-overview-tier-up.png)
+U kunt uw server omhoog of omlaag schalen en zelfs onderbreken. Dit doet u via Azure Portal of, voor volledige controle op elk moment, met behulp van PowerShell. U betaalt alleen voor wat u gebruikt. Raadpleeg [Prijzen van Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/) voor meer informatie over de verschillende abonnementen en servicelagen, en om de prijscalculator te gebruiken. Hiermee bepaalt u eenvoudig welk abonnement het meest geschikt voor u is.
 
-U kunt de servicelaag direct upgraden in Azure Portal of met de PowerShell-cmdlet Set-AzureRmAnalysisServicesServer. Raadpleeg [Prijzen van Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/) voor meer informatie over de verschillende abonnementen en servicelagen, en om de prijscalculator te gebruiken. Hiermee bepaalt u eenvoudig welk abonnement het meest geschikt voor u is.
-
-## <a name="scale-resources"></a>Resources omhoog/omlaag schalen
-U kunt uw server omhoog of omlaag schalen en zelfs onderbreken. Dit doet u via Azure Portal of, voor volledige controle op elk moment, met behulp van PowerShell. U betaalt alleen voor wat u gebruikt.
-
-Gebruik bij het maken van een nieuwe server de cmdlet [New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) om uw abonnement in te stellen. Als u voor een bestaande server het abonnement wilt wijzigen, gebruikt u de cmdlet [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Gebruikt u de service niet continu? Dan kunt u de service onderbreken via de portal of met de cmdlet [Suspend-AzureRmAnalysisServicesServer](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver). U hervat de service met de cmdlet [Resume-AzureRmAnalysisServicesServer](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver). U betaalt alleen voor de perioden waarin uw server actief is.
-
-
-## <a name="regions"></a>Regio's
+## <a name="keep-your-data-close"></a>Gegevens in de buurt houden
 U kunt een Azure Analysis Services-server maken in de volgende [Azure-regio's](https://azure.microsoft.com/regions/):
 
 | Noord- en Zuid-Amerika | Europa | Azië en Stille Oceaan |
 |----------|--------|--------------|
-|  Brazilië - zuid<br> Canada - midden<br> VS - oost 2<br> Noord-centraal VS<br> Zuid-centraal VS<br> West-centraal VS<br> VS - west | Noord-Europa<br> Verenigd Koninkrijk Zuid<br> West-Europa |   Australië - zuidwest<br> Japan - oost<br> Zuidoost-Azië<br> West-India  |
+|  Brazilië - zuid<br> Canada - midden<br> VS - oost 2<br> Noord-centraal VS<br> Zuid-centraal VS<br> West-centraal VS<br> VS - west | Noord-Europa<br> Verenigd Koninkrijk Zuid<br> West-Europa |   Australië - zuidoost<br> Japan - oost<br> Zuidoost-Azië<br> West-India  |
 
 Er worden voortdurend nieuwe regio's toegevoegd. Mogelijk is deze lijst daarom onvolledig. U kiest uw locatie tijdens het maken van uw server in Azure Portal of met behulp van een Azure Resource Manager-sjabloon. Voor optimale prestaties moet u een locatie kiezen die zich zo dicht mogelijk bij uw grootste gebruikersgroep bevindt. Een [hoge beschikbaarheid](analysis-services-bcdr.md) garandeert u door uw modellen op redundante servers in meerdere regio's te implementeren.
 
-## <a name="get-up-and-running-quickly"></a>Snel aan de slag
-Via Azure Portal kunt u binnen enkele minuten [een server maken](analysis-services-create-server.md). En met behulp van Azure Resource Manager-sjablonen en PowerShell kunt u servers inrichten aan de hand van een declaratieve sjabloon. Met één enkele sjabloon kunt u meerdere services implementeren, samen met andere Azure-onderdelen, zoals opslagaccounts.  Raadpleeg voor meer informatie [Resources implementeren met Resource Manager-sjablonen en Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
-
-Nadat u een server hebt gemaakt, kunt u rechtstreeks in Azure Portal een tabellair model maken. Met de nieuwe functie Web Designer (preview) kunt u verbinding maken met een Azure SQL-database of een Azure SQL Data Warehouse-gegevensbron, maar ook een pbix-bestand uit Power BI Desktop importeren. De relaties tussen de tabellen worden automatisch aangebracht. Bovendien kunt u rechtstreeks vanuit uw browser metingen instellen en het model.bim-bestand in JSON-indeling bewerken.
-
-## <a name="migrate-existing-tabular-models"></a>Bestaande tabellaire modellen migreren
+## <a name="migrate-your-existing-tabular-models"></a>Bestaande tabellaire modellen migreren
 Als u een bestaand on-premises SQL Server Analysis Services-model hebt, kunt u dit zonder noemenswaardige wijzigingen naar Azure Analysis Services migreren. Bij de migratie kunt u SSDT gebruiken om het model op uw server te implementeren. In SSMS kunt u ook Back-up maken en terugzetten gebruiken, evenals TMSL.
 
 Als u on-premises gegevensbronnen hebt, moet u een [on-premises gegevensgateway](analysis-services-gateway.md) installeren en configureren. Als u al rollen hebt geconfigureerd en toegewezen, kunt u uw rollen gewoon migreren, maar moet u de toewijzingen lezen met behulp van SSMS of PowerShell.
 
-
-## <a name="data-sources"></a>Gegevensbronnen
-Azure Analysis Services biedt ondersteuning voor het maken van verbinding met on-premises gegevensbronnen binnen uw organisatie en met gegevensbronnen in de cloud. Combineer gegevens uit zowel on-premises als in de cloud opgeslagen gegevensbronnen voor een hybride oplossing. 
+## <a name="connect-to-popular-data-sources"></a>Verbinding maken met populaire gegevensbronnen
+Azure Analysis Services biedt ondersteuning voor [het maken van verbinding met on-premises gegevensbronnen](analysis-services-datasource.md) binnen uw organisatie en met gegevensbronnen n de cloud. Combineer gegevens uit zowel on-premises als in de cloud opgeslagen gegevensbronnen voor een hybride oplossing. 
 
 Voor nieuwe tabellaire modellen met compatibiliteitsniveau 1400 wordt in SSDT gebruikgemaakt van de innovatieve functie Get Data, op basis van de querytaal M Formula. Met Get Data beschikt u over meer functies voor gegevenstransformatie en mashup, en over de mogelijkheid om uw eigen geavanceerde query's in M Formula te maken en te bewerken. U kunt een tabellair model met compatibiliteitsniveau 1400 bijvoorbeeld baseren op gegevensbestanden in Azure Blob Storage.
-
-Azure Analysis Services ondersteunt het gebruik van [DirectQuery](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular) voor een rechtstreekse verbinding met Azure SQL Database, Azure SQL Data Warehouse, SQL Server, SQL Server Data Warehouse, Oracle en relationele databases in Teradata.
-
-Raadpleeg voor meer informatie [Data sources supported in Azure Analysis Services](analysis-services-datasource.md) (Gegevensbronnen die in Azure Analysis Services worden ondersteund).
 
 ## <a name="use-the-tools-you-already-know"></a>Werken met de tools die u al kent
 
@@ -104,8 +77,6 @@ Raadpleeg voor meer informatie [Data sources supported in Azure Analysis Service
 #### <a name="sql-server-data-tools-ssdt-for-visual-studio"></a>SQL Server Data Tools (SSDT) voor Visual Studio
 Ontwikkel en implementeer modellen met de gratis [SQL Server Data Tools (SSDT) voor Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). SSDT bevat Analysis Services-projectsjablonen waarmee u snel aan de slag kunt gaan. Bovendien biedt SSDT voor tabellaire modellen met compatibiliteitsniveau 1400 nu ook de innovatieve queryfunctie Get Data en mashup-functionaliteit. Als u al bekend bent met Get Data in Power BI Desktop en Excel 2016, weet u hoe eenvoudig het is om voor gegevensbronnen query's te maken die naadloos aansluiten bij uw behoeften.
 
-Met de nieuwe versie van SSDT in combinatie met tabellaire modellen met compatibiliteitsniveau 1400 is het niet meer nodig om een lokaal exemplaar van Analysis Services te installeren voor het hosten van een werkruimtedatabase. SSDT bevat nu een eigen geïntegreerde Analysis Services-engine en -database. Wanneer u klaar bent, kunt u rechtstreeks vanuit SSDT naar uw Azure-servers implementeren. SSDT wordt bovendien maandelijks bijgewerkt, zodat u altijd snel aan de slag kunt met de nieuwste functies.
-
 #### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 Servers en modeldatabases beheert u met behulp van [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Maak verbinding met uw servers in de cloud. Voer rechtstreeks vanuit het XMLA-queryvenster TMSL-scripts uit en automatiseer hiermee taken. Omdat er in hoog tempo nieuwe functies en mogelijkheden worden toegevoegd, wordt SSMS maandelijks bijgewerkt.
 
@@ -113,7 +84,7 @@ Servers en modeldatabases beheert u met behulp van [SQL Server Management Studio
 Gebruik de cmdlets in de Azure Resource Manager-module (AzureRM-module) om beheertaken voor serverresources uit te voeren, zoals servers maken, serverbewerkingen onderbreken of hervatten, of het serviceniveau (de servicelaag) wijzigen. Voor andere databasebeheertaken, zoals het toevoegen of verwijderen van roltoewijzingen, het toepassen van bewerkingen of het uitvoeren van TMSL-scripts, gebruikt u de cmdlets van de SQL Server-module. De AzureRM-module en de SQL Server-module zijn beschikbaar in de [PowerShell Gallery](https://www.powershellgallery.com/).
 
 
-## <a name="secure"></a>Beveiligen
+## <a name="your-data-is-secure"></a>Gegevens zijn beveiligd
 ![Gegevensvisualisaties](./media/analysis-services-overview/aas-overview-secure.png)
 
 #### <a name="authentication"></a>Authentication
@@ -128,10 +99,10 @@ Beveiligde toegang tot gegevens die on-premises zijn opgeslagen binnen uw organi
 Azure Analysis Services is onderhevig aan de [gebruiksvoorwaarden van Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) en de [privacyverklaring van Microsoft Online Services](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 Ga naar het [Microsoft Vertrouwenscentrum](https://www.microsoft.com/trustcenter/Security/AzureSecurity) voor meer informatie over Azure-beveiliging.
 
-## <a name="client-connections"></a>Clientverbindingen
+## <a name="supports-the-latest-client-tools"></a>Ondersteuning voor de nieuwste clienthulpprogramma's
 ![Gegevensvisualisaties](./media/analysis-services-overview/aas-overview-clients.png)
 
-Moderne hulpmiddelen voor het verkennen en visualiseren van gegevens, zoals Power BI, Excel en andere hulpprogramma's van derden, bieden eindgebruikers interactieve en visueel aantrekkelijke inzichten in de gegevens van uw model.
+Moderne hulpprogramma's voor het verkennen en visualiseren van gegevens, zoals Power BI, Excel en hulpprogramma's van derden, bieden gebruikers interactieve en visueel aantrekkelijke inzichten in de gegevens van uw model.
 
 Clients gebruiken MSOLAP-, AMO- of ADOMD-[clientbibliotheken](analysis-services-data-providers.md) om verbinding te maken met Analysis Services-servers. In Microsoft-clienttoepassingen als Power BI Desktop en Excel zijn alle drie deze clientbibliotheken geïnstalleerd. Afhankelijk van de versie van de toepassing of de updatefrequentie zijn dit echter mogelijk niet de clientbibliotheekversies die door Azure Analysis Services worden vereist (de meest recente versies). Dit geldt ook voor aangepaste toepassingen of andere interfaces, zoals AsCmd, TOM en ADOMD.NET. Voor deze toepassingen moeten de bibliotheken doorgaans handmatig worden geïnstalleerd als onderdeel van een pakket.
 

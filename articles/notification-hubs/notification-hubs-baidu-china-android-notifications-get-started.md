@@ -14,18 +14,18 @@ ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ec2a69ff5a7f1f3a954eae70f1cd776242b0b7f4
-ms.lasthandoff: 12/07/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: df3bbda15e1245b6068c2b8290d0c96856051f1f
+ms.contentlocale: nl-nl
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Aan de slag met Azure Notification Hubs die gebruikmaken van Baidu
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Overzicht
-Baidu Cloud Push is een Chinese cloudservice waarmee u pushmeldingen naar mobiele apparaten kunt verzenden. Deze service is met name handig in China, omdat het leveren van pushmeldingen aan Android daar complex is vanwege de aanwezigheid van verschillende app stores en pushservices. Bovendien zijn er Android-apparaten die niet standaard verbonden zijn met GCM (Google Cloud Messaging).
+Baidu Cloud Push is een Chinese cloudservice waarmee u pushmeldingen naar mobiele apparaten kunt verzenden. Deze service is handig in China, omdat het leveren van pushmeldingen aan Android daar complex is vanwege de aanwezigheid van verschillende app stores en pushservices. Bovendien zijn er Android-apparaten die niet standaard verbonden zijn met GCM (Google Cloud Messaging).
 
 ## <a name="prerequisites"></a>Vereisten
 Voor deze zelfstudie hebt u het volgende nodig:
@@ -70,7 +70,7 @@ Als uw Baidu-account is geactiveerd, meldt u zich aan bij de [Baidu Portal].
 4. Klik op de volgende pagina op **注册开发者** (**Geregistreerde ontwikkelaars**) in het menu in de rechterbovenhoek.
    
       ![][8]
-5. Voer uw naam, een beschrijving en een mobiel telefoonnummer in voor het ontvangen van een sms-bericht voor verificatie en klik vervolgens op **送验证码** (**Verificatiecode verzenden**). Houd er rekening mee dat u voor een internationaal telefoonnummer de landcode tussen haakjes moet plaatsen. Voor een nummer in de Verenigde Staten moet u bijvoorbeeld de volgende indeling gebruiken: **(1)1234567890**.
+5. Voer uw naam, een beschrijving en een mobiel telefoonnummer in voor het ontvangen van een sms-bericht voor verificatie en klik vervolgens op **送验证码** (**Verificatiecode verzenden**). Voor een internationaal telefoonnummer moet u de landcode tussen haakjes plaatsen. Voor een nummer in de Verenigde Staten moet u bijvoorbeeld de volgende indeling gebruiken: **(1)1234567890**.
    
       ![][9]
 6. U ontvangt vervolgens een sms-bericht met een verificatiecode, zoals weergegeven in het volgende voorbeeld:
@@ -105,7 +105,7 @@ Als u een Baidu-cloudpushproject maakt, ontvangt u uw app-id, API-sleutel en een
 7. Voer een toepassingsnaam in en klik op **创建** (**Maken**).
    
       ![][15]
-8. Als u een Baidu-cloudpushproject hebt gemaakt, ziet u een pagina met de **App-id**, de **API-sleutel** en een **geheime sleutel**. Noteer de API-sleutel en de geheime sleutel. U hebt deze later nodig.
+8. Als u een Baidu Cloud Push-project hebt gemaakt, ziet u een pagina met de **App-id**, de **API-sleutel** en een **geheime sleutel**. Noteer de API-sleutel en de geheime sleutel. U hebt deze later nodig.
    
       ![][16]
 9. Configureer het project voor pushmeldingen door te klikken op **云推送** (**Cloud Push**) in het linkerdeelvenster.
@@ -174,7 +174,7 @@ U ziet het bericht **保存成功！** (**Opgeslagen!**).
 8. Voeg de eigenschap **android:name** toe aan uw **toepassings**element in **AndroidManifest.xml**, waarbij u *yourprojectname* (bijvoorbeeld **com.example.BaiduTest**) vervangt. Zorg ervoor dat deze naam overeenkomt met de naam die u in de Baidu-console hebt geconfigureerd.
    
         <application android:name="yourprojectname.DemoApplication"
-9. Voeg de volgende configuratie toe aan het toepassingselement na het activiteitelement **.MainActivity**, waarbij u *yourprojectname* (bijvoorbeeld **com.example.BaiduTest**) vervangt.
+9. Voeg de volgende configuratie toe aan het toepassingselement na het activiteitelement **.MainActivity**, waarbij u *yourprojectname* (bijvoorbeeld **com.example.BaiduTest**) vervangt:
    
         <receiver android:name="yourprojectname.MyPushMessageReceiver">
             <intent-filter>
@@ -237,7 +237,7 @@ U ziet het bericht **保存成功！** (**Opgeslagen!**).
                 super.onCreate();
             }
         }
-13. Voeg nog een nieuwe klasse toe met de naam **MyPushMessageReceiver.java** en voeg de code onderaan toe. Dit is de klasse die verantwoordelijk is voor de pushmeldingen die worden ontvangen van de Baidu-push-server.
+13. Voeg nog een nieuwe klasse toe met de naam **MyPushMessageReceiver.java** en voeg de volgende code eraan toe. Dit is de klasse die verantwoordelijk is voor de pushmeldingen die worden ontvangen van de Baidu-pushserver.
     
         import java.util.List;
         import android.content.Context;
@@ -355,13 +355,13 @@ U ziet het bericht **保存成功！** (**Opgeslagen!**).
             import com.baidu.android.pushservice.PushManager;
 
 ## <a name="send-notifications-to-your-app"></a>Pushmeldingen naar uw app verzenden
-U kunt de ontvangst van meldingen in uw app snel testen door in [Azure Portal](https://portal.azure.com/) meldingen te verzenden met behulp van de knop **Test Send** (Verzenden testen) op de Notification Hub, zoals in het volgende scherm wordt weergegeven.
+U kunt de ontvangst van meldingen in uw app snel testen door in [Azure Portal](https://portal.azure.com/) meldingen te verzenden met behulp van de knop **Verzenden** in de Notification Hub, zoals in het volgende scherm wordt weergegeven:
 
-![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
+![](./media/notification-hubs-baidu-get-started/notification-hub-test-send-baidu.png)
 
-Pushmeldingen worden gewoonlijk in een back-endservice zoals Mobile Services of ASP.NET verzonden met een compatibele bibliotheek. U kunt de REST API ook direct gebruiken om meldingsberichten te verzenden als er geen bibliotheek beschikbaar is voor uw back-end.
+Pushmeldingen worden gewoonlijk in een back-endservice zoals Mobile Services of ASP.NET verzonden met een compatibele bibliotheek. U kunt de REST API ook rechtstreeks gebruiken om meldingsberichten te verzenden als er geen bibliotheek beschikbaar is voor uw back-end.
 
-In deze zelfstudie houden we het eenvoudig en wordt alleen gedemonstreerd hoe u uw clientapp test door meldingen te verzenden met de .NET SDK voor Notification Hubs in een consoletoepassing in plaats van een back-endservice. U kunt het beste de zelfstudie [Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) doornemen voor informatie over het verzenden van meldingen vanuit een ASP.NET-back-end. Voor het verzenden van meldingen kunt u echter de volgende methoden gebruiken:
+In deze zelfstudie houden we het eenvoudig en wordt alleen gedemonstreerd hoe u uw client-app test door meldingen te verzenden met de .NET SDK voor Notification Hubs in een consoletoepassing in plaats van een back-endservice. U kunt het beste de zelfstudie [Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) doornemen voor informatie over het verzenden van meldingen vanuit een ASP.NET-back-end. Voor het verzenden van meldingen kunt u echter de volgende methoden gebruiken:
 
 * **REST-interface**: u kunt meldingen op elk back-endplatform ondersteunen met de [REST-interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 * **Microsoft Azure Notification Hubs .NET SDK**: in NuGet Package Manager voor Visual Studio voert u [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) uit.
@@ -379,7 +379,7 @@ In dit gedeelte behandelen we hoe u een melding vanuit een .NET-console-app kunt
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-    Hiermee wordt een verwijzing toegevoegd aan de Azure Notification Hubs SDK met het <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet-pakket</a>.
+    Hiermee wordt een verwijzing toegevoegd aan de Azure Notification Hubs-SDK met het <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet-pakket</a>.
    
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 3. Open het bestand **Program.cs** en voeg de volgende gebruiksinstructie toe:
@@ -399,13 +399,13 @@ In dit gedeelte behandelen we hoe u een melding vanuit een .NET-console-app kunt
          Console.ReadLine();
 
 ## <a name="test-your-app"></a>Uw app testen
-Als u uw app met een telefoon wilt testen, sluit u de telefoon met een USB-kabel op uw computer aan. Uw app wordt naar de gekoppelde telefoon geladen.
+Als u uw app met een telefoon wilt testen, sluit u de telefoon met een USB-kabel op uw computer aan. Met deze actie wordt uw app naar de gekoppelde telefoon geladen.
 
-Om deze app met een emulator te testen, klikt u in de bovenste werkbalk van Eclipse op **Uitvoeren** en selecteert u vervolgens uw app. Hiermee start u de emulator en laadt en opent u de app.
+Als u deze app wilt testen met de emulator klikt u op de bovenste Eclipse-taakbalk op **Uitvoeren** en selecteert u uw app. De emulator wordt dan gestart en daarna wordt de app geladen en uitgevoerd.
 
 De app haalt de gebruikers-id en de channelId op uit de Baidu Push Notification Service en registreert zich bij de Notification Hub.
 
-U kunt vanaf het foutopsporingstabblad van de klassieke Azure Portal een testmelding verzenden. Als u de .Net-console-toepassing hebt gebouwd voor Visual Studio, drukt u in Visual Studio op F5 om de toepassing te starten. De toepassing verstuurt een melding. Deze verschijnt in het bovenste gedeelte voor meldingen op uw apparaat of emulator.
+U kunt vanaf het foutopsporingstabblad van de klassieke Azure-portal een testmelding verzenden. Als u de .Net-console-toepassing hebt gebouwd voor Visual Studio, drukt u in Visual Studio op F5 om de toepassing te starten. De toepassing verstuurt een melding. Deze verschijnt in het bovenste gedeelte voor meldingen op uw apparaat of in de emulator.
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-baidu-get-started/BaiduRegistration.png

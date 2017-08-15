@@ -12,23 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/07/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: 76fd245f91e1bfab3df68120859c69e459283e5b
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: cbb67ef92386a6288b3317bf77ebb67f15ce7fb2
 ms.contentlocale: nl-nl
-ms.lasthandoff: 01/27/2017
+ms.lasthandoff: 08/08/2017
 
 ---
-# Aan de slag met het leveren van inhoud-op-aanvraag via Azure Portal
-<a id="get-started-with-delivering-content-on-demand-using-the-azure-portal" class="xliff"></a>
+# <a name="get-started-with-delivering-content-on-demand-using-the-azure-portal"></a>Aan de slag met het leveren van inhoud-op-aanvraag via Azure Portal
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van VoD-inhoud (Video-on-Demand) met de AMS-toepassing (Azure Media Services) via Azure Portal.
 
-## Vereisten
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Vereisten
 Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
 
 * Een Azure-account. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
@@ -42,8 +40,7 @@ Deze zelfstudie bevat de volgende taken:
 4. De asset publiceren en URL's voor streamen en progressief downloaden ophalen.  
 5. Uw inhoud afspelen.
 
-## Streaming-eindpunten starten
-<a id="start-streaming-endpoints" class="xliff"></a> 
+## <a name="start-streaming-endpoints"></a>Streaming-eindpunten starten 
 
 Bij het werken met Azure Media Services wordt video meestal via Adaptive Bitrate Streaming geleverd. Media Services biedt dynamische pakketten waarmee u uw Adaptive Bitrate MP4-inhoud 'just in time' kunt leveren in de streaming-indelingen die door Media Services worden ondersteund (MPEG DASH, HLS, Smooth Streaming), zonder dat u vooraf verpakte versies van elk van deze streaming-indelingen hoeft op te slaan.
 
@@ -61,8 +58,7 @@ U start het streaming-eindpunt als volgt:
 4. Klik op het pictogram Start.
 5. Klik op de knop Opslaan om uw wijzigingen op te slaan.
 
-## Bestanden uploaden
-<a id="upload-files" class="xliff"></a>
+## <a name="upload-files"></a>Bestanden uploaden
 Als u video's wilt streamen met Azure Media Services, moet u de bronvideo's uploaden, ze coderen in meerdere bitsnelheden en vervolgens het resultaat publiceren. De eerste stap wordt in deze sectie beschreven. 
 
 1. Klik in het venster **Instelling** op **Assets**.
@@ -82,36 +78,33 @@ Als u video's wilt streamen met Azure Media Services, moet u de bronvideo's uplo
 
 Nadat het uploaden is voltooid, ziet u de nieuwe asset in het venster **Assets**. 
 
-## Assets coderen
-<a id="encode-assets" class="xliff"></a>
+## <a name="encode-assets"></a>Assets coderen
+
 Wanneer er met Azure Media Services wordt gewerkt, wordt er meestal een Adaptive Bitrate Streaming aan uw clients geleverd. Media Services ondersteunt de volgende Adaptive Bitrate Streaming-technologieën: HLS (HTTP Live Streaming), Smooth Streaming en MPEG DASH. Als u video's wilt voorbereiden voor Adaptive Bitrate Streaming, moet u de bronvideo coderen in multi-bitrate-bestanden. Gebruik het coderingsprogramma **Media Encoder Standard** om de video's te coderen.  
 
 Media Services biedt ook dynamische pakketten waarmee u uw multi-bitrate MP4's in de volgende streaming-indelingen kunt leveren: MPEG DASH, HLS en Smooth Streaming. U hoeft voor levering in een van deze indelingen de inhoud niet opnieuw te verpakken. Voor dynamische pakketten hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. Media Services bouwt en levert de juiste reactie op basis van aanvragen van een client.
 
 Als u gebruik wilt maken van dynamische pakketten, moet u het bronbestand coderen in een set multi-bitrate MP4-bestanden (de coderingsstappen worden verderop in deze sectie uitgelegd).
 
-### De portal gebruiken om te coderen
-<a id="to-use-the-portal-to-encode" class="xliff"></a>
+### <a name="to-use-the-portal-to-encode"></a>De portal gebruiken om te coderen
 In deze sectie wordt beschreven hoe u uw inhoud codeert met Media Encoder Standard.
 
 1. Selecteer in het venster **Instellingen** de optie **Assets**.  
 2. Selecteer in het venster **Assets** de asset die u wilt coderen.
 3. Klik op de knop **Coderen**.
-4. Selecteer in het venster **Een asset coderen** de processor Media Encoder Standard en een standaardinstelling. Als u bijvoorbeeld weet dat uw invoervideo een resolutie van 1920 x 1080 pixels heeft, kunt u de standaardinstelling H264 Multiple Bitrate 1080p gebruiken. Zie [dit](media-services-mes-presets-overview.md) artikel voor meer informatie over standaardinstellingen. Het is belangrijk de standaardinstelling te selecteren die het meest geschikt is voor uw invoervideo. Als u video met een lage resolutie (640 x 360) hebt, gebruikt u niet de standaard geselecteerde instelling H264 Multiple Bitrate 1080p.
+4. Selecteer in het venster **Een asset coderen** de processor Media Encoder Standard en een standaardinstelling. Zie [automatisch een bitrate ladder genereren](media-services-autogen-bitrate-ladder-with-mes.md) en [Standaardinstellingen voor taken in MES](media-services-mes-presets-overview.md) voor informatie over standaardinstellingen. Als u wilt bepalen welke standaardinstelling voor versleuteling wordt gebruikt, moet u er rekening mee houden dat het belangrijk is de standaardinstelling te selecteren die het meest geschikt is voor uw invoervideo. Als u bijvoorbeeld weet dat uw invoervideo een resolutie van 1920 x 1080 pixels heeft, kunt u de standaardinstelling H264 Multiple Bitrate 1080p gebruiken. Als u een video met een lage resolutie (640 x 360) hebt, gebruikt u niet de standaardinstelling H264 Multiple Bitrate 1080p.
    
    Voor eenvoudiger beheer kunt u de naam van de uitvoerasset en de naam van de taak bewerken.
    
    ![Assets coderen](./media/media-services-portal-vod-get-started/media-services-encode1.png)
 5. Kies **Maken**.
 
-### De voortgang van het codering van de taak bewaken
-<a id="monitor-encoding-job-progress" class="xliff"></a>
+### <a name="monitor-encoding-job-progress"></a>De voortgang van het codering van de taak bewaken
 Als u de voortgang van de codering van de taak wilt controleren, klikt u op **Instellingen** (boven aan de pagina) en selecteert u vervolgens **Taken**.
 
 ![Taken](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
-## Inhoud publiceren
-<a id="publish-content" class="xliff"></a>
+## <a name="publish-content"></a>Inhoud publiceren
 Als u uw gebruiker een URL wilt leveren die kan worden gebruikt om uw inhoud te streamen of te downloaden, moet u uw asset eerst 'publiceren' door een locator te maken. Locators bieden toegang tot bestanden in de asset. Media Services ondersteunt twee typen locators: 
 
 * Streaming-locators (OnDemandOrigin) die worden gebruikt voor adaptief streamen (bijvoorbeeld om MPEG DASH, HLS of Smooth Streaming te streamen). Als u een streaming-locator wilt maken, moet uw asset een ISM-bestand bevatten. 
@@ -141,8 +134,7 @@ Een SAS-URL heeft de volgende indeling.
 
 Als u de vervaldatum van een locator wilt bijwerken, gebruikt u [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator)- of [.NET](http://go.microsoft.com/fwlink/?LinkID=533259)-API's. Wanneer u de vervaldatum van een SAS-locator bijwerkt, wordt de URL gewijzigd.
 
-### De portal gebruiken om een asset te publiceren
-<a id="to-use-the-portal-to-publish-an-asset" class="xliff"></a>
+### <a name="to-use-the-portal-to-publish-an-asset"></a>De portal gebruiken om een asset te publiceren
 Als u de portal wilt gebruiken om een asset te publiceren, gaat u als volgt te werk:
 
 1. Selecteer **Instellingen** > **Assets**.
@@ -155,8 +147,7 @@ Als u de portal wilt gebruiken om een asset te publiceren, gaat u als volgt te w
 
 De URL wordt toegevoegd aan de lijst met **gepubliceerde URL's**.
 
-## Inhoud afspelen vanuit de portal
-<a id="play-content-from-the-portal" class="xliff"></a>
+## <a name="play-content-from-the-portal"></a>Inhoud afspelen vanuit de portal
 Azure Portal biedt een speler voor het afspelen van inhoud, die u kunt gebruiken om uw video te testen.
 
 Klik op de gewenste video en klik vervolgens op de knop **Afspelen**.
@@ -165,17 +156,16 @@ Klik op de gewenste video en klik vervolgens op de knop **Afspelen**.
 
 Hierbij geldt het volgende:
 
+* Als u wilt beginnen met streamen, activeert u het **standaard**streamingeindpunt.
 * De video moet zijn gepubliceerd.
 * Met deze **mediaspeler** wordt inhoud afgespeeld vanaf het standaardstreaming-eindpunt. Als u wilt afspelen vanaf een ander streaming-eindpunt, klikt u om de URL te kopiëren en een andere speler te gebruiken. Bijvoorbeeld [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-## Volgende stappen
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Volgende stappen
 Media Services-leertrajecten bekijken.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Feedback geven
-<a id="provide-feedback" class="xliff"></a>
+## <a name="provide-feedback"></a>Feedback geven
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 

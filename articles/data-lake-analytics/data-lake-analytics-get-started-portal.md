@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: b004310a3b2667134c9ad890bd907dc8ae439dd9
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 2722a2d72ed90ea0005362563ecaee30750c040a
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Aan de slag met Azure Data Lake Analytics met Azure Portal
@@ -36,7 +35,7 @@ Voordat u met deze zelfstudie begint, moet u een **Azure-abonnement** hebben. Zi
 U maakt nu tegelijkertijd een Data Lake Analytics- en een Data Lake Store-account.  Deze stap is eenvoudig en duurt maar ongeveer 60 seconden om te voltooien.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op **Nieuw** >  **Intelligence + analyse** > **Data Lake Analytics**.
+2. Klik op **Nieuw** >  **Gegevens + analyse** > **Data Lake Analytics**.
 3. Selecteer waarden voor de volgende items:
    * **Naam**: geef uw Data Lake Analytics-account een naam (alleen kleine letters en cijfers zijn toegestaan).
    * **Abonnement**: kies het Azure-abonnement dat u gebruikt voor het Analytics-account.
@@ -71,7 +70,7 @@ OUTPUT @a
 3. Klik op **Taak verzenden**.   
 4. Wacht tot de taakstatus verandert in **Succeeded**.
 5. Zie [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md) (Data Lake Analytics-taken bewaken en fouten oplossen) als de taak is mislukt.
-6. Klik op het tabblad **Output** en klik vervolgens op `SearchLog-from-Data-Lake.csv`. 
+6. Klik op het tabblad **Output** en klik vervolgens op `data.csv`. 
 
 ## <a name="see-also"></a>Zie ook
 

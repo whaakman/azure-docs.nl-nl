@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 06/19/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: d1b887e68b1040ea9340235cd215028300c14fac
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: a26477d692cc98ed16c195233ade5434cc536a36
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: een bestaande Node.js MongoDB-web-app migreren 
@@ -44,7 +44,7 @@ U moet bekend zijn met de basisbegrippen van Node.js. Deze Quick Start is niet b
 
 ## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
-Open een venster in een git-terminal zoals git bash en `cd` naar een werkmap.  
+Open een git-terminalvenster zoals git bash en `cd` naar een werkmap.  
 
 Voer de volgende opdrachten uit om de voorbeeldopslagplaats te klonen. Deze voorbeeldopslagplaats bevat de standaard [MEAN.js](http://meanjs.org/)-toepassing. 
 
@@ -101,6 +101,9 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 De parameter `--kind MongoDB` maakt MongoDB-clientverbindingen mogelijk.
 
 Wanneer de Azure Cosmos DB-account wordt gemaakt toont de Azure CLI informatie die lijkt op het volgende voorbeeld. 
+
+> [!NOTE]
+> In dit voorbeeld wordt JSON gebruikt als de Azure CLI-uitvoerindeling. Dit is standaardindeling. Zie [Output formats for Azure CLI 2.0 commands](https://docs.microsoft.com/cli/azure/format-output-azure-cli) (Uitvoerindelingen voor Azure CLI 2.0-opdrachten) als u een andere uitvoerindeling wilt gebruiken.
 
 ```json
 {

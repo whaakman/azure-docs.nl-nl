@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 9147d2f349f59417e44e288ef057e5857a266815
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 7bdbdf8654ae22ba143d5f87384e04fe4a11d10e
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-a-log-analytics-workspace"></a>Aan de slag met een Log Analytics-werkruimte
@@ -59,7 +58,12 @@ De volgende stap is het maken van een werkruimte.
 4. Selecteer een werkruimte om de details ervan in Azure Portal te bekijken.       
     ![details van de werkruimte](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
-## <a name="3-add-solutions-and-solution-offerings"></a>3 Oplossingen en oplossingenpakketten toevoegen
+## <a name="3-upgrade-workspace-to-new-log-search"></a>3 De werkruimte upgraden voor nieuwe zoekopdrachten in logboeken
+Er is een nieuwe Log Analytics-querytaal uitgebracht en om hier gebruik van te maken, moet u uw werkruimte converteren.  Als de regio waarin uw werkruimte wordt gehost is geüpgraded, ziet u een paarse banner aan de bovenkant van uw werkruimte met een uitnodiging om te converteren. De upgrade is geheel vrijwillig en heeft geen gevolgen voor de ervaring met Log Analytics en eventuele oplossingen die u toevoegt.  
+
+Zie voor [Azure Log Analytics upgraden voor nieuwe zoekopdrachten in logboeken](log-analytics-log-search-upgrade.md) voor meer informatie over de voordelen, overwegingen en het upgradeproces.  
+
+## <a name="4-add-solutions-and-solution-offerings"></a>4 Oplossingen en oplossingenpakketten toevoegen
 
 Voeg vervolgens beheeroplossingen en oplossingenpakketten toe. Beheeroplossingen bestaan uit een combinatie van logica, visualisatiemogelijkheden en regels voor gegevensverwerving die metrische gegevens bieden met betrekking tot een specifiek probleemgebied. Een oplossingenpakket is een samenstelling van meerdere beheeroplossingen.
 
@@ -95,11 +99,11 @@ Maak vervolgens een eenvoudige virtuele machine in Azure. Nadat u een virtuele m
 
 - Volg de aanwijzingen in [Connect Azure virtual machines to Log Analytics](log-analytics-azure-vm-extension.md) (Virtuele Azure-machines verbinden met Log Analytics) om de virtuele machine te verbinden met Log Analytics met behulp van Azure Portal.
 
-## <a name="5-view-and-act-on-data"></a>5 Gegevens weergeven en er actie op ondernemen
+## <a name="6-view-and-act-on-data"></a>6 Gegevens weergeven en er actie op ondernemen
 
 U hebt de oplossing Activity Log Analytics en de servicepakketten Security & Compliance en Automation & Control al ingeschakeld. Nu gaan we kijken naar de gegevens die door deze oplossingen zijn verzameld en naar de resultaten van zoeken in logboeken.
 
-Bekijk eerst de gegevens die vanuit de oplossingen zijn aangeleverd. Bekijk vervolgens de resultaten van enkele zoekopdrachten in logboeken. Met zoeken in logboeken kunt u alle machinegegevens vanuit meerdere bronnen binnen uw omgeving combineren en correleren. Zie [Log searches in Log Analytics](log-analytics-log-searches.md) (Zoeken in logboeken via Log Analytics) voor meer informatie. Neem tot slot actie op de gegevens die we hebben gevonden. Gebruik hiervoor de OMS-portal, die zich buiten Azure Portal bevindt.
+Bekijk eerst de gegevens die vanuit de oplossingen zijn aangeleverd. Bekijk vervolgens de resultaten van enkele zoekopdrachten in logboeken. Met zoeken in logboeken kunt u alle machinegegevens vanuit meerdere bronnen binnen uw omgeving combineren en correleren. Zie [Zoeken in logboeken in Log Analytics](log-analytics-log-searches.md) voor meer informatie. Zie [Zoekopdrachten in logboeken in Log Analytics begrijpen](log-analytics-log-search-new.md) als u uw werkruimte hebt geconverteerd naar de nieuwe querytaal. 
 
 ### <a name="to-view-antimalware-data"></a>Gegevens van Antimalware Assessment weergeven
 

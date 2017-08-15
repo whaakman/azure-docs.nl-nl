@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 4043c68a3c8559eab6f5e4352bb599015366e5b5
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: fac6ee69b5f0377e0515ac9abeb28788cbef9b79
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Netwerkverkeer filteren met netwerkbeveiligingsgroepen
@@ -50,7 +49,7 @@ NSG-regels bevatten de volgende eigenschappen:
 | --- | --- | --- | --- |
 | **Naam** |Naam voor de regel. |Moet uniek zijn binnen de regio.<br/>Kan letters, cijfers, onderstrepingstekens, punten en afbreekstreepjes bevatten.<br/>Moet beginnen met een letter of cijfer.<br/>Moet eindigen op een letter, cijfer of onderstrepingsteken.<br/>Mag niet meer dan 80 tekens bevatten. |U kunt meerdere regels binnen een NSG hebben, dus zorg ervoor dat u duidelijk herkenbare namen gebruikt die het doel van de regel aangeven. |
 | **Protocol** |Protocol waarop de regel van toepassing is. |TCP, UDP of * |Als u * als protocol gebruikt, omvat dit zowel ICMP (alleen oost-west-verkeer), als UDP en TCP en hebt u wellicht minder regels nodig.<br/>Tegelijkertijd is het gebruik van * mogelijk niet specifiek genoeg, zodat het wordt aanbevolen * alleen te gebruiken als dit echt nodig is. |
-| **Bronpoortbereik** |Bronpoortbereik waarop de regel van toepassing is. |Eén poortnummer tussen 1 en 65535, een poortbereik (bijvoorbeeld 1-65635) of * (voor alle poorten). |Bronpoorten kunnen kortstondig zijn. Tenzij in uw clientprogramma een specifieke poort wordt gebruikt, gebruikt u in de meeste gevallen *.<br/>Gebruik zo veel mogelijk poortbereiken om te voorkomen dat u meerdere regels nodig hebt.<br/>Meerdere poorten of poortbereiken kunnen niet worden gegroepeerd met komma's. |
+| **Bronpoortbereik** |Bronpoortbereik waarop de regel van toepassing is. |Eén poortnummer tussen 1 en 65535, een poortbereik (bijvoorbeeld 1-65535) of * (voor alle poorten). |Bronpoorten kunnen kortstondig zijn. Tenzij in uw clientprogramma een specifieke poort wordt gebruikt, gebruikt u in de meeste gevallen *.<br/>Gebruik zo veel mogelijk poortbereiken om te voorkomen dat u meerdere regels nodig hebt.<br/>Meerdere poorten of poortbereiken kunnen niet worden gegroepeerd met komma's. |
 | **Doelpoortbereik** |Doelpoortbereik waarop de regel van toepassing is. |Eén poortnummer tussen 1 en 65535, een poortbereik (bijvoorbeeld 1-65535) of \* (voor alle poorten). |Gebruik zo veel mogelijk poortbereiken om te voorkomen dat u meerdere regels nodig hebt.<br/>Meerdere poorten of poortbereiken kunnen niet worden gegroepeerd met komma's. |
 | **Bronadresvoorvoegsel** |Bronadresvoorvoegsel of tag waarop de regel van toepassing is. |Eén IP-adres (bijvoorbeeld 10.10.10.10), een IP-subnet (bijvoorbeeld 192.168.1.0/24), een [standaardtag](#default-tags) of * (voor alle adressen). |Overweeg het gebruik van bereiken, standaardtags en * om het aantal regels te verminderen. |
 | **Doeladresvoorvoegsel** |Doeladresvoorvoegsel of tag waarop de regel van toepassing is. | Eén IP-adres (bijvoorbeeld 10.10.10.10), een IP-subnet (bijvoorbeeld 192.168.1.0/24), een [standaardtag](#default-tags) of * (voor alle adressen). |Overweeg het gebruik van bereiken, standaardtags en * om het aantal regels te verminderen. |

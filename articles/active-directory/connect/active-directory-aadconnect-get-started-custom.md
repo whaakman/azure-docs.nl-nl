@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 1580e2841790b7c1b6c9540da4940eef2c487256
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 51906e8d68b5f951a75b8141644bbaf4cf6a43ce
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Custom installation of Azure AD Connect (Engelstalig)
@@ -278,6 +278,9 @@ De AD FS-service vereist een domeinserviceaccount om gebruikers te verifiëren e
 * **Domeingebruikersaccount** - Voor dit type account moet u een wachtwoord opgeven en het wachtwoord regelmatig bijwerken wanneer het wachtwoord wordt gewijzigd of verloopt. Gebruik deze optie alleen als u geen Windows Server 2012-domeincontrollers heeft in het domein waarbij uw AD FS-servers horen.
 
 Als u Beheerd serviceaccount voor groepen heeft geselecteerd en deze functie nog nooit in Active Directory is gebruikt, wordt u gevraagd om referenties van de ondernemingsbeheerder. Deze referenties worden gebruikt om de sleutelopslagplaats te beginnen en de functie in Active Directory in te schakelen.
+
+> [!NOTE]
+> Azure AD Connect controleert of de AD FS-service al is geregistreerd als een SPN in het domein.  Het is in AD DS niet toegestaan om in één bewerking dubbele SPN's te registreren.  Als er een dubbele SPN wordt gevonden, kunt u pas verdergaan nadat de SPN is verwijderd.
 
 ![AD FS-serviceaccount](./media/active-directory-aadconnect-get-started-custom/adfs5.png)
 

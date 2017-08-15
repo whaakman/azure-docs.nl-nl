@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 824f900545136428f6e377c52e2dda7e3ab97cfe
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 233965bf54cbca79c7ff059aaccfa5780d672cab
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Grootschalige parallelle rekenoplossingen ontwikkelen met Batch
@@ -98,17 +98,18 @@ Bedenk bij het kiezen van een pooltoewijzingsmodus welke modus het beste bij uw 
 
 In de volgende tabel worden de pooltoewijzingsmodi Batch-service en Gebruikersabonnement met elkaar vergeleken.
 
-| **Pooltoewijzingsmodus:**                 | **Batch-service**                                                                                       | **Gebruikersabonnement**                                                              |
+| **Pooltoewijzingsmodus**                 | **Batch-service**                                                                                       | **Gebruikersabonnement**                                                              |
 |-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| **Pools worden toegewezen in:**               | Een door Azure beheerd abonnement                                                                           | Het gebruikersabonnement waarin het Batch-account is gemaakt                        |
-| **Ondersteunde configuraties:**             | <ul><li>Cloudserviceconfiguratie</li><li>Virtuele-machineconfiguratie (Linux en Windows)</li></ul> | <ul><li>Virtuele-machineconfiguratie (Linux en Windows)</li></ul>                |
-| **Ondersteunde VM-installatiekopieën:**                  | <ul><li>Azure Marketplace-installatiekopieën</li></ul>                                                              | <ul><li>Azure Marketplace-installatiekopieën</li><li>Aangepaste installatiekopieën</li></ul>                   |
-| **Ondersteunde typen rekenknooppunten:**         | <ul><li>Toegewezen knooppunten</li><li>Knooppunten met lage prioriteit</li></ul>                                            | <ul><li>Toegewezen knooppunten</li></ul>                                                  |
-| **Ondersteunde verificatie:**             | <ul><li>Gedeelde sleutel</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
-| **Azure Key Vault vereist:**             | Nee                                                                                                      | Ja                                                                                |
-| **Kerngeheugenquotum:**                           | Bepaald op basis van het Batch-kerngeheugenquotum                                                                          | Bepaald op basis van het kerngeheugenquotum van het abonnement                                              |
-| **Azure Virtual Network-ondersteuning (VNet):** | Pools die zijn gemaakt met de cloudserviceconfiguratie                                                      | Pools die zijn gemaakt met de virtuele-machineconfiguratie                               |
-| **VNet-implementatiemodel ondersteund:**      | VNets die zijn gemaakt met het klassieke implementatiemodel                                                             | VNets die zijn gemaakt met het klassieke implementatiemodel of met Azure Resource Manager |
+| **Pools worden toegewezen in**               | Een door Azure beheerd abonnement                                                                           | Het gebruikersabonnement waarin het Batch-account is gemaakt                        |
+| **Ondersteunde configuraties**             | <ul><li>Cloudserviceconfiguratie</li><li>Virtuele-machineconfiguratie (Linux en Windows)</li></ul> | <ul><li>Virtuele-machineconfiguratie (Linux en Windows)</li></ul>                |
+| **Ondersteunde VM-installatiekopieën**                  | <ul><li>Azure Marketplace-installatiekopieën</li></ul>                                                              | <ul><li>Azure Marketplace-installatiekopieën</li><li>Aangepaste installatiekopieën</li></ul>                   |
+| **Ondersteunde typen rekenknooppunten**         | <ul><li>Toegewezen knooppunten</li><li>Knooppunten met lage prioriteit</li></ul>                                            | <ul><li>Toegewezen knooppunten</li></ul>                                                  |
+| **Ondersteunde verificatie**             | <ul><li>Gedeelde sleutel</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
+| **Azure Key Vault vereist**             | Nee                                                                                                      | Ja                                                                                |
+| **Kerngeheugenquotum**                           | Bepaald op basis van het Batch-kerngeheugenquotum                                                                          | Bepaald op basis van het kerngeheugenquotum van het abonnement                                              |
+| **Azure Virtual Network-ondersteuning (VNet)** | Pools die zijn gemaakt met de cloudserviceconfiguratie                                                      | Pools die zijn gemaakt met de virtuele-machineconfiguratie                               |
+| **Ondersteunde VNet-implementatiemodellen**      | VNets die zijn gemaakt met het klassieke implementatiemodel                                                             | VNets die zijn gemaakt met het klassieke implementatiemodel of met Azure Resource Manager |
+
 ## <a name="azure-storage-account"></a>Azure-opslagaccount
 
 Bij de meeste Batch-oplossingen wordt gebruikgemaakt van Azure Storage om resourcebestanden en uitvoerbestanden op te slaan.  
@@ -171,6 +172,8 @@ Wanneer u een Batch-pool maakt, kunt u de configuratie van de Virtuele Azure-mac
     * Net als bij werkrollen in Cloud Services kan het *type besturingssysteem* worden opgegeven. (Zie de sectie [Informatie over Cloud Services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) in [Overzicht van Cloud Services](../cloud-services/cloud-services-choose-me.md) voor meer informatie over werkrollen.)
     * Net als bij werkrollen verdient het aanbeveling om `*` op te geven voor de *versie van het besturingssysteem*, zodat de knooppunten automatisch worden bijgewerkt en er geen werk vereist is om tegemoet te komen aan nieuwe versies. Er wordt voornamelijk voor een specifieke versie van een besturingssysteem gekozen om ervoor te zorgen dat toepassingen compatibel blijven, en om compatibiliteitstests met eerdere versies te kunnen uitvoeren alvorens toe te staan dat de versie mag worden bijgewerkt. Na de validatie kan de *versie van het besturingssysteem* voor de pool worden bijgewerkt en kan de nieuwe installatiekopie van het besturingssysteem worden geïnstalleerd. Elke actieve taak wordt onderbroken en opnieuw in de wachtrij geplaatst.
 
+Wanneer u een pool maakt, moet u afhankelijk van het besturingssysteem van de basisinstallatiekopie van uw VHD de juiste **nodeAgentSkuId** selecteren. Door de bewerking [List Supported Node Agent SKUs](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) (Overzicht van ondersteunde knooppuntagent-SKU's) aan te roepen, krijgt u een overzicht van de SKU-id’s van beschikbare knooppuntagents en de verwijzingen naar hun OS-installatiekopie.
+
 Zie de sectie [Account](#account) voor informatie over het instellen van de pooltoewijzingsmodus wanneer u een Batch-account maakt.
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Aangepaste installatiekopieën voor VM-pools
@@ -195,8 +198,6 @@ Zorg dat uw opslagaccounts voldoen aan de volgende criteria:
 - Op dit moment worden alleen algemene standaardopslagaccounts ondersteund. In de toekomst zal ook Azure Premium-opslag worden ondersteund.
 - U kunt één opslagaccount opgeven met meerdere aangepaste VHD-blobs of meerdere opslagaccounts die elk één blob hebben. Voor betere prestaties raden we u aan om meerdere opslagaccounts te gebruiken.
 - Een unieke VHD-blob van aangepaste installatiekopieën kan maximaal 40 Linux VM-exemplaren of 20 Windows VM-exemplaren ondersteunen. U moet kopieën van de VHD-blob maken als u pools met meer virtuele machines wilt maken. Zo moeten er voor een pool met 200 Windows VM's 10 unieke VHD-blobs worden opgegeven voor de eigenschap **osDisk**.
-
-Wanneer u een pool maakt, moet u afhankelijk van het besturingssysteem van de basisinstallatiekopie van uw VHD de juiste **nodeAgentSkuId** selecteren. Door de bewerking [List Supported Node Agent SKUs](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) (Overzicht van ondersteunde knooppuntagent-SKU's) aan te roepen, krijgt u een overzicht van de SKU-id’s van beschikbare knooppuntagents en de verwijzingen naar hun OS-installatiekopie.
 
 U maakt als volgt een aangepaste installatiekopie met Azure Portal:
 

@@ -1,17 +1,17 @@
 
-## <a name="analytics"></a>Analytics
-* [Overview](../articles/application-insights/app-insights-analytics.md)
-* [Tour of Analytics](../articles/application-insights/app-insights-analytics-tour.md)
-  * Start here. A tutorial covering the main features.
-* [Queries](../articles/application-insights/app-insights-analytics-reference.md#queries-and-operators)
-  * Use operators such as `where` and `count` to build queries.
-* [Aggregation](../articles/application-insights/app-insights-analytics-reference.md#aggregations)
-  * Used to compute statistics over groups of records
-* [Scalars](../articles/application-insights/app-insights-analytics-reference.md#scalars)
-  * Numbers, strings, and other expressions used to form query parameters.
-* [Using Analytics](../articles/application-insights/app-insights-analytics-using.md)
-  * Using Analytics.
-* [Language Reference](../articles/application-insights/app-insights-analytics-reference.md)
-  * One-page reference.
-* [Troubleshooting](../articles/application-insights/app-insights-analytics-troubleshooting.md)
+## <a name="analytics"></a>Analytische gegevens
+* [Overzicht](../articles/application-insights/app-insights-analytics.md)
+* [Rondleiding door analytische gegevens](../articles/application-insights/app-insights-analytics-tour.md)
+  * Begin hier. Een zelfstudie over de belangrijkste functies.
+* [Query's](../articles/application-insights/app-insights-analytics-reference.md)
+  * Gebruik operators zoals `where` en `count` om query's samen te stellen.
+* [Aggregatie](../articles/application-insights/app-insights-analytics-reference.md)
+  * Wordt gebruikt om de statistieken voor groepen records te berekenen
+* [Scalaire waarden](../articles/application-insights/app-insights-analytics-reference.md)
+  * Getallen, tekenreeksen en andere expressies die worden gebruikt om queryparameters te vormen.
+* [Analytische gegevens gebruiken](../articles/application-insights/app-insights-analytics-using.md)
+  * Analytische gegevens gebruiken.
+* [Taalverwijzing](../articles/application-insights/app-insights-analytics-reference.md)
+  * Verwijzing van één pagina.
+* [Problemen oplossen](../articles/application-insights/app-insights-analytics-troubleshooting.md)
 

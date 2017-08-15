@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 8ce0a0e7b06f85090c07052056ddd67b97b2ee8b
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: dd405eefbd69e1ed2268152017bc1f9992619c5f
 ms.contentlocale: nl-nl
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="getting-started"> </a>Wat is Mobile Apps?
-Azure App Service is een volledig beheerd [PaaS (Platform as a Service)](https://azure.microsoft.com/overview/what-is-paas/) voor professionele ontwikkelaars dat uitgebreide mogelijkheden bevat voor mobiele, web- en integratiescenario's. Met *Mobile Apps* in *Azure App Service* kunnen ontwikkelaars van ondernemingen en systeemintegrators gebruikmaken van een zeer schaalbaar, algemeen beschikbaar ontwikkelplatform voor mobiele toepassingen, dat uitgebreide mogelijkheden biedt voor ontwikkelaars van mobiele apps.
+Azure App Service is een volledig beheerd [PaaS (Platform as a Service)](https://azure.microsoft.com/overview/what-is-paas/) voor professionele ontwikkelaars dat uitgebreide mogelijkheden bevat voor mobiele scenario's, en voor web- en integratiescenario's. Met *Mobile Apps* in *Azure App Service* kunnen ontwikkelaars van ondernemingen en systeemintegrators gebruikmaken van een zeer schaalbaar, algemeen beschikbaar ontwikkelplatform voor mobiele toepassingen, dat uitgebreide mogelijkheden biedt voor ontwikkelaars van mobiele apps.
 
 ![Mobile Apps](./media/app-service-mobile-value-prop/overview.png)
 
@@ -30,17 +30,17 @@ Azure App Service is een volledig beheerd [PaaS (Platform as a Service)](https:/
 Met *Mobile Apps* in *Azure App Service* kunnen ontwikkelaars van ondernemingen en systeemintegrators gebruikmaken van een zeer schaalbaar, algemeen beschikbaar ontwikkelplatform voor mobiele toepassingen, dat uitgebreide mogelijkheden biedt voor ontwikkelaars van mobiele apps. Met Mobile Apps kunt u het volgende doen:
 
 * **Systeemeigen en platformoverschrijdende apps bouwen** - Of u nu systeemeigen iOS-, Android- of Windows-apps of platformoverschrijdende Xamarin- of Cordova-apps (Phonegap) bouwt, u kunt altijd profiteren van App Service met behulp van systeemeigen SDK's.
-* **Verbinding maken met uw ondernemingssystemen** - Met Mobile Apps kunt u in slechts enkele minuten zakelijke aanmeldingen toevoegen en on-premises of via cloudresources verbinding maken met uw bedrijf.
+* **Verbinding maken met uw bedrijfssystemen** - Met Mobile Apps kunt u in slechts enkele minuten zakelijke aanmeldingen toevoegen en verbinding maken met uw bedrijfsresources, on-premises of in de cloud.
 * **Apps bouwen die offline beschikbaar zijn met gegevenssynchronisatie** - Maak uw mobiele werknemers productief door apps te bouwen die offline werken en door gebruik te maken van Mobile Apps om gegevens op de achtergrond te synchroniseren wanneer er verbinding is met een van uw gegevensbronnen of SaaS-API's in de onderneming.
 * **Pushmeldingen in enkele seconden naar miljoenen klanten verzenden** - Houd contact met uw klanten door gebruik te maken van directe pushmeldingen op elk apparaat, afgestemd op de eigen behoeften van de klant en verzonden op het gewenste moment.
 
 ## <a name="mobile-app-features"></a>Functies voor mobiele apps
 De volgende functies zijn belangrijk wanneer u mobiele apps ontwikkelt die zijn ingeschakeld voor de cloud:
 
-* **Verificatie en autorisatie** - U kunt kiezen uit de steeds groeiende lijst met identiteitsproviders, waaronder Azure Active Directory voor ondernemingsverificatie, plus sociaalnetwerkproviders zoals Twitter, Facebook, Google en Microsoft-account.  Mobile Apps van Azure biedt een OAuth 2.0-service voor elke provider.  Daarnaast kunt u de SDK voor de identiteitsprovider integreren voor providerspecifieke functionaliteit.
+* **Verificatie en autorisatie** - U kunt kiezen uit een steeds groeiende lijst met id-providers, zoals Azure Active Directory, voor ondernemingsverificatie, plus providers van sociale netwerken, zoals Twitter, Facebook, Google en Microsoft-account.  Mobile Apps van Azure biedt een OAuth 2.0-service voor elke provider.  Daarnaast kunt u de SDK voor de id-provider ook integreren voor providerspecifieke functionaliteit.
 
   Lees meer over onze [verificatiefuncties].
-* **Gegevenstoegang** - Mobile Apps van Azure biedt een voor mobiele apparaten geschikte OData v3-gegevensbron die is gekoppeld aan SQL Azure of een on-premises SQL Server.  Deze service kan worden gebaseerd op Entity Framework, zodat u eenvoudig kunt integreren met andere NoSQL- en SQL-gegevensproviders, zoals [Azure-tabelopslag], MongoDB, [DocumentDB] en SaaS API-providers, zoals Office 365 en Salesforce.com.
+* **Gegevenstoegang** - Mobile Apps van Azure biedt een voor mobiele apparaten geschikte OData v3-gegevensbron die is gekoppeld aan SQL Azure of een on-premises SQL Server.  Deze service kan worden gebaseerd op Entity Framework, zodat u eenvoudig kunt integreren met andere NoSQL- en SQL-gegevensproviders, zoals [Azure Table Storage], MongoDB, [DocumentDB] en SaaS API-providers, zoals Office 365 en Salesforce.com.
 * **Offline synchronisatie** - Met onze client-SDK's kunt u eenvoudig robuuste en responsieve mobiele toepassingen bouwen die werken met een offlinegegevensset die automatisch kan worden gesynchroniseerd met de back-endgegevens, met ondersteuning van conflictoplossing.
 
   Lees meer over onze [gegevensfuncties].
@@ -50,7 +50,7 @@ De volgende functies zijn belangrijk wanneer u mobiele apps ontwikkelt die zijn 
 * **Client-SDK's** - Wij bieden een volledige set client-SDK's voor systeemeigen ontwikkeling ([iOS], [Android] en [Windows]), platformoverschrijdende ontwikkeling ([Xamarin voor iOS en Android], [Xamarin Forms]) en hybride toepassingsontwikkeling ([Apache Cordova]).  Elke client-SDK is beschikbaar met een MIT-licentie en is open source.
 
 ## <a name="azure-app-service-features"></a>Functies van Azure App Service
-De volgende platformfuncties komen eigenlijk altijd van pas voor mobiele productiesites.
+De volgende platformfuncties zijn handig voor mobiele productiesites.
 
 * **Automatische schaling** - Met App Service kunt u snel omhoog of omlaag schalen om in te spelen op de inkomende belasting van klanten. U kunt handmatig het aantal virtuele machines en de grootte ervan selecteren of automatische schaling instellen, zodat de back-end voor uw mobiele app wordt geschaald op basis van uw belasting of schema.
 
@@ -74,16 +74,11 @@ Als u aan de slag wilt met Mobile Apps, volgt u de zelfstudie in [Get Started] (
 Zie ons [leeroverzicht] voor meer informatie over Azure Mobile Apps.
 Zie [Azure App Service] voor meer informatie over het Azure App Service-platform.
 
-> [!NOTE]
-> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/mobile/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
->
->
-
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Get Started]: app-service-mobile-ios-get-started.md
-[Azure-tabelopslag]: ../storage/storage-dotnet-how-to-use-tables.md
+[Azure Table Storage]: ../storage/storage-dotnet-how-to-use-tables.md
 [DocumentDB]: ../documentdb/documentdb-get-started.md
 [verificatiefuncties]: ./app-service-mobile-auth.md
 [gegevensfuncties]: ./app-service-mobile-offline-data-sync.md

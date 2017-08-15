@@ -100,13 +100,13 @@ Er zijn enkele populaire systemen die hele groepen virtuele machines kunnen impl
 
 Docker heeft een eigen set hulpprogramma's voor het maken van virtuele machines ([docker-machine](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) en een taakverdelend docker-containerhulpprogramma voor clusterbeheer ([Swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Daarnaast wordt de [Azure Docker VM-extensie](https://github.com/Azure/azure-docker-extension/blob/master/README.md) geleverd met standaardondersteuning voor [ `docker-compose` ](https://docs.docker.com/compose/), dat geconfigureerde toepassingscontainers kan implementeren in meerdere containers.
 
-Daarnaast kunt u [Data Center Operating System (DCOS) van Mesosphere](http://docs.mesosphere.com/install/azurecluster/) uitproberen. DCOS is gebaseerd op de open-source [mesos](http://mesos.apache.org/) 'kernel voor gedistribueerde systemen' waarmee u uw datacenter kunt behandelen als één adresseerbare service. DCOS heeft ingebouwde pakketten voor verschillende belangrijke systemen zoals [Spark](http://spark.apache.org/) en [Kafka](http://kafka.apache.org/) (en andere) evenals ingebouwde services zoals [Marathon](https://mesosphere.github.io/marathon/) (een controlesysteem voor containers) en [Chronos](https://mesos.github.io/chronos/) (een gedistribueerde planner). Mesos is afgeleid van ervaringen opgedaan bij Twitter, AirBnb en andere grote internetbedrijven. U kunt ook **Swarm** gebruiken als de orchestration-engine.
+Daarnaast kunt u [Data Center Operating System (DCOS) van Mesosphere](http://docs.mesosphere.com) uitproberen. DCOS is gebaseerd op de open-source [mesos](http://mesos.apache.org/) 'kernel voor gedistribueerde systemen' waarmee u uw datacenter kunt behandelen als één adresseerbare service. DCOS heeft ingebouwde pakketten voor verschillende belangrijke systemen zoals [Spark](http://spark.apache.org/) en [Kafka](http://kafka.apache.org/) (en andere) evenals ingebouwde services zoals [Marathon](https://mesosphere.github.io/marathon/) (een controlesysteem voor containers) en [Chronos](https://mesos.github.io/chronos/) (een gedistribueerde planner). Mesos is afgeleid van ervaringen opgedaan bij Twitter, AirBnb en andere grote internetbedrijven. U kunt ook **Swarm** gebruiken als de orchestration-engine.
 
 Ook is [Kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) een open-source systeem voor het beheer van virtuele machines en containergroepen afgeleid van ervaringen opgedaan bij Google. U kunt [Kubernetes zelfs gebruiken met Weave om netwerkondersteuning te bieden](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
-[Deis](http://deis.io/overview/) is een open-source 'Platform-as-a-Service' (PaaS) waarmee u gemakkelijk toepassingen op uw eigen servers kunt implementeren en beheren. Deis is gebouwd op Docker en CoreOS en biedt een lichtgewicht PaaS voorzien van door Heroku geïnspireerde werkstroom. U kunt eenvoudig [een Azure VM-groep met 3 knooppunten maken en Deis installeren](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in Azure en vervolgens [een Hello World Go-toepassing installeren](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
+[Deis](http://deis.com/) is een open-source 'Platform-as-a-Service' (PaaS) waarmee u gemakkelijk toepassingen op uw eigen servers kunt implementeren en beheren. Deis is gebouwd op Docker en CoreOS en biedt een lichtgewicht PaaS voorzien van door Heroku geïnspireerde werkstroom. U kunt eenvoudig [een Azure VM-groep met 3 knooppunten maken en Deis installeren](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in Azure en vervolgens [een Hello World Go-toepassing installeren](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
 
-[CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), een Linux-distributie met een geoptimaliseerde footprint, ondersteuning voor Docker en een eigen containersysteem genoemd [rkt](https://github.com/coreos/rkt), heeft ook een beheerhulpprogramma voor containergroepen met de naam [Fleet](https://coreos.com/using-coreos/clustering/).
+[CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), een Linux-distributie met een geoptimaliseerde footprint, ondersteuning voor Docker en een eigen containersysteem genoemd [rkt](https://github.com/coreos/rkt), heeft ook een beheerhulpprogramma voor containergroepen met de naam [Fleet](https://coreos.com/fleet/docs/latest/).
 
 Ubuntu, een andere populaire Linux-distributie biedt goede ondersteuning voor Docker, maar ondersteunt ook [Linux-clusters (LXC-stijl)](https://help.ubuntu.com/lts/serverguide/lxc.html).
 
@@ -133,7 +133,7 @@ Koppelingen naar Windows-containers:
 
 Koppelingen naar Visual Studio Docker:
 
-* [Visual Studio 2015 RC-hulpprogramma’s voor Docker - preview](https://visualstudiogallery.msdn.microsoft.com/6f638067-027d-4817-bcc7-aa94163338f0)
+* [Visual Studio Tools voor Docker](https://docs.microsoft.com/en-us/dotnet/core/docker/visual-studio-tools-for-docker)
 
 Docker-hulpprogramma's:
 
@@ -161,7 +161,7 @@ Linux-distributies en Azure voorbeelden:
 
 Configuratie, clusterbeheer en container-orchestration:
 
-* [Fleet in CoreOS](https://coreos.com/using-coreos/clustering/)
+* [Fleet in CoreOS](https://coreos.com/fleet/docs/latest/)
 * Deis
 
   * [Een Azure VM-groep met 3 knooppunten maken, Deis installeren en een Hello World Go-toepassing starten](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -171,10 +171,10 @@ Configuratie, clusterbeheer en container-orchestration:
   * [Kubernetes Visualizer](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
 * [Mesos](http://mesos.apache.org/)
 
-  * [Data Center Operating System (DCOS) van Mesosphere](http://beta-docs.mesosphere.com/install/azurecluster/)
-* [Jenkins](https://jenkins-ci.org/) en [Hudson](http://hudson-ci.org/)
+  * [Data Center Operating System (DCOS) van Mesosphere](https://docs.mesosphere.com/1.7/overview/design/azure-container-service/)
+* [Jenkins](https://jenkins.io/) en [Hudson](http://hudson-ci.org/)
 
-  * [Blog: Jenkins Slave Plug-in voor Azure](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
+  * [Jenkins VM Agent Plug-in voor Azure](https://wiki.jenkins.io/display/JENKINS/Azure+VM+Agents+plugin)
   * [GitHub-repo: Jenkins Storage Plug-in voor Azure](https://github.com/jenkinsci/windows-azure-storage-plugin)
   * [Externe partij: Hudson Slave Plug-in voor Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
   * [Externe partij: Hudson Storage Plug-in voor Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
