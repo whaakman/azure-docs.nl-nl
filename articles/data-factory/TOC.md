@@ -61,7 +61,10 @@
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Webtabel](data-factory-web-table-connector.md)
-### [Gegevensbeheergateway](data-factory-data-management-gateway.md)
+### Gegevensbeheergateway
+#### [Overzicht](data-factory-data-management-gateway.md)
+#### [Hoge beschikbaarheid en schaalbaarheid (preview)](data-factory-data-management-gateway-high-availability-scalability.md)
+#### [Overzicht: gegevens van een on-premises SQL-server verplaatsen naar Azure Blob Storage](data-factory-move-data-between-onprem-and-cloud.md)
 
 
 ## [Gegevens transformeren](data-factory-data-transformation-activities.md)

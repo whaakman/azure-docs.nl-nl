@@ -39,6 +39,7 @@
 ### [Activiteitenlogboek streamen naar Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 ### [Bewerkingen controleren met Resource Manager](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Waarschuwingen voor activiteitenlogboek maken Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+### [Migreren naar waarschuwingen voor activiteitenlogboek](monitoring-migrate-management-alerts.md)
 ## Servicemeldingen gebruiken
 ### [Servicemeldingen bekijken](monitoring-service-notifications.md)
 ### [Waarschuwingen voor servicemeldingen configureren](monitoring-activity-log-alerts-on-service-notifications.md)

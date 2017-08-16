@@ -46,6 +46,7 @@
 ### [Portals voor zoekopdrachten in logboeken](log-analytics-log-search-portals.md)
 #### [Het portal voor zoekopdrachten in logboeken gebruiken](log-analytics-log-search-log-search-portal.md)
 ### [Overstappen van een verouderde taal](log-analytics-log-search-transition.md)
+### [Stroomconnector](log-analytics-flow-tutorial.md)
 
 ## Gegevens analyseren
 ### [Dashboards](log-analytics-dashboards.md)

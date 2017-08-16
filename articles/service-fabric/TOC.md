@@ -69,6 +69,7 @@
 ##### [DNS-service](service-fabric-dnsservice.md)
 ##### [Omgekeerde proxy](service-fabric-reverseproxy.md)
 ##### [Omgekeerde proxy voor veilige communicatie configureren](service-fabric-reverseproxy-configure-secure-communication.md)
+##### [Diagnostische gegevens voor omgekeerde proxy](service-fabric-reverse-proxy-diagnostics.md)
 ### [Schaalbaarheid van toepassingen](service-fabric-concepts-scalability.md)
 ### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
@@ -136,6 +137,7 @@
 #### [Docker Compose (preview)](service-fabric-docker-compose.md)
 #### [Resourcebeheer voor containers en services](service-fabric-resource-governance.md)
 #### [Volume en stuurprogramma's voor logboekregistratie](service-fabric-containers-volume-logging-drivers.md)
+#### [Services in containers](service-fabric-services-inside-containers.md)
 
 ### Een Reliable Services-service bouwen
 #### [Overzicht](service-fabric-reliable-services-introduction.md)
@@ -173,10 +175,10 @@
 #### Aan de slag
 ##### [C# op Windows](service-fabric-reliable-actors-get-started.md)
 ##### [Java op Linux](service-fabric-reliable-actors-get-started-java.md)
-#### [Meldingen verzenden](service-fabric-reliable-actors-events.md) 
+#### [Meldingen verzenden](service-fabric-reliable-actors-events.md)
 #### [Timers en herinneringen instellen](service-fabric-reliable-actors-timers-reminders.md)
 #### [KvsActorStateProvider configureren](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
-#### [Communicatie-instellingen configureren](service-fabric-reliable-actors-fabrictransportsettings.md) 
+#### [Communicatie-instellingen configureren](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [ReliableDictionaryActorStateProvider configureren](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 ### [Omgekeerde proxy voor veilige communicatie configureren](service-fabric-reverseproxy-configure-secure-communication.md)
@@ -240,17 +242,17 @@
 
 ## Clusters maken en beheren
 ### Clusters op Azure
-#### Maken 
+#### Maken
 ##### [Uw eerste cluster maken in Azure](service-fabric-get-started-azure-cluster.md)
 ##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-#### Schalen 
+#### Schalen
 ##### [Handmatig](service-fabric-cluster-scale-up-down.md)
 ##### [Programmatisch](service-fabric-cluster-programmatic-scaling.md)
 #### [Upgraden](service-fabric-cluster-upgrade.md)
 #### [Toegangsbeheer instellen](service-fabric-cluster-security-roles.md)
 #### [Configureren](service-fabric-cluster-fabric-settings.md)
-#### [Clustercertificaten beheren](service-fabric-cluster-security-update-certs-azure.md) 
+#### [Clustercertificaten beheren](service-fabric-cluster-security-update-certs-azure.md)
 #### [Verwijderen](service-fabric-cluster-delete.md)
 
 ### Zelfstandige clusters
@@ -264,7 +266,7 @@
 #### [Schalen](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Toegangsbeheer instellen](service-fabric-cluster-security-roles.md)
 #### [Configureren](service-fabric-cluster-manifest.md)
-#### [Upgraden](service-fabric-cluster-upgrade-windows-server.md) 
+#### [Upgraden](service-fabric-cluster-upgrade-windows-server.md)
 
 ### [Een cluster visualiseren](service-fabric-visualizing-your-cluster.md)
 ### [Verbinding maken met een beveiligde cluster](service-fabric-connect-to-secure-cluster.md)
@@ -333,4 +335,3 @@
 ## [Ondersteuningsopties](service-fabric-support.md)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
-
