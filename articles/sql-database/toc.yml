@@ -59,7 +59,7 @@
       href: sql-database-powershell-samples.md
 - name: Concepten
   items:
-    - name: Databases en servers
+    - name: Servicekenmerken
       items:
         - name: Overzicht
           href: sql-database-servers-databases.md
@@ -69,6 +69,8 @@
           href: sql-database-elastic-pool.md
         - name: Connectiviteitsarchitectuur
           href: sql-database-connectivity-architecture.md
+        - name: Firewall-regels
+          href: sql-database-firewall-configure.md
         - name: DTU's en eDTU's
           href: sql-database-what-is-a-dtu.md
         - name: DTU-benchmark
@@ -77,7 +79,25 @@
           href: sql-database-resource-limits.md
         - name: PaaS of IaaS
           href: sql-database-paas-vs-sql-server-iaas.md
-        - name: Functies
+        - name: Controleren
+          href: sql-database-auditing.md
+        - name: Detectie van bedreigingen
+          href: sql-database-threat-detection.md
+        - name: Databaseback-ups
+          href: sql-database-automated-backups.md
+        - name: Retentie van back-ups
+          href: sql-database-long-term-retention.md
+        - name: Failover-groepen
+          href: sql-database-geo-replication-overview.md
+        - name: Elastische clientbibliotheek
+          href: sql-database-elastic-database-client-library.md
+        - name: Elastische query’s
+          href: sql-database-elastic-query-overview.md
+        - name: Elastische transacties
+          href: sql-database-elastic-transactions-overview.md
+        - name: Elastische taken
+          href: sql-database-elastic-jobs-overview.md
+        - name: Algemene SQL Server-functies
           href: sql-database-features.md
     - name: Beveiliging
       items:
@@ -85,34 +105,22 @@
           href: sql-database-security-overview.md
         - name: Toegangsbeheer
           href: sql-database-control-access.md
-        - name: Firewall-regels
-          href: sql-database-firewall-configure.md
         - name: Azure AD
           href: sql-database-aad-authentication.md
         - name: Aanmeldingen en gebruikers
           href: sql-database-manage-logins.md
         - name: Multi-Factor Authentication
           href: sql-database-ssms-mfa-authentication.md
-        - name: Controleren
-          href: sql-database-auditing.md
         - name: Tabel controleren en TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-        - name: Detectie van bedreigingen
-          href: sql-database-threat-detection.md
         - name: Gegevensmaskering
           href: sql-database-dynamic-data-masking-get-started.md
     - name: Bedrijfscontinuïteit
       items:
         - name: Overzicht
           href: sql-database-business-continuity.md
-        - name: Databaseback-ups
-          href: sql-database-automated-backups.md
-        - name: Retentie van back-ups
-          href: sql-database-long-term-retention.md
         - name: Databaseherstel
           href: sql-database-recovery-using-backups.md
-        - name: Failover-groepen
-          href: sql-database-geo-replication-overview.md
         - name: Beveiliging configureren
           href: sql-database-geo-replication-security-config.md
         - name: App-ontwerp en herstel
@@ -159,16 +167,10 @@
           href: sql-database-compatibility-level-query-performance-130.md
         - name: In-memory bewaken
           href: sql-database-in-memory-oltp-monitoring.md
-    - name: Apps uitschalen
+    - name: Uitschalen
       items:
         - name: Overzicht
           href: sql-database-elastic-scale-introduction.md
-        - name: SaaS-ontwerppatronen
-          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-        - name: Beveiliging van SaaS-app
-          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-        - name: Elastische clientbibliotheek
-          href: sql-database-elastic-database-client-library.md
         - name: Shard-kaarten
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Query-routering
@@ -185,16 +187,12 @@
           href: sql-database-elastic-scale-working-with-dapper.md
         - name: Veelgestelde vragen over Elastic-hulpprogramma's
           href: sql-database-elastic-scale-faq.md
-        - name: Elastische query’s
-          href: sql-database-elastic-query-overview.md
-        - name: Horizontale gegevens
-          href: sql-database-elastic-query-horizontal-partitioning.md
-        - name: Verticale gegevens
-          href: sql-database-elastic-query-vertical-partitioning.md
-        - name: Transacties
-          href: sql-database-elastic-transactions-overview.md
-        - name: Elastische taken
-          href: sql-database-elastic-jobs-overview.md
+    - name: SaaS met meerdere tenants
+      items:
+        - name: SaaS-ontwerppatronen
+          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+        - name: Beveiliging van SaaS-app
+          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
     - name: Databases ontwikkelen
       items:
         - name: JSON-gegevens
@@ -225,6 +223,26 @@
           href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: Handleidingen
   items:
+    - name: Servicekenmerken
+      items:
+        - name: Clientbibliotheek voor Elastic Database upgraden
+          href: sql-database-elastic-scale-upgrade-client-library.md
+        - name: Een elastische taak installeren
+          href: sql-database-elastic-jobs-service-installation.md
+        - name: Taak maken - Portal
+          href: sql-database-elastic-jobs-create-and-manage.md
+        - name: Taak maken - PowerShell
+          href: sql-database-elastic-jobs-powershell.md
+        - name: Taak maken - voorbeeld-app
+          href: sql-database-elastic-jobs-getting-started.md
+        - name: Een elastische taak verwijderen
+          href: sql-database-elastic-jobs-uninstall.md
+        - name: Een query uitvoeren op verticaal gepartitioneerde gegevens
+          href: sql-database-elastic-query-getting-started-vertical.md
+        - name: Rapportage voor uitgeschaalde gegevenslaag
+          href: sql-database-elastic-query-horizontal-partitioning.md
+        - name: Query's uitvoeren op tabellen met verschillende schema's
+          href: sql-database-elastic-query-vertical-partitioning.md
     - name: Beveiliging
       items:
         - name: Azure AD-verificatie configureren
@@ -285,10 +303,12 @@
           href: sql-database-manage-automation.md
         - name: Azure RemoteApp
           href: sql-database-ssms-remoteapp.md
-    - name: Apps uitschalen
+    - name: Uitschalen
       items:
         - name: Een shard-app maken
           href: sql-database-elastic-scale-get-started.md
+        - name: Een query uitvoeren op horizontaal gedeelde gegevens
+          href: sql-database-elastic-query-getting-started.md
         - name: Shard-gegevens verplaatsen
           href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
         - name: Beveiligingsconfiguratie
@@ -303,24 +323,26 @@
           href: sql-database-elastic-database-perf-counters.md
         - name: Entity Framework gebruiken
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
-        - name: Clients upgraden
-          href: sql-database-elastic-scale-upgrade-client-library.md
-        - name: Een elastische taak installeren
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: Taak maken - Portal
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: Taak maken - PowerShell
-          href: sql-database-elastic-jobs-powershell.md
-        - name: Taak maken - voorbeeld-app
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: Een elastische taak verwijderen
-          href: sql-database-elastic-jobs-uninstall.md
-        - name: Een query uitvoeren op horizontale gegevens
-          href: sql-database-elastic-query-getting-started.md
-        - name: Een query uitvoeren op verticale gegevens
-          href: sql-database-elastic-query-getting-started-vertical.md
-        - name: Zelfstudie voor SaaS-app
+    - name: SaaS met meerdere tenants
+      items:
+        - name: Inleiding van zelfstudie
           href: sql-database-wtp-overview.md
+        - name: Een voorbeeld-app implementeren
+          href: sql-database-saas-tutorial.md
+        - name: Tenants inrichten
+          href: sql-database-saas-tutorial-provision-and-catalog.md
+        - name: Databaseprestaties bewaken
+          href: sql-database-saas-tutorial-performance-monitoring.md
+        - name: Bewaken met Log Analytics
+          href: sql-database-saas-tutorial-log-analytics.md
+        - name: Een individuele tenant terugzetten
+          href: sql-database-saas-tutorial-restore-single-tenant.md
+        - name: Het tenantschema beheren
+          href: sql-database-saas-tutorial-schema-management.md
+        - name: Ad-hocquery's uitvoeren
+          href: sql-database-saas-tutorial-adhoc-analytics.md
+        - name: ETL voor analyse
+          href: sql-database-saas-tutorial-tenant-analytics.md
     - name: Apps ontwikkelen
       items:
         - name: C en C ++

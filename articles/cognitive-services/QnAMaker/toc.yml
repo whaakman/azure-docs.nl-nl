@@ -1,35 +1,37 @@
-- name: QnAMaker API Documentation
+- name: Documentatie voor de QnAMaker-API
   href: ../index.md
-- name: Overview
+- name: Overzicht
   items:
-  - name: Learn about QnAMaker
-    href: Home.md
-- name: Quickstarts
+    - name: Informatie over QnAMaker
+      href: Home.md
+- name: Snelstartgidsen
   expanded: true
-  items: 
-  - name: Get started with QnAMaker
-    href: Quickstart.md
-- name: How to Guides
-  items: 
-  - name: Create a knowledge base
-    href: Guides/CreateKB.md
-  - name: Train a knowledge base
-    href: Guides/TrainKB.md
-  - name: Share a knowledge base
-    href: Guides/share-knowledgebase-qnamaker.md
-  - name: Update a knowledge base
-    href: Guides/UpdateKB.md
-  - name: Publish a knowledge base
-    href: Guides/PublishKB.md
-  - name: Authentication
-    href: SubscriptionKeys.md
-- name: Reference
-  items: 
-  - name: API Reference
-    href: HTTPEndPoint.md
-  - name: FAQ
-    href: FAQs.md
+  items:
+    - name: Aan de slag met QnAMaker
+      href: Quickstart.md
+- name: Handleidingen
+  items:
+    - name: Een kennisdatabase maken
+      href: Guides/CreateKB.md
+    - name: Een kennisdatabase trainen
+      href: Guides/TrainKB.md
+    - name: Een kennisdatabase delen
+      href: Guides/share-knowledgebase-qnamaker.md
+    - name: Een kennisdatabase bijwerken
+      href: Guides/UpdateKB.md
+    - name: Een kennisdatabase publiceren
+      href: Guides/PublishKB.md
+    - name: Actief leren
+      href: Guides/active-learning-qnamaker.md
+    - name: Authentication
+      href: SubscriptionKeys.md
+- name: Naslaginformatie
+  items:
+    - name: API-naslaginformatie
+      href: HTTPEndPoint.md
+    - name: Veelgestelde vragen
+      href: FAQs.md
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'

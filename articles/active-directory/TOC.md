@@ -3,13 +3,13 @@
 ## [Over Azure-identiteitsbeheer](identity-fundamentals.md)
 ## [Inzicht krijgen in Azure-identiteitsoplossingen](understand-azure-identity-solutions.md)
 ## [Een hybride identiteitsoplossing kiezen](choose-hybrid-identity-solution.md)
+## [Azure-abonnementen koppelen](active-directory-how-subscriptions-associated-directory.md)
 ## [Veelgestelde vragen](active-directory-faq.md)
 
 # Aan de slag
-## [Een Azure AD-tenant verkrijgen](active-directory-howto-tenant.md)
 ## [Meld u aan voor Azure AD Premium](active-directory-get-started-premium.md)
-## [Azure-abonnementen koppelen](active-directory-how-subscriptions-associated-directory.md)
-## [Snelstartgids: Self-service voor wachtwoord opnieuw instellen](active-directory-passwords-getting-started.md)
+## [Een aangepaste domeinnaam toevoegen](add-custom-domain.md)
+## [Self-service voor wachtwoord opnieuw instellen configureren](active-directory-passwords-getting-started.md)
 ## Azure AD-licenties beheren
 ### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
 ### [Klassieke portal](active-directory-licensing-what-is.md)
@@ -19,8 +19,7 @@
 #### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
 #### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
 #### [PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
-## [Ondersteuning verkrijgen voor Azure Active Directory](active-directory-troubleshooting-support-howto.md)
-## [Zelfstudies voor SaaS-app-integratie](active-directory-saas-tutorial-list.md)
+
 
 # Procedures
 ## Plannen en ontwerpen
@@ -55,7 +54,6 @@
 #### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
 #### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
 #### [PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
-
 ### [Gebruikers uit andere directory's toevoegen (klassieke portal)](active-directory-create-users-external.md)
 ### [Gebruikers verwijderen](active-directory-users-delete-user-azure-portal.md)
 ### [Gebruikersprofielen beheren](active-directory-users-profile-azure-portal.md)
@@ -164,6 +162,7 @@
 ## Apps beheren
 ### [Overzicht](active-directory-enable-sso-scenario.md)
 ### [Aan de slag](active-directory-integrating-applications-getting-started.md)
+### [Zelfstudies voor SaaS-app-integratie](active-directory-saas-tutorial-list.md)
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Registerinstellingen bijwerken](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Meer informatie over beveiliging en privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
@@ -239,11 +238,6 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Aangepaste domeinnamen
 #### [Overzicht](active-directory-add-domain-concepts.md)
-#### Uw domeinnaam toevoegen
-##### [Azure Portal](active-directory-domains-add-azure-portal.md)
-##### [Klassieke portal](active-directory-add-domain.md)
-##### [Met AD FS](active-directory-add-domain-federated.md)
-#### [Gebruikers toewijzen](active-directory-add-domain-add-users.md)
 #### Domeinnamen beheren
 ##### [Azure Portal](active-directory-domains-manage-azure-portal.md)
 ##### [Klassieke portal](active-directory-add-manage-domain-names.md)
@@ -270,6 +264,7 @@
 #### [Voorbeeld self-service-aanmelding portal](active-directory-b2b-self-service-portal.md)
 #### [Uitnodigingse-mail](active-directory-b2b-invitation-email.md)
 #### [Uitnodiging inwisselen](active-directory-b2b-redemption-experience.md)
+#### [B2B-gebruikers zonder uitnodiging toevoegen](active-directory-b2b-add-user-without-invite.md)
 #### [Voorwaardelijke toegang voor B2B](active-directory-b2b-mfa-instructions.md)
 #### [Beleid voor B2B-deling](active-directory-b2b-delegate-invitations.md)
 #### [Een B2B-gebruiker toevoegen aan een rol](active-directory-b2b-add-guest-to-role.md)
@@ -357,7 +352,8 @@
 ### [Hoge beschikbaarheid](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Hash-algoritme van de handtekening wijzigen](active-directory-federation-sha256-guidance.md)
 
-## [Problemen oplossen](active-directory-troubleshooting.md)
+## [Problemen oplossen](active-directory-troubleshooting-support-howto.md)
+### [Functie voor het oplossen van problemen met Active Directory-items ontbreekt of is niet beschikbaar](active-directory-troubleshooting.md)
 
 ## Azure AD Proof of Concept (PoC) implementeren
 ### [PoC Playbook: inleiding](active-directory-playbook-intro.md)

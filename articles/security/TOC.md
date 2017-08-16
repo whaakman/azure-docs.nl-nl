@@ -5,10 +5,11 @@
 ## [Rekenbeveiliging](security-virtual-machines-overview.md)
 ## [Operationele beveiliging](azure-operational-security-overview.md)
 ## [Beveiligingsbeheer en -controle](security-management-and-monitoring-overview.md)
+## [Service Fabric-beveiliging](azure-service-fabric-security-overview.md)
 ## [Identiteitsbeheer](security-identity-management-overview.md)
 ## [IoT-beveiliging](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [Beveiligingsarchitectuur](azure-security-architecture-overview.md)
-### [Operationele beveiliging](azure-operational-security.md)
+### [Operationele beveiliging inschakelen](azure-operational-security.md)
 ### [Geavanceerde detectie van bedreigingen](azure-threat-detection.md)
 ### [Logboekregistratie en bewaking](azure-log-audit.md)
 ### [Isolatie in de openbare cloud](azure-isolation.md)
@@ -40,6 +41,9 @@
 #### [Problemen met schijfversleuteling oplossen](azure-security-disk-encryption-tsg.md)
 ### [Een Azure-VM versleutelen](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
+## Operationele beveiliging
+### [Best practices voor operationele beveiliging](azure-operational-security-best-practices.md)
+
 ## Beveiligingsbeheer en -controle
 ### [Beveiligingsbeheer](azure-security-management.md)
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
@@ -49,6 +53,10 @@
 #### [Waarschuwingen van Beveiligingscentrum integreren](security-azure-log-integration-security-center.md)
 #### [Logboeken van Key Vault integreren met Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [Veelgestelde vragen](security-azure-log-integration-faq.md)
+
+## Service Fabric
+### [Best practices voor Service Fabric](azure-service-fabric-security-best-practices.md)
+### [Controlelijst voor Service Fabric](azure-service-fabric-security-checklist.md)
 
 ## Identiteitsbeheer
 ### [Aanbevolen procedures voor beveiliging van identiteitsbeheer](azure-security-identity-management-best-practices.md)
