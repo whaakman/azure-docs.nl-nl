@@ -1,10 +1,10 @@
 ---
 title: 'Eerste blik: virtuele machines van Azure beveiligen met een Recovery Services-kluis | Microsoft Docs'
-description: "Beveilig virtuele machines van Azure met een Recovery Services-kluis. Gebruik back-ups van virtuele machines die met Resource Manager of het klassieke model zijn geïmplementeerd, Premium Storage-VM&quot;s, versleutelde virtuele machines en virtuele machines op beheerde schijven om uw gegevens te beveiligen. Maak en registreer een Recovery Services-kluis. Registreer VM&quot;s, maak beleid en beveilig VM&quot;s in Azure."
+description: "Beveilig virtuele machines van Azure met een Recovery Services-kluis. Gebruik back-ups van virtuele machines die met Resource Manager of het klassieke model zijn geïmplementeerd, Premium Storage-VM's, versleutelde virtuele machines en virtuele machines op beheerde schijven om uw gegevens te beveiligen. Maak en registreer een Recovery Services-kluis. Registreer VM's, maak beleid en beveilig VM's in Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keyword: backups; vm backup
 ms.assetid: 45e773d6-c91f-4501-8876-ae57db517cd1
@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/15/2017
+ms.date: 08/15/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
@@ -21,7 +21,6 @@ ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: fd923fa711aa0af72e8d81d84fd0adb2e003596a
 ms.contentlocale: nl-nl
 ms.lasthandoff: 06/01/2017
-
 
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Back-ups maken van virtuele Azure-machines naar Recovery Services-kluizen
