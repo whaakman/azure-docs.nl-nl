@@ -57,9 +57,10 @@
 ## Detecteren en reageren
 ### [Detectiecapaciteiten](security-center-detection-capabilities.md)
 ### [Beveiligingswaarschuwingen beheren](security-center-managing-and-responding-alerts.md)
+### [Typen beveiligingswaarschuwingen](security-center-alerts-type.md)
+### [Waarschuwingen valideren](security-center-alert-validation.md)
 ### [Beveiligingsincidenten beheren](security-center-incident.md)
 ### [Azure-logboekintegratie](security-center-integrating-alerts-with-log-integration.md)
-### [Typen beveiligingswaarschuwingen](security-center-alerts-type.md)
 ### [Bedreigingsinformatierapport](security-center-threat-report.md)
 
 ## Problemen oplossen
