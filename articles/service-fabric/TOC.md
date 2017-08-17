@@ -133,11 +133,12 @@
 ### Een containerservice bouwen
 #### [Een Windows-containertoepassing maken](service-fabric-get-started-containers.md)
 #### [Een Linux-containertoepassing maken](service-fabric-get-started-containers-linux.md)
-#### [Linux-container implementeren](service-fabric-deploy-container-linux.md)
+#### [Beveiliging van de container](service-fabric-securing-containers.md)
 #### [Docker Compose (preview)](service-fabric-docker-compose.md)
 #### [Resourcebeheer voor containers en services](service-fabric-resource-governance.md)
 #### [Volume en stuurprogramma's voor logboekregistratie](service-fabric-containers-volume-logging-drivers.md)
 #### [Services in containers](service-fabric-services-inside-containers.md)
+#### [Netwerkmodi voor containers](service-fabric-networking-modes.md)
 
 ### Een Reliable Services-service bouwen
 #### [Overzicht](service-fabric-reliable-services-introduction.md)

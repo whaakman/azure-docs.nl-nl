@@ -7,6 +7,7 @@
 ## [URL-routering](application-gateway-url-route-overview.md)
 ## [Multi-site](application-gateway-multi-site-overview.md)
 ## [End-to-end-SSL](application-gateway-backend-ssl.md)
+## [SSL-beleid](application-gateway-ssl-policy-overview.md)
 ## [Omleiding](application-gateway-redirect-overview.md)
 ## [Ondersteuning voor meerdere tenants](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
@@ -31,12 +32,13 @@
 ## Regels voor Web Application Firewall aanpassen
 ### [Portal](application-gateway-customize-waf-rules-portal.md)
 ### [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
-## Configureren voor SSL-offload
+## SSL configureren
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (klassiek)](application-gateway-ssl.md)
 ### [Azure CLI 2.0](application-gateway-ssl.md)
-### [Beleid en end-to-end](application-gateway-end-to-end-ssl-powershell.md)
+### [End-to-end](application-gateway-end-to-end-ssl-powershell.md)
+### [SSL-beleid](application-gateway-configure-ssl-policy-powershell.md)
 ## Routering op basis van URL-pad configureren
 ### [Portal](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
