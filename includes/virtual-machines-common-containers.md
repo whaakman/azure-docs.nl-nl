@@ -92,8 +92,7 @@ Deze mogelijkheden worden vervolgens vaak gemigreerd naar hulpprogramma's zoals 
 Recenter heeft Azure de [Azure-bronbeheer](../articles/resource-manager-deployment-model.md) REST API uitgebracht en PowerShell- en Azure CLI-hulpprogramma’s bijgewerkt zodat deze gemakkelijk te gebruiken zijn. U kunt volledige toepassingstopologieën implementeren, wijzigen of opnieuw implementeren met behulp van [Azure Resource Manager-sjablonen](../articles/resource-group-authoring-templates.md) met de Azure-bronbeheer-API via:
 
 * de [Azure Portal met behulp van sjablonen](https://github.com/Azure/azure-quickstart-templates)&mdash;, gebruik de knop 'DeployToAzure'
-* de [Azure CLI](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* de [Azure PowerShell-modules](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* de [Azure CLI](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="deployment-and-management-of-entire-groups-of-azure-vms-and-containers"></a>Implementatie en beheer van hele groepen virtuele Azure-machines en containers
 Er zijn enkele populaire systemen die hele groepen virtuele machines kunnen implementeren en Docker (of andere Linux-containerhostsystemen) erop kunnen installeren als automatiseerbare groep. Zie het gedeelte [containers en hulpprogramma's](#containers-and-vm-technologies) hieronder voor rechtstreekse koppelingen. Er zijn verschillende systemen die dit in hogere of mindere mate doen en dit is geen volledige lijst. Afhankelijk van uw vaardigheden en scenario's zijn ze wel of niet bruikbaar.
@@ -104,7 +103,7 @@ Daarnaast kunt u [Data Center Operating System (DCOS) van Mesosphere](http://doc
 
 Ook is [Kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) een open-source systeem voor het beheer van virtuele machines en containergroepen afgeleid van ervaringen opgedaan bij Google. U kunt [Kubernetes zelfs gebruiken met Weave om netwerkondersteuning te bieden](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
-[Deis](http://deis.com/) is een open-source 'Platform-as-a-Service' (PaaS) waarmee u gemakkelijk toepassingen op uw eigen servers kunt implementeren en beheren. Deis is gebouwd op Docker en CoreOS en biedt een lichtgewicht PaaS voorzien van door Heroku geïnspireerde werkstroom. U kunt eenvoudig [een Azure VM-groep met 3 knooppunten maken en Deis installeren](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in Azure en vervolgens [een Hello World Go-toepassing installeren](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
+[Deis](http://deis.io/overview/) is een open-source 'Platform-as-a-Service' (PaaS) waarmee u gemakkelijk toepassingen op uw eigen servers kunt implementeren en beheren. Deis is gebouwd op Docker en CoreOS en biedt een lichtgewicht PaaS voorzien van door Heroku geïnspireerde werkstroom.
 
 [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), een Linux-distributie met een geoptimaliseerde footprint, ondersteuning voor Docker en een eigen containersysteem genoemd [rkt](https://github.com/coreos/rkt), heeft ook een beheerhulpprogramma voor containergroepen met de naam [Fleet](https://coreos.com/fleet/docs/latest/).
 
@@ -163,9 +162,6 @@ Configuratie, clusterbeheer en container-orchestration:
 
 * [Fleet in CoreOS](https://coreos.com/fleet/docs/latest/)
 * Deis
-
-  * [Een Azure VM-groep met 3 knooppunten maken, Deis installeren en een Hello World Go-toepassing starten](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Kubernetes
 
   * [Volledige handleiding voor geautomatiseerde Kubernetes-clusterimplementatie met CoreOS en Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
   * [Kubernetes Visualizer](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)

@@ -17,10 +17,10 @@ ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: c41a16a3c43064a094b0980bc1a8294b093c6130
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 07c7f3ad066c735054cb339f6e09aa4d7d23f23a
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="quickstart-azure-ad-self-service-password-reset"></a>Snelstartgids: Azure AD-selfservice voor wachtwoordherstel
@@ -79,13 +79,7 @@ Als u on-premises identiteitssynchronisatie met Azure AD wilt inschakelen, moet 
 
 Het uitschakelen van selfservice voor wachtwoordherstel is heel eenvoudig. Open de Azure AD-tenant en ga naar **Wachtwoordherstel > Eigenschappen**. Kies **Geen** onder **Selfservice voor wachtwoord opnieuw instellen is ingeschakeld**
 
-## <a name="next-steps"></a>Volgende stappen
-
-In deze snelstartgids hebt u geleerd hoe u selfservice voor wachtwoordherstel kunt configureren voor uw gebruikers. Volg de onderstaande koppeling naar de portal om naar Azure Portal te gaan en deze stappen te voltooien.
-
-> [!div class="nextstepaction"]
-> [Selfservice voor wachtwoordherstel inschakelen](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
-
+### <a name="learn-more"></a>Meer informatie
 De volgende koppelingen bieden aanvullende informatie over wachtwoordherstel met behulp van Azure AD
 
 * [**Licentieverlening**](active-directory-passwords-licensing.md): uw Azure AD-licentieverlening configureren
@@ -97,4 +91,12 @@ De volgende koppelingen bieden aanvullende informatie over wachtwoordherstel met
 * [**Gedetailleerde technische informatie**](active-directory-passwords-how-it-works.md): neem een kijkje achter de schermen om te begrijpen hoe het werkt
 * [**Veelgestelde vragen**](active-directory-passwords-faq.md): hoe? Hoe komt dat? Wat? Waar? Wie? Wanneer? - Antwoorden op vragen die u altijd wilde stellen
 * [**Probleemoplossing**](active-directory-passwords-troubleshoot.md): informatie over het oplossen van algemene problemen die optreden bij de self-service voor wachtwoordherstel
+
+## <a name="next-steps"></a>Volgende stappen
+
+In deze snelstartgids hebt u geleerd hoe u selfservice voor wachtwoordherstel kunt configureren voor uw gebruikers. Volg de onderstaande koppeling naar de portal om naar Azure Portal te gaan en deze stappen te voltooien.
+
+> [!div class="nextstepaction"]
+> [Selfservice voor wachtwoordherstel inschakelen](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+
 

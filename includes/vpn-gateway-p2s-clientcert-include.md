@@ -7,7 +7,7 @@ U kunt clientcertificaten genereren via de volgende methoden:
 - **Commercieel certificaat**
 
   - Als u een commerciële certificeringsoplossing gebruikt, genereert u een clientcertificaat met de algemene waarde-indeling 'name@yourdomain.com', in plaats van de indeling 'domeinnaam\gebruikersnaam'.
-  - Zorg ervoor dat het clientcertificaat dat u verleent, is gebaseerd op de certificaatsjabloon voor Gebruiker met Clientverificatie als het eerste item in de lijst, in plaats van bijvoorbeeld smartcardaanmelding. U kunt het certificaat controleren door op het clientcertificaat te dubbelklikken en *Details > Uitgebreid sleutelgebruik* weer te geven.
+  - Zorg ervoor dat het clientcertificaat dat u verleent, is gebaseerd op de certificaatsjabloon voor Gebruiker met Clientverificatie als het eerste item in de lijst, in plaats van bijvoorbeeld smartcardaanmelding. U kunt het certificaat controleren door op het clientcertificaat te dubbelklikken en **Details > Uitgebreid sleutelgebruik** weer te geven.
 
 - **Zelfondertekend basiscertificaat:** het is belangrijk dat u de stappen in een van de onderstaande P2S-certificaatartikelen volgt. Anders zijn de clientcertificaten die u maakt niet compatibel met P2S-verbindingen en treedt er voor clients een fout op tijdens het verbinden. De stappen in de volgende artikelen zijn bedoeld om een compatibel clientcertificaat te maken: 
 
