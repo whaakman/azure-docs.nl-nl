@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 7ddd9244558479f1fc77c0a9f3d02d0d3b95ca9f
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 4d8e3f1252bc71cbf4bbbd30a16897bf4a0444d7
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Overzicht van virtuele Windows-machines in Azure
@@ -38,7 +38,7 @@ Virtuele machines in Azure kunnen op verschillende manieren worden gebruikt. Een
 Het aantal virtuele machines dat uw toepassing gebruikt, kan omhoog worden geschaald naar wat is vereist om te voldoen aan uw behoeften.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Waar moet ik over nadenken voordat ik een VM maak?
-Er is altijd een groot aantal [overwegingen bij het ontwerpen](infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) wanneer u de infrastructuur van een toepassing verder uitwerkt in Azure. Deze aspecten van een VM zijn belangrijk om over na te denken voordat u begint:
+Er is altijd een groot aantal [overwegingen bij het ontwerpen](/architecture/reference-architectures/virtual-machines-linux?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) wanneer u de infrastructuur van een toepassing verder uitwerkt in Azure. Deze aspecten van een VM zijn belangrijk om over na te denken voordat u begint:
 
 * De namen van uw toepassingsresources
 * De locatie waar de resources worden opgeslagen
@@ -49,7 +49,7 @@ Er is altijd een groot aantal [overwegingen bij het ontwerpen](infrastructure-vi
 * De gerelateerde resources die de VM nodig heeft
 
 ### <a name="naming"></a>Naamgeving
-Een virtuele machine krijgt een [naam](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) toegewezen en er wordt een computernaam geconfigureerd als onderdeel van het besturingssysteem. De naam van een VM mag uit maximaal 15 tekens bestaan.
+Een virtuele machine krijgt een [naam](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) toegewezen en er wordt een computernaam geconfigureerd als onderdeel van het besturingssysteem. De naam van een VM mag uit maximaal 15 tekens bestaan.
 
 Als u Azure gebruikt voor het maken van de schijf van het besturingssysteem, zijn de computernaam en de naam van de virtuele machine hetzelfde. Als u [uw eigen installatiekopie uploadt en gebruikt](upload-generalized-managed.md), eentje die een eerder geconfigureerd besturingssysteem bevat, en deze gebruikt om een virtuele machine maakt, kunnen de namen anders zijn. We raden u aan tijdens het uploaden van uw eigen installatiekopiebestand de computer in het besturingssysteem en de virtuele machine hetzelfde te noemen.
 
@@ -106,7 +106,7 @@ De resources in deze tabel worden gebruikt door de VM en moeten bestaan of worde
 | [Virtueel netwerk](../../virtual-network/virtual-networks-overview.md) |Ja |De VM moet lid zijn van een virtueel netwerk. |
 | [Openbaar IP-adres](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Nee |Aan de VM kan een openbaar IP-adres worden toegewezen voor externe toegang. |
 | [Netwerkinterface](../../virtual-network/virtual-network-network-interface.md) |Ja |De netwerkinterface van de VM moet in het netwerk communiceren. |
-| [Gegevensschijven](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Nee |De VM kan gegevensschijven bevatten om opslagmogelijkheden uit te breiden. |
+| [Gegevensschijven](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Nee |De VM kan gegevensschijven bevatten om opslagmogelijkheden uit te breiden. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Hoe kan ik mijn eerste VM maken?
 U hebt verschillende mogelijkheden voor het maken van uw VM. De keuze die u maakt, is afhankelijk van de omgeving waarin u zich bevindt. 
@@ -142,7 +142,7 @@ U gebruikt de knop [Verbinden](connect-logon.md?toc=%2fazure%2fvirtual-machines%
 ### <a name="manage-availability"></a>Beschikbaarheid beheren
 Het is belangrijk dat u begrijpt hoe u [hoge beschikbaarheid garandeert](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor uw toepassing. Deze configuratie bestaat onder meer uit het maken van meerdere VM’s om ervoor te zorgen dat er ten minste één wordt uitgevoerd.
 
-Om uw implementatie te laten voldoen aan onze 99.95 VM Service Level Agreement, moet u twee of meer VM's waarop uw workload wordt uitgevoerd, implementeren binnen een [beschikbaarheidsset](infrastructure-availability-sets-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Deze configuratie zorgt ervoor dat uw virtuele machines worden verdeeld over meerdere foutdomeinen en worden geïmplementeerd op hosts met verschillende onderhoudsvensters. In de volledige [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) wordt de gegarandeerde beschikbaarheid van Azure als geheel uitgelegd.
+Om uw implementatie te laten voldoen aan onze 99.95 VM Service Level Agreement, moet u twee of meer VM's waarop uw workload wordt uitgevoerd, implementeren binnen een [beschikbaarheidsset](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Deze configuratie zorgt ervoor dat uw virtuele machines worden verdeeld over meerdere foutdomeinen en worden geïmplementeerd op hosts met verschillende onderhoudsvensters. In de volledige [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) wordt de gegarandeerde beschikbaarheid van Azure als geheel uitgelegd.
 
 ### <a name="back-up-the-vm"></a>Een back-up maken van de VM
 In zowel Azure Backup als Azure Site Recovery-services wordt een [Recovery Services-kluis](../../backup/backup-introduction-to-azure-backup.md) gebruikt voor het beveiligen van gegevens en assets. U kunt een Recovery Services-kluis gebruiken om [back-ups voor door Resource Manager geïmplementeerde virtuele machines te implementeren en te beheren met behulp van PowerShell](../../backup/backup-azure-vms-automation.md). 
@@ -150,6 +150,3 @@ In zowel Azure Backup als Azure Site Recovery-services wordt een [Recovery Servi
 ## <a name="next-steps"></a>Volgende stappen
 * Als u met Linux-VM's wilt werken, bekijkt u [Azure en Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Meer informatie over de richtlijnen voor het instellen van uw infrastructuur vindt u in het [Voorbeeldoverzicht van Azure-infrastructuur](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Zorg ervoor dat u zich houdt aan de [Aanbevolen procedures voor het uitvoeren van een Windows-VM op Azure](guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-

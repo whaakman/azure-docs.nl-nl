@@ -10,6 +10,6 @@ U kunt Data Explorer nu gebruiken voor het maken van een tabel en om gegevens to
     Tabel-id|voorbeeldtabel|De id voor de nieuwe tabel. Voor tabelnamen gelden dezelfde tekenvereisten als voor database-id's. Databasenamen moeten tussen de 1 en 255 tekens zijn en mogen geen `/ \ # ?` bevatten of eindigen op een spatie.
     Opslagcapaciteit| 10 GB|Laat de standaardwaarde staan. Dit is de opslagcapaciteit van de database.
     Doorvoer|400 RU‘s|Laat de standaardwaarde staan. U kunt de [doorvoer](../articles/cosmos-db/request-units.md) later opschalen als u de latentie wilt beperken.
-    RU/m|Uit|Gebruik de standaardwaarde. U kunt de functie [RU/m](../articles/cosmos-db/request-units-per-minute.md) later inschakelen als u gedurende een korte periode grote werkbelastingen moet verwerken.
+    RU/m|Uit|Gebruik de standaardwaarde.
 
 3. Zodra het formulier is ingevuld, klikt u op **OK**.

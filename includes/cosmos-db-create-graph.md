@@ -11,7 +11,7 @@ U kunt nu het hulpprogramma Data Explorer in Azure Portal gebruiken om een grafi
     Graaf-id|voorbeeldgrafiek|De id voor de nieuwe graaf. Voor graafnamen gelden dezelfde tekenvereisten als voor database-id's.
     Opslagcapaciteit| 10 GB|Laat de standaardwaarde staan. Dit is de opslagcapaciteit van de database.
     Doorvoer|400 RU‘s|Laat de standaardwaarde staan. U kunt de doorvoer later opschalen als u de latentie wilt beperken.
-    RU/m|Uit|Laat de standaardwaarde staan. U kunt de functie [RU/m](../articles/cosmos-db/request-units-per-minute.md) later inschakelen als u gedurende een korte periode grote werkbelastingen moet verwerken.
+    RU/m|Uit|Laat de standaardwaarde staan. 
     Partitiesleutel|/userid|Een partitiesleutel waarmee gegevens gelijkmatig worden gedistribueerd naar elke partitie. Het is belangrijk dat u de juiste partitiesleutel selecteert bij het maken van een prestatiegraaf. Ga voor meer informatie hierover naar [Ontwerpen voor partitioneren](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
 
 3. Zodra het formulier is ingevuld, klikt u op **OK**.

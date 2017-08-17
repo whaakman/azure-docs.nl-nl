@@ -12,7 +12,7 @@ U kunt nu het hulpprogramma Data Explorer in Azure Portal gebruiken om een datab
     Verzamelings-id|Items|De naam voor de nieuwe verzameling. Voor verzamelingsnamen gelden dezelfde tekenvereisten als voor database-id's.
     Opslagcapaciteit| Vast (10 GB)|Gebruik de standaardwaarde. Deze waarde is de opslagcapaciteit van de database.
     Doorvoer|400 RU|Gebruik de standaardwaarde. U kunt de doorvoer later opschalen als u de latentie wilt beperken.
-    RU/m|Uit|Laat de standaardwaarde staan. U kunt de functie [RU/m](../articles/cosmos-db/request-units-per-minute.md) later inschakelen als u gedurende een korte periode grote werkbelastingen moet verwerken.
+    RU/m|Uit|Laat de standaardwaarde staan.
     Partitiesleutel|/category|Een partitiesleutel waarmee gegevens gelijkmatig worden gedistribueerd naar elke partitie. Het is belangrijk dat u de juiste partitiesleutel selecteert bij het maken van een prestatieverzameling. Ga voor meer informatie hierover naar [Ontwerpen voor partitioneren](../articles/cosmos-db/partition-data.md#designing-for-partitioning).    
 3. Wanneer u het formulier hebt ingevuld, klikt u op **OK**.
 

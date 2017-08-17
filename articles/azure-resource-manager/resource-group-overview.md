@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/19/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: b382225b9e355148279181fbf6238eb1e08f382d
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: f539931e0704f904f4b942f185f086a790caf4da
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-resource-manager-overview"></a>Overzicht van Azure Resource Manager
@@ -139,8 +139,6 @@ De lagen hebben afzonderlijke levenscycli, zodat u ze kunt toepassen op verschil
 ![sjabloon met lagen](./media/resource-group-overview/tier-templates.png)
 
 Zie [Patterns for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md) (Patronen voor het ontwerpen van Azure Resource Manager-sjablonen) voor meer informatie over het ontwerpen van uw sjablonen. Zie [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md) (Gekoppelde sjablonen gebruiken met Azure Resource Manager) voor meer informatie over geneste sjablonen.
-
-Zie [De implementatie van toepassingen op virtuele Azure-machines automatiseren](../virtual-machines/windows/dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor een uit vier delen bestaande reeks over het automatiseren van de implementatie. Deze reeks bevat informatie over de toepassingsarchitectuur, toegang en beveiliging, beschikbaarheid en schaal en de implementatie van toepassingen.
 
 Azure Resource Manager analyseert afhankelijkheden om ervoor te zorgen dat de resources in de juiste volgorde worden gemaakt. Als een resource afhankelijk is van een waarde uit een andere resource (zoals een virtuele machine die een opslagaccount nodig heeft voor schijven), stelt u een afhankelijkheid in. Zie voor meer informatie [Afhankelijkheden definiëren in Azure Resource Manager-sjablonen](resource-group-define-dependencies.md).
 

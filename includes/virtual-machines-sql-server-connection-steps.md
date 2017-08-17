@@ -1,5 +1,4 @@
-### TCP-poorten in de Windows-firewall openen voor het standaardexemplaar van de database-engine
-<a id="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine" class="xliff"></a>
+### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>TCP-poorten in de Windows-firewall openen voor het standaardexemplaar van de database-engine
 1. Maak verbinding met de virtuele machine via Extern bureaublad. Zie [De virtuele machine openen via Extern bureaublad](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop) voor gedetailleerde instructies voor het verbinden met de virtuele machine.
 2. Nadat u bent aangemeld, typt u **WF.msc** op het startscherm en drukt u op ENTER.
    
@@ -28,24 +27,11 @@
 
 Open naar behoefte aanvullende poorten voor andere onderdelen. Zie [Configuring the Windows Firewall to Allow SQL Server Access](http://msdn.microsoft.com/library/cc646023.aspx) (De Windows-firewall configureren voor toegang tot SQL Server) voor meer informatie.
 
-### SQL Server configureren om te luisteren naar het TCP-protocol
-<a id="configure-sql-server-to-listen-on-the-tcp-protocol" class="xliff"></a>
-1. Terwijl u verbinding hebt met de virtuele machine, typt u **SQL Server Configuration Manager** op de startpagina en drukt u op ENTER.
-   
-    ![SSCM openen](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
-2. Breid in het consolevenster van SQL Server Configuration Manager het gedeelte **SQL Server-netwerkconfiguratie** uit.
-3. Klik in het consolevenster op **Protocollen voor MSSQLSERVER** (de naam van het standaardexemplaar). Klik in het detailvenster met de rechtermuisknop op **TCP** en vervolgens op **Inschakelen** als deze optie nog niet is ingeschakeld.
-   
-    ![TCP inschakelen](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
-4. Klik in het consolevenster op **SQL Server-services**. Klik in het detailvenster met de rechtermuisknop op **SQL Server (*exemplaarnaam*)** (het standaardexemplaar is **SQL Server (MSSQLSERVER)**). Klik vervolgens op **Opnieuw starten** om het exemplaar van SQL Server te stoppen en opnieuw te starten.
-   
-    ![Database-engine opnieuw starten](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
-5. Sluit SQL Server Configuration Manager.
+### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>SQL Server configureren om te luisteren naar het TCP-protocol
 
-Zie [Enable or Disable a Server Network Protocol](http://msdn.microsoft.com/library/ms191294.aspx) (Een servernetwerkprotocol in- of uitschakelen) voor meer informatie over het inschakelen van protocollen voor de database-engine van SQL Server.
+[!INCLUDE [Enable TCP](virtual-machines-sql-server-connection-tcp-protocol.md)]
 
-### SQL Server configureren voor verificatie in gemengde modus
-<a id="configure-sql-server-for-mixed-mode-authentication" class="xliff"></a>
+### <a name="configure-sql-server-for-mixed-mode-authentication"></a>SQL Server configureren voor verificatie in gemengde modus
 De database-engine van SQL Server kan Windows-verificatie niet gebruiken zonder domeinomgeving. Als u vanaf een andere computer verbinding wilt maken met de database-engine, moet u SQL Server configureren voor verificatie in gemengde modus. Verificatie in gemengde modus maakt zowel SQL Server-verificatie als Windows-verificatie mogelijk.
 
 > [!NOTE]
@@ -71,8 +57,7 @@ De database-engine van SQL Server kan Windows-verificatie niet gebruiken zonder 
     ![Opnieuw starten](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 7. Klik in het dialoogvenster SQL Server Management Studio op **Ja** om te bevestigen dat u SQL Server opnieuw wilt starten.
 
-### Aanmelding voor SQL Server-verificatie maken
-<a id="create-sql-server-authentication-logins" class="xliff"></a>
+### <a name="create-sql-server-authentication-logins"></a>Aanmelding voor SQL Server-verificatie maken
 Als u vanaf een andere computer verbinding wilt maken met de database-engine, moet u ten minste één aanmelding voor SQL Server-verificatie maken.
 
 1. Open de SQL Server Management Studio-objectverkenner en breid de map uit van het serverexemplaar waarvoor u de nieuwe aanmelding wilt maken.
