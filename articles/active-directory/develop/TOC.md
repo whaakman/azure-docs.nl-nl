@@ -31,8 +31,9 @@
 ### [.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)
 ### [Referenties voor OAuth 2.0-client](active-directory-protocols-oauth-service-to-service.md)
 # Handleidingen
-## [Registratie van toepassing](active-directory-integrating-applications.md)
+## [Een toepassing registreren](active-directory-integrating-applications.md)
 ## [Apps met meerdere tenants](active-directory-devhowto-multi-tenant-overview.md)
+## [Voorwaardelijke toegang](active-directory-conditional-access-developer.md)
 ## OAuth en OpenID Connect
 ### [OpenID Connect-protocol](active-directory-protocols-openid-connect-code.md)
 ### [OAuth 2.0-verificatiecode verlenen](active-directory-protocols-oauth-code.md)
@@ -68,7 +69,7 @@
 ## [Verificatieprotocollen](active-directory-authentication-protocols.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
-### [Service-naar-serviceaanroepen](active-directory-protocols-oauth-service-to-service.md)
+### [Serviceaanroepen-service](active-directory-protocols-oauth-service-to-service.md)
 ### [Namens-stroom](active-directory-protocols-oauth-on-behalf-of.md)
 ### [Ondersteunde token- en claimtypen](active-directory-token-and-claims.md)
 ### [Rollover van ondertekeningssleutel gebruiken](active-directory-signing-key-rollover.md)
@@ -90,7 +91,7 @@
 #### [Android](guidedsetups/active-directory-android.md)
 #### [.NET voor Windows-bureaublad](guidedsetups/active-directory-windesktop.md)
 ### Web-apps
-#### [Javascript-SPA](guidedsetups/active-directory-javascriptspa.md)
+#### [JavaScript-SPA](guidedsetups/active-directory-javascriptspa.md)
 #### [ASP.NET-webserver](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS-web-app](active-directory-v2-devquickstarts-node-web.md)
 ## Handleidingen

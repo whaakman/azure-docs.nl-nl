@@ -96,7 +96,7 @@
 #### [Gebruikers, sessies, gebeurtenissen](app-insights-usage-segmentation.md)
 #### [Trechters](usage-funnels.md)
 #### [Retentie](app-insights-usage-retention.md)
-#### [Stromen](app-insights-usage-flows.md)
+#### [Gebruikersstromen](app-insights-usage-flows.md)
 #### [Werkmappen](app-insights-usage-workbooks.md)
 
 ### Analytische gegevens

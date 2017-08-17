@@ -9,6 +9,7 @@
 # Aan de slag
 ## [Meld u aan voor Azure AD Premium](active-directory-get-started-premium.md)
 ## [Een aangepaste domeinnaam toevoegen](add-custom-domain.md)
+## [Een bedrijfshuisstijl toevoegen](customize-branding.md)
 ## [Self-service voor wachtwoord opnieuw instellen configureren](active-directory-passwords-getting-started.md)
 ## Azure AD-licenties beheren
 ### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
@@ -142,6 +143,7 @@
 
 
 ## Apparaten beheren
+### [Inleiding](device-management-introduction.md)
 ### [Apparaten registreren](active-directory-device-registration-overview.md)
 #### [Instellen](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [On-premises implementeren](active-directory-device-registration-on-premises-setup.md)
@@ -241,10 +243,6 @@
 #### Domeinnamen beheren
 ##### [Azure Portal](active-directory-domains-manage-azure-portal.md)
 ##### [Klassieke portal](active-directory-add-manage-domain-names.md)
-### De aanmeldingspagina aanpassen
-#### [Azure Portal](active-directory-branding-custom-signon-azure-portal.md)
-#### [Taalspecifiek](active-directory-branding-localize-azure-portal.md)
-#### [Klassieke portal](active-directory-add-company-branding.md)
 ### [Uw directory beheren](active-directory-administer.md)
 ### [Meerdere directory’s beheren](active-directory-licensing-directory-independence.md)
 ### [O365-directory's](active-directory-manage-o365-subscription.md)
