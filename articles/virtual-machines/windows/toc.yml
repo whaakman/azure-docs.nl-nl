@@ -72,11 +72,6 @@
       href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Gepland onderhoud
       href: planned-maintenance.md
-      items:
-        - name: Onderhoud met statusbehoud
-          href: preserving-maintenance.md
-        - name: Onderhoud met herstart
-          href: impactful-maintenance.md
     - name: Formaten van virtuele machines
       href: sizes.md
       items:
