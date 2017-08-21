@@ -144,8 +144,14 @@
 
 ## Apparaten beheren
 ### [Inleiding](device-management-introduction.md)
-### [Apparaten registreren](active-directory-device-registration-overview.md)
-#### [Instellen](active-directory-conditional-access-automatic-device-registration-setup.md)
+### [Veelgestelde vragen](device-management-faq.md)
+### Taken
+#### [Hybride, in Azure AD gekoppelde apparaten configureren](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### Problemen oplossen
+##### [Hybride, in Azure AD gekoppelde Windows 10- en Windows Server 2016-apparaten](device-management-troubleshoot-hybrid-join-windows-current.md)
+##### [Hybride, in Azure AD gekoppelde oudere Windows-apparaten](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+
+### Apparaten registreren
 #### [On-premises implementeren](active-directory-device-registration-on-premises-setup.md)
 #### [Veelgestelde vragen](active-directory-device-registration-faq.md)
 #### Problemen oplossen
