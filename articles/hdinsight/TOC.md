@@ -199,7 +199,6 @@
 #### [Hadoop-geheugen en -prestaties](hdinsight-hadoop-stack-trace-error-messages.md)
 #### [Toegang tot Hadoop YARN-toepassingslogboeken in Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 #### [Heapdumps voor Hadoop-services inschakelen](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-#### [HDInsight-logboekbestanden analyseren](hdinsight-debug-jobs.md)
 #### [Inzicht in problemen met WebHCat en deze oplossen](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
 #### [Hive-instellingen om fouten van het type 'onvoldoende geheugen' op te lossen](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
 #### [Ambari-weergaven gebruiken om fouten in Tez-taken op te sporen](hdinsight-debug-ambari-tez-view.md)

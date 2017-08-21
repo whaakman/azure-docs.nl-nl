@@ -54,14 +54,12 @@
 ### [Webtoepassing met Visual Studio](web-app-visual-studio.md)
 ### [RDMA-cluster voor het uitvoeren van MPI-toepassingen](rdma-cluster.md)
 ### [De slave-invoegtoepassing van Azure gebruiken met Hudson CI](../../virtual-machines-azure-slave-plugin-for-hudson.md)
-
-
-## HPC Pack
-### [Windows RDMA-cluster voor het uitvoeren van MPI-apps](hpcpack-cluster.md)
-### [Windows HPC-cluster met het IaaS-implementatiescript HPC Pack](hpcpack-cluster-starccm.md)
-### [Het aantal en de beschikbaarheid van rekenknooppunten beheren](hpcpack-cluster-powershell-script.md)
-### [Knooppunten op aanvraag toevoegen](hpcpack-cluster-openfoam.md)
-### [Automatisch resources schalen](hpcpack-cluster-namd.md)
+### HPC Pack
+#### [Een cluster maken voor Linux-workloads](hpcpack-cluster-powershell-script.md)
+#### [Een cluster met Linux-knooppunten beheren](hpcpack-cluster.md)
+#### [STAR-CCM+ uitvoeren](hpcpack-cluster-starccm.md)
+#### [OpenFOAM uitvoeren](hpcpack-cluster-openfoam.md)
+#### [NAMD uitvoeren](hpcpack-cluster-namd.md)
 
 ## Problemen oplossen
 ### [VM-implementaties](troubleshoot-deployment-new-vm.md)

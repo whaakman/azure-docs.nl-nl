@@ -1,0 +1,40 @@
+- name: Event Grid
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Over Event Grid
+      href: overview.md
+- name: Snelstartgidsen
+  items:
+    - name: Aangepaste gebeurtenissen maken en routeren
+      href: custom-event-quickstart.md
+- name: Zelfstudies
+  items:
+    - name: Wijzigingen aan een virtuele machine bewaken met logische apps
+      href: monitor-virtual-machine-changes-event-grid-logic-app.md
+- name: Concepten
+  items:
+    - name: Concepten binnen Event Grid
+      href: concepts.md
+    - name: Verificatie en beveiliging
+      href: security-authentication.md
+    - name: Leveren en opnieuw proberen
+      href: delivery-and-retry.md
+- name: Naslaginformatie
+  items:
+    - name: REST
+      href: /rest/api/eventgrid
+    - name: Abonnementsschema
+      href: subscription-creation-schema.md
+    - name: Gebeurtenisschema
+      href: event-schema.md
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/event-grid/'
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-event-grid'

@@ -17,7 +17,7 @@
 ### [Bestaande netwerkbeleidservers gebruiken](multi-factor-authentication-nps-extension.md)
 #### [Geavanceerde configuratie voor NPS-extensie](nps-extension-advanced-configuration.md)
 ### [Een verificatieprovider maken](multi-factor-authentication-get-started-auth-provider.md)
-### Azure MFA on-premises
+### MFA on-premises implementeren
 #### [De gebruikersportal installeren](multi-factor-authentication-get-started-portal.md)
 #### [Geavanceerde VPN-configuraties](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Webservice voor mobiele apps](multi-factor-authentication-get-started-server-webservice.md)
@@ -31,16 +31,19 @@
 ### [MFA-gebruikershandleiding](./end-user/multi-factor-authentication-end-user.md)
 
 ## Integreren
-### [Federation Services](multi-factor-authentication-get-started-adfs.md)
-#### [AD FS gebruiken](multi-factor-authentication-get-started-adfs-cloud.md)
-#### [AD FS 2.0 gebruiken](multi-factor-authentication-get-started-adfs-adfs2.md)
-#### [Windows Server 2012 R2 AD FS gebruiken](multi-factor-authentication-get-started-adfs-w2k12.md)
-### Mappen
-#### [LDAP-verificatie](multi-factor-authentication-get-started-server-ldap.md)
-#### [RADIUS-verificatie](multi-factor-authentication-get-started-server-radius.md)
-#### [Active Directory](multi-factor-authentication-get-started-server-dirint.md)
-### [IIS-web-apps](multi-factor-authentication-get-started-server-iis.md)
-### [Extern bureaublad-gateway](multi-factor-authentication-get-started-server-rdg.md)
+### [Extern bureaublad-gateway](nps-extension-remote-desktop-gateway.md)
+### [VPN](nps-extension-vpn.md)
+### MFA on-premises integreren
+#### [Federation Services](multi-factor-authentication-get-started-adfs.md)
+##### [AD FS gebruiken](multi-factor-authentication-get-started-adfs-cloud.md)
+##### [AD FS 2.0 gebruiken](multi-factor-authentication-get-started-adfs-adfs2.md)
+##### [Windows Server 2012 R2 AD FS gebruiken](multi-factor-authentication-get-started-adfs-w2k12.md)
+#### Mappen
+##### [LDAP-verificatie](multi-factor-authentication-get-started-server-ldap.md)
+##### [RADIUS-verificatie](multi-factor-authentication-get-started-server-radius.md)
+##### [Active Directory](multi-factor-authentication-get-started-server-dirint.md)
+#### [IIS-web-apps](multi-factor-authentication-get-started-server-iis.md)
+#### [Extern bureaublad-gateway](multi-factor-authentication-get-started-server-rdg.md)
 
 ## Ontwikkelen
 ### [Inbouwen in aangepaste apps (SDK)](multi-factor-authentication-sdk.md)
@@ -49,6 +52,7 @@
 ### [Veelgestelde vragen](multi-factor-authentication-faq.md)
 ### [Een vraag stellen](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [NPS-uitbreidingsfouten](multi-factor-authentication-nps-errors.md)
+
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

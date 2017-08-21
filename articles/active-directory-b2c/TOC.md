@@ -83,6 +83,7 @@
 ## [Facturering inschakelen](active-directory-b2c-how-to-enable-billing.md)
 ## [Beveiligingsbeheer](active-directory-b2c-reference-threat-management.md)
 ## [Problemen bij het maken van een map](active-directory-b2c-support-create-directory.md)
+## [App met extensies](active-directory-b2c-reference-extensions-app.md)
 
 # Verwant
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

@@ -2,6 +2,7 @@
 ## [Wat is Azure Analysis Services?](analysis-services-overview.md)
 ## [Ondersteunde gegevensbronnen](analysis-services-datasource.md)
 ## [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md)
+## [Verbinding maken met on-premises gegevensbronnen](analysis-services-gateway.md)
 ## [Compatibiliteitsniveau](analysis-services-compat-level.md)
 ## [Hoge beschikbaarheid](analysis-services-bcdr.md)
 
@@ -15,7 +16,7 @@
 ## [Een server beheren](analysis-services-manage.md)
 ## [Databasegebruikers beheren](analysis-services-database-users.md)
 ## [Serverbeheerders beheren](analysis-services-server-admins.md)
-## [Een on-premises gegevensgateway installeren](analysis-services-gateway.md)
+## [Een on-premises gegevensgateway installeren en configureren](analysis-services-gateway-install.md)
 ## [Clientbibliotheken ophalen](analysis-services-data-providers.md)
 ## [Back-up en herstel](analysis-services-backup.md)
 ## [Verbinden met Excel](analysis-services-connect-excel.md)
