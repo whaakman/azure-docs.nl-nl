@@ -6,6 +6,7 @@
 ### [Reageren op incidenten](security-center-incident-response.md)
 ### [Aanbevelingen gebruiken om de beveiliging te verbeteren](security-center-using-recommendations.md)
 ## [Platformmigratie](security-center-platform-migration.md)
+### [Veelgestelde vragen over platformmigratie](security-center-platform-migration-faq.md)
 
 # Aan de slag
 ## [Snel starten](security-center-get-started.md)
