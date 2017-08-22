@@ -10,16 +10,17 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/10/2017
+ms.date: 08/15/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 0d52a7728e2292946e9328065b973ca7ad37b4f5
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 481e2552e2a2cd91d026774438788143109b28df
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/16/2017
 
 ---
+
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database voor PostgreSQL: Python gebruiken om verbinding te maken en gegevens op te vragen
-In deze snelstartgids ziet u hoe u [Python](https://python.org) gebruikt om verbinding te maken met een Azure Database voor PostgresSQL en vervolgens SQL-instructies gebruikt om gegevens in de database te zoeken, in te voegen, bij te werken en te verwijderen vanaf het Mac OS-, Ubuntu Linux- en Windows-platform. In de stappen van dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Python en geen ervaring hebt met het werken met Azure Database voor PostgreSQL.
+In deze snelstartgids ziet u hoe u met behulp van [Python](https://python.org) verbinding maakt met Azure Database PostgreSQL. U kunt ook zien hoe SQL-instructies worden gebruikt om gegevens in te voegen, bij te werken, te verwijderen en er query's op uit te voeren in de database vanaf Mac OS-, Ubuntu Linux- en Windows-platforms. In de stappen van dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Python en geen ervaring hebt met het werken met Azure Database voor PostgreSQL.
 
 ## <a name="prerequisites"></a>Vereisten
 In deze snelstartgids worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
@@ -28,32 +29,46 @@ In deze snelstartgids worden de resources die in een van deze handleidingen zijn
 
 U hebt ook het volgende nodig:
 - [Python](https://www.python.org/downloads/) geïnstalleerd
-- [pip](https://pip.pypa.io/en/stable/installing/)-pakket geïnstalleerd (pip is al geïnstalleerd als u binaire bestanden van Python 2 > =2.7.9 of Python 3 >=3.4 gebruikt die zijn gedownload van [python.org](https://python.org), maar u moet wel pip upgraden.)
+- [pip](https://pip.pypa.io/en/stable/installing/)-pakket geïnstalleerd (pip is al geïnstalleerd als u werkt met binaire bestanden van Python 2 > =2.7.9 of Python 3 >=3.4 die zijn gedownload van [python.org](https://python.org).)
 
 ## <a name="install-the-python-connection-libraries-for-postgresql"></a>De Python-verbindingsbibliotheken voor PostgreSQL installeren
-Installeer het [psycopg2](http://initd.org/psycopg/docs/install.html)-pakket waarmee u verbinding kon maken met de database en er query's op kon uitvoeren. psycopg2 is [beschikbaar op PyPI](https://pypi.python.org/pypi/psycopg2/) in de vorm van [wheel](http://pythonwheels.com/)-pakketten voor de meest voorkomende platformen (Linux, OSX, Windows), zodat u de pip-installatie kunt installeren om de binaire versie van de module te downloaden, inclusief alle afhankelijkheden:
+Installeer het [psycopg2](http://initd.org/psycopg/docs/install.html)-pakket waarmee u verbinding kunt maken met de database en er query's op kunt uitvoeren. psycopg2 is [beschikbaar op PyPI](https://pypi.python.org/pypi/psycopg2/) als [wheel](http://pythonwheels.com/)-pakketten voor de meest voorkomende platformen (Linux, OS x, Windows). Gebruik de pip-installatie om de binaire versie van de module te krijgen, inclusief alle afhankelijkheden.
 
-```cmd
-pip install psycopg2
-```
-Zorg ervoor dat u een actuele versie van pip gebruikt (u kunt upgraden met behulp van bijvoorbeeld `pip install -U pip`)
+1. Start op uw eigen computer een opdrachtregelinterface:
+    - Op Linux start u de Bash-shell.
+    - Op Mac OS start u de Terminal.
+    - Op Windows, start u de opdrachtprompt vanuit het Startmenu.
+2. Zorg ervoor dat u gebruikmaakt van de meest recente versie van pip door een opdracht uit te voeren zoals:
+    ```cmd
+    pip install -U pip
+    ```
+
+3. Voer de volgende opdracht uit om het psycopg2-pakket te installeren:
+    ```cmd
+    pip install psycopg2
+    ```
 
 ## <a name="get-connection-information"></a>Verbindingsgegevens ophalen
 Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure Database voor PostgreSQL. U hebt de volledig gekwalificeerde servernaam en aanmeldingsreferenties nodig.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. In het menu links in Azure Portal klikt u op **Alle resources** en zoekt u naar de server die u zojuist hebt gemaakt: **mypgserver-20170401**.
+2. Klik in het menu aan de linkerkant in Azure Portal op **Alle resources** en zoek naar: **mypgserver-20170401** (de server die u zojuist hebt gemaakt).
 3. Klik op de servernaam **mypgserver-20170401**.
-4. Selecteer de pagina **Overzicht** van de server. Noteer de **servernaam** en de **gebruikersnaam van de serverbeheerder**.
+4. Selecteer de pagina **Overzicht** van de server en noteer de **Servernaam** en de **Aanmeldingsnaam van de serverbeheerder**.
  ![Azure Database voor PostgreSQL - Aanmeldgegevens van de serverbeheerder](./media/connect-python/1-connection-string.png)
 5. Als u uw aanmeldingsgegevens voor de server bent vergeten, gaat u naar de pagina **Overzicht** om de aanmeldingsnaam van de serverbeheerder weer te geven en indien nodig het wachtwoord opnieuw in te stellen.
 
 ## <a name="how-to-run-python-code"></a>Python-code uitvoeren
-- Maak in uw favoriete teksteditor een nieuw bestand met de naam postgres.py en sla het bestand op in een projectmap. Kopieer hieronder een fragment met voorbeeldcode en plak dit in het tekstbestand. Vervang de parameters host, dbname, user en password door de waarden die u hebt opgegeven tijdens het maken van de server en database. Sla het bestand op. Zorg ervoor dat u UTF-8-codering selecteert als u het bestand opslaat in Windows. 
-- Voor het uitvoeren van de code opent u het opdrachtprompt of de bash-shell. Ga naar de projectmap, zoals `cd postgresql`. Typ vervolgens de python-opdracht, gevolgd door de bestandsnaam, zoals `python postgres.py`.
+Dit onderwerp bevat in totaal vier codevoorbeelden. Met elk van deze codes kan een specifieke functie worden uitgevoerd. In de volgende instructies leest u hoe u een tekstbestand maakt, een codeblok invoegt en het bestand vervolgens opslaat zodat u het later kunt uitvoeren. Zorg ervoor dat vier afzonderlijke bestanden maakt, één voor elk codeblok.
+
+- Maak een nieuw bestand in uw favoriete teksteditor.
+- Kopieer en plak een van de codevoorbeelden uit de volgende secties in het tekstbestand. Vervang de parameters **host**, **dbname**, **user** en **password** door de waarden die u hebt opgegeven tijdens het maken van de server en database.
+- Sla het bestand met de extensie .py (bijvoorbeeld postgres.py) op in de projectmap. Als u een Windows-besturingssysteem hebt, selecteert u UTF-8-codering als u het bestand opslaat. 
+- Start de opdrachtprompt of Bash-shell en wijzig vervolgens de map in uw projectmap, bijvoorbeeld `cd postgres`.
+-  Typ de Python-opdracht, gevolgd door de bestandsnaam (bijvoorbeeld `Python postgres.py`) om de code uit te voeren.
 
 > [!NOTE]
-> Vanaf versie 3 van Python ziet u mogelijk de fout `SyntaxError: Missing parentheses in call to 'print'` wanneer u de onderstaande codeblokken uitvoert. Als dat gebeurt, vervangt u elke aanroep van de opdracht `print "string"` door een functieaanroep met haakjes, zoals `print("string")`.
+> Vanaf versie 3 van Python ziet u mogelijk de fout `SyntaxError: Missing parentheses in call to 'print'` wanneer de volgende codeblokken worden uitgevoerd. Als dat gebeurt, vervangt u elke aanroep van de opdracht `print "string"` door een functieaanroep met haakjes, zoals `print("string")`.
 
 ## <a name="connect-create-table-and-insert-data"></a>Verbinden, tabel maken en gegevens invoegen
 Gebruik de volgende code om verbinding te maken en de gegevens te laden met de functie [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) met een SQL-instructie **INSERT**. De functie [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) wordt gebruikt om de SQL-query uit te voeren op de PostgreSQL-database. Vervang de parameters host, dbname, user en password door de waarden die u hebt opgegeven tijdens het maken van de server en database.
@@ -94,6 +109,10 @@ conn.commit()
 cursor.close()
 conn.close()
 ```
+
+Als de code wordt uitgevoerd, ziet de uitvoer er als volgt uit:
+
+![Opdrachtregeluitvoer](media/connect-python/2-example-python-output.png)
 
 ## <a name="read-data"></a>Gegevens lezen
 Gebruik de volgende code om de gegevens te lezen die zijn ingevoegd met behulp van de functie [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) met de SQL-instructie **SELECT**. Deze functie accepteert een query en retourneert een resultatenset die met behulp van [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall) kan worden herhaald. Vervang de parameters host, dbname, user en password door de waarden die u hebt opgegeven tijdens het maken van de server en database.

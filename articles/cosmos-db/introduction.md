@@ -16,10 +16,10 @@ ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 600894bffe367ee1412df6a82f668143829688cc
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: c9d04ae0bc11b99f893e5f003f136fbfe0dfccc9
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -50,7 +50,7 @@ Als een wereldwijd gedistribueerde databaseservice biedt Azure Cosmos DB de volg
         * Aanvullende gegevensmodellen komen binnenkort beschikbaar 
 
 * **Doorvoer en opslag op aanvraag elastisch schalen, waar ook ter wereld**
-    * U kunt databasedoorvoer op eenvoudige wijze schalen met de granulaties [seconde](request-units.md) en [minuut](request-units-per-minute.md), en de instelling wijzigen wanneer dat nodig is. 
+    * U kunt databasedoorvoer op eenvoudige wijze schalen met de granulatie [per seconde](request-units.md) en de instelling op elk gewenst moment wijzigen. 
     * U kunt opslag [transparant en automatisch](partition-data.md) schalen om te allen tijde aan uw opslagbehoeften te voldoen, nu en in de toekomst.
 
 * **Zeer responsieve en bedrijfskritische toepassingen bouwen**

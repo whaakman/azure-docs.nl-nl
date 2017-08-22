@@ -1,131 +1,131 @@
 
 
 
-This article addresses some common questions users ask about Azure virtual machines created with the classic deployment model.
+In dit artikel komen enkele veelgestelde vragen aan bod over virtuele machines van Azure die zijn gemaakt met het klassieke implementatiemodel.
 
-## <a name="can-i-migrate-my-vm-created-in-the-classic-deployment-model-to-the-new-resource-manager-model"></a>Can I migrate my VM created in the classic deployment model to the new Resource Manager model?
-Yes. For instructions on how to migrate, see:
+## <a name="can-i-migrate-my-vm-created-in-the-classic-deployment-model-to-the-new-resource-manager-model"></a>Kan ik een VM die is gemaakt met het klassieke implementatiemodel migreren naar het nieuwe model van Resource Manager?
+Ja. Instructies voor het migreren vindt u hier:
 
-* [Migrate from classic to Azure Resource Manager using Azure PowerShell](../articles/virtual-machines/windows/migration-classic-resource-manager-ps.md).
-* [Migrate from classic to Azure Resource Manager using Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md).
+* [Migreren van klassiek model naar Azure Resource Manager met Azure PowerShell](../articles/virtual-machines/windows/migration-classic-resource-manager-ps.md).
+* [Migreren van klassiek model naar Azure Resource Manager met Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md).
 
-## <a name="what-can-i-run-on-an-azure-vm"></a>What can I run on an Azure VM?
-All subscribers can run server software on an Azure virtual machine. You can run recent versions of Windows Server, as well as a variety of Linux distributions. For support details, see:
+## <a name="what-can-i-run-on-an-azure-vm"></a>Wat kan ik uitvoeren op een VM van Azure?
+Alle abonnees kunnen serversoftware uitvoeren op een virtuele machine van Azure. U kunt recente versies van Windows Server uitvoeren, evenals een aantal Linux-distributies. Zie deze artikelen voor meer informatie over ondersteuning:
 
-• For Windows VMs -- [Microsoft server software support for Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+• Voor VM's van Windows -- [Ondersteuning van Microsoft-serversoftware voor Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=393550)
 
-• For Linux VMs -- [Linux on Azure-Endorsed Distributions](http://go.microsoft.com/fwlink/p/?LinkId=393551)
+• Voor VM's van Linux -- [Linux op door Azure goedgekeurde distributies](http://go.microsoft.com/fwlink/p/?LinkId=393551)
 
-For Windows client images, certain versions of Windows 7 and Windows 8.1 are available to MSDN Azure benefit subscribers and MSDN Dev and Test Pay-As-You-Go subscribers, for development and test tasks. For details, including instructions and limitations, see [Windows Client images for MSDN subscribers](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
+Voor het uitvoeren van ontwikkel- en testtaken voor installatiekopieën van Windows-clients zijn bepaalde versies van Windows 7 en Windows 8.1 beschikbaar voor MSDN-abonnees met Azure-voordelen en MSDN-abonnees met Pay-As-You-Go Dev/Test. Zie het Engelstalige blogbericht [Windows Client images for MSDN subscribers](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/) voor meer informatie, zoals instructies en beperkingen.
 
-## <a name="why-are-affinity-groups-being-deprecated"></a>Why are affinity groups being deprecated?
-Affinity groups are a legacy concept for a geographical grouping of a customer’s cloud service deployments and storage accounts within Azure. They were originally provided to improve VM-to-VM network performance in the early Azure network designs. They also supported the initial release of virtual networks (VNets), which were limited to a small set of hardware in a region.
+## <a name="why-are-affinity-groups-being-deprecated"></a>Waarom worden affiniteitsgroepen afgeschaft?
+Affiniteitsgroepen zijn een verouderd concept voor een geografische groepering van cloudservice-implementaties en opslagaccounts van een klant in Azure. De groepen zijn destijds ontwikkeld om de prestaties van het VM-VM-netwerk in de vroege Azure-netwerkontwerpen te verbeteren. Affiniteitsgroepen boden ook ondersteuning voor de eerste versie van virtuele netwerken (VNets), die beperkt waren tot een kleine set hardware in een regio.
 
-The current Azure network within a region is designed so that affinity groups are no longer required. Virtual networks are also at a regional scope, so an affinity group is no longer required when you use a virtual network. Due to these improvements, we no longer recommend that customers use affinity groups because they can be limiting in some scenarios. Using affinity groups will unnecessarily associate your VMs to specific hardware that limits the choice of VM sizes that are available to you. It might also lead to capacity-related errors when you attempt to add new VMs if the specific hardware associated with the affinity group is near capacity.
+Het huidige Azure-netwerk in een regio is zodanig ontworpen dat affiniteitsgroepen niet meer nodig zijn. Virtuele netwerken ondersteunen nu ook een regionaal bereik en dus is een affiniteitsgroep niet meer vereist wanneer u een virtueel netwerk gebruikt. Dankzij deze verbeteringen krijgen klanten niet meer het advies om affiniteitsgroepen te gebruiken, omdat deze in sommige scenario's beperkingen kunnen veroorzaken. Als u affiniteitsgroepen gebruikt, worden uw virtuele machines onnodig gekoppeld aan specifieke hardware, waardoor de keuze van beschikbare VM-grootten afneemt. Een ander punt is dat er capaciteitsfouten kunnen optreden wanneer u probeert nieuwe VM's toe te voegen en de specifieke hardware die is gekoppeld aan de affiniteitsgroep, bijna geen capaciteit meer heeft.
 
-Affinity group features are already deprecated in the Azure Resource Manager deployment model and in the Azure portal. For the classic Azure portal, we're deprecating support for creating affinity groups and creating storage resources that are pinned to an affinity group. You don't need to modify existing cloud services that are using an affinity group. However, you should not use affinity groups for new cloud services unless an Azure support professional recommends them.
+De functies van affiniteitsgroepen zijn al afgeschaft in het implementatiemodel Azure Resource Manager en in Azure Portal. Voor de klassieke Azure-portal wordt de ondersteuning voor het maken van affiniteitsgroepen inmiddels afgebouwd. Dit geldt ook voor het maken van opslagresources die zijn gekoppeld aan een affiniteitsgroep. U hoeft geen wijzigingen aan te brengen in bestaande cloudservices die een affiniteitsgroep gebruiken. Het wordt echter afgeraden om affiniteitsgroepen te gebruiken voor nieuwe cloudservices, tenzij dit wordt geadviseerd door een ondersteuningsmedewerker van Azure.
 
-## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>How much storage can I use with a virtual machine?
-Each data disk can be up to 1 TB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Hoeveel opslagruimte kan ik gebruiken met een virtuele machine?
+Elke gegevensschijf kan maximaal 1 TB groot zijn. Het aantal gegevensschijven dat u kunt gebruiken, is afhankelijk van de grootte van de virtuele machine. Zie [Grootten voor virtuele machines](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie.
 
-An Azure storage account provides storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](http://go.microsoft.com/fwlink/p/?LinkId=396819).
+Een Azure-opslagaccount biedt opslag voor de schijf met het besturingssysteem en eventuele gegevensschijven. Elke schijf is een VHD-bestand dat wordt opgeslagen als een pagina-blob. Zie [deze pagina](http://go.microsoft.com/fwlink/p/?LinkId=396819) voor prijsinformatie.
 
-## <a name="which-virtual-hard-disk-types-can-i-use"></a>Which virtual hard disk types can I use?
-Azure only supports fixed, VHD-format virtual hard disks. If you have a VHDX that you want to use in Azure, you need to first convert it by using Hyper-V Manager or the [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet. After you do that, use [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet (in Service Management mode) to upload the VHD to a storage account in Azure so you can use it with virtual machines.
+## <a name="which-virtual-hard-disk-types-can-i-use"></a>Welke typen virtuele harde schijf kan ik gebruiken?
+Azure ondersteunt alleen vaste, virtuele harde schijven met de indeling VHD. Als u een VHDX hebt die u wilt gebruiken in Azure, moet u deze eerst converteren met behulp van Hyper-V Manager of de cmdlet [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656). Daarna gebruikt u de cmdlet [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (in de modus Service Management) om de VHD te uploaden naar een opslagaccount in Azure, zodat u de schijf kunt gebruiken met virtuele machines.
 
-* For Linux instructions, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-* For Windows instructions, see [Create and upload a Windows Server VHD to Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Zie [Een virtuele harde schijf met het Linux-besturingssysteem maken en uploaden](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) voor instructies voor Linux.
+* Zie [Een Windows Server VHD maken en uploaden voor Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) voor instructies voor Windows.
 
-## <a name="are-these-virtual-machines-the-same-as-hyper-v-virtual-machines"></a>Are these virtual machines the same as Hyper-V virtual machines?
-In many ways they’re similar to “Generation 1” Hyper-V VMs, but they’re not exactly the same. Both types provide virtualized hardware, and the VHD-format virtual hard disks are compatible. This means you can move them between Hyper-V and Azure. Three key differences that sometimes surprise Hyper-V users are:
+## <a name="are-these-virtual-machines-the-same-as-hyper-v-virtual-machines"></a>Zijn deze virtuele machines hetzelfde als virtuele machines van Hyper-V?
+Op veel punten zijn ze vergelijkbaar met Hyper-V-VM's van de 'eerste generatie', maar ze zijn niet precies hetzelfde. Beide typen bieden gevirtualiseerde hardware, en de virtuele harde schijven met VHD-indeling zijn compatibel. Dit betekent dat u ze kunt verplaatsen tussen Hyper-V en Azure. Er zijn echter drie belangrijke verschillen die gebruikers van Hyper-V soms verrassen:
 
-* Azure doesn’t provide console access to a virtual machine. There is no way to access a VM until it is done booting.
-* Azure VMs in most [sizes](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) have only 1 virtual network adapter, which means that they also can have only 1 external IP address. (The A8 and A9 sizes use a second network adapter for application communication between instances in limited scenarios.)
-* Azure VMs don't support Generation 2 Hyper-V VM features. For details about these features, see [Virtual Machine Specifications for Hyper-V](http://technet.microsoft.com/library/dn592184.aspx) and [Generation 2 Virtual Machine Overview](https://technet.microsoft.com/library/dn282285.aspx).
+* Azure biedt geen consoletoegang tot een virtuele machine. Een virtuele machine is pas toegankelijk nadat deze volledig is opgestart.
+* VM's van Azure hebben in de meeste [grootten](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) maar één virtuele netwerkadapter, wat betekent dat ze ook maar één extern IP-adres kunnen hebben. (De grootten A8 en A9 gebruiken een tweede netwerkadapter voor de communicatie van toepassingen tussen instanties in beperkte scenario's.)
+* VM's van Azure bieden geen ondersteuning voor functies van Hyper-V-VM's van de tweede generatie. Zie voor meer informatie over deze functies [Specificaties van virtuele machines voor Hyper-V](http://technet.microsoft.com/library/dn592184.aspx) en [Overzicht van virtuele machines van generatie 2](https://technet.microsoft.com/library/dn282285.aspx).
 
-## <a name="can-these-virtual-machines-use-my-existing-on-premises-networking-infrastructure"></a>Can these virtual machines use my existing, on-premises networking infrastructure?
-For virtual machines created in the classic deployment model, you can use Azure Virtual Network to extend your existing infrastructure. The approach is like setting up a branch office. You can provision and manage virtual private networks (VPNs) in Azure as well as securely connect them to on-premises IT infrastructure. For details, see [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md).
+## <a name="can-these-virtual-machines-use-my-existing-on-premises-networking-infrastructure"></a>Kunnen deze virtuele machines mijn bestaande, on-premises netwerkinfrastructuur gebruiken?
+Voor virtuele machines die zijn gemaakt in het klassieke implementatiemodel kunt u Azure Virtual Network gebruiken om uw bestaande infrastructuur uit te breiden. De methode is vergelijkbaar met het opzetten van een filiaal. U kunt virtuele particuliere netwerken (VPN's) inrichten en beheren in Azure, maar u kunt ze ook op een veilige manier verbinden met een on-premises IT-infrastructuur. Zie [Overzicht van Azure Virtual Network](../articles/virtual-network/virtual-networks-overview.md) voor meer informatie.
 
-You’ll need to specify the network that you want the virtual machine to belong to when you create the virtual machine. You can’t join an existing virtual machine to a virtual network. However, you can work around this by detaching the virtual hard disk (VHD) from the existing virtual machine, and then use it to create a new virtual machine with the networking configuration you want.
+Op het moment dat u de virtuele machine maakt, moet u het netwerk opgeven waarvan de virtuele machine deel moet uitmaken. Het is niet mogelijk om een bestaande virtuele machine te koppelen aan een virtueel netwerk. U dit probleem omzeilen door de virtuele harde schijf (VHD) los te koppelen van de bestaande virtuele machine en de schijf vervolgens gebruiken om een nieuwe virtuele machine te maken met de gewenste netwerkconfiguratie.
 
-## <a name="how-can-i-access--my-virtual-machine"></a>How can I access  my virtual machine?
-You need to establish a remote connection to log on to the virtual machine by using Remote Desktop Connection for a Windows VM or a Secure Shell (SSH) for a Linux VM. For instructions, see:
+## <a name="how-can-i-access--my-virtual-machine"></a>Hoe krijg ik toegang tot mijn virtuele machine?
+U moet een externe verbinding tot stand brengen om u aan te melden bij de virtuele machine. Dit kan met de functie Verbinding met extern bureaublad voor een virtuele machine van Windows of via een Secure Shell (SSH) voor een VM van Linux. Instructies vindt u hier:
 
-* [How to Log on to a Virtual Machine Running Windows Server](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). A maximum of 2 concurrent connections are supported, unless the server is configured as a Remote Desktop Services session host.  
-* [How to Log on to a Virtual Machine Running Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
+* [Aanmelden bij een virtuele machine met Windows Server](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Er worden maximaal twee gelijktijdige verbindingen ondersteund, tenzij de server is geconfigureerd als een host voor sessies van Extern bureaublad-services.  
+* [Aanmelden bij een virtuele machine met Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). SSH biedt standaard ondersteuning voor maximaal tien gelijktijdige verbindingen. U kunt dit aantal verhogen door het configuratiebestand te bewerken.
 
-If you’re having problems with Remote Desktop or SSH, install and use the [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) extension to help fix the problem.
+Als er problemen optreden met Extern bureaublad of SSH, installeert en gebruikt u de extensie [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) om het probleem op te lossen.
 
-For Windows VMs, additional options include:
+Voor Windows-VM's gelden nog deze extra opties:
 
-* In the Azure classic portal, find the VM, then click **Reset Remote Access** from the Command bar.
-* Review [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Use Windows PowerShell Remoting to connect to the VM, or create additional endpoints for other resources to connect to the VM. For details, see [How to Set Up Endpoints to a Virtual Machine](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Zoek de VM in de klassieke Azure-portal en klik vervolgens op **Externe toegang opnieuw instellen** op de opdrachtbalk.
+* Raadpleeg [Problemen oplossen met verbindingen van Extern bureaublad met virtuele Azure-machines waarop Windows wordt uitgevoerd](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Gebruik externe communicatie van Windows PowerShell om verbinding te maken met de VM of maak extra eindpunten zodat andere resources verbinding kunnen maken met de VM. Zie [Eindpunten voor een virtuele machine instellen](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) voor meer informatie.
 
-If you’re familiar with Hyper-V, you might be looking for a tool similar to VMConnect. Azure doesn’t offer a similar tool because console access to a virtual machine isn’t supported.
+Als u bekend bent met Hyper-V, verwacht u misschien een hulpprogramma zoals VMConnect. Azure biedt echter geen vergelijkbaar hulpprogramma omdat consoletoegang tot een virtuele machine niet wordt ondersteund.
 
-## <a name="can-i-use-the-temporary-disk-the-d-drive-for-windows-or-devsdb1-for-linux-to-store-data"></a>Can I use the temporary disk (the D: drive for Windows or /dev/sdb1 for Linux) to store data?
-You shouldn’t use the temporary disk (the D: drive by default for Windows or /dev/sdb1 for Linux) to store data. They are only temporary storage, so you would risk losing data that can’t be recovered. This can occur when the virtual machine moves to a different host. Resizing a virtual machine, updating the host, or a hardware failure on the host are some of the reasons a virtual machine might move.
+## <a name="can-i-use-the-temporary-disk-the-d-drive-for-windows-or-devsdb1-for-linux-to-store-data"></a>Kan ik de tijdelijke schijf (het station D: voor Windows of /dev/sdb1 voor Linux) gebruiken voor het opslaan van gegevens?
+U moet de tijdelijke schijf (standaard het station D: voor Windows of /dev/sdb1 voor Linux) niet gebruiken voor het opslaan van gegevens. Deze schijven zijn alleen als tijdelijke opslag bedoeld, wat betekent dat u het risico loopt gegevens kwijt te raken die dan niet kunnen worden hersteld. Dit kan gebeuren wanneer de virtuele machine wordt verplaatst naar een andere host. Hiervoor zijn verschillende redenen te bedenken, zoals het aanpassen van de grootte van een virtuele machine, het bijwerken van de host of een hardwarefout op de host.
 
-## <a name="how-can-i-change-the-drive-letter-of-the-temporary-disk"></a>How can I change the drive letter of the temporary disk?
-On a Windows virtual machine, you can change the drive letter by moving the page file and reassigning drive letters, but you’ll need to make sure you do the steps in a specific order. For instructions, see [Change the drive letter of the Windows temporary disk](../articles/virtual-machines/windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+## <a name="how-can-i-change-the-drive-letter-of-the-temporary-disk"></a>Hoe wijzig ik de stationsletter van de tijdelijke schijf?
+Op een virtuele machine van Windows kunt u de stationsletter wijzigen door het wisselbestand te verplaatsen en stationsletters opnieuw toe te wijzen. Het is wel essentieel dat u de stappen in een bepaalde volgorde uitvoert. Zie [Use the D: drive as a data drive on a Windows VM](../articles/virtual-machines/windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (Het station D: als gegevensstation gebruiken op een Windows-VM) voor instructies.
 
-## <a name="how-can-i-upgrade-the-guest-operating-system"></a>How can I upgrade the guest operating system?
-The term upgrade generally means moving to a more recent release of your operating system, while staying on the same hardware. For Azure VMs, the process for moving to a more recent release differs for Linux and Windows:
+## <a name="how-can-i-upgrade-the-guest-operating-system"></a>Hoe kan ik het gastbesturingssysteem upgraden?
+De term 'upgraden' betekent meestal overstappen naar een recentere versie van het besturingssysteem, met behoud van de huidige hardware. In het geval van VM's van Azure verschilt het proces voor het overstappen naar een recentere versie voor Linux- en Windows-machines:
 
-* For Linux VMs, use the package management tools and procedures appropriate for the distribution.
-* For a Windows virtual machine, you need to migrate the server using something like the Windows Server Migration Tools. Don’t attempt to upgrade the guest OS while it resides on Azure. It isn’t supported because of the risk of losing access to the virtual machine. If problems occur during the upgrade, you could lose the ability to start a Remote Desktop session and wouldn’t be able to troubleshoot the problems.
+* Gebruik voor VM's van Linux de hulpprogramma's en procedures voor pakketbeheer die beschikbaar zijn voor de distributie.
+* Voor een virtuele machine van Windows moet u de server migreren, bijvoorbeeld met het hulpprogramma voor migratie van Windows-servers. U moet niet proberen om het gastbesturingssysteem te upgraden terwijl dit deel uitmaakt van Azure. Dit wordt namelijk niet ondersteund vanwege het risico de toegang tot de virtuele machine te verliezen. Als er tijdens de upgrade problemen optreden, is de kans aanwezig dat u geen Extern bureaublad-sessie kunt starten en de problemen dus niet kunt oplossen.
 
-For general details about the tools and processes for migrating a Windows Server, see [Migrate Roles and Features to Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940).
+Zie [Functies en onderdelen migreren in Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940) voor algemene informatie over de hulpprogramma's en processen voor het migreren van een computer met Windows Server.
 
-## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>What's the default user name and password on the virtual machine?
-The images provided by Azure don’t have a pre-configured user name and password. When you create virtual machine using one of those images, you’ll need to provide a user name and password, which you’ll use to log on to the virtual machine.
+## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>Welke gebruikersnaam en welk wachtwoord worden standaard gebruikt op een virtuele machine?
+De installatiekopieën die worden verstrekt door Azure bevatten geen vooraf geconfigureerde gebruikersnaam en wachtwoord. Wanneer u met behulp van een van deze installatiekopieën een virtuele machine maakt, moet u een gebruikersnaam en wachtwoord opgeven, die u daarna gebruikt om u aan te melden bij de virtuele machine.
 
-If you’ve forgotten the user name or password and you’ve installed the VM Agent, you can install and use the [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) extension to fix the problem.
+Als u de gebruikersnaam of het wachtwoord bent vergeten en u de VM-agent hebt geïnstalleerd, kunt u de extensie [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) installeren en gebruiken om het probleem op te lossen.
 
-Additional details:
+Aanvullende details:
 
-* For the Linux images, if you use the Azure classic portal, ‘azureuser’ is given as a default user name, but you can change this by using ‘From Gallery’ instead of ‘Quick Create’ as the way to create the virtual machine. Using ‘From Gallery’ also lets you decide whether to use a password, an SSH key, or both to log you in. The user account is a non-privileged user that has ‘sudo’ access to run privileged commands. The ‘root’ account is disabled.
-* For Windows images, you’ll need to provide a user name and password when you create the VM. The account is added to the Administrators group.
+* Als u de klassieke Azure-portal gebruikt, geldt voor de Linux-installatiekopieën dat 'azureuser' de standaardgebruikersnaam is. U kunt dit echter wijzigen door de virtuele machine te maken met behulp van Uit galerie in plaats van Snel maken. Als u Uit galerie gebruikt, kunt u ook beslissen of u zich wilt aanmelden met een wachtwoord, een SSH-sleutel of beide. Het gebruikersaccount is een niet-bevoegde gebruiker met 'sudo'-toegang voor het uitvoeren van opdrachten met verhoogde bevoegdheden. Het root-account is uitgeschakeld.
+* Voor Windows-installatiekopieën moet u een gebruikersnaam en wachtwoord opgeven wanneer u de virtuele machine maakt. Het account wordt toegevoegd aan de groep Administrators.
 
-## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Can Azure run anti-virus on my virtual machines?
-Azure offers several options for anti-virus solutions, but it’s up to you to manage it. For example, you might need a separate subscription for antimalware software, and you’ll need to decide when to run scans and install updates. You can add anti-virus support with a VM extension for Microsoft Antimalware, Symantec Endpoint Protection, or TrendMicro Deep Security Agent when you create a Windows virtual machine, or at a later point. The Symantec and TrendMicro extensions let you use a free limited-time trial subscription or an existing enterprise subscription. Microsoft Antimalware is free of charge. For details, see:
+## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Kan Azure een antivirusprogramma uitvoeren op mijn virtuele machines?
+Azure biedt verschillende opties voor antivirusoplossingen, maar het beheer hiervan moet u zelf regelen. Zo is het mogelijk dat u een afzonderlijk abonnement nodig hebt voor anti-malwaresoftware en moet u bepalen wanneer er scans worden uitgevoerd en updates worden geïnstalleerd. U kunt ondersteuning voor een antivirusprogramma toevoegen met behulp van een VM-extensie voor Microsoft Antimalware, Symantec Endpoint Protection of TrendMicro Deep Security Agent wanneer u een virtuele Windows-computer maakt. Dit kan trouwens ook op een later tijdstip. De extensies van Symantec en TrendMicro kunt u gebruiken met een gratis, tijdelijk proefabonnement of met een bestaand zakelijk abonnement. Microsoft Antimalware is gratis. Zie deze artikelen voor meer informatie:
 
-* [How to install and configure Symantec Endpoint Protection on an Azure VM](http://go.microsoft.com/fwlink/p/?LinkId=404207)
-* [How to install and configure Trend Micro Deep Security as a Service on an Azure VM](http://go.microsoft.com/fwlink/p/?LinkId=404206)
-* [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
+* [How to install and configure Symantec Endpoint Protection on a Windows VM](http://go.microsoft.com/fwlink/p/?LinkId=404207) (Symantec Endpoint Protection installeren en configureren op een VM van Azure)
+* [How to install and configure Trend Micro Deep Security as a Service on an Azure VM](http://go.microsoft.com/fwlink/p/?LinkId=404206) (Trend Micro Deep Security als een service installeren en configureren op een VM van Azure)
+* [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/) (Antimalware-oplossingen implementeren op virtuele machines van Azure)
 
-## <a name="what-are-my-options-for-backup-and-recovery"></a>What are my options for backup and recovery?
-Azure Backup is available as a preview in certain regions. For details, see [Back up Azure virtual machines](../articles/backup/backup-azure-vms.md). Other solutions are available from certified partners. To find out what’s currently available, search the Azure Marketplace.
+## <a name="what-are-my-options-for-backup-and-recovery"></a>Wat zijn de opties voor back-up en herstel?
+Azure Backup is beschikbaar als preview in bepaalde regio's. Zie [Back-ups maken van virtuele machines van Azure](../articles/backup/backup-azure-vms.md) voor meer informatie. Andere oplossingen zijn beschikbaar van gecertificeerde partners. Als u wilt weten wat er op dit moment beschikbaar is, zoekt u Azure Marketplace.
 
-An additional option is to use the snapshot capabilities of blob storage. To do this, you’ll need to shut down the VM before any operation that relies on a blob snapshot. This saves pending data writes and puts the file system in a consistent state.
+Een andere mogelijkheid is om de voorzieningen voor momentopnamen van blob-opslag te gebruiken. Het is belangrijk dat u de VM afsluit voordat u een bewerking gaat uitvoeren die afhankelijk is van een momentopname van een blob. Hierdoor worden openstaande schrijfbewerkingen worden opgeslagen en wordt het bestandssysteem in een consistente status geplaatst.
 
-## <a name="how-does-azure-charge-for-my-vm"></a>How does Azure charge for my VM?
-Azure charges an hourly price based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes of use. If you create the VM with a VM image containing certain pre-installed software, additional hourly software charges may apply. Azure charges separately for storage for the VM’s operating system and data disks. Temporary disk storage is free.
+## <a name="how-does-azure-charge-for-my-vm"></a>Hoe worden er in Azure kosten in rekening gebracht voor mijn VM?
+Azure rekent een uurprijs op basis van de grootte en het besturingssysteem van de VM. Voor niet-hele uren worden alleen de minuten van gebruik in rekening gebracht. Als u de VM maakt aan de hand van een VM-installatiekopie met bepaalde vooraf geïnstalleerde software, kunnen er extra softwarekosten bijkomen (op uurbasis). In Azure worden afzonderlijke kosten in rekening gebracht voor opslag voor de besturingssysteemschijf en de gegevensschijven van de VM. Tijdelijke opslagruimte is gratis.
 
-You are charged when the VM status is Running or Stopped, but you are not charged when the VM status is Stopped (De-allocated). To put a VM in the Stopped (De-allocated) state, do one of the following:
+Er worden kosten in rekening gebracht wanneer de VM de status Uitvoeren of Gestopt heeft, maar niet bij de status Gestopt (Toewijzing ongedaan gemaakt). Als u een VM in de status Gestopt (Toewijzing ongedaan gemaakt) wilt zetten, voert u een van de volgende handelingen uit:
 
-* Shut down or delete the VM from the Azure classic portal.
-* Use the Stop-AzureVM cmdlet, available in the Azure PowerShell module.
-* Use the Shutdown Role operation in the Service Management REST API and specify StoppedDeallocated for the PostShutdownAction element.
+* Sluit de VM af in de klassieke Azure-portal of verwijder de VM daar.
+* Gebruik de cmdlet Stop-AzureVM, beschikbaar in de Azure PowerShell-module.
+* Gebruik de bewerking Rol afsluiten in de REST-API van Servicebeheer en geef StoppedDeallocated op voor het element PostShutdownAction.
 
-For more details, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
+Zie [Prijzen van virtuele machines](https://azure.microsoft.com/pricing/details/virtual-machines/) voor meer informatie.
 
-## <a name="will-azure-reboot-my-vm-for-maintenance"></a>Will Azure reboot my VM for maintenance?
-Azure sometimes restarts your VM as part of regular, planned maintenance updates in the Azure datacenters.
+## <a name="will-azure-reboot-my-vm-for-maintenance"></a>Wordt mijn VM opnieuw opgestart door Azure voor onderhoud?
+Azure zal uw VM soms opnieuw opstarten als onderdeel van reguliere, geplande onderhoudsupdates in de Azure-datacenters.
 
-Unplanned maintenance events can occur when Azure detects a serious hardware problem that affects your VM. For unplanned events, Azure automatically migrates the VM to a healthy host and restarts the VM.
+Niet-gepland onderhoudsgebeurtenissen kunnen optreden wanneer Azure een ernstige hardwareprobleem vaststelt dat betrekking heeft op uw VM. Voor niet-geplande gebeurtenissen word de VM automatisch gemigreerd naar een goed werkende host en wordt de VM opnieuw opgestart.
 
-For any standalone VM (meaning the VM isn’t part of an availability set), Azure notifies the subscription’s Service Administrator by email at least one week before planned maintenance because the VMs could be restarted during the update. Applications running on the VMs could experience downtime.
+In het geval van een zelfstandige VM (een VM die geen deel uitmaakt van een beschikbaarheidsset) wordt er vanuit Azure ten minste één week voor gepland onderhoud een e-mail verstuurd naar de servicebeheerder van het abonnement met de mededeling dat de VM tijdens dit onderhoud opnieuw kan worden opgestart. Toepassingen die worden uitgevoerd op de VM's kunnen tijdelijk niet beschikbaar zijn.
 
-You also can use the Azure classic portal or Azure PowerShell to view the reboot logs when the reboot occurred due to planned maintenance. For details, see [Viewing VM Reboot Logs](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+U kunt ook de klassieke Azure-portal of Azure PowerShell gebruiken om de logboeken voor opnieuw opstarten weer te geven wanneer het opnieuw opstarten onderdeel was van gepland onderhoud. Zie voor meer informatie [VM-opstartlogboeken bekijken](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
-To provide redundancy, put two or more similarly configured VMs in the same availability set. This helps ensure at least one VM is available during planned or unplanned maintenance. Azure guarantees certain levels of VM availability for this configuration. For details, see [Manage the availability of virtual machines](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Om redundantie te bieden, plaatst u twee of meer vergelijkbaar geconfigureerde VM's in dezelfde beschikbaarheidsset. Op deze manier zorgt u ervoor dat er ten minste één VM beschikbaar is tijdens gepland of ongepland onderhoud. Azure garandeert bepaalde niveaus van VM-beschikbaarheid voor deze configuratie. Zie [Beschikbaarheid van virtuele machines beheren](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor meer informatie.
 
-## <a name="additional-resources"></a>Additional resources
-[About Azure Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about.md)
+## <a name="additional-resources"></a>Aanvullende bronnen
+[Informatie over Azure Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about.md)
 
-[Different Ways to Create a Linux Virtual Machine](../articles/virtual-machines/linux/creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Virtuele machines maken en beheren met Azure CLI](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Different Ways to Create a Windows Virtual Machine](../articles/virtual-machines/windows/creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Windows-VM's maken en beheren met Azure PowerShell](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

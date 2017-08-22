@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 3627b3dfa5067883625b9a714645164ec99c8a51
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 27e5dbff8d4a9a2ed82ab6691aa82c2668fec958
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>Veelgestelde vragen VPN-gateways
@@ -58,7 +57,7 @@ Met **punt-naar-site**-configuraties (VPN via SSTP) kunt u vanaf één computer 
 
 U kunt uw virtuele netwerk configureren om tegelijkertijd gebruik te maken van site-naar-site en punt-naar-site, mits u de site-naar-site-verbinding maakt met een op route gebaseerd VPN-type voor uw gateway. Op route gebaseerde VPN-typen worden in het klassieke implementatiemodel dynamische gateways genoemd.
 
-## <a name="virtual-network-gateways"></a>Virtuele netwerkgateways
+## <a name="gateways"></a>Virtuele netwerkgateways
 
 ### <a name="is-a-vpn-gateway-a-virtual-network-gateway"></a>Is een VPN-gateway een virtuele netwerkgateway?
 
@@ -132,7 +131,7 @@ Een VPN-gateway is in feite een multihomed apparaat met één NIC die toegang he
 
 Zie [Informatie over VPN-gatewayconfiguratie-instellingen](vpn-gateway-about-vpn-gateway-settings.md) voor meer informatie.
 
-## <a name="site-to-site-connections-and-vpn-devices"></a>Site-naar-site-verbindingen en VPN-apparaten
+## <a name="s2s"></a>Site-naar-site-verbindingen en VPN-apparaten
 
 ### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>Waaraan moet ik denken bij het selecteren van een VPN-apparaat?
 
@@ -196,7 +195,7 @@ Ja, P2S-VPN-verbindingen (punt-naar-site) kunnen worden gebruikt met de VPN-gate
 
 Ja, dit wordt ondersteund. Voor meer informatie raadpleegt u [Expressroute en site-naar-site-VPN-verbindingen die naast elkaar kunnen worden gebruikt configureren](../expressroute/expressroute-howto-coexist-classic.md)
 
-## <a name="ipsecike-policy"></a>IPsec/IKE-beleid
+## <a name="ipsecike"></a>IPsec/IKE-beleid
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
 
@@ -205,7 +204,7 @@ Ja, dit wordt ondersteund. Voor meer informatie raadpleegt u [Expressroute en si
 
 [!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
-## <a name="cross-premises-connectivity-and-vms"></a>Cross-premises-connectiviteit en virtuele machines
+## <a name="vms"></a>Cross-premises-connectiviteit en virtuele machines
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-and-i-have-a-cross-premises-connection-how-should-i-connect-to-the-vm"></a>Als de virtuele machine zich in een virtueel netwerk bevindt en ik een cross-premises-verbinding heb, hoe moet ik dan verbinding maken met de virtuele machine?
 
@@ -222,7 +221,7 @@ Nee. Alleen het verkeer met een doel-IP dat zich bevindt in de door u opgegeven 
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
 
-## <a name="virtual-network-faq"></a>Veelgestelde vragen over Virtual Network
+## <a name="faq"></a>Veelgestelde vragen over Virtual Network
 
 Aanvullende informatie over virtuele netwerken vindt u in de [Veelgestelde vragen over Virtual Network](../virtual-network/virtual-networks-faq.md).
 

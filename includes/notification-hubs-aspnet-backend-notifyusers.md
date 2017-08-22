@@ -7,8 +7,8 @@ In de volgende secties wordt een nieuwe ASP.NET WebAPI-back-end gemaakt. Dit hee
 
 In de volgende stappen ziet u hoe u de nieuwe ASP.NET WebAPI-back-end maakt: 
 
-> [!NOTE]
-> **Belangrijk**: als u Visual Studio 2015 of eerder gebruikt, moet u voordat u deze zelfstudie begint controleren of u de meest recente versie van de NuGet Package Manager hebt geïnstalleerd. Start Visual Studio om dit te controleren. Klik vanuit het menu **Tools** op **Extensions and Updates**. Zoek naar **NuGet Package Manager** voor uw versie van Visual Studio en controleer of u de meest recente versie hebt. Als dit niet het geval is, verwijder dan NuGet Package Manager en installeer het opnieuw.
+> [!IMPORTANT]
+> Als u Visual Studio 2015 of eerder gebruikt, moet u voordat u deze zelfstudie begint controleren of u de meest recente versie van NuGet Package Manager hebt geïnstalleerd. Start Visual Studio om dit te controleren. Klik vanuit het menu **Tools** op **Extensions and Updates**. Zoek naar **NuGet Package Manager** voor uw versie van Visual Studio en controleer of u de meest recente versie hebt. Als dit niet het geval is, verwijder dan NuGet Package Manager en installeer het opnieuw.
 > 
 > ![][B4]
 > 

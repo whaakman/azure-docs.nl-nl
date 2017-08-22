@@ -1,27 +1,27 @@
 
 
 
-To create virtual machines based on Oracle images, sign in to the [Azure portal](https://portal.azure.com/), click **Marketplace**, click **Compute**, and then type **Oracle** into the Search box. Select an image and follow the instructions to set up the image on Microsoft Azure. Note that Oracle images by Microsoft on the [Azure portal](https://portal.azure.com/) run on Windows, and Oracle images by Oracle run on Oracle Linux.
+Als u virtuele machines wilt maken op basis van installatiekopieën van Oracle, meldt u zich aan bij de [Azure-portal](https://portal.azure.com/), klikt u op **Marketplace**, klikt u op **Compute** en typt u **Oracle** in het zoekvak. Selecteer een installatiekopie en volg de instructies voor het instellen van de installatiekopie in Microsoft Azure. Oracle-installatiekopieën van Microsoft in de [Azure-portal](https://portal.azure.com/) worden uitgevoerd in Windows, terwijl Oracle-installatiekopieën van Oracle worden uitgevoerd in Oracle Linux.
 
-## <a name="windows-based-virtual-machine-images"></a>Windows-based virtual machine images
-The following is a list of the available Oracle virtual machine images that run on Windows Server on Azure. These images are pay-as-you-go, meaning that Oracle license fees are included in the usage of these images. Microsoft no longer publishes Oracle Database or WebLogic images in Azure Marketplace.  You can still create your own custom image and use the Bring Your Own License model in order to run Oracle software on Microsoft Azure. 
+## <a name="windows-based-virtual-machine-images"></a>Installatiekopieën voor virtuele Windows-machines
+Hier volgt een lijst met de beschikbare Oracle-installatiekopieën voor virtuele machines die worden uitgevoerd in Windows Server in Azure. Voor deze installatiekopieën geldt betalen naar gebruik, wat betekent dat kosten voor Oracle-licenties zijn opgenomen in het gebruik van deze installatiekopieën. Microsoft publiceert geen Oracle Database- of WebLogic-installatiekopieën meer in Azure Marketplace.  U kunt nog steeds uw eigen aangepaste installatiekopie maken en het model Bring Your Own License gebruiken om Oracle-software uit te voeren in Microsoft Azure. 
 
-### <a name="java-virtual-machine-images"></a>Java virtual machine images
-* JDK 8 on Windows Server 2012 R2
-* JDK 7 on Windows Server 2012
-* JDK 6 on Windows Server 2012
+### <a name="java-virtual-machine-images"></a>Images voor virtuele Java-machines
+* JDK 8 in Windows Server 2012 R2
+* JDK 7 in Windows Server 2012
+* JDK 6 in Windows Server 2012
 
-## <a name="oracle-linux-virtual-machine-images"></a>Oracle Linux virtual machine images
-The following is a list of the available preconfigured Oracle virtual machine images that run on Oracle Linux on Azure. You are expected to bring your own license for these images, as Oracle license fees are not included in the usage of these preconfigured virtual machine images. You can also bring your own license to install and run Oracle software on custom virtual machines on Windows or Linux. Here are complete details on [Oracle licensing on Azure](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support). And here are details on creating virtual machines using [your own images](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). To learn about this and other methods of migrating Oracle and other workloads to Azure, see [Different ways to create a Windows-based virtual machine](../articles/virtual-machines/windows/creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+## <a name="oracle-linux-virtual-machine-images"></a>Installatiekopieën voor virtuele Oracle Linux-machines
+Hier volgt een lijst met de beschikbare vooraf geconfigureerde Oracle-installatiekopieën voor virtuele machines die worden uitgevoerd in Oracle Linux in Azure. U moet een eigen licentie hebben voor deze installatiekopieën, aangezien kosten voor Oracle-licenties niet zijn opgenomen in het gebruik van deze vooraf geconfigureerde installatiekopieën van virtuele machines. U kunt ook uw eigen licentie gebruiken om Oracle-software te installeren en uit te voeren op aangepaste virtuele machines in Windows of Linux. Hier vindt u alle informatie over [Oracle-licenties voor Azure](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support). En hier vindt u uitgebreide informatie over het maken van virtuele machines met [uw eigen installatiekopieën](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-* Oracle Database 12c Enterprise Edition on Oracle Linux
-* Oracle Database 12c Standard Edition on Oracle Linux
-* Oracle WebLogic Server 12c Enterprise Edition on Oracle Linux
+* Oracle Database 12c Enterprise Edition voor Oracle Linux
+* Oracle Database 12c Standard Edition voor Oracle Linux
+* Oracle WebLogic Server 12c Enterprise Edition voor Oracle Linux
 * Oracle Linux 6.4.0.0.0
 * Oracle Linux 6.7.0.0.0
 * Oracle Linux 7.0.0.0.0
 * Oracle Linux 7.2.0.0.0
 
-## <a name="additional-resources"></a>Additional resources
-[Oracle virtual machine images - miscellaneous considerations](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
+## <a name="additional-resources"></a>Aanvullende bronnen
+[Installatiekopieën voor virtuele Oracle-machines - verschillende aandachtspunten](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 

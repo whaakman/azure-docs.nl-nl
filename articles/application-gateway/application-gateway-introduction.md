@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 07/10/2017
+ms.date: 07/19/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 396d8b9532eb55341670ad61bd4c2a16882b35e4
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 49ca4ed2452d71dec17cedebaf48bbd5ab9e615f
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Overzicht van Application Gateway
@@ -42,6 +42,7 @@ Application Gateway biedt momenteel de volgende mogelijkheden:
 * **[Routering van meerdere sites](application-gateway-multi-site-overview.md)**: met Application Gateway kunt u maximaal 20 websites op een enkele toepassingsgateway consolideren.
 * **[Websocket-ondersteuning](application-gateway-websocket.md)**: een andere fantastische functie van de Application Gateway is de systeemeigen ondersteuning voor Websocket.
 * **[Statuscontrole](application-gateway-probe-overview.md)**: Application Gateway biedt standaard statuscontrole van back-endresources en aangepaste tests om te controleren op specifiekere scenario's.
+* **[SSL-beleid en -coderingen](application-gateway-ssl-policy-overview.md)**: deze functie biedt de mogelijkheid om de SSL-protocolversies en de coderingen die worden ondersteund en de volgorde waarin ze worden verwerkt, te beperken.
 * **[Omleiding aanvragen](application-gateway-redirect-overview.md)**: deze functie biedt de mogelijkheid om HTTP-aanvragen om te leiden naar een HTTPS-listener.
 * **[Back-end-ondersteuning voor meerdere tenants](application-gateway-web-app-overview.md)** : Application Gateway ondersteunt het configureren van multi-tenant back-endservices zoals Azure Web Apps en API Gateway als leden van de back-endpool. 
 * **[Geavanceerde diagnostische gegevens](application-gateway-diagnostics.md)**: Application Gateway biedt volledige diagnostische gegevens en toegangslogboeken. Er zijn firewalllogboeken beschikbaar voor Application Gateway-resources waarvoor WAF is ingeschakeld.
@@ -105,5 +106,5 @@ Nadat u informatie hebt opgedaan over Application Gateway, kunt u [een toepassin
 
 Voor meer informatie over het maken van een toepassingsgateway met behulp van URL-gebaseerd routeren van content gaat u naar [Een toepassingsgateway maken met behulp van URL-gebaseerde routering](application-gateway-create-url-route-arm-ps.md).
 
-Zie [Azure Networking]((../networking/networking-overview.md) voor meer informatie over andere belangrijke netwerkmogelijkheden van Azure.
+Zie [Azure Networking](../networking/networking-overview.md) voor informatie over enkele andere belangrijke netwerkmogelijkheden van Azure.
 

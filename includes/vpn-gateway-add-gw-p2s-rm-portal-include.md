@@ -1,17 +1,18 @@
 1. Klik in de portal aan de linkerkant op **+** en typ 'Gateway van virtueel netwerk' in het zoekvak. Klik op het zoekresultaat **Gateway van het virtuele netwerk**. Klik onder aan de pagina **Virtuele netwerkgateway** op **Maken** om de pagina **Virtuele netwerkgateway maken** te openen.
 2. Vul op de pagina **Virtuele netwerkgateway maken** de waarden in voor uw virtuele netwerkgateway.
 
-  ![Velden van de pagina Virtuele netwerkgateway maken](./media/vpn-gateway-add-gw-rm-portal-include/gw.png "Velden van de pagina Virtuele netwerkgateway maken")
-3. **Naam**: naam van uw gateway. De naam van uw gateway is niet hetzelfde als de naam van een gateway-subnet. Het is de naam van het gateway-object dat u maakt.
+  ![Velden van de pagina Virtuele netwerkgateway maken](./media/vpn-gateway-add-gw-p2s-rm-portal-include/p2sgw.png "Velden van de pagina Virtuele netwerkgateway maken")
+3. **Naam**: naam van uw gateway. een naam opgeven voor een gateway is niet hetzelfde als een naam opgeven voor een gateway-subnet. Het is de naam van het gateway-object dat u maakt.
 4. **Gatewaytype**: selecteer **VPN**. VPN-gateways maken gebruik van een gateway van het virtuele netwerk van het type **VPN**.
 5. **VPN-type**selecteer het VPN-type dat wordt opgegeven voor uw configuratie. De meeste configuraties vereisen een op route gebaseerd VPN-type.
 6. **SKU**: selecteer de gateway-SKU in de vervolgkeuzelijst. Welke SKU's worden weergegeven in de vervolgkeuzelijst, is afhankelijk van het VPN-type dat u selecteert.
 7. **Locatie**: wijzig de **locatie** om naar de locatie van het virtuele netwerk te verwijzen. Als de locatie niet verwijst naar de regio waarin het virtuele netwerk zich bevindt, wordt het virtuele netwerk niet weergegeven in de vervolgkeuzelijst Een virtueel netwerk kiezen.
 8. Kies het virtuele netwerk waaraan u een gateway wilt toevoegen. Klik op **Virtueel netwerk** om de pagina **Een virtueel netwerk kiezen** te openen. Selecteer het VNet. Als u uw VNet niet ziet, moet u controleren of het veld **Locatie** verwijst naar de regio waarin het virtuele netwerk zich bevindt.
 9. **Openbaar IP-adres**: Hiermee maakt u een openbaar IP-adresobject waaraan dynamisch een openbaar IP-adres wordt toegewezen. Klik op **Openbaar IP-adres** om de pagina **Openbaar IP-adres kiezen** te openen. Klik op **+Nieuwe maken** om de pagina **Openbaar IP-adres maken** te openen. Geef een naam op voor uw openbare IP-adres. Klik op **OK** om uw wijzigingen op te slaan. Het IP-adres wordt dynamisch toegewezen wanneer de VPN Gateway wordt gemaakt. VPN Gateway ondersteunt momenteel alleen *dynamische* toewijzing van openbare IP-adressen. Dit betekent echter niet dat het IP-adres verandert nadat het aan uw VPN-gateway is toegewezen. Het openbare IP-adres verandert alleen wanneer de gateway wordt verwijderd en opnieuw wordt gemaakt. Het verandert niet wanneer de grootte van uw VPN Gateway verandert, wanneer deze gateway opnieuw wordt ingesteld of wanneer andere interne onderhoudswerkzaamheden of upgrades worden uitgevoerd.
-11. **Abonnement**: controleer of het juiste abonnement is geselecteerd.
-12. **Resourcegroep**: de instelling voor deze optie wordt bepaald door het virtuele netwerk dat u selecteert.
-1. Wijzig de **locatie** niet nadat u de voorgaande instellingen hebt opgegeven.
-2. Controleer de instellingen. Als u wilt dat uw gateway op het dashboard wordt weergegeven, kunt u onder aan de pagina **Vastmaken aan dashboard** selecteren.
-3. Klik op **Aanmaken** om de gateway aan te maken. De instellingen worden gevalideerd en de gateway wordt geïmplementeerd. Het aanmaken van een gateway kan tot 45 minuten duren.
-4. Nadat de gateway is gemaakt, kijkt u welk IP-adres is toegewezen aan de gateway. Hiervoor gaat u naar de pagina van het virtuele netwerk. De gateway wordt weergegeven als verbonden apparaat. U kunt op het verbonden apparaat klikken (uw gateway van het virtuele netwerk) om meer informatie te laten weergeven.
+10. **Abonnement**: controleer of het juiste abonnement is geselecteerd.
+11. **Resourcegroep**: deze instelling wordt bepaald door het virtuele netwerk dat u selecteert.
+12. Wijzig de **locatie** niet nadat u de voorgaande instellingen hebt opgegeven.
+13. Controleer de instellingen. Als u wilt dat uw gateway op het dashboard wordt weergegeven, kunt u onder aan de pagina **Vastmaken aan dashboard** selecteren.
+14. Klik op **Aanmaken** om de gateway aan te maken. De instellingen worden gevalideerd en de gateway wordt geïmplementeerd. Het aanmaken van een gateway kan tot 45 minuten duren.
+
+Nadat de gateway is gemaakt, kunt u zien welk IP-adres aan de gateway is toegewezen door naar het virtuele netwerk te kijken. De gateway wordt weergegeven als verbonden apparaat. U kunt op het verbonden apparaat klikken (uw gateway van het virtuele netwerk) om meer informatie te laten weergeven.
