@@ -1,5 +1,3 @@
-Doorloop de volgende stappen om via Extern bureaublad verbinding te maken met de virtuele SQL Server-machine:
-
 1. Wanneer de virtuele Azure-machine is gemaakt en wordt uitgevoerd, klikt u in Azure Portal op het pictogram Virtuele machines om uw VM's te bekijken.
 
 1. Klik op het beletselteken (**...**) voor de nieuwe virtuele machine.
@@ -16,6 +14,4 @@ Doorloop de volgende stappen om via Extern bureaublad verbinding te maken met de
 
    ![Extern bureaublad-verificatie](./media/virtual-machines-sql-server-remote-desktop-connect/remote-desktop-connect.png)
 
-Nadat u verbinding hebt gemaakt met de virtuele SQL Server-machine, kunt u SQL Server Management Studio starten en verbinding maken met Windows-verificatie met behulp van de lokale beheerdersreferenties. Als u SQL Server-verificatie inschakelt, kunt u ook verbinding maken met SQL-verificatie. Dit kan met behulp van de SQL-aanmeldingsnaam en het wachtwoord die u hebt geconfigureerd tijdens het inrichten.
-
-Met toegang tot de machine kunt u rechtstreeks de instellingen voor de machine en de SQL Server wijzigen op basis van uw vereisten. U kunt bijvoorbeeld de firewallinstellingen configureren of de SQL Server-configuratie-instellingen wijzigen.
+1. Klik op **OK** om verbinding te maken.

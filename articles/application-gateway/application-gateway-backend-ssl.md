@@ -1,5 +1,5 @@
 ---
-title: SSL-beleid en end-to-end SSL inschakelen in Application Gateway | Microsoft Docs
+title: End-to-end SSL inschakelen in Azure Application Gateway | Microsoft Docs
 description: Op deze pagina wordt de ondersteuning voor end-to-end SSL in Application Gateway beschreven.
 documentationcenter: na
 services: application-gateway
@@ -13,16 +13,16 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 04/04/2017
+ms.date: 07/19/2017
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 40368e31790a7ffa2d34a51a13e78d028cd0a1eb
-ms.lasthandoff: 04/05/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 689ee54dc1db2ea371b08270718278fd98c65bb5
+ms.contentlocale: nl-nl
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="overview-of-end-to-end-ssl-and-ssl-policy-on-application-gateway"></a>Overzicht van end-to-end SSL en SSL-beleid in Application Gateway
+# <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Overzicht van end-to-end SSL met Application Gateway
 
 Application Gateway ondersteunt SSL-beëindiging op de gateway, waarna het verkeer normaal gesproken onversleuteld naar de back-endservers wordt doorgeleid. Met deze functie voorkomt u prijzige overhead voor het versleutelen en ontsleutelen voor uw webservers. Voor sommige gebruikers is onversleutelde communicatie met de back-endserververs echter onacceptabel. Deze onversleutelde communicatie kan het gevolg zijn van de beveiligings- of nalevingsvereisten of misschien kan de toepassing alleen worden gebruikt via een beveiligde verbinding. Voor zulke toepassingen ondersteunt Application Gateway end-to-end SSL-versleuteling.
 
@@ -40,17 +40,9 @@ In dit voorbeeld worden-aanvragen via TLS1.2 doorgestuurd naar de back-endserver
 
 Application Gateway communiceert alleen met bekende back-endexemplaren waarvan het certificaat is opgenomen in een lijst van toegestane certificaten voor de Application Gateway. Als u het opnemen van certificaten in een lijst van toegestane certificaten wilt inschakelen, moet u de openbare sleutel van de back-endservercertificaten uploaden naar de Application Gateway (niet het basiscertificaat). Alleen verbindingen met bekende en goedgekeurde back-ends zijn vervolgens toegestaan. De resterende back-ends hebben een gatewayfout als resultaat. Zelfondertekende certificaten zijn uitsluitend bedoeld voor testdoeleinden en het wordt afgeraden om deze in een productieomgeving te gebruiken. Dergelijke certificaten moeten ook worden opgenomen in een lijst van toegestane certificaten voor de toepassingsgateway, zoals in de bovenstaande stappen wordt beschreven. Wanneer dit het geval is, kunnen ze worden gebruikt.
 
-## <a name="application-gateway-ssl-policy"></a>SSL-beleid in Application Gateway
-
-Application Gateway ondersteunt SSL-onderhandelingsbeleidsregels die door de gebruiker kunnen worden geconfigureerd. Op die manier hebben klanten meer controle over SSL-verbindingen op de Application Gateway.
-
-1. SSL 2.0 en 3.0 worden geforceerd uitgeschakeld voor alle Application Gateways. Deze kunnen op geen enkele wijze worden geconfigureerd.
-2. Bij het definiëren van het SSL-beleid kunt u een van de volgende drie protocollen uitschakelen: **TLSv1\_0**, **TLSv1\_1**, **TLSv1\_2**.
-3. Als er geen SSL-beleid is gedefinieerd, worden alle drie protocollen (TLSv1\_0, TLSv1\_1, TLSv1_2) ingeschakeld.
-
 ## <a name="next-steps"></a>Volgende stappen
 
-Wanneer u meer te weten bent gekomen over end-to-end SSL en SSL-beleid, gaat u naar [Enable end to end SSL on application gateway](application-gateway-end-to-end-ssl-powershell.md) (End-to-end SSL inschakelen in Application Gateway) om een toepassingsgateway te maken met end-to-end SSL.
+Wanneer u meer te weten bent gekomen over end-to-end SSL, gaat u naar [Enable end to end SSL on application gateway](application-gateway-end-to-end-ssl-powershell.md) (End-to-end SSL inschakelen in Application Gateway) om een toepassingsgateway te maken met end-to-end SSL.
 
 <!--Image references-->
 

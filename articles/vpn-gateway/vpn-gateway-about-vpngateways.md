@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 0f26a9b62a376daf2b1314ff5972293a2bc7f379
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: db280ff801c6e501e7ab7890f67d22ae16444491
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="about-vpn-gateway"></a>Informatie over VPN-gateway
@@ -28,7 +28,7 @@ Een VPN-gateway is een soort gateway voor virtuele netwerken die versleuteld ver
 
 Elk virtuele netwerk mag slechts over één VPN-gateway beschikken, maar u kunt meerdere verbindingen met dezelfde VPN-gateway maken. Een voorbeeld hiervan is een configuratie met meerdere siteverbindingen. Wanneer u meerdere verbindingen naar dezelfde VPN-gateway hebt gemaakt, delen alle VPN-tunnels, met inbegrip van punt-naar-site-VPN-verbindingen, de bandbreedte die voor de gateway beschikbaar is.
 
-### <a name="what-is-a-virtual-network-gateway"></a>Wat is een virtuele netwerkgateway?
+### <a name="whatis"></a>Wat is een virtuele netwerkgateway?
 
 Een virtuele netwerkgateway bestaat uit twee of meer virtuele machines die zijn geïmplementeerd voor een specifiek subnet met de naam GatewaySubnet. De virtuele machines die zich in het GatewaySubnet bevinden, worden gemaakt wanneer u de virtuele netwerkgateway maakt. Virtuele machines uit virtuele netwerkgateways bevatten routeringstabellen en gatewayservices speciaal voor de bijbehorende gateway. U kunt de virtuele machines die deel uitmaken van de virtuele netwerkgateway niet rechtstreeks configureren en u mag nooit aanvullende resources implementeren op het GatewaySubnet.
 
@@ -38,7 +38,7 @@ Wanneer u een virtuele netwerkgateway maakt met het gatewaytype Vpn wordt er een
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-## <a name="configuring-a-vpn-gateway"></a>Een VPN-gateway configureren
+## <a name="configuring"></a>Een VPN-gateway configureren
 
 Een VPN-gatewayverbinding is afhankelijk van meerdere resources die zijn geconfigureerd met specifieke instellingen. De meeste resources kunnen afzonderlijk worden geconfigureerd, hoewel ze in sommige gevallen in een bepaalde volgorde moeten worden geconfigureerd.
 
@@ -46,11 +46,11 @@ Een VPN-gatewayverbinding is afhankelijk van meerdere resources die zijn geconfi
 
 De instellingen die u voor elke resource hebt gekozen, zijn essentieel om een geslaagde verbinding te maken. Zie voor meer informatie over afzonderlijke resources en de instellingen voor VPN Gateway [Over VPN Gateway-instellingen](vpn-gateway-about-vpn-gateway-settings.md). Dit artikel bevat informatie over de gatewaytypen, VPN-typen, typen verbindingen, gatewaysubnetten, lokale netwerkgateways en verschillende andere resource-instellingen die u misschien wilt gebruiken.
 
-### <a name="deployment-tools"></a>Implementatiehulpmiddelen
+### <a name="tools"></a>Implementatiehulpmiddelen
 
 U kunt beginnen met het maken en configureren van resources met een configuratiehulpprogramma, zoals Azure Portal. U kunt later besluiten over te schakelen naar een ander hulpprogramma, zoals PowerShell, om aanvullende resources te configureren, of om desgewenst bestaande resources te wijzigen. Op dit moment is het niet mogelijk om elke resource en resource-instelling in Azure Portal te configureren. De instructies in de artikelen voor elke verbindingstopologie geven aan of een specifiek confihuratiehulpprogramma nodig is. 
 
-### <a name="deployment-model"></a>Implementatiemodel
+### <a name="models"></a>Implementatiemodel
 
 Wanneer u een VPN-gateway configureert, zijn de stappen die u moet volgen, afhankelijk van het implementatiemodel waarmee u het virtuele netwerk hebt gemaakt. Als u bijvoorbeeld uw VNet hebt gemaakt met het klassieke implementatiemodel, gebruikt u de richtlijnen en instructies voor het klassieke implementatiemodel om de VPN-gateway te maken en de instellingen te configureren. Zie [Het Resource Manager-implementatiemodel en het klassieke implementatiemodel begrijpen](../azure-resource-manager/resource-manager-deployment-model.md) voor meer informatie over de implementatiemodellen.
 
@@ -64,7 +64,7 @@ Het is belangrijk te weten dat er verschillende configuraties beschikbaar zijn v
 
 Gebruik de diagrammen en beschrijvingen als hulp bij het selecteren van de juiste verbindingstopologie voor uw vereisten. De diagrammen tonen de belangrijkste basistopologieën, maar het is mogelijk om met de diagrammen als richtlijn complexere configuraties te bouwen.
 
-## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Site-naar-site en multi-site (IPsec-/IKE VPN-tunnel)
+## <a name="s2smulti"></a>Site-naar-site en multi-site (IPsec-/IKE VPN-tunnel)
 
 ### <a name="S2S"></a>Site-naar-site
 

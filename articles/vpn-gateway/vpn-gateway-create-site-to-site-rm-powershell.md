@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 9edaa81111d9439bfbad4775e49c3e29454ad31f
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 27f4a8fb9a83b98e99df635bf4c80f6048ce348c
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Een VNet met een site-naar-site-VPN-verbinding maken met PowerShell
@@ -40,7 +40,7 @@ Een site-naar-site-VPN-gatewayverbinding wordt gebruikt om een on-premises netwe
 
 ![Diagram: cross-premises site-naar-site-VPN-gatewayverbinding](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a>Voordat u begint
+## <a name="before"></a>Voordat u begint
 
 Controleer voordat u met de configuratie begint of u aan de volgende criteria hebt voldaan:
 
@@ -49,7 +49,7 @@ Controleer voordat u met de configuratie begint of u aan de volgende criteria he
 * Als u de IP-adresbereiken in uw on-premises netwerkconfiguratie niet kent, moet u contact opnemen met iemand die u hierbij kan helpen en de benodigde gegevens kan verstrekken. Wanneer u deze configuratie maakt, moet u de IP-adresbereikvoorvoegsels opgeven die Azure naar uw on-premises locatie doorstuurt. Geen van de subnetten van uw on-premises netwerk kan overlappen met de virtuele subnetten waarmee u verbinding wilt maken.
 * Installeer de meest recente versie van de PowerShell-cmdlets van Azure Resource Manager. PowerShell-cmdlets worden regelmatig bijgewerkt. Doorgaans moet u PowerShell-cmdlets bijwerken om de meest recente functionaliteit op te halen. Als u uw PowerShell-cmdlets niet bijwerkt, kunnen de opgegeven waarden mislukken. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie over het downloaden en installeren van PowerShell-cmdlets.
 
-### <a name="example-values"></a>Voorbeeldwaarden
+### <a name="example"></a>Voorbeeldwaarden
 
 In de voorbeelden in dit artikel worden de volgende waarden gebruikt. U kunt deze waarden gebruiken om een testomgeving te maken of ze raadplegen om meer inzicht te krijgen in de voorbeelden in dit artikel.
 
@@ -88,7 +88,7 @@ Als u nog geen virtueel netwerk hebt, maakt u er een. Controleer bij het maken v
 
 [!INCLUDE [No NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-### <a name="to-create-a-virtual-network-and-a-gateway-subnet"></a>Een virtueel netwerk en een gatewaysubnet maken
+### <a name="vnet"></a>Een virtueel netwerk en een gatewaysubnet maken
 
 In dit voorbeeld worden een virtueel netwerk en een gatewaysubnet gemaakt. Zie [Een gatewaysubnet toevoegen aan een virtueel netwerk dat u al hebt gemaakt](#gatewaysubnet) als u al een virtueel netwerk hebt waaraan u een gatewaysubnet wilt toevoegen.
 

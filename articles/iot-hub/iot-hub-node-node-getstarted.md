@@ -76,8 +76,9 @@ In dit gedeelte gaat u een Node.js-consoletoepassing maken die een apparaat-id m
 6. Voeg de volgende code toe om een apparaatdefinitie te maken in het id-register van uw IoT-hub. Met deze code wordt een apparaat gemaakt als de apparaat-id nog niet voorkomt in het id-register. Anders wordt de sleutel van het bestaande apparaat geretourneerd:
    
     ```
-    var device = new iothub.Device(null);
-    device.deviceId = 'myFirstNodeDevice';
+    var device = {
+      deviceId: 'myFirstNodeDevice'
+    }
     registry.create(device, function(err, deviceInfo, res) {
       if (err) {
         registry.get(device.deviceId, printDeviceInfo);

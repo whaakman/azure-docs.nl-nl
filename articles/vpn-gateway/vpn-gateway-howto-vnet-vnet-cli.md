@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 85d89568f5022dafd44ae7f8578e0bebb22d472d
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: ae42f661b39e8b6170fd415d758404fb33009ccc
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Een VPN-gatewayverbinding tussen VNets configureren met behulp van Azure CLI
@@ -44,7 +44,7 @@ VNet-naar-VNet-communicatie kan worden gecombineerd met configuraties voor meerd
 
 ![Over verbindingen](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
 
-### <a name="why-connect-virtual-networks"></a>Waarom virtuele netwerken koppelen?
+### <a name="why"></a>Waarom virtuele netwerken koppelen?
 
 U wilt virtuele netwerken wellicht koppelen om de volgende redenen:
 
@@ -185,11 +185,11 @@ In de voorbeelden worden de volgende waarden gebruikt:
   az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-4---create-the-connections"></a>Stap 4: de verbindingen maken
+### <a name="createconnect"></a>Stap 4: de verbindingen maken
 
 U hebt nu twee VNets met VPN-gateways. De volgende stap is het maken van VPN-gatewayverbindingen tussen de gateways voor de virtuele netwerken. Als u de bovenstaande voorbeelden hebt gebruikt, bevinden uw VNet-gateways zich in verschillende resourcegroepen. Wanneer de gateways zich in verschillende resourcegroepen bevinden, moet u de resource-id's voor elke gateway bepalen en opgeven wanneer u een verbinding maakt. Als uw VNets zich in dezelfde resourcegroep bevinden, kunt u de [tweede set instructies](#samerg) gebruiken omdat u de resource-id's niet hoeft op te geven.
 
-### <a name="to-connect-vnets-that-reside-in-different-resource-groups"></a>VNets verbinden die zich in verschillende resourcegroepen bevinden
+### <a name="diffrg"></a>VNets verbinden die zich in verschillende resourcegroepen bevinden
 
 1. U kunt de resource-id van VNet1GW in de uitvoer van de volgende opdracht vinden:
 
@@ -322,7 +322,7 @@ Deze stap moet worden uitgevoerd in de context van het nieuwe abonnement, abonne
   az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-8---create-the-connections"></a>Stap 8: de verbindingen maken
+### <a name="connections5"></a>Stap 8: de verbindingen maken
 
 Omdat de gateways tot verschillende abonnementen behoren, is deze stap opgesplitst in twee CLI-sessies, aangeduid als **[Abonnement 1]** en **[Abonnement 5]**. Als u wilt schakelen tussen abonnementen, gebruikt u "az account list --all" om de abonnementen die beschikbaar zijn voor uw account weer te geven. Gebruik vervolgens "az account set --subscription <subscriptionID>" om over te schakelen naar het abonnement dat u wilt gebruiken.
 

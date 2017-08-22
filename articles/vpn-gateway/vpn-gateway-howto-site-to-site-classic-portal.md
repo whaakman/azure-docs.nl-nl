@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 08/010/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: e3fa1705e1f4e0805409eee83d5797bee7f6603d
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0be8dd6d90edb7b32b6777c76c9778cda0dcd5ea
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Een site-naar-site-verbinding maken met behulp van Azure Portal (klassiek)
@@ -64,9 +64,9 @@ In de voorbeelden in dit artikel worden de volgende waarden gebruikt. U kunt dez
 * **Gatewaysubnet**: 10.11.255.0/27
 * **Resourcegroep:** TestRG1
 * **Locatie:** VS - oost
-* **DNS-server:** 8.8.8.8 (optioneel voor deze oefening)
+* **DNS-server:** 10.11.0.3 (optioneel voor deze oefening)
 * **Lokale sitenaam:** Site2
-* **Client-adresruimte:** dit is de adresruimte op uw on-premises site.
+* **Clientadresruimte:** de adresruimte op uw on-premises site.
 
 ## <a name="CreatVNet"></a>1. Een virtueel netwerk maken
 
@@ -79,43 +79,43 @@ Als u een virtueel netwerk maakt om te gebruiken met een S2S-verbinding, moet u 
 ### <a name="to-create-a-virtual-network"></a>Een virtueel netwerk maken
 
 1. Navigeer via een browser naar de [Azure Portal](http://portal.azure.com) en log, indien nodig, in met uw Azure-account.
-2. Klik op **+**. In het veld **Marketplace doorzoeken** typt u 'virtueel netwerk'. Zoek **virtueel netwerk** in de geretourneerde lijst en klik hierop om de resourceblade **Virtueel netwerk** te openen.
+2. Klik op **+**. In het veld **Marketplace doorzoeken** typt u 'virtueel netwerk'. Zoek **Virtual Network** in de lijst met resultaten en klik erop om de pagina **Virtual Network** te openen.
 
-  ![Een virtuele netwerkblade zoeken](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
-3. Kies onder aan de blade Virtueel netwerk in de vervolgkeuzelijst **Een implementatiemodel selecteren** de optie **Klassiek** en klik vervolgens op **Maken**.
+  ![Pagina voor zoeken van virtueel netwerk](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
+3. Kies onder aan de pagina Virtueel netwerk in de vervolgkeuzelijst **Een implementatiemodel selecteren** de optie **Klassiek** en klik vervolgens op **Maken**.
 
   ![Een implementatiemodel selecteren](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
-4. Configureer de VNet-instellingen op de blade **Virtueel netwerk maken (klassiek)**. Voeg uw eerste adresruimte en één adresbereik voor het subnet toe aan deze blade. Nadat u het VNet hebt aangemaakt, kunt u terugkeren en aanvullende subnets en adresruimten toevoegen.
+4. Configureer de VNet-instellingen op de pagina **Virtueel netwerk maken (klassiek)**. Voeg op deze pagina de eerste adresruimte en één adresbereik voor het subnet toe. Nadat u het VNet hebt aangemaakt, kunt u terugkeren en aanvullende subnets en adresruimten toevoegen.
 
-  ![Blade Virtueel netwerk maken](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Blade Virtueel netwerk maken")
+  ![Pagina Virtueel netwerk maken](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Pagina Virtueel netwerk maken")
 5. Controleer of het **Abonnement** het juiste is. U kunt abonnementen wijzigen met behulp van de vervolgkeuzelijst.
-6. Klik op **Resourcegroep** en selecteer een bestaande resourcegroep of maak een nieuwe aan door een naam in te voeren voor uw nieuwe resourcegroep. Zie voor meer informatie over resourcegroepen [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
+6. Klik op **Resourcegroep** en selecteer een bestaande resourcegroep of maak een nieuwe resourcegroep door een naam in te voeren. Zie voor meer informatie over resourcegroepen [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
 7. Selecteer vervolgens de **Locatie**-instellingen voor uw VNet. De locatie bepaalt waar de resources die u naar dit VNet implementeert, worden opgeslagen.
-8. Selecteer **Vastmaken aan dashboard** als u uw VNet gemakkelijk wilt terugvinden op het dashboard en klik vervolgens op **Aanmaken**.
+8. Selecteer **Vastmaken aan dashboard** als u uw VNet gemakkelijk wilt terugvinden op het dashboard. Klik op **Maken** om het VNet te maken.
 
   ![Vastmaken aan dashboard](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "Vastmaken aan dashboard")
 9. Wanneer u op Maken klikt, wordt er op het dashboard een tegel weergegeven die de voortgang van uw VNet weergeeft. De tegel wordt gewijzigd wanneer het VNet wordt gemaakt.
 
   ![Tegel Virtueel netwerk maken](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "Tegel Virtueel netwerk maken")
 
-Wanneer het virtuele netwerk is gemaakt, wordt op de pagina met netwerken in de klassieke Azure Portal **Gemaakt** vermeld onder **Status**.
+Nadat het virtuele netwerk is gemaakt, wordt op de pagina met netwerken in de klassieke Azure-portal **Gemaakt** vermeld onder **Status**.
 
 ## <a name="additionaladdress"></a>2. Extra adresruimte toevoegen
 
 Nadat u het virtuele netwerk hebt gemaakt, kunt u extra adresruimte toevoegen. Het toevoegen van extra adresruimte geen vereist onderdeel van een S2S-configuratie, maar als u meerdere adresruimten nodig hebt, voert u de volgende stappen uit:
 
 1. Ga naar de virtuele netwerken in de portal.
-2. Klik op de blade voor uw virtuele netwerk onder de sectie **Instellingen** op **Adresruimte**.
-3. Klik op de blade Adresruimte op **+Toevoegen** en voer extra adresruimte in.
+2. Ga op de pagina van uw virtuele netwerk naar de sectie **Instellingen** en klik op **Adresruimte**.
+3. Klik op de pagina Adresruimte op **+Toevoegen** en voer extra adresruimte in.
 
 ## <a name="dns"></a>3. Een DNS-server opgeven
 
-DNS-instellingen zijn geen vereist onderdeel van een S2S-configuratie, maar een DNS is nodig voor naamomzetting.
+DNS-instellingen zijn geen vereist onderdeel van een S2S-configuratie, maar een DNS is nodig voor naamomzetting. Het opgeven van een waarde betekent niet dat er een nieuwe DNS-server wordt gemaakt. Het IP-adres van de DNS-server dat u opgeeft, moet het adres zijn van een DNS-server zijn die de namen kan omzetten voor de resources waarmee u verbinding maakt. Voor dit voorbeeld gebruiken we een privé-IP-adres. De kans is zeer klein dat het IP-adres uit het voorbeeld het IP-adres van uw DNS-server is. Zorg ervoor dat u uw eigen waarden gebruikt.
 
-Nadat u uw virtuele netwerk hebt gemaakt, kunt u het IP-adres van een DNS-server toevoegen om de naamomzetting te verwerken. Open de instellingen voor het virtuele netwerk, klik op de DNS-servers en voeg het IP-adres toe van de DNS-server die u wilt gebruiken voor naamomzetting. Met deze instelling wordt geen DNS-server gemaakt. In de voorbeeldinstellingen wordt een openbare DNS-server gebruikt. Maar doorgaans wordt hiervoor een persoonlijke DNS-server gebruikt. Zorg ervoor dat u een DNS-server toevoegt waarmee uw resources kunnen communiceren.
+Nadat u uw virtuele netwerk hebt gemaakt, kunt u het IP-adres van een DNS-server toevoegen om de naamomzetting te verwerken. Open de instellingen voor het virtuele netwerk, klik op de DNS-servers en voeg het IP-adres toe van de DNS-server die u wilt gebruiken voor naamomzetting.
 
 1. Ga naar de virtuele netwerken in de portal.
-2. Klik op de blade voor uw virtuele netwerk onder de sectie **Instellingen** op **DNS-servers**.
+2. Ga op de pagina voor uw virtuele netwerk naar de sectie **Instellingen** en klik op **DNS-servers**.
 3. Voeg een DNS-server toe.
 4. Klik boven aan de pagina op **Opslaan** om uw instellingen op te slaan.
 
@@ -124,11 +124,11 @@ Nadat u uw virtuele netwerk hebt gemaakt, kunt u het IP-adres van een DNS-server
 De lokale site verwijst doorgaans naar uw on-premises locatie. Het bevat het IP-adres van het VPN-apparaat waarmee u verbinding gaat maken en de IP-adresbereiken die via de VPN-gateway naar het VPN-apparaat worden gerouteerd.
 
 1. Navigeer in de portal naar het virtuele netwerk waarvoor u een gateway wil maken.
-2. Ga op de blade voor uw virtuele netwerk naar de blade **Overzicht** en klik in de sectie VPN-verbindingen op **Gateway** om de blade **Nieuwe VPN-verbinding** te openen.
+2. Ga op de pagina voor uw virtuele netwerk naar **Overzicht** en klik in de sectie VPN-verbindingen op **Gateway** om de pagina **Nieuwe VPN-verbinding** te openen.
 
   ![Klik om gatewayinstellingen te configureren](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "Klik om gatewayinstellingen te configureren")
-3. Selecteer op de blade **Nieuwe VPN-verbinding** de optie **Site-naar-site**.
-4. Klik op **Lokale site - vereiste instellingen configureren** om de blade **Lokale site** te openen. Configureer de instellingen en klik vervolgens op **OK** om de instellingen op te slaan.
+3. Selecteer **Site-naar-site** op de pagina **Nieuwe VPN-verbinding**.
+4. Klik op **Lokale site - vereiste instellingen configureren** om de pagina **Lokale site** te openen. Configureer de instellingen en klik vervolgens op **OK** om de instellingen op te slaan.
   - **Naam:** geef de lokale site een naam waarmee u deze eenvoudig kunt identificeren.
   - **IP-adres voor de VPN-gateway:** dit is het openbare IP-adres van het VPN-apparaat voor uw on-premises netwerk. Voor het VPN-apparaat is een openbaar IPv4-adres vereist. Geef een geldig openbaar IP-adres op voor het VPN-apparaat waarmee u verbinding wilt maken. Het mag zich niet achter NAT bevinden en moet bereikbaar zijn voor Azure. Als u het IP-adres van het VPN-apparaat niet kent, kunt u altijd een tijdelijke aanduiding invoegen (zolang deze maar de indeling van een geldig openbaar IP-adres heeft) en dit later wijzigen.
   - **Clientadresruimte:** vermeld de IP-adresbereiken die u via deze gateway naar het lokale on-premises netwerk wilt routeren. U kunt meerdere adresruimtebereiken toevoegen. Zorg ervoor dat de hier opgegeven bereiken niet overlappen met bereiken van andere netwerken waarmee uw virtuele netwerk is verbonden of met de adresbereiken van het virtuele netwerk zelf.
@@ -139,14 +139,14 @@ De lokale site verwijst doorgaans naar uw on-premises locatie. Het bevat het IP-
 
 U moet een gatewaysubnet maken voor de VPN-gateway. Het gatewaysubnet bevat de IP-adressen waarvan de VPN-gatewayservices gebruikmaken.
 
-1. Selecteer op de blade **Nieuwe VPN-verbinding** het selectievakje **Gateway onmiddellijk maken**. De blade Optionele gatewayconfiguratie wordt weergegeven. Als u het selectievakje niet selecteert, ziet u de blade niet waarop u het gatewaysubnet kunt configureren.
+1. Schakel op de pagina **Nieuwe VPN-verbinding** het selectievakje **Gateway onmiddellijk maken** in. De pagina Optionele gatewayconfiguratie wordt weergegeven. Als u het selectievakje niet inschakelt, wordt de pagina voor het configureren van het gatewaysubnet niet weergegeven.
 
   ![Gatewayconfiguratie - subnet, grootte, routingtype](./media/vpn-gateway-howto-site-to-site-classic-portal/optional.png "Gatewayconfiguratie - subnet, grootte, routingtype")
-2. Klik op **Optionele gatewayconfiguratie - subnet, grootte en routingtype** om de blade **Gatewayconfiguratie** te openen.
-3. Klik op de blade **Gatewayconfiguratie** op **Subnet - vereiste instellingen configureren** om de blade **Subnet toevoegen** te openen.
+2. Als u de pagina **Gatewayconfiguratie** wilt openen, klikt u op **Optionele gatewayconfiguratie - subnet, grootte en routingtype**.
+3. Klik op de pagina **Gatewayconfiguratie** op **Subnet - vereiste instellingen configureren** om de pagina **Subnet toevoegen** te openen.
 
   ![Gatewayconfiguratie - gatewaysubnet](./media/vpn-gateway-howto-site-to-site-classic-portal/subnetrequired.png "gatewayconfiguratie - gatewaysubnet")
-4. Voeg op de blade **Subnet toevoegen** het gatewaysubnet toe. De grootte van het gatewaysubnet dat u opgeeft, is afhankelijk van de VPN-gatewayconfiguratie die u wilt maken. Het is mogelijk om een klein gatewaysubnet van /29 te maken, maar we raden u aan een groter subnet met meer adressen te maken door /27 of /28 te selecteren. Met het grotere gatewaysubnet beschikt u over voldoende IP-adressen voor mogelijke toekomstige configuraties.
+4. Voeg op de pagina **Subnet toevoegen** het gatewaysubnet toe. De grootte van het gatewaysubnet dat u opgeeft, is afhankelijk van de VPN-gatewayconfiguratie die u wilt maken. Hoewel het mogelijk is om een gatewaysubnet van slechts /29 te maken, wordt minimaal /27 of /28 aanbevolen. U maakt dan een groter subnet dat meer adressen bevat. Met een groter gatewaysubnet beschikt u over voldoende IP-adressen voor mogelijke toekomstige configuraties.
 
   ![Gatewaysubnet toevoegen](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "Gatewaysubnet toevoegen")
 
@@ -157,7 +157,7 @@ U moet een gatewaysubnet maken voor de VPN-gateway. Het gatewaysubnet bevat de I
   ![SKUL- en VPN-type selecteren](./media/vpn-gateway-howto-site-to-site-classic-portal/sku.png "SKU- en VPN-type selecteren")
 2. Selecteer het **Routeringstype** voor uw gateway. Dit staat ook bekend als het VPN-type. Het is belangrijk dat u het juiste gatewaytype selecteert, omdat u de gateway niet van het ene type naar een ander type kunt converteren. Het VPN-apparaat moet compatibel zijn met het routingtype dat u selecteert. Zie [Over VPN-gatewayinstellingen](vpn-gateway-about-vpn-gateway-settings.md#vpntype) voor meer informatie over VPN-typen. Mogelijk ziet u artikelen die verwijzen naar de VPN-typen RouteBased en PolicyBased. Het type Dynamisch komt overeen met RouteBased, en het type Vast komt overeen met PolicyBased.
 3. Klik op **OK** om de instellingen op te slaan.
-4. Klik op de blade **Nieuwe VPN-verbinding** op **OK** (onder aan de blade) om te beginnen met het maken van uw virtuele netwerkgateway. Dit kan maximaal 45 minuten duren.
+4. Klik onder aan de pagina **Nieuwe VPN-verbinding** op **OK** om de virtuele netwerkgateway te gaan maken. Afhankelijk van de SKU die u selecteert, duurt dit maximaal 45 minuten.
 
 ## <a name="vpndevice"></a>7. Uw VPN-apparaat configureren
 
@@ -202,7 +202,7 @@ Als u werkt met PowerShell en het klassieke implementatiemodel, komen de namen v
   ```powershell
   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
   ```
-2. Open het netwerkconfiguratiebestand met een xml-editor en controleer de waarden voor LocalNetworkSite name en VirtualNetworkSite name. Wijzig het voorbeeld om de waarden te weerspiegelen. Gebruik voor een naam die spaties bevat, enkele aanhalingstekens rond de waarde.
+2. Open het netwerkconfiguratiebestand met een xml-editor en controleer de waarden voor LocalNetworkSite name en VirtualNetworkSite name. Pas het voorbeeld aan uw omgeving aan. Gebruik voor een naam die spaties bevat, enkele aanhalingstekens rond de waarde.
 
 3. Stel de gedeelde sleutel in en maak de verbinding. -SharedKey is een waarde die u genereert en opgeeft. In het voorbeeld wordt abc123 gebruikt, maar u kunt een ingewikkeldere waarde gebruiken. (aanbevolen) Het is van belang dat de waarde die u hier opgeeft, dezelfde waarde is die u hebt opgegeven bij het configureren van het VPN-apparaat.
 
@@ -218,11 +218,11 @@ Wanneer de verbinding is gemaakt, is het resultaat: **Status: geslaagd**.
 
 Als u verbindingsproblemen ondervindt, raadpleegt u de sectie **Problemen oplossen** van de inhoudsopgave in het linkerdeelvenster.
 
-## <a name="how-to-reset-a-vpn-gateway"></a>Een VPN-gateway opnieuw instellen
+## <a name="reset"></a>Een VPN-gateway opnieuw instellen
 
 Het opnieuw instellen van een Azure VPN-gateway is handig als u cross-premises VPN-connectiviteit verliest in een of meer Site-to-Site VPN-tunnels. In een dergelijke situatie functioneren al uw on-premises VPN-apparaten naar behoren, maar kunnen ze geen IPSec-tunnels tot stand brengen met de Azure VPN-gateways. Zie [Een VPN-gateway opnieuw instellen](vpn-gateway-resetgw-classic.md) voor de stappen.
 
-## <a name="how-to-change-a-gateway-sku"></a>Een gateway-SKU wijzigen
+## <a name="changesku"></a>Een gateway-SKU wijzigen
 
 Zie [Formaat van een gateway-SKU wijzigen](vpn-gateway-about-SKUS-legacy.md) voor de stappen voor het wijzigen van een gateway-SKU.
 
