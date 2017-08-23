@@ -6,7 +6,7 @@ Gebruik de instellingen die zijn opgegeven in de tabel om uw mobiele of native t
 
 | Instelling      | Voorbeeldwaarde  | Beschrijving                                        |
 | ------------ | ------- | -------------------------------------------------- |
-| **Naam** | Contoso B2C-app | Geef een**** naam op voor de toepassing waarmee deze wordt beschreven voor uw consumenten. |
+| **Naam** | Contoso B2C-app | Geef een **naam** op voor de toepassing waarmee deze wordt beschreven voor uw consumenten. |
 | **Systeemeigen client** | Ja | Selecteer **Ja** voor een mobiele of native toepassing. |
 | **Aangepaste omleidings-URI** | `com.onmicrosoft.contoso.appname://redirect/path` | Voer een omleidings-URI met een aangepast schema in. Zorg ervoor dat u een [goede omleidings-URI](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-native-application-redirect-uri) kiest en geen speciale tekens zoals onderstrepingstekens gebruikt. |
 
@@ -16,7 +16,7 @@ De zojuist geregistreerde toepassing wordt weergegeven in de lijst met toepassin
 
 ![Toepassingseigenschappen](./media/active-directory-b2c-register-mobile-native-app/b2c-mobile-native-app-properties.png)
 
-Noteer de globaal unieke**** client-id voor de toepassing. U gebruikt de id in de code van uw toepassing.
+Noteer de globaal unieke**client-id** voor de toepassing. U gebruikt de id in de code van uw toepassing.
 
 Als de native toepassing een web-API aanroept die is beveiligd door Azure AD B2C, voert u deze stappen uit:
    1. Maak een toepassingsgeheim door naar de blade **Sleutels** te gaan en op de knop **Sleutel genereren** te klikken. Noteer de waarde van **App-sleutel**. U gebruikt de waarde als het toepassingsgeheim in de code van uw toepassing.
