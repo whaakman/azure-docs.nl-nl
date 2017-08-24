@@ -1,0 +1,12 @@
+- name: Overzicht
+  items:
+    - name: Inleiding
+      href: ./common/storage-introduction.md
+    - name: 'Kies blobs, bestanden of gegevensschijven'
+      href: ./common/storage-decide-blobs-files-disks.md
+- name: Blobs
+  href: ./blobs/storage-blobs-introduction.md
+- name: Bestanden
+  href: ./files/storage-files-introduction.md
+- name: Wachtrijen
+  href: ./queues/storage-queues-introduction.md

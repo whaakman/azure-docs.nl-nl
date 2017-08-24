@@ -3,10 +3,17 @@
 ## [Wat is Machine Learning?](machine-learning-what-is-machine-learning.md)
 
 ## Team Data Science Process
-### [Overzicht](data-science-process-overview.md)
-### [Levenscyclus](data-science-process-lifecycle.md)
+### [Overzicht](http://aka.ms/datascienceprocess)
+### [Levenscyclus](data-science-process-overview.md)
 ### [Rondleidingen](data-science-process-walkthroughs.md)
-### [Met Azure ML](http://aka.ms/datascienceprocess)
+####[Spark met PySpark en Scala](data-science-process-walkthroughs-spark.md)
+##### [Gegevens verkennen](machine-learning-data-science-spark-data-exploration-modeling.md)
+##### [Scoremodellen](machine-learning-data-science-spark-model-consumption.md)
+##### [Geavanceerde gegevensverkenning](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
+####[Hive met HDInsight Hadoop](data-science-process-walkthroughs-hdinsight-hadoop.md)
+####[U-SQL met Azure Data Lake](data-science-process-walkthroughs-azure-data-lake.md)
+####[R, Python en T-SQL met SQL Server](data-science-process-walkthroughs-sql-server.md)
+####[T-SQL en Python met SQL DW](data-science-process-walkthroughs-sql-data-warehouse.md)
 
 ## Machine Learning Studio
 ### [Wat is de Studio?](machine-learning-what-is-ml-studio.md)
@@ -100,12 +107,6 @@
 ##### [Azure Data Lake gebruiken](machine-learning-data-science-process-data-lake-walkthrough.md)
 ##### [SQL-VM gebruiken](machine-learning-data-science-process-sql-server-virtual-machine.md)
 ##### [Data Pipeline gebruiken](machine-learning-automated-data-pipeline-cheat-sheet.md)
-#### Gegevens verwerken met Spark
-##### [Overzicht](machine-learning-data-science-spark-overview.md)
-##### [Gegevens verkennen](machine-learning-data-science-spark-data-exploration-modeling.md)
-##### [Scoremodellen](machine-learning-data-science-spark-model-consumption.md)
-##### [Geavanceerde gegevensverkenning](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
-##### [Scala en Spark gebruiken](machine-learning-data-science-process-scala-walkthrough.md)
 
 ## Modellen ontwikkelen
 ### Functies ontwikkelen en selecteren
@@ -166,11 +167,7 @@
 ### [Voorbeeldexperimenten](machine-learning-sample-experiments.md)
 ### [Voorbeeldgegevenssets](machine-learning-use-sample-datasets.md)
 ### [Voorbeeld van klantverloop](machine-learning-azure-ml-customer-churn-scenario.md)
-### End-to-end scenario 's
-#### [Hadoop-clusters gebruiken](machine-learning-data-science-process-hive-walkthrough.md)
-#### [Hadoop gebruiken met 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
-#### [SQL Server gebruiken](machine-learning-data-science-process-sql-walkthrough.md)
-#### [SQL Data Warehouse gebruiken](machine-learning-data-science-process-sqldw-walkthrough.md)
+
 
 # Naslaginformatie
 

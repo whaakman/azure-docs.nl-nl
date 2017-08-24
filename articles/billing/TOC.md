@@ -32,6 +32,7 @@
 ### [Registratieproblemen](billing-troubleshoot-azure-sign-up-issues.md)
 ### [Geweigerde kaart](billing-credit-card-fails-during-azure-sign-up.md)
 ### [Aanmeldingsproblemen](billing-cannot-login-subscription.md)
+### [Geen abonnementen gevonden](billing-no-subscriptions-found.md)
 
 # Naslaginformatie
 ## [API-overzicht](billing-usage-rate-card-overview.md)

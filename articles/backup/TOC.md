@@ -55,6 +55,7 @@
 #### [Azure Backup Server gebruiken om back-ups te maken van een SharePoint-farm](backup-azure-backup-sharepoint-mabs.md)
 #### [Azure Backup Server gebruiken om back-ups te maken van SQL](backup-azure-sql-mabs.md)
 #### [Systeemstatus beveiligen en bare metal recovery](backup-mabs-system-state-and-bmr.md)
+### [Gegevens herstellen vanaf Azure Backup Server](backup-azure-alternate-dpm-server.md)
 
 ## Data Protection Manager
 ### [DPM-workloads voorbereiden in Azure Portal](backup-azure-dpm-introduction.md)

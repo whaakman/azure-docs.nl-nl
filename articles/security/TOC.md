@@ -8,6 +8,7 @@
 ## [Service Fabric-beveiliging](azure-service-fabric-security-overview.md)
 ## [Identiteitsbeheer](security-identity-management-overview.md)
 ## [IoT-beveiliging](../iot-suite/iot-security-architecture.md#security-in-iot)
+## [Overzicht van Azure-versleuteling](security-azure-encryption-overview.md)
 ## [Beveiligingsarchitectuur](azure-security-architecture-overview.md)
 ### [Operationele beveiliging inschakelen](azure-operational-security.md)
 ### [Geavanceerde detectie van bedreigingen](azure-threat-detection.md)
@@ -30,7 +31,7 @@
 
 ## Opslagbeveiliging
 ### [Aanbevolen procedures voor gegevensbeveiliging en -versleuteling](azure-security-data-encryption-best-practices.md)
-### [Gids voor opslagbeveiliging](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### [Gids voor opslagbeveiliging](../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## Computerbeveiliging
 ### [Aanbevolen procedures voor virtuele Azure-machines](azure-security-best-practices-vms.md)
@@ -63,11 +64,12 @@
 
 ## PaaS-services
 ### [PaaS-implementaties beveiligen](security-paas-deployments.md)
-#### [PaaS-toepassingen voor web en mobiel beveiligen met SQL](security-paas-applications-using-sql.md)
-#### [Aanbevolen procedures voor SQL Database](azure-database-security-best-practices.md)
-#### [Controlelijst voor SQL Database-beveiliging](azure-database-security-checklist.md)
 #### [PaaS-toepassingen voor web en mobiel beveiligen met App Services](security-paas-applications-using-app-services.md)
+#### [PaaS-toepassingen voor web en mobiel beveiligen met SQL](security-paas-applications-using-sql.md)
+##### [Aanbevolen procedures voor SQL Database](azure-database-security-best-practices.md)
+##### [Controlelijst voor SQL Database-beveiliging](azure-database-security-checklist.md)
 ####[Controlelijst voor operationele beveiliging](azure-operational-security-checklist.md)
+#### [PaaS-toepassingen voor web en mobiel beveiligen met Azure Storage](security-paas-applications-using-storage.md)
 
 ## Internet of Things
 ### [Uw IoT-implementatie beveiligen](../iot-suite/iot-suite-security-deployment.md)

@@ -176,11 +176,14 @@
 #### Aan de slag
 ##### [C# op Windows](service-fabric-reliable-actors-get-started.md)
 ##### [Java op Linux](service-fabric-reliable-actors-get-started-java.md)
+##### [Java Actor op Linux](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Meldingen verzenden](service-fabric-reliable-actors-events.md)
 #### [Timers en herinneringen instellen](service-fabric-reliable-actors-timers-reminders.md)
 #### [KvsActorStateProvider configureren](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Communicatie-instellingen configureren](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [ReliableDictionaryActorStateProvider configureren](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
+
+### [Oude Java-toepassing migreren voor ondersteuning van Maven](service-fabric-migrate-old-javaapp-to-use-maven.md)
 
 ### [Omgekeerde proxy voor veilige communicatie configureren](service-fabric-reverseproxy-configure-secure-communication.md)
 

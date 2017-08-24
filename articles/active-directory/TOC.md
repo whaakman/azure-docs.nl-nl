@@ -10,16 +10,9 @@
 ## [Meld u aan voor Azure AD Premium](active-directory-get-started-premium.md)
 ## [Een aangepaste domeinnaam toevoegen](add-custom-domain.md)
 ## [Een bedrijfshuisstijl toevoegen](customize-branding.md)
+## [Gebruikers toevoegen aan Azure AD](add-users-azure-active-directory.md)
+## [Licenties toewijzen aan een gebruikers](license-users-groups.md)
 ## [Self-service voor wachtwoord opnieuw instellen configureren](active-directory-passwords-getting-started.md)
-## Azure AD-licenties beheren
-### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
-### [Klassieke portal](active-directory-licensing-what-is.md)
-### [Licenties toewijzen met behulp van groepen](active-directory-licensing-whatis-azure-portal.md)
-#### [Licenties toewijzen aan een groep](active-directory-licensing-group-assignment-azure-portal.md)
-#### [Licentieproblemen in een groep vaststellen en oplossen](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
-#### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
-#### [PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
 
 
 # Procedures
@@ -44,11 +37,6 @@
 #### [Hulpprogramma's vergelijken](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Gebruikers beheren
-### Gebruikers toevoegen
-#### [Azure Portal](active-directory-users-create-azure-portal.md)
-#### [Klassieke portal](active-directory-create-users.md)
-
-
 ### [Licenties toewijzen met behulp van groepen](active-directory-licensing-whatis-azure-portal.md)
 #### [Licenties toewijzen aan een groep](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Licentieproblemen in een groep vaststellen en oplossen](active-directory-licensing-group-problem-resolution-azure-portal.md)
@@ -147,16 +135,10 @@
 ### [Veelgestelde vragen](device-management-faq.md)
 ### Taken
 #### [Hybride, in Azure AD gekoppelde apparaten configureren](device-management-hybrid-azuread-joined-devices-setup.md) 
-#### Problemen oplossen
-##### [Hybride, in Azure AD gekoppelde Windows 10- en Windows Server 2016-apparaten](device-management-troubleshoot-hybrid-join-windows-current.md)
-##### [Hybride, in Azure AD gekoppelde oudere Windows-apparaten](device-management-troubleshoot-hybrid-join-windows-legacy.md)
-
-### Apparaten registreren
 #### [On-premises implementeren](active-directory-device-registration-on-premises-setup.md)
-#### [Veelgestelde vragen](active-directory-device-registration-faq.md)
-#### Problemen oplossen
-##### [Problemen oplossen voor Windows 10 en Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
-##### [Problemen oplossen voor Windows-clients met oudere versies](active-directory-device-registration-troubleshoot-windows-legacy.md)
+### Problemen oplossen
+#### [Hybride, in Azure AD gekoppelde Windows 10- en Windows Server 2016-apparaten](device-management-troubleshoot-hybrid-join-windows-current.md)
+#### [Hybride, in Azure AD gekoppelde oudere Windows-apparaten](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Plannen](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Apparaatregistratie instellen](active-directory-azureadjoin-setup.md)

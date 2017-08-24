@@ -33,17 +33,15 @@
   items:
     - name: Beveiligde containers
       href: container-service-security.md
-    - name: Service-principal - Kubernetes
-      href: container-service-kubernetes-service-principal.md
 - name: Handleidingen
   items:
-    - name: Snelstartgids voor Kubernetes met Windows
+    - name: Kubernetes met Windows
       href: container-service-kubernetes-windows-walkthrough.md
-    - name: Containerbeheer - UI van Kubernetes
+    - name: Web-interface van Kubernetes
       href: container-service-kubernetes-ui.md
     - name: Helm-grafieken implementeren
       href: container-service-kubernetes-helm.md
-    - name: CI/CD met Kubernetes en Jenkins
+    - name: Jenkins en ACS Kubernetes
       href: container-service-kubernetes-jenkins.md
     - name: Concept gebruiken met ACR en ACS
       href: container-service-draft-up.md

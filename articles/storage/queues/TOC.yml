@@ -1,0 +1,188 @@
+- name: Overzicht
+  items:
+    - name: Inleiding tot wachtrijen
+      href: storage-queues-introduction.md
+- name: Aan de slag
+  items:
+    - name: Een opslagaccount maken
+      href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Ontwikkelen
+      items:
+        - name: .NET
+          href: storage-dotnet-how-to-use-queues.md
+        - name: Java
+          href: storage-java-how-to-use-queue-storage.md
+        - name: Node.js
+          href: storage-nodejs-how-to-use-queues.md
+        - name: C++
+          href: storage-c-plus-plus-how-to-use-queues.md
+        - name: PHP
+          href: storage-php-how-to-use-queues.md
+        - name: Python
+          href: storage-python-how-to-use-queue-storage.md
+        - name: Ruby
+          href: storage-ruby-how-to-use-queue-storage.md
+- name: Procedures
+  items:
+    - name: Plannen en ontwerpen
+      items:
+        - name: Replicatie
+          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: HA-apps ontwerpen met RA-GRS
+          href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Schaalbaarheids- en prestatiedoelen
+          href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Controlelijst voor prestaties en schaalbaarheid
+          href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Gelijktijdigheid
+          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Richtlijnen voor herstel na noodgevallen
+          href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Ontwikkelen
+      items:
+        - name: Voorbeelden
+          items:
+            - name: .NET
+              href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: Java
+              href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Verbindingsreeksen configureren
+          href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: De opslagemulator gebruiken
+          href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Beheren
+      items:
+        - name: PowerShell
+          href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Azure Automation
+          href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Beveiligen
+      items:
+        - name: Beveiligingshandleiding
+          href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Clientversleuteling
+          items:
+            - name: .NET
+              href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: Java
+              href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: Python
+              href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Versleuteling van data-at-rest
+          href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Gedeelde sleutelverificatie
+          href: /rest/api/storageservices/Authentication-for-the-Azure-Storage-Services
+        - name: Shared Access Signatures (SAS)
+          href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Veilige overdracht vereisen
+          href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Controleren en problemen oplossen
+      items:
+        - name: Zelfstudie voor problemen oplossen
+          href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: 'Controleren, problemen vaststellen en problemen oplossen'
+          href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Metrische gegevens en logboekregistratie
+          items:
+            - name: Storage Analytics
+              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: Meetwaarden inschakelen en weergeven
+              href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Voorbeelden
+      href: 'https://azure.microsoft.com/documentation/samples/?service=storage&term=queue'
+- name: Naslaginformatie
+  items:
+    - name: PowerShell
+      href: /powershell/module/azure.storage
+    - name: Azure CLI
+      href: /cli/azure/storage
+    - name: .NET
+      items:
+        - name: Resource Manager
+          href: /dotnet/api/microsoft.azure.management.storage
+        - name: Gegevensverplaatsing
+          href: /dotnet/api/microsoft.windowsazure.storage.datamovement
+        - name: 'Blobs, wachtrijen, tabellen en bestanden'
+          href: 'https://docs.microsoft.com/en-us/dotnet/api/overview/azure/storage?view=azure-dotnet'
+    - name: Java
+      href: 'http://azure.github.io/azure-storage-java/'
+    - name: Node.js
+      href: 'http://azure.github.io/azure-storage-node'
+    - name: Ruby
+      href: 'http://azure.github.io/azure-storage-ruby'
+    - name: PHP
+      href: 'http://azure.github.io/azure-storage-php/'
+    - name: Python
+      href: 'https://azure-storage.readthedocs.io/en/latest/index.html'
+    - name: C++
+      href: 'http://azure.github.io/azure-storage-cpp'
+    - name: iOS
+      href: 'http://azure.github.io/azure-storage-ios/'
+    - name: Android
+      href: 'http://azure.github.io/azure-storage-android'
+    - name: REST
+      items:
+        - name: 'Blobs, wachtrijen, tabellen en bestanden'
+          href: /rest/api/storageservices
+        - name: Resourceprovider
+          href: /rest/api/storagerp
+        - name: Import/Export
+          href: /rest/api/storageimportexport
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=storage'
+    - name: Azure Storage-clienthulpprogramma's
+      href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Forum
+      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/storage/blobs/'
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Service-updates
+      href: 'https://azure.microsoft.com/updates/?product=storage'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
+    - name: Video's
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+    - name: Azure Opslagverkenner
+      items:
+        - name: Opslagverkenner
+          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Releaseopmerkingen voor Opslagverkenner
+          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Problemen met Opslagverkenner oplossen
+          href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: NuGet-pakketten
+      items:
+        - name: Azure Storage-clientbibliotheek voor .NET
+          href: 'https://www.nuget.org/packages/WindowsAzure.Storage/'
+        - name: Azure Storage-bibliotheek voor gegevensverplaatsing
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
+        - name: Azure Configuration Manager
+          href: 'https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/'
+    - name: Broncode
+      items:
+        - name: .NET
+          items:
+            - name: 'Blob, wachtrij, tabel en bestand'
+              href: 'https://github.com/Azure/azure-storage-net'
+            - name: Gegevensverplaatsing
+              href: 'https://github.com/Azure/azure-storage-net-data-movement'
+            - name: Resourceprovider
+              href: 'https://github.com/Azure/azure-sdk-for-net'
+        - name: Node.js
+          href: 'http://azure.github.io/azure-storage-node/'
+        - name: Java
+          href: 'https://github.com/Azure/azure-storage-java'
+        - name: C++
+          href: 'https://github.com/Azure/azure-storage-cpp'
+        - name: PHP
+          href: 'https://github.com/Azure/azure-storage-php'
+        - name: Python
+          href: 'https://github.com/Azure/azure-storage-python'
+        - name: Ruby
+          href: 'https://github.com/Azure/azure-storage-ruby'
+        - name: iOS
+          href: 'https://github.com/Azure/azure-storage-ios'

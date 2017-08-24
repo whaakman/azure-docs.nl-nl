@@ -115,6 +115,8 @@
           items:
             - name: Overzicht
               href: app-service-linux-intro.md
+            - name: Beheren met CLI
+              href: app-service-linux-cli.md
             - name: Een web-app op Linux maken
               href: app-service-linux-how-to-create-web-app.md
             - name: Ruby-web-app op Linux
