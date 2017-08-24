@@ -72,18 +72,18 @@
 
 ## [Storage](azure-operations-guide.md#azure-storage)
 
-### [Azure Blob Storage](../../storage/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Aan de slag met Azure Blob Storage met .NET](../../storage/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Aan de slag met Azure File Storage in Windows](../../storage/storage-file-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
-### [Azure File Storage gebruiken met Linux](../../storage/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Aan de slag met Azure Table Storage](../../storage/storage-dotnet-how-to-use-tables.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Aan de slag met Azure Queue Storage](../../storage/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Een opslagaccount maken](../../storage/storage-create-storage-account.md#create-a-storage-account)
-### [Azure PowerShell gebruiken met Azure Storage](../../storage/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [De Azure CLI gebruiken met Azure Storage](../../storage/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Azure Storage-clienthulpprogramma's](../../storage/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure Blob Storage](../../storage/blobs/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Aan de slag met Azure Blob Storage met .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Aan de slag met Azure File Storage in Windows](../../storage/files/storage-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+### [Azure File Storage gebruiken met Linux](../../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Aan de slag met Azure Table Storage](../../cosmos-db/table-storage-how-to-use-dotnet.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Aan de slag met Azure Queue Storage](../../storage/queues/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Een opslagaccount maken](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+### [Azure PowerShell gebruiken met Azure Storage](../../storage/common/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [De Azure CLI gebruiken met Azure Storage](../../storage/common/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure Storage-clienthulpprogramma's](../../storage/common/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [REST API-naslaginformatie voor Azure Storage-services](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
-### [Handtekeningen voor gedeelde toegang gebruiken](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Handtekeningen voor gedeelde toegang gebruiken](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 
 

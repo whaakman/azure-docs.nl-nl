@@ -17,9 +17,9 @@
 ### [Een Node.js-toepassing bouwen en implementeren](cloud-services-nodejs-develop-deploy-app.md)
 ### [Een Node.js-webtoepassing bouwen met Express](cloud-services-nodejs-develop-deploy-express-app.md)
 ### Storage en Visual Studio
-#### [Blob Storage en verbonden services](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [Queue Storage en verbonden services](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [Table Storage en verbonden services](../storage/vs-storage-cloud-services-getting-started-tables.md)
+#### [Blob Storage en verbonden services](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
+#### [Queue Storage en verbonden services](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
+#### [Table Storage en verbonden services](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
 ### Pakketten configureren voor doorlopend bouwen en implementeren
 #### [TFS en Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Verkeersregels voor een rol configureren](cloud-services-enable-communication-role-instances.md)

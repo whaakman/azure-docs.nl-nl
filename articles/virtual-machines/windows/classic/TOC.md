@@ -1,6 +1,6 @@
 # Overzicht
 ## [Informatie over virtuele machines](../../virtual-machines-windows-about.md)
-## [Schijven en VHD's](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Schijven en VHD's](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Virtuele netwerken](../../../virtual-network/virtual-networks-overview.md)
 ## [Veelgestelde vragen](faq.md)
 ## [VM's, websites en cloudservices vergelijken](../../../app-service-web/choose-web-site-cloud-service-vm.md)

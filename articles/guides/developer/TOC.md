@@ -64,12 +64,12 @@
 ### [Linux-VM op basis van een sjabloon](../../virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows-VM op basis van een sjabloon](../../virtual-machines/virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## Opgeslagen gegevens
-### [Blobs](../../storage/storage-dotnet-how-to-use-blobs.md)
-### [Bestandsshares](../../storage/storage-dotnet-how-to-use-files.md)
-### [Sleutel-waardeparen](../../storage/storage-dotnet-how-to-use-tables.md)
+### [Blobs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+### [Bestandsshares](../../storage/files/storage-dotnet-how-to-use-files.md)
+### [Sleutel-waardeparen](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 ### [JSON-documenten](../../documentdb/documentdb-get-started.md)
 ### [Relationele tabellen](../../sql-database/sql-database-get-started.md)
-### [Berichtenwachtrijen](../../storage/storage-dotnet-how-to-use-queues.md)
+### [Berichtenwachtrijen](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 
 ## Schalen
 ### [Web- en mobiele apps](../../app-service-web/web-sites-scale.md)
