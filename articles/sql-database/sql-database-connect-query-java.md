@@ -135,7 +135,8 @@ Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azur
                                System.out.println(resultSet.getString(1) + " "
                                    + resultSet.getString(2));
                            }
-                   }
+                    connection.close();
+                   }                   
            }
            catch (Exception e) {
                    e.printStackTrace();
