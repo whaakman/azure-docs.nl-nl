@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 32569d7e75a7a4ddee28041c0487ff158c20fd78
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d30c09d23a84200ba81df133c9de5b11910ffb61
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>Batch- en HPC-oplossingen voor grootschalige rekenworkloads
@@ -106,7 +106,7 @@ Compute Services van Azure vormen de kern van een Big Compute-oplossing en de an
 ### <a name="storage-services"></a>Opslagservices
 Een Big Compute-oplossing werkt doorgaans met een reeks invoergegevens en genereert gegevens voor de resultaten. Enkele van de Azure-opslagservices die in Big Compute-oplossingen worden gebruikt, zijn:
 
-* [Blob Storage, Table Storage en Queue Storage](https://azure.microsoft.com/documentation/services/storage/) - Beheer respectievelijk grote hoeveelheden ongestructureerde gegevens, NoSQL-gegevens en berichten voor werkstromen en communicatie. U kunt bijvoorbeeld Blob Storage gebruiken voor grote sets met technische gegevens, of voor de installatiekopieën of mediabestanden van de invoer die uw toepassing verwerkt. U kunt wachtrijen gebruiken voor asynchrone communicatie in een oplossing. Zie [Inleiding tot Microsoft Azure Storage](../storage/storage-introduction.md).
+* [Blob Storage, Table Storage en Queue Storage](https://azure.microsoft.com/documentation/services/storage/) - Beheer respectievelijk grote hoeveelheden ongestructureerde gegevens, NoSQL-gegevens en berichten voor werkstromen en communicatie. U kunt bijvoorbeeld Blob Storage gebruiken voor grote sets met technische gegevens, of voor de installatiekopieën of mediabestanden van de invoer die uw toepassing verwerkt. U kunt wachtrijen gebruiken voor asynchrone communicatie in een oplossing. Zie [Inleiding tot Microsoft Azure Storage](../storage/common/storage-introduction.md).
 * [Azure File Storage](https://azure.microsoft.com/services/storage/files/) - Deelt algemene bestanden en gegevens in Azure met behulp van het standaard SMB-protocol, dat nodig is voor een aantal HPC-clusteroplossingen.
 * [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/): biedt een grootschalig Apache Hadoop Distributed File System voor de cloud, dat nuttig is voor batch-, realtime- en interactieve analyses.
 

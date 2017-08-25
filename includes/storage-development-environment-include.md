@@ -39,9 +39,9 @@ Met NuGet kunt u beide pakketten verkrijgen. Volg deze stappen:
 U kunt de voorbeelden in deze gids in twee omgevingen uitvoeren:
 
 * U kunt de code uitvoeren met een Azure Storage-account in de cloud. 
-* U kunt de code uitvoeren met de Azure-opslagemulator. De opslagemulator is een lokale omgeving die een Azure Storage-account in de cloud emuleert. De emulator is een gratis optie waarmee u uw code kunt testen en fouten in de code kunt opsporen terwijl de toepassing nog in ontwikkeling is. De emulator maakt gebruik van een bekend account en een bekende sleutel. Zie [Use the Azure Storage Emulator for Development and Testing](../articles/storage/storage-use-emulator.md) (De Azure-opslagemulator gebruiken voor ontwikkelen en testen) voor meer informatie.
+* U kunt de code uitvoeren met de Azure-opslagemulator. De opslagemulator is een lokale omgeving die een Azure Storage-account in de cloud emuleert. De emulator is een gratis optie waarmee u uw code kunt testen en fouten in de code kunt opsporen terwijl de toepassing nog in ontwikkeling is. De emulator maakt gebruik van een bekend account en een bekende sleutel. Zie [Use the Azure Storage Emulator for Development and Testing](../articles/storage/common/storage-use-emulator.md) (De Azure-opslagemulator gebruiken voor ontwikkelen en testen) voor meer informatie.
 
-Als u een opslagaccount in de cloud wilt gebruiken, kopieert u de primaire toegangssleutel voor uw opslagaccount vanuit Azure Portal. Zie [Opslagtoegangssleutels bekijken en kopiëren](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys) voor meer informatie.
+Als u een opslagaccount in de cloud wilt gebruiken, kopieert u de primaire toegangssleutel voor uw opslagaccount vanuit Azure Portal. Zie [Opslagtoegangssleutels bekijken en kopiëren](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys) voor meer informatie.
 
 > [!NOTE]
 > Gebruik de opslagemulator als u mogelijke kosten in verband met Azure-opslag wilt vermijden. Als u er echter voor kiest om een Azure-opslagaccount in de cloud te gebruiken, zijn de kosten voor de uitvoering van deze zelfstudie te verwaarlozen.
@@ -51,7 +51,7 @@ Als u een opslagaccount in de cloud wilt gebruiken, kopieert u de primaire toega
 ### <a name="configure-your-storage-connection-string"></a>De opslagverbindingsreeks configureren
 De clientbibliotheek van Azure Storage voor .NET ondersteunt het gebruik van een opslagverbindingsreeks om eindpunten en referenties voor toegang tot opslagservices te configureren. De beste manier om de opslagverbindingsreeks te onderhouden, is met een configuratiebestand. 
 
-Zie [Azure Storage-verbindingsreeksen configureren](../articles/storage/storage-configure-connection-string.md) voor meer informatie over verbindingsreeksen.
+Zie [Azure Storage-verbindingsreeksen configureren](../articles/storage/common/storage-configure-connection-string.md) voor meer informatie over verbindingsreeksen.
 
 > [!NOTE]
 > De sleutel van uw opslagaccount is vergelijkbaar met het hoofdwachtwoord voor uw opslagaccount. Zorg dat de sleutel van uw opslagaccount altijd is beveiligd. Geef deze niet aan andere gebruikers en bewaar of noteer de sleutel op een veilige manier en plaats. Genereer een nieuwe sleutel met Azure Portal als er mogelijk inbreuk op de sleutel heeft plaatsgevonden.

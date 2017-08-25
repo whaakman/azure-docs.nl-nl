@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 8ec9709bfb553f6ee89611e92330dedb6129055d
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3ab1d432a2f90db57b99f0e7d419d85e2958c308
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Virtuele-machineschaalsets in Azure en beheerde schijven
@@ -45,7 +45,7 @@ U kunt ook eens in de [GitHub-opslagplaats met snelstartsjablonen voor Azure](ht
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In [dit artikel](../storage/storage-managed-disks-overview.md) vindt u meer informatie over beheerde schijven in het algemeen.
+In [dit artikel](../virtual-machines/windows/managed-disks-overview.md) vindt u meer informatie over beheerde schijven in het algemeen.
 
 Raadpleeg [dit artikel](./virtual-machine-scale-sets-convert-template-to-md.md) als u wilt weten hoe u een Resource Manager-sjabloon omzet voor het inrichten van schaalsets met beheerde schijven. De wijzigingen in de Resource Manager-sjablonen zijn ook van toepassing op de Azure REST API.
 

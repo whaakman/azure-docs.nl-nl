@@ -1,21 +1,21 @@
-1. Klik in **Solution Explorer** met de rechtermuisknop op het project en selecteer **Publiceren**. Kies **Nieuw maken** en klik vervolgens op **Publiceren**. 
+1. In **Solution Explorer**, right-click the project and select **Publish**. Choose **Create New**  and then click **Publish**. 
 
-    ![Nieuwe functie-app maken publiceren](./media/functions-vstools-publish/functions-vstools-publish-new-function-app.png)
+    ![Publish create new function app](./media/functions-vstools-publish/functions-vstools-publish-new-function-app.png)
 
-2. Als u Visual Studio nog niet aan uw Azure-account hebt gekoppeld, klikt u op **Een account toevoegen...**.  
+2. If you haven't already connected Visual Studio to your Azure account, click **Add an account...**.  
 
-3. In het dialoogvenster **App-service maken** gebruikt u de **hosting**instellingen zoals opgegeven in de volgende tabel: 
+3. In the **Create App Service** dialog, use the **Hosting** settings as specified in the following table: 
 
-    ![Lokale Azure-runtime](./media/functions-vstools-publish/functions-vstools-publish.png)
+    ![Azure local runtime](./media/functions-vstools-publish/functions-vstools-publish.png)
 
-    | Instelling      | Voorgestelde waarde  | Beschrijving                                |
+    | Setting      | Suggested value  | Description                                |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Naam van app** | Wereldwijd unieke naam | Naam waarmee uw nieuwe functie-app uniek wordt aangeduid. |
-    | **Abonnement** | Kies uw abonnement | Het te gebruiken Azure-abonnement. |
-    | **[Resourcegroep](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Naam van de resourcegroep waarin uw functie-app moet worden gemaakt. |
-    | **[App-serviceabonnement](../articles/azure-functions/functions-scale.md)** | Verbruiksabonnement | Zorg dat u het **Verbruik** kiest onder **Grootte** wanneer u een nieuw abonnement maakt.  |
-    | **[Opslagaccount](../articles/storage/storage-create-storage-account.md#create-a-storage-account)** | Wereldwijd unieke naam | Gebruik een bestaand opslagaccount of maak een nieuw.   |
+    | **App Name** | Globally unique name | Name that uniquely identifies your new function app. |
+    | **Subscription** | Choose your subscription | The Azure subscription to use. |
+    | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Name of the resource group in which to create your function app. |
+    | **[App Service Plan](../articles/azure-functions/functions-scale.md)** | Consumption plan | Make sure to choose the **Consumption** under **Size** when you create a new plan.  |
+    | **[Storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** | Globally unique name | Use an existing storage account or create a new one.   |
 
-4. Klik op **Maken** om in Azure een functie-app met deze instellingen te maken. Noteer nadat het inrichtingsproces is voltooid de **Site-URL**. Dit is het adres van de functie-app in Azure. 
+4. Click **Create** to create a function app in Azure with these settings. After the provisioning is complete, make a note of the **Site URL** value, which is the address of your function app in Azure. 
 
-    ![Lokale Azure-runtime](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
+    ![Azure local runtime](./media/functions-vstools-publish/functions-vstools-publish-profile.png)

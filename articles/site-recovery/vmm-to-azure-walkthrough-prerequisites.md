@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 87a5d721ca785329b407d31126bd0b211b17ccf3
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 47c178c66ec98fe5d333edd725b64465026e73ed
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -33,7 +33,7 @@ Lees nadat u de [scenarioarchitectuur](vmm-to-azure-walkthrough-architecture.md)
 **Vereiste** | **Details**
 --- | ---
 **Azure-account** | U hebt een [Microsoft Azure-account](http://azure.microsoft.com/) nodig.
-**Azure Storage** | U hebt een Azure Storage-account nodig om gerepliceerde gegevens op te slaan.<br/><br/> Het opslagaccount moet zich in dezelfde regio bevinden als de Azure Recovery Services-kluis.<br/><br/>U kunt [geografisch redundante opslag](../storage/storage-redundancy.md#geo-redundant-storage) of lokaal redundante opslag gebruiken. Wij raden geografisch redundante opslag aan. Met geografisch redundante opslag zijn gegevens flexibel te gebruiken als er sprake is van regionale uitval of als de primaire regio niet kan worden hersteld.<br/><br/> U kunt een standaard Azure-opslagaccount gebruiken of kunt u Azure [Premium-Storage](../storage/storage-premium-storage.md) gebruiken. Premium Storage kan I/O-intensieve werkbelastingen hosten en wordt meestal gebruikt voor virtuele machines die consistent hoge I/O-prestaties en lage latentie nodig hebben. Als u Premium Storage gebruikt voor gerepliceerde gegevens, hebt u ook een standaardopslagaccount nodig. In een standaardopslagaccount worden replicatielogboeken opgeslagen die de doorlopende wijzigingen in de on-premises gegevens vastleggen.
+**Azure Storage** | U hebt een Azure Storage-account nodig om gerepliceerde gegevens op te slaan.<br/><br/> Het opslagaccount moet zich in dezelfde regio bevinden als de Azure Recovery Services-kluis.<br/><br/>U kunt [geografisch redundante opslag](../storage/common/storage-redundancy.md#geo-redundant-storage) of lokaal redundante opslag gebruiken. Wij raden geografisch redundante opslag aan. Met geografisch redundante opslag zijn gegevens flexibel te gebruiken als er sprake is van regionale uitval of als de primaire regio niet kan worden hersteld.<br/><br/> U kunt een standaard Azure-opslagaccount gebruiken of kunt u Azure [Premium-Storage](../storage/common/storage-premium-storage.md) gebruiken. Premium Storage kan I/O-intensieve werkbelastingen hosten en wordt meestal gebruikt voor virtuele machines die consistent hoge I/O-prestaties en lage latentie nodig hebben. Als u Premium Storage gebruikt voor gerepliceerde gegevens, hebt u ook een standaardopslagaccount nodig. In een standaardopslagaccount worden replicatielogboeken opgeslagen die de doorlopende wijzigingen in de on-premises gegevens vastleggen.
 **Azure-netwerk** | U hebt een [Azure-netwerk](../virtual-network/virtual-network-get-started-vnet-subnet.md) nodig waarmee de virtuele Azure-machines die na een failover worden gemaakt, verbinding maken. Het Azure-netwerk moet zich in dezelfde regio bevinden als de Recovery Services-kluis.
 **On-premises VMM-servers** | U hebt een of meer VMM-servers nodig met System Center 2012 R2 of hoger.<br/><br/> Elke VMM-server moet een of meer privéclouds hebben. Elke cloud heeft een of meer hostgroepen nodig.<br/><br/> De VMM-server heeft internettoegang nodig.
 **On-premises Hyper-V** | Op Hyper-V-servers moet ten minste Windows Server 2012 R2 met de Hyper-V-rol of Microsoft Hyper-V Server 2012 R2 worden uitgevoerd. De meest recente updates moeten zijn geïnstalleerd.<br/><br/> De Hyper-V-host moet zich in een VMM-hostgroep bevinden (in een VMM-cloud).<br/><br/> Een host moet een of meer virtuele machines hebben die u wilt repliceren.<br/><br/> Hyper-V-hosts moeten verbinding hebben met internet voor replicatie naar Azure, rechtstreeks of met een proxy. Hyper-V-servers moeten beschikken over de correcties die worden beschreven in artikel [2961977](https://support.microsoft.com/kb/2961977).

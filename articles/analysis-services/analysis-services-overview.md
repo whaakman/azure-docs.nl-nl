@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 94d228f38a760b40f1acb4685702e6244f03bb5d
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: ff03ce6463176bad8e8d89985441d23c7d76b183
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
@@ -34,7 +34,7 @@ Met Analysis Services kunt u gegevens uit meerdere bronnen verfijnen en combiner
 Bekijk [deze video](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) om te zien hoe Azure Analysis Services aansluit bij de overige BI-voorzieningen van Microsoft en waarom het zinvol is om uw gegevensmodellen over te brengen naar de cloud.
 
 ## <a name="built-on-sql-server-analysis-services"></a>Gebaseerd op SQL Server Analysis Services
-Azure Analysis Services is compatibel met veel geweldige functies die al deel uitmaken van SQL Server Analysis Services Enterprise Edition. Azure Analysis Services ondersteunt tabellaire modellen met het [compatibiliteitsniveau](https://docs.microsoft.com/sql/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services) 1200 en 1400. Partities, beveiliging op rijniveau, bidirectionele relaties en vertalingen worden allemaal ondersteund. De in-memory en DirectQuery-modi staan garant voor razendsnelle query's in omvangrijke en complexe gegevenssets.
+Azure Analysis Services is compatibel met veel geweldige functies die al deel uitmaken van SQL Server Analysis Services Enterprise Edition. Azure Analysis Services ondersteunt tabellaire modellen met het [compatibiliteitsniveau](analysis-services-compat-level.md) 1200 en 1400. Partities, beveiliging op rijniveau, bidirectionele relaties en vertalingen worden allemaal ondersteund. De in-memory en DirectQuery-modi staan garant voor razendsnelle query's in omvangrijke en complexe gegevenssets.
 
 De tabellaire modellen kunnen snel worden ontwikkeld en zijn in hoge mate aanpasbaar. Voor ontwikkelaars bevatten de tabellaire modellen ook Tabular Object Model (TOM) om modelobjecten te beschrijven. TOM wordt in JSON weergegeven via [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) en in de AMO Data Definition Language met behulp van de naamruimte [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx).
 

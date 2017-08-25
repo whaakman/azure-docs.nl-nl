@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: b41e8eba7d1f5c999b3371d835b595b6caf161c1
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3d2023c3e129cfdea27f343a41b3cc373c0c3b8f
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Een on-premises StorSimple-apparaat implementeren (Update 3 en hoger)
@@ -170,7 +170,7 @@ U hebt de apparaatconfiguratie voltooid.
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Een nieuw opslagaccount voor de service configureren
 Dit is een optionele stap die u alleen hoeft uit te voeren als u het automatisch maken van een opslagaccount met uw service niet hebt ingeschakeld. U hebt een Microsoft Azure Storage-account nodig om een StorSimple-volumecontainer te maken.
 
-Als u een Azure Storage-account in een andere regio wilt maken, raadpleeg dan [Over Azure Storage-accounts](../storage/storage-create-storage-account.md) voor stapsgewijze instructies.
+Als u een Azure Storage-account in een andere regio wilt maken, raadpleeg dan [Over Azure Storage-accounts](../storage/common/storage-create-storage-account.md) voor stapsgewijze instructies.
 
 Voer de volgende stappen uit op de pagina **StorSimple-apparaatbeheerfunctie** van Azure Portal.
 

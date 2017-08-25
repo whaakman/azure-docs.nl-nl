@@ -9,10 +9,10 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: c11f0c0a6cdc89449b7aa515319bbe6b6bdf1a4a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c8c76944f4a95d3c8181454a7103ea0a3022189a
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -33,7 +33,7 @@ Wanneer u Batch-oplossingen ontwikkelt, gebruikt u de volgende accounts in Micro
 
 * **Azure-account en -abonnement**: als u nog geen Azure-abonnement hebt, kunt u uw [voordelen als MSDN-abonnee][msdn_benefits] activeren of u aanmelden voor een [gratis Azure-account][free_account]. Wanneer u een account maakt, wordt voor u een standaardabonnement gemaakt.
 * **Batch-account**: Batch-resources zoals pools, rekenknooppunten, jobs en taken worden aan een Azure Batch-account gekoppeld. Als uw toepassing een aanvraag indient voor de Batch-service, verifieert deze de aanvraag met de Azure Batch-accountnaam, de URL van het account en een toegangssleutel. U kunt een [Batch-account maken](batch-account-create-portal.md) in Azure Portal.
-* **Storage-account**: Batch bevat ingebouwde ondersteuning voor het werken met bestanden in [Azure Storage][azure_storage]. Vrijwel elk Batch-scenario gebruikt Azure Blob-opslag voor het faseren van de programma's die door de taken worden uitgevoerd en de gegevens die ze verwerken, en voor de opslag van uitvoergegevens die ze genereren. Zie [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md) voor het maken van een opslagaccount.
+* **Storage-account**: Batch bevat ingebouwde ondersteuning voor het werken met bestanden in [Azure Storage][azure_storage]. Vrijwel elk Batch-scenario gebruikt Azure Blob-opslag voor het faseren van de programma's die door de taken worden uitgevoerd en de gegevens die ze verwerken, en voor de opslag van uitvoergegevens die ze genereren. Zie [Over Azure-opslagaccounts](../storage/common/storage-create-storage-account.md) voor het maken van een opslagaccount.
 
 ## <a name="batch-service-apis"></a>API’s voor Batch-service
 

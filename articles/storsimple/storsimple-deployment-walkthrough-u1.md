@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8a3f389250920dcdb49a5f88812d2e3b88bfd6c6
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4d568fb2eca418ca939f7a76ac24197a0457fe47
+ms.contentlocale: nl-nl
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-1"></a>Een on-premises StorSimple-apparaat implementeren (Update 1)
@@ -75,7 +76,7 @@ In de volgende controlelijst voor de implementatie-configuratie wordt beschreven
 | --- | --- | --- | --- |
 | **Uw apparaat bekabelen** |Seriële toegang |Eerste apparaatconfiguratie |Ja/Nee |
 |  | | | |
-| **Apparaat configureren en registreren** |Netwerkinstellingen Data 0 |IP-adres Data 0:</br>Subnetmasker:</br>Gateway:</br>Primaire DNS-server:</br>Primaire NTP-server:</br> IP/FQDN van webproxyserver (optioneel):</br>Webproxypoort: | |
+| **Apparaat configureren en registreren** |Netwerkinstellingen Data 0 |IP-adres Data 0:</br>Subnetmasker:</br>Gateway:</br>Primaire DNS-server:</br>Primaire NTP-server:</br>IP/FQDN van webproxyserver (optioneel):</br>Webproxypoort: | |
 | &nbsp; |Wachtwoord apparaatbeheerder |Wachtwoord moet tussen 8 en 15 tekens lang zijn en kleine letters, hoofdletters, numerieke en speciale tekens bevatten. | |
 | &nbsp; |Wachtwoord StorSimple Snapshot Manager |Wachtwoord moet 14 of 15 tekens lang zijn en kleine letters, hoofdletters, numerieke en speciale tekens bevatten. | |
 | &nbsp; |Serviceregistratiesleutel |Deze sleutel wordt gegenereerd via de klassieke Azure Portal. | |
@@ -213,7 +214,7 @@ U kunt op elk moment een handmatige back-up maken. Voor procedures gaat u naar [
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Een nieuw opslagaccount voor de service configureren
 Dit is een optionele stap die u alleen hoeft uit te voeren als u het automatisch maken van een opslagaccount met uw service niet hebt ingeschakeld. U hebt een Microsoft Azure Storage-account nodig om een StorSimple-volumecontainer te maken.
 
-Als u een Azure Storage-account in een andere regio wilt maken, raadpleeg dan [Over Azure Storage-accounts](../storage/storage-create-storage-account.md) voor stapsgewijze instructies.
+Als u een Azure Storage-account in een andere regio wilt maken, raadpleeg dan [Over Azure Storage-accounts](../storage/common/storage-create-storage-account.md) voor stapsgewijze instructies.
 
 Voer de volgende stappen uit op de pagina **StorSimple Manager-service** van de klassieke Azure Portal.
 
@@ -266,10 +267,5 @@ Voor MPIO-installatie-instructies voor een StorSimple-apparaat die is verbonden 
 ## <a name="next-steps"></a>Volgende stappen
 * Configureer een [virtueel apparaat](storsimple-virtual-device-u2.md).
 * Gebruik de [StorSimple Manager-service](storsimple-manager-service-administration.md) om uw StorSimple-apparaat te beheren.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

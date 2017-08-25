@@ -1,6 +1,6 @@
 ---
 title: Uw eerste Azure Virtual Network maken | Microsoft Docs
-description: Lees hoe u een Azure Virtual Network (VNet) maakt, twee virtuele machines (VM&quot;s) met het VNet verbindt en verbinding maakt met de VM&quot;s.
+description: Lees hoe u een Azure Virtual Network (VNet) maakt, twee virtuele machines (VM's) met het VNet verbindt en verbinding maakt met de VM's.
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c731099cb91512f3bf0ecc2ffa5258788c90cd1b
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e653764d7cb514d50b44fadd0cc5963dd404d99e
+ms.contentlocale: nl-nl
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -160,7 +160,7 @@ Hoewel u zelf één VNet en twee virtuele machines hebt gemaakt, heeft Azure Por
 
     ![Inhoud resourcegroep](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-Lees de overzichtsartikelen [Virtual machine](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Virtuele machine), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Schijf) en [Storage account](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Opslagaccount) voor meer informatie over virtuele machines, schijven en opslagaccounts. De twee standaard-NSG's die in de portal voor u zijn gemaakt, worden weergegeven. Ook kunt u zien dat er in de portal twee netwerkinterfaceresources zijn gemaakt. Met een netwerkinterface (NIC) kan een virtuele machine via het VNet verbinding maken met andere resources. Lees het artikel [NIC](virtual-network-network-interface.md) voor meer informatie over NIC's. In de portal is ook één openbare IP-adresresource gemaakt. Openbare IP-adressen zijn één instelling voor een openbare IP-adresresource. In het artikel [IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) (IP-adressen) vindt u meer informatie over openbare IP-adressen.
+Lees de overzichtsartikelen [Virtual machine](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Virtuele machine), [Disk](../virtual-machines/windows/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Schijf) en [Storage account](../storage/common/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Opslagaccount) voor meer informatie over virtuele machines, schijven en opslagaccounts. De twee standaard-NSG's die in de portal voor u zijn gemaakt, worden weergegeven. Ook kunt u zien dat er in de portal twee netwerkinterfaceresources zijn gemaakt. Met een netwerkinterface (NIC) kan een virtuele machine via het VNet verbinding maken met andere resources. Lees het artikel [NIC](virtual-network-network-interface.md) voor meer informatie over NIC's. In de portal is ook één openbare IP-adresresource gemaakt. Openbare IP-adressen zijn één instelling voor een openbare IP-adresresource. In het artikel [IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) (IP-adressen) vindt u meer informatie over openbare IP-adressen.
 
 ## <a name="connect-to-from-vms"></a>Verbinding maken met de virtuele machines
 

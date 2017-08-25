@@ -17,10 +17,10 @@ ms.date: 8/11/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 7cc29feaf7411bac1d081f7f7aa3daf92fae88d1
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5a6aad672ddaa43f993daf4cf48975e91d2657da
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Overzicht van de functies in Azure Backup
@@ -35,7 +35,7 @@ Traditionele back-upoplossingen gebruiken de cloud als een eindpunt, of statisch
 
 **Onbeperkt schalen**: Azure Backup gebruikt de onderliggende kracht en onbeperkte schaal van de Azure-cloud voor hoge beschikbaarheid, zonder overhead voor onderhoud of bewaking. U kunt waarschuwingen instellen voor het weergeven van informatie over gebeurtenissen, maar u hoeft zich geen zorgen te maken over hoge beschikbaarheid van uw gegevens in de cloud.
 
-**Meerdere opslagopties**: een aspect van hoge beschikbaarheid is opslagreplicatie. Azure Backup biedt twee typen replicatie: [lokaal redundante opslag](../storage/storage-redundancy.md#locally-redundant-storage) en [geografisch redundante opslag](../storage/storage-redundancy.md#geo-redundant-storage). Kies de optie back-upopslag op basis van uw behoeften:
+**Meerdere opslagopties**: een aspect van hoge beschikbaarheid is opslagreplicatie. Azure Backup biedt twee typen replicatie: [lokaal redundante opslag](../storage/common/storage-redundancy.md#locally-redundant-storage) en [geografisch redundante opslag](../storage/common/storage-redundancy.md#geo-redundant-storage). Kies de optie back-upopslag op basis van uw behoeften:
 
 * Met lokaal redundante opslag (Locally Redundant Storage, LRS) worden uw gegevens drie keer gerepliceerd (er worden drie kopieën gemaakt van uw gegevens) in een gekoppeld datacenter in dezelfde regio. LRS is een goedkope optie voor het beschermen van uw gegevens tegen lokale hardwarefouten.
 
@@ -95,10 +95,10 @@ De volgende tabel bevat de Azure Backup-onderdelen die ondersteuning bieden voor
 | Back-up van virtuele machines van Azure IaaS |Toepassingsconsistente back-up met [prescript en postscript framework](backup-azure-linux-app-consistent.md)<br/> [Gedetailleerd bestandsherstel](backup-azure-restore-files-from-vm.md)<br/> [Alle VM-schijven herstellen](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM herstellen](backup-azure-arm-restore-vms.md#create-a-new-vm-from-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>VM's voor Premium Storage met Azure Backup gebruiken
-Azure Backup beschermt VM's voor Premium Storage. Azure Premium Storage is opslag op basis van SSD (Solid-State Drive), ontworpen om I/O-intensieve workloads te ondersteunen. Premium Storage is uitermate geschikt voor VM-workloads (virtuele machine). Zie het artikel [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md) (Premium Storage: hoogwaardige opslag voor workloads van Azure Virtual Machines) voor meer informatie over Premium Storage.
+Azure Backup beschermt VM's voor Premium Storage. Azure Premium Storage is opslag op basis van SSD (Solid-State Drive), ontworpen om I/O-intensieve workloads te ondersteunen. Premium Storage is uitermate geschikt voor VM-workloads (virtuele machine). Zie het artikel [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/common/storage-premium-storage.md) (Premium Storage: hoogwaardige opslag voor workloads van Azure Virtual Machines) voor meer informatie over Premium Storage.
 
 ### <a name="back-up-premium-storage-vms"></a>Een back-up van VM's voor Premium-opslag maken
-Tijdens een back-up van virtuele machines voor Premium-opslag, maakt de Backup-service in het Premium-opslagaccount een tijdelijke faseringslocatie met de naam 'AzureBackup-'. De faseringslocatie is even groot als de momentopname van het herstelpunt. Zorg ervoor dat er voldoende vrije ruimte in het Premium Storage-account is voor de tijdelijke faseringslocatie. Zie het artikel [Beperkingen van Premium Storage](../storage/storage-premium-storage.md#scalability-and-performance-targets) voor meer informatie. Zodra de back-uptaak is voltooid, wordt de faseringslocatie verwijderd. De opslagkosten die in rekening worden gebracht voor de faseringslocatie zijn consistent met de [Prijzen voor een Premium-opslag](../storage/storage-premium-storage.md#pricing-and-billing).
+Tijdens een back-up van virtuele machines voor Premium-opslag, maakt de Backup-service in het Premium-opslagaccount een tijdelijke faseringslocatie met de naam 'AzureBackup-'. De faseringslocatie is even groot als de momentopname van het herstelpunt. Zorg ervoor dat er voldoende vrije ruimte in het Premium Storage-account is voor de tijdelijke faseringslocatie. Zie het artikel [Beperkingen van Premium Storage](../storage/common/storage-premium-storage.md#scalability-and-performance-targets) voor meer informatie. Zodra de back-uptaak is voltooid, wordt de faseringslocatie verwijderd. De opslagkosten die in rekening worden gebracht voor de faseringslocatie zijn consistent met de [Prijzen voor een Premium-opslag](../storage/common/storage-premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Wijzig of bewerk de faseringslocatie niet.

@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 233965bf54cbca79c7ff059aaccfa5780d672cab
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c2f2a878414e4efd626d674ef9a182ae52eeb1ff
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Grootschalige parallelle rekenoplossingen ontwikkelen met Batch
@@ -46,7 +46,7 @@ De volgende werkstroom op hoog niveau is gangbaar voor bijna alle toepassingen e
 In de volgende secties worden deze en andere resources van Batch besproken waarmee u uw gedistribueerde rekenkundige scenario kunt uitvoeren.
 
 > [!NOTE]
-> U hebt een [Batch-account](#account) nodig om de Batch-service te kunnen gebruiken. Voor de meeste Batch-oplossingen wordt ook een [Azure-opslagaccount][azure_storage] gebruikt om bestanden op te slaan en op te halen. Batch ondersteunt momenteel alleen het opslagaccounttype **Algemeen**, zoals is beschreven in stap 5 van [Een opslagaccount maken](../storage/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md).
+> U hebt een [Batch-account](#account) nodig om de Batch-service te kunnen gebruiken. Voor de meeste Batch-oplossingen wordt ook een [Azure-opslagaccount][azure_storage] gebruikt om bestanden op te slaan en op te halen. Batch ondersteunt momenteel alleen het opslagaccounttype **Algemeen**, zoals is beschreven in stap 5 van [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/common/storage-create-storage-account.md).
 >
 >
 
@@ -114,7 +114,7 @@ In de volgende tabel worden de pooltoewijzingsmodi Batch-service en Gebruikersab
 
 Bij de meeste Batch-oplossingen wordt gebruikgemaakt van Azure Storage om resourcebestanden en uitvoerbestanden op te slaan.  
 
-Batch ondersteunt momenteel alleen het opslagaccounttype Algemeen, zoals is beschreven in stap 5 van [Een opslagaccount maken](../storage/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md). Uw Batch-taken (inclusief standaardtaken, begintaken, jobvoorbereidingstaken en jobvrijgevingstaken) moeten bronbestanden opgeven die zich bevinden in algemene opslagaccounts.
+Batch ondersteunt momenteel alleen het opslagaccounttype Algemeen, zoals is beschreven in stap 5 van [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/common/storage-create-storage-account.md). Uw Batch-taken (inclusief standaardtaken, begintaken, jobvoorbereidingstaken en jobvrijgevingstaken) moeten bronbestanden opgeven die zich bevinden in algemene opslagaccounts.
 
 
 ## <a name="compute-node"></a>Rekenknooppunt

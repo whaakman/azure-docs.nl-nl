@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/10/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 905a70bfd37ccdb9f2944b4a9348c3b60dedda44
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e7f58c8c1414f41d1d43e98b2faa327165f6eb75
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Een StorSimple-cloudapparaat implementeren en beheren in Azure (Update 3 en hoger)
@@ -45,7 +45,7 @@ Het StorSimple-cloudapparaat is beschikbaar in twee modellen: de Standard 8010 (
 | **Maximale capaciteit** |30 TB |64 TB |
 | **Azure VM** |Standard_A3 (4 kerngeheugens, 7 GB geheugen)| Standard_DS3 (4 kerngeheugens, 14 GB geheugen)|
 | **Beschikbaarheid in regio’s** |Alle Azure-regio's |Azure-regio's waar ondersteuning wordt geboden voor Premium Storage en Azure-VM’s met DS3<br></br>Gebruik [deze lijst](https://azure.microsoft.com/regions/services/) om te kijken of zowel **Virtuele Machines > DS-serie** als **Opslag > Schijfruimte** beschikbaar is in uw regio. |
-| **Opslagtype** |Maakt gebruik van Azure Standard-opslag voor lokale schijven<br></br> Ontdek hoe u [een Standard-opslagaccount maakt](../storage/storage-create-storage-account.md) |Maakt gebruik van Azure Premium Storage voor lokale schijven<sup>2</sup> <br></br>Ontdek hoe u [een Premium Storage-account maakt](../storage/storage-premium-storage.md) |
+| **Opslagtype** |Maakt gebruik van Azure Standard-opslag voor lokale schijven<br></br> Ontdek hoe u [een Standard-opslagaccount maakt](../storage/common/storage-create-storage-account.md) |Maakt gebruik van Azure Premium Storage voor lokale schijven<sup>2</sup> <br></br>Ontdek hoe u [een Premium Storage-account maakt](../storage/common/storage-premium-storage.md) |
 | **Richtlijnen voor de workload** |Bestanden ophalen uit back-ups op itemniveau |Ontwikkelings- en testscenario’s voor cloudapparaten <br></br>Lage latentie en workloads met hogere prestaties<br></br>Secundair apparaat voor herstel na noodgevallen |
 
 <sup>1</sup> *Voorheen bekend als de 1100*.
@@ -94,7 +94,7 @@ Voordat u het cloudapparaat inricht, moet u de volgende voorbereidingen treffen 
 Breng de volgende updates aan in uw StorSimple-apparaatbeheerservice voordat u een cloudapparaat maakt:
 
 * Voeg [Access Control Records](storsimple-8000-manage-acrs.md) toe voor de virtuele machines die gebruikt gaan worden als hostservers voor uw cloudapparaat.
-* Gebruik een [opslagaccount](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) in dezelfde regio als het cloudapparaat. Als u opslagaccounts in andere regio's gebruikt, kan dat leiden tot slechte prestaties. U kunt met het cloudapparaat een Standard- of Premium-opslagaccount gebruiken. Meer informatie over het maken van een [Standard-opslagaccount](../storage/storage-create-storage-account.md) of een [Premium Storage-account](../storage/storage-premium-storage.md)
+* Gebruik een [opslagaccount](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) in dezelfde regio als het cloudapparaat. Als u opslagaccounts in andere regio's gebruikt, kan dat leiden tot slechte prestaties. U kunt met het cloudapparaat een Standard- of Premium-opslagaccount gebruiken. Meer informatie over het maken van een [Standard-opslagaccount](../storage/common/storage-create-storage-account.md) of een [Premium Storage-account](../storage/common/storage-premium-storage.md)
 * Gebruik een ander opslagaccount voor het maken van het cloudapparaat dan voor het apparaat dat u gebruikt voor uw gegevens. Als u hetzelfde opslagaccount gebruikt, kan dat leiden tot slechte prestaties.
 
 Zorg ervoor dat u over de volgende informatie beschikt voordat u begint:

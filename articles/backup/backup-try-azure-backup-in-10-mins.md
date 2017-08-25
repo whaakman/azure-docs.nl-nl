@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: c989ca38e2463f8365b55c509e8b2bcf4572b409
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b21edb70eca3ec9552dc157ee3bb658d243b8fcd
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Eerste blik: een back-up maken van bestanden en mappen met Resource Manager-implementatie
@@ -88,7 +88,7 @@ Wanneer u een Recovery Services-kluis maakt, zorg er dan voor dat de opslagredun
 
     ![keuzes bij opslagconfiguratie](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    Uw kluis heeft standaard geografisch redundante opslag. Als Azure uw primaire eindpunt is voor back-upopslag, blijf dan **Geografisch redundant** gebruiken. Als Azure niet uw primaire eindpunt is voor back-upopslag, kiest u **Lokaal redundant**, zodat u de kosten voor Azure-opslag verlaagt. U vindt meer informatie over de opties voor [geografisch redundante](../storage/storage-redundancy.md#geo-redundant-storage) en [lokaal redundante ](../storage/storage-redundancy.md#locally-redundant-storage) opslag in dit [overzicht van opslagredundantie](../storage/storage-redundancy.md).
+    Uw kluis heeft standaard geografisch redundante opslag. Als Azure uw primaire eindpunt is voor back-upopslag, blijf dan **Geografisch redundant** gebruiken. Als Azure niet uw primaire eindpunt is voor back-upopslag, kiest u **Lokaal redundant**, zodat u de kosten voor Azure-opslag verlaagt. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy.md#geo-redundant-storage) en [lokaal redundante ](../storage/common/storage-redundancy.md#locally-redundant-storage) opslag in dit [overzicht van opslagredundantie](../storage/common/storage-redundancy.md).
 
 Nu u een kluis hebt gemaakt, kunt u deze voor de back-ups van bestanden en mappen configureren.
 

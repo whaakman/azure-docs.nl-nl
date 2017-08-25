@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ed97f2aeb19566b12342e5194ac8a01293f453bf
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ac0931a71a2814723380256fc5326fc431c82f2c
 ms.contentlocale: nl-nl
-ms.lasthandoff: 04/03/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure"></a>Hyper-V virtuele machines in VMM-clouds repliceren naar Azure
@@ -52,7 +51,7 @@ In Azure hebt u het volgende nodig.
 | **Vereiste** | **Details** |
 | --- | --- |
 | **Azure-account** |U hebt een [Microsoft Azure](https://azure.microsoft.com/)-account nodig. U kunt beginnen met een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/). [Meer informatie](https://azure.microsoft.com/pricing/details/site-recovery/) over prijzen voor Site Recovery. |
-| **Azure Storage** |U hebt een Azure Storage-account nodig om gerepliceerde gegevens op te slaan. Gerepliceerde gegevens worden opgeslagen in Azure Storage en Azure VM's worden bij een failover ingezet. <br/><br/>U hebt een [standaard geografisch redundant opslagaccount](../storage/storage-redundancy.md#geo-redundant-storage) nodig. Het account moet zich in dezelfde regio bevinden als de Site Recovery-service en moet zijn gekoppeld aan hetzelfde abonnement. Houd er rekening mee dat replicatie naar Premium Storage-accounts momenteel niet wordt ondersteund en dus niet moet worden gebruikt.<br/><br/>[Meer informatie](../storage/storage-introduction.md) over Azure-opslag. |
+| **Azure Storage** |U hebt een Azure Storage-account nodig om gerepliceerde gegevens op te slaan. Gerepliceerde gegevens worden opgeslagen in Azure Storage en Azure VM's worden bij een failover ingezet. <br/><br/>U hebt een [standaard geografisch redundant opslagaccount](../storage/common/storage-redundancy.md#geo-redundant-storage) nodig. Het account moet zich in dezelfde regio bevinden als de Site Recovery-service en moet zijn gekoppeld aan hetzelfde abonnement. Houd er rekening mee dat replicatie naar Premium Storage-accounts momenteel niet wordt ondersteund en dus niet moet worden gebruikt.<br/><br/>[Meer informatie](../storage/common/storage-introduction.md) over Azure-opslag. |
 | **Azure-netwerk** |U hebt een virtueel Azure-netwerk nodig waarmee Azure VM's verbinding maken wanneer failover plaatsvindt. Het virtuele Azure-netwerk moet zich in dezelfde regio bevinden als de Site Recovery-kluis. |
 
 ## <a name="on-premises-prerequisites"></a>Vereisten voor on-premises

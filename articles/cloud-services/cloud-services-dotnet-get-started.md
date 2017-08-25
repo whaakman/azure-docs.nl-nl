@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3c7f97b72f3813abe2357ae3202eaba285583bb8
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d2c197db73477d06d86d1c4faa8c4a2f58c7b391
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Aan de slag met Azure Cloud Services en ASP.NET
@@ -172,7 +171,7 @@ In een echte toepassing maakt u meestal afzonderlijke accounts voor toepassingsg
 
 4. Stel de vervolgkeuzelijst **Replicatie** in op **Lokaal redundante opslag**.
 
-    Wanneer geo-replicatie is ingeschakeld voor een opslagaccount, wordt de opgeslagen inhoud gerepliceerd naar een secundair datacenter om failover mogelijk te maken in het geval van een noodgeval op de primaire locatie. Geo-replicatie kan extra kosten met zich meebrengen. Voor test- en ontwikkelingsaccounts wilt u in het algemeen niet betalen voor geo-replicatie. Zie [Een opslagaccount maken, beheren of verwijderen](../storage/storage-create-storage-account.md) voor meer informatie.
+    Wanneer geo-replicatie is ingeschakeld voor een opslagaccount, wordt de opgeslagen inhoud gerepliceerd naar een secundair datacenter om failover mogelijk te maken in het geval van een noodgeval op de primaire locatie. Geo-replicatie kan extra kosten met zich meebrengen. Voor test- en ontwikkelingsaccounts wilt u in het algemeen niet betalen voor geo-replicatie. Zie [Een opslagaccount maken, beheren of verwijderen](../storage/common/storage-create-storage-account.md) voor meer informatie.
 
 5. Klik in de **Resourcegroep** op **Bestaande gebruiken** en selecteer de resourcegroep die voor de cloudservice wordt gebruikt.
 6. Stel de vervolgkeuzelijst **Locatie** in op dezelfde regio die u voor de cloudservice hebt gekozen.

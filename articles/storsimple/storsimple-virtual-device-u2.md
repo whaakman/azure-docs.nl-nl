@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: ead9fcc5ec582420d731faccb7abba0dc815ed84
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f9a9ff81913dda1457123525fe509d194798db14
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Een virtueel StorSimple-apparaat implementeren en beheren in Azure
@@ -35,7 +34,7 @@ Het virtuele StorSimple-apparaat is beschikbaar in twee modellen: de Standard 80
 | **Azure VM** |Standard_A3 (4 kerngeheugens, 7 GB geheugen) |Standard_DS3 (4 kerngeheugens, 14 GB geheugen) |
 | **Versiecompatibiliteit** |Versies met Update 2 of oudere of nieuwere software |Versies met Update 2 of nieuwere software |
 | **Beschikbaarheid in regio’s** |Alle Azure-regio's |Alle Azure-regio's waar ondersteuning wordt geboden voor Premium Storage en Azure-VM’s met DS3<br></br> Gebruik [deze lijst](https://azure.microsoft.com/en-us/regions/services) om te kijken of zowel *Virtuele Machines > DS-serie* als *Opslag > Schijfruimte* beschikbaar is in uw regio. |
-| **Opslagtype** |Maakt gebruik van Azure Standard-opslag voor lokale schijven<br></br> Ontdek hoe u [een Standard-opslagaccount maakt](../storage/storage-create-storage-account.md) |Maakt gebruik van Azure Premium Storage voor lokale schijven<sup>2</sup> <br></br>Ontdek hoe u [een Premium Storage-account maakt](../storage/storage-premium-storage.md) |
+| **Opslagtype** |Maakt gebruik van Azure Standard-opslag voor lokale schijven<br></br> Ontdek hoe u [een Standard-opslagaccount maakt](../storage/common/storage-create-storage-account.md) |Maakt gebruik van Azure Premium Storage voor lokale schijven<sup>2</sup> <br></br>Ontdek hoe u [een Premium Storage-account maakt](../storage/common/storage-premium-storage.md) |
 | **Richtlijnen voor de workload** |Bestanden ophalen uit back-ups op itemniveau |Cloudontwikkelings- en testscenario’s, lage latentie en werkbelasting met hogere prestaties <br></br>Secundair apparaat voor herstel na noodgevallen |
 
 <sup>1</sup> *Voorheen bekend als de 1100*.
@@ -84,7 +83,7 @@ Voordat u het virtuele apparaat inricht, moet u de volgende voorbereidingen tref
 Breng de volgende updates aan in uw Azure StorSimple-service voordat u een virtueel apparaat maakt:
 
 * Voeg [Access Control Records](storsimple-manage-acrs.md) toe voor de virtuele machines die gebruikt gaan worden als hostservers voor uw virtuele apparaat.
-* Gebruik een [opslagaccount](storsimple-manage-storage-accounts.md#add-a-storage-account) in dezelfde regio als het virtuele apparaat. Als u opslagaccounts in andere regio's gebruikt, kan dat leiden tot slechte prestaties. U kunt met het virtuele apparaat een Standard- of Premium-opslagaccount gebruiken. Meer informatie over het maken van een [Standard-opslagaccount](../storage/storage-create-storage-account.md) of een [Premium Storage-account](../storage/storage-premium-storage.md)
+* Gebruik een [opslagaccount](storsimple-manage-storage-accounts.md#add-a-storage-account) in dezelfde regio als het virtuele apparaat. Als u opslagaccounts in andere regio's gebruikt, kan dat leiden tot slechte prestaties. U kunt met het virtuele apparaat een Standard- of Premium-opslagaccount gebruiken. Meer informatie over het maken van een [Standard-opslagaccount](../storage/common/storage-create-storage-account.md) of een [Premium Storage-account](../storage/common/storage-premium-storage.md)
 * Gebruik een ander opslagaccount voor het maken van het virtuele apparaat dan voor het apparaat dat u gebruikt voor uw gegevens. Als u hetzelfde opslagaccount gebruikt, kan dat leiden tot slechte prestaties.
 
 Zorg ervoor dat u over de volgende informatie beschikt voordat u begint:

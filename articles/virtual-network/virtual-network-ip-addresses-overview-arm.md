@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1156135200e05f8a2585467f37805a72d67279ba
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 144f4ea213b8ed0a3530495e185f489155c474c9
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adrestypen en toewijzingsmethoden in Azure
@@ -36,7 +35,7 @@ U kunt IP-adressen toewijzen aan Azure-resources om te communiceren met andere A
 Als u het klassieke implementatiemodel kent, kunt u [hier lezen wat de verschillen zijn in IP-adressering tussen het klassieke model en het Resource Manager-model](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
 
 ## <a name="public-ip-addresses"></a>Openbare IP-adressen
-Openbare IP-adressen worden gebruikt om Azure-resources te laten communiceren met internet en andere openbare Azure-services, zoals [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL databases](../sql-database/sql-database-technical-overview.md) en [Azure Storage](../storage/storage-introduction.md).
+Openbare IP-adressen worden gebruikt om Azure-resources te laten communiceren met internet en andere openbare Azure-services, zoals [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL databases](../sql-database/sql-database-technical-overview.md) en [Azure Storage](../storage/common/storage-introduction.md).
 
 In Azure Resource Manager is een [openbaar IP](resource-groups-networking.md#public-ip-address)-adres een resource die zijn eigen eigenschappen heeft. U kunt een openbare IP-adresresource koppelen aan elk van de volgende resources:
 

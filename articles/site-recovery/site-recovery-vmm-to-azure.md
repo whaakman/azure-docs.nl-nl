@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 8a03e28045019a4beb423d95a4fa00637cd66294
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 958b61f5de732a882e0a2682b8dd4e18504a6ae7
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Virtuele Hyper-V-machines in VMM-clouds repliceren naar Azure met Site Recovery in Azure Portal
@@ -81,8 +81,8 @@ U hebt een Azure-netwerk nodig waarmee de virtuele Azure-machines die na een fai
 Azure-netwerken die worden gebruikt door Site Recovery, kunnen niet worden [verplaatst](../azure-resource-manager/resource-group-move-resources.md) binnen hetzelfde abonnement of naar andere abonnementen.
 
 ### <a name="set-up-an-azure-storage-account"></a>Een Azure-opslagaccount instellen
-* U hebt een Standard-/Premium-account voor Azure Storage nodig voor het opslaan van gegevens die zijn gerepliceerd naar Azure. [Premium Storage](../storage/storage-premium-storage.md) wordt gebruikt voor virtuele machines die consistent hoge I/O-prestaties en lage latentie nodig hebben om intensieve I/O-werkbelastingen te hosten. Als u een Premium-account wilt gebruiken om gerepliceerde gegevens op te slaan, hebt u ook een Standard-opslagaccount nodig om replicatielogboeken op te slaan waarin de doorlopende wijzigingen in uw on-premises gegevens worden vastgelegd. Het account moet zich in dezelfde regio bevinden als de Recovery Services-kluis.
-* Afhankelijk van het resourcemodel dat u wilt gebruiken voor virtuele Azure-machines waarvoor een failover is uitgevoerd, moet u een account instellen in de [Resource Manager-modus](../storage/storage-create-storage-account.md) of de [klassieke modus](../storage/storage-create-storage-account-classic-portal.md).
+* U hebt een Standard-/Premium-account voor Azure Storage nodig voor het opslaan van gegevens die zijn gerepliceerd naar Azure. [Premium Storage](../storage/common/storage-premium-storage.md) wordt gebruikt voor virtuele machines die consistent hoge I/O-prestaties en lage latentie nodig hebben om intensieve I/O-werkbelastingen te hosten. Als u een Premium-account wilt gebruiken om gerepliceerde gegevens op te slaan, hebt u ook een Standard-opslagaccount nodig om replicatielogboeken op te slaan waarin de doorlopende wijzigingen in uw on-premises gegevens worden vastgelegd. Het account moet zich in dezelfde regio bevinden als de Recovery Services-kluis.
+* Afhankelijk van het resourcemodel dat u wilt gebruiken voor virtuele Azure-machines waarvoor een failover is uitgevoerd, moet u een account instellen in de [Resource Manager-modus](../storage/common/storage-create-storage-account.md) of de [klassieke modus](../storage/common/storage-create-storage-account.md).
 * U doet er verstandig aan een account in te stellen voordat u begint. Anders moet u dit doen tijdens de implementatie van Site Recovery.
 - Let op: opslagaccounts die worden gebruikt met Site Recovery, kunnen niet worden [verplaatst](../azure-resource-manager/resource-group-move-resources.md) binnen hetzelfde abonnement of naar andere abonnementen.
 
@@ -221,7 +221,7 @@ Geef op welk Azure-opslagaccount moet worden gebruikt voor replicatie en met wel
    ![Storage](./media/site-recovery-vmm-to-azure/gs-createstorage.png)
 
 
-   * Als u een opslagaccount wilt maken op basis van het klassieke model, doet u dat in Azure Portal. [Meer informatie](../storage/storage-create-storage-account-classic-portal.md)
+   * Als u een opslagaccount wilt maken op basis van het klassieke model, doet u dat in Azure Portal. [Meer informatie](../storage/common/storage-create-storage-account.md)
    * Als u een Premium-opslagaccount gebruikt voor gerepliceerde gegevens, moet u een extra Standard-opslagaccount instellen om de replicatielogboeken op te slaan waarin de doorlopende wijzigingen aan uw on-premises gegevens worden vastgelegd.
 5. Als u nog geen Azure-netwerk hebt gemaakt en u er een wilt maken met Resource Manager, klikt u op **+Netwerk** om dat inline te doen. Geef op de blade **Virtueel netwerk maken** een netwerknaam, het adresbereik, de subnetgegevens, het abonnement en de locatie op. Het netwerk moet zich op dezelfde locatie bevinden als de Recovery Services-kluis.
 
@@ -261,7 +261,7 @@ Dit is wat er gebeurt wanneer er netwerktoewijzing wordt uitgevoerd:
 3. Geef in **Kopieerfrequentie** op hoe vaak u na de eerste replicatie de verschillen wilt repliceren (elke 30 seconden of elke 5 of 15 minuten).
 
     > [!NOTE]
-    >  Een frequentie van 30 seconden wordt niet ondersteund bij het repliceren naar Premium Storage. De beperking wordt bepaald door het aantal momentopnamen per blob (100) dat wordt ondersteund door Premium Storage. [Meer informatie](../storage/storage-premium-storage.md#snapshots-and-copy-blob)
+    >  Een frequentie van 30 seconden wordt niet ondersteund bij het repliceren naar Premium Storage. De beperking wordt bepaald door het aantal momentopnamen per blob (100) dat wordt ondersteund door Premium Storage. [Meer informatie](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob)
 
 4. Geef in **Bewaarperiode van het herstelpunt** op hoeveel uur elk herstelpunt moet worden bewaard. Beveiligde machines kunnen te allen tijde worden hersteld naar een willekeurig punt (binnen een bepaald tijdsvenster).
 5. Geef in **Frequentie van de app-consistente momentopname** op hoe vaak (elke 1-12 uur) er herstelpunten moeten worden gemaakt met toepassingsconsistente momentopnamen. Hyper-V maakt gebruik van twee soorten momentopnamen: standaardmomentopnamen waarmee steeds incrementele momentopnamen van de volledige virtuele machine worden gemaakt, en toepassingsconsistente momentopnamen waarmee een tijdsgebonden momentopname wordt gemaakt van de toepassingsgegevens in de virtuele machine. Toepassingsconsistente momentopnamen gebruiken Volume Shadow Copy Service (VSS) om ervoor te zorgen dat toepassingen een consistente status hebben wanneer er een momentopname wordt gemaakt. Als u toepassingsconsistente momentopnamen inschakelt, is dit van invloed op de prestaties van de toepassingen die via de virtuele bronmachines worden uitgevoerd. Zorg ervoor dat de waarde die u instelt, kleiner is dan het aantal aanvullende herstelpunten dat u configureert.
@@ -307,7 +307,7 @@ Schakel nu als volgt replicatie in:
 3. Selecteer in **Doel** het abonnement, het implementatiemodel voor gebruik na een failover, en het opslagaccount dat u voor gerepliceerde gegevens gebruikt.
 
     ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/enable-replication-target.png)
-4. Selecteer het opslagaccount dat u wilt gebruiken. Als u een ander opslagaccount wilt gebruiken dan de accounts die u al hebt, kunt u er [een maken](#set-up-an-azure-storage-account). Als u een Premium-opslagaccount gebruikt voor gerepliceerde gegevens, moet u een extra Standard-opslagaccount selecteren om de replicatielogboeken op te slaan waarin de doorlopende wijzigingen in uw on-premises gegevens worden vastgelegd. Als u een opslagaccount wilt maken op basis van het Resource Manager-model, klikt u op **Nieuw**. Als u een opslagaccount wilt maken op basis van het klassieke model, doet u dat [in Azure Portal](../storage/storage-create-storage-account-classic-portal.md). Klik vervolgens op **OK**.
+4. Selecteer het opslagaccount dat u wilt gebruiken. Als u een ander opslagaccount wilt gebruiken dan de accounts die u al hebt, kunt u er [een maken](#set-up-an-azure-storage-account). Als u een Premium-opslagaccount gebruikt voor gerepliceerde gegevens, moet u een extra Standard-opslagaccount selecteren om de replicatielogboeken op te slaan waarin de doorlopende wijzigingen in uw on-premises gegevens worden vastgelegd. Als u een opslagaccount wilt maken op basis van het Resource Manager-model, klikt u op **Nieuw**. Als u een opslagaccount wilt maken op basis van het klassieke model, doet u dat [in Azure Portal](../storage/common/storage-create-storage-account.md). Klik vervolgens op **OK**.
 5. Selecteer het Azure-netwerk en -subnet waarmee virtuele Azure-machines verbinding maken wanneer ze na een failover worden gemaakt. Selecteer **Nu configureren voor geselecteerde machines** om de netwerkinstelling toe te passen op alle machines die u voor beveiliging selecteert. Selecteer **Later configureren** om per machine een Azure-netwerk te selecteren. Als u een ander netwerk wilt gebruiken dan de netwerken die u al hebt, kunt u er [een maken](#set-up-an-azure-network). Als u een opslagaccount wilt maken op basis van het Resource Manager-model, klikt u op **Nieuw**. Als u een netwerk wilt maken op basis van het klassieke model, doet u dat [in Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Selecteer indien van toepassing een subnet. Klik vervolgens op **OK**.
 6. Selecteer in **Virtuele machines** > **Virtuele machines selecteren** alle machines die u wilt repliceren. U kunt alleen machines selecteren waarvoor replicatie kan worden ingeschakeld. Klik vervolgens op **OK**.
 
