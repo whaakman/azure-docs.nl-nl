@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 3c7a6ac092854bc2d78ac23079d168cf8b5a2201
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: cf8fdca51a6a4ad1b7cd4fe6980543199f6b36e0
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Ga aan de slag met het bouwen van oplossingen met de Batch-clientbibliotheek voor .NET
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/04/2017
 >
 >
 
-Ontdek in dit artikel de basisbeginselen van [Azure Batch][azure_batch] en de [Batch .NET][net_api]-bibliotheek aan de hand van een stapsgewijze C#-voorbeeldtoepassing. U leert hier hoe de voorbeeldtoepassing gebruikmaakt van de Batch-service om een parallelle workload in de cloud te verwerken, en hoe deze samenwerkt met [Azure Storage](../storage/storage-introduction.md) voor het faseren en ophalen van bestanden. U maakt kennis met een gangbare werkstroom voor Batch-toepassingen en krijgt hier ook elementair inzicht in de belangrijkste onderdelen van Batch, zoals jobs, taken, pools en rekenknooppunten.
+Ontdek in dit artikel de basisbeginselen van [Azure Batch][azure_batch] en de [Batch .NET][net_api]-bibliotheek aan de hand van een stapsgewijze C#-voorbeeldtoepassing. U leert hier hoe de voorbeeldtoepassing gebruikmaakt van de Batch-service om een parallelle workload in de cloud te verwerken, en hoe deze samenwerkt met [Azure Storage](../storage/common/storage-introduction.md) voor het faseren en ophalen van bestanden. U maakt kennis met een gangbare werkstroom voor Batch-toepassingen en krijgt hier ook elementair inzicht in de belangrijkste onderdelen van Batch, zoals jobs, taken, pools en rekenknooppunten.
 
 ![Werkstroom van de Batch-oplossing (basis)][11]<br/>
 
@@ -41,10 +41,10 @@ In dit artikel wordt ervan uitgegaan dat u praktische kennis hebt van C# en Visu
 ### <a name="accounts"></a>Accounts
 * **Azure-account**: als u nog geen Azure-abonnement hebt, [maakt u een gratis Azure-account][azure_free_account].
 * **Batch-account**: als u al een Azure-abonnement hebt, [maakt u een Azure Batch-account](batch-account-create-portal.md).
-* **Opslagaccount**: zie [Een opslagaccount maken](../storage/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md).
+* **Opslagaccount**: zie [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/common/storage-create-storage-account.md).
 
 > [!IMPORTANT]
-> Batch ondersteunt momenteel *alleen* het opslagaccounttype **Algemeen**, zoals beschreven in stap 5 [Een opslagaccount maken](../storage/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md).
+> Batch ondersteunt momenteel *alleen* het opslagaccounttype **Algemeen**, zoals beschreven in stap 5 [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/common/storage-create-storage-account.md).
 >
 >
 
@@ -128,7 +128,7 @@ Navigeer naar de bovenkant van de methode `MainAsync` in het bestand `Program.cs
 ![Containers maken in Azure Storage][1]
 <br/>
 
-Batch bevat ingebouwde ondersteuning voor interactie met Azure Storage. Containers in uw opslagaccount bevatten de bestanden die nodig zijn voor de taken die in uw Batch-account worden uitgevoerd. De containers bieden ook een plaats voor de opslag van de uitvoergegevens die de taken opleveren. Het eerste wat de clienttoepassing *DotNetTutorial* doet, is drie containers maken in [Azure Blob Storage](../storage/storage-introduction.md):
+Batch bevat ingebouwde ondersteuning voor interactie met Azure Storage. Containers in uw opslagaccount bevatten de bestanden die nodig zijn voor de taken die in uw Batch-account worden uitgevoerd. De containers bieden ook een plaats voor de opslag van de uitvoergegevens die de taken opleveren. Het eerste wat de clienttoepassing *DotNetTutorial* doet, is drie containers maken in [Azure Blob Storage](../storage/common/storage-introduction.md):
 
 * **application**: in deze container worden de toepassing die door de taken wordt uitgevoerd, evenals alle afhankelijkheden hiervan, zoals DLL-bestanden, opgeslagen.
 * **input**: taken downloaden de te verwerken gegevensbestanden uit de *invoer* container.
@@ -188,7 +188,7 @@ private static async Task CreateContainerIfNotExistAsync(
 Zodra de containers zijn gemaakt, kan de toepassing nu de bestanden uploaden die door de taken worden gebruikt.
 
 > [!TIP]
-> [How to use Blob Storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md) (Blob Storage gebruiken met .NET) biedt een goed overzicht van hoe u met Azure Storage-containers en -blobs werkt. Wanneer u met Batch begint te werken, moet dat artikel hoog in uw leeslijst zijn vermeld.
+> [How to use Blob Storage from .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) (Blob Storage gebruiken met .NET) biedt een goed overzicht van hoe u met Azure Storage-containers en -blobs werkt. Wanneer u met Batch begint te werken, moet dat artikel hoog in uw leeslijst zijn vermeld.
 >
 >
 
@@ -286,7 +286,7 @@ Shared Access Signatures zijn tekenreeksen die, wanneer ze deel uitmaken van een
 * **Shared Access Signatures voor containers**: Nadat elke taak in het rekenknooppunt zijn werk heeft verricht, uploadt elke taak zijn uitvoerbestand naar de *uitvoer*container in Azure Storage. Hiertoe maakt TaskApplication gebruik van een Shared Access Signature voor containers die schrijftoegang biedt tot de container als deel van het pad wanneer TaskApplication het bestand uploadt. De Shared Access Signature voor containers wordt op een vergelijkbare manier verkregen als de Shared Access Signature voor blobs. In DotNetTutorial zult u zien dat de Help-methode `GetContainerSasUrl` [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] aanroept om dit te doen. Meer informatie over hoe TaskApplication de Shared Access Signature voor containers gebruikt, vindt u in 'Stap 6: taken controleren'.
 
 > [!TIP]
-> Bekijk de tweedelige reeks over Shared Access Signatures [Part 1: Understanding the shared access signature (SAS) model](../storage/storage-dotnet-shared-access-signature-part-1.md) (Deel 1: inzicht in het Shared Access Signature (SAS)-model) en [Part 2: Create and use a shared access signature (SAS) with Blob storage](../storage/storage-dotnet-shared-access-signature-part-2.md) (Deel 2: Een Shared Access Signature (SAS) maken en gebruiken met Blob Storage), voor meer informatie over het verstrekken van beveiligde toegang tot gegevens in uw opslagaccount.
+> Bekijk de tweedelige reeks over Shared Access Signatures [Part 1: Understanding the shared access signature (SAS) model](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (Deel 1: inzicht in het Shared Access Signature (SAS)-model) en [Part 2: Create and use a shared access signature (SAS) with Blob storage](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) (Deel 2: Een Shared Access Signature (SAS) maken en gebruiken met Blob Storage), voor meer informatie over het verstrekken van beveiligde toegang tot gegevens in uw opslagaccount.
 >
 >
 

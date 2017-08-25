@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: c344941c59c52d260999c29f448bb94df24fba1d
-ms.lasthandoff: 04/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
+ms.contentlocale: nl-nl
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="secure-your-key-vault"></a>Uw Key Vault beveiligen
@@ -197,7 +197,7 @@ De gedefinieerde aangepaste rol kan alleen worden toegewezen aan het abonnement 
 
 De aangepaste rol voor de ontwikkelaars/operators voor de machtiging 'implementeren/actie' kan worden toegewezen aan de resourcegroep. Op deze manier krijgen alleen de VM's die zijn gemaakt in de resourcegroep ContosoAppRG, de geheimen (SSL-certificaat en bootstrap-certificaat). Geen van de VM's die door een lid van het ontwikkelaars/operators-team worden gemaakt in een andere resourcegroep, kunnen deze geheimen ophalen, zelfs niet als de geheime URI's bekend zijn.
 
-In dit voorbeeld ziet u een eenvoudig scenario. In de praktijk zijn scenario's mogelijk ingewikkelder. Mogelijk moet u de machtigingen voor uw Key Vault aanpassen op basis van uw behoeften. In ons voorbeeld gaan we er bijvoorbeeld van uit dat het beveiligingsteam de sleutel en geheime verwijzingen (URI's en vingerafdrukken) levert waarnaar het ontwikkelaars/operators-team in hun toepassingen moet verwijzen. Daarom hoeven ze de ontwikkelaars/operators geen toegang te geven tot de gegevenslaag. Houd er ook rekening mee dat dit voorbeeld is gericht op het beveiligen van uw Key Vault. Het is ook belangrijk om uw [VM’s](https://azure.microsoft.com/services/virtual-machines/security/), [opslagaccounts](../storage/storage-security-guide.md) en andere Azure-resources te beveiligen.
+In dit voorbeeld ziet u een eenvoudig scenario. In de praktijk zijn scenario's mogelijk ingewikkelder. Mogelijk moet u de machtigingen voor uw Key Vault aanpassen op basis van uw behoeften. In ons voorbeeld gaan we er bijvoorbeeld van uit dat het beveiligingsteam de sleutel en geheime verwijzingen (URI's en vingerafdrukken) levert waarnaar het ontwikkelaars/operators-team in hun toepassingen moet verwijzen. Daarom hoeven ze de ontwikkelaars/operators geen toegang te geven tot de gegevenslaag. Houd er ook rekening mee dat dit voorbeeld is gericht op het beveiligen van uw Key Vault. Het is ook belangrijk om uw [VM’s](https://azure.microsoft.com/services/virtual-machines/security/), [opslagaccounts](../storage/common/storage-security-guide.md) en andere Azure-resources te beveiligen.
 
 > [!NOTE]
 > Opmerking: Dit voorbeeld toont hoe toegang tot de Key Vault wordt vergrendeld tijdens de productie. De ontwikkelaars moeten hun eigen abonnement of resourcegroep hebben waarin ze volledige machtigingen hebben voor het beheren van hun kluizen, VM's en het opslagaccount waarin ze de toepassing ontwikkelen.

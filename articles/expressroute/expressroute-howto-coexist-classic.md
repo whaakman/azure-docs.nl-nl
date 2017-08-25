@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: charwen
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 594dee64f49e83949403fc85903ec66f9cf0d996
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8dafdf8183e2a30773274c2433fbcb4346727996
+ms.contentlocale: nl-nl
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Gelijktijdige ExpressRoute- en site-to-site-verbindingen configureren (klassiek)
@@ -54,6 +54,11 @@ De mogelijkheid om site-naar-site-VPN en ExpressRoute te configureren heeft vers
 ## <a name="configuration-designs"></a>Configuratie-ontwerpen
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Een site-naar-site-VPN configureren als een failoverpad voor ExpressRoute
 U kunt een site-naar-site-VPN-verbinding configureren als een back-up voor ExpressRoute. Dit geldt alleen voor virtuele netwerken die zijn gekoppeld aan het pad voor persoonlijke Azure-peering. Er is geen op VPN gebaseerde failoveroplossing voor services die toegankelijk zijn via openbare Azure- en Microsoft-peerings. Het ExpressRoute-circuit is altijd de primaire koppeling. Gegevens worden alleen via het site-naar-site-VPN-pad geleid als het ExpressRoute-circuit niet beschikbaar is. 
+
+> [!NOTE]
+> Hoewel een ExpressRoute-circuit de voorkeur heeft boven site-naar-site-VPN wanneer beide routes hetzelfde zijn, gebruikt Azure de langste voorvoegselovereenkomst om de route naar de bestemming van het pakket te kiezen.
+> 
+> 
 
 ![Naast elkaar gebruiken](media/expressroute-howto-coexist-classic/scenario1.jpg)
 

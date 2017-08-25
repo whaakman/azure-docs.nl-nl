@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 6f31b082e47e46f023f593a5fe14ef6027b0d17d
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 77042219cbe698a33ab9447aa952586772897241
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Zelfstudie: Een data factory maken met behulp van Visual Studio
@@ -88,7 +88,7 @@ Met de gekoppelde service HDInsight op aanvraag wordt het HDInsight-cluster auto
 1. Klik in Solution Explorer met de rechtermuisknop op **Linked Services**. Houd de muisaanwijzer op **Add** en klik op **New Item**.      
 2. Selecteer in het dialoogvenster **Add New Item** de optie **Azure Storage Linked Service** in de lijst en klik op **Add**.
     ![Gekoppelde Azure Storage-service](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
-3. Vervang `<accountname>` en `<accountkey>` door de naam van uw Azure-opslagaccount en de bijbehorende sleutel. Raadpleeg de informatie over het weergeven, kopiëren en opnieuw genereren van toegangssleutels voor opslag in [Uw opslagaccount beheren](../storage/storage-create-storage-account.md#manage-your-storage-account) als u meer wilt weten over het verkrijgen van een toegangssleutel voor opslag.
+3. Vervang `<accountname>` en `<accountkey>` door de naam van uw Azure-opslagaccount en de bijbehorende sleutel. Raadpleeg de informatie over het weergeven, kopiëren en opnieuw genereren van toegangssleutels voor opslag in [Uw opslagaccount beheren](../storage/common/storage-create-storage-account.md#manage-your-storage-account) als u meer wilt weten over het verkrijgen van een toegangssleutel voor opslag.
     ![Gekoppelde Azure Storage-service](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. Sla het bestand **AzureStorageLinkedService1.json** op.
 

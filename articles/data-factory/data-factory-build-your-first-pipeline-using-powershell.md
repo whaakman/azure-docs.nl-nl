@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: eea78b6616248aaf24053081ec99701c187111cc
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 40a63339be90d0c5d972605c7f6fa029ca1e2ba4
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Zelfstudie: uw eerste Azure-gegevensfactory bouwen met Azure PowerShell
@@ -114,7 +114,7 @@ In deze stap koppelt u uw Azure Storage-account aan uw gegevensfactory. U gebrui
         }
     }
     ```
-    Vervang de **accountnaam** door de naam van uw Azure-opslagaccount en vervang de **accountsleutel** door de toegangssleutel van het Azure-opslagaccount. Raadpleeg de informatie over het weergeven, kopiëren en opnieuw genereren van toegangssleutels voor opslag in [Uw opslagaccount beheren](../storage/storage-create-storage-account.md#manage-your-storage-account) als u meer wilt weten over het verkrijgen van een toegangssleutel voor opslag.
+    Vervang de **accountnaam** door de naam van uw Azure-opslagaccount en vervang de **accountsleutel** door de toegangssleutel van het Azure-opslagaccount. Raadpleeg de informatie over het weergeven, kopiëren en opnieuw genereren van toegangssleutels voor opslag in [Uw opslagaccount beheren](../storage/common/storage-create-storage-account.md#manage-your-storage-account) als u meer wilt weten over het verkrijgen van een toegangssleutel voor opslag.
 2. Schakel in Azure PowerShell over naar de map ADFGetStarted.
 3. U kunt de cmdlet **New-AzureRmDataFactoryLinkedService** gebruiken om een gekoppelde service te maken. Voor deze cmdlet en andere Data Factory-cmdlets die u in deze zelfstudie gebruikt, moet u waarden doorgeven voor de parameters *ResourceGroupName* en *DataFactoryName*. U kunt ook **Get-AzureRmDataFactory** gebruiken om een **DataFactory**-object te verkrijgen. U geeft daarmee het object door zonder dat u de *ResourceGroupName* en de *DataFactoryName* hoeft op te geven telkens wanneer u een cmdlet uitvoert. Voer de volgende opdracht om de uitvoer van de cmdlet **Get-AzureRmDataFactory** toe te wijzen aan een **$df**-variabele.
 

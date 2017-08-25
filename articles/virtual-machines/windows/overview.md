@@ -17,10 +17,10 @@ ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 4d8e3f1252bc71cbf4bbbd30a16897bf4a0444d7
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 52113e1240b81299ae3338f35b2934891017adbf
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Overzicht van virtuele Windows-machines in Azure
@@ -73,7 +73,7 @@ Azure rekent een [uurprijs](https://azure.microsoft.com/pricing/details/virtual-
 Uw abonnement heeft een standaard [quotumlimiet](../../azure-subscription-service-limits.md) ingebouwd die de implementatie van veel VM’s voor uw project kan beïnvloeden. De huidige limiet per abonnement is 20 VM's per regio. Limieten kunnen worden verhoogd door een ondersteuningsticket in te dienen met een aanvraag voor een verhoging.
 
 ### <a name="operating-system-disks-and-images"></a>Schijven en installatiekopieën voor een besturingssysteem
-Virtuele machines maken gebruik van [virtuele harde schijven (VHD's)](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor de opslag van het besturingssysteem (OS) en de gegevens. VHD's worden ook gebruikt voor de installatiekopieën waarmee u een besturingssysteem kunt installeren. 
+Virtuele machines maken gebruik van [virtuele harde schijven (VHD's)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor de opslag van het besturingssysteem (OS) en de gegevens. VHD's worden ook gebruikt voor de installatiekopieën waarmee u een besturingssysteem kunt installeren. 
 
 Azure biedt veel [marketplace-installatiekopieën](https://azure.microsoft.com/marketplace/virtual-machines/) voor gebruik met verschillende versies en typen van de Windows Server-besturingssystemen. Marketplace-installatiekopieën worden aangeduid met uitgever, aanbieding, SKU en versie van de installatiekopie (de versie wordt meestal gespecificeerd als meest recente). 
 
@@ -102,7 +102,7 @@ De resources in deze tabel worden gebruikt door de VM en moeten bestaan of worde
 | Resource | Vereist | Beschrijving |
 | --- | --- | --- |
 | [Resourcegroep](../../azure-resource-manager/resource-group-overview.md) |Ja |De VM moet zijn opgenomen in een resourcegroep. |
-| [Opslagaccount](../../storage/storage-create-storage-account.md) |Ja |De VM heeft het opslagaccount nodig voor het opslaan van de virtuele harde schijven. |
+| [Opslagaccount](../../storage/common/storage-create-storage-account.md) |Ja |De VM heeft het opslagaccount nodig voor het opslaan van de virtuele harde schijven. |
 | [Virtueel netwerk](../../virtual-network/virtual-networks-overview.md) |Ja |De VM moet lid zijn van een virtueel netwerk. |
 | [Openbaar IP-adres](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Nee |Aan de VM kan een openbaar IP-adres worden toegewezen voor externe toegang. |
 | [Netwerkinterface](../../virtual-network/virtual-network-network-interface.md) |Ja |De netwerkinterface van de VM moet in het netwerk communiceren. |

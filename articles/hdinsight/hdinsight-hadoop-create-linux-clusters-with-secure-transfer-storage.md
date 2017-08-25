@@ -14,27 +14,24 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/07/2017
+ms.date: 08/21/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 5e9cae224e5a36e1529c962ad8cbab77176dda8c
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 370b2f081930fe88527436a1a127309aed6681f0
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Hadoop-cluster maken met opslagaccounts voor veilige overdracht in Azure HDInsight
 
-De functie [Veilige overdracht vereist](../storage/storage-require-secure-transfer.md) verhoogt de beveiliging van uw Azure-opslagaccount door alle aanvragen naar uw account af te dwingen via een beveiligde verbinding. Deze functie en het wasbs-schema worden alleen ondersteund door HDInsight-clusterversie 3.6 of nieuwer. 
-
->[!NOTE] 
-> Het maken van clusters met opslagaccounts voor veilige overdracht met .NET SDK wordt momenteel niet ondersteund. De tijdelijke oplossing is het instellen van 'wasbs' in de eigenschap 'fs.defaultFS' in de configuratie van de core-site als onderdeel van ClusterCreateParametersExtended.
+De functie [Veilige overdracht vereist](../storage/common/storage-require-secure-transfer.md) verhoogt de beveiliging van uw Azure-opslagaccount door alle aanvragen naar uw account af te dwingen via een beveiligde verbinding. Deze functie en het wasbs-schema worden alleen ondersteund door HDInsight-clusterversie 3.6 of nieuwer. 
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u met deze zelfstudie begint, moet u over de volgende onderdelen beschikken:
 
 * **Azure-abonnement**: voor het maken van een gratis proefaccount van één maand, bezoekt u [azure.microsoft.com/free](https://azure.microsoft.com/free).
-* **Een Azure-opslagaccount met veilige overdracht**. Zie [Een opslagaccount maken](../storage/storage-create-storage-account.md#create-a-storage-account) en [Veilige overdracht vereisen](../storage/storage-require-secure-transfer.md) voor instructies.
+* **Een Azure-opslagaccount met veilige overdracht**. Zie [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) en [Veilige overdracht vereisen](../storage/common/storage-require-secure-transfer.md) voor instructies.
 * **Een Blob-container in het opslagaccount**. 
 ## <a name="create-cluster"></a>Cluster maken
 

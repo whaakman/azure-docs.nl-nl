@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: f6bcb18a04be9a802e14b960a1e2d04a71a691cc
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b190ad54147a4d548806047b2257069cac4475cd
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Een Azure Media Services-account maken met Azure Portal
@@ -63,7 +63,7 @@ In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.
    4. Selecteer in **Locatie** de geografische regio die wordt gebruikt om de media en metagegevensrecords voor uw Media Services-account op te slaan. Deze regio wordt gebruikt om uw media te verwerken en te streamen. Alleen de beschikbare Media Services-regio's worden in de vervolgkeuzelijst weergegeven. 
    5. Selecteer bij **Opslagaccount** een opslagaccount om Blob Storage van de media-inhoud vanaf uw Media Services-account te leveren. U kunt een bestaand opslagaccount selecteren in dezelfde geografische regio als uw Media Services-account of u kunt een opslagaccount maken. Een nieuw opslagaccount wordt in dezelfde regio gemaakt. De regels voor opslagaccountnamen zijn hetzelfde als voor Media Services-accounts.
       
-       Klik [hier](../storage/storage-introduction.md) voor meer informatie over opslag.
+       Klik [hier](../storage/common/storage-introduction.md) voor meer informatie over opslag.
    6. Selecteer **Vastmaken aan dashboard** om de voortgang van de implementatie van het account te bekijken.
 4. Klik op **Maken** onder in het formulier.
    

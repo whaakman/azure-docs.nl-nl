@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: d32d91f7bbfcea61caba6ccc3033929d307f14be
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 348e154f8398b5e60ad5a698cd319fa381de2fa5
+ms.contentlocale: nl-nl
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Een Windows-app op elk apparaat uitvoeren met Azure RemoteApp
@@ -88,7 +88,7 @@ Het eerste deel doet u als beheerder. Vervolgens hebben we een aantal stappen vo
 1. Publiceer eerst de opdrachtregelinterface (cmd.exe). Op het tabblad **Publiceren** kiest u **cmd** en klikt u op **Publiceren > Programma publiceren met behulp van pad**.
 2. Voer de naam in van de app en het pad. In deze zelfstudie gebruikt u 'Verkenner' als de naam en '%SYSTEMDRIVE%\windows\explorer.exe' als het pad.
    ![Publiceer het bestand cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. Nu gaat u een Azure-[opslagaccount](../storage/storage-create-storage-account.md) maken. We hebben die van ons 'accessstorage' genoemd, dus kies een naam die zinvol voor u is. (Om met Highlander te spreken: er kan slechts één 'accessstorage' zijn.) ![Ons Azure-opslagaccount](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
+3. Nu gaat u een Azure-[opslagaccount](../storage/common/storage-create-storage-account.md) maken. We hebben die van ons 'accessstorage' genoemd, dus kies een naam die zinvol voor u is. (Om met Highlander te spreken: er kan slechts één 'accessstorage' zijn.) ![Ons Azure-opslagaccount](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Ga terug naar uw dashboard zodat u het pad naar uw opslag kunt ophalen (eindpuntlocatie). U gaat dit straks gebruiken, dus kopieer het ergens.
    ![Het pad van het opslagaccount](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. Nadat het opslagaccount is gemaakt, hebt u de primaire toegangssleutel nodig. Klik op **Toegangssleutels beheren** en kopieer de primaire toegangssleutel.

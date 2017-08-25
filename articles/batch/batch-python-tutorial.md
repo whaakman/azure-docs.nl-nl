@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 8de3df11a59178b782d50b7662aa5d8cab11a260
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Aan de slag met de Batch-SDK voor Python
@@ -32,7 +31,7 @@ ms.lasthandoff: 07/06/2017
 >
 >
 
-Leer de basisbeginselen van [Azure Batch][azure_batch] en de [Batch Python][py_azure_sdk]-client bij de toelichting van een kleine Batch-toepassing die in Python is geschreven. U ontdekt hier hoe twee scripts gebruikmaken van de Batch-service om een parallelle workload op virtuele Linux-machines in de cloud te verwerken, en hoe deze scripts met [Azure Storage](../storage/storage-introduction.md) communiceren voor het faseren en ophalen van bestanden. U maakt kennis met een gangbare werkstroom voor Batch-toepassingen en krijgt hier ook elementair inzicht in de belangrijkste onderdelen van Batch, zoals jobs, taken, pools en rekenknooppunten.
+Leer de basisbeginselen van [Azure Batch][azure_batch] en de [Batch Python][py_azure_sdk]-client bij de toelichting van een kleine Batch-toepassing die in Python is geschreven. U ontdekt hier hoe twee scripts gebruikmaken van de Batch-service om een parallelle workload op virtuele Linux-machines in de cloud te verwerken, en hoe deze scripts met [Azure Storage](../storage/common/storage-introduction.md) communiceren voor het faseren en ophalen van bestanden. U maakt kennis met een gangbare werkstroom voor Batch-toepassingen en krijgt hier ook elementair inzicht in de belangrijkste onderdelen van Batch, zoals jobs, taken, pools en rekenknooppunten.
 
 ![Werkstroom van de Batch-oplossing (basis)][11]<br/>
 
@@ -42,7 +41,7 @@ In dit artikel wordt ervan uitgegaan dat u praktische kennis hebt van Python en 
 ### <a name="accounts"></a>Accounts
 * **Azure-account**: als u nog geen Azure-abonnement hebt, [maakt u een gratis Azure-account][azure_free_account].
 * **Batch-account**: als u al een Azure-abonnement hebt, [maakt u een Azure Batch-account](batch-account-create-portal.md).
-* **Opslagaccount**: zie [Een opslagaccount maken](../storage/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/storage-create-storage-account.md).
+* **Opslagaccount**: zie [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/common/storage-create-storage-account.md).
 
 ### <a name="code-sample"></a>Codevoorbeeld
 Het Python-[codevoorbeeld][github_article_samples] in de zelfstudie is een van de vele Batch-codevoorbeelden die beschikbaar zijn in de opslagplaats [azure-batch-samples][github_samples] in GitHub. U kunt alle voorbeelden downloaden door te klikken op **Clone or download > Download ZIP** (Klonen of downloaden > ZIP downloaden) op de introductiepagina van de opslagplaats of door te klikken op de koppeling van de directe download [azure batch-samples-master.zip][github_samples_zip]. Nadat u de inhoud van het ZIP-bestand hebt uitgepakt, vindt u de twee scripts voor deze zelfstudie in de map `article_samples`:
@@ -153,7 +152,7 @@ if __name__ == '__main__':
 ![Containers maken in Azure Storage][1]
 <br/>
 
-Batch bevat ingebouwde ondersteuning voor interactie met Azure Storage. Containers in uw opslagaccount bevatten de bestanden die nodig zijn voor de taken die in uw Batch-account worden uitgevoerd. De containers bieden ook een plaats voor de opslag van de uitvoergegevens die de taken opleveren. Het eerste wat het script *python_tutorial_client.py* doet, is drie containers in [Azure Blob Storage](../storage/storage-introduction.md#blob-storage) maken:
+Batch bevat ingebouwde ondersteuning voor interactie met Azure Storage. Containers in uw opslagaccount bevatten de bestanden die nodig zijn voor de taken die in uw Batch-account worden uitgevoerd. De containers bieden ook een plaats voor de opslag van de uitvoergegevens die de taken opleveren. Het eerste wat het script *python_tutorial_client.py* doet, is drie containers in [Azure Blob Storage](../storage/common/storage-introduction.md#blob-storage) maken:
 
 * **application**: deze container slaat het Python-script op dat door de taken wordt uitgevoerd, *python_tutorial_task.py*.
 * **input**: taken downloaden de te verwerken gegevensbestanden uit de *invoer*container.
@@ -183,7 +182,7 @@ blob_client.create_container(OUTPUT_CONTAINER_NAME, fail_on_exist=False)
 Zodra de containers zijn gemaakt, kan de toepassing nu de bestanden uploaden die door de taken worden gebruikt.
 
 > [!TIP]
-> [How to use Azure Blob storage from Python](../storage/storage-python-how-to-use-blob-storage.md) (Azure Blob Storage gebruiken met Python) biedt een uitstekend overzicht van hoe u met Azure Storage-containers en -blobs werkt. Wanneer u met Batch begint te werken, moet dat artikel hoog in uw leeslijst zijn vermeld.
+> [How to use Azure Blob storage from Python](../storage/blobs/storage-python-how-to-use-blob-storage.md) (Azure Blob Storage gebruiken met Python) biedt een uitstekend overzicht van hoe u met Azure Storage-containers en -blobs werkt. Wanneer u met Batch begint te werken, moet dat artikel hoog in uw leeslijst zijn vermeld.
 >
 >
 
@@ -277,7 +276,7 @@ Shared Access Signatures zijn tekenreeksen die beveiligde toegang bieden tot con
 * **Shared Access Signatures voor containers**: Nadat elke taak in het rekenknooppunt zijn werk heeft verricht, uploadt elke taak zijn uitvoerbestand naar de *uitvoer*container in Azure Storage. Hiervoor maakt *python_tutorial_task.py* gebruik van een Shared Access Signature voor containers die schrijftoegang tot de container biedt. De functie `get_container_sas_token` in *python_tutorial_client.py* verkrijgt de Shared Access Signature van de container, die vervolgens als een opdrachtregelargument wordt doorgegeven aan de taken. In stap 5, [Taken toevoegen aan job](#step-5-add-tasks-to-job), wordt het gebruik van de Shared Access Signature voor containers besproken.
 
 > [!TIP]
-> Bekijk de tweedelige reeks over Shared Access Signatures [Part 1: Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md) (Deel 1: inzicht in het Shared Access Signature (SAS)-model) en [Part 2: Create and use a SAS with the Blob service](../storage/storage-dotnet-shared-access-signature-part-2.md) (Deel 2: Een Shared Access Signature (SAS) maken en gebruiken met de Blob-service), voor meer informatie over het verstrekken van beveiligde toegang tot gegevens in uw Storage-account.
+> Bekijk de tweedelige reeks over Shared Access Signatures [Part 1: Understanding the SAS model](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (Deel 1: inzicht in het Shared Access Signature (SAS)-model) en [Part 2: Create and use a SAS with the Blob service](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) (Deel 2: Een Shared Access Signature (SAS) maken en gebruiken met de Blob-service), voor meer informatie over het verstrekken van beveiligde toegang tot gegevens in uw Storage-account.
 >
 >
 

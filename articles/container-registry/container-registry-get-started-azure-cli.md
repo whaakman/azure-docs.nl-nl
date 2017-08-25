@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 99bb3db7cc80e8426e1dca14bc3d733ee6c7342c
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2875f4089231ed12a0312b2c2e077938440365c6
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Een privé-Docker-containerregister maken met de Azure CLI 2.0
@@ -35,7 +35,7 @@ Gebruik opdrachten in de [Azure-CLI 2.0](https://github.com/Azure/azure-cli) om 
 ## <a name="prerequisites"></a>Vereisten
 * **Azure-CLI 2.0**: zie de [installatie-instructies](/cli/azure/install-azure-cli) om de CLI 2.0 te installeren en ermee aan de slag te gaan. Meld u aan bij uw Azure-abonnement door `az login` uit te voeren. Zie [Aan de slag met de CLI 2.0](/cli/azure/get-started-with-azure-cli) voor meer informatie.
 * **Resourcegroep**: maak eerst een [resourcegroep](../azure-resource-manager/resource-group-overview.md#resource-groups) voordat u een containerregister maakt of gebruik een bestaande resourcegroep. De resourcegroep moet op een locatie staan waar de Container Registry-service [beschikbaar](https://azure.microsoft.com/regions/services/) is. Zie [de CLI 2.0-verwijzing](/cli/azure/group) om een resourcegroep te maken met de CLI 2.0.
-* **Opslagaccount** (optioneel): maak een standaard-Azure-[opslagaccount](../storage/storage-introduction.md) om een back-up van het containerregister te maken op dezelfde locatie. Als u geen opslagaccount opgeeft bij het maken van een register met `az acr create`, maakt de opdracht er een. Zie [de CLI 2.0-verwijzing](/cli/azure/storage/account) om een opslagaccount te maken met de CLI 2.0. Premium-opslag wordt momenteel niet ondersteund.
+* **Opslagaccount** (optioneel): maak een standaard-Azure-[opslagaccount](../storage/common/storage-introduction.md) om een back-up van het containerregister te maken op dezelfde locatie. Als u geen opslagaccount opgeeft bij het maken van een register met `az acr create`, maakt de opdracht er een. Zie [de CLI 2.0-verwijzing](/cli/azure/storage/account) om een opslagaccount te maken met de CLI 2.0. Premium-opslag wordt momenteel niet ondersteund.
 * **Service-principal** (optioneel): wanneer u met de CLI een register maakt, is dit standaard niet ingesteld voor toegang. U kunt een bestaande service-principal van Azure Active Directory aan een register toewijzen (of een nieuwe maken en deze toewijzen) of het beheerdersaccount van het register inschakelen. Zie de gedeelten verderop in dit artikel. Bekijk voor meer informatie over registertoegang [Verifiëren met het containerregister](container-registry-authentication.md).
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken

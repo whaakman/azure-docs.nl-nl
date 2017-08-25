@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 08e62dba35a72a4c814b07c93304247227b1635c
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6663774497aa18aa98e7e8c5aed6183c599b2172
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Zelfstudie: REST-API gebruiken voor het maken van een Azure Data Factory-pijplijn 
@@ -100,7 +99,7 @@ Maak de volgende JSON-bestanden in de map waar curl.exe staat.
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Vervang **accountname** en **accountkey** door de naam en sleutel van uw Azure Storage-account. Zie [Toegangssleutels voor opslag weergeven, kopiëren en opnieuw genereren](../storage/storage-create-storage-account.md#manage-your-storage-access-keys) voor meer informatie over het verkrijgen van uw toegangssleutel voor opslag.
+> Vervang **accountname** en **accountkey** door de naam en sleutel van uw Azure Storage-account. Zie [Toegangssleutels voor opslag weergeven, kopiëren en opnieuw genereren](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys) voor meer informatie over het verkrijgen van uw toegangssleutel voor opslag.
 
 ```JSON
 {
