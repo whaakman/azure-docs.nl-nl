@@ -4,7 +4,7 @@ description: In deze zelfstudie wordt u begeleid bij het maken van een kanaal da
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 6f4acd95-cc64-4dd9-9e2d-8734707de326
 ms.service: media-services

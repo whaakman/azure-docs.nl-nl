@@ -4,7 +4,7 @@ description: In deze zelfstudie leert u een eenvoudige toepassing voor de leveri
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
 ms.service: media-services
