@@ -1,16 +1,21 @@
-# [Overzicht](../azure-portal-overview.md)
+# Overzicht
+## [Over Azure Portal](../azure-portal-overview.md)
+# Zelfstudies
+## [DevOps met Azure Portal](tutorial-azureportal-devops.md)
+# Concepten
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-
-# Aan de slag
-## [Implementatie met de Resource Manager-sjabloon](../azure-resource-manager/resource-group-template-deploy.md)
-
-# Procedures
+## [Sneltoetsen](azure-portal-keyboard-shortcuts.md)
+## [Ondersteunde browsers en apparaten](../azure-preview-portal-supported-browsers-devices.md)
+# Handleidingen
 ## Implementeren
 ### [Azure Resource Manager-sjablonen maken](../azure-resource-manager/resource-group-authoring-templates.md)
-
+### [Implementatie met de Resource Manager-sjabloon](../azure-resource-manager/resource-group-template-deploy.md)
+### [Azure-dashboards maken en delen](azure-portal-dashboards.md)
 ## Beheren
-### [Preview Portal gebruiken om resources te beheren](../azure-resource-manager/resource-group-portal.md)
-### [Toegang beheren met RBAC](../active-directory/role-based-access-control-configure.md)
+### [Hoog contrast inschakelen of het thema wijzigen](azure-portal-change-theme-high-contrast.md)
+### [De portal gebruiken om resources te beheren](../azure-resource-manager/resource-group-portal.md)
+### [Toegang beheren met op rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-configure.md)
+### [Dashboards delen met op rollen gebaseerd toegangsbeheer](azure-portal-dashboard-share-access.md)
 ### [Tags gebruiken om resources te organiseren](../azure-resource-manager/resource-group-using-tags.md)
 ### [Uw resources schalen](../monitoring-and-diagnostics/insights-how-to-scale.md)
 ### [Een nieuwe Azure-service-principal maken](../azure-resource-manager/resource-group-create-service-principal-portal.md)

@@ -18,7 +18,9 @@
 # Voorbeelden
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
-## [Azure-CLI](samples-cli.md)
+## [Service Fabric-CLI](samples-cli.md)
+### [Voorbeeld implementeren](scripts/cli-deploy-application.md)
+### [Voorbeeld verwijderen](scripts/cli-remove-application.md)
 # Concepten
 ## [Uitleg over microservices](service-fabric-overview-microservices.md)
 ## [Grote afbeelding](service-fabric-content-roadmap.md)
@@ -221,7 +223,7 @@
 ### Toepassingen implementeren of verwijderen
 #### [Toepassingen implementeren in een lokaal cluster](service-fabric-get-started-with-a-local-cluster.md)
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
-#### [Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
+#### [Service Fabric-CLI](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient-API's](service-fabric-deploy-remove-applications-fabricclient.md)
 
@@ -256,6 +258,7 @@
 #### [Upgraden](service-fabric-cluster-upgrade.md)
 #### [Toegangsbeheer instellen](service-fabric-cluster-security-roles.md)
 #### [Configureren](service-fabric-cluster-fabric-settings.md)
+#### [Een poort in de load balancer openen](create-load-balancer-rule.md)
 #### [Clustercertificaten beheren](service-fabric-cluster-security-update-certs-azure.md)
 #### [Verwijderen](service-fabric-cluster-delete.md)
 
@@ -275,8 +278,7 @@
 ### [Een cluster visualiseren](service-fabric-visualizing-your-cluster.md)
 ### [Verbinding maken met een beveiligde cluster](service-fabric-connect-to-secure-cluster.md)
 
-### [Een cluster beheren met XPlat CLI](service-fabric-azure-cli.md)
-### [Een cluster beheren met Azure CLI 2.0-opdrachten](service-fabric-azure-cli-2-0.md)
+### [Een cluster beheren met behulp van de Service Fabric-CLI](service-fabric-cli.md)
 ### [Patch uitvoeren voor clusterknooppunten](service-fabric-patch-orchestration-application.md)
 
 ### Clusterbronnen beheren en organiseren

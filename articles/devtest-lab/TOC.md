@@ -42,8 +42,11 @@
 ## Herbruikbare sjablonen beheren
 ### [Een Git-opslagplaats voor artefacten en sjablonen toevoegen](devtest-lab-add-artifact-repo.md)
 ### [Een Resource Manager-sjabloon gebruiken](devtest-lab-use-resource-manager-template.md)
-### [Aangepaste artefacten maken](devtest-lab-artifact-author.md)
 ### [Formules beheren](devtest-lab-manage-formulas.md)
+
+## Artefacten beheren
+### [Aangepaste artefacten maken](devtest-lab-artifact-author.md)
+### [Problemen met artefacten vaststellen](devtest-lab-troubleshoot-artifact-failure.md)
 
 ## Virtuele netwerken beheren
 ### [Virtuele netwerken configureren](devtest-lab-configure-vnet.md)

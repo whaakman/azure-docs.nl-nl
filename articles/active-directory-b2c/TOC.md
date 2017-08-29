@@ -56,9 +56,12 @@
 ## [Aangepast beleid](active-directory-b2c-overview-custom.md)
 ## Handleidingen
 ### [Aan de slag](active-directory-b2c-get-started-custom.md)
-### OIDC-providers configureren
+### OIDC-/OAUTH2-providers configureren
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
+#### [Microsoft-account](active-directory-b2c-custom-setup-msa-idp.md)
+#### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
 ### SAML-providers configureren
+#### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### RESTful-API's integreren
 #### [Gebruikersinvoer valideren](active-directory-b2c-rest-api-validation-custom.md)
@@ -72,7 +75,7 @@
 #### [Logboeken verzamelen met Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Naslaginformatie
 ### [Releaseopmerkingen](active-directory-b2c-developer-notes-custom.md)
-
+### [Vertrouwensframework: definitie](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Woordenlijst

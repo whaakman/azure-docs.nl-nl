@@ -21,6 +21,7 @@
 #### [De gebruikersportal installeren](multi-factor-authentication-get-started-portal.md)
 #### [Geavanceerde VPN-configuraties](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Webservice voor mobiele apps](multi-factor-authentication-get-started-server-webservice.md)
+#### [Hoge beschikbaarheid configureren](mfa-server-high-availability.md)
 #### [Windows-verificatie](multi-factor-authentication-get-started-server-windows.md)
 #### [MFA-server upgraden](multi-factor-authentication-server-upgrade.md)
 #### [Upgraden van PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)

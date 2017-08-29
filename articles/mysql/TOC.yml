@@ -29,6 +29,8 @@
           href: connect-cpp.md
         - name: Aan de slag
           href: connect-go.md
+        - name: MySQL Workbench
+          href: connect-workbench.md
 - name: Zelfstudies
   items:
     - name: 1 - Een database ontwerpen

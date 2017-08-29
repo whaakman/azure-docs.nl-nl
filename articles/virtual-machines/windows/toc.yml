@@ -108,6 +108,10 @@
           href: csharp.md
         - name: 'Een sjabloon met C# gebruiken'
           href: csharp-template.md
+        - name: Een virtuele machine maken met Chef
+          href: chef-automation.md
+        - name: Java gebruiken
+          href: java.md
         - name: Python gebruiken
           href: python.md
         - name: Een sjabloon gebruiken

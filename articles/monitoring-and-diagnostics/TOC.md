@@ -64,6 +64,7 @@
 ## [Bronnen van bewakingsgegevens](monitoring-data-sources.md)
 ## [Overzicht van ondersteunde metrische gegevens](monitoring-supported-metrics.md)
 ## [Gebeurtenisschema in het activiteitenlogboek](monitoring-activity-log-schema.md)
+## [Ondersteunde services, categorieën en schema's voor diagnostische logboeken](monitoring-diagnostic-logs-schema.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
