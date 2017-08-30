@@ -57,14 +57,11 @@
 ### [DataFu gebruiken met Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [On-demand clusters](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Hadoop-taken indienen](hdinsight-submit-hadoop-jobs-programmatically.md)
-## R Server gebruiken
-### [Opslagopties](hdinsight-hadoop-r-server-storage.md)
-### [RStudio installeren](hdinsight-hadoop-r-server-install-r-studio.md)
-### [Contexten berekenen](hdinsight-hadoop-r-server-compute-contexts.md)
-### [ScaleR en SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Spark gebruiken voor in-memory verwerking
+### Aan de slag - Spark-ontwikkelaar
+#### [Een zelfstandige app maken](hdinsight-apache-spark-create-standalone-application.md)
+#### [Externe taken met Livy](hdinsight-apache-spark-livy-rest-interface.md) 
 ### [Met Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [Een zelfstandige app maken](hdinsight-apache-spark-create-standalone-application.md)
 ### [Apps maken met Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Apps maken met IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [Streaming-gebeurtenissen verwerken](hdinsight-apache-spark-eventhub-streaming.md)
@@ -78,9 +75,13 @@
 ### [Externe pakketten gebruiken met Jupyter-met behulp van magic-pakket voor cellen](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [Externe pakketten gebruiken met Jupyter-met behulp van scriptacties](hdinsight-apache-spark-python-package-installation.md)
 ### [Een lokaal Jupyter-notitieblok gebruiken](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-### [Externe taken met Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Externe foutenopsporing voor taken met IntelliJ via VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Bekende problemen](hdinsight-apache-spark-known-issues.md)
+## R Server gebruiken
+### [Opslagopties](hdinsight-hadoop-r-server-storage.md)
+### [RStudio installeren](hdinsight-hadoop-r-server-install-r-studio.md)
+### [Contexten berekenen](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR en SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## HBase gebruiken
 ### [Phoenix en SQLLine gebruiken](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Real-time tweets analyseren](hdinsight-hbase-analyze-twitter-sentiment.md)

@@ -7,17 +7,17 @@
 ## [Compatibele software van derden](active-directory-ds-compatible-software.md)
 
 # Aan de slag
-## Klassieke Azure-portal
-### [Taak 1: De beheergroep maken](active-directory-ds-getting-started-create-group.md)
-### [Taak 2: Een virtueel netwerk maken of selecteren](active-directory-ds-getting-started-vnet.md)
-### [Taak 3: Azure AD Domain Services inschakelen](active-directory-ds-getting-started-enableaadds.md)
-### [Taak 4: De DNS-instellingen voor het virtuele netwerk bijwerken](active-directory-ds-getting-started-update-dns.md)
-### [Taak 5: Wachtwoordsynchronisatie inschakelen](active-directory-ds-getting-started-password-sync.md)
 ## Azure Portal (Preview)
 ### [Taak 1: De basisinstellingen configureren](active-directory-ds-getting-started.md)
 ### [Taak 2: De netwerkinstellingen configureren](active-directory-ds-getting-started-network.md)
 ### [Taak 3: De beheergroep configureren en Azure AD Domain Services inschakelen](active-directory-ds-getting-started-admingroup.md)
 ### [Taak 4: De DNS-instellingen voor het virtuele netwerk bijwerken](active-directory-ds-getting-started-dns.md)
+### [Taak 5: Wachtwoordsynchronisatie inschakelen](active-directory-ds-getting-started-password-sync.md)
+## Klassieke Azure-portal (afgeschaft)
+### [Taak 1: De beheergroep maken](active-directory-ds-getting-started-create-group.md)
+### [Taak 2: Een virtueel netwerk maken of selecteren](active-directory-ds-getting-started-vnet.md)
+### [Taak 3: Azure AD Domain Services inschakelen](active-directory-ds-getting-started-enableaadds.md)
+### [Taak 4: De DNS-instellingen voor het virtuele netwerk bijwerken](active-directory-ds-getting-started-update-dns.md)
 ### [Taak 5: Wachtwoordsynchronisatie inschakelen](active-directory-ds-getting-started-password-sync.md)
 
 # Procedures

@@ -38,6 +38,8 @@
           href: storage-blob-storage-tiers.md
         - name: HA-apps ontwerpen met RA-GRS
           href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Reageren op gebeurtenissen
+          href: storage-blob-event-overview.md
         - name: Schaalbaarheids- en prestatiedoelen
           href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Controlelijst voor prestaties en schaalbaarheid
@@ -74,6 +76,8 @@
           href: storage-properties-metadata.md
         - name: De opslagemulator gebruiken
           href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Gebeurtenissen routeren naar een aangepast eindpunt
+          href: storage-blob-event-quickstart.md
         - name: Aangepaste domeinen
           href: storage-custom-domain-name.md
         - name: Blob-opslag doorzoeken met Azure Search

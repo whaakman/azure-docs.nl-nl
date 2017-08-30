@@ -44,7 +44,6 @@
 #### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
 #### [PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
 ### [Gebruikers uit andere directory's toevoegen (klassieke portal)](active-directory-create-users-external.md)
-### [Gebruikers verwijderen](active-directory-users-delete-user-azure-portal.md)
 ### [Gebruikersprofielen beheren](active-directory-users-profile-azure-portal.md)
 ### [Een wachtwoord opnieuw instellen](active-directory-users-reset-password-azure-portal.md)
 ### [Werkgegevens van gebruikers beheren](active-directory-users-work-info-azure-portal.md)
@@ -132,10 +131,14 @@
 
 ## Apparaten beheren
 ### [Inleiding](device-management-introduction.md)
+### [Azure Portal gebruiken](device-management-azure-portal.md)
 ### [Veelgestelde vragen](device-management-faq.md)
 ### Taken
+#### [Bij Azure AD ingeschreven Windows 10-apparaten configureren](device-management-azuread-registered-devices-windows10-setup.md)
+#### [In Azure AD gekoppelde apparaten configureren](device-management-azuread-joined-devices-setup.md)
 #### [Hybride, in Azure AD gekoppelde apparaten configureren](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [On-premises implementeren](active-directory-device-registration-on-premises-setup.md)
+#### [Koppelen aan Azure AD tijdens eerste sessie in Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Problemen oplossen
 #### [Hybride, in Azure AD gekoppelde Windows 10- en Windows Server 2016-apparaten](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Hybride, in Azure AD gekoppelde oudere Windows-apparaten](device-management-troubleshoot-hybrid-join-windows-legacy.md)
@@ -297,7 +300,6 @@
 #### [Aan de slag](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Aanbevolen procedures](active-directory-conditional-access-best-practices.md)
 #### [Technische naslaginformatie](active-directory-conditional-access-technical-reference.md)
-#### [Ondersteunde apps](active-directory-conditional-access-supported-apps.md)
 #### [Meer informatie over apparaatbeleidsregels](active-directory-conditional-access-device-policies.md)
 #### [Toegang tot verbonden apps instellen](active-directory-conditional-access-policy-connected-applications.md)
 #### [Herstel](active-directory-conditional-access-device-remediation.md)

@@ -140,6 +140,8 @@
 ## Controleren en problemen oplossen
 ### [Problemen met replicatie van Azure naar Azure](site-recovery-azure-to-azure-troubleshoot-errors.md)
 ### [Problemen met replicatie van on-premises naar Azure](site-recovery-vmware-to-azure-protection-troubleshoot.md)
+### [Installatieproblemen met de Mobility-service](site-recovery-vmware-to-azure-push-install-error-codes.md)
+### [Problemen met failover naar Azure](site-recovery-failover-to-azure-troubleshoot.md)
 ### [Verzamelen van logboeken en oplossen van on-premises problemen](site-recovery-monitoring-and-troubleshooting.md)
 
 # Naslaginformatie

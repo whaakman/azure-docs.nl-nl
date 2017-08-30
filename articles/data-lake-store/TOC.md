@@ -39,12 +39,14 @@
 ### [Richtlijnen voor het afstemmen van de prestaties van Storm in HDInsight en Azure Data Lake Store](data-lake-store-performance-tuning-storm.md)
 
 ## Integreren met Azure-services
+### Met HDInsight
+#### [Portal gebruiken](data-lake-store-hdinsight-hadoop-use-portal.md)
+#### [Met behulp van PowerShell (standaardopslag)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+#### [Met behulp van PowerShell (aanvullende opslag)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [Met behulp van Azure-sjabloon](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Toegang vanuit VM's in Azure VNET](data-lake-store-connectivity-from-vnets.md)
 ### [Gebruiken met Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [HDInsight met Data Lake Store - portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [HDInsight met Data Lake Store als standaardopslag - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-### [HDInsight met Data Lake Store als aanvullende opslag - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [HDInsight met Data Lake Store - Azure-sjabloon](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [Gebruiken met Azure Event Hubs](data-lake-store-archive-eventhub-capture.md)
 ### [Gebruiken met Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Gebruiken met Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Gebruiken met Power BI](data-lake-store-power-bi.md)

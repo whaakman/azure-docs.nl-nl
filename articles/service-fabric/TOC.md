@@ -19,8 +19,6 @@
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
 ## [Service Fabric-CLI](samples-cli.md)
-### [Voorbeeld implementeren](scripts/cli-deploy-application.md)
-### [Voorbeeld verwijderen](scripts/cli-remove-application.md)
 # Concepten
 ## [Uitleg over microservices](service-fabric-overview-microservices.md)
 ## [Grote afbeelding](service-fabric-content-roadmap.md)
@@ -115,11 +113,14 @@
 #### [Beperking](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Servicebeweging](service-fabric-cluster-resource-manager-movement-cost.md)
 
+## [Integreren met API Management](service-fabric-api-management-overview.md)
+
 ## Bewaken en diagnoses uitvoeren
 ### [Overzicht](service-fabric-diagnostics-overview.md)
 ### [Statusmodel](service-fabric-health-introduction.md)
 ### [Diagnose in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnose in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+### [Prestatiemeteritems voor externe communicatie Reliable Service](service-fabric-reliable-serviceremoting-diagnostics.md)
 
 # Handleidingen
 ## De ontwikkelomgeving instellen
@@ -128,6 +129,7 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 
 ## Een toepassing bouwen
+### [Uw eerste C#-app in Visual Studio maken](service-fabric-create-your-first-application-in-visual-studio.md)
 ### Een service bouwen die door een gast kan worden uitgevoerd
 #### [Een Node.js-toepassing in Windows hosten](quickstart-guest-app.md)
 #### [Een toepassing implementeren die door een gast kan worden uitgevoerd](service-fabric-deploy-existing-app.md)
@@ -208,9 +210,7 @@
 ### [Fouten opsporen in een Java-service in Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Lokaal bewaken en diagnoses uitvoeren](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## Integreren met API Management
-### [Overzicht](service-fabric-api-management-overview.md)
-### [Snel starten](service-fabric-api-management-quick-start.md)
+## [API Management en Service Fabric implementeren in Azure](service-fabric-api-management-quick-start.md)
 
 ## Migreren uit Cloud Services
 ### [Cloud Services vergelijken met Service Fabric](service-fabric-cloud-services-migration-differences.md)

@@ -46,6 +46,7 @@
 ## [Tokens configureren](active-directory-b2c-token-session-sso.md)
 ## [MFA inschakelen](active-directory-b2c-reference-mfa.md)
 ## [Aangepaste kenmerken gebruiken](active-directory-b2c-reference-custom-attr.md)
+## [Wachtwoord aanpassen](active-directory-b2c-reference-password-complexity.md)
 ## [De gebruikersinterface aanpassen](active-directory-b2c-reference-ui-customization.md)
 ### [Hulpprogramma voor aanpassing](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Taal aanpassen](active-directory-b2c-reference-language-customization.md)
@@ -71,6 +72,7 @@
 #### [Aangepaste kenmerken](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Gebruikersinterface aanpassen](active-directory-b2c-ui-customization-custom.md)
 #### [Tokens aanpassen](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
+#### [Wachtwoord aanpassen](active-directory-b2c-reference-password-complexity-custom.md)
 ### Problemen oplossen
 #### [Logboeken verzamelen met Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Naslaginformatie
