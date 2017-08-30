@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met Azure Data Lake Store met de REST-API | Microsoft Docs
-description: WebHDFS REST-API&quot;s gebruiken om bewerkingen uit te voeren in Data Lake Store
+description: WebHDFS REST-API's gebruiken om bewerkingen uit te voeren in Data Lake Store
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: dc2c8f58e0a2faf1b00f4903148328a5141a8637
 ms.contentlocale: nl-nl
 ms.lasthandoff: 06/07/2017
-
 
 ---
 # <a name="get-started-with-azure-data-lake-store-using-rest-apis"></a>Aan de slag met Azure Data Lake Store met REST-API's
