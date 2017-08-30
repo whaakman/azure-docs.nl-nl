@@ -65,6 +65,10 @@
           href: sql-database-servers-databases.md
         - name: Servicelagen
           href: sql-database-service-tiers.md
+        - name: Bronlimieten
+          href: sql-database-resource-limits.md
+        - name: Individuele databases
+          href: sql-database-single-database-resources.md
         - name: Pools voor Elastic Database
           href: sql-database-elastic-pool.md
         - name: Connectiviteitsarchitectuur
@@ -75,8 +79,6 @@
           href: sql-database-what-is-a-dtu.md
         - name: DTU-benchmark
           href: sql-database-benchmark-overview.md
-        - name: Limieten
-          href: sql-database-resource-limits.md
         - name: PaaS of IaaS
           href: sql-database-paas-vs-sql-server-iaas.md
         - name: Controleren

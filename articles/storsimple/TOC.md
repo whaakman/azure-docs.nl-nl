@@ -162,7 +162,6 @@
 ##### [Ondersteuningspakket maken](storsimple-8000-create-manage-support-package.md)
 
 ### Migreren
-#### [Van 5000-7000 serie](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [Vanaf andere opslagapparaten](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Update
@@ -301,16 +300,17 @@
 ##### [Ondersteuningspakket maken](storsimple-create-manage-support-package.md)
 
 ### Migreren
-#### [Van 5000-7000 serie](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [Vanaf andere opslagapparaten](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Update
+#### [Update 5 (actueel) installeren](storsimple-install-update-5.md)
 #### [Update 4 installeren](storsimple-install-update-4.md)
 #### [Update 3 installeren](storsimple-install-update-3.md)
 #### [Uw apparaat bijwerken](storsimple-update-device.md)
 
 ## Releaseopmerkingen
-### [Update 4 - actueel](storsimple-update4-release-notes.md)
+### [Update 5 - actueel](storsimple-update5-release-notes.md)
+### [Update 4](storsimple-update4-release-notes.md)
 ### [Update 3](storsimple-update3-release-notes.md)
 ### [Update 2.2](storsimple-update21-release-notes.md)
 
