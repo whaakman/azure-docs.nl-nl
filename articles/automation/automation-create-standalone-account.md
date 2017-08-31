@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/14/2017
+ms.date: 08/18/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 97b863748dd726e19217e360645b8e6189c010b3
-ms.lasthandoff: 04/15/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 6eadfb0c3f91c1f2c7783d70604b45d5dc9912a3
+ms.contentlocale: nl-nl
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -31,15 +32,16 @@ Wanneer u in Azure Portal een Automation-account maakt, wordt automatisch het vo
 
 Dit maakt het proces voor u eenvoudiger zodat u sneller runbooks kunt maken en implementeren, ter ondersteuning van uw automatiseringsbehoeften.  
 
+## <a name="permissions-required-to-create-automation-account"></a>Machtigingen die zijn vereist om een Automation-account te maken
+Als u een Automation-account wilt maken of bijwerken, moet u de volgende specifieke bevoegdheden en machtigingen hebben om dit onderwerp te voltooien.   
+ 
+* Om een Automation-account te kunnen maken, moet uw AD-gebruikersaccount worden toegevoegd aan een rol die machtigingen heeft die equivalent zijn aan de rol Eigenaar voor Microsoft.Automation-resources. Dit is beschreven in het artikel [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md).  
+* Als de instelling App-registraties is ingesteld op **Ja**, kunnen gebruikers in uw Azure AD-tenant zonder beheerdersrechten [AD-toepassingen registreren](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions).  Als de app-registratie-instelling is ingesteld op **Nee**, moet de gebruiker die deze actie uitvoert een globale beheerder zijn in Azure AD. 
+
+Als u geen lid bent van het Active Directory-exemplaar van het abonnement voordat u wordt toegevoegd aan de rol van globale beheerder/medebeheerder van het abonnement, wordt u als gast toegevoegd aan Active Directory. In dat geval wordt de waarschuwing 'U bent niet gemachtigd om…' weergegeven op de blade **Automation-account toevoegen**. Gebruikers die zijn toegevoegd aan de rol van globale beheerder/medebeheerder, kunnen worden verwijderd uit het Active Directory-exemplaar van het abonnement en opnieuw worden toegevoegd, zodat ze een volledige gebruiker worden in Active Directory. U kunt deze situatie controleren door in het deelvenster **Azure Active Directory** van Azure Portal **Gebruikers en groepen** te selecteren. Selecteer vervolgens **Alle gebruikers**, de specifieke gebruiker en **Profiel**. De waarde van het kenmerk **Gebruikerstype** onder het gebruikersprofiel mag niet gelijk zijn aan **Gast**.
+
 ## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Nieuw Automation-account maken vanuit Azure Portal
 In deze sectie voert u de volgende stappen uit om vanuit Azure Portal een nieuw Azure Automation-account te maken.    
-
->[!NOTE]
->Voor het maken van een Automation-account moet u lid zijn van de rol Servicebeheerders of medebeheerder zijn van het abonnement dat toegang verleent tot het abonnement. U moet ook als gebruiker worden toegevoegd aan het standaard Active Directory-exemplaar van dat abonnement. Aan het account hoeft geen bevoorrechte rol te worden toegewezen.
->
->Als u geen lid bent van het Active Directory-exemplaar van het abonnement voordat u wordt toegevoegd aan de rol van medebeheerder van het abonnement, wordt u als gast toegevoegd aan Active Directory. In dat geval wordt de waarschuwing 'U hebt geen machtigingen voor het maken...' weergegeven op de blade **Automation-account toevoegen**.
->
->Gebruikers die zijn toegevoegd aan de rol Medebeheerder, kunnen worden verwijderd uit het Active Directory-exemplaar van het abonnement en opnieuw worden toegevoegd, zodat ze een volledige gebruiker worden in Active Directory. U kunt deze situatie controleren in het deelvenster **Azure Active Directory** in Azure Portal door **Gebruikers en groepen** te selecteren. Selecteer vervolgens **Alle gebruikers**, daarna de specifieke gebruiker en tot slot **Profiel**. De waarde van het kenmerk **Gebruikerstype** onder het gebruikersprofiel mag niet gelijk zijn aan **Gast**.
 
 1. Meld u aan bij Azure Portal met een account dat lid is van de rol Abonnementsbeheerders en dat medebeheerder is van het abonnement.
 2. Klik op **Nieuw**.<br><br> ![De optie Nieuw selecteren in Azure Portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
@@ -86,4 +88,4 @@ In de volgende tabel vindt u een overzicht van de bronnen voor het klassieke Uit
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor meer informatie over grafisch ontwerpen [Grafisch ontwerpen in Azure Automation](automation-graphical-authoring-intro.md).
 * Zie [Mijn eerste PowerShell-runbook](automation-first-runbook-textual-powershell.md) om aan de slag te gaan met PowerShell-runbooks.
-* Zie Mijn eerste PowerShell Workflow-runbook (automation-first-runbook-textual.md) om aan de slag te gaan met PowerShell Workflow-runbooks.
+* Zie [Mijn eerste PowerShell Workflow-runbook](automation-first-runbook-textual.md) om aan de slag te gaan met PowerShell Workflow-runbooks

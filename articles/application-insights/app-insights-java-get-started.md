@@ -14,10 +14,10 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 29e13b51e094047be07843ad3d865290be32446b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 25d9d914ab27edb548cf6e6139d0d0395208ed24
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Aan de slag met Application Insights in een Java-webproject
@@ -387,7 +387,7 @@ Er worden grafieken weergegeven met reactietijden en u ontvangt e-mailmeldingen 
 * Typ [aangepaste telemetrie](app-insights-api-custom-events-metrics.md) om het gebruik in de browser of op de server bij te houden.
 * Maak [dashboards](app-insights-dashboards.md) om de belangrijkste grafieken voor het bewaken van uw systeem samen te brengen.
 * Gebruik [Analytics](app-insights-analytics.md) om vanuit uw app krachtige query's voor telemetrie uit te voeren
-* Raadpleeg het [Java Developer Center](/develop/java/) voor meer informatie.
+* Voor meer informatie gaat u naar [Azure voor Java-ontwikkelaars](/java/azure).
 
 <!--Link references-->
 

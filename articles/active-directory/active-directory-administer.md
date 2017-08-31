@@ -1,36 +1,33 @@
 ---
-title: Uw Azure AD-directory beheren | Microsoft Docs
-description: Hierin wordt uitgelegd wat een Azure AD-tenant is en hoe u Azure beheert via Azure Active Directory
+title: Overzicht van Azure Active Direcory-tenant | Microsoft Docs
+description: In dit artikel wordt uitgelegd wat een Azure AD-tenant is en hoe u Azure beheert via Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: curtand
 manager: femila
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
-ms.workload: infrastructure-services
+ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/25/2017
+ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: d68b641ac934c3930366be3dbf89a86e9611c7b7
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: b1390ba45f52473129dce6b904690b040af8f7e2
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="administer-your-azure-ad-directory"></a>Uw Azure AD-directory beheren
+# <a name="manage-your-azure-ad-directory"></a>Uw Azure AD-directory beheren
+
 ## <a name="what-is-an-azure-ad-tenant"></a>Wat is een Azure AD-tenant?
-Met betrekking tot fysieke werklocaties kan het woord 'tenant' worden gedefinieerd als een groep die of een bedrijf dat een gebouw gebruikt. Uw organisatie is bijvoorbeeld eigenaar van een kantoorgebouw. Samen met de gebouwen van andere organisaties staat uw gebouw in een straat. Uw organisatie kan worden gezien als de 'huurder' tenant van het gebouw. Het gebouw maakt deel uit van de activa van uw organisatie, biedt uw organisatie onderdak en zorgt ervoor dat u veilig zaken kunt doen. Het gebouw is bovendien gescheiden van de andere bedrijfsgebouwen in uw straat. Er is een duidelijke scheiding tussen uw bedrijfsmiddelen en die van de andere organisaties in de straat.
+In Azure Active Directory (Azure AD) is een tenant het exclusieve exemplaar van een Azure Active-directory dat uw organisatie na aanmelding voor een Microsoft-cloudservice (zoals Azure of Office 365) krijgt toegewezen. Elke Azure AD-directory is uniek en werkt afzonderlijk van andere Azure AD-directory’s. Net zoals een kantoorgebouw een beveiligd bedrijfsmiddel is van uw organisatie, is ook een Azure AD-directory ontworpen als een beveiligd bedrijfsmiddel dat alleen door uw organisatie kan worden gebruikt. De architectuur van Azure AD zorgt ervoor dat klantgegevens en identiteitsgegevens van elkaar zijn gescheiden, zodat gebruikers en beheerders van de ene Azure AD-directory niet per ongeluk of opzettelijk gegevens in een andere directory kunnen weergeven.
 
-Met betrekking tot werklocaties in de cloud kan een tenant worden gedefinieerd als een client of organisatie die een bepaald exemplaar van de gebruikte cloudservice in eigendom heeft en beheert. Met betrekking tot het identiteitsplatform dat door Microsoft Azure wordt geleverd, is een tenant het eigen exemplaar van Azure Active Directory (Azure AD) dat uw organisatie na aanmelding voor een Microsoft-cloudservice (zoals Azure of Office 365) krijgt toegewezen en in eigendom neemt.
-
-Elke Azure AD-directory is uniek en werkt afzonderlijk van andere Azure AD-directory’s. Net zoals een kantoorgebouw een beveiligd bedrijfsmiddel is van uw organisatie, is ook een Azure AD-directory ontworpen als een beveiligd bedrijfsmiddel dat alleen door uw organisatie kan worden gebruikt. De Azure AD-architectuur isoleert klant- en identiteitsgegevens, zodat deze niet door elkaar worden gehaald. Dit betekent dat gebruikers en beheerders van een Azure AD-directory niet per ongeluk of opzettelijk gegevens in een andere directory kunnen openen.
-
-![Azure Active Directory beheren][1]
+![Azure Active Directory beheren](./media/active-directory-administer/aad_portals.png)
 
 ## <a name="how-can-i-get-an-azure-ad-directory"></a>Hoe krijg ik een Azure AD-directory?
 Azure AD levert de kerndirectory en identiteitsbeheermogelijkheden voor de meeste cloudservices van Microsoft, waaronder:
@@ -42,110 +39,86 @@ Azure AD levert de kerndirectory en identiteitsbeheermogelijkheden voor de meest
 
 U krijgt een Azure AD-directory wanneer u zich aanmeldt voor een van deze Microsoft-cloudservices. U kunt naar behoefte aanvullende directory’s maken. Zo kunt u bijvoorbeeld uw eerste directory gebruiken als productiedirectory en nog een tweede directory maken voor testen en fasering.
 
-> [!NOTE]
-> Nadat u zich voor uw eerste service hebt aangemeld, doet u er verstandig aan het organisatiespecifieke beheerdersaccount dat u hebt gemaakt, ook te gebruiken wanneer u zich aanmeldt voor andere Microsoft-cloudservices.
-> 
-> 
+### <a name="using-the-azure-ad-directory-that-comes-with-a-new-azure-subscription"></a>De Azure AD-directory gebruiken die hoort bij een nieuw Azure-abonnement
 
-De eerste keer dat u zich voor een Microsoft-cloudservice aanmeldt, moet u gegevens opgeven over uw organisatie en over de internetdomeinnaam die voor uw organisatie is geregistreerd. Deze gegevens worden vervolgens gebruikt voor het maken van een nieuw exemplaar van de Azure AD-directory voor uw organisatie. Wanneer u zich abonneert op meerdere Microsoft-cloudservices, wordt dezelfde directory gebruikt om aanmeldpogingen te verifiëren.
+Het is raadzaam om voor registratie bij andere Microsoft-services, het beheerdersaccount te gebruiken dat u hebt gebruikt voor registratie bij uw eerste service. De gegevens die u bij de eerste registratie voor een Microsoft-service opgeeft, worden gebruikt voor het maken van een nieuw exemplaar van de Azure AD-directory voor uw organisatie. Als u deze directory gebruikt om aanmeldingspogingen te verifiëren wanneer u zich registreert voor andere Microsoft-services, kunnen voor de aanmelding de bestaande gebruikersaccounts, beleidsregels, instellingen of on-premises directoryintegratie worden gebruikt die in de standaarddirectory zijn geconfigureerd.
 
-De extra services maken volledig gebruik van alle bestaande gebruikersaccounts, beleidsregels, instellingen en on-premises directoryintegratie die u configureert. Dit helpt de efficiëntie van de processen tussen de on-premises identiteitsinfrastructuur van uw organisatie en Azure AD te verbeteren.
+Als u zich bijvoorbeeld registreert voor een abonnement op Microsoft Intune en u daarna de on-premises Active Directory synchroniseert met uw Azure AD-directory, kunt u zich registreren voor een andere Microsoft-service, zoals Office 365, en eenvoudig beschikken over dezelfde voordelen van directoryintegratie als bij Microsoft Intune.
 
-Als u zich bijvoorbeeld oorspronkelijk had aangemeld voor een Microsoft Intune-abonnement en u de stappen hebt voltooid die nodig zijn om uw on-premises Active Directory verder te integreren in uw Azure AD-directory door directorysynchronisatie en/of servers voor eenmalige aanmelding te implementeren, kunt u zich ook aanmelden voor een andere Microsoft-cloudservice, zoals Office 365. U profiteert dan van dezelfde directoryintegratievoordelen waarvan u al profiteert met Microsoft Intune.
+Zie [Uw on-premises directory's integreren met Azure Active Directory](active-directory-aadconnect.md) voor meer informatie over de integratie van uw on-premises directory in Azure AD.
 
-Voor meer informatie over de integratie van uw on-premises directory in Azure AD raadpleegt u [Directoryintegratie](active-directory-aadconnect.md).
-
-### <a name="associate-an-azure-ad-directory-with-a-new-azure-subscription"></a>Een Azure AD-directory koppelen aan een nieuw Azure-abonnement
-U kunt een nieuw Azure-abonnement koppelen aan dezelfde directory waarmee aanmeldingsbewerkingen voor een bestaand Office 365- of Microsoft Intune-abonnement worden geverifieerd. Meld u met uw werk- of schoolaccount aan bij Azure Portal. De portal retourneert het bericht dat er geen abonnementen kunnen worden gevonden voor dat account. Selecteer **Aanmelden bij Azure**. Uw directory komt dan voor beheer beschikbaar in de portal. Voor meer informatie raadpleegt u [De directory voor uw Office 365-abonnement in Azure beheren](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
-
-Voor een video over veelgestelde vragen over het gebruik van Azure AD raadpleegt u [Azure Active Directory - Veelgestelde vragen over registreren, aanmelden en gebruik](http://channel9.msdn.com/Series/Windows-Azure-Active-Directory/WAADCommonSignupsigninquestions).
+### <a name="associate-an-existing-azure-ad-directory-with-a-new-azure-subscription"></a>Een bestaande Azure AD-directory koppelen aan een nieuw Azure-abonnement
+U kunt een nieuw Azure-abonnement koppelen aan dezelfde directory waarmee aanmeldingsbewerkingen voor een bestaand Office 365- of Microsoft Intune-abonnement worden geverifieerd. Zie [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md) (Eigendom van een Azure-abonnement naar een ander account overdragen) voor meer informatie over dit scenario.
 
 ### <a name="create-an-azure-ad-directory-by-signing-up-for-a-microsoft-cloud-service-as-an-organization"></a>Een Azure AD-directory maken door u als organisatie te registreren voor een Microsoft-cloudservice
-Als u nog geen abonnement hebt op een Microsoft-cloudservice, gebruikt u een van onderstaande koppelingen om u te registreren. Wanneer u zich registreert voor uw eerste service, wordt er automatisch een Azure AD-directory gemaakt.
+Als u nog geen abonnement hebt op een Microsoft-cloudservice, kunt u een van de volgende koppelingen gebruiken om u te registreren. Als u zich voor uw eerste service registreert, wordt er automatisch een Azure AD-directory gemaakt.
 
-* [Microsoft Azure](https://account.windowsazure.com/organization)
+* [Microsoft Azure](https://account.azure.com/organization)
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://portal.office.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0%20)
 
-### <a name="manage-an-azure-provisioned-default-directory"></a>Een door Azure ingerichte standaarddirectory beheren
-Er wordt tegenwoordig automatisch een directory gemaakt wanneer u zich registreert bij Azure. Uw abonnement wordt ook direct aan die directory gekoppeld. Als u zich vóór oktober 2013 bij Azure hebt geregistreerd, is er niet automatisch een directory gemaakt. In dat geval heeft Azure later mogelijk alsnog een standaarddirectory voor uw account ingericht. Uw abonnement is dan gekoppeld aan die standaarddirectory.
+### <a name="how-to-change-the-default-directory-for-a-subscription"></a>De standaarddirectory voor een abonnement wijzigen
 
-Deze standaarddirectory’s zijn in oktober 2013 toegevoegd in het kader van een algemene verbetering van het beveiligingsmodel van Azure. Dankzij deze maatregel kunnen er aan alle Azure-klanten zakelijke identiteitsfuncties worden aangeboden. Bovendien kunnen alle Azure-resources zo alleen worden geopend door gebruikers van een directory. U kunt Azure niet gebruiken zonder directory. Daarom moest er voor elke gebruiker die zich vóór 7 juli 2013 had geregistreerd, maar geen directory had, een directory worden gemaakt. Als u destijds al een directory hebt gemaakt, is uw abonnement aan die directory gekoppeld.
+1. Meld u bij het [Azure-accountcentrum](https://account.windowsazure.com/Home/Index) aan met een account van de accountbeheerder voor het abonnement waarvan u het eigendom wilt overdragen.
+2. Zorg ervoor dat de gebruiker die u wilt instellen als de eigenaar van het abonnement, aanwezig is in de doeldirectory.
+3. Klik op **Abonnement overdragen**.
+4. Geef de ontvanger op. De ontvanger ontvangt automatisch een e-mail met een acceptatielink.
+5. De ontvanger klikt op de link en volgt de instructies, waaronder het invoeren van zijn of haar betaalgegevens. Als de ontvanger klaar is, wordt het abonnement overgedragen. 
+6. Als de overdracht van abonnementseigendom geslaagd is, is de standaardmap van het abonnement gewijzigd naar de map waarin de gebruiker zich bevindt.
 
-Aan het gebruik van Azure AD zijn geen kosten verbonden. De directory is een gratis resource. U kunt echter ook kiezen voor Azure Active Directory Premium. Deze wordt afzonderlijk gelicentieerd en biedt aanvullende functies, bijvoorbeeld voor het gebruik van een huisstijl en voor het zelfstandig opnieuw instellen van wachtwoorden.
+### <a name="manage-the-default-directory-in-azure"></a>De standaarddirectory in Azure beheren
+Wanneer u zich registreert voor Azure, wordt er een standaarddirectory van Azure AD gekoppeld aan uw abonnement. Er zijn geen kosten verbonden aan het gebruik van Azure AD en uw directory's zijn eveneens gratis. Er zijn betaalde Azure AD-services waarvoor een afzonderlijke licentie nodig is en die aanvullende functionaliteit bieden, zoals de huisstijl van het bedrijf in het aanmeldingsscherm en selfservice voor wachtwoordherstel. U kunt ook een aangepast domein maken met een DNS-naam waarvan u de eigenaar bent, in plaats van het standaarddomein *. onmicrosoft.com te gebruiken.
 
-Als u de weergavenaam van uw directory wilt wijzigen, klikt u op de directory in de portal en klikt u op **Configureren**. Zoals verderop in dit onderwerp wordt uitgelegd, kunt u een nieuwe directory toevoegen of een directory die u niet meer nodig hebt, verwijderen. Als u uw abonnement wilt koppelen aan een andere directory, klikt u in de navigatiebalk links op **Instellingen**. Klik vervolgens onder aan de pagina **Abonnementen** op **Directory bewerken**. U kunt ook een aangepast domein maken met een DNS-naam die u hebt geregistreerd, in plaats van het standaarddomein *.onmicrosoft.com te gebruiken. Dit is mogelijk handiger wanneer u een service als SharePoint Online gebruikt.
+## <a name="how-can-i-manage-directory-data"></a>Hoe kan ik directorygegevens beheren?
+Als u een of meer abonnementen op Microsoft-cloudservices wilt beheren, gebruikt u het [beheercentrum van Azure AD](https://aad.portal.azure.com), de Microsoft Intune-accountportal of het [Office 365-beheercentrum](https://portal.office.com/) om de directorygegevens van uw organisatie te beheren. U kunt ook [PowerShell-cmdlets van Azure Active Directory](https://docs.microsoft.com/powershell/azure/active-directory) gebruiken om gegevens te beheren die in Azure AD zijn opgeslagen.
 
-## <a name="how-can-i-manage-directory-data"></a>Directorygegevens beheren
-Als beheerder van een of meer Microsoft-cloudserviceabonnementen kunt u het [beheercentrum van Azure AD](https://aad.portal.azure.com), de Microsoft Intune-accountportal of het Office 365-beheercentrum gebruiken om de directorygegevens van uw organisatie te beheren. U kunt ook de [Microsoft Azure Active Directory-module voor Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx)-cmdlets downloaden en uitvoeren om de gegevens in Azure AD te beheren.
-
-Via deze portals (en cmdlets) kunt u:
+Via deze portals (en cmdlets) kunt u het volgende doen:
 
 * Accounts voor gebruikers en groepen maken en beheren
-* Gerelateerde cloudservices beheren waar uw organisatie op is geabonneerd
-* On-premises integratie met uw directoryservice instellen
+* Gerelateerde cloudservices beheren voor de abonnementen van uw organisatie
+* On-premises integratie met services van Azure AD voor identiteitscontrole en verificatie instellen
 
-Het [beheercentrum van Azure AD](https://aad.portal.azure.com), het Office 365-beheercentrum, de Microsoft Intune-accountportal en de Azure AD-cmdlets lezen uit en schrijven naar één gedeeld exemplaar van Azure AD dat is gekoppeld aan de directory van uw organisatie, zoals wordt weergegeven in de volgende afbeelding. Op deze manier fungeren portals (of cmdlets) als front-endinterfaces die uw directorygegevens verzamelen of bewerken.
+Het beheercentrum van Azure AD, het Office 365-beheercentrum, de Microsoft Intune-accountportal en de Azure AD-cmdlets lezen uit en schrijven naar één gedeeld exemplaar van Azure AD dat is gekoppeld aan de directory van uw organisatie. Elk van deze hulpprogramma's fungeert als een front-interface die gegevens in de directory ophaalt of wijzigt.
 
-![][2]
+Wanneer u gegevens van uw organisatie wijzigt via een van de portals of cmdlets terwijl u bent aangemeld in de context van een van deze services, worden de wijzigingen ook weergegeven in de andere portals als u zich de volgende keer aanmeldt. Deze gegevens worden gedeeld tussen de Microsoft-cloudservices waarop u bent geabonneerd.
 
-Deze accountportals en de bijbehorende Azure AD PowerShell-cmdlets beheerden voorheen de gebruikers. Groepen worden op het Azure AD-platform gebouwd.
-
-Wanneer u via een van de portals (of cmdlets) een wijziging aanbrengt aan de gegevens van uw organisatie terwijl u bent aangemeld voor een van deze services, wordt de wijziging ook weergegeven in de andere portals wanneer u zich de volgende keer aanmeldt voor die service. Dit wordt mogelijk gemaakt doordat de gegevens worden gedeeld tussen de diverse Microsoft-cloudservices waarop u bent geabonneerd.
-Als u bijvoorbeeld het Office 365-beheercentrum hebt gebruikt om een gebruiker te blokkeren, kan de gebruiker zich ook niet meer aanmelden bij de andere services waarop uw organisatie is geabonneerd. Opent u het account van de betreffende gebruiker via de Microsoft Intune-accountportal, dan zult u ook hier zien dat de gebruiker is geblokkeerd.
+Als u bijvoorbeeld het Office 365-beheercentrum gebruikt om de aanmelding van een gebruiker te blokkeren, kan die gebruiker zich ook niet meer aanmelden bij andere services waarop uw organisatie momenteel is geabonneerd. Als u hetzelfde gebruikersaccount bekijkt in de Microsoft Intune-accountportal, ziet u dat de gebruiker daar ook is geblokkeerd.
 
 ## <a name="how-can-i-add-and-manage-multiple-directories"></a>Hoe kan ik meerdere directory’s toevoegen en beheren?
-U kunt een Azure AD-directory toevoegen via de [klassieke Azure AD-portal](https://manage.windowsazure.com). Klik links in het deelvenster **Overzicht** op de **Active Directory**-extensie en klik vervolgens op **Nieuw**.
+U kunt een [Azure AD-directory toevoegen via Azure Portal](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Vul de gegevens in en selecteer **Maken**.
 
-U kunt elke directory als volledig onafhankelijke resource beheren: elke directory is een peer, volledig uitgerust en logisch onafhankelijk van andere directory’s die u beheert. Er is geen sprake van een structuur met boven- en onderliggende directory’s. Onder deze onafhankelijkheid van uw directory’s vallen ook resourceonafhankelijkheid, beheeronafhankelijkheid en synchronisatieonafhankelijkheid.
+U kunt elke directory als volledig onafhankelijke resource beheren: elke directory is een peer, volledig uitgerust en logisch onafhankelijk van andere directory's die u beheert. Er is geen sprake van een structuur met boven- en onderliggende directory's. Onder deze onafhankelijkheid van uw directory’s vallen ook resourceonafhankelijkheid, beheeronafhankelijkheid en synchronisatieonafhankelijkheid.
 
-* **Resourceonafhankelijkheid**. Wanneer u een resource maakt in of verwijdert uit de ene directory, heeft dat geen gevolgen voor de resources in andere directory’s. Externe gebruikers vormen hier een gedeeltelijke uitzondering op, zoals verderop wordt beschreven. Als u voor een bepaalde directory het aangepaste domein contoso.com gebruikt, kan dit domein niet meer voor andere directory’s worden gebruikt.
-* **Beheeronafhankelijkheid**.  Als een gebruiker (geen beheerder) van de directory Contoso de testdirectory Test maakt:
+* **Resourceonafhankelijkheid**. Wanneer u een resource maakt in of verwijdert uit de ene directory, heeft dat geen gevolgen voor de resources in andere directory's. Externe gebruikers vormen hier een gedeeltelijke uitzondering op. Als u voor een bepaalde directory het aangepaste domein contoso.com gebruikt, kan dit domein niet meer voor andere directory’s worden gebruikt.
+* **Beheeronafhankelijkheid**.  Als een gebruiker die geen beheerder is van de directory Contoso een testdirectory Test maakt:
   
-  * Het hulpprogramma voor directorysynchronisatie, om de gegevens met één AD-forest te synchroniseren.
-  * De beheerders van de directory Contoso hebben geen directe beheerdersrechten voor de directory Test, tenzij de beheerder van Test hun deze rechten verleent. Beheerders van Contoso kunnen de toegang tot de directory Test beheren doordat ze het gebruikersaccount beheren waarmee Test is gemaakt.
+  * De beheerders van de directory Contoso hebben geen directe beheerdersrechten voor de directory Test, tenzij de beheerder van Test hun deze rechten verleent. Beheerders van Contoso kunnen de toegang tot de directory Test beheren doordat ze het beheer hebben over het gebruikersaccount waarmee Test is gemaakt.
     
-    Wanneer u in één directory de beheerdersrol van een gebruiker wijzigt (toevoegt of verwijdert), heeft deze wijziging geen gevolgen voor de beheerdersrollen die de betreffende gebruiker mogelijk heeft in andere directory’s.
-* **Synchronisatieonafhankelijkheid**. U kunt elke Azure AD onafhankelijk zodanig configureren dat de gegevens worden gesynchroniseerd vanuit één exemplaar van een van de volgende opties:
-  
-  * Het hulpprogramma voor directorysynchronisatie, om de gegevens met één AD-forest te synchroniseren
-  * De Azure Active Directory-connector voor Forefront Identity Manager, om gegevens met één of meer on-premises forests en/of niet-AD-gegevensbronnen te synchroniseren.
+  * Als u in de ene directory een beheerdersrol voor een gebruiker toewijst of verwijdert, heeft deze wijziging geen gevolgen voor beheerdersrollen die de betreffende gebruiker mogelijk heeft in een andere directory.
+* **Synchronisatieonafhankelijkheid**. U kunt elke Azure AD-tenant onafhankelijk configureren, zodat gegevens worden gesynchroniseerd vanuit één exemplaar. Hiervoor gebruikt u het hulpprogramma voor directorysynchronisatie van Azure AD Connect.
 
-In tegenstelling tot hoe dit bij andere Azure-resources werkt, zijn uw directory’s geen onderliggende resources van een Azure-abonnement. Wanneer u uw Azure-abonnement annuleert of als het abonnement verloopt, hebt u nog gewoon toegang tot uw directorygegevens via Azure AD PowerShell, de Azure Graph API of andere interfaces, zoals het Office 365-beheercentrum. U kunt ook een ander abonnement koppelen aan de directory.
+In tegenstelling tot andere Azure-resources, zijn uw directory's geen onderliggende resources van een Azure-abonnement. Wanneer u uw Azure-abonnement annuleert of als het abonnement verloopt, hebt u nog gewoon toegang tot uw directorygegevens via Azure AD PowerShell, de Azure Graph API of andere interfaces, zoals het Office 365-beheercentrum. U kunt ook een ander abonnement koppelen aan de directory.
 
-## <a name="how-can-i-delete-an-azure-ad-directory"></a>Hoe verwijder ik een Azure AD-directory?
-Een hoofdbeheerder kan een Azure AD-directory verwijderen via de portal. Wanneer een directory wordt verwijderd, worden ook alle resources in de directory verwijderd. Daarom moet u er vóór het verwijderen zeker van zijn dat u de directory niet nodig hebt.
+## <a name="how-to-prepare-to-delete-an-azure-ad-directory"></a>Wat moet ik doen om een Azure AD-directory te verwijderen?
+Een hoofdbeheerder kan een Azure AD-directory verwijderen via de portal. Wanneer een directory wordt verwijderd, worden alle resources in de lijst ook verwijderd. Controleer of u de directory echt niet meer nodig hebt voordat u deze verwijdert.
 
 > [!NOTE]
-> Een gebruiker die is aangemeld met een werk- of schoolaccount, kan zijn of haar basisdirectory niet verwijderen. Als een gebruiker bijvoorbeeld is aangemeld als joe@contoso.onmicrosoft.com, kan deze niet de directory verwijderen die contoso.onmicrosoft.com als standaarddomein gebruikt.
-> 
-> 
+> Als de gebruiker is aangemeld met een werk- of schoolaccount, moet de gebruiker niet proberen om zijn of haar basisdirectory te verwijderen. Als een gebruiker bijvoorbeeld is aangemeld als joe@contoso.onmicrosoft.com, kan deze niet de directory verwijderen die contoso.onmicrosoft.com als standaarddomein gebruikt.
 
-### <a name="conditions-that-must-be-met-to-delete-an-azure-ad-directory"></a>Voorwaarden voor het verwijderen van een Azure AD-directory
-Als u een Azure AD-directory wilt verwijderen, moet aan bepaalde voorwaarden worden voldaan. Dit vermindert het risico dat het verwijderen van een directory een negatieve invloed heeft op gebruikers of toepassingen, zoals op de mogelijkheid van gebruikers om zich aan te melden bij Office 365 of om resources te openen in Azure. Het per ongeluk verwijderen van een directory voor een abonnement leidt er bijvoorbeeld toe dat gebruikers geen toegang meer hebben tot de Azure-resources voor dat abonnement.
+Als u een Azure AD-directory wilt verwijderen, moet aan bepaalde voorwaarden worden voldaan. Dit vermindert het risico dat het verwijderen van een directory een negatieve invloed heeft op gebruikers of toepassingen, zoals op de mogelijkheid van gebruikers om zich aan te melden bij Office 365 of om resources te openen in Azure. Het per ongeluk verwijderen van een directory voor een abonnement heeft bijvoorbeeld tot gevolg dat gebruikers geen toegang meer hebben tot de Azure-resources voor dat abonnement.
 
 Er wordt gecontroleerd of aan de volgende voorwaarden is voldaan:
 
-* De enige gebruiker in de directory is de hoofdbeheerder die de directory gaat verwijderen. Andere gebruikers moeten worden verwijderd voordat de directory kan worden verwijderd. Als gebruikers on-premises worden gesynchroniseerd, moet de synchronisatie worden uitgeschakeld. Gebruikers moeten vervolgens worden verwijderd uit de clouddirectory via de Beheerportal of de Azure-module voor Windows PowerShell. Verwijdering van groepen of contactpersonen, zoals contactpersonen die vanuit het Office 365-beheercentrum zijn toegevoegd, is geen vereiste.
+* De enige gebruiker in de directory is de hoofdbeheerder die de directory gaat verwijderen. Andere gebruikers moeten worden verwijderd voordat de directory kan worden verwijderd. Als gebruikers on-premises worden gesynchroniseerd, moet de synchronisatie worden uitgeschakeld. Gebruikers moeten vervolgens worden verwijderd uit de clouddirectory via Azure Portal of cmdlets van Azure PowerShell. Verwijdering van groepen of contactpersonen, zoals contactpersonen die vanuit het Office 365-beheercentrum zijn toegevoegd, is geen vereiste.
 * Er mogen in de directory geen toepassingen aanwezig zijn. Alle toepassingen moeten worden verwijderd om de directory te kunnen verwijderen.
-* Aan de directory mogen geen abonnementen op Microsoft Online Services zijn gekoppeld, zoals een abonnement op Microsoft Azure, Office 365 of Azure AD Premium. Als er bijvoorbeeld een standaarddirectory voor u is gemaakt in Azure, kunt u deze directory niet verwijderen als uw Azure-abonnement deze directory gebruikt voor verificatie. Het is evenmin mogelijk om een directory te verwijderen als een andere gebruiker er een abonnement aan heeft gekoppeld. Als u uw abonnement wilt koppelen aan een andere directory, meldt u zich aan bij de Azure-beheerportal en klikt u in de navigatiebalk aan de linkerkant op **Instellingen**. Klik vervolgens onder aan de pagina **Abonnementen** op **Directory bewerken**. Voor meer informatie over Azure-abonnementen raadpleegt u [Hoe Azure-abonnementen worden gekoppeld aan Azure AD](active-directory-how-subscriptions-associated-directory.md).
-
-> [!NOTE]
-> Een gebruiker die is aangemeld met een werk- of schoolaccount, kan zijn of haar basisdirectory niet verwijderen. Als een gebruiker bijvoorbeeld is aangemeld als joe@contoso.onmicrosoft.com, kan deze niet de directory verwijderen die contoso.onmicrosoft.com als standaarddomein gebruikt.
-> 
-> 
-
 * Aan de directory kunnen geen Multi-Factor Authentication-providers worden gekoppeld.
+* Aan de directory mogen geen abonnementen op Microsoft Online Services zijn gekoppeld, zoals een abonnement op Microsoft Azure, Office 365 of Azure AD Premium. Als er bijvoorbeeld een standaarddirectory voor u is gemaakt in Azure, kunt u deze directory niet verwijderen als uw Azure-abonnement deze directory gebruikt voor verificatie. Het is evenmin mogelijk om een directory te verwijderen als een andere gebruiker er een abonnement aan heeft gekoppeld. 
 
-## <a name="additional-resources"></a>Aanvullende resources
+
+## <a name="next-steps"></a>Volgende stappen
 * [Azure AD Forum](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
 * [Azure Multi-Factor Authentication-forum](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
-* [StackOverflow](http://stackoverflow.com/questions/tagged/azure)
-* [Als organisatie registreren voor Azure](sign-up-organization.md)
-* [Azure AD beheren met Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx)
+* [Vragen over Azure op Stack Overflow (Engelstalig)](http://stackoverflow.com/questions/tagged/azure)
+* [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
 * [Beheerdersrollen toewijzen in Azure AD](active-directory-assign-admin-roles.md)
-
-<!--Image references-->
-[1]: ./media/active-directory-administer/aad_portals.png
-[2]: ./media/active-directory-administer/azure_tenants.png
 

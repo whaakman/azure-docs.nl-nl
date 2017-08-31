@@ -12,25 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/16/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 899a45d59099dec147c96e4cd175536e859e88f8
+ms.translationtype: HT
+ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
+ms.openlocfilehash: 8d4460b3059558de2253c6f6a2d2fc8e7564d6d9
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 08/18/2017
 
 ---
-# Veelgestelde vragen over Azure Active Directory
-<a id="azure-active-directory-faq" class="xliff"></a>
+# <a name="azure-active-directory-faq"></a>Veelgestelde vragen over Azure Active Directory
 Azure Active Directory (Azure AD) is een uitgebreide IDaaS-oplossing (Identity as a Service) waarin alle aspecten van identiteit, toegangsbeheer en beveiliging zijn opgenomen.
 
 Zie [Wat is Azure Active Directory?](active-directory-whatis.md) voor meer informatie.
 
 
-## Toegang tot Azure en Azure Active Directory
-<a id="access-azure-and-azure-active-directory" class="xliff"></a>
-**V: Waarom wordt 'Geen abonnementen gevonden' weergegeven wanneer ik Azure AD wil openen in de klassieke Azure-portal (https://manage.windowsazure.com)?**
+## <a name="access-azure-and-azure-active-directory"></a>Toegang tot Azure en Azure Active Directory
+**V: Waarom wordt 'Geen abonnementen gevonden' weergegeven wanneer ik Azure AD wil openen in de klassieke Azure-portal?**
 
 **A:** Voor toegang tot de klassieke Azure-portal moet elke gebruiker machtigingen hebben in een Azure-abonnement. Als u een betaald abonnement voor Office 365 of Azure AD hebt, gaat u naar [http://aka.ms/accessAAD](http://aka.ms/accessAAD) voor eenmalige activering in één stap. Anders moet u een gratis [Azure-account](https://azure.microsoft.com/pricing/free-trial/) activeren of een betaald abonnement afsluiten.
 
@@ -70,8 +68,7 @@ Daarnaast vormen betaalde Azure AD-services zoals Enterprise Mobility + Security
 
 - - -
 
-## Aan de slag met hybride Azure AD
-<a id="get-started-with-hybrid-azure-ad" class="xliff"></a>
+## <a name="get-started-with-hybrid-azure-ad"></a>Aan de slag met hybride Azure AD
 
 
 **V: Hoe verlaat ik een tenant wanneer ik ben toegevoegd als samenwerker?**
@@ -108,8 +105,7 @@ Zie [Introduction to the Access Panel](active-directory-saas-access-panel-introd
 Zie [Monitor your on-premises identity infrastructure and synchronization services in the cloud](active-directory-aadconnect-health.md) (Uw on-premises infrastructuur voor identiteiten en synchronisatieservices in de cloud controleren) voor meer informatie.  
 
 - - -
-## Wachtwoordbeheer
-<a id="password-management" class="xliff"></a>
+## <a name="password-management"></a>Wachtwoordbeheer
 **V: Kan ik Terugschrijven van wachtwoord van Azure AD gebruiken zonder wachtwoordsynchronisatie? (Is het in dit scenario mogelijk om Azure AD selfservice voor wachtwoordherstel (SSPR) met terugschrijven van wachtwoorden te gebruiken zonder dat er wachtwoorden in de cloud worden opgeslagen?)**
 
 **A:** U hoeft uw Active Directory-wachtwoorden niet te synchroniseren naar Azure AD om terugschrijven in te kunnen schakelen. In een federatieve omgeving is eenmalige aanmelding van Azure AD (SSO) afhankelijk van de on-premises directory voor het verifiëren van de gebruiker. In dit geval is er geen on-premises wachtwoord vereist dat moet worden bijgehouden in Azure AD.
@@ -142,8 +138,7 @@ Beheerders kunnen wachtwoorden van Azure AD-accounts via een van de volgende opt
 
 
 - - -
-## Beveiliging
-<a id="security" class="xliff"></a>
+## <a name="security"></a>Beveiliging
 **V: Worden accounts na een bepaald aantal mislukte pogingen vergrendeld of wordt een meer geavanceerde strategie gebruikt?**</br>
 We gebruiken een geavanceerdere strategie om account te vergrendelen.  Dit is gebaseerd op het IP-adres van de aanvraag en op de ingevoerde wachtwoorden. De duur van de vergrendeling wordt ook langer op basis van de kans dat het een aanval betreft.  
 
@@ -153,8 +148,7 @@ Dit verwijst naar wachtwoorden die in het algemeen veel voorkomen, zoals variant
 **V: Worden aanmeldingsaanvragen van twijfelachtige bronnen (botnets, tor-eindpunten) in een B2C-tenant geblokkeerd of is hiervoor een Basic- of Premium-tenant vereist?**</br>
 We hebben wel een gateway waarmee aanvragen worden gefilterd en die enige bescherming biedt tegen botnets. Deze wordt toegepast op alle B2C-tenants.
 
-## Toegang tot toepassingen
-<a id="application-access" class="xliff"></a>
+## <a name="application-access"></a>Toegang tot toepassingen
 **V: Waar vind ik een lijst met toepassingen die vooraf zijn geïntegreerd met Azure AD en de bijbehorende mogelijkheden?**
 
 **A:** Azure AD bevat meer dan 2.600 vooraf geïntegreerde toepassingen van Microsoft, toepassingsserviceproviders en partners. Alle vooraf geïntegreerde toepassingen bieden ondersteuning voor eenmalige aanmelding (SSO). Via SSO kunt u uw bedrijfsreferenties gebruiken om toegang te krijgen tot uw apps. Een aantal toepassingen ondersteunt ook geautomatiseerde inrichting en het ongedaan maken van de inrichting.
@@ -218,5 +212,5 @@ Zie [Automate user provisioning and deprovisioning to SaaS applications with Azu
 - - -
 **V: Kan ik een veilige LDAP-verbinding instellen met Azure AD?**
 
-**A:** Nee.  Azure AD biedt geen ondersteuning voor het LDAP-protocol.
+**A:** Nee. Azure AD biedt geen ondersteuning voor het LDAP-protocol.
 
