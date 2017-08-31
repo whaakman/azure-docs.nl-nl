@@ -3,7 +3,7 @@ title: 'Azure Analysis Services-zelfstudie - Les 3: Als gegevenstabel markeren |
 description: In deze les wordt beschreven hoe u een gegevenstabel markeert in de zelfstudie over Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

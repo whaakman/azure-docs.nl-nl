@@ -2,7 +2,7 @@
 title: Documentatie voor Azure Resource Manager - zelfstudies, API-verwijzing | Microsoft Docs
 description: Leer hoe u Resource Manager kunt gebruiken om oplossingsresources als groep te implementeren en beheren en hoe u sjablonen kunt maken voor consistente en herhaalbare resource-implementatie.
 services: azure-resource-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

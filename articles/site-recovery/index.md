@@ -2,7 +2,7 @@
 title: Documentatie voor Azure Site Recovery - zelfstudies, API-verwijzing | Microsoft Docs
 description: "Leer hoe u herstel na noodgevallen en bedrijfscontinuïteit in de cloud kunt instellen voor fysieke servers en virtuele machines door het implementeren en beheren van replicatie."
 services: site-recovery
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

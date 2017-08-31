@@ -3,7 +3,7 @@ title: 'Azure Analysis Services-zelfstudie - Les 6: Metingen maken| Microsoft Do
 description: In deze les wordt beschreven hoe u metingen maakt in de zelfstudie over Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

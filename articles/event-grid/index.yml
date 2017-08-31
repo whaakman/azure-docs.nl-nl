@@ -5,14 +5,14 @@ metadata:
   title: 'Documentatie voor Azure Event Grid - zelfstudies, API-verwijzing'
   description: Gebruik Azure Event Grid om vrijwel in realtime te reageren op relevante gebeurtenissen in Azure- en niet-Azure-services.
   services: event-grid
-  author: banisadr
-  manager: timlt
+  author: czeumault
+  manager: carolz
   ms.service: event-grid
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/10/2017
-  ms.author: banisadr
+  ms.author: carolz
 abstract:
   description: 'Azure Event Grid is een volledig beheerde, intelligente service voor gebeurtenisroutering die uniform gebeurtenisverbruik mogelijk maakt op basis van een Publish-Subscribe-model. Gebruik Azure Event Grid om vrijwel in realtime te reageren op relevante gebeurtenissen in Azure- en niet-Azure-services. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Event Grid gebruikt.'
 sections:

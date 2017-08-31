@@ -2,7 +2,7 @@
 title: Documentatie voor Azure CDN - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over hoe u met het netwerk voor contentlevering (Content Delivery Network, CDN) op elk apparaat inhoud kunt leveren vanuit wereldwijde datacentra. Zelfstudies, API-verwijzingen en andere documentatie.
 services: cdn
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

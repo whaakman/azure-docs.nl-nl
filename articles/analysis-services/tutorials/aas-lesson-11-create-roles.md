@@ -3,7 +3,7 @@ title: 'Azure Analysis Services-zelfstudie - Les 11: Rollen maken | Microsoft Do
 description: In deze les wordt beschreven hoe u rollen maakt in de zelfstudie over Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

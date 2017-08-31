@@ -6,7 +6,7 @@ metadata:
   title: 'Documentatie voor Azure Cosmos DB - zelfstudies, API-verwijzing'
   description: 'Meer informatie over het bouwen van wereldwijd verspreide databases met meerdere modellen met behulp van Azure Cosmos DB. In de zelfstudies leert u hoe u document-, sleutel/waarde- en grafiekdatabases bouwt en een query uitvoert.'
   services: cosmos-db
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: cosmos-db
   ms.tgt_pltfrm: na

@@ -5,7 +5,7 @@ metadata:
   title: Documentatie voor Azure Container Instances - zelfstudies | Microsoft Docs
   description: 'Azure Container Instances biedt u een zeer snelle en eenvoudige methode voor het uitvoeren van een container in Azure, waarbij het niet nodig is om virtuele machines in te richten of het serviceniveau te verhogen.'
   services: container-instances
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: container-instances
   ms.tgt_pltfrm: na

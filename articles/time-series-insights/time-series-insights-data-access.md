@@ -8,7 +8,7 @@ author: op-ravi
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -33,8 +33,8 @@ Time Series Insights-omgevingen hebben twee onafhankelijke typen toegangsbeleid:
 Beide soorten beleid verlenen Azure Active Directory-principals (gebruikers en apps) verschillende machtigingen voor een specifieke omgeving. De principals (gebruikers en apps) moeten behoren tot de Active Directory (of Azure-tenant) die is gekoppeld aan het abonnement dat de omgeving bevat.
 
 Beleid voor beheertoegang verleent machtigingen die betrekking hebben op de configuratie van de omgeving, zoals
-*    maken en verwijderen van de omgeving, gebeurtenisbronnen, referentiegegevenssets, en
-*    beheer van het beleid voor gegevenstoegang.
+*   maken en verwijderen van de omgeving, gebeurtenisbronnen, referentiegegevenssets, en
+*   beheer van het beleid voor gegevenstoegang.
 
 Beleid voor gegevenstoegang verleent machtigingen voor het uitvoeren van gegevensquery's, het bewerken van referentiegegevens in de omgeving en het delen van opgeslagen query's en perspectieven die aan de omgeving zijn gekoppeld.
 
@@ -43,30 +43,30 @@ De twee typen beleid maken een duidelijke scheiding mogelijk tussen toegang tot 
 ## <a name="grant-data-access"></a>Gegevenstoegang verlenen
 De volgende stappen laten zien hoe gegevenstoegang wordt verleend aan een gebruiker-principal:
 
-1.    Meld u aan bij [Azure Portal](https://portal.azure.com).
-2.    Klik op Alle resources in het menu aan de linkerkant van Azure Portal.
-3.    Selecteer uw Time Series Insights-omgeving.
+1.  Meld u aan bij [Azure Portal](https://portal.azure.com).
+2.  Klik op Alle resources in het menu aan de linkerkant van Azure Portal.
+3.  Selecteer uw Time Series Insights-omgeving.
 
   ![Beheren van de Time Series Insights-bron - omgeving](media/data-access/getstarted-grant-data-access1.png)
 
-4.    Selecteer Toegang gegevenslaag en klik op Toevoegen
+4.  Selecteer Toegang gegevenslaag en klik op Toevoegen
 
   ![Beheren van de Time Series Insights-bron - toevoegen](media/data-access/getstarted-grant-data-access2.png)
 
-5.    Klik op Gebruiker selecteren.
-6.    Zoek en selecteer de gebruiker aan de hand van zijn e-mailadres.
-7.    Klik op de blade Gebruiker selecteren op Selecteren.
+5.  Klik op Gebruiker selecteren.
+6.  Zoek en selecteer de gebruiker aan de hand van zijn e-mailadres.
+7.  Klik op de blade Gebruiker selecteren op Selecteren.
 
   ![Beheren van de Time Series Insights-bron - gebruiker selecteren](media/data-access/getstarted-grant-data-access3.png)
 
-8.    Klik op Rol selecteren.
-9.    Selecteer Bijdrager als u wilt toestaan dat de gebruiker referentiegegevens mag wijzigen en opgeslagen query's en perspectieven mag delen met andere gebruikers van de omgeving. Selecteer anders Lezer. Hiermee staat u de gebruiker toe om gegevens in de omgeving op te vragen en persoonlijke (niet-gedeelde) query's op te slaan in de omgeving.
-10.    Klik op de blade Rol selecteren op OK.
+8.  Klik op Rol selecteren.
+9.  Selecteer Bijdrager als u wilt toestaan dat de gebruiker referentiegegevens mag wijzigen en opgeslagen query's en perspectieven mag delen met andere gebruikers van de omgeving. Selecteer anders Lezer. Hiermee staat u de gebruiker toe om gegevens in de omgeving op te vragen en persoonlijke (niet-gedeelde) query's op te slaan in de omgeving.
+10. Klik op de blade Rol selecteren op OK.
 
   ![Beheren van de Time Series Insights-bron - rol selecteren](media/data-access/getstarted-grant-data-access4.png)
 
-11.    Klik op de blade Gebruikersrol selecteren op OK.
-12.    U ziet het volgende:
+11. Klik op de blade Gebruikersrol selecteren op OK.
+12. U ziet het volgende:
 
   ![Beheren van de Time Series Insights-bron - resultaten](media/data-access/getstarted-grant-data-access5.png)
 

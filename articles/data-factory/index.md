@@ -2,7 +2,7 @@
 title: Documentatie voor Azure Data Factory - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over hoe u Data Factory gebruikt voor het instellen van pijplijnen naar en van on-premises en cloudresources om gegevens voor analyse te verplaatsen en verwerken.
 services: data-factory
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

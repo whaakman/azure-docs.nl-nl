@@ -3,7 +3,7 @@ title: 'Azure Analysis Services-zelfstudie - Aanvullende les: Dynamische beveili
 description: In deze les wordt beschreven hoe u dynamische beveiliging kunt toepassen door rijfilters te gebruiken in de zelfstudie over Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

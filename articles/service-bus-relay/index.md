@@ -1,13 +1,24 @@
 ---
-layout: LandingPage
 title: Documentatie voor Service Bus Relay
 description: Ontdek hoe de Azure Relay-service werkt in een hybride cloud en on-premises omgeving, met handleidingen, zelfstudies, video's, API-verwijzingen en meer.
+services: service-bus
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 03/14/2017
+ms.author: carolz
 ms.translationtype: HT
 ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: 43d2c5ca34e4903a41160496fdb4d975cb665de7
 ms.contentlocale: nl-nl
 ms.lasthandoff: 08/04/2017
 
+---
 ---
 # <a name="service-bus-relay-documentation"></a>Documentatie voor Service Bus Relay
 Ontdek hoe de Azure Relay-service hybride toepassingen in on-premises en cloudomgevingen mogelijk maakt binnen een bedrijfsnetwerk en de openbare cloud, zonder dat u een firewallverbinding hoeft te openen en zonder dat er wijzigingen in de infrastructuur van een bedrijfsnetwerk zijn vereist.

@@ -2,7 +2,7 @@
 title: Documentatie voor Azure Key Vault - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over hoe u Key Vault gebruikt om sleutels te maken en te onderhouden waarmee u de resources, apps en oplossingen in de cloud kunt openen en versleutelen. Zelfstudies, API-verwijzingen en meer.
 services: key-vault
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

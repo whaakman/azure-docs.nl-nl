@@ -1,20 +1,22 @@
 ---
 title: Documentatie voor Azure App Service API Apps - zelfstudies | Microsoft Docs
-description: "Leer hoe u API Apps in Azure App Service kunt gebruiken om API&quot;s te ontwikkelen, hosten en gebruiken in de cloud en on-premises. Zelfstudies, video’s en andere documentatie."
-services: app-service\api
-author: carolz
+description: "Leer hoe u API Apps in Azure App Service kunt gebruiken om API's te ontwikkelen, hosten en gebruiken in de cloud en on-premises. Zelfstudies, video’s en andere documentatie."
+services: app-service-api
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
-ms.service: app-service\api
+ms.service: app-service-api
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 741a6f2be3c8c689884cdeb180ff10dac046032b
 ms.openlocfilehash: b1a568d7a8f856c7d17aa7ebd14148452c1d29db
+ms.contentlocale: nl-nl
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="app-service---api-apps-documentation"></a>Documentatie voor App Service - API Apps
@@ -132,10 +134,5 @@ Leer hoe u API Apps in Azure App Service kunt gebruiken om API's te ontwikkelen,
     </li>     
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

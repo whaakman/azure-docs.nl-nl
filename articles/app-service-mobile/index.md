@@ -1,12 +1,12 @@
 ---
 title: Documentatie voor Azure Mobile Apps - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over hoe u Mobile Apps in Azure App Service kunt gebruiken voor het bouwen en hosten van systeemeigen iOS-, Android- of Windows-apps, of platformoverschrijdende apps met behulp van Xamarin of Cordova.
-services: app-service\mobile
-author: carolz
+services: app-service-mobile
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
-ms.service: app-service\mobile
+ms.service: app-service-mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page

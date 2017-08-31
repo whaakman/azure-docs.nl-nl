@@ -3,7 +3,7 @@ title: "Azure Analysis Services-zelfstudie - Les 9: Hiërarchieën maken | Micro
 description: 
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

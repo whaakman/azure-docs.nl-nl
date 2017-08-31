@@ -2,7 +2,7 @@
 title: Documentatie voor Azure ExpressRoute - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over hoe u een particuliere ExpressRoute-verbinding met Microsoft-cloudservices kunt configureren en beheren vanuit uw on-premises infrastructuur of co-locatiefaciliteit.
 services: expressroute
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

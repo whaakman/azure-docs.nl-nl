@@ -2,7 +2,7 @@
 title: Documentatie voor Azure Notification Hubs - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over hoe u met Notification Hubs pushmeldingen van een willekeurige back-end verzendt naar een willekeurig mobiel apparaat. Zelfstudies, API-verwijzingen en andere documentatie.
 services: notification-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

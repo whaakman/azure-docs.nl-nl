@@ -2,7 +2,7 @@
 title: Documentatie voor Azure Event Hubs - zelfstudies, API-verwijzing | Microsoft Docs
 description: Leer hoe u met Event Hubs miljoenen gebeurtenissen per seconde kunt opnemen van verbonden IoT-apparaten en -toepassingen op een brede reeks platformen.
 services: event-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

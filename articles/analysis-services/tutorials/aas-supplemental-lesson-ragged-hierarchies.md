@@ -3,7 +3,7 @@ title: "Azure Analysis Services-zelfstudie - Aanvullende les: Onregelmatige hië
 description: "In deze les wordt beschreven hoe u onregelmatige hiërarchieën herstelt in de zelfstudie over Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

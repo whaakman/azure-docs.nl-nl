@@ -1,9 +1,9 @@
 ---
 title: Stijlen aanpassen in de ontwikkelaarsportal in Azure API Management | Microsoft Docs
-description: Informatie over het wijzigen van de stijlen die worden gebruikt voor pagina&quot;s via de ontwikkelaarsportal in Azure API Management.
+description: Informatie over het wijzigen van de stijlen die worden gebruikt voor pagina's via de ontwikkelaarsportal in Azure API Management.
 services: api-management
 documentationcenter: 
-author: antonba
+author: vladvino
 manager: vlvinogr
 editor: 
 ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 336d4f80f0357796fb29eb9314c11edfce831a69
 ms.openlocfilehash: bd08eb476a4bd7298c5650977b88ba0b24deddec
+ms.contentlocale: nl-nl
 ms.lasthandoff: 02/23/2017
-
 
 ---
 # <a name="customize-the-styling-of-the-developer-portal-in-azure-api-management"></a>De stijl van de ontwikkelaarsportal aanpassen in Azure API Management

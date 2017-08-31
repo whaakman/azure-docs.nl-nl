@@ -2,7 +2,7 @@
 title: Documentatie voor Azure Security - zelfstudies | Microsoft Docs
 description: Meer informatie over het aanpassen van beveiligingsopties in Azure-services om te voldoen aan de vereisten van uw service- en gegevensimplementaties in de cloud.
 services: security
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

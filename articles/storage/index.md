@@ -2,7 +2,7 @@
 title: Documentatie voor Azure Storage - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over het gebruik van Azure Storage - Blob-, Table-, Queue-, File- en Virtual Machine Disk-opslag in de cloud. Zelfstudies, API-verwijzingen en andere documentatie.
 services: storage
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

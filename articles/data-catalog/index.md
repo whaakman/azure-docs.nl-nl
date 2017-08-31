@@ -2,7 +2,7 @@
 title: Documentatie voor Azure Data Catalog - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over het instellen van een gegevenscatalogus waar uw organisatie gegevensbronnen kan vinden, begrijpen en gebruiken. Zelfstudies, API-verwijzingen en andere documentatie.
 services: data-catalog
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -2,7 +2,7 @@
 title: Documentatie voor Azure Container Registry - zelfstudies, API-verwijzing | Microsoft Docs
 description: "Leer hoe u containerregisters kunt maken en onderhouden voor het opslaan van uw implementatie-installatiekopieën met een beheerde Docker-registerservice. Zelfstudies, API-verwijzing en meer."
 services: container-registry
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 97a09226c0f784c4834e96e47ac9052844ff7a36
 ms.openlocfilehash: 3962f34170cf3a19fe51b2f90b49fa21e01fc6cc
+ms.contentlocale: nl-nl
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -108,9 +110,4 @@ Leer hoe u Container Registry kunt gebruiken voor het opslaan en beheren van ins
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

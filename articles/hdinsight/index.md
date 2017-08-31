@@ -2,7 +2,7 @@
 title: Documentatie voor Azure HDInsight - zelfstudies, API-verwijzing | Microsoft Docs
 description: Ontdek Hadoop op HDInsight. Documentatie laat zien hoe u Hadoop, Spark, HBase, R-Server en meer kunt gebruiken om big data te verwerken en te analyseren en hieruit inzichten te verkrijgen.
 services: hdinsight
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

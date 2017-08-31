@@ -2,8 +2,8 @@
 title: Documentatie voor Azure Data Lake Analytics - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over de analyse van big data met Data Lake Analytics. Zelfstudies laten zien hoe u batch-, realtime en interactieve analyses uitvoert en U-SQL-query's schrijft.
 services: data-lake-analytics
-author: saveenr
-manager: saveenr
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.assetid: 
 ms.service: data-lake-analytics

@@ -2,7 +2,7 @@
 title: Documentatie voor Azure IoT Hub - zelfstudies, API-verwijzing | Microsoft Docs
 description: "Meer informatie over hoe u IoT Hub gebruikt om miljarden IoT-items (Internet der dingen) te verbinden, bewaken en controleren. Zelfstudies, API-verwijzingen, video’s en andere documentatie."
 services: iot-hub
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

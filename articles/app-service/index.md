@@ -1,8 +1,8 @@
 ---
 title: Documentatie voor Azure App Service - zelfstudies, API-verwijzing | Microsoft Docs
-description: Meer informatie over hoe u App Service gebruikt om web- en mobiele apps te maken voor alle platformen en apparaten met behulp van zelfstudies, video&quot;s, API-verwijzingen en andere documentatie.
+description: Meer informatie over hoe u App Service gebruikt om web- en mobiele apps te maken voor alle platformen en apparaten met behulp van zelfstudies, video's, API-verwijzingen en andere documentatie.
 services: app-service
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ebcde75ba7d5ed155fb7ec822ba037de5141c31c
 ms.openlocfilehash: a9b7cb3492fa71b33c4aa6b2c0ecda9eaac9ea4b
+ms.contentlocale: nl-nl
+ms.lasthandoff: 02/09/2017
 
 ---
 #<a name="app-service-documentation"></a>Documentatie over App Service
@@ -132,10 +134,5 @@ Meer informatie over hoe u App Service gebruikt om web- en mobiele apps te ontwi
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

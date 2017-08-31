@@ -2,7 +2,7 @@
 title: Documentatie voor Azure Batch - zelfstudies, API-verwijzing | Microsoft Docs
 description: "Meer informatie over hoe u Batch gebruikt om op efficiënte wijze grootschalige parallelle HPC-toepassingen (High Performance Computing) uit te voeren. Zelfstudies, API-verwijzingen en andere documentatie."
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

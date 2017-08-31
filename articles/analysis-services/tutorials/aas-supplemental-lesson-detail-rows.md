@@ -3,7 +3,7 @@ title: 'Azure Analysis Services-zelfstudie - Aanvullende les: Detailrijen | Micr
 description: In deze les wordt beschreven hoe u een detailrijenexpressie maakt in de zelfstudie over Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

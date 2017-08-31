@@ -2,7 +2,7 @@
 title: Documentatie voor Azure Redis Cache - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over het gebruik van Azure Redis Cache, een veilige gegevenscache en berichtbroker die toepassingen snel toegang geeft tot gegevens. Zelfstudies, API-verwijzingen en meer.
 services: redis-cache
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ba5cba11b7b5ba142094e9d2c0b027386266e83a
 ms.openlocfilehash: 19756171a8831eef9ac25cfa619a815d17140257
+ms.contentlocale: nl-nl
+ms.lasthandoff: 02/09/2017
 
 ---
 #<a name="redis-cache-documentation"></a>Documentatie voor Redis Cache
@@ -195,10 +197,5 @@ Meer informatie over het gebruik van Azure Redis Cache, een veilige gegevenscach
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

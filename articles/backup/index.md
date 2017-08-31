@@ -1,8 +1,8 @@
 ---
 title: Documentatie voor Azure Backup - zelfstudies, API-verwijzing | Microsoft Docs
-description: Gebruik documentatie voor Backup om te leren hoe u een back-up naar de cloud kunt maken. Zie de zelfstudies en video&quot;s voor informatie over het maken van back-ups van toepassingen, Windows-servers en virtuele Azure-machines.
+description: Gebruik documentatie voor Backup om te leren hoe u een back-up naar de cloud kunt maken. Zie de zelfstudies en video's voor informatie over het maken van back-ups van toepassingen, Windows-servers en virtuele Azure-machines.
 services: backup
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

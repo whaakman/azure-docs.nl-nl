@@ -2,7 +2,7 @@
 title: Documentatie voor Azure Active Directory Domain Services - zelfstudies | Microsoft Docs
 description: Leer hoe u Active Directory Domain Services kunt gebruiken om virtuele Azure-machines te koppelen aan een domein zonder domeincontrollers en ze te beheren met groepsbeleid.
 services: active-directory-ds
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ca9fd58260f97836c08e71a50d8411d1862fd650
 ms.openlocfilehash: 9654ec8791de56c33e4973e8ba20ef6e52780955
+ms.contentlocale: nl-nl
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="active-directory-domain-services-documentation"></a>Documentatie over Active Directory Domain Services
@@ -167,10 +169,5 @@ Leer hoe u Active Directory Domain Services kunt gebruiken om virtuele Azure-mac
         </a>
     </li>
 </ul>
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

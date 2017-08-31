@@ -1,8 +1,8 @@
 ---
 title: Documentatie voor Azure DevTest Labs - zelfstudies | Microsoft Docs
-description: Leer hoe u snel testomgevingen voor toepassingen kunt maken met behulp van herbruikbare artefacten. Zelfstudies, video&quot;s en meer laten zien hoe u labs kunt maken, beheren en beveiligen.
+description: Leer hoe u snel testomgevingen voor toepassingen kunt maken met behulp van herbruikbare artefacten. Zelfstudies, video's en meer laten zien hoe u labs kunt maken, beheren en beveiligen.
 services: devtest-lab
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

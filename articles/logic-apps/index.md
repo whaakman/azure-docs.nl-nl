@@ -2,7 +2,7 @@
 title: Documentatie voor Azure Logic Apps - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over het ontwikkelen van logische apps die bedrijfswerkstromen on-premises en in de cloud automatiseren en vereenvoudigen. Zelfstudies, sjablonen en API-verwijzingen.
 services: logic-apps
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

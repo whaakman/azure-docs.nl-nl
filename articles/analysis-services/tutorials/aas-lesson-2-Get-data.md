@@ -3,7 +3,7 @@ title: 'Azure Analysis Services-zelfstudie - Les 2: Gegevens ophalen | Microsoft
 description: In deze les wordt beschreven hoe u gegevens ophaalt en importeert voor een tabellair model in Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

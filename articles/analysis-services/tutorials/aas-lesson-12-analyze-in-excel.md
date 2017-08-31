@@ -3,7 +3,7 @@ title: 'Azure Analysis Services-zelfstudie - Les 12: Analyseren in Excel | Micro
 description: In deze les wordt beschreven hoe u de analysefunctie van Excel gebruikt in de zelfstudie over Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -3,7 +3,7 @@ title: 'Azure Analysis Services-zelfstudie - Les 7: Key Performance Indicators m
 description: In deze les wordt beschreven hoe u Key Performance Indicator maakt in de zelfstudie over Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

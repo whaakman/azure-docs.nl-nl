@@ -3,7 +3,7 @@ title: 'Azure Analysis Services-zelfstudie - Les 8: Perspectieven maken| Microso
 description: In deze les wordt beschreven hoe u perspectieven maakt in de zelfstudie over Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -2,7 +2,7 @@
 title: Documentatie voor Azure Billing - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over hoe u inzicht krijgt in uw Azure-facturering, en hoe u het gebruik en de kosten kunt beheren en bewaken. Zelfstudies, veelgestelde vragen, API-verwijzingen en andere documentatie.
 services: billing
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

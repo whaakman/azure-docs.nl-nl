@@ -2,7 +2,7 @@
 title: Documentatie voor Azure Data Lake Store - zelfstudies, API-verwijzing | Microsoft Docs
 description: Leer hoe u een grootschalige, met Hadoop compatibele Data Lake-opslagplaats kunt instellen, beheren en openen voor analyse van gegevens van elke grootte, soort en opnamesnelheid.
 services: data-lake-store
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

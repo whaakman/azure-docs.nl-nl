@@ -1,8 +1,8 @@
 ---
 title: Documentatie voor Azure API Management - zelfstudies, API-verwijzing | Microsoft Docs
-description: Leer hoe u API Management kunt gebruiken om API&quot;s veilig en op schaal te publiceren. Documentatie laat zien hoe u moderne API-gateways voor bestaande back-endservices kunt maken.
+description: Leer hoe u API Management kunt gebruiken om API's veilig en op schaal te publiceren. Documentatie laat zien hoe u moderne API-gateways voor bestaande back-endservices kunt maken.
 services: api-management
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5710f0aeb9af0f5d829c30d4b3e604c0a62afdb5
 ms.openlocfilehash: 09eb558a4e4b32fa6e1094c55f321db8ce008d4d
+ms.contentlocale: nl-nl
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="api-management-documentation"></a>Documentatie over API Management
@@ -143,10 +145,5 @@ Leer hoe u API Management kunt gebruiken voor het veilig en op schaal publiceren
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

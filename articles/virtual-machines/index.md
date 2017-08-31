@@ -2,7 +2,7 @@
 title: Documentatie voor Azure Virtual Machines - zelfstudies, API-verwijzing | Microsoft Docs
 description: Meer informatie over het maken, implementeren en beheren van virtuele Windows- of Linux-machines. Zelfstudies, API-verwijzingen en andere documentatie.
 services: virtual-machines
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ff1cc256ff9ba84504a9df16c33888a920f62cd6
 ms.openlocfilehash: da4f6ab3c7f0c4f96440b3008e6ac62d94ea2406
+ms.contentlocale: nl-nl
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="virtual-machines-documentation"></a>Documentatie voor Virtual Machines
@@ -60,10 +62,5 @@ Meer informatie over het maken van virtuele Azure-machines. Zelfstudies, API-ver
     </li>    
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
