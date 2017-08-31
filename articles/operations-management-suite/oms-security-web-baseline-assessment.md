@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/28/2017
+ms.date: 08/18/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 8be49b182df675fe3235d148b87379e1dff3a384
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 40b0c6ca933ea02ac9f5fe3bfaaf87a310542a8d
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="web-baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Evaluatie van de webbasislijn in de oplossing voor beveiliging en controle voor Operations Management Suite
@@ -29,6 +29,9 @@ Dit document helpt u om de mogelijkheden van de oplossing voor beveiliging en co
 Beveiliging voor OMS biedt momenteel evaluatie van de beveiligingsbasislijn voor besturingssystemen. Het scant de besturingssysteeminstellingen van uw servers elke 24 uur en biedt inzicht in mogelijk kwetsbare instellingen. Lees [Basislijnevaluatie in de oplossing voor beveiliging en controle voor Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/oms-security-baseline) voor meer informatie hierover.
 
 Het doel van de evaluatie van de webbasislijn is om mogelijk kwetsbare webserverinstellingen te vinden. De drie primaire bronnen voor de configuraties van de webbasislijn zijn: .NET, ASP.NET en IIS-configuratie.  Net als bij de evaluatie van de besturingssysteembasislijn, scant de beveiliging voor OMS uw webservers elke 24 uur en geeft u inzicht in hun beveiligingsstatus.  In IIS (Internet Information Service) zijn configuraties in hoge mate aanpasbaar, waardoor verschillende niveaus voor sites en toepassingen kunnen worden overschreven. De scanner controleert de instellingen op elk niveau van de toepassing/site en op het standaardhoofdniveau. Dit helpt u om te bepalen welke instellingen mogelijk kwetsbaar zijn en dit snel te herstellen, samen met onze aanbevelingen voor deze instellingen.
+
+>[!NOTE] 
+>Ga naar deze [pagina](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335?redir=0) om de Common Configuration Identifiers en Baseline Rules te downloaden die worden gebruikt door OMS Security.
 
 
 ## <a name="web-security-baseline-assessment"></a>Basislijnevaluatie van de webbeveiliging

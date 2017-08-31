@@ -1,4 +1,4 @@
-Als u Service Bus-wachtrijen in Azure wilt gebruiken, moet u eerst een naamruimte maken. Een naamruimte biedt een scoping container voor het verwerken van Service Bus-resources in uw toepassing. 
+Als u Service Bus-wachtrijen wilt gaan gebruiken in Azure, moet u eerst een naamruimte maken met een naam die uniek is binnen Azure. Een naamruimte biedt een scoping container voor het verwerken van Service Bus-resources in uw toepassing.
 
 Ga als volgt te werk om een naamruimte te maken:
 

@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 451d3c956b863ab90f86509fd80a5c96e27525ce
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 22c7e589efa9a9f401549ec9b95c58c4eaf07b94
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Virtuele-machineschaalsets in Azure en gekoppelde gegevensschijven
@@ -99,10 +99,21 @@ U kunt ook een schijf toevoegen door een nieuwe vermelding toe te voegen aan de 
     }          
 ]
 ```
+
 Selecteer vervolgens _PUT_ om de wijzigingen toe te passen op uw schaalset. Dit voorbeeld zou moeten werken als u gebruikmaakt van een VM-formaat dat meer dan twee gekoppelde gegevensschijven ondersteunt.
 
 > [!NOTE]
 > Wanneer u een wijziging aanbrengt in een schaalsetdefinitie, zoals het toevoegen of verwijderen van een gegevensschijf, wordt deze toegepast op alle nieuwe virtuele machines. Deze wordt echter alleen toegepast op bestaande virtuele machines als de eigenschap _upgradePolicy_ is ingesteld op 'Automatisch'. Als de eigenschap is ingesteld op 'Handmatig', dient u handmatig het nieuwe model toe te passen op bestaande virtuele machines. U kunt dit doen in de portal met behulp van de PowerShell-opdracht _Update-AzureRmVmssInstance_ of de CLI-opdracht _az vmss update-instances_.
+
+## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>Vooraf gevulde gegevensschijven toevoegen aan een bestaande schaalset 
+> Wanneer u schijven toevoegt aan een bestaand model met een schaalset, wordt er standaard altijd een lege schijf gemaakt. Dit scenario geldt ook voor nieuwe exemplaren die met de schaalset worden gemaakt. De reden voor dit gedrag is dat de definitie van de schaalset een lege gegevensschijf bevat. Om in deze situatie vooraf gevulde gegevensschijven te maken voor een bestaand model met een schaalset, kunt u kiezen voor een van de volgende twee opties:
+
+* Gegevens kopiëren van de VM met het exemplaar 0 naar een of meer gegevensschijven in de andere VM's door het uitvoeren van een aangepast script.
+* Een beheerde installatiekopie maken van de besturingssysteemschijf plus de gegevensschijf (met de vereiste gegevens) en vervolgens een nieuwe schaalset maken aan de hand van de installatiekopie. Op deze manier beschikt elke nieuwe VM over een gegevensschijf die is opgegeven in de definitie van de schaalset. Aangezien in deze definitie wordt verwezen naar een installatiekopie met een gegevensschijf die aangepaste gegevens bevat, zijn deze wijzigingen automatisch beschikbaar op elke virtuele machine in de schaalset.
+
+> De instructies voor het maken van een aangepaste installatiekopie vindt u hier: [Create a managed image of a generalized VM in Azure](/azure/virtual-machines/windows/capture-image-resource/) (Een beheerde installatiekopie maken van een gegeneraliseerde VM in Azure). 
+
+> De gebruiker moet de VM met het exemplaar 0 vastleggen omdat daar de vereiste gegevens op staan en vervolgens die VHD gebruiken voor de definitie van de installatiekopie.
 
 ## <a name="removing-a-data-disk-from-a-scale-set"></a>Een gegevensschijf verwijderen uit een schaalset
 U kunt een gegevensschijf verwijderen uit een VM-schaalset met behulp van de Azure CLI-opdracht _az vmss disk detach_. Met de volgende opdracht wordt bijvoorbeeld de schijf die is gedefinieerd op LUN 2 verwijderd:

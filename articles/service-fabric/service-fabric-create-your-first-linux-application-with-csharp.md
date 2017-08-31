@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 8/21/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 4baf144cc28eeff0ab8f8b60e837f8a2bad903af
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: adcafaa5522fcddc0a01eb1dc8deba04ebfc38f2
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Uw eerste Azure Service Fabric-toepassing maken
@@ -34,10 +34,29 @@ Service Fabric biedt SDK's voor het bouwen van services in Linux in zowel .NET C
 ## <a name="prerequisites"></a>Vereisten
 Zorg voordat u begint ervoor dat u [uw Linux-ontwikkelingsomgeving hebt ingesteld](service-fabric-get-started-linux.md). Als u Mac OS X gebruikt, kunt u [een Linux one-box omgeving instellen op een virtuele machine met behulp van Vagrant](service-fabric-get-started-mac.md).
 
-U configureert ook [Azure CLI 2.0](service-fabric-azure-cli-2-0.md) (aanbevolen) of [XPlat CLI](service-fabric-azure-cli.md) voor het implementeren van uw toepassing.
+Het is dan ook een goed idee om de [Service Fabric-CLI](service-fabric-cli.md) te installeren.
+
+### <a name="install-and-set-up-the-generators-for-csharp"></a>Generatoren voor CSharp installeren en instellen
+Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fabric CSharp-toepassing kunt maken met behulp van de Yeoman-sjabloongenerator. Volg de stappen hieronder om te controleren of de Yeoman-sjabloongenerator voor CSharp werkt op uw computer.
+1. nodejs en NPM installeren op uw computer
+
+  ```bash
+  sudo apt-get install npm
+  sudo apt install nodejs-legacy
+  ```
+2. [Yeoman](http://yeoman.io/)-sjabloongenerator installeren op uw computer vanuit NPM
+
+  ```bash
+  sudo npm install -g yo
+  ```
+3. Generator voor Service Fabric Yeoman Java-toepassingen installeren vanuit NPM
+
+  ```bash
+  sudo npm install -g generator-azuresfcsharp
+  ```
 
 ## <a name="create-the-application"></a>De toepassing maken
-Een Service Fabric-toepassing kan een of meer services bevatten, elk met een specifieke functie met betrekking tot het leveren van de functionaliteit van de toepassing. De Service Fabric-SDK voor Linux bevat een [Yeoman](http://yeoman.io/)-generator waarmee u gemakkelijk uw eerste service kunt maken en er later meer kunt toevoegen. We gebruiken Yeoman om een toepassing te maken met één service.
+Een Service Fabric-toepassing kan een of meer services bevatten, elk met een specifieke functie met betrekking tot het leveren van de functionaliteit van de toepassing. De Service Fabric [Yeoman](http://yeoman.io/)-generator voor CSharp, die u in de laatste stap hebt geïnstalleerd, zorgt ervoor dat u gemakkelijk uw eerste service kunt maken en er later meer kunt toevoegen. We gebruiken Yeoman om een toepassing te maken met één service.
 
 1. Typ in een terminal de volgende opdracht om te beginnen met de opbouw van de sjabloon: `yo azuresfcsharp`
 2. Geef uw toepassing een naam.
@@ -62,12 +81,10 @@ De Service Fabric Yeoman-sjablonen bevatten een bouwscript dat u kunt gebruiken 
 
 Nadat de toepassing is gemaakt, kunt u deze implementeren in het lokale cluster.
 
-### <a name="using-xplat-cli"></a>Met XPlat CLI
-
 1. Maak verbinding met het lokale cluster van Service Fabric.
 
     ```bash
-    azure servicefabric cluster connect
+    sfctl cluster select --endpoint http://localhost:19080
     ```
 
 2. Voer het installatiescript uit dat is opgegeven in de sjabloon om het toepassingspakket te kopiëren naar de installatiekopieopslag van het cluster, het toepassingstype te registreren en een exemplaar van de toepassing te maken.
@@ -76,14 +93,11 @@ Nadat de toepassing is gemaakt, kunt u deze implementeren in het lokale cluster.
     ./install.sh
     ```
 
-### <a name="using-azure-cli-20"></a>Met Azure CLI 2.0
-
-De implementatie van de gemaakte toepassing werkt hetzelfde als van andere Service Fabric-toepassingen. Zie de documentatie over het [beheren van een Service Fabric-toepassing met Azure CLI](service-fabric-application-lifecycle-azure-cli-2-0.md) voor gedetailleerde instructies.
+De implementatie van de gemaakte toepassing werkt hetzelfde als van andere Service Fabric-toepassingen. Zie de documentatie over het [beheren van een Service Fabric-toepassing met de Service Fabric-CLI](service-fabric-application-lifecycle-sfctl.md) voor gedetailleerde instructies.
 
 Parameters voor deze opdrachten vindt u in de gegenereerde manifesten binnen het toepassingspakket.
 
-Nadat de toepassing is geïmplementeerd, opent u een browser en gaat u naar [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) op [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
-Vouw vervolgens het knooppunt **Toepassingen** uit. U ziet dat er nu een vermelding is voor uw toepassingstype en nog een voor het eerste exemplaar van dat type.
+Nadat de toepassing is geïmplementeerd, opent u een browser en gaat u naar [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) op [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Vouw vervolgens het knooppunt **Toepassingen** uit. U ziet dat er nu een vermelding is voor uw toepassingstype en nog een voor het eerste exemplaar van dat type.
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>De testclient starten en een failover uitvoeren
 Actorprojecten doen niets uit zichzelf. Ze hebben een andere service of client nodig die hen berichten stuurt. De actorsjabloon bevat een eenvoudig testscript dat u kunt gebruiken om te communiceren met de actorservice.
@@ -101,7 +115,7 @@ Actorprojecten doen niets uit zichzelf. Ze hebben een andere service of client n
 
 ## <a name="adding-more-services-to-an-existing-application"></a>Meer services toevoegen aan een bestaande toepassing
 
-Voer de volgende stappen uit als u nog een service wilt toevoegen aan een toepassing die al is gemaakt met `yo`: 
+Voer de volgende stappen uit als u nog een service wilt toevoegen aan een toepassing die al is gemaakt met `yo`:
 1. Stel de directory in op de hoofdmap van de bestaande toepassing.  Bijvoorbeeld `cd ~/YeomanSamples/MyApplication` als `MyApplication` de toepassing is die is gemaakt door Yeoman.
 2. Voer `yo azuresfcsharp:AddService` uit.
 
@@ -111,14 +125,11 @@ Voer de volgende stappen uit als u nog een service wilt toevoegen aan een toepas
 3. Werk de projectbestandsnamen bij naar csproj-bestanden in build.sh.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * [Meer informatie over Reliable Actors](service-fabric-reliable-actors-introduction.md)
-* [Interactie aangaan met Service Fabric-clusters met de Azure-CLI](service-fabric-azure-cli.md)
+* [Werken met Service Fabric-clusters via de Service Fabric-CLI](service-fabric-cli.md)
 * Meer informatie over [ondersteuningsopties voor Service Fabric](service-fabric-support.md)
-
-## <a name="related-articles"></a>Verwante artikelen:
-
-* [Aan de slag met Service Fabric en Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Aan de slag met Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+* [Aan de slag met de Service Fabric-CLI](service-fabric-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png

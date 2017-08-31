@@ -463,7 +463,7 @@ Omdat de gateways in dit voorbeeld tot verschillende abonnementen behoren, is de
 
 ## <a name="faq"></a>Veelgestelde vragen over VNet-naar-VNet
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -12,14 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2017
+ms.date: 08/18/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 4d0909e926de14a0cbe9799b969ac7a1946d69d1
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 44beafeff5cbe58ac8ca37632879f6ffc2b67e53
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="partner-integration-in-azure-security-center"></a>Partnerintegratie in Azure Security Center
@@ -62,9 +61,9 @@ Er kan een Security Center-aanbeveling worden weergegeven voor het implementeren
 
 ## <a name="manage-partner-solutions"></a>Partneroplossingen beheren
 
-Selecteer in de blade **Security Center** de tegel **Partneroplossingen** om na de implementatie informatie te bekijken over de status van de oplossing en om basisbeheertaken uit te voeren. Raadpleeg [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md) voor meer informatie over het beheren van partneroplossingen in Security Center.
+Selecteer op de blade **Security Center** de optie **Partneroplossingen** om na de implementatie informatie te bekijken over de status van de oplossing en om basisbeheertaken uit te voeren. Raadpleeg [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md) voor meer informatie over het beheren van partneroplossingen in Security Center.
 
-![Partnerintegratie](./media/security-center-partner-integration/security-center-partner-integration-fig1-1-newUI.png)
+![Partnerintegratie](./media/security-center-partner-integration/security-center-partner-integration-fig1-new2.png)
 
 > [!NOTE]
 > De ondersteuning voor Symantec Endpoint Protection is beperkt tot detectie. Er zijn geen statuswaarschuwingen beschikbaar.

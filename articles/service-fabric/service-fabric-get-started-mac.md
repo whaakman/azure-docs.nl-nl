@@ -1,6 +1,6 @@
 ---
-title: Uw ontwikkelomgeving instellen in Mac OS X | Microsoft Docs
-description: Installeer de runtime, SDK en hulpprogramma&quot;s en maak een lokaal ontwikkelcluster. Zodra u dit hebt gedaan, kunt u toepassingen bouwen in Mac OS X.
+title: Uw ontwikkelomgeving in Mac OS X instellen voor gebruik met Azure Service Fabric | Microsoft Docs
+description: Installeer de runtime, SDK en hulpprogramma's en maak een lokaal ontwikkelcluster. Zodra u dit hebt gedaan, kunt u toepassingen bouwen in Mac OS X.
 services: service-fabric
 documentationcenter: java
 author: sayantancs
@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2017
+ms.date: 08/21/2017
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: e5d14eb0a656d67030f4c0d3d510aec0e9cafae7
-ms.lasthandoff: 03/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8b4fc0ab9034263418cac42ced203035e0a8fcad
+ms.contentlocale: nl-nl
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Uw ontwikkelomgeving instellen in Mac OS X
@@ -51,7 +51,6 @@ Ga als volgt te werk om de lokale VM te maken met een Service Fabric-cluster met
     ```
     Met deze stappen verkrijgt u het bestand `Vagrantfile` dat de VM-configuratie bevat plus de locatie van waar de virtuele machine is gedownload.
 
-
 2. Navigeer naar de lokale kloon van de opslagplaats
 
     ```bash
@@ -75,24 +74,46 @@ Ga als volgt te werk om de lokale VM te maken met een Service Fabric-cluster met
 
     ![Starten van clusterinstallatie na inrichting van VM][cluster-setup-script]
 
->[!TIP]
-> Als het downloaden van de virtuele machine lang duurt, kunt u deze downloaden met behulp van wget of curl, of via een browser door te navigeren naar de koppeling die met **config.vm.box_url** is opgegeven in het bestand `Vagrantfile`. Nadat u deze lokaal hebt gedownload, bewerkt u `Vagrantfile`, zodat dit wijst naar het lokale pad waar u de installatiekopie hebt gedownload. Als u de installatiekopie bijvoorbeeld hebt gedownload naar /home/users/test/azureservicefabric.tp8.box, stelt u **config.vm.box_url** in op dat pad.
->
+    >[!TIP]
+    > Als het downloaden van de virtuele machine lang duurt, kunt u deze downloaden met behulp van wget of curl, of via een browser door te navigeren naar de koppeling die met **config.vm.box_url** is opgegeven in het bestand `Vagrantfile`. Nadat u deze lokaal hebt gedownload, bewerkt u `Vagrantfile`, zodat dit wijst naar het lokale pad waar u de installatiekopie hebt gedownload. Als u de installatiekopie bijvoorbeeld hebt gedownload naar /home/users/test/azureservicefabric.tp8.box, stelt u **config.vm.box_url** in op dat pad.
+    >
 
 5. Test of het cluster correct is ingesteld door naar Service Fabric Explorer te gaan op http://192.168.50.50:19080/Explorer (ervan uitgaande dat u het standaard IP-adres van het privénetwerk hebt gehouden).
 
     ![Service Fabric Explorer bekeken vanuit de host-Mac][sfx-mac]
 
+
+## <a name="create-application-on-mac-using-yeoman"></a>Toepassingen maken op een Mac met Yeoman
+Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fabric-toepassing kunt maken met behulp van de Yeoman-sjabloongenerator. Volg de stappen hieronder om te controleren of de Yeoman-sjabloongenerator van Service Fabric werkt op uw computer.
+
+1. Node.js en NPM moeten zijn geïnstalleerd op uw Mac. Als dat niet het geval is, kunt u Node.js en NPM als volgt installeren met behulp van Homebrew. Gebruik de optie ``-v`` om te controleren welke versies van Node.js en NPM zijn geïnstalleerd op uw Mac.
+
+  ```bash
+  brew install node
+  node -v
+  npm -v
+  ```
+2. [Yeoman](http://yeoman.io/)-sjabloongenerator installeren op uw computer vanuit NPM
+
+  ```bash
+  npm install -g yo
+  ```
+3. Installeer de Yeoman generator die u wilt gebruiken. Volg hiervoor de stappen in deze [documentatie](service-fabric-get-started-linux.md). Volg deze stappen om Service Fabric-toepassingen te maken met behulp van Yeoman:
+
+  ```bash
+  npm install -g generator-azuresfjava       # for Service Fabric Java Applications
+  npm install -g generator-azuresfguest      # for Service Fabric Guest executables
+  npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
+  ```
+4. Als u een Service Fabric Java-toepassing wilt maken op een Mac, moeten JDK 1.8 en Gradle op de computer zijn geïnstalleerd.
+
+
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>De Service Fabric-invoegtoepassing installeren voor Eclipse Neon
 
 Service Fabric biedt een invoegtoepassing voor de **Eclipse Neon voor Java IDE** die het maken, bouwen en implementeren van Java-services kan vereenvoudigen. U kunt de installatiestappen volgen uit deze algemene [documentatie](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) over het installeren en bijwerken van de Service Fabric Eclipse-invoegtoepassing.
 
-## <a name="using-service-fabric-eclipse-plugin-on-mac"></a>De Service Fabric Eclipse-invoegtoepassing gebruiken op Mac-apparaten
-
-Zorg ervoor dat u de stappen uit de [documentatie over de Service Fabric Eclipse-invoegtoepassing](service-fabric-get-started-eclipse.md) hebt gevolgd. De stappen voor het maken, bouwen en implementeren van een Service Fabric Java-toepassing met behulp van een Vagrant-gastcontainer op een Mac-host zijn vrijwel hetzelfde als in de algemene documentatie wordt beschreven, op de volgende punten na:
-
-* Omdat de Service Fabric-bibliotheken zijn vereist voor de Service Fabric Java-toepassing, moet het Eclipse-project worden gemaakt in een gedeeld pad. Standaard wordt de inhoud in het pad van de host waar ``Vagrantfile`` staat, gedeeld met het ``/vagrant``-pad voor de gast.
-* Als u ``Vagrantfile`` in een pad hebt staan, bijvoorbeeld in ``~/home/john/allprojects/``, moet u het Service Fabric-project ``MyActor`` op de locatie ``~/home/john/allprojects/MyActor`` maken, en wordt het pad naar uw Eclipse-werkruimte ``~/home/john/allprojects``.
+>[!TIP]
+> De standaardinstelling is dat het standaard-IP-adres wordt ondersteund dat is opgegeven voor ``Vagrantfile`` in de ``Local.json`` van de gegenereerde toepassing. Als u dat adres wijzigt en Vagrant implementeert met een ander IP-adres, moet u het bijbehorende IP-adres in de ``Local.json`` van uw toepassing ook bijwerken.
 
 ## <a name="next-steps"></a>Volgende stappen
 <!-- Links -->

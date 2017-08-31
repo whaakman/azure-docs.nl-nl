@@ -14,16 +14,16 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6b21f38ddd64278db26d7042349470805b799203
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7d2bc89943087323e92cf06981bbacaf4b8ff060
 ms.contentlocale: nl-nl
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python-web- en -werkrollen met Python-tools voor Visual Studio
 
-Dit artikel biedt een overzicht van het gebruik van Python-web- en -werkrollen met [Python Tools for Visual Studio][Python Tools for Visual Studio]. U kunt hier lezen hoe u met Visual Studio een eenvoudige cloudservice die Python gebruikt, maakt en implementeert.
+Dit artikel biedt een overzicht van het gebruik van Python-web- en -werkrollen met [Python Tools for Visual Studio][Python Tools for Visual Studio]. U kunt hier lezen hoe u met Visual Studio een eenvoudige cloudservice maakt en implementeert die gebruikmaakt van Python.
 
 ## <a name="prerequisites"></a>Vereisten
 * [Visual Studio 2013, 2015 of 2017](https://www.visualstudio.com/)
@@ -74,7 +74,7 @@ Uw cloudservice kan rollen bevatten die zijn geïmplementeerd in verschillende t
 
 Het belangrijkste probleem met de installatiescripts is dat Python hiermee niet wordt geïnstalleerd. Eerst definieert u twee [opstarttaken](cloud-services-startup-tasks.md) in het bestand [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef). De eerste taak (**PrepPython.ps1**) downloadt en installeert de Python-runtime. De tweede taak (**PipInstaller.ps1**) voert pip uit om alle afhankelijkheden die u mogelijk hebt, te installeren.
 
-De scripts hieronder zijn geschreven voor gebruik met Python 3.5. Als u versie 2.x van Python wilt gebruiken, stelt u de variabele **PYTHON2** in het bestand in op **on** (aan) voor de twee opstarttaken en de runtimetaak: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
+De volgende scripts zijn geschreven voor gebruik met Python 3.5. Als u versie 2.x van Python wilt gebruiken, stelt u de variabele **PYTHON2** in het bestand in op **on** (aan) voor de twee opstarttaken en de runtimetaak: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
 
 ```xml
 <Startup>
@@ -101,7 +101,7 @@ De scripts hieronder zijn geschreven voor gebruik met Python 3.5. Als u versie 2
 </Startup>
 ```
 
-De variabelen **PYTHON2** en **PYPATH** moet aan de opstarttaak van de werkrol worden toegevoegd. De variabele **PYPATH** wordt alleen gebruikt als de variabele **PYTHON2** is ingesteld op **on** (aan).
+De variabelen **PYTHON2** en **PYPATH** moeten aan de opstarttaak van de werkrol worden toegevoegd. De variabele **PYPATH** wordt alleen gebruikt als de variabele **PYTHON2** is ingesteld op **on** (aan).
 
 ```xml
 <Runtime>
@@ -334,7 +334,7 @@ Zie de documentatie bij PTVS voor meer informatie over het werken met web- en we
 
 * [Cloudserviceprojecten][Cloud Service Projects]
 
-Zie de volgende artikelen voor meer informatie over het gebruik van Azure-services via uw web- en werkrollen, zoals het gebruik van Azure Storage of Service Bus.
+Zie de volgende artikelen voor meer informatie over het gebruik van Azure-services via uw web- en werkrollen, zoals het gebruik van Azure Storage of Service Bus:
 
 * [Blob-service][Blob Service]
 * [Tabelservice][Table Service]
@@ -350,9 +350,9 @@ Zie de volgende artikelen voor meer informatie over het gebruik van Azure-servic
 [execution model-cloud services]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
-[Blob Service]: ../storage/storage-python-how-to-use-blob-storage.md
-[Queue Service]: ../storage/storage-python-how-to-use-queue-storage.md
-[Table Service]: ../storage/storage-python-how-to-use-table-storage.md
+[Blob Service]:../storage/blobs/storage-python-how-to-use-blob-storage.md
+[Queue Service]: ../storage/queues/storage-python-how-to-use-queue-storage.md
+[Table Service]:../cosmos-db/table-storage-how-to-use-python.md
 [Service Bus Queues]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
 [Service Bus Topics]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 

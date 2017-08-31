@@ -187,7 +187,7 @@ U kunt afzonderlijk op elke verbinding dubbelklikken voor meer informatie over d
 ## <a name="faq"></a>Veelgestelde vragen over VNet-naar-VNet
 Bekijk de Veelgestelde vragen voor meer informatie over VNet-naar-VNet-verbindingen.
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Raadpleeg de [documentatie over Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie.

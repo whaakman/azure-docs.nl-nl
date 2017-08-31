@@ -16,27 +16,28 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: cgronlun
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: a9b47429779417afa664156cd824aa044f7bf04c
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 179a0d3696c6044ffb5b9e377effa30dda54ba7f
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Inleiding tot machine learning in de Azure-cloud
 
 ## <a name="what-is-machine-learning"></a>Wat is machine learning?
-Machine learning is een techniek van gegevenswetenschap die computers in staat stelt om op basis van bestaande gegevens, toekomstig gedrag, resultaten en trends te voorspellen. Met behulp van machine learning kunnen computers leren zonder dat ze expliciet worden geprogrammeerd.
+Machine learning is een techniek van gegevenswetenschap die computers in staat stelt om op basis van bestaande gegevens, toekomstig gedrag, resultaten en trends te voorspellen. Met behulp van machine learning kunnen computers leren zonder dat ze expliciet worden geprogrammeerd. 
 
-Prognoses of voorspellingen op basis van machine learning kunnen apps en apparaten slimmer maken. Wanneer u online winkelt, helpt machine learning op basis van wat u eerder hebt gekocht, bij het aanraden van andere producten waarvoor u mogelijk belangstelling hebt. Wanneer uw creditcard wordt gebruikt, vergelijkt machine learning de transactie met een database van transacties om fraude te detecteren. Wanneer uw robotstoftzuiger een kamer stofzuigt, helpt machine learning bij het besluiten wanneer de taak klaar is.
+Machine learning wordt beschouwd als een subcategorie van kunstmatige intelligentie (AI). Prognoses of voorspellingen op basis van machine learning kunnen apps en apparaten slimmer maken. Wanneer u online winkelt, helpt machine learning op basis van wat u eerder hebt gekocht, bij het aanraden van andere producten waarvoor u mogelijk belangstelling hebt. Wanneer uw creditcard wordt gebruikt, vergelijkt machine learning de transactie met een database van transacties om fraude te detecteren. Wanneer uw robotstoftzuiger een kamer stofzuigt, helpt machine learning bij het besluiten wanneer de taak klaar is.
 
 Probeer de videoreeks [Gegevenswetenschap voor beginners](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) voor een kort overzicht. Zonder jargo of wiskunde introduceert Gegevenswetenschap voor beginners machine learning en de leidt u door een eenvoudig voorspelmodel.
 
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>Wat is Machine Learning in de Microsoft Azure-cloud?
+
+![Wat is machine learning? De basiswerkstroom om predictive analytics operationeel te maken in Azure Machine Learning.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
+
 Azure Machine Learning is een cloudservice voor predictive analytics waarmee u snel voorspellende modellen kunt maken en implementeren als analytics-oplossingen.
 
 U kunt werken vanuit een kant-en-klare bibliotheek met algoritmen. Gebruik ze om modellen te maken op een pc met een internetverbinding en implementeer snel de voorspellende oplossing. Begin met gebruiksklare voorbeelden en oplossingen in de [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/).
-
-![Wat is machine learning? De basiswerkstroom om predictive analytics operationeel te maken in Azure Machine Learning.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
 Azure Machine Learning bevat niet alleen hulpprogramma's om predictive analytics te ontwikkelen, maar ook een volledig beheerde service waarmee u de voorspellende modellen kunt implementeren als gebruiksklare webservices.
 
