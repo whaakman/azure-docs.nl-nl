@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/05/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4d7704c03bece51957efa2a56577b8808cc62c79
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: d86e47507f7a578e8a0affb690b6d96673b6b69a
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="you-cant-get-there-from-here-on-a-windows-device"></a>U kunt daar niet komen vanaf deze locatie op een Windows-apparaat
@@ -47,7 +47,7 @@ U kunt eenvoudig vaststellen of u geen toegang hebt tot een resource vanwege een
 
 ![Scenario](./media/active-directory-conditional-access-device-remediation/02.png "Berichten over ontoegankelijke toepassingen voor niet-ondersteunde browsers")
 
-De enige oplossing is een browser te gebruiken die de toepassing ondersteunt voor uw apparaatplatform. Zie [Ondersteunde browsers](active-directory-conditional-access-supported-apps.md#supported-browsers-for-device-based-policies) voor een volledige lijst met ondersteunde browsers.  
+De enige oplossing is een browser te gebruiken die de toepassing ondersteunt voor uw apparaatplatform. Zie [Ondersteunde browsers](active-directory-conditional-access-supported-apps.md) voor een volledige lijst met ondersteunde browsers.  
 
 
 ## <a name="supported-versions-of-windows"></a>Ondersteunde versies van Windows
