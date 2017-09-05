@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 06/29/2017
+ms.date: 08/28/2017
 ms.author: nisoneji
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 4d96483a971d5c4a0c2cc240620e7a9b289f597d
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery-implementatieplanner
@@ -67,7 +67,7 @@ Het hulpprogramma heeft twee belangrijke fasen: profileren en rapporten generere
 
 | Serververeiste | Beschrijving|
 |---|---|
-|Profileren en meten van doorvoer| <ul><li>Besturingssysteem: Microsoft Windows Server 2012 R2<br>(bij voorkeur met minimaal de [aanbevolen waarden voor de configuratieserver](https://aka.ms/asr-v2a-on-prem-components))</li><li>Machineconfiguratie: 8 vCPU's, 16 GB RAM, 300 GB harde schijf</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Microsoft Visual C++ Redistributable voor Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internettoegang tot Azure vanaf deze server</li><li>Azure Storage-account</li><li>Beheerderstoegang op de server</li><li>Minimaal 100 GB vrije schijfruimte (uitgaande van 1000 virtuele machines met een gemiddelde van elk drie schijven, geprofileerd voor 30 dagen)</li><li>Het niveau voor VMware vCenter-statistieken moet worden ingesteld op niveau 2 of hoger</li></ul>|
+|Profileren en meten van doorvoer| <ul><li>Besturingssysteem: Microsoft Windows Server 2012 R2<br>(bij voorkeur met minimaal de [aanbevolen waarden voor de configuratieserver](https://aka.ms/asr-v2a-on-prem-components))</li><li>Machineconfiguratie: 8 vCPU's, 16 GB RAM, 300 GB harde schijf</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Microsoft Visual C++ Redistributable voor Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internettoegang tot Azure vanaf deze server</li><li>Azure Storage-account</li><li>Beheerderstoegang op de server</li><li>Minimaal 100 GB vrije schijfruimte (uitgaande van 1000 virtuele machines met een gemiddelde van elk drie schijven, geprofileerd voor 30 dagen)</li><li>Het niveau voor VMware vCenter-statistieken moet worden ingesteld op niveau 2 of hoger</li><li>Poort 443 toestaan: de ASR-implementatieplanner gebruikt deze poort voor verbinding met de vCenter-server/ESXi-host</ul></ul>|
 | Rapporten genereren | Een Windows-pc of Windows-server met Microsoft Excel 2013 of hoger |
 | Gebruikersmachtigingen | Alleen-lezen-machtiging voor het gebruikersaccount dat tijdens het profileren wordt gebruikt voor toegang tot de VMware vCenter-server of VMware vSphere ESXi-host |
 
@@ -118,14 +118,18 @@ U moet eerst een lijst maken met de virtuele machines die u wilt profileren. U k
 
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. Als u alle namen wilt ophalen van de virtuele machines op een vCenter-server of vSphere ESXi-host en de lijst wilt opslaan in een TXT-bestand, voert u de volgende twee opdrachten uit.
+4. U kunt desgewenst de volgende opdracht uitvoeren als Connect VIServer niet wordt herkend als de naam van de cmdlet.
+ 
+            Add-PSSnapin VMware.VimAutomation.Core 
+
+5. Als u alle namen wilt ophalen van de virtuele machines op een vCenter-server of vSphere ESXi-host en de lijst wilt opslaan in een TXT-bestand, voert u de volgende twee opdrachten uit.
 Vervang &lsaquo;servernaam&rsaquo;, &lsaquo;gebruikersnaam&rsaquo;, &lsaquo;wachtwoord&rsaquo;, &lsaquo;outputfile.txt&rsaquo;; door uw invoer.
 
             Connect-VIServer -Server <server name> -User <user name> -Password <password>
 
             Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
 
-5. Open het uitvoerbestand in Kladblok en kopieer de namen van alle virtuele machines die u wilt profileren naar een ander bestand (bijvoorbeeld ProfileVMList.txt). Zet elke naam op een afzonderlijke regel. Dit bestand gebruikt u als invoer voor de parameter *-VMListFile* van het opdrachtregelprogramma.
+6. Open het uitvoerbestand in Kladblok en kopieer de namen van alle virtuele machines die u wilt profileren naar een ander bestand (bijvoorbeeld ProfileVMList.txt). Zet elke naam op een afzonderlijke regel. Dit bestand gebruikt u als invoer voor de parameter *-VMListFile* van het opdrachtregelprogramma.
 
     ![Lijst met namen van virtuele machines in de implementatieplanner](./media/site-recovery-deployment-planner/profile-vm-list.png)
 

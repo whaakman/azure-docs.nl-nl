@@ -12,17 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/28/2017
+ms.date: 08/28/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 457519b00b65b0157effe2d4aba033a1c99852e8
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: c0d3f90c0f15fbb7aad00fe24c2946738e24ffd8
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="create-or-select-a-virtual-network-for-azure-active-directory-domain-services"></a>Een virtueel netwerk voor Azure Active Directory Domain Services maken of selecteren
+
+> [!IMPORTANT]
+> De ervaring met de klassieke Azure-portal om Azure AD Domain Services in te schakelen wordt binnenkort verwijderd uit dit artikel. Voor nieuwe implementaties [**gebruikt u in plaats daarvan de nieuwe Azure Portal (preview)**](active-directory-ds-getting-started.md).
+>
+
 ## <a name="before-you-begin"></a>Voordat u begint
 Raadpleeg [Networking considerations for Azure AD Domain Services](active-directory-ds-networking.md) (Overwegingen voor netwerken voor Azure AD Domain Services).
 
@@ -30,7 +34,7 @@ Raadpleeg [Networking considerations for Azure AD Domain Services](active-direct
 De volgende configuratietaak bestaat uit het maken van een virtueel Azure-netwerk met daarbinnen een subnet. U schakelt Azure Active Directory Domain Services in dit subnet binnen uw virtuele netwerk in. Als u een bestaand virtueel netwerk hebt dat u wilt gebruiken, kunt u deze stap overslaan.
 
 > [!NOTE]
-> Controleer of het virtuele netwerk van Azure dat u maakt of wilt gebruiken met Azure Active Directory Domain Services, deel uitmaakt van een Azure-regio die wordt ondersteund door Azure Active Directory Domain Services. Zie de pagina [Azure-services per regio](https://azure.microsoft.com/regions/#services/) om te bekijken in welke Azure-regio's Azure Active Directory Domain Services beschikbaar is.
+> Controleer of het virtuele netwerk van Azure dat u maakt of wilt gebruiken met Azure Active Directory Domain Services, deel uitmaakt van een Azure-regio die wordt ondersteund door Azure Active Directory Domain Services. Zie [Azure-services per regio](https://azure.microsoft.com/regions/#services/) om te kijken in welke Azure-regio's Azure Active Directory Domain Services beschikbaar is.
 >
 >Noteer de naam van het virtuele netwerk, zodat u het juiste virtuele netwerk selecteert wanneer u Azure Active Directory Domain Services inschakelt in een volgende configuratiestap.
 

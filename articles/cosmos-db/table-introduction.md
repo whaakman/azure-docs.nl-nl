@@ -12,33 +12,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/09/2017
+ms.date: 08/29/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: ef57753aeeace0086c815d83600f92422996032a
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 3ccc3b176df2f0a5d864554a74508292d272bd5a
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Inleiding tot Azure Cosmos DB: tabel-API
 
-[Azure Cosmos DB](introduction.md) is de globaal gedistribueerde databaseservice met meerdere modellen van Microsoft voor essentiële toepassingen. Azure Cosmos DB biedt [gebruiksklare wereldwijde distributie](distribute-data-globally.md), [elastisch schalen van doorvoer en opslag](partition-data.md), latentie die wereldwijd in het 99e percentiel onder de 10 milliseconden blijft, [vijf goed gedefinieerde consistentieniveaus](consistency-levels.md) en een gegarandeerd hoge beschikbaarheid, allemaal op basis van [toonaangevende serviceovereenkomsten](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Met Azure Cosmos DB worden [gegevens automatisch geïndexeerd](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), zonder dat u te maken krijgt met schema- en indexbeheer. Het beschikt over meerdere modellen en ondersteunt modellen voor document-, sleutelwaarde-, grafiek- en kolomgegevens. 
+[Azure Cosmos DB](introduction.md) biedt de Table-API (preview) voor toepassingen die zijn geschreven voor de Azure Table Storage-service en die premium-voorzieningen nodig hebben zoals [turn-key wereldwijde distributie](distribute-data-globally.md), [toegewezen doorvoer](partition-data.md) wereldwijd, latentie van minder dan tien milliseconden in het 99e percentiel, gegarandeerd hoge beschikbaarheid en [automatische secundaire indexering](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). Deze toepassingen kunnen zonder codeaanpassingen worden gemigreerd naar Azure Cosmos DB met behulp van de Table-API, en zo gebruikmaken van premium-mogelijkheden.
 
-![Azure-tabelopslag-API en Azure Cosmos DB](./media/table-introduction/premium-tables.png) 
+Het is raadzaam om eerst de volgende video te bekijken, waarin Aravind Ramachandran uitlegt hoe u aan de slag gaat met de Table-API voor Azure Cosmos DB.
 
-Azure Cosmos DB bevat de tabel-API (voorbeeld) voor toepassingen die een sleutelwaardearchief nodig hebben met een flexibel schema, voorspelbare prestaties, wereldwijde distributie en hoge doorvoer. De tabel-API biedt dezelfde functionaliteit als Azure Table Storage, maar dan met de voordelen van de Azure Cosmos DB-engine. 
-
-U kunt Azure-tabelopslag blijven gebruiken voor tabellen met hoge vereisten voor opslag en lagere vereisten voor doorvoer. In een toekomstige upgrade wordt in Azure Cosmos DB ondersteuning geïntroduceerd voor tabellen die zijn geoptimaliseerd voor opslag, en worden bestaande en nieuwe Azure-tabelopslagaccounts bijgewerkt naar Azure Cosmos DB.
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
+> 
+> 
 
 ## <a name="premium-and-standard-table-apis"></a>Premium- en Standard-table-API's
 Als u momenteel gebruikmaakt van Azure-tabelopslag, levert overstappen naar de preview-versie van Azure Cosmos DB (premium-tabel) de volgende voordelen op:
 
 |  | Azure-tabelopslag | Azure Cosmos DB: tabelopslag (preview-versie) |
 | --- | --- | --- |
-| Latentie | Snel, maar geen bovengrens voor latentie | Latentie van minder dan 10 milliseconden voor lees- en schrijfbewerkingen, op basis van < 10 ms latentie voor leesbewerkingen en < 15 ms latentie voor schrijfbewerkingen in het 99e percentiel, op elke schaal, overal ter wereld |
-| Doorvoer | Zeer schaalbaar, maar zonder model op basis van toegewezen doorvoer. Tabellen hebben een schaalbaarheidslimiet van 20.000 bewerkingen/sec | Zeer schaalbaar met [toegewezen gereserveerde doorvoer per tabel](request-units.md), op basis van serviceovereenkomsten. Accounts hebben geen bovengrens voor doorvoer en bieden ondersteuning voor > 10 miljoen bewerkingen/sec per tabel |
+| Latentie | Snel, maar geen bovengrens voor latentie | Latentie van minder dan 10 milliseconden voor lees- en schrijfbewerkingen, op basis van <10 ms latentie voor leesbewerkingen en <15 ms latentie voor schrijfbewerkingen in het 99e percentiel, op elke schaal, overal ter wereld |
+| Doorvoer | Model voor variabele doorvoersnelheid. Tabellen hebben een schaalbaarheidslimiet van 20.000 bewerkingen/sec | Zeer schaalbaar met [toegewezen gereserveerde doorvoer per tabel](request-units.md), op basis van serviceovereenkomsten. Accounts hebben geen bovengrens voor doorvoer en bieden ondersteuning voor > 10 miljoen bewerkingen/sec per tabel |
 | Wereldwijde distributie | Eén regio met één optioneel leesbaar secundair leesgebied voor hoge beschikbaarheid. U kunt geen failover starten | [Gebruiksklare globale distributie](distribute-data-globally.md) van één tot 30+ regio's. Ondersteuning voor [automatische en handmatige failovers](regional-failover.md) op elk moment, overal ter wereld |
 | Indexeren | Alleen primaire index op PartitionKey en RowKey. Geen secundaire indexen | Automatische en volledige indexering voor alle eigenschappen, geen indexbeheer |
 | Query’s uitvoeren | Voor de queryuitvoering wordt een index gebruikt als primaire sleutel. In andere gevallen wordt er gescand. | Query's kunnen profiteren van de automatische indexering van eigenschappen voor een snelle uitvoertijden van query's. De database-engine van Azure Cosmos DB ondersteunt samenvoegingen, georuimtelijke bewerkingen en sorteren. |
@@ -53,7 +52,9 @@ Maak een Azure Cosmos DB-account in [Azure Portal](https://portal.azure.com) en 
 ## <a name="next-steps"></a>Volgende stappen
 
 Hier volgen enkele aanwijzingen om aan de slag te gaan:
-* Aan de slag met de [tabel-API van Azure Cosmos DB](create-table-dotnet.md) met behulp van bestaande NET-tabel-SDK.
-* Meer informatie over [Globale distributie met Azure Cosmos DB](distribute-data-globally.md).
-* Meer informatie over [Ingerichte doorvoer in Azure Cosmos DB](request-units.md).
+* [Een .NET-toepassing ontwikkelen met de Table-API](create-table-dotnet.md)
+* [Ontwikkelen met de Table-API in .NET](tutorial-develop-table-dotnet.md)
+* [Tabelgegevens opvragen met de Table-API](tutorial-query-table.md)
+* [How to set up Azure Cosmos DB global distribution using the Table API](tutorial-global-distribution-table.md) (Wereldwijde distributie met Azure Cosmos DB instellen met behulp van de Table-API)
+* [Inleiding tot Azure Cosmos DB Table-API SDK voor .NET](table-sdk-dotnet.md)
 

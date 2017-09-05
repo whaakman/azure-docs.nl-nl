@@ -1,150 +1,116 @@
 ---
-title: Uw eerste Jenkins-master op een Linux (Ubuntu)-VM op Azure maken
-description: Maak gebruik van de oplossingssjabloon voor het implementeren van Jenkins.
-services: app-service\web
-documentationcenter: 
+title: Een Jenkins-server maken in Azure
+description: Op basis van de sjabloon voor de Jenkins-oplossing een virtuele Linux-machine van Azure installeren en een Java-voorbeeldtoepassing bouwen.
 author: mlearned
 manager: douge
-editor: 
-ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: multiple
 ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: java
 ms.topic: hero-article
-ms.date: 6/7/2017
+ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
-ms.openlocfilehash: 06d6d305eb9711768dc62a04726359e6280d1b69
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 7bb74f297d52fb25171817175cce64187b397c38
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
-# <a name="create-your-first-jenkins-master-on-a-linux-ubuntu-vm-on-azure"></a>Uw eerste Jenkins-master op een Linux (Ubuntu)-VM op Azure maken
+# <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Vanuit Azure Portal een Jenkins-server maken op een Azure-VM met Linux
 
-Deze Quick Start toont hoe u de nieuwste stabiele Jenkins-versie installeert op een Linux (Ubuntu 14.04 TNS)-VM samen met de hulpprogramma's en invoegtoepassingen die zijn geconfigureerd om te werken met Azure. Tot de hulpmiddelen behoren:
-<ul>
-<li>GIT voor bronbeheer</li>
-<li>Azure referentie-invoegtoepassing om veilig verbinding te maken</li>
-<li>Azure VM Agents-invoegtoepassing voor flexibel bouwen, testen en continue integratie</li>
-<li>Azure Storage-invoegtoepassing voor de opslag van artefacten</li>
-<li>Azure CLI voor het implementeren van apps met behulp van scripts</li>
-</ul>
+Deze Quick Start laat zien hoe u [Jenkins](https://jenkins.io) installeert op een virtuele machine met Ubuntu Linux met behulp van de hulpprogramma's en invoegtoepassingen die zijn geconfigureerd om te werken met Azure. Wanneer u klaar bent, beschikt u over een Jenkins-server die wordt uitgevoerd in Azure voor het bouwen van een Java-voorbeeld-app uit [GitHub](https://github.com).
 
-In deze zelfstudie leert u het volgende:
+## <a name="prerequisites"></a>Vereisten
 
-> [!div class="checklist"]
-> * Maak een gratis Azure-account.
-> * Maak een Jenkins-master op een Azure-VM met een oplossingssjabloon. 
-> * Voer de eerste configuratie voor Jenkins uit.
-> * Installeer voorgestelde invoegtoepassingen.
+* Een Azure-abonnement
+* Toegang tot SSH vanaf de opdrachtregel van uw computer (zoals de Bash-shell of [PuTTY](http://www.putty.org/))
 
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-the-vm-in-azure-by-deploying-the-solution-template-for-jenkins"></a>Maak de virtuele machine in Azure door de oplossingssjabloon voor Jenkins te implementeren
+## <a name="create-the-jenkins-vm-from-the-solution-template"></a>De virtuele machine met Jenkins maken van de oplossingssjabloon
 
-Met Azure-snelstartsjablonen kunt u snel en betrouwbaar complexe technologie in Azure implementeren.  Met Azure Resource Manager kunt u uw toepassingen inrichten aan de hand van een [declaratieve sjabloon.](https://azure.microsoft.com/en-us/resources/templates/?term=jenkins) U kunt in één enkele sjabloon meerdere services plus de bijbehorende afhankelijkheden implementeren. U gebruikt dezelfde sjabloon om uw toepassing herhaaldelijk te implementeren in elke fase van de levenscyclus van de toepassing.
-
-Bekijk [abonnementen en prijzen](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins?tab=Overview) voor deze sjabloon voor informatie over de verschillende opties.
-
-Ga naar [De marktplaatsinstallatiekopie voor Jenkins](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins?tab=Overview) en klik op **NU OPHALEN**  
-
-Klik in Azure Portal op **Maken**.  Deze sjabloon vereist het gebruik van Resource Manager zodat de vervolgkeuzelijst voor het sjabloonmodel is uitgeschakeld.
+Open in uw webbrowser de [installatiekopie voor Jenkins in de Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview) en selecteer **Nu downloaden** aan de linkerkant van de pagina. Controleer de prijsinformatie en selecteer **Doorgaan**. Selecteer vervolgens **Maken** om de Jenkins-server te configureren in Azure Portal. 
    
 ![Dialoogvenster Azure-portal](./media/install-jenkins-solution-template/ap-create.png)
 
-In het tabblad **Basisinstellingen configureren**:
+Vul de volgende velden in op het tabblad **Basisinstellingen configureren**:
 
 ![Basisinstellingen configureren](./media/install-jenkins-solution-template/ap-basic.png)
 
-* Geef een naam aan uw Jenkins-instantie.
-* Selecteer een VM-schijftype.  Kies een grotere virtuele machine en SSD voor betere prestaties voor productieworkloads.  Meer informatie over Azure-schijftypes vindt u [hier.](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage)
-* Gebruikersnaam: moet voldoen aan lengtevereisten en mag geen gereserveerde woorden of niet-ondersteunde tekens bevatten. Namen als 'admin' zijn niet toegestaan.  Kijk [hier](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq) voor meer informatie voor de vereisten van de gebruikersnaam en het wachtwoord.
-* Verificatietype: maak een instantie die wordt beveiligd door een wachtwoord of [openbare SSH-sleutel](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows). Als u een wachtwoord gebruikt, moet dat aan 3 van de volgende voorwaarden voldoen: één kleine letter, één hoofdletter, één cijfer en één speciaal teken.
-* Laat het Jenkins-releasetype op **TNS** staan
-* Selecteer een abonnement.
-* Maak een resourcegroep of gebruik een bestaande resourcegroep die leeg is. 
-* Selecteer een locatie.
+* Geef **Jenkins** op bij **Naam**.
+* Voer een gebruikersnaam in bij **Gebruikersnaam**. De gebruikersnaam moet voldoen aan [specifieke vereisten](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
+* Selecteer **Wachtwoord** bij **Verificatietype** en voer een wachtwoord in. Het wachtwoord moet een hoofdletter, een cijfer en één speciaal teken bevatten.
+* Geef **myJenkinsResourceGroup** op voor **Resourcegroep**.
+* Kies de [Azure-regio](https://azure.microsoft.com/regions/) **VS-Oost** in de vervolgkeuzelijst **Locatie**.
 
-Op het tabblad **Extra opties configureren**:
+Selecteer **OK** om naar het tabblad **Extra opties configureren** te gaan. Geef een unieke domeinnaam op om de Jenkins-server te identificeren en selecteer **OK**.
 
-![selecteer aanvullende opties](./media/install-jenkins-solution-template/ap-addtional.png)
+![selecteer aanvullende opties](./media/install-jenkins-solution-template/ap-addtional.png)  
 
-* geef een domeinnaamlabel op als unieke identificatie van de Jenkins-master.
+ Als de validatie is geslaagd, selecteert u **OK** op het tabblad **Samenvatting**. Selecteer ten slotte **Kopen** om de virtuele Jenkins-machine te maken. U ziet een melding in Azure Portal wanneer de server klaar is:   
 
-Klik op **OK** om naar de volgende stap te gaan. 
-
-Nadat de validatie is geslaagd, klikt u op **OK** om de sjabloon en de parameters te downloaden. 
-
-Selecteer vervolgens **Kopen** voor het inrichten van alle resources.
-
-## <a name="setup-ssh-port-forwarding"></a>Doorsturen via SSH-poort instellen
-
-Standaard gebruikt de Jenkins-instantie het http-protocol en luistert op poort 8080. Gebruikers moeten niet worden geverifieerd via onbeveiligde protocollen.
-    
-Stel doorsturen via poort in voor het weergeven van de Jenkins-gebruikersinterface op uw lokale machine.
-
-### <a name="if-you-are-using-windows"></a>Als u van Windows gebruikmaakt:
-
-Installeer PuTTY en voer deze opdracht uit als u een wachtwoord gebruikt voor het beveiligen van Jenkins:
-```
-putty.exe -ssh -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
-```
-* Voer het wachtwoord in om u aan te melden.
-
-![Voer het wachtwoord in om u aan te melden.](./media/install-jenkins-solution-template/jenkins-pwd.png)
-
-Als u SSH gebruikt, moet u deze opdracht uitvoeren:
-```
-putty -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
-```
-
-### <a name="if-you-are-using-linux-or-mac"></a>Als u een Linux- of Mac gebruikt:
-
-Als u een wachtwoord gebruikt voor het beveiligen van uw Jenkins-master moet u deze opdracht uitvoeren:
-```
-ssh -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
-```
-* Voer het wachtwoord in om u aan te melden.
-
-Als u SSH gebruikt, moet u deze opdracht uitvoeren:
-```
-ssh -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
-```
+![Melding dat de Jenkins-server klaar is](./media/install-jenkins-solution-template/jenkins-deploy-notification-ready.png)
 
 ## <a name="connect-to-jenkins"></a>Verbinding maken met Jenkins
-Nadat u uw tunnel hebt gestart, gaat u naar http://localhost: 8080/ op uw lokale machine.
 
-Ontgrendel het Jenkins-dashboard voor de eerste keer met het initiële beheerderswachtwoord.
+Navigeer in uw webbrowser naar de virtuele machine (bijvoorbeeld http://jenkins2517454.eastus.cloudapp.azure.com/). De Jenkins-console is niet toegankelijk via onbeveiligde HTTP. Om die reden bevat de pagina instructies om de console veilig vanaf uw computer te gebruiken via een SSH-tunnel.
+
+![Jenkins ontgrendelen](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
+
+Stel de tunnel op de pagina in met behulp van de opdracht `ssh` op de opdrachtregel. Vervang `username` hierbij door de naam van de gebruiker met beheerdersrechten van de virtuele machine die u eerder hebt gekozen bij het instellen van de virtuele machine op basis van de oplossingssjabloon.
+
+```bash
+ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
+```
+
+Nadat u de tunnel hebt gestart, gaat u naar http://localhost:8080/ op uw lokale computer. 
+
+Vraag het initiële wachtwoord op door de volgende opdracht uit te voeren op de opdrachtregel terwijl u via SSH bent verbonden met de Jenkins-VM.
+
+```bash
+`sudo cat /var/lib/jenkins/secrets/initialAdminPassword`.
+```
+
+Gebruik dit initiële wachtwoord om het Jenkins-dashboard voor de eerste keer te ontgrendelen.
 
 ![Jenkins ontgrendelen](./media/install-jenkins-solution-template/jenkins-unlock.png)
 
-SSH naar de virtuele machine en voer `sudo cat /var/lib/jenkins/secrets/initialAdminPassword` uit om een token te krijgen.
-
-![Jenkins ontgrendelen](./media/install-jenkins-solution-template/jenkins-ssh.png)
-
-U wordt gevraagd de voorgestelde invoegtoepassingen te installeren.
-
-Maak vervolgens een gebruiker met beheerdersrechten voor uw Jenkins-master.
-
-Uw Jenkins-instantie is nu gereed om te gebruiken. U kunt een alleen-lezen weergave openen door naar http://\<openbare DNS-naam van de instantie die u zojuist hebt gemaakt\> te gaan.
+Selecteer **Install suggested plugins** op de volgende pagina en maak vervolgens een Jenkins-gebruiker met beheerdersrechten om toegang te krijgen tot het Jenkins-dashboard.
 
 ![Jenkins is klaar.](./media/install-jenkins-solution-template/jenkins-welcome.png)
 
+De Jenkins-server is nu klaar voor het bouwen van code.
+
+## <a name="create-your-first-job"></a>Uw eerste taak maken
+
+Selecteer **Create new jobs** in de Jenkins-console, geef het project de naam **mySampleApp**, selecteer **Freestyle project** en selecteer **OK**.
+
+![Een nieuwe taak maken](./media/install-jenkins-solution-template/jenkins-new-job.png) 
+
+Selecteer het tabblad **Source Code Management**, schakel het keuzerondje **Git** in en voer in het veld **Repository URL** de volgende URL in: `https://github.com/spring-guides/gs-spring-boot.git`
+
+![De Git-opslagplaats definiëren](./media/install-jenkins-solution-template/jenkins-job-git-configuration.png) 
+
+Selecteer het tabblad **Build** en selecteer vervolgens **Add build step**, **Invoke Gradle script**. Selecteer **Use Gradle Wrapper** en voer vervolgens `complete` in bij **Wrapper location** en `build` bij **Tasks**.
+
+![De Gradle-wrapper gebruiken om de code te bouwen](./media/install-jenkins-solution-template/jenkins-job-gradle-config.png) 
+
+Selecteer **Advanced..** en voer vervolgens in het veld **Root Build script** de waarde `complete` in. Selecteer **Opslaan**.
+
+![Geavanceerde instellingen opgeven in de stap voor het bouwen van de Gradle-wrapper](./media/install-jenkins-solution-template/jenkins-job-gradle-advances.png) 
+
+## <a name="build-the-code"></a>De code bouwen
+
+Selecteer **Build Now** om de code te compileren en een pakket te maken van de voorbeeld-app. Als de build is voltooid, selecteert u de koppeling **Workspace** voor het project.
+
+![Bladeren naar de werkruimte om het JAR-bestand van de build te zoeken](./media/install-jenkins-solution-template/jenkins-access-workspace.png) 
+
+Navigeer naar `complete/build/libs` en controleer of u daar het bestand `gs-spring-boot-0.1.0.jar` ziet, zodat u weet dat de build is gelukt. De Jenkins-server is nu gereed voor het bouwen van uw eigen projecten in Azure.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u:
-
-> [!div class="checklist"]
-> * Een Jenkins-master gemaakt met de oplossingssjabloon.
-> * De initiële configuratie van Jenkins uitgevoerd.
-> * Invoegtoepassingen geïnstalleerd.
-
-Volg deze link om te zien hoe u Azure VM-Agents kunt gebruiken voor continue integratie met Jenkins.
-
 > [!div class="nextstepaction"]
-> [Virtuele machines in Azure als Jenkins-agents](jenkins-azure-vm-agents.md)
+> [Virtuele Azure-machines toevoegen als Jenkins-agents](jenkins-azure-vm-agents.md)
 

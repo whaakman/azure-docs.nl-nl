@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 06/14/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 74a0837b7149236faa45ef2cda0a0aee7c46a31b
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 77ee85db0bcc701514a1a98da9405a79d658d49d
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="what-is-azure-relay"></a>Wat is Azure Relay?
@@ -52,15 +51,22 @@ Zowel met Hybride verbindingen als met WCF-relays wordt een beveiligde verbindin
 
 De functie [Hybride verbindingen van Azure Relay](relay-hybrid-connections-protocol.md) is een veilige open-protocolversie van de bestaande Relay-functies en kan op elk platform en in elke taal worden geïmplementeerd. De enige vereiste hiervoor zijn de standaardmogelijkheden van WebSocket, die expliciet de WebSocket-API omvat in veelgebruikte webbrowsers. Hybride verbindingen zijn gebaseerd op HTTP en WebSockets.
 
+### <a name="service-history"></a>Servicegeschiedenis
+
+De functie Hybride verbindingen vervangt de vorige functie, genaamd BizTalk Services, die is gebouwd op de Azure Service Bus WCF-relay. De mogelijkheden van de nieuwe hybride verbindingen zijn een aanvulling op de bestaande WCF-relay. De mogelijkheden van deze twee services bestaan naast elkaar in de Azure Relay-service. De twee services delen een gateway, maar zijn verder afzonderlijke implementaties.
+
 ## <a name="wcf-relays"></a>WCF-relays
 
 De WCF-Relay werkt voor het volledige .NET Framework (NETFX) en voor WCF. U start de verbinding tussen uw on-premises service en de Relay-service met een reeks WCF-relaybindingen. Achter de schermen worden de Relay-bindingen toegewezen aan nieuwe transportbindingselementen die zijn ontworpen om WCF-kanaalonderdelen te maken die kunnen worden geïntegreerd met de Service Bus in de cloud.
 
-## <a name="service-history"></a>Servicegeschiedenis
+## <a name="architecture-processing-of-incoming-relay-requests"></a>Architectuur: verwerken van inkomende relay-aanvragen
+Wanneer een client een verzoek naar de [Azure Relay](/azure/service-bus-relay/)-service verzendt, wordt het via de Azure Load Balancer doorgestuurd naar een van de gateway-knooppunten. Als de aanvraag een aanvraag voor luisteren is, maakt het gateway-knooppunt een nieuwe relay. Als de aanvraag een verbindingsaanvraag is voor een specifieke relay, verzendt het gateway-knooppunt de verbindingsaanvraag door naar het gateway-knooppunt dat eigenaar is van de relay. Het gateway-knooppunt dat eigenaar is van de relay verzendt een ontmoetingsaanvraag naar de luisterende client om een tijdelijk kanaal te maken naar het gateway-knooppunt dat de verbindingsaanvraag heeft ontvangen.
 
-De functie Hybride verbindingen vervangt de vorige functie, genaamd BizTalk Services, die is gebouwd op de Azure Service Bus WCF-relay. De mogelijkheden van de nieuwe hybride verbindingen zijn een aanvulling op de bestaande WCF-relay. De mogelijkheden van deze twee services bestaan voorlopig naast elkaar in de Azure Relay-service. De twee services delen een gateway, maar zijn verder afzonderlijke implementaties.
+Wanneer de relay-verbinding tot stand is gebracht, kunnen de clients berichten uitwisselen via het gateway-knooppunt dat wordt gebruikt voor de ontmoeting.
 
-## <a name="next-steps"></a>Volgende stappen:
+![Verwerken van inkomende WCF Relay-aanvragen](./media/relay-what-is-it/ic690645.png)
+
+## <a name="next-steps"></a>Volgende stappen
 
 * [Veelgestelde vragen over Relay](relay-faq.md)
 * [Een naamruimte maken](relay-create-namespace-portal.md)

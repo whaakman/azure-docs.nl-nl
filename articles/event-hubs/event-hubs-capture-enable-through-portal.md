@@ -12,35 +12,87 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/28/2017
+ms.date: 08/28/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 1f3d373944b909db290f6cf2da7bf12a8a00e1c5
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 5420c1cdefa99ff30320dd757e04aa0cafc792bc
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Event Hubs Capture inschakelen met behulp van de Azure-portal
 
-Wanneer u de gebeurtenishub maakt, kunt u Capture configureren met behulp van de [Azure-portal](https://portal.azure.com). U kunt Capture inschakelen door te klikken op de knop **Aan** in de portalblade **Event Hub maken**. U configureert vervolgens een Opslagaccount en -container door te klikken op de sectie **Container** van de blade. Omdat Event Hubs Capture gebruikmaakt van service-naar-serviceverificatie met opslag, hoeft u geen verbindingsreeks voor opslag op te geven. De objectkiezer selecteert automatisch de resource-URI voor uw opslagaccount. Als u Azure Resource Manager gebruikt, moet u deze URI expliciet als een tekenreeks opgeven.
+Met Azure [Event Hubs Capture][capture-overview] kunt u de gegevensstroom in uw Event Hubs automatisch bezorgen in een [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)- of [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)-account van uw keuze.
+
+Wanneer u de gebeurtenishub maakt, kunt u Capture configureren met behulp van de [Azure-portal](https://portal.azure.com). U kunt de gegevens vastleggen in een [Blob Storage](https://azure.microsoft.com/services/storage/blobs/)-container van Azure of in een [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)-account.
+
+Zie voor meer informatie het [overzicht van Event Hubs Capture][capture-overview].
+
+## <a name="capture-data-to-an-azure-storage-account"></a>Gegevens vastleggen in een Azure Storage-account  
+
+Wanneer u een Event Hub maakt, kunt u Capture inschakelen door op het scherm **Event Hub maken** in de portal te klikken op de knop **Aan**. Vervolgens geeft u een opslagaccount en een container op door in de lijst **Capture-provider** te klikken op **Azure Storage**. Omdat Event Hubs Capture gebruikmaakt van service-naar-serviceverificatie met opslag, hoeft u geen verbindingsreeks voor opslag op te geven. De objectkiezer selecteert automatisch de resource-URI voor uw opslagaccount. Als u Azure Resource Manager gebruikt, moet u deze URI expliciet als een tekenreeks opgeven.
 
 Het standaardtijdvenster is 5 minuten. De minimale waarde is 1, de maximale 15. Het venster **Grootte** heeft een bereik van 10-500 MB.
 
 ![][1]
 
-## <a name="adding-capture-to-an-existing-event-hub"></a>Capture aan een bestaande gebeurtenishub toevoegen
+## <a name="capture-data-to-an-azure-data-lake-store-account"></a>Gegevens vastleggen in een Azure Data Lake Store-account
 
-Capture kan worden geconfigureerd op bestaande gebeurtenishubs in Event Hubs-naamruimten. De functie is niet beschikbaar voor oudere naamruimten van het type **Messaging** of **Mixed**. Om Capture in te schakelen op een bestaande gebeurtenishub of de Capture-instellingen te wijzigen, klikt u op de naamruimte om de blade **Essentials** te laden en vervolgens klikt u op de gebeurtenishub waarvan u de Capture-instelling wilt inschakelen of wijzigen. Ten slotte klikt u op de sectie **Eigenschappen** van de geopende blade zoals weergegeven in de volgende afbeelding:
+Als u gegevens wilt vastleggen in Azure Data Lake Store, maakt u een Data Lake Store-account en een Event Hub:
+
+### <a name="create-an-azure-data-lake-store-account-and-folders"></a>Een Azure Data Lake Store-account en -mappen maken
+
+1. Maak een Data Lake Store-account volgens de instructies in [Aan de slag met Azure Data Lake Store met Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md). 
+2. Maak een map onder dit account, volgens de instructies in de sectie [Mappen maken in Azure Data Lake Store-account](../data-lake-store/data-lake-store-get-started-portal.md#createfolder).
+3. Klik op de pagina van het Data Lake Store-account op **Data Explorer**.
+4. Klik op **Toegang**.
+5. Klik op **Add**.
+6. Typ **Microsoft.EventHubs** in het vak **Zoeken op naam of e-mailadres** en selecteer vervolgens deze optie. 
+7. Het tabblad **Machtigingen** wordt weergegeven. Stel de machtigingen in zoals weergegeven in de volgende afbeelding:
+
+    ![][6]
+
+8. Klik op **OK**.
+9. Maak nu een map in de hoofdmap door naar de doelmap te bladeren en te klikken op de naam van de map.
+10. Klik op **Toegang**.
+11. Klik op **Add**.
+12. Typ **Microsoft.EventHubs** in het vak **Zoeken op naam of e-mailadres** en selecteer vervolgens deze optie.
+13. Het tabblad **Machtigingen** wordt opnieuw weergegeven. Stel de machtigingen in zoals weergegeven in de volgende afbeelding:
+
+    ![][5]
+
+### <a name="create-an-event-hub"></a>Een Event Hub maken
+
+1. De Event Hub moet deel uitmaken van het Azure-abonnement waarin de Azure Data Lake Store-account is opgenomen dat u zojuist hebt gemaakt. Maak de Event Hub door te klikken op de knop **Aan**, onder **Vastleggen** op de pagina **Event Hub maken** van de portal. 
+2. Selecteer **Azure Data Lake Store** in de lijst **Capture-provider** op de pagina **Event Hub maken** van de portal.
+3. Geef bij **Data Lake Store selecteren** het Data Lake Store-account op dat u eerder hebt gemaakt en voer vervolgens in het veld **Data Lake-pad** het pad in naar de gegevensmap die u hebt gemaakt.
+
+    ![][3]
+
+## <a name="add-or-configure-capture-on-an-existing-event-hub"></a>Capture toevoegen of configureren op een bestaande Event Hub
+
+U kunt Capture configureren op bestaande Event Hubs in Event Hubs-naamruimten. Om Capture in te schakelen op een bestaande Event Hub of de Capture-instellingen te wijzigen, klikt u op de naamruimte om het scherm **Essentials** te laden en vervolgens klikt u op de Event Hub waarvan u de Capture-instelling wilt inschakelen of wijzigen. Ten slotte klikt u op de sectie **Eigenschappen** van de geopende pagina en wijzigt u de Capture-instellingen, zoals weergegeven in de volgende afbeelding:
+
+### <a name="azure-blob-storage"></a>Azure Blob Storage
 
 ![][2]
 
+### <a name="azure-data-lake-store"></a>Azure Data Lake Store
+
+![][4]
+
 [1]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture1.png
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png
+[3]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture3.png
+[4]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture4.png
+[5]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture5.png
+[6]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture6.png
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt ook Event Hubs Capture configureren met behulp van Azure Resource Manager-sjablonen. Zie voor meer informatie [Capture inschakelen met behulp van een Azure Resource Manager-sjabloon](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
+- Meer informatie over Event Hubs Capture vindt u in het [overzicht van Event Hubs Capture][capture-overview].
+- U kunt ook Event Hubs Capture configureren met behulp van Azure Resource Manager-sjablonen. Zie voor meer informatie [Capture inschakelen met behulp van een Azure Resource Manager-sjabloon](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
 
+[capture-overview]: event-hubs-capture-overview.md

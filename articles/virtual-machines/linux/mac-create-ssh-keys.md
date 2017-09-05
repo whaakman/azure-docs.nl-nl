@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 49541306c66e066a9d9f75d90bed2f4dfd21ce9d
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 6fcdcc96c7762e2362aebf909ef25f4a5ab62f99
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -57,6 +57,6 @@ Virtuele machines die zijn gemaakt met behulp van SSH-sleutels, zijn standaard g
 U kunt virtuele machines maken die gebruikmaken van het SSH-sleutelpaar, met Azure Portal, CLI en sjablonen:
 
 * [Een beveiligde virtuele Linux-machine maken met Azure Portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Een beveiligde virtuele Linux-machine maken met de Azure CLI 2.0)](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Een beveiligde virtuele Linux-machine maken met de Azure CLI 2.0](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Een beveiligde virtuele Linux-machine maken met een Azure-sjabloon](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

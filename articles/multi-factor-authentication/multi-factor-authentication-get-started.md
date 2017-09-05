@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/23/2017
+ms.date: 08/25/2017
 ms.author: kgremban
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 6f8ee3449244b12d2c8b5714e6ad893e2f0b10ee
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: cc5a0a8ff789b878cd5afb62176ae8bcf3f80902
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Kies de Azure Multi-Factor Authentication-oplossing die bij u past
@@ -53,7 +53,7 @@ Als we vervolgens kijken waar onze gebruikers zich bevinden, kunnen we bepalen w
 | On-premises Active Directory | |● |
 
 ## <a name="what-features-do-i-need"></a>Welke functies heb ik nodig?
-De volgende tabel bevat een vergelijking van de functies van Multi-Factor Authentication die beschikbaar zijn in de cloud met de functies die beschikbaar zijn met de Multi-Factor Authentication-server.
+De volgende tabel bevat een vergelijking van de functies van Multi-Factor Authentication die beschikbaar zijn in de cloud en de functies die beschikbaar zijn op de Multi-Factor Authentication-server.
 
 | Functie | MFA in de cloud | MFA-server |
 | --- |:---:|:---:|
@@ -78,12 +78,9 @@ De volgende tabel bevat een vergelijking van de functies van Multi-Factor Authen
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu we hebben vastgesteld of Multi-Factor Authentication in de cloud of de on-premises MFA-server de beste oplossing is, kunnen we beginnen met het instellen en gebruiken van Azure Multi-Factor Authentication. **Selecteer het pictogram dat bij uw scenario past**
+U weet nu wat het verschil is tussen Azure Multi-Factor Authentication in de cloud en on-premises op de MFA-server. We kunnen daarom met een gerust hart Azure Multi-Factor Authentication gaan instellen en gebruiken. **Selecteer het pictogram dat bij uw scenario past**
 
 <center>
 
-
-
-
-[![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Server](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </center>
+[![MFA in de cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![MFA-server](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </center>
 

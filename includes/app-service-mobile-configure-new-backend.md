@@ -1,25 +1,31 @@
 
-1. Klik op **App Services** > selecteer de back-end van uw mobiele app > klik op **Quickstart** > uw clientplatform (iOS, Android, Xamarin, Cordova).
+1. Klik op de knop **App Services**, selecteer uw Mobile Apps-back-end, selecteer **Quickstart** en selecteer ten slotte uw clientplatform (iOS, Android, Xamarin, Cordova).
 
-![De Azure-portal met Mobiele apps snel starten gemarkeerd][quickstart]
+    ![Azure Portal met Mobile Apps Quickstart gemarkeerd][quickstart]
 
-2. Als de verbinding met de database niet is geconfigureerd, moet u een gegevensverbinding maken.
+2. Als er nog geen databaseverbinding is geconfigureerd, maakt u er een door de volgende stappen uit te voeren:
 
-![Azure Portal met Mobile Apps: verbinding maken met BD][connect]
+    ![Azure Portal met Mobile Apps: verbinding maken met database][connect]
 
-  * Maak een nieuwe SQL-database en -server.
+    a. Maak een nieuwe SQL-database en -server.
 
-  ![Azure Portal met Mobile Apps: nieuwe BD en server maken][server]
+    ![Azure Portal met Mobile Apps: nieuwe database en server maken][server]
 
-  * Wacht totdat de gegevensverbinding tot stand is gebracht.
+    b. Wacht totdat de gegevensverbinding tot stand is gebracht.
 
-  ![Azure Portal met Mobile Apps: melding bij tot stand brengen van gegevensverbinding][notification]
+    ![Melding in Azure Portal dat de gegevensverbinding is gemaakt][notification]
 
-  * Gegevensverbinding moet zijn gelukt.
+    c. Gegevensverbinding moet zijn gelukt.
 
-  ![Azure Portal met Mobile Apps: melding bij tot stand brengen van gegevensverbinding][already-connection]
+    ![Melding 'U hebt al een gegevensverbinding' in Azure Portal][already-connection]
 
-3. Selecteer bij **2. Een tabel-API maken** de optie Node.js voor **Back-endtaal**. Accepteer de bevestiging en klik op **Takentabel maken**. Er wordt dan een nieuwe *taken*tabel in uw database gemaakt. Houd er rekening mee dat als u een bestaande back-end overzet naar Node.js, alle inhoud wordt overschreven. Als u in plaats daarvan een .NET-back-end wilt maken, [volgt u deze instructies][instructions].
+3. Selecteer bij **2. Een tabel-API maken** de optie Node.js voor **Back-endtaal**. 
+ 
+4. Accepteer de bevestiging en selecteer vervolgens **Takentabel maken**.  
+    Met deze actie wordt er een nieuwe takentabel in uw database gemaakt. 
+
+    >[!IMPORTANT]
+    > Als u een bestaande back-end overschakelt naar Node.js, wordt alle inhoud overschreven. Als u in plaats daarvan een .NET-back-end wilt maken, raadpleegt u [Work with the .NET back-end server SDK for Mobile Apps][instructions] (Werken met de .NET-back-end-server-SDK voor Mobile Apps).
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png

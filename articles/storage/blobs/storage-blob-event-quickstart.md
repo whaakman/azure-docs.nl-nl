@@ -1,0 +1,148 @@
+---
+title: Gebeurtenissen van Azure Blob Storage naar een aangepast eindpunt op het web routeren (preview) | Microsoft Docs
+description: Gebruik Azure Event Grid om u te abonneren op gebeurtenissen van Blob Storage.
+services: storage,event-grid
+keywords: 
+author: cbrooksmsft
+ms.author: cbrooks
+ms.date: 08/18/2017
+ms.topic: hero-article
+ms.service: storage
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: a68d5c4ee8ad69cd888765a96566a7ca6c13cff3
+ms.contentlocale: nl-nl
+ms.lasthandoff: 08/29/2017
+
+---
+
+# <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Gebeurtenissen van Blob Storage naar een aangepast eindpunt op het web routeren (preview)
+
+Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel gebruikt u de Azure CLI om u te abonneren op gebeurtenissen van Blob Storage, waarna u vervolgens een gebeurtenis activeert om het resultaat weer te geven. 
+
+> [!IMPORTANT]
+> U moet zijn geregistreerd voor de preview van Blob Storage-gebeurtenissen om deze zelfstudie te kunnen voltooien.  Meer informatie over het preview-programma vindt u [hier](storage-blob-event-overview.md#join-the-preview).
+
+Meestal stuurt u gebeurtenissen naar een eindpunt dat reageert op de gebeurtenis, zoals een webhook of Azure-functie. Ter vereenvoudiging van het voorbeeld in dit artikel sturen we de gebeurtenissen naar een URL die de berichten alleen maar verzamelt. U maakt deze URL met behulp van een open source-hulpprogramma van derden, met de naam [RequestBin](https://requestb.in/).
+
+> [!NOTE]
+> **RequestBin** is een open source-hulpprogramma dat niet is bedoeld voor gebruik met een hoge doorvoer. Het gebruik van het hulpprogramma hier is alleen om de mogelijkheden aan te tonen. Als u meer dan een gebeurtenis tegelijk pusht, ziet u mogelijk niet alle gebeurtenissen in het hulpprogramma.
+
+Als u de stappen in dit artikel hebt voltooid, ziet u dat de gegevens van gebeurtenissen naar een eindpunt zijn verzonden.
+
+![Gebeurtenisgegevens](./media/storage-blob-event-quickstart/request-result.png)
+
+[!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel de nieuwste versie van Azure CLI (2.0.14 of hoger) uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli).
+
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
+
+Event Grid-onderwerpen zijn Azure-resources en moeten in een Azure-resourcegroep worden geplaatst. De resourcegroep is een logische verzameling waarin Azure-resources worden geïmplementeerd en beheerd.
+
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). 
+
+In het volgende voorbeeld wordt een resourcegroep met de naam `<resource_group_name>` gemaakt op de locatie *westcentralus*.  Vervang `<resource_group_name>` door een unieke naam voor uw resourcegroep.
+
+```azurecli-interactive
+az group create --name <resource_group_name> --location westcentralus
+```
+
+## <a name="create-a-blob-storage-account"></a>Een Blob Storage-account maken
+
+U hebt een opslagaccount nodig om Azure Storage te gebruiken.  Gebeurtenissen van Blob Storage zijn momenteel alleen beschikbaar in Blob Storage-accounts.
+
+Een Blob Storage-account is een gespecialiseerd opslagaccount voor het opslaan van ongestructureerde gegevens als blobs (objecten) in Azure Storage. Blob Storage-accounts zijn vergelijkbaar met de bestaande opslagaccounts voor algemeen gebruik en bieden dezelfde hoogwaardige kenmerken op het gebied van duurzaamheid, beschikbaarheid, schaalbaarheid en prestaties waarover u nu al beschikt, inclusief 100 procent API-consistentie voor blok-blobs en toevoeg-blobs. Voor toepassingen die alleen blok- of toevoeg-blob-opslag nodig hebben, wordt het gebruik van Blob-opslagaccounts aangeraden.
+
+> [!NOTE]
+> Voor de preview-versie zijn gebeurtenissen van Blob Storage alleen beschikbaar voor opslagaccounts op de locatie **westcentralus**.
+
+Vervang `<storage_account_name>` door een unieke naam voor uw opslagaccount en `<resource_group_name>` door de resourcegroep die u eerder hebt gemaakt.
+
+```azurecli-interactive
+az storage account create \
+  --name <storage_account_name> \
+  --location westcentralus \
+  --resource-group <resource_group_name> \
+  --sku Standard_LRS \
+  --kind BlobStorage \
+  --access-tier Hot
+```
+
+## <a name="create-a-message-endpoint"></a>Het eindpunt van een bericht maken
+
+Voordat u zich abonneert op gebeurtenissen uit het Blob Storage-account, moeten we het eindpunt voor het gebeurtenisbericht maken. In plaats van code te schrijven om op de gebeurtenis te reageren, maken we een eindpunt waarop de berichten worden verzameld, zodat u ze kunt bekijken. RequestBin is een open source-hulpprogramma van derden waarmee u een eindpunt kunt maken en aanvragen kunt weergeven die naar dit eindpunt worden verzonden. Ga naar [RequestBin](https://requestb.in/) en klik op **Een RequestBin maken**.  Kopieer de URL. U hebt deze nodig wanneer u zich abonneert op het onderwerp.
+
+## <a name="subscribe-to-your-blob-storage-account"></a>Abonneren op uw Blob Storage-account
+
+U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren. In het volgende voorbeeld ziet u hoe u zich abonneert op het Blob Storage-account dat u hebt gemaakt, en hoe de URL van RequestBin wordt doorgegeven als het eindpunt voor de gebeurtenismelding. Vervang `<event_subscription_name>` door een unieke naam voor het gebeurtenisabonnement, en `<URL_from_RequestBin>` door de waarde uit de voorgaande sectie. Door een eindpunt op te geven wanneer u zich abonneert, wordt via Event Grid de routering van gebeurtenissen naar dit eindpunt verwerkt. Gebruik voor `<resource_group_name>` en `<storage_account_name>` de waarden die u eerder hebt gemaakt. 
+
+```azurecli-interactive
+az eventgrid resource event-subscription create \
+--endpoint <URL_from_RequestBin> \
+--name <event_subscription_name> \
+--provider-namespace Microsoft.Storage \
+--resource-type storageAccounts \
+--resource-group <resource_group_name> \
+--resource-name <storage_account_name>
+```
+
+## <a name="trigger-an-event-from-blob-storage"></a>Een gebeurtenis van Blob Storage activeren
+
+Nu gaan we een gebeurtenis activeren om te zien hoe het bericht via Event Grid naar het eindpunt wordt gedistribueerd. Eerst configureren we de naam en sleutel voor het opslagaccount, daarna maken we een container en vervolgens gaan we een bestand maken en uploaden. Gebruik voor `<storage_account_name>` en `<resource_group_name>` weer de waarden die u eerder hebt gemaakt.
+
+```azurecli-interactive
+export AZURE_STORAGE_ACCOUNT=<storage_account_name>
+export AZURE_STORAGE_ACCESS_KEY="$(az storage account keys list --account-name <storage_account_name> --resource-group <resource_group_name> --query "[0].value" --output tsv)"
+
+az storage container create --name testcontainer
+
+touch testfile.txt
+az storage blob upload --file testfile.txt --container-name testcontainer --name testfile.txt
+```
+
+U hebt de gebeurtenis geactiveerd, en de gebeurtenis is via Event Grid verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Blader naar de RequestBin-URL die u eerder hebt gemaakt. Of klik in het geopende RequestBin-browservenster op Vernieuwen. U ziet de gebeurtenis die u zojuist hebt verzonden. 
+
+```json
+[{
+  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Storage/storageAccounts/myblobstorageaccount",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/testfile.txt",
+  "eventType": "Microsoft.Storage.BlobCreated",
+  "eventTime": "2017-08-16T20:33:51.0595757Z",
+  "id": "4d96b1d4-0001-00b3-58ce-16568c064fab",
+  "data": {
+    "api": "PutBlockList",
+    "clientRequestId": "d65ca2e2-a168-4155-b7a4-2c925c18902f",
+    "requestId": "4d96b1d4-0001-00b3-58ce-16568c000000",
+    "eTag": "0x8D4E4E61AE038AD",
+    "contentType": "text/plain",
+    "contentLength": 0,
+    "blobType": "BlockBlob",
+    "url": "https://myblobstorageaccount.blob.core.windows.net/testcontainer/testblob1.txt",
+    "sequencer": "00000000000000EB0000000000046199",
+    "storageDiagnostics": {
+      "batchId": "dffea416-b46e-4613-ac19-0371c0c5e352"
+    }
+  }
+}]
+
+```
+
+## <a name="clean-up-resources"></a>Resources opschonen
+Als u verder wilt werken met dit opslagaccount en dit gebeurtenisabonnement, moet u de resources die u hebt gemaakt in dit artikel niet opschonen. Als u niet verder wilt werken, gebruikt u de volgende opdracht om de resources te verwijderen die u in dit artikel hebt gemaakt.
+
+Vervang `<resource_group_name>` door de resourcegroep die u eerder hebt gemaakt.
+
+```azurecli-interactive
+az group delete --name <resource_group_name>
+```
+
+## <a name="next-steps"></a>Volgende stappen
+
+U weet nu hoe u onderwerpen en gebeurtenisabonnementen maakt. Raadpleeg deze onderwerpen voor meer informatie over gebeurtenissen van Blob Storage en waar Event Grid u nog meer bij kan helpen:
+
+- [Reageren op gebeurtenissen van Blob Storage](storage-blob-event-overview.md)
+- [Over Event Grid](../../event-grid/overview.md)
+

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/05/2017
+ms.date: 08/24/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 98c5bacd0a040d3a2d83bfe088b11d0f15449ed9
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: ec59450052b377412a28f7eaf55d1f1512b55195
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -40,9 +40,11 @@ Meld u bij Azure Portal aan via [http://portal.azure.com](http://portal.azure.co
 
     ![Cluster-installatieuitvoer][cluster-setup-basics]
 
-4. Vul het formulier **Clusterconfiguratie** in.  Bij **Aantal knooppunten** voert u 1 in en bij [Duurzaamheidslaag](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) vult u Brons in.
+4. Vul het formulier **Clusterconfiguratie** in.  Voer voor **Aantal knooppunttype** de waarde '1' in.
 
-5. Selecteer **Configureer elk knooppunttype** en vul het formulier **Configuratie van knooppunttypen** in. Op basis van knooppunttypen worden de VM-grootte, het aantal virtuele machines, aangepaste eindpunten en andere instellingen voor de virtuele machines van elk type gedefinieerd. Elk gedefinieerd knooppunttype wordt ingesteld als een afzonderlijke VM-schaalset die wordt gebruikt voor het als set implementeren en beheren van virtuele machines. Elk knooppunttype kan onafhankelijk omhoog of omlaag worden geschaald, verschillende open poorten bevatten en verschillende capaciteitsstatistieken hebben.  Het eerste (primaire) knooppunttype is waar Service Fabric-systeemservices worden gehost. Dit type moet vijf of meer virtuele machines bevatten.
+5. Selecteer **Knooppunttype 1 (primair)** en vul het formulier **Configuratie van knooppunttypen** in.  Voer een naam voor het type knooppunt in en geef voor de laag [Duurzaamheid](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de waarde 'Brons' op.  Selecteer een VM-grootte.
+
+    Op basis van knooppunttypen worden de VM-grootte, het aantal virtuele machines, aangepaste eindpunten en andere instellingen voor de virtuele machines van elk type gedefinieerd. Elk gedefinieerd knooppunttype wordt ingesteld als een afzonderlijke VM-schaalset die wordt gebruikt voor het als set implementeren en beheren van virtuele machines. Elk knooppunttype kan onafhankelijk omhoog of omlaag worden geschaald, verschillende open poorten bevatten en verschillende capaciteitsstatistieken hebben.  Het eerste (primaire) knooppunttype is waar Service Fabric-systeemservices worden gehost. Dit type moet vijf of meer virtuele machines bevatten.
 
     Bij elke implementatie voor productie is [capaciteitsplanning](service-fabric-cluster-capacity.md) van groot belang.  Voor deze Quick Start voert u echter geen toepassingen uit, dus selecteert u de VM-grootte *DS1_v2 Standard*.  Selecteer Zilver als [betrouwbaarheidslaag](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) en selecteer een schaalset van 5 voor de virtuele machine.  
 
@@ -84,20 +86,20 @@ Het clusterdashboard bevat een overzicht van het cluster, inclusief een overzich
 Controleer met PowerShell of het cluster actief is.  De Service Fabric PowerShell-module wordt met de [Service Fabric-SDK](service-fabric-get-started.md) geïnstalleerd.  De cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) brengt een verbinding met het cluster tot stand.   
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint localhost:19000
+Connect-ServiceFabricCluster -ConnectionEndpoint quickstartcluster.westus2.cloudapp.azure.com:19000
 ```
 Zie [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) (Verbinding maken met een beveiligd cluster) voor meer voorbeelden van clusterverbindingen. Nadat u verbinding hebt gemaakt met het cluster, gebruikt u de cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) om een lijst weer te geven van de knooppunten in het cluster, evenals statusinformatie voor elk knooppunt. **HealthState** moet *OK* zijn voor elk knooppunt.
 
 ```powershell
-PS C:\> Get-ServiceFabricNode |Format-Table
+PS C:\Users\sfuser> Get-ServiceFabricNode |Format-Table
 
-NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
--------------------- --------     --------------- --------  ----------- ------------- ---------- ---------- ------------ -----------
-                     _nodetype1_2 10.0.0.6        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_1 10.0.0.5        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_0 10.0.0.4        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_4 10.0.0.8        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_3 10.0.0.7        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
+NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion  ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
+-------------------- --------     --------------- --------  -----------  ------------- ---------- ---------- ------------ -----------
+                     _nodetype1_2 10.0.0.6        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_1 10.0.0.5        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_0 10.0.0.4        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_4 10.0.0.8        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_3 10.0.0.7        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
 ```
 
 ### <a name="remove-the-cluster"></a>Het cluster verwijderen
@@ -106,65 +108,58 @@ Een Service Fabric-cluster bevat de clusterresource zelf én andere Azure-resour
 Een resourcegroep verwijderen in Azure Portal:
 1. Ga naar het Service Fabric-cluster dat u wilt verwijderen.
 2. Klik op de naam van de **resourcegroep** op de pagina met clusterbenodigdheden.
-3. Klik op de pagina met **resourcegroepbenodigdheden** op **Verwijderen**. Volg de instructies op die pagina om het verwijderen van de resourcegroep te voltooien.
+3. Klik op de pagina**** met resourcegroepbenodigdheden op **Resourcegroep verwijderen** en volg de instructies op die pagina om het verwijderen van de resourcegroep te voltooien.
     ![De resourcegroep verwijderen][cluster-delete]
 
 
 ## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>Azure Powershell gebruiken om een beveiligd cluster te implementeren
+1. Download de [Azure Powershell-moduleversie 4.0 of hoger](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) op de computer.
 
-
-1) Download de [Azure Powershell-moduleversie 4.0 of hoger](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) op de computer.
-
-2) Open een Windows PowerShell-venster en voer de volgende opdracht uit. 
+2. Open een Windows PowerShell-venster en voer de volgende opdracht uit. 
     
-```powershell
+    ```powershell
 
-Get-Command -Module AzureRM.ServiceFabric 
-```
+    Get-Command -Module AzureRM.ServiceFabric 
+    ```
 
-Als het goed is, wordt ongeveer de volgende uitvoer weergegeven.
+    Als het goed is, wordt ongeveer de volgende uitvoer weergegeven.
 
-![ps-list][ps-list]
+    ![ps-list][ps-list]
 
-3) Meld u aan bij Azure en selecteer het abonnement waarvoor u het cluster wilt maken
+3. Meld u aan bij Azure en selecteer het abonnement waarvoor u het cluster wilt maken
 
-```powershell
+    ```powershell
 
-Login-AzureRmAccount
+    Login-AzureRmAccount
 
-Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
+    Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
+    ```
 
-```
+4. Voer nu de volgende opdracht uit om een beveiligd cluster te maken. Vergeet niet om de parameters aan te passen. 
 
-4) Voer nu de volgende opdracht uit om een beveiligd cluster te maken. Vergeet niet om de parameters aan te passen. 
+    ```powershell
+    $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
+    $RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
+    $RDPuser="vmadmin"
+    $RGname="mycluster" # this is also the name of your cluster
+    $clusterloc="SouthCentralUS"
+    $subname="$RGname.$clusterloc.cloudapp.azure.com"
+    $certfolder="c:\mycertificates\"
+    $clustersize=1 # can take values 1, 3-99
 
+    New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+    ```
 
-````powershell
+    Het duurt tussen de 10 en 30 minuten om de opdracht te voltooien. Als het goed is, wordt hierna ongeveer de volgende uitvoer weergegeven. De uitvoer bevat informatie over het certificaat, de KeyVault waarnaar dit is geüpload en de lokale map waarin het certificaat is gekopieerd. 
 
-$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
-$RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
-$RDPuser="vmadmin"
-$RGname="mycluster" # this is also the name of your cluster
-$clusterloc="SouthCentralUS"
-$subname="$RGname.$clusterloc.cloudapp.azure.com"
-$certfolder="c:\mycertificates\"
-$clustersize=1 # can take values 1, 3-99
+    ![ps-out][ps-out]
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+5. Kopieer de hele uitvoer en sla deze op in een tekstbestand, aangezien we deze later willen raadplegen. Noteer de volgende informatie uit de uitvoer. 
 
-````
-
-Het duurt tussen de 10 en 30 minuten om de opdracht te voltooien. Als het goed is, wordt hierna ongeveer de volgende uitvoer weergegeven. De uitvoer bevat informatie over het certificaat, de KeyVault waarnaar dit is geüpload en de lokale map waarin het certificaat is gekopieerd. 
-
-![ps-out][ps-out]
-
-5) Kopieer de hele uitvoer en sla deze op in een tekstbestand, aangezien we deze later willen raadplegen. Noteer de volgende informatie uit de uitvoer.
- 
-
-- **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
-- **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
-- **ManagementEndpoint** : https://mycluster.southcentralus.cloudapp.azure.com:19080
-- **ClientConnectionEndpointPort** : 19000
+    - **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
+    - **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
+    - **ManagementEndpoint** : https://mycluster.southcentralus.cloudapp.azure.com:19080
+    - **ClientConnectionEndpointPort** : 19000
 
 ### <a name="install-the-certificate-on-your-local-machine"></a>Het certificaat installeren op de lokale computer
   

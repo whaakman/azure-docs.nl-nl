@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: darosa;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: a916f643c7e6727d6053865d1c0bd2f683a53b3f
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: a0c169e0580468e83a07c077f8c60e83d3fb52f2
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Prijscategorieën voor Service Bus Premium en Standard Messaging
@@ -47,7 +47,7 @@ In de volgende secties wordt een aantal verschillen besproken tussen Premium en 
 
 ### <a name="partitioned-queues-and-topics"></a>Gepartitioneerde wachtrijen en onderwerpen
 
-Gepartitioneerde wachtrijen en onderwerpen worden ondersteund in Premium Messaging. Deze entiteiten worden altijd gepartitioneerd (en kunnen niet worden uitgeschakeld). Gepartitioneerde wachtrijen en onderwerpen in Premium werken niet hetzelfde als in de Standard- en Basic-lagen van Service Bus Messaging. Premium Messaging gebruikt geen SQL als gegevensarchief en biedt niet meer de mogelijke concurrentie voor resources die hoort bij een gedeeld platform. Partitioneren is daardoor niet nodig om prestaties te verbeteren. Daarnaast is het aantal partities gewijzigd van 16 partities in de Standard-laag naar twee partities in Premium. Het hebben van twee partities garandeert beschikbaarheid. Dit aantal is beter geschikt voor de Premium-runtime-omgeving. 
+Gepartitioneerde wachtrijen en onderwerpen worden ondersteund in Premium Messaging. Deze entiteiten worden altijd gepartitioneerd (en kunnen niet worden uitgeschakeld). Gepartitioneerde wachtrijen en onderwerpen in Premium werken niet hetzelfde als in de Standard-laag van Service Bus Messaging. Premium Messaging gebruikt geen SQL als gegevensarchief en biedt niet meer de mogelijke concurrentie voor resources die hoort bij een gedeeld platform. Partitioneren is daardoor niet nodig om prestaties te verbeteren. Daarnaast is het aantal partities gewijzigd van 16 partities in de Standard-laag naar twee partities in Premium. Het hebben van twee partities garandeert beschikbaarheid. Dit aantal is beter geschikt voor de Premium-runtime-omgeving. 
 
 Als u bij Premium Messaging de grootte van een entiteit opgeeft met [MaxSizeInMegabytes](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxsizeinmegabytes#Microsoft_ServiceBus_Messaging_QueueDescription_MaxSizeInMegabytes), wordt de grootte evenredig verdeeld over de twee partities. Bij [Standard-gepartitioneerde entiteiten](service-bus-partitioning.md#standard) is de totale grootte daarentegen 16 keer de opgegeven grootte. 
 

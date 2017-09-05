@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: a7d31be48ef06064b01cdb2dfd0331b34adbec4d
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: d502c8e2e2715899279f6ebcf7ed89c19a1bb9a6
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Aan de slag met de vooraf geconfigureerde oplossing voor verbonden factory's
@@ -53,7 +53,7 @@ U hebt een actief Azure-abonnement nodig om deze zelfstudie te voltooien.
 4. Klik op de tegel om de details van uw oplossing in het rechterdeelvenster weer te geven.
 
 > [!NOTE]
-> Als er problemen zijn met de implementatie van de vooraf geconfigureerde oplossing, leest u [Machtigingen op azureiotsuite.com][lnk-permissions] en de [veelgestelde vragen][lnk-faq]. Als de problemen zich blijven voordoen, maakt u een serviceticket aan in de [portal][lnk-portal].
+> Als er problemen zijn met de implementatie van de vooraf geconfigureerde oplossing, leest u [Machtigingen op azureiotsuite.com][lnk-permissions] en de [veelgestelde vragen over Connected Factory](iot-suite-faq-cf.md). Als de problemen zich blijven voordoen, maakt u een serviceticket aan in de [portal][lnk-portal].
 
 Zijn er voor uw oplossing bepaalde details niet vermeld, die u wel verwacht had te zien? Geef ons suggesties voor functies op [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
@@ -81,7 +81,7 @@ Vanaf het dashboard van de oplossing kunt u de geïmplementeerde oplossing beher
 
 Het dashboard bevat de volgende informatie:
 
-* Een paneel met een **factorylijst** waarin de status, locatie en huidige productieconfiguratie in de oplossing worden weergegeven. Wanneer u de oplossing voor het eerst uitvoert, zijn er een paar gesimuleerde apparaten. De simulatie van de productielijn bestaat uit drie echte OPC UA-servers per productielijn die gesimuleerde taken uitvoeren en gegevens delen. Zie de [veelgestelde vragen][lnk-faq] voor meer informatie over OPC UA.
+* Een paneel met een **factorylijst** waarin de status, locatie en huidige productieconfiguratie in de oplossing worden weergegeven. Wanneer u de oplossing voor het eerst uitvoert, zijn er een paar gesimuleerde apparaten. De simulatie van de productielijn bestaat uit drie echte OPC UA-servers per productielijn die gesimuleerde taken uitvoeren en gegevens delen. Zie de [veelgestelde vragen over Connected Factory](iot-suite-faq-cf.md) voor meer informatie over OPC UA.
 * Een **kaart** die de locatie aangeeft van elk apparaat dat met de oplossing is verbonden. De oplossing kan de Bing Kaarten-API gebruiken om informatie op de kaart tekenen. Als de Bing Kaarten Enterprise-API is ingeschakeld voor uw abonnement, wordt deze functie automatisch gebruikt. Als dit niet het geval is, leest u de [veelgestelde vragen][lnk-faq] voor meer informatie over hoe u de kaart dynamisch kunt maken.
 * Een paneel **Waarschuwingen** dat waarschuwingen weergeeft die worden gegenereerd wanneer een telemetrie- of OEE-/KPI-waarde een bepaalde drempelwaarde overschrijdt.
 * Een paneel **Overall Equipment Efficiency** dat de OEE-waarden weergeeft voor de hele onderneming of voor de factory, de productielijn of het station die/dat u bekijkt. Deze waarde wordt geaggregeerd van de stationsweergave naar het ondernemingsniveau. De OEE-gegevens en de bijbehorende elementen kunnen nader worden geanalyseerd.

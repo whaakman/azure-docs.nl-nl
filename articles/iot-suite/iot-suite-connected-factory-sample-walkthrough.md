@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 81ecd5771be544e250ea0df31aa274f0850527ad
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 517e908a744734139ed0aeee314a4f3b9eda86cc
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Walkthrough voor de vooraf geconfigureerde oplossing Connected Factory
 
 De [vooraf geconfigureerd oplossing][lnk-preconfigured-solutions] Connected Factory uit IoT Suite is een implementatie van een end-to-endoplossing waarmee:
 
-* Gesimuleerde industriële apparaten met OPC UA-servers in gesimuleerde fabrieksproductielijnen en echte OPC UA-serverapparaten kunnen worden verbonden. Zie de [veelgestelde vragen][lnk-faq] voor meer informatie over OPC UA.
+* Gesimuleerde industriële apparaten met OPC UA-servers in gesimuleerde fabrieksproductielijnen en echte OPC UA-serverapparaten kunnen worden verbonden. Zie de [veelgestelde vragen over Connected Factory](iot-suite-faq-cf.md) voor meer informatie over OPC UA.
 * Operationele KPI's en OEE van die apparaten en productielijnen kunnen worden bekeken.
 * U kunt bekijken hoe cloudgebaseerde toepassingen kunnen worden gebruikt om te werken met OPC UA-serversystemen.
 * U verbinding kunt maken met uw eigen OPC UA-serverapparaten.
@@ -40,6 +40,8 @@ In dit artikel wordt stapsgewijs een aantal belangrijke elementen van de oplossi
 * Het oplossen van problemen met de oplossing.
 * Het plannen van een aanpassing van de oplossing zodat deze voldoet aan uw eigen specifieke vereisten.
 * Het ontwerpen van uw eigen IoT-oplossing die gebruikmaakt van Azure-services.
+
+Zie de [veelgestelde vragen over Connected Factory](iot-suite-faq-cf.md) voor meer informatie.
 
 ## <a name="logical-architecture"></a>Logische architectuur
 
@@ -128,6 +130,7 @@ De web-app die wordt geïmplementeerd als onderdeel van de vooraf geconfigureerd
 U kunt verder aan de slag gaan met IoT Suite door de volgende artikelen te lezen:
 
 * [Machtigingen op de site azureiotsuite.com][lnk-permissions]
+* [Een gateway implementeren in Windows of Linux voor de vooraf geconfigureerde oplossing Connected Factory](iot-suite-connected-factory-gateway-deployment.md)
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
@@ -138,4 +141,4 @@ U kunt verder aan de slag gaan met IoT Suite door de volgende artikelen te lezen
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
-[lnk-faq]: iot-suite-faq.md
+

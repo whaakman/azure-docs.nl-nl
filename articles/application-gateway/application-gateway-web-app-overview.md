@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: fe2d13fd18de28864a4b3f00b0eb2e02c0867616
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: d944904db5b0bf176b214249ad59611e2b794ae0
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -40,4 +40,5 @@ Met deze functie kunnen klanten opties opgeven in de HTTP-instellingen en kunnen
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie [Web-apps configureren met Application Gateway](application-gateway-web-app-powershell.md) voor meer informatie over het instellen van een toepassingsgateway met een web-app als lid van een back-endpool
+Zie [App Service Web Apps configureren met Application Gateway](application-gateway-web-app-powershell.md) voor meer informatie over het instellen van een toepassingsgateway met een web-app als lid van een back-endpool
+

@@ -9,16 +9,19 @@ ms.date: 08/15/2017
 ms.topic: hero-article
 ms.service: event-grid
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 5bfe08c249d01f5e01cd4cd82f609201da7eccbc
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 0290836bebadb20085a3ce84dddc088c3af385da
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
 # <a name="create-and-route-custom-events-with-azure-event-grid"></a>Aangepaste gebeurtenissen maken en routeren met behulp van Azure Event Grid
 
 Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel gebruikt u de Azure CLI om een aangepast onderwerp te maken, u op het onderwerp te abonneren, en de gebeurtenis te activeren om het resultaat weer te geven. Meestal stuurt u gebeurtenissen naar een eindpunt dat reageert op de gebeurtenis, zoals een webhook of Azure-functie. Ter vereenvoudiging van dit artikel stuurt u hier de gebeurtenissen echter naar een URL via welke de berichten alleen maar worden verzameld. U maakt deze URL met behulp van een open source-hulpprogramma van derden, met de naam [RequestBin](https://requestb.in/).
+
+>[!NOTE]
+>**RequestBin** is een open source-hulpprogramma dat niet is bedoeld voor gebruik met een hoge doorvoer. Het gebruik van het hulpprogramma hier is alleen om de mogelijkheden aan te tonen. Als u meer dan een gebeurtenis tegelijk pusht, ziet u mogelijk niet alle gebeurtenissen in het hulpprogramma.
 
 Wanneer u klaar bent, ziet u dat de gebeurtenisgegevens naar een eindpunt zijn verzonden.
 
@@ -117,3 +120,4 @@ U weet nu hoe u onderwerpen maakt en hoe u zich abonneert op een gebeurtenis. Ki
 
 - [Over Event Grid](overview.md)
 - [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) (Wijzigingen in virtuele machines bewaken met Azure Event Grid en Logic Apps)
+

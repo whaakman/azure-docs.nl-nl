@@ -1,6 +1,6 @@
 ---
 title: Inleiding tot Spark in Azure HDInsight | Microsoft Docs
-description: Dit artikel biedt een inleiding tot Spark in HDInsight en de verschillende scenario&quot;s voor het gebruiken van een Spark-cluster in HDInsight.
+description: Dit artikel biedt een inleiding tot Spark in HDInsight en de verschillende scenario's voor het gebruiken van een Spark-cluster in HDInsight.
 keywords: wat is Apache Spark,Spark-cluster,inleiding tot Spark,Spark in HDInsight
 services: hdinsight
 documentationcenter: 
@@ -15,19 +15,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/12/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: acb80aa98cc978a906ccd6e4b4132a439e505bc8
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: b8955acc83b0fbb0612e7042d62170ae8078b9ad
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>Inleiding tot Spark in HDInsight
 
-Dit artikel biedt een inleiding tot Spark in HDInsight. <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> is een open-source framework voor parallelle verwerking dat ondersteuning biedt voor in-memory verwerking om de prestaties van toepassingen voor de analyse van big data te verbeteren. Spark-cluster in HDInsight is compatibel met Azure Storage (WASB) en met Azure Data Lake Store. Uw bestaande gegevens die zijn opgeslagen in Azure, kunnen dus eenvoudig worden verwerkt met behulp van een Spark-cluster.
+Dit artikel biedt een inleiding tot Spark in HDInsight. <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> is een open-source framework voor parallelle verwerking dat ondersteuning biedt voor in-memory verwerking om de prestaties van toepassingen voor de analyse van big data te verbeteren. Een Spark-cluster in HDInsight is compatibel met Azure Storage (WASB), evenals met Azure Data Lake Store. Om die reden kunnen bestaande gegevens die zijn opgeslagen in Azure, gemakkelijk worden verwerkt via een Spark-cluster.
 
 Wanneer u Spark-cluster in HDInsight maakt, maakt u Azure-rekenresources met Spark geïnstalleerd en geconfigureerd. Het maken van een Spark-cluster in HDInsight duurt niet meer dan ongeveer tien minuten. De gegevens die moeten worden verwerkt, zijn opgeslagen in Azure Storage of Azure Data Lake Store. Zie [Azure Storage gebruiken met HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
@@ -39,8 +38,8 @@ Spark-clusters in HDInsight bieden een volledig beheerde Spark-service. Hier wor
 
 | Functie | Beschrijving |
 | --- | --- |
-| Het gemak van het maken van Spark-clusters |U kunt binnen enkele minuten een nieuw Spark-cluster in HDInsight maken met Azure Portal, Azure PowerShell of .NET SDK voor HDInsight. Zie [Aan de slag met Spark-clusters in HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) |
-| Gebruiksgemak |Spark-cluster in HDInsight bevat Jupyter- en Zeppelin-notebooks. U kunt deze voor de interactieve gegevensverwerking en -visualisatie gebruiken.|
+| Het gemak van het maken van Spark-clusters |U kunt binnen enkele minuten een nieuw Spark-cluster in HDInsight maken met Azure Portal, Azure PowerShell of de .NET-SDK voor HDInsight. Zie [Aan de slag met Spark-clusters in HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) |
+| Gebruiksgemak |Spark-cluster in HDInsight bevat Jupyter- en Zeppelin-notebooks. U kunt deze notebooks gebruiken voor interactieve gegevensverwerking en visualisatie.|
 | REST-API’s |Spark-clusters in HDInsight omvatten [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), een Spark-taakserver op basis van een REST-API om op afstand taken te verzenden en te controleren. |
 | Ondersteuning voor Azure Data Lake Store | Spark-cluster in HDInsight kan worden geconfigureerd voor het gebruik van Azure Data Lake Store als extra opslag en als primaire opslag (alleen met HDInsight 3.5-clusters). Zie [Overzicht van Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) voor meer informatie over Data Lake Store. |
 | Integratie met Azure-services |Spark-cluster in HDInsight wordt geleverd met een connector voor Azure Event Hubs. Met behulp van de Event Hubs kunnen klanten ook andere streamingtoepassingen bouwen, naast [Kafka](http://kafka.apache.org/), dat al beschikbaar is als onderdeel van Spark. |

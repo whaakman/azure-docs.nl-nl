@@ -1,9 +1,16 @@
-1. Meld u aan bij de [Azure Portal].
-2. Klik op **+NEW** (+NIEUW) en typ **Mobile Apps** (Mobiele apps) in *Search the marketplace* (Marketplace doorzoeken). Selecteer **Mobile Apps Quickstart** (Mobiele apps snel starten) en klik op **Create** (Maken).
+1. Meld u aan bij [Azure Portal].
 
-    ![De Azure-portal met Mobiele apps snel starten gemarkeerd][quickstart]
-3. Selecteer voor de **Resourcegroep** een bestaande resourcegroep of maak een nieuwe (gebruik dezelfde naam als uw app).
-4. Klik op **Create**. Wacht enkele minuten tot de service is geïmplementeerd voordat u doorgaat.
+2. Klik op **Nieuw**.
+
+3. Typ **Mobile Apps** in het zoekvak.
+
+    ![Azure Portal met Mobile Apps Quickstart gemarkeerd][quickstart]
+
+4. Selecteer **Mobile Apps Quickstart** in de lijst met resultaten en selecteer vervolgens **Maken**.
+ 
+5. Selecteer onder **Resourcegroep** een bestaande resourcegroep of maak een nieuwe (gebruik dezelfde naam als uw app).
+
+6. Klik op **Create**. Wacht enkele minuten tot de service is geïmplementeerd voordat u doorgaat.
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart.png

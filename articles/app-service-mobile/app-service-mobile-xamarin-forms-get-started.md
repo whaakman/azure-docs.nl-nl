@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met Mobile Apps met behulp van Xamarin.Forms
-description: Volg deze zelfstudie om aan de slag te gaan met Azure Mobile Apps voor Xamarin.Forms-ontwikkeling
+description: Volg deze zelfstudie om aan de slag te gaan met Mobile Apps voor Xamarin.Forms-ontwikkeling
 services: app-service\mobile
 documentationcenter: xamarin
 author: ggailey777
@@ -15,151 +15,177 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: cb959867ccfc85993694bd810f08e2f8150b44f3
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: ee12caaad4095cff6dae3282f747ae804f93db81
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="create-a-xamarinforms-app"></a>Een Xamarin.Forms-app maken
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie laat zien hoe u een cloudgebaseerde back-endservice toevoegt aan een mobiele Xamarin.Forms-app met een back-end voor Azure Mobile Apps. U maakt zowel een nieuwe back-end voor Mobile Apps als een eenvoudige Xamarin.Forms-app voor *takenlijsten* die app-gegevens opslaat in Azure.
+Deze zelfstudie laat zien hoe u een cloudgebaseerde back-endservice toevoegt aan een mobiele Xamarin.Forms-app door de functie Mobile Apps van Azure App Service als de back-end te gebruiken. U maakt zowel een nieuwe back-end voor Mobile Apps als een eenvoudige Xamarin.Forms-app voor takenlijsten die app-gegevens opslaat in Azure.
 
 Het voltooien van deze zelfstudie is een vereiste voor alle andere zelfstudies over Mobile Apps voor Xamarin.Forms.
 
 ## <a name="prerequisites"></a>Vereisten
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Een actief Azure-account. Als u geen account hebt, kunt u zich aanmelden voor een proefversie van Azure en maximaal tien gratis mobiele apps krijgen die u ook na de proefperiode kunt blijven gebruiken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
-* Visual Studio met Xamarin. Zie [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Installeren en instellen voor Visual Studio en Xamarin) voor instructies.
-* Een Mac met Xcode v7.0 of hoger en waarop Xamarin Studio Community is geïnstalleerd. Zie [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Installeren en instellen voor Visual Studio en Xamarin) en [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (Instructies voor installatie, configuratie en verificatie voor Mac-gebruikers) (MSDN).
+* Een actief Azure-account. Als u geen account hebt, kunt u zich aanmelden voor een proefversie van Azure en maximaal tien gratis mobiele apps krijgen die u ook na de proefperiode kunt blijven gebruiken. Zie [Maak vandaag nog uw gratis Azure-account](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 
-## <a name="create-a-new-azure-mobile-app-backend"></a>Een nieuwe back-end voor mobiele apps van Azure maken
-Volg deze stappen voor het maken van een nieuwe back-end voor mobiele apps.
+* Visual Studio met Xamarin. Zie [Setup and install](https://msdn.microsoft.com/library/mt613162.aspx) (Configureren en installeren) voor meer informatie.
+
+* Een Mac met Xcode v7.0 of hoger en waarop Xamarin Studio Community is geïnstalleerd. Zie [Setup and install](https://msdn.microsoft.com/library/mt613162.aspx) (Configureren en installeren) en [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (Instructies voor installatie, configuratie en verificatie voor Mac-gebruikers) (MSDN) voor meer informatie.
+
+## <a name="create-a-new-mobile-apps-back-end"></a>Een nieuwe back-end voor Mobile Apps maken
+
+Doe het volgende om een nieuwe back-end voor Mobile Apps te maken:
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-U hebt nu een back-end voor mobiele apps van Azure ingericht, die kan worden gebruikt door uw mobiele-clienttoepassingen. Nu gaat u een serverproject downloaden voor een eenvoudige back-end voor takenlijsten en deze publiceren naar Azure.
+U hebt nu een back-end voor Mobile Apps ingesteld die uw mobiele clienttoepassingen kunnen gebruiken. Nu gaat u een serverproject downloaden voor een eenvoudige back-end voor takenlijsten en deze vervolgens publiceren naar Azure.
 
 ## <a name="configure-the-server-project"></a>Het serverproject configureren
-Volg onderstaande stappen voor het configureren van het serverproject voor het gebruik van de Node.js- of .NET-back-end.
+
+Doe het volgende om het serverproject te configureren voor het gebruik van de Node.js- of .NET-back-end:
 
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="download-and-run-the-xamarinforms-solution"></a>De Xamarin.Forms-oplossing downloaden en uitvoeren
-U hebt hier een aantal opties. U kunt de oplossing downloaden naar een Mac en openen in Xamarin Studio of u kunt de oplossing downloaden naar een Windows-computer en openen in Visual Studio met een Mac in een netwerk voor het bouwen van de iOS-app. Zie [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Installeren en instellen voor Visual Studio en Xamarin) als u meer gedetailleerde instructies voor de Xamarin-installatiescenario's nodig hebt.
 
-Laten we beginnen:
+U kunt de oplossing op twee manieren downloaden. Download de oplossing naar een Mac en open deze in Xamarin Studio of download naar een Windows-computer en open de oplossing in Visual Studio en gebruik een Mac in het netwerk om de iOS-app te bouwen. Zie [Setup and install](https://msdn.microsoft.com/library/mt613162.aspx) (Configureren en installeren) voor meer informatie.
 
-1. Op uw Mac of Windows-computer opent u [Azure Portal] in een browservenster.
-2. Klik op de blade Instellingen voor uw mobiele app op **Aan de slag** (onder Mobiel) > **Xamarin.Forms**. Klik in stap 3 op  **Een nieuwe app maken** als deze optie nog niet is geselecteerd.  Klik vervolgens op de knop **Downloaden**.
+Ga als volgt te werk op een Mac of Windows-computer:
 
-   Er wordt een project gedownload dat een clienttoepassing bevat die is verbonden met uw mobiele app. Sla het gecomprimeerde projectbestand op uw lokale computer op en noteer de opslaglocatie.
-3. Pak het project uit dat u hebt gedownload en open het in Xamarin Studio of Visual Studio.
+1. Ga naar de [Azure Portal].
 
-   ![][9]
+2. Ga op de blade **Instellingen** voor uw mobiele app naar **Mobiel** en selecteer **Aan de slag** > **Xamarin.Forms**. Selecteer **Een nieuwe app maken** onder **stap 3** en selecteer vervolgens **Downloaden**.
 
-   ![][8]
+   Er wordt nu een project gedownload dat een clienttoepassing bevat die is verbonden met uw mobiele app. Sla het gecomprimeerde projectbestand op uw lokale computer op en noteer de opslaglocatie.
+
+3. Pak het project uit dat u hebt gedownload en open het in Xamarin Studio (Mac) of Visual Studio (Windows).
+
+   ![Uitgepakt project in Xamarin Studio][9]
+
+   ![Uitgepakt project in Visual Studio][8]
 
 ## <a name="optional-run-the-ios-project"></a>(Optioneel) Het iOS-project uitvoeren
-Deze sectie gaat over het uitvoeren van het Xamarin iOS-project voor iOS-apparaten. Als u niet met iOS-apparaten werkt, kunt u deze sectie overslaan.
+In deze sectie gaat u het Xamarin iOS-project uitvoeren voor iOS-apparaten. Als u niet met iOS-apparaten werkt, kunt u deze sectie overslaan.
 
 #### <a name="in-xamarin-studio"></a>In Xamarin Studio
-1. Klik met de rechtermuisknop op het iOS-project en klik vervolgens op **Instellen als opstartproject**.
-2. Klik in het menu **Uitvoeren** op **Foutopsporing starten** om het project te bouwen en de app te starten in de iPhone-emulator.
+1. Klik met de rechtermuisknop op het iOS-project en selecteer vervolgens **Set As Startup Project**.
+
+2. Selecteer **Start Debugging** in het menu **Run** om het project te bouwen en de app te starten in de iPhone-emulator.
 
 #### <a name="in-visual-studio"></a>In Visual Studio
-1. Klik met de rechtermuisknop op het iOS-project en klik vervolgens op **Instellen als opstartproject**.
-2. Klik in het menu **Bouwen** op **Configuration Manager**.
-3. In het dialoogvenster **Configuration Manager** schakelt u de selectievakjes **Bouwen** en **Implementeren** van het iOS-project in.
-4. Druk op de toets **F5** om het project te bouwen en de app te starten in de iPhone-emulator.
+1. Klik met de rechtermuisknop op het iOS-project en selecteer vervolgens **Set as StartUp Project**.
+
+2. Selecteer **Configuration Manager** in het menu **Bouwen**.
+
+3. Schakel in het dialoogvenster **Configuration Manager** de selectievakjes **Bouwen** en **Implementeren** in voor het iOS-project.
+
+4. Selecteer de toets **F5** om het project te bouwen en de app te starten in de iPhone-emulator.
 
    > [!NOTE]
-   > Als u problemen ondervindt bij het bouwen, voert u NuGet Package Manager uit en voert u een update uit naar de nieuwste versie van de Xamarin-ondersteuningspakketten. Soms kunnen de Quickstart-projecten achterblijven bij updates naar de nieuwste versie.    
+   > Als u er problemen zijn met het bouwen van het project, voert u NuGet Package Manager uit om bij te werken naar de nieuwste versie van de Xamarin-ondersteuningspakketten. Het is mogelijk dat het even duurt voordat Quick Start-projecten zijn bijgewerkt naar de nieuwste versie.    
    >
    >
 
-Typ in de app zinvolle tekst, zoals *Xamarin leren kennen*, en klik vervolgens op de knop **+**.
+5. Typ zinvolle tekst in de app, zoals *Xamarin leren kennen*, en selecteer vervolgens het plusteken (**+**).
 
-![][10]
+    ![][10]
 
-Hierdoor wordt een POST-aanvraag verzonden naar de nieuwe back-end voor mobiele apps die wordt gehost in Azure. De gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor mobiele apps en de gegevens worden weergegeven in de lijst.
+    Hierdoor wordt er een POST-aanvraag verzonden naar de nieuwe back-end voor Mobile Apps die wordt gehost in Azure. Gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor Mobile Apps en de gegevens worden weergegeven in de lijst.
 
-> [!NOTE]
-> U vindt de code die toegang geeft tot de back-end voor mobiele apps in het TodoItemManager.cs C#-bestand van het 'portable class library'-project van uw oplossing.
->
->
+    > [!NOTE]
+    > U vindt de code die toegang geeft tot de back-end voor Mobile Apps in het bestand TodoItemManager.cs C# van het 'portable class library'-project van uw oplossing.
+    >
+    >
 
 ## <a name="optional-run-the-android-project"></a>(Optioneel) Het Android-project uitvoeren
-Deze sectie gaat over het uitvoeren van het Xamarin Droid-project voor Android-apparaten. Als u niet met Android-apparaten werkt, kunt u deze sectie overslaan.
+In deze sectie gaat u het Xamarin Droid-project voor Android uitvoeren. Als u niet met Android-apparaten werkt, kunt u deze sectie overslaan.
 
 #### <a name="in-xamarin-studio"></a>In Xamarin Studio
-1. Klik met de rechtermuisknop op het Android-project en klik vervolgens op **Instellen als opstartproject**.
-2. Klik in het menu **Uitvoeren** op **Foutopsporing starten** om het project te bouwen en de app te starten in een Android-emulator.
+
+1. Klik met de rechtermuisknop op het Android-project en selecteer vervolgens **Set As Startup Project**.
+
+2. Selecteer **Start Debugging** in het menu **Run** om het project te bouwen en de app te starten in een Android-emulator.
 
 #### <a name="in-visual-studio"></a>In Visual Studio
-1. Klik met de rechtermuisknop op het Android-project (Droid) en klik vervolgens op **Instellen als opstartproject**.
-2. Klik in het menu **Bouwen** op **Configuration Manager**.
-3. In het dialoogvenster **Configuration Manager** schakelt u de selectievakjes **Bouwen** en **Implementeren** van het Android-project in.
-4. Druk op de toets **F5** om het project te bouwen en de apps te starten in een Android-emulator.
+
+1. Klik met de rechtermuisknop op het Android-project (Droid) en selecteer vervolgens **Instellen als opstartproject**.
+
+2. Selecteer **Configuration Manager** in het menu **Bouwen**.
+
+3. Schakel in het dialoogvenster **Configuration Manager** de selectievakjes **Bouwen** en **Implementeren** in voor het Android-project.
+
+4. Selecteer de toets **F5** om het project te bouwen en de apps te starten in een Android-emulator.
 
    > [!NOTE]
-   > Als u problemen ondervindt bij het bouwen, voert u NuGet Package Manager uit en voert u een update uit naar de nieuwste versie van de Xamarin-ondersteuningspakketten. Soms kunnen de Quickstart-projecten achterblijven bij updates naar de nieuwste versie.    
+   > Als u er problemen zijn met het bouwen van het project, voert u NuGet Package Manager uit om bij te werken naar de nieuwste versie van de Xamarin-ondersteuningspakketten. Het is mogelijk dat het even duurt voordat Quick Start-projecten zijn bijgewerkt naar de nieuwste versie.    
    >
    >
 
-Typ in de app zinvolle tekst, zoals *Xamarin leren kennen*, en klik vervolgens op de knop **+**.
+5. Typ zinvolle tekst in de app, zoals *Xamarin leren kennen*, en selecteer vervolgens het plusteken (**+**).
 
-![][11]
-
-Hierdoor wordt een POST-aanvraag verzonden naar de nieuwe back-end voor mobiele apps die wordt gehost in Azure. De gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor mobiele apps en de gegevens worden weergegeven in de lijst.
-
-> [!NOTE]
-> U vindt de code die toegang geeft tot de back-end voor mobiele apps in het TodoItemManager.cs C#-bestand van het 'portable class library'-project van uw oplossing.
->
->
+    ![][11]
+    
+    Hierdoor wordt er een POST-aanvraag verzonden naar de nieuwe back-end voor Mobile Apps die wordt gehost in Azure. Gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor Mobile Apps en de gegevens worden weergegeven in de lijst.
+    
+    > [!NOTE]
+    > U vindt de code die toegang geeft tot de back-end voor Mobile Apps in het bestand TodoItemManager.cs C# van het 'portable class library'-project van uw oplossing.
+    >
+    >
 
 ## <a name="optional-run-the-windows-project"></a>(Optioneel) Het Windows-project uitvoeren
-Deze sectie gaat over het uitvoeren van het project Xamarin WinApp voor Windows-apparaten. Als u niet met Windows-apparaten werkt, kunt u deze sectie overslaan.
+
+In deze sectie gaat u het project Xamarin WinApp uitvoeren voor Windows-apparaten. Als u niet met Windows-apparaten werkt, kunt u deze sectie overslaan.
 
 #### <a name="in-visual-studio"></a>In Visual Studio
-1. Klik met de rechtermuisknop op een van de Windows-projecten en klik vervolgens op **Instellen als opstartproject**.
-2. Klik in het menu **Bouwen** op **Configuration Manager**.
-3. In het dialoogvenster **Configuration Manager** schakelt u de selectievakjes **Bouwen** en **Implementeren** in van het Windows-project dat u hebt gekozen.
-4. Druk op de toets **F5** om het project te bouwen en de apps te starten in een Windows-emulator.
+
+1. Klik met de rechtermuisknop op een van de Windows-projecten en selecteer vervolgens **Instellen als opstartproject**.
+
+2. Selecteer **Configuration Manager** in het menu **Bouwen**.
+
+3. Schakel in het dialoogvenster **Configuration Manager** de selectievakjes **Bouwen** en **Implementeren** in van het Windows-project dat u hebt gekozen.
+
+4. Selecteer de toets **F5** om het project te bouwen en de apps te starten in een Windows-emulator.
 
    > [!NOTE]
-   > Als u problemen ondervindt bij het bouwen, voert u NuGet Package Manager uit en voert u een update uit naar de nieuwste versie van de Xamarin-ondersteuningspakketten. Soms kunnen de Quickstart-projecten achterblijven bij updates naar de nieuwste versie.    
+   > Als u er problemen zijn met het bouwen van het project, voert u NuGet Package Manager uit om bij te werken naar de nieuwste versie van de Xamarin-ondersteuningspakketten. Het is mogelijk dat het even duurt voordat Quick Start-projecten zijn bijgewerkt naar de nieuwste versie.    
    >
    >
 
-Typ in de app zinvolle tekst, zoals *Xamarin leren kennen*, en klik vervolgens op de knop **+**.
+5. Typ zinvolle tekst in de app, zoals *Xamarin leren kennen*, en selecteer vervolgens het plusteken (**+**).
 
-Hierdoor wordt een POST-aanvraag verzonden naar de nieuwe back-end voor mobiele apps die wordt gehost in Azure. De gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor mobiele apps en de gegevens worden weergegeven in de lijst.
-
-![][12]
-
-> [!NOTE]
-> U vindt de code die toegang geeft tot de back-end voor mobiele apps in het TodoItemManager.cs C#-bestand van het 'portable class library'-project van uw oplossing.
->
->
+    Hierdoor wordt er een POST-aanvraag verzonden naar de nieuwe back-end voor Mobile Apps die wordt gehost in Azure. Gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor Mobile Apps en de gegevens worden weergegeven in de lijst.
+    
+    ![][12]
+    
+    > [!NOTE]
+    > U vindt de code die toegang geeft tot de back-end voor Mobile Apps in het bestand TodoItemManager.cs C# van het 'portable class library'-project van uw oplossing.
+    >
+    >
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * [Verificatie toevoegen aan uw app](app-service-mobile-xamarin-forms-get-started-users.md)  
   Ontdek hoe u gebruikers van uw app verifieert met een id-provider.
+
 * [Pushmeldingen toevoegen aan uw app](app-service-mobile-xamarin-forms-get-started-push.md)  
-  Informatie over het toevoegen van ondersteuning van pushmeldingen aan uw app en het configureren van de backend voor mobiele apps voor gebruik van Azure Notification Hubs voor het verzenden van pushmeldingen.
+  Lees hoe u ondersteuning voor pushmeldingen toevoegt aan uw app en de backend voor Mobile Apps configureert voor het gebruik van Azure Notification Hubs voor het verzenden van pushmeldingen.
+
 * [Offlinesynchronisatie voor uw app inschakelen](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
-  Informatie over het toevoegen van offlineondersteuning aan uw app met een back-end voor mobiele apps. Met offlinesynchronisatie kunnen eindgebruikers interactie aangaan met een mobiele app&mdash;gegevens weergeven, toevoegen of wijzigen&mdash;ook als er geen netwerkverbinding is.
+  Ontdek hoe u offlineondersteuning voor uw app toevoegt met behulp van een back-end voor Mobile Apps. Offline synchroniseren zorgt ervoor dat u gegevens van een mobiele app kunt weergeven, toevoegen of wijzigen, zelfs als er geen netwerkverbinding is.
+
 * [De beheerde client gebruiken voor Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
   Informatie over het werken met SDK voor beheerde clients in uw Xamarin-app.
 
 <!-- Anchors. -->
-[Getting started with mobile app backends]:#getting-started
-[Create a new mobile app backend]:#create-new-service
-[Next Steps]:#next-steps
+[Get started with Mobile Apps back ends]:#getting-started
+[Create a new Mobile Apps back end]:#create-new-service
+[Next steps]:#next-steps
 
 
 <!-- Images. -->

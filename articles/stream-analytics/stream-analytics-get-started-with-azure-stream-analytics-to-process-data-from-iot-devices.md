@@ -4,7 +4,7 @@ description: IoT-sensortags en -gegevensstromen met Stream Analytics en realtime
 keywords: IOT-oplossing, aan de slag met iot
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
@@ -14,12 +14,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
-ms.openlocfilehash: 9624405d8bc454e886e8011c1cb4920fdf7e0640
-ms.lasthandoff: 01/24/2017
-
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
+ms.contentlocale: nl-nl
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Aan de slag met Azure Stream Analytics om gegevens te verwerken van IoT-apparaten
@@ -65,7 +65,7 @@ Voor het gebruiksgemak biedt deze introductiehandleiding een bestand met voorbee
 4. Schakel het selectievakje in om uw taak op het dashboard te maken en klik vervolgens op **MAKEN**.
    
     ![taak wordt gemaakt](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
-5. Het bericht 'Implementatie is gestart...' moet worden weergegeven in de rechterbovenhoek van uw browservenster. Dit wordt snel gewijzigd naar het venster 'Voltooid', zoals hieronder wordt weergegeven.
+5. In de rechterbovenhoek van het browservenster moet een bericht staan dat de implementatie is gestart. Dit wordt snel gewijzigd naar het venster 'Voltooid', zoals hieronder wordt weergegeven.
    
     ![taak wordt gemaakt](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
@@ -111,7 +111,7 @@ We gaan onze query gedetailleerder maken. Voor elk type sensor willen we de gemi
 Nu bevatten de resultaten nog maar 245 rijen en namen van sensoren die een gemiddelde temperatuur aangeven die hoger is dan 100 graden. In deze query wordt de stroom gebeurtenissen gegroepeerd op **dspl**, de sensornaam, en voor een **tumblingvenster** van 30 seconden. In tijdelijke query's moet worden vermeld hoe we willen dat de tijd wordt uitgevoerd. Met de **TIMESTAMP BY**-clausule hebben we de kolom **OUTPUTTIME** opgegeven om tijden te associëren met alle tijdelijke berekeningen. Voor gedetailleerde informatie leest u de MSDN-artikelen over [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) en [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx)-functies.
 
 ### <a name="query-detect-absence-of-events"></a>Query: detecteren van afwezigheid van gebeurtenissen
-Hoe kunnen we een query schrijven om een gebrek aan invoergebeurtenissen te vinden? We willen weten wanneer een sensor het laatst gegevens heeft verstuurd en daarna een minuut lang geen gegevens meer heeft verstuurd. U vindt de query in bestand AbsenseOfEvent.txt.
+Hoe kunnen we een query schrijven om een gebrek aan invoergebeurtenissen te vinden? We willen weten wanneer een sensor het laatst gegevens heeft verstuurd en daarna vijf seconden lang geen gegevens meer heeft verstuurd. U vindt de query in bestand AbsenseOfEvent.txt.
 
 ![Detecteren van afwezigheid van gebeurtenissen](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 

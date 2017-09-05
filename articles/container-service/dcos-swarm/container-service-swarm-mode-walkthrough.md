@@ -1,6 +1,6 @@
 ---
-title: 'Snelstartgids: Azure Docker Swarm Mode-cluster voor Linux | Microsoft Docs'
-description: Leer snel hoe u een Docker Swarm Mode-cluster voor Linux-containers in Azure Container Service maakt met de Azure CLI.
+title: 'Snelstartgids: Azure Docker CE-cluster voor Linux | Microsoft Docs'
+description: Leer snel hoe u een Docker CE-cluster voor Linux-containers in Azure Container Service maakt met de Azure CLI.
 services: container-service
 documentationcenter: 
 author: neilpeterson
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/14/2017
+ms.date: 08/25/2017
 ms.author: nepeters
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 3f49e72fa647d2b6c854123c271a88e1a8ff3cf8
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 7b8336e3865e7032e3ee0d5e4ee712bcb95aa4b5
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
-# <a name="deploy-docker-swarm-mode-cluster"></a>Docker Swarm Mode-cluster implementeren
+# <a name="deploy-docker-ce-cluster"></a>Docker CE-cluster implementeren
 
-In deze snelstartgids wordt een Docker Swarm Mode-cluster geïmplementeerd met behulp van de Azure CLI. Vervolgens wordt er een toepassing met meerdere containers die bestaat uit een web-front-end en een Redis-exemplaar, geïmplementeerd en uitgevoerd op het cluster. Zodra de toepassing is voltooid, is deze toegankelijk via internet.
+In deze snelstartgids wordt een Docker CE-cluster geïmplementeerd met behulp van de Azure CLI. Vervolgens wordt er een toepassing met meerdere containers die bestaat uit een web-front-end en een Redis-exemplaar, geïmplementeerd en uitgevoerd op het cluster. Zodra de toepassing is voltooid, is deze toegankelijk via internet.
 
-Docker Swarm Mode in Azure Container Service is in de preview-fase. **Gebruik dit daarom niet voor productieworkloads**.
+Docker CE in Azure Container Service is in de preview-fase. **Gebruik dit daarom niet voor productieworkloads**.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -62,7 +62,7 @@ Uitvoer:
 
 ## <a name="create-docker-swarm-cluster"></a>Docker Swarm-cluster maken
 
-Maak een Docker Swarm Mode-cluster in Azure Container Service met de opdracht [az acs create](/cli/azure/acs#create). 
+Maak een Dock CE-cluster in Azure Container Service met de opdracht [az acs create](/cli/azure/acs#create). 
 
 In het volgende voorbeeld wordt een cluster gemaakt met de naam *mySwarmCluster* met een Linux-hoofdknooppunt en drie knooppunten van de Linux-agent.
 
