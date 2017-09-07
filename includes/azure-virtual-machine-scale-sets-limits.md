@@ -1,5 +1,6 @@
-| Resource | Maximumaantal |
+| Resource | Maximum Limit |
 | --- | --- |
-| Maximumaantal VM's per schaalset |1000 |
-| Maximumaantal schaalsets per regio |2000 |
+| Maximum number of VMs in a scale set |1000 |
+| Maximum number of VMs based on a custom VM image in a scale set|300 |
+| Maximum number of scale sets in a region |2000 |
 
