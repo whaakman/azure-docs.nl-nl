@@ -7,7 +7,7 @@
 
 ### <a name="to-create-additional-subnets"></a>Extra subnetten maken
 
-1. Als u subnetten wilt maken, gaat u naar de sectie **Instellingen** op de pagina van het virtuele netwerk en klikt u op **Subnetten** om de**** gelijknamige pagina te openen. 
+1. Als u subnetten wilt maken, gaat u naar de sectie **Instellingen** op de pagina van het virtuele netwerk en klikt u op **Subnetten** om de **gelijknamige** pagina te openen. 
 2. Klik op de pagina Subnetten op **+Subnet** om de pagina **Subnet toevoegen** te openen. Geef uw subnet een naam en geef het adresbereik op.
 
   ![Subnetinstellingen](./media/vpn-gateway-additional-address-space-include/add_subnet.png)
