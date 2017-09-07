@@ -59,7 +59,8 @@
 #### [Lucene-querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 #### [Voorbeelden van Lucene-querysyntaxis](search-query-lucene-examples.md)
 #### [Filterexpressiesyntaxis](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
-### Aangepast zoeken
+### Analyse in Azure Search
+#### [Overzicht](search-analyzers.md)
 #### [Taalanalyse](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Analysevoorzieningen aanpassen](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [Zoekresultaten oproepen](search-pagination-page-layout.md)

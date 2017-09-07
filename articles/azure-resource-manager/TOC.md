@@ -6,8 +6,8 @@
 ## [Beheerde toepassingen](managed-application-overview.md)
 
 # Aan de slag
-## [Sjabloon exporteren](resource-manager-export-template.md)
 ## [Een sjabloon maken en implementeren](resource-manager-create-first-template.md)
+## [Visual Studio-code-extensie voor sjablonen](resource-manager-vscode-extension.md)
 ## [Visual Studio met Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Voorbeelden
@@ -20,8 +20,8 @@
 
 # Procedures
 ## Sjablonen maken
-### [Aanbevolen procedures voor sjablonen](resource-manager-template-best-practices.md)
 ### [Sjabloonsecties](resource-group-authoring-templates.md)
+### [Aanbevolen procedures voor sjablonen](resource-manager-template-best-practices.md)
 ### [Koppeling naar andere sjablonen](resource-group-linked-templates.md)
 ### [Afhankelijkheid tussen resources definiëren](resource-group-define-dependencies.md)
 ### [Meerdere exemplaren maken](resource-group-create-multiple.md)
@@ -33,6 +33,7 @@
 ### [Status delen tussen gekoppelde sjablonen](best-practices-resource-manager-state.md)
 ### [Patronen voor het ontwerpen van sjablonen](best-practices-resource-manager-design-templates.md)
 
+
 ## Implementeren
 ### PowerShell
 #### [Sjabloon implementeren](resource-group-template-deploy.md)
@@ -42,8 +43,10 @@
 #### [Sjabloon implementeren](resource-group-template-deploy-cli.md)
 #### [Persoonlijke sjabloon met SAS-token implementeren](resource-manager-cli-sas-token.md)
 #### [Sjabloon exporteren en opnieuw distribueren](resource-manager-export-template-cli.md)
-### [Portal](resource-group-template-deploy-portal.md)
-### [REST-API](resource-group-template-deploy-rest.md)
+### Portal
+#### [Resources implementeren](resource-group-template-deploy-portal.md)
+#### [Sjabloon exporteren](resource-manager-export-template.md)
+### [REST API](resource-group-template-deploy-rest.md)
 ### [Implementatie in meerdere resourcegroepen](resource-manager-cross-resource-group-deployment.md)
 ### [Doorlopende integratie met Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Beveiligde waarden doorgeven tijdens implementatie](resource-manager-keyvault-parameter.md)

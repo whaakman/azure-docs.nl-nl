@@ -6,11 +6,13 @@
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Sneltoetsen](azure-portal-keyboard-shortcuts.md)
 ## [Ondersteunde browsers en apparaten](../azure-preview-portal-supported-browsers-devices.md)
+## [Structuur van Azure-dashboards](azure-portal-dashboards-structure.md)
 # Handleidingen
 ## Implementeren
 ### [Azure Resource Manager-sjablonen maken](../azure-resource-manager/resource-group-authoring-templates.md)
 ### [Implementatie met de Resource Manager-sjabloon](../azure-resource-manager/resource-group-template-deploy.md)
 ### [Azure-dashboards maken en delen](azure-portal-dashboards.md)
+### [Op programmatische wijze Azure-dashboards maken](azure-portal-dashboards-create-programmatically.md)
 ## Beheren
 ### [Hoog contrast inschakelen of het thema wijzigen](azure-portal-change-theme-high-contrast.md)
 ### [De portal gebruiken om resources te beheren](../azure-resource-manager/resource-group-portal.md)
