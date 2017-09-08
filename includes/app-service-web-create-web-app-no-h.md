@@ -5,7 +5,7 @@ De web-app biedt hostruimte voor uw code en biedt een URL waarmee u de geïmplem
 Vervang in de volgende opdracht *\<app_name>* door een unieke naam (geldige tekens zijn `a-z`, `0-9` en `-`). Als `<app_name>` niet uniek is, wordt er een foutbericht weergegeven met de mededeling dat er al een website bestaat met die naam. De standaard-URL van de web-app is `https://<app_name>.azurewebsites.net`. 
 
 ```azurecli-interactive
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
+az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
 ```
 
 Wanneer de web-app is gemaakt, toont de Azure CLI soortgelijke informatie als in het volgende voorbeeld:

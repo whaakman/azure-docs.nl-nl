@@ -1,6 +1,6 @@
 ---
 title: Gegevens opvragen met de rapportage-API van Azure AD met certificaten | Microsoft Docs
-description: In dit artikel wordt uitgelegd hoe u de rapportage-API van Azure AD gebruikt met certificaatreferenties om zonder tussenkomst van de gebruiker gegevens op te halen uit directory&quot;s.
+description: In dit artikel wordt uitgelegd hoe u de rapportage-API van Azure AD gebruikt met certificaatreferenties om zonder tussenkomst van de gebruiker gegevens op te halen uit directory's.
 services: active-directory
 documentationcenter: 
 author: ramical
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/24/2017
+ms.date: 09/08/2017
 ms.author: ramical
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: c1345dcda6e52267a8037ffd7207e6bc3b0d3b31
+ms.contentlocale: nl-nl
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Gegevens ophalen met de rapportage-API van Azure AD met certificaten
@@ -26,10 +26,10 @@ In dit artikel wordt uitgelegd hoe u de rapportage-API van Azure AD gebruikt met
 
 ## <a name="use-the-azure-ad-reporting-api"></a>De rapportage-API voor Azure AD gebruiken 
 U moet de volgende stappen uitvoeren voordat u de rapportage-API van Azure AD kunt gebruiken:
- *    Vereiste onderdelen installeren
- *    Het certificaat instellen in uw app
- *    Een toegangstoken opvragen
- *    Het toegangstoken gebruiken om de Graph API aan te roepen
+ *  Vereiste onderdelen installeren
+ *  Het certificaat instellen in uw app
+ *  Een toegangstoken opvragen
+ *  Het toegangstoken gebruiken om de Graph API aan te roepen
 
 Zie [Leverage Report API Module](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils) (Rapportage-API-module gebruiken) voor meer informatie over broncode. 
 
