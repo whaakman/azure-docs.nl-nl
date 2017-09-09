@@ -57,7 +57,7 @@
 
 ## Beheren
 ### [Toegang tot diagnostische logboeken](data-lake-store-diagnostic-logs.md)
-### [Plannen voor hoge beschikbaarheid](data-lake-store-troubleshooting-guidance.md)
+### [Plannen voor hoge beschikbaarheid](data-lake-store-disaster-recovery-guidance.md)
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)

@@ -2,7 +2,7 @@
   items:
     - name: Inleiding
       href: ./common/storage-introduction.md
-    - name: 'Kies blobs, bestanden of gegevensschijven'
+    - name: 'Kies blobs, bestanden of schijven'
       href: ./common/storage-decide-blobs-files-disks.md
 - name: Blobs
   href: ./blobs/storage-blobs-introduction.md

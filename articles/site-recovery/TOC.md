@@ -13,7 +13,7 @@
 ## [Een inleiding bekijken](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Aan de slag
-## [Replicatie van virtuele Azure-machines (preview)](site-recovery-azure-to-azure.md)
+## [Virtuele Azure-machines repliceren naar Azure (preview)](site-recovery-azure-to-azure.md)
 ## [Virtuele VMware-machines repliceren naar Azure](vmware-walkthrough-overview.md)
 ### [Stap 1: de architectuur analyseren](vmware-walkthrough-architecture.md)
 ### [Stap 2: de vereisten en beperkingen controleren](vmware-walkthrough-prerequisites.md)

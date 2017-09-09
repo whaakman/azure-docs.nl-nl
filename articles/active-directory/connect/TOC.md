@@ -16,7 +16,7 @@
 ### [Aangepaste instellingen](active-directory-aadconnect-get-started-custom.md)
 ### [Upgraden van DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Upgrade uitvoeren van een vorige versie](active-directory-aadconnect-upgrade-previous-version.md)
-
+### [Installeren met behulp van een bestaande ADSync-database](active-directory-aadconnect-existing-database.md)
 
 # Procedures
 ## Plannen en ontwerpen

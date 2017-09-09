@@ -120,6 +120,8 @@
           href: connect-logon.md
         - name: AHUB-licentieverlening gebruiken
           href: hybrid-use-benefit-licensing.md
+        - name: Multitenant Hosting-rechten voor Windows 10 gebruiken
+          href: windows-desktop-multitenant-hosting-deployment.md
     - name: Virtuele machines beveiligen
       items:
         - name: Versleutelen
