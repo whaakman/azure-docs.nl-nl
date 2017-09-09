@@ -1,9 +1,7 @@
 
 <!--author=alkohli last changed: 01/20/2017-->
 
-<a id="to-create-a-manual-backup" class="xliff"></a>
-
-#### Een handmatige back-up maken
+#### <a name="to-create-a-manual-backup"></a>Een handmatige back-up maken
 
 1. Ga naar de StorSimple-apparaatbeheerfunctie en klik op **Apparaten**. Selecteer uw apparaat in de lijst in tabelvorm met apparaten. Ga naar **Instellingen > Beheren > Back-upbeleid**.
 

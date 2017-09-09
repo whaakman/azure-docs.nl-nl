@@ -26,8 +26,3 @@
      > 
 7. Klik op **Openen** om een seriële sessie te starten.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

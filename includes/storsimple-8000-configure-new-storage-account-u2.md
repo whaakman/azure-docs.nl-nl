@@ -1,9 +1,7 @@
 <!--author=alkohli last changed: 01/20/17-->
 
 
-<a id="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service" class="xliff"></a>
-
-#### Een opslagaccountreferentie toevoegen aan hetzelfde Azure-abonnement als de StorSimple-apparaatbeheerfunctie
+#### <a name="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service"></a>Een opslagaccountreferentie toevoegen aan hetzelfde Azure-abonnement als de StorSimple-apparaatbeheerfunctie
 
 1. Ga naar uw StorSimple-apparaatbeheerservice. Klik in de sectie **Configuratie** op **Opslagaccountreferenties**.
 

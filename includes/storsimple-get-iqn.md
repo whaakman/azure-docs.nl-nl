@@ -7,8 +7,3 @@
     ![Eigenschappen iSCSI-initiator](./media/storsimple-get-iqn/HCS_iSCSIInitiatorPropertiesFigureIQN-include.png)
 3. Bewaar deze tekenreeks.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

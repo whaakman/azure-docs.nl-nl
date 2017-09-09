@@ -1,8 +1,6 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-<a id="to-take-a-backup" class="xliff"></a>
-
-### Een back-up maken
+### <a name="to-take-a-backup"></a>Een back-up maken
 
 1. Ga naar uw StorSimple-apparaatbeheerservice. Selecteer uw apparaat in de lijst in tabelvorm met apparaten en klik hierop. Klik daarna op **Alle instellingen**. Ga op de blade **Instellingen** naar **Instellingen > Beheren > Back-upbeleid**.
 
