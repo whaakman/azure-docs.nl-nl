@@ -53,6 +53,12 @@
 ## Beheren
 ### [Service Bus-beheerbibliotheken](service-bus-management-libraries.md)
 ### [Azure Resource Manager-sjablonen gebruiken](service-bus-resource-manager-overview.md)
+#### [Een naamruimte maken](service-bus-resource-manager-namespace.md)
+#### [Een naamruimte en een wachtrij maken](service-bus-resource-manager-namespace-queue.md)
+#### [Een naamruimte met een onderwerp en een abonnement maken](service-bus-resource-manager-namespace-topic.md)
+#### [Een autorisatieregel voor de naamruimte en wachtrij maken](service-bus-resource-manager-namespace-auth-rule.md)
+#### [Een naamruimte met een onderwerp, abonnement en regel maken](service-bus-resource-manager-namespace-topic-with-rule.md)
+#### 
 ### [PowerShell gebruiken om entiteiten in te richten](service-bus-manage-with-ps.md)
 
 # Naslaginformatie

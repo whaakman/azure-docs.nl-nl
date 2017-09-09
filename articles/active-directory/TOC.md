@@ -132,6 +132,7 @@
 ## Apparaten beheren
 ### [Inleiding](device-management-introduction.md)
 ### [Azure Portal gebruiken](device-management-azure-portal.md)
+### [Azure AD Join plannen](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [Veelgestelde vragen](device-management-faq.md)
 ### Taken
 #### [Bij Azure AD ingeschreven Windows 10-apparaten configureren](device-management-azuread-registered-devices-windows10-setup.md)
@@ -142,15 +143,6 @@
 ### Problemen oplossen
 #### [Hybride, in Azure AD gekoppelde Windows 10- en Windows Server 2016-apparaten](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Hybride, in Azure AD gekoppelde oudere Windows-apparaten](device-management-troubleshoot-hybrid-join-windows-legacy.md)
-### [Azure AD Join](active-directory-azureadjoin-overview.md)
-#### [Plannen](active-directory-azureadjoin-deployment-aadjoindirect.md)
-#### [Apparaatregistratie instellen](active-directory-azureadjoin-setup.md)
-#### [Nieuwe apparaten registreren](active-directory-azureadjoin-user-frx.md)
-#### [Implementeren](active-directory-azureadjoin-devices-group-policy.md)
-#### [Meer informatie over integratie met Windows 10](active-directory-azureadjoin-windows10-devices-overview.md)
-#### [Windows 10-apparaten gebruiken](active-directory-azureadjoin-windows10-devices.md)
-#### [Uw apparaat toevoegen](active-directory-azureadjoin-personal-device.md)
-#### [Een apparaat met Windows 10 toevoegen](active-directory-azureadjoin-user-upgrade.md)
 
 ## Apps beheren
 ### [Overzicht](active-directory-enable-sso-scenario.md)
@@ -299,6 +291,8 @@
 ### [Voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md)
 #### [Aan de slag](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Aanbevolen procedures](active-directory-conditional-access-best-practices.md)
+#### [VPN-connectiviteit](active-directory-conditional-access-vpn-connectivity-windows10.md)
+#### [Beheer van mobiele apps](active-directory-conditional-access-mam.md)
 #### [Technische naslaginformatie](active-directory-conditional-access-technical-reference.md)
 #### [Meer informatie over apparaatbeleidsregels](active-directory-conditional-access-device-policies.md)
 #### [Toegang tot verbonden apps instellen](active-directory-conditional-access-policy-connected-applications.md)
@@ -306,7 +300,6 @@
 #### [Veelgestelde vragen](active-directory-conditional-faqs.md)
 #### [Klassieke portal](active-directory-conditional-access.md)
 ##### [Aan de slag](active-directory-conditional-access-azuread-connected-apps.md)
-
 
 ### Windows Hello
 #### [Verifiëren zonder wachtwoorden](active-directory-azureadjoin-passport.md)
