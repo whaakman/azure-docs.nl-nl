@@ -32,10 +32,9 @@
 
 ## Plannen en ontwerpen
 ### [Aanbevolen procedures voor Azure App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Azure App Service en bestaande Azure-services](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Meer informatie over App Service-abonnementen](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 ### [Hosting met hoge dichtheid](app-service-high-density-hosting.md)
-### [App Service op Linux](app-service-linux-readme.md)
+### [App Service op Linux](containers/app-service-linux-intro.md)
 ### [WebJobs in Azure App Service gebruiken](app-service-webjobs-readme.md)
 ### [App Service-omgeving](../app-service-web/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Documentatie over App Service-omgeving](app-service-app-service-environments-readme.md)
@@ -78,7 +77,6 @@
 #### [Aangepaste domeinen met Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### [Een bestaande app klonen](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Hybride verbindingen](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Hybride verbindingen v2](app-service-hybrid-connections.md)
 ### [Azure Virtual Network](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Geavanceerde configuratie](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -94,7 +92,6 @@
 #### [Details van netwerkconfiguratie met ExpressRoute](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## [Beveiligen](app-service-security-readme.md)
-### [Een app beveiligen in Azure App Service](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Verificatie en autorisatie](app-service-authentication-overview.md)
 ### Verifiëren met id-providers
 #### [Verificatie via Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -117,7 +114,6 @@
 ## Back-up maken
 ### [Back-up maken van uw app in Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Een app in Azure herstellen](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [REST gebruiken voor back-up en herstel van App Service-apps](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## [Controle](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Diagnostische logboekregistratie inschakelen](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -126,18 +122,12 @@
 ## Automatiseren
 ### [Flexibele ontwikkeling](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Implementatie van Azure Resource Manager](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Web + GitHub ](../app-service-web/app-service-web-arm-from-github-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Web + SQL ](../app-service-web/app-service-web-arm-with-sql-database-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [MSDeploy met aangepaste hostnaam en SSL-certificaat](../app-service-web/app-service-web-arm-with-msdeploy-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### PowerShell
 #### [Back-ups maken en herstellen automatiseren](app-service-powershell-backup.md)
 #### [Apps klonen](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [SSL-certificaatbinding](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Azure Resource Manager gebruiken met PowerShell](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Apps beheren met Azure Automation](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## Integreren
-### [Toegang tot on-premises resources via hybride verbindingen](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [E-mail verzenden via SendGrid met Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Exporteren naar PowerApps en Microsoft Flow](app-service-export-api-to-powerapps-and-flow.md)
 
@@ -150,8 +140,6 @@
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=app-service)
 
 # Resources
-## [Naslaginformatie voor App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
-## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Aanbevolen procedures](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
