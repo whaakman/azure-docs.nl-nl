@@ -16,10 +16,10 @@ ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 45c611e1c429e8c17c0fb1537577a4cbd037c23a
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Batch-resources beheren met Azure CLI
@@ -67,8 +67,8 @@ Als u de Azure CLI wilt gebruiken met Batch, moet u zich aanmelden en verifiëre
 
 Er zijn een aantal manieren om u aan te melden bij Azure, zoals u kunt lezen in [Aanmelden met de Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli):
 
-1. [Interactief aanmelden](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#interactive-log-in). Meld u interactief aan wanneer u zelf Azure CLI-opdrachten uitvoert vanaf de opdrachtregel.
-2. [Aanmelden met een service-principal](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#logging-in-with-a-service-principal). Meld u aan met een service-principal wanneer u Azure CLI-opdrachten uitvoert vanuit een script of een toepassing.
+1. [Interactief aanmelden](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). Meld u interactief aan wanneer u zelf Azure CLI-opdrachten uitvoert vanaf de opdrachtregel.
+2. [Aanmelden met een service-principal](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). Meld u aan met een service-principal wanneer u Azure CLI-opdrachten uitvoert vanuit een script of een toepassing.
 
 Ten behoeve van dit artikel laten we zien hoe u zich interactief aanmeldt bij Azure. Typ [az login](https://docs.microsoft.com/cli/azure/#login) op de opdrachtregel:
 
@@ -85,7 +85,7 @@ De voorbeelden in de sectie [Voorbeelden van shell-scripts](#sample-shell-script
 
 ### <a name="log-in-to-your-batch-account"></a>Aanmelden bij uw Batch-account
 
-Als u de Azure CLI wilt gebruiken voor het beheren van Batch-resources, zoals pools, functies en taken, moet u zich aanmelden bij uw Batch-account en u vervolgens verifiëren. U kunt zich aanmelden bij de Batch-service met de opdracht [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login). 
+Als u de Azure CLI wilt gebruiken voor het beheren van Batch-resources, zoals pools, functies en taken, moet u zich aanmelden bij uw Batch-account en u vervolgens verifiëren. U kunt zich aanmelden bij de Batch-service met de opdracht [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login). 
 
 Er zijn twee mogelijkheden voor verificatie van uw Batch-account:
 
@@ -99,7 +99,7 @@ Er zijn twee mogelijkheden voor verificatie van uw Batch-account:
 
     Verificatie met Azure AD is vereist als u uw Azure Batch-account hebt gemaakt met de modus voor groepstoewijzing ingesteld op Gebruikersabonnement. 
 
-    Als u zich via Azure AD wilt aanmelden bij uw Batch-account, gebruikt u de opdracht [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login): 
+    Als u zich via Azure AD wilt aanmelden bij uw Batch-account, gebruikt u de opdracht [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login): 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount

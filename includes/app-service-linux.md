@@ -1,5 +1,5 @@
 > [!NOTE]
-> U kunt nu Azure App Service op Linux proberen. Zie de [introductiehandleiding](../articles/app-service/app-service-linux-readme.md) voor meer informatie.
+> U kunt nu Azure App Service op Linux proberen. Zie de [introductiehandleiding](../articles/app-service/containers/app-service-linux-intro.md) voor meer informatie.
 > 
 > 
 

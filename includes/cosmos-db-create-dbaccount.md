@@ -1,31 +1,31 @@
-1. Meld u in een nieuw venster aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in het deelvenster links op **Nieuw**, klik op **Databases** en klik vervolgens onder **Azure Cosmos DB** op **Maken**.
+1. In a new window, sign in to the [Azure portal](https://portal.azure.com/).
+2. In the left pane, click **New**, click **Databases**, and then under **Azure Cosmos DB**, click **Create**.
    
-   ![Het deelvenster Databases in Azure Portal](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
+   ![The Azure portal Databases pane](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
-3. Geef op de blade **Nieuw account** de gewenste configuratie op voor dit Azure Cosmos DB-account. 
+3. On the **New account** blade, specify the configuration that you want for this Azure Cosmos DB account. 
 
-    Met Azure Cosmos DB kunt u een van de vier programmeermodellen kiezen: Gremlin (Graph), MongoDB, SQL (DocumentDB) en Tabel (sleutelwaarde). Voor elk van deze modellen is momenteel een afzonderlijk account vereist.
+    With Azure Cosmos DB, you can choose one of four programming models: Gremlin (graph), MongoDB, SQL (DocumentDB), and Table (key-value), each which currently require a separate account.
     
-    In dit artikel programmeren we met de DocumentDB API. Daarom kiest u bij het invullen van het formulier voor **SQL (DocumentDB)**. Als u grafiekgegevens voor een sociale media-app hebt of sleutel/waarde-gegevens (tabel) of gegevens die zijn gemigreerd vanuit een MongoDB-app, vergeet dan niet dat Azure Cosmos DB een maximaal beschikbaar, wereldwijd gedistribueerd databaseserviceplatform heeft voor al uw bedrijfskritische toepassingen.
+    In this quick-start article we program against the DocumentDB API, so choose **SQL (DocumentDB)** as you fill out the form. If you have graph data for a social media app, or key/value (table) data, or data migrated from a MongoDB app, realize that Azure Cosmos DB can provide a highly available, globally distributed database service platform for all your mission-critical applications.
 
-    Vul de velden in op de blade **Nieuw account** en gebruik de gegevens in de volgende schermopname hierbij als richtlijn. Uw waarden kunnen verschillen van de waarden in de schermopname.
+    Complete the fields on the **New account** blade, using the information in the following screenshot as a guide- your values may be different than the values in the screenshot.
  
-    ![De blade Nieuw account voor Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![The new account blade for Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
-    Instelling|Voorgestelde waarde|Beschrijving
+    Setting|Suggested value|Description
     ---|---|---
-    Id|*Unieke waarde*|Een unieke naam die dit Azure Cosmos DB-account identificeert. Omdat *documents.azure.com* is toegevoegd aan de id die u hebt opgegeven om uw URI te maken, gebruikt u een unieke maar identificeerbare id. De id mag alleen kleine letters, cijfers en het koppelteken (-) bevatten en moet 3 tot 50 tekens lang zijn.
-    API|SQL (DocumentDB)|Verderop in dit artikel gaan we programmeren met de [DocumentDB API](../articles/documentdb/documentdb-introduction.md).|
-    Abonnement|*Uw abonnement*|Het Azure-abonnement dat u wilt gebruiken voor dit Azure Cosmos DB-account. 
-    Resourcegroep|*Dezelfde waarde als id*|De nieuwe resourcegroepnaam voor het account. Gebruik dezelfde naam als uw id om het uzelf gemakkelijk te maken. 
-    Locatie|*De regio het dichtst bij uw gebruikers*|De geografische locatie waar u het Azure Cosmos DB-account gaat hosten. Kies de locatie die zich het dichtst bij uw gebruikers bevindt, zodat ze de snelst mogelijke toegang tot de gegevens hebben.
-4. Klik op **Maken** om het account te maken.
-5. Klik op de bovenste werkbalk op het pictogram **Meldingen** (het ![pictogram Meldingen](./media/cosmos-db-create-dbaccount/notification-icon.png)) om het implementatieproces te controleren.
+    ID|*Unique value*|A unique name that identifies this Azure Cosmos DB account. Because *documents.azure.com* is appended to the ID that you provide to create your URI, use a unique but identifiable ID. The ID can contain only lowercase letters, numbers, and the hyphen (-) character, and it must contain 3 to 50 characters.
+    API|SQL (DocumentDB)|We program against the [DocumentDB API](../articles/cosmos-db/documentdb-introduction.md) later in this article.|
+    Subscription|*Your subscription*|The Azure subscription that you want to use for this Azure Cosmos DB account. 
+    Resource Group|*The same value as ID*|The new resource-group name for your account. For simplicity, you can use the same name as your ID. 
+    Location|*The region closest to your users*|The geographic location in which to host your Azure Cosmos DB account. Choose the location that's closest to your users to give them the fastest access to the data.
+4. Click **Create** to create the account.
+5. On the top toolbar, click the **Notifications** icon ![The notification icon](./media/cosmos-db-create-dbaccount/notification-icon.png) to monitor the deployment process.
 
-    ![Het deelvenster Meldingen in Azure Portal](./media/cosmos-db-create-dbaccount-graph/azure-documentdb-nosql-notification.png)
+    ![The Azure portal Notifications pane](./media/cosmos-db-create-dbaccount-graph/azure-documentdb-nosql-notification.png)
 
-6.  Wanneer in het venster Meldingen wordt aangegeven dat de implementatie is voltooid, sluit u dit venster en opent u het nieuwe account vanuit de tegel **Alle resources** op het dashboard. 
+6.  When the Notifications window indicates the deployment succeeded, close the notification window and open the new account from the **All Resources** tile on the Dashboard. 
 
-    ![Het DocumentDB-account op de tegel Alle resources](./media/cosmos-db-create-dbaccount/all-resources.png)
+    ![The Azure Cosmos DB account on the All Resources tile](./media/cosmos-db-create-dbaccount/all-resources.png)
  

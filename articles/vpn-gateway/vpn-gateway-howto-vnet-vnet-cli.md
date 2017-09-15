@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: ae42f661b39e8b6170fd415d758404fb33009ccc
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: ff859bd9dbbf30c461cdba8409c77b04ff97b1f6
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Een VPN-gatewayverbinding tussen VNets configureren met behulp van Azure CLI
@@ -124,7 +124,7 @@ In de voorbeelden worden de volgende waarden gebruikt:
   ```azurecli
   az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
   ```
-3. Maak een extra adresruimte voor het back-endsubnet. In deze stap specificeren we zowel de adresruimte die we eerder hebben gemaakt en de extra adresruimte die we willen toevoegen. Dit komt doordat de opdracht [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet#update) de vorige instellingen overschrijft. Zorg ervoor dat u alle adresvoorvoegsels opgeeft wanneer u deze opdracht gebruikt.
+3. Maak een extra adresruimte voor het back-endsubnet. In deze stap specificeren we zowel de adresruimte die we eerder hebben gemaakt en de extra adresruimte die we willen toevoegen. Dit komt doordat de opdracht [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_update) de vorige instellingen overschrijft. Zorg ervoor dat u alle adresvoorvoegsels opgeeft wanneer u deze opdracht gebruikt.
 
   ```azurecli
   az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1

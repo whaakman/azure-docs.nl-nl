@@ -6,7 +6,7 @@ Als u de hostnaam, poorten en toegangssleutels wilt ophalen via Azure Portal, [b
 ![Instellingen van Redis-cache](media/redis-cache-access-keys/redis-cache-hostname-ports-keys.png)
 
 ### <a name="retrieve-host-name-ports-and-access-keys-using-azure-cli"></a>Hostnaam, poorten en toegangssleutels ophalen via Azure CLI
-Als u de hostnaam en poorten met Azure CLI 2.0 wilt ophalen, kunt u [az redis show](https://docs.microsoft.com/cli/azure/redis#show) oproepen. Als u de sleutels wilt ophalen, kunt u [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#list-keys) oproepen. Het volgende script roept deze twee opdrachten aan en echoot de hostnaam, poorten en sleutels naar de console.
+Als u de hostnaam en poorten met Azure CLI 2.0 wilt ophalen, kunt u [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) oproepen. Als u de sleutels wilt ophalen, kunt u [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) oproepen. Het volgende script roept deze twee opdrachten aan en echoot de hostnaam, poorten en sleutels naar de console.
 
 ```azurecli
 #/bin/bash

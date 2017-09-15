@@ -14,10 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 5369dcd6ad1ec93c63eb442db9fc5ffdcca37375
-ms.openlocfilehash: 530191637b1aa91ee1d7fe5b5bb032c60983f7dc
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: f2c448af24e180db58f3ef3d39e90036dda3f7eb
+ms.contentlocale: nl-nl
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="how-to-use-azure-redis-cache-with-nodejs"></a>Azure Redis-cache gebruiken met behulp van Node.js
@@ -32,7 +33,7 @@ ms.openlocfilehash: 530191637b1aa91ee1d7fe5b5bb032c60983f7dc
 
 Azure Redis-cache geeft u toegang tot een beveiligde, toegewezen Redis-cache, beheerd door Microsoft. Uw cache is toegankelijk vanuit elke toepassing in Microsoft Azure.
 
-In dit onderwerp wordt beschreven hoe u aan de slag kunt met Azure Redis-cache met gebruik van Node.js. Zie voor een ander voorbeeld van het gebruik van Azure Redis-Cache met behulp van Node.js [Een Node.js-chattoepassing bouwen met Socket.IO op een Azure-website](../app-service-web/web-sites-nodejs-chat-app-socketio.md).
+In dit onderwerp wordt beschreven hoe u aan de slag kunt met Azure Redis-cache met gebruik van Node.js. 
 
 ## <a name="prerequisites"></a>Vereisten
 [node_redis](https://github.com/mranney/node_redis) installeren:
@@ -85,10 +86,5 @@ Uitvoer:
 ## <a name="next-steps"></a>Volgende stappen
 * [Schakel de diagnostische gegevens van de cache in](cache-how-to-monitor.md#enable-cache-diagnostics), zodat u de status van de cache kunt [bewaken](cache-how-to-monitor.md).
 * Lees de officiële [Redis-documentatie](http://redis.io/documentation).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
