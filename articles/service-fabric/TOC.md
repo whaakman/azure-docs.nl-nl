@@ -4,6 +4,8 @@
 
 # Snelstartgidsen
 ## [Een .NET-toepassing maken](service-fabric-quickstart-dotnet.md)
+## [Een Windows-containertoepassing implementeren](service-fabric-quickstart-containers.md)
+## [Een Linux-containertoepassing implementeren](service-fabric-quickstart-containers-linux.md)
 
 # Zelfstudies
 ## Een .NET-toepassing implementeren
@@ -278,7 +280,7 @@
 ### [Een cluster visualiseren](service-fabric-visualizing-your-cluster.md)
 ### [Verbinding maken met een beveiligde cluster](service-fabric-connect-to-secure-cluster.md)
 
-### [Een cluster beheren met behulp van de Service Fabric-CLI](service-fabric-cli.md)
+### [Aan de slag met de Service Fabric-CLI](service-fabric-cli.md)
 ### [Patch uitvoeren voor clusterknooppunten](service-fabric-patch-orchestration-application.md)
 
 ### Clusterbronnen beheren en organiseren
