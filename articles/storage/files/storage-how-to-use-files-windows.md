@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 67b8e2e0039c8bc63f50f177e3c0d18b07df45e6
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: a8e4900bee81763300d976f0c966d7d20662ca27
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -27,16 +27,19 @@ ms.lasthandoff: 08/21/2017
 
 Als u een Azure-bestandsshare wilt koppelen buiten de Azure-regio waarin deze wordt gehost, bijvoorbeeld on-premises of in een andere Azure-regio, moet het besturingssysteem ondersteuning bieden voor SMB 3.0. 
 
-Afhankelijk van de versie van het besturingssysteem kan een Azure-bestandsshare on-premises op een Windows-machine worden gekoppeld of op een virtuele Azure-machine. In de onderstaande tabel ziet u de mogelijkheden: 
+U kunt Azure-bestandsshares koppelen aan een Windows-installatie die wordt uitgevoerd in een virtuele machine in Azure of on-premises. In de onderstaande tabel ziet u welke versies van het besturingssysteem het koppelen van bestandsshares ondersteunen en in welke omgeving:
 
-| Windows-versie        | SMB-versie |Koppelbaar op Azure-VM|Koppelbaar on-premises|
-|------------------------|-------------|---------------------|---------------------|
-| Windows 7              | SMB 2.1     | Ja                 | Nee                  |
-| Windows Server 2008 R2 | SMB 2.1     | Ja                 | Nee                  |
-| Windows 8              | SMB 3.0     | Ja                 | Ja                 |
-| Windows Server 2012    | SMB 3.0     | Ja                 | Ja                 |
-| Windows Server 2012 R2 | SMB 3.0     | Ja                 | Ja                 |
-| Windows 10             | SMB 3.0     | Ja                 | Ja                 |
+| Windows-versie        | SMB-versie | Koppelbaar in Azure-VM | Koppelbaar on-premises |
+|------------------------|-------------|-----------------------|----------------------|
+| Windows 10<sup>1</sup>  | SMB 3.0 | Ja | Ja |
+| Windows Server 2016    | SMB 3.0     | Ja                   | Ja                  |
+| Windows 8.1            | SMB 3.0     | Ja                   | Ja                  |
+| Windows Server 2012 R2 | SMB 3.0     | Ja                   | Ja                  |
+| Windows Server 2012    | SMB 3.0     | Ja                   | Ja                  |
+| Windows 7              | SMB 2.1     | Ja                   | Nee                   |
+| Windows Server 2008 R2 | SMB 2.1     | Ja                   | Nee                   |
+
+<sup>1</sup>Windows 10 versie 1507, 1511, 1607 en 1703
 
 > [!Note]  
 > We raden altijd aan de meest recente KB voor uw versie van Windows te nemen.

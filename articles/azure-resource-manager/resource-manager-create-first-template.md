@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/27/2017
+ms.date: 09/03/2017
 ms.topic: get-started-article
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 49086b51e2db1aebed45746306ae14b6f1feb631
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: d07b2354906994ef7842a64d9f58bcbcc18f96e7
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Uw eerste Azure Resource Manager-sjabloon maken en implementeren
 In dit onderwerp worden de stappen beschreven voor het maken van uw eerste Azure Resource Manager-sjabloon. Resource Manager-sjablonen zijn JSON-bestanden die de resources definiëren die u voor uw oplossing moet implementeren. Zie [Overzicht van Azure Resource Manager](resource-group-overview.md) voor inzicht in de concepten die gerelateerd zijn aan het implementeren en beheren van uw Azure-oplossingen. Zie [Een Azure Resource Manager-sjabloon uit bestaande resources exporteren](resource-manager-export-template.md) als u een sjabloon voor bestaande resources wilt maken.
 
-U hebt een JSON-editor nodig om sjablonen te maken en reviseren. [Visual Studio Code](https://code.visualstudio.com/) is een lichte, open-source, platformoverschrijdende code-editor. U wordt sterk aangeraden om Visual Studio Code te gebruiken voor het maken van Resource Manager-sjablonen. In dit onderwerp wordt ervan uitgegaan dat u VS Code gebruikt. Als u een andere JSON-editor (zoals Visual Studio) hebt, kunt u die editor gebruiken.
+U hebt een JSON-editor nodig om sjablonen te maken en reviseren. [Visual Studio Code](https://code.visualstudio.com/) is een lichte, open-source, platformoverschrijdende code-editor. U wordt sterk aangeraden om Visual Studio Code te gebruiken voor het maken van Resource Manager-sjablonen. In dit artikel wordt ervan uitgegaan dat u VS Code gebruikt. Als u een andere JSON-editor (zoals Visual Studio) hebt, kunt u die editor gebruiken.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -216,7 +216,7 @@ U ziet nu dat de naam van het opslagaccount is ingesteld op de variabele die u h
 
 Sla het bestand op. 
 
-Na het voltooien van de stappen in dit artikel ziet uw sjabloon er als volgt uit:
+De sjabloon ziet er nu als volgt uit:
 
 ```json
 {
@@ -289,6 +289,141 @@ Upload voor Cloud Shell de gewijzigde sjabloon naar de bestandsshare. Overschrij
 az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
+## <a name="use-autocomplete"></a>Automatisch aanvullen gebruiken
+
+Uw werk op de sjabloon bestond tot nu toe alleen uit het kopiëren en plakken van JSON uit dit artikel. Bij het ontwikkelen van uw eigen sjablonen moet u echter eigenschappen en waarden zoeken en opgeven die beschikbaar zijn voor het resourcetype. VS Code leest het schema voor het resourcetype en stelt eigenschappen en waarden voor. Om te functie voor automatisch aanvullen te bekijken, gaat u naar het eigenschapselement van uw sjabloon en voegt u een nieuwe regel toe. Typ een aanhalingsteken. VS Code stelt onmiddellijk namen voor die beschikbaar zijn in het eigenschapselement.
+
+![Beschikbare eigenschappen weergeven](./media/resource-manager-create-first-template/show-properties.png)
+
+Selecteer **Versleuteling**. Typ een dubbele punt (:). VS Code stelt voor om een nieuw object toe te voegen.
+
+![Object toevoegen](./media/resource-manager-create-first-template/add-object.png)
+
+Druk op tab of enter als u het object wilt toevoegen.
+
+Typ opnieuw een aanhalingsteken. VS Code stelt u eigenschappen voor die beschikbaar zijn voor versleuteling.
+
+![Versleutelingseigenschappen weergeven](./media/resource-manager-create-first-template/show-encryption-properties.png)
+
+Selecteer **services** en ga verder met het toevoegen van waarden op basis van VS Code-extensies totdat u het volgende hebt:
+
+```json
+"properties": {
+    "encryption":{
+        "services":{
+            "blob":{
+              "enabled":true
+            }
+        }
+    }
+}
+```
+
+U hebt blob-versleuteling voor het opslagaccount ingeschakeld. VS-Code heeft echter een probleem aangetroffen. U ziet dat versleuteling een waarschuwing heeft.
+
+![Waarschuwing voor versleuteling](./media/resource-manager-create-first-template/encryption-warning.png)
+
+Beweeg de muisaanwijzer over de groene lijn om de waarschuwing te bekijken.
+
+![Ontbrekende eigenschap](./media/resource-manager-create-first-template/missing-property.png)
+
+U ziet dat het versleutelingselement een keySource-eigenschap vereist. Voeg een komma toe na het serviceobject voeg de keySource-eigenschap toe. VS Code stelt **'Microsoft.Storage'** voor als een geldige waarde. Wanneer u klaar bent, is het eigenschapselement:
+
+```json
+"properties": {
+    "encryption":{
+        "services":{
+            "blob":{
+              "enabled":true
+            }
+        },
+        "keySource":"Microsoft.Storage"
+    }
+}
+```
+
+De definitieve sjabloon is:
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageSKU": {
+      "type": "string",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS"
+      ],
+      "defaultValue": "Standard_LRS",
+      "metadata": {
+        "description": "The type of replication to use for the storage account."
+      }
+    },   
+    "storageNamePrefix": {
+      "type": "string",
+      "maxLength": 11,
+      "defaultValue": "storage",
+      "metadata": {
+        "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+      }
+    }
+  },
+  "variables": {
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "name": "[variables('storageName')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
+      "sku": {
+        "name": "[parameters('storageSKU')]"
+      },
+      "kind": "Storage",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "encryption":{
+          "services":{
+            "blob":{
+              "enabled":true
+            }
+          },
+          "keySource":"Microsoft.Storage"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
+
+## <a name="deploy-encrypted-storage"></a>Versleutelde opslag implementeren
+
+Implementeren de sjabloon opnieuw en geef de naam van een nieuw opslagaccount op.
+
+Gebruik voor PowerShell:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json -storageNamePrefix storesecure
+```
+
+Gebruik voor Azure CLI:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageNamePrefix=storesecure
+```
+
+Upload voor Cloud Shell de gewijzigde sjabloon naar de bestandsshare. Overschrijf het bestaande bestand. Gebruik vervolgens deze opdracht:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageNamePrefix=storesecure
+```
+
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 Schoon de geïmplementeerd resources, wanneer u deze niet meer nodig hebt, op door de resourcegroep te verwijderen.
@@ -306,6 +441,7 @@ az group delete --name examplegroup
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
+* Als u meer hulp nodig hebt bij het ontwikkelen van sjablonen, kunt u een VS Code-extensie installeren. Zie voor meer informatie [Visual Studio Code-extensie gebruiken om Azure Resource Manager-sjablonen te maken](resource-manager-vscode-extension.md)
 * Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md) voor meer informatie over de structuur van een sjabloon.
 * Zie [Storage accounts template reference](/azure/templates/microsoft.storage/storageaccounts) (Sjabloonverwijzing voor opslagaccounts) voor meer informatie over de eigenschappen van een opslagaccount.
 * Zie de [Azure-snelstartsjablonen](https://azure.microsoft.com/documentation/templates/) voor volledige sjablonen voor verschillende soorten oplossingen.

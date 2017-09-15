@@ -1,4 +1,4 @@
-Hier kunt u de leertrajecten van Azure Media Services bekijken:
+Meer informatie over de Azure Media Services-leertrajecten:
 
-* [Werkstroom voor Media Services Live Streaming](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-* [Werkstroom voor Media Services on Demand Streaming](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+* [Werkstroom voor Media Services live streaming](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+* [Werkstroom voor Media Services streaming on demand](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)

@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/18/2017
+ms.date: 08/31/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 54f137b26bf1c8f966e8ef110dcf3d25abf7ac5b
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -170,8 +170,7 @@ De aanbevolen methode om Automation te implementeren, is door de aanbieding Auto
    - Geef een naam op voor de nieuwe **OMS-werkruimte**.
    - Selecteer een **abonnement** om te koppelen door een selectie in de vervolgkeuzelijst te maken als de geselecteerde standaardwaarde niet juist is.
    - Voor **Resourcegroep** kunt u een resourcegroep maken of een bestaande resourcegroep selecteren.  
-   - Selecteer een **locatie**.  Momenteel zijn alleen de locaties **Australië - zuidoost**, **VS - oost**, **Zuidoost-Azië**, **West-centraal VS** en **West-Europa** beschikbaar.
-   - Selecteer een **prijscategorie**.  De oplossing wordt in twee prijscategorieën aangeboden: Gratis en Per knooppunt (OMS).  De gratis categorie heeft een limiet op de hoeveelheid gegevens die dagelijks wordt verzameld, op de retentieperiode en op de runtimeminuten van runbooktaken.  De categorie Per knooppunt (OMS) kent geen limiet voor de hoeveelheid gegevens die dagelijks wordt verzameld.  
+   - Selecteer een **locatie**.  Zie [in welke regio's Azure Automation beschikbaar is](https://azure.microsoft.com/regions/services/) voor aanvullende informatie.  De oplossingen worden in twee prijscategorieën aangeboden: Gratis en Per knooppunt (OMS).  De gratis categorie heeft een limiet op de hoeveelheid gegevens die dagelijks wordt verzameld, op de retentieperiode en op de runtimeminuten van runbooktaken.  De categorie Per knooppunt (OMS) kent geen limiet voor de hoeveelheid gegevens die dagelijks wordt verzameld.  
    - Selecteer **Automation-account**.  Als u een nieuwe OMS-werkruimte maakt, moet u ook een Automation-account maken dat is gekoppeld aan de nieuwe OMS-werkruimte die eerder is opgegeven, inclusief uw Azure-abonnement, resourcegroep en regio.  U kunt **Een Automation-account maken** selecteren en het volgende opgeven op de blade **Automation-account**: 
   - Voer in het veld **Naam** de naam van het Automation-account in.
 

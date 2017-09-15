@@ -3,7 +3,7 @@ title: Kiezen tussen de cloud of server van Azure MFA| Microsoft Docs
 description: 'Kies de Multi-Factor Authentication-beveiligingsoplossing die bij u past, door uzelf de vraag te stellen: ''Wat wil ik beveiligen en waar bevinden zich mijn gebruikers?''  Kies vervolgens de cloud, MFA-Server of AD FS.'
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: ec2270ea-13d7-4ebc-8a00-fa75ce6c746d
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/25/2017
-ms.author: kgremban
+ms.author: joflore
 ms.translationtype: HT
 ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: cc5a0a8ff789b878cd5afb62176ae8bcf3f80902

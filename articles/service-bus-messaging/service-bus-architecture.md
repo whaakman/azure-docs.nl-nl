@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 83456d775c5ff2a2476ba46e9c78a8dc1bb482e8
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: b810618b485b631e1d72b24c2a9587017d635cc4
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="service-bus-architecture"></a>Service Bus-architectuur
@@ -35,7 +35,7 @@ Een Service Bus-naamruimte is toegewezen aan een schaaleenheid. De schaaleenheid
 * **Meerdere berichten-stores.** Berichten-stores bevatten de berichten van alle wachtrijen, onderwerpen en abonnementen die zijn gedefinieerd in deze schaaleenheid. Het bevat ook alle abonnementsgegevens. Tenzij [gepartitioneerde berichtentiteiten](service-bus-partitioning.md) is ingeschakeld, wordt een wachtrij of onderwerp toegewezen aan één berichten-store. Abonnementen worden opgeslagen in dezelfde berichten-store als het bovenliggende onderwerp. Met uitzondering van de Service Bus [Premium Messaging](service-bus-premium-messaging.md), worden berichten-stores bovenop SQL Azure-databases geïmplementeerd.
 
 ## <a name="containers"></a>Containers
-Aan elke berichtentiteit is een specifieke container toegewezen. Een container is een logische constructie die gebruikmaakt van precies één berichten-store om alle relevante gegevens voor deze container op te slaan. Elke container is toegewezen aan een berichtbrokerknooppunt. Er zijn meestal meer containers dan berichtbrokerknooppunten. Elk berichtbrokerknooppunt laadt daarom meerdere containers. De distributie van containers naar een berichtbrokerknooppunt is zodanig georganiseerd dat alle berichtbrokerknooppunten evenwichtig worden belast. Als het belastingspatroon verandert (als bijvoorbeeld een van de containers erg wordt belast), of als een berichtbrokerknooppunt tijdelijk niet beschikbaar is, worden de containers herverdeeld over de berichtbrokerknooppunten.
+Aan elke berichtentiteit is een specifieke container toegewezen. Een container is een logische constructie die gebruikmaakt van één berichten-store om alle relevante gegevens voor deze container op te slaan. Elke container is toegewezen aan een berichtbrokerknooppunt. Er zijn meestal meer containers dan berichtbrokerknooppunten. Elk berichtbrokerknooppunt laadt daarom meerdere containers. De distributie van containers naar een berichtbrokerknooppunt is zodanig georganiseerd dat alle berichtbrokerknooppunten evenwichtig worden belast. Als het belastingspatroon verandert (als bijvoorbeeld een van de containers erg wordt belast), of als een berichtbrokerknooppunt tijdelijk niet beschikbaar is, worden de containers herverdeeld over de berichtbrokerknooppunten.
 
 ## <a name="processing-of-incoming-messaging-requests"></a>Verwerken van inkomende berichtaanvragen
 Wanneer een client een verzoek naar Service Bus verzendt, wordt het via de Azure Load Balancer doorgestuurd naar een van de gateway-knooppunten. Het gateway-knooppunt machtigt de aanvraag. Als de aanvraag heeft betrekking op een berichtentiteit (wachtrij, onderwerp, abonnement), zoekt het gateway-knooppunt de entiteit op in de gateway-store en bepaalt in welke bericht-store de entiteit zich bevindt. Vervolgens controleert het knooppunt welk berichtbrokerknooppunt deze container gebruikt en stuurt het bericht naar de betreffende berichtbrokerknooppunt. Het berichtbrokerknooppunt verwerkt de aanvraag en werkt de entiteitsstatus bij in de container-store. Het berichtbrokerknooppunt verzendt vervolgens het antwoord terug naar het gateway-knooppunt, wat een juiste reactie terugstuurt naar de client die de oorspronkelijke aanvraag heeft gedaan.

@@ -24,6 +24,10 @@ Nee. De virtuele netwerken kunnen zich in dezelfde of verschillende Azure-regio'
 
 Nee.
 
+### <a name="can-i-use-vnet-to-vnet-to-connect-virtual-networks-in-separate-azure-instances"></a>Kan ik VNet-naar-VNet-verbindingen gebruiken tussen virtuele netwerken in verschillende Azure-exemplaren? 
+
+Nee. VNet-naar-VNet ondersteunt het verbinden van virtuele netwerken binnen hetzelfde Azure-exemplaar. U kunt bijvoorbeeld geen verbinding maken tussen openbare Azure-exemplaren en Chinese, Duitse of US Gov Azure-exemplaren. Voor deze scenario's kunt u een site-naar-site-VPN-verbinding gebruiken.
+
 ### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>Kan ik VNet-naar-VNet- én multi-site-verbindingen gebruiken?
 
 Ja. U kunt virtuele-netwerkverbindingen tegelijk gebruiken met multi-site-VPN’s.

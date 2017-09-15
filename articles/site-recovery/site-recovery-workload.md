@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 88f20287e2a6935b9694a25a21b607d658b8eb68
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Welke workloads kunt u met Azure Site Recovery beveiligen?
@@ -31,7 +31,7 @@ Organisaties hebben een BCDR-strategie (strategie voor bedrijfscontinuïteit en 
 
 Site Recovery is een Azure-service die deel uitmaakt van uw BCDR-strategie. Met Site Recovery kunt u de toepassingsbewuste replicatie naar de cloud of naar een secundaire site implementeren. U kunt Site Recovery gebruiken om replicatie, noodhersteltests, failovers en failbacks uit te voeren. Hierbij maakt het niet uit of u Windows-apps of Linux-apps gebruikt, en of deze worden uitgevoerd op fysieke servers of op virtuele VMware- of Hyper-V-machines.
 
-Site Recovery kan worden geïntegreerd met diverse Microsoft-toepassingen, waaronder SharePoint, Exchange, Dynamics, SQL Server en Active Directory. Microsoft werkt ook nauw samen met toonaangevende leveranciers zoals Oracle, SAP, IBM en Red Hat. U kunt replicatie-oplossingen per app aanpassen.
+Site Recovery kan worden geïntegreerd met diverse Microsoft-toepassingen, waaronder SharePoint, Exchange, Dynamics, SQL Server en Active Directory. Microsoft werkt ook nauw samen met toonaangevende leveranciers zoals Oracle, SAP en Red Hat. U kunt replicatie-oplossingen per app aanpassen.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>Waarom u Site Recovery moet gebruiken voor het repliceren van toepassingen
 Site Recovery biedt als volgt beveiliging op toepassingsniveau en herstel:

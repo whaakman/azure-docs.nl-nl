@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 3d4fe2fa10d848c8b29e4d22d284c0d378f07ae0
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 0e91d249116d39675d6e4bdf429442b6bc8af391
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: uw toepassing registreren
@@ -31,6 +31,8 @@ Als u een toepassing wilt maken waarin consumenten zich kunnen registreren en aa
 
 Toepassingen die zijn gemaakt vanaf de blade Azure AD B2C in Azure Portal, moeten vanaf dezelfde locatie worden beheerd. Als u de B2C-toepassingen bewerkt met PowerShell of een andere portal, worden de toepassingen niet meer ondersteund en werken ze niet met Azure AD B2C. Zie voor meer informatie de sectie [Mislukte toepassingen](#faulted-apps). 
 
+Dit artikel bevat uitleg waarmee u met onze voorbeelden aan de slag kunt gaan. U kunt in de volgende artikelen meer over deze voorbeelden te weten komen.
+
 ## <a name="navigate-to-b2c-settings"></a>Navigeren naar de B2C-instellingen
 
 Meld u als globale beheerder van de B2C-tenant aan bij [Azure Portal](https://portal.azure.com/). 
@@ -39,13 +41,13 @@ Meld u als globale beheerder van de B2C-tenant aan bij [Azure Portal](https://po
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Kies de volgende stappen op basis van het toepassingstype dat u wilt registreren:
+## <a name="choose-next-steps-based-on-your-application-type"></a>Kies de volgende stappen op basis van het toepassingstype
 
 * [Een web-app registreren](#register-a-web-app)
 * [Een web-API registreren](#register-a-web-api)
 * [Een mobiele of native toepassing registreren](#register-a-mobile-or-native-app)
  
-## <a name="register-a-web-app"></a>Een web-app registreren
+### <a name="register-a-web-app"></a>Een web-app registreren
 
 [!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
 
@@ -59,7 +61,7 @@ Als de web-app een web-API aanroept die is beveiligd door Azure AD B2C, voert u 
 
 [Ga naar **Volgende stappen**](#next-steps)
 
-## <a name="register-a-web-api"></a>Een web-API registreren
+### <a name="register-a-web-api"></a>Een web-API registreren
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
@@ -67,7 +69,7 @@ Klik op **Gepubliceerd bereiken** om eventueel meer bereiken toe te voegen. Stan
 
 [Ga naar **Volgende stappen**](#next-steps)
 
-## <a name="register-a-mobile-or-native-app"></a>Een mobiele of native toepassing registreren
+### <a name="register-a-mobile-or-native-app"></a>Een mobiele of native toepassing registreren
 
 [!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
 

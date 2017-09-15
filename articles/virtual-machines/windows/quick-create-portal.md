@@ -17,10 +17,10 @@ ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 31ac18add9c3fd956e0d37b1e0c1a510265c22e6
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 98ed23b8031c56ba642427e817e48a4e7a5830fc
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
@@ -48,11 +48,11 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
 
     ![Schermopname van VM-grootten](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. Handhaaf op de blade Instellingen de standaardwaarden en klik op **OK**.
+5. Handhaaf de standaardwaarden in **Instellingen** en klik op **OK**. 
 
 6. Klik op de pagina Overzicht op **OK** om de implementatie van de virtuele machine te starten.
 
-7. De VM wordt aan het dashboard van de Azure Portal vastgemaakt. Zodra de implementatie is voltooid, wordt de samenvattingsblade van de VM automatisch geopend.
+7. De VM wordt aan het dashboard van de Azure Portal vastgemaakt. Zodra de implementatie is voltooid, wordt de samenvatting van de VM automatisch geopend.
 
 
 ## <a name="connect-to-virtual-machine"></a>Verbinding maken met de virtuele machine
@@ -94,13 +94,13 @@ Een netwerkbeveiligingsgroep (NSG) beveiligt binnenkomend en uitgaand verkeer. W
 
 ## <a name="view-the-iis-welcome-page"></a>De welkomstpagina van IIS weergeven
 
-Als IIS is geïnstalleerd en poort 80 is geopend voor de VM, is de webserver nu toegankelijk vanaf het internet. Open een webbrowser en voer het openbare IP-adres van de VM in. U vindt het openbare IP-adres op de VM-blade in de Azure Portal.
+Als IIS is geïnstalleerd en poort 80 is geopend voor de VM, is de webserver nu toegankelijk vanaf het internet. Open een webbrowser en voer het openbare IP-adres van de VM in. U vindt het openbare IP-adres onder *Virtual Machines* in Azure Portal.
 
 ![Standaardsite van IIS](./media/quick-create-powershell/default-iis-website.png) 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u de virtuele machine niet meer nodig hebt, verwijdert u de resourcegroep, de machine zelf én alle gerelateerde resources. Hiervoor selecteert u de resourcegroep op de blade van de virtuele machine en klikt u op **Verwijderen**.
+Wanneer u de virtuele machine niet meer nodig hebt, verwijdert u de resourcegroep, de machine zelf én alle gerelateerde resources. Om dit te doen, selecteert u de resourcegroep voor de VM en klikt u op **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

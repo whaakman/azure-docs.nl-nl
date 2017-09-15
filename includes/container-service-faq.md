@@ -24,6 +24,8 @@ Azure Container Service is een Azure-service met SLA en functies in Azure Portal
 
 [ACS Engine](http://github.com/Azure/acs-engine) is een open source-project waarmee hoofdgebruikers de clusterconfiguratie op elk niveau kunnen aanpassen. Deze mogelijkheid om de configuratie van de infrastructuur en de software te wijzigen, betekent dat we geen SLA voor ACS Engine bieden. Ondersteuning is beschikbaar via het open-source project op GitHub in plaats van via officiële Microsoft-kanalen. 
 
+Voor meer informatie raadpleegt u ons [ondersteuningsbeleid voor containers](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers).
+
 ## <a name="cluster-management"></a>Clusterbeheer
 
 ### <a name="how-do-i-create-ssh-keys-for-my-cluster"></a>Hoe kan ik SSH-sleutels maken voor mijn cluster?

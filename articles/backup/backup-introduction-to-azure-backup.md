@@ -17,10 +17,10 @@ ms.date: 8/11/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5a6aad672ddaa43f993daf4cf48975e91d2657da
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 699ec578832e894b5bfc0cfad35528eac377c4ff
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Overzicht van de functies in Azure Backup
@@ -78,6 +78,7 @@ De volgende tabel bevat een matrix van de gegevens en workloads die kunnen worde
 | Bestanden en mappen |Windows-computer |<p>[Azure Backup-agent](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (+ de Azure Backup-agent),</p> <p>[Azure Backup-server](backup-azure-microsoft-azure-backup.md) (bevat de Azure Backup-agent)</p> |
 | Virtuele Hyper-V-machine (Windows) |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ de Azure Backup-agent),</p> <p>[Azure Backup-server](backup-azure-microsoft-azure-backup.md) (bevat de Azure Backup-agent)</p> |
 | Virtuele Hyper-V-machine (Linux) |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ de Azure Backup-agent),</p> <p>[Azure Backup-server](backup-azure-microsoft-azure-backup.md) (bevat de Azure Backup-agent)</p> |
+| Virtuele VMware-machine |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ de Azure Backup-agent),</p> <p>[Azure Backup-server](backup-azure-microsoft-azure-backup.md) (bevat de Azure Backup-agent)</p> |
 | Microsoft SQL Server |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ de Azure Backup-agent),</p> <p>[Azure Backup-server](backup-azure-microsoft-azure-backup.md) (bevat de Azure Backup-agent)</p> |
 | Microsoft SharePoint |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ de Azure Backup-agent),</p> <p>[Azure Backup-server](backup-azure-microsoft-azure-backup.md) (bevat de Azure Backup-agent)</p> |
 | Microsoft Exchange |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ de Azure Backup-agent),</p> <p>[Azure Backup-server](backup-azure-microsoft-azure-backup.md) (bevat de Azure Backup-agent)</p> |

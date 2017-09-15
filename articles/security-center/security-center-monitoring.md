@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 09/07/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: f7f50c305a5ae6ad7bba4e793f4cb6a0735b80b4
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 4752199803f1fab04608e6a8618e3294e85fb38a
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Beveiligingsstatus bewaken in Azure Security Center
@@ -29,7 +28,7 @@ Dit artikel bevat informatie over het gebruik van de bewakingsmogelijkheden in A
 Bij het woord bewaking wordt misschien gesuggereerd dat er wordt gewacht tot een gebeurtenis plaatsvindt en dat er dan op de situatie wordt gereageerd. Bij beveiligingsbewaking is er echter sprake van een proactieve strategie waarbij uw resources worden gecontroleerd om systemen op te sporen die niet voldoen aan de standaarden of aanbevolen procedures van de organisatie.
 
 ## <a name="monitoring-security-health"></a>Beveiligingsstatus bewaken
-Nadat u een [beveiligingsbeleid](security-center-policies.md) voor de resources van een abonnement hebt ingeschakeld, analyseert Security Center de beveiliging van uw resources om mogelijke beveiligingsproblemen op te sporen. Informatie over uw netwerkconfiguratie is onmiddellijk beschikbaar. Het kan echter wel een uur of langer duren voordat er informatie over de configuratie van een virtuele machine, zoals de status van een beveiligingsupdate en configuratie van het besturingssysteem, beschikbaar komt. U kunt de beveiligingsstatus van uw resources en eventuele problemen bekijken in het gedeelte **Preventie**. U kunt ook een overzicht van die problemen op de tegel **Aanbevelingen** bekijken.
+Nadat u een [beveiligingsbeleid](security-center-policies.md) voor de resources van een abonnement hebt ingeschakeld, analyseert Security Center de beveiliging van uw resources om mogelijke beveiligingsproblemen op te sporen. Informatie over uw netwerkconfiguratie is onmiddellijk beschikbaar. Afhankelijk van het aantal virtuele machines en computers waarop de agent is geïnstalleerd, kan het een uur of langer duren voordat informatie is verzameld over configuratie van de VM's en de computer, zoals de status van de beveiligingsupdates en de configuratie van het besturingssysteem. U kunt de beveiligingsstatus van uw resources en eventuele problemen bekijken in het gedeelte **Preventie**. U kunt ook een overzicht van die problemen op de tegel **Aanbevelingen** bekijken.
 
 Zie [Beveiligingsaanbevelingen implementeren in Azure Security Center](security-center-recommendations.md) voor meer informatie over het toepassen van aanbevelingen.
 
@@ -39,41 +38,39 @@ In het gedeelte **Preventie** kunt u de beveiligingsstatus van uw resources bewa
 
 
 ### <a name="monitor-compute"></a>Berekenen controleren
-Als u op de tegel **Berekenen** klikt, wordt de blade **Berekenen** geopend met daarop drie tabbladen:
+Wanneer u klikt op de tegel **Compute** tegel, ziet u drie tabbladen:
 
-- **Overzicht**: aanbevelingen voor controle en virtuele machines.
-- **Virtuele machines**: lijst met alle virtuele machines en de bijbehorende actuele beveiligingsstatussen.
+- **Overzicht**: controle en aanbevelingen.
+- **VM’s en computers**: lijst met alle virtuele machines, computers en de bijbehorende actuele beveiligingsstatussen.
 - **Cloudservices**: lijst met alle web- en worker-rollen gecontroleerd met het beveiligingscentrum.
 
-![Ontbrekende systeemupdate per virtuele machine](./media/security-center-monitoring/security-center-monitoring-fig1-new002-2017.png)
+![Ontbrekende systeemupdate per virtuele machine](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
 
 Op elk tabblad kunt u meerdere sectie hebben en in elke sectie kunt u een afzonderlijke optie selecteren voor meer informatie over de aanbevolen stappen voor het oplossen van het specifieke probleem. 
 
 #### <a name="monitoring-recommendations"></a>Aanbevelingen ten aanzien van controle
-In deze sectie wordt het totale aantal virtuele machines weergegeven dat is geïnitialiseerd voor het verzamelen van gegevens en de huidige status. Nadat voor alle virtuele machines gegevensverzameling is geïnitialiseerd, zijn ze klaar om Security Center-beveiligingsbeleid te ontvangen. Als u op deze vermelding klikt, wordt de blade **VM-agent ontbreekt of reageert niet** geopend. 
+In deze sectie wordt het totale aantal virtuele machines en computers weergegeven dat is geïnitialiseerd voor het automatisch inrichten en de huidige status. Als u op deze vermelding klikt, wordt **VM-agent ontbreekt of reageert niet** geopend. 
 
 ![Ontbrekende systeemupdate per virtuele machine](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
 
-#### <a name="virtual-machine-recommendations"></a>Aanbevelingen voor virtuele machines
-Dit gedeelte bevat een reeks [aanbevelingen voor elke virtuele machine](security-center-virtual-machine-recommendations.md) die wordt bewaakt door Azure Security Center. De eerste kolom bevat de aanbeveling. De tweede kolom geeft het totale aantal virtuele machines dat wordt beïnvloed door deze aanbeveling. De derde kolom geeft de ernst van het probleem weer, zoals wordt geïllustreerd op de volgende schermafbeelding.
+#### <a name="recommendations"></a>Aanbevelingen
+Dit gedeelte bevat een reeks [aanbevelingen voor elke virtuele machine en computer](security-center-virtual-machine-recommendations.md) die wordt bewaakt door Azure Security Center. De eerste kolom bevat de aanbeveling. De tweede kolom geeft het totale aantal virtuele machines en computers weer dat wordt beïnvloed door deze aanbeveling. De derde kolom geeft de ernst van het probleem weer, zoals wordt geïllustreerd op de volgende schermafbeelding:
 
-![Aanbevelingen voor virtuele machines](./media/security-center-monitoring/security-center-monitoring-fig1-new004-2017.png)
+![Aanbevelingen voor virtuele machines](./media/security-center-monitoring/security-center-monitoring-fig2-sep2017.png)
 
 > [!NOTE]
-> Alleen virtuele machines met ten minste één openbaar eindpunt worden weergegeven op de blade **Netwerkstatus** in de lijst **Netwerktopologie**.
+> Alleen virtuele machines met ten minste één openbaar eindpunt worden weergegeven in **Netwerkstatus** in de lijst **Netwerktopologie**.
 >
->
 
-Elke aanbeveling heeft een set acties die kunnen worden uitgevoerd wanneer u erop klikt. Als u bijvoorbeeld op **Ontbrekende systeemupdates** klikt, wordt de blade **Ontbrekende systeemupdates** geopend. U ziet hier de virtuele machines waarvoor patches ontbreken, en de ernst van de ontbrekende update, zoals wordt weergegeven op de volgende schermafbeelding.
+Elke aanbeveling heeft een set acties die kunnen worden uitgevoerd wanneer u erop klikt. Als u bijvoorbeeld op **Ontbrekende systeemupdates** klikt, wordt een lijst met virtuele machines en computers waarvoor patches ontbreken en de ernst van de ontbrekende update weergegeven, zoals u ziet in de volgende schermafbeelding:
 
-![Ontbrekende systeemupdates voor virtuele machines](./media/security-center-monitoring/security-center-monitoring-fig5-ga.png)
+![Ontbrekende systeemupdates voor virtuele machines](./media/security-center-monitoring/security-center-monitoring-fig9-sep2017.png)
 
-Op de blade **Ontbrekende systeemupdates** wordt een tabel met de volgende informatie weergegeven:
+De **Ontbrekende systeemupdates** hebben een overzicht van essentiële updates in een grafiek, één voor Windows en één voor Linux. Het tweede gedeelte bevat een tabel met de volgende informatie:
 
-* **VIRTUELE MACHINE**: de naam van de virtuele machine waarvoor updates ontbreken.
-* **SYSTEEMUPDATES**: het aantal systeemupdates dat ontbreekt.
-* **TIJD VAN DE LAATSTE SCAN**: het tijdstip waarop de virtuele machine voor het laatst door Security Center op updates is gecontroleerd.
+* **NAAM**: naam van de ontbrekende update.
+* **AANTAL VM’S EN COMPUTERS**: totaal aantal virtuele machines en computers die deze update niet hebben.
 * **STATUS**: de huidige status van de aanbeveling:
   * **Open**: de aanbeveling is nog niet opgelost.
   * **Wordt uitgevoerd**: de aanbeveling wordt momenteel toegepast op deze resources en u hoeft geen actie te ondernemen.
@@ -83,38 +80,49 @@ Op de blade **Ontbrekende systeemupdates** wordt een tabel met de volgende infor
   * **Gemiddeld**: er zijn niet-kritieke of extra stappen nodig om een proces te voltooien of een beveiligingsprobleem op te lossen.
   * **Laag**: een beveiligingsprobleem moet worden opgelost, maar dit vereist niet uw onmiddellijke aandacht. (Aanbevelingen met de ernstaanduiding Laag worden niet standaard weergegeven, maar u kunt hierop filteren als u deze aanbevelingen wilt bekijken.)
 
-Klik op de naam van de virtuele machine om meer informatie voor de aanbeveling weer te geven. Er wordt een nieuwe blade voor die virtuele machine geopend met de lijst met updates zoals weergegeven op de volgende schermafbeelding.
+Klik op de naam van de ontbrekende update om meer informatie voor de aanbeveling weer te geven. 
 
-![Ontbrekende systeemupdates voor een specifieke virtuele machine](./media/security-center-monitoring/security-center-monitoring-fig6-ga.png)
+![Ontbrekende systeemupdates voor een specifieke virtuele machine](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
 
 > [!NOTE]
-> Dit zijn dezelfde beveiligingsaanbevelingen als die op de blade **Aanbevelingen**. Zie het artikel [Beveiligingsaanbevelingen implementeren in Azure Security Center](security-center-recommendations.md) voor meer informatie over het toepassen van aanbevelingen. Dit is niet alleen van toepassing voor virtuele machines, maar ook voor alle resources die beschikbaar zijn in de tegel **Resourcestatus**.
+> Dit zijn dezelfde beveiligingsaanbevelingen als die in de optie **Aanbevelingen**. Zie het artikel [Beveiligingsaanbevelingen implementeren in Azure Security Center](security-center-recommendations.md) voor meer informatie over het toepassen van aanbevelingen. Dit is niet alleen van toepassing voor virtuele machines en computers, maar ook voor alle resources die beschikbaar zijn in de tegel **Resourcestatus**.
 >
->
 
-#### <a name="virtual-machines-section"></a>Sectie voor virtuele machines
-De sectie voor virtuele machines geeft een overzicht van alle virtuele machines en aanbevelingen. Elke kolom vertegenwoordigt een reeks aanbevelingen, zoals te zien is op de volgende schermafbeelding:
+#### <a name="vms--computers-section"></a>Sectie VM's en computers
+De sectie voor virtuele machines en computers geeft een overzicht weer van alle aanbevelingen van virtuele machines en computers. Elke kolom vertegenwoordigt een reeks aanbevelingen, zoals te zien is op de volgende schermafbeelding:
 
-![Overzicht van alle virtuele machines en aanbevelingen](./media/security-center-monitoring/security-center-monitoring-fig1-new005-2017.png)
+![Overzicht van alle virtuele machines en aanbevelingen](./media/security-center-monitoring/security-center-monitoring-fig5-sep2017.png)
 
-U kunt met het pictogram dat wordt weergegeven onder elke aanbeveling, snel zien welke virtuele machines aandacht vereisen en wat het type aanbeveling is.
+Er zijn vier typen pictogrammen die worden weergegeven in deze lijst, zoals wordt beschreven in deze lijst:
 
-In het vorige voorbeeld heeft één virtuele machine een cruciale aanbeveling met betrekking tot eindpuntbeveiliging. Klik op de virtuele machine als u meer informatie over de virtuele machine wilt bekijken. Er wordt een nieuwe blade geopend over deze virtuele machine, zoals wordt weergegeven op de volgende schermafbeelding.
+![pictogram1](./media/security-center-monitoring/security-center-monitoring-icon1.png) Computer zonder Azure.
 
-![Beveiligingsdetails van virtuele machines](./media/security-center-monitoring/security-center-monitoring-fig8-ga.png)
+![pictogram2](./media/security-center-monitoring/security-center-monitoring-icon2.png) Azure Resource Manager-VM.
 
-Deze blade bevat de beveiligingsdetails voor de virtuele machine. Onder in deze blade ziet u de aanbevolen actie en de ernst van elk probleem.
+![pictogram3](./media/security-center-monitoring/security-center-monitoring-icon3.png) Klassieke Azure-VM.
+
+![pictogram4](./media/security-center-monitoring/security-center-monitoring-icon4.png) Virtuele machines die alleen zijn geïdentificeerd vanuit de werkruimte die deel uitmaakt van het weergegeven abonnement. Dit omvat VM's van andere abonnementen die rapporteren aan de werkruimte in dit abonnement, en VM’s die zijn geïnstalleerd met de directe SCOM-agent en geen resource-ID hebben.
+
+U kunt met het pictogram dat wordt weergegeven onder elke aanbeveling, snel zien welke virtuele machines en computers aandacht vereisen en wat het type aanbeveling is. U kunt ook de optie **Filter** gebruiken voor het selecteren van de opties die u ziet in dit scherm.
+
+![Filteren](./media/security-center-monitoring/security-center-monitoring-fig6-sep2017.png)
+
+In het vorige voorbeeld heeft één virtuele machine een cruciale aanbeveling met betrekking tot eindpuntbeveiliging. Klik op de virtuele machine als u meer informatie over de virtuele machine wilt bekijken:
+
+![Beveiligingsdetails van virtuele machines](./media/security-center-monitoring/security-center-monitoring-fig7-sep2017.png)
+
+Hier vindt u de beveiligingsdetails voor de virtuele machine of computer. Onderin ziet u de aanbevolen actie en de ernst van elk probleem.
 
 #### <a name="cloud-services-section"></a>Veelgestelde vragen over cloudservices
 Voor cloudservices wordt een aanbeveling gemaakt wanneer de versie van het besturingssysteem verouderd is, zoals u ziet in de volgende schermafbeelding:
 
 ![Status van cloudservices](./media/security-center-monitoring/security-center-monitoring-fig1-new006-2017.png)
 
-Bij een scenario waarin u een aanbeveling krijgt (wat in het vorige voorbeeld niet het geval is), volgt u de stappen in de aanbeveling om de versie van het besturingssysteem bij te werken. Wanneer een update beschikbaar is, ontvangt u een waarschuwing (rood of oranje, afhankelijk van de ernst van het probleem). Als u klikt op deze waarschuwing in de WebRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd in IIS) of WorkerRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd in IIS), wordt een nieuwe blade geopend met meer informatie over deze aanbeveling. Dit wordt weergegeven op de volgende schermafbeelding:
+Bij een scenario waarin u een aanbeveling krijgt (wat in het vorige voorbeeld niet het geval is), volgt u de stappen in de aanbeveling om de versie van het besturingssysteem bij te werken. Wanneer een update beschikbaar is, ontvangt u een waarschuwing (rood of oranje, afhankelijk van de ernst van het probleem). Als u klikt op deze waarschuwing in de WebRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd in IIS) of WorkerRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd in IIS), krijgt u meer informatie over deze aanbeveling. Dit wordt weergegeven op de volgende schermafbeelding:
 
 ![Details van de cloudservice](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Als u een meer beschrijvende uitleg wilt zien over deze aanbeveling, klikt u op **Besturingssysteemversie bijwerken** onder de kolom **BESCHRIJVING**. De blade **Besturingssysteemversie bijwerken (preview)** wordt geopend met meer informatie.
+Als u een meer beschrijvende uitleg wilt zien over deze aanbeveling, klikt u op **Besturingssysteemversie bijwerken** onder de kolom **BESCHRIJVING**. 
 
 ![Aanbevelingen ten aanzien van cloudservices](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
@@ -124,7 +132,7 @@ Wanneer u op de tegel **Netwerken** klikt, wordt de blade **Netwerken** geopend 
 ![De blade Netwerken](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
 #### <a name="networking-recommendations"></a>Aanbevelingen voor netwerken
-Net als bij de informatie over de resourcestatus van virtuele machines biedt deze blade bovenin een overzicht van de problemen en onderin een lijst met bewaakte netwerken.
+Net als bij de informatie over de resourcestatus van virtuele machines ziet u hier bovenin een overzicht van de problemen en onderin een lijst met bewaakte netwerken.
 
 In het gedeelte met een uitsplitsing van de netwerkstatussen vindt u de mogelijke beveiligingsproblemen en [aanbevelingen](security-center-network-recommendations.md). Mogelijke aandachtspunten zijn:
 
@@ -134,13 +142,11 @@ In het gedeelte met een uitsplitsing van de netwerkstatussen vindt u de mogelijk
 * Externe toegang via openbaar extern eindpunt beperken
 * Status van internetgerichte eindpunten in orde
 
-Wanneer u op een aanbeveling klikt, wordt een nieuwe blade geopend met meer informatie over de aanbeveling, zoals weergegeven in het volgende voorbeeld.
+Wanneer u op een aanbeveling klikt, krijgt u meer informatie over de aanbeveling, zoals weergegeven in het volgende voorbeeld:
 
-![Details voor een aanbeveling op de blade Netwerken](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
+![Details voor een aanbeveling in Netwerken](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
 
-In dit voorbeeld bevat de blade **Ontbrekende netwerkbeveiligingsgroepen voor subnetten configureren** een lijst met subnetten en virtuele machines zonder beveiliging van netwerkbeveiligingsgroepen. Als u op het subnet klikt waarop u de netwerkbeveiligingsgroep wilt toepassen, wordt er een andere blade geopend.
-
-Selecteer op de blade **Netwerkbeveiligingsgroep kiezen** de meest geschikte netwerkbeveiligingsgroep voor het subnet of maak een nieuwe netwerkbeveiligingsgroep.
+In dit voorbeeld bevat **Ontbrekende netwerkbeveiligingsgroepen voor subnetten configureren** een lijst met subnetten en virtuele machines zonder beveiliging van netwerkbeveiligingsgroepen. Als u op het subnet klikt waarop u de netwerkbeveiligingsgroep wilt toepassen, wordt **Een netwerkbeveiligingsgroep kiezen** geopend. Hier selecteert u de meest geschikte netwerkbeveiligingsgroep voor het subnet of maakt u een nieuwe netwerkbeveiligingsgroep.
 
 #### <a name="internet-facing-endpoints-section"></a>Sectie Internetgerichte eindpunten
 De sectie **Internetgerichte eindpunten** bevat de virtuele machines die momenteel zijn geconfigureerd met een internetgericht eindpunt en de huidige status.
@@ -172,7 +178,7 @@ Het onderste gedeelte van deze blade bevat de aanbevelingen voor deze virtuele m
 
 ### <a name="monitor-storage--data"></a>Opslag en gegevens controleren
 
-Wanneer u klikt op **Opslag en gegevens** in het gedeelte **Preventie**, wordt de blade **Gegevensbronnen** geopend met aanbevelingen voor SQL en Storage. Ook bevat de blade [aanbevelingen](security-center-sql-service-recommendations.md) voor de algemene integriteitsstatus van de database. Lees voor meer informatie over de versleuteling van opslag [Versleuteling inschakelen voor een Azure-opslagaccount in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
+Wanneer u klikt op **Opslag en gegevens** in het gedeelte **Preventie**, wordt **Gegevensbronnen** geopend met aanbevelingen voor SQL en Storage. Ook bevat de blade [aanbevelingen](security-center-sql-service-recommendations.md) voor de algemene integriteitsstatus van de database. Lees voor meer informatie over de versleuteling van opslag [Versleuteling inschakelen voor een Azure-opslagaccount in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
 
 ![Gegevensbronnen](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
 
@@ -180,7 +186,7 @@ U kunt onder **SQL-aanbevelingen** op elke aanbeveling klikken voor meer informa
 
 ![Details over een SQL-aanbeveling](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
 
-De blade **Controle en detectie van bedreigingen in SQL-databases inschakelen** bevat de volgende informatie:
+**Controle en detectie van bedreigingen in SQL-databases inschakelen** bevat de volgende informatie:
 
 * Een lijst met SQL-databases
 * De server waarop deze zich bevinden
@@ -188,23 +194,23 @@ De blade **Controle en detectie van bedreigingen in SQL-databases inschakelen** 
 * De huidige status
 * De ernst van het probleem
 
-Als u op de database klikt om deze aanbeveling op te volgen, wordt de blade **Controle en detectie van bedreigingen** geopend, zoals wordt weergegeven in het volgende scherm.
+Als u op de database klikt om deze aanbeveling op te volgen, wordt **Controle en detectie van bedreigingen** geopend, zoals wordt weergegeven in het volgende scherm.
 
-![De blade Controle en detectie van bedreigingen](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
+![Controle en detectie van bedreigingen](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
 Als u controle wilt inschakelen, hoeft u alleen maar **AAN** te selecteren onder de optie **Controle**.
 
 ### <a name="monitor-applications"></a>Toepassingen bewaken
 
-Als uw Azure-workload toepassingen in [virtuele machines (gemaakt met Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) heeft met ontsloten webpoorten (TCP-poorten 80 en 443), kunnen deze in Security Center worden bewaakt om mogelijke beveiligingsproblemen op te sporen en stappen voor herstel aan te bevelen. Wanneer u op de tegel **Toepassingen** klikt, wordt de blade **Toepassingen** geopend met een reeks aanbevelingen in de sectie met **Aanbevelingen voor toepassingen**. U ziet ook de uitsplitsing van de toepassingen per host/virtueel IP-adres, zoals wordt weergegeven op de volgende schermafbeelding.
+Als uw Azure-workload toepassingen in [virtuele machines (gemaakt met Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) heeft met ontsloten webpoorten (TCP-poorten 80 en 443), kunnen deze in Security Center worden bewaakt om mogelijke beveiligingsproblemen op te sporen en stappen voor herstel aan te bevelen. Wanneer u op de tegel **Toepassingen** klikt, wordt **Toepassingen** geopend met een reeks aanbevelingen in de sectie met **Aanbevelingen voor toepassingen**. U ziet ook de uitsplitsing van de toepassing per host, IP/domein, en of er een WAF-oplossing is geïnstalleerd:
 
-![Beveiligingsstatus van toepassingen](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
+![Beveiligingsstatus van toepassingen](./media/security-center-monitoring/security-center-monitoring-fig8-sep2017.png)
 
-Net als bij de andere aanbevelingen kunt u op een aanbeveling klikken om meer informatie over het probleem en mogelijke oplossingen weer te geven. Het voorbeeld in de onderstaande afbeelding is een toepassing die als onbeveiligde webtoepassing is geïdentificeerd. Wanneer u de toepassing selecteert die als onveilig wordt beschouwd, wordt een andere blade geopend met de volgende optie:
+Net als bij de andere aanbevelingen kunt in een aanbeveling klikken om meer informatie over het probleem en mogelijke oplossingen weer te geven. Het voorbeeld in de onderstaande afbeelding is een toepassing die als onbeveiligde webtoepassing is geïdentificeerd. Wanneer u de toepassing selecteert die als onveilig wordt beschouwd, wordt de volgende optie beschikbaar:
 
-![Meer informatie over een app die is niet beveiligd](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
+![Details](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
 
-In deze blade vindt u een lijst met alle aanbevelingen voor deze toepassing. Als u klikt op de aanbeveling **Een Web Application Firewall toevoegen**, wordt de blade **Een Web Application Firewall toevoegen** met opties geopend, zodat u een WAF (Web Application Firewall) van een partner kunt installeren, zoals wordt weergegeven op de volgende schermafbeelding.
+Hier vindt u een lijst met alle aanbevelingen voor deze toepassing. Als u klikt op de aanbeveling **Een Web Application Firewall toevoegen**, wordt **Een Web Application Firewall toevoegen** met opties geopend, zodat u een WAF (Web Application Firewall) van een partner kunt installeren, zoals wordt weergegeven op de volgende schermafbeelding.
 
 ![Het dialoogvenster Web Application Firewall toevoegen](./media/security-center-monitoring/security-center-monitoring-fig18-ga.png)
 
