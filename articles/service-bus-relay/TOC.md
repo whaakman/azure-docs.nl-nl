@@ -13,6 +13,7 @@
 # Procedures
 ## Plannen en ontwerpen
 ### [Verificatie en beveiliging](relay-authentication-and-authorization.md)
+#### [Migreren van ACS naar SAS](relay-migrate-acs-sas.md)
 ### [Protocol hybride verbindingen](relay-hybrid-connections-protocol.md)
 ## Ontwikkelen
 ### [Beschikbare API's](relay-api-overview.md)

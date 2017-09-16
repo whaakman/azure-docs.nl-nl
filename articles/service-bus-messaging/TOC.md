@@ -37,6 +37,7 @@
 ### [Apps die gebruikmaken van wachtrijen](service-bus-create-queues.md)
 ### [Apps die gebruikmaken van onderwerpen/abonnementen](service-bus-create-topics-subscriptions.md)
 ### [Verificatie en autorisatie](service-bus-authentication-and-authorization.md)
+#### [Migreren van ACS naar SAS](service-bus-migrate-acs-sas.md)
 #### [Verificatie met Shared Access Signatures](service-bus-sas.md)
 ### [Gepartitioneerde wachtrijen en onderwerpen](service-bus-partitioning.md)
 ### [Wachtrijen voor onbestelbare berichten](service-bus-dead-letter-queues.md)

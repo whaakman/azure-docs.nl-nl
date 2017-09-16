@@ -1,0 +1,52 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie over de Azure IoT Hub Device Provisioning Service (preview)
+metadata:
+  title: 'Documentatie over de Azure IoT Hub Device Provisioning Service (preview) - Zelfstudies, API-naslaginformatie'
+  meta.description: Overview of Azure IoT Hub Device Provisioning Service.
+  services: iot-dps
+  author: nberdy
+  manager: timlt
+  ms.service: iot-dps
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/23/2017
+  ms.author: nberdy
+abstract:
+  description: 'De IoT Hub Device Provisioning Service (preview) is een helper-service voor IoT Hub die zero-touch, just-in-time inrichting naar de juiste IoT-hub biedt zonder menselijke tussenkomst, zodat gebruikers miljoenen apparaten op een veilige en schaalbare manier kunnen inrichten. Leer hoe u apparaten naar uw IoT-hub(s) kunt inrichten met onze snelstartgidsen, zelfstudies en voorbeelden.'
+sections:
+  - title: QuickStarts van vijf minuten
+    items:
+      - type: paragraph
+        text: Leer hoe u uw eerste Device Provisioning Service-exemplaar kunt instellen en richt een gesimuleerd apparaat in voor uw IoT-hub.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/sql-database/media/index/portal.svg
+            text: Automatische inrichting instellen
+            href: /azure/iot-dps/quick-setup-auto-provision
+          - image:
+              src: /azure/sql-database/media/index/portal.svg
+            text: Een gesimuleerd apparaat maken
+            href: /azure/iot-dps/quick-create-simulated-device
+  - title: Zelfstudies met stapsgewijze instructies
+    items:
+      - type: paragraph
+        text: Leer hoe u de IoT Hub Device Provisioning Service (preview) kunt gebruiken voor het automatisch inrichten van apparaten met ingeschakelde beveiliging naar één of meerdere IoT-hubs.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/iot-dps/tutorial-set-up-cloud">Cloudresources configureren</a>
+          - html: <a href="/azure/iot-dps/tutorial-set-up-device">Uw apparaat instellen om verbinding te maken met Azure</a>
+          - html: <a href="/azure/iot-dps/tutorial-provision-device-to-hub">Apparaten inrichten naar een enkele IoT-hub</a>
+          - html: <a href="/azure/iot-dps/tutorial-provision-multiple-hubs">Apparaten inrichten naar meerdere IoT-hubs met taakverdeling</a>
+  - title: Naslaginformatie
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: <p><a href="/rest/api/iot-dps">REST-API</a></p>
