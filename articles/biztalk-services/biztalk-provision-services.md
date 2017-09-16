@@ -152,7 +152,7 @@ Als u op **Beheren** klikt, wordt de Access Control-beheerportal geopend. In de 
 De Access Control Service-identiteit is een set referenties waarmee toepassingen of clients rechtstreeks via Access Control kunnen verifiëren en een token kunnen ontvangen.
 
 > [!IMPORTANT]
-> De BizTalk Service gebruikt **Eigenaar** als standaardservice-identiteit en de waarde **Wachtwoord**. Als u de waarde Symmetrische sleutel gebruikt in plaats van de waarde Wachtwoord, kan de volgende fout optreden.<br/><br/>*Kan geen verbinding maken met het Access Control-beheerserviceaccount met de opgegeven referenties*
+> De BizTalk Service gebruikt **Eigenaar** als standaardservice-identiteit en de waarde **Wachtwoord**. Als u de waarde Symmetrische sleutel gebruikt in plaats van de waarde Wachtwoord, kan de volgende fout optreden.<br/><br/>*Could not connect to the Access Control Management Service account with the specified credentials*
 > 
 > 
 
