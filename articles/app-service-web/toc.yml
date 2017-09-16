@@ -4,6 +4,8 @@
   items:
     - name: Meer informatie over Web Apps
       href: app-service-web-overview.md
+    - name: Over Web Apps voor Containers
+      href: ../app-service/containers/app-service-linux-intro.md
     - name: Hostingopties vergelijken
       href: choose-web-site-cloud-service-vm.md
 - name: Snelstartgidsen
@@ -29,10 +31,8 @@
       href: app-service-web-tutorial-nodejs-mongodb-app.md
     - name: 1 - PHP met MySQL
       href: app-service-web-tutorial-php-mysql.md
-    - name: 1 - WordPress met MySQL
-      href: app-service-web-create-web-app-from-marketplace.md
-    - name: 1 - Python met PostgreSQL
-      href: app-service-web-tutorial-docker-python-postgresql-app.md
+    - name: 1 - Java met MySQL
+      href: app-service-web-tutorial-java-mysql.md
     - name: 2 - Aangepast domein toewijzen
       href: app-service-web-tutorial-custom-domain.md
     - name: 3 - SSL-certificaat binden
@@ -73,14 +73,8 @@
               href: app-service-web-php-get-started.md
             - name: Een PHP-project opzetten
               href: web-sites-php-configure.md
-            - name: Een WordPress-multisite instellen
-              href: web-sites-php-convert-wordpress-multisite.md
         - name: Node.js
           items:
-            - name: Sails.js-app met NOSQL-database
-              href: app-service-web-nodejs-sails.md
-            - name: O.js gebruiken
-              href: web-sites-nodejs-iojs.md
             - name: Fouten opsporen in een Node.js-app
               href: web-sites-nodejs-debug.md
         - name: Java
@@ -89,14 +83,8 @@
               href: app-service-web-eclipse-create-hello-world-web-app.md
             - name: Java-app met IntelliJ
               href: app-service-web-intellij-create-hello-world-web-app.md
-            - name: De Azure-SDK voor Java gebruiken
-              href: java-create-azure-website-using-java-sdk.md
             - name: Een bestaande app uploaden
               href: web-sites-java-add-app.md
-        - name: Python
-          items:
-            - name: Django-app met MySQL
-              href: web-sites-python-ptvs-django-mysql.md
         - name: E-mails versturen met SendGrid
           href: sendgrid-dotnet-how-to-send-email.md
         - name: Runtime configureren
@@ -111,28 +99,6 @@
           items:
             - name: App-instellingen gebruiken
               href: web-sites-configure.md
-        - name: Web-app op Linux
-          items:
-            - name: Overzicht
-              href: app-service-linux-intro.md
-            - name: Beheren met CLI
-              href: app-service-linux-cli.md
-            - name: Ruby-web-app op Linux
-              href: app-service-linux-ruby-get-started.md
-            - name: Node.js-web-app op Linux
-              href: app-service-linux-using-nodejs-pm2.md
-            - name: .NET Core-web-app op Linux
-              href: app-service-linux-using-dotnetcore.md
-            - name: Aangepaste Docker-web-app op Linux
-              href: app-service-linux-using-custom-docker-image.md
-            - name: Verbinding maken via SSH
-              href: app-service-linux-ssh-support.md
-            - name: Doorlopende implementatie
-              href: app-service-linux-ci-cd.md
-            - name: 'Implementatietype: aangepaste installatiekopie of ingebouwd?'
-              href: app-service-linux-choose-deployment-type.md
-            - name: Veelgestelde vragen over web-apps op Linux
-              href: app-service-linux-faq.md
     - name: Implementeren in Azure
       href: web-sites-deploy.md
       items:
@@ -162,12 +128,6 @@
               href: web-sites-traffic-manager-custom-domain-name.md
             - name: Een actief domein migreren
               href: app-service-custom-domain-name-migrate.md
-        - name: Migreren vanuit IIS
-          href: web-sites-migration-from-iis-server.md
-        - name: Testen tijdens productie
-          href: app-service-web-test-in-production-get-start.md
-        - name: Functionaliteit toevoegen aan een web-app
-          href: app-service-web-get-started-2.md
         - name: Een Spring Boot-app implementeren in Azure Web Apps met behulp van de Maven-invoegtoepassing
           href: app-service-web-deploy-spring-boot-app-with-maven-plugin.md
         - name: Een in een container geplaatste Spring Boot-app implementeren met behulp van de Maven-invoegtoepassing
@@ -178,8 +138,6 @@
           href: ../azure-toolkit-for-intellij-hello-world-web-app-linux.md
     - name: Verbinding maken met database/resources
       items:
-        - name: Verbinding maken met on-premises gegevens
-          href: web-sites-hybrid-connection-get-started.md
         - name: Verbinding maken met Azure VNet
           href: web-sites-integrate-with-vnet.md
         - name: Verbinding maken met Azure VNet met behulp van PowerShell
@@ -214,8 +172,6 @@
           href: web-sites-scale.md
         - name: Uitschalen
           href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-        - name: Taken verdelen met Traffic Manager
-          href: web-sites-traffic-manager.md
         - name: Schalen met App Service-omgevingen
           href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: Azure CDN gebruiken voor wereldwijd bereik
@@ -224,8 +180,6 @@
           href: web-sites-connect-to-redis-using-memcache-protocol.md
         - name: Een Redis-cache maken
           href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-        - name: Sessiestatus beheren met Azure Redis Cache
-          href: web-sites-dotnet-session-state-caching.md
     - name: Bewaken
       items:
         - name: Apps bewaken
@@ -240,8 +194,6 @@
           href: web-sites-backup.md
         - name: Uw app terugzetten vanuit de back-up
           href: web-sites-restore.md
-        - name: Een back-up maken met REST-API
-          href: websites-csm-backup.md
     - name: App-resources beheren
       items:
         - name: Een app klonen met PowerShell
@@ -250,10 +202,6 @@
           href: app-service-web-app-cloning-portal.md
         - name: Resources verplaatsen
           href: app-service-move-resources.md
-        - name: Azure Resource Manager gebruiken met PowerShell
-          href: app-service-web-app-azure-resource-manager-powershell.md
-        - name: Apps beheren met Azure Automation
-          href: automation-manage-web-app.md
     - name: Integreren
       items:
         - name: Exporteren naar PowerApps en Microsoft Flow
