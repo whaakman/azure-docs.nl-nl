@@ -108,7 +108,7 @@ Een Service Fabric-cluster bevat de clusterresource zelf én andere Azure-resour
 Een resourcegroep verwijderen in Azure Portal:
 1. Ga naar het Service Fabric-cluster dat u wilt verwijderen.
 2. Klik op de naam van de **resourcegroep** op de pagina met clusterbenodigdheden.
-3. Klik op de pagina**** met resourcegroepbenodigdheden op **Resourcegroep verwijderen** en volg de instructies op die pagina om het verwijderen van de resourcegroep te voltooien.
+3. Klik op de pagina met **resourcegroepbenodigdheden** op **Resourcegroep verwijderen** en volg de instructies op die pagina om het verwijderen van de resourcegroep te voltooien.
     ![De resourcegroep verwijderen][cluster-delete]
 
 
