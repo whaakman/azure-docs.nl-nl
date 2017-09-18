@@ -135,9 +135,9 @@
 ### [Azure AD Join plannen](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [Veelgestelde vragen](device-management-faq.md)
 ### Taken
-#### [Bij Azure AD ingeschreven Windows 10-apparaten configureren](device-management-azuread-registered-devices-windows10-setup.md)
-#### [In Azure AD gekoppelde apparaten configureren](device-management-azuread-joined-devices-setup.md)
-#### [Hybride, in Azure AD gekoppelde apparaten configureren](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [Bij Azure AD ingeschreven Windows 10-apparaten instellen](device-management-azuread-registered-devices-windows10-setup.md)
+#### [In Azure AD gekoppelde apparaten instellen](device-management-azuread-joined-devices-setup.md)
+#### [Hybride, in Azure AD gekoppelde apparaten instellen](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [On-premises implementeren](active-directory-device-registration-on-premises-setup.md)
 #### [Koppelen aan Azure AD tijdens eerste sessie in Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Problemen oplossen
@@ -266,34 +266,21 @@
 
 ### [On-premises identiteiten integreren met Azure AD Connect](./connect/active-directory-aadconnect.md)
 
+## [Toegang tot Azure beheren](toc.yml)
+
 ## Toegang tot resources delegeren
 ### [Beheerdersrollen](active-directory-assign-admin-roles.md)
 #### [Beheerdersrollen toewijzen](active-directory-users-assign-role-azure-portal.md)
 ### [Beheereenheden](active-directory-administrative-units-management.md)
-### [Toegang tot resources in Azure](active-directory-understanding-resource-access.md)
-### [Op rollen gebaseerd toegangsbeheer](role-based-access-control-what-is.md)
-#### Toegangstoewijzingen beheren
-##### [Per gebruiker](role-based-access-control-manage-assignments.md)
-##### [Per resource](role-based-access-control-configure.md)
-#### [Ingebouwde rollen](role-based-access-built-in-roles.md)
-#### [Aangepaste rollen](role-based-access-control-custom-roles.md)
-#### [Aangepaste rollen toewijzen voor interne en externe gebruikers](role-based-access-control-create-custom-roles-for-internal-external-users.md)
-#### [Rapportage](role-based-access-control-access-change-history-report.md)
-#### Meer manieren om rollen te beheren
-##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-##### [PowerShell](role-based-access-control-manage-access-powershell.md)
-##### [REST](role-based-access-control-manage-access-rest.md)
-#### [Verhoogde bevoegdheden voor tenantbeheerders](role-based-access-control-tenant-admin-access.md)
-#### [Problemen oplossen](role-based-access-control-troubleshooting.md)
-#### [Resourceproviderbewerkingen](role-based-access-control-resource-provider-operations.md)
 ### [De levensduur van tokens configureren](active-directory-configurable-token-lifetimes.md)
 
 ## Uw identiteiten beveiligen
 ### [Voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md)
+#### [Besturingselementen](active-directory-conditional-access-controls.md)
 #### [Aan de slag](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Aanbevolen procedures](active-directory-conditional-access-best-practices.md)
 #### [Inzicht in apparaatbeleidsregels voor Office 365-services](active-directory-conditional-access-device-policies.md)
-#### [Taken]
+#### Taken
 ##### [Voorwaardelijke toegang op basis van apparaten instellen](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Voorwaardelijke toegang op basis van apps instellen](active-directory-conditional-access-mam.md)
 ##### [VPN-connectiviteit instellen](active-directory-conditional-access-vpn-connectivity-windows10.md)

@@ -103,6 +103,8 @@
           href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Een functie van PowerApps aanroepen
           href: functions-powerapps-scenario.md
+        - name: Een beheerde service-identiteit gebruiken
+          href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Naslaginformatie
   items:
     - name: Bindingen
@@ -147,6 +149,8 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Regionale beschikbaarheid
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Video's
+      href: 'https://www.youtube.com/c/AzureFunctions'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions'
     - name: Stack Overflow

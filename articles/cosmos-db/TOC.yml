@@ -358,6 +358,8 @@
   items:
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Probeer Azure Cosmos DB gratis uit
+      href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: Prijzen
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: Veelgestelde vragen

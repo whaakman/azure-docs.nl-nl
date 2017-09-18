@@ -13,35 +13,27 @@
 ## [Planning en bewerkingen](security-center-planning-and-operations-guide.md)
 ## [Machtigingen](security-center-permissions.md)
 ## [Ondersteunde platforms](security-center-os-coverage.md)
-## [Partnerintegratie](security-center-partner-integration.md)
 ## [Veelgestelde vragen](security-center-faq.md)
 
 # Procedures
 
-## Voorkomen
+## Beveiligingsbeleid
+### [Gegevensverzameling](security-center-enable-data-collection.md)
 ### [Beveiligingsbeleid instellen](security-center-policies.md)
-### [Just-in-time-toegang](security-center-just-in-time.md)
-### [Aanbevelingen voor beveiliging implementeren](security-center-recommendations.md)
 
-### [Aanbevelingen voor toepassingen](security-center-application-recommendations.md)
-#### [Een firewall voor webtoepassingen toevoegen](security-center-add-web-application-firewall.md)
-#### [Toepassingsbeveiliging voltooien](security-center-add-web-application-firewall.md#finalize-application-protection)
+## [Onboarding](security-center-onboarding.md)
+## [Gebeurtenissen](security-center-events-dashboard.md)
+## [Zoeken](security-center-search.md)
 
-### [Aanbevelingen voor netwerken](security-center-network-recommendations.md)
-#### [Een firewall van de volgende generatie toevoegen](security-center-add-next-generation-firewall.md)
-#### [Netwerkbeveiligingsgroepen inschakelen](security-center-enable-network-security-groups.md)
-#### [Toegang beperken via internetgerichte eindpunten](security-center-restrict-access-through-internet-facing-endpoints.md)
-#### [Verkeer alleen via NGFW sturen](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
+## Voorkomen
+### [Beveiligingsstatus bewaken](security-center-monitoring.md)
+### [Aanbevelingen beheren](security-center-recommendations.md)
+### [Partneroplossingen integreren](security-center-partner-integration.md)
+### [Partneroplossingen bewaken](security-center-partner-solutions.md)
 
-### [Aanbevelingen voor SQL-service](security-center-sql-service-recommendations.md)
-#### [Controle en detectie van bedreigingen op SQL-databases inschakelen](security-center-enable-auditing-on-sql-databases.md)
-#### [Controle en detectie van bedreigingen op SQL-servers inschakelen](security-center-enable-auditing-on-sql-servers.md)
-#### [Transparante gegevensversleuteling inschakelen](security-center-enable-transparent-data-encryption.md)
-
-### [Aanbevelingen voor virtuele machines](security-center-virtual-machine-recommendations.md)
+### [Compute](security-center-virtual-machine-recommendations.md)
 #### [Schijfversleuteling toepassen](security-center-apply-disk-encryption.md)
 #### [Systeemupdates toepassen](security-center-apply-system-updates.md)
-#### [Gegevensverzameling inschakelen](security-center-enable-data-collection.md)
 #### [Versleuteling inschakelen voor opslagaccount](security-center-enable-encryption-for-storage-account.md)
 #### [VM-agent inschakelen](security-center-enable-vm-agent.md)
 #### [Eindpuntbeveiliging installeren](security-center-install-endpoint-protection.md)
@@ -52,8 +44,22 @@
 #### [Besturingssysteemversie bijwerken](security-center-update-os-version.md)
 #### [Beoordeling van beveiligingslekken is niet geïnstalleerd](security-center-vulnerability-assessment-recommendations.md)
 
-### [Beveiligingsstatus bewaken](security-center-monitoring.md)
-### [Partneroplossingen bewaken](security-center-partner-solutions.md)
+### [Netwerken](security-center-network-recommendations.md)
+#### [Een firewall van de volgende generatie toevoegen](security-center-add-next-generation-firewall.md)
+#### [Netwerkbeveiligingsgroepen inschakelen](security-center-enable-network-security-groups.md)
+#### [Toegang beperken via internetgerichte eindpunten](security-center-restrict-access-through-internet-facing-endpoints.md)
+#### [Verkeer alleen via NGFW sturen](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
+
+### [Opslag en gegevens](security-center-sql-service-recommendations.md)
+#### [Controle en detectie van bedreigingen op SQL-databases inschakelen](security-center-enable-auditing-on-sql-databases.md)
+#### [Controle en detectie van bedreigingen op SQL-servers inschakelen](security-center-enable-auditing-on-sql-servers.md)
+#### [Transparante gegevensversleuteling inschakelen](security-center-enable-transparent-data-encryption.md)
+
+### [Toepassingen](security-center-application-recommendations.md)
+#### [Een firewall voor webtoepassingen toevoegen](security-center-add-web-application-firewall.md)
+#### [Toepassingsbeveiliging voltooien](security-center-add-web-application-firewall.md#finalize-application-protection)
+
+### [Identiteit en toegang](security-center-identity-access.md)
 
 ## Detecteren en reageren
 ### [Detectiecapaciteiten](security-center-detection-capabilities.md)
@@ -62,7 +68,12 @@
 ### [Waarschuwingen valideren](security-center-alert-validation.md)
 ### [Beveiligingsincidenten beheren](security-center-incident.md)
 ### [Azure-logboekintegratie](security-center-integrating-alerts-with-log-integration.md)
+### [Bedreigingsinformatiekaart](security-center-threat-intel.md)
 ### [Bedreigingsinformatierapport](security-center-threat-report.md)
+
+## Cloudbeveiliging
+### [Just-in-time-toegang](security-center-just-in-time.md)
+### [Adaptieve toepassingsbesturingselementen](security-center-adaptive-application.md)
 
 ## Problemen oplossen
 ### [Handleiding voor het oplossen van problemen](security-center-troubleshooting-guide.md)

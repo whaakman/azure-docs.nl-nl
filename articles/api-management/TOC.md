@@ -11,6 +11,8 @@
 ### [Bewerkingen toevoegen](api-management-howto-add-operations.md)
 ### [Een API maken](api-management-howto-create-apis.md)
 ### [Een API-definitie importeren](api-management-howto-import-api.md)
+### [Aan de slag met revisies](api-management-get-started-revise-api.md)
+### [Aan de slag met versies](api-management-get-started-publish-versions.md)
 ## Uw back-end beveiligen
 ### [Back-end van web-API beveiligen met AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Verbinding maken met een virtueel netwerk](api-management-using-with-vnet.md)

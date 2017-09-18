@@ -28,6 +28,7 @@
 ### [Beleid en planningen instellen](devtest-lab-set-lab-policy.md)
 ### [Kostenbeheer configureren](devtest-lab-configure-cost-management.md)
 ### [Marketplace-installatiekopieën configureren](devtest-lab-configure-marketplace-images.md)
+### [Tags toevoegen aan een lab](devtest-lab-add-tag.md)
 
 ## [Een aangepaste installatiekopie of formule selecteren](devtest-lab-comparing-vm-base-image-types.md)
 

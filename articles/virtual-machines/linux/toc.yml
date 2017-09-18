@@ -57,60 +57,35 @@
       href: powershell-samples.md
 - name: Concepten
   items:
-    - name: Door Azure goedgekeurde distributies
-      href: endorsed-distros.md
+    - name: Azure Resource Manager
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Regio’s en beschikbaarheid
       href: regions-and-availability.md
+    - name: VM-typen en -groottes
+      href: sizes.md
+    - name: Goedgekeurde distributies
+      href: endorsed-distros.md
+    - name: Onderhoud en updates
+      href: maintenance-and-updates.md
     - name: Storage
       href: azure-vm-storage-overview.md
     - name: Netwerken
-      href: azure-vm-network-overview.md
-    - name: Schaalsets van virtuele machines
-      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
-    - name: Containers
-      href: containers.md
-    - name: Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      items:
-        - name: Implementatiemodellen
-          href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Sjablonen voor virtuele machines
-          href: ../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Azure Linux Agent
-      href: agent-user-guide.md
-    - name: Azure Security Center
-      href: ../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Herstel na noodgevallen
-      href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Gepland onderhoud
-      href: planned-maintenance.md
-    - name: Formaten van virtuele machines
-      items:
-        - name: Overzicht van VM-grootten
-          href: sizes.md
-          items:
-            - name: Algemeen doel
-              href: sizes-general.md
-            - name: Geoptimaliseerde rekenkracht
-              href: sizes-compute.md
-            - name: Geoptimaliseerd geheugen
-              href: sizes-memory.md
-            - name: Geoptimaliseerde opslag
-              href: sizes-storage.md
-            - name: GPU
-              href: sizes-gpu.md
-              items:
-                - name: GPU-stuurprogramma's
-                  href: n-series-driver-setup.md
-            - name: Krachtig rekenvermogen
-              href: sizes-hpc.md
-        - name: Azure Compute Units (ACU)
-          href: acu.md
-        - name: Benchmarkscores berekenen
-          href: compute-benchmark-scores.md
+      href: network-overview.md
+    - name: Toepassingen automatisch schalen
+      href: autoscale.md
+    - name: Automatisering van infrastructuur
+      href: infrastructure-automation.md
+    - name: Beveiliging en beleid
+      href: security-policy.md
+    - name: Bewaking
+      href: monitor.md
+    - name: Back-ups maken en herstellen
+      href: backup-recovery.md
+    - name: High Performance Computing
+      href: high-performance-computing.md
     - name: Overwegingen bij de implementatie
       items:
-        - name: Voorbeeld van een eenvoudige implementatie
+        - name: Richtlijnen voor infrastructuur
           href: infrastructure-example.md
 - name: Handleidingen
   items:

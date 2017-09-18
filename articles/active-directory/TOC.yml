@@ -1,0 +1,74 @@
+- name: Toegang tot resources in Azure
+  href: active-directory-understanding-resource-access.md
+- name: Op rollen gebaseerd toegangsbeheer
+  href: role-based-access-control-what-is.md
+  items:
+    - name: Toegangstoewijzingen beheren
+      items:
+        - name: Per gebruiker
+          href: role-based-access-control-manage-assignments.md
+        - name: Per resource
+          href: role-based-access-control-configure.md
+    - name: Ingebouwde rollen
+      href: role-based-access-built-in-roles.md
+    - name: Aangepaste rollen
+      href: role-based-access-control-custom-roles.md
+    - name: Aangepaste rollen toewijzen voor interne en externe gebruikers
+      href: role-based-access-control-create-custom-roles-for-internal-external-users.md
+    - name: Rapportage
+      href: role-based-access-control-access-change-history-report.md
+    - name: Meer manieren om rollen te beheren
+      items:
+        - name: Met Azure CLI
+          href: role-based-access-control-manage-access-azure-cli.md
+        - name: Met PowerShell
+          href: role-based-access-control-manage-access-powershell.md
+        - name: Met REST
+          href: role-based-access-control-manage-access-rest.md
+    - name: Verhoogde bevoegdheden voor tenantbeheerders
+      href: role-based-access-control-tenant-admin-access.md
+    - name: Problemen oplossen
+      href: role-based-access-control-troubleshooting.md
+    - name: Resourceproviderbewerkingen
+      href: role-based-access-control-resource-provider-operations.md
+- name: Beheerde service-identiteit
+  href: msi-overview.md
+  items:
+    - name: MSI configureren voor Windows-VM
+      items:
+        - name: Met de Azure Portal
+          href: msi-qs-configure-portal-windows-vm.md
+        - name: Met PowerShell
+          href: msi-qs-configure-powershell-windows-vm.md
+        - name: Met Azure CLI
+          href: msi-qs-configure-cli-windows-vm.md
+        - name: Met Azure Resource Manager-sjabloon
+          href: msi-qs-configure-template-windows-vm.md
+    - name: MSI gebruiken voor toegang tot Azure Resource Manager
+      items:
+        - name: Met een Windows-VM
+          href: msi-tutorial-windows-vm-access-arm.md
+        - name: Met een Linux-VM
+          href: msi-tutorial-linux-vm-access-arm.md
+    - name: MSI gebruiken voor toegang tot Azure-opslag
+      items:
+        - name: Met een Windows-VM
+          href: msi-tutorial-windows-vm-access-storage.md
+        - name: Met een Linux-VM
+          href: msi-tutorial-linux-vm-access-storage.md
+    - name: MSI gebruiken voor toegang tot een AD-bron buiten Azure
+      items:
+        - name: Met een Windows-VM
+          href: msi-tutorial-windows-vm-access-nonaad.md
+        - name: Met een Linux-VM
+          href: msi-tutorial-linux-vm-access-nonaad.md
+    - name: Een MSI toegang tot een Azure-bron toewijzen
+      items:
+        - name: Met de Azure Portal
+          href: msi-howto-assign-access-portal.md
+        - name: Met PowerShell
+          href: msi-howto-assign-access-powershell.md
+        - name: Met Azure CLI
+          href: msi-howto-assign-access-cli.md
+    - name: Bekende problemen
+      href: msi-known-issues.md

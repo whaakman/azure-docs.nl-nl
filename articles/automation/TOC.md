@@ -5,6 +5,7 @@
 ## Runbook-zelfstudie
 ### [Een grafisch runbook maken](automation-first-runbook-graphical.md)
 ### [PowerShell-runbook maken](automation-first-runbook-textual-powershell.md)
+### [Mijn eerste Python-runbook](automation-first-runbook-textual-python2.md)
 ### [PowerShell Workflow-runbook maken](automation-first-runbook-textual.md)
 # Procedures
 ## Verificatie en beveiliging
@@ -37,7 +38,10 @@
 ### [Een JSON-object doorgeven aan een Azure Automation-runbook](automation-pass-json-string.md)
 ## Hybrid Runbook Worker
 ### [Hybrid Runbook Worker implementeren](automation-hybrid-runbook-worker.md)
+### [Hybrid Runbook Worker voor Azure Automation in Windows](automation-windows-hrw-install.md)
+### [Hybrid Runbook Worker voor Azure Automation in Linux](automation-linux-hrw-install.md)
 ### [Runbooks op werkrol uitvoeren](automation-hrw-run-runbooks.md)
+### [Automation Hybrid Runbook Workers verwijderen](automation-remove-hrw.md)
 ## Configuration Management (DSC) implementeren
 ### [Overzicht van Desired State Configuration (DSC)](automation-dsc-overview.md)
 ### [Aan de slag](automation-dsc-getting-started.md)

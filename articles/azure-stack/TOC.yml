@@ -1,0 +1,265 @@
+- name: Documentatie over Azure Stack
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Wat is Azure Stack?
+      href: azure-stack-poc.md
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: Azure Stack implementeren
+      href: azure-stack-deploy-overview.md
+- name: Zelfstudies
+  items:
+    - name: Virtuele machines inschakelen
+      href: azure-stack-tutorial-tenant-vm.md
+    - name: SQL-databases inschakelen
+      href: azure-stack-tutorial-sql-server.md
+    - name: Web-apps inschakelen
+      href: azure-stack-tutorial-app-service.md
+    - name: Apps implementeren in Azure en Azure Stack
+      href: azure-stack-solution-pipeline.md
+- name: Concepten
+  items:
+    - name: Releaseopmerkingen
+      href: azure-stack-asdk-release-notes.md
+    - name: Belangrijke functies en concepten
+      href: azure-stack-key-features.md
+    - name: Architectuur Azure Stack Development Kit
+      href: azure-stack-architecture.md
+    - name: Basisprincipes van beheer
+      href: azure-stack-manage-basics.md
+- name: Handleidingen
+  items:
+    - name: Implementeren
+      items:
+        - name: Vereisten
+          href: azure-stack-deploy.md
+        - name: Implementeren
+          href: azure-stack-run-powershell-script.md
+        - name: Registreren
+          href: azure-stack-register.md
+        - name: Verbinding maken met Azure Stack
+          href: azure-stack-connect-azure-stack.md
+        - name: Standaardinstallatiekopie toevoegen
+          href: azure-stack-add-default-image.md
+        - name: Een test-VM maken
+          href: azure-stack-provision-vm.md
+    - name: Beheren
+      items:
+        - name: Regiobeheer
+          href: azure-stack-region-management.md
+        - name: De portals gebruiken
+          href: azure-stack-manage-portals.md
+        - name: Verbinding maken met Azure Stack
+          href: azure-stack-connect-azure-stack.md
+        - name: CLI inschakelen voor gebruikers
+          href: azure-stack-cli-admin.md
+        - name: Beheeromgeving instellen
+          items:
+            - name: PowerShell installeren
+              href: azure-stack-powershell-install.md
+            - name: Hulpprogramma's downloaden
+              href: azure-stack-powershell-download.md
+            - name: Cloud-operator voor PowerShell configureren
+              href: azure-stack-powershell-configure-admin.md
+            - name: Aan de slag met PowerShell
+              href: azure-stack-powershell-configure-quickstart.md
+        - name: Updates beheren
+          href: azure-stack-updates.md
+        - name: Status en waarschuwingen bewaken
+          href: azure-stack-monitor-health.md
+        - name: Netwerkresources beheren
+          href: azure-stack-viewing-public-ip-address-consumption.md
+        - name: Opslagresources beheren
+          href: azure-stack-manage-storage-accounts.md
+        - name: Virtuele Windows Azure Pack-machines beheren
+          href: azure-stack-manage-windows-azure-pack.md
+    - name: Beveiliging en naleving
+      items:
+        - name: RBAC beheren
+          href: azure-stack-manage-permissions.md
+        - name: Gebruikers toevoegen voor Azure AD
+          href: azure-stack-add-new-user-aad.md
+        - name: Gebruikers toevoegen voor AD FS
+          href: azure-stack-add-users-adfs.md
+        - name: Service-principals maken
+          href: Azure-stack-create-service-principals.md
+        - name: Multitenancy inschakelen
+          href: azure-stack-enable-multitenancy.md
+    - name: Services aanbieden
+      items:
+        - name: Overzicht van het service-aanbod
+          href: azure-stack-offer-services-overview.md
+        - name: 'Plannen, aanbiedingen en quota maken'
+          items:
+            - name: 'Overzicht van plannen, aanbiedingen, quota en abonnementen'
+              href: azure-stack-plan-offer-quota-overview.md
+            - name: Een plan maken
+              href: azure-stack-create-plan.md
+            - name: Een aanbieding maken
+              href: azure-stack-create-offer.md
+            - name: Abonneren op een aanbieding
+              href: azure-stack-subscribe-plan-provision-vm.md
+            - name: Aanbiedingen in Azure Stack delegeren
+              href: azure-stack-delegated-provider.md
+            - name: Quotatypen
+              href: azure-stack-quota-types.md
+        - name: SQL- of MySQL als PaaS aanbieden
+          items:
+            - name: Overzicht van PaaS-services
+              href: azure-stack-tools-paas-services.md
+            - name: MySQL-resourceprovider implementeren
+              href: azure-stack-mysql-resource-provider-deploy.md
+            - name: SQL-resourceprovider implementeren
+              href: azure-stack-sql-resource-provider-deploy.md
+        - name: App Service als PaaS aanbieden
+          items:
+            - name: Overzicht App Service op Azure Stack
+              href: azure-stack-app-service-overview.md
+            - name: Voordat u aan de slag gaat
+              href: azure-stack-app-service-before-you-get-started.md
+            - name: App Service-resourceprovider implementeren
+              href: azure-stack-app-service-deploy.md
+            - name: App Service offline implementeren
+              href: azure-stack-app-service-deploy-offline.md
+            - name: Meer webwerkrollen toevoegen
+              href: azure-stack-app-service-add-worker-roles.md
+            - name: Implementatiebronnen configureren
+              href: azure-stack-app-service-configure-deployment-sources.md
+            - name: FTP inschakelen in App Service op Azure Stack
+              href: azure-stack-app-service-enable-ftp.md
+        - name: De Marketplace vullen
+          items:
+            - name: Overzicht van Marketplace
+              href: azure-stack-marketplace.md
+            - name: Marketplace-items downloaden
+              href: azure-stack-download-azure-marketplace-item.md
+            - name: Azure Marketplace-items voor Azure Stack
+              href: azure-stack-marketplace-azure-items.md
+            - name: Een Marketplace-item maken en publiceren
+              href: azure-stack-create-and-publish-marketplace-item.md
+            - name: Het hulpprogramma voor Marketplace-publicatie gebruiken
+              href: azure-stack-marketplace-publisher.md
+            - name: Een aangepaste VM-installatiekopie toevoegen
+              href: azure-stack-add-vm-image.md
+            - name: Schaalsets voor virtuele machines toevoegen
+              href: azure-stack-compute-add-scalesets.md
+            - name: Virtuele Linux-machines implementeren
+              href: azure-stack-linux.md
+        - name: Gebruik en facturering
+          items:
+            - name: Overzicht
+              href: azure-stack-billing-and-chargeback.md
+            - name: Rapportage over gebruiksgegevens
+              href: azure-stack-usage-reporting.md
+            - name: API voor providergebruik
+              href: azure-stack-provider-resource-api.md
+            - name: API voor tenantgebruik
+              href: azure-stack-tenant-resource-usage-api.md
+            - name: Veelgestelde vragen over gebruik
+              href: azure-stack-usage-related-faq.md
+    - name: Services gebruiken
+      items:
+        - name: Belangrijkste overwegingen
+          href: azure-stack-considerations.md
+        - name: Compute
+          items:
+            - name: Overwegingen omtrent virtuele machines
+              href: azure-stack-vm-considerations.md
+            - name: VM-PowerShell maken
+              href: azure-stack-quick-create-vm-powershell.md
+        - name: Storage
+          items:
+            - name: Overzicht
+              href: azure-stack-storage-overview.md
+            - name: Opslagoverwegingen
+              href: azure-stack-acs-differences.md
+            - name: Hulpprogramma’s voor opslagontwikkeling
+              href: azure-stack-storage-dev.md
+            - name: Hulpprogramma’s voor gegevensoverdracht
+              href: azure-stack-storage-transfer.md
+            - name: Opslagverkenner koppelen
+              href: azure-stack-storage-connect-se.md
+        - name: Netwerk
+          items:
+            - name: Aandachtspunten voor netwerken
+              href: azure-stack-network-differences.md
+            - name: iDNS voor Azure Stack
+              href: azure-stack-understanding-dns.md
+            - name: DNS in Azure Stack
+              href: azure-stack-dns.md
+            - name: Site-to-site VPN-verbindingen
+              href: azure-stack-create-vpn-connection-one-node.md
+        - name: Key Vault
+          items:
+            - name: Overzicht
+              href: azure-stack-kv-intro.md
+            - name: Beheren met portal
+              href: azure-stack-kv-manage-portal.md
+            - name: Beheren met PowerShell
+              href: azure-stack-kv-manage-powershell.md
+            - name: Een virtuele machine maken met een geheim
+              href: azure-stack-kv-deploy-vm-with-secret.md
+            - name: Een virtuele machine maken met een certificaat
+              href: azure-stack-kv-push-secret-into-vm.md
+            - name: Voorbeeld-app van Key Vault
+              href: azure-stack-kv-sample-app.md
+    - name: Apps bouwen
+      items:
+        - name: Ontwikkelen voor Azure Stack
+          href: azure-stack-developer.md
+        - name: De ontwikkelomgeving instellen
+          items:
+            - name: PowerShell installeren
+              href: azure-stack-powershell-install.md
+            - name: Hulpprogramma's downloaden
+              href: azure-stack-powershell-download.md
+            - name: PowerShell instellen voor gebruiker
+              href: azure-stack-powershell-configure-user.md
+            - name: Aan de slag met PowerShell
+              href: azure-stack-powershell-configure-quickstart.md
+            - name: CLI installeren en configureren
+              href: azure-stack-connect-cli.md
+            - name: Visual Studio installeren
+              href: azure-stack-install-visual-studio.md
+            - name: API-versieprofielen beheren
+              href: azure-stack-version-profiles.md
+        - name: Beleidsmodule gebruiken
+          href: azure-stack-policy-module.md
+        - name: Sjablonen gebruiken
+          items:
+            - name: Overzicht van sjablonen
+              href: azure-stack-arm-templates.md
+            - name: Sjablonen ontwikkelen
+              href: azure-stack-develop-templates.md
+            - name: Sjablonen controleren
+              href: azure-stack-validate-templates.md
+            - name: Implementeren met portal
+              href: azure-stack-deploy-template-portal.md
+            - name: Implementeren met PowerShell
+              href: azure-stack-deploy-template-powershell.md
+            - name: Implementeren met Visual Studio
+              href: azure-stack-deploy-template-visual-studio.md
+    - name: Problemen oplossen
+      items:
+        - name: Bekende problemen
+          href: azure-stack-troubleshooting.md
+        - name: Diagnostische gegevens in Azure Stack
+          href: azure-stack-diagnostics.md
+        - name: Azure Stack Development Kit opnieuw implementeren
+          href: azure-stack-redeploy.md
+- name: Naslaginformatie
+  items:
+    - name: PowerShell
+      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack'
+    - name: Prijsinformatie
+      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-stack'
