@@ -44,6 +44,14 @@
           href: msi-qs-configure-cli-windows-vm.md
         - name: Met Azure Resource Manager-sjabloon
           href: msi-qs-configure-template-windows-vm.md
+    - name: Een MSI toegang tot een Azure-bron toewijzen
+      items:
+        - name: Met de Azure Portal
+          href: msi-howto-assign-access-portal.md
+        - name: Met PowerShell
+          href: msi-howto-assign-access-powershell.md
+        - name: Met Azure CLI
+          href: msi-howto-assign-access-cli.md
     - name: MSI gebruiken voor toegang tot Azure Resource Manager
       items:
         - name: Met een Windows-VM
@@ -62,13 +70,5 @@
           href: msi-tutorial-windows-vm-access-nonaad.md
         - name: Met een Linux-VM
           href: msi-tutorial-linux-vm-access-nonaad.md
-    - name: Een MSI toegang tot een Azure-bron toewijzen
-      items:
-        - name: Met de Azure Portal
-          href: msi-howto-assign-access-portal.md
-        - name: Met PowerShell
-          href: msi-howto-assign-access-powershell.md
-        - name: Met Azure CLI
-          href: msi-howto-assign-access-cli.md
     - name: Bekende problemen
       href: msi-known-issues.md

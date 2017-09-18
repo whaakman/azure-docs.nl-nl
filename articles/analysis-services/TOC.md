@@ -16,6 +16,7 @@
 ## [Een server beheren](analysis-services-manage.md)
 ## [Databasegebruikers beheren](analysis-services-database-users.md)
 ## [Serverbeheerders beheren](analysis-services-server-admins.md)
+## [Metrische servergegevens bewaken](analysis-services-monitor.md)
 ## [Een on-premises gegevensgateway installeren en configureren](analysis-services-gateway-install.md)
 ## [Clientbibliotheken ophalen](analysis-services-data-providers.md)
 ## [Back-up en herstel](analysis-services-backup.md)
