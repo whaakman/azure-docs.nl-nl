@@ -1,5 +1,5 @@
 ---
-title: Aan de slag met Azure Service Fabric-CLI (sfctl)
+title: Aan de slag met Azure Service Fabric-CLI
 description: Lees hier alles over het gebruik van de CLI van Azure Service Fabric. Informatie over verbinding maken met een cluster en het beheren van toepassingen.
 services: service-fabric
 author: samedder
@@ -9,44 +9,46 @@ ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 2faca2887f25b45d833dea7b2259277466290670
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 851f04c8b5eee762ec43060f02c8b83f00c1782e
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="azure-service-fabric-command-line"></a>Azure Service Fabric-opdrachtregel
+# <a name="azure-service-fabric-cli"></a>Azure Service Fabric-CLI
 
-De CLI van Azure Service Fabric (sfctl) is een opdrachtregelprogramma voor interactie met en het beheer van Azure Service Fabric-entiteiten. Sfctl kan worden gebruikt met Windows- of Linux-clusters. Sfctl kan worden uitgevoerd op elk platform dat ondersteuning biedt voor python.
+De opdrachtregelinterface (CLI) van Azure Service Fabric is een opdrachtregelprogramma voor interactie met en het beheren van Service Fabric-entiteiten. De Service Fabric-CLI kan worden gebruikt met Windows- of Linux-clusters. De Service Fabric-CLI kan worden uitgevoerd op elk platform dat ondersteuning biedt voor Python.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voorafgaand aan installatie controleert u of zowel python als pip is geïnstalleerd in uw omgeving. Raadpleeg voor meer informatie de [Quick Start-documentatie voor pip](https://pip.pypa.io/en/latest/quickstart/) en de officiële [installatiedocumentatie voor python](https://wiki.python.org/moin/BeginnersGuide/Download).
+Voorafgaand aan de installatie controleert u of zowel Python als pip is geïnstalleerd in uw omgeving. Zie de [Quick Start-documentatie voor pip](https://pip.pypa.io/en/latest/quickstart/) en de officiële [installatiedocumentatie voor python](https://wiki.python.org/moin/BeginnersGuide/Download) voor meer informatie.
 
-Hoewel python 2.7 en 3.6 allebei worden ondersteund, is het raadzaam om python 3.6 te gebruiken. De volgende sectie gaat over het installeren van alle vereiste onderdelen en de CLI.
+Hoewel zowel Python 2.7 als 3.6 wordt ondersteund, raden we u aan Python 3.6 te gebruiken. In de volgende secties laten we u zien hoe u alle vereisten en de CLI kunt installeren.
 
-## <a name="install-pip-python-and-sfctl"></a>Pip, python en sfctl installeren
+## <a name="install-pip-python-and-the-service-fabric-cli"></a>pip, Python en de Service Fabric-CLI installeren
 
-Hoewel er veel manieren zijn om zowel pip als python te installeren op uw platform, zijn dit enkele stappen om snel aan de slag te gaan met python 3.6 en pip voor belangrijke besturingssystemen:
+ Er zijn diverse manieren waarop u pip en Python op uw platform kunt installeren. Hier volgen enkele stappen waarmee u Python 3.6 en pip snel op de bekendste besturingssystemen kunt installeren.
 
 ### <a name="windows"></a>Windows
 
-Voor Windows 10, Server 2016 en Server 2012R2 kunt u de officiële standaardinstructies voor de installatie gebruiken. Tijdens de installatie van python wordt pip ook standaard geïnstalleerd.
+Voor Windows 10, Windows Server 2016 en Windows Server 2012 R2 gebruikt u de officiële standaardinstallatie-instructies. Tijdens de installatie van python wordt pip ook standaard geïnstalleerd.
 
-- Navigeer naar de officiële [python-pagina met downloads](https://www.python.org/downloads/) en download de nieuwste release van python 3.6
-- Start het installatieprogramma
-- Selecteer de optie `Add Python 3.6 to PATH` onderaan de prompt
-- Selecteer `Install Now`
-- Voltooi de installatie
+1. Ga naar de officiële [python-pagina met downloads](https://www.python.org/downloads/) en download de nieuwste release van Python 3.6.
 
-U moet nu een nieuw opdrachtvenster kunnen openen en de versie van python en pip kunnen opvragen:
+2. Start het installatieprogramma.
+
+3. Onderaan de prompt selecteert u **Add Python 3.6 to PATH**.
+
+4. Selecteer **Install Now** en voltooi de installatie.
+
+U kunt nu een nieuw opdrachtvenster openen en de versie van Python en pip opvragen.
 
 ```bat
 python --version
 pip --version
 ```
 
-Voer vervolgens deze opdracht uit om de Service Fabric-CLI te installeren:
+Voer vervolgens de volgende opdracht uit om de Service Fabric-CLI te installeren:
 
 ```
 pip install sfctl
@@ -55,7 +57,7 @@ sfctl -h
 
 ### <a name="ubuntu"></a>Ubuntu
 
-Voor Ubuntu 16.04 Desktop kunt u python 3.6 installeren met behulp van een PPA van een andere leverancier:
+Voor Ubuntu 16.04 Desktop kunt u Python 3.6 installeren door gebruik te maken van een PPA (personal package archive) van derden.
 
 Voer in een terminalvenster de volgende opdrachten uit:
 
@@ -66,14 +68,14 @@ sudo apt-get install python3.6
 sudo apt-get install python3-pip
 ```
 
-Voer de volgende opdracht uit als u sfctl alleen wilt installeren voor de installatie van python 3.6:
+Voer de volgende opdracht uit als u de Service Fabric-CLI alleen wilt installeren voor de installatie van Python 3.6:
 
 ```bash
 python3.6 -m pip install sfctl
 sfctl -h
 ```
 
-Deze stappen hebben geen invloed op de door het systeem geïnstalleerde versies python 3.5 en 2.7. Laat deze installaties ongewijzigd, tenzij u bekend bent met Ubuntu.
+Deze stappen hebben geen invloed op de door het systeem geïnstalleerde versies Python 3.5 en 2.7. Laat deze installaties ongewijzigd, tenzij u bekend bent met Ubuntu.
 
 ### <a name="macos"></a>MacOS
 
@@ -83,7 +85,7 @@ Voor Mac OS is het raadzaam om [het pakketbeheerprogramma HomeBrew](https://brew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Installeer vervolgens vanuit de terminal python 3.6, pip en sfctl
+Installeer Python 3.6, pip en de Service Fabric-CLI via het terminalvenster door de volgende opdrachten uit te voeren:
 
 ```bash
 brew install python3
@@ -91,13 +93,13 @@ pip3 install sfctl
 sfctl -h
 ```
 
-Met deze stappen wordt de installatie door het systeem van python 2.7 niet gewijzigd.
+Met deze stappen wordt de installatie door het systeem van Python 2.7 niet gewijzigd.
 
 ## <a name="cli-syntax"></a>De syntaxis van de CLI
 
 Opdrachten worden altijd voorafgegaan door `sfctl`. Voor algemene informatie over alle opdrachten die u kunt gebruiken, gebruikt u `sfctl -h`. Gebruik `sfctl <command> -h` voor hulp bij één opdracht.
 
-Opdrachten volgen een herhaalbare structuur, met het doel van de opdracht vóór de bewerking of actie:
+Opdrachten volgen een herhaalbare structuur, met het doel van de opdracht vóór de bewerking of actie.
 
 ```azurecli
 sfctl <object> <action>
@@ -107,7 +109,7 @@ In dit voorbeeld is `<object>` het doel voor `<action>`.
 
 ## <a name="select-a-cluster"></a>Een cluster selecteren
 
-U kunt pas bewerkingen uitvoeren nadat u een cluster hebt geselecteerd waarmee u verbinding wilt maken. Voer bijvoorbeeld de volgende opdracht uit om het cluster met de naam `testcluster.com` te selecteren en er verbinding mee te maken.
+U kunt pas bewerkingen uitvoeren nadat u een cluster hebt geselecteerd waarmee u verbinding wilt maken. Als u bijvoorbeeld het cluster met de naam `testcluster.com` wilt selecteren en er verbinding mee wilt maken, voert u de volgende opdracht uit:
 
 > [!WARNING]
 > Gebruik geen niet-beveiligde Service Fabric-clusters in een productieomgeving.
@@ -128,7 +130,7 @@ Zie [Verbinding maken met een beveiligd Azure Service Fabric-cluster](service-fa
 
 ## <a name="basic-operations"></a>Basisbewerkingen
 
-De gegevens van een clusterverbinding blijven behouden tussen meerdere sfctl-sessies. Nadat u een Service Fabric-cluster hebt geselecteerd, kunt u elke Service Fabric-opdracht in het cluster uitvoeren.
+De gegevens van een clusterverbinding blijven behouden tussen meerdere Service Fabric-CLI-sessies. Nadat u een Service Fabric-cluster hebt geselecteerd, kunt u elke Service Fabric-opdracht in het cluster uitvoeren.
 
 Als u bijvoorbeeld de status van het Service Fabric-cluster wilt weten, voert u de volgende opdracht uit:
 
@@ -163,7 +165,7 @@ De opdracht resulteert in de volgende uitvoer:
 
 ## <a name="tips-and-troubleshooting"></a>Tips en probleemoplossing
 
-Enkele suggesties en tips voor het oplossen van veelvoorkomende problemen.
+Hier volgen enkele suggesties en tips voor het oplossen van veelvoorkomende problemen.
 
 ### <a name="convert-a-certificate-from-pfx-to-pem-format"></a>Een certificaat converteren van PFX- naar PEM-indeling
 
@@ -175,7 +177,7 @@ openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 
 Voor meer informatie raadpleegt u de [OpenSSL-documentatie](https://www.openssl.org/docs/).
 
-### <a name="connection-issues"></a>Verbindingsproblemen
+### <a name="connection-problems"></a>Verbindingsproblemen
 
 Bepaalde bewerkingen genereren mogelijk het volgende bericht:
 
@@ -185,17 +187,17 @@ Controleer of het opgegeven clustereindpunt beschikbaar is en luistert. Controle
 
 ### <a name="detailed-logs"></a>Gedetailleerde logboeken
 
-Gedetailleerde logboeken zijn vaak nuttig zijn wanneer u fouten opspoort of een probleem meldt. Via een algemene `--debug`-vlag kan het detailniveau van logboeken worden verhoogd.
+Gedetailleerde logboeken zijn vaak nuttig zijn wanneer u fouten opspoort of een probleem meldt. Door middel van een algemene `--debug`-vlag wordt het detailniveau van logboekbestanden verhoogd.
 
 ### <a name="command-help-and-syntax"></a>Syntaxis van Help-opdracht
 
-Als u hulp nodig hebt met een specifieke opdracht of een groep opdrachten, gebruikt u de `-h`-vlag:
+Als u hulp nodig hebt met een specifieke opdracht of een groep opdrachten, gebruikt u de `-h`-vlag.
 
 ```azurecli
 sfctl application -h
 ```
 
-Nog een voorbeeld:
+Hier volgt nog een voorbeeld:
 
 ```azurecli
 sfctl application create -h

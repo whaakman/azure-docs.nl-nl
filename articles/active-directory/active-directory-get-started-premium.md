@@ -1,6 +1,6 @@
 ---
-title: Registreren voor Azure Active Directory Premium
-description: Hier wordt beschreven hoe u zich kunt registreren voor de Azure Active Directory Premium-editie.
+title: Registreren voor Azure Active Directory Premium | Microsoft Docs
+description: Hier wordt beschreven hoe u zich kunt registreren voor de Azure Active Directory Premium-editie
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
+ms.date: 09/07/2017
 ms.author: curtand
+ms.reviewer: piotrci
 ms.custom: it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: fe9f4fa6f776a0c2edb572d0526c7520d1c1c7a0
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 4b86ececefd3724b9e7791d2609b146de052f605
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>Snelstartgids: Registreren voor Azure Active Directory Premium
-U moet licenties kopen en deze koppelen aan uw Azure-abonnement om aan de slag te gaan met Azure AD (Azure Active Directory) Premium. Als u een nieuw Azure-abonnement maakt, moet u ook uw licentieabonnement en toegang tot de Azure AD-service activeren zoals beschreven in de volgende secties. 
+U kunt licenties kopen en deze koppelen aan uw Azure-abonnement om aan de slag te gaan met Azure AD (Azure Active Directory) Premium. Als u een nieuw Azure-abonnement maakt, moet u ook uw licentieabonnement en toegang tot de Azure AD-service activeren zoals beschreven in de volgende secties. 
 
 ## <a name="sign-up-for-active-directory-premium"></a>Registreren voor Active Directory Premium
 U kunt zich op verschillende manieren registreren voor Active Directory Premium: 
+* Met uw Azure- of Office 365-abonnement
+* Met een Enterprise Mobility + Security-licentieabonnement
+* Met een Microsoft Volume-licentieabonnement
 
 ### <a name="azure-or-office-365"></a>Azure of Office 365 
 Als abonnee van Azure of Office 365 kunt u Azure Active Directory Premium online kopen. 
@@ -48,10 +52,8 @@ Ga naar de pagina [How to purchase through Volume Licensing](https://www.microso
 
 > [!NOTE]
 > De Azure Active Directory-edities Premium en Basic zijn beschikbaar voor klanten in China via het wereldwijde exemplaar van Azure Active Directory. De edities Azure Active Directory Premium en Basic worden momenteel niet ondersteund in de Microsoft Azure-service die wordt beheerd door 21Vianet in China. Neem contact met ons op via het [Azure Active Directory-forum](https://feedback.azure.com/forums/169401-azure-active-directory/) voor meer informatie.
-> 
-> 
 
-Als u eerder Azure AD-licenties hebt aangeschaft en geactiveerd voor hetzelfde Azure-abonnement dat u in de voorgaande stappen hebt gebruikt, worden de licenties automatisch geactiveerd in dezelfde map. U hoeft in dit geval niet verder te gaan met de stappen in de rest van dit artikel.
+Als u eerder Azure AD-licenties hebt aangeschaft en geactiveerd voor hetzelfde Azure-abonnement dat u in de voorgaande stappen hebt gebruikt, worden de licenties automatisch geactiveerd in dezelfde map. Zo niet gaat u verder met de stappen die worden beschreven in de rest van dit artikel.
 
 ## <a name="activate-your-license-plan"></a>Uw licentieabonnement activeren
 Is dit het eerste Azure AD-licentieabonnement dat u hebt aangeschaft bij Microsoft? Als dit het geval is, wordt er een bevestigingsbericht gegenereerd en naar u verzonden zodra de aankoop is voltooid. U hebt dit e-mailbericht nodig om uw eerste licentieabonnement te activeren.
@@ -62,7 +64,7 @@ Is dit het eerste Azure AD-licentieabonnement dat u hebt aangeschaft bij Microso
    
     ![Aanmelden][1]
 
-    - Als u een bestaande tenant hebt, klikt u op **Aanmelden** om u aan te melden met uw bestaande beheerdersaccount. Meld u aan met de hoofdbeheerdersreferenties vanuit de directory waarin de licenties moeten worden geactiveerd.
+    - Als u een bestaande tenant hebt, klikt u op **Aanmelden** om u aan te melden met uw bestaande beheerdersaccount. Meld u aan met de hoofdbeheerdersreferenties voor de tenant waarin de licenties moeten worden geactiveerd.
 
     - Als u een nieuwe Azure AD-tenant wilt maken voor gebruik met uw licentieabonnement, klikt u op **Registreren** om het dialoogvenster **Accountprofiel maken** te openen.
 

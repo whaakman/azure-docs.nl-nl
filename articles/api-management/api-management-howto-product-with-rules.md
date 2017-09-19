@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 5553bcb8f9fd38630f694151dc644a684266387c
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: 300b1d762a61c810dbffde5aaacd8a85f12c9fca
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Uw API beveiligen met frequentielimieten met behulp van Azure API Management
@@ -148,7 +148,7 @@ Als u het beleid **Gebruiksquotum per abonnement instellen** wilt configureren, 
 </quota>
 ```
 
-Net als het beleid **Gebruiksquotum per abonnement instellen** kunt u met het beleid **Gebruiksquotum per abonnement instellen** limieten instellen voor de API's en bewerkingen van het product. In deze zelfstudie maken we geen gebruik van die mogelijkheid, dus verwijder de elementen **api** en **operation** uit het element **quota**, zoals in het volgende voorbeeld wordt getoond.
+Net als het beleid **Aanroepfrequentie per abonnement beperken** kunt u met het beleid **Gebruiksquotum per abonnement instellen** limieten instellen voor de API's en bewerkingen van het product. In deze zelfstudie maken we geen gebruik van die mogelijkheid, dus verwijder de elementen **api** en **operation** uit het element **quota**, zoals in het volgende voorbeeld wordt getoond.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">

@@ -13,12 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/31/2016
+ms.date: 09/13/2017
 ms.author: dendeli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
-
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 8db82ae9f37a89b6b7049208133949a7f49e9d92
+ms.contentlocale: nl-nl
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Pushmeldingen met geofencing verzenden met Azure Notification Hubs en ruimtelijke Bing-gegevens
@@ -27,12 +28,12 @@ ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
 > 
 > 
 
-In deze zelfstudie leert u hoe u locatiegebaseerde pushmeldingen kunt verzenden met Azure Notification Hubs en ruimtelijke Bing-gegevens. Deze gegevens worden uit een toepassing in het universele Windows-platform gehaald.
+In deze zelfstudie leert u hoe u locatiegebaseerde pushmeldingen kunt verzenden met Azure Notification Hubs en ruimtelijke Bing-gegevens. Deze gegevens worden uit een toepassing in het Universeel Windows-platform gehaald.
 
 ## <a name="prerequisites"></a>Vereisten
 Ten eerste moet u ervoor zorgen dat u beschikt over alle vereiste software en services:
 
-* [Visual Studio 2015 Update 1](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) of hoger ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409) kan ook worden gebruikt). 
+* [Visual Studio 2015 Update 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) of hoger ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409) kan ook worden gebruikt). 
 * Meest recente versie van de [Azure SDK](https://azure.microsoft.com/downloads/). 
 * [Bing Maps Dev Center-account](https://www.bingmapsportal.com/) (u kunt gratis een account maken en dit koppelen aan uw Microsoft-account). 
 
@@ -54,11 +55,11 @@ U moet de volgende parameters opgeven om hiermee aan de slag te gaan:
 U gaat nu dieper in op de instellingen voor de bovenstaande elementen.
 
 ## <a name="setting-up-the-data-source"></a>De gegevensbron instellen
-U kunt dit doen in het Bing Kaarten Dev Center. Klik op **Gegevensbronnen** in de bovenste navigatiebalk en selecteer **Gegevensbronnen beheren**.
+U kunt de gegevensbron instellen in het Bing Kaarten-ontwikkelaarscentrum. In de bovenste navigatiebalk kiest u **Gegevensbronnen** > **Gegevensbronnen beheren**.
 
 ![](./media/notification-hubs-geofence/bing-maps-manage-data.png)
 
-Als u nog niet eerder met de Bing Kaarten-API hebt gewerkt, zijn er waarschijnlijk geen gegevensbronnen. U kunt een nieuwe gegevensbron maken door op Gegevens uploaden naar een gegevensbron te klikken. Vul alle vereiste velden in:
+Als u nog niet eerder met de Bing Kaarten-API hebt gewerkt, zijn er waarschijnlijk geen gegevensbronnen. U kunt een nieuwe gegevensbron maken door **Gegevensbronnen** > **Gegevens uploaden** te selecteren. Vul alle vereiste velden in:
 
 ![](./media/notification-hubs-geofence/bing-maps-create-data.png)
 
@@ -72,7 +73,7 @@ Het bovenstaande staat voor deze entiteit:
 
 ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 
-Kopieer de bovenstaande tekenreeks en plak deze in een nieuw bestand. Sla het bestand op als **NotificationHubsGeofence.pipe** en upload het naar het Bing Dev Center.
+Kopieer de bovenstaande tekenreeks en plak deze in een nieuw bestand. Sla het bestand op als **NotificationHubsGeofence.pipe** en upload het naar het Bing-ontwikkelaarscentrum.
 
 > [!NOTE]
 > Mogelijk wordt u gevraagd om een nieuwe sleutel op te geven als **hoofdsleutel**; deze verschilt van de **querysleutel**. Maak een nieuwe sleutel via het dashboard en vernieuw de pagina voor het uploaden van gegevensbronnen.
@@ -81,17 +82,17 @@ Kopieer de bovenstaande tekenreeks en plak deze in een nieuw bestand. Sla het be
 
 Wanneer u het gegevensbestand hebt geüpload, moet u de gegevensbron publiceren. 
 
-Ga naar **Gegevensbronnen beheren**, zoals al eerder is gedaan, zoek de gegevensbron in de lijst en klik op **Publiceren** in de kolom **Acties**. Na enige tijd ziet u de gegevensbron op het tabblad **Gepubliceerde gegevensbronnen**:
+Ga naar **Gegevensbronnen beheren**, zoals al eerder is gedaan, zoek de gegevensbron in de lijst en selecteer **Publiceren** in de kolom **Acties**. Na enige tijd ziet u de gegevensbron op het tabblad **Gepubliceerde gegevensbronnen**:
 
 ![](./media/notification-hubs-geofence/bing-maps-published-data.png)
 
-Als u op **Bewerken** klikt, kunt u in één oogopslag zien welke locaties er zijn geïntroduceerd:
+Als u op **Bewerken** klikt, kunt u in één oogopslag zien welke locaties u er hebt geïntroduceerd:
 
 ![](./media/notification-hubs-geofence/bing-maps-data-details.png)
 
-Op dit moment worden in de portal de grenzen van de geofence die is gemaakt, niet weergegeven. U hoeft alleen nog te bevestigen dat de opgegeven locatie zich in de juiste omgeving bevindt.
+Op dit moment worden in de portal de grenzen van de geofence die u hebt gemaakt, niet weergegeven. U hoeft alleen nog te bevestigen dat de opgegeven locatie zich in de juiste omgeving bevindt.
 
-U hebt nu voldaan aan alle vereisten voor de gegevensbron. Klik voor meer informatie over de aanvraag-URL voor de API-aanroep in het Bing Maps Dev Center op **Gegevensbronnen** en selecteer **Gegevensbroninformatie**.
+U hebt nu voldaan aan alle vereisten voor de gegevensbron. Voor meer informatie over de aanvraag-URL voor de API-aanroep kiest u in het Bing Kaarten-ontwikkelaarscentrum de optie **Gegevensbronnen** en selecteert u **Gegevensbroninformatie**.
 
 ![](./media/notification-hubs-geofence/bing-maps-data-info.png)
 
@@ -99,7 +100,7 @@ U zoekt de **Query-URL**. Dit is het eindpunt waarop u query’s kunt uitvoeren 
 
     ?spatialFilter=intersects(%27POINT%20LONGITUDE%20LATITUDE)%27)&$format=json&key=QUERY_KEY
 
-Op die manier geeft u een doelpunt op dat van het apparaat moet worden opgehaald. Bing Kaarten voert automatisch de berekeningen uit om te controleren of het apparaat zich binnen de geofence bevindt. Wanneer u de aanvraag hebt uitgevoerd via een browser (of cURL), ontvangt u standaard een JSON-antwoord:
+Op die manier geeft u een doelpunt op dat van het apparaat moet worden opgehaald. Bing Kaarten voert automatisch de berekeningen uit om te controleren of het apparaat zich binnen de geofence bevindt. Wanneer u de aanvraag hebt uitgevoerd via een browser (of cURL), ontvangt u een standaard JSON-antwoord:
 
 ![](./media/notification-hubs-geofence/bing-maps-json.png)
 
@@ -110,11 +111,11 @@ Dit antwoord ontvangt u alleen als het punt zich binnen de opgegeven grenzen bev
 ## <a name="setting-up-the-uwp-application"></a>De UWP-toepassing instellen
 Nu de gegevensbron gereed is, gaat u aan de slag met de UWP-toepassing die al eerder is geopend.
 
-U moet ten eerste de locatieservices inschakelen voor de toepassing. Dubbelklik hiervoor op het bestand `Package.appxmanifest` in **Solution Explorer**.
+U moet ten eerste de locatieservices inschakelen voor de toepassing. Open hiertoe het `Package.appxmanifest`-bestand in **Solution Explorer**.
 
 ![](./media/notification-hubs-geofence/vs-package-manifest.png)
 
-Klik op het tabblad pakketeigenschappen dat zojuist is geopend, op **Mogelijkheden** en selecteer **Locatie**:
+Kies op het zojuist geopende tabblad met pakketeigenschappen de optie **Mogelijkheden** en selecteer **Locatie**:
 
 ![](./media/notification-hubs-geofence/vs-package-location.png)
 
@@ -215,7 +216,7 @@ Het project is al zodanig geconfigureerd dat er pushmeldingen worden verzonden n
 
 Als u de verbindingsreeks wilt configureren, opent u `Notifications.cs` in de map `Models`. De `NotificationHubClient.CreateClientFromConnectionString`-functie bevat de informatie over de Notification Hub die u ook kunt inzien via de [Azure-portal](https://portal.azure.com) (bekijk de blade **Toegangsbeleid** in **Instellingen**). Sla het bijgewerkte configuratiebestand op.
 
-Er moet nu een model worden gemaakt voor het Bing Kaarten-API-resultaat. Dat kunt u het eenvoudigst doen door met de rechtermuisknop op de map `Models` te klikken. Klik vervolgens op **Toevoegen** > **Klasse**. Noem deze `GeofenceBoundary.cs`. Wanneer u dit hebt gedaan, kopieert u de JSON uit de API-reactie die is besproken in het eerste gedeelte. Ga in Visual Studio naar **Bewerken** > **Plakken speciaal** > **JSON plakken als klassen**. 
+Er moet nu een model worden gemaakt voor het Bing Kaarten-API-resultaat. Dat kunt u het eenvoudigst doen door de map `Models` te openen en op **Toevoegen** > **Klasse** te klikken. Noem deze `GeofenceBoundary.cs`. Wanneer u dit hebt gedaan, kopieert u de JSON uit de API-reactie die is besproken in het eerste gedeelte. Ga in Visual Studio naar **Bewerken** > **Plakken speciaal** > **JSON plakken als klassen**. 
 
 Zo zorgt u ervoor dat het object naar behoren wordt gedeserialiseerd. De resulterende klasseset ziet er als volgt uit:
 
@@ -337,23 +338,23 @@ Ga terug naar de UWP-app. Hier kunt u nu meldingen testen. Maak in de klasse `Lo
 > 
 > 
 
-Zorg ervoor dat de UWP-app wordt geregistreerd voor pushmeldingen. Klik in Visual Studio op **Project** > **Store** > **App aan de Store koppelen**.
+Zorg ervoor dat de UWP-app wordt geregistreerd voor pushmeldingen. In Visual Studio kiest u **Project** > **Store** > **Associate app with the store**.
 
 ![](./media/notification-hubs-geofence/vs-associate-with-store.png)
 
 Wanneer u zich hebt aangemeld bij uw ontwikkelaarsaccount, selecteert u een bestaande app of maakt u een nieuwe app. Koppel het pakket daaraan. 
 
-Ga naar het Dev Center en open de app die u zojuist hebt gemaakt. Klik op **Services** > **Pushmeldingen** > **Live Services site**.
+Ga naar het Dev Center en open de app die u zojuist hebt gemaakt. Kies **Services** > **Push Notifications** > **Live Services site**.
 
 ![](./media/notification-hubs-geofence/ms-live-services.png)
 
-Op de site bekijkt u het **toepassingsgeheim** en de **pakket-SID**. U hebt deze allebei nodig in de Azure-portal. Open de Notification Hub, klik op **Instellingen** > **Notification Services** > **Windows (WNS)** en voer de gegevens in de vereiste velden in.
+Op de site bekijkt u het **toepassingsgeheim** en de **pakket-SID**. U hebt deze allebei nodig in Azure Portal. Open de Notification Hub, kies **Instellingen** > **Notification Services** > **Windows (WNS)** en voer de gegevens in de vereiste velden in.
 
 ![](./media/notification-hubs-geofence/notification-hubs-wns.png)
 
-Klik op **Opslaan**.
+Kies **Opslaan**.
 
-Klik met de rechtermuisknop op **Verwijzingen** in **Solution Explorer** en kies **NuGet-pakketten beheren**. U moet een verwijzing toevoegen aan de **beheerde Microsoft Azure Service Bus-bibliotheek**. Zoek naar `WindowsAzure.Messaging.Managed` en voeg dit toe aan uw project.
+Open **Verwijzingen** in **Solution Explorer** en selecteer **NuGet-pakketten beheren**. U moet een verwijzing toevoegen aan de **beheerde Microsoft Azure Service Bus-bibliotheek**. Zoek naar `WindowsAzure.Messaging.Managed` en voeg dit toe aan uw project.
 
 ![](./media/notification-hubs-geofence/vs-nuget.png)
 
@@ -390,10 +391,5 @@ Ten tweede is het raadzaam de geofences met [tags](notification-hubs-tags-segmen
 In de bovenstaande oplossing wordt een scenario beschreven waarin u mogelijk veel verschillende doelplatforms hebt; daarom hebben we geofencing niet beperkt tot systeemspecifieke mogelijkheden. Los daarvan is het wel zo dat het universele Windows-platform [direct na aanschaf](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence) mogelijkheden biedt voor het detecteren van geofences.
 
 Zie onze [documentatieportal](https://azure.microsoft.com/documentation/services/notification-hubs/) voor meer informatie over Notification Hubs-mogelijkheden.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

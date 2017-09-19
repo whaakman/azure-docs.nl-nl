@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/28/2017
+ms.date: 09/07/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: b8955acc83b0fbb0612e7042d62170ae8078b9ad
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6da4f2527e480b621f4d3a2d74ed3107c970d1b9
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>Inleiding tot Spark in HDInsight
@@ -30,8 +30,17 @@ Dit artikel biedt een inleiding tot Spark in HDInsight. <a href="http://spark.ap
 
 Wanneer u Spark-cluster in HDInsight maakt, maakt u Azure-rekenresources met Spark geïnstalleerd en geconfigureerd. Het maken van een Spark-cluster in HDInsight duurt niet meer dan ongeveer tien minuten. De gegevens die moeten worden verwerkt, zijn opgeslagen in Azure Storage of Azure Data Lake Store. Zie [Azure Storage gebruiken met HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-Zie [QuickStart: create a Spark cluster on HDInsight and run interactive query using Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md) (Snelstartgids: een Spark-cluster in HDInsight maken en een interactieve query uitvoeren met Jupyter)**om een Spark-cluster te maken in HDInsight**.
+![Spark: een geünificeerd framework](./media/hdinsight-apache-spark-overview/hdinsight-spark-overview.png)
 
+## <a name="spark-vs-traditional-mapreduce"></a>Spark vergeleken met traditionele MapReduce
+
+Wat maakt Spark snel? Hoe verschilt de architectuur van Apache Spark van traditionele MapReduce, waardoor het betere prestaties voor het delen van gegevens kan bieden?
+
+![Traditionele MapReduce vergeleken met Spark](./media/hdinsight-apache-spark-overview/mapreduce-vs-spark.png)
+
+Spark biedt primitieve typen voor in-memory clustercomputing. Een Spark-taak kan gegevens laden en in het geheugen cachen en er herhaaldelijk query’s op uitvoeren, veel sneller dan systemen op basis van schijven. Spark kan ook worden geïntegreerd met de programmeertaal Scala waarmee u gedistribueerde gegevenssets zoals lokale verzamelingen kunt bewerken. Het is niet nodig om alles te structureren als toewijzings- en verminderingsbewerkingen.
+
+In Spark worden gegevens tussen bewerkingen sneller gedeeld omdat gegevens zich in het geheugen bevinden. Hadoop deelt daarentegen gegevens via HDFS, wat langer duurt om te verwerken.
 
 ## <a name="what-is-apache-spark-on-azure-hdinsight"></a>Wat is Apache Spark in Azure HDInsight?
 Spark-clusters in HDInsight bieden een volledig beheerde Spark-service. Hier worden de voordelen vermeld van het maken van een Spark-cluster in HDInsight.
@@ -52,8 +61,22 @@ Spark-clusters in HDInsight bieden een volledig beheerde Spark-service. Hier wor
 | Schaalbaarheid |Tijdens het maken kunt u het aantal knooppunten in het cluster opgeven, maar mogelijk wilt u het cluster vergroten of verkleinen, zodat dit aansluit bij de werkbelasting. Alle HDInsight-clusters bieden u de mogelijkheid het aantal knooppunten in het cluster te wijzigen. Bovendien kunnen Spark-clusters zonder gegevensverlies worden verwijderd, omdat alle gegevens zijn opgeslagen in Azure Storage of Data Lake Store. |
 | 24/7 ondersteuning |Spark-clusters in HDInsight worden geleverd met 24/7 ondersteuning op bedrijfsniveau en een SLA met 99,9% beschikbaarheid. |
 
+## <a name="spark-cluster-architecture"></a>Architectuur van Spark-cluster
+
+Hier volgt de Spark-clusterarchitectuur en de werking ervan:
+
+![Architectuur van Spark-cluster](./media/hdinsight-apache-spark-overview/spark-architecture.png)
+
+Het hoofdknooppunt heeft de Spark-master die het aantal toepassingen beheert, de apps die zijn toegewezen aan het Spark-stuurprogramma. Elke app wordt op verschillende manieren door de Spark-master beheerd. Spark kan worden geïmplementeerd naast Mesos, YARN of de Spark-clustermanager die werkrolknooppuntresources toewijst aan een toepassing. In HDInsight wordt Spark uitgevoerd met behulp van de YARN-clustermanager. De resources in het cluster worden beheerd door de Spark-master in HDInsight. Dit betekent dat de Spark-master weet welke resources, zoals geheugen, bezet of beschikbaar zijn in het werkrolknooppunt.
+
+Het stuurprogramma voert de hoofdfunctie van de gebruiker uit en voert de verschillende parallelle bewerkingen op de werkrolknooppunten uit. Vervolgens verzamelt het stuurprogramma de resultaten van de bewerkingen. De werkrolknooppunten lezen en schrijven gegevens van en naar het HDFS (Hadoop Distributed File System). De werkrolknooppunten plaatsen getransformeerde gegevens ook in het geheugen als RDD’s (Resilient Distributed Datasets).
+
+Zodra de app is gemaakt in de Spark-master, worden de resources door de Spark-master toegewezen aan de apps, waarbij het Spark-stuurprogramma wordt aangeroepen. Het Spark-stuurprogramma maakt ook de SparkContext en begint ook met het maken van de RDD's. De metagegevens van de RDD's worden opgeslagen in het Spark-stuurprogramma.
+
+Het Spark-stuurprogramma maakt verbinding met de Spark-master en is verantwoordelijk voor het converteren van een toepassing naar een geleide grafiek (DAG) van afzonderlijke taken die worden uitgevoerd binnen een executorproces op de werkrolknooppunten. Elke toepassing krijgt zijn eigen executorprocessen, die voor de duur van de gehele toepassing blijven en taken uitvoeren in meerdere threads.
+
 ## <a name="what-are-the-use-cases-for-spark-on-hdinsight"></a>Wat zijn de gebruiksvoorbeelden voor Spark in HDInsight?
-Spark-clusters in HDInsight maken de volgende belangrijke scenario's mogelijk.
+Spark-clusters in HDInsight maken de volgende belangrijke scenario's mogelijk:
 
 ### <a name="interactive-data-analysis-and-bi"></a>Interactieve gegevensanalyse en BI
 [Bekijk een zelfstudie](hdinsight-apache-spark-use-bi-tools.md)
@@ -61,7 +84,7 @@ Spark-clusters in HDInsight maken de volgende belangrijke scenario's mogelijk.
 Met Apache Spark in HDInsight worden gegevens opgeslagen in Azure Storage of Azure Data Lake Store. Zakelijke deskundigen en besluitvormers kunnen die gegevens analyseren, erover rapporteren en Microsoft Power BI gebruiken voor het maken van interactieve rapporten van de geanalyseerde gegevens. Analisten kunnen beginnen met ongestructureerde/semi-gestructureerde gegevens in clusteropslag, een schema voor de gegevens definiëren met behulp van notebooks, en vervolgens gegevensmodellen bouwen met behulp van Microsoft Power BI. Spark-clusters in HDInsight bieden ook ondersteuning voor een aantal BI-tools van derden, zoals Tableau, wat het tot een ideaal platform maakt voor gegevensanalisten, zakelijke deskundigen en besluitvormers.
 
 ### <a name="spark-machine-learning"></a>Machine Learning in Spark
-[Bekijk een zelfstudie: Gebouwtemperaturen voorspellen met behulp van HVAC-gegevens](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+[Bekijk een zelfstudie: gebouwtemperaturen voorspellen met behulp van HVAC-gegevens](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 [Bekijk een zelfstudie: Voedselinspectieresultaten voorspellen](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -70,7 +93,7 @@ Apache Spark wordt geleverd met [MLlib](http://spark.apache.org/mllib/), een bib
 ### <a name="spark-streaming-and-real-time-data-analysis"></a>Streaming en realtime gegevensanalyse in Spark
 [Bekijk een zelfstudie](hdinsight-apache-spark-eventhub-streaming.md)
 
-Spark-clusters in HDInsight bieden uitgebreide ondersteuning voor het bouwen van realtime analyseoplossingen. Spark omvat al connectors om gegevens op te halen uit diverse bronnen, zoals Kafka-, Flume-, Twitter-, ZeroMQ- en TCP-sockets, en HDInsight Spark voegt eersteklas ondersteuning toe voor het ophalen van gegevens uit Azure Event Hubs. Event Hubs zijn de meest gebruikte wachtrijservices in Azure. Dankzij out-of-the-box-ondersteuning voor Event Hubs zijn Spark-clusters in HDInsight een ideaal platform voor het bouwen van een realtime analysepijplijn.
+Spark-clusters in HDInsight bieden uitgebreide ondersteuning voor het bouwen van realtime analyseoplossingen. Spark omvat al connectors om gegevens op te halen uit diverse bronnen, zoals Kafka-, Flume-, Twitter-, ZeroMQ- en TCP-sockets, en HDInsight Spark voegt eersteklas ondersteuning toe voor het ophalen van gegevens uit Azure Event Hubs. Event Hubs is de meest gebruikte wachtrijservice in Azure. Dankzij out-of-the-box-ondersteuning voor Event Hubs zijn Spark-clusters in HDInsight een ideaal platform voor het bouwen van een realtime analysepijplijn.
 
 ## <a name="next-steps"></a>Welke onderdelen zijn in een Spark-cluster opgenomen?
 Spark-clusters in HDInsight omvatten de volgende onderdelen die standaard beschikbaar zijn in de clusters.

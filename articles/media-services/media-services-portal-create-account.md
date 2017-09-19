@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 09/03/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b190ad54147a4d548806047b2257069cac4475cd
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 4e811dee81bfbd01b3cbe7f78a57b2ce92d1c0f9
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Een Azure Media Services-account maken met Azure Portal
@@ -36,6 +36,9 @@ Azure Portal biedt een manier om snel een Azure Media Services-account (AMS) te 
 
 In dit artikel worden enkele algemene concepten toegelicht en wordt uitgelegd hoe u een Media Services-account maakt via Azure Portal.
 
+> [!NOTE]
+> Zie [Scenarios and availability of Media Services features across datacenters](scenarios-and-availability.md#availability) (Scenario's en beschikbaarheid van Media Services-functies via datacenters) voor meer informatie over de beschikbaarheid van Azure Media Services-functies in verschillende regio's.
+
 ## <a name="concepts"></a>Concepten
 Voor toegang tot Media Services zijn twee gekoppelde accounts vereist: 
 
@@ -43,8 +46,8 @@ Voor toegang tot Media Services zijn twee gekoppelde accounts vereist:
   
 * Een Azure Storage-account. Storage-accounts moeten zich in dezelfde geografische regio bevinden als het Media Services-account. Wanneer u een Media Services-account maakt, kunt u een bestaand opslagaccount in dezelfde regio kiezen. U kunt ook een nieuw opslagaccount maken in dezelfde regio. Als u een Media Services-account verwijdert, worden de blobs in uw gerelateerde opslagaccount niet verwijderd.
 
-> [!NOTE]
-> Zie [Scenarios and availability of Media Services features across datacenters](scenarios-and-availability.md#availability) (Scenario's en beschikbaarheid van Media Services-functies via datacenters) voor meer informatie over de beschikbaarheid van Azure Media Services-functies in verschillende regio's.
+  > [!NOTE]
+  > Media Services beperkt het primaire opslagaccount tot een **opslagaccount voor algemene doeleinden** met tabellen en wachtrijen. Zie [Azure-opslagaccounts](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) voor meer informatie over opslagtypen.
 
 ## <a name="create-an-ams-account"></a>Een AMS-account maken
 In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.

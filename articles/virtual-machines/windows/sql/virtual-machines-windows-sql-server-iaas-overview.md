@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: 
 author: rothja
 manager: jhubbard
-editor: 
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
@@ -13,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/07/2017
+ms.date: 09/12/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: f0100423550046d18642180ce98e93ce3609749b
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: b9d42e393e696187d2299e033402db8ee565593a
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Overzicht van SQL Server op virtuele machines in Azure
@@ -27,34 +26,8 @@ In dit onderwerp wordt beschreven hoe u SQL Server kunt uitvoeren op virtuele ma
 
 > [!NOTE]
 > Zie [Een virtuele machine met SQL Server inrichten in Azure Portal](virtual-machines-windows-portal-sql-server-provision.md) als u al bekend bent met SQL Server en alleen wilt zien hoe u een virtuele machine met SQL Server implementeert.
-> 
-> 
 
-## <a name="overview"></a>Overzicht
-Als u een databasebeheerder of een ontwikkelaar bent, kunt u met VM's in Azure de on-premises SQL Server-werkbelastingen en toepassingen naar de cloud verplaatsen. De volgende video geeft een technisch overzicht van virtuele machines met SQL Server in Azure.
-
-> [!VIDEO https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016/player]
-> 
-> 
-
-In de video komen de volgende onderwerpen ter sprake:
-
-| Time | Onderwerp |
-| --- | --- |
-| 00:21 |Wat zijn VM's in Azure? |
-| 01:45 |Beveiliging |
-| 02:50 |Connectiviteit |
-| 03:30 |Betrouwbaarheid en prestaties van de opslag |
-| 05:20 |Formaten van virtuele machines |
-| 05:54 |Hoge beschikbaarheid en SLA |
-| 07:30 |Configuratieondersteuning |
-| 08:00 |Bewaking |
-| 08:32 |Demo: een virtuele machine met SQL Server 2016 maken |
-
-> [!NOTE]
-> In de video gaat het over SQL Server 2016, maar er zijn in Azure VM-installatiekopieën beschikbaar voor vele versies van SQL Server, zoals 2012, 2014 en 2016. 
-> 
-> 
+Als u een databasebeheerder of een ontwikkelaar bent, kunt u met VM's in Azure de on-premises SQL Server-werkbelastingen en toepassingen naar de cloud verplaatsen.
 
 ## <a name="scenarios"></a>Scenario's
 U kunt er om vele redenen voor kiezen om uw gegevens in Azure te hosten. Als uw toepassing wordt verplaatst naar Azure, kunt u de prestaties verbeteren door ook de gegevens te verplaatsen. Maar er zijn nog andere voordelen. U hebt automatisch toegang tot meerdere datacenters voor een wereldwijde aanwezigheid en herstel na een noodgeval. De gegevens zijn ook zeer goed beveiligd en duurzaam.
@@ -126,7 +99,7 @@ Azure VM's kunnen [geautomatiseerde patching](virtual-machines-windows-sql-autom
 ### <a name="customer-experience-improvement-program-ceip"></a>Programma voor kwaliteitsverbetering (CEIP)
 Het programma voor kwaliteitsverbetering (CEIP) is standaard ingeschakeld. Met dit programma worden regelmatig rapporten naar Microsoft verzonden zodat SQL Server kan worden verbeterd. Er hoeft voor het programma voor kwaliteitsverbetering geen beheertaak worden uitgevoerd, tenzij u het na het inrichten wilt uitschakelen. U kunt het programma voor kwaliteitsverbetering aanpassen of uitschakelen door via Extern bureaublad verbinding te maken met de virtuele machine. Voer vervolgens het hulpprogramma **SQL Server-fouten- en gebruiksrapportage** uit. Volg de instructies voor het uitschakelen van rapportage. 
 
-Zie de sectie over het programma voor kwaliteitsverbetering in het onderwerp [Licentievoorwaarden accepteren](https://msdn.microsoft.com/library/ms143343.aspx) voor meer informatie. 
+Zie de [privacyverklaring van SQL Server](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx) voor meer informatie over gegevensverzameling. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

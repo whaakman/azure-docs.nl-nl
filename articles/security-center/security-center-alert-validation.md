@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2017
+ms.date: 09/07/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 121b5d8f023a9b663d0e7af26dce8f81db27672c
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: d7aa8544f50b42bacfa1e1f16fdce468d8fc81ef
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Validatie van waarschuwingen in Azure Security Center
@@ -35,12 +35,15 @@ Als de Security Center-agent is geïnstalleerd op uw computer, volgt u de onders
 3. Open de opdrachtprompt en voer dit bestand uit met een zelf bedacht argument zoals *ASC_AlertTest_662jfi039N.exe - foo*
 4. Wacht 5 tot 10 minuten en open Security Center. Hier moet u nu een waarschuwing zien zoals deze:
 
-    ![Waarschuwingen valideren](./media/security-center-alert-validation/security-center-alert-validation-fig1.png)
+    ![Waarschuwingen valideren](./media/security-center-alert-validation/security-center-alert-validation-fig2.png)
 
 Als u deze waarschuwing bekijkt, moet in het veld Controle van argumenten ingeschakeld 'waar' worden weergegeven. Als u de waarde 'onwaar' ziet, moet u de controle van opdrachtregelargumenten inschakelen. Dit kan met de volgende opdrachtregel:
 
 *reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"*
 
+
+> [!NOTE]
+> Bekijk de video [Validatie van waarschuwingen in Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center) voor een demonstratie van deze functie. 
 
 ## <a name="see-also"></a>Zie ook
 In dit artikel hebben we aandacht besteed aan het valideren van waarschuwingen. Raadpleeg de volgende artikelen als u meer over dit onderwerp wilt weten:

@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/14/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 880a186a3d9a23b013294b0121e8265270d160cc
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 41d96958ee999e4d0b304dfd9296f51d53eb3277
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -36,12 +36,12 @@ In het volgende diagram ziet u een vergelijking tussen Kafka in HDInsight voorda
 
 1. Volg de stappen in [Een HDInsight-cluster maken](hdinsight-hadoop-create-linux-clusters-portal.md) voor de algemene stappen voor het maken van een cluster met behulp van de portal. Voltooi het creatieproces met behulp van de portal niet.
 
-2. Gebruik op de blade __Clustergrootte__ het veld __Schijven per werkknooppunt__ om het aantal schijven te configureren.
+2. Gebruik in de sectie __Clustergrootte__ het veld __Schijven per werkknooppunt__ om het aantal schijven te configureren.
 
     > [!NOTE]
     > Het type beheerde schijf is __Standaard__ (HDD) of __Premium__ (SSD). Premium-schijven worden gebruikt met virtuele machines uit de DS- en GS-reeks. Alle andere VM-typen gebruiken standaardschijven.
 
-    ![Afbeelding van de blade Clustergrootte met de schijven gemarkeerd per werkknooppunt](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
+    ![Afbeelding van de sectie Clustergrootte met de schijven gemarkeerd per werkknooppunt](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
 
 ## <a name="configure-managed-disks-resource-manager-template"></a>Beheerde schijven configureren: Resource Manager-sjabloon
 

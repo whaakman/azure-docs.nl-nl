@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/28/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 5420c1cdefa99ff30320dd757e04aa0cafc792bc
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 4a4ab1ee022b6b33d35217df916d01f32e04d3a4
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -44,24 +44,8 @@ Als u gegevens wilt vastleggen in Azure Data Lake Store, maakt u een Data Lake S
 
 ### <a name="create-an-azure-data-lake-store-account-and-folders"></a>Een Azure Data Lake Store-account en -mappen maken
 
-1. Maak een Data Lake Store-account volgens de instructies in [Aan de slag met Azure Data Lake Store met Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md). 
-2. Maak een map onder dit account, volgens de instructies in de sectie [Mappen maken in Azure Data Lake Store-account](../data-lake-store/data-lake-store-get-started-portal.md#createfolder).
-3. Klik op de pagina van het Data Lake Store-account op **Data Explorer**.
-4. Klik op **Toegang**.
-5. Klik op **Add**.
-6. Typ **Microsoft.EventHubs** in het vak **Zoeken op naam of e-mailadres** en selecteer vervolgens deze optie. 
-7. Het tabblad **Machtigingen** wordt weergegeven. Stel de machtigingen in zoals weergegeven in de volgende afbeelding:
-
-    ![][6]
-
-8. Klik op **OK**.
-9. Maak nu een map in de hoofdmap door naar de doelmap te bladeren en te klikken op de naam van de map.
-10. Klik op **Toegang**.
-11. Klik op **Add**.
-12. Typ **Microsoft.EventHubs** in het vak **Zoeken op naam of e-mailadres** en selecteer vervolgens deze optie.
-13. Het tabblad **Machtigingen** wordt opnieuw weergegeven. Stel de machtigingen in zoals weergegeven in de volgende afbeelding:
-
-    ![][5]
+1. Maak een Data Lake Store-account volgens de instructies in [Aan de slag met Azure Data Lake Store met Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md).
+2. Volg de instructies in de sectie [Machtigingen toewijzen aan Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) om een map te maken binnen het Data Lake Store-account waarin u de gegevens uit Event Hubs wilt vastleggen en machtigingen toe te wijzen aan de Event Hubs, zodat deze gegevens naar uw Data Lake Store-account kan schrijven.  
 
 ### <a name="create-an-event-hub"></a>Een Event Hub maken
 
@@ -87,12 +71,11 @@ U kunt Capture configureren op bestaande Event Hubs in Event Hubs-naamruimten. O
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png
 [3]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture3.png
 [4]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture4.png
-[5]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture5.png
-[6]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture6.png
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over Event Hubs Capture vindt u in het [overzicht van Event Hubs Capture][capture-overview].
 - U kunt ook Event Hubs Capture configureren met behulp van Azure Resource Manager-sjablonen. Zie voor meer informatie [Capture inschakelen met behulp van een Azure Resource Manager-sjabloon](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
+- [Aan de slag met Azure Data Lake Store met Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md)
 
 [capture-overview]: event-hubs-capture-overview.md

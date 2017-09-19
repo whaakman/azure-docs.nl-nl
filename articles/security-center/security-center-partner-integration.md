@@ -1,5 +1,5 @@
 ---
-title: Partnerintegratie in Azure Security Center | Microsoft Docs
+title: Partner- en oplossingenintegratie in Azure Security Center | Microsoft Docs
 description: "Leer hoe Azure Security Center kan worden geïntegreerd met partners om de algehele beveiliging van uw Azure-resources te verbeteren."
 services: security-center
 documentationcenter: na
@@ -12,22 +12,18 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 09/13/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 44beafeff5cbe58ac8ca37632879f6ffc2b67e53
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 8cc44da0f61362018d2757da58ca4fb3a9a43764
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="partner-integration-in-azure-security-center"></a>Partnerintegratie in Azure Security Center
+# <a name="partner-and-solutions-integration-in-azure-security-center"></a>Partner- en oplossingenintegratie in Azure Security Center
 
 In dit artikel wordt beschreven hoe Azure Security Center integreert met partners om u te helpen de algehele beveiliging te verbeteren. Security Center biedt een geïntegreerde ervaring in Azure en maakt gebruik van de voordelen van Azure Marketplace voor partnercertificering en -facturering.
-
-> [!NOTE] 
-> Vanaf juni 2017 gebruikt Security Center de Microsoft Monitoring Agent voor het verzamelen en opslaan van gegevens. Zie [Migratie van Azure Security Center-platform](security-center-platform-migration.md) voor meer informatie. De informatie in dit artikel beschrijft functionaliteit van Security Center na de overstap naar de Microsoft Monitoring Agent.
->
 
 ## <a name="why-deploy-partner-solutions-from-security-center"></a>Waarom partneroplossingen uit Security Center implementeren
 
@@ -41,7 +37,7 @@ Er zijn vier belangrijke redenen om partnerintegratie in Security Center te gebr
 
 ## <a name="partners-that-integrate-with-security-center"></a>Partners die zijn geïntegreerd met Security Center
 
-Security Center is momenteel geïntegreerd met deze oplossingen:
+Op dit moment is de volgende systeemeigen integratie van de partneroplossingen beschikbaar in Azure Marketplace met Security Center:
 
 - Eindpuntbeveiliging ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec en [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/azure-security-antimalware)) 
 - Firewall voor webtoepassingen ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets) en [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/)) 
@@ -61,13 +57,57 @@ Er kan een Security Center-aanbeveling worden weergegeven voor het implementeren
 
 ## <a name="manage-partner-solutions"></a>Partneroplossingen beheren
 
-Selecteer op de blade **Security Center** de optie **Partneroplossingen** om na de implementatie informatie te bekijken over de status van de oplossing en om basisbeheertaken uit te voeren. Raadpleeg [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md) voor meer informatie over het beheren van partneroplossingen in Security Center.
+Selecteer op het dashboard **Security Center** de optie **Partneroplossingen** om na de implementatie informatie te bekijken over de status van de oplossing en om basisbeheertaken uit te voeren.
 
-![Partnerintegratie](./media/security-center-partner-integration/security-center-partner-integration-fig1-new2.png)
+![Integratie van partneroplossingen](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
+
+De inhoud die u ziet wanneer u Beveiligingsoplossingen opent, is afhankelijk van uw infrastructuur. Als we de vorige afbeelding als voorbeeld gebruiken, heeft deze pagina drie secties:
+
+- **Verbonden oplossingen**: hier ziet u oplossingen die zijn verbonden met Security Center.
+- **Gedetecteerde oplossingen**: hier ziet u oplossingen die niet zijn verbonden met Security Center. U kunt deze oplossingen verbinden, waarna ze onder verbonden oplossingen worden weergegeven.  Als in Security Center geen niet-verbonden oplossingen worden gedetecteerd, is deze sectie verborgen.
+- **Gegevensbronnen toevoegen**: hier ziet u Azure- en niet-Azure-gegevensbronnen die u aan Security Center kunt toevoegen.
+
+### <a name="connected-solutions"></a>Verbonden oplossingen
+
+In de sectie **Verbonden oplossingen** ziet u alle beveiligingsoplossingen die op dat moment zijn verbonden met Security Center. 
+
+![Verbonden oplossingen](./media/security-center-partner-integration/security-center-partner-integration-fig10.png)
+
+Welke informatie wordt weergegeven, is afhankelijk van de oplossing. De volgende informatie kan op elke tegel worden weergegeven:
+
+- Bedrijfspictogram voor de partner.  Als Security Center het bedrijfspictogram niet heeft, worden de eerste tekens van de naam van de partner weergegeven.
+- Oplossingstype.
+- De computernaam wordt mogelijk weergegeven.
+- Integriteitsstatus.  Als er geen integriteitsindicator is verzonden, worden in Security Center de datum en tijd weergegeven van de laatst ontvangen gebeurtenis. Hiermee wordt aangegeven of het apparaat al dan niet rapporteert. Als Security Center de integriteitsindicator van een bepaalde oplossing niet ontvangt, wordt de tegel van die oplossing niet in deze sectie weergegeven.
 
 > [!NOTE]
-> De ondersteuning voor Symantec Endpoint Protection is beperkt tot detectie. Er zijn geen statuswaarschuwingen beschikbaar.
->
+> In Watch Security Center worden de datum en tijd weergegeven van de laatst ontvangen gebeurtenis. Hiermee wordt aangegeven of het apparaat al dan niet rapporteert. Oplossingen die geen integriteitsindicator verzenden, worden weergegeven als Verbonden als in de afgelopen 14 dagen een waarschuwing of gebeurtenis is verzonden.
+>  
+
+Sommige van deze oplossingen zijn mogelijk volledig geïntegreerd in Azure; andere kunnen on-premises zijn. Aangezien Security Center [CEF (Common Event Format)](https://docs.microsoft.com/azure/operations-management-suite/oms-security-connect-products#what-is-cef) ondersteunt, kan verbinding worden gemaakt met oplossingen die CEF gebruiken, zoals een Firewall die CEF ondersteunt. Vanaf het moment dat deze oplossing is toegevoegd aan Security Center, worden Firewall-logboeken in CEF-indeling naar Security Center verzonden, waar ze worden doorgegeven aan [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview). Firewall is een niet-Azure-resource die wel gebeurtenissen, maar geen integriteitsindicator verzendt.  De enige informatie die Security Center over de status heeft, is het laatste tijdstip waarop dit apparaat een gebeurtenis heeft verzonden.  Voor alle niet-Azure-resources worden in Security Center in het statusgebied van de tegel de datum en tijd weergegeven waarop de laatste gebeurtenis is ontvangen; dit geeft aan dat de niet-Azure-resource nog steeds rapporteert.
+
+### <a name="discovered-solutions"></a>Gedetecteerde oplossingen
+
+In de sectie **Gedetecteerde oplossingen** ziet u alle oplossingen die zijn toegevoegd via Azure en door Security Center worden voorgesteld om verbinding mee te maken.
+
+![Gedetecteerde oplossingen](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
+
+Security Center kan worden geïntegreerd met ingebouwde Azure-oplossingen, zoals [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection). Als u een licentie hebt voor Azure AD Identity Protection, maar deze niet is verbonden met Security Center, wordt Azure AD Identity Protection vermeld onder **Gedetecteerde oplossingen**. Als u deze oplossing wilt integreren met Security Center, klikt u op de tegel **Azure AD Identity Protection** op **VERBINDING MAKEN**, waarna de volgende pagina wordt weergegeven:
+
+![Azure AD-identiteitsbeveiliging](./media/security-center-partner-integration/security-center-partner-integration-fig6.png)
+
+U voltooit het verbinden van Azure AD Identity Protection door een werkruimte te selecteren waarin de gegevens moeten worden opgeslagen. Alle gegevens van Azure AD Identity Protection stromen vanuit het werkruimtegebied dat in deze stap is geselecteerd.  Via de werkruimteselector selecteert u de werkruimte, waarna de gegevens daarvandaan beginnen te stromen.
+
+U moet een globale beheerder of beveiligingsbeheerder zijn om verbinding te kunnen maken met Security Center.  De knop **Verbinding maken** is uitgeschakeld als u niet gemachtigd bent. In dat geval wordt er een bericht weergegeven waarin wordt uitgelegd waarom de knop is uitgeschakeld.
+
+Waarschuwingen van Azure AD Identity Protection lopen via de detectiepijp van Security Center, zodat u waarschuwingen ontvangt van Security Center en Azure Active Directory Identity Protection. In Security Center worden alle waarschuwingen samengevoegd die relevant lijken voor het maken van een [veiligheidsincident](https://docs.microsoft.com/azure/security-center/security-center-incident). De beschrijving van het beveiligingsincident geeft u meer inzicht in verdachte activiteiten.
+
+### <a name="add-data-sources"></a>Gegevensbronnen toevoegen
+
+U kunt Azure- en niet-Azure-computers toevoegen om te integreren met Security Center.  Het toevoegen van niet-Azure-computers betekent dat u een on-premises computer kunt toevoegen, of een apparaat dat ondersteuning biedt voor CEF. 
+
+![Gegevensbronnen](./media/security-center-partner-integration/security-center-partner-integration-fig11.png)
+
 
 ## <a name="see-also"></a>Zie ook
 

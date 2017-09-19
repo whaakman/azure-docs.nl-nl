@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: bdf6e27463fcc6186a3b15a55653fa468da91bdc
-ms.openlocfilehash: d263e911d0d0b3cdc1e48e300a3c8a0994b38c39
-
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 09b26f2fe83a24b351cafa06afad6f15a31fe77c
+ms.contentlocale: nl-nl
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="getting-started-with-azure-cdn"></a>Aan de slag met Azure CDN
@@ -32,8 +33,13 @@ In dit onderwerp wordt uitgelegd hoe u Azure CDN inschakelt door een nieuw CDN-p
 Een CDN-profiel is een verzameling van CDN-eindpunten.  Elk profiel bevat een of meer CDN-eindpunten.  Mogelijk wilt meerdere profielen gebruiken om de CDN-eindpunten te ordenen op basis van het internetdomein, de webtoepassing of andere criteria.
 
 > [!NOTE]
-> Eén Azure-abonnement is standaard beperkt tot acht CDN-profielen. Elk CDN-profiel is beperkt tot tien CDN-eindpunten.
-> 
+> Een Azure-abonnement heeft standaardlimieten voor de volgende resources:
+> - Het aantal CDN-profielen dat kan worden gemaakt
+> - Het aantal eindpunten dat kan worden gemaakt in een CDN-profiel 
+> - Het aantal aangepaste domeinen dat kan worden toegewezen aan een eindpunt
+>
+> Zie [CDN-limieten](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits) voor meer informatie over CDN-abonnementen.
+>
 > De prijzen van CDN worden standaard toegepast op het niveau van het CDN-profiel. Als u verschillende Azure CDN-prijscategorieën wilt gebruiken, hebt u meerdere CDN-profielen nodig.
 > 
 > 
@@ -55,7 +61,7 @@ Een CDN-profiel is een verzameling van CDN-eindpunten.  Elk profiel bevat een of
     De blade **Een eindpunt toevoegen** wordt weergegeven.
    
     ![De blade Een eindpunt toevoegen][cdn-add-endpoint]
-3. Voer een **naam** voor dit CDN-eindpunt.  Deze naam wordt gebruikt voor toegang tot uw resources in de cache in het domein `<endpointname>.azureedge.net`.
+3. Voer een **naam** voor dit CDN-eindpunt.  Deze naam wordt gebruikt om toegang te krijgen tot uw resources in de cache in het domein `<endpointname>.azureedge.net`.
 4. Selecteer in de vervolgkeuzelijst **Oorsprongtype** het type oorsprong.  Selecteer **Storage** voor een Azure Storage-account, **Cloudservice** voor een Azure Cloud-service, **Web App** voor een Azure-webtoepassing of **Aangepaste oorsprong** voor een andere openbaar toegankelijke webserveroorsprong (gehost in Azure of ergens anders).
    
     ![Oorsprongtype CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
@@ -77,7 +83,9 @@ Een CDN-profiel is een verzameling van CDN-eindpunten.  Elk profiel bevat een of
    > Voor de toegang tot CDN-inhoud via HTTPS gelden de volgende beperkingen:
    > 
    > * U moet het SSL-certificaat gebruiken dat door het CDN is verstrekt. Certificaten van derden worden niet ondersteund.
-   > * Voor toegang tot HTTPS-inhoud moet u het domein gebruiken dat is verstrekt door het CDN (`<endpointname>.azureedge.net`). HTTPS-ondersteuning is niet beschikbaar voor aangepaste domeinnamen (CNAME's), aangezien het CDN op dit moment geen ondersteuning biedt voor aangepaste certificaten.
+   > * HTTPS-ondersteuning voor aangepaste Azure CDN-domeinen is alleen beschikbaar bij **Azure CDN van Verizon**-producten (Standard en Premium). Dit wordt niet ondersteund in **Azure CDN van Akamai**. Zie [HTTPS op een aangepast Azure CDN-domein inschakelen](cdn-custom-ssl.md) voor meer informatie.
+
+Gebruik het domein dat is verstrekt door het CDN (`<endpointname>.azureedge.net`) voor toegang tot HTTPS-inhoud. HTTPS-ondersteuning is niet beschikbaar voor aangepaste domeinnamen (CNAME's), aangezien het CDN op dit moment geen ondersteuning biedt voor aangepaste certificaten.
    > 
    > 
 9. Klik op de knop **Toevoegen** om het nieuwe eindpunt te maken.
@@ -103,9 +111,4 @@ Een CDN-profiel is een verzameling van CDN-eindpunten.  Elk profiel bevat een of
 [cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 52b154895fca9fc465a9c6cc2fb6bf2d5384b057
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 1ea9dfcaec188bac2e92909f4811568b589357d4
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -59,7 +59,7 @@ Een indexeerfunctie haalt gegevens op uit een **gegevensbron** die informatie, z
 
 * [Azure SQL Database of SQL Server op een virtuele Azure-machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
-* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), wordt gebruikt om tekst op te halen uit PDF-bestanden, Office-documenten, HTML of XML
+* [Azure Blob-opslag](search-howto-indexing-azure-blob-storage.md) voor bepaalde inhoudstypen
 * [Azure-tabelopslag](search-howto-indexing-azure-tables.md)
 
 Gegevensbronnen worden geconfigureerd en onafhankelijk van de indexeerfuncties beheerd die gebruikmaken van de gegevensbronnen. Dit betekent dat een gegevensbron door meerdere indexeerfuncties kan worden gebruikt om tegelijkertijd meer dan één index te laden.
@@ -72,7 +72,7 @@ Nu u het uitgangspunt hebt begrepen, is de volgende stap de vereisten en taken t
 
 * [Azure SQL Database of SQL Server op een virtuele Azure-machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
-* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), wordt gebruikt om tekst op te halen uit PDF-bestanden, Office-documenten, HTML of XML
+* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure-tabelopslag](search-howto-indexing-azure-tables.md)
 * [Indexeren van CSV-blobs met de indexeerfunctie Azure Search Blob](search-howto-index-csv-blobs.md)
 * [Indexeren van JSON-blobs met de indexeerfunctie Azure Search Blob](search-howto-index-json-blobs.md)

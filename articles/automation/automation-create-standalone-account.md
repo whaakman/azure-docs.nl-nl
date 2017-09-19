@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 6eadfb0c3f91c1f2c7783d70604b45d5dc9912a3
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 85ae54f76fff47b16d7a365ccee87866d0424f82
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -47,7 +47,8 @@ In deze sectie voert u de volgende stappen uit om vanuit Azure Portal een nieuw 
 2. Klik op **Nieuw**.<br><br> ![De optie Nieuw selecteren in Azure Portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 3. Zoek naar **Automation** en klik in de zoekresultaten op **Automation en beheer***.<br><br> ![Zoek naar en selecteer Automation in Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
 3. Klik op de blade Automation-accounts op **Toevoegen**.<br><br>![Automation-account toevoegen](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
-   
+
+
    > [!NOTE]
    > Als u op de blade **Automation-account toevoegen** de volgende waarschuwing ziet, is uw account geen lid van de rol Abonnementsbeheerders en geen medebeheerder van het abonnement.<br><br>![Waarschuwing bij Automation-account toevoegen](media/automation-create-standalone-account/create-account-without-perms.png)
    > 
@@ -72,6 +73,7 @@ Wanneer het Automation-account is gemaakt, worden er automatisch verschillende r
 | --- | --- |
 | AzureAutomationTutorial Runbook |Een voorbeeld van een grafisch runbook dat laat zien hoe u verifieert met behulp van het Uitvoeren als-account en dat alle Resource Managers-resources ophaalt. |
 | AzureAutomationTutorialScript Runbook |Een voorbeeld van een PowerShell-runbook dat laat zien hoe u verifieert met behulp van het Uitvoeren als-account en dat alle Resource Managers-resources ophaalt. |
+| AzureAutomationTutorialPython2-runbook |Een voorbeeld van een Python-runbook dat laat zien hoe u kunt verifiëren met behulp van het Run As-account en vervolgens een lijst weergeeft met resourcegroepen die aanwezig zijn in het opgegeven abonnement. |
 | AzureRunAsCertificate |Certificaatasset dat automatisch tijdens het maken van het Automation-account of met onderstaand PowerShell-script voor een bestaande account wordt gemaakt.  Hiermee kunt u verifiëren met Azure zodat u Azure Resource Manager-resources kunt beheren vanuit runbooks.  Dit certificaat is één jaar geldig. |
 | AzureRunAsConnection |Verbindingsasset dat automatisch tijdens het maken van het Automation-account of met onderstaand PowerShell-script voor een bestaande account wordt gemaakt. |
 
@@ -89,3 +91,5 @@ In de volgende tabel vindt u een overzicht van de bronnen voor het klassieke Uit
 * Zie voor meer informatie over grafisch ontwerpen [Grafisch ontwerpen in Azure Automation](automation-graphical-authoring-intro.md).
 * Zie [Mijn eerste PowerShell-runbook](automation-first-runbook-textual-powershell.md) om aan de slag te gaan met PowerShell-runbooks.
 * Zie [Mijn eerste PowerShell Workflow-runbook](automation-first-runbook-textual.md) om aan de slag te gaan met PowerShell Workflow-runbooks
+* Zie [Mijn eerste Python2-runbook](automation-first-runbook-textual-python2.md) om aan de slag te gaan met Python2-runbooks.
+

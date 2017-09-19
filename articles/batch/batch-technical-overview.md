@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 8a850f8b1cccda631786f89f2c88647604fba9ed
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: a99f96db0c1e8bcd0cf29c564e5badf0eb728e56
 ms.contentlocale: nl-nl
-ms.lasthandoff: 03/15/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="run-intrinsically-parallel-workloads-with-batch"></a>Intrinsiek parallelle workloads uitvoeren met Batch
@@ -48,7 +47,7 @@ Dit zijn enkele voorbeelden van workloads die vaak met deze techniek worden verw
 
 Batch kan ook parallelle berekeningen met aan het einde een verkleiningsstap, evenals complexere HPC-workloads, uitvoeren zoals [Message Passing Interface (MPI)](batch-mpi.md)-toepassingen.
 
-Zie [Batch and HPC solutions](batch-hpc-solutions.md) (Batch- en HPC-oplossingen) voor een vergelijking tussen Batch en andere opties voor HPC-oplossingen in Azure.
+Zie [HPC-, Batch- en Big Compute-oplossingen](../virtual-machines/linux/high-performance-computing.md) voor een vergelijking tussen Batch en andere HPC-oplossingsopties in Azure.
 
 [!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
 

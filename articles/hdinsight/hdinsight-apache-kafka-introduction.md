@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/15/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1976c52bd7fa56bb07104e205ab3699b2dfa4c50
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 39234ca792983178cfd4304e001271ea30e28ae6
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Inleiding tot Apache Kafka in HDInsight (preview)
@@ -42,7 +42,7 @@ Kafka biedt de volgende functies:
 
 * Integratie met Azure Managed Disks: beheerde schijven bieden een hogere schaal en doorvoer voor de schijven die worden gebruikt met de virtuele machines in het HDInsight-cluster.
 
-    Beheerde schijven zijn standaard ingeschakeld voor Kafka in HDInsight. Het aantal schijven dat per knooppunt wordt gebruikt, kan worden geconfigureerd tijdens het maken in HDInsight. Zie [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) voor meer informatie over beheerde schijven.
+    Beheerde schijven zijn standaard ingeschakeld voor Kafka in HDInsight. Het aantal schijven dat per knooppunt wordt gebruikt, kan worden geconfigureerd tijdens het maken van HDInsight. Zie [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) voor meer informatie over beheerde schijven.
 
     Zie [Increase scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md) (Schaalbaarheid verhogen van Kafka in HDInsight) voor informatie over het configureren van beheerde schijven met Kafka in HDInsight.
 
@@ -55,6 +55,15 @@ Kafka biedt de volgende functies:
 * **Aggregatie**: met streamverwerking kunt u de gegevens uit de verschillende streams combineren en samenvoegen in operationele gegevens.
 
 * **Transformatie**: met streamverwerking kunt u de gegevens uit meerdere invoeronderwerpen combineren en vertalen naar één of meer uitvoeronderwerpen.
+
+## <a name="architecture"></a>Architectuur
+
+![Kafka-clusterconfiguratie](./media/hdinsight-apache-kafka-introduction/kafka-cluster.png)
+
+Dit diagram toont een typische Kafka-configuratie die gebruikmaakt van de consumentgroepen, partitionering en replicatie om het parallel lezen van gebeurtenissen met fouttolerantie mogelijk te maken. Apache ZooKeeper is gebouwd voor gelijktijdige, robuuste transacties met een lage latentie voor het beheren van de status van het Kafka-cluster. Kafka slaat records op in *onderwerpen*. Records worden geproduceerd door *producenten* en worden gebruikt door *consumenten*. Producenten halen records op uit Kafka-*brokers*. Elk werkrolknooppunt in uw HDInsight-cluster is een Kafka-broker. Voor elke consument wordt één partitie gemaakt, zodat de streaminggegevens parallel kunnen worden verwerkt. Replicatie wordt gebruikt om de partities over knooppunten te verdelen, zodat er beveiliging is tegen storingen van knooppunten (broker). Een partitie die is gemarkeerd met een *(L)* is de leidende partitie voor de opgegeven partitie. Producentverkeer wordt doorgestuurd naar de leider van elk knooppunt, met behulp van de status die wordt beheerd door ZooKeeper.
+
+> [!IMPORTANT]
+> Kafka is niet op de hoogte van de onderliggende hardware (rack) in het Azure-datacentrum. Om ervoor te zorgen dat partities correct worden verdeeld over de onderliggende hardware raadpleegt u [hoge beschikbaarheid configureren (Kafka)](hdinsight-apache-kafka-high-availability.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

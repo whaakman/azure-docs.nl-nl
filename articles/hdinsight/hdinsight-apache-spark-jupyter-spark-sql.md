@@ -15,18 +15,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/21/2017
+ms.date: 09/07/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: ad4330a1fc7f8de154d9aaa8df3acc2ab59b9dc1
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 78051b9df15c62d4caf56d800c9a5f4421ea2254
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Een Apache Spark-cluster maken in Azure HDInsight
 
-In dit artikel leert u hoe u een Apache Spark-cluster maakt in Azure HDInsight. Zie [Overzicht: Apache Spark in Azure HDInsight](hdinsight-apache-spark-overview.md) voor informatie over Spark in HDInsight.
+In dit artikel leert u hoe u een Apache Spark-cluster maakt in Azure HDInsight en vervolgens een Spark SQL-query uitvoert op een Hive-tabel. Zie [Overzicht: Apache Spark in Azure HDInsight](hdinsight-apache-spark-overview.md) voor informatie over Spark in HDInsight.
 
    ![Snelstartdiagram waarin de stappen worden beschreven voor het maken van een Apache Spark-cluster in Azure HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "Spark-snelstartgids met behulp van Apache Spark in HDInsight. Geïllustreerde stappen: maken van een cluster; interactieve Spark-query uitvoeren")
 
@@ -65,9 +65,15 @@ Als u een probleem ondervindt met het maken van HDInsight-clusters, beschikt u m
 >
 >
 
-## <a name="run-a-hive-query-using-spark-sql"></a>Een Hive-query uitvoeren met Spark SQL
+## <a name="run-spark-sql-statements-on-a-hive-table"></a>Spark SQL-instructies uitvoeren op een Hive-tabel
 
-Als u een Jupyter-notebook gebruikt dat is geconfigureerd voor uw HDInsight Spark-cluster, krijgt u een vooraf ingestelde `sqlContext` waarmee u Hive-query's kunt uitvoeren met behulp van Spark SQL. In deze sectie leert u hoe u een Jupyter-notebook start en vervolgens een eenvoudige Hive-query uitvoert.
+SQL (Structured Query Language) is de meest voorkomende en gebruikte taal voor het uitvoeren van query's en het definiëren van gegevens. De grondleggers van Spark wilden deze kennis gebruiken en de bekende taal voor het opvragen van gegevens beschikbaar maken voor een breder publiek van analisten die willen werken met gegevens die zich in HDFS (Hadoop Distributed File System) bevinden. Spark SQL biedt dit. Het fungeert als een uitbreiding van Apache Spark voor het verwerken van gestructureerde gegevens, met behulp van de bekende SQL-syntaxis.
+
+Spark SQL ondersteunt zowel SQL als HiveQL als querytalen. De mogelijkheden omvatten binding in Python, Scala en Java. U kunt er query’s mee uitvoeren op gegevens die zijn opgeslagen op vele locaties, zoals externe databases, gestructureerde gegevensbestanden (voorbeeld: JSON) en Hive-tabellen.
+
+### <a name="running-spark-sql-on-an-hdinsight-cluster"></a>Spark SQL uitvoeren op een HDInsight-cluster
+
+Als u een Jupyter-notebook gebruikt dat is geconfigureerd voor uw HDInsight Spark-cluster, krijgt u een vooraf ingestelde `sqlContext` waarmee u Hive-query's kunt uitvoeren met behulp van Spark SQL. In deze sectie leert u hoe een Jupyter-notebook start en vervolgens een eenvoudige Spark SQL-query uitvoert op een bestaande Hive-tabel (**hivesampletable**) die beschikbaar is op alle HDInsight-clusters.
 
 1. Open de [Azure Portal](https://portal.azure.com/).
 
@@ -87,7 +93,7 @@ Als u een Jupyter-notebook gebruikt dat is geconfigureerd voor uw HDInsight Spar
    >
 3. Maak een notebook. Klik op **Nieuw** en klik vervolgens op **PySpark**.
 
-   ![Jupyter-notebook maken om de interactieve Spark SQL-query uit te voeren](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Jupyter-notebook maken om de interactieve Spark SQL-query uit te voeren")
+   ![Jupyter-notebook maken om de interactieve Spark SQL-query uit te voeren](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Jupyter-notebook maken om de interactieve Spark SQL-query uit te voeren")
 
    Er wordt een nieuwe notebook gemaakt en geopend met de naam Untitled (Untitled.pynb).
 
@@ -117,7 +123,7 @@ Als u een Jupyter-notebook gebruikt dat is geconfigureerd voor uw HDInsight Spar
 
 8. Als u van plan bent de volgende stappen op een later tijdstip uit te voeren, zorg er dan voor dat u het HDInsight-cluster dat u in dit artikel hebt gemaakt, verwijdert. 
 
-    [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="next-step"></a>Volgende stap 
 

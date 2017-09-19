@@ -1,4 +1,4 @@
-Implementatiereferenties maken met de opdracht [az webapp deployment user set](/cli/azure/webapp/deployment/user#set).
+Maak in de Cloud Shell implementatiereferenties met de opdracht [az webapp deployment user set](/cli/azure/webapp/deployment/user#set).
 
 Een implementatiegebruiker is vereist voor FTP- en lokale Git-implementatie naar een webtoepassing. De gebruikersnaam en het wachtwoord staan op accountniveau. _Deze verschillen van de referenties van uw Azure-abonnement._
 
