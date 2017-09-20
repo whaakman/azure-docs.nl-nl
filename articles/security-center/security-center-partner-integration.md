@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 09/12/2017
 ms.author: yurid
 ms.translationtype: HT
 ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
@@ -71,7 +71,7 @@ De inhoud die u ziet wanneer u Beveiligingsoplossingen opent, is afhankelijk van
 
 In de sectie **Verbonden oplossingen** ziet u alle beveiligingsoplossingen die op dat moment zijn verbonden met Security Center. 
 
-![Verbonden oplossingen](./media/security-center-partner-integration/security-center-partner-integration-fig10.png)
+![Verbonden oplossingen](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
 Welke informatie wordt weergegeven, is afhankelijk van de oplossing. De volgende informatie kan op elke tegel worden weergegeven:
 
@@ -106,7 +106,7 @@ Waarschuwingen van Azure AD Identity Protection lopen via de detectiepijp van Se
 
 U kunt Azure- en niet-Azure-computers toevoegen om te integreren met Security Center.  Het toevoegen van niet-Azure-computers betekent dat u een on-premises computer kunt toevoegen, of een apparaat dat ondersteuning biedt voor CEF. 
 
-![Gegevensbronnen](./media/security-center-partner-integration/security-center-partner-integration-fig11.png)
+![Gegevensbronnen](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
 
 ## <a name="see-also"></a>Zie ook

@@ -20,7 +20,6 @@ ms.openlocfilehash: 64af585f81d39daaa5373d7cf080404ee5f1b037
 ms.contentlocale: nl-nl
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="what-are-logic-apps"></a>Wat zijn Logic Apps?
 Logic Apps biedt een manier om schaalbare integraties en workflows in de cloud te vereenvoudigen en te implementeren. Het biedt een visuele designer om uw proces te modelleren en te automatiseren als een reeks stappen bekend als een werkstroom.  Er zijn [vele connectoren](../connectors/apis-list.md) in de cloud en on-premises om snel te integreren over services en protocollen.  Een logic app begint met een trigger (zoals 'Wanneer een account is toegevoegd aan Dynamics CRM') en na het starten kunnen vele combinaties van acties, conversies en voorwaardelijke logica beginnen.
@@ -73,7 +72,7 @@ In het onderstaande overzicht ziet u enkele belangrijke onderdelen van Logic App
 * [Meer informatie over hoe u Logic Apps kunt integreren in uw systemen](http://channel9.msdn.com/Events/Build/2016/P462)
 
 [biztalk]: logic-apps-enterprise-integration-accounts.md
-[appservice]: ../app-service/app-service-value-prop-what-is.md
+[appservice]: ../app-service/app-service-web-overview.md
 [create]: logic-apps-create-a-logic-app.md
 [managedapis]: ../connectors/apis-list.md
 [tpm]: logic-apps-enterprise-integration-accounts.md

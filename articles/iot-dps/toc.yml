@@ -33,8 +33,6 @@
   items:
     - name: Apparaatregistraties beheren
       href: how-to-manage-enrollments.md
-    - name: Gebruik HSM met SDK
-      href: use-hsm-with-sdk.md
 - name: Naslaginformatie
   items:
     - name: REST

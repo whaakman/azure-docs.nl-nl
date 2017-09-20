@@ -183,7 +183,7 @@
 ### [Leveren via download](media-services-deliver-asset-download.md)
 ### [Failoverscenario voor streamen](media-services-implement-failover.md)
 
-## Afspelen
+## Gebruiken
 ### [Media afspelen met bestaande spelers](media-services-playback-content-with-existing-players.md)
 ### [Media afspelen met Media Player](media-services-develop-video-players.md)
 ### Overige afspeelopties

@@ -142,7 +142,6 @@ Omdat u momenteel bent aangemeld als serverbeheerder, bent u gemachtigd om aanme
 
     ```sql
     CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 3. Tijdens het uitvoeren van een query voor de *SQL Data Warehouse-database* maakt u nu een databasegebruiker op basis van de aanmelding die u hebt gemaakt, om toegang te krijgen tot bewerkingen en deze uit te voeren voor de database.
