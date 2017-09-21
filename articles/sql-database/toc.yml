@@ -257,14 +257,6 @@
           href: sql-database-ssms-mfa-authentication-configure.md
     - name: Bedrijfscontinuïteit
       items:
-        - name: Kluis configureren - back-ups
-          href: sql-database-long-term-backup-retention-configure.md
-        - name: Geo-replicatie - Portal
-          href: sql-database-geo-replication-portal.md
-        - name: Eén tabel herstellen
-          href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-    - name: Gegevens laden en verplaatsen
-      items:
         - name: Gegevens laden met BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Gegevens laden met ADF

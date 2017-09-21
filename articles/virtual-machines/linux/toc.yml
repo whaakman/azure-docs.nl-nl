@@ -143,6 +143,8 @@
               href: agent-user-guide.md
             - name: Update van agent
               href: update-agent.md
+        - name: Gepland onderhoud
+          href: maintenance-notifications.md
         - name: Geplande gebeurtenissen
           href: scheduled-events.md
         - name: Metagegevens bewaken

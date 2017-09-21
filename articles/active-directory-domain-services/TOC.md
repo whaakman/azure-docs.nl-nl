@@ -7,16 +7,15 @@
 ## [Compatibele software van derden](active-directory-ds-compatible-software.md)
 
 # Aan de slag
-## Azure Portal (Preview)
-### [Taak 1: De basisinstellingen configureren](active-directory-ds-getting-started.md)
-### [Taak 2: De netwerkinstellingen configureren](active-directory-ds-getting-started-network.md)
-### [Taak 3: De beheergroep configureren en Azure AD Domain Services inschakelen](active-directory-ds-getting-started-admingroup.md)
-### [Taak 4: De DNS-instellingen voor het virtuele netwerk bijwerken](active-directory-ds-getting-started-dns.md)
-### [Taak 5: Wachtwoordsynchronisatie inschakelen](active-directory-ds-getting-started-password-sync.md)
+## [Taak 1: De basisinstellingen configureren](active-directory-ds-getting-started.md)
+## [Taak 2: De netwerkinstellingen configureren](active-directory-ds-getting-started-network.md)
+## [Taak 3: De beheergroep configureren en Azure AD Domain Services inschakelen](active-directory-ds-getting-started-admingroup.md)
+## [Taak 4: De DNS-instellingen voor het virtuele netwerk bijwerken](active-directory-ds-getting-started-dns.md)
+## [Taak 5: Wachtwoordsynchronisatie inschakelen](active-directory-ds-getting-started-password-sync.md)
 
 # Procedures
 ## Een beheerd domein koppelen
-### [Een Windows Server-VM aan een domein toevoegen](active-directory-ds-admin-guide-join-windows-vm.md)
+### [Een Windows Server-VM aan een domein toevoegen](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Een Windows Server-VM aan een domein toevoegen met PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Een Linux-VM aan een domein toevoegen](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Een beheerd domein beheren

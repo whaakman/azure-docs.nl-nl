@@ -3,7 +3,7 @@
 ## [Schijven en VHD's](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Virtuele netwerken](../../../virtual-network/virtual-networks-overview.md)
 ## [Veelgestelde vragen](faq.md)
-## [VM's, websites en cloudservices vergelijken](../../../app-service-web/choose-web-site-cloud-service-vm.md)
+## [VM's, websites en cloudservices vergelijken](../../../app-service/choose-web-site-cloud-service-vm.md)
 ## [Containers](../../virtual-machines-windows-containers.md)
 
 # Aan de slag
