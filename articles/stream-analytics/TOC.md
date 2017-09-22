@@ -27,7 +27,7 @@
 ### [Uitvoer maken](stream-analytics-define-outputs.md)
 ### [Uitvoer naar Azure Functions](stream-analytics-functions-redis.md)
 ### [Uitvoer naar Data Lake Store](stream-analytics-data-lake-output.md)
-### [Uitvoer naar DocumentDB](stream-analytics-documentdb-output.md)
+### [Uitvoer naar Cosmos DB](stream-analytics-documentdb-output.md)
 
 ## Bewaken en optimaliseren
 ### [Waarschuwingen toevoegen](stream-analytics-set-up-alerts.md)

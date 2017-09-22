@@ -12,8 +12,9 @@
 ### [1 - Een .NET-toepassing maken](service-fabric-tutorial-create-dotnet-app.md)
 ### [2 - De toepassing implementeren](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 ### [3 - CI/CD configureren](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+### [4- Bewaken en diagnoses uitvoeren](service-fabric-tutorial-monitoring-aspnet.md)
 
-## Een toepassing migreren via lift-and-shift
+## Een bestaande .NET-app in een container plaatsen
 ### [1 - Een beveiligd cluster maken in Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2 - Een .NET-toepassing implementeren met behulp van Docker Compose](service-fabric-host-app-in-a-container.md)
 

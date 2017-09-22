@@ -4,6 +4,30 @@
   items:
     - name: Over Content Moderator
       href: overview.md
+- name: Snelstartgidsen
+  items:
+    - name: Beoordelingsprogramma
+      href: quick-start.md
+    - name: Beheer-API's
+      items:
+        - name: Afbeeldingen-API
+          href: try-image-api.md
+        - name: Afbeeldingenlijst-API
+          href: try-image-list-api.md
+        - name: Tekst-API
+          href: try-text-api.md
+        - name: Terminologielijst-API
+          href: try-terms-list-api.md
+    - name: Beoordelings-API's
+      items:
+        - name: Taken
+          href: try-review-api-job.md
+        - name: Beoordelingen
+          href: try-review-api-review.md
+        - name: Werkstromen
+          href: try-review-api-workflow.md
+- name: Concepten
+  items:
     - name: Beheer van afbeeldingen
       href: image-moderation-api.md
     - name: Beheer van tekst
@@ -14,31 +38,9 @@
       href: video-moderation-api.md
     - name: Beoordelings-API's
       href: review-api.md
-- name: Aan de slag
+- name: Handleidingen
   items:
-    - name: Het beoordelingsprogramma
-      href: quick-start.md
-    - name: De beheer-API 's uitproberen
-      items:
-        - name: Installatiekopieën
-          href: try-image-api.md
-        - name: Lijst met installatiekopieën
-          href: try-image-list-api.md
-        - name: Tekst
-          href: try-text-api.md
-        - name: Terminologielijsten
-          href: try-terms-list-api.md
-    - name: De beoordelings-API's uitproberen
-      items:
-        - name: Taken
-          href: try-review-api-job.md
-        - name: Beoordelingen
-          href: try-review-api-review.md
-        - name: Werkstromen
-          href: try-review-api-workflow.md
-- name: Procedures
-  items:
-    - name: Het beoordelingsprogramma gebruiken
+    - name: Beoordelingsprogramma
       items:
         - name: Human-in-the-loop
           href: Review-Tool-User-Guide/human-in-the-loop.md

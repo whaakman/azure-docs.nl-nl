@@ -1,12 +1,17 @@
 # Overzicht
 ## [Ontwikkelaarsgids](azure-developer-guide.md) 
+### [Wat is Azure?](azure-developer-guide.md#what-is-azure)
+### [Waar moet ik beginnen?](azure-developer-guide.md#where-do-i-start)
+### [Azure-regio's](azure-developer-guide.md#azure-regions)
+### [Hoe kan ik mijn toepassingen en projecten beheren?](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
+### [Inzicht in accounts, abonnementen en facturering](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
 
-## [Overzicht van Azure-services](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure)
-## [Overzicht van Portal](https://docs.microsoft.com/azure/azure-portal-overview)
+## [Overzicht van Azure-services](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [Overzicht van Portal](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [SDK's en hulpprogramma's](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Snelstartgids
-## [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-html)
+## [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)
 ## Virtuele machines
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
@@ -17,10 +22,10 @@
 
 # Zelfstudies
 ## Een web-app maken en implementeren
-### [.NET met SQL-database](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase)
-### [Node.js met Mongo-database](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app)
-### [PHP met MySQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-php-mysql)
-### [Java met MySQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-java-mysql)
+### [.NET met SQL-database](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
+### [Node.js met Mongo-database](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+### [PHP met MySQL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-php-mysql)
+### [Java met MySQL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-java-mysql)
 ## Complexe VM-sjablonen implementeren
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -29,25 +34,25 @@
 
 # Voorbeelden
 ## Azure CLI
-### [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-cli-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
 ### [Linux-VM](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Windows-VM](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
 ## PowerShell
-### [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-powershell-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
 ### [Linux-VM](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Windows-VM](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
 # Concepten
 ## [Facturering en abonnementen](https://docs.microsoft.com/azure/billing/billing-getting-started)
-## [Hosting-vergelijkingen](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm)
-## [Wat is App Service?](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is)
+## [Hosting-vergelijkingen](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
+## [Wat is App Service?](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
 ## Virtuele machines
 ### [Virtuele Linux-machines](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 ### [Virtuele Windows-machines](https://docs.microsoft.com/azure/virtual-machines/windows/overview)
 ## [Overzicht Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
 
 # Handleidingen
-## [Plannen](https://docs.microsoft.com/azure/architecture/guide/)
+## Plannen
 ### [Webtoepassingsarchitecturen](https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/)
 ### [VM-architecturen](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/)
 ### [Verbinding maken met on-premises-netwerken](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
@@ -58,7 +63,7 @@
 ### [Serverloze apps](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [Microservices-cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## Implementeren
-### [Web- en mobiele apps vanuit broncodebeheer](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment)
+### [Web- en mobiele apps vanuit broncodebeheer](https://docs.microsoft.com/azure/app-service/app-service-continuous-deployment)
 ### [Microservices lokaal](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
 ### [Linux-VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows-VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -71,26 +76,25 @@
 ### [Berichtenwachtrijen](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 
 ## Schalen
-### [Web- en mobiele apps](https://docs.microsoft.com/azure/app-service-web/web-sites-scale)
+### [Web- en mobiele apps](https://docs.microsoft.com/azure/app-service/web-sites-scale)
 ### [Virtuele machines](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)
 ### [Microservice-apps](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-scalability)
 
 ## Beveiligen
-### [Web- en mobiele apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-custom-ssl)
+### [Web- en mobiele apps](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
 ## Back-up maken
-### [Web- en mobiele apps](https://docs.microsoft.com/azure/app-service-web/web-sites-backup)
+### [Web- en mobiele apps](https://docs.microsoft.com/azure/app-service/web-sites-backup)
 ### [Virtuele machines](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
 ## Bewaken
-### [Web- en mobiele apps](https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log)
+### [Web- en mobiele apps](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)
 ### [Linux-VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring)
 ### [Windows-VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring)
 ### [Microservices](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)
 ### [Meldingen voor facturering](https://docs.microsoft.com/azure/billing/billing-set-up-alerts)
 
 ## Automatiseren
-### [Flexibele web-app-ontwikkeling](https://docs.microsoft.com/azure/app-service-web/app-service-agile-software-development)
 ### [Schaal van Linux-VM aanpassen](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-create-vmss)
 ### [Schaal van Windows-VM aanpassen](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-create-vmss)
 

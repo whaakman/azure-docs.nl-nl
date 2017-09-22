@@ -27,6 +27,7 @@
 ### [Als u Azure AD al hebt](active-directory-aadconnect-existing-tenant.md)
 ## [Azure AD Connect beheren](active-directory-aadconnect-whats-next.md)
 ### [Certificaten vernieuwen voor O365 en Azure AD](active-directory-aadconnect-o365-certs.md)
+### [Het SSL-certificaat voor een Active Directory Federation Services (AD FS)-farm bijwerken](active-directory-aadconnectfed-ssl-update.md)
 ### [Write-back van apparaat inschakelen](active-directory-aadconnect-feature-device-writeback.md)
 ### [Aanmeldingsopties voor gebruiker](active-directory-aadconnect-user-signin.md)
 #### [Naadloze eenmalige aanmelding](active-directory-aadconnect-sso.md)

@@ -42,6 +42,7 @@
 #### [Licentieproblemen in een groep vaststellen en oplossen](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
 #### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
+#### [Gebruiksvoorwaarden bieden voor gebruikers en apps](active-directory-tou.md)
 #### [PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
 ### [Gebruikers uit andere directory's toevoegen (klassieke portal)](active-directory-create-users-external.md)
 ### [Gebruikersprofielen beheren](active-directory-users-profile-azure-portal.md)
@@ -197,6 +198,7 @@
 #### [Al mijn apps weergeven](active-directory-coreapps-view-azure-portal.md)
 #### [Inrichting van gebruikersaccount beheren](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Eenmalige aanmelding voor zakelijke apps beheren](active-directory-enterprise-apps-manage-sso.md)
+#### [Geavanceerde certificaatondertekening voor SAML-apps](active-directory-enterprise-apps-advance-certificate-options.md)
 
 ### [Toegang tot apps beheren](active-directory-managing-access-to-apps.md)
 #### [Selfservice toegang](active-directory-self-service-application-access.md)
@@ -273,6 +275,17 @@
 #### [Beheerdersrollen toewijzen](active-directory-users-assign-role-azure-portal.md)
 ### [Beheereenheden](active-directory-administrative-units-management.md)
 ### [De levensduur van tokens configureren](active-directory-configurable-token-lifetimes.md)
+
+## Toegangsbeoordelingen
+### [Overzicht toegangsbeoordelingen](active-directory-azure-ad-controls-access-reviews-overview.md)
+### [Complete an access review](active-directory-azure-ad-controls-complete-access-review.md) (Een toegangscontrole voltooien)
+### [Create an access review](active-directory-azure-ad-controls-create-access-review.md) (Een toegangscontrole maken)
+### [How to perform an access review](active-directory-azure-ad-controls-perform-access-review.md) (Een toegangscontrole uitvoeren)
+### [Uw toegang controleren](active-directory-azure-ad-controls-how-to-review-your-access.md)
+### [Toegang voor gasten met toegangsbeoordelingen](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
+### [Gebruikerstoegang met beoordelingen beheren](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
+### [Programma's en besturingselementen beheren](active-directory-azure-ad-controls-manage-programs-controls.md)
+
 
 ## Uw identiteiten beveiligen
 ### [Voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md)

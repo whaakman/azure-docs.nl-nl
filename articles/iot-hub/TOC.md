@@ -32,6 +32,7 @@
 ##### [Intel NUC instellen als gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [De gateway aan IoT Hub koppelen](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [De gateway gebruiken voor gegevensconversie](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Problemen oplossen](iot-hub-gateway-kit-c-troubleshooting.md)
 
 ## Uitgebreide IoT-scenario 's
 ### [Berichten op cloudapparaten beheren met iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -82,7 +83,9 @@
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
-### [Bestanden vanaf apparaten uploaden](iot-hub-csharp-csharp-file-upload.md)
+### [Bestanden vanaf apparaten uploaden]
+#### [.NET](iot-hub-csharp-csharp-file-upload.md)
+#### [Java](iot-hub-java-java-file-upload.md)
 ### Aan de slag met apparaatdubbels
 #### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-twin-getstarted.md)
 #### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-twin-getstarted.md)
@@ -96,11 +99,13 @@
 ### Aan de slag met apparaatbeheer
 #### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-device-management-get-started.md)
 #### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-device-management-get-started.md)
+#### [.NET-back-end/.NET-apparaat](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java-back-end/Java-apparaat](iot-hub-java-java-device-management-getstarted.md)
 ### Dubbeleigenschappen gebruiken
 #### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [.NET-back-end/.NET-apparaat](iot-hub-csharp-csharp-twin-how-to-configure.md)
+#### [Java-back-end/Java-apparaat](iot-hub-java-java-twin-how-to-configure.md)
 ### Apparaattaken gebruiken om apparaatfirmware bij te werken
 #### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-firmware-update.md)
 #### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-firmware-update.md)

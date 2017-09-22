@@ -1,0 +1,134 @@
+- name: App Service-omgeving
+- name: Overzicht
+  items:
+    - name: Over App Service-omgevingen
+      href: intro.md
+    - name: Hostingopties vergelijken
+      href: ../choose-web-site-cloud-service-vm.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: Een app maken in een App Service-omgeving
+      href: create-external-ase.md
+    - name: Op basis van een sjabloon maken
+      href: create-from-template.md
+- name: Zelfstudies
+  items:
+    - name: Een geïsoleerde-app maken
+      href: create-ilb-ase.md
+    - name: Met een WAP integreren
+      href: app-service-app-service-environment-web-application-firewall.md
+    - name: Inkomend verkeer naar een openbare app beheren
+      href: app-service-app-service-environment-control-inbound-traffic.md
+    - name: Uitschalen van een app in de AS-omgeving
+      href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
+- name: Voorbeelden
+  items:
+    - name: Azure CLI
+      href: ../app-service-cli-samples.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+    - name: PowerShell
+      href: ../app-service-powershell-samples.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+- name: Concepten
+  items:
+    - name: Netwerkarchitectuur
+      href: network-info.md
+    - name: Beheeradressen
+      href: management-addresses.md
+    - name: Geografisch verdeelde schaal
+      href: app-service-app-service-environment-geo-distributed-scale.md
+    - name: ASEv1
+      items:
+        - name: Inleiding tot ASEv1
+          href: app-service-app-service-environment-intro.md
+        - name: Netwerkarchitectuur
+          href: app-service-app-service-environment-network-architecture-overview.md
+- name: Handleidingen
+  items:
+    - name: ASE configureren
+      items:
+        - name: Een ASE gebruiken
+          href: using-an-ase.md
+        - name: Verbinding maken met back-end
+          href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
+        - name: ExpressRoute configureren
+          href: app-service-app-service-environment-network-configuration-expressroute.md
+    - name: ASE beveiligen
+      items:
+        - name: TLS configureren
+          href: app-service-app-service-environment-custom-settings.md
+        - name: Gelaagde beveiliging gebruiken
+          href: app-service-app-service-environment-layered-security.md
+    - name: ASE controleren
+      items:
+        - name: Controleren in de portal
+          href: app-service-web-configure-an-app-service-environment.md
+    - name: ASE1 gebruiken
+      items:
+        - name: Automatische schaalaanpassing configureren
+          href: app-service-environment-auto-scale.md
+        - name: ASEv1 maken
+          href: app-service-web-how-to-create-an-app-service-environment.md
+        - name: Een web-app maken in ASEv1
+          href: app-service-web-how-to-create-a-web-app-in-an-ase.md
+        - name: Een interne app maken in ASEv1
+          href: app-service-environment-with-internal-load-balancer.md
+        - name: Een interne app maken op basis van een sjabloon
+          href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
+        - name: Hosting met hoge dichtheid
+          href: app-service-high-density-hosting.md
+- name: Naslaginformatie
+  items:
+    - name: CLI 2.0
+      href: /cli/azure/appservice
+    - name: PowerShell
+      href: /powershell
+    - name: REST API
+      href: /rest/api/appservice/
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/app-service/'
+    - name: Quotumgegevens
+      href: '../../azure-subscription-service-limits.md#app-service-limits'
+    - name: Service-updates en release-opmerkingen
+      href: 'https://azure.microsoft.com/updates/?product=app-service'
+    - name: Aanbevolen procedures
+      href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+    - name: Voorbeelden
+      href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
+    - name: Video's
+      items:
+        - name: Azure-video's
+          href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
+        - name: Gebruik moderne PaaS voor bedrijven met Azure App Service
+          href: 'https://channel9.msdn.com/Events/Ignite/2016/BRK3205/player'
+        - name: Zeer schaalbare en beveiligde apps implementeren
+          href: 'https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player'
+        - name: Web- en mobiele apps voor bedrijven uitvoeren op Azure App Service
+          href: 'https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player'
+    - name: Kookboeken
+      items:
+        - name: Implementatiescripts
+          href: 'https://azure.microsoft.com/documentation/scripts/'
+    - name: Problemen oplossen
+      items:
+        - name: Problemen met Visual Studio oplossen
+          href: ../web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        - name: Problemen met Node.js-app oplossen
+          href: ../app-service-web-nodejs-best-practices-and-troubleshoot-guide.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        - name: Problemen met HTTP 502 en 503 oplossen
+          href: ../app-service-web-troubleshoot-http-502-http-503.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        - name: Prestatieproblemen oplossen
+          href: ../app-service-web-troubleshoot-performance-degradation.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        - name: Veelgestelde vragen
+          items:
+            - name: 'Veelgestelde vragen over beschikbaarheid, prestaties en toepassing'
+              href: ../app-service-web-availability-performance-application-issues-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+            - name: Veelgestelde vragen over implementatie
+              href: ../app-service-web-deployment-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+            - name: Veelgestelde vragen over open-sourcetechnologieën
+              href: ../app-service-web-open-source-technologies-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+            - name: Veelgestelde vragen over configuratie en beheer
+              href: ../app-service-web-configuration-and-management-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
