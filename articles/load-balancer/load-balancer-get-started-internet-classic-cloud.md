@@ -3,7 +3,7 @@ title: Een internetgerichte load balancer maken voor Azure Cloud Services | Micr
 description: Meer informatie over het maken van een internetgerichte load balancer in het klassieke implementatiemodel voor cloudservices
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 0bb16f96-56a6-429f-88f5-0de2d0136756
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 1ceaafebcaebecb04314c7da62c69b2e9b5ba39a
+ms.contentlocale: nl-nl
+ms.lasthandoff: 01/24/2017
 
 ---
 
@@ -89,10 +91,5 @@ Controleer het schema van de servicedefinitie voor de [statustest](https://msdn.
 [Een distributiemodus voor de load balancer configureren](load-balancer-distribution-mode.md)
 
 [TCP-time-outinstellingen voor inactiviteit voor de load balancer configureren](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

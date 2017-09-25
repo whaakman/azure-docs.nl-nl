@@ -3,7 +3,7 @@ title: Een internetgerichte load balancer maken - Azure Cloud Services | Microso
 description: Meer informatie over hoe u met PowerShell een interne load balancer maakt in het klassieke implementatiemodel
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d

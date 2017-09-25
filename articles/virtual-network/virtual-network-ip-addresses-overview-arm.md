@@ -147,4 +147,3 @@ Openbare IP-adressen kunnen een kostprijs hebben. Voor meer informatie over prij
 * [Een virtuele machine met een statisch openbaar IP-adres implementeren via Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 * [Een virtuele machine met een statisch openbaar IP-adres implementeren met een sjabloon](virtual-network-deploy-static-pip-arm-template.md)
 * [Een virtuele machine met een statisch privé-IP-adres implementeren via Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
-
