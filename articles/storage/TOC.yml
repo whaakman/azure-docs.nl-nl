@@ -1,3 +1,5 @@
+- name: Documentatie bij Azure Storage
+  href: index.yml
 - name: Overzicht
   items:
     - name: Inleiding

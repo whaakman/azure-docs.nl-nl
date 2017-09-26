@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: ff03ce6463176bad8e8d89985441d23c7d76b183
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8b3a538fc0fe34d0b7af8a99510cfb19abd32d55
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
@@ -39,7 +39,7 @@ Azure Analysis Services is compatibel met veel geweldige functies die al deel ui
 De tabellaire modellen kunnen snel worden ontwikkeld en zijn in hoge mate aanpasbaar. Voor ontwikkelaars bevatten de tabellaire modellen ook Tabular Object Model (TOM) om modelobjecten te beschrijven. TOM wordt in JSON weergegeven via [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) en in de AMO Data Definition Language met behulp van de naamruimte [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx).
 
 ## <a name="better-with-azure"></a>Beter met Azure
-Azure Analysis Services kan worden geïntegreerd met veel Azure-services, zodat u geavanceerde analyseoplossingen kunt creëren. Integratie met [Azure Active Directory](../active-directory/active-directory-whatis.md) biedt beveiligde, op rollen gebaseerde toegang tot kritieke gegevens. Integreer met [Azure Data Factory](../data-factory/data-factory-introduction.md)-pijplijnen door een activiteit toe te voegen die gegevens in het model laadt. [Azure Automation](../automation/automation-intro.md) en [Azure Functions](../azure-functions/functions-overview.md) kunnen worden gebruikt voor de eenvoudige indeling van modellen met behulp van aangepaste code.
+Azure Analysis Services kan worden geïntegreerd met veel Azure-services, zodat u geavanceerde analyseoplossingen kunt creëren. Integratie met [Azure Active Directory](../active-directory/active-directory-whatis.md) biedt beveiligde, op rollen gebaseerde toegang tot kritieke gegevens. Integreer met [Azure Data Factory](../data-factory/introduction.md)-pijplijnen door een activiteit toe te voegen die gegevens in het model laadt. [Azure Automation](../automation/automation-intro.md) en [Azure Functions](../azure-functions/functions-overview.md) kunnen worden gebruikt voor de eenvoudige indeling van modellen met behulp van aangepaste code.
 
 ## <a name="get-up-and-running-quickly"></a>Snel aan de slag
 In Azure Portal kunt u binnen enkele minuten [een server maken](analysis-services-create-server.md). En met behulp van Azure Resource Manager-[sjablonen](../azure-resource-manager/resource-manager-create-first-template.md) en PowerShell kunt u servers inrichten aan de hand van een declaratieve sjabloon. Met één enkele sjabloon kunt u meerdere services implementeren, samen met andere Azure-onderdelen, zoals opslagaccounts en Azure Functions. 

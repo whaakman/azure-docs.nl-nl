@@ -21,7 +21,7 @@
       > 
    7. Klik op het vinkje om aan te geven dat u begrijpt dat de gegevens die zijn opgeslagen op de virtuele apparaat, in een Microsoft-datacenter worden gehost. Wanneer u alleen een fysiek apparaat gebruikt, wordt de versleutelingssleutel op uw apparaat opgeslagen. Daarom kan Microsoft deze niet ontsleutelen. 
       
-       Wanneer u een virtueel apparaat gebruikt, worden zowel de versleutelingssleutel als de ontsleutelingssleutel opgeslagen in Microsoft Azure. Zie de [beveiligingsoverwegingen voor het gebruik van een virtueel apparaat](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security) voor meer informatie.
+       Wanneer u een virtueel apparaat gebruikt, worden zowel de versleutelingssleutel als de ontsleutelingssleutel opgeslagen in Microsoft Azure. Zie de [beveiligingsoverwegingen voor het gebruik van een virtueel apparaat](../articles/storsimple/storsimple-security.md) voor meer informatie.
    8. Klik op het vinkje om het virtuele apparaat te maken. Het kan ongeveer 30 minuten duren voordat het apparaat is ingericht.
       
       ![Aanmaakfase voor een virtueel StorSimple-apparaat](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)

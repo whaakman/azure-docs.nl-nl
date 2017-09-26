@@ -42,7 +42,7 @@
 #### [Een functie en taken uitvoeren](./scripts/batch-cli-sample-run-job.md)
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
-## [PowerShell](/powershell/module/azurerm.batch)
+## [Azure PowerShell](/powershell/module/azurerm.batch)
 ## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
@@ -63,8 +63,8 @@
 
 # Verwant
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
-## [Gegevensverwerking met Batch en Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Batch-, HPC- en Big Compute-oplossingen in Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
+## [Gegevensverwerking met Batch en Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
+## [Batch- en HPC-oplossingen in de Azure-cloud](batch-hpc-solutions.md)
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)

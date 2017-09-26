@@ -20,7 +20,7 @@
    7. Selecteer het selectievakje om aan te geven dat u begrijpt dat de gegevens die zijn opgeslagen op het cloudapparaat in een Microsoft-datacenter worden gehost.
        * Wanneer u alleen een fysiek apparaat gebruikt, wordt de versleutelingssleutel op uw apparaat opgeslagen. Daarom kan Microsoft deze niet ontsleutelen.
 
-       * Wanneer u een cloudapparaat gebruikt, worden zowel de versleutelingssleutel als de ontsleutelingssleutel opgeslagen in Microsoft Azure. Zie de [beveiligingsoverwegingen voor het gebruik van een cloudapparaat](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security) voor meer informatie.
+       * Wanneer u een cloudapparaat gebruikt, worden zowel de versleutelingssleutel als de ontsleutelingssleutel opgeslagen in Microsoft Azure. Zie de [beveiligingsoverwegingen voor het gebruik van een cloudapparaat](../articles/storsimple/storsimple-security.md) voor meer informatie.
    8. Klik op **Maken** om het cloudapparaat in te richten. Het kan ongeveer 30 minuten duren voordat het apparaat is ingericht. U krijgt een melding wanneer het cloudapparaat is gemaakt. Ga naar de blade Apparaten. De lijst met apparaten wordt vernieuwd en het cloudapparaat wordt weergegeven. De status van het apparaat is **Gereed voor configuratie**.
       
       ![StorSimple-cloudapparaat - gereed voor configuratie](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)

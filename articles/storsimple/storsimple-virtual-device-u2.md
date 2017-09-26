@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: f9a9ff81913dda1457123525fe509d194798db14
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Een virtueel StorSimple-apparaat implementeren en beheren in Azure
@@ -64,7 +64,7 @@ In de volgende tabel ziet u enkele belangrijke verschillen tussen het virtuele S
 | **Gegevensversleutelingssleutel van service** |Genereer de sleutel opnieuw op het fysieke apparaat en werk het virtuele apparaat daarna bij met de nieuwe sleutel. |Het is niet mogelijk om sleutels opnieuw te genereren op het virtuele apparaat. |
 
 ## <a name="prerequisites-for-the-virtual-device"></a>Vereisten voor het virtuele apparaat
-In de volgende gedeelten worden de configuratievereisten voor het virtuele StorSimple-apparaat toegelicht. Zie [Beveiligingsoverwegingen voor het gebruik van een virtueel apparaat](storsimple-security.md#storsimple-virtual-device-security) voordat u een virtueel apparaat implementeert.
+In de volgende gedeelten worden de configuratievereisten voor het virtuele StorSimple-apparaat toegelicht. Zie [Beveiligingsoverwegingen voor het gebruik van een virtueel apparaat](storsimple-security.md) voordat u een virtueel apparaat implementeert.
 
 #### <a name="azure-requirements"></a>Azure-vereisten
 Voordat u het virtuele apparaat inricht, moet u de volgende voorbereidingen treffen in uw Azure-omgeving:

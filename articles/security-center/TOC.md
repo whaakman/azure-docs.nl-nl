@@ -74,6 +74,7 @@
 
 ## Cloudbeveiliging
 ### [Just-in-time-toegang](security-center-just-in-time.md)
+### [Adaptieve toepassingsbesturingselementen](security-center-adaptive-application.md)
 
 ## Automatisering en indeling
 ### [Playbooks](security-center-playbooks.md)

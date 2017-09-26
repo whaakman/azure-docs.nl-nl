@@ -4,16 +4,16 @@
 # Aan de slag
 ## [Azure Portal](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-## [PowerShell](data-lake-analytics-get-started-powershell.md)
-## [Azure CLI 2.0](data-lake-analytics-get-started-cli2.md)
+## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
+## [Azure CLI](data-lake-analytics-get-started-cli2.md)
 
 # Procedures
 
 ## Data Lake Analytics-accounts beheren
 ### [Azure Portal](data-lake-analytics-manage-use-portal.md)
 ### [Azure CLI](data-lake-analytics-manage-use-cli.md)
-### [PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [.NET-SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
+### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
 ### [Python SDK](data-lake-analytics-manage-use-python-sdk.md)
 ### [Java-SDK](data-lake-analytics-manage-use-java-sdk.md)
 ### [Node.js](data-lake-analytics-manage-use-nodejs.md)
@@ -41,12 +41,12 @@
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-analytics)
-## [PowerShell](/powershell/module/azurerm.datalakeanalytics)
+## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
 ## [REST](/rest/api/datalakeanalytics/)
-## [CLI 2.0](https://docs.microsoft.com/cli/azure/dla)
+## [CLI](https://docs.microsoft.com/cli/azure/dla)
 
 # Resources
 ## [Azure Data Lake-blog](https://blogs.msdn.microsoft.com/azuredatalake/)

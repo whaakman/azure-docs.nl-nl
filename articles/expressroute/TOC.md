@@ -18,23 +18,23 @@
 # Procedures
 ## Een circuit maken en wijzigen
 ### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-circuit-arm.md)
-### [Azure-CLI](howto-circuit-cli.md)
+### [Azure PowerShell](expressroute-howto-circuit-arm.md)
+### [Azure CLI](howto-circuit-cli.md)
 ## Een peeringconfiguratie maken en wijzigen
 ### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-routing-arm.md)
-### [Azure-CLI](howto-routing-cli.md)
+### [Azure PowerShell](expressroute-howto-routing-arm.md)
+### [Azure CLI](howto-routing-cli.md)
 ## Een virtueel netwerk koppelen aan een ExpressRoute-circuit
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-linkvnet-arm.md)
-### [Azure-CLI](howto-linkvnet-cli.md)
+### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
+### [Azure CLI](howto-linkvnet-cli.md)
 ## Een virtuele netwerkgateway configureren voor ExpressRoute
 ### [Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
+### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Gelijktijdige ExpressRoute- en site-to-site-verbindingen configureren](expressroute-howto-coexist-resource-manager.md)
 ## Routefilters voor Microsoft-peering configureren
 ### [Azure Portal](how-to-routefilter-portal.md)
-### [PowerShell](how-to-routefilter-powershell.md)
+### [Azure PowerShell](how-to-routefilter-powershell.md)
 ## [Een circuit van klassiek naar Resource Manager verplaatsen](expressroute-howto-move-arm.md)
 ## [Gekoppelde virtuele netwerken van het klassieke model naar Resource Manager migreren](expressroute-migration-classic-resource-manager.md)
 ## Een router voor ExpressRoute configureren
@@ -53,7 +53,7 @@
 ### [ARP-tabellen ophalen (klassiek)](expressroute-troubleshooting-arp-classic.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
+## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
 ## [Azure CLI](/cli/azure/network/express-route)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (klassiek)](https://msdn.microsoft.com/library/azure/dn606310)

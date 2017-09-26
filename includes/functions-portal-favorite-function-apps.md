@@ -1,16 +1,16 @@
-## <a name="add-function-apps-to-your-portal-favorites"></a>Functie-apps toevoegen aan uw favorieten in de portal 
+## <a name="favorite-functions-in-the-portal"></a>Favorite Functions in the portal 
 
-Als u dit nog niet hebt gedaan, kunt u functie-apps toevoegen aan uw favorieten in Azure Portal. Zo kunt u uw functie-apps gemakkelijker vinden. Als u dit al hebt gedaan, gaat u naar de volgende sectie. 
+If you haven't already done so, add Function Apps to your favorites in the Azure portal. This makes it easier to find your function apps. If you have already done this, skip to the next section. 
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+1. Log in to the [Azure portal](https://portal.azure.com/).
 
-2. Klik op de pijl linksonder om alle services uit te vouwen, typ `Functions` in het veld **Filter** en klik vervolgens op de ster naast **Functie-apps**.  
+2. Click the arrow at the bottom left to expand all services, type `Functions` in the **Filter** field, and then click the star next to **Function Apps**.  
  
-    ![Functie-app maken in Azure Portal](./media/functions-portal-favorite-function-apps/functions-favorite-function-apps.png)
+    ![Create function app in the Azure portal](./media/functions-portal-favorite-function-apps/functions-favorite-function-apps.png)
 
-    Hiermee wordt het pictogram Functies toegevoegd aan het menu aan de linkerkant van de portal.
+    This adds the Functions icon to the menu on the left of the portal.
 
-3. Sluit het menu en scrol omlaag naar het pictogram Functies. Klik op dit pictogram om een lijst met al uw functie-apps weer te geven. Klik op uw functie-app om met functies in deze app te werken. 
+3. Close the menu, then scroll down to the bottom to see the Functions icon. Click this icon to see a list of all your function apps. Click your function app to work with functions in this app. 
  
     ![](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
  

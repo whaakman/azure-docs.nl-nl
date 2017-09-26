@@ -21,7 +21,7 @@
 ### [Uitgaande verificatie](scheduler-outbound-authentication.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/module/azurerm.scheduler)
+## [Azure PowerShell](/powershell/module/azurerm.scheduler)
 ## [REST](/rest/api/scheduler)
 
 # Resources

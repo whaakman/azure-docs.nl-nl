@@ -9,10 +9,10 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c8c76944f4a95d3c8181454a7103ea0a3022189a
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 9a5bbb1ecd3886a1453986c2deadb7b35e54b67b
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 08/21/2017
 
 Het verwerken van parallelle workloads met Azure Batch gebeurt gewoonlijk op programmatische wijze met behulp van een van de [Batch-API's](#batch-development-apis). Uw clienttoepassing of -service kan de Batch-API's gebruiken om met de Batch-service te communiceren. Met de Batch-API's kunt u pools van rekenknooppunten maken en beheren, ofwel virtuele machines ofwel cloudservices. Vervolgens kunt u jobs en taken plannen voor uitvoering op deze knooppunten. 
 
-U kunt voor uw organisatie efficiënt grootschalige workloads verwerken of uw klanten een front-endservice aanbieden, zodat zij (op aanvraag of gepland) jobs en taken kunnen uitvoeren op één knooppunt of honderden of zelfs duizenden knooppunten. U kunt Azure Batch ook gebruiken als onderdeel van een grotere werkstroom, beheerd door hulpprogramma's zoals [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json).
+U kunt voor uw organisatie efficiënt grootschalige workloads verwerken of uw klanten een front-endservice aanbieden, zodat zij (op aanvraag of gepland) jobs en taken kunnen uitvoeren op één knooppunt of honderden of zelfs duizenden knooppunten. U kunt Azure Batch ook gebruiken als onderdeel van een grotere werkstroom, beheerd door hulpprogramma's zoals [Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json).
 
 > [!TIP]
 > Wanneer u gereed bent om met de Batch-API aan de slag te gaan en u te verdiepen in de mogelijkheden ervan, leest u het [Overzicht van de Batch-functies voor ontwikkelaars](batch-api-basics.md).
