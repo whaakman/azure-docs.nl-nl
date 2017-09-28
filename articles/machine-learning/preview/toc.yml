@@ -1,0 +1,177 @@
+- name: Documentatie voor Azure Machine Learning (preview)
+  href: index.yml
+- name: Overzicht
+  expanded: true
+  items:
+    - name: Wat is Azure Machine Learning?
+      href: overview-what-is-azure-ml.md
+    - name: Overzicht van modelbeheer
+      href: model-management-overview.md
+- name: Snelstartgidsen
+  items:
+    - name: Installeren en maken
+      href: quickstart-installation.md
+- name: Zelfstudies
+  items:
+    - name: 1 - Gegevens voorbereiden
+      href: tutorial-classifying-iris-part-1.md
+    - name: 2 - Een model bouwen
+      href: tutorial-classifying-iris-part-2.md
+    - name: 3 - Een model implementeren
+      href: tutorial-classifying-iris-part-3.md
+    - name: 4 - Geavanceerde gegevensvoorbereiding
+      href: tutorial-bikeshare-dataprep.md
+- name: Concepten
+  items:
+    - name: Belangrijkste concepten
+      href: overview-general-concepts.md
+- name: Handleidingen
+  items:
+    - name: Machine Learning Workbench gebruiken
+      items:
+        - name: Werken met Python IDE's
+          href: how-to-configure-your-IDE.md
+        - name: Jupyter Notebook gebruiken
+          href: how-to-use-jupyter-notebooks.md
+        - name: Integreren met een Git-opslagplaats
+          href: using-git-ml-project.md
+        - name: Een project structureren met TDSP
+          href: how-to-use-tdsp-in-azure-ml.md
+        - name: Hoe werkt roaming en samenwerking?
+          href: roaming-and-collaboration.md
+    - name: Visual Studio-hulpprogramma's gebruiken
+      href: quickstart-visual-studio-tools.md
+    - name: Compute-omgeving configureren
+      items:
+        - name: Uitvoeringsdoelen configureren
+          href: experiment-execution-configuration.md
+        - name: Trainen met GPU's
+          href: how-to-use-gpu.md
+    - name: Gegevens ophalen en begrijpen
+      items:
+        - name: Toegang tot gegevens met de Wizard gegevensbron
+          href: data-source-wizard.md
+        - name: Aan de slag met gegevensvoorbereiding
+          href: data-prep-getting-started.md
+        - name: Handleiding voor gegevensvoorbereiding
+          href: data-prep-user-guide.md
+        - name: Transformaties voor gegevensvoorbereiding
+          items:
+            - name: Kolommen combineren per voorbeeld
+              href: data-prep-combine-columns-by-example.md
+            - name: Kolom afleiden per voorbeeld
+              href: data-prep-derive-column-by-example.md
+            - name: Kolom splitsen per voorbeeld
+              href: data-prep-split-column-by-example.md
+            - name: JSON uitbreiden
+              href: data-prep-expand-json.md
+    - name: Modellen ontwikkelen
+      items:
+        - name: Iris classificeren met CLI
+          href: tutorial-iris-azure-cli.md
+        - name: Uitvoeringsgeschiedenis en metrische gegevens van modellen bijhouden
+          href: how-to-use-run-history-model-metrics.md
+        - name: Bestanden lezen en schrijven
+          href: how-to-read-write-files.md
+        - name: MMLSpark-bibliotheek
+          href: how-to-use-mmlspark.md
+    - name: Modellen implementeren
+      items:
+        - name: Modelbeheer instellen
+          href: deployment-setup-configuration.md
+        - name: Een webservice implementeren
+          href: model-management-service-deploy.md
+        - name: Een webservice consumeren
+          href: model-management-consumption.md
+        - name: Modelgegevensverzameling gebruiken
+          href: how-to-use-model-data-collection.md
+    - name: Voorbeelden uit de praktijk
+      items:
+        - name: Analyse van documentverzamelingen
+          href: scenario-document-collection-analysis.md
+        - name: Q & A-overeenkomsten
+          href: scenario-qna-matching.md
+        - name: Voorspellend onderhoud
+          href: scenario-predictive-maintenance.md
+        - name: Afbeeldingsclassificatie van satelliet
+          href: scenario-aerial-image-classification.md
+        - name: Prognose voor serverworkload per terabytes aan gegevens
+          href: scenario-big-data.md
+        - name: Prognose van energiebehoefte van tijdreeks
+          href: scenario-time-series-forecasting.md
+        - name: Gedistribueerd afstemmen van hyperparameters
+          href: scenario-distributed-tuning-of-hyperparameters.md
+        - name: Voorspelling voor gebruikersverloop
+          href: scenario-churn-prediction.md
+        - name: Sentimentanalyse met Deep Learning
+          href: scenario-sentiment-analysis-deep-learning.md
+        - name: Herkenning biomedische entiteit - TDSP-project
+          href: scenario-tdsp-biomedical-recognition.md
+        - name: Inkomsten in VS classificeren - TDSP-project
+          href: scenario-tdsp-classifying-us-incomes.md
+- name: Naslaginformatie
+  items:
+    - name: Gegevensvoorbereiding
+      items:
+        - name: Python-uitbreidingen voor gegevensvoorbereiding
+          href: data-prep-python-extensibility-overview.md
+        - name: Ondersteunde gegevensbronnen
+          href: data-prep-appendix2-supported-data-sources.md
+        - name: Ondersteunde transformaties
+          href: data-prep-appendix3-supported-transforms.md
+        - name: Ondersteunde controles
+          href: data-prep-appendix4-supported-inspectors.md
+        - name: Ondersteunde gegevensbestemmingen
+          href: data-prep-appendix5-supported-destinations.md
+        - name: Ondersteunde combinaties van uitvoering en gegevensomgeving
+          href: data-prep-supported-runtime-data-environments.md
+        - name: Voorbeeld van filterexpressies in Python
+          href: data-prep-appendix6-sample-filter-expressions-python.md
+        - name: Voorbeeld van aangepaste transformaties voor gegevensstromen in Python
+          href: data-prep-appendix7-sample-transform-data-flow-python.md
+        - name: Voorbeeld van de bronverbindingen in Python
+          href: data-prep-appendix8-sample-source-connections-python.md
+        - name: Voorbeeld van de doelverbindingen in Python
+          href: data-prep-appendix9-sample-destination-connections-python.md
+        - name: Voorbeeld van kolomtransformaties in Python
+          href: data-prep-appendix10-sample-custom-column-transforms-python.md
+        - name: Uitvoerings-API voor gegevensvoorbereiding
+          href: data-prep-python-execution-api.md
+    - name: Experiment
+      items:
+        - name: Uitvoering van configuratie
+          href: experiment-execution-configuration-reference.md
+    - name: Modelbeheer
+      items:
+        - name: Modelbeheer-API
+          href: model-management-api-reference.md
+        - name: Modelbeheer-CLI
+          href: model-management-cli-reference.md
+        - name: Modelgegevensverzamelings-API
+          href: model-data-collection-api-reference.md
+- name: Resources
+  items:
+    - name: Veelgestelde vragen
+      href: frequently-asked-questions.md
+    - name: Gids met bekende problemen en probleemoplossing
+      href: known-issues-and-troubleshooting-guide.md
+    - name: Documentatie voor Team Data Science Process
+      href: ../team-data-science-process/overview.md
+    - name: Documentatie voor Data Science VM
+      href: ../data-science-virtual-machine/overview.md
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=MachineLearning'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
+    - name: Video's
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
+    - name: Feedbackforum
+      href: 'https://feedback.azure.com/forums/257792-machine-learning'
+    - name: Beschikbaarheid in regio’s
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Ondersteuningsopties
+      href: 'https://azure.microsoft.com/support/options/'

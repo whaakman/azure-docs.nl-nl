@@ -62,6 +62,10 @@
           href: Review-Tool-User-Guide/Workflows.md
         - name: Dashboard weergeven
           href: Review-Tool-User-Guide/View-Dashboard.md
+- name: Zelfstudies
+  items:
+    - name: Beheer van Facebook-berichten
+      href: facebook-post-moderation.md
 - name: API-naslaginformatie
   items:
     - name: Alle API's
@@ -73,6 +77,6 @@
     - name: Windows-SDK
       href: 'https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/'
     - name: Voorbeelden
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services'
+      href: 'https://github.com/MicrosoftContentModerator'
     - name: Veelgestelde vragen
       href: FAQs.md

@@ -36,6 +36,7 @@
 #### [Taken beheren](storsimple-virtual-array-manage-jobs.md)
 #### [Wachtwoord voor apparaat wijzigen](storsimple-virtual-array-change-device-admin-password.md)
 #### [MPIO op Windows Server-host configureren](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Bewaken met behulp van waarschuwingen](storsimple-virtual-array-manage-alerts.md)
 #### [Problemen vaststellen en oplossen](storsimple-virtual-array-diagnose-problems.md)
 #### [Een ondersteuningsaanvraag registreren](storsimple-virtual-array-log-support-ticket.md)
 
@@ -56,6 +57,7 @@
 ### [Wat is de oplossing?](storsimple-overview.md)
 ### [Leertraject voor StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Beveiligingsoverwegingen](storsimple-8000-security.md)
+### [Veelgestelde vragen: overgaan op Azure Portal](storsimple-8000-move-azure-portal-faq.md)
 
 ## Aan de slag
 

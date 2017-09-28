@@ -1,0 +1,71 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Azure Stack-gebruiker
+metadata:
+  document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
+  title: 'Documentatie voor Azure Stack - zelfstudies, API-verwijzing'
+  description: Leer hoe u de preview van Azure Stack kunt gebruiken voor het leveren van Azure-services vanaf uw datacenter. Ontdek en gebruik functies uit een conceptontwerpomgeving.
+  services: azure-stack
+  author: carolz
+  manager: carolz
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/23/2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Stack is een hybride cloudplatform waarmee u Azure-services kunt gebruiken vanuit het datacenter van uw bedrijf of serviceprovider. Als ontwikkelaar kunt u apps bouwen in Azure Stack. U kunt deze vervolgens implementeren naar Azure Stack of naar Azure, of u kunt volledig hybride apps bouwen die gebruikmaken van de connectiviteit tussen een Azure Stack-cloud en Azure.  Ontdek met onze snelstartgidsen en zelfstudies hoe u resources maakt en apps implementeert.'
+sections:
+  - title: Snelstartgids
+    items:
+      - type: paragraph
+        text: 'Meer informatie over het implementeren van een virtuele Windows-machine in Azure Stack:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Portal
+            href: azure-stack-quick-windows-portal.md
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
+            text: PowerShell
+            href: azure-stack-quick-create-vm-windows-powershell.md
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
+            text: CLI
+            href: azure-stack-quick-create-vm-windows-cli.md
+      - type: paragraph
+        text: 'Meer informatie over het implementeren van een virtuele Linux-machine in Azure Stack:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Portal
+            href: azure-stack-quick-linux-portal.md
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
+            text: PowerShell
+            href: azure-stack-quick-create-vm-linux-powershell.md
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
+            text: CLI
+            href: azure-stack-quick-create-vm-linux-cli.md
+  - title: Zelfstudies met stapsgewijze instructies
+    items:
+      - type: paragraph
+        text: 'Toepassingen implementeren in Azure en in Azure Stack:'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Apps implementeren in Azure Stack en in Azure</a>
+  - title: Naslaginformatie
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Opdrachtregel
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>

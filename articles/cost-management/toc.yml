@@ -1,0 +1,29 @@
+- name: Documentatie voor Kostenbeheer van Azure
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Wat is Kostenbeheer?
+      href: overview.md
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: Kostengegevens weergeven
+      href: quick-register-azure-sub.md
+    - name: Kostengegevens weergeven - EA
+      href: quick-register-ea.md
+    - name: Kostengegevens weergeven - CSP
+      href: quick-register-csp.md
+- name: Zelfstudies
+  items:
+    - name: 1 - Gebruik en kosten controleren
+      href: tutorial-review-usage.md
+    - name: 2 - Toegang tot gegevens beheren
+      href: tutorial-user-access.md
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/cost-management'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure-staging.microsoft.com/en-us/regions/services/'

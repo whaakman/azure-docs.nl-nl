@@ -8,7 +8,7 @@
 
 # Aan de slag
 ## [Een server maken in Azure Portal](analysis-services-create-server.md)
-## [Een server maken met PowerShell](analysis-services-create-powershell.md)
+## [Een server maken met Azure PowerShell](analysis-services-create-powershell.md)
 ## [Een model implementeren vanuit Visual Studio](analysis-services-deploy.md)
 ## [Een model maken in Azure Portal (preview)](analysis-services-create-model-portal.md)
 
@@ -43,7 +43,7 @@
 ### [Aanvullende les: Onregelmatige hiërarchieën](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Naslaginformatie
-## [PowerShell](analysis-services-powershell.md)
+## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)

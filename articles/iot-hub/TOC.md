@@ -109,23 +109,24 @@
 ### Apparaattaken gebruiken om apparaatfirmware bij te werken
 #### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-firmware-update.md)
 #### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-firmware-update.md)
+#### [Java-back-end/Java-apparaat](iot-hub-java-java-firmware-update.md)
 ### Taken plannen en uitzenden
 #### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-schedule-jobs.md)
 #### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Beheren
 ### Een IoT Hub maken 
-#### [De portal gebruiken](iot-hub-create-through-portal.md)
-#### [PowerShell gebruiken](iot-hub-create-using-powershell.md)
-#### [CLI 2.0 gebruiken](iot-hub-create-using-cli.md)
+#### [Azure Portal gebruiken](iot-hub-create-through-portal.md)
+#### [Azure PowerShell gebruiken](iot-hub-create-using-powershell.md)
+#### [Azure CLI gebruiken](iot-hub-create-using-cli.md)
 #### [CLI gebruiken](iot-hub-create-using-cli-nodejs.md)
 #### [De REST-API gebruiken](iot-hub-rm-rest.md)
-#### [Een PowerShell-sjabloon gebruiken](iot-hub-rm-template-powershell.md)
+#### [Een Azure PowerShell-sjabloon gebruiken](iot-hub-rm-template-powershell.md)
 #### [Een .NET-sjabloon gebruiken](iot-hub-rm-template.md)
 ### Uploaden van bestanden configureren
-#### [De portal gebruiken](iot-hub-configure-file-upload.md)
-#### [PowerShell gebruiken](iot-hub-configure-file-upload-powershell.md)
-#### [CLI 2.0 gebruiken](iot-hub-configure-file-upload-cli.md)
+#### [Azure Portal gebruiken](iot-hub-configure-file-upload.md)
+#### [Azure PowerShell gebruiken](iot-hub-configure-file-upload-powershell.md)
+#### [Azure CLI gebruiken](iot-hub-configure-file-upload-cli.md)
 ### [IoT-apparaten bulksgewijs beheren](iot-hub-bulk-identity-mgmt.md)
 ### [Metrische gebruiksgegevens](iot-hub-metrics.md)
 ### [Controle van bewerkingen](iot-hub-operations-monitoring.md)

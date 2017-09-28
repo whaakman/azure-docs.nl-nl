@@ -1,0 +1,225 @@
+- name: Documentatie over Data Factory V1
+  href: null
+- name: Overzicht
+  items:
+    - name: Inleiding tot Azure Data Factory
+      href: data-factory-introduction.md
+    - name: Concepten
+      items:
+        - name: Pijplijnen en activiteiten
+          href: data-factory-create-pipelines.md
+        - name: Gegevenssets
+          href: data-factory-create-datasets.md
+        - name: Plannen en uitvoeren
+          href: data-factory-scheduling-and-execution.md
+- name: Aan de slag
+  expanded: true
+  items:
+    - name: Een pijplijn maken voor het kopiëren van gegevens
+      href: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+      items:
+        - name: De wizard Kopiëren
+          href: data-factory-copy-data-wizard-tutorial.md
+        - name: Azure Portal
+          href: data-factory-copy-activity-tutorial-using-azure-portal.md
+        - name: Visual Studio
+          href: data-factory-copy-activity-tutorial-using-visual-studio.md
+        - name: Azure PowerShell
+          href: data-factory-copy-activity-tutorial-using-powershell.md
+        - name: REST API
+          href: data-factory-copy-activity-tutorial-using-rest-api.md
+        - name: .NET API
+          href: data-factory-copy-activity-tutorial-using-dotnet-api.md
+    - name: Een pijplijn maken voor het transformeren van gegevens
+      href: data-factory-build-your-first-pipeline.md
+      items:
+        - name: Azure Portal
+          href: data-factory-build-your-first-pipeline-using-editor.md
+        - name: Visual Studio
+          href: data-factory-build-your-first-pipeline-using-vs.md
+        - name: Azure PowerShell
+          href: data-factory-build-your-first-pipeline-using-powershell.md
+        - name: Azure Resource Manager-sjabloon
+          href: data-factory-build-your-first-pipeline-using-arm.md
+        - name: REST API
+          href: data-factory-build-your-first-pipeline-using-rest-api.md
+    - name: Gegevens verplaatsen tussen on-premises en de cloud
+      href: data-factory-move-data-between-onprem-and-cloud.md
+    - name: Veelgestelde vragen
+      href: data-factory-faq.md
+- name: Procedures
+  items:
+    - name: Gegevens verplaatsen
+      items:
+        - name: Overzicht kopieeractiviteit
+          href: data-factory-data-movement-activities.md
+        - name: Kopieerwizard van Data Factory
+          href: data-factory-azure-copy-wizard.md
+          items:
+            - name: 1 TB in 15 minuten laden
+              href: data-factory-load-sql-data-warehouse.md
+        - name: Handleiding voor prestaties en afstemmen
+          href: data-factory-copy-activity-performance.md
+        - name: Fouttolerantie
+          href: data-factory-copy-activity-fault-tolerance.md
+        - name: Beveiligingsoverwegingen
+          href: data-factory-data-movement-security-considerations.md
+        - name: Connectors
+          items:
+            - name: Amazon Redshift
+              href: data-factory-amazon-redshift-connector.md
+            - name: Amazon S3
+              href: data-factory-amazon-simple-storage-service-connector.md
+            - name: Azure Blob Storage
+              href: data-factory-azure-blob-connector.md
+            - name: Azure Cosmos DB
+              href: data-factory-azure-documentdb-connector.md
+            - name: Azure Data Lake Store
+              href: data-factory-azure-datalake-connector.md
+            - name: Azure Search
+              href: data-factory-azure-search-connector.md
+            - name: Azure SQL Database
+              href: data-factory-azure-sql-connector.md
+            - name: Azure SQL Data Warehouse
+              href: data-factory-azure-sql-data-warehouse-connector.md
+            - name: Azure-tabelopslag
+              href: data-factory-azure-table-connector.md
+            - name: Cassandra
+              href: data-factory-onprem-cassandra-connector.md
+            - name: DB2
+              href: data-factory-onprem-db2-connector.md
+            - name: Bestandssysteem
+              href: data-factory-onprem-file-system-connector.md
+            - name: FTP
+              href: data-factory-ftp-connector.md
+            - name: HDFS
+              href: data-factory-hdfs-connector.md
+            - name: HTTP
+              href: data-factory-http-connector.md
+            - name: MongoDB
+              href: data-factory-on-premises-mongodb-connector.md
+            - name: MySQL
+              href: data-factory-onprem-mysql-connector.md
+            - name: OData
+              href: data-factory-odata-connector.md
+            - name: ODBC
+              href: data-factory-odbc-connector.md
+            - name: Oracle
+              href: data-factory-onprem-oracle-connector.md
+            - name: PostgreSQL
+              href: data-factory-onprem-postgresql-connector.md
+            - name: SalesForce
+              href: data-factory-salesforce-connector.md
+            - name: SAP Business Warehouse
+              href: data-factory-sap-business-warehouse-connector.md
+            - name: SAP HANA
+              href: data-factory-sap-hana-connector.md
+            - name: SFTP
+              href: data-factory-sftp-connector.md
+            - name: SQL Server
+              href: data-factory-sqlserver-connector.md
+            - name: Sybase
+              href: data-factory-onprem-sybase-connector.md
+            - name: Teradata
+              href: data-factory-onprem-teradata-connector.md
+            - name: Webtabel
+              href: data-factory-web-table-connector.md
+        - name: Gegevensbeheergateway
+          href: data-factory-data-management-gateway.md
+    - name: Gegevens transformeren
+      href: data-factory-data-transformation-activities.md
+      items:
+        - name: HDInsight Hive-activiteit
+          href: data-factory-hive-activity.md
+        - name: HDInsight Pig-activiteit
+          href: data-factory-pig-activity.md
+        - name: HDInsight MapReduce-activiteit
+          href: data-factory-map-reduce.md
+        - name: HDInsight-streamingactiviteit
+          href: data-factory-hadoop-streaming-activity.md
+        - name: HDInsight Spark-activiteit
+          href: data-factory-spark.md
+        - name: Machine Learning-batchuitvoeringsactiviteit
+          href: data-factory-azure-ml-batch-execution-activity.md
+        - name: Machine Learning-activiteit resources bijwerken
+          href: data-factory-azure-ml-update-resource-activity.md
+        - name: Opgeslagen procedureactiviteit
+          href: data-factory-stored-proc-activity.md
+        - name: Data Lake Analytics U-SQL-activiteit
+          href: data-factory-usql-activity.md
+        - name: Aangepaste .NET-activiteit
+          href: data-factory-use-custom-activities.md
+        - name: R-scripts aanroepen
+          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample'
+        - name: Modellen in Azure Analysis Services opnieuw verwerken
+          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample'
+        - name: Gekoppelde services berekenen
+          href: data-factory-compute-linked-services.md
+    - name: Ontwikkelen
+      items:
+        - name: Azure Resource Manager-sjabloon
+          href: data-factory-how-to-use-resource-manager-templates.md
+        - name: Voorbeelden
+          href: data-factory-samples.md
+        - name: Functies en systeemvariabelen
+          href: data-factory-functions-variables.md
+        - name: Naamgevingsregels
+          href: data-factory-naming-rules.md
+        - name: .NET-API-wijzigingenlogboek
+          href: data-factory-api-change-log.md
+    - name: Controleren en beheren
+      items:
+        - name: App voor controle en beheer
+          href: data-factory-monitor-manage-app.md
+        - name: Azure Data Factory-pijplijnen
+          href: data-factory-monitor-manage-pipelines.md
+        - name: .NET SDK gebruiken
+          href: data-factory-create-data-factories-programmatically.md
+        - name: Problemen met Data Factory oplossen
+          href: data-factory-troubleshoot.md
+        - name: Problemen oplossen met behulp van Data Management Gateway
+          href: data-factory-troubleshoot-gateway-issues.md
+- name: Naslaginformatie
+  items:
+    - name: Codevoorbeelden
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=data-factory'
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.datafactories
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.datafactories.models
+    - name: REST
+      href: /rest/api/datafactory/
+    - name: JSON
+      href: data-factory-json-scripting-reference.md
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Casestudy's
+      href: data-factory-customer-case-studies.md
+    - name: Leertraject
+      href: 'https://azure.microsoft.com/documentation/learning-paths/data-factory'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Releaseopmerkingen voor Data Management Gateway
+      href: data-factory-gateway-release-notes.md
+    - name: Verzoeken om een functie toe te voegen
+      href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
+    - name: Service-updates
+      href: 'https://azure.microsoft.com/updates/?product=data-factory'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-data-factory'
+    - name: Video's
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=data-factory'
+    - name: Grootschalige gegevenssets verwerken met Data Factory en Batch
+      href: data-factory-data-processing-using-batch.md
+    - name: casestudy's
+      items:
+        - name: Klantprofilering
+          href: data-factory-customer-profiling-usecase.md
+        - name: Productaanbevelingen
+          href: data-factory-product-reco-usecase.md

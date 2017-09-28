@@ -93,14 +93,20 @@
           href: local-emulator.md
         - name: Certificaten exporteren
           href: local-emulator-export-ssl-certificates.md
+    - name: 6 - Integreren met Functions
+      items:
+        - name: HTTP-trigger
+          href: tutorial-functions-http-trigger.md
 - name: Voorbeelden
   items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: cli-samples.md
-    - name: Azure PowerShell
+    - name: PowerShell
       href: powershell-samples.md
 - name: Concepten
   items:
+    - name: Database zonder servers
+      href: serverless-computing-database.md
     - name: Wereldwijde distributie
       href: distribute-data-globally.md
     - name: Partitionering
@@ -268,6 +274,8 @@
           href: geospatial.md
         - name: Indexeren
           href: indexing-policies.md
+        - name: Verbonden service in Visual Studio
+          href: connected-service.md
     - name: Beheren
       items:
         - name: Rendabele lees- en schrijfbewerkingen
@@ -282,8 +290,14 @@
           href: set-throughput.md
         - name: SLA's bewaken
           href: monitor-accounts.md
+        - name: Metrische gegevens gebruiken
+          href: use-metrics.md
+        - name: Diagnostische logboeken
+          href: logging.md
         - name: Sleutels en consistentie beheren
           href: manage-account.md
+        - name: Azure Opslagverkenner
+          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
         - name: Beveiliging
           items:
             - name: Versleuteling 'at rest'
@@ -309,7 +323,7 @@
         - name: Integreren met Azure Search
           href: ../search/search-howto-index-documentdb.md
         - name: Gegevens verplaatsen met Azure Data Factory
-          href: ../data-factory/data-factory-azure-documentdb-connector.md
+          href: ../data-factory/connector-azure-cosmos-db.md
         - name: Realtime gegevens analyseren met Azure Stream Analytics
           href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
         - name: Een gewijzigde HL7 FHIR-record ophalen met Logic Apps

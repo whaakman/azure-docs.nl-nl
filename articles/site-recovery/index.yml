@@ -1,0 +1,68 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie over Site Recovery
+metadata:
+  title: 'Documentatie voor Azure Site Recovery - zelfstudies, API-verwijzing | Microsoft Docs'
+  meta.description: Learn how to set up cloud disaster recovery and business continuity for physical servers and virtual machines by deploying and managing replication.
+  services: site-recovery
+  author: czeumault
+  manager: carolz
+  ms.service: site-recovery
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/23/2017
+  ms.author: carolz
+abstract:
+  description: 'Met Azure Site Recovery kunt u herstel na noodgeval indelen en beheren voor virtuele Azure-machines, en on-premises VM''s en fysieke servers. Ontdek met onze snelstartgidsen en zelfstudies hoe u repliceert, en failovers en failbacks uitvoert.'
+sections:
+  - title: QuickStarts van vijf minuten
+    items:
+      - type: paragraph
+        text: Snel herstel na noodgeval instellen voor een virtuele Azure-machine
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/site-recovery/media/index/portal.svg
+            text: Azure Portal
+            href: /azure/site-recovery/azure-to-azure-quickstart
+  - title: Stapsgewijze zelfstudies
+    items:
+      - type: paragraph
+        text: Meer informatie over het instellen van herstel na noodgeval voor VM's en fysieke servers.
+      - type: text
+        html: <h3>Azure naar Azure</h3>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="azure-to-azure-tutorial-enable-replication">Herstel na noodgeval instellen</a>
+          - html: <a href="azure-to-azure-tutorial-dr-drill">Noodherstelanalyse uitvoeren</a>
+          - html: <a href="azure-to-azure-tutorial-failover-failback">Failover en failback uitvoeren</a>
+      - type: text
+        html: <h3>VMware</h3>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-azure">Azure voorbereiden</a>
+          - html: <a href="tutorial-prepare-on-premises-vmware">On-premises VMware voorbereiden</a>
+          - html: <a href="tutorial-vmware-to-azure">Herstel na noodgeval instellen</a>
+          - html: <a href="tutorial-dr-drill-azure">Noodherstelanalyse uitvoeren</a>
+          - html: <a href="tutorial-vmware-to-azure-failover-failback">Failover en failback uitvoeren</a>
+      - type: text
+        html: <h3>Migreren naar Azure</h3>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-azure">Azure voorbereiden</a>
+          - html: <a href="tutorial-migrate-on-premises-to-azure">On-premises machines</a> of <a href="tutorial-migrate-aws-to-azure">AWS-exemplaren naar Azure</a> migreren
+  - title: Naslaginformatie
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Opdrachtregel
+            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/site-recovery/">Naslaginformatie over REST-API</a></p>

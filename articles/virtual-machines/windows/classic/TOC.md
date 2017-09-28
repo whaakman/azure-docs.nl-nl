@@ -7,7 +7,7 @@
 ## [Containers](../../virtual-machines-windows-containers.md)
 
 # Aan de slag
-## [Een virtuele machine maken via de portal](tutorial.md)
+## [Een virtuele machine maken met behulp van Azure portal](tutorial.md)
 ## [Aanmelden bij een VM](connect-logon.md)
 ## [Azure PowerShell installeren](/powershell/azure/overview)
 ## [Azure CLI installeren](../../../cli-install-nodejs.md)
@@ -85,8 +85,8 @@
 ### [Virtuele harde schijf koppelen bij het oplossen van problemen met een virtuele machine](troubleshoot-recovery-disks-portal.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/azure/overview)
-## [Azure-CLI](/cli/azure/vm)
+## [Azure PowerShell](/powershell/azure/overview)
+## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Resource Manager-sjablonen schrijven](../../../resource-group-authoring-templates.md)

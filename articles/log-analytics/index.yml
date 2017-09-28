@@ -1,0 +1,69 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Log Analytics
+metadata:
+  title: 'Documentatie voor Azure Log Analytics - zelfstudies, API-verwijzing | Microsoft Docs'
+  description: 'Log Analytics is onderdeel van de hele bewakingsoplossing Microsoft Azure.  Log Analytics bewaakt de on-premises omgeving en cloudomgeving om de beschikbaarheid en prestaties te behouden. Krijg inzicht in verschillende workloads en systemen om de beschikbaarheid en prestaties te behouden. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u gegevens verzamelt, analyseert en er acties op uitvoert.'
+  services: log-analytics
+  author: czeumault
+  manager: carolz
+  ms.service: log-analytics
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/41/2017
+  ms.author: carolz
+abstract:
+  description: 'Log Analytics is onderdeel van de hele bewakingsoplossing Microsoft Azure. Log Analytics bewaakt de on-premises omgeving en cloudomgeving om de beschikbaarheid en prestaties te behouden. Krijg inzicht in verschillende workloads en systemen om de beschikbaarheid en prestaties te behouden. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u gegevens verzamelt, analyseert en er acties op uitvoert.'
+sections:
+  - title: QuickStarts van vijf minuten
+    items:
+      - type: paragraph
+        text: 'Meer informatie over het implementeren van Log Analytics en het configureren van verzamelingen gegevens uit Azure, andere cloudproviders en on-premises resources.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/media/index/virtualmachine.svg'
+            text: Azure-VM's
+            href: /azure/log-analytics/log-analytics-quick-collect-azurevm
+  - title: Stapsgewijze zelfstudies
+    items:
+      - type: paragraph
+        text: 'Meer informatie over het analyseren en visualiseren van verzamelde gegevens, en hoe u acties kunt uitvoeren op deze gegevens.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/log-analytics/log-analytics-tutorial-viewdata">Verzamelde gegevens weergeven of analyseren</a>
+          - html: <a href="/azure/log-analytics/log-analytics-tutorial-dashboards">Dashboards maken en delen</a>
+          - html: <a href="/azure/log-analytics/log-analytics-tutorial-response">Reageren op gebeurtenissen met Log Analytics-waarschuwingen</a>
+  - title: Gratis Pluralsight-videotraining
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Aan de slag met IaaS-controle
+            href: 'https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents'
+  - title: Voorbeelden
+    items:
+      - type: paragraph
+        text: Gebruik de volgende voorbeelden om Log Analytics te configureren en te beheren.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/log-analytics/powershell-samples">Azure PowerShell</a>
+  - title: Naslaginformatie
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Opdrachtregel
+            html: <p><a href="/powershell/module/azurerm.operationalinsights">Azure PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/loganalytics">Naslaginformatie over REST-API</a></p>

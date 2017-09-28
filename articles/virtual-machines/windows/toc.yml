@@ -33,7 +33,7 @@
       href: tutorial-virtual-network.md
     - name: 9 - Back-ups maken van virtuele machines
       href: tutorial-backup-vms.md
-    - name: 10 - Virtuele machines bewaken
+    - name: 10 - Virtuele machines bewaken en bijwerken
       href: tutorial-monitoring.md
     - name: 11 - Beveiliging van virtuele machines beheren
       href: tutorial-azure-security.md
@@ -163,6 +163,12 @@
           href: manage-availability.md
         - name: Verticaal schalen
           href: vertical-scaling-automation.md
+        - name: Een virtuele machine maken in de beschikbaarheidszone
+          items:
+            - name: PowerShell
+              href: create-powershell-availability-zone.md
+            - name: Portal
+              href: create-portal-availability-zone.md
     - name: Automation-hulpprogramma's gebruiken
       items:
         - name: Chef
@@ -170,7 +176,7 @@
     - name: Toepassingen uitvoeren
       items:
         - name: SQL Server
-          href: /sql/virtual-machines-windows-sql-server-iaas-overview
+          href: sql/virtual-machines-windows-sql-server-iaas-overview.md
         - name: MongoDB
           href: install-mongodb.md
         - name: SAP op Azure
@@ -342,7 +348,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/vm
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell/azureps-cmdlets-docs
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.compute

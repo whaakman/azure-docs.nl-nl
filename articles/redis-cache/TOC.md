@@ -24,7 +24,7 @@
 ###[Uw cache beveiligen met een virtueel netwerk](cache-how-to-premium-vnet.md)
 ###[Uw cache distribueren via clustering](cache-how-to-premium-clustering.md)
 ## Automatiseren
-###[Implementeren en beheren met PowerShell](cache-howto-manage-redis-cache-powershell.md)
+###[Implementeren en beheren met Azure PowerShell](cache-howto-manage-redis-cache-powershell.md)
 ###[Implementeren en beheren met Azure CLI](cli-samples.md)
 ###[Redis Cache inrichten](cache-redis-cache-arm-provision.md)
 ###[Een web-app inrichten met Redis Cache](cache-web-app-arm-with-redis-cache-provision.md)
@@ -32,13 +32,13 @@
 ###[Leverancier sessiestatus](cache-aspnet-session-state-provider.md)
 ###[Cacheprovider voor uitvoer](cache-aspnet-output-cache-provider.md)
 ## Beheren
-###[Configureren in de portal](cache-configure.md)
+###[Configureren in Azure Portal](cache-configure.md)
 ###[Geo-replicatie configureren](cache-how-to-geo-replication.md)
 ###[Gegevens importeren/exporteren](cache-how-to-import-export-data.md)
 ###[Opnieuw opstarten](cache-administration.md#reboot)
 ###[Updates plannen](cache-administration.md#schedule-updates)
 ## Controleren en problemen oplossen
-###[Controleren in de portal](cache-how-to-monitor.md)
+###[Bewaken in Azure Portal](cache-how-to-monitor.md)
 ###[Cacheproblemen oplossen](cache-how-to-troubleshoot.md)
 ###[Waarschuwingen instellen voor uitzonderingen](cache-how-to-monitor.md#operations-and-alerts)
 ## Schalen
@@ -49,8 +49,8 @@
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=redis-cache)
-## [PowerShell](/powershell/module/azurerm.rediscache)
-## [Azure CLI 2.0 Preview](/cli/azure/redis)
+## [Azure PowerShell](/powershell/module/azurerm.rediscache)
+## [Preview van Azure CLI](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)
 ## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Redis-clients](http://redis.io/clients)

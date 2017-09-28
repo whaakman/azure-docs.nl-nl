@@ -1,0 +1,239 @@
+- name: Documentatie voor Machine Learning Studio
+  href: index.md
+- name: Overzicht
+  expanded: true
+  items:
+    - name: Wat is Machine Learning?
+      href: what-is-machine-learning.md
+    - name: Machine Learning Studio
+      href: what-is-ml-studio.md
+    - name: Mogelijkheden ML Studio
+      href: studio-overview-diagram.md
+    - name: Basisbeginselen ML Studio (infographic)
+      href: basics-infographic-with-algorithm-examples.md
+    - name: Veelgestelde vragen
+      href: faq.md
+    - name: Wat is nieuw?
+      href: whats-new.md
+- name: Aan de slag
+  items:
+    - name: Uw eerste experiment opzetten
+      href: create-experiment.md
+    - name: Voorbeeldscenario
+      items:
+        - name: Een voorspellende oplossing maken
+          href: walkthrough-develop-predictive-solution.md
+        - name: 1 - Een werkruimte maken
+          href: walkthrough-1-create-ml-workspace.md
+        - name: 2 - Gegevens uploaden
+          href: walkthrough-2-upload-data.md
+        - name: 3 - Experiment maken
+          href: walkthrough-3-create-new-experiment.md
+        - name: 4 - Trainen en evalueren
+          href: walkthrough-4-train-and-evaluate-models.md
+        - name: 5 - Webservice implementeren
+          href: walkthrough-5-publish-web-service.md
+        - name: 6 - Webservice openen
+          href: walkthrough-6-access-web-service.md
+    - name: Wetenschappelijke gegevens voor beginners
+      items:
+        - name: 1 - Vijf vragen
+          href: data-science-for-beginners-the-5-questions-data-science-answers.md
+        - name: 2 - Zijn de gegevens klaar?
+          href: data-science-for-beginners-is-your-data-ready-for-data-science.md
+        - name: 3 - De juiste vraag stellen
+          href: data-science-for-beginners-ask-a-question-you-can-answer-with-data.md
+        - name: 4 - Een antwoord voorspellen
+          href: data-science-for-beginners-predict-an-answer-with-a-simple-model.md
+        - name: 5 - Werk van anderen kopiëren
+          href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
+    - name: R snel starten
+      href: r-quickstart.md
+- name: Procedures
+  items:
+    - name: Hulpprogramma's instellen
+      items:
+        - name: Een werkruimte beheren
+          items:
+            - name: Maken
+              href: create-workspace.md
+            - name: Beheren
+              href: manage-workspace.md
+            - name: Problemen oplossen
+              href: troubleshooting-creating-ml-workspace.md
+            - name: Implementeren met ARM
+              href: deploy-with-resource-manager-template.md
+            - name: Maken in een andere regio
+              href: multi-geo.md
+    - name: Gegevens ophalen en begrijpen
+      items:
+        - name: Trainingsgegevens importeren
+          items:
+            - name: Overzicht
+              href: import-data.md
+            - name: Uit een lokaal bestand
+              href: import-data-from-local-file.md
+            - name: Uit onlinebronnen
+              href: import-data-from-online-sources.md
+            - name: Uit een experiment
+              href: import-data-from-an-experiment.md
+            - name: On-premises SQL gebruiken
+              href: use-data-from-an-on-premises-sql-server.md
+    - name: Modellen ontwikkelen
+      items:
+        - name: Modellen maken en trainen
+          items:
+            - name: Beheer van de levenscyclus van experimenten
+              href: version-control.md
+            - name: Experimentherhalingen beheren
+              href: manage-experiment-iterations.md
+            - name: PowerShell gebruiken om modellen te maken
+              href: create-models-and-endpoints-with-powershell.md
+            - name: Algoritmen selecteren
+              items:
+                - name: Algoritmen kiezen
+                  href: algorithm-choice.md
+                - name: Overzichtskaart algoritmen
+                  href: algorithm-cheat-sheet.md
+                - name: Lineaire regressie gebruiken
+                  href: linear-regression-in-azure.md
+                - name: Tekstanalyse gebruiken
+                  href: text-analytics-module-tutorial.md
+            - name: Resultaten evalueren en interpreteren
+              items:
+                - name: Prestaties evalueren
+                  href: evaluate-model-performance.md
+                - name: Parameters optimaliseren
+                  href: algorithm-parameters-optimize.md
+                - name: Resultaten interpreteren
+                  href: interpret-model-results.md
+                - name: Fouten opsporen
+                  href: debug-models.md
+            - name: R en Python gebruiken
+              items:
+                - name: R-scripts uitvoeren
+                  href: extend-your-experiment-with-r.md
+                - name: Aangepaste R-modules schrijven
+                  href: custom-r-modules.md
+                - name: Python-scripts uitvoeren
+                  href: execute-python-scripts.md
+    - name: Modellen operationeel maken
+      items:
+        - name: Overzicht
+          href: deploy-consume-web-service-guide.md
+        - name: Modellen implementeren
+          items:
+            - name: Een webservice implementeren
+              href: publish-a-machine-learning-web-service.md
+            - name: Hoe werkt het?
+              href: model-progression-experiment-to-web-service.md
+            - name: Implementatie voorbereiden
+              href: convert-training-experiment-to-scoring-experiment.md
+            - name: Externe gegevens gebruiken
+              href: web-services-that-use-import-export-modules.md
+            - name: Implementeren in meerdere regio's
+              href: how-to-deploy-to-multiple-regions.md
+            - name: Webserviceparameters gebruiken
+              href: web-service-parameters.md
+            - name: Logboekregistratie inschakelen
+              href: web-services-logging.md
+        - name: Webservices beheren
+          items:
+            - name: Web Services-portal gebruiken
+              href: manage-new-webservice.md
+            - name: Beheren met API's
+              href: manage-web-service-endpoints-using-api-management.md
+            - name: Eindpunten maken
+              href: create-endpoint.md
+            - name: Schalen
+              href: scaling-webservice.md
+        - name: Modellen opnieuw trainen
+          items:
+            - name: Overzicht
+              href: retrain-machine-learning-model.md
+            - name: Programmatisch opnieuw trainen
+              href: retrain-models-programmatically.md
+            - name: Een klassieke webservice opnieuw trainen
+              href: retrain-a-classic-web-service.md
+            - name: Opnieuw trainen met PowerShell
+              href: retrain-new-web-service-using-powershell.md
+            - name: Een bestaande webservice opnieuw trainen
+              href: retrain-existing-resource-manager-based-web-service.md
+            - name: Problemen oplossen
+              href: troubleshooting-retraining-models.md
+        - name: Modellen gebruiken
+          items:
+            - name: Overzicht
+              href: consume-web-services.md
+            - name: Excel gebruiken
+              href: consuming-from-excel.md
+            - name: Excel-invoegtoepassing gebruiken
+              href: excel-add-in-for-web-services.md
+            - name: Een web-appsjabloon gebruiken
+              href: consume-web-service-with-web-app-template.md
+            - name: Een Batch-pool gebruiken
+              href: dedicated-capacity-for-bes-jobs.md
+    - name: Voorbeelden
+      items:
+        - name: Voorbeeldexperimenten
+          href: sample-experiments.md
+        - name: Voorbeeldgegevenssets
+          href: use-sample-datasets.md
+        - name: Voorbeeld van klantverloop
+          href: azure-ml-customer-churn-scenario.md
+- name: Naslaginformatie
+  items:
+    - name: Azure PowerShell-module (nieuw)
+      href: /powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning
+    - name: Azure PowerShell-module (klassiek)
+      href: powershell-module.md
+    - name: Naslaginformatie over algoritmen en modules
+      href: 'https://msdn.microsoft.com/library/azure/dn905974.aspx'
+    - name: API's voor REST-beheer
+      href: /rest/api/machinelearning
+    - name: Foutcodes voor webservices
+      href: web-service-error-codes.md
+- name: Verwant
+  items:
+    - name: Cortana Intelligence-galerie
+      items:
+        - name: Overzicht
+          href: gallery-how-to-use-contribute-publish.md
+        - name: Bedrijfstakken
+          href: gallery-industries.md
+        - name: Oplossingen
+          href: gallery-solutions.md
+        - name: Experimenten
+          href: gallery-experiments.md
+        - name: Jupyter Notebooks
+          href: gallery-jupyter-notebooks.md
+        - name: Wedstrijden
+          href: gallery-competitions.md
+        - name: Veelgestelde vragen over wedstrijden
+          href: competition-faq.md
+        - name: Zelfstudies
+          href: gallery-tutorials.md
+        - name: Verzamelingen
+          href: gallery-collections.md
+        - name: Aangepaste modules
+          href: gallery-custom-modules.md
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 'Net# neurale-netwerkentaal'
+      href: azure-ml-netsharp-reference-guide.md
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+    - name: Service-updates
+      href: 'https://azure.microsoft.com/updates/?product=machine-learning'
+    - name: Blog
+      href: 'http://blogs.technet.com/b/machinelearning/'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-machine-learning'
+    - name: Video's
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
+    - name: Hulp krijgen via live chats
+      href: live-chat.md

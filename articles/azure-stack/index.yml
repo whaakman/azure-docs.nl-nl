@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentatie over Azure Stack
+title: Documentatie voor Azure Stack-operator
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
-  title: 'Documentatie voor Azure Stack - zelfstudies, API-verwijzing'
+  title: 'Documentatie voor Azure Stack-operator - zelfstudies, API-verwijzing'
   description: Leer hoe u de preview van Azure Stack kunt gebruiken voor het leveren van Azure-services vanaf uw datacenter. Ontdek en gebruik functies uit een conceptontwerpomgeving.
   services: azure-stack
   author: czeumault
@@ -12,12 +12,12 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/28/2017
+  ms.date: 09/23/2017
   ms.author: carolz
 abstract:
   description: Microsoft Azure Stack is een hybride cloudplatform waarmee u Azure-services kunt leveren vanuit uw datacenter. Leer hoe u Azure Stack kunt implementeren en services kunt leveren met behulp van onze snelstartgidsen en zelfstudies.
 sections:
-  - title: Snelstartgids
+  - title: QuickStarts van vijf minuten
     items:
       - type: paragraph
         text: 'Uw hardware instellen en Azure Stack implementeren:'
@@ -28,17 +28,27 @@ sections:
               src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
             text: Azure Stack implementeren
             href: azure-stack-deploy-overview.md
-  - title: Zelfstudies met stapsgewijze instructies
+  - title: Stapsgewijze zelfstudies
     items:
       - type: paragraph
         text: 'Informatie over het toevoegen van services aan uw Azure Stack-implementatie:'
       - type: list
-        style: unordered
+        style: ordered
         items:
           - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Virtuele machines inschakelen op Azure Stack</a>
           - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">SQL-databases inschakelen op Azure Stack</a>
           - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Web-apps inschakelen op Azure Stack</a>
-          - html: <a href="/azure/azure-stack/azure-stack-solution-pipeline">Toepassingen implementeren in Azure &amp; Azure Stack</a>
+  - title: Gratis Pluralsight-videotraining
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Meer informatie over de grondbeginselen van Azure Stack
+            href: 'https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54'
   - title: Naslaginformatie
     items:
       - type: list
@@ -46,4 +56,4 @@ sections:
         className: cardsD
         items:
           - title: Opdrachtregel
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">PowerShell</a></p>
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>

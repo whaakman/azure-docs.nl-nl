@@ -4,7 +4,105 @@
       href: storage-blobs-introduction.md
     - name: 'Kies blobs, bestanden of gegevensschijven'
       href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-- name: Aan de slag
+- name: Snelstartgidsen
+  items:
+    - name: Een opslagaccount maken - PowerShell
+      href: ../common/storage-quickstart-create-storage-account-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Een opslagaccount maken - CLI
+      href: ../common/storage-quickstart-create-storage-account-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Werken met blobs - PowerShell
+      href: storage-quickstart-blobs-powershell.md
+    - name: Werken met blobs - CLI
+      href: storage-quickstart-blobs-cli.md
+    - name: Werken met blobs - .NET
+      href: storage-quickstart-blobs-dotnet.md
+- name: Zelfstudies
+  items:
+    - name: Een installatiekopie uploaden en verwerken
+      items:
+        - name: 1 - Installatiekopiegegevens uploaden en ophalen in de cloud
+          href: storage-upload-process-images.md
+        - name: 2 - Azure Functions activeren om blobs te verwerken
+          href: ../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 3- Toepassingsgegevens beveiligen
+          href: storage-secure-access-application.md
+        - name: 4 - Opslag controleren en problemen oplossen
+          href: storage-monitor-troubleshoot-storage-application.md
+- name: Voorbeelden
+  items:
+    - name: Azure PowerShell
+      href: storage-samples-blobs-powershell.md
+    - name: Azure CLI
+      href: storage-samples-blobs-cli.md
+- name: Concepten
+  items:
+    - name: Plannen en ontwerpen
+      items:
+        - name: Replicatie
+          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Warme, koude en archieflagen'
+          href: storage-blob-storage-tiers.md
+        - name: Reageren op gebeurtenissen
+          href: storage-blob-event-overview.md
+        - name: Schaalbaarheids- en prestatiedoelen
+          href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Controlelijst voor prestaties en schaalbaarheid
+          href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Gelijktijdigheid
+          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Richtlijnen voor herstel na noodgevallen
+          href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Gegevens verplaatsen van en naar opslag
+          href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Premium Storage
+          items:
+            - name: Krachtige Premium Storage voor VM-schijven
+              href: ../common/storage-premium-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Migreren naar Premium Storage met Azure Site Recovery
+              href: ../common/storage-migrate-to-premium-storage-using-azure-site-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Ontwerp voor hoge prestaties
+              href: ../common/storage-premium-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Standaardopslag
+          items:
+            - name: Rendabele standaardopslag en niet-beheerde en beheerde VM-schijven
+              href: ../common/storage-standard-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Beveiligen
+      items:
+        - name: Beveiligingshandleiding
+          href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Firewalls en virtuele netwerken configureren
+          href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Versleuteling van data-at-rest
+          href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Versleuteling 'at rest' met sleutels van de klant
+          href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Veilige overdracht vereisen
+          href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Gedeelde sleutelverificatie
+          href: /rest/api/storageservices/Authentication-for-the-Azure-Storage-Services
+        - name: Shared Access Signatures (SAS)
+          href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Anonieme toegang tot blobs
+          href: storage-manage-access-to-resources.md
+        - name: De Azure CDN gebruiken om toegang te krijgen tot blobs met aangepaste domeinen via HTTPS
+          href: storage-https-custom-domain-cdn.md
+    - name: Controleren en problemen oplossen
+      items:
+        - name: Zelfstudie voor problemen oplossen
+          href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Controleren, problemen vaststellen en problemen oplossen'
+          href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Fouten bij het verwijderen van opslagaccount oplossen
+          href: ../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Metrische gegevens en logboekregistratie
+          items:
+            - name: Metrische gegevens van Azure Storage in Azure Monitor
+              href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Storage Analytics
+              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Meetwaarden inschakelen en weergeven
+              href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+- name: Procedures
   items:
     - name: Een opslagaccount maken
       href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -32,60 +130,12 @@
           href: storage-how-to-use-blobs-powershell.md
         - name: Azure CLI 2.0
           href: storage-how-to-use-blobs-cli.md
-- name: Procedures
-  items:
-    - name: Plannen en ontwerpen
-      items:
-        - name: Replicatie
-          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 'Warme, koude en archieflagen'
-          href: storage-blob-storage-tiers.md
-        - name: HA-apps ontwerpen met RA-GRS
-          href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Reageren op gebeurtenissen
-          href: storage-blob-event-overview.md
-        - name: Schaalbaarheids- en prestatiedoelen
-          href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Controlelijst voor prestaties en schaalbaarheid
-          href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Gelijktijdigheid
-          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Richtlijnen voor herstel na noodgevallen
-          href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Premium Storage
-          items:
-            - name: Krachtige Premium Storage voor VM-schijven
-              href: ../common/storage-premium-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Migreren naar Premium Storage met Azure Site Recovery
-              href: ../common/storage-migrate-to-premium-storage-using-azure-site-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Ontwerp voor hoge prestaties
-              href: ../common/storage-premium-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Standaardopslag
-          items:
-            - name: Rendabele standaardopslag en niet-beheerde en beheerde VM-schijven
-              href: ../common/storage-standard-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Ontwikkelen
-      items:
-        - name: Voorbeelden
+        - name: GitHub-codevoorbeelden
           items:
             - name: .NET
               href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Java
               href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Verbindingsreeksen configureren
-          href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Blobs versleutelen en ontsleutelen met Azure Key Vault
-          href: storage-encrypt-decrypt-blobs-key-vault.md
-        - name: Eigenschappen en metagegevens instellen en ophalen
-          href: storage-properties-metadata.md
-        - name: De opslagemulator gebruiken
-          href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Gebeurtenissen routeren naar een aangepast eindpunt
-          href: storage-blob-event-quickstart.md
-        - name: Aangepaste domeinen
-          href: storage-custom-domain-name.md
-        - name: Blob-opslag doorzoeken met Azure Search
-          href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Beheren
       items:
         - name: PowerShell
@@ -98,50 +148,32 @@
           href: ../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Azure Automation
           href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Beveiligen
+    - name: Clientversleuteling
       items:
-        - name: Beveiligingshandleiding
-          href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Clientversleuteling
-          items:
-            - name: .NET
-              href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Java
-              href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Python
-              href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Versleuteling van data-at-rest
-          href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Versleuteling 'at rest' met sleutels van de klant
-          href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Gedeelde sleutelverificatie
-          href: /rest/api/storageservices/Authentication-for-the-Azure-Storage-Services
-        - name: Shared Access Signatures (SAS)
-          href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Veilige overdracht vereisen
-          href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Anonieme toegang tot blobs
-          href: storage-manage-access-to-resources.md
-        - name: De Azure CDN gebruiken om toegang te krijgen tot blobs met aangepaste domeinen via HTTPS
-          href: storage-https-custom-domain-cdn.md
-    - name: Controleren en problemen oplossen
-      items:
-        - name: Zelfstudie voor problemen oplossen
-          href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 'Controleren, problemen vaststellen en problemen oplossen'
-          href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Fouten bij het verwijderen van opslagaccount oplossen
-          href: ../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Metrische gegevens en logboekregistratie
-          items:
-            - name: Storage Analytics
-              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Meetwaarden inschakelen en weergeven
-              href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: .NET
+          href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Java
+          href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Python
+          href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Verbindingsreeksen configureren
+      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: HA-apps ontwerpen met RA-GRS
+      href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Blobs versleutelen en ontsleutelen met Azure Key Vault
+      href: storage-encrypt-decrypt-blobs-key-vault.md
+    - name: Eigenschappen en metagegevens instellen en ophalen
+      href: storage-properties-metadata.md
+    - name: De opslagemulator gebruiken
+      href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Gebeurtenissen routeren naar een aangepast eindpunt
+      href: storage-blob-event-quickstart.md
+    - name: Aangepaste domeinen
+      href: storage-custom-domain-name.md
+    - name: Blob-opslag doorzoeken met Azure Search
+      href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Gegevens overdragen
       items:
-        - name: Gegevens verplaatsen van en naar opslag
-          href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: AzCopy in Windows
           href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: AzCopy in Linux
@@ -225,8 +257,6 @@
               href: ../common/storage-import-export-backing-up-drive-manifests.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Diagnoses en het herstel van fouten voor Import/Export-taken
               href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Voorbeelden
-      href: 'https://azure.microsoft.com/documentation/samples/?service=storage&term=blob'
 - name: Naslaginformatie
   items:
     - name: PowerShell

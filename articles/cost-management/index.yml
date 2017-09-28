@@ -1,0 +1,38 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Kostenbeheer van Azure
+metadata:
+  title: 'Documentatie voor Kostenbeheer van Azure - zelfstudies, API-verwijzing | Microsoft Docs'
+  description: 'Kostenbeheer van Azure door Cloudyn is een kostenbeheeroplossing met meerdere clouds voor het gebruik van Azure en andere cloudresources. Ontdek met onze snelstartgidsen en zelfstudies hoe u gebruik en kosten bekijkt, kosten actief beheert, uitgaven voorspelt en kosten optimaliseert.'
+  services: cost-management
+  author: czeumault
+  manager: carolz
+  ms.service: cost-management
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/18/2017
+  ms.author: carolz
+abstract:
+  description: 'Kostenbeheer van Azure door Cloudyn is een kostenbeheeroplossing met meerdere clouds waarmee u op de beste manier Azure en andere cloudresources kunt gebruiken en beheren. Ontdek met onze snelstartgidsen en zelfstudies hoe u gebruik en kosten bekijkt, kosten actief beheert, uitgaven voorspelt en kosten optimaliseert.'
+sections:
+  - title: QuickStarts van vijf minuten
+    items:
+      - type: paragraph
+        text: Ontdek hoe u uw overeenkomst of abonnementsgegevens van Azure kunt registreren met Kostenbeheer en de kostengegevens kunt weergeven.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Kostengegevens weergeven
+            href: quick-register-azure-sub
+  - title: Stapsgewijze zelfstudies
+    items:
+      - type: paragraph
+        text: 'Ontdek hoe u gebruik en kosten bekijkt, kosten actief beheert, uitgaven voorspelt en kosten optimaliseert met behulp van Kostenbeheer.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-review-usage">Gebruik en kosten bekijken om afwijkingen en efficiëntie te detecteren</a>
+          - html: <a href="tutorial-user-access">Toegang tot gegevens van Kostenbeheer toewijzen</a>

@@ -38,7 +38,7 @@
 ## Beheren
 ### Azure Search beheren
 #### [Azure Portal](search-manage.md)
-#### [PowerShell](search-manage-powershell.md)
+#### Azure [Azure PowerShell](search-manage-powershell.md)
 ### [Gebruik en statistieken controleren](search-monitor-usage.md)
 ### [Analyse zoekverkeer](search-traffic-analytics.md)
 ### [Prestaties en optimalisatie](search-performance-optimization.md)

@@ -2,7 +2,7 @@
 ## [Wat zijn schaalsets voor virtuele machines?](virtual-machine-scale-sets-overview.md)
 
 # Aan de slag
-## [Een schaalset implementeren in de portal](virtual-machine-scale-sets-portal-create.md)
+## [Een schaalset implementeren in Azure Portal](virtual-machine-scale-sets-portal-create.md)
 ## [Een schaalset implementeren met PowerShell of Azure CLI](virtual-machine-scale-sets-create.md)
 ## [Een automatisch schalende app implementeren met behulp van een sjabloon](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
@@ -17,9 +17,9 @@
 ### [Automatisch schalen op basis van een gast met een Linux-schaalsetsjabloon](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Implementeren
-### [Maken via de portal](virtual-machine-scale-sets-portal-create.md)
+### [Maken met Azure Portal](virtual-machine-scale-sets-portal-create.md)
 ### [Maken met Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Maken met PowerShell of Azure CLI](virtual-machine-scale-sets-create.md)
+### [Maken met Azure PowerShell of Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Schaalset met Managed Disks](virtual-machine-scale-sets-managed-disks.md)
 ### [Linux-schaalset met automatisch schalen](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Windows-schaalset met automatisch schalen](virtual-machine-scale-sets-windows-autoscale.md)
@@ -31,7 +31,7 @@
 
 
 ## Beheren
-### [Windows-schaalset met PowerShell](virtual-machine-scale-sets-windows-manage.md)
+### [Windows-schaalset met Azure PowerShell](virtual-machine-scale-sets-windows-manage.md)
 ### [Automatisch schalen en schaalsets](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Geavanceerd automatisch schalen](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Verticaal schalen in een schaalset](virtual-machine-scale-sets-vertical-scale-reprovision.md)
@@ -47,7 +47,7 @@
 ### [Veelgestelde vragen over schaalsets](virtual-machine-scale-sets-faq.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 

@@ -7,8 +7,12 @@
 - name: Snelstartgidsen
   expanded: true
   items:
-    - name: Een container maken
+    - name: Container maken - CLI
       href: container-instances-quickstart.md
+    - name: Container maken - Portal
+      href: container-instances-quickstart-portal.md
+    - name: Container maken - PowerShell
+      href: container-instances-quickstart-powershell.md
 - name: Zelfstudies
   items:
     - name: Een container bouwen en implementeren
@@ -39,7 +43,7 @@
       href: container-instances-troubleshooting.md
 - name: Naslaginformatie
   items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: /cli/azure/container
     - name: REST
       href: /rest/api/container-instances

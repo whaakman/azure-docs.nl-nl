@@ -12,6 +12,8 @@
   items:
     - name: Wijzigingen aan een virtuele machine bewaken met logische apps
       href: monitor-virtual-machine-changes-event-grid-logic-app.md
+    - name: Formaat van geüploade afbeeldingen wijzigen
+      href: resize-images-on-storage-blob-upload-event.md
 - name: Concepten
   items:
     - name: Concepten binnen Event Grid

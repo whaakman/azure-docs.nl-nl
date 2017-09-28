@@ -1,8 +1,10 @@
 # Overzicht
 ## [Wat is Load Balancer?](load-balancer-overview.md)
+## [Wat is Load Balancer Standard?](load-balancer-standard-overview.md)
 ## [Internet Load Balancer](load-balancer-internet-overview.md)
 ## [Interne load balancer](load-balancer-internal-overview.md)
 ## [Load Balancer-testen](load-balancer-custom-probe-overview.md)
+## [Uitleg over poorten voor hoge beschikbaarheid](load-balancer-ha-ports-overview.md)
 ## [Ondersteuning voor Azure Resource Manager](load-balancer-arm.md)
 ## [IPv6-ondersteuning](load-balancer-ipv6-overview.md)
 ## [Meerdere VIP's](load-balancer-multivip-overview.md)
@@ -33,6 +35,10 @@
 ### [Een internetgerichte load balancer maken met IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
 ### [Een internetgerichte load balancer maken met IPv6 (sjabloon)](load-balancer-ipv6-internet-template.md)
 
+## [Een zoneredundante, openbare Load Balancer Standard maken](load-balancer-get-started-internet-az-portal.md)
+### [Een zoneredundante, openbare Load Balancer Standard maken (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Een zoneredundante, openbare Load Balancer Standard maken (CLI)](load-balancer-get-started-internet-az-cli.md)
+
 # Procedures
 ## [Time-out voor TCP-inactiviteit configureren voor load balancer](load-balancer-tcp-idle-timeout.md)
 ## [Distributiemodus configureren voor load balancer](load-balancer-distribution-mode.md)
@@ -44,13 +50,17 @@
 ### [Meerdere IP-configuraties gebruiken (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Logboekanalyse voor Azure Load Balancer](load-balancer-monitor-log.md)
 ## [DHCPv6 configureren voor Linux-VM's](load-balancer-ipv6-for-linux.md)
+## [Poorten voor hoge beschikbaarheid configureren voor de interne Load Balancer](load-balancer-configure-ha-ports.md)
+## [Een openbaar IP-adres maken in een beschikbaarheidszone](../virtual-network/create-public-ip-availability-zone-portal.md)
+## [Een openbaar IP-adres maken in een beschikbaarheidszone (PowerShell)](../virtual-network/create-public-ip-availability-zone-powershell.md)
+## [Een openbaar IP-adres maken in een beschikbaarheidszone (CLI)](../virtual-network/create-public-ip-availability-zone-cli.md)
 ## Problemen oplossen
 ### [Problemen met Azure Load Balancer oplossen](load-balancer-troubleshoot.md)
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
-## [PowerShell](/powershell/module/azurerm.network)
-## [Azure CLI 2.0](/cli/azure/network/lb)
+## [Azure PowerShell](/powershell/module/azurerm.network)
+## [Azure CLI](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)

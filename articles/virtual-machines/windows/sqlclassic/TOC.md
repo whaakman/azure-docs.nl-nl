@@ -30,12 +30,12 @@
 ## Business Intelligence
 ### [SQL Server Business Intelligence in Azure VM's](virtual-machines-windows-classic-ps-sql-bi.md)
 ### [ReportViewer gebruiken op een in Azure gehoste website](virtual-machines-windows-classic-sql-server-reportviewer.md)
-### [PowerShell gebruiken om een Azure VM te maken met een rapportserver](virtual-machines-windows-classic-ps-sql-report.md)
+### [Azure PowerShell gebruiken om een Azure VM te maken met een rapportserver](virtual-machines-windows-classic-ps-sql-report.md)
 ## [Aanbevolen procedures voor prestaties](../sql/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## [Toepassingspatronen](../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
 # Naslaginformatie
-## [PowerShell klassiek](/powershell/azure/overview?view=azuresmps-3.7.0)
+## [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
 ## [Azure CLI](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
 ## [SQL Server-stuurprogramma's](https://docs.microsoft.com/sql/connect/sql-server-drivers)

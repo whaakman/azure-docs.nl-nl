@@ -6,6 +6,10 @@
 ## [Cache toevoegen voor betere prestaties](api-management-howto-cache.md)
 ## [Veelgestelde vragen](api-management-faq.md)
 # Procedures
+## Een APIM-service instellen
+### [Een APIM-instantie maken](get-started-create-service-instance.md)
+### [Upgraden en schaal aanpassen](upgrade-and-scale.md)
+### [Een aangepast domein configureren](configure-custom-domain.md)
 ## API's ontwikkelen
 ### [Een API-product toevoegen en publiceren](api-management-howto-add-products.md)
 ### [Bewerkingen toevoegen](api-management-howto-add-operations.md)
@@ -51,7 +55,7 @@
 #### [Snel starten](../service-fabric/service-fabric-api-management-quick-start.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (oorspronkelijk)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [Beleidsregels](api-management-policies.md)

@@ -2,9 +2,13 @@
 ## [Virtuele netwerken](virtual-networks-overview.md)
 ## [Door de gebruiker gedefinieerde routes en doorsturen via IP](virtual-networks-udr-overview.md)
 ## [Peering op virtueel netwerk](virtual-network-peering-overview.md)
+## [Service-eindpunten voor virtueel netwerk](virtual-network-service-endpoints-overview.md)
+## [Virtueel netwerk voor Azure-services](virtual-network-for-azure-services.md)
+## [Beveiliging](security-overview.md)
 ## [Bedrijfscontinuïteit](virtual-network-disaster-recovery-guidance.md)
 ## [Veelgestelde vragen](virtual-networks-faq.md)
 ## [IP-adressering](virtual-network-ip-addresses-overview-arm.md)
+## [DDoS-beveiliging](ddos-protection-overview.md)
 ## Klassiek
 ### [IP-adressering](virtual-network-ip-addresses-overview-classic.md)
 ### [Toegangsbeheerlijsten](virtual-networks-acl.md)
@@ -19,26 +23,27 @@
 
 ## Implementeren
 ### [Virtuele netwerken](virtual-networks-create-vnet-arm-pportal.md)
-#### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [CLI](virtual-networks-create-vnet-arm-cli.md)
+#### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
+#### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Sjabloon](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Netwerkbeveiligingsgroepen
-#### [Portal](virtual-networks-create-nsg-arm-pportal.md)
-#### [PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [CLI](virtual-networks-create-nsg-arm-cli.md)
+#### [Azure Portal](virtual-networks-create-nsg-arm-pportal.md)
+#### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
+#### [Azure CLI](virtual-networks-create-nsg-arm-cli.md)
 #### [Sjabloon](virtual-networks-create-nsg-arm-template.md)
+#### [Beveiligingsgroepen voor toepassing](create-network-security-group-preview.md)
 #### Klassiek
-##### [PowerShell](virtual-networks-create-nsg-classic-ps.md)
-##### [CLI](virtual-networks-create-nsg-classic-cli.md)
+##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
+##### [Azure CLI](virtual-networks-create-nsg-classic-cli.md)
 
 ### Door de gebruiker gedefinieerde routes
-#### [PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [CLI](virtual-network-create-udr-arm-cli.md)
+#### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
+#### [Azure CLI](virtual-network-create-udr-arm-cli.md)
 #### [Sjabloon](virtual-network-create-udr-arm-template.md)
 #### Klassiek
-##### [PowerShell](virtual-network-create-udr-classic-ps.md)
-##### [CLI](virtual-network-create-udr-classic-cli.md)
+##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
+##### [Azure CLI](virtual-network-create-udr-classic-cli.md)
 
 ### Peering op virtueel netwerk
 #### [Hetzelfde implementatiemodel - hetzelfde abonnement](virtual-network-create-peering.md)
@@ -46,35 +51,42 @@
 #### [Verschillende implementatiemodellen - hetzelfde abonnement](create-peering-different-deployment-models.md)
 #### [Verschillende implementatiemodellen - verschillende abonnementen](create-peering-different-deployment-models-subscriptions.md)
 
+### [Service-eindpunten voor virtueel netwerk](virtual-network-service-endpoints-configure.md)
+
+### Openbaar IP-adres - beschikbaarheidszone
+#### [Azure Portal](create-public-ip-availability-zone-portal.md)
+#### [Azure CLI](create-public-ip-availability-zone-cli.md)
+#### [PowerShell](create-public-ip-availability-zone-powershell.md)
+
 ### Virtuele machines
 #### Een virtuele machine met een statisch openbaar IP-adres maken
-##### [Portal](virtual-network-deploy-static-pip-arm-portal.md)
-##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-##### [CLI](virtual-network-deploy-static-pip-arm-cli.md)
+##### [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
+##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+##### [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Sjabloon](virtual-network-deploy-static-pip-arm-template.md)
 ##### Klassiek
-###### [PowerShell](virtual-networks-reserved-public-ip.md)
+###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
 
 #### Een virtuele machine met een statisch privé-IP-adres maken
-##### [Portal](virtual-networks-static-private-ip-arm-pportal.md)
-##### [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
-##### [CLI](virtual-networks-static-private-ip-arm-cli.md)
+##### [Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
+##### [Azure PowerShell](virtual-networks-static-private-ip-arm-ps.md)
+##### [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
 ##### Klassiek
-###### [Portal](virtual-networks-static-private-ip-classic-pportal.md)
-###### [PowerShell](virtual-networks-static-private-ip-classic-ps.md)
-###### [CLI](virtual-networks-static-private-ip-classic-cli.md)
+###### [Azure Portal](virtual-networks-static-private-ip-classic-pportal.md)
+###### [Azure PowerShell](virtual-networks-static-private-ip-classic-ps.md)
+###### [Azure CLI](virtual-networks-static-private-ip-classic-cli.md)
 
 #### Een virtuele machine met meerdere netwerkinterfaces maken
-##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### Klassiek
-###### [PowerShell](virtual-network-deploy-multinic-classic-ps.md)
-###### [CLI](virtual-network-deploy-multinic-classic-cli.md)
+###### [Azure PowerShell](virtual-network-deploy-multinic-classic-ps.md)
+###### [Azure CLI](virtual-network-deploy-multinic-classic-cli.md)
 
 #### Een virtuele machine met meerdere IP-adressen maken
 ##### [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
-##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
+##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+##### [Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Sjabloon](virtual-network-multiple-ip-addresses-template.md)
 
 #### [Een virtuele machine maken met versneld netwerken](virtual-network-create-vm-accelerated-networking.md)
@@ -97,9 +109,9 @@
 
 ### Klassiek
 #### [Virtueel netwerk](create-virtual-network-classic.md)
-##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [CLI](virtual-networks-create-vnet-classic-cli.md)
+##### [Azure Portal](virtual-networks-create-vnet-classic-pportal.md)
+##### [Azure PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [Azure CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ## Configureren
 ### Virtuele machines
@@ -109,8 +121,8 @@
 #### [Hostnamen weergeven en wijzigen](virtual-networks-viewing-and-modifying-hostnames.md)
 ### Klassiek
 #### Toegangsbeheerlijsten
-##### [Portal](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [PowerShell](virtual-networks-acl-powershell.md)
+##### [Azure Portal](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure PowerShell](virtual-networks-acl-powershell.md)
 
 ## Beheren
 ### [Virtuele netwerken](virtual-network-manage-network.md)
@@ -120,9 +132,9 @@
 ##### [Netwerkconfiguratiebestand](virtual-networks-using-network-configuration-file.md)
 ##### [Migreren van een affiniteitsgroep naar een regio](virtual-networks-migrate-to-regional-vnet.md)
 ### Netwerkbeveiligingsgroepen
-#### [Portal](virtual-network-manage-nsg-arm-portal.md)
-#### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
-#### [CLI](virtual-network-manage-nsg-arm-cli.md)
+#### [Azure Portal](virtual-network-manage-nsg-arm-portal.md)
+#### [Azure PowerShell](virtual-network-manage-nsg-arm-ps.md)
+#### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
 #### [Logboeken](virtual-network-nsg-manage-log.md)
 ### Netwerkinterfaces (NIC's)
 #### [NIC's maken, wijzigen of verwijderen](virtual-network-network-interface.md)
@@ -130,22 +142,25 @@
 ### Virtuele machines
 #### [Een VM verplaatsen naar een ander subnet](virtual-networks-move-vm-role-to-subnet.md)
 ### [Openbare IP-adressen](virtual-network-public-ip-address.md)
+### DDoS-beveiliging
+#### [Azure Portal](ddos-protection-manage-portal.md)
+#### [Azure PowerShell](ddos-protection-manage-ps.md)
 
 ## Problemen oplossen
 ### Netwerkbeveiligingsgroepen
-#### [Portal](virtual-network-nsg-troubleshoot-portal.md)
-#### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
+#### [Azure Portal](virtual-network-nsg-troubleshoot-portal.md)
+#### [Azure PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
 ### Routes
-#### [Portal](virtual-network-routes-troubleshoot-portal.md)
-#### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
+#### [Azure Portal](virtual-network-routes-troubleshoot-portal.md)
+#### [Azure PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [Doorvoer testen](virtual-network-bandwidth-testing.md)
 ### [Kan virtuele netwerken niet detecteren](virtual-network-troubleshoot-cannot-delete-vnet.md)
 ### [Problemen met connectiviteit van VM naar VM](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
-## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
-## [PowerShell (klassiek)](/powershell/module/azure/)
+## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
+## [Azure PowerShell (klassiek)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)

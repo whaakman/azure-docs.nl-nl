@@ -67,12 +67,17 @@
 ### RESTful-API's integreren
 #### [Gebruikersinvoer valideren](active-directory-b2c-rest-api-validation-custom.md)
 #### [Aanvullende claims verkrijgen](active-directory-b2c-rest-api-step-custom.md)
-### Aanmelding aanpassen
+### Gebruikersstromen
 #### [Gebruikersinvoer configureren](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Aangepaste kenmerken](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Gebruikersinterface aanpassen](active-directory-b2c-ui-customization-custom.md)
 #### [Tokens aanpassen](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
-#### [Wachtwoord aanpassen](active-directory-b2c-reference-password-complexity-custom.md)
+#### [Wachtwoordcomplexiteit](active-directory-b2c-reference-password-complexity-custom.md)
+
+#### [Wachtwoord wijzigen](active-directory-b2c-reference-password-change-custom.md)
+
+#### [Aangemeld blijven inschakelen](active-directory-b2c-reference-kmsi-custom.md)
+
 ### Problemen oplossen
 #### [Logboeken verzamelen met Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Naslaginformatie

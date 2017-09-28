@@ -4,6 +4,8 @@
   items:
     - name: Over Text Analytics
       href: overview.md
+    - name: Ondersteunde talen
+      href: text-analytics-supported-languages.md
 - name: Snelstartgidsen
   items:
     - name: 'C#'

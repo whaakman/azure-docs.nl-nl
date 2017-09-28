@@ -2,11 +2,12 @@
 ## [Beveiligde uitgebreide toegang](active-directory-securing-privileged-access.md)
 ## [Wat is Azure AD PIM?](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Rollen](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Privileged Identity Management voor Azure](azure-pim-resource-rbac.md)
 ## [Goedkeuringswerkstromen voor Privileged Identity Management](azure-ad-pim-approval-workflow.md)
 
 # Aan de slag
 ## [Vereisten voor abonnementen](subscription-requirements.md)
-## [Aan de slag in de portal](../active-directory-privileged-identity-management-getting-started.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Aan de slag in Azure Portal](../active-directory-privileged-identity-management-getting-started.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [De beveiligingswizard](../active-directory-privileged-identity-management-security-wizard.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Toegang geven tot PIM](../active-directory-privileged-identity-management-how-to-give-access-to-pim.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 

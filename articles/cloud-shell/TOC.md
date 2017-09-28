@@ -1,19 +1,25 @@
 # [Overzicht](overview.md)
 
-# [Snelstartgids](quickstart.md)
+# Snelstartgids
+## [Snelstartgids voor Bash](quickstart.md)
+## [Snelstartgids voor PowerShell](quickstart-powershell.md)
 
 # Concepten
-## [Functies en hulpprogramma's](features.md)
+## [Functies en hulpprogramma's in Bash](features.md)
+## [Functies en hulpprogramma's in PowerShell](features-powershell.md)
 ## [Beperkingen](limitations.md)
+## [Problemen oplossen](troubleshooting.md)
 
 # Uitleg
-## [Permanente opslag](persisting-shell-storage.md)
+## [Permanente opslag in Bash](persisting-shell-storage.md)
+## [Permanente opslag in PowerShell](persisting-shell-storage-powershell.md)
 ## [Het venster gebruiken](using-the-shell-window.md)
 
 # [Prijzen](pricing.md)
 
 # Naslaginformatie
-## [Azure CLI 2.0](/cli/azure) 
+## [Azure CLI](/cli/azure)
+## [Azure PowerShell](/powershell/azure)
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)

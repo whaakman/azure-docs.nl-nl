@@ -5,7 +5,7 @@
 ## [Veelgestelde vragen](faq.md)
 
 # Aan de slag
-## [Een Linux-VM maken via de portal](createportal.md)
+## [Een virtuele Linux-machine maken met behulp van Azure Portal](createportal.md)
 ## [Azure CLI installeren](../../../cli-install-nodejs.md)
 ## [SSH-sleutels maken](../mac-create-ssh-keys.md)
 
@@ -22,7 +22,7 @@
 ### [Wachtwoorden of sleutels voor Linux opnieuw instellen, SSH-problemen oplossen en schijven controleren](reset-access.md)
 ### [Onderhoud](planned-maintenance-schedule.md)
 ### [Een Docker-host maken via CLI](cli-use-docker.md)
-### [Een Docker-host maken via de portal](portal-use-docker.md)
+### [Een Docker-host maken via Azure Portal](portal-use-docker.md)
 ### [Docker gebruiken met Swarm](../../virtual-machines-linux-docker-swarm.md)
 
 ## Storage gebruiken
@@ -67,8 +67,8 @@
 ### [Virtuele harde schijf koppelen bij het oplossen van problemen met een virtuele machine](troubleshoot-recovery-disks-portal.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/azure/overview)
-## [Azure-CLI](/cli/azure/vm)
+## [Azure PowerShell](/powershell/azure/overview)
+## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Resource Manager-sjablonen schrijven](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Communitysjablonen](https://azure.microsoft.com/documentation/templates)

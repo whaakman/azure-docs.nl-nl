@@ -12,7 +12,7 @@
 
 # Voorbeelden
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## PowerShell
+## Azure PowerShell
 ### [Sjabloon implementeren](resource-manager-samples-powershell-deploy.md)
 
 ## Azure CLI
@@ -35,7 +35,7 @@
 
 
 ## Implementeren
-### PowerShell
+### Azure PowerShell
 #### [Sjabloon implementeren](resource-group-template-deploy.md)
 #### [Persoonlijke sjabloon met SAS-token implementeren](resource-manager-powershell-sas-token.md)
 #### [Sjabloon exporteren en opnieuw distribueren](resource-manager-export-template-powershell.md)
@@ -43,7 +43,7 @@
 #### [Sjabloon implementeren](resource-group-template-deploy-cli.md)
 #### [Persoonlijke sjabloon met SAS-token implementeren](resource-manager-cli-sas-token.md)
 #### [Sjabloon exporteren en opnieuw distribueren](resource-manager-export-template-cli.md)
-### Portal
+### Azure Portal
 #### [Resources implementeren](resource-group-template-deploy-portal.md)
 #### [Sjabloon exporteren](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
@@ -52,26 +52,26 @@
 ### [Beveiligde waarden doorgeven tijdens implementatie](resource-manager-keyvault-parameter.md)
 
 ## Beheren
-### [PowerShell](powershell-azure-resource-manager.md)
+### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
-### [Portal](resource-group-portal.md)
-### [REST-API](resource-manager-rest-api.md)
+### [Azure Portal](resource-group-portal.md)
+### [REST API](resource-manager-rest-api.md)
 ### [Tags gebruiken om resources te organiseren](resource-group-using-tags.md)
 ### [Resources verplaatsen naar nieuwe groep of abonnement](resource-group-move-resources.md)
 ### [Voorbeelden governance](resource-manager-subscription-examples.md)
 
 ## Toegang beheren
 ### Een service-principal maken
-#### [PowerShell](resource-group-authenticate-service-principal.md)
-#### [Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Azure PowerShell](resource-group-authenticate-service-principal.md)
+#### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
-#### [Portal](resource-group-create-service-principal-portal.md)
+#### [Azure Portal](resource-group-create-service-principal-portal.md)
 ### [Verificatie-API om toegang te krijgen tot abonnementen](resource-manager-api-authentication.md)
 ### [Resources vergrendelen](resource-group-lock-resources.md)
 
 ## Resourcebeleid instellen
 ### [Wat is een resourcebeleid?](resource-manager-policy.md)
-### [Portal gebruiken voor het toewijzen van beleid](resource-manager-policy-portal.md)
+### [Azure Portal gebruiken voor het toewijzen van beleid](resource-manager-policy-portal.md)
 ### [Scripts gebruiken voor het toewijzen van beleid](resource-manager-policy-create-assign.md)
 ### Voorbeelden
 #### [Tags](resource-manager-policy-tags.md)

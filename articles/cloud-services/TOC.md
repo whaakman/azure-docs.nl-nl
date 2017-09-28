@@ -34,13 +34,13 @@
 #### [Een taak gebruiken om .NET op een cloudservicerol te installeren](cloud-services-dotnet-install-dotnet.md)
 
 ### Extern bureaublad configureren
-#### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [Klassieke portal](cloud-services-role-enable-remote-desktop.md)
-#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Implementeren
 ### Een cloudservice maken en implementeren in Portal
-#### [Portal](cloud-services-how-to-create-deploy-portal.md)
+#### [Azure Portal](cloud-services-how-to-create-deploy-portal.md)
 #### [Klassieke portal](cloud-services-how-to-create-deploy.md)
 ### [Een lege cloudservicecontainer maken in PowerShell](cloud-services-powershell-create-cloud-container.md)
 ### Een aangepaste domeinnaam configureren
@@ -51,14 +51,14 @@
 
 ## Services beheren
 ### Veelvoorkomende beheertaken
-#### [Portal](cloud-services-how-to-manage-portal.md)
+#### [Azure Portal](cloud-services-how-to-manage-portal.md)
 #### [Klassieke portal](cloud-services-how-to-manage.md)
 ### Cloudservice configureren
-#### [Portal](cloud-services-how-to-configure-portal.md)
+#### [Azure Portal](cloud-services-how-to-configure-portal.md)
 #### [Klassieke portal](cloud-services-how-to-configure.md)
 ### [Een cloudservice beheren met Azure Automation](automation-manage-cloud-services.md)
 ### Automatisch schalen configureren
-#### [Portal](cloud-services-how-to-scale-portal.md)
+#### [Azure Portal](cloud-services-how-to-scale-portal.md)
 #### [Klassieke portal](cloud-services-how-to-scale.md)
 ### [Python gebruiken om Azure-resources te beheren](cloud-services-python-how-to-use-service-management.md)
 
@@ -80,7 +80,7 @@
 ### [Prestaties testen](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Testen met Visual Studio Profiler](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Diagnostische gegevens inschakelen
-#### [PowerShell](cloud-services-diagnostics-powershell.md)
+#### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Prestatiemeteritems gebruiken in Azure Diagnostics](cloud-services-dotnet-diagnostics-performance-counters.md)
@@ -108,8 +108,14 @@
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
-## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
-## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
+## [.csdef XML Schema](schema-csdef-file.md)
+### [LoadBalancerProbe Schema](schema-csdef-loadbalancerprobe.md)
+### [WebRole Schema](schema-csdef-webrole.md)
+### [WorkerRole Schema](schema-csdef-workerrole.md)
+### [NetworkTrafficRules Schema](schema-csdef-networktrafficrules.md)
+## [.cscfg XML Schema](schema-cscfg-file.md)
+### [Role Schema](schema-cscfg-role.md)
+### [NetworkConfiguration Schema](schema-cscfg-networkconfiguration.md)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
 # Resources

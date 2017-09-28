@@ -11,7 +11,7 @@
       href: quick-create-cli.md
     - name: Virtuele machine maken - Portal
       href: quick-create-portal.md
-    - name: Virtuele machine maken - PowerShell
+    - name: Virtuele machine maken - Azure PowerShell
       href: quick-create-powershell.md
 - name: Zelfstudies
   items:
@@ -33,7 +33,7 @@
       href: tutorial-virtual-network.md
     - name: 9 - Back-ups maken van virtuele machines
       href: tutorial-backup-vms.md
-    - name: 10 - Virtuele machines bewaken
+    - name: 10 - Virtuele machines bewaken en bijwerken
       href: tutorial-monitoring.md
     - name: 11 - Beveiliging van virtuele machines beheren
       href: tutorial-azure-security.md
@@ -53,7 +53,7 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: powershell-samples.md
 - name: Concepten
   items:
@@ -187,6 +187,8 @@
           href: manage-availability.md
         - name: Verticaal schalen
           href: vertical-scaling-automation.md
+        - name: Een virtuele machine maken in de beschikbaarheidszone
+          href: create-cli-availability-zone.md
     - name: Automation-hulpprogramma's gebruiken
       items:
         - name: Ansible

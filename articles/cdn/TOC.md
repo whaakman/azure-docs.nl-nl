@@ -19,7 +19,7 @@
 ####[Dynamische siteversnelling](cdn-dynamic-site-acceleration.md)
  
 ## Beheren
-### [Beheren met PowerShell](cdn-manage-powershell.md)
+### [Beheren met Azure PowerShell](cdn-manage-powershell.md)
 ### TTL (Time to Live) configureren
 #### [Web Apps/Cloud Services, ASP.NET of IIS-inhoud](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Inhoud van de Storage-blobservice](cdn-manage-expiration-of-blob-content.md)
@@ -53,7 +53,7 @@
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
-## [PowerShell](/powershell/module/azurerm.cdn)
+## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)
