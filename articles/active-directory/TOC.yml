@@ -1,6 +1,6 @@
 - name: Toegang tot resources in Azure
   href: active-directory-understanding-resource-access.md
-- name: Op rollen gebaseerd toegangsbeheer
+- name: RBAC (op rollen gebaseerd toegangsbeheer)
   href: role-based-access-control-what-is.md
   items:
     - name: Toegangstoewijzingen beheren
@@ -31,10 +31,14 @@
       href: role-based-access-control-troubleshooting.md
     - name: Resourceproviderbewerkingen
       href: role-based-access-control-resource-provider-operations.md
+- name: PIM (Privileged Identity Management) voor RBAC
+  href: pim-azure-resource.md
+- name: Voorwaardelijke toegang voor Azure-beheer
+  href: conditional-access-azure-management.md
 - name: Beheerde service-identiteit
   href: msi-overview.md
   items:
-    - name: MSI configureren voor Windows-VM
+    - name: MSI configureren voor een Azure VM
       items:
         - name: Met de Azure Portal
           href: msi-qs-configure-portal-windows-vm.md

@@ -16,7 +16,7 @@
 # Procedures
 ## Een beheerd domein koppelen
 ### [Een Windows Server-VM aan een domein toevoegen](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Een Windows Server-VM aan een domein toevoegen met PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Een Windows Server-VM aan een domein toevoegen met Azure PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Een Linux-VM aan een domein toevoegen](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Een beheerd domein beheren
 ### [Een beheerd domein beheren](active-directory-ds-admin-guide-administer-domain.md)

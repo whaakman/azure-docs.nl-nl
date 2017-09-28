@@ -60,13 +60,14 @@
 #### [Een autorisatieregel voor de naamruimte en wachtrij maken](service-bus-resource-manager-namespace-auth-rule.md)
 #### [Een naamruimte met een onderwerp, abonnement en regel maken](service-bus-resource-manager-namespace-topic-with-rule.md)
 #### 
-### [PowerShell gebruiken om entiteiten in te richten](service-bus-manage-with-ps.md)
+### [Azure PowerShell gebruiken om entiteiten in te richten](service-bus-manage-with-ps.md)
 
 # Naslaginformatie
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
-## [PowerShell](/powershell/module/azurerm.servicebus)
+## [Java](/java/api/overview/azure/servicebus)
+## [Azure PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Uitzonderingen](service-bus-messaging-exceptions.md)
 ## [Quota](service-bus-quotas.md)

@@ -4,8 +4,8 @@
 
 # Snelstartgidsen
 ## [Een .NET-toepassing maken](service-fabric-quickstart-dotnet.md)
-## [Een Windows-containertoepassing implementeren](service-fabric-quickstart-containers.md)
 ## [Een Linux-containertoepassing implementeren](service-fabric-quickstart-containers-linux.md)
+## [Een Windows-containertoepassing implementeren](service-fabric-quickstart-containers.md)
 
 # Zelfstudies
 ## Een .NET-toepassing implementeren
@@ -17,11 +17,24 @@
 ## Een bestaande .NET-app in een container plaatsen
 ### [1 - Een beveiligd cluster maken in Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2 - Een .NET-toepassing implementeren met behulp van Docker Compose](service-fabric-host-app-in-a-container.md)
+### [3 - De container bewaken](service-fabric-tutorial-monitoring-wincontainers.md)
+
+## Een Linux-container-app maken
+### [1 - Containerinstallatiekopieën maken](service-fabric-tutorial-create-container-images.md)
+### [2 - Pakket maken en containers implementeren](service-fabric-tutorial-package-containers.md)
+### [3 - Failover uitvoeren en schalen](service-fabric-tutorial-containers-failover.md)
+
+## Een cluster maken en beheren
+### 1 - Een cluster maken in Azure
+#### [1a - Een beveiligd Windows-cluster maken in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b - Een beveiligd Linux-cluster maken in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+### [2 - API Management met Service Fabric implementeren](service-fabric-tutorial-deploy-api-management.md)
 
 # Voorbeelden
-## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
-## [PowerShell](service-fabric-powershell-samples.md)
+## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=service-fabric)
+## [Azure PowerShell](service-fabric-powershell-samples.md)
 ## [Service Fabric-CLI](samples-cli.md)
+
 # Concepten
 ## [Uitleg over microservices](service-fabric-overview-microservices.md)
 ## [Grote afbeelding](service-fabric-content-roadmap.md)
@@ -67,6 +80,8 @@
 #### [Servicestatus](service-fabric-concepts-state.md)
 #### [Service partitioneren](service-fabric-concepts-partitioning.md)
 #### [Beschikbaarheid van services](service-fabric-availability-services.md)
+#### [Replica's en exemplaren](service-fabric-concepts-replica-lifecycle.md)
+#### [Herconfiguratie](service-fabric-concepts-reconfiguration.md)
 #### Servicecommunicatie
 ##### [Overzicht](service-fabric-connect-and-communicate-with-services.md)
 ##### [DNS-service](service-fabric-dnsservice.md)
@@ -91,10 +106,9 @@
 
 ## Clusters maken en beheren
 ### [Overzicht](service-fabric-deploy-anywhere.md)
-### [Service Fabric op Linux](service-fabric-linux-overview.md)
 ### Plannen en voorbereiden
 #### [Capaciteitsplanning](service-fabric-cluster-capacity.md)
-#### [Herstel na noodgevallen](service-fabric-disaster-recovery.md)
+#### [Herstel na noodgeval](service-fabric-disaster-recovery.md)
 ### [Een cluster beschrijven](service-fabric-cluster-resource-manager-cluster-description.md)
 ### [Clusterbeveiliging](service-fabric-cluster-security.md)
 ### [Functieverschillen tussen Linux en Windows](service-fabric-linux-windows-differences.md)
@@ -130,6 +144,8 @@
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
+
+## [De Service Fabric-CLI instellen](service-fabric-cli.md)
 
 ## Een toepassing bouwen
 ### [Uw eerste C#-app in Visual Studio maken](service-fabric-create-your-first-application-in-visual-studio.md)
@@ -225,13 +241,13 @@
 
 ### Toepassingen implementeren of verwijderen
 #### [Toepassingen implementeren in een lokaal cluster](service-fabric-get-started-with-a-local-cluster.md)
-#### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Service Fabric-CLI](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient-API's](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### Toepassingen upgraden
-#### [Upgraden met PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+#### [Upgraden met Azure PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
 #### [Upgraden met Visual Studio](service-fabric-application-upgrade-tutorial.md)
 #### [Problemen met toepassingsupgrades oplossen](service-fabric-application-upgrade-troubleshooting.md)
 
@@ -280,8 +296,6 @@
 
 ### [Een cluster visualiseren](service-fabric-visualizing-your-cluster.md)
 ### [Verbinding maken met een beveiligde cluster](service-fabric-connect-to-secure-cluster.md)
-
-### [Aan de slag met de Service Fabric-CLI](service-fabric-cli.md)
 ### [Patch uitvoeren voor clusterknooppunten](service-fabric-patch-orchestration-application.md)
 
 ### Clusterbronnen beheren en organiseren
@@ -326,7 +340,7 @@
 ### [Problemen met uw lokale cluster oplossen](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Naslaginformatie
-## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
+## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Azure-CLI](/cli/azure/sf)
 ## [Java-API](/java/api/overview/azure/servicefabric)
