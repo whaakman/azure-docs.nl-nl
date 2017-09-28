@@ -1,4 +1,5 @@
 - name: Web Apps for Containers
+  href: index.yml
 - name: Overzicht
   items:
     - name: Meer informatie over Web Apps
