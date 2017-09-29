@@ -3,7 +3,7 @@ title: Overzicht van back-ends met meerdere tenants via Azure Application Gatewa
 description: Op deze pagina wordt de ondersteuning voor back-ends met meerdere tenants in Application Gateway beschreven.
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 ms.service: application-gateway
@@ -12,18 +12,18 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: d944904db5b0bf176b214249ad59611e2b794ae0
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: f02b95a3d6020a77fdfcd096a3c11f5cae5aa49c
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Application Gateway-ondersteuning voor back-ends met meerdere tenants
 
-Azure Application Gateway biedt ondersteuning voor virtuele-machineschaalsets, netwerkinterfaces, openbare en persoonlijke IP-adressen en volledig gekwalificeerde domeinnamen (FQDN) als onderdeel van de back-endpools. Application Gateway wijzigt standaard niet de binnenkomende HTTP-host-header van de client en stuurt de header ongewijzigd terug naar de back-end. Er zijn veel services zoals [Azure Web Apps](../app-service-web/app-service-web-overview.md) en [API Management](../api-management/api-management-key-concepts.md) die van nature werken met meerdere tenants en vertrouwen op een specifieke host-header of SNI-extensie om te kunnen omzetten naar de juiste eindpunten. Application Gateway biedt nu ondersteuning voor de mogelijkheid van gebruikers om de binnenkomende HTTP-host-header te overschrijven op basis van de back-end-HTTP-instellingen. Dankzij deze mogelijkheid is er ondersteuning voor Azure-web-apps en API-beheer met back-ends met meerdere tenants. Deze mogelijkheid is beschikbaar voor zowel de standaard- als de WAF-SKU. De ondersteuning voor back-ends met meerdere tenants omvat ook opties voor SSL-beëindiging en end-to-end SSL-scenario's.
+Azure Application Gateway biedt ondersteuning voor virtuele-machineschaalsets, netwerkinterfaces, openbare en persoonlijke IP-adressen en volledig gekwalificeerde domeinnamen (FQDN) als onderdeel van de back-endpools. Application Gateway wijzigt standaard niet de binnenkomende HTTP-host-header van de client en stuurt de header ongewijzigd terug naar de back-end. Er zijn veel services zoals [Azure Web Apps](../app-service/app-service-web-overview.md) en [API Management](../api-management/api-management-key-concepts.md) die van nature werken met meerdere tenants en vertrouwen op een specifieke host-header of SNI-extensie om te kunnen omzetten naar de juiste eindpunten. Application Gateway biedt nu ondersteuning voor de mogelijkheid van gebruikers om de binnenkomende HTTP-host-header te overschrijven op basis van de back-end-HTTP-instellingen. Dankzij deze mogelijkheid is er ondersteuning voor Azure-web-apps en API-beheer met back-ends met meerdere tenants. Deze mogelijkheid is beschikbaar voor zowel de standaard- als de WAF-SKU. De ondersteuning voor back-ends met meerdere tenants omvat ook opties voor SSL-beëindiging en end-to-end SSL-scenario's.
 
 ![web-app-scenario](./media/application-gateway-web-app-overview/scenario.png)
 

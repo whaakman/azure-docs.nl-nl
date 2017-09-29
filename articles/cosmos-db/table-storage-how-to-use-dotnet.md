@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 04/10/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ab77fe512d275a92da19bb5dc03da347922238a5
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: fadad88be94552dd1db061146d8dfab86d797f61
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Aan de slag met Azure Table Storage met .NET
@@ -469,7 +469,7 @@ Nu u de basisprincipes van Table Storage hebt geleerd, volgt u deze koppelingen 
 * Bekijk de naslagdocumentatie over de Tabelservice voor meer informatie over beschikbare API's:
 * [Naslaginformatie over de Storage-clientbibliotheek voor .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 * [Naslaginformatie over REST API](http://msdn.microsoft.com/library/azure/dd179355)
-* Leer hoe u de code die u schrijft om te werken met Azure Storage, kunt vereenvoudigen met behulp van de [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md).
+* Leer hoe u de code die u schrijft om te werken met Azure Storage, kunt vereenvoudigen met behulp van de [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 * Bekijk meer functiehandleidingen voor informatie over aanvullende mogelijkheden voor het opslaan van gegevens in Azure.
 * [Aan de slag met Azure Blob Storage met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) voor het opslaan van niet-gestructureerde gegevens.
 * [Verbinding maken met SQL Database met behulp van .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) voor het opslaan van relationele gegevens.

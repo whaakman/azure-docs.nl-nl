@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 366922a083b9d18ef50e04eb8b459d2725315e1e
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: d15c30dad9fb4bbe9082d6a3c72cd20ed42bbc3e
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Hybride .NET on-premises/cloudtoepassing met Azure WCF Relay
@@ -232,7 +231,7 @@ In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens wor
     ![][18]
 
 7. Klik terug in het dialoogvenster **Nieuwe ASP.NET-webtoepassing** op **OK** om de MVC-app te maken.
-8. U moet nu Azure-resources configureren voor een nieuwe web-app. Volg de stappen in [het gedeelte Publiceren naar Azure van dit artikel](../app-service-web/app-service-web-get-started-dotnet.md). Ga vervolgens terug naar deze zelfstudie en ga door met de volgende stap.
+8. U moet nu Azure-resources configureren voor een nieuwe web-app. Volg de stappen in [het gedeelte Publiceren naar Azure van dit artikel](../app-service/app-service-web-get-started-dotnet.md). Ga vervolgens terug naar deze zelfstudie en ga door met de volgende stap.
 10. Klik in Solution Explorer met de rechtermuisknop op **Modellen** en klik achtereenvolgens op **Toevoegen** en **Klasse**. Typ in het vak **Naam** de naam **Product.cs**. Klik vervolgens op **Toevoegen**.
 
     ![][17]

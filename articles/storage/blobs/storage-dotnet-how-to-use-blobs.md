@@ -3,7 +3,7 @@ title: Aan de slag met Azure Blob Storage (objectopslag) met .NET | Microsoft Do
 description: Sla niet-gestructureerde gegevens op in de cloud met Azure Blob Storage (objectopslag).
 services: storage
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: d18a8fc8-97cb-4d37-a408-a6f8107ea8b3
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
-ms.author: marsma
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 70c7d6a5e1b9aa9a13481893e0baa56538be097c
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7a432a22c5c2c2fc5e42cfe000dd34262ba4c85e
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="get-started-with-azure-blob-storage-using-net"></a>Aan de slag met Azure Blob Storage met .NET
@@ -401,5 +401,5 @@ U bent nu bekend met de basisprincipes van Blob Storage. Volg deze koppelingen v
 ### <a name="conceptual-guides"></a>Conceptuele handleidingen
 * [Gegevensoverdracht met het AzCopy-opdrachtregelprogramma](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Aan de slag met File Storage voor .NET](../files/storage-dotnet-how-to-use-files.md)
-* [Het gebruik van Azure Blob Storage met de WebJobs-SDK](../../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+* [Het gebruik van Azure Blob Storage met de WebJobs-SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
 

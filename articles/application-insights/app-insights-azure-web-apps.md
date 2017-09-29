@@ -14,14 +14,14 @@ ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: b25f3dd41c8dc381258bb42d8802ba4b56e05903
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 110a4d26e90f46e823a3e1c9ebece3360fbdf0c9
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="monitor-azure-web-app-performance"></a>Prestaties van Azure-web-apps controleren
-In de [Azure Portal](https://portal.azure.com) kunt u instellen dat de prestaties van uw [Azure-web-apps](../app-service-web/app-service-web-overview.md) worden gecontroleerd. Met [Azure Application Insights](app-insights-overview.md) instrumenteert u uw app om telemetrie over de eigen activiteiten te sturen naar de Application Insights-service, waar de gegevens worden opgeslagen en geanalyseerd. Daar kunnen metrische grafieken en zoekfuncties worden gebruikt om problemen vast te stellen, prestaties te verbeteren en het gebruik te beoordelen.
+In de [Azure Portal](https://portal.azure.com) kunt u instellen dat de prestaties van uw [Azure-web-apps](../app-service/app-service-web-overview.md) worden gecontroleerd. Met [Azure Application Insights](app-insights-overview.md) instrumenteert u uw app om telemetrie over de eigen activiteiten te sturen naar de Application Insights-service, waar de gegevens worden opgeslagen en geanalyseerd. Daar kunnen metrische grafieken en zoekfuncties worden gebruikt om problemen vast te stellen, prestaties te verbeteren en het gebruik te beoordelen.
 
 ## <a name="run-time-or-build-time"></a>Runtime of buildtime
 U kunt de controle configureren door de app op twee manieren te instrumenteren:

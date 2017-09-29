@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 09/20/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 18ae6a970455646b7a25170f5abefa52a98b0ba2
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 9c3a9a7255bbbdab8f4c356eb07022d7f1d242d7
 ms.contentlocale: nl-nl
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Adaptieve toepassingsbesturingselementen in Azure Security Center (preview)
@@ -33,6 +33,9 @@ Adaptieve toepassingsbesturingselementen helpen bepalen welke toepassingen kunne
 - Vermijden dat oude en niet-ondersteunde apps worden uitgevoerd.
 - Voorkomen van bepaalde softwareprogramma's die niet zijn toegestaan in uw organisatie.
 - IT in staat stellen de toegang tot gevoelige gegevens te bepalen via het gebruik van apps.
+
+> [!NOTE]
+> Adaptieve toepassingsbesturingselementen zijn beschikbaar voor klanten met Azure Security Center Standard als een beperkte openbare preview. Stuur [ons](mailto:ASC_appcontrol@microsoft.com) een e-mail met uw abonnement-id's om deel te nemen aan de preview.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Hoe worden adaptieve toepassingsbesturingselementen ingeschakeld?
 Adaptieve toepassingsbesturingselementen helpen u bij het definiëren van een set toepassingen die mogen worden uitgevoerd in de geconfigureerde resourcegroepen. Deze functie is alleen beschikbaar voor Windows-machines (alle versies, klassieke of Azure Resource Manager). Volg de onderstaande stappen voor het configureren van opname in de whitelist van toepassingen in Security Center:
@@ -144,10 +147,6 @@ Security Center raadt alleen opname in de whitelist aan voor virtuele machines w
 De lijst bevat:
 - **NAAM**: de naam van het abonnement en de resourcegroep.
 - **VM’s**: het aantal virtuele machines in de resourcegroep.
-
-## <a name="preview-registration"></a>Registratie voor preview
-
-Adaptieve toepassingsbesturingselementen zijn beschikbaar voor klanten met Azure Security Center Standard als een beperkte openbare preview. Stuur [ons](mailto:ASC_appcontrol@microsoft.com) een e-mail met uw abonnement-id's om deel te nemen aan de preview.
 
 ## <a name="see-also"></a>Zie ook
 In dit document hebt u geleerd hoe u gebruik kunt maken van adaptieve toepassingsbesturingselementen in Azure Security Center om toepassingen die worden uitgevoerd op Azure VM's op te nemen in de whitelist. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:

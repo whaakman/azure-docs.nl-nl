@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f23f71cc01eccf17d36885f786de9a7517606803
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Een web-app maken met Redis-Cache
@@ -71,7 +70,7 @@ Als u Visual Studio 2013 hebt, kunt u [de nieuwste Azure-SDK voor Visual Studio 
 
     Zorg ervoor dat **Geen verificatie** is opgegeven voor de instellingen bij **Verificatie**. Afhankelijk van uw versie van Visual Studio kan de standaardwaarde op iets anders zijn ingesteld. Als u deze wilt wijzigen, klikt u op **Verificatie wijzigen** en selecteert u **Geen verificatie**.
 
-    Als u de zelfstudie volgt met Visual Studio 2015, schakel dan het selectievakje **Host in de cloud** in. In de volgende stappen in deze zelfstudie [richt u de Azure-resources in](#provision-the-azure-resources) en [publiceert u de toepassing in Azure](#publish-the-application-to-azure). Voor een voorbeeld van een App Service-web-app die is ingericht vanuit Visual Studio door **Host in the cloud** aangevinkt te laten, bekijkt u [Aan de slag met web-apps in Azure App Service met ASP.NET en Visual Studio](../app-service-web/app-service-web-get-started-dotnet.md).
+    Als u de zelfstudie volgt met Visual Studio 2015, schakel dan het selectievakje **Host in de cloud** in. In de volgende stappen in deze zelfstudie [richt u de Azure-resources in](#provision-the-azure-resources) en [publiceert u de toepassing in Azure](#publish-the-application-to-azure). Voor een voorbeeld van een App Service-web-app die is ingericht vanuit Visual Studio door **Host in the cloud** aangevinkt te laten, bekijkt u [Aan de slag met web-apps in Azure App Service met ASP.NET en Visual Studio](../app-service/app-service-web-get-started-dotnet.md).
    
     ![De projectsjabloon selecteren][cache-select-template]
 4. Klik op **OK** om het project te maken.
@@ -827,7 +826,7 @@ Nadat u de cache die u wilt gebruiken, hebt geselecteerd of gemaakt, kunt u naar
 * Zie [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Een ASP.NET-web-app maken en implementeren in Azure App Service) van de [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect[-demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) voor meer voorbeelden van het maken van een ASP.NET Web-App in de App Service.
   * Voor meer introductiehandleidingen van de demo van HealthClinic.biz, verwijzen wij u naar [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 * Meer informatie over de Entity Framework-werkwijze [Code First voor een nieuwe database](https://msdn.microsoft.com/data/jj193542) die in deze zelfstudie wordt gebruikt.
-* Meer informatie over [web-apps in Azure App Service](../app-service-web/app-service-web-overview.md).
+* Meer informatie over [web-apps in Azure App Service](../app-service/app-service-web-overview.md).
 * Meer informatie over het [controleren](cache-how-to-monitor.md) van uw cache in de Azure-portal.
 * De premiumfuncties van de Azure Redis-cache verkennen
   
