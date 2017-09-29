@@ -141,6 +141,8 @@
       items:
         - name: Uitvoering van configuratie
           href: experiment-execution-configuration-reference.md
+        - name: API voor logboekregistratie
+          href: reference-logging-api.md
     - name: Modelbeheer
       items:
         - name: Modelbeheer-API

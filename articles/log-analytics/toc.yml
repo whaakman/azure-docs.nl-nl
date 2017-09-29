@@ -23,7 +23,7 @@
       href: powershell-samples.md
 - name: Concepten
   items:
-    - name: Veelgestelde vragen
+    - name: Veelgestelde vragen over Log Analytics
       href: log-analytics-faq.md
     - name: Gegevensverbruik
       href: log-analytics-usage.md
@@ -31,6 +31,14 @@
       href: log-analytics-manage-access.md
     - name: Functies voor serviceproviders
       href: log-analytics-service-providers.md
+    - name: Zoeken in logboeken
+      items:
+        - name: Veelgestelde vragen over zoeken in logboeken
+          href: log-analytics-log-search-faq.md
+        - name: Overzicht van zoekopdrachten in logboeken
+          href: log-analytics-log-search-new.md
+        - name: Portals voor zoekopdrachten in logboeken
+          href: log-analytics-log-search-portals.md
 - name: Procedures
   items:
     - name: Gegevens verzamelen
@@ -92,15 +100,6 @@
       items:
         - name: Uw werkruimte upgraden
           href: log-analytics-log-search-upgrade.md
-        - name: Veelgestelde vragen
-          href: log-analytics-log-search-faq.md
-        - name: Overzicht van zoekopdrachten in logboeken
-          href: log-analytics-log-search-new.md
-        - name: Portals voor zoekopdrachten in logboeken
-          href: log-analytics-log-search-portals.md
-          items:
-            - name: Portal voor zoekopdrachten in logboeken gebruiken
-              href: log-analytics-log-search-log-search-portal.md
         - name: Overstappen van een verouderde taal
           href: log-analytics-log-search-transition.md
         - name: Stroomconnector

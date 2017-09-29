@@ -1,3 +1,5 @@
+- name: Overzicht van toegangsbeheer
+  href: manage-access-to-azure-resources.md
 - name: Toegang tot resources in Azure
   href: active-directory-understanding-resource-access.md
 - name: RBAC (op rollen gebaseerd toegangsbeheer)

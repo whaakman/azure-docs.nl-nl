@@ -43,6 +43,7 @@
 ### [Partners](logic-apps-enterprise-integration-partners.md)
 ### [Overeenkomsten](logic-apps-enterprise-integration-agreements.md)
 ### [B2B-verwerking](logic-apps-enterprise-integration-b2b.md)
+### [EDI-berichten verzenden als batch](logic-apps-scenario-edi-send-batch-messages.md)
 ### [XML-verwerking](logic-apps-enterprise-integration-xml.md)
 ### [Verwerking van platte bestanden](logic-apps-enterprise-integration-flatfile.md)
 ### [XML valideren](logic-apps-enterprise-integration-xml-validation.md)
@@ -88,7 +89,7 @@
 ### [Een serverloos sociale dashboard maken](logic-apps-scenario-social-serverless.md)
 ### [Logische apps aanroepen met Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Verwerking van fouten en uitzonderingen toevoegen](logic-apps-scenario-error-and-exception-handling.md)
-### [B2B-verwerking](logic-apps-enterprise-integration-b2b.md)
+### [B2B-verwerking](logic-apps-enterprise-integration-b2b.md) 
 
 ## Prijzen en facturering
 ### [Prijzen](https://azure.microsoft.com/pricing/details/logic-apps/)

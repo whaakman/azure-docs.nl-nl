@@ -42,7 +42,6 @@
 #### [Licentieproblemen in een groep vaststellen en oplossen](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
 #### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
-#### [Gebruiksvoorwaarden bieden voor gebruikers en apps](active-directory-tou.md)
 #### [Azure PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
 ### [Gebruikersprofielen beheren](active-directory-users-profile-azure-portal.md)
 ### [Een wachtwoord opnieuw instellen](active-directory-users-reset-password-azure-portal.md)
@@ -153,7 +152,7 @@
 #### [Stappen instellen](cloudappdiscovery-get-started.md)
 #### [Momentopnamerapporten maken](cloudappdiscovery-set-up-snapshots.md)
 #### [Continue rapportage configureren](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [Een aangepaste logboekparser gebruiken](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)
+#### [Een aangepaste logboekparser gebruiken](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 #### [Registerinstellingen bijwerken](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Meer informatie over beveiliging en privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
@@ -250,7 +249,7 @@
 #### [API en aanpassingen](active-directory-b2b-api.md)
 #### [Code- en Azure PowerShell-voorbeelden](active-directory-b2b-code-samples.md)
 #### [Voorbeeld self-service-aanmelding portal](active-directory-b2b-self-service-portal.md)
-#### [Uitnodigings-e-mail](active-directory-b2b-invitation-email.md)
+#### [Uitnodigingse-mail](active-directory-b2b-invitation-email.md)
 #### [Uitnodiging inwisselen](active-directory-b2b-redemption-experience.md)
 #### [B2B-gebruikers zonder uitnodiging toevoegen](active-directory-b2b-add-user-without-invite.md)
 #### [Voorwaardelijke toegang voor B2B](active-directory-b2b-mfa-instructions.md)
@@ -300,6 +299,7 @@
 #### Taken
 ##### [Voorwaardelijke toegang op basis van apparaten instellen](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Voorwaardelijke toegang op basis van apps instellen](active-directory-conditional-access-mam.md)
+##### [Gebruiksvoorwaarden bieden voor gebruikers en apps](active-directory-tou.md)
 ##### [VPN-connectiviteit instellen](active-directory-conditional-access-vpn-connectivity-windows10.md)
 ##### [SharePoint en Exchange Online instellen](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Herstel](active-directory-conditional-access-device-remediation.md)

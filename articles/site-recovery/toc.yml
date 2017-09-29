@@ -80,8 +80,10 @@
       href: site-recovery-capacity-planner.md
 - name: Handleidingen
   items:
-    - name: Herstel na noodgeval
+    - name: Herstel na noodgevallen
       items:
+        - name: Naar Azure voor virtuele VMware-machines met ondersteuning voor meerdere tenants
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: Naar Azure voor virtuele Hyper-V-machines
           href: tutorial-hyper-v-to-azure.md
         - name: Naar Azure voor fysieke servers
@@ -150,7 +152,7 @@
               href: site-recovery-how-to-reprotect-azure-to-azure.md
             - name: Opnieuw beveiligen van Azure naar on-premises
               href: site-recovery-how-to-reprotect.md
-        - name: Failback van Azure
+        - name: Failback vanaf Azure
           items:
             - name: Failback van Azure naar VMware
               href: site-recovery-failback-azure-to-vmware.md

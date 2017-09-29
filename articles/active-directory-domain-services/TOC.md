@@ -24,8 +24,7 @@
 ### Secure LDAP configureren voor een beheerd domein
 #### [Taak 1: Een certificaat voor Secure LDAP verkrijgen](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Taak 2: het certificaat voor Secure LDAP exporteren](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [Taak 3: Secure LDAP inschakelen voor het beheerde domein met de klassieke Azure-portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
-#### [Taak 3: Secure LDAP inschakelen voor het beheerde domein met Azure Portal (Preview)](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [Taak 3: Secure LDAP inschakelen voor het beheerde domein met Azure Portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Een organisatie-eenheid maken in een beheerd domein](active-directory-ds-admin-guide-create-ou.md)
 ### [Groepsbeleid in een beheerd domein beheren](active-directory-ds-admin-guide-administer-group-policy.md)

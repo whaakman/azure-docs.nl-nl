@@ -3,25 +3,19 @@
   items:
     - name: Over App Service-omgevingen
       href: intro.md
-    - name: Hostingopties vergelijken
-      href: ../choose-web-site-cloud-service-vm.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
 - name: Snelstartgidsen
   expanded: true
   items:
-    - name: Een app maken in een App Service-omgeving
+    - name: Een externe App Service-omgeving maken
       href: create-external-ase.md
-    - name: Op basis van een sjabloon maken
-      href: create-from-template.md
+    - name: Een interne App Service-omgeving maken
+      href: create-ilb-ase.md
 - name: Zelfstudies
   items:
-    - name: Een geïsoleerde-app maken
-      href: create-ilb-ase.md
-    - name: Met een WAP integreren
+    - name: Integratie met een WAF
       href: app-service-app-service-environment-web-application-firewall.md
-    - name: Inkomend verkeer naar een openbare app beheren
-      href: app-service-app-service-environment-control-inbound-traffic.md
-    - name: Uitschalen van een app in de AS-omgeving
-      href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
+    - name: TLS configureren
+      href: app-service-app-service-environment-custom-settings.md
 - name: Voorbeelden
   items:
     - name: Azure CLI
@@ -32,50 +26,49 @@
   items:
     - name: Netwerkarchitectuur
       href: network-info.md
-    - name: Beheeradressen
-      href: management-addresses.md
     - name: Geografisch verdeelde schaal
       href: app-service-app-service-environment-geo-distributed-scale.md
     - name: ASEv1
-      items:
-        - name: Inleiding tot ASEv1
-          href: app-service-app-service-environment-intro.md
-        - name: Netwerkarchitectuur
-          href: app-service-app-service-environment-network-architecture-overview.md
+      href: app-service-app-service-environment-intro.md
 - name: Handleidingen
   items:
-    - name: ASE configureren
+    - name: Een App Service-omgeving gebruiken
+      href: using-an-ase.md
+    - name: Een App Service-omgeving maken op basis van een sjabloon
+      href: create-from-template.md
+- name: Naslaginformatie
+  items:
+    - name: Beheeradressen
+      href: management-addresses.md
+    - name: Documentatie voor ASEv1
       items:
-        - name: Een ASE gebruiken
-          href: using-an-ase.md
-        - name: Verbinding maken met back-end
+        - name: ASEv1 maken
+          href: app-service-web-how-to-create-an-app-service-environment.md
+        - name: ASEv1 configureren
+          href: app-service-web-configure-an-app-service-environment.md
+        - name: Een interne ASEv1 maken
+          href: app-service-environment-with-internal-load-balancer.md
+        - name: Een interne ASEv1 maken op basis van een sjabloon
+          href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
+        - name: Automatisch schalen configureren in ASEv1
+          href: app-service-environment-auto-scale.md
+        - name: Een app uitschalen in ASEv1
+          href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
+        - name: Netwerkarchitectuur
+          href: app-service-app-service-environment-network-architecture-overview.md
+        - name: Een web-app maken in ASEv1
+          href: app-service-web-how-to-create-a-web-app-in-an-ase.md
+        - name: Hosting met hoge dichtheid
+          href: app-service-high-density-hosting.md
+        - name: Verbinding maken met een back-end
           href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
         - name: ExpressRoute configureren
           href: app-service-app-service-environment-network-configuration-expressroute.md
-    - name: ASE beveiligen
-      items:
-        - name: TLS configureren
-          href: app-service-app-service-environment-custom-settings.md
+        - name: Inkomend verkeer naar een openbare app beheren
+          href: app-service-app-service-environment-control-inbound-traffic.md
         - name: Gelaagde beveiliging gebruiken
           href: app-service-app-service-environment-layered-security.md
-    - name: ASE controleren
-      items:
-        - name: Controleren in de portal
-          href: app-service-web-configure-an-app-service-environment.md
-    - name: ASE1 gebruiken
-      items:
-        - name: Automatische schaalaanpassing configureren
-          href: app-service-environment-auto-scale.md
-        - name: ASEv1 maken
-          href: app-service-web-how-to-create-an-app-service-environment.md
-        - name: Een web-app maken in ASEv1
-          href: app-service-web-how-to-create-a-web-app-in-an-ase.md
-        - name: Een interne app maken in ASEv1
-          href: app-service-environment-with-internal-load-balancer.md
-        - name: Een interne app maken op basis van een sjabloon
-          href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
-        - name: Hosting met hoge dichtheid
-          href: app-service-high-density-hosting.md
+    - name: CLI 2.0
 - name: Naslaginformatie
   items:
     - name: Azure CLI

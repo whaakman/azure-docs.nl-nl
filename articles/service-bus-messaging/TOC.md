@@ -43,6 +43,7 @@
 ### [Wachtrijen voor onbestelbare berichten](service-bus-dead-letter-queues.md)
 ### [Transactieverwerking](service-bus-transactions.md)
 ### [Diagnostische logboeken](service-bus-diagnostic-logs.md)
+### [Gekoppelde naamruimte implementeren](service-bus-paired-namespaces.md)
 ### AMQP
 #### [AMQP-overzicht](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)
