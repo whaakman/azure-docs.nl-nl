@@ -1,5 +1,5 @@
 
-Maak een gratis [API-app](../articles/app-service-api/app-service-api-apps-why-best-platform.md) in het App Service-plan `myAppServicePlan` met de opdracht [az webapp create](/cli/azure/appservice/web#create). 
+Maak met de opdracht [az webapp create](/cli/azure/appservice/web#create) een app in het App Service-plan `myAppServicePlan`. 
 
 De web-app biedt hostruimte voor uw API en biedt een URL waarmee u de geïmplementeerde app kunt weergeven.
 

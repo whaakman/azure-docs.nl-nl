@@ -5,7 +5,7 @@ De Azure Cloud Shell is een gratis Bash-shell die u rechtstreeks in Azure Portal
 
 [![Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com)
 
-De knop start een interactieve shell die u kunt gebruiken om alle stappen in dit onderwerp uit te voeren:
+Met de knop start u een interactieve shell waarmee u alle stappen in dit onderwerp kunt uitvoeren:
 
 [![Schermopname van het Cloud Shell-venster in de portal](./media/cloud-shell-try-it/cloud-shell-safari.png)](https://portal.azure.com)
 

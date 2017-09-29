@@ -1,4 +1,4 @@
-Maak een [web-app](../articles/app-service-web/app-service-web-overview.md) in het App Service-plan `myAppServicePlan` met de opdracht [az webapp create](/cli/azure/webapp#create). 
+Maak in de Cloud Shell met de opdracht [az webapp create](/cli/azure/webapp#create) een [web-app](../articles/app-service/app-service-web-overview.md) in het App Service-plan `myAppServicePlan`. 
 
 De web-app biedt hostruimte voor uw code en biedt een URL waarmee u de geïmplementeerde app kunt weergeven.
 
