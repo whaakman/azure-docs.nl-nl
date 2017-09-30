@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/24/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: ec59450052b377412a28f7eaf55d1f1512b55195
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ecf9554554c8b7acbd8b8f5aa9122ce1678c6502
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,7 +28,7 @@ Een [Service Fabric-cluster](service-fabric-deploy-anywhere.md) is een met het n
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 
-## <a name="use-the-azure-portal"></a>De Azure-portal gebruiken
+## <a name="use-the-azure-portal"></a>Azure Portal gebruiken
 
 Meld u bij Azure Portal aan via [http://portal.azure.com](http://portal.azure.com).
 
@@ -70,18 +70,6 @@ Meld u bij Azure Portal aan via [http://portal.azure.com](http://portal.azure.co
 
     U kunt de voortgang van het maken in de meldingen bekijken. (Klik op het belpictogram bij de statusbalk rechtsboven in uw scherm.) Als u tijdens het maken van het cluster op **Vastmaken aan Startboard** hebt geklikt, ziet u dat **Service Fabric-cluster implementeren** is vastgemaakt aan het **Startboard**.
 
-### <a name="view-cluster-status"></a>De clusterstatus bekijken
-Wanneer uw cluster is gemaakt, kunt u het bekijken via de blade **Overzicht** in de portal. U kunt de gegevens van uw cluster nu bekijken op het dashboard, waaronder het openbare eindpunt van het cluster en een koppeling naar Service Fabric Explorer.
-
-![De clusterstatus][cluster-status]
-
-### <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Het cluster visualiseren met Service Fabric Explorer
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is een goed hulpmiddel om een cluster te visualiseren en toepassingen te beheren.  Service Fabric Explorer is een service die in het cluster wordt uitgevoerd.  U kunt de service openen via een webbrowser. Klik daarvoor op de **Service Fabric Explorer**-koppeling van de clusterpagina **Overzicht** in de portal.  U kunt ook het adres rechtstreeks in de browser invoeren: [http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer](http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer)
-
-Het clusterdashboard bevat een overzicht van het cluster, inclusief een overzicht van de toepassings- en knooppuntstatus. In de knooppuntweergave ziet u de fysieke indeling van het cluster. Voor elk knooppunt kunt u controleren voor welke toepassingen er op het knooppunt code is geïmplementeerd.
-
-![Service Fabric Explorer][service-fabric-explorer]
-
 ### <a name="connect-to-the-cluster-using-powershell"></a>Verbinding maken met het cluster met behulp van PowerShell
 Controleer met PowerShell of het cluster actief is.  De Service Fabric PowerShell-module wordt met de [Service Fabric-SDK](service-fabric-get-started.md) geïnstalleerd.  De cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) brengt een verbinding met het cluster tot stand.   
 
@@ -112,7 +100,7 @@ Een resourcegroep verwijderen in Azure Portal:
     ![De resourcegroep verwijderen][cluster-delete]
 
 
-## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>Azure Powershell gebruiken om een beveiligd cluster te implementeren
+## <a name="use-azure-powershell-to-deploy-a-secure-windows-cluster"></a>Azure Powershell gebruiken om een beveiligd Windows-cluster te implementeren
 1. Download de [Azure Powershell-moduleversie 4.0 of hoger](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) op de computer.
 
 2. Open een Windows PowerShell-venster en voer de volgende opdracht uit. 
@@ -205,10 +193,6 @@ Voer de volgende opdracht uit om te controleren of u verbonden bent en of het cl
 Get-ServiceFabricClusterHealth
 
 ```
-### <a name="publish-your-apps-to-your-cluster-from-visual-studio"></a>Uw apps naar het cluster publiceren vanuit Visual Studio
-
-Nu u een Azure-cluster hebt ingesteld, kunt u uw toepassingen naar het cluster publiceren vanuit Visual Studio door de stappen te volgen in het document [Publiceren naar een cluster](service-fabric-publish-app-remote-cluster.md). 
-
 ### <a name="remove-the-cluster"></a>Het cluster verwijderen
 Een cluster bevat de clusterresource zelf én andere Azure-resources. De eenvoudigste manier om het cluster en alle resources te verwijderen, is om de resourcegroep te verwijderen. 
 
@@ -217,12 +201,62 @@ Een cluster bevat de clusterresource zelf én andere Azure-resources. De eenvoud
 Remove-AzureRmResourceGroup -Name $RGname -Force
 
 ```
+## <a name="use-azure-cli-to-deploy-a-secure-linux-cluster"></a>Azure CLI gebruiken om een beveiligd Linux-cluster te implementeren
+
+1. Installeer [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) op de computer.
+2. Meld u aan bij Azure en selecteer het abonnement waarin u het cluster wilt maken.
+   ```azurecli
+   az login
+   az account set --subscription <GUID>
+   ```
+3. Voer de opdracht [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) uit om een beveiligd cluster te maken.
+
+    ```azurecli
+    #!/bin/bash
+
+    # Variables
+    ResourceGroupName="aztestclustergroup" 
+    ClusterName="aztestcluster" 
+    Location="southcentralus" 
+    Password="q6D7nN%6ck@6" 
+    Subject="aztestcluster.southcentralus.cloudapp.azure.com" 
+    VaultName="aztestkeyvault" 
+    VaultGroupName="testvaultgroup"
+    VmPassword="Mypa$$word!321"
+    VmUserName="sfadminuser"
+
+    # Create resource groups
+    az group create --name $ResourceGroupName --location $Location 
+    az group create --name $VaultGroupName --location $Location
+
+    # Create secure five node Linux cluster. Creates a key vault in a resource group
+    # and creates a certficate in the key vault. The certificate's subject name must match 
+    # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
+    az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . \
+        --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName \
+        --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
+        --vm-password $VmPassword --vm-user-name $VmUserName
+    ```
+    
+### <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
+Voer de volgende CLI-opdracht uit om verbinding met het cluster te maken met behulp van het certificaat.  Als u ter verificatie een clientcertificaat gebruikt, moeten de certificaatgegevens overeenkomen met een certificaat dat is geïmplementeerd in de clusterknooppunten.  Gebruik de optie `--no-verify` voor een zelfondertekend certificaat.
+
+```azurecli
+az sf cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 --pem ./linuxcluster201709161647.pem --no-verify
+```
+
+Voer de volgende opdracht uit om te controleren of u verbonden bent en of het cluster goed werkt.
+
+```azurecli
+az sf cluster health
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu u een ontwikkelingscluster hebt ingesteld, kunt u het volgende proberen:
-* [Een beveiligd cluster maken in de portal](service-fabric-cluster-creation-via-portal.md)
-* [Een cluster maken op basis van een sjabloon](service-fabric-cluster-creation-via-arm.md) 
+* [Een cluster visualiseren met Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+* [Een cluster verwijderen](service-fabric-cluster-delete.md) 
 * [Apps implementeren met behulp van PowerShell](service-fabric-deploy-remove-applications.md)
+* [Apps implementeren met behulp van CLI](service-fabric-application-lifecycle-sfctl.md)
 
 
 [cluster-setup-basics]: ./media/service-fabric-get-started-azure-cluster/basics.png

@@ -1,6 +1,6 @@
 ---
-title: Ontwikkelen voor Azure File Storage met .NET | Microsoft Docs
-description: Informatie over het ontwikkelen van .NET-toepassingen en -services die gebruikmaken van Azure File Storage voor het opslaan van gegevens uit een bestand.
+title: Ontwikkelen voor Azure Files met .NET | Microsoft Docs
+description: Informatie over het ontwikkelen van .NET-toepassingen en -services die gebruikmaken van Azure Files voor het opslaan van gegevens uit een bestand.
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
@@ -12,19 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7b94e70619324bb8dc8e7f8306f00f06e7476c1f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3ff076f1b5c708423ee40e723875c221847258b0
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="develop-for-azure-file-storage-with-net"></a>Ontwikkelen voor Azure File Storage met .NET 
+# <a name="develop-for-azure-files-with-net"></a>Ontwikkelen voor Azure Files met .NET 
 > [!NOTE]
-> In dit artikel leest u hoe u Azure File Storage beheert met .NET-code. Raadpleeg voor meer informatie over Azure File Storage, de [Inleiding tot Azure File Storage](storage-files-introduction.md).
+> In dit artikel leest u hoe u Azure Files beheert met .NET-code. Raadpleeg de [Inleiding tot Azure Files](storage-files-introduction.md) voor meer informatie over Azure Files.
 >
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -32,7 +32,7 @@ ms.lasthandoff: 08/21/2017
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="about-this-tutorial"></a>Over deze zelfstudie
-In deze zelfstudie worden de basisbeginselen uitgelegd van het gebruik van .NET voor het ontwikkelen van toepassingen of services die Azure File Storage gebruiken voor het opslaan van gegevens uit een bestand. In deze zelfstudie maakt u een eenvoudige consoletoepassing en laten we zien hoe u basisbewerkingen uitvoert met .NET en Azure File Storage:
+In deze zelfstudie worden de basisbeginselen uitgelegd van het gebruik van .NET voor het ontwikkelen van toepassingen of services die Azure Files gebruiken voor het opslaan van gegevens uit een bestand. In deze zelfstudie maakt u een eenvoudige consoletoepassing en laten we zien hoe u basisbewerkingen uitvoert met .NET en Azure Files:
 
 * De inhoud van een bestand ophalen
 * Een quotum (maximumgrootte) voor de bestandsshare instellen.
@@ -42,7 +42,7 @@ In deze zelfstudie worden de basisbeginselen uitgelegd van het gebruik van .NET 
 * Metrische gegevens van Azure Storage gebruiken voor het oplossen van problemen
 
 > [!Note]  
-> Omdat Azure File Storage toegankelijk is via SMB, is het mogelijk om eenvoudige toepassingen te schrijven die toegang hebben tot de Azure-bestandsshare met behulp van de standaard System.IO-klassen voor i/o-bestanden. In dit artikel wordt beschreven hoe u toepassingen schrijft die gebruikmaken van de Azure Storage .NET SDK, die gebruikmaakt van de [Azure File storage REST-API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) voor communicatie met Azure File Storage. 
+> Omdat Azure Files toegankelijk is via SMB, is het mogelijk om eenvoudige toepassingen te schrijven die toegang hebben tot de Azure-bestandsshare met behulp van de standaard System.IO-klassen voor i/o-bestanden. In dit artikel wordt beschreven hoe u toepassingen schrijft die gebruikmaken van de Azure Storage .NET SDK, die gebruikmaakt van de [File REST-API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) voor communicatie met Azure Files. 
 
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>De consoletoepassing maken en de assembly verkrijgen
@@ -86,7 +86,7 @@ Vervolgens slaat u uw referenties op in het bestand app.config van het project. 
 ```
 
 > [!NOTE]
-> De nieuwste versie van de Azure-opslagemulator biedt geen ondersteuning voor Azure File Storage. De verbindingsreeks werkt alleen met Azure File Storage als de reeks verwijst naar een Azure-opslagaccount in de cloud.
+> De nieuwste versie van de Azure-opslagemulator biedt geen ondersteuning voor Azure Files. De verbindingsreeks werkt alleen met Azure Files als de reeks verwijst naar een Azure Storage-account in de cloud.
 
 ## <a name="add-using-directives"></a>Using-instructies toevoegen
 Open het bestand `Program.cs` in Solution Explorer en plaats de volgende using-instructies aan het begin van het bestand.
@@ -95,7 +95,7 @@ Open het bestand `Program.cs` in Solution Explorer en plaats de volgende using-i
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
 using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
 using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Azure Blobs
-using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
+using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure Files
 ```
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
@@ -104,7 +104,7 @@ using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
 Vervolgens voegt u de volgende code aan de methode `Main()` (na de hierboven weergegeven code) toe om de verbindingsreeks op te halen. Met deze code wordt een verwijzing opgehaald naar het bestand dat we eerder hebben gemaakt en wordt de inhoud ervan weergegeven in het consolevenster.
 
 ```csharp
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -149,7 +149,7 @@ In onderstaand voorbeeld ziet u hoe u het huidige gebruik voor een share control
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -184,7 +184,7 @@ In het volgende voorbeeld wordt een beleid voor gedeelde toegang gemaakt op een 
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -242,7 +242,7 @@ U kunt ook AzCopy gebruiken om een bestand naar een ander bestand te kopiëren o
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -286,7 +286,7 @@ if (share.Exists())
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Create a new file share, if it does not already exist.
@@ -327,14 +327,12 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 Op dezelfde manier kunt u een blob naar een bestand kopiëren. Als het bronobject een blob is, maakt u een SAS om tijdens de kopieerbewerking de toegang tot de blob te verifiëren.
 
-## <a name="troubleshooting-azure-file-storage-using-metrics"></a>Problemen met Azure File Storage oplossen met metrische gegevens
-Azure Storage Analytics ondersteunt nu metrische gegevens voor Azure File Storage. Met metrische gegevens kunt u aanvragen volgen en problemen diagnosticeren.
+## <a name="troubleshooting-azure-files-using-metrics"></a>Problemen met Azure Files oplossen met metrische gegevens
+Azure Opslaganalyse ondersteunt nu metrische gegevens voor Azure Files. Met metrische gegevens kunt u aanvragen volgen en problemen diagnosticeren.
 
+U kunt metrische gegevens voor Azure Files inschakelen vanuit de [Azure Portal](https://portal.azure.com). U kunt metrische gegevens ook inschakelen via een programma. Daarvoor roept u de bewerking Set File Service Properties aan via de REST API of een van de analogen daarvan in de Storage-clientbibliotheek.
 
-U kunt metrische gegevens voor Azure File Storage inschakelen vanuit de [Azure Portal](https://portal.azure.com). U kunt metrische gegevens ook inschakelen via een programma. Daarvoor roept u de bewerking Set File Service Properties aan via de REST API of een van de analogen daarvan in de Storage-clientbibliotheek.
-
-
-In het volgende codevoorbeeld ziet u hoe u de Storage-clientbibliotheek voor .NET gebruikt om metrische gegevens in te schakelen voor Azure File Storage.
+In het volgende codevoorbeeld ziet u hoe u de Storage-clientbibliotheek voor .NET gebruikt om metrische gegevens in te schakelen voor Azure Files.
 
 Voeg behalve de instructies die u hierboven hebt toegevoegd, ook de volgende `using`-instructies toe aan het bestand `Program.cs`:
 
@@ -343,7 +341,7 @@ using Microsoft.WindowsAzure.Storage.File.Protocol;
 using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 ```
 
-Azure Blobs, Azure Table en Azure Queues gebruiken het gedeelde type `ServiceProperties` in de `Microsoft.WindowsAzure.Storage.Shared.Protocol`-naamruimte. Azure File Storage heeft echter een eigen type, het type `FileServiceProperties`, in de `Microsoft.WindowsAzure.Storage.File.Protocol`-naamruimte. De code kan echter alleen worden gecompileerd als er vanuit uw code naar beide naamruimten wordt verwezen.
+Azure Blobs, Azure Table en Azure Queues gebruiken het gedeelde type `ServiceProperties` in de `Microsoft.WindowsAzure.Storage.Shared.Protocol`-naamruimte. Azure Files heeft echter een eigen type, het type `FileServiceProperties`, in de `Microsoft.WindowsAzure.Storage.File.Protocol`-naamruimte. De code kan echter alleen worden gecompileerd als er vanuit uw code naar beide naamruimten wordt verwezen.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -386,26 +384,26 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
-U kunt ook het [artikel voor het oplossen van problemen met Azure File Storage](storage-troubleshoot-windows-file-connection-problems.md) raadplegen voor richtlijnen voor end-to-end-probleemoplossing.
+U kunt ook het [artikel voor het oplossen van problemen met Azure-bestanden](storage-troubleshoot-windows-file-connection-problems.md) raadplegen voor richtlijnen voor end-to-end-probleemoplossing.
 
 ## <a name="next-steps"></a>Volgende stappen
-Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.
+Raadpleeg de volgende koppelingen voor meer informatie over Azure Files.
 
 ### <a name="conceptual-articles-and-videos"></a>Conceptuele artikelen en video's
-* [Azure File Storage: een naadloos SMB-bestandssysteem voor Windows en Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Azure File Storage gebruiken met Linux](storage-how-to-use-files-linux.md)
+* [Azure Files: een naadloos SMB-bestandssysteem voor Windows en Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Azure Files gebruiken met Linux](storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-file-storage"></a>Hulpprogramma-ondersteuning voor File Storage
 * [AzCopy gebruiken met Microsoft Azure Storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [De Azure CLI gebruiken met Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Problemen met betrekking tot Azure File Storage oplossen](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Problemen met betrekking tot Azure Files oplossen](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Naslaginformatie
 * [Naslaginformatie over de Storage-clientbibliotheek voor .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Naslaginformatie over REST API voor bestandsservices](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 
 ### <a name="blog-posts"></a>Blogberichten
-* [Azure File storage is now generally available (Azure File Storage is nu algemeen beschikbaar)](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Inside Azure File Storage (Een kijkje achter de schermen van Azure File Storage)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Azure Files is nu algemeen beschikbaar](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Een kijkje achter de schermen van Azure Files](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introducing Microsoft Azure File Service (Introductie van Microsoft Azure File-service)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Persisting connections to Microsoft Azure File Storage (Permanente verbindingen met Microsoft Azure File Storage)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [Persisting connections to Microsoft Azure Files (Permanente verbindingen met Microsoft Azure-bestanden)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

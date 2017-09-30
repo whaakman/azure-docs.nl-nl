@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/28/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 8355478cb2fff3a63bc4a9b359ec8e2b132c80f6
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 606e8d63c29b754261621e583652f8209efea0f5
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -166,7 +166,7 @@ Om een Service Fabric-containertoepassing te maken, opent u een terminalvenster 
 
 Naam van uw toepassing (bijvoorbeeld 'mycontainer'). 
 
-Geef de URL op voor de containerinstallatiekopie in een containerregister (bijvoorbeeld ''). 
+Geef de URL op voor de containerinstallatiekopie in een containerregister (bijvoorbeeld: ´myregistry.azurecr.io/samples/helloworldapp´). 
 
 Voor deze installatiekopie is een invoerpunt voor werkbelasting gedefinieerd, dus moet u expliciet invoeropdrachten opgeven (opdrachten worden uitgevoerd in de container, zodat de container na het opstarten actief blijft). 
 
@@ -175,23 +175,35 @@ Geef '1' exemplaar op.
 ![Service Fabric Yeoman-generator voor containers][sf-yeoman]
 
 ## <a name="configure-port-mapping-and-container-repository-authentication"></a>Poorttoewijzing en containeropslagplaatsverificatie configureren
-Uw containerservice heeft een eindpunt voor communicatie nodig.  Voeg nu het protocol en de poort toe en typ naar een `Endpoint` in het bestand ServiceManifest.xml. Voor deze snelstartgids luistert de containerservice naar poort 4000: 
+Uw containerservice heeft een eindpunt voor communicatie nodig.  Voeg nu het protocol en de poort toe, en typ onder de tag ´Resources´ een `Endpoint` in het bestand ServiceManifest.xml. Voor deze Quick Start luistert de containerservice naar poort 4000: 
 
 ```xml
-<Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-```
+
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+    </Endpoints>
+  </Resources>
+ ```
+ 
 Door `UriScheme` op te geven wordt het eindpunt van de container automatisch geregistreerd bij de Service Fabric Naming-service voor meer zichtbaarheid. Een volledig voorbeeld van een ServiceManifest.xml-bestand vindt u aan het einde van dit artikel. 
 
-Configureer de poorttoewijzing poort-naar-host voor de container door een `PortBinding`-beleid op te geven in `ContainerHostPolicies` van het bestand ApplicationManifest.xml.  Voor dit artikel geldt: `ContainerPort` is 80 (de container gebruikt poort 80, zoals opgegeven in het Dockerfile) en `EndpointRef` is myserviceTypeEndpoint (het eindpunt dat is gedefinieerd in het servicemanifest).  Binnenkomende aanvragen naar de service op poort 4000 worden toegewezen aan poort 80 op de container.  Als de container moet verifiëren bij een persoonlijke privéopslagplaats, voegt u `RepositoryCredentials` toe.  Voeg voor dit artikel de accountnaam en het wachtwoord in voor het containerregister myregistry.azurecr.io. 
+Configureer de poorttoewijzing poort-naar-host voor de container door een `PortBinding`-beleid op te geven in `ContainerHostPolicies` van het bestand ApplicationManifest.xml.  Voor dit artikel geldt: `ContainerPort` is 80 (de container gebruikt poort 80, zoals opgegeven in het Dockerfile) en `EndpointRef` is myServiceTypeEndpoint (het eindpunt dat is gedefinieerd in het servicemanifest).  Binnenkomende aanvragen naar de service op poort 4000 worden toegewezen aan poort 80 op de container.  Als de container moet verifiëren bij een persoonlijke privéopslagplaats, voegt u `RepositoryCredentials` toe.  Voeg voor dit artikel de accountnaam en het wachtwoord in voor het containerregister myregistry.azurecr.io. Zorg ervoor dat het beleid wordt toegevoegd onder de tag ´ServiceManifestImport´ dat overeenkomt met het juiste servicepakket.
 
 ```xml
-<Policies>
-    <ContainerHostPolicies CodePackageRef="Code">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-    </ContainerHostPolicies>
-</Policies>
-```
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
+        </ContainerHostPolicies>
+    </Policies>
+   </ServiceManifestImport>
+``` 
 
 ## <a name="build-and-package-the-service-fabric-application"></a>De Service Fabric-toepassing bouwen en inpakken
 De Service Fabric Yeoman-sjablonen bevatten een bouwscript voor [Gradle](https://gradle.org/), dat u kunt gebruiken om de toepassing via de terminal te maken. Ga als volgt te werk om de toepassing te maken en in te pakken:
@@ -278,7 +290,7 @@ Dit zijn de volledige manifesten voor de service en toepassing die in dit artike
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
     </Endpoints>
   </Resources>
 </ServiceManifest>
@@ -300,7 +312,7 @@ Dit zijn de volledige manifesten voor de service en toepassing die in dit artike
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
   </ServiceManifestImport>

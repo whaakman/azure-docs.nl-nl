@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: cgronlun
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: b413b6f1a6c73251dfdbe6bf9d23cdfa6510839a
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e5ed09ddb1556e6c76813e71bcb31cf4f792b616
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="introduction-to-azure-hdinsight-the-hadoop-technology-stack-and-hadoop-clusters"></a>Informatie over Azure HDInsight, de Hadoop-technologiestack en Hadoop-clusters
@@ -53,7 +53,7 @@ Big data wordt verzameld in steeds sneller groeiende volumes, met een steeds hog
 ## <a name="overview"></a>Clustertypen in HDInsight
 HDInsight omvat specifieke clustertypen en opties voor clusteraanpassing, zoals het toevoegen van onderdelen, hulpprogramma's en talen.
 
-### <a name="spark-kafka-interactive-hive-hbase-customized-and-other-cluster-types"></a>Clusters van Spark, Kafka, Interactive Hive, HBase, aangepaste clusters en andere clustertypen
+### <a name="spark-kafka-interactive-query-hbase-customized-and-other-cluster-types"></a>Clusters van Apache Spark, Kafka, Interactive Query en HBase, aangepaste clusters en andere clustertypen
 HDInsight biedt de volgende clustertypen:
 
 * **[Apache Hadoop](https://wiki.apache.org/hadoop)**: maakt gebruik van [HDFS](#hdfs), [YARN](#yarn) voor resourcebeheer en een eenvoudig [MapReduce](#mapreduce)-programmeermodel om batchgegevens parallel te verwerken en te analyseren.
@@ -61,7 +61,7 @@ HDInsight biedt de volgende clustertypen:
 * **[Apache HBase](http://hbase.apache.org/)**: een NoSQL-database gebouwd op Hadoop. Deze biedt willekeurige toegang en sterke consistentie voor grote hoeveelheden (mogelijk miljarden rijen bij miljoenen kolommen) ongestructureerde en semi-gestructureerde gegevens. Zie [Wat is HBase in HDInsight?](hdinsight-hbase-overview.md)
 * **[Microsoft R Server](https://msdn.microsoft.com/microsoft-r/rserver)**: een server voor de hosting van websites en het beheren van parallelle, gedistribueerde R-processen. Het biedt gegevenswetenschappers, statistici en R-programmeurs on-demand toegang tot schaalbare, gedistribueerde analysemethoden in HDInsight. Zie [Overzicht van R Server in HDInsight](hdinsight-hadoop-r-server-overview.md).
 * **[Apache Storm](https://storm.incubator.apache.org/)**: een gedistribueerd, realtime berekeningssysteem voor het snel verwerken van grote gegevensstromen. Storm wordt aangeboden als beheerd cluster in HDInsight. Zie [Realtime-sensorgegevens analyseren met Storm en Hadoop](hdinsight-storm-sensor-data-analysis.md).
-* **[Voorbeeld van Apache Interactive Hive (ook bekend onder de naam: Live Long and Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: caching in geheugen voor interactieve en snellere Hive-query's. Zie [Interactive Hive gebruiken in HDInsight](hdinsight-hadoop-use-interactive-hive.md).
+* **[Voorbeeld van Apache Interactive Query (ook bekend onder de naam: Live Long and Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: caching in geheugen voor interactieve en snellere Hive-query's. Zie [Interactive Query gebruiken in HDInsight](hdinsight-hadoop-use-interactive-hive.md).
 * **[Apache Kafka](https://kafka.apache.org/)**: een open-source platform dat wordt gebruikt voor het bouwen van pijplijnen en toepassingen voor het streamen van gegevens. Kafka biedt ook berichtenwachtrijfunctionaliteit waarmee u gegevensstromen kunt publiceren en zich kunt abonneren op gegevensstromen. Zie [Inleiding tot Apache Kafka in HDInsight](hdinsight-apache-kafka-introduction.md).
 
 U kunt ook clusters configureren met behulp van de volgende methoden:

@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> Er worden twee CLI-hulpprogramma's gebruikt om te communiceren met Service Fabric. [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) wordt gebruikt om de Azure-resources te beheren, zoals een Service Fabric-cluster dat wordt gehost op Azure. Service Fabric CLI wordt gebruikt om rechtstreeks verbinding te maken met het Service Fabric-cluster (ongeacht waar dit wordt gehost) en om het cluster, de toepassingen en de services te beheren. 

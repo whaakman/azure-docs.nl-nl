@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/21/2017
 ms.author: saysa
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 8b4fc0ab9034263418cac42ced203035e0a8fcad
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 28424d139499b797b09664f73657a7f73361e3bc
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Uw ontwikkelomgeving instellen in Mac OS X
@@ -49,7 +49,7 @@ Ga als volgt te werk om de lokale VM te maken met een Service Fabric-cluster met
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
-    Met deze stappen verkrijgt u het bestand `Vagrantfile` dat de VM-configuratie bevat plus de locatie van waar de virtuele machine is gedownload.
+    Met deze stappen verkrijgt u het bestand `Vagrantfile` dat de VM-configuratie bevat plus de locatie van waar de virtuele machine is gedownload.  Het bestand verwijst naar een voorraadinstallatiekopie van Ubuntu. 
 
 2. Navigeer naar de lokale kloon van de opslagplaats
 
@@ -70,9 +70,24 @@ Ga als volgt te werk om de lokale VM te maken met een Service Fabric-cluster met
     vagrant up
     ```
 
-   In deze stap wordt de vooraf geconfigureerde VM-installatiekopie gedownload, lokaal opgestart en wordt er vervolgens een lokaal Service Fabric-cluster in ingesteld. Dit kan enkele minuten duren. Als de installatie is voltooid, ziet u een bericht in de uitvoer dat aangeeft dat de cluster wordt gestart.
 
-    ![Starten van clusterinstallatie na inrichting van VM][cluster-setup-script]
+5. Aanmelden bij de VM en de Service Fabric SDK installeren
+
+    ```bash
+    vagrant ssh
+    ```
+   
+   Installeer de SDK zoals wordt beschreven in [SDK-installatie](service-fabric-get-started-linux.md).  Het onderstaande script is bedoeld om u te helpen bij het installeren van de Service Fabric-runtime en de algemene Service Fabric SDK samen met SFTCL CLI. Als u het script uitvoert, wordt ervan uitgegaan dat u de licenties voor alle software die wordt geïnstalleerd, hebt gelezen en hiermee akkoord gaat.
+
+    ```bash
+    sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
+    ```
+
+5.  Het Service Fabric-cluster starten
+
+    ```bash
+    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
+    ```
 
     >[!TIP]
     > Als het downloaden van de virtuele machine lang duurt, kunt u deze downloaden met behulp van wget of curl, of via een browser door te navigeren naar de koppeling die met **config.vm.box_url** is opgegeven in het bestand `Vagrantfile`. Nadat u deze lokaal hebt gedownload, bewerkt u `Vagrantfile`, zodat dit wijst naar het lokale pad waar u de installatiekopie hebt gedownload. Als u de installatiekopie bijvoorbeeld hebt gedownload naar /home/users/test/azureservicefabric.tp8.box, stelt u **config.vm.box_url** in op dat pad.
@@ -106,6 +121,10 @@ Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fa
   npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
   ```
 4. Als u een Service Fabric Java-toepassing wilt maken op een Mac, moeten JDK 1.8 en Gradle op de computer zijn geïnstalleerd.
+
+## <a name="set-up-net-core-20-development"></a>.NET Core 2.0-ontwikkeling instellen
+
+Installeer de [.NET Core 2.0 SDK voor Mac](https://www.microsoft.com/net/core#macos) om [C# Service Fabric-toepassingen te maken](service-fabric-create-your-first-linux-application-with-csharp.md). Pakketten voor .NET Core 2.0 Service Fabric-toepassingen worden gehost op NuGet.org, momenteel in preview.
 
 
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>De Service Fabric-invoegtoepassing installeren voor Eclipse Neon

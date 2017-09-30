@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 9f7eb8e63f30d0f3450ad913620e59cd461b75bc
+ms.sourcegitcommit: 7dceb7bb38b1dac778151e197db3b5be49dd568a
+ms.openlocfilehash: b12eab7a430e620d0b6e872551c0252ccb5d4c14
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>Veelgestelde vragen VPN-gateways
@@ -113,9 +113,9 @@ U kunt alleen PSK-verificatie (vooraf gedeelde sleutels) gebruiken.
 * Azure Portal: ga naar het klassieke virtuele netwerk > VPN-verbindingen > Site-naar-site VPN-verbindingen > Naam lokale site > Lokale site > Adresruimte van client. 
 * Klassieke portal: voeg elk gewenst bereik dat u via de gateway voor het virtuele netwerk wilt verzenden toe op de pagina Netwerken onder Lokale netwerken. 
 
-### <a name="can-i-configure-forced-tunneling"></a>Kan ik geforceerde tunneling configureren?
+### <a name="can-i-configure-force-tunneling"></a>Kan ik geforceerde tunneling configureren?
 
-Ja. Zie [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md) (Geforceerde tunneling configureren).
+Ja. Zie [Configure force tunneling](vpn-gateway-about-forced-tunneling.md) (Geforceerde tunneling configureren).
 
 ### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>Kan ik mijn eigen VPN-server in Azure instellen en deze gebruiken om verbinding te maken met mijn on-premises netwerk?
 
@@ -159,9 +159,13 @@ Windows Server 2012 RRAS-servers (Routering en RAS) worden ondersteund voor site
 
 Andere VPN-softwareoplossingen zouden in principe met onze gateway moeten werken zolang ze voldoen aan de standaard-IPSec-implementaties. Neem contact op met de leverancier van de software voor configuratie- en ondersteuningsinstructies.
 
-## <a name="P2S"></a>Punt-naar-site-verbindingen
+## <a name="P2S"></a>Point-to-site – systeemeigen Azure-certificaatverificatie
 
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
+
+## <a name="P2SRADIUS"></a>Point-to-site - RADIUS-verificatie
+
+[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
 ## <a name="V2VMulti"></a>VNet-naar-VNET- en multi-site-verbindingen
 

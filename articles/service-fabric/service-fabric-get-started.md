@@ -1,6 +1,6 @@
 ---
-title: Een ontwikkelomgeving voor Azure-microservices instellen | Microsoft Docs
-description: Installeer de runtime, SDK en hulpprogramma's en maak een lokaal ontwikkelcluster. Zodra u dit hebt gedaan, kunt u toepassingen bouwen.
+title: Een Windows-ontwikkelomgeving voor Azure-microservices instellen | Microsoft Docs
+description: Installeer de runtime, SDK en hulpprogramma's en maak een lokaal ontwikkelcluster. Zodra u dit hebt gedaan, kunt u toepassingen bouwen in Windows.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2017
+ms.date: 09/25/2017
 ms.author: ryanwi, mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 10a5871d64524ff8adeb6ee3041b348ef2b1b32e
+ms.sourcegitcommit: 7dceb7bb38b1dac778151e197db3b5be49dd568a
+ms.openlocfilehash: 0691f26168feacf290b732afd7dfd680a2537179
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="prepare-your-development-environment"></a>Uw ontwikkelomgeving voorbereiden
+# <a name="prepare-your-development-environment-on-windows"></a>Uw ontwikkelomgeving voorbereiden in Windows
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/30/2017
 > 
 > 
 
- Als u [Azure Service Fabric-toepassingen][1] op uw ontwikkelmachine wilt bouwen en uitvoeren, moet u de runtime, de SDK en de hulpprogramma's installeren. U moet er ook voor zorgen dat de Windows PowerShell-scripts die in de SDK zijn opgenomen, kunnen worden uitgevoerd.
+ Als u [Azure Service Fabric-toepassingen][1] wilt bouwen en uitvoeren op een Windows-ontwikkelmachine, moet u de runtime, SDK en hulpprogramma's installeren. U moet er ook voor zorgen dat de Windows PowerShell-scripts die in de SDK zijn opgenomen, kunnen worden uitgevoerd.
 
 ## <a name="prerequisites"></a>Vereisten
 ### <a name="supported-operating-system-versions"></a>Ondersteunde versies van besturingssystemen
@@ -63,8 +63,8 @@ Als u alleen de SDK nodig hebt, kunt u dit pakket installeren:
 * [Microsoft Azure Service Fabric SDK installeren][core-sdk]
 
 De huidige versies zijn:
-* Service Fabric SDK 2.7.198
-* Service Fabric runtime 5.7.198
+* Service Fabric SDK 2.8.211
+* Service Fabric Runtime 6.0.211
 * Service Fabric Tools voor Visual Studio 2015 1.7.50721
 * Visual Studio 2017 Update 3 bevat Service Fabric Tools voor Visual Studio 1.7.20170817
 * Visual Studio 2017 Update 4 Preview 1 (15.4.0 Preview 1.0) bevat Service Fabric Tools voor Visual Studio 1.7.20170721

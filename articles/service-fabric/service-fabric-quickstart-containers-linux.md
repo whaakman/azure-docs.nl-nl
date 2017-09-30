@@ -15,197 +15,135 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 78306672e812745fd1902ae264c2adea196ab721
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 601cfb136530d2595cded0dd147703d6b272c3ce
 ms.contentlocale: nl-nl
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="deploy-a-service-fabric-linux-container-application-on-azure"></a>Een Service Fabric Linux-containertoepassing implementeren in Azure
+# <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Een Linux-containertoepassing voor Azure Service Fabric implementeren in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
 
-Er zijn geen wijzigingen in uw toepassing vereist om een bestaande toepassing in een Linux-container uit te voeren in een Service Fabric-cluster. In deze snelstartgids ziet u hoe u een vooraf gedefinieerde Docker-containerinstallatiekopie in een Service Fabric-toepassing implementeert. Wanneer u klaar bent, hebt u een actieve nginx-container gemaakt.  In deze snelstartgids wordt beschreven hoe u een Linux-container implementeert. Lees [deze snelstartgids](service-fabric-quickstart-containers.md) als u een Windows-container wilt implementeren.
+In deze Quick Start leert u hoe u Linux-containers kunt implementeren in een Service Fabric-cluster. Zodra dit is voltooid, beschikt u over een stemtoepassing die bestaat uit een Python-web-front-end en een Redis-back-end. Beide worden uitgevoerd in een Service Fabric-cluster. 
 
-![Nginx][nginx]
+![quickstartpic][quickstartpic]
 
-In deze snelstartgids leert u de volgende zaken:
+In deze Quick Start leert u de volgende zaken:
 > [!div class="checklist"]
-> * Een Docker-containerinstallatiekopie verpakken
-> * Communicatie configureren
-> * De Service Fabric-toepassing bouwen en inpakken
-> * De containertoepassing implementeren naar Azure
+> * Linux-containers implementeren op Service Fabric
+> * Containers schalen en er failovers voor uitvoeren in Service Fabric
 
-## <a name="prerequisites"></a>Vereisten
-Installeer de [Service Fabric SDK, Service Fabric CLI en de sjabloongenerators van Service Fabric yeoman](service-fabric-get-started-linux.md).
+## <a name="prerequisite"></a>Vereiste
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/en-us/free/) aan voordat u begint.
   
-## <a name="package-a-docker-image-container-with-yeoman"></a>Een Docker-containerinstallatiekopie verpakken met Yeoman
-De Service Fabric-SDK voor Linux bevat een [Yeoman](http://yeoman.io/)-generator waarmee u gemakkelijk uw eerste toepassing kunt maken en een containerinstallatiekopie kunt toevoegen. 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om een Service Fabric-containertoepassing te maken, opent u een terminalvenster en voert u `yo azuresfcontainer` uit.  
+Als u ervoor kiest om de opdrachtregelinterface (CLI)lokaal te installeren en te gebruiken, zorgt u ervoor dat versie Azure CLI 2.0.4 of later wordt uitgevoerd. Voer az --version uit om de versie te zoeken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
-Geef uw toepassing de naam 'MyFirstContainer' en de toepassingsservice de naam 'MyContainerService'.
+## <a name="get-application-package"></a>Een toepassingspakket ophalen
+Als u containers wilt implementeren op Service Fabric, hebt u een set manifestbestanden nodig (de toepassingsdefinitie), waarin de afzonderlijke containers en de toepassing worden beschreven.
 
-Geef de containerinstallatiekopie de naam 'nginx:latest' (de [nginx-containerinstallatiekopie](https://hub.docker.com/r/_/nginx/) op Docker Hub). 
+Gebruik git in Cloud Shell om een kopie van de toepassingsdefinitie te maken.
 
-Deze installatiekopie heeft een gedefinieerd invoerpunt voor de werkbelasting, dus u moet expliciet de invoeropdrachten opgeven. 
+```azurecli-interactive
+git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
 
-Geef '1' exemplaar op.
-
-![Service Fabric Yeoman-generator voor containers][sf-yeoman]
-
-## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>Communicatie en poort-naar-host poorttoewijzing van de container configureren
-Een HTTP-eindpunt configureren zodat clients met uw service kunnen communiceren.  Open het bestand *./MyFirstContainer/MyContainerServicePkg/ServiceManifest.xmll* en declareer een eindpuntbron in het element **ServiceManifest**.  Voeg het protocol, de poort en de naam toe. In deze snelstartgids gebruikt de service poort 80: 
-
-```xml
-<Resources>
-  <Endpoints>
-    <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-    <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
-  </Endpoints>
-</Resources>
-
-```
-Door `UriScheme` op te geven wordt het eindpunt van de container automatisch geregistreerd bij de Service Fabric Naming-service voor meer zichtbaarheid. Een volledig voorbeeld van een ServiceManifest.xml-bestand vindt u aan het einde van dit artikel. 
-
-Wijs een containerpoort toe aan een `Endpoint`-service met behulp van een `PortBinding`-beleid in `ContainerHostPolicies` van het bestand ApplicationManifest.xml.  Voor deze snelstartgids geldt: `ContainerPort` is 80 (de container gebruikt poort 80) en `EndpointRef` is 'myserviceTypeEndpoint' (het eindpunt dat is gedefinieerd in het servicemanifest).  Binnenkomende aanvragen naar de service op poort 80 worden toegewezen aan poort 80 in de container.  
-
-```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code">
-    <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-  </ContainerHostPolicies>
-</Policies>
+cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 ```
 
-## <a name="build-and-package-the-service-fabric-application"></a>De Service Fabric-toepassing bouwen en inpakken
-De Service Fabric Yeoman-sjablonen bevatten een bouwscript voor [Gradle](https://gradle.org/), dat u kunt gebruiken om de toepassing via de terminal te maken. Sla al uw wijzigingen op.  Ga als volgt te werk om de toepassing te maken en in te pakken:
+## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>De containers implementeren in een Service Fabric-cluster in Azure
+Gebruik uw eigen cluster of een cluster van derden om de toepassing te implementeren in een cluster in Azure.
 
-```bash
-cd MyFirstContainer
-gradle
-```
-## <a name="create-a-cluster"></a>Een cluster maken
-U kunt voor het implementeren van de toepassing naar een cluster in Azure uw eigen cluster maken of een cluster van derden gebruiken.
-
-Clusters van derden zijn gratis, tijdelijke Service Fabric-clusters die worden gehost op Azure en uitgevoerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en meer te weten komen over het platform. [Volg de instructies](http://aka.ms/tryservicefabric) om toegang te krijgen tot een cluster van derden.  
+Clusters van derden zijn gratis tijdelijke Service Fabric-clusters die worden gehost in Azure. Ze worden onderhouden door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en informatie krijgen over het platform. [Volg de instructies](http://aka.ms/tryservicefabric) om toegang te krijgen tot een cluster van derden. 
 
 Zie voor meer informatie over het maken van uw eigen cluster [Uw eerste Service Fabric-cluster maken op Azure](service-fabric-get-started-azure-cluster.md).
 
-Let op het verbindingseindpunt, u gaat dit in de volgende stap gebruiken.
+> [!Note]
+> De web-front-endservice is geconfigureerd om te luisteren op poort 80 naar binnenkomend verkeer. Zorg ervoor dat de poort is geopend in het cluster. Als u een cluster van derden gebruikt, is deze poort geopend.
+>
 
-## <a name="deploy-the-application-to-azure"></a>De toepassing implementeren in Azure
-Als de toepassing is gemaakt, kunt u deze met behulp van de Service Fabric CLI implementeren in het Azure-cluster.
+### <a name="deploy-the-application-manifests"></a>De toepassingsmanifesten implementeren 
+De SFCTL (Service Fabric-opdrachtregel) installeren in de CLI-omgeving
 
-Maak verbinding met het Service Fabric-cluster in Azure.
+```azurecli-interactive
+pip3 install --user sfctl 
+export PATH=$PATH:~/.local/bin
+```
+Maak verbinding met het Service Fabric-cluster in Azure met behulp van Azure CLI. Het eindpunt is het beheereindpunt van het cluster - bijvoorbeeld: `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
-```bash
-sfctl cluster select --endpoint http://lnxt10vkfz6.westus.cloudapp.azure.com:19080
+```azurecli-interactive
+sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
 ```
 
-Gebruik het installatiescript dat is opgegeven in de sjabloon om het toepassingspakket te kopiëren naar de installatiekopieopslag van het cluster, het toepassingstype te registreren en een exemplaar van de toepassing te maken.
+Gebruik het opgegeven installatiescript om de stemtoepassingsdefinitie te kopiëren naar het cluster, het toepassingstype te registreren en een exemplaar van de toepassing te maken.
 
-```bash
+```azurecli-interactive
 ./install.sh
 ```
 
-Open een browser en ga naar Service Fabric Explorer op http://lnxt10vkfz6.westus.cloudapp.azure.com:19080/Explorer. Vouw het knooppunt Toepassingen uit. U ziet dat er nu een vermelding is voor uw toepassingstype en nog een voor het eerste exemplaar van dat type.
+Open een browser en ga naar Service Fabric Explorer op http://\<my-azure-service-fabric-cluster-url>:80 - bijvoorbeeld: `http://linh1x87d1d.westus.cloudapp.azure.com:80`. Als u het toepassingsknooppunt uitvouwt, ziet u nu een vermelding voor het type stemtoepassing en het exemplaar dat u hebt gemaakt.
 
 ![Service Fabric Explorer][sfx]
 
-Maak verbinding met de actieve container.  Open een webbrowser en verwijs naar het IP-adres dat is geretourneerd op poort 80, bijvoorbeeld 'lnxt10vkfz6.westus.cloudapp.azure.com:80'. De welkomstpagina van nginx wordt weergegeven in de browser.
+Maak verbinding met de actieve container.  Open een webbrowser die verwijst naar de URL van het cluster - bijvoorbeeld: `http://linh1x87d1d.westus.cloudapp.azure.com:80`. U ziet nu de stemtoepassing in de browser.
 
-![Nginx][nginx]
+![quickstartpic][quickstartpic]
+
+## <a name="fail-over-a-container-in-a-cluster"></a>Failover uitvoeren voor een container in een cluster
+Service Fabric zorgt ervoor dat containerexemplaren automatisch worden verplaatst naar andere knooppunten in het cluster, mocht er een fout optreden. U kunt een knooppunt voor containers ook handmatig leegmaken en vervolgens probleemloos verplaatsen naar andere knooppunten in het cluster. Er zijn meerdere manieren om services te schalen. In dit voorbeeld gebruiken we Service Fabric Explorer.
+
+Doe het volgende om een failover uit te voeren voor de front-endcontainer:
+
+1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
+2. Klik op het knooppunt **fabric:/Voting/azurevotefront** in de structuurweergave en vouw het partitieknooppunt uit (vertegenwoordigd door een GUID). Let op: de naam van het knooppunt in de structuurweergave laat zien op welke knooppunten de container momenteel wordt uitgevoerd, bijvoorbeeld: `_nodetype_4`
+3. Vouw het knooppunt **Knooppunten** in de structuurweergave uit. Klik op het weglatingsteken (drie punten) naast het knooppunt waarop de container wordt uitgevoerd.
+4. Kies **Opnieuw starten** om dit knooppunt opnieuw te starten en bevestig deze actie. Door het opnieuw starten wordt voor de container een failover uitgevoerd naar een ander knooppunt in het cluster.
+
+![sfxquickstartshownodetype][sfxquickstartshownodetype]
+
+## <a name="scale-applications-and-services-in-a-cluster"></a>Toepassingen en services voor schalen in een cluster
+Service Fabric-services kunnen eenvoudig worden geschaald in een cluster om plaats te bieden aan de belasting voor de services. U schaalt een service door het aantal exemplaren te wijzigen dat wordt uitgevoerd in het cluster.
+
+Voer de volgende stappen uit om de web-front-endservice te schalen:
+
+1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
+2. Klik op het weglatingsteken (drie punten) naast het knooppunt **fabric:/Voting/azurevotefront** in de structuurweergave en kies **Service schalen**.
+
+    ![containersquickstartscale][containersquickstartscale]
+
+  U kunt er nu voor kiezen om het aantal exemplaren van de web-front-endservice te schalen.
+
+3. Wijzig het aantal in **2** en klik op **Service schalen**.
+4. Klik op het knooppunt **fabric:/Voting/azurevotefront** in de structuurweergave en vouw het partitieknooppunt uit (vertegenwoordigd door een GUID).
+
+    ![containersquickstartscaledone][containersquickstartscaledone]
+
+    U ziet nu dat de service twee exemplaren heeft. In de structuurweergave ziet u op welke knooppunten de exemplaren worden uitgevoerd.
+
+Met deze eenvoudige beheertaak is het aantal beschikbare resources voor het verwerken van gebruikersbelasting voor onze front-endservice verdubbeld. Het is belangrijk te weten dat u niet meerdere exemplaren van een service nodig hebt om ervoor te zorgen dat deze op betrouwbare wijze wordt uitgevoerd. Als de service mislukt, wordt in Service Fabric een nieuw exemplaar van de service uitgevoerd in het cluster.
 
 ## <a name="clean-up"></a>Opruimen
-Gebruik het uninstall-script dat is opgegeven in de sjabloon om het toepassingsexemplaar te verwijderen uit het cluster en de registratie van het toepassingstype op te heffen.
+Gebruik het uninstall-script dat is opgegeven in de sjabloon om het toepassingsexemplaar te verwijderen uit het cluster en de registratie van het toepassingstype op te heffen. Het duurt enige tijd om het exemplaar te wissen met deze opdracht en de opdracht install‘sh mag niet onmiddellijk na dit script worden uitgevoerd. 
 
 ```bash
 ./uninstall.sh
 ```
 
-## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Volledig voorbeeld van de manifesten voor de Fabric Service-toepassing en -service
-Dit zijn de volledige manifesten voor de service en toepassing die worden gebruikt in deze snelstartgids.
-
-### <a name="servicemanifestxml"></a>ServiceManifest.xml
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ServiceManifest Name="MyContainerServicePkg" Version="1.0.0"
-                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
-
-   <ServiceTypes>
-      <StatelessServiceType ServiceTypeName="MyContainerServiceType" UseImplicitHost="true">
-   </StatelessServiceType>
-   </ServiceTypes>
-   
-   <CodePackage Name="code" Version="1.0.0">
-      <EntryPoint>
-         <ContainerHost>
-            <ImageName>nginx:latest</ImageName>
-            <Commands></Commands>
-         </ContainerHost>
-      </EntryPoint>
-      <EnvironmentVariables> 
-      </EnvironmentVariables> 
-   </CodePackage>
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
-    </Endpoints>
-  </Resources>
- </ServiceManifest>
-
-```
-### <a name="applicationmanifestxml"></a>ApplicationManifest.xml
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest  ApplicationTypeName="MyFirstContainerType" ApplicationTypeVersion="1.0.0"
-                      xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="MyContainerServicePkg" ServiceManifestVersion="1.0.0" />
-   <Policies>
-      <ContainerHostPolicies CodePackageRef="Code">
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-      </ContainerHostPolicies>
-    </Policies>
-</ServiceManifestImport>
-   
-   <DefaultServices>
-      <Service Name="MyContainerService">
-        <!-- On a local development cluster, set InstanceCount to 1.  On a multi-node production 
-        cluster, set InstanceCount to -1 for the container service to run on every node in 
-        the cluster.
-        -->
-        <StatelessService ServiceTypeName="MyContainerServiceType" InstanceCount="1">
-            <SingletonPartition />
-        </StatelessService>
-      </Service>
-   </DefaultServices>
-   
-</ApplicationManifest>
-
-```
-
 ## <a name="next-steps"></a>Volgende stappen
-In deze snelstartgids leert u de volgende zaken:
+In deze Quick Start hebt u de volgende zaken geleerd:
 > [!div class="checklist"]
-> * Een Docker-containerinstallatiekopie verpakken
-> * Communicatie configureren
-> * De Service Fabric-toepassing bouwen en inpakken
-> * De containertoepassing implementeren naar Azure
+> * Een Linux-containertoepassing implementeren in Azure
+> * Failover uitvoeren voor een container in een Service Fabric-cluster
+> * Een container in een Service Fabric-cluster schalen
 
 * Meer informatie over het uitvoeren van [containers in Service Fabric](service-fabric-containers-overview.md).
-* Lees de zelfstudie [Een .NET-toepassing implementeren in een container](service-fabric-host-app-in-a-container.md).
 * Meer informatie over de [levenscyclus](service-fabric-application-lifecycle.md) van de Service Fabric-toepassing.
-* Bekijk [voorbeelden van Service Fabric-containercode op GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers).
+* Bekijk de [codevoorbeelden voor Service Fabric-containers](https://github.com/Azure-Samples/service-fabric-dotnet-containers) op GitHub.
 
-[sfx]: ./media/service-fabric-quickstart-containers-linux/SFX.png
-[nginx]: ./media/service-fabric-quickstart-containers-linux/nginx.png
-[sf-yeoman]: ./media/service-fabric-quickstart-containers-linux/YoSF.png
+[sfx]: ./media/service-fabric-quickstart-containers-linux/containersquickstartappinstance.png
+[quickstartpic]: ./media/service-fabric-quickstart-containers-linux/votingapp.png
+[sfxquickstartshownodetype]:  ./media/service-fabric-quickstart-containers-linux/containersquickstartrestart.png
+[containersquickstartscale]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscale.png
+[containersquickstartscaledone]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscaledone.png
 

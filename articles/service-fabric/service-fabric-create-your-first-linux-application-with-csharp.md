@@ -12,32 +12,33 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/21/2017
+ms.date: 9/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: adcafaa5522fcddc0a01eb1dc8deba04ebfc38f2
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e18dcad73486ab7610c53c269fbc81de73b5147e
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Uw eerste Azure Service Fabric-toepassing maken
 > [!div class="op_single_selector"]
 > * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
-> * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+> * [Java - Linux (Preview)](service-fabric-create-your-first-linux-application-with-java.md)
+> * [C# - Linux (Preview)](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
 >
 
-Service Fabric biedt SDK's voor het bouwen van services in Linux in zowel .NET Core als Java. In deze zelfstudie wordt behandeld hoe u een toepassing maakt voor Linux en een service bouwt met behulp van C# (.NET Core).
+Service Fabric biedt SDK's voor het bouwen van services in Linux in zowel .NET Core als Java. In deze zelfstudie wordt behandeld hoe u een toepassing maakt voor Linux en een service bouwt met behulp van C# op .NET Core 2.0.
 
 ## <a name="prerequisites"></a>Vereisten
 Zorg voordat u begint ervoor dat u [uw Linux-ontwikkelingsomgeving hebt ingesteld](service-fabric-get-started-linux.md). Als u Mac OS X gebruikt, kunt u [een Linux one-box omgeving instellen op een virtuele machine met behulp van Vagrant](service-fabric-get-started-mac.md).
 
 Het is dan ook een goed idee om de [Service Fabric-CLI](service-fabric-cli.md) te installeren.
 
-### <a name="install-and-set-up-the-generators-for-csharp"></a>Generatoren voor CSharp installeren en instellen
-Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fabric CSharp-toepassing kunt maken met behulp van de Yeoman-sjabloongenerator. Volg de stappen hieronder om te controleren of de Yeoman-sjabloongenerator voor CSharp werkt op uw computer.
+### <a name="install-and-set-up-the-generators-for-c"></a>Generatoren voor C# installeren en instellen
+Service Fabric biedt hulpprogramma's waarmee u vanuit een terminal Service Fabric-toepassingen kunt maken met behulp van Yeoman-sjabloongeneratoren. Volg deze stappen om de Service Fabric Yeoman-sjabloongeneratoren in te stellen voor C#:
+
 1. nodejs en NPM installeren op uw computer
 
   ```bash
@@ -56,7 +57,7 @@ Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fa
   ```
 
 ## <a name="create-the-application"></a>De toepassing maken
-Een Service Fabric-toepassing kan een of meer services bevatten, elk met een specifieke functie met betrekking tot het leveren van de functionaliteit van de toepassing. De Service Fabric [Yeoman](http://yeoman.io/)-generator voor CSharp, die u in de laatste stap hebt geïnstalleerd, zorgt ervoor dat u gemakkelijk uw eerste service kunt maken en er later meer kunt toevoegen. We gebruiken Yeoman om een toepassing te maken met één service.
+Een Service Fabric-toepassing kan een of meer services bevatten, elk met een specifieke functie met betrekking tot het leveren van de functionaliteit van de toepassing. De Service Fabric [Yeoman](http://yeoman.io/)-generator voor C#, die u in de laatste stap hebt geïnstalleerd, zorgt ervoor dat u gemakkelijk uw eerste service kunt maken en er later meer kunt toevoegen. We gebruiken Yeoman om een toepassing te maken met één service.
 
 1. Typ in een terminal de volgende opdracht om te beginnen met de opbouw van de sjabloon: `yo azuresfcsharp`
 2. Geef uw toepassing een naam.
@@ -126,7 +127,6 @@ Voer de volgende stappen uit als u nog een service wilt toevoegen aan een toepas
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Meer informatie over Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Werken met Service Fabric-clusters via de Service Fabric-CLI](service-fabric-cli.md)
 * Meer informatie over [ondersteuningsopties voor Service Fabric](service-fabric-support.md)
 * [Aan de slag met de Service Fabric-CLI](service-fabric-cli.md)

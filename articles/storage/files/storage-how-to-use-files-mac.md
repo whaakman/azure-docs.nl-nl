@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bc3d67745afb8bbffe7ec3462e995104daff9632
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6e71a13f99160fdd310be1e9a59717c9fecbf35d
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Een Azure-bestandsshare koppelen via SMB met Mac OS
-[Azure File storage](../storage-dotnet-how-to-use-files.md) is een service van Microsoft waarmee u netwerkbestandsshares kunt maken en gebruiken in Azure volgens de industrienorm. Azure-bestandsshares kunnen worden gekoppeld in Mac OS Sierra (10.12) en El Capitan (10.11). Dit artikel behandelt twee verschillende manieren om een Azure-bestandsshare te koppelen op Mac OS met de Finder-gebruikersinterface en met Terminal.
+[Azure Files](storage-files-introduction.md) is een service van Microsoft waarmee u netwerkbestandsshares kunt maken en gebruiken in Azure volgens de industrienorm. Azure-bestandsshares kunnen worden gekoppeld in Mac OS Sierra (10.12) en El Capitan (10.11). Dit artikel behandelt twee verschillende manieren om een Azure-bestandsshare te koppelen op Mac OS met de Finder-gebruikersinterface en met Terminal.
 
 > [!Note]  
 > We raden u aan om het tekenen van SMB-pakketten uit te schakelen voordat u een Azure-bestandsshare koppelt via SMB. Als u dit niet doet, zorgt dit mogelijk voor slechte prestaties bij het openen van de Azure-bestandsshare in Mac OS. De SMB-verbinding is versleuteld, dus dit heeft geen invloed op de beveiliging van de verbinding. Vanaf de terminal schakelen de volgende opdrachten het ondertekenen van SMB-pakketten uit, zoals beschreven door dit [ondersteuningsartikel van Apple over het uitschakelen van SMB-pakketondertekening](https://support.apple.com/HT205926):  
@@ -65,7 +65,7 @@ ms.lasthandoff: 08/21/2017
     ![Een momentopname van de gekoppelde Azure-bestandsshare](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.
+Raadpleeg de volgende koppelingen voor meer informatie over Azure Files.
 
 * [Helpartikel van Apple: Verbinding maken met Bestandsdeling op een Mac](https://support.apple.com/HT204445)
 * [Veelgestelde vragen](../storage-files-faq.md)

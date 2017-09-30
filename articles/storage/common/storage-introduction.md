@@ -3,7 +3,7 @@ title: Inleiding tot Azure Storage | Microsoft Docs
 description: Inleiding tot Azure Storage, de gegevensopslag van Microsoft in de cloud.
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 163f35682a4fdaa971f715c7429153bfdcf6a584
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a854a0033c365336c5ab13fb65524d84da92618c
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-<!-- this is the same version that is in the MVC branch -->
+
 # <a name="introduction-to-microsoft-azure-storage"></a>Inleiding tot Microsoft Azure Storage
 
 Microsoft Azure Storage is een door Microsoft beheerde cloudservice waarmee u toegang krijgt tot opslag met een zeer hoge beschikbaarheid die daarnaast veilig, duurzaam, schaalbaar en redundant is. Microsoft zorgt voor het onderhoud en handelt kritieke problemen voor u af. 
@@ -37,13 +37,9 @@ In dit artikel komen de volgende onderwerpen aan bod:
 * gegevens overbrengen van of naar opslag
 * de verschillende opslagclientbibliotheken 
 
-
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
-
+Raadpleeg een van de volgende Quick Starts om snel aan de slag te gaan met Azure Storage:
+* [Een opslagaccount maken met PowerShell](storage-quickstart-create-storage-account-powershell.md)
+* [Een opslagaccount maken met CLI](storage-quickstart-create-storage-account-cli.md)
 
 ## <a name="introducing-the-azure-storage-services"></a>Introductie van de Azure Storage-services
 
@@ -55,7 +51,7 @@ Blobs zijn eigenlijk net bestanden zoals u die opslaat op uw computer (of tablet
 
 Nadat u bestanden hebt opgeslagen in Blob Storage, kunt u ze overal ter wereld openen met behulp van URL's, de REST-interface of een van de opslagclientbibliotheken uit de Azure SDK. Deze clientbibliotheken zijn beschikbaar voor meerdere talen, waaronder Node.js, Java, PHP, Ruby, Python en .NET. 
 
-Er zijn drie typen blobs: blok-blobs, toevoeg-blobs en pagina-blobs (gebruikt voor VHD-schijven).
+Er zijn drie typen blobs: blok-blobs, pagina-blobs (gebruikt voor VHD-bestanden) en toevoeg-blobs.
 
 * Blok-blobs worden gebruikt voor het opslaan van gewone bestanden tot ongeveer 4,7 TB. 
 * Pagina-blobs worden gebruikt voor het opslaan van bestanden voor willekeurige toegang tot maximaal 8 TB in grootte. Deze blobs worden gebruikt voor de VHD-bestanden die VM's ondersteunen.
@@ -63,11 +59,10 @@ Er zijn drie typen blobs: blok-blobs, toevoeg-blobs en pagina-blobs (gebruikt vo
 
 Voor zeer grote gegevenssets waarbij netwerkbeperkingen het downloaden of uploaden van gegevens van of naar Blob Storage via de kabel onrealistisch maken, kunt u een set harde schijven opsturen naar Microsoft om gegevens rechtstreeks in het datacenter te importeren of exporteren. Zie [De Microsoft Azure Import/Export-service gebruiken om gegevens over te brengen naar Blob Storage](../storage-import-export-service.md).
 
-## <a name="file-storage"></a>File Storage
+## <a name="azure-files"></a>Azure Files
+Met [Azure Files](../files/storage-files-introduction.md) kunt u zeer netwerkbestandsshares met een hoge beschikbaarheid instellen die toegankelijk zijn via het standaard SMB-protocol (Server Message Block). Dit betekent dat meerdere VM's dezelfde bestanden kunnen delen met zowel lees- als schrijftoegang. U kunt de bestanden ook lezen met behulp van de REST-interface of de opslagclientbibliotheken. 
 
-De Azure Files-service stelt u in staat om zeer beschikbare netwerkbestandsshares in te stellen die toegankelijk zijn via het standaard SMB-protocol (Server Message Block). Dit betekent dat meerdere VM's dezelfde bestanden kunnen delen met zowel lees- als schrijftoegang. U kunt de bestanden ook lezen met behulp van de REST-interface of de opslagclientbibliotheken. 
-
-Eén ding dat Azure File Storage onderscheidt van bestanden in een zakelijke bestandsshare is het feit dat u overal ter wereld toegang hebt tot de bestanden via een URL die verwijst naar het bestand, en een SAS-token (Shared Access Signature) bevat. U kunt SAS-tokens genereren. Met deze tokens hebt u gedurende een opgegeven tijdperiode toegang tot een specifiek privéasset. 
+Eén ding dat Azure Files onderscheidt van bestanden in een zakelijke bestandsshare is het feit dat u overal ter wereld toegang hebt tot de bestanden via een URL die verwijst naar het bestand en een SAS-token (Shared Access Signature) bevat. U kunt SAS-tokens genereren. Met deze tokens hebt u gedurende een opgegeven tijdperiode toegang tot een specifiek privéasset. 
 
 Bestandsshares kunnen worden gebruikt voor veelvoorkomende scenario's: 
 
@@ -85,14 +80,13 @@ De Azure Queue-service wordt gebruikt voor het opslaan en ophalen van berichten.
 
 Stel dat u uw klanten in de gelegenheid wilt stellen om afbeeldingen te uploaden en dat u voor elke afbeelding miniaturen wilt maken. U kunt uw klant dan laten wachten totdat u tijdens het uploaden van de afbeeldingen de miniaturen hebt gemaakt. Een alternatief is het inzetten van een wachtrij. Wanneer de klant klaar is met uploaden, wordt er een bericht weggeschreven naar de wachtrij. Vervolgens gebruikt u Azure Function om het bericht op te halen uit de wachtrij en de miniaturen te maken. Al deze verwerkingsstappen kunnen afzonderlijk worden geschaald, waardoor u meer controle hebt bij het afstemmen van de procedure op uw specifieke scenario.
 
-<!-- this bookmark is used by other articles; you'll need to update them before this goes into production ROBIN-->
 ## <a name="table-storage"></a>Table Storage
-<!-- add a link to the old table storage to this paragraph once it's moved -->
-De Standard-versie van Azure Table Storage maakt nu deel uit van Cosmos DB. Er is ook een premium-versie van Azure Table Storage beschikbaar, met tabellen die voor doorvoer zijn geoptimaliseerd, globale distributie en automatische secundaire indexen. Bekijk [Cosmos-DB Azure: tabel-API](https://aka.ms/premiumtables) voor meer informatie en om de nieuwe premium versie uit te proberen.
+
+De Standard-versie van Azure Table Storage maakt nu deel uit van Cosmos DB. Voor documentatie raadpleegt u [Overzicht van Azure Table Storage](../../cosmos-db/table-storage-overview.md). Er is ook een premium-versie van Azure Table Storage beschikbaar, met tabellen die voor doorvoer zijn geoptimaliseerd, globale distributie en automatische secundaire indexen. Bekijk [Cosmos-DB Azure: tabel-API](https://aka.ms/premiumtables) voor meer informatie en om de nieuwe premium versie uit te proberen.
 
 ## <a name="disk-storage"></a>File Storage
 
-Het Azure Storage-team is ook eigenaar van Disks, een service die alle mogelijkheden voor beheerde en onbeheerde schijven omvat die worden gebruikt door virtuele machines. Zie voor meer informatie over deze functies de [documentatie over de Compute-service](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+Azure Storage omvat ook mogelijkheden voor beheerde en onbeheerde schijven die worden gebruikt door virtuele machines. Zie voor meer informatie over deze functies de [documentatie over de Compute-service](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
 ## <a name="types-of-storage-accounts"></a>Typen opslagaccounts 
 
@@ -159,7 +153,7 @@ Raadpleeg de Engelstalige [Azure Storage-beveiligingshandleiding](storage-securi
 
 ## <a name="replication"></a>Replicatie
 
-Om ervoor te zorgen dat uw gegevens duurzaam zijn, heeft Azure Storage de mogelijkheid om meerdere kopieën van uw gegevens te onderhouden (en beheren). Dit wordt replicatie genoemd, en soms redundantie. Als u uw opslagaccount gaat instellen, selecteert u het type replicatie. In de meeste gevallen kan deze instelling worden gewijzigd nadat het opslagaccount is ingesteld. 
+Om ervoor te zorgen dat uw gegevens duurzaam zijn, heeft Azure Storage de mogelijkheid om meerdere kopieën van uw gegevens te onderhouden (en beheren). Dit wordt replicatie genoemd, en soms redundantie. Als u uw opslagaccount gaat instellen, selecteert u een type replicatie. In de meeste gevallen kan deze instelling worden gewijzigd nadat het opslagaccount is ingesteld. 
 
 Alle opslagaccounts hebben **lokaal redundante opslag (LRS)**. Dit betekent dat er drie kopieën van uw gegevens worden beheerd door Azure Storage in het datacenter dat is opgegeven tijdens de configuratie van het opslagaccount. Wanneer er in één exemplaar wijzigingen worden vastgelegd, worden de andere twee kopieën bijgewerkt en wordt pas daarna de bewerking als voltooid gezien. Dit betekent dat de drie replica's altijd zijn gesynchroniseerd. Bovendien zijn de drie kopieën opgeslagen in afzonderlijke foutdomeinen en upgrade-domeinen, wat inhoudt dat de gegevens zelfs beschikbaar zijn als een opslagknooppunt met uw gegevens uitvalt of offline wordt gezet om te worden bijgewerkt. 
 
@@ -227,11 +221,9 @@ Azure Storage-resources zijn toegankelijk voor elke taal waarvoor HTTP/HTTPS-aan
 * [Meer informatie over File Storage](../storage-files-introduction.md)
 * [Meer informatie over Queue Storage](../queues/storage-queues-introduction.md)
 
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
+Raadpleeg een van de volgende Quick Starts om snel aan de slag te gaan met Azure Storage:
+* [Een opslagaccount maken met PowerShell](storage-quickstart-create-storage-account-powershell.md)
+* [Een opslagaccount maken met CLI](storage-quickstart-create-storage-account-cli.md)
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 
@@ -273,9 +265,6 @@ To learn more about Azure Storage, explore these resources:
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Create a storage account](../storage-create-storage-account.md)
 
-<!-- after our quick starts are available, replace this link with a link to one of those. 
-Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
-<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
 -->
 
 ### <a name="for-administrators"></a>Voor beheerders
@@ -284,15 +273,15 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### <a name="for-net-developers"></a>Voor .NET-ontwikkelaars
 * [Aan de slag met Azure Blob Storage met .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
+* [Ontwikkelen voor Azure Files met .NET](../files/storage-dotnet-how-to-use-files.md)
 * [Aan de slag met Azure Table Storage met .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Aan de slag met Azure Queue Storage met .NET](../storage-dotnet-how-to-use-queues.md)
-* [Aan de slag met Azure File Storage in Windows](../storage-dotnet-how-to-use-files.md)
 
 ### <a name="for-javaandroid-developers"></a>Voor Java/Android-ontwikkelaars
 * [Blob Storage gebruiken met Java](../blobs/storage-java-how-to-use-blob-storage.md)
+* [Ontwikkelen voor Azure Files met Java](../files/storage-java-how-to-use-file-storage.md)
 * [Table Storage gebruiken met Java](../../cosmos-db/table-storage-how-to-use-java.md)
 * [Queue Storage gebruiken met Java](../storage-java-how-to-use-queue-storage.md)
-* [File Storage gebruiken met Java](../storage-java-how-to-use-file-storage.md)
 
 ### <a name="for-nodejs-developers"></a>Voor Node.js-ontwikkelaars
 * [Blob Storage gebruiken met Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)
@@ -311,7 +300,6 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### <a name="for-python-developers"></a>Voor Python-ontwikkelaars
 * [Blob Storage gebruiken met Python](../blobs/storage-python-how-to-use-blob-storage.md)
+* [Ontwikkelen voor Azure Files met Python](../files/storage-python-how-to-use-file-storage.md)
 * [Table Storage gebruiken met Python](../../cosmos-db/table-storage-how-to-use-python.md)
-* [Queue Storage gebruiken met Python](../storage-python-how-to-use-queue-storage.md)   
-* [File Storage gebruiken met Python](../storage-python-how-to-use-file-storage.md) 
--->
+* [Queue Storage gebruiken met Python](../storage-python-how-to-use-queue-storage.md)

@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: a8e4900bee81763300d976f0c966d7d20662ca27
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
 ms.contentlocale: nl-nl
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Een Azure-bestandsshare koppelen en de share openen in Windows
-[Azure File Storage](../storage-dotnet-how-to-use-files.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen worden gekoppeld in Windows en Windows Server. In dit artikel ziet u drie verschillende manieren om een Azure-bestandsshare in Windows te koppelen: met de File Explorer-gebruikersinterface, via PowerShell en via de opdrachtprompt. 
+[Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen worden gekoppeld in Windows en Windows Server. In dit artikel ziet u drie verschillende manieren om een Azure-bestandsshare in Windows te koppelen: met de File Explorer-gebruikersinterface, via PowerShell en via de opdrachtprompt. 
 
 Als u een Azure-bestandsshare wilt koppelen buiten de Azure-regio waarin deze wordt gehost, bijvoorbeeld on-premises of in een andere Azure-regio, moet het besturingssysteem ondersteuning bieden voor SMB 3.0. 
 
@@ -39,7 +39,7 @@ U kunt Azure-bestandsshares koppelen aan een Windows-installatie die wordt uitge
 | Windows 7              | SMB 2.1     | Ja                   | Nee                   |
 | Windows Server 2008 R2 | SMB 2.1     | Ja                   | Nee                   |
 
-<sup>1</sup>Windows 10 versie 1507, 1511, 1607 en 1703
+<sup>1</sup>Windows 10 versie 1507, 1511, 1607, 1703 en 1709.
 
 > [!Note]  
 > We raden altijd aan de meest recente KB voor uw versie van Windows te nemen.
@@ -49,7 +49,7 @@ U kunt Azure-bestandsshares koppelen aan een Windows-installatie die wordt uitge
 
 * **Sleutel van het opslagaccount**: voor het koppelen van een Azure-bestandsshare hebt u de primaire (of secundaire) opslagsleutel nodig. SAS-sleutels worden momenteel niet ondersteund voor koppelen.
 
-* **Zorg ervoor dat poort 445 is geopend**: Azure File Storage maakt gebruik van het SMB-protocol. SMB communiceert via TCP-poort 445 - controleer of de TCP-poort 445 van de clientcomputer niet door uw firewall wordt geblokkeerd.
+* **Zorg ervoor dat poort 445 is geopend**: Azure Files maakt gebruik van het SMB-protocol. SMB communiceert via TCP-poort 445 - controleer of de TCP-poort 445 van de clientcomputer niet door uw firewall wordt geblokkeerd.
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>De Azure-bestandsshare koppelen met de Verkenner
 > [!Note]  
@@ -63,7 +63,7 @@ U kunt Azure-bestandsshares koppelen aan een Windows-installatie die wordt uitge
 
 3. **Kopieer het UNC-pad van het deelvenster 'Verbinding maken' in Azure Portal**: een gedetailleerde beschrijving van het zoeken van deze informatie vindt u [hier](storage-how-to-use-files-portal.md#connect-to-file-share).
 
-    ![Het UNC-pad in het deelvenster Verbinding maken van Azure File Storage](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
+    ![Het UNC-pad in het deelvenster Verbinding maken van Azure Files](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
 4. **Selecteer de stationsletter en voer het UNC-pad in.** 
     
@@ -121,24 +121,24 @@ U kunt Azure-bestandsshares koppelen aan een Windows-installatie die wordt uitge
 >   ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.
+Raadpleeg de volgende koppelingen voor meer informatie over Azure Files.
 
 * [Veelgestelde vragen](../storage-files-faq.md)
 * [Problemen oplossen in Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 
 ### <a name="conceptual-articles-and-videos"></a>Conceptuele artikelen en video's
-* [Azure File Storage: een naadloos SMB-bestandssysteem voor Windows en Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Azure File Storage gebruiken met Linux](../storage-how-to-use-files-linux.md)
+* [Azure Files: een naadloos SMB-bestandssysteem voor Windows en Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Azure Files gebruiken met Linux](../storage-how-to-use-files-linux.md)
 
-### <a name="tooling-support-for-azure-file-storage"></a>Hulpprogramma-ondersteuning voor Azure File Storage
+### <a name="tooling-support-for-azure-files"></a>Hulpprogramma-ondersteuning voor Azure Files
 * [AzCopy gebruiken met Microsoft Azure Storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [De Azure CLI gebruiken met Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Problemen met betrekking tot Azure File Storage oplossen - Windows](storage-troubleshoot-windows-file-connection-problems.md)
-* [Problemen met betrekking tot Azure File Storage oplossen - Linux](storage-troubleshoot-linux-file-connection-problems.md)
+* [Problemen met betrekking tot Azure Files oplossen - Windows](storage-troubleshoot-windows-file-connection-problems.md)
+* [Problemen met betrekking tot Azure Files oplossen - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 
 ### <a name="blog-posts"></a>Blogberichten
-* [Azure File storage is now generally available (Azure File Storage is nu algemeen beschikbaar)](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Inside Azure File Storage (Een kijkje achter de schermen van Azure File Storage)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Azure Files is nu algemeen beschikbaar](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Een kijkje achter de schermen van Azure Files](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introducing Microsoft Azure File Service (Introductie van Microsoft Azure File-service)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Gegevens migreren naar Azure File Storage](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 

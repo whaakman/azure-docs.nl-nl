@@ -1,5 +1,5 @@
 ---
-title: 'Via een computer verbinding maken met een virtueel netwerk met behulp van een punt-naar-site-verbinding en verificatie via een certificaat: Azure Portal | Microsoft Docs'
+title: 'Via een computer verbinding maken met een virtueel Azure-netwerk met behulp van een point-to-site-verbinding en systeemeigen Azure-certificaatverificatie: Azure Portal | Microsoft Docs'
 description: Maakt een beveiligde verbinding met een computer via Azure Virtual Network door een punt-naar-site-VPN-gatewayverbinding te maken met behulp van verificatie via een certificaat. Dit artikel is van toepassing op het Resource Manager-implementatiemodel en maakt gebruik van Azure Portal.
 services: vpn-gateway
 documentationcenter: na
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/10/2017
+ms.date: 09/25/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: cc9018d95ffce3b5b4a5ee20d5c78a2122e0223e
+ms.sourcegitcommit: 7dceb7bb38b1dac778151e197db3b5be49dd568a
+ms.openlocfilehash: fbb3bb5f538d1d26b6fe8d653724d80faf96e277
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-azure-portal"></a>Een punt-naar-site-verbinding naar een VNet configureren met behulp van verificatie via een certificaat: Azure Portal
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Een point-to-site-verbinding naar een VNet configureren met behulp van systeemeigen Azure-certificaatverificatie: Azure Portal
 
-In dit artikel wordt beschreven hoe u een VNet met een punt-naar-site-verbinding maakt in het Resource Manager-implementatiemodel met behulp van Azure Portal. Deze configuratie maakt gebruik van certificaten om de client te verifiëren waarmee verbinding wordt gemaakt. U kunt deze configuratie ook maken met een ander implementatiehulpprogramma of een ander implementatiemodel door in de volgende lijst een andere optie te selecteren:
+In dit artikel wordt beschreven hoe u een VNet met een punt-naar-site-verbinding maakt in het Resource Manager-implementatiemodel met behulp van PowerShell. Bij deze configuratie wordt gebruikgemaakt van certificaten voor verificatie. In deze configuratie voert de Azure VPN-gateway de validatie van het certificaat uit in plaats van een RADIUS-server. U kunt deze configuratie ook maken met een ander implementatiehulpprogramma of een ander implementatiemodel door in de volgende lijst een andere optie te selecteren:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -33,22 +33,31 @@ In dit artikel wordt beschreven hoe u een VNet met een punt-naar-site-verbinding
 >
 >
 
-Met een punt-naar-site-VPN-gateway (P2S) kunt u vanaf een afzonderlijke clientcomputer een beveiligde verbinding maken met uw virtuele netwerk. P2S-verbindingen zijn nuttig als u verbinding wilt maken met uw VNet vanaf een externe locatie, bijvoorbeeld als u ook thuis werkt of op een congres verbinding wilt maken. Een P2S-VPN is ook een uitstekende oplossing in plaats van een site-naar-site-VPN wanneer u maar een paar clients hebt die verbinding moeten maken met een VNet. 
+Met een punt-naar-site-VPN-gateway (P2S) kunt u vanaf een afzonderlijke clientcomputer een beveiligde verbinding maken met uw virtuele netwerk. P2S-verbindingen zijn nuttig als u verbinding wilt maken met uw VNet vanaf een externe locatie, bijvoorbeeld als u ook thuis werkt of op een congres verbinding wilt maken. Een P2S-VPN is ook een uitstekende oplossing in plaats van een site-naar-site-VPN wanneer u maar een paar clients hebt die verbinding moeten maken met een VNet. Er wordt een P2S-VPN-verbinding gestart vanaf Windows en Mac-apparaten.
 
-P2S maakt gebruik van SSTP (Secure Socket Tunneling Protocol), wat een op SSL gebaseerd VPN-protocol is. Een P2S-verbinding wordt tot stand gebracht door deze te starten vanaf de clientcomputer.
+Clients die verbinding maken, kunnen de volgende verificatiemethoden gebruiken:
 
-![Punt-naar-site-diagram](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-connection-diagram.png)
+* RADIUS-server - momenteel als preview
+* Systeemeigen Azure-certificaatverificatie van VPN Gateway
 
-Voor punt-naar-site-verbindingen met verificatie via een certificaat is het volgende vereist:
+Dit artikel helpt u bij het configureren van een P2S-configuratie met verificatie met behulp van de systeemeigen Azure-certificaatverificatie. Zie [P2S using RADIUS authentication](point-to-site-how-to-radius-ps.md) (P2S met behulp van RADIUS-verificatie) als u RADIUS wilt gebruiken om gebruikers die verbinding maken, te verifiëren.
+
+![Diagram: een computer verbinden met een Azure VNet-punt-naar-site-verbinding](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeps.png)
+
+Punt-naar-site-verbindingen hebben geen VPN-apparaat of openbaar IP-adres nodig. P2S maakt de VPN-verbinding via SSTP (Secure Socket Tunneling Protocol) of IKEv2.
+
+* SSTP is een op SSL gebaseerde VPN-tunnel die alleen wordt ondersteund op Windows-clientplatforms. Omdat met SSTP firewalls kunnen worden gepasseerd, is dit een ideale optie om vanaf elke locatie verbinding te maken met Azure. Wij ondersteunen SSTP versies 1.0, 1.1 en 1.2 aan de serverzijde. De client besluit welke versie moet worden gebruikt. Voor Windows 8.1 en hoger, gebruikt SSTP standaard 1.2.
+
+* IKEv2 VPN, een op standaarden gebaseerde IPsec VPN-oplossing. IKEv2 VPN kan worden gebruikt om verbinding te maken vanaf Mac-apparaten (OSX-versie 10.11 en hoger). IKEv2 is momenteel beschikbaar als preview-product.
+
+Voor point-to-site-verbindingen met systeemeigen Azure-certificaatverificatie is het volgende vereist:
 
 * Een RouteBased VPN-gateway.
 * De openbare sleutel (CER-bestand) voor een basiscertificaat dat is geüpload naar Azure. Nadat het certificaat is geüpload, wordt het beschouwd als een vertrouwd certificaat en wordt het gebruikt voor verificatie.
 * Een clientcertificaat dat wordt gegenereerd op basis van het basiscertificaat en dat wordt geïnstalleerd op elke clientcomputer die verbinding gaat maken met het VNet. Dit certificaat wordt gebruikt voor clientverificatie.
-* Een configuratiepakket voor de VPN-client. Het configuratiepakket voor de VPN-client bevat de gegevens die nodig zijn om de client te verbinden met het VNet. Het pakket configureert de bestaande VPN-client die is ingebouwd in het Windows-besturingssysteem. Elke client die verbinding maakt, moet worden geconfigureerd met behulp van het configuratiepakket.
+* Een VPN-clientconfiguratie. De configuratiebestanden voor de VPN-client bevatten de gegevens die nodig zijn om de client te verbinden met het VNet. Met de bestanden wordt de bestaande VPN-client geconfigureerd die is ingebouwd in het besturingssysteem. Elke client die verbinding maakt, moet worden geconfigureerd met behulp van de instellingen in de configuratiebestanden.
 
-Punt-naar-site-verbindingen hebben geen VPN-apparaat of on-premises openbaar IP-adres nodig. De VPN-verbinding is gemaakt via SSTP (Secure Socket Tunneling Protocol). Wij ondersteunen SSTP versies 1.0, 1.1 en 1.2 aan de serverzijde. De client besluit welke versie moet worden gebruikt. Voor Windows 8.1 en hoger, gebruikt SSTP standaard 1.2.
-
-Voor meer informatie over punt-naar-site-verbindingen leest u de [Veelgestelde vragen over punt-naar-site](#faq) onder aan dit artikel.
+Voor meer informatie over point-to-site-verbindingen leest u [About Point-to-Site connections](point-to-site-about.md) (Over point-to-site-verbindingen).
 
 #### <a name="example"></a>Voorbeeldwaarden
 
@@ -84,7 +93,7 @@ Voordat u het virtuele netwerk verbindt met een gateway, moet u eerst het gatewa
 
 ## <a name="dns"></a>3. Een DNS-server opgeven (optioneel)
 
-Nadat u uw virtuele netwerk hebt gemaakt, kunt u het IP-adres van een DNS-server toevoegen om de naamomzetting te verwerken. De DNS-server is optioneel voor deze configuratie, maar vereist als u naamomzetting nodig hebt. Het opgeven van een waarde betekent niet dat er een nieuwe DNS-server wordt gemaakt. Het IP-adres van de DNS-server dat u opgeeft, moet het adres zijn van een DNS-server zijn die de namen kan omzetten voor de resources waarmee u verbinding maakt. Voor dit voorbeeld hebben we een privé-IP-adres gebruikt, maar het is zeer onwaarschijnlijk dat dit het IP-adres van uw DNS-server is. Zorg ervoor dat u uw eigen waarden gebruikt.
+Nadat u uw virtuele netwerk hebt gemaakt, kunt u het IP-adres van een DNS-server toevoegen om de naamomzetting te verwerken. De DNS-server is optioneel voor deze configuratie, maar vereist als u naamomzetting nodig hebt. Het opgeven van een waarde betekent niet dat er een nieuwe DNS-server wordt gemaakt. Het IP-adres van de DNS-server dat u opgeeft, moet het adres zijn van een DNS-server zijn die de namen kan omzetten voor de resources waarmee u verbinding maakt. Voor dit voorbeeld hebben we een privé-IP-adres gebruikt, maar het is zeer onwaarschijnlijk dat dit het IP-adres van uw DNS-server is. Zorg ervoor dat u uw eigen waarden gebruikt. De waarde die u opgeeft, wordt gebruikt door de bronnen die u in het VNet implementeert, niet door de P2S-verbinding of de VPN-client.
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
@@ -128,35 +137,21 @@ Nadat de gateway is gemaakt, uploadt u de gegevens van de openbare sleutel voor 
 
   ![Certificaat uploaden](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/rootcertupload.png)
 
-## <a name="clientconfig"></a>8. Het configuratiepakket voor VPN-clients genereren en installeren
+## <a name="installclientcert"></a>8. Een geëxporteerd clientcertificaat installeren
 
-Als u via een punt-naar-site-VPN verbinding wilt maken met een VNet, moet op elke client een clientconfiguratiepakket worden geïnstalleerd waarmee de ingebouwde VPN-client wordt geconfigureerd met de instellingen en bestanden die nodig zijn om verbinding te maken met het virtuele netwerk. Het configuratiepakket voor VPN-clients configureert de ingebouwde Windows VPN-client. Er wordt geen nieuwe of andere VPN-client geïnstalleerd.
+Als u een P2S-verbinding wilt maken vanaf een andere clientcomputer dan de computer die u gebruikt om de clientcertificaten te genereren, moet u een clientcertificaat installeren. Wanneer u een clientcertificaat installeert, hebt u het wachtwoord nodig dat is gemaakt tijdens het exporteren van het clientcertificaat.
 
-U kunt hetzelfde configuratiepakket voor de VPN-client gebruiken op elke clientcomputer, mits de versie overeenkomt met de architectuur van de client. Zie voor de lijst met ondersteunde clientbesturingssystemen de [Veelgestelde vragen over punt-naar-site-verbindingen](#faq) onderaan dit artikel.
+Zorg ervoor dat het certificaat is geëxporteerd als een PFX-bestand, samen met de volledige certificaatketen (dit is de standaardinstelling). Anders zijn de gegevens van het basiscertificaat niet aanwezig op de clientcomputer en kan de client niet worden geverifieerd. 
 
-### <a name="1-generate-and-download-the-client-configuration-package"></a>1. Het configuratiepakket voor de client genereren en downloaden
+Zie voor de installatiestappen [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md) (Een clientcertificaat installeren).
 
-1. Klik op de pagina **Punt-naar-site-configuratie** op **VPN-client downloaden** om de pagina **VPN-client downloaden** te openen. Het duurt enkele minuten om het pakket te genereren.
+## <a name="clientconfig"></a>9. Het configuratiepakket voor VPN-clients genereren en installeren
 
-  ![VPN-client downloaden 1](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/downloadvpnclient1.png)
-2. Selecteer het juiste pakket voor de client en klik vervolgens op **Downloaden**. Sla het configuratiepakket op. U kunt het configuratiepakket voor de VPN-client installeren op elke clientcomputer die verbinding maakt met het virtuele netwerk.
-
-  ![VPN-client downloaden 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
-
-### <a name="2-install-the-client-configuration-package"></a>2. Het configuratiepakket voor de client installeren
-
-1. Kopieer het configuratiebestand lokaal op de computer die u wilt verbinden met het virtuele netwerk. 
-2. Dubbelklik op het EXE-bestand om het pakket te installeren op de clientcomputer. Omdat u het configuratiepakket hebt gemaakt, is het niet ondertekend en ziet u mogelijk een waarschuwing. Als u een Windows SmartScreen-melding ontvangt, klikt u op **Meer info** (links) en klikt u vervolgens op **Toch uitvoeren** om het pakket te installeren.
-3. Installeer het pakket op de clientcomputer. Als u een Windows SmartScreen-melding ontvangt, klikt u op **Meer info** (links) en klikt u vervolgens op **Toch uitvoeren** om het pakket te installeren.
-4. Navigeer op de clientcomputer naar **Netwerkinstellingen** en klik op **VPN**. De VPN-verbinding bevat de naam van het virtuele netwerk waarmee verbinding wordt gemaakt.
-
-## <a name="installclientcert"></a>9. Een geëxporteerd clientcertificaat installeren
-
-Als u een P2S-verbinding wilt maken vanaf een andere clientcomputer dan de computer die u gebruikt om de clientcertificaten te genereren, moet u een clientcertificaat installeren. Wanneer u een clientcertificaat installeert, hebt u het wachtwoord nodig dat is gemaakt tijdens het exporteren van het clientcertificaat. Dit is meestal alleen een kwestie van dubbelklikken op het certificaat en het installeren.
-
-Zorg ervoor dat het certificaat is geëxporteerd als een PFX-bestand, samen met de volledige certificaatketen (dit is de standaardinstelling). Anders zijn de gegevens van het basiscertificaat niet aanwezig op de clientcomputer en kan de client niet worden geverifieerd. Zie [Een geëxporteerd clientcertificaat installeren](vpn-gateway-certificates-point-to-site.md#install) voor meer informatie.
+De configuratiebestanden van de VPN-clients bevatten de instellingen voor het configureren van apparaten om verbinding te maken met een VNet via een P2S-verbinding. Zie voor instructies voor het genereren en installeren van VPN-clientconfiguratiebestanden [Create and install VPN client configuration files for native Azure certificate authentication P2S configurations](point-to-site-vpn-client-configuration-azure-cert.md) (VPN-clientconfiguratiebestanden voor P2S-configuraties voor systeemeigen Azure-certificaatverificatie maken en installeren).
 
 ## <a name="connect"></a>10. Verbinding maken met Azure
+
+### <a name="to-connect-from-a-windows-vpn-client"></a>Verbinding maken vanaf een Windows-VPN-client
 
 1. Als u met uw VNet wilt verbinden, gaat u op de clientcomputer naar de VPN-verbindingen en zoekt u de VPN-verbinding die u hebt gemaakt. Deze heeft dezelfde naam als het virtuele netwerk. Klik op **Verbinden**. Er verschijnt mogelijk een pop-upbericht dat verwijst naar het certificaat. Klik op **Doorgaan** om verhoogde bevoegdheden te gebruiken.
 
@@ -167,11 +162,19 @@ Zorg ervoor dat het certificaat is geëxporteerd als een PFX-bestand, samen met 
 
   ![Verbinding tot stand gebracht](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
 
-#### <a name="troubleshooting-p2s-connections"></a>Problemen met P2S-verbindingen oplossen
+#### <a name="troubleshoot-windows-p2s-connections"></a>Problemen met Windows-P2S-verbindingen oplossen
 
 [!INCLUDE [verifies client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
-## <a name="verify"></a>11. De verbinding controleren
+### <a name="to-connect-from-a-mac-vpn-client"></a>Verbinding maken vanaf een Mac-VPN-client
+
+Zoek in het dialoogvenster Netwerk het clientprofiel dat u wilt gebruiken en klik op **Verbinding maken**.
+
+  ![Mac-verbinding](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
+
+## <a name="verify"></a>De verbinding verifiëren
+
+Deze instructies zijn van toepassing op Windows-clients.
 
 1. Als u wilt controleren of uw VPN-verbinding actief is, opent u een opdrachtprompt met verhoogde bevoegdheid en voert u *ipconfig/all* in.
 2. Bekijk de resultaten. Het IP-adres dat u hebt ontvangen is een van de adressen binnen het adresbereik van de punt-naar-site-VPN-clientadresgroep die u hebt opgegeven in uw configuratie. De resultaten zijn vergelijkbaar met het volgende voorbeeld:
@@ -190,6 +193,8 @@ Zorg ervoor dat het certificaat is geëxporteerd als een PFX-bestand, samen met 
   ```
 
 ## <a name="connectVM"></a>Verbinding maken met een virtuele machine
+
+Deze instructies zijn van toepassing op Windows-clients.
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
 
@@ -213,7 +218,7 @@ U kunt clientcertificaten intrekken. Met de certificaatintrekkingslijst kunt u s
 
 De algemene procedure is het basiscertificaat te gebruiken om de toegang te beheren op het team- of organisatieniveau, terwijl u ingetrokken clientcertificaten gebruikt voor nauwkeuriger toegangsbeheer bij afzonderlijke gebruikers.
 
-### <a name="to-revoke-a-client-certificate"></a>Een clientcertificaat intrekken
+### <a name="revoke-a-client-certificate"></a>Een clientcertificaat intrekken
 
 U kunt een clientcertificaat intrekken door de vingerafdruk toe te voegen aan de intrekkingslijst.
 
@@ -227,7 +232,7 @@ U kunt een clientcertificaat intrekken door de vingerafdruk toe te voegen aan de
 
 ## <a name="faq"></a>Veelgestelde vragen over punt-naar-site
 
-[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Virtuele machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie. Zie [Azure and Linux VM Network Overview](../virtual-machines/linux/azure-vm-network-overview.md) (Overzicht van Azure- en Linux-VM-netwerken) voor meer informatie over netwerken en virtuele machines.
