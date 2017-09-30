@@ -9,15 +9,17 @@ ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 851f04c8b5eee762ec43060f02c8b83f00c1782e
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: f246ee8aaecf3a398182debdea07832c75c1bd9c
 ms.contentlocale: nl-nl
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric-CLI
 
 De opdrachtregelinterface (CLI) van Azure Service Fabric is een opdrachtregelprogramma voor interactie met en het beheren van Service Fabric-entiteiten. De Service Fabric-CLI kan worden gebruikt met Windows- of Linux-clusters. De Service Fabric-CLI kan worden uitgevoerd op elk platform dat ondersteuning biedt voor Python.
+
+[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -55,6 +57,13 @@ pip install sfctl
 sfctl -h
 ```
 
+Als de foutmelding wordt weergegeven dat `sfctl` niet is gevonden, voert u de volgende opdrachten uit:
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 ### <a name="ubuntu"></a>Ubuntu
 
 Voor Ubuntu 16.04 Desktop kunt u Python 3.6 installeren door gebruik te maken van een PPA (personal package archive) van derden.
@@ -75,6 +84,13 @@ python3.6 -m pip install sfctl
 sfctl -h
 ```
 
+Als de foutmelding wordt weergegeven dat `sfctl` niet is gevonden, voert u de volgende opdrachten uit:
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 Deze stappen hebben geen invloed op de door het systeem geïnstalleerde versies Python 3.5 en 2.7. Laat deze installaties ongewijzigd, tenzij u bekend bent met Ubuntu.
 
 ### <a name="macos"></a>MacOS
@@ -92,6 +108,15 @@ brew install python3
 pip3 install sfctl
 sfctl -h
 ```
+
+
+Als de foutmelding wordt weergegeven dat `sfctl` niet is gevonden, voert u de volgende opdrachten uit:
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
 
 Met deze stappen wordt de installatie door het systeem van Python 2.7 niet gewijzigd.
 
@@ -120,10 +145,10 @@ sfctl cluster select --endpoint http://testcluster.com:19080
 
 Het clustereindpunt moet worden voorafgegaan door `http` of `https`. Het moet de poort voor de HTTP-gateway bevatten. De poort en het adres komen overeen met de Service Fabric Explorer-URL.
 
-Voor clusters die zijn beveiligd met een certificaat, kunt u een met PEM gecodeerd certificaat opgeven. Het certificaat kan worden opgegeven als een enkel bestand of als een certificaat-sleutelpaar.
+Voor clusters die zijn beveiligd met een certificaat, kunt u een met PEM gecodeerd certificaat opgeven. Het certificaat kan worden opgegeven als een enkel bestand of als een certificaat-sleutelpaar. Als het een zelfondertekend certificaat is dat niet is ondertekend door een CA, kunt u de optie `--no-verify` kiezen om CA-verificatie over te slaan.
 
 ```azurecli
-sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
 Zie [Verbinding maken met een beveiligd Azure Service Fabric-cluster](service-fabric-connect-to-secure-cluster.md) voor meer informatie.
@@ -175,6 +200,12 @@ De CLI van Service Fabric ondersteunt clientcertificaten als PEM-bestanden (exte
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
+Op een vergelijkbare manier kunt u de volgende opdracht gebruiken (hier wordt geen wachtwoord verstrekt) om een PEM-bestand te converteren naar een PFX-bestand:
+
+```bash
+openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certificates.pem -passout pass:'' 
+```
+
 Voor meer informatie raadpleegt u de [OpenSSL-documentatie](https://www.openssl.org/docs/).
 
 ### <a name="connection-problems"></a>Verbindingsproblemen
@@ -202,6 +233,16 @@ Hier volgt nog een voorbeeld:
 ```azurecli
 sfctl application create -h
 ```
+
+## <a name="updating-the-service-fabric-cli"></a>De Service Fabric-CLI bijwerken 
+
+Voer de volgende opdrachten uit om de Service Fabric-CLI bij te werken (vervang `pip` door `pip3`, afhankelijk van wat u tijdens de oorspronkelijke installatie hebt gekozen):
+
+```bash
+pip uninstall sfctl 
+pip install sfctl 
+```
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

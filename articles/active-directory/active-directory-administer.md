@@ -16,10 +16,10 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b1390ba45f52473129dce6b904690b040af8f7e2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 85e24587f07a4dc65a2f116499f3f7e00c3ac2b8
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="manage-your-azure-ad-directory"></a>Uw Azure AD-directory beheren
@@ -59,12 +59,14 @@ Als u nog geen abonnement hebt op een Microsoft-cloudservice, kunt u een van de 
 
 ### <a name="how-to-change-the-default-directory-for-a-subscription"></a>De standaarddirectory voor een abonnement wijzigen
 
-1. Meld u bij het [Azure-accountcentrum](https://account.windowsazure.com/Home/Index) aan met een account van de accountbeheerder voor het abonnement waarvan u het eigendom wilt overdragen.
+1. Meld u bij het [Azure-accountcentrum](https://account.azure.com/Subscriptions) aan met een account van de accountbeheerder voor het abonnement waarvan u het eigendom wilt overdragen.
 2. Zorg ervoor dat de gebruiker die u wilt instellen als de eigenaar van het abonnement, aanwezig is in de doeldirectory.
 3. Klik op **Abonnement overdragen**.
 4. Geef de ontvanger op. De ontvanger ontvangt automatisch een e-mail met een acceptatielink.
 5. De ontvanger klikt op de link en volgt de instructies, waaronder het invoeren van zijn of haar betaalgegevens. Als de ontvanger klaar is, wordt het abonnement overgedragen. 
 6. Als de overdracht van abonnementseigendom geslaagd is, is de standaardmap van het abonnement gewijzigd naar de map waarin de gebruiker zich bevindt.
+
+Zie [Transfer Azure subscription ownership to another account](../billing/billing-subscription-transfer.md) (Het eigendom van een Azure-abonnement overdragen aan een ander account) voor meer informatie
 
 ### <a name="manage-the-default-directory-in-azure"></a>De standaarddirectory in Azure beheren
 Wanneer u zich registreert voor Azure, wordt er een standaarddirectory van Azure AD gekoppeld aan uw abonnement. Er zijn geen kosten verbonden aan het gebruik van Azure AD en uw directory's zijn eveneens gratis. Er zijn betaalde Azure AD-services waarvoor een afzonderlijke licentie nodig is en die aanvullende functionaliteit bieden, zoals de huisstijl van het bedrijf in het aanmeldingsscherm en selfservice voor wachtwoordherstel. U kunt ook een aangepast domein maken met een DNS-naam waarvan u de eigenaar bent, in plaats van het standaarddomein *. onmicrosoft.com te gebruiken.

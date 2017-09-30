@@ -13,13 +13,13 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/14/2017
+ms.date: 09/20/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 03e6996f0f44e04978080b3bd267e924f342b7fc
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 1e51f546d6c256e1d8f1a1be50c6a2102fe26529
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="start-with-apache-kafka-preview-on-hdinsight"></a>Met Apache Kafka (preview) in HDInsight beginnen
@@ -47,6 +47,9 @@ Gebruik de volgende stappen om een Kafka in HDInsight-cluster te maken:
     * **SSH-gebruikersnaam (Secure Shell)**: de aanmeldingsgegevens voor toegang tot het cluster via SSH. Het wachtwoord is standaard hetzelfde als het aanmeldingswachtwoord van het cluster.
     * **Resourcegroep**: de resourcegroep waarin het cluster wordt gemaakt.
     * **Locatie**: de Azure-regio waarin het cluster wordt gemaakt.
+
+        > [!IMPORTANT]
+        > Voor hoge beschikbaarheid van gegevens wordt u geadviseerd om een locatie (regio) in te stellen die __drie foutdomeinen__ heeft. Zie de sectie [Hoge beschikbaarheid van gegevens](#data-high-availability) voor meer informatie.
    
  ![Abonnement selecteren](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
 
@@ -73,12 +76,12 @@ Gebruik de volgende stappen om een Kafka in HDInsight-cluster te maken:
 7. Selecteer bij __Clustergrootte__ de optie __Volgende__ om door te gaan.
 
     > [!WARNING]
-    > Om beschikbaarheid van Kafka op HDInsight te garanderen, moet uw cluster ten minste drie werkknooppunten bevatten.
+    > Om beschikbaarheid van Kafka op HDInsight te garanderen, moet uw cluster ten minste drie werkknooppunten bevatten. Zie de sectie [Hoge beschikbaarheid van gegevens](#data-high-availability) voor meer informatie.
 
     ![De Kafka-clustergrootte instellen](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
 
-    > [!NOTE]
-    > De waarde voor de **schijven per werkknooppunt** bepaalt de schaalbaarheid van Kafka op HDInsight. Zie voor meer informatie [Configure storage and scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md).
+    > [!IMPORTANT]
+    > De waarde voor de **schijven per werkknooppunt** bepaalt de schaalbaarheid van Kafka op HDInsight. Kafka in HDInsight maakt gebruik van de lokale schijf van de virtuele machines in het cluster. Omdat Kafka veel gebruikmaakt van invoer/uitvoer, wordt [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) gebruikt voor een hoge doorvoer en meer opslag per knooppunt. Het type beheerde schijf is __Standaard__ (HDD) of __Premium__ (SSD). Premium-schijven worden gebruikt met virtuele machines uit de DS- en GS-reeks. Alle andere VM-typen gebruiken standaardschijven.
 
 8. Selecteer bij __Geavanceerde instellingen__ de optie __Volgende__ om door te gaan.
 
@@ -340,6 +343,27 @@ De streaming-API is in versie 0.10.0 aan Kafka toegevoegd. Eerdere versies zijn 
 
 7. Gebruik __Ctrl + C__ om de consument af te sluiten. Gebruik vervolgens de opdracht `fg` om de streamingtaak weer op de voorgrond uit te voeren. Gebruik __Ctrl + C__ om af te sluiten.
 
+## <a name="data-high-availability"></a>Hoge beschikbaarheid van gegevens
+
+Elke Azure-regio (locatie) heeft _foutdomeinen_. Een foutdomein is een logische groepering van de onderliggende hardware in een Azure-datacenter. Elk foutdomein deelt een algemene voedingsbron en netwerkswitch. De virtuele machines en beheerde schijven die de knooppunten in een HDInsight-cluster implementeren zijn verdeeld over deze foutdomeinen. Deze architectuur beperkt de potentiële impact van problemen met de fysieke hardware.
+
+Raadpleeg het document [Beschikbaarheid van virtuele Linux-machines](../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) voor informatie over het aantal foutdomeinen in een regio.
+
+> [!IMPORTANT]
+> Wij raden het gebruik aan van een Azure-regio die drie foutdomeinen bevat en van een replicatiefactor van 3.
+
+Als u een regio met slechts twee foutdomeinen moet gebruiken, gebruik dan een replicatiefactor van 4 om de replica's gelijkmatig te verdelen over de twee foutdomeinen.
+
+### <a name="kafka-and-fault-domains"></a>Kafka en foutdomeinen
+
+Kafka is niet bekend met foutdomeinen. Bij het maken van partitiereplica's voor onderwerpen worden replica's mogelijk niet goed gedistribueerd voor hoge beschikbaarheid. Gebruik het [partitieherverdelingsprogramma van Kafka](https://github.com/hdinsight/hdinsight-kafka-tools) voor gegarandeerde hoge beschikbaarheid. Dit hulpprogramma moet vanaf een SSH-sessie naar het hoofdknooppunt van het Kafka-cluster worden uitgevoerd.
+
+Om de hoogst mogelijke beschikbaarheid van uw Kafka-gegevens te waarborgen, moet u de partitiereplica's voor uw onderwerp op de volgende tijden opnieuw indelen:
+
+* wanneer een nieuw onderwerp of partitie wordt gemaakt
+
+* wanneer u een cluster opschaalt
+
 ## <a name="delete-the-cluster"></a>Het cluster verwijderen
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -352,11 +376,10 @@ Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#cre
 
 In dit document hebt u de basisbeginselen geleerd van hoe u met Apache Kafka in HDInsight werkt. Gebruik de volgende documenten voor meer informatie over het werken met Kafka:
 
-* [Hoge beschikbaarheid van uw gegevens met Kafka in HDInsight](hdinsight-apache-kafka-high-availability.md)
-* [De schaalbaarheid verhogen door beheerde schijven met Kafka in HDInsight te configureren](hdinsight-apache-kafka-scalability.md)
-* [Documentatie voor Apache Kafka](http://kafka.apache.org/documentation.html) op kafka.apache.org.
-* [MirrorMaker gebruiken voor het maken van een replica van Kafka in HDInsight](hdinsight-apache-kafka-mirroring.md)
+* [Kafka-logboekbestanden analyseren](apache-kafka-log-analytics-operations-management.md)
+* [Gegevens repliceren tussen Kafka-clusters](hdinsight-apache-kafka-mirroring.md)
+* [Apache Spark-streaming (DStream) gebruiken met Kafka in HDInsight](hdinsight-apache-spark-with-kafka.md)
+* [Apache Spark Structured Streaming met Kafka in HDInsight](hdinsight-apache-kafka-spark-structured-streaming.md)
 * [Apache Storm gebruiken met Kafka in HDInsight](hdinsight-apache-storm-with-kafka.md)
-* [Apache Spark gebruiken met Kafka in HDInsight](hdinsight-apache-spark-with-kafka.md)
 * [Verbinding maken met Kafka via een Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md)
 

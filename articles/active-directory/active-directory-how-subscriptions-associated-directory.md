@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 283c9903501a1e497e4dde81146d21edb869e9e2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 081cf2bde44a0b55508cc7f0197fa7f8e378189b
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>How Azure subscriptions are associated with Azure Active Directory (Hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory)
@@ -48,13 +48,14 @@ U krijgt de Azure AD-service gratis wanneer u zich registreert voor een van deze
 ## <a name="to-add-an-existing-subscription-to-your-azure-ad-directory"></a>Een bestaand abonnement toevoegen aan uw Azure AD-directory
 U moet zich aanmelden met een account dat bestaat in zowel de huidige directory die aan het abonnement is gekoppeld als in de directory waaraan u het abonnement wilt toevoegen. 
 
-1. Meld u aan bij het [Azure-accountcentrum](https://account.windowsazure.com/Home/Index) met een account van de accountbeheerder voor het abonnement waarvan u het eigendom wilt overdragen.
+1. Meld u aan bij het [Azure-accountcentrum](https://account.azure.com/Subscriptions) met een account van de accountbeheerder voor het abonnement waarvan u het eigendom wilt overdragen.
 2. Zorg ervoor dat de gebruiker die u wilt instellen als de eigenaar van het abonnement, aanwezig is in de doeldirectory.
 3. Klik op **Abonnement overdragen**.
 4. Geef de ontvanger op. De ontvanger ontvangt automatisch een e-mail met een acceptatielink.
 5. De ontvanger klikt op de link en volgt de instructies, waaronder het invoeren van zijn of haar betaalgegevens. Als de ontvanger klaar is, wordt het abonnement overgedragen. 
 6. De standaarddirectory van het abonnement wordt gewijzigd in de directory waarin de gebruiker zich bevindt.
 
+Zie [Transfer Azure subscription ownership to another account](../billing/billing-subscription-transfer.md) (Het eigendom van een Azure-abonnement overdragen aan een ander account) voor meer informatie
 
 ## <a name="suggestions-to-manage-both-a-subscription-and-a-directory"></a>Tips voor het beheren van zowel een abonnement als een directory
 Met de beheerdersrollen voor een Azure-abonnement worden de resources beheerd die zijn gekoppeld aan het Azure-abonnement. In deze sectie worden de verschillen uitgelegd tussen beheerders van Azure-abonnementen en beheerders van Azure AD-directory’s. Beheerdersrollen en andere tips voor het gebruiken van deze rollen om uw abonnement te beheren, vindt u in [Beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles.md).
