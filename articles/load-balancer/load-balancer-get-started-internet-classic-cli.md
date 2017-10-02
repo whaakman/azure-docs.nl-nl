@@ -3,7 +3,7 @@ title: Een internetgerichte load balancer maken - klassieke Azure CLI | Microsof
 description: Meer informatie over het maken van een internetgerichte load balancer in het klassieke implementatiemodel via de Azure CLI
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: e433a824-4a8a-44d2-8765-a74f52d4e584
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: da3a908f17ff5c6d3923549a884ecc0a13cb8e9e
-ms.lasthandoff: 03/21/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 0813cb0ccf976b7e47420b33ec65714fd8e60ac1
+ms.contentlocale: nl-nl
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -36,7 +37,7 @@ ms.lasthandoff: 03/21/2017
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## <a name="step-by-step-creating-an-internet-facing-load-balancer-using-cli"></a>Stapsgewijze instructies voor het maken van een internetgerichte load balancer met behulp van CLI
+## <a name="create-an-internet-facing-load-balancer-using-cli"></a>Een internetgerichte load balancer maken met CLI
 
 In deze handleiding wordt beschreven hoe u een internetgerichte load balancer maakt op basis van bovenstaand scenario.
 
@@ -64,7 +65,7 @@ Maak de eerste set met een eindpunt en gelijke taakverdeling met behulp van `azu
 azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## <a name="step-2"></a>Stap 2
+### <a name="step-2"></a>Stap 2
 
 Voeg de tweede virtuele machine 'web2' aan de set met gelijke taakverdeling toe.
 
@@ -72,7 +73,7 @@ Voeg de tweede virtuele machine 'web2' aan de set met gelijke taakverdeling toe.
 azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## <a name="step-3"></a>Stap 3
+### <a name="step-3"></a>Stap 3
 
 Controleer de configuratie van de load balancer met behulp van `azure vm show`.
 

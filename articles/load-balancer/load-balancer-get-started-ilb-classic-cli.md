@@ -3,7 +3,7 @@ title: Een interne load balancer maken - klassieke Azure CLI | Microsoft Docs
 description: Meer informatie over hoe u met de Azure CLI een interne load balancer maakt in het klassieke implementatiemodel
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: d24b95f75b5ffd1116b07cf9f8bac33767a9c835
-ms.lasthandoff: 03/21/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f740633230b2479f77d7d09a31dbbf3f72ffb174
+ms.contentlocale: nl-nl
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -38,11 +39,11 @@ ms.lasthandoff: 03/21/2017
 
 ## <a name="to-create-an-internal-load-balancer-set-for-virtual-machines"></a>Een interne load balancer-set maken voor virtuele machines
 
-Ga als volgt te werk om een interne load balancer-set te maken, evenals de servers die hun verkeer naar deze load balancer verzenden:
+U maakt als volgt een interne load balancer-set en servers die verkeer naar deze load balancer verzenden:
 
-1. Maak een exemplaar van Interne taakverdeling dat het eindpunt wordt van binnenkomend verkeer dat gelijkmatig moet worden verdeeld over de servers van een set met gelijke taakverdeling.
-2. Voeg eindpunten toe die overeenkomen met de virtuele machines die het binnenkomende verkeer ontvangen.
-3. Configureer de servers die het verkeer voor gelijke taakverdeling verzenden, zodanig dat het verkeer wordt verzonden naar het VIP-adres (virtuele IP) van het exemplaar van Interne taakverdeling.
+1. Maak een instantie voor interne taakverdeling dat als eindpunt fungeert voor binnenkomend verkeer dat gelijkmatig moet worden verdeeld over de servers in een load balancer-set.
+2. Voeg eindpunten toe die overeenkomen met de virtuele machines waarop het binnenkomende verkeer kan worden ontvangen.
+3. Configureer de servers om het verkeer te verzenden naar het virtuele IP-adres (VIP) van de instantie voor interne taakverdeling.
 
 ## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>Stapsgewijze instructies voor het maken van een interne load balancer met behulp van CLI
 
@@ -92,7 +93,7 @@ Hier volgt een voorbeeld van de uitvoer:
 
 ### <a name="step-2"></a>Stap 2
 
-U configureert de interne load balancer-set wanneer u het eerste eindpunt toevoegt. In deze stap koppelt u het eindpunt, de virtuele machine en de testpoort aan de interne load balancer-set.
+U configureert de interne load balancer-set wanneer u het eerste eindpunt toevoegt. In deze stap kunt u het eindpunt, de virtuele machine en de testpoort koppelen aan de interne load balancer-set.
 
 ```azurecli
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
@@ -106,7 +107,7 @@ Controleer de configuratie van de load balancer met behulp van `azure vm show` *
 azure vm show DB1
 ```
 
-De uitvoer is:
+De uitvoer is als volgt:
 
     azure vm show DB1
     info:    Executing command vm show

@@ -3,7 +3,7 @@ title: Een internetgerichte load balancer maken - klassieke versie van Azure Pow
 description: Meer informatie over het maken van een internetgerichte load balancer in de klassieke modus met PowerShell
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 73e8bfa4-8086-4ef0-9e35-9e00b24be319
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c06be7a2d17b655c958c4ba4618739f5b218b8d7
-ms.lasthandoff: 04/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 0a0b4cd516033ffe74d6992a98711be7a8150842
+ms.contentlocale: nl-nl
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -43,7 +44,7 @@ Volg de onderstaande stappen om een load balancer in te stellen met behulp van P
 1. Als u Azure PowerShell nog niet eerder hebt gebruikt, kunt u [Azure PowerShell installeren en configureren](/powershell/azure/overview) raadplegen en de instructies helemaal tot aan het einde volgen om u aan te melden bij Azure en uw abonnement te selecteren.
 2. Nadat u een virtuele machine hebt gemaakt, kunt u PowerShell-cmdlets gebruiken om een load balancer toe te voegen aan een virtuele machine binnen dezelfde cloudservice.
 
-In het volgende voorbeeld voegt u een set met gelijke taakverdeling met de naam 'webfarm' toe aan de cloud service 'mytestcloud' (of myctestcloud.cloudapp.net) en voegt u de eindpunten voor de load balancer toe aan virtuele machines met de naam 'web1' en 'web2'. De load balancer ontvangt netwerkverkeer via poort 80 en verdeelt taken tussen virtuele machines die zijn gedefinieerd door het lokale eindpunt (in dit geval poort 80) met TCP.
+In het volgende voorbeeld voegt u een set met gelijke taakverdeling met de naam webfarm toe aan de cloudservice mytestcloud (of myctestcloud.cloudapp.net) en voegt u de eindpunten voor de load balancer toe aan virtuele machines met de naam web1 en web2. De load balancer ontvangt netwerkverkeer via poort 80 en verdeelt taken tussen virtuele machines die zijn gedefinieerd door het lokale eindpunt (in dit geval poort 80) met TCP.
 
 ### <a name="step-1"></a>Stap 1
 

@@ -3,7 +3,7 @@ title: Een interne load balancer maken in Azure Portal | Microsoft Docs
 description: Meer informatie over hoe u met Azure Portal een interne load balancer maakt in Resource Manager
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3be595b03f667cf9700d2f17eb2080aa74f41dd9
+ms.contentlocale: nl-nl
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,6 +30,9 @@ ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Sjabloon](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -61,18 +66,18 @@ Gebruik de volgende stappen om een interne load balancer te maken vanuit Azure P
 ## <a name="configure-load-balancing-rules"></a>Taakverdelingsregels configureren
 
 Wanneer de load balancer is gemaakt, navigeert u naar de resource van de load balancer om deze te configureren.
-U moet eerst een back-endadresgroep en een test configureren voordat u een taakverdelingsregel configureert.
+Configureer een back-endadresgroep en een test voordat u een taakverdelingsregel configureert.
 
-### <a name="step-1-configure-a-back-end-pool"></a>Stap 1: Een back-endgroep configureren
+### <a name="step-1-configure-a-backend-pool"></a>Stap 1: Een back-endgroep configureren
 
-1. Klik in Azure Portal op **Bladeren** > **Load balancers** en vervolgens op de load balancer die u hierboven hebt gemaakt.
+1. Klik in Azure Portal op **Bladeren** > **Load balancers** en vervolgens op de load balancer die u eerder hebt gemaakt.
 2. Klik op de blade **Instellingen** op **Back-endgroepen**.
 3. Klik op de blade **Back-endadresgroepen** op **Toevoegen**.
 4. Voer op de blade **Back-endgroep toevoegen** een **Naam** in voor de back-endgroep en klik op **OK**.
 
 ### <a name="step-2-configure-a-probe"></a>Stap 2: Een test configureren
 
-1. Klik in Azure Portal op **Bladeren** > **Load balancers** en vervolgens op de load balancer die u hierboven hebt gemaakt.
+1. Klik in Azure Portal op **Bladeren** > **Load balancers** en vervolgens op de load balancer die u eerder hebt gemaakt.
 2. Klik op de blade **Instellingen** op **Tests**.
 3. Klik op de blade **Tests** op **Toevoegen**.
 4. Voer op de blade **Test toevoegen** een **Naam** in voor de test.
@@ -85,14 +90,14 @@ U moet eerst een back-endadresgroep en een test configureren voordat u een taakv
 
 ### <a name="step-3-configure-load-balancing-rules"></a>Stap 3: Taakverdelingsregels configureren
 
-1. Klik in Azure Portal op **Bladeren** > **Load balancers** en vervolgens op de load balancer die u hierboven hebt gemaakt.
+1. Klik in Azure Portal op **Bladeren** > **Load balancers** en vervolgens op de load balancer die u eerder hebt gemaakt.
 2. Klik op de blade **Instellingen** op **Taakverdelingsregels**.
 3. Klik op de blade **Taakverdelingsregels** op **Toevoegen**.
 4. Voer op de blade **Taakverdelingsregel toevoegen** een **Naam** in voor de regel.
 5. Selecteer onder **Protocol** **HTTP** (voor websites) of **TCP** (voor andere TCP-toepassingen).
 6. Geef onder **Poort** op via welke poort clients verbinding maken met de load balancer.
 7. Geef onder **Back-endpoort** de poort op die in de back-endgroep moet worden gebruikt (gewoonlijk zijn de load balancer-poort en de back-endpoort hetzelfde).
-8. Selecteer onder **Back-endgroep** de back-endgroep die u hierboven hebt gemaakt.
+8. Selecteer onder **Back-endgroep** de back-endgroep die u eerder hebt gemaakt.
 9. Selecteer onder **Sessiepersistentie** hoe sessies moeten worden standgehouden.
 10. Geef onder **Time-out voor inactiviteit (minuten)** de time-out voor inactiviteit op.
 11. Klik onder **Zwevend IP (Direct Server Return)** op **Uitgeschakeld** of **Ingeschakeld**.
@@ -103,10 +108,5 @@ U moet eerst een back-endadresgroep en een test configureren voordat u een taakv
 [Een distributiemodus voor de load balancer configureren](load-balancer-distribution-mode.md)
 
 [TCP-time-outinstellingen voor inactiviteit voor de load balancer configureren](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

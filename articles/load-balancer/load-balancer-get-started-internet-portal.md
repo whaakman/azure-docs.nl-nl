@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: annahar
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: db7c328b2ba7008b9d34275341fa4bad9522b028
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 922c33f712e160835256ad9ad040e523dfbf76db
+ms.contentlocale: nl-nl
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -29,11 +31,13 @@ ms.openlocfilehash: db7c328b2ba7008b9d34275341fa4bad9522b028
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Sjabloon](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Dit artikel is van toepassing op het Resource Manager-implementatiemodel. Hier vindt u [meer informatie over hoe u een internetgerichte load balancer maakt met de klassieke implementatie](load-balancer-get-started-internet-classic-portal.md)
+Dit artikel is van toepassing op het Resource Manager-implementatiemodel.
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -61,7 +65,7 @@ Meer informatie over de load balancer-onderdelen in Azure Resource Manager vindt
 3. Voer op de blade **Load balancer maken** een naam in voor de load balancer. Hier wordt deze **myLoadBalancer** genoemd.
 4. Selecteer onder **Type** de optie **Openbaar**.
 5. Maak onder **Openbaar IP-adres** een nieuw openbaar IP-adres met de naam **myPublicIP**.
-6. Selecteer onder Resourcegroep de optie **myRG**. Selecteer een geschikte **Locatie** en klik vervolgens op **OK**. De load balancer wordt nu geïmplementeerd. Dit proces duurt enkele minuten.
+6. Selecteer onder Resourcegroep de optie **myRG**. Selecteer een geschikte **Locatie** en klik vervolgens op **OK**. De load balancer begint vervolgens met de implementatie. Het duurt een aantal minuten voordat de implementatie is voltooid.
 
     ![Resourcegroep voor load balancer bijwerken](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
@@ -112,9 +116,4 @@ Als u een load balancer wilt verwijderen, selecteert u de load balancer die u wi
 [Een distributiemodus voor de load balancer configureren](load-balancer-distribution-mode.md)
 
 [TCP-time-outinstellingen voor inactiviteit voor de load balancer configureren](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
