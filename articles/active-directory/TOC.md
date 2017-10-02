@@ -148,13 +148,14 @@
 ### [Aan de slag](active-directory-integrating-applications-getting-started.md)
 ### [Zelfstudies voor SaaS-app-integratie](active-directory-saas-tutorial-list.md)
 ### [Cloud App Discovery](cloudappdiscovery-overview.md)
-#### [Wat is Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
-#### [Stappen instellen](cloudappdiscovery-get-started.md)
+#### [Detectie zonder agent instellen](cloudappdiscovery-get-started.md)
 #### [Momentopnamerapporten maken](cloudappdiscovery-set-up-snapshots.md)
 #### [Continue rapportage configureren](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Een aangepaste logboekparser gebruiken](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-#### [Registerinstellingen bijwerken](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-#### [Meer informatie over beveiliging en privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+#### Agentgebaseerde detectie instellen
+##### [Wat is Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
+##### [Registerinstellingen bijwerken](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
+##### [Meer informatie over beveiliging en privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [Toegang tot apps op afstand via App Proxy](active-directory-application-proxy-get-started.md)

@@ -26,9 +26,8 @@
 ### [Internetgerichte load balancer configureren (CLI)](load-balancer-get-started-internet-arm-cli.md)
 ### [Internetgerichte load balancer configureren (sjabloon)](load-balancer-get-started-internet-arm-template.md)
 
-## [Internetgerichte load balancer configureren (klassieke portal)](load-balancer-get-started-internet-classic-portal.md)
+## [Internetgerichte load balancer configureren (klassieke PowerShell)](load-balancer-get-started-internet-classic-ps.md)
 ### [Internetgerichte load balancer configureren (klassieke cloud)](load-balancer-get-started-internet-classic-cloud.md)
-### [Internetgerichte load balancer configureren (klassieke PS)](load-balancer-get-started-internet-classic-ps.md)
 ### [Internetgerichte load balancer configureren (klassieke CLI)](load-balancer-get-started-internet-classic-cli.md)
 
 ## [Een internetgerichte load balancer maken met IPv6](load-balancer-ipv6-internet-ps.md)

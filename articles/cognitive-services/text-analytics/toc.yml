@@ -22,8 +22,10 @@
       href: Quickstarts/PHP.md
 - name: Zelfstudies
   items:
-    - name: Text Analytics met Power BI
+    - name: Tekstanalyse in Power BI
       href: Tutorials/tutorial-power-bi-key-phrases.md
+    - name: Tekstanalyse in Power Apps
+      href: 'https://powerapps.microsoft.com/tutorials/cognitive-services-api/'
 - name: Handleidingen
   items:
     - name: Aanmelden

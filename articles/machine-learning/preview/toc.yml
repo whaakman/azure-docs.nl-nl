@@ -45,6 +45,8 @@
       items:
         - name: Uitvoeringsdoelen configureren
           href: experiment-execution-configuration.md
+        - name: DSVM- en HDI Spark-cluster maken
+          href: how-to-create-dsvm-hdi.md
         - name: Trainen met GPU's
           href: how-to-use-gpu.md
     - name: Gegevens ophalen en begrijpen

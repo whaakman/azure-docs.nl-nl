@@ -33,6 +33,7 @@
 
 ## Fouten in U-SQL-programma’s opsporen
 ### [Taken controleren en problemen oplossen](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+### [Problemen met een abnormale terugkerende taak oplossen](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
 ### [Problemen met C#-code opsporen in U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 ### [Job Browser en Job View gebruiken](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Vertex Execution View gebruiken](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
