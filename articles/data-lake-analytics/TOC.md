@@ -5,13 +5,13 @@
 ## [Azure Portal](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-## [Azure CLI](data-lake-analytics-get-started-cli2.md)
+## [Azure-CLI](data-lake-analytics-get-started-cli2.md)
 
 # Procedures
 
-## Data Lake Analytics-accounts beheren
+## Data Lake Analytics beheren
 ### [Azure Portal](data-lake-analytics-manage-use-portal.md)
-### [Azure CLI](data-lake-analytics-manage-use-cli.md)
+### [Azure-CLI](data-lake-analytics-manage-use-cli.md)
 ### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 ### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
 ### [Python SDK](data-lake-analytics-manage-use-python-sdk.md)

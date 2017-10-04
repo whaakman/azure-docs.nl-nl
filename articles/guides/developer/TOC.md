@@ -1,11 +1,5 @@
 # Overzicht
 ## [Ontwikkelaarsgids](azure-developer-guide.md) 
-### [Wat is Azure?](azure-developer-guide.md#what-is-azure)
-### [Waar moet ik beginnen?](azure-developer-guide.md#where-do-i-start)
-### [Azure-regio's](azure-developer-guide.md#azure-regions)
-### [Hoe kan ik mijn toepassingen en projecten beheren?](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
-### [Inzicht in accounts, abonnementen en facturering](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
-
 ## [Overzicht van Azure-services](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [Overzicht van Portal](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [SDK's en hulpprogramma's](https://docs.microsoft.com/azure/index#pivot=sdkstools)
@@ -108,7 +102,7 @@
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 ### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README)
 ## Opdrachtregelinterfaces
-### [Azure CLI](https://docs.microsoft.com/cli/azure/)
+### [Azure-CLI](https://docs.microsoft.com/cli/azure/)
 ### [Azure PowerShell](https://docs.microsoft.com/powershell/)
 ## [Facturering](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
