@@ -26,8 +26,8 @@
 
 ## Een cluster maken en beheren
 ### 1 - Een cluster maken in Azure
-#### [1a - Een beveiligd Windows-cluster maken in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-#### [1b - Een beveiligd Linux-cluster maken in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+#### [1a: Een Windows-cluster maken](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b: Een Linux-cluster maken](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2 - API Management met Service Fabric implementeren](service-fabric-tutorial-deploy-api-management.md)
 
 # Voorbeelden
@@ -198,7 +198,6 @@
 ### Een Reliable Actors-service bouwen
 #### Aan de slag
 ##### [C# op Windows](service-fabric-reliable-actors-get-started.md)
-##### [Java op Linux](service-fabric-reliable-actors-get-started-java.md)
 ##### [Java Actor op Linux](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Meldingen verzenden](service-fabric-reliable-actors-events.md)
 #### [Timers en herinneringen instellen](service-fabric-reliable-actors-timers-reminders.md)
@@ -342,7 +341,7 @@
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
-## [Azure CLI](/cli/azure/sf)
+## [Azure-CLI](/cli/azure/sf)
 ## [Service Fabric-CLI](service-fabric-sfctl.md)
 ### [sfctl application](service-fabric-sfctl-application.md)
 ### [sfctl chaos](service-fabric-sfctl-chaos.md)

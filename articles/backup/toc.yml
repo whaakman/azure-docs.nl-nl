@@ -39,6 +39,8 @@
           href: backup-azure-vm-backup-faq.md
         - name: Veelgestelde vragen over het maken van back-ups van bestandsmappen met behulp van de Azure Backup-agent
           href: backup-azure-file-folder-backup-faq.md
+        - name: Veelgestelde vragen over automatisch upgraden van back-upkluis
+          href: backup-upgrade-backup-vault.md
     - name: Op rollen gebaseerd toegangsbeheer
       href: backup-rbac-rs-vault.md
     - name: Beveiliging voor hybride back-ups

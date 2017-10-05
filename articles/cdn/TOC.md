@@ -37,11 +37,13 @@
 ### [Ondersteuning voor HTTP/2](cdn-http2.md)
 
 ## Analyseren
-### [Gebruikspatronen analyseren](cdn-analyze-usage-patterns.md)
-### [Geavanceerde HTTP-rapporten genereren](cdn-advanced-http-reports.md)
-### [Statistieken in realtime bekijken](cdn-real-time-stats.md)
-### [Prestaties van edge-knooppunt analyseren](cdn-edge-performance.md)
-### [Metrische gegevens exporteren met diagnostische logboeken](cdn-log-analysis.md)
+### [Gebruikspatronen van Azure CDN analyseren](cdn-log-analysis.md)
+#### [Verizon-kernrapporten](cdn-analyze-usage-patterns.md)
+#### [Diagnostische logboeken van Azure](cdn-azure-diagnostic-logs.md)
+### Analytische hulpprogramma's voor Azure CDN van Verizon
+#### [Geavanceerde HTTP-rapporten genereren](cdn-advanced-http-reports.md)
+#### [Statistieken in realtime bekijken](cdn-real-time-stats.md)
+#### [Prestaties van edge-knooppunt analyseren](cdn-edge-performance.md)
 
 ## Ontwikkelen
 ### [.NET](cdn-app-dev-net.md)

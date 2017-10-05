@@ -25,16 +25,21 @@
 ### [JavaScript UDF's integreren](stream-analytics-javascript-user-defined-functions.md)
 ### [REST-API's en Machine Learning integreren](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Uitvoer maken](stream-analytics-define-outputs.md)
-### [Uitvoer naar Azure Functions](stream-analytics-functions-redis.md)
 ### [Uitvoer naar Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Uitvoer naar Cosmos DB](stream-analytics-documentdb-output.md)
+
+## Visual Studio-hulpprogramma's gebruiken
+### [Installeren](stream-analytics-tools-for-visual-studio-install.md)
+### [Aan de slag](stream-analytics-tools-for-visual-studio.md)
+### [CI/CD-pijplijnen instellen](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Bewaken en optimaliseren
 ### [Waarschuwingen toevoegen](stream-analytics-set-up-alerts.md)
 ### [Taken bewaken](stream-analytics-monitoring.md)
 ### [Taken controleren via een programma](stream-analytics-monitor-jobs.md)
 ### [Taken bewaken met PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
-### [Streamingeenheden optimaliseren](stream-analytics-streaming-unit-consumption.md)
+### [Streaming-eenheden begrijpen en aanpassen](stream-analytics-streaming-unit-consumption.md)
+### [Parallellisatie van query’s gebruiken](stream-analytics-parallelization.md)
 ### [Schalen om doorvoer te vergroten](stream-analytics-scale-jobs.md)
 ### [Schalen voor Machine Learning-functies](stream-analytics-scale-with-machine-learning-functions.md)
 
@@ -52,7 +57,6 @@
 ### [Diagnostische logboeken](stream-analytics-job-diagnostic-logs.md)
 
 ## Automatiseren
-### [Hulpprogramma's voor Visual Studio](stream-analytics-tools-for-visual-studio.md)
 ### [Management .NET-SDK gebruiken](stream-analytics-dotnet-management-sdk.md)
 ### [Azure PowerShell met één klik](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 

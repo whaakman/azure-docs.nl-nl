@@ -344,6 +344,8 @@
               href: troubleshoot-recovery-disks-portal.md
         - name: PerfInsights gebruiken
           href: how-to-use-perfInsights.md
+        - name: VM-extensie voor diagnostische gegevens over prestaties
+          href: performance-diagnostics-vm-extension.md
 - name: Naslaginformatie
   items:
     - name: Azure CLI

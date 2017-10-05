@@ -1,13 +1,13 @@
-- name: ACS met Kubernetes
+- name: Kubernetes op Azure
   href: ./index.yml
 - name: Overzicht
   items:
-    - name: Over Container Service
+    - name: Kubernetes op Azure
       href: container-service-intro-kubernetes.md
 - name: Snelstartgidsen
   expanded: true
   items:
-    - name: Kubernetes Linux
+    - name: Kubernetes op Azure
       href: container-service-kubernetes-walkthrough.md
 - name: Zelfstudies
   items:
@@ -25,14 +25,8 @@
       href: container-service-tutorial-kubernetes-app-update.md
     - name: 7 - Bewaken met OMS
       href: container-service-tutorial-kubernetes-monitor.md
-- name: Voorbeelden
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
 - name: Concepten
   items:
-    - name: Beveiligde containers
-      href: container-service-security.md
     - name: Service-principal - Kubernetes
       href: container-service-kubernetes-service-principal.md
 - name: Handleidingen
@@ -41,18 +35,14 @@
       href: container-service-kubernetes-windows-walkthrough.md
     - name: Web-interface van Kubernetes
       href: container-service-kubernetes-ui.md
-    - name: Helm-grafieken implementeren
+    - name: Helm-grafieken gebruiken
       href: container-service-kubernetes-helm.md
-    - name: Jenkins en ACS Kubernetes
+    - name: Jenkins gebruiken met ACS
       href: container-service-kubernetes-jenkins.md
-    - name: Concept gebruiken met ACR en ACS
+    - name: Draft gebruiken met ACS
       href: container-service-draft-up.md
-    - name: Verbinding maken met een ACS-cluster
-      href: container-service-connect.md
-    - name: Een ACS-cluster schalen
+    - name: Schaal cluster aanpassen
       href: container-service-scale.md
-    - name: Taakverdeling van een Kubernetes ACS-cluster
-      href: container-service-kubernetes-load-balancing.md
     - name: Bewaken
       items:
         - name: Bewaken met OMS
@@ -73,10 +63,10 @@
           href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: Naslaginformatie
   items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: /cli/azure/acs
     - name: REST
-      href: /rest/api/container-services
+      href: /rest/api/container-service
 - name: Resources
   items:
     - name: Azure-roadmap

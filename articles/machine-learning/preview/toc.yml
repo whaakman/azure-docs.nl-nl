@@ -73,6 +73,8 @@
           href: tutorial-iris-azure-cli.md
         - name: Uitvoeringsgeschiedenis en metrische gegevens van modellen bijhouden
           href: how-to-use-run-history-model-metrics.md
+        - name: Uitvoeringen zoeken met het beste nauwkeurigheid en de kortste duur
+          href: how-to-find-best-accuracy-cli.md
         - name: Bestanden lezen en schrijven
           href: how-to-read-write-files.md
         - name: MMLSpark-bibliotheek

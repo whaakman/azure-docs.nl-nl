@@ -10,13 +10,13 @@ ms.service: power-bi-embedded
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 09/28/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 48f9fe41b94016e54a2ec622df9684b7dcd4dfed
-ms.openlocfilehash: c1e12dc71ce823425971beeb9db1cc5abd2aa12b
+ms.translationtype: HT
+ms.sourcegitcommit: a7d54aab70027251413c2f8d0145fff8ec816c2d
+ms.openlocfilehash: d8e1fafe9b3fecc9822ef6f25d8c527eebe586cb
 ms.contentlocale: nl-nl
-ms.lasthandoff: 02/09/2017
+ms.lasthandoff: 10/02/2017
 
 ---
 # <a name="power-bi-embedded-documentation"></a>Documentatie over Power BI Embedded
@@ -25,13 +25,13 @@ Meer informatie over hoe u met Power BI Embedded gegevensvisualisaties en intera
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/power-bi-embedded/power-bi-embedded-what-is-power-bi-embedded">
+        <a href="/azure/power-bi-embedded/what-is-power-bi-embedded">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/power-bi-embedded.svg" alt="" />
+                            <img src="media/index/power-bi-logo.svg" alt="Power BI logo" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -61,7 +61,7 @@ Meer informatie over hoe u met Power BI Embedded gegevensvisualisaties en intera
         </a>
     </li>
     <li>
-        <a href="/azure/power-bi-embedded/power-bi-embedded-get-started">
+        <a href="/azure/power-bi-embedded/get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ Meer informatie over hoe u met Power BI Embedded gegevensvisualisaties en intera
         </a>
     </li>
     <li>
-        <a href="/azure/power-bi-embedded/power-bi-embedded-get-started-sample">
+        <a href="https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -89,7 +89,7 @@ Meer informatie over hoe u met Power BI Embedded gegevensvisualisaties en intera
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Power BI-rapporten maken met de galerie met voorbeelden</h3>
+                        <h3>Ga aan de slag met het insluiten rapporten aan de hand van een voorbeeldtoepassing.</h3>
                     </div>
                 </div>
             </div>
@@ -107,7 +107,7 @@ Meer informatie over hoe u met Power BI Embedded gegevensvisualisaties en intera
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Opdrachtregel</h3>
+                        <h3>PowerShell</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded">PowerShell</a></p>
                     </div>
                 </div>
@@ -121,8 +121,9 @@ Meer informatie over hoe u met Power BI Embedded gegevensvisualisaties en intera
                     <div class="cardText">
                         <h3>Talen</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.powerbiembedded">.NET</a></p>
-                        <p><a href="https://www.nuget.org/profiles/powerbi">.NET-SDK downloaden</a></p>
-                        <p><a href="https://github.com/Microsoft/PowerBI-JavaScript">JavaScript</a></p>
+                        <p><a href="https://www.nuget.org/packages/Microsoft.PowerBI.Api/">.NET-SDK downloaden</a></p>
+                        <p><a href="https://microsoft.github.io/PowerBI-JavaScript/">JavaScript</a></p>
+                        <p><a href="https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/">JavaScript SDK downloaden</a></p>
                    </div>
                 </div>
             </div>
@@ -134,12 +135,10 @@ Meer informatie over hoe u met Power BI Embedded gegevensvisualisaties en intera
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/powerbiembedded/">Naslaginformatie over REST-API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt147898.aspx">Naslaginformatie over REST-API</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
-

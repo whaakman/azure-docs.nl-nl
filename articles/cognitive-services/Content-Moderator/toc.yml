@@ -66,6 +66,8 @@
   items:
     - name: Beheer van Facebook-berichten
       href: facebook-post-moderation.md
+    - name: Beheer van eCommerce-catalogus
+      href: ecommerce-retail-catalog-moderation.md
 - name: API-naslaginformatie
   items:
     - name: Alle API's
