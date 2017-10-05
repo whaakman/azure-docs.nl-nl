@@ -3,7 +3,7 @@ title: Foutafhandeling in grafische Azure Automation-runbooks | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u foutafhandelingslogica kunt implementeren in grafische Azure Automation-runbooks.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/26/2016
 ms.author: magoedte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 08cba012cca61eeb03187d2b4165e2a79b15bc3d
 ms.openlocfilehash: 12313f7f245d32c33882f1036f7d4b48bfb3ddc5
+ms.contentlocale: nl-nl
+ms.lasthandoff: 02/03/2017
 
 ---
 
@@ -73,9 +75,4 @@ Foutkoppelingen stromen van deze activiteiten naar een enkele activiteit voor **
 * Zie [Grafisch ontwerpen in Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow) voor meer informatie over koppelingen en koppelingstypen in grafische runbooks.
 
 * Zie [Runbooktaken bijhouden](automation-runbook-execution.md) voor meer informatie over runbookuitvoering, het bewaken van runbooktaken en andere technische details.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

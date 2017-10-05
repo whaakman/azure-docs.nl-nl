@@ -3,7 +3,7 @@ title: Mijn eerste PowerShell Workflow-runbook in Azure Automation | Microsoft D
 description: Zelfstudie die u helpt bij het maken, testen en publiceren van een eenvoudig tekstrunbook met behulp van PowerShell Workflow.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: powershell-werkstroom, voorbeelden powershell-werkstroom, werkstroom powershell

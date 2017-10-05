@@ -3,7 +3,7 @@ title: Een Azure Automation Uitvoeren als-account maken met PowerShell | Microso
 description: In dit artikel wordt beschreven hoe u met PowerShell een upgrade van uw Automation-account uitvoert om Uitvoeren als-accounts te maken als u deze stap in het begin niet hebt uitgevoerd vanuit de portal.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: d34bb4a285f77f5c21a4af2d544bda3221d59e8d
+ms.contentlocale: nl-nl
 ms.lasthandoff: 04/27/2017
 
 ---

@@ -3,7 +3,7 @@ title: Mijn eerste PowerShell-runbook in Azure Automation | Microsoft Docs
 description: Zelfstudie die u helpt bij het maken, testen en publiceren van een eenvoudig PowerShell-runbook.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: azure powershell, zelfstudie powershell-script, powershell-automatisering

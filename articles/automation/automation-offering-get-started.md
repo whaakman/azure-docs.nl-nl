@@ -3,7 +3,7 @@ title: Aan de slag met Azure Automation | Microsoft Docs
 description: Als voorbereiding om de service aan te bieden via Azure Marketplace, vindt u in dit artikel een overzicht van de Azure Automation-service. Hier worden de ontwerp- en implementatiegegevens doorgenomen.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

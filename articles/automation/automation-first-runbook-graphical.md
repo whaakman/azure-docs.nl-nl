@@ -3,7 +3,7 @@ title: Mijn eerste grafische runbook in Azure Automation | Microsoft Docs
 description: Zelfstudie die u helpt bij het maken, testen en publiceren van een eenvoudig grafisch runbook.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: runbook, runbook-sjabloon, runbook-automatisering, azure-runbook

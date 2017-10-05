@@ -3,7 +3,7 @@ title: Wat is Azure Automation | Microsoft Docs
 description: Informatie over welke waarde Azure Automation biedt en antwoorden op veelgestelde vragen, zodat u aan de slag kunt met het maken en gebruiken van runbooks en Azure Automation DSC.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: wat is automation, azure automation en voorbeelden van azure automation
@@ -20,7 +20,6 @@ ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 6b1fb9e7ae810df21cbcd592fef2b43309e2269c
 ms.contentlocale: nl-nl
 ms.lasthandoff: 07/10/2017
-
 
 ---
 # <a name="azure-automation-overview"></a>Overzicht van Azure Automation

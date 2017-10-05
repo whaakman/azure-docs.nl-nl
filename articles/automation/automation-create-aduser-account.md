@@ -3,7 +3,7 @@ title: Gebruikersaccount voor Azure AD maken | Microsoft Docs
 description: "In dit artikel wordt beschreven hoe u gebruikersaccountreferenties van Azure AD voor runbooks in Azure Automation maakt om te verifiëren bij Azure en het klassieke Azure."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: Azure Active Directory-gebruiker, Azure Service Management, Azure AD-gebruikersaccount
