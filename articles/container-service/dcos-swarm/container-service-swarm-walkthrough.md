@@ -18,10 +18,10 @@ ms.date: 08/14/2017
 ms.author: nepeters
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 1d10c347795227ed056a95d1bcd4aff82af7b876
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 876135d62d548e155f4ebefd8bbd9d9cca8b87d6
 ms.contentlocale: nl-nl
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -67,6 +67,8 @@ In het volgende voorbeeld wordt een cluster gemaakt met de naam *mySwarmCluster*
 ```azurecli-interactive
 az acs create --name mySwarmCluster --orchestrator-type Swarm --resource-group myResourceGroup --generate-ssh-keys
 ```
+
+In sommige gevallen, zoals met een beperkte proefversie, heeft een Azure-abonnement beperkte toegang tot Azure-resources. Als de implementatie mislukt vanwege beperkte beschikbare kernen, verminder dan het aantal standaardagenten door `--agent-count 1` toe te voegen aan de opdracht [az acs create](/cli/azure/acs#create). 
 
 Na enkele minuten is de opdracht voltooid en retourneert deze informatie over het cluster in json-indeling.
 
