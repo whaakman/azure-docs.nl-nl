@@ -22,7 +22,7 @@ De nieuwe gateway SKU's stroomlijnen de functiesets die worden aangeboden op de 
 
 | **SKU**| **Functies**|
 | ---    | ---         |
-|**Basic**   | **Op route gebaseerd VPN**: 10 tunnels met P2S<br><br>**Op beleid gebaseerd VPN**: (IKEv1): 1 tunnel; geen P2S|
+|**Basic**   | **Op route gebaseerde VPN**: 10 tunnels met P2S; geen RADIUS-verificatie; geen IKEv2<br>**Op beleid gebaseerd VPN**: (IKEv1): 1 tunnel; geen P2S|
 | **VpnGw1, VpnGw2 en VpnGw3** | **Op route gebaseerd VPN**: maximaal 30 tunnels (*), P2S, BGP, actief-actief, aangepast IPsec/IKE-beleid, ExpressRoute/VPN samen |
 |        |             |
 

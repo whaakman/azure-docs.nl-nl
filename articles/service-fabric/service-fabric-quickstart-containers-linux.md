@@ -15,21 +15,21 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 601cfb136530d2595cded0dd147703d6b272c3ce
+ms.sourcegitcommit: d07d5d59632791a52bcb3a2f54bebe194cc76a54
+ms.openlocfilehash: 44eaaae123490934bc62b4ea30968656900d48fc
 ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 10/04/2017
 
 ---
 
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Een Linux-containertoepassing voor Azure Service Fabric implementeren in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
 
-In deze Quick Start leert u hoe u Linux-containers kunt implementeren in een Service Fabric-cluster. Zodra dit is voltooid, beschikt u over een stemtoepassing die bestaat uit een Python-web-front-end en een Redis-back-end. Beide worden uitgevoerd in een Service Fabric-cluster. 
+In deze Quick Start leert u hoe u Linux-containers kunt implementeren in een Service Fabric-cluster. Nadat dit is voltooid, beschikt u over een stemtoepassing die bestaat uit een Python-web-front-end en een Redis-back-end. Beide worden uitgevoerd in een Service Fabric-cluster. 
 
 ![quickstartpic][quickstartpic]
 
-In deze Quick Start leert u de volgende zaken:
+In deze snelstartgids leert u de volgende zaken:
 > [!div class="checklist"]
 > * Linux-containers implementeren op Service Fabric
 > * Containers schalen en er failovers voor uitvoeren in Service Fabric
@@ -64,7 +64,7 @@ Zie voor meer informatie over het maken van uw eigen cluster [Uw eerste Service 
 >
 
 ### <a name="deploy-the-application-manifests"></a>De toepassingsmanifesten implementeren 
-De SFCTL (Service Fabric-opdrachtregel) installeren in de CLI-omgeving
+De [SFCTL (Service Fabric-CLI)](service-fabric-cli.md) installeren in de CLI-omgeving
 
 ```azurecli-interactive
 pip3 install --user sfctl 
@@ -82,7 +82,7 @@ Gebruik het opgegeven installatiescript om de stemtoepassingsdefinitie te kopië
 ./install.sh
 ```
 
-Open een browser en ga naar Service Fabric Explorer op http://\<my-azure-service-fabric-cluster-url>:80 - bijvoorbeeld: `http://linh1x87d1d.westus.cloudapp.azure.com:80`. Als u het toepassingsknooppunt uitvouwt, ziet u nu een vermelding voor het type stemtoepassing en het exemplaar dat u hebt gemaakt.
+Open een browser en ga naar Service Fabric Explorer op http://\<my-azure-service-fabric-cluster-url>:19080/Explorer - bijvoorbeeld: `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Als u het toepassingsknooppunt uitvouwt, ziet u nu een vermelding voor het type stemtoepassing en het exemplaar dat u hebt gemaakt.
 
 ![Service Fabric Explorer][sfx]
 
@@ -95,7 +95,7 @@ Service Fabric zorgt ervoor dat containerexemplaren automatisch worden verplaats
 
 Doe het volgende om een failover uit te voeren voor de front-endcontainer:
 
-1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
+1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`.
 2. Klik op het knooppunt **fabric:/Voting/azurevotefront** in de structuurweergave en vouw het partitieknooppunt uit (vertegenwoordigd door een GUID). Let op: de naam van het knooppunt in de structuurweergave laat zien op welke knooppunten de container momenteel wordt uitgevoerd, bijvoorbeeld: `_nodetype_4`
 3. Vouw het knooppunt **Knooppunten** in de structuurweergave uit. Klik op het weglatingsteken (drie punten) naast het knooppunt waarop de container wordt uitgevoerd.
 4. Kies **Opnieuw starten** om dit knooppunt opnieuw te starten en bevestig deze actie. Door het opnieuw starten wordt voor de container een failover uitgevoerd naar een ander knooppunt in het cluster.
@@ -131,7 +131,7 @@ Gebruik het uninstall-script dat is opgegeven in de sjabloon om het toepassingse
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze Quick Start hebt u de volgende zaken geleerd:
+In deze snelstartgids hebt u de volgende zaken geleerd:
 > [!div class="checklist"]
 > * Een Linux-containertoepassing implementeren in Azure
 > * Failover uitvoeren voor een container in een Service Fabric-cluster

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 341128e4a1ad6902f6052eb954ffae08e5d78121
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 63a313d9035422207a1ce56f0da8b388e2747685
 ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="network-security"></a>Netwerkbeveiliging
@@ -129,7 +129,7 @@ U kunt de standaardregels niet verwijderen, maar u kunt ze negeren door regels t
 * **Internet** (Resource Manager) (**INTERNET** voor klassiek): deze tag geeft de openbare IP-adresruimte van Azure aan. De adressen die zijn opgenomen in deze tag, staan vermeld in het document [Openbare IP-adresruimte van Azure](https://www.microsoft.com/download/details.aspx?id=41653), dat regelmatig wordt bijgewerkt.
 * **AzureTrafficManager** (alleen Resource Manager): deze tag geeft de IP-adresruimte voor de service Azure Traffic Manager aan.
 * **Storage** (alleen Resource Manager): deze tag geeft de IP-adresruimte voor de service Azure Storage aan. Als u *Storage* opgeeft als waarde, wordt verkeer naar de opslag toegestaan of geweigerd. Als u toegang tot opslag alleen wilt toestaan in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio opgeven. Als u toegang tot Azure Storage bijvoorbeeld alleen wilt toestaan in de regio VS - oost, kunt u *Storage.EastUS* opgeven als servicetag. Aanvullende regionale servicetags zijn: Storage.AustraliaEast, Storage.AustraliaSoutheast, Storage.EastUS, Storage.UKSouth, Storage.WestCentralUS, Storage.WestUS en Storage.WestUS2. De tag vertegenwoordigt de service, maar geen specifieke exemplaren van de service. De tag vertegenwoordigt bijvoorbeeld de service Azure Storage, maar geen specifiek Azure Storage-account.
-* **Sql** (alleen voor Resource Manager): deze tag geeft de adresvoorvoegsels aan van de services Azure SQL Database en Azure SQL Data Warehouse. U kunt alleen specifieke regio's opgeven voor deze servicetag. Als u toegang tot Azure SQL Database bijvoorbeeld alleen wilt toestaan in de regio VS - oost, kunt u *Sql.EastUS* opgeven als servicetag. U kunt Sql niet opgeven voor alle Azure-regio's. U moet regio's afzonderlijk opgeven. Andere regionale servicetags zijn: Storage.AustraliaEast, Storage.AustraliaSoutheast, Storage.EastUS, Storage.UKSouth, Storage.WestCentralUS, Storage.WestUS en Storage.WestUS2. De tag vertegenwoordigt de service, maar geen specifieke exemplaren van de service. De tag vertegenwoordigt bijvoorbeeld de service Azure SQL Database, maar geen specifieke Azure SQL-database.
+* **Sql** (alleen voor Resource Manager): deze tag geeft de adresvoorvoegsels aan van de services Azure SQL Database en Azure SQL Data Warehouse. U kunt alleen specifieke regio's opgeven voor deze servicetag. Als u toegang tot Azure SQL Database bijvoorbeeld alleen wilt toestaan in de regio VS - oost, kunt u *Sql.EastUS* opgeven als servicetag. U kunt Sql niet opgeven voor alle Azure-regio's. U moet regio's afzonderlijk opgeven. Overige regionale servicetags die beschikbaar zijn: Sql.AustraliaEast, Sql.AustraliaSoutheast, Sql.EastUS, Sql.UKSouth, Sql.WestCentralUS, Sql.WestUS en Sql.WestUS2. De tag vertegenwoordigt de service, maar geen specifieke exemplaren van de service. De tag vertegenwoordigt bijvoorbeeld de service Azure SQL Database, maar geen specifieke Azure SQL-database.
 
 > [!WARNING]
 > De servicetags AzureTrafficManager, Storage en Sql zijn beschikbaar in de preview-versie. Functies in de preview-versie hoeven niet dezelfde mate van beschikbaarheid en betrouwbaarheid te hebben als functies in de algemene versie. De servicetags zijn alleen beschikbaar in de volgende regio's: VS - oost, VS - west, VS - west 2, VS - west-centraal, Australië - oost, Australië - zuidoost en UK - zuid.

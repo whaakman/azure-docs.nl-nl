@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/21/2017
+ms.date: 09/26/2017
 ms.author: saysa
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 28424d139499b797b09664f73657a7f73361e3bc
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: c447a92e076bacc9b208b837493400b70cd067e1
 ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Uw ontwikkelomgeving instellen in Mac OS X
@@ -49,7 +49,7 @@ Ga als volgt te werk om de lokale VM te maken met een Service Fabric-cluster met
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
-    Met deze stappen verkrijgt u het bestand `Vagrantfile` dat de VM-configuratie bevat plus de locatie van waar de virtuele machine is gedownload.  Het bestand verwijst naar een voorraadinstallatiekopie van Ubuntu. 
+    Met deze stappen downloadt u het bestand `Vagrantfile` dat de VM-configuratie bevat plus de locatie van waar de virtuele machine wordt gedownload.  Het bestand verwijst naar een voorraadinstallatiekopie van Ubuntu.
 
 2. Navigeer naar de lokale kloon van de opslagplaats
 
@@ -76,7 +76,7 @@ Ga als volgt te werk om de lokale VM te maken met een Service Fabric-cluster met
     ```bash
     vagrant ssh
     ```
-   
+
    Installeer de SDK zoals wordt beschreven in [SDK-installatie](service-fabric-get-started-linux.md).  Het onderstaande script is bedoeld om u te helpen bij het installeren van de Service Fabric-runtime en de algemene Service Fabric SDK samen met SFTCL CLI. Als u het script uitvoert, wordt ervan uitgegaan dat u de licenties voor alle software die wordt geïnstalleerd, hebt gelezen en hiermee akkoord gaat.
 
     ```bash
@@ -97,6 +97,23 @@ Ga als volgt te werk om de lokale VM te maken met een Service Fabric-cluster met
 
     ![Service Fabric Explorer bekeken vanuit de host-Mac][sfx-mac]
 
+## <a name="install-the-necessary-java-artifacts-on-vagrant-to-use-service-fabric-java-programming-model"></a>De benodigde Java-artefacten op Vagrant installeren als u het Service Fabric Java-programmeermodel wilt gebruiken
+
+Als u Service Fabric-services wilt bouwen met behulp van Java, moet JDK 1.8 zijn samen zijn geïnstalleerd met Gradle, dat wordt gebruikt voor het uitvoeren van build-taken. Met het volgende fragment wordt Open JDK 1.8 samen geïnstalleerd met Gradle. De Service Fabric-Java-bibliotheken worden opgehaald uit Maven.
+
+  ```bash
+  vagrant ssh
+  sudo apt-get install openjdk-8-jdk-headless
+  sudo apt-get install gradle
+```
+
+## <a name="set-up-the-service-fabric-cli"></a>De Service Fabric-CLI instellen
+
+De [Service Fabric-CLI](service-fabric-cli.md) bevat opdrachten voor interactie met Service Fabric-entiteiten, inclusief clusters en toepassingen. De CLI is gebaseerd op python, dus is het belangrijk dat python en pip zijn geïnstalleerd voordat u verdergaat met de volgende opdracht:
+
+```bash
+pip install sfctl
+```
 
 ## <a name="create-application-on-mac-using-yeoman"></a>Toepassingen maken op een Mac met Yeoman
 Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fabric-toepassing kunt maken met behulp van de Yeoman-sjabloongenerator. Volg de stappen hieronder om te controleren of de Yeoman-sjabloongenerator van Service Fabric werkt op uw computer.
@@ -141,6 +158,7 @@ Service Fabric biedt een invoegtoepassing voor de **Eclipse Neon voor Java IDE**
 * [Een Service Fabric-cluster maken in Azure Portal](service-fabric-cluster-creation-via-portal.md)
 * [Een Service Fabric-cluster maken met behulp van de Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 * [Inzicht krijgen in het Service Fabric-toepassingsmodel](service-fabric-application-model.md)
+* [De Service Fabric-CLI gebruiken voor het beheren van uw toepassingen](service-fabric-application-lifecycle-sfctl.md)
 
 <!-- Images -->
 [cluster-setup-script]: ./media/service-fabric-get-started-mac/cluster-setup-mac.png
