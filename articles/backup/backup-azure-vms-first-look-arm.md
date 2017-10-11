@@ -279,7 +279,7 @@ De eerste back-uptaak uitvoeren:
 
   ![Geactiveerde back-uptaak](./media/backup-azure-vms-first-look-arm/backup-items-not-run.png)
 
-3. Klik in de lijst **Back-upitems** op het weglatingsteken **... ** om het contextmenu te openen.
+3. Klik in de lijst **Back-upitems** op het weglatingsteken **...** om het contextmenu te openen.
 
   ![Contextmenu](./media/backup-azure-vms-first-look-arm/context-menu.png)
 
