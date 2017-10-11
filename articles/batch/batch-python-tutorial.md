@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Aan de slag met de Batch-SDK voor Python
 
@@ -716,4 +715,3 @@ Nu u vertrouwd bent met de basiswerkstroom van een Batch-oplossing, is het tijd 
 [9]: ./media/batch-python-tutorial/credentials_batch_sm.png "Batch-referenties in Portal"
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Storage-referenties in Portal"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Werkstroom van de Batch-oplossing (minimaal diagram)"
-

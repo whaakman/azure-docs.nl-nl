@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: c3c30e51b81886ebc875df7c815a17dfa633a5f8
-ms.contentlocale: nl-nl
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 72c2b404e66611da421eca0dc30aa71e18c6d120
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Verbinding maken met Azure SQL Data Warehouse
 In dit artikel wordt beschreven hoe u voor de eerste keer verbinding kunt maken met SQL Data Warehouse.
@@ -96,6 +94,5 @@ Zie [Query’s uitvoeren met Visual Studio][Query with Visual Studio] als u verb
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-connect-overview/get-server-name.png
-
 
 

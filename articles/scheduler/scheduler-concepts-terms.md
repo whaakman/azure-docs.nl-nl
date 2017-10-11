@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Schedulerconcepten, -terminologie en -entiteitenhiërarchie
 ## <a name="scheduler-entity-hierarchy"></a>Scheduler-entiteitenhiërarchie
@@ -176,7 +176,7 @@ Als een Scheduler-job is mislukt, is het mogelijk om een beleid voor opnieuw pro
 
 Om een beleid voor opnieuw proberen in te stellen, kunnen twee extra instellingen worden opgegeven: een interval voor nieuwe poging (**retryInterval**) en het aantal nieuwe pogingen (**retryCount**).
 
-Het interval voor een nieuwe poging, dat met het object **retryInterval** wordt opgegeven, is het interval tussen nieuwe pogingen. De standaardwaarde is 30 seconden, de configureerbare minimumwaarde is 15 seconden en de maximumwaarde is 18 maanden. Jobs in gratis jobverzamelingen hebben een configureerbare minimumwaarde van 1 uur.  Dit interval wordt gedefinieerd in de ISO 8601-notatie. Op dezelfde manier wordt de waarde van het aantal nieuwe pogingen opgegeven met het object **retryCount**; dit is het aantal keren dat een nieuwe poging wordt gedaan. De standaardwaarde is 4 en de maximumwaarde is 20\. Zowel **retryInterval** als **retryCount** zijn optioneel. Ze hebben hun standaardwaarden als **retryType** is ingesteld op **fixed** en er niet expliciet waarden zijn opgegeven.
+Het interval voor een nieuwe poging, dat met het object **retryInterval** wordt opgegeven, is het interval tussen nieuwe pogingen. De standaardwaarde is 30 seconden, de configureerbare minimumwaarde is 15 seconden en de maximumwaarde is 18 maanden. Jobs in gratis jobverzamelingen hebben een configureerbare minimumwaarde van 1 uur.  Dit interval wordt gedefinieerd in de ISO 8601-notatie. Op dezelfde manier wordt de waarde van het aantal nieuwe pogingen opgegeven met het object **retryCount**; dit is het aantal keren dat een nieuwe poging wordt gedaan. De standaardwaarde is 4 en de maximumwaarde is 20\. Beide **retryInterval** en **retryCount** zijn optioneel. Ze hebben hun standaardwaarden als **retryType** is ingesteld op **fixed** en er niet expliciet waarden zijn opgegeven.
 
 ## <a name="see-also"></a>Zie ook
  [Wat is Scheduler?](scheduler-intro.md)
@@ -196,10 +196,4 @@ Het interval voor een nieuwe poging, dat met het object **retryInterval** wordt 
  [Azure Scheduler-limieten, standaardwaarden en foutcodes](scheduler-limits-defaults-errors.md)
 
  [Azure Scheduler uitgaande verificatie](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

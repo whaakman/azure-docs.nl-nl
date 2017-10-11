@@ -1,20 +1,20 @@
-## <a name="view-the-telemetry"></a>View the telemetry
+## <a name="view-the-telemetry"></a>De telemetrie weergeven
 
-The Raspberry Pi is now sending telemetry to the remote monitoring solution. You can view the telemetry on the solution dashboard. You can also send messages to your Raspberry Pi from the solution dashboard.
+De Pi frambozen is nu met het verzenden van telemetrie naar de oplossing voor externe controle. U kunt de telemetrie weergeven op het dashboard van oplossing. U kunt ook berichten verzenden naar uw Pi frambozen vanuit het dashboard van oplossing.
 
-- Navigate to the solution dashboard.
-- Select your device in the **Device to View** dropdown.
-- The telemetry from the Raspberry Pi displays on the dashboard.
+- Ga naar het dashboard van de oplossing.
+- Selecteer het apparaat in de **apparaat naar de weergave** vervolgkeuzelijst.
+- De telemetrie van de Pi frambozen wordt weergegeven op het dashboard.
 
-![Display telemetry from the Raspberry Pi][img-telemetry-display]
+![Telemetrie weergegeven van de Pi frambozen][img-telemetry-display]
 
-## <a name="initiate-the-firmware-update"></a>Initiate the firmware update
+## <a name="initiate-the-firmware-update"></a>Starten van de firmware-update
 
-The firmware update process downloads and installs an updated version of the device client application on the Raspberry Pi. For more information about the firmware update process, see the description of the firmware update pattern in [Overview of device management with IoT Hub][lnk-update-pattern].
+Het updateproces firmware downloadt en installeert een bijgewerkte versie van de apparaat-clienttoepassing op de frambozen Pi. Zie voor meer informatie over het bijwerkproces firmware, de beschrijving van de firmware-update-patroon in [overzicht van Apparaatbeheer met IoT Hub][lnk-update-pattern].
 
-You initiate the firmware update process by invoking a method on the device. This method is asynchronous, and returns as soon as the update process begins. The device uses reported properties to notify the solution about the progress of the update.
+U start het updateproces firmware door het aanroepen van een methode op het apparaat. Deze methode is asynchroon en retourneert zodra de update wordt gestart. Het apparaat worden gemeld eigenschappen op de hoogte van de oplossing over de voortgang van de update wilt.
 
-You invoke methods on your Raspberry Pi from the solution dashboard. When the Raspberry Pi first connects to the remote monitoring solution, it sends information about the methods it supports. 
+U kunt methoden aanroepen op uw Pi frambozen vanuit het dashboard van oplossing. Wanneer de Pi frambozen is eerst verbinding met de oplossing voor externe controle maakt, stuurt informatie over de methoden die wordt ondersteund. 
 
 [img-telemetry-display]: media/iot-suite-raspberry-pi-kit-view-telemetry-advanced/telemetry.png
 [lnk-update-pattern]: ../articles/iot-hub/iot-hub-device-management-overview.md

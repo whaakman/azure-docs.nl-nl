@@ -1,32 +1,32 @@
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Vereisten
 
-To complete this tutorial, you need an active Azure subscription.
+U hebt een actief Azure-abonnement nodig om deze zelfstudie te voltooien.
 
 > [!NOTE]
-> If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
+> Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure][lnk-free-trial] voor meer informatie.
 
-### <a name="required-software"></a>Required software
+### <a name="required-software"></a>Vereiste software
 
-You need SSH client on your desktop machine to enable you to remotely access the command line on the Raspberry Pi.
+SSH-client moet u op de computer waarmee u kunt extern toegang tot de opdrachtregel op de frambozen Pi.
 
-- Windows does not include an SSH client. We recommend using [PuTTY](http://www.putty.org/).
-- Most Linux distributions and Mac OS include the command-line SSH utility. For more information, see [SSH Using Linux or Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
+- Windows bevat geen een SSH-client. Wordt u aangeraden [PuTTY](http://www.putty.org/).
+- De meeste Linux-distributies en Mac OS omvatten het SSH-opdrachtregelprogramma. Zie voor meer informatie [SSH met behulp van Linux- of Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
-### <a name="required-hardware"></a>Required hardware
+### <a name="required-hardware"></a>Vereiste hardware
 
-A desktop computer to enable you to connect remotely to the command line on the Raspberry Pi.
+Een desktopcomputer zodat u kunt extern verbinding maken met de opdrachtregel op de frambozen Pi.
 
-[Microsoft IoT Starter Kit for Raspberry Pi 3][lnk-starter-kits] or equivalent components. This tutorial uses the following items from the kit:
+[Microsoft IoT Starter Kit voor frambozen Pi 3] [ lnk-starter-kits] of gelijkwaardige onderdelen. Deze zelfstudie maakt gebruik van de volgende items van de kit:
 
 - Raspberry Pi 3
-- MicroSD Card (with NOOBS)
-- A USB Mini cable
-- An Ethernet cable
-- BME280 sensor
+- MicroSD-kaart (met NOOBS)
+- Een Mini USB-kabel
+- Een Ethernet-kabel
+- BME280-temperatuursensor
 - Breadboard
-- Jumper wires
-- Resistors
-- LEDs
+- Meestal kabels
+- Weerstand
+- LED 's
 
 [lnk-starter-kits]: https://azure.microsoft.com/develop/iot/starter-kits/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

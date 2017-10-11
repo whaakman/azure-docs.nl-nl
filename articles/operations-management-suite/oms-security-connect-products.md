@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
-ms.contentlocale: nl-nl
-ms.lasthandoff: 12/06/2016
-
+ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Uw beveiligingsproducten koppelen aan de beveiligings- en controleoplossing van de Operations Management Suite (OMS) 
 Met dit document kunt u uw beveiligingsproducten koppelen aan de beveiligings- en controleoplossing van de OMS. De volgende bronnen worden ondersteund:
@@ -64,7 +63,7 @@ Op de computer met de agent moeten de gebeurtenissen vanuit de syslog-daemon wor
     log { source(src); filter(f_local4_oms); destination(security_oms); };
     
 3. Download het bestand *security_events.conf* en plaats het in */etc/opt/microsoft/omsagent/conf/omsagent.d/* op de computer met de OMS-agent.
-4. Voer de volgende opdracht in om de syslog-daemon opnieuw op te starten:  *Voer voor syslog-ng het volgende uit:*
+4. Typ de volgende opdracht om opnieuw te starten van de syslog-daemon: *voor syslog-ng uitvoeren:*
     
     ```
     sudo service rsyslog restart
@@ -113,5 +112,4 @@ In dit document hebt u geleerd hoe u uw CEF-oplossing koppelt aan OMS. Raadpleeg
 * [Overzicht van Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Beveiligingswaarschuwingen in de oplossing Beveiliging en controle van Operations Management Suite bewaken en erop reageren](oms-security-responding-alerts.md)
 * [Resources bewaken in de oplossing Beveiliging en controle van Operations Management Suite ](oms-security-monitoring-resources.md)
-
 

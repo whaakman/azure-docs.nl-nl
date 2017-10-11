@@ -1,2 +1,2 @@
-**Q**: Why did the location for my existing gateway change? <br/>
-**A**: Gateway resources created before May 3, 2017 were moved to the original locations of the Azure AD tenant for the work or school account that created those gateways. However, these changes shouldn't affect currently running logic apps, which should continue working as usual. With the gateway's general availability in May, gateway resource locations can differ from logic app locations.
+**Q**: Waarom is de locatie voor mijn bestaande gateway wijzigen? <br/>
+**Een**: Gateway bronnen die zijn gemaakt voordat 3 mei 2017 zijn verplaatst naar de oorspronkelijke locaties van de Azure AD-tenant voor het werk of school-account dat deze gateways gemaakt. Deze wijzigingen mag niet echter van invloed op die momenteel worden uitgevoerd logic apps, die moeten blijven gewoon werken. Gateway resource locaties kunnen met de algemene beschikbaarheid van de gateway in mei verschillen van logische app locaties.

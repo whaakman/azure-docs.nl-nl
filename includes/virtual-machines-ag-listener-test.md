@@ -1,18 +1,18 @@
-In this step, you test the availability group listener by using a client application that's running on the same network.
+In deze stap kunt u de beschikbaarheidsgroep-listener testen met behulp van een clienttoepassing die wordt uitgevoerd op hetzelfde netwerk.
 
-Client connectivity has the following requirements:
+Clientverbinding heeft de volgende vereisten:
 
-* Client connections to the listener must come from machines that reside in a different cloud service than the one that hosts the Always On availability replicas.
-* If the Always On replicas are in different subnets, clients must specify *MultisubnetFailover=True* in the connection string. This condition results in parallel connection attempts to replicas in the various subnets. This scenario includes a cross-region Always On availability group deployment.
+* Clientverbindingen met de listener moeten afkomstig zijn van de machines die zich bevinden in een andere cloudservice dan de versie die als host fungeert voor de beschikbaarheidsreplica's altijd op.
+* Als wordt altijd op replica's in verschillende subnetten, moeten clients opgeven *MultisubnetFailover = True* in de verbindingstekenreeks. Deze voorwaarde resulteert in parallelle verbindingspogingen met replica's in de verschillende subnetten. Dit scenario bevat een regio-overschrijdende altijd op beschikbaarheid groep-implementatie.
 
-One example is to connect to the listener from one of the VMs in the same Azure virtual network (but not one that hosts a replica). An easy way to complete this test is to try to connect SQL Server Management Studio to the availability group listener. Another simple method is to run [SQLCMD.exe](https://technet.microsoft.com/library/ms162773.aspx), as follows:
+Een voorbeeld hiervan is verbinding maken met de listener voor een van de virtuele machines in hetzelfde virtuele netwerk van Azure (maar niet een die als host fungeert voor een replica). Er is een eenvoudige manier om te voltooien van deze test om te proberen verbinding maken met SQL Server Management Studio de beschikbaarheidsgroep-listener. Een andere eenvoudige methode is het uitvoeren van [SQLCMD.exe](https://technet.microsoft.com/library/ms162773.aspx)als volgt:
 
     sqlcmd -S "<ListenerName>,<EndpointPort>" -d "<DatabaseName>" -Q "select @@servername, db_name()" -l 15
 
 > [!NOTE]
-> If the EndpointPort value is *1433*, you are not required to specify it in the call. The previous call also assumes that the client machine is joined to the same domain and that the caller has been granted permissions on the database by using Windows authentication.
+> Als de waarde EndpointPort *1433*, u niet opgeven in de aanroep zijn vereist. De vorige aanroep wordt ervan uitgegaan dat de clientcomputer wordt gekoppeld aan hetzelfde domein en dat de aanroeper heeft machtigingen zijn toegekend op de database met behulp van Windows-verificatie.
 > 
 > 
 
-When you test the listener, be sure to fail over the availability group to make sure that clients can connect to the listener across failovers.
+Wanneer u de listener test, moet u de beschikbaarheidsgroep om ervoor te zorgen dat clients verbinding met de listener via failovers maken kunnen failover.
 

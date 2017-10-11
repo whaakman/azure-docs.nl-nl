@@ -1,16 +1,16 @@
 ## <a name="application-gateway"></a>Application Gateway
-Application Gateway provides an Azure-managed HTTP load balancing solution based on layer 7 load balancing. Application load balancing allows the use of routing rules for network traffic based on HTTP. 
+Toepassingsgateway biedt Azure beheerd HTTP taakverdeling oplossing op basis van de taakverdeling van laag 7. Taakverdeling van toepassing, kunt het gebruik van de routeringsregels voor netwerkverkeer op basis van HTTP. 
 <BR>
 
-| Property | Description |
+| Eigenschap | Beschrijving |
 | --- | --- |
-| **backendAddressPools** |The list of IP addresses of the back end servers. The IP addresses listed should either belong to the virtual network subnet, or should be a public IP/VIP or private IP |
-| **backendHttpSettingsCollection** |Every pool has settings like port, protocol, and cookie based affinity. These settings are tied to a pool and are applied to all servers within the pool |
-| **frontendPorts** |This port is the public port opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back end servers |
-| **httpListeners** |Listener has a frontend port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload) |
-| **requestRoutingRules** |The rule binds the listener and the back end server pool and defines which back end server pool the traffic should be directed. Currently works only as Round-robin |
+| **backendAddressPools** |De lijst met IP-adressen van de back-end-servers. De IP-adressen moeten ofwel deel uitmaken van het subnet van het virtuele netwerk, ofwel moeten een openbare IP-/ VIP of privé-IP |
+| **backendHttpSettingsCollection** |Elke pool heeft instellingen, zoals poort, het protocol en cookie gebaseerde affiniteit. Deze instellingen zijn gekoppeld aan een pool en worden toegepast op alle servers in de pool |
+| **frontendPorts** |Dit is de openbare poort die in de toepassingsgateway wordt geopend. Verkeer komt binnen via deze poort en wordt vervolgens omgeleid naar een van de back-end-servers |
+| **httpListeners** |Listener beschikt over een front-endpoort, een protocol (Http of Https; deze zijn hoofdlettergevoelig), en de SSL-certificaatnaam (als u SSL-offloading configureert) |
+| **requestRoutingRules** |De regel verbindt de listener en de back-servergroep beëindigen en definieert die het verkeer moet worden omgeleid servergroep terug eindigen. Momenteel werkt alleen als Round robin |
 
-Example of an application gateway Json template:
+Voorbeeld van een application gateway Json-sjabloon:
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -216,6 +216,6 @@ Example of an application gateway Json template:
     }
 
 
-### <a name="additional-resources"></a>Additional resources
-Read [ application gateway REST API](https://msdn.microsoft.com/library/azure/mt299388.aspx) for more information.
+### <a name="additional-resources"></a>Aanvullende bronnen
+Lees [ toepassingsgateway REST-API](https://msdn.microsoft.com/library/azure/mt299388.aspx) voor meer informatie.
 

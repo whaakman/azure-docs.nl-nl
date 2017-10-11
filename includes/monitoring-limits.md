@@ -1,5 +1,5 @@
 
-| Resource | Limit |
+| Resource | Limiet |
 | --- | --- |
-| Autoscale Settings |100 per region per subscription |
-| Metric Alerts |100 active alert rules per subscription |
+| Instellingen voor automatisch schalen |100 per regio per abonnement |
+| Metrische waarschuwingen |100 actieve waarschuwingsregels per abonnement |

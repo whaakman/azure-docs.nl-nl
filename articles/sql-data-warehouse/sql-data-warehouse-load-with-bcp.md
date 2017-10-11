@@ -1,6 +1,6 @@
 ---
 title: Gegevens laden in SQL Data Warehouse met behulp van BCP | Microsoft Docs
-description: Informatie over BCP en het gebruik van BCP voor datawarehousescenario&quot;s.
+description: Informatie over BCP en het gebruik van BCP voor datawarehousescenario's.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,14 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: e368ae8b249fe3c33371794160440e472b0f35e3
-ms.contentlocale: nl-nl
-ms.lasthandoff: 01/30/2017
-
-
-
+ms.openlocfilehash: 7596eac10fdf53380d85128265430ce07b551fe3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="load-data-with-bcp"></a>Gegevens laden met bcp
 > [!div class="op_single_selector"]
@@ -206,4 +203,3 @@ Zie [Overzicht van SQL Data Warehouse voor ontwikkelaars][SQL Data Warehouse dev
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
-

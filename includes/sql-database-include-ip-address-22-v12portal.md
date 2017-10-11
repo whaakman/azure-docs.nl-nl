@@ -15,25 +15,25 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Log in to the [Azure portal](https://portal.azure.com/) at http://portal.azure.com/.
-2. In the left banner, click **BROWSE ALL**. The **Browse** blade is displayed.
-3. Scroll and click **SQL servers**. The **SQL servers** blade is displayed.
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com/) op http://portal.azure.com/.
+2. Klik in het linkerdeelvenster vaandel **door alles bladeren**. De **Bladeren** blade wordt weergegeven.
+3. Schuif en klik op **SQL-servers**. De **SQL-servers** blade wordt weergegeven.
    
-    ![Find your Azure SQL Database server in the portal][b21-FindServerInPortal]
-4. For convenience, click the minimize control on the earlier **Browse** blade.
-5. In the filter text box, start typing the name of your server. Your row is displayed.
-6. Click the row for your server. A blade for your server is displayed.
-7. On your server blade, click **Settings**. The **Settings** blade is displayed.
-8. Click **Firewall**. The **Firewall Settings** blade is displayed.
+    ![Uw Azure SQL Database-server niet vinden in de portal][b21-FindServerInPortal]
+4. Klik op het besturingselement minimaliseren in de eerdere voor het gemak **Bladeren** blade.
+5. Typ de naam van uw server in het filtertekstvak. De rij wordt weergegeven.
+6. Klik op de rij voor uw server. Een blade voor uw server wordt weergegeven.
+7. Klik op de blade van uw server **instellingen**. De **instellingen** blade wordt weergegeven.
+8. Klik op **Firewall**. De **firewallinstellingen** blade wordt weergegeven.
    
-    ![Click Settings > Firewall][b31-SettingsFirewallNavig]
-9. Click **Add Client IP**. Type in a name for your new rule into the first text box.
-10. Type in the low and high IP address values for the range you want to enable.
+    ![Klik op Instellingen > Firewall][b31-SettingsFirewallNavig]
+9. Klik op **-Client toevoegen IP**. Typ een naam voor de nieuwe regel in het eerste tekstvak.
+10. Typ in de lage en hoge IP-adreswaarden voor het bereik dat u wilt inschakelen.
     
-    * It can be handy to have the low value end with **.0** and the high with **.255**.
+    * Het kan zijn bij de hand hebt om het einde van de lage waarde met **.0** en de hoge met **.255**.
     
-    ![Add an IP address range to allow][b41-AddRange]
-11. Click **Save**.
+    ![Toevoegen van een IP-adresbereik om toe te staan][b41-AddRange]
+11. Klik op **Opslaan**.
 
 <!-- Image references. -->
 

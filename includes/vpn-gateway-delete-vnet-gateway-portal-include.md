@@ -1,17 +1,17 @@
-### <a name="step-1-navigate-to-the-virtual-network-gateway"></a>Step 1: Navigate to the virtual network gateway
+### <a name="step-1-navigate-to-the-virtual-network-gateway"></a>Stap 1: Ga naar de virtuele netwerkgateway
 
-1. In the [Azure portal](https://portal.azure.com), navigate to **All resources**. 
-2. To open the virtual network gateway blade, navigate to the virtual network gateway that you want to delete and click it.
+1. In de [Azure-portal](https://portal.azure.com), gaat u naar **alle resources**. 
+2. Het virtuele netwerk gateway om blade te openen, gaat u naar de virtuele netwerkgateway die u wilt verwijderen en klik erop.
 
-### <a name="step-2-delete-connections"></a>Step 2: Delete connections
+### <a name="step-2-delete-connections"></a>Stap 2: Delete-verbindingen
 
-1. On the blade for your virtual network gateway, click **Connections** to view all connections to the gateway.
-2. Click the **'...'** on the row of the name of the connection, then select **Delete** from the dropdown.
-3. Click **Yes** to confirm that you want to delete the connection. If you have multiple connections, delete each connection.
+1. Klik op de blade voor uw virtuele netwerkgateway **verbindingen** om weer te geven van alle verbindingen met de gateway.
+2. Klik op de **'...'** Selecteer op de rij van de naam van de verbinding **verwijderen** uit de vervolgkeuzelijst.
+3. Klik op **Ja** om te bevestigen dat u wilt verwijderen van de verbinding. Als er meerdere verbindingen, verwijdert u elke verbinding.
 
-### <a name="step-3-delete-the-virtual-network-gateway"></a>Step 3: Delete the virtual network gateway
+### <a name="step-3-delete-the-virtual-network-gateway"></a>Stap 3: De virtuele netwerkgateway verwijderen
 
-Be aware that if you have a P2S configuration to this VNet in addition to your S2S configuration, deleting the virtual network gateway will automatically disconnect all P2S clients without warning.
+Let wel dat als u een P2S-configuratie in dit VNet naast de S2S-configuratie hebt, verwijderen van de virtuele netwerkgateway automatisch alle P2S-clients zonder waarschuwing verbreekt.
 
-1. On the virtual network gateway blade, click **Overview**.
-2. On the **Overview** blade, click **Delete** to delete the gateway.
+1. Klik op de blade virtueel netwerk gateway **overzicht**.
+2. Op de **overzicht** blade, klikt u op **verwijderen** de gateway wilt verwijderen.

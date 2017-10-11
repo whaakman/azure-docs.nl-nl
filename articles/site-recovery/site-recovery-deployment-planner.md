@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/28/2017
 ms.author: nisoneji
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery-implementatieplanner
 Dit artikel is de gebruikershandleiding voor de Azure Site Recovery-implementatieplanner voor productie-installaties van het type VMware-naar-Azure.
@@ -612,4 +611,3 @@ De openbare preview 1.0 van de Azure Site Recovery-implementatieplanner heeft de
 * Het hulpprogramma werkt alleen voor VMware-naar-Azure-implementaties, niet voor Hyper-V-naar-Azure-implementaties. Gebruik voor Hyper-V naar Azure de [capaciteitsplanner voor Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).
 * De bewerking GetThroughput wordt niet ondersteund in de Microsoft Azure-regio's US Government en China.
 * Het hulpprogramma kan geen virtuele machines profileren als de vCenter-server twee of meer virtuele machines met dezelfde naam of hetzelfde IP-adres bevat voor verschillende ESXi-hosts. In deze versie slaat het hulpprogramma profilering over bij namen of IP-adressen van virtuele machines die dubbel voorkomen in het bestand dat is opgegeven voor VMListFile. Een tijdelijke oplossing is de virtuele machines te profileren met behulp van een ESXi-host in plaats van de vCenter-server. U moet voor elke ESXi-host één exemplaar uitvoeren.
-

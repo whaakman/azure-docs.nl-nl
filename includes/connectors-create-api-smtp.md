@@ -1,14 +1,14 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [SMTP](https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) account  
+### <a name="prerequisites"></a>Vereisten
+* Een [SMTP](https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) account  
 
-Before you can use your SMTP account in a logic app, you must authorize the logic app to connect to your SMTP account.Fortunately, you can do this easily from within your logic app on the Azure Portal.  
+Voordat u uw SMTP-account in een logische app gebruiken kunt, moet u de logische app verbinding maken met uw SMTP-account toestaan. U kunt dit eenvoudig vanuit gelukkig doen in uw logische app in de Azure Portal.  
 
-Here are the steps to authorize your logic app to connect to your SMTP account:  
+Hier volgen de stappen voor het autoriseren van uw logische app verbinding maken met uw SMTP-account:  
 
-1. To create a connection to SMTP, in the logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *SMTP* in the search box. Select the trigger or action you'll like to use:  
+1. Voor het maken van een verbinding met SMTP, in de ontwerpfunctie voor logic app selecteert **beheerde API's van Microsoft weergeven** Voer in de vervolgkeuzelijst *SMTP* in het zoekvak. Selecteer de trigger of je actie moet worden gebruikt:  
    ![](./media/connectors-create-api-smtp/smtp-1.png)  
-2. If you haven't created any connections to SMTP before, you'll get prompted to provide your SMTP credentials. These credentials will be used to authorize your logic app to connect to, and access your SMTP account's data:  
+2. Als u verbindingen met SMTP voordat u dit nog niet hebt gemaakt, hebt u wordt gevraagd uw SMTP-referenties op te geven. Deze referenties worden gebruikt voor het autoriseren van uw logische app verbinding maken met en toegang tot gegevens van uw SMTP-account:  
    ![](./media/connectors-create-api-smtp/smtp-2.png)  
-3. Notice the connection has been created and you are now free to proceed with the other steps in your logic app:  
+3. U ziet de verbinding is gemaakt en u bent nu vrij om door te gaan met de overige stappen in uw logische app:  
    ![](./media/connectors-create-api-smtp/smtp-3.png)  
 

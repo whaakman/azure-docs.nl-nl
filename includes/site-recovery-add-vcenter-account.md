@@ -8,8 +8,3 @@
 
     > [!Note]
   > Het duurt 15 minuten of langer voordat de accountnaam wordt weergegeven in de portal. Klik op **Configuratieservers** > ***servernaam*** > **Server vernieuwen** om direct bij te werken.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

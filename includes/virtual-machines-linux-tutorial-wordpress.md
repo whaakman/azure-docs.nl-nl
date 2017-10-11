@@ -1,27 +1,27 @@
-## <a name="install-wordpress"></a>Install WordPress
+## <a name="install-wordpress"></a>WordPress installeren
 
-If you want to try your stack, install a sample app. As an example, the following steps install the open source [WordPress](https://wordpress.org/) platform to create websites and blogs. Other workloads to try include [Drupal](http://www.drupal.org) and [Moodle](https://moodle.org/). 
+Als u uw stack proberen wilt, installeert u een voorbeeld-app. Als u bijvoorbeeld de volgende stappen uit de open source installeren [WordPress](https://wordpress.org/) platform om websites en blogs te maken. Andere werkbelastingen om te proberen behoren [Drupal](http://www.drupal.org) en [Moodle](https://moodle.org/). 
 
-This WordPress setup is for proof of concept. For more information and settings for production installation, see the [WordPress documentation](https://codex.wordpress.org/Main_Page). 
+Dit WordPress is voor het testen van het concept. Zie voor meer informatie en instellingen voor de installatie van de productie, de [WordPress documentatie](https://codex.wordpress.org/Main_Page). 
 
 
 
-### <a name="install-the-wordpress-package"></a>Install the WordPress package
+### <a name="install-the-wordpress-package"></a>De WordPress-pakket installeren
 
-Run the following command:
+Voer de volgende opdracht uit:
 
 ```bash
 sudo apt install wordpress
 ```
 
-### <a name="configure-wordpress"></a>Configure WordPress
+### <a name="configure-wordpress"></a>WordPress configureren
 
-Configure WordPress to use MySQL and PHP. Run the following command to open a text editor of your choice and create the file `/etc/wordpress/config-localhost.php`:
+Configureer WordPress voor het gebruik van MySQL en PHP. Voer de volgende opdracht te open een teksteditor van uw keuze en maak het bestand `/etc/wordpress/config-localhost.php`:
 
 ```bash
 sudo sensible-editor /etc/wordpress/config-localhost.php
 ```
-Copy the following lines to the file, substituting your database password for *yourPassword* (leave other values unchanged). Then save the file.
+Kopieer de volgende regels op het bestand, vervangen door een wachtwoord voor de database voor *yourPassword* (andere waarden ongewijzigd laten). Sla het bestand op.
 
 ```php
 <?php
@@ -33,13 +33,13 @@ define('WP_CONTENT_DIR', '/usr/share/wordpress/wp-content');
 ?>
 ```
 
-In a working directory, create a text file `wordpress.sql` to configure the WordPress database: 
+Maak een tekstbestand in een werkmap `wordpress.sql` de WordPress-database configureren: 
 
 ```bash
 sudo sensible-editor wordpress.sql
 ```
 
-Add the following commands, substituting your database password for *yourPassword* (leave other values unchanged). Then save the file.
+Voeg de volgende opdrachten, vervangen door een wachtwoord voor de database voor *yourPassword* (andere waarden ongewijzigd laten). Sla het bestand op.
 
 ```sql
 CREATE DATABASE wordpress;
@@ -51,15 +51,15 @@ FLUSH PRIVILEGES;
 ```
 
 
-Run the following command to create the database:
+Voer de volgende opdracht om de database te maken:
 
 ```bash
 cat wordpress.sql | sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf
 ```
 
-After the command completes, delete the file `wordpress.sql`.
+Nadat de opdracht is voltooid, verwijdert u het bestand `wordpress.sql`.
 
-Move the WordPress installation to the web server document root:
+De WordPress-installatie verplaatsen naar de hoofdmap van het web server-document:
 
 ```bash
 sudo ln -s /usr/share/wordpress /var/www/html/wordpress
@@ -67,6 +67,6 @@ sudo ln -s /usr/share/wordpress /var/www/html/wordpress
 sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
 ```
 
-Now you can complete the WordPress setup and publish on the platform. Open a browser and go to `http://yourPublicIPAddress/wordpress`. Substitute the public IP address of your VM. It should look similar to this image.
+U kunt nu de WordPress-installatie is voltooid en publiceren van het platform. Open een browser en Ga naar `http://yourPublicIPAddress/wordpress`. Vervang het openbare IP-adres van uw virtuele machine. Het moet eruitzien als aan deze installatiekopie.
 
-![WordPress installation page](./media/virtual-machines-linux-tutorial-wordpress/wordpressstartpage.png)
+![Pagina met WordPress-installatie](./media/virtual-machines-linux-tutorial-wordpress/wordpressstartpage.png)

@@ -1,19 +1,19 @@
 
 
-In order to connect to **SharePoint Online**, you need to provide your identity (username and password, smart card credentials, etc.) to SharePoint Online. Once you've been authenticated, you can proceed to use the SharePoint Online connector  in your logic app. 
+Om verbinding te kunnen **SharePoint Online**, moet u uw identiteit (gebruikersnaam en wachtwoord, smart card-referenties, enz.) bieden tot SharePoint Online. Zodra u hebt geverifieerd, kunt u doorgaan met het gebruik van de SharePoint Online connector in uw logische app. 
 
-While on the designer of your logic app, follow these steps to sign into SharePoint to create the **connection** for use in your logic app:
+Volg deze stappen voor aanmelding bij SharePoint maken terwijl op de ontwerper van uw logische app, de **verbinding** voor gebruik in uw logische app:
 
-1. Enter SharePoint in the search box and wait for the search to return all triggers and actions related to SharePoint Online:   
-   ![Configure SharePoint][1]  
-2. Select the **SharePoint Online - When a file is created** trigger  
-3. Select **Sign in to SharePoint Online**:   
-   ![Configure SharePoint][2]    
-4. Provide your SharePoint credentials to sign in to authenticate with SharePoint   
-   ![Configure SharePoint][3]     
-5. After the authentication completes you'll be redirected to your logic app. That's it, the connection has been created. Notice the message at the bottom that indicates that you are now connected to SharePoint.  
-   ![Configure SharePoint][4]  
-6. You can then add other triggers and actions that you need to complete your logic app.   
+1. Voer SharePoint in het zoekvak en wacht totdat de zoekopdracht om te retourneren van alle triggers en acties met betrekking tot SharePoint Online:   
+   ![SharePoint configureren][1]  
+2. Selecteer de **SharePoint Online - als een bestand is gemaakt** trigger  
+3. Selecteer **aanmelden bij SharePoint Online**:   
+   ![SharePoint configureren][2]    
+4. Geef uw SharePoint-referenties om aan te melden om te verifiëren met SharePoint   
+   ![SharePoint configureren][3]     
+5. Nadat de verificatie is voltooid, hebt u worden omgeleid naar uw logische app. Deze, wordt de verbinding is gemaakt. U ziet het bericht aan de onderkant die aangeeft dat u nu met SharePoint verbonden bent.  
+   ![SharePoint configureren][4]  
+6. Vervolgens kunt u andere triggers en acties die u moet voltooien van uw logische app toevoegen.   
 
 [1]: ./media/connectors-create-api-sharepointonline/connectionconfig1.png
 [2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png 

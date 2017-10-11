@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/19/2017
 ms.author: cabailey
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f9dba42681f69406f9066a63140f74e3f5ec41dd
-ms.contentlocale: nl-nl
-ms.lasthandoff: 12/07/2016
-
+ms.openlocfilehash: 3b679a2a8ba91a8a9dec0534a3d8930fcaa7afcf
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="what-is-azure-key-vault"></a>Wat is Azure Sleutelkluis?
 Azure Sleutelkluis is beschikbaar in de meeste regio's. Zie de pagina [Prijzen van Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) voor meer informatie.
@@ -60,4 +59,3 @@ Zie [Over sleutels, geheimen en certificaten](https://msdn.microsoft.com/library
 
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
-

@@ -11,7 +11,7 @@ Om Mobile Engagement namens u pushmeldingen te laten verzenden, moet u het toega
    
     ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Een melding verzenden naar uw app
+## <a id="send"></a>Een melding verzenden naar uw app
 We gaan nu een eenvoudige pushmeldingcampagne maken waarbij een pushmelding wordt verzonden naar de app:
 
 1. Navigeer naar het tabblad **Reach** in uw Mobile Engagement-portal.
@@ -39,9 +39,4 @@ We gaan nu een eenvoudige pushmeldingcampagne maken waarbij een pushmelding word
 8. Als u een Apple Watch hebt die is gekoppeld aan dit iOS-apparaat, ziet u de melding op uw Apple Watch:
    
     ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

@@ -1,29 +1,29 @@
 <!--author=alkohli last changed: 12/15/15-->
 
-| Limit identifier | Limit | Comments |
+| Limiet-id | Limiet | Opmerkingen |
 | --- | --- | --- |
-| Maximum number of storage account credentials |64 | |
-| Maximum number of volume containers |64 | |
-| Maximum number of volumes |255 | |
-| Maximum number of schedules per bandwidth template |168 |A schedule for every hour, every day of the week (24*7). |
-| Maximum size of a tiered volume on physical devices |64 TB for 8100 and 8600 |8100 and 8600 are physical devices. |
-| Maximum size of a tiered volume on virtual devices in Azure |30 TB for 8010 <br></br> 64 TB for 8020 |8010 and 8020 are virtual devices in Azure that use Standard Storage and Premium Storage respectively. |
-| Maximum size of a locally pinned volume on physical devices |9 TB for 8100 <br></br> 24 TB for 8600 |8100 and 8600 are physical devices. |
-| Maximum number of iSCSI connections |512 | |
-| Maximum number of iSCSI connections from initiators |512 | |
-| Maximum number of access control records per device |64 | |
-| Maximum number of volumes per backup policy |24 | |
-| Maximum number of backups retained per backup policy |64 | |
-| Maximum number of schedules per backup policy |10 | |
-| Maximum number of snapshots of any type that can be retained per volume |256 |This includes local snapshots and cloud snapshots. |
-| Maximum number of snapshots that can be present in any device |10,000 | |
-| Maximum number of volumes that can be processed in parallel for backup, restore, or clone |16 |<ul><li>If there are more than 16 volumes, they will be processed sequentially as processing slots become available.</li><li>New backups of a cloned or a restored tiered volume cannot occur until the operation is finished. However, for a local volume, backups are allowed after the volume is online.</li></ul> |
-| Restore and clone recover time for tiered volumes |< 2 minutes |<ul><li>The volume is made available within 2 minutes of restore or clone operation, regardless of the volume size.</li><li>The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.</li><li>The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.</li><li>The restore or clone operation is complete when all the metadata is on the device.</li><li>Backup operations cannot be performed until the restore or clone operation is fully complete. |
-| Restore recover time for locally pinned volumes |< 2 minutes |<ul><li>The volume is made available within 2 minutes of the restore operation, regardless of the volume size.</li><li>The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.</li><li>The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.</li><li>Unlike tiered volumes, in the case of locally pinned volumes, the volume data is also downloaded locally on the device. The restore operation is complete when all the volume data has been brought to the device.</li><li>The restore operations may be long and the total time to complete the restore will depend on the size of the provisioned local volume, your Internet bandwidth and the existing data on the device. Backup operations on the locally pinned volume are allowed while the restore operation is in progress. |
-| Thin-restore availability |Last failover | |
-| Maximum client read/write throughput (when served from the SSD tier)* |920/720 MB/s with a single 10GbE network interface |Up to 2x with MPIO and two network interfaces. |
-| Maximum client read/write throughput (when served from the HDD tier)* |120/250 MB/s | |
-| Maximum client read/write throughput (when served from the cloud tier)* |11/41 MB/s |Read throughput depends on clients generating and maintaining sufficient I/O queue depth. |
+| Maximum aantal opslagaccountreferenties |64 | |
+| Maximum aantal volumecontainers |64 | |
+| Maximum aantal volumes |255 | |
+| Maximum aantal planningen per bandbreedtesjabloon |168 |Een planning voor elk uur wordt elke dag van de week (24 * 7). |
+| Maximale grootte van een gelaagd volume op fysieke apparaten |64 TB voor 8100 en 8600 |8100 en 8600 zijn fysieke apparaten. |
+| Maximale grootte van een gelaagd volume op virtuele apparaten in Azure |8010 30 TB <br></br> 64 TB voor de 8020 |8010 als de 8020 zijn virtuele apparaten in Azure die gebruikmaken van Standard-opslag- en Premium-opslag respectievelijk. |
+| Maximale grootte van een lokaal vastgemaakt volume op een fysieke apparaten |9 TB voor 8100 <br></br> 24 TB voor 8600 |8100 en 8600 zijn fysieke apparaten. |
+| Maximum aantal iSCSI-verbindingen |512 | |
+| Maximum aantal verbindingen iSCSI-initiators |512 | |
+| Maximum aantal access control records per apparaat |64 | |
+| Maximum aantal volumes per back-upbeleid |24 | |
+| Maximum aantal back-ups die per back-upbeleid worden bewaard |64 | |
+| Maximum aantal planningen per back-upbeleid |10 | |
+| Maximum aantal momentopnamen van elk type kunnen worden bewaard per volume |256 |Dit omvat lokale momentopnamen en cloud worden opgeslagen. |
+| Maximum aantal momentopnamen die gebruikt in elk apparaat worden kunnen |10.000 | |
+| Maximum aantal volumes die kunnen worden verwerkt in de parallelle back-up, herstel, of te klonen |16 |<ul><li>Als er meer dan 16 volumes, worden deze opeenvolgend verwerkt verwerking sleuven beschikbaar komen.</li><li>Nieuwe back-ups van een kloon of een herstelde gelaagd volume is pas mogelijk nadat de bewerking is voltooid. Back-ups zijn echter voor een lokaal volume nadat het volume online is toegestaan.</li></ul> |
+| Terugzetten en herstellen tijd voor gelaagde volumes klonen |< 2 minuten |<ul><li>Het volume wordt beschikbaar gesteld binnen twee minuten na het terugzetten of kloon bewerking, ongeacht de grootte van het volume.</li><li>De prestaties van het volume is mogelijk in eerste instantie langzamer dan normaal omdat de meeste van de gegevens en metagegevens zich nog steeds in de cloud. Prestaties kan verhogen als gegevensstromen vanuit de cloud naar het StorSimple-apparaat.</li><li>De totale tijd voor het downloaden van metagegevens is afhankelijk van de grootte van het toegewezen. Metagegevens is automatisch in het apparaat op de achtergrond op de frequentie van 5 minuten per TB aan volumegegevens toegewezen gebracht. Deze snelheid kan worden beïnvloed door internetbandbreedte naar de cloud.</li><li>Het terugzetten of de kloonbewerking is voltooid als alle metagegevens op het apparaat is.</li><li>Back-upbewerkingen kunnen niet worden uitgevoerd totdat het herstel of de kloonbewerking is volledig is voltooid. |
+| Herstel de tijd voor lokaal vastgemaakte volumes herstellen |< 2 minuten |<ul><li>Het volume wordt beschikbaar gesteld binnen twee minuten na de herstelbewerking, ongeacht de grootte van het volume.</li><li>De prestaties van het volume is mogelijk in eerste instantie langzamer dan normaal omdat de meeste van de gegevens en metagegevens zich nog steeds in de cloud. Prestaties kan verhogen als gegevensstromen vanuit de cloud naar het StorSimple-apparaat.</li><li>De totale tijd voor het downloaden van metagegevens is afhankelijk van de grootte van het toegewezen. Metagegevens is automatisch in het apparaat op de achtergrond op de frequentie van 5 minuten per TB aan volumegegevens toegewezen gebracht. Deze snelheid kan worden beïnvloed door internetbandbreedte naar de cloud.</li><li>In tegenstelling tot gelaagde volumes, in het geval van lokaal vastgemaakte volumes wordt het volumegegevens ook lokaal gedownload op het apparaat. De herstelbewerking is voltooid wanneer alle gegevens op het volume is ingesteld op het apparaat.</li><li>De herstelbewerkingen mogelijk lang en de totale tijd om het herstelpunt hangen af van de grootte van de betreffende lokale volume, de Internet-bandbreedte en de bestaande gegevens op het apparaat. Back-upbewerkingen op de lokaal vastgemaakt volume zijn toegestaan terwijl de herstelbewerking uitgevoerd wordt. |
+| Beschikbaarheid van thin-herstel |Laatste failover | |
+| Maximum aantal clients lezen/schrijven doorvoer (wanneer geleverd vanuit de SSD-laag) * |920/720 MB/s met een enkele 10GbE netwerkinterface |Maximaal 2 x met MPIO en twee netwerkinterfaces. |
+| Maximum aantal clients lezen/schrijven doorvoer (wanneer geleverd vanuit de HDD-laag) * |120/250 MB/s | |
+| Maximum aantal clients lezen/schrijven doorvoer (wanneer geleverd vanuit de cloudlaag) * |11/41 MB/s |Lees doorvoer is afhankelijk van clients genereren en bijhouden van voldoende i/o-wachtrijdiepte. |
 
-&#42; Maximum throughput per I/O type was measured with 100 percent read and 100 percent write scenarios. Actual throughput may be lower and depends on I/O mix and network conditions.
+&#42; Maximale doorvoer per i/o-type is gemeten met 100 procent lezen en schrijven van 100 procent scenario's. Werkelijke doorvoer mogelijk lager en is afhankelijk van i/o mix en de voorwaarden.
 

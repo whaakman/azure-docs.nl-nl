@@ -1,25 +1,25 @@
-The Domain Name System (DNS) is used to locate things on the internet. For example, when you enter an address in your browser, or click a link on a web page, it uses DNS to translate the domain into an IP address. The IP address is sort of like a street address, but it's not very human friendly. For example, it is much easier to remember a DNS name like **contoso.com** than it is to remember an IP address such as 192.168.1.88 or 2001:0:4137:1f67:24a2:3888:9cce:fea3.
+Domain Name System (DNS) wordt gebruikt om de zaken niet vinden op het internet. Bijvoorbeeld, wanneer u een adres in uw browser invoeren of klik op een koppeling op een webpagina, gebruikt deze DNS te zetten van het domein in een IP-adres. Het IP-adres is ongeveer zoals een adres, maar het is niet erg menselijke gebruiksvriendelijke. Bijvoorbeeld, is het veel eenvoudiger te onthouden een DNS-naam zoals **contoso.com** dan een IP-adres zoals 192.168.1.88 of 2001:0:4137:1f67:24a2:3888:9cce:fea3 onthoudt.
 
-The DNS system is based on *records*. Records associate a specific *name*, such as **contoso.com**, with either an IP address or another DNS name. When an application, such as a web browser, looks up a name in DNS, it finds the record, and uses whatever it points to as the address. If the value it points to is an IP address, the browser will use that value. If it points to another DNS name, then the application has to do resolution again. Ultimately, all name resolution will end in an IP address.
+De DNS-systeem is gebaseerd op *records*. Registreert een specifieke koppelen *naam*, zoals **contoso.com**, met een IP-adres of een andere DNS-naam. Wanneer een toepassing, zoals een webbrowser, u een naam in DNS zoekt, zoekt de record en maakt gebruik van wat deze verwijst naar als het adres. Als de waarde die deze naar verwijst een IP-adres is, wordt in de browser die waarde gebruiken. Als deze naar een andere DNS-naam verwijst, klikt u vervolgens heeft de toepassing oplossing opnieuw te doen. Alle naamomzetting wordt uiteindelijk eindigen op een IP-adres.
 
-When you create an Azure Website, a DNS name is automatically assigned to the site. This name takes the form of **&lt;yoursitename&gt;.azurewebsites.net**. When you add your website as an Azure Traffic Manager endpoint, your website is then accessible through the **&lt;yourtrafficmanagerprofile&gt;.trafficmanager.net** domain.
-
-> [!NOTE]
-> When your website is configured as a Traffic Manager endpoint, you will use the **.trafficmanager.net** address when creating DNS records.
-> 
-> You can only use CNAME records with Traffic Manager
-> 
-> 
-
-There are also multiple types of records, each with their own functions and limitations, but for websites configured to as Traffic Manager endpoints, we only care about one; *CNAME* records.
-
-### <a name="cname-or-alias-record"></a>CNAME or Alias record
-A CNAME record maps a *specific* DNS name, such as **mail.contoso.com** or **www.contoso.com**, to another (canonical) domain name. In the case of Azure Websites using Traffic Manager, the canonical domain name is the **&lt;myapp>.trafficmanager.net** domain name of your Traffic Manager profile. Once created, the CNAME creates an alias for the **&lt;myapp>.trafficmanager.net** domain name. The CNAME entry will resolve to the IP address of your **&lt;myapp>.trafficmanager.net** domain name automatically, so if the IP address of the website changes, you do not have to take any action.
-
-Once traffic arrives at Traffic Manager, it then routes the traffic to your website, using the load balancing method it is configured for. This is completely transparent to visitors to your website. They will only see the custom domain name in their browser.
+Wanneer u een Azure-Website maakt, wordt een DNS-naam automatisch toegewezen aan de site. Deze naam heeft de vorm van  **&lt;yoursitename&gt;. azurewebsites.net**. Wanneer u uw website als een Azure Traffic Manager-eindpunt toevoegt, uw website vervolgens toegankelijk is via de  **&lt;yourtrafficmanagerprofile&gt;. trafficmanager.net** domein.
 
 > [!NOTE]
-> Some domain registrars only allow you to map subdomains when using a CNAME record, such as **www.contoso.com**, and not root names, such as **contoso.com**. For more information on CNAME records, see the documentation provided by your registrar, <a href="http://en.wikipedia.org/wiki/CNAME_record">the Wikipedia entry on CNAME record</a>, or the <a href="http://tools.ietf.org/html/rfc1035">IETF Domain Names - Implementation and Specification</a> document.
+> Als uw website is geconfigureerd als een Traffic Manager-eindpunt, gebruikt u de **. trafficmanager.net** genomen bij het maken van DNS-records.
+> 
+> U kunt CNAME-records alleen gebruiken met Traffic Manager
+> 
+> 
+
+Er zijn ook meerdere typen met records, elk met hun eigen functies en -beperkingen, maar voor websites als Traffic Manager-eindpunten geconfigureerd, alleen belangrijk voor ons over een bepaald; *CNAME* records.
+
+### <a name="cname-or-alias-record"></a>CNAME- of Alias-record
+Een CNAME-record verwijst een *specifieke* DNS-naam, zoals **mail.contoso.com** of **www.contoso.com**, naar een andere (canoniek) domeinnaam. In het geval van Azure Websites met Traffic Manager, de canonieke domeinnaam is de  **&lt;myapp >. trafficmanager.net** domeinnaam van uw Traffic Manager-profiel. Zodra gemaakt, CNAME maakt een alias voor de  **&lt;myapp >. trafficmanager.net** domeinnaam. De CNAME-vermelding wordt omgezet in het IP-adres van uw  **&lt;myapp >. trafficmanager.net** domeinnaam automatisch, zodat als het IP-adres van de website wordt gewijzigd, hoeft u geen actie te ondernemen.
+
+Wanneer verkeer op Traffic Manager binnenkomt, worden vervolgens het verkeer naar uw website, met behulp van de taakverdelingsmethode die hij geconfigureerd wordt voor routeert. Dit is volledig transparant voor bezoekers van uw website. Ze zien alleen de aangepaste domeinnaam in hun browser.
+
+> [!NOTE]
+> Sommige registrars domein dat u subdomeinen toewijzen wanneer u een CNAME-record, zoals alleen **www.contoso.com**, en niet de hoofd-namen, zoals **contoso.com**. Zie voor meer informatie over de CNAME-records, de documentatie bij uw registrar <a href="http://en.wikipedia.org/wiki/CNAME_record">de vermelding Wikipedia (Engelstalig) op de CNAME-record</a>, of de <a href="http://tools.ietf.org/html/rfc1035">IETF domeinnamen - implementatie en specificatie</a> document.
 > 
 > 
 

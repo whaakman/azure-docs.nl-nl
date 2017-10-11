@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/21/2017
 ms.author: venkatja
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Gebeurtenissen verzenden naar een Time Series Insights-omgeving met Event Hub
 
@@ -238,4 +237,3 @@ Een JSON-object met een geneste JSON-matrix met twee JSON-objecten. Uit deze inv
 ## <a name="next-steps"></a>Volgende stappen
 
 * Uw omgeving bekijken in de [Time Series Insights-portal](https://insights.timeseries.azure.com)
-

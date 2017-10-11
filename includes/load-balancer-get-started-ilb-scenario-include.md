@@ -9,8 +9,3 @@ Er wordt een interne load balancer geconfigureerd in een virtueel netwerk
 * Twee virtuele machines met de naam DB1 en DB2
 * Eindpunten
 * Interne load balancer
-
-
-<!--HONumber=Nov16_HO2-->
-
-

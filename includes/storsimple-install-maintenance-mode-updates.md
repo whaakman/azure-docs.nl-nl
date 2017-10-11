@@ -1,19 +1,19 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>To install Maintenance mode updates via Windows PowerShell for StorSimple
-1. If you haven't done so already, access the device serial console and select option 1, **Log in with full access**. 
-2. Type the password. The default password is **Password1**.
-3. At the command prompt, type:
+#### <a name="to-install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Onderhoud modus om updates te installeren via Windows PowerShell voor StorSimple
+1. Als u dit nog niet hebt gedaan, toegang tot de seriële console van apparaat en selecteer optie 1, **aanmelden met volledige toegang**. 
+2. Typ het wachtwoord. Is het standaardwachtwoord **Wachtwoord1**.
+3. Typ het volgende achter de opdrachtprompt:
    
      `Get-HcsUpdateAvailability` 
-4. You will be notified if updates are available and whether the updates are disruptive or non-disruptive. To apply disruptive updates, you need to put the device into Maintenance mode. See [Step 2: Enter Maintenance mode](../articles/storsimple/storsimple-update-device.md#step2) for instructions.
-5. When your device is in Maintenance mode, at the command prompt, type: `Start-HcsUpdate`
-6. You will be prompted for confirmation. After you confirm the updates, they will be installed on the controller that you are currently accessing. After the updates are installed, the controller will restart. 
-7. Monitor the status of updates. Type:
+4. U wordt gewaarschuwd als er updates beschikbaar zijn en of de updates verstoren of niet verstoren zijn. Om te verstoren updates hebt toegepast, moet u het apparaat in de onderhoudsmodus te plaatsen. Zie [stap 2: Voer onderhoudsmodus](../articles/storsimple/storsimple-update-device.md#step2) voor instructies.
+5. Wanneer het apparaat in de onderhoudsmodus is, bij de opdrachtprompt, typt u:`Start-HcsUpdate`
+6. U wordt gevraagd om bevestiging. Nadat u de updates hebt bevestigd, wordt ze worden geïnstalleerd op de domeincontroller die u momenteel gebruikmaken van. Nadat de updates zijn geïnstalleerd, wordt de controller wordt opnieuw opgestart. 
+7. De status van de updates bewaken. Type:
    
     `Get-HcsUpdateStatus`
    
-    If the `RunInProgress` is `True`, the update is still in progress. If `RunInProgress` is `False`, it indicates that the update has completed.  
-8. When the update is installed on the current controller and it has restarted, connect to the other controller and perform steps 1 through 6.
-9. After both controllers are updated, exit Maintenance mode. See [Step 4: Exit Maintenance mode](../articles/storsimple/storsimple-update-device.md#step4) for instructions.
+    Als de `RunInProgress` is `True`, de update wordt nog uitgevoerd. Als `RunInProgress` is `False`, betekent dit dat de update is voltooid.  
+8. Wanneer de update is geïnstalleerd op de huidige controller en deze opnieuw is opgestart, verbinding met de andere controller en stappen 1 tot en met 6 uitvoeren.
+9. Nadat beide domeincontrollers zijn bijgewerkt, sluit u de onderhoudsmodus. Zie [stap 4: afsluiten onderhoudsmodus](../articles/storsimple/storsimple-update-device.md#step4) voor instructies.
 

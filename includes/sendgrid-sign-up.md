@@ -1,65 +1,65 @@
-Azure customers can unlock 25,000 free emails each month. These 25,000 free monthly emails will give you access to advanced reporting and analytics and [all APIs][all APIs] (Web, SMTP, Event, Parse and more). For information about additional services provided by SendGrid, visit the [SendGrid Solutions][SendGrid Solutions] page.
+Azure-klanten kunnen iedere maand 25.000 gratis e-mails ontgrendelen. Deze 25.000 gratis maandelijkse e-mails geven u toegang tot geavanceerde rapportages en analyses en [alle API's][all APIs] (web, SMTP, gebeurtenis, parseren en meer). Voor informatie over extra diensten die door SendGrid worden aangeboden, gaat u naar de pagina met [SendGrid-oplossingen][SendGrid Solutions].
 
-### <a name="to-sign-up-for-a-sendgrid-account"></a>To sign up for a SendGrid account
-1. Log in to the [Azure Management Portal][Azure Management Portal].
-2. In the menu on the left, click **New**.
+### <a name="to-sign-up-for-a-sendgrid-account"></a>Aanmelden voor een SendGrid-account
+1. Meld u aan bij de [Azure-beheerportal][Azure Management Portal].
+2. Klik in het menu aan de linkerkant op **Nieuw**.
 
-    ![command-bar-new][command-bar-new]
-3. Click **Add-ons** and then **SendGrid Email Delivery**.
+    ![opdracht-balk-nieuw][command-bar-new]
+3. Klik op **Invoegtoepassingen** en vervolgens op **SendGrid e-maillevering**.
 
-    ![sendgrid-store][sendgrid-store]
-4. Complete the signup form and select **Create**.
+    ![sendgrid-opslaan][sendgrid-store]
+4. Vul het registratieformulier in en selecteer **Maken**.
 
-    ![sendgrid-create][sendgrid-create]
-5. Enter a **Name** to identify your SendGrid service in your Azure settings. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
-6. Enter and confirm your **Password**.
-7. Choose your **Subscription**.
-8. Create a new **Resource group** or use an existing one.
-9. In the **Pricing tier** section select the SendGrid plan you want to sign up for.
+    ![sendgrid-maken][sendgrid-create]
+5. Voer een **naam** in om uw SendGrid-service in uw Azure-instellingen te herkennen. Namen moeten tussen de 1 en 100 tekens lang zijn en mogen alleen alfanumerieke tekens, streepjes, punten en onderstrepingstekens bevatten. De naam moet uniek zijn in uw lijst met geabonneerde Azure Store-items.
+6. Voer uw **wachtwoord** in en bevestig dit.
+7. Kies uw **abonnement**.
+8. Maak een nieuwe **resourcegroep** of selecteer een bestaande.
+9. Selecteer in het gedeelte **Prijscategorie** het SendGrid-abonnement waar u zich voor wilt aanmelden.
 
-    ![sendgrid-pricing][sendgrid-pricing]
-10. Enter a **Promotion Code** if you have one.
-11. Enter your **Contact Information**.
-12. Review and accept the **Legal terms**.
-13. After confirming your purchase you will see a **Deployment Succeeded** pop-up and you will see your account listed in the **All resources** section.
+    ![sendgrid-prijzen][sendgrid-pricing]
+10. Voer een **promotiecode** in als u er een hebt.
+11. Voer uw **contactgegevens** in.
+12. Lees en accepteer de **juridische bepalingen**.
+13. Nadat u uw aankoop hebt bevestigd, verschijnt het pop-upbericht **Implementatie voltooid** en wordt uw account vermeld in het gedeelte **Alle resources**.
 
-    ![all-resources][all-resources]
+    ![alle-resources][all-resources]
 
-    After you have completed your purchase and clicked the **Manage** button to initiate the email verification process, you will receive an email from SendGrid asking you to verify your account. If you do not receive this email, or have problems verifying your account, please see this FAQ.
+    Nadat u uw aankoop hebt voltooid en op de knop **Beheren** hebt geklikt om de verificatieprocedure van het e-mailadres te starten, ontvangt u een e-mail van SendGrid waarin u wordt gevraagd uw account te verifiëren. Als u deze e-mail niet ontvangt of problemen ervaart bij het verifiëren van uw account, raadpleegt u deze veelgestelde vragen.
 
-    ![manage][manage]
+    ![beheren][manage]
 
-    **You can only send up to 100 emails/day until you have verified your account.**
+    **U kunt maximaal 100 e-mailberichten per dag verzenden totdat u uw account hebt geverifieerd.**
 
-    To modify your subscription plan or see the SendGrid contact settings, click the name of your SendGrid service to open the SendGrid Marketplace dashboard.
+    Als u uw abonnement wilt wijzigen of de SendGrid-contactinstellingen wilt bekijken, klikt u op de naam van uw SendGrid-service om het SendGrid Marketplace-dashboard te openen.
 
-    ![settings][settings]
+    ![instellingen][settings]
 
-    To send an email using SendGrid, you must supply your API Key.
+    Als u een e-mail met SendGrid wilt verzenden, moet u uw API-sleutel invoeren.
 
-### <a name="to-find-your-sendgrid-api-key"></a>To find your SendGrid API Key
-1. Click **Manage**.
+### <a name="to-find-your-sendgrid-api-key"></a>Uw SendGrid-API-sleutel vinden
+1. Klik op **Beheren**.
 
-    ![manage][manage]
-2. In your SendGrid dashboard, select **Settings** and then **API Keys** in the menu on the left.
+    ![beheren][manage]
+2. Selecteer op uw SendGrid-dashboard **Instellingen** en vervolgens **API-sleutels** in het menu aan de linkerkant.
 
-    ![api-keys][api-keys]
+    ![API-sleutels][api-keys]
 
-3. Click the **Create API Key** dropdown and select **General API Key**.
+3. Klik op de vervolgkeuzelijst **API-sleutel maken** en selecteer **Algemene API-sleutel**.
 
-    ![general-api-key][general-api-key]
-4. At a minimum, provide the **Name of this key** and provide full access to **Mail Send** and select **Save**.
+    ![algemene-api-sleutel][general-api-key]
+4. Geef ten minste de **naam van de sleutel** op, verleen volledige toegang tot **Mail verzenden** en selecteer vervolgens **Opslaan**.
 
-    ![access][access]
-5. Your API will be displayed at this point one time. Please be sure to store it safely.
+    ![toegang][access]
+5. Uw API wordt op dit moment één keer weergegeven. Zorg ervoor dat u de API veilig opslaat.
 
-### <a name="to-find-your-sendgrid-credentials"></a>To find your SendGrid credentials
-1. Click the key icon to find your **Username**.
+### <a name="to-find-your-sendgrid-credentials"></a>Uw SendGrid-referenties vinden
+1. Klik op het sleutelpictogram om uw **gebruikersnaam** te vinden.
 
-    ![key][key]
-2. The password is the one you chose at setup. You can select **Change password** or **Reset password** to make any changes.
+    ![sleutel][key]
+2. Het wachtwoord is door u gekozen tijdens de installatie. Als u wijzigingen wilt aanbrengen, selecteert u **Wachtwoord wijzigen** of **Wachtwoord opnieuw instellen**.
 
-To manage your email deliverability settings, click the **Manage button**. This will redirect to your SendGrid dashboard.
+Als u uw instellingen voor de bezorging van e-mail wilt beheren, klikt u op de knop **Beheren**. Hiermee wordt een omleiding naar uw SendGrid-dashboard.
 
     ![manage][manage]
 

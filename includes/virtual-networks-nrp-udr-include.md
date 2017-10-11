@@ -1,25 +1,25 @@
-## <a name="route-tables"></a>Route tables
-Route table resources contains routes used to define how traffic flows within your Azure infrastructure. You can use user defined routes (UDR) to send all traffic from a given subnet to a virtual appliance, such as a firewall or intrusion detection system (IDS). You can associate a route table to subnets. 
+## <a name="route-tables"></a>Routetabellen
+Route tabel resources bevat routes die worden gebruikt om te definiëren hoe verkeer stroomt binnen uw Azure-infrastructuur. De gebruiker gedefinieerde routes (UDR) kunt u alle verkeer verzenden vanaf een bepaald subnet naar een virtueel apparaat zoals een firewall of inbraakdetectie detectie-systeem (id's). U kunt een routetabel aan subnetten koppelen. 
 
-Route tables contain the following properties.
+Routetabellen bevatten de volgende eigenschappen.
 
-| Property | Description | Sample values |
+| Eigenschap | Beschrijving | Voorbeeldwaarden |
 | --- | --- | --- |
-| **routes** |Collection of user defined routes in the route table |see [user defined routes](#User-defined-routes) |
-| **subnets** |Collection of subnets the route table is applied to |see [subnets](#Subnets) |
+| **routes** |Verzameling van de gebruiker gedefinieerde routes in de routetabel |Zie [door de gebruiker gedefinieerde routes](#User-defined-routes) |
+| **subnetten** |Verzameling van de routetabel wordt toegepast op subnetten |Zie [subnetten](#Subnets) |
 
-### <a name="user-defined-routes"></a>User defined routes
-You can create UDRs to specify where traffic should be sent to, based on its destination address. You can think of a route as the default gateway definition based on the destination address of a network packet.
+### <a name="user-defined-routes"></a>De gebruiker gedefinieerde routes
+U kunt udr's om op te geven waar verkeer moet worden gezonden, maken op basis van het doeladres. U kunt een route beschouwen als de standaard gateway-definitie op basis van het doeladres van een netwerkpakket.
 
-UDRs contain the following properties. 
+Udr's bevatten de volgende eigenschappen. 
 
-| Property | Description | Sample values |
+| Eigenschap | Beschrijving | Voorbeeldwaarden |
 | --- | --- | --- |
-| **addressPrefix** |Address prefix, or full IP address for the destination |192.168.1.0/24, 192.168.1.101 |
-| **nextHopType** |Type of device the traffic will be sent to |VirtualAppliance, VPN Gateway, Internet |
-| **nextHopIpAddress** |IP address for the next hop |192.168.1.4 |
+| **addressPrefix** |Adresvoorvoegsel of volledige IP-adres voor de bestemming |192.168.1.0/24, 192.168.1.101 |
+| **nextHopType** |Type apparaat dat het verkeer wordt verzonden naar |Internet VirtualAppliance, VPN-Gateway |
+| **nextHopIpAddress** |IP-adres voor de volgende hop |192.168.1.4 |
 
-Sample route table in JSON format:
+Voorbeeld routetabel in JSON-indeling:
 
     {
         "name": "UDR-BackEnd",
@@ -50,8 +50,8 @@ Sample route table in JSON format:
         }
     }
 
-### <a name="additional-resources"></a>Additional resources
-* Get more information about [UDRs](../articles/virtual-network/virtual-networks-udr-overview.md).
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt502549.aspx) for route tables.
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt502539.aspx) for user defined routes (UDRs).
+### <a name="additional-resources"></a>Aanvullende bronnen
+* Vindt u meer informatie over [udr's](../articles/virtual-network/virtual-networks-udr-overview.md).
+* Lees de [REST-API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/mt502549.aspx) voor routetabellen.
+* Lees de [REST-API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/mt502539.aspx) voor de gebruiker gedefinieerde routes (udr's).
 

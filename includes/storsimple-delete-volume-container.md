@@ -1,9 +1,9 @@
 <!--author=SharS last changed: 9/16/15-->
 
-#### <a name="to-delete-a-volume-container"></a>To delete a volume container
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
-2. Select the volume container you want to delete.
-3. If a volume container has no associated volumes, then it can be deleted. Click **Delete** at the bottom of the page to delete this container. When prompted for confirmation, click **Yes**. This will delete the volume container.
+#### <a name="to-delete-a-volume-container"></a>Een volumecontainer verwijderen
+1. Op de **apparaten** pagina, selecteert u het apparaat, dubbelklikt u op en klik vervolgens op de **volumecontainers** tabblad.
+2. Selecteer de volumecontainer die u wilt verwijderen.
+3. Als een volumecontainer geen gekoppelde volumes heeft, kan het worden verwijderd. Klik op **verwijderen** onder aan de pagina om het verwijderen van deze container. Klik op **Ja** als u om bevestiging wordt gevraagd. Hiermee verwijdert u de volumecontainer.
 
-If the volume container has associated volumes, you will first need to take those volumes offline by following the steps in [Take a volume offline](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). After the volumes are offline, you can delete them. When the volume container has no associated volumes, delete the volume container as described above.
+Als de volumecontainer aan volumes zijn gekoppeld, moet u eerst om deze volumes offline door de stappen in [offline zetten van een volume](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). Nadat de volumes offline zijn, kunt u ze verwijderen. Wanneer de volumecontainer geen gekoppelde volumes heeft, verwijdert u de volumecontainer zoals hierboven is beschreven.
 

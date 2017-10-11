@@ -25,15 +25,10 @@ Voor meer controle over de implementatie kunt u het standaard implementatiescrip
     \.deployment
     \deploy.cmd
 
-U kunt de [Azure-opdrachtregelinterface][Azure-opdrachtregelinterface] gebruiken om de bestanden te maken.  Gebruik deze opdracht uit vanuit de projectmap:
+U kunt de [Azure-opdrachtregelinterface] [ Azure command-line interface] om de bestanden te maken.  Gebruik deze opdracht uit vanuit de projectmap:
 
     azure site deploymentscript --python
 
 Als deze bestanden niet bestaan, maakt Azure een tijdelijk implementatiescript en voert dit script uit.  Het is identiek aan het script dat u met de bovenstaande opdracht maakt.
 
-[Azure-opdrachtregelinterface]: http://azure.microsoft.com/downloads/
-
-
-<!--HONumber=Nov16_HO2-->
-
-
+[Azure command-line interface]: http://azure.microsoft.com/downloads/

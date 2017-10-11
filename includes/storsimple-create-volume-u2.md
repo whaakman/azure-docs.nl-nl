@@ -39,8 +39,3 @@
       ![Volume toevoegen](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 4. Klik op het vinkje ![vinkje](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Er wordt een volume gemaakt met de opgegeven instellingen.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

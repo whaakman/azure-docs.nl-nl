@@ -1,6 +1,6 @@
-## <a name="clean-up-deployment"></a>Clean up deployment 
+## <a name="clean-up-deployment"></a>Opschonen van de implementatie 
 
-After the script sample has been run, the follow command can be used to remove the resource group, Azure Redis Cache instance, and any related resources in the resource group.
+Na het uitvoeren van het voorbeeldscript kan de volgende opdracht worden gebruikt voor het verwijderen van de resourcegroep, Azure Redis-Cache-exemplaar en verwante resources in de resourcegroep.
 
 ```azurecli
 az group delete --name contosoGroup

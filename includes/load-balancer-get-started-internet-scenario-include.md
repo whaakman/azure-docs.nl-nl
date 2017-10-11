@@ -5,8 +5,3 @@ In dit scenario worden de volgende taken uitgevoerd:
 * Statuscontroles maken
 
 ![Load balancer-scenario](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
-
-
-<!--HONumber=Nov16_HO2-->
-
-

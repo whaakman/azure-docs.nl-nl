@@ -1,21 +1,19 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-<a id="to-add-or-modify-a-storsimple-backup-schedule" class="xliff"></a>
+#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Toevoegen of wijzigen van een back-upschema voor StorSimple
 
-#### To add or modify a StorSimple backup schedule
+1. Ga naar uw StorSimple-apparaat en klik op **Back-upbeleid**.
 
-1. Go to your StorSimple device and click **Backup policy**.
+2. Selecteer in de tabellaire vermelding van de beleidsregels en klik op het beleid dat u wilt wijzigen. Klik met de rechtermuisknop op het contextmenu aanroepen en selecteer vervolgens **toevoegen planning**.
 
-2. In the tabular listing of the policies, select and click the policy that you want to modify. Right-click to invoke the context menu and then select **Add schedule**.
+    ![schema's beheren](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule1.png)
 
-    ![manage schedules](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule1.png)
+3. In de **toevoegen planning** blade wijzigen van het type momentopname, de back-upfrequentie, de bewaartermijn en begindatum en -tijd. Klik op **Add**.
 
-3. In the **Add schedule** blade, modify the snapshot type, backup frequency, retention, and start date and time. Click **Add**.
+    ![schema's beheren](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
 
-    ![manage schedules](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
+4. U wordt gewaarschuwd wanneer de back-upbeleid maken voltooid is. De lijst met back-upbeleid is tevens bijgewerkt.
 
-4. You are notified when the backup policy creation is complete. The backup policy list is also updated.
-
-    ![manage schedules](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule4.png)
+    ![schema's beheren](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule4.png)
 

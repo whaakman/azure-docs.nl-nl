@@ -1,6 +1,6 @@
-In Copy Activity, when source is of type **FileSystemSource**, the following properties are available in typeProperties section:
+In de Kopieeractiviteit, wanneer de bron van het type **FileSystemSource**, de volgende eigenschappen beschikbaar zijn in de sectie typeProperties:
 
-| Property | Description | Allowed values | Required |
+| Eigenschap | Beschrijving | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
-| recursive |Indicates whether the data is read recursively from the sub folders or only from the specified folder. |True, False (default) |No |
+| Recursieve |Hiermee wordt aangegeven of de gegevens recursief is gelezen uit de submappen of alleen uit de opgegeven map. |True, False (standaard) |Nee |
 

@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: d57cbc5b205cfb020070d567097f3bb648ce5300
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/03/2017
 ---
-
-
 # <a name="step-1-review-the-architecture-for-hyper-v-replication-to-azure"></a>Stap 1: De architectuur voor Hyper-V-replicatie naar Azure nader bekijken
 
 
@@ -116,4 +113,3 @@ Als er een replicatiefout optreedt, wordt de replicatie automatisch opnieuw gepr
 ## <a name="next-steps"></a>Volgende stappen
 
 Ga naar [Stap 2: De implementatievereisten controleren](hyper-v-site-walkthrough-prerequisites.md)
-

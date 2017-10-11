@@ -63,8 +63,3 @@
        
         Controleer of poort 9354 open is voor uitgaande communicatie, omdat de servicebus deze poort gebruikt voor de communicatie van de StorSimple Manager-service naar het apparaat.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

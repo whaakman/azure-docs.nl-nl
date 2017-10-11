@@ -1,9 +1,9 @@
-Although the use of system routes facilitates traffic automatically for your deployment, there are cases in which you want to control the routing of packets through a virtual appliance. You can do so by creating user defined routes that specify the next hop for packets flowing to a specific subnet to go to your virtual appliance instead, and enabling IP forwarding for the VM running as the virtual appliance.
+Hoewel bij het gebruik van systeemroutes verkeer automatisch wordt gefaciliteerd voor uw implementatie, kunnen er gevallen zijn waarin u pakketten liever wilt routeren via een virtueel apparaat. U kunt hiertoe door de gebruiker gedefinieerde routes maken waarin u de volgende hop voor pakketstromen naar een specifiek subnet opgeeft, zodat de pakketten worden doorgestuurd naar uw virtuele apparaat. Daarvoor schakelt u Doorsturen via IP in voor de virtuele machine die u gebruikt als virtueel apparaat.
 
-Some of the cases where virtual appliances can be used include:
+Enkele van de gevallen waar de virtuele apparaten kunnen worden gebruikt:
 
-* Monitoring traffic with an intrusion detection system (IDS)
-* Controlling traffic with a firewall
+* Bewaking van verkeer met een detectiesysteem inbraakdetectie (id's)
+* Verkeer met een firewall beheren
 
-For more information about UDR and IP forwarding, visit [User Defined Routes and IP Forwarding](../articles/virtual-network/virtual-networks-udr-overview.md).
+Bezoek voor meer informatie over het doorsturen van UDR en IP- [gebruiker gedefinieerde Routes en doorsturen via IP](../articles/virtual-network/virtual-networks-udr-overview.md).
 

@@ -1,19 +1,19 @@
 <!--author=SharS last changed: 1/7/2016-->
 
-#### <a name="to-modify-a-volume-container"></a>To modify a volume container
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
-2. In the tabular listing of the volume containers, select the setting that you want to modify, and click **Modify**.
-3. In the **Modify Volume container** dialog box, do the following:
+#### <a name="to-modify-a-volume-container"></a>Een volumecontainer wijzigen
+1. Op de **apparaten** pagina, selecteert u het apparaat, dubbelklikt u op en klik vervolgens op de **volumecontainers** tabblad.
+2. Selecteer in de lijst in tabelvorm van de volumecontainers, de instelling die u wilt wijzigen en klik op **wijzigen**.
+3. In de **wijzigen volumecontainer** dialoogvenster de volgende handelingen uit:
    
-   1. Change the name of the volume container and modify the associated bandwidth setting. 
+   1. Wijzig de naam van de volumecontainer en wijzig de instelling gekoppelde bandbreedte. 
       
-       ![Modify Volume Container with Bandwidth Template 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
-   2. The encryption key and storage account cannot be changed after they are specified. If you specified **Select a bandwidth template**, click the arrow to proceed to the next page.
-4. In the next page of the **Modify Volume Container** dialog box:
+       ![Volumecontainer met Bandbreedtesjabloon 1 wijzigen](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
+   2. De versleuteling sleutel- en storage-account kan niet worden gewijzigd nadat deze zijn opgegeven. Als u hebt opgegeven **bandbreedtesjabloon te selecteren**, klik op de pijl om door te gaan naar de volgende pagina.
+4. In de volgende pagina van de **Volumecontainer wijzigen** in het dialoogvenster:
    
-   1. From the drop-down list, choose an existing bandwidth template.
-   2. Review the schedule settings for the specified bandwidth template.
+   1. Kies een bestaande bandbreedtesjabloon in de vervolgkeuzelijst.
+   2. Controleer de planninginstellingen voor de opgegeven bandbreedte-sjabloon.
       
-       ![Modify Volume Container with Bandwidth Template 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
-   3. Click the check icon ![check icon](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) to save the updated settings. The **Volume containers** page will be updated to reflect the changes.
+       ![Volumecontainer met Bandbreedtesjabloon 2 wijzigen](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
+   3. Klik op het vinkje ![vinkje](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) de bijgewerkte instellingen op te slaan. De **volumecontainers** pagina wordt bijgewerkt om de wijzigingen weer te geven.
 

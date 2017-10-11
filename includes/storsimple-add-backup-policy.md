@@ -1,14 +1,14 @@
 
 <!--author=alkohli last changed: 9/11/15-->
 
-#### <a name="to-add-a-storsimple-backup-policy"></a>To add a StorSimple backup policy
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
-2. At the bottom of the page, click **Add**.
-3. In the **Add Backup Policy** dialog box, do the following:
+#### <a name="to-add-a-storsimple-backup-policy"></a>Een StorSimple-back-upbeleid toevoegen
+1. Klik op de pagina **Snel starten** van het apparaat op het tabblad **Back-upbeleid**. De pagina **Back-upbeleid** wordt geopend.
+2. Klik onder aan de pagina op **toevoegen**.
+3. In de **back-upbeleid toevoegen** dialoogvenster de volgende handelingen uit:
    
-   1. Specify a backup policy name that contains between 3 and 150 characters.
-   2. Assign one or more volumes to this backup policy. If you are using other cloud service providers, based on your first selection, the drop-down list will show volumes belonging to only that cloud service provider. This will allow you to group volumes belonging to a single cloud service provider for taking a snapshot.
-   3. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) to save the policy.
+   1. Geef een back-upbeleidsnaam op van 3 tot 150 tekens.
+   2. Een of meer volumes aan het back-upbeleid toewijzen. Als u van andere cloudserviceproviders gebruikmaakt, op basis van uw eerste selectie wordt volumes die behoren tot alleen die cloud serviceprovider weergegeven in de vervolgkeuzelijst. Hierdoor kunt u tot groep volumes die horen bij een serviceprovider één cloud voor het maken van een momentopname.
+   3. Klik op het vinkje ![vinkje](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) om het beleid op te slaan.
 
-The newly added policy will be displayed in the tabular view on the **Backup Policies** page.
+Het nieuwe beleid wordt in tabelvorm weergegeven op de pagina **Back-upbeleid**.
 

@@ -1,28 +1,28 @@
-## <a name="prepare-your-intel-nuc"></a>Prepare your Intel NUC
+## <a name="prepare-your-intel-nuc"></a>Uw Intel NUC voorbereiden
 
-To complete the hardware setup, you need to:
+U voltooit de installatie van de hardware, moet u:
 
-- Connect your Intel NUC to the power supply included in the kit.
-- Connect your Intel NUC to your network using an Ethernet cable.
+- Verbinding maken met uw NUC Intel de voeding die is opgenomen in het pakket.
+- Verbinding maken met uw NUC Intel via een Ethernet-kabel met het netwerk.
 
-You have now completed the hardware setup of your Intel NUC gateway device.
+U hebt nu de hardware-instellingen van uw gatewayapparaat Intel NUC voltooid.
 
-### <a name="sign-in-and-access-the-terminal"></a>Sign in and access the terminal
+### <a name="sign-in-and-access-the-terminal"></a>Aanmelden en toegang tot de terminal
 
-You have two options to access a terminal environment on your Intel NUC:
+U hebt twee opties voor toegang tot een terminal omgeving op uw NUC Intel:
 
-- If you have a keyboard and monitor connected to your Intel NUC, you can access the shell directly. The default credentials are username **root** and password **root**.
+- Als u een toetsenbord en de monitor die zijn verbonden met uw NUC Intel hebt, kunt u de shell rechtstreeks openen. De standaardreferenties zijn gebruikersnaam **hoofdmap** en het wachtwoord **hoofdmap**.
 
-- Access the shell on your Intel NUC using SSH from your desktop machine.
+- Toegang tot de shell op uw Intel NUC gebruik van SSH op uw computer.
 
-#### <a name="sign-in-with-ssh"></a>Sign in with SSH
+#### <a name="sign-in-with-ssh"></a>Meld u aan met SSH
 
-To sign in with SSH, you need the IP address of your Intel NUC. If you have a keyboard and monitor connected to your Intel NUC, use the `ifconfig` command to find the IP address. Alternatively, connect to your router to list the addresses of devices on your network.
+Als u wilt aanmelden met SSH, moet u het IP-adres van uw NUC Intel. Als u een toetsenbord en de monitor die zijn verbonden met uw NUC Intel hebt, gebruikt de `ifconfig` opdracht de IP-adres vinden. U kunt ook verbinding maken met uw router voor het weergeven van de adressen van apparaten in uw netwerk.
 
-Sign in with username **root** and password **root**.
+Aanmelden met gebruikersnaam **hoofdmap** en het wachtwoord **hoofdmap**.
 
-#### <a name="optional-share-a-folder-on-your-intel-nuc"></a>Optional: Share a folder on your Intel NUC
+#### <a name="optional-share-a-folder-on-your-intel-nuc"></a>Optioneel: Een map op uw NUC Intel delen
 
-Optionally, you may want to share a folder on your Intel NUC with your desktop environment. Sharing a folder enables you to use your preferred desktop text editor (such as [Visual Studio Code](https://code.visualstudio.com/) or [Sublime Text](http://www.sublimetext.com/)) to edit files on your Intel NUC instead of using `nano` or `vi`.
+U kunt desgewenst een map op uw NUC Intel delen met uw bureaublad omgeving. Delen van een map, kunt u gebruikmaken van uw voorkeur bureaublad teksteditor (zoals [Visual Studio Code](https://code.visualstudio.com/) of [Sublime Text](http://www.sublimetext.com/)) voor het bewerken van bestanden op uw NUC Intel in plaats van `nano` of `vi`.
 
-To share a folder with Windows, configure a Samba server on the Intel NUC. Alternatively, use the SFTP server on the Intel NUC with an SFTP client on your desktop machine.
+Als u wilt delen een map met Windows, een Samba-server in de Intel NUC te configureren. De SFTP-server ook gebruiken op de Intel NUC met een SFTP-client op uw computer.

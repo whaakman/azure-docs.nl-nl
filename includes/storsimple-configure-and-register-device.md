@@ -74,8 +74,3 @@ Nadat het apparaat is geregistreerd maar de status Offline blijft, kunt u `Test-
 
 Als u een video wilt bekijken over het configureren en registreren van uw apparaat via Windows PowerShell voor StorSimple, klikt u [hier](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

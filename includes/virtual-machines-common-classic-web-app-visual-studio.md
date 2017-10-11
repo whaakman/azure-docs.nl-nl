@@ -1,41 +1,41 @@
 
 
-When you create a web application project for Azure, you can provision a virtual machine in Azure. You can then configure the virtual machine with additional software, or use the virtual machine for diagnostic or debugging purposes.
+Wanneer u een toepassing webproject voor Azure maakt, kunt u een virtuele machine in Azure inrichten. U kunt vervolgens de virtuele machine configureren met extra software of de virtuele machine worden gebruikt voor diagnostische of foutopsporing doeleinden.
 
-To create a virtual machine when you create a web application, follow these steps:
+Volg deze stappen voor het maken van een virtuele machine wanneer u een webtoepassing maakt:
 
-1. In Visual Studio, click **File** > **New** > **Project** > **Web**, and then choose **ASP.NET Web Application** (under the **Visual C#** or **Visual Basic** nodes).
-2. In the **New ASP.NET Project** dialog box, select the type of web application you want, and in the Azure section of the dialog box (in the lower-right corner), make sure that the **Host in the cloud** check box is selected (this check box is labeled **Create remote resources** in some installations).
+1. Klik in Visual Studio **bestand** > **nieuw** > **Project** > **Web**, en kies vervolgens **ASP.NET-webtoepassing** (onder de **Visual C#** of **Visual Basic** knooppunten).
+2. In de **nieuw ASP.NET-Project** in het dialoogvenster Selecteer het type van de webtoepassing die u wilt en de Azure-sectie van het dialoogvenster (in de rechterbenedenhoek) en zorg ervoor dat de **Host in de cloud** selectievakje geselecteerde (dit selectievakje **maken van externe bronnen** in sommige installaties).
    
     ![][0]
-3. For this example, in the drop-down list under Microsoft Azure, choose **Virtual Machine (v1)**, and then click the **OK** button.
-4. Sign in to Azure if you're prompted. The **Create Virtual Machine** dialog box appears.
+3. Kies voor dit voorbeeld in de vervolgkeuzelijst onder Microsoft Azure **virtuele Machine (v1)**, en klik vervolgens op de **OK** knop.
+4. Aanmelden bij Azure als u wordt gevraagd. De **virtuele Machine maken** dialoogvenster wordt weergegeven.
    
     ![][2]
-5. In the **DNS name** box, enter a name for the virtual machine. The DNS name must be unique in Azure. If the name you entered isn't available, a red exclamation point appears.
-6. In the **Image** list, choose the image you want to base the virtual machine on. You can choose any of the standard Azure virtual machine images or your image that you've uploaded to Azure.
-7. Leave the **Enable IIS and Web Deploy** check box selected unless you plan to install a different web server. You won't be able to publish from Visual Studio if you disable Web Deploy. You can add IIS and Web Deploy to any of the packaged Windows Server images, including your own custom images.
-8. In the **Size** list, choose the size of the virtual machine.
-9. Specify the sign-in credentials for this virtual machine. Make a note of them, because you'll need them to access the machine through Remote Desktop.
-10. In the **Location** list, choose the region to host the virtual machine.
-11. Click  the **OK** button to start creating the virtual machine. You can follow the progress of the operation in the **Output** window.
+5. In de **DNS-naam** Voer een naam voor de virtuele machine. De DNS-naam moet uniek zijn in Azure. Als de ingevoerde naam niet beschikbaar is, verschijnt er een rood uitroepteken.
+6. In de **installatiekopie** kiest u de installatiekopie die u wilt op basis van de virtuele machine. U kunt een van de installatiekopieën van de standaard virtuele machine van Azure of uw installatiekopie die u hebt geüpload naar Azure.
+7. Laat de **IIS inschakelen en Web Deploy** selectievakje geselecteerd tenzij u van plan bent een andere webserver installeren. Het niet mogelijk om te publiceren vanuit Visual Studio als u Web Deploy uitschakelt. U kunt IIS en Web Deploy toevoegen aan een van de ingepakte afbeeldingen van Windows Server, met inbegrip van uw eigen aangepaste installatiekopieën.
+8. In de **grootte** Kies de grootte van de virtuele machine.
+9. Geef de referenties aanmelden voor deze virtuele machine. Noteer deze, omdat u moet ze toegang krijgen tot de machine via Extern bureaublad.
+10. In de **locatie** Kies de regio voor het hosten van de virtuele machine.
+11. Klik op de **OK** knop om te beginnen met het maken van de virtuele machine. U kunt de voortgang van de bewerking in volgen de **uitvoer** venster.
     
     ![][3]
-12. When the virtual machine is provisioned, published scripts are created in a **PublishScripts** node in your solution. The published script runs and provisions a virtual machine in Azure. The **Output** window shows the status. The script performs the following actions to set up the virtual machine:
+12. Wanneer de virtuele machine is ingericht, gepubliceerde scripts worden gemaakt in een **PublishScripts** knooppunt in uw oplossing. Het gepubliceerde-script wordt uitgevoerd en voorziet in een virtuele machine in Azure. De **uitvoer** venster geeft de status. Het script voert de volgende bewerkingen voor het instellen van de virtuele machine:
     
-    * Creates the virtual machine if it doesn't already exist.
-    * Creates a storage account with a name that begins with `devtest`, but only if there isn't already such a storage account in the specified region.
-    * Creates a cloud service as a container for the virtual machine, and creates a web role for the web application.
-    * Configures Web Deploy on the virtual machine.
-    * Configures IIS and ASP.NET on the virtual machine.
+    * Als deze nog niet bestaat, maakt de virtuele machine.
+    * Een opslagaccount maakt met een naam die met begint `devtest`, maar alleen als er al een opslagaccount in de opgegeven regio.
+    * Maakt een cloudservice als een container voor de virtuele machine en een Webrol voor de webtoepassing maakt.
+    * Hiermee configureert u Web Deploy op de virtuele machine.
+    * Hiermee configureert u IIS en ASP.NET op de virtuele machine.
     
     ![][4]
-13. (Optional) You can connect to the new virtual machine. In **Server Explorer**, expand the **Virtual Machines** node, choose the node for the virtual machine you created, and on its shortcut menu, choose **Connect with Remote Desktop**. Alternatively, in **Cloud Explorer** you can choose **Open in Portal** on the shortcut menu and connect to the virtual machine there.
+13. (Optioneel) U kunt verbinding maken met de nieuwe virtuele machine. In **Server Explorer**, vouw de **virtuele Machines** knooppunt, kiest u het knooppunt voor de virtuele machine die u hebt gemaakt, en in het snelmenu, kiest u **verbinding maken met extern bureaublad**. U kunt ook in **Cloud Explorer** kunt u **openen in de Portal** in het snelmenu en maak verbinding met de virtuele machine er.
     
     ![][5]
 
-## <a name="next-steps"></a>Next steps
-If you want to customize the published scripts you created, read more in-depth information at [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](http://msdn.microsoft.com/library/dn642480.aspx).
+## <a name="next-steps"></a>Volgende stappen
+Als u aanpassen van de gepubliceerde scripts die u hebt gemaakt wilt, leest u meer gedetailleerde informatie op [Windows PowerShell-Scripts gebruiken om te publiceren op de ontwikkeling en testomgevingen](http://msdn.microsoft.com/library/dn642480.aspx).
 
 [0]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_NewProject.PNG
 [1]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SignIn.PNG

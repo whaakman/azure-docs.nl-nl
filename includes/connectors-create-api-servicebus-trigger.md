@@ -1,16 +1,16 @@
-Here's how to use the **Service Bus - When a message is received in a queue** trigger to initiate a logic app workflow when a new item is sent to a Service Bus queue.  
+Hier wordt het gebruik van de **Service Bus - wanneer een bericht wordt ontvangen in een wachtrij** trigger een logic app-werkstroom starten wanneer een nieuw item naar een Service Bus-wachtrij wordt verzonden.  
 
 > [!NOTE]
-> You will be prompted to sign in with your Service Bus connection string if you have not already created a connection to Service Bus.  
+> U wordt gevraagd zich kunnen aanmelden met uw Service Bus-verbindingsreeks als u een verbinding met Service Bus nog geen hebt gemaakt.  
 > 
 > 
 
-1. In the search box on the logic apps designer, enter **service bus**. Then select the **Service Bus - When a message is received in a queue** trigger.  
-   ![Service Bus trigger image 1](./media/connectors-create-api-servicebus/trigger-1.png)   
-2. The **When a message is received in a queue** dialog box is displayed.  
-   ![Service Bus trigger image 2](./media/connectors-create-api-servicebus/trigger-2.png)   
-3. Enter the name of the Service Bus queue you would like the trigger to monitor.   
-   ![Service Bus trigger image 3](./media/connectors-create-api-servicebus/trigger-3.png)   
+1. Voer in het zoekvak op de ontwerpfunctie van logic apps, **service bus**. Selecteer vervolgens de **Service Bus - wanneer een bericht wordt ontvangen in een wachtrij** trigger.  
+   ![Service Bus triggerafbeelding 1](./media/connectors-create-api-servicebus/trigger-1.png)   
+2. De **wanneer een bericht is ontvangen in een wachtrij** in het dialoogvenster wordt weergegeven.  
+   ![Service Bus triggerafbeelding 2](./media/connectors-create-api-servicebus/trigger-2.png)   
+3. Voer de naam van de Service Bus-wachtrij die u de trigger dat wilt voor het bewaken van.   
+   ![Service Bus triggerafbeelding 3](./media/connectors-create-api-servicebus/trigger-3.png)   
 
-At this point, your logic app has been configured with a trigger. When a new item is received in the queue you selected, the trigger will begin a run of the other triggers and actions in the workflow.    
+Op dit moment is uw logische app geconfigureerd met een trigger. Wanneer een nieuw item is ontvangen in de wachtrij die u hebt geselecteerd, kan de trigger een uitvoering van de andere triggers en acties in de werkstroom wordt gestart.    
 

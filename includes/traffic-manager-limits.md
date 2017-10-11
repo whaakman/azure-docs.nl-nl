@@ -1,7 +1,7 @@
-| Resource | Default limit |
+| Resource | Standaardlimiet |
 | --- | --- |
-| Profiles per subscription |100 <sup>1</sup> |
-| Endpoints per profile |200 |
+| Profielen per abonnement |100 <sup>1</sup> |
+| Eindpunten per profiel |200 |
 
-<sup>1</sup>Contact support in case you need to increase these limits.
+<sup>1</sup>contact op met ondersteuning als u wilt deze limieten verhogen.
 

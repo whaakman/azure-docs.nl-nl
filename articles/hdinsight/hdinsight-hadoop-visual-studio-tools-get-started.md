@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: d24c92b90d7d8e43554fcd77278bf7d23a963c02
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: f7eff70ece5e8dc7e0c5983871d40bd1f6eafff2
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="connect-to-azure-hdinsight-and-run-hive-queries-using-data-lake-tools-for-visual-studio"></a>Verbinding maken met Azure HDInsight en Hive-query's uitvoeren met behulp van Data Lake Tools voor Visual Studio
 
@@ -242,5 +241,4 @@ In dit artikel hebt u geleerd hoe u de Data Lake (HDInsight) Tools kunt gebruike
 * [Aan de slag met Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Hadoop-taken opgeven in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 * [Twitter-gegevens met Hadoop analyseren in HDInsight](hdinsight-analyze-twitter-data.md)
-
 

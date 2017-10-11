@@ -28,8 +28,3 @@ U hebt de apparaatconfiguratie voltooid.
 
 Als u een video wilt bekijken over het maken van een StorSimple-back-up, klikt u [hier](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

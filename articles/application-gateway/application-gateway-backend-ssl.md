@@ -15,12 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: amsriva
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 689ee54dc1db2ea371b08270718278fd98c65bb5
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Overzicht van end-to-end SSL met Application Gateway
 
@@ -47,4 +46,3 @@ Wanneer u meer te weten bent gekomen over end-to-end SSL, gaat u naar [Enable en
 <!--Image references-->
 
 [1]: ./media/application-gateway-backend-ssl/scenario.png
-

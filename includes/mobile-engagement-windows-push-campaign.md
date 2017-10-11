@@ -23,8 +23,3 @@ We gaan nu een eenvoudige pushmeldingcampagne maken waarbij een pushmelding word
    
     ![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

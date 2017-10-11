@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/25/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>De directory voor uw Office 365-abonnement in Azure beheren
 In dit artikel wordt beschreven hoe u met behulp van de klassieke Azure-portal een directory beheert die voor een Office 365-abonnement is gemaakt. U moet de servicebeheerder of medebeheerder van een Azure-abonnement zijn om u aan te melden bij de klassieke Azure-portal. Als u nog geen Azure-abonnement hebt, kunt u zich vandaag aanmelden voor een [gratis proefperiode van 30 dagen](https://azure.microsoft.com/trial/get-started-active-directory/) en via deze koppeling binnen vijf minuten uw eerste cloudoplossing implementeren. Gebruik het werk- of schoolaccount waarmee u zich aanmeldt bij Office 365.
@@ -70,4 +69,3 @@ Stel nu dat Dena Vloet websites en databaseresources moet beheren die zijn gekop
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie [De manier waarop een abonnement is gekoppeld aan een directory](active-directory-how-subscriptions-associated-directory.md) voor meer informatie over de relatie tussen abonnementen en directory's.
-

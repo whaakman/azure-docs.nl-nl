@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Wat is Operations Management Suite (OMS)?
 Dit artikel is een inleiding tot Operations Management Suite (OMS) met inbegrip van een kort overzicht van de bedrijfswaarde die het biedt, de services en beheeroplossingen die het bevat, en de aanbiedingen waarin verschillende services en oplossingen worden gecombineerd.  Bovendien vindt u hier koppelingen naar gedetailleerde documentatie over de implementatie en het gebruik van de diverse services en oplossingen.
@@ -173,5 +171,4 @@ Er worden regelmatig oplossingen aan OMS toegevoegd door Microsoft en partners, 
 * Meer informatie over [Azure Backup](http://azure.microsoft.com/documentation/services/backup).
 * Meer informatie over [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).
 * Ontdek de [beschikbare oplossingen](../log-analytics/log-analytics-add-solutions.md) in de verschillende OMS-aanbiedingen. 
-
 

@@ -1,47 +1,47 @@
-### <a name="noconnection"></a>To modify local network gateway IP address prefixes - no gateway connection
+### <a name="noconnection"></a>IP-adresvoorvoegsels wijzigen voor de gateway van een lokaal netwerk - geen gatewayverbinding
 
-#### <a name="to-add-additional-address-prefixes"></a>To add additional address prefixes:
+#### <a name="to-add-additional-address-prefixes"></a>Ga als volgt te werk om aanvullende voorvoegsels toe te voegen:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Add the IP address space in the *Add additional address range* box.
-3. Click **Save** to save your settings.
+1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **configuratie**.
+2. Voeg de IP-adresruimte in de *aanvullend adresbereik toevoegen* vak.
+3. Klik op **opslaan** uw instellingen op te slaan.
 
-#### <a name="to-remove-address-prefixes"></a>To remove address prefixes:
+#### <a name="to-remove-address-prefixes"></a>Ga als volgt te werk om adresvoorvoegsels te verwijderen:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Click the **'...'** on the line containing the prefix you want to remove.
-3. Click **Remove**.
-4. Click **Save** to save your settings.
+1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **configuratie**.
+2. Klik op de **'...'** op de regel met het voorvoegsel dat u wilt verwijderen.
+3. Klik op **verwijderen**.
+4. Klik op **opslaan** uw instellingen op te slaan.
 
-### <a name="withconnection"></a>To modify local network gateway IP address prefixes - existing gateway connection
+### <a name="withconnection"></a>IP-adresvoorvoegsels wijzigen voor de gateway van een lokaal netwerk - bestaande gatewayverbinding
 
-If you have a gateway connection and want to add or remove the IP address prefixes contained in your local network gateway, you need to do the following steps, in order. This results in some downtime for your VPN connection. When modifying IP address prefixes, you don't need to delete the VPN gateway. You only need to remove the connection.
+Als u een gatewayverbinding hebt en u IP-adresvoorvoegsels wilt toevoegen aan of verwijderen uit uw lokale netwerkgateway, moet u de volgende stappen uitvoeren in de volgorde waarin ze staan vermeld. Dit veroorzaakt enige downtime in uw VPN-verbinding. Als u IP-adresvoorvoegsels wijzigt, hoeft u de VPN-gateway niet te verwijderen. U hoeft alleen de verbinding te verwijderen.
 
-#### <a name="1-remove-the-connection"></a>1. Remove the connection.
+#### <a name="1-remove-the-connection"></a>1. Verwijder de verbinding.
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Connections**.
-2. Click the **...** on the line for each connection, then click **Delete**.
-3. Click **Save** to save your settings.
+1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **verbindingen**.
+2. Klik op de **...**  op de regel voor elke verbinding en klik vervolgens op **verwijderen**.
+3. Klik op **opslaan** uw instellingen op te slaan.
 
-#### <a name="2-modify-the-address-prefixes"></a>2. Modify the address prefixes.
+#### <a name="2-modify-the-address-prefixes"></a>2. De adresvoorvoegsels wijzigen.
 
-To add additional address prefixes:
+Ga als volgt te werk om aanvullende voorvoegsels toe te voegen:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Add the IP address space.
-3. Click **Save** to save your settings.
+1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **configuratie**.
+2. De IP-adresruimte toevoegen.
+3. Klik op **opslaan** uw instellingen op te slaan.
 
-To remove address prefixes:
+Ga als volgt te werk om adresvoorvoegsels te verwijderen:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Click the **...** on the line containing the prefix you want to remove.
-3. Click **Remove**.
-4. Click **Save** to save your settings.
+1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **configuratie**.
+2. Klik op de **...**  op de regel met het voorvoegsel op dat u wilt verwijderen.
+3. Klik op **verwijderen**.
+4. Klik op **opslaan** uw instellingen op te slaan.
 
-#### <a name="3-recreate-the-connection"></a>3. Recreate the connection.
+#### <a name="3-recreate-the-connection"></a>3. Maak de verbinding opnieuw.
 
-1. Navigate to the Virtual Network Gateway for your VNet. (Not the Local Network Gateway.)
-2. On the Virtual Network Gateway, in the **Settings** section, click **Connections**.
-3. Click the **+ Add** to open the **Add connection** blade.
-4. Recreate your connection.
-5. Click **OK** to create the connection.
+1. Navigeer naar de virtuele netwerkgateway voor uw VNet. (Niet de lokale netwerkgateway.)
+2. Op de virtuele netwerkgateway in de **instellingen** sectie, klikt u op **verbindingen**.
+3. Klik op de **+ toevoegen** openen de **verbinding toevoegen** blade.
+4. Maak opnieuw een verbinding.
+5. Klik op **OK** om de verbinding te maken.

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/06/2017
 ms.author: charwen
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
-ms.lasthandoff: 04/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="optimize-expressroute-routing"></a>ExpressRoute-routering optimaliseren
 Als u meerdere ExpressRoute-circuits hebt, hebt u meer dan één pad om verbinding te maken met Microsoft. Dat betekent dat suboptimale routering kan plaatsvinden, met andere woorden, dat verkeer soms een langer pad aflegt om Microsoft te bereiken en Microsoft om uw netwerk te bereiken. Hoe langer het netwerkpad, hoe groter de latentie. Latentie heeft een directe invloed op toepassingsprestaties en gebruikerservaring. In dit artikel wordt dit probleem geïllustreerd en wordt uitgelegd hoe u routering optimaliseert met behulp van de standaardrouteringstechnologieën.
@@ -75,4 +74,3 @@ De oplossing is eenvoudig. Omdat u weet waar de VNets en circuits zich bevinden,
 > Als u meerdere ExpressRoute-circuits hebt, kunt u de routering vanuit VNet naar uw on-premises netwerk ook beïnvloeden door het gewicht van een verbinding te configureren in plaats van AS PATH aan het begin toe te voegen, een techniek die in het tweede scenario hierboven is beschreven. Wanneer er wordt bepaald hoe het verkeer moet worden verzonden, wordt er voor elk voorvoegsel altijd eerst gekeken naar het gewicht van de verbinding en dan pas naar de AS PATH-lengte.
 >
 >
-

@@ -1,27 +1,25 @@
 <!--author=alkohli last changed: 01/02/17-->
 
 
-<a id="to-add-or-remove-a-volume" class="xliff"></a>
+#### <a name="to-add-or-remove-a-volume"></a>Toevoegen of verwijderen van een volume
 
-#### To add or remove a volume
+1. Ga naar uw StorSimple-apparaat en klik op **Back-upbeleid**.
 
-1. Go to your StorSimple device and click **Backup policy**.
+2. Selecteer in de tabellaire vermelding van de beleidsregels en klik op het beleid dat u wilt wijzigen. Klik met de rechtermuisknop op het contextmenu aanroepen en selecteer vervolgens **toevoegen/verwijderen volume**.
 
-2. In the tabular listing of the policies, select and click the policy that you want to modify. Right-click to invoke the context menu and then select **Add/remove volume**.
+    ![schema's beheren](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol1.png)
 
-    ![manage schedules](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol1.png)
+3. In de **toevoegen/verwijderen volume** blade geselecteerd of gedeselecteerd de checkbox(es) toevoegen of verwijderen van het volume. Meerdere volumes zijn ingeschakeld/uitgeschakeld met het controleren of de corresponderende selectievakjes uitschakelt.
 
-3. In the **Add/remove volume** blade, select or deselect the checkbox(es) to add or remove the volume. Multiple volumes are selected/deselected by checking or unchecking the corresponding checkboxes.
+    ![schema's beheren](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
 
-    ![manage schedules](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
+    Als u volumes uit verschillende volumecontainers aan een back-upbeleid toewijst, moet u deze volumecontainers samen failover onthouden. Hier ziet u een waarschuwing dat effect.
 
-    If you assign volumes from different volume containers to a backup policy, then you will need to remember to fail over those volume containers together. You will see a warning to that effect.
+    ![schema's beheren](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
 
-    ![manage schedules](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
+4. U wordt gewaarschuwd wanneer de back-upbeleid wordt gewijzigd. De lijst met back-upbeleid is tevens bijgewerkt.
 
-4. You are notified when the backup policy is modified. The backup policy list is also updated.
-
-    ![manage schedules](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
+    ![schema's beheren](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
 
 
 

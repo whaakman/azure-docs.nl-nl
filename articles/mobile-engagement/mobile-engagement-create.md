@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 47c1e122f6f38654cd63bb59e50e68803f76c83d
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-an-azure-mobile-engagement-app"></a>Een Azure Mobile Engagement-app maken
 In dit artikel wordt gedemonstreerd hoe u de methode **Snelle invoer** gebruikt voor het maken van een nieuwe **Azure Mobile Engagement**-app. Ook wordt uitgelegd hoe u naar uw **Mobile Engagement**-portal navigeert om uw apps te bewaken en beheren. 
@@ -48,5 +47,4 @@ Wanneer u naar de Mobile Engagement-portal gaat, kunt u segmenten analyseren, ma
 [Uw strategie voor Mobile Engagement definiëren](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
 [Aan de slag met Azure Mobile Engagement](mobile-engagement-windows-store-dotnet-get-started.md) (u kunt andere mobiele platforms selecteren boven aan de pagina).
-
 

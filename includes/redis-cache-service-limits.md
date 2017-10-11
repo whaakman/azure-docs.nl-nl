@@ -1,14 +1,14 @@
-| Resource | Limit |
+| Resource | Limiet |
 | --- | --- |
-| Cache size |530 GB |
+| Cachegrootte |530 GB |
 | Databases |64 |
-| Max connected clients |40,000 |
-| Redis Cache replicas (for high availability) |1 |
-| Shards in a premium cache with clustering |10 |
+| Maximum aantal verbonden clients |40,000 |
+| Redis-Cache-replica's (voor hoge beschikbaarheid) |1 |
+| Shards in een premium-cache met clustering |10 |
 
-Azure Redis Cache limits and sizes are different for each pricing tier. To see the pricing tiers and their associated sizes, see [Azure Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/).
+Azure Redis-Cache is beperkt en grootten zijn verschillend voor elke prijscategorie. Zie voor de Prijscategorieën en de bijbehorende grootte [prijzen van Azure Redis-Cache](https://azure.microsoft.com/pricing/details/cache/).
 
-For more information on Azure Redis Cache configuration limits, see [Default Redis server configuration](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
+Zie voor meer informatie over Azure Redis-Cache configuratie limieten [serverconfiguratie standaard Redis](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
 
-Because configuration and management of Azure Redis Cache instances is done by Microsoft, not all Redis commands are supported in Azure Redis Cache. For more information, see [Redis commands not supported in Azure Redis Cache](../articles/redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache).
+Omdat configuratie en beheer van Azure Redis-Cache-exemplaren wordt gedaan door Microsoft, worden niet alle Redis-opdrachten worden ondersteund in Azure Redis-Cache. Zie voor meer informatie [Redis opdrachten niet ondersteund in Azure Redis-Cache](../articles/redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache).
 

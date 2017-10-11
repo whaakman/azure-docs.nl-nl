@@ -1,20 +1,20 @@
 <!--author=SharS last changed: 11/04/15-->
 
 
-#### <a name="to-create-a-custom-backup-policy"></a>To create a custom backup policy
-1. On the **Devices** page, click **Backup Policies** and then click **Add**.
-2. In the **Add a backup policy** dialog box, under **Define your backup policy**:
+#### <a name="to-create-a-custom-backup-policy"></a>Een aangepaste back-upbeleid maken
+1. Op de **apparaten** pagina, klikt u op **back-upbeleid** en klik vervolgens op **toevoegen**.
+2. In de **toevoegen van een back-upbeleid** dialoogvenster onder **uw back-upbeleid definiëren**:
    
-   1. Specify a backup policy name.
-   2. Select the volumes to be added to this policy. You can choose to add multiple volumes by selecting multiple check boxes.
-   3. Click the arrow icon ![check icon](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png).
-3. Under **Define a Schedule**:
+   1. Geef een naam voor de back-upbeleid.
+   2. Selecteer de volumes moet worden toegevoegd aan dit beleid. U kunt meerdere volumes toevoegen door meerdere selectievakjes in te schakelen.
+   3. Klik op het pijlpictogram ![vinkje](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png).
+3. Onder **een schema definiëren**:
    
-   1. Select the **Type of backup** (**Local Snapshot** or **Cloud Snapshot**).
-   2. Specify the backup frequency in minutes, hours, days, or weeks.
-   3. Select a retention schedule from the drop-down list. The retention choices depend on the backup frequency. 
-   4. Select the starting time and date for the policy.
-   5. Select the check box to enable the policy.
-4. Click the check icon ![check icon](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) to finish.
-5. You will return to the **Backup Policies** page. The tabular listing of the backup policies will be updated to display the custom policy.
+   1. Selecteer de **Type back-up** (**lokale momentopname** of **Cloudmomentopname**).
+   2. Geef de back-upfrequentie op in minuten, uren, dagen of weken.
+   3. Selecteer een bewaarschema in de vervolgkeuzelijst. Hoe lang deze moet zijn, hangt af van hoe vaak een back-up wordt uitgevoerd. 
+   4. Selecteer de begintijd en de datum waarop het beleid.
+   5. Schakel het selectievakje in zodat het beleid.
+4. Klik op het vinkje ![vinkje](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) om te voltooien.
+5. U keert terug naar de **back-upbeleid** pagina. De vermelding in tabelvorm van het back-upbeleid worden bijgewerkt om het aangepaste beleid weer te geven.
 

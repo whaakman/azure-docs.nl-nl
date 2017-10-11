@@ -1,5 +1,4 @@
-### De DNS-naam van de virtuele machine achterhalen
-<a id="determine-the-dns-name-of-the-virtual-machine" class="xliff"></a>
+### <a name="determine-the-dns-name-of-the-virtual-machine"></a>De DNS-naam van de virtuele machine achterhalen
 Als u vanaf een andere computer verbinding wilt maken met de database-engine van SQL Server, moet u de DNS-naam (Domain Name System) van de virtuele machine weten. (Dit is de naam waaraan de virtuele machine op internet wordt herkend. U kunt ook het IP-adres gebruiken, maar dit kan veranderen wanneer Azure resources verplaatst wegens redundantie of onderhoud. De DNS-naam blijft hetzelfde omdat deze kan worden omgeleid naar een nieuw IP-adres.)  
 
 1. Selecteer **Virtuele machines (klassiek)** in Azure Portal (of vanuit de vorige stap).
@@ -8,8 +7,7 @@ Als u vanaf een andere computer verbinding wilt maken met de database-engine van
    
     ![DNS-naam](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 
-### Verbinding maken met de Database-engine vanaf een andere computer
-<a id="connect-to-the-database-engine-from-another-computer" class="xliff"></a>
+### <a name="connect-to-the-database-engine-from-another-computer"></a>Verbinding maken met de Database-engine vanaf een andere computer
 1. Open SQL Server Management Studio op een computer die is verbonden met internet.
 2. In het dialoogvenster **Verbinding maken met server** of **Verbinding maken met database-engine** typt u in het vak **Servernaam** de DNS-naam van de virtuele machine (zoals bepaald in de vorige taak) en het poortnummer van een openbaar eindpunt. Gebruik hiervoor de notatie *DNSnaam,poortnummer*, bijvoorbeeld **mysqlvm.cloudapp.net,57500**.
    

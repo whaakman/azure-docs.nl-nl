@@ -1,21 +1,21 @@
 <!--author=SharS last changed: 11/18/16-->
 
-#### <a name="to-install-regular-updates-via-windows-powershell-for-storsimple"></a>To install regular updates via Windows PowerShell for StorSimple
-1. Open the device serial console and select option 1, **Log in with full access**. Type the password. The default password is *Password1*. 
-2. At the command prompt, type:
+#### <a name="to-install-regular-updates-via-windows-powershell-for-storsimple"></a>Reguliere om updates te installeren via Windows PowerShell voor StorSimple
+1. Open de seriële console van apparaat en selecteer optie 1, **aanmelden met volledige toegang**. Typ het wachtwoord. Is het standaardwachtwoord *Wachtwoord1*. 
+2. Typ het volgende achter de opdrachtprompt:
    
      `Get-HcsUpdateAvailability`
    
-    You will be notified if updates are available and whether the updates are disruptive or non-disruptive.
-3. At the command prompt, type:
+    U wordt gewaarschuwd als er updates beschikbaar zijn en of de updates verstoren of niet verstoren zijn.
+3. Typ het volgende achter de opdrachtprompt:
    
      `Start-HcsUpdate`
    
-    The update process will start.
+    Het updateproces wordt gestart.
 
 > [!IMPORTANT]
-> * This command applies only to regular updates. You run this command on only one controller, but both controllers will be updated. 
-> * You may notice a controller failover during the update process; however, the failover will not affect system availability or operation.
+> * Met deze opdracht geldt alleen voor regelmatige updates. U deze opdracht uitvoert op slechts één domeincontroller, maar beide domeincontrollers wordt bijgewerkt. 
+> * Merkt u wellicht een failover van de domeincontroller tijdens het updateproces; echter, de failover niet van invloed op beschikbaarheid van het systeem of de bewerking.
 > 
 > 
 

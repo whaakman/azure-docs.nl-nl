@@ -1,20 +1,18 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-<a id="to-delete-a-storsimple-backup-policy" class="xliff"></a>
+#### <a name="to-delete-a-storsimple-backup-policy"></a>Een StorSimple-back-upbeleid te verwijderen
 
-#### To delete a StorSimple backup policy
+1. Ga naar uw StorSimple-apparaat en klik op **Back-upbeleid**.
 
-1. Go to your StorSimple device and click **Backup policy**.
+2. Selecteer in de lijst in tabelvorm van back-upbeleid het beleid dat u wilt verwijderen. Met de rechtermuisknop en selecteer in het contextmenu **verwijderen**.
 
-2. In the tabular listing of backup policies, select the policy you want to delete. Right-click and from the context menu, select **Delete**.
+    ![Selecteer een back-upbeleid te verwijderen](./media/storsimple-8000-delete-backup-policy/deletebupol1.png)
 
-    ![Select a backup policy to delete](./media/storsimple-8000-delete-backup-policy/deletebupol1.png)
+3. U wordt gevraagd om bevestiging. Houd er rekening mee dat een back-upbeleid te verwijderen, u alle gekoppelde back-ups verwijdert. Klik op **Ja** te verwijderen.
 
-3. You will be prompted for confirmation. Keep in mind that deleting a backup policy will delete all the associated backups. Click **Yes** to delete.
+    ![De verwijdering bevestigen](./media/storsimple-8000-delete-backup-policy/deletebupol2.png)
 
-    ![Confirm delete](./media/storsimple-8000-delete-backup-policy/deletebupol2.png)
+De back-upbeleid lijst wordt bijgewerkt om de nieuwe lijst met beleidsregels weer te geven.
 
-The backup policies list will be updated to display the new list of policies.
-
-![Updated backup policy list](./media/storsimple-8000-delete-backup-policy/deletebupol5.png)
+![Back-upbeleid lijst bijgewerkt](./media/storsimple-8000-delete-backup-policy/deletebupol5.png)

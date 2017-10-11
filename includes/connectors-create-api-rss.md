@@ -1,14 +1,14 @@
-### <a name="prerequisites"></a>Prerequisites
-* An [RSS](https://wikipedia.org/wiki/RSS) account  
+### <a name="prerequisites"></a>Vereisten
+* Een [RSS](https://wikipedia.org/wiki/RSS) account  
 
-Before you can use your RSS account in a Logic app, you must authorize the Logic app to connect to your RSS account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  
+Voordat u uw RSS-account in een logische app gebruiken kunt, moet u de logische app verbinding maken met uw RSS-account toestaan. U kunt dit eenvoudig vanuit gelukkig doen in uw logische app in de Azure Portal.  
 
-Here are the steps to authorize your Logic app to connect to your RSS account:  
+Hier volgen de stappen voor het autoriseren van uw logische app verbinding maken met uw RSS-account:  
 
-1. To create a connection to RSS, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *RSS* in the search box. Select the trigger or action you'll like to use:  
-   ![RSS connection creation step](./media/connectors-create-api-rss/rss-1.png)  
-2. Select **Create connection** :  
-   ![RSS connection creation step](./media/connectors-create-api-rss/rss-2.png)  
-3. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-   ![RSS connection creation step](./media/connectors-create-api-rss/rss-3.png)  
+1. Voor het maken van een verbinding met RSS, in de ontwerpfunctie voor Logic app selecteert **beheerde API's van Microsoft weergeven** Voer in de vervolgkeuzelijst *RSS* in het zoekvak. Selecteer de trigger of je actie moet worden gebruikt:  
+   ![Stap voor RSS verbinding maken](./media/connectors-create-api-rss/rss-1.png)  
+2. Selecteer **verbinding maken** :  
+   ![Stap voor RSS verbinding maken](./media/connectors-create-api-rss/rss-2.png)  
+3. U ziet de verbinding is gemaakt en u bent nu vrij om door te gaan met de overige stappen in uw logische app:  
+   ![Stap voor RSS verbinding maken](./media/connectors-create-api-rss/rss-3.png)  
 

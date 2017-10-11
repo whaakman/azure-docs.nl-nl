@@ -1,16 +1,16 @@
 
-1. In Visual Studio Solution Explorer, right-click the Windows Store app project, and click **Store** > **Associate App with the Store**.
+1. In Visual Studio Solution Explorer met de rechtermuisknop op de Windows Store-app-project en klik op **Store** > **App aan de Store koppelen**.
 
-    ![Associate app with Windows Store](./media/app-service-mobile-register-wns/notification-hub-associate-win8-app.png)
-2. In the wizard, click **Next**, and sign in with your Microsoft account. Type a name for your app in **Reserve a new app name**, and then click **Reserve**.
-3. After the app registration is successfully created, select the new app name, click **Next**, and then click **Associate**. This adds the required Windows Store registration information to the application manifest.
-4. Repeat steps 1 and 3 for the Windows Phone Store app project by using the same registration you previously created for the Windows Store app.  
-5. Browse to the [Windows Dev Center](https://dev.windows.com/en-us/overview), and sign in with your Microsoft account. Click the new app registration in **My apps**, and then expand **Services** > **Push notifications**.
-6. On the **Push notifications** page, click **Live Services site** under **Windows Push Notification Services (WNS) and Microsoft Azure Mobile Apps**. Make a note of the values of the **Package SID** and the *current*  value in **Application Secret**. 
+    ![App aan Windows Store koppelen](./media/app-service-mobile-register-wns/notification-hub-associate-win8-app.png)
+2. Klik in de wizard op **volgende**, en meld u aan met uw Microsoft-account. Typ een naam voor uw app in **een nieuwe appnaam reserveren**, en klik vervolgens op **Reserve**.
+3. Nadat de registratie van de app is gemaakt, selecteert u de naam van de nieuwe app, klikt u op **volgende**, en klik vervolgens op **koppelen**. Hierdoor worden de vereiste registratiegegevens voor Windows Store toegevoegd aan het toepassingsmanifest.
+4. Herhaal stap 1 en 3 voor de Windows Phone Store-app-project met behulp van de registratie van de dezelfde die u eerder hebt gemaakt voor de Windows Store-app.  
+5. Blader naar de [Windows-ontwikkelaarscentrum](https://dev.windows.com/en-us/overview), en meld u aan met uw Microsoft-account. Klik op de nieuwe app-registratie in **mijn apps**, en vouw vervolgens **Services** > **Pushmeldingen**.
+6. Op de **Pushmeldingen** pagina, klikt u op **Live Services site** onder **Windows Push Notification Services (WNS) en Microsoft Azure Mobile Apps**. Noteer de waarden van de **pakket-SID** en de *huidige* waarde in **Toepassingsgeheim**. 
 
-    ![App setting in the developer center](./media/app-service-mobile-register-wns/mobile-services-win8-app-push-auth.png)
+    ![App-instelling in het developer center](./media/app-service-mobile-register-wns/mobile-services-win8-app-push-auth.png)
 
    > [!IMPORTANT]
-   > The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
+   > Het toepassingsgeheim en de pakket-SID zijn belangrijke beveiligingsreferenties. Deel deze waarden met niemand en distribueer ze niet met uw app.
    >
    >

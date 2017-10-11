@@ -1,6 +1,6 @@
-| Resource | Default limit | Note |
+| Resource | Standaardlimiet | Opmerking |
 | --- | --- | --- |
-| Network Watcher | 1 per region  | |
-| Packet Capture sessions |10 per region |# of sessions only, not saved captures |
+| Network Watcher | 1 per regio  | |
+| Pakket vastleggen sessies |10 per regio |het aantal sessies, niet opgeslagen worden vastgelegd |
 
 

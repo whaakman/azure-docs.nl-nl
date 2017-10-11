@@ -1,4 +1,4 @@
-You can use an NSG to control traffic to one or more virtual machines (VMs), role instances, network adapters (NICs), or subnets in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. The rules of an NSG can be changed at any time, and changes are applied to all associated instances.
+U kunt een NSG aan verkeer voor beheer op een of meer virtuele machines (VM's), rolinstanties, netwerkadapters (NIC's) of subnetten gebruiken in uw virtuele netwerk. Een netwerkbeveiligingsgroep bevat toegangsbeheerregels waarmee verkeer wordt toegestaan of geweigerd op basis van verkeersrichting, protocol, bronadres en poort en doeladres en poort. De regels van een NSG op elk gewenst moment kunnen worden gewijzigd en wijzigingen worden toegepast op alle gekoppelde exemplaren.
 
-For more information about NSGs, visit [what is an NSG](../articles/virtual-network/virtual-networks-nsg.md).
+Voor meer informatie over nsg's, gaat u naar [wat is er een NSG](../articles/virtual-network/virtual-networks-nsg.md).
 

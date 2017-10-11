@@ -7,8 +7,3 @@ In dit artikel wordt van het volgende uitgegaan:
 
 > [!TIP]
 > Zorg ervoor dat u verbinding hebt met poort 443 van de configuratieserver (wordt on-premises uitgevoerd) van Azure Virtual Network waar de virtuele machines tijdens een failover zijn geplaatst.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: df1a5b2c200b7fa69961247ac036ee35fd14f54d
-ms.lasthandoff: 12/07/2016
-
-
+ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="oms-architecture"></a>OMS-architectuur
 [Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) is een verzameling cloudservices voor beheer van on-premises en cloudomgevingen.  In dit artikel worden de verschillende on-premises en cloudonderdelen van OMS en hun hoogwaardige cloud computing-architectuur beschreven.  Raadpleeg de documentatie van elke service voor meer informatie.
@@ -84,5 +83,4 @@ Azure Site Recovery heeft drie fundamentele replicatiescenario's.
 * Meer informatie over [Azure Automation](https://azure.microsoft.com/documentation/services/automation).
 * Meer informatie over [Azure Backup](http://azure.microsoft.com/documentation/services/backup).
 * Meer informatie over [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).
-
 

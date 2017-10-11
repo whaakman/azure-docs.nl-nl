@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/06/2017
 ms.author: kgremban
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: df7815ff16ac66531005f3a29550bdb419f3d052
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/14/2017
-
+ms.openlocfilehash: 7ab7e693909f807781744ae53eed75d425096590
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>De PhoneFactor-agent upgraden naar Azure Multi-Factor Authentication-server
 Als u PhoneFactor-agent versie 5.x of ouder wilt upgraden naar Azure Multi-Factor Authentication-server, verwijdert u eerst de PhoneFactor-agent en alle bijbehorende onderdelen. Vervolgens kunnen de Multi-Factor Authentication-server en de bijbehorende onderdelen worden geïnstalleerd.
@@ -80,4 +79,3 @@ Het installatiepad wordt opgehaald uit het register van de vorige installatie va
 - [De gebruikersportal installeren](multi-factor-authentication-get-started-portal.md) voor de Azure Multi-Factor Authentication-server.
 
 - [Windows-verificatie configureren](multi-factor-authentication-get-started-server-windows.md) voor uw toepassingen. 
-

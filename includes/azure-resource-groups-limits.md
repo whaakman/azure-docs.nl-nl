@@ -1,25 +1,25 @@
-| Resource | Default Limit | Maximum Limit |
+| Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
-| Resources per [resource group](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (per resource type) |800 |Varies per resource type |
-| Deployments per resource group |800 |800 |
-| Resources per deployment |800 |800 |
-| Management Locks (per unique scope) |20 |20 |
-| Number of Tags (per resource or resource group) |15 |15 |
-| Tag key length |512 |512 |
-| Tag value length |256 |256 |
+| Resources per [resourcegroep](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (per resourcetype) |800 |Varieert per resourcetype |
+| Implementaties per resourcegroep |800 |800 |
+| Resources per implementatie |800 |800 |
+| De vergrendelingen Management (per unieke bereik) |20 |20 |
+| Aantal Tags (per resource of resourcegroep) |15 |15 |
+| Sleutellengte van label |512 |512 |
+| De lengte van de tag-waarde |256 |256 |
 
 
-#### <a name="template-limits"></a>Template limits
+#### <a name="template-limits"></a>Limieten voor sjabloon
 
-| Value | Default Limit | Maximum Limit |
+| Waarde | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
 | Parameters |256 |256 |
-| Variables |256 |256 |
-| Resources (including copy count) |800 |800 |
-| Outputs |64 |64 |
-| Template expression |24,576 chars |24,576 chars |
-| Resources in exported templates |200 |200 | 
-| Template size |1 MB |1 MB |
-| Parameter file size |64 KB |64 KB |
+| Variabelen |256 |256 |
+| Bronnen (zoals aantal kopieën) |800 |800 |
+| uitvoer |64 |64 |
+| Sjabloonexpressie |24.576 tekens |24.576 tekens |
+| Bronnen in de geëxporteerde sjablonen |200 |200 | 
+| De grootte van de sjabloon |1 MB |1 MB |
+| De parameter-bestandsgrootte |64 kB |64 kB |
 
-You can exceed some template limits by using a nested template. For more information, see [Using linked templates when deploying Azure resources](../articles/azure-resource-manager/resource-group-linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).
+U kunt sommige limieten sjabloon met een geneste sjabloon overschrijdt. Zie voor meer informatie [gekoppelde sjablonen gebruiken bij het implementeren van Azure-resources](../articles/azure-resource-manager/resource-group-linked-templates.md). Als u het aantal parameters en variabelen en uitvoer, kunt u verschillende waarden combineren in een object. Zie voor meer informatie [objecten als parameters](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).

@@ -1,18 +1,18 @@
-### <a name="prerequisites"></a>Prerequisites
-* A Twitter account 
+### <a name="prerequisites"></a>Vereisten
+* Een Twitter-account 
 
-Before you can use your Twitter account in a logic app, you must authorize the logic app to connect to your Twitter account. Fortunately, you can do this easily from within your logic app on the Azure Portal. 
+Voordat u uw Twitter-account in een logische app gebruiken kunt, moet u de logische app verbinding maken met uw Twitter-account toestaan. U kunt dit eenvoudig vanuit gelukkig doen in uw logische app in de Azure Portal. 
 
-Here are the steps to authorize your logic app to connect to your Twitter account:
+Hier volgen de stappen voor het autoriseren van uw logische app verbinding maken met uw Twitter-account:
 
-1. To create a connection to Twitter, in the logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Twitter* in the search box. Select the trigger or action you'll like to use:  
-   ![Twitter connection image 0](./media/connectors-create-api-twitter/twitter-0.png)
-2. If you haven't created any connections to Twitter before, you'll get prompted to provide your Twitter credentials. These credentials will be used to authorize your logic app to connect to, and access your Twitter account's data:  
-   ![Twitter connection image 1](./media/connectors-create-api-twitter/twitter-1.png)  
-3. Provide your Twitter user name and password to authorize your logic app:  
-   ![Twitter connection image 2](./media/connectors-create-api-twitter/twitter-2.png)  
-4. Confirm your authorization:  
-   ![Twitter connection image 3](./media/connectors-create-api-twitter/twitter-3.png)  
-5. Notice the connection has been created and you are now free to proceed with the other steps in your logic app:  
-   ![Twitter connection image 4](./media/connectors-create-api-twitter/twitter-4.png)
+1. Voor het maken van een verbinding met Twitter, in de ontwerpfunctie voor logic app selecteert **beheerde API's van Microsoft weergeven** Voer in de vervolgkeuzelijst *Twitter* in het zoekvak. Selecteer de trigger of je actie moet worden gebruikt:  
+   ![Afbeelding voor de Twitter 0](./media/connectors-create-api-twitter/twitter-0.png)
+2. Als u verbindingen met Twitter voordat u dit nog niet hebt gemaakt, hebt u wordt gevraagd uw referenties voor Twitter op te geven. Deze referenties worden gebruikt voor het autoriseren van uw logische app verbinding maken met en toegang tot gegevens van uw Twitter-account:  
+   ![Afbeelding 1 Twitter](./media/connectors-create-api-twitter/twitter-1.png)  
+3. Geef uw Twitter-gebruikersnaam en wachtwoord voor het autoriseren van uw logische app:  
+   ![Afbeelding 2 Twitter](./media/connectors-create-api-twitter/twitter-2.png)  
+4. Uw machtiging te bevestigen:  
+   ![Afbeelding 3 Twitter](./media/connectors-create-api-twitter/twitter-3.png)  
+5. U ziet de verbinding is gemaakt en u bent nu vrij om door te gaan met de overige stappen in uw logische app:  
+   ![Afbeelding 4 Twitter](./media/connectors-create-api-twitter/twitter-4.png)
 

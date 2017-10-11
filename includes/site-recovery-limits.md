@@ -1,6 +1,6 @@
 ---
-title: Site Recovery limits table
-description: Describes system limits for Site Recovery.
+title: Site Recovery beperkt tabel
+description: Beschrijft systeemlimieten voor de Site Recovery.
 services: site recovery
 documentationcenter: NA
 author: csilauraa
@@ -13,22 +13,20 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
-translationtype: Human Translation
-ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
 ms.openlocfilehash: e0694aa8c5226b794be59358e73751cc493a7e95
-ms.lasthandoff: 01/18/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
 ---
-The following limits apply to Azure Site Recovery:
+De volgende beperkingen gelden voor Azure Site Recovery:
 
-| LIMIT IDENTIFIER | DEFAULT LIMIT |
+| LIMIET-ID | STANDAARDLIMIET |
 | --- | --- | --- | --- |
-| Number of vaults per subscription |25 |
-| Number of servers per Azure vault |250 |
-| Number of protection groups per Azure vault |No limit |
-| Number of recovery plans per Azure vault |No limit |
-| Number of servers per protection group |No limit |
-| Number of servers per recovery plan |50 |
-
+| Het aantal kluizen per abonnement |25 |
+| Aantal servers per Azure-kluis |250 |
+| Aantal beveiligingsgroepen per Azure-kluis |Geen limiet |
+| Aantal herstelplannen per Azure-kluis |Geen limiet |
+| Aantal servers per beveiligingsgroep |Geen limiet |
+| Aantal servers per herstelplan |50 |
 

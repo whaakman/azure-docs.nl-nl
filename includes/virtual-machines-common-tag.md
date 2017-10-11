@@ -1,44 +1,44 @@
 
 
 
-## <a name="tagging-a-virtual-machine-through-templates"></a>Tagging a Virtual Machine through Templates
-First, let’s look at tagging through templates. [This template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) places tags on the following resources: Compute (Virtual Machine), Storage (Storage Account), and Network (Public IP Address, Virtual Network, and Network Interface). This template is for a Windows VM but can be adapted for Linux VMs.
+## <a name="tagging-a-virtual-machine-through-templates"></a>Labels van een virtuele Machine via sjablonen
+Eerst gaan we kijken tagging via sjablonen. [Deze sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) plaatst labels op de volgende bronnen: Compute (virtuele Machine) en opslag (Storage-Account) netwerk (openbare IP-adres, virtuele netwerk en Network Interface). Deze sjabloon is voor een virtuele machine van Windows, maar kan worden aangepast voor virtuele Linux-machines.
 
-Click the **Deploy to Azure** button from the [template link](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). This will navigate to the [Azure portal](https://portal.azure.com/) where you can deploy this template.
+Klik op de **implementeren in Azure** knop van de [sjabloonkoppeling](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). Dit, gaat u naar de [Azure-portal](https://portal.azure.com/) waarin u deze sjabloon kunt implementeren.
 
-![Simple deployment with Tags](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
+![Eenvoudige implementatie met labels](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
-This template includes the following tags: *Department*, *Application*, and *Created By*. You can add/edit these tags directly in the template if you would like different tag names.
+Deze sjabloon bevat de volgende codes: *afdeling*, *toepassing*, en *gemaakt door*. U kunt toevoegen/bewerken deze tags rechtstreeks in de sjabloon indien andere tagnaam gewenst.
 
-![Azure tags in a template](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
+![Azure labels in een sjabloon](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
 
-As you can see, the tags are defined as key/value pairs, separated by a colon (:). The tags must be defined in this format:
+Zoals u ziet, worden de labels worden gedefinieerd als sleutel-waardeparen, gescheiden door een dubbele punt (:). De labels moeten worden gedefinieerd in deze indeling:
 
         “tags”: {
             “Key1” : ”Value1”,
             “Key2” : “Value2”
         }
 
-Save the template file after you finish editing it with the tags of your choice.
+Sla het sjabloonbestand nadat u deze bewerken met de labels van uw keuze.
 
-Next, in the **Edit Parameters** section, you can fill out the values for your tags.
+Vervolgens gaat u naar de **Parameters bewerken** sectie, kunt u de waarden invullen voor de labels.
 
-![Edit Tags in Azure portal](./media/virtual-machines-common-tag/edit-tags-in-azure-portal.png)
+![Labels bewerken in Azure-portal](./media/virtual-machines-common-tag/edit-tags-in-azure-portal.png)
 
-Click **Create** to deploy this template with your tag values.
+Klik op **maken** om deze sjabloon met de waarden van uw code te implementeren.
 
-## <a name="tagging-through-the-portal"></a>Tagging through the Portal
-After creating your resources with tags, you can view, add, and delete tags in the portal.
+## <a name="tagging-through-the-portal"></a>Via de Portal-tagging
+Na het maken van uw resources met labels, kunt u weergeven, toevoegen en verwijderen van de labels in de portal.
 
-Select the tags icon to view your tags:
+Selecteer het pictogram labels de labels weergeven:
 
-![Tags icon in Azure portal](./media/virtual-machines-common-tag/azure-portal-tags-icon.png)
+![Pictogram van de labels in Azure-portal](./media/virtual-machines-common-tag/azure-portal-tags-icon.png)
 
-Add a new tag through the portal by defining your own Key/Value pair, and save it.
+Een nieuwe code via de portal door te definiëren van uw eigen sleutel-waardepaar toevoegt en sla het.
 
-![Add new Tag in Azure portal](./media/virtual-machines-common-tag/azure-portal-add-new-tag.png)
+![Nieuw label toevoegen in Azure-portal](./media/virtual-machines-common-tag/azure-portal-add-new-tag.png)
 
-Your new tag should now appear in the list of tags for your resource.
+Uw nieuwe code wordt nu weergegeven in de lijst met labels voor uw resource.
 
-![New Tag saved in Azure portal](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
+![Nieuwe code opgeslagen in Azure-portal](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
 

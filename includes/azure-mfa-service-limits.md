@@ -9,8 +9,3 @@
 | Gebruikersaccount vergrendelen na **X** opeenvolgende MFA-weigeringen |Niet ingesteld |99 |
 | Accountvergrendelingsteller opnieuw instellen na **X** minuten |Niet ingesteld |9999 |
 | Account ontgrendelen na **X** minuten |Niet ingesteld |9999 |
-
-
-<!--HONumber=Feb17_HO1-->
-
-

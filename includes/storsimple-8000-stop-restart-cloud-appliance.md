@@ -1,6 +1,4 @@
-<a id="to-stop-and-start-a-cloud-appliance" class="xliff"></a>
-
-#### Een cloudapparaat starten en stoppen
+#### <a name="to-stop-and-start-a-cloud-appliance"></a>Een cloudapparaat starten en stoppen
 
 1. Als u een cloudapparaat wilt stoppen, gaat u naar de virtuele machine voor uw cloudapparaat.
     ![StorSimple-cloudapparaat - virtuele machine](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart1.png)
@@ -27,9 +25,7 @@ Gebruik de volgende cmdlets om een cloudapparaat te stoppen en te starten.
 
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-<a id="to-restart-a-cloud-appliance" class="xliff"></a>
-
-#### Een cloudapparaat opnieuw opstarten
+#### <a name="to-restart-a-cloud-appliance"></a>Een cloudapparaat opnieuw opstarten
 
 Als u een cloudapparaat opnieuw wilt opstarten, gaat u naar de virtuele machine voor uw cloudapparaat. Klik vanuit de opdrachtbalk op **Opnieuw starten**. Bevestig het opnieuw starten als u daarom wordt gevraagd. Wanneer het cloudapparaat gereed is voor gebruik, is de status **Wordt uitgevoerd**.
 

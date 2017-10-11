@@ -15,12 +15,11 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 5250c0cbc71450eb66f79226a1ecb062a9335ee3
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/14/2017
-
+ms.openlocfilehash: c469dfaccf515bcd1ced43279decfefe6be8375b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Adreslijstintegratie tussen Azure MFA-server en Active Directory
 Gebruik de sectie Adreslijstintegratie van de Azure MFA-server voor integratie met Active Directory of een andere LDAP-directory. U kunt kenmerken configureren zodat deze overeenkomen met het Active Directory-schema en automatische gebruikerssynchronisatie instellen.
@@ -139,4 +138,3 @@ Met de knoppen Omhoog en Omlaag kan de beheerder de volgorde van de synchronisat
 Extra Multi-Factor Authentication-servers kunnen worden ingesteld om te fungeren als een back-up-RADIUS-proxy, LDAP-proxy of voor IIS-authenticatie. De configuratie van de synchronisatie wordt gedeeld tussen alle agents. De service van de Multi-Factor Authentication-server kan echter slechts op één van deze agents worden uitgevoerd. Op dit tabblad kunt u de Multi-Factor Authentication-server selecteren die voor synchronisatie moet worden ingeschakeld.
 
 ![Multi-Factor Auth-servers](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
-

@@ -1,11 +1,11 @@
-| Resource | Maximum Limit |
+| Resource | Maximumaantal |
 | --- | --- |
-| App Collection Users |5 per App Collection |
-| Average Data points |200 per Active User/Day |
-| Average App-Info set |50 per Active User/Day |
-| Average Messages pushed |20 per Active User/Day |
-| Segments |100 per app |
+| App-verzameling gebruikers |5 per App-verzameling |
+| Gemiddelde gegevenspunten |200 per actieve gebruiker per dag |
+| Gemiddelde App-Info instellen |50 per actieve gebruiker per dag |
+| Gemiddelde berichten gepusht |20 per actieve gebruiker per dag |
+| Segmenten |100 per app |
 | Criteria per segment |10 |
-| Active Push Campaigns |50 per app |
-| Total Push Campaigns (includes Active & Completed) |1000 per app |
+| Actieve Pushcampagnes |50 per app |
+| Totaal aantal Push campagnes (inclusief actieve & voltooid) |1000 per app |
 
