@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 2364ab79ec4091d41e4d340e13033181df05b507
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/15/2017
-
+ms.openlocfilehash: 466825ab78a5ac9773d8beff69cca90ff9db6c01
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-the-preconfigured-solutions"></a>Aan de slag met vooraf geconfigureerde oplossingen
 
@@ -337,7 +336,7 @@ De oplossing houdt de status van elke opdracht bij die met de oplossing wordt ve
 
 Wanneer u een vooraf geconfigureerde oplossing implementeert, maakt het implementatieproces meerdere resources in het door u geselecteerde Azure-abonnement. U kunt deze resources weergeven in Azure [Portal][lnk-portal]. Het implementatieproces maakt een **resourcegroep** met een naam die is gebaseerd op de naam die u voor uw vooraf geconfigureerde oplossing hebt gekozen:
 
-![Vooraf geconfigureerde oplossing in de Azure-portal][img-portal]
+![Vooraf geconfigureerde oplossing in Azure Portal][img-portal]
 
 U kunt de instellingen van elke resource weergeven door deze te selecteren in de lijst met resources in de resourcegroep.
 

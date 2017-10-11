@@ -1,25 +1,25 @@
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Vereisten
 
-To complete this tutorial, you need an active Azure subscription.
+U hebt een actief Azure-abonnement nodig om deze zelfstudie te voltooien.
 
 > [!NOTE]
-> If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
+> Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure][lnk-free-trial] voor meer informatie.
 
-### <a name="required-software"></a>Required software
+### <a name="required-software"></a>Vereiste software
 
-You need SSH client on your desktop machine to enable you to remotely access the command line on the Intel NUC.
+SSH-client moet u op de computer waarmee u kunt extern toegang tot de opdrachtregel op de Intel NUC.
 
-- Windows does not include an SSH client. We recommend using [PuTTY](http://www.putty.org/).
-- Most Linux distributions and Mac OS include the command-line SSH utility.
+- Windows bevat geen een SSH-client. Wordt u aangeraden [PuTTY](http://www.putty.org/).
+- De meeste Linux-distributies en Mac OS omvatten het SSH-opdrachtregelprogramma.
 
-### <a name="required-hardware"></a>Required hardware
+### <a name="required-hardware"></a>Vereiste hardware
 
-A desktop computer to enable you to connect remotely to the command line on the Intel NUC.
+Een desktopcomputer zodat u kunt extern verbinding maken met de opdrachtregel op de Intel NUC.
 
-[IoT Commercial Gateway Kit][lnk-starter-kits]. This tutorial uses the following items from the kit:
+[Commerciële IoT Gateway Kit][lnk-starter-kits]. Deze zelfstudie maakt gebruik van de volgende items van de kit:
 
-- Intel® NUC Kit DE3815TYKE with 4G Memory and Bluetooth expansion card
-- Power adaptor
+- Intel® NUC Kit DE3815TYKE met 4G geheugen en de Bluetooth-uitbreiding-kaart
+- Stroomadapter
 
 [lnk-starter-kits]: https://azure.microsoft.com/develop/iot/starter-kits/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

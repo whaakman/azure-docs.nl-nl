@@ -1,20 +1,20 @@
 <!--author=SharS last changed: 9/17/15-->
 
 
-#### <a name="to-create-a-new-service"></a>To create a new service
-1. Use your Microsoft account credentials to log on to the [Microsoft Azure Government Portal](https://manage.windowsazure.us/).
-2. In the Government Portal, click **New** > **Data Services** > **StorSimple Manager** > **Quick Create**.
-3. In the form that is displayed, do the following:
+#### <a name="to-create-a-new-service"></a>Een nieuwe service maken
+1. Gebruik de referenties van uw Microsoft-account aan te melden bij de [Microsoft Azure Government Portal](https://manage.windowsazure.us/).
+2. Klik in de Portal Government **nieuw** > **Data Services** > **StorSimple Manager** > **snelle invoer** .
+3. Ga in het formulier dat wordt weergegeven, als volgt te werk:
    
-   1. Supply a unique **Name** for your service. This is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
-   2. Supply a **Location** for your service. Location refers to the geographical region where you want to deploy your device. Select **US Govt Iowa** or **US Govt Virgina**.
-   3. Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present if you have only one subscription.
-   4. Select **Create a new storage account** to automatically create a storage account with the service. This storage account will have a special name such as "storsimplebwv8c6dcnf."
-   5. Click **Create StorSimple Manager** to create the service.
+   1. Geef een unieke **naam** voor uw service op. Dit is een beschrijvende naam die kan worden gebruikt om de service te identificeren. De naam kan tussen 2 en 50 tekens bevatten (letters, cijfers en afbreekstreepjes). De naam moet beginnen en eindigen met een letter of cijfer.
+   2. Geef een **locatie** voor uw service op. Locatie verwijst naar de geografische regio waar u het apparaat implementeert. Selecteer **VS Govt Iowa** of **VS Govt Virgina**.
+   3. Kies een **abonnement** in de vervolgkeuzelijst. Het abonnement is gekoppeld aan uw factureringsrekening. Dit veld wordt niet weergegeven als u slechts één abonnement hebt.
+   4. Selecteer **Een nieuw opslagaccount maken** om automatisch een opslagaccount te maken met de service. Dit opslagaccount heeft een speciale naam, zoals storsimplebwv8c6dcnf.
+   5. Klik op **StorSimple Manager maken** om de service te maken.
       
-       ![create a service](./media/storsimple-create-new-service-gov/HCS_CreateAService-gov-include.png)
+       ![Een service maken](./media/storsimple-create-new-service-gov/HCS_CreateAService-gov-include.png)
       
-      You will be directed to the **Service** landing page. The service creation will take a few minutes. After the service is successfully created, you will be notified appropriately and the status of the service will change to **Active**.
+      U wordt omgeleid naar de landingspagina **Service**. Het maken van een service duurt enkele minuten. Nadat de service is gemaakt, krijgt u hierover een melding en wordt de status van de service gewijzigd in **Actief**.
       
-       ![service creation](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
+       ![maken van de service](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
 

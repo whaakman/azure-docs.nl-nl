@@ -1,21 +1,21 @@
-The job produces a JSON output file that contains metadata about detected and tracked faces. The metadata includes coordinates indicating the location of faces, as well as a face ID number indicating the tracking of that individual. Face ID numbers are prone to reset under circumstances when the frontal face is lost or overlapped in the frame, resulting in some individuals getting assigned multiple IDs.
+De taak wordt een JSON-uitvoer-bestand met metagegevens over gedetecteerde en bijgehouden. De metagegevens bevat de coördinaten die de locatie van vlakken, evenals een face-id die aangeeft dat afzonderlijke volgen. Face-id-nummers zijn kwetsbaar voor opnieuw omstandigheden worden ingesteld als de voorzijde face verloren is gegaan of elkaar overlappen in het kader waardoor bepaalde personen ophalen van meerdere id's toegewezen.
 
-The output JSON includes the following attributes:
+De JSON van de uitvoer bevat de volgende kenmerken:
 
-| Element | Description |
+| Element | Beschrijving |
 | --- | --- |
-| version |This refers to the version of the Video API. |
-| index | (Applies to Azure Media Redactor only) defines the frame index of the current event. |
-| timescale |"Ticks" per second of the video. |
-| offset |This is the time offset for timestamps. In version 1.0 of Video APIs, this will always be 0. In future scenarios we support, this value may change. |
-| framerate |Frames per second of the video. |
-| fragments |The metadata is chunked up into different segments called fragments. Each fragment contains a start, duration, interval number, and event(s). |
-| start |The start time of the first event in ‘ticks’. |
-| duration |The length of the fragment, in “ticks”. |
-| interval |The interval of each event entry within the fragment, in “ticks”. |
-| events |Each event contains the faces detected and tracked within that time duration. It is an array of array of events. The outer array represents one interval of time. The inner array consists of 0 or more events that happened at that point in time. An empty bracket [] means no faces were detected. |
-| id |The ID of the face that is being tracked. This number may inadvertently change if a face becomes undetected. A given individual should have the same ID throughout the overall video, but this cannot be guaranteed due to limitations in the detection algorithm (occlusion, etc.) |
-| x, y |The upper left X and Y coordinates of the face bounding box in a normalized scale of 0.0 to 1.0. <br/>-X and Y coordinates are relative to landscape always, so if you have a portrait video (or upside-down, in the case of iOS), you'll have to transpose the coordinates accordingly. |
-| width, height |The width and height of the face bounding box in a normalized scale of 0.0 to 1.0. |
-| facesDetected |This is found at the end of the JSON results and summarizes the number of faces that the algorithm detected during the video. Because the IDs can be reset inadvertently if a face becomes undetected (e.g. face goes off screen, looks away), this number may not always equal the true number of faces in the video. |
+| Versie |Dit verwijst naar de versie van de Video-API. |
+| Index | (Alleen van toepassing op Azure Media Redactor) definieert de frame-index van de huidige gebeurtenis. |
+| Tijdschaal |'Maatstreepjes' per seconde van de video. |
+| offset |Dit is het tijdverschil voor tijdstempels. Versie 1.0 van Video-API's, zal dit altijd 0 zijn. In de toekomst scenario's die wordt ondersteund, deze waarde kan worden gewijzigd. |
+| framesnelheid |Frames per seconde van de video. |
+| fragmenten |De metagegevens wordt gesegmenteerde in verschillende segmenten fragmenten aangeroepen. Elke fragment bevat een start, duur, Intervalnummer en gebeurtenis(sen). |
+| start |De begintijd van de eerste gebeurtenis in 'maatstreepjes'. |
+| Duur |De lengte van het fragment, in 'maatstreepjes'. |
+| Interval |Het interval van elke gebeurtenisvermelding in het fragment, in 'maatstreepjes'. |
+| events |Elke gebeurtenis bevat de vlakken gedetecteerd en bijgehouden in die tijd. Het is een matrix van gebeurtenissen. De buitenste matrix vertegenwoordigt een tijdsinterval. De interne matrix bestaat uit 0 of meer gebeurtenissen die hebben plaatsgevonden op dat moment. Een leeg accolade [] betekent dat er geen vlakken zijn gedetecteerd. |
+| id |De ID van het oppervlak dat wordt bijgehouden. Dit nummer mogelijk per ongeluk wijzigen als een gezicht niet gevonden wordt. Een bepaalde persoon moet dezelfde ID in de algehele video hebben, maar dit kan niet worden gegarandeerd door beperkingen in de detectie-algoritme (Occlusie, enz.) |
+| x, y |De linkerbovenhoek X en Y-coördinaten van het oppervlak begrenzingsvak in een genormaliseerde schaal van 0,0 en 1,0. <br/>-X en Y coördinaten ten opzichte van Liggend altijd, zijn dus als er een portret video (of omlaag, in het geval van iOS), hebt u de coördinaten dienovereenkomstig omzetting. |
+| breedte, hoogte |De breedte en hoogte van het oppervlak begrenzingsvak in een genormaliseerde schaal van 0,0 en 1,0. |
+| facesDetected |Dit is gevonden aan het einde van de JSON-resultaten en bevat een overzicht van het aantal vlakken die het algoritme dat tijdens de video wordt gedetecteerd. Omdat de id's per ongeluk kunnen worden hersteld als een gezicht niet gevonden wordt (bijvoorbeeld face scherm ziet er verwijderd), gaat het true aantal vlakken in de video mogelijk niet altijd gelijk aan dit nummer. |
 

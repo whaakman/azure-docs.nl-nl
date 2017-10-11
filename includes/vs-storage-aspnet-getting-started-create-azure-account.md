@@ -1,6 +1,6 @@
-## <a name="create-an-azure-storage-account"></a>Create an Azure storage account
-The easiest way to create your first Azure storage account is by using the [Azure Portal](https://portal.azure.com). To learn more, see [Create a storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
+## <a name="create-an-azure-storage-account"></a>Een Azure-opslagaccount maken
+De eenvoudigste manier om uw eerste Azure-opslagaccount te maken, is via [Azure Portal](https://portal.azure.com). Zie [Een opslagaccount maken](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) voor meer informatie.
 
-You can also create an Azure storage account by using [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md), or the [Storage Resource Provider Client Library for .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx).
+U kunt ook een Azure-opslagaccount maken met behulp van [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md) of de [clientbibliotheek van Storage Resource Provider voor .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx).
 
 

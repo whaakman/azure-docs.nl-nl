@@ -1,15 +1,15 @@
-In this section, you update code in your existing Mobile Apps back-end project to send a push notification every time a new item is added. This is powered by the [template](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) feature of Azure Notification Hubs, enabling cross-platform pushes. The various clients are registered for push notifications using templates, and a single universal push can get to all client platforms.
+In deze sectie kunt u code bijwerken in uw bestaande Mobile Apps back-end-project voor het verzenden van een push-melding telkens wanneer een nieuw item wordt toegevoegd. Dit wordt mogelijk gemaakt door de [sjabloon](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) functie van Azure Notification Hubs, platformoverschrijdende pushes inschakelen. De verschillende clients worden geregistreerd voor pushmeldingen met behulp van sjablonen en een enkele universal push toegang krijgen tot alle clientplatforms.
 
-Choose one of the following procedures that matches your back-end project type&mdash;either [.NET back end](#dotnet) or [Node.js back end](#nodejs).
+Kies een van de volgende procedures die overeenkomt met uw back-end projecttype&mdash;beide [.NET back-end](#dotnet) of [Node.js-back-end](#nodejs).
 
-### <a name="dotnet"></a>.NET back-end project
-1. In Visual Studio, right-click the server project and click **Manage NuGet Packages**. Search for `Microsoft.Azure.NotificationHubs`, and then click **Install**. This installs the Notification Hubs library for sending notifications from your back end.
-2. In the server project, open **Controllers** > **TodoItemController.cs**, and add the following using statements:
+### <a name="dotnet"></a>.NET-back-end-project
+1. In Visual Studio met de rechtermuisknop op het serverproject en klik op **NuGet-pakketten beheren**. Zoeken naar `Microsoft.Azure.NotificationHubs`, en klik vervolgens op **installeren**. Hiermee installeert u de Notification Hubs-bibliotheek voor het verzenden van meldingen vanuit uw back-end.
+2. Open in het serverproject **domeincontrollers** > **TodoItemController.cs**, en voeg de volgende using-instructies:
 
         using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
         using Microsoft.Azure.Mobile.Server.Config;
-3. In the **PostTodoItem** method, add the following code after the call to **InsertAsync**:  
+3. In de **PostTodoItem** methode, voeg de volgende code na het aanroepen van **InsertAsync**:  
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -45,12 +45,12 @@ Choose one of the following procedures that matches your back-end project type&m
                 .Error(ex.Message, null, "Push.SendAsync Error");
         }
 
-    This sends a template notification that contains the item.Text when a new item is inserted.
-4. Republish the server project.
+    Dit stuurt de melding van een sjabloon die het item bevat. Tekst als er een nieuw item wordt toegevoegd.
+4. Het serverproject publiceren.
 
-### <a name="nodejs"></a>Node.js back-end project
-1. If you haven't already done so, [download the quickstart back-end project](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart), or else use the [online editor in the Azure portal](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
-2. Replace the existing code in todoitem.js with the following:
+### <a name="nodejs"></a>Node.js-back-end-project
+1. Als u dit nog niet hebt gedaan, [downloaden van het snelstartproject dat back-end](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart), of gebruik anders de [online-editor in Azure portal](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+2. Vervang de bestaande code in todoitem.js door het volgende:
 
         var azureMobileApps = require('azure-mobile-apps'),
         promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -91,5 +91,5 @@ Choose one of the following procedures that matches your back-end project type&m
 
         module.exports = table;  
 
-    This sends a template notification that contains the item.text when a new item is inserted.
-3. When editing the file on your local computer, republish the server project.
+    Dit stuurt de melding van een sjabloon waarin de item.text wanneer een nieuw item wordt ingevoerd.
+3. Bij het bewerken van het bestand op uw lokale computer opnieuw publiceren het serverproject.

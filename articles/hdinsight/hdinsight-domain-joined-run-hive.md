@@ -1,5 +1,5 @@
 ---
-title: Hive-beleidsregels configureren in HDInsight dat is gekoppeld aan een domein | Microsoft Docs
+title: Hive-beleid configureren in het domein HDInsight - Azure | Microsoft Docs
 description: Meer informatie...
 services: hdinsight
 documentationcenter: 
@@ -9,17 +9,18 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 20ae053057e74e0bc874391dd8a9cd19e0a293e7
-ms.openlocfilehash: 2d244187585f716af8c4e6d65a445e0ab8217890
-
-
+ms.openlocfilehash: de537d5e39dd0d3f75ff802948c7372e4d65d127
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight-preview"></a>Hive-beleidsregels configureren in HDInsight dat is gekoppeld aan een domein (voorbeeld)
 Hier leert u hoe u Apache Ranger-beleidsregels voor Hive configureert. In dit artikel maakt u twee Ranger-beleidsregels om toegang tot de hivesampletable te beperken. De hivesampletable wordt geleverd met HDInsight-clusters. Nadat u de beleidsregels hebt geconfigureerd, gebruikt u Excel en het ODBC-stuurprogramma om verbinding te maken met Hive-tabellen in HDInsight.
@@ -90,7 +91,7 @@ De instructies vindt u in [Hive ODBC-gegevensbron maken](hdinsight-connect-excel
     Type Hive-server|Selecteer <strong>Hive Server 2</strong>
     Mechanisme|Selecteer <strong>Azure HDInsight Service</strong>
     HTTP-pad|Laat dit leeg.
-    Gebruikersnaam|Voer hiveuser1@contoso158.onmicrosoft.com. in. Werk de domeinnaam bij als deze anders is.
+    Gebruikersnaam|Voer hiveuser1@contoso158.onmicrosoft.com. Werk de domeinnaam als deze verschilt.
     Wachtwoord|Voer het wachtwoord van hiveuser1 in.
     </table>
 
@@ -139,13 +140,7 @@ De tweede beleidsregel (read-hivesampletable-devicemake) testen die u in de laat
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Aan een domein gekoppelde HDInsight-clusters configureren) om een HDInsight-cluster te configureren dat is gekoppeld aan een domein.
 * Zie [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md) (Aan een domein gekoppelde HDInsight-clusters beheren) om HDInsight-clusters te beheren die zijn gekoppeld aan een domein.
-* Zie [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined) (SSH met Hadoop op basis van Linux gebruiken op HDInsight in Linux, Unix of OS X) om Hive-query's uit te voeren met behulp van SSH op HDInsight-clusters die zijn gekoppeld aan een domein.
+* Zie voor het uitvoeren van Hive-query's met SSH op domein HDInsight-clusters [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 * Zie [Connect to Hive on Azure HDInsight using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md) (Verbinding maken met Hive op Azure HDInsight met het Hive JDBC-stuurprogramma) om Hive te verbinden met behulp van Hive JDBC.
 * Zie [Connect Excel to Hadoop with the Microsoft Hive ODBC drive](hdinsight-connect-excel-hive-odbc-driver.md) (Excel verbinden met Hadoop met het Microsoft Hive ODBC-station) om Excel te verbinden met Hadoop met behulp van Hive ODBC.
 * Zie [Connect Excel to Hadoop by using Power Query](hdinsight-connect-excel-power-query.md) (Excel verbinden met Hadoop via Power Query) om Excel te verbinden met Hadoop met behulp van Power Query.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-

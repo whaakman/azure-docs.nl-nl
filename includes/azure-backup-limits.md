@@ -1,12 +1,12 @@
-The following limits apply to Azure Backup.
+De volgende beperkingen gelden voor Azure Backup.
 
-| Limit Identifier | Default Limit |
+| Limiet-ID | Standaardlimiet |
 | --- | --- |
-| Number of servers/machines that can be registered against each vault |50 for Windows Server/Client/SCDPM <br/> 200 for IaaS VMs |
-| Size of a data source for data stored in Azure vault storage |54400 GB max<sup>1</sup> |
-| Number of backup vaults that can be created in each Azure subscription |25(Backup vaults) <br/> 25 Recovery Services vault per region |
-| Number of times backup can be scheduled per day |3 per day for Windows Server/Client <br/> 2 per day for SCDPM <br/> Once a day for IaaS VMs |
-| Data disks attached to an Azure virtual machine for backup |16 |
+| Aantal servers/machines dat kan worden geregistreerd voor elke kluis |50 voor Windows Client-Server/SCDPM <br/> 200 voor IaaS VM 's |
+| Grootte van een gegevensbron voor gegevens die zijn opgeslagen in de kluis van Azure-opslag |54400 GB max<sup>1</sup> |
+| Aantal back-upkluizen dat kan worden gemaakt in elk Azure-abonnement |25 (Backup-kluizen) <br/> 25 recovery Services-kluis per regio |
+| Aantal keren dat back-up per dag kan worden gepland |3 per dag voor Windows Server /-Client <br/> 2 per dag voor SCDPM <br/> Eenmaal per dag voor IaaS VM 's |
+| Gegevensschijven gekoppeld aan een virtuele machine van Azure voor back-up |16 |
 
-* <sup>1</sup>The 54400 GB limit does not apply to IaaS VM backup.
+* <sup>1</sup>de limiet van 54400 GB geldt niet voor IaaS VM back-up.
 

@@ -1,30 +1,30 @@
-After the records for your domain name have propagated, you should be able to use your browser to verify that your custom domain name can be used to access your web app in Azure App Service.
+Nadat de records voor uw domeinnaam hebt doorgegeven, moet u mogelijk zijn voor gebruik met uw browser om te controleren dat de naam van uw aangepaste domein kan worden gebruikt voor toegang tot uw web-app in Azure App Service.
 
 > [!NOTE]
-> It can take some time for your CNAME to propagate through the DNS system. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
+> Het kan even duren voor uw CNAME worden doorgegeven via de DNS-systeem. U kunt een service zoals <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> om te controleren of de CNAME beschikbaar.
 > 
 > 
 
-If you have not already added your web app as a Traffic Manager endpoint, you must do this before name resolution will work, as the custom domain name routes to Traffic Manager. Traffic Manager then routes to your web app. Use the information in [Add or Delete Endpoints](../articles/traffic-manager/traffic-manager-endpoints.md) to add your web app as an endpoint in your Traffic Manager profile.
+Als u uw web-app nog niet als een Traffic Manager-eindpunt hebt toegevoegd, moet u dit doen voordat naamomzetting als het aangepaste domein naam routes aan Traffic Manager werkt. Traffic Manager stuurt vervolgens naar uw web-app. Gebruik de informatie in [toevoegen of verwijderen eindpunten](../articles/traffic-manager/traffic-manager-endpoints.md) uw web-app toevoegen als een eindpunt in uw Traffic Manager-profiel.
 
 > [!NOTE]
-> If your web app is not listed when adding an endpoint, verify that it is configured for **Standard** App Service plan mode. You must use **Standard** mode for your web app in order to work with Traffic Manager.
+> Als uw web-app niet wordt weergegeven wanneer u een eindpunt toevoegt, controleert u of deze is geconfigureerd voor **standaard** modus van App Service-plan. U moet gebruiken **standaard** modus voor uw web-app om te kunnen werken met Traffic Manager.
 > 
 > 
 
-1. In your browser, open the [Azure Portal](https://portal.azure.com).
-2. In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains**
+1. Open in uw browser de [Azure Portal](https://portal.azure.com).
+2. In de **Web-Apps** en klik op de naam van uw web-app, selecteer **instellingen**, en selecteer vervolgens **aangepaste domeinen**
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
-3. In the **Custom domains** blade, click **Add hostname**.
-4. Use the **Hostname** text boxes to enter the Traffic Manager domain name to associate with this web app.
+3. In de **aangepaste domeinen** blade, klikt u op **hostnaam toevoegen**.
+4. Gebruik de **hostnaam** tekstvakken in te voeren de Traffic Manager-domeinnaam wilt koppelen aan deze web-app.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
-5. Click **Validate** to save the domain name configuration.
-6. Upon clicking **Validate** Azure will kick off Domain Verification workflow. This will check for Domain ownership as well as Hostname availability and report success or detailed error with prescriptive guidence on how to fix the error.    
-7. Upon successful validation **Add hostname** button will become active and you will be able to the assign hostname. Now navigate to your custom domain name in a browser. You should now see your app running using your custom domain name. 
+5. Klik op **valideren** om op te slaan van de configuratie van de naam.
+6. Wanneer u op klikt **valideren** Azure wordt ere van domeinverificatie werkstroom. Hiermee wordt gecontroleerd op domein eigendom, evenals de beschikbaarheid en rapport geslaagd hostnaam of gedetailleerde fout met prescriptieve guidence voor het oplossen van de fout.    
+7. Na geslaagde validatie **hostnaam toevoegen** knop wordt actief en is het mogelijk naar de hostnaam van de toewijzing. Nu gaat u naar uw aangepaste domeinnaam in een browser. U ziet nu uw app wordt uitgevoerd met behulp van uw aangepaste domeinnaam. 
    
-   Once configuration has completed, the custom domain name will be listed in the **domain names** section of your web app.
+   Zodra de configuratie is voltooid, kunt u de aangepaste domeinnaam wordt weergegeven in de **domeinnamen** gedeelte van uw web-app.
 
-At this point, you should be able to enter the Traffic Manager domain name name in your browser and see that it successfully takes you to your web app.
+Op dit moment moet u kunnen de Traffic Manager-domeinnaam invoeren in uw browser en Zie dat het met succes u naar uw web-app gaat.
 

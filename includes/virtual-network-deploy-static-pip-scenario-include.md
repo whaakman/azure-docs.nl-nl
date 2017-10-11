@@ -1,9 +1,9 @@
 ## <a name="scenario"></a>Scenario
-This document will walk through a deployment that uses a static public IP address allocated to a virtual machine (VM). In this scenario, you have a single VM with its own static public IP address. The VM is part of a subnet named **FrontEnd** and also has a static private IP address (**192.168.1.101**) in that subnet.
+Dit document begeleidt bij een implementatie die een statische openbare IP-adres is toegewezen aan een virtuele machine (VM) gebruikt. In dit scenario hebt u een enkele virtuele machine met een eigen statische openbare IP-adres. De virtuele machine deel uitmaakt van een subnet met de naam **FrontEnd** en heeft ook een statisch privé IP-adres (**192.168.1.101**) in dat subnet.
 
-You may need a static IP address for web servers that require SSL connections in which the SSL certificate is linked to an IP address. 
+Mogelijk moet u een statisch IP-adres voor webservers die waarin het SSL-certificaat is gekoppeld aan een IP-adres van SSL-verbindingen vereisen. 
 
-![IMAGE DESCRIPTION](./media/virtual-network-deploy-static-pip-scenario-include/figure1.png)
+![BESCHRIJVING VAN AFBEELDING](./media/virtual-network-deploy-static-pip-scenario-include/figure1.png)
 
-You can follow the steps below to deploy the environment shown in the figure above.
+U kunt de onderstaande stappen voor het implementeren van de omgeving wordt weergegeven in de bovenstaande afbeelding volgen.
 

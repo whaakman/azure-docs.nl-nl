@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/25/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: aa657c92f347f7529affee78ad1842e5e066b74d
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="what-is-site-recovery"></a>Wat is Site Recovery?
 
@@ -79,4 +78,3 @@ Met Site Recovery kunt u replicatie beheren voor:
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [workloadondersteuning](site-recovery-workload.md)
 * Aan de slag met [Azure VM-replicatie tussen regio's](site-recovery-azure-to-azure.md), [VMware-replicatie naar Azure](vmware-walkthrough-overview.md) of [Hyper-V-replicatie naar Azure](hyper-v-site-walkthrough-overview.md).
-

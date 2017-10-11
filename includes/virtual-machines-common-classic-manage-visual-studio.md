@@ -1,133 +1,133 @@
-You can create virtual machines in Azure by using Server Explorer in Visual Studio.
+U kunt virtuele machines in Azure maken met behulp van de Server Explorer in Visual Studio.
 
-## <a name="create-an-azure-virtual-machine-in-server-explorer"></a>Create an Azure virtual machine in Server Explorer
-While you can create a virtual machine in the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103), you can also create a virtual machine in Azure by using commands in Server Explorer. Virtual machines can be used, for example, to provide a front end behind a common load-balanced public endpoint.
+## <a name="create-an-azure-virtual-machine-in-server-explorer"></a>Maken van een virtuele machine van Azure in Server Explorer
+Bij het maken van een virtuele machine in de [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103), u kunt ook een virtuele machine in Azure maken met behulp van opdrachten in Server Explorer. Virtuele machines kan bijvoorbeeld worden gebruikt om een front-end achter een algemene taakverdeling openbaar eindpunt.
 
-### <a name="to-create-a-new-virtual-machine"></a>To create a new virtual machine
-1. In Server Explorer, open the **Azure** node and click **Virtual Machines**.
-2. On the context menu, click **Create Virtual Machine**.
+### <a name="to-create-a-new-virtual-machine"></a>Een nieuwe virtuele machine maken
+1. Open in Server Explorer, de **Azure** knooppunt en klik op **virtuele Machines**.
+2. Klik in het contextmenu op **virtuele Machine maken**.
    
-    The **Create a New Virtual Machine** wizard appears.
+    De **maken van een nieuwe virtuele Machine** wizard wordt weergegeven.
    
-    ![The Create Virtual Machine command](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718342.png)
-3. On the **Choose a Subscription** page, select a subscription to use when creating the virtual machine and then click **Next**.
+    ![De opdracht van de virtuele Machine maken](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718342.png)
+3. Op de **Kies een abonnement** pagina, selecteer een abonnement moet worden gebruikt bij het maken van de virtuele machine en klik vervolgens op **volgende**.
    
-    If you aren’t signed in to Azure, click **Sign In** to sign in. Then, select your Azure subscription in the dropdown list box if it’s not already selected.
-4. On the **Select a Virtual Machine Image** page, select an image type in the **Image type** dropdown list box, and then select a virtual machine images in the **Image name** list box. When you're done, click **Next**.
+    Als u bent niet aangemeld bij Azure, klikt u op **aanmelden** aan te melden. Selecteer vervolgens uw Azure-abonnement in de vervolgkeuzelijst als deze nog niet is geselecteerd.
+4. Op de **selecteert u de installatiekopie van een virtuele Machine** pagina, selecteert u een type installatiekopie in de **afbeeldingstype** dropdown keuzelijst en selecteer vervolgens de installatiekopieën van een virtuele machine in de **installatiekopienaam** keuzelijst met invoervak . Wanneer u bent klaar, klikt u op **volgende**.
    
-    ![Select a virtual machine image page](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744137.png)
+    ![Selecteer een pagina van de installatiekopie van virtuele machine](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744137.png)
    
-    You can choose the following image types.
+    U kunt de volgende afbeeldingstypen.
    
-   * **Public Images** lists virtual machine images of operating systems and server software such as Windows Server and SQL Server.
-   * **MSDN Images** lists virtual machine images of software available to MSDN subscribers, such as Visual Studio and Microsoft Dynamics.
-   * **Private Images** lists specialized and generalized virtual machine images that you've created.
+   * **Installatiekopieën van het openbare** geeft een lijst van virtuele machine installatiekopieën van besturingssystemen en server-software, zoals Windows Server en SQL Server.
+   * **MSDN-installatiekopieën** geeft een lijst van installatiekopieën van virtuele machines van de software beschikbaar voor MSDN-abonnees, zoals Visual Studio en Microsoft Dynamics.
+   * **Installatiekopieën van het particuliere** lijsten gespecialiseerde en gegeneraliseerd installatiekopieën van virtuele machines die u hebt gemaakt.
      
-     To learn about specialized and generalized virtual machines, see [VM Image](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). See [How to Capture a Windows Virtual Machine to Use as a Template](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) for information about how to turn a virtual machine into a template that you can use to quickly create new pre-configured virtual machines.
+     Zie voor meer informatie over gespecialiseerde en gegeneraliseerde virtuele machines, [VM-installatiekopie](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). Zie [het vastleggen van een virtuele Windows-Machine voor gebruik als een sjabloon](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) voor informatie over het inschakelen van een virtuele machine naar een sjabloon kunt u snel maken van nieuwe vooraf virtuele machines geconfigureerde.
      
-     You can click a virtual machine image name to see information about the image on the right side of the page.
+     U kunt klikken op de naam van een virtuele machine-installatiekopie voor informatie over de installatiekopie aan de rechterkant van de pagina.
      
      > [!NOTE]
-     > You can't add virtual machine images to the **Public Images** or **MSDN Images** lists because they are read-only. All virtual machines that you create are added to the **Private Images** list.
+     > U kunt geen toevoegen installatiekopieën van virtuele machine naar de **openbare afbeeldingen** of **MSDN-installatiekopieën** geeft een lijst van omdat ze alleen-lezen. Alle virtuele machines die u maakt worden toegevoegd aan de **persoonlijke afbeeldingen** lijst.
      > 
      > 
      
-     If you're an MSDN subscriber with a Visual Studio-level subscription, you can create a pre-built Azure virtual machine that contains Visual Studio, as well as several other images. For more information, see [Create a Virtual Machine in Visual Studio by Using Images Visual Studio 2013 Gallery image for MSDN subscribers](http://visualstudio2013msdngalleryimage.azurewebsites.net) and [MSDN subscriptions](https://www.visualstudio.com/products/msdn-subscriptions-vs).|
-5. On the **Virtual Machine Basic Settings** page, enter a machine name and then add the specifications for the virtual machine, including the size, and a user name and password. When you're done, click **Next**.
+     Als u een MSDN-abonnee met een abonnement van de Visual Studio-niveau, kunt u een vooraf gemaakte virtuele machine van Azure met Visual Studio, evenals enkele andere afbeeldingen. Zie voor meer informatie [een virtuele Machine maken in Visual Studio door de installatiekopie met behulp van installatiekopieën van Visual Studio 2013-galerie voor MSDN-abonnees](http://visualstudio2013msdngalleryimage.azurewebsites.net) en [MSDN-abonnement](https://www.visualstudio.com/products/msdn-subscriptions-vs). |
+5. Op de **basisinstellingen van de virtuele Machine** pagina, Geef een computernaam op en voeg vervolgens de specificaties voor de virtuele machine, met inbegrip van de grootte en een gebruikersnaam en wachtwoord. Wanneer u bent klaar, klikt u op **volgende**.
    
-    You’ll use the new name and password to log into the machine using remote desktop, so it’s a good idea to write them down in case you forget. After you create an Azure virtual machine in Visual Studio, you can change its size and other settings in the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
-   
-   > [!NOTE]
-   > If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
-   > 
-   > 
-6. Virtual machines created in Visual Studio require a cloud service. On the **Cloud Service Settings** page, select a cloud service for the virtual machine, or click **<Create New…>** in the dropdown list if you don’t already have a cloud service or want to use a new one. A storage account is also required, so choose a storage account (or create a new storage account) in the **Storage account** dropdown list box. See [Introduction to Microsoft Azure Storage](../articles/storage/common/storage-introduction.md) for more information.
-7. If you want to specify a virtual network (which is optional), select it in the Virtual Network and Subnet dropdown list boxes.
-   
-    Virtual machines that are members of an availability set are deployed to different fault domains. See [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) for more information.
-8. If you want your virtual machine to belong to an availability set (also optional), select the **Specify an availability set** check box and then choose an availability set in the dropdown list box. When you're done, choose the **Next** button.
-   
-    Adding your virtual machine to an availability set helps your application stay available during network failures, local disk hardware failures, and any planned downtime. You need to use the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103) to create virtual networks, subnets, and availability sets. See [Manage the Availability of Virtual Machines](https://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/) for more information.
-9. On the **Endpoints** page, specify the public endpoints that you want available to users of your virtual machine. For example, you might choose to enable HTTP (Port 80) in addition to the Remote Desktop and PowerShell endpoints, which are enabled by default. To add an endpoint, choose one in the **Port Name** dropdown list box and then choose the **Add** button. To remove an endpoint, choose the red **X** next to the name in the endpoints list.
-   
-    ![The Endpoints page in the virtual machines wizard.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
-   
-    The endpoints that are available depend on the cloud service you selected for your virtual machine. See [Azure Service Endpoints](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) for more information.
+    Gebruikt u de nieuwe naam en het wachtwoord aan te melden bij de computer met behulp van extern bureaublad, dus is het een goed idee om schrijf ze op als u vergeet. Nadat u een virtuele machine van Azure in Visual Studio hebt gemaakt, kunt u de grootte en andere instellingen in de [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
    
    > [!NOTE]
-   > Enabling public endpoints makes services on your virtual machine available to the internet. Be sure to install and properly configure the endpoints and services on your virtual machine, such as setting access control lists (ACLs) for the endpoints. See [How to Set Up Endpoints to a Virtual Machine](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) for more information.
+   > Als u een groter formaat voor de virtuele machine kiest, kunnen extra kosten toepassen. Zie [prijsinformatie voor virtuele Machines](https://azure.microsoft.com/pricing/details/virtual-machines/) voor meer informatie.
    > 
    > 
-10. After you’re done configuring the virtual machine settings, choose the **Create** button to create the virtual machine.
+6. Virtuele machines die zijn gemaakt in Visual Studio vereisen een cloudservice. Op de **Cloud Service-instellingen** pagina, selecteert u een cloudservice voor de virtuele machine of klik op **< Nieuw >** in de vervolgkeuzelijst als u een cloud service of wilt gebruiken, een nieuwe nog geen hebt. Een opslagaccount is ook vereist, dus kiest u een opslagaccount (of een nieuw opslagaccount maken) in de **opslagaccount** vervolgkeuzelijst. Zie [Inleiding tot Microsoft Azure Storage](../articles/storage/common/storage-introduction.md) voor meer informatie.
+7. Als u wilt opgeven van een virtueel netwerk (dit is optioneel), selecteert u deze in de keuzelijsten met vervolgkeuzelijst voor virtueel netwerk en Subnet.
+   
+    Virtuele machines die deel van een beschikbaarheidsset uitmaken zijn geïmplementeerd op verschillende foutdomeinen. Zie [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) voor meer informatie.
+8. Als u wilt dat uw virtuele machine te behoren tot een beschikbaarheidsset (ook optioneel), selecteert u de **opgeven van een beschikbaarheidsset** selectievakje in en kies vervolgens een beschikbaarheidsset in de vervolgkeuzelijst. Als u bent klaar, kiest u de **volgende** knop.
+   
+    De virtuele machine aan een beschikbaarheidsset toe te voegen, kunt u uw toepassing beschikbaar blijven tijdens netwerkfouten, hardwarefouten lokale schijf en geplande uitvaltijd. U moet gebruiken de [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103) voor het maken van virtuele netwerken, subnetten en beschikbaarheid. Zie [de beschikbaarheid van virtuele Machines beheren](https://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/) voor meer informatie.
+9. Op de **eindpunten** pagina, geeft u de openbare eindpunten die u wilt dat beschikbaar voor gebruikers van uw virtuele machine. U kunt bijvoorbeeld kiezen om het inschakelen van HTTP (poort 80) naast de extern bureaublad en PowerShell-eindpunten zijn standaard ingeschakeld. Als u wilt een eindpunt toevoegen, kiest u een in de **poortnaam** vervolgkeuzelijst in een keuzelijst en kies vervolgens de **toevoegen** knop. Als u wilt verwijderen een eindpunt, kies de rode **X** naast de naam in de lijst met eindpunten.
+   
+    ![De pagina eindpunten in de wizard virtuele machines.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
+   
+    De eindpunten die beschikbaar zijn, is afhankelijk van de cloudservice die u hebt geselecteerd voor uw virtuele machine. Zie [Azure Service-eindpunten](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) voor meer informatie.
+   
+   > [!NOTE]
+   > Inschakelen van openbare eindpunten beschikbaar services op de virtuele machine met het internet. Moet installeren en de eindpunten en services goed geconfigureerd op de virtuele machine, zoals instelling toegangsbeheerlijsten (ACL's) voor de eindpunten. Zie [ingesteld van eindpunten aan een virtuele Machine](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) voor meer informatie.
+   > 
+   > 
+10. Nadat u bent met klaar de virtuele machine-instellingen configureren, kiest u de **maken** om te maken van de virtuele machine.
     
-     As Azure creates the virtual machine, the **Azure Activity Log** shows the progress of the virtual machine creation operation.
+     Omdat Azure de virtuele machine, maakt de **Azure Activity Log** geeft de voortgang van de bewerking voor het maken van virtuele machine.
     
-     ![Virtual machine activity log - in progress.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744138.png)
+     ![Virtuele machine-activiteitenlogboek - uitgevoerd.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744138.png)
     
-     To view only virtual machine information, choose the **Virtual Machines** tab in the **Azure Activity Log**.
+     U kunt alleen de gegevens van de virtuele machine bekijken de **virtuele Machines** tabblad de **Azure Activity Log**.
     
-     ![Virtual machine activity log - completed.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744139.png)
+     ![Activiteitenlogboek van virtuele machine - voltooid.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744139.png)
     
-     If the operation completes successfully, the new virtual machine appears under the **Virtual Machines** node in Server Explorer. You can log into it by clicking the **Connect using Remote Desktop** shortcut.
+     Als de bewerking voltooid is, wordt de nieuwe virtuele machine weergegeven onder de **virtuele Machines** knooppunt in Server Explorer. U kunt zich aanmelden bij deze door te klikken op de **verbinding maken met behulp van extern bureaublad** snelkoppeling.
     
-     ![Virtual machine appearing in Server Explorer.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744140.png)
+     ![Virtuele machine wordt weergegeven in Server Explorer.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744140.png)
 
-## <a name="manage-your-virtual-machines"></a>Manage your virtual machines
-On the virtual machine configuration page, in addition to shutting down, connecting, refreshing, and adding checkpoints to the selected virtual machine, you can also view or change settings for the virtual machine. You can:
+## <a name="manage-your-virtual-machines"></a>Uw virtuele machines beheren
+U kunt ook weergeven of wijzigen van instellingen voor de virtuele machine op de pagina van de virtuele machine configuratie naast afgesloten, verbinding maken met vernieuwen en controlepunten toevoegen aan de geselecteerde virtuele machine. U kunt:
 
-* Change the virtual machine size.
-* Select the availability set to use with the virtual machine.
-* Add, remove, or change settings for public endpoints.
-* Add, remove, or configure virtual machine extensions.
-* View information about the disks associated with the virtual machine.
+* Wijzig de grootte van de virtuele machine.
+* Selecteer de beschikbaarheid instellen voor gebruik met de virtuele machine.
+* Toevoegen, verwijderen of wijzigen van instellingen voor openbare eindpunten.
+* Toevoegen, verwijderen of extensies van virtuele machine configureren.
+* Informatie weergeven over de schijven die zijn gekoppeld aan de virtuele machine.
 
-### <a name="view-or-change-virtual-machine-settings"></a>View or change virtual machine settings
-1. In Server Explorer, choose your virtual machine in the **Azure Virtual Machines** node.
-2. On the shortcut menu, choose **Configure** to view the virtual machine configuration page.
+### <a name="view-or-change-virtual-machine-settings"></a>Instellingen van de virtuele machine weergeven of wijzigen
+1. Kies in Server Explorer uw virtuele machine in de **Azure Virtual Machines** knooppunt.
+2. Kies in het snelmenu **configureren** om de configuratiepagina van de virtuele machine weer te geven.
    
-    ![The Azure virtual machine configuration page](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744141.png)
-3. View the virtual machine information or change it.
+    ![De configuratiepagina van de virtuele machine van Azure](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744141.png)
+3. Gegevens van de virtuele machine weergeven of wijzigen.
 
-### <a name="save-or-restore-the-status-of-your-virtual-machine"></a>Save or restore the status of your virtual machine
-As you configure your virtual machine and install software on it, it's a good idea to regularly save your progress by creating virtual machine checkpoints. A checkpoint is a snapshot, or image, of the current state of your virtual machine. If something goes wrong with the virtual machine, or you want to reconfigure the virtual machine, you can save time by restoring it to a previous checkpoint state rather than starting over from scratch.
+### <a name="save-or-restore-the-status-of-your-virtual-machine"></a>Opslaan of de status van de virtuele machine herstellen
+Als u uw virtuele machine configureren en software op deze installeren, is het een goed idee om uw voortgang regelmatig door te maken van controlepunten voor virtuele machines opslaan. Een controlepunt is geen momentopname of een installatiekopie van de huidige status van uw virtuele machine. Als er iets mis met de virtuele machine gaat of als u wilt opnieuw configureren van de virtuele machine, kunt u tijd besparen door dat deze wordt hersteld naar een eerdere status van controlepunt in plaats van vanaf het begin beginnen.
 
-### <a name="to-create-a-virtual-machine-checkpoint"></a>To create a virtual machine checkpoint
-1. In Server Explorer, choose your virtual machine in the **Azure Virtual Machines** node.
-2. On the shortcut menu, choose **Configure** to view the virtual machine configuration page.
-3. On the configuration page, choose the **Capture Image** button.
+### <a name="to-create-a-virtual-machine-checkpoint"></a>Controlepunt van virtuele machines maken
+1. Kies in Server Explorer uw virtuele machine in de **Azure Virtual Machines** knooppunt.
+2. Kies in het snelmenu **configureren** om de configuratiepagina van de virtuele machine weer te geven.
+3. Kies op de configuratiepagina van de **installatiekopie vastleggen** knop.
    
-    ![Azure configuration page capture button](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744142.png)
+    ![Knop voor configuratie van Azure-pagina vastleggen](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744142.png)
    
-    The **Capture Virtual Machine** dialog appears.
+    De **virtuele Machine vastleggen** dialoogvenster wordt weergegeven.
    
-    ![Azure capture virtual machine dialog box](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744143.png)
-4. Provide an image label and description. A default label and description are provided, but you can overwrite them with your own if you like.
-5. If you have already run Sysprep on this virtual machine, select the **I have run Sysprep on the virtual machine** box.
+    ![In het dialoogvenster Azure capture-virtuele machine](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744143.png)
+4. Geef een label van de installatiekopie en de beschrijving. Een standaardlabel en een beschrijving zijn opgegeven, maar u kunt deze desgewenst door uw eigen overschrijven.
+5. Als u al hebt Sysprep uitgevoerd op deze virtuele machine, selecteert u de **ik heb Sysprep uitgevoerd op de virtuele machine** vak.
    
-    Sysprep is a tool that, among other things, removes systems-specific data from the virtual machine’s version of Windows, making it template that others can use. See [How to Capture a Windows Virtual Machine to Use as a Template](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) for more information. Back up the VM before running Sysprep.
-6. After you’re done configuring the capture settings, choose the **Capture** button to create the checkpoint.
+    Sysprep is een hulpprogramma dat onder andere systemen-specifieke gegevens worden verwijderd van de versie van de virtuele machine van Windows, waardoor het sjabloon dat anderen kunnen gebruiken. Zie [het vastleggen van een virtuele Windows-Machine voor gebruik als een sjabloon](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) voor meer informatie. Back-up van de virtuele machine voordat Sysprep wordt uitgevoerd.
+6. Nadat u bent met klaar de capture-instellingen configureren, kiest u de **vastleggen** knop om het controlepunt te maken.
    
-    As Azure creates the checkpoint, the **Azure Activity Log** shows the progress of the operation.
+    Omdat Azure het controlepunt maakt de **Azure Activity Log** geeft de voortgang van de bewerking.
    
-    ![Capturing a virtual machine checkpoint](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744144.png)
+    ![Vastleggen van een controlepunt van virtuele machines](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744144.png)
    
-    When the checkpoint operation completes, you’ll see it in the **Azure Activity Log**.
+    Wanneer het controlepunt is voltooid, ziet u in de **Azure Activity Log**.
    
-    ![Checkpoint operation completed](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744145.png)
+    ![Controlepunt is voltooid](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744145.png)
 
-## <a name="to-manage-virtual-machine-checkpoints"></a>To manage virtual machine checkpoints
-### <a name="to-restore-a-virtual-machine-to-a-previously-saved-state"></a>To restore a virtual machine to a previously saved state
-* Follow the steps outlined in [Step-by-Step: Perform Cloud Restores of Microsoft Azure Virtual Machines using PowerShell - Part 2](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
+## <a name="to-manage-virtual-machine-checkpoints"></a>Voor het beheren van controlepunten voor virtuele machines
+### <a name="to-restore-a-virtual-machine-to-a-previously-saved-state"></a>Een virtuele machine te herstellen naar een eerder opgeslagen status
+* Volg de stappen die worden beschreven in [stapsgewijze: uitvoeren Cloud herstelt van Microsoft Azure Virtual Machines met behulp van PowerShell - deel 2](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
 
-### <a name="to-delete-a-checkpoint"></a>To delete a checkpoint
-1. Go to the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
-2. On the virtual machine configuration page, choose the **Images** tab at the top of the page.
-3. Choose the checkpoint you want to delete, and then choose the **Delete**  button at the bottom of the page.
+### <a name="to-delete-a-checkpoint"></a>Een controlepunt verwijderen
+1. Ga naar de [Azure-beheerportal](http://go.microsoft.com/fwlink/?LinkID=253103).
+2. Kies op de configuratiepagina van de virtuele machine de **installatiekopieën** boven op het tabblad van de pagina.
+3. Kies het controlepunt dat u wilt verwijderen, en kies vervolgens de **verwijderen** knop aan de onderkant van de pagina.
 
-## <a name="shut-down-your-virtual-machine"></a>Shut down your virtual machine
-1. In Server Explorer, choose the virtual machine you want to shut down in the **Azure Virtual Machines** node.
-2. On the shortcut menu, either choose the **Shutdown** command, or choose **Configure** to view the virtual machine configuration page, and then choose the **Shutdown** button.
+## <a name="shut-down-your-virtual-machine"></a>De virtuele machine afsluiten
+1. Kies de virtuele machine die u wilt afsluiten in Server Explorer de **Azure Virtual Machines** knooppunt.
+2. In het snelmenu, kiest u de **afsluiten** opdracht of kies **configureren** weergeven van de configuratiepagina van de virtuele machine en kies vervolgens de **afsluiten** knop.
 
-## <a name="next-steps"></a>Next steps
-To learn more about creating virtual machines, see [Create a Virtual Machine Running Linux](../articles/virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Create a virtual machine running Windows in the Azure preview portal](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+## <a name="next-steps"></a>Volgende stappen
+Zie voor meer informatie over het maken van virtuele machines, [maken van een virtuele Machine waarop Linux](../articles/virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) en [maken van een virtuele machine waarop Windows wordt uitgevoerd in de Azure preview portal](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

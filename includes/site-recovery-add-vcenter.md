@@ -4,8 +4,3 @@
 
    > [!NOTE]
    > Als u de VMware vCenter-server of VMware vSphere-host toevoegt met een account zonder beheerdersbevoegdheden voor de vCenter- of hostserver, moet u ervoor zorgen dat voor het account deze bevoegdheden zijn ingeschakeld: Datacenter, Gegevensopslag, Map, Host, Netwerk, Resource, Virtuele machine en Gedistribueerde vSphere-switch. Daarnaast moet voor de VMware vCenter-server de bevoegdheid Opslagweergaven zijn ingeschakeld.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

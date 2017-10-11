@@ -1,29 +1,29 @@
 
 
-## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>Use the portal to move a VM to a different subscription
-You can move a VM and it's associated resources to a different subscription using the portal.
+## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>De portal voor het verplaatsen van een virtuele machine naar een ander abonnement gebruiken
+U kunt een virtuele machine verplaatsen en de bijbehorende bronnen naar een ander abonnement via de portal.
 
-1. Open the [Azure portal](https://portal.azure.com).
-2. Click **Browse** > **Virtual machines** and select the VM you would like to move from the list.
+1. Open de [Azure Portal](https://portal.azure.com).
+2. Klik op **Bladeren** > **virtuele machines** en selecteer de virtuele machine die u wilt verplaatsen uit de lijst.
    
-    ![Screenshot of the Essentials section where you click the pencil icon to open the Move resources blade.](./media/virtual-machines-common-move-vm/move-button.png)
-3. In the **Essentials** section, click on the **Change subscription** pencil icon next to the subscription name. The **Move resources** blade will open.
+    ![Schermopname van de sectie Essentials waarbij u klikken op het potloodpictogram om de verplaatsing resources blade te openen.](./media/virtual-machines-common-move-vm/move-button.png)
+3. In de **Essentials** sectie, klikt u op de **abonnement wijzigen** potloodpictogram naast de naam van het abonnement. De **verplaatsen van resources** blade wordt geopend.
    
-    ![Screenshot of the Move resources blade.](./media/virtual-machines-common-move-vm/move.png)
-4. Select each of the resources to move. In most cases, you should move all of the listed optional resources.
-5. Select the **Subscription** where you want the VM to be moved.
-6. Select an existing **Resource group** or type a name to have a new resource group created.
-7. When you are done, select that you understand that new resource IDs will be created and those need to be used with the VM once it is moved, then click **OK**.
+    ![Schermopname van de blade van de resources verplaatsen.](./media/virtual-machines-common-move-vm/move.png)
+4. Selecteer elk van de resources te verplaatsen. In de meeste gevallen moet u alle vermelde optionele resources verplaatsen.
+5. Selecteer de **abonnement** waar u de virtuele machine worden verplaatst.
+6. Selecteer een bestaande **resourcegroep** of typ een naam te hebben van een nieuwe resourcegroep gemaakt.
+7. Wanneer u klaar bent, aangeven dat u begrijpt dat nieuwe resource id's worden gemaakt en die worden gebruikt met de virtuele machine moeten nadat deze is verplaatst, vervolgens klikt u op **OK**.
 
-## <a name="use-the-portal-to-move-a-vm-to-another-resource-group"></a>Use the portal to move a VM to another resource group
-You can move a VM and it's associated resources to another resource group using the portal.
+## <a name="use-the-portal-to-move-a-vm-to-another-resource-group"></a>De portal gebruiken voor het verplaatsen van een virtuele machine naar een andere resourcegroep
+U kunt een virtuele machine verplaatsen en de bijbehorende resources aan een andere resourcegroep via de portal.
 
-1. Open the [Azure portal](https://portal.azure.com).
-2. Click **Browse** > **Resource groups** and select the resource group that contains the VM.
-3. In the **Resource group** blade, select **Move** from the menu.
+1. Open de [Azure Portal](https://portal.azure.com).
+2. Klik op **Bladeren** > **resourcegroepen** en selecteert u de resourcegroep met de virtuele machine.
+3. In de **resourcegroep** blade Selecteer **verplaatsen** in het menu.
    
-    ![Screenshot of the Move button on the Resource groups menu.](./media/virtual-machines-common-move-vm/move-rg.png)
-4. In the **Move resources** blade, select the resources to be moved and then either type an existing resource group name or choose to create a new resource group. When you are done, select that you understand that new resource IDs will be created and those need to be used with the VM once it is moved, then click **OK**
+    ![Schermopname van de knop verplaatsen in het menu van de groepen Resource.](./media/virtual-machines-common-move-vm/move-rg.png)
+4. In de **verplaatsen van resources** blade, selecteer de bronnen worden verplaatst en typ vervolgens een bestaande resource naam van de groep of maak een nieuwe resourcegroep. Wanneer u klaar bent, aangeven dat u begrijpt dat nieuwe resource id's worden gemaakt en die worden gebruikt met de virtuele machine moeten nadat deze is verplaatst, vervolgens klikt u op **OK**
    
-    ![Screenshot of the Move resources blade.](./media/virtual-machines-common-move-vm/move-rg-list.png)
+    ![Schermopname van de blade van de resources verplaatsen.](./media/virtual-machines-common-move-vm/move-rg-list.png)
 

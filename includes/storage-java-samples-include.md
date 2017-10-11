@@ -1,10 +1,10 @@
-## <a name="java-sample-code-repositories"></a>Java sample code repositories
+## <a name="java-sample-code-repositories"></a>Java-sample code opslagplaatsen
 
-Here is a list of all our sample repositories for the Azure Storage Java client library.
+Hier volgt een lijst van de voorbeeld-opslagplaatsen voor de clientbibliotheek van Azure Storage Java.
 
-* [Getting Started with Storage - Manage Storage Account in Java](https://azure.microsoft.com/resources/samples/storage-java-manage-storage-accounts/)
-* [Getting Started with Azure Blob Service in Java](https://azure.microsoft.com/resources/samples/storage-blob-java-getting-started/)
-* [Getting Started with Azure File Service in Java](https://azure.microsoft.com/resources/samples/storage-file-java-getting-started/)
-* [Getting Started with Azure Queue Service in Java](https://azure.microsoft.com/resources/samples/storage-queue-java-getting-started/)
-* [Getting Started with Azure Table Service in Java](https://azure.microsoft.com/resources/samples/storage-table-java-getting-started/)
-* [Storage Java Client Library Samples](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage)
+* [Storage-Account in Java aan de slag met Storage - beheren](https://azure.microsoft.com/resources/samples/storage-java-manage-storage-accounts/)
+* [Aan de slag met Azure Blob-Service in Java](https://azure.microsoft.com/resources/samples/storage-blob-java-getting-started/)
+* [Aan de slag met Azure File-Service in Java](https://azure.microsoft.com/resources/samples/storage-file-java-getting-started/)
+* [Aan de slag met Azure Queue-Service in Java](https://azure.microsoft.com/resources/samples/storage-queue-java-getting-started/)
+* [Aan de slag met Azure Table-Service in Java](https://azure.microsoft.com/resources/samples/storage-table-java-getting-started/)
+* [Opslag Java Client Library-voorbeelden](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage)

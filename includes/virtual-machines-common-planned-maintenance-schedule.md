@@ -1,55 +1,55 @@
 
 
-## <a name="multi-and-single-instance-vms"></a>Multi and Single Instance VMs
-Many customers running on Azure count it critical that they can schedule when their VMs undergo planned maintenance due to the downtime--about 15 minutes--that occurs during maintenance. You can use availability sets to help control when provisioned VMs receive planned maintenance.
+## <a name="multi-and-single-instance-vms"></a>Multi- en virtuele machines van één exemplaar
+Veel klanten uitgevoerd op Azure aantal kritieke dat ze plannen kunnen wanneer de bijbehorende virtuele machines ondergaan gepland onderhoud vanwege de uitvaltijd--ongeveer 15 minuten--die deze gebeurtenis treedt op tijdens het onderhoud. U kunt beschikbaarheidssets gebruiken om te controleren wanneer ingerichte virtuele machines gepland onderhoud wordt.
 
-There are two possible configurations for VMs running on Azure. VMs are either configured as multi-instance or single-instance. If VMs are in an availability set, then they are configured as multi-instance. Note, even single VMs can be deployed in an availability set, so that they are treated as multi-instance. If VMs are NOT in an availability set, then they are configured as single-instance.  For details on availability sets, see [Manage the Availability of your Windows Virtual Machines](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the Availability of your Linux Virtual Machines](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Er zijn twee mogelijke configuraties voor virtuele machines die worden uitgevoerd op Azure. Virtuele machines zijn geconfigureerd als één of meerdere exemplaren. Als VMs in een beschikbaarheidsset zijn, zijn vervolgens die geconfigureerd als meerdere exemplaren. Houd er rekening mee, zelfs één virtuele machines kunnen worden geïmplementeerd in een beschikbaarheidsset, zodat ze worden behandeld als meerdere exemplaren. Als virtuele machines niet in een beschikbaarheidsset, zijn vervolgens die geconfigureerd als één exemplaar.  Zie voor meer informatie over beschikbaarheidssets [de beschikbaarheid van uw Windows virtuele Machines beheren](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) of [beheren van de beschikbaarheid van uw virtuele Linux-Machines](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Planned maintenance updates to single-instance and multi-instance VMs happen separately. By reconfiguring your VMs to be single-instance (if they are multi-instance) or to be multi-instance (if they are single-instance), you can control when their VMs receive the planned maintenance. See [Planned maintenance for Azure Linux virtual machines](../articles/virtual-machines/linux/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Planned maintenance for Azure Windows virtual machines](../articles/virtual-machines/windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for details on planned maintenance for Azure VMs.
+Gepland onderhoud updates naar de single instance en meerdere exemplaren VM's afzonderlijk gebeuren. Opnieuw configureren van uw virtuele machines worden single instance (als ze meerdere exemplaren zijn) of meerdere exemplaren (als ze single instance zijn), kunt u bepalen wanneer de bijbehorende virtuele machines gepland onderhoud ontvangt. Zie [gepland onderhoud voor Azure Linux virtuele machines](../articles/virtual-machines/linux/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of [gepland onderhoud voor Windows Azure virtuele machines](../articles/virtual-machines/windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor meer informatie over gepland onderhoud voor Azure Virtual machines.
 
-## <a name="for-multi-instance-configuration"></a>For Multi-instance Configuration
-You can select the time planned maintenance impacts your VMs that are deployed in an Availability Set configuration by removing these VMs from availability sets.
+## <a name="for-multi-instance-configuration"></a>Configuratie van meerdere instanties
+U kunt de tijd die is gepland onderhoud van invloed is op uw virtuele machines die worden geïmplementeerd in een configuratie van de Beschikbaarheidsset is ingesteld door het verwijderen van deze virtuele machines van beschikbaarheidssets selecteren.
 
-1. An email is sent to you seven calendar days before the planned maintenance to your VMs in a Multi-instance configuration. The subscription IDs and names of the affected Multi-instance VMs are included in the body of the email.
-2. During those seven days, you can choose the time your instances are updated by removing your multi-instance VMs in that region from their availability set. This change in configuration causes a reboot, as the Virtual Machine is moving from one physical host, targeted for maintenance, to another physical host that isn’t targeted for maintenance.
-3. You can remove the VM from its availability set in the Azure portal.
+1. Een e-mailbericht verzonden naar u zeven kalenderdagen vóór het geplande onderhoud aan uw virtuele machines in een configuratie met meerdere exemplaren. De abonnement-id's en de namen van de betrokken virtuele machines van meerdere exemplaren worden opgenomen in de hoofdtekst van het e-mailbericht.
+2. Tijdens deze zeven dagen, kunt u de tijd die uw exemplaren worden bijgewerkt door het verwijderen van uw exemplaar van meerdere virtuele machines in deze regio uit hun beschikbaarheidsset kiezen. Deze wijziging in de configuratie wordt opgestart, als de virtuele Machine wordt verplaatst van één fysieke host, gericht voor onderhoud, naar een andere fysieke host die niet is gericht voor onderhoud.
+3. U kunt de virtuele machine verwijderen uit de beschikbaarheidsset voor de Azure-portal.
 
-   1. In the portal, select the VM to remove from the Availability Set.  
+   1. Selecteer in de portal voor de virtuele machine verwijderen uit de Beschikbaarheidsset.  
 
-   2. Under **settings**, click **Availability set**.
+   2. Onder **instellingen**, klikt u op **beschikbaarheidsset**.
 
-      ![Availability Set Selection](./media/virtual-machines-planned-maintenance-schedule/availabilitysetselection.png)
+      ![Selectie van de Beschikbaarheidsset](./media/virtual-machines-planned-maintenance-schedule/availabilitysetselection.png)
 
-   3. In the availability set dropdown menu, select “Not part of an availability set.”
+   3. In de beschikbaarheid van de vervolgkeuzemenu instellen, selecteert u "Geen deel uit van een beschikbaarheidsset."
 
-      ![Remove from Set](./media/virtual-machines-planned-maintenance-schedule/availabilitysetwarning.png)
+      ![Verwijderen uit de Set](./media/virtual-machines-planned-maintenance-schedule/availabilitysetwarning.png)
 
-   4. At the top, click **Save**. Click **Yes** to acknowledge that this action restarts the VM.
+   4. Klik aan de bovenkant **opslaan**. Klik op **Ja** om te bevestigen dat deze actie de virtuele machine opnieuw wordt gestart.
 
    >[!TIP]
-   >You can reconfigure the VM to multi-instance later by selecting one of the listed availability sets.
+   >U kunt de VM naar meerdere exemplaren later opnieuw configureren door een van de vermelde beschikbaarheidssets te selecteren.
 
-4. VMs removed from availability sets are moved to Single-Instance hosts and are not updated during the planned maintenance to Availability Set Configurations.
-5. Once the update to Availability Set VMs is complete (according to schedule outlined in the original email), you should add the VMs back into their availability sets. Becoming part of an Availability set reconfigures the VMs as multi-instance, and results in a reboot. Typically, once all multi-instance updates are completed across the entire Azure environment, single-instance maintenance follows.
+4. Virtuele machines die zijn verwijderd uit de beschikbaarheidssets worden verplaatst naar de Single Instance hosts en worden niet bijgewerkt tijdens het geplande onderhoud op beschikbaarheid instellen configuraties.
+5. Zodra de update van virtuele machines beschikbaarheid instellen is voltooid (volgens de planning die worden beschreven in de oorspronkelijke e-mail), moet u de virtuele machines toevoegen in hun beschikbaarheidssets. Als onderdeel van een beschikbaarheidsset configureert u de virtuele machines opnieuw als meerdere exemplaren en resulteert in een opnieuw opstarten. Normaal gesproken zodra alle meerdere exemplaren updates zijn voltooid voor de volledige Azure-omgeving, volgt single instance onderhoud.
 
-Removing a VM from an availability set can also be achieved using Azure PowerShell:
+Een virtuele machine verwijderen uit een beschikbaarheidsset kan ook worden bereikt met Azure PowerShell:
 
 ```
 Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Remove-AzureAvailabilitySet | Update-AzureVM
 ```
 
-## <a name="for-single-instance-configuration"></a>For Single-instance Configuration
-You can select the time planned maintenance impacts you VMs in a Single-instance configuration by adding these VMs into availability sets.
+## <a name="for-single-instance-configuration"></a>Voor de configuratie van één exemplaar
+U kunt de tijd die is gepland onderhoud van invloed is op u virtuele machines in een configuratie met Single instance door deze virtuele machines toe te voegen in beschikbaarheidssets selecteren.
 
-Step-by-step
+Stapsgewijs
 
-1. An email is sent to you seven calendar days before the planned maintenance to VMs in a Single-instance configuration. The subscription IDs and names of the affected Single-Instance VMs are included in the body of the email.
-2. During those seven days, you can choose the time your instance reboots by adding your Single-instance VMs to an availability set in that same region. This change in configuration causes a reboot, as the Virtual Machine is moving from one physical host, targeted for maintenance, to another physical host that isn’t targeted for maintenance.
-3. Follow instructions here to add existing VMs into availability sets using the Azure portal and Azure PowerShell. (See the Azure PowerShell sample that follows these steps.)
-4. Once these VMs are reconfigured as Multi-instance, they are excluded from the planned maintenance to Single-instance VMs.
-5. Once the single-instance VM update completes (according to schedule in the original email), you can return the VMs to single-instance by removing the VMs from their availability sets.
+1. Een e-mailbericht verzonden naar u zeven kalenderdagen vóór het geplande onderhoud naar virtuele machines in een configuratie met één exemplaar. De abonnement-id's en de namen van de betrokken Single Instance virtuele machines zijn opgenomen in de hoofdtekst van het e-mailbericht.
+2. Tijdens deze zeven dagen, kunt u de tijd die uw exemplaar opnieuw wordt opgestart door uw Single instance VM's toe te voegen aan een beschikbaarheidsset in die dezelfde regio kiezen. Deze wijziging in de configuratie wordt opgestart, als de virtuele Machine wordt verplaatst van één fysieke host, gericht voor onderhoud, naar een andere fysieke host die niet is gericht voor onderhoud.
+3. Volg hier instructies voor het toevoegen van bestaande virtuele machines in beschikbaarheidssets met de Azure-portal en Azure PowerShell. (Zie de Azure PowerShell-voorbeeldtoepassing die u als volgt.)
+4. Zodra deze VMs zijn geconfigureerd als meerdere exemplaren, worden uitgesloten van het geplande onderhoud Single instance virtuele machines.
+5. Zodra de single instance VM-update is voltooid (volgens de planning in de oorspronkelijke e-mail), kunt u de virtuele machines terugkeren naar de single instance door het verwijderen van de virtuele machines van hun beschikbaarheidssets.
 
-Adding a VM to an availability set also can be achieved using Azure PowerShell:
+Een virtuele machine toe te voegen aan een beschikbaarheidsset ook kan worden bereikt met Azure PowerShell:
 
     Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 

@@ -1,32 +1,32 @@
 ## <a name="nic"></a>NIC
-A network interface card (NIC) resource provides network connectivity to an existing subnet in a VNet resource. Although you can create a NIC as a stand alone object, you need to associate it to another object to actually provide connectivity. A NIC can be used to connect a VM to a subnet, a public IP address, or a load balancer.  
+Een bron-interface (netwerkinterfacekaart) biedt een netwerkverbinding met een bestaand subnet in een VNet-resource. Hoewel u een NIC als zelfstandige object maken kunt, moet u deze koppelen aan een ander object daadwerkelijk om verbinding te bieden. Een NIC kan worden gebruikt om een virtuele machine met een subnet, een openbare IP-adres of een load balancer.  
 
-| Property | Description | Sample values |
+| Eigenschap | Beschrijving | Voorbeeldwaarden |
 | --- | --- | --- |
-| **virtualMachine** |VM the NIC is associated with. |/subscriptions/{guid}/../Microsoft.Compute/virtualMachines/vm1 |
-| **macAddress** |MAC address for the NIC |any value between 4 and 30 |
-| **networkSecurityGroup** |NSG associated to the NIC |/subscriptions/{guid}/../Microsoft.Network/networkSecurityGroups/myNSG1 |
-| **dnsSettings** |DNS settings for the NIC |see [PIP](#Public-IP-address) |
+| **virtuele machine** |Virtuele machine de NIC is gekoppeld. |/Subscriptions/{GUID}/../Microsoft.COMPUTE/virtualMachines/vm1 |
+| **MAC-adres** |MAC-adres voor de NIC |een waarde tussen 4 en 30 in |
+| **networkSecurityGroup** |NSG die is gekoppeld naar de NIC. |/Subscriptions/{GUID}/../Microsoft.Network/networkSecurityGroups/myNSG1 |
+| **dnsSettings** |DNS-instellingen voor de NIC |Zie [PIP](#Public-IP-address) |
 
-A Network Interface Card, or NIC, represents a network interface that can be associated to a virtual machine (VM). A VM can have one or more NICs.
+Een Network Interface Card of NIC, vertegenwoordigt een netwerkinterface die gekoppeld aan een virtuele machine (VM worden kan). Een virtuele machine kan een of meer NIC's hebben.
 
-![NIC's on a single VM](./media/resource-groups-networking/Figure3.png)
+![NIC's op een enkele virtuele machine](./media/resource-groups-networking/Figure3.png)
 
-### <a name="ip-configurations"></a>IP configurations
-NICs have a child object named **ipConfigurations** containing the following properties:
+### <a name="ip-configurations"></a>IP-configuraties
+NIC's hebben een onderliggend object met de naam **ipConfigurations** met de volgende eigenschappen:
 
-| Property | Description | Sample values |
+| Eigenschap | Beschrijving | Voorbeeldwaarden |
 | --- | --- | --- |
-| **subnet** |Subnet the NIC is onnected to. |/subscriptions/{guid}/../Microsoft.Network/virtualNetworks/myvnet1/subnets/mysub1 |
-| **privateIPAddress** |IP address for the NIC in the subnet |10.0.0.8 |
-| **privateIPAllocationMethod** |IP allocation method |Dynamic or Static |
-| **enableIPForwarding** |Whether the NIC can be used for routing |true or false |
-| **primary** |Whether the NIC is the primary NIC for the VM |true or false |
-| **publicIPAddress** |PIP associated with the NIC |see [DNS Settings](#DNS-settings) |
-| **loadBalancerBackendAddressPools** |Back end address pools the NIC is associated with | |
-| **loadBalancerInboundNatRules** |Inbound load balancer NAT rules the NIC is associated with | |
+| **subnet** |Subnet van de NIC is onnected aan. |/Subscriptions/{GUID}/../Microsoft.Network/virtualNetworks/myvnet1/subnets/mysub1 |
+| **privateIPAddress** |IP-adres voor de NIC in het subnet |10.0.0.8 |
+| **privateIPAllocationMethod** |IP-toewijzingsmethode |Dynamische of statische |
+| **enableIPForwarding** |Hiermee wordt aangegeven of de NIC kan worden gebruikt voor routering |waar of ONWAAR |
+| **primaire** |Hiermee wordt aangegeven of de NIC is de primaire NIC voor de virtuele machine |waar of ONWAAR |
+| **publicIPAddress** |PIP die zijn gekoppeld aan de NIC |Zie [DNS-instellingen](#DNS-settings) |
+| **loadbalancerbackendaddresspools gebruikt** |Back-end-adresgroepen die de NIC is gekoppeld | |
+| **loadBalancerInboundNatRules** |Binnenkomende NAT-regels voor load balancer is die de NIC is gekoppeld aan | |
 
-Sample public IP address in JSON format:
+Voorbeeld openbare IP-adres in JSON-indeling:
 
     {
         "name": "lb-nic1-be",
@@ -72,6 +72,6 @@ Sample public IP address in JSON format:
         }
     }
 
-### <a name="additional-resources"></a>Additional resources
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163579.aspx) for NICs.
+### <a name="additional-resources"></a>Aanvullende bronnen
+* Lees de [REST-API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/mt163579.aspx) voor NIC's.
 

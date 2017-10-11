@@ -1,7 +1,7 @@
-The following table lists the possible upload and capture combinations of Windows generalized (gen.) and specialized (spec.) OS images. The combinations that will process without any errors are indicated by a Y, and those that will throw errors are indicated by an N. The causes and resolutions for the different errors you will run into are given below the table.
+De volgende tabel bevat de mogelijke uploaden en vastleggen combinaties van Windows (btw) gegeneraliseerd en gespecialiseerde (spec.) Installatiekopieën van het besturingssysteem. De combinaties die worden verwerkt zonder fouten worden aangeduid met een Y en die fouten genereert worden aangeduid met een N. De oorzaken en oplossingen voor de verschillende fouten die u wilt uitvoeren in zijn onder de tabel opgegeven.
 
-| OS | Upload spec. | Upload gen. | Capture spec. | Capture gen. |
+| OS | Spec uploaden. | Gen uploaden. | Spec vastleggen. | Gen vastleggen. |
 | --- | --- | --- | --- | --- |
-| Windows gen. |N<sup>1</sup> |Y |N<sup>3</sup> |Y |
-| Windows spec. |Y |N<sup>2</sup> |Y |N<sup>4</sup> |
+| Windows-gen. |N<sup>1</sup> |J |N<sup>3</sup> |J |
+| Windows-specificatie. |J |N<sup>2</sup> |J |N<sup>4</sup> |
 

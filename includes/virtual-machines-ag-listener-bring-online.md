@@ -1,27 +1,27 @@
-1. In Failover Cluster Manager, expand **Roles**, and then highlight your availability group.  
+1. Vouw in Failoverclusterbeheer **rollen**, en selecteer vervolgens de beschikbaarheidsgroep.  
 
-2. On the **Resources** tab, right-click the listener name, and then click **Properties**.
+2. Op de **Resources** tabblad en klik vervolgens op met de rechtermuisknop op de naam van de listener **eigenschappen**.
 
-3. Click the **Dependencies** tab. If multiple resources are listed, verify that the IP addresses have OR, not AND, dependencies.  
+3. Klik op de **afhankelijkheden** tabblad. Controleer of de IP-adressen hebt of niet als meerdere resources worden weergegeven, en afhankelijkheden.  
 
-4. Click **OK**.
+4. Klik op **OK**.
 
-5. Right-click the listener name, and then click **Bring Online**.
+5. Met de rechtermuisknop op de naam van de listener en klik vervolgens op **Online brengen**.
 
-6. After the listener is online, on the **Resources** tab, right-click the availability group, and then click **Properties**.
+6. Nadat de listener is online op het **Resources** tabblad en klik vervolgens op met de rechtermuisknop op de beschikbaarheidsgroep **eigenschappen**.
    
-    ![Configure the availability group resource](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
+    ![De beschikbaarheidsgroepresource configureren](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
 
-7. Create a dependency on the listener name resource (not the IP address resources name), and then click **OK**.
+7. Een afhankelijkheid voor de listener naambron (niet de naam IP-adres resources) maken en klik vervolgens op **OK**.
    
-    ![Add dependency on the listener name](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
+    ![Afhankelijkheid van de naam van de listener toevoegen](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
 
-8. Start SQL Server Management Studio, and then connect to the primary replica.
+8. Start SQL Server Management Studio en maak verbinding met de primaire replica.
 
-9. Go to **AlwaysOn High Availability** > **Availability Groups** > **\<AvailabilityGroupName\>** > **Availability Group Listeners**.  
-    The listener name that you created in Failover Cluster Manager should be displayed.
+9. Ga naar **AlwaysOn hoge beschikbaarheid** > **beschikbaarheidsgroepen** > **\<AvailabilityGroupName\>**   >  **Beschikbaarheidsgroep-Listeners**.  
+    De naam van de listener die u hebt gemaakt in Failoverclusterbeheer moet worden weergegeven.
 
-10. Right-click the listener name, and then click **Properties**.
+10. Met de rechtermuisknop op de naam van de listener en klik vervolgens op **eigenschappen**.
 
-11. In the **Port** box, specify the port number for the availability group listener by using the $EndpointPort that you used earlier (in this tutorial, 1433 was the default), and then click **OK**.
+11. In de **poort** vak het poortnummer opgeven voor de beschikbaarheidsgroep-listener met behulp van de $EndpointPort die u eerder hebt gebruikt (in deze zelfstudie is 1433 de standaardinstelling), en klik vervolgens op **OK**.
 

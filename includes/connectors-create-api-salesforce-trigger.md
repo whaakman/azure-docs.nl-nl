@@ -1,18 +1,18 @@
-In this walk-through, you will learn how to use the **Salesforce - When an object is created** trigger to initiate a logic app workflow when a new lead is created in your Salesforce.
+In deze procedure leert u hoe u de **Salesforce - wanneer een object wordt gemaakt** trigger een logic app-werkstroom starten wanneer een nieuwe lead in uw Salesforce-wordt gemaakt.
 
 > [!NOTE]
-> You will get prompted to sign into your Salesforce account if you have not already created a *connection* to Salesforce.  
+> U wordt om aan te melden bij uw Salesforce-account als u nog geen hebt gemaakt wordt gevraagd een *verbinding* bij Salesforce.  
 > 
 > 
 
-1. Enter *salesforce* in the search box on the logic apps designer then select the **Salesforce - When an object is created**  trigger.  
-   ![Salesforce trigger image 1](./media/connectors-create-api-salesforce/trigger-1.png)   
-2. The **When an object is created** control is displayed.  
-   ![Salesforce trigger image 2](./media/connectors-create-api-salesforce/trigger-2.png)   
-3. Select the **Object Type** then select *Lead* from the list of objects. In this step you are indicating that you are creating a trigger that will notify your logic app whenever a new lead is created in Salesforce.   
-   ![Salesforce trigger image 3](./media/connectors-create-api-salesforce/trigger-3.png)   
-4. That's it. You've created the trigger. However, you need to create at least one action in order to make this a valid logic app.    
-   ![Salesforce trigger image 4](./media/connectors-create-api-salesforce/trigger-4.png)   
+1. Voer *salesforce* in het zoekvak op de ontwerpfunctie van logic apps selecteert u vervolgens de **Salesforce - wanneer een object wordt gemaakt** trigger.  
+   ![SalesForce triggerafbeelding 1](./media/connectors-create-api-salesforce/trigger-1.png)   
+2. De **wanneer een object wordt gemaakt** besturingselement wordt weergegeven.  
+   ![SalesForce triggerafbeelding 2](./media/connectors-create-api-salesforce/trigger-2.png)   
+3. Selecteer de **objecttype** Selecteer *leiden* uit de lijst met objecten. In deze stap geeft u aan dat u een trigger die uw logische app ontvangt een melding maakt wanneer er een nieuwe lead wordt gemaakt in Salesforce.   
+   ![SalesForce triggerafbeelding 3](./media/connectors-create-api-salesforce/trigger-3.png)   
+4. Dat is alles. U kunt de trigger hebt gemaakt. Echter, moet u ten minste één actie zodat dit een geldige logische app maken.    
+   ![SalesForce triggerafbeelding 4](./media/connectors-create-api-salesforce/trigger-4.png)   
 
-At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a new item is created in your Salesforce.  
+Op dit moment is uw logische app geconfigureerd met een trigger die een uitvoering van de andere triggers en acties in de werkstroom wordt gestart wanneer een nieuw item in uw Salesforce-wordt gemaakt.  
 

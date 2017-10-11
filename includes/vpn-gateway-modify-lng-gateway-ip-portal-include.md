@@ -1,32 +1,32 @@
-### <a name="gwipnoconnection"></a> To modify the local network gateway IP address - no gateway connection
+### <a name="gwipnoconnection"></a>Wijzigen van het lokale netwerk gateway IP-adres - er is geen gatewayverbinding
 
-Use the example to modify a local network gateway that does not have a gateway connection. When modifying this value, you can also modify the address prefixes at the same time.
+Gebruik het voorbeeld om een lokale netwerkgateway die geen gatewayverbinding heeft te wijzigen. Wanneer u deze waarde wijzigt, kunt u tegelijkertijd ook de adresvoorvoegsels wijzigen.
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. In the **IP address** box, modify the IP address.
-3. Click **Save** to save the settings.
+1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **configuratie**.
+2. In de **IP-adres** wijzigt u het IP-adres.
+3. Klik op **opslaan** de instellingen op te slaan.
 
-### <a name="gwipwithconnection"></a>To modify the local network gateway gateway IP address - existing gateway connection
+### <a name="gwipwithconnection"></a>Het lokale netwerk gateway gateway IP-adres - gatewayverbinding bestaande wijzigen
 
-To modify a local network gateway that has a connection, you need to first remove the connection. After the connection is removed, you can modify the gateway IP address and recreate a new connection. You can also modify the address prefixes at the same time. This results in some downtime for your VPN connection. When modifying the gateway IP address, you don't need to delete the VPN gateway. You only need to remove the connection.
+Voor het wijzigen van een lokale netwerkgateway een verbinding heeft, moet u eerst de verbinding verwijderen. Nadat de verbinding is verwijderd, kunt u het IP-adres van de gateway wijzigen en een nieuwe verbinding maken. U kunt tegelijkertijd ook de adresvoorvoegsels wijzigen. Dit veroorzaakt enige downtime in uw VPN-verbinding. Als u het IP-adres van de gateway wijzigt, hoeft u de VPN-gateway niet te verwijderen. U hoeft alleen de verbinding te verwijderen.
  
-#### <a name="1-remove-the-connection"></a>1. Remove the connection.
+#### <a name="1-remove-the-connection"></a>1. Verwijder de verbinding.
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Connections**.
-2. Click the **...** on the line for the connection, then click **Delete**.
-3. Click **Save** to save your settings.
+1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **verbindingen**.
+2. Klik op de **...**  op de regel voor de verbinding en klik vervolgens op **verwijderen**.
+3. Klik op **opslaan** uw instellingen op te slaan.
 
-#### <a name="2-modify-the-ip-address"></a>2. Modify the IP address.
+#### <a name="2-modify-the-ip-address"></a>2. Wijzig het IP-adres.
 
-You can also modify the address prefixes at the same time.
+U kunt tegelijkertijd ook de adresvoorvoegsels wijzigen.
 
-1. In the **IP address** box, modify the IP address.
-2. Click **Save** to save the settings.
+1. In de **IP-adres** wijzigt u het IP-adres.
+2. Klik op **opslaan** de instellingen op te slaan.
 
-#### <a name="3-recreate-the-connection"></a>3. Recreate the connection.
+#### <a name="3-recreate-the-connection"></a>3. Maak de verbinding opnieuw.
 
-1. Navigate to the Virtual Network Gateway for your VNet. (Not the Local Network Gateway.)
-2. On the Virtual Network Gateway, in the **Settings** section, click **Connections**.
-3. Click the **+ Add** to open the **Add connection** blade.
-4. Recreate your connection.
-5. Click **OK** to create the connection.
+1. Navigeer naar de virtuele netwerkgateway voor uw VNet. (Niet de lokale netwerkgateway.)
+2. Op de virtuele netwerkgateway in de **instellingen** sectie, klikt u op **verbindingen**.
+3. Klik op de **+ toevoegen** openen de **verbinding toevoegen** blade.
+4. Maak opnieuw een verbinding.
+5. Klik op **OK** om de verbinding te maken.

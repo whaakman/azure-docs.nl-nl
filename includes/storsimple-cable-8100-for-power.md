@@ -1,25 +1,25 @@
 <!--author=alkohli last changed: 9/16/15-->
 
-#### <a name="to-cable-for-power"></a>To cable for power
-1. Make sure that the power switches on each of the Power and Cooling Modules (PCMs) are in the OFF position.
-2. Connect the power cords to each of the PCMs in the primary enclosure.
-3. Attach the power cords to the rack power distribution units (PDUs) as shown in the following image. Make sure that the two PCMs use separate power sources.
+#### <a name="to-cable-for-power"></a>Op de kabel voor energiebeheer
+1. Zorg ervoor dat de macht op elk van de stroom verandert en koeling Modules (PCMs) zich in de positie OFF.
+2. Verbinding maken met de stroomkabels aan elk van de PCMs in de primaire behuizing.
+3. De stroomkabels koppelen aan de rack power distribution eenheden (PDU's), zoals wordt weergegeven in de volgende afbeelding. Zorg ervoor dat de twee PCMs gebruik stroomvoorziening scheiden.
    
    > [!IMPORTANT]
-   > To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram. 
+   > Om ervoor te zorgen hoge beschikbaarheid voor uw systeem, is het raadzaam dat u strikt voldoen aan de kracht bekabeling schema in het volgende diagram wordt weergegeven. 
    > 
    > 
    
-    ![Cable your 2U device for power](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
+    ![Uw apparaat 2U voor power bekabelen](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
    
-    **Power cabling on an 8100 device**
+    **Power bekabeling op een 8100-apparaat**
    
-   | Label | Description |
+   | Label | Beschrijving |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |Controller 1 |
    | 3 |Controller 0 |
    | 4 |PCM 1 |
-   | 5 |PDUs |
-4. To turn on the system, flip the power switches on both PCMs to the ON position.
+   | 5 |PDU 's |
+4. Als u wilt inschakelen op het systeem, de energie-switches op beide PCMs naar de positie op te spiegelen.
 

@@ -1,100 +1,100 @@
-# <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Back up Azure unmanaged VM disks with incremental snapshots
-## <a name="overview"></a>Overview
-Azure Storage provides the capability to take snapshots of blobs. Snapshots capture the blob state at that point in time. In this article, we describe a scenario in which you can maintain backups of virtual machine disks using snapshots. You can use this methodology when you choose not to use Azure Backup and Recovery Service, and wish to create a custom backup strategy for your virtual machine disks.
+# <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Back-up van Azure niet-beheerde VM-schijven met incrementele momentopnamen
+## <a name="overview"></a>Overzicht
+Azure-opslag biedt de mogelijkheid aan momentopnamen van blobs. De status van de blob vastleggen momentopnamen op dat moment. In dit artikel beschrijft we een scenario waarin u back-ups van de schijven van de virtuele machine met momentopnamen kunt onderhouden. U kunt deze methode wanneer u niet wilt gebruiken voor Azure Backup en Recovery-Service en voor het maken van een aangepaste back-upstrategie voor uw virtuele machine-schijven.
 
-Azure virtual machine disks are stored as page blobs in Azure Storage. Since we are describing a backup strategy for virtual machine disks in this article, we refer to snapshots in the context of page blobs. To learn more about snapshots, refer to [Creating a Snapshot of a Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
+Virtuele machine van Azure-schijven zijn opgeslagen als pagina-blobs in Azure Storage. Aangezien we beschrijving van een back-upstrategie voor virtuele-machineschijven in dit artikel, verwijzen we naar momentopnamen in de context van pagina-blobs. Raadpleeg voor meer informatie over momentopnamen [maken van een momentopname van een Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
-## <a name="what-is-a-snapshot"></a>What is a snapshot?
-A blob snapshot is a read-only version of a blob that is captured at a point in time. Once a snapshot has been created, it can be read, copied, or deleted, but not modified. Snapshots provide a way to back up a blob as it appears at a moment in time. Until REST version 2015-04-05, you had the ability to copy full snapshots. With the REST version 2015-07-08 and above, you can also copy incremental snapshots.
+## <a name="what-is-a-snapshot"></a>Wat is er een momentopname?
+Een blob-momentopname is een alleen-lezen-versie van een blob die is opgenomen op een punt in tijd. Wanneer een momentopname is gemaakt, kan deze worden gelezen, gekopieerd, of verwijderd, maar niet gewijzigd. Momentopnamen bieden een manier om back-up van een blob zoals deze wordt weergegeven op een moment. Pas REST versie 2015-04-05 moest u de mogelijkheid om te kopiëren van de volledige momentopnamen. Met de REST-versie 2015-07-08 en hoger, u kunt u ook incrementele momentopnamen kopiëren.
 
-## <a name="full-snapshot-copy"></a>Full snapshot copy
-Snapshots can be copied to another storage account as a blob to keep backups of the base blob. You can also copy a snapshot over its base blob, which is like restoring the blob to an earlier version. When a snapshot is copied from one storage account to another, it occupies the same space as the base page blob. Therefore, copying whole snapshots from one storage account to another is slow and consumes much space in the target storage account.
+## <a name="full-snapshot-copy"></a>Volledige momentopname kopiëren
+Momentopnamen kunnen worden gekopieerd naar een ander opslagaccount als blob naar de back-ups van de basis blob houden. U kunt ook een momentopname kopiëren via de base blob, is vergelijkbaar met het herstellen van de blob naar een eerdere versie. Wanneer een momentopname van een opslagaccount wordt gekopieerd naar een andere, in beslag neemt de dezelfde naamruimte als de basis-pagina-blob. Daarom wordt het hele momentopnamen van één opslagaccount kopiëren naar de andere traag en verbruikt veel ruimte in de doel-opslagaccount.
 
 > [!NOTE]
-> If you copy the base blob to another destination, the snapshots of the blob are not copied along with it. Similarly, if you overwrite a base blob with a copy, snapshots associated with the base blob are not affected and stay intact under the base blob name.
+> Als u de basis blob naar een andere bestemming kopieert, worden de momentopnamen van de blob niet samen met het gekopieerd. Op dezelfde manier als u een basis blob met een kopie overschrijven, momentopnamen die zijn gekoppeld aan de basis blob worden niet beïnvloed door en onder de blobnaam van de basis intact blijven.
 > 
 > 
 
-### <a name="back-up-disks-using-snapshots"></a>Back up disks using snapshots
-As a backup strategy for your virtual machine disks, you can take periodic snapshots of the disk or page blob, and copy them to another storage account using tools like [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) operation or [AzCopy](../articles/storage/common/storage-use-azcopy.md). You can copy a snapshot to a destination page blob with a different name. The resulting destination page blob is a writeable page blob and not a snapshot. Later in this article, we describe steps to take backups of virtual machine disks using snapshots.
+### <a name="back-up-disks-using-snapshots"></a>Back-up van schijven met momentopnamen
+Als een back-upstrategie voor uw virtuele machine-schijven, u kunt momentopnamen periodieke van de schijf of pagina-blob en kopieer ze naar een andere opslag rekening met hulpprogramma's als [Blob kopiëren](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) bewerking of [AzCopy](../articles/storage/common/storage-use-azcopy.md). U kunt een momentopname kopiëren naar een doel-pagina-blob met een andere naam. De resulterende bestemmings-pagina-blob is een beschrijfbare pagina-blob en niet een momentopname. Verderop in dit artikel worden stappen beschreven om back-ups van de schijven van de virtuele machine met momentopnamen beschreven.
 
-### <a name="restore-disks-using-snapshots"></a>Restore disks using snapshots
-When it is time to restore your disk to a stable version that was previously captured in one of the backup snapshots, you can copy a snapshot over the base page blob. After the snapshot is promoted to the base page blob, the snapshot remains, but its source is overwritten with a copy that can be both read and written. Later in this article we describe steps to restore a previous version of your disk from its snapshot.
+### <a name="restore-disks-using-snapshots"></a>Schijven met momentopnamen terugzetten
+Wanneer het tijd om te zetten van de schijf op een stabiele versie die eerder is vastgelegd in een van de back-upmomentopnamen is, kunt u een momentopname via de basispagina blob kopiëren. Nadat de momentopname wordt gepromoveerd voor de basispagina blob, blijft van de momentopname, maar de bron wordt overschreven met een kopie die kan worden gelezen en geschreven. Verderop in dit artikel worden beschreven stappen voor het herstellen van een eerdere versie van de schijf van de momentopname is gemaakt.
 
-### <a name="implementing-full-snapshot-copy"></a>Implementing full snapshot copy
-You can implement a full snapshot copy by doing the following,
+### <a name="implementing-full-snapshot-copy"></a>Volledige snapshotkopieën implementeren
+U kunt een kopie van de volledige momentopname implementeren door het volgende te doen
 
-* First, take a snapshot of the base blob using the [Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) operation.
-* Then, copy the snapshot to a target storage account using [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob).
-* Repeat this process to maintain backup copies of your base blob.
+* Eerst een momentopname van de basis blob met behulp van de [momentopname Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) bewerking.
+* Kopieer vervolgens de momentopname naar een doel storage account met [Blob kopiëren](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob).
+* Herhaal dit proces voor het onderhouden van de back-ups van uw base blob.
 
-## <a name="incremental-snapshot-copy"></a>Incremental snapshot copy
-The new feature in the [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) API provides a much better way to back up the snapshots of your page blobs or disks. The API returns the list of changes between the base blob and the snapshots, which reduces the amount of storage space used on the backup account. The API supports page blobs on Premium Storage as well as Standard Storage. Using this API, you can build faster and more efficient backup solutions for Azure VMs. This API will be available with the REST version 2015-07-08 and higher.
+## <a name="incremental-snapshot-copy"></a>Incrementele snapshotkopieën
+De nieuwe functie in de [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) API biedt een veel betere manier om back-up van de momentopnamen van uw pagina-blobs of de schijven. De API retourneert de lijst met wijzigingen tussen de base blob en de momentopnamen die de hoeveelheid opslagruimte die wordt gebruikt voor de back-account reduceert. De API biedt ondersteuning voor pagina-blobs in Premium-opslag, evenals de Standard-opslag. Deze API gebruikt, kunt u snellere en efficiëntere back-oplossingen bouwen voor Azure Virtual machines. Deze API is beschikbaar in de REST-versie 2015-07-08 en hoger.
 
-Incremental Snapshot Copy allows you to copy from one storage account to another the difference between,
+Incrementele kopie van de momentopname kunt u vanuit één opslagaccount naar de andere kopiëren het verschil tussen,
 
-* Base blob and its Snapshot OR
-* Any two snapshots of the base blob
+* Base blob en de momentopname of
+* De twee momentopnamen van de basis blob
 
-Provided the following conditions are met,
+De volgende voorwaarden wordt voldaan, opgegeven
 
-* The blob was created on Jan-1-2016 or later.
-* The blob was not overwritten with [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) or [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) between two snapshots.
+* De blob is gemaakt op Jan-1-2016 of hoger.
+* De blob is niet overschreven met [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) of [Blob kopiëren](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) tussen twee momentopnamen.
 
-**Note**: This feature is available for Premium and Standard Azure Page Blobs.
+**Opmerking**: deze functie is beschikbaar voor Premium en Standard Azure-pagina-Blobs.
 
-When you have a custom backup strategy using snapshots, copying the snapshots from one storage account to another can be slow and can consume much storage space. Instead of copying the entire snapshot to a backup storage account, you can write the difference between consecutive snapshots to a backup page blob. This way, the time to copy and the space to store backups is substantially reduced.
+Wanneer u een aangepaste back-upstrategie met momentopnamen hebt, kopiëren van de momentopnamen van één opslagaccount naar een andere kan traag zijn en hoeveel opslagruimte kan gebruiken. In plaats van de volledige momentopname kopiëren naar een back-storage-account, kunt u het verschil tussen opeenvolgende momentopnamen om een back-pagina-blob te schrijven. Op deze manier wordt de tijd voor het kopiëren en de ruimte voor het opslaan van back-ups aanzienlijk verminderd.
 
-### <a name="implementing-incremental-snapshot-copy"></a>Implementing Incremental Snapshot Copy
-You can implement incremental snapshot copy by doing the following,
+### <a name="implementing-incremental-snapshot-copy"></a>Incrementele snapshotkopieën implementeren
+U kunt incrementele snapshotkopieën implementeren door het volgende te doen
 
-* Take a snapshot of the base blob using [Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
-* Copy the snapshot to the target backup storage account using [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). This is the backup page blob. Take a snapshot of the backup page blob and store it in the backup account.
-* Take another snapshot of the base blob using Snapshot Blob.
-* Get the difference between the first and second snapshots of the base blob using [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Use the new parameter **prevsnapshot**, to specify the DateTime value of the snapshot you want to get the difference with. When this parameter is present, the REST response includes only the pages that were changed between target snapshot and previous snapshot including clear pages.
-* Use [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) to apply these changes to the backup page blob.
-* Finally, take a snapshot of the backup page blob and store it in the backup storage account.
+* Een momentopname van het gebruik van de basis blob [momentopname Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
+* Kopiëren van de momentopname met de doel-upopslag account via [Blob kopiëren](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Dit is de back-paginablob. Een momentopname van de back-pagina-blobs en sla deze op in het back-account.
+* Maak nog een momentopname van de basis blob met momentopname Blob.
+* Het verschil tussen de eerste en tweede momentopnamen van het gebruik van de basis blob ophalen [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Gebruik de nieuwe parameter **prevsnapshot**, de DateTime-waarde van de momentopname die u wilt ophalen van het verschil met opgeven. Als deze parameter aanwezig is, betekent dit dat het antwoord REST alleen op de pagina's die zijn gewijzigd tussen doel momentopname en eerdere momentopname, met inbegrip van lege pagina's bevat.
+* Gebruik [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) deze wijzigingen toepassen op de back-paginablob.
+* Ten slotte een momentopname van de back-pagina-blobs en sla het in het back-storage-account.
 
-In the next section, we will describe in more detail how you can maintain backups of disks using Incremental Snapshot Copy
+In de volgende sectie wordt beschreven in meer detail hoe u back-ups van schijven met incrementele kopie van de momentopname kunt onderhouden
 
 ## <a name="scenario"></a>Scenario
-In this section, we describe a scenario that involves a custom backup strategy for virtual machine disks using snapshots.
+In deze sectie beschrijven we een scenario waarbij een aangepaste back-upstrategie voor schijven van de virtuele machine met momentopnamen.
 
-Consider a DS-series Azure VM with a premium storage P30 disk attached. The P30 disk called *mypremiumdisk* is stored in a premium storage account called *mypremiumaccount*. A standard storage account called *mybackupstdaccount* is used for storing the backup of *mypremiumdisk*. We would like to keep a snapshot of *mypremiumdisk* every 12 hours.
+U kunt een DS-serie Azure virtuele machine met een premium-opslag P30 schijf die is gekoppeld. De schijf P30 aangeroepen *mypremiumdisk* wordt opgeslagen in een premium storage-account genoemd *mypremiumaccount*. Standard-opslagaccount aangeroepen *mybackupstdaccount* wordt gebruikt voor het opslaan van de back-up van *mypremiumdisk*. Wij willen graag houden van een momentopname van *mypremiumdisk* elke 12 uur.
 
-To learn about creating storage account and disks, refer to [About Azure storage accounts](../articles/storage/storage-create-storage-account.md).
+Raadpleeg voor meer informatie over het maken van de storage-account en schijven te [over Azure storage-accounts](../articles/storage/storage-create-storage-account.md).
 
-To learn about backing up Azure VMs, refer to [Plan Azure VM backups](../articles/backup/backup-azure-vms-introduction.md).
+Raadpleeg voor meer informatie over het back-ups van virtuele Azure-machines, [back-ups van virtuele machine van Azure plannen](../articles/backup/backup-azure-vms-introduction.md).
 
-## <a name="steps-to-maintain-backups-of-a-disk-using-incremental-snapshots"></a>Steps to maintain backups of a disk using incremental snapshots
-The following steps describe how to take snapshots of *mypremiumdisk* and maintain the backups in *mybackupstdaccount*. The backup is a standard page blob called *mybackupstdpageblob*. The backup page blob always reflects the same state as the last snapshot of *mypremiumdisk*.
+## <a name="steps-to-maintain-backups-of-a-disk-using-incremental-snapshots"></a>Stappen voor het beheren van back-ups van een schijf met een incrementele momentopnamen
+De volgende stappen wordt beschreven hoe u momentopnamen van *mypremiumdisk* en onderhouden van de back-ups in *mybackupstdaccount*. De back-up is een standaard pagina-blob aangeroepen *mybackupstdpageblob*. De back-paginablob geeft altijd dezelfde toestand als de laatste momentopname van *mypremiumdisk*.
 
-1. Create the backup page blob for your premium storage disk, by taking a snapshot of *mypremiumdisk* called *mypremiumdisk_ss1*.
-2. Copy this snapshot to mybackupstdaccount as a page blob called *mybackupstdpageblob*.
-3. Take a snapshot of *mybackupstdpageblob* called *mybackupstdpageblob_ss1*, using [Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) and store it in *mybackupstdaccount*.
-4. During the backup window, create another snapshot of *mypremiumdisk*, say *mypremiumdisk_ss2*, and store it in *mypremiumaccount*.
-5. Get the incremental changes between the two snapshots, *mypremiumdisk_ss2* and *mypremiumdisk_ss1*, using [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) on *mypremiumdisk_ss2* with the **prevsnapshot** parameter set to the timestamp of *mypremiumdisk_ss1*. Write these incremental changes to the backup page blob *mybackupstdpageblob* in *mybackupstdaccount*. If there are deleted ranges in the incremental changes, they must be cleared from the backup page blob. Use [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) to write incremental changes to the backup page blob.
-6. Take a snapshot of the backup page blob *mybackupstdpageblob*, called *mybackupstdpageblob_ss2*. Delete the previous snapshot *mypremiumdisk_ss1* from premium storage account.
-7. Repeat steps 4-6 every backup window. In this way, you can maintain backups of *mypremiumdisk* in a standard storage account.
+1. De back-pagina-blob voor de premium-opslag-schijf maken door het maken van een momentopname van *mypremiumdisk* aangeroepen *mypremiumdisk_ss1*.
+2. Deze momentopname als een pagina-blob aangeroepen kopiëren naar mybackupstdaccount *mybackupstdpageblob*.
+3. Een momentopname van *mybackupstdpageblob* aangeroepen *mybackupstdpageblob_ss1*met [momentopname Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) en op te slaan in *mybackupstdaccount*.
+4. Tijdens het back-upvenster maken nog een momentopname van *mypremiumdisk*, spreek *mypremiumdisk_ss2*, en op te slaan in *mypremiumaccount*.
+5. Ophalen van de incrementele wijzigingen tussen de twee momentopnamen *mypremiumdisk_ss2* en *mypremiumdisk_ss1*met [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) op *mypremiumdisk_ ss2* met de **prevsnapshot** parameter ingesteld op de tijdstempel van *mypremiumdisk_ss1*. Deze incrementele wijzigingen geschreven naar de back-paginablob *mybackupstdpageblob* in *mybackupstdaccount*. Als er in de incrementele wijzigingen verwijderde bereiken, moeten ze worden gewist van de back-paginablob. Gebruik [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) incrementele wijzigingen schrijven naar de back-paginablob.
+6. Een momentopname van de back-paginablob *mybackupstdpageblob*die *mybackupstdpageblob_ss2*. Verwijderen van de vorige momentopname *mypremiumdisk_ss1* van premium storage-account.
+7. Herhaal stap 4-6 elke back-upvenster. Op deze manier kunt u back-ups van blijven *mypremiumdisk* in een standard-opslagaccount.
 
-![Back up disk using incremental snapshots](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-1.png)
+![Maak een back-up van schijf met behulp van incrementele momentopnamen](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-1.png)
 
-## <a name="steps-to-restore-a-disk-from-snapshots"></a>Steps to restore a disk from snapshots
-The following steps, describe how to restore the premium disk, *mypremiumdisk* to an earlier snapshot from the backup storage account *mybackupstdaccount*.
+## <a name="steps-to-restore-a-disk-from-snapshots"></a>Stappen voor het herstellen van een schijf van momentopnamen
+De volgende stappen beschrijven het herstellen van de schijf premium *mypremiumdisk* naar een eerdere momentopname van de back-upopslag account *mybackupstdaccount*.
 
-1. Identify the point in time that you wish to restore the premium disk to. Let's say that it is snapshot *mybackupstdpageblob_ss2*, which is stored in the backup storage account *mybackupstdaccount*.
-2. In mybackupstdaccount, promote the snapshot *mybackupstdpageblob_ss2* as the new backup base page blob *mybackupstdpageblobrestored*.
-3. Take a snapshot of this restored backup page blob, called *mybackupstdpageblobrestored_ss1*.
-4. Copy the restored page blob *mybackupstdpageblobrestored* from *mybackupstdaccount* to *mypremiumaccount* as the new premium disk *mypremiumdiskrestored*.
-5. Take a snapshot of *mypremiumdiskrestored*, called *mypremiumdiskrestored_ss1* for making future incremental backups.
-6. Point the DS series VM to the restored disk *mypremiumdiskrestored* and detach the old *mypremiumdisk* from the VM.
-7. Begin the Backup process described in previous section for the restored disk *mypremiumdiskrestored*, using the *mybackupstdpageblobrestored* as the backup page blob.
+1. Het punt te identificeren in de tijd die u wilt de premium-schijf te herstellen. Stel de machine momentopnamen *mybackupstdpageblob_ss2*, die is opgeslagen in het account van de back-upopslag *mybackupstdaccount*.
+2. In mybackupstdaccount, bevordering van de momentopname *mybackupstdpageblob_ss2* als de nieuwe back-up basispagina blob *mybackupstdpageblobrestored*.
+3. Een momentopname van deze herstelde back-pagina-blob, aangeroepen *mybackupstdpageblobrestored_ss1*.
+4. De herstelde paginablob kopiëren *mybackupstdpageblobrestored* van *mybackupstdaccount* naar *mypremiumaccount* als de nieuwe schijf met premium *mypremiumdiskrestored*.
+5. Een momentopname van *mypremiumdiskrestored*die *mypremiumdiskrestored_ss1* voor toekomstige incrementele back-ups maken.
+6. De DS-serie VM verwijzen naar de teruggezette schijf *mypremiumdiskrestored* en loskoppelen van de oude *mypremiumdisk* van de virtuele machine.
+7. Beginnen met de back-up wordt beschreven in de vorige sectie voor de herstelde schijf *mypremiumdiskrestored*, waarbij de *mybackupstdpageblobrestored* als de back-pagina-blob.
 
-![Restore disk from snapshots](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-2.png)
+![Schijf terugzetten van momentopnamen](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-2.png)
 
-## <a name="next-steps"></a>Next Steps
-Use the following links to learn more about creating snapshots of a blob and planning your VM backup infrastructure.
+## <a name="next-steps"></a>Volgende stappen
+Gebruik de volgende koppelingen voor meer informatie over het maken van momentopnamen van een blob en het plannen van uw back-upinfrastructuur VM.
 
-* [Creating a Snapshot of a Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
-* [Plan your VM Backup Infrastructure](../articles/backup/backup-azure-vms-introduction.md)
+* [Maken van een momentopname van een Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
+* [Uw VM-back-infrastructuur plannen](../articles/backup/backup-azure-vms-introduction.md)
 

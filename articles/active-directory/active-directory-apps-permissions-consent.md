@@ -17,14 +17,12 @@ ms.date: 07/31/2017
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 6f6baf5e1538fb280a899065c64ca5688473c04a
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Apps, machtigingen en toestemming in Azure Active Directory
 In Azure Active Directory kunt u toepassingen toevoegen aan uw directory.  De toepassingen kunnen variëren afhankelijk van het type toepassing.  Als u toepassingen in de klassieke portal wilt bekijken, selecteert u een directory en kiest u toepassingen.
 
@@ -220,5 +218,4 @@ In het geval van FabrikamMail, ziet dit er ongeveer als volgt uit:
 (**ClientId** is de service-principal object-id van FabrikamMail (de id die zojuist is gemaakt), **PrincipalId** is de gebruikersobject-id (van de gebruiker die toestemming heeft gegeven), **ResourceId** is de service-principal object-id van Exchange en het bereik is de machtiging in Exchange waar toestemming voor is gegeven).
 
 Als gebruikers geen toestemming mogen geven, krijgen ze een scherm te zien waarin staat dat machtiging is vereist.
-
 

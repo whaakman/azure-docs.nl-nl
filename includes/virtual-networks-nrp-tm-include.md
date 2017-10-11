@@ -1,26 +1,26 @@
-## <a name="traffic-manager-profile"></a>Traffic Manager Profile
-Traffic manager and its child endpoint resource enable DNS routing to endpoints in Azure and outside of Azure. Such traffic distribution is governed by routing  policy methods. Traffic manager also allows endpoint health to be monitored, and traffic diverted appropriately based on the health of an endpoint. 
+## <a name="traffic-manager-profile"></a>Traffic Manager-profiel
+Traffic manager en de onderliggende endpoint-bron inschakelen DNS-routering naar de eindpunten in Azure en buiten Azure. Dergelijke distributie van verkeer wordt geregeld door de methoden voor het doorsturen beleid. Traffic manager kunt ook eindpunt health moeten worden bewaakt en verkeer op de juiste wijze wordt gewijzigd op basis van de status van een eindpunt. 
 
-| Property | Description |
+| Eigenschap | Beschrijving |
 | --- | --- |
-| **trafficRoutingMethod** |possible values are *Performance*, *Weighted*, and *Priority* |
-| **dnsConfig** |FQDN for the profile |
-| **Protocol** |monitoring protocol, possible values are *HTTP* and *HTTPS* |
-| **Port** |monitoring port |
-| **Path** |monitoring path |
-| **Endpoints** |container for endpoint resources |
+| **trafficRoutingMethod** |mogelijke waarden zijn *prestaties*, *gewogen*, en *prioriteit* |
+| **dnsConfig** |FQDN-naam voor het profiel |
+| **Protocol** |mogelijke waarden zijn protocol bewaking, *HTTP* en *HTTPS* |
+| **Poort** |bewaking van poort |
+| **Pad** |controlepad |
+| **Eindpunten** |container voor eindpunt bronnen |
 
-### <a name="endpoint"></a>Endpoint
-An endpoint is a child resource of a Traffic Manager Profile. It represents a service or web endpoint to which user traffic is distributed based on the configured policy in the Traffic Manager Profile resource. 
+### <a name="endpoint"></a>Eindpunt
+Een eindpunt is een onderliggende resource van een Traffic Manager-profiel. Vertegenwoordigt een service of web-eindpunt waaraan gebruiker verkeer wordt verdeeld op basis van het geconfigureerde beleid in de resource Traffic Manager-profiel. 
 
-| Property | Description |
+| Eigenschap | Beschrijving |
 | --- | --- |
-| **Type** |the type of the endpoint, possible values are *Azure End point*, *External Endpoint*, and  *Nested Endpoint* |
-| **targetResourceId** |public IP address of a service or web endpoint. This can be an Azure or external endpoint. |
-| **Weight** |endpoint weight used in traffic management. |
-| **Priority** |priority of the endpoint, used to define a failover action |
+| **Type** |het type van het eindpunt, mogelijke waarden zijn *Azure eindpunt*, *Extern eindpunt*, en *genest eindpunt* |
+| **targetResourceId** |openbare IP-adres van een service of web-eindpunt. Dit is een Azure of het externe eindpunt. |
+| **Gewicht** |eindpunt gewicht in verkeer management gebruikt. |
+| **Prioriteit** |prioriteit van het eindpunt, gebruikt voor het definiëren van een actie van failover |
 
-Sample of Traffic Manager in Json format: 
+Voorbeeld van Traffic Manager in Json-indeling: 
 
         {
             "apiVersion": "[variables('tmApiVersion')]",
@@ -77,6 +77,6 @@ Sample of Traffic Manager in Json format:
         }
 
 
-## <a name="additional-resources"></a>Additional resources
-Read [REST API documentation for Traffic Manager](https://msdn.microsoft.com/library/azure/mt163664.aspx) for more information.
+## <a name="additional-resources"></a>Aanvullende bronnen
+Lees [REST API-documentatie voor Traffic Manager](https://msdn.microsoft.com/library/azure/mt163664.aspx) voor meer informatie.
 

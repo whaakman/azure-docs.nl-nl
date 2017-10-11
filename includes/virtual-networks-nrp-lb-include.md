@@ -1,17 +1,17 @@
-## <a name="load-balancer"></a>Load Balancer
-A load balancer is used when you want to scale your applications. Typical deployment scenarios involve applications running on multiple VM instances. The VM instances are fronted by a load balancer that helps to distribute network traffic to the various instances. 
+## <a name="load-balancer"></a>Load balancer
+Een load balancer wordt gebruikt wanneer u wilt schalen van uw toepassingen. Typische implementatiescenario's hebben betrekking op toepassingen die worden uitgevoerd op meerdere VM-exemplaren. VM-exemplaren zijn fronted door een load balancer die voor de distributie van netwerkverkeer naar de verschillende exemplaren. 
 
-![NIC's on a single VM](./media/resource-groups-networking/figure8.png)
+![NIC's op een enkele virtuele machine](./media/resource-groups-networking/figure8.png)
 
-| Property | Description |
+| Eigenschap | Beschrijving |
 | --- | --- |
-| *frontendIPConfigurations* |a Load balancer can include one or more front end IP addresses, otherwise known as a virtual IPs (VIPs). These IP addresses serve as ingress for the traffic and can be public IP or private IP |
-| *backendAddressPools* |these are IP addresses associated with the VM NICs to which load will be distributed |
-| *loadBalancingRules* |a rule property maps a given front end IP and port combination to a set of back end IP addresses and port combination. With a single definition of a load balancer resource, you can define multiple load balancing rules, each rule reflecting a combination of a front end IP and port and back end IP and port associated with virtual machines. The rule is one port in the front end pool to many virtual machines in the back end pool |
-| *Probes* |probes enable you to keep track of the health of VM instances. If a health probe fails, the virtual machine instance will be taken out of rotation automatically |
-| *inboundNatRules* |NAT rules defining the inbound traffic flowing through the front end IP and distributed to the back end IP to a specific virtual machine instance. NAT rule is one port in the front end pool to one virtual machine in the back end pool |
+| *frontendIPConfigurations* |een Load balancer kan een of meer front-end IP-adressen, ook bekend als een virtueel IP-adressen (VIP's) bevatten. Deze IP-adressen kunnen fungeren als inkomend voor het verkeer en openbare IP-adres of privé-IP |
+| *backendAddressPools* |Dit zijn IP-adressen die zijn gekoppeld aan de VM-NIC's die load worden gedistribueerd |
+| *loadBalancingRules* |de regeleigenschap van een wijst een opgegeven front-end-IP-poort aan een set van back-end-IP-adressen en poort. Met één definitie van een load balancer-bron, kunt u meerdere regels voor taakverdeling, elke regel als gevolg van een combinatie van een front end IP-adres en poort en back-end-IP- en de poort die is gekoppeld aan virtuele machines. De regel is één poort in de front end-pool te veel virtuele machines in de groep back-end |
+| *Tests* |tests kunnen u om de status van de VM-exemplaren bij te houden. Als u een health test mislukt, de instantie van de virtuele machine gaat buiten rotatie automatisch |
+| *inboundNatRules* |NAT-regels definiëren van het binnenkomende verkeer via de voorgrond IP beëindigen en gedistribueerd naar de back-end-IP op een specifieke virtuele machine-instantie. NAT-regel is een poort in de front-end-pool aan een virtuele machine in de groep back-end |
 
-Example of load balancer template in Json format:
+Voorbeeld van de load balancer-sjabloon in Json-indeling:
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -186,6 +186,6 @@ Example of load balancer template in Json format:
       ]
     }
 
-### <a name="additional-resources"></a>Additional resources
-Read [load balancer REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx) for more information.
+### <a name="additional-resources"></a>Aanvullende bronnen
+Lees [netwerktaakverdeler REST-API](https://msdn.microsoft.com/library/azure/mt163651.aspx) voor meer informatie.
 

@@ -1,44 +1,44 @@
-## <a name="configure-the-nodejs-simulated-device"></a>Configure the Node.js simulated device
-1. On the remote monitoring dashboard, click **+ Add a device** and then add a *custom device*. Make a note of the IoT Hub hostname, device id, and device key. You need them later in this tutorial when you prepare the remote_monitoring.js device client application.
-2. Ensure that Node.js version 0.12.x or later is installed on your development machine. Run `node --version` at a command prompt or in a shell to check the version. For information about using a package manager to install Node.js on Linux, see [Installing Node.js via package manager][node-linux].
-3. When you have installed Node.js, clone the latest version of the [azure-iot-sdk-node][lnk-github-repo] repository to your development machine. Always use the **master** branch for the latest version of the libraries and samples.
-4. From your local copy of the [azure-iot-sdk-node][lnk-github-repo] repository, copy the following two files from the node/device/samples folder to an empty folder on your development machine:
+## <a name="configure-the-nodejs-simulated-device"></a>Het gesimuleerde apparaat Node.js configureren
+1. Klik op het dashboard voor externe controle **+ een apparaat toevoegt** en voeg vervolgens een *aangepast apparaat*. Noteer de IoT-Hub hostnaam, apparaat-id en apparaatsleutel. U moet deze verderop in deze zelfstudie wanneer u de clienttoepassing remote_monitoring.js-apparaat voorbereiden.
+2. Zorg dat Node.js-versie 0.12.x of hoger is geïnstalleerd op uw ontwikkelcomputer. Voer `node --version` achter de opdrachtprompt of in een shell controleren de versie. Zie voor meer informatie over het gebruik van een Pakketbeheer Node.js installeren op Linux [Node.js installeren via Pakketbeheer][node-linux].
+3. Wanneer u Node.js hebt geïnstalleerd, kloon de nieuwste versie van de [azure-iot-sdk-knooppunt] [ lnk-github-repo] opslagplaats op uw ontwikkelcomputer. Gebruik altijd de **master** vertakking voor de nieuwste versie van de bibliotheken en voorbeelden.
+4. In uw lokale exemplaar van de [azure-iot-sdk-knooppunt] [ lnk-github-repo] -opslagplaats, de volgende twee bestanden kopiëren van de apparaat-knooppunt-voorbeelden map naar een lege map op uw ontwikkelcomputer:
    
-   * packages.json
+   * Packages.JSON
    * remote_monitoring.js
-5. Open the remote_monitoring.js file and look for the following variable definition:
+5. Open het bestand remote_monitoring.js en zoekt u naar de definitie van de volgende variabele:
    
     ```
     var connectionString = "[IoT Hub device connection string]";
     ```
-6. Replace **[IoT Hub device connection string]** with your device connection string. Use the values for your IoT Hub hostname, device id, and device key that you made a note of in step 1. A device connection string has the following format:
+6. Vervang **[IoT Hub apparaat-verbindingsreeks]** met de verbindingsreeks van uw apparaat. Gebruik de waarden voor uw IoT Hub-hostnaam, het apparaat-id en de apparaatsleutel die u een genoteerd in stap 1 hebt. Een apparaat-verbindingsreeks heeft de volgende indeling:
    
     ```
     HostName={your IoT Hub hostname};DeviceId={your device id};SharedAccessKey={your device key}
     ```
    
-    If your IoT Hub hostname is **contoso** and your device id is **mydevice**, your connection string looks like the following snippet:
+    Als uw IoT Hub-hostnaam **contoso** en uw apparaat-id is **mydevice**, de verbindingsreeks eruit ziet het volgende fragment:
    
     ```
     var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="
     ```
-7. Save the file. Run the following commands in a shell or command prompt in the folder that contains these files to install the necessary packages and then run the sample application:
+7. Sla het bestand op. Voer de volgende opdrachten in een shell of opdrachtprompt in de map met deze bestanden voor het installeren van de vereiste pakketten en voer vervolgens de voorbeeldtoepassing:
    
     ```
     npm install
     node remote_monitoring.js
     ```
 
-## <a name="observe-dynamic-telemetry-in-action"></a>Observe dynamic telemetry in action
-The dashboard shows the temperature and humidity telemetry from the existing simulated devices:
+## <a name="observe-dynamic-telemetry-in-action"></a>Houd rekening met dynamische telemetrie in actie
+Het dashboard toont de temperatuur en vochtigheid telemetrie van de bestaande gesimuleerde apparaten:
 
-![The default dashboard][image1]
+![Het standaarddashboard][image1]
 
-If you select the Node.js simulated device you ran in the previous section, you see temperature, humidity, and external temperature telemetry:
+Als u het Node.js gesimuleerde apparaat die u in de vorige sectie hebt uitgevoerd selecteert, ziet u temperatuur en vochtigheid externe temperatuur telemetrie:
 
-![Add external temperature to the dashboard][image2]
+![Externe temperatuur toevoegen aan het dashboard][image2]
 
-The remote monitoring solution automatically detects the additional external temperature telemetry type and adds it to the chart on the dashboard.
+De oplossing voor externe controle automatisch het type van de telemetrie aanvullende externe temperatuur detecteert en voegt het toe aan de grafiek in het dashboard.
 
 [node-linux]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
 [lnk-github-repo]: https://github.com/Azure/azure-iot-sdk-node

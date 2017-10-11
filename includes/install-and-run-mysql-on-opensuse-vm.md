@@ -1,70 +1,70 @@
 
-1. To escalate privileges, type:
+1. Als u wilt escaleren bevoegdheden, typt u:
    
         sudo -s
    
-    Enter your password.
-2. To install MySQL Community Server edition, type:
+    Voer uw wachtwoord in.
+2. Voor het installeren van MySQL-Community servereditie, typt u:
    
         zypper install mysql-community-server
    
-    Wait while MySQL downloads and installs.
-3. To set MySQL to start when the system boots, type:
+    Een ogenblik geduld terwijl MySQL downloadt en installeert.
+3. Om in te stellen MySQL wordt gestart wanneer het systeem wordt opgestart, typt u:
    
         insserv mysql
-4. Start the MySQL daemon (mysqld) manually with this command:
+4. De MySQL-daemon (mysqld) handmatig starten met deze opdracht:
    
         rcmysql start
    
-    To check the status of the MySQL daemon, type:
+    Als u wilt de status van de MySQL-daemon controleren, typt u:
    
         rcmysql status
    
-    To stop the MySQL daemon, type:
+    Als u wilt de MySQL-daemon stoppen, typt u:
    
         rcmysql stop
    
    > [!IMPORTANT]
-   > After installation, the MySQL root password is empty by default. We recommended that you run **mysql\_secure\_installation**, a script that helps secure MySQL. The script prompts you to change the MySQL root password, remove anonymous user accounts, disable remote root logins, remove test databases, and reload the privileges table. We recommended that you answer yes to all of these options and change the root password.
+   > Na de installatie is het hoofdwachtwoord MySQL standaard leeg. Het is raadzaam dat u uitvoert **mysql\_beveiligde\_installatie**, een script waarmee veilige MySQL. Het script vraagt u om te wijzigen van het hoofdwachtwoord MySQL, verwijdert u anonieme gebruikersaccounts, externe hoofdmap aanmeldingen uitschakelen, test databases verwijderen en opnieuw laden van de tabel bevoegdheden. We raden u antwoord Ja op al deze opties en het root-wachtwoord wijzigen.
    > 
    > 
-5. Type this to run the script MySQL installation script:
+5. Typ dit script van MySQL voor installatie van het script uitgevoerd:
    
         mysql_secure_installation
-6. Log in to MySQL:
+6. Aanmelden bij MySQL:
    
         mysql -u root -p
    
-    Enter the MySQL root password (which you changed in the previous step) and you'll be presented with a prompt where you can issue SQL statements to interact with the database.
-7. To create a new MySQL user, run the following at the **mysql>** prompt:
+    Voer het hoofdwachtwoord van MySQL (die u hebt gewijzigd in de vorige stap) en er moet worden weergegeven met een prompt waar SQL-instructies om te communiceren met de database kunnen worden verleend.
+7. Voor het maken van een nieuwe MySQL-gebruiker, voert u de volgende op de **mysql >** prompt:
    
         CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    Note, the semi-colons (;) at the end of the lines are crucial for ending the commands.
-8. To create a database and grant the `mysqluser` user permissions on it, issue the following commands:
+    Opmerking: de puntkomma (;) aan het einde van de regels zijn essentieel voor het beëindigen van de opdrachten.
+8. Een database maken en verlenen de `mysqluser` gebruikersmachtigingen voor het uitgeven van de volgende opdrachten:
    
         CREATE DATABASE testdatabase;
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    Note that database user names and passwords are only used by scripts connecting to the database.  Database user account names do not necessarily represent actual user accounts on the system.
-9. To log in from another computer, type:
+    Houd er rekening mee dat database gebruikersnamen en wachtwoorden alleen worden gebruikt door scripts verbinden met de database.  Account voor database gebruikersnamen noodzakelijkerwijs niet werkelijke gebruikersaccounts op het systeem.
+9. Als u wilt zich aanmelden vanaf een andere computer, typt u:
    
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
    
-    where `ip-address` is the IP address of the computer from which you will connect to MySQL.
-10. To exit the MySQL database administration utility, type:
+    waar `ip-address` het IP-adres van de computer van waaruit u verbinding met MySQL.
+10. Typ de MySQL-database-beheerprogramma om af te sluiten:
     
         quit
 
-## <a name="add-an-endpoint"></a>Add an endpoint
-1. After MySQL is installed, you'll need to configure an endpoint to access MySQL remotely. Log in to the [Azure  classic portal][AzurePortal]. Click **Virtual Machines**, click the name of your new virtual machine, and then click **Endpoints**.
-2. Click **Add** at the bottom of the page.
-3. Add an endpoint named "MySQL" with protocol **TCP**, and **Public** and **Private** ports set to "3306".
-4. To remotely connect to the virtual machine from your computer, type:
+## <a name="add-an-endpoint"></a>Een eindpunt toevoegen
+1. Nadat de MySQL is geïnstalleerd, moet u een eindpunt voor MySQL op afstand toegang tot configureren. Meld u aan bij de [klassieke Azure-portal][AzurePortal]. Klik op **virtuele Machines**, klik op de naam van uw nieuwe virtuele machine en klik vervolgens op **eindpunten**.
+2. Klik op **toevoegen** aan de onderkant van de pagina.
+3. Toevoegen van een eindpunt met de naam 'MySQL' met protocol **TCP**, en **openbare** en **persoonlijke** poorten ingesteld op '3306'.
+4. Om extern verbinding maken met de virtuele machine van de computer, typt u:
    
         mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
    
-    For example, using the virual machine we created in this tutorial, type this command:
+    Met behulp van de virtuele machine die we in deze zelfstudie hebt gemaakt, typ deze opdracht:
    
         mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 

@@ -1,13 +1,13 @@
 ## <a name="scenario"></a>Scenario
-A VM with a single NIC is created and connected to a virtual network. The VM requires three different *private* IP addresses and two *public* IP addresses. The IP addresses are assigned to the following IP configurations:
+Een virtuele machine met één NIC is gemaakt en verbonden met een virtueel netwerk. De virtuele machine vereist drie verschillende *persoonlijke* IP-adressen en de twee *openbare* IP-adressen. De IP-adressen zijn toegewezen aan de volgende IP-configuraties:
 
-* **IPConfig-1:** Assigns a *static* private IP address and a *static* public IP address.
-* **IPConfig-2:** Assigns a *static* private IP address and a *static* public IP address.
-* **IPConfig-3:** Assigns a *static* private IP address and no public IP address.
+* **IPConfig-1:** wijst een *statische* privé IP-adres en een *statische* openbaar IP-adres.
+* **IPConfig-2:** wijst een *statische* privé IP-adres en een *statische* openbaar IP-adres.
+* **IPConfig-3:** wijst een *statische* privé IP-adres en er is geen openbare IP-adres.
   
-    ![Multiple IP addresses](./media/virtual-network-multiple-ip-addresses-scenario/multiple-ipconfigs.png)
+    ![Meerdere IP-adressen](./media/virtual-network-multiple-ip-addresses-scenario/multiple-ipconfigs.png)
 
-The IP configurations are associated to the NIC when the NIC is created and the NIC is attached to the VM when the VM is created. The types of IP addresses used for the scenario are for illustration. You can assign whatever IP address and assignment types you require.
+De IP-configuraties zijn gekoppeld aan de NIC als de NIC wordt gemaakt en de NIC is gekoppeld aan de virtuele machine wanneer de virtuele machine wordt gemaakt. De typen van IP-adressen gebruikt voor het scenario zijn ter illustratie. U kunt elk IP-adres en de toewijzing typen dat u nodig hebt.
 
 > [!NOTE]
-> Though the steps in this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a multi-NIC VM. To learn how to create a VM with multiple NICs, read the [Create a VM with multiple NICs](../articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md) article.
+> Hoewel de stappen in dit artikel worden alle IP-configuraties aan één NIC toewijst, kunt u ook meerdere IP-configuraties toewijzen aan een NIC in een VM meerdere NIC's. Lees voor meer informatie over het maken van een virtuele machine met meerdere NIC's, de [een virtuele machine maken met meerdere NIC's](../articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md) artikel.

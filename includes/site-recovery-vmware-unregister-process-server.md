@@ -20,8 +20,3 @@ De stappen om de registratie van een processerver ongedaan te maken, verschillen
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
 4. Hiermee worden de gegevens van de processerver van het systeem verwijderd.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

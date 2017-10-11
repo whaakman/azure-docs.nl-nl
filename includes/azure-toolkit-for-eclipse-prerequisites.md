@@ -1,18 +1,18 @@
-## <a name="prerequisites"></a>Prerequisites
-The Azure Toolkit for Eclipse requires the following software components:
+## <a name="prerequisites"></a>Vereisten
+De Azure-werkset voor Eclipse vereist de volgende softwareonderdelen:
 
-* Eclipse IDE for Java EE Developers, Mars, or later. You can download it from the [Eclipse website](http://www.eclipse.org/downloads/).
+* Eclipse IDE voor Java EE-ontwikkelaars, Mars, of later. U kunt downloaden van de [Eclipse website](http://www.eclipse.org/downloads/).
 
-* A Java Developer Kit (JDK), version 1.8 or later.
+* Een Java Developer Kit (JDK), versie 1.8 of hoger.
 
-* An operating system. The Azure Toolkit for Eclipse has been tested on the following operating systems:
+* Een besturingssysteem. De Azure-werkset voor Eclipse is getest op de volgende besturingssystemen:
   
-  * Windows 10, Windows 8.1, Windows 8, and Windows 7
-  * Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, and Windows Server 2008
-  * [Mac OS X](http://www.apple.com/osx) version "Yosemite" and later
-  * [Ubuntu Linux](http://www.ubuntu.com) version 14, 15, and 16
+  * Windows 10, Windows 8.1, Windows 8 en Windows 7
+  * Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2 en WindowsServer 2008
+  * [Mac OS X](http://www.apple.com/osx) versie 'Yosemite' en hoger
+  * [Ubuntu Linux](http://www.ubuntu.com) versie 14, 15 en 16
 
-For more information, see the [Azure Toolkit for Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) page at the Eclipse Marketplace.
+Zie voor meer informatie de [Azure Toolkit voor Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) pagina op de Eclipse-Marketplace.
 
 <!--
 > [!IMPORTANT]

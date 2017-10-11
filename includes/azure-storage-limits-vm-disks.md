@@ -1,11 +1,11 @@
-An Azure virtual machine supports attaching a number of data disks. For optimal performance, you will want to limit the number of highly utilized disks attached to the virtual machine to avoid possible throttling. If all disks are not being highly utilized at the same time, the storage account can support a larger number disks.
+Een virtuele Azure-machine biedt ondersteuning voor het koppelen van meerdere gegevensschijven. Voor optimale prestaties moet u het aantal intensief gebruikte schijven dat u aan de virtuele machine koppelt, echter zo laag mogelijk houden. Zo voorkomt u dat u tegen beperkingen aanloopt. Als de diverse schijven niet op hetzelfde moment maximaal worden gebruikt, kan het opslagaccount een groter aantal schijven ondersteunen.
 
-* **For Azure Managed Disks:** Managed Disks count limit is regional and also depends on the storage type. The default and also the maximum limit is 10,000 per subscription, per region and per storage type. For example, you can create up to 10,000 standard managed disks and also 10,000 premium managed disks in a subscription and in a region. 
+* **Voor Azure Managed schijven:** limiet voor het aantal beheerde schijven is regionaal en ook afhankelijk van het opslagtype. De standaardinstelling en ook het maximum aantal is 10.000 per abonnement, per regio en per opslagtype. Bijvoorbeeld, kunt u maximaal 10.000 standaard beheerd schijven en ook 10.000 premium schijven in een abonnement en in een regio die worden beheerd. 
 
-    Managed Snapshots and Images are counted against the Managed Disks limit.
+    De limiet voor Managed Disks geldt ook voor beheerde momentopnamen en installatiekopieën.
 
-* **For standard storage accounts:** A standard storage account has a maximum total request rate of 20,000 IOPS. The total IOPS across all of your virtual machine disks in a standard storage account should not exceed this limit.
+* **Voor standaardopslagaccounts:** een standaardopslagaccount heeft een maximale totale aanvraagsnelheid van 20.000 IOP's. Het totale aantal IOP's van alle schijven van een virtuele machine in een standaardopslagaccount mag niet groter zijn dan deze limiet.
   
-    You can roughly calculate the number of highly utilized disks supported by a single standard storage account based on the request rate limit. For example, for a Basic Tier VM, the maximum number of highly utilized disks is about 66 (20,000/300 IOPS per disk), and for a Standard Tier VM, it is about 40 (20,000/500 IOPS per disk), as shown in the table below. 
-* **For premium storage accounts:** A premium storage account has a maximum total throughput rate of 50 Gbps. The total throughput across all of your VM disks should not exceed this limit.
+    U kunt het aantal intensief gebruikte schijven dat binnen één standaardopslagaccount wordt ondersteund, ruwweg berekenen op basis van de limiet voor het aantal aanvragen. Het maximale aantal intensief gebruikte schijven voor een virtuele machine in de categorie Basic is bijvoorbeeld ongeveer 66 (20.000/300 IOP's per schijf). Voor een virtuele machine in de categorie Standard is dit ongeveer 40 (20.000/500 IOP's per schijf). Zie de tabel hieronder. 
+* **Voor Premium-opslagaccounts:** Premium-opslagaccounts bieden een maximale totale doorvoersnelheid van 50 Gbps. De totale doorvoer op alle schijven in uw virtuele machine mag deze limiet niet overschrijden.
 

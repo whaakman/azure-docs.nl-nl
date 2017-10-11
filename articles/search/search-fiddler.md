@@ -1,6 +1,6 @@
 ---
-title: Fiddler gebruiken om Azure Search REST API&quot;s te evalueren en te testen | Microsoft Docs
-description: "Gebruik Fiddler om zonder code de beschikbaarheid van Azure Search te verifiëren en de REST API&quot;s uit te proberen."
+title: Fiddler gebruiken om Azure Search REST API's te evalueren en te testen | Microsoft Docs
+description: "Gebruik Fiddler om zonder code de beschikbaarheid van Azure Search te verifiëren en de REST API's uit te proberen."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c38b73fa69bee34ce2434c6274cb017c99ef3c35
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="use-fiddler-to-evaluate-and-test-azure-search-rest-apis"></a>Gebruik Fiddler om Azure Search REST API's te evalueren en te testen
 > [!div class="op_single_selector"]
 >
@@ -223,9 +223,3 @@ Zie [Uw Search-service op Azure beheren](search-manage.md) om te zien hoe u Azur
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-

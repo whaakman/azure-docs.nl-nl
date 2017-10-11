@@ -1,19 +1,19 @@
-| **Resource** | **Default Limit** | **Maximum Limit** |
+| **Resource** | **Standaardlimiet** | **Maximumaantal** |
 | --- | --- | --- |
-| Batch accounts per region per subscription | 3 |50 |
-| Dedicated cores per Batch account (Batch service mode)<sup>1</sup> | 20 | N/A<sup>2</sup> |
-| Low-priority cores per Batch account (Batch service mode)<sup>3</sup> | 50 | N/A<sup>4</sup> |
-| Active jobs and job schedules<sup>5</sup> per Batch account | 20 | 5000<sup>6</sup> |
-| Pools per Batch account | 20 | 2500 |
+| Batch-accounts per regio per abonnement | 3 |50 |
+| Kernen per Batch-account (modus voor Batch-service) toegewezen<sup>1</sup> | 20 | N.V.T.<sup>2</sup> |
+| Prioriteit Laag kernen per Batch-account (modus voor Batch-service)<sup>3</sup> | 50 | N.V.T.<sup>4</sup> |
+| Actieve taken en -taakplanningen<sup>5</sup> per Batch-account | 20 | 5000<sup>6</sup> |
+| Pools per Batch-account | 20 | 2500 |
 
-<sup>1</sup> Dedicated core quotas shown are only for accounts with pool allocation mode set to **Batch service**. For accounts with the mode set to **user subscription**, core quotas are based on the VM cores quota at a regional level or per VM family in your subscription.
+<sup>1</sup> speciale kern quota's weergegeven, zijn alleen voor accounts met toepassingen toewijzing modus is ingesteld op **Batch-service**. Voor accounts met de modus is ingesteld op **gebruikerabonnement**, core quota's zijn gebaseerd op de VM kernen quota een regionaal niveau of per VM-serie in uw abonnement.
 
-<sup>2</sup> The number of dedicated cores per Batch account can be increased, but the maximum number is unspecified. Contact Azure support to discuss increase options.
+<sup>2</sup> het aantal speciale kernen per Batch-account kan worden verhoogd, maar het maximum aantal is niet opgegeven. Neem contact op met ondersteuning van Azure toename gebruiksopties.
 
-<sup>3</sup> Low-priority core quotas shown are only for accounts with pool allocation mode set to **Batch service**. Low-priority cores are not available for accounts with pool allocation mode set to **user subscription**.
+<sup>3</sup> prioriteit Laag core quota weergegeven zijn alleen voor accounts met toepassingen toewijzing modus is ingesteld op **Batch-service**. Prioriteit Laag cores zijn niet beschikbaar voor accounts met toepassingen toewijzing modus is ingesteld op **gebruikerabonnement**.
 
-<sup>4</sup> The number of low-priority cores per Batch account can be increased, but the maximum number is unspecified. Contact Azure support to discuss increase options.
+<sup>4</sup> het aantal kernen per Batch-account prioriteit laag kan worden verhoogd, maar het maximum aantal is niet opgegeven. Neem contact op met ondersteuning van Azure toename gebruiksopties.
 
-<sup>5</sup> Completed jobs and job schedules are not limited.
+<sup>5</sup> voltooide taken en taakschema's zijn niet beperkt.
 
-<sup>6</sup> Contact Azure support if you want to request an increase beyond this limit.
+<sup>6</sup> Azure Neem contact op met ondersteuning als u wilt aanvragen dan deze limiet verhogen.

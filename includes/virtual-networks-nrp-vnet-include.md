@@ -1,34 +1,34 @@
 ## <a name="virtual-network"></a>Virtual Network
-Virtual Networks (VNET) and subnets resources help define a security boundary for workloads running in Azure. A VNet is characterized by a collection of address spaces, defined as CIDR blocks. 
+Virtuele netwerken (VNET) en subnetten bronnen het definiëren van een beveiligingsgrens voor werkbelastingen in Azure. Een VNet wordt gekenmerkt door een verzameling van adresruimten, gedefinieerd als CIDR-blokken. 
 
 > [!NOTE]
-> Network administrators are familiar with CIDR notation. If you are not familiar with CIDR, [learn more about it](http://whatismyipaddress.com/cidr).
+> Netwerkbeheerders bent bekend met CIDR-notatie. Als u niet bekend met CIDR bent, [meer informatie over het](http://whatismyipaddress.com/cidr).
 > 
 > 
 
-![VNet with multiple subnets](./media/resource-groups-networking/Figure4.png)
+![VNet met meerdere subnetten](./media/resource-groups-networking/Figure4.png)
 
-VNets contain the following properties.
+Vnet's bevatten de volgende eigenschappen.
 
-| Property | Description | Sample values |
+| Eigenschap | Beschrijving | Voorbeeldwaarden |
 | --- | --- | --- |
-| **addressSpace** |Collection of address prefixes that make up the VNet in CIDR notation |192.168.0.0/16 |
-| **subnets** |Collection of subnets that make up the VNet |see [subnets](#Subnets) below. |
-| **ipAddress** |IP address assigned to object. This is a read-only property. |104.42.233.77 |
+| **de addressSpace** |Verzameling van adresvoorvoegsels waaruit het VNet in CIDR-notatie |192.168.0.0/16 |
+| **subnetten** |Verzameling van subnetten die gezamenlijk de VNet |Zie [subnetten](#Subnets) hieronder. |
+| **IP-adres** |IP-adres is toegewezen aan een object. Dit is een alleen-lezen eigenschap. |104.42.233.77 |
 
-### <a name="subnets"></a>Subnets
-A subnet is a child resource of a VNet, and helps define segments of address spaces within a CIDR block, using IP address prefixes. NICs can be added to subnets, and connected to VMs, providing connectivity for various workloads.
+### <a name="subnets"></a>Subnetten
+Een subnet is een onderliggende resource van een VNet en helpt bij het segmenten van adresruimten binnen een CIDR-blok met behulp van IP-adresvoorvoegsels definiëren. NIC's worden toegevoegd aan subnetten en verbonden met virtuele machines, tegelijk connectiviteit biedt voor verschillende werkbelastingen.
 
-Subnets contain the following properties. 
+Subnetten bevatten de volgende eigenschappen. 
 
-| Property | Description | Sample values |
+| Eigenschap | Beschrijving | Voorbeeldwaarden |
 | --- | --- | --- |
-| **addressPrefix** |Single address prefix that make up the subnet in CIDR notation |192.168.1.0/24 |
-| **networkSecurityGroup** |NSG applied to the subnet |see [NSGs](#Network-Security-Group) |
-| **routeTable** |Route table applied to the subnet |see [UDR](#Route-table) |
-| **ipConfigurations** |Collection of IP configruation objects used by NICs connected to the subnet |see [UDR](#Route-table) |
+| **addressPrefix** |Één adresvoorvoegsel waaruit het subnet in CIDR-notatie |192.168.1.0/24 |
+| **networkSecurityGroup** |NSG wordt toegepast op het subnet |Zie [nsg's](#Network-Security-Group) |
+| **Migratiestatus** |De routetabel is toegepast op het subnet |Zie [UDR](#Route-table) |
+| **ipConfigurations** |Verzameling van IP-configruation objecten die worden gebruikt door de NIC's die zijn verbonden met het subnet |Zie [UDR](#Route-table) |
 
-Sample VNet in JSON format:
+Voorbeeld VNet in JSON-indeling:
 
     {
         "name": "TestVNet",
@@ -72,8 +72,8 @@ Sample VNet in JSON format:
         }
     }
 
-### <a name="additional-resources"></a>Additional resources
-* Get more information about [VNet](../articles/virtual-network/virtual-networks-overview.md).
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163650.aspx) for VNets.
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163618.aspx) for Subnets.
+### <a name="additional-resources"></a>Aanvullende bronnen
+* Vindt u meer informatie over [VNet](../articles/virtual-network/virtual-networks-overview.md).
+* Lees de [REST-API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/mt163650.aspx) voor VNets.
+* Lees de [REST-API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/mt163618.aspx) voor subnetten.
 

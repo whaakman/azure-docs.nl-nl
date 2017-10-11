@@ -1,20 +1,20 @@
 <!--author=SharS last changed: 1/7/2016-->
 
-#### <a name="to-add-a-volume-container"></a>To add a volume container
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
-2. Click **Add** at the bottom of the page. In the **Create volume container** dialog box, do the following:
+#### <a name="to-add-a-volume-container"></a>Een volumecontainer toevoegen
+1. Op de **apparaten** pagina, selecteert u het apparaat, dubbelklikt u op en klik vervolgens op de **volumecontainers** tabblad.
+2. Klik op **toevoegen** aan de onderkant van de pagina. In de **volumecontainer maken** dialoogvenster de volgende handelingen uit:
    
-   1. Supply a unique **Name** for your volume container. This name can contain a maximum of 32 characters.
-   2. Select a **Storage Account** to be associated with this volume container. You can choose from an existing storage account within the same subscription or select **Add more** to select a storage account from another subscription. You can also choose the storage account that was first generated when the service was created.
-   3. Specify bandwidth as **Unlimited** if you want to consume all available bandwidth, or **Custom** to employ bandwidth controls. For a custom bandwidth, supply a value between 1 and 1000 Mbps. To allocate bandwidth based on a schedule, you can **Select a bandwidth template**.
-   4. We recommend that you keep **Enable Cloud Storage Encryption** selected to encrypt the data that is going to the cloud. Disable encryption only if you are employing other means to encrypt your data. You cannot modify the encryption setting once the volume container has been created.
-   5. Provide a **Cloud Storage Encryption Key** that contains between 8 and 32 characters. The device uses this key to access the encrypted data. In the **Confirm Cloud Storage Encryption Key** field, enter the cloud storage encryption key again to confirm it. 
-   6. Click the arrow to proceed to the next page.
+   1. Geef een unieke **naam** voor uw volumecontainer. Deze naam mag maximaal 32 tekens bevatten.
+   2. Selecteer een **Opslagaccount** worden gekoppeld aan deze volumecontainer. U kunt kiezen uit een bestaand opslagaccount binnen hetzelfde abonnement en selecteer **meer toevoegen** te selecteren van een opslagaccount in een ander abonnement. U kunt ook de storage-account die eerst is gegenereerd toen de service werd gemaakt.
+   3. Geef de bandbreedte als **onbeperkt** als u wilt alle beschikbare bandbreedte in beslag nemen of **aangepaste** naar bandbreedtebesturingselementen. Geef een waarde tussen 1 en 1000 Mbps voor een aangepaste bandbreedte. Als u wilt toewijzen op basis van een planning bandbreedte, kunt u **bandbreedtesjabloon te selecteren**.
+   4. We adviseren dat u **versleuteling van Cloudopslag inschakelen** geselecteerd voor het versleutelen van de gegevens die u wilt de cloud. Schakel versleuteling alleen als u die gebruikmaakt van andere manier om uw gegevens te versleutelen. U kunt de versleuteling-instelling zodra de volumecontainer is gemaakt niet wijzigen.
+   5. Geef een **coderingssleutel voor Cloudopslag** die tussen 8 en maximaal 32 tekens bevat. Het apparaat gebruikt deze sleutel voor toegang tot de versleutelde gegevens. In de **bevestigen coderingssleutel voor Cloudopslag** en voer de versleutelingssleutel voor cloudopslag nogmaals ter bevestiging. 
+   6. Klik op de pijl om door te gaan naar de volgende pagina.
       
-      ![Create volume container with bandwidth template 1](./media/storsimple-add-volume-container/HCS_CreateVCBT1-include.png) 
-3. If you specified **Select a bandwidth template**, choose from the dropdown list of existing bandwidth templates. Review the schedule settings and click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png).
+      ![Volumecontainer maken met de bandbreedtesjabloon 1](./media/storsimple-add-volume-container/HCS_CreateVCBT1-include.png) 
+3. Als u hebt opgegeven **bandbreedtesjabloon te selecteren**, kiest u uit de vervolgkeuzelijst met bestaande sjablonen voor de bandbreedte. Bekijk de schema-instellingen en klik op het vinkje ![vinkje](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png).
    
-    ![Create volume container with bandwidth template 2](./media/storsimple-add-volume-container/HCS_CreateVCBT2-include.png) 
+    ![Volumecontainer maken met de bandbreedtesjabloon 2](./media/storsimple-add-volume-container/HCS_CreateVCBT2-include.png) 
 
-The volume container will be saved and the newly created volume container will be listed on the **Volume container** page.
+De volumecontainer worden opgeslagen en de zojuist gemaakte volumecontainer wordt weergegeven op de **volumecontainer** pagina.
 

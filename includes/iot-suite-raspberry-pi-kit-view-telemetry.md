@@ -1,31 +1,31 @@
-## <a name="view-the-telemetry"></a>View the telemetry
+## <a name="view-the-telemetry"></a>De telemetrie weergeven
 
-The Raspberry Pi is now sending telemetry to the remote monitoring solution. You can view the telemetry on the solution dashboard. You can also send messages to your Raspberry Pi from the solution dashboard.
+De Pi frambozen is nu met het verzenden van telemetrie naar de oplossing voor externe controle. U kunt de telemetrie weergeven op het dashboard van oplossing. U kunt ook berichten verzenden naar uw Pi frambozen vanuit het dashboard van oplossing.
 
-- Navigate to the solution dashboard.
-- Select your device in the **Device to View** dropdown.
-- The telemetry from the Raspberry Pi displays on the dashboard.
+- Ga naar het dashboard van de oplossing.
+- Selecteer het apparaat in de **apparaat naar de weergave** vervolgkeuzelijst.
+- De telemetrie van de Pi frambozen wordt weergegeven op het dashboard.
 
-![Display telemetry from the Raspberry Pi][img-telemetry-display]
+![Telemetrie weergegeven van de Pi frambozen][img-telemetry-display]
 
-## <a name="act-on-the-device"></a>Act on the device
+## <a name="act-on-the-device"></a>Reageren op het apparaat
 
-From the solution dashboard, you can invoke methods on your Raspberry Pi. When the Raspberry Pi connects to the remote monitoring solution, it sends information about the methods it supports.
+U kunt vanuit het dashboard oplossing methoden aanroepen op uw frambozen Pi. Wanneer de Pi frambozen verbinding met de oplossing voor externe controle, stuurt informatie over de methoden die wordt ondersteund.
 
-- In the solution dashboard, click **Devices** to visit the **Devices** page. Select your Raspberry Pi in the **Device List**. Then choose **Methods**:
+- Klik in het dashboard van de oplossing op **apparaten** bezoeken de **apparaten** pagina. Selecteer uw Raspberry Pi in de **lijst met apparaten**. Kies vervolgens **methoden**:
 
-    ![List devices in dashboard][img-list-devices]
+    ![Lijst met apparaten in het dashboard][img-list-devices]
 
-- On the **Invoke Method** page, choose **LightBlink** in the **Method** dropdown.
+- Op de **methode Invoke** pagina **LightBlink** in de **methode** vervolgkeuzelijst.
 
-- Choose **InvokeMethod**. The LED connected to the Raspberry Pi flashes several times. The app on the Raspberry Pi sends an acknowledgment back to the solution dashboard:
+- Kies **InvokeMethod**. De LED verbonden met de flitsen frambozen Pi meermaals. De app op de Pi frambozen verzendt een bevestiging terug naar het dashboard van oplossing:
 
-    ![Show method history][img-method-history]
+    ![Overzicht van de methode weergeven][img-method-history]
 
-- You can switch the LED on and off using the **ChangeLightStatus** method with a **LightStatusValue** set to **1** for on or **0** for off.
+- Kunt u de LED in- en uitschakelen met behulp van de **ChangeLightStatus** methode met een **LightStatusValue** ingesteld op **1** voor op of **0** voor uitschakelen.
 
 > [!WARNING]
-> If you leave the remote monitoring solution running in your Azure account, you are billed for the time it runs. For more information about reducing consumption while the remote monitoring solution runs, see [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config]. Delete the preconfigured solution from your Azure account when you have finished using it.
+> Als u de oplossing voor externe controle uitgevoerd in uw Azure-account laat, wordt u gefactureerd voor de tijd die wordt uitgevoerd. Zie voor meer informatie over het verbruik verminderen terwijl de oplossing voor externe controle wordt uitgevoerd, [configureren van Azure IoT Suite vooraf geconfigureerde oplossingen voor demonstratiedoeleinden][lnk-demo-config]. De vooraf geconfigureerde oplossing verwijderen uit uw Azure-account wanneer u klaar bent met het gebruik van maken.
 
 
 [img-telemetry-display]: media/iot-suite-raspberry-pi-kit-view-telemetry/telemetry.png

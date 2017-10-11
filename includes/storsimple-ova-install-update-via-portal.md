@@ -1,26 +1,26 @@
 <!--author=alkohli last changed: 09/02/16 -->
 
-#### <a name="to-install-updates-via-the-azure-classic-portal"></a>To install updates via the Azure classic portal
-1. On the **Devices** page, select the device on which you want to install updates.
-2. Navigate to **Devices > Maintenance > Software Updates**.
+#### <a name="to-install-updates-via-the-azure-classic-portal"></a>Voor het installeren van updates via de klassieke Azure portal
+1. Op de **apparaten** pagina, selecteert u het apparaat waarop u wilt installeren van updates.
+2. Navigeer naar **apparaten > onderhoudsmodus > Software-Updates**.
    
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate1m.png)  
-3. You see a message if the software updates are available. To check for updates, you can also click **Scan Updates** at the bottom of the page.
+    ![apparaat bijwerken](../includes/media/storsimple-ova-install-update-via-portal/azupdate1m.png)  
+3. Als er software-updates beschikbaar zijn, wordt er een bericht weergegeven. Controleren op updates, u kunt ook klikken op **Updates zoeken** aan de onderkant van de pagina.
    
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate2m.png)
-4. From the bottom of the page, click **Download Updates**. A dialog notifies the user that the update is disruptive. Given the StorSimple Virtual Array is a single node device, the device restarts after it is updated. This disrupts any IO in progress. Click the check icon to launch a job to download the available updates. 
+    ![apparaat bijwerken](../includes/media/storsimple-ova-install-update-via-portal/azupdate2m.png)
+4. Van de onderkant van de pagina, klikt u op **-Updates downloaden**. Een dialoogvenster waarschuwt de gebruiker dat de update verstoren is. Gegeven het virtuele StorSimple-matrix is een apparaat met één knooppunt, het apparaat opnieuw wordt opgestart nadat deze is bijgewerkt. Dit verstoort alle actieve IO. Klik op het vinkje start een taak om de beschikbare updates te downloaden. 
    
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate3m.png)
-5. You are notified when the updates are downloaded. 
+    ![apparaat bijwerken](../includes/media/storsimple-ova-install-update-via-portal/azupdate3m.png)
+5. U wordt gewaarschuwd wanneer de updates worden gedownload. 
    
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate6m.png)
-6. From the bottom of the page, click **Install Updates** to begin updating the device. The dialog is presented to you again. Click the check icon to start a job to install the updates. 
+    ![apparaat bijwerken](../includes/media/storsimple-ova-install-update-via-portal/azupdate6m.png)
+6. Van de onderkant van de pagina, klikt u op **Updates installeren** om te beginnen met het bijwerken van het apparaat. Het dialoogvenster aangegeven dat u opnieuw. Klik op het vinkje voor het starten van een taak om de updates te installeren. 
    
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate7m.png) 
-7. You are notified after the job is created. 
+    ![apparaat bijwerken](../includes/media/storsimple-ova-install-update-via-portal/azupdate7m.png) 
+7. U wordt gewaarschuwd wanneer de taak is gemaakt. 
    
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate8m.png)
-8. Click **View Job** link to go to the Jobs page and monitor the install status. You can click **Details** at any time to get detailed information about the update job. 
+    ![apparaat bijwerken](../includes/media/storsimple-ova-install-update-via-portal/azupdate8m.png)
+8. Klik op **taak weergeven** koppeling gaat u naar de pagina taken en de status van de installatie controleren. U kunt klikken op **Details** op elk gewenst moment voor gedetailleerde informatie over de update-taak. 
    
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate9m.png)
+    ![apparaat bijwerken](../includes/media/storsimple-ova-install-update-via-portal/azupdate9m.png)
 

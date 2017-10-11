@@ -1,16 +1,16 @@
 ## <a name="scenario"></a>Scenario
-To better illustrate how to create NSGs, this document will use the scenario below.
+Dit document om beter te laten zien hoe u kunt nsg's maken, gebruikt het onderstaande scenario.
 
-![VNet scenario](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
+![VNet-scenario](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
 
-In this scenario you will create an NSG for each subnet in the **TestVNet** virtual network, as described below: 
+In dit scenario maakt u een NSG voor elk subnet in de **TestVNet** virtueel netwerk, zoals hieronder beschreven: 
 
-* **NSG-FrontEnd**. The front end NSG will be applied to the *FrontEnd* subnet, and contain two rules:    
-  * **rdp-rule**. This rule will allow RDP traffic to the *FrontEnd* subnet.
-  * **web-rule**. This rule will allow HTTP traffic to the *FrontEnd* subnet.
-* **NSG-BackEnd**. The back end NSG will be applied to the *BackEnd* subnet, and contain two rules:    
-  * **sql-rule**. This rule allows SQL traffic only from the *FrontEnd* subnet.
-  * **web-rule**. This rule denies all internet bound traffic from the *BackEnd* subnet.
+* **NSG-FrontEnd**. De front-end NSG wordt toegepast op de *FrontEnd* subnet, en bevatten twee regels:    
+  * **RDP-regel**. Deze regel kan de RDP-verkeer naar de *FrontEnd* subnet.
+  * **Web-regel**. Deze regel kunnen HTTP-verkeer naar de *FrontEnd* subnet.
+* **NSG-back-end**. De back-end NSG wordt toegepast op de *back-end* subnet, en bevatten twee regels:    
+  * **SQL-regel**. Met deze regel kunnen SQL verkeer alleen via de *FrontEnd* subnet.
+  * **Web-regel**. Deze regel niet alle internet gebonden verkeer van de *back-end* subnet.
 
-The combination of these rules create a DMZ-like scenario, where the back end subnet can only receive incoming traffic for SQL from the front end subnet, and has no access to the Internet, while the front end subnet can communicate with the Internet, and receive incoming HTTP requests only.
+De combinatie van deze regels maken een DMZ-achtige scenario, waarin de back-end-subnet kan alleen inkomend verkeer ontvangen voor SQL van de front-end-subnet en heeft geen toegang tot het Internet, terwijl de front-end-subnet kan met het Internet communiceren en ontvangen binnenkomende HTTP-aanvragen alleen.
 

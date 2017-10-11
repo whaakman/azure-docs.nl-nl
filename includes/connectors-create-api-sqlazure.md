@@ -1,42 +1,42 @@
-### <a name="prerequisites"></a>Prerequisites
-* An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* An [Azure SQL Database](../articles/sql-database/sql-database-get-started.md) with its connection information, including the server name, database name, and username/password. This information is included in the SQL Database connection string:
+### <a name="prerequisites"></a>Vereisten
+* Een Azure-account; kunt u een [gratis account](https://azure.microsoft.com/free)
+* Een [Azure SQL Database](../articles/sql-database/sql-database-get-started.md) met de verbindingsinformatie, met inbegrip van de servernaam, databasenaam en gebruikersnaam en wachtwoord. Deze informatie is opgenomen in de verbindingsreeks voor de SQL-Database:
   
-    Server=tcp:*yoursqlservername*.database.windows.net,1433;Initial Catalog=*yourqldbname*;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+    Server tcp =:*yoursqlservername*. database.windows.net,1433;Initial Catalog =*yourqldbname*; Beveiliginsinfo = False; Gebruikers-ID = {your_username}; Wachtwoord = {your_password}; Voor MultipleActiveResultSets = False; Versleutelen = True; TrustServerCertificate = False; Verbindingstime-out = 30;
   
-    Read more about [Azure SQL Databases](https://azure.microsoft.com/services/sql-database).
+    Lees meer over [Azure SQL-Databases](https://azure.microsoft.com/services/sql-database).
 
 > [!NOTE]
-> When you create an Azure SQL Database, you can also create the sample databases included with SQL. 
+> Wanneer u een Azure SQL Database maakt, kunt u ook de voorbeelddatabases die deel uitmaakt van SQL maken. 
 > 
 > 
 
-Before using your Azure SQL Database in a logic app, connect to your SQL Database. You can do this easily within your logic app on the Azure portal.  
+Voordat u uw Azure SQL Database in een logische app, verbinding maken met uw SQL-Database. U kunt dit eenvoudig doen in uw logische app in de Azure portal.  
 
-Connect to your Azure SQL Database using the following steps:  
+Verbinding maken met uw Azure SQL Database met behulp van de volgende stappen uit:  
 
-1. Create a logic app. In the Logic Apps designer, add a trigger, and then add an action. Select **Show Microsoft managed APIs** in the drop down list, and then enter "sql" in the search box. Select one of the actions:  
+1. Een logische app maken. In de ontwerpfunctie voor Logic Apps een trigger toevoegen en voeg vervolgens een actie. Selecteer **beheerde API's van Microsoft weergeven** in de vervolgkeuzelijst en voer vervolgens 'sql' in het zoekvak. Selecteer een van de acties:  
    
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/sql-actions.png)
-2. If you haven't previously created any connections to SQL Database, you are prompted for the connection details:  
+    ![Stap voor SQL Azure-verbinding maken](./media/connectors-create-api-sqlazure/sql-actions.png)
+2. Als u verbindingen met SQL-Database nog niet eerder hebt gemaakt, wordt u gevraagd de verbindingsdetails op te geven:  
    
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/connection-details.png) 
-3. Enter the SQL Database details. Properties with an asterisk are required.
+    ![Stap voor SQL Azure-verbinding maken](./media/connectors-create-api-sqlazure/connection-details.png) 
+3. Geef de details van de SQL-Database. Eigenschappen met een sterretje zijn vereist.
    
-   | Property | Details |
+   | Eigenschap | Details |
    | --- | --- |
-   | Connect via Gateway |Leave this unchecked. This is used when connecting to an on-premises SQL Server. |
-   | Connection Name * |Enter any name for your connection. |
-   | SQL Server Name * |Enter the server name; which is something like *servername.database.windows.net*. The server name is displayed in the SQL Database properties in the Azure portal, and also displayed in the connection string. |
-   | SQL Database Name * |Enter the name you gave your SQL Database. This is listed in the SQL Database properties in the connection string: Initial Catalog=*yoursqldbname*. |
-   | Username * |Enter the username you created when the SQL Database was created. This is listed in the SQL Database properties in the Azure portal. |
-   | Password * |Enter the password you created when the SQL Database was created. |
+   | Verbinding maken via de Gateway |Laat dit uitgeschakeld. Dit wordt gebruikt bij het verbinden met een lokale SQL Server. |
+   | Verbindingsnaam * |Voer een naam voor de verbinding. |
+   | Naam van SQL Server * |Voer de naam van de server; Dit is ongeveer *servername.database.windows.net*. Naam van de server wordt weergegeven in de eigenschappen van de SQL-Database in de Azure portal en ook weergegeven in de verbindingsreeks. |
+   | SQL-databasenaam * |Voer de naam opgegeven van de SQL-Database. Deze wordt vermeld in de eigenschappen van de SQL-Database in de verbindingsreeks: Initial Catalog =*yoursqldbname*. |
+   | Gebruikersnaam * |Geef de gebruikersnaam die u hebt gemaakt bij de SQL-Database is gemaakt. Deze wordt vermeld in de eigenschappen van de SQL-Database in de Azure portal. |
+   | Wachtwoord * |Voer het wachtwoord die u hebt gemaakt bij de SQL-Database is gemaakt. |
    
-    These credentials are used to authorize your logic app to connect, and access your SQL data. Once complete, your connection details look similar to the following:  
+    Deze referenties worden gebruikt voor het autoriseren van uw logische app verbinding maken en toegang tot uw SQL-gegevens. Hierna kunt er uw Verbindingsdetails ongeveer als volgt:  
    
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/sample-connection.png) 
-4. Select **Create**. 
-5. Notice the connection has been created. Now, proceed with the other steps in your logic app: 
+    ![Stap voor SQL Azure-verbinding maken](./media/connectors-create-api-sqlazure/sample-connection.png) 
+4. Selecteer **Maken**. 
+5. U ziet dat de verbinding is gemaakt. Ga nu verder met de overige stappen in uw logische app: 
    
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/table.png)
+    ![Stap voor SQL Azure-verbinding maken](./media/connectors-create-api-sqlazure/table.png)
 

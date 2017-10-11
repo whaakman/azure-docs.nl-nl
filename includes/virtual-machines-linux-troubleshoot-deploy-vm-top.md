@@ -1,4 +1,4 @@
-The following top issues may help resolve your issue. To start troubleshooting, review these steps:
+De volgende meest voorkomende problemen kunnen helpen uw probleem wordt opgelost. Als u wilt oplossen, controleert u deze stappen:
 
-- [The cluster cannot support the requested VM size](../articles/virtual-machines/linux/troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
-- [The cluster does not have free resources](../articles/virtual-machines/linux/troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)
+- [Het cluster kan het aangevraagde VM-grootte niet ondersteunen.](../articles/virtual-machines/linux/troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
+- [Het cluster heeft geen gratis resources](../articles/virtual-machines/linux/troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)

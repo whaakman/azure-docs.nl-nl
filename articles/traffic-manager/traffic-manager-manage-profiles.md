@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-an-azure-traffic-manager-profile"></a>Een Azure Traffic Manager-profiel beheren
 
 Traffic Manager-profielen gebruiken verkeersrouteringsmethoden voor het beheren van de distributie van verkeer naar uw cloudservices of de website-eindpunten. In dit artikel wordt uitgelegd hoe u deze profielen kunt maken en beheren.
@@ -76,4 +74,3 @@ U kunt een bestaand profiel uitschakelen zodat Traffic Manager geen gebruikersaa
 * [Routeringsmethode op basis van geografische locatie configureren](traffic-manager-configure-geographic-routing-method.md) 
 * [Routeringsmethode op basis van gewogen distributie configureren](traffic-manager-configure-weighted-routing-method.md)
 * [Routeringsmethode op basis van prestaties configureren](traffic-manager-configure-performance-routing-method.md)
-

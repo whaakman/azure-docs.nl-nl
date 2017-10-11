@@ -1,19 +1,19 @@
-#### <a name="prerequisites"></a>Prerequisites
-* An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* An [Office 365](https://office365.com) account  
+#### <a name="prerequisites"></a>Vereisten
+* Een Azure-account; kunt u een [gratis account](https://azure.microsoft.com/free)
+* Een [Office 365](https://office365.com) account  
 
-Before using your Office 365 account in a logic app, authorize the logic app to connect to your Office 365 account. You can do this easily within your logic app on the Azure portal.  
+Voordat u uw Office 365-account in een logische app, de autorisatie voor de logische app verbinding maken met uw Office 365-account. U kunt dit eenvoudig doen in uw logische app in de Azure portal.  
 
-Authorize your logic app to connect to your Office 365 account using the following steps:
+Toestaan dat uw logische app verbinding maken met uw Office 365-account met behulp van de volgende stappen uit:
 
-1. Create a logic app. In the Logic Apps designer, select **Show Microsoft managed APIs** in the drop down list, and then enter "office 365" in the search box. Select one of the triggers or actions:  
-    ![Office 365 connection creation step](./media/connectors-create-api-office365-outlook/office365-sendemail.png)  
-2. If you haven't previously created any connections to Office 365, you are prompted to sign in using your Office 365 credentials:  
-    ![Office 365 connection creation step](./media/connectors-create-api-office365-outlook/office365-signin.png)  
-3. Select **Sign in**, and enter your user name and password. Select **Sign in**:  
-    ![Office 365 connection creation step](./media/connectors-create-api-office365-outlook/office365-usernamepassword.png)
+1. Een logische app maken. Selecteer in de ontwerpfunctie Logic Apps **beheerde API's van Microsoft weergeven** in de vervolgkeuzelijst en voer vervolgens 'office 365' in het zoekvak. Selecteer een van de triggers of acties:  
+    ![Stap voor Office 365 verbinding maken](./media/connectors-create-api-office365-outlook/office365-sendemail.png)  
+2. Als u verbindingen met Office 365 nog niet eerder hebt gemaakt, wordt u gevraagd aan te melden met uw Office 365-referenties:  
+    ![Stap voor Office 365 verbinding maken](./media/connectors-create-api-office365-outlook/office365-signin.png)  
+3. Selecteer **aanmelden**, en voer uw gebruikersnaam en wachtwoord. Selecteer **aanmelden**:  
+    ![Stap voor Office 365 verbinding maken](./media/connectors-create-api-office365-outlook/office365-usernamepassword.png)
    
-    These credentials are used to authorize your logic app to connect to, and access your Office 365 account. 
-4. Notice the connection has been created. Now, proceed with the other steps in your logic app:   
-    ![Office 365 connection creation step](./media/connectors-create-api-office365-outlook/office365-sendemailproperties.png)  
+    Deze referenties worden gebruikt voor het autoriseren van uw logische app verbinding te maken, toegang tot uw Office 365-account. 
+4. U ziet dat de verbinding is gemaakt. Ga nu verder met de overige stappen in uw logische app:   
+    ![Stap voor Office 365 verbinding maken](./media/connectors-create-api-office365-outlook/office365-sendemailproperties.png)  
 

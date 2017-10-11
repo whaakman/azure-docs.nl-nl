@@ -1,14 +1,14 @@
 
-1. Select your VM in the portal. The *DNS name* is currently blank. Select **Public IP address**:
+1. Selecteer uw virtuele machine in de portal. De *DNS-naam* is momenteel leeg. Selecteer **openbaar IP-adres**:
    
-   ![Click Public IP resource in the portal](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
+   ![Klik op openbare IP-resource in de portal](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
 
-2. Enter the desired DNS name and then select **Save**.
+2. Geef de gewenste DNS-naam en selecteer vervolgens **opslaan**.
    
-   ![Enter a DNS name label for your public IP resource](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
+   ![Voer een label van DNS-naam voor uw openbare IP-resource](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
  
 
-3. To return to the VM overview blade, close the *Public IP address* blade. Verify that the *DNS name* is now shown.
+3. Als u wilt terugkeren naar de overzichtsblade van de virtuele machine, sluit u de *openbaar IP-adres* blade. Controleer de *DNS-naam* wordt nu weergegeven.
    
-   ![Confirm your new DNS label is set](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
+   ![Bevestig dat uw nieuwe DNS-label is ingesteld](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 

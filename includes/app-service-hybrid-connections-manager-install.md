@@ -1,22 +1,22 @@
 
-1. In the **Hybrid connections** blade, click the hybrid connection you just created, then click **Listener Setup**.
+1. In de **hybride verbindingen** blade, klikt u op de hybride verbinding die u zojuist hebt gemaakt en klik op **Listener Setup**.
    
-    ![Click Listener Setup](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
-2. The **Hybrid connection properties** blade opens. Under **On-premises Hybrid Connection Manager**, choose **download and configure manually**, save the downloaded HybridConnectionManager.msi package, and copy the gateway connection string.
+    ![Klik op Listener Setup](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
+2. De **hybride verbindingseigenschappen** blade wordt geopend. Onder **On-premises hybride Verbindingsbeheer**, kies **handmatig downloaden en configureren**, sla het gedownloade pakket van HybridConnectionManager.msi en kopieer de verbindingsreeks voor de gateway.
    
-    ![Click here to install](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
-3. From an administrator command prompt, type the following command to start the installer:
+    ![Klik hier om te installeren](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
+3. Typ de volgende opdracht om het installatieprogramma starten vanaf een beheerdersopdrachtprompt:
    
         start HybridConnectionManager.msi
-4. After the installer runs, click **Not now**, then browse to the %ProgramFiles%\Microsoft\HybridConnectionManager folder, run HCMConfigWizard.exe and click **Yes** in the **User Account Control** dialog.
-5. Paste the hybrid connection string that you copied earlier and click **OK**. 
+4. Nadat het installatieprogramma wordt uitgevoerd, klikt u op **niet nu**, bladert u naar de map %ProgramFiles%\Microsoft\HybridConnectionManager, HCMConfigWizard.exe uitvoeren en klik op **Ja** in de **gebruikersaccount Besturingselement** dialoogvenster.
+5. Plak de verbindingsreeks voor hybride die u eerder hebt gekopieerd en klik op **OK**. 
    
-    ![Installing](./media/app-service-hybrid-connections-manager-install/D08aHCMInstallManual.png)
-6. When the install completes, click **Close**.
+    ![Installeren](./media/app-service-hybrid-connections-manager-install/D08aHCMInstallManual.png)
+6. Wanneer de installatie is voltooid, klikt u op **sluiten**.
    
-    ![Click Close](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
+    ![Klik op sluiten](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
    
-    On the **Hybrid connections** blade, the **Status** column now shows **Connected**. 
+    Op de **hybride verbindingen** blade de **Status** kolom ziet u nu **verbonden**. 
    
-    ![Connected Status](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
+    ![Status verbonden](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
 

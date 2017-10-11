@@ -1,229 +1,229 @@
-# <a name="internet-of-things-security-architecture"></a>Internet of Things security architecture
-When designing a system, it is important to understand the potential threats to that system, and add appropriate defenses accordingly, as the system is designed and architected. It is particularly important to design the product from the start with security in mind because understanding how an attacker might be able to compromise a system helps make sure appropriate mitigations are in place from the beginning. 
+# <a name="internet-of-things-security-architecture"></a>Internet der dingen-beveiligingsarchitectuur
+Bij het ontwerpen van een systeem, is het belangrijk om te begrijpen van de mogelijke bedreigingen tot dat systeem en dienovereenkomstig juiste beveiliging niet toevoegen als het systeem is ontworpen en ontworpen. Het is vooral belangrijk voor het ontwerpen van het product vanaf het begin rekening met beveiliging omdat informatie over hoe een aanvaller mogelijk een systeem kunt u ervoor dat de juiste oplossingen in plaats vanaf het begin. 
 
-## <a name="security-starts-with-a-threat-model"></a>Security starts with a threat model
-Microsoft has long used threat models for its products and has made the company’s threat modeling process publically available. The company experience demonstrates that the modelling has unexpected benefits beyond the immediate understanding of what threats are the most concerning. For example, it also creates an avenue for an open discussion with others outside the development team, which can lead to new ideas and improvements in the product.
+## <a name="security-starts-with-a-threat-model"></a>Beveiliging begint met een risicomodel
+Microsoft heeft lang threat modellen gebruikt voor de producten en van het bedrijf threat modeling proces openbaar beschikbaar heeft gesteld. De ervaring van het bedrijf laat zien dat de modellering heeft onverwachte voordelen na het direct inzicht in wat bedreigingen de meest zijn betreffende. Bijvoorbeeld, maakt het ook een avenue voor een open discussie met anderen buiten het ontwikkelingsteam, wat tot nieuwe ideeën en verbeteringen in het product leiden kan.
 
-The objective of threat modeling is to understand how an attacker might be able to compromise a system and then make sure appropriate mitigations are in place. Threat modeling forces the design team to consider mitigations as the system is designed rather than after a system is deployed. This fact is critically important, because retrofitting security defenses to a myriad of devices in the field is infeasible, error prone and will leave customers at risk.
+Het doel van risicomodel is om te begrijpen hoe een aanvaller mogelijk plegen op een systeem en controleer vervolgens of de juiste oplossingen zijn geïnstalleerd. Threat modellering dwingt het ontwerpteam rekening houden met beperkingen als het systeem is ontworpen in plaats van nadat het systeem wordt geïmplementeerd. Dit is zeer belangrijk omdat met terugwerkende kracht beveiligingen voor een groot aantal apparaten in het veld onbruikbare, foutgevoelig en laat klanten risico.
 
-Many development teams do an excellent job capturing the functional requirements for the system that benefit customers. However, identifying non-obvious ways that someone might misuse the system is more challenging. Threat modeling can help development teams understand what an attacker might do and why. Threat modeling is a structured process that creates a discussion about the security design decisions in the system, as well as changes to the design that are made along the way that impact security. While a threat model is simply a document, this documentation also represents an ideal way to ensure continuity of knowledge, retention of lessons learned, and help new team onboard rapidly. Finally, an outcome of threat modeling is to enable you to consider other aspects of security, such as what security commitments you wish to provide to your customers. These commitments in conjunction with threat modeling will inform and drive testing of your Internet of Things (IoT) solution.
+Veel ontwikkelteams doen een uitstekende taak voor het vastleggen van de functionele vereisten voor het systeem die profiteren van klanten. Identificeren niet duidelijk manieren dat iemand zouden het systeem misbruiken kan is echter moeilijker. Risicomodel kunt ontwikkelteams begrijpen wat een aanvaller kan doen en waarom. Risicomodel is een gestructureerde proces waarbij een discussie over de beveiliging ontwerpbeslissingen maakt in het systeem, evenals wijzigingen in het ontwerp dat langs de manier zijn aangebracht die gevolgen beveiliging. Een risicomodel is gewoon een document, wordt in deze documentatie ook een ideale manier om te controleren of de continuïteit van de retentie van opgedane kennis geleerd en nieuwe help team vrijgeven snel vertegenwoordigt. Ten slotte is een resultaat van risicomodel waarmee u rekening houden met andere aspecten van beveiliging, zoals welke beveiligingsverplichtingen die u wilt bieden aan uw klanten. Deze verplichtingen in combinatie met risicomodel wordt kennis en station testen van uw oplossing voor het Internet der dingen (IoT).
 
-### <a name="when-to-threat-model"></a>When to threat model
-[Threat modeling](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) offers the greatest value if it is incorporated into the design phase. When you are designing, you have the greatest flexibility to make changes to eliminate threats. Eliminating threats by design is the desired outcome. It is much easier than adding mitigations, testing them, and ensuring they remain current and moreover, such elimination is not always possible. It becomes harder to eliminate threats as a product becomes more mature, and in turn will ultimately require more work and a lot harder tradeoffs than threat modeling early on in the development.
+### <a name="when-to-threat-model"></a>Wanneer dreiging model
+[Risicomodel](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) biedt de grootste waarde als deze is opgenomen in de ontwerpfase. Wanneer u ontwerpt, hebt u de grootste flexibiliteit te wijzigen om te elimineren bedreigingen. Bedreigingen bespaard omdat niet met opzet, is het gewenste resultaat. Het is veel eenvoudiger dan beperkingen toe te voegen, deze testen en blijven ze actueel blijven en bovendien die verwijdering is niet altijd mogelijk. Wordt het moeilijker te elimineren bedreigingen, zoals een product meer volwassen wordt en op zijn beurt uiteindelijk waarvoor meer werk en veel moeilijker voor-en nadelen dan threat modeling vroeg stadium in de ontwikkeling.
 
-### <a name="what-to-threat-model"></a>What to threat model
-You should thread model the solution as a whole and also focus in the following areas:
+### <a name="what-to-threat-model"></a>Wat u moet een risicomodel
+U moet een thread-model de oplossing in zijn geheel en ook zich richten op de volgende gebieden:
 
-* The security and privacy features
-* The features whose failures are security relevant
-* The features that touch a trust boundary 
+* De beveiliging en privacy-functies
+* De functies waarvoor fouten beveiliging relevante zijn
+* De functies die grens van een vertrouwensrelatie touch 
 
-### <a name="who-threat-models"></a>Who threat models
-Threat modeling is a process like any other.  It is a good idea to treat the threat model document like any other component of the solution and validate it. Many development teams do an excellent job capturing the functional requirements for the system that benefit customers. However, identifying non-obvious ways that someone might misuse the system is more challenging. Threat modeling can help development teams understand what an attacker might do and why.
+### <a name="who-threat-models"></a>Wie dreiging modellen
+Risicomodel is een proces zoals elke andere.  Het is verstandig om te behandelen van het document threat model zoals elk ander onderdeel van de oplossing en te valideren. Veel ontwikkelteams doen een uitstekende taak voor het vastleggen van de functionele vereisten voor het systeem die profiteren van klanten. Identificeren niet duidelijk manieren dat iemand zouden het systeem misbruiken kan is echter moeilijker. Risicomodel kunt ontwikkelteams begrijpen wat een aanvaller kan doen en waarom.
 
-### <a name="how-to-threat-model"></a>How to threat model
-The threat modeling process is composed of four steps; the steps are:
+### <a name="how-to-threat-model"></a>Hoe risicomodel
+De threat modeling proces bestaat uit vier stappen; de stappen zijn:
 
-* Model the application
-* Enumerate Threats
-* Mitigate threats
-* Validate the mitigations
+* Model van de toepassing
+* Bedreigingen opsommen
+* Bedreigingen te verhelpen
+* Valideren van de oplossingen
 
-#### <a name="the-process-steps"></a>The process steps
-Three rules of thumb to keep in mind when building a threat model:
+#### <a name="the-process-steps"></a>De stappen
+Drie regels van miniatuur rekening moet houden bij het bouwen van een risicomodel:
 
-1. Create a diagram out of reference architecture. 
-2. Start breadth-first. Get an overview, and understand the system as a whole, before deep-diving.  This helps ensure that you deep-dive in the right places.
-3. Drive the process, don’t let the process drive you. If you find an issue in the modeling phase and want to explore it, go for it!  Don’t feel you need to follow these steps slavishly.  
+1. Diagram van een buiten-referentiearchitectuur maken. 
+2. Breedte eerst worden gestart. Een overzicht en inzicht in het systeem als geheel deep wilt voordat.  Dit zorgt ervoor dat u dieper in de juiste plaatsen worden uitgevoerd.
+3. Het proces schijf, niet toestaan dat het proces dat u station. Als u een probleem te in de fase modelleren vinden en wilt verkennen, gaat u voor deze!  Niet van mening bent dat u moet de volgende stappen slavishly.  
 
-#### <a name="threats"></a>Threats
-The four core elements of a threat model are:
+#### <a name="threats"></a>Bedreigingen
+De vier belangrijkste elementen van een risicomodel zijn:
 
-* Processes (web services, Win32 services, *nix daemons, etc. Note that some complex entities (for example field gateways and sensors) can be abstracted as a process when a technical drill down in these areas is not possible.
-* Data stores (anywhere data is stored, such as a configuration file or database)
-* Data flow (where data moves between other elements in the application)
-* External Entities (anything that interacts with the system, but is not under the control of the application, examples include users and satellite feeds)
+* Processen (webservices, Win32-services, * nix daemons, enzovoort. Houd er rekening mee dat sommige complexe entiteiten (bijvoorbeeld veld gateways en sensoren) kunnen worden gescheiden, zoals een proces wanneer een technische Inzoomen op in de volgende gebieden niet mogelijk is.
+* Gegevens worden opgeslagen (anywhere gegevens worden opgeslagen, zoals een configuratiebestand of de database)
+* Gegevensstroom (waarbij gegevens worden verplaatst tussen andere elementen in de toepassing)
+* Externe entiteiten (Alles die communiceert met het systeem, maar is niet onder het beheer van de toepassing, zijn bijvoorbeeld gebruikers en feeds satelliet)
 
-All elements in the architectural diagram are subject to various threats; we will use the STRIDE mnemonic. Read [Threat Modeling Again, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) to know more about the STRIDE elements.
+Alle elementen in het architectuurdiagram zijn onderworpen aan verschillende bedreigingen; We gebruiken de STRIDE verkorte weergave. Lees [Threat Modeling opnieuw, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) voor meer informatie over de STRIDE-elementen.
 
-Different elements of the application diagram are subject to certain STRIDE threats:
+Andere elementen van het diagram van de toepassing worden bepaalde STRIDE bedreigingen:
 
-* Processes are subject to STRIDE
-* Data flows are subject to TID
-* Data stores are subject to TID, and sometimes R, if the data stores are log files.
-* External entities are subject to SRD
+* Processen zijn onderworpen aan STRIDE
+* Gegevensstromen TID gelden
+* Opgeslagen gegevens zijn onderworpen aan TID en soms op R, als de gegevensarchieven logboekbestanden.
+* Externe entiteiten zijn onderworpen aan SRD
 
-## <a name="security-in-iot"></a>Security in IoT
-Connected special-purpose devices have a significant number of potential interaction surface areas and interaction patterns, all of which must be considered to provide a framework for securing digital access to those devices. The term “digital access” is used here to distinguish from any operations that are carried out through direct device interaction where access security is provided through physical access control. For example, putting the device into a room with a lock on the door. While physical access cannot be denied using software and hardware, measures can be taken to prevent physical access from leading to system interference. 
+## <a name="security-in-iot"></a>Beveiliging in IoT
+Verbonden speciale apparaten hebben een groot aantal potentiële surface gebieden van interactie en interactie patronen, die allemaal moet worden beschouwd als een raamwerk bieden voor het beveiligen van digitale toegang tot die apparaten. De term 'digitale toegang' wordt hier gebruikt om te onderscheiden van bewerkingen die worden uitgevoerd via directe apparaatinteractie indien toegangsbeveiliging via beheer op fysieke toegang wordt verleend. Bijvoorbeeld, als het apparaat in een ruimte met een vergrendeling op de deur. Hoewel fysieke toegang kan niet worden geweigerd met behulp van software en hardware, kunnen voorkomen dat u de fysieke toegang ertoe leidt dat tot system storing maatregelen worden getroffen. 
 
-As we explore the interaction patterns, we will look at “device control” and “device data” with the same level of attention. “Device control” can be classified as any information that is provided to a device by any party with the goal of changing or influencing its behavior towards its state or the state of its environment. “Device data” can be classified as any information that a device emits to any other party about its state and the observed state of its environment.
+Als we de patronen die interactie verkennen, kijken we 'apparaat control' en 'apparaatgegevens' met dezelfde mate van aandacht. 'Apparaat control' kan worden geclassificeerd als alle informatie die met het doel van het wijzigen van of het gedrag van het naar de staat of de status van de omgeving invloed op een apparaat wordt geleverd door een partij. 'Apparaatgegevens' kunnen worden geclassificeerd als alle informatie op die een apparaat naar een andere partij over de status en de waargenomen status van de omgeving verzendt.
 
-In order to optimize security best practices, it is recommended that a typical IoT architecture be divided into several component/zones as part of the threat modeling exercise. These zones are described fully throughout this section and include:
+Om te optimaliseren best practices voor beveiliging, is het raadzaam dat een typische IoT-architectuur in verschillende onderdeel/zones worden verdeeld als onderdeel van de threat modeling oefening. Deze zones volledig in deze sectie worden beschreven, en omvatten:
 
-* Device,
-* Field Gateway,
-* Cloud gateways, and
+* Apparaat
+* Veldgateway
+* Cloud gateways, en
 * Services.
 
-Zones are broad way to segment a solution; each zone often has its own data and authentication and authorization requirements. Zones can also be used to isolation damage and restrict the impact of low trust zones on higher trust zones.
+Zones zijn brede manier om te segmenteren van een oplossing. elke zone heeft vaak een eigen gegevens en verificatie en autorisatie-vereisten. Zones kunnen ook worden gebruikt voor isolatie schade en de impact van lage vertrouwensrelatie zones op hoger vertrouwen zones beperken.
 
-Each zone is separated by a Trust Boundary, which is noted as the dotted red line in the diagram below. It represents a transition of data/information from one source to another. During this transition, the data/information could be subject to Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service and Elevation of Privilege (STRIDE).
+Elke zone wordt gescheiden door een grens vertrouwen die wordt geregistreerd als de rode stippellijn in het onderstaande diagram. Dit vertegenwoordigt een migratie van gegevens van/vanuit één bron naar een andere. Tijdens deze overgang kan de gegevens worden onderworpen aan Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service en verhoging van bevoegdheden (STRIDE).
 
-![IoT Security Zones](media/iot-security-architecture/iot-security-architecture-fig1.png) 
+![IoT-beveiligingszones](media/iot-security-architecture/iot-security-architecture-fig1.png) 
 
-The components depicted within each boundary are also subjected to STRIDE, enabling a full 360 threat modeling view of the solution. The sections below elaborate on each of the components and specific security concerns and solutions that should be put into place.
+De onderdelen die binnen elke grens ook zijn onderworpen aan STRIDE, het inschakelen van een volledige 360 threat modeling weergave van de oplossing. De volgende secties uitwerken op elk van de onderdelen en specifieke beveiligingsproblemen en oplossingen die moeten worden ingesteld.
 
-The sections that follows will discuss standard components typically found in these zones.
+De volgende secties wordt uitgelegd hoe de standaardonderdelen gewoonlijk in deze zones.
 
-### <a name="the-device-zone"></a>The Device Zone
-The device environment is the immediate physical space around the device where physical access and/or “local network” peer-to-peer digital access to the device is feasible. A “local network” is assumed to be a network that is distinct and insulated from – but potentially bridged to – the public Internet, and includes any short-range wireless radio technology that permits peer-to-peer communication of devices. It does *not* include any network virtualization technology creating the illusion of such a local network and it does also not include public operator networks that require any two devices to communicate across public network space if they were to enter a peer-to-peer communication relationship.
+### <a name="the-device-zone"></a>De apparaat-Zone
+De apparaat-omgeving is de onmiddellijke fysieke ruimte rond het apparaat, waar fysieke toegang en/of 'lokale netwerk' peer-to-peer digitale toegang tot het apparaat is mogelijk. 'Lokale netwerk' wordt ervan uitgegaan dat een netwerk dat is uniek en geïsoleerd van – maar bevat beperkt bereik draadloze radio-technologie waarmee peer-to-peer-communicatie van apparaten mogelijk met – het openbare Internet overbrugd. Dit gebeurt *niet* bevatten netwerk virtualisatietechnologie de illusie van een lokaal netwerk maken en ook bevat geen openbare operator netwerken waarvoor geen twee apparaten communiceren via openbaar netwerk ruimte alsof ze een peer-to-peer-communicatie relatie invoeren.
 
-### <a name="the-field-gateway-zone"></a>The Field Gateway Zone
-Field gateway is a device/appliance or some general-purpose server computer software that acts as communication enabler and, potentially, as a device control system and device data processing hub. The field gateway zone includes the field gateway itself and all devices that are attached to it. As the name implies, field gateways act outside dedicated data processing facilities, are usually location bound, are potentially subject to physical intrusion, and will have limited operational redundancy. All to say that a field gateway is commonly a thing one can touch and sabotage while knowing what its function is. 
+### <a name="the-field-gateway-zone"></a>De Zone van de Gateway veld
+Veldgateway is een apparaat/apparaat of bepaalde server voor computersoftware die als communicatie factor en potentieel als een apparaat besturingselement systeem en het apparaat gegevensverwerking hub fungeert. De zone van de gateway veld bevat het veldgateway zelf en alle apparaten die zijn gekoppeld. Zoals de naam al aangeeft, veld gateways buiten toegewezen gegevensverwerking faciliteiten fungeren, zijn meestal locatie gebonden, worden mogelijk onderhevig aan fysieke inbraakdetectie en operationele redundantie wordt beperkt. Alle om te melden dat een veldgateway meestal een ding is kan een touch en sabotage achterhoofd wat de functie is. 
 
-A field gateway is different from a mere traffic router in that it has had an active role in managing access and information flow, meaning it is an application addressed entity and network connection or session terminal. An NAT device or firewall, in contrast, do not qualify as field gateways since they are not explicit connection or session terminals, but rather a route (or block) connections or sessions made through them. The field gateway has two distinct surface areas. One faces the devices that are attached to it and represents the inside of the zone, and the other faces all external parties and is the edge of the zone.   
+Een veldgateway wijkt af van een router alleen verkeer in dat deze een actieve rol bij het beheren van toegang heeft gehad en informatiestromen, wat betekent dat een toepassing is verholpen entiteit en de netwerkverbinding of terminal-sessie. Een NAT-apparaat of de firewall, in tegenstelling komen niet in aanmerking als veld gateways omdat ze zijn geen expliciete verbinding of sessie aansluitingen, maar in plaats daarvan een route (of blok)-verbindingen of tot stand gebracht via deze sessies. De veldgateway heeft twee verschillende surface gebieden. Een bespreekt de apparaten die zijn gekoppeld aan deze en binnen de zone vertegenwoordigt en de andere bespreekt alle externe partijen en de rand van de zone is.   
 
-### <a name="the-cloud-gateway-zone"></a>The cloud gateway zone
-Cloud gateway is a system that enables remote communication from and to devices or field gateways from several different sites across public network space, typically towards a cloud-based control and data analysis system, a federation of such systems. In some cases, a cloud gateway may immediately facilitate access to special-purpose devices from terminals such as tablets or phones. In the context discussed here, “cloud” is meant to refer to a dedicated data processing system that is not bound to the same site as the attached devices or field gateways. Also in a Cloud Zone, operational measures prevent targeted physical access and is not necessarily exposed to a “public cloud” infrastructure.  
+### <a name="the-cloud-gateway-zone"></a>De zone van de gateway cloud
+Cloudgateway is een systeem waarmee externe communicatie van en naar de apparaten of veld gateways uit diverse verschillende sites in de ruimte openbaar netwerk, meestal naar een cloud-gebaseerd beheer en het systeem voor analyse, een federatieve van dergelijke systemen. In sommige gevallen kan vergemakkelijken een cloudgateway onmiddellijk toegang voor apparaten voor speciale doeleinden van aansluitingen zoals tablets en telefoons. In de context die hier worden besproken, is 'cloud' bedoeld om te verwijzen naar een specifieke gegevensverwerkingssysteem die niet is gekoppeld aan dezelfde site als de gekoppelde apparaten of veld gateways. Ook in een Zone Cloud operationele maatregelen te voorkomen dat bepaalde fysieke toegang en wordt niet per se naar een 'openbare cloud'-infrastructuur.  
 
-A cloud gateway may potentially be mapped into a network virtualization overlay to insulate the cloud gateway and all of its attached devices or field gateways from any other network traffic. The cloud gateway itself is neither a device control system nor a processing or storage facility for device data; those facilities interface with the cloud gateway. The cloud gateway zone includes the cloud gateway itself along with all field gateways and devices directly or indirectly attached to it. The edge of the zone is a distinct surface area where all external parties communicate through.
+Een cloudgateway kan mogelijk worden toegewezen in een netwerkvirtualisatie-overlay naar de cloudgateway en alle gekoppelde apparaten of het veld gateways van ander netwerkverkeer kastje. De cloudgateway zelf is noch een controlesysteem apparaat, noch een verwerking of opslagfaciliteit voor gegevens van apparaten; deze interface met de cloudgateway van de. De gateway cloud zone bevat de cloudgateway zelf samen met alle veld gateways en apparaten direct of indirect gekoppeld. De rand van de zone is een afzonderlijke oppervlak waar alle externe partijen via communiceren.
 
-### <a name="the-services-zone"></a>The services zone
-A “service” is defined for this context as any software component or module that is interfacing with devices through a field- or cloud gateway for data collection and analysis, as well as for command and control.  Services are mediators. They act under their identity towards gateways and other subsystems, store and analyze data, autonomously issue commands to devices based on data insights or schedules and expose information and control capabilities to authorized end-users.
+### <a name="the-services-zone"></a>De zone services
+Een 'service' is gedefinieerd voor deze context als alle software-onderdelen of module die in aanraking met apparaten via een gateway veld- of cloud voor gegevensverzameling en -analyse, evenals voor opdracht en controle komt.  Services worden tussenstation. Ze onder hun identiteit naar gateways en andere subsystemen fungeren, opslaan en analyseren van gegevens, autonoom probleem opdrachten naar apparaten op basis van gegevens insights of schema's en gegevens openbaar en mogelijkheden voor geautoriseerde eindgebruikers te beheren.
 
-### <a name="information-devices-vs-special-purpose-devices"></a>Information-devices vs. special-purpose devices
-PCs, phones, and tablets are primarily interactive information devices. Phones and tablets are explicitly optimized around maximizing battery lifetime. They preferably turn off partially when not immediately interacting with a person, or when not providing services like playing music or guiding their owner to a particular location. From a systems perspective, these information technology devices are mainly acting as proxies towards people. They are “people actuators” suggesting actions and “people sensors” collecting input. 
+### <a name="information-devices-vs-special-purpose-devices"></a>Informatie-apparaten en apparaten voor speciale doeleinden
+Pc's, telefoons en tablets zijn voornamelijk interactieve informatie-apparaten. Telefoons en tablets zijn expliciet rond het optimaliseren van de levensduur van de batterij geoptimaliseerd. Ze bij voorkeur uitschakelen gedeeltelijk wanneer niet direct communiceert met een persoon of bij het opgeven van niet-services zoals muziek afspelen of begeleiden van hun eigenaar naar een bepaalde locatie. Vanuit het oogpunt van systemen van fungeren deze technologie informatie apparaten hoofdzakelijk als proxy's naar mensen. Ze zijn 'mensen actuators' voorstellen acties en 'mensen sensoren' verzamelen van de invoer. 
 
-Special-purpose devices, from simple temperature sensors to complex factory production lines with thousands of components inside them, are different. These devices are much more scoped in purpose and even if they provide some user interface, they are largely scoped to interfacing with or be integrated into assets in the physical world. They measure and report environmental circumstances, turn valves, control servos, sound alarms, switch lights, and do many other tasks. They help to do work for which an information device is either too generic, too expensive, too big, or too brittle. The concrete purpose immediately dictates their technical design as well the available monetary budget for their production and scheduled lifetime operation. The combination of these two key factors constrains the available operational energy budget, physical footprint, and thus available storage, compute, and security capabilities.  
+Apparaten voor speciale doeleinden zijn van eenvoudige temperatuursensors naar complexe factory productie regels met duizenden onderdelen in deze, verschillend. Deze apparaten zijn veel meer bereik in het doel en zelfs als ze een gebruikersinterface bieden, ze zijn voornamelijk gericht op tussenliggende met of worden geïntegreerd in de activa in de fysieke wereld. Ze meten en rapporteren milieu omstandigheden, kleppen inschakelen servos beheren, alarmen geluid, switch lichten en veel andere taken uitvoeren. Ze helpen bij te werken waarvoor een apparaat informatie te algemeen, te duur, te groot of te brokkelig is. Het doel van de concrete bepaalt het technische ontwerp onmiddellijk als ook de beschikbare financieel budget voor hun productie en de levensduur van de geplande bewerking. De combinatie van deze twee belangrijke factoren Hiermee beperkt u de beschikbare operationele energie budget, fysieke footprint en dus beschikbare opslag compute- en beveiligingsmogelijkheden.  
 
-If something “goes wrong” with automated or remote controllable devices, for example, physical defects or control logic defects to willful unauthorized intrusion and manipulation. The production lots may be destroyed, buildings may be looted or burned down, and people may be injured or even die. This is, of course, a whole different class of damage than someone maxing out a stolen credit card's limit. The security bar for devices that make things move, and also for sensor data that eventually results in commands that cause things to move, must be higher than in any e-commerce or banking scenario. 
+Als er iets 'gaan verkeerde' met geautomatiseerde of externe instelbare apparaten, bijvoorbeeld fysieke defecte producten of besturingselement logica gebreken willful inbreuk te bewerken. De productie veel mogelijk worden vernietigd, gebouwen mogelijk looted of gebrand omlaag en personen gewonde of zelfs die mogelijk zijn. Dit is natuurlijk een geheel andere klasse van de schade dan iemand bezetten een gestolen creditcard limiet. De beveiligingsbalk voor apparaten die zaken verplaatsen, en ook voor sensorgegevens die uiteindelijk in de opdrachten die ertoe leiden dingen resulteert dat te verplaatsen, moet hoger zijn dan in een e-commerce of scenario voor bankieren. 
 
-### <a name="device-control-and-device-data-interactions"></a>Device control and device data interactions
-Connected special-purpose devices have a significant number of potential interaction surface areas and interaction patterns, all of which must be considered to provide a framework for securing digital access to those devices. The term “digital access” is used here to distinguish from any operations that are carried out through direct device interaction where access security is provided through physical access control. For example, putting the device into a room with a lock on the door. While physical access cannot be denied using software and hardware, measures can be taken to prevent physical access from leading to system interference. 
+### <a name="device-control-and-device-data-interactions"></a>Apparaatbeheer en -interacties van apparaat-gegevens
+Verbonden speciale apparaten hebben een groot aantal potentiële surface gebieden van interactie en interactie patronen, die allemaal moet worden beschouwd als een raamwerk bieden voor het beveiligen van digitale toegang tot die apparaten. De term 'digitale toegang' wordt hier gebruikt om te onderscheiden van bewerkingen die worden uitgevoerd via directe apparaatinteractie indien toegangsbeveiliging via beheer op fysieke toegang wordt verleend. Bijvoorbeeld, als het apparaat in een ruimte met een vergrendeling op de deur. Hoewel fysieke toegang kan niet worden geweigerd met behulp van software en hardware, kunnen voorkomen dat u de fysieke toegang ertoe leidt dat tot system storing maatregelen worden getroffen. 
 
-As we explore the interaction patterns, we will look at “device control” and “device data” with the same level of attention while threat modeling. “Device control” can be classified as any information that is provided to a device by any party with the goal of changing or influencing its behavior towards its state or the state of its environment. “Device data” can be classified as any information that a device emits to any other party about its state and the observed state of its environment. 
+Als we de patronen die interactie verkennen, kijken we 'apparaat control' en 'apparaatgegevens' met dezelfde mate van aandacht tijdens risicomodel. 'Apparaat control' kan worden geclassificeerd als alle informatie die met het doel van het wijzigen van of het gedrag van het naar de staat of de status van de omgeving invloed op een apparaat wordt geleverd door een partij. 'Apparaatgegevens' kunnen worden geclassificeerd als alle informatie op die een apparaat naar een andere partij over de status en de waargenomen status van de omgeving verzendt. 
 
-## <a name="threat-modeling-the-azure-iot-reference-architecture"></a>Threat modeling the Azure IoT reference architecture
-Microsoft uses the framework outlined above to do threat modelling for Azure IoT. In the section below we therefore use the concrete example of Azure IoT Reference Architecture to demonstrate how to think about threat modelling for IoT and how to address the threats identified. In our case we identified four main areas of focus:
+## <a name="threat-modeling-the-azure-iot-reference-architecture"></a>Threat modeling van de Azure IoT reference-architectuur
+Het framework die hierboven worden beschreven om u te dreiging modellering voor Azure IoT maakt gebruik van Microsoft. In het onderstaande gedeelte gebruiken we het concrete voorbeeld van Azure IoT Reference Architecture daarom om te demonstreren hoe om na te denken over dreiging modellering voor IoT en hoe de geïdentificeerd bedreigingen kunnen weren. In ons geval geïdentificeerd we vier gebieden van de focus:
 
-* Devices and Data Sources,
-* Data Transport,
-* Device and Event Processing, and
-* Presentation
+* Apparaten en gegevensbronnen,
+* Data-Transport
+* Apparaat en de verwerking van gebeurtenissen en
+* Presentatie
 
-![Threat Modeling for Azure IoT](media/iot-security-architecture/iot-security-architecture-fig2.png) 
+![Threat Modeling voor Azure IoT](media/iot-security-architecture/iot-security-architecture-fig2.png) 
 
-The diagram below provides a simplified view of Microsoft’s IoT Architecture using a Data Flow Diagram model that is used by the Microsoft Threat Modeling Tool:
+Het diagram hieronder biedt een vereenvoudigde weergave van de IoT-architectuur van Microsoft met behulp van een gegevensstroom-Diagram model dat wordt gebruikt door het hulpprogramma Microsoft Threat Modeling:
 
-![Threat Modeling for Azure IoT using MS Threat Modeling Tool](media/iot-security-architecture/iot-security-architecture-fig3.png)
+![Threat Modeling voor Azure IoT met MS Threat Modeling hulpprogramma](media/iot-security-architecture/iot-security-architecture-fig3.png)
 
-It is important to note that the architecture separates the device and gateway capabilities. This allows the user to leverage gateway devices that are more secure: they are capable of communicating with the cloud gateway using secure protocols, which typically requires greater processing overhead that a native device  - such as a thermostat - could provide on its own. In the Azure services zone, we assume that the Cloud Gateway is represented by the Azure IoT Hub service.
+Het is belangrijk te weten dat de architectuur worden gescheiden van de mogelijkheden van het apparaat en de gateway. Hierdoor kan de gebruiker voor het benutten van de gatewayapparaten die veiliger zijn: kunnen communiceren met de cloudgateway met behulp van veilige protocollen hiervoor meestal groter verwerkingsoverhead dat een systeemeigen apparaat - zoals een thermostaat - zelf kan leveren. In de zone van de Azure-services, gaan we ervan uit dat de Cloudgateway wordt vertegenwoordigd door de service Azure IoT Hub.
 
-### <a name="device-and-data-sourcesdata-transport"></a>Device and data sources/data transport
-This section explores the architecture outlined above through the lens of threat modeling and gives an overview of how we are addressing some of the inherent concerns. We will focus on the core elements of a threat model:
+### <a name="device-and-data-sourcesdata-transport"></a>Apparaat- en bronnen/data-transport
+Deze sectie behandelt de architectuur die hierboven worden beschreven het gaat om een risicomodel en een overzicht van hoe we enkele van de problemen die inherent adresseert. Gaan we in op de belangrijkste elementen van een risicomodel:
 
-* Processes (those under our control and external items)
-* Communication (also called data flows)
-* Storage (also called data stores)
+* Processen (die in onze besturingselement en externe items)
+* Communicatie (ook wel gegevensoverdrachten)
+* Opslag (ook wel gegevensarchieven)
 
-#### <a name="processes"></a>Processes
-In each of the categories outlined in the Azure IoT architecture, we try to mitigate a number of different threats across the different stages data/information exists in: process, communication, and storage. Below we give an overview of the most common ones for the “process” category, followed by an overview of how these could be best mitigated: 
+#### <a name="processes"></a>Processen
+In elk van de categorieën die worden beschreven in de Azure IoT-architectuur we proberen te verkleinen van een aantal verschillende bedreigingen tussen de verschillende fasen gegevens/bestaat in: proces, communicatie en opslag. We bieden hieronder een overzicht van de meest voorkomende waarden voor de categorie 'proces', gevolgd door een overzicht van hoe deze kunnen worden beste verholpen: 
 
-**Spoofing (S)**: An attacker may extract cryptographic key material from a device, either at the software or hardware level, and subsequently access the system with a different physical or virtual device under the identity of the device the key material has been taken from. A good illustration is remote controls that can turn any TV and that are popular prankster tools.
+**Adresvervalsing (spoofing) (S)**: een aanvaller kan cryptografische sleutelmateriaal ophalen van een apparaat op het niveau van de software of hardware en vervolgens toegang tot het systeem met een ander fysiek of virtueel apparaat onder de identiteit van het apparaat het sleutelmateriaal van is genomen. Een goede illustratie is extern besturingselementen die elke TV kunt inschakelen en die populaire prankster hulpprogramma's zijn.
 
-**Denial of Service (D)**: A device can be rendered incapable of functioning or communicating by interfering with radio frequencies or cutting wires. For example, a surveillance camera that had its power or network connection intentionally knocked out will not report data, at all.
+**Denial of Service (D)**: een apparaat kan worden gerenderd waarvoor niet werkt of communiceren door interactie aangaan met keuzerondjes frequenties of knippen bedrading. Bijvoorbeeld, rapporteert een toezicht camera die de stroom of netwerk verbinding opzettelijk toenemende had niet gegevens, op alle.
 
-**Tampering (T)**: An attacker may partially or wholly replace the software running on the device, potentially allowing the replaced software to leverage the genuine identity of the device if the key material or the cryptographic facilities holding key materials were available to the illicit program. For example, an attacker may leverage extracted key material to intercept and suppress data from the device on the communication path and replace it with false data that is authenticated with the stolen key material.
+**Manipulatie (T)**: een aanvaller kan geheel of gedeeltelijk vervangen door de software die wordt uitgevoerd op het apparaat waardoor de vervangen software gebruikmaken van de identiteit van de legitimiteit van het apparaat als het sleutelmateriaal of cryptografische faciliteiten sleutel materialen die beschikbaar voor het illegale programma waren. Een aanvaller kan bijvoorbeeld gebruikmaken van uitgepakte sleutelmateriaal onderscheppen en gegevens van het apparaat op het communicatiepad onderdrukken en vervang deze door false gegevens die met het gestolen sleutelmateriaal is geverifieerd.
 
-**Information Disclosure (I)**: If the device is running manipulated software, such manipulated software could potentially leak data to unauthorized parties. For example, an attacker may leverage extracted key material to inject itself into the communication path between the device and a controller or field gateway or cloud gateway to siphon off information.
+**Vrijgeven van informatie (I)**: als het apparaat gezelschapsdieren software wordt uitgevoerd, dergelijke gezelschapsdieren software kan gegevens niet-geautoriseerde partijen mogelijk lekken. Een aanvaller kan bijvoorbeeld gebruikmaken van uitgepakte sleutelmateriaal zelf invoeren in het communicatiepad tussen het apparaat en een domeincontroller of het veld gateway of cloudgateway naar siphon uitschakelen informatie.
 
-**Elevation of Privilege (E)**: A device that does specific function can be forced to do something else. For example, a valve that is programmed to open half way can be tricked to open all the way.
+**Uitbreiding van bevoegdheden (E)**: een apparaat dat een specifieke functie biedt kan worden afgedwongen om iets anders te doen. Bijvoorbeeld kunt een klep dat openen halverwege is geprogrammeerd laten misleiden helemaal te openen.
 
-| **Component** | **Threat** | **Mitigation** | **Risk** | **Implementation** |
+| **Onderdeel** | **Threat** | **Risicobeperking** | **Risico 's** | **Implementatie** |
 | --- | --- | --- | --- | --- |
-| Device |S |Assigning identity to the device and authenticating the device |Replacing device or part of the device with some other device. How do we know we are talking to the right device? |Authenticating the device, using Transport Layer Security (TLS) or IPSec. Infrastructure should support using pre-shared key (PSK) on those devices that cannot handle full asymmetric cryptography. Leverage Azure AD, [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
-| TRID |Apply tamperproof mechanisms to the device for example by making it very hard to impossible to extract keys and other cryptographic material from the device. |The risk is if someone is tampering the device (physical interference). How are we sure, that device has not tampered with. |The most effective mitigation is a trusted platform module (TPM) capability that allows storing keys in special on-chip circuitry from which the keys cannot be read, but can only be used for cryptographic operations that use the key but never disclose the key. Memory encryption of the device. Key management for the device. Signing the code. | |
-| E |Having access control of the device. Authorization scheme. |If the device allows for individual actions to be performed based on commands from an outside source, or even compromised sensors, it will allow the attack to perform operations not otherwise accessible. |Having authorization scheme for the device | |
-| Field Gateway |S |Authenticating the Field gateway to Cloud Gateway (cert based, PSK, Claim based,..) |If someone can spoof Field Gateway, then it can present itself as any device. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). All the same key storage and attestation concerns of devices in general – best case is use TPM. 6LowPAN extension for IPSec to support Wireless Sensor Networks (WSN). |
-| TRID |Protect the Field Gateway against tampering (TPM?) |Spoofing attacks that trick the cloud gateway thinking it is talking to field gateway could result in information disclosure and data tampering |Memory encryption, TPM’s, authentication. | |
-| E |Access control mechanism for Field Gateway | | | |
+| Apparaat |S |Identiteit toewijzen aan het apparaat en het apparaat te verifiëren |Apparaat of een deel van het apparaat vervangen door een ander apparaat. Hoe weet we dat we praten op het juiste apparaat? |Het apparaat, met behulp van Transport Layer Security (TLS) of IPSec-verificatie. Infrastructuur moet ondersteuning met behulp van vooraf gedeelde sleutel (PSK) op apparaten die volledige asymmetrische cryptografie kunnen niet worden verwerkt. Gebruikmaken van Azure AD [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
+| TRID |Tamperproof mechanismen voor het apparaat bijvoorbeeld van toepassing waardoor het moeilijk voor onmogelijk om sleutels en andere cryptografische materiaal extraheren van het apparaat. |Het risico is als iemand het apparaat (fysieke storing) is geknoeid. Hoe worden we zeker, dat het apparaat niet is geknoeid. |De meest effectieve vermindering is een vertrouwde platform module (TPM)-functie waarmee het opslaan van sleutels in speciale op chip circuits waaruit de sleutels kunnen niet worden gelezen, maar kunnen alleen worden gebruikt voor cryptografische bewerkingen uit waarmee de sleutel worden gebruikt, maar de sleutel nooit worden vermeld. Geheugen-codering van het apparaat. Sleutelbeheer voor het apparaat. De code voor ondertekening. | |
+| E |Toegangsbeheer van het apparaat is. Autorisatieschema voor. |Als het apparaat kunt u afzonderlijke acties worden uitgevoerd op basis van de opdrachten van een externe bron, of zelfs waarmee is geknoeid sensoren, is het toegestaan de aanval bewerkingen uit te voeren niet toegankelijk. |Autorisatieschema voor het apparaat dat | |
+| Veldgateway |S |Verifiëren van de gateway veld Cloudgateway (cert gebaseerd, PSK, Claim gebaseerd,...) |Als iemand Veldgateway vervalsen kan, klikt u vervolgens het kan worden weergegeven als een apparaat. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Dezelfde sleutel problemen voor de opslag en attestation van apparaten in het algemeen – beste is TPM gebruiken. 6LowPAN-extensie voor IPSec-authenticatie voor de ondersteuning van draadloze Sensor netwerken (WSN). |
+| TRID |Beveiligen van de Gateway veld tegen knoeien (TPM)? |Adresvervalsing (spoofing) aanvallen die ertoe verleiden om de cloud gateway denken dat deze met een veldgateway communiceert kan leiden tot het vrijgeven van informatie en geknoei met gegevens |Geheugen-versleuteling, TPM van, verificatie. | |
+| E |Mechanisme voor toegangsbeheer voor Veldgateway | | | |
 
-Here are some examples of threats in this category:
+Hier volgen enkele voorbeelden van bedreigingen die in deze categorie:
 
-Spoofing: An attacker may extract cryptographic key material from a device, either at the software or hardware level, and subsequently access the system with a different physical or virtual device under the identity of the device the key material has been taken from.
+Adresvervalsing (spoofing): Kan een aanvaller vanaf een apparaat, op de software of hardwareniveau, en vervolgens toegang tot die het systeem met een ander fysiek of virtueel apparaat onder de identiteit van het apparaat het sleutelmateriaal onttrokken cryptografische sleutelmateriaal extraheren.
 
-**Denial of Service**: A device can be rendered incapable of functioning or communicating by interfering with radio frequencies or cutting wires. For example, a surveillance camera that had its power or network connection intentionally knocked out will not report data, at all.
+**DOS-aanval**: een apparaat kan worden gerenderd waarvoor niet werkt of communiceren door interactie aangaan met keuzerondjes frequenties of knippen bedrading. Bijvoorbeeld, rapporteert een toezicht camera die de stroom of netwerk verbinding opzettelijk toenemende had niet gegevens, op alle.
 
-**Tampering**: An attacker may partially or wholly replace the software running on the device, potentially allowing the replaced software to leverage the genuine identity of the device if the key material or the cryptographic facilities holding key materials were available to the illicit program.
+**Knoeien**: een aanvaller kan geheel of gedeeltelijk vervangen door de software die wordt uitgevoerd op het apparaat waardoor de vervangen software gebruikmaken van de identiteit van de legitimiteit van het apparaat als het sleutelmateriaal of cryptografische faciliteiten sleutel materialen die beschikbaar voor het illegale programma waren.
 
-**Tampering**: A surveillance camera that’s showing a visible-spectrum picture of an empty hallway could be aimed at a photograph of such a hallway. A smoke or fire sensor could be reporting someone holding a lighter under it. In either case, the device may be technically fully trustworthy towards the system, but it will report manipulated information.
+**Knoeien**: een toezicht camera die wordt weergegeven een afbeelding zichtbare spectrum van een leeg gang kan worden gericht op een foto van een dergelijke hotellobby. Een sensor rook of brand kan iemand een lichter onder het bedrijf rapportage. In beide gevallen wordt het apparaat mogelijk technisch volledig betrouwbare naar het systeem, maar er gezelschapsdieren informatie wordt gerapporteerd.
 
-**Tampering**: An attacker may leverage extracted key material to intercept and suppress data from the device on the communication path and replace it with false data that is authenticated with the stolen key material.
+**Knoeien**: een aanvaller kan gebruikmaken van uitgepakte sleutelmateriaal onderscheppen en gegevens van het apparaat op het communicatiepad onderdrukken en vervang deze door false gegevens die met het gestolen sleutelmateriaal is geverifieerd.
 
-**Tampering**: An attacker may partially or completely replace the software running on the device, potentially allowing the replaced software to leverage the genuine identity of the device if the key material or the cryptographic facilities holding key materials were available to the illicit program.
+**Knoeien**: een aanvaller kan geheel of gedeeltelijk vervangen door de software die wordt uitgevoerd op het apparaat waardoor de vervangen software gebruikmaken van de identiteit van de legitimiteit van het apparaat als het sleutelmateriaal of cryptografische faciliteiten sleutel materialen die beschikbaar voor het illegale programma waren.
 
-**Information Disclosure**: If the device is running manipulated software, such manipulated software could potentially leak data to unauthorized parties.
+**Vrijgeven van informatie**: als het apparaat gezelschapsdieren software wordt uitgevoerd, dergelijke gezelschapsdieren software kan gegevens niet-geautoriseerde partijen mogelijk lekken.
 
-**Information Disclosure**: An attacker may leverage extracted key material to inject itself into the communication path between the device and a controller or field gateway or cloud gateway to siphon off information.
+**Vrijgeven van informatie**: een aanvaller kan gebruikmaken van uitgepakte sleutelmateriaal zelf invoeren in de communicatie tussen de gateway-apparaat en een domeincontroller of een veld of de cloudgateway naar siphon uitschakelen informatie.
 
-**Denial of Service**: The device can be turned off or turned into a mode where communication is not possible (which is intentional in many industrial machines).
+**DOS-aanval**: het apparaat kan worden uitgeschakeld of ingeschakeld op een modus waarbij de communicatie is niet mogelijk (dit is opzettelijk in veel industriële machines).
 
-**Tampering**: The device can be reconfigured to operate in a state unknown to the control system (outside of known calibration parameters) and thus provide data that can be misinterpreted
+**Knoeien**: het apparaat opnieuw kan worden geconfigureerd om te werken in een onbekende met het controlesysteem (buiten bekende kalibreren parameters) staat en zodoende op gegevens die kan worden geïnterpreteerd
 
-**Elevation of Privilege**: A device that does specific function can be forced to do something else. For example, a valve that is programmed to open half way can be tricked to open all the way.
+**Onrechtmatige uitbreiding van toegangsrechten**: een apparaat dat een specifieke functie biedt kan worden afgedwongen om iets anders te doen. Bijvoorbeeld kunt een klep dat openen halverwege is geprogrammeerd laten misleiden helemaal te openen.
 
-**Denial of Service**: The device can be turned into a state where communication is not possible.
+**DOS-aanval**: het apparaat kan worden omgezet in een status waar communicatie niet mogelijk is.
 
-**Tampering**: The device can be reconfigured to operate in a state unknown to the control system (outside of known calibration parameters) and thus provide data that can be misinterpreted.
+**Knoeien**: het apparaat opnieuw kan worden geconfigureerd om te werken in een onbekende met het controlesysteem (buiten bekende kalibreren parameters) staat en zodoende op gegevens die kan worden geïnterpreteerd.
 
-**Spoofing/Tampering/Repudiation**: If not secured (which is rarely the case with consumer remote controls) an attacker can manipulate the state of a device anonymously. A good illustration is remote controls that can turn any TV and that are popular prankster tools.
+**Adresvervalsing (spoofing) / Tampering/Repudiation**: als niet zijn beveiligd (dit is bijna nooit het geval is bij de consument afstand besturingselementen) een aanvaller de status van een apparaat anoniem kunt bewerken. Een goede illustratie is extern besturingselementen die elke TV kunt inschakelen en die populaire prankster hulpprogramma's zijn.
 
-#### <a name="communication"></a>Communication
-Threats around communication path between devices, devices and field gateways and device and cloud gateway. The table below has some guidance around open sockets on the device/VPN:
+#### <a name="communication"></a>Communicatie
+Bedreigingen rond communicatiepad tussen apparaten, apparaten en gateways veld en apparaat en cloud-gateway. De onderstaande tabel bevat enkele richtlijnen rond sockets geopend op het apparaat/VPN:
 
-| **Component** | **Threat** | **Mitigation** | **Risk** | **Implementation** |
+| **Onderdeel** | **Threat** | **Risicobeperking** | **Risico 's** | **Implementatie** |
 | --- | --- | --- | --- | --- |
-| Device IoT Hub |TID |(D)TLS (PSK/RSA) to encrypt the traffic |Eavesdropping or interfering the communication between the device and the gateway |Security on the protocol level. With custom protocols, we need to figure out how to protect them. In most cases, the communication takes place from the device to the IoT Hub (device initiates the connection). |
-| Device Device |TID |(D)TLS (PSK/RSA) to encrypt the traffic. |Reading data in transit between devices. Tampering with the data. Overloading the device with new connections |Security on the protocol level (MQTT/AMQP/HTTP/CoAP. With custom protocols, we need to figure out how to protect them. The mitigation for the DoS threat is to peer devices through a cloud or field gateway and have them only act as clients towards the network. The peering may result in a direct connection between the peers after having been brokered by the gateway |
-| External Entity Device |TID |Strong pairing of the external entity to the device |Eavesdropping the connection to the device. Interfering the communication with the device |Securely pairing the external entity to the device NFC/Bluetooth LE. Controlling the operational panel of the device (Physical) |
-| Field Gateway Cloud Gateway |TID |TLS (PSK/RSA) to encrypt the traffic. |Eavesdropping or interfering the communication between the device and the gateway |Security on the protocol level (MQTT/AMQP/HTTP/CoAP). With custom protocols, we need to figure out how to protect them. |
-| Device Cloud Gateway |TID |TLS (PSK/RSA) to encrypt the traffic. |Eavesdropping or interfering the communication between the device and the gateway |Security on the protocol level (MQTT/AMQP/HTTP/CoAP). With custom protocols, we need to figure out how to protect them. |
+| Apparaat IoT-Hub |TID |(D) TLS (PSK/RSA) voor het versleutelen van het verkeer |Afgeluisterd of dat de communicatie tussen het apparaat en de gateway wordt verstoord |Beveiliging op het protocolniveau. Met aangepaste protocollen moeten we hoe beveiligen door ze te achterhalen. In de meeste gevallen plaatsvindt de communicatie van het apparaat met de IoT-Hub (apparaat start de verbinding). |
+| Apparaat-apparaat |TID |(D) TLS (PSK/RSA) voor het versleutelen van het verkeer. |Lezen van gegevens tijdens de overdracht tussen apparaten. Knoeit met de gegevens. Overbelasting van het apparaat met nieuwe verbindingen |Beveiliging op het protocolniveau van het (MQTT/AMQP/HTTP/CoAP. Met aangepaste protocollen moeten we hoe beveiligen door ze te achterhalen. De beperking voor de bedreiging DoS is het peer-apparaten via een cloud- of -gateway en hebben ze alleen act als clients op het netwerk. De peering kan leiden tot een rechtstreekse verbinding tussen de peers na dat is geleverd door de gateway |
+| Externe entiteit apparaat |TID |Sterke koppelen van de externe entiteit op het apparaat |De verbinding met het apparaat afgeluisterd. De communicatie verstoren op het apparaat |De externe entiteit op het apparaat NFC/Bluetooth RP koppelen veilig. Het operationele deelvenster van het apparaat (fysiek) beheren |
+| Veld Gateway Cloudgateway |TID |TLS (PSK/RSA) voor het versleutelen van het verkeer. |Afgeluisterd of dat de communicatie tussen het apparaat en de gateway wordt verstoord |Beveiliging op het protocolniveau van het (MQTT/AMQP/HTTP/CoAP). Met aangepaste protocollen moeten we hoe beveiligen door ze te achterhalen. |
+| De Cloudgateway apparaat |TID |TLS (PSK/RSA) voor het versleutelen van het verkeer. |Afgeluisterd of dat de communicatie tussen het apparaat en de gateway wordt verstoord |Beveiliging op het protocolniveau van het (MQTT/AMQP/HTTP/CoAP). Met aangepaste protocollen moeten we hoe beveiligen door ze te achterhalen. |
 
-Here are some examples of threats in this category:
+Hier volgen enkele voorbeelden van bedreigingen die in deze categorie:
 
-**Denial of Service**: Constrained devices are generally under DoS threat when they actively listen for inbound connections or unsolicited datagrams on a network, because an attacker can open many connections in parallel and not service them or service them very slowly, or the device can be flooded with unsolicited traffic. In both cases, the device can effectively be rendered inoperable on the network.
+**DOS-aanval**: beperkte apparaten zijn doorgaans onder DoS threat wanneer ze actief naar binnenkomende verbindingen of ongevraagde datagrammen in een netwerk luisteren, omdat een aanvaller kan openen veel verbindingen parallel en niet deze service ze erg traag is, of het apparaat kan worden overspoeld met ongevraagd verkeer. In beide gevallen wordt kunt het apparaat effectief vastlopen op het netwerk.
 
-**Spoofing, Information Disclosure**: Constrained devices and special-purpose devices often have one-for-all security facilities like password or PIN protection, or they wholly rely on trusting the network, meaning they will grant access to information when a device is on the same network, and that network is often only protected by a shared key. That means that when the shared secret to device or network is disclosed, it is possible to control the device or observe data emitted from the device.  
+**Adresvervalsing (spoofing), vrijgeven van informatie**: beperkte apparaten en apparaten voor speciale doeleinden vaak beschikken over een voor alle beveiligings-voorzieningen zoals wachtwoord of PINCODE beveiliging of ze geheel afhankelijk van het vertrouwen van het netwerk, wat betekent dat ze toegang tot gegevens verleent wanneer een apparaat op hetzelfde netwerk is en dat netwerk wordt vaak alleen beveiligd door een gedeelde sleutel. Dat betekent dat bij het gedeelde geheim op apparaat of netwerk wordt vermeld, is het mogelijk voor het beheren van het apparaat of gegevens die van het apparaat te observeren.  
 
-**Spoofing**: an attacker may intercept or partially override the broadcast and spoof the originator (man in the middle)
+**Adresvervalsing (spoofing)**: een aanvaller kan intercept gedeeltelijk overschrijven van de verzending en vervalsen van de oorspronkelijke aanvrager (man-in het midden)
 
-**Tampering**: an attacker may intercept or partially override the broadcast and send false information 
+**Knoeien**: een aanvaller kan intercept gedeeltelijk overschrijven van de verzending en ONWAAR informatie verzenden 
 
-**Information Disclosure:** an attacker may eavesdrop on a broadcast and obtain information without authorization **Denial of Service:** an attacker may jam the broadcast signal and deny information distribution
+**Vrijgeven van informatie:** een aanvaller kan op een uitzending afluisteren en informatie zonder toestemming verkrijgen **Denial of Service:** een aanvaller kan het signaal jam en informatie distributie weigeren
 
 #### <a name="storage"></a>Storage
-Every device and field gateway has some form of storage (temporary for queuing the data, operating system (OS) image storage).
+Elk gateway-apparaat en het veld heeft een vorm van opslag (tijdelijke voor queuing van de gegevens, het besturingssysteem (OS) installatiekopie opslag).
 
-| **Component** | **Threat** | **Mitigation** | **Risk** | **Implementation** |
+| **Onderdeel** | **Threat** | **Risicobeperking** | **Risico 's** | **Implementatie** |
 | --- | --- | --- | --- | --- |
-| Device storage |TRID |Storage encryption, signing the logs |Reading data from the storage (PII data), tampering with telemetry data. Tampering with queued or cached command control data. Tampering with configuration or firmware update packages while cached or queued locally can lead to OS and/or system components being compromised |Encryption, message authentication code (MAC) or digital signature. Where possible, strong access control through resource access control lists (ACLs) or permissions. |
-| Device OS image |TRID | |Tampering with OS /replacing the OS components |Read-only OS partition, signed OS image, Encryption |
-| Field Gateway storage (queuing the data) |TRID |Storage encryption, signing the logs |Reading data from the storage (PII data), tampering with telemetry data, tampering with queued or cached command control data. Tampering with configuration or firmware update packages (destined for devices or field gateway) while cached or queued locally can lead to OS and/or system components being compromised |BitLocker |
-| Field Gateway OS image |TRID | |Tampering with OS /replacing the OS components |Read-only OS partition, signed OS image, Encryption |
+| Apparaatopslag |TRID |Versleuteling van opslag, ondertekening van de logboeken |Lezen van gegevens uit de opslag (PII-gegevens), gemanipuleerde telemetrische gegevens. Gemanipuleerde in de wachtrij of opdracht besturingselement gegevens uit de cache. Knoeien met configuration of firmware updatepakketten kan terwijl in de cache opgeslagen of lokaal in de wachtrij leiden tot OS en/of system-onderdelen wordt aangetast |Versleuteling, message authentication code (MAC) of digitale handtekening. Waar mogelijk, sterk toegangsbeheer via toegang tot bedrijfsbronnen (ACL's) of machtigingen beheren. |
+| De installatiekopie van het besturingssysteem van het apparaat |TRID | |Gemanipuleerde OS / vervangen van de OS-componenten |OS-partitie, alleen-lezen, ondertekend installatiekopie van het besturingssysteem, versleuteling |
+| Veldgateway-opslag (de gegevens queuing) |TRID |Versleuteling van opslag, ondertekening van de logboeken |Lezen van gegevens uit de opslag (PII-gegevens), telemetriegegevens, gemanipuleerde gemanipuleerde in de wachtrij of opdracht besturingselement gegevens uit de cache. Knoeien met configuration of firmware updatepakketten (dat is bestemd voor apparaten of veldgateway) kan terwijl in de cache opgeslagen of lokaal in de wachtrij leiden tot OS en/of system-onderdelen wordt aangetast |BitLocker |
+| Installatiekopie van het veld Gateway besturingssysteem |TRID | |Gemanipuleerde OS / vervangen van de OS-componenten |OS-partitie, alleen-lezen, ondertekend installatiekopie van het besturingssysteem, versleuteling |
 
-### <a name="device-and-event-processingcloud-gateway-zone"></a>Device and event processing/cloud gateway zone
-A cloud gateway is system that enables remote communication from and to devices or field gateways from several different sites across public network space, typically towards a cloud-based control and data analysis system, a federation of such systems. In some cases, a cloud gateway may immediately facilitate access to special-purpose devices from terminals such as tablets or phones. In the context discussed here, “cloud” is meant to refer to a dedicated data processing system that is not bound to the same site as the attached devices or field gateways, and where operational measures prevent targeted physical access but is not necessarily to a “public cloud” infrastructure.  A cloud gateway may potentially be mapped into a network virtualization overlay to insulate the cloud gateway and all of its attached devices or field gateways from any other network traffic. The cloud gateway itself is neither a device control system nor a processing or storage facility for device data; those facilities interface with the cloud gateway. The cloud gateway zone includes the cloud gateway itself along with all field gateways and devices directly or indirectly attached to it.
+### <a name="device-and-event-processingcloud-gateway-zone"></a>Apparaat- en gebeurtenis verwerking/cloud gateway zone
+Een cloudgateway is een systeem dat Hiermee kunt externe communicatie van en naar de apparaten of veld gateways uit diverse verschillende sites op openbaar netwerk ruimte, meestal naar een cloud-gebaseerd beheer en het systeem voor analyse, een federatieve van dergelijke systemen. In sommige gevallen kan vergemakkelijken een cloudgateway onmiddellijk toegang voor apparaten voor speciale doeleinden van aansluitingen zoals tablets en telefoons. In de context die hier worden besproken, 'cloud' is bedoeld om te verwijzen naar een specifieke gegevensverwerkingssysteem die niet is gekoppeld aan dezelfde site als de gekoppelde apparaten of veld gateways en waar operationele maatregelen te voorkomen dat fysieke toegang gericht, maar is niet noodzakelijkerwijs een 'openbare cloud'-infrastructuur.  Een cloudgateway kan mogelijk worden toegewezen in een netwerkvirtualisatie-overlay naar de cloudgateway en alle gekoppelde apparaten of het veld gateways van ander netwerkverkeer kastje. De cloudgateway zelf is noch een controlesysteem apparaat, noch een verwerking of opslagfaciliteit voor gegevens van apparaten; deze interface met de cloudgateway van de. De gateway cloud zone bevat de cloudgateway zelf samen met alle veld gateways en apparaten direct of indirect gekoppeld.
 
-Cloud gateway is mostly custom built piece of software running as a service with exposed endpoints to which field gateway and devices connect. As such it must be designed with security in mind. Please follow [SDL](http://www.microsoft.com/sdl) process for designing and building this service. 
+Cloudgateway is voornamelijk aangepaste ingebouwde stukje software uitgevoerd als een service met blootgestelde eindpunten waarmee veldgateway en apparaten verbinding maken. Het moet als zodanig ontworpen beveiligd zijn. Volg [SDL](http://www.microsoft.com/sdl) processen voor het ontwerpen en bouwen van deze service. 
 
-#### <a name="services-zone"></a>Services zone
-A control system (or controller) is a software solution that interfaces with a device, or a field gateway, or cloud gateway for the purpose of controlling one or multiple devices and/or to collect and/or store and/or analyze device data for presentation, or subsequent control purposes. Control systems are the only entities in the scope of this discussion that may immediately facilitate interaction with people. The exception are intermediate physical control surfaces on devices, like a switch that allows a person to turn the device off or change other properties, and for which there is no functional equivalent that can be accessed digitally. 
+#### <a name="services-zone"></a>Services-zone
+Een besturingssysteem (of een domeincontroller) is een oplossing voor software die is gekoppeld aan een apparaat of een veldgateway of cloudgateway omwille van een of meerdere apparaten beheren en/of voor het verzamelen en/of opslaan en/of apparaatgegevens voor presentatie of latere controledoeleinden analyseren. Besturingssystemen zijn de enige entiteiten in het bereik van deze discussie die onmiddellijk interactie met mensen vergemakkelijken. De uitzondering worden tussenliggende fysieke besturingselement verwerkingsinformatie op apparaten, zoals een switch waarmee een gebruiker het apparaat uitschakelen of andere eigenschappen wijzigen en waarvoor er geen functioneel equivalent die digitaal toegankelijk is. 
 
-Intermediate physical control surfaces are those where any sort of governing logic constrains the function of the physical control surface such that an equivalent function can be initiated remotely or input conflicts with remote input can be avoided – such intermediated control surfaces are conceptually attached to a local control system that leverages the same underlying functionality as any other remote control system that the device may be attached to in parallel. Top threats to the cloud computing can be read at [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/) page.
+Tussenliggende fysieke besturingselement bevat, zijn de locaties waar elk soort logica van bestuur Hiermee beperkt u de functie van de fysieke oppervlak zodat een equivalente functie extern kan worden gestart of invoer conflicten met externe invoer kunnen worden vermeden – dergelijke intermediated besturingselement verwerkingsinformatie conceptueel gezien zijn gekoppeld aan een lokale controlesysteem die gebruikmaakt van dezelfde onderliggende functionaliteit als elk ander systeem beheer op afstand die het apparaat kan worden gekoppeld aan parallel. Bovenste bedreigingen voor de cloud computing kunnen worden gelezen als [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/) pagina.
 
-## <a name="additional-resources"></a>Additional resources
-Refer to the following articles for additional information:
+## <a name="additional-resources"></a>Aanvullende bronnen
+Raadpleeg de volgende artikelen voor aanvullende informatie:
 
-* [SDL Threat Modeling Tool](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
+* [SDL-hulpmiddel voor het modelleren van Threat](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
 * [Microsoft Azure IoT reference architecture](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
 

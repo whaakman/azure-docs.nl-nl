@@ -12,8 +12,3 @@ U kunt uw cache weergeven en configureren vanaf de blade **Redis Cache**.
 
 ![Alle instellingen in Redis-cache](media/redis-cache-browse/redis-cache-blade.png)
 
-
-
-<!--HONumber=Dec16_HO3-->
-
-

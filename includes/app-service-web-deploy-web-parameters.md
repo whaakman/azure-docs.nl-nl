@@ -1,26 +1,26 @@
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called Parameters that contains all of the parameter values.
-You should define a parameter for those values that will vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deployed. 
+Met Azure Resource Manager kunt u parameters definiëren voor waarden die u wilt opgeven wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie met de naam van de Parameters die alle van de parameterwaarden bevat.
+U moet een parameter voor de waarden die variëren op basis van het project dat u wilt implementeren of op basis van de omgeving die u om te implementeert definiëren. Geen parameters op voor waarden die u altijd hetzelfde gedefinieerd. De waarde van elke parameter wordt gebruikt in de sjabloon voor het definiëren van de resources die worden geïmplementeerd. 
 
-When defining parameters, use the **allowedValues** field to specify which values a user can provide during deployment. Use the **defaultValue** field to assign a value to the parameter, if no value is provided during deployment.
+Bij het definiëren van parameters, gebruiken de **allowedValues** aan te geven op welke waarden van een gebruiker kunt opgeven tijdens de implementatie. Gebruik de **defaultValue** veld een waarde toewijzen aan de parameter als u geen waarde is opgegeven tijdens de implementatie.
 
-We will describe each parameter in the template.
+Elke parameter in de sjabloon wordt beschreven.
 
-### <a name="sitename"></a>siteName
-The name of the web app that you wish to create.
+### <a name="sitename"></a>Sitenaam
+De naam van de web-app die u wilt maken.
 
     "siteName":{
       "type":"string"
     }
 
 ### <a name="hostingplanname"></a>hostingPlanName
-The name of the App Service plan to use for hosting the web app.
+De naam van de App Service-abonnement moet worden gebruikt voor het hosten van de web-app.
 
     "hostingPlanName":{
       "type":"string"
     }
 
-### <a name="sku"></a>sku
-The pricing tier for the hosting plan.
+### <a name="sku"></a>SKU
+De prijscategorie voor de hosting-plan.
 
     "sku": {
       "type": "string",
@@ -44,10 +44,10 @@ The pricing tier for the hosting plan.
       }
     }
 
-The template defines the values that are permitted for this parameter, and assigns a default value (S1) if no value is specified.
+De sjabloon definieert de waarden die zijn toegestaan voor deze parameter en een standaardwaarde (S1) wordt toegewezen als er geen waarde is opgegeven.
 
 ### <a name="workersize"></a>workerSize
-The instance size of the hosting plan (small, medium, or large).
+De exemplaargrootte van de hosting-abonnement (klein, Gemiddeld of grote).
 
     "workerSize":{
       "type":"string",
@@ -59,5 +59,5 @@ The instance size of the hosting plan (small, medium, or large).
       "defaultValue":"0"
     }
 
-The template defines the values that are permitted for this parameter (0, 1, or 2), and assigns a default value (0) if no value is specified. The values correspond to small, medium and large.
+De sjabloon definieert de waarden die zijn toegestaan voor deze parameter (0, 1 of 2), en wijst een standaardwaarde (0) als er geen waarde is opgegeven. De waarden komen overeen met kleine, middelgrote en grote.
 

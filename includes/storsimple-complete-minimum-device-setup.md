@@ -37,8 +37,3 @@
 
 Als u een video wilt bekijken over het uitvoeren van de minimale apparaatinstelling, klikt u [hier](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

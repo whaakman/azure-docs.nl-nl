@@ -22,8 +22,3 @@
 
 Het nieuwe beleid wordt in tabelvorm weergegeven op de pagina **Back-upbeleid**.
 
-
-
-<!--HONumber=Jan17_HO4-->
-
-

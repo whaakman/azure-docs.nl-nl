@@ -1,16 +1,16 @@
 
-| TIER: | FREE | BASIC | STANDARD |
+| LAAG: | GRATIS | BASIC | STANDARD |
 | --- | --- | --- | --- |
-| API Calls |500 K |1.5 M / unit |15 M / unit |
-| Active Devices |500 |Unlimited |Unlimited |
-| Scale |N/A |Up to 6 units |Unlimited units |
-| Push Notifications |Notification Hubs Free Tier included, up to 1 M pushes |Notification Hubs Basic Tier included, up to 10 M pushes |Notification Hubs Standard Tier included, up to 10 M pushes |
-| Real time messaging/<br/>Web Sockets |Limited |350 / mobile service |Unlimited |
-| Offline synchronizations |Limited |Included |Included |
-| Scheduled jobs |Limited |Included |Included |
-| SQL Database (required) <br/>Standard rates apply for additional capacity |20 MB included |20 MB included |20 MB included |
-| CPU capacity |60 minutes / day |Unlimited |Unlimited |
-| Outbound data transfer |165 MB per day (daily Rollover) |Included |Included |
+| API-aanroepen |500 KB |1.5 M / eenheid |15 M / eenheid |
+| Actieve apparaten |500 |Onbeperkt |Onbeperkt |
+| Schalen |N.v.t. |Maximaal 6 eenheden |Onbeperkte eenheden |
+| Pushmeldingen |Notification Hubs gratis laag opgenomen, maximaal 1 M pushmeldingen |Notification Hubs Basisstaffel opgenomen, tot 10 M pushmeldingen |Notification Hubs standaardcategorie opgenomen, tot 10 M pushmeldingen |
+| Realtime-berichten /<br/>Websockets |Beperkt |350 / mobiele service |Onbeperkt |
+| Offline synchronisatiebewerkingen |Beperkt |Inbegrepen |Inbegrepen |
+| Geplande jobs |Beperkt |Inbegrepen |Inbegrepen |
+| SQL-Database (vereist) <br/>Er gelden standaardtarieven voor extra capaciteit |20 MB opgenomen |20 MB opgenomen |20 MB opgenomen |
+| CPU-capaciteit |60 minuten/dag |Onbeperkt |Onbeperkt |
+| Uitgaande gegevensoverdracht |165 MB per dag (dagelijks Rollover) |Inbegrepen |Inbegrepen |
 
-For additional details on these limits and for information on pricing, see [Mobile Services Pricing](https://azure.microsoft.com/pricing/details/mobile-services/). 
+Zie voor meer informatie over deze limieten en voor informatie over prijzen [Mobile Services-prijzen](https://azure.microsoft.com/pricing/details/mobile-services/). 
 

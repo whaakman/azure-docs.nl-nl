@@ -1,5 +1,5 @@
 > [!NOTE]
-> The information in this document only applies to Windows-based HDInsight clusters.
+> De informatie in dit document is alleen van toepassing op Windows gebaseerde HDInsight-clusters.
 > 
 > 
 

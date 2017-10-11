@@ -14,16 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 47c178c66ec98fe5d333edd725b64465026e73ed
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/29/2017
 ---
-
-
-
 # <a name="step-2-review-the-prerequisites-for-hyper-v-with-vmm-to-azure-replication"></a>Stap 2: Controleer de vereisten voor Hyper-V-replicatie (met VMM) naar Azure
 
 Lees nadat u de [scenarioarchitectuur](vmm-to-azure-walkthrough-architecture.md) hebt doorgenomen dit artikel om ervoor te zorgen dat u de vereisten voor implementatie begrijpt. 
@@ -45,4 +41,3 @@ Lees nadat u de [scenarioarchitectuur](vmm-to-azure-walkthrough-architecture.md)
 ## <a name="next-steps"></a>Volgende stappen
 
 [Stap 3: Capaciteit plannen](vmm-to-azure-walkthrough-capacity.md)
-

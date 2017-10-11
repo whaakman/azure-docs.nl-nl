@@ -1,7 +1,7 @@
-|  | **ExpressRoute Gateway throughput (up to)** | **VPN Gateway and ExpressRoute coexist** |
+|  | **Doorvoer ExpressRoute-Gateway (tot)** | **VPN-gateway en ExpressRoute bestaan tegelijk** |
 | --- | --- | --- |
-| **Basic SKU (deprecated)** |500 Mbps |No |
-| **Standard SKU** |1000 Mbps |Yes |
-| **High Performance SKU** |2000 Mbps |Yes |
-| **Ultra Performance SKU** |9000 Mbps |Yes |
+| **Basis-SKU (afgeschaft)** |500 Mbps |Nee |
+| **Standaard SKU** |1000 Mbps |Ja |
+| **Hoge prestaties SKU** |2000 Mbps |Ja |
+| **Ultra-Performance SKU** |9000 Mbps |Ja |
 

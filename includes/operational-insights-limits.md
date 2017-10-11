@@ -28,8 +28,3 @@ De volgende limieten zijn van toepassing op elke Log Analytics-werkruimte:
 | Gegevensverzamelaar-API | Maximumgrootte voor een enkel bericht is 30 MB<br>Maximumgrootte voor veldwaarden is 32 KB | Grotere volumes splitsen in meerdere berichten<br>Velden die langer zijn dan 32 KB worden afgebroken. |
 | API voor zoeken | 5000 records geretourneerd voor niet-samengevoegde gegevens<br>500.000 records voor samengevoegde gegevens | Samengevoegde gegevens is een zoekopdracht die de opdracht `measure` omvat
  
-
-
-<!--HONumber=Feb17_HO3-->
-
-
