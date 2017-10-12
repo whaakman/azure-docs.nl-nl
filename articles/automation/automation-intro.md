@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
+ms.openlocfilehash: c9f5c346350a62540ba29444b1b00cc9dc398d56
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 6b1fb9e7ae810df21cbcd592fef2b43309e2269c
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/10/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-overview"></a>Overzicht van Azure Automation
 Microsoft Azure Automation biedt gebruikers een manier om de handmatige, langlopende, foutgevoelige en regelmatig herhaalde taken te automatiseren die vaak worden uitgevoerd in een cloud- en bedrijfsomgeving. Het bespaart tijd en verhoogt de betrouwbaarheid van regelmatige beheertaken. Deze worden zelfs gepland om met regelmatige intervallen automatisch te worden uitgevoerd. U kunt processen automatiseren met behulp van runbooks of configuratiebeheer automatiseren met behulp van Desired State Configuration. In dit artikel wordt een kort overzicht gegeven van Azure Automation en worden enkele veelgestelde vragen beantwoord. U kunt andere artikelen in deze bibliotheek raadplegen voor gedetailleerdere informatie over de verschillende onderwerpen.
@@ -84,5 +83,4 @@ Er zijn verschillende bronnen beschikbaar waar u meer informatie kunt vinden ove
 
 ## <a name="can-i-provide-feedback"></a>Mag ik feedback geven?
 **Ja, feedback is welkom.** Als u een Azure Automation-runbookoplossing of een integratiemodule zoekt, plaatst u een scriptaanvraag in Scriptcentrum. Als u feedback wilt geven of functieaanvragen hebt voor Azure Automation, plaatst u deze op [UserVoice](http://feedback.windowsazure.com/forums/34192--general-feedback). Bedankt! 
-
 

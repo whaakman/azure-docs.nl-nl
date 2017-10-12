@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
+ms.openlocfilehash: 8f24e6e57c2eec5950c8c12d9f4383ce11cf5c11
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 4eaa3e36ededddeb5268ec4f49b9daee2f824cee
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Runbooks met klassieke Azure-implementatie en Resource Manager verifiëren
 In dit artikel worden de stappen beschreven die u moet uitvoeren om een Azure AD-gebruikersaccount te configureren voor Azure Automation-runbooks die worden uitgevoerd met resources van een klassiek Azure-implementatiemodel of Azure Resource Manager.  Hoewel dit een ondersteunde verificatie-identiteit blijft voor op Azure Resource Manager gebaseerde runbooks, is het gebruik van een Uitvoeren als-account voor Azure de aanbevolen methode.       
@@ -91,5 +90,4 @@ U moet deze regels na [controlepunten](http://technet.microsoft.com/library/dn46
 
 ## <a name="next-steps"></a>Volgende stappen
 * Lees over de verschillende runbooktypen en stappen voor het maken van uw eigen runbooks in het volgende artikel [Azure Automation-runbooktypen](automation-runbook-types.md)
-
 

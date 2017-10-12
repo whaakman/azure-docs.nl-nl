@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 128b91c685b5f7e494a69ca5b04165a0ee7cbb78
-ms.contentlocale: nl-nl
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: 83cf027d95018de61ea906268d8f24700203e0c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-internal-load-balancer-by-using-the-azure-cli"></a>Een interne load balancer maken met behulp van Azure CLI
 
 > [!div class="op_single_selector"]
@@ -218,5 +216,4 @@ azure network lb delete --resource-group nrprg --name ilbset
 [Een distributiemodus voor load balancer configureren met bron-IP-affiniteit](load-balancer-distribution-mode.md)
 
 [TCP-time-outinstellingen voor inactiviteit voor de load balancer configureren](load-balancer-tcp-idle-timeout.md)
-
 

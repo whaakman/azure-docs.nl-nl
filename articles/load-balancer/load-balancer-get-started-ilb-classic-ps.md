@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: f701fb3564c62cf8088cc4362a10c5e2c2301ae6
-ms.contentlocale: nl-nl
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: 85fd757bdd6dd9906a23977b760f01bb1f85bf77
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Aan de slag met het maken van een interne load balancer (klassiek) met behulp van PowerShell
 
 > [!div class="op_single_selector"]
@@ -191,5 +189,4 @@ Get-Help Remove-AzureInternalLoadBalancer -full
 [Een distributiemodus voor de load balancer configureren met bron-IP-affiniteit](load-balancer-distribution-mode.md)
 
 [TCP-time-outinstellingen voor inactiviteit voor de load balancer configureren](load-balancer-tcp-idle-timeout.md)
-
 

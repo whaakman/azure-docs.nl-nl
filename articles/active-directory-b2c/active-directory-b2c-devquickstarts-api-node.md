@@ -14,13 +14,11 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: xerners
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
-ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
-ms.contentlocale: nl-nl
-ms.lasthandoff: 02/14/2017
-
-
+ms.openlocfilehash: 2315f5d0ebb142561c65224cd9d06299466a7ee4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Een web-API ontwikkelen met behulp van Node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -37,7 +35,7 @@ Met Azure Active Directory (Azure AD) B2C kunt u een web-API beveiligen met OAut
 Hiervoor doet u het volgende:
 
 1. U registreert een toepassing met Azure AD.
-2. U stelt de toepassing in voor het gebruik van de Passport-invoegtoepassing van `azure-ad-passport`.
+2. U stelt de toepassing in voor het gebruik van de Passport-invoegtoepassing van `passport-azure-ad`.
 3. U configureert een client om de web-API 'takenlijst' aan te roepen.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Een Azure AD B2C-directory maken
@@ -762,4 +760,3 @@ U hebt een REST-API geïmplementeerd met behulp van Restify en OAuth! U hebt nu 
 U kunt nu verdergaan met geavanceerdere onderwerpen, te weten:
 
 [Een web-API verbinden met behulp van iOS met B2C](active-directory-b2c-devquickstarts-ios.md)
-

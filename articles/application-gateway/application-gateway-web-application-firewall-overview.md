@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: 50863b60f2843f033bdb07f4564d937cd6f0b7be
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/07/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="web-application-firewall-waf"></a>Web Application Firewall (WAF)
 
 Web Application Firewall (WAF) is een functie van Application Gateway die gecentraliseerde beveiliging van uw webtoepassingen tegen algemene aanvallen en beveiligingsproblemen biedt. 
@@ -174,5 +171,4 @@ De facturering voor WAF start vanaf 5 mei 2017. Tot die tijd worden de gateways 
 ## <a name="next-steps"></a>Volgende stappen
 
 U weet nu in grote lijnen wat de mogelijkheden van WAF zijn. Ga naar [How to configure Web Application Firewall on Application Gateway (Web Application Firewall configureren in Application Gateway)](application-gateway-web-application-firewall-portal.md) voor informatie over de configuratie van WAF.
-
 
