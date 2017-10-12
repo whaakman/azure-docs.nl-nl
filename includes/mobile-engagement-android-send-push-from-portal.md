@@ -14,7 +14,7 @@ Om Mobile Engagement namens u pushmeldingen te laten verzenden, moet u het toega
    
     ![](./media/mobile-engagement-android-send-push/api-key.png)
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Een melding verzenden naar uw app
+## <a id="send"></a>Een melding verzenden naar uw app
 We gaan nu een eenvoudige pushmeldingcampagne maken waarbij een pushmelding wordt verzonden naar uw app.
 
 1. Navigeer naar het tabblad **REACH** in uw Mobile Engagement-portal.
@@ -41,9 +41,4 @@ We gaan nu een eenvoudige pushmeldingcampagne maken waarbij een pushmelding word
 6. Laatste stap: klik op **Activeren** om uw campagne om pushmeldingen te verzenden, te activeren.
    
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

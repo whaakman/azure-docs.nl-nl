@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 8657415f61d9977ad90883278f8737609248fed6
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: f7b8560d4ce7374e36d5f7e8a5d2056396e4f089
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="notification-hubs-documentation"></a>Documentatie voor Notification Hubs
 
 Meer informatie over hoe u met Notification Hubs, een schaalbaar multi-platformsysteem voor pushberichten, snel miljoenen berichten kunt verzenden. Zelfstudies, API-referenties en andere documentatie laten zien hoe u pushmeldingen instelt en verzendt van een willekeurige back-end naar een willekeurig mobiel apparaat. 
@@ -212,5 +210,4 @@ Meer informatie over hoe u met Notification Hubs, een schaalbaar multi-platforms
         </div>
     </li>
 </ul>
-
 

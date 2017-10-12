@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: charwen,cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: ffa791cf4c4be15645a67fef4e94bf6ebdc42a6a
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/07/2017
-
-
+ms.openlocfilehash: b29147a37f9a90fc80e16b350ac9b91daac1d7f2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Gelijktijdige ExpressRoute- en site-to-site-verbindingen configureren
 > [!div class="op_single_selector"]
@@ -234,4 +232,3 @@ Zie [Een punt-naar-site-verbinding configureren](../vpn-gateway/vpn-gateway-howt
 
 ## <a name="next-steps"></a>Volgende stappen
 Voor meer informatie over ExpressRoute raadpleegt u de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md).
-

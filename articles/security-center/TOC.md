@@ -19,6 +19,7 @@
 # Procedures
 
 ## Beveiligingsbeleid
+### [Overzicht](security-center-policies-overview.md)
 ### [Gegevensverzameling](security-center-enable-data-collection.md)
 ### [Beveiligingsbeleid](security-center-policies.md)
 ### [E-mailmeldingen](security-center-provide-security-contact-details.md)
@@ -53,7 +54,6 @@
 #### [Eindpuntbeveiliging installeren](security-center-install-endpoint-protection.md)
 #### [Opnieuw opstarten na systeemupdates](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Beveiligingsproblemen met het besturingssysteem herstellen](security-center-remediate-os-vulnerabilities.md)
-#### [Statusmeldingen endpoint protection oplossen](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Besturingssysteemversie bijwerken](security-center-update-os-version.md)
 #### [Beoordeling van beveiligingslekken is niet geïnstalleerd](security-center-vulnerability-assessment-recommendations.md)
 ### [Beveiligingsstatus bewaken](security-center-monitoring.md)

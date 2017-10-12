@@ -1,31 +1,31 @@
 
-1. Klik op de **App Services** knop, selecteert u uw back-end van Mobile Apps, selecteer **Quick Start**, en selecteer vervolgens uw clientplatform (iOS, Android, Xamarin, Cordova).
+1. Klik op de knop **App Services**, selecteer uw Mobile Apps-back-end, selecteer **Quickstart** en selecteer ten slotte uw clientplatform (iOS, Android, Xamarin, Cordova).
 
-    ![Azure-portal met Mobile Apps Quick Start gemarkeerd][quickstart]
+    ![Azure Portal met Mobile Apps Quickstart gemarkeerd][quickstart]
 
-2. Als een databaseverbinding niet is geconfigureerd, maakt u een door de volgende te doen:
+2. Als er nog geen databaseverbinding is geconfigureerd, maakt u er een door de volgende stappen uit te voeren:
 
-    ![Azure-portal met Mobile Apps verbinding maken met database][connect]
+    ![Azure Portal met Mobile Apps: verbinding maken met database][connect]
 
-    a. Maak een nieuwe SQL-database en de server.
+    a. Maak een nieuwe SQL-database en -server.
 
-    ![Azure-portal met Mobile Apps nieuwe database en de server maken][server]
+    ![Azure Portal met Mobile Apps: nieuwe database en server maken][server]
 
     b. Wacht totdat de gegevensverbinding tot stand is gebracht.
 
-    ![Azure portal gemaakt gegevensverbinding-melding][notification]
+    ![Melding in Azure Portal dat de gegevensverbinding is gemaakt][notification]
 
     c. Gegevensverbinding moet zijn gelukt.
 
-    ![Azure portal melding 'U hebt al een gegevensverbinding'][already-connection]
+    ![Melding 'U hebt al een gegevensverbinding' in Azure Portal][already-connection]
 
 3. Selecteer bij **2. Een tabel-API maken** de optie Node.js voor **Back-endtaal**. 
  
-4. Accepteer de bevestiging en selecteer vervolgens **takentabel maken**.  
-    Deze actie wordt een nieuwe taak item tabel gemaakt in uw database. 
+4. Accepteer de bevestiging en selecteer vervolgens **Takentabel maken**.  
+    Met deze actie wordt er een nieuwe takentabel in uw database gemaakt. 
 
     >[!IMPORTANT]
-    > Alle inhoud overschakelen van een bestaande back-end voor Node.js worden overschreven. Als u wilt maken in plaats daarvan een .NET-back-end, Zie [werken met de .NET-back-end-server SDK voor Mobile Apps][instructions].
+    > Als u een bestaande back-end overschakelt naar Node.js, wordt alle inhoud overschreven. Als u in plaats daarvan een .NET-back-end wilt maken, raadpleegt u [Work with the .NET back-end server SDK for Mobile Apps][instructions] (Werken met de .NET-back-end-server-SDK voor Mobile Apps).
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png

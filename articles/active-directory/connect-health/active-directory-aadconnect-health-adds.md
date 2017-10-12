@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9d7640577eedcc9221f6346b650aed85f1d31a65
-ms.openlocfilehash: 26ebdbc6f568dd3d9bbcaa3250aae70d80af2d35
-ms.contentlocale: nl-nl
-ms.lasthandoff: 01/18/2017
-
+ms.openlocfilehash: 9e5b45d71b978c383932409f0037a4f6f32d0cb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Azure AD Connect Health gebruiken met AD DS
 De volgende documentatie is specifiek voor het controleren van Active Directory Domain Services met Azure AD Connect Health. De ondersteunde versies van AD DS zijn: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 en Windows Server 2016.
@@ -62,5 +61,4 @@ Standaard hebben we vier prestatiemeters vooraf geselecteerd; u kunt echter ande
 * [Azure AD Connect Health for Sync gebruiken](active-directory-aadconnect-health-sync.md)
 * [Veelgestelde vragen over Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Versiegeschiedenis van Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-
 

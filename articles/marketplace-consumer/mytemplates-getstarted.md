@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
-translationtype: Human Translation
-ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
 ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Aan de slag met persoonlijke sjablonen in de Azure-portal
 Een [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) sjabloon is een declaratief sjabloon om uw implementatie te definiëren. U kunt de resources bepalen die u wilt implementeren in een oplossing en de parameters en variabelen vaststellen waarmee u waarden kunt invoeren voor verschillende omgevingen. De sjabloon bestaat uit JSON en uitdrukkingen die u kunt gebruiken om waarden voor uw implementatie samen te stellen.
@@ -132,10 +132,4 @@ Klik op **Selecteren** en vervolgens op **Ok**. U kunt nu de gebruikers of groep
 * Zie [Sjablonen samenstellen](../azure-resource-manager/resource-group-authoring-templates.md) voor meer informatie over het maken van Resource Manager-sjablonen
 * Zie [Sjabloonfuncties](../azure-resource-manager/resource-group-template-functions.md) voor inzicht in de functies die u in een Resource Manager-sjabloon kunt gebruiken.
 * Zie [Best practices voor het ontwerpen van Azure Resource Manager-sjablonen](../azure-resource-manager/best-practices-resource-manager-design-templates.md) voor meer informatie over het ontwerpen van uw sjablonen
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

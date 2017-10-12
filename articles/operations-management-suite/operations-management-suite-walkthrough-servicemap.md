@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
 ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.lasthandoff: 04/13/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>OMS-demo (Operations Management Suited-demo) in eigen tempo - Serviceoverzicht
 Deze demo in eigen tempo laat zien hoe u de oplossing [Serviceoverzicht](operations-management-suite-service-map.md) in Operations Management Suite (OMS) kunt gebruiken om een gesimuleerd probleem in een webtoepassing te identificeren en te diagnosticeren.  Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe.  De oplossing voegt ook gegevens samen die zijn verzameld door andere OMS-services, om u te helpen bij het analyseren van prestaties en het identificeren van problemen.  U gaat ook gebruikmaken van [zoeken in opdrachten in Log Analytics](../log-analytics/log-analytics-log-searches.md), waarmee u de verzamelde gegevens verder kunt bestuderen om de hoofdoorzaak van een probleem te achterhalen.
 

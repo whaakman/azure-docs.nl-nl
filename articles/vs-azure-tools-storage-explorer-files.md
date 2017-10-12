@@ -14,13 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
 ms.openlocfilehash: 964691758254531cb92a5b1cbe055ef61d25dba8
-ms.lasthandoff: 03/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-storage-explorer-preview-with-azure-file-storage"></a>Opslagverkenner (preview) gebruiken met Azure File Storage
 
 Azure File Storage is een service die bestandsshares in de cloud aanbiedt met behulp van het standaard SMB-protocol (Server Message Block). Zowel SMB 2.1 als SMB 3.0 wordt ondersteund. Met Azure File Storage kunt u oudere toepassingen die afhankelijk zijn van bestandsshares, snel en zonder kostbare regeneraties naar Azure migreren. U kunt File Storage gebruiken om gegevens openbaar te maken of om toepassingsgegevens privé op te slaan. In dit artikel leest u hoe u Opslagverkenner (preview) kunt gebruiken om te werken met bestandsshares en bestanden.
@@ -203,7 +202,7 @@ De volgende stappen laten zien hoe u de bestanden (en mappen) in een bestandssha
 
         ![Bestanden uploaden](media/vs-azure-tools-storage-explorer-files/image18.png)
         
-        b. Selecteer in het dialoogvenster **Bestanden uploaden** de knop met de weglatingstekens (**... **) rechts van het tekstvak **Bestanden** om de bestanden te selecteren die u wilt uploaden.
+        b. Selecteer in het dialoogvenster **Bestanden uploaden** de knop met de weglatingstekens (**...** ) rechts van het tekstvak **Bestanden** om de bestanden te selecteren die u wilt uploaden.
 
         ![Bestanden toevoegen](media/vs-azure-tools-storage-explorer-files/image19.png)
 
@@ -215,7 +214,7 @@ De volgende stappen laten zien hoe u de bestanden (en mappen) in een bestandssha
 
         ![Menu voor uploaden van map](media/vs-azure-tools-storage-explorer-files/image20.png)
 
-        b. Selecteer in het dialoogvenster **Map uploaden** de knop met de weglatingstekens (**... **) rechts van het tekstvak **Map** om de map te selecteren waarvan u de inhoud wilt uploaden.
+        b. Selecteer in het dialoogvenster **Map uploaden** de knop met de weglatingstekens (**...** ) rechts van het tekstvak **Map** om de map te selecteren waarvan u de inhoud wilt uploaden.
 
         c. Geef desgewenst een doelmap op waarin de inhoud van de geselecteerde map moet worden geüpload. Als de doelmap niet bestaat, wordt deze gemaakt.
 
@@ -262,4 +261,3 @@ De volgende stappen laten zien hoe u de bestanden (en mappen) in een bestandssha
 - De [meest recente releaseopmerkingen en video's van Opslagverkenner (preview)](http://www.storageexplorer.com/) bekijken.
 
 - Meer informatie lezen over [het maken van toepassingen met behulp van blobs, tabellen, wachtrijen en bestanden van Azure](https://azure.microsoft.com/documentation/services/storage/).
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>De oplossing Status van agent in OMS
 De oplossing Status van agent in OMS geeft inzicht in de agents die niet reageren en de agents die wel operationele gegevens versturen. Het betreft alle agents die rechtstreeks aan de OMS-werkruimte rapporteren of aan een beheergroep van System Center Operations Manager die is verbonden met OMS.  U kunt ook bijhouden hoeveel agents er zijn geïmplementeerd en waar deze zich geografisch gezien bevinden. Bovendien kunt u query's uitvoeren om op de hoogte te blijven van de verdeling van agents over Azure, andere cloudomgevingen of on-premises.    
@@ -135,4 +134,3 @@ De volgende tabel bevat voorbeelden van zoekopdrachten in logboeken voor records
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie [Understanding alerts in Log Analytics](../log-analytics/log-analytics-alerts.md) voor meer informatie over het genereren van waarschuwingen van Log Analytics.
-

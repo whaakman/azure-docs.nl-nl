@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
+ms.reviewer: rodejo
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 497beb75d1bd4c0709929948a9f857a034364f44
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>De directory voor uw Office 365-abonnement in Azure beheren
 In dit artikel wordt beschreven hoe u met behulp van de klassieke Azure-portal een directory beheert die voor een Office 365-abonnement is gemaakt. U moet de servicebeheerder of medebeheerder van een Azure-abonnement zijn om u aan te melden bij de klassieke Azure-portal. Als u nog geen Azure-abonnement hebt, kunt u zich vandaag aanmelden voor een [gratis proefperiode van 30 dagen](https://azure.microsoft.com/trial/get-started-active-directory/) en via deze koppeling binnen vijf minuten uw eerste cloudoplossing implementeren. Gebruik het werk- of schoolaccount waarmee u zich aanmeldt bij Office 365.
@@ -33,8 +34,8 @@ Als u al een Azure-abonnement hebt, is het beheer van een extra directory ook ee
 
 | Abonnement | Office 365 | Azure |
 | --- | --- | --- |
-|   Weergavenaam |Contoso |De standaarddirectory voor Azure Active Directory (Azure AD) |
-|   Domeinnaam |contoso.com |jkleefstrahotmail.onmicrosoft.com |
+|   Weergavenaam | Contoso | De standaarddirectory voor Azure Active Directory (Azure AD) |
+|   Domeinnaam | contoso.com | jkleefstrahotmail.onmicrosoft.com |
 
 Hij wil de gebruikersidentiteiten in de Contoso-directory beheren terwijl hij is aangemeld bij Azure met zijn Microsoft-account, zodat hij Azure AD-functies zoals Multi-Factor Authentication kan inschakelen. Het proces wordt verduidelijkt in het volgende diagram.
 

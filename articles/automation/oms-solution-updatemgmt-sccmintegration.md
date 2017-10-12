@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>Integratie van System Center Configuration Manager met OMS-updatebeheer [Preview]
 
 Klanten die hebben geïnvesteerd in System Center Configuration Manager voor het beheren van pc's, servers en mobiele apparaten, rekenen ook op zijn kracht en volwassenheid bij het beheren van software-updates als onderdeel van hun software-updatebeheercyclus.  
@@ -56,5 +54,4 @@ Nadat de update-implementatie met de OMS-oplossing is voltooid, worden op de doe
 Als u updates wilt beheren voor Windows Server-VM's die Configuration Manager-clients zijn, moet u clientbeleid configureren om de Software Update Management-functie uit te schakelen voor alle clients die worden beheerd door deze oplossing.  Standaard gelden clientinstellingen voor alle apparaten in de hiërarchie.  Raadpleeg voor meer informatie over deze beleidsinstelling en hoe u deze kunt configureren [Het configureren van clientinstellingen in System Center Configuration Manager](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings).  
 
 Nadat u deze configuratiewijziging hebt uitgevoerd, maakt u een nieuwe implementatie door de stappen te volgen die worden beschreven in [Een update-implementatie maken](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment), en selecteert u in de vervolgkeuzelijst de juiste Configuration Manager-verzameling die wordt weergegeven als een OMS-computergroep. 
-
 

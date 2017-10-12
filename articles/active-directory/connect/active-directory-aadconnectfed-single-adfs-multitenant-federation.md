@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.openlocfilehash: 436bf5905d2b203dc4cceea97f4fb90593df7111
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Meerdere exemplaren van Azure AD federeren met één exemplaar van AD FS
 
@@ -49,8 +49,7 @@ Open Azure AD PowerShell op de AD FS-server en voer de volgende stappen uit:
  
 Maak verbinding met de Azure Active Directory met het domein contoso.com
 Connect-MsolService
-Werk de federatie-instellingen bij voor contoso.com
-Update-MsolFederatedDomain-DomainName contoso.com-SupportMultipleDomain
+Werk de federatie-instellingen bij voor contoso.comUpdate-MsolFederatedDomain-DomainName contoso.com-SupportMultipleDomain
  
 De verlener in de federatie-instelling van het domein wordt gewijzigd in 'http://contoso.com/adfs/services/trust' en er wordt een claimregel voor uitgifte toegevoegd voor de Relying Party Trust van Azure AD, om de juiste issuerId-waarde uit te geven op basis van het UPN-achtervoegsel.
  

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: omravi
+ms.openlocfilehash: 1814459e47280af62450a4093140ab6ab9b765fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: abd66208ab7ac30831f3f1eddb2891ed7bcd3995
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-azure-time-series-insights"></a>Wat is Azure Time Series Insights?
 
 Azure Time Series Insights is een beheerde cloudservice met opslag-, analyse- en visualisatieonderdelen waarmee u gemakkelijk miljarden gebeurtenissen tegelijkertijd kunt ophalen, opslaan, verkennen en analyseren. Time Series Insights biedt u een integraal overzicht van uw gegevens, helpt u snel uw IoT-oplossing te valideren en kostbare stilstand van apparaten te vermijden door verborgen trends te ontdekken en afwijkingen te detecteren, en laat u in bijna realtime oorzaak-gevolganalyses uitvoeren. Time Series Insights haalt tijdreeksgegevens op van gebeurtenis-brokers (bijvoorbeeld IoT Hubs of Event Hubs), indexeert de gegevens en neemt gegevens uit gebruik op basis van een configureerbaar bewaarbeleid. Gebruikers gebruiken de gegevens via een intuïtieve UX of via REST-query-API's.
@@ -51,4 +49,3 @@ Azure Time Series Insights is een beheerde cloudservice met opslag-, analyse- en
 * **Omgeving**: een omgeving is een Azure-resource met inkomend verkeer en opslagcapaciteit.  Klanten richten via Azure Portal hun omgeving in met de vereiste capaciteit.
 * **Gebeurtenisbron**: een gebeurtenisbron is afgeleid van een gebeurtenis-broker, zoals Azure Event Hubs.  Time Series Insights maakt rechtstreeks verbinding met gebeurtenisbronnen en neemt de gegevensstroom op zonder dat hiervoor code hoeft te worden geschreven. Op dit moment biedt Time Series Insights ondersteuning voor Azure Event Hubs en Azure IoT Hubs.
 * **Referentiegegevens**: Time Series Insights biedt gebruikers de mogelijkheid om tijdreeksgegevens samen te voegen met referentiegegevens.  Referentiegegevens kunnen metagegevens bevatten over de apparaten of andere statische gegevens die relatief weinig veranderen. Time Series Insights voegt de referentiegegevens samen met gegevensstromen, zodat gebruikers deze gegevens in bijna realtime kunnen visualiseren en analyseren.
-

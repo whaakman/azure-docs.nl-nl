@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 7ddfe44918b358a1749640d1c93dba490855cc5a
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Bestanden uploaden naar een Media Services-account via Azure Portal
 > [!div class="op_single_selector"]
@@ -64,6 +63,5 @@ Wanneer het uploaden is voltooid, wordt de nieuwe asset in het deelvenster **Ass
 * Meer informatie over het [coderen van de geüploade assets](media-services-portal-encode.md).
 
 * U kunt ook Azure Functions gebruiken om een coderingstaak te activeren wanneer er een bestand binnenkomt in de geconfigureerde container. Bekijk voor meer informatie het voorbeeld in [Media Services: Integrating Azure Media Services with Azure Functions and Logic Apps](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/) (Media Services: Azure Media Services integreren met Azure Functions en Logic Apps).
-
 
 

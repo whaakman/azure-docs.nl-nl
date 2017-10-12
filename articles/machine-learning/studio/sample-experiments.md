@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f798ac1b46d702dbb96a2384d96f2d14eb3cac0e
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>Voorbeeldexperimenten kopiëren om nieuwe experimenten voor Machine Learning te maken
 Leer hoe u met voorbeeldexperimenten van [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) aan de slag gaat in plaats van experimenten voor Machine Learning helemaal opnieuw te maken. U kunt de voorbeelden gebruiken om uw eigen Machine Learning-oplossing te maken.
@@ -69,4 +68,3 @@ Er wordt een nieuw experiment gemaakt in de Machine Learning Studio-werkruimte o
 * [Gegevens importeren uit diverse bronnen](import-data.md)
 * [Snelstartzelfstudie voor de programmeertaal R in Machine Learning](r-quickstart.md)
 * [Een Machine Learning-webservice implementeren](publish-a-machine-learning-web-service.md)
-

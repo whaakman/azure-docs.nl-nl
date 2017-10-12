@@ -30,8 +30,3 @@
 
 Als u een video wilt bekijken over het maken van een StorSimple-volume, klikt u [hier](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

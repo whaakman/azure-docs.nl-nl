@@ -14,13 +14,11 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 07/07/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: c3bfc45969f250059988129f532edd12dfe3dcfe
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Aan de slag met hybride Relay-verbindingen
 
@@ -84,5 +82,4 @@ Gefeliciteerd, u hebt een end-to-endtoepassing met hybride verbindingen gemaakt 
 * [Een naamruimte maken](relay-create-namespace-portal.md)
 * [Aan de slag met .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Aan de slag met knooppunten](relay-hybrid-connections-node-get-started.md)
-
 

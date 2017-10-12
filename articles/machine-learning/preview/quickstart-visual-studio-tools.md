@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: get-started-article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 680c1afab1af31cfef51b1c82d2db49f452ba6ab
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="visual-studio-code-tools-for-ai"></a>Visual Studio Code-hulpprogramma's voor AI
 Visual Studio Code-hulpprogramma's voor AI is een ontwikkelingsextensie voor het bouwen, testen en implementeren van deep learning- en AI-oplossingen. Het zorgt voor naadloze integratie met Azure Machine Learning, met name een uitvoeringsgeschiedenisweergave, met gedetailleerde informatie over de prestaties van vorige trainingen en aangepaste metrische gegevens. Het biedt een voorbeeldverkennerweergave waarmee ontwikkelaars door voorbeelden kunnen bladeren en snel nieuwe projecten opstarten met [Microsoft Cognitive Toolkit (vroeger bekend als CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) en andere deep learning-frameworks. Tot slot biedt het een verkenner voor compute-doelen, waarmee u taken kunt verzenden voor het trainen van modellen op externe omgevingen zoals Azure Virtual Machines of Linux-servers met GPU. 
  
@@ -83,4 +81,3 @@ U kunt dieper ingaan op de resultaten van een taak door op de bovenste **taak-ID
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
 > [Het configureren van Azure Machine Learning voor het werken met een IDE](./how-to-configure-your-IDE.md)
-

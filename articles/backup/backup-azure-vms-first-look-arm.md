@@ -16,12 +16,11 @@ ms.topic: hero-article
 ms.date: 09/04/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 639f008eea61b973b9d32dc734d42d5c4e93e924
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Back-ups maken van virtuele Azure-machines naar Recovery Services-kluizen
 > [!div class="op_single_selector"]
@@ -279,7 +278,7 @@ De eerste back-uptaak uitvoeren:
 
   ![Geactiveerde back-uptaak](./media/backup-azure-vms-first-look-arm/backup-items-not-run.png)
 
-3. Klik in de lijst **Back-upitems** op het weglatingsteken **...** om het contextmenu te openen.
+3. Klik in de lijst **Back-upitems** op het weglatingsteken **...**  om het contextmenu te openen.
 
   ![Contextmenu](./media/backup-azure-vms-first-look-arm/context-menu.png)
 
@@ -345,4 +344,3 @@ De kosten voor het maken van back-ups van virtuele Azure-machines is gebaseerd o
 
 ## <a name="questions"></a>Vragen?
 Als u vragen hebt of als er een functie is die u graag opgenomen zag worden, [stuurt u ons feedback](http://aka.ms/azurebackup_feedback).
-

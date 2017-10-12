@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: e641de26d47d54e1543157d788aa131fb3bd3cf3
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: 27cc817fd4fc2d88b0b7d87f99d58795a6b8b864
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Een Relay-naamruimte maken met behulp van Azure Portal
 Een naamruimte is een algemene container voor al uw Azure Relay-onderdelen. Er kunnen zich meerdere relays in één naamruimte bevinden, en naamruimten fungeren vaak als toepassingscontainers. Er zijn momenteel twee verschillende manieren om een relay-naamruimte te maken.
 
@@ -38,5 +36,4 @@ Gefeliciteerd. U hebt nu een relay-naamruimte gemaakt.
 * [Veelgestelde vragen over Relay](relay-faq.md)
 * [Aan de slag met .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Aan de slag met knooppunten](relay-hybrid-connections-node-get-started.md)
-
 

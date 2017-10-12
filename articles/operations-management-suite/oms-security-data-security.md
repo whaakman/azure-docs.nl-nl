@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 6af6c10cef317453131197db74a9380518afadf0
-ms.lasthandoff: 12/02/2016
-
-
+ms.openlocfilehash: 3b6327b1f5150f32afd71639f32c55d823f1d1f0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="operations-management-suite-security-and-audit-solution-data-security"></a>Gegevensbeveiliging in de oplossing Beveiliging en controle in Operations Management Suite
 Om klanten te helpen bedreigingen te voorkomen, ze te detecteren en erop te reageren, verzamelt en verwerkt de [oplossing Beveiliging en controle in Operations Management Suite (OMS)](operations-management-suite-overview.md) gegevens over uw resources waaronder:
@@ -59,5 +58,4 @@ In dit document hebt u geleerd hoe gegevens worden beheerd en bewaakt in OMS. Vo
 * [Overzicht van Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Beveiligingswaarschuwingen in de oplossing Beveiliging en controle van Operations Management Suite bewaken en erop reageren](oms-security-responding-alerts.md)
 * [Resources bewaken in de oplossing Beveiliging en controle van Operations Management Suite ](oms-security-monitoring-resources.md)
-
 

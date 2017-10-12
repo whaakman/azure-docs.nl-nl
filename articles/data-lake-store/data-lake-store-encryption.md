@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 4/14/2017
 ms.author: yagupta
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 20444d368c568ee716ff242e33323b91ffd198eb
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Versleuteling van gegevens in Azure Data Lake Store
 
 Versleuteling in Azure Data Lake Store helpt u uw gegevens te beveiligen, beveiligingsbeleid voor uw onderneming te implementeren en te voldoen aan wettelijke vereisten. In dit artikel vindt u een overzicht van het ontwerp en worden een aantal technische aspecten van de implementatie besproken.
@@ -52,8 +50,8 @@ Data Lake Store biedt twee modi voor het beheer van hoofdversleutelingssleutels 
 
 De twee modi voor het beheer van de hoofdversleutelingssleutel zijn als volgt:
 
-*    Door service beheerde sleutels
-*    Door klant beheerde sleutels
+*   Door service beheerde sleutels
+*   Door klant beheerde sleutels
 
 In beide modi wordt de hoofdversleutelingssleutel beveiligd door opslag in Azure Key Vault. Key Vault is een volledig beheerde, zeer veilige service in Azure die kan worden gebruikt ter bescherming van de cryptografische sleutels. Zie voor meer informatie [Key Vault](https://azure.microsoft.com/services/key-vault).
 
@@ -74,8 +72,8 @@ Afgezien van het verschil wat betreft wie de MEK en de Key Vault-instantie waari
 
 Het is belangrijk het volgende te onthouden wanneer u de modus voor de hoofdversleutelingssleutels kiest:
 
-*    U kunt kiezen of u door de klant beheerde sleutels of door de service beheerde sleutels wilt gebruiken wanneer u een Data Lake Store-account inricht.
-*    Nadat een Data Lake Store-account is ingericht, kan de modus niet meer worden gewijzigd.
+*   U kunt kiezen of u door de klant beheerde sleutels of door de service beheerde sleutels wilt gebruiken wanneer u een Data Lake Store-account inricht.
+*   Nadat een Data Lake Store-account is ingericht, kan de modus niet meer worden gewijzigd.
 
 ### <a name="encryption-and-decryption-of-data"></a>Versleuteling en ontsleuteling van gegevens
 
@@ -92,20 +90,20 @@ Het volgende diagram illustreert deze concepten:
 ![Sleutels bij gegevensversleuteling](./media/data-lake-store-encryption/fig2.png)
 
 #### <a name="pseudo-algorithm-when-a-file-is-to-be-decrypted"></a>Pseudo-algoritme wanneer een bestand moet worden ontsleuteld:
-1.    Controleer of de DEK voor het Data Lake Store-account zich in de cache bevindt en klaar voor gebruik is.
+1.  Controleer of de DEK voor het Data Lake Store-account zich in de cache bevindt en klaar voor gebruik is.
     - Als dat niet het geval is, leest u de versleutelde DEK uit de permanente opslag en stuurt u deze naar de Key Vault voor ontsleuteling. Sla de ontsleutelde DEK op in het cachegeheugen. Deze is nu gereed voor gebruik.
-2.    Voor elk gegevensblok in het bestand:
+2.  Voor elk gegevensblok in het bestand:
     - Lees het versleutelde gegevensblok uit de permanente opslag.
     - Genereer de BEK uit de DEK en het versleutelde gegevensblok.
     - Gebruik de BEK om gegevens te ontsleutelen.
 
 
 #### <a name="pseudo-algorithm-when-a-block-of-data-is-to-be-encrypted"></a>Pseudo-algoritme wanneer een gegevensblok moeten worden versleuteld:
-1.    Controleer of de DEK voor het Data Lake Store-account zich in de cache bevindt en klaar voor gebruik is.
+1.  Controleer of de DEK voor het Data Lake Store-account zich in de cache bevindt en klaar voor gebruik is.
     - Als dat niet het geval is, leest u de versleutelde DEK uit de permanente opslag en stuurt u deze naar de Key Vault voor ontsleuteling. Sla de ontsleutelde DEK op in het cachegeheugen. Deze is nu gereed voor gebruik.
-2.    Genereer een unieke BEK voor het gegevensblok uit de DEK.
-3.    Versleutel het gegevensblok met de BEK met behulp van AES-256-codering.
-4.    Sla het versleutelde gegevensblok op in permanente opslag.
+2.  Genereer een unieke BEK voor het gegevensblok uit de DEK.
+3.  Versleutel het gegevensblok met de BEK met behulp van AES-256-codering.
+4.  Sla het versleutelde gegevensblok op in permanente opslag.
 
 > [!NOTE] 
 > Uit prestatieoverwegingen wordt de goedgekeurde DEK voor korte tijd opgeslagen in het cachegeheugen en daarna onmiddellijk gewist. Op permanente media wordt deze altijd opgeslagen terwijl deze versleuteld is door de MEK.
@@ -127,17 +125,16 @@ Als u de standaardopties voor versleuteling gebruikt, moet u er rekening mee hou
 
     ![Schermafdruk van Key Vault](./media/data-lake-store-encryption/keyvault.png)
 
-3.    Selecteer de sleutel die is gekoppeld aan uw Data Lake Store-account en maak een nieuwe versie van deze sleutel. Houd er rekening mee dat Data Lake Store momenteel alleen ondersteuning biedt voor sleutelroulatie naar een nieuwe versie van een sleutel. Roulatie naar een andere sleutel wordt niet ondersteund.
+3.  Selecteer de sleutel die is gekoppeld aan uw Data Lake Store-account en maak een nieuwe versie van deze sleutel. Houd er rekening mee dat Data Lake Store momenteel alleen ondersteuning biedt voor sleutelroulatie naar een nieuwe versie van een sleutel. Roulatie naar een andere sleutel wordt niet ondersteund.
 
    ![Schermafdruk van het venster Sleutels met de nieuwe versie gemarkeerd](./media/data-lake-store-encryption/keynewversion.png)
 
-4.    Blader naar het Data Lake Storage-account en selecteer **Versleuteling**.
+4.  Blader naar het Data Lake Storage-account en selecteer **Versleuteling**.
 
     ![Schermafdruk van Data Lake Store-opslagaccountvenster met versleuteling gemarkeerd](./media/data-lake-store-encryption/select-encryption.png)
 
-5.    Er wordt een bericht weergegeven dat een nieuwe sleutelversie van de sleutel beschikbaar is. Klik op **Sleutel rouleren** om de sleutel naar de nieuwe versie bij te werken.
+5.  Er wordt een bericht weergegeven dat een nieuwe sleutelversie van de sleutel beschikbaar is. Klik op **Sleutel rouleren** om de sleutel naar de nieuwe versie bij te werken.
 
     ![Schermafdruk van Data Lake Store-venster met het bericht en Sleutel rouleren gemarkeerd](./media/data-lake-store-encryption/rotatekey.png)
 
 Deze bewerking duurt minder dan twee minuten en er is geen verwachte uitvaltijd vanwege het rouleren van de sleutel. Nadat de bewerking is voltooid, wordt de nieuwe versie van de sleutel gebruikt.
-

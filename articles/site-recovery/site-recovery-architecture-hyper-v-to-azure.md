@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 28f775afaf72b11eec0c22f755e4dbd6a485c895
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="how-does-hyper-v-replication-to-azure-work-in-site-recovery"></a>Hoe werkt Hyper-V-replicatie naar Azure in Site Recovery?
 
 
@@ -43,7 +40,7 @@ De volgende onderdelen worden gebruikt bij het repliceren van Hyper-V-VM's naar 
 **Azure** | U hebt in Azure een Microsoft Azure-account, een Azure-opslagaccount en een Azure-netwerk nodig. | Gerepliceerde gegevens worden opgeslagen in het opslagaccount. Azure-VM’s worden gemaakt met de gerepliceerde gegevens bij failover van uw on-premises site.<br/><br/> De Azure-VM's maken verbinding met het virtuele Azure-netwerk wanneer ze worden gemaakt.
 **VMM-server** | Hyper-V-hosts bevinden zich in VMM-clouds | Als Hyper-V-hosts in VMM-clouds worden beheerd, kunt u de VMM-server registreren in de Recovery Services-kluis.<br/><br/> U installeert de Site Recovery-provider op de VMM-server om replicatie te beheren met Azure.<br/><br/> U hebt ingestelde logische en VM-netwerken nodig om netwerktoewijzing te configureren. Een netwerk met virtuele machines moet zijn gekoppeld aan een logisch netwerk dat verbinding heeft met de cloud.
 **Hyper-V-host** | Hyper-V-hosts en -clusters kunnen worden geïmplementeerd met of zonder de VMM-server. | Als er geen VMM-server is, wordt de Site Recovery-provider geïnstalleerd op de host, zodat replicatie via internet kan worden beheerd met Site Recovery. Als er een VMM-server is, wordt de provider daarop geïnstalleerd en niet op de host.<br/><br/> De Recovery Services-agent wordt geïnstalleerd op de host om de gegevensreplicatie af te handelen.<br/><br/> De communicatie vanuit zowel de Provider als de agent is beveiligd en versleuteld. De gerepliceerde gegevens in de Azure-opslag zijn eveneens versleuteld.
-**Virtuele Hyper-V-machines** | U hebt een of meer VM's nodig die worden uitgevoerd op een Hyper-V-hostserver. | U hoeft niets expliciet te installeren op VM's.
+**Virtuele Hyper-V-machines** | U hebt een of meer VM's nodig die worden uitgevoerd op een Hyper-V-hostserver. | U hoeft niets expliciet te installeren op virtuele machines.
 
 Meer informatie over de implementatievereisten en de vereisten voor elk van deze onderdelen vindt u in de [ondersteuningsmatrix](site-recovery-support-matrix-to-azure.md).
 
@@ -67,9 +64,7 @@ Meer informatie over de implementatievereisten en de vereisten voor elk van deze
 1. Nadat u de beveiliging voor een Hyper-V-VM in Azure Portal of on-premises hebt ingeschakeld, start **Beveiliging inschakelen**.
 2. Met deze taak wordt gecontroleerd of de machine voldoet aan de vereisten. Hierna wordt [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) aangeroepen om replicatie in te stellen op basis van de instellingen die u hebt geconfigureerd.
 3. De taak start initiële replicatie door de methode [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) aan te roepen om een volledige VM-replicatie te initialiseren en de virtuele schijven van de virtuele machine naar Azure te versturen.
-4. U kunt de voortgang van de taak controleren op het tabblad **Taken**.
-        ![Takenlijst](media/site-recovery-hyper-v-azure-architecture/image1.png)
-        ![Inzoomen op beveiliging inschakelen](media/site-recovery-hyper-v-azure-architecture/image2.png)
+4. U kunt de voortgang van de taak controleren op het tabblad **Taken**.      ![Takenlijst](media/site-recovery-hyper-v-azure-architecture/image1.png)![Inzoomen op beveiliging inschakelen](media/site-recovery-hyper-v-azure-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>De initiële gegevens repliceren
 
@@ -126,4 +121,3 @@ Als er een replicatiefout optreedt, wordt de replicatie automatisch opnieuw gepr
 ## <a name="next-steps"></a>Volgende stappen
 
 De [ondersteuningsmatrix](site-recovery-support-matrix-to-azure.md) controleren
-

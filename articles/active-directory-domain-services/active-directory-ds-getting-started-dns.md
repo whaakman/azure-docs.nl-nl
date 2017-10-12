@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: maheshu
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: ab8e3215e8e73d3943af06cffafa730cf1b7744b
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services inschakelen
 
@@ -49,4 +48,3 @@ Voer de volgende stappen uit om de DNS-serverinstellingen bij te werken voor het
 
 ## <a name="next-step"></a>Volgende stap
 [Taak 5: wachtwoordsynchronisatie inschakelen voor Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)
-

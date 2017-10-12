@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: glenga
+ms.openlocfilehash: 22397b6b448b418d5b54a457c3bafaf5c68ecc7b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: e23a4f182e6bb0ba53927aa6195967c2464e4233
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/10/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started"> </a>Ik gebruik Mobile Services. Welke voordelen heeft App Service voor mijn bestaande projecten?
 ## <a name="overview"></a>Overzicht
@@ -64,4 +63,3 @@ U kunt automatisch een back-up maken van uw back-end en database. Uw code en geg
 Met *Azure App Service* kunt u nu meerdere persoonlijke test- en faseringsomgevingen maken voor uw mobiele apps. Gebruik deze omgevingen om apps te testen voordat u ze implementeert. U kunt zonder uitvaltijd wisselen naar de productieomgeving. Web-apps worden vooraf geladen, zodat de beste gebruikerservaring wordt geboden.
 
 Volg deze [zelfstudie](app-service-mobile-migrating-from-mobile-services.md) als u ook wilt profiteren van alle voordelen die *App Service* biedt voor uw bestaande Mobile Service-projecten.
-

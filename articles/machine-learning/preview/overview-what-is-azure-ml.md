@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
+ms.openlocfilehash: 3bf9227a7ee432f036c57dd9d1c3807c7a867f3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c4919fb679eeb4d25eb0066b9bf617b057d44354
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-azure-machine-learning"></a>Wat is Azure Machine Learning?
 
 Azure Machine Learning is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse. Hiermee kunt gegevenswetenschappers gegevens voorbereiden, experimenten ontwikkelen en modellen implementeren op cloudschaal.
@@ -179,7 +177,7 @@ Gebruik Microsoft Machine Learning Server als u het volgende wilt doen:
 - R- en Python-training op grote schaal distribueren op een Hadoop- of Spark-cluster
 
 ### <a name="data-science-virtual-machine"></a>Data Science Virtual Machine
-[Data Science Virtual Machine (DSVM)](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) is een aangepaste VM-installatiekopie op de Azure-cloud van Microsoft, die speciaal is gebouwd voor gegevenswetenschap. DSVM bevat veel populaire gegevenswetenschap- en andere hulpprogramma's die vooraf zijn geïnstalleerd en geconfigureerd voor het snel ontwikkelen van intelligente toepassingen voor geavanceerde analyses. Het is beschikbaar op Windows Server en op Linux. We bieden de Windows-editie van DSVM op Server 2016 en Server 2012. We bieden de Linux-versie van de DSVM op Ubuntu 16.04 LTS en op Linux-distributies op basis van OpenLogic 7.2 CentOS. 
+[Data Science Virtual Machine (DSVM)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) is een aangepaste VM-installatiekopie op de Azure-cloud van Microsoft, die speciaal is gebouwd voor gegevenswetenschap. DSVM bevat veel populaire gegevenswetenschap- en andere hulpprogramma's die vooraf zijn geïnstalleerd en geconfigureerd voor het snel ontwikkelen van intelligente toepassingen voor geavanceerde analyses. Het is beschikbaar op Windows Server en op Linux. We bieden de Windows-editie van DSVM op Server 2016 en Server 2012. We bieden de Linux-versie van de DSVM op Ubuntu 16.04 LTS en op Linux-distributies op basis van OpenLogic 7.2 CentOS. 
 
 Gebruik Data Science Virtual Machine wanneer u uw taken wilt uitvoeren op hosten op één knooppunt. Of als u uw verwerking op één computer extern omhoog wilt schalen. Data Science Virtual Machine wordt ondersteund als doel voor zowel Azure Machine Learning Experimenten als Azure Machine Learning Modelbeheer. 
 
@@ -219,4 +217,3 @@ Microsoft Cognitive Services kan worden gebruikt om apps te ontwikkelen op aller
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Azure Machine Learning installeren en maken](quickstart-installation.md)
-

@@ -15,10 +15,10 @@ ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: dce813b885d492343428428056a2e8aada27b461
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory voor ontwikkelaars
 Azure Active Directory is een identiteitsservice in de cloud waarmee ontwikkelaars ervoor kunnen zorgen dat elke gebruiker met een werk- of schoolaccount ondersteund door Microsoft zich veilig kan aanmelden.  In deze documentatie wordt beschreven hoe u Azure AD-ondersteuning aan uw toepassing kunt toevoegen met de standaardverificatieprotocollen OAuth en OpenID Connect.

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 5cb387c4d1a2a2ae5ee8822241b11e79f53f0d6a
-ms.contentlocale: nl-nl
-ms.lasthandoff: 04/25/2017
-
+ms.openlocfilehash: 6958d61b29961f59cb22f62bec55f2d467e7e7cb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Aan de slag met Azure DNS met behulp van Azure-CLI 2.0
 
 > [!div class="op_single_selector"]
@@ -123,4 +121,3 @@ Zie [Azure DNS Overview](dns-overview.md) (Overzicht van Azure DNS) voor meer in
 Zie [Manage DNS zones in Azure DNS using Azure CLI 2.0](dns-operations-dnszones-cli.md) (DNS-zones in Azure DNS beheren met behulp van Azure CLI 2.0) voor meer informatie over het beheren van DNS-zones in Azure DNS.
 
 Zie [Manage DNS records and record sets in Azure DNS using Azure CLI 2.0](dns-operations-recordsets-cli.md) (DNS-records en -recordsets in Azure DNS beheren met behulp van Azure CLI 2.0) voor meer informatie over het beheren van DNS-records in Azure DNS.
-

@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ccfbd45def1ecf036a2464f560aa89817c37b419
-ms.openlocfilehash: 54b3ce2c8c3966ee36350fed71bdc48aa5bffa63
-ms.contentlocale: nl-nl
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 12f959376d4923e4e2481e37108ade632ac14902
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Wat is Operations Management Suite (OMS)?
 Microsoft Operations Management Suite (OMS) is een cloudoplossing voor IT-beheer van Microsoft waarmee u uw on-premises en cloudinfrastructuur kunt beheren en beveiligen.  Aangezien OMS wordt geïmplementeerd als een cloudservice, kunt u er al snel mee aan de slag, en dat met minimale investeringen in infrastructuurservices.  Nieuwe functies worden automatisch geleverd, zodat u bespaart op kosten voor lopend onderhoud en upgrades.
@@ -53,5 +52,4 @@ Beveiliging en naleving helpt u beveiligingsrisico's voor uw infrastructuur te i
 * Meer informatie over [Azure Automation](../automation/automation-intro.md).
 * Meer informatie over [Azure Backup](http://azure.microsoft.com/documentation/services/backup).
 * Meer informatie over [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).
-
 

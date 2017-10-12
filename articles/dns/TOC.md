@@ -12,7 +12,7 @@
 ### [Azure Portal](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
 ### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
-### [Azure CLI](dns-getstarted-cli.md)
+### [Azure-CLI](dns-getstarted-cli.md)
 
 ## Een persoonlijke DNS-zone en -record maken
 ### [PowerShell](private-dns-getstarted-powershell.md)
@@ -25,13 +25,13 @@
 ### [Azure Portal](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
 ### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
-### [Azure CLI](dns-operations-dnszones-cli.md)
+### [Azure-CLI](dns-operations-dnszones-cli.md)
 
 ## DNS-records beheren
 ### [Azure Portal](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
 ### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
-### [Azure CLI](dns-operations-recordsets-cli.md)
+### [Azure-CLI](dns-operations-recordsets-cli.md)
 
 ## Reverse-DNS beheren
 ### [Overzicht](dns-reverse-dns-overview.md)
@@ -50,7 +50,7 @@
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
 ## [Azure PowerShell](/powershell/module/azurerm.dns)
-## [Azure CLI](/cli/azure/network/dns)
+## [Azure-CLI](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)

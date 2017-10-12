@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/03/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 5a3445aee7722579405b67830ca49ef8c0b29d0e
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Aan de slag met Azure Data Catalog
 Azure Data Catalog is een volledig beheerde cloudservice die als een registratie- en detectiesysteem voor gegevensassets van ondernemingen fungeert. Zie [Wat is Azure Data Catalog?](data-catalog-what-is-data-catalog.md) voor een gedetailleerd overzicht.
@@ -363,5 +362,4 @@ In deze zelfstudie hebt u essentiële mogelijkheden van Azure Data Catalog verke
 * [Gegevensassets documenteren](data-catalog-how-to-documentation.md)
 * [Verbinding maken met gegevensassets](data-catalog-how-to-connect.md)
 * [Gegevensassets beheren](data-catalog-how-to-manage.md)
-
 

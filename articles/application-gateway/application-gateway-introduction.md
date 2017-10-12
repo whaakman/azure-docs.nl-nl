@@ -15,12 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
+ms.openlocfilehash: 33968b72d0da71577428937e5d293a40d62989f7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: c8f54c81481ebced16ed259f07736b0a4bc80567
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-application-gateway"></a>Overzicht van Application Gateway
 
@@ -107,4 +106,3 @@ Nadat u informatie hebt opgedaan over Application Gateway, kunt u [een toepassin
 Voor meer informatie over het maken van een toepassingsgateway met behulp van URL-gebaseerd routeren van content gaat u naar [Een toepassingsgateway maken met behulp van URL-gebaseerde routering](application-gateway-create-url-route-arm-ps.md).
 
 Zie [Azure Networking](../networking/networking-overview.md) voor informatie over enkele andere belangrijke netwerkmogelijkheden van Azure.
-

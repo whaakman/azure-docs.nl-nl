@@ -49,7 +49,7 @@
 ### [IP-stromen controleren voor een virtuele machine](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Voorbeeldscripts
-### [Azure CLI](cli-samples.md)
+### [Azure-CLI](cli-samples.md)
 ### [Azure PowerShell](powershell-samples.md)
 
 ## Zelfstudies
@@ -57,7 +57,7 @@
 ### [Een computer verbinden met een virtueel netwerk](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Naslaginformatie
-## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
+## [Azure-CLI](https://docs.microsoft.com/cli/azure/network)
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0)
 ## [.Net](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview)
 ## [Node.js](https://azure.microsoft.com/develop/nodejs/#azure-sdk)

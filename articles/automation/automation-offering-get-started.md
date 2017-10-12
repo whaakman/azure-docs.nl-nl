@@ -1,4 +1,4 @@
---- 
+---
 title: Aan de slag met Azure Automation | Microsoft Docs
 description: Als voorbereiding om de service aan te bieden via Azure Marketplace, vindt u in dit artikel een overzicht van de Azure Automation-service. Hier worden de ontwerp- en implementatiegegevens doorgenomen.
 services: automation
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
+ms.openlocfilehash: fad13053895c5d6e3c41835fea3cf0bdd3380cd4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="getting-started-with-azure-automation"></a>Aan de slag met Azure Automation
 
 Deze introductiehandleiding introduceert de belangrijkste concepten met betrekking tot de implementatie van Azure Automation. Als u niet bekend bent met Automation in Azure of ervaring hebt met werkstroomautomatiseringssoftware als System Center Orchestrator, leert u in deze handleiding hoe u Automation voorbereidt en ermee aan de slag gaat.  Daarna wordt u voorbereid op de ontwikkeling van runbooks ter ondersteuning van uw procesautomatiseringsbehoeften. 
@@ -191,6 +189,5 @@ Wanneer de aanbieding is geïmplementeerd, kunt u runbooks gaan maken, de beheer
 ## <a name="next-steps"></a>Volgende stappen
 * Raadpleeg [Runbooks verifiëren met een Azure Uitvoeren als-account](automation-verify-runas-authentication.md) als u wilt controleren of uw nieuwe Azure Automation-account kan worden geverifieerd met Azure-resources.
 * Als u runbooks wilt gaan maken, lees dan voordat u aan de slag gaat eerst welke [typen Automation-runbooks](automation-runbook-types.md) er worden ondersteund en gerelateerde overwegingen.
-
 
 

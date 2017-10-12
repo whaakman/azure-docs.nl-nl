@@ -15,12 +15,11 @@ ms.date: 09/07/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 4b86ececefd3724b9e7791d2609b146de052f605
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>Snelstartgids: Registreren voor Azure Active Directory Premium
 U kunt licenties kopen en deze koppelen aan uw Azure-abonnement om aan de slag te gaan met Azure AD (Azure Active Directory) Premium. Als u een nieuw Azure-abonnement maakt, moet u ook uw licentieabonnement en toegang tot de Azure AD-service activeren zoals beschreven in de volgende secties. 

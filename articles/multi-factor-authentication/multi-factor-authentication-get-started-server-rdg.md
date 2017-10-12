@@ -15,12 +15,11 @@ ms.date: 06/27/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 3b4181701c5df03a3df7e0446b313eac201ad99e
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Extern bureaublad-gateway en Azure Multi-Factor Authentication-server met behulp van RADIUS
 Extern bureaublad-gateway (RD-gateway) maakt vaak gebruik van de Network Policy Services (NPS) voor het verifiëren van gebruikers. In dit artikel wordt beschreven hoe u RADIUS-aanvragen van de Extern bureaublad-gateway (via de lokale NPS) omleidt naar de Multi-Factor Authentication-server. De combinatie van Azure MFA en RD-gateway zorgt ervoor dat uw gebruikers overal toegang hebben tot hun werkomgevingen terwijl sterke verificatie wordt uitgevoerd. 
@@ -83,4 +82,3 @@ De Azure Multi-Factor Authentication-server is geconfigureerd als een RADIUS-pro
 - Azure MFA en [IIS Web Apps](multi-factor-authentication-get-started-server-iis.md) integreren
 
 - Antwoorden krijgen in de [Veelgestelde vragen Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
-

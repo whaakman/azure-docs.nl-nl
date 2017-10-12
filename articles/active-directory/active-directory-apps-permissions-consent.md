@@ -18,10 +18,10 @@ ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: 6f6baf5e1538fb280a899065c64ca5688473c04a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Apps, machtigingen en toestemming in Azure Active Directory
 In Azure Active Directory kunt u toepassingen toevoegen aan uw directory.  De toepassingen kunnen variëren afhankelijk van het type toepassing.  Als u toepassingen in de klassieke portal wilt bekijken, selecteert u een directory en kiest u toepassingen.

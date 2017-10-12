@@ -3,7 +3,7 @@ title: De verwijdering van resourcegroepen automatiseren | Microsoft Docs
 description: PowerShell Workflow-versie van een Azure Automation-scenario, inclusief runbooks om alle resourcegroepen in uw abonnement te verwijderen.
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: 
 ms.assetid: b848e345-fd5d-4b9d-bc57-3fe41d2ddb5c
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: 6aa3897d44b146483204d43e026d3d158c3e13b6
-
-
+ms.openlocfilehash: 8b23e55a597f293b17183e80eea6c2763aabe9ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-automation-scenario-automate-removal-of-resource-groups"></a>Azure Automation-scenario: de verwijdering van resourcegroepen automatiseren
+# <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Azure Automation-scenario: de verwijdering van resourcegroepen automatiseren
 Veel klanten maken meer dan één resourcegroep. Sommige worden dan bijvoorbeeld gebruikt voor het beheer van productietoepassingen en andere als ontwikkelings-, test- en faseringsomgeving. Het automatiseren van de implementatie van deze resources is één ding, maar om een resourcegroep buiten gebruik te stellen met een enkele muisklik is heel wat anders. U kunt deze algemene beheertaak stroomlijnen met behulp van Azure Automation. Dit is handig als u werkt met een Azure-abonnement met een bestedingslimiet via een ledenaanbieding zoals MSDN of het programma Microsoft Partner Network Cloud Essentials.
 
 Dit scenario is gebaseerd op een PowerShell-runbook en is ontworpen om een of meer resourcegroepen die u opgeeft uit uw abonnement te verwijderen. De standaardinstelling van het runbook is om een test uit te voeren voordat u doorgaat. Zo voorkomt u dat u de resourcegroep per ongeluk verwijdert voordat u er klaar voor bent om deze procedure te voltooien.   
@@ -52,7 +52,7 @@ De volgende stappen helpen u bij het uitvoeren van dit runbook. Zo raakt u vertr
 
 1. Open uw Automation-account via Azure Portal en klik op **Runbooks**.
 2. Selecteer het runbook **Remove-ResourceGroup** en klik op **Starten**.
-3. Wanneer u het runbook start, wordt de blade **Runbook starten** geopend en kunt u de parameters configureren. Voer de namen in van de resourcegroepen in uw abonnement waarmee u wilt testen en waarvan het niet erg is als deze per ongeluk worden verwijderd.<br> ![Remove-ResouceGroup parameters](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
+3. Wanneer u het runbook start, wordt de blade **Runbook starten** geopend en kunt u de parameters configureren. Voer de namen in van de resourcegroepen in uw abonnement waarmee u wilt testen en waarvan het niet erg is als deze per ongeluk worden verwijderd.<br> ![Remove-ResouceGroup-parameters](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
 
    > [!NOTE]
    > Zorg ervoor dat **Previewmode** is ingesteld op **true** om te voorkomen dat de geselecteerde resourcegroepen worden verwijderd.  **Opmerking:** Met dit runbook wordt de resourcegroep met het Automation-account dat dit runbook uitvoert, niet verwijderd.  
@@ -67,9 +67,3 @@ Het **Taakoverzicht** bevat berichten van de uitvoer-, waarschuwings- en foutstr
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md) (Een runbook in Azure Automation maken of importeren) om uw eigen runbook te maken.
 * Zie [Mijn eerste PowerShell Workflow-runbook](automation-first-runbook-textual.md) om aan de slag te gaan met PowerShell Workflow-runbooks.
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

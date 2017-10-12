@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a3bf1aacd6978499d7ef77cbcb451a06b857ac38
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-scheduler"></a>Wat is Azure Scheduler?
 Met Azure Scheduler kunt u verklarend acties beschrijven die in de cloud moeten worden uitgevoerd. En vervolgens worden deze acties automatisch gepland en uitgevoerd.  In Scheduler wordt dit gedaan met behulp van [de Azure Portal](scheduler-get-started-portal.md), programmacode, de [REST-API](https://msdn.microsoft.com/library/mt629143.aspx) of Azure PowerShell.
@@ -52,10 +52,4 @@ Met Scheduler kunt u programmacode gebruiken om taken en [taakverzamelingen](sch
  [Azure Scheduler-limieten, standaardwaarden en foutcodes](scheduler-limits-defaults-errors.md)
 
  [Azure Scheduler uitgaande verificatie](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

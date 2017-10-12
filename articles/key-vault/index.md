@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 41db3ea23bc1e9895893201078b1ada3297418cb
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 3267373f6db336c34d13709cc0392631531313f4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="key-vault-documentation"></a>Documentatie voor Key Vault
 
 Meer informatie over hoe u Key Vault gebruikt om cryptografische sleutels en geheimen te beveiligen en te beheren die door cloudtoepassingen en -services worden gebruikt. Zelfstudies, API-referenties en andere documentatie laten zien hoe u sleutels maakt en onderhoudt waarmee u uw resources en oplossingen kunt openen en versleutelen.
@@ -175,5 +173,4 @@ Meer informatie over hoe u Key Vault gebruikt om cryptografische sleutels en geh
 </ul>
 
 ---
-
 

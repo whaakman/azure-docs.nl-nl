@@ -9,8 +9,3 @@ In deze sectie wordt beschreven hoe u uw app kunt verbinden met de back-end van 
    
      ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

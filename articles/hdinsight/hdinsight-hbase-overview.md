@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: jgao
+ms.openlocfilehash: 62b2700c368c4b0c66df140e8961408840beb626
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: c8857076faa37f5b0d7c70f40b494465b3b99af2
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-hadoop"></a>Wat is HBase in HDInsight: een NoSQL-database die op BigTable gelijkende mogelijkheden voor Hadoop levert
 Apache HBase is een open-source NoSQL-database die is gebaseerd op Hadoop en die is gemodelleerd naar Google BigTable. HBase biedt willekeurige toegang en een sterke consistentie voor grote hoeveelheden ongestructureerde en semigestructureerde gegevens in een database zonder schema die is georganiseerd op basis van kolomfamilies.
@@ -61,7 +60,6 @@ Het canonieke gebruiksvoorbeeld waarvoor BigTable (en door uitbreiding HBase) is
 * [Aan de slag met HBase en Hadoop in HDInsight][hbase-get-started]
 * [HDInsight-clusters maken in Azure Virtual Network][hbase-provision-vnet]
 * [HBase-replicatie in HDInsight configureren](hdinsight-hbase-replication.md)
-* [Het Twitter-gevoel met HBase in HDInsight analyseren][hbase-twitter-sentiment]
 * [Maven gebruiken om Java-apps te bouwen die HBase gebruiken met HDinsight (Hadoop)][hbase-build-java-maven]
 
 ## <a name="see-also"></a>Zie ook
@@ -69,8 +67,6 @@ Het canonieke gebruiksvoorbeeld waarvoor BigTable (en door uitbreiding HBase) is
 * [Bigtable: een gedistribueerd opslagsysteem voor gestructureerde gegevens](http://research.google.com/archive/bigtable.html)
 
 [hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-
-[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
 [hbase-build-java-maven]: hdinsight-hbase-build-java-maven.md
 
@@ -87,4 +83,3 @@ Het canonieke gebruiksvoorbeeld waarvoor BigTable (en door uitbreiding HBase) is
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
-

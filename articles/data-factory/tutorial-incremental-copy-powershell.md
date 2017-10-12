@@ -13,16 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
+ms.openlocfilehash: 91b632b6d2c2917acf17e9d89c1b5a4b0f8b1c33
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 6a73e7818edfb796b7294f6794d2652c5feedf5c
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage"></a>Stapsgewijs gegevens uit Azure SQL Database laden in Azure Blob Storage
-Azure Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee u gegevensgestuurde werkstromen kunt maken in de cloud. Op deze manier kunt u de verplaatsing en transformatie van gegevens indelen en automatiseren. Met Azure Data Factory kunt u gegevensgestuurde werkstromen (ook wel pijplijnen genoemd) maken en plannen die gegevens uit verschillende gegevensopslagexemplaren kunnen opnemen en de gegevens kunnen verwerken/transformeren met behulp van rekenservices zoals Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics en Azure Machine Learning. Daarnaast kunt u de uitvoergegevens publiceren naar gegevensopslagexemplaren zoals Azure SQL Data Warehouse, zodat BI-toepassingen (business intelligence) ze kunnen gebruiken. 
+Azure Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee u gegevensgestuurde werkstromen kunt maken in de cloud. Op deze manier kunt u de verplaatsing en transformatie van gegevens indelen en automatiseren. Met Azure Data Factory kunt u gegevensgestuurde werkstromen (ook wel pijplijnen) maken en plannen die gegevens uit verschillende gegevensarchieven kunnen opnemen en de gegevens kunnen verwerken/transformeren met behulp van rekenservices zoals Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics en Azure Machine Learning. Daarnaast kunt u de uitvoergegevens publiceren naar gegevensarchieven zoals Azure SQL Data Warehouse, zodat BI-toepassingen (business intelligence) ze kunnen gebruiken. 
 
 Tijdens de integratie van de gegevens is een van de meest gebruikte scenario's om gegevens periodiek stapsgewijs te laden om bijgewerkte analyseresultaten te vernieuwen na het initiële laden en analyseren van de gegevens. In deze zelfstudie richt u zich alleen op het laden van nieuwe of bijgewerkte records uit de gegevensbronnen in gegevenssinks. Dit verloopt efficiënter vergeleken bij volledig laden, met name bij grote gegevenssets.    
 
@@ -37,7 +35,7 @@ In deze zelfstudie voert u de volgende stappen uit:
 > * Maak bron-, sink- en grenswaardegegevenssets.
 > * Maak een pijplijn.
 > * Voer de pijplijn uit.
-> * Controleer de pijplijnuitvoering. 
+> * De pijplijnuitvoering controleert. 
 
 ## <a name="overview"></a>Overzicht
 De diagramoplossing op hoog niveau is: 
@@ -146,7 +144,7 @@ WHERE [TableName] = @TableName
 END
 ```
 
-## <a name="create-a-data-factory"></a>Een gegevensfactory maken
+## <a name="create-a-data-factory"></a>Een data factory maken
 
 1. Start **PowerShell**. Houd Azure PowerShell open tot het einde van deze zelfstudie. Als u het programma sluit en opnieuw opent, moet u de opdrachten opnieuw uitvoeren.
 
@@ -165,7 +163,7 @@ END
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
     ```
-2. Voer de cmdlet **Set AzureRmDataFactoryV2** uit voor het maken van een gegevensfactory. Vervang voordat u de opdracht uitvoert de tijdelijke aanduidingen door uw eigen waarden.
+2. Voer de cmdlet **Set AzureRmDataFactoryV2** uit om een data factory te maken. Vervang voordat u de opdracht uitvoert de tijdelijke aanduidingen door uw eigen waarden.
 
     ```powershell
     Set-AzureRmDataFactoryV2 -ResourceGroupName "<your resource group to create the factory>" -Location "East US" -Name "<specify the name of data factory to create. It must be globally unique.>" 
@@ -180,11 +178,11 @@ END
         ```
 
     * Als u Data Factory-exemplaren wilt maken, moet u bijdrager of beheerder zijn van het Azure-abonnement.
-    * Momenteel kunt u in Data Factory V2 alleen gegevensfactory's maken in de regio VS-Oost. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
+    * Momenteel kunt u in Data Factory V2 alleen data factory's maken in de regio VS-Oost. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
 
 
 ## <a name="create-linked-services"></a>Gekoppelde services maken
-U maakt gekoppelde services in een gegevensfactory om uw gegevensopslagexemplaren en rekenservices aan de gegevensfactory te koppelen. In deze sectie maakt u gekoppelde services in het Azure Storage-account en de Azure SQL-database. 
+U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en compute-services aan de gegevensfactory te koppelen. In deze sectie maakt u gekoppelde services in het Azure Storage-account en de Azure SQL-database. 
 
 ### <a name="create-azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service maakt.
 1. Maak een JSON-bestand met de naam **AzureStorageLinkedService.json** in de map **C:\ADF** met de volgende inhoud: (Maak de map ADF als deze nog niet bestaat.) Vervang voordat u het bestand opslaat `<accountName>`, `<accountKey>` door de naam en de sleutel van uw Azure Storage-account.
@@ -727,7 +725,6 @@ Ga naar de volgende zelfstudie voor meer informatie over het transformeren van g
 
 > [!div class="nextstepaction"]
 >[Gegevens transformeren met behulp van een Spark-cluster in de cloud](tutorial-transform-data-spark-powershell.md)
-
 
 
 

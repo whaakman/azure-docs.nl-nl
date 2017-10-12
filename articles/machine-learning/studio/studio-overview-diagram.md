@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/04/2017
 ms.author: haining;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f4e53fa46a6b7f8811e4fee67b1466786b81cdc9
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio
 Het diagram **Overzicht van de mogelijkheden van Microsoft Azure Machine Learning Studio** geeft u een overzicht van hoe u Machine Learning Studio kunt gebruiken om een predictive analytics-model op te zetten en dit te implementeren in de Azure-cloud.
@@ -51,5 +50,4 @@ Download het diagram **Microsoft Azure Machine Learning Studio Capabilities Over
 * Voor een gedetailleerde beschrijving van de machine learning-algoritmen die beschikbaar zijn in Machine Learning Studio, leest u [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md) (Algoritmen kiezen voor Microsoft Azure Machine Learning).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

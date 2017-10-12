@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: d803e814828132aa5c8355de6192e45cd9e902b0
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-ad-access-reviews-preview"></a>Azure AD-toegangsbeoordelingen (preview)
 
 Met toegangsbeoordelingen kunnen organisaties op efficiënte manier groepslidmaatschappen en de toegang tot bedrijfstoepassingen beheren. 
@@ -41,4 +39,3 @@ Met toegangsbeoordelingen kunnen organisaties op efficiënte manier groepslidmaa
 - [Programma's en controles voor Azure AD-toegangsbeoordelingen beheren](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [Een toegangsbeoordeling maken voor leden van een groep of toegang tot een toepassing](active-directory-azure-ad-controls-create-access-review.md)
 - [Een toegangsbeoordeling maken van gebruikers met een Azure AD-beheerderrol](active-directory-privileged-identity-management-how-to-start-security-review.md)
-

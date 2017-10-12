@@ -14,12 +14,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: f5d5f238f8f57c8dcf7a3759274f9d565e73ecce
-ms.contentlocale: nl-nl
-ms.lasthandoff: 02/28/2017
-
+ms.openlocfilehash: 4b06338cb62cc458e7b097db36023f0746d4e969
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>De Azure AD Connect synchronisatie met Azure AD Connect Health bewaken
 De volgende documentatie is specifiek voor het bewaken van Azure AD Connect-synchronisatie met Azure AD Connect Health.  Zie [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md) (Engelstalig) voor informatie over het controleren van AD FS met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
@@ -68,8 +67,7 @@ Deze functie genereert een rapport over synchronisatiefouten die zich voordoen w
 * Het rapport bevat informatie over fouten die zijn vastgelegd door de synchronisatieclient (Azure AD Connect versie 1.1.281.0 of later)
 * Het bevat de fouten die zijn opgetreden tijdens de laatste synchronisatie op de synchronisatie-engine. ('Exporteren' op de Azure AD-connector.)
 * Azure AD Connect Health-agent voor synchronisatie moet uitgaande connectiviteit hebben met de vereiste eindpunten om de meest recente gegevens in het rapport te kunnen opnemen.
-* Het rapport wordt **elke 30 minuten bijgewerkt** met de gegevens die door Azure AD Connect Health-agent voor synchronisatie zijn geüpload.
-  Het bevat de volgende hoofdmogelijkheden
+* Het rapport wordt **elke 30 minuten bijgewerkt** met de gegevens die door Azure AD Connect Health-agent voor synchronisatie zijn geüpload. Het bevat de volgende hoofdmogelijkheden
 
   * Classificatie van fouten
   * Lijst van objecten met fouten per categorie

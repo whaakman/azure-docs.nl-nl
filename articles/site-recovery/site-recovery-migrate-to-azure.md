@@ -1,6 +1,6 @@
 ---
 title: Migreren naar Azure met Site Recovery | Microsoft Docs
-description: Dit artikel bevat een overzicht van de migratie van VM&quot;s en fysieke servers naar Azure met Azure Site Recovery
+description: Dit artikel bevat een overzicht van de migratie van VM's en fysieke servers naar Azure met Azure Site Recovery
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: f4dfe430fba51bd009431ca72279a21be55e3a40
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-to-azure-with-site-recovery"></a>Migreren naar Azure met Site Recovery
 
@@ -83,4 +81,3 @@ U kunt AWS-exemplaren naar Azure-VM's migreren. In dit scenario wordt alleen mig
 - [AWS-exemplaren migreren naar Azure](site-recovery-migrate-aws-to-azure.md)
 - [Gemigreerde machines voorbereiden op het inschakelen van replicatie](site-recovery-azure-to-azure-after-migration.md) naar een andere regio voor herstel na noodgevallen.
 - Beginnen met het beveiligen van uw werkbelastingen door [virtuele machines in Azure te repliceren.](site-recovery-azure-to-azure.md)
-

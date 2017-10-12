@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/09/2017
 ms.author: yurid
 ms.openlocfilehash: 10f7b8f20cc41a5ebb1b1376e2bf17be02600ae4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-insights-from-azure-security-center-data-with-power-bi"></a>Inzichten verkrijgen van Azure Security Center-gegevens met Power BI
 U kunt met het [Power BI-dashboard](http://aka.ms/azure-security-center-power-bi) voor Azure Security Center aanbevelingen en beveiligingswaarschuwingen vanaf elke locatie, inclusief uw mobiele apparaat, visualiseren, analyseren en filteren. Gebruik het Power BI-dashboard om trends en aanvalspatronen zichtbaar te maken: bekijk beveiligingswaarschuwingen op resource of bron-IP-adres en niet-opgeloste beveiligingsrisico's op resource of ouderdom.

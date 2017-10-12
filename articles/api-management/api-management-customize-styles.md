@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 336d4f80f0357796fb29eb9314c11edfce831a69
-ms.openlocfilehash: bd08eb476a4bd7298c5650977b88ba0b24deddec
-ms.contentlocale: nl-nl
-ms.lasthandoff: 02/23/2017
-
+ms.openlocfilehash: 89baf60d0204a1701e93309f09b90bc94c4ca57b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-the-styling-of-the-developer-portal-in-azure-api-management"></a>De stijl van de ontwikkelaarsportal aanpassen in Azure API Management
 Er zijn die manieren waarop u de ontwikkelaarsportal in Azure API Management kunt aanpassen:
@@ -88,4 +87,3 @@ Wijzigingen worden weergegeven in realtime terwijl u ze toepast, maar zijn allee
 
 [bootstrap]: http://getbootstrap.com/
 [LESS variables]: http://getbootstrap.com/css/
-

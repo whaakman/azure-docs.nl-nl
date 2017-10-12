@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Migratie van Azure Security Center-platform
 
@@ -78,5 +77,4 @@ Samen met de platformmigratie rollen we een aantal kleine updates uit:
 - Gegevensverzameling is vereist en wordt automatisch ingeschakeld voor klanten in de prijscategorie Standard.
 - Azure Security Center start met het detecteren van antimalware-oplossingen die niet zijn geïmplementeerd via Azure-extensies. Detectie van Symantec Endpoint Protection en Defender voor Windows 2016 zal als eerste beschikbaar zijn.
 - Preventiebeleid en -meldingen kunnen alleen worden alleen geconfigureerd op *abonnementsniveau*, maar de prijzen kunnen nog steeds worden ingesteld op *resourcegroepniveau*
-
 

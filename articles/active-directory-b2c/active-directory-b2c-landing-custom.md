@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 5/06/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: cb7a9f01e43d41eb7315cb37a41e69f044ce5566
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies"></a>Azure Active Directory B2C: consumenten registreren en aanmelden bij uw toepassingen via aangepast beleid
 Aangepaste beleidsregels zijn configuratiebestanden die het gedrag van uw Azure AD B2C-tenant definiëren. Ze kunnen volledig worden bewerkt door een identiteitsontwikkelaar om een bijna onbeperkt aantal taken te voltooien.
@@ -42,7 +40,6 @@ Lees meer over het gebruik van specifieke functies van Azure Active Directory B2
 
 ## <a name="whats-new"></a>Nieuwe functies
 Kijk regelmatig of er nieuwe informatie is over toekomstige wijzigingen in Azure Active Directory B2C. We tweeten ook over eventuele updates via @AzureAD.
-
 
 
 

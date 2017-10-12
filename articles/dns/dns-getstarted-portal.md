@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Aan de slag met Azure DNS met behulp van Azure Portal
 
 > [!div class="op_single_selector"]
@@ -104,5 +102,4 @@ Als u alle resources wilt verwijderen die u in dit artikel hebt gemaakt, voert u
 Zie [Azure DNS Overview](dns-overview.md) (Overzicht van Azure DNS) voor meer informatie over Azure DNS.
 
 Zie [Manage DNS records and record sets in Azure DNS using the Azure portal](dns-operations-recordsets-portal.md) (DNS-records en -recordsets in Azure DNS beheren met behulp van Azure Portal) voor meer informatie over het beheren van DNS-records in Azure DNS.
-
 

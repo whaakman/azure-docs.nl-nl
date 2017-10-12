@@ -68,7 +68,7 @@
 
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/azure/overview)
-## [Azure CLI](/cli/azure/vm)
+## [Azure-CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Resource Manager-sjablonen schrijven](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Communitysjablonen](https://azure.microsoft.com/documentation/templates)

@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 1fb8d7b9f1014f37f0f3afa20605fce10c45a967
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Een MongoDB-app maken met Angular en Azure Cosmos DB - deel 3: de gebruikersinterface maken met Angular
 
@@ -47,7 +46,7 @@ Voltooi de stappen in [deel 2](tutorial-develop-mongodb-nodejs-part2.md) van de 
 
 1. Klik in Visual Studio Code op de knop Stop ![Knop Stop in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png) om de Node-app te stoppen.
 
-2. Voer in de Windows-opdrachtprompt of in het Mac-terminalvenster de volgende opdracht in om een hero's-component te genereren. In deze code is g=generate, c=component en heroes=naam van de component, en er wordt een platte bestandsstructuur (--flat) gebruikt zodat er geen submap wordt gemaakt.
+2. Voer in de Windows-opdrachtprompt of in het Mac-terminalvenster de volgende opdracht in om een heroes-component te genereren. In deze code is g=genereren, c=component en heroes=naam van de component, en er wordt een platte bestandsstructuur (--flat) gebruikt zodat er geen submap wordt gemaakt.
 
     ```
     ng g c heroes --flat 
@@ -66,7 +65,7 @@ Voltooi de stappen in [deel 2](tutorial-develop-mongodb-nodejs-part2.md) van de 
 3. In Visual Studio Code, in het deelvenster **Explorer**, gaat u naar de nieuwe map **src\client\app** en opent u het nieuwe bestand **heroes.component.ts** dat in stap 2 is gemaakt. Dit TypeScript-componentbestand is met de vorige opdracht gemaakt.
 
     > [!TIP]
-    > Als in de app-map geen Visual Studio Code wordt weergegeven, voert u op de Mac CMD+SHIFT P in, en in Windows Ctrl+Shift+P om het opdrachtpalet te openen. Typ *Reload Window* om de systeemwijziging van kracht te laten worden.
+    > Als in de app-map geen Visual Studio Code wordt weergegeven, voert u op de Mac Command+Shift+P in, en in Windows Ctrl+Shift+P om het opdrachtpalet te openen. Typ *Reload Window* om de systeemwijziging van kracht te laten worden.
 
     ![Het bestand heroes.component.ts openen](./media/tutorial-develop-mongodb-nodejs-part3/open-folder.png)
 
@@ -74,11 +73,11 @@ Voltooi de stappen in [deel 2](tutorial-develop-mongodb-nodejs-part2.md) van de 
 
     ![Het bestand app-module.ts openen](./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png)
 
-    Met de component Heroes kunt u nu een nieuw bestand voor de HTML van de hero's-component maken. We hebben een minimale app gemaakt, dus het was de bedoeling de HTML in dezelfde map onder te brengen als het TypeScript-bestand. We willen het echter openbreken en een apart bestand maken.
+    Met de component Heroes kunt u nu een nieuw bestand voor de HTML van de heroes-component maken. We hebben een minimale app gemaakt, dus het was de bedoeling de HTML in hetzelfde bestand onder te brengen als het TypeScript-bestand. We willen het echter openbreken en een apart bestand maken.
 
 5. Klik in het deelvenster **Explorer** met de rechtermuisknop op de map **app**, klik op **New File** en geef het nieuwe bestand de naam *heroes.component.html*.
 
-6. Verwijder in het bestand **heroes.component.ts** de regels 5 t/m 9 
+6. Verwijder in het bestand **heroes.component.ts** de regels 5 tot en met 9 
 
     ```ts
     template: `
@@ -394,7 +393,7 @@ Hoe kunnen we de component nu op het scherm weergeven? We gaan de standaardcompo
 
 1. Open in het deelvenster Explorer het bestand **client/app/app.component.ts**.
 
-2. Wijzig de titel in regel 6 t/m 8 in Heroes en laat de naam van de component die we in **heroes.components.ts** (app-heroes) hebben gemaakt, verwijzen naar de nieuwe component. De sjabloonsectie moet er nu als volgt uitzien: 
+2. Wijzig de titel in regel 6 tot en met 8 in Heroes en laat de naam van de component die we in **heroes.components.ts** (app-heroes) hebben gemaakt, verwijzen naar de nieuwe component. De sjabloonsectie moet er nu als volgt uitzien: 
 
     ```ts
     template: `
@@ -404,7 +403,7 @@ Hoe kunnen we de component nu op het scherm weergeven? We gaan de standaardcompo
     `,
     ```
 
-3. **heroes.components.ts** bevat andere componenten waarnaar wordt verwezen, bijvoorbeeld de component Hero, dus die moeten we ook maken. Gebruik in de Angular CLI-opdrachtprompt de volgende opdracht om een hero-model en een bestand te maken met de naam **hero.ts**, waarin g=generate, cl=class en hero=naam van de klasse.
+3. **heroes.components.ts** bevat andere componenten waarnaar wordt verwezen, bijvoorbeeld de component Hero, dus die moeten we ook maken. Gebruik in de Angular CLI-opdrachtprompt de volgende opdracht om een hero-model en een bestand te maken met de naam **hero.ts**, waarin g=genereren, cl=klasse en hero=naam van de klasse.
 
     ```bash
     ng g cl hero
@@ -435,7 +434,7 @@ Hoe kunnen we de component nu op het scherm weergeven? We gaan de standaardcompo
 
     ![Gloeilamp in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png)
 
-8. Klik op de gloeilamp en vervolgens op **Import Hero from "client/app/hero".** of **Import Hero from "./hero".** (Het bericht wordt gewijzigd, afhankelijk van uw instellingen)
+8. Klik op de gloeilamp en vervolgens op **Import Hero from "client/app/hero".** of **Import Hero from "./hero".** (Het bericht dat u ziet, is afhankelijk van uw instellingen)
 
     In regel 2 verschijnt een nieuwe regel met code. Als regel 2 naar client/app/hero verwijst, wijzigt u de regel zodat wordt verwezen naar het hero-bestand vanaf de lokale map (./hero). Regel 2 moet er als volgt uitzien:
 
@@ -531,7 +530,7 @@ Hoe kunnen we de component nu op het scherm weergeven? We gaan de standaardcompo
 
 ## <a name="build-the-app"></a>De app bouwen
 
-1. Voer achter de opdrachtprompt de volgend opdracht in om de Angular-app te bouwen. 
+1. Voer achter de opdrachtprompt de volgende opdracht in om de Angular-app te bouwen. 
 
     ```bash
     ng b
@@ -559,4 +558,3 @@ U kunt doorgaan met het volgende deel van de zelfstudie om een Azure Cosmos DB-a
 
 > [!div class="nextstepaction"]
 > [Een Azure Cosmos DB-account maken met de Azure CLI](tutorial-develop-mongodb-nodejs-part4.md)
-

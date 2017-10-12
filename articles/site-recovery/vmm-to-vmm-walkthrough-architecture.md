@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: b78cd0d5a5395873afaddc8856004775f447e8ea
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-1-review-the-architecture-for-hyper-v-replication-to-a-secondary-site"></a>Stap 1: de architectuur voor Hyper-V-replicatie naar een secundaire site bekijken
 
@@ -65,4 +64,3 @@ Dit is wat u nodig hebt om Hyper V-VM's te repliceren naar een secundaire VMM-si
 ## <a name="next-steps"></a>Volgende stappen
 
 Ga naar [Stap 2: de vereisten en beperkingen controleren](vmm-to-vmm-walkthrough-prerequisites.md).
-

@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 2bb7fe165fc88df62a2b12ccf666da0a7965d43b
-ms.contentlocale: nl-nl
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: e36baddffd634cb7d601d09ccebaf40b27798c7b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="active-directory-b2c-documentation"></a>Documentatie over Active Directory B2C
 
 Meer informatie over het instellen en beheren van uitgebreid identiteitsbeheer voor consumenten in de cloud met Active Directory B2C. Zelfstudies, referenties en andere documentatie laten zien hoe u consumentgerichte web- en mobiele toepassingen kunt beschermen met beveiligde aanmelding.
@@ -188,5 +186,4 @@ Meer informatie over het instellen en beheren van uitgebreid identiteitsbeheer v
         </a>
     </li>
 </ul>
-
 

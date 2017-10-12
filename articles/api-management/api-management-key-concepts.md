@@ -1,6 +1,6 @@
 ---
 title: Overzicht en belangrijkste concepten van API Management| Microsoft Docs
-description: Meer informatie over API&quot;s, producten, rollen, groepen en andere belangrijke concepten van API Management.
+description: Meer informatie over API's, producten, rollen, groepen en andere belangrijke concepten van API Management.
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: 47358c6c209488d7a12e8afbf7a2d9b3f872f0de
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-api-management"></a>Wat is API Management?
 API Management helpt organisaties bij het publiceren van API's naar externe, partner- en interne ontwikkelaars om het potentieel van hun gegevens en services te ontsluiten. Veel bedrijven willen hun activiteiten uitbreiden als een digitaal platform, waarbij nieuwe kanalen worden gemaakt, nieuwe klanten worden gevonden en grotere betrokkenheid met bestaande klanten wordt bereikt. API Management biedt de kerncompetenties voor een geslaagd API-programma via ontwikkelaarsbetrokkenheid, zakelijke inzichten, analytische gegevens, beveiliging en bescherming.
@@ -126,11 +127,5 @@ Bekijk de volgende presentatie van de conferentie Microsoft Ignite 2015 voor mee
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 
-
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

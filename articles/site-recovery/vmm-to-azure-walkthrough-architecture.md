@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="step-1-review-the-architecture"></a>Stap 1: de architectuur analyseren
 
 
@@ -63,8 +60,7 @@ Meer informatie over de implementatievereisten en de vereisten voor elk van deze
 1. Nadat u de beveiliging voor een Hyper-V-VM in Azure Portal of on-premises hebt ingeschakeld, start **Beveiliging inschakelen**.
 2. Met deze taak wordt gecontroleerd of de machine voldoet aan de vereisten. Hierna wordt [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) aangeroepen om replicatie in te stellen op basis van de instellingen die u hebt geconfigureerd.
 3. De taak start initiële replicatie door de methode [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) aan te roepen om een volledige VM-replicatie te initialiseren en de virtuele schijven van de virtuele machine naar Azure te versturen.
-4. U kunt de voortgang van de taak controleren op het tabblad **Taken**.
-        ![Takenlijst](media/vmm-to-azure-walkthrough-architecture/image1.png)![Inzoomen op beveiliging inschakelen](media/vmm-to-azure-walkthrough-architecture/image2.png)
+4. U kunt de voortgang van de taak controleren op het tabblad **Taken**.      ![Takenlijst](media/vmm-to-azure-walkthrough-architecture/image1.png)![Inzoomen op beveiliging inschakelen](media/vmm-to-azure-walkthrough-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>De initiële gegevens repliceren
 
@@ -121,4 +117,3 @@ Als er een replicatiefout optreedt, wordt de replicatie automatisch opnieuw gepr
 ## <a name="next-steps"></a>Volgende stappen
 
 Ga naar [Stap 2: De implementatievereisten controleren](vmm-to-azure-walkthrough-prerequisites.md)
-

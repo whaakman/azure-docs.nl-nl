@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/21/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Gegevensgebruik analyseren in Log Analytics
 Log Analytics bevat informatie over de hoeveelheid gegevens die is verzameld, welke computers de gegevens hebben verzonden en de verschillende typen gegevens die zijn verzonden.  Gebruik het dashboard **Gebruik van Log Analytics** om de hoeveelheid gegevens te zien die wordt verzonden naar de Log Analytics-service. Het dashboard laat zien hoeveel gegevens worden verzameld door elke oplossing en hoeveel gegevens uw computers verzenden.
@@ -173,4 +172,3 @@ Gebruik [oplossingstargeting](../operations-management-suite/operations-manageme
 * Wijzig de [prestatiemeteritemconfiguratie](log-analytics-data-sources-performance-counters.md)
 * Wijzig de [gebeurtenislogboekconfiguratie](log-analytics-data-sources-windows-events.md)
 * Wijzig de [syslog-configuratie](log-analytics-data-sources-syslog.md)
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/06/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a96150a6a7f83d1c220e0450f7704634a1f6ed1b
-ms.contentlocale: nl-nl
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 5c8f4c784eed7b64810a3dd1c36c043d22a66936
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>Uw eerste zelfstandige Service Fabric-cluster maken
 U kunt een zelfstandig Service Fabric-cluster maken op elke virtuele machine of computer met Windows Server 2012 R2 of Windows Server 2016, lokaal of in de cloud. Deze Quick Start helpt u om in enkele minuten een zelfstandig ontwikkelingscluster te maken.  Wanneer u klaar bent, hebt u een cluster met drie knooppunten die worden uitgevoerd op één computer. Hierop kunt u vervolgens apps implementeren.
 
@@ -95,4 +93,3 @@ Nu u een zelfstandig ontwikkelingscluster hebt ingesteld, kunt u de volgende art
 * [Apps implementeren met behulp van Powershell](service-fabric-deploy-remove-applications.md)
 
 [service-fabric-explorer]: ./media/service-fabric-get-started-standalone-cluster/sfx.png
-

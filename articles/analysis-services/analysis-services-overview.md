@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8b3a538fc0fe34d0b7af8a99510cfb19abd32d55
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -128,4 +127,3 @@ Hebt u suggesties over de documentatie? U kunt met behulp van Livefyre onderaan 
 
 ## <a name="next-steps"></a>Volgende stappen
 U weet nu in grote lijnen wat Azure Analysis Services is en dus is het tijd om echt aan de slag te gaan. Leer nu [hoe u een server maakt](analysis-services-create-server.md) in Azure. Wanneer uw server klaar is, doorloopt u de [Adventure Works-zelfstudie](tutorials/aas-adventure-works-tutorial.md) voor informatie over hoe u een volledig functioneel tabellair model maakt en dit op uw server implementeert.
-
