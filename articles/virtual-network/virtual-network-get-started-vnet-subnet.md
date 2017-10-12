@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e653764d7cb514d50b44fadd0cc5963dd404d99e
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-virtual-network"></a>Uw eerste virtuele netwerk maken
 
 Lees hoe u een virtueel netwerk (VNet) met twee subnetten maakt, twee virtuele machines (VM's) maakt en elke VM met een van de subnetten verbindt, zoals in de volgende afbeelding wordt weergegeven:
@@ -253,4 +251,3 @@ In deze oefening hebt u een VNet en twee virtuele machines gemaakt. U hebt tijde
 - [Netwerkinterfaces](virtual-network-network-interface.md)
 - [Netwerkbeveiligingsgroepen](virtual-networks-nsg.md)
 - [Virtuele machines](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-

@@ -18,7 +18,7 @@
 # [Prijzen](pricing.md)
 
 # Naslaginformatie
-## [Azure CLI](/cli/azure)
+## [Azure-CLI](/cli/azure)
 ## [Azure PowerShell](/powershell/azure)
 
 # Resources

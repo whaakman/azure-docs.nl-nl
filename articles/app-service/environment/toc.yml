@@ -32,7 +32,7 @@
       href: app-service-app-service-environment-intro.md
 - name: Handleidingen
   items:
-    - name: Een App Service-omgeving gebruiken
+    - name: Een ASE gebruiken
       href: using-an-ase.md
     - name: Een App Service-omgeving maken op basis van een sjabloon
       href: create-from-template.md

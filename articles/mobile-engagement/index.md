@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3de3024e93aee7ace0e243eef0beb4008dc50db5
-ms.openlocfilehash: 738cc1fc5b5cca411c08fda4229950f481cd0aa6
-ms.contentlocale: nl-nl
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 5f682ba16b52b9a084505b8212c4b6f043bb94c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="mobile-engagement-documentation"></a>Documentatie voor Mobile Engagement
 
 Meer informatie over hoe u met Mobile Engagement het gebruik, de retentie en het verdienmodel van mobiele apps kunt optimaliseren. Zelfstudies, SDK’s en andere documentatie laten zien hoe u inzicht krijgt in het gebruik van apps en realtime gebruikerssegmentering, en hoe u contextbewuste pushmeldingen en in-app berichten inschakelt.
@@ -208,6 +206,5 @@ Meer informatie over hoe u met Mobile Engagement het gebruik, de retentie en het
 </ul>
 
 ---
-
 
 

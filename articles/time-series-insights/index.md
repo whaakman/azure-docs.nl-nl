@@ -1,4 +1,4 @@
---- 
+---
 title: Documentatie voor Azure Time Series Insights - zelfstudies, API-verwijzing | Microsoft Docs
 description: Leer hoe u IoT-analyses uitvoert in de cloud met volledig beheerde gebeurtenisverwerking. Analyseer gegevens van toepassingen, sensoren, apparaten en meer in realtime.
 services: time-series-insights
@@ -12,13 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: d22a3f0484da78d03dbe8411e74eb408185b1f30
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/03/2017
-
---- 
+ms.openlocfilehash: ca41dab4f1488c0d172513e61b1960f236c7ebf0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
+---
 # <a name="azure-time-series-insights-documentation"></a>Documentatie voor Azure Time Series Insights 
  
 Informatie over het instellen van een Time Series Insights-omgeving, en het verkennen en analyseren van TimeSeries-gegevens van uw IoT-oplossingen of verbonden dingen. De documentatie omvat de vereisten, een handleiding, API-naslaginformatie en andere documentatie waarmee u in slechts enkele minuten aan de slag kunt. 

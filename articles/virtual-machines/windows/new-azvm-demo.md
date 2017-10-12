@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/21/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
+ms.openlocfilehash: 3be46c8c02ad136edb1936fbb39560d479b27277
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: c303235ead2af7cfaa368a5b5f00567ae44cfb86
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-with-the-new-azvm-preview-in-cloud-shell"></a>Een virtuele Windows-machine maken met de cmdlet New-AzVM (preview) in de Cloud Shell 
 
 De cmdlet New-AzVM (preview) is een eenvoudigere manier om een nieuwe virtuele machine te maken met behulp van PowerShell. In deze handleiding wordt uitgelegd hoe u PowerShell gebruikt in Azure Cloud Shell waarin vooraf de cmdlet New-AzVM is geïnstalleerd, voor het maken van een nieuwe virtuele Azure-machine waarop Windows Server 2016 wordt uitgevoerd. Wanneer de implementatie is voltooid, wordt er met behulp van RDP verbinding gemaakt met de server.  
@@ -83,4 +81,3 @@ In dit onderwerp hebt u een eenvoudige virtuele machine geïmplementeerd met beh
 
 > [!div class="nextstepaction"]
 > [Zelfstudies over virtuele Windows-machines](./tutorial-manage-vm.md)
-

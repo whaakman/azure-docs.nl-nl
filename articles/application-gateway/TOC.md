@@ -19,7 +19,7 @@
 #### [Azure PowerShell](application-gateway-create-gateway-arm.md)
 #### [Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
 #### [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md)
-#### [Azure CLI](application-gateway-create-gateway-cli.md)
+#### [Azure-CLI](application-gateway-create-gateway-cli.md)
 #### [Azure PowerShell (klassiek)](application-gateway-create-gateway.md)
 ### Intern
 #### [Azure PowerShell](application-gateway-ilb-arm.md)
@@ -28,21 +28,21 @@
 ## Web Application Firewall configureren
 ### [Azure Portal](application-gateway-web-application-firewall-portal.md)
 ### [Azure PowerShell](application-gateway-web-application-firewall-powershell.md)
-### [Azure CLI](application-gateway-web-application-firewall-cli.md)
+### [Azure-CLI](application-gateway-web-application-firewall-cli.md)
 ## Regels voor Web Application Firewall aanpassen
 ### [Azure Portal](application-gateway-customize-waf-rules-portal.md)
-### [Azure CLI](application-gateway-customize-waf-rules-cli.md)
+### [Azure-CLI](application-gateway-customize-waf-rules-cli.md)
 ## SSL configureren
 ### [Azure Portal](application-gateway-ssl-portal.md)
 ### [Azure PowerShell](application-gateway-ssl-arm.md)
 ### [Azure PowerShell (klassiek)](application-gateway-ssl.md)
-### [Azure CLI](application-gateway-ssl.md)
+### [Azure-CLI](application-gateway-ssl.md)
 ### [End-to-end](application-gateway-end-to-end-ssl-powershell.md)
 ### [SSL-beleid](application-gateway-configure-ssl-policy-powershell.md)
 ## Routering op basis van URL-pad configureren
 ### [Azure Portal](application-gateway-create-url-route-portal.md)
 ### [Azure PowerShell](application-gateway-create-url-route-arm-ps.md)
-### [Azure CLI](application-gateway-create-url-route-cli.md)
+### [Azure-CLI](application-gateway-create-url-route-cli.md)
 ## Hosting van meerdere sites configureren
 ### [Azure Portal](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
@@ -61,7 +61,7 @@
 ### [Diagnostische logboeken en metrische gegevens](application-gateway-diagnostics.md)
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/azure/overview)
-## [Azure CLI](/cli/azure/network/application-gateway)
+## [Azure-CLI](/cli/azure/network/application-gateway)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
