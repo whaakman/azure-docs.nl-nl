@@ -247,6 +247,7 @@
             - name: NVIDIA GPU-stuurprogramma's installeren
               href: n-series-driver-setup.md
     - name: Opslag beheren
+      href: about-disks-and-vhds.md
       items:
         - name: Meer informatie over beheerde schijven
           href: managed-disks-overview.md
