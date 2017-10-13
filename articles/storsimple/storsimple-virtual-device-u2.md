@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Een virtueel StorSimple-apparaat implementeren en beheren in Azure
 ## <a name="overview"></a>Overzicht
@@ -236,4 +235,3 @@ Als er tijdens het maken van een virtueel apparaat geen verbinding is met intern
 ## <a name="next-steps"></a>Volgende stappen
 * Ontdek hoe u [de StorSimple Manager-service gebruikt om een virtueel apparaat te beheren](storsimple-manager-service-administration.md).
 * Ontdek hoe u [een StorSimple-volume herstelt op basis van een back-upset](storsimple-restore-from-backup-set.md).
-

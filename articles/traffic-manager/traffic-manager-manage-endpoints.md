@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
 ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-disable-enable-or-delete-endpoints"></a>Eindpunten toevoegen, uitschakelen, inschakelen of verwijderen
 
 De functie Web Apps in Azure App Service biedt al failover- en round-robinverkeersroutering voor websites in een datacenter, ongeacht de websitemodus. Met Azure Traffic Manager kunt u failover- en round-robinverkeersroutering opgeven voor websites en cloudservices in verschillende datacenters. Het eerste dat u moet doen om deze functionaliteit te gebruiken, is het cloudservice- of website-eindpunt toevoegen aan Traffic Manager.
@@ -45,8 +43,8 @@ U kunt ook afzonderlijke eindpunten uitschakelen die deel uitmaken van een Traff
     5. Selecteer bij **Prioriteit** de optie **1**. Dit zorgt ervoor dat alle verkeer naar dit eindpunt wordt geleid, indien het eindpunt in orde is.
     6. Laat **Toevoegen als uitgeschakeld** uit staan.
     7. Klik op **OK**
-6.    Herhaal de stappen 4 en 5 om het volgende Azure-eindpunt toe te voegen. Zorg ervoor dat dit eindpunt wordt toegevoegd met de waarde **2** als bijbehorende **Prioriteit**.
-7.    Als beide eindpunten zijn toegevoegd, worden ze weergegeven op de blade **Traffic Manager-profiel**, samen met de controlestatus **Online**.
+6.  Herhaal de stappen 4 en 5 om het volgende Azure-eindpunt toe te voegen. Zorg ervoor dat dit eindpunt wordt toegevoegd met de waarde **2** als bijbehorende **Prioriteit**.
+7.  Als beide eindpunten zijn toegevoegd, worden ze weergegeven op de blade **Traffic Manager-profiel**, samen met de controlestatus **Online**.
 
 > [!NOTE]
 > Nadat een eindpunt hebt toegevoegd aan of verwijderd uit een profiel met de verkeersrouteringsmethode *Failover*, wordt de failover-prioriteitenlijst mogelijk niet geordend zoals u dat wilt. U kunt de volgorde van de Failover-prioriteitenlijst aanpassen op de pagina Configuratie. Zie voor meer informatie [Configure Failover traffic routing](traffic-manager-configure-failover-routing-method.md) (Failover-verkeersroutering configureren).
@@ -85,5 +83,4 @@ U kunt ook afzonderlijke eindpunten uitschakelen die deel uitmaken van een Traff
 * [Problemen met Traffic Manager in gedegradeerde status oplossen](traffic-manager-troubleshooting-degraded.md)
 * [Prestatieoverwegingen voor Traffic Manager](traffic-manager-performance-considerations.md)
 * [Bewerkingen op Traffic Manager (REST API-referentiemateriaal)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
 

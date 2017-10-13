@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: ffa2eaf3680e68ac14aabf49b6308caeb173fd43
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: c247a7abd3d1682f8ccd1940e506ef54f9409263
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Een gebeurtenisbron voor uw Time Series Insights-omgeving maken met de Ibiza-portal
 
 Een Time Series Insights-gebeurtenisbron is afgeleid van een gebeurtenis-broker, zoals Azure Event Hubs. Time Series Insights maakt rechtstreeks verbinding met gebeurtenisbronnen en neemt de gegevensstroom op zonder dat gebruikers ook maar één coderegel hoeven te schrijven. Op dit moment biedt Time Series Insights ondersteuning voor Azure Event Hubs en Azure IoT Hubs. In de toekomst worden er meer gebeurtenisbronnen toegevoegd.
@@ -55,4 +53,3 @@ Wanneer de gebeurtenisbron is gemaakt, begint Time Series Insights automatisch m
 
 * [Gebeurtenissen verzenden](time-series-insights-send-events.md) naar de gebeurtenisbron
 * Uw omgeving bekijken in de [Time Series Insights-portal](https://insights.timeseries.azure.com)
-
