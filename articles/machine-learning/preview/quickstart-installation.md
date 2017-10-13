@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 09/20/2017
+ms.openlocfilehash: bb3ac21d2e8b8efd7b4f6943fcc3256f18cbdd68
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 91d2f47a528050f644973044f96c0354b91dba25
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Preview-accounts maken voor Azure Machine Learning en Azure Machine Learning Workbench installeren
 Azure Machine Learning is een geïntegreerde end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
 
@@ -27,7 +25,13 @@ In deze snelstartgids wordt beschreven hoe u accounts voor experimenten en model
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
-Momenteel kan de Azure Machine Learning Workbench alleen worden geïnstalleerd op de volgende besturingssystemen: Windows 10, Windows Server 2016 en macOS Sierra.
+Momenteel kan de desktop-app Azure Machine Learning Workbench alleen worden geïnstalleerd op de volgende besturingssystemen: 
+- Windows 10
+- Windows Server 2016
+- macOS Sierra
+
+>[!NOTE]
+>macOS High Sierra wordt nog niet ondersteund.
 
 ## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 Meld u aan bij [Azure Portal](https://portal.azure.com/).
@@ -118,7 +122,7 @@ Installeer de Azure Machine Learning Workbench op uw computer met macOS Sierra.
 
 5. Azure Machine Learning Workbench is nu geïnstalleerd in de volgende map: 
 
-   _/Applications/AmlWorkbench.app_
+   `/Applications/AmlWorkbench.app`
 
 ## <a name="run-azure-machine-learning-workbench-to-log-in-the-first-time"></a>Voer Azure Machine Learning Workbench om u de eerste keer aan te melden
 1. Klik op de knop  **Workbench starten** op het laatste scherm van het installatieprogramma wanneer het installatieproces voltooid is. Als u het installatieprogramma hebt gesloten, zoekt u de snelkoppeling naar de Machine Learning Workbench op het bureaublad of in het menu Start naar de naam **Azure Machine Learning Workbench** om de app te starten.
@@ -184,4 +188,3 @@ Voor een uitgebreidere ervaring met deze werkstroom, met inbegrip van het implem
 
 > [!div class="nextstepaction"]
 > [Zelfstudie Iris classificeren](tutorial-classifying-iris-part-1.md)
-

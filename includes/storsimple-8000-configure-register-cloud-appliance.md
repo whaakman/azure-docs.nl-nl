@@ -1,6 +1,4 @@
-<a id="to-configure-and-register-the-cloud-appliance" class="xliff"></a>
-
-#### Het cloudapparaat configureren en registreren
+#### <a name="to-configure-and-register-the-cloud-appliance"></a>Het cloudapparaat configureren en registreren
 
 1. Selecteer en klik op het StorSimple-cloudapparaat dat u hebt gemaakt op de blade **Apparaten**.
 
