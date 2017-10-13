@@ -1,7 +1,7 @@
 
-# <a name="azure-and-internet-of-things"></a>Azure en Internet of Things (IoT)
+# <a name="azure-and-internet-of-things"></a>Azure en internet der dingen (IoT)
 
-Welkom bij Microsoft Azure en het Internet of Things (IoT). In dit artikel maakt u kennis met de algemene kenmerken van een IoT-oplossing die u kunt implementeren met Azure-services. IoT-oplossingen vereisen een beveiligde communicatie tussen vele apparaten in twee richtingen, evenals een back-end voor de oplossing. De back-end voor de oplossing kan gebruikmaken van geautomatiseerde predictive analytics om inzichten bloot te leggen over de gebeurtenisstroom van het apparaat naar de cloud.
+Welkom bij Microsoft Azure en het internet der dingen (IoT). In dit artikel maakt u kennis met de algemene kenmerken van een IoT-oplossing die u kunt implementeren met Azure-services. IoT-oplossingen vereisen een beveiligde communicatie tussen vele apparaten in twee richtingen, evenals een back-end voor de oplossing. De back-end voor de oplossing kan gebruikmaken van geautomatiseerde predictive analytics om inzichten bloot te leggen over de gebeurtenisstroom van het apparaat naar de cloud.
 
 [Azure IoT Hub][lnk-iot-hub] is een essentiële bouwsteen van elke IoT-oplossing die gebruikmaakt van Azure-services. IoT Hub is een volledig beheerde service die stabiele en veilige tweerichtingscommunicatie tussen miljoenen IoT-apparaten en de back-end van een oplossing mogelijk maakt. 
 

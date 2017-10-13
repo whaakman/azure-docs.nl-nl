@@ -1,6 +1,4 @@
-<a id="to-create-public-endpoints-on-the-cloud-appliance" class="xliff"></a>
-
-#### Openbare eindpunten op het cloudapparaat maken
+#### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Openbare eindpunten op het cloudapparaat maken
 
 1. Meld u aan bij Azure Portal.
 2. Ga naar **Virtuele machines** en selecteer en klik op de virtuele machine die wordt gebruikt als uw cloudapparaat.

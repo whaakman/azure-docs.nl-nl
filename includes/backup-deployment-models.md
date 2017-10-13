@@ -10,8 +10,3 @@ De Azure Backup-service heeft twee soorten kluizen: de Backup-kluis en de Recove
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -1,7 +1,5 @@
 
-<a id="to-configure-remote-management-on-cloud-appliance" class="xliff"></a>
-
-#### Extern beheer configureren op het cloudapparaat
+#### <a name="to-configure-remote-management-on-cloud-appliance"></a>Extern beheer configureren op het cloudapparaat
 
 1. Klik in uw StorSimple-apparaatbeheerfunctie op **Apparaten**. Selecteer en klikt u op uw cloudapparaat in de lijst met apparaten die zijn verbonden met de service.
     ![StorSimple- cloudapparaat selecteren](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage1.png)

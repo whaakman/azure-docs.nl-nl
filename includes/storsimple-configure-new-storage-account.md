@@ -14,8 +14,3 @@
       ![Opslagaccount toevoegen](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
 4. Het nieuwe opslagaccount wordt weergegeven op de pagina **Configureren** onder **Opslagaccounts**. Klik op **Opslaan** om het nieuwe opslagaccount op te slaan. Klik op **OK** als u om bevestiging wordt gevraagd.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

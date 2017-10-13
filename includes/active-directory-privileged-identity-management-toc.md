@@ -12,8 +12,3 @@
 * [How to require MFA](../articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md) (MFA vereisen)
 * [How to use the audit log](../articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md) (Het controlelogboek gebruiken)
 
-
-
-<!--HONumber=Dec16_HO4-->
-
-

@@ -24,8 +24,3 @@
    
    * Schakel **Pushmeldingen** in Doelen > uw doelnaam > Mogelijkheden in.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

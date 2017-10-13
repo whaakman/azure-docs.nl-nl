@@ -169,8 +169,6 @@
           href: sql-database-operate-query-store.md
         - name: Uitgebreide gebeurtenissen
           href: sql-database-xevent-db-diff-from-svr.md
-        - name: Compatibiliteitsniveaus
-          href: sql-database-compatibility-level-query-performance-130.md
         - name: In-memory bewaken
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Uitschalen

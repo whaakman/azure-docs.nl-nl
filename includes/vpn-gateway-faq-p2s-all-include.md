@@ -48,10 +48,6 @@ Het is moeilijk om de exacte doorvoer van de VPN-tunnels te onderhouden. IPSec e
 
 Nee. U kunt alleen de systeemeigen VPN-client van Windows voor SSTP en de systeemeigen VPN-client van Mac voor IKEv2 gebruiken. Raadpleeg de lijst met ondersteunde clientbesturingssystemen.
 
-### <a name="can-i-access-the-internet-when-i-am-connected-over-p2s-vpn"></a>Heb ik toegang tot internet als ik verbonden ben via P2S-VPN?
-
-Ja, u hebt toegang tot internet via P2S-VPN.
-
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Biedt Azure ondersteuning voor IKEv2-VPN met Windows?
 
 Gebruikers kunnen verbinding maken met Azure met behulp van de ingebouwde Windows VPN-client, die ondersteuning biedt voor IKEv2. Maar IKEv2-verbindingen vanaf een Windows-apparaat werken niet in het volgende scenario:
