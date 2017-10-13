@@ -39,7 +39,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure/storage/blobs/storage-upload-process-images">Installatiekopiegegevens uploaden en ophalen in de cloud</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Azure Functions activeren om blobs te verwerken</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Azure Functions activeren om blobs te verwerken</a>
           - html: <a href="/azure/storage/blobs/storage-secure-access-application">Toepassingsgegevens beveiligen</a>
           - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Opslag controleren en problemen oplossen</a>
   - title: Voorbeelden
@@ -51,7 +51,7 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
-          - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>
+          - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Azure-CLI</a>
   - title: Gratis Pluralsight-videotraining
     items:
       - type: list

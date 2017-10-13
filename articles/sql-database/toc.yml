@@ -267,6 +267,12 @@
           href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Bedrijfscontinuïteit
       items:
+        - name: Kluis configureren - back-ups
+          href: sql-database-long-term-backup-retention-configure.md
+        - name: Geo-replicatie - Portal
+          href: sql-database-geo-replication-portal.md
+    - name: Gegevens laden en verplaatsen
+      items:
         - name: Gegevens laden met BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Gegevens laden met ADF

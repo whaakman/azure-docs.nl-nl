@@ -1,5 +1,5 @@
 # Overzicht
-## [Informatie over virtuele machines](../../virtual-machines-windows-about.md)
+## [Informatie over virtuele machines](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Schijven en VHD's](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Virtuele netwerken](../../../virtual-network/virtual-networks-overview.md)
 ## [Veelgestelde vragen](faq.md)
@@ -86,7 +86,7 @@
 
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/azure/overview)
-## [Azure CLI](/cli/azure/vm)
+## [Azure-CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Resource Manager-sjablonen schrijven](../../../resource-group-authoring-templates.md)
