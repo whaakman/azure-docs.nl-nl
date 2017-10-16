@@ -1,5 +1,5 @@
 # Overzicht
-## [Wat is SQL Server op Azure VM's?](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
+## [VM's voor Windows SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
 ## [Prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 ## [Veelgestelde vragen](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
@@ -36,7 +36,7 @@
 
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
-## [Azure CLI](/cli/azure/)
+## [Azure-CLI](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
 ## [SQL Server-stuurprogramma's](https://docs.microsoft.com/sql/connect/sql-server-drivers)
 ## [REST](/rest/api/)

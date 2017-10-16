@@ -7,6 +7,7 @@
 ## [Veelgestelde vragen](active-directory-faq.md)
 
 # Aan de slag
+## [Aan de slag met Azure AD](get-started-azure-ad.md)
 ## [Meld u aan voor Azure AD Premium](active-directory-get-started-premium.md)
 ## [Een aangepaste domeinnaam toevoegen](add-custom-domain.md)
 ## [Een bedrijfshuisstijl toevoegen](customize-branding.md)

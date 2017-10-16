@@ -24,26 +24,29 @@
 ## Implementeren
 ### [Virtuele netwerken](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
+#### [Azure CLI 2.0](virtual-networks-create-vnet-arm-cli.md)
+#### [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md)
 #### [Sjabloon](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Netwerkbeveiligingsgroepen
 #### [Azure Portal](virtual-networks-create-nsg-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [Azure CLI](virtual-networks-create-nsg-arm-cli.md)
+#### [Azure CLI 2.0](virtual-networks-create-nsg-arm-cli.md)
+#### [Azure CLI 1.0](virtual-networks-create-nsg-cli-nodejs.md)
 #### [Sjabloon](virtual-networks-create-nsg-arm-template.md)
 #### [Beveiligingsgroepen voor toepassing](create-network-security-group-preview.md)
 #### Klassiek
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
-##### [Azure CLI](virtual-networks-create-nsg-classic-cli.md)
+##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
 ### Door de gebruiker gedefinieerde routes
 #### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [Azure CLI](virtual-network-create-udr-arm-cli.md)
+#### [Azure CLI 2.0](virtual-network-create-udr-arm-cli.md)
+#### [Azure CLI 1.0](virtual-network-create-udr-arm-cli-nodejs.md)
 #### [Sjabloon](virtual-network-create-udr-arm-template.md)
 #### Klassiek
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
-##### [Azure CLI](virtual-network-create-udr-classic-cli.md)
+##### [Azure-CLI](virtual-network-create-udr-classic-cli.md)
 
 ### Peering op virtueel netwerk
 #### [Hetzelfde implementatiemodel - hetzelfde abonnement](virtual-network-create-peering.md)
@@ -62,7 +65,8 @@
 #### Een virtuele machine met een statisch openbaar IP-adres maken
 ##### [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-##### [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
+##### [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
+##### [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
 ##### [Sjabloon](virtual-network-deploy-static-pip-arm-template.md)
 ##### Klassiek
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
@@ -70,23 +74,27 @@
 #### Een virtuele machine met een statisch privé-IP-adres maken
 ##### [Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [Azure PowerShell](virtual-networks-static-private-ip-arm-ps.md)
-##### [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
+##### [Azure-CLI](virtual-networks-static-private-ip-arm-cli.md)
 ##### Klassiek
 ###### [Azure Portal](virtual-networks-static-private-ip-classic-pportal.md)
 ###### [Azure PowerShell](virtual-networks-static-private-ip-classic-ps.md)
-###### [Azure CLI](virtual-networks-static-private-ip-classic-cli.md)
+###### [Azure-CLI](virtual-networks-static-private-ip-classic-cli.md)
 
 #### Een virtuele machine met meerdere netwerkinterfaces maken
 ##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure CLI 2.0](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure CLI 1.0](../virtual-machines/linux/multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Sjabloon](virtual-network-deploy-multinic-arm-template.md)
+
 ##### Klassiek
 ###### [Azure PowerShell](virtual-network-deploy-multinic-classic-ps.md)
-###### [Azure CLI](virtual-network-deploy-multinic-classic-cli.md)
+###### [Azure-CLI](virtual-network-deploy-multinic-classic-cli.md)
 
 #### Een virtuele machine met meerdere IP-adressen maken
 ##### [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
+##### [Azure CLI 2.0](virtual-network-multiple-ip-addresses-cli.md)
+##### [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md)
 ##### [Sjabloon](virtual-network-multiple-ip-addresses-template.md)
 
 #### [Een virtuele machine maken met versneld netwerken](virtual-network-create-vm-accelerated-networking.md)
@@ -102,23 +110,34 @@
 #### [Netwerken beveiligen met virtuele apparaten](virtual-network-scenario-udr-gw-nva.md)
 #### [DMZ tussen Azure en internet](../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 #### [Cloudservice en netwerkbeveiliging](../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [Eenvoudige DMZ met NSG’s](virtual-networks-dmz-nsg-asm.md)
-##### [DMZ met firewall en NSG’s](virtual-networks-dmz-nsg-fw-asm.md)
-##### [DMZ met firewall, UDR en NSG’s](virtual-networks-dmz-nsg-fw-udr-asm.md)
+##### [Een DMZ met NSG's maken](virtual-networks-dmz-nsg.md)
+##### [Een DMZ met NSG's (klassiek) maken](virtual-networks-dmz-nsg-asm.md)
+##### [Een DMZ met een firewall en NSG's (klassiek) maken](virtual-networks-dmz-nsg-fw-asm.md)
+##### [DMZ met firewall, UDR en NSG's (klassiek)](virtual-networks-dmz-nsg-fw-udr-asm.md)
+
 ##### [Voorbeeldtoepassing](virtual-networks-sample-app.md)
 
 ### Klassiek
 #### [Virtueel netwerk](create-virtual-network-classic.md)
 ##### [Azure Portal](virtual-networks-create-vnet-classic-pportal.md)
 ##### [Azure PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [Azure CLI](virtual-networks-create-vnet-classic-cli.md)
+##### [Azure-CLI](virtual-networks-create-vnet-classic-cli.md)
+#### [DNS-instellingen in een virtueel-netwerkconfiguratiebestand opgeven](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
+#### [DNS-instellingen in een serviceconfiguratiebestand opgeven](virtual-networks-specifying-dns-settings-in-a-service-configuration-file.md)
 
 ## Configureren
 ### Virtuele machines
 #### [Netwerkinterfaces toevoegen of verwijderen](virtual-network-network-interface-vm.md)
 #### [Naamomzetting voor virtuele machines en cloudservices](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+#### [Dynamische DNS gebruiken om hostnamen te registreren op uw eigen DNS-server](virtual-networks-name-resolution-ddns.md)
 #### [Netwerkdoorvoer optimaliseren](virtual-network-optimize-network-bandwidth.md)
 #### [Hostnamen weergeven en wijzigen](virtual-networks-viewing-and-modifying-hostnames.md)
+#### Klassiek
+##### Statische IP-adressen
+###### [PowerShell](virtual-networks-reserved-private-ip.md)
+###### [CLI](virtual-networks-static-private-ip-cli-nodejs.md)
+##### [Openbare IP-adressen op exemplaarniveau](virtual-networks-instance-level-public-ip.md)
+
 ### Klassiek
 #### Toegangsbeheerlijsten
 ##### [Azure Portal](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -134,7 +153,9 @@
 ### Netwerkbeveiligingsgroepen
 #### [Azure Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [Azure PowerShell](virtual-network-manage-nsg-arm-ps.md)
-#### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
+#### [Azure CLI 2.0](virtual-network-manage-nsg-arm-cli.md)
+#### [Azure CLI 1.0](virtual-network-manage-nsg-cli-nodejs.md)
+
 #### [Logboeken](virtual-network-nsg-manage-log.md)
 ### Netwerkinterfaces (NIC's)
 #### [NIC's maken, wijzigen of verwijderen](virtual-network-network-interface.md)
@@ -161,7 +182,7 @@
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [Azure PowerShell (klassiek)](/powershell/module/azure/)
-## [Azure CLI](/cli/azure/network)
+## [Azure-CLI](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
 ## [REST (klassiek)](https://msdn.microsoft.com/library/jj157182.aspx)
@@ -183,3 +204,4 @@
 ## [Prijzen](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
+## [Netwerkresourceprovider](resource-groups-networking.md)

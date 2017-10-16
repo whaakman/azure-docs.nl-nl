@@ -27,23 +27,23 @@
       href: overview-general-concepts.md
 - name: Handleidingen
   items:
-    - name: Machine Learning Workbench gebruiken
+    - name: Workbench gebruiken
       items:
         - name: Werken met Python IDE's
           href: how-to-configure-your-IDE.md
         - name: Jupyter Notebook gebruiken
           href: how-to-use-jupyter-notebooks.md
-        - name: Integreren met een Git-opslagplaats
+        - name: Integreren met Git-opslagplaatsen
           href: using-git-ml-project.md
-        - name: Een project structureren met TDSP
+        - name: Projecten structureren met TDSP
           href: how-to-use-tdsp-in-azure-ml.md
-        - name: Hoe werkt roaming en samenwerking?
+        - name: Roaming en samenwerking
           href: roaming-and-collaboration.md
-    - name: Visual Studio-hulpprogramma's gebruiken
+    - name: Visual Studio Code-hulpprogramma's voor AI gebruiken
       href: quickstart-visual-studio-tools.md
     - name: Compute-omgeving configureren
       items:
-        - name: Uitvoeringsdoelen configureren
+        - name: Experimenten configureren
           href: experiment-execution-configuration.md
         - name: DSVM- en HDI Spark-cluster maken
           href: how-to-create-dsvm-hdi.md
@@ -51,13 +51,14 @@
           href: how-to-use-gpu.md
     - name: Gegevens ophalen en begrijpen
       items:
-        - name: Toegang tot gegevens met de Wizard gegevensbron
+        - name: Gegevensbron toevoegen
           href: data-source-wizard.md
-        - name: Aan de slag met gegevensvoorbereiding
-          href: data-prep-getting-started.md
         - name: Handleiding voor gegevensvoorbereiding
+          href: data-prep-getting-started.md
+        - name: Geavanceerde gegevensvoorbereiding
           href: data-prep-user-guide.md
         - name: Transformaties voor gegevensvoorbereiding
+          href: data-prep-appendix3-supported-transforms.md
           items:
             - name: Kolommen combineren per voorbeeld
               href: data-prep-combine-columns-by-example.md
@@ -73,22 +74,26 @@
           href: tutorial-iris-azure-cli.md
         - name: Uitvoeringsgeschiedenis en metrische gegevens van modellen bijhouden
           href: how-to-use-run-history-model-metrics.md
-        - name: Uitvoeringen zoeken met het beste nauwkeurigheid en de kortste duur
+        - name: Uitvoering met de hoogste nauwkeurigheid vinden
           href: how-to-find-best-accuracy-cli.md
         - name: Bestanden lezen en schrijven
           href: how-to-read-write-files.md
-        - name: MMLSpark-bibliotheek
+        - name: MMLSpark-bibliotheek gebruiken
           href: how-to-use-mmlspark.md
-    - name: Modellen implementeren
+    - name: Modellen operationeel maken
       items:
         - name: Modelbeheer instellen
           href: deployment-setup-configuration.md
+        - name: De schaal van clusters en services aanpassen
+          href: how-to-scale-clusters.md
         - name: Een webservice implementeren
           href: model-management-service-deploy.md
         - name: Een webservice consumeren
           href: model-management-consumption.md
-        - name: Modelgegevensverzameling gebruiken
+        - name: Modelgegevens verzamelen
           href: how-to-use-model-data-collection.md
+        - name: Handleiding voor het oplossen van problemen met de implementatie
+          href: how-to-deploy-troubleshooting-guide.md
     - name: Voorbeelden uit de praktijk
       items:
         - name: Analyse van documentverzamelingen
@@ -121,8 +126,6 @@
           href: data-prep-python-extensibility-overview.md
         - name: Ondersteunde gegevensbronnen
           href: data-prep-appendix2-supported-data-sources.md
-        - name: Ondersteunde transformaties
-          href: data-prep-appendix3-supported-transforms.md
         - name: Ondersteunde controles
           href: data-prep-appendix4-supported-inspectors.md
         - name: Ondersteunde gegevensbestemmingen
@@ -143,7 +146,7 @@
           href: data-prep-python-execution-api.md
     - name: Experiment
       items:
-        - name: Uitvoering van configuratie
+        - name: Configuratie van de experimentenservice
           href: experiment-execution-configuration-reference.md
         - name: API voor logboekregistratie
           href: reference-logging-api.md
@@ -159,7 +162,7 @@
   items:
     - name: Veelgestelde vragen
       href: frequently-asked-questions.md
-    - name: Gids met bekende problemen en probleemoplossing
+    - name: Bekende problemen en probleemoplossing
       href: known-issues-and-troubleshooting-guide.md
     - name: Documentatie voor Team Data Science Process
       href: ../team-data-science-process/overview.md
@@ -170,7 +173,7 @@
     - name: Prijzen
       href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
     - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=MachineLearning'
+      href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
     - name: Video's

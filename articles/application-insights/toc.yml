@@ -117,8 +117,6 @@
               href: app-insights-snapshot-debugger.md
         - name: J2EE
           items:
-            - name: Eclipse
-              href: app-insights-java-eclipse.md
             - name: Logboektraceringen
               href: app-insights-java-trace-logs.md
             - name: Unix-meetgegevens
@@ -140,8 +138,6 @@
               href: app-insights-proactive-failure-diagnostics.md
             - name: Prestatieafwijkingen
               href: app-insights-proactive-performance-diagnostics.md
-        - name: Dynamics CRM
-          href: app-insights-sample-mscrm.md
         - name: Een resource maken
           href: app-insights-create-new-resource.md
     - name: Analyseren
@@ -188,14 +184,8 @@
           items:
             - name: Overzicht
               href: app-insights-analytics.md
-            - name: Rondleiding
-              href: app-insights-analytics-tour.md
-            - name: Gebruiken
-              href: app-insights-analytics-using.md
-            - name: Importeren
+            - name: Aangepaste logboeken importeren
               href: app-insights-analytics-import.md
-            - name: Diagnostiek
-              href: app-insights-analytics-diagnostics.md
     - name: Automatiseren
       items:
         - name: Azure PowerShell-configuratie
@@ -259,7 +249,7 @@
           href: app-insights-java-troubleshoot.md
 - name: Naslaginformatie
   items:
-    - name: Analytische gegevens
+    - name: Querytaal voor analytische gegevens
       href: 'https://docs.loganalytics.io/'
     - name: .NET
       href: 'https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights'

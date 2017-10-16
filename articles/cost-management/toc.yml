@@ -23,6 +23,8 @@
       href: tutorial-forecast-spending.md
 - name: Resources
   items:
+    - name: Video's over Kostenbeheer
+      href: ref-videos.md
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Prijzen

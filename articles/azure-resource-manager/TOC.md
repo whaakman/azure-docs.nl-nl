@@ -53,17 +53,18 @@
 
 ## Beheren
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
-### [Azure CLI](xplat-cli-azure-resource-manager.md)
+### [Azure-CLI](xplat-cli-azure-resource-manager.md)
 ### [Azure Portal](resource-group-portal.md)
 ### [REST API](resource-manager-rest-api.md)
 ### [Tags gebruiken om resources te organiseren](resource-group-using-tags.md)
 ### [Resources verplaatsen naar nieuwe groep of abonnement](resource-group-move-resources.md)
+### [Abonnementen organiseren met beheergroepen](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Voorbeelden governance](resource-manager-subscription-examples.md)
 
 ## Toegang beheren
 ### Een service-principal maken
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
-#### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Azure-CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
 #### [Azure Portal](resource-group-create-service-principal-portal.md)
 ### [Verificatie-API om toegang te krijgen tot abonnementen](resource-manager-api-authentication.md)

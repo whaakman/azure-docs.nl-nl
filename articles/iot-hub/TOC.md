@@ -114,6 +114,7 @@
 #### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-schedule-jobs.md)
 #### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
+
 ## Beheren
 ### Een IoT Hub maken 
 #### [Azure Portal gebruiken](iot-hub-create-through-portal.md)
@@ -127,15 +128,24 @@
 #### [Azure Portal gebruiken](iot-hub-configure-file-upload.md)
 #### [Azure PowerShell gebruiken](iot-hub-configure-file-upload-powershell.md)
 #### [Azure CLI gebruiken](iot-hub-configure-file-upload-cli.md)
-### [IoT-apparaten bulksgewijs beheren](iot-hub-bulk-identity-mgmt.md)
+### [Bewaken met diagnostische gegevens](iot-hub-monitor-resource-health.md)
+#### [Migreren naar diagnostische instellingen](iot-hub-migrate-to-diagnostics-settings.md)
+#### [Bewerkingen bewaken](iot-hub-operations-monitoring.md)
 ### [Metrische gebruiksgegevens](iot-hub-metrics.md)
-### [Controle van bewerkingen](iot-hub-operations-monitoring.md)
+### [IoT-apparaten bulksgewijs beheren](iot-hub-bulk-identity-mgmt.md)
 ### [IP-filtering configureren](iot-hub-ip-filtering.md)
+
 ## Beveiligen
 ### [Fundamentele beveiliging](iot-hub-security-ground-up.md)
 ### [Best practices voor beveiliging](iot-hub-security-best-practices.md)
 ### [Beveiligingsarchitectuur](iot-hub-security-architecture.md)
 ### [Uw IoT-implementatie beveiligen](iot-hub-security-deployment.md)
+### Beveiligen met behulp van X.509-CA-certificaten
+#### [Overzicht van beveiliging op basis van X.509-CA-certificaten](iot-hub-x509ca-overview.md)
+##### [Concepten van beveiliging op basis van X.509-CA-certificaten](iot-hub-x509ca-concept.md)
+#### [Aan de slag met beveiliging op basis van X.509-CA-certificaten](iot-hub-security-x509-get-started.md)
+##### [Certificaten maken - PowerShell](iot-hub-security-x509-create-certificates.md)
+
 ## Azure IoT Edge
 ### [Overzicht](iot-hub-iot-edge-overview.md)
 ### Aan de slag

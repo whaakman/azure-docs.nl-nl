@@ -40,6 +40,9 @@
 ### [Weibo](active-directory-b2c-setup-weibo-app.md)
 ### [QQ](active-directory-b2c-setup-qq-app.md)
 ### [WeChat](active-directory-b2c-setup-wechat-app.md)
+## [Het opnieuw instellen van wachtwoorden configureren via selfservice](active-directory-b2c-reference-sspr.md)
+## [De gebruikersinterface aanpassen](active-directory-b2c-reference-ui-customization.md)
+### [Hulpprogramma voor aanpassing](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [De Azure AD Graph API gebruiken](active-directory-b2c-devquickstarts-graph-dotnet.md)
 ## [Toegangstokens verkrijgen](active-directory-b2c-access-tokens.md)
 ## [E-mailverificatie uitschakelen](active-directory-b2c-reference-disable-ev.md)
@@ -47,30 +50,34 @@
 ## [MFA inschakelen](active-directory-b2c-reference-mfa.md)
 ## [Aangepaste kenmerken gebruiken](active-directory-b2c-reference-custom-attr.md)
 ## [Wachtwoord aanpassen](active-directory-b2c-reference-password-complexity.md)
-## [De gebruikersinterface aanpassen](active-directory-b2c-reference-ui-customization.md)
-### [Hulpprogramma voor aanpassing](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Taal aanpassen](active-directory-b2c-reference-language-customization.md)
 ## [De rapportage-API gebruiken](active-directory-b2c-reference-usage-reporting-api.md)
-## [Het opnieuw instellen van wachtwoorden configureren via selfservice](active-directory-b2c-reference-sspr.md)
+## [Gebruikers migreren](active-directory-b2c-user-migration.md)
 
 # Identity-ervaringsframework
 ## [Aangepast beleid](active-directory-b2c-overview-custom.md)
 ## Handleidingen
 ### [Aan de slag](active-directory-b2c-get-started-custom.md)
-### OIDC-/OAUTH2-providers configureren
+### OIDC-/OAUTH-providers configureren
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Microsoft-account](active-directory-b2c-custom-setup-msa-idp.md)
 #### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
+#### [LinkedIn](active-directory-b2c-custom-setup-li-idp.md)
+#### [Twitter](active-directory-b2c-custom-setup-twitter-idp.md)
 ### SAML-providers configureren
 #### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### RESTful-API's integreren
 #### [Gebruikersinvoer valideren](active-directory-b2c-rest-api-validation-custom.md)
 #### [Aanvullende claims verkrijgen](active-directory-b2c-rest-api-step-custom.md)
+#### [Uw eigen RESTful-API toevoegen](active-directory-b2c-custom-rest-api-netfw.md)
+#### [RESTful-API's beveiligen met basisverificatie](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
+#### [RESTful-API's beveiligen met verificatie op basis van een certificaat](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 ### Gebruikersstromen
 #### [Gebruikersinvoer configureren](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Aangepaste kenmerken](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
-#### [Gebruikersinterface aanpassen](active-directory-b2c-ui-customization-custom.md)
+#### [De gebruikersinterface aanpassen](active-directory-b2c-ui-customization-custom.md)
+#### [De gebruikersinterface dynamisch aanpassen](active-directory-b2c-ui-customization-custom-dynamic.md)
 #### [Tokens aanpassen](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [Wachtwoordcomplexiteit](active-directory-b2c-reference-password-complexity-custom.md)
 
