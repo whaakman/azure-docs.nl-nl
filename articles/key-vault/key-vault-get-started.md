@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/19/2017
-ms.author: cabailey
-ms.openlocfilehash: 0299d931c5bf21775b68069afaa106279270226a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 09/27/2017
+ms.author: barclayn
 ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 73b4ae4b7baca434c6aed99a2e59a9102b0d96ed
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/22/2017
+
 ---
 # <a name="get-started-with-azure-key-vault"></a>Aan de slag met Azure Sleutelkluis
 Azure Sleutelkluis is beschikbaar in de meeste regio's. Zie de pagina [Prijzen van Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) voor meer informatie.
@@ -158,7 +159,7 @@ Toepassingen die gebruikmaken van een sleutelkluis moeten een token van Azure Ac
 
 De toepassing registreren in Azure Active Directory:
 
-1. Meld u aan bij de klassieke Azure-portal.
+1. Meld u aan bij de klassieke Azure Portal.
 2. Klik aan de linkerkant op **Active Directory** en selecteer vervolgens de directory waarin u de toepassing wilt registreren. <br> <br> **Opmerking:** u moet de directory selecteren die ook het Azure-abonnement bevat waarmee u de sleutelkluis hebt gemaakt. Als u niet weet welke directory dit is, klikt u op **Instellingen**, identificeert u het abonnement waarmee u de sleutelkluis hebt gemaakt en noteert u de directorynaam die in de laatste kolom wordt weergegeven.
 3. Klik op **TOEPASSINGEN**. Als er geen apps aan uw directory zijn toegevoegd, wordt op deze pagina alleen de koppeling **Een app toevoegen** weergegeven. Klik op de koppeling. U kunt eventueel ook op **TOEVOEGEN** op de opdrachtbalk klikken.
 4. In de wizard **TOEPASSING TOEVOEGEN** klikt u op de pagina **What do you want to do?** (Wat wilt u doen?) op **Add an application my organization is developing** (Een toepassing toevoegen die door mijn organisatie wordt ontwikkeld).
@@ -233,3 +234,4 @@ Zie [Logboekregistratie van Azure Key Vault](key-vault-logging.md) om te zien ho
 Zie [Cmdlets voor Azure Sleutelkluis](/powershell/module/azurerm.keyvault/#key_vault) voor een lijst met de nieuwste Azure PowerShell 1.0-cmdlets voor Azure Key Vault.
 
 Zie de [Ontwikkelaarshandleiding voor Azure Key Vault](key-vault-developers-guide.md) voor het programmeren van verwijzingen.
+
