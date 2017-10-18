@@ -57,6 +57,8 @@
           href: concepts-servers.md
         - name: Ondersteunde versies
           href: concepts-supported-versions.md
+        - name: Serverlogboeken
+          href: concepts-server-logs.md
     - name: Resources
       items:
         - name: Prijscategorieën
@@ -113,6 +115,10 @@
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
+    - name: Serverlogboeken openen
+      items:
+        - name: Azure CLI
+          href: howto-configure-server-logs-in-cli.md
 - name: Naslaginformatie
   items:
     - name: Azure CLI

@@ -22,6 +22,7 @@
 
 # Procedures
 ## Plannen en ontwerpen
+### [Herstel bij geo-gerelateerde noodgevallen en geo-replicatie](event-hubs-geo-dr.md)
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Overzicht van authenticatie- en beveiligingsmodellen](event-hubs-authentication-and-security-model-overview.md)
 ### [Beschikbaarheid en consistentie](event-hubs-availability-and-consistency.md)

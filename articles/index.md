@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: True
 title: Documentatie voor Microsoft Azure
 description: Leer hoe u krachtige toepassingen maakt en beheert met Microsoft Azure Cloud Services. Maak gebruik van documentatie, voorbeeldcode, zelfstudies en meer.
-ms.openlocfilehash: 05a288bf8ccbc70bb5ce5c52b0e85e0f784c7f3e
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: e87391e9662991a542ad58eafd9b4c2714f30d66
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -159,8 +159,7 @@ ms.lasthandoff: 10/11/2017
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                     <li><a class="barLink" href="/azure/azure-functions/">Serverloze functies</a></li>
-                                                    <li><a class="barLink" href="/azure/container-instances/">Container Instances</a></li>
-                                                    <li><a class="barLink" href="/azure/container-service/kubernetes/">Containers met Kubernetes</a></li>
+                                                    <li><a class="barLink" href="/azure/containers/">Containers</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">Microservices met Service Fabric</a></li>
                                                 </ul>
                                             </div>
@@ -635,7 +634,7 @@ ms.lasthandoff: 10/11/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-spell-check/proof-text">
+                                            <a href="/azure/cognitive-services/bing-spell-check/">
                                                 <img src="media/index/API_Lang_BingSpellCheck.svg" alt="" />
                                                 <p>Bing-spellingcontrole</p>
                                             </a>
@@ -671,31 +670,31 @@ ms.lasthandoff: 10/11/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-news-search/search-the-web">
+                                            <a href="/azure/cognitive-services/Bing-news-Search/search-the-web">
                                                 <img src="media/index/API_Sear_BingNewsSearch.svg" alt="" />
                                                 <p>Bing Nieuws</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-video-search/search-the-web">
+                                            <a href="/azure/cognitive-services/Bing-Video-Search/search-the-web">
                                                 <img src="media/index/API_Sear_BingVideoSearch.svg" alt="" />
                                                 <p>Zoeken in Bing Video</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-web-search/search-the-web">
+                                            <a href="/azure/cognitive-services/bing-web-search/">
                                                 <img src="media/index/API_Sear_BingSearch.svg" alt="" />
                                                 <p>Zoeken op het web met Bing</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-autosuggest/get-suggested-search-terms">
+                                            <a href="/azure/cognitive-services/Bing-Autosuggest">
                                                 <img src="media/index/API_Sear_BingAutoSuggest.svg" alt="" />
                                                 <p>Automatische suggesties van Bing</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-custom-search/overview">
+                                            <a href="/azure/cognitive-services/bing-custom-search">
                                                 <img src="media/index/API_Sear_BingSearch.svg" alt="" />
                                                 <p>Aangepast zoeken met Bing</p>
                                             </a>
@@ -703,11 +702,11 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/cognitive-services/bing-entities-search/search-the-web">
                                                 <img src="media/index/API_Sear_BingSearch.svg" alt="" />
-                                                <p>Entiteiten zoeken in Bing</p>
+                                                <p>Bing Entiteiten zoeken</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-image-search/search-the-web">
+                                            <a href="/azure/cognitive-services/bing-image-search">
                                                 <img src="media/index/API_Sear_BingImageSearch.svg" alt="" />
                                                 <p>Zoeken in Bing Image</p>
                                             </a>
@@ -2613,7 +2612,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                         <h3>Taal</h3>
                                                         <ul class="noBullet">
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-spell-check/proof-text"><img src="media/index/API_Lang_BingSpellCheck.svg" alt="" />Bing-spellingcontrole</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Lang_BingSpellCheck.svg" alt="" />Bing-spellingcontrole</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/luis/home"><img src="media/index/API_Lang_LanguageUnderstanding.svg" alt="" /><span>LUIS (Language Understanding Intelligent Services)&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
@@ -2678,22 +2677,21 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Sear_BingNewsSearch.svg" alt="" />Bing Nieuws</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-video-search/search-the-web"><img src="media/index/API_Sear_BingVideoSearch.svg" alt="" />Zoeken in Bing Video</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/search-the-web"><img src="media/index/API_Sear_BingVideoSearch.svg" alt="" />Zoeken in Bing Video</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-web-search/search-the-web"><img src="media/index/API_Sear_BingSearch.svg" alt="" />Zoeken op het web met Bing</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Sear_BingSearch.svg" alt="" />Zoeken op het web met Bing</a>
+                                                            </li>
+                                                            <li>                                                 <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Sear_BingAutoSuggest.svg" alt="" />Automatische suggesties van Bing</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-autosuggest/get-suggested-search-terms"><img src="media/index/API_Sear_BingAutoSuggest.svg" alt="" />Automatische suggesties van Bing</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Bing Aangepaste zoekopdrachten</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search/overview"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Bing Aangepaste zoekopdrachten</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/search-the-web"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Bing Entiteiten zoeken&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/search-the-web"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Entiteiten zoeken in Bing</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-image-search/search-the-web"><img src="media/index/API_Sear_BingImageSearch.svg" alt="" />Zoeken in Bing Image</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Sear_BingImageSearch.svg" alt="" />Zoeken in Bing Image</a>
                                                             </li>
                                                         </ul>
                                                     </div>

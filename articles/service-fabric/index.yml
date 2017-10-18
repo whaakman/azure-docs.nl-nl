@@ -45,8 +45,8 @@ sections:
         style: ordered
         items:
           - html: <a href="service-fabric-tutorial-create-dotnet-app">Een .NET-toepassing implementeren</a>
-          - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Een bestaande .NET-toepassing via lift-and-shift migreren</a>
-          - html: <a href="service-fabric-tutorial-create-container-images">Een Linux-container-app maken</a>
+          - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Een bestaande .NET-app in een container plaatsen</a>
+          - html: <a href="service-fabric-tutorial-create-container-images">Een Linux-containertoepassing maken</a>
           - html: Een cluster maken en beheren in <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows</a> of <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a>
   - title: Gratis Pluralsight-videotraining
     items:

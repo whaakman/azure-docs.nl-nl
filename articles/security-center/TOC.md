@@ -13,15 +13,13 @@
 ## [Planning en bewerkingen](security-center-planning-and-operations-guide.md)
 ## [Machtigingen](security-center-permissions.md)
 ## [Ondersteunde platforms](security-center-os-coverage.md)
-## [Partnerintegratie](security-center-partner-integration.md)
 ## [Veelgestelde vragen](security-center-faq.md)
 
 # Procedures
-
-## Beveiligingsbeleid
-### [Overzicht](security-center-policies-overview.md)
+## [Beveiligingsbeleid](security-center-policies-overview.md)
 ### [Gegevensverzameling](security-center-enable-data-collection.md)
 ### [Beveiligingsbeleid](security-center-policies.md)
+### [Beveiligingsbeleid op basis van Azure-beleid](security-center-azure-policy.md)
 ### [E-mailmeldingen](security-center-provide-security-contact-details.md)
 ### [Prijscategorie](security-center-pricing.md)
 
@@ -30,6 +28,10 @@
 ## [Zoeken](security-center-search.md)
 
 ## Voorkomen
+### [Beveiligingsoplossingen](security-center-partner-integration.md)
+#### [Verbonden oplossingen bewaken](security-center-partner-solutions.md)
+#### [Verbinding maken met Microsoft ATA](security-center-ata-integration.md)
+#### [Verbinding maken met Azure AD Identity Protection](security-center-aadip-integration.md)
 ### [Aanbevelingen voor beveiliging implementeren](security-center-recommendations.md)
 ### [Aanbevelingen voor toepassingen](security-center-application-recommendations.md)
 #### [Een firewall voor webtoepassingen toevoegen](security-center-add-web-application-firewall.md)
@@ -57,7 +59,6 @@
 #### [Besturingssysteemversie bijwerken](security-center-update-os-version.md)
 #### [Beoordeling van beveiligingslekken is niet geïnstalleerd](security-center-vulnerability-assessment-recommendations.md)
 ### [Beveiligingsstatus bewaken](security-center-monitoring.md)
-### [Partneroplossingen bewaken](security-center-partner-solutions.md)
 ### [Identiteit en toegang](security-center-identity-access.md)
 
 ## Detecteren en reageren

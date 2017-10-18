@@ -135,12 +135,16 @@
           href: sql-database-disaster-recovery.md
         - name: Herstelanalyse uitvoeren
           href: sql-database-disaster-recovery-drills.md
-    - name: Gegevens laden en verplaatsen
+    - name: Migreren naar SQL Database
       items:
         - name: SQL Server-DB migreren
           href: sql-database-cloud-migrate.md
         - name: T-SQL-wijzigingen
           href: sql-database-transact-sql-information.md
+        - name: Een database na migratie beheren
+          href: sql-database-manage-after-migration.md
+    - name: Gegevens laden en verplaatsen
+      items:
         - name: Een database kopiëren
           href: sql-database-copy.md
         - name: Een database importeren

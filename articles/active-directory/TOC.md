@@ -44,6 +44,7 @@
 #### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
 #### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
 #### [Azure PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
+#### [Naslaginformatie voor producten en serviceabonnementen in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Gebruikersprofielen beheren](active-directory-users-profile-azure-portal.md)
 ### [Een wachtwoord opnieuw instellen](active-directory-users-reset-password-azure-portal.md)
 ### [Werkgegevens van gebruikers beheren](active-directory-users-work-info-azure-portal.md)
@@ -65,6 +66,7 @@
 #### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
 #### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
 #### [Azure PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
+#### [Naslaginformatie voor producten en serviceabonnementen in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Vervaldatum instellen voor Office 365-groepen](active-directory-groups-lifecycle-azure-portal.md)
 ### [Alle groepen weergeven](active-directory-groups-view-azure-portal.md)
 ### [Toegewezen groepen inschakelen](active-directory-accessmanagement-dedicated-groups.md)
@@ -137,7 +139,7 @@
 ### Taken
 #### [Bij Azure AD ingeschreven Windows 10-apparaten instellen](device-management-azuread-registered-devices-windows10-setup.md)
 #### [In Azure AD gekoppelde apparaten instellen](device-management-azuread-joined-devices-setup.md)
-#### [Hybride, in Azure AD gekoppelde apparaten instellen](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [Hybride, in Azure AD gekoppelde apparaten instellen](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [On-premises implementeren](active-directory-device-registration-on-premises-setup.md)
 #### [Koppelen aan Azure AD tijdens eerste sessie in Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Problemen oplossen
@@ -204,6 +206,7 @@
 #### [Inrichting van gebruikersaccount beheren](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Eenmalige aanmelding voor zakelijke apps beheren](active-directory-enterprise-apps-manage-sso.md)
 #### [Geavanceerde certificaatondertekening voor SAML-apps](active-directory-enterprise-apps-advance-certificate-options.md)
+####[De ervaring van een gebruiker in Azure Active Directory verbergen](active-directory-coreapps-hide-third-party-app.md)
 
 ### [Toegang tot apps beheren](active-directory-managing-access-to-apps.md)
 #### [Selfservice toegang](active-directory-self-service-application-access.md)

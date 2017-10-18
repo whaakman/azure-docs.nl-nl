@@ -6,8 +6,12 @@
       href: overview.md
 - name: Snelstartgidsen
   items:
-    - name: Aangepaste gebeurtenissen maken en routeren
+    - name: Een aangepaste gebeurtenis maken - Azure CLI
       href: custom-event-quickstart.md
+    - name: Een aangepaste gebeurtenis maken - Azure PowerShell
+      href: custom-event-quickstart-powershell.md
+    - name: Een aangepaste gebeurtenis maken - Azure Portal
+      href: custom-event-quickstart-portal.md
 - name: Zelfstudies
   items:
     - name: Wijzigingen aan een virtuele machine bewaken met logische apps

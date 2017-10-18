@@ -51,6 +51,8 @@
       href: concepts-physical-to-azure-architecture.md
     - name: Hyper-V naar secundaire site-architectuur
       href: concepts-hyper-v-to-secondary-architecture.md
+    - name: Ondersteuningsmatrix voor Azure naar Azure
+      href: site-recovery-support-matrix-azure-to-azure.md
     - name: Ondersteuningsmatrix voor on-premises naar Azure
       href: site-recovery-support-matrix-to-azure.md
     - name: Ondersteuningsmatrix voor on-premises naar secundaire site

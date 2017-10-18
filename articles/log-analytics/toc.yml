@@ -9,6 +9,8 @@
   items:
     - name: Verzamelen - Azure-VM's
       href: log-analytics-quick-collect-azurevm.md
+    - name: Verzamelen - Linux-computer
+      href: log-analytics-quick-collect-linux-computer.md
 - name: Zelfstudies
   items:
     - name: 1 - Gegevens analyseren

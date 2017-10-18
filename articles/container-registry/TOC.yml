@@ -21,6 +21,12 @@
       href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+- name: Concepten
+  items:
+    - name: Container Registry-SKU's
+      href: container-registry-skus.md
+    - name: Geo-replicatie (preview)
+      href: container-registry-geo-replication.md
 - name: Handleidingen
   items:
     - name: Een installatiekopie pushen en ophalen
@@ -43,8 +49,8 @@
       href: /powershell/module/azurerm.containerregistry
 - name: Resources
   items:
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Roadmap
+      href: 'https://aka.ms/acr/roadmap'
     - name: Prijzen
       href: 'https://azure.microsoft.com/pricing/details/container-registry/'
     - name: Beschikbaarheid in regio’s

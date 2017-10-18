@@ -1,0 +1,107 @@
+- name: Azure voor containers
+  href: index.yml
+  items:
+    - name: Container Service (ACS)
+      href: 'https://docs.microsoft.com/en-us/azure/container-service/'
+      expanded: true
+      items:
+        - name: Kubernetes
+          href: 'https://docs.microsoft.com/azure/container-service/kubernetes/'
+          items:
+            - name: Overzicht - Inleiding tot Azure Container Service voor Kubernetes
+              href: 'https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-intro-kubernetes'
+            - name: Snelstartgids - Een Kubernetes-cluster voor Linux-containers implementeren
+              href: 'https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-kubernetes-walkthrough'
+        - name: Docker Swarm en DC/OS
+          href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/'
+          items:
+            - name: Snelstartgids - Een Docker Swarm-cluster implementeren
+              href: 'https://docs.microsoft.com/en-us/azure/container-service/dcos-swarm/container-service-swarm-walkthrough'
+            - name: Snelstartgids - Een DC/OS-cluster implementeren
+              href: 'https://docs.microsoft.com/en-us/azure/container-service/dcos-swarm/container-service-dcos-quickstart'
+    - name: Container Instances (ACI)
+      href: 'https://docs.microsoft.com/en-us/azure/container-instances/'
+      items:
+        - name: Snelstartgids - Een containerinstantie maken
+          href: 'https://docs.microsoft.com/en-us/azure/container-instances/container-instances-quickstart'
+        - name: Zelfstudie - Een container bouwen en implementeren
+          items:
+            - name: 1 - Een containerinstallatiekopie maken
+              href: 'https://docs.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-prepare-app'
+            - name: 2 - Een containerregister maken
+              href: 'https://docs.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-prepare-acr'
+            - name: 3 - De app implementeren
+              href: 'https://docs.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-deploy-app'
+    - name: Container Registry (ACR)
+      href: 'https://docs.microsoft.com/en-us/azure/container-registry/'
+      items:
+        - name: Een register maken - CLI
+          href: 'https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli'
+        - name: Procedures
+          items:
+            - name: Een installatiekopie pushen en ophalen
+              href: 'https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli'
+            - name: Opslagplaatsen weergeven
+              href: 'https://docs.microsoft.com/en-us/azure/container-registry/container-registry-repositories'
+            - name: Een service-principal maken
+              href: 'https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal?toc=%2fazure%2fcontainer-registry%2ftoc.json'
+            - name: Verifiëren met een register
+              href: 'https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication'
+            - name: ACR-webhooks gebruiken
+              href: 'https://docs.microsoft.com/en-us/azure/container-registry/container-registry-webhook'
+    - name: Web Apps voor Containers
+      href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro'
+      items:
+        - name: Een aangepaste Docker-installatiekopie gebruiken voor Azure Web Apps for Containers
+          href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-custom-docker-image'
+    - name: Service Fabric
+      href: 'https://docs.microsoft.com/en-us/azure/service-fabric/'
+      items:
+        - name: Overzicht - Service Fabric en containers
+          href: 'https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-containers-overview'
+        - name: Procedures
+          items:
+            - name: Een Docker-host maken
+              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/dockerextension'
+            - name: Docker Machine gebruiken
+              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-machine'
+            - name: Docker Compose gebruiken
+              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-compose-quickstart'
+    - name: Virtuele machines (Linux)
+      href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/overview'
+      items:
+        - name: Workloads voor containers ontwikkelen en uitvoeren in Azure
+          href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/containers'
+        - name: Procedures
+          items:
+            - name: Een Docker-host maken
+              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/dockerextension'
+            - name: Docker Machine gebruiken
+              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-machine'
+            - name: Docker Compose gebruiken
+              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-compose-quickstart'
+    - name: Virtuele machines (Windows)
+      href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview'
+      items:
+        - name: Snelstartgids - Windows-containers in Windows Server
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server'
+        - name: Virtuele machines en containers in Azure
+          href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/containers'
+        - name: Over Windows-containers
+          href: 'https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/index'
+    - name: Naslaginformatie
+      items:
+        - name: Azure Container Instances (az container)
+          href: 'https://docs.microsoft.com/en-us/cli/azure/container'
+        - name: Azure Container Service (az acs)
+          href: 'https://docs.microsoft.com/en-us/cli/azure/acs'
+        - name: Azure Container Registry (az acr)
+          href: 'https://docs.microsoft.com/en-us/cli/azure/acr'
+        - name: Azure Web Apps for Containers (az appservice)
+          href: 'https://docs.microsoft.com/en-us/cli/azure/appservice'
+        - name: Azure App Service Web App (az webapp)
+          href: 'https://docs.microsoft.com/en-us/cli/azure/webapp'
+        - name: Azure Service Fabric (az sf)
+          href: 'https://docs.microsoft.com/en-us/cli/azure/sf'
+        - name: Azure Virtual Machines (az vm)
+          href: 'https://docs.microsoft.com/en-us/cli/azure/vm'

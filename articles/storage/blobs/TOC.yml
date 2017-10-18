@@ -28,6 +28,8 @@
           href: storage-secure-access-application.md
         - name: 4 - Opslag controleren en problemen oplossen
           href: storage-monitor-troubleshoot-storage-application.md
+    - name: Niet-gestructureerde gegevens in cloudopslag doorzoeken
+      href: storage-unstructured-search.md
 - name: Voorbeelden
   items:
     - name: Azure PowerShell

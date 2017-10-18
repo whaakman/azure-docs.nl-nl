@@ -16,6 +16,7 @@
 ### [Virtuele machines maken](devtest-lab-add-vm.md)
 ### [Een virtuele machine maken die kan worden geclaimd](devtest-lab-add-claimable-vm.md)
 ### [Virtuele machines maken en beheren met Azure CLI](devtest-lab-vmcli.md)
+### [Een virtuele machine opnieuw opstarten](devtest-lab-restart-vm.md)
 
 ## Omgevingen gebruiken in een lab
 ### [Een omgeving maken](devtest-lab-create-environment-from-arm.md)
@@ -28,6 +29,7 @@
 ### [Beleid en planningen instellen](devtest-lab-set-lab-policy.md)
 ### [Kostenbeheer configureren](devtest-lab-configure-cost-management.md)
 ### [Marketplace-installatiekopieën configureren](devtest-lab-configure-marketplace-images.md)
+### [Een gelicentieerde installatiekopie inschakelen](devtest-lab-enable-licensed-images.md)
 ### [Tags toevoegen aan een lab](devtest-lab-add-tag.md)
 
 ## [Een aangepaste installatiekopie of formule selecteren](devtest-lab-comparing-vm-base-image-types.md)
@@ -56,8 +58,8 @@
 ## [Uw lab schalen](devtest-lab-scale-lab.md)
 
 # Naslaginformatie
-## [Azure CLI](/cli/azure/lab)
-## [Azure PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+## [CLI 2.0](/cli/azure/lab)
+## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Labs automatisch maken of wijzigen](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 ## [REST-API](https://docs.microsoft.com/rest/api/dtl/)
 ## [Resource Manager-sjablonen](https://github.com/Azure/azure-devtestlab/tree/master/Samples)

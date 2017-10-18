@@ -101,6 +101,7 @@
 ##### [Volumecontainers beheren](storsimple-8000-manage-volume-containers.md)
 ##### [Volumes beheren - actueel](storsimple-8000-manage-volumes-u2.md)
 ###### [Veelgestelde vragen: Lokaal vastgemaakt volumes](storsimple-8000-local-volume-faq.md)
+##### [Op rollen gebaseerd toegangsbeheer](storsimple-8000-role-based-access-control.md)
 ##### [ACR's beheren](storsimple-8000-manage-acrs.md)
 ##### [Bandbreedtesjablonen beheren](storsimple-8000-manage-bandwidth-templates.md)
 ##### [Taken weergeven en beheren](storsimple-8000-manage-jobs-u2.md)
@@ -188,7 +189,7 @@
 #### [Versie - GA](storsimple-july-2014-release-notes.md)
 
 ## Naslaginformatie
-### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
+### [REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell voor StorSimple-cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple 8000-serie (klassieke portal)

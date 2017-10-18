@@ -44,41 +44,49 @@
       href: msi-how-to-get-access-token-using-msi.md
     - name: MSI configureren voor een Azure VM
       items:
-        - name: Met de Azure Portal
+        - name: Azure Portal gebruiken
           href: msi-qs-configure-portal-windows-vm.md
-        - name: Met PowerShell
+        - name: PowerShell gebruiken
           href: msi-qs-configure-powershell-windows-vm.md
-        - name: Met Azure CLI
+        - name: Azure CLI gebruiken
           href: msi-qs-configure-cli-windows-vm.md
-        - name: Met Azure Resource Manager-sjabloon
+        - name: Azure Resource Manager-sjabloon gebruiken
           href: msi-qs-configure-template-windows-vm.md
-        - name: Met een Azure-SDK
+        - name: Azure SDK gebruiken
           href: msi-qs-configure-sdk-windows-vm.md
-    - name: Een MSI toegang tot een Azure-bron toewijzen
+    - name: Een VM MSI toegang verlenen tot Resource Manager
       items:
-        - name: Met de Azure Portal
+        - name: Azure Portal gebruiken
           href: msi-howto-assign-access-portal.md
-        - name: Met PowerShell
+        - name: PowerShell gebruiken
           href: msi-howto-assign-access-powershell.md
-        - name: Met Azure CLI
+        - name: Azure CLI gebruiken
           href: msi-howto-assign-access-cli.md
-    - name: MSI gebruiken voor toegang tot Azure Resource Manager
+    - name: Een VM MSI gebruiken voor toegang tot Azure Resource Manager
       items:
-        - name: Met een Windows-VM
+        - name: Vanaf een Windows-VM
           href: msi-tutorial-windows-vm-access-arm.md
-        - name: Met een Linux-VM
+        - name: Vanaf een Linux-VM
           href: msi-tutorial-linux-vm-access-arm.md
-    - name: MSI gebruiken voor toegang tot Azure-opslag
+    - name: Een VM MSI gebruiken voor toegang tot Azure SQL
       items:
-        - name: Met een Windows-VM
+        - name: Vanaf een Windows-VM
+          href: msi-tutorial-windows-vm-access-sql.md
+    - name: Een VM MSI gebruiken voor toegang tot Azure Storage
+      items:
+        - name: Vanaf een Windows-VM met behulp van een toegangssleutel
           href: msi-tutorial-windows-vm-access-storage.md
-        - name: Met een Linux-VM
+        - name: Vanaf een Windows-VM met behulp van SAS
+          href: msi-tutorial-windows-vm-access-storage-sas.md
+        - name: Vanaf een Linux-VM met behulp van een toegangssleutel
           href: msi-tutorial-linux-vm-access-storage.md
-    - name: MSI gebruiken voor toegang tot een AD-bron buiten Azure
+        - name: Vanaf een Linux-VM met behulp van SAS
+          href: msi-tutorial-linux-vm-access-storage-sas.md
+    - name: Een VM MSI gebruiken voor toegang tot Azure Key Vault
       items:
-        - name: Met een Windows-VM
+        - name: Vanaf een Windows-VM
           href: msi-tutorial-windows-vm-access-nonaad.md
-        - name: Met een Linux-VM
+        - name: Vanaf een Linux-VM
           href: msi-tutorial-linux-vm-access-nonaad.md
     - name: Veelgestelde vragen en bekende problemen
       href: msi-known-issues.md
