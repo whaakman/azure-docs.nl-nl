@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: d86e47507f7a578e8a0affb690b6d96673b6b69a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: d86e47507f7a578e8a0affb690b6d96673b6b69a
+ms.contentlocale: nl-nl
+ms.lasthandoff: 08/29/2017
+
 ---
 # <a name="you-cant-get-there-from-here-on-a-windows-device"></a>U kunt daar niet komen vanaf deze locatie op een Windows-apparaat
 
@@ -159,4 +160,5 @@ Als uw apparaat niet in een domein is opgenomen en Windows 8.1 op het apparaat w
 
 ## <a name="next-steps"></a>Volgende stappen
 [Voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access.md)
+
 
