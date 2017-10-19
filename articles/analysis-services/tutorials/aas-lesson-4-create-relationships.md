@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d79af3915c718a79f60e5f589527eb4c2ae8b367
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 70812790348bbf525c7ed6299c656f7dd8e83dff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-4-create-relationships"></a>Les 4: Relaties maken
 
@@ -34,7 +33,10 @@ Geschatte tijd voor het voltooien van deze les: **10 minuten**
 Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 3: Als gegevenstabel markeren](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Bestaande relaties controleren en nieuwe relaties toevoegen  
-Bij het importeren van gegevens met behulp van Get Data zijn zeven tabellen opgehaald uit de database AdventureWorksDW2014. Over het algemeen is het zo dat bij het importeren van gegevens uit een relationele gegevensbron, bestaande relaties automatisch samen met de gegevens worden geïmporteerd. Voordat u echter verdergaat met het ontwerpen van uw model, moet u controleren of deze relaties tussen tabellen correct zijn gemaakt. Voor deze zelfstudie gaat u drie nieuwe relaties toevoegen.  
+Bij het importeren van gegevens met behulp van Get Data zijn zeven tabellen opgehaald uit de database AdventureWorksDW2014. Over het algemeen is het zo dat bij het importeren van gegevens uit een relationele gegevensbron, bestaande relaties automatisch samen met de gegevens worden geïmporteerd. Er moeten relaties bestaan tussen de tabellen in de gegevensbron om ervoor te zorgen dat met Get Data automatisch relaties worden gemaakt in het gegevensmodel.
+
+Voordat u verdergaat met het ontwerpen van het model, moet u controleren of deze relaties tussen tabellen juist zijn gemaakt. Voor deze zelfstudie gaat u ook drie nieuwe relaties toevoegen.  
+
   
 #### <a name="to-review-existing-relationships"></a>Bestaande relaties controleren:  
   
@@ -44,7 +46,10 @@ Bij het importeren van gegevens met behulp van Get Data zijn zeven tabellen opge
     
     ![aas-lesson4-diagram](../tutorials/media/aas-lesson4-diagram.png)
   
-    Voeg zo veel tabellen als mogelijk toe met behulp van de MiniMap-besturingselementen in de rechterbenedenhoek van de ontwerpfunctie. U kunt tabellen ook naar andere locaties slepen, tabellen dichter bij elkaar zetten of ze in een bepaalde volgorde plaatsen. Het verplaatsen van tabellen heeft geen invloed op bestaande relaties tussen de tabellen. Als u alle kolommen in een bepaalde tabel wilt weergeven, sleept u een tabelrand om de tabel groter of kleiner te maken.  
+    > [!NOTE]
+    > Als u geen relaties tussen tabellen ziet, betekent dit waarschijnlijk dat er geen relaties zijn tussen deze tabellen in de gegevensbron.
+
+    Voeg zo veel tabellen als mogelijk toe met behulp van de MiniMap-besturingselementen in de rechterbenedenhoek van de ontwerpfunctie. U kunt tabellen ook naar andere locaties slepen, tabellen dichter bij elkaar zetten of ze in een bepaalde volgorde plaatsen. Het verplaatsen van tabellen heeft geen invloed op de relaties tussen de tabellen. Als u alle kolommen in een bepaalde tabel wilt weergeven, sleept u een tabelrand om de tabel groter of kleiner te maken.  
   
 2.  Klik op de ononderbroken lijn tussen de tabel **DimCustomer** en de tabel **DimGeography**. De ononderbroken lijn tussen deze twee tabellen geeft aan dat dit een actieve relatie is, wat inhoudt dat de relatie standaard wordt gebruikt bij het berekenen van DAX formules.  
   
@@ -63,7 +68,7 @@ Bij het importeren van gegevens met behulp van Get Data zijn zeven tabellen opge
     |Ja|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
     |Ja|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
-    Als een van de relaties ontbreekt, controleert u of het model de volgende tabellen bevat: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory en FactInternetSales. Als tabellen uit dezelfde verbonden gegevensbron op verschillende momenten worden geïmporteerd, worden eventuele relaties tussen deze tabellen niet overgenomen en moeten deze handmatig worden gemaakt.  
+    Als een van de relaties ontbreekt, controleert u of het model de volgende tabellen bevat: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory en FactInternetSales. Als tabellen uit dezelfde verbonden gegevensbron op verschillende momenten worden geïmporteerd, worden eventuele relaties tussen deze tabellen niet overgenomen en moeten deze handmatig worden gemaakt. Als er geen relaties worden weergegeven, betekent dit dat er zijn geen relaties zijn in de gegevensbron. U kunt ze handmatig maken in het gegevensmodel.
 
 ### <a name="take-a-closer-look"></a>Diagramweergave
 In de diagramweergave ziet u een pijl, een sterretje en een nummer op de lijnen die de relatie tussen tabellen aangeven.
@@ -102,4 +107,3 @@ In sommige gevallen moet u mogelijk aanvullende relaties maken tussen tabellen i
   
   
   
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
+ms.openlocfilehash: 98559cbb0acab91c4b2c30c6d0129e955eef85f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 63a313d9035422207a1ce56f0da8b388e2747685
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-security"></a>Netwerkbeveiliging
 
@@ -55,12 +54,12 @@ Een netwerkbeveiligingsgroep bevat nul regels of zoveel regels als u wilt binnen
 |Protocol     | TCP, UDP of Alle, dat TCP, UDP en ICMP omvat. U kunt niet alleen ICMP opgeven, dus als u ICMP vereist, moet u Alle gebruiken. |
 |Richting| Hiermee wordt aangegeven of de regel van toepassing is op binnenkomend of uitgaand verkeer.|
 |Poortbereik     |U kunt één poort of een poortbereik opgeven. U kunt bijvoorbeeld 80 of 10000-10005 opgeven. Als u bereiken opgeeft, hoeft u minder beveiligingsregels te maken. De mogelijkheid om meerdere afzonderlijke poorten en poortbereiken op te geven in een regel, is beschikbaar in de preview-versie en wordt aangeduid met de term 'uitgebreide beveiligingsregels'. Lees voordat u uitgebreide beveiligingsregels gebruikt [Preview-functies](#preview-features) voor belangrijke informatie. Uitgebreide beveiligingsregels kunnen alleen worden gemaakt in netwerkbeveiligingsgroepen die zijn gemaakt via het Resource Manager-implementatiemodel. U kunt niet meerdere poorten of poortbereiken opgeven in dezelfde beveiligingsregel in netwerkbeveiligingsgroepen die zijn gemaakt via het klassieke implementatiemodel.   |
-|Bewerking     | Toestaan of weigeren        |
+|Actie     | Toestaan of weigeren        |
 
 **Overwegingen**
 
-- **Virtueel IP-adres van het hostknooppunt:** basisinfrastructuurservices zoals DHCP, DNS en statuscontrole worden geleverd via de gevirtualiseerde host-IP-adressen 168.63.129.16 en 169.254.169.254. Deze openbare IP-adressen zijn van Microsoft en zijn de enige gevirtualiseerde IP-adressen die in alle regio's voor dit doel worden gebruikt. Deze IP-adressen worden toegewezen aan het fysieke IP-adres van de servercomputer (hostknooppunt) die fungeert als host voor de VM. Het hostknooppunt fungeert als de DHCP-relay, de recursieve DNS-omzetter en de bron voor de statuscontrole van de load balancer en de machine. Communicatie met deze IP-adressen is geen aanval. Als u verkeer naar of van deze IP-adressen blokkeert, werkt een virtuele machine mogelijk niet goed.
-- **Licentieverlening (Key Management Service):** voor alle installatiekopieën van Windows die op VM’s worden uitgevoerd, is een licentie vereist. Hiervoor wordt een licentieaanvraag verstuurd naar de Key Management Service-hostservers waarop dergelijke query's worden afgehandeld. De uitgaande aanvraag wordt gedaan via poort. 1688.
+- **Virtueel IP-adres van het hostknooppunt:** basisinfrastructuurservices zoals DHCP, DNS en statuscontrole worden geleverd via de gevirtualiseerde host-IP-adressen 168.63.129.16 en 169.254.169.254. Deze openbare IP-adressen zijn van Microsoft en zijn de enige gevirtualiseerde IP-adressen die in alle regio's voor dit doel worden gebruikt. De adressen worden toegewezen aan het fysieke IP-adres van de servermachine (hostknooppunt) die fungeert als host voor de virtuele machine. Het hostknooppunt fungeert als de DHCP-relay, de recursieve DNS-omzetter en de bron voor de statuscontrole van de load balancer en de machine. Communicatie met deze IP-adressen is geen aanval. Als u verkeer naar of van deze IP-adressen blokkeert, werkt een virtuele machine mogelijk niet goed.
+- **Licentieverlening (Key Management Service):** voor alle Windows installatiekopieën die op virtuele machines worden uitgevoerd, is een licentie vereist. Hiervoor wordt een licentieaanvraag verstuurd naar de Key Management Service-hostservers waarop dergelijke query's worden afgehandeld. De uitgaande aanvraag wordt gedaan via poort. 1688.
 - **Virtuele machines in groepen met gelijke taakverdeling**: de bronpoort en het bronadresbereik die worden toegepast, zijn die van de oorspronkelijke computer, niet van de load balancer. De doelpoort en het doeladresbereik zijn die van de doelcomputer, niet van de load balancer.
 - **Azure-service-exemplaren**: exemplaren van verschillende Azure-services, zoals HDInsight, toepassingsserviceomgevingen en virtuele-machineschaalsets, worden geïmplementeerd in virtuele netwerksubnetten. Zorg ervoor dat u vertrouwd raakt met de poortvereisten voor elke service voordat u een netwerkbeveiligingsgroep toepast op het subnet waarin de resource is geïmplementeerd. Als u poorten weigert die vereist zijn voor de service, werkt de service niet naar behoren. 
 
@@ -126,7 +125,7 @@ U kunt de standaardregels niet verwijderen, maar u kunt ze negeren door regels t
 
 * **VirtualNetwork** (*Resource Manager) (**VIRTUAL_NETWORK** voor klassiek): deze tag omvat de adresruimte van het virtuele netwerk (alle CIDR-bereiken die voor het virtuele netwerk zijn gedefinieerd), alle verbonden on-premises adresruimten en [via peering gekoppelde](virtual-network-peering-overview.md) virtuele netwerken of virtuele netwerken die zijn verbonden met een [virtuele netwerkgateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** voor klassiek): met deze tag wordt de load balancer voor de infrastructuur van Azure aangeduid. De tag wordt omgezet in het [IP-adres van een Azure-datacenter](https://www.microsoft.com/download/details.aspx?id=41653) van waaruit statuscontroles van Azure worden uitgevoerd. Als u de load balancer van Azure niet gebruikt, kunt u deze regel onderdrukken.
-* **Internet** (Resource Manager) (**INTERNET** voor klassiek): deze tag geeft de openbare IP-adresruimte van Azure aan. De adressen die zijn opgenomen in deze tag, staan vermeld in het document [Openbare IP-adresruimte van Azure](https://www.microsoft.com/download/details.aspx?id=41653), dat regelmatig wordt bijgewerkt.
+* **Internet** (Resource Manager) (**INTERNET** voor klassiek): met deze tag wordt de IP-adresruimte aangeduid die zich buiten het virtuele netwerk bevindt en bereikbaar is via internet. Dit adresbereik omvat ook de [openbare IP-adresruimte van Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * **AzureTrafficManager** (alleen Resource Manager): deze tag geeft de IP-adresruimte voor de service Azure Traffic Manager aan.
 * **Storage** (alleen Resource Manager): deze tag geeft de IP-adresruimte voor de service Azure Storage aan. Als u *Storage* opgeeft als waarde, wordt verkeer naar de opslag toegestaan of geweigerd. Als u toegang tot opslag alleen wilt toestaan in een specifieke [regio](https://azure.microsoft.com/regions), kunt u de regio opgeven. Als u toegang tot Azure Storage bijvoorbeeld alleen wilt toestaan in de regio VS - oost, kunt u *Storage.EastUS* opgeven als servicetag. Aanvullende regionale servicetags zijn: Storage.AustraliaEast, Storage.AustraliaSoutheast, Storage.EastUS, Storage.UKSouth, Storage.WestCentralUS, Storage.WestUS en Storage.WestUS2. De tag vertegenwoordigt de service, maar geen specifieke exemplaren van de service. De tag vertegenwoordigt bijvoorbeeld de service Azure Storage, maar geen specifiek Azure Storage-account.
 * **Sql** (alleen voor Resource Manager): deze tag geeft de adresvoorvoegsels aan van de services Azure SQL Database en Azure SQL Data Warehouse. U kunt alleen specifieke regio's opgeven voor deze servicetag. Als u toegang tot Azure SQL Database bijvoorbeeld alleen wilt toestaan in de regio VS - oost, kunt u *Sql.EastUS* opgeven als servicetag. U kunt Sql niet opgeven voor alle Azure-regio's. U moet regio's afzonderlijk opgeven. Overige regionale servicetags die beschikbaar zijn: Sql.AustraliaEast, Sql.AustraliaSoutheast, Sql.EastUS, Sql.UKSouth, Sql.WestCentralUS, Sql.WestUS en Sql.WestUS2. De tag vertegenwoordigt de service, maar geen specifieke exemplaren van de service. De tag vertegenwoordigt bijvoorbeeld de service Azure SQL Database, maar geen specifieke Azure SQL-database.
@@ -152,7 +151,7 @@ Als u andere regels maakt en daarbij andere toepassingsbeveiligingsgroepen opgee
  
 Voor meer informatie over limieten bij het maken van toepassingsbeveiligingsgroepen en het opgeven ervan in regels raadpleegt u [Azure-limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Toepassingsbeveiligingsgroepen zijn beschikbaar in de preview-versie. Voordat u netwerkbeveiligingsgroepen gebruikt, moet u zich registreren voor het gebruik ervan door de stappen 1-5 in [Een netwerkbeveiligingsgroep met toepassingsbeveiligingsgroepen maken](create-network-security-group-preview.md#powershell) uit te voeren en [Preview-functies](#preview-features) te lezen voor belangrijke informatie. Tijdens de preview zijn toepassingsbeveiligingsgroepen beperkt tot het bereik van het virtuele netwerk. Virtuele netwerken die zijn gekoppeld met kruisverwijzingen naar toepassingsbeveiligingsgroepen in een netwerkbeveiligingsgroep worden niet toegepast. 
+Toepassingsbeveiligingsgroepen zijn beschikbaar in de preview-versie. Voordat u toepassingsbeveiligingsgroepen gebruikt, moet u zich registreren voor het gebruik ervan door de stappen 1-5 in [Een netwerkbeveiligingsgroep met toepassingsbeveiligingsgroepen maken](create-network-security-group-preview.md#powershell) uit te voeren en [Preview-functies](#preview-features) te lezen voor belangrijke informatie. Tijdens de preview zijn toepassingsbeveiligingsgroepen beperkt tot het bereik van het virtuele netwerk. Virtuele netwerken die zijn gekoppeld met kruisverwijzingen naar toepassingsbeveiligingsgroepen in een netwerkbeveiligingsgroep worden niet toegepast. 
 
 Functies in de preview-versie hoeven niet dezelfde mate van beschikbaarheid en betrouwbaarheid te hebben als functies in de algemene versie. Voordat u toepassingsbeveiligingsgroepen gebruikt, moet u zich registreren voor het gebruik ervan. De functies zijn alleen beschikbaar in de volgende regio's: VS - west-centraal.
 
@@ -160,4 +159,3 @@ Functies in de preview-versie hoeven niet dezelfde mate van beschikbaarheid en b
 
 * Voltooi de zelfstudie [Een netwerkbeveiligingsgroep maken](virtual-networks-create-nsg-arm-pportal.md)
 * Voltooi de zelfstudie [Een netwerkbeveiligingsgroep met toepassingsbeveiligingsgroepen maken](create-network-security-group-preview.md)
-

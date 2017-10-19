@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/25/2017
+ms.openlocfilehash: 273b94e9a53e36d7e8c699d3b7fa4305b881a001
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f1f270b95a60e847ce7d29c2d7d60c57891924cc
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="classifying-iris-part-2-build-a-model"></a>Classificeren van Iris deel 2: een model bouwen
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
 
@@ -38,6 +36,10 @@ In deze zelfstudie wordt de tijdloze [Iris-gegevensset](https://en.wikipedia.org
 
 ## <a name="prerequisites"></a>Vereisten
 U moet het eerste deel van deze zelfstudie hebben voltooid. Volg de zelfstudie [Gegevens voorbereiden](tutorial-classifying-iris-part-1.md) om Azure Machine Learning-resources te maken en de toepassing Azure Machine Learning Workbench te installeren voordat u begint aan deze zelfstudie.
+
+U kunt ook experimenteren met het uitvoeren van scripts voor een lokale Docker-container. Daarvoor moet u lokaal op uw Windows- of macOS-computer een Docker-engine (Community Edition is voldoende) hebben geïnstalleerd en gestart. Meer informatie over [Docker-installatie-instructies](https://docs.docker.com/engine/installation/).
+
+Als u wilt experimenteren met het verzenden van scripts voor uitvoering in een Docker-container in een externe virtuele Azure-machine of een HDInsight Spark-cluster, volg dan de [Instructies voor het maken van een op Ubuntu gebaseerde Azure Data Science Virtual Machine, of HDI-cluster](how-to-create-dsvm-hdi.md) .
 
 ## <a name="review-irissklearnpy-and-configuration-files"></a>Bestand iris_sklearn.py en configuratiebestanden controleren
 1. Start de toepassing **Azure Machine Learning Workbench** en open het project **myIris** dat u in deel 1 van de serie hebt gemaakt.
@@ -102,7 +104,7 @@ We gaan nu de voorbereidingen treffen om het script **iris_sklearn.py** voor het
 
 8. Klik op het woord **Completed** in de taakstatustekst in het deelvenster Jobs. Er wordt een pop-upvenster geopend met de standaarduitvoertekst (stdout) van het script dat wordt uitgevoerd. Sluit dit venster door in de rechterbovenhoek op de knop **X** te klikken.
 
-9. Klik in dezelfde taakstatus in het deelvenster Jobs op de blauwe tekst **iris_sklearn.py [1]** net boven de status **Completed** en de begintijd. De pagina **Run Properties** wordt geopend en u ziet informatie over de uitvoeringseigenschappen, zoals de uitvoerbestanden bij **Outputs**, eventuele visualisaties bij **Visualizations** en logboeken voor die uitvoering bij **Logs**. 
+9. Klik in dezelfde taakstatus in het deelvenster Jobs op de blauwe tekst **iris_sklearn.py [n]** (_n_ is het uitvoeringsnummer) net boven de status **Completed** en de begintijd. De pagina **Run Properties** wordt geopend en u ziet informatie over de uitvoeringseigenschappen, zoals de uitvoerbestanden bij **Outputs**, eventuele visualisaties bij **Visualizations** en logboeken voor die uitvoering bij **Logs**. 
 
    Als de uitvoering is voltooid, bevat het pop-upvenster de volgende resultaten:
 
@@ -367,4 +369,3 @@ U kunt nu verder met het derde deel van deze zelfstudie. Aangezien we nu beschik
 
 > [!div class="nextstepaction"]
 > [Een model implementeren](tutorial-classifying-iris-part-3.md)
-

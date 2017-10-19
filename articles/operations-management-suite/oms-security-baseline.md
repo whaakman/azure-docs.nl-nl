@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: f29b20ba11b030d98a7a5574f816ea132edc3f6d
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 6f4cfda6f367cb8a68d038fa0a3390442be034c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Basislijnevaluatie in de oplossing Beveiliging en controle in Operations Management Suite
 Dit document helpt u om de mogelijkheden van de [oplossing Beveiliging en controle in Operations Management Suite](operations-management-suite-overview.md) te gebruiken om basislijnevaluaties uit te voeren, en zo de beveiligde status van uw bewaakte resources te evalueren.
@@ -40,7 +39,7 @@ Er zijn drie soorten regels:
 > 
 
 ## <a name="security-baseline-assessment"></a>Evaluatie van de beveiligingsbasislijn
-U kunt het dashboard gebruiken om uw huidige evaluatie van de beveiligingbasislijn te bekijken voor alle computers die worden bewaakt door Beveiliging en controle in OMS.  Voer de volgende stappen uit om toegang te krijgen tot het dashboard voor het evalueren van de beveiligingsbasislijn:
+U kunt het dashboard gebruiken om uw huidige evaluatie van de beveiligingbasislijn te bekijken voor alle computers die worden bewaakt door Beveiliging en controle in OMS. Voer de volgende stappen uit om toegang te krijgen tot het dashboard voor het evalueren van de beveiligingsbasislijn:
 
 1. Klik in het hoofddashboard van **Microsoft Operations Management Suite** op de tegel **Beveiliging en controle**.
 2. Klik in het dashboard **Beveiliging en controle** op **Evaluatie van de basislijn** onder **Beveiligingsdomeinen**. Het dashboard **Evaluatie van de beveiligingsbasislijn** wordt weergeven zoals in de volgende afbeelding:
@@ -85,5 +84,4 @@ In dit document hebt u meer kunnen lezen over het evalueren van de basislijn doo
 * [Overzicht van Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Beveiligingswaarschuwingen in de oplossing Beveiliging en controle van Operations Management Suite bewaken en erop reageren](oms-security-responding-alerts.md)
 * [Resources bewaken in de oplossing Beveiliging en controle van Operations Management Suite ](oms-security-monitoring-resources.md)
-
 

@@ -12,16 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2017
+ms.date: 10/02/2017
 ms.author: ryanwi
+ms.openlocfilehash: bc7bee3caed2eba0a3f49d79241cd8685333ba13
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: c4f8c94e23a165b22533ffd74e04c9a7310f2d22
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Een Service Fabric Windows-containertoepassing implementeren in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
 
@@ -51,7 +49,7 @@ Selecteer **Service Fabric-toepassing**, geef deze de naam MyFirstContainer en k
 
 Selecteer **Container** in de lijst met **servicesjablonen**.
 
-In **Installatiekopienaam** voert u 'nanoserver/iis' in, de [Windows Server 2016 Nano Server en IIS-basisinstallatiekopie](https://hub.docker.com/r/nanoserver/iis/). 
+In **Naam van installatiekopie** voert u 'microsoft/iis:nanoserver' in, de [Windows Server Nano Server en IIS-basisinstallatiekopie](https://hub.docker.com/r/microsoft/iis/). 
 
 Geef uw service de naam 'MyContainerService' en klik op **OK**.
 
@@ -68,6 +66,7 @@ Configureer de poorttoewijzing poort-naar-host voor de container door een `PortB
 ```xml
 <ServiceManifestImport>
 ...
+  <ConfigOverrides />
   <Policies>
     <ContainerHostPolicies CodePackageRef="Code">
       <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
@@ -94,7 +93,7 @@ Klik met de rechtermuisknop op **MyFirstContainer** in Solution Explorer en kies
 
 ![Het dialoogvenster Publiceren](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-Typ het verbindingseindpunt van het cluster in het veld **Verbindingseindpunt** en klik op **Publiceren**. Bij het aanmelden voor het externe cluster wordt het eindpunt van de verbinding beschikbaar in de browser, bijvoorbeeld `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+Typ het verbindingseindpunt van het cluster in het veld **Verbindingseindpunt**. Bij het aanmelden voor het externe cluster wordt het eindpunt van de verbinding beschikbaar in de browser, bijvoorbeeld `winh1x87d1d.westus.cloudapp.azure.com:19000`.  Klik op **Publiceren** om de toepassing te implementeren.
 
 Open een browser en ga naar http://winh1x87d1d.westus.cloudapp.azure.com:80. U ziet de IIS-standaardwebpagina: ![IIS-standaardwebpagina][iis-default]
 
@@ -120,7 +119,7 @@ Dit zijn de volledige manifesten voor de service en toepassing die worden gebrui
     <EntryPoint>
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
-        <ImageName>nanoserver/iis</ImageName>
+        <ImageName>microsoft/iis:nanoserver</ImageName>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->
@@ -198,4 +197,3 @@ In deze snelstartgids hebt u de volgende zaken geleerd:
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png
-

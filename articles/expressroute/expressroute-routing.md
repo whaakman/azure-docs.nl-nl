@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: osamam
+ms.openlocfilehash: ecb71e8cfc1d723521024ecb79665f4a3117bd4b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: e6e2009717430a692528cd3ec3a2c6e46a12fe03
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-routing-requirements"></a>Routeringsvereisten voor ExpressRoute
 Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-services, moet u routering instellen en beheren. Sommige connectiviteitsproviders bieden het instellen en beheren van routering aan als een beheerde service. Neem contact op met uw connectiviteitsprovider om na te gaan of ze deze service leveren. Als dat niet het geval is, moet u voldoen aan de volgende vereisten:
@@ -73,10 +72,18 @@ U kunt kiezen om openbare of persoonlijke IPv4-adressen te gebruiken voor persoo
 ### <a name="public-peering"></a>Openbare peering
 Met het pad voor openbare Azure-peering kunt u verbinding maken met alle services die via de openbare IP-adressen worden gehost in Azure. Deze lijst bevat services die worden vermeld in de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) en alle services die door ISV's worden gehost op Microsoft Azure. Connectiviteit met Microsoft Azure-services via openbare peering wordt altijd gestart vanuit uw netwerk naar het Microsoft-netwerk. U moet openbare IP-adressen gebruiken voor het verkeer dat bestemd is voor het Microsoft-netwerk.
 
+> [!IMPORTANT]
+> Alle Azure PaaS-services zijn ook toegankelijk via Microsoft-peering. We raden u aan Microsoft-peering in te stellen en via Microsoft-peering verbinding te maken met Azure PaaS-services.  
+>   
+
+
+Er is een persoonlijke AS-nummer toegestaan met openbare peering.
+
 ### <a name="microsoft-peering"></a>Microsoft-peering
-Met het pad voor Microsoft-peering kunt u verbinding maken met Microsoft Cloud-services die niet worden ondersteund via het pad voor openbare Azure-peering. De lijst met services bevat Office 365-services, zoals Exchange Online, SharePoint Online, Skype voor Bedrijven en Dynamics 365. Microsoft ondersteunt bidirectionele connectiviteit op de Microsoft-peering. Verkeer dat is bestemd voor Microsoft Cloud-services, moet geldige openbare IPv4-adressen gebruiken voordat het het Microsoft-netwerk binnenkomt.
+Via Microsoft-peering kunt u verbinding maken met alle Microsoft-cloudservices die worden gehost op openbare IP-adressen. De lijst met services bevat onder andere Office 365, Dynamics 365 en Microsoft Azure PaaS-services. Microsoft ondersteunt bidirectionele connectiviteit op de Microsoft-peering. Verkeer dat is bestemd voor Microsoft-cloudservices, moet geldige openbare IPv4-/IPv6-adressen gebruiken voordat het het Microsoft-netwerk binnenkomt.
 
 Controleer of uw IP-adres en AS-nummer in een van de volgende registers op uw naam zijn geregistreerd:
+
 
 * [ARIN](https://www.arin.net/)
 * [APNIC](https://www.apnic.net/)
@@ -85,6 +92,10 @@ Controleer of uw IP-adres en AS-nummer in een van de volgende registers op uw na
 * [RIPENCC](https://www.ripe.net/)
 * [RADB](http://www.radb.net/)
 * [ALTDB](http://altdb.net/)
+
+Als uw voorvoegsel en AS-nummer in bovenstaande registers niet aan u zijn toegewezen, moet u een ondersteuningsaanvraag openen voor handmatige validatie van uw voorvoegsels en het ASN. Ondersteuning zal vragen naar de vereiste documentatie, zoals een autorisatiebrief waaruit blijkt dat u de resources mag gebruiken.
+
+Een persoonlijke AS-nummer is toegestaan met Microsoft-peering, maar moet ook handmatig worden gevalideerd.
 
 > [!IMPORTANT]
 > Openbare IP-adressen die naar Microsoft zijn geadverteerd via ExpressRoute, mogen niet worden geadverteerd naar internet. Dit kan de connectiviteit met andere Microsoft-services verbreken. Openbare IP-adressen die worden gebruikt door servers in uw netwerk en communiceren met O365-eindpunten in Microsoft, kunnen echter wel worden geadverteerd via ExpressRoute. 
@@ -134,39 +145,40 @@ U kunt meer dan één ExpressRoute-circuit per geopolitieke regio aanschaffen. H
 | **Microsoft Azure-regio** | **BGP-communitywaarde** |
 | --- | --- |
 | **Noord-Amerika** | |
-| VS - oost |12076:51004 |
-| VS - oost 2 |12076:51005 |
-| VS - west |12076:51006 |
-| VS - west 2 |12076:51026 |
-| West-centraal VS |12076:51027 |
-| Noord-centraal VS |12076:51007 |
-| Zuid-centraal VS |12076:51008 |
-| VS - midden |12076:51009 |
-| Canada - midden |12076:51020 |
-| Canada - oost |12076:51021 |
+| VS - oost | 12076:51004 |
+| VS - oost 2 | 12076:51005 |
+| VS - west | 12076:51006 |
+| VS - west 2 | 12076:51026 |
+| West-centraal VS | 12076:51027 |
+| Noord-centraal VS | 12076:51007 |
+| Zuid-centraal VS | 12076:51008 |
+| VS - midden | 12076:51009 |
+| Canada - midden | 12076:51020 |
+| Canada - oost | 12076:51021 |
 | **Zuid-Amerika** | |
-| Brazilië - zuid |12076:51014 |
+| Brazilië - zuid | 12076:51014 |
 | **Europa** | |
-| Noord-Europa |12076:51003 |
-| West-Europa |12076:51002 |
+| Noord-Europa | 12076:51003 |
+| West-Europa | 12076:51002 |
 | Verenigd Koninkrijk Zuid | 12076:51024 |
 | Verenigd Koninkrijk West | 12076:51025 |
 | **Azië en Stille Oceaan** | |
-| Oost-Azië |12076:51010 |
-| Zuidoost-Azië |12076:51011 |
+| Oost-Azië | 12076:51010 |
+| Zuidoost-Azië | 12076:51011 |
 | **Japan** | |
-| Japan - oost |12076:51012 |
-| Japan - west |12076:51013 |
+| Japan - oost | 12076:51012 |
+| Japan - west | 12076:51013 |
 | **Australië** | |
-| Australië - oost |12076:51015 |
-| Australië - zuidoost |12076:51016 |
+| Australië - oost | 12076:51015 |
+| Australië - zuidoost | 12076:51016 |
 | **India** | |
-| India - zuid |12076:51019 |
-| India - west |12076:51018 |
-| India - midden |12076:51017 |
+| India - zuid | 12076:51019 |
+| India - west | 12076:51018 |
+| India - midden | 12076:51017 |
 | **Korea** | |
-| Korea - zuid |12076:51028 |
-| Korea - centraal |12076:51029 |
+| Korea - zuid | 12076:51028 |
+| Korea - centraal | 12076:51029 |
+
 
 Alle routes die worden geadverteerd vanuit Microsoft, worden gemarkeerd met de juiste community-waarde. 
 
@@ -179,11 +191,11 @@ Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service 
 
 | **Service** | **BGP-communitywaarde** |
 | --- | --- |
-| Exchange Online |12076:5010 |
-| SharePoint Online |12076:5020 |
-| Skype voor Bedrijven Online |12076:5030 |
-| Dynamics 365 |12076:5040 |
-| Andere online services van Office 365 |12076:5100 |
+| Exchange Online | 12076:5010 |
+| SharePoint Online | 12076:5020 |
+| Skype voor Bedrijven Online | 12076:5030 |
+| Dynamics 365 | 12076:5040 |
+| Andere online services van Office 365 | 12076:5100 |
 
 > [!NOTE]
 > BGP-communitywaarden die u instelt op de routes die worden geadverteerd naar Microsoft, worden niet door Microsoft erkend.
@@ -218,5 +230,4 @@ Daarnaast worden voorvoegsels door Microsoft gemarkeerd op basis van de service 
   * [Create an ExpressRoute circuit for the classic deployment model](expressroute-howto-circuit-classic.md) (Een ExpressRoute-circuit maken voor het klassieke implementatiemodel) of [Create and modify an ExpressRoute circuit using Azure Resource Manager](expressroute-howto-circuit-arm.md) (Een ExpressRoute-circuit maken en wijzigen met Azure Resource Manager)
   * [Configure routing for the classic deployment model](expressroute-howto-routing-classic.md) (Routering configureren voor het klassieke implementatiemodel) of [Configure routing for the Resource Manager deployment model](expressroute-howto-routing-arm.md) (Routering configureren voor het Resource Manager-implementatiemodel)
   * [Link a classic VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md) (Een klassiek VNet koppelen aan een ExpressRoute-circuit) of [Link a Resource Manager VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md) (Een Resource Manager-VNet koppelen aan een ExpressRoute-circuit)
-
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: b6318b419a0ea87fd1fb56656b1161909876f338
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Azure Active Directory Gebruiksrechtovereenkomst (preview)
 Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties gegevens kunnen presenteren aan eindgebruikers.  Deze methode zorgt ervoor dat gebruikers relevante disclaimers voor juridische of nalevingsvereisten te zien krijgen.
 
@@ -34,7 +32,7 @@ Vindt u het lastig om werknemers of gasten zover te krijgen dat ze akkoord gaan 
 
 Azure AD Gebruiksrechtovereenkomst kan in de volgende scenario's worden gebruikt:
 -   Algemene gebruiksvoorwaarden voor alle gebruikers in uw organisatie.
--   Specifieke gebruiksvoorwaarden op basis van gebruikerskenmerken van een (bijvoorbeeld artsen versus verpleegkundigen of binnenlandse werknemers versus werknemers in het buitenland, wat gebeurt met [dynamische groepen](https://azure.microsoft.com/updates/azure-active-directory-dynamic-membership-for-groups)).
+-   Specifieke gebruiksvoorwaarden gebaseerd op gebruikerskenmerken (bijvoorbeeld artsen versus verpleegkundigen of binnenlandse werknemers versus werknemers in het buitenland, wat gebeurt met [dynamische groepen](https://azure.microsoft.com/updates/azure-active-directory-dynamic-membership-for-groups)).
 -   Specifieke gebruiksvoorwaarden op basis van de toegang tot apps die een grote bedrijfsimpact hebben, zoals Salesforce.
 
 

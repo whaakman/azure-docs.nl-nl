@@ -9,8 +9,7 @@
   
 3. Klik op **Maken** om de blade van de nieuwe SQL-server (logische server) te openen.
 
-   <kbd> ![blade logische server openen](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd>
-    <kbd>![blade logische server](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png) </kbd>
+   <kbd> ![blade logische server openen](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd><kbd>![blade logische server](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png) </kbd>
   
 3. Geef in het tekstvak Servernaam van de SQL-serverblade (logische server) een geldige naam op voor de nieuwe logische server. Een groen vinkje geeft aan dat u een geldige naam hebt opgegeven.
     

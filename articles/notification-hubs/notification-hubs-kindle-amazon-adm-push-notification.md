@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 7206f152ed7270abc62536a9ee164f7227833bcc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Aan de slag met Azure Notification Hubs voor Kindle-apps
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -74,7 +74,7 @@ Voeg in de portal het clientgeheim en de client-id in op het tabblad **Configure
 De ADM-bibliotheken aan uw Eclipse-project toevoegen:
 
 1. Als u de ADM-bibliotheek wilt verkrijgen, [downloadt u de SDK]. Pak het SDK-zipbestand uit.
-2. Klik in Eclipse met de rechtermuisknop op het project en klik vervolgens op **Eigenschappen**. Selecteer **Javabuild-pad** aan de linkerkant en selecteer vervolgens de ** bibliotheken ** boven op het tabblad. Klik op **Externe jar toevoegen** en selecteer het bestand `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` in de map waaruit u de Amazon SDK hebt opgehaald.
+2. Klik in Eclipse met de rechtermuisknop op het project en klik vervolgens op **Eigenschappen**. Selecteer **JavaBuild-pad** aan de linkerkant en vervolgens het tabblad **Bibliotheken** bovenaan. Klik op **Externe jar toevoegen** en selecteer het bestand `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` in de map waaruit u de Amazon SDK hebt opgehaald.
 3. Download de NotificationHubs Android-SDK (koppeling).
 4. Pak het pakket uit en sleep het bestand `notification-hubs-sdk.jar` in de `libs` map in Eclipse.
 

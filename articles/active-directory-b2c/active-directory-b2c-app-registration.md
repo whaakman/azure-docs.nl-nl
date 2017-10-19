@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
+ms.openlocfilehash: b49a894365dd344afb2f3cab51e7cfd28d930b1a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: 0e91d249116d39675d6e4bdf429442b6bc8af391
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/01/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: uw toepassing registreren
 
@@ -50,6 +49,8 @@ Meld u als globale beheerder van de B2C-tenant aan bij [Azure Portal](https://po
 ### <a name="register-a-web-app"></a>Een web-app registreren
 
 [!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
+
+### <a name="create-a-web-app-client-secret"></a>Een web-app-clientgeheim maken
 
 Als de web-app een web-API aanroept die is beveiligd door Azure AD B2C, voert u deze stappen uit:
    1. Maak een toepassingsgeheim door naar de blade **Sleutels** te gaan en op de knop **Sleutel genereren** te klikken. Noteer de waarde van **App-sleutel**. U gebruikt de waarde als het toepassingsgeheim in de code van uw toepassing.

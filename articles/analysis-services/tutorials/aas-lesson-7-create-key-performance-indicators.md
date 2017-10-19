@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d78808421dd5acd907aa9e9000bb3b770a42c061
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 9671136eea4e390a7763404e402cf94f1d351cac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>Les 7: Key Performance Indicators maken
 
@@ -49,7 +48,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
 
     Deze meting fungeert als de basislijn voor de KPI.  
   
-4.  Klik met de rechtermuisknop op **InternetCurrentQuarterSalesPerformance** > **Create KPI**.   
+4.  Klik in het metingenraster met de rechtermuisknop op **InternetCurrentQuarterSalesPerformance** > **Create KPI**.   
   
 5.  Ga naar **Target** in het dialoogvenster Key Performance Indicator (KPI) en selecteer **Absolute value** en typ vervolgens **1.1**.  
   
@@ -88,4 +87,3 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
 [Les 8: Perspectieven maken](../tutorials/aas-lesson-8-create-perspectives.md).
   
   
-

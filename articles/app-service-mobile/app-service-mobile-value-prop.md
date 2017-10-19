@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
+ms.openlocfilehash: 8576f2b6adce044d2060c3ba6d19ac330e3637c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 166cebeb20ecc79b447dac25f243f07163a6d127
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started"> </a>Mobile Apps in Azure App Service
 Azure App Service is een volledig beheerde [PaaS-](https://azure.microsoft.com/overview/what-is-paas/)aanbieding (Platform as a Service) voor professionele ontwikkelaars. De service biedt een uitgebreide reeks mogelijkheden voor web-, mobiele en integratiescenario's. 
@@ -68,7 +67,7 @@ De volgende platformfuncties zijn handig voor mobiele productiesites:
 
 * **Doorlopende implementatie**: App Service kan worden geïntegreerd met veelgebruikte SCM-systemen (Supply Chain Management), zodat u automatisch een nieuwe versie van uw back-end kunt implementeren door een vertakking van uw SCM-systeem te pushen.
 
-  Lees meer over [implementatieopties].
+  Lees meer over [implementatieopties](../app-service/app-service-deploy-local-git.md).
 
 * **Virtuele netwerken**: App Service kan verbinding maken met on-premises resources met behulp van een virtueel netwerk, Azure ExpressRoute of hybride verbindingen.
 
@@ -87,7 +86,6 @@ Zie [Azure App Service] voor meer informatie over het Azure App Service-platform
 
 <!-- URLs. -->
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Aan de slag]: app-service-mobile-ios-get-started.md
 [Azure Table Storage]:../cosmos-db/table-storage-how-to-use-dotnet.md
 [Azure Cosmos DB]: ../cosmos-db/documentdb-get-started.md
@@ -100,12 +98,10 @@ Zie [Azure App Service] voor meer informatie over het Azure App Service-platform
 [Xamarin.iOS en Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[Automatische schaling]: ../app-service-web/web-sites-scale.md
-[Faseringsomgevingen]: ../app-service-web/web-sites-staged-publishing.md
-[implementatieopties]: ../app-service-web/web-sites-deploy.md
+[Automatische schaling]: ../app-service/web-sites-scale.md
+[Faseringsomgevingen]: ../app-service/web-sites-staged-publishing.md
 [hybride verbindingen]: ../biztalk-services/integration-hybrid-connection-overview.md
-[virtuele netwerken]: ../app-service-web/web-sites-integrate-with-vnet.md
-[ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
-[App Service-omgevingen]: ../app-service-web/app-service-app-service-environment-intro.md
+[virtuele netwerken]: ../app-service/web-sites-integrate-with-vnet.md
+[ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
+[App Service-omgevingen]: ../app-service/environment/intro.md
 [leeroverzicht]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
-

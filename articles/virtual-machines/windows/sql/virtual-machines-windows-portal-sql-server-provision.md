@@ -1,6 +1,6 @@
 ---
-title: Een virtuele SQL Server-machine inrichten | Microsoft Docs
-description: Richt in Azure een virtuele SQL Server-machine in en maak hier verbinding mee via de portal. In deze zelfstudie wordt de Resource Manager-modus gebruikt.
+title: Een virtuele SQL Server 2017-machine voor Windows maken in Azure | Microsoft Docs
+description: Deze zelfstudie laat zien hoe u een virtuele SQL Server 2017-machine voor Windows in Azure Portal kunt maken.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -12,55 +12,54 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 08/14/2017
+ms.date: 10/10/2017
 ms.author: jroth
+ms.openlocfilehash: 48f9f97d6e0aee6b2c84444289a427bebcb296e2
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: c923f9aae4c7a1b8bd4f5760d0ec4f33923b9321
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>Een virtuele SQL Server-machine inrichten in Azure Portal
+# <a name="provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Een virtuele SQL Server-machine voor Windows inrichten in Azure Portal
+
 > [!div class="op_single_selector"]
 > * [Portal](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> 
-> 
+> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 
-In deze end-to-end zelfstudie wordt getoond hoe u Azure Portal kunt gebruiken voor het inrichten van een virtuele machine waarop SQL Server wordt uitgevoerd.
-
-De galerie met virtuele machines van Azure bevat diverse installatiekopieën met Microsoft SQL Server. Met een paar klikken kunt u in de galerie een van de installatiekopieën voor een virtuele SQL-machine selecteren en inrichten in uw Azure-omgeving.
+In deze snelstartzelfstudie gaat u Azure Portal gebruiken om een virtuele Windows-machine te maken waarop SQL Server is geïnstalleerd.
 
 In deze zelfstudie leert u het volgende:
 
-* [Een installatiekopie voor een virtuele SQL-machine in de galerie selecteren](#select-a-sql-vm-image-from-the-gallery)
-* [De virtuele machine configureren en maken](#configure-the-vm)
-* [De virtuele machine openen via Extern bureaublad](#open-the-vm-with-remote-desktop)
-* [Op afstand verbinding maken met SQL Server](#connect-to-sql-server-remotely)
+* [Een installatiekopie voor een virtuele SQL-machine in de galerie selecteren](#select)
+* [De virtuele machine configureren en maken](#configure)
+* [De virtuele machine openen via Extern bureaublad](#remotedesktop)
+* [Op afstand verbinding maken met SQL Server](#connect)
 
-## <a name="select-a-sql-vm-image-from-the-gallery"></a>Een installatiekopie voor een virtuele SQL-machine in de galerie selecteren
+## <a id="select"></a> Een installatiekopie voor een virtuele SQL-machine in de galerie selecteren
 
 1. Meld u met uw account aan bij de [Azure Portal](https://portal.azure.com).
 
    > [!NOTE]
    > Als u geen Azure-account hebt, gaat u naar [Azure, gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 
-2. Klik in Azure Portal op **Nieuw**. In de portal wordt het venster **Nieuw** geopend.
+1. Klik in Azure Portal op **Nieuw**. In de portal wordt het venster **Nieuw** geopend.
 
-3. Klik in het venster **Nieuw** op **Berekenen** en klik vervolgens op **Alles weergeven**.
+1. Klik in het venster **Nieuw** op **Berekenen** en klik vervolgens op **Alles weergeven**.
 
    ![Het venster Nieuwe berekening](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
 
-4. Typ in het zoekveld **SQL Server** en druk op ENTER.
+1. Typ in het zoekveld **SQL Server 2017** en druk op ENTER.
 
-5. Klik vervolgens op het pictogram **Filter** en selecteer **Microsoft** als de uitgever. Klik op **Gereed** in het venster Filter om de gepubliceerde Microsoft SQL Server-installatiekopieën te filteren.
+1. Klik vervolgens op het pictogram met het **filter**.
+
+1. Schakel in het venster Filter de subcategorie **Op Windows gebaseerd** en de uitgever **Microsoft** in. Klik op **Gereed** om de resultaten te filteren op door Microsoft gepubliceerde Windows SQL Server-installatiekopieën.
 
    ![Het venster Virtuele machines in Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Bekijk de beschikbare SQL Server-installatiekopieën. Elke installatiekopie correspondeert met een bepaalde SQL Server-versie en een bepaald besturingssysteem.
+1. Bekijk de beschikbare SQL Server-installatiekopieën. Elke installatiekopie correspondeert met een bepaalde SQL Server-versie en een bepaald besturingssysteem.
 
-6. Selecteer de installatiekopie met de naam **Gratis licentie voor SQL Server 2016 SP1 Developer op Windows Server 2016**.
+1. Selecteer de installatiekopie met de naam **Gratis licentie voor SQL Server: SQL Server 2017 Developer op Windows Server 2016**.
 
    > [!TIP]
    > In deze zelfstudie maken we gebruik van de Developer Edition omdat deze een complete versie van de SQL Server is die gratis gebruikt kan worden voor ontwikkelings-/testdoeleinden. U betaalt alleen voor de kosten van het uitvoeren van de virtuele machine. U kunt echter uit alle installatiekopieën kiezen in deze zelfstudie.
@@ -70,13 +69,13 @@ In deze zelfstudie leert u het volgende:
    >
    > Zie [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's) voor meer informatie over deze opties.
 
-7. Controleer onder **Een implementatiemodel selecteren** of **Resource Manager** is geselecteerd. Resource Manager is het aanbevolen implementatiemodel voor nieuwe virtuele machines. 
+1. Controleer onder **Een implementatiemodel selecteren** of **Resource Manager** is geselecteerd. Resource Manager is het aanbevolen implementatiemodel voor nieuwe virtuele machines. 
 
-8. Klik op **Create**.
+1. Klik op **Create**.
 
     ![Virtuele SQL-machines maken met Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
-## <a name="configure-the-vm"></a>De virtuele machine configureren
+## <a id="configure"></a> De virtuele machine configureren
 Er zijn vijf vensters voor het configureren van een virtuele SQL Server-machine.
 
 | Stap | Beschrijving |
@@ -156,7 +155,7 @@ Configureer in het venster **SQL Server-instellingen** specifieke instellingen e
 | [Automatisch patch toepassen](#automated-patching) |
 | [Automatische back-up](#automated-backup) |
 | [Integratie van Azure Key Vault](#azure-key-vault-integration) |
-| [R Services](#r-services) |
+| [SQL Server Machine Learning-services](#sql-server-machine-learning-services) |
 
 ### <a name="connectivity"></a>Connectiviteit
 
@@ -257,14 +256,11 @@ De volgende tabel bevat de vereiste parameters voor het configureren van de Azur
 
 Zie voor meer informatie [Integratie van Azure Sleutelkluis configureren voor SQL Server op Azure-VM's](virtual-machines-windows-ps-sql-keyvault.md).
 
-### <a name="r-services"></a>R services
+### <a name="sql-server-machine-learning-services"></a>SQL Server Machine Learning-services
 
-U kunt gebruikmaken van de optie om [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx) in te schakelen. Op deze manier kunt u geavanceerde analyses gebruiken met SQL Server 2016. Klik op **Inschakelen** in het venster **SQL Server-instellingen**.
+U kunt gebruikmaken van de optie om [SQL Server Machine Learning-services](https://msdn.microsoft.com/library/mt604845.aspx) in te schakelen. Op deze manier kunt u geavanceerde analyses gebruiken met SQL Server 2017. Klik op **Inschakelen** in het venster **SQL Server-instellingen**.
 
-> [!NOTE]
-> Deze optie is ten onrechte uitgeschakeld door de portal voor SQL Server 2016 Developer Edition. Voor de Developer Edition moet u R Services handmatig inschakelen nadat u uw virtuele machine hebt gemaakt.
-
-![SQL Server R Services inschakelen](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
+![SQL Server Machine Learning-services inschakelen](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
 Wanneer u klaar bent met het configureren van de SQL Server-instellingen, klikt u op **OK**.
 
@@ -275,9 +271,9 @@ Bekijk in het venster **Samenvatting** de samenvatting en klik op **Kopen** om d
 U kunt de implementatie bewaken vanuit Azure Portal. Met de knop **Meldingen** boven aan het scherm kunt u de algemene status van de implementatie weergeven.
 
 > [!NOTE]
-> Om u een idee te geven van de implementatietijden, heb ik een virtuele SQL-machine voor de regio VS - oost geïmplementeerd met standaardinstellingen. Deze testimplementatie nam in totaal 26 minuten in beslag. Afhankelijk van uw regio en de geselecteerde instellingen bent u mogelijk meer of minder tijd kwijt aan de implementatie.
+> Om u een idee te geven van de implementatietijden, heb ik een virtuele SQL-machine voor de regio VS - oost geïmplementeerd met standaardinstellingen. Deze testimplementatie nam in totaal ongeveer 12 minuten in beslag. Afhankelijk van uw regio en de geselecteerde instellingen bent u mogelijk meer of minder tijd kwijt aan de implementatie.
 
-## <a name="open-the-vm-with-remote-desktop"></a>De virtuele machine openen via Extern bureaublad
+## <a id="remotedesktop"></a> De virtuele machine openen via Extern bureaublad
 
 Doorloop de volgende stappen om via Extern bureaublad verbinding te maken met de virtuele SQL Server-machine:
 
@@ -295,7 +291,7 @@ In de volgende stappen wordt **SQL Server Configuration Manager** gebruikt voor 
 
 > [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
-## <a name="connect-to-sql-server-remotely"></a>Op afstand verbinding maken met SQL Server
+## <a id="connect"></a> Op afstand verbinding maken met SQL Server
 
 In deze zelfstudie hebben we **Openbare** toegang voor de virtuele machine en **SQL Server-verificatie** geselecteerd. Door deze instellingen is de virtuele machine automatisch geconfigureerd voor het toestaan van SQL Server-verbindingen vanaf elke client via internet (ervan uitgaande dat deze beschikken over de juiste SQL-aanmeldgegevens).
 

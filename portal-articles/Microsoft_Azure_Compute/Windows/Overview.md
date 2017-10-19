@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Windows virtuele machines | Microsoft Docs
-description: Help-inhoud voor een overzicht van Windows virtuele machines in Azure portal
+title: Overzicht van virtuele Windows-machines | Microsoft Docs
+description: Overzicht van Help-inhoud voor virtuele Windows-machines in Azure Portal
 services: virtual-machines-windows
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
 ms.openlocfilehash: 03b204d9970a3831543a03dfa08e2a4d8b274034
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-virtual-machines-documentation"></a>Documentatie voor virtuele Windows-machines
 
@@ -28,7 +28,7 @@ Meer informatie over het implementeren van een IIS-webserver binnen een virtuele
 
 ## <a name="step-by-step-tutorials"></a>Zelfstudies met stapsgewijze instructies
 
-Informatie over het implementeren, beheren en bewaken op Azure VM's van Windows.
+Meer informatie over het implementeren, beheren en controleren van virtuele Windows-machines in Azure.
 
 - [Virtuele Windows-machines maken en beheren](/azure/virtual-machines/windows/tutorial-manage-vm)
 - [VM-schijven maken en beheren](/azure/virtual-machines/windows/tutorial-manage-data-disk)
@@ -58,5 +58,5 @@ Implementeer uw eerste toepassing in Azure.
 
 ## <a name="more"></a>Meer
 
-- [Ga naar de documentatie voor meer informatie](/azure/virtual-machines/windows/index)
-- [Meer informatie over alle Azure-Services](https://aka.ms/j3wr7y)
+- [Zie de documentatie voor meer informatie](/azure/virtual-machines/windows/index)
+- [Meer informatie over alle Azure-services](https://aka.ms/j3wr7y)

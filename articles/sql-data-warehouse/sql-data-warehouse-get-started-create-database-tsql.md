@@ -16,13 +16,11 @@ ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 836d72e32e54ecef9691b55214766a1fc3ff9701
-ms.contentlocale: nl-nl
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 10d8aa2b3ab8d7d8a9b91e95ffccf03faa89d237
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>Een SQL Data Warehouse-database maken met behulp van Transact-SQL (TSQL)
 > [!div class="op_single_selector"]
@@ -38,7 +36,7 @@ In dit artikel wordt beschreven hoe u een SQL Data Warehouse maakt met T-SQL.
 Om aan de slag te gaan, hebt u het volgende nodig:
 
 * **Azure-account**: ga naar [Gratis proefversie van Azure][Azure Free Trial] of [Azure-tegoed met MSDN][MSDN Azure Credits] om een account te maken.
-* **Azure SQL Server**: zie [Een logische Azure SQL Database-server maken met Azure Portal][Create an Azure SQL Database logical server with the Azure Portal] of[ Een logische Azure SQL Database-server maken met PowerShell][Create an Azure SQL Database logical server with PowerShell] voor meer informatie.
+* **Azure SQL-server**: zie [Een logische Azure SQL Database-server maken met Azure Portal][Een logische Azure SQL Database-server maken met Azure Portal] of [Een logische Azure SQL Database-server maken met PowerShell][Een logische Azure SQL Database-server maken met PowerShell] voor meer informatie.
 * **Resourcegroep**: gebruik dezelfde resourcegroep als uw Azure SQL-server of zie [Een resourcegroep maken][how to create a resource group].
 * **Omgeving voor het uitvoeren van T-SQL**: u kunt [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][sqlcmd] of [SSMS][SSMS] gebruiken om T-SQL uit te voeren.
 
@@ -89,4 +87,3 @@ Wanneer de inrichting van uw SQL Data Warehouse is voltooid, kunt u [voorbeeldge
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-

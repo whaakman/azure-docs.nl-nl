@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/14/2017
 ms.author: jingwang
+ms.openlocfilehash: 74e2a57aa933c7025db952fa09de236f5dabb8c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 60641ddfef7846f0e8b5d850e716b2652bf62367
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="copy-data-between-on-premises-and-cloud"></a>On-premises gegevens kopiëren naar de cloud
 Azure Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee u gegevensgestuurde werkstromen kunt maken in de cloud. Op deze manier kunt u de verplaatsing en transformatie van gegevens indelen en automatiseren. Met Azure Data Factory kunt u gegevensgestuurde werkstromen (ook wel pijplijnen) maken en plannen die gegevens uit verschillende gegevensarchieven kunnen opnemen en de gegevens kunnen verwerken/transformeren met behulp van rekenservices zoals Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics en Azure Machine Learning. Daarnaast kunt u de uitvoergegevens publiceren naar gegevensarchieven zoals Azure SQL Data Warehouse, zodat BI-toepassingen (business intelligence) ze kunnen gebruiken. 
 
@@ -218,12 +216,12 @@ In deze sectie kunt u een zelf-hostende Integration Runtime maken en deze koppel
         "name": "SqlServerLinkedService"
     }
    ```
-2. We kunnen **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** uitvoeren en de bovenstaande JSON-nettolading doorgeven om de gevoelige gegevens uit de JSON-nettolading te versleutelen in de on-premises Integration Runtime. Deze versleuteling zorgt ervoor dat de referenties zijn versleuteld met behulp van DPAPI (Data Protection Application Programming Interface) en lokaal zijn opgeslagen op het zelf-hostende Integration Runtime-knooppunt. De uitvoernettolading kan worden omgeleid naar een ander JSON-bestand (in dit geval encryptedLinkedService.json). Dit bestand bevat de versleutelde referenties. 
+2. We kunnen **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** uitvoeren en de bovenstaande JSON-nettolading doorgeven om de gevoelige gegevens uit de JSON-nettolading te versleutelen in de on-premises Integration Runtime. Deze versleuteling zorgt ervoor dat de referenties zijn versleuteld met behulp van DPAPI (Data Protection Application Programming Interface) en lokaal zijn opgeslagen op het zelf-hostende Integration Runtime-knooppunt. De uitvoernettolading kan worden omgeleid naar een ander JSON-bestand (in dit geval encryptedLinkedService.json). Dit bestand bevat de versleutelde referenties. 
 
     Vervang voordat u de opdracht uitvoert de **&lt;naam van de Integration Runtime&gt;** door de naam van uw Integration Runtime.
 
    ```powershell
-   New-AzureRmDataFactoryV2LinkedServiceEncryptCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName <integration runtime name> -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
+   New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName <integration runtime name> -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
    ```
 
 3. Voer de volgende opdracht uit door het JSON-bestand uit de vorige stap te gebruiken om de **SqlServerLinkedService** te maken:

@@ -13,15 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 10/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.openlocfilehash: 56905a457f972d1820e56dca00c42686bcad5453
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 83fc6db1ddb43eb87e7c58684505d7196c1e53d0
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Aan de slag met Apache Storm in HDInsight met behulp van Storm-Starter-voorbeelden
 
@@ -44,7 +43,7 @@ Apache Storm is een gedistribueerd, schaalbaar, fouttolerant en realtime bereken
 
 Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
 
-1. In [Azure Portal](https://portal.azure.com) selecteert u **+ NIEUW**, **Intelligence en analyse** en vervolgens **HDInsight**.
+1. In de [Azure-portal](https://portal.azure.com) selecteert u **+ NIEUW**, **Gegevens en analyses** en vervolgens **HDInsight**.
 
     ![Een HDInsight-cluster maken](./media/hdinsight-apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
@@ -57,7 +56,7 @@ Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
     * **Resourcegroep**: de resourcegroep waarin het cluster wordt gemaakt.
     * **Locatie**: de Azure-regio waarin het cluster wordt gemaakt.
 
-    ![Abonnement selecteren](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
+   ![Abonnement selecteren](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
 3. Selecteer **Clustertype** en stel de volgende waarden in op de blade **Clusterconfiguratie**:
 
@@ -69,7 +68,7 @@ Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
 
     * **Clusterlaag**: standaard
 
-    Gebruik ten slotte de knop **Selecteren** om de instellingen op te slaan.
+   Gebruik ten slotte de knop **Selecteren** om de instellingen op te slaan.
 
     ![Clustertype selecteren](./media/hdinsight-apache-storm-tutorial-get-started-linux/set-hdinsight-cluster-type.png)
 
@@ -92,7 +91,11 @@ Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    Als u een wachtwoord hebt gebruikt om uw SSH gebruikersaccount te beveiligen, wordt u gevraagd het wachtwoord in te voeren. Als u een openbare sleutel hebt gebruikt, moet u mogelijk de parameter `-i` gebruiken om de overeenkomende persoonlijke sleutel op te geven. Bijvoorbeeld `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+    > [!TIP]
+    > De SSH-client geeft mogelijk aan dat de authenticiteit van de host niet kan worden vastgesteld. Als dat het geval is, voert u `yes` in om verder te gaan.
+
+    > [!NOTE]
+    > Als u een wachtwoord hebt gebruikt om uw SSH gebruikersaccount te beveiligen, wordt u gevraagd het wachtwoord in te voeren. Als u een openbare sleutel hebt gebruikt, moet u mogelijk de parameter `-i` gebruiken om de overeenkomende persoonlijke sleutel op te geven. Bijvoorbeeld `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
 
     Zie [SSH-sleutels gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor informatie.
 
@@ -118,7 +121,7 @@ De Storm-gebruikersinterface biedt een webinterface voor het werken met actieve 
 
 Voer de volgende stappen uit voor het bewaken van de topologie met behulp van de Storm-gebruikersinterface:
 
-1. Ga in een webbrowser naar https://CLUSTERNAME.azurehdinsight.net/stormui om de gebruikersinterface van Storm weer te geven. Vervang **CLUSTERNAME** door de naam van uw cluster.
+1. Als u de Storm-gebruikersinterface wilt weergeven, opent u `https://CLUSTERNAME.azurehdinsight.net/stormui` in een webbrowser. Vervang **CLUSTERNAME** door de naam van uw cluster.
 
     > [!NOTE]
     > Als u wordt gevraagd een gebruikersnaam en een wachtwoord op te geven, voert u de gegevens voor de clusterbeheerder (admin) en het wachtwoord in die u hebt gebruikt toen u het cluster maakte.
@@ -210,4 +213,3 @@ Zie voor voorbeeldtopologieën die kunnen worden gebruikt met Storm op HDInsight
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [preview-portal]: https://portal.azure.com/
-

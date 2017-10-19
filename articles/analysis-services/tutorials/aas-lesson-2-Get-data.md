@@ -13,16 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/19/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e77de4b9a74b528fa8a7ce86424fc14628b2cacc
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 07151fdf79d3b06f3144fbebff9015645b1ed000
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="lesson-2-get-data"></a>Les 2: Gegevens ophalen
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
@@ -30,6 +28,9 @@ ms.lasthandoff: 06/03/2017
 In deze les gebruikt u Get Data in SSDT om verbinding te maken met de AdventureWorksDW2014-voorbeelddatabase, gegevens te selecteren, een voorbeeld van de gegevens te bekijken en ze te filteren, en ze ten slotte in uw modelwerkruimte te importeren.  
   
 Met behulp van Get Data kunt u gegevens importeren uit een groot aantal gegevensbronnen: Azure SQL Database, Oracle, Sybase, OData-Feed, Teradata, bestanden en meer. U kunt ook query's uitvoeren op gegevens met een formule-expressie van Power Query M.
+
+> [!NOTE]
+> De taken en afbeeldingen in deze zelfstudie laten zien hoe u verbinding maakt met een AdventureWorksDW2014-database op een on-premises server. In sommige gevallen kan een AdventureWorksDW2014-database in Azure afwijken.
   
 Geschatte tijd voor het voltooien van deze les: **10 minuten**  
   
@@ -71,13 +72,19 @@ Tabellen in de voorbeelddatabase AdventureWorksDW2014 bevatten gegevens die niet
   
 #### <a name="to-filter-the-table-data-before-importing"></a>De tabelgegevens filteren voordat u gaat importeren:  
   
-1.  Selecteer de tabel **DimCustomer** in Query Editor. U ziet een weergave van de tabel DimCustomer uit de gegevensbron (de voorbeelddatabase AdventureWorksDWQ2014). 
+1.  Selecteer de tabel **DimCustomer** in Query Editor. U ziet een weergave van de tabel DimCustomer uit de gegevensbron (de voorbeelddatabase AdventureWorksDW2014). 
   
 2.  Selecteer de kolommen **SpanishEducation**, **FrenchEducation**, **SpanishOccupation** en **FrenchOccupation** (Ctrl ingedrukt houden en klikken), klik met de rechtermuisknop en klik op **Remove Columns**. 
 
     ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-columns.png)
   
     Aangezien de waarden voor deze kolommen niet relevant zijn voor de analyse van internetverkopen, is het niet nodig om deze kolommen te importeren. Door overbodige kolommen te verwijderen, wordt uw model kleiner en efficiënter.  
+
+    > [!TIP]
+    > Als u een fout maakt, kunt u een back-up maken door een stap te verwijderen in **TOEGEPASTE STAPPEN**.   
+    
+    ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-step.png)
+
   
 4.  Filter de resterende tabellen door de volgende kolommen te verwijderen uit elke tabel:  
     
@@ -85,7 +92,7 @@ Tabellen in de voorbeelddatabase AdventureWorksDW2014 bevatten gegevens die niet
     
       |Kolom|  
       |--------|  
-      |DateKey|  
+      |**DateKey**|  
       |**SpanishDayNameOfWeek**|  
       |**FrenchDayNameOfWeek**|  
       |**SpanishMonthName**|  
@@ -130,11 +137,7 @@ Tabellen in de voorbeelddatabase AdventureWorksDW2014 bevatten gegevens die niet
   
     **FactInternetSales**
   
-      |Kolom|  
-      |------------------|  
-      |**OrderDateKey**|  
-      |**DueDateKey**|  
-      |**ShipDateKey**|   
+      Geen kolommen verwijderd.
   
 ## <a name="Import"></a>De geselecteerde tabellen en kolomgegevens importeren  
 U hebt nu de overbodige gegevens uitgefilterd en kunt dus de rest van de gegevens gaan importeren. De wizard zorgt ervoor dat de tabelgegevens samen met eventuele relaties tussen tabellen worden geïmporteerd. Er worden nieuwe tabellen en kolommen gemaakt in het model en gegevens die u hebt uitgefilterd, worden niet geïmporteerd.  
@@ -160,4 +163,3 @@ Het is belangrijk om uw modelproject vaak op te slaan.
 
   
   
-

@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Azure DB Cosmos | Microsoft Docs
-description: Help-inhoud voor Azure DB die Cosmos-overzicht in Azure portal
+title: Overzicht van Azure Cosmos DB | Microsoft Docs
+description: Overzicht van Help-inhoud voor Azure Cosmos DB in Azure Portal
 services: cosmos-db
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
 ms.openlocfilehash: 30ffaff9c4a7bacbda1f6b973f328a345eb5d5b0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-documentation"></a>Documentatie voor Azure Cosmos DB
 
@@ -48,12 +48,12 @@ Meer informatie over het gebruik van Azure Cosmos DB om een globaal gedistribuee
 
 ## <a name="step-by-step-tutorials"></a>Zelfstudies met stapsgewijze instructies
 
-Meer informatie over het ontwikkelen van apps met behulp van Azure DB die Cosmos:
+Meer informatie over het ontwikkelen van apps met behulp van Azure Cosmos DB:
 
-- Een app met Cosmos DB ontwikkelen: [DocumentDB](/azure/cosmos-db/tutorial-develop-documentdb-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [tabel](/azure/cosmos-db/tutorial-develop-table-dotnet) | [grafiek](/azure/cosmos-db/tutorial-develop-graph-dotnet)
-- Gegevens importeren in Cosmos DB [DocumentDB](/azure/documentdb/documentdb-import-data) | [MongoDB](/azure/documentdb/documentdb-mongodb-migrate) 
-- Opvragen van gegevens met Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-query-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [tabel](/azure/cosmos-db/tutorial-query-table) | [grafiek](/azure/cosmos-db/tutorial-query-graph)
-- Globale databasereplicatie met Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-global-distribution-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Tabel] (/ azure/cosmos-db/zelfstudie-globale-distributie-tabel | [Grafiek](/azure/cosmos-db/tutorial-global-distribution-graph)
+- Een app ontwikkelen met Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-develop-documentdb-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [Tabel](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Grafiek](/azure/cosmos-db/tutorial-develop-graph-dotnet)
+- Gegevens importeren in Cosmos DB[DocumentDB](/azure/documentdb/documentdb-import-data) | [MongoDB](/azure/documentdb/documentdb-mongodb-migrate) 
+- Gegevens opvragen met Cosmos DB [DocumentDB](/azure/cosmos-db/tutorial-query-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Tabel](/azure/cosmos-db/tutorial-query-table) | [Grafiek](/azure/cosmos-db/tutorial-query-graph)
+- Globale databasereplicatie met Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-global-distribution-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Tabel](/azure/cosmos-db/tutorial-global-distribution-table | [Grafiek](/azure/cosmos-db/tutorial-global-distribution-graph)
 - [Uw toepassing lokaal ontwikkelen met behulp van de emulator](/azure/documentdb/documentdb-nosql-local-emulator)
 
 ## <a name="samples"></a>Voorbeelden
@@ -65,5 +65,5 @@ Zoek scripts om algemene taken te beheren.
 
 ## <a name="more"></a>Meer
 
-- [Ga naar de documentatie voor meer informatie](/azure/cosmos-db/index)
-- [Meer informatie over alle Azure-Services](https://aka.ms/j3wr7y)
+- [Zie de documentatie voor meer informatie](/azure/cosmos-db/index)
+- [Meer informatie over alle Azure-services](https://aka.ms/j3wr7y)

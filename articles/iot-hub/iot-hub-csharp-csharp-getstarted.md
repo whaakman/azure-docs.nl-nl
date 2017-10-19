@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 69296eb9ac2a74a97b632d27733a6a06500b4abd
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: 8f16f23928977ef6bf53f41c79375290da70a2fa
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>Uw apparaat verbinding laten maken met uw IoT Hub met .NET
 
@@ -200,7 +200,7 @@ In deze sectie maakt u een .NET-consoletoepassing die een apparaat simuleert dat
     Console.ReadLine();
     ```
 
-    Met de **Create**-methode in een .NET Framework-app maakt u standaard een **DeviceClient**-exemplaar dat het AMQP-protocol gebruikt om te communiceren met IoT Hub. Als u het MQTT- of HTTP-protocol wilt gebruiken, moet u de **Create**-methode overschrijven. Zo kunt u zelf het protocol bepalen. UWP- en PCL-clients gebruiken standaard het HTTP-protocol. Als u het HTTP-protocol gebruikt, dient u ook het NuGet-pakket **Microsoft.AspNet.WebApi.Client** toe te voegen om uw project op te nemen in de naamruimte **System.Net.Http.Formatting**.
+    Met de **Create**-methode in een .NET Framework-app maakt u standaard een **DeviceClient**-exemplaar dat het AMQP-protocol gebruikt om te communiceren met IoT Hub. Als u het MQTT- of HTTPS-protocol wilt gebruiken, moet u de **Create**-methode overschrijven. Zo kunt u zelf het protocol bepalen. UWP- en PCL-clients gebruiken standaard het HTTPS-protocol. Als u het HTTPS-protocol gebruikt, moet u ook het NuGet-pakket **Microsoft.AspNet.WebApi.Client** toevoegen om uw project op te nemen in de naamruimte **System.Net.Http.Formatting**.
 
 In deze handleiding doorloopt u de stappen voor het maken van een IoT Hub-apparaat-app. U kunt ook de Visual Studio-extensie [Connected Service for Azure IoT Hub][lnk-connected-service] gebruiken om de benodigde code toe te voegen aan de apparaat-app.
 

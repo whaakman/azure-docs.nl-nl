@@ -1,6 +1,6 @@
 ---
 title: Uw eerste API beheren in Azure API Management | Microsoft Docs
-description: Informatie over het maken van API&quot;s, het toevoegen van bewerkingen en het aan de slag gaan met API Management.
+description: Informatie over het maken van API's, het toevoegen van bewerkingen en het aan de slag gaan met API Management.
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 6376faa50613288a797e2c0683a0890fa21879e1
-
-
+ms.openlocfilehash: 6e76d1ee08f804637999ef2ebf5d25becf6a0408
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-first-api-in-azure-api-management"></a>Uw eerste API beheren in Azure API Management
 ## <a name="overview"> </a>Overzicht
@@ -71,7 +71,7 @@ Geef bij **Naam** een unieke subdomeinnaam op om te gebruiken voor de service-UR
 
 Kies het gewenste **abonnement**, de gewenste **resourcegroep** en de gewenste **locatie** voor uw service-exemplaar.
 
-Voer **Contoso Ltd.** in voor de **Organisatienaam** en voer uw e-mailadres in het veld **E-mail beheerder** in.
+Voer **Contoso Ltd.** in bij **Organisatienaam** en voer uw e-mailadres in het veld **E-mailadres van beheerder** in.
 
 > [!NOTE]
 > Dit e-mailadres wordt gebruikt voor meldingen van het API Management-systeem. Zie voor meer informatie [Meldingen en e-mailsjablonen configureren in Azure API Management][How to configure notifications and email templates in Azure API Management].
@@ -254,9 +254,3 @@ De sectie **Analytische gegevens** bevat de volgende vier tabbladen:
 [api-management-analytics-usage]: ./media/api-management-get-started/api-management-analytics-usage.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

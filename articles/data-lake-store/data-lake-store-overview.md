@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
-ms.contentlocale: nl-nl
-ms.lasthandoff: 12/07/2016
-
-
+ms.openlocfilehash: 956c7a4fb91c1b1a45e24128e92d6a6b1213eeb2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-azure-data-lake-store"></a>Overzicht van Azure Data Lake Store
 Azure Data Lake Store is een ondernemingsbrede opslagplaats op hyperschaal voor analytische workloads van big data. Met Azure Data Lake kunt u gegevens van elke grootte, type en opnamesnelheid vastleggen op één enkele locatie voor operationele en experimentele analyses.
@@ -62,9 +60,9 @@ Azure Data Lake Store maakt gebruik van Azure Active Directory voor verificatie 
 
 | Functie | Beschrijving |
 | --- | --- |
-| Authentication |Azure Data Lake Store integreert met Azure Active Directory (AAD) voor identiteits- en toegangsbeheer voor alle gegevens die zijn opgeslagen in Azure Data Lake Store. Als gevolg van de integratie profiteert Azure Data Lake van alle AAD-functies, zoals Multi-Factor Authentication, voorwaardelijke toegang, op rollen gebaseerd toegangsbeheer, bewaking van het gebruik van toepassingen, beveiligingsbewaking en waarschuwingen, enzovoort. Azure Data Lake Store ondersteunt het OAuth 2.0-protocol voor verificatie in de REST-interface. |
+| Authentication |Azure Data Lake Store integreert met Azure Active Directory (AAD) voor identiteits- en toegangsbeheer voor alle gegevens die zijn opgeslagen in Azure Data Lake Store. Als gevolg van de integratie profiteert Azure Data Lake van alle AAD-functies, zoals Multi-Factor Authentication, voorwaardelijke toegang, op rollen gebaseerd toegangsbeheer, bewaking van het gebruik van toepassingen, beveiligingsbewaking en waarschuwingen, enzovoort. Azure Data Lake Store ondersteunt het OAuth 2.0-protocol voor verificatie in de REST-interface. Zie [Data Lake Store-verificatie](data-lakes-store-authentication-using-azure-active-directory.md)|
 | Toegangsbeheer |Azure Data Lake Store biedt toegangsbeheer door ondersteuning te bieden voor POSIX-machtigingen die beschikbaar worden gemaakt door het protocol WebHDFS. In de openbare preview van de Data Lake Store (de huidige release) kunnen ACL's worden ingeschakeld voor de hoofdmap, submappen en afzonderlijke bestanden. Zie voor meer informatie over de werking van ACL's in de context van Data Lake Store [Toegangsbeheer in Data Lake Store](data-lake-store-access-control.md). |
-| Versleuteling |Data Lake Store biedt ook versleuteling voor gegevens die zijn opgeslagen in het account. U geeft de versleutelingsinstellingen op tijdens het maken van een Data Lake Store-account. U kunt ervoor kiezen de gegevens te versleutelen of niet te versleutelen. Zie voor meer informatie over het bieden van versleuteling-gerelateerde configuratie [Aan de slag met Azure Data Lake Store met Azure Portal](data-lake-store-get-started-portal.md). |
+| Versleuteling |Data Lake Store biedt ook versleuteling voor gegevens die zijn opgeslagen in het account. U geeft de versleutelingsinstellingen op tijdens het maken van een Data Lake Store-account. U kunt ervoor kiezen de gegevens te versleutelen of niet te versleutelen. Zie [Versleuteling in Data Lake Store](data-lake-store-encryption.md) voor meer informatie. Voor instructies voor het bieden van versleuteling-gerelateerde configuratie raadpleegt u [Aan de slag met Azure Data Lake Store met Azure Portal](data-lake-store-get-started-portal.md). |
 
 Wilt u meer informatie over het beveiligen van gegevens in Data Lake Store? Volg dan de onderstaande links.
 
@@ -103,5 +101,4 @@ Als u liever video's bekijkt voor meer informatie, biedt Data Lake Store video's
 * [Apache Sqoop gebruiken om gegevens te verplaatsen tussen relationele bronnen en Azure Data Lake Store](https://mix.office.com/watch/1butcdjxmu114)
 * [Organisatie van gegevens met behulp van Azure Data Factory voor Azure Data Lake Store](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Gegevens beveiligen in Azure Data Lake Store](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
 

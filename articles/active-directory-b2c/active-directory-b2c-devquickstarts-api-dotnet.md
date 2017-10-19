@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 48749bfa2ab54a0e766a4aad4f39073cc4e90818
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 78a165d831796bb6bb23e51f415383eb925115ee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: een .NET-web-API maken
 
@@ -40,7 +39,7 @@ Vervolgens maakt u een web-API-app in uw B2C-directory. Hiermee geeft u informat
 * U een **web-app** of **web-API** in de toepassing opneemt.
 * Gebruik de **Omleidings-URI** `https://localhost:44332/` voor de web-app. Dit is de standaardlocatie van de web-app-client voor dit codevoorbeeld.
 * U de **toepassings-id** kopieert die is toegewezen aan uw app. U hebt deze later nodig.
-* Voer een app-id **URI voor de app-id** in.
+* Voer een app-id **URI voor de app-id** in. Kopieer de volledige **URI voor de app-id**. U hebt deze later nodig.
 * Voeg machtigingen toe via het menu **Gepubliceerde scopes**.
 
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -83,6 +82,7 @@ Ons voorbeeld is geconfigureerd voor gebruik van het beleid en de client-id van 
     * `ida:SignUpSignInPolicyId` door de naam van uw 'Aanmelden/registreren'-beleid
     * `ida:EditProfilePolicyId` door de naam van uw 'Profiel bewerken'-beleid
     * `ida:ResetPasswordPolicyId` door de naam van uw 'Wachtwoord opnieuw instellen'-beleid
+    * `api:ApiIdentifier` door de URI voor de app-id
 
 
 ## <a name="secure-the-api"></a>De API beveiligen
@@ -212,4 +212,3 @@ Bouw ten slotte `TaskWebApp` en `TaskService` en voer deze uit. Maak een paar ta
 ## <a name="edit-your-policies"></a>Het beleid bewerken
 
 Nadat u een API hebt beveiligd met behulp van Azure AD B2C, kunt u experimenteren met het beleid 'Registreren/aanmelden' voor de app en de effecten hiervan (of het gebrek daaraan) op de API bekijken. U kunt de toepassingsclaims in het beleid bewerken en de beschikbare gebruikersgegevens in de web-API wijzigen. Claims die u toevoegt, zijn beschikbaar in uw .NET MVC-web-API in het `ClaimsPrincipal`-object, zoals eerder in dit artikel is beschreven.
-

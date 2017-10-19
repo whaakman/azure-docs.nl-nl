@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
 ms.openlocfilehash: d00c6e0acf437d2bfc3c27e948f4646a6685b08f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Toegang tot Azure Key Vault achter een firewall
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>V: Mijn key vault-clienttoepassing moet zich achter een firewall bevinden. Welke poorten, hosts of IP-adressen moet ik openen om toegang tot een key vault mogelijk te maken?
@@ -38,9 +38,9 @@ Key vault-clienttoepassingen moet toegang hebben tot Azure Active Directory-eind
 
 | Type principal | Eindpunt:poort |
 | --- | --- |
-| Gebruiker gebruikt Microsoft-account<br> (bijvoorbeeld user@hotmail.com) |**Wereldwijd:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure van de Amerikaanse overheid:**<br> login-us.microsoftonline.com:443<br><br>**Azure Duitsland:**<br> login.microsoftonline.de:443<br><br> en <br>login.live.com:443 |
-| Gebruiker of service-principal met een werk- of schoolaccount met Azure AD (bijvoorbeeld user@contoso.com) |**Wereldwijd:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure van de Amerikaanse overheid:**<br> login-us.microsoftonline.com:443<br><br>**Azure Duitsland:**<br> login.microsoftonline.de:443 |
-| Gebruiker of service-principal maken met werk of schoolaccount, plus Active Directory Federation Services (AD FS) of andere federatieve eindpunt (bijvoorbeeld user@contoso.com) |Alle eindpunten voor een werk- of schoolaccount, plus AD FS- of andere federatieve eindpunten |
+| Gebruiker gebruikt Microsoft-account<br> (bijvoorbeeld, user@hotmail.com) |**Wereldwijd:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure van de Amerikaanse overheid:**<br> login-us.microsoftonline.com:443<br><br>**Azure Duitsland:**<br> login.microsoftonline.de:443<br><br> en <br>login.live.com:443 |
+| Gebruiker of service-principal gebruikt een werk- of schoolaccount met Microsoft Azure Active Directory (bijvoorbeeld user@contoso.com) |**Wereldwijd:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure van de Amerikaanse overheid:**<br> login-us.microsoftonline.com:443<br><br>**Azure Duitsland:**<br> login.microsoftonline.de:443 |
+| Gebruiker of service-principal gebruikt een werk- of schoolaccount, plus Active Directory Federation Services (AD FS) of andere federatief eindpunt (bijvoorbeeld user@contoso.com) |Alle eindpunten voor een werk- of schoolaccount, plus AD FS- of andere federatieve eindpunten |
 
 Er zijn andere, mogelijk complexe scenario's. Raadpleeg [Azure Active Directory-verificatiestroom](/documentation/articles/active-directory-authentication-scenarios/), [Toepassingen integreren met Azure Active Directory](/documentation/articles/active-directory-integrating-applications/) en [Active Directory-verificatieprotocollen](https://msdn.microsoft.com/library/azure/dn151124.aspx) voor meer informatie.  
 

@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 90833fa9744eac298b0da82cd3d12f27cc237510
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: ba0030ca25adf13a3a831facec2ded9cff0bd882
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-6-create-measures"></a>Les 6: Metingen maken
 
@@ -53,7 +52,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
     DaysCurrentQuarterToDate:=COUNTROWS( DATESQTD( 'DimDate'[Date])) 
     ```
   
-    U ziet dat in de cel linksboven nu de naam van een meting staat, **DaysCurrentQuarterToDate**, gevolgd door het resultaat, **92**.
+    U ziet dat in de cel linksboven nu de naam van een meting staat, **DaysCurrentQuarterToDate**, gevolgd door het resultaat, **92**. Het resultaat is op dit moment niet relevant omdat er geen gebruikersfilter is toegepast.
     
       ![aas-lesson6-newmeasure](../tutorials/media/aas-lesson6-newmeasure.png) 
     
@@ -102,7 +101,7 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
     |TaxAmt|InternetTotalTaxAmt|Sum|=SUM([TaxAmt])|  
     |Freight|InternetTotalFreight|Sum|=SUM([Freight])|  
   
-2.  Maak in deze volgorde de volgende metingen door op een lege cel in het raster te klikken en de formules in te voeren op de formulebalk:  
+2.  Maak in deze volgorde de volgende metingen door op een lege cel in het metingenraster te klikken en de formules in te voeren op de formulebalk:  
   
       ```
       InternetPreviousQuarterMargin:=CALCULATE([InternetTotalMargin],PREVIOUSQUARTER('DimDate'[Date]))
@@ -134,4 +133,3 @@ Metingen die zijn gemaakt voor de tabel FactInternetSales kunnen worden gebruikt
 [Les 7: Key Performance Indicators maken](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
 
   
-

@@ -12,21 +12,17 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/30/2017
+ms.date: 10/10/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 9401ada519f600b0d2817f06a396e16607a24129
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/01/2017
-
-
+ms.openlocfilehash: 3646d14be662af0fdf80790cb53ddc581b33a146
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-service-bus-topics"></a>Aan de slag met Service Bus-onderwerpen
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
-
-## <a name="what-will-be-accomplished"></a>Wat wordt bereikt
 
 Deze zelfstudie bestaat uit de volgende stappen:
 
@@ -67,7 +63,7 @@ Als u al een Service Bus Messaging-naamruimte hebt gemaakt, gaat u naar het gede
 ## <a name="3-create-a-subscription-to-the-topic"></a>3. Een abonnement op het onderwerp maken
 
 1. In het resourcesdeelvenster van de portal klik u op de naamruimte die u in stap 1 hebt gemaakt en klikt u op de naam van het onderwerp dat u in stap 2 hebt gemaakt.
-2. Klik aan de bovenkant van het overzichtsvenster op het plusteken (+) naast **Abonnement** om een abonnement toe te voegen aan dit onderwerp.
+2. Klik bovenaan het overzichtsvenster op het plusteken (+) naast **Abonnement** om een abonnement toe te voegen aan dit onderwerp.
 
     ![Abonnement maken][createtopic4]
 
@@ -84,7 +80,7 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Framework)**.
 ### <a name="add-the-service-bus-nuget-package"></a>Het Service Bus NuGet-pakket toevoegen
 
 1. Klik met de rechtermuisknop op het nieuwe project en selecteer **NuGet-pakketten beheren**.
-2. Klik op het tabblad **Bladeren**, zoek naar **Microsoft Azure Service Bus** en selecteer het item **WindowsAzure.ServiceBus**. Klik op **Installeren** om de installatie te voltooien en sluit vervolgens dit dialoogvenster.
+2. Ga naar het tabblad **Bladeren**, zoek naar **WindowsAzure.ServiceBus** en selecteer het item **WindowsAzure.ServiceBus**. Klik op **Installeren** om de installatie te voltooien en sluit vervolgens dit dialoogvenster.
    
     ![Een NuGet-pakket selecteren][nuget-pkg]
 
@@ -158,7 +154,7 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Framework)**.
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-3. Voeg de volgende code toe aan de methode `Main`. Stel de variabele `connectionString` in als de verbindingstekenreeks die is verkregen tijdens het maken van de naamruimte en stel `topicName` in als de naam die u hebt gebruikt bij het maken van het onderwerp.
+3. Voeg de volgende code toe aan de methode `Main`. Stel de variabele `connectionString` in als de verbindingstekenreeks die is verkregen tijdens het maken van de naamruimte en stel `topicName` in als de naam die u hebt gebruikt bij het maken van het onderwerp. Vervang `<your subscription name>` door de naam van het abonnement dat u in stap 3 hebt gemaakt. 
    
     ```csharp
     var connectionString = "<your connection string>";
@@ -226,4 +222,3 @@ Bekijk onze [GitHub-opslagplaats met voorbeelden](https://github.com/Azure/azure
 [createtopic4]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic4.png
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 [azure-portal]: https://portal.azure.com
-

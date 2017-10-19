@@ -1,6 +1,6 @@
 ---
-title: 'Azure-procedure: Andere HSM (Hardware Security Module) gebruiken met de SDK van de Device Provisioning-serviceclient | Microsoft Docs'
-description: 'Azure-procedure: Andere HSM (Hardware Security Module) gebruiken met fysieke apparaten en simulatoren met Provisioning Service Client SDK'
+title: 'Azure-procedure: Andere Hardware Security Modules gebruiken met de SDK van de Device Provisioning Service-client in Azure| Microsoft Docs'
+description: 'Azure-procedure: Andere Hardware Security Modules gebruiken met de SDK van de Device Provisioning Service-client in Azure'
 services: iot-dps
 keywords: 
 author: yzhong94
@@ -12,14 +12,12 @@ documentationcenter:
 manager: 
 ms.devlang: na
 ms.custom: mvc
+ms.openlocfilehash: 620d86b62cf43c3e1a5f7f5c724fcf00174f30e8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: a5649ab873993d20803cb01a4b0ecc278c3ce16c
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-different-hardware-security-modules-with-device-provisioning-service-client-sdk"></a>Andere Hardware Security Modules gebruiken met Provisioning Service Client SDK
 Deze stappen laten zien hoe u een andere [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) met Provisioning Service Client SDK in C gebruikt met behulp van fysiek apparaat en simulator.  De inrichtingsservice ondersteunt twee verificatiemodi: X**.** 509 en TPM (Trusted Platform Module).
 
@@ -150,4 +148,3 @@ Zodra het apparaat is ingericht met de inrichtingsservice, gebruikt deze API de 
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```
-

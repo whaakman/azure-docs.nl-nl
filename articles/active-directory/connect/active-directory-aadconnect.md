@@ -1,6 +1,6 @@
 ---
 title: Active Directory verbinden met Azure Active Directory. | Microsoft Docs
-description: "Azure AD Connect integreert uw on-premises adreslijsten met Azure Active Directory. Hiermee kunt u een algemene identiteit bieden voor Office 365-, Azure- en SaaS-toepassingen die zijn geïntegreerd met Azure AD."
+description: "Azure AD Connect integreert uw on-premises adreslijsten met Azure Active Directory. Hiermee kunt u een algemene identiteit bieden voor Office 365, Azure en SaaS toepassingen die zijn geïntegreerd met Azure AD."
 keywords: inleiding tot Azure AD Connect, overzicht Azure AD Connect, wat is Azure AD Connect, Active Directory installeren
 services: active-directory
 documentationcenter: 
@@ -13,17 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/13/2017
+ms.date: 10/02/2017
 ms.author: billmath
+ms.openlocfilehash: c7aca7b67f4773cf7d19f84253487ed060e0db73
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 97f89cd6cf37d92ac50f149336e1d1143de991ec
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Uw on-premises directory's integreren met Azure Active Directory
-Azure AD Connect integreert uw on-premises directory's met Azure Active Directory. Hiermee kunt u uw gebruikers een algemene identiteit bieden voor Office 365, Azure en SaaS toepassingen die zijn geïntegreerd met Azure AD. In dit onderwerp worden de planning, implementatie en bewerking besproken. Het is een verzameling van koppelingen naar de onderwerpen die betrekking hebben op dit gebied.
+Azure AD Connect integreert uw on-premises directory's met Azure Active Directory. Hiermee kunt u uw gebruikers een algemene identiteit bieden voor Office 365, Azure en SaaS toepassingen die zijn geïntegreerd met Azure AD. In dit onderwerp wordt de planning, implementatie en bewerking besproken. Het is een verzameling van koppelingen naar de onderwerpen die betrekking hebben op dit gebied.
 
 > [!IMPORTANT]
 > [Azure AD Connect is de beste manier om uw on-premises adreslijst te verbinden met Azure AD en Office 365. Dit is het perfecte moment om te upgraden van Windows Azure Active Directory-synchronisatie (DirSync) of Azure AD Sync naar Azure AD Connect omdat deze hulpprogramma's zijn afgeschaft en vanaf 13 april 2017 niet meer worden ondersteund.](active-directory-aadconnect-dirsync-deprecated.md)
@@ -33,7 +32,7 @@ Azure AD Connect integreert uw on-premises directory's met Azure Active Director
 ![Wat is Azure AD Connect?](media/active-directory-aadconnect/arch.png)
 
 ## <a name="why-use-azure-ad-connect"></a>Waarom Azure AD Connect gebruiken?
-Wanneer u uw on-premises adreslijsten integreert met Azure AD, worden uw gebruikers productiever omdat zij één identiteit hebben voor toegang tot zowel resources in de cloud als on-premises. Gebruikers en organisaties kunnen profiteren van het volgende:
+Wanneer u uw on-premises directory's integreert met Azure AD, worden uw gebruikers productiever omdat zij één identiteit hebben voor toegang tot zowel resources in de cloud als on-premises. Gebruikers en organisaties kunnen profiteren van het volgende:
 
 * Gebruikers kunnen één identiteit gebruiken voor toegang tot on-premises toepassingen en cloudservices zoals Office 365.
 * Eén hulpprogramma voor gemakkelijke implementatie voor synchronisatie en aanmelden.
@@ -45,16 +44,16 @@ Azure Active Directory Connect bestaat uit drie primaire onderdelen: de synchron
 <center>![Azure AD Connect Stack](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png)
 </center>
 
-* Synchronisatie : met dit onderdeel worden gebruikers, groepen en andere objecten aangemaakt. Het onderdeel kan ook worden gebruikt om te controleren of de identiteitsgegevens voor uw on-premises gebruikers en groepen overeenkomen met de gegevens in de cloud.
-* AD FS - federatie is een optioneel onderdeel van Azure AD Connect en kan worden gebruikt om een hybride omgeving te configureren met een lokale AD FS-infrastructuur. Organisaties kunnen zo complexe implementaties uitvoeren, zoals SSO voor domeinlidmaatschap, afdwingen van een AD-aanmeldingsbeleid en MFA via smartcards of een externe provider.
-* Statusbewaking - Azure AD Connect Health kan goede bewaking en een centrale locatie in Azure Portal bieden om deze activiteit weer te geven. Zie voor meer informatie [Azure Active Directory Connect Health](../connect-health/active-directory-aadconnect-health.md).
+* Synchronisatie : met dit onderdeel worden gebruikers, groepen en andere objecten aangemaakt. Het kan ook gebruikt worden om te controleren of de identiteitsinformatie van uw on-premises gebruikers en groepen overeenkomt met de cloud.
+* AD FS - federatie is een optioneel onderdeel van Azure AD Connect en kan worden gebruikt om een hybride omgeving te configureren met een lokale AD FS-infrastructuur. Dit kan worden gebruikt door organisaties om complexe implementaties aan te pakken, zoals domeindeelname SSO, afdwinging van AD-aanmeldingsbeleid en smartcard of externe MFA.
+* Statusbewaking - Azure AD Connect Health kan goede bewaking en een centrale locatie in de Azure-portal bieden om deze activiteit weer te geven. Zie voor meer informatie [Azure Active Directory Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 ## <a name="install-azure-ad-connect"></a>Azure AD Connect installeren
-U vindt de download voor Azure AD Connect in het [Microsoft Downloadcentrum](http://go.microsoft.com/fwlink/?LinkId=615771).
+U vindt de download voor Azure AD Connect op [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 | Oplossing | Scenario |
 | --- | --- |
-| Voordat u begint - [hardware- en vereisten](active-directory-aadconnect-prerequisites.md) |<li>Stappen die moeten worden voltooid voordat u Azure AD Connect installeert.</li> |
+| Voordat u begint - [hardware- en vereisten](active-directory-aadconnect-prerequisites.md) |<li>Stappen die voltooid moeten worden voordat u Azure AD Connect installeert.</li> |
 | [Snelle instellingen](active-directory-aadconnect-get-started-express.md) |<li>Als u één AD-forest hebt, dan is dit de aanbevolen optie.</li> <li>Aanmelden gebruiker met hetzelfde wachtwoord tijdens wachtwoordsynchronisatie.</li> |
 | [Aangepaste instellingen](active-directory-aadconnect-get-started-custom.md) |<li>Wordt gebruikt wanneer u meerdere forests hebt. Ondersteunt vele on-premises [topologieën](active-directory-aadconnect-topologies.md).</li> <li>Pas uw aanmeldingsoptie aan zoals ADFS voor federatie of gebruik een externe identiteitsprovider.</li> <li>Synchronisatiefuncties, zoals filteren en terugschrijven, aanpassen.</li> |
 | [Upgraden van DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>Wordt gebruikt wanneer u een bestaande DirSync-server hebt die al actief is.</li> |
@@ -71,7 +70,7 @@ U vindt de download voor Azure AD Connect in het [Microsoft Downloadcentrum](htt
 |Upgraden van DirSync | [Upgraden van Azure AD-synchronisatiehulpprogramma (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
 |Na installatie | [De installatie controleren en licenties toewijzen](active-directory-aadconnect-whats-next.md)|
 
-### <a name="learn-more-about-install-azure-ad-connect"></a>Meer informatie over het installeren van Azure AD Connect
+### <a name="learn-more-about-install-azure-ad-connect"></a>Meer informatie over Azure AD Connect installeren
 U wilt u ook voorbereiden op [operationele](active-directory-aadconnectsync-operations.md) problemen. U wilt mogelijk een stand-by-server hebben, waar u eenvoudig op terug kunt vallen in geval van een [noodgeval](active-directory-aadconnectsync-operations.md#disaster-recovery). Als u van plan bent frequente configuratiewijzigingen aan te brengen, moet u een [faseringsmodus](active-directory-aadconnectsync-operations.md#staging-mode)-server gebruiken.
 
 |Onderwerp |Koppeling|  
@@ -82,22 +81,22 @@ U wilt u ook voorbereiden op [operationele](active-directory-aadconnectsync-oper
 |Operationele planning | [Azure AD Connect-synchronisatie: operationele taken en overwegingen](active-directory-aadconnectsync-operations.md)|
 |Opties aanmelden gebruiker | [Opties van Azure AD Connect voor het aanmelden van gebruikers](active-directory-aadconnect-user-signin.md)|
 
-## <a name="configure-sync-features"></a>Synchronisatiefuncties configureren
+## <a name="configure-sync-features"></a>Synchronisatie-functies configureren
 Azure AD Connect wordt geleverd met verschillende functies die u in of uit kunt schakelen of die standaard zijn ingesteld. Sommige functies vereisen mogelijk meer configuratie in bepaalde scenario's en topologieën.
 
 [Filteren](active-directory-aadconnectsync-configure-filtering.md) wordt gebruikt wanneer u wilt beperken welke objecten worden gesynchroniseerd naar Azure AD. Alle gebruikers, contactpersonen, groepen en Windows 10-computers worden standaard gesynchroniseerd. U kunt de filtering wijzigen op basis van domeinen, OE’s of kenmerken.
 
-[Wachtwoordsynchronisatie](active-directory-aadconnectsync-implement-password-synchronization.md) synchroniseert de wachtwoordhash in Active Directory naar Azure AD. De eindgebruiker kan hetzelfde wachtwoord zowel on-premises als in de cloud gebruiken. Beheer is maar op slechts één locatie mogelijk. Aangezien uw on-premises Active Directory als de certificeringsinstantie wordt gebruikt voor het wachtwoord, kunt u ook uw eigen wachtwoordbeleid gebruiken.
+[Wachtwoordsynchronisatie](active-directory-aadconnectsync-implement-password-synchronization.md) synchroniseert de wachtwoordhash in Active Directory naar Azure AD. De eindgebruiker kan hetzelfde wachtwoord zowel on-premises als in de cloud gebruiken, maar deze slechts op één locatie beheren. Aangezien het wachtwoord gebruikmaakt van uw on-premises Active Directory als de instantie, kunt u ook uw eigen wachtwoordbeleid gebruiken.
 
 Met [Wachtwoord terugschrijven](../active-directory-passwords-getting-started.md) kunnen uw gebruikers hun wachtwoorden wijzigen en resetten in de cloud en uw lokale wachtwoordbeleid toepassen.
 
 Met [Apparaat terugschrijven](active-directory-aadconnect-feature-device-writeback.md) kan een apparaat dat is geregistreerd in Azure AD worden teruggeschreven naar on-premises Active Directory zodat deze kan worden gebruikt voor voorwaardelijke toegang.
 
-De functie [Onopzettelijk verwijderen voorkomen](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) is standaard ingeschakeld en beschermt uw cloudgebaseerde adreslijsten tegen meerdere verwijderingen op hetzelfde moment. Er kunnen standaard 500 verwijderingen per keer gedaan worden. U kunt deze instelling wijzigen, afhankelijk van de grootte van uw organisatie.
+De functie [Onopzettelijk verwijderen voorkomen](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) is standaard ingeschakeld en beschermt uw clouddirectory tegen meerdere verwijderingen op hetzelfde moment. Er kunnen standaard 500 verwijderingen per keer gedaan worden. U kunt deze instelling wijzigen, afhankelijk van de grootte van uw organisatie.
 
-[Automatische upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) is standaard ingeschakeld voor installaties met snelle instellingen en zorgt ervoor dat u altijd beschikt over de nieuwste versie van Azure AD Connect.
+[Automatische upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) is standaard ingeschakeld voor installaties van snelle instellingen en zorgt ervoor dat uw Azure AD Connect altijd actueel is met de meest recente versie.
 
-### <a name="next-steps-to-configure-sync-features"></a>De volgende stappen om synchronisatiefuncties te configureren
+### <a name="next-steps-to-configure-sync-features"></a>De volgende stappen om synchronisatie-functies te configureren
 |Onderwerp |Koppeling|  
 | --- | --- |
 |Filtering configureren | [Azure AD Connect-synchronisatie: filtering configureren](active-directory-aadconnectsync-configure-filtering.md)|
@@ -127,6 +126,15 @@ Het gesynchroniseerde configuratiemodel heet [declaratieve inrichting](active-di
 |De standaardconfiguratie wijzigen | [Aanbevolen procedures voor het wijzigen van de standaardconfiguratie](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)|
 
 ## <a name="configure-federation-features"></a>Federatiekenmerken configureren
+
+Azure AD Connect biedt verschillende functies die een federatie met Azure AD met behulp van AD FS en het beheren van een federatieve vertrouwensrelatie vereenvoudigen. Azure AD Connect ondersteunt AD FS in Windows Server 2012 R2 of later.
+
+[Werk het SSL-certificaat van AD FS-farm bij](active-directory-aadconnectfed-ssl-update.md) zelfs als u Azure AD Connect niet gebruikt om de federatieve vertrouwensrelatie te beheren.
+
+[Voeg een AD FS-server](active-directory-aadconnect-federation-management.md#addadfsserver) aan de farm toe om deze uit te breiden zoals vereist.
+
+[Herstel de vertrouwensrelatie](active-directory-aadconnect-federation-management.md#repairthetrust) met Azure AD door een paar keer te klikken.
+
 ADFS kan worden geconfigureerd om [meerdere domeinen](active-directory-aadconnect-multiple-domains.md) te ondersteunen. Zo zijn er mogelijk meerdere populaire domeinen die u wilt gebruiken voor federatie.
 
 Als uw ADFS-server niet is geconfigureerd voor het automatisch bijwerken van certificaten van Azure AD of als u een niet-ADFS-oplossing gebruikt, krijgt u een melding wanneer u [certificaten moet bijwerken](active-directory-aadconnect-o365-certs.md).
@@ -152,10 +160,9 @@ Als uw ADFS-server niet is geconfigureerd voor het automatisch bijwerken van cer
 
 **Aanvullende resources**
 
-Ignite 2015-presentatie over het uitbreiden van uw on-premises adreslijsten in de cloud.
+Ignite 2015-presentatie over het uitbreiden van uw on-premises directory’s in de cloud.
 
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player]
 > 
 > 
-
 

@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2017
+ms.date: 10/02/2017
 ms.author: billmath
+ms.openlocfilehash: a4b3c7543efc33d07dbd4f6c01b6e1bc354d1ed2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: a3a4a90221821de690f72260b2adca07680d30a9
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Custom installation of Azure AD Connect (Engelstalig)
 Voor meer opties voor de installatie gaat u naar **Aangepaste instellingen**. Deze instellingen gebruikt u wanneer u meerdere forests hebt of als u optionele functies wilt configureren die niet in de snelle installatie voorkomen. De aangepaste instellingen worden gebruikt in alle gevallen waarin de optie [**snelle installatie**](active-directory-aadconnect-get-started-express.md) niet aan uw implementatie of topologie voldoet.
@@ -71,7 +70,7 @@ Voor het account van de globale beheerder kan ook [Privileged Identity Managemen
 
 Zie [Connectiviteitsproblemen oplossen](active-directory-aadconnect-troubleshoot-connectivity.md) als u een foutbericht krijgt en u problemen hebt met de connectiviteit.
 
-## <a name="pages-under-the-section-sync"></a>Pagina's in de sectie Synchronisatie
+## <a name="pages-under-the-sync-section"></a>Pagina's in de sectie Synchronisatie
 
 ### <a name="connect-your-directories"></a>Verbinding maken met uw directory’s
 Azure AD Connect heeft de forestnaam en de referenties van een account met de juiste machtigingen nodig om verbinding met uw Active Directory-domeinservice te maken.
@@ -232,9 +231,12 @@ Op een computer met de hulpprogramma's voor Groepsbeleidsbeheer.
 ## <a name="configuring-federation-with-ad-fs"></a>Federatie configureren met AD FS
 AD FS is heel eenvoudig met een paar muisklikken met Azure AD Connect te configureren. Voorafgaand aan de configuratie is het volgende vereist.
 
-* Een Windows Server 2012 R2-server als de federatieserver met extern beheer ingeschakeld
-* Een Windows Server 2012 R2-server als de webtoepassingsproxyserver met extern beheer ingeschakeld
+* Een Windows Server 2012 R2-server of later als de federatieserver, waarop extern beheer is ingeschakeld
+* Een Windows Server 2012 R2-server of later als de webtoepassingsproxyserver, waarop extern beheer is ingeschakeld
 * Een SSL-certificaat voor de Federation Service-naam die u wilt gebruiken (bijvoorbeeld sts.contoso.com)
+
+>[!NOTE]
+>U kunt het SSL-certificaat van de AD FS-farm bijwerken met behulp van Azure AD Connect, zelfs als u Azure AD Connect niet gebruikt om de federatieve vertrouwensrelatie te beheren.
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>Vereisten voor de AD FS-configuratie
 Zorg dat WinRM is ingeschakeld op de externe servers om uw AD FS-farm met behulp van Azure AD Connect te configureren. Neem daarnaast de vereisten voor poorten door die vermeld staan in [Tabel 3 - Azure AD Connect en federatieve servers/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
@@ -245,6 +247,9 @@ U kunt een bestaande AD FS-farm gebruiken of u kunt ervoor kiezen een nieuwe AD 
 ![AD FS-Farm](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
 
 Als u een bestaande AD FS-farm gebruikt, wordt u meteen doorgestuurd naar het scherm De vertrouwensrelatie tussen AD FS en Azure AD configureren.
+
+>[!NOTE]
+>Azure AD Connect kan worden gebruikt om slechts één AD FS-farm te beheren. Als op de geselecteerde AD FS-farm al een federatieve vertrouwensrelatie is geconfigureerd, wordt deze relatie helemaal opnieuw gemaakt met Azure AD Connect.
 
 ### <a name="specify-the-ad-fs-servers"></a>Geef de AD FS-servers op
 Voer de servers in waarop u AD FS wilt installeren. U kunt naar gelang de behoeften van uw capaciteitsplanning een of meer servers toevoegen. Koppel alle servers aan Active Directory voordat u deze configuratie uitvoert. Het wordt door Microsoft aangeraden om voor proefimplementaties één AD FS-server te installeren. Voeg vervolgens meer servers toe en implementeer deze om aan uw schaalbehoeften te voldoen door Azure AD Connect na de eerste configuratie opnieuw uit te voeren.
@@ -350,4 +355,3 @@ Meer informatie over deze functies, die tijdens de installatie zijn ingeschakeld
 Meer informatie over deze algemene onderwerpen: [scheduler and how to trigger sync](active-directory-aadconnectsync-feature-scheduler.md).
 
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory ](active-directory-aadconnect.md).
-

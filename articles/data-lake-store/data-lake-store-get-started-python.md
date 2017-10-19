@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure Data Lake Store met de Python-SDK | Microsoft Docs
-description: Leer hoe u de Python-SDK gebruikt met Data Lake Store-accounts en het bestandssysteem.
+title: 'Python: Accountbeheerbewerkingen in Azure Data Lake Store | Microsoft Docs'
+description: Leer hoe u Python SDK gebruikt met Data Lake Store-accountbeheerbewerkingen.
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,48 +12,37 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 09/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 375a603360ac249fc1b08923a94c85652390a3fc
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/01/2017
-
-
+ms.openlocfilehash: 601d756e0d6554d8a4db9cc83f6919fc36d1e844
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="get-started-with-azure-data-lake-store-using-python"></a>Aan de slag met Azure Data Lake Store met Python
-
+# <a name="account-management-operations-on-azure-data-lake-store-using-python"></a>Accountbeheerbewerkingen - Aan de slag met Azure Data Lake Store met Python
 > [!div class="op_single_selector"]
-> * [Portal](data-lake-store-get-started-portal.md)
-> * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [.NET-SDK](data-lake-store-get-started-net-sdk.md)
-> * [Java-SDK](data-lake-store-get-started-java-sdk.md)
+> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
-> * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
 
-Lees hoe u met de Python-SDK voor Azure en Azure Data Lake Store basisbewerkingen uitvoert, zoals het maken van mappen, het uploaden en downloaden van gegevensbestanden enz. Zie [Azure Data Lake Store](data-lake-store-overview.md) voor meer informatie over Data Lake.
+Informatie over het gebruik van Python SDK voor Azure Data Lake Store voor het uitvoeren van basisaccountbeheerbewerkingen, zoals het maken van een Data Lake Store-account, het weergeven van een Data Lake Store-account enzovoort. Als u wilt weten hoe u Python gebruikt voor het uitvoeren van bestandssysteembewerkingen in Data Lake Store, raadpleegt u [Bestandssysteembewerkingen - Aan de slag met Azure Data Lake Store met Python](data-lake-store-data-operations-python.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Python**. U kunt Python [hier](https://www.python.org/downloads/) downloaden. In dit artikel wordt Python 3.5.2 gebruikt.
+* **Python**. U kunt Python [hier](https://www.python.org/downloads/) downloaden. In dit artikel wordt Python 3.6.2 gebruikt.
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
-
-* **Een Azure Active Directory-toepassing maken**. U gebruikt de Azure AD-toepassing om de Data Lake Store-toepassing te verifiëren in Azure AD. Er zijn verschillende manieren om te verifiëren in Azure AD, zoals **verificatie door eindgebruikers** en **service-naar-serviceverificatie**. Zie [Verificatie door eindgebruikers](data-lake-store-end-user-authenticate-using-active-directory.md) of [Service-to-serviceverificatie](data-lake-store-authenticate-using-active-directory.md) voor instructies en meer informatie over verificatie.
 
 ## <a name="install-the-modules"></a>De modules installeren
 
 U moet drie modules installeren voordat u Data Lake Store kunt gebruiken met Python.
 
-* De module `azure-mgmt-resource`. Deze bevat Azure-modules voor Active Directory enz.
-* De module `azure-mgmt-datalake-store`. Deze bevat de accountbeheerbewerkingen voor Azure Data Lake Store. Zie [Naslaginformatie over Azure Data Lake Store-beheermodule](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html) voor meer informatie over deze module.
-* De module `azure-datalake-store`. Deze bevat de bestandssysteembewerkingen voor Azure Data Lake Store. Zie [Naslaginformatie over Azure Data Lake Store-bestandssysteemmodule](http://azure-datalake-store.readthedocs.io/en/latest/) voor meer informatie over deze module.
+* Module `azure-mgmt-resource`, die Azure-modules bevat voor Active Directory enzovoort.
+* Module `azure-mgmt-datalake-store`, die de accountbeheerbewerkingen voor Azure Data Lake Store bevat. Zie [Naslaginformatie over Azure Data Lake Store-beheermodule](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html) voor meer informatie over deze module.
+* Module `azure-datalake-store`, die de bestandssysteembewerkingen voor Azure Data Lake Store bevat. Zie [Naslaginformatie over Azure Data Lake Store-bestandssysteemmodule](http://azure-datalake-store.readthedocs.io/en/latest/) voor meer informatie over deze module.
 
 Gebruik de volgende opdrachten om de modules te installeren.
 
@@ -67,7 +56,7 @@ pip install azure-datalake-store
 
 1. Gebruik de gewenste IDE om een nieuwe Python-toepassing te maken, bijvoorbeeld **mysample.py**.
 
-2. Voeg de volgende regels toe om de vereiste modules te importeren.
+2. Voeg het volgende codefragment toe om de vereiste modules te importeren
 
     ```
     ## Use this only for Azure AD service-to-service authentication
@@ -100,66 +89,8 @@ pip install azure-datalake-store
 
 In deze sectie bespreken we de verschillende manieren om te verifiëren met Azure AD. De beschikbare opties zijn:
 
-* Verificatie van de eindgebruiker
-* Verificatie van service-tot-service
-* Multi-Factor Authentication
-
-U moet deze verificatieopties gebruiken voor zowel accountbeheer- als bestandssysteembeheermodules.
-
-### <a name="end-user-authentication-for-account-management"></a>Verificatie van de eindgebruiker voor accountbeheer
-
-Hiermee kunt u accountbeheerbewerkingen verifiëren met Azure AD (Data Lake Store-account maken/verwijderen enz.). U moet een gebruikersnaam en wachtwoord voor een Azure AD-gebruiker opgeven. De gebruiker mag niet zijn geconfigureerd voor meervoudige verificatie.
-
-    user = input('Enter the user to authenticate with that has permission to subscription: ')
-    password = getpass.getpass()
-
-    credentials = UserPassCredentials(user, password)
-
-### <a name="end-user-authentication-for-filesystem-operations"></a>Verificatie van de eindgebruiker voor bestandssysteembewerkingen
-
-Hiermee kunt u met Azure AD bestandssysteembewerkingen (map maken, bestand uploaden enz.) verifiëren. Gebruik dit met een bestaande **native clienttoepassing** van Azure AD. De Azure AD-gebruiker voor wie u referenties verstrekt, mag niet zijn geconfigureerd voor meervoudige verificatie.
-
-    tenant_id = 'FILL-IN-HERE'
-    client_id = 'FILL-IN-HERE'
-    user = input('Enter the user to authenticate with that has permission to subscription: ')
-    password = getpass.getpass()
-
-    token = lib.auth(tenant_id, user, password, client_id)
-
-### <a name="service-to-service-authentication-with-client-secret-for-account-management"></a>Service-naar-serviceverificatie met clientgeheim voor accountbeheer
-
-Hiermee kunt u accountbeheerbewerkingen verifiëren met Azure AD (Data Lake Store-account maken/verwijderen enz.). U kunt het volgende codefragment gebruiken voor het niet-interactief verifiëren van uw toepassing, door gebruik te maken van het clientgeheim voor een toepassing/service-principal. Gebruik dit met een bestaande Azure AD-toepassing voor webtoepassingen.
-
-    credentials = ServicePrincipalCredentials(client_id = 'FILL-IN-HERE', secret = 'FILL-IN-HERE', tenant = 'FILL-IN-HERE')
-
-### <a name="service-to-service-authentication-with-client-secret-for-filesystem-operations"></a>Service-naar-serviceverificatie met clientgeheim voor bestandssysteembewerkingen
-
-Hiermee kunt u met Azure AD bestandssysteembewerkingen (map maken, bestand uploaden enz.) verifiëren. U kunt het volgende codefragment gebruiken voor het niet-interactief verifiëren van uw toepassing, door gebruik te maken van het clientgeheim voor een toepassing/service-principal. Gebruik dit met een bestaande Azure AD-toepassing voor webtoepassingen.
-
-    token = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE')
-
-### <a name="multi-factor-authentication-for-account-management"></a>Multi-Factor Authentication voor accountbeheer
-
-Hiermee kunt u accountbeheerbewerkingen verifiëren met Azure AD (Data Lake Store-account maken/verwijderen enz.). Het volgende fragment kan worden gebruikt om een toepassing te verifiëren met Multi-Factor Authentication. Gebruik dit met een bestaande Azure AD-toepassing voor webtoepassingen.
-
-    authority_host_url = "https://login.microsoftonline.com"
-    tenant = "FILL-IN-HERE"
-    authority_url = authority_host_url + '/' + tenant
-    client_id = 'FILL-IN-HERE'
-    redirect = 'urn:ietf:wg:oauth:2.0:oob'
-    RESOURCE = 'https://management.core.windows.net/'
-    
-    context = adal.AuthenticationContext(authority_url)
-    code = context.acquire_user_code(RESOURCE, client_id)
-    print(code['message'])
-    mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
-    credentials = AADTokenCredentials(mgmt_token, client_id)
-
-### <a name="multi-factor-authentication-for-filesystem-management"></a>Multi-Factor Authentication voor bestandssysteembeheer
-
-Hiermee kunt u met Azure AD bestandssysteembewerkingen (map maken, bestand uploaden enz.) verifiëren. Het volgende fragment kan worden gebruikt om een toepassing te verifiëren met Multi-Factor Authentication. Gebruik dit met een bestaande Azure AD-toepassing voor webtoepassingen.
-
-    token = lib.auth(tenant_id='FILL-IN-HERE')
+* Zie [End-user-authentication with Data Lake Store using Python](data-lake-store-end-user-authenticate-python.md) (Eindgebruikersverificatie met Data Lake Store met behulp van Python) voor de verificatie van eindgebruikers voor uw toepassing.
+* Zie [Service-to-service authentication with Data Lake Store using Python](data-lake-store-service-to-service-authenticate-python.md) (Service-naar-serviceverificatie met Data Lake Store met behulp van Python) voor service-naar-serviceverificatie voor uw toepassing.
 
 ## <a name="create-an-azure-resource-group"></a>Een Azure-resourcegroep maken
 
@@ -170,7 +101,7 @@ Gebruik het volgende codefragment om een Azure-resourcegroep te maken:
     resourceGroup = 'FILL-IN-HERE'
     location = 'eastus2'
     
-    ## Create management client object
+    ## Create resource management client object
     resourceClient = ResourceManagementClient(
         credentials,
         subscriptionId
@@ -184,7 +115,7 @@ Gebruik het volgende codefragment om een Azure-resourcegroep te maken:
         )
     )
 
-## <a name="create-clients-and-data-lake-store-account"></a>Clients en een Data Lake Store-account maken
+## <a name="create-client-and-data-lake-store-account"></a>Client en een Data Lake Store-account maken
 
 Met het volgende fragment maakt u eerst de client voor het Data Lake Store-account. In het fragment wordt gebruikgemaakt van het clientobject om een Data Lake Store-account te maken. Ten slotte maakt het fragment een clientobject voor het bestandssysteem.
 
@@ -192,7 +123,7 @@ Met het volgende fragment maakt u eerst de client voor het Data Lake Store-accou
     subscriptionId = 'FILL-IN-HERE'
     adlsAccountName = 'FILL-IN-HERE'
 
-    ## Create management client object
+    ## Create data lake store account management client object
     adlsAcctClient = DataLakeStoreAccountManagementClient(credentials, subscriptionId)
 
     ## Create a Data Lake Store account
@@ -204,9 +135,7 @@ Met het volgende fragment maakt u eerst de client voor het Data Lake Store-accou
         )
     ).wait()
 
-    ## Create a filesystem client object
-    adlsFileSystemClient = core.AzureDLFileSystem(token, store_name=adlsAccountName)
-
+    
 ## <a name="list-the-data-lake-store-accounts"></a>De Data Lake Store-accounts weergeven
 
     ## List the existing Data Lake Store accounts
@@ -215,33 +144,16 @@ Met het volgende fragment maakt u eerst de client voor het Data Lake Store-accou
     for items in result_list:
         print(items)
 
-## <a name="create-a-directory"></a>Een map maken
+## <a name="delete-the-data-lake-store-account"></a>Het Data Lake Store-account verwijderen
 
-    ## Create a directory
-    adlsFileSystemClient.mkdir('/mysampledirectory')
+    ## Delete the existing Data Lake Store accounts
+    adlsAcctClient.account.delete(adlsAccountName)
+    
 
-## <a name="upload-a-file"></a>Bestand uploaden
-
-
-    ## Upload a file
-    multithread.ADLUploader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
-
-
-## <a name="download-a-file"></a>Bestand downloaden
-
-    ## Download a file
-    multithread.ADLDownloader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt.out', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
-
-## <a name="delete-a-directory"></a>Een map verwijderen
-
-    ## Delete a directory
-    adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
+## <a name="next-steps"></a>Volgende stappen
+* [Bestandssysteembewerkingen - Aan de slag met Azure Data Lake Store met Python](data-lake-store-data-operations-python.md).
 
 ## <a name="see-also"></a>Zie ook
-
-- [Gegevens in Data Lake Store beveiligen](data-lake-store-secure-data.md)
-- [Azure Data Lake Analytics gebruiken met Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-- [Azure HDInsight gebruiken met Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-- [Naslaginformatie over Data Lake Store .NET SDK](https://msdn.microsoft.com/library/mt581387.aspx)
-- [Naslaginformatie over Data Lake Store REST](https://msdn.microsoft.com/library/mt693424.aspx)
-
+* [Naslaginformatie over Azure Data Lake Store - Python (Accountbeheer)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
+* [Naslaginformatie over Azure Data Lake Store - Python (Bestandssysteem)](http://azure-datalake-store.readthedocs.io/en/latest)
+* [Open Source Big Data-toepassingen die compatibel zijn met Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)

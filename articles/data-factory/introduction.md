@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 09/29/2017
 ms.author: shlo
+ms.openlocfilehash: ef7055342a04057acfba9dad350f654aa4de6096
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 09e514aee503b7cb045c81d8ddcb855ced9b072b
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Inleiding tot Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,10 +57,10 @@ Als gegevens aanwezig zijn in een gecentraliseerd gegevensarchief in de cloud, w
 Nu de onbewerkte gegevens zijn omgezet in gebruiksklare bedrijfsgegevens, laadt u de gegevens in Azure Data Warehouse, Azure SQL DB, Azure CosmosDB of een andere analyse-engine waar gebruikers in uw bedrijf naar kunnen verwijzen met hun hulpprogramma's voor business intelligence.
 
 ### <a name="monitor"></a>Bewaken
-Nadat u uw pijplijn voor gegevensintegratie hebt gemaakt en geïmplementeerd en bedrijfswaarde biedt met de getransformeerde gegevens, moet controleren hoe vaak de geplande activiteiten en pijplijnen slagen en mislukken. Azure Data Factory heeft ingebouwde ondersteuning voor pijplijnbewaking via Azure Monitor, API, PowerShell, OMS en statusvensters in Azure Portal.
+Nadat u uw pijplijn voor gegevensintegratie hebt gemaakt en geïmplementeerd en bedrijfswaarde biedt met de getransformeerde gegevens, moet controleren hoe vaak de geplande activiteiten en pijplijnen slagen en mislukken. Azure Data Factory heeft ingebouwde ondersteuning voor pijplijnbewaking via Azure Monitor, API, PowerShell, Microsoft Operations Management Suite (OMS) en statusvensters via de Azure-portal.
 
 ## <a name="whats-different-in-version-2"></a>Wat is er anders in versie 2?
-Versie 2 van Azure Data Factory is gebaseerd op de oorspronkelijke gegevensverplaatsings- en transformatieservice Azure Data Factory. De service is uitgebreid tot een bredere set van scenario's voor gegevensintegratie in de cloud. Azure Data Factory V2 biedt de volgende mogelijkheden:
+Versie 2 van Azure Data Factory is gebaseerd op de oorspronkelijke gegevensverplaatsings- en transformatieservice Azure Data Factory. De service is uitgebreid tot een bredere set van scenario's voor gegevensintegratie in de cloud. Azure Data Factory versie 2 heeft de volgende mogelijkheden:
 
 - Controlestroom en schalen
 - Implementeren en uitvoeren van SSIS-pakketten in Azure
@@ -98,14 +97,18 @@ Raadpleeg [zelfstudie: controlestroom](tutorial-control-flow.md) voor meer infor
 Als u uw SSIS-werkbelastingen wilt verplaatsen, kunt u een data factory in versie 2 maken en een Azure-SSIS Integration Runtime (IR) inrichten. Azure-SSIS IR is een volledig beheerd cluster met virtuele Azure-machines (knooppunten) die uw SSIS-pakketten uitvoeren in de cloud. Zie de zelfstudie [SSIS-pakketten implementeren in Azure](tutorial-deploy-ssis-packages-azure.md) voor stapsgewijze instructies. 
  
 
-## <a name="rich-cross-platform-sdks"></a>Rijke SDK's voor meerdere platformen
+### <a name="sdks"></a>SDK's
 Als u een ervaren gebruiker bent en op zoek bent naar een programma-interface, dan is versie 2 ideaal voor u. Deze versie biedt een uitgebreide set SDK's die kunnen worden gebruikt voor het ontwerpen, beheren en controleren van pijplijnen met behulp van uw favoriete IDE.
 
-- .NET SDK
-- PowerShell
-- Python-SDK
+- .NET SDK - De .NET SDK is bijgewerkt voor versie 2. 
+- PowerShell - De PowerShell-cmdlets zijn bijgewerkt voor versie 2. De cmdlets voor versie 2 hebben **DataFactoryV2** in de naam. Bijvoorbeeld: Get-AzureRmDataFactoryV2. 
+- Python SDK - Deze SDK is nieuw in versie 2.
+- REST API - De REST-API is bijgewerkt voor versie 2.  
 
-U kunt ook de REST API's gebruiken om data factory's te maken. 
+De SDK's die zijn bijgewerkt voor versie 2 zijn niet achterwaarts compatibel met versie 1-clients. 
+
+### <a name="monitoring"></a>Bewaking
+In versie 2 kunnen data factory's momenteel alleen worden bewaakt met behulp van SDK's. De portal biedt nog geen ondersteuning voor bewaking van data factory's versie 2. 
 
 ## <a name="load-the-data-into-a-lake"></a>De gegevens in een meer laden
 Data Factory heeft 30+ connectors waarmee u gegevens kunt laden vanuit hybride en heterogene omgevingen naar Azure.  Zie [Prestatie- en afstemmingshandleiding](copy-activity-performance.md) voor de meest recente prestatieresultaten van interne testen en suggesties voor het afstemmen. Bovendien we hebben onlangs hoge beschikbaarheid en schaalbaarheid ingeschakeld voor de zelf-hostende Integration Runtime die u in een privénetwerkomgeving installeert. Hiermee wordt voldaan aan de behoeften van grote ondernemingen aan betere beschikbaarheid en schaalbaarheid.
@@ -165,4 +168,3 @@ Voorbeeld: uw berekeningsomgevingen, zoals een Azure HDInsight-cluster en Azure 
 
 ## <a name="next-steps"></a>Volgende stappen
 In de volgende snelstartgidsen vindt u informatie over het maken van een data factory door het volgen van stapsgewijze instructies: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST-API](quickstart-create-data-factory-rest-api.md) en Azure Portal. 
-

@@ -12,16 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2017
+ms.date: 10/04/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3c5a6ec70e1041d43b549c8e5a5416a9a65728bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 606e8d63c29b754261621e583652f8209efea0f5
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Uw eerste Service Fabric-containertoepassing maken in Linux
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
@@ -164,18 +162,18 @@ De Service Fabric-SDK voor Linux bevat een [Yeoman](http://yeoman.io/)-generator
 
 Om een Service Fabric-containertoepassing te maken, opent u een terminalvenster en voert u `yo azuresfcontainer` uit.  
 
-Naam van uw toepassing (bijvoorbeeld 'mycontainer'). 
+Geef uw toepassing een naam (bijvoorbeeld 'mycontainer') evenals de toepassingsservice (bijvoorbeeld 'myservice').
 
-Geef de URL op voor de containerinstallatiekopie in een containerregister (bijvoorbeeld: ´myregistry.azurecr.io/samples/helloworldapp´). 
+Geef voor de naam van de installatiekopie de URL op voor de containerinstallatiekopie in een containerregister (bijvoorbeeld: ´myregistry.azurecr.io/samples/helloworldapp´). 
 
-Voor deze installatiekopie is een invoerpunt voor werkbelasting gedefinieerd, dus moet u expliciet invoeropdrachten opgeven (opdrachten worden uitgevoerd in de container, zodat de container na het opstarten actief blijft). 
+Omdat voor deze installatiekopie een workloadinvoerpunt is gedefinieerd, hoeft u niet expliciet invoeropdrachten op te geven (opdrachten worden uitgevoerd in de container, zodat de container na het opstarten actief blijft). 
 
 Geef '1' exemplaar op.
 
 ![Service Fabric Yeoman-generator voor containers][sf-yeoman]
 
 ## <a name="configure-port-mapping-and-container-repository-authentication"></a>Poorttoewijzing en containeropslagplaatsverificatie configureren
-Uw containerservice heeft een eindpunt voor communicatie nodig.  Voeg nu het protocol en de poort toe, en typ onder de tag ´Resources´ een `Endpoint` in het bestand ServiceManifest.xml. Voor deze Quick Start luistert de containerservice naar poort 4000: 
+Uw containerservice heeft een eindpunt voor communicatie nodig.  Voeg nu het protocol en de poort toe, en typ onder de tag ´Resources´ een `Endpoint` in het bestand ServiceManifest.xml. Voor deze snelstartgids luistert de containerservice naar poort 4000: 
 
 ```xml
 
@@ -391,4 +389,3 @@ De installatiekopieën die niet moeten worden verwijderd, kunt u opgeven met de 
 
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
 [sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png
-

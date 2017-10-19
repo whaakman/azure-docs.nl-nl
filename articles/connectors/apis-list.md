@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: c14ac7592efabfec8668d7437463e2d8771ee072
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connectors-list"></a>Lijst van connectors
 > [!TIP]
@@ -43,13 +42,13 @@ Er zijn duizenden toepassingen en miljoenen uitvoeringen die succesvol data en i
 
 | |  |  |  |
 | --- | --- | --- | --- |
-| [![API Icon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc] | U kunt deze connector gebruiken als u taken wilt automatiseren met uw opslagaccount. Ondersteunt CRUD-bewerkingen (maken, lezen, bijwerken en verwijderen). | [![API Icon][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | Hiermee kunt u functies maken die aangepaste fragmenten van C# of node.js uitvoeren en deze functies vervolgens gebruiken in uw logische apps.  |
-| [![API Icon][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | Een van de populairste connectors. Deze bevat triggers en acties voor het automatiseren van werkstromen met leads en meer. | [![API Icon][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Hiermee kunt u gebeurtenissen gebruiken en publiceren op een Event Hub. U kunt bijvoorbeeld uitvoer van uw logische app ophalen met Event Hubs en de uitvoer vervolgens verzenden naar een realtime analytics-provider. |
-| [![API Icon][FTPicon]<br/>**FTP**][FTPdoc] | Als uw FTP-server via internet toegankelijk is, kunt u werkstromen automatiseren om met bestanden en mappen te werken. <br/><br/>SFTP is ook beschikbaar met de SFTP-connector. | [![API Icon][HTTPicon]<br/>**HTTP**][httpdoc] | Hiermee kunt u logische apps gebruiken om via HTTP te communiceren met een willekeurig eindpunt. |
-| [![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Hiermee krijgt u veel triggers en nog veel meer acties om Office 365-e-mail en -gebeurtenissen binnen uw werkstromen te gebruiken. <br/><br/>Deze connector bevat een actie voor een *goedkeurings-e-mails* om vakantieaanvragen, onkostennota's enzovoort goed te keuren. <br/><br/>Office 365-gebruikers zijn ook beschikbaar met de connector Office 365-gebruikers.| [![API Icon][HTTP-Requesticon]<br/>**Aanvraag/antwoord**][HTTP-Requestdoc] | Deze connector biedt een HTTPS-URL. Als de logische app een aanvraag voor deze URL ontvangt, wordt de logische app gestart. |
-| [![API Icon][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Hiermee kunt u zich eenvoudig aanmelden met uw Salesforce-account om toegang te krijgen tot objecten (zoals leads) en meer. |  [![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | De meest populaire connector binnen logische apps. Deze bevat triggers en acties voor asynchrone berichten en publiceren/abonneren met wachtrijen, abonnementen en onderwerpen. |
-|  [![API Icon][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | We raden deze connector aan als u met SharePoint werkt en automatisering handig voor u zou zijn. Kan worden gebruikt met een on-premises SharePoint en SharePoint Online. | [![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | Een van de meest gebruikte connectors. Deze kan verbinding maken met een on-premises SQL Server en Azure SQL Database. | 
-| [![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc] | Hiermee kunt u zich eenvoudig aanmelden met een Twitter-account en vervolgens een werkstroom starten wanneer er een nieuwe tweet wordt geplaatst. U kunt deze tweets vervolgens opslaan in een SQL Database of SharePoint-lijst. | | | 
+| [![API-pictogram][AzureBlobStorageicon]<br/>**Azure Blob<br/>Opslag**][AzureBlobStoragedoc] | U kunt deze connector gebruiken als u taken wilt automatiseren met uw opslagaccount. Ondersteunt CRUD-bewerkingen (maken, lezen, bijwerken en verwijderen). | [![API-pictogram][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | Hiermee kunt u functies maken die aangepaste fragmenten van C# of node.js uitvoeren en deze functies vervolgens gebruiken in uw logische apps.  |
+| [![API-pictogram][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | Een van de populairste connectors. Deze bevat triggers en acties voor het automatiseren van werkstromen met leads en meer. | [![API-pictogram][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Hiermee kunt u gebeurtenissen gebruiken en publiceren op een Event Hub. U kunt bijvoorbeeld uitvoer van uw logische app ophalen met Event Hubs en de uitvoer vervolgens verzenden naar een realtime analytics-provider. |
+| [![API-pictogram][FTPicon]<br/>**FTP**][FTPdoc] | Als uw FTP-server via internet toegankelijk is, kunt u werkstromen automatiseren om met bestanden en mappen te werken. <br/><br/>SFTP is ook beschikbaar met de SFTP-connector. | [![API-pictogram][HTTPicon]<br/>**HTTP**][httpdoc] | Hiermee kunt u logische apps gebruiken om via HTTP te communiceren met een willekeurig eindpunt. |
+| [![API-pictogram][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Hiermee krijgt u veel triggers en nog veel meer acties om Office 365-e-mail en -gebeurtenissen binnen uw werkstromen te gebruiken. <br/><br/>Deze connector bevat een actie voor een *goedkeurings-e-mails* om vakantieaanvragen, onkostennota's enzovoort goed te keuren. <br/><br/>Office 365-gebruikers zijn ook beschikbaar met de connector Office 365-gebruikers.| [![API-pictogram][HTTP-Requesticon]<br/>**Aanvraag/antwoord**][HTTP-Requestdoc] | Deze connector biedt een HTTPS-URL. Als de logische app een aanvraag voor deze URL ontvangt, wordt de logische app gestart. |
+| [![API-pictogram][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Hiermee kunt u zich eenvoudig aanmelden met uw Salesforce-account om toegang te krijgen tot objecten (zoals leads) en meer. |  [![API-pictogram][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | De meest populaire connector binnen logische apps. Deze bevat triggers en acties voor asynchrone berichten en publiceren/abonneren met wachtrijen, abonnementen en onderwerpen. |
+|  [![API-pictogram][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | We raden deze connector aan als u met SharePoint werkt en automatisering handig voor u zou zijn. Kan worden gebruikt met een on-premises SharePoint en SharePoint Online. | [![API-pictogram][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | Een van de meest gebruikte connectors. Deze kan verbinding maken met een on-premises SQL Server en Azure SQL Database. | 
+| [![API-pictogram][Twittericon]<br/>**Twitter**][Twitterdoc] | Hiermee kunt u zich eenvoudig aanmelden met een Twitter-account en vervolgens een werkstroom starten wanneer er een nieuwe tweet wordt geplaatst. U kunt deze tweets vervolgens opslaan in een SQL Database of SharePoint-lijst. | | | 
 
 ## <a name="integration-account-connectors"></a>Integratieaccountconnectoren 
 
@@ -57,9 +56,9 @@ De Enterprise Integration Pack (EIP) bevat connectors die erg bekend zijn in de 
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| [![API Icon][as2icon]<br/>**AS2</br>-decodering**][as2decode] | [![API Icon][as2icon]<br/>**AS2</br>-codering**][as2encode] | [![API Icon][x12icon]<br/>**EDIFACT</br>-decodering**][EDIFACTdecode] | [![API Icon][x12icon]<br/>**EDIFACT</br>-codering**][EDIFACTencode] |
-[![API Icon][flatfileicon]<br/>**Codering</br> van plat bestand**][flatfiledoc] | [![API Icon][flatfiledecodeicon]<br/>**Decodering</br> van plat bestand**][flatfiledecodedoc] | [![API Icon][integrationaccounticon]<br/>**Integratie-<br/>account**][integrationaccountdoc] | [![API Icon][xmltransformicon]<br/>**XML<br/>transformeren**][xmltransformdoc] |
-| [![API Icon][x12icon]<br/>**X12</br>-decodering**][x12decode] | [![API Icon][x12icon]<br/>**X12</br>-codering**][x12encode] | [![API Icon][xmlvalidateicon]<br/>**XML<br/>-validatie**][xmlvalidatedoc] | |
+| [![API-pictogram][as2icon]<br/>**AS2</br>-decodering**][as2decode] | [![API-pictogram][as2icon]<br/>**AS2</br>-codering**][as2encode] | [![API-pictogram][x12icon]<br/>**EDIFACT</br>-decodering**][EDIFACTdecode] | [![API-pictogram][x12icon]<br/>**EDIFACT</br>-codering**][EDIFACTencode] |
+[![API-pictogram][flatfileicon]<br/>**Plat bestand</br>, decodering**][flatfiledoc] | [![API-pictogram][flatfiledecodeicon]<br/>**Plat bestand</br>, codering**][flatfiledecodedoc] | [![API-pictogram][integrationaccounticon]<br/>**Integratie<br/>account**][integrationaccountdoc] | [![API-pictogram][xmltransformicon]<br/>**Transformeren<br/>XML**][xmltransformdoc] |
+| [![API-pictogram][x12icon]<br/>**X12</br>-decodering**][x12decode] | [![API-pictogram][x12icon]<br/>**X12</br>-codering**][x12encode] | [![API-pictogram][xmlvalidateicon]<br/>**XML <br/>validatie**][xmlvalidatedoc] | |
 
 ## <a name="enterprise-connectors"></a>Bedrijfsconnectoren
 
@@ -67,7 +66,7 @@ Hiermee maakt u verbinding met uw zakelijke toepassingen binnen uw logische apps
 
 |  |  |
 | --- | --- |
-|[![API Icon][MQicon]<br/>**MQ**][mqdoc]|[![API Icon][SAPicon]<br/>**SAP**][sapconnector]|
+|[![API-pictogram][MQicon]<br/>**MQ**][mqdoc]|[![API-pictogram][SAPicon]<br/>**SAP**][sapconnector]|
 
 
 ## <a name="az"></a>Volledige alfabetische lijst
@@ -315,4 +314,3 @@ Ontbreekt er een onderwerp over connectors of bepaalde belangrijke details? Zo j
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 [integrationaccounticon]: ./media/apis-list/integrationaccount.png
-

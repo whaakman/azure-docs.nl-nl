@@ -13,14 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/13/2017
+ms.date: 09/15/2017
 ms.author: dendeli
+ms.openlocfilehash: a416edaded8aa04c3229a5788d648de0a6afe2b6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 8db82ae9f37a89b6b7049208133949a7f49e9d92
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Pushmeldingen met geofencing verzenden met Azure Notification Hubs en ruimtelijke Bing-gegevens
 > [!NOTE]
@@ -123,7 +122,7 @@ Als de locatiemogelijkheid is gedeclareerd, maakt u in uw oplossing een nieuwe m
 
 ![](./media/notification-hubs-geofence/vs-location-helper.png)
 
-De klasse `LocationHelper` zelf is op dit moment vrij algemeen. U kunt er de locatie van een gebruiker mee ophalen via de systeem-API:
+De klasse `LocationHelper` zelf is op dit moment vrij algemeen. U kunt er alleen de locatie van een gebruiker mee ophalen via de systeem-API:
 
     using System;
     using System.Threading.Tasks;
@@ -381,7 +380,7 @@ Omdat u niet de echte coördinaten doorgeeft (die misschien niet binnen de grenz
 
 ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
-## <a name="whats-next"></a>Wat nu?
+## <a name="next-steps"></a>Volgende stappen
 Er zijn een aantal stappen die u naast de bovenstaande stappen mogelijk moet uitvoeren om ervoor te zorgen dat de oplossing klaar is voor productie.
 
 U moet er ten eerste voor zorgen dat de geofences dynamisch zijn. Hiervoor moet u extra bewerkingen uitvoeren met de Bing-API zodat u nieuwe grenzen kunt uploaden in de bestaande gegevensbron. Zie de [Bing Spatial Data Services-API-documentatie](https://msdn.microsoft.com/library/ff701734.aspx) voor meer informatie over dit onderwerp.
@@ -391,5 +390,4 @@ Ten tweede is het raadzaam de geofences met [tags](notification-hubs-tags-segmen
 In de bovenstaande oplossing wordt een scenario beschreven waarin u mogelijk veel verschillende doelplatforms hebt; daarom hebben we geofencing niet beperkt tot systeemspecifieke mogelijkheden. Los daarvan is het wel zo dat het universele Windows-platform [direct na aanschaf](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence) mogelijkheden biedt voor het detecteren van geofences.
 
 Zie onze [documentatieportal](https://azure.microsoft.com/documentation/services/notification-hubs/) voor meer informatie over Notification Hubs-mogelijkheden.
-
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: e56f8bf1057a8bc2cfcde841f69022104bafff27
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fc521fa40428caacebb072cb1aacdebf0ce977ac
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-azure-files-from-the-azure-portal"></a>Azure Files gebruiken vanuit Azure Portal
 [Azure Portal](https://portal.azure.com) biedt een gebruikersinterface voor het beheren van Azure Files. U kunt de volgende acties uitvoeren vanuit de webbrowser:
 
@@ -66,7 +64,7 @@ ms.lasthandoff: 09/25/2017
 -  Klik op **Verbinden** om de opdrachtregel op te halen voor het koppelen van de bestandsshare vanuit Windows en Linux. Voor Linux-gebruikers kunt u ook verwijzen naar [Azure Files gebruiken met Linux](../storage-how-to-use-files-linux.md) voor koppelingsinstructies voor andere Linux-distributies.
 
     ![Schermafbeelding van het koppelen van de bestandsshare](./media/storage-how-to-use-files-portal/use-files-portal-connect.png)
--  U kunt de opdrachten voor het koppelen van de bestandsshare in Windows of Linux kopiëren en deze uitvoeren vanaf uw Azure VM of lokale machine.
+-  U kunt de opdrachten voor het koppelen van de bestandsshare in Windows of Linux kopiëren en deze uitvoeren vanaf uw virtuele Azure-machine of on-premises machine.
 
     ![Schermafbeelding van de koppelingsopdrachten voor Windows en Linux](./media/storage-how-to-use-files-portal/use-files-portal-show-mount-commands.png)
 

@@ -3,7 +3,7 @@ title: Inleiding tot verificatie in Azure Automation | Microsoft Docs
 description: Dit artikel geeft een overzicht van Automation-beveiliging en de diverse verificatiemethoden die beschikbaar zijn voor Automation-accounts in Azure Automation.
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: automation-beveiliging, veilige automation; automation-verificatie
@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: magoedte
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 1a0258e872449bf2f2f08345cbe86564e28d964e
-ms.contentlocale: nl-nl
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 6ff47272da2fdafa4b346d62225ecdcddac5a236
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Inleiding tot verificatie in Azure Automation  
 Met Azure Automation kunt u taken automatiseren voor bronnen in Azure, on-premises en bij andere cloudproviders zoals Amazon Web Services (AWS).  Om een runbook in staat te stellen de vereiste acties uit te voeren, moet het machtigingen hebben om veilig toegang te krijgen tot de resources met de minimale rechten die vereist zijn binnen het abonnement.
@@ -37,12 +36,12 @@ De Automation-resources voor elk Automation-account zijn gekoppeld aan één Azu
 > Automation-accounts, en de resources die deze bevatten die in de Azure-portal worden gemaakt, zijn niet toegankelijk via de klassieke Azure-portal. Als u deze accounts of de bijbehorende resources wilt beheren met Windows PowerShell, moet u gebruikmaken van de Azure Resource Manager-modules.
 >
 
-Alle taken die u uitvoert op resources met behulp van Azure Resource Manager en de Azure-cmdlets in Azure Automation moeten worden geverifieerd bij Azure met behulp van verificatie op basis van organisatie-identiteitreferenties van Azure Active Directory.  De oorspronkelijke verificatiemethode voor de Azure Service Management-modus was gebaseerd op certificaten, maar het instellen hiervan was ingewikkeld.  Verificatie bij Azure met Azure AD-gebruiker is in 2014 geïntroduceerd, niet alleen met het doel om het proces waarmee een verificatieaccount kon worden geconfigureerd te vereenvoudigen, maar ook om de mogelijkheid te ondersteunen om op een niet-interactieve wijze bij Azure te verifiëren met één gebruikersaccount dat zowel in Azure Resource Manager als in de klassieke resources werkte.   
+Alle taken die u uitvoert op resources met behulp van Azure Resource Manager en de Azure-cmdlets in Azure Automation moeten worden geverifieerd bij Azure met behulp van verificatie op basis van organisatie-identiteitreferenties van Azure Active Directory.  De oorspronkelijke verificatiemethode voor de klassieke Azure-portal was gebaseerd op certificaten, maar het instellen hiervan was ingewikkeld.  Verificatie bij Azure met Azure AD-gebruiker is in 2014 geïntroduceerd, niet alleen met het doel om het proces waarmee een verificatieaccount kon worden geconfigureerd te vereenvoudigen, maar ook om de mogelijkheid te ondersteunen om op een niet-interactieve wijze bij Azure te verifiëren met één gebruikersaccount dat zowel in Azure Resource Manager als in de klassieke resources werkte.   
 
 Wanneer u op dit moment in de Azure-portal een nieuw Automation-account maakt, wordt automatisch het volgende gemaakt:
 
-* Uitvoeren als-account; hiermee wordt een nieuwe service-principal in Azure Active Directory gemaakt, een certificaat, en wordt het RBAC (op rollen gebaseerd toegangsbeheer) toegewezen, dat wordt gebruikt om Resource Manager-resources te beheren met runbooks.
-* Klassiek uitvoeren als-account; door een beheercertificaat te uploaden, dat wordt gebruikt om Azure-servicebeheer of klassieke resources te beheren met runbooks.  
+* Uitvoeren als-account voor het maken van een nieuwe service-principal in Azure Active Directory, een certificaat, en het toewijzen van RBAC (op rollen gebaseerd toegangsbeheer), dat wordt gebruikt om Resource Manager-resources te beheren met runbooks.
+* Klassiek Uitvoeren als-account, door een beheercertificaat te uploaden dat wordt gebruikt om klassieke Azure-resources te beheren met runbooks.  
 
 Op rollen gebaseerd toegangsbeheer is beschikbaar in Azure Resource Manager voor het toekennen van toegestane acties aan een Azure AD-gebruikersaccount en Uitvoeren als-account, en om die service-principal te verifiëren.  Lees het artikel [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md) voor meer informatie die u helpt bij het ontwikkelen van een model voor het beheren van machtigingen in Automation.  
 
@@ -53,9 +52,8 @@ De volgende tabel bevat een overzicht van de verschillende verificatiemethoden v
 
 | Methode | Omgeving | Artikel |
 | --- | --- | --- |
-| Azure AD-gebruikersaccount |Azure Resource Manager en Azure-servicebeheer |[Runbooks verifiëren met een Azure AD-gebruikersaccount](automation-create-aduser-account.md) |
+| Azure AD-gebruikersaccount |Azure Resource Manager en de klassieke Azure-portal |[Runbooks verifiëren met een Azure AD-gebruikersaccount](automation-create-aduser-account.md) |
 | Azure Uitvoeren als-account |Azure Resource Manager |[Runbooks verifiëren met een Azure Uitvoeren als-account](automation-sec-configure-azure-runas-account.md) |
-| Klassieke Azure Uitvoeren als-account |Azure Service Management |[Runbooks verifiëren met een Azure Uitvoeren als-account](automation-sec-configure-azure-runas-account.md) |
+| Klassiek Azure Uitvoeren als-account |Klassieke Azure-portal |[Runbooks verifiëren met een Azure Uitvoeren als-account](automation-sec-configure-azure-runas-account.md) |
 | Windows-verificatie |On-premises datacenter |[Runbooks verifiëren voor Hybrid Runbook Workers](automation-hybrid-runbook-worker.md) |
 | AWS-referenties |Amazon Web Services |[Runbooks verifiëren met Amazon Web Services (AWS)](automation-config-aws-account.md) |
-

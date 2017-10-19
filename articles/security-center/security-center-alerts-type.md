@@ -12,22 +12,21 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/20/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 19f71e0d5a8a4642b86ae60a3ab2a4042fa2990e
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/17/2017
-
-
+ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Beveiligingswaarschuwingen in Azure Security Center
 Dit artikel helpt u te begrijpen welke verschillende typen beveiligingswaarschuwingen en bijbehorende inzichten er beschikbaar zijn in Azure Security Center. Lees [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md) voor meer informatie over het beheren van waarschuwingen en incidenten.
 
+Als u geavanceerde detectie wilt instellen, voert u een upgrade uit naar Azure Security Center Standard. Er is een gratis proefversie voor 60 dagen beschikbaar. Als u een upgrade wilt uitvoeren, selecteert u de **prijscategorie** in het [beveiligingsbeleid](security-center-policies.md). Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
+
 > [!NOTE]
-> Als u geavanceerde detectie wilt instellen, voert u een upgrade uit naar Azure Security Center Standard. Er is een gratis proefversie voor 60 dagen beschikbaar. Als u een upgrade wilt uitvoeren, selecteert u de **prijscategorie** in het [beveiligingsbeleid](security-center-policies.md). Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
->
+> Security Center heeft een nieuwe set detecties vrijgegeven voor beperkte preview. Deze detecties maken gebruik van controlerecords, een gemeenschappelijk controleframework, voor het detecteren van de schadelijke gedragingen op Linux-machines. Stuur [ons](mailto:ASC_linuxdetections@microsoft.com) een e-mail met uw abonnement-id's als u wilt deelnemen aan de preview.
 
 ## <a name="what-type-of-alerts-are-available"></a>Welk type waarschuwingen zijn er beschikbaar?
 Azure Security Center gebruikt allerlei [detectiemogelijkheden](security-center-detection-capabilities.md) om klanten te waarschuwen voor potentiële aanvallen die gericht zijn op hun omgeving. Deze waarschuwingen bevatten waardevolle informatie over de trigger van de waarschuwing, de betrokken resources en de bron van de aanval. De informatie die is opgenomen in een waarschuwing, verschilt op basis van het type analyse dat wordt gebruikt voor het detecteren van de bedreiging. Incidenten kunnen ook aanvullende contextuele informatie bevatten die nuttig kan zijn bij het onderzoeken van een bedreiging.  In dit artikel vindt u informatie over de volgende waarschuwingstypen:
@@ -45,9 +44,9 @@ Azure Security Center kan gebruikmaken van gedragsanalyses om verdachte resource
 >
 
 ### <a name="crash-analysis"></a>Crashanalyse
-De analyse van een crashdumpgeheugen is een methode voor het detecteren van geavanceerde schadelijke software die in staat is traditionele beveiligingsoplossingen te misleiden. Diverse varianten schadelijke software proberen de kansen dat ze worden gedetecteerd door antivirusproducten te verkleinen doordat ze nooit iets naar de schijf schrijven of door softwareonderdelen te versleutelen die naar de schijf worden geschreven. Hierdoor wordt het moeilijk om ze te detecteren met traditionele benaderingen voor het elimineren van schadelijke software. Echter kan dergelijke schadelijke software worden gedetecteerd met behulp van een geheugenanalyse, omdat de malware traceringen in het geheugen moet achterlaten om te kunnen werken.
+De analyse van een crashdumpgeheugen is een methode voor het detecteren van geavanceerde schadelijke software die in staat is traditionele beveiligingsoplossingen te misleiden. Diverse varianten schadelijke software proberen de kansen dat ze worden gedetecteerd door antivirusproducten te verkleinen doordat ze nooit iets naar de schijf schrijven of door softwareonderdelen te versleutelen die naar de schijf worden geschreven. Deze techniek bemoeilijkt de detectie van malware met traditionele antimalware-benaderingen. Echter kan dergelijke schadelijke software worden gedetecteerd met behulp van een geheugenanalyse, omdat de malware traceringen in het geheugen moet achterlaten om te kunnen werken.
 
-Wanneer software vastloopt, bevat een crashdump een gedeelte van het geheugen ten tijde van de crash. De crash kan zijn veroorzaakt door schadelijke software, door gewoon gebruik of door problemen met het systeem. Door het geheugen in de crashdump te analyseren, kan Security Center technieken detecteren die worden gebruikt om misbruik te maken van zwakke plekken in software, toegang te krijgen tot vertrouwelijke gegevens en ongemerkt aanwezig te blijven in een aangetaste machine. Een crashanalyse wordt uitgevoerd met minimale gevolgen voor de prestaties van hosts omdat deze wordt uitgevoerd door de back-end van Security Center.
+Wanneer software vastloopt, bevat een crashdump een gedeelte van het geheugen ten tijde van de crash. De crash kan zijn veroorzaakt door malware, door gewoon gebruik of door systeemproblemen. Door het geheugen in de crashdump te analyseren, kan Security Center technieken detecteren die worden gebruikt om misbruik te maken van zwakke plekken in software, toegang te krijgen tot vertrouwelijke gegevens en ongemerkt aanwezig te blijven in een aangetaste machine. Een crashanalyse wordt uitgevoerd met minimale gevolgen voor de prestaties van hosts omdat deze wordt uitgevoerd door de back-end van Security Center.
 
 De volgende velden worden vaak weergegeven in de voorbeelden van waarschuwingen voor crashdumps die verderop in dit artikel worden behandeld:
 
@@ -62,7 +61,7 @@ Dit voorbeeld van een Shellcode-waarschuwing geeft het volgende extra veld:
 
 * ADDRESS: de locatie in het geheugen van de shellcode.
 
-Dit is een voorbeeld van dit type waarschuwing:
+Hier volgt een voorbeeld van dit type waarschuwing:
 
 ![Waarschuwing voor shellcode](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
 
@@ -78,7 +77,7 @@ Naast de algemene velden die eerder zijn beschreven in het gedeelte "Shellcode g
 * HIJACKEDMODULEPATH: het pad van de gehijackte Windows-systeemmodule.
 * HIJACKINGMODULEPATH: het pad van de hijacking-module.
 
-Dit is een voorbeeld van dit type waarschuwing:
+Hier volgt een voorbeeld van dit type waarschuwing:
 
 ![Module-hijackingswaarschuwing](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
 
@@ -97,7 +96,7 @@ Naast de algemene velden die eerder zijn beschreven in het gedeelte "Shellcode g
 
 Deze waarschuwing extraheert en toont ook bepaalde velden uit de PE-kop van de module, zoals "CHECKSUM" en "TIMESTAMP". Deze velden worden alleen weergegeven als de velden in de module zijn opgenomen. Zie de [Microsoft PE- en COFF-specificatie](https://msdn.microsoft.com/windows/hardware/gg463119.aspx) voor meer informatie over deze velden.
 
-Dit is een voorbeeld van dit type waarschuwing:
+Hier volgt een voorbeeld van dit type waarschuwing:
 
 ![Onechte Windows-waarschuwing](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
 
@@ -111,21 +110,21 @@ Naast de algemene velden die eerder zijn beschreven in het gedeelte "Shellcode g
 * MODULENAME: de naam van het gewijzigde binaire systeembestand.
 * MODULEVERSION: de versie van het gewijzigde binaire systeembestand.
 
-Dit is een voorbeeld van dit type waarschuwing:
+Hier volgt een voorbeeld van dit type waarschuwing:
 
 ![Waarschuwing voor binair systeembestand](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
 
 ### <a name="suspicious-process-executed"></a>Verdachte processen uitgevoerd
 Security Center stelt vast dat er een verdacht proces wordt uitgevoerd in de virtuele doelmachine en activeert een waarschuwing. De detectie zoekt niet op de specifieke naam niet ziet, maar op de parameter van het uitvoerbare bestand. Daarom kan Security Center het verdachte proces zelfs detecteren als de aanvaller de naam van het uitvoerbare bestand wijzigt.
 
-Dit is een voorbeeld van dit type waarschuwing:
+Hier volgt een voorbeeld van dit type waarschuwing:
 
 ![Waarschuwing dat er verdachte processen worden uitgevoerd](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
-### <a name="multiple-domain-accounts-queried"></a>Query's op meerdere domeinaccounts uitgevoerd
-Aanvallers doen doorgaans meer dan één poging om een netwerk te verkennen. Daarom kan Security Center meerdere querypogingen voor Active Directory-domeinaccounts detecteren. Aanvallers kunnen deze methode gebruiken om query's uit te voeren op het domein met het doel de gebruikers te identificeren, wat de beheerdersaccounts van het domein zijn, welke computers domeincontrollers zijn en of er mogelijk vertrouwensrelaties zijn tussen het domein en andere domeinen.
+### <a name="multiple-domains-accounts-queried"></a>Query's op meerdere domeinaccounts
+Security Center kan meerdere querypogingen voor Active Directory-domeinaccounts detecteren, iets wat aanvallers doorgaans doen om een netwerk te verkennen. Aanvallers kunnen deze methode gebruiken om query's uit te voeren op het domein met het doel de gebruikers te identificeren, wat de beheerdersaccounts van het domein zijn, welke computers domeincontrollers zijn en of er mogelijk vertrouwensrelaties zijn tussen het domein en andere domeinen.
 
-Dit is een voorbeeld van dit type waarschuwing:
+Hier volgt een voorbeeld van dit type waarschuwing:
 
 ![Waarschuwing over meerdere domeinaccounts](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
 
@@ -133,7 +132,7 @@ Dit is een voorbeeld van dit type waarschuwing:
 
 In Security Center wordt een waarschuwing geactiveerd wanneer in Windows Server 2016 of Windows 10 beveiligingsgebeurtenis 4798 is geactiveerd. Dit gebeurt wanneer lokale-beheerdersgroepen worden geïnventariseerd, iets wat aanvallers doorgaans doen om het netwerk te verkennen. Aanvallers kunnen deze techniek gebruiken om de identiteit op te vragen van gebruikers met beheerdersrechten.
 
-Dit is een voorbeeld van dit type waarschuwing:
+Hier volgt een voorbeeld van dit type waarschuwing:
 
 ![Lokale beheerder](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
 
@@ -141,7 +140,7 @@ Dit is een voorbeeld van dit type waarschuwing:
 
 In Security Center wordt een waarschuwing geactiveerd wanneer het gebruik van een combinatie van hoofdletters en kleine letters op de opdrachtregel wordt gedetecteerd. Sommige aanvallers gebruiken deze techniek om de hoofdlettergevoelige of hash-gebaseerde machineregel te ontlopen.
 
-Dit is een voorbeeld van dit type waarschuwing:
+Hier volgt een voorbeeld van dit type waarschuwing:
 
 ![Ongebruikelijke combinatie](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
 
@@ -152,7 +151,7 @@ Een verdachte [krbtgt](https://technet.microsoft.com/library/dn745899.aspx)-sleu
 > [!NOTE] 
 > Meer informatie over Kerberos Golden Tickets vindt u in de [Windows 10 credential theft mitigation guide](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx) (Handleiding voor beperking van het risico op referentiediefstal in Windows 10).
 
-Dit is een voorbeeld van dit type waarschuwing:
+Hier volgt een voorbeeld van dit type waarschuwing:
 
 ![Golden Ticket](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
 
@@ -160,7 +159,7 @@ Dit is een voorbeeld van dit type waarschuwing:
 
 In Security Center wordt een waarschuwing geactiveerd wanneer er een account wordt gemaakt dat veel overeenkomsten vertoont met een bestaand ingebouwd account met beheerdersbevoegdheden. Deze techniek kan door aanvallers worden gebruikt om een rogue-account te maken en te voorkomen dat het door menselijke verificatie wordt opgemerkt.
  
-Dit is een voorbeeld van dit type waarschuwing:
+Hier volgt een voorbeeld van dit type waarschuwing:
 
 ![Verdacht account](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
 
@@ -168,7 +167,7 @@ Dit is een voorbeeld van dit type waarschuwing:
 
 Aanvallers kunnen proberen de hostbeveiliging te omzeilen door aangepaste firewallregels te maken die mogelijk maken dat schadelijke toepassingen communiceren met opdrachten en besturing, of via de aangetaste host aanvallen op het netwerk uitvoeren. In Security Center wordt een waarschuwing geactiveerd wanneer wordt gedetecteerd dat er een nieuwe firewallregel is gemaakt vanuit een uitvoerbaar bestand op een verdachte locatie.
  
-Dit is een voorbeeld van dit type waarschuwing:
+Hier volgt een voorbeeld van dit type waarschuwing:
 
 ![Firewallregel](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
 
@@ -176,7 +175,7 @@ Dit is een voorbeeld van dit type waarschuwing:
 
 In Security Center wordt een waarschuwing geactiveerd wanneer wordt gedetecteerd dat door een HTA (Microsoft HTML Application) PowerShell-opdrachten worden gestart. Dit is een techniek die aanvallers gebruiken om schadelijke PowerShell-scripts te starten.
  
-Dit is een voorbeeld van dit type waarschuwing:
+Hier volgt een voorbeeld van dit type waarschuwing:
 
 ![HTA en PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
 
@@ -189,7 +188,7 @@ Netwerkapparaten kunnen op ongeveer dezelfde manier worden gedetecteerd en gepro
 
 ![Waarschuwing verdacht uitgaand verkeer](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
-Deze waarschuwing geeft informatie die u kunt gebruiken om de resource die is gebruikt voor het starten van deze aanval te identificeren. Deze waarschuwing bevat ook informatie om u te helpen de verdachte machine, de detectietijd en de gebruikte poort te identificeren. Deze blade geeft u ook een lijst van herstelstappen die kunnen worden gebruikt om dit probleem te verhelpen.
+Deze waarschuwing geeft informatie die u kunt gebruiken om de resource die is gebruikt voor het starten van deze aanval te identificeren. Deze waarschuwing bevat ook informatie om u te helpen de verdachte machine, de detectietijd en de gebruikte poort te identificeren. Deze pagina bevat ook een lijst van herstelstappen die kunnen worden gebruikt om dit probleem te verhelpen.
 
 ### <a name="network-communication-with-a-malicious-machine"></a>Netwerkcommunicatie met een kwaadwillende machine
 Door gebruik te maken van de feeds van Microsoft met informatie over bedreigingen kan Azure Security Center verdachte computers die met kwaadwillende IP-adressen communiceren identificeren. In veel gevallen is het kwaadwillende adres een opdracht- en beheercentrum. In dit geval heeft Security Center gedetecteerd dat de communicatie is uitgevoerd met behulp van Pony Loader-malware (ook wel bekend als [Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF)).
@@ -206,7 +205,7 @@ Deze waarschuwing biedt informatie waarmee u de resource die is gebruikt om deze
 ### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Mogelijke uitgaande Denial of Service-aanval gedetecteerd
 Afwijkend netwerkverkeer afkomstig van een virtuele machine kan ertoe leiden dat Security Center een aanval van het type Denial of Service activeert.
 
-Dit is een voorbeeld van dit type waarschuwing:
+Hier volgt een voorbeeld van dit type waarschuwing:
 
 ![Uitgaande DOS](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
@@ -247,11 +246,10 @@ Als er extra informatie beschikbaar is, wordt deze weergegeven in het beveiligin
 
 
 ## <a name="see-also"></a>Zie ook
-In dit artikel bent u meer te weten gekomen over de verschillende soorten beveiligingswaarschuwingen in Security Center. Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
+In dit artikel bent u meer te weten gekomen over de verschillende soorten beveiligingswaarschuwingen in Security Center. Zie de volgende onderwerpen voor meer informatie over Security Center:
 
 * [Beveiligingsincidenten afhandelen in Azure Security Center](security-center-incident.md)
 * [Detectiemogelijkheden van Azure Security Center](security-center-detection-capabilities.md)
 * [Plannings- en bedieningsgids voor Azure Security Center](security-center-planning-and-operations-guide.md)
 * [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.
 * [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure.
-

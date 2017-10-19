@@ -3,7 +3,7 @@ title: De oplossing voor updatebeheer in OMS | Microsoft Docs
 description: Dit artikel is bedoeld om u te leren begrijpen hoe u deze oplossing kunt gebruiken voor het beheren van updates voor uw Windows- en Linux-computers.
 services: operations-management-suite
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
@@ -13,19 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/27/2017
-ms.author: magoedte
+ms.author: eslesar
+ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: e463102a4b21253e28b01d6d149aba55bab18674
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/31/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-management-solution-in-oms"></a>De oplossing voor updatebeheer in OMS
 
 ![Symbool voor updatebeheer](./media/oms-solution-update-management/update-management-symbol.png)
 
 Met de oplossing Updatebeheer in OMS kunt u beveiligingsupdates voor uw Windows- en Linux-computers in Azure, in on-premises omgevingen en bij andere cloudproviders beheren.  U kunt snel de status van de beschikbare updates op alle agentcomputers beoordelen en de procedure voor het installeren van vereiste updates voor servers beheren.
+
+## <a name="update-management-in-azure-automation"></a>Updatebeheer in Azure Automation
+
+U kunt Updatebeheer voor virtuele machines rechtstreeks vanaf uw [Azure Automation](../automation/automation-offering-get-started.md)-account inschakelen.
+Zie [Updates voor meerdere virtuele machines in Azure beheren](../automation/manage-update-multi.md) voor informatie over het inschakelen van Updatebeheer voor virtuele machines vanaf uw Automation-account.
 
 
 ## <a name="solution-overview"></a>Oplossingenoverzicht
@@ -307,11 +311,17 @@ De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords 
 | Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |Lijst met alle pakketten waarvoor een update beschikbaar die essentiële of beveiligingskwetsbaarheid oplost | 
 | Type:UpdateRunProgress &#124; measure Count() by UpdateRunName |Weergeven met welke update-implementaties computers zijn gewijzigd | 
 | Type:UpdateRunProgress UpdateRunName="DeploymentName" &#124; measure Count() by Computer |Computers die zijn bijgewerkt tijdens het uitvoeren van updates (vervang de waarde met de naam van uw update-implementatie) | 
-| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |Lijst van alle "Ubuntu"-machines waarvoor een update beschikbaar is | 
+| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |Lijst van alle "Ubuntu"-machines waarvoor een update beschikbaar is |
+
+## <a name="integrate-with-system-center-configuration-manager"></a>Integreren met System Center Configuration Manager
+
+Klanten die hebben geïnvesteerd in System Center Configuration Manager voor het beheren van pc's, servers en mobiele apparaten, zijn ook afhankelijk van de kracht en looptijd ervan bij het beheren van software-updates als onderdeel van hun software-updatebeheercyclus.
+
+Zie [Integratie van System Center Configuration Manager met OMS-updatebeheer [Preview]](../automation/oms-solution-updatemgmt-sccmintegration.md) voor informatie over het integreren van de OMS-updatebeheeroplossing met Sytem Center Configuration Manager.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Deze sectie bevat informatie over het oplossen van problemen met de oplossing Update Management.  
+Deze sectie bevat informatie over het oplossen van problemen met de oplossing Update Management.
 
 ### <a name="how-do-i-troubleshoot-onboarding-issues"></a>Hoe kan ik problemen met onboarding oplossen?
 Als u problemen ondervindt tijdens de onboarding van de oplossing of een virtuele machine, gaat u naar het gebeurtenislogboek **Toepassings- en servicelogboeken\Operations Manager** voor gebeurtenissen met gebeurtenis-id 4502 en het gebeurtenisbericht met **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.  In de volgende tabel worden specifieke foutberichten weergegeven, plus een mogelijke oplossing voor elk van deze fouten.  
@@ -333,4 +343,3 @@ Zie [Automation-runbookuitvoer en -berichten](../automation/automation-runbook-o
 * Gebruik Logboekzoekopdrachten in [Log Analytics](../log-analytics/log-analytics-log-searches.md) om gedetailleerde updategegevens weer te geven.
 * [Maak uw eigen dashboards](../log-analytics/log-analytics-dashboards.md) die de updatecompatibiliteit voor uw beheerde computers weergeven.
 * [Maak waarschuwingen](../log-analytics/log-analytics-alerts.md) wanneer wordt vastgesteld dat er essentiële updates ontbreken op de computers of als automatische updates is uitgeschakeld voor een computer.  
-

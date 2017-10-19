@@ -14,21 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: ryanwi
+ms.openlocfilehash: de7fa7e6445e6eaf08bdcc8ae812611f20a98c34
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ecf9554554c8b7acbd8b8f5aa9122ce1678c6502
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>Uw eerste Service Fabric-cluster maken in Azure
 Een [Service Fabric-cluster](service-fabric-deploy-anywhere.md) is een met het netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Met deze Quick Start kunt u met behulp van [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) of [Azure Portal](http://portal.azure.com) in slechts enkele minuten een cluster met vijf knooppunten maken voor Windows of Linux.  
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 
-## <a name="use-the-azure-portal"></a>Azure Portal gebruiken
+## <a name="use-the-azure-portal"></a>De Azure-portal gebruiken
 
 Meld u bij Azure Portal aan via [http://portal.azure.com](http://portal.azure.com).
 
@@ -251,6 +249,17 @@ Voer de volgende opdracht uit om te controleren of u verbonden bent en of het cl
 az sf cluster health
 ```
 
+### <a name="connect-to-the-nodes-directly"></a>Rechtstreeks verbinding maken met de knooppunten 
+
+Als u verbinding wilt maken met de knooppunten in een Linux-cluster, kunt u SSH gebruiken en een poortnummer opgeven vanaf 3389. Voor bijvoorbeeld het cluster met vijf knooppunten dat eerder is gemaakt, zijn de opdrachten als volgt:
+```bash
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3389
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3390
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3391
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3392
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3393
+```
+
 ## <a name="next-steps"></a>Volgende stappen
 Nu u een ontwikkelingscluster hebt ingesteld, kunt u het volgende proberen:
 * [Een cluster visualiseren met Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
@@ -266,4 +275,3 @@ Nu u een ontwikkelingscluster hebt ingesteld, kunt u het volgende proberen:
 [cluster-delete]: ./media/service-fabric-get-started-azure-cluster/delete.png
 [ps-list]: ./media/service-fabric-get-started-azure-cluster/pslist.PNG
 [ps-out]: ./media/service-fabric-get-started-azure-cluster/psout.PNG
-

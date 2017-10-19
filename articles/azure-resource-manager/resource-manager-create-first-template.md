@@ -10,17 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/03/2017
+ms.date: 10/02/2017
 ms.topic: get-started-article
 ms.author: tomfitz
+ms.openlocfilehash: 7d20469aaf2dfdd7a5f3650983b59152de837837
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: d07b2354906994ef7842a64d9f58bcbcc18f96e7
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Uw eerste Azure Resource Manager-sjabloon maken en implementeren
 In dit onderwerp worden de stappen beschreven voor het maken van uw eerste Azure Resource Manager-sjabloon. Resource Manager-sjablonen zijn JSON-bestanden die de resources definiëren die u voor uw oplossing moet implementeren. Zie [Overzicht van Azure Resource Manager](resource-group-overview.md) voor inzicht in de concepten die gerelateerd zijn aan het implementeren en beheren van uw Azure-oplossingen. Zie [Een Azure Resource Manager-sjabloon uit bestaande resources exporteren](resource-manager-export-template.md) als u een sjabloon voor bestaande resources wilt maken.
 
@@ -97,58 +95,21 @@ U kunt deze sjabloon nu implementeren. U kunt PowerShell of Azure CLI gebruiken 
 
 Wanneer de implementatie is voltooid, bevindt het opslagaccount zich in de resourcegroep.
 
-## <a name="deploy-template-from-cloud-shell"></a>Sjabloon implementeren vanuit Cloud Shell
+[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-U kunt [Cloud Shell](../cloud-shell/overview.md) gebruiken om de Azure CLI-opdrachten voor het implementeren van uw sjabloon uit te voeren. U moet de sjabloon echter eerst in de bestandsshare voor Cloud Shell laden. Als u Cloud Shell niet hebt gebruikt, raadpleegt u [Overzicht van Azure Cloud Shell](../cloud-shell/overview.md) voor informatie over het instellen.
+Gebruik de volgende opdrachten voor Azure CLI:
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).   
+```azurecli-interactive
+az group create --name examplegroup --location "South Central US"
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
+```
 
-2. Selecteer de Cloud Shell-resourcegroep. Het naampatroon is `cloud-shell-storage-<region>`.
+PowerShell is momenteel als voorbeeld beschikbaar in Cloud Shell. Gebruik de volgende opdrachten voor PowerShell:
 
-   ![Resourcegroep selecteren](./media/resource-manager-create-first-template/select-cs-resource-group.png)
-
-3. Selecteer het opslagaccount voor Cloud Shell.
-
-   ![Opslagaccount selecteren](./media/resource-manager-create-first-template/select-storage.png)
-
-4. Selecteer **Bestanden**.
-
-   ![Bestanden selecteren](./media/resource-manager-create-first-template/select-files.png)
-
-5. Selecteer de bestandsshare voor Cloud Shell. Het naampatroon is `cs-<user>-<domain>-com-<uniqueGuid>`.
-
-   ![Bestandsshare selecteren](./media/resource-manager-create-first-template/select-file-share.png)
-
-6. Selecteer **Map toevoegen**.
-
-   ![Map toevoegen](./media/resource-manager-create-first-template/select-add-directory.png)
-
-7. Geef deze de naam **Sjablonen** en selecteer **OK**.
-
-   ![Map een naam geven](./media/resource-manager-create-first-template/name-templates.png)
-
-8. Selecteer een nieuwe map.
-
-   ![Map selecteren](./media/resource-manager-create-first-template/select-templates.png)
-
-9. Selecteer **Uploaden**.
-
-   ![Uploaden selecteren](./media/resource-manager-create-first-template/select-upload.png)
-
-10. Zoek de sjabloon en upload deze.
-
-   ![Bestand uploaden](./media/resource-manager-create-first-template/upload-files.png)
-
-11. Open de prompt.
-
-   ![Cloud Shell openen](./media/resource-manager-create-first-template/start-cloud-shell.png)
-
-12. Voer de volgende opdrachten in Cloud Shell in:
-
-   ```azurecli
-   az group create --name examplegroup --location "South Central US"
-   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
-   ```
+```powershell
+New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile $home\CloudDrive\templates\azuredeploy.json
+```
 
 Wanneer de implementatie is voltooid, bevindt het opslagaccount zich in de resourcegroep.
 
@@ -445,4 +406,3 @@ az group delete --name examplegroup
 * Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md) voor meer informatie over de structuur van een sjabloon.
 * Zie [Storage accounts template reference](/azure/templates/microsoft.storage/storageaccounts) (Sjabloonverwijzing voor opslagaccounts) voor meer informatie over de eigenschappen van een opslagaccount.
 * Zie de [Azure-snelstartsjablonen](https://azure.microsoft.com/documentation/templates/) voor volledige sjablonen voor verschillende soorten oplossingen.
-

@@ -13,20 +13,19 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d628dc621335acf231342a6d9186079de16e85f4
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: dbfaf3b791dd44a43a2cf862819e6292b94d958a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-9-create-hierarchies"></a>Les 9: Hiërarchieën maken
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-In deze les gaat u hiërarchieën maken. Hiërarchieën zijn groepen van kolommen die op niveaus zijn gerangschikt. Zo kan een hiërarchie Geografie onderliggende niveaus bevatten voor land, provincie en stad. Hiërarchieën kunnen los van andere kolommen worden weergegeven in een clienttoepassing voor rapportagedoeleinden. Hierdoor is het makkelijker voor gebruikers om door een hiërarchie te navigeren of deze op te nemen in een rapport. Zie [Hiërarchieën](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular) voor meer informatie.
+In deze les gaat u hiërarchieën maken. Hiërarchieën zijn groepen kolommen gerangschikt op niveaus. Zo kan een hiërarchie Geografie onderliggende niveaus bevatten voor land, provincie en stad. Hiërarchieën kunnen los van andere kolommen worden weergegeven in een clienttoepassing voor rapportagedoeleinden. Hierdoor is het makkelijker voor gebruikers om door een hiërarchie te navigeren of deze op te nemen in een rapport. Zie [Hiërarchieën](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular) voor meer informatie.
   
 U maakt hiërarchieën met de *diagramweergave* van de ontwerpfunctie voor modellen. De gegevensweergave is niet geschikt voor het maken en beheren van hiërarchieën.  
   
@@ -85,4 +84,3 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
 [Les 10: Partities maken](../tutorials/aas-lesson-10-create-partitions.md). 
   
   
-
