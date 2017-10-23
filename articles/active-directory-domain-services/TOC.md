@@ -16,7 +16,9 @@
 # Procedures
 ## Een beheerd domein koppelen
 ### [Windows Server-VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Windows Server-VM met PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Windows Server-VM op basis van sjabloon](active-directory-ds-join-windows-vm-template.md)
+### [CentOS](active-directory-ds-join-centos-linux-vm.md)
+### [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
 ### [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
 ### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Een beheerd domein beheren

@@ -37,7 +37,7 @@
 ## [Apparaatgegevens in de oplossing voor controle op afstand](iot-suite-remote-monitoring-device-info.md)
 ## [Een gateway implementeren voor een verbonden bedrijf](iot-suite-connected-factory-gateway-deployment.md)
 ## [Een verbonden factory aanpassen](iot-suite-connected-factory-customize.md)
-
+## [De OPC-uitgever voor een verbonden factory gebruiken](iot-suite-connected-factory-publisher.md)
 # Naslaginformatie
 ## [Beveiligingsarchitectuur](iot-security-architecture.md)
 ## [Best practices voor beveiliging](iot-security-best-practices.md)

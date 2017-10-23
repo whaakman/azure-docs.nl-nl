@@ -21,19 +21,20 @@
 ### [Maken met Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Maken met Azure PowerShell of Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Schaalset met Managed Disks](virtual-machine-scale-sets-managed-disks.md)
-### [Linux-schaalset met automatisch schalen](virtual-machine-scale-sets-linux-autoscale.md)
-### [Windows-schaalset met automatisch schalen](virtual-machine-scale-sets-windows-autoscale.md)
+### [Een schaalset automatisch schalen](virtual-machine-scale-sets-autoscale-overview.md)
+#### [Azure Portal gebruiken](virtual-machine-scale-sets-autoscale-portal.md)
+#### [Azure CLI 2.0 gebruiken](virtual-machine-scale-sets-autoscale-cli.md)
+#### [Azure PowerShell gebruiken](virtual-machine-scale-sets-autoscale-powershell.md)
+#### [Geavanceerd automatisch schalen](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Toepassingen op schaalsets](virtual-machine-scale-sets-deploy-app.md)
 ### [Gegevensschijven met schaalsets gebruiken](virtual-machine-scale-sets-attached-disks.md)
 ### [Werken met grote schaalsets](virtual-machine-scale-sets-placement-groups.md)
 ### [Een sjabloon voor schaalsets converteren voor gebruik van beheerde schijven](virtual-machine-scale-sets-convert-template-to-md.md)
 
-
-
 ## Beheren
-### [Windows-schaalset met Azure PowerShell](virtual-machine-scale-sets-windows-manage.md)
-### [Automatisch schalen en schaalsets](virtual-machine-scale-sets-autoscale-overview.md)
-### [Geavanceerd automatisch schalen](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
+### Veelvoorkomende beheertaken
+#### [Azure CLI 2.0 gebruiken](virtual-machine-scale-sets-manage-cli.md)
+#### [Azure PowerShell gebruiken](virtual-machine-scale-sets-manage-powershell.md)
 ### [Verticaal schalen in een schaalset](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Upgrades voor schaalsets](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [DSC en schaalsets](virtual-machine-scale-sets-dsc.md)
@@ -48,7 +49,7 @@
 
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/azure/overview)
-## [Azure-CLI](../virtual-machines/azure-cli-arm-commands.md)
+## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 
 # Resources

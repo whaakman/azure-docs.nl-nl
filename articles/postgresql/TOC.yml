@@ -53,6 +53,8 @@
           href: concepts-extensions.md
         - name: Serverlogboeken
           href: concepts-server-logs.md
+        - name: Hoge beschikbaarheid
+          href: concepts-high-availability.md
     - name: Resources
       items:
         - name: Prijscategorieën
@@ -67,6 +69,8 @@
           href: concepts-firewall-rules.md
         - name: SSL configureren
           href: concepts-ssl-connection-security.md
+    - name: Bewaken
+      href: concepts-monitoring.md
     - name: Ontwikkeling
       items:
         - name: Verbindingsbibliotheken
@@ -91,14 +95,20 @@
           href: howto-migrate-using-dump-and-restore.md
         - name: Importeren en exporteren
           href: howto-migrate-using-export-and-import.md
-    - name: Parameters voor serverconfiguratie aanpassen
+    - name: Parameters van de server configureren
       items:
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
-    - name: Serverlogboeken
+    - name: Serverlogboeken openen
       items:
+        - name: Azure Portal
+          href: howto-configure-server-logs-in-portal.md
         - name: Azure CLI
           href: howto-configure-server-logs-using-cli.md
+    - name: Bewaken
+      items:
+        - name: Waarschuwingen maken op basis van metrische gegevens
+          href: howto-alert-on-metric.md
 - name: Naslaginformatie
   items:
     - name: Azure CLI

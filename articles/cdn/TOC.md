@@ -10,7 +10,7 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Cross-origin-resources delen](cdn-cors.md)
-### [Een aangepast domein aan CDN toewijzen](cdn-map-content-to-custom-domain.md)
+### [Een aangepast domein aan uw CDN-eindpunt toevoegen](cdn-map-content-to-custom-domain.md)
 ### [HTTPS op een aangepast domein inschakelen](cdn-custom-ssl.md)
 ## Inhoud optimaliseren
 ### [Optimalisatieoverzicht](cdn-optimization-overview.md)
@@ -39,6 +39,7 @@
 ## Analyseren
 ### [Gebruikspatronen van Azure CDN analyseren](cdn-log-analysis.md)
 #### [Verizon-kernrapporten](cdn-analyze-usage-patterns.md)
+#### [Aangepaste Verizon-rapporten](cdn-verizon-custom-reports.md)
 #### [Diagnostische logboeken van Azure](cdn-azure-diagnostic-logs.md)
 ### Analytische hulpprogramma's voor Azure CDN van Verizon
 #### [Geavanceerde HTTP-rapporten genereren](cdn-advanced-http-reports.md)

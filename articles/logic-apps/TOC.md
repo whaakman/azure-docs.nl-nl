@@ -5,8 +5,8 @@
 
 # Aan de slag
 ## [Een logische app maken](logic-apps-create-a-logic-app.md)
-## [Sjablonen voor logische apps](logic-apps-use-logic-app-templates.md)
-## [Logische apps maken met sjablonen](logic-apps-arm-provision.md)
+## [Logische apps maken met sjablonen](logic-apps-create-logic-apps-from-templates.md)
+## [Logische apps maken met Resource Manager-sjablonen](logic-apps-create-deploy-azure-resource-manager-templates.md)
 ## [MABS-apps verplaatsen naar logische apps](logic-apps-move-from-mabs.md)
 
 # Procedures

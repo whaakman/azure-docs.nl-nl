@@ -1,3 +1,5 @@
+- name: Documentatie bij Azure Storage
+  href: /azure/storage/
 - name: Overzicht
   items:
     - name: Inleiding
@@ -16,6 +18,8 @@
       href: storage-quickstart-blobs-cli.md
     - name: Werken met blobs - .NET
       href: storage-quickstart-blobs-dotnet.md
+    - name: Werken met blobs - Python
+      href: storage-quickstart-blobs-python.md
 - name: Zelfstudies
   items:
     - name: Een installatiekopie uploaden en verwerken
@@ -28,6 +32,12 @@
           href: storage-secure-access-application.md
         - name: 4 - Opslag controleren en problemen oplossen
           href: storage-monitor-troubleshoot-storage-application.md
+    - name: Voor cloudopslag met hoge beschikbaarheid ontwerpen
+      items:
+        - name: Uw toepassing maximaal beschikbaar maken
+          href: storage-create-geo-redundant-storage.md
+        - name: Een fout met RA-GRS-opslag simuleren
+          href: storage-simulate-failure-ragrs-account-app.md
     - name: Niet-gestructureerde gegevens in cloudopslag doorzoeken
       href: storage-unstructured-search.md
 - name: Voorbeelden
