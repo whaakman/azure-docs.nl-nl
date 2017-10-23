@@ -11,6 +11,8 @@
       href: log-analytics-quick-collect-azurevm.md
     - name: Verzamelen - Linux-computer
       href: log-analytics-quick-collect-linux-computer.md
+    - name: Verzamelen - Windows-computer
+      href: log-analytics-quick-collect-windows-computer.md
 - name: Zelfstudies
   items:
     - name: 1 - Gegevens analyseren
@@ -25,6 +27,8 @@
       href: powershell-samples.md
 - name: Concepten
   items:
+    - name: Upgrade van werkruimte
+      href: log-analytics-log-search-upgrade.md
     - name: Veelgestelde vragen over Log Analytics
       href: log-analytics-faq.md
     - name: Gegevensverbruik
@@ -35,10 +39,10 @@
       href: log-analytics-service-providers.md
     - name: Zoeken in logboeken
       items:
-        - name: Veelgestelde vragen over zoeken in logboeken
-          href: log-analytics-log-search-faq.md
         - name: Overzicht van zoekopdrachten in logboeken
           href: log-analytics-log-search-new.md
+        - name: Veelgestelde vragen over zoeken in logboeken
+          href: log-analytics-log-search-faq.md
         - name: Portals voor zoekopdrachten in logboeken
           href: log-analytics-log-search-portals.md
 - name: Procedures
@@ -89,6 +93,20 @@
               href: log-analytics-custom-fields.md
     - name: Querygegevens
       items:
+        - name: Taaldocumentatie
+          href: 'https://docs.loganalytics.io'
+        - name: Overstappen van een verouderde taal
+          href: log-analytics-log-search-transition.md
+        - name: Zoekopdrachten uitvoeren in meerdere werkruimten tegelijk
+          href: log-analytics-cross-workspace-search.md
+        - name: Acties uitvoeren vanuit de zoekresultaten
+          href: log-analytics-log-search-takeaction.md
+        - name: Computergroepen gebruiken
+          href: log-analytics-computer-groups.md
+        - name: Stroomconnector
+          href: log-analytics-flow-tutorial.md
+    - name: Verouderde versie van zoeken in logboeken
+      items:
         - name: Overzicht van zoekopdrachten in logboeken
           href: log-analytics-log-searches.md
         - name: Zoekverwijzing
@@ -96,26 +114,18 @@
           items:
             - name: Reguliere expressies
               href: log-analytics-log-searches-regex.md
-            - name: Zoekopdrachten uitvoeren in meerdere werkruimten tegelijk
-              href: log-analytics-cross-workspace-search.md
-        - name: Acties uitvoeren vanuit de zoekresultaten
-          href: log-analytics-log-search-takeaction.md
-        - name: Computergroepen
-          href: log-analytics-computer-groups.md
-    - name: Nieuwe zoekopdrachten in logboeken
-      items:
-        - name: Uw werkruimte upgraden
-          href: log-analytics-log-search-upgrade.md
-        - name: Overstappen van een verouderde taal
-          href: log-analytics-log-search-transition.md
-        - name: Stroomconnector
-          href: log-analytics-flow-tutorial.md
     - name: Gegevens analyseren
       items:
         - name: Dashboards
           href: log-analytics-dashboards.md
         - name: Designer weergeven
-          href: log-analytics-view-designer.md
+          items:
+            - name: Overzicht
+              href: log-analytics-view-designer.md
+            - name: Naslaginformatie voor tegels
+              href: log-analytics-view-designer-tiles.md
+            - name: Naslaginformatie voor visualisatieonderdelen
+              href: log-analytics-view-designer-parts.md
         - name: Power BI
           href: log-analytics-powerbi.md
     - name: Waarschuwingen maken
@@ -231,14 +241,12 @@
           href: log-analytics-api-alerts.md
 - name: Naslaginformatie
   items:
+    - name: Taalverwijzing
+      href: 'https://docs.loganalytics.io/docs/Language-Reference'
     - name: Azure PowerShell
       href: /powershell/module/azurerm.operationalinsights
     - name: REST
       href: /rest/api/loganalytics
-    - name: Naslaginformatie voor Designer-tegels weergeven
-      href: log-analytics-view-designer-tiles.md
-    - name: Naslaginformatie voor Designer-visualisatieonderdelen weergeven
-      href: log-analytics-view-designer-parts.md
 - name: Resources
   items:
     - name: Azure-roadmap

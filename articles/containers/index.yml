@@ -47,10 +47,10 @@ sections:
         className: cardsM
         columns: 2
         items:
-          - href: 'https://docs.microsoft.com/azure/container-instances/container-instances-quickstart'
-            title: Een in een container geplaatste app maken met Azure Container Instances
+          - href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers'
+            title: Een Windows-containertoepassing implementeren met Service Fabric
             image:
-              src: /azure/media/index/ContainerService.svg
+              src: /azure/media/index/Fabric.svg
           - href: 'https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough'
             title: Een Kubernetes-cluster voor Linux-containers maken
             image:
@@ -59,12 +59,16 @@ sections:
             title: Een Docker Swarm-cluster implementeren
             image:
               src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
-          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-dcos-quickstart'
-            title: Een DC/OS-cluster implementeren
+          - href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
+            title: Een privé-Docker-register maken met de Azure Container Registry
             image:
-              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+              src: /azure/media/index/container-registry.svg
           - href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image'
             title: Een in een container geplaatste app maken met Azure Web Apps for Containers
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-dcos-quickstart'
+            title: Een DC/OS-cluster implementeren
             image:
               src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
   - title: Gratis Pluralsight-videotraining voor Azure en containers

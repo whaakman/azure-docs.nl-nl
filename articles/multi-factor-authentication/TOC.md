@@ -13,6 +13,7 @@
 # Procedures
 ## Implementeren en gebruiken
 ### [Instellingen configureren](multi-factor-authentication-whats-next.md)
+#### [De phonefactor-portal gebruiken](multi-factor-authentication-whats-next-pfweb.md)
 ### [Rapporten in MFA](multi-factor-authentication-manage-reports.md)
 ### [Bestaande netwerkbeleidservers gebruiken](multi-factor-authentication-nps-extension.md)
 #### [Geavanceerde configuratie voor NPS-extensie](nps-extension-advanced-configuration.md)

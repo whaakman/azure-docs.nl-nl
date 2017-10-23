@@ -34,6 +34,7 @@
 #### [Diagnostische logboeken](event-hubs-diagnostic-logs.md)
 ### [AMQP 1.0-protocolhandleiding](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Beheren
+### [Event Hubs bewaken met Azure-bewaking](event-hubs-metrics-azure-monitor.md)
 ### [Event Hubs-beheerbibliotheken](event-hubs-management-libraries.md)
 ### Capture
 #### [Event Hubs Capture](event-hubs-capture-overview.md)

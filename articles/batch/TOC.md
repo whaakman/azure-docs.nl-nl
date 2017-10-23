@@ -20,6 +20,7 @@
 ### [Gelijktijdige knooppunttaken](batch-parallel-node-tasks.md)
 ### [Taken tellen aan de hand van de status](batch-get-task-counts.md)
 ### [Een pool maken met een aangepaste installatiekopie](batch-custom-images.md)
+### [Een pool in een virtueel netwerk maken](batch-virtual-network.md)
 ### [Efficiënte lijstquery's](batch-efficient-list-queries.md)
 ### [Taken voor taakvoorbereiding- en -voltooiing](batch-job-prep-release.md)
 ### [Compute-knooppunten in Linux](batch-linux-nodes.md)
@@ -62,6 +63,7 @@
 ## [Omgevingsvariabelen Azure Batch-rekenknooppunt](batch-compute-node-environment-variables.md)
 
 # Verwant
+## [Batch AI](../batch-ai/overview.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Gegevensverwerking met Batch en Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Batch- en HPC-oplossingen in de Azure-cloud](batch-hpc-solutions.md)
