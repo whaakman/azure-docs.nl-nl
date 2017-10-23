@@ -19,7 +19,7 @@
 #### [Azure PowerShell](application-gateway-create-gateway-arm.md)
 #### [Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
 #### [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md)
-#### [Azure-CLI](application-gateway-create-gateway-cli.md)
+#### [Azure CLI](application-gateway-create-gateway-cli.md)
 #### [Azure PowerShell (klassiek)](application-gateway-create-gateway.md)
 ### Intern
 #### [Azure PowerShell](application-gateway-ilb-arm.md)
@@ -28,10 +28,10 @@
 ## Web Application Firewall configureren
 ### [Azure Portal](application-gateway-web-application-firewall-portal.md)
 ### [Azure PowerShell](application-gateway-web-application-firewall-powershell.md)
-### [Azure-CLI](application-gateway-web-application-firewall-cli.md)
+### [Azure CLI](application-gateway-web-application-firewall-cli.md)
 ## Regels voor Web Application Firewall aanpassen
 ### [Azure Portal](application-gateway-customize-waf-rules-portal.md)
-### [Azure-CLI](application-gateway-customize-waf-rules-cli.md)
+### [Azure CLI](application-gateway-customize-waf-rules-cli.md)
 ## SSL configureren
 ### [Azure Portal](application-gateway-ssl-portal.md)
 ### [Azure PowerShell](application-gateway-ssl-arm.md)
@@ -42,7 +42,7 @@
 ## Routering op basis van URL-pad configureren
 ### [Azure Portal](application-gateway-create-url-route-portal.md)
 ### [Azure PowerShell](application-gateway-create-url-route-arm-ps.md)
-### [Azure-CLI](application-gateway-create-url-route-cli.md)
+### [Azure CLI](application-gateway-create-url-route-cli.md)
 ## Hosting van meerdere sites configureren
 ### [Azure Portal](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
@@ -59,6 +59,7 @@
 ## Problemen oplossen
 ### [Fouten in Application Gateway oplossen](application-gateway-troubleshooting-502.md)
 ### [Diagnostische logboeken en metrische gegevens](application-gateway-diagnostics.md)
+### [Affiniteitsproblemen in een Application Gateway-sessie](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure-CLI](/cli/azure/network/application-gateway)

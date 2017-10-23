@@ -97,6 +97,7 @@
 #### [Wachttijden](active-directory-reporting-latencies-azure-portal.md)
 #### [Meldingen](active-directory-reporting-notifications.md)
 #### [Foutcodes voor aanmeldingsactiviteit](active-directory-reporting-activity-sign-ins-errors.md)
+#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 ### Problemen oplossen
 #### [Ontbrekende controlegegevens](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Ontbrekende gegevens in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -150,8 +151,7 @@
 ### [Overzicht](active-directory-enable-sso-scenario.md)
 ### [Aan de slag](active-directory-integrating-applications-getting-started.md)
 ### [Zelfstudies voor SaaS-app-integratie](active-directory-saas-tutorial-list.md)
-### [Cloud App Discovery](cloudappdiscovery-overview.md)
-#### [Detectie zonder agent instellen](cloudappdiscovery-get-started.md)
+### [Cloud App Discovery](cloudappdiscovery-get-started.md)
 #### [Momentopnamerapporten maken](cloudappdiscovery-set-up-snapshots.md)
 #### [Continue rapportage configureren](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Een aangepaste logboekparser gebruiken](https://docs.microsoft.com/cloud-app-security/custom-log-parser)

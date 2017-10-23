@@ -56,14 +56,14 @@
 ### [Azure PowerShell](vpn-gateway-activeactive-rm-powershell.md)
 ## Een BGP configureren voor een VPN-gateway
 ### [Azure PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
-### [Azure-CLI](bgp-how-to-cli.md)
+### [Azure CLI](bgp-how-to-cli.md)
 ## Geforceerde tunneling configureren
 ### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [Azure PowerShell (klassiek)](vpn-gateway-about-forced-tunneling.md)
 ## Gateway-instellingen van lokaal netwerk aanpassen
 ### [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-modify-local-network-gateway.md)
-### [Azure-CLI](vpn-gateway-modify-local-network-gateway-cli.md)
+### [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Een VPN-gatewayverbinding verifiëren](vpn-gateway-verify-connection-resource-manager.md)
 ## [Een VPN-gateway opnieuw instellen](vpn-gateway-resetgw-classic.md)
 ## Een VPN-gateway verwijderen
@@ -81,7 +81,6 @@
 ### [Probleem met het verbindingstype punt-naar-site](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [Site-naar-Site-verbinding wordt herhaaldelijk verbroken](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Kan geen Site-naar-Site-verbinding maken](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
-### [Affiniteitsproblemen in een Application Gateway-sessie](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 ### [VNet- of VPN-verbindingen configureren en valideren](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Naslaginformatie

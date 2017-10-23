@@ -109,6 +109,7 @@
 ### Apparaattaken gebruiken om apparaatfirmware bij te werken
 #### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-firmware-update.md)
 #### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-firmware-update.md)
+#### [.NET-back-end/.NET-apparaat](iot-hub-csharp-csharp-firmware-update.md)
 #### [Java-back-end/Java-apparaat](iot-hub-java-java-firmware-update.md)
 ### Taken plannen en uitzenden
 #### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-schedule-jobs.md)
@@ -130,7 +131,7 @@
 #### [Azure CLI gebruiken](iot-hub-configure-file-upload-cli.md)
 ### [Bewaken met diagnostische gegevens](iot-hub-monitor-resource-health.md)
 #### [Migreren naar diagnostische instellingen](iot-hub-migrate-to-diagnostics-settings.md)
-#### [Bewerkingen bewaken](iot-hub-operations-monitoring.md)
+#### [Controle van bewerkingen](iot-hub-operations-monitoring.md)
 ### [Metrische gebruiksgegevens](iot-hub-metrics.md)
 ### [IoT-apparaten bulksgewijs beheren](iot-hub-bulk-identity-mgmt.md)
 ### [IP-filtering configureren](iot-hub-ip-filtering.md)

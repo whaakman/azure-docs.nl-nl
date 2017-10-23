@@ -40,13 +40,14 @@
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
 ### Door de gebruiker gedefinieerde routes
+#### [Azure Portal](create-user-defined-route-portal.md)
 #### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
 #### [Azure CLI 2.0](virtual-network-create-udr-arm-cli.md)
 #### [Azure CLI 1.0](virtual-network-create-udr-arm-cli-nodejs.md)
 #### [Sjabloon](virtual-network-create-udr-arm-template.md)
 #### Klassiek
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
-##### [Azure-CLI](virtual-network-create-udr-classic-cli.md)
+##### [Azure CLI](virtual-network-create-udr-classic-cli.md)
 
 ### Peering op virtueel netwerk
 #### [Hetzelfde implementatiemodel - hetzelfde abonnement](virtual-network-create-peering.md)
@@ -74,7 +75,7 @@
 #### Een virtuele machine met een statisch privé-IP-adres maken
 ##### [Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [Azure PowerShell](virtual-networks-static-private-ip-arm-ps.md)
-##### [Azure-CLI](virtual-networks-static-private-ip-arm-cli.md)
+##### [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
 ##### Klassiek
 ###### [Azure Portal](virtual-networks-static-private-ip-classic-pportal.md)
 ###### [Azure PowerShell](virtual-networks-static-private-ip-classic-ps.md)
