@@ -15,6 +15,14 @@
       href: container-registry-get-started-powershell.md
 - name: Zelfstudies
   items:
+    - name: Geo-replicatie
+      items:
+        - name: 1 - Containerregister voorbereiden
+          href: container-registry-tutorial-prepare-registry.md
+        - name: 2 - Webtoepassing implementeren
+          href: container-registry-tutorial-deploy-app.md
+        - name: 3 - Webtoepassing bijwerken
+          href: container-registry-tutorial-deploy-update.md
     - name: Azure Container Instances
       href: ../container-instances/container-instances-tutorial-prepare-app.md
     - name: Azure Container Service

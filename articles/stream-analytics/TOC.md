@@ -20,6 +20,7 @@
 ### [Voorbeeldinvoergegevens](stream-analytics-sample-data-input.md)
 ### [Veelvoorkomende querypatronen](stream-analytics-stream-analytics-query-patterns.md)
 ### [Vensterfuncties](stream-analytics-window-functions.md)
+
 ### [Referentiegegevens gebruiken](stream-analytics-use-reference-data.md)
 ### [Testquery's](stream-analytics-test-query.md)
 ### [JavaScript UDF's integreren](stream-analytics-javascript-user-defined-functions.md)
@@ -53,6 +54,7 @@
 ### [Taakdiagram en metrische gegevens](stream-analytics-job-diagram-with-metrics.md)
 ### [SELECT INTO-foutopsporing](stream-analytics-select-into.md)
 ### [Verwerking gebeurtenisvolgordes](stream-analytics-out-of-order-and-late-events.md)
+### [Overwegingen over gebeurtenisvolgordes](stream-analytics-out-of-order-and-late-events.md)
 ### [Limieten Event Hub-lezer](stream-analytics-event-hub-consumer-groups.md)
 ### [Diagnostische logboeken](stream-analytics-job-diagnostic-logs.md)
 

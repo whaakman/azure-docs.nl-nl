@@ -38,13 +38,15 @@ sections:
   - title: Zelfstudies met stapsgewijze instructies
     items:
       - type: paragraph
-        text: Meer informatie over het gebruik van Azure Container Registry met Azure Container Instances en Azure Container Service.
+        text: Ontdek met deze zelfstudies hoe u Azure Container Registry gebruikt.
       - type: list
         style: unordered
         className: spaced noBullet
         items:
+          - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Geo-replicatie voor Container Registry</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry met Azure Container Instances</a>
           - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Container Registry met Azure Container Service</a>
+          - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Container Registry met Service Fabric</a>
   - title: Naslaginformatie
     items:
       - type: list

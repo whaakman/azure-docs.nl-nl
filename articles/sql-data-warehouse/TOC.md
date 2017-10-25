@@ -2,8 +2,6 @@
 
 ## [Wat is SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
 ## [Datawarehouse-workload](sql-data-warehouse-overview-workload.md)
-## [Gedistribueerde gegevens](sql-data-warehouse-distributed-data.md)
-## [Veelgestelde vragen](sql-data-warehouse-overview-faq.md)
 
 # Aan de slag
 
@@ -12,9 +10,13 @@
 ## [Aanbevolen procedures](sql-data-warehouse-best-practices.md)
 ## [Beheren](sql-data-warehouse-overview-manage.md)
 
-
-
 # Procedures
+
+## Servicekenmerken
+### [MPP-architectuur](massively-parallel-processing-mpp-architecture.md)
+### [Prestatielagen](performance-tiers.md)
+### [Datawarehouse-eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Veelgestelde vragen](sql-data-warehouse-overview-faq.md)
 
 ## Back-ups en herstellen
 
@@ -118,13 +120,15 @@
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [REST-API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+### Resourceklassen
+#### [Richtlijnen](resource-classes-for-workload-management.md)
+#### [Uw werkbelasting analyseren](analyze-your-workload.md)
 
 ## Prestaties
 
 ### [Overzicht](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Columnstore-compressie](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Controle](sql-data-warehouse-manage-monitor.md)
-### [Workload](sql-data-warehouse-develop-concurrency.md)
 
 ## Beveiliging
 

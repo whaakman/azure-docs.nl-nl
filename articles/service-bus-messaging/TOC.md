@@ -63,6 +63,7 @@
 #### [Transactieverwerking](service-bus-transactions.md)
 #### [Gekoppelde naamruimte implementeren](service-bus-paired-namespaces.md)
 ## Beheren
+### [Service Bus bewaken met Azure-bewaking](service-bus-metrics-azure-monitor.md)
 ### [Service Bus-beheerbibliotheken](service-bus-management-libraries.md)
 ### [Diagnostische logboeken](service-bus-diagnostic-logs.md)
 ### [Bericht-entiteiten onderbreken en opnieuw activeren](entity-suspend.md)

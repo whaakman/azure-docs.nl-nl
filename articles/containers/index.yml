@@ -47,30 +47,22 @@ sections:
         className: cardsM
         columns: 2
         items:
+          - href: ../aks/kubernetes-walkthrough.md
+            title: Een Kubernetes-cluster maken met Azure Container Service (AKS)
+            image:
+              src: /azure/media/index/ContainerService.svg
           - href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers'
             title: Een Windows-containertoepassing implementeren met Service Fabric
             image:
               src: /azure/media/index/Fabric.svg
-          - href: 'https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough'
-            title: Een Kubernetes-cluster voor Linux-containers maken
-            image:
-              src: /azure/media/index/ContainerService.svg
-          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-swarm-walkthrough'
-            title: Een Docker Swarm-cluster implementeren
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
-          - href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
-            title: Een privé-Docker-register maken met de Azure Container Registry
-            image:
-              src: /azure/media/index/container-registry.svg
           - href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image'
             title: Een in een container geplaatste app maken met Azure Web Apps for Containers
             image:
               src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
-          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-dcos-quickstart'
-            title: Een DC/OS-cluster implementeren
+          - href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
+            title: Een privé-Docker-register maken met de Azure Container Registry
             image:
-              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+              src: /azure/media/index/container-registry.svg
   - title: Gratis Pluralsight-videotraining voor Azure en containers
     items:
       - type: list
@@ -93,14 +85,14 @@ sections:
   - title: Zelfstudies met stapsgewijze instructies
     items:
       - type: paragraph
-        text: Azure-containers gebruiken
+        text: Informatie over het gebruik van Azure Container Service (AKS)
       - type: list
         style: unordered
         items:
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Containerinstallatiekopieën van een toepassing maken</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-acr">Containerinstallatiekopieën uploaden naar Azure Container Registry</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster">Een Kubernetes-cluster implementeren in Azure Container Service</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-application">Containerinstallatiekopieën uitvoeren in Kubernetes</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale">Een toepassing en Kubernetes-infrastructuur schalen</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-app-update">Een toepassing die wordt uitgevoerd in Kubernetes bijwerken</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor">Kubernetes bewaken met OMS</a>'
+          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Containerinstallatiekopieën van een toepassing maken</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Containerinstallatiekopieën uploaden naar Azure Container Registry</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">Een AKS-cluster implementeren</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Containerinstallatiekopieën uitvoeren in Kubernetes</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-scale">Een toepassing en Kubernetes-infrastructuur schalen</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Een toepassing die wordt uitgevoerd in Kubernetes bijwerken</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Kubernetes bewaken met Log Analystics</a>

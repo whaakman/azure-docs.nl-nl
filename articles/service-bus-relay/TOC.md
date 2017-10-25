@@ -21,6 +21,8 @@
 ### [Beschikbare API's](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
+## Beheren
+### [Azure Relay bewaken met Azure-bewaking](relay-metrics-azure-monitor.md)
 
 # Naslaginformatie
 ## .NET

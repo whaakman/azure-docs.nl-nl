@@ -1,0 +1,55 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Container Service (AKS)
+metadata:
+  document_id: null
+  title: 'Documentatie voor Azure Container Service (AKS) - zelfstudies, API-verwijzing | Microsoft Docs'
+  meta.description: 'AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.'
+  services: container-service
+  author: carolz
+  manager: carolz
+  ms.service: container-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07-21-2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Container Service (AKS) beheert uw gehoste Kubernetes-omgeving en zorgt dat de implementatie en het beheer van toepassingen in containers snel en eenvoudig is en geen kennis over het beheer van containers vereist. Het verlicht ook de last van actieve bewerkingen en onderhoud door inrichten, upgraden en bronnen op aanvraag schalen mogelijk te maken, zonder uw toepassingen offline te brengen.'
+sections:
+  - title: QuickStarts van vijf minuten
+    items:
+      - type: paragraph
+        text: 'Meer informatie over het implementeren van een AKS-cluster:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/media/index/ContainerService.svg
+            text: Een AKS-cluster maken
+            href: /azure/aks/kubernetes-walkthrough
+  - title: Zelfstudies met stapsgewijze instructies
+    items:
+      - type: paragraph
+        text: 'Ontdek hoe u in een AKS-cluster toepassingen implementeert, beheert en bijwerkt.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Containerinstallatiekopieën van een toepassing maken</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Containerinstallatiekopieën uploaden naar Azure Container Registry</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">Een AKS-cluster implementeren</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Containerinstallatiekopieën uitvoeren in Kubernetes</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-scale">Een toepassing en Kubernetes-infrastructuur schalen</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Een toepassing die wordt uitgevoerd in Kubernetes bijwerken</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Kubernetes bewaken met OMS</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">Een AKS-cluster upgraden</a>
+  - title: Naslaginformatie
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Opdrachtregel
+            html: <p><a href="/cli/azure/aks">Azure CLI</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/container-service">REST-API</a></p>

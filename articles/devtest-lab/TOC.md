@@ -14,7 +14,7 @@
 # Handleidingen
 ## Virtuele machines gebruiken in een lab
 ### [Virtuele machines maken](devtest-lab-add-vm.md)
-### [Een virtuele machine maken die kan worden geclaimd](devtest-lab-add-claimable-vm.md)
+### [Claimbare virtuele machines maken en beheren](devtest-lab-add-claimable-vm.md)
 ### [Virtuele machines maken en beheren met Azure CLI](devtest-lab-vmcli.md)
 ### [Een virtuele machine opnieuw opstarten](devtest-lab-restart-vm.md)
 

@@ -5,6 +5,8 @@
 ## [Een hybride identiteitsoplossing kiezen](choose-hybrid-identity-solution.md)
 ## [Azure-abonnementen koppelen](active-directory-how-subscriptions-associated-directory.md)
 ## [Veelgestelde vragen](active-directory-faq.md)
+## [Nieuwe functies](whats-new.md)
+
 
 # Aan de slag
 ## [Aan de slag met Azure AD](get-started-azure-ad.md)
@@ -302,6 +304,7 @@
 #### [Aanbevolen procedures](active-directory-conditional-access-best-practices.md)
 #### [Inzicht in apparaatbeleidsregels voor Office 365-services](active-directory-conditional-access-device-policies.md)
 #### Taken
+##### [Klassieke beleidsregels migreren](active-directory-conditional-access-migration.md)
 ##### [Voorwaardelijke toegang op basis van apparaten instellen](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Voorwaardelijke toegang op basis van apps instellen](active-directory-conditional-access-mam.md)
 ##### [Gebruiksvoorwaarden bieden voor gebruikers en apps](active-directory-tou.md)

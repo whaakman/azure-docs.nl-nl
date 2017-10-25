@@ -80,16 +80,15 @@
 #### [De gebruikersinterface dynamisch aanpassen](active-directory-b2c-ui-customization-custom-dynamic.md)
 #### [Tokens aanpassen](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [Wachtwoordcomplexiteit](active-directory-b2c-reference-password-complexity-custom.md)
-
 #### [Wachtwoord wijzigen](active-directory-b2c-reference-password-change-custom.md)
-
 #### [Aangemeld blijven inschakelen](active-directory-b2c-reference-kmsi-custom.md)
-
 ### Problemen oplossen
 #### [Logboeken verzamelen met Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Naslaginformatie
 ### [Releaseopmerkingen](active-directory-b2c-developer-notes-custom.md)
+### [Sessie-providers voor eenmalige aanmelding](active-directory-b2c-reference-sso-custom.md)
 ### [Vertrouwensframework: definitie](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
+
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Woordenlijst
