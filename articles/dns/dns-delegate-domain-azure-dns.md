@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 33b3ec24432ff1268860b9a2e9d5098600a8dedc
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/16/2017
-
+ms.openlocfilehash: 7aa26fd54bab476e798e2327d1c46afb04aa3838
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/18/2017
 ---
-
 # <a name="delegate-a-domain-to-azure-dns"></a>Een domein delegeren naar Azure DNS
 
 Met Azure DNS kunt u een DNS-zone hosten en de DNS-records voor een domein in Azure beheren. Het domein moet vanaf het bovenliggende domein worden gedelegeerd naar Azure DNS om ervoor te zorgen dat DNS-query's voor een domein Azure DNS bereiken. Houd er rekening mee Azure DNS is niet de domeinregistrar. In dit artikel wordt uitgelegd hoe u uw domein delegeert naar Azure DNS.
@@ -308,4 +306,3 @@ Als u alle resources wilt verwijderen die u in dit artikel hebt gemaakt, voert u
 [DNS-zones beheren](dns-operations-dnszones.md)
 
 [DNS-records beheren](dns-operations-recordsets.md)
-

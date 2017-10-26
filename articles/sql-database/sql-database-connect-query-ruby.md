@@ -12,17 +12,15 @@ ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/14/2017
 ms.author: carlrab
+ms.openlocfilehash: 7322b1f36017adb32735c4c1e1f0af73bff70c97
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 25ff9a9cfaa5494dbb006c84e235099fe51e6545
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/17/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-ruby-to-query-an-azure-sql-database"></a>Ruby gebruiken om een query uit te voeren voor een Azure SQL-database
 
 In deze beknopte zelfstudie wordt gedemonstreerd hoe u [Ruby](https://www.ruby-lang.org) gebruikt om een programma te maken dat verbinding maakt met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om een query uit te voeren voor gegevens.
@@ -99,4 +97,3 @@ end
 - [GitHub-opslagplaats voor TinyTDS](https://github.com/rails-sqlserver/tiny_tds)
 - [Problemen melden of vragen over TinyTDS stellen](https://github.com/rails-sqlserver/tiny_tds/issues)
 - [Ruby-stuurprogramma's voor SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/)
-

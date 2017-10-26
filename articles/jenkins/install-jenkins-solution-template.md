@@ -10,11 +10,11 @@ ms.topic: hero-article
 ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 7bb74f297d52fb25171817175cce64187b397c38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea281e9c83bb37f78c248c6c4011a7da60b45c01
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Vanuit Azure Portal een Jenkins-server maken op een Azure-VM met Linux
 
@@ -41,7 +41,7 @@ Vul de volgende velden in op het tabblad **Basisinstellingen configureren**:
 * Voer een gebruikersnaam in bij **Gebruikersnaam**. De gebruikersnaam moet voldoen aan [specifieke vereisten](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
 * Selecteer **Wachtwoord** bij **Verificatietype** en voer een wachtwoord in. Het wachtwoord moet een hoofdletter, een cijfer en één speciaal teken bevatten.
 * Geef **myJenkinsResourceGroup** op voor **Resourcegroep**.
-* Kies de [Azure-regio](https://azure.microsoft.com/regions/) **VS-Oost** in de vervolgkeuzelijst **Locatie**.
+* Kies de [Azure-regio](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) **VS-Oost** in de vervolgkeuzelijst **Locatie**.
 
 Selecteer **OK** om naar het tabblad **Extra opties configureren** te gaan. Geef een unieke domeinnaam op om de Jenkins-server te identificeren en selecteer **OK**.
 
