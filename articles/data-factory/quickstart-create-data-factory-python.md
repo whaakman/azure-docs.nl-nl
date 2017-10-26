@@ -9,18 +9,18 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: 
-ms.devlang: dotnet
+ms.devlang: python
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 20a481443d8f456cb1109c046dbdfd42ead7c43c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea82b680213b72582667b2be15c0c2719ad7ff78
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Een data factory en pijplijn maken met behulp van Python
-Azure Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee u gegevensgestuurde werkstromen kunt maken in de cloud. Op deze manier kunt u de verplaatsing en transformatie van gegevens indelen en automatiseren. Met Azure Data Factory kunt u gegevensgestuurde werkstromen (ook wel pijplijnen) maken en plannen die gegevens uit verschillende gegevensarchieven kunnen opnemen en de gegevens kunnen verwerken/transformeren met behulp van rekenservices zoals Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics en Azure Machine Learning. Daarnaast kunt u de uitvoergegevens publiceren naar gegevensarchieven zoals Azure SQL Data Warehouse, zodat BI-toepassingen (business intelligence) ze kunnen gebruiken. 
+Azure Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee u gegevensgestuurde werkstromen kunt maken in de cloud. Op deze manier kunt u de verplaatsing en transformatie van gegevens indelen en automatiseren. Met Azure Data Factory kunt u gegevensgestuurde werkstromen (ook wel pijplijnen) maken en plannen die gegevens uit verschillende gegevensarchieven kunnen opnemen en de gegevens kunnen verwerken/transformeren met behulp van rekenservices zoals Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics en Azure Machine Learning. Daarnaast kunt u de uitvoergegevens publiceren naar gegevensarchieven zoals Azure SQL Data Warehouse, zodat BI-toepassingen (business intelligence) ze kunnen gebruiken.
 
 In deze snelstartgids wordt beschreven hoe u Python kunt gebruiken om een Azure data factory te maken. Met de pijplijn in deze data factory worden gegevens gekopieerd van de ene map naar een andere map in een Azure Blob-opslag.
 
@@ -28,22 +28,22 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Azure Storage-account**. U gebruikt de blob-opslag als gegevensopslag voor **bron** en **sink**. Als u geen Azure-opslagaccount hebt, raadpleegt u het artikel [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) om een account te maken. 
-* **Maak een toepassing in Azure Active Directory** aan de hand van [deze instructie](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Noteer de volgende waarden voor gebruik in latere stappen: **toepassings-id**, **verificatiesleutel** en **tenant-id**. Wijs de toepassing toe aan de rol '**Inzender**' door de instructies in hetzelfde artikel te volgen. 
+* **Azure Storage-account**. U gebruikt de blob-opslag als gegevensopslag voor **bron** en **sink**. Als u geen Azure-opslagaccount hebt, raadpleegt u het artikel [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) om een account te maken.
+* **Maak een toepassing in Azure Active Directory** aan de hand van [deze instructie](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Noteer de volgende waarden voor gebruik in latere stappen: **toepassings-id**, **verificatiesleutel** en **tenant-id**. Wijs de toepassing toe aan de rol '**Inzender**' door de instructies in hetzelfde artikel te volgen.
 
 ### <a name="create-and-upload-an-input-file"></a>Een invoerbestand maken en uploaden
 
 1. Start Kladblok. Kopieer de volgende tekst en sla deze op schijf op in het bestand **input.txt**.
-    
+
     ```
     John|Doe
     Jane|Doe
     ```
-2.  Gebruik hulpprogramma's zoals [Azure Opslagverkenner](http://storageexplorer.com/) om de container **adfv2tutorial** te maken, en de map **input** in de container. Vervolgens kunt u het bestand **input.txt** uploaden naar de map **input**. 
+2.  Gebruik hulpprogramma's zoals [Azure Opslagverkenner](http://storageexplorer.com/) om de container **adfv2tutorial** te maken, en de map **input** in de container. Vervolgens kunt u het bestand **input.txt** uploaden naar de map **input**.
 
 ## <a name="install-the-python-package"></a>Het Python-pakket installeren
-1. Open een terminal of opdrachtprompt met beheerdersbevoegdheden.  
-2. Installeer eerst het Python-pakket voor Azure-beheerresources: 
+1. Open een terminal of opdrachtprompt met beheerdersbevoegdheden. 
+2. Installeer eerst het Python-pakket voor Azure-beheerresources:
 
     ```
     pip install azure-mgmt-resource
@@ -59,7 +59,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 ## <a name="create-a-data-factory-client"></a>Een data factory-client maken
 
 1. Maak een bestand met de naam **datafactory.py**. Voeg de volgende instructies toe om verwijzingen naar naamruimten toe te voegen.
-    
+
     ```python
     from azure.common.credentials import ServicePrincipalCredentials
     from azure.mgmt.resource import ResourceManagementClient
@@ -68,7 +68,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
     from datetime import datetime, timedelta
     import time
     ```
-2. Voeg de volgende functies voor het afdrukken van informatie toe. 
+2. Voeg de volgende functies voor het afdrukken van informatie toe.
 
     ```python
     def print_item(group):
@@ -81,14 +81,14 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
             print("\tTags: {}".format(group.tags))
         if hasattr(group, 'properties'):
             print_properties(group.properties)
-    
+
     def print_properties(props):
         """Print a ResourceGroup properties instance."""
         if props and hasattr(props, 'provisioning_state') and props.provisioning_state:
             print("\tProperties:")
             print("\t\tProvisioning State: {}".format(props.provisioning_state))
         print("\n\n")
-    
+
     def print_activity_run_details(activity_run):
         """Print activity run details."""
         print("\n\tActivity run details\n")
@@ -98,8 +98,8 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
             print("\tNumber of bytes written: {}".format(activity_run.output['dataWritten']))           
             print("\tCopy duration: {}".format(activity_run.output['copyDuration']))           
         else:
-            print("\tErrors: {}".format(activity_run.error['message'])) 
-  
+            print("\tErrors: {}".format(activity_run.error['message']))
+
     ```
 3. Voeg de volgende code toe aan de methode **Main** om een instantie van de klasse DataFactoryManagementClient te maken. U gebruikt dit object om de data factory, een gekoppelde service, gegevenssets en een pijplijn te maken. U kunt dit object ook gebruiken om de details van de pijplijnuitvoering te controleren. Stel **subscription_id** in op de id van uw Azure-abonnement.
 
@@ -108,25 +108,25 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
         # Azure subscription ID
         subscription_id = '<Specify your Azure Subscription ID>'
-        
+
         # This program creates this resource group. If it's an existing resource group, comment out the code that creates the resource group
         rg_name = 'ADFTutorialResourceGroup'
-    
-        # The data factory name. It must be globally unique. 
+
+        # The data factory name. It must be globally unique.
         df_name = '<Specify a name for the data factory. It must be globally unique>'
-    
+
         # Specify your Active Directory client ID, client secret, and tenant ID
         credentials = ServicePrincipalCredentials(client_id='<Active Directory application/client ID>', secret='<client secret>', tenant='<Active Directory tenant ID>')
         resource_client = ResourceManagementClient(credentials, subscription_id)
         adf_client = DataFactoryManagementClient(credentials, subscription_id)
-    
+
         rg_params = {'location':'eastus'}
         df_params = {'location':'eastus'}    
     ```
 
 ## <a name="create-a-data-factory"></a>Een data factory maken
 
-Voeg de volgende code toe aan de methode **Main** om een **data factory** te maken. Als uw resourcegroep al bestaat, maakt u van de eerste `create_or_update`-instructie een commentaar. 
+Voeg de volgende code toe aan de methode **Main** om een **data factory** te maken. Als uw resourcegroep al bestaat, maakt u van de eerste `create_or_update`-instructie een commentaar.
 
 ```python
     # create the resource group
@@ -146,13 +146,13 @@ Voeg de volgende code toe aan de methode **Main** om een **data factory** te mak
 
 Voeg de volgende code toe aan de methode **Main** om een **gekoppelde Azure Storage-service** te maken.
 
-U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en compute-services aan de gegevensfactory te koppelen. In deze snelstartgids hoeft u maar één gekoppelde Azure Storage-service te maken die in het voorbeeld wordt gebruikt als zowel de bron voor het kopiëren en als de sinkopslag, met de naam 'AzureStorageLinkedService'. Vervang `<storageaccountname>` en `<storageaccountkey>` door de naam en sleutel van uw Azure-opslagaccount. 
+U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en compute-services aan de gegevensfactory te koppelen. In deze snelstartgids hoeft u maar één gekoppelde Azure Storage-service te maken die in het voorbeeld wordt gebruikt als zowel de bron voor het kopiëren en als de sinkopslag, met de naam 'AzureStorageLinkedService'. Vervang `<storageaccountname>` en `<storageaccountkey>` door de naam en sleutel van uw Azure-opslagaccount.
 
 ```python
     # Create an Azure Storage linked service
     ls_name = 'storageLinkedService'
 
-    # IMPORTANT: specify the name and key of your Azure Storage account. 
+    # IMPORTANT: specify the name and key of your Azure Storage account.
     storage_string = SecureString('DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<storageaccountkey>')
 
     ls_azure_storage = AzureStorageLinkedService(connection_string=storage_string)
@@ -163,7 +163,7 @@ U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en co
 In deze sectie maakt u twee gegevenssets: één voor de bron en de andere voor de sink.
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Een gegevensset maken voor de brongegevens in Azure Blob
-Voeg de volgende code toe aan de methode Main om een Azure blob-gegevensset te maken. Zie het [artikel over Azure Blob-connectoren](connector-azure-blob-storage.md#dataset-properties) voor meer informatie over de eigenschappen van een Azure Blob-gegevensset. 
+Voeg de volgende code toe aan de methode Main om een Azure blob-gegevensset te maken. Zie het [artikel over Azure Blob-connectoren](connector-azure-blob-storage.md#dataset-properties) voor meer informatie over de eigenschappen van een Azure Blob-gegevensset.
 
 U definieert een gegevensset die de brongegevens in Azure Blob vertegenwoordigt. Deze Blob-gegevensset verwijst naar de gekoppelde Azure Storage-service die u in de vorige stap hebt gemaakt.
 
@@ -179,7 +179,7 @@ U definieert een gegevensset die de brongegevens in Azure Blob vertegenwoordigt.
 ```
 
 ### <a name="create-a-dataset-for-sink-azure-blob"></a>Een gegevensset maken voor de sinkgegevens in Azure Blob
-Voeg de volgende code toe aan de methode Main om een Azure blob-gegevensset te maken. Zie het [artikel over Azure Blob-connectoren](connector-azure-blob-storage.md#dataset-properties) voor meer informatie over de eigenschappen van een Azure Blob-gegevensset. 
+Voeg de volgende code toe aan de methode Main om een Azure blob-gegevensset te maken. Zie het [artikel over Azure Blob-connectoren](connector-azure-blob-storage.md#dataset-properties) voor meer informatie over de eigenschappen van een Azure Blob-gegevensset.
 
 U definieert een gegevensset die de brongegevens in Azure Blob vertegenwoordigt. Deze Blob-gegevensset verwijst naar de gekoppelde Azure Storage-service die u in de vorige stap hebt gemaakt.
 
@@ -197,14 +197,14 @@ U definieert een gegevensset die de brongegevens in Azure Blob vertegenwoordigt.
 Voeg de volgende code toe aan de methode **Main** om **een pijplijn met een kopieeractiviteit te maken**.
 
 ```python
-    # Create a copy activity 
+    # Create a copy activity
     act_name =  'copyBlobtoBlob'
     blob_source = BlobSource()
     blob_sink = BlobSink()
     dsin_ref = DatasetReference(ds_name)
     dsOut_ref = DatasetReference(dsOut_name)
     copy_activity = CopyActivity(act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
-    
+
     #Create a pipeline with the copy activity
     p_name =  'copyPipeline'
     params_for_pipeline = {}
@@ -238,7 +238,7 @@ Als u de uitvoering van de pijplijn wilt volgen, voegt u de volgende code toe aa
     print_activity_run_details(activity_runs_paged[0])
 ```
 
-Voeg nu de volgende instructie toe om de methode **Main** aan te roepen wanneer het programma wordt uitgevoerd: 
+Voeg nu de volgende instructie toe om de methode **Main** aan te roepen wanneer het programma wordt uitgevoerd:
 
 ```python
 # Start the main method
@@ -246,7 +246,7 @@ main()
 ```
 
 ## <a name="full-script"></a>Volledige script
-Dit is de volledige Python-code: 
+Dit is de volledige Python-code:
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials
@@ -294,7 +294,7 @@ def main():
     # This program creates this resource group. If it's an existing resource group, comment out the code that creates the resource group
     rg_name = '<Azure resource group name>'
 
-    # The data factory name. It must be globally unique. 
+    # The data factory name. It must be globally unique.
     df_name = '<Your data factory name>'        
 
     # Specify your Active Directory client ID, client secret, and tenant ID
@@ -380,7 +380,7 @@ Bouw en start de toepassing en controleer vervolgens de uitvoering van de pijpli
 
 In de console wordt de voortgang weergegeven van het maken van een data factory, een gekoppelde service, gegevenssets, pijplijn en pijplijnuitvoering. Wacht totdat u details ziet van de uitvoering van de kopieeractiviteit, waaronder de omvang van de gelezen/weggeschreven gegevens. Gebruik vervolgens hulpprogramma's als [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) om te controleren of de blob(s) is/zijn gekopieerd van het 'inputBlobPath' naar het 'outputBlobPath' zoals u hebt opgegeven in de variabelen.
 
-Hier volgt een voorbeeld van uitvoer: 
+Hier volgt een voorbeeld van uitvoer:
 
 ```json
 Name: <data factory name>
@@ -391,34 +391,34 @@ Tags: {}
 Name: storageLinkedService
 Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/linkedservices/storageLinkedService
 
-Name: ds_in 
-Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_in  
+Name: ds_in
+Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_in
 
-Name: ds_out    
-Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_out 
+Name: ds_out
+Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_out
 
-Name: copyPipeline  
+Name: copyPipeline
 Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/pipelines/copyPipeline
 
 Pipeline run status: Succeeded
 Datetime with no tzinfo will be considered UTC.
-Datetime with no tzinfo will be considered UTC. 
+Datetime with no tzinfo will be considered UTC.
 
-Activity run details    
+Activity run details
 
-Activity run status: Succeeded  
-Number of bytes read: 18    
-Number of bytes written: 18 
+Activity run status: Succeeded
+Number of bytes read: 18
+Number of bytes written: 18
 Copy duration: 4
 ```
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Als u de data factory wilt verwijderen, voegt u de volgende code toe aan het programma: 
+Als u de data factory wilt verwijderen, voegt u de volgende code toe aan het programma:
 
-```csharp
+```python
 adf_client.data_factories.delete(rg_name, df_name)
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Met de pijplijn in dit voorbeeld worden gegevens gekopieerd van de ene locatie naar een andere locatie in een Azure Blob-opslag. Doorloop de [zelfstudies](tutorial-copy-data-dot-net.md) voor meer informatie over het gebruiken van Data Factory in andere scenario's. 
+Met de pijplijn in dit voorbeeld worden gegevens gekopieerd van de ene locatie naar een andere locatie in een Azure Blob-opslag. Doorloop de [zelfstudies](tutorial-copy-data-dot-net.md) voor meer informatie over het gebruiken van Data Factory in andere scenario's.
