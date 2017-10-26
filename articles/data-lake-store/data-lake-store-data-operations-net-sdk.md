@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: f525bd81ebbc27a4730bdced5c8778b6f2ac69b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f6319dcf1ae66a686dd1c2ea2810b3041183098
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-net-sdk"></a>Bestandssysteembewerkingen in Azure Data Lake Store met behulp van .NET SDK
 > [!div class="op_single_selector"]
@@ -65,13 +65,17 @@ Als u wilt weten hoe u .NET SDK gebruikt voor het uitvoeren van accountbeheerbew
 
         using System;
         using System.IO;
-        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+        using System.Linq;
+        using System.Text;
         using System.Threading;
-
+        using System.Collections.Generic;
+        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+                
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Rest.Azure.Authentication;
 
 7. Declareer de variabelen zoals hieronder wordt weergegeven en vervang de tijdelijke aanduidingen door waarden. Zorg er ook voor dat het lokale pad en de bestandsnaam die u hier opgeeft al bestaan op de computer.
 
@@ -111,7 +115,7 @@ In de rest van het artikel ziet u het gebruik van de beschikbare .NET-methoden v
 Met het volgende codefragment worden het Data Lake Store-account en clientobjecten voor het bestandssysteem gemaakt. Deze worden gebruikt voor het verzenden van aanvragen naar de service.
 
     // Create client objects
-    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(adlCreds);
 
 ## <a name="create-a-directory"></a>Een map maken
 Voeg in volgende methode toe aan de klasse. Het codefragment bevat de methode `CreateDirectory()`, die u kunt gebruiken voor het maken van een map in een Date Lake Store-account.
