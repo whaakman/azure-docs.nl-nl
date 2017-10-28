@@ -1,6 +1,6 @@
 ---
 title: 'Azure Portal: een SQL-database maken | Microsoft Docs'
-description: Meer informatie over hoe u met behulp van Azure Portal een logische SQL Database-server, een firewallregel op serverniveau en databases maakt. U leert ook hoe u query's uitvoert op een Azure SQL-database met behulp van Azure Portal.
+description: Leer hoe u met Azure Portal een logische SQL Database-server, een firewallregel op serverniveau en een database maakt.
 keywords: zelfstudie over sql-database, een sql-database maken
 services: sql-database
 documentationcenter: 
@@ -13,15 +13,14 @@ ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/30/2017
+ms.topic: quickstart
+ms.date: 08/25/2017
 ms.author: carlrab
+ms.openlocfilehash: a97ff8cbd05eb3cd94b557b4dbeb63634a94ccf8
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: a863cf3ad08040906850f64db6505f30bcfa72eb
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/31/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Een Azure SQL-database maken in Azure Portal
 
@@ -41,7 +40,7 @@ Volg deze stappen voor het maken van een SQL-database met de voorbeeldgegevens v
 
 1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
 
-2. Selecteer **Databases** op de pagina **Nieuw** en selecteer **SQL-database** op de pagina **Databases**.
+2. Selecteer **Databases** op de pagina **Nieuw** en selecteer **Maken** onder **SQL-database** op de pagina **Nieuw**.
 
    ![database-1 maken](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -77,17 +76,33 @@ Volg deze stappen voor het maken van een SQL-database met de voorbeeldgegevens v
 
 5. Wanneer u het formulier hebt ingevuld, klikt u op **Selecteren**.
 
-6. Klik op **Prijscategorie** om de servicelaag en het prestatieniveau voor de nieuwe database op te geven. Gebruik de schuifregelaar om **20 DTU's** en **250** GB aan opslagruimte te selecteren. Zie [Wat is een DTU?](sql-database-what-is-a-dtu.md) voor meer informatie over DTU's.
+6. Klik op **Prijscategorie** om de servicelaag, het aantal DTU's en de hoeveelheid opslag op te geven. Bekijk de opties voor de hoeveelheid DTU's en opslag die voor elke servicelaag beschikbaar zijn. 
+
+   > [!IMPORTANT]
+   > \* Opslagruimten groter dan de hoeveelheid inbegrepen opslagruimte zijn in preview en hiervoor gelden extra kosten. Zie [de prijsinformatie voor SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) voor meer informatie. 
+   >
+   >\* In de Premium-laag is op dit moment opslag van meer dan 1 TB beschikbaar in de volgende regio's: VS Oost 2, VS West, VS (overheid) Virginia, West-Europa, Duitsland Centraal, Zuidoost-Azië, Japan - oost, Australië - oost, Canada Centraal en Canada Oost. Zie [P11-P15: huidige beperkingen](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > 
+
+7. Voor deze zelfstudie selecteert u de servicelaag **Standard** en gebruikt u vervolgens de schuifregelaar om **100 DTU's (S3)** en **400** GB aan opslagruimte te selecteren.
 
    ![database-s1 maken](./media/sql-database-get-started-portal/create-database-s1.png)
 
-7. Nadat u de hoeveelheid DTU's hebt geselecteerd, klikt u op **Toepassen**.  
+8. Accepteer de gebruiksvoorwaarden voor de preview om de optie **Extra opslag** te gebruiken. 
 
-8. Nu u het SQL Database-formulier hebt ingevuld, klikt u op **Maken** om de database in te richten. De inrichting duurt een paar minuten. 
+   > [!IMPORTANT]
+   > \* Opslagruimten groter dan de hoeveelheid inbegrepen opslagruimte zijn in preview en hiervoor gelden extra kosten. Zie [de prijsinformatie voor SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) voor meer informatie. 
+   >
+   >\* In de Premium-laag is op dit moment opslag van meer dan 1 TB beschikbaar in de volgende regio's: VS Oost 2, VS West, VS (overheid) Virginia, West-Europa, Duitsland Centraal, Zuidoost-Azië, Japan - oost, Australië - oost, Canada Centraal en Canada Oost. Zie [P11-P15: huidige beperkingen](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > 
 
-9. Klik op de werkbalk op **Meldingen** om het implementatieproces te bewaken.
+9. Als u de servicelaag, het aantal DTU's en de hoeveelheid opslagruimte hebt geselecteerd, klikt u op **Toepassen**.  
 
-   ![melding](./media/sql-database-get-started-portal/notification.png)
+10. Nu u het SQL Database-formulier hebt ingevuld, klikt u op **Maken** om de database in te richten. De inrichting duurt een paar minuten. 
+
+11. Klik op de werkbalk op **Meldingen** om het implementatieproces te bewaken.
+    
+     ![melding](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Een serverfirewallregel maken
 
@@ -97,25 +112,21 @@ De service SQL Database maakt een firewall op serverniveau die voorkomt dat exte
 > SQL Database communiceert via poort 1433. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 1433 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u geen verbinding maken met uw Azure SQL Database-server, tenzij de IT-afdeling poort 1433 openstelt.
 >
 
-1. Wanneer de implementatie is voltooid, klikt u op **SQL Databases** in het menu aan de linkerkant. Klik vervolgens op de pagina **SQL Databases** op **mySampleDatabase**. De overzichtspagina voor uw database wordt geopend, met de volledig gekwalificeerde servernaam (zoals **mynewserver20170313.database.windows.net**) en opties voor verdere configuratie. Kopieer deze volledig gekwalificeerde servernaam voor later gebruik.
+1. Wanneer de implementatie is voltooid, klikt u op **SQL Databases** in het menu aan de linkerkant. Klik vervolgens op de pagina **SQL Databases** op **mySampleDatabase**. De overzichtspagina voor uw database wordt geopend, met de volledig gekwalificeerde servernaam (zoals **mynewserver20170824.database.windows.net**) en opties voor verdere configuratie. 
 
-   > [!IMPORTANT]
-   > U hebt deze volledig gekwalificeerde servernaam nodig om in de volgende Quick Starts verbinding te maken met de server en de bijbehorende databases.
-   > 
+2. Kopieer deze volledig gekwalificeerde servernaam om in volgende Quick Starts verbinding te maken met de server en de bijbehorende databases. 
 
-   ![servernaam](./media/sql-database-connect-query-dotnet/server-name.png) 
+   ![servernaam](./media/sql-database-get-started-portal/server-name.png) 
 
-2. Klik op de werkbalk op **Serverfirewall instellen** zoals in de vorige afbeelding is weergegeven. De pagina **Firewallinstellingen** voor de SQL Database-server wordt geopend. 
+3. Klik op de werkbalk op **Serverfirewall instellen** zoals in de vorige afbeelding is weergegeven. De pagina **Firewallinstellingen** voor de SQL Database-server wordt geopend. 
 
    ![serverfirewallregel](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
-3. Klik op **IP van client toevoegen** op de werkbalk om uw huidige IP-adres aan een nieuwe firewallregel toe te voegen. Een firewallregel kan poort 1433 openen voor een afzonderlijk IP-adres of voor een aantal IP-adressen.
+4. Klik op **IP van client toevoegen** op de werkbalk om uw huidige IP-adres aan een nieuwe firewallregel toe te voegen. Een firewallregel kan poort 1433 openen voor een afzonderlijk IP-adres of voor een aantal IP-adressen.
 
-4. Klik op **Opslaan**. Er wordt een firewallregel op serverniveau gemaakt voor uw huidige IP-adres waarbij poort 1433 op de logische server wordt geopend.
+5. Klik op **Opslaan**. Er wordt een firewallregel op serverniveau gemaakt voor uw huidige IP-adres waarbij poort 1433 op de logische server wordt geopend.
 
-   ![serverfirewallregel instellen](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
-
-4. Klik op **OK** en sluit de pagina **Firewallinstellingen**.
+6. Klik op **OK** en sluit de pagina **Firewallinstellingen**.
 
 U kunt nu verbinding maken met de SQL Database-server en de bijbehorende databases met behulp van SQL Server Management Studio of een ander hulpprogramma naar keuze. Dit doet u vanaf dit IP-adres via het serverbeheerdersaccount dat eerder is gemaakt.
 
@@ -127,19 +138,19 @@ U kunt nu verbinding maken met de SQL Database-server en de bijbehorende databas
 
 Nu u een voorbeelddatabase in Azure hebt gemaakt, gebruiken we het ingebouwde hulpprogramma voor query's binnen Azure Portal om te bevestigen dat u verbinding kunt maken met de database en query's kunt uitvoeren voor de gegevens. 
 
-1. Klik op de pagina SQL Database voor uw database op **Extra** op de werkbalk. De pagina **Extra** wordt geopend.
+1. Klik op de pagina SQL Database voor uw database op **Extra** op de werkbalk en klik daarna op **Query-editor (preview)**.
 
    ![menu extra](./media/sql-database-get-started-portal/tools-menu.png) 
 
-2. Klik achtereenvolgens op **Query-editor (preview)**, op het selectievakje **Preview-voorwaarden** en op **OK**. De pagina Query-editor wordt geopend.
+2. Schakel het selectievakje **Preview-voorwaarden** in en klik op **OK**. De pagina Query-editor wordt geopend.
 
-3. Klik op **Aanmelden** en selecteer wanneer hierom wordt gevraagd **SQL serververificatie**. Geef vervolgens de gebruikersnaam en het wachtwoord van de serverbeheerder op die u eerder hebt gemaakt.
+3. Klik op **Aanmelden**, controleer de aanmeldingsgegevens en klik op **OK** om u aan te melden met behulp van verificatie bij de SQL-server met de aanmeldingsgegevens en het wachtwoord voor de server die u eerder hebt gemaakt.
 
    ![aanmelding](./media/sql-database-get-started-portal/login.png) 
 
 4. Klik op **OK** om u aan te melden.
 
-5. Wanneer u bent geverifieerd, typt u de volgende query in het deelvenster van de query-editor:
+5. Wanneer u bent geverifieerd als **ServerAdmin**, typt u de volgende query in het deelvenster van de query-editor:
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -152,11 +163,11 @@ Nu u een voorbeelddatabase in Azure hebt gemaakt, gebruiken we het ingebouwde hu
 
    ![resultaten queryeditor](./media/sql-database-get-started-portal/query-editor-results.png)
 
-7. Sluit de pagina **Query-editor** en de pagina **Extra**.
+7. Sluit de pagina **Query-editor**, klik op **OK** om niet-opgeslagen bewerkingen te verwijderen en sluit vervolgens de pagina **Extra**.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u deze resources niet voor een andere Quick Start/zelfstudie nodig hebt (zie [Volgende stappen](#next-steps)), kunt u ze verwijderen door het volgende te doen:
+Sla deze resources op als u verder wilt gaan met [Volgende stappen](#next-steps) en wilt leren hoe u op verschillende manieren verbinding kunt maken met uw database en deze kunt bevragen. Als u echter de resources wilt verwijderen die u hebt gemaakt in deze Quick Start, voert u de volgende stappen uit. 
 
 
 1. Klik in het menu links in Azure Portal op **Resourcegroepen** en klik vervolgens op **myResourceGroup**. 
@@ -174,4 +185,3 @@ Nu u een database hebt, kunt u verbinding maken met een hulpprogramma naar keuze
 - [Java](sql-database-connect-query-java.md)
 - [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)
-
