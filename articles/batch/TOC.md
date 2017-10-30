@@ -44,10 +44,10 @@
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
 ## [Azure PowerShell](/powershell/module/azurerm.batch)
-## [Azure-CLI](/cli/azure/batch)
+## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
+## [Node.js](/nodejs/api/overview/azure/batch)
 ## [Python-SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
 ## [REST](/rest/api/batchservice)
 ## [Diagnostische logboeken voor Batch](batch-diagnostics.md)
