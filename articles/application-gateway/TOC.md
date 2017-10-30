@@ -14,16 +14,10 @@
 ## [Servicelimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Aan de slag
 ## Een Application Gateway maken
-### Openbaar
-#### [Azure Portal](application-gateway-create-gateway-portal.md)
-#### [Azure PowerShell](application-gateway-create-gateway-arm.md)
-#### [Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
-#### [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md)
-#### [Azure CLI](application-gateway-create-gateway-cli.md)
-#### [Azure PowerShell (klassiek)](application-gateway-create-gateway.md)
-### Intern
-#### [Azure PowerShell](application-gateway-ilb-arm.md)
-#### [Azure PowerShell (klassiek)](application-gateway-ilb.md)
+### [Azure Portal](application-gateway-create-gateway-portal.md)
+### [Azure PowerShell](application-gateway-create-gateway-arm.md)
+### [Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
+### [Azure CLI](application-gateway-create-gateway-cli.md)
 # Procedures
 ## Web Application Firewall configureren
 ### [Azure Portal](application-gateway-web-application-firewall-portal.md)
@@ -35,9 +29,7 @@
 ## SSL configureren
 ### [Azure Portal](application-gateway-ssl-portal.md)
 ### [Azure PowerShell](application-gateway-ssl-arm.md)
-### [Azure PowerShell (klassiek)](application-gateway-ssl.md)
-### [Azure-CLI](application-gateway-ssl.md)
-### [End-to-end](application-gateway-end-to-end-ssl-powershell.md)
+### [Azure CLI](application-gateway-ssl-cli.md)
 ### [SSL-beleid](application-gateway-configure-ssl-policy-powershell.md)
 ## Routering op basis van URL-pad configureren
 ### [Azure Portal](application-gateway-create-url-route-portal.md)
@@ -53,7 +45,6 @@
 ## Statuscontroles configureren
 ### [Azure Portal](application-gateway-create-probe-portal.md)
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
-### [Azure PowerShell (klassiek)](application-gateway-create-probe-classic-ps.md)
 ## [Azure Security Center-integratie](application-gateway-integration-security-center.md)
 ## [Taakverdelingsservices combineren](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## Problemen oplossen
@@ -62,14 +53,13 @@
 ### [Affiniteitsproblemen in een Application Gateway-sessie](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/azure/overview)
-## [Azure-CLI](/cli/azure/network/application-gateway)
+## [Azure CLI](/cli/azure/network/application-gateway)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
 ## [REST](https://docs.microsoft.com/rest/api/applicationgateway)
-## [REST (klassiek)](https://msdn.microsoft.com/library/azure/mt299393)
 # Verwant
 ## [ExpressRoute](/azure/expressroute/)
 ## [Virtueel netwerk](/azure/virtual-network/)

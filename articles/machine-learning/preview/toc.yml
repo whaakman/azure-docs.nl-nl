@@ -44,7 +44,7 @@
     - name: Compute-omgeving configureren
       items:
         - name: Experimenten configureren
-          href: experiment-execution-configuration.md
+          href: experimentation-service-configuration.md
         - name: DSVM- en HDI Spark-cluster maken
           href: how-to-create-dsvm-hdi.md
         - name: Trainen met GPU's
@@ -147,7 +147,7 @@
     - name: Experiment
       items:
         - name: Configuratie van de experimentenservice
-          href: experiment-execution-configuration-reference.md
+          href: experimentation-service-configuration-reference.md
         - name: API voor logboekregistratie
           href: reference-logging-api.md
     - name: Modelbeheer
@@ -175,7 +175,7 @@
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
     - name: Stack Overflow
