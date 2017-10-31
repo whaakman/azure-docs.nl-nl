@@ -3,7 +3,7 @@ title: Gebruikers uit andere directory's of partnerbedrijven toevoegen in Azure 
 description: In dit artikel wordt uitgelegd hoe u gebruikers kunt toevoegen of gebruikersinformatie kunt wijzigen in Azure Active Directory, inclusief externe en gastgebruikers.
 services: active-directory
 documentationcenter: 
-author: curtand
+author: LizCasey
 manager: femila
 editor: 
 ms.assetid: 564a04ec-53c1-470b-9ab9-f3db57da0a89
@@ -16,11 +16,12 @@ ms.date: 10/10/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.openlocfilehash: 30dbd21c6d21aa55c2c7e84c315fba098674ddd8
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 399230584d01986dd0f793a6ff8245ef2b4f8fb1
+ms.contentlocale: nl-nl
+ms.lasthandoff: 07/26/2017
+
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Add users from other directories or partner companies in Azure Active Directory (Engelstalig)
 
@@ -79,3 +80,4 @@ Als een gebruiker is verwijderd uit de oorspronkelijke directory of als hij of z
 * [Azure AD beheren](active-directory-administer.md)
 * [Wachtwoorden beheren in Azure AD](active-directory-manage-passwords.md)
 * [Groepen beheren in Azure Active Directory](active-directory-manage-groups.md)
+
