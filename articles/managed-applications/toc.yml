@@ -1,0 +1,88 @@
+- name: Door Azure beheerde toepassingen
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Over beheerde toepassingen
+      href: overview.md
+- name: Snelstartgidsen
+  items:
+    - name: Een beheerde toepassing maken met Azure CLI
+      href: managed-apps-quickstart-cli.md
+- name: Zelfstudies
+  items:
+    - name: Een servicecatalogustoepassing maken
+      href: publish-service-catalog-app.md
+    - name: Een Marketplace-toepassing maken
+      href: publish-marketplace-app.md
+- name: Voorbeelden
+  items:
+    - name: Azure CLI
+      href: cli-samples.md
+    - name: Azure PowerShell
+    - name: Beheerde toepassingsoplossingen
+      href: sample-projects.md
+- name: Handleidingen
+  items:
+    - name: Een gebruikersinterface definiëren
+      href: create-uidefinition-overview.md
+    - name: Beheerde bronnen bijwerken
+      href: update-managed-resources.md
+    - name: Een servicecatalogustoepassing publiceren - Portal
+      href: publish-portal.md
+- name: Naslaginformatie
+  items:
+    - name: Azure CLI
+      href: /cli/azure/managedapp
+    - name: PowerShell
+      href: /powershell/module/azurerm.resources
+    - name: REST
+      href: /rest/api/resources/
+    - name: Functies van de gebruikersinterface
+      href: create-uidefinition-functions.md
+    - name: Elementen van de gebruikersinterface
+      href: create-uidefinition-elements.md
+      items:
+        - name: Algemeen
+          items:
+            - name: Vervolgkeuzelijst
+              href: microsoft-common-dropdown.md
+            - name: Bestandsupload
+              href: microsoft-common-fileupload.md
+            - name: Optiegroep
+              href: microsoft-common-optionsgroup.md
+            - name: Wachtwoordveld
+              href: microsoft-common-passwordbox.md
+            - name: Sectie
+              href: microsoft-common-section.md
+            - name: Tekstvak
+              href: microsoft-common-textbox.md
+        - name: Compute
+          items:
+            - name: ReferentieCombo
+              href: microsoft-compute-credentialscombo.md
+            - name: SelectorGrootte
+              href: microsoft-compute-sizeselector.md
+            - name: Gebruikersnaamveld
+              href: microsoft-compute-usernametextbox.md
+        - name: Netwerk
+          items:
+            - name: OpenbaarIPAdresCombo
+              href: microsoft-network-publicipaddresscombo.md
+            - name: VirtueelNetwerkCombo
+              href: microsoft-network-virtualnetworkcombo.md
+        - name: Storage
+          items:
+            - name: MultiStorageAccountCombo
+              href: microsoft-storage-multistorageaccountcombo.md
+            - name: StorageAccountSelector
+              href: microsoft-storage-storageaccountselector.md
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-managedapps'
