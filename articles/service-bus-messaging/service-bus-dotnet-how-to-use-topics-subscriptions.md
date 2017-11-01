@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: sethm
-ms.openlocfilehash: 3646d14be662af0fdf80790cb53ddc581b33a146
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43064ddbdfec3e2ddae8de8c69f6c03dc7f8f45e
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="get-started-with-service-bus-topics"></a>Aan de slag met Service Bus-onderwerpen
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 10/11/2017
 
 Deze zelfstudie bestaat uit de volgende stappen:
 
-1. Een Service Bus-naamruimte maken met de Azure-portal.
-2. Een Service Bus-onderwerp maken met de Azure-portal.
-3. Een Service Bus-abonnement maken met de Azure-portal.
+1. Een Service Bus-naamruimte maken met Azure Portal.
+2. Een Service Bus-onderwerp maken met Azure Portal.
+3. Een Service Bus-abonnement maken met Azure Portal.
 4. Een consoletoepassing schrijven om een bericht te verzenden naar het onderwerp.
 5. Een consoletoepassing schrijven om dit bericht te ontvangen met het abonnement.
 
@@ -39,16 +39,16 @@ Deze zelfstudie bestaat uit de volgende stappen:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Een naamruimte maken met de Azure-portal
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Een naamruimte maken met Azure Portal
 
-Als u al een Service Bus Messaging-naamruimte hebt gemaakt, gaat u naar het gedeelte [Een onderwerp maken met de Azure-portal](#2-create-a-topic-using-the-azure-portal).
+Als u al een Service Bus Messaging-naamruimte hebt gemaakt, gaat u naar het gedeelte [Een onderwerp maken met Azure Portal](#2-create-a-topic-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Een onderwerp maken met de Azure-portal
+## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Een onderwerp maken met Azure Portal
 
 1. Meld u aan bij [Azure Portal][azure-portal].
-2. Klik in het navigatiedeelvenster links van de portal op **Service Bus** (als u geen **Service Bus** ziet, klik dan op **Meer services**).
+2. Klik in het navigatiedeelvenster links in de portal op **Service Bus** (als u **Service Bus** niet ziet, klik dan op **Meer services** of op **Alle resources**).
 3. Klik op de naamruimte waarin u het onderwerp wilt maken. De overzichtsblade voor de naamruimte wordt weergegeven:
    
     ![Een onderwerp maken][createtopic1]
@@ -142,7 +142,7 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Framework)**.
         }
     }
     ```
-3. Voer het programma uit en controleer de Azure-portal: klik op de naam van uw onderwerp in de blade **Overzicht** voor de naamruimte. De blade **Essentials** voor het onderwerp wordt weergegeven. In de lijst met abonnementen onderaan de blade ziet u dat de waarde voor **Aantal berichten** voor elk abonnement nu 1 is worden. Telkens wanneer die u de zendtoepassing uitvoert zonder de berichten op te halen (zoals in het volgende gedeelte wordt beschreven), wordt deze waarde verhoogd met 1. U zult ook zien dat de huidige grootte voor het onderwerp de waarde voor **Huidige** op de blade **Essentials** vergroot telkens wanneer de app een bericht toevoegt aan het onderwerp/abonnement.
+3. Voer het programma uit en controleer Azure Portal: klik op de naam van uw onderwerp op de blade **Overzicht** voor de naamruimte. De blade **Essentials** voor het onderwerp wordt weergegeven. In de lijst met abonnementen onderaan de blade ziet u dat de waarde voor **Aantal berichten** voor elk abonnement nu 1 is worden. Telkens wanneer die u de zendtoepassing uitvoert zonder de berichten op te halen (zoals in het volgende gedeelte wordt beschreven), wordt deze waarde verhoogd met 1. U zult ook zien dat de huidige grootte voor het onderwerp de waarde voor **Huidige** op de blade **Essentials** vergroot telkens wanneer de app een bericht toevoegt aan het onderwerp/abonnement.
    
       ![Berichtgrootte][topic-message]
 

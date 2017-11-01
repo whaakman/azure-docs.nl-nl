@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/27/2017
-ms.openlocfilehash: 2325d0ffd369d85b9a21e2274a98dcb673d240e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 56a79906a0f43f06d35db703d641f547e7bdf868
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="classifying-iris-part-3-deploy-a-model"></a>Classificeren van Iris deel 3: een model implementeren
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
@@ -65,7 +65,7 @@ In het vorige gedeelte van de zelfstudie werd het script **iris_sklearn.py** lok
    
    Bij het uitvoeren van het script **iris_sklearn.py** is het modelbestand met de naam **model.pkl** weggeschreven naar de map **outputs**. Deze map is aanwezig in de uitvoeringsomgeving waarin u het script wilt uitvoeren, en niet in de lokale projectmap. 
    
-   - U kunt het bestand zoeken met behulp van de toepassing Azure Machine Learning Workbench door op de werkbalk links op de knop **Runs** (klokpictogram) te klikken om een overzicht te**** zien van alle runs.  
+   - U kunt het bestand zoeken met behulp van de toepassing Azure Machine Learning Workbench door op de werkbalk links op de knop **Runs** (klokpictogram) te klikken om een overzicht te **zien van alle runs**.  
    - Het tabblad **All Runs** wordt geopend. Selecteer in het overzicht een van de recent uitgevoerde runs met de uitvoeringsomgeving **local** en de scriptnaam **iris_sklearn.py**. 
    - De pagina **Run Properties** wordt geopend. Ga in de rechterbovenhoek van de pagina naar de sectie **Outputs**. 
    - Download het pickle-bestand door het selectievakje naast **model.pkl** in te schakelen en op de knop **Download** te klikken. Sla het bestand op in de hoofdmap van de projectmap. U hebt het bestand later nodig.
@@ -194,6 +194,9 @@ Als de configuratie is voltooid, stelt u de omgevingsvariabelen in die vereist z
 
 U kunt nu de realtime webservice gaan maken.
 
+>[!NOTE]
+>U kunt uw Model Management-account en -omgeving opnieuw gebruiken voor volgende webservice-implementaties. U hoeft deze niet te maken voor elke webservice. Aan een account of een omgeving kunnen meerdere webservices zijn gekoppeld.
+
 ## <a name="create-a-real-time-web-service-in-one-command"></a>Een realtime webservice maken met één opdracht
 1. Gebruik de volgende opdracht om een realtime webservice te maken:
 
@@ -293,7 +296,7 @@ Test de webservice **irisapp** door deze uit te voeren met een JSON-record die e
 
 3. Typ **opslagaccount** in het zoekvak en druk op **Enter**.
 
-4. Selecteer op de pagina met zoekresultaten voor**** opslagaccounts het**** opslagaccount dat overeenkomt met uw omgeving. 
+4. Selecteer op de pagina met zoekresultaten voor **opslagaccounts het****opslagaccount** dat overeenkomt met uw omgeving. 
 
    > [!TIP]
    > Om te bepalen welk opslagaccount wordt gebruikt: open Azure Machine Learning Workbench, selecteer het project waaraan u werkt en open de opdrachtprompt via het menu **File**. Typ `az ml env show -v` bij de opdrachtprompt en controleer de waarde voor *storage_account*. Dit is de naam van uw opslagaccount.

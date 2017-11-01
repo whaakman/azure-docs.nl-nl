@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 881ce13b6e4b10064294e590431434b29da3fb33
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24552ef153f5aa601b2998129a7bbacc8f9da6bf
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Uw on-premises infrastructuur voor identiteiten en synchronisatieservices in de cloud controleren
 Azure Active Directory (Azure AD) Connect Health helpt u om inzicht te verkrijgen in uw on-premises infrastructuur voor identiteiten en de synchronisatieservices. Hiermee kunt u een betrouwbare verbinding met Office 365 en Microsoft Online Services onderhouden door bewakingsmogelijkheden te bieden voor uw belangrijkste identiteitsonderdelen, zoals Active Directory Federation Services-servers (AD FS), Azure AD Connect-servers (ook wel Sync Engine genoemd), Active Directory-domeincontrollers, enzovoort. Ook worden de belangrijkste gegevenspunten over deze onderdelen gemakkelijk toegankelijk gemaakt, zodat u statistieken over het gebruik en andere zaken kunt ophalen en u weloverwogen beslissingen kunt nemen.
@@ -27,8 +27,8 @@ Deze informatie vindt u in de [portal voor Azure AD Connect Health](https://aka.
 
 ![Wat is Azure AD Connect Health?](./media/active-directory-aadconnect-health/aadconnecthealth2.png)
 
-De portal biedt één interface waar u een handig overzicht hebt van het alsmaar toenemende aantal functies van Azure AD Connect Health. U krijgt een veel betere en geïntegreerde omgeving zodat uw gebruikers hun werk sneller en handige kunnen verrichten.
 
+De portal biedt één interface waar u een handig overzicht hebt van het alsmaar toenemende aantal functies van Azure AD Connect Health. U krijgt een veel betere en geïntegreerde omgeving zodat uw gebruikers hun werk sneller en handige kunnen verrichten.
 ## <a name="why-use-azure-ad-connect-health"></a>Waarom het handig is om Azure AD Connect Health te gebruiken
 Wanneer u uw on-premises directory's integreert met Azure AD, worden uw gebruikers productiever omdat zij één identiteit hebben voor toegang tot zowel cloud- als on-premises resources. Bij deze integratie moet er echter wel voor worden gezorgd dat deze omgeving stabiel is, zodat gebruikers op een betrouwbare manier toegang hebben tot zowel on-premises als cloudresources vanaf elk apparaat. Azure AD Connect Health maakt het voor u eenvoudiger om uw on-premises identiteitsinfrastructuur te bewaken en er statistieken over te bekijken. Dit is de infrastructuur die wordt gebruikt voor toegang tot Office 365 en andere Azure AD-toepassingen. Het is net zo eenvoudig als het installeren van een agent op een van uw on-premises identiteitsservers.
 
@@ -40,11 +40,14 @@ Azure AD Connect Health voor AD FS biedt ondersteuning voor AD FS 2.0 in Windows
 * Trends wat betreft prestatiegegevens, wat nuttig is voor de capaciteitsplanning van AD FS
 * Gebruiksanalyse voor AD FS-aanmeldingen met draaigrafieken (apps, gebruikers, netwerklocatie, enzovoort), wat handig is voor beter inzicht in hoe AD FS wordt gebruikt
 * Rapporten voor AD FS, zoals 50 belangrijkste gebruikers die aanmeldingspogingen ondernemen met een ongeldige gebruikersnaam/ongeldig wachtwoord, met het laatste IP-adres
+  
+Lees hier meer over [Azure AD Connect Health gebruiken met AD FS](active-directory-aadconnect-health-adfs.md)
 
 De volgende video biedt een overzicht van Azure AD Connect Health voor AD FS.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD-Connect-Health--Monitor-you-identity-bridge/player]
 >
+
 >
 
 ## <a name="azure-ad-connect-health-for-syncactive-directory-aadconnect-health-syncmd"></a>[Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md)
@@ -55,6 +58,8 @@ Met Azure AD Connect Health for Sync wordt informatie gecontroleerd en geboden o
 * Operationele synchronisatie-inzichten, inclusief latentiegrafieken voor synchronisatiebewerkingen en trends in verschillende bewerkingen zoals toevoegingen, updates en verwijderingen
 * In één oogopslag informatie over synchronisatie-eigenschappen en de laatste succesvolle export naar Azure AD
 * Voor rapporten over synchronisatiefouten op objectniveau \(is Azure AD Premium niet vereist\)
+
+Lees hier meer over [Azure AD Connect Health gebruiken voor synchronisatie](active-directory-aadconnect-health-sync.md)
 
 De volgende video biedt een overzicht van Azure AD Connect Health for Sync.
 
@@ -69,6 +74,8 @@ Azure AD Connect Health voor Active Directory Domain Services biedt bewaking voo
 * Het dashboard voor domeincontrollers, waarmee u snel inzicht krijgt in de (operationele) status van uw domeincontrollers
 * Het dashboard voor replicatiestatus, met meest recente replicatiegegevens, samen met koppelingen naar gidsen voor het oplossen van problemen wanneer er fouten worden gedetecteerd
 * Snel overal toegang tot grafieken met prestatiegegevens van populaire prestatiemeteritems, vereist voor het oplossen van problemen en bewakingsdoeleinden
+
+Lees hier meer over [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md)
 
 De volgende video biedt een overzicht van Azure AD Connect Health voor AD DS.
 

@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 99a377db6341d90d263b98e14227db61dd9beabd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c381489c3cb5b42505d0cdf01618edb370793304
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="get-started-with-service-bus-queues"></a>Aan de slag met Service Bus-wachtrijen
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -26,8 +26,8 @@ ms.lasthandoff: 10/11/2017
 ## <a name="what-will-be-accomplished"></a>Wat wordt bereikt
 Deze zelfstudie bestaat uit de volgende stappen:
 
-1. Een Service Bus-naamruimte maken met de Azure-portal.
-2. Een Service Bus-wachtrij maken met de Azure-portal.
+1. Een Service Bus-naamruimte maken met Azure Portal.
+2. Een Service Bus-wachtrij maken met Azure Portal.
 3. Een consoletoepassing schrijven om een bericht te verzenden.
 4. Een consoletoepassing schrijven om de berichten te ontvangen die in de vorige stap werden verzonden.
 
@@ -37,12 +37,12 @@ Deze zelfstudie bestaat uit de volgende stappen:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Een naamruimte maken met de Azure-portal
-Als u al een Service Bus Messaging-naamruimte hebt gemaakt, gaat u naar het gedeelte [Een wachtrij maken met de Azure-portal](#2-create-a-queue-using-the-azure-portal).
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Een naamruimte maken met Azure Portal
+Als u al een Service Bus Messaging-naamruimte hebt gemaakt, gaat u naar het gedeelte [Een wachtrij maken met Azure Portal](#2-create-a-queue-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Een wachtrij maken met de Azure-portal
+## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Een wachtrij maken met Azure Portal
 Als u al een Service Bus-wachtrij hebt gemaakt, gaat u naar het gedeelte [Berichten naar de wachtrij verzenden](#3-send-messages-to-the-queue).
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
@@ -56,7 +56,7 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Framework)**.
 
 ### <a name="add-the-service-bus-nuget-package"></a>Het Service Bus NuGet-pakket toevoegen
 1. Klik met de rechtermuisknop op het nieuwe project en selecteer **NuGet-pakketten beheren**.
-2. Klik op het tabblad **Bladeren**, zoek naar **Microsoft Azure Service Bus** en selecteer het item **WindowsAzure.ServiceBus**. Klik op **Installeren** om de installatie te voltooien en sluit vervolgens dit dialoogvenster.
+2. Ga naar het tabblad **Bladeren**, zoek naar **WindowsAzure.ServiceBus** en selecteer het item **WindowsAzure.ServiceBus**. Klik op **Installeren** om de installatie te voltooien en sluit vervolgens dit dialoogvenster.
    
     ![Een NuGet-pakket selecteren][nuget-pkg]
 
@@ -115,7 +115,7 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Framework)**.
         }
     }
     ```
-3. Voer het programma uit en controleer de Azure-portal: klik op de naam van uw wachtrij in de blade **Overzicht** voor de naamruimte. De blade **Essentials** voor de wachtrij wordt weergegeven. De waarde voor **Aantal actieve berichten** moet nu 1 zijn. Telkens wanneer u de zendtoepassing uitvoert zonder de berichten op te halen, wordt deze waarde verhoogd met 1. U zult ook zien dat de huidige grootte van de wachtrij toeneemt telkens wanneer de app een bericht aan de wachtrij toevoegt.
+3. Voer het programma uit en controleer dit in Azure Portal: klik op de naam van uw wachtrij in het venster **Overzicht** voor de naamruimte. Het venster **Essentials** voor de wachtrij wordt weergegeven. De waarde voor **Aantal actieve berichten** moet nu 1 zijn. Telkens wanneer u de zendtoepassing uitvoert zonder de berichten op te halen, wordt deze waarde verhoogd met 1. U zult ook zien dat de huidige grootte van de wachtrij toeneemt telkens wanneer de app een bericht aan de wachtrij toevoegt.
    
       ![Berichtgrootte][queue-message]
 
@@ -178,7 +178,7 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Framework)**.
    
     ![Wachtrijlengte][queue-message-receive]
 
-Gefeliciteerd. U hebt nu een wachtrij gemaakt, een bericht verzonden en een bericht ontvangen.
+Gefeliciteerd. U hebt nu een wachtrij gemaakt, een bericht verzonden naar die wachtrij en een bericht ontvangen van dezelfde wachtrij.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -189,4 +189,4 @@ Bekijk onze [GitHub-opslagplaats met voorbeelden](https://github.com/Azure/azure
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
 [queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
 [queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
-[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+

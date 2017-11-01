@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/24/2017
+ms.date: 10/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: de7fa7e6445e6eaf08bdcc8ae812611f20a98c34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: facb9643e0bb848f0ea9aadf447f05af218fdd0f
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>Uw eerste Service Fabric-cluster maken in Azure
 Een [Service Fabric-cluster](service-fabric-deploy-anywhere.md) is een met het netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Met deze Quick Start kunt u met behulp van [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) of [Azure Portal](http://portal.azure.com) in slechts enkele minuten een cluster met vijf knooppunten maken voor Windows of Linux.  
@@ -26,14 +26,14 @@ Een [Service Fabric-cluster](service-fabric-deploy-anywhere.md) is een met het n
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 
-## <a name="use-the-azure-portal"></a>De Azure-portal gebruiken
+## <a name="use-the-azure-portal"></a>Azure Portal gebruiken
 
 Meld u bij Azure Portal aan via [http://portal.azure.com](http://portal.azure.com).
 
 ### <a name="create-the-cluster"></a>Het cluster maken
 
 1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
-2. Selecteer **Berekenen** op de blade **Nieuw** en selecteer vervolgens **Service Fabric-cluster** op de blade **Berekenen**.
+2. Zoek naar **Service Fabric** en selecteer **Service Fabric-cluster** in **Service Fabric-cluster** in de geretourneerde resultaten.  Klik op **Create**.
 3. Vul het Service Fabric-formulier **Basisinformatie** in. Bij **Besturingssysteem** selecteert u de versie van Windows of Linux waarop u de clusterknooppunten wilt uitvoeren. De gebruikersnaam en het wachtwoord die u hier opgeeft, worden gebruikt voor aanmelding bij de virtuele machine. Selecteer een **resourcegroep** of maak een nieuwe. Een resourcegroep is een logische container waarin Azure-resources worden gemaakt en waarin ze collectief worden beheerd. Na het voltooien klikt u op **OK**.
 
     ![Cluster-installatieuitvoer][cluster-setup-basics]
@@ -98,83 +98,83 @@ Een resourcegroep verwijderen in Azure Portal:
     ![De resourcegroep verwijderen][cluster-delete]
 
 
-## <a name="use-azure-powershell-to-deploy-a-secure-windows-cluster"></a>Azure Powershell gebruiken om een beveiligd Windows-cluster te implementeren
+## <a name="use-azure-powershell"></a>Azure PowerShell gebruiken
 1. Download de [Azure Powershell-moduleversie 4.0 of hoger](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) op de computer.
 
-2. Open een Windows PowerShell-venster en voer de volgende opdracht uit. 
-    
-    ```powershell
-
-    Get-Command -Module AzureRM.ServiceFabric 
-    ```
-
-    Als het goed is, wordt ongeveer de volgende uitvoer weergegeven.
-
-    ![ps-list][ps-list]
-
-3. Meld u aan bij Azure en selecteer het abonnement waarvoor u het cluster wilt maken
+2. Voer de cmdlet [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/new-azurermservicefabriccluster) uit om een Service Fabric-cluster te maken met vijf knooppunten dat is beveiligd met een X.509-certificaat. Met de opdracht wordt een zelfondertekend certificaat gemaakt en geüpload naar een nieuwe sleutelkluis. Het certificaat wordt ook gekopieerd naar een lokale map. Stel de *-OS* parameter in om de versie van Windows of Linux die op de clusterknooppunten wordt uitgevoerd te kiezen. Pas de parameters zo nodig aan. 
 
     ```powershell
+    #Provide the subscription Id
+    $subscriptionId = 'yourSubscriptionId'
 
-    Login-AzureRmAccount
-
-    Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
-    ```
-
-4. Voer nu de volgende opdracht uit om een beveiligd cluster te maken. Vergeet niet om de parameters aan te passen. 
-
-    ```powershell
+    # Certificate variables.
     $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
-    $RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
-    $RDPuser="vmadmin"
-    $RGname="mycluster" # this is also the name of your cluster
-    $clusterloc="SouthCentralUS"
-    $subname="$RGname.$clusterloc.cloudapp.azure.com"
     $certfolder="c:\mycertificates\"
-    $clustersize=1 # can take values 1, 3-99
 
-    New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+    # Variables for VM admin.
+    $adminuser="vmadmin"
+    $adminpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
+
+    # Variables for common values
+    $clusterloc="SouthCentralUS"
+    $clustername = "mysfcluster"
+    $groupname="mysfclustergroup"       
+    $vmsku = "Standard_D2_v2"
+    $vaultname = "mykeyvault"
+    $subname="$clustername.$clusterloc.cloudapp.azure.com"
+
+    # Set the number of cluster nodes. Possible values: 1, 3-99
+    $clustersize=5 
+
+    # Set the context to the subscription ID where the cluster will be created
+    Login-AzureRmAccount
+    Get-AzureRmSubscription
+    Select-AzureRmSubscription -SubscriptionId $subscriptionId
+
+    # Create the Service Fabric cluster.
+    New-AzureRmServiceFabricCluster -Name $clustername -ResourceGroupName $groupname -Location $clusterloc `
+    -ClusterSize $clustersize -VmUserName $adminuser -VmPassword $adminpwd -CertificateSubjectName $subname `
+    -CertificatePassword $certpwd -CertificateOutputFolder $certfolder `
+    -OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname
     ```
 
-    Het duurt tussen de 10 en 30 minuten om de opdracht te voltooien. Als het goed is, wordt hierna ongeveer de volgende uitvoer weergegeven. De uitvoer bevat informatie over het certificaat, de KeyVault waarnaar dit is geüpload en de lokale map waarin het certificaat is gekopieerd. 
+    Het duurt tussen de 10 en 30 minuten om de opdracht te voltooien. Als het goed is, wordt hierna ongeveer de volgende uitvoer weergegeven. De uitvoer bevat informatie over het certificaat, de KeyVault waarnaar dit is geüpload en de lokale map waarin het certificaat is gekopieerd.     
 
-    ![ps-out][ps-out]
+3. Kopieer de hele uitvoer en sla deze op in een tekstbestand, aangezien we deze later willen raadplegen. Noteer de volgende informatie uit de uitvoer. 
 
-5. Kopieer de hele uitvoer en sla deze op in een tekstbestand, aangezien we deze later willen raadplegen. Noteer de volgende informatie uit de uitvoer. 
-
-    - **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
-    - **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
-    - **ManagementEndpoint** : https://mycluster.southcentralus.cloudapp.azure.com:19080
-    - **ClientConnectionEndpointPort** : 19000
+    - CertificateSavedLocalPath
+    - CertificateThumbprint
+    - ManagementEndpoint
+    - ClientConnectionEndpointPort
 
 ### <a name="install-the-certificate-on-your-local-machine"></a>Het certificaat installeren op de lokale computer
   
 Als u verbinding wilt maken met het cluster, moet u het certificaat installeren in de persoonlijke opslag (Mijn opslag) van de huidige gebruiker. 
 
-Voer de volgende PowerShell uit
+Voer het volgende uit:
 
 ```powershell
+$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-        -FilePath C:\mycertificates\the name of the cert.pfx `
-        -Password (ConvertTo-SecureString -String certpwd -AsPlainText -Force)
+        -FilePath C:\mycertificates\<certificatename>.pfx `
+        -Password $certpwd
 ```
 
 U bent nu klaar om verbinding te maken met het beveiligde cluster.
 
 ### <a name="connect-to-a-secure-cluster"></a>Verbinding maken met een beveiligd cluster 
 
-Voer de volgende PowerShell-opdracht uit om verbinding te maken met een beveiligd cluster. De details van het certificaat moeten overeenkomen met een certificaat dat is gebruikt om het cluster in te stellen. 
+Voer de cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) uit om verbinding te maken met een beveiligd cluster. De details van het certificaat moeten overeenkomen met een certificaat dat is gebruikt om het cluster in te stellen. 
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+Connect-ServiceFabricCluster -ConnectionEndpoint <ManagementEndpoint>:19000 `
           -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-          -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+          -X509Credential -ServerCertThumbprint <CertificateThumbprint> `
+          -FindType FindByThumbprint -FindValue <CertificateThumbprint> `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-
-In het volgende voorbeeld worden de voltooide parameters weergegeven: 
+In het volgende voorbeeld worden voorbeeldparameters weergegeven: 
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mycluster.southcentralus.cloudapp.azure.com:19000 `
@@ -195,11 +195,10 @@ Get-ServiceFabricClusterHealth
 Een cluster bevat de clusterresource zelf én andere Azure-resources. De eenvoudigste manier om het cluster en alle resources te verwijderen, is om de resourcegroep te verwijderen. 
 
 ```powershell
-
-Remove-AzureRmResourceGroup -Name $RGname -Force
-
+$groupname="mysfclustergroup"
+Remove-AzureRmResourceGroup -Name $groupname -Force
 ```
-## <a name="use-azure-cli-to-deploy-a-secure-linux-cluster"></a>Azure CLI gebruiken om een beveiligd Linux-cluster te implementeren
+## <a name="use-azure-cli"></a>Azure CLI gebruiken
 
 1. Installeer [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) op de computer.
 2. Meld u aan bij Azure en selecteer het abonnement waarin u het cluster wilt maken.
@@ -207,7 +206,7 @@ Remove-AzureRmResourceGroup -Name $RGname -Force
    az login
    az account set --subscription <GUID>
    ```
-3. Voer de opdracht [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) uit om een beveiligd cluster te maken.
+3. Voer de opdracht [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) uit om een Service Fabric-cluster te maken met vijf knooppunten dat is beveiligd met een X.509-certificaat. Met de opdracht wordt een zelfondertekend certificaat gemaakt en geüpload naar een nieuwe sleutelkluis. Het certificaat wordt ook gekopieerd naar een lokale map. Stel de *-os* parameter in om de versie van Windows of Linux die op de clusterknooppunten wordt uitgevoerd te kiezen. Pas de parameters zo nodig aan.
 
     ```azurecli
     #!/bin/bash
@@ -260,6 +259,14 @@ ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3392
 ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3393
 ```
 
+### <a name="remove-the-cluster"></a>Het cluster verwijderen
+Een cluster bevat de clusterresource zelf én andere Azure-resources. De eenvoudigste manier om het cluster en alle resources te verwijderen, is om de resourcegroep te verwijderen. 
+
+```azurecli
+ResourceGroupName = "aztestclustergroup"
+az group delete --name $ResourceGroupName
+```
+
 ## <a name="next-steps"></a>Volgende stappen
 Nu u een ontwikkelingscluster hebt ingesteld, kunt u het volgende proberen:
 * [Een cluster visualiseren met Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
@@ -273,5 +280,3 @@ Nu u een ontwikkelingscluster hebt ingesteld, kunt u het volgende proberen:
 [cluster-status]: ./media/service-fabric-get-started-azure-cluster/clusterstatus.png
 [service-fabric-explorer]: ./media/service-fabric-get-started-azure-cluster/sfx.png
 [cluster-delete]: ./media/service-fabric-get-started-azure-cluster/delete.png
-[ps-list]: ./media/service-fabric-get-started-azure-cluster/pslist.PNG
-[ps-out]: ./media/service-fabric-get-started-azure-cluster/psout.PNG

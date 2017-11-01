@@ -1,3 +1,5 @@
+Deze veelgestelde vragen zijn van toepassing op P2S-verbindingen met het klassieke implementatiemodel.
+
 ### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a>Welke clientbesturingssystemen kan ik met punt-naar-site gebruiken?
 
 De volgende clientbesturingssystemen worden ondersteund:

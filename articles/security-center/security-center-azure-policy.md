@@ -1,12 +1,12 @@
 ---
-title: Beveiligingsbeleid instellen in Azure Security Center | Microsoft Docs
-description: In dit document leest u hoe u beveiligingsbeleid configureert in Azure Security Center.
+title: Integratie van Azure Security Center-beveiligingsbeleid met Azure Policy | Microsoft Docs
+description: In dit document leest u hoe u integratie van Azure Security Center-beveiligingsbeleid configureert met Azure Policy.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
 editor: 
-ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
+ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,36 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 1cebb6edecd13c6ab32c6854bfd6fe908c1f71f4
+ms.openlocfilehash: 5e07cd6891a5ab04012f819b5f6b9379312e530d
 ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/13/2017
 ---
-# <a name="set-security-policies-in-security-center"></a>Beveiligingsbeleid instellen in Security Center
-Dit document helpt u om beveiligingsbeleid in Security Center te configureren door u te begeleiden bij de stappen die nodig zijn om deze taak uit te voeren. 
+# <a name="set-security-policies-in-security-center-powered-by-azure-policy"></a>Beveiligingsbeleid instellen in Security Center, mogelijk gemaakt door Azure Policy
+Dit document helpt u om beveiligingsbeleid in Security Center te configureren, dat mogelijk wordt gemaakt door Azure Policy, door u te begeleiden bij de stappen die nodig zijn om deze taak uit te voeren. 
 
 
-## <a name="how-security-policies-work"></a>Hoe beveiligingsbeleid werkt
-In Security Center wordt voor elk van uw Azure-abonnementen automatisch een standaardbeveiligingsbeleid gemaakt. U kunt het beleid in Security Center bewerken en controleren of het beleid wordt nageleefd. 
+## <a name="how-security-policies-work"></a>Hoe werkt beveiligingsbeleid?
+In Security Center wordt voor elk van uw Azure-abonnementen automatisch een standaardbeveiligingsbeleid gemaakt. U kunt het beleid bewerken in Security Center of [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) gebruiken voor het maken van nieuwe beleidsdefinities, het toewijzen van beleidsregels binnen beheergroepen (die de hele organisatie, een bedrijfseenheid, enzovoort kan vertegenwoordigen) en het bewaken van naleving van deze beleidsregels.
 
 > [!NOTE]
-> U kunt Security Center-beleid nu uitbreiden met behulp van Azure-beleid, waarvan een beperkte preview beschikbaar is. Klik [hier](http://aka.ms/getpolicy) om deel te nemen aan de preview of raadpleeg [hier](security-center-azure-policy.md) de documentatie.
-
-Zo kunnen er voor resources die worden gebruikt voor ontwikkeling of tests, andere beveiligingsvereisten zijn dan voor resources die worden gebruikt voor productietoepassingen. Ook kan voor toepassingen met gereglementeerde gegevens, zoals persoonsgegevens, een hoger beveiligingsniveau vereist zijn. Beveiligingsbeleid dat in Azure Security Center is ingeschakeld, bepaalt de beveiligingsaanbevelingen en bewaking om u te helpen mogelijke beveiligingsproblemen te identificeren en bedreigingen te verhelpen. Lees de [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) (Plannings- en bedieningsgids voor Azure Security Center) voor meer informatie over hoe u kunt bepalen welke optie het geschiktst is voor u.
+> Azure Policy is alleen beschikbaar als beperkte preview-versie. Klik [hier](https://aka.ms/getpolicy) om de preview te gebruiken. Lees [Beleid maken en beheren om naleving af te dwingen](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy) voor meer informatie over Azure-beleid.
 
 ## <a name="edit-security-policies"></a>Beveiligingsbeleid bewerken
-U kunt het standaardbeveiligingsbeleid voor elk van uw Azure-abonnementen bewerken in Security Center. Het beveiligingsbeleid kan alleen worden gewijzigd door een eigenaar, bijdrager of beveiligingsbeheerder van het abonnement. Meld u aan bij Azure Portal en voer de volgende stappen uit om beveiligingsbeleid te configureren in Security Center: 
+U kunt het standaardbeveiligingsbeleid voor elk van uw Azure-abonnementen bewerken in Security Center. U kunt een beveiligingsbeleid alleen wijzigen als u een eigenaar, bijdrager of beveiligingsbeheerder van dat abonnement bent of van de bovenliggende beheergroep. Meld u aan bij Azure Portal en voer de volgende stappen uit om beveiligingsbeleid te bekijken in Security Center:
 
-1.  Ga op het dashboard van **Security Center** naar **Algemeen** en klik op **Beveiligingsbeleid**.
-2.  Selecteer het abonnement waarvoor u het beveiligingsbeleid wilt inschakelen.
-3.  Klik in het gedeelte **BELEIDSONDERDELEN** op **Beveiligingsbeleid**.
-4.  Dit is het standaardbeleid dat door Security Center is toegewezen. U kunt de beschikbare beveiligingsaanbevelingen in- of uitschakelen.
-5.  Klik op **Opslaan** als u klaar bent.
+1. Ga op het dashboard van **Security Center** naar **Algemeen** en klik op **Beveiligingsbeleid**.
+2. Selecteer het abonnement waarvoor u het beveiligingsbeleid wilt inschakelen.
 
-## <a name="available-security-policy-options"></a>Beschikbare opties voor beveiligingsbeleid
+    ![Beleidsbeheer](./media/security-center-policies/security-center-policies-fig10.png)
 
-Gebruik de volgende tabel als referentie om te begrijpen wat elke optie doet:
+3. Klik in het gedeelte **BELEIDSONDERDELEN** op **Beveiligingsbeleid**.
+
+    ![Beleidsonderdelen](./media/security-center-policies/security-center-policies-fig12.png)
+
+4. Dit is het standaardbeleid dat via Azure Policy is toegewezen aan Security Center. U kunt items verwijderen die onder **BELEIDSREGELS EN PARAMETERS** staan, of u kunt andere beleidsdefinities toevoegen die onder **BESCHIKBARE OPTIES** staan. Klik hiervoor op het plusteken (+) naast de naam van de definitie.
+
+    ![Beleidsdefinities](./media/security-center-policies/security-center-policies-fig11.png)
+
+5. Als u meer gedetailleerde informatie over het beleid wilt, klikt u erop om een pagina te openen met de details, evenals de JSON-code met de structuur van de [beleidsdefinitie](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy/#policy-definition-structure):
+
+    ![Json](./media/security-center-policies/security-center-policies-fig14.png)
+
+6. Klik op **Opslaan** als u klaar bent.
+
+
+## <a name="available-security-policy-definitions"></a>Beschikbare beveiligingsbeleiddefinities
+
+Gebruik de volgende tabel ter referentie om inzicht te krijgen in de beleidsdefinities die beschikbaar zijn in het standaardbeveiligingsbeleid: 
 
 | Beleid | Wanneer de status is ingesteld op aan |
 | --- | --- |

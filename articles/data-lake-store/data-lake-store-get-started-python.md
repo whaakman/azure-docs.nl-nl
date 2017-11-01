@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 601d756e0d6554d8a4db9cc83f6919fc36d1e844
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76e84687815ca6f4b031e5f7143ba0079fb053db
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-python"></a>Accountbeheerbewerkingen - Aan de slag met Azure Data Lake Store met Python
 > [!div class="op_single_selector"]
@@ -35,6 +35,8 @@ Informatie over het gebruik van Python SDK voor Azure Data Lake Store voor het u
 * **Python**. U kunt Python [hier](https://www.python.org/downloads/) downloaden. In dit artikel wordt Python 3.6.2 gebruikt.
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
+
+* **Een Azure-resourcegroep**. Zie [Een Azure-resourcegroep maken](../azure-resource-manager/resource-group-portal.md) voor instructies.
 
 ## <a name="install-the-modules"></a>De modules installeren
 
@@ -92,29 +94,6 @@ In deze sectie bespreken we de verschillende manieren om te verifiëren met Azur
 * Zie [End-user-authentication with Data Lake Store using Python](data-lake-store-end-user-authenticate-python.md) (Eindgebruikersverificatie met Data Lake Store met behulp van Python) voor de verificatie van eindgebruikers voor uw toepassing.
 * Zie [Service-to-service authentication with Data Lake Store using Python](data-lake-store-service-to-service-authenticate-python.md) (Service-naar-serviceverificatie met Data Lake Store met behulp van Python) voor service-naar-serviceverificatie voor uw toepassing.
 
-## <a name="create-an-azure-resource-group"></a>Een Azure-resourcegroep maken
-
-Gebruik het volgende codefragment om een Azure-resourcegroep te maken:
-
-    ## Declare variables
-    subscriptionId= 'FILL-IN-HERE'
-    resourceGroup = 'FILL-IN-HERE'
-    location = 'eastus2'
-    
-    ## Create resource management client object
-    resourceClient = ResourceManagementClient(
-        credentials,
-        subscriptionId
-    )
-    
-    ## Create an Azure Resource Group
-    resourceClient.resource_groups.create_or_update(
-        resourceGroup,
-        ResourceGroup(
-            location=location
-        )
-    )
-
 ## <a name="create-client-and-data-lake-store-account"></a>Client en een Data Lake Store-account maken
 
 Met het volgende fragment maakt u eerst de client voor het Data Lake Store-account. In het fragment wordt gebruikgemaakt van het clientobject om een Data Lake Store-account te maken. Ten slotte maakt het fragment een clientobject voor het bestandssysteem.
@@ -122,9 +101,11 @@ Met het volgende fragment maakt u eerst de client voor het Data Lake Store-accou
     ## Declare variables
     subscriptionId = 'FILL-IN-HERE'
     adlsAccountName = 'FILL-IN-HERE'
+    resourceGroup = 'FILL-IN-HERE'
+    location = 'eastus2'
 
     ## Create data lake store account management client object
-    adlsAcctClient = DataLakeStoreAccountManagementClient(credentials, subscriptionId)
+    adlsAcctClient = DataLakeStoreAccountManagementClient(armCreds, subscriptionId)
 
     ## Create a Data Lake Store account
     adlsAcctResult = adlsAcctClient.account.create(
