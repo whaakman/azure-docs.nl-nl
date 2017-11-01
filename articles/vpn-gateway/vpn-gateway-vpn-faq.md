@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/30/2017
+ms.date: 10/19/2017
 ms.author: cherylmc,yushwang
-ms.openlocfilehash: b12eab7a430e620d0b6e872551c0252ccb5d4c14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8af984a7321d99faecb9d79903a442c938460919
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="vpn-gateway-faq"></a>Veelgestelde vragen VPN-gateways
 
@@ -70,6 +70,15 @@ Op beleid gebaseerde gateways implementeren op beleid gebaseerde VPN's. Op belei
 
 Op route gebaseerde gateways implementeren op route gebaseerde VPN's. Op route gebaseerde VPN's gebruiken 'routes' in de IP-doorstuurtabel of routeringstabel om pakketten naar de bijbehorende tunnelinterfaces te sturen. De tunnelinterfaces versleutelen of ontsleutelen de pakketten vervolgens naar en vanuit de tunnels. Het beleid of de verkeersselector voor op route gebaseerde VPN's is geconfigureerd als alles-naar-alles (of jokertekens).
 
+### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Kan ik mijn op beleid gebaseerde VPN-gateway bijwerken naar een op route gebaseerde gateway?
+Nee. Een gateway van het type Azure-Vnet kan niet worden gewijzigd van op beleid gebaseerd in op route gebaseerd, of andersom. De gateway moet worden verwijderd en opnieuw worden gemaakt. Dit duurt ongeveer 60 minuten. Het IP-adres van de gateway en ook de PSK (vooraf gedeelde sleutel) blijven niet behouden.
+1. Verwijder alle verbindingen die zijn gekoppeld aan de gateway die moet worden verwijderd.
+2. Gateway verwijderen:
+* [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
+* [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+* [Azure Powershell - klassiek](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+3. [Een nieuwe gateway van het gewenste type maken en de VPN-installatie voltooien](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+
 ### <a name="do-i-need-a-gatewaysubnet"></a>Heb ik een gatewaysubnet nodig?
 
 Ja. Het gatewaysubnet bevat de IP-adressen waarvan de virtuele-netwerkgatewayservices gebruik van maken. U moet een gatewaysubnet maken voor uw VNet om een virtuele netwerkgateway te kunnen configureren. Voor een goede werking moeten alle gatewaysubnetten de naam GatewaySubnet krijgen. Geef het gatewaysubnet geen andere naam. Implementeer ook geen VM's of iets anders in het gatewaysubnet.
@@ -110,7 +119,6 @@ U kunt alleen PSK-verificatie (vooraf gedeelde sleutels) gebruiken.
 #### <a name="classic-deployment-model"></a>Klassiek implementatiemodel
 
 * Azure Portal: ga naar het klassieke virtuele netwerk > VPN-verbindingen > Site-naar-site VPN-verbindingen > Naam lokale site > Lokale site > Adresruimte van client. 
-* Klassieke portal: voeg elk gewenst bereik dat u via de gateway voor het virtuele netwerk wilt verzenden toe op de pagina Netwerken onder Lokale netwerken. 
 
 ### <a name="can-i-configure-force-tunneling"></a>Kan ik geforceerde tunneling configureren?
 
@@ -160,9 +168,13 @@ Andere VPN-softwareoplossingen zouden in principe met onze gateway moeten werken
 
 ## <a name="P2S"></a>Point-to-site – systeemeigen Azure-certificaatverificatie
 
+Deze sectie is van toepassing op het Resource Manager-implementatiemodel.
+
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
 ## <a name="P2SRADIUS"></a>Point-to-site - RADIUS-verificatie
+
+Deze sectie is van toepassing op het Resource Manager-implementatiemodel.
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 98559cbb0acab91c4b2c30c6d0129e955eef85f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5b5d79a18d8c4d370b1deb506285519fdbfbcf8
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="network-security"></a>Netwerkbeveiliging
 
@@ -151,7 +151,10 @@ Als u andere regels maakt en daarbij andere toepassingsbeveiligingsgroepen opgee
  
 Voor meer informatie over limieten bij het maken van toepassingsbeveiligingsgroepen en het opgeven ervan in regels raadpleegt u [Azure-limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Toepassingsbeveiligingsgroepen zijn beschikbaar in de preview-versie. Voordat u toepassingsbeveiligingsgroepen gebruikt, moet u zich registreren voor het gebruik ervan door de stappen 1-5 in [Een netwerkbeveiligingsgroep met toepassingsbeveiligingsgroepen maken](create-network-security-group-preview.md#powershell) uit te voeren en [Preview-functies](#preview-features) te lezen voor belangrijke informatie. Tijdens de preview zijn toepassingsbeveiligingsgroepen beperkt tot het bereik van het virtuele netwerk. Virtuele netwerken die zijn gekoppeld met kruisverwijzingen naar toepassingsbeveiligingsgroepen in een netwerkbeveiligingsgroep worden niet toegepast. 
+Toepassingsbeveiligingsgroepen zijn beschikbaar in de preview-versie. Voordat u toepassingsbeveiligingsgroepen gebruikt, moet u zich registreren voor het gebruik ervan door de stappen 1-5 in [Een netwerkbeveiligingsgroep met toepassingsbeveiligingsgroepen maken](create-network-security-group-preview.md#powershell) uit te voeren en [Preview-functies](#preview-features) te lezen voor belangrijke informatie. Toepassingsbeveiligingsgroepen hebben de volgende beperkingen:
+
+-   Alle netwerkinterfaces binnen een toepassingsbeveiligingsgroep moeten zich in hetzelfde virtuele netwerk bevinden. U kunt geen netwerkinterfaces van verschillende virtuele netwerken toevoegen aan dezelfde toepassingsbeveiligingsgroep. Het virtuele netwerk waarin de eerste netwerkinterface die is toegewezen aan de toepassingsbeveiligingsgroep zich bevindt, definieert het virtuele netwerk waarin alle volgende toegewezen netwerkinterfaces aanwezig moeten zijn.
+- Als u toepassingsbeveiligingsgroepen als bron en doel in een beveiligingsregel opgeeft, moeten de netwerkinterfaces in beide beveiligingsgroepen toepassing zich in hetzelfde virtuele netwerk bevinden. Als ASG1 bijvoorbeeld netwerkinterfaces van VNet1 bevat en ASG2 netwerkinterfaces van VNet2, kunt u ASG1 niet toewijzen als de bron en ASG2 als het doel in een regel. Alle netwerkinterfaces moeten aanwezig zijn in VNet1. 
 
 Functies in de preview-versie hoeven niet dezelfde mate van beschikbaarheid en betrouwbaarheid te hebben als functies in de algemene versie. Voordat u toepassingsbeveiligingsgroepen gebruikt, moet u zich registreren voor het gebruik ervan. De functies zijn alleen beschikbaar in de volgende regio's: VS - west-centraal.
 

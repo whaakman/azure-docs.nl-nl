@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/03/2017
+ms.date: 10/12/2017
 ms.author: cherylmc
-ms.openlocfilehash: 7805e7c91c49fe1ef2d92b64c62bbfd15ab492b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12d414b9653aa6f07648fff991b6291e5f91be4c
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Een punt-naar-site-verbinding naar een VNet configureren met behulp van verificatie via een certificaat (klassiek): Azure Portal
 
@@ -33,9 +33,9 @@ In dit artikel wordt beschreven hoe u een VNet met een punt-naar-site-verbinding
 > * [Azure Portal (klassiek)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 
-Met een punt-naar-site-VPN-gateway (P2S) kunt u vanaf een afzonderlijke clientcomputer een beveiligde verbinding maken met uw virtuele netwerk. P2S-verbindingen zijn nuttig als u verbinding wilt maken met uw VNet vanaf een externe locatie, bijvoorbeeld als u ook thuis werkt of op een congres verbinding wilt maken. Een P2S-VPN is ook een uitstekende oplossing in plaats van een site-naar-site-VPN wanneer u maar een paar clients hebt die verbinding moeten maken met een VNet. 
+Met een punt-naar-site-VPN-gateway (P2S) kunt u vanaf een afzonderlijke clientcomputer een beveiligde verbinding maken met uw virtuele netwerk. P2S-verbindingen zijn nuttig als u verbinding wilt maken met uw VNet vanaf een externe locatie, bijvoorbeeld als u ook thuis werkt of op een congres verbinding wilt maken. Een P2S-VPN is ook een uitstekende oplossing in plaats van een site-naar-site-VPN wanneer u maar een paar clients hebt die verbinding moeten maken met een VNet. Een P2S-verbinding wordt tot stand gebracht door deze te starten vanaf de clientcomputer.
 
-P2S maakt gebruik van SSTP (Secure Socket Tunneling Protocol), wat een op SSL gebaseerd VPN-protocol is. Een P2S-verbinding wordt tot stand gebracht door deze te starten vanaf de clientcomputer.
+Het klassieke implementatiemodel ondersteunt alleen Windows VPN-clients en maakt gebruik van het SSTP-protocol (Secure Socket Tunneling Protocol), een VPN-protocol op basis van SSL. Voor de ondersteuning van niet-Windows VPN-clients, moet uw VNet worden gemaakt met het implementatiemodel van Resource Manager. Het implementatiemodel van Resource Manager biedt ondersteuning voor IKEv2 VPN, naast SSTP. Zie [Informatie over P2S-verbindingen](point-to-site-about.md) voor meer informatie.
 
 
 ![Punt-naar-site-diagram](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
@@ -96,7 +96,7 @@ Als u nog geen virtueel netwerk hebt, maakt u er een. De schermafbeeldingen dien
 9. Nadat u op Aanmaken hebt geklikt, verschijnt er een tegel op uw dashboard die de voortgang van uw VNet aangeeft. De tegel wordt gewijzigd wanneer het VNet wordt gemaakt.
 
   ![Tegel Virtueel netwerk maken](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png)
-10. Wanneer het virtuele netwerk is gemaakt, wordt op de pagina met netwerken in de klassieke Azure-portal **Gemaakt** vermeld onder **Status**.
+10. Nadat het virtuele netwerk is gemaakt, wordt **Gemaakt** weergegeven.
 11. Voeg een DNS-server toe (optioneel). Nadat u uw virtuele netwerk hebt gemaakt, kunt u het IP-adres van een DNS-server voor naamomzetting toevoegen. Het IP-adres dat u opgeeft voor de DNS-server, moet het adres zijn van een DNS-server die de namen van de resources in uw VNet kan omzetten.<br>Open de instellingen voor het virtuele netwerk, klik op de DNS-servers en voeg het IP-adres toe van de DNS-server die u wilt gebruiken om een DNS-server toe te voegen.
 
 ### <a name="gateway"></a>Deel 2: Een gatewaysubnet en een gateway voor dynamische routering maken

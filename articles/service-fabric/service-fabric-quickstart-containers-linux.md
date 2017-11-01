@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 42a2542b7564f1692146b3e3927792ac339f30be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c1ac13d50180909bbe55b01f47721387d1195d7
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Een Linux-containertoepassing voor Azure Service Fabric implementeren in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
@@ -29,7 +29,7 @@ In deze Quick Start leert u hoe u Linux-containers kunt implementeren in een Ser
 
 In deze snelstartgids leert u de volgende zaken:
 > [!div class="checklist"]
-> * Linux-containers implementeren op Service Fabric
+> * Containers implementeren in een Linux Service Fabric-cluster in Azure
 > * Containers schalen en er failovers voor uitvoeren in Service Fabric
 
 ## <a name="prerequisite"></a>Vereiste
@@ -52,6 +52,10 @@ cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 
 ## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>De containers implementeren in een Service Fabric-cluster in Azure
 Gebruik uw eigen cluster of een cluster van derden om de toepassing te implementeren in een cluster in Azure.
+
+> [!Note]
+> De toepassing moet worden geïmplementeerd in een cluster in Azure en niet in een Service Fabric-cluster op de lokale ontwikkelcomputer. 
+>
 
 Clusters van derden zijn gratis tijdelijke Service Fabric-clusters die worden gehost in Azure. Ze worden onderhouden door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en informatie krijgen over het platform. [Volg de instructies](http://aka.ms/tryservicefabric) om toegang te krijgen tot een cluster van derden. 
 

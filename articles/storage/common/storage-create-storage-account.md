@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
-ms.date: 01/23/2017
+ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: cdca35f8ae339d02b44490cd61e2684d81d88365
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db878f257f64ccc573a220c675cd373539dd5b17
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Over Azure-opslagaccounts
+
 [!INCLUDE [storage-selector-portal-create-storage-account](../../../includes/storage-selector-portal-create-storage-account.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -32,6 +33,7 @@ Een Azure-opslagaccount biedt een unieke naamruimte voor het opslaan en openen v
 [!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
 ## <a name="storage-account-billing"></a>Facturering voor opslagaccounts
+
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
 
 > [!NOTE]
@@ -61,7 +63,7 @@ U kunt ook een aangepaste domeinnaam configureren voor gebruik met uw opslagacco
 
 ## <a name="create-a-storage-account"></a>Een opslagaccount maken
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer in het menu Hub achtereenvolgens **Nieuw** -> **Opslag** -> **Opslagaccount**.
+2. Vouw in Azure Portal het menu links open om het menu met services te openen en kies **Meer services**. Schuif vervolgens omlaag naar **Opslag** en kies **Opslagaccounts**. Kies in het venster **Opslagaccounts** dat wordt weergegeven de optie **Toevoegen**.
 3. Voer een naam in voor het opslagaccount. Zie [Eindpunten van opslagaccounts](#storage-account-endpoints) voor meer informatie over hoe de naam van het opslagaccount wordt gebruikt om uw objecten in Azure Storage te adresseren.
    
    > [!NOTE]

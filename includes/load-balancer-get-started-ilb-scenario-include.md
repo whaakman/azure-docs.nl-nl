@@ -1,11 +1,11 @@
-## <a name="scenario"></a>Scenario
+## <a name="configuration-scenario"></a>Configuratiescenario
 
-U maakt een interne load balancer volgens het volgende scenario
+In dit scenario maken we een interne load balancer in een virtueel netwerk zoals wordt weergegeven op de volgende afbeelding:
 
-![BESCHRIJVING VAN AFBEELDING](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
+![Scenario voor interne load balancer](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
 
-Er wordt een interne load balancer geconfigureerd in een virtueel netwerk
+De configuratie voor ons scenario is als volgt:
 
-* Twee virtuele machines met de naam DB1 en DB2
-* Eindpunten
-* Interne load balancer
+* Twee virtuele machines met de naam **DB1** en **DB2**
+* Eindpunten voor de interne load balancer
+* Een interne load balancer

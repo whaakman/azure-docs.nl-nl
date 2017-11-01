@@ -1,6 +1,6 @@
 ---
-title: Een interne load balancer in Azure maken - PowerShell | Microsoft Docs
-description: Meer informatie over hoe u met PowerShell een interne load balancer maakt in Resource Manager
+title: Een interne load balancer in Azure maken met PowerShell | Microsoft Docs
+description: Informatie over hoe u met de Azure PowerShell-module een interne load balancer maakt in Azure Resource Manager
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 1215ca8ff4d45e3b910b8e0ec0bd6833e4bfc308
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7950c3e23463260c4c89c2a4f6b28bbc2a34b7c2
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="create-an-internal-load-balancer-using-powershell"></a>Een interne load balancer maken met behulp van PowerShell
+# <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Een interne load balancer maken met behulp van de Azure PowerShell-module
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
@@ -33,107 +33,118 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!NOTE]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md).  Dit artikel bevat informatie over het Resource Manager-implementatiemodel, dat door Microsoft wordt aanbevolen voor de meeste nieuwe implementaties in plaats van het [klassieke implementatiemodel](load-balancer-get-started-ilb-classic-ps.md).
+> Azure heeft twee implementatiemodellen voor het maken van en werken met resources: [Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) en het [klassieke model](load-balancer-get-started-ilb-classic-ps.md). In dit artikel wordt beschreven hoe u een load balancer maakt met behulp van het Resource Manager-implementatiemodel. Microsoft raadt u aan om voor de meeste nieuwe implementaties het Azure Resource Manager-model te gebruiken.
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-In de volgende stappen wordt uitgelegd hoe u Azure Resource Manager gebruikt om een interne load balancer te maken met behulp van PowerShell. Met Azure Resource Manager worden de items die nodig zijn om een interne load balancer te maken afzonderlijk geconfigureerd en vervolgens gecombineerd om een load balancer te maken.
+## <a name="get-started-with-the-configuration"></a>Aan de slag met de configuratie
 
-Maak en configureer de volgende objecten om een load balancer te implementeren:
+In dit artikel wordt uitgelegd hoe u met de Azure PowerShell-module een interne load balancer maakt in Azure Resource Manager. In het Resource Manager-implementatiemodel worden de objecten die nodig zijn voor het maken van een interne load balancer afzonderlijk geconfigureerd. Nadat de objecten zijn gemaakt en geconfigureerd, worden ze gecombineerd voor het maken van een load balancer.
 
-* Front-end-IP-configuratie: hiermee configureert u het particuliere IP-adres voor inkomend netwerkverkeer.
-* Back-endadresgroep: hiermee configureert u de netwerkinterfaces die het verkeer met gelijke taakverdeling ontvangen van de front-end-IP-adresgroep.
+De volgende objecten moeten worden gemaakt om een load balancer te implementeren:
+
+* Front-end-IP-pool: het particuliere IP-adres voor inkomend netwerkverkeer.
+* Back-end-adresgroep: de netwerkinterfaces voor het ontvangen van het verkeer met gelijke taakverdeling van het front-end-IP-adres.
 * Taakverdelingsregels: configuratie van bron- en lokale poort voor de load balancer.
-* Test: hiermee configureert u de integriteitsstatustest voor de virtuele machines.
-* NAT-regels voor binnenkomende verbindingen: hiermee configureert u de poortregels voor rechtstreekse toegang tot een van de virtuele machines.
+* Testconfiguratie: de status van de tests voor virtuele machines.
+* Binnenkomende NAT-regels: de poortregels voor directe toegang tot virtuele machines.
 
-Meer informatie over de load balancer-onderdelen in Azure Resource Manager vindt u op [Ondersteuning van Azure Resource Manager voor load balancer](load-balancer-arm.md).
+Zie [Azure Resource Manager-ondersteuning voor load balancers](load-balancer-arm.md) voor meer informatie over de onderdelen van load balancers.
 
 In de volgende stappen wordt uitgelegd hoe u een load balancer tussen twee virtuele machines configureert.
 
 ## <a name="set-up-powershell-to-use-resource-manager"></a>PowerShell instellen voor het gebruik van Resource Manager
 
-Zorg ervoor dat u de nieuwste productieversie hebt van de Azure-module voor PowerShell en dat PowerShell correct is geconfigureerd voor toegang tot uw Azure-abonnement.
+Zorg ervoor dat u de nieuwste productieversie van de Azure PowerShell-module hebt. PowerShell moet correct zijn geconfigureerd voor toegang tot uw Azure-abonnement.
 
-### <a name="step-1"></a>Stap 1
+### <a name="step-1-start-powershell"></a>Stap 1: PowerShell starten
+
+Start de PowerShell-module voor Azure Resource Manager.
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-### <a name="step-2"></a>Stap 2
+### <a name="step-2-view-your-subscriptions"></a>Stap 2: Uw abonnementen bekijken
 
-De abonnementen voor het account controleren
+Controleer uw beschikbare Azure-abonnementen.
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-U wordt gevraagd om u te verifiëren met uw referenties.
+Geef uw referenties wanneer u wordt gevraagd om verificatie.
 
-### <a name="step-3"></a>Stap 3
+### <a name="step-3-select-the-subscription-to-use"></a>Stap 3: Het abonnement dat u wilt gebruiken selecteren
 
-Kies welk Azure-abonnement u wilt gebruiken.
+Kies welk Azure-abonnement moet worden gebruikt voor het implementeren van de load balancer.
 
 ```powershell
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 ```
 
-### <a name="create-resource-group-for-load-balancer"></a>Resourcegroep voor load balancer maken
+### <a name="step-4-choose-the-resource-group-for-the-load-balancer"></a>Stap 4: De resourcegroep voor de load balancer kiezen
 
-Een nieuwe resourcegroep maken (sla deze stap over als u een bestaande resourcegroep gebruikt)
+Maak een nieuwe resourcegroep voor de load balancer. Sla deze stap over als u een bestaande resourcegroep gebruikt.
 
 ```powershell
 New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 ```
 
-Azure Resource Manager vereist dat er voor alle resourcegroepen een locatie wordt opgegeven. Deze locatie wordt gebruikt als de standaardlocatie voor resources in die resourcegroep. Zorg ervoor dat alle opdrachten voor het maken van een load balancer dezelfde resourcegroep gebruiken.
+Azure Resource Manager vereist dat er voor alle resourcegroepen een locatie wordt opgegeven. De locatie wordt gebruikt als de standaardlocatie voor alle resources in de resourcegroep. Gebruik altijd dezelfde resourcegroep voor alle opdrachten die betrekking hebben op het maken van de load balancer.
 
-In het vorige voorbeeld is er een resourcegroep gemaakt met de naam **NRP-RG** en de locatie **VS - west**.
+In het bovenstaande voorbeeld is er een resourcegroep gemaakt met de naam **NRP-RG** en de locatie VS - west.
 
-## <a name="create-a-virtual-network-and-a-private-ip-address-for-a-front-end-ip-pool"></a>Een virtueel netwerk en een particulier IP-adres voor een front-end-IP-adresgroep maken
+## <a name="create-the-virtual-network-and-ip-address-for-the-front-end-ip-pool"></a>Het virtuele netwerk en een IP-adres voor de front-end-IP-pool maken
 
-Hiermee maakt u een subnet voor het virtuele netwerk en wijst u deze toe aan variabele $backendSubnet
+Hiermee maakt u een subnet voor het virtuele netwerk en wijst u deze toe aan de variabele **$backendSubnet**.
 
 ```powershell
 $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
 ```
 
-Een virtueel netwerk maken:
+Maak een virtueel netwerk.
 
 ```powershell
 $vnet= New-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
 ```
 
-Hiermee maakt u het virtuele netwerk, voegt u het subnet lb-subnet-be toe aan het virtuele netwerk NRPVNet en wijst u dit toe aan variabele $vnet
+Het virtuele netwerk is gemaakt. Het subnet **LB-Subnet-BE** wordt toegevoegd aan het virtuele netwerk **NRPVNet**. Deze waarden worden toegewezen aan de variabele **$vnet**.
 
-## <a name="create-a-front-end-ip-pool-and-back-end-address-pool"></a>Een front-end-IP-adresgroep en back-endadresgroep maken
+## <a name="create-the-front-end-ip-pool-and-back-end-address-pool"></a>De front-end-IP-pool en back-end-adresgroep maken
 
-Hiermee stelt u een front-end-IP-adresgroep in voor het binnenkomende netwerkverkeer van de load balancer en stelt u de back-endadresgroep in om het verkeer met gelijke taakverdeling te ontvangen.
+Hiermee maakt u een front-end-IP-pool voor het binnenkomende verkeer en een back-end-adresgroep om het verkeer met gelijke taakverdeling te ontvangen.
 
-### <a name="step-1"></a>Stap 1
+### <a name="step-1-create-a-front-end-ip-pool"></a>Stap 1: Een front-end-IP-pool maken
 
-Maak een front-end-IP-adresgroep met het particuliere IP-adres 10.0.2.5 voor het subnet 10.0.2.0/24, dat het eindpunt van het binnenkomende netwerkverkeer is.
+Maak een front-end-IP-pool maken met het privé-IP-adres 10.0.2.5 voor het subnet 10.0.2.0/24. Dit adres is het eindpunt van het binnenkomende verkeer.
 
 ```powershell
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
 ```
 
-### <a name="step-2"></a>Stap 2
+### <a name="step-2-create-a-back-end-address-pool"></a>Stap 2: Een back-end-adresgroep maken
 
-Stel als volgt een back-endadresgroep in die wordt gebruikt om binnenkomend verkeer van de front-end-IP-adresgroep te ontvangen:
+Maak een back-end-adresgroep om binnenkomend verkeer van de front-end-IP-pool te ontvangen:
 
 ```powershell
 $beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
 ```
 
-## <a name="create-load-balancing-rules-nat-rules-probe-and-load-balancer"></a>Taakverdelingsregels, NAT-regels, testen en load balancer maken
+## <a name="create-the-configuration-rules-probe-and-load-balancer"></a>Maak de configuratieregels, de test en de load balancer
 
-Wanneer de front-end-IP-adresgroep en de back-endadresgroep zijn gemaakt, maakt u als volgt de regels van de load balancer-resource:
+Nadat de front-end-IP-pool en de back-end-adresgroep zijn gemaakt, kunt u regels voor de load balancer-resource opgeven.
 
-### <a name="step-1"></a>Stap 1
+### <a name="step-1-create-the-configuration-rules"></a>Stap 1: De configuratieregels maken
+
+In het voorbeeld maakt u de volgende vier regelobjecten:
+
+* Een binnenkomende NAT-regel voor het Remote Desktop Protocol (RDP): leidt al het binnenkomende verkeer bij poort 3441 naar poort 3389.
+* Een tweede binnenkomende NAT-regel voor RDP: leidt al het binnenkomende verkeer bij poort 3442 leidt tot poort 3389.
+* Een statustestregel: controleert de status test voor het pad HealthProbe.aspx.
+* Een load balancer-regel: zorgt ervoor dat al het verkeer dat binnenkomt bij openbare poort 80, met gelijke taakverdeling wordt omgeleid naar de lokale poort 80 in de back-end-adresgroep.
 
 ```powershell
 $inboundNATRule1= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
@@ -145,28 +156,21 @@ $healthProbe = New-AzureRmLoadBalancerProbeConfig -Name "HealthProbe" -RequestPa
 $lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 ```
 
-In het vorige voorbeeld worden de volgende items gemaakt:
+### <a name="step-2-create-the-load-balancer"></a>Stap 2: De load balancer maken
 
-* NAT-regel waarmee al het verkeer dat binnenkomt bij poort 3441, wordt omgeleid naar poort 3389.
-* Een tweede NAT-regel waarmee al het verkeer dat binnenkomt bij poort 3442, wordt omgeleid naar poort 3389.
-* Een load balancer-regel die ervoor zorgt dat al het verkeer dat binnenkomt bij openbare poort 80, met gelijke taakverdeling wordt omgeleid naar de lokale poort 80 in de back-endadresgroep.
-* Een testregel die de integriteitsstatus test voor het pad HealthProbe.aspx
-
-### <a name="step-2"></a>Stap 2
-
-Maak de load balancer door alle objecten (NAT-regels, load balancer-regels, testconfiguraties) als volgt bij elkaar te voegen:
+Maak de load balancer en combineer de regelobjecten (inkomende NAT voor RDP, load balancer en statustest):
 
 ```powershell
 $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
 ```
 
-## <a name="create-network-interfaces"></a>Netwerkinterfaces maken
+## <a name="create-the-network-interfaces"></a>De netwerkinterfaces maken
 
-Nadat de interne load balancer is gemaakt, moet u definiëren welke netwerkinterfaces het binnenkomende netwerkverkeer met gelijke taakverdeling, NAT-regels en test kunnen ontvangen. In dit geval is de netwerkinterface afzonderlijk geconfigureerd. Deze kan later worden toegewezen aan een virtuele machine.
+Nadat de interne load balancer is gemaakt, moet u de netwerkinterfaces (NIC's) definiëren die het binnenkomende netwerkverkeer met gelijke taakverdeling, de NAT-regels en de test kunnen ontvangen. Elke netwerkinterface wordt afzonderlijk geconfigureerd. Deze worden later toegewezen aan een virtuele machine.
 
-### <a name="step-1"></a>Stap 1
+### <a name="step-1-create-the-first-network-interface"></a>Stap 1: De eerste netwerkinterface maken
 
-Haal als volgt het virtuele netwerk en het subnet van de resource op om netwerkinterfaces maken:
+Haal het virtueel netwerk en subnet van de resource op. Deze waarden worden gebruikt om de netwerkinterfaces te maken:
 
 ```powershell
 $vnet = Get-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
@@ -174,27 +178,25 @@ $vnet = Get-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
 $backendSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
 ```
 
-Met deze stap maakt u een netwerkinterface die tot de back-endgroep van de load balancer behoort en koppelt u de eerste NAT-regel voor RDP voor deze netwerkinterface:
+Maak de eerste netwerkinterface met de naam **lb-nic1-be**. Wijs de interface toe aan de back-end-pool van de load balancer. Koppel de eerste NAT-regel voor RDP aan deze NIC:
 
 ```powershell
 $backendnic1= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
 ```
 
-### <a name="step-2"></a>Stap 2
+### <a name="step-2-create-the-second-network-interface"></a>Stap 2: De tweede netwerkinterface maken
 
-Maak als volgt een tweede netwerkinterface met de naam LB-Nic2-BE:
-
-Met deze stap maakt u een tweede netwerkinterface, wijst u deze toe aan dezelfde back-endgroep van de load balancer en koppelt u de tweede NAT-regel voor RDP:
+Maak de tweede netwerkinterface met de naam **lb-nic2-be**. Wijs de tweede interface toe aan dezelfde back-end-pool van de load balancer als de eerste interface. Koppel de tweede NIC aan de tweede NAT-regel voor RDP:
 
 ```powershell
 $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 ```
 
-In het eindresultaat ziet u de volgende uitvoer:
+Controleer de configuratie:
 
     $backendnic1
 
-Verwachte uitvoer:
+De instellingen moeten er als volgt uitzien:
 
     Name                 : lb-nic1-be
     ResourceGroupName    : NRP-RG
@@ -240,41 +242,41 @@ Verwachte uitvoer:
 
 
 
-### <a name="step-3"></a>Stap 3
+### <a name="step-3-assign-the-nic-to-a-vm"></a>Stap 3: De NIC toewijzen aan een virtuele machine
 
-Gebruik de opdracht Add-AzureRmVMNetworkInterface om de NIC toe te wijzen aan een virtuele machine.
+Wijs de NIC toe aan een virtuele machine met behulp van de opdracht `Add-AzureRmVMNetworkInterface`.
 
-U vindt de stapsgewijze instructies voor het maken van een virtuele machine en de toewijzing ervan aan een NIC in de documentatie: [Een virtuele machine in Azure maken met behulp van PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+U vindt de stapsgewijze instructies voor het maken van een virtuele machine en de toewijzing ervan aan een NIC in [Een virtuele machine in Azure maken met behulp van PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
 ## <a name="add-the-network-interface"></a>Netwerkinterface toevoegen
 
-Als u al een virtuele machine hebt gemaakt, kunt u de netwerkinterface met de volgende stappen toevoegen:
+Nadat de virtuele machine is gemaakt, voegt u de netwerkinterface toe.
 
-### <a name="step-1"></a>Stap 1
+### <a name="step-1-store-the-load-balancer-resource"></a>Stap 1: De load balancer-resource opslaan
 
-Laad de load balancer-resource in een variabele (als u dat nog niet hebt gedaan). Gebruik de variabelenaam $lb. Gebruik dezelfde namen uit de load balancer-resource die u in de stappen hiervoor hebt gemaakt.
+Sla de load balancer-resource op in een variabele (als u dat nog niet hebt gedaan). We maken gebruik van de variabelenaam **$lb**. Gebruik de namen voor de load balancer-resources die zijn gemaakt in de vorige stappen voor de kenmerkwaarden in het script.
 
 ```powershell
 $lb = Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
 ```
 
-### <a name="step-2"></a>Stap 2
+### <a name="step-2-store-the-back-end-configuration"></a>Stap 2: De back-end-configuratie opslaan
 
-Laad de back-endconfiguratie in een variabele.
+Sla de configuratie van de back-end op in de variabele **$backend**.
 
 ```powershell
 $backend = Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
 ```
 
-### <a name="step-3"></a>Stap 3
+### <a name="step-3-store-the-network-interface"></a>Stap 3: De netwerkinterface opslaan
 
-Laad de gemaakte netwerkinterface in een variabele. Gebruik de variabelenaam $nic. Gebruik dezelfde netwerkinterfacenaam als in het vorige voorbeeld.
+Sla de netwerkinterface op in een andere variabele. Deze interface is gemaakt in 'De netwerkinterfaces maken, stap 1'. We maken gebruik van de variabelenaam **$nic1**. Gebruik dezelfde netwerkinterfacenaam als in het vorige voorbeeld.
 
 ```powershell
 $nic = Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
 ```
 
-### <a name="step-4"></a>Stap 4
+### <a name="step-4-change-the-back-end-configuration"></a>Stap 4: De back-end-configuratie wijzigen
 
 Wijzig de back-endconfiguratie op de netwerkinterface.
 
@@ -282,7 +284,7 @@ Wijzig de back-endconfiguratie op de netwerkinterface.
 $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 ```
 
-### <a name="step-5"></a>Stap 5
+### <a name="step-5-save-the-network-interface-object"></a>Stap 5: Het netwerkinterfaceobject opslaan
 
 Sla het netwerkinterfaceobject op.
 
@@ -290,46 +292,46 @@ Sla het netwerkinterfaceobject op.
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
 
-Zodra een netwerkinterface is toegevoegd aan de back-endgroep van de load balancer, begint deze netwerkverkeer te ontvangen op basis van de taakverdelingsregels voor die load balancer-resource.
+Nadat de interface is toegevoegd aan de back-end-pool, wordt het netwerkverkeer gelijk verdeeld volgens de regels. Deze regels zijn geconfigureerd in 'Maak de configuratieregels, de test en de load balancer.'
 
 ## <a name="update-an-existing-load-balancer"></a>Een bestaande load balancer bijwerken
 
-### <a name="step-1"></a>Stap 1
-Met behulp van de load balancer uit het vorige voorbeeld wijst u het load balancer-object met Get-AzureRmLoadBalancer toe aan variabele $slb
+### <a name="step-1-assign-the-load-balancer-object-to-a-variable"></a>Stap 1: Het load balancer-object toewijzen aan een variabele
+
+Wijs het load balancer-object (uit het vorige voorbeeld) toe aan de variabele **$slb** met behulp van de opdracht `Get-AzureRmLoadBalancer`:
 
 ```powershell
 $slb = Get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 ```
 
-### <a name="step-2"></a>Stap 2
+### <a name="step-2-add-a-nat-rule"></a>Stap 2: Een NAT-regel toevoegen
 
-In het volgende voorbeeld voegt u aan een bestaande load balancer een nieuwe NAT-regel voor binnenkomende verbindingen toe met poort 81 in de front-end en poort 8181 voor de back-endgroep
+Voeg een nieuwe binnenkomende NAT-regel toe aan een bestaande load balancer. Gebruik poort 81 voor de front-end-pool en poort 8181 voor de back-end-pool:
 
 ```powershell
 $slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
 ```
 
-### <a name="step-3"></a>Stap 3
+### <a name="step-3-save-the-configuration"></a>Stap 3: De configuratie opslaan
 
-De nieuwe configuratie opslaan met Set-AzureLoadBalancer
+Sla de nieuwe configuratie op met behulp van de opdracht `Set-AzureLoadBalancer`:
 
 ```powershell
 $slb | Set-AzureRmLoadBalancer
 ```
 
-## <a name="remove-a-load-balancer"></a>Een load balancer verwijderen
+## <a name="remove-an-existing-load-balancer"></a>Een bestaande load balancer verwijderen
 
-De opdracht Remove-AzureRmLoadBalancer gebruiken om een eerder gemaakte load balancer met de naam NRP-LB te verwijderen uit de resourcegroep NRP RG
+Verwijder de load balancer **NRP-LB** in de resource **NRP-RG** met behulp van de opdracht `Remove-AzureRmLoadBalancer`:
 
 ```powershell
 Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 ```
 
 > [!NOTE]
-> Met de optionele schakeloptie -Force kunt u de prompt voor verwijdering uitschakelen.
+> Gebruik de optionele schakeloptie **-Force** om te voorkomen dat de bevestigingsprompt voor de verwijdering wordt weergegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Een distributiemodus voor de load balancer configureren](load-balancer-distribution-mode.md)
-
-[TCP-time-outinstellingen voor inactiviteit voor de load balancer configureren](load-balancer-tcp-idle-timeout.md)
+* [Distributiemodus voor de load balancer configureren](load-balancer-distribution-mode.md)
+* [TCP-time-outinstellingen voor inactiviteit voor de load balancer configureren](load-balancer-tcp-idle-timeout.md)

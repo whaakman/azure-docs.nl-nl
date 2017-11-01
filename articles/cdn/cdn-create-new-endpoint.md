@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 09b26f2fe83a24b351cafa06afad6f15a31fe77c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b211c2076840b6eff7c21cb481da569ca6bc49a4
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="getting-started-with-azure-cdn"></a>Aan de slag met Azure CDN
-In dit onderwerp wordt uitgelegd hoe u Azure CDN inschakelt door een nieuw CDN-profiel en -eindpunt te maken.
+In dit artikel wordt beschreven hoe u Azure CDN inschakelt door een nieuw CDN-profiel en -eindpunt te maken.
 
 > [!IMPORTANT]
-> Zie [Overzicht van CDN](cdn-overview.md) voor een inleiding tot de werking van CDN en een lijst met functies.
+> Zie [Overzicht van CDN](cdn-overview.md) voor een inleiding tot CDN en een lijst met functies.
 > 
 > 
 
@@ -64,7 +64,7 @@ Een CDN-profiel is een verzameling van CDN-eindpunten.  Elk profiel bevat een of
 4. Selecteer in de vervolgkeuzelijst **Oorsprongtype** het type oorsprong.  Selecteer **Storage** voor een Azure Storage-account, **Cloudservice** voor een Azure Cloud-service, **Web App** voor een Azure-webtoepassing of **Aangepaste oorsprong** voor een andere openbaar toegankelijke webserveroorsprong (gehost in Azure of ergens anders).
    
     ![Oorsprongtype CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-5. Selecteer of typ in de vervolgkeuzelijst **Hostnaam van oorsprong** uw brondomein.  De vervolgkeuzelijst bevat alle beschikbare oorsprongen van het type dat u hebt opgegeven in stap 4.  Als u voor *Oorsprongtype* de optie **Aangepaste oorsprong** hebt geselecteerd, voert u het domein in van uw aangepaste oorsprong.
+5. Selecteer of typ in de vervolgkeuzelijst **Hostnaam van oorsprong** uw brondomein.  De vervolgkeuzelijst bevat alle beschikbare oorsprongen van het type dat u hebt opgegeven in stap 4.  Als u *Aangepaste oorsprong* als **Oorsprongtype** selecteert, voert u het domein in van de aangepaste oorsprong.
 6. In het tekstvak **Oorsprongspad** voert u het pad in naar de resources die u wilt opslaan in de cache. U kunt het vak ook leeg laten zodat alle resource in het domein dat u in stap 5 hebt opgegeven kunnen worden opgeslagen in de cache.
 7. Geef in het vak **Host-header van oorsprong** de host-header op die voor elke aanvraag door het CDN moet worden verzonden of laat de standaardinstelling staan.
    
@@ -72,7 +72,7 @@ Een CDN-profiel is een verzameling van CDN-eindpunten.  Elk profiel bevat een of
    > Bepaalde oorsprongtypen, zoals Azure Storage en Web Apps, vereisen dat de hostheader overeenkomt met het domein van de oorsprong. Tenzij u een oorsprong hebt waarvoor een andere host-header is vereist dan die van het domein, laat u de standaardwaarde ongewijzigd.
    > 
    > 
-8. Geef voor **Protocol** en **Poort van oorsprong** de protocollen en poorten op die worden gebruikt voor toegang tot uw resources die aan de oorsprong liggen.  Er moet minimaal één protocol (HTTP of HTTPS) worden geselecteerd.
+8. Geef voor **Protocol** en **Poort van oorsprong** de protocollen en poorten op die worden gebruikt voor toegang tot uw resources die aan de oorsprong liggen. Er moet minimaal één protocol (HTTP of HTTPS) worden geselecteerd. Gebruik het domein dat is verstrekt door het CDN (`<endpointname>.azureedge.net`) voor toegang tot HTTPS-inhoud. 
    
    > [!NOTE]
    > De **Poort van oorsprong** is alleen van invloed op de poort die door het eindpunt wordt gebruikt om informatie op te halen bij de oorsprong.  Het eindpunt zelf is alleen beschikbaar voor eindclients op de standaard-HTTP- en -HTTPS-poorten (80 en 443), ongeacht de **Poort van oorsprong**.  
@@ -82,20 +82,18 @@ Een CDN-profiel is een verzameling van CDN-eindpunten.  Elk profiel bevat een of
    > Voor de toegang tot CDN-inhoud via HTTPS gelden de volgende beperkingen:
    > 
    > * U moet het SSL-certificaat gebruiken dat door het CDN is verstrekt. Certificaten van derden worden niet ondersteund.
-   > * HTTPS-ondersteuning voor aangepaste Azure CDN-domeinen is alleen beschikbaar bij **Azure CDN van Verizon**-producten (Standard en Premium). Dit wordt niet ondersteund in **Azure CDN van Akamai**. Zie [HTTPS op een aangepast Azure CDN-domein inschakelen](cdn-custom-ssl.md) voor meer informatie.
-
-Gebruik het domein dat is verstrekt door het CDN (`<endpointname>.azureedge.net`) voor toegang tot HTTPS-inhoud. HTTPS-ondersteuning is niet beschikbaar voor aangepaste domeinnamen (CNAME's), aangezien het CDN op dit moment geen ondersteuning biedt voor aangepaste certificaten.
-   > 
-   > 
+   > * HTTPS-ondersteuning voor aangepaste Azure CDN-domeinen is alleen beschikbaar bij **Azure CDN van Verizon**-producten (Standard en Premium). Dit wordt niet ondersteund in producten van **Azure CDN van Akamai**. Zie [Enable or disable HTTPS on an Azure CDN custom domain](cdn-custom-ssl.md) (HTTPS op een aangepast Azure CDN-domein in- of uitschakelen) voor meer informatie.
+  
 9. Klik op de knop **Toevoegen** om het nieuwe eindpunt te maken.
-10. Zodra het eindpunt is gemaakt, wordt deze weergegeven in een lijst met eindpunten voor het profiel. In de lijstweergave kunt u zien welke URL u moet gebruiken voor toegang tot de content in cache en het brondomein.
+   
+   Zodra het eindpunt is gemaakt, wordt deze weergegeven in de lijst met eindpunten voor het profiel.
     
-    ![CDN-eindpunt][cdn-endpoint-success]
+   ![CDN-eindpunt][cdn-endpoint-success]
     
-    > [!IMPORTANT]
-    > Het eindpunt is niet onmiddellijk beschikbaar voor gebruik, aangezien het enige tijd vergt om de registratie door te geven in CDN.  Profielen van <b>Azure CDN van Akamai</b> worden doorgaans binnen één minuut doorgegeven.  Profielen van <b>Azure CDN van Verizon</b> worden doorgaans binnen 90 minuten doorgegeven, maar in sommige gevallen kan dit langer duren.
+   > [!IMPORTANT]
+   > Het eindpunt is niet onmiddellijk beschikbaar voor gebruik, aangezien het enige tijd vergt om de registratie door te geven.  Profielen van <b>Azure CDN van Akamai</b> worden doorgaans binnen één minuut doorgegeven. Profielen van <b>Azure CDN van Verizon</b> worden doorgaans binnen 90 minuten doorgegeven, maar in sommige gevallen kan dit langer duren.
     > 
-    > Gebruikers die de CDN-domeinnaam proberen te gebruiken voordat de eindpuntconfiguratie is doorgegeven aan de POP's, ontvangen HTTP 404-responscodes.  Zie [Problemen oplossen met CDN-eindpunten die 404-statusberichten retourneren](cdn-troubleshoot-endpoint.md) als u een paar uur nadat u uw eindpunt hebt gemaakt, nog steeds 404-responsberichten ontvangt.
+    > Gebruikers die de CDN-domeinnaam proberen te gebruiken voordat de eindpuntconfiguratie is doorgegeven aan de POP's, kunnen HTTP 404-responscodes ontvangen.  Zie [Problemen oplossen met CDN-eindpunten die 404-statusberichten retourneren](cdn-troubleshoot-endpoint.md) als u een paar uur nadat u uw eindpunt hebt gemaakt, nog steeds 404-responsberichten ontvangt.
     > 
     > 
 

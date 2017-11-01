@@ -1,8 +1,8 @@
 1. Als u op **Verbinden** klikt, wordt een Remote Desktop Protocol-bestand (.rdp) gemaakt en gedownload. Klik op **Openen** om dit bestand te gebruiken.
-2. U ontvangt een waarschuwing dat het RDP-bestand van een onbekende uitgever is. Dit is normaal. Klik in het venster Extern bureaublad op **Verbinden** om door te gaan.
+2. U ontvangt een waarschuwing dat het `.rdp`-bestand van een onbekende uitgever is. Dit is normaal. Klik in het venster Extern bureaublad op **Verbinden** om door te gaan.
    
     ![Schermafbeelding met waarschuwing over een onbekende uitgever](./media/virtual-machines-log-on-win-server/rdp-warn.png)
-3. Typ in het venster **Windows-beveiliging** de referenties voor een account op de virtuele machine en klik vervolgens op **OK**.
+3. Selecteer in het venster **Windows-beveiliging** **Meer opties** en vervolgens **Een ander account gebruiken**. Typ de referenties voor een account op de virtuele machine en klik vervolgens op **OK**.
    
      **Lokaal account** - Dit is meestal de gebruikersnaam en het wachtwoord van het lokaal account dat u hebt opgegeven toen u de virtuele machine hebt gemaakt. In dit geval is het domein de naam van de virtuele machine en het is ingevoerd als *vmname*&#92;*gebruikersnaam*.  
    

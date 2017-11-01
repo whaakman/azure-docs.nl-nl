@@ -5,7 +5,7 @@ services: container-registry
 documentationcenter: 
 author: stevelas
 manager: balans
-editor: dlepow
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: ee2b652b-fb7c-455b-8275-b8d4d08ffeb3
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 10/13/2017
 ms.author: stevelas
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 664696d2f355609c76477765c2238c6d62253482
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d54caa45078221cdbe091649cb3fe3b65eaa47e8
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Inleiding tot privé-Docker-containerregisters in Azure
 
@@ -38,11 +37,9 @@ Haal installatiekopieën op vanuit een Azure-containerregister en push ze naar v
 Ontwikkelaars kunnen ook naar een containerregister pushen als onderdeel van een ontwikkelingswerkstroom met containers. Bijvoorbeeld naar een containerregister vanuit doorlopende integratie- implementatieprogramma's als [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) of [Jenkins](https://jenkins.io/).
 
 ## <a name="key-concepts"></a>Belangrijkste concepten
-* **Register**: maak een of meerdere containerregisters in uw Azure-abonnement. Elk register wordt ondersteund door een standaard-Azure-[opslagaccount](../storage/common/storage-introduction.md) op dezelfde locatie. Maak een register op dezelfde Azure-locatie als uw implementaties om te profiteren van lokale opslag dichtbij in het netwerk van uw containerinstallatiekopieën. Een volledig gekwalificeerde registernaam heeft de notatie `myregistry.azurecr.io`.
+* **Register**: maak een of meerdere containerregisters in uw Azure-abonnement. Registers zijn beschikbaar in drie SKU's, [Basic, Standard en Premium](container-registry-skus.md), die alle ondersteuning bieden voor integratie van webhooks, opslagplaatsverificatie met Azure Active Directory en functionaliteit voor verwijderen. Maak een register op dezelfde Azure-locatie als uw implementaties om te profiteren van lokale opslag dichtbij in het netwerk van uw containerinstallatiekopieën. Gebruik de [geo-replicatie](container-registry-geo-replication.md)functie van Premium-registers voor geavanceerde replicatie- en distributiescenario's voor containerinstallatiekopieën. Een volledig gekwalificeerde registernaam heeft de notatie `myregistry.azurecr.io`.
 
   U kunt [toegang beheren](container-registry-authentication.md) tot een containerregister met behulp van een [service-principal](../active-directory/active-directory-application-objects.md) ondersteund door Azure Active Directory of een opgegeven beheeraccount. Voer de standaardopdracht `docker login` uit om deze te verifiëren met een register.
-
-* **Beheerd register**: wanneer u een register maakt, kunt u kiezen om een beheerd register te maken of een register dat wordt ondersteund door uw eigen opslagaccount. Beheerde registers bieden aanvullende mogelijkheden in drie SKU's: Basic, Standard en Premium. De installatiekopieën in deze SKU's worden opgeslagen in Azure Storage-accounts die worden beheerd met de service Azure Container Registry. Hierdoor neemt niet alleen de betrouwbaarheid toe, maar komen er ook nieuwe functies beschikbaar. Voorbeelden van nieuwe mogelijkheden zijn integratie van webhooks, verificatie van opslagplaats met Azure Active Directory en ondersteuning voor verwijderfunctionaliteit.
 
 * **Opslagplaats**: een register bevat een of meer opslagplaatsen. Dit zijn groepen met containerinstallatiekopieën. Azure Container Registry ondersteunt naamruimten voor opslagplaatsen op meerdere niveaus. Met naamruimten op meerdere niveaus kunt u installatiekopieën groeperen die gerelateerd zijn aan een specifieke app, of apps groeperen die gerelateerd zijn aan specifieke ontwikkelingsteams of operationele teams. Bijvoorbeeld:
 
@@ -58,4 +55,3 @@ Ontwikkelaars kunnen ook naar een containerregister pushen als onderdeel van een
 * [Een containerregister maken met Azure Portal](container-registry-get-started-portal.md)
 * [Een containerregister maken met de Azure-CLI](container-registry-get-started-azure-cli.md)
 * [Uw eerste installatiekopie pushen met de Docker-CLI](container-registry-get-started-docker-cli.md)
-* Raadpleeg [CI/CD met Docker Swarm en VSTS](../container-service/dcos-swarm/container-service-docker-swarm-setup-ci-cd.md) voor informatie over hoe u een doorlopende integratie- en implementatiewerkstroom maakt met Visual Studio Team Services, Azure Container Service en Azure Container Registry.

@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: ashmaka
-ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01be1b14e838c4f1b6f2498111fb8369c2bbb92a
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="query-your-azure-search-index"></a>Een query uitvoeren in uw Azure Search-index
 > [!div class="op_single_selector"]
@@ -66,4 +66,4 @@ De beste manier om syntaxisverschillen te begrijpen, is door query's uit te voer
 
 + Gebruik [Search Explorer](search-explorer.md) in Azure Portal. Door het implementeren van [de voorbeeldindex](search-get-started-portal.md) kunt u de index binnen een paar bevragen met hulpprogramma's in de portal.
 
-+ Gebruik [Fiddler](search-fiddler.md) of Chrome Postman om query's te verzenden naar een index die u hebt geüpload naar uw zoekservice. Beide hulpprogramma's ondersteunen REST-aanroepen naar een HTTP-eindpunt. 
++ Gebruik Telerik Fiddler of Chrome Postman om query's te verzenden naar een index die u hebt geüpload naar uw zoekservice. Beide hulpprogramma's ondersteunen REST-aanroepen naar een HTTP-eindpunt. 

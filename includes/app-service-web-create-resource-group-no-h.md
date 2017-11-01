@@ -8,4 +8,4 @@ In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* 
 az group create --name myResourceGroup --location "West Europe"
 ```
 
-In het algemeen maakt u een resourcegroep en resources in een regio bij u in de buurt. Als u alle ondersteunde locaties voor Azure Web Apps wilt zien, voert u de opdracht `az appservice list-locations` uit. 
+In het algemeen maakt u een resourcegroep en resources in een regio bij u in de buurt. Als u alle ondersteunde locaties voor App Service-plannen wilt zien, voert u de opdracht `az appservice list-locations` uit.

@@ -12,16 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 754548a0beb4251d0fa4eef1fba73aabf02151ec
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-toepassing met meerdere lagen die Azure Service Bus-wachtrijen gebruikt
-## <a name="introduction"></a>Inleiding
+
 Ontwikkelen voor Microsoft Azure is eenvoudig met Visual Studio en de gratis Azure SDK voor .NET. In deze zelfstudie doorloopt u de stappen voor het maken van een toepassing die meerdere Azure-resources in uw lokale omgeving gebruikt.
 
 U leert het volgende:
@@ -68,7 +68,7 @@ Voordat u Azure-toepassingen kunt ontwikkelen, moet u de hulpprogramma's ophalen
 5. Nadat de installatie is voltooid, hebt u alles wat u nodig hebt om te starten met het ontwikkelen van de app. De SDK bevat hulpprogramma's waarmee u eenvoudig Azure-toepassingen kunt ontwikkelen in Visual Studio.
 
 ## <a name="create-a-namespace"></a>Een naamruimte maken
-De volgende stap is het maken van een servicenaamruimte en ophalen van een SAS-sleutel (Shared Access Signature). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Er wordt automatisch een SAS-sleutel gegenereerd wanneer er een naamruimte wordt gemaakt. De combinatie van naamruimte en SAS-sleutel biedt Service Bus de benodigde referenties voor het verifiëren van toegang tot een toepassing.
+De volgende stap is het maken van een *naamruimte* en ophalen van een [SAS-sleutel (Shared Access Signature)](service-bus-sas.md) voor deze naamruimte. Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Er wordt automatisch een SAS-sleutel gegenereerd wanneer er een naamruimte wordt gemaakt. De combinatie van naamruimte en SAS-sleutel biedt Service Bus de benodigde referenties voor het verifiëren van toegang tot een toepassing.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -83,7 +83,7 @@ Vervolgens voegt u code toe waarmee items worden verzonden naar een Service Bus-
 2. Klik vanuit **Geïnstalleerde sjablonen** onder **Visual C#** op **Cloud** en klik vervolgens op **Azure Cloud Service**. Geef het project de naam **MultiTierApp**. Klik vervolgens op **OK**.
    
    ![][9]
-3. Dubbelklik vanuit **.NET Framework 4.5**-rollen op **ASP.NET-webrol**.
+3. Dubbelklik in het deelvenster **Rollen** op **ASP.NET-webrol**.
    
    ![][10]
 4. Beweeg de muisaanwijzer over **WebRole1** onder **Azure Cloud Service-oplossing**, klik op het potloodpictogram en wijzig de naam van de webrol in **FrontendWebRole**. Klik vervolgens op **OK**. (Zorg ervoor dat u 'Frontend' invoert met een kleine letter 'e', dus niet 'FrontEnd'.)
@@ -92,12 +92,12 @@ Vervolgens voegt u code toe waarmee items worden verzonden naar een Service Bus-
 5. Klik in het dialoogvenster **Nieuw ASP.NET-project** in de lijst **Een sjabloon selecteren** op **MVC**.
    
    ![][12]
-6. Klik nog steeds vanuit het dialoogvenster **Nieuw ASP.NET-project** op de knop **Verificatie wijzigen**. Klik in het dialoogvenster **Verificatie wijzigen** op **Geen verificatie** en vervolgens op **OK**. In deze zelfstudie implementeert u een app waarvoor geen gebruikersaanmelding nodig is.
+6. Klik nog steeds vanuit het dialoogvenster **Nieuw ASP.NET-project** op de knop **Verificatie wijzigen**. Zorg dat in het dialoogvenster **Verificatie wijzigen** de optie **Geen verificatie** is geselecteerd en klik vervolgens op **OK**. In deze zelfstudie implementeert u een app waarvoor geen gebruikersaanmelding nodig is.
    
     ![][16]
 7. Ga terug naar het dialoogvenster **Nieuw ASP.NET-project** en klik op **OK** om het project te maken.
 8. Klik in **Solution Explorer** in het project **FrontendWebRole** met de rechtermuisknop op **Verwijzingen** en klik vervolgens op **NuGet-pakketten beheren**.
-9. Klik op het tabblad **Bladeren** en zoek vervolgens naar `Microsoft Azure Service Bus`. Selecteer het **WindowsAzure.ServiceBus**-pakket, klik op **Installeren** en accepteer de gebruiksvoorwaarden.
+9. Klik op het tabblad **Bladeren** en zoek vervolgens naar **WindowsAzure.ServiceBus**. Selecteer het **WindowsAzure.ServiceBus**-pakket, klik op **Installeren** en accepteer de gebruiksvoorwaarden.
    
    ![][13]
    
@@ -182,12 +182,12 @@ In dit gedeelte maakt u de verschillende pagina's die door uw toepassing worden 
 5. Maak nu de weergave voor de methode voor `Submit()` die u eerder hebt gemaakt. Klik met de rechtermuisknop in de methode voor `Submit()` (de overbelasting van `Submit()` waarvoor geen parameters zijn vereist) en kies vervolgens **Weergave toevoegen**.
    
    ![][14]
-6. Een dialoogvenster voor het maken van de weergave wordt weergegeven. Kies **Maken** in de lijst **Sjabloon**. Klik in de lijst **Modelklasse** op de klasse **OnlineOrder**.
+6. Een dialoogvenster voor het maken van de weergave wordt weergegeven. Kies **Maken** in de lijst **Sjabloon**. Selecteer in de lijst **Modelklasse** de klasse **OnlineOrder**.
    
    ![][15]
 7. Klik op **Add**.
 8. Wijzig nu de weergegeven naam van uw toepassing. Dubbelklik in **Solution Explorer** op het bestand **Views\Shared\\_Layout.cshtml** om dit te openen in de Visual Studio-editor.
-9. Vervang alle instanties van **Mijn ASP.NET-toepassing** door **Producten van LITWARE**.
+9. Vervang alle instanties van **Mijn ASP.NET-toepassing** door **Producten van Northwind Traders**.
 10. Verwijder de koppelingen **Start**, **Info** en **Contact**. Verwijder de gemarkeerde code:
     
     ![][28]
@@ -361,9 +361,9 @@ U maakt nu de werkrol die de orderverzendingen verwerkt. In dit voorbeeld wordt 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende resources voor meer informatie over Service Bus:  
 
-* [Documentatie voor Azure Service Bus][sbdocs]  
+* [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+* [Aan de slag met Service Bus-wachtrijen][sbacomqhowto]
 * [Service Bus-servicepagina][sbacom]  
-* [Service Bus-wachtrijen gebruiken][sbacomqhowto]  
 
 Zie voor meer informatie over scenario's voor meerdere lagen:  
 
@@ -390,7 +390,6 @@ Zie voor meer informatie over scenario's voor meerdere lagen:
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

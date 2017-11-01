@@ -12,16 +12,21 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 06/05/2017
+ms.date: 10/24/2017
 ms.author: nisoneji
-ms.openlocfilehash: fccbe88e3c0c2b2f3e9958f5f2f27adc017e4d03
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e636065131d0719601a3e834cfc571e94e1abfb7
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="exclude-disks-from-replication"></a>Schijven uitsluiten van replicatie
 In dit artikel wordt beschreven hoe u schijven uitsluit van replicatie. Door schijven uit te sluiten, kunt u de verbruikte replicatiebandbreedte optimaliseren of de resources aan de doelzijde waarvan deze schijven gebruikmaken, optimaliseren. De functie wordt ondersteund voor VMware-naar-Azure- en Hyper-V-naar-Azure-scenario's.
+
+## <a name="supported-scenarios"></a>Ondersteunde scenario's
+**Functie** | **VMware naar Azure** | **Hyper-V naar Azure** | **Azure naar Azure**| **Hyper-V naar Hyper-V** 
+--|--|--|--|--
+Schijf uitsluiten | Ja | Ja | Nee | Nee
 
 ## <a name="prerequisites"></a>Vereisten
 

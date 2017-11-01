@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
-ms.openlocfilehash: 517e908a744734139ed0aeee314a4f3b9eda86cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f43196b88cf22aab66c913d0bd659b3d654cef0
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Walkthrough voor de vooraf geconfigureerde oplossing Connected Factory
 
@@ -34,7 +34,7 @@ De [vooraf geconfigureerd oplossing][lnk-preconfigured-solutions] Connected Fact
 
 U kunt de oplossing gebruiken als uitgangspunt voor uw eigen implementatie en u kunt deze [aanpassen][lnk-customize] aan uw eigen specifieke zakelijke vereisten.
 
-In dit artikel wordt stapsgewijs een aantal belangrijke elementen van de oplossing Connected Factory beschreven, zodat u beter begrijpt hoe deze werkt. Deze kennis helpt u bij:
+In dit artikel wordt stapsgewijs een aantal belangrijke elementen van de oplossing Connected Factory beschreven, zodat u beter begrijpt hoe deze werkt. In dit artikel wordt ook beschreven hoe gegevens via de oplossing stromen. Deze kennis helpt u bij:
 
 * Het oplossen van problemen met de oplossing.
 * Het plannen van een aanpassing van de oplossing zodat deze voldoet aan uw eigen specifieke vereisten.
@@ -124,12 +124,116 @@ Voor de oplossing wordt gebruikgemaakt van Azure Blob Storage voor schijfopslag 
 ## <a name="web-app"></a>Web-app
 De web-app die wordt geïmplementeerd als onderdeel van de vooraf geconfigureerde oplossing, bestaat uit een ingebouwde OPC UA-client, biedt verwerking van waarschuwingen en biedt visualisatie van de telemetrie.
 
+## <a name="telemetry-data-flow"></a>Telemetriegegevensstroom
+
+![Telemetriegegevensstroom](media/iot-suite-connected-factory-walkthrough/telemetry_dataflow.png)
+
+### <a name="flow-steps"></a>Stromingsstappen
+
+1. OPC Publisher leest de vereiste OPC UA X509-certificaten en IoT Hub-beveiligingsreferenties vanuit het lokale certificaatarchief.
+    - Zo nodig maakt OPC Publisher eventuele ontbrekende certificaten of referenties en slaat deze op in het certificaatarchief.
+
+2. OPC Publisher registreert zichzelf bij IoT Hub.
+    - Gebruikt het geconfigureerde protocol. Kan gebruikmaken van elk door de SDK van de IoT Hub-client ondersteund protocol. De standaardwaarde is MQTT.
+    - Protocolcommunicatie wordt beveiligd door TLS.
+
+3. OPC Publisher leest het configuratiebestand.
+
+4. OPC Publisher maakt een OPC-sessie met elke geconfigureerde OPC UA-Server.
+    - Maakt gebruik van een TCP-verbinding.
+    - OPC Publisher en de OPC UA-server verifiëren elkaar met behulp van X509-certificaten.
+    - Alle overige OPC UA-verkeer wordt versleuteld door het geconfigureerde OPC UA-versleutelingsmechanisme.
+    - OPC Publisher maakt een OPC-abonnement in de OPC-sessie voor elk geconfigureerd publicatie-interval.
+    - Maakt door OPC bewaakte items voor de OPC-eindpunten die in het OPC-abonnement moeten worden gepubliceerd.
+
+5. Als een bewaakte OPC-eindpuntwaarde wordt gewijzigd, verstuurt de OPC UA-server updates naar OPC Publisher.
+
+6. OPC Publisher transcodeert de nieuwe waarde.
+    - Verwerkt meerdere wijzigingen in batches, indien batchverwerking is ingeschakeld.
+    - Maakt een IoT Hub-bericht.
+
+7. OPC Publisher stuurt een bericht naar IoT Hub.
+    - Gebruikt het geconfigureerde protocol.
+    - Communicatie wordt beveiligd door TLS.
+
+8. Time Series Insights (TSI) leest het bericht van IoT Hub.
+    - Gebruikt AMQP via TCP/TLS.
+    - Deze stap is intern voor het datacenter.
+
+9. Data-at-rest in TSI.
+
+10. Verbonden factory-WebApp in Azure AppService vraagt de vereiste gegevens van TSI.
+    - Maakt gebruik van met TCP/TLS beveiligde communicatie.
+    - Deze stap is intern voor het datacenter.
+
+11. Webbrowser maakt verbinding met de verbonden factory-WebApp.
+    - Geeft het verbonden factory-dashboard weer.
+    - Maakt verbinding via HTTPS.
+    - Voor toegang tot de verbonden factory-app is verificatie van de gebruiker via Azure Active Directory vereist.
+    - WebApi-aanroepen naar verbonden factory-app worden beveiligd door anti-vervalsingstokens.
+
+12. Bij gegevensupdates verstuurt de verbonden factory-WebApp bijgewerkte gegevens naar de webbrowser.
+    - Maakt gebruik van het SignalR-protocol.
+    - Beveiligd door TCP/TLS.
+
+## <a name="browsing-data-flow"></a>Browsegegevensstroom
+
+![Browsegegevensstroom](media/iot-suite-connected-factory-walkthrough/browsing_dataflow.png)
+
+### <a name="flow-steps"></a>Stromingsstappen
+
+1. OPC-proxy (servercomponent) wordt opgestart.
+    - Leest de gedeelde toegangssleutels vanaf een lokale opslag.
+    - Slaat zo nodig ontbrekende toegangssleutels in de opslag op.
+
+2. OPC-proxy (servercomponent) registreert zichzelf bij IoT Hub.
+    - Leest alle bekende apparaten vanaf IoT Hub.
+    - Maakt gebruik van MQTT via TLS via socket of beveiligde WebSocket.
+
+3. Webbrowser maakt verbinding met de verbonden factory-WebApp en geeft het verbonden factory-dashboard weer.
+    - Maakt gebruik van HTTPS.
+    - Een gebruiker selecteert een OPC UA-server om verbinding mee te maken.
+
+4. Verbonden factory-WebApp brengt een OPC UA-sessie tot stand met de geselecteerde OPC UA-server.
+    - Maakt gebruik van OPC UA-stack.
+
+5. OPC-proxytransport ontvangt een aanvraag van de OPC UA-stack om een TCP-socketverbinding met de OPC UA-server tot stand te brengen.
+    - De TCP-nettolading wordt opgehaald en ongewijzigd gebruikt.
+    - Deze stap is intern voor de verbonden factory-WebApp.
+
+6. OPC-proxy (clientcomponent) zoekt het OPC-proxy (servercomponent)-apparaat in het IoT Hub-apparaatregister. Vervolgens wordt een apparaatmethode van het OPC-proxy (servercomponent)-apparaat in IoT Hub aangeroepen.
+    - Maakt gebruik van HTTPS via TCP/TLS om OPC-proxy te zoeken.
+    - Maakt gebruik van HTTPS via TCP/TLS om een TCP-socketverbinding met de OPC UA-server tot stand te brengen.
+    - Deze stap is intern voor het datacenter.
+
+7. IoT Hub roept een apparaatmethode in het OPC-proxy (servercomponent)-apparaat aan.
+    - Maakt gebruik van een vastgestelde MQTT via TLS via een socket- of beveiligde WebSocket-verbinding om een TCP-socketverbinding met de OPC UA-server tot stand te brengen.
+
+8. OPC-proxy (servercomponent) stuurt de TCP-nettolading door naar het netwerk van de werkvloer.
+
+9. De OPC UA-server verwerkt de nettolading en stuurt het antwoord terug.
+
+10. Het antwoord wordt ontvangen door de socket van de OPC-proxy (servercomponent).
+    - OPC-proxy stuurt de gegevens als retourwaarde van de apparaatmethode naar IoT Hub en de OPC-proxy (clientcomponent).
+    - Deze gegevens worden afgeleverd aan de OPC UA-stack in de verbonden factory-app.
+
+11. De verbonden factory-WebApp retourneert OPC-browser-UX verrijkt met de OPC UA-specifieke gegevens (ontvangen van de OPC UA-server) naar de webbrowser om ze weer te geven.
+    - Tijdens het browsen door de OPC-adresruimte en het toepassen van functies op knooppunten in de OPC-adresruimte, maakt het OPC-browser-UX-clientonderdeel gebruik van AJAX-aanroepen via HTTPS (beveiligd met anti-vervalsingstokens) om gegevens op te halen uit de verbonden factor-WebApp.
+    - Zo nodig maakt de client gebruik van de communicatie (zoals uitgelegd in stap 4 t/m 10) om gegevens uit te wisselen met de OPC UA-server.
+
+> [!NOTE]
+> De OPC-proxy (servercomponent) en OPC-proxy (clientcomponent) voltooien stap 4 t/m 10 voor alle TCP-verkeer dat gerelateerd is met OPC UA-communicatie.
+
+> [!NOTE]
+> Voor de OPC UA-server en de OPC UA-stack binnen de verbonden factory-WebApp is de OPC-proxycommunicatie transparant en zijn alle OPC UA-beveiligingsfuncties voor verificatie en versleuteling van toepassing.
+
 ## <a name="next-steps"></a>Volgende stappen
 
 U kunt verder aan de slag gaan met IoT Suite door de volgende artikelen te lezen:
 
 * [Machtigingen op de site azureiotsuite.com][lnk-permissions]
 * [Een gateway implementeren in Windows of Linux voor de vooraf geconfigureerde oplossing Connected Factory](iot-suite-connected-factory-gateway-deployment.md)
+* [OPC Publisher reference implementation](iot-suite-connected-factory-publisher.md) (Implementatie ter referentie van OPC Publisher).
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
