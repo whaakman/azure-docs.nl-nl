@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: fad13053895c5d6e3c41835fea3cf0bdd3380cd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 486e2b2da7a78cdc39743e60f4140fc58275a8fc
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="getting-started-with-azure-automation"></a>Aan de slag met Azure Automation
 
@@ -59,6 +59,7 @@ De computer waarop u hybride runbooktaken wilt uitvoeren, moet over het volgende
 
 * Windows Server 2012 of hoger
 * Windows PowerShell 4.0 of hoger.  Voor extra betrouwbaarheid is het raadzaam om Windows PowerShell 5.0 op de computer te installeren. U kunt de nieuwe versie downloaden via het [Microsoft Downloadcentrum](https://www.microsoft.com/download/details.aspx?id=50395)
+* .NET framework 4.6.2 of hoger
 * Minimaal twee kernen
 * Minimaal 4 GB aan RAM-geheugen
 

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fa08049fd0b13945de307e9d28224ea0d5a1307
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303ead6e1d98d464aeba2687c2a72a38bc1ce209
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Wat zijn virtuele-machineschaalsets in Azure?
 Virtuele-machineschaalsets vormen een compute-resource van Azure die u kunt gebruiken om een set identieke VM's te implementeren en te beheren. Met behulp van schaalsets worden alle virtuele machines op dezelfde manier geconfigureerd en automatisch geschaald. U hoeft de virtuele machines dus niet vooraf in te richten. Hierdoor wordt het gemakkelijker om grootschalige services te ontwikkelen voor Big Compute, big data en beperkte workloads.
@@ -33,7 +33,7 @@ Bekijk voor meer informatie over schaalsets deze video's:
 * [Guy Bowerman over virtuele-machineschaalsets](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>Schaalsets maken en beheren
-U kunt een schaalset maken in [Azure Portal](https://portal.azure.com) door **nieuw** te selecteren en **schaal** in de zoekbalk te typen. **Virtuele-machineschaalset** wordt vermeld in de resultaten. Daarna vult u de vereiste velden in om uw schaalset aan te passen en te implementeren. Er zijn in de portal ook opties om basisregels voor automatisch schalen in te stellen op basis van CPU-gebruik. 
+U kunt een schaalset maken in [Azure Portal](https://portal.azure.com) door **nieuw** te selecteren en **schaal** in de zoekbalk te typen. **Virtuele-machineschaalset** wordt vermeld in de resultaten. Daarna vult u de vereiste velden in om uw schaalset aan te passen en te implementeren. Er zijn in de portal ook opties om basisregels voor automatisch schalen in te stellen op basis van CPU-gebruik. Voor het beheren van uw schaalset kunt u Azure Portal, [Azure PowerShell-cmdlets](virtual-machine-scale-sets-windows-manage.md) of de Azure CLI 2.0 gebruiken.
 
 Schaalsets kunnen naar een [beschikbaarheidszone](../availability-zones/az-overview.md) worden geïmplementeerd.
 
@@ -46,8 +46,23 @@ In de [GitHub-opslagplaats voor Azure Quickstart-sjablonen](https://github.com/A
 
 Voor de Quick Start-sjabloonvoorbeelden is een knop 'Implementeren naar Azure' in het Leesmij-bestand gekoppeld aan de implementatiefunctie van de portal. Als u de schaalset wilt implementeren, klikt u op de knop en vult u vervolgens de vereiste parameters in de portal in. 
 
-## <a name="scaling-a-scale-set-out-and-in"></a>Een schaalset in- en uitschalen
-U kunt de capaciteit van een schaalset in Azure Portal wijzigen door te klikken op het gedeelte **Schalen** in **Instellingen**. 
+
+## <a name="autoscale"></a>Automatisch schalen
+Om consistente toepassingsprestaties te behouden, kunt u het aantal VM-exemplaren in de schaalset automatisch vergroten of verkleinen. Dankzij deze mogelijkheid voor automatisch schalen hoeft u minder te controleren en kunt u de schaalset optimaliseren als de klantvraag in de loop van de tijd verandert. U definieert regels op basis van metrische gegevens voor prestaties, reactietijd van toepassingen of een vast schema, en uw schaalset wordt automatisch vergroot of verkleind indien nodig.
+
+Voor basisregels voor automatisch schalen kunt u hostgebaseerde metrische gegevens voor prestaties gebruiken, zoals CPU-gebruik of schijf-I/O. Deze hostgebaseerde metrische gegevens voor prestaties zijn gebruiksklaar beschikbaar, zonder extra agents of extensies te hoeven installeren en configureren. Regels voor automatisch schalen die gebruikmaken van hostgebaseerde metrische gegevens, kunnen worden gemaakt met een van de volgende hulpprogramma's:
+
+- [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+
+Als u gedetailleerdere metrische gegevens voor prestaties wilt gebruiken, kunt u de diagnostische Azure-extensie installeren en configureren op VM-exemplaren in uw schaalset. Met de diagnostische Azure-extensie kunt u aanvullende metrische gegevens voor prestaties, zoals geheugenverbruik, verzamelen uit elk VM-exemplaar. Deze metrische gegevens voor prestaties worden gestreamd naar een Azure-opslagaccount. U kunt regels voor automatisch schalen maken om deze gegevens te gebruiken. Zie voor meer informatie de artikelen voor het inschakelen van de diagnostische Azure-extensie op een [Linux-VM](../virtual-machines/linux/diagnostic-extension.md) of [Windows-VM](../virtual-machines/windows/ps-extensions-diagnostics.md).
+
+Voor het controleren van de toepassingsprestaties zelf kunt u een klein instrumentatiepakket installeren en configureren in uw toepassing voor App Insights. Gedetailleerde metrische gegevens voor prestaties voor de reactietijd van de toepassing of het aantal sessies kunnen vervolgens terug van uw app worden gestreamd. Vervolgens kunt u regels voor automatisch schalen met gedefinieerde drempelwaarden voor de prestaties op toepassingsniveau zelf maken. Zie [Wat is Application Insights?](../application-insights/app-insights-overview.md) voor meer informatie over App Insights.
+
+
+## <a name="manually-scaling-a-scale-set-out-and-in"></a>Een schaalset handmatig in- en uitschalen
+U kunt de capaciteit van een schaalset in Azure Portal handmatig wijzigen door te klikken op het gedeelte **Schalen** in **Instellingen**. 
 
 Gebruik de opdracht **Schalen** in [Azure CLI](https://github.com/Azure/azure-cli) om de capaciteit van de schaalset op de opdrachtregel te wijzigen. Gebruik bijvoorbeeld deze opdracht om een schaalset in te stellen op een capaciteit van 10 VM's:
 
@@ -67,26 +82,6 @@ Als u het aantal virtuele machines in een schaalset wilt verhogen of verlagen me
 
 Als u een Azure Resource Manager-sjabloon opnieuw wilt implementeren om de capaciteit te wijzigen, kunt u een veel kleinere sjabloon definiëren die alleen het eigenschappenpakket **SKU** met de bijgewerkte capaciteit bevat. [Hier volgt een voorbeeld](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
-## <a name="autoscale"></a>Automatisch schalen
-
-Een schaalset kan optioneel worden geconfigureerd met instellingen voor automatisch schalen wanneer deze wordt gemaakt in Azure Portal. Het aantal VM's kan vervolgens worden verhoogd of verlaagd op basis van het gemiddelde CPU-gebruik. 
-
-Veel van de schaalsetsjablonen in de [Azure Quick Start-sjablonen](https://github.com/Azure/azure-quickstart-templates) definiëren de instellingen voor automatisch schalen. U kunt instellingen voor automatisch schalen ook toevoegen aan een bestaande schaalset. Met dit Azure PowerShell-script voegt u bijvoorbeeld automatisch schalen op basis van CPU toe aan een schaalset:
-
-```PowerShell
-
-$subid = "yoursubscriptionid"
-$rgname = "yourresourcegroup"
-$vmssname = "yourscalesetname"
-$location = "yourlocation" # e.g. southcentralus
-
-$rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionValue 1
-$rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator LessThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Decrease -ScaleActionValue 1
-$profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -MinimumCapacity 2 -Rules $rule1,$rule2 -Name "autoprofile1"
-Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGroup $rgname -TargetResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -AutoscaleProfiles $profile1
-```
-
-In [Ondersteunde metrische gegevens met Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md) vindt u onder de kop Microsoft.Compute/virtualMachineScaleSets een lijst met geldige metrische gegevens die u kunt schalen. Er zijn ook meer geavanceerde opties voor automatisch schalen beschikbaar, waaronder automatisch schalen op basis van een planning en het gebruik van webhooks om te integreren met waarschuwingssystemen.
 
 ## <a name="monitoring-your-scale-set"></a>Uw schaalset controleren
 In [Azure Portal](https://portal.azure.com) ziet u de schaalsets en de bijbehorende eigenschappen. De portal biedt ook ondersteuning voor beheerbewerkingen. U kunt beheerbewerkingen zowel op schaalsets uitvoeren als op afzonderlijke VM's binnen een schaalset. De portal biedt ook een aanpasbare grafiek over het resourcegebruik. 

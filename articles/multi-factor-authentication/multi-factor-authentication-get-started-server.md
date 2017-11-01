@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2017
+ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
-ms.openlocfilehash: df847c370817c0702163b5e22c35c7e4f1d3cfee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8a0eec19eea1a75b67f314f204fb769e6eff162
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Aan de slag met de Azure Multi-Factor Authentication-server
 
@@ -89,26 +89,42 @@ Als u de functie Gebeurtenisbevestiging niet gebruikt en gebruikers geen mobiele
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-## <a name="download-the-azure-multi-factor-authentication-server"></a>De Azure Multi-Factor Authentication-server downloaden
+## <a name="download-the-mfa-server---public-preview"></a>De MFA-server downloaden - openbare preview
+
+Volg deze stappen om de Azure Multi-Factor Authentication-server te downloaden via Azure Portal:
+
+1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer **Active Directory** > **Multi-Factor Authentication**.
+3. Selecteer **Serverinstellingen**.
+4. Selecteer **Downloaden** en volg de instructies op de downloadpagina om het installatieprogramma op te slaan. 
+
+   ![MFA-server downloaden](./media/multi-factor-authentication-get-started-server/downloadportal.png)
+
+5. Houd deze pagina open want er wordt naar verwezen na het uitvoeren van het installatieprogramma.
+
+
+## <a name="download-the-mfa-server"></a>De MFA-server downloaden
+
+Volg deze stappen om de Azure Multi-Factor Authentication-server te downloaden via de pfweb-portal:
 
 1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer aan de linkerkant **Active Directory**.
-3. Klik op **Gebruikers en groepen**.
-4. Klik op **Alle gebruikers**.
-5. Klik op **Multi-Factor Authentication**.
+3. Selecteer **Gebruikers en groepen**
+4. Selecteer **Alle gebruikers**
+5. Selecteer **Multi-Factor Authentication**
 6. Selecteer **Service-instellingen** onder **Multi-Factor Authentication**.
 
    ![Pagina met service-instellingen](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 
 6. Klik onderaan op de pagina met service-instellingen op **Naar de portal**. Er wordt een nieuwe pagina geopend.
-7. Klik op **Downloads**.
+7. Selecteer **Downloads**.
 8. Klik op de koppeling **Downloaden** en sla het installatieprogramma op.
 
    ![MFA-server downloaden](./media/multi-factor-authentication-get-started-server/download4.png)
 
 9. Houd deze pagina open want er wordt naar verwezen na het uitvoeren van het installatieprogramma.
 
-## <a name="install-and-configure-the-azure-multi-factor-authentication-server"></a>De Azure Multi-Factor Authentication-server installeren en configureren
+## <a name="install-and-configure-the-mfa-server"></a>De MFA-server installeren en configureren
 
 Nu u de server hebt gedownload, kunt u deze installeren en configureren. Zorg ervoor dat de server waarop u deze installeert aan de vereisten in de planningssectie voldoet.
 
@@ -119,7 +135,7 @@ Nu u de server hebt gedownload, kunt u deze installeren en configureren. Zorg er
 
    ![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
 
-5. Klik op de pagina waarvan we de server hebben gedownload op de knop **Activeringsreferenties genereren**. Kopieer deze informatie naar de Azure MFA-server in de desbetreffende vakken en klik op **Activeren**.
+5. Klik op de pagina waarvan u de server hebt gedownload, op de knop **Activeringsreferenties genereren**. Kopieer deze informatie naar de Azure MFA-server in de desbetreffende vakken en klik op **Activeren**.
 
 ## <a name="send-users-an-email"></a>E-mail verzenden naar gebruikers
 

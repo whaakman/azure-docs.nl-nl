@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5134fab447f1d1842369aeda4ebc1948a5d78262
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Een Azure-bestandsshare koppelen en de share openen in Windows
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen worden gekoppeld in Windows en Windows Server. In dit artikel ziet u drie verschillende manieren om een Azure-bestandsshare in Windows te koppelen: met de File Explorer-gebruikersinterface, via PowerShell en via de opdrachtprompt. 
@@ -29,7 +29,8 @@ U kunt Azure-bestandsshares koppelen aan een Windows-installatie die wordt uitge
 
 | Windows-versie        | SMB-versie | Koppelbaar in Azure-VM | Koppelbaar on-premises |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows 10<sup>1</sup>  | SMB 3.0 | Ja | Ja |
+| Windows Server Semi-Annual-kanaal<sup>1</sup> | SMB 3.0 | Ja | Ja |
+| Windows 10<sup>2</sup>  | SMB 3.0 | Ja | Ja |
 | Windows Server 2016    | SMB 3.0     | Ja                   | Ja                  |
 | Windows 8.1            | SMB 3.0     | Ja                   | Ja                  |
 | Windows Server 2012 R2 | SMB 3.0     | Ja                   | Ja                  |
@@ -37,7 +38,8 @@ U kunt Azure-bestandsshares koppelen aan een Windows-installatie die wordt uitge
 | Windows 7              | SMB 2.1     | Ja                   | Nee                   |
 | Windows Server 2008 R2 | SMB 2.1     | Ja                   | Nee                   |
 
-<sup>1</sup>Windows 10 versie 1507, 1511, 1607, 1703 en 1709.
+<sup>1</sup>Windows Server-versie 1709.  
+<sup>2</sup>Windows 10-versies 1507, 1607, 1703 en 1709.
 
 > [!Note]  
 > We raden altijd aan de meest recente KB voor uw versie van Windows te nemen.

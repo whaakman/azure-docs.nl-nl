@@ -1,5 +1,5 @@
 ---
-title: De Azure Batch Rendering-service gebruiken voor rendering in de cloud | Microsoft Docs
+title: Azure Batch Rendering-service - rendering in de cloud | Microsoft Docs
 description: Taken rechtstreeks vanuit Maya renderen op virtuele Azure-machines en betalen op basis van per gebruik.
 services: batch
 author: v-dotren
@@ -8,17 +8,17 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: 47ccbd89d5abf04034196ab735c6740d57099023
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08658bbebfc9f457a3f057178f6b002a88338f1e
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Aan de slag met de Batch Rendering-service
 
 De Azure Batch Rendering-service biedt mogelijkheden voor rendering in de cloud op basis van betalen per gebruik. De Batch Rendering-service verwerkt taakplanning en wachtrijen, beheert fouten en nieuwe pogingen, en automatische schaling voor uw renderingtaak. De Batch Rendering-service ondersteunt [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) en [V-Ray](https://www.chaosgroup.com/vray/maya). Met de Batch-invoegtoepassing voor Maya 2017 kunt u gemakkelijk vanaf uw bureaublad een renderingtaak starten in Azure.
 
-Met Maya en 3ds Max kunt u taken uitvoeren met behulp van de bureaubladtoepassing [Batch Labs](https://github.com/Azure/BatchLabs) of de [Batch Templates-CLI](batch-cli-templates.md). Met de Azure Batch-CLI kunt u Batch-taken uitvoeren zonder code te schrijven. In plaats daarvan kunt u sjabloonbestanden gebruiken om Batch-pools, -jobs en -taken te maken. Zie [Use Azure Batch CLI Templates and File Transfer](batch-cli-templates.md) (Azure Batch CLI-sjablonen en -bestandsoverdracht gebruiken) voor meer informatie.
+Met Maya en 3ds Max kunt u taken uitvoeren met behulp van de bureaubladtoepassing [BatchLabs](https://github.com/Azure/BatchLabs) of de [Batch Templates-CLI](batch-cli-templates.md). Met de Azure Batch-CLI kunt u Batch-taken uitvoeren zonder code te schrijven. In plaats daarvan kunt u sjabloonbestanden gebruiken om Batch-pools, -jobs en -taken te maken. Zie [Use Azure Batch CLI Templates and File Transfer](batch-cli-templates.md) (Azure Batch CLI-sjablonen en -bestandsoverdracht gebruiken) voor meer informatie.
 
 
 ## <a name="supported-applications"></a>Ondersteunde toepassingen
@@ -39,6 +39,7 @@ Voor het gebruik van de Batch Rendering-service hebt u het volgende nodig:
 - Een [Azure-account](https://azure.microsoft.com/free/).
 - **Een Azure Batch-account.** Zie [Een Batch-account maken in Azure Portal](batch-account-create-portal.md) voor instructies over het maken van een Batch-account in Azure Portal.
 - Een **Azure Storage-account.** De assets die worden gebruikt voor uw renderingtaak worden opgeslagen in Azure Storage. U kunt automatisch een opslagaccount maken bij het instellen van uw Batch-account. U kunt ook een bestaand opslagaccount gebruiken. Zie [Een opslagaccount in Azure Portal maken, beheren of verwijderen](https://docs.microsoft.com/azure/storage/storage-create-storage-account) voor meer informatie over opslagaccounts.
+- **BatchLabs** (optioneel). [BatchLabs](https://azure.github.io/BatchLabs) is een gratis, uitgebreid, zelfstandig clienthulpprogramma voor het maken en bewaken van en opsporen van fouten in Azure Batch-toepassingen. Hoewel het gebruik van de Rendering-service niet vereist is, is het een handige optie om uw Batch-oplossingen te ontwikkelen en te testen.
 
 Voor het gebruik van de Batch-invoegtoepassing voor Maya, hebt u het volgende nodig:
 
@@ -59,7 +60,7 @@ Zie de secties [Pool](batch-api-basics.md#pool) en [Rekenknooppunt](batch-api-ba
 
 Een Batch-**taak** is een verzameling subtaken die worden uitgevoerd op de rekenknooppunten in een pool. Wanneer u een renderingtaak verzendt, wordt de taak door Batch in subtaken verdeeld en worden de subtaken gedistribueerd naar de rekenknooppunten in de pool voor uitvoering.
 
-U kunt de [Azure Portal](https://ms.portal.azure.com/) gebruiken om mislukte taken te bewaken en te onderzoeken door toepassingslogboeken te downloaden en op afstand verbinding te maken met afzonderlijke virtuele machines die RDP of SSH gebruiken. U kunt ook beheren, controleren en fouten opsporen met behulp van de [Batch Labs-client](https://github.com/Azure/BatchLabs).
+U kunt de [Azure Portal](https://ms.portal.azure.com/) gebruiken om mislukte taken te bewaken en te onderzoeken door toepassingslogboeken te downloaden en op afstand verbinding te maken met afzonderlijke virtuele machines die RDP of SSH gebruiken. U kunt ook beheren, controleren en fouten opsporen met behulp van het [Batch Labs-hulpprogramma](https://azure.github.io/BatchLabs).
 
 Zie de sectie [Taak](batch-api-basics.md#job) in [Grootschalige parallelle rekenoplossingen ontwikkelen met Batch](batch-api-basics.md) voor meer informatie over batchtaken.
 
@@ -69,9 +70,9 @@ Het is mogelijk dat er meerdere toepassingen nodig zijn om een taak weer te geve
 
 ### <a name="pre-configured-vm-images"></a>Vooraf geconfigureerde VM-installatiekopieën
 
-Azure biedt Windows- en Linux-installatiekopieën waarbij één versie van Maya, 3ds Max, Arnold en V-Ray vooraf is geïnstalleerd en gereed is voor gebruik. U kunt deze installatiekopieën selecteren in de [Azure-portal](https://portal.azure.com), de invoegtoepassing Maya of in [Batch Labs](https://github.com/Azure/BatchLabs) wanneer u een pool maakt.
+Azure biedt Windows- en Linux-installatiekopieën waarbij één versie van Maya, 3ds Max, Arnold en V-Ray vooraf is geïnstalleerd en gereed is voor gebruik. U kunt deze installatiekopieën selecteren in [Azure Portal](https://portal.azure.com), de invoegtoepassing Maya of in [BatchLabs](https://azure.github.io/BatchLabs) wanneer u een pool maakt.
 
-In de Azure-portal en in Batch Labs kunt u een van de VM-installatiekopieën met de vooraf geïnstalleerde toepassingen als volgt installeren. In de sectie Pools van uw Batch-account, selecteert u **Nieuw** en in **Pool toevoegen** selecteert u de optie **Grafische afbeeldingen en weergaven (Linux/Windows)** in de vervolgkeuzelijst **Type installatiekopie**:
+In Azure Portal en in BatchLabs kunt u een van de VM-installatiekopieën met de vooraf geïnstalleerde toepassingen als volgt installeren. In de sectie Pools van uw Batch-account, selecteert u **Nieuw** en in **Pool toevoegen** selecteert u de optie **Grafische afbeeldingen en weergaven (Linux/Windows)** in de vervolgkeuzelijst **Type installatiekopie**:
 
 ![Type installatiekopie selecteren voor het Batch-account](./media/batch-rendering-service/add-pool.png)
 
@@ -101,17 +102,17 @@ Afhankelijk van de 3D-toepassing die u gebruikt, zijn er verschillende manieren 
 Met Maya kunt u het volgende gebruiken:
 
 - [Batch-invoegtoepassing voor Maya](https://docs.microsoft.com/en-us/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
-- [Batch-Labs](https://github.com/Azure/BatchLabs)-bureaubladtoepassing
+- [BatchLabs](https://azure.github.io/BatchLabs)-bureaubladtoepassing
 - [Batch Templates-CLI](batch-cli-templates.md)
 
 ### <a name="3ds-max"></a>3ds Max
 
 Met 3ds Max kunt u het volgende gebruiken:
 
-- [Batch Labs](https://github.com/Azure/BatchLabs)-bureaubladtoepassing (zie [Batch Labs Data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) voor instructies voor het gebruik van 3ds Max Batch Labs-sjablonen)
+- [BatchLabs](https://azure.github.io/BatchLabs)-bureaubladtoepassing (zie [BatchLabs-gegevens](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) voor instructies voor het gebruik van 3ds Max BatchLabs-sjablonen)
 - [Batch Templates-CLI](batch-cli-templates.md)
 
-Met de 3ds Max Batch Labs-sjablonen kunt VRay- en Arnold-scènes weergeven met behulp van de Batch Rendering-service van Azure. Er zijn twee variaties van de sjabloon voor VRay en Arnold, één voor standaardscènes en één voor complexere scènes, die een 3ds Max-padbestand naar assets en patronen (.mxp-bestand) nodig hebben. Voor meer informatie over de 3ds Max Batch Labs-sjablonen raadpleegt u de opslagplaats van [Batch Labs Data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) op GitHub.
+Met de 3ds Max Batch Labs-sjablonen kunt VRay- en Arnold-scènes weergeven met behulp van de Batch Rendering-service van Azure. Er zijn twee variaties van de sjabloon voor VRay en Arnold, één voor standaardscènes en één voor complexere scènes, die een 3ds Max-padbestand naar assets en patronen (.mxp-bestand) nodig hebben. Voor meer informatie over de 3ds Max BatchLabs-sjablonen raadpleegt u de opslagplaats van [BatchLabs-gegevens](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) op GitHub.
 
 Daarnaast kunt u de [Batch Python SDK](https://docs.microsoft.com/en-us/azure/batch/batch-python-tutorial) gebruiken om de renderingservice te integreren met uw bestaande pijplijn.
 
