@@ -3,11 +3,12 @@ layout: HubPage
 hide_bc: True
 title: Documentatie voor Microsoft Azure
 description: Leer hoe u krachtige toepassingen maakt en beheert met Microsoft Azure Cloud Services. Maak gebruik van documentatie, voorbeeldcode, zelfstudies en meer.
-ms.openlocfilehash: 5ca26e7fc6230140ee424e35a8d174613a4a93f4
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+featureFlags: clicktale
+ms.openlocfilehash: 1cce8a0c31a7bb7e4c6e228261b27244a762b441
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/01/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -151,7 +152,7 @@ ms.lasthandoff: 10/27/2017
                                                             <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/nodejs/azure/?view=azure-node-2.0.0">
+                                                        <a class="barLink" href="/nodejs/azure/">
                                                             <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
                                                     </li>
                                                 </ul></td></tr></table>
@@ -769,12 +770,6 @@ ms.lasthandoff: 10/27/2017
                                             <a href="/azure/cognitive-services/face/">
                                                 <img src="media/index/API_Face.svg" alt="" />
                                                 <p>Face-API</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/video/home">
-                                                <img src="media/index/API_Video.svg" alt="" />
-                                                <p>Video-API</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1630,7 +1625,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>DDOS-beveiliging</h3>
-                                                    <p>Beveilig toepassingen tegen DDoS-aanvallen (gedistribueerde Denial-of-Service)</p>
+                                                    <p>Toepassingen beveiligen tegen DDoS-aanvallen (gedistribueerde Denial-of-Service)</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2589,9 +2584,6 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                                 <a class="barLink" href="/azure/cognitive-services/face/"><img src="media/index/API_Face.svg" alt="" />Face-API</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/video/home"><img src="media/index/API_Video.svg" alt="" /><span>Video-API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
-                                                            </li>
-                                                            <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/video-indexer/video-indexer-overview"><img src="media/index/API_VideoIndexer.svg" alt="" /><span>Video Indexer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                                                             </li>
                                                         </ul>
@@ -2703,7 +2695,8 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />Zoeken op het web met Bing</a>
                                                             </li>
-                                                            <li>                                                 <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Automatische suggesties van Bing</a>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Automatische suggesties van Bing</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" /><span>Bing Aangepaste zoekopdrachten</a>
@@ -3839,7 +3832,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                     <a href="/nodejs/azure/node-sdk-azure-install">De Azure-bibliotheken voor Node.js ophalen</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/nodejs/azure/?view=azure-node-2.0.0">Aan de slag</a>
+                                                    <a href="/nodejs/azure/">Aan de slag</a>
                                                 </p>
                                                 <p>
                                                     <a href="/nodejs/api/overview/azure">API-naslaginformatie</a>

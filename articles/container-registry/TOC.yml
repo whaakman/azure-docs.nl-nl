@@ -15,7 +15,7 @@
       href: container-registry-get-started-powershell.md
 - name: Zelfstudies
   items:
-    - name: Geo-replicatie
+    - name: Geo-replicatie (preview)
       items:
         - name: 1 - Containerregister voorbereiden
           href: container-registry-tutorial-prepare-registry.md

@@ -86,6 +86,7 @@
 ### Bestanden uploaden vanaf apparaten
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
+#### [Node.js](iot-hub-node-node-file-upload.md)
 ### Aan de slag met apparaatdubbels
 #### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-twin-getstarted.md)
 #### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-twin-getstarted.md)
