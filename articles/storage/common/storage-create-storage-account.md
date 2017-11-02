@@ -15,11 +15,11 @@ ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: db878f257f64ccc573a220c675cd373539dd5b17
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: c9630e575de15b404bd91cbeefc60d698c5da667
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Over Azure-opslagaccounts
 
@@ -79,7 +79,7 @@ U kunt ook een aangepaste domeinnaam configureren voor gebruik met uw opslagacco
 
 5. Selecteer het type opslagaccount: **Algemeen gebruik** of **Blob Storage**. **Algemeen gebruik** is de standaardinstelling.
    
-    Als **Algemeen gebruik** is geselecteerd, geeft u vervolgens de prestatielaag aan: **Standard** of **Premium**. **Standard** is de standaardinstelling. Zie [Inleiding tot Microsoft Azure Storage](storage-introduction.md) en [Premium Storage: krachtige opslag voor Azure Virtual Machine-werkbelasting](storage-premium-storage.md) voor meer informatie over Standard en Premium Storage-accounts.
+    Als **Algemeen gebruik** is geselecteerd, geeft u vervolgens de prestatielaag aan: **Standard** of **Premium**. **Standard** is de standaardinstelling. Zie [Inleiding tot Microsoft Azure Storage](storage-introduction.md) en [Premium Storage: krachtige opslag voor Azure Virtual Machine-werkbelasting](../../virtual-machines/windows/premium-storage.md) voor meer informatie over Standard en Premium Storage-accounts.
    
     Als **Blob Storage** is geselecteerd, geeft u vervolgens de toegangslaag op: **Hot** of **Cool**. **Hot** is de standaardinstelling. Zie [Azure Blob Storage: Hot Storage-laag en Cool Storage-laag](../blobs/storage-blob-storage-tiers.md) voor meer informatie.
 6. Selecteer de replicatieoptie voor het opslagaccount: **LRS**, **GRS**, **RA-GRS**, of **ZRS**. **RA-GRS** is de standaardinstelling. Zie [Azure Storage-replicatie](storage-redundancy.md) voor meer informatie over Azure Storage-replicatieopties.

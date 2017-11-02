@@ -35,9 +35,9 @@
 ### [Office 365-tenant koppelen](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Voor abonnementen betalen per factuur](billing-how-to-pay-by-invoice.md)
 ## Problemen oplossen
-### [Registratieproblemen](billing-troubleshoot-azure-sign-up-issues.md)
-### [Geweigerde kaart](billing-credit-card-fails-during-azure-sign-up.md)
-### [Aanmeldingsproblemen](billing-cannot-login-subscription.md)
+### [Registratieproblemen](https://support.microsoft.com/en-us/help/4042959)
+### [Geweigerde kaart](https://support.microsoft.com/en-us/help/4042960)
+### [Aanmeldingsproblemen](https://support.microsoft.com/en-us/help/4042961)
 ### [Geen abonnementen gevonden](billing-no-subscriptions-found.md)
 ### [Weergave voor bedrijfskosten is uitgeschakeld](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
