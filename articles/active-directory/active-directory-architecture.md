@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/02/2017
+ms.date: 10/31/2017
 ms.author: markvi
-ms.openlocfilehash: 50dad848cfbdab7f5b1fff0fcec3b5f754e6ae74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3030336f5efca5029e0e790372495df11cdc8aeb
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Azure Active Directory-architectuur begrijpen
 Met Azure AD (Azure Active Directory) kunt u veilig de toegang tot Azure-services en -resources beheren voor uw gebruikers. Azure AD omvat een volledige suite met mogelijkheden voor identiteitsbeheer. Zie [Wat is Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis) voor meer informatie over de functies van Azure AD.

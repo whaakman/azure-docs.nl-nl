@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: 9ed89261b7050bb41d49b827e02d24535983160f
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 58e141498ed5cbaa110622d949a9627c98827ac3
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Inleiding tot Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -178,7 +178,7 @@ Azure Data Factory zelf slaat geen gegevens op. U kunt er gegevensgestuurde werk
 
 Hoewel Data Factory alleen beschikbaar is in VS - oost en VS - oost 2, is de service die gegevensverplaatsing in Data Factory mogelijk maakt, wereldwijd beschikbaar in meerdere regio’s. Als een gegevensarchief zich achter een firewall bevindt, worden de gegevens verplaatst middels een gegevensbeheergateway die is geïnstalleerd in uw on-premises omgeving.
 
-Voorbeeld: uw berekeningsomgevingen, zoals een Azure HDInsight-cluster en Azure Machine Learning, worden uitgevoerd in de regio West-Europa. U kunt een Azure Data Factory-exemplaar maken en gebruiken in Noord-Europa en dit gebruiken om taken te plannen in uw rekenomgevingen in West-Europa. Het duurt enkele milliseconden voordat Data Factory de taak in uw rekenomgeving activeert, maar de uitvoertijd van de taak verandert niet in uw rekenomgeving.
+Voorbeeld: uw berekeningsomgevingen, zoals een Azure HDInsight-cluster en Azure Machine Learning, worden uitgevoerd in de regio West-Europa. U kunt een Azure Data Factory-exemplaar maken en gebruiken in Noord-Europa en dit gebruiken om taken te plannen in uw berekeningsomgevingen in West-Europa. Het duurt enkele milliseconden voordat Data Factory de taak in uw rekenomgeving activeert, maar de uitvoertijd van de taak verandert niet in uw rekenomgeving.
 
 ## <a name="next-steps"></a>Volgende stappen
 In de volgende snelstartgidsen vindt u informatie over het maken van een data factory door het volgen van stapsgewijze instructies: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST-API](quickstart-create-data-factory-rest-api.md) en Azure Portal. 
