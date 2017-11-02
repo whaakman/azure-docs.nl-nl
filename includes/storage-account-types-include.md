@@ -4,7 +4,7 @@ Er zijn twee typen opslagaccounts:
 Een opslagaccount voor algemeen gebruik biedt onder één account toegang tot Azure Storage-services zoals Tables, Queues, Files, Blobs en virtuele-machineschijven van Azure. Dit type opslagaccount heeft twee prestatielagen:
 
 * Een laag voor standaardopslagprestaties, waarmee u Tables, Queues, Files, Blobs en virtuele-machineschijven van Azure kunt opslaan.
-* Een Premium-opslagaccount, dat op dit moment alleen virtuele-machineschijven van Azure ondersteunt. Zie [Premium Storage: krachtige opslag voor Azure Virtual Machine-werkbelasting](../articles/storage/common/storage-premium-storage.md) voor een gedetailleerd overzicht van Premium-opslag.
+* Een Premium-opslagaccount, dat op dit moment alleen virtuele-machineschijven van Azure ondersteunt. Zie [Premium Storage: krachtige opslag voor Azure Virtual Machine-werkbelasting](../articles/virtual-machines/windows/premium-storage.md) voor een gedetailleerd overzicht van Premium-opslag.
 
 ### <a name="blob-storage-accounts"></a>Blob Storage-accounts
 Een Blob Storage-account is een gespecialiseerd opslagaccount voor het opslaan van ongestructureerde gegevens als blobs (objecten) in Azure Storage. Blob Storage-accounts zijn vergelijkbaar met de bestaande opslagaccounts voor algemeen gebruik en bieden dezelfde hoogwaardige kenmerken op het gebied van duurzaamheid, beschikbaarheid, schaalbaarheid en prestaties waarover u nu al beschikt, inclusief 100 procent API-consistentie voor blok-blobs en toevoeg-blobs. Voor toepassingen die alleen blok- of toevoeg-blob-opslag nodig hebben, wordt het gebruik van Blob-opslagaccounts aangeraden.
