@@ -59,7 +59,7 @@ Importeer vervolgens het bestand `.publishsettings` door de volgende opdracht ui
 
     azure account import {path to .publishsettings file}
 
-U kunt alle informatie die met de opdracht <code>import</code> is opgeslagen, verwijderen met behulp van de opdracht <code>account clear</code>:
+Kunt u alle gegevens die zijn opgeslagen door de <code>import</code> opdracht met behulp van de <code>account clear</code> opdracht:
 
     azure account clear
 
@@ -93,7 +93,7 @@ De uitvoer van deze opdracht bevat de standaard-URL voor de zojuist gemaakte web
 
 U kunt de opdracht `azure site create` uitvoeren met een van de volgende opties:
 
-* `--location [location name]`. Met deze optie kunt u de locatie opgeven van het datacenter waarin uw website is gemaakt, bijvoorbeeld 'VS - west'. Als u deze optie weglaat, wordt u gevraagd een locatie te kiezen.
+* `--location [location name]`. Deze optie kunt u de locatie van het datacenter waarin uw website (bijvoorbeeld gemaakt opgeven "VS-west'). Als u deze optie weglaat, wordt u gevraagd een locatie te kiezen.
 * `--hostname [custom host name]`. Met deze optie kunt u een aangepaste hostnaam voor uw website opgeven.
 
 Daarna kunt u inhoud in de map van uw website plaatsen. Gebruik de gewone git-stroom (`git add`, `git commit`) om uw inhoud door te voeren. Gebruik de volgende git-opdracht om de inhoud van uw website naar Azure te pushen: 
@@ -211,9 +211,4 @@ Voor een volledige lijst van opdrachten voor het maken en beheren van virtuele m
 [windows-installer]: http://go.microsoft.com/fwlink/?LinkID=275464
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

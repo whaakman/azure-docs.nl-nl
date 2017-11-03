@@ -1,18 +1,18 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-create-a-manual-backup"></a>To create a manual backup
-1. On the **Devices** page, go to the **Backup Policies** tab. This tab lists all the backup policies in a tabular format, including the policy for the volume that you want to back up.
-2. Select the policy by clicking anywhere in the corresponding row except for the first column. At the bottom of the page, click **Take backup**. The button will expand to show the backup options: local snapshot and cloud snapshot. 
-3. When you choose either of these options, you will be prompted for confirmation. Click **Yes**. 
+#### <a name="to-create-a-manual-backup"></a>Een handmatige back-up maken
+1. Ga op de pagina **Apparaten** naar het tabblad **Back-upbeleid**. Dit tabblad bevat alle back-upbeleid in tabelvorm, met inbegrip van het beleid voor het volume waarvan u een back-up wilt maken.
+2. Selecteer het beleid door ergens in de bijbehorende rij te klikken (niet in de eerste kolom). Klik onder aan de pagina op **Back-up maken**. De knop wordt uitgebreid om de back-upopties weer te geven: lokale momentopname en cloudmomentopname. 
+3. Wanneer u een van deze opties kiest, wordt u gevraagd dit te bevestigen. Klik op **Ja**. 
    
-    ![Create manual backup1](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup1-gov-include.png)
+    ![Handmatige backup1 maken](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup1-gov-include.png)
    
-    This will start a job to create a snapshot. You will see a notification at the bottom of the page after the job is successfully created.
-4. To monitor the job, click **View Job** in the notification area (at the bottom of the page). 
+    Hiermee wordt een taak voor het maken van een momentopname gestart. U ziet een melding aan de onderkant van de pagina nadat de taak is gemaakt.
+4. Voor het controleren van de taak klikt u op **Taak weergeven** in het systeemvak (aan de onderkant van de pagina). 
    
-    ![Create manual backup2](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
-5. After the backup job is finished, go to the **Backup catalog** tab.
-6. Set the filter selections to the appropriate device, backup policy, and time range. Click the check icon ![check icon](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) after setting the filters.
+    ![Handmatige backup2 maken](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
+5. Nadat de back-uptaak is voltooid, gaat u naar het tabblad **Back-upcatalogus**.
+6. Stel de filterselecties in op het juiste apparaat, back-upbeleid en tijdsbereik. Klik op het vinkje ![vinkje](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) nadat u de filters hebt ingesteld.
    
-   The backup should appear in the list of backup sets that is displayed in the catalog.
+   De back-up moet worden weergegeven in de lijst met back-upsets die in de catalogus wordt weergegeven.
 

@@ -6,21 +6,19 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/29/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 009cc7941dc5d60153f1ab27adb9b86866b9a3f2
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 20dbc4bbe66ec311afcc238b25a6c1f6f6a40829
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>Azure Database voor PostgreSQL: PHP gebruiken om verbinding te maken en gegevens op te vragen
-In deze snelstartgids ziet u hoe u met behulp van een [PHP](http://php.net/manual/intro-whatis.php)-toepassing verbinding maakt met een Azure Database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met PHP, maar geen ervaring hebt met het werken met Azure Database voor PostgreSQL.
+In deze snelstartgids ziet u hoe u met behulp van een [PHP](http://php.net/manual/intro-whatis.php)-toepassing verbinding maakt met een Azure Database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. De stappen in dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen van u PHP gebruikt en niet bekend bent met het werken met Azure-Database voor PostgreSQL.
 
 ## <a name="prerequisites"></a>Vereisten
 In deze snelstartgids worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
@@ -28,7 +26,7 @@ In deze snelstartgids worden de resources die in een van deze handleidingen zijn
 - [Database maken - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
 ## <a name="install-php"></a>PHP installeren
-Installeer PHP op uw eigen server of maak een Azure-[web-app](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) die PHP omvat.
+Installeer PHP op uw eigen server of maak een Azure-[web-app](../app-service/app-service-web-overview.md) die PHP omvat.
 
 ### <a name="windows"></a>Windows
 - [PHP versie 7.1.4 non-thread safe (x64)](http://windows.php.net/download#php-7.1) downloaden
@@ -222,5 +220,4 @@ Vervang de parameters `$host`, `$database`, `$user` en `$password` door uw eigen
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
-> [Een database migreren met behulp van Exporteren en Importeren](./howto-migrate-using-export-and-import.md)
-
+> [Een database migreren met behulp van Exporteren en importeren](./howto-migrate-using-export-and-import.md)

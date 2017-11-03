@@ -6,10 +6,12 @@
 | Vrije schijfruimte (cache van de processerver) | 600 GB
 | Vrije schijfruimte (bewaarschijf) | 600 GB|
 | **Software** | |
-| Besturingssysteem | Windows Server 2012 R2 |
+| Besturingssysteem | Windows Server 2012 R2 <br> Windows Server 2016 |
 | Landinstelling van het besturingssysteem | Engels (en-us)|
 | VMware vSphere PowerCLI-versie | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
 | Windows Server-functies | Schakel de volgende functies niet in: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
+| Groepsbeleid| De volgende groepsbeleidsregels mag niet worden ingeschakeld op de server <br> -Voorkomen dat toegang tot de opdrachtprompt <br> -Toegang tot het register te bewerken van hulpprogramma's voorkomen <br> -Logica vertrouwen voor bestandsbijlagen <br> -Uitvoering van Script inschakelen <br> **Opmerking:** vindt meer informatie over deze groepsbeleidsregels [hier](https://technet.microsoft.com/en-us/library/gg176671(v=ws.10).aspx)|
+| Configuratie van Internet Information Service(IIS) | -Er zijn geen bestaande standaardwebsite <br> -Inschakelen [anonieme verificatie](https://technet.microsoft.com/en-us/library/cc731244(v=ws.10).aspx) <br> -Inschakelen [FastCGI](https://technet.microsoft.com/en-us/library/cc753077(v=ws.10).aspx) instelling  <br> -Er zijn geen bestaande websit/toepassing moet worden geluisterd op poort 443<br>|
 | **Netwerk** | |
 | Type netwerkinterfacekaart | VMXNET3 |
 | Type IP-adres | Statisch |

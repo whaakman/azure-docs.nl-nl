@@ -12,16 +12,14 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 4ea97c2aca6769843d0210ffeae6f95531a21f10
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/01/2017
-
-
+ms.openlocfilehash: ed1d30be780e0882b8e75c01bc7822c3350f3fee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-web-app-with-net-xamarin-and-facebook-authentication"></a>Azure Cosmos DB: een web-app ontwikkelen met .NET, Xamarin, en Facebook-authenticatie
 
@@ -34,6 +32,7 @@ Deze Quick Start laat zien hoe u een Azure Cosmos DB-account, een documentdataba
 Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
 
@@ -108,7 +107,7 @@ U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicati
 
 4. Open het Xamarin-project en ga naar TodoItemManager.cs. Vul de waarden in voor accountURL, collectionId, databaseId, en voor resourceTokenBrokerURL als de basis https-url voor de website van de resourcetokenbroker.
 
-5. Voltooi de zelfstudie [Hoe u uw App Service-toepassing moet configureren om aanmelding via Facebook te gebruiken](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md) om Facebook-authenticatie in te stellen en de ResourceTokenBroker-website te configureren.
+5. Voltooi de zelfstudie [Hoe u uw App Service-toepassing moet configureren om aanmelding via Facebook te gebruiken](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md) om Facebook-authenticatie in te stellen en de ResourceTokenBroker-website te configureren.
 
     Voer de Xamarin-app uit.
 
@@ -129,4 +128,3 @@ In deze Quick Start hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken 
 
 > [!div class="nextstepaction"]
 > [Gegevens importeren in Azure Cosmos DB](import-data.md)
-

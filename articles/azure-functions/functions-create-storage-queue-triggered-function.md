@@ -4,24 +4,23 @@ description: Gebruik Azure Functions voor het maken van een functie zonder serve
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: ba8db575c8731e4f9067a6635e745da12c8667dd
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: 3fd5a5b9d2e2eec485fd9ecc5380ad6adb9851d0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Een door Azure Queue Storage geactiveerde functie maken
 
@@ -59,9 +58,9 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
     
     | Instelling | Voorgestelde waarde | Beschrijving |
     |---|---|---|
-    | **Wachtrijnaam**   | myqueue-items    | De naam van de wachtrij waarmee u verbinding moet maken in uw opslagaccount. |
-    | **Opslagaccountverbinding** | AzureWebJobStorage | U kunt de opslagaccountverbinding gebruiken die al door de functie-app wordt gebruikt of u kunt een nieuwe maken.  |
     | **Een naam voor de functie opgeven** | Uniek in uw functie-app | Naam van deze door een wachtrij geactiveerde functie. |
+    | **Wachtrijnaam**   | myqueue-items    | De naam van de wachtrij waarmee u verbinding moet maken in uw opslagaccount. |
+    | **Opslagaccountverbinding** | AzureWebJobStorage | U kunt de opslagaccountverbinding gebruiken die al door de functie-app wordt gebruikt of u kunt een nieuwe maken.  |    
 
 3. Klik op **Maken** om de functie te maken.
 
@@ -69,9 +68,9 @@ Vervolgens maakt u verbinding met uw Azure Storage-account en maakt u de opslagw
 
 ## <a name="create-the-queue"></a>De wachtrij maken
 
-1. Klik in de functie op **Integreren**, vouw **Documentatie** uit en kopieer de **Accountnaam** en de **Accountsleutel**. Met deze referenties kunt u verbinding maken met het opslagaccount. Als u uw opslagaccount al hebt verbonden, gaat u naar stap 4.
+1. Klik in de functie op **Integreren**, vouw **Documentatie** uit en kopieer de **Accountnaam** en de **Accountsleutel**. U gebruikt deze referenties verbinding maken met de storage-account in Azure Storage Explorer. Als u uw opslagaccount al hebt verbonden, gaat u naar stap 4.
 
-    ![Haal de verbindingsreferenties voor het opslagaccount op.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)v
+    ![Haal de verbindingsreferenties voor het opslagaccount op.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
 
 1. Voer het hulpprogramma [Microsoft Azure Storage Explorer](http://storageexplorer.com/) uit, klik op het verbindingspictogram aan de linkerkant, kies **Een opslagaccountnaam en -sleutel gebruiken** en klik op **Volgende**.
 
@@ -81,7 +80,7 @@ Vervolgens maakt u verbinding met uw Azure Storage-account en maakt u de opslagw
 
     ![Voer de opslagreferenties in en maak verbinding.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Vouw het gekoppelde opslagaccount uit. Klik met de rechtermuisknop op **Wachtrijen**, klik op **Wachtrij maken**, typ `myqueue-items` en druk op Enter.
+1. Vouw het gekoppelde opslagaccount, met de rechtermuisknop op **wachtrijen**, klikt u op **wachtrij maken**, type `myqueue-items`, en druk op enter.
 
     ![Maak een opslagwachtrij.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-create-queue.png)
 
@@ -89,7 +88,7 @@ Nu u een opslagwachtrij hebt, kunt u de functie testen door een bericht toe te v
 
 ## <a name="test-the-function"></a>De functie testen
 
-1. Blader in Azure Portal naar de functie, vouw de **Logboeken** onderaan de pagina uit en zorg ervoor dat logboekstreaming niet wordt onderbroken.
+1. Terug in de Azure portal, blader naar de functie, vouw de **logboeken** onder aan de pagina en zorg ervoor dat logboek streaming wordt niet onderbroken.
 
 1. Vouw in Storage Explorer uw opslagaccount, **Wachtrijen** en **myqueue-items** uit en klik vervolgens op **Bericht toevoegen**.
 

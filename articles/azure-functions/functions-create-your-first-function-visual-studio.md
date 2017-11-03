@@ -4,33 +4,30 @@ description: Maak een eenvoudige HTTP-geactiveerde functie en publiceer deze op 
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: azure-functies, functies, gebeurtenisverwerking, berekenen, architectuur zonder server
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: functions
 ms.devlang: multiple
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 10/16/2017
 ms.author: glenga
+ms.custom: mvc, devcenter
+ms.openlocfilehash: 016179372d69dc63f5e5226723d87ac6e74b31fd
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 4a6b706b63c4e1b0df3c46bce4ff6877efca4ead
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Uw eerste functie maken met Visual Studio
 
-Met Azure Functions kunt u uw code in een serverloze omgeving uitvoeren zonder dat u eerst een virtuele machine moet maken of een webtoepassing moet publiceren.
+Azure Functions, kunt u het uitvoeren van uw code in een [zonder server](https://azure.microsoft.com/overview/serverless-computing/) omgeving zonder eerst een virtuele machine maken of een webtoepassing publiceren.
 
-> [!IMPORTANT]
-> In dit onderwerp wordt een Preview-versie van Visual Studio gebruikt om de stappen uit te voeren. Zorg ervoor dat u [Visual Studio 2017 Preview versie 15.3](https://www.visualstudio.com/vs/preview/) hebt geïnstalleerd voordat u verder gaat.
-
-In dit onderwerp leert u hoe u met de Azure Function Tools voor Visual Studio 2017 lokaal een 'Hallo wereld'-functie kunt maken en testen. Vervolgens publiceert u de functiecode op Azure.
+In dit onderwerp leert u hoe u met de Visual Studio 2017 hulpprogramma's voor Azure Functions maken en testen van een functie 'Hallo wereld' lokaal. Vervolgens publiceert u de functiecode op Azure. Deze hulpprogramma's zijn beschikbaar als onderdeel van de Azure-ontwikkelworkload in Visual Studio 2017 versie 15.3 of een latere versie.
 
 ![Azure-functiecode in een Visual Studio-project](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
@@ -38,17 +35,13 @@ In dit onderwerp leert u hoe u met de Azure Function Tools voor Visual Studio 20
 
 Voor deze zelfstudie installeert u het volgende:
 
-* [Visual Studio 2017 Preview versie 15.3](https://www.visualstudio.com/vs/preview/), waaronder de **Azure-ontwikkel**workload.
+* [Visual Studio 2017 versie 15,3](https://www.visualstudio.com/vs/preview/) of een latere versie, met inbegrip van de **ontwikkelen van Azure** werkbelasting.
 
     ![Visual Studio 2017 installeren met de Azure-ontwikkelworkload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+    
+[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="install-azure-functions-tools-for-visual-studio-2017"></a>Azure Functions Tools voor Visual Studio 2017 installeren
-
-Voordat u begint, moet u de Azure Function Tools voor Visual Studio 2017 downloaden en installeren. Deze hulpprogramma's kunnen alleen worden gebruikt met Visual Studio 2017 Preview-versie 15.3 of een latere versie. Als u de hulpprogramma's van Azure Functions al hebt geïnstalleerd, kunt u deze sectie overslaan.
-
-[!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-install-vstools.md)]   
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
 ## <a name="create-an-azure-functions-project-in-visual-studio"></a>Een Azure Functions-project in Visual Studio maken
 
@@ -64,6 +57,10 @@ Nu u het project hebt gemaakt, kunt u uw eerste functie maken.
 
     ![Een nieuwe Azure-functie maken](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
+    Een bestand met code wordt toegevoegd aan uw project met een klasse die de functiecode implementeert. Deze code is gebaseerd op een sjabloon waarmee u een naamwaarde en het gebruik weer ontvangt. De **functienaam** kenmerk stelt de naam van de functie. De **HttpTrigger** kenmerk geeft aan dat het bericht dat de functie activeert. 
+
+    ![Functie codebestand](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
+
 Nu u een HTTP-geactiveerde-functie hebt gemaakt, kunt u deze testen op uw lokale computer.
 
 ## <a name="test-the-function-locally"></a>De functie lokaal testen
@@ -76,7 +73,7 @@ Met Azure Functions Core-hulpprogramma's kunt u Azure Functions-projecten uitvoe
 
     ![Lokale Azure-runtime](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
 
-3. Plak de URL van de HTTP-aanvraag in de adresbalk van uw browser. Voeg de queryreeks `&name=<yourname>` toe aan de URL en voer de aanvraag uit. Hieronder ziet u de reactie op de lokale GET-aanvraag die door de functie wordt geretourneerd, weergegeven in de browser: 
+3. Plak de URL van de HTTP-aanvraag in de adresbalk van uw browser. Voeg de queryreeks `?name=<yourname>` toe aan de URL en voer de aanvraag uit. Hieronder ziet u de reactie op de lokale GET-aanvraag die door de functie wordt geretourneerd, weergegeven in de browser: 
 
     ![De reactie van de lokale host van de functie in de browser](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
 
@@ -92,7 +89,7 @@ Voordat u uw project kunt publiceren, moet u een functie-app in uw Azure-abonnem
 
 ## <a name="test-your-function-in-azure"></a>Uw functie testen in Azure
 
-1. Kopieer de basis-URL van de functie-app van de pagina Profiel publiceren. Vervang het `localhost:port`-deel van de URL dat u hebt gebruikt bij het lokaal testen van de functie door de nieuwe basis-URL. Zorg ervoor dat u net als eerder de queryreeks `&name=<yourname>` toevoegt aan de URL en de aanvraag uitvoert.
+1. Kopieer de basis-URL van de functie-app van de pagina Profiel publiceren. Vervang het `localhost:port`-deel van de URL dat u hebt gebruikt bij het lokaal testen van de functie door de nieuwe basis-URL. Zorg ervoor dat u net als eerder de queryreeks `?name=<yourname>` toevoegt aan de URL en de aanvraag uitvoert.
 
     De URL die uw HTTP-geactiveerde functie aanroept, ziet er als volgt uit:
 
@@ -109,5 +106,4 @@ U hebt een C#-functie-app met een eenvoudige HTTP-geactiveerde functie gemaakt i
 + Zie [Het project configureren voor lokale ontwikkeling](functions-develop-vs.md#configure-the-project-for-local-development) in de sectie [Azure Functions-tools voor Visual Studio](functions-develop-vs.md) voor meer informatie over het configureren van uw project ter ondersteuning van andere soorten triggers en bindingen.
 + Zie voor meer informatie over het lokale testen en foutopsporing met behulp van de Azure Functions Core Tools, [Code and test Azure Functions locally](functions-run-local.md). 
 + Zie [Using .NET class libraries with Azure Functions](functions-dotnet-class-library.md) (.NET-klassebibliotheken gebruiken met Azure Functions) voor meer informatie over het ontwikkelen van functies als .NET-klassebibliotheken. 
-
 

@@ -1,0 +1,66 @@
+---
+title: Een Azure publiceren voor beheerde toepassing via portal | Microsoft Docs
+description: Laat zien hoe u de Azure portal om te maken van een Azure-toepassing die is bedoeld voor leden van uw organisatie worden beheerd.
+services: managed-applications
+author: tfitzmac
+manager: timlt
+ms.service: managed-applications
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 10/24/2017
+ms.author: tomfitz
+ms.openlocfilehash: 9b938dbb817c0d82c92f358e4547fd95d8bae1b9
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/27/2017
+---
+# <a name="publish-a-service-catalog-application-through-azure-portal"></a>Een servicetoepassing catalogus via Azure portal publiceren
+
+U kunt de Azure portal gebruiken voor het publiceren van [beheerde toepassingen](overview.md) die bestemd zijn voor leden van uw organisatie. Een IT-afdeling kan bijvoorbeeld beheerde toepassingen die ervoor zorgen aan de organisatie-standaarden dat publiceren. Deze beheerde toepassingen zijn beschikbaar via de Servicecatalogus, niet de Azure marketplace.
+
+## <a name="prerequisites"></a>Vereisten
+
+Als een beheerde toepassing publiceert, geeft u een identiteit voor het beheren van de resources. Het is raadzaam om dat u een Azure Active Directory gebruikersgroep opgeven. Voor het maken van een Azure Active Directory-gebruikersgroep, Zie [een groep maken en leden toevoegen in Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md). 
+
+Het ZIP-bestand met de definitie van de beheerde toepassing moet beschikbaar zijn via een URI. Het is raadzaam om uw ZIP-bestand te uploaden naar een blob storage. 
+
+## <a name="create-managed-application-with-portal"></a>Beheerde toepassing maken met portal
+
+1. Selecteer in de linkerbovenhoek **+ nieuw**.
+
+   ![Nieuwe service](./media/publish-portal/new.png)
+
+1. Zoeken naar **Servicecatalogus**.
+
+1. Schuif in de resultaten, totdat u **toepassing servicedefinitie catalogus-beheerd**. Selecteer deze.
+
+   ![Zoeken naar definities van de beheerde toepassing](./media/publish-portal/select-managed-apps-definition.png)
+
+1. Selecteer **maken** om het proces van het maken van definitie van de beheerde toepassing te starten.
+
+   ![Definitie van de beheerde toepassing maken](./media/publish-portal/create-definition.png)
+
+1. Geef waarden op voor de naam, weergavenaam, beschrijving, locatie, abonnement en resourcegroep. Geef het pad naar het zip-bestand dat u hebt gemaakt voor pakketbestand URI.
+
+   ![Geef waarden op](./media/publish-portal/fill-application-values.png)
+
+1. Als u de sectie verificatie en vergrendelingsniveau, selecteer **toevoegen autorisatie**.
+
+   ![Autorisatie toevoegen](./media/publish-portal/add-authorization.png)
+
+1. Selecteer een Azure Active Directory-groep voor het beheren van de resources en selecteer **OK**.
+
+   ![Autorisatie groep toevoegen](./media/publish-portal/add-auth-group.png)
+
+1. Wanneer u alle waarden hebt opgegeven, selecteert u **maken**.
+
+   ![beheerde toepassing maken](./media/publish-portal/create-app.png)
+
+## <a name="next-steps"></a>Volgende stappen
+
+* Zie voor een inleiding tot beheerde toepassingen, [beheerde toepassingsoverzicht](overview.md).
+* Zie voor voorbeelden van beheerde toepassingsservices [voorbeeldprojecten voor Azure beheerde toepassingen](sample-projects.md).
+* Zie voor meer informatie over het uitgeven van beheerde toepassingen naar Azure Marketplace [Azure beheerde toepassingen in de Marketplace](publish-marketplace-app.md).
+* Zie voor meer informatie over het maken van een UI-definitiebestand voor een beheerde toepassing, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md).

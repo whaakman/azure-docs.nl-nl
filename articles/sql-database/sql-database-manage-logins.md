@@ -1,5 +1,5 @@
 ---
-title: SQL Database-verificatie en -autorisatie | Microsoft Docs
+title: Azure SQL-aanmeldingen en -gebruikers | Microsoft Docs
 description: Meer informatie over SQL Database-beveiligingsbeheer, in het bijzonder over hoe de databasetoegang en de aanmeldingsbeveiliging worden beheerd via het hoofdaccount op serverniveau.
 keywords: sql-databasebeveiliging,beheer databasebeveiliging,aanmeldingsbeveiliging,databasebeveiliging,databasetoegang
 services: sql-database
@@ -10,18 +10,18 @@ editor:
 tags: 
 ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 01/17/2017
+ms.workload: Active
+ms.date: 01/23/2017
 ms.author: rickbyh
-translationtype: Human Translation
-ms.sourcegitcommit: 435fca81cda845200467fbc0d6ed4d41de41aaf6
-ms.openlocfilehash: 324fd91b415a4744cb472bbd8a8b795a8fbb8080
-
-
+ms.openlocfilehash: 0e66eec6c1843df49d3dc323cd109fb9eeb708c3
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="controlling-and-granting-database-access"></a>Toegang tot databases beheren en verlenen
 
@@ -29,6 +29,12 @@ Als er firewallregels zijn geconfigureerd, kunnen gebruikers als een van de behe
 
 >  [!NOTE]  
 >  Dit onderwerp is van toepassing op Azure SQL-servers en op SQL Database- en SQL Data Warehouse-databases die op deze Azure SQL-servers worden gemaakt. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse. 
+>
+
+> [!TIP]
+> Zie voor een zelfstudie [beveiligen van uw Azure SQL Database](sql-database-security-tutorial.md).
+>
+
 
 ## <a name="unrestricted-administrative-accounts"></a>Onbeperkte beheerdersaccounts
 Er zijn twee beheerdersaccounts (**serverbeheerder** en **Active Directory-beheerder**) die als beheerder fungeren. Als u deze beheerdersaccounts voor uw SQL-server wilt identificeren, opent u Azure Portal en gaat u naar de eigenschappen van de SQL-server.
@@ -50,10 +56,8 @@ De accounts van de **serverbeheerder** en de **Azure AD-beheerder** hebben de vo
 - Deze accounts kunnen leden aan de rollen `dbmanager` en `loginmanager` toevoegen en verwijderen.
 - Deze accounts kunnen de systeemtabel `sys.sql_logins` weergeven.
 
-
-
 ### <a name="configuring-the-firewall"></a>De firewall configureren
-Als de firewall op serverniveau is geconfigureerd voor een afzonderlijk IP-adres of -bereik, kunnen de **SQL-serverbeheerder** en de **Azure Active Directory-beheerder** verbinding maken met de hoofddatabase en alle gebruikersdatabases. De eerste firewall op serverniveau kan worden geconfigureerd via [Azure Portal](sql-database-configure-firewall-settings.md) met behulp van [PowerShell](sql-database-configure-firewall-settings-powershell.md) of de [REST-API](sql-database-configure-firewall-settings-rest.md). Nadat er een verbinding tot stand is gebracht, kunnen er ook aanvullende firewallregels op serverniveau worden geconfigureerd met behulp van de [Transact-SQL](sql-database-configure-firewall-settings-tsql.md).
+Als de firewall op serverniveau is geconfigureerd voor een afzonderlijk IP-adres of -bereik, kunnen de **SQL-serverbeheerder** en de **Azure Active Directory-beheerder** verbinding maken met de hoofddatabase en alle gebruikersdatabases. De eerste firewall op serverniveau kan worden geconfigureerd via [Azure Portal](sql-database-get-started-portal.md) met behulp van [PowerShell](sql-database-get-started-powershell.md) of de [REST-API](https://msdn.microsoft.com/library/azure/dn505712.aspx). Nadat er een verbinding tot stand is gebracht, kunnen er ook aanvullende firewallregels op serverniveau worden geconfigureerd met behulp van de [Transact-SQL](sql-database-configure-firewall-settings.md).
 
 ### <a name="administrator-access-path"></a>Toegangspad beheerder
 Als de firewall op serverniveau correct is geconfigureerd, kunnen de **SQL-serverbeheerder** en de **Azure Active Directory-beheerder** verbinding maken met clienthulpprogramma's zoals SQL Server Management Studio en SQL Server Data Tools. Alleen de nieuwste hulpprogramma's bieden alle functies en mogelijkheden. Het volgende diagram toont een standaardconfiguratie voor de twee beheerdersaccounts.
@@ -63,7 +67,7 @@ Als de firewall op serverniveau correct is geconfigureerd, kunnen de **SQL-serve
 Wanneer u een open poort in de firewall op serverniveau gebruikt, kunnen beheerders verbinding maken met elke SQL-database.
 
 ### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>Verbinding maken met een database via SQL Server Management Studio
-Zie [Aan de slag met Azure SQL Database-servers, databases en firewallregels met behulp van Azure Portal en SQL Management Studio](sql-database-get-started.md) voor stapsgewijze instructies voor het maken van een server, een database of firewallregels op serverniveau, en het gebruik van SQL Management Studio om een query uit te voeren voor een database.
+Zie [Aan de slag met Azure SQL Database-servers, databases en firewallregels met behulp van Azure Portal en SQL Management Studio](sql-database-get-started-portal.md) voor stapsgewijze instructies voor het maken van een server, een database of firewallregels op serverniveau, en het gebruik van SQL Management Studio om een query uit te voeren voor een database.
 
 > [!IMPORTANT]
 > Het wordt aanbevolen om altijd de nieuwste versie van Management Studio te gebruiken, zodat uw versie gesynchroniseerd blijft met updates voor Microsoft Azure en SQL Database. [SQL Server Management Studio bijwerken](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -110,7 +114,7 @@ Een van deze beheerdersrollen is de rol **dbmanager**. Leden van deze rol kunnen
 Nu kan de gebruiker verbinding maken met de hoofddatabase en nieuwe databases maken. Het account dat de database maakt, wordt eigenaar van de database.
 
 ### <a name="login-managers"></a>Aanmelding managers
-De andere beheerdersrol is de rol voor aanmeldingsbeheerder. Leden van deze rol kunnen nieuwe aanmeldingen maken in de hoofddatabase. Desgewenst kunt u dezelfde stappen doorlopen (een aanmelding maken, een gebruiker maken en een gebruiker toevoegen aan de rol **loginmanager**), zodat een gebruiker nieuwe aanmeldingen kan maken in de hoofddatabase. Gewoonlijk zijn aanmeldingen niet nodig, omdat Microsoft het gebruik aanbeveelt van ingesloten databasegebruikers die gebruikmaken van verificatie op databaseniveau, in plaats van gebruik te maken van gebruikers op basis van aanmelding. Zie [Ingesloten databasegebruikers: een draagbare database maken](https://msdn.microsoft.com/library/ff929188.aspx) voor meer informatie.
+De andere beheerdersrol is de rol voor aanmeldingsbeheerder. Leden van deze rol kunnen nieuwe aanmeldingen maken in de hoofddatabase. Desgewenst kunt u dezelfde stappen doorlopen (een aanmelding maken, een gebruiker maken en een gebruiker toevoegen aan de rol **loginmanager**), zodat een gebruiker nieuwe aanmeldingen kan maken in de hoofddatabase. Gewoonlijk zijn aanmeldingen niet nodig, omdat Microsoft het gebruik aanbeveelt van gebruikers van ingesloten databases. Hiervoor wordt verificatie op databaseniveau gebruikt, in plaats van gebruik te maken van gebruikers op basis van aanmelding. Zie [Ingesloten databasegebruikers: een draagbare database maken](https://msdn.microsoft.com/library/ff929188.aspx) voor meer informatie.
 
 ## <a name="non-administrator-users"></a>Niet-beheerders
 Niet-beheerdersaccounts hebben doorgaans geen toegang nodig tot de hoofddatabase. Maak ingesloten databasegebruikers op databaseniveau met de instructie [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). De gebruiker kan een ingesloten databasegebruiker op basis van Azure Active Directory-verificatie zijn (als u uw omgeving hebt geconfigureerd voor Azure AD-verificatie), maar ook een ingesloten databasegebruiker op basis van SQL Server-verificatie of een gebruiker op basis van SQL Server-verificatie met aanmelding voor SQL Server-verificatie (gemaakt in de vorige stap). Zie [Ingesloten databasegebruikers: een draagbare database maken](https://msdn.microsoft.com/library/ff929188.aspx) voor meer informatie. 
@@ -185,14 +189,6 @@ Bij het beheren van aanmeldingen en gebruikers in SQL Database, moet u het volge
 
 - Zie [Azure SQL Database-firewall](sql-database-firewall-configure.md) voor meer informatie over firewallregels.
 - Zie [SQL security overview](sql-database-security-overview.md) (SQL-beveiligingsoverzicht) voor een overzicht van alle beveiligingsfuncties van SQL Database.
-- Zie [Aan de slag met SQL-beveiliging](sql-database-control-access-sql-authentication-get-started.md) voor een zelfstudie.
+- Zie voor een zelfstudie [beveiligen van uw Azure SQL Database](sql-database-security-tutorial.md).
 - Zie [Weergaven en opgeslagen procedures maken](https://msdn.microsoft.com/library/ms365311.aspx) voor meer informatie over weergaven en opgeslagen procedures.
 - Zie [Toegang verlenen tot een databaseobject](https://msdn.microsoft.com/library/ms365327.aspx) voor meer informatie over het verlenen van toegang tot een databaseobject.
-- Voor een zelfstudie met SQL Server-verificatie raadpleegt u [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md) (SQL Database zelfstudie: SQL Server-verificatie, aanmeldingen en gebruikersaccounts, databaserollen, machtigingen, firewallregels op serverniveau en firewallregels op databaseniveau).
-- Voor een zelfstudie met Azure Active Directory-verificatie raadpleegt u [SQL Database tutorial: AAD authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-aad-authentication-get-started.md) (SQL Database zelfstudie: AAD-verificatie, aanmeldingen en gebruikersaccounts, databaserollen, machtigingen, firewallregels op serverniveau en firewallregels op databaseniveau).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

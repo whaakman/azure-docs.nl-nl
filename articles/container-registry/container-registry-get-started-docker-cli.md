@@ -11,17 +11,17 @@ keywords:
 ms.assetid: 64fbe43f-fdde-4c17-a39a-d04f2d6d90a1
 ms.service: container-registry
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: b6c26f28aa1e574ba3aabe53eda359cb6bf2edcc
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: 10f01e4e8c86bbbfa17cf2559caca645ff13bdcc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Uw eerste installatiekopie naar een Docker-containerregister pushen met de Docker-CLI
 Een Azure-containerregister slaat persoonlijke [Docker](http://hub.docker.com)-containerinstallatiekopieën op en beheert ze, vergelijkbaar met de manier waarop [Docker Hub](https://hub.docker.com/) openbare Docker-installatiekopieën opslaat. U gebruikt de [Docker-Command-Line Interface](https://docs.docker.com/engine/reference/commandline/cli/) (Docker-CLI) voor [aanmelden](https://docs.docker.com/engine/reference/commandline/login/), [pushen](https://docs.docker.com/engine/reference/commandline/push/), [ophalen](https://docs.docker.com/engine/reference/commandline/pull/) en andere bewerkingen voor uw containerregister.
@@ -116,4 +116,3 @@ In sommige gevallen kan het gelijktijdig uitvoeren van aanroepen leiden tot fout
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu u de basisprincipes kent, kunt u uw register gaan gebruiken. Begin bijvoorbeeld met het implementeren van containerinstallatiekopieën op een [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/)-cluster.
-

@@ -1,28 +1,28 @@
 
 <!--author=SharS last changed: 11/04/15-->
 
-#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>To add or modify a StorSimple backup schedule
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
-2. In the tabular listing of the policies, select and click the policy that you want to edit.
-3. Under **General**, you can modify the backup policy name.
+#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Toevoegen of wijzigen van een back-upschema voor StorSimple
+1. Klik op de pagina **Snel starten** van het apparaat op het tabblad **Back-upbeleid**. De pagina **Back-upbeleid** wordt geopend.
+2. Selecteer in de tabellaire vermelding van de beleidsregels en klik op het beleid dat u wilt bewerken.
+3. Onder **algemene**, kunt u de naam van de back-upbeleid wijzigen.
    
-     ![manage schedules](./media/storsimple-add-modify-backup-schedule-u2/AddModifyGeneral.png)
-4. Click **Manage Schedules**. 
-5. In the **Manage Schedule** dialog box, under **Add or Modify a schedule**, do the following:
+     ![schema's beheren](./media/storsimple-add-modify-backup-schedule-u2/AddModifyGeneral.png)
+4. Klik op **schema's beheren**. 
+5. In de **schema beheren** dialoogvenster onder **toevoegen of wijzigen van een planning**, het volgende doen:
    
-   1. From the drop-down list, choose an existing schedule or select **Add** to create a new schedule.
-   2. Click the check icon ![modify schedules 1](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png). 
+   1. Kies een bestaand schema uit de vervolgkeuzelijst, of selecteer **toevoegen** een nieuw schema maken.
+   2. Klik op het vinkje ![wijzigen van schema's 1](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png). 
       
-       ![modify schedules 1](./media/storsimple-add-modify-backup-schedule-u2/AddModify1.png)
-   3. Select the type of backup as local or cloud snapshot.
+       ![wijzigen van schema's 1](./media/storsimple-add-modify-backup-schedule-u2/AddModify1.png)
+   3. Selecteer het type van de back-up als een lokale of cloudmomentopname van de.
       
-       ![modify schedules 1](./media/storsimple-add-modify-backup-schedule-u2/AddModify2.png) 
-   4. Specify the backup frequency, retention, and starting time for the schedule.
-   5. Select the check box to enable or disable the schedule.
-   6. Click the check icon ![check icon](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png) to save the schedule.
-6. In the **Volumes** section, choose the volumes that this policy will be applied to.
-7. At the bottom of the page, click **Save** to save the changes to this policy.
-8. You will prompted for confirmation. Click **Yes** to save the policy.
+       ![wijzigen van schema's 1](./media/storsimple-add-modify-backup-schedule-u2/AddModify2.png) 
+   4. Geef de back-upfrequentie, de bewaartermijn en de begintijd voor de planning.
+   5. Schakel het selectievakje in-of uitschakelen van de planning.
+   6. Klik op het vinkje ![vinkje](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png) het schema opslaat.
+6. In de **Volumes** sectie, kiest u de volumes waarop dit beleid wordt toegepast op.
+7. Klik onder aan de pagina op **opslaan** de wijzigingen in dit beleid wilt opslaan.
+8. U wordt gevraagd om bevestiging. Klik op **Ja** het beleid op te slaan.
 
-The **Backup Policies** page will be updated to save the changes to the policy.
+De **back-upbeleid** pagina Sla de wijzigingen aan het beleid wordt bijgewerkt.
 

@@ -1,0 +1,56 @@
+---
+title: 'Azure AD Connect-synchronisatie: inzicht krijgen in gebruikers en contactpersonen | Microsoft Docs'
+description: Verklaart gebruikers en contactpersonen in Azure AD Connect-synchronisatie.
+services: active-directory
+documentationcenter: 
+author: MarkusVi
+manager: femila
+ms.assetid: 8d204647-213a-4519-bd62-49563c421602
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/17/2017
+ms.author: markvi;andkjell
+ms.openlocfilehash: 0ad3194a0827c4ef68267ce5e3e3fcbe225e8a3d
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/18/2017
+---
+# <a name="azure-ad-connect-sync-understanding-users-and-contacts"></a>Azure AD Connect-synchronisatie: inzicht krijgen in gebruikers en contactpersonen
+Er zijn verschillende redenen waarom hebt u meerdere Active Directory-forests en er zijn diverse verschillende implementatietopologieën. Algemene modellen bevat de implementatie van een account-resource en GAL sync'ed forests na een fusie & overname. Maar zelfs als er pure modellen, hybride modellen, ook worden gebruikt. De standaardconfiguratie in Azure AD Connect-synchronisatie wordt niet wordt ervan uitgegaan dat een bepaald model maar, afhankelijk van hoe zoeken van overeenkomende gebruikers is geselecteerd in de installatiehandleiding, verschillende problemen kunnen worden waargenomen.
+
+In dit onderwerp doorlopen we het gedrag van de standaardconfiguratie in bepaalde topologieën. We doorlopen dan de configuratie en de regeleditor synchronisatie kan worden gebruikt om te kijken naar de configuratie.
+
+Er zijn enkele algemene regels voor de configuratie wordt ervan uitgegaan dat:
+
+* Ongeacht de volgorde waarin we uit Active Directory's van de bron importeren moet het eindresultaat altijd hetzelfde zijn.
+* Een actieve account altijd draagt bij aanmelden informatie, met inbegrip van **userPrincipalName** en **sourceAnchor**.
+* Een uitgeschakeld account bijdragen userPrincipalName en sourceAnchor, tenzij het een gekoppeld postvak als er geen actieve rekening moet worden gezocht.
+* Een account met een gekoppeld postvak wordt nooit worden gebruikt voor userPrincipalName en sourceAnchor. Ervan wordt uitgegaan dat er een actieve account later worden gevonden.
+* Een contact-object kan worden ingericht met Azure AD als een contactpersoon of als een gebruiker. U weet niet zeker totdat alle bron Active Directory-forests zijn verwerkt.
+
+## <a name="contacts"></a>Contactpersonen
+Contactpersonen die een gebruiker in een ander forest dat is gebruikelijk dat na een fusie & overname waarbij een oplossing GALSync twee of meer Exchange-forests is bridging. Het contact-object lid altijd wordt van het connectorgebied overgebracht naar de metaverse met behulp van het e-mailkenmerk. Als er al een contactpersoon of gebruikersobject met hetzelfde e-mailadres, worden de objecten samengevoegd. Dit is geconfigureerd in de regel **In uit Active Directory: Neem contact op met Join**. Er is ook een regel met naam **In uit Active Directory: Neem contact op met algemene** met een kenmerkstroom met het metaverse-kenmerk **sourceObjectType** met de constante **Contact**. Deze regel zeer lage voorrang heeft dus als een gebruikersobject wordt gekoppeld aan hetzelfde metaverse-object, wordt de regel **In uit Active Directory-gebruiker algemene** 's dragen bij de waarde van gebruiker aan dit kenmerk. Met deze regel heeft dit kenmerk de waarde Contact als er geen gebruiker is toegevoegd en de gebruiker waarde als er ten minste één gebruiker zijn gevonden.
+
+Voor het inrichten van een object naar Azure AD, de uitgaande regel **Out voor AAD: Neem contact op met Join** maakt contact-object als het metaverse-kenmerk **sourceObjectType** is ingesteld op **Neem contact op met**. Als dit kenmerk is ingesteld op **gebruiker**, klikt u vervolgens de regel **buiten het AAD-gebruiker toevoegen** in plaats daarvan maakt een gebruikersobject.
+Het is mogelijk dat een object wordt gepromoveerd van contactpersoon aan gebruiker wanneer meer bron Active Directory's worden geïmporteerd en gesynchroniseerd.
+
+Bijvoorbeeld in een topologie GALSync vindt we contact op met objecten voor iedereen in het tweede forest wanneer wij het eerste forest importeert. Dit wordt nieuwe contact op met de objecten in de AAD-Connector voorbereiden. Wanneer we later importeren en synchroniseren van het tweede forest, wordt de echte gebruikers zoeken en voeg ze toe aan de bestaande objecten in de metaverse. We vervolgens verwijdert u het contact-object in AAD en maakt een nieuw gebruikersobject in plaats daarvan.
+
+Als u een topologie waarbij gebruikers worden weergegeven als contactpersonen hebt, zorg ervoor dat u selecteert om gebruikers op het e-mailkenmerk in de installatiehandleiding te vergelijken. Als u een andere optie selecteert, wordt u een configuratie van de afhankelijke volgorde hebben. Neem contact op met objecten altijd op de e-mailkenmerk wordt toegevoegd, maar gebruikersobjecten wordt alleen op het e-mailkenmerk toegevoegd als deze optie is geselecteerd in de installatiehandleiding. U kan vervolgens eindigen met twee verschillende objecten in de metaverse met hetzelfde kenmerk voor e-mail als het contact-object is geïmporteerd voordat het gebruikersobject. Tijdens het exporteren naar Azure AD, een fout gegenereerd. Dit gedrag is inherent en zou wijzen op beschadigde gegevens of de topologie is niet juist geïdentificeerd tijdens de installatie.
+
+## <a name="disabled-accounts"></a>Uitgeschakelde accounts
+Uitgeschakelde accounts worden ook gesynchroniseerd naar Azure AD. Uitgeschakelde accounts gelden voor bronnen in Exchange, bijvoorbeeld vergaderruimten vertegenwoordigen. De uitzondering hierop is de gebruikers met een gekoppeld postvak; zoals eerder vermeld, wordt deze nooit inrichten van een account met Azure AD.
+
+De veronderstelling is dat als een uitgeschakelde gebruikersaccount wordt gevonden, wordt er een andere actieve account later geen wordt gevonden en het object is ingericht met Azure AD met de userPrincipalName en sourceAnchor gevonden. Als een andere actieve account wordt toegevoegd met hetzelfde metaverse-object, worden de userPrincipalName en sourceAnchor gebruikt.
+
+## <a name="changing-sourceanchor"></a>SourceAnchor wijzigen
+Wanneer een object is geëxporteerd naar Azure AD en het is niet toegestaan de sourceAnchor niet meer wijzigen. Wanneer het object is het metaverse-kenmerk geëxporteerd **cloudSourceAnchor** is ingesteld met de **sourceAnchor** waarde geaccepteerd door Azure AD. Als **sourceAnchor** wordt gewijzigd en niet overeen met **cloudSourceAnchor**, de regel **buiten het AAD-gebruiker toevoegen** de fout genereert **kenmerk sourceAnchor is gewijzigd**. In dit geval wordt moeten de configuratie of de gegevens worden gecorrigeerd zodat de dezelfde sourceAnchor aanwezig in de metaverse opnieuw is voordat het object opnieuw kan worden gesynchroniseerd.
+
+## <a name="additional-resources"></a>Aanvullende resources
+* [Azure AD Connect-synchronisatie: Synchronisatie-opties voor aanpassen](active-directory-aadconnectsync-whatis.md)
+* [Uw on-premises identiteiten integreren met Azure Active Directory](active-directory-aadconnect.md)
+

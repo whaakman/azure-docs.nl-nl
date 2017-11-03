@@ -7,19 +7,17 @@ author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 08/22/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 8bd3e4bb7423db44c48b04f25edcf1074e6ea0bd
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/23/2017
-
+ms.openlocfilehash: ab35963dc9d10134799270e6ab3e6593be0e601a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-function-using-the-azure-cli"></a>Uw eerste functie maken met Azure CLI
 
 In deze Quick Start-zelfstudie wordt stapsgewijs uitgelegd hoe u Azure Functions kunt gebruiken om uw eerste functie te maken. Azure CLI gebruikt u om een functie-app te maken. Het is de serverloze infrastructuur die als host fungeert voor uw functie. De functiecode zelf wordt geïmplementeerd vanuit een voorbeeldopslagplaats in GitHub.    
@@ -37,7 +35,7 @@ Voordat u dit voorbeeld kunt uitvoeren moet u ervoor zorgen dat u het volgende h
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u wilt installeren en de CLI lokaal gebruiken, moet dit onderwerp de Azure CLI versie 2.0 of hoger. Voer `az --version` de versie die u hebt te vinden. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
@@ -45,7 +43,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 Maak een resourcegroep met de opdracht [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources, zoals functie-apps, databases en opslagaccounts worden geïmplementeerd en beheerd.
 
 In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt.  
-Als u Cloud Shell niet gebruikt, moet u eerst zich aanmelden met `az login`.
+Als u geen van Cloud-Shell gebruikmaakt, meld u aan met behulp van eerste `az login`.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
@@ -56,7 +54,7 @@ az group create --name myResourceGroup --location westeurope
 
 Functions gebruikt een Azure Storage-account om de status van uw functies en andere informatie erover te onderhouden. Maak een opslagaccount in de resourcegroep die u hebt gemaakt met behulp van de opdracht [az storage account create](/cli/azure/storage/account#create).
 
-Vervang in de volgende opdracht de plaatsaanduiding `<storage_name>` met uw eigen wereldwijd unieke opslagaccountnaam. Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten.
+In de volgende opdracht te vervangen door een globally unique identifier opslagaccountnaam waarin u zien hoe de `<storage_name>` tijdelijke aanduiding. Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten.
 
 ```azurecli-interactive
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
@@ -86,7 +84,7 @@ Nadat het opslagaccount is gemaakt, toont Azure CLI soortgelijke informatie als 
 
 U moet een functie-app hebben die als host fungeert voor de uitvoering van uw functies. De functie-app biedt een omgeving waarin uw functiecode zonder server kan worden uitgevoerd. U kunt er functies mee groeperen in een logische eenheid, zodat u resources eenvoudiger kunt beheren, implementeren en delen. Een functie-app maken met behulp van de opdracht [az functionapp create](/cli/azure/functionapp#create). 
 
-Vervang in de volgende opdracht de plaatsaanduiding `<app_name>` en de opslagaccountnaam voor `<storage_name>` met uw eigen unieke functie-appnaam. De `<app_name>` wordt gebruikt als het standaard DNS-domein voor de functie-app. Om die reden moet de naam uniek zijn in alle apps in Azure. 
+Vervang de naam van een unieke functie-app waarin u ziet in de volgende opdracht de `<app_name>` tijdelijke aanduiding en het storage-account een naam voor `<storage_name>`. De `<app_name>` wordt gebruikt als het standaard DNS-domein voor de functie-app. Om die reden moet de naam uniek zijn in alle apps in Azure. 
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
@@ -125,7 +123,7 @@ az functionapp deployment source config --name <app_name> --resource-group myRes
 --repo-url https://github.com/Azure-Samples/functions-quickstart \
 --manual-integration 
 ```
-Nadat de implementatiebron is ingesteld, wordt door Azure CLI informatie weergegeven die overeenkomt met het volgende voorbeeld (null-waarden zijn verwijderd vanwege de leesbaarheid):
+Nadat de implementatiebron is ingesteld, toont de Azure CLI informatie vergelijkbaar met het volgende voorbeeld (null-waarden voor de leesbaarheid verwijderd):
 
 ```json
 {
@@ -170,4 +168,3 @@ Typ `y` wanneer u daarom wordt gevraagd.
 ## <a name="next-steps"></a>Volgende stappen
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-

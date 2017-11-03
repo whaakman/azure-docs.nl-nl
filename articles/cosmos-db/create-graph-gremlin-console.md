@@ -10,15 +10,14 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/27/2017
 ms.author: denlee
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: fd5cc93ce1ed2a8c7da090666ef539b338ac61c3
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/23/2017
-
+ms.openlocfilehash: 9755446d2c01313db9fd80b4f2a7f46f8bec500c
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Zelfstudie Azure Cosmos DB: gebruik de Gremlin-console om objecten te maken, query’s op grafen uit te voeren en door grafen te gaan
 
@@ -28,7 +27,7 @@ In deze snelstartgids ziet u hoe u met Azure Portal een Azure Cosmos DB-account,
 
 ![Azure Cosmo DB vanuit de Apache Gremlin-console](./media/create-graph-gremlin-console/gremlin-console.png)
 
-De Gremlin-console is op Groovy/Java gebaseerd en wordt uitgevoerd op Linux, Mac en Windows. U kunt de console downloaden van de [Apache TinkerPop-site](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.5/apache-tinkerpop-gremlin-console-3.2.5-bin.zip).
+De Gremlin-console is op Groovy/Java gebaseerd en wordt uitgevoerd op Linux, Mac en Windows. U kunt de console downloaden van de [Apache TinkerPop-site](http://tinkerpop.apache.org/downloads.html).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -47,7 +46,7 @@ U moet ook de [Gremlin-console](http://tinkerpop.apache.org/) installeren. Gebru
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Verbinding maken met uw app service
-1. Voordat u de Gremlin-console start, moet u het configuratiebestand remote-secure.yaml in de map apache-tinkerpop-gremlin-console-3.2.5/conf maken of wijzigen.
+1. Voordat u start de Console Gremlin, maken of wijzigen van de extern-secure.yaml-configuratiebestand in de `apache-tinkerpop-gremlin-console-3.2.5/conf` directory.
 2. Vul uw *host-*, *poort-*, *gebruikersnaam-*, *wachtwoord-*, *connectionPool-* en *serializer-*configuraties in:
 
     Instelling|Voorgestelde waarde|Beschrijving
@@ -63,6 +62,18 @@ U moet ook de [Gremlin-console](http://tinkerpop.apache.org/) installeren. Gebru
 
     Kopieer voor de wachtwoordwaarde de **Primaire sleutel** van de pagina **Sleutels**: ![Uw primaire sleutel bekijken en kopiëren in Azure Portal op de pagina Sleutels](./media/create-graph-gremlin-console/keys.png)
 
+Uw extern secure.yaml-bestand ziet er als volgt:
+
+```
+hosts: [your_database_server.graphs.azure.com]
+port: 443
+username: /dbs/your_database_account/colls/your_collection
+password: your_primary_key
+connectionPool: {
+  enableSsl: true
+}
+serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
+```
 
 3. Voer in de terminal `bin/gremlin.bat` of `bin/gremlin.sh` uit of start de [Gremlinc-console](http://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
 4. Voer in de terminal `:remote connect tinkerpop.server conf/remote-secure.yaml` uit om verbinding te maken met uw appservice.
@@ -307,4 +318,3 @@ In deze Quick Start hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken,
 
 > [!div class="nextstepaction"]
 > [Query’s uitvoeren met Gremlin](tutorial-query-graph.md)
-

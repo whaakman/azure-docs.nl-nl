@@ -1,57 +1,62 @@
-<a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the classic deployment model per subscription.
+<a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via het klassieke implementatiemodel voor elk abonnement.
 
-| Resource | Default limit | Maximum limit |
+| Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
-| Virtual networks |50 |100 |
-| Local network sites |20 |contact support |
-| DNS Servers per virtual network |20 |100 |
-| Private IP Addresses per virtual network |4096 |4096 |
-| Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
-| Network Security Groups (NSG) |100 |200 |
-| NSG rules per NSG |200 |400 |
-| User defined route tables |100 |200 |
-| User defined routes per route table |100 |400 |
-| Public IP addresses (dynamic) |5 |contact support |
-| Reserved public IP addresses |20 |contact support |
-| Public VIP per deployment |5 |contact support |
-| Private VIP (ILB) per deployment |1 |1 |
-| Endpoint Access Control Lists (ACLs) |50 |50 |
+| Virtuele netwerken |50 |100 |
+| Lokale netwerksites |20 |contact met ondersteuning |
+| DNS-servers per virtueel netwerk |20 |100 |
+| Privé-IP-adressen per virtueel netwerk |4096 |4096 |
+| Gelijktijdige TCP of UDP loopt per NIC van een virtuele machine of rolinstantie |500.000 |500.000 |
+| Netwerkbeveiligingsgroepen (NSG's) |100 |200 |
+| NSG-regels per NSG |200 |400 |
+| Door de gebruiker gedefinieerde routetabellen |100 |200 |
+| Door de gebruiker gedefinieerde routes per routetabel |100 |400 |
+| Openbare IP-adressen (dynamisch) |5 |contact met ondersteuning |
+| Gereserveerde openbare IP-adressen |20 |contact met ondersteuning |
+| Openbare VIP per implementatie |5 |contact met ondersteuning |
+| Privé-VIP (ILB) per implementatie |1 |1 |
+| Toegangsbeheerlijsten voor eindpunt (ACL's) |50 |50 |
 
-#### <a name="azure-resource-manager-virtual-networking-limits"></a>Networking Limits - Azure Resource Manager
-The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription.
+#### <a name="azure-resource-manager-virtual-networking-limits"></a>Netwerklimieten - Azure Resource Manager
+De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via Azure Resource Manager. De beperkingen gelden per regio en per abonnement.
 
-| Resource | Default limit | Maximum Limit |
+| Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
-| Virtual networks |50 |1000 |
-| Subnets per virtual network |1000 |10000 |
-| Virtual network peerings per Virtual Network |10 |50 |
-| DNS Servers per virtual network |9 |25 |
-| Private IP Addresses per virtual network |4096 |8192 |
-| Private IP Addresses per network interface |256 |1024 |
-| Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
-| Network Interfaces (NIC) |350 |20000 |
-| Network Security Groups (NSG) |100 |5000 |
-| NSG rules per NSG |200 |500 |
-| IP addresses and ranges specified for source or destination in a security rule |2000 |4000 |
-| Application security groups |200 |500 |
-| Application security groups per IP configuration, per NIC |10 |20 |
-| IP configurations per application security group |1000 |4000 |
-| Application security groups that can be specified within all security rules of a network security group |50 |100 |
-| User defined route tables |100 |200 |
-| User defined routes per route table |100 |400 |
-| Public IP addresses - dynamic |(Basic) |60 |contact support |
-| Public IP addresses - static |(Basic) 20 |contact support |
-| Public IP addresses - static |(Standard) 20 |contact support |
-| Load Balancers (internal and internet facing, Basic and Standard) |100 |1000 |
-| Load Balancer (Basic) rules per load balancer |150 |250 |
-| Load Balancer (Standard) rules per load balancer | 1250 | 1500|
-| Load Balancer (Basic) rules per IP configuration |250 |250 |
-| Public front end IP per Load Balancer (Basic) |10 |30 |
-| Public front end IP per Load Balancer (Standard) | 10 | 600 |
-| Private front end IP per Load Balancer (Basic) |10 |contact support |
-| Private front end IP per Load Balancer (Standard) | 10 | 600 |
-| Point-to-Site Root Certificates per VPN Gateway |20 |20 |
+| Virtuele netwerken |50 |1000 |
+| Subnetten per virtueel netwerk |1000 |10.000 |
+| Virtueel netwerk peerings per virtueel netwerk |10 |50 |
+| DNS-servers per virtueel netwerk |9 |25 |
+| Privé-IP-adressen per virtueel netwerk |4096 |8192 |
+| Privé-IP-adressen per netwerkinterface |256 |1024 |
+| Gelijktijdige TCP of UDP loopt per NIC van een virtuele machine of rolinstantie |500.000 |500.000 |
+| Netwerkinterfaces (NIC) |350 |20000 |
+| Netwerkbeveiligingsgroepen (NSG's) |100 |5000 |
+| NSG-regels per NSG |200 |500 |
+| IP-adressen en -bereiken die zijn opgegeven voor de bron- of doelserver in een beveiligingsregel |2000 |4000 |
+| Toepassingsbeveiligingsgroepen |200 |500 |
+| Beveiligingsgroepen toepassing per IP-configuratie per NIC |10 |20 |
+| IP-configuraties per groep van toepassingen-beveiliging |1000 |4000 |
+| Toepassing beveiligingsgroepen die kunnen worden opgegeven in alle beveiligingsregels van een netwerkbeveiligingsgroep |50 |100 |
+| Door de gebruiker gedefinieerde routetabellen |100 |200 |
+| Door de gebruiker gedefinieerde routes per routetabel |100 |400 |
+| Openbare IP-adressen - dynamische |60 (standaard) |contact met ondersteuning |
+| Openbare IP-adressen - statische |20 (standaard) |contact met ondersteuning |
+| Openbare IP-adressen - statische |20 (standaard) |contact met ondersteuning |
+| Punt-naar-site-basiscertificaten per VPN Gateway |20 |20 |
 
+#### <a name="load-balancer"></a>Load Balancer-limieten
 
-[Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md ) in case you need to increase limits from default.
+| Resource | Standaardlimiet | Maximumaantal |
+| --- | --- | --- |
+| Taakverdelers | 100 | 1000 |
+| Regels per resource, Basic | 150 | 250 |
+| Regels per resource, standaard | 1250 | 1500 |
+| Regels per IP-configuratie | 299 |299 |
+| Frontend-IP-adresconfiguraties, Basic | 10 | contact met ondersteuning |
+| Frontend-IP-adresconfiguraties, standaard | 10 | 600 |
+| Back-endpool Basic | 100, één Beschikbaarheidsset | - |
+| Back-endpool Standard | 1000, enkel VNet | contact met ondersteuning |
+| HA poorten, Standard | 1 per interne frontend | - |
+
+[Neem contact op met de ondersteuning](../articles/azure-supportability/resource-manager-core-quotas-request.md ) als u de standaardlimieten wilt verhogen.
 

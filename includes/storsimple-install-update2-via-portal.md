@@ -34,8 +34,3 @@
 9. De update neemt enkele uren in beslag. Selecteer de bijwerktaak en klik op **Details** om de details van de taak te bekijken.
 10. Nadat de taak is voltooid, gaat u naar de pagina **Onderhoud** en scrolt u omlaag naar **Software-updates**.
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

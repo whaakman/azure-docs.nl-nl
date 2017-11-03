@@ -1,150 +1,163 @@
 ---
-title: "Privé-Docker-containerregister maken - Azure CLI | Microsoft Docs"
-description: "Aan de slag met het maken en beheren van privé-Docker-containerregisters met Azure CLI 2.0"
+title: Quick Start - een persoonlijke Docker-register maken in Azure met Azure CLI
+description: Snel informatie over het maken van een persoonlijke register van de Docker-container met de Azure CLI.
 services: container-registry
 documentationcenter: 
-author: stevelas
-manager: balans
-editor: cristyg
+author: neilpeterson
+manager: timlt
+editor: tysonn
 tags: 
 keywords: 
 ms.assetid: 29e20d75-bf39-4f7d-815f-a2e47209be7d
 ms.service: container-registry
 ms.devlang: azurecli
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2017
-ms.author: stevelas
+ms.date: 10/16/2017
+ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2875f4089231ed12a0312b2c2e077938440365c6
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/21/2017
-
+ms.openlocfilehash: 6b3fb9a3ea090f0083e8f113ddf13312fe42b59a
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/26/2017
 ---
-# <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Een privé-Docker-containerregister maken met de Azure CLI 2.0
-Gebruik opdrachten in de [Azure-CLI 2.0](https://github.com/Azure/azure-cli) om een containerregister te maken en de instellingen hiervan te beheren op een Linux-, Mac- of Windows-computer. U kunt ook containerregisters maken en beheren via [Azure Portal](container-registry-get-started-portal.md) of programmatisch met de [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) voor Container Registry.
+# <a name="create-a-container-registry-using-the-azure-cli"></a>Een containerregister maken met de Azure-CLI
 
+Azure Container Registry is een beheerde service voor Docker-containerregisters die wordt gebruikt voor het opslaan van installatiekopieën van persoonlijke Docker-containers. Deze handleiding gegevens maken van een Azure Container register-exemplaar met de Azure CLI.
 
-* Zie [het overzicht](container-registry-intro.md) voor meer achtergrondinformatie en concepten
-* Voor hulp bij Container Registry CLI-opdrachten (`az acr`-opdrachten), geeft u de parameter `-h` door aan een willekeurige opdracht.
+Deze snelstartgids vereist dat u de Azure CLI versie 2.0.20 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli).
 
+U moet ook Docker lokaal geïnstalleerd hebben. Docker biedt pakketten die eenvoudig Docker op elke configureren op elk [Mac](https://docs.docker.com/docker-for-mac/)-, [Windows](https://docs.docker.com/docker-for-windows/)- of [Linux](https://docs.docker.com/engine/installation/#supported-platforms)-systeem.
 
-## <a name="prerequisites"></a>Vereisten
-* **Azure-CLI 2.0**: zie de [installatie-instructies](/cli/azure/install-azure-cli) om de CLI 2.0 te installeren en ermee aan de slag te gaan. Meld u aan bij uw Azure-abonnement door `az login` uit te voeren. Zie [Aan de slag met de CLI 2.0](/cli/azure/get-started-with-azure-cli) voor meer informatie.
-* **Resourcegroep**: maak eerst een [resourcegroep](../azure-resource-manager/resource-group-overview.md#resource-groups) voordat u een containerregister maakt of gebruik een bestaande resourcegroep. De resourcegroep moet op een locatie staan waar de Container Registry-service [beschikbaar](https://azure.microsoft.com/regions/services/) is. Zie [de CLI 2.0-verwijzing](/cli/azure/group) om een resourcegroep te maken met de CLI 2.0.
-* **Opslagaccount** (optioneel): maak een standaard-Azure-[opslagaccount](../storage/common/storage-introduction.md) om een back-up van het containerregister te maken op dezelfde locatie. Als u geen opslagaccount opgeeft bij het maken van een register met `az acr create`, maakt de opdracht er een. Zie [de CLI 2.0-verwijzing](/cli/azure/storage/account) om een opslagaccount te maken met de CLI 2.0. Premium-opslag wordt momenteel niet ondersteund.
-* **Service-principal** (optioneel): wanneer u met de CLI een register maakt, is dit standaard niet ingesteld voor toegang. U kunt een bestaande service-principal van Azure Active Directory aan een register toewijzen (of een nieuwe maken en deze toewijzen) of het beheerdersaccount van het register inschakelen. Zie de gedeelten verderop in dit artikel. Bekijk voor meer informatie over registertoegang [Verifiëren met het containerregister](container-registry-authentication.md).
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-## <a name="create-a-container-registry"></a>Een containerregister maken
-Voer de opdracht `az acr create` uit om een containerregister te maken.
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
-> [!TIP]
-> Geef bij het maken van een register een unieke domeinnaam op het hoogste niveau op, bestaande uit alleen letters en cijfers. De registernaam in de voorbeelden is `myRegistry1`, maar u hoort deze door uw eigen unieke naam te vervangen.
->
->
+In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
 
-De volgende opdracht maakt gebruik van de minimale parameters om containerregister `myRegistry1` te maken in de resourcegroep `myResourceGroup` met de SKU *Basic*:
-
-```azurecli
-az acr create --name myRegistry1 --resource-group myResourceGroup --sku Basic
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
 ```
 
-* `--storage-account-name` is optioneel. Als deze optie niet wordt opgegeven, wordt er een opslagaccount gemaakt in de opgegeven resourcegroep met een naam die bestaat uit de registernaam en een tijdstempel.
+## <a name="create-a-container-registry"></a>Een containerregister maken
+
+In deze snelstartgids maken we een *Basic* register. Azure Container register is beschikbaar in diverse verschillende SKU's, een korte beschrijving van de volgende tabel. Zie voor uitgebreide informatie over elk [Container register SKU's](container-registry-skus.md).
+
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
+
+Maak een ACR-exemplaar met de opdracht [az acr create](/cli/azure/acr#create).
+
+De naam van het register **moeten uniek zijn**. In het volgende voorbeeld *myContainerRegistry007* wordt gebruikt. Hiermee worden bijgewerkt naar een unieke waarde.
+
+```azurecli
+az acr create --name myContainerRegistry007 --resource-group myResourceGroup --sku Basic
+```
 
 Wanneer het register is gemaakt, is de uitvoer vergelijkbaar met het volgende:
 
-```azurecli
+```json
 {
   "adminUserEnabled": false,
-  "creationDate": "2017-06-06T18:36:29.124842+00:00",
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ContainerRegistry
-/registries/myRegistry1",
-  "location": "southcentralus",
-  "loginServer": "myregistry1.azurecr.io",
-  "name": "myRegistry1",
+  "creationDate": "2017-09-08T22:32:13.175925+00:00",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
+  "location": "eastus",
+  "loginServer": "myContainerRegistry007.azurecr.io",
+  "name": "myContainerRegistry007",
   "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
   "sku": {
     "name": "Basic",
     "tier": "Basic"
   },
   "storageAccount": {
-    "name": "myregistry123456789"
+    "name": "mycontainerregistr223140"
   },
   "tags": {},
   "type": "Microsoft.ContainerRegistry/registries"
 }
-
 ```
 
+In de rest van deze snelstartgids, gebruiken we `<acrname>` als een tijdelijke aanduiding voor de naam van de container-register.
 
-Belangrijk:
+## <a name="log-in-to-acr"></a>Aanmelden bij ACR
 
-* `id`: id voor het register in uw abonnement. Deze hebt u nodig wanneer u een service-principal wilt toewijzen.
-* `loginServer`: de door u opgegeven naam die aan alle vereisten voldoet voor het [aanmelden bij het register](container-registry-authentication.md). De naam in dit voorbeeld is `myregistry1.exp.azurecr.io` (zonder hoofdletters).
-
-## <a name="assign-a-service-principal"></a>Een service-principal toewijzen
-Gebruik CLI 2.0-opdrachten om een service-principal van Azure Active Directory aan een register toe te wijzen. Aan de service-principal in deze voorbeelden is de rol Eigenaar toegewezen, maar u kunt ook [andere rollen](../active-directory/role-based-access-control-configure.md) toewijzen.
-
-### <a name="create-a-service-principal-and-assign-access-to-the-registry"></a>Een service-principal maken en toegang tot het register toewijzen
-In de volgende opdracht wordt aan een nieuwe service-principal de rol Eigenaar toegewezen voor toegang tot de register-id die met de parameter `--scopes` wordt doorgegeven. Geef een sterk wachtwoord op voor de parameter `--password`.
+Voordat u installatiekopieën van containers gaat pushen en pullen, moet u zich aanmelden bij het ACR-exemplaar. Gebruik hiervoor de opdracht [az acr login](/cli/azure/acr#login).
 
 ```azurecli
-az ad sp create-for-rbac --scopes /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --password myPassword
+az acr login --name <acrname>
 ```
 
+De opdracht retourneert een bericht dat de aanmelding is gelukt.
 
+## <a name="push-image-to-acr"></a>Push-installatiekopie naar ACR
 
-### <a name="assign-an-existing-service-principal"></a>Een bestaande service-principal toewijzen
-Als u al een service-principal hebt en hieraan de rol Eigenaar wilt toewijzen voor toegang tot het register, voert u een opdracht uit die lijkt op het volgende voorbeeld. U geeft de app-id van de service-principal door met de parameter `--assignee`:
+Voor het pushen van een afbeelding met een Azure-Container register, moet u eerst een afbeelding hebben. Indien nodig, voer de volgende opdracht voor het ophalen van een installatiekopie van een vooraf gemaakte van Docker-Hub.
 
-```azurecli
-az role assignment create --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --assignee myAppId
+```bash
+docker pull microsoft/aci-helloworld
 ```
 
+De afbeelding moet worden gemarkeerd met de naam van de ACR aanmelding-server. Voer de volgende opdracht om te retourneren van de aanmeldingsnaam van de server van het ACR-exemplaar.
 
-
-## <a name="manage-admin-credentials"></a>Beheerreferenties beheren
-Er wordt automatisch een beheeraccount gemaakt voor elk containerregister. Dit account is standaard uitgeschakeld. In het volgende voorbeeld worden `az acr`-CLI-opdrachten weergegeven voor het beheren van de beheerreferenties voor uw containerregister.
-
-### <a name="obtain-admin-user-credentials"></a>Beheerreferenties ophalen
 ```azurecli
-az acr credential show -n myRegistry1
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-### <a name="enable-admin-user-for-an-existing-registry"></a>Beheerder inschakelen voor een bestaand register
-```azurecli
-az acr update -n myRegistry1 --admin-enabled true
+Label van de installatiekopie met de [docker-tag](https://docs.docker.com/engine/reference/commandline/tag/) opdracht. Vervang  *<acrLoginServer>*  met de aanmeldingsnaam van de server van uw ACR-exemplaar.
+
+```bash
+docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-### <a name="disable-admin-user-for-an-existing-registry"></a>Beheerder uitschakelen voor een bestaand register
-```azurecli
-az acr update -n myRegistry1 --admin-enabled false
+Gebruik tot slot [docker push](https://docs.docker.com/engine/reference/commandline/push/) voor de push-installatiekopie van het naar het ACR-exemplaar. Vervang  *<acrLoginServer>*  met de aanmeldingsnaam van de server van uw ACR-exemplaar.
+
+```bash
+docker push <acrLoginServer>/aci-helloworld:v1
 ```
 
-## <a name="list-images-and-tags"></a>Installatiekopieën en tags weergeven
-Gebruik de `az acr`-CLI-opdrachten om query's toe te passen op de installatiekopieën en tags in een opslagplaats.
+## <a name="list-container-images"></a>Containerinstallatiekopieën opvragen
 
-> [!NOTE]
-> Container Registry ondersteunt momenteel de opdracht `docker search` niet voor het toepassen van query's op installatiekopieën en tags.
-
-
-### <a name="list-repositories"></a>Opslagplaatsen weergeven
-In het volgende voorbeeld worden de opslagplaatsen in een register weergegeven in JSON-indeling (JavaScript Object Notation):
+Het volgende voorbeeld worden de opslagplaatsen in een register:
 
 ```azurecli
-az acr repository list -n myRegistry1 -o json
+az acr repository list -n <acrname> -o table
 ```
 
-### <a name="list-tags"></a>Tags weergeven
-In het volgende voorbeeld worden de tags in de opslagplaats **samples/nginx** weergegeven in JSON-indeling:
+Uitvoer:
+
+```bash
+Result
+----------------
+aci-helloworld
+```
+
+Het volgende voorbeeld bevat de labels van de **aci helloworld** opslagplaats.
 
 ```azurecli
-az acr repository show-tags -n myRegistry1 --repository samples/nginx -o json
+az acr repository show-tags -n <acrname> --repository aci-helloworld -o table
+```
+
+Uitvoer:
+
+```bash
+Result
+--------
+v1
+```
+
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Wanneer deze niet langer nodig is, kunt u de [az groep verwijderen](/cli/azure/group#delete) opdracht om te verwijderen van de resourcegroep, ACR-exemplaar en alle installatiekopieën van de container.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Uw eerste installatiekopie pushen met de Docker-CLI](container-registry-get-started-docker-cli.md)
 
+In deze snelstartgids kunt u een Azure Container Registry gemaakt met de Azure CLI. Als u gebruiken van Azure Container register met exemplaren van Azure-Container wilt, blijven de zelfstudie exemplaren van Azure-Container.
+
+> [!div class="nextstepaction"]
+> [Zelfstudie voor Azure Containerexemplaren](../container-instances/container-instances-tutorial-prepare-app.md)

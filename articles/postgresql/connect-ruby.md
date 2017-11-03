@@ -6,21 +6,19 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/30/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: a04188aed40a46e8cb64dfeb1230fb9b3c6ab679
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: 7ad4a2fd7452f31689a02b144078a9630bfd5259
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>Azure Database voor PostgreSQL: Ruby gebruiken om verbinding te maken en gegevens op te vragen
-In deze snelstartgids ziet u hoe u met behulp van een [Ruby](https://www.ruby-lang.org)-toepassing verbinding maakt met een Azure Database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met Ruby, maar geen ervaring hebt met het werken met Azure Database voor PostgreSQL.
+In deze snelstartgids ziet u hoe u met behulp van een [Ruby](https://www.ruby-lang.org)-toepassing verbinding maakt met een Azure Database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. De stappen in dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Ruby en niet bekend bent met het werken met Azure-Database voor PostgreSQL.
 
 ## <a name="prerequisites"></a>Vereisten
 In deze snelstartgids worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
@@ -213,5 +211,4 @@ end
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
-> [Een database migreren met behulp van Exporteren en Importeren](./howto-migrate-using-export-and-import.md)
-
+> [Een database migreren met behulp van Exporteren en importeren](./howto-migrate-using-export-and-import.md)

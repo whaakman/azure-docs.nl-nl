@@ -63,6 +63,27 @@
       href: regions-and-availability.md
     - name: VM-typen en -groottes
       href: sizes.md
+      items:
+        - name: Algemeen doel
+          href: sizes-general.md
+          items:
+            - name: B-serie 'burstable'
+              href: b-series-burstable.md
+        - name: Geoptimaliseerde rekenkracht
+          href: sizes-compute.md
+        - name: Geoptimaliseerd geheugen
+          href: sizes-memory.md
+        - name: Geoptimaliseerde opslag
+          href: sizes-storage.md
+        - name: Geoptimaliseerde GPU
+          href: sizes-gpu.md
+          items:
+            - name: GPU-stuurprogramma's instellen
+              href: n-series-driver-setup.md
+        - name: Krachtig rekenvermogen
+          href: sizes-hpc.md
+        - name: Azure Compute Units (ACU)
+          href: sizes-general.md
     - name: Goedgekeurde distributies
       href: endorsed-distros.md
     - name: Onderhoud en updates

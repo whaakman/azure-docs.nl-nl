@@ -1,29 +1,29 @@
-## <a name="fileshare-dataset-type-properties"></a>FileShare dataset type properties
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](../articles/data-factory/v1/data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types.
+## <a name="fileshare-dataset-type-properties"></a>Eigenschappen van gegevensset bestandsshare
+Zie voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets van de [gegevenssets maken](../articles/data-factory/v1/data-factory-create-datasets.md) artikel. Secties zoals structuur, beschikbaarheid en beleid van een gegevensset JSON zijn identiek voor alle typen van de gegevensset.
 
-The **typeProperties** section is different for each type of dataset. It provides information that is specific to the dataset type. The typeProperties section for a dataset of type **FileShare** dataset has the following properties:
+De **typeProperties** sectie verschilt voor elk type dataset. Het levert informatie die specifiek is voor het type dataset. De typeProperties sectie voor een gegevensset van het type **FileShare** gegevensset heeft de volgende eigenschappen:
 
-| Property | Description | Required |
+| Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| folderPath |Sub path to the folder. Use escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes |
-| fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>Data.<Guid>.txt (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
-| fileFilter |Specify a filter to be used to select a subset of files in the folderPath rather than all files.<br/><br/>Allowed values are: `*` (multiple characters) and `?` (single character).<br/><br/>Examples 1: `"fileFilter": "*.log"`<br/>Example 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter is applicable for an input FileShare dataset. This property is not supported with HDFS. |No |
-| partitionedBy |partitionedBy can be used to specify a dynamic folderPath, filename for time series data. For example, folderPath parameterized for every hour of data. |No |
-| format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](#specifying-textformat), [Json Format](#specifying-jsonformat), [Avro Format](#specifying-avroformat), [Orc Format](#specifying-orcformat), and [Parquet Format](#specifying-parquetformat) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
-| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**; and supported levels are: **Optimal** and **Fastest**. For more information, see [Specifying compression](#specifying-compression) section. |No |
-| useBinaryTransfer |Specify whether use Binary transfer mode. True for binary mode and false ASCII. Default value: True. This property can only be used when associated linked service type is of type: FtpServer. |No |
+| folderPath |Subpad naar de map. Gebruik van escape-teken ' \ ' voor speciale tekens in de tekenreeks. Zie [voorbeeld gekoppelde service en gegevensset definities](#sample-linked-service-and-dataset-definitions) voor voorbeelden.<br/><br/>U kunt deze eigenschap combineren met **partitionBy** map hebben paden op basis van het segment beginnen of eindigen-datums en tijden. |Ja |
+| fileName |Geef de naam van het bestand in de **folderPath** als u wilt dat de tabel om te verwijzen naar een bepaald bestand in de map. Als u geen waarde voor deze eigenschap niet opgeeft, wordt de tabel verwijst naar alle bestanden in de map.<br/><br/>Wanneer fileName niet voor een uitvoergegevensset opgegeven is, de naam van het gegenereerde bestand zou worden in de volgende indeling: <br/><br/>Gegevens. <Guid>.txt (voorbeeld: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nee |
+| fileFilter |Hiermee geeft u een filter moet worden gebruikt om een subset van de bestanden in het mappad in plaats van alle bestanden te selecteren.<br/><br/>Toegestane waarden zijn: `*` (meerdere tekens) en `?` (willekeurig teken).<br/><br/>Voorbeelden 1:`"fileFilter": "*.log"`<br/>Voorbeeld 2:`"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter geldt voor een invoergegevensset bestandsshare. Deze eigenschap wordt niet ondersteund met HDFS. |Nee |
+| partitionedBy |partitionedBy kan worden gebruikt om op te geven van een dynamische folderPath, filename voor tijd reeksgegevens. Bijvoorbeeld, folderPath geparametriseerde voor elk uur van gegevens. |Nee |
+| Indeling | De volgende indelingstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Stel de **type** eigenschap onder indeling op een van deze waarden. Zie voor meer informatie [tekstindeling](#specifying-textformat), [Json-indeling](#specifying-jsonformat), [Avro-indeling](#specifying-avroformat), [Orc indeling](#specifying-orcformat), en [parketvloeren indeling](#specifying-parquetformat) secties. <br><br> Als u wilt **kopiëren van bestanden als-is** overslaan tussen bestandsgebaseerde winkels (binaire kopiëren), de sectie indeling in de definities van beide invoer en uitvoer gegevensset. |Nee |
+| Compressie | Geef het type en de compressie van de gegevens. Ondersteunde typen zijn: **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**; en ondersteunde niveaus: **optimale** en **snelst**. Zie voor meer informatie [geven compressie](#specifying-compression) sectie. |Nee |
+| useBinaryTransfer |Geef binaire overdrachtsmodus of gebruiken. De waarde True voor binaire modus en ONWAAR ASCII. Standaardwaarde: True. Deze eigenschap kan alleen worden gebruikt wanneer de bijbehorende gekoppelde-servicetype is van het type: FtpServer. |Nee |
 
 > [!NOTE]
-> filename and fileFilter cannot be used simultaneously.
+> bestandsnaam en fileFilter worden niet gelijktijdig gebruikt.
 >
 >
 
-### <a name="using-partionedby-property"></a>Using partionedBy property
-As mentioned in the previous section, you can specify a dynamic folderPath, filename for time series data with partitionedBy. You can do so with the Data Factory macros and the system variable SliceStart, SliceEnd that indicate the logical time period for a given data slice.
+### <a name="using-partionedby-property"></a>Gebruik de eigenschap partionedBy
+Zoals vermeld in de vorige sectie, kunt u een dynamische folderPath, filename voor time series-gegevens met partitionedBy opgeven. U kunt dit doen met de Data Factory-macro's en de systeemvariabele SliceStart, SliceEnd die wijzen op de logische periode voor een bepaalde gegevenssegment.
 
-To learn about time series datasets, scheduling, and slices, See [Creating Datasets](../articles/data-factory/v1/data-factory-create-datasets.md), [Scheduling & Execution](../articles/data-factory/v1/data-factory-scheduling-and-execution.md), and [Creating Pipelines](../articles/data-factory/v1/data-factory-create-pipelines.md) articles.
+Zie voor meer informatie over tijd reeks gegevenssets, planning en segmenten, [gegevenssets maken](../articles/data-factory/v1/data-factory-create-datasets.md), [planning en uitvoering](../articles/data-factory/v1/data-factory-scheduling-and-execution.md), en [pijplijnen maken](../articles/data-factory/v1/data-factory-create-pipelines.md) artikelen.
 
-#### <a name="sample-1"></a>Sample 1:
+#### <a name="sample-1"></a>Voorbeeld 1:
 
 ```json
 "folderPath": "wikidatagateway/wikisampledataout/{Slice}",
@@ -32,9 +32,9 @@ To learn about time series datasets, scheduling, and slices, See [Creating Datas
     { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
 ],
 ```
-In this example {Slice} is replaced with the value of Data Factory system variable SliceStart in the format (YYYYMMDDHH) specified. The SliceStart refers to start time of the slice. The folderPath is different for each slice. Example: wikidatagateway/wikisampledataout/2014100103 or wikidatagateway/wikisampledataout/2014100104.
+In dit voorbeeld {segment} is vervangen door de opgegeven waarde van de Data Factory systeemvariabele SliceStart in de notatie (YYYYMMDDHH). De SliceStart verwijst voor het starten van de tijd van het segment. FolderPath verschilt voor elk segment. Voorbeeld: wikidatagateway/wikisampledataout/2014100103 of wikidatagateway/wikisampledataout/2014100104.
 
-#### <a name="sample-2"></a>Sample 2:
+#### <a name="sample-2"></a>Voorbeeld 2:
 
 ```json
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -47,4 +47,4 @@ In this example {Slice} is replaced with the value of Data Factory system variab
     { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
 ],
 ```
-In this example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
+In dit voorbeeld worden jaar, maand, dag en tijd van de SliceStart uitgepakt in verschillende variabelen die worden gebruikt door de eigenschappen voor folderPath en de bestandsnaam.

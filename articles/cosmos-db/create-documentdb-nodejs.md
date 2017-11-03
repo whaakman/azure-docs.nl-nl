@@ -12,16 +12,14 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 26e3548bf6aacbc60c4c46a5cc88749ca14cec01
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/01/2017
-
-
+ms.openlocfilehash: 70c99fc0a46c5b2d1818ea82ae2d36286c6a355e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-app-with-nodejs-and-the-azure-portal"></a>Azure Cosmos DB: een DocumentDB API-app bouwen met Node.js en Azure Portal
 
@@ -35,7 +33,8 @@ Deze Quick Start laat zien hoe u een Azure Cosmos DB-account, een documentdataba
     * [Node.js](https://nodejs.org/en/) versie v0.10.29 of hoger
     * [Git](http://git-scm.com/)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
 
@@ -49,7 +48,7 @@ Deze Quick Start laat zien hoe u een Azure Cosmos DB-account, een documentdataba
 
 We gaan nu een DocumentDB API-app klonen vanuit GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
 
-1. Open een venster in een git-terminal zoals git bash en `CD` naar een werkmap.  
+1. Open een git-terminalvenster zoals git bash en `CD` naar een werkmap.  
 
 2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. 
 
@@ -155,6 +154,5 @@ In deze Quick Start hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken,
 
 > [!div class="nextstepaction"]
 > [Gegevens importeren in Azure Cosmos DB](import-data.md)
-
 
 

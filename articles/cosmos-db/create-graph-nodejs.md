@@ -12,21 +12,20 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 08/29/2017
 ms.author: denlee
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 60cb187cf40f72fce86c421891bea02d3d6d708a
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 228d739ac4505d9f16c43bb484dd8050631f084e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: een Node.js-toepassing ontwikkelen met de Graph API
 
-Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
+Azure Cosmos-database is de globaal gedistribueerde multimodel database-service van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafen en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
-In dit artikel ziet u hoe u met Azure Portal een Azure Cosmos DB-account voor Graph API (preview), een database en een graaf kunt maken. U gaat vervolgens een console-app ontwikkelen en uitvoeren met behulp van het opensourcestuurprogramma [Gremlin Node.js](https://www.npmjs.com/package/gremlin).  
+In dit artikel snelstartgids demonstreert hoe u een Cosmos-DB Azure-account voor Graph API (preview), de database en de grafiek te maken met behulp van de Azure-portal. U gaat vervolgens een console-app ontwikkelen en uitvoeren met behulp van het opensourcestuurprogramma [Gremlin Node.js](https://www.npmjs.com/package/gremlin).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -48,9 +47,9 @@ Voordat u met dit voorbeeld aan de slag gaat, moet u aan de volgende vereisten v
 
 We gaan nu een Graph API-app klonen vanaf GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
 
-1. Open een venster in een Git-terminal, zoals Git Bash, en ga (met de opdracht `cd`) naar een werkmap.  
+1. Open een venster in een Git-terminal, zoals Git Bash, en ga (met de opdracht `cd`) naar een werkmap.
 
-2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. 
+2. Voer de volgende opdracht om de voorbeeld-opslagplaats klonen: 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started.git
@@ -60,7 +59,7 @@ We gaan nu een Graph API-app klonen vanaf GitHub, de verbindingsreeks instellen 
 
 ## <a name="review-the-code"></a>De code bekijken
 
-Laten we eens kijken wat er precies gebeurt in de app. Open het bestand `app.js`. Hier ziet u de volgende regels code. 
+Laten we eens kijken wat er precies gebeurt in de app. Open de `app.js` -bestand en u ziet u de volgende regels code. 
 
 * De Gremlin-client wordt gemaakt.
 
@@ -99,19 +98,19 @@ Laten we eens kijken wat er precies gebeurt in de app. Open het bestand `app.js`
 
     ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-graph-nodejs/gremlin-uri.png)
 
-   Als de **Gremlin URI**-waarde leeg is, kunt u de waarde van de pagina **Sleutels** in de portal genereren met behulp van de **URI**-waarde, waarbij https:// wordt verwijderd en documenten in grafieken worden gewijzigd.
+   Als de **Gremlin URI** waarde leeg is, kunt u de waarde van de genereren de **sleutels** pagina in de portal. Gebruik de **URI** waarde, https:// verwijderen en wijzigen van documenten aan grafieken.
 
    Het Gremlin-eindpunt moet alleen de hostnaam zijn zonder het protocol-/poortnummer, zoals `mygraphdb.graphs.azure.com` (niet `https://mygraphdb.graphs.azure.com` of `mygraphdb.graphs.azure.com:433`).
 
-3. Vul in config.js voor de waarde config.primaryKey de waarde van de **Primaire sleutel** in van de pagina **Sleutels** van de Azure Portal. 
+3. In het bestand config.js, vult u de waarde config.primaryKey met de **primaire sleutel** waarde uit de **sleutels** pagina van de Azure-portal. 
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   ![De blade Sleutels in Azure Portal](./media/create-graph-nodejs/keys.png)
+   ![Blade van Azure portal 'Sleutels'](./media/create-graph-nodejs/keys.png)
 
 4. Voer de databasenaam en de naam van de graaf (container) in voor de waarde van config.database en config.collection. 
 
-Hier volgt een voorbeeld van hoe het voltooide bestand config.js eruit moet zien:
+Hier volgt een voorbeeld van wat het bestand config.js voltooide als eruitzien moet:
 
 ```nodejs
 var config = {}
@@ -125,9 +124,9 @@ config.collection = "Persons"
 module.exports = config;
 ```
 
-## <a name="run-the-console-app"></a>De app console uitvoeren
+## <a name="run-the-console-app"></a>De console-app uitvoeren
 
-1. Open een terminalvenster en ga (via de opdracht `cd`) naar de installatiemap voor het bestand package.json dat is opgenomen in het project.  
+1. Open een terminalvenster en ga (via de opdracht `cd`) naar de installatiemap voor het bestand package.json dat is opgenomen in het project.
 
 2. Voer `npm install` uit om de vereiste npm-modules, waaronder `gremlin`, te installeren.
 
@@ -137,9 +136,9 @@ module.exports = config;
 
 U kunt nu teruggaan naar Data Explorer in Azure Portal en uw nieuwe graafgegevens bekijken, aanpassen en bewerken en er query's op uitvoeren.
 
-De nieuwe database wordt in Data Explorer weergegeven in het deelvenster **Grafieken**. Vouw de database uit, gevolgd door de verzameling en klik vervolgens op **Grafiek**.
+De nieuwe database wordt in Data Explorer weergegeven in het deelvenster **Grafieken**. Vouw de database, gevolgd door de verzameling, en selecteer vervolgens **grafiek**.
 
-De gegevens die worden gegenereerd door de voorbeeld-app worden weergegeven op het volgende deelvenster binnen het tabblad **Grafiek** wanneer u op tabblad **Filter toepassen** klikt.
+De gegevens die worden gegenereerd door de voorbeeld-app wordt weergegeven in het volgende venster binnen de **grafiek** tabblad wanneer u selecteert **Filter toepassen**.
 
 Probeer `g.V()` voltooien met `.has('firstName', 'Thomas')` om het filter te testen. Houd er rekening mee dat de waarde hoofdlettergevoelig is.
 
@@ -151,13 +150,13 @@ Probeer `g.V()` voltooien met `.has('firstName', 'Thomas')` om het filter te tes
 
 Als u niet van plan bent om door te gaan met het gebruik van deze app, verwijdert u alle resources die u in dit artikel hebt gemaakt als volgt: 
 
-1. Klik in het menu aan de linkerkant in Azure Portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt. 
-2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ de naam van de resource die u wilt verwijderen en klik vervolgens op **Verwijderen**.
+1. Selecteer in de Azure-portal in het menu linkernavigatievenster **resourcegroepen**. Selecteer vervolgens de naam van de resource die u hebt gemaakt. 
+
+2. Selecteer **Verwijderen** op de pagina van de resourcegroep. Typ de naam van de resource moet worden verwijderd en selecteer vervolgens **verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken, hebt u een graaf gemaakt met Data Explorer en hebt u een app uitgevoerd. U kunt nu complexere query's maken en met Gremlin krachtige logica implementeren om door een graaf te gaan. 
+In dit artikel hebt u geleerd hoe een Azure DB die Cosmos-account maken en uitvoeren van een app maken van een grafiek met behulp van Data Explorer. U kunt nu complexere query's maken en met Gremlin krachtige logica implementeren om door een graaf te gaan. 
 
 > [!div class="nextstepaction"]
-> [Query’s uitvoeren met Gremlin](tutorial-query-graph.md)
-
+> [Query uitvoeren met behulp van Gremlin](tutorial-query-graph.md)

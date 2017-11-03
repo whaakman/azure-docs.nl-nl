@@ -1,7 +1,7 @@
 ---
 title: Overzicht van Azure Container Instances | Azure Docs
 description: Inzicht krijgen in Azure Container Instances
-services: container-service
+services: container-instances
 documentationcenter: 
 author: seanmck
 manager: timlt
@@ -9,25 +9,23 @@ editor:
 tags: 
 keywords: 
 ms.assetid: 
-ms.service: 
+ms.service: container-instances
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2017
 ms.author: seanmck
-ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: b77ba307938b6b1f5221de40cc135d17c15c1d9b
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/26/2017
-
+ms.custom: mvc
+ms.openlocfilehash: 6e614f1120b3dc54871b393ac0a2703c21b30ae8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-container-instances"></a>Azure Container Instances
 
-Containers worden in snel tempo de voorkeursmethode voor het verpakken, implementeren en beheren van cloudtoepassingen. Azure Container Instances biedt u een zeer snelle en eenvoudige methode voor het uitvoeren van een container in Azure, waarbij het niet nodig is om virtuele machines in te richten of het serviceniveau te verhogen. 
+Containers worden in snel tempo de voorkeursmethode voor het verpakken, implementeren en beheren van cloudtoepassingen. Azure Container Instances biedt u een zeer snelle en eenvoudige methode voor het uitvoeren van een container in Azure, waarbij het niet nodig is om virtuele machines in te richten of het serviceniveau te verhogen.
 
 Azure Container Instances is een ideale oplossing voor elk scenario dat kan werken in geïsoleerde containers, met inbegrip van eenvoudige toepassingen, taakautomatisering en het bouwen van taken. Voor scenario's waarin u een volledige indeling met containers nodig hebt, waaronder servicedetectie in meerdere containers, automatisch schalen en gecoördineerde toepassingsupgrades, raden wij de [Azure Container Service](https://docs.microsoft.com/azure/container-service/) aan.
 

@@ -10,4 +10,4 @@ Een virtuele machine met één NIC is gemaakt en verbonden met een virtueel netw
 De IP-configuraties zijn gekoppeld aan de NIC als de NIC wordt gemaakt en de NIC is gekoppeld aan de virtuele machine wanneer de virtuele machine wordt gemaakt. De typen van IP-adressen gebruikt voor het scenario zijn ter illustratie. U kunt elk IP-adres en de toewijzing typen dat u nodig hebt.
 
 > [!NOTE]
-> Hoewel de stappen in dit artikel worden alle IP-configuraties aan één NIC toewijst, kunt u ook meerdere IP-configuraties toewijzen aan een NIC in een VM meerdere NIC's. Lees voor meer informatie over het maken van een virtuele machine met meerdere NIC's, de [een virtuele machine maken met meerdere NIC's](../articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md) artikel.
+> Hoewel de stappen in dit artikel worden alle IP-configuraties aan één NIC toewijst, kunt u ook meerdere IP-configuraties toewijzen aan een NIC in een VM meerdere NIC's. Lees voor meer informatie over het maken van een virtuele machine met meerdere NIC's, de [een virtuele machine maken met meerdere NIC's](../articles/virtual-machines/windows/multiple-nics.md) artikel.

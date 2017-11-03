@@ -1,19 +1,19 @@
-## <a name="transfer-local-files-to-cloud-shell"></a>Transfer local files to Cloud Shell
-The `clouddrive` directory syncs with the Azure portal storage blade. Use this blade to transfer local files to or from your file share. Updating files from within Cloud Shell is reflected in the file storage GUI when you refresh the blade.
+## <a name="transfer-local-files-to-cloud-shell"></a>Lokale bestanden overbrengen naar de Cloud Shell
+De `clouddrive` directory wordt gesynchroniseerd met de Azure portal-opslag-blade. Gebruik deze blade om over te dragen van lokale bestanden naar of van de bestandsshare. Bijwerken van bestanden vanuit Cloud Shell wordt doorgevoerd in de file storage GUI wanneer u de blade vernieuwt.
 
-### <a name="download-files"></a>Download files
+### <a name="download-files"></a>Bestanden downloaden
 
-![List of local files](../articles/cloud-shell/media/persisting-shell-storage/download.png)
-1. In the Azure portal, go to the mounted file share.
-2. Select the target file.
-3. Select the **Download** button.
+![Lijst van lokale bestanden](../articles/cloud-shell/media/persisting-shell-storage/download.png)
+1. Ga naar de gekoppelde bestandsshare in de Azure portal.
+2. Selecteer het doelbestand.
+3. Selecteer de **downloaden** knop.
 
-### <a name="upload-files"></a>Upload files
+### <a name="upload-files"></a>Bestanden uploaden
 
-![Local files to be uploaded](../articles/cloud-shell/media/persisting-shell-storage/upload.png)
-1. Go to your mounted file share.
-2. Select the **Upload** button.
-3. Select the file or files that you want to upload.
-4. Confirm the upload.
+![Lokale bestanden te uploaden](../articles/cloud-shell/media/persisting-shell-storage/upload.png)
+1. Ga naar de gekoppelde bestandsshare.
+2. Selecteer de **uploaden** knop.
+3. Selecteer de bestanden die u wilt uploaden.
+4. Bevestig het uploaden.
 
-You should now see the files that are accessible in your `clouddrive` directory in Cloud Shell.
+U ziet nu de bestanden die toegankelijk zijn in uw `clouddrive` map in de Cloud-Shell.

@@ -1,32 +1,30 @@
 ---
 title: Log Analytics gebruiken met een SQL Database-app met meerdere tenants | Microsoft Docs
-description: Log Analytics (OMS) instellen en gebruiken met de Azure SQL Database-voorbeeld-app Wingtip Tickets (WTP)
+description: Instellen en gebruiken van logboekanalyse (OMS) met een multitenant SaaS van Azure SQL Database-app
 keywords: zelfstudie sql-database
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
-ms.workload: data-management
+ms.custom: scale out apps
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
+ms.topic: article
+ms.date: 07/26/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 4ff4519ca40f036d58f82993db78fe08aa7d5733
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 43d46e6a31ee05add33da59348a1d180c4078f97
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="setup-and-use-log-analytics-oms-with-the-wtp-sample-saas-app"></a>Log Analytics (OMS) configureren en uitvoeren met de voorbeeld-SaaS-app WTP
+# <a name="setup-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Instellen en gebruiken van logboekanalyse (OMS) met een multitenant SaaS van Azure SQL Database-app
 
-In deze zelfstudie gaat u *Log Analytics ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* configureren en uitvoeren met de app WTP voor de bewaking van elastische pools en databases. Deze zelfstudie is een vervolg op de zelfstudie [Monitor performance of the WTP sample SaaS application](sql-database-saas-tutorial-performance-monitoring.md) (Prestaties bewaken met de voorbeeld-SaaS-app WTP) en laat zien hoe u met *Log Analytics* de bewakings- en waarschuwingsfuncties van Azure Portal naar een hoger plan kunt tillen. Logboek Analytics is met name geschikt voor bewaking en waarschuwingen op schaal omdat het ondersteuning biedt voor honderden pools en honderdduizenden databases. Bovendien is het een centrale bewakingsoplossing, met mogelijkheden om bewakingsfuncties van andere toepassingen en Azure-services te integreren. Deze integratie is overigens ook mogelijk voor verschillende Azure-abonnementen.
+In deze zelfstudie maakt u instellen en gebruiken *logboekanalyse ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* voor het bewaken van elastische pools en databases. Deze zelfstudie bouwt voort op de [prestatiebewaking en beheer zelfstudie](sql-database-saas-tutorial-performance-monitoring.md). Er wordt weergegeven hoe gebruiken *logboekanalyse* voor het verbeteren van de bewaking en waarschuwingen die in de Azure portal. Log Analytics is geschikt voor bewaking en waarschuwingen op grote schaal omdat honderden pools en honderden of duizenden databases ondersteund. Bovendien is het een centrale bewakingsoplossing, met mogelijkheden om bewakingsfuncties van andere toepassingen en Azure-services te integreren. Deze integratie is overigens ook mogelijk voor verschillende Azure-abonnementen.
 
 In deze zelfstudie leert u het volgende:
 
@@ -36,7 +34,7 @@ In deze zelfstudie leert u het volgende:
 
 U kunt deze zelfstudie alleen voltooien als aan de volgende vereisten wordt voldaan:
 
-* De WTP-app is geïmplementeerd. Zie [De WTP SaaS-toepassing implementeren en verkennen](sql-database-saas-tutorial.md) om dit in minder dan vijf minuten te doen
+* De Wingtip SaaS-app wordt geïmplementeerd. Als u wilt implementeren in minder dan vijf minuten, Zie [implementeren en Verken de Wingtip SaaS-toepassing](sql-database-saas-tutorial.md)
 * Azure PowerShell is geïnstalleerd. Zie [Aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) voor meer informatie.
 
 Zie de zelfstudie [Monitor performance of the WTP sample SaaS application](sql-database-saas-tutorial-performance-monitoring.md) (Prestaties bewaken met de voorbeeld-SaaS-app WTP) voor een beschrijving van de SaaS-scenario's en -patronen, en hoe die van invloed zijn op de vereisten voor een bewakingsoplossing.
@@ -45,19 +43,19 @@ Zie de zelfstudie [Monitor performance of the WTP sample SaaS application](sql-d
 
 Voor SQL Database zijn bewaking en waarschuwingen beschikbaar voor databases en pools. Deze ingebouwde bewakings- en waarschuwingsfuncties zijn resource-specifiek en handig voor kleine aantallen resources. Ze zijn minder geschikt voor het bewaken van grote installaties of om een geïntegreerd overzicht te bieden van verschillende resources en abonnementen.
 
-Voor scenario's met grote volumes kan Log Analytics worden gebruikt. Dit is een afzonderlijke Azure-service die analyse biedt van verzonden diagnostische logboeken en telemetrische gegevens die zijn verzameld in een werkruimte voor logboekanalyse. In een dergelijke ruimte kunnen telemetrische gegevens van allerlei services worden verzameld om op basis hiervan query's uit te voeren en waarschuwingen te genereren. Log Analytics beschikt over een ingebouwde querytaal en hulpprogramma's voor gegevensvisualisatie voor analyse en visualisatie van operationele gegevens. De oplossing SQL Analytics biedt verschillende vooraf gedefinieerde weergaven en query's voor bewaking en waarschuwingen voor elastische pools en databases. Bovendien kunt u uw eigen ad-hocquery's toevoegen en deze desgewenst opslaan. OMS biedt ook een functie voor het ontwerpen van aangepaste weergaven.
+Voor scenario's met grote volumes kan Log Analytics worden gebruikt. Dit is een afzonderlijke Azure-service die analyse biedt van verzonden diagnostische logboeken en telemetrische gegevens die zijn verzameld in een werkruimte voor logboekanalyse. In een dergelijke ruimte kunnen telemetrische gegevens van allerlei services worden verzameld om op basis hiervan query's uit te voeren en waarschuwingen te genereren. Log Analytics beschikt over een ingebouwde querytaal en hulpprogramma's voor gegevensvisualisatie voor analyse en visualisatie van operationele gegevens. De SQL-Analytics-oplossing biedt verschillende vooraf gedefinieerde elastische pool en database bewaking en waarschuwingen, weergaven en query's en kunt u uw eigen ad-hocquery's toevoegen en sla ze indien nodig. OMS biedt ook een functie voor het ontwerpen van aangepaste weergaven.
 
 Werkruimten en analyse-oplossingen van Log Analytics kunnen worden geopend in zowel Azure Portal als OMS. Azure Portal is het nieuwere toegangspunt, maar loopt qua functionaliteit mogelijk iets achter op de OMS-portal.
 
-### <a name="start-the-load-generator-to-create-data-to-analyze"></a>De load-generator starten om gegevens te maken om te analyseren
+### <a name="create-data-by-starting-the-load-generator"></a>Maken van gegevens op basis van de load-generator 
 
 1. Open **Demo-PerformanceMonitoringAndManagement.ps1** in de **PowerShell ISE**. Laat dit script open aangezien u mogelijk verschillende scenario's voor het genereren van gegevens wilt uitvoeren tijdens deze zelfstudie.
-1. Als u minder dan vijf tenants hebt, richt dan een batch met tenants in om een interessantere context te bieden:
+1. Als u minder dan vijf tenants hebt, bewaking inrichten van een batch te bieden een meer interessante tenants context:
    1. Stel het volgende in: **$DemoScenario = 1,** **Batch met tenants inrichten**
-   1. Druk op **F5** om het script uit te voeren.
+   1. Het script wordt uitgevoerd, drukt u op **F5**.
 
-1. Stel het volgende in: **$DemoScenario = 2,** **Belasting met normale intensiteit genereren (ongeveer 40 DTU's)**.
-1. Druk op **F5** om het script uit te voeren.
+1. Stel **$DemoScenario** = 2, **genereren normale intensiteit laden (ongeveer 40 DTU)**.
+1. Het script wordt uitgevoerd, drukt u op **F5**.
 
 ## <a name="get-the-wingtip-application-scripts"></a>De scripts van de Wingtip-toepassing downloaden
 
@@ -65,18 +63,18 @@ De scripts en broncode van de Wingtip Tickets-toepassing zijn beschikbaar in de 
 
 ## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>Log Analytics en de oplossing Azure SQL Analytics installeren en configureren
 
-Log Analytics is een afzonderlijke service die moet worden geconfigureerd. Log Analytics verzamelt logboekgegevens en telemetrische en metrische gegevens in een speciale werkruimte voor logboekanalyse. Een werkruimte is een resource, net als andere resources in Azure, en moet eerst worden gemaakt. Hoewel het niet verplicht is om de werkruimte te maken in dezelfde resourcegroep als de toepassing(en) die ermee worden bewaakt, is dit vaak wel het handigst. In het geval van de WTP-app betekent dit dat de werkruimte eenvoudig samen met de toepassing kan worden verwijderd door de resourcegroep te verwijderen.
+Log Analytics is een afzonderlijke service die moet worden geconfigureerd. Log Analytics verzamelt logboekgegevens en telemetrische en metrische gegevens in een speciale werkruimte voor logboekanalyse. Een werkruimte is een resource, net als andere resources in Azure, en moet eerst worden gemaakt. Hoewel het niet verplicht is om de werkruimte te maken in dezelfde resourcegroep als de toepassing(en) die ermee worden bewaakt, is dit vaak wel het handigst. Voor de app Wingtip SaaS kunnen hierdoor de werkruimte om eenvoudig door gewoon de resourcegroep te verwijderen met de toepassing worden verwijderd.
 
 1. Open ...\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\*Demo-LogAnalytics.ps1* in de **PowerShell ISE**.
-1. Druk op **F5** om het script uit te voeren.
+1. Het script wordt uitgevoerd, drukt u op **F5**.
 
-Op dit moment moet u Log Analytics kunnen openen in Azure Portal (of de OMS-portal). Het duurt een paar minuten voordat er telemetriegegevens zijn verzameld en deze worden weergegeven in de werkruimte van Log Analytics. Hoe langer u het systeem gegevens laat verzamelen, hoe interessanter de ervaring. U kunt nu misschien even iets anders gaan doen, maar controleer eerst of de load-generator nog wel actief is.
+U moet op dit moment kunnen openen logboekanalyse in de Azure-portal (of de OMS-portal). Het duurt enkele minuten duren voordat de telemetrie moeten worden verzameld in de werkruimte voor logboekanalyse en zichtbaar worden. Hoe langer laat u het systeem verzamelen van gegevens de interessanter de ervaring is. U kunt nu misschien even iets anders gaan doen, maar controleer eerst of de load-generator nog wel actief is.
 
 
 ## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Pools en databases bewaken met Log Analytics en de SQL Analytics-oplossing
 
 
-In deze oefening opent u Log Analytics en de OMS-portal om te kijken naar de telemetrische gegevens die worden verzameld voor de WTP-databases en -pools.
+Open in deze oefening Log Analytics en de OMS-portal om te kijken naar de telemetrie die worden verzameld voor de databases en pools.
 
 1. Blader naar [Azure Portal](https://portal.azure.com) en open Log Analytics door te klikken op Meer services en te zoeken naar Log Analytics:
 
@@ -134,7 +132,6 @@ In deze zelfstudie hebt u het volgende geleerd:
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Aanvullende zelfstudies die voortbouwen op de eerste implementatie van WTP (Wingtip Tickets Platform)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Aanvullende zelfstudies waarin voort op de implementatie van de eerste Wingtip SaaS-toepassing bouwen](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
 * [OMS](https://blogs.technet.microsoft.com/msoms/2017/02/21/azure-sql-analytics-solution-public-preview/)
-
