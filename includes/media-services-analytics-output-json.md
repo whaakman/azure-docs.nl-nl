@@ -12,7 +12,7 @@ De JSON van de uitvoer bevat de volgende kenmerken:
 | fragmenten |De metagegevens wordt gesegmenteerde in verschillende segmenten fragmenten aangeroepen. Elke fragment bevat een start, duur, Intervalnummer en gebeurtenis(sen). |
 | start |De begintijd van de eerste gebeurtenis in 'maatstreepjes'. |
 | Duur |De lengte van het fragment, in 'maatstreepjes'. |
-| Interval |Het interval van elke gebeurtenisvermelding in het fragment, in 'maatstreepjes'. |
+| interval |Het interval van elke gebeurtenisvermelding in het fragment, in 'maatstreepjes'. |
 | events |Elke gebeurtenis bevat de vlakken gedetecteerd en bijgehouden in die tijd. Het is een matrix van gebeurtenissen. De buitenste matrix vertegenwoordigt een tijdsinterval. De interne matrix bestaat uit 0 of meer gebeurtenissen die hebben plaatsgevonden op dat moment. Een leeg accolade [] betekent dat er geen vlakken zijn gedetecteerd. |
 | id |De ID van het oppervlak dat wordt bijgehouden. Dit nummer mogelijk per ongeluk wijzigen als een gezicht niet gevonden wordt. Een bepaalde persoon moet dezelfde ID in de algehele video hebben, maar dit kan niet worden gegarandeerd door beperkingen in de detectie-algoritme (Occlusie, enz.) |
 | x, y |De linkerbovenhoek X en Y-coördinaten van het oppervlak begrenzingsvak in een genormaliseerde schaal van 0,0 en 1,0. <br/>-X en Y coördinaten ten opzichte van Liggend altijd, zijn dus als er een portret video (of omlaag, in het geval van iOS), hebt u de coördinaten dienovereenkomstig omzetting. |

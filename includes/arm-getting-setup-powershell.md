@@ -1,12 +1,12 @@
-## <a name="setting-up-powershell-for-resource-manager-templates"></a>Setting up PowerShell for Resource Manager templates
-Before you can use Azure PowerShell with Resource Manager, you will need to have the right Windows PowerShell and Azure PowerShell versions.
+## <a name="setting-up-powershell-for-resource-manager-templates"></a>PowerShell in te stellen voor Resource Manager-sjablonen
+Voordat u Azure PowerShell met Resource Manager gebruiken kunt, moet u het recht Windows PowerShell en Azure PowerShell versies hebben.
 
-### <a name="verify-powershell-versions"></a>Verify PowerShell versions
-Verify you have Windows PowerShell version 3.0 or 4.0. To find the version of Windows PowerShell, type this command at a Windows PowerShell command prompt.
+### <a name="verify-powershell-versions"></a>Controleer of de PowerShell-versies
+Controleer of dat u Windows PowerShell versie 3.0 of 4.0 hebt. Ga voor de versie van Windows PowerShell, typ de volgende opdracht achter de opdrachtprompt van Windows PowerShell.
 
     $PSVersionTable
 
-You will receive the following type of information:
+U ontvangt het volgende type informatie:
 
     Name                           Value
     ----                           -----
@@ -19,20 +19,20 @@ You will receive the following type of information:
     PSRemotingProtocolVersion      2.2
 
 
-Verify that the value of **PSVersion** is 3.0 or 4.0. If not, see [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+Controleer de waarde van **PSVersion** 3.0 of 4.0. Als dit niet het geval is, Zie [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) of [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
-### <a name="set-your-azure-account-and-subscription"></a>Set your Azure account and subscription
-If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
+### <a name="set-your-azure-account-and-subscription"></a>Uw Azure-account en -abonnement instellen
+Als u nog geen Azure-abonnement hebt, kunt u activeren uw [voordelen als MSDN-abonnee](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 
-Open an Azure PowerShell command prompt and log on to Azure with this command.
+Open een Azure PowerShell-opdrachtprompt en meld u aan bij Azure met deze opdracht.
 
     Login-AzureRmAccount
 
-If you have multiple Azure subscriptions, you can list your Azure subscriptions with this command.
+Als u meerdere Azure-abonnementen hebt, kunt u uw Azure-abonnementen met deze opdracht weergeven.
 
     Get-AzureRmSubscription
 
-You will receive the following type of information:
+U ontvangt het volgende type informatie:
 
     SubscriptionId            : fd22919d-eaca-4f2b-841a-e4ac6770g92e
     SubscriptionName          : Visual Studio Ultimate with MSDN
@@ -45,10 +45,10 @@ You will receive the following type of information:
     CurrentStorageAccountName :
     TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
 
-You can set the current Azure subscription by running these commands at the Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters, with the correct name.
+U kunt de huidige Azure-abonnement instellen door het uitvoeren van deze opdrachten bij de Azure PowerShell-opdrachtprompt. Vervang alles binnen de aanhalingstekens, met inbegrip van de < en > tekens lang zijn en de juiste naam.
 
     $subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
     Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
-For more information about Azure subscriptions and accounts, see [How to: Connect to your subscription](/powershell/azureps-cmdlets-docs#step-3-connect).
+Zie voor meer informatie over Azure-abonnementen en accounts [hoe: verbinding maken met uw abonnement](/powershell/azureps-cmdlets-docs#step-3-connect).
 

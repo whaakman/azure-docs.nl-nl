@@ -1,5 +1,5 @@
 
-The code for all of the functions in a given function app lives in a root folder that contains a host configuration file and one or more subfolders, each of which contain the code for a separate function, as in the following example:
+De code voor alle functies in een bepaalde functie-app woont in een hoofdmap met een configuratiebestand van de host en een of meer submappen, elk waarvan de code voor een afzonderlijke functie, zoals in het volgende voorbeeld bevat:
 
 ```
 wwwroot
@@ -15,7 +15,7 @@ wwwroot
  | | - run.csx
 ```
 
-The *host.json* file contains some runtime-specific configuration and sits in the root folder of the function app. For information on settings that are available, see [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) in the WebJobs.Script repository wiki.
+De *host.json* bestand bevat een runtime-specifieke configuratie en bevindt zich in de hoofdmap van de functie-app. Zie voor informatie over de instellingen die beschikbaar zijn, [host.json verwijzing](../articles/azure-functions/functions-host-json.md).
 
-Each function has a folder that contains one or more code files, the function.json configuration and other dependencies.
+Elke functie heeft een map met een of meer codebestanden, de configuratie van de function.json en andere afhankelijkheden.
 

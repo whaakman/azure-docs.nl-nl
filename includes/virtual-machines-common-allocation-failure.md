@@ -1,210 +1,210 @@
 
-If your Azure issue is not addressed in this article, visit the [Azure forums on MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
+Als uw Azure probleem niet wordt besproken in dit artikel, gaat u naar de [Azure-forums op MSDN en Stack Overflow](https://azure.microsoft.com/support/forums/). U kunt het probleem op deze forums of boeken @AzureSupport op Twitter. U kunt ook een ondersteuning van Azure-aanvraag indienen door te selecteren **ondersteuning krijgen** op de [ondersteuning van Azure](https://azure.microsoft.com/support/options/) site.
 
-## <a name="general-troubleshooting-steps"></a>General troubleshooting steps
-### <a name="troubleshoot-common-allocation-failures-in-the-classic-deployment-model"></a>Troubleshoot common allocation failures in the classic deployment model
-These steps can help resolve many allocation failures in virtual machines:
+## <a name="general-troubleshooting-steps"></a>Algemene stappen voor probleemoplossing
+### <a name="troubleshoot-common-allocation-failures-in-the-classic-deployment-model"></a>Algemene toewijzingsfouten in het klassieke implementatiemodel
+Deze stappen oplossen veel toewijzingsfouten in virtuele machines:
 
-* Resize the VM to a different VM size.<br>
-    Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Settings** > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
-* Delete all VMs from the cloud service and re-create VMs.<br>
-    Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Delete**. Then, click **New** > **Compute** > [virtual machine image].
+* De grootte van de virtuele machine naar een andere VM-grootte.<br>
+    Klik op **door alle Bladeren** > **virtuele machines (klassiek)** > uw virtuele machine > **instellingen** > **grootte**. Zie voor gedetailleerde stappen [vergroten of verkleinen van de virtuele machine](https://msdn.microsoft.com/library/dn168976.aspx).
+* Alle virtuele machines van de cloudservice verwijderen en opnieuw maken van virtuele machines.<br>
+    Klik op **door alle Bladeren** > **virtuele machines (klassiek)** > uw virtuele machine > **verwijderen**. Klik vervolgens op **nieuw** > **Compute** > [installatiekopie van virtuele machine].
 
-### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Troubleshoot common allocation failures in the Azure Resource Manager deployment model
-These steps can help resolve many allocation failures in virtual machines:
+### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Algemene toewijzingsfouten in het Azure Resource Manager-implementatiemodel
+Deze stappen oplossen veel toewijzingsfouten in virtuele machines:
 
-* Stop (deallocate) all VMs in the same availability set, then restart each one.<br>
-    To stop: Click **Resource groups** > your resource group > **Resources** > your availability set > **Virtual Machines** > your virtual machine > **Stop**.
+* Gestopt (toewijzing ongedaan maken) alle VM's in de dezelfde beschikbaarheid instellen, start vervolgens elke service.<br>
+    Om te stoppen: klik op **resourcegroepen** > uw resourcegroep > **Resources** > uw beschikbaarheidsset > **virtuele Machines** > uw virtuele machine >  **Stop**.
   
-    After all VMs stop, select the first VM and click **Start**.
+    Nadat alle virtuele machines stoppen, selecteert u de eerste virtuele machine en klik op **Start**.
 
-## <a name="background-information"></a>Background information
-### <a name="how-allocation-works"></a>How allocation works
-The servers in Azure datacenters are partitioned into clusters. Normally, an allocation request is attempted in multiple clusters, but it's possible that certain constraints from the allocation request force the Azure platform to attempt the request in only one cluster. In this article, we'll refer to this as "pinned to a cluster." Diagram 1 below illustrates the case of a normal allocation that is attempted in multiple clusters. Diagram 2 illustrates the case of an allocation that's pinned to Cluster 2 because that's where the existing Cloud Service CS_1 or availability set is hosted.
-![Allocation Diagram](./media/virtual-machines-common-allocation-failure/Allocation1.png)
+## <a name="background-information"></a>Achtergrondinformatie
+### <a name="how-allocation-works"></a>De werking van toewijzing
+De servers in Azure-datacenters worden in clusters gepartitioneerd. Normaal gesproken een toewijzingsaanvraag wordt uitgevoerd in meerdere clusters, maar het is mogelijk dat bepaalde beperkingen van de aanvraag voor geheugentoewijzing de Azure-platform dwingen om de aanvraag in slechts één cluster. In dit artikel verwijzen we naar dit zoals "vastgemaakt aan een cluster." Afbeelding 1 hieronder ziet u dat het geval van een normale toewijzing waartoe in meerdere clusters. Diagram 2 ziet u dat het geval van een toewijzing die is vastgemaakt aan Cluster 2 omdat waar de bestaande Cloud Service CS_1 of beschikbaarheid set wordt gehost.
+![Diagram van toewijzing](./media/virtual-machines-common-allocation-failure/Allocation1.png)
 
-### <a name="why-allocation-failures-happen"></a>Why allocation failures happen
-When an allocation request is pinned to a cluster, there's a higher chance of failing to find free resources since the available resource pool is smaller. Furthermore, if your allocation request is pinned to a cluster but the type of resource you requested is not supported by that cluster, your request will fail even if the cluster has free resources. Diagram 3 below illustrates the case where a pinned allocation fails because the only candidate cluster does not have free resources. Diagram 4 illustrates the case where a pinned allocation fails because the only candidate cluster does not support the requested VM size, even though the cluster has free resources.
+### <a name="why-allocation-failures-happen"></a>Waarom toewijzingsfouten gebeuren
+Wanneer een aanvraag voor geheugentoewijzing is vastgemaakt aan een cluster, is er een hogere kans niet te vinden van resources vrij, omdat de groep beschikbare resource kleiner is. Bovendien als uw aanvraag voor geheugentoewijzing is vastgemaakt aan een cluster, maar het type resource dat u hebt aangevraagd wordt niet ondersteund door dit cluster, zal uw aanvraag mislukken zelfs als het cluster resources vrij heeft. Diagram 3 hieronder ziet u het geval waarbij een vastgezette toewijzing is mislukt omdat het cluster alleen candidate geen gratis resources. Diagram 4 ziet u het geval waarbij een vastgezette toewijzing is mislukt omdat het cluster alleen candidate biedt geen ondersteuning voor de aangevraagde VM-grootte, zelfs als het cluster resources vrij heeft.
 
-![Pinned Allocation Failure](./media/virtual-machines-common-allocation-failure/Allocation2.png)
+![Vastgemaakte geheugentoewijzing is mislukt](./media/virtual-machines-common-allocation-failure/Allocation2.png)
 
-## <a name="detailed-troubleshoot-steps-specific-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Detailed troubleshoot steps specific allocation failure scenarios in the classic deployment model
-Here are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
+## <a name="detailed-troubleshoot-steps-specific-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Gedetailleerde stappen specifieke toewijzing in scenario's fouten in het klassieke implementatiemodel oplossen
+Hier vindt u algemene scenario's toewijzing die ertoe leiden dat een aanvraag voor geheugentoewijzing om te worden vastgemaakt. We je Duik in elk scenario verderop in dit artikel.
 
-* Resize a VM or add VMs or role instances to an existing cloud service
-* Restart partially stopped (deallocated) VMs
-* Restart fully stopped (deallocated) VMs
-* Staging/production deployments (platform as a service only)
-* Affinity group (VM/service proximity)
-* Affinity-group-based virtual network
+* Wijzig het formaat van een virtuele machine of virtuele machines of rolinstanties toevoegen aan een bestaande cloudservice
+* Gedeeltelijk gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten
+* Volledig gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten
+* Fasering/productie-implementaties (platform als een service alleen)
+* Affiniteitsgroep (VM-/ service nabijheid)
+* Virtueel netwerk op basis van affiniteit-groep
 
-When you receive an allocation error, see if any of the scenarios described apply to your error. Use the allocation error returned by the Azure platform to identify the corresponding scenario. If your request is pinned, remove some of the pinning constraints to open your request to more clusters, thereby increasing the chance of allocation success.
+Wanneer u een toewijzingsfout ontvangt, kunt u zien als een van de scenario's beschreven op fout in uw toepassing. Gebruik de toewijzingsfout geretourneerd door de Azure-platform voor het identificeren van het betreffende scenario. Als uw aanvraag is vastgemaakt, verwijder enkele van de vastmaken beperkingen uw aanvraag om meer clusters, waardoor de kans van slagen van de toewijzing te openen.
 
-In general, as long as the error does not indicate "the requested VM size is not supported," you can always retry at a later time, as enough resources may have been freed in the cluster to accommodate your request. If the problem is that the requested VM size is not supported, try a different VM size. Otherwise, the only option is to remove the pinning constraint.
+In het algemeen, zolang de fout betekent niet 'de aangevraagde VM-grootte wordt niet ondersteund', u kunt altijd opnieuw uitvoeren op een later tijdstip, zoals onvoldoende bronnen is in het cluster vrijgemaakt mogelijk aan uw aanvraag. Als het probleem is dat de aangevraagde VM-grootte niet wordt ondersteund, kunt u een andere VM-grootte. Anders is de enige optie als de vastmaken beperking wilt verwijderen.
 
-Two common failure scenarios are related to affinity groups. In the past, an affinity group was used to provide close proximity to VMs/service instances, or it was used to enable the creation of a virtual network. With the introduction of regional virtual networks, affinity groups are no longer required to create a virtual network. With the reduction of network latency in Azure infrastructure, the recommendation to use affinity groups for VM/service proximity has changed.
+Twee algemene scenario's met fouten gerelateerd aan affiniteitsgroepen. In het verleden een affiniteitsgroep is gebruikt om te bieden dicht bij de virtuele machines/service-exemplaren of voor het maken van een virtueel netwerk is gebruikt. Dankzij de introductie van regionale virtuele netwerken, affiniteitsgroepen niet langer zijn vereist voor het maken van een virtueel netwerk. Met de vermindering van de netwerklatentie in Azure-infrastructuur, is de aanbeveling om de affiniteit tussen groepen gebruiken voor het VM-/ service nabijheid gewijzigd.
 
-Diagram 5 below presents the taxonomy of the (pinned) allocation scenarios.
-![Pinned Allocation Taxonomy](./media/virtual-machines-common-allocation-failure/Allocation3.png)
+Diagram 5 hieronder toont de taxonomie van de toewijzing van (vastgemaakt)-scenario's.
+![Vastgezette toewijzing taxonomie](./media/virtual-machines-common-allocation-failure/Allocation3.png)
 
 > [!NOTE]
-> The error listed in each allocation scenario is a short form. Refer to the [Error string lookup](#Error string lookup) for detailed error strings.
+> De volgende fout weergegeven in elk scenario van toewijzing is een korte vorm. Raadpleeg de [fout tekenreeks lookup](#Error string lookup) voor gedetailleerde foutberichten.
 > 
 > 
 
-## <a name="allocation-scenario-resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>Allocation scenario: Resize a VM or add VMs or role instances to an existing cloud service
-**Error**
+## <a name="allocation-scenario-resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>Scenario van toewijzing: Wijzig het formaat van een virtuele machine of virtuele machines of rolinstanties toevoegen aan een bestaande cloudservice
+**Fout**
 
-Upgrade_VMSizeNotSupported or GeneralError
+Upgrade_VMSizeNotSupported of GeneralError
 
-**Cause of cluster pinning**
+**Oorzaak van het cluster vastmaken**
 
-A request to resize a VM or add a VM or a role instance to an existing cloud service has to be attempted at the original cluster that hosts the existing cloud service. Creating a new cloud service allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
+Een aanvraag om de grootte van een virtuele machine of een virtuele machine of een rolinstantie toevoegen aan een bestaande cloudservice moet worden uitgevoerd op het oorspronkelijke cluster die als host fungeert voor de bestaande cloudservice. Een nieuwe cloudservice maakt, wordt de Azure-platform om te zoeken naar een ander cluster die ondersteuning biedt voor de VM-grootte die u hebt aangevraagd of resources vrij heeft.
 
-**Workaround**
+**Tijdelijke oplossing**
 
-If the error is Upgrade_VMSizeNotSupported*, try a different VM size. If using a different VM size is not an option, but if it's acceptable to use a different virtual IP address (VIP), create a new cloud service to host the new VM and add the new cloud service to the regional virtual network where the existing VMs are running. If your existing cloud service does not use a regional virtual network, you can still create a new virtual network for the new cloud service, and then connect your [existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Als de fout is Upgrade_VMSizeNotSupported *, kunt u een andere VM-grootte. Als met behulp van een andere VM-grootte kan niet worden gebruikt, maar als het is acceptabel gebruik van een ander virtueel IP-adres (VIP), maakt u een nieuwe cloudservice voor het hosten van de nieuwe virtuele machine en de nieuwe cloudservice toevoegen aan het regionale virtuele netwerk waarin de bestaande virtuele machines worden uitgevoerd. Als uw bestaande cloudservice niet voor een regionaal virtueel netwerk gebruikt wordt, kunt u nog steeds een nieuw virtueel netwerk voor de nieuwe cloudservice maken en maken vervolgens verbinding met uw [bestaand virtueel netwerk met de nieuwe virtuele netwerk](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Zie voor meer informatie over [regionale virtuele netwerken](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-If the error is GeneralError*, it's likely that the type of resource (such as a particular VM size) is supported by the cluster, but the cluster does not have free resources at the moment. Similar to the above scenario, add the desired compute resource through creating a new cloud service (note that the new cloud service has to use a different VIP) and use a regional virtual network to connect your cloud services.
+Als de fout is GeneralError *, is het waarschijnlijk dat het type resource (zoals een bepaalde VM-grootte) wordt ondersteund door het cluster, maar het cluster geen gratis resources op het moment dat heeft. Vergelijkbaar met het bovenstaande scenario, de gewenste compute resource bij het maken van een nieuwe cloudservice (Let erop dat de nieuwe cloudservice heeft tot het gebruik van een andere VIP) toevoegen en gebruiken van een regionaal virtueel netwerk verbinding maken uw cloudservices verkregen.
 
-## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Allocation scenario: Restart partially stopped (deallocated) VMs
-**Error**
+## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Scenario van toewijzing: gedeeltelijk gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten
+**Fout**
 
-GeneralError*
+GeneralError *
 
-**Cause of cluster pinning**
+**Oorzaak van het cluster vastmaken**
 
-Partial deallocation means that you stopped (deallocated) one or more, but not all, VMs in a cloud service. When you stop (deallocate) a VM, the associated resources are released. Restarting that stopped (deallocated) VM is therefore a new allocation request. Restarting VMs in a partially deallocated cloud service is equivalent to adding VMs to an existing cloud service. The allocation request has to be attempted at the original cluster that hosts the existing cloud service. Creating a different cloud service allows the Azure platform to find another cluster that has free resource or supports the VM size that you requested.
+Gedeeltelijke toewijzing is opgeheven betekent dat u (toewijzing ongedaan gemaakt) een of meer, maar niet alle virtuele machines in een cloudservice gestopt. Wanneer u stopt (ongedaan gemaakt) een virtuele machine, de bijbehorende bronnen worden vrijgegeven. Opnieuw starten die gestopt (toewijzing ongedaan gemaakt) VM is daarom een nieuwe aanvraag voor geheugentoewijzing. Opnieuw opstarten van virtuele machines in een gedeeltelijk toewijzing ongedaan is gemaakt van de cloudservice is gelijk aan het toevoegen van virtuele machines aan een bestaande cloudservice. De aanvraag voor geheugentoewijzing moet worden uitgevoerd op het oorspronkelijke cluster die als host fungeert voor de bestaande cloudservice. Een andere cloudservice maakt, wordt de Azure-platform om te zoeken naar een ander cluster die ondersteuning biedt voor de VM-grootte die u hebt aangevraagd of gratis resource heeft.
 
-**Workaround**
+**Tijdelijke oplossing**
 
-If it's acceptable to use a different VIP, delete the stopped (deallocated) VMs (but keep the associated disks) and add the VMs back through a different cloud service. Use a regional virtual network to connect your cloud services:
+Als het aanvaardbaar is voor gebruik van een andere VIP, verwijderen van de gestopt (toewijzing ongedaan gemaakt) virtuele machines (maar de gekoppelde schijven behouden) en de virtuele machines opnieuw door een andere cloudservice toevoegen. Gebruik een regionaal virtueel netwerk voor de verbinding met uw cloudservices:
 
-* If your existing cloud service uses a regional virtual network, simply add the new cloud service to the same virtual network.
-* If your existing cloud service does not use a regional virtual network, create a new virtual network for the new cloud service, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+* Als uw bestaande cloudservice een regionaal virtueel netwerk gebruikt, moet u gewoon de nieuwe cloudservice toevoegen aan hetzelfde virtuele netwerk.
+* Als uw bestaande cloudservice niet voor een regionaal virtueel netwerk gebruikt wordt, een nieuw virtueel netwerk voor de nieuwe cloudservice maken en vervolgens [uw bestaande virtuele netwerk verbinden met de nieuwe virtuele netwerk](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Zie voor meer informatie over [regionale virtuele netwerken](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-## <a name="allocation-scenario-restart-fully-stopped-deallocated-vms"></a>Allocation scenario: Restart fully stopped (deallocated) VMs
-**Error**
+## <a name="allocation-scenario-restart-fully-stopped-deallocated-vms"></a>Scenario van toewijzing: volledig gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten
+**Fout**
 
-GeneralError*
+GeneralError *
 
-**Cause of cluster pinning**
+**Oorzaak van het cluster vastmaken**
 
-Full deallocation means that you stopped (deallocated) all VMs from a cloud service. The allocation requests to restart these VMs have to be attempted at the original cluster that hosts the cloud service. Creating a new cloud service allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
+Volledige toewijzing is opgeheven betekent dat u gestopt (toewijzing opgeheven) alle VM's van een cloudservice. De toewijzingsaanvragen voor deze virtuele machines opnieuw moeten worden uitgevoerd op het oorspronkelijke cluster die als host fungeert voor de cloudservice. Een nieuwe cloudservice maakt, wordt de Azure-platform om te zoeken naar een ander cluster die ondersteuning biedt voor de VM-grootte die u hebt aangevraagd of resources vrij heeft.
 
-**Workaround**
+**Tijdelijke oplossing**
 
-If it's acceptable to use a different VIP, delete the original stopped (deallocated) VMs (but keep the associated disks) and delete the corresponding cloud service (the associated compute resources were already released when you stopped (deallocated) the VMs). Create a new cloud service to add the VMs back.
+Als deze aanvaardbaar is voor gebruik van een andere VIP, verwijderen van de oorspronkelijke gestopt (toewijzing ongedaan gemaakt) virtuele machines (maar houd het bijbehorende schijven) en verwijder de bijbehorende cloudservice (de bijbehorende rekenresources zijn al is vrijgegeven wanneer u gestopt (toewijzing ongedaan gemaakt) de virtuele machines). Maak een nieuwe cloudservice voor het toevoegen van de virtuele machines terug.
 
-## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Allocation scenario: Staging/production deployments (platform as a service only)
-**Error**
+## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Scenario van toewijzing: tijdelijke/productie-implementaties (platform als een service alleen)
+**Fout**
 
-New_General* or New_VMSizeNotSupported*
+New_General * of New_VMSizeNotSupported *
 
-**Cause of cluster pinning**
+**Oorzaak van het cluster vastmaken**
 
-The staging deployment and the production deployment of a cloud service are hosted in the same cluster. When you add the second deployment, the corresponding allocation request will be attempted in the same cluster that hosts the first deployment.
+De implementatie van fasering en productie-implementatie van een cloudservice worden gehost in hetzelfde cluster. Wanneer u de tweede implementatie toevoegt, wordt de bijbehorende toewijzingsaanvraag geprobeerd in hetzelfde cluster die als host fungeert voor de eerste implementatie.
 
-**Workaround**
+**Tijdelijke oplossing**
 
-Delete the first deployment and the original cloud service and redeploy the cloud service. This action may land the first deployment in a cluster that has enough free resources to fit both deployments or in a cluster that supports the VM sizes that you requested.
+Verwijder de eerste implementatie en de oorspronkelijke cloudservice en implementeer de cloudservice opnieuw. Deze actie kan de eerste implementatie terechtkomen in een cluster met onvoldoende resources vrij voor beide implementaties of in een cluster die ondersteuning biedt voor de VM-grootten die u hebt aangevraagd.
 
-## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Allocation scenario: Affinity group (VM/service proximity)
-**Error**
+## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Scenario van toewijzing: affiniteitsgroep (VM-/ service nabijheid)
+**Fout**
 
-New_General* or New_VMSizeNotSupported*
+New_General * of New_VMSizeNotSupported *
 
-**Cause of cluster pinning**
+**Oorzaak van het cluster vastmaken**
 
-Any compute resource assigned to an affinity group is tied to one cluster. New compute resource requests in that affinity group are attempted in the same cluster where the existing resources are hosted. This is true whether the new resources are created through a new cloud service or through an existing cloud service.
+Een compute resource toegewezen aan een affiniteitsgroep is gekoppeld aan één cluster. Nieuwe compute resource aanvragen in de betreffende affiniteitsgroep bevinden worden geprobeerd in hetzelfde cluster waar de bestaande bronnen worden gehost. Dit geldt of de nieuwe resources zijn gemaakt via een nieuwe cloudservice of een bestaande cloudservice.
 
-**Workaround**
+**Tijdelijke oplossing**
 
-If an affinity group is not necessary, do not use an affinity group, or group your compute resources into multiple affinity groups.
+Als een affiniteitsgroep niet nodig is, gebruikt u een affiniteitsgroep of uw rekenresources te groeperen in meerdere affiniteitsgroepen.
 
-## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Allocation scenario: Affinity-group-based virtual network
-**Error**
+## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Scenario van toewijzing: virtueel netwerk op basis van affiniteit-groep
+**Fout**
 
-New_General* or New_VMSizeNotSupported*
+New_General * of New_VMSizeNotSupported *
 
-**Cause of cluster pinning**
+**Oorzaak van het cluster vastmaken**
 
-Before regional virtual networks were introduced, you were required to associate a virtual network with an affinity group. As a result, compute resources placed into an affinity group are bound by the same constraints as described in the "Allocation scenario: Affinity group (VM/service proximity)" section above. The compute resources are tied to one cluster.
+Voordat de regionale virtuele netwerken zijn geïntroduceerd, moest u een virtueel netwerk koppelen aan een affiniteitsgroep. Als gevolg hiervan compute resources in een affiniteitsgroep geplaatst zijn gebonden aan de dezelfde beperkingen, zoals beschreven in de ' toewijzing scenario: affiniteitsgroep (VM-/ service nabijheid) ' hierboven. De rekenresources zijn gekoppeld aan één cluster.
 
-**Workaround**
+**Tijdelijke oplossing**
 
-If you do not need an affinity group, create a new regional virtual network for the new resources you're adding, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Als u niet in een affiniteitsgroep hoeft, maakt u een nieuw regionaal virtueel netwerk voor de nieuwe resources die u toevoegen wilt, en vervolgens [uw bestaande virtuele netwerk verbinden met de nieuwe virtuele netwerk](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Zie voor meer informatie over [regionale virtuele netwerken](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-Alternatively, you can [migrate your affinity-group-based virtual network to a regional virtual network](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), and then add the desired resources again.
+U kunt ook [uw virtueel netwerk voor op basis van affiniteit-groep migreren naar een regionaal virtueel netwerk](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), en voeg vervolgens de gewenste bronnen opnieuw toe.
 
-## <a name="detailed-troubleshooting-steps-specific-allocation-failure-scenarios-in-the-azure-resource-manager-deployment-model"></a>Detailed troubleshooting steps specific allocation failure scenarios in the Azure Resource Manager deployment model
-Here are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
+## <a name="detailed-troubleshooting-steps-specific-allocation-failure-scenarios-in-the-azure-resource-manager-deployment-model"></a>Gedetailleerde probleemoplossing stappen specifieke toewijzing in scenario's fouten in het Azure Resource Manager-implementatiemodel
+Hier vindt u algemene scenario's toewijzing die ertoe leiden dat een aanvraag voor geheugentoewijzing om te worden vastgemaakt. We je Duik in elk scenario verderop in dit artikel.
 
-* Resize a VM or add VMs or role instances to an existing cloud service
-* Restart partially stopped (deallocated) VMs
-* Restart fully stopped (deallocated) VMs
+* Wijzig het formaat van een virtuele machine of virtuele machines of rolinstanties toevoegen aan een bestaande cloudservice
+* Gedeeltelijk gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten
+* Volledig gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten
 
-When you receive an allocation error, see if any of the scenarios described apply to your error. Use the allocation error returned by the Azure platform to identify the corresponding scenario. If your request is pinned to an existing cluster, remove some of the pinning constraints to open your request to more clusters, thereby increasing the chance of allocation success.
+Wanneer u een toewijzingsfout ontvangt, kunt u zien als een van de scenario's beschreven op fout in uw toepassing. Gebruik de toewijzingsfout geretourneerd door de Azure-platform voor het identificeren van het betreffende scenario. Als uw aanvraag is vastgemaakt aan een bestaand cluster, verwijder enkele van de vastmaken beperkingen uw aanvraag om meer clusters, waardoor de kans van slagen van de toewijzing te openen.
 
-In general, as long as the error does not indicate "the requested VM size is not supported," you can always retry at a later time, as enough resources may have been freed in the cluster to accommodate your request. If the problem is that the requested VM size is not supported, see below for workarounds.
+In het algemeen, zolang de fout betekent niet 'de aangevraagde VM-grootte wordt niet ondersteund', u kunt altijd opnieuw uitvoeren op een later tijdstip, zoals onvoldoende bronnen is in het cluster vrijgemaakt mogelijk aan uw aanvraag. Als het probleem is dat de aangevraagde VM-grootte niet wordt ondersteund, Zie hieronder voor tijdelijke oplossingen.
 
-## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Allocation scenario: Resize a VM or add VMs to an existing availability set
-**Error**
+## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Scenario van toewijzing: Wijzig het formaat van een virtuele machine of virtuele machines toevoegen aan een bestaande beschikbaarheidsset
+**Fout**
 
-Upgrade_VMSizeNotSupported* or GeneralError*
+Upgrade_VMSizeNotSupported * of GeneralError *
 
-**Cause of cluster pinning**
+**Oorzaak van het cluster vastmaken**
 
-A request to resize a VM or add a VM to an existing availability set has to be attempted at the original cluster that hosts the existing availability set. Creating a new availability set allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
+Een aanvraag om de grootte van een virtuele machine of een virtuele machine toevoegen aan een bestaande beschikbaarheidsset moet worden uitgevoerd op het oorspronkelijke cluster die als host fungeert voor de bestaande beschikbaarheidsset. Een nieuwe beschikbaarheidsset maakt, wordt de Azure-platform om te zoeken naar een ander cluster die ondersteuning biedt voor de VM-grootte die u hebt aangevraagd of resources vrij heeft.
 
-**Workaround**
+**Tijdelijke oplossing**
 
-If the error is Upgrade_VMSizeNotSupported*, try a different VM size. If using a different VM size is not an option, stop all VMs in the availability set. You can then change the size of the virtual machine that will allocate the VM to a cluster that supports the desired VM size.
+Als de fout is Upgrade_VMSizeNotSupported *, kunt u een andere VM-grootte. Als u met behulp van een andere VM-grootte kan niet worden gebruikt, stopt u alle virtuele machines in de beschikbaarheidsset. Vervolgens kunt u de grootte van de virtuele machine die de virtuele machine naar een cluster die ondersteuning biedt voor de gewenste VM-grootte worden toegewezen.
 
-If the error is GeneralError*, it's likely that the type of resource (such as a particular VM size) is supported by the cluster, but the cluster does not have free resources at the moment. If the VM can be part of a different availability set, create a new VM in a different availability set (in the same region). This new VM can then be added to the same virtual network.  
+Als de fout is GeneralError *, is het waarschijnlijk dat het type resource (zoals een bepaalde VM-grootte) wordt ondersteund door het cluster, maar het cluster geen gratis resources op het moment dat heeft. Als de virtuele machine deel van een andere beschikbaarheidsset uitmaken kan, maakt u een nieuwe virtuele machine in een andere beschikbaarheidsset (in dezelfde regio). Deze nieuwe virtuele machine kan vervolgens worden toegevoegd aan hetzelfde virtuele netwerk.  
 
-## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Allocation scenario: Restart partially stopped (deallocated) VMs
-**Error**
+## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Scenario van toewijzing: gedeeltelijk gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten
+**Fout**
 
-GeneralError*
+GeneralError *
 
-**Cause of cluster pinning**
+**Oorzaak van het cluster vastmaken**
 
-Partial deallocation means that you stopped (deallocated) one or more, but not all, VMs in an availability set. When you stop (deallocate) a VM, the associated resources are released. Restarting that stopped (deallocated) VM is therefore a new allocation request. Restarting VMs in a partially deallocated availability set is equivalent to adding VMs to an existing availability set. The allocation request has to be attempted at the original cluster that hosts the existing availability set.
+Gedeeltelijke toewijzing is opgeheven betekent dat u (toewijzing ongedaan gemaakt) een of meer gestopt, maar niet alle virtuele machines in een beschikbaarheidsset ingesteld. Wanneer u stopt (ongedaan gemaakt) een virtuele machine, de bijbehorende bronnen worden vrijgegeven. Opnieuw starten die gestopt (toewijzing ongedaan gemaakt) VM is daarom een nieuwe aanvraag voor geheugentoewijzing. Opnieuw opstarten van virtuele machines in een gedeeltelijk toewijzing ongedaan is gemaakt beschikbaarheidsset is gelijk aan het toevoegen van virtuele machines aan een bestaande beschikbaarheidsset. De aanvraag voor geheugentoewijzing moet worden uitgevoerd op het oorspronkelijke cluster die als host fungeert voor de bestaande beschikbaarheidsset.
 
-**Workaround**
+**Tijdelijke oplossing**
 
-Stop all VMs in the availability set before restarting the first one. This will ensure that a new allocation attempt is run and that a new cluster can be selected that has available capacity.
+Stop alle virtuele machines in de beschikbaarheidsset voordat de eerste die opnieuw wordt opgestart. Dit zorgt ervoor dat er een nieuwe poging van de toewijzing wordt uitgevoerd en dat een nieuw cluster kan worden geselecteerd met de beschikbare capaciteit.
 
-## <a name="allocation-scenario-restart-fully-stopped-deallocated"></a>Allocation scenario: Restart fully stopped (deallocated)
-**Error**
+## <a name="allocation-scenario-restart-fully-stopped-deallocated"></a>Scenario van toewijzing: opnieuw opstarten volledig gestopt (toewijzing ongedaan gemaakt)
+**Fout**
 
-GeneralError*
+GeneralError *
 
-**Cause of cluster pinning**
+**Oorzaak van het cluster vastmaken**
 
-Full deallocation means that you stopped (deallocated) all VMs in an availability set. The allocation request to restart these VMs will target all clusters that support the desired size.
+Volledige toewijzing is opgeheven betekent dat u gestopt (toewijzing opgeheven) alle VM's in een beschikbaarheidsset. De aanvraag voor geheugentoewijzing opnieuw opstarten van deze virtuele machines heeft betrekking op alle clusters die ondersteuning bieden voor de gewenste grootte.
 
-**Workaround**
+**Tijdelijke oplossing**
 
-Select a new VM size to allocate. If this does not work, please try again later.
+Selecteer een nieuwe VM-grootte toe te wijzen. Probeer het later opnieuw als dit niet werkt.
 
 <a name="Error string lookup"></a>
 
-## <a name="error-string-lookup"></a>Error string lookup
+## <a name="error-string-lookup"></a>Fout bij het opzoeken tekenreeks
 **New_VMSizeNotSupported***
 
-"The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints. If possible, try relaxing constraints such as virtual network bindings, deploying to a hosted service with no other deployment in it and to a different affinity group or with no affinity group, or try deploying to a different region."
+'De VM grootte (of combinatie van VM-formaten) vereist voor deze implementatie kan niet worden ingericht als gevolg van implementatie aanvraag beperkingen. Indien mogelijk, probeer doet beperkingen, zoals de bindingen van virtueel netwerk, implementeren op een gehoste service met geen andere implementatie in het en naar een andere affiniteitsgroep of niets affiniteitsgroep of implementeren op een andere regio."
 
 **New_General***
 
-"Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an affinity group, or it targets a virtual network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
+'Toewijzing is mislukt; kan niet voldoen aan de beperkingen in de aanvraag. De aangevraagde nieuwe service-implementatie is gebonden aan een affiniteitsgroep of er een bestaande implementatie onder deze gehoste service is gericht op een virtueel netwerk. Deze omstandigheden Hiermee beperkt u de nieuwe implementatie voor specifieke Azure-resources. Probeer het later opnieuw of verklein de VM-grootte of het aantal rolinstanties. U kunt ook indien mogelijk, verwijder de hiervoor genoemde beperkingen of probeer te implementeren naar een andere regio.'
 
 **Upgrade_VMSizeNotSupported***
 
-"Unable to upgrade the deployment. The requested VM size XXX may not be available in the resources supporting the existing deployment. Please try again later, try with a different VM size or smaller number of role instances, or create a deployment under an empty hosted service with a new affinity group or no affinity group binding."
+'Kan geen upgrade uitvoeren van de implementatie. De aangevraagde VM-grootte XXX mogelijk niet beschikbaar in de resources die de bestaande implementatie ondersteunen. Probeer het later opnieuw, probeer met een andere VM-grootte of met minder rolinstanties, of maak een implementatie onder een lege gehoste service met een nieuwe affiniteitsgroep of niets affiniteitsgroep binding."
 
 **GeneralError***
 
-"The server encountered an internal error. Please retry the request." Or "Failed to produce an allocation for the service."
+'De server heeft een interne fout. Probeer de aanvraag." Of "Voor het produceren van een toewijzing voor de service mislukt."
 

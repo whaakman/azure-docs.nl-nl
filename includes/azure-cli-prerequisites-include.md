@@ -1,8 +1,8 @@
-## <a name="prerequisite-install-the-azure-cli"></a>Prerequisite: Install the Azure CLI
-To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](../articles/cli-install-nodejs.md) and you need to [log on to Azure](../articles/xplat-cli-connect.md). 
+## <a name="prerequisite-install-the-azure-cli"></a>Voorwaarde: Installeer de Azure CLI
+Als u wilt de stappen in dit artikel uitvoert, moet u [installeren van de Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI)](../articles/cli-install-nodejs.md) en u moet [Meld u aan bij Azure](../articles/xplat-cli-connect.md). 
 
 > [!NOTE]
-> If you don't have an Azure account, you need one. Go sign up for a [free trial here](../articles/active-directory/sign-up-organization.md). In addition, to follow along completely you need to have either [jq](https://stedolan.github.io/jq/) or some other JSON parsing tool or library installed.
+> Als u geen Azure-account hebt, moet u een. U kunt zich [hier aanmelden voor een gratis proefversie](../articles/active-directory/sign-up-organization.md). Bovendien te volgen volledig hoeft te hebben ofwel [jq](https://stedolan.github.io/jq/) of enige andere JSON parseren hulpprogramma of de tapewisselaar die zijn geïnstalleerd.
 > 
 > 
 

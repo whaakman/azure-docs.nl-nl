@@ -1,67 +1,67 @@
-## <a name="os-config"></a>Add IP addresses to a VM operating system
+## <a name="os-config"></a>IP-adressen toevoegen aan een VM-besturingssysteem
 
-Connect and login to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses (including the primary) that you added to the VM. Complete the following steps for your VM operating system:
+Maak verbinding met en meld u aan bij een virtuele machine die u met meerdere privé-IP-adressen hebt gemaakt. U moet alle privé-IP-adressen (met inbegrip van het primaire) die u aan de virtuele machine hebt toegevoegd, handmatig toevoegen. Voer de volgende stappen uit voor het VM-besturingssysteem:
 
 ### <a name="windows"></a>Windows
 
-1. From a command prompt, type *ipconfig /all*.  You only see the *Primary* private IP address (through DHCP).
-2. Type *ncpa.cpl* in the command prompt to open the **Network connections** window.
-3. Open the properties for the appropriate adapter: **Local Area Connection**.
-4. Double-click Internet Protocol version 4 (IPv4).
-5. Select **Use the following IP address** and enter the following values:
+1. Typ vanaf een opdrachtprompt *ipconfig /all*.  U ziet alleen het *primaire* privé-IP-adres (via DHCP).
+2. Typ *ncpa.cpl* in het opdrachtpromptvenster om het venster **Netwerkverbindingen** te openen.
+3. Open de eigenschappen van de geschikte adapter: **LAN-verbinding**.
+4. Dubbelklik op Internet Protocol versie 4 (IPv4).
+5. Selecteer **Het volgende IP-adres gebruiken** en voer de volgende waarden in:
 
-    * **IP address**: Enter the *Primary* private IP address
-    * **Subnet mask**: Set based on your subnet. For example, if the subnet is a /24 subnet then the subnet mask is 255.255.255.0.
-    * **Default gateway**: The first IP address in the subnet. If your subnet is 10.0.0.0/24, then the gateway IP address is 10.0.0.1.
-    * Click **Use the following DNS server addresses** and enter the following values:
-        * **Preferred DNS server**: If you are not using your own DNS server, enter 168.63.129.16.  If you are using your own DNS server, enter the IP address for your server.
-    * Click the **Advanced** button and add additional IP addresses. Add each of the secondary private IP addresses listed in step 8 to the NIC with the same subnet specified for the primary IP address.
+    * **IP-adres**: voer het *primaire* privé-IP-adres in
+    * **Subnetmasker**: stel dit in op basis van uw subnet. Als het subnet bijvoorbeeld een /24 subnet is, is het subnetmasker 255.255.255.0.
+    * **Standaardgateway**: het eerste IP-adres in het subnet. Als uw subnet 10.0.0.0/24 is, is het IP-adres van de gateway 10.0.0.1.
+    * Klik op **De volgende DNS-serveradressen gebruiken** en voer de volgende waarden in:
+        * **DNS-voorkeursserver**: als u niet uw eigen DNS-server gebruikt, voert u 168.63.129.16 in.  Als u uw eigen DNS-server gebruikt, voert u het IP-adres voor de server in.
+    * Klik op de knop **Geavanceerd** en voeg extra IP-adressen toe. Voeg elk van de secundaire privé-IP-adressen die in stap 8 worden vermeld, toe aan de NIC met hetzelfde subnet dat voor het primaire IP-adres is opgegeven.
         >[!WARNING] 
-        >If you do not follow the steps above correctly, you may lose connectivity to your VM. Ensure the information entered for step 5 is accurate before proceeding.
+        >Als u de bovenstaande stappen niet correct uitvoert, kan het zijn dat de verbinding met uw virtuele machine wordt verbroken. Zorg ervoor dat de gegevens die u hebt ingevoerd voor stap 5 kloppen voordat u doorgaat.
 
-    * Click **OK** to close out the TCP/IP settings and then **OK** again to close the adapter settings. Your RDP connection is re-established.
+    * Klik op **OK** om de TCP/IP-instellingen te sluiten en vervolgens nogmaals op **OK** om de instellingen van de netwerkadapter te sluiten. Uw RDP-verbinding wordt opnieuw tot stand gebracht.
 
-6. From a command prompt, type *ipconfig /all*. All IP addresses you added are shown and DHCP is turned off.
+6. Typ vanaf een opdrachtprompt *ipconfig /all*. Alle IP-adressen die u hebt toegevoegd, worden weergegeven en DHCP is uitgeschakeld.
 
 
-### <a name="validation-windows"></a>Validation (Windows)
+### <a name="validation-windows"></a>Validatie (Windows)
 
-To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, once you have added it correctly using steps above, use the following command:
+Als u wilt controleren of u via uw secundaire IP-configuratie verbinding kunt maken met internet via de openbare IP die eraan is gekoppeld, gebruikt u de volgende opdracht nadat u de bovenstaande stappen hebt gevolgd:
 
 ```bash
 ping -S 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+>Voor secundaire IP-configuraties, kunt u alleen een ping naar het Internet als de configuratie een openbaar IP-adres dat is gekoppeld heeft. Voor primaire IP-configuraties, is een openbaar IP-adres niet vereist op ping met Internet.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
-1. Open a terminal window.
-2. Make sure you are the root user. If you are not, enter the following command:
+1. Open een terminalvenster.
+2. Controleer of u de hoofdgebruiker bent. Voer de volgende opdracht in als u niet de hoofdgebruiker bent:
 
     ```bash
     sudo -i
     ```
 
-3. Update the configuration file of the network interface (assuming ‘eth0’).
+3. Werk het configuratiebestand van de netwerkinterface bij (uitgaande van 'eth0').
 
-    * Keep the existing line item for dhcp. The primary IP address remains configured as it was previously.
-    * Add a configuration for an additional static IP address with the following commands:
+    * Houd het bestaande regelitem voor dhcp. Het primaire IP-adres blijft geconfigureerd als voorheen.
+    * Voeg een configuratie toe voor een extra statisch IP-adres met de volgende opdrachten:
 
         ```bash
         cd /etc/network/interfaces.d/
         ls
         ```
 
-    You should see a .cfg file.
-4. Open the file. You should see the following lines at the end of the file:
+    U moet een .CFG-bestand zien.
+4. Open het bestand. U moet de volgende regels aan het einde van het bestand zien:
 
     ```bash
     auto eth0
     iface eth0 inet dhcp
     ```
 
-5. Add the following lines after the lines that exist in this file:
+5. Voeg de volgende regels toe na de regels die zijn opgenomen in dit bestand:
 
     ```bash
     iface eth0 inet static
@@ -69,66 +69,66 @@ ping -S 10.0.0.5 hotmail.com
     netmask <your subnet mask>
     ```
 
-6. Save the file by using the following command:
+6. Sla het bestand op met de volgende opdracht:
 
     ```bash
     :wq
     ```
 
-7. Reset the network interface with the following command:
+7. Stel de netwerkinterface opnieuw in met de volgende opdracht:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
     > [!IMPORTANT]
-    > Run both ifdown and ifup in the same line if using a remote connection.
+    > Voer zowel ifdown als ifup op dezelfde regel uit als u een externe verbinding gebruikt.
     >
 
-8. Verify the IP address is added to the network interface with the following command:
+8. Controleer of het IP-adres is toegevoegd aan de netwerkinterface met de volgende opdracht:
 
     ```bash
     ip addr list eth0
     ```
 
-    You should see the IP address you added as part of the list.
+    Het IP-adres dat u hebt toegevoegd, moet nu in de lijst staan.
 
-### <a name="linux-redhat-centos-and-others"></a>Linux (Redhat, CentOS, and others)
+### <a name="linux-redhat-centos-and-others"></a>Linux (Redhat, CentOS en anderen)
 
-1. Open a terminal window.
-2. Make sure you are the root user. If you are not, enter the following command:
+1. Open een terminalvenster.
+2. Controleer of u de hoofdgebruiker bent. Voer de volgende opdracht in als u niet de hoofdgebruiker bent:
 
     ```bash
     sudo -i
     ```
 
-3. Enter your password and follow instructions as prompted. Once you are the root user, navigate to the network scripts folder with the following command:
+3. Voer uw wachtwoord in en volg de instructies. Wanneer u de hoofdgebruiker bent, navigeert u met de volgende opdracht naar de map met netwerkscripts:
 
     ```bash
     cd /etc/sysconfig/network-scripts
     ```
 
-4. List the related ifcfg files using the following command:
+4. Geef een lijst weer met de gerelateerde ifcfg-bestanden met de volgende opdracht:
 
     ```bash
     ls ifcfg-*
     ```
 
-    You should see *ifcfg-eth0* as one of the files.
+    *ifcfg eth0* moet als een van de bestanden worden weergegeven.
 
-5. To add an IP address, create a configuration file for it as shown below. Note that one file must be created for each IP configuration.
+5. Als u een IP-adres wilt toevoegen, maakt u er een configuratiebestand voor zoals hieronder wordt weergegeven. Houd er rekening mee dat er voor elke IP-configuratie één bestand moet worden gemaakt.
 
     ```bash
     touch ifcfg-eth0:0
     ```
 
-6. Open the *ifcfg-eth0:0* file with the following command:
+6. Open het bestand *ifcfg-eth0:0* met de volgende opdracht:
 
     ```bash
     vi ifcfg-eth0:0
     ```
 
-7. Add content to the file, *eth0:0* in this case, with the following command. Be sure to update information based on your IP address.
+7. Voeg inhoud toe aan het bestand, in dit geval *eth0:0*, met de volgende opdracht. Zorg ervoor dat u de gegevens bijwerkt op basis van uw IP-adres.
 
     ```bash
     DEVICE=eth0:0
@@ -138,32 +138,32 @@ ping -S 10.0.0.5 hotmail.com
     NETMASK=255.255.255.0
     ```
 
-8. Save the file with the following command:
+8. Sla het bestand op met de volgende opdracht:
 
     ```bash
     :wq
     ```
 
-9. Restart the network services and make sure the changes are successful by running the following commands:
+9. Start de netwerkservices opnieuw op en controleer of de wijzigingen zijn toegepast door de volgende opdrachten uit te voeren:
 
     ```bash
     /etc/init.d/network restart
     ifconfig
     ```
 
-    You should see the IP address you added, *eth0:0*, in the list returned.
+    Het IP-adres dat u hebt toegevoegd, *eth0:0*, moet nu in de lijst staan die wordt opgehaald.
 
-### <a name="validation-linux"></a>Validation (Linux)
+### <a name="validation-linux"></a>Validatie (Linux)
 
-To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
+Als u wilt controleren of u via uw secundaire IP-configuratie verbinding kunt maken met internet via de openbare IP die eraan is gekoppeld, gebruikt u de volgende opdracht:
 
 ```bash
 ping -I 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+>Voor secundaire IP-configuraties, kunt u alleen een ping naar het Internet als de configuratie een openbaar IP-adres dat is gekoppeld heeft. Voor primaire IP-configuraties, is een openbaar IP-adres niet vereist op ping met Internet.
 
-For Linux VMs, when trying to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. There are many ways to do this. Please see appropriate documentation for your Linux distribution. The following is one method to accomplish this:
+Voor virtuele Linux-machines moet u mogelijk geschikte routes toevoegen wanneer u probeert uitgaande verbindingen te valideren vanaf een secundaire NIC. Er zijn meerdere manieren om dit te doen. Zie de relevante documentatie voor uw Linux-distributie. Hieronder staat één van de mogelijke manieren:
 
 ```bash
 echo 150 custom >> /etc/iproute2/rt_tables 
@@ -172,7 +172,7 @@ ip rule add from 10.0.0.5 lookup custom
 ip route add default via 10.0.0.1 dev eth2 table custom
 
 ```
-- Be sure to replace:
-    - **10.0.0.5** with the private IP address that has a public IP address associated to it
-    - **10.0.0.1** to your default gateway
-    - **eth2** to the name of your secondary NIC
+- Vervang de volgende zaken:
+    - **10.0.0.5** door het privé-IP-adres waaraan een openbaar IP-adres is gekoppeld
+    - **10.0.0.1** door uw standaardgateway
+    - **eth2** door de naam van uw secundaire NIC

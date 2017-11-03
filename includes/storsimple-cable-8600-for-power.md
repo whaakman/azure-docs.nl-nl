@@ -1,41 +1,41 @@
 <!--author=alkohli last changed: 9/16/15-->
 
 
-#### <a name="to-cable-your-device-for-power"></a>To cable your device for power
+#### <a name="to-cable-your-device-for-power"></a>Op uw apparaat voor power bekabelen
 > [!NOTE]
-> Both enclosures on your StorSimple device include redundant PCMs. For each enclosure, the PCMs must be installed and connected to different power sources to ensure high availability.
+> Beide behuizingen op uw StorSimple-apparaat bevatten redundante PCMs. Voor elke behuizing moeten de PCMs worden geïnstalleerd en is verbonden met verschillende energiebeheerschema bronnen om hoge beschikbaarheid te garanderen.
 > 
 > 
 
-1. Make sure that the power switches on all the PCMs are in the OFF position.
-2. On the primary enclosure, connect the power cords to both PCMs. The power cords are identified in red in the power cabling diagram, below.
-3. Make sure that the two PCMs on the primary enclosure use separate power sources.
-4. Attach the power cords to the power on the rack distribution units as shown in the power cabling diagram.
-5. Repeat steps 2 through 4 for the EBOD enclosure.
-6. Turn on the EBOD enclosure by flipping the power switch on each PCM to the ON position.
-7. Verify that the EBOD enclosure is turned on by checking that the green LEDs on the back of the EBOD controller are turned ON.
-8. Turn on the primary enclosure by flipping each PCM switch to the ON position.
-9. Verify that the system is on by ensuring the device controller LEDs have turned ON.
-10. Make sure that the connection between the EBOD controller and the device controller is active by verifying that the four LEDs next to the SAS port on the EBOD controller are green.
+1. Zorg ervoor dat de energie-switches op alle PCMs op OFF positie.
+2. Op de primaire behuizing de stroomkabels een verbinding met beide PCMs. De stroomkabels worden aangeduid in rood in het power kabels diagram hieronder.
+3. Zorg ervoor dat de twee PCMs op de primaire behuizing afzonderlijke stroomvoorziening gebruikt.
+4. Koppel de stroomkabels tot de macht op de distributiepunten rackeenheden zoals weergegeven in het diagram bekabeling power.
+5. Herhaal stappen 2 t/m 4 voor de EBOD behuizing.
+6. De behuizing EBOD inschakelen door het spiegelen van de switch power op elke PCM naar de ON-positie.
+7. Controleer of dat de behuizing EBOD is ingeschakeld door te controleren dat de groene LED's op de achterkant van de controller EBOD zijn ingeschakeld.
+8. De primaire behuizing inschakelen door het spiegelen van elke PCM-switch op de positie op.
+9. Controleer of het systeem op door ervoor te zorgen de apparaat-controller die LED 's hebt ingeschakeld.
+10. Zorg ervoor dat de verbinding tussen de EBOD-controller en de controller apparaat actief is, door te controleren of de vier LED's naast de SAS-poort op de controller EBOD groen zijn.
     
     > [!IMPORTANT]
-    > To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram.
+    > Om ervoor te zorgen hoge beschikbaarheid voor uw systeem, is het raadzaam dat u strikt voldoen aan de kracht bekabeling schema in het volgende diagram wordt weergegeven.
     > 
     > 
     
-    ![Cable your 4U device for power](./media/storsimple-cable-8600-for-power/HCSCableYour4UDeviceforPower.png)
+    ![Uw apparaat 4U voor power bekabelen](./media/storsimple-cable-8600-for-power/HCSCableYour4UDeviceforPower.png)
     
-    **Power cabling**
+    **Power bekabeling**
     
-    | Label | Description |
+    | Label | Beschrijving |
     |:--- |:--- |
-    | 1 |Primary enclosure |
+    | 1 |Primaire behuizing |
     | 2 |PCM 0 |
     | 3 |PCM 1 |
     | 4 |Controller 0 |
     | 5 |Controller 1 |
-    | 6 |EBOD controller 0 |
+    | 6 |EBOD-controller 0 |
     | 7 |EBOD controller 1 |
-    | 8 |EBOD enclosure |
-    | 9 |PDUs |
+    | 8 |EBOD behuizing |
+    | 9 |PDU 's |
 

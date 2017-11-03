@@ -1,37 +1,37 @@
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
-> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
+> * [C#/node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
 
-Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that connects to it.
+Apparaatdubbels zijn JSON-documenten waarin statusinformatie van een apparaat (metagegevens, configuraties en voorwaarden) zijn opgeslagen. IoT Hub persistente een apparaat twin voor elk apparaat dat verbinding met het maakt.
 
-Use device twins to:
+Apparaat horende te gebruiken:
 
-* Store device metadata from your solution back end.
-* Report current state information such as available capabilities and conditions (for example, the connectivity method used) from your device app.
-* Synchronize the state of long-running workflows (such as firmware and configuration updates) between a device app and a back-end app.
-* Query your device metadata, configuration, or state.
+* Opslaan van metagegevens van apparaten uit de back-end van uw oplossing.
+* Huidige statusinformatie zoals de beschikbare mogelijkheden en voorwaarden (bijvoorbeeld: de connectiviteit-methode gebruikt) van uw app apparaat rapporteren.
+* De status van langlopende werkstromen (zoals updates, firmware en configuratie) tussen een apparaat-app en een back-endserver voor apps worden gesynchroniseerd.
+* De metagegevens van apparaten, de configuratie of de status opvragen.
 
 > [!NOTE]
-> Device twins are designed for synchronization and for querying device configurations and conditions. More informations on when to use device twins can be found in [Understand device twins][lnk-twins].
+> Apparaat horende zijn ontworpen voor synchronisatie en voor het uitvoeren van query's apparaatconfiguraties en voorwaarden. Meer informatie over op het gebruik van apparaat horende vindt u in [apparaat horende begrijpen][lnk-twins].
 
-Device twins are stored in an IoT hub and contain:
+Apparaat horende worden opgeslagen in een IoT-hub en bevatten:
 
-* *tags*, device metadata accessible only by the solution back end;
-* *desired properties*, JSON objects modifiable by the solution back end and observable by the device app; and
-* *reported properties*, JSON objects modifiable by the device app and readable by the solution back end. Tags and properties cannot contain arrays, but objects can be nested.
+* *labels*, de metagegevens van de apparaten is alleen toegankelijk is voor de back-end oplossing;
+* *Eigenschappen gewenst*, JSON-objecten die kunnen worden gewijzigd door de oplossing back-end en opslagtijd met de apparaat-app en
+* *Eigenschappen gerapporteerd*, JSON-objecten kunnen worden gewijzigd door de apparaat-app en gelezen door de back-end oplossing. Labels en eigenschappen kunnen geen matrices bevatten, maar objecten kunnen worden genest.
 
 ![][img-twin]
 
-Additionally, the solution back end can query device twins based on all the above data.
-Refer to [Understand device twins][lnk-twins] for more information about device twins, and to the [IoT Hub query language][lnk-query] reference for querying.
+De back-end oplossing kan bovendien apparaat horende op basis van de bovenstaande gegevens opvragen.
+Raadpleeg [horende apparaten begrijpen] [ lnk-twins] voor meer informatie over het apparaat horende de [querytaal IoT Hub] [ lnk-query] referentiemateriaal uitvoeren van query's.
 
 
-This tutorial shows you how to:
+In deze handleiding ontdekt u hoe u:
 
-* Create a back-end app that adds *tags* to a device twin, and a simulated device app that reports its connectivity channel as a *reported property* on the device twin.
-* Query devices from your back-end app using filters on the tags and properties previously created.
+* Maakt een back-end-app die wordt toegevoegd *labels* een twin apparaat en een gesimuleerde apparaattoepassing die rapporteert het kanaal verbinding als een *gerapporteerd eigenschap* op het apparaat twin.
+* Query uitvoeren op apparaten van uw back-end-app met behulp van filters op de labels en de eigenschappen die eerder hebt gemaakt.
 
 <!-- images -->
 [img-twin]: media/iot-hub-selector-twin-get-started/twin.png

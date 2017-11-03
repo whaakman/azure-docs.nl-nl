@@ -1,36 +1,36 @@
-## <a name="incremental-and-complete-deployments"></a>Incremental and complete deployments
-When deploying your resources, you specify that the deployment is either an incremental update or a complete update. The primary difference between these two modes is how Resource Manager handles existing resources in the resource group that are not in the template:
+## <a name="incremental-and-complete-deployments"></a>Incrementele en volledige implementaties
+Bij het implementeren van uw resources, kunt u opgeven dat de implementatie een incrementele update of een volledige update is. Het belangrijkste verschil tussen deze twee modi is hoe Resource Manager omgaat met bestaande resources in de resourcegroep die zich niet in de sjabloon:
 
-* In complete mode, Resource Manager **deletes** resources that exist in the resource group but are not specified in the template. 
-* In incremental mode, Resource Manager **leaves unchanged** resources that exist in the resource group but are not specified in the template.
+* In de volledige modus Resource Manager **verwijdert** resources die aanwezig zijn in de resourcegroep, maar niet zijn opgegeven in de sjabloon. 
+* In de Resource Manager-incrementele modus **blijft ongewijzigd** resources die aanwezig zijn in de resourcegroep, maar niet zijn opgegeven in de sjabloon.
 
-For both modes, Resource Manager attempts to provision all resources specified in the template. If the resource already exists in the resource group and its settings are unchanged, the operation results in no change. If you change the settings for a resource, the resource is provisioned with those new settings. If you attempt to update the location or type of an existing resource, the deployment fails with an error. Instead, deploy a new resource with the location or type that you need.
+Resource Manager probeert voor beide modi voor het inrichten van alle resources die zijn opgegeven in de sjabloon. Als de bron al in de resourcegroep bestaat en de instellingen niet gewijzigd zijn, wordt de bewerking resulteert in niet is gewijzigd. Als u de instellingen voor een bron wijzigt, wordt de resource is ingericht met de nieuwe instellingen. Als u bijwerken en de locatie of het type van een bestaande resource wilt, mislukt de implementatie met een fout. In plaats daarvan implementeert u een nieuwe resource met de locatie of typ dat u nodig hebt.
 
-By default, Resource Manager uses the incremental mode.
+Resource Manager gebruikt standaard de incrementele modus.
 
-To illustrate the difference between incremental and complete modes, consider the following scenario.
+Overweeg het volgende scenario ter illustratie van het verschil tussen de modi incrementele en volledige.
 
-**Existing Resource Group** contains:
+**Bestaande resourcegroep** bevat:
 
-* Resource A
-* Resource B
-* Resource C
+* Bron A
+* Bronnen B
+* Bron C
 
-**Template** defines:
+**Sjabloon** definieert:
 
-* Resource A
-* Resource B
+* Bron A
+* Bronnen B
 * Resource D
 
-When deployed in **incremental** mode, the resource group contains:
+Wanneer geïmplementeerd in **incrementele** modus, de resourcegroep bevat:
 
-* Resource A
-* Resource B
-* Resource C
+* Bron A
+* Bronnen B
+* Bron C
 * Resource D
 
-When deployed in **complete** mode, Resource C is deleted. The resource group contains:
+Wanneer geïmplementeerd in **voltooid** Resource C-modus wordt verwijderd. De resourcegroep bevat:
 
-* Resource A
-* Resource B
+* Bron A
+* Bronnen B
 * Resource D

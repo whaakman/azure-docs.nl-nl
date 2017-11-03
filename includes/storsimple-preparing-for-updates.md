@@ -1,14 +1,14 @@
 <!--author=jgerend last changed: 03/16/16-->
 
-## <a name="preparing-for-updates"></a>Preparing for updates
-You will need to perform the following steps before you scan and apply the update:
+## <a name="preparing-for-updates"></a>Voorbereiden voor updates
+U moet de volgende stappen uitvoeren voordat u het scannen en de update toepassen:
 
-1. Take a cloud snapshot of the device data.
-2. Ensure that your controller fixed IPs are routable and can connect to the Internet. These fixed IPs will be used to service updates to your device. You can test this by running the following cmdlet on each controller from the Windows PowerShell interface of the device:
+1. Een cloud momentopname van de gegevens van het apparaat.
+2. Controleer of uw vaste IP-adressen controller routeerbaar zijn en verbinding kunnen maken met Internet. Deze vaste IP-adressen wordt gebruikt voor het service-updates op uw apparaat. U kunt dit testen met de volgende cmdlet wordt uitgevoerd op elke domeincontroller van de Windows PowerShell-interface van het apparaat:
    
      `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
    
-    **Sample output for Test-Connection when fixed IPs can connect to the Internet**
+    **Voorbeelduitvoer voor Test-Connection wanneer vaste IP-adressen verbinding met Internet maken kan**
 
         Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
 
@@ -28,5 +28,5 @@ You will need to perform the following steps before you scan and apply the updat
         HCSNODE0  204.79.197.200  204.79.197.200
         HCSNODE0  204.79.197.200  204.79.197.200
 
-After you have successfully completed these manual pre-checks, you can proceed to scan and install the updates.
+Nadat u deze handmatig controles vooraf hebt voltooid, kunt u doorgaan om te scannen en de updates worden geïnstalleerd.
 

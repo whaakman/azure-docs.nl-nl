@@ -1,4 +1,4 @@
 > [!TIP]
 >
-> If you plan to use the HTTP or WebHook bindings, plan to avoid port exhaustion that can be caused by improper instantiation of `HttpClient`. For more information, review the article [Improper Instantiation antipattern](https://docs.microsoft.com/en-us/azure/architecture/antipatterns/improper-instantiation/).
+> Als u van plan bent te gebruiken de HTTP- of WebHook bindingen van plan bent om te voorkomen dat uitputting van de poort die kan worden veroorzaakt door onjuiste instantiëring van `HttpClient`. Voor meer informatie raadpleegt u het artikel [onjuiste instantiëring antipattern](https://docs.microsoft.com/en-us/azure/architecture/antipatterns/improper-instantiation/).
 >

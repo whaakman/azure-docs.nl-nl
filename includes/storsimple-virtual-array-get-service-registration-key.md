@@ -1,7 +1,7 @@
-#### <a name="to-get-the-storsimple-service-registration-key"></a>To get the StorSimple service registration key
+#### <a name="to-get-the-storsimple-service-registration-key"></a>De StorSimple-serviceregistratiesleutel ophalen
 
-1.  On the **StorSimple Device Manager** blade, click the service that you created. This opens up a new blade to the right.
+1.  Klik op de blade **StorSimple-apparaatbeheerfunctie** op de service die u hebt gemaakt. Hiermee opent u een nieuwe blad aan de rechterkant.
 
-2.  In the blade that opens up, click **Manage &gt;** **Keys**.
+2.  Klik op de blade wordt geopend **beheren &gt;**  **sleutels**.
 
-3.  Click the copy icon to copy the service registration key and save it for later use.
+3.  Klik op het pictogram kopiëren u de serviceregistratiesleutel kopiëren en opslaan voor later gebruik.

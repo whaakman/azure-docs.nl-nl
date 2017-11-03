@@ -1,27 +1,27 @@
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md)
-> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md)
+> * [C#/node.js](../articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-how-to-configure.md)
 > 
 > 
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Inleiding
 
-In [Get started with IoT Hub device twins][lnk-twin-tutorial], you learned how to set device metadata from your solution back end using *tags*, report device conditions from a device app using *reported properties*, and query this information using a SQL-like language.
+In [aan de slag met IoT Hub apparaat horende][lnk-twin-tutorial], hebt u geleerd hoe u de metagegevens van apparaten instellen van uw oplossing voor back-end met *labels*, voorwaarden apparaat vanuit een app apparaat rapporteren met behulp van *gerapporteerd eigenschappen*, en deze gegevens door middel van een SQL-achtige taal opvragen.
 
-In this tutorial, you learn how to use the device twin's *desired properties* along with *reported properties*, to remotely configure device apps. More specifically, this tutorial shows how a device twin's reported and desired properties enable a multi-step configuration of a device application, and provide the visibility to the solution back end of the status of this operation across all devices. You can find more information regarding the role of device configurations in [Overview of device management with IoT Hub][lnk-dm-overview].
+In deze zelfstudie maakt u informatie over het gebruik van de apparaat-twin *gewenst eigenschappen* samen met *gerapporteerd eigenschappen*, apparaat-apps op afstand te configureren. Meer specifiek, deze zelfstudie laat zien hoe een apparaat-twin gerapporteerd en gewenste eigenschappen een configuratie met meerdere stappen van de apparaattoepassing van een inschakelen en de zichtbaarheid van de oplossing voor back-end van de status van deze bewerking op alle apparaten opgeven. U vindt meer informatie over de rol van apparaatconfiguraties in [overzicht van Apparaatbeheer met IoT Hub][lnk-dm-overview].
 
-At a high level, using device twins enables the solution back end to specify the desired configuration for the managed devices, instead of sending specific commands. This puts the device in charge of setting up the best way to update its configuration (important in IoT scenarios where specific device conditions affect the ability to immediately carry out specific commands), while continually reporting to the solution back end the current state and potential error conditions of the update process. This pattern is instrumental to the management of large sets of devices, as it enables the solution back end to have full visibility of the state of the configuration process across all devices.
+Op een hoog niveau kunt horende apparaten het back-end oplossing om op te geven van de gewenste configuratie voor de beheerde apparaten, in plaats van door specifieke opdrachten te sturen. Hiermee wordt het apparaat die verantwoordelijk is voor de beste manier om het bijwerken van de configuratie ervan (belangrijk in IoT-scenario's waarin specifieke apparaat voorwaarden invloed hebben op het onmiddellijk uit te voeren door specifieke opdrachten) in te stellen geplaatst tijdens voortdurend rapporteren aan de back-end oplossing de huidige status en potentiële fouten van het updateproces. Dit patroon is noodzakelijk hulpmiddel voor het beheer van grote sets van apparaten, zoals kunnen de back-end oplossing volledig inzicht in de status van het configuratieproces hebben op alle apparaten.
 
 > [!NOTE]
-> In scenarios where devices are controlled in a more interactive fashion (turn on a fan from a user-controlled app), consider using [direct methods][lnk-methods].
+> In scenario's waarin apparaten worden beheerd op een nieuwe interactieve wijze (inschakelen voor een ventilator van een gebruiker beheerde app), kunt u overwegen [methoden directe][lnk-methods].
 > 
 > 
 
-In this tutorial, the solution back end changes the telemetry configuration of a target device and, as a result of that, the device app follows a multi-step process to apply a configuration update (for example, requiring a software module restart, which this tutorial simulates with a simple delay).
+In deze zelfstudie, verandert de back-end oplossing de telemetrie-configuratie van een doelapparaat en dat, als gevolg hiervan volgt de apparaattoepassing een proces met meerdere stappen voor het toepassen van een configuratie-update (bijvoorbeeld vereisen van een software-module opnieuw wordt opgestart, waarvoor deze zelfstudie simuleert met een eenvoudige vertraging).
 
-The solution back end stores the configuration in the device twin's desired properties in the following way:
+De back-end oplossing slaat de configuratie in de apparaat-twin gewenste eigenschappen in de volgende manier:
 
         {
             ...
@@ -39,11 +39,11 @@ The solution back end stores the configuration in the device twin's desired prop
         }
 
 > [!NOTE]
-> Since configurations can be complex objects, they are assigned unique IDs (hashes or [GUIDs][lnk-guid]) to simplify their comparisons.
+> Omdat configuraties kunnen complexe objecten, unieke id's zijn toegewezen (hashes of [GUID's][lnk-guid]) voor het vereenvoudigen van hun vergelijkingen.
 > 
 > 
 
-The device app reports its current configuration mirroring the desired property **telemetryConfig** in the reported properties:
+De app apparaat rapporteert de huidige configuratie voor het spiegelen van de gewenste eigenschap **telemetryConfig** in de gerapporteerde eigenschappen:
 
         {
             "properties": {
@@ -59,9 +59,9 @@ The device app reports its current configuration mirroring the desired property 
             }
         }
 
-Note how the reported **telemetryConfig** has an additional property **status**, used to report the state of the configuration update process.
+Opmerking hoe de gerapporteerde **telemetryConfig** heeft een extra eigenschap **status**die worden gebruikt voor het rapporteren van de status van het configuratieproces van de update.
 
-When a new desired configuration is received, the device app reports a pending configuration by changing the information:
+Wanneer een nieuwe gewenste configuratie wordt ontvangen, rapporteert de apparaattoepassing een in behandeling configuratie door de gegevens te wijzigen:
 
         {
             "properties": {
@@ -81,13 +81,13 @@ When a new desired configuration is received, the device app reports a pending c
             }
         }
 
-Then, at some later time, the device app reports the success or failure of this operation by updating the above property.
-Note how the solution back end is able, at any time, to query the status of the configuration process across all the devices.
+Klik vervolgens op een later tijdstip rapporteert de apparaattoepassing het slagen of mislukken van deze bewerking door het bijwerken van de bovenstaande eigenschap.
+Houd er rekening mee hoe de back-end oplossing kunnen op elk gewenst moment de status van de configuratie niet opvragen op alle apparaten.
 
-This tutorial shows you how to:
+In deze handleiding ontdekt u hoe u:
 
-* Create a simulated device app that receives configuration updates from the solution back end, and reports multiple updates as *reported properties* on the configuration update process.
-* Create a back-end app that updates the desired configuration of a device, and then queries the configuration update process.
+* Maakt een gesimuleerd apparaat-app die configuratie-updates ontvangt van de back-end van de oplossing en rapporten van meerdere updates als *eigenschappen gerapporteerd* proces van de configuratie niet bijwerken.
+* Maak een back-end-app die werkt u de gewenste configuratie van een apparaat en het configuratieproces van de update vervolgens een query.
 
 <!-- links -->
 

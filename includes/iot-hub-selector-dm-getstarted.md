@@ -1,18 +1,18 @@
 > [!div class="op_single_selector"]
-> * [Device: Node.js Service: Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
-> * [Device: Node.js Service: C#](../articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md)
-> * [Device: C# Service: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
-> * [Device: Java Service: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
+> * [Apparaat: Node.js-Service: Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
+> * [Apparaat: Node.js-Service: C#](../articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md)
+> * [Apparaat: C#-Service: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
+> * [Apparaat: Java-Service: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
 
-Back-end apps can use Azure IoT Hub primitives, such as [device twin][lnk-devtwin] and [direct methods][lnk-c2dmethod], to remotely start and monitor device management actions on devices. This tutorial shows you how a back-end app and a device app can work together to initiate and monitor a remote device reboot using IoT Hub.
+Back-end apps kunnen gebruiken Azure IoT Hub primitieven, zoals [apparaat twin] [ lnk-devtwin] en [methoden directe][lnk-c2dmethod], op afstand starten en bewaken van apparaat acties op apparaten. Deze zelfstudie laat zien hoe een back-end-app en een apparaat-app samenwerken kunnen om te starten en te bewaken van externe apparaten opnieuw worden opgestart met IoT Hub.
 
-Use a direct method to initiate device management actions (such as reboot, factory reset, and firmware update) from a back-end app in the cloud. The device is responsible for:
+Een directe methode gebruiken om acties voor apparaat (zoals het opnieuw opstarten, Fabrieksinstellingen terugzetten en firmware-update) vanuit een back-end-app in de cloud. Het apparaat is verantwoordelijk voor:
 
-* Handling the method request sent from IoT Hub.
-* Initiating the corresponding device-specific action on the device.
-* Providing status updates through *reported properties* to IoT Hub.
+* Verwerking van de methode-aanvraag die uit IoT Hub zijn verzonden.
+* Bezig met starten van de overeenkomstige apparaatspecifieke actie op het apparaat.
+* Van statusupdates via bieden *eigenschappen gerapporteerd* IoT-hub.
 
-You can use a back-end app in the cloud to run device twin queries to report on the progress of your device management actions.
+U kunt een back-endserver voor apps in de cloud apparaat twin query's om te rapporteren over de voortgang van uw apparaat beheeracties uitvoeren.
 
 [lnk-devtwin]: ../articles/iot-hub/iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md

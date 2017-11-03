@@ -5,8 +5,3 @@
 * [Toepassingen integreren met Azure Active Directory](../articles/active-directory/active-directory-integrating-applications.md)
 * [Artikelindex voor toepassingsbeheer in Azure Active Directory](../articles/active-directory/active-directory-apps-index.md)
 
-
-
-<!--HONumber=Dec16_HO4-->
-
-

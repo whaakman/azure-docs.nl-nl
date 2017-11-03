@@ -1,34 +1,33 @@
-## <a name="prepare-for-akv-integration"></a>Prepare for AKV Integration
-To use Azure Key Vault Integration to configure your SQL Server VM, there are several prerequisites: 
+## <a name="prepare-for-akv-integration"></a>Voorbereiden voor Azure Sleutelkluis-integratie
+Voor het gebruik van Azure Sleutelkluis-integratie voor het configureren van uw SQL Server VM, zijn er verschillende vereisten: 
 
-1. [Install Azure Powershell](#install-azure-powershell)
-2. [Create an Azure Active Directory](#create-an-azure-active-directory)
-3. [Create a key vault](#create-a-key-vault)
+1. [Azure Powershell installeren](#install-azure-powershell)
+2. [Maak een Azure Active Directory](#create-an-azure-active-directory)
+3. [Een sleutelkluis maken](#create-a-key-vault)
 
-The following sections describe these prerequisites and the information you need to collect to later run the PowerShell cmdlets.
+De volgende secties worden deze vereisten en de informatie die u moet verzamelen om uit te voeren later de PowerShell-cmdlets.
 
-### <a name="install-azure-powershell"></a>Install Azure PowerShell
-Make sure you have installed the latest Azure PowerShell SDK. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+### <a name="install-azure-powershell"></a>Azure PowerShell installeren
+Zorg ervoor dat u de nieuwste Azure PowerShell SDK hebt geïnstalleerd. Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor meer informatie.
 
-### <a name="create-an-azure-active-directory"></a>Create an Azure Active Directory
-First, you need to have an [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) in your subscription. Among many benefits, this allows you to grant permission to your key vault for certain users and applications.
+### <a name="create-an-azure-active-directory"></a>Maak een Azure Active Directory
+Eerst moet u hebt een [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) in uw abonnement. Tussen veel voordelen kunt hiermee u een leesmachtiging voor uw sleutelkluis voor bepaalde gebruikers en toepassingen.
 
-Next, register an application with AAD. This will give you a Service Principal account that has access to your key vault which your VM will need. In the Azure Key Vault article, you can find these steps in the [Register an application with Azure Active Directory](../articles/key-vault/key-vault-get-started.md#register) section, or you can see the steps with screen shots in the **Get an identity for the application section** of [this blog post](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Before completing these steps, note that you need to collect the following information during this registration that is needed later when you enable Azure Key Vault Integration on your SQL VM.
+Vervolgens moet u een toepassing registreren met AAD. Hierdoor krijgt u een Service-Principal-account dat toegang heeft tot de sleutelkluis die uw virtuele machine nodig. In het artikel Azure Key Vault vindt u deze stappen in de [een toepassing registreren met Azure Active Directory](../articles/key-vault/key-vault-get-started.md#register) sectie, of u kunt zien welke stappen met schermopnamen in de **een identiteit voor de sectie van de toepassing ophalen**  van [dit blogbericht](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Voordat u deze stappen uitvoert, houd er rekening mee dat u verzamelen van de volgende informatie tijdens deze registratie die later nodig moet wanneer u Azure Sleutelkluis-integratie op uw SQL-VM inschakelt.
 
-* After the application is added, find the **CLIENT ID**  on the **CONFIGURE** tab. 
-    ![Azure Active Directory Client ID](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
+* Nadat de toepassing is toegevoegd, vinden de **CLIENT-ID** op de **configureren** tabblad.   ![Azure Active Directory-Client-ID](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
   
-    The client ID is assigned later to the **$spName** (Service Principal name) parameter in the PowerShell script to enable Azure Key Vault Integration. 
-* Also, during these steps when you create your key, copy the secret for your key as is shown in the following screenshot. This key secret is assigned later to the **$spSecret** (Service Principal secret) parameter in the PowerShell script.  
-    ![Azure Active Directory Secret](./media/virtual-machines-sql-server-akv-prepare/aad-sp-secret.png)
-* You must authorize this new client ID to have the following access permissions: **encrypt**, **decrypt**, **wrapKey**, **unwrapKey**, **sign**, and **verify**. This is done with the [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx) cmdlet. For more information see [Authorize the application to use the key or secret](../articles/key-vault/key-vault-get-started.md#authorize).
+    De client-ID is toegewezen, later naar de **$spName** parameter (Service Principal name) in de PowerShell-script voor het inschakelen van Azure Sleutelkluis-integratie. 
+* Ook tijdens deze stappen wanneer u uw sleutel maakt, Kopieer het geheim voor uw sleutel wordt weergegeven in de volgende schermafbeelding. Deze sleutel geheim krijgt later naar de **$spSecret** (Service Principal-geheim)-parameter in het PowerShell-script.  
+    ![Azure Active Directory-geheim](./media/virtual-machines-sql-server-akv-prepare/aad-sp-secret.png)
+* U moet deze nieuwe client-ID hebben de volgende machtigingen toestaan: **versleutelen**, **ontsleutelen**, **wrapKey**, **unwrapKey**, **aanmelding**, en **controleren**. Dit wordt gedaan met de [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx) cmdlet. Zie voor meer informatie [autoriseren van de toepassing voor het gebruik van de sleutel of geheim](../articles/key-vault/key-vault-get-started.md#authorize).
 
-### <a name="create-a-key-vault"></a>Create a key vault
-In order to use Azure Key Vault to store the keys you will use for encryption in your VM, you need access to a key vault. If you have not already set up your key vault, create one by following the steps in the [Getting Started with Azure Key Vault](../articles/key-vault/key-vault-get-started.md) topic. Before completing these steps, note that there is some information you need to collect during this set up that is needed later when you enable Azure Key Vault Integration on your SQL VM.
+### <a name="create-a-key-vault"></a>Een sleutelkluis maken
+Als u wilt gebruiken Azure Key Vault voor het opslaan van de sleutels die u voor versleuteling in uw virtuele machine gebruikt, moet u toegang tot een sleutelkluis. Als u de sleutelkluis al geen hebt ingesteld, maken door de stappen in de [aan de slag met Azure Key Vault](../articles/key-vault/key-vault-get-started.md) onderwerp. Voordat u deze stappen uitvoert, houd er rekening mee dat er bepaalde informatie die u moet verzamelen tijdens deze instellen hoger is vereist wanneer u Azure Sleutelkluis-integratie op de SQL-VM inschakelen.
 
-When you get to the Create a key vault step, note the returned **vaultUri** property, which is the key vault URL. In the example provided in that step, shown below, the key vault name is ContosoKeyVault, therefore the key vault URL would be https://contosokeyvault.vault.azure.net/.
+Als u de maken een stap sleutelkluis, Let op de geretourneerde **vaultUri** eigenschap, die de sleutelkluis-URL. In het voorbeeld dat is opgegeven in deze stap hieronder aangegeven, dat de naam van de sleutelkluis is ContosoKeyVault, dus is de sleutelkluis-URL https://contosokeyvault.vault.azure.net/.
 
     New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
 
-The key vault URL is assigned later to the **$akvURL** parameter in the PowerShell script to enable Azure Key Vault Integration.
+De sleutelkluis-URL is toegewezen, later naar de **$akvURL** parameter in de PowerShell-script voor het inschakelen van Azure Sleutelkluis-integratie.
 

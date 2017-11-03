@@ -1,94 +1,108 @@
 ---
-title: Azure AD-toepassingsproxy inschakelen | Microsoft Docs
-description: Schakel de toepassingsproxy in de klassieke Azure-portal in en installeer de connectors voor de omgekeerde proxy.
+title: Azure AD-App-Proxy - aan de slag-connector installeren | Microsoft Docs
+description: Toepassingsproxy inschakelen in de Azure-portal en installeer de Connectors voor de omgekeerde proxy.
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
-editor: 
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 07/19/2016
-ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 45ecd5b16b874dcf0ddf16c58f6d9dea6f4afb00
-
-
+ms.topic: article
+ms.date: 10/02/2017
+ms.author: billmath
+ms.reviewer: harshja
+ms.custom: it-pro
+ms.openlocfilehash: 3b0a3e315ecd98565a852b3a8190d78ccdefe42d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="enable-application-proxy-in-the-azure-portal"></a>Toepassingsproxy inschakelen in de Azure-portal
+# <a name="get-started-with-application-proxy-and-install-the-connector"></a>Aan de slag met Application Proxy en installeer de connector
 Dit artikel beschrijft de stappen die nodig zijn om Microsoft Azure AD-toepassingsproxy in te schakelen voor uw clouddirectory in Azure AD.
 
-Als u niet bekend bent met de mogelijkheden van toepassingsproxy, gaat u voor meer informatie naar [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md) (Engelstalig).
+Als u niet bent nog op de hoogte van de voordelen van beveiliging en productiviteit toepassingsproxy aan uw organisatie toevoegt meer informatie over [het verstrekken van veilige externe toegang tot on-premises toepassingen](active-directory-application-proxy-get-started.md).
 
 ## <a name="application-proxy-prerequisites"></a>Vereisten voor toepassingsproxy
 Voordat u de services voor toepassingsproxy kunt inschakelen en gebruiken, moet u over het volgende beschikken:
 
 * Een [basis- of premiumabonnement op Microsoft Azure AD](active-directory-editions.md) en een Azure AD-directory waarvan u een globale beheerder bent.
-* Een server met Windows Server 2012 R2 of Windows 8.1 of hoger, waarop u de connector voor toepassingsproxy kunt installeren. Via de server worden aanvragen naar de services voor toepassingsproxy in de cloud verzonden en er is een HTTP- of HTTPS-verbinding nodig voor de toepassingen die u publiceert.
-  
-  * Voor eenmalige aanmelding bij uw gepubliceerde toepassingen moet deze computer lid zijn van hetzelfde AD-domein als de toepassingen die u publiceert.
-* Als er op het pad een firewall is, zorgt u ervoor dat deze openstaat zodat de connector HTTPS-aanvragen (TCP) kan versturen naar de toepassingsproxy. De connector gebruikt deze poorten samen met subdomeinen die deel uitmaken van de globale domeinen msappproxy.net en servicebus.windows.net. Zorg ervoor dat de hierna genoemde poorten zijn geopend voor **uitgaand** verkeer:
-  
-  | Poortnummer | Beschrijving |
-  | --- | --- |
-  | 80 |Uitgaand HTTP-verkeer voor beveiligingsvalidatie inschakelen |
-  | 443 |Gebruikersverificatie met Azure AD inschakelen (alleen vereist voor het registratieproces voor de connector) |
-  | 10100–10120 |LOB HTTP-responsen terugsturen naar de proxy inschakelen |
-  | 9352, 5671 |Communicatie tussen de connector en de Azure-service voor binnenkomende aanvragen inschakelen |
-  | 9350 |Optioneel, voor betere prestaties van binnenkomende aanvragen |
-  | 8080 |De connectoropstartreeks en automatische updates voor de connector inschakelen |
-  | 9090 |Connectorregistratie inschakelen (alleen vereist voor het registratieproces voor de connector) |
-  | 9091 |Automatisch verlengen van het vertrouwenscertificaat van de connector inschakelen |
-  
-    Als met uw firewall verkeer wordt afgedwongen op basis van de herkomst van gebruiker, opent u deze poorten voor verkeer dat afkomstig is van Windows-services die als netwerkservice worden uitgevoerd. Zorg er ook voor dat poort 8080 is ingeschakeld voor NT Authority\System.
-* Als uw organisatie proxyservers gebruikt om verbinding te maken met internet, leest u het blogbericht [Working with existing on-premises proxy servers](https://blogs.technet.microsoft.com/applicationproxyblog/2016/03/07/working-with-existing-on-prem-proxy-servers-configuration-considerations-for-your-connectors/) (Engelstalig) voor meer informatie over het configureren van proxyservers.
+* Een server met Windows Server 2012 R2 of 2016, waarop u de Connector voor toepassingsproxy kunt installeren. De server moet verbinding maken met de services voor toepassingsproxy in de cloud en de on-premises toepassingen die u wilt publiceren.
+  * Voor eenmalige aanmelding voor uw gepubliceerde toepassingen met behulp van Kerberos-beperkte overdracht, moet deze machine worden domein in hetzelfde AD-domein als de toepassingen die u wilt publiceren. Zie voor informatie [KCD voor eenmalige aanmelding met toepassingsproxy](active-directory-application-proxy-sso-using-kcd.md).
 
-## <a name="step-1-enable-application-proxy-in-azure-ad"></a>Stap 1: toepassingsproxy inschakelen in Azure AD
-1. Meld u als beheerder aan in de [klassieke Azure-portal](https://manage.windowsazure.com/).
-2. Ga naar Active Directory en selecteer de directory waarin u toepassingsproxy wilt inschakelen.
-   
-    ![Active Directory - pictogram](./media/active-directory-application-proxy-enable/ad_icon.png)
-3. Selecteer **Configureren** op de directorypagina en blader omlaag naar **Toepassingsproxy**.
-4. Stel **Services voor toepassingsproxy inschakelen voor deze directory** in op **Ingeschakeld**.
-   
-    ![Toepassingsproxy inschakelen](./media/active-directory-application-proxy-enable/app_proxy_enable.png)
-5. Selecteer **Nu downloaden**. Hiermee gaat u naar de **download voor de connector voor Azure AD-toepassingsproxy**. Lees en accepteer de licentievoorwaarden en klik op **Downloaden** om het Windows Installer-bestand (.exe) van de connector op te slaan.
+Als uw organisatie gebruikmaakt van proxy-servers verbinding maken met internet, leest u [werken met bestaande lokale proxyservers](application-proxy-working-with-proxy-servers.md) voor meer informatie over het configureren voordat u aan de slag met Application Proxy.
 
-## <a name="step-2-install-and-register-the-connector"></a>Stap 2: de connector installeren en registreren
-1. Voer **AADApplicationProxyConnectorInstaller.exe** uit op de server die u hebt voorbereid volgens de vereisten.
-2. Volg de instructies in de wizard om de toepassing te installeren.
-3. Tijdens de installatie wordt u gevraagd de connector te registreren bij de toepassingsproxy van uw Azure AD-tenant.
-   
+## <a name="open-your-ports"></a>De poorten openen
+
+Als u uw omgeving voorbereiden voor Azure AD-toepassingsproxy, moet u eerst de communicatie met Azure-datacenters inschakelen. Als er op het pad een firewall is, zorgt u ervoor dat deze openstaat zodat de connector HTTPS-aanvragen (TCP) kan versturen naar de toepassingsproxy.
+
+1. De volgende poorten te openen **uitgaande** verkeer:
+
+   | Poortnummer | Hoe deze wordt gebruikt |
+   | --- | --- |
+   | 80 | Downloaden van certificaatintrekking (CRL's) worden tijdens het valideren van het SSL-certificaat |
+   | 443 | Alle uitgaande communicatie met de service-toepassingsproxy |
+
+   Als uw firewall verkeer volgens de herkomst van gebruiker wordt afgedwongen, opent u deze poorten voor verkeer van Windows-services die worden uitgevoerd als een netwerkservice.
+
+   > [!IMPORTANT]
+   > De tabel geeft de Poortvereisten voor de connector versies 1.5.132.0 en nieuwer. Als u nog steeds een oudere versie van de connector hebt, moet u ook de volgende poorten 80 en 443: 5671 8080, naast het inschakelen 9090-9091 9350, 9352, 10100 – 10120.
+   >
+   >Zie voor meer informatie over het bijwerken van uw connectors naar de nieuwste versie [inzicht in Azure AD-toepassingsproxy connectors](application-proxy-understand-connectors.md#automatic-updates).
+
+2. Als uw firewall of proxyserver kunt DNS-whitelisting, kunt u geaccepteerde verbindingen met msappproxy.net en servicebus.windows.net. Als u niet het geval is, moet u toegang tot de [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), dat elke week worden bijgewerkt.
+
+3. Microsoft maakt gebruik van vier adressen certificaten controleren. Toegang tot de volgende URL's toestaan als u dit nog niet hebt gedaan voor andere producten:
+   * mscrl.Microsoft.com:80
+   * CRL.Microsoft.com:80
+   * OCSP.msocsp.com:80
+   * www.Microsoft.com:80
+
+4. De connector moet toegang tot login.windows.net en login.microsoftonline.com voor het registratieproces.
+
+5. Gebruik de [Azure AD Application Proxy Connector poorten hulpprogramma Test](https://aadap-portcheck.connectorporttest.msappproxy.net/) om te controleren of de connector de service voor toepassingsproxy kan bereiken. Ten minste Zorg ervoor dat de regio VS-midden en de regio die het dichtst bij u alle een groen vinkje. Daarna betekent meer een groen vinkje groter tolerantie.
+
+## <a name="install-and-register-a-connector"></a>Installeren en registreren van een connector
+1. Meld u aan als een beheerder in de [Azure-portal](https://portal.azure.com/).
+2. De huidige map wordt weergegeven onder uw gebruikersnaam in de rechterbovenhoek. Als u wijzigen, mappen wilt, selecteert u dit pictogram.
+3. Ga naar **Azure Active Directory** > **toepassingsproxy**.
+
+   ![Navigeer naar de toepassingsproxy](./media/active-directory-application-proxy-enable/app_proxy_navigate.png)
+
+4. Selecteer **Connector downloaden**.
+
+   ![Connector downloaden](./media/active-directory-application-proxy-enable/download_connector.png)
+
+5. Voer **AADApplicationProxyConnectorInstaller.exe** uit op de server die u hebt voorbereid volgens de vereisten.
+6. Volg de instructies in de wizard om de toepassing te installeren. Tijdens de installatie wordt u gevraagd de connector te registreren bij de toepassingsproxy van uw Azure AD-tenant.
+
    * Geef de globale-beheerdersreferentie voor Azure AD op. De referenties van uw globale beheerderstenant kunnen afwijken van uw Microsoft Azure-referenties.
    * Zorg ervoor dat de beheerder die de connector registreert zich in dezelfde map bevindt als waar u de service voor toepassingsproxy hebt ingeschakeld. Als het domein van de tenant bijvoorbeeld contoso.com is, moet de beheerder admin@contoso.com of een andere alias in dat domein zijn.
-   * Als **Verbeterde beveiliging van Internet Explorer** is ingesteld op **Aan** op de server waarop u de connector installeert, is het registratiescherm mogelijk geblokkeerd. Volg de instructies in de foutmelding om de toegang toe te staan. Zorg ervoor dat de verbeterde beveiliging van Internet Explorer is uitgeschakeld.
-   * Zie [Troubleshoot Application Proxy](active-directory-application-proxy-troubleshoot.md) (Engelstalig) als de registratie van de connector niet lukt.  
-4. Wanneer de installatie is voltooid, worden er twee nieuwe services toegevoegd aan uw server:
-   
+   * Als **verbeterde beveiliging van Internet Explorer** is ingesteld op **op** op de server waarop u de connector installeert, ziet u niet de registratiescherm. Om toegang te krijgen, volg de instructies in het foutbericht. Zorg ervoor dat de verbeterde beveiliging van Internet Explorer is uitgeschakeld.
+
+Voor maximale beschikbaarheid dient u minstens nog twee extra connectoren te implementeren. Elke connector moet afzonderlijk worden geregistreerd.
+
+## <a name="test-that-the-connector-installed-correctly"></a>Test die de connector juist is geïnstalleerd
+
+U kunt bevestigen dat een nieuwe connector goed geïnstalleerd door te controleren op het in de Azure portal of op uw server. 
+
+In de Azure portal, moet u zich aanmelden bij uw tenant en navigeer naar **Azure Active Directory** > **toepassingsproxy**. Alle connectors en groepen van de connector weergegeven op deze pagina. Selecteer een connector voor de details te zien of verplaatsen naar een andere connector-groep. 
+
+Controleer de lijst met actieve services voor de connector en de connector updater op uw server. De twee services moeten onmiddellijk worden gestart, maar zo niet, ze inschakelen: 
+
    * Met **Microsoft AAD Application Proxy Connector** wordt de connectiviteit mogelijk gemaakt
-     
-     * **Microsoft AAD Application Proxy Connector Updater** is een automatische updateservice waarmee periodiek wordt gecontroleerd op nieuwe versies en updates van de connector.
-     
-     ![Connectorservices voor toepassingsproxy - schermafbeelding](./media/active-directory-application-proxy-enable/app_proxy_services.png)
-5. Klik in het installatievenster op **Voltooien**.
 
-Voor maximale beschikbaarheid dient u minstens nog twee extra connectoren te implementeren. Herhaal de bovenstaande stappen 2 en 3 om meer connectoren te implementeren. Elke connector moet afzonderlijk worden geregistreerd.
+   * **Microsoft AAD Application Proxy Connector Updater** is een automatische updateservice. De updater gecontroleerd op nieuwe versies van de connector en updates van de connector, indien nodig.
 
-Als u de connector wilt verwijderen, verwijdert u de connectorservice en de updaterservice. Start de computer opnieuw op om de service volledig te verwijderen.
+   ![Connectorservices voor toepassingsproxy - schermafbeelding](./media/active-directory-application-proxy-enable/app_proxy_services.png)
+
+Zie voor meer informatie over connectors en hoe deze actueel blijven [inzicht in Azure AD-toepassingsproxy connectors](application-proxy-understand-connectors.md).
+
 
 ## <a name="next-steps"></a>Volgende stappen
-U bent nu klaar om [toepassingen te publiceren met toepassingsproxy](active-directory-application-proxy-publish.md).
+U bent nu klaar om [toepassingen te publiceren met toepassingsproxy](application-proxy-publish-azure-portal.md).
 
-Als u toepassingen op afzonderlijke netwerken of verschillende locaties hebt, kunt u connectorgroepen gebruiken om de andere connectoren in te delen in logische eenheden. Meer informatie over [Working with Application Proxy connectors](active-directory-application-proxy-connectors.md) (Werken met connectoren voor toepassingsproxy).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-
+Als u toepassingen die op afzonderlijke netwerken of verschillende locaties hebt, kunt u de connector groepen gebruiken voor de verschillende connectors delen in logische eenheden. Meer informatie over [Working with Application Proxy connectors](active-directory-application-proxy-connectors-azure-portal.md) (Werken met connectoren voor toepassingsproxy).
