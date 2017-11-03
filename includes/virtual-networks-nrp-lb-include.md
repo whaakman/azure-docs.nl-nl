@@ -1,4 +1,4 @@
-## <a name="load-balancer"></a>Load balancer
+## <a name="load-balancer"></a>Load Balancer
 Een load balancer wordt gebruikt wanneer u wilt schalen van uw toepassingen. Typische implementatiescenario's hebben betrekking op toepassingen die worden uitgevoerd op meerdere VM-exemplaren. VM-exemplaren zijn fronted door een load balancer die voor de distributie van netwerkverkeer naar de verschillende exemplaren. 
 
 ![NIC's op een enkele virtuele machine](./media/resource-groups-networking/figure8.png)
