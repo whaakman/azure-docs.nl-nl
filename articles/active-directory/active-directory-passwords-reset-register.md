@@ -1,41 +1,44 @@
 ---
-title: 'Azure AD: Registratie selfservice voor het opnieuw instellen van een wachtwoord | Microsoft Docs'
-description: Verificatiegegevens voor selfservice voor het opnieuw instellen van een wachtwoord registreren
+title: 'Azure AD: SSPR-registratie | Microsoft Docs'
+description: Registreren verificatiegegevens voor self-service Azure AD-wachtwoord opnieuw instellen
 services: active-directory
-keywords: Active Directory-wachtwoordbeheer, wachtwoordbeheer, selfservice voor het opnieuw instellen van een wachtwoord van Azure AD, selfservice voor het opnieuw instellen van een wachtwoord
+keywords: 
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: barlanmsft
 manager: femila
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 03/16/2017
-ms.author: joflore
+ms.topic: article
+ms.date: 10/27/2017
+ms.author: barlan
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: c6d3d9d8f399816928e794e8956bc35825462fb9
-ms.lasthandoff: 04/25/2017
-
-
+ms.openlocfilehash: b884f8bc3a20052fa0cb40772deef591b69d7b10
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="register-for-self-service-password-reset"></a>Registreren voor de selfservice voor het opnieuw instellen van een wachtwoord
 
-Als uw beheerder dit heeft ingesteld, kunt u als eindgebruiker uw wachtwoord opnieuw instellen of uw account ontgrendelen zonder iemand anders te hoeven vragen door gebruik te maken van selfservice voor het opnieuw instellen van een wachtwoord (SSPR). Voordat u deze functie kunt gebruiken, moet u verificatiemethoden registreren of de vooraf gedefinieerde verificatiemethoden bevestigen die uw beheerder heeft ingevuld.
+> [!IMPORTANT]
+> **Bent u hier terechtgekomen omdat u problemen ondervindt met het aanmelden?** Als dat het geval is, vindt u hier meer informatie over het [wijzigen en opnieuw instellen van uw eigen wachtwoord](active-directory-passwords-update-your-own-password.md).
+
+Als een eindgebruiker, kunt u uw wachtwoord opnieuw instellen of uw account ontgrendelen zonder contact op met de selfservice voor wachtwoordherstel (SSPR) met behulp van een persoon. Voordat u deze functie kunt gebruiken, moet u verificatiemethoden registreren of de vooraf gedefinieerde verificatiemethoden bevestigen die uw beheerder heeft ingevuld.
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>Verificatiegegevens registreren of bevestigen met SSPR
 
 1. Open de webbrowser op uw apparaat en ga naar de [registratiepagina voor het opnieuw instellen van een wachtwoord](http://aka.ms/ssprsetup)
 2. Voer uw gebruikersnaam en wachtwoord in die door uw beheerder zijn verstrekt
-3. Afhankelijk van de opties die de beheerder heeft goedgekeurd, ziet u een of meer van de volgende items die u moet configureren of controleren voor gebruik als u uw wachtwoord opnieuw moet instellen
-    * Telefoon werk: deze optie kan alleen worden ingesteld door de beheerder.
-    * Telefoon voor authenticatie: deze optie moet worden ingesteld op een ander telefoonnummer waar u toegang toe hebt, zoals een mobiele telefoon. (De beheerder kan dit voor uw mobiele telefoonnummer instellen als de beheerder al uw toestemming heeft om die informatie te gebruiken.)
-    * E-mailadres voor authenticatie: deze optie moet worden ingesteld op een alternatief e-mailadres waar u toegang toe hebt zonder dat het benodigde wachtwoord opnieuw moet worden ingesteld.
-    * Beveiligingsvragen: deze optie biedt een lijst met door de beheerder goedgekeurde vragen die u moet beantwoorden. U kunt niet hetzelfde antwoord voor meer dan één vraag geven.
-4. Geef en controleer de informatie die door de beheerder wordt vereist. Als er meer dan één optie beschikbaar is, is het raadzaam dat u ten behoeve van de flexibiliteit verschillende methoden registreert wanneer een bepaalde methode niet beschikbaar is (bijvoorbeeld wanneer u onderweg bent en geen toegang hebt tot uw werktelefoon)
+3. Afhankelijk van hoe uw IT-personeel dingen hebt geconfigureerd, zijn een of meer van de volgende opties zijn beschikbaar om te configureren en te verifiëren. De beheerder kan vult sommige van deze voor u als ze uw toestemming voor het gebruik van de gegevens hebben.
+    * Telefoon (werk), kan alleen worden ingesteld door uw beheerder
+    * Telefoon voor authenticatie moet worden ingesteld op een ander telefoonnummer dat u toegang zou hebben soortgelijke van een mobiele telefoon die een tekstbericht of telefoongesprek kunnen ontvangen.
+    * Verificatie-e-mailbericht moet worden ingesteld op een alternatieve e-mailadres dat u toegang hebt tot zonder dat het wachtwoord dat u opnieuw wilt instellen.
+    * Beveiligingsvragen biedt u een lijst met uw beheerder heeft goedgekeurd voor u antwoord te vragen. U kunt niet gebruiken deze vraag of meer dan één keer te beantwoorden.
+4. Geef en controleer de informatie die door de beheerder wordt vereist. Als meer dan één optie beschikbaar is, het is raadzaam dat u meerdere methoden om aan te bieden flexibiliteit bij een andere methode niet beschikbaar is registreren (voorbeeld: onderweg en geen toegang tot uw zakelijke telefoon)
 
     ![Registreer verificatiemethoden en klik op Voltooien][Register]
 
@@ -45,6 +48,16 @@ Als u gegevens in de telefoon voor authenticatie of het e-mailadres voor authent
 
 Beheerders kunnen eisen dat u uw verificatiemethoden na een bepaalde tijd bevestigt om er zeker van te zijn dat u nog steeds de juiste methoden hebt geregistreerd.
 
+## <a name="common-problems-and-their-solutions"></a>Veelvoorkomende problemen en oplossingen
+
+ Hier volgen enkele veelvoorkomende foutgevallen en hun oplossingen:
+
+| Foutaanvraag| Welke fout ziet u?| Oplossing |
+| --- | --- | --- |
+| Een pagina 'Neem contact op met uw beheerder' verschijnt na het invoeren van mijn gebruikers-ID | Neem contact op met uw beheerder <br> <br> We hebben vastgesteld dat het wachtwoord voor uw gebruikersaccount niet wordt beheerd door Microsoft. Als gevolg hiervan zijn er niet automatisch opnieuw instellen van uw wachtwoord. <br> <br> Zo moet u contact op met uw IT-personeel voor verdere hulp. | U ziet dit bericht omdat uw IT-personeel beheert uw wachtwoord in uw on-premises omgeving en kunt u uw wachtwoord opnieuw instellen niet de heeft geen toegang tot uw account koppelen. <br> <br> Om uw wachtwoord opnieuw instellen, rechtstreeks voor hulp contact op met uw IT-personeel en laat ze weten dat u wilt uw wachtwoord opnieuw instellen zodat ze voor u deze functie kunnen inschakelen.|
+| Wordt een foutbericht 'uw account is niet ingeschakeld voor wachtwoordherstel' na het invoeren van mijn gebruikers-ID | Uw account is niet ingeschakeld voor wachtwoordherstel <br> <br> We vinden het jammer, maar uw IT-personeel niet uw account voor gebruik met deze service is ingesteld. <br> <br> Als u wilt, kunnen we contact met een beheerder in uw organisatie om uw wachtwoord opnieuw instellen voor u. | U ziet dit bericht omdat uw IT-personeel niet ingeschakeld voor wachtwoordherstel voor uw organisatie van de heeft geen toegang tot uw accountkoppeling of u de functie is niet een licentie. <br> <br> Klik om uw wachtwoord opnieuw instellen, de contact op met de koppeling van een administrator voor het verzenden van een e-mailbericht naar uw bedrijf laten weten u wilt uw wachtwoord opnieuw instellen zodat ze voor u deze functie kunnen inschakelen en van IT-personeel. |
+| Wordt een foutbericht ' we kunnen uw account niet verifiëren' na het invoeren van mijn gebruikers-ID | We kunnen uw account niet verifiëren <br> <br> Als u wilt, kunnen we contact met een beheerder in uw organisatie om uw wachtwoord opnieuw instellen voor u. | U ziet dit bericht omdat u zijn ingeschakeld voor het wachtwoord opnieuw instellen, maar u nog niet geregistreerd voor het gebruik van de service. Als u wilt registreren voor wachtwoord opnieuw instellen, gaat u naar http://aka.ms/ssprsetup wanneer u toegang tot je account hebt hersteld. <br> <br> Klik om uw wachtwoord opnieuw instellen, de contact op met de koppeling van een administrator voor het verzenden van een e-mailbericht naar uw bedrijf IT-personeel. |
+
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Hoe u uw wachtwoord kunt wijzigen met de selfservice voor het opnieuw instellen van een wachtwoord](active-directory-passwords-update-your-own-password.md)
@@ -53,4 +66,3 @@ Beheerders kunnen eisen dat u uw verificatiemethoden na een bepaalde tijd bevest
 * [Kunt u zich niet aanmelden bij uw Microsoft-account?](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Registratiepagina voor het opnieuw instellen van een wachtwoord met geregistreerde methoden en knop Voltooien"
-

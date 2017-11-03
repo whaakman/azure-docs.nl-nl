@@ -1,6 +1,6 @@
 ---
-title: Walkthrough over vooraf geconfigureerde oplossing voor externe controle | Microsoft Docs
-description: Een beschrijving van de vooraf geconfigureerde oplossing voor externe controle IoT Azure en de bijbehorende architectuur.
+title: Architectuur van de oplossing voor externe controle - Azure | Microsoft Docs
+description: Een overzicht van de architectuur van de vooraf geconfigureerde oplossing voor externe controle.
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -10,275 +10,136 @@ editor:
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: b28105f300723b542fa6d1aebc569439d5c73dc4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a4b28e8a1269374a24e169f9363401109bacc471
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Walkthrough over vooraf geconfigureerde oplossing voor externe controle
+# <a name="remote-monitoring-preconfigured-solution-architecture"></a>Externe controle vooraf geconfigureerde oplossingsarchitectuur
 
-De [vooraf geconfigureerde oplossing][lnk-preconfigured-solutions] voor externe controle met IoT Suite is een implementatie van een end-to-endoplossing voor controle voor meerdere computers die op externe locaties worden gebruikt. De oplossing combineert belangrijke Azure-services voor een algemene implementatie van het bedrijfsscenario. U kunt de oplossing gebruiken als uitgangspunt voor uw eigen implementatie en u kunt deze [aanpassen][lnk-customize] aan uw eigen specifieke zakelijke vereisten.
+IoT Suite remote monitoring [vooraf geconfigureerde oplossing](iot-suite-what-are-preconfigured-solutions.md) implementeert u een oplossing voor de end-to-end-controle voor meerdere machines op externe locaties. De oplossing combineert belangrijke Azure-services voor een algemene implementatie van het bedrijfsscenario. U kunt de oplossing gebruiken als een beginpunt voor uw eigen implementatie en [aanpassen](iot-suite-remote-monitoring-customize.md) om te voldoen aan uw eigen specifieke zakelijke vereisten.
 
 In dit artikel wordt stapsgewijs een aantal belangrijke elementen van externe controle beschreven, zodat u beter begrijpt hoe dit werkt. Deze kennis helpt u bij:
 
 * Het oplossen van problemen met de oplossing.
-* Het plannen van een aanpassing van de oplossing zodat deze voldoet aan uw eigen specifieke vereisten. 
+* Het plannen van een aanpassing van de oplossing zodat deze voldoet aan uw eigen specifieke vereisten.
 * Het ontwerpen van uw eigen IoT-oplossing die gebruikmaakt van Azure-services.
 
 ## <a name="logical-architecture"></a>Logische architectuur
 
-Het volgende diagram geeft een overzicht van de logische onderdelen van de vooraf geconfigureerde oplossing:
+Het volgende diagram geeft een overzicht van de logische onderdelen van de vooraf geconfigureerde oplossing voor externe controle heen worden weergegeven op de [IoT-architectuur](iot-suite-what-is-azure-iot.md):
 
 ![Logische architectuur](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
-## <a name="simulated-devices"></a>Gesimuleerde apparaten
+## <a name="why-microservices"></a>Waarom microservices?
 
-In de vooraf geconfigureerde oplossing vertegenwoordigt het gesimuleerde apparaat een koelapparaat (zoals een airconditioner of een luchtververser in een gebouw). Wanneer u de vooraf geconfigureerde oplossing implementeert, richt u ook automatisch vier gesimuleerde apparaten in waarop een [Azure-webtaak][lnk-webjobs] wordt uitgevoerd. Met de gesimuleerde apparaten kunt u eenvoudig het gedrag van de oplossing bekijken zonder dat u fysieke apparaten hoeft te implementeren. Zie de zelfstudie [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm] (Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe controle) als u een echt fysiek apparaat wilt implementeren.
+Cloudarchitectuur heeft ontwikkeld sinds de eerste vooraf geconfigureerde oplossingen de release van Microsoft. [Microservices](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) beproefde uit veiligheidsoverwegingen als u de schaal en flexibiliteit zonder verlies van ontwikkelingssnelheid is ontstaan. Diverse Microsoft-services gebruiken dit patroon van een architectuur intern met betrouwbaar en schaalbaarheid resultaten. De bijgewerkte vooraf geconfigureerde oplossingen plaatsen deze geleerde lessen concreet, zodat u ook van deze profiteren kunt.
 
-### <a name="device-to-cloud-messages"></a>Apparaat-naar-cloud-berichten
+> [!TIP]
+> Zie voor meer informatie over microservice-architectuur, [.NET toepassingsarchitectuur](https://www.microsoft.com/net/learn/architecture) en [Microservices: een toepassing revolution aangedreven door de cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
-Via elk gesimuleerd apparaat kunnen de volgende berichttypen worden verzonden naar IoT Hub:
+## <a name="device-connectivity"></a>Connectiviteit van apparaten
 
-| Bericht | Beschrijving |
-| --- | --- |
-| Opstarten |Wanneer het apparaat start, wordt er een bericht over **apparaatgegevens** verzonden naar de back-end met hierin informatie over het apparaat. Deze gegevens omvatten de apparaat-id en een lijst met de opdrachten en methoden die door het apparaat worden ondersteund. |
-| Aanwezigheid |Via een apparaat wordt periodiek een bericht verzonden over **aanwezigheid** om te melden of het apparaat de aanwezigheid van een sensor bemerkt. |
-| Telemetrie |Via een apparaat wordt periodiek een bericht verzonden over **telemetrie** waarin gesimuleerde waarden voor de temperatuur en vochtigheid worden gemeld die zijn verzameld met de gesimuleerde sensoren van het apparaat. |
+De oplossing omvat de volgende onderdelen in het apparaat verbinding deel van de logische architectuur:
 
-> [!NOTE]
-> De oplossing slaat de lijst met opdrachten die door het apparaat worden ondersteund, op in een Cosmos DB-database en niet in de apparaatdubbel.
+### <a name="simulated-devices"></a>Gesimuleerde apparaten
 
-### <a name="properties-and-device-twins"></a>Eigenschappen en apparaatdubbels
+De oplossing omvat een microservice waarmee u kunt een pool van de gesimuleerde apparaten voor het testen van de stroom end-to-end in de oplossing beheren. De gesimuleerde apparaten:
 
-De gesimuleerde apparaten verzenden de volgende apparaateigenschappen als *gerapporteerde eigenschappen* naar de [dubbele][lnk-device-twins] in de IoT Hub. Het apparaat verzendt gerapporteerde eigenschappen bij het opstarten en als reactie op een opdracht of methode voor het **wijzigen van de apparaatstatus**.
+* Apparaat-naar-cloud telemetrie genereren.
+* Reageren op cloud-naar-apparaat methodeaanroepen van IoT-Hub.
 
-| Eigenschap | Doel |
-| --- | --- |
-| Config.TelemetryInterval | Frequentie (seconden) waarmee het apparaat telemetrie verzendt |
-| Config.TemperatureMeanValue | Geeft de gemiddelde waarde voor de gesimuleerde temperatuurtelemetrie |
-| Device.DeviceID |De id die wordt verstrekt of toegewezen wanneer een apparaat in de oplossing wordt gemaakt |
-| Device.DeviceState | Status die door het apparaat wordt gemeld |
-| Device.CreatedTime |Tijd waarop het apparaat in de oplossing is gemaakt |
-| Device.StartupTime |Het tijdstip waarop het apparaat is gestart |
-| Device.LastDesiredPropertyChange |Het versienummer van de laatst gewenste eigenschapswijziging |
-| Device.Location.Latitude |Breedtegraad van locatie waar het apparaat zich bevindt |
-| Device.Location.Longitude |Lengtegraad van locatie waar het apparaat zich bevindt |
-| System.Manufacturer |Fabrikant van apparaat |
-| System.ModelNumber |Modelnummer van het apparaat |
-| System.SerialNumber |Serienummer van het apparaat |
-| System.FirmwareVersion |Huidige versie van de firmware op het apparaat |
-| System.Platform |Platformarchitectuur van het apparaat |
-| System.Processor |Processor waarop het apparaat wordt uitgevoerd |
-| System.InstalledRAM |Hoeveelheid RAM-geheugen dat op het apparaat is geïnstalleerd |
+De microservice biedt een RESTful-eindpunt kunt maken, starten en stoppen simulaties. Elke simulatie bestaat uit een set van virtuele apparaten van verschillende typen, die telemetrie verzenden en reageren op aanroepen.
 
-De simulator voorziet deze eigenschappen in de gesimuleerde apparaten van voorbeeldwaarden. Telkens wanneer de simulator een gesimuleerd apparaat initialiseert, rapporteert het apparaat de vooraf gedefinieerde metagegevens als gerapporteerde eigenschappen aan IoT Hub. Gerapporteerde eigenschappen kunnen alleen worden bijgewerkt door het apparaat. Als u een gerapporteerde eigenschap wilt wijzigen, stelt u in de oplossingsportal een gewenste eigenschap in. Het is de verantwoordelijkheid van het apparaat om:
+U kunt gesimuleerde apparaten vanuit het dashboard in de oplossingsportal inrichten.
 
-1. Regelmatig gewenste eigenschappen op te halen uit de IoT Hub.
-2. Diens configuratie bij te werken met de gewenste eigenschapswaarde.
-3. De nieuwe waarde weer als een gerapporteerde eigenschap terug te sturen naar de hub.
+### <a name="physical-devices"></a>Fysieke apparaten
 
-Vanuit het dashboard van de oplossing kunt u *gewenste eigenschappen* gebruiken om eigenschappen op een apparaat in te stellen met behulp van de [apparaatdubbel][lnk-device-twins]. Gewoonlijk haalt een apparaat de waarde van een gewenste eigenschap op uit de hub om diens interne status bij te werken en de wijziging weer als een gerapporteerde eigenschap terug te melden.
+U kunt fysieke apparaten verbinden met de oplossing. U kunt het gedrag van uw gesimuleerde apparaten met behulp van het apparaat met Azure IoT SDK's implementeren.
 
-> [!NOTE]
-> De code van het gesimuleerde apparaat gebruikt alleen de gewenste eigenschappen **Desired.Config.TemperatureMeanValue** en **Desired.Config.TelemetryInterval** om de gerapporteerde eigenschappen bij te werken die naar IoT Hub worden teruggestuurd. Alle andere aanvragen om gewenste eigenschappen te wijzigen worden in het gesimuleerde apparaat genegeerd.
+U kunt fysieke apparaten vanuit het dashboard in de oplossingsportal inrichten.
 
-### <a name="methods"></a>Methoden
+### <a name="iot-hub-and-the-iot-manager-microservice"></a>IoT Hub en de microservice IoT-manager
 
-De gesimuleerde apparaten kunnen de volgende methoden ([directe methoden][lnk-direct-methods]) afhandelen die via de IoT Hub vanuit oplossingsportal zijn geactiveerd:
-
-| Methode | Beschrijving |
-| --- | --- |
-| InitiateFirmwareUpdate |Geeft het apparaat de opdracht om een firmware-update uit te voeren |
-| Opnieuw opstarten |Geeft het apparaat de opdracht opnieuw op te starten |
-| FactoryReset |Geeft het apparaat de opdracht om de fabrieksinstellingen terug te zetten |
-
-Sommige methoden gebruiken gerapporteerde eigenschappen om te rapporteren over hun voortgang. Zo simuleert de methode **InitiateFirmwareUpdate** bijvoorbeeld een asynchrone uitvoering van de update op het apparaat. De methode keert onmiddellijk terug naar het apparaat terwijl de asynchrone taak met behulp van gerapporteerde eigenschappen statusupdates naar het dashboard van de oplossing blijft verzenden.
-
-### <a name="commands"></a>Opdrachten
-
-De gesimuleerde apparaten kunnen de volgende opdrachten (cloud-naar-apparaat-berichten) afhandelen die vanuit de oplossingsportal via de IoT Hub worden verzonden:
-
-| Opdracht | Beschrijving |
-| --- | --- |
-| PingDevice |Hiermee wordt een *ping* verzonden naar het apparaat om te controleren of het actief is |
-| StartTelemetry |Geeft het apparaat opdracht om te beginnen met het verzenden van telemetriegegevens |
-| StopTelemetry |Geeft het apparaat opdracht om te stoppen met het verzenden van telemetriegegevens |
-| ChangeSetPointTemp |Hiermee wordt de waarde van het instelpunt gewijzigd waaromheen de willekeurige gegevens worden gegenereerd |
-| DiagnosticTelemetry |Hiermee wordt de apparaatsimulator geactiveerd voor het verzenden van een extra telemetriewaarde (externalTemp) |
-| ChangeDeviceState |Hiermee wordt een eigenschap uitgebreide status voor het apparaat gewijzigd en wordt het bericht met apparaatgegevens verzonden vanaf het apparaat |
-
-> [!NOTE]
-> Zie [Cloud-to-device communications guidance][lnk-c2d-guidance] (Richtlijnen voor communicatie tussen cloud en apparaat) voor een vergelijking van deze opdrachten (berichten van cloud naar apparaat) en methoden (directe methoden).
-
-## <a name="iot-hub"></a>IoT Hub
-
-De [IoT Hub][lnk-iothub] neemt gegevens op die vanaf de apparaten worden verzonden naar de cloud, en maakt ze beschikbaar voor de ASA-taken (Azure Stream Analytics). Voor elke stream maakt de ASA-taak gebruik van een afzonderlijke IoT Hub-consumentengroep om de stroom berichten van de apparaten te lezen.
+De [IoT-hub](../iot-hub/index.md) opgenomen gegevens die worden verzonden vanaf de apparaten in de cloud en maakt het beschikbaar is voor de `telemetry-agent` microservice.
 
 De IoT Hub in de oplossing doet ook het volgende:
 
-- Houdt een register van identiteiten bij waarin de id's en verificatiesleutels zijn opgeslagen van alle apparaten die verbinding mogen maken met de portal. U kunt apparaten in- en uitschakelen via het register van identiteiten.
-- Verstuurt namens de oplossingsportal opdrachten naar uw apparaten.
-- Roept namens de oplossingsportal methoden aan op uw apparaten.
-- Onderhoudt apparaatdubbels voor alle geregistreerde apparaten. Een apparaatdubbel slaat de eigenschapswaarden op die door een apparaat worden gerapporteerd. Een apparaatdubbel slaat ook gewenste eigenschappen op die in de oplossingsportal zijn ingesteld, zodat het apparaat deze kan ophalen wanneer opnieuw verbinding wordt maakt.
-- Plant taken voor het instellen van eigenschappen voor meerdere apparaten of voor het aanroepen van methoden op meerdere apparaten.
+* Onderhoudt een register-id's die de id's en verificatiesleutels van alle apparaten die verbinding mogen maken met de portal worden opgeslagen. U kunt apparaten in- en uitschakelen via het register van identiteiten.
+* Roept namens de oplossingsportal methoden aan op uw apparaten.
+* Onderhoudt apparaatdubbels voor alle geregistreerde apparaten. Een apparaatdubbel slaat de eigenschapswaarden op die door een apparaat worden gerapporteerd. Een apparaatdubbel slaat ook gewenste eigenschappen op die in de oplossingsportal zijn ingesteld, zodat het apparaat deze kan ophalen wanneer opnieuw verbinding wordt maakt.
+* Plant taken voor het instellen van eigenschappen voor meerdere apparaten of voor het aanroepen van methoden op meerdere apparaten.
 
-## <a name="azure-stream-analytics"></a>Azure Stream Analytics
+De oplossing omvat de `iot-manager` microservice voor het afhandelen van interactie met uw IoT-hub, zoals:
 
-Bij de oplossing voor externe controle worden via [ASA][lnk-asa]-apparaatberichten (Azure Stream Analytics) die zijn ontvangen via de IoT Hub, verzonden naar andere back-endonderdelen voor verwerking of opslag. Met verschillende ASA-taken worden specifieke functies uitgevoerd gebaseerd op de inhoud van de berichten.
+* Maken en beheren van IoT-apparaten.
+* Horende apparaten beheren.
+* Aanroepen van methoden op apparaten.
+* Het beheren van IoT-referenties.
 
-**Taak 1: apparaatgegevens** filtert berichten met apparaatgegevens uit de binnenkomende berichtenstroom en stuurt deze naar een Event Hub-eindpunt. Via een apparaat worden berichten met apparaatgegevens verzonden bij het opstarten en als reactie op een opdracht **SendDeviceInfo**. Tijdens deze taak wordt gebruikgemaakt van de volgende querydefinitie om berichten over **apparaatgegevens** te identificeren:
+Deze service voert IoT Hub ook query's voor het ophalen van de apparaten die horen bij de gebruiker gedefinieerde groepen.
 
-```
-SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
-```
+De microservice biedt een RESTful-eindpunt voor het beheren van apparaten en apparaten horende, methoden aanroepen en IoT Hub-query's uitvoeren.
 
-Tijdens deze taak wordt de uitvoer verzonden naar een Event Hub voor verdere verwerking.
+## <a name="data-processing-and-analytics"></a>Gegevensverwerking en -analyse
 
-**Taak 2: regels** evalueren de binnenkomende telemetriegegevens over temperatuur en vochtigheid aan de hand van de drempelwaarden voor elk apparaat. Drempelwaarden kunnen worden ingesteld met de regeleditor die beschikbaar is in de oplossingsportal. Elk koppel apparaat/waarde wordt per tijdstempel opgeslagen in een blob die met Stream Analytics wordt gelezen als **referentiegegevens**. De taak vergelijkt elke niet-lege waarde met de ingestelde drempelwaarde voor het apparaat. Als deze de voorwaarde > overschrijdt, bestaat de taakuitvoer uit een **waarschuwings**gebeurtenis die aangeeft dat de drempelwaarde is overschreden, en worden tevens de waarden voor het apparaat, de waarde en de tijdstempel gegeven. Voor deze taak wordt gebruikgemaakt van de volgende querydefinitie om berichten over telemetrie te identificeren die een alarm moeten activeren:
+De oplossing omvat de volgende onderdelen in de gegevensverwerking en analytics onderdeel van de logische architectuur:
 
-```
-WITH AlarmsData AS 
-(
-SELECT
-     Stream.IoTHub.ConnectionDeviceId AS DeviceId,
-     'Temperature' as ReadingType,
-     Stream.Temperature as Reading,
-     Ref.Temperature as Threshold,
-     Ref.TemperatureRuleOutput as RuleOutput,
-     Stream.EventEnqueuedUtcTime AS [Time]
-FROM IoTTelemetryStream Stream
-JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
-WHERE
-     Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
+### <a name="device-telemetry"></a>De apparaattelemetrie
 
-UNION ALL
+De oplossing omvat twee microservices voor het afhandelen van apparaattelemetrie.
 
-SELECT
-     Stream.IoTHub.ConnectionDeviceId AS DeviceId,
-     'Humidity' as ReadingType,
-     Stream.Humidity as Reading,
-     Ref.Humidity as Threshold,
-     Ref.HumidityRuleOutput as RuleOutput,
-     Stream.EventEnqueuedUtcTime AS [Time]
-FROM IoTTelemetryStream Stream
-JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
-WHERE
-     Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
-)
+De [telemetrie-agent](https://github.com/Azure/telemetry-agent-dotnet) microservice:
 
-SELECT *
-INTO DeviceRulesMonitoring
-FROM AlarmsData
+* Telemetrie in Cosmos-database opgeslagen.
+* Analyseert de telemetriestroom van apparaten.
+* Genereert alarmen volgens de gedefinieerde regels.
 
-SELECT *
-INTO DeviceRulesHub
-FROM AlarmsData
-```
+De alarmen worden opgeslagen in een Cosmos-DB.
 
-Tijdens deze taak wordt de uitvoer verzonden naar een Event Hub voor verdere verwerking. Ook worden details van elke waarschuwing opgeslagen in de blobopslag, waar de informatie uit de waarschuwing kan worden gelezen in de oplossingsportal.
+De `telemetry-agent` microservice maakt de oplossingsportal lezen van de telemetrie die is verzonden vanaf de apparaten. De oplossingsportal wordt ook gebruikt voor deze service:
 
-**Taak 3: telemetrie** is op twee manieren actief op de binnenkomende stroom telemetriegegevens van het apparaat. Allereerst worden alle telemetrieberichten vanaf de apparaten naar een permanente blobopslag verzonden voor langdurige opslag. Ten tweede worden elke vijf minuten de gemiddelde, minimale en maximale vochtigheidswaarden berekend. Deze gegevens worden verzonden naar de blobopslag. Met de oplossingsportal worden de telemetriegegevens uit de blobopslag gelezen om de grafieken te vullen. Tijdens deze taak wordt gebruikgemaakt van de volgende querydefinitie:
+* Bewaking regels, zoals de drempelwaarden die alarmen activeren definiëren
+* De lijst van afgelopen alarmen opgehaald.
 
-```
-WITH 
-    [StreamData]
-AS (
-    SELECT
-        *
-    FROM [IoTHubStream]
-    WHERE
-        [ObjectType] IS NULL -- Filter out device info and command responses
-) 
+Gebruik de RESTful-eindpunt geleverd door deze microservice telemetrie, regels en alarmen beheren.
 
-SELECT
-    IoTHub.ConnectionDeviceId AS DeviceId,
-    Temperature,
-    Humidity,
-    ExternalTemperature,
-    EventProcessedUtcTime,
-    PartitionId,
-    EventEnqueuedUtcTime,
-    * 
-INTO
-    [Telemetry]
-FROM
-    [StreamData]
+### <a name="storage"></a>Storage
 
-SELECT
-    IoTHub.ConnectionDeviceId AS DeviceId,
-    AVG (Humidity) AS [AverageHumidity],
-    MIN(Humidity) AS [MinimumHumidity],
-    MAX(Humidity) AS [MaxHumidity],
-    5.0 AS TimeframeMinutes 
-INTO
-    [TelemetrySummary]
-FROM [StreamData]
-WHERE
-    [Humidity] IS NOT NULL
-GROUP BY
-    IoTHub.ConnectionDeviceId,
-    SlidingWindow (mi, 5)
-```
+De [opslagadapter](https://github.com/Azure/pcs-storage-adapter-dotnet) microservice is een adapter voor de belangrijkste storage-service gebruikt voor de vooraf geconfigureerde oplossing. Het biedt coolbarsimple-verzameling en sleutel / waarde-opslag.
 
-## <a name="event-hubs"></a>Event Hubs
+De standaardimplementatie van de vooraf geconfigureerde oplossing maakt gebruik van Cosmos DB als de belangrijkste storage-service.
 
-De ASA-taken voor **apparaatgegevens** en **regels** voeren hun gegevens uit naar Event Hubs die zo kunnen worden doorgestuurd naar de **gebeurtenisprocessor** die actief is in de webtaak.
+De database van de Cosmos-DB opslaat-gegevens in de vooraf geconfigureerde oplossing. De **opslagadapter** microservice fungeert als een adapter voor de andere microservices in de oplossing voor toegang tot opslagservices.
 
-## <a name="azure-storage"></a>Azure-opslag
+## <a name="presentation"></a>Presentatie
 
-De oplossing maakt gebruik van Azure Blob-opslag om alle ruwe en samengevatte telemetriegegevens op de apparaten in de oplossing te behouden. Met de portal worden de telemetriegegevens uit de blobopslag gelezen om de grafieken te vullen. Voor het weergeven van waarschuwingen leest de oplossingsportal de gegevens uit de blobopslag, waarin is vastgelegd wanneer telemetriewaarden de geconfigureerde drempelwaarden hebben overschreden. In de oplossing wordt blobopslag ook gebruikt om de drempelwaarden vast te leggen die u in de oplossingsportal hebt ingesteld.
+De oplossing omvat de volgende onderdelen in het gedeelte presentatie van de logische architectuur:
 
-## <a name="webjobs"></a>Webtaken
+De [online gebruikersinterface is een toepassing reageren Javascript](https://github.com/Azure/pcs-remote-monitoring-webui). De toepassing:
 
-De webtaken in de oplossing hosten niet alleen de apparaatsimulatoren maar ook de **gebeurtenisprocessor** die wordt uitgevoerd in een Azure-webtaak die opdrachtantwoorden verwerkt. Met behulp van berichten met reacties op opdrachten wordt de opdrachtgeschiedenis van het apparaat bijgewerkt (opgeslagen in de Cosmos DB-database).
+* Alleen wordt gebruikt door Javascript reageren en volledig in de browser wordt uitgevoerd.
+* Is opgemaakt met CSS.
+* Communiceert met openbare gerichte microservices via AJAX-aanroepen.
 
-## <a name="cosmos-db"></a>Cosmos DB
+De gebruikersinterface geeft alle functionaliteit van de vooraf geconfigureerde oplossing en communiceert met andere services, zoals:
 
-De oplossing maakt gebruik van een Cosmos DB-database om informatie op te slaan over de apparaten die zijn verbonden met de oplossing. Deze informatie omvat de geschiedenis van opdrachten die vanuit de oplossingsportal naar apparaten zijn verzonden en van methoden die vanuit de oplossingsportal zijn aangeroepen.
+* De [verificatie](https://github.com/Azure/pcs-auth-dotnet) microservice om gebruikersgegevens te beschermen.
+* De [iothub-manager](https://github.com/Azure/iothub-manager-dotnet) microservice weergeven en beheren van de IoT-apparaten.
 
-## <a name="solution-portal"></a>Oplossingsportal
-
-De oplossingsportal is een webtoepassing die als onderdeel van de vooraf geconfigureerde oplossing wordt geïmplementeerd. De belangrijkste pagina's in de oplossingsportal zijn het dashboard en de lijst met apparaten.
-
-### <a name="dashboard"></a>Dashboard
-
-Deze pagina in de webtoepassing maakt gebruik van Power BI javascript-besturingselementen (zie [PowerBI-visuals repo](https://www.github.com/Microsoft/PowerBI-visuals)) om de telemetriegegevens van de apparaten te visualiseren. De oplossing maakt gebruik van de ASA-telemetrietaak om de telemetriegegevens naar de blobopslag te schrijven.
-
-### <a name="device-list"></a>Lijst met apparaten
-
-Op deze pagina van de oplossingsportal kunt u het volgende doen:
-
-* Nieuwe apparaten inrichten. Met deze actie wordt het unieke apparaat-id ingesteld en de verificatiesleutel gegenereerd. Er wordt informatie over het apparaat geschreven naar het IoT Hub-identiteitsregister en de oplossingsspecifieke Cosmos DB-database.
-* Apparaateigenschappen beheren. Deze actie omvat het weergeven van bestaande eigenschappen en het bijwerken met nieuwe eigenschappen.
-* Opdrachten naar een apparaat verzenden.
-* De opdrachtgeschiedenis voor een apparaat weergeven.
-* Apparaten in- en uitschakelen.
+De [ui-config](https://github.com/Azure/pcs-config-dotnet) microservice kunt u de gebruikersinterface voor het opslaan en ophalen van configuratie-instellingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De volgende TechNet-blogberichten bieden meer details over de vooraf geconfigureerde oplossing voor externe controle:
+Als u de bron-documentatie voor code- en developer verkennen wilt, beginnen met een de twee belangrijkste GitHub-opslagplaatsen:
 
-* [IoT Suite - Under The Hood - Remote Monitoring (IoT Suite - achter de schermen - externe controle)](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
-* [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices (IoT Suite - externe controle - live- en gesimuleerde apparaten toevoegen)](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
+* [Vooraf geconfigureerde oplossing voor externe controle met Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [Vooraf geconfigureerde oplossing voor externe controle met Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 
-U kunt verder aan de slag gaan met IoT Suite door de volgende artikelen te lezen:
-
-* [Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor externe bewaking][lnk-connect-rm]
-* [Machtigingen op de site azureiotsuite.com][lnk-permissions]
-
-[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-iothub]: https://azure.microsoft.com/documentation/services/iot-hub/
-[lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-webjobs]: https://azure.microsoft.com/documentation/articles/websites-webjobs-resources/
-[lnk-connect-rm]: iot-suite-connecting-devices.md
-[lnk-permissions]: iot-suite-permissions.md
-[lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
-[lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+Zie voor meer informatie over de vooraf geconfigureerde oplossing voor externe controle [aanpassen van de vooraf geconfigureerde oplossing](iot-suite-remote-monitoring-customize.md).

@@ -19,6 +19,8 @@
       href: terraform-create-vm-cluster-with-infrastructure.md
     - name: Een VM-schaalset inrichten met infrastructuur
       href: terraform-create-vm-scaleset-network-disks-hcl.md
+    - name: Een VM-schaalset inrichten op basis van een aangepaste Packer-installatiekopie
+      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
 - name: Concepten
   items:
     - name: Cloud Shell-integratie

@@ -59,6 +59,8 @@
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Herstel na noodgeval voor workloads
       href: site-recovery-workload.md
+    - name: Migratie met Azure Site Recovery
+      href: site-recovery-migrate-to-azure.md
     - name: Azure naar Azure-netwerken (preview)
       href: site-recovery-azure-to-azure-networking-guidance.md
     - name: VM-connectiviteit na een failover naar Azure
@@ -75,7 +77,7 @@
       href: site-recovery-faq.md
 - name: Handleidingen
   items:
-    - name: Herstel na noodgevallen
+    - name: Herstel na noodgeval
       items:
         - name: Virtuele VMware-machines met ondersteuning voor meerdere tenants naar Azure
           href: site-recovery-multi-tenant-support-vmware-using-csp.md
@@ -104,9 +106,9 @@
         - name: Tool voor implementatieplanning voor VMware-replicatie naar Azure
           href: site-recovery-deployment-planner.md
         - name: Capaciteitsplanning voor Hyper-V-replicatie naar Azure
-          href: site-recovery-capacity-planning-for-hyper-v-replication.md
-        - name: Tool voor capaciteitsplanning voor Hyper-V-replicatie naar Azure
           href: site-recovery-capacity-planner.md
+        - name: Tool voor capaciteitsplanning voor Hyper-V-replicatie naar Azure
+          href: site-recovery-capacity-planning-for-hyper-v-replication.md
         - name: Processervers voor VMware-replicatie uitschalen
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
         - name: Prestatieschaal testen voor Hyper-V-replicatie tussen on-premises sites
@@ -163,7 +165,7 @@
               href: site-recovery-how-to-reprotect-azure-to-azure.md
             - name: Opnieuw beveiligen van Azure naar on-premises
               href: site-recovery-how-to-reprotect.md
-        - name: Failback vanaf Azure
+        - name: Failback van Azure
           items:
             - name: Failback van Azure naar VMware
               href: site-recovery-how-to-failback-azure-to-vmware.md
@@ -181,6 +183,8 @@
           href: site-recovery-vmm-to-vmm-powershell-resource-manager.md
     - name: Migreren
       items:
+        - name: Virtuele Azure-machines migreren naar een andere Azure-regio
+          href: site-recovery-migrate-azure-to-azure.md
         - name: Gemigreerde machines naar een andere Azure-regio repliceren
           href: site-recovery-azure-to-azure-after-migration.md
     - name: Workloads
