@@ -112,24 +112,23 @@
 #### [Voorbeelden van aanmelden](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Certificaten gebruiken](active-directory-reporting-api-with-certificates.md)
 
-## [Wachtwoorden beheren](active-directory-passwords-overview.md)
+## Wachtwoorden beheren
+### [Overzicht met betrekking tot wachtwoorden](active-directory-passwords-overview.md)
 ### Gebruikersdocumenten
 #### [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md)
 #### [Aanbevolen procedures voor wachtwoorden](active-directory-secure-passwords.md)
 #### [Registreren voor de selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md)
-### [SSPR licentiëren](active-directory-passwords-licensing.md)
-### [SSPR implementeren](active-directory-passwords-best-practices.md)
+### [Hoe SSPR werkt](active-directory-passwords-how-it-works.md)
+### [SSPR-implementatiegids](active-directory-passwords-best-practices.md)
+### [Beleidsregels voor SSPR](active-directory-passwords-policy.md)
+### [SSPR aanpassen](active-directory-passwords-customize.md)
+### [Gegevensvereisten voor SSPR](active-directory-passwords-data.md)
+### [Rapportage voor SSPR](active-directory-passwords-reporting.md)
 ### IT-beheerders: wachtwoorden opnieuw instellen
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
 #### [Klassieke Azure Portal](active-directory-create-users-reset-password.md)
-### [Meer informatie over SSPR-beleid](active-directory-passwords-policy.md)
-### [Meer informatie over het opnieuw instellen van wachtwoorden](active-directory-passwords-how-it-works.md)
-### [SSPR aanpassen](active-directory-passwords-customize.md)
-### [Gegevens die door SSPR worden gebruikt](active-directory-passwords-data.md)
-### [Rapportage voor SSPR](active-directory-passwords-reporting.md)
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [SSPR licentiëren](active-directory-passwords-licensing.md)
 ### [Wachtwoord terugschrijven](active-directory-passwords-writeback.md)
-### [Synchronisatie van wachtwoord-hashes](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
 ### [Problemen oplossen](active-directory-passwords-troubleshoot.md)
 ### [Veelgestelde vragen](active-directory-passwords-faq.md)
 
@@ -313,8 +312,6 @@
 ##### [Herstel](active-directory-conditional-access-device-remediation.md)
 #### [Technische naslaginformatie](active-directory-conditional-access-technical-reference.md)
 #### [Veelgestelde vragen](active-directory-conditional-faqs.md)
-#### [Klassieke portal](active-directory-conditional-access.md)
-##### [Aan de slag](active-directory-conditional-access-azuread-connected-apps.md)
 
 ### Windows Hello
 #### [Verifiëren zonder wachtwoorden](active-directory-azureadjoin-passport.md)

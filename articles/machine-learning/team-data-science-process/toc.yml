@@ -31,7 +31,7 @@
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
 - name: Projectuitvoering
   href: project-execution.md
-- name: Zelfstudies
+- name: Voorbeelden
   href: walkthroughs.md
   items:
     - name: Azure Machine Learning
@@ -60,6 +60,12 @@
       href: walkthroughs-sql-server.md
     - name: T-SQL en Python met SQL DW
       href: walkthroughs-sql-data-warehouse.md
+- name: Training
+  items:
+    - name: TDSP voor gegevensanalisten
+      href: team-data-science-process-for-data-scientists.md
+    - name: TDSP voor DevOps
+      href: team-data-science-process-for-devops.md
 - name: Procedures
   items:
     - name: TDSP in Azure ML gebruiken
@@ -177,7 +183,7 @@
         - name: Met een webservice
           href: ../studio/publish-a-machine-learning-web-service.md
           maintainContext: true
-        - name: Een webservice consumeren
+        - name: Een webservice gebruiken
           href: ../studio/consume-web-services.md
           maintainContext: true
 - name: Verwant

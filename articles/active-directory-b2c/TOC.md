@@ -1,6 +1,9 @@
 # [Overzicht](active-directory-b2c-overview.md)
 
 # Aan de slag
+## [Een Azure AD B2C-web-app testen](active-directory-b2c-quickstarts-web-app.md)
+## [Een Azure AD B2C-bureaublad-app testen](active-directory-b2c-quickstarts-desktop-app.md)
+## [Een Azure AD B2C-app van één pagina testen](active-directory-b2c-quickstarts-spa.md)
 ## [Een Azure AD B2C-directory maken](active-directory-b2c-get-started.md)
 ## [Uw toepassing registreren](active-directory-b2c-app-registration.md)
 ## [Ingebouwd beleid](active-directory-b2c-reference-policies.md)

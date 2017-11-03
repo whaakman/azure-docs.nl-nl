@@ -73,6 +73,7 @@ sections:
           - html: <a href="/azure/virtual-machines/windows/tutorial-monitoring">Virtuele machines bewaken</a>
           - html: <a href="/azure/virtual-machines/windows/tutorial-azure-security">Beveiliging van virtuele machines beheren</a>
           - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">Doorlopende integratiepijplijn maken met Visual Studio</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-iis-sql">Een SQL\IIS\.NET-stack installeren</a>
           - html: <a href="/azure/virtual-machines/windows/tutorial-secure-web-server">Een webserver beveiligen met SSL</a>
   - title: Gratis Pluralsight-videotraining
     items:

@@ -24,6 +24,7 @@
 ### [Referentiegegevens gebruiken](stream-analytics-use-reference-data.md)
 ### [Testquery's](stream-analytics-test-query.md)
 ### [JavaScript UDF's integreren](stream-analytics-javascript-user-defined-functions.md)
+### [JavaScript UDA's integreren](stream-analytics-javascript-user-defined-aggregates.md)
 ### [REST-API's en Machine Learning integreren](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Uitvoer maken](stream-analytics-define-outputs.md)
 ### [Uitvoer naar Data Lake Store](stream-analytics-data-lake-output.md)

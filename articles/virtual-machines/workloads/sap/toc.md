@@ -9,6 +9,7 @@
 ## [Probleemoplossing en bewaking](troubleshooting-monitoring.md)
 ## Procedures
 ### [HA met STONITH instellen](ha-setup-with-stonith.md)
+### [Back-up van het besturingssysteem voor SKU's type II](os-backup-type-ii-skus.md)
 # SAP HANA in virtuele machines op Azure
 ## [Enkel exemplaar van SAP HANA](hana-get-started.md)
 ## [Implementatiehandleiding voor S/4 HANA of BW/4 HANA SAP CAL](cal-s4h.md)
