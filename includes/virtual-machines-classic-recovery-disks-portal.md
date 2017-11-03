@@ -53,9 +53,9 @@ Wanneer de fouten zijn opgelost koppelt u de bestaande virtuele harde schijf los
 
 ## <a name="create-a-vm-from-the-original-hard-disk"></a>Een virtuele machine maken van de oorspronkelijke harde schijf
 
-Gebruik de [klassieke Azure-portal](https://manage.windowsazure.com) om een virtuele machine van de oorspronkelijke virtuele harde schijf te maken.
+Gebruik voor het maken van een virtuele machine van de oorspronkelijke virtuele harde schijf [Azure-portal](https://portal.azure.com).
 
-1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com).
-2. Selecteer aan de onderkant van de portal **Nieuw** > **Berekenen** > **Virtuele machine** > **Uit galerie**.
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com).
+2. Links boven aan de portal, selecteer **nieuw** > **Compute** > **virtuele Machine** > **uit galerie**.
 3. Selecteer in de sectie **Een afbeelding kiezen** de optie **Mijn schijven**, en selecteer vervolgens de oorspronkelijke virtuele harde schijf. Controleer de locatie-informatie. Dit is de regio waar de virtuele machine moet worden geïmplementeerd. Selecteer de knop Volgende.
 4. Typ in de sectie **Configuratie van de virtuele machine** de naam van de virtuele machine en selecteer een grootte voor de virtuele machine.

@@ -1,6 +1,6 @@
-| Resource | Default Limit | Maximum Limit |
+| Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
-| Maximum number of VMs in a scale set |1000 |1000 |
-| Maximum number of VMs based on a custom VM image in a scale set|300 |300 |
-| Maximum number of scale sets in a region |2000 |2000 |
+| Maximumaantal VM's per schaalset |1000 |1000 |
+| Maximum aantal virtuele machines op basis van een aangepaste installatiekopie van de virtuele machine in een schaal ingesteld|300 |300 |
+| Maximumaantal schaalsets per regio |2000 |2000 |
 
