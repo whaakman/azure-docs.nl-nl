@@ -1,4 +1,4 @@
-The activity log contains all write operations (PUT, POST, DELETE) performed on your resources. It does not include read operations (GET). You can use the audit logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
+Het activiteitenlogboek bevat alle schrijfbewerkingen (PUT, POST, verwijderen) uitgevoerd op uw resources. Dit omvat geen leesbewerkingen (GET). Kunt u de controlelogboeken vinden van een fout opgetreden bij het oplossen van of om te controleren hoe een gebruiker in uw organisatie een resource gewijzigd.
 
-Activity logs are retained for 90 days. You can query for any range of dates, as long as the starting date is not more than 90 days in the past.
+Activiteitenlogboeken worden bewaard gedurende 90 dagen. U kunt een query voor een reeks datums, zolang de begindatum niet meer dan 90 dagen in het verleden is.
 

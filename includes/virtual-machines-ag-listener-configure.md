@@ -1,79 +1,79 @@
-The availability group listener is an IP address and network name that the SQL Server availability group listens on. To create the availability group listener, do the following:
+De beschikbaarheidsgroep-listener is een IP-adres en het netwerk de naam die de SQL Server-beschikbaarheidsgroep luistert op. Voor het maken van de beschikbaarheidsgroep-listener, het volgende doen:
 
-1. <a name="getnet"></a>Get the name of the cluster network resource.
+1. <a name="getnet"></a>De naam van de clusterbron van het netwerk worden opgehaald.
 
-    a. Use RDP to connect to the Azure virtual machine that hosts the primary replica. 
+    a. Met RDP verbinding maken met de virtuele machine van Azure die als host fungeert voor de primaire replica. 
 
-    b. Open Failover Cluster Manager.
+    b. Open Failoverclusterbeheer.
 
-    c. Select the **Networks** node, and note the cluster network name. Use this name in the `$ClusterNetworkName` variable in the PowerShell script. In the following image the cluster network name is **Cluster Network 1**:
+    c. Selecteer de **netwerken** knooppunt en noteer de naam van het cluster-netwerk. Gebruik deze naam in de `$ClusterNetworkName` variabele in het PowerShell-script. In de volgende afbeelding is het de clusternetwerknaam **Cluster netwerk 1**:
 
-   ![Cluster Network Name](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
+   ![De clusternetwerknaam](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
-2. <a name="addcap"></a>Add the client access point.  
-    The client access point is the network name that applications use to connect to the databases in an availability group. Create the client access point in Failover Cluster Manager.
+2. <a name="addcap"></a>Toevoegen van de client access point.  
+    De client access point is de naam van het netwerk waarmee toepassingen verbinding met de databases in een beschikbaarheidsgroep. Maken van de client access point in Failoverclusterbeheer.
 
-    a. Expand the cluster name, and then click **Roles**.
+    a. De clusternaam uitvouwen en klik vervolgens op **rollen**.
 
-    b. In the **Roles** pane, right-click the availability group name, and then select **Add Resource** > **Client Access Point**.
+    b. In de **rollen** deelvenster met de rechtermuisknop op de naam van de beschikbaarheidsgroep en selecteer vervolgens **Resource toevoegen** > **Client Access Point**.
 
    ![Client Access Point](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
 
-    c. In the **Name** box, create a name for this new listener. 
-   The name for the new listener is the network name that applications use to connect to databases in the SQL Server availability group.
+    c. In de **naam** vak, maakt u een naam op voor deze nieuwe listener. 
+   De naam voor de nieuwe listener is de naam van het netwerk dat toepassingen gebruiken om verbinding te databases in de SQL Server-beschikbaarheidsgroep.
    
-    d. To finish creating the listener, click **Next** twice, and then click **Finish**. Do not bring the listener or resource online at this point.
+    d. Voor het voltooien van de listener te maken, klikt u op **volgende** tweemaal, en klik vervolgens op **voltooien**. Worden niet weergegeven in de listener of de bron online op dit moment.
 
-3. <a name="congroup"></a>Configure the IP resource for the availability group.
+3. <a name="congroup"></a>Configureer de IP-resource voor de beschikbaarheidsgroep.
 
-    a. Click the **Resources** tab, and then expand the client access point you created.  
-    The client access point is offline.
+    a. Klik op de **Resources** tabblad uit en vouw vervolgens de client access point-u hebt gemaakt.  
+    De client access point is offline.
 
    ![Client Access Point](./media/virtual-machines-ag-listener-configure/94-newclientaccesspoint.png) 
 
-    b. Right-click the IP resource, and then click properties. Note the name of the IP address, and use it in the `$IPResourceName` variable in the PowerShell script.
+    b. Met de rechtermuisknop op de IP-bron en klik vervolgens op Eigenschappen. Noteer de naam van het IP-adres en deze gebruiken in de `$IPResourceName` variabele in het PowerShell-script.
 
-    c. Under **IP Address**, click **Static IP Address**. Set the IP address as the same address that you used when you set the load balancer address on the Azure portal.
+    c. Onder **IP-adres**, klikt u op **statisch IP-adres**. Het IP-adres instellen als hetzelfde adres dat u hebt gebruikt toen u het adres van de load balancer op de Azure-portal instellen.
 
-   ![IP Resource](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
+   ![IP-Resource](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 
     <!-----------------------I don't see this option on server 2016
     1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
     ------------------------->
 
-4. <a name = "dependencyGroup"></a>Make the SQL Server availability group resource dependent on the client access point.
+4. <a name = "dependencyGroup"></a>Maak de SQL Server-beschikbaarheidsgroepresource afhankelijk van de client access point.
 
-    a. In Failover Cluster Manager, click **Roles**, and then click your availability group.
+    a. In Failoverclusterbeheer klikt u op **rollen**, en klik vervolgens op de beschikbaarheidsgroep.
 
-    b. On the **Resources** tab, under **Other Resources**, right-click the availability resource group, and then click **Properties**. 
+    b. Op de **Resources** tabblad onder **andere Resources**, met de rechtermuisknop op de beschikbaarheid van resourcegroep en klik vervolgens op **eigenschappen**. 
 
-    c. On the dependencies tab, add the name of the client access point (the listener) resource.
+    c. Voeg de naam van de bron van client access point (de listener) op het tabblad afhankelijkheden.
 
-   ![IP Resource](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
+   ![IP-Resource](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
 
-    d. Click **OK**.
+    d. Klik op **OK**.
 
-5. <a name="listname"></a>Make the client access point resource dependent on the IP address.
+5. <a name="listname"></a>Controleer de afhankelijk van het IP-adres van client access point resource.
 
-    a. In Failover Cluster Manager, click **Roles**, and then click your availability group. 
+    a. In Failoverclusterbeheer klikt u op **rollen**, en klik vervolgens op de beschikbaarheidsgroep. 
 
-    b. On the **Resources** tab, right-click the client access point resource under **Server Name**, and then click **Properties**. 
+    b. Op de **Resources** tabblad, met de rechtermuisknop op de client access point-resource onder **servernaam**, en klik vervolgens op **eigenschappen**. 
 
-   ![IP Resource](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
+   ![IP-Resource](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
-    c. Click the **Dependencies** tab. Verify that the IP address is a dependency. If it is not, set a dependency on the IP address. If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies. Click **OK**. 
+    c. Klik op de **afhankelijkheden** tabblad. Controleer of het IP-adres een afhankelijkheid. Als dit niet het geval is, stelt u een afhankelijkheid op het IP-adres. Controleer of de IP-adressen hebt of niet als er meerdere resources die worden vermeld, en afhankelijkheden. Klik op **OK**. 
 
-   ![IP Resource](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
+   ![IP-Resource](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
-    d. Right-click the listener name, and then click **Bring Online**. 
+    d. Met de rechtermuisknop op de naam van de listener en klik vervolgens op **Online brengen**. 
 
     >[!TIP]
-    >You can validate that the dependencies are correctly configured. In Failover Cluster Manager, go to Roles, right-click the availability group, click **More Actions**, and then click  **Show Dependency Report**. When the dependencies are correctly configured, the availability group is dependent on the network name, and the network name is dependent on the IP address. 
+    >U kunt controleren of de afhankelijkheden juist zijn geconfigureerd. In Failoverclusterbeheer, gaat u aan rollen, met de rechtermuisknop op de beschikbaarheidsgroep, klikt u op **meer acties**, en klik vervolgens op **Afhankelijkheidsrapport weergeven**. De afhankelijkheden juist zijn geconfigureerd, de beschikbaarheidsgroep is afhankelijk van de naam van het netwerk als de netwerknaam is afhankelijk van het IP-adres. 
 
 
-6. <a name="setparam"></a>Set the cluster parameters in PowerShell.
+6. <a name="setparam"></a>Stel de clusterparameters in PowerShell.
     
-    a. Copy the following PowerShell script to one of your SQL Server instances. Update the variables for your environment.     
+    a. Kopieer de volgende PowerShell-script naar een van uw SQL Server-exemplaren. De variabelen voor uw omgeving bijwerken.     
     
     ```PowerShell
     $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
@@ -86,7 +86,7 @@ The availability group listener is an IP address and network name that the SQL S
     Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
     ```
 
-    b. Set the cluster parameters by running the PowerShell script on one of the cluster nodes.  
+    b. Stel de clusterparameters door het PowerShell-script wordt uitgevoerd op één van de clusterknooppunten.  
 
     > [!NOTE]
-    > If your SQL Server instances are in separate regions, you need to run the PowerShell script twice. The first time, use the `$ILBIP` and `$ProbePort` from the first region. The second time, use the `$ILBIP` and `$ProbePort` from the second region. The cluster network name and the cluster IP resource name are the same. 
+    > Als uw SQL Server-exemplaren in verschillende regio's zijn, moet u het PowerShell-script twee keer uitgevoerd. De eerste keer gebruikt de `$ILBIP` en `$ProbePort` van het eerste gebied. De tweede keer gebruikt de `$ILBIP` en `$ProbePort` van de tweede regio. De naam van het cluster-netwerk en de naam van de cluster-IP-resource zijn hetzelfde. 

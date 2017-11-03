@@ -108,5 +108,6 @@
 #### [Certificaatreferenties](active-directory-certificate-credentials.md)
 ### [Bereiken](active-directory-v2-scopes.md)
 # Resources
+## [Ondersteuning opvragen](active-directory-develop-help-support.md)
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

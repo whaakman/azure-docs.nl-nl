@@ -1,26 +1,26 @@
-## <a name="create-a-device-identity"></a>Create a device identity
+## <a name="create-a-device-identity"></a>Een apparaat-id maken
 
-In this section, you use a Node.js tool called [iothub-explorer][iot-hub-explorer] to create a device identity for this tutorial. Device IDs are case sensitive.
+In deze sectie gebruikt u een Node.js-hulpprogramma aangeroepen [iothub explorer] [ iot-hub-explorer] voor het maken van een apparaat-id voor deze zelfstudie. Apparaat-id's zijn hoofdlettergevoelig.
 
-1. Run the following in your command-line environment:
+1. Voer het volgende in uw omgeving opdrachtregel:
 
     `npm install -g iothub-explorer@latest`
 
-1. Then, run the following command to login to your hub. Substitute `{iot hub connection string}` with the IoT Hub connection string you previously copied:
+1. Voer de volgende opdracht om aan te melden met uw hub. Vervang `{iot hub connection string}` met de IoT Hub-verbindingsreeks die u eerder hebt gekopieerd:
 
     `iothub-explorer login "{iot hub connection string}"`
 
-1. Finally, create a new device identity called `myDeviceId` with the command:
+1. Maak ten slotte een nieuw apparaat-id genoemd `myDeviceId` met de opdracht:
 
     `iothub-explorer create myDeviceId --connection-string`
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-Make a note of the device connection string from the result. This device connection string is used by the device app to connect to your IoT Hub as a device.
+Noteer de apparaat-verbindingsreeks uit het resultaat. Deze verbindingsreeks van het apparaat wordt gebruikt door de app voor het apparaat verbinding maken met uw IoT-Hub als een apparaat.
 
 ![][img-identity]
 
-Refer to [Getting started with IoT Hub][lnk-getstarted] to programmatically create device identities.
+Raadpleeg [aan de slag met IoT Hub] [ lnk-getstarted] programmatisch apparaat-id's te maken.
 
 <!-- images and links -->
 [img-identity]: media/iot-hub-get-started-create-device-identity/devidentity.png

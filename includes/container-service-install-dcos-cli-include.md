@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/10/2016
 ms.author: rogardle
-translationtype: Human Translation
-ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
 ms.openlocfilehash: a8ea47f158c0d666340815d2e039995c7483257f
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 > [!NOTE]
 > Dit is voor als u met op DC/OS gebaseerde ACS-clusters werkt. U hoeft dit niet te doen voor op Swarm gebaseerde ACS-clusters.
@@ -51,8 +51,3 @@ U kun nu bevestigen dat de CLI is geïnstalleerd:
 ```bash
 dcos --help
 ```
-
-
-<!--HONumber=Nov16_HO2-->
-
-

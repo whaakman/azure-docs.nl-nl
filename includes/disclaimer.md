@@ -1,2 +1,2 @@
-To use this feature and other new Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
+Als u deze functie en andere nieuwe mogelijkheden van Azure, zich aanmelden voor de [gratis preview](https://account.windowsazure.com/PreviewFeatures).
 

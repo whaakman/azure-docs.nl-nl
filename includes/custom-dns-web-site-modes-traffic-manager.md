@@ -1,4 +1,4 @@
-Setting a custom domain name on a web app in Azure App Service that is load balanced by Traffic Manager is only available for **Standard** mode websites. Before switching a web app from the Free App Service plan mode to the Shared, Basic or Standard mode, you must first remove spending caps in place for your App Service subscription. 
+Een aangepaste domeinnaam instellen op een web-app in Azure App Service die wordt verdeeld door Traffic Manager is alleen beschikbaar voor **standaard** modus websites. Voordat u overschakelt naar de modus gedeeld, basis of standaard een web-app van de gratis App Service-plan-modus, moet u eerst bestedingslimiet caps verwijderen in plaats voor uw App Service-abonnement. 
 
-For more information on the App Service plan modes, including how to change the mode of your site, see [How to scale web sites](../articles/app-service/web-sites-scale.md).
+Zie voor meer informatie over App Service plan modi, het wijzigen van de modus van uw site, inclusief [schalen websites](../articles/app-service/web-sites-scale.md).
 

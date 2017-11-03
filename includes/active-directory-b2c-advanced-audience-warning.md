@@ -1,5 +1,5 @@
 > [!NOTE]
-> **Custom policies are in public preview.**
+> **Aangepaste beleidsregels zijn openbare preview.**
 
-> [Custom policies](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md#custom-policies) are designed primarily for identity pros who need to address complex scenarios. For most scenarios, we recommend that you use Azure Active Directory B2C [built-in policies](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md). Built-in policies are easier to set up for your configuration. You can use built-in and custom policies in the same Azure Active Directory B2C tenant. To learn more, see the [overview of custom policies](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md).
+> [Aangepast beleid](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md#custom-policies) zijn voornamelijk bedoeld voor identity-professionals die moeten worden genomen complexe scenario's. Voor de meeste scenario's, het is raadzaam dat u Azure Active Directory B2C [ingebouwde beleid](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md). Ingebouwde beleidsregels zijn eenvoudiger om in te stellen voor uw configuratie. U kunt ingebouwde en aangepaste beleidsregels in dezelfde Azure Active Directory B2C-tenant. Zie voor meer informatie, de [overzicht van aangepaste beleidsregels](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md).
 

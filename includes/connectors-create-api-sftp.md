@@ -1,14 +1,14 @@
-### <a name="prerequisites"></a>Prerequisites
-* An [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol) account  
+### <a name="prerequisites"></a>Vereisten
+* Een [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol) account  
 
-Before you can use your SFTP account in a logic app, you must authorize the logic app to connect to your SFTP account. Fortunately, you can do this easily from within your logic app on the Azure Portal.  
+Voordat u uw SFTP-account in een logische app gebruiken kunt, moet u de logische app verbinding maken met uw account SFTP autoriseren. U kunt dit eenvoudig vanuit gelukkig doen in uw logische app in de Azure Portal.  
 
-Here are the steps to authorize your logic app to connect to your SFTP account:  
+Hier volgen de stappen voor het autoriseren van uw logische app verbinding maken met uw SFTP-account:  
 
-1. To create a connection to SFTP, in the logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *SFTP* in the search box. Select the **SFTP - When a file is added or modified** trigger:  
-   ![SFTP online connection image 1](./media/connectors-create-api-sftp/sftp-1.png)  
-2. If you haven't created any connections to SFTP before, you'll get prompted to provide your SFTP credentials. These credentials will be used to authorize your logic app to connect to, and access your SFTP account's data:  
-   ![SFTP online connection image 2](./media/connectors-create-api-sftp/sftp-2.png)  
-3. Notice the connection has been created and you are now free to proceed with the other steps in your logic app:   
-   ![SFTP online connection image 3](./media/connectors-create-api-sftp/sftp-3.png) 
+1. Voor het maken van een verbinding met SFTP, in de ontwerpfunctie voor logic app selecteert **beheerde API's van Microsoft weergeven** Voer in de vervolgkeuzelijst *SFTP* in het zoekvak. Selecteer de **SFTP - wanneer een bestand wordt toegevoegd of gewijzigd** trigger:  
+   ![SFTP onlineverbinding afbeelding 1](./media/connectors-create-api-sftp/sftp-1.png)  
+2. Als u verbindingen met SFTP voordat u dit nog niet hebt gemaakt, hebt u wordt gevraagd uw referenties SFTP op te geven. Deze referenties worden gebruikt voor het autoriseren van uw logische app verbinding maken met en toegang tot gegevens van uw SFTP-account:  
+   ![SFTP onlineverbinding afbeelding 2](./media/connectors-create-api-sftp/sftp-2.png)  
+3. U ziet de verbinding is gemaakt en u bent nu vrij om door te gaan met de overige stappen in uw logische app:   
+   ![SFTP onlineverbinding afbeelding 3](./media/connectors-create-api-sftp/sftp-3.png) 
 

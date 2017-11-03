@@ -1,30 +1,30 @@
-## <a name="sign-in-to-azure"></a>Sign in to Azure
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
+Meld u aan bij uw Azure-abonnement met de opdracht `Login-AzureRmAccount` en volg de instructies op het scherm.
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-If you don't know which location you want to use, you can list the available locations. After the list is displayed, find the one you want to use. This example will use **eastus**. Store this in a variable and use the variable so you can change it in one place.
+Als u niet welke locatie die u wilt gebruiken weet, kunt u de beschikbare locaties weergeven. Nadat de lijst wordt weergegeven, vinden die u wilt gebruiken. Dit voorbeeld gebruiken **eastus**. Slaat u dit in een variabele en gebruik van de variabele, zodat u dit op één plek wijzigen kunt.
 
 ```powershell
 Get-AzureRmLocation | select Location 
 $location = "eastus"
 ```
 
-## <a name="create-a-resource-group"></a>Create a resource group
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 
+Maak een Azure-resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
 ```powershell
 $resourceGroup = "myResourceGroup"
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
 ```
 
-## <a name="create-a-storage-account"></a>Create a storage account
+## <a name="create-a-storage-account"></a>Een opslagaccount maken
 
-Create a standard general-purpose storage account with LRS replication using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), then retrieve the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called *mystorageaccount* with locally redundant storage and blob encryption enabled.
+Een standaard algemeen opslagaccount maken met het gebruik van de replicatie LRS [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), haal vervolgens de context van het opslagaccount waarin de storage-account moet worden gebruikt. Wanneer optreedt op een storage-account, maar u verwijzen naar de context in plaats van herhaaldelijk geven de referenties. In dit voorbeeld maakt u een opslagaccount aangeroepen *mystorageaccount* met lokaal redundante opslag en blob versleuteling ingeschakeld.
 
 ```powershell
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `

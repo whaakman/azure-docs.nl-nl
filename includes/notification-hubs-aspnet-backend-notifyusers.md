@@ -1,57 +1,57 @@
-## <a name="create-the-webapi-project"></a>Create the WebAPI project
-The next sections discuss the creation of a new ASP.NET WebAPI back end. This process has three main purposes:
+## <a name="create-the-webapi-project"></a>Het WebAPI-project maken
+De volgende secties worden besproken voor het maken van een nieuwe ASP.NET WebAPI back-end. Dit proces heeft drie hoofddoelen:
 
-* **Authenticate clients**: You add a message handler later to authenticate client requests and associate the user with the request.
+* **Clients verifiëren**: toevoegen van een berichtenhandler later voor het authenticeren van aanvragen van clients en de gebruiker koppelen aan de aanvraag.
 
-* **Register for notifications by using the WebAPI back end**: You add a controller to handle new registrations for a client device to receive notifications. The authenticated username is automatically added to the registration as a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx).
+* **Registreren voor meldingen met behulp van de WebAPI back-end**: toevoegen van een domeincontroller voor het afhandelen van nieuwe registraties voor een client-apparaat om meldingen te ontvangen. De geverifieerde gebruikersnaam wordt automatisch toegevoegd aan de registratie als een [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx).
 
-* **Send notifications to clients**: You also add a controller to provide a way for users to trigger a secure push to devices and clients associated with the tag. 
+* **Meldingen verzenden naar clients**: U ook een domeincontroller bieden een manier voor gebruikers voor het activeren van een beveiligde push naar apparaten en clients die zijn gekoppeld aan de tag toevoegen. 
 
-Create the new ASP.NET WebAPI back end by doing the following: 
+Maak de back-end van de nieuwe ASP.NET WebAPI als volgt: 
 
 > [!IMPORTANT]
-> If you are using Visual Studio 2015 or earlier, before starting this tutorial, ensure that you have installed the latest version of NuGet Package Manager for Visual Studio. 
+> Als u van Visual Studio 2015 gebruikmaakt of eerder, voordat u deze zelfstudie begint, zorg ervoor dat kunt u de meest recente versie van NuGet Package Manager voor Visual Studio hebt geïnstalleerd. 
 >
->To check, start Visual Studio. On the **Tools** menu, select **Extensions and Updates**. Search for **NuGet Package Manager** in your version of Visual Studio, and make sure you have the latest version. If your version is not the latest version, uninstall it, and then reinstall the NuGet Package Manager.
+>Start Visual Studio om dit te controleren. Op de **extra** selecteert u **uitbreidingen en Updates**. Zoeken naar **NuGet Package Manager** in uw versie van Visual Studio en zorg ervoor dat u de meest recente versie hebt. Als uw versie niet de nieuwste versie is, verwijdert u deze en installeer het NuGet Package Manager.
  
 ![][B4]
 
 > [!NOTE]
-> Make sure you have installed the Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) for website deployment.
+> Controleer of u de Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) voor website-implementatie hebt geïnstalleerd.
 > 
 > 
 
-1. Start Visual Studio or Visual Studio Express. 
+1. Start Visual Studio of Visual Studio Express. 
 
-2. Select **Server Explorer**, and sign in to your Azure account. To create the web site resources on your account, you must be signed in.
+2. Selecteer **Server Explorer**, en meld u aan bij uw Azure-account. Voor het maken van de website-resources voor uw account, moet u zijn aangemeld.
 
-3. In Visual Studio, select **File** > **New** > **Project**, expand **Templates**, expand **Visual C#**, and then select **Web** and **ASP.NET Web Application**.
+3. Selecteer in Visual Studio **bestand** > **nieuw** > **Project**, vouw **sjablonen**, vouw **Visual C#**, en selecteer vervolgens **Web** en **ASP.NET-webtoepassing**.
 
-4. In the **Name** box, type **AppBackend**, and then select **OK**. 
+4. In de **naam** in het vak **AppBackend**, en selecteer vervolgens **OK**. 
    
-    ![The New Project window][B1]
+    ![Het venster Nieuw Project][B1]
 
-5. In the **New ASP.NET Project** window, select the **Web API** check box, and then select **OK**.
+5. In de **nieuw ASP.NET-Project** Selecteer de **Web API** selectievakje en selecteer vervolgens **OK**.
    
-    ![The New ASP.NET Project window][B2]
+    ![Het venster nieuw ASP.NET-Project][B2]
 
-6. In the **Configure Microsoft Azure Web App** window, select a subscription and then, in the **App Service plan** list, do either of the following:
+6. In de **Microsoft Azure Web-App configureren** venster, selecteert u een abonnement en klikt u op de **App Service-abonnement** lijst, een van de volgende handelingen uit:
 
-    * Select an app service plan that you've already created. 
-    * Select **Create a new app service plan**, and then create one. 
+    * Selecteer een app service-abonnement dat u al hebt gemaakt. 
+    * Selecteer **maken van een nieuwe app service-abonnement**, en maak vervolgens een. 
     
-  You do not need a database for this tutorial. After you have selected your app service plan, select **OK** to create the project.
+  U hebt geen database nodig voor deze zelfstudie. Nadat u uw app service-abonnement hebt geselecteerd, selecteert u **OK** om het project te maken.
    
-    ![The Configure Microsoft Azure Web App window][B5]
+    ![Het venster Microsoft Azure Web-App configureren][B5]
 
-## <a name="authenticate-clients-to-the-webapi-back-end"></a>Authenticate clients to the WebAPI back end
-In this section, you create a new message-handler class named **AuthenticationTestHandler** for the new back end. This class is derived from [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) and added as a message handler so that it can process all requests that come into the back end. 
+## <a name="authenticate-clients-to-the-webapi-back-end"></a>Verificatie van clients naar de WebAPI-back-end
+In deze sectie maakt u een nieuwe berichtenhandler klasse met de naam **AuthenticationTestHandler** voor de nieuwe back-end. Deze klasse wordt afgeleid van [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) en toegevoegd als een berichtenhandler zodat deze alle verwerken kan die afkomstig zijn in de back-end aanvragen. 
 
-1. In Solution Explorer, right-click the **AppBackend** project, select **Add**, and then select **Class**. 
+1. Klik in Solution Explorer met de rechtermuisknop op de **AppBackend** project, selecteer **toevoegen**, en selecteer vervolgens **klasse**. 
  
-2. Name the new class **AuthenticationTestHandler.cs**, and then select **Add** to generate the class. This class authenticates users by using *Basic Authentication* for simplicity. Your app can use any authentication scheme.
+2. Naam van de nieuwe klasse **AuthenticationTestHandler.cs**, en selecteer vervolgens **toevoegen** voor het genereren van de klasse. Verificatie van gebruikers met behulp van deze klasse *basisverificatie* voor eenvoud. Uw app kunt gebruiken een verificatieschema.
 
-3. In AuthenticationTestHandler.cs, add the following `using` statements:
+3. Voeg in AuthenticationTestHandler.cs de volgende `using`-instructies toe:
    
         using System.Net.Http;
         using System.Threading;
@@ -60,17 +60,17 @@ In this section, you create a new message-handler class named **AuthenticationTe
         using System.Text;
         using System.Threading.Tasks;
 
-4. In AuthenticationTestHandler.cs, replace the `AuthenticationTestHandler` class definition with the following code: 
+4. Vervang in AuthenticationTestHandler.cs, de `AuthenticationTestHandler` klasse-definitie maken met de volgende code: 
    
-    The handler will authorize the request when the following three conditions are true:
+    De handler machtigen van de aanvraag bij de volgende drie voorwaarden voldaan wordt:
    
-   * The request includes an *Authorization* header. 
-   * The request uses *basic* authentication. 
-   * The user name string and the password string are the same string.
+   * De aanvraag bevat een *autorisatie* header. 
+   * De aanvraag maakt gebruik van *basis*verificatie. 
+   * De gebruikersnaamtekenreeks en de wachtwoordtekenreeks zijn dezelfde tekenreeks.
      
-  Otherwise, the request will be rejected. This is not a true authentication and authorization approach. It is only a very simple example for this tutorial.
+  Anders wordt de aanvraag geweigerd. Dit is geen bestaande benadering op verificatie en autorisatie. Dit is slechts een zeer eenvoudige voorbeeld voor deze zelfstudie.
      
-  If the request message is authenticated and authorized by `AuthenticationTestHandler`, the basic authentication user is attached to the current request on [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in HttpContext will be used by another controller (RegisterController) later to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
+  Als het request-bericht is geverifieerd en gemachtigd door `AuthenticationTestHandler`, de basisverificatie-gebruiker is gekoppeld aan de huidige aanvraag op [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Gebruikersgegevens in HttpContext wordt gebruikt door een andere domeincontroller (RegisterController) later om toe te voegen een [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) op de melding registratie-aanvraag.
      
        public class AuthenticationTestHandler : DelegatingHandler
        {
@@ -120,35 +120,35 @@ In this section, you create a new message-handler class named **AuthenticationTe
        }
      
      > [!NOTE]
-     > Security note: The `AuthenticationTestHandler` class does not provide true authentication. It is used only to mimic basic authentication and is not secure. You must implement a secure authentication mechanism in your production applications and services.                
+     > Opmerking over beveiliging: de `AuthenticationTestHandler` klasse biedt geen true verificatie. Het wordt alleen gebruikt om basisverificatie na te bootsen en is niet beveiligd. U moet een veilig verificatiemechanisme implementeren in uw productietoepassingen en -services.                
      > 
      > 
-5. To register the message handler, add the following code at the end of the `Register` method in the **App_Start/WebApiConfig.cs** class:
+5. De volgende code voor het registreren van de berichtenhandler toevoegen aan het einde van de `Register` methode in de **App_Start/WebApiConfig.cs** klasse:
    
         config.MessageHandlers.Add(new AuthenticationTestHandler());
 
-6. Save your changes.
+6. Sla uw wijzigingen op.
 
-## <a name="register-for-notifications-by-using-the-webapi-back-end"></a>Register for notifications by using the WebAPI back end
-In this section, you add a new controller to the WebAPI back end to handle requests to register a user and a device for notifications by using the client library for notification hubs. The controller adds a user tag for the user that was authenticated and attached to HttpContext by `AuthenticationTestHandler`. The tag will have the string format, `"username:<actual username>"`.
+## <a name="register-for-notifications-by-using-the-webapi-back-end"></a>Registreren voor meldingen met behulp van de WebAPI-back-end
+In deze sectie kunt u een nieuwe domeincontroller toevoegen aan de WebAPI-back-end voor het aanvragen van een gebruiker en een apparaat voor meldingen registreren met behulp van de clientbibliotheek voor notification hubs. De controller voegt een gebruikerstag voor de gebruiker die is geverifieerd en gekoppeld aan HttpContext door `AuthenticationTestHandler`. De tag heeft de indeling van de tekenreeks, `"username:<actual username>"`.
 
-1. In Solution Explorer, right-click the **AppBackend** project and then select **Manage NuGet Packages**.
+1. Klik in Solution Explorer met de rechtermuisknop op de **AppBackend** project en selecteer vervolgens **NuGet-pakketten beheren**.
 
-2. In the left pane, select **Online** and then, in the **Search** box, type **Microsoft.Azure.NotificationHubs**.
+2. Selecteer in het linkerdeelvenster **Online** en klikt u op de **Search** in het vak **Microsoft.Azure.NotificationHubs**.
 
-3. In the results list, select **Microsoft Azure Notification Hubs**, and then select **Install**. Complete the installation, and then close the NuGet Package Manager window.
+3. Selecteer in de lijst met resultaten **Microsoft Azure Notification Hubs**, en selecteer vervolgens **installeren**. De installatie te voltooien en sluit het venster NuGet Package Manager.
    
-    This action adds a reference to the Azure Notification Hubs SDK by using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>.
+    Met deze actie wordt een verwijzing toegevoegd aan de Azure Notification Hubs-SDK met het <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet-pakket</a>.
 
-4. Create a new class file that represents the connection with the notification hub that's used to send notifications. In Solution Explorer, right-click the **Models** folder, select **Add**, and then select **Class**. Name the new class **Notifications.cs**, and then select **Add** to generate the class. 
+4. Maak een nieuwe klassebestand waarmee de verbinding met de notification hub die wordt gebruikt om meldingen te verzenden. Klik in Solution Explorer met de rechtermuisknop op de **modellen** map, selecteer **toevoegen**, en selecteer vervolgens **klasse**. Naam van de nieuwe klasse **Notifications.cs**, en selecteer vervolgens **toevoegen** voor het genereren van de klasse. 
    
-    ![The Add New Item window][B6]
+    ![Het venster Nieuw Item toevoegen][B6]
 
-5. In Notifications.cs, add the following `using` statement at the top of the file:
+5. Voeg in Notifications.cs de volgende `using`-instructie toe aan het begin van het bestand:
    
         using Microsoft.Azure.NotificationHubs;
 
-6. Replace the `Notifications` class definition with the following code, and replace the two placeholders with the connection string (with full access) for your notification hub and the hub name (available at [Azure classic portal](http://manage.windowsazure.com)):
+6. Vervang de `Notifications` klasse-definitie maken met de volgende code en vervang de twee tijdelijke aanduidingen door de verbindingsreeks (met volledige toegang) voor uw notification hub en de naam van de hub (beschikbaar op [klassieke Azure-portal](http://manage.windowsazure.com)):
    
         public class Notifications
         {
@@ -161,17 +161,17 @@ In this section, you add a new controller to the WebAPI back end to handle reque
                                                                              "<hub name>");
             }
         }
-7. Next, create a new controller named **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, select **Add**, and then select **Controller**. 
+7. Maak vervolgens een nieuwe domeincontroller met de naam **RegisterController**. Klik in Solution Explorer met de rechtermuisknop op de **domeincontrollers** map, selecteer **toevoegen**, en selecteer vervolgens **Controller**. 
 
-8. Select **Web API 2 Controller - Empty**, and then select **Add**.
+8. Selecteer **Web API 2-Controller - leeg**, en selecteer vervolgens **toevoegen**.
    
-    ![The Add Scaffold window][B7]
+    ![Het venster Add Scaffold][B7]
    
-9. In the **Controller name** box, type **RegisterController** to name the new class, and then select **Add**.
+9. In de **controllernaam** in het vak **RegisterController** als naam voor de nieuwe klasse en selecteer vervolgens **toevoegen**.
 
-    ![The Add Controller window][B8]
+    ![Het venster Controller toevoegen][B8]
 
-10. In RegisterController.cs, add the following `using` statements:
+10. Voeg in RegisterController.cs de volgende `using`-instructies toe:
    
         using Microsoft.Azure.NotificationHubs;
         using Microsoft.Azure.NotificationHubs.Messaging;
@@ -179,7 +179,7 @@ In this section, you add a new controller to the WebAPI back end to handle reque
         using System.Threading.Tasks;
         using System.Web;
 
-11. Add the following code inside the `RegisterController` class definition. Note that in this code, we add a user tag for the user that's attached to HttpContext. The user was authenticated and attached to HttpContext by the message filter that we added, `AuthenticationTestHandler`. You can also add optional checks to verify that the user has rights to register for the requested tags.
+11. Voeg de volgende code in de `RegisterController`-klassedefinitie. Houd er rekening mee dat in deze code we een label van de gebruiker voor de gebruiker die gekoppeld aan HttpContext toevoegen. De gebruiker is geverifieerd en gekoppeld zijn aan HttpContext door het berichtenfilter die wordt toegevoegd, `AuthenticationTestHandler`. U kunt ook optionele controles toevoegen om te controleren of de gebruiker rechten heeft voor het registreren voor de aangevraagde tags.
    
         private NotificationHubClient hub;
    
@@ -284,24 +284,24 @@ In this section, you add a new controller to the WebAPI back end to handle reque
                     throw new HttpRequestException(HttpStatusCode.Gone.ToString());
             }
         }
-12. Save your changes.
+12. Sla uw wijzigingen op.
 
-## <a name="send-notifications-from-the-webapi-back-end"></a>Send notifications from the WebAPI back end
-In this section you add a new controller that exposes a way for client devices to send a notification. The notification is based on the username tag that uses Azure Notification Hubs Service Management Library in the ASP.NET WebAPI back end.
+## <a name="send-notifications-from-the-webapi-back-end"></a>Meldingen verzenden vanuit de WebAPI-back-end
+In deze sectie voegt u een nieuwe domeincontroller waarmee een manier voor clientapparaten een melding te verzenden. De melding is gebaseerd op de gebruikersnaam-tag die gebruikmaakt van Azure Notification Hubs-Service Management-bibliotheek in de ASP.NET WebAPI-back-end.
 
-1. Create another new controller named **NotificationsController** the same way you created **RegisterController** in the previous section.
+1. Maak een andere nieuwe domeincontroller met de naam **NotificationsController** dezelfde manier als u hebt gemaakt **RegisterController** in de vorige sectie.
 
-2. In NotificationsController.cs, add the following `using` statements:
+2. Voeg in NotificationsController.cs de volgende `using`-instructies toe:
    
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
 
-3. Add the following method to the **NotificationsController** class:
+3. Voeg de volgende methode voor de **NotificationsController** klasse:
    
-    This code sends a notification type that's based on the Platform Notification Service (PNS) `pns` parameter. The value of `to_tag` is used to set the *username* tag on the message. This tag must match a username tag of an active notification hub registration. The notification message is pulled from the body of the POST request and formatted for the target PNS. 
+    Deze code verzendt een meldingstype dat gebaseerd op het Platform Notification Service (PNS) `pns` parameter. De waarde van `to_tag` wordt gebruikt om de tag *gebruikersnaam* in te stellen in het bericht. Deze tag moet overeenkomen met een gebruikersnaamtag van een actieve notification hub-registratie. Het meldingsbericht wordt opgehaald uit de hoofdtekst van de POST-aanvraag en geformatteerd voor de doel-PNS. 
    
-    Depending on the PNS that your supported devices use to receive notifications, the notifications are supported by a variety of formats. For example, on Windows devices, you might use a [toast notification with WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) that isn't directly supported by another PNS. In such an instance, your back end needs to format the notification into a supported notification for the PNS of devices you plan to support. Then use the appropriate send API on the [NotificationHubClient class](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx).
+    Afhankelijk van de PNS dat uw ondersteunde apparaten gebruiken om meldingen te ontvangen, worden de meldingen worden ondersteund door verschillende bestandsindelingen. Bijvoorbeeld, op Windows-apparaten, kunt u een [toasten we melding met WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) die rechtstreeks wordt niet ondersteund door een andere PNS. In een exemplaar moet uw back-end van de melding in een ondersteunde melding voor de PNS van apparaten dat u van plan bent te formatteren. Gebruik de juiste API verzenden op de [NotificationHubClient klasse](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx).
    
         public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
         {
@@ -345,29 +345,29 @@ In this section you add a new controller that exposes a way for client devices t
             return Request.CreateResponse(ret);
         }
 
-4. To run the application and ensure the accuracy of your work so far, select the **F5** key. The app opens a web browser, and it is displayed on the ASP.NET home page. 
+4. Uitvoeren van de toepassing en controleer de juistheid van uw werk tot nu toe, selecteer de **F5** sleutel. De app opent een webbrowser en deze wordt weergegeven op de startpagina van ASP.NET. 
 
-## <a name="publish-the-new-webapi-back-end"></a>Publish the new WebAPI back end
-Next, you deploy the app to an Azure website to make it accessible from all devices. 
+## <a name="publish-the-new-webapi-back-end"></a>De back-end van de nieuwe WebAPI publiceren
+U kunt vervolgens de app implementeren naar een Azure-website zodat deze toegankelijk is vanaf alle apparaten. 
 
-1. Right-click the **AppBackend** project, and then select **Publish**.
+1. Met de rechtermuisknop op de **AppBackend** project en selecteer vervolgens **publiceren**.
 
-2. Select **Microsoft Azure App Service** as your publish target, and then select **Publish**.  
-    The Create App Service window opens. Here you can create all the necessary Azure resources to run the ASP.NET web app in Azure.
+2. Selecteer **Microsoft Azure App Service** als uw publicatiedoel en selecteer vervolgens **publiceren**.  
+    De Create App Service-venster wordt geopend. Hier kunt u alle benodigde Azure-resources voor het uitvoeren van de ASP.NET-web-app in Azure.
 
-    ![The Microsoft Azure App Service tile][B15]
+    ![De Microsoft Azure App Service-tegel][B15]
 
-3. In the **Create App Service** window, select your Azure account. Select **Change Type** > **Web App**. Keep the default **Web App Name**, and then select the **Subscription**, **Resource Group**, and **App Service Plan**. 
+3. In de **Create App Service** venster, selecteer uw Azure-account. Selecteer **Type wijzigen** > **Web-App**. Gebruik de standaardwaarde **Web-Appnaam**, en selecteer vervolgens de **abonnement**, **resourcegroep**, en **App Service-Plan**. 
 
-4. Select **Create**.
+4. Selecteer **Maken**.
 
-5. Make a note of the **Site URL** property in the **Summary** section. This URL is your *back-end endpoint* later in the tutorial. 
+5. Noteer de **Site-URL**-eigenschap in de sectie **Samenvatting**. Deze URL is uw *back-end-eindpunt* verderop in de zelfstudie. 
 
-6. Select **Publish**.
+6. Selecteer **publiceren**.
 
-After you've completed the wizard, it publishes the ASP.NET web app to Azure and then opens the app in the default browser.  Your application is viewable in Azure App Services.
+Nadat u de wizard hebt voltooid, wordt de ASP.NET-web-app gepubliceerd naar Azure en vervolgens wordt de app in de standaardbrowser geopend.  De toepassing is in Azure App Services kan worden weergegeven.
 
-The URL uses the web app name that you specified earlier, with the format http://<app_name>.azurewebsites.net.
+De URL maakt gebruik van de web-appnaam die u eerder hebt opgegeven, met de notatie http://<app_naam>.azurewebsites.net.
 
 [B1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
 [B2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png

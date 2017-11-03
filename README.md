@@ -1,94 +1,54 @@
-# Handleiding voor bijdragers aan de technische documentatie voor Azure
-U hebt de GitHub-repository gevonden met de bron voor de technische documentatie die wordt gepubliceerd in het documentatiecentrum van Azure ([http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation)).
+## <a name="microsoft-open-source-code-of-conduct"></a>Microsoft Open Source-gedragscode
 
-Deze repository bevat ook instructies waarmee u kunt bijdragen aan onze technische documentatie.  Raadpleeg de [index](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md) voor een lijst van de artikelen in de handleiding voor bijdragers.
+Op dit project is de [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Microsoft Open Source-gedragscode) van toepassing.
+Zie voor meer informatie de [Code van Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) of neem contact op met [ opencode@microsoft.com ](mailto:opencode@microsoft.com) met aanvullende vragen of opmerkingen.
 
-## Bijdragen aan de Azure-documentatie
-Bedankt voor uw interesse in de Azure-documentatie.
+## <a name="contribute-to-azure-technical-documentation"></a>Bijdragen aan technische documentatie voor Azure
+Welkom bijdragen uit onze community (gebruikers, klanten, partners, MSFT werknemers buiten core Azure producteenheden, enz.) als werknemers in core Azure producteenheden. Hoe u bijdragen, is afhankelijk van wie u bent:
 
-* [Manieren om bij te dragen](#ways-to-contribute)
-* [Gedragscode](#code-of-conduct)
-* [Over uw bijdragen aan Azure-inhoud](#about-your-contributions-to-azure-content)
-* [Organisatie van de repository](#repository-organization)
-* [GitHub, Git en deze repository gebruiken](#use-github-git-and-this-repository)
-* [Hoe u markdown kunt gebruiken om uw onderwerp op te maken](#how-to-use-markdown-to-format-your-topic)
-* [Feedback, opmerkingen en ondersteuning](./contributor-guide/feedback-and-comments.md)
-* [Meer bronnen](#more-resources)
-* [Index van alle artikelen in de handleiding voor bijdragers](./contributor-guide/contributor-guide-index.md) (opent een nieuwe pagina)
+* **Community - minder ingrijpende updates**: als u minder ingrijpende updates buiten de nauwkeurigheid van uw hart bijdragen, kunt u het artikel niet vinden in deze repository of Ga naar het artikel op [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) en klik op de **Bewerken** koppeling in het artikel die u gaat dan naar de GitHub-bron voor het artikel. NET vervolgens de GitHub UI gebruikt om de updates. Of u bent Welkom bij de opslagplaats fork en updates van uw fork verzenden.
 
-## Manieren om bij te dragen
-U kunt op diverse manieren bijdragen aan de [Azure-documentatie](http://azure.microsoft.com/documentation/):
+* **Community - nieuwe artikelen**: als u deel uit van de Azure-community en u wilt een nieuw artikel maakt, moet u werken met een werknemer ervoor te zorgen dat nieuwe inhoud in door een combinatie van werk in de openbare en persoonlijke-opslagplaats.
 
-* Doe mee aan een [forumdiscussie](http://social.msdn.microsoft.com/Forums/windowsazure/home).
-* Plaats Disqus-opmerkingen onder aan artikelen.
-* U kunt eenvoudig bijdragen aan technische artikelen in de GitHub-gebruikersinterface. Zoek het artikel in deze repository op of ga naar het artikel via [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation). Klik vervolgens op de link in het artikel die u naar de GitHub-bron van het artikel leidt.
-* Als u belangrijke wijzigingen doorvoert in een bestaand artikel, afbeeldingen toevoegt of wijzigt, of een nieuw artikel maakt, moet u deze repository vertakken, Git Bash en Markdown Pad installeren en een aantal Git-opdrachten leren.
+* **Werknemers**: als u een technische writer, programmamanager zijn of ontwikkelaar van het productteam voor een Azure-service en het is uw taak bijdragen aan of het schrijven van technische artikelen, moet u de opslagplaats voor persoonlijke (https://github.com/ gebruiken MicrosoftDocs/azure-docs-pr). Als u belangrijke wijzigingen aan een bestaand artikel doorvoert, moet toevoegen of wijzigen van afbeeldingen of een nieuw artikel u deze repository vertakken, Git Bash en markdown-editor installeren en informatie over een aantal git-opdrachten. Zie [handleiding voor de interne bijdragers](https://review.docs.microsoft.com/en-us/help/contribute/?branch=master) voor meer informatie.
 
-## Gedragscode
-Op dit project is de [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Microsoft Open Source-gedragscode) van toepassing. Raadpleeg voor meer informatie de [Microsoft Open Source Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) (Veelgestelde vragen over de Microsoft Open Source-gedragscode). Als u aanvullende vragen of opmerkingen hebt, neemt u contact op met [opencode@microsoft.com](mailto:opencode@microsoft.com).
 
-## Over uw bijdragen aan Azure-content
-### Kleine correcties
-Op kleine correcties of verduidelijkingen die u toevoegt aan de documentatie of codevoorbeelden in deze repository, zijn de [Gebruiksvoorwaarden voor de Microsoft Azure-website](http://azure.microsoft.com/support/legal/website-terms-of-use/) van toepassing.
+## <a name="about-your-contributions-to-azure-content"></a>Over uw bijdragen aan Azure-content
+### <a name="minor-corrections"></a>Kleine correcties
+Kleine correcties of verduidelijkingen u indienen voor documentatie en codevoorbeelden in deze opslagplaats vallen onder de [docs.microsoft.com-gebruiksvoorwaarden](https://docs.microsoft.com/legal/termsofuse).
 
-### Grotere wijzigingen
-Als u een pull-aanvraag indient met nieuwe of belangrijke wijzigingen in de documentatie of codevoorbeelden, ontvangt u in GitHub een bericht met het verzoek een online licentieovereenkomst voor bijdragen (Contribution License Agreement, CLA) aan te vragen als u lid bent van een van deze groepen:
+### <a name="larger-submissions"></a>Grotere wijzigingen
+Als u een nieuwe of belangrijke wijzigingen in de documentatie of codevoorbeelden pull-aanvraag indient, sturen we een opmerking in GitHub waarin u een online bijdrage License Agreement (CLA) indienen als u niet een medewerker van Microsoft. U moet het online formulier invullen voordat we uw pull-aanvraag kunnen accepteren.
 
-* Leden van de Microsoft Open Technologies-groep.
-* Bijdragers die niet voor Microsoft werken.
+## <a name="tools-and-setup"></a>Hulpprogramma's en installatie
+Medewerkers van de community kunnen gebruiken de GitHub UI of de opslagplaats om bij te dragen vertakken. Werknemers moeten bezoeken [handleiding voor de interne bijdragers](https://review.docs.microsoft.com/en-us/help/contribute/?branch=master) instellen voor meer informatie over hoe u kunt bijdragen aan de technische documentatie.
 
-U moet het online formulier invullen voordat we uw pull-aanvraag kunnen accepteren.
+## <a name="repository-organization"></a>Organisatie van de repository
+De inhoud in de opslagplaats azure docs volgt de documentatiestructuur op https://docs.microsoft.com/azure. Deze bibliotheek bevat twee hoofdmappen:
 
-U vindt alle informatie via [http://azure.github.io/guidelines/#cla](http://azure.github.io/guidelines/#cla).
+### <a name="articles"></a>\articles
+De map *\articles* bevat de documentatieartikelen die zijn opgemaakt als markdownbestanden met de indeling *.md*. Artikelen zijn doorgaans gegroepeerd op Azure-service.
 
-## Organisatie van de repository
-De inhoud van de repository azure-content volgt de documentatiestructuur op [Azure.Microsoft.com](http://azure.microsoft.com). Deze bibliotheek bevat twee hoofdmappen:
+De *\articles* map bevat de *\media* voor root directory mediabestanden binnen deze map zich submappen met de afbeeldingen voor elk artikel.  De servicemappen bevatten een afzonderlijke mediamap voor de artikelen in elke servicemap. De mappen met afbeeldingen voor de artikelen hebben dezelfde naam als het artikelbestand, maar zonder de bestandsextensie *.md*.
 
-### \articles
-De map *\articles* bevat de documentatieartikelen die zijn opgemaakt als markdownbestanden met de indeling *.md*.
+### <a name="includes"></a>\includes
+U kunt herbruikbare blokken met conAtent maken die moeten worden opgenomen in een of meer artikelen. 
 
-Artikelen in de hoofdmap worden naar Azure.Microsoft.com gepubliceerd via het pad *http://azure.microsoft.com/documentation/articles/{artikelnaam-zonder-md}/*.
-
-* **Bestandsnamen van artikelen:** raadpleeg [onze richtlijnen voor de naamgeving van bestanden](./contributor-guide/file-names-and-locations.md).
-
-Artikelen in een eigen servicemap worden naar Azure.Microsoft.com gepubliceerd via het pad *http://azure.microsoft.com/documentation/articles/service-folder/{artikelnaam-zonder-md}/*.
-
-* **Mediasubmappen:** de map *\articles* bevat de map *\media* voor mediabestanden bij artikelen in de hoofdmap. Binnen deze map bevinden zich submappen met de afbeeldingen voor elk artikel.  De servicemappen bevatten een afzonderlijke mediamap voor de artikelen in elke servicemap. De mappen met afbeeldingen voor de artikelen hebben dezelfde naam als het artikelbestand, maar zonder de bestandsextensie *.md*.
-
-### \includes
-U kunt herbruikbare blokken met conAtent maken die moeten worden opgenomen in een of meer artikelen. Raadpleeg [Custom extensions used in our technical content](./contributor-guide/custom-markdown-extensions.md) (Aangepaste extensies die in onze technische inhoud worden gebruikt).
-
-### \markdown templates
-Deze map bevat onze standaardmarkdownsjabloon met de basismarkdownopmaak die u voor een artikel nodig hebt.
-
-### \contributor-guide
-Deze map bevat artikelen die deel uitmaken van onze handleiding voor bijdragers.  
-
-## GitHub, Git en deze repository gebruiken
-Raadpleeg [Install and set up tools for authoring in GitHub](./contributor-guide/tools-and-setup.md) (Hulpprogramma’s voor ontwerpen in GitHub installeren) voor meer informatie over hoe u kunt bijdragen, hoe u de GitHub-gebruikersinterface kunt gebruiken om kleine wijzigingen aan te brengen, en hoe u de repository kunt vertakken en klonen voor grotere wijzigingen.
-
-Als u GitBash installeert en ervoor kiest om lokaal te werken, volgt u de stappen voor het maken van een nieuwe lokale werkvertakking, het aanbrengen van wijzigingen en het verzenden van deze wijzigingen naar de hoofdvertakking. Deze stappen vindt u in [Git commands for creating a new article or updating an existing article](./contributor-guide/git-commands-for-master.md) (Git-opdrachten voor het maken van een nieuw artikel of het bijwerken van een bestaand artikel).
-
-### Vertakkingen
-We raden u aan om lokale werkvertakkingen te maken die zijn gericht op specifieke wijzigingen. Elke vertakking moet worden beperkt tot één concept/artikel om de werkstroom te stroomlijnen en de kans op samenvoegconflicten te verminderen.  In de volgende gevallen is een nieuwe vertakking een goed idee:
-
-* U maakt een nieuw artikel (met bijbehorende afbeeldingen).
-* U corrigeert spel- en grammaticafouten in een artikel.
-* U past één wijziging in de opmaak toe op een groot aantal artikelen (u maakt bijvoorbeeld nieuwe voettekst met betrekking tot het auteursrecht).
-
-## Hoe u markdown kunt gebruiken om uw onderwerp op te maken
+## <a name="how-to-use-markdown-to-format-your-topic"></a>Hoe u markdown kunt gebruiken om uw onderwerp op te maken
 Alle artikelen in deze bibliotheek gebruiken GitHub-markdown.  Hier volgt een lijst van resources.
 
-* [Basisbeginselen van markdown](https://help.github.com/articles/markdown-basics/)
+* [Basisprincipes van markdown](https://help.github.com/articles/markdown-basics/)
 * [Afdrukbare cheatsheet voor markdown](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
-* Raadpleeg [het onderwerp over hulpprogramma's en installatie](./contributor-guide/tools-and-setup.md#install-a-markdown-editor) voor onze lijst met markdowneditors.
 
-## Metadata van het artikel
-De metadata van het artikel worden op de website azure.microsoft.com voor diverse functies gebruikt, zoals toewijzing aan een auteur, toewijzing aan een bijdrager, breadcrumbs, artikelbeschrijvingen, SEO-optimalisatie en rapportage. Microsoft gebruikt deze functies om de prestaties van de inhoud te evalueren. De metadata zijn dus belangrijk. [Hier vindt u de richtlijnen waarmee u ervoor zorgt dat uw metadata op de juiste manier worden gebruikt](./contributor-guide/article-metadata.md).
 
-## Meer bronnen
-Raadpleeg de [index van onze handleiding voor bijdragers](./contributor-guide/contributor-guide-index.md) voor alle onderwerpen over onze richtlijnen.
+## <a name="labels"></a>Labels
+Geautomatiseerde labels worden in de opslagplaats voor openbare azure-documenten toegewezen aan het pull-aanvragen stellen van de werkstroom pull-aanvraag beheren en te laten u weten wat er gebeurt met uw pull-aanvraag:
 
-<!--HONumber=Aug16_HO1-->
+* Gebruiksrechtovereenkomst bijdrage gerelateerd
+  * CLA niet is vereist: de wijziging is relatief klein en vereist niet dat u zich een CLA aanmeldt.
+  * CLA vereist: het bereik van de wijziging is relatief groot en vereist dat u zich een CLA aanmeldt.
+  * CLA ondertekend: de inzender de CLA ondertekend, zodat de pull-aanvraag kunt nu verdergaan voor revisie.
+* Wijzigen is verzonden naar de auteur: de auteur van de in behandeling zijnde pull-aanvraag is gewaarschuwd.
+* gereed voor samenvoegen: gereed voor controle door ons team pull-aanvraag controleren.
 
 

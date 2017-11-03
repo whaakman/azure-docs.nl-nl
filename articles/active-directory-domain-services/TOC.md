@@ -1,6 +1,8 @@
 # Overzicht
 ## [Wat is Azure AD Domain Services?](active-directory-ds-overview.md)
-## [Is dit geschikt voor u?](active-directory-ds-comparison.md)
+## Is dit geschikt voor u?
+### [Vergelijken met Windows Server AD](active-directory-ds-comparison.md)
+### [Vergelijken met Azure AD Join](active-directory-ds-compare-with-azure-ad-join.md)
 ## [Functies](active-directory-ds-features.md)
 ## [Scenario's](active-directory-ds-scenarios.md)
 ## [Hoe synchronisatie werkt](active-directory-ds-synchronization.md)
@@ -36,6 +38,7 @@
 ### [Ondersteuning voor profielsynchronisatie voor SharePoint Server configureren](active-directory-ds-enable-sharepoint-profile-sync.md)
 ### [Kerberos-beperkte overdracht configureren](active-directory-ds-enable-kcd.md)
 ### [Azure AD-toepassingsproxy implementeren](active-directory-ds-deploy-azure-app-proxy.md)
+## [Een beheerd domein verwijderen](active-directory-ds-disable-aadds.md)
 ## Problemen oplossen
 ### [Veelgestelde vragen](active-directory-ds-faqs.md)
 ### [Handleiding voor het oplossen van problemen](active-directory-ds-troubleshooting.md)

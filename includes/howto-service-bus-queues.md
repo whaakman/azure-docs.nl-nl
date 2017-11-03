@@ -12,8 +12,3 @@ Service Bus-wachtrijen is een technologie voor algemeen gebruik die voor een gro
 Door wachtrijen te gebruiken, kunt u uw toepassingen eenvoudiger schalen en kunt u meer tolerantie aan uw architectuur toevoegen.
 
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

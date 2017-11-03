@@ -1,16 +1,16 @@
-## <a name="net-sample-code-repositories"></a>.NET sample code repositories
+## <a name="net-sample-code-repositories"></a>Code-opslagplaatsen van .NET-voorbeeld
 
-Here is a list of all our sample repositories for the Azure Storage .NET client library.
+Hier volgt een lijst van de voorbeeld-opslagplaatsen voor de Azure Storage .NET-clientbibliotheek.
 
-* [Azure Blob Storage Photo Gallery Web Application](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/)
-* [Azure Blob Storage Samples for .NET](https://azure.microsoft.com/resources/samples/storage-blob-dotnet-getting-started/)
-* [Backup Azure Virtual Machine Disks with Incremental Snapshots](https://azure.microsoft.com/resources/samples/storage-blob-dotnet-back-up-with-incremental-snapshots/)
-* [Getting Started with Azure Client Side Encryption in .NET](https://azure.microsoft.com/resources/samples/storage-dotnet-client-side-encryption/)
-* [Getting Started with Azure File Service in .NET](https://azure.microsoft.com/resources/samples/storage-file-dotnet-getting-started/)
-* [Getting Started with Azure Queue Service in .NET](https://azure.microsoft.com/resources/samples/storage-queue-dotnet-getting-started/)
-* [Getting Started with Azure Storage Resource Provider in .NET](https://azure.microsoft.com/resources/samples/storage-dotnet-resource-provider-getting-started/)
-* [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/resources/samples/storage-table-dotnet-getting-started/)
-* [Getting Started with Shared Access Signatures (SAS)](https://azure.microsoft.com/resources/samples/storage-dotnet-sas-getting-started/)
-* [Import Export Job Management through REST API](https://azure.microsoft.com/resources/samples/storage-dotnet-import-export-job-management/)
-* [MyDriving - An Azure IOT and Mobile Sample Application](https://azure.microsoft.com/resources/samples/mydriving/)
-* [.NET Storage Client Library Samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted)
+* [Azure Blob Storage Fotogalerie-webtoepassing](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/)
+* [Voorbeelden van Azure Blob Storage voor .NET](https://azure.microsoft.com/resources/samples/storage-blob-dotnet-getting-started/)
+* [Back-virtuele Machine van Azure-schijven met incrementele momentopnamen](https://azure.microsoft.com/resources/samples/storage-blob-dotnet-back-up-with-incremental-snapshots/)
+* [Aan de slag met Azure versleuteling voor aan de clientzijde in .NET](https://azure.microsoft.com/resources/samples/storage-dotnet-client-side-encryption/)
+* [Aan de slag met Azure File-Service in .NET](https://azure.microsoft.com/resources/samples/storage-file-dotnet-getting-started/)
+* [Aan de slag met Azure Queue-Service in .NET](https://azure.microsoft.com/resources/samples/storage-queue-dotnet-getting-started/)
+* [Aan de slag met Azure Storage Resourceprovider op .NET](https://azure.microsoft.com/resources/samples/storage-dotnet-resource-provider-getting-started/)
+* [Aan de slag met Azure Table Storage in .NET](https://azure.microsoft.com/resources/samples/storage-table-dotnet-getting-started/)
+* [Aan de slag met Shared Access Signatures (SAS)](https://azure.microsoft.com/resources/samples/storage-dotnet-sas-getting-started/)
+* [Import/Export-taakbeheer via REST-API](https://azure.microsoft.com/resources/samples/storage-dotnet-import-export-job-management/)
+* [MyDriving - een Azure IOT en mobiele voorbeeldtoepassing](https://azure.microsoft.com/resources/samples/mydriving/)
+* [.NET-opslag Client Library-voorbeelden](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted)
