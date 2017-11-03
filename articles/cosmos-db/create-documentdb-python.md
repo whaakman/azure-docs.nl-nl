@@ -8,20 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 51c11be2-af6d-425f-a86a-39cbfe61da29
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: hero-article
-ms.date: 05/13/2017
+ms.topic: quickstart
+ms.date: 10/16/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 08d467ea27484e7d1d07d6c21b2e04b6525fbcd8
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/01/2017
-
-
+ms.openlocfilehash: 8a5c9b7861e63ef76ec338072eafcd7905c258f2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: een DocumentDB API-app bouwen met Python en Azure Portal
 
@@ -32,11 +30,12 @@ Deze Quick Start laat zien hoe u een Azure Cosmos DB-account, een documentdataba
 ## <a name="prerequisites"></a>Vereisten
 
 * Voordat u met dit voorbeeld aan de slag gaat, moet u aan de volgende vereisten voldoen:
-    * [Visual Studio 2015](http://www.visualstudio.com/) of hoger.
+    * Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
     * Python Tools for Visual Studio van [GitHub](http://microsoft.github.io/PTVS/). In deze zelfstudie wordt gebruikgemaakt van Python Tools for VS 2015.
     * Python 2.7 van [python.org](https://www.python.org/downloads/release/python-2712/)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
 
@@ -50,7 +49,7 @@ Deze Quick Start laat zien hoe u een Azure Cosmos DB-account, een documentdataba
 
 We gaan nu een DocumentDB API-app klonen vanuit GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
 
-1. Open een venster in een git-terminal zoals git bash en `cd` naar een werkmap.  
+1. Open een git-terminalvenster zoals git bash en `cd` naar een werkmap.  
 
 2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. 
 
@@ -132,11 +131,11 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
 3. Kopieer uw URI-waarde vanaf de portal (met de kopieerknop) en geef deze als waarde aan de eindpuntsleutel in `DocumentDBGetStarted.py`. 
 
-    `config.ENDPOINT : "https://FILLME.documents.azure.com"`
+    `'ENDPOINT': 'https://FILLME.documents.azure.com',`
 
 4. Kopieer vervolgens de waarde van uw PRIMAIRE SLEUTEL vanaf de portal en geef deze als waarde aan de `config.MASTERKEY` in `DocumentDBGetStarted.py`. U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Azure Cosmos DB. 
 
-    `config.MASTERKEY : "FILLME"`
+    `'MASTERKEY': 'FILLME',`
     
 ## <a name="run-the-app"></a>De app uitvoeren
 1. Klik in Visual Studio met de rechtermuisknop op het project in **Solution Explorer**, selecteer de huidige Python-omgeving en klik er met de rechtermuisknop op.
@@ -164,6 +163,5 @@ In deze Quick Start hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken,
 
 > [!div class="nextstepaction"]
 > [Gegevens importeren in Azure Cosmos DB voor de DocumentDB API](import-data.md)
-
 
 

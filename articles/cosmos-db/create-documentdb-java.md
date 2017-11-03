@@ -8,27 +8,31 @@ manager: jhubbard
 editor: 
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: hero-article
-ms.date: 08/02/2017
+ms.topic: quickstart
+ms.date: 10/30/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: df1a25d703a7b8082bdabb4f7d593cb005d416fe
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: 5a793abdc24387ae2b758d29b9dfb25f134097d3
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: een document maken met behulp van Java en Azure Portal
 
-Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafen en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
+Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. Met behulp van Azure Cosmos DB, kunt u snel maken en query beheerd document, de tabel en de databases van de grafiek.
 
-In deze snelstartgids wordt een documentdatabase gemaakt met behulp van de hulpprogramma's voor Azure Cosmos DB in Azure Portal. In deze snelstartgids leest u ook hoe u snel een Java-console-app kunt maken via de [DocumentDB Java-API](documentdb-sdk-java.md). De instructies in deze snelstartgids kunnen worden uitgevoerd in elk besturingssysteem waarmee Java kan worden uitgevoerd. Als u deze snelstartgids hebt voltooid, weet u hoe u documentdatabaseresources kunt maken en wijzigen in de UI of via een programma, afhankelijk van uw voorkeur.
+In deze snelstartgids wordt een documentdatabase gemaakt met behulp van de hulpprogramma's voor Azure Cosmos DB in Azure Portal. In deze snelstartgids leest u ook hoe u snel een Java-console-app kunt maken via de [DocumentDB Java-API](documentdb-sdk-java.md). De instructies in deze snelstartgids kunnen worden uitgevoerd in elk besturingssysteem waarmee Java kan worden uitgevoerd. Door het voltooien van deze snelstartgids zult u bekend bent met het maken en wijzigen van document databaseresources in de gebruikersinterface of via een programma, afhankelijk van wat is uw voorkeur.
 
 ## <a name="prerequisites"></a>Vereisten
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+Daarnaast doet u het volgende: 
 
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
     * Voer op Ubuntu `apt-get install default-jdk` uit om de JDK te installeren.
@@ -37,8 +41,6 @@ In deze snelstartgids wordt een documentdatabase gemaakt met behulp van de hulpp
     * Op Ubuntu kunt u `apt-get install maven` uitvoeren om Maven te installeren.
 * [Git](https://www.git-scm.com/)
     * Op Ubuntu kunt u `sudo apt-get install git` uitvoeren om Git te installeren.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
 
@@ -55,11 +57,11 @@ Voordat u een documentdatabase kunt maken, moet u een SQL-databaseaccount (Docum
 
 U kunt nu gegevens aan uw nieuwe verzameling toevoegen met behulp van Data Explorer.
 
-1. De nieuwe database wordt in Data Explorer weergegeven in het deelvenster Verzamelingen. Vouw de database **Taken** uit, vouw de verzameling **Items** uit, klik op **Documenten** en klik vervolgens op **Nieuwe documenten**. 
+1. Vouw de **Items** verzameling, klikt u op **documenten** > **Nieuw Document**.
 
-   ![Nieuwe documenten maken in Data Explorer in de Azure Portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-new-document.png)
+   ![Nieuwe documenten maken in Data Explorer in de Azure Portal](./media/create-documentdb-java/azure-cosmosdb-data-explorer-new-document.png)
   
-2. Voeg nu een document toe aan de verzameling met de volgende structuur.
+2. Nu een document toevoegen aan de verzameling met de volgende structuur en klik op **opslaan**.
 
      ```json
      {
@@ -71,23 +73,37 @@ U kunt nu gegevens aan uw nieuwe verzameling toevoegen met behulp van Data Explo
      }
      ```
 
-3. Zodra u de JSON hebt toegevoegd aan het tabblad **Documenten** klikt u op **Opslaan**.
+    ![JSON-gegevens kopiëren en op Opslaan klikken in Data Explorer in Azure Portal](./media/create-documentdb-java/azure-cosmosdb-data-explorer-save-document.png)
 
-    ![JSON-gegevens kopiëren en op Opslaan klikken in Data Explorer in Azure Portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
+3.  Maak een meer document waarin u wijzigen en sla `id` op 2 en de overige eigenschappen zoals u ziet past wijzigen. De nieuwe documenten kunnen elke gewenste structuur hebben, omdat in Azure Cosmos DB uw gegevens geen schema krijgen opgelegd.
 
-4.  Maak nog één document en sla dit op. In het document voegt u een unieke waarde toe voor de eigenschap `id`. Wijzig de andere eigenschappen naar eigen inzicht. De nieuwe documenten kunnen elke gewenste structuur hebben, omdat in Azure Cosmos DB uw gegevens geen schema krijgen opgelegd.
+## <a name="query-your-data"></a>Uw gegevens opvragen
 
-     U kunt nu query's in Data Explorer gebruiken om de gegevens op te halen door te klikken op de knoppen **Filter bewerken** en **Filter toepassen**. Data Explorer maakt standaard gebruik van `SELECT * FROM c` om alle documenten in de verzameling op te halen. U kunt dit wijzigen in een andere [SQL-query](documentdb-sql-query.md), zoals `SELECT * FROM c ORDER BY c._ts DESC`, om alle documenten terug te zetten in aflopende volgorde op basis van hun timestamp. 
- 
-     U kunt Data Explorer ook gebruiken voor het maken van opgeslagen procedures, UDF's en triggers om bedrijfslogica aan de serverzijde uit te voeren en doorvoer te schalen. In Data Explorer wordt alle ingebouwde programmatische gegevenstoegang zichtbaar die beschikbaar is in de API's, maar biedt eenvoudige toegang tot uw gegevens in Azure Portal.
+U kunt nu query's in Data Explorer gebruiken om te halen en filter uw gegevens.
+
+1. Zie dat standaard de query is ingesteld op `SELECT * FROM c`. Deze standaardquery opgehaald en alle documenten in de verzameling weergegeven. 
+
+    ![Standaard-query in Data Explorer is ' Selecteer * van c'](./media/create-documentdb-java/azure-cosmosdb-data-explorer-query.png)
+
+2. De query wijzigen door te klikken op de **-Filter bewerken** knop, toe te voegen `ORDER BY c._ts DESC` aan de query-predicaat in en vervolgens klikken op **Filter toepassen**.
+
+    ![De standaardquery wijzigen door ORDER BY c._ts DESC toe te voegen en te klikken op Filter toepassen](./media/create-documentdb-java/azure-cosmosdb-data-explorer-edit-query.png)
+
+Dit gewijzigd query lijsten documenten in aflopende volgorde op basis van hun tijdstempel, nu uw tweede document wordt eerst weergegeven. Als u bekend met SQL-syntaxis bent, kunt u een van de ondersteunde [SQL-query's](documentdb-sql-query.md) in dit vak. 
+
+Onze werk in Data Explorer is voltooid. Voordat we verdergaan met het werken met code, houd er rekening mee dat u ook Data Explorer gebruiken kunt voor het maken van opgeslagen procedures, UDF's en triggers voor bedrijfslogica op de server uitvoeren, evenals een doorvoer te schalen. In Data Explorer wordt alle ingebouwde programmatische gegevenstoegang zichtbaar die beschikbaar is in de API's, maar biedt eenvoudige toegang tot uw gegevens in Azure Portal.
 
 ## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
 Nu gaan we werken met code. We gaan nu een DocumentDB API-app klonen vanuit GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
 
-1. Open een git-terminalvenster zoals git bash en `CD` naar een werkmap.  
+1. Open een git-terminalvenster zoals git bash, en gebruik de `cd` opdracht om te wijzigen naar een map voor het installeren van de voorbeeld-app. 
 
-2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. 
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. Deze opdracht maakt u een kopie van de voorbeeld-app op uw computer.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
@@ -95,9 +111,9 @@ Nu gaan we werken met code. We gaan nu een DocumentDB API-app klonen vanuit GitH
 
 ## <a name="review-the-code"></a>De code bekijken
 
-Laten we eens kijken wat er precies gebeurt in de app. Open het bestand `Program.java` in de map \src\GetStarted. Zoek de regels code waarmee de Azure Cosmos DB-resources worden gemaakt. 
+Deze stap is optioneel. Als u wilt weten hoe de databaseresources worden gemaakt in de code bent, kunt u de volgende codefragmenten bekijken. De codefragmenten zijn afkomstig uit de `Program.java` bestand in de map C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted geïnstalleerd. Anders kunt u verder gaan naar [bijwerken van de verbindingsreeks](#update-your-connection-string). 
 
-* De `DocumentClient` is geïnitialiseerd.
+* `DocumentClient`de initialisatie. De [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) logische representatie van de clientzijde voor de database-service van Azure DB die Cosmos biedt. Deze client wordt gebruikt om te configureren en uitvoeren van aanvragen op basis van de service.
 
     ```java
     this.client = new DocumentClient("https://FILLME.documents.azure.com",
@@ -106,7 +122,7 @@ Laten we eens kijken wat er precies gebeurt in de app. Open het bestand `Program
             ConsistencyLevel.Session);
     ```
 
-* Er wordt een nieuwe database gemaakt.
+* [Database](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._database) maken.
 
     ```java
     Database database = new Database();
@@ -115,7 +131,7 @@ Laten we eens kijken wat er precies gebeurt in de app. Open het bestand `Program
     this.client.createDatabase(database, null);
     ```
 
-* Er wordt een nieuwe verzameling gemaakt.
+* [Documentcollection maakt](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_collection) maken.
 
     ```java
     DocumentCollection collectionInfo = new DocumentCollection();
@@ -126,7 +142,7 @@ Laten we eens kijken wat er precies gebeurt in de app. Open het bestand `Program
     this.client.createCollection(databaseLink, collectionInfo, requestOptions);
     ```
 
-* Er wordt een aantal documenten gemaakt.
+* Maken van het document met behulp van de [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createdocument) methode.
 
     ```java
     // Any Java object within your code can be serialized into JSON and written to Azure Cosmos DB
@@ -139,7 +155,7 @@ Laten we eens kijken wat er precies gebeurt in de app. Open het bestand `Program
     this.client.createDocument(collectionLink, family, new RequestOptions(), true);
     ```
 
-* Er wordt een SQL-query via JSON uitgevoerd.
+* SQL-query's via JSON worden uitgevoerd met behulp van de [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.querydocuments) methode.
 
     ```java
     FeedOptions queryOptions = new FeedOptions();
@@ -159,29 +175,51 @@ Laten we eens kijken wat er precies gebeurt in de app. Open het bestand `Program
 
 ## <a name="update-your-connection-string"></a>Uw verbindingsreeks bijwerken
 
-Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app. Hierdoor kan de app communiceren met de gehoste database.
+Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app. Hierdoor kan uw app kan communiceren met uw gehoste-database.
 
-1. Klik in [Azure Portal](http://portal.azure.com/), in uw Azure Cosmos DB-account, in het linker navigatiegedeelte op **Sleutels** en klik vervolgens op **Sleutels voor lezen/schrijven**. In de volgende stap gebruikt u de kopieerknoppen aan de rechterkant van het scherm om de URI en PRIMAIRE SLEUTEL in het bestand `Program.java` te kopiëren.
+1. In de [Azure-portal](http://portal.azure.com/), klikt u op **sleutels**. 
 
-    ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-documentdb-dotnet/keys.png)
+    Gebruik de knoppen Kopieer aan de rechterkant van het scherm voor het kopiëren van de bovenste waarde, de URI.
 
-2. Kopieer de URI-waarde vanuit de portal in het geopende bestand `Program.java` (met behulp van de kopieerknop) en geef deze als waarde van het eindpunt op bij de DocumentClient-constructor in `Program.java`. 
+    ![Weergeven en een toegangssleutel in de Azure portal, sleutels pagina kopiëren](./media/create-documentdb-java/keys.png)
 
-    `"https://FILLME.documents.azure.com"`
+2. Open de `Program.java` bestand vanuit de map C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted. 
 
-4. Vervolgens kopieert u de waarde van de PRIMAIRE SLEUTEL vanuit de portal en plakt u deze over FILLME, waardoor deze de tweede parameter wordt in de DocumentClient-constructor. U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Azure Cosmos DB. 
+3. Plak de URI-waarde van de portal via `https://FILLME.documents.azure.com` op regel 45.
+
+4. Ga terug naar de portal en kopieer de primaire sleutel-waarde, zoals weergegeven in de schermafbeelding. De waarde van het primaire sleutel van de portal via plakken `FILLME` op regel 46.
+
+    De methode getStartedDemo moet nu er ongeveer als volgt uitzien: 
     
+    ```java
+    private void getStartedDemo() throws DocumentClientException, IOException {
+        this.client = new DocumentClient("https://youraccountname.documents.azure.com:443/",
+                "your-primary-key...RJhQrqQ5QQ==", 
+                new ConnectionPolicy(),
+                ConsistencyLevel.Session);
+    ```
+
+5. Sla het bestand Program.java.
+
 ## <a name="run-the-app"></a>De app uitvoeren
 
 1. `cd` in het git-terminalvenster naar de map azure-cosmos-db-documentdb-java-getting-started.
 
+    ```git
+    cd "C:\git-samples\azure-cosmos-db-documentdb-java-getting-started"
+    ```
+
 2. Type `mvn package` in het git-terminalvenster om de vereiste Java-pakketten te installeren.
 
-3. Voer `mvn exec:java -D exec.mainClass=GetStarted.Program` uit in het git-terminalvenster om de Java-toepassing te starten.
+3. Voer in het terminalvenster git `mvn exec:java -D exec.mainClass=GetStarted.Program` de Java-toepassing wilt starten.
 
-    In het terminalvenster ontvangt u een melding dat de FamilyDB-database is gemaakt. U wordt gevraagd op een toets te drukken om door te gaan. Druk op een toets om de database te maken. Schakel vervolgens over naar Data Explorer. U ziet nu dat deze een FamilyDB-database bevat. Blij op toetsen drukken om de verzameling en de documenten te maken. Voer vervolgens een query uit. Wanneer het project is voltooid, worden de resources verwijderd uit het account. 
+    Het terminalvenster geeft een melding dat de FamilyDB-database is gemaakt. Een toets om de verzameling te maken, schakelt u naar de Data Explorer en ziet u dat deze nu een FamilyDB-database bevat.
+    
+    Blijven toetsen voor het maken van de documenten en vervolgens een query uitvoert.
+    
+    Alle resources uit deze app worden verwijderd uit je account aan het einde van het programma, zodat u niet alle kosten. 
 
-    ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-documentdb-java/console-output.png)
+    ![Console-uitvoer](./media/create-documentdb-java/console-output.png)
 
 
 ## <a name="review-slas-in-the-azure-portal"></a>SLA’s bekijken in Azure Portal
@@ -190,17 +228,13 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u deze app niet verder gaat gebruiken, kunt u alle resources verwijderen die door deze Quick Start zijn aangemaakt door onderstaande stappen te volgen in Azure Portal:
-
-1. Klik in het menu aan de linkerkant in Azure Portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt. 
-2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ de naam van de resource die u wilt verwijderen in het tekstvak en klik vervolgens op **Verwijderen**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u geleerd hoe u een Azure Cosmos DB-account, documentdatabase en verzameling kunt maken met behulp van Data Explorer, en hoe u een app kunt uitvoeren die hetzelfde doet via een programma. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren. 
+In deze snelstartgids hebt u geleerd hoe u een Azure Cosmos DB-account, documentdatabase en verzameling kunt maken met behulp van Data Explorer, en hoe u een app kunt uitvoeren die hetzelfde doet via een programma. U kunt nu aanvullende gegevens importeren in uw Azure DB die Cosmos-verzameling. 
 
 > [!div class="nextstepaction"]
 > [Gegevens importeren in Azure Cosmos DB](import-data.md)
-
 
 

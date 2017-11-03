@@ -6,21 +6,19 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
-ms.custom: mvc
+ms.service: postgresql
+ms.custom: mvc, devcenter
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/23/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: ddc364f2a0b8a8bb0a4a2c3a563c007470415991
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/10/2017
-
+ms.openlocfilehash: c16705c89c36452a28ab0547dc6b5277f57dd6d5
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>Azure Database voor PostgreSQL: Node.js gebruiken om verbinding te maken en query's uit te voeren op gegevens
-In deze snelstartgids ziet u hoe u vanuit de platformen Windows, Ubuntu Linux, en Mac met behulp van [Node.js](https://nodejs.org/) verbinding maakt met een Azure Database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In de stappen van dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Node.js, maar geen ervaring hebt met het werken met Azure Database voor PostgreSQL.
+Deze snelstartgids demonstreert hoe u verbinding maken met een Azure-Database voor het gebruik van PostgreSQL een [Node.js](https://nodejs.org/) toepassing. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. De stappen in dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Node.js en niet bekend bent met het werken met Azure-Database voor PostgreSQL.
 
 ## <a name="prerequisites"></a>Vereisten
 In deze snelstartgids worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
@@ -31,7 +29,7 @@ U moet ook het volgende doen:
 - [Node.js](https://nodejs.org) installeren
 
 ## <a name="install-pg-client"></a>pg-client installeren
-Installeer [pg](https://www.npmjs.com/package/pg), een niet-blokkerende JavaScript-client voor Node.js die handig is om verbinding maken met en query's uit te voeren in PostgreSQL.
+Installeer [pg](https://www.npmjs.com/package/pg), dit is een PostgreSQL-client voor Node.js.
 
 Voer de Node Package Manager (NPM) voor JavaScript uit vanaf de opdrachtregel om de pg-client te installeren.
 ```bash
@@ -42,26 +40,19 @@ Controleer de installatie door de geïnstalleerde pakketten weer te geven.
 ```bash
 npm list
 ```
-De uitvoer van de lijstopdracht bevestigt de versie van elk onderdeel. 
-```
-`-- pg@6.2.3
-  +-- buffer-writer@1.0.1
-  +-- packet-reader@0.3.1
-etc...
-```
 
 ## <a name="get-connection-information"></a>Verbindingsgegevens ophalen
 Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure Database voor PostgreSQL. U hebt de volledig gekwalificeerde servernaam en aanmeldingsreferenties nodig.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. In het menu links in Azure Portal klikt u op **Alle resources** en zoekt u naar de server die u zojuist hebt gemaakt: **mypgserver-20170401**.
-3. Klik op de servernaam **mypgserver-20170401**.
+2. Klik in het menu links in Azure-portal op **alle resources** en zoek naar de server die u zojuist hebt gemaakt.
+3. Klik op de servernaam.
 4. Selecteer de pagina **Overzicht** van de server. Noteer de **servernaam** en de **gebruikersnaam van de serverbeheerder**.
  ![Azure Database voor PostgreSQL - Aanmeldgegevens van de serverbeheerder](./media/connect-nodejs/1-connection-string.png)
 5. Als u uw aanmeldingsgegevens voor de server bent vergeten, gaat u naar de pagina **Overzicht** om de aanmeldingsnaam van de serverbeheerder weer te geven en indien nodig het wachtwoord opnieuw in te stellen.
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>De JavaScript-code in Node.js uitvoeren
-U kunt Node.js starten vanuit de Bash-shell of opdrachtprompt van Windows door `node` in te voeren. Voer vervolgens de JavaScript-voorbeeldcode interactief uit door deze te kopiëren en in de prompt te plakken. U kunt de JavaScript-code ook in een tekstbestand opslaan en `node filename.js` starten met de bestandsnaam als parameter om de code uit te voeren.
+U mag Node.js starten van de Bash-shell, Terminal of Windows-opdrachtprompt door te typen `node`, in het voorbeeld JavaScript-code interactief worden uitgevoerd door kopiëren en plakken naar de prompt. U kunt de JavaScript-code ook in een tekstbestand opslaan en `node filename.js` starten met de bestandsnaam als parameter om de code uit te voeren.
 
 ## <a name="connect-create-table-and-insert-data"></a>Verbinden, tabel maken en gegevens invoegen
 Gebruik de volgende code om verbinding te maken en de gegevens te laden met de SQL-instructies **CREATE TABLE** EN **INSERT INTO**.
@@ -73,10 +64,12 @@ Vervang de parameters host, dbname, user en password door de waarden die u hebt 
 const pg = require('pg');
 
 const config = {
-    host: 'mypgserver-20170401.postgres.database.azure.com',
-    user: 'mylogin@mypgserver-20170401',
-    password: '<server_admin_password>',
-    database: '<name_of_database>',
+    host: '<your-db-server-name>.postgres.database.azure.com',
+    // Do not hard code your username and password.
+    // Consider using Node environment variables.
+    user: '<your-db-username>',     
+    password: '<your-password>',
+    database: '<name-of-database>',
     port: 5432,
     ssl: true
 };
@@ -122,10 +115,12 @@ Vervang de parameters host, dbname, user en password door de waarden die u hebt 
 const pg = require('pg');
 
 const config = {
-    host: 'mypgserver-20170401.postgres.database.azure.com',
-    user: 'mylogin@mypgserver-20170401',
-    password: '<server_admin_password>',
-    database: '<name_of_database>',
+    host: '<your-db-server-name>.postgres.database.azure.com',
+    // Do not hard code your username and password.
+    // Consider using Node environment variables.
+    user: '<your-db-username>',     
+    password: '<your-password>',
+    database: '<name-of-database>',
     port: 5432,
     ssl: true
 };
@@ -168,10 +163,12 @@ Vervang de parameters host, dbname, user en password door de waarden die u hebt 
 const pg = require('pg');
 
 const config = {
-    host: 'mypgserver-20170401.postgres.database.azure.com',
-    user: 'mylogin@mypgserver-20170401',
-    password: '<server_admin_password>',
-    database: '<name_of_database>',
+    host: '<your-db-server-name>.postgres.database.azure.com',
+    // Do not hard code your username and password.
+    // Consider using Node environment variables.
+    user: '<your-db-username>',     
+    password: '<your-password>',
+    database: '<name-of-database>',
     port: 5432,
     ssl: true
 };
@@ -186,19 +183,20 @@ client.connect(err => {
 });
 
 function queryDatabase() {
-    const query = `UPDATE inventory 
-                   SET quantity= 1000 WHERE name='banana';`;
+    const query = `
+        UPDATE inventory 
+        SET quantity= 1000 WHERE name='banana';
+    `;
 
     client
         .query(query)
-        .then(() => {
-            console.log('Update completed succesfully!');
-            client.end(console.log('Closed client connection'));
+        .then(result => {
+            console.log('Update completed');
+            console.log(`Rows affected: ${result.rowCount}`);
         })
-        .catch(err => console.log(err))
-        .then(() => {
-            console.log('Finished execution, exiting now');
-            process.exit();
+        .catch(err => {
+            console.log(err);
+            throw err;
         });
 }
 ```
@@ -212,46 +210,45 @@ Vervang de parameters host, dbname, user en password door de waarden die u hebt 
 const pg = require('pg');
 
 const config = {
-  host: '<your-db-server-name>.postgres.database.azure.com',
-  // Do not hard code your username and password.
-  // Consider using Node environment variables.
-  user: '<your-db-username>',     
-  password: '<your-password>',
-  database: '<name-of-database>',
-  port: 5432,
-  ssl: true
+    host: '<your-db-server-name>.postgres.database.azure.com',
+    // Do not hard code your username and password.
+    // Consider using Node environment variables.
+    user: '<your-db-username>',     
+    password: '<your-password>',
+    database: '<name-of-database>',
+    port: 5432,
+    ssl: true
 };
 
 const client = new pg.Client(config);
 
 client.connect(err => {
-  if (err) {
-    throw err;
-  } else {
-    queryDatabase();
-  }
+    if (err) {
+        throw err;
+    } else {
+        queryDatabase();
+    }
 });
 
 function queryDatabase() {
-  const query = `
-    DELETE FROM inventory 
-    WHERE name = 'apple';
-  `;
+    const query = `
+        DELETE FROM inventory 
+        WHERE name = 'apple';
+    `;
 
-  client
-    .query(query)
-    .then(result => {
-      console.log('Delete completed');
-      console.log(`Rows affected: ${result.rowCount}`);
-    })
-    .catch(err => {
-      console.log(err);
-      throw err;
-    });
+    client
+        .query(query)
+        .then(result => {
+            console.log('Delete completed');
+            console.log(`Rows affected: ${result.rowCount}`);
+        })
+        .catch(err => {
+            console.log(err);
+            throw err;
+        });
 }
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
 > [Een database migreren met behulp van Exporteren en importeren](./howto-migrate-using-export-and-import.md)
-

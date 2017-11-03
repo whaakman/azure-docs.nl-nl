@@ -1,9 +1,9 @@
-Collection of custom measurements. Use this collection to report named measurement associated with the telemetry item. Typical use cases are:
-- the size of Dependency Telemetry payload
-- the number of queue items processed by Request Telemetry
-- time that customer took to complete the step in wizard step completion Event Telemetry.
+Verzameling van aangepaste metingen. Deze verzameling om te rapporteren meting die is gekoppeld aan de telemetrie-item met de naam gebruiken. Er zijn typische gebruiksvoorbeelden:
+- de grootte van Afhankelijkheidstelemetrie nettolading
+- het aantal items van wachtrij verwerkt door telemetrie aanvragen
+- tijd die klant nodig was voor het voltooien van de stap in de wizard stap voltooiing gebeurtenis telemetrie.
 
-You can query [custom measurements](https://analytics.applicationinsights.io/demo?q=H4sIAAAAAAAAA2WLOw6DMAyGd07hZoLeoRPqyMaGGAL8aiPhGCV2kKoeHsHK%2Bj1myyr8LoiaqfrT%2FkUCzRft4LMl8OUeL3LuLLIx%2BxR%2BIF8%2BtcoiNq2o78vgWuFthQaJ1AeGGxt6UlBwKxa1qQ6EpLhAfQAAAA%3D%3D&timespan=PT24H) in Application Analytics:
+U kunt een query [aangepaste metingen](https://analytics.applicationinsights.io/demo?q=H4sIAAAAAAAAA2WLOw6DMAyGd07hZoLeoRPqyMaGGAL8aiPhGCV2kKoeHsHK%2Bj1myyr8LoiaqfrT%2FkUCzRft4LMl8OUeL3LuLLIx%2BxR%2BIF8%2BtcoiNq2o78vgWuFthQaJ1AeGGxt6UlBwKxa1qQ6EpLhAfQAAAA%3D%3D&timespan=PT24H) in analytische gegevens van toepassing:
 
 ```
 customEvents
@@ -12,6 +12,6 @@ customEvents
 ```
 
  > [!NOTE]
- > Custom measurements are associated with the telemetry item they belong to. They are subject to sampling with the telemetry item containing those measurements. To track a measurement that has a value independent from other telemetry types, use [Metric telemetry](../articles/application-insights/app-insights-api-custom-events-metrics.md).
+ > Aangepaste metingen zijn gekoppeld aan de telemetrie-item waartoe ze behoren. Ze zijn onderworpen aan sampling met de telemetrie-item dat u deze metingen bevat. Gebruiken voor het bijhouden van een meting met een waarde die onafhankelijk van andere typen telemetrie [metrische telemetrie](../articles/application-insights/app-insights-api-custom-events-metrics.md).
 
-Max key length: 150
+De maximale lengte: 150

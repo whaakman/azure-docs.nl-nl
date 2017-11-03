@@ -3,23 +3,22 @@ title: Aan de slag met Opslagverkenner (Preview) | Microsoft Docs
 description: Azure Storage-resources beheren met Opslagverkenner (Preview)
 services: storage
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: cawa
+manager: paulyuk
 editor: 
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/17/2017
-ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0abc33bb5b0ffe46397baa5a2d53637bc3f2984c
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/21/2017
-
+ms.date: 07/17/2017
+ms.author: cawa
+ms.openlocfilehash: 58ab8a9c5864ce0cb505b78fd087df2973a7e0d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Aan de slag met Opslagverkenner (Preview)
 ## <a name="overview"></a>Overzicht
@@ -43,6 +42,7 @@ Bovendien kunt u wereldwijd en nationaal werken met opslagaccounts in Azure:
 * [Koppelen aan externe opslag](#attach-or-detach-an-external-storage-account): beheer de opslagresources die deel uitmaken van een ander Azure-abonnement of landelijke Azure-clouds, via de naam, sleutel en eindpunten van het opslagaccount.
 * [Een opslagaccount koppelen met behulp van een SAS](#attach-storage-account-using-sas): beheer de opslagresources die deel uitmaken van een ander Azure-abonnement via een handtekening voor gedeelde toegang (SAS).
 * [Een service koppelen met behulp van een SAS](#attach-service-using-sas): beheer een specifieke opslagservice (blobcontainer, wachtrij of tabel) die deel uitmaakt van een ander Azure-abonnement via een handtekening voor gedeelde toegang (SAS).
+* [Verbinding maken met een Azure DB die Cosmos-account via een verbindingsreeks](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): account van de Cosmos-DB beheren met behulp van een verbindingsreeks.
 
 ## <a name="connect-to-an-azure-subscription"></a>Verbinding maken met een Azure-abonnement
 > [!NOTE]
@@ -68,7 +68,7 @@ Bovendien kunt u wereldwijd en nationaal werken met opslagaccounts in Azure:
 
 ## <a name="connect-to-an-azure-stack-subscription"></a>Verbinding maken met een Azure Stack-abonnement
 
-Zie [Connect Storage Explorer to an Azure Stack subscription](azure-stack/azure-stack-storage-connect-se.md) (Opslagverkenner verbinden met een Azure Stack-abonnement) voor meer informatie over hoe u verbinding maakt met een Azure Stack-abonnement.
+Zie [Connect Storage Explorer to an Azure Stack subscription](azure-stack/user/azure-stack-storage-connect-se.md) (Opslagverkenner verbinden met een Azure Stack-abonnement) voor meer informatie over hoe u verbinding maakt met een Azure Stack-abonnement.
 
 ## <a name="work-with-local-development-storage"></a>Werken met lokale ontwikkelingsopslag
 Met Opslagverkenner (Preview) kunt u met lokale opslag werken via de Azure-opslagemulator. Hiermee kunt u code schrijven voor opslag en opslag testen zonder dat u een opslagaccount hoeft te hebben geïmplementeerd in Azure, omdat het opslagaccount wordt gesimuleerd door de Azure-opslagemulator.
@@ -223,6 +223,17 @@ In deze context is een service een blobcontainer, een wachtrij of een tabel. Zie
 
     ![Resultaat van het koppelen met een gedeelde-service met behulp van een SAS][20]
 
+## <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>Verbinding maken met een Azure DB die Cosmos-account via een verbindingsreeks
+Naast het beheer van Azure DB die Cosmos accounts via Azure-abonnement moet een andere manier van verbinding maken met een Cosmos Azure DB is het gebruik van een verbindingsreeks. Gebruik de volgende stappen uit om te verbinden via een verbindingsreeks.
+
+1. Vinden **Local en gekoppelde** in het linkerdeelvenster, met de rechtermuisknop op **Azure Cosmos DB Accounts**, kies **verbinding maken met Azure Cosmos DB...**
+
+    ![verbinding maken met Azure Cosmos DB met verbindingsreeks][33]
+
+2. Kies Azure Cosmos DB API, plak uw **verbindingsreeks**, en klik vervolgens op **OK** om te verbinden Azure DB die Cosmos-account. Zie voor informatie over het ophalen van de verbindingsreeks, [de verbindingsreeks ophalen](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+
+    ![connection-string][32]
+
 ## <a name="search-for-storage-accounts"></a>Zoeken naar opslagaccounts
 Als u een lange lijst met opslagaccounts hebt, kunt u via het zoekvak boven aan het linkerdeelvenster snel bepaalde opslagaccounts zoeken.
 
@@ -232,6 +243,7 @@ Terwijl u in het zoekvak typt, worden in het linkerdeelvenster alleen de opslaga
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Azure Blob Storage-resources beheren met Opslagverkenner (Preview)](vs-azure-tools-storage-explorer-blobs.md)
+* [Beheren van Azure Cosmos DB in Azure Opslagverkenner (Preview)](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png
@@ -260,4 +272,5 @@ Terwijl u in het zoekvak typt, worden in het linkerdeelvenster alleen de opslaga
 [29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
 [30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
 [31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
-
+[32]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connection-string.PNG
+[33]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-db-by-connection-string.PNG

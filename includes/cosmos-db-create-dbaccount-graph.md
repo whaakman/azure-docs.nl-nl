@@ -1,33 +1,27 @@
-1. In a new window, sign in to the [Azure portal](https://portal.azure.com/).
+1. In een nieuw browservenster, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com/).
 
-2. In the left pane, select **New** > **Databases** > **Azure Cosmos DB** > **Create**.
+2. Klik op **nieuwe** > **Databases** > **Azure Cosmos DB**.
    
-   ![Azure portal "Databases" pane](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-1.png)
+   ![Azure portal 'Databases' deelvenster](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-1.png)
 
-3. Under **New account**, specify the configuration that you want for this Azure Cosmos DB account. 
+3. In de **nieuwe account** pagina, voert u de instellingen voor de nieuwe Azure DB die Cosmos-account. 
 
-    With Azure Cosmos DB, you can choose one of four programming models: Gremlin (graph), MongoDB, SQL (DocumentDB), and Table (key-value). Each model currently requires a separate account.
-       
-    In this Quick Start article, we program against the Graph API, so choose **Gremlin (graph)** as you fill out the form. If you have document data from a catalog app, key/value (table) data, or data that's migrated from a MongoDB app, realize that Azure Cosmos DB can provide a highly available, globally distributed database service platform for all your mission-critical applications.
-
-    Fill in the fields on the **New account** blade by using the information in the following screenshot as a guide. Your values might be different from the values in the screenshot.
- 
-    !["New account" blade](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-2.png)
-
-    Setting|Suggested value|Description
+    Instelling|Voorgestelde waarde|Beschrijving
     ---|---|---
-    ID|*Unique value*|A unique name that identifies this Azure Cosmos DB account. Because *documents.azure.com* is appended to the ID that you provide to create your URI, use a unique but identifiable ID. The ID must contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 50 characters.
-    API|Gremlin (graph)|We program against the [Graph API](../articles/cosmos-db/graph-introduction.md) later in this article.|
-    Subscription|*Your subscription*|The Azure subscription that you want to use for this Azure Cosmos DB account. 
-    Resource group|*The same value as ID*|The new resource group name for your account. For simplicity, you can use the same name as your ID. 
-    Location|*The region closest to your users*|The geographic location in which to host your Azure Cosmos DB account. Choose the location closest to your users to give them the fastest access to the data.
+    Id|*Voer een unieke naam*|Voer een unieke naam voor dit account Azure Cosmos DB. Omdat *documents.azure.com* is toegevoegd aan de id die u hebt opgegeven om uw URI te maken, gebruikt u een unieke maar identificeerbare id.<br><br>De id mag alleen kleine letters, cijfers en het koppelteken (-) bevatten en moet 3 tot 50 tekens lang zijn.
+    API|Gremlin (Graph)|De API bepaalt het type account te maken. Azure Cosmos DB biedt vier API's voor tegemoetkomt aan de behoeften van uw toepassing: Gremlin (grafiek), MongoDB, SQL (DocumentDB) en tabel (sleutel-waarde), elke die momenteel vereisen een afzonderlijk account. <br><br>Selecteer **Gremlin (grafiek)** omdat deze snelstartgids u maakt in een grafiek die is waarop met Gremlin syntaxis.<br><br>[Meer informatie over de Graph API](../articles/cosmos-db/graph-introduction.md)
+    Abonnement|*Uw abonnement*|Selecteer de Azure-abonnement dat u wilt gebruiken voor dit account Azure Cosmos DB. 
+    Resourcegroep|*Voer de dezelfde unieke naam zoals hierboven omschreven in-ID*|Voer een nieuwe naam resourcegroep voor uw account. Gebruik dezelfde naam als uw id om het uzelf gemakkelijk te maken. 
+    Locatie|*Selecteer de regio die het dichtst bij uw gebruikers*|Selecteer de geografische locatie op waar voor het hosten van uw Azure DB die Cosmos-account. De locatie die zich het dichtst bij hen de snelste toegang geven tot de gegevens van uw gebruikers gebruiken.
+    Geografische redundantie inschakelen| Leeg laten | Hiermee maakt u een gerepliceerde versie van uw database in een tweede (gekoppelde) regio. Laat dit leeg.  
+    Vastmaken aan dashboard | Selecteer | Selecteer dit selectievakje in zodat uw nieuwe databaseaccount wordt toegevoegd aan uw portaldashboard voor eenvoudige toegang.
 
-4. Select **Create** to create the account.
+    Klik vervolgens op **Maken**.
 
-5. On the toolbar, select the **Notifications** icon ![Notifications icon](./media/cosmos-db-create-dbaccount-graph/notification-icon.png) to monitor the deployment process.
+    ![De blade Nieuw account voor Azure Cosmos DB](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-2.png)
 
-    ![Azure portal "Notifications" pane](./media/cosmos-db-create-dbaccount-graph/notification.png)
+4. Het maken van een account duurt enkele minuten duren. Account tijdens het maken van de portal geeft de **implementeren Azure Cosmos DB** tegel.
 
-6. When the **Notifications** window indicates the deployment succeeded, close the window. Open the new account from the **All resources** tile on the **Dashboard**. 
+    ![Het deelvenster Meldingen in Azure Portal](./media/cosmos-db-create-dbaccount-graph/deploying-cosmos-db.png)
 
-    !["All resources" tile](./media/cosmos-db-create-dbaccount-graph/azure-documentdb-all-resources.png)
+    Zodra het account is gemaakt, de **Gefeliciteerd! Uw Azure DB die Cosmos-account is gemaakt** pagina wordt weergegeven. 

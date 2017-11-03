@@ -1,12 +1,12 @@
 ## <a name="vpn-gateway"></a>VPN Gateway
-A VPN gateway resource enables you to create a secure connection between their on-premises data center and Azure. A VPN gateway resource can be configured in three different ways:
+Een VPN-gateway-bron, kunt u een beveiligde verbinding tussen hun on-premises datacenter en Azure maken. Een VPN-gateway resource kan op drie verschillende manieren worden geconfigureerd:
 
-* **Point to Site** – you can securely access your Azure resources hosted in a VNET by using a VPN client from any computer. 
-* **Multi-site connection** – you can securely connect from your on-premises data centers to resources running in a VNET. 
-* **VNET to VNET** – you can securely connect across Azure VNETS within the same region, or across regions to build workloads with geo-redundancy.
+* **Wijs Site** – u veilig toegang tot uw Azure-resources die worden gehost in een VNET met behulp van een VPN-client op elke computer. 
+* **Multi-site-verbinding** – u kunt veilig verbinding kunnen maken van uw lokale datacenters resources voor uitvoering in een VNET. 
+* **VNET-naar-VNET** – u kunt beveiligde verbinding te maken tussen Azure VNETS binnen dezelfde regio of tussen regio's voor het bouwen van werkbelastingen met geografische redundantie.
 
-Key properties of a VPN gateway include:
+Belangrijke eigenschappen van een VPN-gateway zijn:
 
-* **Gateway type** - dynamically routed or a static routed gateway. 
-* **VPN Client Address Pool Prefix** – IP addresses to be assigned to clients connecting in a point to site configuration.
+* **Gatewaytype** - dynamisch doorgestuurd of de gateway met statische routes. 
+* **VPN-Client groep adresvoorvoegsel** – IP-adressen aan clients die verbinding maken in een punt voor site-configuratie toe te wijzen.
 

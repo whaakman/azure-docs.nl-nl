@@ -24,10 +24,16 @@
     - name: Servicebeleid
       href: azure-stack-servicing-policy.md
     - name: Releaseopmerkingen
-      href: azure-stack-asdk-release-notes.md
+      items:
+        - name: Opmerkingen bij de release van de Development kit
+          href: azure-stack-asdk-release-notes.md
+        - name: Geïntegreerde systemen release-opmerkingen
+          items:
+            - name: 1710 update
+              href: azure-stack-update-1710.md
     - name: Belangrijke functies en concepten
       href: azure-stack-key-features.md
-    - name: Architectuur Azure Stack Development Kit
+    - name: Development kit architectuur
       href: azure-stack-architecture.md
     - name: Basisprincipes van beheer
       href: azure-stack-manage-basics.md
@@ -39,6 +45,8 @@
           href: azure-stack-deploy.md
         - name: Implementeren
           href: azure-stack-run-powershell-script.md
+        - name: PowerShell installeren
+          href: azure-stack-powershell-configure-quickstart.md
         - name: Registreren
           href: azure-stack-register.md
         - name: Verbinding maken met Azure Stack
@@ -49,10 +57,14 @@
           href: azure-stack-provision-vm.md
     - name: Datacenter-integratie
       items:
-        - name: DNS integreren
+        - name: DNS
           href: azure-stack-integrate-dns.md
+        - name: Identiteit
+          href: azure-stack-integrate-identity.md
         - name: Eindpunten publiceren
           href: azure-stack-integrate-endpoints.md
+        - name: Beveiliging
+          href: azure-stack-integrate-security.md
     - name: Beheren
       items:
         - name: Regiobeheer
@@ -81,6 +93,8 @@
               href: azure-stack-updates.md
             - name: Updates toepassen
               href: azure-stack-apply-updates.md
+            - name: Updatestatus van monitor
+              href: azure-stack-monitor-update.md
         - name: Status en waarschuwingen bewaken
           href: azure-stack-monitor-health.md
         - name: Netwerkresources beheren
@@ -91,8 +105,14 @@
           href: azure-stack-manage-windows-azure-pack.md
         - name: Hardware vervangen
           items:
+            - name: Knooppunt-acties
+              href: azure-stack-node-actions.md
+            - name: Vervangen van knooppunt
+              href: azure-stack-replace-node.md
             - name: Schijf vervangen
               href: azure-stack-replace-disk.md
+            - name: Onderdeel vervangen
+              href: azure-stack-replace-component.md
     - name: 'Beveiliging, naleving en identiteit'
       items:
         - name: Beveiligingsoverzicht
@@ -135,10 +155,16 @@
               href: azure-stack-mysql-resource-provider-deploy.md
             - name: SQL-resourceprovider implementeren
               href: azure-stack-sql-resource-provider-deploy.md
+            - name: SQL-databases maken
+              href: azure-stack-sql-resource-provider-databases.md
+            - name: Hosting-servers toevoegen
+              href: azure-stack-sql-resource-provider-hosting-servers.md
         - name: App Service als PaaS aanbieden
           items:
             - name: Overzicht App Service op Azure Stack
               href: azure-stack-app-service-overview.md
+            - name: Capaciteitsplanning
+              href: azure-stack-app-service-capacity-planning.md
             - name: Voordat u aan de slag gaat
               href: azure-stack-app-service-before-you-get-started.md
             - name: App Service-resourceprovider implementeren

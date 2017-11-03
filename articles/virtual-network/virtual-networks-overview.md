@@ -1,96 +1,93 @@
 ---
-title: Virtuele netwerken in Azure | Microsoft Docs
-description: Meer informatie over virtuele netwerken in Azure.
+title: Azure Virtual Network | Microsoft Docs
+description: Meer informatie over Azure Virtual Network-concepten en functies.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
-editor: tysonn
+manager: timlt
+editor: 
+tags: azure-resource-manager
 ms.assetid: 9633de4b-a867-4ddf-be3c-a332edf02e24
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
+ms.date: 03/23/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 75c5b8d3d8c8f389b8cee7d5d304b6e9704252fc
-ms.openlocfilehash: a57805510d5e84fcdc6c4521ae9443ec72de59e1
-
-
+ms.openlocfilehash: 6d6afd2b9b956138ed400fbd6cabd3b480fde0f0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="virtual-networks"></a>Virtuele netwerken
-Een virtueel Azure-netwerk (VNET) is een weergave van uw eigen netwerk in de cloud.  Het is een logische isolatie van de Azure-cloud die is toegewezen aan uw abonnement. U kunt de IP-adresblokken, DNS-instellingen, beveiligingsbeleidsregels en routetabellen binnen dit netwerk volledig beheren. U kunt uw VNET ook verder segmenteren in subnetten en Azure IaaS virtuele machines (VM's) en/of [Cloudservices (PaaS-rolexemplaren)](../cloud-services/cloud-services-choose-me.md). Hiermee kunt u het virtuele netwerk via een van de beschikbare [verbindingsopties](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections) in Azure verbinden met uw on-premises netwerk. In wezen kunt u uw netwerk uitbreiden naar Azure met behoud van de volledige controle over IP-adresblokken en de schaalvoordelen van Azure voor ondernemingen.
+# <a name="azure-virtual-network"></a>Azure Virtual Network
 
-Zie de onderstaande afbeelding van een vereenvoudigd on-premises netwerk om meer inzicht te krijgen in VNET's.
+De service Azure Virtual Network kunt u veilig Azure-resources met elkaar te verbinden met virtuele netwerken (vnet's). Een VNet is een weergave van uw eigen netwerk in de cloud. Een VNet is een logische isolatie van de Azure-cloud toegewezen aan uw abonnement. U kunt de VNets ook verbinding maken met uw on-premises netwerk. De volgende afbeelding ziet u de mogelijkheden van de service Azure Virtual Network:
 
-![On-premises netwerk](./media/virtual-networks-overview/figure01.png)
+![Netwerkdiagram](./media/virtual-networks-overview/virtual-network-overview.png)
 
-In de bovenstaande afbeelding ziet u een on-premises netwerk dat is verbonden met internet via een router. U ziet ook een firewall tussen de router en een DMZ die fungeert als host voor een DNS-server en een webserverfarm. In de webserverfarm worden taken verdeeld met load balancer-hardware die wordt blootgesteld aan internet en bronnen van het interne subnet gebruikt. Het interne subnet is van de DMZ gescheiden met een andere firewall en fungeert als host voor Active Directory-domeincontrollerservers, databaseservers en toepassingsservers.
+Klik op de mogelijkheid voor meer informatie over de volgende mogelijkheden van Azure Virtual Network:
+- **[Isolatie:](#isolation)**  VNets die zijn geïsoleerd van elkaar. U kunt afzonderlijke VNets voor ontwikkeling, testen en productie die gebruikmaken van dezelfde CIDR-adresblokken maken. Als u daarentegen, kunt u meerdere VNets die gebruikmaken van verschillende CIDR-adresblokken en netwerken met elkaar verbinden. U kunt een VNet segmenteren in meerdere subnetten. Azure biedt interne naamomzetting voor VM's en Cloudservices rolinstanties zijn verbonden met een VNet. U kunt desgewenst een VNet voor het gebruik van uw eigen DNS-servers, in plaats van Azure interne naamomzetting configureren.
+- **[Verbinding met Internet:](#internet)**  alle Azure virtuele Machines (VM) en Cloud Services-rolexemplaren verbonden met een VNet hebben toegang tot het Internet standaard. U kunt binnenkomende toegang tot specifieke bronnen, indien nodig.
+- **[Azure-resource connectiviteit:](#within-vnet)**  Azure-resources zoals Cloudservices en virtuele machines kunnen worden verbonden met hetzelfde VNet. De resources kunnen verbinden met elkaar met behulp van privé IP-adressen, zelfs als ze zich in verschillende subnetten. Azure biedt standaardroutering tussen subnetten, VNets en on-premises netwerken, zodat u niet hoeft te configureren en beheren van routes.
+- **[VNet-connectiviteit:](#connect-vnets)**  vnet's kunnen worden verbonden met elkaar, het inschakelen van de resources die zijn verbonden met een VNet om te communiceren met alle bronnen op eventuele andere VNet.
+- **[Lokale connectiviteit:](#connect-on-premises)**  vnet's kunnen worden verbonden met on-premises netwerken via persoonlijke netwerkverbindingen tussen uw netwerk en Azure of een site-naar-site VPN-verbinding via Internet.
+- **[Wordt verkeer gefilterd:](#filtering)**  VM en Cloud Services-rol exemplaren netwerkverkeer kan worden gefilterd binnenkomend en uitgaand op bron-IP-adres en poort, doel-IP-adres en poort en protocol.
+- **[Routering:](#routing)**  kunt u eventueel Azure standaard routering met BGP-routes via een netwerkgateway of configureren van uw eigen routes overschrijven.
 
-Hetzelfde netwerk kan worden gehost in Azure, zoals wordt weergegeven in de afbeelding hieronder.
+## <a name = "isolation"></a>Netwerkisolatie en segmentering
 
-![Azure Virtual Network](./media/virtual-networks-overview/figure02.png)
+U kunt meerdere VNets binnen elke Azure implementeren [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) en Azure [regio](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region). Elke VNet is geïsoleerd van andere vnet's. U kunt voor elk VNet:
+- Geef een aangepaste persoonlijke IP-adresruimte met behulp van openbare en persoonlijke (RFC 1918)-adressen. Resources in Azure wordt toegewezen en die is verbonden met het VNet een particulier IP-adres van de adresruimte die u toewijst.
+- Het VNet segmenteren in een of meer subnetten en een deel van de VNet-adresruimte voor elk subnet toegewezen.
+- Azure verschafte naamomzetting gebruiken of geef uw eigen DNS-server voor gebruik door resources die zijn verbonden met een VNet. Lees voor meer informatie over naamomzetting in vnet's, de [naamomzetting voor VM's en Cloudservices](virtual-networks-name-resolution-for-vms-and-role-instances.md) artikel.
 
-Zie hoe de Azure-infrastructuur de rol van de router overneemt en zo de toegang van uw VNET tot internet regelt zonder dat u iets hoeft te configureren. Firewalls kunnen worden vervangen door netwerkbeveiligingsgroepen (NSG's, Network Security Groups) die worden toegepast op elk afzonderlijk subnet. En fysieke load balancers worden vervangen door internetgerichte en interne load balancers in Azure.
+## <a name = "internet"></a>Verbinding maken met Internet
+Uitgaande verbinding met Internet hebben alle resources die zijn verbonden met een VNet standaard. Het privé IP-adres van de resource is Bronnetwerk adres vertaald (snat omzetten) naar een openbare IP-adres door de Azure-infrastructuur. Lees voor meer informatie over uitgaande internetverbinding, de [inzicht in uitgaande verbindingen in Azure](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json#standalone-vm-with-no-instance-level-public-ip-address) artikel. U kunt de standaard-connectiviteit wijzigen door het implementeren van aangepaste Routering en het filteren van verkeer.
 
-> [!NOTE]
-> Er zijn twee implementatiemodi in Azure: de klassieke modus (ook wel bekend als Service Management) en Azure Resource Manager (ARM). Klassieke VNET's kunnen worden toegevoegd aan een affiniteitsgroep of worden gemaakt als een regionaal VNET. Als u een VNET in een affiniteitsgroep hebt, wordt u aangeraden om het te [migreren naar een regionaal VNET](virtual-networks-migrate-to-regional-vnet.md).
->
+Inkomende communicatie voor Azure-resources van het Internet of om te communiceren met Internet, zonder snat omzetten uitgaand, moet een resource een openbaar IP-adres worden toegewezen. Lees voor meer informatie over openbare IP-adressen, de [openbare IP-adressen](virtual-network-public-ip-address.md) artikel.
 
-## <a name="benefits"></a>Voordelen
-* **Isolatie**. VNET's zijn volledig geïsoleerd van elkaar. Hierdoor kunt u onafhankelijke netwerken met dezelfde CIDR-adresblokken maken voor ontwikkeling, testen en productie.
-* **Toegang tot internet**. Alle IaaS virtuele machines en PaaS-rolexemplaren in een VNET hebben standaard toegang tot internet. U kunt de toegang beheren met behulp van netwerkbeveiligingsgroepen (NSG's).
-* **Toegang tot VM's binnen het VNET**. PaaS-rolexemplaren en IaaS VM's kunnen worden gestart in hetzelfde virtuele netwerk en met elkaar verbinding maken via privé-IP-adressen, zelfs als ze zich in verschillende subnetten bevinden. U hoeft hiervoor geen gateway te configureren of openbare IP-adressen te gebruiken.
-* **Naamomzetting**. Azure bevat functionaliteit voor [interne naamomzetting](virtual-networks-name-resolution-for-vms-and-role-instances.md) voor virtuele IaaS-machines en PaaS-rolexemplaren die in uw VNET zijn geïmplementeerd. U kunt ook uw eigen DNS-servers implementeren en het VNET daarvoor configureren.
-* **Beveiliging**. Binnenkomend en uitgaand verkeer van de virtuele machines en PaaS-rolexemplaren in een VNET kan worden beheerd met behulp van netwerkbeveiligingsgroepen.
-* **Connectiviteit**. VNets kunnen met elkaar worden verbonden met netwerkgateways of via VNet-peering. VNets kunnen worden verbonden met on-premises datacenters via site-naar-site-VPN-netwerken of Azure ExpressRoute. Ga naar [Informatie over VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections) voor meer informatie over site-naar-site-VPN-connectiviteit. Ga naar [Technisch overzicht van ExpressRoute](../expressroute/expressroute-introduction.md) voor meer informatie over ExpressRoute. Ga naar [VNet-peering](virtual-network-peering-overview.md) voor meer informatie over VNet-peering.
+## <a name="within-vnet"></a>Verbinding maken met Azure-resources
+U kunt verschillende Azure-resources verbinden met een VNet, zoals virtuele Machines (VM), Cloud Services-App Service-omgevingen en virtuele-Machineschaalsets. Virtuele machines verbinding maken met een subnet binnen een VNet via een netwerkinterface (NIC). Lees voor meer informatie over NIC's, de [netwerkinterfaces](virtual-network-network-interface.md) artikel.
 
-  > [!NOTE]
-  > Maak een VNET voordat u IaaS VM's of PaaS-rolexemplaren implementeert in uw Azure-omgeving. Voor VM's op basis van ARM is een VNET vereist. Als u geen bestaand VNET opgeeft, wordt in Azure een standaard-VNET gemaakt met een CIDR-adresblok dat mogelijk conflicteert met uw on-premises netwerk. In dat geval kunt u uw VNET niet verbinden met uw on-premises netwerk.
-  >
+## <a name="connect-vnets"></a>Verbinding maken met virtuele netwerken
 
-## <a name="subnets"></a>Subnetten
-Een subnet is een bereik met IP-adressen in het VNET. U kunt u een VNET onderverdelen in meerdere subnetten voor organisatie- en beveiligingsdoeleinden. Tussen VM's en PaaS-rolexemplaren die in (dezelfde of verschillende) subnetten in een VNET zijn geïmplementeerd, is communicatie mogelijk zonder extra configuratie. U kunt ook routetabellen en NSG's configureren voor een subnet.
+Kunt u VNets met elkaar, het inschakelen van de resources die zijn verbonden met een VNet-naar-tussen VNets met elkaar communiceren. U kunt een of beide van de volgende opties VNets met elkaar verbinden:
+- **Peering:** kunnen resources die zijn verbonden met andere Azure VNets binnen dezelfde Azure-locatie met elkaar communiceren. De bandbreedte en de latentie tussen de VNets is hetzelfde als wanneer de resources zijn verbonden met hetzelfde VNet is. Lees voor meer informatie over de peering, de [virtuele netwerk peering](virtual-network-peering-overview.md) artikel.
+- **VNet-naar-VNet-verbinding:** kunnen resources die zijn verbonden met andere Azure-VNet binnen de dezelfde of verschillende Azure-locaties. In tegenstelling tot de peering, is bandbreedte tussen VNets beperkt, omdat het verkeer door een Azure VPN-Gateway moet lopen. Lees meer informatie over het VNets verbinden met een VNet-naar-VNet-verbinding, de [een VNet-naar-VNet-verbinding configureren](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel.
 
-## <a name="ip-addresses"></a>IP-adressen
-Er kunnen twee soorten IP-adressen worden toegewezen aan bronnen in Azure: *openbare* en *privé* IP-adressen. Openbare IP-adressen worden gebruikt om Azure-resources te laten communiceren met internet en andere openbare Azure-services, zoals [Azure Redis Cache](https://azure.microsoft.com/services/cache/) en [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Privé-IP-adressen worden gebruikt voor communicatie tussen resources in een virtueel netwerk, waaronder resources die verbonden zijn via een VPN, zonder gebruik te maken van via internet routeerbare IP-adressen.
+## <a name="connect-on-premises"></a>Verbinding maken met een on-premises netwerk
 
-Ga naar [IP-adressen in het virtuele netwerk](virtual-network-ip-addresses-overview-arm.md) voor meer informatie over IP-adressen in Azure
+U kunt uw on-premises netwerk verbinden met een VNet met elke combinatie van de volgende opties:
+- **Punt-naar-site virtueel particulier netwerk (VPN):** tot stand gebracht tussen één PC verbonden met uw netwerk en het VNet. Dit verbindingstype is handig als u alleen aan de slag met Azure of voor ontwikkelaars, omdat hiervoor weinig of geen wijzigingen in uw bestaande netwerk. De verbinding wordt de SSTP-protocol gebruikt voor gecodeerde communicatie via Internet tussen de PC en het VNet. De latentie voor een punt-naar-site VPN-verbinding is onvoorspelbaar zijn, aangezien het verkeer over het Internet wordt verzonden.
+- **Site-naar-site-VPN:** tot stand gebracht tussen uw VPN-apparaat en een Azure VPN-Gateway. Dit verbindingstype kunt een on-premises-resource die geeft u toestemming voor toegang tot een VNet. De verbinding is een VPN IPSec/IKE waarmee gecodeerde communicatie via Internet tussen uw on-premises-apparaat en de Azure VPN-gateway. De latentie voor een site-naar-site-verbinding is onvoorspelbaar zijn, aangezien het verkeer over het Internet wordt verzonden.
+- **Azure ExpressRoute:** tot stand gebracht tussen uw netwerk en Azure, via een ExpressRoute-partner. Deze verbinding is een privéverbinding. Verkeer niet via Internet verloopt. De latentie voor een ExpressRoute-verbinding is betrouwbaar, aangezien het verkeer niet via Internet verloopt.
 
-## <a name="azure-load-balancers"></a>Azure load balancers
-Virtuele machines en cloudservices in een virtueel netwerk kunnen worden blootgesteld aan internet met behulp van Azure load balancers. Voor interne bedrijfstoepassingen kan de taakverdeling worden uitgevoerd met interne load balancers.
+Lees voor meer informatie over de vorige verbindingsopties, de [gatewayverbindingsdiagrammen topologie](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams) artikel.
 
-* **Externe load balancer**. U kunt een externe load balancer gebruiken voor maximale beschikbaarheid van IaaS VM's en PaaS-rolexemplaren met toegang via internet.
-* **Interne load balancer**. U kunt een interne load balancer gebruiken voor maximale beschikbaarheid van IaaS VM's en PaaS-rolexemplaren met toegang via andere services uw VNET.
+## <a name="filtering"></a>Filteren van netwerkverkeer
+U kunt filteren netwerkverkeer tussen subnetten op met behulp van een of beide van de volgende opties:
+- **Netwerkbeveiligingsgroepen (NSG):** elke NSG kan meerdere binnenkomende en uitgaande beveiligingsregels voor verbindingen waarmee u verkeer filteren door de bron en doel-IP-adres, poort en protocol bevatten. U kunt een NSG toepassen op elke NIC op een virtuele machine. U kunt ook een NSG toepassen op het subnet een NIC of andere Azure-resource is verbonden met. Lees voor meer informatie over Nsg de [Netwerkbeveiligingsgroepen](virtual-networks-nsg.md) artikel.
+- **Virtuele apparaten (NVA):** een NVA is een virtuele machine uitvoeren van software waarmee een netwerkfunctie, zoals een firewall. Een lijst met beschikbare NVAs in de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). NVAs zijn ook beschikbaar met WAN-optimalisatie en andere netwerkapparaten verkeer functies. NVAs worden doorgaans gebruikt voor de gebruiker gedefinieerde of BGP-routes. U kunt ook een NVA gebruiken voor het filteren van verkeer tussen VNets.
 
-Ga naar [Overzicht van Load balancer](../load-balancer/load-balancer-overview.md) voor meer informatie over taakverdeling en load balancers.
+## <a name="routing"></a>Doorsturen van netwerkverkeer
 
-## <a name="network-security-groups-nsg"></a>Netwerkbeveiligingsgroepen (NSG's)
-U kunt NSG's maken voor het beheer van binnenkomende en uitgaande toegang tot netwerkinterfaces (NIC's), VM's en subnetten. Elke NSG bevat een of meer regels waarmee wordt bepaald of verkeer wordt goedgekeurd of afgewezen op basis van het bron-IP-adres, de bronpoort, het doel-IP-adres en de doelpoort. Ga naar [Wat is een netwerkbeveiligingsgroep](virtual-networks-nsg.md) voor meer informatie over NSG's.
-
-## <a name="virtual-appliances"></a>Virtuele apparaten
-Een virtueel apparaat is gewoon een virtuele machine in uw VNET met een softwarefunctie, zoals firewall, WAN-optimalisatie of inbraakdetectie. U kunt in Azure een route maken waarmee uw VNET-verkeer door een virtueel apparaat wordt geleid om gebruik te maken van de mogelijkheden van dat apparaat.
-
-U kunt uw VNET bijvoorbeeld beveiligen met NSG's. Met NSG's wordt een toegangsbeheerlijst (ACL) van laag 4 toegepast op binnenkomende en uitgaande pakketten. Voor een beveiligingsmodel van laag 7 moet u een firewall-apparaat gebruiken.
-
-Virtuele apparaten zijn afhankelijk van [door de gebruiker gedefinieerde routes en doorsturen via IP](virtual-networks-udr-overview.md).
-
-## <a name="limits"></a>Limieten
-Er gelden limieten voor het maximum aantal toegestane virtuele netwerken in een abonnement. Zie [Netwerklimieten in Azure](../azure-subscription-service-limits.md#networking-limits) voor meer informatie.
+Azure maakt routetabellen waarmee bronnen die zijn verbonden met een enkel subnet in een VNet om te communiceren met elkaar, standaard. U kunt een of beide van de volgende opties voor het onderdrukken van de Azure maakt standaardroutes implementeren:
+- **Gebruiker gedefinieerde routes:** kunt u aangepaste routetabellen met routes die bepalen waar verkeer wordt doorgestuurd naar voor elk subnet. Lees het artikel [User-defined routes](virtual-networks-udr-overview.md) (Door de gebruiker gedefinieerde routes) voor meer informatie over door de gebruiker gedefinieerde routes.
+- **BGP-routes:** als u uw VNet verbinding met uw on-premises netwerk via een Azure VPN-Gateway of ExpressRoute-verbinding, kunt u BGP-routes doorgegeven aan uw vnet's.
 
 ## <a name="pricing"></a>Prijzen
-Er worden geen extra kosten in rekening gebracht voor het gebruik van virtuele netwerken in Azure. De Compute-exemplaren die binnen het VNET worden opgestart, worden in rekening gebracht tegen standaardtarieven zoals beschreven in [Prijzen van Azure VM](https://azure.microsoft.com/pricing/details/virtual-machines/). Ook de [VPN-gateways](https://azure.microsoft.com/pricing/details/vpn-gateway/) en [openbare IP-adressen](https://azure.microsoft.com/pricing/details/ip-addresses/) die in het VNET worden gebruikt, worden in rekening gebracht tegen standaardtarieven.
+
+Er zijn geen kosten voor virtuele netwerken, subnetten, routetabellen of netwerk-beveiligingsgroepen. Uitgaande bandbreedtegebruik van Internet, openbare IP-adressen, virtueel netwerk peering, VPN-Gateways en ExpressRoute elke, hebben hun eigen structuren prijzen. Weergave de [virtueel netwerk](https://azure.microsoft.com/pricing/details/virtual-network), [VPN-Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway), en [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) prijzen van pagina's voor meer informatie.
+
+## <a name="faq"></a>Veelgestelde vragen
+
+Veelgestelde vragen over Virtual Network, Zie de [Veelgestelde vragen over het virtuele netwerk](virtual-networks-faq.md) artikel.
+
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Een VNET maken](virtual-networks-create-vnet-arm-pportal.md) en subnetten maken.
-* [Een VM in een VNET maken](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-* Meer informatie over [NSG's](virtual-networks-nsg.md).
-* Meer informatie over [door de gebruiker gedefinieerde routes en doorsturen via IP](virtual-networks-udr-overview.md).
 
-
-
-<!--HONumber=Feb17_HO4-->
-
-
+- Maken van uw eerste VNet en verbinding maken met een paar virtuele machines, via de stappen in de [maken van uw eerste virtuele netwerk](virtual-network-get-started-vnet-subnet.md) artikel.
+- Een punt-naar-site verbinding maken met een VNet met de stappen in de [een punt-naar-site-verbinding configureren](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel.
+- Informatie over een aantal van de andere sleutel [mogelijkheden netwerk](../networking/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) van Azure.

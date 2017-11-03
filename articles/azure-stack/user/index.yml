@@ -4,7 +4,7 @@ title: Documentatie voor Azure Stack-gebruiker
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   title: 'Documentatie voor Azure Stack - zelfstudies, API-verwijzing'
-  description: Leer hoe u de preview van Azure Stack kunt gebruiken voor het leveren van Azure-services vanaf uw datacenter. Ontdek en gebruik functies uit een conceptontwerpomgeving.
+  description: Informatie over het gebruik van Azure-Stack-services en apps maken voor Azure-Stack.
   services: azure-stack
   author: carolz
   manager: carolz
@@ -12,12 +12,12 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/23/2017
+  ms.date: 10/02/2017
   ms.author: carolz
 abstract:
-  description: 'Azure Stack is een hybride cloudplatform waarmee u Azure-services kunt gebruiken vanuit het datacenter van uw bedrijf of serviceprovider. Als ontwikkelaar kunt u apps bouwen in Azure Stack. U kunt deze vervolgens implementeren naar Azure Stack of naar Azure, of u kunt volledig hybride apps bouwen die gebruikmaken van de connectiviteit tussen een Azure Stack-cloud en Azure.  Ontdek met onze snelstartgidsen en zelfstudies hoe u resources maakt en apps implementeert.'
+  description: 'Azure Stack is een hybride cloudplatform waarmee u Azure-services kunt gebruiken vanuit het datacenter van uw bedrijf of serviceprovider. Als ontwikkelaar kunt u apps bouwen in Azure Stack. U kunt deze vervolgens implementeren naar Azure Stack of naar Azure, of u kunt volledig hybride apps bouwen die gebruikmaken van de connectiviteit tussen een Azure Stack-cloud en Azure. Ontdek met onze snelstartgidsen en zelfstudies hoe u resources maakt en apps implementeert.<br/><br/>Als u een Azure-Stack-operator die de infrastructuur beheert en -services biedt, Zie onze <a href="/azure/azure-stack/">operator documentatie</a>.'
 sections:
-  - title: Snelstartgids
+  - title: QuickStarts van vijf minuten
     items:
       - type: paragraph
         text: 'Meer informatie over het implementeren van een virtuele Windows-machine in Azure Stack:'
@@ -56,7 +56,7 @@ sections:
   - title: Zelfstudies met stapsgewijze instructies
     items:
       - type: paragraph
-        text: 'Toepassingen implementeren in Azure en in Azure Stack:'
+        text: Toepassingen implementeren in zowel Azure en Azure-Stack.
       - type: list
         style: ordered
         items:
@@ -68,4 +68,4 @@ sections:
         className: cardsD
         items:
           - title: Opdrachtregel
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p><p><a href="/cli/azure/?view=azure-cli-2017-03-09-profile">Azure CLI-Stack</a></p>

@@ -10,20 +10,18 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 6c9a50c1f3dcd55cd03a694c7d4e13b8a55c3cd4
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: fdd83f2386055fa9fac1ad50f4b01bf4419342b5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/16/2017
 ---
-
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>Een virtuele Linux-machine maken met PowerShell
 
 De Azure PowerShell-module wordt gebruikt voor het maken en beheren van Azure-resources vanaf de PowerShell-opdrachtregel of in scripts. In deze handleiding staat informatie over het gebruik van de Azure PowerShell-module om een virtuele machine te implementeren met de Ubuntu-server. Zodra de server is geïmplementeerd, wordt een SSH-verbinding gemaakt en een NGINX-webserver geïnstalleerd.
@@ -33,6 +31,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 Voor deze Quick Start is moduleversie 3.6 of hoger van Azure PowerShell vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 
 Tot slot moet er een openbare SSH-sleutel met de naam *id_rsa.pub* worden opgeslagen in de map *.ssh* van uw Windows-gebruikersprofiel. Zie voor gedetailleerde informatie over het maken van SSH-sleutels voor Azure [Create SSH keys for Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (SSH-sleutels maken voor Azure).
+
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
@@ -140,16 +139,14 @@ Als u hierom wordt gevraagd, is de gebruikersnaam voor het aanmelden *azureuser*
 
 ## <a name="install-nginx"></a>NGINX installeren
 
-Gebruik het volgende bash-script om pakketbronnen bij te werken en het meest recente NGINX-pakket te installeren. 
+Gebruik de volgende opdrachten pakket bronnen bijwerken en het meest recente NGINX-pakket installeert. 
 
 ```bash 
-#!/bin/bash
-
 # update package source
-apt-get -y update
+sudo apt-get -y update
 
 # install NGINX
-apt-get -y install nginx
+sudo apt-get -y install nginx
 ```
 
 ## <a name="view-the-ngix-welcome-page"></a>De welkomstpagina van NGIX weergeven
@@ -172,4 +169,3 @@ In deze Snel starten hebt u een eenvoudige virtuele machine geïmplementeerd, ee
 
 > [!div class="nextstepaction"]
 > [Zelfstudies over virtuele Linux-machines](./tutorial-manage-vm.md)
-

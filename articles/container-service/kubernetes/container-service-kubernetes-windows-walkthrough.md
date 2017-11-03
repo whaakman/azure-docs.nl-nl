@@ -10,21 +10,21 @@ keywords:
 ms.assetid: 
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 9211b28debc2f0df194eded564e2a4d52303f3e6
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/25/2017
-
+ms.custom: H1Hack27Feb2017, mvc, devcenter
+ms.openlocfilehash: 7dd58ae747a1009b5db99e0fec741272d98b36ad
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Kubernetes-cluster voor Windows-containers implementeren
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. In deze handleiding vindt u informatie over het gebruik van de Azure CLI voor de implementatie van een [Kubernetes](https://kubernetes.io/docs/home/)-cluster in [Azure Container Service](../container-service-intro.md). Zodra het cluster is geïmplementeerd, verbindt u het met het Kubernetes `kubectl`-opdrachtregelprogramma en implementeert u uw eerste Windows-container.
 
@@ -32,7 +32,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze Quickstart gebruikmaken van Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids de versie Azure CLI 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 > [!NOTE]
 > De ondersteuning voor Windows-containers in Kubernetes in Azure Container Service is momenteel beschikbaar als preview. 
@@ -110,7 +110,7 @@ U kunt een Docker-container uitvoeren binnen een Kubernetes-*schil*, die een of 
 
 In dit eenvoudige voorbeeld wordt een JSON-bestand gebruikt om een ISS-container (Microsoft Internet Information Server) op te geven. De schil wordt vervolgens gemaakt met de opdracht `kubctl apply`. 
 
-Maak een lokaal bestand met de naam `iis.json` en kopieer de volgende tekst. Met dit bestand geeft u Kubernetes de opdracht om IIS uit te voeren op Windows Server 2016 Nano Server met behulp van een openbare containerinstallatiekopie van [Docker Hub](https://hub.docker.com/r/nanoserver/iis/). De container gebruikt poort 80, maar is in eerste instantie alleen toegankelijk vanuit het clusternetwerk.
+Maak een lokaal bestand met de naam `iis.json` en kopieer de volgende tekst. Met dit bestand geeft u Kubernetes de opdracht om IIS uit te voeren op Windows Server 2016 Nano Server met behulp van een openbare containerinstallatiekopie van [Docker Hub](https://hub.docker.com/r/microsoft/iis/). De container gebruikt poort 80, maar is in eerste instantie alleen toegankelijk vanuit het clusternetwerk.
 
  ```JSON
  {
@@ -126,7 +126,7 @@ Maak een lokaal bestand met de naam `iis.json` en kopieer de volgende tekst. Met
     "containers": [
       {
         "name": "iis",
-        "image": "nanoserver/iis",
+        "image": "microsoft/iis:nanoserver",
         "ports": [
           {
           "containerPort": 80
@@ -168,7 +168,7 @@ Als u de schil beschikbaar wilt maken met een openbaar IP-adres, typt u de volge
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-Deze opdracht zorgt ervoor dat Kubernetes een service en een [Azure Load Balancer-regel](container-service-kubernetes-load-balancing.md) met een openbaar IP-adres voor de service maakt. 
+Met deze opdracht maakt Kubernetes een service en een Azure load balancer-regel met een openbaar IP-adres voor de service. 
 
 Voer de volgende opdracht uit om de status van de service te bekijken.
 
@@ -203,4 +203,3 @@ In deze snelstartgids hebt u een Kubernetes-cluster geïmplementeerd, het verbon
 
 > [!div class="nextstepaction"]
 > [Een ACS Kubernetes-cluster beheren](container-service-tutorial-kubernetes-prepare-app.md)
-

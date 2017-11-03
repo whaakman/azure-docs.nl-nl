@@ -1,27 +1,26 @@
 ---
-title: Een functie in Azure maken die wordt geactiveerd door wachtrijberichten | Microsoft Docs
+title: Berichten naar een Azure Storage-wachtrij met behulp van functies toevoegen | Microsoft Docs
 description: Gebruik Azure Functions voor het maken van een functie zonder server die wordt aangeroepen door berichten die zijn verzonden naar een Azure Storage-wachtrij.
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 3eae02f7cf756e8e24d4f1952d12c37f2ad4b400
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/02/2017
-
+ms.openlocfilehash: 822879861ee8189cdd413f0061f26fb91819d88d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Berichten aan een Azure Storage-wachtrij toevoegen met behulp van Functions
 
@@ -39,7 +38,7 @@ In Azure Functions bieden invoer- en uitvoerbindingen een verklarende manier om 
  
 1. Vouw de functie-app en de functie uit.
 
-2. Selecteer **Integreren** en **+ Nieuwe uitvoer**. Selecteer vervolgens **Azure Queue Storage** en selecteer **Selecteren**.
+2. Selecteer **integreren** en **+ nieuw uitvoer**, en kies vervolgens **Azure Queue storage** en kies **Selecteer**.
     
     ![Voeg een Queue Storage-uitvoerbinding toe aan een functie in Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
@@ -51,7 +50,7 @@ In Azure Functions bieden invoer- en uitvoerbindingen een verklarende manier om 
     | ------------ |  ------- | -------------------------------------------------- |
     | **Wachtrijnaam**   | myqueue-items    | De naam van de wachtrij waarmee u verbinding moet maken in uw opslagaccount. |
     | **Opslagaccountverbinding** | AzureWebJobStorage | U kunt de opslagaccountverbinding gebruiken die al door de functie-app wordt gebruikt of u kunt een nieuwe maken.  |
-    | **Naam van de berichtparameter** | outQueueItem | De naam van de uitvoerbindingparameter. | 
+    | **Naam van de berichtparameter** | outputQueueItem | De naam van de uitvoerbindingparameter. | 
 
 4. Klik op **Opslaan** om de binding toe te voegen.
  
@@ -61,11 +60,11 @@ Nu u een uitvoerbinding hebt gedefinieerd, moet u de code bijwerken, zodat u de 
 
 1. Selecteer de functie om de functiecode in de editor weer te geven. 
 
-2. Werk de functiedefinitie voor een C#-functie als volgt bij om de **outQueueItem**-opslagbindingsparameter toe te voegen. Sla deze stap over voor een JavaScript-functie.
+2. Werk de functiedefinitie van de als volgt om toe te voegen voor een C#-functie, de **outputQueueItem** storage binding-parameter. Sla deze stap over voor een JavaScript-functie.
 
     ```cs   
     public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-        ICollector<string> outQueueItem, TraceWriter log)
+        ICollector<string> outputQueueItem, TraceWriter log)
     {
         ....
     }
@@ -74,12 +73,12 @@ Nu u een uitvoerbinding hebt gedefinieerd, moet u de code bijwerken, zodat u de 
 3. Voeg de volgende code aan de functie toe net voordat de methode retourneert. Gebruik het juiste fragment voor de taal van uw functie.
 
     ```javascript
-    context.bindings.outQueueItem = "Name passed to the function: " + 
+    context.bindings.outputQueueItem = "Name passed to the function: " + 
                 (req.query.name || req.body.name);
     ```
 
     ```cs
-    outQueueItem.Add("Name passed to the function: " + name);     
+    outputQueueItem.Add("Name passed to the function: " + name);     
     ```
 
 4. Selecteer **Opslaan** om de wijzigingen op te slaan.
@@ -100,7 +99,7 @@ Vervolgens kunt u verbinding maken met uw opslagaccount om de nieuwe wachtrij en
 
 Sla de eerste drie stappen over als u Storage Explorer al hebt geïnstalleerd en met uw opslagaccount hebt verbonden.    
 
-1. Selecteer in de functie **Integreren** en de nieuwe **Azure Queue Storage**-uitvoerbinding, en vouw vervolgens **Documentatie** uit. Kopieer de **Accountnaam** en de **Accountsleutel**. Met deze referenties kunt u verbinding maken met het opslagaccount.
+1. Kies in de functie **integreren** en de nieuwe **Azure Queue storage** binding uitvoer uit en vouw vervolgens **documentatie**. Kopieer de **Accountnaam** en de **Accountsleutel**. Met deze referenties kunt u verbinding maken met het opslagaccount.
  
     ![Haal de verbindingsreferenties voor het opslagaccount op.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
@@ -112,7 +111,7 @@ Sla de eerste drie stappen over als u Storage Explorer al hebt geïnstalleerd en
   
     ![Plak de opslagreferenties en maak verbinding.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
-4. Vouw het gekoppelde opslagaccount uit. Klik met de rechtermuisknop op **Wachtrijen** en controleer of er een wachtrij met de naam **myqueue-items** bestaat. Er moet ook al een bericht in de wachtrij worden weergegeven.  
+4. Vouw het gekoppelde opslagaccount **wachtrijen** en controleer of er een wachtrij met de naam **rapportberichten items** bestaat. Er moet ook al een bericht in de wachtrij worden weergegeven.  
  
     ![Maak een opslagwachtrij.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  
@@ -128,7 +127,6 @@ U hebt een uitvoerbinding aan een bestaande functie toegevoegd.
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Zie [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md) (Opslagwachtrijbindingen van Azure Functions) voor meer informatie over de binding met Queue Storage. 
-
 
 
 

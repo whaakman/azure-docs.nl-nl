@@ -1,3 +1,3 @@
-Name-value collection of custom properties. This collection is used to extend standard telemetry with the custom dimensions. Examples are deployment slot that produced telemetry or telemetry-item specific property like order number. 
+Naam / waarde-verzameling aangepaste eigenschappen. Deze verzameling wordt gebruikt voor het uitbreiden van standaard telemetrie met de aangepaste dimensies. Voorbeelden zijn implementatiesleuf dat telemetrie of telemetrie-item specifieke eigenschap zoals volgordenummer geproduceerd. 
 
-Max key length: 150 Max value length: 8192
+De maximale lengte: 150 waarde maximumlengte: 8192

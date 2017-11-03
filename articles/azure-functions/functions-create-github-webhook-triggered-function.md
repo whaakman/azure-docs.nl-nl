@@ -1,27 +1,26 @@
 ---
 title: Een functie in Azure maken die wordt geactiveerd door een GitHub-webhook | Microsoft Docs
 description: Gebruik Azure Functions voor het maken van een functie zonder server die wordt aangeroepen door een GitHub-webhook.
-services: azure-functions
+services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 6e91d095c8a89ead513a8ea63f74fd4b9384cfd5
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/10/2017
-
+ms.openlocfilehash: d70186513b7313c8181092bc93a723f21154f7bc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Een door een GitHub-webhook geactiveerde functie maken
 
@@ -52,7 +51,7 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
 
     ![De Quick Start-pagina van Functions in Azure Portal](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Selecteer de sjabloon **GitHubWebHook** voor de gewenste taal. **Geef de functie een naam** en selecteer vervolgens **Maken**.
+2. Selecteer de **GitHub WebHook** sjabloon voor de gewenste taal. **Geef de functie een naam** en selecteer vervolgens **Maken**.
 
      ![Een door een GitHub-webhook geactiveerde functie maken in Azure Portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
 
@@ -109,4 +108,3 @@ U hebt een functie gemaakt die wordt uitgevoerd wanneer er een aanvraag wordt on
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Zie [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md) (Azure Functions-HTTP- en webhookbindingen) voor meer informatie over webhooktriggers.
-

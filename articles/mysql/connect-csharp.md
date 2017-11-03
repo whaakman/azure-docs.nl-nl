@@ -6,21 +6,19 @@ author: seanli1988
 ms.author: seal
 manager: janders
 editor: jasonwhowell
-ms.service: MySQL-database
+ms.service: MySQL
 ms.custom: mvc
 ms.devlang: csharp
-ms.topic: hero-article
-ms.date: 07/10/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: f1488f6b4a240165c71c95f759af73d6b9fd7bfe
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/09/2017
-
+ms.topic: quickstart
+ms.date: 09/22/2017
+ms.openlocfilehash: f87c3c302ec25f33af4334c3753dfae0084e4393
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Azure Database voor MySQL: .NET (C#) gebruiken om verbinding te maken en gegevens op te vragen
-In deze snelstartgids ziet u hoe u met behulp van een C#-toepassing verbinding maakt met een Azure Database voor MySQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In de stappen van dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met C#, maar geen ervaring hebt met het werken met Azure Database voor MySQL.
+Deze snelstartgids demonstreert hoe u verbinding maken met een Azure-Database voor MySQL met een C#-toepassing. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In dit onderwerp wordt ervan uitgegaan dat u bekend bent met ontwikkelen met C# en dat u niet bekend bent met werken met Azure-Database voor MySQL.
 
 ## <a name="prerequisites"></a>Vereisten
 In deze snelstartgids worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
@@ -36,14 +34,14 @@ U moet ook het volgende doen:
 Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure Database voor MySQL. U hebt de volledig gekwalificeerde servernaam en aanmeldingsreferenties nodig.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in het menu links in Azure Portal op **Alle resources** en zoek de server die u hebt gemaakt (bijvoorbeeld **myserver4demo**).
+2. Klik in het menu links in Azure-portal op **alle resources**, en zoek vervolgens naar de server die u hebt gemaakt (zoals **myserver4demo**).
 3. Klik op de servernaam.
-4. Selecteer de pagina **Eigenschappen** van de server. Noteer de **servernaam** en de **gebruikersnaam van de serverbeheerder**.
+4. Selecteer de server **eigenschappen** pagina en maak een notitie van de **servernaam** en **aanmeldingsnaam van Server-beheerder**.
  ![Naam van Azure Database voor MySQL-server](./media/connect-csharp/1_server-properties-name-login.png)
-5. Als u uw aanmeldingsgegevens voor de server bent vergeten, gaat u naar de pagina **Overzicht** om de aanmeldingsnaam van de serverbeheerder weer te geven en indien nodig het wachtwoord opnieuw in te stellen.
+5. Als u uw aanmeldingsgegevens server bent vergeten, gaat u naar de **overzicht** pagina om de aanmeldingsnaam voor Server-beheerder weer te geven en zo nodig het wachtwoord opnieuw instellen.
 
 ## <a name="connect-create-table-and-insert-data"></a>Verbinden, tabel maken en gegevens invoegen
-Gebruik de volgende code om verbinding te maken en de gegevens te laden met de SQL-instructies **CREATE TABLE** EN **INSERT INTO**. In de code wordt de klasse ODBC met de methode [Open()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) gebruikt om een verbinding te maken met MySQL. Vervolgens wordt de methode [CreateCommand()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx) gebruikt, de eigenschap CommandText ingesteld en de methode [ExecuteNonQuery()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) aangeroepen om de databaseopdrachten uit te voeren. 
+De volgende code gebruiken om verbinding te en de gegevens laden met behulp van **CREATE TABLE** en **INSERT INTO** SQL-instructies. In de code wordt de klasse ODBC met de methode [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) gebruikt om een verbinding te maken met MySQL. Vervolgens wordt de methode [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx) gebruikt, de eigenschap CommandText ingesteld en de methode [ExecuteNonQuery()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) aangeroepen om de databaseopdrachten uit te voeren. 
 
 Vervang de parameters Host, DBName, User en Password door de waarden die u hebt opgegeven tijdens het maken van de server en database. 
 
@@ -104,7 +102,7 @@ namespace driver
 
 ## <a name="read-data"></a>Gegevens lezen
 
-Gebruik de volgende code om verbinding te maken en de gegevens te lezen met de SQL-instructie **SELECT**. In de code wordt de klasse ODBC met de methode [Open()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) gebruikt om een verbinding te maken met MySQL. Vervolgens worden de methoden [CreateCommand()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx) en [ExecuteReader())](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbccommand.executereader(v=vs.110).aspx) gebruikt om de databaseopdrachten uit te voeren. Daarna wordt [Read()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcdatareader.read(v=vs.110).aspx) gebruikt om naar de records in de resultaten te gaan. Vervolgens worden in de code GetInt32() en GetString() gebruikt om de waarden in de record te parseren.
+De volgende code gebruiken om verbinding te en de gegevens niet lezen via een **Selecteer** SQL-instructie. In de code wordt de klasse ODBC met de methode [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) gebruikt om een verbinding te maken met MySQL. Vervolgens worden de methoden [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx) en [ExecuteReader())](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executereader(v=vs.110).aspx) gebruikt om de databaseopdrachten uit te voeren. Daarna wordt [Read()](https://msdn.microsoft.com/library/system.data.odbc.odbcdatareader.read(v=vs.110).aspx) gebruikt om naar de records in de resultaten te gaan. Vervolgens worden in de code GetInt32() en GetString() gebruikt om de waarden in de record te parseren.
 
 Vervang de parameters Host, DBName, User en Password door de waarden die u hebt opgegeven tijdens het maken van de server en database. 
 
@@ -160,7 +158,7 @@ namespace driver
 ```
 
 ## <a name="update-data"></a>Gegevens bijwerken
-Gebruik de volgende code om verbinding te maken en de gegevens te lezen met de SQL-instructie **UPDATE**. In de code wordt de klasse ODBC met de methode [Open()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) gebruikt om een verbinding te maken met MySQL. Vervolgens wordt de methode [CreateCommand()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx) gebruikt, de eigenschap CommandText ingesteld en de methode [ExecuteNonQuery()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) aangeroepen om de databaseopdrachten uit te voeren.
+De volgende code gebruiken om verbinding te en de gegevens niet lezen via een **UPDATE** SQL-instructie. In de code wordt de klasse ODBC met de methode [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) gebruikt om een verbinding te maken met MySQL. Vervolgens wordt de methode [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx) gebruikt, de eigenschap CommandText ingesteld en de methode [ExecuteNonQuery()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) aangeroepen om de databaseopdrachten uit te voeren.
 
 Vervang de parameters Host, DBName, User en Password door de waarden die u hebt opgegeven tijdens het maken van de server en database. 
 
@@ -209,9 +207,9 @@ namespace driver
 
 
 ## <a name="delete-data"></a>Gegevens verwijderen
-Gebruik de volgende code om verbinding te maken en de gegevens te verwijderen met de SQL-instructie **DELETE**. 
+De volgende code gebruiken om verbinding te en verwijderen van de gegevens met behulp van een **verwijderen** SQL-instructie. 
 
-In de code wordt de klasse ODBC met de methode [Open()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) gebruikt om een verbinding te maken met MySQL. Vervolgens wordt de methode [CreateCommand()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx) gebruikt, de eigenschap CommandText ingesteld en de methode [ExecuteNonQuery()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) aangeroepen om de databaseopdrachten uit te voeren.
+In de code wordt de klasse ODBC met de methode [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) gebruikt om een verbinding te maken met MySQL. Vervolgens wordt de methode [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx) gebruikt, de eigenschap CommandText ingesteld en de methode [ExecuteNonQuery()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) aangeroepen om de databaseopdrachten uit te voeren.
 
 Vervang de parameters Host, DBName, User en Password door de waarden die u hebt opgegeven tijdens het maken van de server en database. 
 
@@ -256,4 +254,3 @@ namespace driver
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
 > [Uw MySQL-database migreren naar Azure Database voor MySQL met behulp van dumpen en terugzetten](concepts-migrate-dump-restore.md)
-

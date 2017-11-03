@@ -1,4 +1,3 @@
-
 ---
 title: Veelgestelde vragen over Azure Backup | Microsoft Docs
 description: 'Antwoorden op veelgestelde vragen over de functies van Azure Backup, waaronder de Recovery Services-kluis, waarvan een back-up kan worden gemaakt, hoe het werkt, versleuteling en limieten. '
@@ -13,15 +12,14 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 7/21/2017
-ms.author: markgal;arunak;trinadhk;
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: a765aeffbaa7fd94aa0ef8e3885c03e5b5098c6e
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/09/2017
-
+ms.author: markgal;arunak;trinadhk;sogup;
+ms.openlocfilehash: 94b649d7949b6fbc2ec734afc955dabbfc84fc4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Vragen over de Azure Backup-service
 In dit artikel vindt u antwoorden op veelgestelde vragen om u snel een beeld te geven van de verschillende onderdelen van Azure Backup. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt via **Opmerkingen** (aan de rechterkant) vragen stellen over Azure Backup. De opmerkingen worden onder aan dit artikel weergegeven. Er is een Livefyre-account vereist om opmerkingen te kunnen plaatsen. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -47,7 +45,7 @@ Nee. De kluis is gemaakt op abonnementsniveau en kan, zodra deze is gemaakt, nie
 Alle bestaande Backup-kluizen in de [klassieke portal](https://manage.windowsazure.com) worden nog steeds ondersteund. Het is echter niet meer mogelijk om de klassieke portal te gebruiken voor het implementeren van nieuwe Backup-kluizen. Microsoft adviseert om voor alle implementaties Recovery Services-kluizen te gebruiken, aangezien toekomstige verbeteringen alleen van toepassing zullen zijn op Recovery Services-kluizen. Als u probeert een Backup-kluis te maken in de klassieke portal, wordt u omgeleid naar [Azure Portal](https://portal.azure.com).
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Kan ik een Backup-kluis migreren naar een Recovery Services-kluis? <br/>
-Het is niet mogelijk om de inhoud van een Backup-kluis te migreren naar een Recovery Services-kluis. We zijn bezig met het toevoegen van de functionaliteit, maar deze is momenteel nog niet beschikbaar.
+Ja, kunt u uw kluis voor back-up nu bijwerken naar een Recovery Services-kluis. Raadpleeg voor meer informatie het artikel [een back-upkluis upgraden naar een Recovery Services-kluis](backup-azure-upgrade-backup-to-recovery-services.md).
 
 ### <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Ik heb in een Backup-kluis een back-up gemaakt van mijn klassieke virtuele machines. Kan ik mijn virtuele machines migreren van de klassieke modus naar de Resource Manager-modus en ze beschermen in een Recovery Services-kluis?
 Herstelpunten van klassieke virtuele machines in een back-upkluis worden niet automatisch naar de Recovery Services-kluis gemigreerd wanneer u de virtuele machine van de klassieke naar de Resource Manager-modus migreert. Volg deze stappen om de back-ups van uw virtuele machine over te dragen:
@@ -185,4 +183,3 @@ Als u gebruikmaakt van een Azure Backup-agent, moet de versleutelingssleutel ten
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-or-can-microsoft-recover-the-data-br"></a>Wat gebeurt er als ik de versleutelingssleutel kwijtraak? Kan ik of Microsoft de gegevens herstellen? <br/>
 Alleen de klant beschikt over de sleutel die wordt gebruikt om de back-upgegevens te versleutelen. Microsoft bewaart geen kopie in Azure en heeft geen toegang tot de sleutel. Als de klant de sleutel kwijtraakt, kan Microsoft back-upgegevens niet herstellen.
-

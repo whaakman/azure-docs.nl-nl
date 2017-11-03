@@ -1,59 +1,59 @@
 
 
 
-## <a name="attach-an-empty-disk"></a>Attach an empty disk
-Attaching an empty disk is a simple way to add a data disk, because Azure creates the .vhd file for you and stores it in the storage account.
+## <a name="attach-an-empty-disk"></a>Een lege schijf koppelen
+Koppelen van een lege schijf is een eenvoudige manier om een gegevensschijf niet toevoegen omdat Azure het VHD-bestand voor u gemaakt en in het opslagaccount opgeslagen.
 
-1. Click **Virtual Machines (classic)**, and then select the appropriate VM.
+1. Klik op **virtuele Machines (klassiek)**, en selecteer vervolgens de juiste virtuele machine.
 
-2. In the Settings menu, click **Disks**.
+2. Klik in het menu instellingen **schijven**.
 
-   ![Attach a new empty disk](./media/howto-attach-disk-windows-linux/menudisksattachnew.png)
+   ![Een nieuwe lege schijf koppelen](./media/howto-attach-disk-windows-linux/menudisksattachnew.png)
 
-3. On the command bar, click **Attach new**.  
-    The **Attach new disk** dialog box appears.
+3. Klik op de opdrachtbalk op **Attach nieuwe**.  
+    De **nieuwe schijf koppelen** dialoogvenster wordt weergegeven.
 
-    ![Attach a new disk](./media/howto-attach-disk-windows-linux/newdiskdetail.png)
+    ![Een nieuwe schijf koppelen](./media/howto-attach-disk-windows-linux/newdiskdetail.png)
 
-    Fill in the following information:
-    - In **File Name**, accept the default name or type another one for the .vhd file. The data disk uses an automatically generated name, even if you type another name for the .vhd file.
-    - Select the **Type** of the data disk. All virtual machines support standard disks. Many virtual machines also support premium disks.
-    - Select the **Size (GB)** of the data disk.
-    - For **Host caching**, choose none or Read Only.
-    - Click OK to finish.
+    Vul in de volgende informatie:
+    - In **bestandsnaam**, accepteer de standaardnaam of typ een andere naam voor het VHD-bestand. De gegevensschijf gebruikt een automatisch gegenereerde naam, zelfs als u een andere naam voor het VHD-bestand typen.
+    - Selecteer de **Type** van de gegevensschijf. Alle virtuele machines ondersteunen standaardschijven. Premium-schijven bieden ook ondersteuning voor veel virtuele machines.
+    - Selecteer de **grootte (GB)** van de gegevensschijf.
+    - Voor **Hostcaching**, kiest u geen of alleen-lezen.
+    - Klik op OK om te voltooien.
 
-4. After the data disk is created and attached, it's listed in the disks section of the VM.
+4. Nadat de gegevensschijf is gemaakt en gekoppeld, wordt deze vermeld in de sectie schijven van de virtuele machine.
 
-   ![New and empty data disk successfully attached](./media/howto-attach-disk-windows-linux/newdiskemptysuccessful.png)
+   ![Nieuwe en lege gegevensschijf gekoppeld](./media/howto-attach-disk-windows-linux/newdiskemptysuccessful.png)
 
 > [!NOTE]
-> After you add a data disk, you need to log on to the VM and initialize the disk so that it can be used.
+> Nadat u een gegevensschijf toevoegen, moet u zich aanmeldt bij de virtuele machine en de schijf initialiseren zodat deze kan worden gebruikt.
 
-## <a name="how-to-attach-an-existing-disk"></a>How to: Attach an existing disk
-Attaching an existing disk requires that you have a .vhd available in a storage account. Use the [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet to upload the .vhd file to the storage account. After you've created and uploaded the .vhd file, you can attach it to a VM.
+## <a name="how-to-attach-an-existing-disk"></a>Procedure: een bestaande schijf koppelen
+Als u een bestaande schijf wilt koppelen, dient u een .vhd beschikbaar te hebben in een opslagaccount. Gebruik de [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet het VHD-bestand uploaden naar het opslagaccount. Nadat u hebt gemaakt en het VHD-bestand wordt geüpload, kunt u het koppelen aan een VM.
 
-1. Click **Virtual Machines (classic)**, and then select the appropriate virtual machine.
+1. Klik op **virtuele Machines (klassiek)**, en selecteer vervolgens de juiste virtuele machine.
 
-2. In the Settings menu, click **Disks**.
+2. Klik in het menu instellingen **schijven**.
 
-3. On the command bar, click **Attach existing**.
+3. Klik op de opdrachtbalk op **Attach bestaande**.
 
-    ![Attach data disk](./media/howto-attach-disk-windows-linux/menudisksattachexisting.png)
+    ![Een gegevensschijf koppelen](./media/howto-attach-disk-windows-linux/menudisksattachexisting.png)
 
-4. Click **Location**. The available storage accounts display. Next, select an appropriate storage account from those listed.
+4. Klik op **locatie**. De beschikbare opslagaccounts weergegeven. Selecteer vervolgens een juiste storage-account in de lijst.
 
-    ![Provide disk storage account](./media/howto-attach-disk-windows-linux/existdiskstorageaccounts.png)
+    ![Schijf storage-account opgeven](./media/howto-attach-disk-windows-linux/existdiskstorageaccounts.png)
 
-5. A **Storage account** holds one or more containers that contain disk drives (vhds). Select the appropriate container from those listed.
+5. Een **opslagaccount** bevat een of meer containers die harde schijven (VHD's) bevatten. Selecteer de juiste container in de lijst.
 
-    ![Provide container of virtual-machines-windows](./media/howto-attach-disk-windows-linux/existdiskcontainers.png)
+    ![Container van virtuele machines-windows bieden](./media/howto-attach-disk-windows-linux/existdiskcontainers.png)
 
-6. The **vhds** panel lists the disk drives held in the container. Click one of the disks, and then click Select.
+6. De **VHD's** deelvenster worden de schijven die zijn ondergebracht in de container. Klik op een van de schijven en klik op selecteren.
 
-    ![Provide disk image for virtual-machines-windows](./media/howto-attach-disk-windows-linux/existdiskvhds.png)
+    ![Schijfimage bieden voor virtuele machines-windows](./media/howto-attach-disk-windows-linux/existdiskvhds.png)
 
-7. The **Attach existing disk** panel displays again, with the location containing the storage account, container, and selected hard disk (vhd) to add to the virtual machine.
+7. De **bestaande schijf koppelen** Configuratiescherm opnieuw wordt weergegeven met de locatie met de storage-account, de container en de geselecteerde harde schijf (vhd) toevoegen aan de virtuele machine.
 
-  Set **Host caching** to none or Read only, then click OK.
+  Stel **Hostcaching** op none of lezen alleen, klik vervolgens op OK.
 
-    ![Data disk successfully attached](./media/howto-attach-disk-windows-linux/exisitingdisksuccessful.png)
+    ![Gegevensschijf gekoppeld](./media/howto-attach-disk-windows-linux/exisitingdisksuccessful.png)

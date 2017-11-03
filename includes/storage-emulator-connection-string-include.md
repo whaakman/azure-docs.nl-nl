@@ -1,4 +1,4 @@
-The storage emulator supports a single fixed account and a well-known authentication key for Shared Key authentication. This account and key are the only Shared Key credentials permitted for use with the storage emulator. They are:
+De opslagemulator ondersteunt één vaste account en een bekende verificatiesleutel voor verificatie met gedeelde sleutel. Dit account en de sleutel zijn de enige gedeelde sleutel referenties zijn toegestaan voor gebruik met de opslagemulator. Ze zijn:
 
 ```
 Account name: devstoreaccount1
@@ -6,13 +6,13 @@ Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZ
 ```
 
 > [!NOTE]
-> The authentication key supported by the storage emulator is intended only for testing the functionality of your client authentication code. It does not serve any security purpose. You cannot use your production storage account and key with the storage emulator. You should not use the development account with production data.
+> De verificatiesleutel wordt ondersteund door de opslagemulator is alleen bedoeld voor het testen van de functionaliteit van de clientcode voor verificatie. Deze dienen geen elk doeleinde beveiliging. U kunt uw storage-account voor productie en de sleutel niet gebruiken met de opslagemulator. U moet het account ontwikkeling niet gebruiken met productiegegevens.
 > 
-> The storage emulator supports connection via HTTP only. However, HTTPS is the recommended protocol for accessing resources in a production Azure storage account.
+> De opslagemulator ondersteunt alleen verbinding via HTTP. HTTPS is echter de aanbevolen protocol voor toegang tot resources in een productie-Azure storage-account.
 > 
 
-#### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>Connect to the emulator account using a shortcut
-The easiest way to connect to the storage emulator from your application is to configure a connection string in your application's configuration file that references the shortcut `UseDevelopmentStorage=true`. Here's an example of a connection string to the storage emulator in an *app.config* file: 
+#### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>Verbinding maken met de emulator account via een snelkoppeling
+De eenvoudigste manier verbinding maken met de opslagemulator van uw toepassing is voor het configureren van een verbindingsreeks in het configuratiebestand van de toepassing die verwijst naar de snelkoppeling `UseDevelopmentStorage=true`. Hier volgt een voorbeeld van een verbindingsreeks voor de opslagemulator in een *app.config* bestand: 
 
 ```xml
 <appSettings>
@@ -20,8 +20,8 @@ The easiest way to connect to the storage emulator from your application is to c
 </appSettings>
 ```
 
-#### <a name="connect-to-the-emulator-account-using-the-well-known-account-name-and-key"></a>Connect to the emulator account using the well-known account name and key
-To create a connection string that references the emulator account name and key, you must specify the endpoints for each of the services you wish to use from the emulator in the connection string. This is necessary so that the connection string will reference the emulator endpoints, which are different than those for a production storage account. For example, the value of your connection string will look like this:
+#### <a name="connect-to-the-emulator-account-using-the-well-known-account-name-and-key"></a>Verbinding maken met de emulator-account met behulp van de bekende accountnaam en de sleutel
+U moet de eindpunten voor elk van de services die u wilt gebruiken van de emulator in de verbindingsreeks opgeven voor het maken van een verbindingsreeks die verwijst naar de emulator accountnaam en de sleutel. Dit is noodzakelijk om de verbindingsreeks verwijst naar de emulator-eindpunten die anders dan de voor een productie-opslagaccount zijn. Bijvoorbeeld: de waarde van de verbindingsreeks ziet er als volgt:
 
 ```
 DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;
@@ -31,10 +31,10 @@ TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;
 QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;
 ```
 
-This value is identical to the shortcut shown above, `UseDevelopmentStorage=true`.
+Deze waarde is gelijk aan de bovenstaande snelkoppeling `UseDevelopmentStorage=true`.
 
-#### <a name="specify-an-http-proxy"></a>Specify an HTTP proxy
-You can also specify an HTTP proxy to use when you're testing your service against the storage emulator. This can be useful for observing HTTP requests and responses while you're debugging operations against the storage services. To specify a proxy, add the `DevelopmentStorageProxyUri` option to the connection string, and set its value to the proxy URI. For example, here is a connection string that points to the storage emulator and configures an HTTP proxy:
+#### <a name="specify-an-http-proxy"></a>Geef een HTTP-proxy
+U kunt ook een HTTP-proxy moet worden gebruikt wanneer u bij het testen van uw service op basis van de opslagemulator opgeven. Dit kan handig zijn voor de naleving van HTTP-aanvragen en antwoorden terwijl u fouten bewerkingen op de storage-services opspoort zijn. Als u een proxy, voeg de `DevelopmentStorageProxyUri` optie de verbindingsreeks en stel de waarde op de proxy-URI. Hier is bijvoorbeeld een verbindingsreeks die verwijst naar de opslagemulator en een HTTP-proxy configureert:
 
 ```
 UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri

@@ -9,17 +9,16 @@ editor:
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 08/23/2017
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 71e3d130f22515d22dc7f486f3dede936b874049
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: d9870fafab3df3ab0ec72305e76a4d3547cc5b2c
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>Jenkins gebruiken om uw Java-toepassing in Linux te bouwen en te implementeren
 Jenkins is een populair hulpprogramma voor doorlopende integratie en implementatie van uw apps. Hier leest u hoe u een Azure Service Fabric-toepassing maakt en implementeert met behulp van Jenkins.
@@ -30,7 +29,7 @@ Jenkins is een populair hulpprogramma voor doorlopende integratie en implementat
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Jenkins instellen in een Service Fabric-cluster
 
-U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. In de volgende secties ziet u hoe u Jenkins instelt in een cluster.
+U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgende secties ziet het instellen van binnen een cluster tijdens het gebruik van een Azure storage-account voor het opslaan van de status van het exemplaar van de container.
 
 ### <a name="prerequisites"></a>Vereisten
 1. Zorg ervoor dat u beschikt over een Service Fabric-cluster voor Linux. Voor een Service Fabric-cluster dat is gemaakt via Azure Portal, is Docker al geïnstalleerd. Als u het cluster lokaal uitvoert, controleert u met behulp van de opdracht ``docker info`` of Docker is geïnstalleerd. Als het niet is geïnstalleerd, installeert u het dienovereenkomstig met de volgende opdrachten:
@@ -38,40 +37,65 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. In de volg
   ```sh
   sudo apt-get install wget
   wget -qO- https://get.docker.io/ | sh
-  ```
-2. Zorg er aan de hand van de volgende stappen voor dat de Service Fabric-containertoepassing in het cluster wordt geïmplementeerd:
+  ``` 
+
+   > [!NOTE]
+   > Zorg ervoor dat de poort 8081 is opgegeven als een aangepaste eindpunt op het cluster.
+   >
+2. Klonen van de toepassing met behulp van de volgende stappen uit:
 
   ```sh
-git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git -b JenkinsDocker
+git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
 cd service-fabric-java-getting-started/Services/JenkinsDocker/
-azure servicefabric cluster connect http://PublicIPorFQDN:19080   # Azure CLI cluster connect command
+```
+
+3. De status van de container Jenkins in een bestandsshare behouden:
+  * Maken van een Azure storage-account in de **dezelfde regio** als uw cluster met een naam zoals ``sfjenkinsstorage1``.
+  * Maak een **bestandsshare** onder de storage-Account met een naam, zoals ``sfjenkins``.
+  * Klik op **Connect** voor de bestandsshare en noteer de waarden wordt weergegeven onder **verbinding te maken van Linux**, de waarde moet er ongeveer als hieronder:
+```sh
+sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
+```
+
+> [!NOTE]
+> Koppelpunt cifs shares moet u beschikken over de cifs-utils-pakket geïnstalleerd in de clusterknooppunten.         
+>
+
+4. Werk de tijdelijke aanduiding voor waarden in de ```setupentrypoint.sh``` script met de azure-opslag-details van stap 3.
+```sh
+vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
+```
+  * Vervang ``[REMOTE_FILE_SHARE_LOCATION]`` met de waarde ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` uit de uitvoer van de verbinding te maken in stap 3 hierboven.
+  * Vervang ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` met de waarde ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` uit stap 3 hierboven.
+
+5. Verbinding maken met het cluster en installeer de containertoepassing.
+```sh
+sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
 bash Scripts/install.sh
 ```
 Hiermee wordt een Jenkins-container in het cluster geïnstalleerd. Dit kan worden bewaakt met de Service Fabric Explorer.
 
-### <a name="steps"></a>Stappen
-1. Ga in uw browser naar ``http://PublicIPorFQDN:8081``. Hier vindt u het pad naar het eerste beheerderswachtwoord dat nodig is om u aan te melden. U kunt Jenkins blijven gebruiken als beheerder. Maar u kunt er ook voor kiezen om een gebruiker te maken en van account te wisselen nadat u zich met het oorspronkelijke beheerdersaccount hebt aangemeld.
-
    > [!NOTE]
-   > Controleer tijdens het maken van het cluster of poort 8081 is opgegeven als de poort voor het toepassingseindpunt.
+   > Het duurt een paar minuten voor de installatiekopie Jenkins worden gedownload op het cluster.
    >
 
-2. Haal de exemplaar-id van de container op met ``docker ps -a``.
-3. Meld u met Secure Shell (SSH) aan bij de container en plak het pad dat in de Jenkins-portal wordt weergegeven. Als in de portal bijvoorbeeld het pad `PATH_TO_INITIAL_ADMIN_PASSWORD` wordt getoond, voert u de volgende opdracht uit:
+### <a name="steps"></a>Stappen
+1. Ga in uw browser naar ``http://PublicIPorFQDN:8081``. Hier vindt u het pad naar het eerste beheerderswachtwoord dat nodig is om u aan te melden. 
+2. Bekijk de Service Fabric Explorer om te bepalen welk knooppunt de container Jenkins wordt uitgevoerd. Secure Shell (SSH) aanmelden bij dit knooppunt.
+```sh
+ssh user@PublicIPorFQDN -p [port]
+``` 
+3. Haal de exemplaar-id van de container op met ``docker ps -a``.
+4. Meld u met Secure Shell (SSH) aan bij de container en plak het pad dat in de Jenkins-portal wordt weergegeven. Als in de portal bijvoorbeeld het pad `PATH_TO_INITIAL_ADMIN_PASSWORD` wordt getoond, voert u de volgende opdracht uit:
 
   ```sh
   docker exec -t -i [first-four-digits-of-container-ID] /bin/bash   # This takes you inside Docker shell
-  cat PATH_TO_INITIAL_ADMIN_PASSWORD
   ```
-
-4. Stel GitHub in voor Jenkins door de stappen uit te voeren uit [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) (Een nieuwe SSH-sleutel genereren en toevoegen aan de SSH-agent).
-    * Volg de instructies van GitHub om de SSH-sleutel te genereren en de SSH-sleutel toe te voegen aan het GitHub-account waarop de opslagplaats wordt gehost.
-    * Voer de opdrachten die in de vorige koppeling zijn genoemd, uit in de Jenkins Docker-shell (en niet op uw host).
-    * Gebruik de volgende opdracht om u vanaf uw host aan te melden bij de Jenkins-shell:
-
   ```sh
-  docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
+  cat PATH_TO_INITIAL_ADMIN_PASSWORD # This displays the pasword value
   ```
+5. Kies op de pagina Jenkins Gettting gestart de Selecteer invoegtoepassingen voor de installatie-optie, selecteert u de **geen** selectievakje in en klik op installeren.
+6. Een gebruiker maken of selecteren om door te gaan als een beheerder.
 
 ## <a name="set-up-jenkins-outside-a-service-fabric-cluster"></a>Jenkins instellen buiten een Service Fabric-cluster
 
@@ -102,7 +126,7 @@ Wanneer u ``docker info`` nu uitvoert in de terminal, ziet u in de uitvoer dat d
   5. Stel GitHub in voor Jenkins door de stappen uit te voeren uit [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) (Een nieuwe SSH-sleutel genereren en toevoegen aan de SSH-agent).
         * Volg de instructies van GitHub om de SSH-sleutel te genereren en deze toe te voegen aan het GitHub-account waarop de opslagplaats wordt gehost.
         * Voer de opdrachten die in de vorige koppeling zijn genoemd, uit in de Jenkins Docker-shell (en niet op uw host).
-        * Gebruik de volgende opdrachten om u vanaf uw host aan te melden bij de Jenkins-shell:
+      * Gebruik de volgende opdrachten om u vanaf uw host aan te melden bij de Jenkins-shell:
 
       ```sh
       docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
@@ -114,7 +138,7 @@ Zorg ervoor dat het cluster waarin of de computer waarop de installatiekopie van
 
 1. Ga naar ``http://PublicIPorFQDN:8081``
 2. Selecteer in het Jenkins-dashboard **Jenkins beheren** > **Plug-ins beheren** > **Geavanceerd**.
-Hier kunt u een invoegtoepassing uploaden. Selecteer **Choose file** en selecteer daarna het bestand **serviceFabric.hpi** dat u bij de stap Vereisten hebt gedownload. Als u **Upload** selecteert, installeert Jenkins de invoegtoepassing automatisch. Sta opnieuw starten toe als hierom wordt gevraagd.
+Hier kunt u een invoegtoepassing uploaden. Selecteer **bestand kiezen**, en selecteer vervolgens de **serviceFabric.hpi** bestand, die u hebt gedownload onder vereisten of kunnen downloaden [hier](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Als u **Upload** selecteert, installeert Jenkins de invoegtoepassing automatisch. Sta opnieuw starten toe als hierom wordt gevraagd.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Een Jenkins-taak maken en configureren
 
@@ -122,7 +146,7 @@ Hier kunt u een invoegtoepassing uploaden. Selecteer **Choose file** en selectee
 2. Voer een itemnaam in (bijvoorbeeld **MyJob**). Selecteer **free-style project** en klik op **OK**.
 3. Ga naar de pagina van de taak en klik op **Configure**.
 
-   a. Geef in de sectie General onder **GitHub project** de URL op van uw GitHub-project. Dit is de URL waarop de Service Fabric Java-toepassing wordt gehost die u wilt integreren met de CI-/CD-stroom van Jenkins (Continue integratie, Continue implementatie), bijvoorbeeld ``https://github.com/sayantancs/SFJenkins``.
+   a. Selecteer het selectievakje voor in het gedeelte Algemeen **GitHub project**, en geef de URL van de GitHub-project. Dit is de URL waarop de Service Fabric Java-toepassing wordt gehost die u wilt integreren met de CI-/CD-stroom van Jenkins (Continue integratie, Continue implementatie), bijvoorbeeld ``https://github.com/sayantancs/SFJenkins``.
 
    b. Selecteer onder de sectie **Broncodebeheer** de optie **Git**. Geef de opslagplaats-URL op waarop de Service Fabric Java-toepassing wordt gehost die u wilt integreren met de CI-/CD-stroom van Jenkins, bijvoorbeeld ``https://github.com/sayantancs/SFJenkins.git``. U kunt hier ook opgeven welke vertakking u wilt maken, bijvoorbeeld **/master**.
 4. Configureer uw *GitHub* (waar de opslagplaats wordt gehost), zodat deze kan communiceren met Jenkins. Voer de volgende stappen uit:
@@ -137,7 +161,7 @@ Hier kunt u een invoegtoepassing uploaden. Selecteer **Choose file** en selectee
 
    e. Selecteer in de sectie **Build Triggers** de gewenste buildoptie. Voor dit voorbeeld wilt u een build activeren telkens wanneer er een push naar de opslagplaats plaatsvindt. Selecteer daarom de optie **GitHub hook trigger for GITScm polling**. (Voorheen heette deze optie **Build when a change is pushed to GitHub**.)
 
-   f. Ga naar de sectie **Build** en selecteer in de vervolgkeuzelijst **Add build step** de optie **Invoke Gradle Script**. Geef in de volgende widget het pad op naar het **hoofdscript** van uw toepassing. build.gradle wordt opgehaald uit het opgegeven pad en werkt dienovereenkomstig. Als u een project maakt met de naam ``MyActor`` (met behulp van de Eclipse-invoegtoepassing of Yeoman-generator), moet het hoofdscript ``${WORKSPACE}/MyActor`` bevatten. Bekijk de volgende schermafbeelding voor een voorbeeld van hoe dit er uitziet:
+   f. Ga naar de sectie **Build** en selecteer in de vervolgkeuzelijst **Add build step** de optie **Invoke Gradle Script**. Geef in het object dat wordt geleverd opent u het menu Geavanceerd, het pad naar **hoofdmap build script** voor uw toepassing. Het build.gradle van het opgegeven pad opneemt en dienovereenkomstig werkt. Als u een project maakt met de naam ``MyActor`` (met behulp van de Eclipse-invoegtoepassing of Yeoman-generator), moet het hoofdscript ``${WORKSPACE}/MyActor`` bevatten. Bekijk de volgende schermafbeelding voor een voorbeeld van hoe dit er uitziet:
 
     ![Service Fabric-bouwactie voor Jenkins][build-step]
 
@@ -155,4 +179,3 @@ GitHub en Jenkins zijn nu geconfigureerd. U zou een aantal voorbeeldwijzigingen 
   <!-- Images -->
   [build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/build-step.png
   [post-build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/post-build-step.png
-

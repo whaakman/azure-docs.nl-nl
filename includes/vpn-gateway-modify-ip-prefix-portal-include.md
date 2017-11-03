@@ -9,7 +9,7 @@
 #### <a name="to-remove-address-prefixes"></a>Ga als volgt te werk om adresvoorvoegsels te verwijderen:
 
 1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **configuratie**.
-2. Klik op de **'...'** op de regel met het voorvoegsel dat u wilt verwijderen.
+2. Klik op de **'...'** op de regel met het voorvoegsel op dat u wilt verwijderen.
 3. Klik op **verwijderen**.
 4. Klik op **opslaan** uw instellingen op te slaan.
 

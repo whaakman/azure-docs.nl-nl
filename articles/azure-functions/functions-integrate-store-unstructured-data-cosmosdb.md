@@ -1,30 +1,29 @@
 ---
-title: Ongestructureerde gegevens opslaan met behulp van Azure Functions en Cosmos DB
+title: Opslaan van ongestructureerde gegevens met behulp van Azure DB die Cosmos en functies | Microsoft Docs
 description: Ongestructureerde gegevens opslaan met behulp van Azure Functions en Cosmos DB
 services: functions
 documentationcenter: functions
-author: rachelappel
-manager: erikre
+author: ggailey777
+manager: cfowler
 editor: 
 tags: 
 keywords: Azure Functions, functies, gebeurtenisverwerking, Cosmos DB, dynamisch berekenen, architectuur zonder server
 ms.assetid: 
 ms.service: functions
 ms.devlang: csharp
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/03/2017
-ms.author: rachelap, glenga
+ms.date: 09/19/2017
+ms.author: glenga
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 00e9a76fed5743d7d74bafd333b87edf59a4f8bb
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/02/2017
-
+ms.openlocfilehash: b64d994dbc8f53418981e33a1dcd3cf513838b92
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="store-unstructured-data-using-azure-functions-and-cosmos-db"></a>Ongestructureerde gegevens opslaan met behulp van Azure Functions en Cosmos DB
+# <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Opslaan van ongestructureerde gegevens met behulp van Azure Functions en Azure Cosmos-DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is een geweldige manier om ongestructureerde gegevens en JSON-gegevens op te slaan. Cosmos DB biedt, in combinatie met Azure Functions, een snelle en eenvoudige manier om gegevens op te slaan met veel minder code dan nodig is voor het opslaan van gegevens in een relationele database.
 
@@ -54,10 +53,10 @@ Vereisten voor het voltooien van deze zelfstudie:
     | ------------ | ---------------- | ------------------------------------------ |
     | **Parameternaam van document** | taskDocument | Naam die in code verwijst naar het Cosmos DB-object. |
     | **Databasenaam** | taskDatabase | Naam van database waarin documenten worden opgeslagen. |
-    | **Naam van verzameling** | TaskCollection | Naam van verzameling met Cosmos DB-databases. |
+    | **Naam van verzameling** | TaskCollection | De naam van de database-verzameling. |
     | **Indien waar, worden de Cosmos-DB-database en -verzameling gemaakt** | Geselecteerd | De verzameling bestaat nog niet, dus moet u deze maken. |
 
-4. Selecteer **Nieuw** naast het label **Cosmos DB-documentverbinding** en selecteer **+ Nieuwe maken**. 
+4. Selecteer **nieuw** naast de **Azure Cosmos DB document verbinding** label en selecteer **+ nieuw**. 
 
 5. Gebruik de instellingen voor **Nieuw account** zoals opgegeven in de tabel: 
 
@@ -65,13 +64,13 @@ Vereisten voor het voltooien van deze zelfstudie:
 
     | Instelling      | Voorgestelde waarde  | Beschrijving                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **ID** | Naam van de database | Unieke id voor de Cosmos DB-database  |
+    | **ID** | Naam van de database | Unieke ID voor de Azure DB die Cosmos-database  |
     | **API** | SQL (DocumentDB) | Selecteer de documentdatabase-API.  |
     | **Abonnement** | Azure-abonnement | Azure-abonnement  |
     | **Resourcegroep** | myResourceGroup |  Gebruik de bestaande resourcegroep die uw functie-app bevat. |
     | **Locatie**  | West-Europa | Selecteer een locatie die zich in de buurt van uw functie-app bevindt of van andere apps die gebruikmaken van de opgeslagen documenten.  |
 
-6. Klik op **OK** om de database te maken. Het maken van de database kan een paar minuten duren. Nadat de database is gemaakt, wordt de verbindingsreeks voor de database opgeslagen als een functie-app-instelling. De naam van deze app-instelling wordt ingevoegd in **Cosmos DB-accountverbinding**. 
+6. Klik op **OK** om de database te maken. Het maken van de database kan een paar minuten duren. Nadat de database is gemaakt, wordt de verbindingsreeks voor de database opgeslagen als een functie-app-instelling. De naam van deze appinstelling wordt ingevoegd in **Azure DB die Cosmos-account verbinding**. 
  
 8. Nadat de verbindingsreeks is ingesteld, selecteert u **Opslaan** om de binding te maken.
 
@@ -129,11 +128,13 @@ In dit codevoorbeeld worden de queryreeksen van de HTTP-aanvraag gelezen en toeg
 
     ![Zoeken naar de Cosmos DB-service](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
 
-2. Selecteer de database die u hebt gemaakt en selecteer vervolgens **Data Explorer**. Vouw de knooppunten **Verzamelingen** uit, selecteer het nieuwe document en controleer of het document uw querytekenreekswaarden, samen met enkele aanvullende metagegevens, bevat. 
+2. Kies uw Azure DB die Cosmos-account en selecteer vervolgens de **Data Explorer**. 
+
+3. Vouw de knooppunten **Verzamelingen** uit, selecteer het nieuwe document en controleer of het document uw querytekenreekswaarden, samen met enkele aanvullende metagegevens, bevat. 
 
     ![Cosmos DB-vermelding controleren](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 
-U hebt een binding toegevoegd aan uw HTTP-trigger die niet-gestructureerde gegevens in een Cosmos-DB-database opslaat.
+U hebt een binding aan uw HTTP-trigger die niet-gestructureerde gegevens in een Cosmos Azure DB die wordt opslaat toegevoegd.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
@@ -142,4 +143,3 @@ U hebt een binding toegevoegd aan uw HTTP-trigger die niet-gestructureerde gegev
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
 
 Zie [Azure Functions Cosmos DB bindings](functions-bindings-documentdb.md) (Bindingen tussen Azure Functions en Cosmos DB) voor meer informatie over de binding met een Cosmos DB database.
-

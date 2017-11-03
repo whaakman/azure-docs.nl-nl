@@ -25,7 +25,8 @@
 #### [Connectors beveiligen met Azure AD](custom-connector-azure-active-directory-authentication.md)
 #### [API's beschrijven met Postman](custom-connector-api-postman-collection.md)
 #### [OpenAPI voor aangepaste connectors uitbreiden](custom-connector-openapi-extensions.md)
-#### [De connector registreren](logic-apps-custom-connector-register.md)
+#### [Een OpenAPI-connector maken en registreren](logic-apps-custom-connector-register.md)
+#### [Een SOAP-connector maken en registreren](logic-apps-soap-connector-create-register.md)
 #### [De connector certificeren](custom-connector-submit-certification.md)
 #### [Veelgestelde vragen over aangepaste connectors](custom-connector-faq.md)
 ### Aangepaste API's ontwikkelen

@@ -8,19 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/19/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: a26477d692cc98ed16c195233ade5434cc536a36
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/04/2017
-
+ms.openlocfilehash: 335c271f3e46d3b6b23e1fcac53e39b89ece796c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: een bestaande Node.js MongoDB-web-app migreren 
 
@@ -28,7 +27,7 @@ Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Mic
 
 Deze Quick Start laat zien hoe u een bestaande, in Node.js geschreven [MongoDB](mongodb-introduction.md)-app kunt gebruiken en verbinden met uw Azure Cosmos DB-database, die MongoDB-clientverbindingen ondersteunt. Met andere woorden, uw Node.js-toepassing weet alleen dat het wordt verbonden met een database met behulp van MongoDB-API’s. Het is duidelijk voor de toepassing dat de gegevens worden opgeslagen in Azure Cosmos DB.
 
-Als u klaar bent, beschikt u over een MEAN-toepassing (MongoDB, Express, AngularJS en Node.js) die wordt uitgevoerd op [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
+Wanneer u klaar bent, hebt u een gemiddelde-toepassing (MongoDB, snelle Angular en Node.js) wordt uitgevoerd op [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 
 ![MEAN.js-app uitgevoerd in Azure App Service](./media/create-mongodb-nodejs/meanjs-in-azure.png)
 
@@ -38,6 +37,9 @@ Als u klaar bent, beschikt u over een MEAN-toepassing (MongoDB, Express, Angular
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 ## <a name="prerequisites"></a>Vereisten 
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
+[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+
 Naast Azure CLI moet u [Node.js](https://nodejs.org/) en [Git](http://www.git-scm.com/downloads) lokaal geïnstalleerd hebben om `npm`- en `git`-opdrachten uit te voeren.
 
 U moet bekend zijn met de basisbegrippen van Node.js. Deze Quick Start is niet bedoeld als hulp bij het ontwikkelen van Node.js-toepassingen in het algemeen.
@@ -61,6 +63,7 @@ cd mean
 npm install
 npm start
 ```
+De toepassing wordt geprobeerd verbinding maken met een MongoDB-bron en mislukt, doorgaan en de toepassing afsluiten wanneer de uitvoer weer ' [MongoError: verbinding maken met ECONNREFUSED 127.0.0.1:27017] '.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
@@ -241,4 +244,3 @@ In deze Quick Start hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken 
 
 > [!div class="nextstepaction"]
 > [MongoDB-gegevens importeren in Azure Cosmos DB](mongodb-migrate.md)
-
