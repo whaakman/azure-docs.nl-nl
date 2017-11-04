@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: 1ac5ca34e412aeb8b24e657abfe8eca04943799d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 31e35432ecc10b06c7a6400a1e0904e7bc2cd8c9
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Een Service Fabric Windows-cluster in een Azure-netwerk implementeren
 Deze zelfstudie maakt deel uit een reeks. U leert het implementeren van een Windows-Service Fabric-cluster naar een bestaande Azure-netwerk (VNET) en subplan net met behulp van PowerShell. Wanneer u klaar bent, hebt u een cluster uitvoert in de cloud die u kunt toepassingen implementeren op.  Zie het maken van een Linux-cluster met behulp van Azure CLI [beveiligde Linux-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -97,7 +97,16 @@ U kunt een certificaat van een certificeringsinstantie (CA) gebruiken als het ce
 - voor sleuteluitwisseling, kan worden geëxporteerd naar een bestand Personal Information Exchange (.pfx) worden gemaakt.
 - een onderwerpnaam hebben die overeenkomt met het domein dat u gebruikt voor toegang tot de Service Fabric-cluster. Deze overeenkomst is vereist voor SSL voor het HTTPS-eindpunten voor beheer en de Service Fabric Explorer van het cluster. U kunt een SSL-certificaat van een certificeringsinstantie (CA) kan niet ophalen voor de. cloudapp.azure.com domein. U moet een aangepaste domeinnaam voor uw cluster. Wanneer u een certificaat bij een Certificeringsinstantie aanvraagt, moet de onderwerpnaam van het certificaat overeenkomen met de aangepaste domeinnaam die u voor uw cluster gebruikt.
 
-Vul de lege *locatie*, *clusterName*, *adminUserName*, en *adminPassword* parameters in de * cluster.parameters.JSON* -bestand voor uw implementatie.  Laat de *certificateThumbprint*, *certificateUrlValue*, en *sourceVaultValue* parameters leeg te maken van een zelfondertekend certificaat.  Als u een bestaand certificaat hebt geüpload om een sleutelkluis te gebruiken wilt, vult u deze parameterwaarden.
+Vul in deze leeg parameters in de *cluster.parameters.json* -bestand voor uw implementatie:
+
+|Parameter|Waarde|
+|---|---|
+|adminPassword|Wachtwoord #1234|
+|adminUserName|vmadmin|
+|Clusternaam|mysfcluster|
+|location|southcentralus|
+
+Laat de *certificateThumbprint*, *certificateUrlValue*, en *sourceVaultValue* parameters leeg te maken van een zelfondertekend certificaat.  Als u een bestaand certificaat hebt geüpload om een sleutelkluis te gebruiken wilt, vult u deze parameterwaarden.
 
 Het volgende script maakt gebruik van de [nieuw AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet en sjabloon voor het implementeren van een nieuw cluster in Azure. De cmdlet ook een nieuwe sleutelkluis maakt in Azure, wordt een nieuw zelfondertekend certificaat toegevoegd aan de sleutelkluis en downloadt het certificaatbestand lokaal. U kunt een bestaand certificaat en/of de sleutelkluis opgeven met behulp van de andere parameters van de [nieuw AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet.
 
@@ -165,9 +174,9 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Verbinding maken met het cluster met behulp van PowerShell
 > * Verwijderen van een cluster
 
-Ga vervolgens naar de volgende zelfstudie voor meer informatie over het implementeren van API Management met Service Fabric.
+Ga vervolgens naar de volgende zelfstudie voor informatie over het schalen van uw cluster.
 > [!div class="nextstepaction"]
-> [Implementeren van API Management](service-fabric-tutorial-deploy-api-management.md)
+> [Schalen van een Cluster](service-fabric-tutorial-scale-cluster.md)
 
 
 [network-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json

@@ -3,7 +3,7 @@ title: MFA software development kit voor aangepaste apps | Microsoft Docs
 description: In dit artikel leest u hoe om te downloaden en de Azure MFA-SDK gebruiken voor verificatie in twee stappen voor uw aangepaste apps inschakelen.
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 1c152f67-be02-42a5-a0c7-246fb6b34377
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: kgremban
-ms.openlocfilehash: 281f9c61a30a20027f69808600373aa272255ef6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: joflore
+ms.openlocfilehash: da09bc9e5f12e418155c30b80623abc92f5b7e70
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Gebouw multi-factor Authentication in aangepaste Apps (SDK)
 

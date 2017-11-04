@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: e9b2f8b225c6b9ed0f0622e6a51a48cdfada28bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f5b5cc597da714369d4c452edce42ea7fe205dd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Update 5 installeren op uw StorSimple-apparaat
 
@@ -30,7 +30,7 @@ Update 5 omvat software van apparaten, Storport en Spaceport, OS beveiligingsupd
 
 > [!IMPORTANT]
 > * Een aantal handmatige en automatische eerste controles worden uitgevoerd voordat de installatie om te bepalen van de apparaatstatus in termen van hardware-staat en de netwerkverbinding. Deze controles vooraf worden alleen uitgevoerd als u de updates vanuit de Azure-portal toepassen.
-> * Het is raadzaam dat bij het bijwerken van een apparaat met Update 3 voor eerdere versies u de updates installeert met behulp van de hotfix-methode. Om te leiden u door de update ondersteuning [Meld een ondersteuningsticket](storsimple-8000-contact-microsoft-support.md).
+> * Het is raadzaam dat bij het bijwerken van een apparaat met Update 3 voor eerdere versies u de updates installeert met behulp van de hotfix-methode. Als u problemen ondervindt, [Meld een ondersteuningsticket](storsimple-8000-contact-microsoft-support.md).
 > * Het is raadzaam dat u de software en andere regelmatig updates via de Azure-portal installeert. U moet alleen gaat u naar de Windows PowerShell-interface van het apparaat (om updates te installeren) als de controle van de gateway vóór het bijwerken is mislukt in de portal. Afhankelijk van de versie die u bijwerkt, de updates kunnen 4 uur duren (of hoger) te installeren. De updates van de modus onderhoud moeten worden geïnstalleerd via de Windows PowerShell-interface van het apparaat. Als u onderhoud modus updates verstoren updates beschikbaar zijn, wordt deze leiden tot een uitvaltijd voor uw apparaat.
 > * Als de optionele StorSimple Snapshot Manager wordt uitgevoerd, zorg ervoor dat u uw Snapshot Manager-versie hebt bijgewerkt naar Update 5 vóór het bijwerken van het apparaat.
 

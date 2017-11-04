@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 7256548b988812c64ca9a9f8a84fec377646635d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4cd65c01d75af8539f5fa13dbbd2aaec548aea0b
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Het configureren van poorten voor hoge beschikbaarheid voor de interne Load Balancer
 
-Dit artikel bevat een Voorbeeldimplementatie van hoge beschikbaarheid (HA) poorten op een interne Load Balancer. Voor specifieke configuraties van virtuele netwerkapparaten, raadpleegt u de bijbehorende provider websites.
+Dit artikel bevat een Voorbeeldimplementatie van hoge beschikbaarheid (HA) poorten op een interne Load Balancer. Voor specifieke configuraties van virtuele netwerkapparaten (NVAs), raadpleegt u de bijbehorende provider websites.
 
 >[!NOTE]
 > Hoge beschikbaarheid poorten functie is momenteel in Preview. Tijdens de preview heeft de functie mogelijk niet dezelfde beschikbaarheid en betrouwbaarheid als functies die al algemeen beschikbaar zijn. Zie [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews (Microsoft Azure Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
 
 Afbeelding 1 ziet u de volgende configuratie van de voorbeeld-implementatie in dit artikel wordt beschreven:
 - De NVAs worden geïmplementeerd in de groep back-end van een interne Load Balancer achter de configuratie van de HA-poorten. 
-- De UDR toegepast op de DMZ subnetroutes al het verkeer op de <>? door het maken van de volgende hop als de interne Load Balancer virtueel IP-adres. 
+- De UDR toegepast op de DMZ subnetroutes al het verkeer op de NVAs door het maken van de volgende hop als de interne Load Balancer virtueel IP-adres. 
 - Interne Load Balancer wordt het verkeer naar een van de actieve NVAs volgens de algoritme van de Load Balancer.
 - NVA het verkeer wordt verwerkt en stuurt het naar de oorspronkelijke doelhost in het back-end-subnet.
 - Het retourtype pad kan ook dezelfde route duren als een bijbehorende UDR is geconfigureerd in het back-end-subnet. 
@@ -41,19 +41,13 @@ Afbeelding 1: virtuele netwerkapparaten geïmplementeerd achter een interne Load
 
 ## <a name="preview-sign-up"></a>Preview-registratie
 
-Als u wilt deelnemen aan de evaluatieversie van de functie van de HA-poorten in Load Balancer standaard SKU Registreer uw abonnement om met PowerShell of Azure CLI 2.0 toegang te krijgen.
+Als u wilt deelnemen aan de evaluatieversie van de functie van de HA-poorten in Load Balancer standaard Registreer uw abonnement om met Azure CLI 2.0 of PowerShell toegang te krijgen.  Registreer uw abonnement voor
 
-- Aanmelden met behulp van PowerShell
+1. [Load Balancer standaard preview](https://aka.ms/lbpreview#preview-sign-up) en 
+2. [HA poorten preview](https://aka.ms/haports#preview-sign-up).
 
-   ```powershell
-   Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-
-- Aanmelden met Azure CLI 2.0
-
-    ```cli
-  az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network  
-    ```
+>[!NOTE]
+>Deze functie wilt gebruiken, moet u ook aanmelden voor de Load Balancer [standaard Preview](https://aka.ms/lbpreview#preview-sign-up) behalve HA poorten. Registratie van de voorbeelden HA poorten of Load Balancer standaard kan een uur duren.
 
 ## <a name="configuring-ha-ports"></a>HA-poorten configureren
 
@@ -68,6 +62,39 @@ De Azure-portal bevat de **HA poorten** optie via een selectievakje voor deze co
 ![ha poorten configuratie via de Azure-portal](./media/load-balancer-configure-ha-ports/haports-portal.png)
 
 Afbeelding 2: HA poortconfiguratie via de Portal
+
+### <a name="configure-ha-ports-lb-rule-via-resource-manager-template"></a>HA poorten Load Balancer-regel via Resource Manager-sjabloon configureren
+
+U kunt met behulp van de 2017-08-01-API-versie in de bron van de Load Balancer voor Microsoft.Network/loadBalancers HA-poorten configureren. De volgende JSON-fragment ziet u de wijzigingen in de Load Balancer-configuratie voor HA poorten via REST-API.
+
+```json
+    {
+        "apiVersion": "2017-08-01",
+        "type": "Microsoft.Network/loadBalancers",
+        ...
+        "sku":
+        {
+            "name": "Standard"
+        },
+        ...
+        "properties": {
+            "frontendIpConfigurations": [...],
+            "backendAddressPools": [...],
+            "probes": [...],
+            "loadBalancingRules": [
+             {
+                "properties": {
+                    ...
+                    "protocol": "All",
+                    "frontendPort": 0,
+                    "backendPort": 0
+                }
+             }
+            ],
+       ...
+       }
+    }
+```
 
 ### <a name="configure-ha-ports-load-balancer-rule-with-powershell"></a>Regel voor load balancer voor HA-poorten configureren met PowerShell
 

@@ -3,7 +3,7 @@ title: Geavanceerde scenario's met Azure MFA en VPN's van derden
 description: Stapsgewijze configuratie handleidingen voor Azure MFA integreren met Cisco, Citrix en Juniper.
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 1f94a214-d6f6-48a8-8a12-006b5896ae45
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: kgremban
-ms.openlocfilehash: 61cf29acac22d546e1b75604f799993ad6ff9042
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: joflore
+ms.openlocfilehash: 9daad3fab3990297cea6651c474e29e5c4002364
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Geavanceerde scenario's met Azure multi-factor Authentication en VPN-oplossingen van derden
 Azure multi-factor Authentication kan worden gebruikt voor het naadloos verbinding maken met verschillende VPN-oplossingen van derden. Dit artikel is gericht op Cisco® ASA-VPN-apparaat, Citrix NetScaler SSL VPN-apparaat en de Juniper netwerken Secure Access/Pulse Secure verbinding Secure SSL VPN-apparaat. Configuratie-handleidingen om deze drie algemene apparaten op te lossen is gemaakt. Multi-factor Authentication-Server kan ook worden geïntegreerd met de meest andere systemen die gebruikmaken van RADIUS-, LDAP, IIS of verificatie op basis van claims in AD FS. U vindt meer informatie in [MFA-Server-configuraties](multi-factor-authentication-get-started-server.md#next-steps).

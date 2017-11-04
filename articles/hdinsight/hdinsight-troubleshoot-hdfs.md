@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: 58f3d160c1f2a32025b706f10863e0055d67bfcd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c9d555130d806728f9d3a82f49e81b18c1e5125
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>HDFS oplossen met behulp van Azure HDInsight
 
 Meer informatie over de meest voorkomende problemen en hun oplossingen bij het werken met Hadoop Distributed File System (HDFS) nettoladingen in Apache Ambari.
 
-## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Hoe krijg ik toegang tot de lokale HDFS uit in een cluster
+## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Hoe krijg ik toegang tot de lokale HDFS uit in een cluster?
 
 ### <a name="issue"></a>Probleem
 
@@ -79,7 +79,7 @@ Toegang tot de lokale HDFS vanaf de opdrachtregel en toepassingscode in plaats v
     ```
 
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Hoe ik geforceerde-/ uitschakelen HDFS veilige modus in een cluster
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Hoe ik geforceerde-/ uitschakelen HDFS veilige modus in een cluster?
 
 ### <a name="issue"></a>Probleem
 
@@ -232,3 +232,6 @@ De grootte van het HDInsight-cluster is gewijzigd om een zeer weinig knooppunten
     ```apache
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
     ```
+
+### <a name="see-also"></a>Zie ook
+[Problemen oplossen met behulp van Azure HDInsight](hdinsight-troubleshoot-guide.md)

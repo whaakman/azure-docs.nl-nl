@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/01/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 55e5a60294fc5ccb2a55b1e572af2fd27c68f462
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adbf6e13efaad196c39e4fce0900fa40d7511122
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Beleidsregels voor het afdwingen van compatibiliteit maken en beheren
 
@@ -61,7 +61,7 @@ De eerste stap bij het afdwingen van compatibiliteit met beleid voor Azure is ee
    ![Definities beschikbaar beleid openen](media/create-manage-policy/open-policy-definitions.png)
 
 5. Selecteer **is SQL Server-versie 12.0**.
-   
+
    ![Zoek een beleid](media/create-manage-policy/select-available-definition.png)
 
 6. Geef een weergave **naam** voor de beleidstoewijzing. In dit geval gaan we gebruiken *vereisen SQL Server versie 12.0*. U kunt ook toevoegen een optionele **beschrijving**. De beschrijving bevat details over hoe de toewijzing van dit beleid zorgt ervoor alle SQL-servers gemaakt in deze omgeving dat versie 12.0 zijn.
@@ -93,7 +93,7 @@ Nu dat we de beleidsdefinitie hebt toegewezen, gaan we een nieuw beleid maken om
       - De beleidsparameters.
       - De regels/beleidsvoorwaarden, in dit geval – VM SKU-grootte die gelijk is aan G serie
       - Het beleid effect in dit geval – **weigeren**.
-   
+
    Dit is wat de json moet eruitzien als
 
 ```json
@@ -118,9 +118,225 @@ Nu dat we de beleidsdefinitie hebt toegewezen, gaan we een nieuw beleid maken om
 }
 ```
 
+<!-- Update the following link to the top level samples page
+-->
    Voor voorbeelden van json-code weergeven, kijkt u naar dit artikel - [overzicht van de Resource-beleid](../azure-resource-manager/resource-manager-policy.md)
-   
+
 4. Selecteer **Opslaan**.
+
+## <a name="create-a-policy-definition-with-rest-api"></a>Een beleidsdefinitie maken met de REST-API
+
+U kunt een beleid maken met de REST-API voor definities van beleid. De REST-API kunt u maken en verwijderen van beleidsdefinities en informatie over bestaande definities.
+Als u wilt een beleidsdefinitie maken, gebruikt u het volgende voorbeeld:
+
+```
+PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
+
+```
+Vergelijkbaar met het volgende voorbeeld wordt een aanvraagtekst omvatten:
+
+```
+{
+  "properties": {
+    "parameters": {
+      "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying resources",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+      }
+    },
+    "displayName": "Allowed locations",
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "location",
+          "in": "[parameters('allowedLocations')]"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
+```
+
+## <a name="create-a-policy-definition-with-powershell"></a>Een beleidsdefinitie maken met PowerShell
+
+Controleer voordat u doorgaat met het PowerShell-voorbeeld, of dat u de nieuwste versie van Azure PowerShell hebt geïnstalleerd. Beleidsparameters zijn toegevoegd in versie 3.6.0. Als er een eerdere versie, retourneren in de voorbeelden foutmelding dat de parameter kan niet worden gevonden.
+
+U kunt een beleid maakt definitie met de `New-AzureRmPolicyDefinition` cmdlet.
+
+Als u wilt een beleidsdefinitie maken uit een bestand, geeft u het pad naar het bestand. Gebruik het volgende voorbeeld voor een extern bestand:
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -DisplayName "Deny cool access tiering for storage" `
+    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+Voor het gebruik van een lokaal bestand, gebruikt u het volgende voorbeeld:
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -Description "Deny cool access tiering for storage" `
+    -Policy "c:\policies\coolAccessTier.json"
+```
+
+Als de beleidsdefinitie van een maken met een inline-regel, gebruikt u het volgende voorbeeld:
+
+```
+$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+De uitvoer wordt opgeslagen in een `$definition` -object, dat wordt gebruikt tijdens de toewijzing van configuratiebeleid.
+Het volgende voorbeeld wordt de beleidsdefinitie van een met parameters:
+
+```
+$policy = '{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters(''allowedLocations'')]"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "Deny"
+    }
+}'
+
+$parameters = '{
+    "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying storage accounts.",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+    }
+}'
+
+$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters
+```
+
+## <a name="view-policy-definitions"></a>Definities van beleid weergeven
+
+Als alle beleidsdefinities in uw abonnement wilt weergeven, gebruikt u de volgende opdracht:
+
+```
+Get-AzureRmPolicyDefinition
+```
+
+Retourneert alle beschikbare door beleidsdefinities, met inbegrip van ingebouwde beleid. Elk beleid wordt geretourneerd in de volgende indeling:
+
+```
+Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceType       : Microsoft.Authorization/policyDefinitions
+Properties         : @{displayName=Allowed locations; policyType=BuiltIn; description=This policy enables you to
+                     restrict the locations your organization can specify when deploying resources. Use to enforce
+                     your geo-compliance requirements.; parameters=; policyRule=}
+PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+```
+
+## <a name="create-a-policy-definition-with-azure-cli"></a>Een beleidsdefinitie maken met Azure CLI
+
+U kunt een definitie voor Azure CLI gebruiken met de opdracht van de definitie beleid maken.
+Als de beleidsdefinitie van een maken met een inline-regel, gebruikt u het volgende voorbeeld:
+
+```
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+## <a name="view-policy-definitions"></a>Definities van beleid weergeven
+
+Als alle beleidsdefinities in uw abonnement wilt weergeven, gebruikt u de volgende opdracht:
+
+```
+az policy definition list
+```
+
+Retourneert alle beschikbare door beleidsdefinities, met inbegrip van ingebouwde beleid. Elk beleid wordt geretourneerd in de volgende indeling:
+
+```
+{                                                            
+  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
+  "displayName": "Allowed locations",
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "policyRule": {
+    "if": {
+      "not": {
+        "field": "location",
+        "in": "[parameters('listOfAllowedLocations')]"
+      }
+    },
+    "then": {
+      "effect": "Deny"
+    }
+  },
+  "policyType": "BuiltIn"
+}
+```
 
 ## <a name="create-and-assign-an-initiative-definition"></a>Maken en toewijzen van de definitie van een initiatief
 
@@ -166,7 +382,7 @@ U kunt verschillende beleidsdefinities om een overkoepelende doel te bereiken gr
    - prijscategorie: standaard
    - bereik dat u deze toewijzing toegepast dat wilt op: **Azure Advisor capaciteit Dev**
 
-5. Selecteer **toewijzen**. 
+5. Selecteer **toewijzen**.
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>Een niet-compatibele of geweigerde resource oplossen
 
@@ -205,4 +421,4 @@ In deze zelfstudie maakt doen u met succes het volgende:
 Bekijk dit artikel voor meer informatie over de structuur van de beleidsdefinities:
 
 > [!div class="nextstepaction"]
-> [Definitie beleidsstructuur](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure)
+> [Definitie van Azure beleidsstructuur](policy-definition.md)

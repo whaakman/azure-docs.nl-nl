@@ -11,16 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
+ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 0a030c635255d2e6fcbacd5c138f8d09b1ef85b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d0505caf75a3e6433e2c9fd9795b3176d66d297
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Azure Active Directory Identity Protection Veelgestelde vragen
+
+In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directory (Azure AD) Identity Protection. Zie voor meer informatie [Azure Active Directory: Identity Protection](active-directory-identityprotection.md). 
 
 
 ## <a name="why-do-some-risk-events-have-closed-system-status"></a>Waarom hebben sommige risicogebeurtenissen status "Gesloten (systeem)"
@@ -30,12 +32,18 @@ ms.lasthandoff: 10/11/2017
 ---
 
 ## <a name="do-i-need-to-be-a-global-admin-to-use-identity-protection-in-the-azure-portal"></a>Moet ik een globale beheerder Identity Protection in de Azure portal gebruiken?
-**A:** **Nee**. U kan zijn van een lezer beveiliging, een beheerder beveiliging of een globale beheerder zijn om Identity Protection te gebruiken.
+**A:** Nee. U kan zijn van een lezer beveiliging, een beheerder beveiliging of een globale beheerder zijn om Identity Protection te gebruiken.
 
 ---
 
 ## <a name="how-do-i-get-identity-protection"></a>Hoe krijg ik Identity Protection
+
 **A:** Zie [aan de slag met Azure Active Directory Premium](active-directory-get-started-premium.md) voor een deze vraag te beantwoorden.
 
 ---
 
+## <a name="how-can-i-sort-users-in-users-flagged-for-risk"></a>Hoe kan ik gebruikers in 'Gebruikers gemarkeerd voor risico' sorteren?
+
+**A:** downloaden van de gebruikers die zijn gemarkeerd voor risico rapport door te klikken op de **downloaden** op boven van de **gebruikers die zijn gemarkeerd voor risico** pagina. Vervolgens kunt u de gedownloade gegevens op basis van beschikbare velden, met inbegrip van de laatste bijgewerkt (UTC) sorteren.
+
+---

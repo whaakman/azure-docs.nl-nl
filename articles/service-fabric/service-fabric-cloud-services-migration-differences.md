@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 26c0256f6fa299551d92e9bcd058ca359d8c85b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4bb5d92cd46533b46b388d178990f230424b09dc
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Meer informatie over de verschillen tussen Cloudservices en Service Fabric voordat het migreren van toepassingen.
 Microsoft Azure Service Fabric is de volgende generatie toepassing cloudplatform voor een zeer schaalbaar, maximaal betrouwbare gedistribueerde toepassingen. Het geeft veel nieuwe functies voor verpakking, implementeren, bijwerken en beheren van gedistribueerde cloud-toepassingen. 

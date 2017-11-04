@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/03/2017
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 77f06b6ef146bdea8dc2f6cb920979e827626e35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f870df32bed8213f6252c70b2f687f436dbd71b8
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>MPIO configureren voor uw StorSimple-apparaat
+> [!NOTE]
+> De klassieke portal voor StorSimple is afgeschaft. Uw Managers StorSimple-apparaat wordt automatisch verplaatst naar de nieuwe Azure portal aan de hand van de planning afschaffing. U ontvangt een e-mailbericht en een portal melding voor deze verplaatsen. Dit document wordt ook snel worden ingetrokken. De versie van dit artikel voor de nieuwe Azure portal, Ga naar [MPIO configureren voor uw StorSimple-apparaat](storsimple-8000-configure-mpio-windows-server.md). Zie voor vragen met betrekking tot de verplaatsing, [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md).
+
 Microsoft ondersteuning voor de functie Multipath I/O (MPIO) in Windows Server naar Help-informatie samenstellen maximaal beschikbare en fouttolerantie SAN configuraties gebouwd. MPIO maakt gebruik van componenten van fysieke paden redundante: adapters, kabels en switches – om logische paden tussen de server en het opslagapparaat te creëren. Als er een onderdeelfout veroorzaakt door een logische pad mislukken, overgestapt gebruik van meerdere paden op een alternatief pad voor i/o zodat toepassingen steeds toegang hun gegevens tot nog. Bovendien afhankelijk van uw configuratie MPIO kunt ook de prestaties verbeteren door de belasting opnieuw te verdelen over alle deze paden. Zie voor meer informatie [MPIO overzicht](https://technet.microsoft.com/library/cc725907.aspx "MPIO overzicht en kenmerken").  
 
 Voor de hoge beschikbaarheid van uw StorSimple-oplossing, moet de MPIO op uw StorSimple-apparaat worden geconfigureerd. Wanneer de MPIO op de hostservers met Windows Server 2012 R2 is geïnstalleerd, worden de servers kunnen vervolgens tolereren een koppeling-, netwerk- of Interfacefout. 

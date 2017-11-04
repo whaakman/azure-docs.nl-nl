@@ -8,24 +8,24 @@ editor: jasonwhowell
 manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
-ms.date: 05/10/2017
-ms.openlocfilehash: 4b03b3a2dbfad92cc0cfa84777b38ddff90452cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/02/2017
+ms.openlocfilehash: 37e2bbbe1ed4b6a9cca0e0b001e5e632b9b73be2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="ssl-connectivity-in-azure-database-for-mysql"></a>SSL-verbindingen in Azure voor MySQL-Database
 Azure MySQL-Database ondersteunt verbindingen van uw database-server met clienttoepassingen met Secure Sockets Layer (SSL). Afdwingen van SSL-verbindingen tussen uw database-server en client-toepassingen beschermt tegen 'man-in het midden'-aanvallen door het versleutelen van de gegevensstroom tussen de server en uw toepassing.
 
 ## <a name="default-settings"></a>Standaard-instellingen
-Standaard wordt de database-service zo dat SSL-verbindingen vereisen bij het verbinden met MySQL.  Het verdient aanbeveling te voorkomen dat de SSL-optie indien mogelijk uitschakelen. 
+Standaard wordt de database-service zo dat SSL-verbindingen vereisen bij het verbinden met MySQL.  Het is raadzaam om te voorkomen dat de SSL-optie indien mogelijk uitschakelen. 
 
 Bij het inrichten van een nieuwe Azure-Database voor de MySQL-server via de Azure portal en CLI kan afdwinging van SSL-verbindingen is standaard ingeschakeld. 
 
-Verbindingsreeksen die vooraf zijn gedefinieerd in de instellingen 'Verbindingsreeksen' onder uw server in de Azure portal omvatten ook de vereiste parameters voor algemene talen verbinding maken met uw database-server met behulp van SSL. De parameter SSL varieert op basis van de connector, bijvoorbeeld ' ssl = true ' of ' sslmode = vereisen ' of ' sslmode = vereist ' en andere variaties.
+Tekenreeksen voor databaseverbindingen voor verschillende programmeertalen worden weergegeven in de Azure-portal. De verbindingsreeksen zijn de vereiste parameters SSL verbinding maken met uw database. Selecteer uw server in de Azure-portal. Onder de **instellingen** kop, selecteer de **verbindingsreeksen**. De parameter SSL varieert op basis van de connector, bijvoorbeeld ' ssl = true ' of ' sslmode = vereisen ' of ' sslmode = vereist ' en andere variaties.
 
-Voor informatie over het in- of uitschakelen van SSL-verbinding bij het ontwikkelen van toepassing, raadpleegt u [SSL configureren](howto-configure-ssl.md).
+Raadpleeg voor informatie over het in- of uitschakelen van SSL-verbinding bij het ontwikkelen van toepassing, [SSL configureren](howto-configure-ssl.md). 
 
 ## <a name="next-steps"></a>Volgende stappen
 [Verbindingsbibliotheken voor Azure-Database voor MySQL](concepts-connection-libraries.md)

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 11/02/2017
 ms.author: anandy
-ms.openlocfilehash: 6822320c92d106d28607289a90f2f08a51e04070
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6dc5ef81704423c5a1bc136fb2d51d79a9265e20
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect en federatie
 Azure Active Directory (Azure AD) Connect kunt configureren van Federatie met lokale Active Directory Federation Services (AD FS) en Azure AD. Met federation aanmelden kunt u gebruikers aan te melden bij Azure AD-services op basis van hun on-premises wachtwoorden-- en klik op het bedrijfsnetwerk, zonder te hoeven hun wachtwoord opnieuw invoeren. Met de optie Federatie met AD FS, kunt u een nieuwe installatie van AD FS implementeren of u kunt een bestaande installatie opgeven in een farm met Windows Server 2012 R2.
@@ -40,6 +40,7 @@ Dit onderwerp is de startpagina voor informatie over de federation-gerelateerde 
 | [Een nieuwe AD FS WAP-server toevoegen](active-directory-aadconnect-federation-management.md#addwapserver) |Vouw een AD FS-farm met een extra Webtoepassingsproxy (WAP)-server na de eerste installatie. |
 | [Een nieuwe federatieve domein toevoegen](active-directory-aadconnect-federation-management.md#addfeddomain) |Toevoegen van een ander domein dat gefedereerd met Azure AD. |
 | [Het SSL-certificaat bijwerken](active-directory-aadconnectfed-ssl-update.md)| Werk het SSL-certificaat voor AD FS-farm. |
+| [Federatiecertificaten vernieuwen voor Office 365 en Azure AD](active-directory-aadconnect-o365-certs.md)|Uw O365 certificaat vernieuwen met Azure AD.|
 | **Andere federatieconfiguratie** | |
 | [Meerdere exemplaren van Azure AD federeren met één exemplaar van AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md) | Federeren van meerdere Azure AD met één AD FS-farm| 
 | [Een aangepaste bedrijfsportal logo/afbeelding toevoegen](active-directory-aadconnect-federation-management.md#customlogo) |De aanmeldingservaring wijzigen door op te geven van het aangepaste logo dat wordt weergegeven op de aanmeldingspagina van AD FS. |

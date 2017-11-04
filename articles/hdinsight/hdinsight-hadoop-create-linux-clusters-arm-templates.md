@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: jgao
-ms.openlocfilehash: 82733e2a3025f932961122bad9d70c26896837b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 25a45a380db06808db352fa26b88235d6e4b8fd4
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Hadoop-clusters maken in HDInsight met behulp van Resource Manager-sjablonen
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -34,8 +34,6 @@ Volg de instructies in dit artikel, hebt u het volgende nodig:
 
 * Een [Azure-abonnement](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Azure PowerShell en/of Azure CLI.
-
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ### <a name="resource-manager-templates"></a>Resource Manager-sjablonen
 Resource Manager-sjabloon kunt u gemakkelijk maken de volgende onderwerpen voor uw toepassing in een enkele, gecoördineerde bewerking:
@@ -58,8 +56,7 @@ U kunt de eigenschappen van een cluster configureren en vervolgens de sjabloon o
 **Genereren van een sjabloon met behulp van de Azure-portal**
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op **nieuw** Klik op het menu links op **Intelligence en analyse**, en klik vervolgens op **HDInsight**.
-3. Volg de instructies voor de eigenschappen in te voeren. U kunt ofwel de **snelle invoer** of de **aangepaste** optie.
+2. Klik op **maken van een resource** Klik op het menu links op **gegevens en analyse**, en klik vervolgens op **HDInsight**.
 4. Op de **samenvatting** tabblad **sjabloon en parameters downloaden**:
 
     ![Maken van HDInsight Hadoop cluster Resource Manager-sjabloon downloaden](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-download.png)
@@ -169,6 +166,7 @@ Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#cre
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd op verschillende manieren om een HDInsight-cluster te maken. Zie voor meer informatie de volgende artikelen:
 
+* Zie voor meer HDInsight gerelateerde sjablonen [Azure-Snelstartsjablonen](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 * Zie voor een voorbeeld van het implementeren van resources via de .NET-clientbibliotheek [resources implementeren met behulp van .NET-bibliotheken en een sjabloon](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Zie voor een gedetailleerd voorbeeld van een toepassing implementeren, [inrichten en implementeren van microservices zoals verwacht in Azure](../app-service/app-service-deploy-complex-application-predictably.md).
 * Zie voor instructies over het implementeren van uw oplossing in verschillende omgevingen [Ontwikkeling en testomgevingen in Microsoft Azure](../solution-dev-test-environments.md).
@@ -176,7 +174,7 @@ In dit artikel hebt u geleerd op verschillende manieren om een HDInsight-cluster
 * Zie voor een lijst van de functies die u in een Azure Resource Manager-sjabloon gebruiken kunt [sjabloonfuncties](../azure-resource-manager/resource-group-template-functions.md).
 
 ## <a name="appendix-resource-manager-template-to-create-a-hadoop-cluster"></a>Bijlage: Resource Manager-sjabloon maken van een Hadoop-cluster
-De volgende Azure Resource Manager-sjabloon maakt een Linux gebaseerde Hadoop-cluster met de afhankelijke Azure storage-account.
+De volgende Azure Resource Manager-sjabloon maakt een Hadoop-cluster met de afhankelijke Azure storage-account.
 
 > [!NOTE]
 > Dit voorbeeld bevat configuratie-informatie voor Hive-metastore en Oozie-metastore. De sectie te verwijderen of de sectie configureren voordat u de sjabloon.
@@ -289,7 +287,7 @@ De volgende Azure Resource Manager-sjabloon maakt een Linux gebaseerde Hadoop-cl
 
         },
         "properties": {
-            "clusterVersion": "3.4",
+            "clusterVersion": "3.6",
             "osType": "Linux",
             "tier": "standard",
             "clusterDefinition": {
@@ -420,7 +418,7 @@ Als u een één parameter ingesteld in een sectie als onderdeel van de sjabloon 
         },
         "clusterVersion": {
             "type": "string",
-            "defaultValue": "3.5",
+            "defaultValue": "3.6",
             "metadata": {
                 "description": "HDInsight cluster version."
             }

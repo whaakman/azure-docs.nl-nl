@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: 70a3d762431d90acdd6ed2a432a569f34d0ce447
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 399ed17e997baf5dcf484f7798d3c4679522c633
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Storm oplossen met behulp van Azure HDInsight
 
 Meer informatie over de meest voorkomende problemen en hun oplossingen voor het werken met Apache Storm-nettoladingen in Apache Ambari.
 
-## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Hoe krijg ik toegang tot de Storm-gebruikersinterface op een cluster
+## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Hoe krijg ik toegang tot de Storm-gebruikersinterface op een cluster?
 U hebt twee opties voor toegang tot de Storm-gebruikersinterface vanuit een browser:
 
 ### <a name="ambari-ui"></a>Ambari-gebruikersinterface
@@ -42,7 +42,7 @@ Voorbeeld:
 
  https://stormcluster.azurehdinsight.NET/stormui
 
-## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Hoe worden ik Storm event hub spout controlepunt informatie uit een topologie overgedragen naar een andere
+## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Hoe worden ik Storm event hub spout controlepunt informatie uit een topologie overgedragen naar een andere?
 
 Bij het ontwikkelen van topologieën die uit Azure Event Hubs gelezen met behulp van de HDInsight Storm event hub spout JAR-bestand, moet u een topologie met dezelfde naam op een nieuw cluster implementeren. Echter, moet u de gegevens van de controlepunten die is toegewezen aan Apache ZooKeeper op het oude cluster behouden.
 
@@ -86,7 +86,7 @@ De metagegevens van schrijft de opdracht exporteren naar een pad Apache Hadoop D
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter delete /eventhubspout
     ```
 
-## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Hoe ik Storm binaire bestanden vinden op een cluster
+## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Hoe ik Storm binaire bestanden vinden op een cluster?
 Er zijn een storm-binaire bestanden voor de huidige HDP-stack in /usr/hdp/current/storm-client. De locatie is hetzelfde voor hoofdknooppunten en worker-knooppunten.
  
 Er is mogelijk meerdere binaire bestanden voor specifieke HDP versies in /usr/hdp (bijvoorbeeld /usr/hdp/2.5.0.1233/storm). De map /usr/hdp/current/storm-client is symlinked naar de nieuwste versie die wordt uitgevoerd op het cluster.
@@ -122,7 +122,7 @@ Storm worker-knooppunten uitvoeren van de volgende services:
 * Werknemer Java virtuele machines (JVMs) voor het uitvoeren van topologieën
 * Ambari-agent
  
-## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>Hoe ik Storm event hub spout binaire bestanden voor de ontwikkeling van vinden
+## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>Hoe ik Storm event hub spout binaire bestanden voor de ontwikkeling van vinden?
  
 Zie de volgende bronnen voor meer informatie over het gebruik van Storm event hub spout JAR-bestanden met uw topologie.
  
@@ -138,7 +138,7 @@ Zie voor meer informatie over het gebruik van de meest recente Storm event hub s
 ### <a name="source-code-examples"></a>Bron-codevoorbeelden
 Zie [voorbeelden](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) van het te lezen en schrijven van Azure Event Hub met behulp van een Apache Storm-topologie (geschreven in Java) op een Azure HDInsight-cluster.
  
-## <a name="how-do-i-locate-storm-log4j-configuration-files-on-clusters"></a>Hoe ik Storm Log4J configuratiebestanden op clusters vinden
+## <a name="how-do-i-locate-storm-log4j-configuration-files-on-clusters"></a>Hoe ik Storm Log4J configuratiebestanden op clusters vinden?
  
 Omgaan met Apache-Log4J configuratiebestanden voor Storm-services.
  
@@ -152,3 +152,5 @@ Het configuratiebestand van de werknemer Log4J is gelezen uit /usr/hdp/\<HDP ver
  
 Voorbeelden: /usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
 
+### <a name="see-also"></a>Zie ook
+[Problemen oplossen met behulp van Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

@@ -11,13 +11,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
-ms.author: willzhan;juliako
-ms.openlocfilehash: 1c62857699fb29b3583363e1c6f2dc7874635f40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/02/2017
+ms.author: willzhan;juliako;johndeu
+ms.openlocfilehash: e5d7a5ec1c28a552420aba5e2cd6c8c7bbf4213d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Azure AD-verificatie gebruiken voor toegang tot de Azure Media Services-API met REST
 
@@ -86,21 +86,14 @@ Hier volgen de toewijzingen tussen de kenmerken in de JWT en de vier toepassinge
 |Toepassingstype |Toepassing |JWT-kenmerk |
 |---|---|---|
 |Client |Klant-app of oplossing |toepassings-id: '02ed1e8e-af8b-477e-af3d-7e7219a99ac6'. De client-ID van een toepassing die u bij Azure AD in de volgende sectie registreren wilt. |
-|ID-Provider (IDP) | Azure AD als IDP |IDP: 'https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/'.  De GUID is de tenant-ID van Microsoft (microsoft.onmicrosoft.com). Elke tenant heeft zijn eigen, unieke ID. |
+|ID-Provider (IDP) | Azure AD als IDP |IDP: 'https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/' de GUID is de tenant-ID van Microsoft (microsoft.onmicrosoft.com). Elke tenant heeft zijn eigen, unieke ID. |
 |Secure Token Service (STS) / OAuth-server |Azure AD als STS | iss: 'https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/'. De GUID is de tenant-ID van Microsoft (microsoft.onmicrosoft.com). |
 |Resource | Media Services REST-API |AUD: 'https://rest.media.azure.net'. De ontvanger of de doelgroep van het toegangstoken. |
 
 ## <a name="steps-for-setup"></a>Stappen voor installatie
 
-Om te registreren en een Azure AD-toepassing voor Azure AD-verificatie instellen en ophalen van een toegangstoken voor het aanroepen van het eindpunt van de REST-API van Azure Media Services, kunt u de volgende stappen:
+Om te registreren en een Azure Active Directory (AAD)-toepassing instellen en het ophalen van sleutels voor het aanroepen van de REST-API van Azure Media Services-eindpunt, Raadpleeg het artikel [aan de slag met Azure AD-verificatie met behulp van de Azure-portal](media-services-portal-get-started-with-aad.md)
 
-1.  In de [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885), een Azure AD-toepassing (bijvoorbeeld wzmediaservice) registreren bij de Azure AD-tenant (bijvoorbeeld microsoft.onmicrosoft.com). Het maakt niet uit of u geregistreerd als web-app of systeemeigen app. U kunt ook kiezen eventuele aanmeldings-URL en de antwoord-URL (bijvoorbeeld http://wzmediaservice.com voor beide).
-2. In de [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885), gaat u naar de **configureren** tabblad van uw toepassing. Opmerking de **client-ID**. Klik vervolgens onder **sleutels**, genereren een **clientsleutel** (clientgeheim). 
-
-    > [!NOTE] 
-    > Let op het clientgeheim. Deze worden niet meer weergegeven.
-    
-3.  In de [Azure-portal](http://ms.portal.azure.com), gaat u naar de Media Services-account. Selecteer de **toegangsbeheer** deelvenster (IAM). Een nieuw lid met de eigenaar of de rol Inzender toevoegt. Zoek op de naam van de toepassing die u in stap 1 (in dit voorbeeld wzmediaservice) geregistreerd voor de principal.
 
 ## <a name="info-to-collect"></a>Gegevens verzamelen
 
@@ -138,9 +131,9 @@ Het voorbeeldproject heeft drie functies:
 
 Sommige lezers kunnen vragen: waar zich het vernieuwingstoken? Waarom niet hier een vernieuwingstoken gebruiken?
 
-Het doel van een vernieuwingstoken is niet aan het vernieuwen van een toegangstoken. Het is in plaats daarvan ontworpen tussenkomst van de eindgebruiker verificatie of gebruiker negeren en een geldig toegangstoken nog steeds wanneer een eerder token is verlopen. Een betere naam voor een vernieuwingstoken mogelijk iets zoals 'opnieuw-sign-in-gebruikerstoken overslaan'.
+Het doel van een vernieuwingstoken is niet aan het vernieuwen van een toegangstoken. Het is ontworpen voor de eindgebruiker authentication overslaan en nog een geldige toegangstoken wanneer er een eerdere token is verlopen. Een betere naam voor een vernieuwingstoken mogelijk iets zoals 'opnieuw-sign-in-gebruikerstoken overslaan'.
 
-Als u het OAuth 2.0 autorisatie verlenen stroom (gebruikersnaam en wachtwoord, fungeert namens een gebruiker) gebruikt, wordt er een vernieuwingstoken helpt u bij een vernieuwde toegangstoken ophalen zonder tussenkomst van de gebruiker vraagt. Echter, voor OAuth 2.0 clientreferenties verlenen stroom die in dit artikel worden beschreven, de client fungeert voor eigen rekening. U tussenkomst van de gebruiker helemaal niet nodig, en de autorisatie-server niet nodig (en won't) geeft u een vernieuwingstoken. Als u fouten opsporen in de **GetUrlEncodedJWT** methode, merkt u dat de reactie van het eindpunt van het token een toegangstoken, maar er is geen vernieuwingstoken heeft.
+Als u het OAuth 2.0 autorisatie verlenen stroom (gebruikersnaam en wachtwoord, fungeert namens een gebruiker) gebruikt, wordt er een vernieuwingstoken helpt u bij een vernieuwde toegangstoken ophalen zonder tussenkomst van de gebruiker vraagt. Echter, voor OAuth 2.0 clientreferenties verlenen stroom die in dit artikel wordt beschreven, de client fungeert voor eigen rekening. U tussenkomst van de gebruiker helemaal hoeft niet en de autorisatie-server niet hoeft te bieden u een vernieuwingstoken. Als u fouten opsporen in de **GetUrlEncodedJWT** methode, merkt u dat de reactie van het eindpunt van het token een toegangstoken, maar er is geen vernieuwingstoken heeft.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -5,24 +5,26 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 2e0962ae02dd8132d878792634abc1f63b2c29a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db5112c858d2a2c54813d9c9a3670a45fcbdb993
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Een beleidstoewijzing om te identificeren van niet-compatibele bronnen in uw Azure-omgeving maken
-De eerste stap bij de naleving van inzicht in Azure is weten waar u met uw eigen huidige resources staan. Deze snelstartgids begeleidt u door het proces van het maken van een beleidstoewijzing voor resources die geen van SQL Server versie 12.0 gebruikmaakt identificeren. Aan het einde van dit proces wordt hebt u is geïdentificeerd servers zijn van een andere versie, en dus *niet-compatibele*.
+De eerste stap bij de naleving van inzicht in Azure is weten waar u met uw eigen huidige resources staan. Deze snelstartgids begeleidt u door het proces van het maken van een beleidstoewijzing om te identificeren van virtuele machines die geen gebruik van beheerde schijven maakt.
+
+Aan het einde van dit proces wordt hebt u is geïdentificeerd virtuele machines die geen gebruik maakt van beheerde schijven en zijn daarom *niet-compatibele*.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="opt-in-to-azure-policy"></a>U meldt zich aan Azure-beleid
 
-Beleid voor Azure is nu beschikbaar in de beperkte Preview, dus u hoeft te registreren bij aanvragen voor toegang.
+Azure-beleid is nu beschikbaar in Public Preview en u wilt registreren bij aanvragen voor toegang.
 
 1. Ga naar de Azure-beleid op https://aka.ms/getpolicy en selecteer **aanmelden** in het linkerdeelvenster.
 
@@ -32,11 +34,11 @@ Beleid voor Azure is nu beschikbaar in de beperkte Preview, dus u hoeft te regis
 
    ![Aanmelden voor Azure-beleid gebruiken](media/assign-policy-definition/preview-opt-in.png)
 
-   Het duurt een paar dagen voor ons te accepteren van uw aanvraag voor functieregistratie, op basis van vraag. Wanneer uw aanvraag wordt geaccepteerd, u ontvangt een melding via e-mail dat u kunt beginnen met de service.
+   Uw aanvraag is automatisch goedgekeurd voor de Preview. Wacht tot 30 minuten voor het systeem voor het verwerken van uw registratie.
 
 ## <a name="create-a-policy-assignment"></a>Een beleidstoewijzing maken
 
-In deze snelstartgids we een beleidstoewijzing maken en toewijzen de *vereisen SQL Server-versie 12.0* definitie. 
+In deze snelstartgids we een beleidstoewijzing maken en toewijzen de *Audit virtuele Machines zonder schijven beheerd* beleidsdefinitie.
 
 1. Selecteer **toewijzingen** in het linkerdeelvenster van de pagina Azure-beleid.
 2. Selecteer **beleid toewijzen** vanaf de bovenkant van de **toewijzingen** deelvenster.
@@ -53,11 +55,11 @@ In deze snelstartgids we een beleidstoewijzing maken en toewijzen de *vereisen S
    - Label en de waarde ervan toepassen
    - SQL Server-versie 12.0 vereisen
 
-4. Zoekopdracht in de beleidsdefinities van uw vinden de *vereisen SQL Server-versie 12.0* definitie. Op dit beleid en klik op **Selecteer**.
+4. Zoekopdracht in de beleidsdefinities van uw vinden de *Audit virtuele machines die geen van beheerde schijven gebruikmaken* definitie. Op dit beleid en klik op **toewijzen**.
 
    ![Vindt u de definitie van het juiste beleid](media/assign-policy-definition/select-available-definition.png)
 
-5. Geef een weergave **naam** voor de beleidstoewijzing. In dit geval gaan we gebruiken *vereisen SQL Server versie 12.0*. U kunt ook toevoegen een optionele **beschrijving**. De beschrijving bevat details over hoe de toewijzing van dit beleid zorgt ervoor alle SQL-servers gemaakt in deze omgeving dat versie 12.0 zijn.
+5. Geef een weergave **naam** voor de beleidstoewijzing. In dit geval gaan we gebruiken *Audit virtuele machines die geen van beheerde schijven gebruikmaken*. U kunt ook toevoegen een optionele **beschrijving**. De beschrijving bevat details over hoe deze beleidstoewijzing alle virtuele machines die worden gemaakt in deze omgeving en die geen van beheerde schijven gebruikmaken identificeert.
 6. Wijzig de prijscategorie te **standaard** om ervoor te zorgen dat het beleid wordt toegepast op bestaande bronnen.
 
    Er zijn twee prijscategorieën in Azure beleid – *vrije* en *standaard*. Met de gratis laag, kunt u alleen beleid afdwingen op toekomstige resources met de standaard, kunt u ook afdwingen ze op bestaande resources beter inzicht in uw compatibiliteitsstatus. Omdat we in de beperkte Preview, we nog niet is vrijgegeven prijsmodel gebruikt, zodat u ontvangt geen een factuur voor het selecteren van *standaard*. Voor meer informatie over prijzen, bekijk: [prijzen van Azure beleid](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
@@ -108,4 +110,3 @@ Voor meer informatie over het toewijzen van beleid om ervoor te zorgen dat **toe
 
 > [!div class="nextstepaction"]
 > [Maken en beheren van beleid](./create-manage-policy.md)
-

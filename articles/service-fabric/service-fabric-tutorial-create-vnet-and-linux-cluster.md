@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: 983abcd103a58be63053e466c767015c0835eaba
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 33a3474ed91194efbaf2ef96957ad268f43a717e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Een Service Fabric Linux-cluster in een Azure-netwerk implementeren
 Deze zelfstudie maakt deel uit een reeks. U leert het implementeren van een Linux-Service Fabric-cluster naar een bestaande Azure-netwerk (VNET) en subplan net met Azure CLI. Wanneer u klaar bent, hebt u een cluster uitvoert in de cloud die u kunt toepassingen implementeren op. Zie het maken van een Windows-cluster met behulp van PowerShell [een beveiligde Windows-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -98,7 +98,15 @@ U kunt een certificaat van een certificeringsinstantie (CA) gebruiken als het ce
 - voor sleuteluitwisseling, kan worden geëxporteerd naar een bestand Personal Information Exchange (.pfx) worden gemaakt.
 - een onderwerpnaam hebben die overeenkomt met het domein dat u gebruikt voor toegang tot de Service Fabric-cluster. Deze overeenkomst is vereist voor SSL voor het HTTPS-eindpunten voor beheer en de Service Fabric Explorer van het cluster. U kunt een SSL-certificaat van een certificeringsinstantie (CA) kan niet ophalen voor de. cloudapp.azure.com domein. U moet een aangepaste domeinnaam voor uw cluster. Wanneer u een certificaat bij een Certificeringsinstantie aanvraagt, moet de onderwerpnaam van het certificaat overeenkomen met de aangepaste domeinnaam die u voor uw cluster gebruikt.
 
-Vul de lege **clusterName**, **adminUserName**, en **adminPassword** parameters in de *linuxcluster.parameters.json* bestand voor uw implementatie.  Laat de **certificateThumbprint**, **certificateUrlValue**, en **sourceVaultValue** parameters leeg te maken van een zelfondertekend certificaat.  Als u een bestaand certificaat hebt geüpload om een sleutelkluis te gebruiken wilt, vult u deze parameterwaarden.
+Vul in deze leeg parameters in de *linuxcluster.parameters.json* -bestand voor uw implementatie:
+
+|Parameter|Waarde|
+|---|---|
+|adminPassword|Wachtwoord #1234|
+|adminUserName|vmadmin|
+|Clusternaam|mysfcluster|
+
+Laat de **certificateThumbprint**, **certificateUrlValue**, en **sourceVaultValue** parameters leeg te maken van een zelfondertekend certificaat.  Als u een bestaand certificaat hebt geüpload om een sleutelkluis te gebruiken wilt, vult u deze parameterwaarden.
 
 Het volgende script maakt gebruik van de [az sf cluster maken](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) opdracht en de sjabloon voor het implementeren van een nieuw cluster in Azure. De cmdlet ook een nieuwe sleutelkluis maakt in Azure, wordt een nieuw zelfondertekend certificaat toegevoegd aan de sleutelkluis en downloadt het certificaatbestand lokaal. U kunt een bestaand certificaat en/of de sleutelkluis opgeven met behulp van de andere parameters van de [az sf cluster maken](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) opdracht.
 
@@ -148,9 +156,9 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Verbinding maken met het cluster met behulp van Service Fabric CLI
 > * Verwijderen van een cluster
 
-Ga vervolgens naar de volgende zelfstudie voor meer informatie over het implementeren van API Management met Service Fabric.
+Ga vervolgens naar de volgende zelfstudie voor informatie over het schalen van uw cluster.
 > [!div class="nextstepaction"]
-> [Implementeren van API Management](service-fabric-tutorial-deploy-api-management.md)
+> [Schalen van een Cluster](service-fabric-tutorial-scale-cluster.md)
 
 
 [network-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json

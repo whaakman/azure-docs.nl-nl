@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 6d1845e27c6b0fff66b80a683f59d14238e2ad71
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 4918a820ca07a7d83dfb544ee9f0bbeb66d22722
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Fiets-share-zelfstudie: gegevens voorbereiden met Azure Machine Learning Workbench geavanceerde
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end gegevenswetenschap en geavanceerde analyses oplossing voor professionals gegevenswetenschappers gegevens voorbereiden, experimenten te ontwikkelen en implementeren van modellen in de cloud.
@@ -493,7 +493,7 @@ Selecteer __OK__ het filter wilt toepassen.
 
 ### <a name="remove-columns"></a>Kolommen verwijderen
 
-In de gegevens reis vertegenwoordigt elke rij een fiets ophalen. Voor deze zelfstudie hoeft u alleen de **starttime** en **station start** kolommen. Verwijder de andere kolommen door meerdere selecteren deze twee kolommen met de rechtermuisknop op de kolomkop en selecteer vervolgens **houden kolom**. Andere kolommen worden verwijderd.
+In de gegevens reis vertegenwoordigt elke rij een fiets ophalen. Voor deze zelfstudie hoeft u alleen de **starttime** en **station id start** kolommen. Verwijder de andere kolommen door meerdere selecteren deze twee kolommen met de rechtermuisknop op de kolomkop en selecteer vervolgens **houden kolom**. Andere kolommen worden verwijderd.
 
 ![Afbeelding van de optie van de kolom behouden](media/tutorial-bikeshare-dataprep/tripdatakeepcolumn.png)
 

@@ -5,19 +5,22 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 3f9ef7886af20845eddc4c1e71d60911e4b22eca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02afe946e5e1ad9730ab07df19676e90485ecf98
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-using-powershell"></a>Een beleidstoewijzing om te identificeren van niet-compatibele bronnen in uw Azure-omgeving met behulp van PowerShell maken
 
-De eerste stap bij de naleving van inzicht in Azure is weten waar u met uw huidige resources staan. Deze snelstartgids begeleidt u stapsgewijs door het proces van het maken van een beleid voor toewijzing aan niet-compatibele bronnen identificeren met de beleidsdefinitie van – *vereisen SQL Server versie 12.0*. U hebt aan het einde van dit proces is geïdentificeerd servers zijn van een andere versie of niet-compatibel.
+De eerste stap bij de naleving van inzicht in Azure is weten waar u met uw eigen huidige resources staan. Deze snelstartgids begeleidt u door het proces van het maken van een beleidstoewijzing om te identificeren van virtuele machines die geen gebruik van beheerde schijven maakt.
+
+Aan het einde van dit proces voor u wordt hebt is geïdentificeerd welke virtuele machines niet beheerde schijven gebruikt en zijn daarom *niet-compatibele*.
+
 
 PowerShell wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. Deze handleiding gegevens met behulp van PowerShell om de beleidstoewijzing van een om te identificeren van niet-compatibele bronnen in uw Azure-omgeving.
 
@@ -29,7 +32,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 ## <a name="opt-in-to-azure-policy"></a>U meldt zich aan Azure-beleid
 
-Beleid voor Azure is nu beschikbaar in de beperkte Preview, dus u hoeft te registreren bij aanvragen voor toegang.
+Azure-beleid is nu beschikbaar in Public Preview en u wilt registreren bij aanvragen voor toegang.
 
 1. Ga naar de Azure-beleid op https://aka.ms/getpolicy en selecteer **aanmelden** in het linkerdeelvenster.
 
@@ -39,11 +42,11 @@ Beleid voor Azure is nu beschikbaar in de beperkte Preview, dus u hoeft te regis
 
    ![U meldt zich aan het beleid van Azure gebruiken](media/assign-policy-definition/preview-opt-in.png)
 
-   Het duurt een paar dagen voor ons te accepteren van uw aanvraag voor functieregistratie, op basis van vraag. Wanneer uw aanvraag wordt geaccepteerd, u ontvangt een melding via e-mail dat u kunt beginnen met de service.
+   Uw aanvraag is automatisch goedgekeurd voor de Preview. Wacht tot 30 minuten voor het systeem voor het verwerken van uw registratie.
 
 ## <a name="create-a-policy-assignment"></a>Een beleidstoewijzing maken
 
-In deze snelstartgids we een beleidstoewijzing maken en toewijzen de *vereisen SQL Server-versie 12.0* definitie. De beleidsdefinitie voor dit wordt bepaald welke bronnen die niet aan de voorwaarden in de beleidsdefinitie van het voldoen.
+In deze snelstartgids we een beleidstoewijzing maken en toewijzen de *Audit virtuele Machines zonder schijven beheerd* definitie. De beleidsdefinitie voor dit wordt bepaald welke bronnen die niet aan de voorwaarden in de beleidsdefinitie van het voldoen.
 
 Volg deze stappen voor het maken van een nieuwe beleidstoewijzing.
 
@@ -62,15 +65,15 @@ Azure beleid wordt geleverd met al ingebouwde beleidsdefinities die u kunt gebru
 Vervolgens kunt toewijzen aan de beleidsdefinitie aan het gewenste bereik met behulp van de `New-AzureRmPolicyAssignment` cmdlet.
 
 Voor deze zelfstudie bieden we de volgende informatie voor de opdracht:
-- Weergave **naam** voor de beleidstoewijzing. We gebruiken in dit geval vereisen SQL Server versie 12.0 toewijzing.
-- **Beleid** – dit is de beleidsdefinitie, op basis van uit dat u de toewijzing te maken. In dit geval is de beleidsdefinitie – *vereisen SQL Server versie 12.0*
+- Weergave **naam** voor de beleidstoewijzing. In dit geval gebruiken we Audit virtuele Machines zonder schijven beheerd.
+- **Beleid** – dit is de beleidsdefinitie, op basis van uit dat u de toewijzing te maken. In dit geval is de beleidsdefinitie – *Audit virtuele Machines zonder schijven beheerd*
 - Een **bereik** : een bereik bepaalt welke resources of groeperen van resources de toewijzing van beleid wordt afgedwongen op. Dit kan variëren van een abonnement aan resourcegroepen. In dit voorbeeld wordt de beleidsdefinitie van het wilt toewijst de **FabrikamOMS** resourcegroep.
-- **$definition** – moet u de bron-ID van de beleidsdefinitie – In dit geval we gebruiken de ID voor de beleidsdefinitie - *vereisen SQL Server 12.0*.
+- **$definition** – moet u de bron-ID van de beleidsdefinitie – In dit geval we gebruiken de ID voor de beleidsdefinitie - *Audit virtuele Machines zonder schijven beheerd*.
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "FabrikamOMS"
 $definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
-New-AzureRMPolicyAssignment -Name Require SQL Server version 12.0 Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
+New-AzureRMPolicyAssignment -Name Audit Virtual Machines without Managed Disks Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 U bent nu klaar om u te identificeren van niet-compatibele bronnen voor informatie over de compatibiliteitsstatus van uw omgeving.
@@ -89,7 +92,7 @@ U bent nu klaar om u te identificeren van niet-compatibele bronnen voor informat
 Andere handleidingen in deze verzameling bouwen voort op deze snelstartgids. Als u van plan bent om door te gaan werken met de volgende zelfstudies, geen clean up maakt van de resources in deze snelstartgids hebt gemaakt. Als u niet van plan bent om door te gaan, verwijdert u de toewijzing die u hebt gemaakt met deze opdracht uit te voeren:
 
 ```powershell
-Remove-AzureRmPolicyAssignment -Name “Require SQL Server version 12.0 Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
+Remove-AzureRmPolicyAssignment -Name “Audit Virtual Machines without Managed Disks Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: bf48cbc52a1ed96ed1bb49b1879d5cd7aece945c
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Meld u nieuwe logboekanalyse Veelgestelde vragen over het zoeken en bekende problemen
 
@@ -38,13 +38,6 @@ Er zijn geen, enkele wijzigingen in de webhook en runbook acties waardoor u wijz
 
 ### <a name="question-im-getting-errors-when-trying-to-use-computer-groups--has-their-syntax-changed"></a>Vraag: Ik krijg fouten bij het gebruik van computergroepen.  Is de syntaxis ervan gewijzigd?
 Ja, de syntaxis voor het gebruik van de computer wijzigingen groups wanneer uw werkruimte wordt bijgewerkt.  Zie [computergroepen in logboekanalyse Meld zoekopdrachten](log-analytics-computer-groups.md) voor meer informatie.
-
-### <a name="known-issue-groups-imported-from-active-directory"></a>Bekende probleem: groepen geïmporteerd vanuit Active Directory
-U kunt een query die gebruikmaakt van een computergroep importeren uit Active Directory kan niet op dit moment maken.  Als tijdelijke oplossing totdat dit probleem is opgelost, maak een nieuwe computergroep met behulp van de geïmporteerde Active Directory-groep en vervolgens die nieuwe groep in uw query te gebruiken.
-
-Een voorbeeldquery voor het maken van een nieuwe computergroep met geïmporteerde Active Directory-groep is als volgt:
-
-    ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "AD Group Name" and TimeGenerated >= ago(24h) | distinct Computer
 
 
 ## <a name="dashboards"></a>Dashboards
@@ -76,11 +69,6 @@ Minify is een functie waarmee een samengevatte weergave van de zoekresultaten.  
     | evaluate autocluster_v2()
 
 
-### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>Bekende probleem: zoekresultaten in een lijst met eigenschappen zonder gegevens kunnen bevatten
-Logboek zoekresultaten in een lijst kunnen eigenschappen zonder gegevens weergeven.  Vóór upgrade, zou deze eigenschappen niet opgenomen.  Dit probleem wordt opgelost zodat leeg eigenschappen worden niet weergegeven.
-
-### <a name="known-issue-selecting-a-value-in-a-chart-doesnt-display-detailed-results"></a>Bekende probleem: een waarde te selecteren in een grafiek, biedt geen gedetailleerde resultaten weergeven
-Wanneer u een waarde hebt geselecteerd in een grafiek, zou er vóór upgrade, een gedetailleerde lijst met records die overeenkomt met de geselecteerde waarde geretourneerd.  Na de upgrade, wordt alleen de samengevatte regel geretourneerd.  Dit probleem wordt op dat moment onderzocht.
 
 ## <a name="log-search-api"></a>API voor zoeken in logboeken
 
@@ -109,11 +97,9 @@ Uw browser vereist toegang tot de volgende adressen Log Analytics-query's uitvoe
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>Vraag: Verandert met Power BI-integratie
-Ja.  Zodra uw werkruimte is bijgewerkt en vervolgens het proces voor het exporteren van logboekanalyse gegevens met Power BI niet meer werken.  Eventuele bestaande schema's die u hebt gemaakt voordat u de upgrade wordt uitgeschakeld.  Na de upgrade, wordt Azure Log Analytics hetzelfde platform als Application Insights en u hetzelfde proces gebruiken om te exporteren Log Analytics-query's naar Power BI als [het proces voor het exporteren van Application Insights-query's naar Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).
+Ja.  Zodra uw werkruimte is bijgewerkt en vervolgens het proces voor het exporteren van logboekanalyse gegevens met Power BI niet meer werken.  Eventuele bestaande schema's die u hebt gemaakt voordat u de upgrade wordt uitgeschakeld.  
 
-### <a name="known-issue-power-bi-request-size-limit"></a>Bekende probleem: groottelimiet voor Power BI-aanvraag
-Er is een maximale grootte van 8 MB voor een Log Analytics-query die kan worden geëxporteerd naar Power BI.  Deze limiet wordt binnenkort worden verhoogd.
-
+Na de upgrade, wordt Azure Log Analytics hetzelfde platform als Application Insights en u hetzelfde proces gebruiken om te exporteren Log Analytics-query's naar Power BI als [het proces voor het exporteren van Application Insights-query's naar Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).  Exporteren naar Power BI nu aanroepen rechtstreeks de API-eindpunt. Hiermee kunt u tot 500.000 rijen of 64,000,000 bytes aan gegevens ophalen, lange query's te exporteren en aanpassen van de time-out van de query (standaardtime-out is 3 minuten en de maximale time-out is 10 minuten).
 
 ## <a name="powershell-cmdlets"></a>PowerShell-cmdlets
 
@@ -153,14 +139,11 @@ Ja.  U moet gebruiken een API-versie van 2017-03-15-preview en bevatten een **fu
 ### <a name="question-will-my-solutions-continue-to-work"></a>Vraag: Mijn oplossingen blijven werken?
 Alle oplossingen blijven werken in een werkruimte bijgewerkte, hoewel de prestaties verbeteren als ze worden geconverteerd naar de nieuwe querytaal.  Er zijn bekende problemen met het aantal bestaande oplossingen die in deze sectie worden beschreven.
 
-### <a name="known-issue-capacity-and-performance-solution"></a>Bekende probleem: oplossing capaciteit en prestaties
-Sommige van de onderdelen in de [capaciteit en prestaties](log-analytics-capacity.md) weergave kan niet leeg zijn.  Een oplossing voor dit probleem zijn binnenkort beschikbaar.
-
-### <a name="known-issue-application-insights-connector"></a>Bekende probleem: Application Insights-connector
-Perspectieven in [Application Insights-Connector oplossing](log-analytics-app-insights-connector.md) worden momenteel niet ondersteund in een bijgewerkte werkruimte.  Een oplossing voor dit probleem wordt momenteel onder analyse.
+### <a name="known-issue-perspectives-in-application-insights-connector"></a>Bekende probleem: perspectieven in Application Insights-connector
+Perspectieven in [Application Insights-Connector oplossing](log-analytics-app-insights-connector.md) worden niet meer ondersteund in de Application Insights-connector-oplossing.  Ontwerp weergeven kunt u aangepaste weergaven maken met Application Insights-gegevens.
 
 ### <a name="known-issue-backup-solution"></a>Bekende probleem:-back-upoplossing
-De oplossing voor back-up worden de gegevens in een bijgewerkte werkruimte niet verzameld. Een nieuwe back-up-oplossing die geschikt is voor de bijgewerkte werkruimte worden binnenkort aangekondigd.
+De oplossing voor back-up kan niet worden verzameld als vóór de upgrade van een werkruimte is geïnstalleerd. Verwijder de oplossing en installeer vervolgens de nieuwste versie.  De nieuwe versie van de oplossing biedt geen ondersteuning voor klassieke Backup-kluizen, dus u ook naar de Recovery Services-kluizen upgraden moet wil blijven gebruiken van de oplossing.
 
 ## <a name="upgrade-process"></a>Het upgradeproces
 
@@ -182,9 +165,6 @@ Vóór de algemene beschikbaarheid kan u uw werkruimte herstellen na een upgrade
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Vraag: Hoe maak ik een nieuwe weergave met Designer bekijken?
 U kunt voorafgaande aan de upgrade een nieuwe weergave maken met ontwerper van een tegel op het hoofddashboard.  Wanneer uw werkruimte is geüpgraded, is deze tegel wordt verwijderd.  U kunt een nieuwe weergave maken met de Designer bekijken in de OMS-portal door te klikken op de groene + knop in het menu links.
-
-### <a name="known-issue-see-all-option-for-line-charts-in-views-doesnt-result-in-a-line-chart"></a>Bekende probleem: Zie de optie all voor lijndiagrammen in weergaven niet resulteren in een lijndiagram
-Wanneer u klikt op in de *alle* optie onder aan een deel van de grafiek regel in een weergave, krijgt u een tabel.  Vóór upgrade, zou u worden gepresenteerd met een lijndiagram.  Dit probleem wordt geanalyseerd voor een mogelijke wijziging.
 
 
 ## <a name="next-steps"></a>Volgende stappen

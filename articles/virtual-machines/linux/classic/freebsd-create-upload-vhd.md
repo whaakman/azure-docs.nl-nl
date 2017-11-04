@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: huishao
-ms.openlocfilehash: 0010e01d4333b96696680ec6fbbeee74b17f46a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b41826f071174df8f00af56a228e0f31c3cfe2f
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Maken en een VHD FreeBSD uploaden naar Azure
 In dit artikel leest u hoe maken en uploaden van een virtuele harde schijf (VHD) die het besturingssysteem FreeBSD bevat. Nadat u deze uploaden, kunt u deze als uw eigen installatiekopie maken van een virtuele machine (VM) in Azure.
@@ -39,7 +39,7 @@ In dit artikel wordt ervan uitgegaan dat u de volgende items hebt:
 >
 >
 
-Deze taak omvat de volgende vijf stappen:
+Deze taak omvat de volgende vier stappen:
 
 ## <a name="step-1-prepare-the-image-for-upload"></a>Stap 1: Voorbereiden op de installatiekopie uploaden
 Op de virtuele machine waar u het besturingssysteem FreeBSD hebt geïnstalleerd, voert u de volgende procedures:
@@ -114,66 +114,21 @@ Op de virtuele machine waar u het besturingssysteem FreeBSD hebt geïnstalleerd,
 
     U kunt nu uw virtuele machine afsluiten.
 
-## <a name="step-2-create-a-storage-account-in-azure"></a>Stap 2: Een opslagaccount maken in Azure
-U moet een opslagaccount in Azure een .vhd-bestand uploaden, zodat deze kan worden gebruikt voor het maken van een virtuele machine. U kunt de klassieke Azure portal gebruiken om een opslagaccount te maken.
+## <a name="step-2-prepare-the-connection-to-azure"></a>Stap 2: De verbinding met Azure voorbereiden
+Controleer of u de Azure CLI in het klassieke implementatiemodel (`azure config mode asm`), meld u vervolgens aan bij uw account:
 
-1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com).
-2. Selecteer op de opdrachtbalk **nieuw**.
-3. Selecteer **gegevensservices** > **opslag** > **snelle invoer**.
+```azurecli
+azure login
+```
 
-    ![Snel een opslagaccount maken](./media/freebsd-create-upload-vhd/Storage-quick-create.png)
-4. Vul de velden als volgt in:
 
-   * In de **URL** veld, typ de subdomeinnaam van een moet worden gebruikt in de URL van de opslag. De vermelding kan van 3 tot 24 cijfers en kleine letters bevatten. Deze naam wordt de hostnaam van de in de URL die wordt gebruikt voor het oplossen van Azure Blob storage, Azure Queue storage of Azure Table storage-resources voor het abonnement.
-   * In de **locatie/Affiniteitsgroep** vervolgkeuzelijst, kies de **locatie of affiniteitsgroep** voor het opslagaccount. Een affiniteitsgroep kunt u uw cloudservices en opslag in hetzelfde Datacenter geplaatst.
-   * In de **replicatie** veld, te bepalen of u **geografisch redundante** replicatie voor het opslagaccount. Geo-replicatie is standaard ingeschakeld. Deze optie worden uw gegevens gerepliceerd naar een secundaire locatie, zonder kosten, kunt u, zodat uw opslag failover naar die locatie als er een storing optreedt op de primaire locatie. De secundaire locatie wordt automatisch toegewezen en kan niet worden gewijzigd. Als u meer controle over de locatie van uw cloud-gebaseerde opslag vanwege wettelijke vereisten of organisatie beleid nodig hebt, kunt u geo-replicatie kunt uitschakelen. Let echter dat als u later geo-replicatie inschakelt, een eenmalige gegevensoverdracht vast bedrag brengt voor replicatie van uw bestaande gegevens naar de secundaire locatie. Storage-services zonder geo-replicatie worden aangeboden met korting. Meer informatie over het beheren van geo-replicatie van opslagaccounts vindt u hier: [Azure Storage-replicatie](../../../storage/common/storage-redundancy.md).
+<a id="upload"> </a>
 
-     ![Voer de details van opslag](./media/freebsd-create-upload-vhd/Storage-create-account.png)
-5. Selecteer **Storage-Account maken**. Het account wordt nu weergegeven onder **opslag**.
 
-    ![Storage-account is gemaakt](./media/freebsd-create-upload-vhd/Storagenewaccount.png)
-6. Maak vervolgens een container voor uw geüploade VHD-bestanden. Selecteer de naam van het opslagaccount en selecteer vervolgens **Containers**.
+## <a name="step-3-upload-the-vhd-file"></a>Stap 3: Het VHD-bestand uploaden
 
-    ![Details van de Storage-account](./media/freebsd-create-upload-vhd/storageaccount_detail.png)
-7. Selecteer **maken van een Container**.
+U moet een opslagaccount voor uw VHD-bestand te uploaden. Kunt u een bestaand opslagaccount kiezen of [Maak een nieuwe](../../../storage/common/storage-create-storage-account.md).
 
-    ![Details van de Storage-account](./media/freebsd-create-upload-vhd/storageaccount_container.png)
-8. In de **naam** veld, typ een naam voor de container. Klik in de **toegang** vervolgkeuzelijst, selecteer welk type toegangsbeleid dat u wilt.
-
-    ![Containernaam](./media/freebsd-create-upload-vhd/storageaccount_containervalues.png)
-
-   > [!NOTE]
-   > Standaard is de container privé is, en alleen toegankelijk zijn voor de accounteigenaar. Als u openbare leestoegang tot de blobs in de container, maar niet aan de eigenschappen van container en metagegevens, gebruikt de **openbare Blob** optie. Als volledige openbare leestoegang voor de container en blobs, gebruikt de **openbare Container** optie.
-   >
-   >
-
-## <a name="step-3-prepare-the-connection-to-azure"></a>Stap 3: De verbinding met Azure voorbereiden
-Voordat u een .vhd-bestand uploadt kunt, moet u een beveiligde verbinding tussen uw computer en uw Azure-abonnement. U kunt de Azure Active Directory (Azure AD)-methode of het certificaat gebruiken om dat te doen.
-
-### <a name="use-the-azure-ad-method-to-upload-a-vhd-file"></a>Gebruik de Azure AD-methode voor het uploaden van een .vhd-bestand
-1. Open de Azure PowerShell-console.
-2. Typ de volgende opdracht:  
-    `Add-AzureAccount`
-
-    Deze opdracht opent een aanmeldingspagina-venster waar u zich met uw werk- of schoolaccount aanmelden kunt.
-
-    ![PowerShell-venster](./media/freebsd-create-upload-vhd/add_azureaccount.png)
-3. Azure worden geverifieerd en de referentie-informatie wordt opgeslagen. Vervolgens wordt het venster gesloten.
-
-### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>Gebruik de methode certificaat een .vhd-bestand uploaden
-1. Open de Azure PowerShell-console.
-2. Type: `Get-AzurePublishSettingsFile`.
-3. Een browservenster wordt geopend en u wordt gevraagd om het .publishsettings-bestand downloaden. Dit bestand bevat informatie en een certificaat voor uw Azure-abonnement.
-
-    ![Browser-downloadpagina](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
-4. Sla het .publishsettings-bestand.
-5. Type: `Import-AzurePublishSettingsFile <PathToFile>`, waarbij `<PathToFile>` het volledige pad naar het .publishsettings-bestand.
-
-   Zie voor meer informatie [aan de slag met Azure-cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
-
-   Zie voor meer informatie over het installeren en configureren van PowerShell [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
-
-## <a name="step-4-upload-the-vhd-file"></a>Stap 4: Het VHD-bestand uploaden
 Als u de VHD-bestand uploadt, kunt u deze overal opnemen in de Blob-opslag. Hieronder volgen enkele termen die u gebruikt wanneer u het bestand uploaden:
 
 * **BlobStorageURL** is de URL voor het opslagaccount dat u in stap 2 hebt gemaakt.
@@ -185,7 +140,7 @@ In het venster Azure PowerShell gebruikt u in de vorige stap, type:
 
         Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 
-## <a name="step-5-create-a-vm-with-the-uploaded-vhd-file"></a>Stap 5: Een virtuele machine maken met het geüploade VHD-bestand
+## <a name="step-4-create-a-vm-with-the-uploaded-vhd-file"></a>Stap 4: Een virtuele machine maken met het geüploade VHD-bestand
 Nadat u de VHD-bestand uploadt, kunt u deze als een afbeelding toevoegen aan de lijst met aangepaste installatiekopieën die zijn gekoppeld aan uw abonnement en een virtuele machine maken met deze aangepaste installatiekopie.
 
 1. In het venster Azure PowerShell gebruikt u in de vorige stap, type:

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: e89be04a0d6fe90a89e293e67d42f0204eb7000a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 640e051a909b1b9457b20cbd507b418342297c6e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Inleiding tot Service Fabric Reliable Actors
 Reliable Actors is een Service Fabric-toepassingsframework op basis van de [virtuele Actor](http://research.microsoft.com/en-us/projects/orleans/) patroon. De betrouwbare actoren API biedt een single thread-programmeermodel die gebaseerd op de schaalbaarheid en betrouwbaarheid garanties geleverd door de Service Fabric.
@@ -143,7 +143,7 @@ De runtime actoren kunt herintreding standaard. Dit betekent dat wanneer een act
 De runtime actoren biedt deze garanties gelijktijdigheid van taken in situaties waar Hiermee kunt u het aanroepen van deze methoden. Bijvoorbeeld, biedt deze garanties voor de methode-aanroepen die worden uitgevoerd in reactie op aanvragen van clients en voor de timer- en herinnering retouraanroepen. Als de code actor rechtstreeks deze methoden buiten de mechanismen die is opgegeven door de runtime actoren aanroept, kan niet klikt u vervolgens de runtime evenwel garanties gelijktijdigheid van taken. Bijvoorbeeld, als de methode wordt aangeroepen in de context van een taak die is niet gekoppeld aan de taak die is geretourneerd door de actor-methoden, klikt u vervolgens de runtime kan niet gelijktijdigheid garanties bieden. Als de methode wordt aangeroepen vanuit een thread die de actor op een eigen maakt, kan niet klikt u vervolgens de runtime bieden ook garanties gelijktijdigheid van taken. Daarom actoren moeten gebruiken om uit te voeren bewerkingen op de achtergrond, [actor timers en actor herinneringen](service-fabric-reliable-actors-timers-reminders.md) die op basis van Schakel gelijktijdigheid respecteren.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Aan de slag met het bouwen van uw eerste Reliable Actors-service:
+Aan de slag met het bouwen van uw eerste Reliable Actors-service:
    * [Aan de slag met Reliable Actors op .NET](service-fabric-reliable-actors-get-started.md)
    * [Aan de slag met Reliable Actors op Java](service-fabric-reliable-actors-get-started-java.md)
 
