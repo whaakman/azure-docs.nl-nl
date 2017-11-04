@@ -1,19 +1,19 @@
-When you no longer need a data disk that's attached to a virtual machine (VM), you can easily detach it. When you detach a disk from the VM, the disk is not removed it from storage. If you want to use the existing data on the disk again, you can reattach it to the same VM, or another one.  
+Wanneer u een gegevensschijf die is gekoppeld aan een virtuele machine (VM) niet meer nodig hebt, kunt u deze eenvoudig loskoppelen. Wanneer u een schijf van de virtuele machine loskoppelt, wordt de schijf niet verwijderd uit de opslag. Als u de bestaande gegevens op de schijf opnieuw wilt gebruiken, kunt u de schijf opnieuw koppelen aan dezelfde of een andere virtuele machine.  
 
 > [!NOTE]
-> A VM in Azure uses different types of disks - an operating system disk, a local temporary disk, and optional data disks. For details, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). You cannot detach an operating system disk unless you also delete the VM.
+> Een VM in Azure gebruikt verschillende soorten schijven: een besturingssysteemschijf, een lokale tijdelijke schijf en optionele gegevensschijven. Zie [Informatie over schijven en VHD's voor virtuele machines](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie. U kunt de schijf van een besturingssysteem alleen loskoppelen als u ook de virtuele machine verwijdert.
 
-## <a name="find-the-disk"></a>Find the disk
-Before you can detach a disk from a VM you need to find out the LUN number, which is an identifier for the disk to be detached. To do that, follow these steps:
+## <a name="find-the-disk"></a>De schijf vinden
+Voordat u een schijf van een virtuele machine kunt loskoppelen, moet u achter het LUN komen. Dit is een id voor de schijf die u wilt loskoppelen. Voer hiervoor de volgende stappen uit:
 
-1. Open Azure CLI and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
-2. Find out which disks are attached to your VM. The following example lists disks for the VM named `myVM`:
+1. Open Azure CLI en [maak verbinding met uw Azure-abonnement](../articles/xplat-cli-connect.md). Zorg ervoor dat u zich in de modus voor Azure-servicebeheer (`azure config mode asm`) bevindt.
+2. Achterhaal welke schijven zijn gekoppeld aan uw virtuele machine. In het volgende voorbeeld worden schijven weergegeven voor de virtuele machine met de naam `myVM`:
 
     ```azurecli
     azure vm disk list myVM
     ```
 
-    The output is similar to the following example:
+    De uitvoer lijkt op die in het volgende voorbeeld:
 
     ```azurecli
     * Fetching disk images
@@ -26,12 +26,12 @@ Before you can detach a disk from a VM you need to find out the LUN number, whic
       info:    vm disk list command OK
     ```
 
-3. Note the LUN or the **logical unit number** for the disk that you want to detach.
+3. Noteer het LUN, oftewel het **nummer van de logische eenheid**, voor de schijf die u wilt loskoppelen.
 
-## <a name="remove-operating-system-references-to-the-disk"></a>Remove operating system references to the disk
-Before detaching the disk from the Linux guest, you should make sure that all partitions on the disk are not in use. Ensure that the operating system does not attempt to remount them after a reboot. These steps undo the configuration you likely created when [attaching](../articles/virtual-machines/linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) the disk.
+## <a name="remove-operating-system-references-to-the-disk"></a>Verwijzingen van het besturingssysteem naar de schijf verwijderen
+Voordat u de schijf loskoppelt van de Linux-gast, moet u ervoor zorgen dat geen van de partities op de schijf in gebruik is. Zorg ervoor dat het besturingssysteem ze na de reboot niet opnieuw probeert te koppelen. Met deze stappen maakt u de configuratie ongedaan die u waarschijnlijk hebt gemaakt tijdens het [koppelen](../articles/virtual-machines/linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) van de schijf.
 
-1. Use the `lsscsi` command to discover the disk identifier. `lsscsi` can be installed by either `yum install lsscsi` (on Red Hat based distributions) or `apt-get install lsscsi` (on Debian based distributions). You can find the disk identifier you are looking for by using the LUN number. The last number in the tuple in each row is the LUN. In the following example from `lsscsi`, LUN 0 maps to */dev/sdc*
+1. Gebruik de opdracht `lsscsi` om de schijf-id te achterhalen. U kunt `lsscsi` installeren met `yum install lsscsi` (Red Hat-distributies) of `apt-get install lsscsi` (Debian-distributies). De schijf-id kunt u vinden met behulp van het LUN. Het laatste getal in elke rij van de tuple is het LUN. In het volgende voorbeeld van `lsscsi`, is LUN 0 toegewezen aan */dev/sdc*.
 
     ```bash
     [1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
@@ -40,7 +40,7 @@ Before detaching the disk from the Linux guest, you should make sure that all pa
     [5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
     ```
 
-2. Use `fdisk -l <disk>` to discover the partitions associated with the disk to be detached. The following example shows the output for `/dev/sdc`:
+2. Gebruik `fdisk -l <disk>` om de partities te detecteren die zijn gekoppeld aan de schijf die u wilt loskoppelen. In het volgende voorbeeld wordt de uitvoer weergegeven voor `/dev/sdc`:
 
     ```bash
     Disk /dev/sdc: 1098.4 GB, 1098437885952 bytes, 2145386496 sectors
@@ -54,13 +54,13 @@ Before detaching the disk from the Linux guest, you should make sure that all pa
     /dev/sdc1            2048  2145386495  1072692224   83  Linux
     ```
 
-3. Unmount each partition listed for the disk. The following example unmounts `/dev/sdc1`:
+3. Koppel elke partitie van de schijf los. In het volgende voorbeeld wordt `/dev/sdc1` losgekoppeld:
 
     ```bash
     sudo umount /dev/sdc1
     ```
 
-4. Use the `blkid` command to discovery the UUIDs for all partitions. The output is similar to the following example:
+4. Gebruik de opdracht `blkid` om de UUID's voor alle partities te achterhalen. De uitvoer lijkt op die in het volgende voorbeeld:
 
     ```bash
     /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
@@ -68,35 +68,35 @@ Before detaching the disk from the Linux guest, you should make sure that all pa
     /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
     ```
 
-5. Remove entries in the **/etc/fstab** file associated with either the device paths or UUIDs for all partitions for the disk to be detached.  Entries for this example might be:
+5. Verwijder de vermeldingen in het bestand **/etc/fstab** dat is gekoppeld aan de apparaatpaden of UUID's voor alle partities van de schijf die u wilt loskoppelen.  Vermeldingen voor dit voorbeeld kunnen zijn:
 
     ```sh  
    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
    ```
 
-    or
+    of
    
    ```sh   
    /dev/sdc1   /datadrive   ext4   defaults   1   2
    ```
 
-## <a name="detach-the-disk"></a>Detach the disk
-After you find the LUN number of the disk and removed the operating system references, you're ready to detach it:
+## <a name="detach-the-disk"></a>De schijf loskoppelen
+Nadat u het LUN van de schijf hebt gevonden en de verwijzingen naar het besturingssysteem hebt verwijderd, kunt u de schijf loskoppelen:
 
-1. Detach the selected disk from the virtual machine by running the command `azure vm disk detach
-   <virtual-machine-name> <LUN>`. The following example detaches LUN `0` from the VM named `myVM`:
+1. Koppel de geselecteerde schijf los van de virtuele machine met de opdracht `azure vm disk detach
+   <virtual-machine-name> <LUN>`. In het volgende voorbeeld wordt LUN `0` losgekoppeld van de virtuele machine met de naam `myVM`:
    
     ```azurecli
     azure vm disk detach myVM 0
     ```
 
-2. You can check if the disk got detached by running `azure vm disk list` again. The following example checks the VM named `myVM`:
+2. U kunt controleren of de schijf is losgekoppeld door `azure vm disk list` opnieuw uit te voeren. In het volgende voorbeeld wordt de VM met de naam `myVM` gecontroleerd:
    
     ```azurecli
     azure vm disk list myVM
     ```
 
-    The output is similar to the following example, which shows the data disk is no longer attached:
+    De uitvoer is vergelijkbaar met het volgende voorbeeld, waarin wordt aangegeven dat de gegevensschijf niet meer is gekoppeld:
 
     ```azurecli
     info:    Executing command vm disk list
@@ -110,5 +110,5 @@ After you find the LUN number of the disk and removed the operating system refer
      info:    vm disk list command OK
     ```
 
-The detached disk remains in storage but is no longer attached to a virtual machine.
+De losgekoppelde schijf blijft in de opslag, maar is niet meer gekoppeld aan een virtuele machine.
 

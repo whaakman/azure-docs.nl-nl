@@ -16,11 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 3a4764ddf2dea68bf25bd46b9691429ad3341678
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aba231a91efafa48837e45435efd51769b12374b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Toegang tot resources beheren met Azure Active Directory-groepen
 Azure Active Directory (Azure AD) is een uitgebreide identiteits- en toegangsbeheer-beheeroplossing die een set krachtige mogelijkheden biedt voor het beheer van toegang tot on-premises en cloudtoepassingen en bronnen, met inbegrip van Microsoft online services zoals Office 365 en een wereld van Microsoft SaaS-toepassingen. In dit artikel biedt een overzicht, maar als u wilt beginnen met behulp van Azure AD nu gegroepeerd, volg de instructies in [beveiligingsgroepen beheren in Azure AD](active-directory-accessmanagement-manage-groups.md). Als u wilt laten zien hoe u PowerShell kunt gebruiken voor het beheren van groepen in Azure Active directory kunt u meer informatie in [Azure Active Directory-cmdlets voor groepsbeheer](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
@@ -66,7 +66,7 @@ De eigenaar van een groep kan ook die groep beschikbaar maken voor self-service 
 ## <a name="getting-started-with-access-management"></a>Aan de slag met toegangsbeheer
 Klaar om aan de slag te gaan? Probeer een aantal van de basistaken die u met Azure AD-groepen doen kunt. Gebruik deze mogelijkheden voor speciale toegang tot verschillende groepen gebruikers voor verschillende resources in uw organisatie. Een lijst met eerste basisstappen worden hieronder vermeld.
 
-* [Maken van een eenvoudige regel voor het configureren van dynamische lidmaatschappen voor een groep](active-directory-accessmanagement-manage-groups.md#how-can-i-manage-the-membership-of-a-group-dynamically)
+* [Maken van een eenvoudige regel voor het configureren van dynamische lidmaatschappen voor een groep](active-directory-accessmanagement-manage-groups.md)
 * [Een groep gebruiken voor het beheren van toegang tot SaaS-toepassingen](active-directory-accessmanagement-group-saasapps.md)
 * [Een groep maken beschikbaar voor eindgebruikers selfservice](active-directory-accessmanagement-self-service-group-management.md)
 * [Synchroniseren van een lokale groep naar Azure met Azure AD Connect](active-directory-aadconnect.md)

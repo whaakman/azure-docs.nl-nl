@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 42644bd97443e827b523503989b0b25d3d48028c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1366cd79248b2e0008234a5da0d87552e6530d80
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Logboekregistratie van diagnostische gegevens van web-apps in Azure App Service
 ## <a name="overview"></a>Overzicht
@@ -180,17 +180,17 @@ Als een lijst met beschikbare paden weergeven, gebruikt u de parameter - ListPat
 ### <a name="streaming-with-azure-command-line-interface"></a>Streamen met Azure-opdrachtregelinterface
 Om te streamen logboekinformatie, opent u een nieuwe opdrachtprompt, PowerShell, Bash of terminalsessie en voer de volgende opdracht:
 
-    azure site log tail webappname
+    az webapp log tail --name webappname --resource-group myResourceGroup
 
 Hiermee verbinding maken met de web-app met de naam 'webappname' en beginnen met de informatie in het venster streaming zoals gebeurtenissen op de web-app plaatsvinden. Alle informatie die is geschreven naar eindigt op .txt, .log of htm-bestanden die zijn opgeslagen in de map /LogFiles (home-d:/logboekbestanden) zal worden gestreamd naar de lokale console.
 
 Om te filteren op specifieke gebeurtenissen, zoals fouten, gebruiken de **--Filter** parameter. Bijvoorbeeld:
 
-    azure site log tail webappname --filter Error
+    az webapp log tail --name webappname --resource-group myResourceGroup --filter Error
 
 Gebruiken om te filteren op specifieke logboek typen, zoals HTTP, de **--pad** parameter. Bijvoorbeeld:
 
-    azure site log tail webappname --path http
+    az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
 > Als u de Azure-opdrachtregelinterface niet hebt geïnstalleerd of niet via uw Azure-abonnement hebt geconfigureerd, Zie [hoe voor gebruik van Azure-opdrachtregelinterface](../cli-install-nodejs.md).

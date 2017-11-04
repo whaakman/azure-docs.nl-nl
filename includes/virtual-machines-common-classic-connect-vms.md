@@ -1,42 +1,42 @@
 
 
-![Virtual machines in a standalone cloud service](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
+![Virtuele machines in een zelfstandige cloudservice](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
 
-If you place your virtual machines in a virtual network, you can decide how many cloud services you want to use for load balancing and availability sets. Additionally, you can organize the virtual machines on subnets in the same way as your on-premises network and connect the virtual network to your on-premises network. Here's an example:
+Als u uw virtuele machines in een virtueel netwerk inschakelt, kunt u bepalen hoeveel cloud-services die u gebruiken wilt voor load balancing en beschikbaarheid sets. Bovendien kunt u de virtuele machines op subnetten indelen op dezelfde manier als uw on-premises netwerk en het virtueel netwerk met uw on-premises netwerk verbinden. Hier volgt een voorbeeld:
 
-![Virtual machines in a virtual network](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
+![Virtuele machines in een virtueel netwerk](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
 
-Virtual networks are the recommended way to connect virtual machines in Azure. The best practice is to configure each tier of your application in a separate cloud service. However, you may need to combine some virtual machines from different application tiers into the same cloud service to remain within the maximum of 200 cloud services per subscription. To review this and other limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../articles/azure-subscription-service-limits.md).
+Virtuele netwerken zijn de aanbevolen manier om verbinding met virtuele machines in Azure. De aanbevolen procedure is voor het configureren van elke laag van uw toepassing in een afzonderlijke cloudservice. Mogelijk moet u echter een aantal virtuele machines van verschillende toepassingslagen combineren in dezelfde cloudservice blijven binnen de maximale van 200 cloud-services per abonnement. Deze en andere beperkingen die daarin Zie [Azure-abonnement en Service-limieten, quota's en beperkingen](../articles/azure-subscription-service-limits.md).
 
-## <a name="connect-vms-in-a-virtual-network"></a>Connect VMs in a virtual network
-To connect virtual machines in a virtual network:
+## <a name="connect-vms-in-a-virtual-network"></a>Verbinding maken met virtuele machines in een virtueel netwerk
+Sluit de virtuele machines in een virtueel netwerk:
 
-1. Create the virtual network in the [Azure portal](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) and specify 'classic deployment'.
-2. Create the set of cloud services for your deployment to reflect your design for availability sets and load balancing. In the Azure portal, click **New > Compute > Cloud service** for each cloud service.
+1. Maken van het virtuele netwerk in de [Azure-portal](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) en 'klassieke implementatie' opgeven.
+2. Maken van de set van cloud-services voor uw implementatie naar aanleiding van uw ontwerp voor beschikbaarheidssets en taakverdeling. Klik in de Azure-portal op **Nieuw > berekenen > Cloudservice** voor elke cloudservice.
 
-  As you fill out the cloud service details, choose the same _resource group_ used with the virtual network.
+  Als u de details van de cloud service invullen, kies dezelfde _resourcegroep_ gebruikt met het virtuele netwerk.
 
-3. To create each new virtual machine, click **New > Compute**, then select the appropriate VM image from the **Featured apps**.
+3. Elke nieuwe virtuele machine toevoegen, klikt u op **Nieuw > berekenen**, selecteer vervolgens de installatiekopie van het juiste VM van de **aanbevolen apps**.
 
-  In the VM **Basics** blade, choose the same _resource group_ used with the virtual network.
+  In de virtuele machine **basisbeginselen** blade Kies dezelfde _resourcegroep_ gebruikt met het virtuele netwerk.
 
-  ![VM Basics blade when using a VNet](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_VN.png)
+  ![Basisprincipes van VM-blade wanneer u een VNet](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_VN.png)
 
-4. As you fill out the VM **Settings**, choose the correct _Cloud service_ or _virtual network_ for the VM.
+4. Als u de virtuele machine invullen **instellingen**, kies de juiste _Cloudservice_ of _virtueel netwerk_ voor de virtuele machine.
 
-  Azure will select the other item based on your selection.
+  Azure, wordt het andere op basis van uw selectie item geselecteerd.
 
-  ![VM Settings blade when using a VNet](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
+  ![Blade van de VM-instellingen wanneer u een VNet](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
 
 
-## <a name="connect-vms-in-a-standalone-cloud-service"></a>Connect VMs in a standalone cloud service
-To connect virtual machines in a standalone cloud service:
+## <a name="connect-vms-in-a-standalone-cloud-service"></a>Verbinding maken met virtuele machines in een zelfstandige cloudservice
+Sluit de virtuele machines in een zelfstandige cloudservice:
 
-1. Create the cloud service in the [Azure portal](http://portal.azure.com). Click **New > Compute > Cloud service**. Or, you can create the cloud service for your deployment when you create your first virtual machine.
-2. When you create the virtual machines, choose the same resource group used with the cloud service.
+1. Maken van de cloudservice in de [Azure-portal](http://portal.azure.com). Klik op **Nieuw > berekenen > Cloudservice**. Of u kunt de cloudservice voor uw implementatie maken wanneer u uw eerste virtuele machine maken.
+2. Wanneer u de virtuele machines maakt, kiest u dezelfde resourcegroep gebruikt met de cloudservice.
 
-  ![Add a virtual machine to an existing cloud service](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_SA.png)
+  ![Een virtuele machine toevoegen aan een bestaande cloudservice](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_SA.png)
 
-3.  As you fill out the VM details, choose the name of cloud service created in the first step.
+3.  Als u de details van de VM invullen, kies de naam van de cloudservice in de eerste stap hebt gemaakt.
 
-  ![Selecting a cloud service for a virtual machine](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)
+  ![Een cloudservice voor een virtuele machine selecteren](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)

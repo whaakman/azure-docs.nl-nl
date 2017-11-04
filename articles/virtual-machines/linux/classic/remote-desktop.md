@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: mingzhan
-ms.openlocfilehash: 68031d548bdbeda9a83d1bceaaea7c5bbcab3188
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2ad497a0244f9c7cdad34faf807cc9ed10ea704d
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Extern bureaublad gebruiken om verbinding te maken met een Microsoft Azure Linux VM
 > [!IMPORTANT] 
@@ -79,7 +79,7 @@ Voor OpenSUSE, gebruiken:
     #sudo systemctl start xrdp
     #sudo systemctl enable xrdp
 
-Voor Ubuntu, xrdp wordt gestart en eanbled op boot-up automatisch na de installatie.
+Voor Ubuntu, wordt xrdp gestart en ingeschakeld op opstartprocedure automatisch na de installatie.
 
 ## <a name="using-xfce-if-you-are-using-an-ubuntu-version-later-than-ubuntu-1204lts"></a>Met behulp van xfce als u een virtuele Ubuntu-versie hoger is dan Ubuntu 12.04LTS
 Omdat de huidige versie van xrdp niet Gnome bureaublad voor Ubuntu-versies hoger is dan Ubuntu 12.04LTS ondersteunt, gebruiken we `xfce` bureaublad in plaats daarvan.

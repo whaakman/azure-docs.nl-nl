@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d7af3a531bc1bcced1a3c48403a6f60afea0f82f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8e71541562d397c3f2cc195bfb74cfd60cafdc0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologieën voor Azure AD Connect
 In dit artikel beschrijft de verschillende on-premises en Azure Active Directory (Azure AD)-topologieën die Azure AD Connect-synchronisatie als de sleutel integratieoplossing gebruiken. Dit artikel bevat de ondersteunde en niet-ondersteunde configuraties.
@@ -111,7 +111,7 @@ Sommige Office 365-werkbelastingen hebben bepaalde beperkingen op ondersteunde t
 
 | Workload | Beperkingen |
 --------- | ---------
-| Exchange Online | Als er meer dan een on-premises Exchange-organisatie (dat wil zeggen, Exchange is geïmplementeerd op meer dan één forest), moet u Exchange 2013 SP1 of hoger. Zie voor meer informatie [hybride implementaties met meerdere Active Directory-forests](https://technet.microsoft.com/library/jj873754.aspx). |
+| Exchange Online | Zie voor meer informatie over hybride topologieën ondersteund door Exchange Online, [hybride implementaties met meerdere Active Directory-forests](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype voor bedrijven | Wanneer u meerdere on-premises-forests, worden alleen de account-resource forest-topologie wordt ondersteund. Zie voor meer informatie [omgevingsvereisten voor Skype voor bedrijven Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
 

@@ -6,22 +6,17 @@ keywords:
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 08/18/2017
-ms.topic: hero-article
+ms.topic: article
 ms.service: storage
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: a68d5c4ee8ad69cd888765a96566a7ca6c13cff3
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/29/2017
-
+ms.openlocfilehash: f364d7b25a75012f33a282111c9624d51b65b42f
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/25/2017
 ---
-
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Gebeurtenissen van Blob Storage naar een aangepast eindpunt op het web routeren (preview)
 
 Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel gebruikt u de Azure CLI om u te abonneren op gebeurtenissen van Blob Storage, waarna u vervolgens een gebeurtenis activeert om het resultaat weer te geven. 
-
-> [!IMPORTANT]
-> U moet zijn geregistreerd voor de preview van Blob Storage-gebeurtenissen om deze zelfstudie te kunnen voltooien.  Meer informatie over het preview-programma vindt u [hier](storage-blob-event-overview.md#join-the-preview).
 
 Meestal stuurt u gebeurtenissen naar een eindpunt dat reageert op de gebeurtenis, zoals een webhook of Azure-functie. Ter vereenvoudiging van het voorbeeld in dit artikel sturen we de gebeurtenissen naar een URL die de berichten alleen maar verzamelt. U maakt deze URL met behulp van een open source-hulpprogramma van derden, met de naam [RequestBin](https://requestb.in/).
 
@@ -57,7 +52,7 @@ U hebt een opslagaccount nodig om Azure Storage te gebruiken.  Gebeurtenissen va
 Een Blob Storage-account is een gespecialiseerd opslagaccount voor het opslaan van ongestructureerde gegevens als blobs (objecten) in Azure Storage. Blob Storage-accounts zijn vergelijkbaar met de bestaande opslagaccounts voor algemeen gebruik en bieden dezelfde hoogwaardige kenmerken op het gebied van duurzaamheid, beschikbaarheid, schaalbaarheid en prestaties waarover u nu al beschikt, inclusief 100 procent API-consistentie voor blok-blobs en toevoeg-blobs. Voor toepassingen die alleen blok- of toevoeg-blob-opslag nodig hebben, wordt het gebruik van Blob-opslagaccounts aangeraden.
 
 > [!NOTE]
-> Voor de preview-versie zijn gebeurtenissen van Blob Storage alleen beschikbaar voor opslagaccounts op de locatie **westcentralus**.
+> Raster gebeurtenis is momenteel in preview en alleen beschikbaar voor storage-accounts in de **westcentralus** en **westus2** regio's.
 
 Vervang `<storage_account_name>` door een unieke naam voor uw opslagaccount en `<resource_group_name>` door de resourcegroep die u eerder hebt gemaakt.
 
@@ -145,4 +140,3 @@ U weet nu hoe u onderwerpen en gebeurtenisabonnementen maakt. Raadpleeg deze ond
 
 - [Reageren op gebeurtenissen van Blob Storage](storage-blob-event-overview.md)
 - [Over Event Grid](../../event-grid/overview.md)
-

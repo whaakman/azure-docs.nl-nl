@@ -3,25 +3,25 @@ title: Wat is Azure Application Insights? | Microsoft Docs
 description: Dit is een service waarmee u de prestaties van toepassingen kunt beheren en het gebruik van uw livewebtoepassing kunt bijhouden.  Met deze service kunt u problemen detecteren, prioriteren en onderzoeken en inzicht krijgen in de manier waarop mensen uw app gebruiken.
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 379721d1-0f82-445a-b416-45b94cb969ec
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
+ms.custom: mvc
 ms.date: 05/14/2017
-ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: d06bb37ba38ad7bc2b9b3c5c09b45be6c7fd17bb
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/17/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 7910540add4092e1b5822a7525bec912befd80e7
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-is-application-insights"></a>Wat is Application Insights?
-Application Insights is een uitbreidbare APM-service (Application Performance Management) voor webontwikkelaars op meerdere platforms. Hiermee kunt u uw livewebtoepassing controleren. Afwijkende prestaties worden automatisch gedetecteerd. De service bevat krachtige analysehulpmiddelen om u te helpen bij het vaststellen van problemen en te begrijpen wat gebruikers daadwerkelijk doen met uw app.  De service is bedoeld om u te helpen de prestaties en bruikbaarheid van uw apps continu te verbeteren. Het werkt voor apps op uiteenlopende platforms, waaronder .NET, Node.js en J2EE, on-premises of in de cloud gehost. De service kan ook worden geïntegreerd met uw devOps-proces en bevat verbindingspunten naar verschillende hulpmiddelen voor ontwikkelaars.
+Application Insights is een uitbreidbare APM-service (Application Performance Management) voor webontwikkelaars op meerdere platforms. Hiermee kunt u uw livewebtoepassing controleren. Afwijkende prestaties worden automatisch gedetecteerd. De service bevat krachtige analysehulpmiddelen om u te helpen bij het vaststellen van problemen en te begrijpen wat gebruikers daadwerkelijk doen met uw app.  De service is bedoeld om u te helpen de prestaties en bruikbaarheid van uw apps continu te verbeteren. Het werkt voor apps op uiteenlopende platforms, waaronder .NET, Node.js en J2EE, on-premises of in de cloud gehost. Het kan worden geïntegreerd met uw DevOps-proces en verbindingspunten naar allerlei ontwikkelingsprogramma's heeft. Deze kunt bewaken en analyseren van telemetrie van mobiele apps door te integreren met Visual Studio Mobile Center en HockeyApp.
 
 ![Breng statistieken van gebruikersactiviteiten in kaart of zoom in op specifieke gebeurtenissen.](./media/app-insights-overview/00-sample.png)
 
@@ -117,6 +117,7 @@ Er zijn verschillende manieren om van start te gaan. Begin op de manier die voor
   * [Node.js](app-insights-nodejs.md)
   * [Andere platforms](app-insights-platforms.md)
 * **[Instrumenteer uw webpagina’s](app-insights-javascript.md)** voor paginaweergaven, AJAX-aanroepen en andere telemetrie op de clientzijde.
+* **[Mobiele app-gebruik analyseren](app-insights-mobile-center-quickstart.md)**  door te integreren met Visual Studio Mobile Center.
 * **[Beschikbaarheidstests](app-insights-monitor-web-app-availability.md)** - ping uw website regelmatig vanaf onze servers.
 
 
@@ -163,4 +164,3 @@ Gebruik tijdens het ontwikkelen:
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-

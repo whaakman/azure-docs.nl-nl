@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: larryfr
-ms.openlocfilehash: 1ad536a53d64b0144f6396393830bc0c5cbe4fb1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d474cce902dad1390d55ed7bad556d9b0610605f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Poorten die worden gebruikt door services Hadoop in HDInsight
 
@@ -48,17 +48,17 @@ Alle knooppunten in een HDInsight-cluster bevinden zich in een Azure-netwerk en 
 | sshd |23 |SSH |Clients verbinding met sshd op de secundaire headnode. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie. |
 | Ambari |443 |HTTPS |Ambari-webgebruikersinterface. Zie [beheren HDInsight met de Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST-API. Zie [beheren HDInsight met de Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |HCatalog REST-API. Zie [Hive gebruiken met Curl](hdinsight-hadoop-use-pig-curl.md), [Pig gebruiken met Curl](hdinsight-hadoop-use-pig-curl.md), [MapReduce gebruiken met Curl](hdinsight-hadoop-use-mapreduce-curl.md) |
-| HiveServer2 |443 |ODBC |Maakt verbinding met ODBC met Hive. Zie [Excel verbinding naar HDInsight met Microsoft ODBC driver](hdinsight-connect-excel-hive-odbc-driver.md). |
-| HiveServer2 |443 |JDBC |Maakt verbinding met JDBC met Hive. Zie [verbinding maken met Hive in HDInsight met behulp van de component JDBC-stuurprogramma](hdinsight-connect-hive-jdbc-driver.md) |
+| WebHCat |443 |HTTPS |HCatalog REST-API. Zie [Hive gebruiken met Curl](hadoop/apache-hadoop-use-pig-curl.md), [Pig gebruiken met Curl](hadoop/apache-hadoop-use-pig-curl.md), [MapReduce gebruiken met Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| HiveServer2 |443 |ODBC |Maakt verbinding met ODBC met Hive. Zie [Excel verbinding naar HDInsight met Microsoft ODBC driver](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
+| HiveServer2 |443 |JDBC |Maakt verbinding met JDBC met Hive. Zie [verbinding maken met Hive in HDInsight met behulp van de component JDBC-stuurprogramma](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
 De volgende zijn beschikbaar voor specifieke clustertypen:
 
 | Service | Poort | Protocol | Clustertype | Beschrijving |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |HBase REST-API. Zie [aan de slag met HBase](hdinsight-hbase-tutorial-get-started-linux.md) |
-| Livy |443 |HTTPS |Spark |Spark REST-API. Zie [Spark verzenden van taken op afstand met behulp van Livy](hdinsight-apache-spark-livy-rest-interface.md) |
-| Storm |443 |HTTPS |Storm |Storm-webgebruikersinterface. Zie [implementeren en beheren van Storm-topologieën op HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md) |
+| Stargate |443 |HTTPS |HBase |HBase REST-API. Zie [aan de slag met HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
+| Livy |443 |HTTPS |Spark |Spark REST-API. Zie [Spark verzenden van taken op afstand met behulp van Livy](spark/apache-spark-livy-rest-interface.md) |
+| Storm |443 |HTTPS |Storm |Storm-webgebruikersinterface. Zie [implementeren en beheren van Storm-topologieën op HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>Authentication
 

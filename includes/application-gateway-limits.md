@@ -1,18 +1,18 @@
-| Resource | Default limit | Note |
+| Resource | Standaardlimiet | Opmerking |
 | --- | --- | --- |
-| Application Gateway |50 per subscription | Maximum 100 |
-| Frontend IP Configurations |2 |1 public and 1 private |
-| Frontend Ports |20 | |
-| Backend Address Pools |20 | |
-| Backend Servers per pool |100 | |
-| HTTP Listeners |20 | |
-| HTTP load balancing rules |200 |# of HTTP Listeners * n, n=10 Default |
-| Backend HTTP settings |20 |1 per Backend Address Pool |
-| Instances per gateway |10 | |
-| SSL certificates |20 |1 per HTTP Listeners |
-| Authentication certificates |5 | Maximum 10 |
-| Request time out min |1 second | |
-| Request time out max |24 hrs | |
-| Number of sites |20 |1 per HTTP Listeners |
+| Application Gateway |50 per abonnement | Maximaal 100 |
+| Front-end-IP-configuraties |2 |1 openbaar en 1 privé |
+| Front-endpoorten |20 | |
+| Back-endadresgroepen |20 | |
+| Back-endservers per groep |100 | |
+| HTTP-listeners |20 | |
+| HTTP-taakverdelingsregels |200 |het aantal HTTP-luisteraars * n, n = standaard 10 |
+| Back-end-HTTP-instellingen |20 |1 per back-endadresgroep |
+| Exemplaren per gateway |10 | |
+| SSL-certificaten |20 |1 per HTTP-listener |
+| Certificaten voor verificatie |5 | Maximaal 10 |
+| Time-out min aanvragen |1 seconde | |
+| Time-out aanvraag max |24 uur | |
+| Aantal sites |20 |1 per HTTP-listener |
 | URL Maps per listener |1 | |
 

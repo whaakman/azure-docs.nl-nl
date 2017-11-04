@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3f1c7bb1795828899148a8ba8a0461a06947d40d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ecaad702843a63bb82b781339d25fde10df0a0a4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hadoop op basis van Windows-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -61,7 +61,7 @@ HDInsight werkt met een breed bereik van Hadoop-onderdelen. Zie voor een overzic
 
 * Gebruik scriptactie om uit te voeren van aangepaste scripts die een cluster voor het wijzigen van de configuratie van het cluster of aangepaste onderdelen zoals Giraph of Solr installeren kunnen aanpassen. Zie voor meer informatie [aanpassen HDInsight-cluster via scriptactie](hdinsight-hadoop-customize-cluster.md).
 * De parameters van de aanpassing cluster in HDInsight .NET SDK of Azure PowerShell gebruiken tijdens het maken van het cluster. Deze wijzigingen in de configuratie vervolgens via de levensduur van het cluster worden bewaard en worden niet beïnvloed door cluster knooppunt reimages die Azure-platform regelmatig voor onderhoud uitvoert. Zie voor meer informatie over het gebruik van de parameters van de aanpassing cluster [HDInsight-clusters maken](hdinsight-hadoop-provision-linux-clusters.md).
-* Sommige systeemeigen Java-onderdelen, zoals Mahout en trapsgewijze, kunnen worden uitgevoerd op het cluster als JAR-bestanden. Deze JAR-bestanden worden gedistribueerd naar Azure Blob storage en verzonden naar HDInsight-clusters via Hadoop taak verzending mechanismen. Zie voor meer informatie [Hadoop verzenden via een programma taken](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Sommige systeemeigen Java-onderdelen, zoals Mahout en trapsgewijze, kunnen worden uitgevoerd op het cluster als JAR-bestanden. Deze JAR-bestanden worden gedistribueerd naar Azure Blob storage en verzonden naar HDInsight-clusters via Hadoop taak verzending mechanismen. Zie voor meer informatie [Hadoop verzenden via een programma taken](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
   > [!NOTE]
   > Als u problemen JAR-bestanden met HDInsight-clusters implementeren of als het aanroepen van de JAR-bestanden op HDInsight-clusters, neem contact op met [Microsoft Support](https://azure.microsoft.com/support/options/).
@@ -213,7 +213,7 @@ Er zijn veel manieren kunt u het proces programma:
 * Gebruiker Azure Data Factory. Zie [gekoppelde Service van Azure HDInsight](../data-factory/compute-linked-services.md) en [transformeren en analyseren met Azure Data Factory](../data-factory/transform-data.md) voor op aanvraag en zelf gedefinieerde HDInsight gekoppelde services.
 * Azure PowerShell gebruiken.  Zie [analyseren vertraging vluchtgegevens](hdinsight-analyze-flight-delay-data.md).
 * Azure CLI gebruiken. Zie [HDInsight-clusters beheren met Azure CLI](hdinsight-administer-use-command-line.md).
-* HDInsight .NET SDK gebruiken. Zie [indienen Hadoop-taken](hdinsight-submit-hadoop-jobs-programmatically.md).
+* HDInsight .NET SDK gebruiken. Zie [indienen Hadoop-taken](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Zie voor de prijsinformatie [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight/). Zie voor informatie over het verwijderen van een cluster vanuit de Portal [clusters verwijderen](#delete-clusters)
 
@@ -271,7 +271,7 @@ Zie [lijst en geeft weer clusters](#list-and-show-clusters).
 ## <a name="open-hdinsight-query-console"></a>HDInsight-Query-console openen
 De console HDInsight Query bevat de volgende functies:
 
-* **Hive-Editor**: een GUI-webinterface voor het indienen van Hive-taken.  Zie [uitvoeren Hive-query's via de Console Query](hdinsight-hadoop-use-hive-query-console.md).
+* **Hive-Editor**: een GUI-webinterface voor het indienen van Hive-taken.  Zie [uitvoeren Hive-query's via de Console Query](hadoop/apache-hadoop-use-hive-query-console.md).
 
     ![HDInsight portal hive-editor](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
 * **Taakgeschiedenis**: Monitor Hadoop-taken.  
@@ -371,8 +371,8 @@ In dit artikel hebt u geleerd hoe een HDInsight-cluster maken met behulp van de 
 * [HDInsight met behulp van Azure PowerShell beheren](hdinsight-administer-use-powershell.md)
 * [Beheer van HDInsight Azure CLI gebruiken](hdinsight-administer-use-command-line.md)
 * [HDInsight-clusters maken](hdinsight-hadoop-provision-linux-clusters.md)
-* [Hadoop-taken programmatisch verzenden](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Aan de slag met Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Hadoop-taken programmatisch verzenden](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Aan de slag met Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Welke versie van Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com

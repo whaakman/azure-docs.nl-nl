@@ -1,8 +1,8 @@
-When you generate a client certificate, it's automatically installed on the computer that you used to generate it. If you want to install the client certificate on another client computer, you need to export the client certificate that you generated.                              
+Wanneer u een clientcertificaat genereert, wordt het automatisch geïnstalleerd op de computer die u hebt gebruikt voor het genereren ervan. Als u het clientcertificaat installeren op een andere clientcomputer wilt, moet u het exporteren van het clientcertificaat dat u hebt gegenereerd.                              
 
-1. To export a client certificate, open **Manage user certificates**. The client certificates that you generated are, by default, located in 'Certificates - Current User\Personal\Certificates'. Right-click the client certificate that you want to export, click **all tasks**, and then click **Export** to open the **Certificate Export Wizard**.
-2. In the Wizard, click **Next**, then select **Yes, export the private key**, and then click **Next**.
-3. On the **Export File Format** page, leave the defaults selected. Make sure that **Include all certificates in the certification path if possible** is selected. Selecting this also exports the root certificate information that is required for successful authentication. Then, click **Next**.
-4. On the **Security** page, you must protect the private key. If you select to use a password, make sure to record or remember the password that you set for this certificate. Then, click **Next**.
-5. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then, click **Next**.
-6. Click **Finish** to export the certificate.
+1. Als u een clientcertificaat wilt exporteren, opent u **Gebruikerscertificaten beheren**. De clientcertificaten die u hebt gegenereerd, standaard, staan in 'Certificaten - Huidige gebruiker\Persoonlijk\Certificaten'. Met de rechtermuisknop op het clientcertificaat dat u wilt exporteren, klikt u op **alle taken**, en klik vervolgens op **exporteren** openen de **Wizard Certificaat exporteren**.
+2. Klik in de wizard op **Volgende**, selecteer **Ja, de persoonlijke sleutel exporteren** en klik vervolgens op **Volgende**.
+3. Laat op de pagina **Bestandsindeling voor export** de standaardinstellingen geselecteerd. Zorg ervoor dat **en mogelijk alle certificaten in het certificeringspad opnemen** is geselecteerd. Als u deze exporteert ook de basis-gegevens die nodig is voor een geslaagde verificatie. Klik op **Volgende**.
+4. Op de pagina **Beveiliging** moet u de persoonlijke sleutel beveiligen. Als u ervoor kiest om een wachtwoord te gebruiken, is het belangrijk dat u het wachtwoord voor dit certificaat ergens noteert of onthoudt. Klik op **Volgende**.
+5. Op de pagina **Te exporteren bestand** **bladert** u naar de locatie waar u het certificaat wilt exporteren. Geef bij **Bestandsnaam** de naam van het certificaatbestand op. Klik op **Volgende**.
+6. Klik op **Voltooien** om het certificaat te exporteren.

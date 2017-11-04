@@ -1,8 +1,8 @@
-1. In the Visual Studio **Solution Explorer**, right-click the project and select **Add > Docker Support** from the context menu.
+1. In de Visual Studio **Solution Explorer**, met de rechtermuisknop op het project en selecteer **toevoegen > Docker-ondersteuning** in het contextmenu.
    
-    ![Add Docker Support context menu](media/vs-azure-tools-docker-add-docker-support/docker-support-context-menu.png)
-2. Adding Docker support to an ASP.NET Core web project results in the addition of several Docker-related files being added to the project, including Docker-Compose files, deployment Windows PowerShell scripts, and Docker property files. 
+    ![Contextmenu Docker-ondersteuning toevoegen](media/vs-azure-tools-docker-add-docker-support/docker-support-context-menu.png)
+2. Docker-ondersteuning toe te voegen aan een ASP.NET Core resulteert webproject in verschillende Docker-gerelateerde bestanden die worden toegevoegd aan het project, met inbegrip van Docker Compose bestanden, implementatie van Windows PowerShell-scripts en Docker eigenschap bestanden toe te voegen. 
    
-    ![Docker files added to project](media/vs-azure-tools-docker-add-docker-support/docker-files-added.png)
+    ![Docker-bestanden die zijn toegevoegd aan het project](media/vs-azure-tools-docker-add-docker-support/docker-files-added.png)
 
 

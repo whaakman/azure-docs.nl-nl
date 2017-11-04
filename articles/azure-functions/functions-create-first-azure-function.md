@@ -4,28 +4,27 @@ description: Leer hoe u uw eerste serverloze Azure-functie kunt maken met behulp
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.service: functions
 ms.devlang: multiple
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 10/17/2017
 ms.author: glenga
-ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: d7d3aef1e713cf080b23575f56321e00a0b4af1f
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/07/2017
-
+ms.custom: mvc, devcenter
+ms.openlocfilehash: 638c3bfb5a312c196d09216f3f7bf95bbc983c10
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Uw eerste functie maken in Azure Portal
 
-Met Azure Functions kunt u uw code in een serverloze omgeving uitvoeren zonder dat u eerst een virtuele machine moet maken of een webtoepassing moet publiceren. In dit onderwerp leert u hoe met Azure Functions een 'Hallo wereld-functie' in Azure Portal kunt maken.
+Azure Functions, kunt u het uitvoeren van uw code in een [zonder server](https://azure.microsoft.com/overview/serverless-computing/) omgeving zonder eerst een virtuele machine maken of een webtoepassing publiceren. In dit onderwerp leert u hoe met Azure Functions een 'Hallo wereld-functie' in Azure Portal kunt maken.
 
 ![Functie-app maken in Azure Portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
@@ -40,8 +39,6 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 U moet een functie-app hebben die als host fungeert voor de uitvoering van uw functies. Met een functie-app kunt u functies groeperen in een logische eenheid, zodat u resources eenvoudiger kunt beheren, implementeren en delen. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
-
-![De functie-app is gemaakt.](./media/functions-create-first-azure-function/function-app-create-success.png)
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
@@ -84,7 +81,6 @@ U hebt een functie-app met een eenvoudige door HTTP geactiveerde functie gemaakt
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Zie [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md) (Azure Functions-HTTP- en webhookbindingen) voor meer informatie.
-
 
 
 

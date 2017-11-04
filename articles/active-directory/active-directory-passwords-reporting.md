@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5b28e15d643497dbdf827b3976ad7dcdc73507b1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 82b1916a49cd1e04580fdb848545ce7d52299579
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Rapportageopties voor Azure AD-wachtwoordbeheer
 
@@ -31,7 +31,7 @@ Na de implementatie veel organisaties willen weten hoe of als SSPR echt wordt ge
 Kunnen de volgende vragen worden beantwoord door rapporten die zijn opgenomen in de [Azure portal] (https://portal.azure.com/).
 
 > [!NOTE]
-> U moet [een globale beheerder](active-directory-assign-admin-roles.md#assign-or-remove-administrator-roles) en moet aanmelden voor deze gegevens worden verzameld namens uw organisatie door naar de logboeken van de reporting tabblad of audit ten minste één keer te gaan. Pas als u dit doet, wordt geen gegevens verzameld voor uw organisatie
+> U moet [een globale beheerder](active-directory-assign-admin-roles.md) en moet aanmelden voor deze gegevens worden verzameld namens uw organisatie door naar de logboeken van de reporting tabblad of audit ten minste één keer te gaan. Pas als u dit doet, wordt geen gegevens verzameld voor uw organisatie
 
 * Hoeveel mensen hebben geregistreerd voor het wachtwoord opnieuw instellen?
 * Die is geregistreerd voor het wachtwoord opnieuw instellen?

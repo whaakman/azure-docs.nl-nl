@@ -1,6 +1,6 @@
 ---
-title: Deploy a virtual machine with a securely stored certificate on Azure Stack | Microsoft Docs
-description: Learn how to deploy a virtual machine and push a certificate onto it by using a key vault in Azure Stack
+title: Een virtuele machine met een veilig opgeslagen certificaat op de Stack Azure implementeren | Microsoft Docs
+description: Informatie over het implementeren van een virtuele machine en een certificaat op deze met behulp van een sleutelkluis in Azure-Stack push
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,36 +14,35 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/03/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 29ccdc9eca9911b2f550f9e09da83d0b1d30f9db
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>Create a virtual machine and include certificate retrieved from a key vault
+# <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>Maken van een virtuele machine en certificaat opgehaald uit een sleutelkluis opnemen
 
-This article helps you to create a virtual machine in Azure Stack and push certificates onto it. 
+In dit artikel helpt u bij het maken van een virtuele machine in Azure-Stack en push certificaten op deze. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Vereisten
 
-* You must must subscribe to an offer that includes the Key Vault service. 
-* [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
-* [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)
+* U moet moet zich abonneren op een aanbieding met de Sleutelkluis-service. 
+* [Installeer PowerShell voor Azure-Stack.](azure-stack-powershell-install.md)  
+* [Configureren van de gebruiker van de Stack van Azure PowerShell-omgeving](azure-stack-powershell-configure-user.md)
 
-A key vault in Azure Stack is used to store certificates. Certificates are helpful in many different scenarios. For example, consider a scenario where you have a virtual machine in Azure Stack that is running an application that needs a certificate. This certificate can be used for encrypting, for authenticating to Active Directory, or for SSL on a website. Having the certificate in a key vault helps make sure that it's secure.
+Een sleutelkluis in Azure-Stack wordt gebruikt voor het opslaan van certificaten. Certificaten zijn handig in veel verschillende scenario's. Neem bijvoorbeeld een scenario waarin het hebben van een virtuele machine in Azure-Stack waarop een toepassing die u een certificaat moet wordt uitgevoerd. Dit certificaat kan worden gebruikt voor het coderen voor verificatie bij de Active Directory of voor SSL op een website. Als het certificaat van een sleutelkluis kunnen Zorg ervoor dat deze is beveiligd.
 
-In this article, we walk you through the steps required to push a certificate onto a Windows virtual machine in Azure Stack. You can use these steps either from the Azure Stack Development Kit, or from a Windows-based external client if you are connected through VPN.
+In dit artikel doorlopen we de stappen die nodig zijn om een certificaat op een virtuele Windows-machine in Azure-Stack. U kunt deze stappen van de Azure-Stack Development Kit of vanaf een externe Windows-client gebruiken als u via VPN-verbinding verbonden bent.
 
-The following steps describe the process required to push a certificate onto the virtual machine:
+De volgende stappen beschrijven het proces dat is vereist voor de push-een certificaat op de virtuele machine:
 
-1. Create a Key Vault secret.
-2. Update the azuredeploy.parameters.json file.
-3. Deploy the template
+1. Een Sleutelkluis geheim maken.
+2. Het bestand azuredeploy.parameters.json bijwerken.
+3. De sjabloon implementeren
 
-## <a name="create-a-key-vault-secret"></a>Create a Key Vault secret
+## <a name="create-a-key-vault-secret"></a>Een Sleutelkluis geheim maken
 
-The following script creates a certificate in the .pfx format, creates a key vault, and stores the certificate in the key vault as a secret. You must use the `-EnabledForDeployment` parameter when you're creating the key vault. This parameter makes sure that the key vault can be referenced from Azure Resource Manager templates.
+Het volgende script maakt een certificaat in PFX-indeling, maakt u een sleutelkluis en het certificaat wordt opgeslagen in de sleutelkluis als een geheim. Moet u de `-EnabledForDeployment` parameter als u de sleutelkluis. Deze parameter zorgt ervoor dat de sleutelkluis kan worden verwezen vanuit de Azure Resource Manager-sjablonen.
 
 ```powershell
 
@@ -106,13 +105,13 @@ Set-AzureKeyVaultSecret `
 
 ```
 
-When you run the previous script, the output includes the secret URI. Make a note of this URI. You have to reference it in the [Push certificate to Windows Resource Manager template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Download the [vm-push-certificate-windows template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) folder onto your development computer. This folder contains the `azuredeploy.json` and `azuredeploy.parameters.json` files, which you will need in the next steps.
+Wanneer u het vorige script uitvoert, wordt de uitvoer de geheime URI bevat. Noteer deze URI. U moet verwijzen naar deze in de [Push-certificaat naar Windows Resource Manager-sjabloon](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Download de [vm-push-certificaat-windows-sjabloon](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) map op uw ontwikkelcomputer. Deze map bevat de `azuredeploy.json` en `azuredeploy.parameters.json` bestanden, wat u in de volgende stappen moet.
 
-Modify the `azuredeploy.parameters.json` file according to your environment values. The parameters of special interest are the vault name, the vault resource group, and the secret URI (as generated by the previous script). The following file is an example of a parameter file:
+Wijzig de `azuredeploy.parameters.json` bestand volgens de Omgevingswaarden in de. De parameters van speciaal belang zijn de kluisnaam van de, de resourcegroep voor de kluis en het geheim URI (zoals gegenereerd door het vorige script). Het volgende bestand is een voorbeeld van een parameterbestand:
 
-## <a name="update-the-azuredeployparametersjson-file"></a>Update the azuredeploy.parameters.json file
+## <a name="update-the-azuredeployparametersjson-file"></a>Het bestand azuredeploy.parameters.json bijwerken
 
-Update the azuredeploy.parameters.json file with the vaultName, secret URI, VmName, and other values as per your environment. The following JSON file shows an example of the template parameters file: 
+Het bestand azuredeploy.parameters.json bijwerken met de vaultName, geheime URI, VmName en andere waarden aan de hand van uw omgeving. Het volgende JSON-bestand ziet u een voorbeeld van de sjabloon parameters: 
 
 ```json
 {
@@ -147,9 +146,9 @@ Update the azuredeploy.parameters.json file with the vaultName, secret URI, VmNa
 }
 ```
 
-## <a name="deploy-the-template"></a>Deploy the template
+## <a name="deploy-the-template"></a>De sjabloon implementeren
 
-Now deploy the template by using the following PowerShell script:
+Nu u de sjabloon implementeren met behulp van de volgende PowerShell-script:
 
 ```powershell
 # Deploy a Resource Manager template to create a VM and push the secret onto it
@@ -160,24 +159,23 @@ New-AzureRmResourceGroupDeployment `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
 
-When the template is deployed successfully, it results in the following output:
+Wanneer de sjabloon wordt geïmplementeerd, resulteert dit in de volgende uitvoer:
 
-![Deployment output](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
+![Implementatie-uitvoer](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
 
-When this virtual machine is deployed, Azure Stack pushes the certificate onto the virtual machine. In Windows, the certificate is added to the LocalMachine certificate location, with the certificate store that the user provided. In Linux, the certificate is placed under the /var/lib/waagent directory, with the file name &lt;UppercaseThumbprint&gt;.crt for the X509 certificate file and &lt;UppercaseThumbprint&gt;.prv for the private key.
+Wanneer deze virtuele machine wordt geïmplementeerd, stuurt Azure Stack het certificaat op de virtuele machine. Het certificaat is toegevoegd in Windows naar de locatie van het certificaat LocalMachine, met het certificaatarchief van de gebruiker opgegeven. Het certificaat is in Linux, geplaatst in de map /var/lib/waagent met de bestandsnaam &lt;UppercaseThumbprint&gt;.crt voor de X509 certificaatbestand en &lt;UppercaseThumbprint&gt;.prv voor de persoonlijke sleutel .
 
-## <a name="retire-certificates"></a>Retire certificates
+## <a name="retire-certificates"></a>Certificaten buiten gebruik stellen
 
-In the preceding section, we showed you how to push a new certificate onto a virtual machine. Your old certificate is still on the virtual machine, and it can't be removed. However, you can disable the older version of the secret by using the `Set-AzureKeyVaultSecretAttribute` cmdlet. The following is an example usage of this cmdlet. Make sure to replace the vault name, secret name, and version values according to your environment:
+In de vorige sectie we u laten zien hoe u een nieuw certificaat op een virtuele machine push. Uw oude certificaat is nog steeds op de virtuele machine en kan niet worden verwijderd. U kunt echter de oudere versie van het geheim uitschakelen met behulp van de `Set-AzureKeyVaultSecretAttribute` cmdlet. Hier volgt een voorbeeld van de informatie over het gebruik van deze cmdlet. Zorg ervoor dat u de kluisnaam, geheime naam en Versiewaarden volgens uw omgeving:
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
 ```
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Volgende stappen
 
-* [Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
-* [Allow an application to access Key Vault](azure-stack-kv-sample-app.md)
-
+* [Een virtuele machine implementeren met een Key Vault-wachtwoord](azure-stack-kv-deploy-vm-with-secret.md)
+* [Toestaan dat een toepassing voor toegang tot de Sleutelkluis](azure-stack-kv-sample-app.md)
 
 

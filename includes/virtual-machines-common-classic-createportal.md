@@ -25,8 +25,3 @@ Een *aangepaste* virtuele machine is een virtuele machine die u maakt met een **
 >
 
 ## <a name="to-create-the-virtual-machine"></a>De virtuele machine maken
-
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -1,53 +1,53 @@
-## <a name="prerequisites"></a>Prerequisites
-Before we can write CDN management code, we need to do some preparation to enable our code to interact with the Azure Resource Manager.  To do this, you'll need to:
+## <a name="prerequisites"></a>Vereisten
+Voordat we CDN management code schrijven kunt, moeten we voorbereiding om in te schakelen van onze code om te communiceren met de Azure Resource Manager.  Om dit te doen, moet u het:
 
-* Create a resource group to contain the CDN profile we create in this tutorial
-* Configure Azure Active Directory to provide authentication for our application
-* Apply permissions to the resource group so that only authorized users from our Azure AD tenant can interact with our CDN profile
+* Een resourcegroep bevat het CDN-profiel we in deze zelfstudie maken maken
+* Azure Active Directory voor de verificatie voor de toepassing configureren
+* Machtigingen toepassen op de resourcegroep, zodat u van ons Azure AD-tenant alleen geautoriseerde gebruikers kunnen communiceren met onze CDN-profiel
 
-### <a name="creating-the-resource-group"></a>Creating the resource group
-1. Log into the [Azure Portal](https://portal.azure.com).
-2. Click the **New** button in the upper left, and then **Management**, and **Resource Group**.
+### <a name="creating-the-resource-group"></a>De resourcegroep maken
+1. Meld u aan bij de [Azure-Portal](https://portal.azure.com).
+2. Klik op de **nieuw** knop in de linkerbovenhoek, en vervolgens **Management**, en **resourcegroep**.
 
-    ![Creating a new resource group](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
-3. Call your resource group *CdnConsoleTutorial*.  Select your subscription and choose a location near you.  If you wish, you may click the **Pin to dashboard** checkbox to pin the resource group to the dashboard in the portal.  This will make it easier to find later.  After you've made your selections, click **Create**.
+    ![Een nieuwe resourcegroep maken](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
+3. Aanroepen van de resourcegroep *CdnConsoleTutorial*.  Selecteer uw abonnement en kies een locatie in de buurt.  Als u wilt, klikt u op de **vastmaken aan dashboard** selectievakje in de resourcegroep naar het dashboard vastmaken in de portal.  Hiermee wordt u later gemakkelijk te vinden.  Nadat u uw selecties hebt gemaakt, klikt u op **maken**.
 
-    ![Naming the resource group](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
-4. After the resource group is created, if you didn't pin it to your dashboard, you can find it by clicking **Browse**, then **Resource Groups**.  Click the resource group to open it.  Make a note of your **Subscription ID**.  We'll need it later.
+    ![Naamgeving van de resourcegroep](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
+4. Nadat de resourcegroep wordt gemaakt, als u deze niet aan uw dashboard vastmaken, kunt u deze vinden door te klikken op **Bladeren**, klikt u vervolgens **resourcegroepen**.  Klik op de resourcegroep om deze te openen.  Maak een notitie van uw **abonnements-ID**.  We hebt deze later nodig.
 
-    ![Naming the resource group](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
+    ![Naamgeving van de resourcegroep](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
-### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Creating the Azure AD application and applying permissions
-There are two approaches to app authentication with Azure Active Directory: Individual users or a service principal. A service principal is similar to a service account in Windows.  Instead of granting a particular user permissions to interact with the CDN profiles, we instead grant the permissions to the service principal.  Service principals are generally used for automated, non-interactive processes.  Even though this tutorial is writing an interactive console app, we'll focus on the service principal approach.
+### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>De Azure AD-toepassing maken en toepassen van machtigingen
+Er zijn twee benaderingen app verificatie met Azure Active Directory: individuele gebruikers of een service-principal. Een service-principal is vergelijkbaar met een serviceaccount in Windows.  In plaats van een bepaalde gebruiker machtigingen verlenen aan de interactie met de CDN-profielen, wordt in plaats daarvan de machtigingen verlenen voor de service-principal.  Service-principals worden meestal gebruikt voor geautomatiseerde, niet-interactieve processen.  Hoewel deze zelfstudie een interactieve console-app schrijft is, moet we zich richten op de service principal aanpak.
 
-Creating a service principal consists of several steps, including creating an Azure Active Directory application.  To do this, we're going to [follow this tutorial](../articles/resource-group-create-service-principal-portal.md).
-
-> [!IMPORTANT]
-> Be sure to follow all the steps in the [linked tutorial](../articles/resource-group-create-service-principal-portal.md).  It is *extremely important* that you complete it exactly as described.  Make sure to note your **tenant ID**, **tenant domain name** (commonly a *.onmicrosoft.com* domain unless you've specified a custom domain), **client ID**, and **client authentication key**, as we will need these later.  Be very careful to guard your **client ID** and **client authentication key**, as these credentials can be used by anyone to execute operations as the service principal.
->
-> When you get to the step named Configure multi-tenant application, select **No**.
->
-> When you get to the step [Assign application to role](../articles/azure-resource-manager/resource-group-create-service-principal-portal.md#assign-application-to-role), use the resource group we created earlier,  *CdnConsoleTutorial*, but instead of the **Reader** role, assign the **CDN Profile Contributor** role.  After you assign the application the **CDN Profile Contributor** role on your resource group, return to this tutorial. 
->
->
-
-Once you've created your service principal and assigned the **CDN Profile Contributor** role, the **Users** blade for your resource group should look similar to this.
-
-![Users blade](./media/cdn-app-dev-prep/cdn-service-principal-include.png)
-
-### <a name="interactive-user-authentication"></a>Interactive user authentication
-If, instead of a service principal, you'd rather have interactive individual user authentication, the process is very similar to that for a service principal.  In fact, you will need to follow the same procedure, but make a few minor changes.
+Maken van een service-principal bestaat uit verschillende stappen, zoals het maken van een Azure Active Directory-toepassing.  Om dit te doen, gaan we [Volg deze zelfstudie](../articles/resource-group-create-service-principal-portal.md).
 
 > [!IMPORTANT]
-> Only follow these next steps if you are choosing to use individual user authentication instead of a service principal.
+> Volg de stappen in de [gekoppelde zelfstudie](../articles/resource-group-create-service-principal-portal.md).  Het is *zeer belangrijk* dat u deze hebt voltooid zoals beschreven.  Zorg ervoor dat u Let op uw **tenant-ID**, **tenant domeinnaam** (meestal een *. onmicrosoft.com* domein tenzij u een aangepast domein hebt opgegeven), **client-ID** , en **client-verificatiesleutel**, zoals we zullen deze later nodig hebt.  Wees voorzichtig te gebruiken zodat uw **client-ID** en **client-verificatiesleutel**, zoals deze referenties kunnen worden gebruikt door iedereen bewerkingen worden uitgevoerd als de service-principal.
+>
+> Als u de stap multitenant-toepassing configureren met de naam, selecteer **Nee**.
+>
+> Als u krijgt met de stap [toepassing toewijzen aan rol](../articles/azure-resource-manager/resource-group-create-service-principal-portal.md#assign-application-to-role), gebruikt u de resourcegroep die we eerder hebt gemaakt, *CdnConsoleTutorial*, maar in plaats van de **lezer** rol, de toewijzen **CDN-profiel Inzender** rol.  Nadat u de toepassing toewijzen de **CDN-profiel Inzender** rol in de resourcegroep, Ga terug naar deze zelfstudie. 
 >
 >
 
-1. When creating your application, instead of **Web Application**, choose **Native application**.
+Nadat u hebt uw service-principal gemaakt en toegewezen de **CDN-profiel Inzender** rol, de **gebruikers** blade voor de resourcegroep moet er ongeveer als volgt uitzien.
 
-    ![Native application](./media/cdn-app-dev-prep/cdn-native-application-include.png)
-2. On the next page, you will be prompted for a **redirect URI**.  The URI won't be validated, but remember what you entered.  You'll need it later.
-3. There is no need to create a **client authentication key**.
-4. Instead of assigning a service principal to the **CDN Profile Contributor** role, we're going to assign individual users or groups.  In this example, you can see that I've assigned  *CDN Demo User* to the **CDN Profile Contributor** role.  
+![Blade gebruikers](./media/cdn-app-dev-prep/cdn-service-principal-include.png)
 
-    ![Individual user access](./media/cdn-app-dev-prep/cdn-aad-user-include.png)
+### <a name="interactive-user-authentication"></a>Interactieve gebruikersverificatie
+Als u in plaats van een service-principal u liever interactieve afzonderlijke gebruikersverificatie, is het proces is vergelijkbaar met die voor een service-principal.  In feite, moet u dezelfde procedure volgen, maar een paar kleine wijzigingen aanbrengen.
+
+> [!IMPORTANT]
+> Deze stappen alleen volgende als u afzonderlijke gebruiker om verificatie te gebruiken in plaats van een service-principal.
+>
+>
+
+1. Bij het maken van uw toepassing, in plaats van **webtoepassing**, kies **systeemeigen toepassing**.
+
+    ![Systeemeigen toepassing](./media/cdn-app-dev-prep/cdn-native-application-include.png)
+2. Op de volgende pagina wordt u gevraagd om een **omleidings-URI**.  De URI won't worden gevalideerd, maar onthouden wat u hebt ingevoerd.  U hebt deze later nodig.
+3. Er is niet nodig voor het maken een **client-verificatiesleutel**.
+4. In plaats van het toewijzen van een service-principal voor de **CDN-profiel Inzender** rol, gaan we individuele gebruikers of groepen toewijzen.  In dit voorbeeld kunt u zien dat ik hebt toegewezen *CDN Demo gebruiker* naar de **CDN-profiel Inzender** rol.  
+
+    ![Afzonderlijke gebruikerstoegang](./media/cdn-app-dev-prep/cdn-aad-user-include.png)

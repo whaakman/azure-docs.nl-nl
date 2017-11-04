@@ -16,17 +16,17 @@ ms.date: 08/15/2017
 ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 6ff9a341b31e5005949dcc0ecb2591060269846e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2f43b7c11356b8d553bb593785b7b44ca2d4d285
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 #  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>De infrastructuur van uw extern bureaublad-Gateway met de extensie van Network Policy Server (NPS) en Azure AD integreren
 
 Dit artikel bevat informatie voor het integreren van uw infrastructuur voor extern bureaublad-Gateway met Azure multi-factor Authentication (MFA) met behulp van de Network Policy Server (NPS)-uitbreiding voor Microsoft Azure. 
 
-De Service NPS (Network Policy)-extensie voor Azure klanten kunnen te beschermen Remote Authentication Dial-In User Service (RADIUS)-clientverificatie met Azure de cloud-gebaseerde [multi-factor Authentication (MFA)](multi-factor-authentication.md). Deze oplossing biedt verificatie in twee stappen voor het toevoegen van een tweede beveiligingslaag aan gebruikersaanmeldingen en transacties.
+De Network Policy Server (NPS)-extensie voor Azure klanten kunnen te beschermen Remote Authentication Dial-In User Service (RADIUS)-clientverificatie met Azure de cloud-gebaseerde [multi-factor Authentication (MFA)](multi-factor-authentication.md). Deze oplossing biedt verificatie in twee stappen voor het toevoegen van een tweede beveiligingslaag aan gebruikersaanmeldingen en transacties.
 
 In dit artikel bevat stapsgewijze instructies voor het integreren van de NPS-infrastructuur met Azure MFA met behulp van de NPS-extensie voor Azure. Hierdoor veilige verificatie voor gebruikers die zich willen aanmelden bij een extern bureaublad-Gateway. 
 
@@ -37,7 +37,7 @@ De Network Policy and Access Services (NPS) biedt organisaties de mogelijkheid h
 
 Normaal gesproken organisaties gebruik NPS (RADIUS) om te vereenvoudigen en centraliseer het beheer van VPN-beleid. Veel organisaties worden echter ook de NPS gebruiken om te vereenvoudigen en centraliseer het beheer van extern bureaublad bureaublad Verbindingsautorisatiebeleid (RD CAP's). 
 
-Organisaties kunnen ook NPS integreren met Azure MFA om betere beveiliging en een hoge mate van naleving te bieden. Dit zorgt ervoor dat gebruikers de verificatie in twee stappen voor aanmelding bij de extern bureaublad-Gateway maken. Voor gebruikers toegang te krijgen, moet deze de combinatie van gebruikersnaam en wachtwoord met informatie die de gebruiker in het besturingselement heeft opgeven. Deze informatie moet worden vertrouwd en eenvoudig niet wordt gedupliceerd, zoals een mobiele telefoonnummer, een vast, een toepassing op een mobiel apparaat, enzovoort.
+Organisaties kunnen ook NPS integreren met Azure MFA om betere beveiliging en een hoge mate van naleving te bieden. Dit zorgt ervoor dat gebruikers de verificatie in twee stappen voor aanmelding bij de extern bureaublad-Gateway maken. Voor gebruikers toegang te krijgen, moet deze de combinatie van gebruikersnaam en wachtwoord samen met informatie die de gebruiker in het besturingselement heeft opgeven. Deze informatie moet worden vertrouwd en eenvoudig niet wordt gedupliceerd, zoals een mobiele telefoonnummer, een vast, een toepassing op een mobiel apparaat, enzovoort.
 
 Voorafgaand aan de beschikbaarheid van de NPS-extensie voor Azure moest-klanten die willen implementeren verificatie in twee stappen voor geïntegreerde NPS en Azure MFA-omgevingen configureren en onderhouden van een afzonderlijke MFA-Server in de on-premises-omgeving, zoals beschreven in [ Extern bureaublad-Gateway en Azure multi-factor Authentication-Server met behulp van RADIUS](multi-factor-authentication-get-started-server-rdg.md).
 
@@ -56,7 +56,7 @@ Wanneer de NPS-extensie voor Azure is geïntegreerd met de NPS- en extern bureau
 3. Indien wordt voldaan aan de voorwaarden zoals opgegeven in de NPS-verbindingsaanvraag en het netwerkbeleid (bijvoorbeeld de tijd van de dag of groep lidmaatschap beperkingen), de NPS-extensie activeert een aanvraag voor de secundaire verificatie met Azure MFA. 
 4. Azure MFA communiceert met Azure AD, haalt de details van de gebruiker en de secundaire authenticatie via de methode die is geconfigureerd door de gebruiker (SMS-bericht, mobiele app, enzovoort) wordt uitgevoerd. 
 5. Bij voltooiing van de uitdaging MFA communiceert Azure MFA het resultaat naar de NPS-extensie.
-6. De NPS-server waarop de uitbreiding is geïnstalleerd verzendt een RADIUS-Access-Accept-bericht voor het beleid RD CAP's naar de extern bureaublad-gatewayserver.
+6. De NPS-server waarop de uitbreiding is geïnstalleerd, verzendt een RADIUS-Access-Accept-bericht voor het beleid RD CAP's naar de extern bureaublad-gatewayserver.
 7. De gebruiker krijgt toegang tot de aangevraagde netwerkbron via de RD-Gateway.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -66,7 +66,7 @@ In deze sectie beschrijft de vereisten die nodig zijn voordat de integratie van 
 * Azure MFA-licentie
 * Windows Server-software
 * De rol en Network Policy and Access Services (NPS)
-* Azure AD gesynchroniseerd met on-premises AD dat 
+* Azure Active Directory worden gesynchroniseerd met de lokale Active Directory
 * GUID-ID van Azure Active Directory
 
 ### <a name="remote-desktop-services-rds-infrastructure"></a>Infrastructuur voor extern bureaublad-Services (RDS)
@@ -75,10 +75,10 @@ U moet beschikken over een werkende extern bureaublad-Services (RDS)-infrastruct
 Volg de stappen voor het implementeren van een desgewenst handmatig maken van een on-premises RDS-infrastructuur snel voor testdoeleinden. 
 **Meer informatie**: [RDS implementeren met Azure snel starten](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) en [Basic RDS infrastructuur implementeren](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure). 
 
-### <a name="licenses"></a>Licenties
+### <a name="azure-mfa-license"></a>Azure MFA-licentie
 Vereist, is een licentie voor Azure MFA, die beschikbaar via een Azure AD Premium, Enterprise Mobility plus Security (EMS) of een MFA-abonnement is. Zie voor meer informatie [het ophalen van Azure multi-factor Authentication](multi-factor-authentication-versions-plans.md). Voor testdoeleinden kunt u een proefabonnement.
 
-### <a name="software"></a>Software
+### <a name="windows-server-software"></a>Windows Server-software
 De NPS-uitbreiding vereist Windows Server 2008 R2 SP1 of hoger als de NPS-functieservice die is geïnstalleerd. De stappen in deze sectie zijn uitgevoerd met behulp van Windows Server 2016.
 
 ### <a name="network-policy-and-access-services-nps-role"></a>De rol en Network Policy and Access Services (NPS)
@@ -86,11 +86,11 @@ De functieservice NPS biedt de RADIUS-server en client-functionaliteit, evenals 
 
 Voor informatie over het installeren van de NPS-rolservice service WindowsServer 2012 of ouder, Zie [installeren van een NAP-statusbeleidsserver](https://technet.microsoft.com/library/dd296890.aspx). Zie voor een beschrijving van best practices voor NPS, met inbegrip van de aanbeveling om NPS installeert op een domeincontroller [Best Practices voor NPS](https://technet.microsoft.com/library/cc771746).
 
-### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>Azure Active Directory worden gesynchroniseerd met de lokale Active Directory 
+### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>Azure Active Directory worden gesynchroniseerd met de lokale Active Directory
 Voor het gebruik van de NPS-extensie, zijn on-premises gebruikers gesynchroniseerd met Azure AD en ingeschakeld voor MFA. Deze sectie wordt ervan uitgegaan dat de on-premises gebruikers zijn gesynchroniseerd met Azure AD via AD Connect. Voor informatie over Azure AD connect, Zie [uw on-premises adreslijsten integreren met Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md). 
 
 ### <a name="azure-active-directory-guid-id"></a>GUID-ID van Azure Active Directory
-U moet weten de GUID van de Azure AD voor de installatie van NPS. Hieronder vindt u instructies voor het vinden van de GUID van de Azure AD.
+Voor het installeren van NPS-extensie die u wilt weten van de GUID van de Azure AD. Hieronder vindt u instructies voor het vinden van de GUID van de Azure AD.
 
 ## <a name="configure-multi-factor-authentication"></a>Multi-factor Authentication configureren 
 Deze sectie geeft instructies voor het integreren van Azure MFA met extern bureaublad-Gateway. Als beheerder, moet u de Azure MFA-service configureren voordat gebruikers hun apparaten meerledige of toepassingen zichzelf kunnen registreren.
@@ -98,7 +98,7 @@ Deze sectie geeft instructies voor het integreren van Azure MFA met extern burea
 Volg de stappen in [aan de slag met Azure multi-factor Authentication in de cloud](multi-factor-authentication-get-started-cloud.md) MFA inschakelen voor uw Azure AD-gebruikers. 
 
 ### <a name="configure-accounts-for-two-step-verification"></a>Accounts configureren voor verificatie in twee stappen
-Wanneer een account is ingeschakeld voor MFA, u kunt zich niet in naar bronnen die worden bepaald door de MFA beleid totdat u een vertrouwd apparaat moet worden gebruikt voor de tweede verificatiefactor hebt geconfigureerd hebt geverifieerd met behulp van verificatie in twee stappen.
+Wanneer een account voor MFA is ingeschakeld, kan niet u zich aanmeldt bij resources beheerst door het MFA-beleid, totdat u een vertrouwd apparaat wilt gebruiken voor de tweede verificatiefactor en hebt geverifieerd met behulp van verificatie in twee stappen hebt geconfigureerd.
 
 Volg de stappen in [wat Azure multi-factor Authentication betekent voor mij?](./end-user/multi-factor-authentication-end-user.md) om te begrijpen en uw apparaten goed geconfigureerd voor MFA met uw gebruikersaccount.
 
@@ -126,11 +126,11 @@ Installeer de NPS-extensie op een server met de serverrol Network Policy and Acc
 1. Download de [NPS extensie](https://aka.ms/npsmfa). 
 2. Kopieer het setup-bestand (NpsExtnForAzureMfaInstaller.exe) naar de NPS-server.
 3. Dubbelklik op de NPS-server op **NpsExtnForAzureMfaInstaller.exe**. Als u wordt gevraagd, klikt u op **uitvoeren**.
-4. In de NPS-extensie voor het dialoogvenster Azure MFA, controleert u de softwarelicentievoorwaarden controleren **ik ga akkoord met de licentievoorwaarden en voorwaarden**, en klik op **installeren**.
+4. Lees de licentievoorwaarden voor software in het dialoogvenster NPS-extensie voor Azure MFA Setup controleren **ik ga akkoord met de licentievoorwaarden en voorwaarden**, en klik op **installeren**.
  
   ![Azure MFA-instellingen](./media/nps-extension-remote-desktop-gateway/image2.png)
 
-5. Klik op Sluiten in de NPS-extensie voor Azure MFA-dialoogvenster. 
+5. Klik in het dialoogvenster NPS-extensie voor Azure MFA Setup **sluiten**. 
 
   ![NPS-extensie voor Azure MFA](./media/nps-extension-remote-desktop-gateway/image3.png)
 
@@ -145,7 +145,7 @@ Het script voert de volgende handelingen uit:
 * Verleent toegang tot de persoonlijke sleutel van het certificaat voor de netwerkgebruiker
 * Network Policy Server-service wordt opnieuw gestart
 
-Als u wilt uw eigen certificaten te gebruiken, moet u het publiek van uw certificaat aan het principe van de service op Azure AD te koppelen, enzovoort.
+Als u wilt uw eigen certificaten te gebruiken, moet u de openbare sleutel van uw certificaat voor de service-principal over Azure AD te koppelen, enzovoort.
 
 Voor het gebruik van het script, voorzien van de extensie Azure AD-beheerdersreferenties en de Azure AD-tenant-ID die u eerder hebt gekopieerd. Het script uitvoeren op elke NPS-server waarop u de NPS-uitbreiding hebt geïnstalleerd. Ga daarna als volgt te werk:
 
@@ -184,7 +184,7 @@ Extern bureaublad Verbindingsautorisatiebeleid (RD CAP's), geef de vereisten voo
 
   ![Servernaam](./media/nps-extension-remote-desktop-gateway/image9.png)
 
-4. Selecteer in het dialoogvenster Eigenschappen de **RD CAP** tabblad archief.
+4. Selecteer in het dialoogvenster Eigenschappen de **RD CAP-archief** tabblad.
 5. Selecteer op het tabblad archief van extern bureaublad **centrale Server met NPS**. 
 6. In de **Voer een naam of IP-adres voor de server met NPS** veld, typt u het IP-adres of de servernaam van de server waarop u de NPS-uitbreiding hebt geïnstalleerd.
 
@@ -194,7 +194,7 @@ Extern bureaublad Verbindingsautorisatiebeleid (RD CAP's), geef de vereisten voo
 8. In de **gedeelde geheim** in het dialoogvenster voert u een gedeeld geheim en klik vervolgens op **OK**. Zorg ervoor dat u dit gedeelde geheim vastlegt en veilig opslaan van de record.
 
  >[!NOTE]
- >Gedeeld geheim wordt gebruikt om een vertrouwensrelatie tussen de RADIUS-servers en clients. Een lange en complexe wachtwoord maken.
+ >Gedeeld geheim wordt gebruikt om een vertrouwensrelatie tussen de RADIUS-servers en clients. Een lange en complexe clientgeheim hebt gemaakt.
  >
 
  ![Gedeeld geheim](./media/nps-extension-remote-desktop-gateway/image11.png)
@@ -204,7 +204,7 @@ Extern bureaublad Verbindingsautorisatiebeleid (RD CAP's), geef de vereisten voo
 ### <a name="configure-radius-timeout-value-on-remote-desktop-gateway-nps"></a>RADIUS-time-outwaarde op extern bureaublad-Gateway NPS configureren
 Verificatie in twee stappen uitvoeren om te controleren of er voldoende tijd om gebruikers referenties te valideren is, antwoorden ontvangen en reageren op RADIUS-berichten, is het nodig is om aan te passen van de RADIUS-time-outwaarde.
 
-1. Klik op de extern bureaublad-gatewayserver, in Serverbeheer op **extra**, en klik vervolgens op **Network Policy Server**. 
+1. Open Serverbeheer op de extern bureaublad-gatewayserver. Klik op het menu **extra**, en klik vervolgens op **Network Policy Server**. 
 2. In de **NPS (lokaal)** console, vouw **RADIUS-Clients en Servers**, en selecteer **externe RADIUS-Server**.
 
  ![Externe RADIUS-Server](./media/nps-extension-remote-desktop-gateway/image12.png)
@@ -225,7 +225,7 @@ Verificatie in twee stappen uitvoeren om te controleren of er voldoende tijd om 
 
  ![RADIUS-Server bewerken](./media/nps-extension-remote-desktop-gateway/image14.png)
 
-8.  Klik twee keer op OK om de dialoogvensters te sluiten.
+8.  Klik op **OK** twee keer om de dialoogvensters te sluiten.
 
 ### <a name="verify-connection-request-policies"></a>Controleer of u beleid voor verbindingsaanvragen 
 Bij het configureren van de RD-Gateway met een centrale beleidsarchief voor Verbindingsautorisatiebeleid, wordt de RD-Gateway standaard geconfigureerd voor het doorsturen van CAP aanvragen naar de NPS-server. De NPS-server met de Azure MFA-extensie is geïnstalleerd, verwerkt de RADIUS-toegangsaanvraag. De volgende stappen laten zien hoe het standaardbeleid voor verbindingsaanvragen controleren. 
@@ -245,7 +245,7 @@ De NPS-server waarop de NPS-uitbreiding is geïnstalleerd moet kunnen voor het u
 ### <a name="register-server-in-active-directory"></a>Server registreren in Active Directory
 De NPS-server moet worden geregistreerd in Active Directory een correcte werking in dit scenario.
 
-1. Open **Serverbeheer**.
+1. Open op de NPS-server **Serverbeheer**.
 2. Klik in Serverbeheer op **extra**, en klik vervolgens op **Network Policy Server**. 
 3. In de console Network Policy Server met de rechtermuisknop op **NPS (lokaal)**, en klik vervolgens op **server registreren in Active Directory**. 
 4. Klik op **OK** twee keer.
@@ -261,15 +261,15 @@ De extern bureaublad-Gateway moet worden geconfigureerd als een RADIUS-client na
 
  ![Nieuwe RADIUS-Clients](./media/nps-extension-remote-desktop-gateway/image17.png)
 
-2. In de **nieuwe RADIUS-client** dialoogvenster Geef een beschrijvende naam, zoals _Gateway_, en het IP-adres of de DNS-naam van de extern bureaublad-gatewayserver. 
+2. In de **nieuwe RADIUS-Client** dialoogvenster Geef een beschrijvende naam, zoals _Gateway_, en het IP-adres of de DNS-naam van de extern bureaublad-gatewayserver. 
 3. In de **gedeeld geheim** en de **Bevestig het gedeelde geheim** velden, Voer hetzelfde geheim dat u eerder hebt gebruikt.
 
  ![Naam en adres](./media/nps-extension-remote-desktop-gateway/image18.png)
 
-4. Klik op **OK** te sluiten van het dialoogvenster Nieuwe RADIUS-client.
+4. Klik op **OK** te sluiten van het dialoogvenster Nieuwe RADIUS-Client.
 
 ### <a name="configure-network-policy"></a>Netwerkbeleid configureren
-Intrekken van dat de NPS-server met de Azure MFA-extensie is het aangewezen centraal beleidsarchief voor de verbinding autorisatie beleid (CAP). Daarom moet u een LIMIET op de NPS-server te autoriseren geldige verbindingen aanvragen implementeren.  
+Intrekken van het bericht dat de NPS-server met de Azure MFA-extensie het aangewezen centraal beleid-archief voor de verbinding autorisatie beleid (CAP is). Daarom moet u een LIMIET op de NPS-server te autoriseren geldige verbindingen aanvragen implementeren.  
 
 1. Vouw in de console NPS (lokaal) **beleid**, en klik op **netwerkbeleid**.
 2. Met de rechtermuisknop op **verbindingen met andere toegangsservers**, en klik op **beleid dubbele**. 
@@ -280,7 +280,7 @@ Intrekken van dat de NPS-server met de Azure MFA-extensie is het aangewezen cent
 
  ![Eigenschappen van het netwerk](./media/nps-extension-remote-desktop-gateway/image20.png)
 
-4. In de **kopie van verbindingen met andere toegangsservers** in het dialoogvenster beleidsnaam, Voer in een geschikte naam zoals **RDG_CAP**. Controleer **beleid ingeschakeld**, en selecteer **toegang verlenen**. Selecteer desgewenst in het Type toegang tot het netwerk, **extern bureaublad-Gateway**, of u kunt dit als laten **onbepaald**.
+4. In de **kopie van verbindingen met andere toegangsservers** het dialoogvenster **beleidsnaam**, voer een geschikte naam zoals _RDG_CAP_. Controleer **beleidsinstelling**, en selecteer **toegang verlenen**. Eventueel in **Type netwerktoegangsserver**, selecteer **extern bureaublad-Gateway**, of u kunt dit als laten **onbepaald**.
 
  ![Kopie van verbindingen](./media/nps-extension-remote-desktop-gateway/image21.png)
 
@@ -298,7 +298,7 @@ Intrekken van dat de NPS-server met de Azure MFA-extensie is het aangewezen cent
  ![Netwerkbeleid](./media/nps-extension-remote-desktop-gateway/image24.png)
 
 ## <a name="verify-configuration"></a>Configuratie controleren
-Om te controleren of de configuratie, moet u de extern bureaublad-Gateway aanmelden met een geschikte RDP-client. Zorg dat u een account gebruiken dat is toegestaan door uw Verbindingsautorisatiebeleid en is ingeschakeld voor Azure MFA. 
+Om te controleren of de configuratie, moet u aanmelden bij de extern bureaublad-Gateway met een geschikte RDP-client. Zorg dat u een account gebruiken dat is toegestaan door uw Verbindingsautorisatiebeleid en is ingeschakeld voor Azure MFA. 
 
 Als weergeven in de onderstaande afbeelding, kunt u de **Remote Desktop Web Access** pagina.
 
@@ -306,7 +306,7 @@ Als weergeven in de onderstaande afbeelding, kunt u de **Remote Desktop Web Acce
 
 Nadat het is uw referenties invoeren voor primaire verificatie, wordt in het dialoogvenster Extern bureaublad-verbinding een status van de externe verbinding tot stand brengen, zoals hieronder wordt weergegeven. 
 
-Als u verificatie is met de secundaire verificatie-methode die u eerder hebt geconfigureerd in de Azure MFA, kunt u bent verbonden met de resource. Als de secundaire verificatie niet lukt, wordt u toegang tot bron geweigerd. 
+Als u verificatie is met de secundaire verificatie-methode die u eerder hebt geconfigureerd in de Azure MFA, kunt u bent verbonden met de resource. Als de secundaire verificatie niet lukt, wordt u toegang tot de bron geweigerd. 
 
 ![Externe verbinding tot stand brengen](./media/nps-extension-remote-desktop-gateway/image26.png)
 
@@ -319,7 +319,7 @@ Nadat u bent geverifieerd met de secundaire authenticatiemethode, kunt u bent aa
 ### <a name="view-event-viewer-logs-for-successful-logon-events"></a>Logboeken voor geslaagde aanmeldingsgebeurtenissen weergeven
 Als u wilt de gebeurtenissen voor geslaagde aanmelding in Windows logboeken bekijken, kunt u de volgende Windows PowerShell-opdracht voor het opvragen van de logboeken van de Windows Terminal Services en Windows-beveiliging uitgeven.
 
-Query uitvoeren op gebeurtenissen voor geslaagde aanmelding in de operationele logboeken van de Gateway _(gebeurtenis logboeken\logboeken toepassingen en Services Logs\Microsoft\Windows\TerminalServices-Gateway\Operational_, gebruik de volgende opdrachten:
+Query uitvoeren op gebeurtenissen voor geslaagde aanmelding in de operationele logboeken van de Gateway _(gebeurtenis logboeken\logboeken toepassingen en Services Logs\Microsoft\Windows\TerminalServices-Gateway\Operational)_, gebruik de volgende PowerShell-opdrachten:
 
 * _Get-WinEvent - logboeknaam Microsoft-Windows-TerminalServices-Gateway/operationeel_ | waar {$_.ID - eq '300'} | FL 
 * Deze opdracht geeft Windows-gebeurtenissen die de gebruiker worden voldaan aan de beleidsvereisten autorisatie van resource (RD RAP) en heeft toegang gekregen weergeven.

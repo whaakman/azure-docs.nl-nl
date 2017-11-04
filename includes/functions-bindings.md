@@ -1,25 +1,25 @@
-| Type | Service | Trigger* | Input | Output |  
+| Type | Service | Trigger * | Invoer | Uitvoer |  
 | --- | --- | --- | --- | --- |  
-| [Schedule](../articles/azure-functions/functions-bindings-timer.md)  |Azure Functions |✔ | | |  
-| [HTTP (REST or webhook)](../articles/azure-functions/functions-bindings-http-webhook.md) |Azure Functions |✔ |  |✔\** |  
+| [Planning](../articles/azure-functions/functions-bindings-timer.md)  |Azure Functions |✔ | | |  
+| [HTTP (REST of webhook)](../articles/azure-functions/functions-bindings-http-webhook.md) |Azure Functions |✔ |  |✔\** |  
 | [Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md) |Azure Storage |✔ |✔ |✔ |  
-| [Events](../articles/azure-functions/functions-bindings-event-hubs.md) |Azure Event Hubs |✔ | |✔ |  
-| [Queues](../articles/azure-functions/functions-bindings-storage-queue.md) |Azure Storage |✔ | |✔ |  
-| [Queues and topics](../articles/azure-functions/functions-bindings-service-bus.md) |Azure Service Bus |✔ | |✔ |  
-| [Storage tables](../articles/azure-functions/functions-bindings-storage-table.md) |Azure Storage | |✔ |✔ |  
-| [SQL tables](../articles/azure-functions/functions-bindings-mobile-apps.md) |Azure Mobile Apps | |✔ |✔ |  
-| [NoSQL DB](../articles/azure-functions/functions-bindings-documentdb.md) | Azure Cosmos DB |✔ |✔ |✔ |  
-| [Push Notifications](../articles/azure-functions/functions-bindings-notification-hubs.md) |Azure Notification Hubs | | |✔ |  
-| [Twilio SMS Text](../articles/azure-functions/functions-bindings-twilio.md) |Twilio | | |✔ |
-| [SendGrid email](../articles/azure-functions/functions-bindings-sendgrid.md) | SendGrid | | |✔ |
-| [Excel tables](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ |✔ |
-| [OneDrive files](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ |✔ |
-| [Outlook email](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | | |✔ |
-| [Microsoft Graph events](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph |✔ |✔ |✔ |
-| [Auth tokens](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ | |
+| [Gebeurtenissen](../articles/azure-functions/functions-bindings-event-hubs.md) |Azure Event Hubs |✔ | |✔ |  
+| [Wachtrijen](../articles/azure-functions/functions-bindings-storage-queue.md) |Azure Storage |✔ | |✔ |  
+| [Wachtrijen en onderwerpen](../articles/azure-functions/functions-bindings-service-bus.md) |Azure Service Bus |✔ | |✔ |  
+| [Storage-tabellen](../articles/azure-functions/functions-bindings-storage-table.md) |Azure Storage | |✔ |✔ |  
+| [SQL-tabellen](../articles/azure-functions/functions-bindings-mobile-apps.md) |Azure Mobile Apps | |✔ |✔ |  
+| [NoSQL-database](../articles/azure-functions/functions-bindings-documentdb.md) | Azure Cosmos DB |✔ |✔ |✔ |  
+| [Pushmeldingen](../articles/azure-functions/functions-bindings-notification-hubs.md) |Azure Notification Hubs | | |✔ |  
+| [Twilio SMS-tekstbericht](../articles/azure-functions/functions-bindings-twilio.md) |Twilio | | |✔ |
+| [SendGrid e](../articles/azure-functions/functions-bindings-sendgrid.md) | SendGrid | | |✔ |
+| [Excel-tabellen](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ |✔ |
+| [OneDrive-bestanden](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ |✔ |
+| [E-mail in Outlook](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | | |✔ |
+| [Microsoft Graph-gebeurtenissen](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph |✔ |✔ |✔ |
+| [Auth-tokens](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ | |
 
-(\* - All triggers have associated input data)
+(\* -Alle triggers hebt gekoppeld aan de invoergegevens)
 
-(\** - The HTTP output binding requires an HTTP trigger)
+(\**-De HTTP-uitvoer binding vereist een HTTP-trigger)
 
 

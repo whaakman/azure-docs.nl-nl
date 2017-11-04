@@ -90,6 +90,13 @@
       href: maintenance-and-updates.md
     - name: Storage
       href: azure-vm-storage-overview.md
+      items:
+        - name: Premium Storage
+          href: premium-storage.md
+        - name: Prestaties van Premium Storage
+          href: premium-storage-performance.md
+        - name: Standard Storage
+          href: standard-storage.md
     - name: Netwerken
       href: network-overview.md
     - name: Toepassingen automatisch schalen
@@ -310,6 +317,8 @@
           href: expand-disks.md
         - name: Een momentopname maken van een schijf
           href: snapshot-copy-managed-disk.md
+        - name: Back-up en herstel na noodgeval voor schijven
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Back-up maken van niet-beheerde schijven
           href: incremental-snapshots.md
         - name: Converteren naar Managed Disks
@@ -318,6 +327,8 @@
           href: convert-disk-storage.md
         - name: Bestanden kopiëren naar een virtuele machine
           href: copy-files-to-linux-vm-using-scp.md
+        - name: Migreren naar Premium Storage met Azure Site Recovery
+          href: migrate-to-premium-storage-using-azure-site-recovery.md
         - name: Bestandsopslag gebruiken
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Schijven implementeren met sjabloon

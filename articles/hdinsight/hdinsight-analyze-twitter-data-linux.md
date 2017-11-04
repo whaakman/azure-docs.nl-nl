@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 11/02/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b8656123fa9c5158f366872ab050f370080ec18a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5be05fabf03e7e3ccaa3bf66ffefdd6406a06b3e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Twitter-gegevens met Hive en Hadoop op HDInsight analyseren
 
@@ -158,6 +158,9 @@ De volgende Python-code downloadt 10.000 tweets van Twitter en sla ze naar een b
     > * `consumer_key`
     > * `access_token`
     > * `access_token_secret`
+
+    > [!TIP]
+    > Het filter onderwerpen op de laatste regel voor het bijhouden van populaire trefwoorden aanpassen. Op het moment dat u het script uitvoeren met behulp van populaire trefwoorden kunt u sneller vastleggen van gegevens.
 
 6. Gebruik **Ctrl + X**, klikt u vervolgens **Y** het bestand wilt opslaan.
 
@@ -312,19 +315,22 @@ Deze opdrachten worden de gegevens opslaan op een locatie die toegankelijk is vo
 
    ```hiveql
    SELECT name, screen_name, count(1) as cc
-       FROM tweets
-       WHERE text like "%Azure%"
-       GROUP BY name,screen_name
-       ORDER BY cc DESC LIMIT 10;
+   FROM tweets
+   WHERE text like "%Azure%"
+   GROUP BY name,screen_name
+   ORDER BY cc DESC LIMIT 10;
    ```
 
     Deze query retourneert maximaal 10 tweets met het woord **Azure** in de berichttekst.
+
+    > [!NOTE]
+    > Als u het filter in gewijzigd de `gettweets.py` script, vervangen door **Azure** met een van de filters die u hebt gebruikt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 U hebt geleerd hoe u een niet-gestructureerde JSON-gegevensset transformeren naar een gestructureerde Hive-tabel. Zie de volgende documenten voor meer informatie over Hive in HDInsight:
 
-* [Aan de slag met HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Aan de slag met HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Vertraging vluchtgegevens met HDInsight analyseren](hdinsight-analyze-flight-delay-data-linux.md)
 
 [curl]: http://curl.haxx.se

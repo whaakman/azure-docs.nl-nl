@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: d9964ace6b59fa65f0f5d4caff28a4291047c8a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: be3bbad11632f3af257239f6b10b1b22951073f7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Overzicht van gegevenswetenschap met Spark op Azure HDInsight
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -29,7 +29,7 @@ Deze reeks onderwerpen wordt beschreven hoe HDInsight Spark gebruiken om algemen
 [Spark](http://spark.apache.org/) is een parallelle verwerking van open-source framework die ondersteuning biedt voor in-memory verwerking naar het verbeteren de prestaties van analytische big data-toepassingen. De Spark-verwerkingsengine is gebouwd voor snelheid, gebruiksgemak en geavanceerde analyses. De Spark in-memory gedistribueerde rekencapaciteiten kunnen u een goede keuze voor de herhalende algoritmen in machine learning- en grafiekberekeningen. [MLlib](http://spark.apache.org/mllib/) is modelleren van Spark schaalbare machine learning-bibliotheek die ook de algoritmische mogelijkheden aan deze gedistribueerde omgeving. 
 
 ## <a name="hdinsight-spark"></a>Spark in HDInsight
-[HDInsight Spark](../../hdinsight/hdinsight-apache-spark-overview.md) is de Azure gehoste oplossing van open-source Spark. Biedt ook ondersteuning voor **Jupyter PySpark-notebooks** op het Spark-cluster dat Spark SQL interactieve query's voor het transformeren, te filteren en visualiseren van gegevens die zijn opgeslagen in Azure BLOB's (WASB) kan worden uitgevoerd. PySpark is de Python-API voor Spark. De codefragmenten die voorzien van de oplossingen en weergeven van de relevante waarnemingspunten om de gegevens die hier worden uitgevoerd in Jupyter-notebooks geïnstalleerd op de Spark-clusters te visualiseren. De stappen modelleren in de volgende onderwerpen bevatten code die laat hoe trainen zien, evalueren, opslaan en gebruiken van elk type model. 
+[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) is de Azure gehoste oplossing van open-source Spark. Biedt ook ondersteuning voor **Jupyter PySpark-notebooks** op het Spark-cluster dat Spark SQL interactieve query's voor het transformeren, te filteren en visualiseren van gegevens die zijn opgeslagen in Azure BLOB's (WASB) kan worden uitgevoerd. PySpark is de Python-API voor Spark. De codefragmenten die voorzien van de oplossingen en weergeven van de relevante waarnemingspunten om de gegevens die hier worden uitgevoerd in Jupyter-notebooks geïnstalleerd op de Spark-clusters te visualiseren. De stappen modelleren in de volgende onderwerpen bevatten code die laat hoe trainen zien, evalueren, opslaan en gebruiken van elk type model. 
 
 ## <a name="setup-spark-clusters-and-jupyter-notebooks"></a>Instellen: De Spark-clusters en Jupyter-notebooks
 Instellingsstappen en code vindt u in dit scenario voor het gebruik van een HDInsight Spark 1.6. Maar Jupyter-notebooks zijn opgegeven voor zowel HDInsight Spark 1.6 en 2.0 Spark-clusters. Een beschrijving van de laptops en koppelingen naar deze vindt u in de [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) voor de GitHub-opslagplaats met deze. Bovendien moet de code hier en in de gekoppelde laptops is algemeen en moet werken op een Spark-cluster. Als u HDInsight Spark niet gebruikt, is het mogelijk dat de cluster-installatie en beheer stappen enigszins afwijken van wat hier moet worden weergegeven. Voor het gemak zijn hier de koppelingen naar de Jupyter-notebooks voor Spark 1.6 (om te worden uitgevoerd in de pySpark-kernel van de server Jupyter-Notebook) en Spark 2.0 (om te worden uitgevoerd in de kernel pySpark3 van de server Jupyter-Notebook):
@@ -75,7 +75,7 @@ De volgende procedures hebben betrekking op Spark 1.6. Gebruik de laptops beschr
 
 1. u moet een Azure-abonnement hebben. Als u nog geen een, Zie [gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-2. u moet een 1.6 Spark-cluster voor dit scenario. Zie de instructies in om een [aan de slag: maken van Apache Spark in Azure HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Het clustertype en de versie is opgegeven in de **clustertype Selecteer** menu. 
+2. u moet een 1.6 Spark-cluster voor dit scenario. Zie de instructies in om een [aan de slag: maken van Apache Spark in Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Het clustertype en de versie is opgegeven in de **clustertype Selecteer** menu. 
 
 ![Cluster configureren](./media/spark-overview/spark-cluster-on-portal.png)
 

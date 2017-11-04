@@ -1,56 +1,56 @@
-You can easily [automatically scale](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) your [virtual machines (VMs)](../articles/virtual-machines/windows/overview.md) when you use [virtual machine scale sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) and the [autoscaling feature of Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Your VMs need to be members of a scale set to be automatically scaled. This article provides information that enables you to better understand how to scale your VMs both vertically and horizontally using automatic and manual methods.
+U kunt gemakkelijk [automatisch schalen](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) uw [(virtuele machines)](../articles/virtual-machines/windows/overview.md) als u werkt met [virtuele-machineschaalsets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) en de [functie voor automatisch schalen van Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Uw VM's moeten lid zijn van een schaal ingesteld op automatisch worden geschaald. In dit artikel bevat informatie waarmee u beter te begrijpen hoe uw virtuele machines met behulp van automatische en handmatige methoden zowel horizontaal en verticaal te schalen.
 
-## <a name="horizontal-or-vertical-scaling"></a>Horizontal or vertical scaling
+## <a name="horizontal-or-vertical-scaling"></a>Horizontale of verticale schalen
 
-The autoscale feature of Azure Monitor only scales horizontally, which is an increase ("out") or decrease ("in") of the number of VMs. Horizontal scaling is more flexible in a cloud situation as it allows you to run potentially thousands of VMs to handle load. You scale horizontally by either automatically or manually changing the capacity (or instance count) of the the scale set. 
+De functie voor automatisch schalen van Azure Monitor alleen schaalt horizontaal, die een stijging ('uit') of te verlagen ('in') van het aantal virtuele machines. Horizontaal schalen biedt meer flexibiliteit in een situatie met een cloud omdat deze kunt u mogelijk duizenden virtuele machines om belasting te verwerken uitvoeren. U horizontaal schalen door automatisch of handmatig wijzigen van de capaciteit (of het aantal exemplaren) van de de schaalaanpassingsset. 
 
-Vertical scaling keeps the same number of VMs, but makes the VMs more ("up") or less ("down") powerful. Power is measured in attributes such as memory, CPU speed, or disk space. Vertical scaling is dependent on the availability of larger hardware, which quickly hits an upper limit and can vary by region. Vertical scaling also usually requires a VM to stop and restart. You scale vertically by setting a new size in the configuration of the VMs in the scale set.
+Verticale schaling blijft hetzelfde aantal virtuele machines, maar de virtuele machines maakt ('actief') meer of minder ('omlaag') krachtige. Power wordt gemeten in kenmerken, zoals geheugen, CPU-snelheid of schijfruimte. Verticale schaling is afhankelijk van de beschikbaarheid van grotere hardware, waarbij snel een bovenlimiet treffers en kan verschillen per regio. Verticale schaling, moet ook meestal een virtuele machine stoppen en opnieuw starten. U schalen verticaal door het instellen van een nieuwe grootte in de configuratie van de virtuele machines in de schaalset.
 
-Using runbooks in [Azure Automation](../articles/automation/automation-intro.md), you can easily [scale VMs in a scale set](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision.md) up or down.
+Met behulp van runbooks in [Azure Automation](../articles/automation/automation-intro.md), kunt u gemakkelijk [schalen van virtuele machines in een set scale](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision.md) omhoog of omlaag.
 
-## <a name="create-a-virtual-machine-scale-set"></a>Create a virtual machine scale set
+## <a name="create-a-virtual-machine-scale-set"></a>Maken van een virtuele-machineschaalset
 
-Scale sets make it easy for you to deploy and manage identical VMs as a set. You can create Linux or Windows scale sets using the [Azure portal](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md), or the [Azure CLI](../articles/virtual-machines/linux/tutorial-create-vmss.md). You can also create and manage scale sets with SDKs such as [Python](/develop/python) or [Node.js](/nodejs/azure), or directly with the [REST APIs](/rest/api/compute/virtualmachinescalesets). Automatic scaling of VMs is accomplished by applying metrics and rules to the scale set.
+-Schaalsets kunnen gemakkelijk te implementeren en beheren van identieke virtuele machines als een set. U kunt Linux maken of schaal voor Windows wilt instellen met de [Azure-portal](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md), of de [Azure CLI](../articles/virtual-machines/linux/tutorial-create-vmss.md). U kunt ook maken en beheren-schaalsets met SDK's, zoals [Python](/develop/python) of [Node.js](/nodejs/azure), of rechtstreeks met de [REST-API's](/rest/api/compute/virtualmachinescalesets). Automatische schaling van virtuele machines wordt gerealiseerd door het toepassen van regels en metrische gegevens aan de schaalaanpassingsset.
 
-## <a name="configure-autoscale-for-a-scale-set"></a>Configure autoscale for a scale set
+## <a name="configure-autoscale-for-a-scale-set"></a>Voor een scale-set voor automatisch schalen configureren
 
-Automatic scaling provides the right number of VMs to handle the load on your application. It enables you to add VMs to handle increases in load and save money by removing VMs that are sitting idle. You specify a minimum and maximum number of VMs to run based on a set of rules. Having a minimum makes sure your application is always running even under no load. Having a maximum value limits your total possible hourly cost.
+Automatische schaling, biedt het juiste aantal virtuele machines voor het afhandelen van de belasting van uw toepassing. Hiermee kunt u virtuele machines voor het verwerken van de toename in laden en geld besparen door het verwijderen van virtuele machines die niet-actieve zit toevoegen. U opgeven een minimum en maximum aantal virtuele machines worden uitgevoerd op basis van een reeks regels. Met een minimale zorgt ervoor dat uw toepassing wordt altijd uitgevoerd zelfs geen load. Met een maximale waarde beperkt mogelijk van uw totale per uur kosten.
 
-You can enable autoscale when you create the scale set using [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) or [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). You can also enable it after the scale set is created. You can create a scale set, install the extension, and configure autoscale using an [Azure Resource Manager template](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). In the Azure portal, enable autoscale from Azure Monitor, or enable autoscale from the scale set settings.
+U kunt automatisch schalen inschakelen bij het maken van de schaal instelt met behulp van [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) of [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). U kunt deze ook inschakelen nadat de schaalaanpassingsset is gemaakt. Maken van een schaalset, de uitbreiding te installeren en configureren voor automatisch schalen met behulp van een [Azure Resource Manager-sjabloon](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). Inschakelen van de Azure-Monitor voor automatisch schalen in de Azure portal of automatisch schalen van de set schaalinstellingen inschakelen.
 
-![Enable autoscale](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
+![Schakel automatisch schalen](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  
-### <a name="metrics"></a>Metrics
+### <a name="metrics"></a>Metrische gegevens
 
-The autoscale feature of Azure Monitor enables you to scale the number of running VMs up or down based on [metrics](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). By default, VMs provide basic host-level metrics for disk, network, and CPU usage. When you configure the collection of diagnostics data using the diagnostic extension, additional guest OS performance counters become available for disk, CPU, and memory.
+De functie voor automatisch schalen van Azure Monitor kunt u het aantal virtuele machines met omhoog schalen of omlaag gaat op basis van [metrische gegevens](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Standaard voorzien VM's basismetrieken hostniveau schijf-, netwerk- en CPU-gebruik. Wanneer u het verzamelen van diagnostische gegevens met de extensie voor diagnostische configureert, worden extra Gast OS-prestatiemeteritems beschikbaar voor de schijf, CPU en geheugen.
 
-![Metric criteria](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
+![Metrische criteria](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
 
-If your application needs to scale based on metrics that are not available through the host, then the VMs in the scale set need to have either the [Linux diagnostic extension](../articles/virtual-machines/linux/diagnostic-extension.md) or [Windows diagnostics extension](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) installed. If you create a scale set using the Azure portal, you need to also use Azure PowerShell or the Azure CLI to install the extension with the diagnostics configuration that you need.
+Als uw toepassing moet schalen op basis van metrische gegevens die niet beschikbaar is via de host, moet de virtuele machines in de schaalset hebben ofwel de [Linux-extensie voor diagnostische](../articles/virtual-machines/linux/diagnostic-extension.md) of [extensie voor diagnostische gegevens van Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md)geïnstalleerd. Als u een schaal ingesteld met de Azure-portal maakt, moet u ook Azure PowerShell of Azure CLI gebruiken voor het installeren van de uitbreiding met de configuratie van diagnostische gegevens die u nodig hebt.
  
-### <a name="rules"></a>Rules
+### <a name="rules"></a>Regels
 
-[Rules](../articles/monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md) combine a metric with an action to be performed. When rule conditions are met, one or more autoscale actions are triggered. For example, you might have a rule defined that increases the number of VMs by 1 if the average CPU usage goes above 85 percent.
+[Regels](../articles/monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md) een metriek worden gecombineerd met een actie moet worden uitgevoerd. Wanneer de regelvoorwaarden wordt voldaan, worden een of meer acties voor automatisch schalen geactiveerd. U wellicht bijvoorbeeld een regel gedefinieerd waarmee het aantal virtuele machines met 1 verhoogd als het gemiddelde CPU-gebruik hoger dan 85 procent is.
 
-![Autoscale actions](./media/virtual-machines-autoscale/virtual-machines-autoscale-actions.png)
+![Acties voor automatisch schalen](./media/virtual-machines-autoscale/virtual-machines-autoscale-actions.png)
  
-### <a name="notifications"></a>Notifications
+### <a name="notifications"></a>Meldingen
 
-You can [set up triggers](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) so that specific web URLs are called or emails are sent based on the autoscale rules that you create. Webhooks allow you to route the Azure alert notifications to other systems for post-processing or custom notifications.
+U kunt [activeerbare](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) zodat specifieke web URL's worden genoemd of e-mailberichten worden verzonden op basis van de regels voor automatisch schalen die u maakt. Webhooks kunt u voor het routeren van de Azure waarschuwingsmeldingen met andere systemen voor na verwerking of aangepaste meldingen.
 
-## <a name="manually-scale-vms-in-a-scale-set"></a>Manually scale VMs in a scale set
+## <a name="manually-scale-vms-in-a-scale-set"></a>Handmatig schalen van virtuele machines in een schaalset
 
-### <a name="horizontal"></a>Horizontal
+### <a name="horizontal"></a>horizontale
 
-You can add or remove VMs by changing the capacity of the scale set. In the Azure portal, you can decrease or increase the number of VMs (shown as **instance count**) in the scale set by sliding the Override condition bar on the Scaling screen left or right.
+U kunt toevoegen of verwijderen van virtuele machines door het wijzigen van de capaciteit van de schaal is ingesteld. In de Azure portal, u kunt vergroten of verkleinen het aantal virtuele machines (weergegeven als **exemplaar aantal**) in de schaal ingesteld door de onderdrukking voorwaarde-balk op het scherm schalen naar links of rechts schuiven.
 
-Using Azure PowerShell, you need to get the scale set object using [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). You then set the **sku.capacity** property to the number of VMs that you want and update the scale set with [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Using Azure CLI, you change the capacity with the **--new-capacity** parameter for the [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale) command.
+Met Azure PowerShell, moet u de schaal ingesteld object met [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Vervolgens stelt u de **sku.capacity** eigenschap aan het aantal virtuele machines die u wilt en werk de schaalset met [Update AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Met Azure CLI, u wijzigt de capaciteit met de **--nieuwe capaciteit** parameter voor de [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale) opdracht.
 
-### <a name="vertical"></a>Vertical
+### <a name="vertical"></a>Verticale
 
-You can manually change the size of the VMs in the Azure portal on the Size screen for the scale set. You can use Azure PowerShell with Get-AzureRmVmss, setting the image reference sku property, and then using [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) and [Update-AzureRmVmssInstance](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
+U kunt de grootte van de virtuele machines in de Azure portal op het scherm grootte voor de schaalaanpassingsset handmatig wijzigen. U kunt Azure PowerShell gebruiken met Get-AzureRmVmss, de installatiekopie van het sku verwijzingseigenschap instellen en vervolgens via [Update AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) en [Update AzureRmVmssInstance](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Volgende stappen
 
-- Learn more about scale sets in [Design Considerations for Scale Sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview.md).
+- Meer informatie over schaalsets in [ontwerpoverwegingen voor schaal ingesteld](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview.md).
 

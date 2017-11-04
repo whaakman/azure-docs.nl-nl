@@ -1,46 +1,46 @@
 <!--author=alkohli last changed: 08/21/17-->
 
-#### <a name="to-download-hotfixes"></a>To download hotfixes
+#### <a name="to-download-hotfixes"></a>Hotfixes downloaden
 
-Perform the following steps to download the software update from the Microsoft Update Catalog.
+Voer de volgende stappen uit om de software-update te downloaden uit de Microsoft Update-catalogus.
 
-1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
-2. If this is your first time using the Microsoft Update Catalog on this computer, click **Install** when prompted to install the Microsoft Update Catalog add-on.
+1. Start Internet Explorer en blader naar [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+2. Als dit de eerste keer is dat u de Microsoft Update-catalogus op deze computer gebruikt, klikt u op **Installeren** wanneer u wordt gevraagd of u de invoegtoepassing voor de Microsoft Update-catalogus wilt installeren.
 
-    ![Install catalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
+    ![Catalogus installeren](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download, for example **4037264**, and then click **Search**.
+3. Voer het nummer van het Knowledge Base (KB) van de hotfix die u downloaden wilt, bijvoorbeeld in het zoekvak van de Microsoft Update Catalog **4037264**, en klik vervolgens op **Search**.
    
-    The hotfix listing appears, for example, **Cumulative Software Bundle Update 5.0 for StorSimple 8000 Series**.
+    De hotfix-wordt weergegeven, bijvoorbeeld **cumulatieve Software bundel Update 5.0 voor StorSimple 8000-serie**.
    
-    ![Search catalog](./media/storsimple-install-update5-hotfix/update-catalog-search.png)
+    ![Catalogus doorzoeken](./media/storsimple-install-update5-hotfix/update-catalog-search.png)
 
-4. Click **Download**. Specify or **Browse** to a local location where you want the downloads to appear. Click the files to download to the specified location and folder. The folder can also be copied to a network share that is reachable from the device.
-5. Search for any additional hotfixes listed in the table above (**4037266**), and download the corresponding files to the specific folders as listed in the preceding table.
+4. Klik op **Downloaden**. Typ of **blader naar** een lokale locatie waar u de downloads wilt weergeven. Klik op de bestanden te downloaden naar de opgegeven locatie en de map. De map kan ook worden gekopieerd naar een netwerkshare die bereikbaar is vanaf het apparaat.
+5. Zoeken naar aanvullende hotfixes die worden vermeld in de bovenstaande tabel (**4037266**), en de bijbehorende bestanden downloaden naar de specifieke mappen zoals vermeld in de voorgaande tabel.
 
 > [!NOTE]
-> The hotfixes must be accessible from both controllers to detect any potential error messages from the peer controller.
+> De hotfixes moet toegankelijk zijn via beide domeincontrollers voor het detecteren van mogelijke foutberichten van de peer-controller.
 >
-> The hotfixes must be copied in 3 separate folders. For example, the device software/Cis/MDS agent update can be copied in _FirstOrderUpdate_ folder, all the other non-disruptive updates could be copied in the _SecondOrderUpdate_ folder, and maintenance mode updates copied in _ThirdOrderUpdate_ folder.
+> De hotfixes moeten naar 3 afzonderlijke mappen worden gekopieerd. Bijvoorbeeld, het bijwerken van het configuratie-items/software/MDS agent kan worden gekopieerd _FirstOrderUpdate_ map, alle andere ononderbroken updates kunnen worden gekopieerd de _SecondOrderUpdate_ map, en Onderhoud modus updates gekopieerd _ThirdOrderUpdate_ map.
 
-#### <a name="to-install-and-verify-regular-mode-hotfixes"></a>To install and verify regular mode hotfixes
+#### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Hotfixes in de normale modus installeren en controleren
 
-Perform the following steps to install and verify regular-mode hotfixes. If you already installed them using the Azure portal, skip ahead to [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes).
+Voer de volgende stappen uit om hotfixes in de normale modus te installeren en te controleren. Als u al deze met de Azure-portal geïnstalleerd, gaat u verder met [installeren en testen van onderhoud modus hotfixes](#to-install-and-verify-maintenance-mode-hotfixes).
 
-1. To install the hotfixes, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**.
-2. Select **Option 1** to log on to the device with full access. We recommend that you install the hotfix on the passive controller first.
-3. To install the hotfix, at the command prompt, type:
+1. U installeert de hotfixes door de Windows PowerShell-interface op de seriële console van het StorSimple-apparaat te openen. Volg de gedetailleerde instructies in [PuTTY gebruiken om verbinding te maken met de seriële console van het apparaat](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). Druk op de opdrachtregel op **Enter**.
+2. Selecteer **Optie 1** als u zich met volledige toegang wilt aanmelden bij het apparaat. U wordt geadviseerd om de hotfix eerst op de passieve controller te installeren.
+3. Installeer de hotfix door achter de opdrachtprompt het volgende te typen:
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
    
-    Use IP rather than DNS in share path in the above command. The credential parameter is used only if you are accessing an authenticated share.
+    Gebruik in bovenstaande opdracht IP in plaats van DNS in het Pad naar share. De referentieparameter wordt alleen gebruikt voor toegang tot een geverifieerde share.
    
-    We recommend that you use the credential parameter to access shares. Even shares that are open to “everyone” are typically not open to unauthenticated users.
+    U wordt geadviseerd om de referentieparameter te gebruiken voor toegang tot shares. Zelfs shares die voor 'iedereen' zijn geopend, zijn gewoonlijk niet geopend voor niet-geverifieerde gebruikers.
    
-4. Supply the password when prompted. A sample output for installing the first order updates is shown below. For the first order update, you need to point to the specific file.
+4. Geef het wachtwoord op wanneer dit wordt gevraagd. Hieronder ziet u een voorbeeld van de uitvoer voor de installatie van belangrijkste updates. Voor de eerste update order moet u verwijzen naar het specifieke bestand.
 
     >[!NOTE] 
-    > You should install the _HcsSoftwareUpdate.exe_ first. After this install has completed, then install _CisMdsAgentUpdate.exe_.
+    > Installeer de _HcsSoftwareUpdate.exe_ eerste. Nadat deze installatie is voltooid, installeer _CisMdsAgentUpdate.exe_.
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -54,10 +54,10 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
         [Y] Yes [N] No [?] Help (default is "Y"): Y
    
         ````
-5. Type **Y** when prompted to confirm the hotfix installation.
-6. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet. The update will first complete on the passive controller. Once the passive controller is updated, there will be a failover and the update will then get applied on the other controller. The update is complete when both the controllers are updated.
+5. Typ **J** wanneer u wordt gevraagd de hotfixinstallatie te bevestigen.
+6. Bewaak de update met behulp van de cmdlet `Get-HcsUpdateStatus`. De update wordt eerst voltooid op de passieve controller. Zodra de passieve controller is bijgewerkt, wordt er een failover uitgevoerd en wordt de update toegepast op de andere controller. De update is voltooid wanneer beide controllers zijn bijgewerkt.
    
-    The following sample output shows the update in progress. The `RunInprogress` is `True` when the update is in progress.
+    Hieronder ziet u een voorbeeld van uitvoer terwijl de update nog bezig is. De `RunInprogress` is `True` wanneer de update wordt uitgevoerd.
 
     ```
     Controller0>Get-HcsUpdateStatus
@@ -68,7 +68,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     Controller1Events   :
     ```
    
-     The following sample output indicates that the update is finished. The `RunInProgress` is `False` when the update is complete.
+     In de volgende voorbeelduitvoer wordt aangegeven dat de update is voltooid. De `RunInProgress` is `False` wanneer de update is voltooid.
    
     ```
     Controller0>Get-HcsUpdateStatus
@@ -80,54 +80,54 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     ```
 
     > [!NOTE]
-    > Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed.
+    > Af en toe meldt de cmdlet `False` wanneer de update nog wordt uitgevoerd. Als u er zeker van wilt zijn dat de hotfix is voltooid, wacht u enkele minuten en voert u deze opdracht opnieuw uit. Controleer of de `RunInProgress` `False` is. Als dat het geval is, is de hotfix voltooid.
 
-7. After the software update is complete, verify the system software versions. Type:
+7. Wanneer de software-update is voltooid, controleert u de versies van de systeemsoftware. Type:
    
     `Get-HcsSystem`
    
-    You should see the following versions:
+    De volgende versies moeten worden weergegeven:
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 5.0`
    *  `HcsSoftwareVersion: 6.3.9600.17845`
    
-    If the version number does not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) for further assistance.
+    Als het versienummer niet is gewijzigd nadat de update is toegepast, kon de hotfix blijkbaar niet worden toegepast. Neem in dat geval contact op met [Microsoft Support](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) voor verdere hulp.
      
     > [!IMPORTANT]
-    > You must restart the active controller via the `Restart-HcsController` cmdlet before applying the next update.
+    > U moet opnieuw opstarten van de actieve controller via de `Restart-HcsController` cmdlet voordat u de volgende update.
      
-8. Repeat steps 3-6 to install the _CisMDSAgentupdate.exe_ agent downloaded to your _FirstOrderUpdate_ folder.
-8. Repeat steps 3-6 to install the second order updates. 
+8. Herhaal stap 3-6 voor het installeren van de _CisMDSAgentupdate.exe_ agent gedownload naar uw _FirstOrderUpdate_ map.
+8. Herhaal stap 3-6 de tweede volgorde-updates te installeren. 
 
     > [!NOTE] 
-    > For second order updates, multiple updates can be installed by just running the `Start-HcsHotfix cmdlet` and pointing to the folder where second order updates are located. The cmdlet will execute all the updates available in the folder. If an update is already installed, the update logic will detect that and not apply that update.
+    > Tweede volgorde updates, meerdere updates kunnen worden geïnstalleerd door het uitvoeren van alleen de `Start-HcsHotfix cmdlet` en die verwijst naar de map waar de tweede volgorde updates zich bevinden. De cmdlet voert alle updates in de map uit. Als een update al is geïnstalleerd, wordt dit door de updatelogica gedetecteerd en wordt die update niet toegepast.
 
-    After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:
+    Nadat alle hotfixes zijn geïnstalleerd, gebruikt u de cmdlet `Get-HcsSystem`. De versies moeten zijn:
     
     * `CisAgentVersion:  1.0.9724.0`
     * `MdsAgentVersion: 35.2.2.0`
     * `Lsisas2Version: 2.0.78.00`
 
 
-#### <a name="to-install-and-verify-maintenance-mode-hotfixes"></a>To install and verify maintenance mode hotfixes
+#### <a name="to-install-and-verify-maintenance-mode-hotfixes"></a>Hotfixes in de onderhoudsmodus installeren en controleren
 
-Use KB4037263 to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console.
+Gebruik KB4037263 schijf firmware-updates te installeren. Dit zijn updates waarvoor de computer opnieuw moet worden opgestart. De uitvoering ervan neemt ongeveer 30 minuten in beslag. U kunt ervoor kiezen om deze te installeren in een gepland onderhoudsvenster door verbinding te maken met de console van het seriële apparaat.
 
 > [!NOTE] 
-> If your disk firmware is already up-to-date, you won't need to install these updates. Run the `Get-HcsUpdateAvailability` cmdlet from the device serial console to check if updates are available and whether the updates are disruptive (maintenance mode) or non-disruptive (regular mode) updates.
+> Als de firmware van de schijf al bijgewerkt is, moet u won't deze updates te installeren. Voer de cmdlet `Get-HcsUpdateAvailability` uit vanaf de console van het seriële apparaat om te controleren of er updates beschikbaar zijn en of de computer voor de updates opnieuw moet worden opgestart (onderhoudsmodus) of niet (normale modus).
 
-To install the disk firmware updates, follow the instructions below.
+Volg onderstaande instructies om de updates van de schijffirmware te installeren.
 
-1. Place the device in the maintenance mode. 
+1. Plaats het apparaat in de onderhoudsmodus. 
 
     > [!NOTE] 
-    > Do not use Windows PowerShell remoting when connecting to a device in maintenance mode. Instead run this cmdlet on the device controller when connected through the device serial console.
+    > Gebruik Windows PowerShell op afstand niet bij het verbinden met een apparaat in de onderhoudsmodus. In plaats daarvan deze cmdlet uitvoeren op de controller van het apparaat wanneer u verbonden zijn via de seriële console van het apparaat.
 
-    To place the controller in maintenance mode, type:
+    Als u wilt de controller in onderhoudsmodus te plaatsen, typt u:
    
     `Enter-HcsMaintenanceMode`
    
-    A sample output is shown below.
+    Hieronder ziet u een voorbeeld van de uitvoer.
    
         Controller0>Enter-HcsMaintenanceMode
         Checking device state...
@@ -149,12 +149,12 @@ To install the disk firmware updates, follow the instructions below.
         [4] Change language
         Please enter your choice>
    
-    Both the controllers then restart into maintenance mode.
-2. To install the disk firmware update, type:
+    Beide controllers starten vervolgens opnieuw op in de onderhoudsmodus.
+2. Typ het volgende om de update van de schijffirmware te installeren:
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
    
-    A sample output is shown below.
+    Hieronder ziet u een voorbeeld van de uitvoer.
    
         Controller1>Start-HcsHotfix -Path \\10.100.100.100\share\ThirdOrderUpdates\ -Credential contoso\john
         Enter Password:
@@ -163,16 +163,16 @@ To install the disk firmware updates, follow the instructions below.
         This operation starts a hotfix installation and could reboot one or both of the controllers. By installing new updates you agree to, and accept any additional terms associated with, the new functionality listed in the release notes (https://go.microsoft.com/fwLink/?LinkID=613790). Are you sure you want to continue?
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
-3. Monitor the install progress using `Get-HcsUpdateStatus` command. The update is complete when the `RunInProgress` changes to `False`.
-4. After the installation is complete, the controller on which the maintenance mode hotfix was installed restarts. Log in as option 1 with full access and verify the disk firmware version. Type:
+3. Bewaak de installatievoortgang met de opdracht `Get-HcsUpdateStatus`. De update is voltooid als de `RunInProgress` verandert in `False`.
+4. Wanneer de installatie is voltooid, wordt de controller waarop de hotfix van de onderhoudsmodus is geïnstalleerd, opnieuw opstart. Meld u aan als in optie 1 met volledige toegang en controleer de versie van de schijffirmware. Type:
    
    `Get-HcsFirmwareVersion`
    
-   The expected disk firmware versions are:
+   De verwachte versies van de schijffirmware zijn:
    
    `XMGJ, XGEG, KZ50, F6C2, VR08, N003, 0107`
    
-   A sample output is shown below.
+   Hieronder ziet u een voorbeeld van de uitvoer.
    
        -----------------------MAINTENANCE MODE------------------------
        Microsoft Azure StorSimple Appliance Model 8600
@@ -255,9 +255,9 @@ To install the disk firmware updates, follow the instructions below.
               WD:WD4001FYYG-01SL3:VR08
               WD:WD4001FYYG-01SL3:VR08
    
-    Run the `Get-HcsFirmwareVersion` command on the second controller to verify that the software version has been updated. You can then exit the maintenance mode. To do so, type the following command for each device controller:
+    Voer op de tweede controller de opdracht `Get-HcsFirmwareVersion` uit om te controleren of de versie van de software is bijgewerkt. Daarna kunt u de onderhoudsmodus afsluiten. Daartoe typt u de volgende opdracht voor elke apparaatcontroller:
    
    `Exit-HcsMaintenanceMode`
 
-5. The controllers restart when you exit maintenance mode. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Azure portal. Note that the portal might not show that you installed the maintenance mode updates for 24 hours.
+5. De controllers starten opnieuw op wanneer u de onderhoudsmodus afsluit. Na de firmware van de schijf updates met succes zijn toegepast en het apparaat terug naar de Azure-portal onderhoudsmodus is afgesloten. Het is mogelijk dat in de portal gedurende 24 uur niet wordt weergegeven dat u de updates van de onderhoudsmodus hebt geïnstalleerd.
 

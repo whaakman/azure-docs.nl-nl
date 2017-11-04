@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: nitinme
-ms.openlocfilehash: 96b2b4976729da5b7d8b75909dbe099090240c08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8a8b62e2cdf9f4f6c41b041ac20694303203531b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Releaseopmerkingen voor Hadoop-onderdelen op Azure HDInsight
 
@@ -61,7 +61,7 @@ In dit artikel bevat informatie over de **meest recente** Azure HDInsight LDR-up
 
 * **Nieuwe functies in Hive**. Zie [Hortonworks documentatie](https://hortonworks.com/apache/hive/#section_4).
 
-* **Afschaffing van de CLI hive**: Hive CLI wordt afgeschaft en klanten wordt aangeraden gebruik in plaats daarvan Beeline. Zie voor meer informatie [Apache-documentatie](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). Zie voor instructies over het gebruik van Beeline met HDInsight [Beeline gebruiken met HDInsight Hadoop-clusters](hdinsight-hadoop-use-hive-beeline.md).
+* **Afschaffing van de CLI hive**: Hive CLI wordt afgeschaft en klanten wordt aangeraden gebruik in plaats daarvan Beeline. Zie voor meer informatie [Apache-documentatie](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). Zie voor instructies over het gebruik van Beeline met HDInsight [Beeline gebruiken met HDInsight Hadoop-clusters](hadoop/apache-hadoop-use-hive-beeline.md).
 
 * **Nieuwe functies in Apache Phoenix en HBase**.
     * Ondersteuning voor het quotum van opslag: meestal gebruikt in omgevingen met meerdere tenants, waardoor de beperkte opslagruimte van een per tabel en per niveau van de naamruimte.

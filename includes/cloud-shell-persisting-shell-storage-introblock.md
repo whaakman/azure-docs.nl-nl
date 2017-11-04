@@ -1,48 +1,48 @@
-# <a name="persist-files-in-azure-cloud-shell"></a>Persist files in Azure Cloud Shell
-Cloud Shell utilizes Azure File storage to persist files across sessions.
+# <a name="persist-files-in-azure-cloud-shell"></a>Bestanden in de Azure-Cloud-Shell behouden
+Azure File storage om te blijven behouden bestanden over de sessies maakt gebruik van cloud-Shell.
 
-## <a name="set-up-a-clouddrive-file-share"></a>Set up a clouddrive file share
-On initial start, Cloud Shell prompts you to associate a new or existing file share to persist files across sessions.
+## <a name="set-up-a-clouddrive-file-share"></a>Een bestandsshare clouddrive instellen
+Op de eerste start vraagt Cloud-Shell u om te koppelen van een nieuwe of bestaande bestandsshare om te blijven behouden bestanden over de sessies.
 
 > [!NOTE]
-> Bash and PowerShell share the same file share. Only one file share can be associated with automatic mounting in Cloud Shell.
+> Delen dezelfde bestandsshare Bash en PowerShell. Slechts één bestandsshare kan worden gekoppeld aan het automatisch koppelen in de Cloud-Shell.
 
-### <a name="create-new-storage"></a>Create new storage
+### <a name="create-new-storage"></a>Maken van nieuwe opslag
 
-When you use basic settings and select only a subscription, Cloud Shell creates three resources on your behalf in the supported region that's nearest to you:
-* Resource group: `cloud-shell-storage-<region>`
-* Storage account: `cs<uniqueGuid>`
-* File share: `cs-<user>-<domain>-com-<uniqueGuid>`
+Wanneer u basisinstellingen en alleen een abonnement selecteren, maakt Cloud Shell drie bronnen in de ondersteunde regio die het dichtst bij u namens jou:
+* Resourcegroep:`cloud-shell-storage-<region>`
+* Storage-account:`cs<uniqueGuid>`
+* Bestandsshare:`cs-<user>-<domain>-com-<uniqueGuid>`
 
-![The Subscription setting](../articles/cloud-shell/media/persisting-shell-storage/basic-storage.png)
+![De instelling voor Cloudabonnement](../articles/cloud-shell/media/persisting-shell-storage/basic-storage.png)
 
-The file share mounts as `clouddrive` in your `$Home` directory. This is a one-time action, and the file share mounts automatically in subsequent sessions. 
+De bestandsshare koppelt als `clouddrive` in uw `$Home` directory. Dit is een eenmalige bewerking en de bestandsshare koppelt automatisch in de volgende sessies. 
 
-In Bash, the file share also contains a 5-GB image that is created for you which automatically persists data in your `$Home` directory. 
+In Bash, bevat de bestandsshare ook een afbeelding 5 GB automatisch voor u die gemaakt wordt zich blijft voordoen gegevens in uw `$Home` directory. 
 
-### <a name="use-existing-resources"></a>Use existing resources
+### <a name="use-existing-resources"></a>Bestaande bronnen gebruiken
 
-By using the advanced option, you can associate existing resources. When the storage setup prompt appears, select **Show advanced settings** to view additional options. The drop-down menus are filtered for your assigned Cloud Shell region and the locally redundant storage and geo-redundant storage accounts.
+U kunt bestaande resources koppelen met behulp van de geavanceerde optie. Wanneer de opslag setup prompt wordt weergegeven, selecteert u **weergeven geavanceerde instellingen** om extra opties weer te geven. De vervolgkeuzemenu's worden voor uw toegewezen Shell Cloud-regio en lokaal redundante opslag en geo-redundant storage-accounts gefilterd.
 
-In Bash, existing file shares receive a 5-GB image created for you to persist your `$Home` directory.
+Bestaande bestandsshares ontvangt Bash, een installatiekopie van 5 GB gemaakt voor u om vast te leggen uw `$Home` directory.
 
-![The Resource group setting](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
+![De instelling voor groep](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 
-### <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Restrict resource creation with an Azure resource policy
-Storage accounts that you create in Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`. If you want to disallow users from creating storage accounts in Cloud Shell, create an [Azure resource policy for tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) that are triggered by this specific tag.
+### <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Bron maken met een Azure-resource beleid beperken
+Storage-accounts die u in de Cloud-Shell maakt zijn gelabeld met `ms-resource-usage:azure-cloud-shell`. Als u wilt weigeren gebruikers van de storage-accounts maken in de Cloud-Shell, maakt u een [Azure bronbeleid voor tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) die worden geactiveerd door deze specifieke tag.
 
-## <a name="supported-storage-regions"></a>Supported storage regions
-Associated Azure storage accounts must reside in the same region as the Cloud Shell machine that you're mounting them to.
+## <a name="supported-storage-regions"></a>Ondersteunde opslagregio
+Gekoppelde accounts moeten zich bevinden in dezelfde regio bevinden als de Cloud Shell-machine die u ze kunt koppelen aan Azure storage.
 
-To find your assigned region you may:
-* View the note on the "Advanced storage settings" dialog
-* Refer to the name of the storage account created for you (ex: `cloud-shell-storage-westus`)
-* Run `env` and locate the variable `ACC_LOCATION`
+U kunt uw toegewezen regio vinden:
+* De opmerking in het dialoogvenster 'Geavanceerde Opslaginstellingen' weergeven
+* Raadpleeg de naam van het opslagaccount voor u gemaakt (ex: `cloud-shell-storage-westus`)
+* Voer `env` en zoek de variabele`ACC_LOCATION`
 
-Cloud Shell machine exist in the following regions:
-|Area|Region|
+Cloud-Shell bestaat in de volgende gebieden:
+|Onderwerp|Regio|
 |---|---|
-|Americas|East US, South Central US, West US|
-|Europe|North Europe, West Europe|
-|Asia Pacific|India Central, Southeast Asia|
+|Noord- en Zuid-Amerika|VS-Oost, Zuid-centraal VS, VS-West|
+|Europa|Noord-Europa, West-Europa|
+|Azië en Stille Oceaan|India centraal, Zuidoost-Azië|
 

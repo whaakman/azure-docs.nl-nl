@@ -1,20 +1,20 @@
-#### <a name="expressroute-limits"></a>ExpressRoute Limits
-The following limits apply to ExpressRoute resources per subscription.
+#### <a name="expressroute-limits"></a>Limieten voor ExpressRoute
+De volgende beperkingen gelden voor de ExpressRoute-resources per abonnement.
 
-| Resource | Default Limit |
+| Resource | Standaardlimiet |
 | --- | --- |
-| ExpressRoute circuits per subscription |10 |
-| ExpressRoute circuits per region per subscription for ARM |10 |
-| Maximum number of routes for Azure private peering with ExpressRoute standard |4,000 |
-| Maximum number of routes for Azure private peering with ExpressRoute premium add-on |10,000 |
-| Maximum number of routes for Azure public peering with ExpressRoute standard |200 |
-| Maximum number of routes for Azure public peering with ExpressRoute premium add-on |200 |
-| Maximum number of routes for Azure Microsoft peering with ExpressRoute standard |200 |
-| Maximum number of routes for Azure Microsoft peering with ExpressRoute premium add-on |200 |
-| Number of virtual network links allowed per ExpressRoute circuit |see table below |
+| ExpressRoute-circuits per abonnement |10 |
+| ExpressRoute-circuits per regio per abonnement voor ARM |10 |
+| Maximum aantal routes voor persoonlijke Azure-peering met ExpressRoute-standaard |4,000 |
+| Maximum aantal routes voor persoonlijke Azure-peering met premium-invoegtoepassing voor ExpressRoute |10.000 |
+| Maximum aantal routes voor openbare Azure-peering met ExpressRoute-standaard |200 |
+| Maximum aantal routes voor openbare Azure-peering met premium-invoegtoepassing voor ExpressRoute |200 |
+| Maximum aantal routes voor Microsoft Azure-peering met ExpressRoute-standaard |200 |
+| Maximum aantal routes voor Azure Microsoft-peering met premium-invoegtoepassing voor ExpressRoute |200 |
+| Aantal virtuele netwerkkoppelingen per ExpressRoute-circuit toegestaan |Zie de onderstaande tabel |
 
-#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Number of Virtual Networks per ExpressRoute circuit
-| **Circuit Size** | **Number of VNet links for standard** | **Number of VNet Links with Premium add-on** |
+#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Aantal virtuele netwerken per ExpressRoute-circuit
+| **De grootte van het circuit** | **Aantal VNet-koppelingen voor standaard** | **Aantal VNet-koppelingen met Premium-invoegtoepassing** |
 | --- | --- | --- |
 | 50 Mbps |10 |20 |
 | 100 Mbps |10 |25 |

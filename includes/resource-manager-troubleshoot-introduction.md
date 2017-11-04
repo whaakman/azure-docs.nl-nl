@@ -1,2 +1,2 @@
-You can troubleshoot your deployment by looking at either the audit logs, or the deployment operations. This topic shows both methods. For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md).
+U kunt uw implementatie oplossen door te kijken naar de controlelogboeken of de implementatiebewerkingen. Dit onderwerp leest beide methoden. Zie voor meer informatie over het oplossen van fouten voor bepaalde implementatie, [oplossen van veelvoorkomende fouten bij het implementeren van resources in Azure met Azure Resource Manager](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md).
 

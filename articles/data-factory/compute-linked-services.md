@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: shengc
-ms.openlocfilehash: e0d95951f5647d2713f0a5c462211fdf1f554e59
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.openlocfilehash: a530b08c276596ddbffafc21e6cffdd9e0e9e3fa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE omgevingen wordt ondersteund door Azure Data Factory
 Dit artikel wordt uitgelegd verschillende berekeningsomgevingen waarmee u kunt gegevens verwerken of transformatie. Het bevat ook informatie over verschillende configuraties (op aanvraag versus bring uw eigen) die door Data Factory worden ondersteund bij het configureren van de gekoppelde services koppelt deze compute-omgevingen aan een Azure data factory.
@@ -128,16 +128,10 @@ De volgende JSON definieert een service op aanvraag een gekoppelde HDInsight op 
 #### <a name="additionallinkedservicenames-json-example"></a>additionalLinkedServiceNames JSON-voorbeeld
 
 ```json
-"additionalLinkedServiceNames": [
-    "otherLinkedServiceName1": {
-        "referenceName": "AzureStorageLinkedService",
-        "type": "LinkedServiceReference"
-    },
-    "otherLinkedServiceName2": {
-        "referenceName": "AzureStorageLinkedService",
-        "type": "LinkedServiceReference"
-    }
-]
+"additionalLinkedServiceNames": [{
+    "referenceName": "MyStorageLinkedService2",
+    "type": "LinkedServiceReference"          
+}]
 ```
 
 ### <a name="service-principal-authentication"></a>Verificatie van service-principal
@@ -175,58 +169,53 @@ U kunt ook de volgende eigenschappen voor de gedetailleerde configuratie van het
 
 ```json
 {
-  "name": " HDInsightOnDemandLinkedService",
-  "properties": {
-    "type": "HDInsightOnDemand",
-    "typeProperties": {
-        "clusterSize": 16,
-        "timeToLive": "01:30:00",
-        "hostSubscriptionId": "<subscription ID>",
-        "servicePrincipalId": "<service principal ID>",
-        "servicePrincipalKey": {
-          "value": "<service principal key>",
-          "type": "SecureString"
-        },
-        "tenant": "<tenent id>",
-        "clusterResourceGroup": "<resource group name>",
-        "version": "3.6",
-        "osType": "Linux",
-        "linkedServiceName": {
-            "referenceName": "AzureStorageLinkedService",
-            "type": "LinkedServiceReference"
+    "name": " HDInsightOnDemandLinkedService",
+    "properties": {
+      "type": "HDInsightOnDemand",
+      "typeProperties": {
+          "clusterSize": 16,
+          "timeToLive": "01:30:00",
+          "hostSubscriptionId": "<subscription ID>",
+          "servicePrincipalId": "<service principal ID>",
+          "servicePrincipalKey": {
+            "value": "<service principal key>",
+            "type": "SecureString"
           },
-          "coreConfiguration": {
-              "templeton.mapper.memory.mb": "5000"
-          },
-          "hiveConfiguration": {
-              "templeton.mapper.memory.mb": "5000"
-          },
-          "mapReduceConfiguration": {
-              "mapreduce.reduce.java.opts": "-Xmx4000m",
-              "mapreduce.map.java.opts": "-Xmx4000m",
-              "mapreduce.map.memory.mb": "5000",
-              "mapreduce.reduce.memory.mb": "5000",
-              "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
-          },
-          "yarnConfiguration": {
-              "yarn.app.mapreduce.am.resource.mb": "5000",
-              "mapreduce.map.memory.mb": "5000"
-          },
-          "additionalLinkedServiceNames": [
-              "otherLinkedServiceName1": {
-                  "referenceName": "datafeeds1",
-                  "type": "LinkedServiceReference"
-              },
-              "otherLinkedServiceName2": {
-                  "referenceName": "datafeeds2",
-                  "type": "LinkedServiceReference"
-              }
-          ]}
-  },
-    "connectVia": {
-    "referenceName": "<name of Integration Runtime>",
-    "type": "IntegrationRuntimeReference"
-  }
+          "tenant": "<tenent id>",
+          "clusterResourceGroup": "<resource group name>",
+          "version": "3.6",
+          "osType": "Linux",
+          "linkedServiceName": {
+              "referenceName": "AzureStorageLinkedService",
+              "type": "LinkedServiceReference"
+            },
+            "coreConfiguration": {
+                "templeton.mapper.memory.mb": "5000"
+            },
+            "hiveConfiguration": {
+                "templeton.mapper.memory.mb": "5000"
+            },
+            "mapReduceConfiguration": {
+                "mapreduce.reduce.java.opts": "-Xmx4000m",
+                "mapreduce.map.java.opts": "-Xmx4000m",
+                "mapreduce.map.memory.mb": "5000",
+                "mapreduce.reduce.memory.mb": "5000",
+                "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
+            },
+            "yarnConfiguration": {
+                "yarn.app.mapreduce.am.resource.mb": "5000",
+                "mapreduce.map.memory.mb": "5000"
+            },
+            "additionalLinkedServiceNames": [{
+                "referenceName": "MyStorageLinkedService2",
+                "type": "LinkedServiceReference"          
+            }]
+        }
+    },
+      "connectVia": {
+      "referenceName": "<name of Integration Runtime>",
+      "type": "IntegrationRuntimeReference"
+    }
 }
 ```
 

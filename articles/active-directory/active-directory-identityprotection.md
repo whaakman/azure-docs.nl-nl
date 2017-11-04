@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 0c7a8d68c0df729441e3f7faa5cd06066db1261d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a4473f25fefd65de75996240955302abb08762da
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
@@ -34,7 +34,7 @@ Azure Active Directory: Identity Protection is een functie van de Azure AD Premi
 
 ## <a name="getting-started"></a>Aan de slag
 
-Microsoft beveiligt cloud-gebaseerde identiteiten voor meer dan een tien jaar. Met Azure Active Directory: Identity Protection kunt in uw omgeving, u de dezelfde systemen ter bescherming van die Microsoft gebruikt voor het beveiligen van identiteiten.
+Cloud-gebaseerde identiteiten is voor meer dan een tien jaar beveiligd door Microsoft. Met Azure Active Directory: Identity Protection kunt in uw omgeving, u de dezelfde systemen ter bescherming van die Microsoft gebruikt voor het beveiligen van identiteiten.
 
 De meeste beveiligingslekken plaatsvinden als aanvallers toegang krijgen tot een omgeving met de identiteit van een gebruiker te stelen. In de afgelopen jaren, zijn aanvallers steeds effectief gebruik van schendingen van derden en het gebruik van geavanceerde phishingaanvallen geworden. Als een aanvaller toegang tot het zelfs als deze gebruiker met laag bevoegde accounts krijgt, is het relatief gemakkelijk voor hen toegang te krijgen tot bronnen van belangrijke bedrijfsgegevens via laterale verplaatsing.
 
@@ -67,7 +67,7 @@ Azure Active Directory: Identity Protection is meer dan een controle en rapporta
 
 **Beleid voor voorwaardelijke toegang op basis van risico's:**
 
-* Beleid voor riskante aanmeldingen beperken door aanmeldingen blokkeren of uitdagingen voor meervoudige verificatie vereisen.
+* Beleid voor riskante aanmeldingen beperken door aanmeldingen blokkeren of uitdagingen voor meervoudige verificatie vereisen
 * Beleid voor het blokkeren of beveiligde riskant gebruikersaccounts
 * Beleid voor gebruikers moeten zich registreren voor meervoudige verificatie
 
@@ -81,7 +81,7 @@ Taakverdeling van de beheertaken voor uw implementatie Identity Protection kunt 
 | :--                          | ---                                |  ---   |
 | Globale beheerder         | Volledige toegang tot Identity Protection, vrijgeven Identity Protection| |
 | Beveiligingsbeheerder       | Volledige toegang tot Identity Protection | Ingebouwde Identity Protection, wachtwoorden opnieuw instellen voor een gebruiker |
-| Beveiligingslezer              | Gereed alleen toegang tot Identity Protection | Ingebouwde Identity Protection, remidiate gebruikers,-beleid configureren, wachtwoorden opnieuw instellen |
+| Beveiligingslezer              | Alleen-lezentoegang tot Identity Protection | Ingebouwde Identity Protection, remidiate gebruikers,-beleid configureren, wachtwoorden opnieuw instellen |
 
 
 

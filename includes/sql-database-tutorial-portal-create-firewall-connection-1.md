@@ -1,101 +1,101 @@
-## <a name="log-in-to-the-azure-portal"></a>Log in to the Azure portal
+## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-database"></a>Create a blank SQL database
+## <a name="create-a-blank-sql-database"></a>Een lege SQL-database maken
 
-An Azure SQL database is created with a defined set of [compute and storage resources](../articles/sql-database/sql-database-service-tiers.md). The database is created within an [Azure resource group](../articles/azure-resource-manager/resource-group-overview.md) and in an [Azure SQL Database logical server](../articles/sql-database/sql-database-features.md). 
+Een Azure SQL-database wordt gemaakt met een gedefinieerde set [reken- en opslagresources](../articles/sql-database/sql-database-service-tiers.md). De database is gemaakt in een [Azure-resourcegroep](../articles/azure-resource-manager/resource-group-overview.md) en in een [logische Azure SQL Database-server](../articles/sql-database/sql-database-features.md). 
 
-Follow these steps to create a blank SQL database. 
+Volg deze stappen voor het maken van een lege SQL-database. 
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
 
-2. Select **Databases** from the **New** page, and select **Create** under **SQL Database** on the **New** page.
+2. Selecteer **Databases** op de pagina **Nieuw** en selecteer **Maken** onder **SQL-database** op de pagina **Nieuw**.
 
-   ![create empty-database](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
+   ![lege database maken](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
 
-3. Fill out the SQL Database form with the following information, as shown on the preceding image:   
+3. Vul het formulier SQL Database in met de volgende informatie, zoals in de voorgaande afbeelding wordt weergegeven:   
 
-   | Setting       | Suggested value | Description | 
+   | Instelling       | Voorgestelde waarde | Beschrijving | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Database name** | mySampleDatabase | For valid database names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). | 
-   | **Subscription** | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-   | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   | **Select source** | Blank database | Specifies that a blank database should be created. |
+   | **Databasenaam** | mySampleDatabase | Zie [Database-id's](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) voor geldige databasenamen. | 
+   | **Abonnement** | Uw abonnement  | Zie [Abonnementen](https://account.windowsazure.com/Subscriptions) voor meer informatie over uw abonnementen. |
+   | **Resourcegroep** | myResourceGroup | Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige resourcegroepnamen. |
+   | **Bron selecteren** | Lege database | Hiermee geeft u op dat een lege database moet worden gemaakt. |
 
-4. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** with the following information: 
+4. Klik op **Server** als u een nieuwe server voor de nieuwe database wilt maken en configureren. Vul de **nieuwe serverformulier** met de volgende informatie: 
 
-   | Setting       | Suggested value | Description | 
+   | Instelling       | Voorgestelde waarde | Beschrijving | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
-   | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
-   | **Password** | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
-   | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
+   | **Servernaam** | Een wereldwijd unieke naam | Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige servernamen. | 
+   | **Aanmeldgegevens van serverbeheerder** | Een geldige naam | Zie [Database-id's](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) voor geldige aanmeldingsnamen.|
+   | **Wachtwoord** | Een geldig wachtwoord | Uw wachtwoord moet ten minste 8 tekens bestaan en moet tekens bevatten uit drie van de volgende categorieën: hoofdletters, kleine letters, cijfers en niet-alfanumerieke tekens. |
+   | **Locatie** | Een geldige locatie | Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor informatie over regio's. |
 
-   ![create database-server](../articles/sql-database/media/sql-database-design-first-database/create-database-server.png)
+   ![database-server maken](../articles/sql-database/media/sql-database-design-first-database/create-database-server.png)
 
-5. Click **Select**.
+5. Klik op **Selecteren**.
 
-6. Click **Pricing tier** to specify the service tier, the number of DTUs, and the amount of storage. Explore the options for the amount of DTUs and storage that is available to you for each service tier. 
+6. Klik op **Prijscategorie** om de servicelaag, het aantal DTU's en de hoeveelheid opslag op te geven. Bekijk de opties voor de hoeveelheid DTU's en opslag die voor elke servicelaag beschikbaar zijn. 
 
-7. For this tutorial, select the **Standard** service tier and then use the slider to select **100 DTUs (S3)** and **400** GB of storage.
+7. Voor deze zelfstudie selecteert u de **standaard** servicelaag en gebruik vervolgens de schuifregelaar om te selecteren **100 dtu's (S3)** en **400** GB aan opslagruimte.
 
-   ![create database-s1](../articles/sql-database/media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
+   ![database-s1 maken](../articles/sql-database/media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
-8. Accept the preview terms to use the **Add-on Storage** option. 
+8. Accepteer de gebruiksvoorwaarden voor de preview om de optie **Extra opslag** te gebruiken. 
 
    > [!IMPORTANT]
-   > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
+   > \* Opslagruimten groter dan de hoeveelheid inbegrepen opslagruimte zijn in preview en hiervoor gelden extra kosten. Zie [de prijsinformatie voor SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) voor meer informatie. 
    >
-   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* In de Premium-laag is op dit moment opslag van meer dan 1 TB beschikbaar in de volgende regio's: VS Oost 2, VS West, VS (overheid) Virginia, West-Europa, Duitsland Centraal, Zuidoost-Azië, Japan - oost, Australië - oost, Canada Centraal en Canada Oost. Zie [P11-P15: huidige beperkingen](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
-9. After selecting the server tier, the number of DTUs, and the amount of storage, click **Apply**.  
+9. Als u de servicelaag, het aantal DTU's en de hoeveelheid opslagruimte hebt geselecteerd, klikt u op **Toepassen**.  
 
-10. Select a **collation** for the blank database (for this tutorial, use the default value). For more information about collations, see [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations)
+10. Selecteer een **sortering** voor de lege database (Gebruik de standaardwaarde voor deze zelfstudie). Zie voor meer informatie over sorteringen [sorteringen](https://docs.microsoft.com/sql/t-sql/statements/collations)
 
-11. Click **Create** to provision the database. Provisioning takes about a minute and a half to complete. 
+11. Klik op **Maken** om de database in te richten. Inrichting vergt over een minuut en een halve te voltooien. 
 
-12. On the toolbar, click **Notifications** to monitor the deployment process.
+12. Klik op de werkbalk op **Meldingen** om het implementatieproces te bewaken.
     
-     ![notification](../articles/sql-database/media/sql-database-get-started-portal/notification.png)
+     ![melding](../articles/sql-database/media/sql-database-get-started-portal/notification.png)
 
-## <a name="create-a-server-level-firewall-rule"></a>Create a server-level firewall rule
+## <a name="create-a-server-level-firewall-rule"></a>Een serverfirewallregel maken
 
-The SQL Database service creates a firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. Follow these steps to create a [SQL Database server-level firewall rule](../articles/sql-database/sql-database-firewall-configure.md) for your client's IP address and enable external connectivity through the SQL Database firewall for your IP address only. 
+De service SQL Database maakt een firewall op serverniveau die voorkomt dat externe toepassingen en hulpmiddelen verbinding maken met de server of databases op de server, tenzij er een firewallregel is gemaakt om de firewall te openen voor specifieke IP-adressen. Volg deze stappen om een [SQL Database-firewallregel op serverniveau](../articles/sql-database/sql-database-firewall-configure.md) te maken voor het IP-adres van de client en connectiviteit via de SQL Database-firewall alleen voor uw IP-adres toe te staan. 
 
 > [!NOTE]
-> SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
+> SQL Database communiceert via poort 1433. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 1433 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u geen verbinding maken met uw Azure SQL Database-server, tenzij de IT-afdeling poort 1433 openstelt.
 >
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver20170824.database.windows.net**) and provides options for further configuration. 
+1. Wanneer de implementatie is voltooid, klikt u op **SQL Databases** in het menu aan de linkerkant. Klik vervolgens op de pagina **SQL Databases** op **mySampleDatabase**. De overzichtspagina voor uw database wordt geopend, waarin u de volledig gekwalificeerde servernaam (zoals **mynewserver20170824.database.windows.net**) en biedt opties voor verdere configuratie. 
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. 
+2. Kopieer deze volledig gekwalificeerde servernaam om in volgende Quick Starts verbinding te maken met de server en de bijbehorende databases. 
 
-   ![server name](../articles/sql-database/media/sql-database-get-started-portal/server-name.png) 
+   ![servernaam](../articles/sql-database/media/sql-database-get-started-portal/server-name.png) 
 
-3. Click **Set server firewall** on the toolbar. The **Firewall settings** page for the SQL Database server opens. 
+3. Klik op **serverfirewall ingesteld** op de werkbalk. De pagina **Firewallinstellingen** voor de SQL Database-server wordt geopend. 
 
-   ![server firewall rule](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png) 
+   ![serverfirewallregel](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png) 
 
-4. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
+4. Klik op **IP van client toevoegen** op de werkbalk om uw huidige IP-adres aan een nieuwe firewallregel toe te voegen. Een firewallregel kan poort 1433 openen voor een afzonderlijk IP-adres of voor een aantal IP-adressen.
 
-5. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
+5. Klik op **Opslaan**. Er wordt een firewallregel op serverniveau gemaakt voor uw huidige IP-adres waarbij poort 1433 op de logische server wordt geopend.
 
-6. Click **OK** and then close the **Firewall settings** page.
+6. Klik op **OK** en sluit de pagina **Firewallinstellingen**.
 
-You can now connect to the SQL Database server and its databases using SQL Server Management Studio or another tool of your choice from this IP address using the server admin account created previously.
+U kunt nu verbinding maken met de SQL Database-server en de bijbehorende databases met behulp van SQL Server Management Studio of een ander hulpprogramma naar keuze. Dit doet u vanaf dit IP-adres via het serverbeheerdersaccount dat eerder is gemaakt.
 
 
 > [!IMPORTANT]
-> By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page to disable for all Azure services.
+> Voor alle Azure-services is toegang via de SQL Database-firewall standaard ingeschakeld. Klik op **UIT** op deze pagina om dit voor alle Azure-services uit te schakelen.
 
-## <a name="sql-server-connection-information"></a>SQL server connection information
+## <a name="sql-server-connection-information"></a>SQL Server-verbindingsgegevens
 
-Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
+Haal de volledig gekwalificeerde servernaam van uw Azure SQL Database-server op uit Azure Portal. U gebuikt de volledig gekwalificeerde servernaam om verbinding met uw server te maken via SQL Server Management Studio.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+2. Selecteer **SQL-databases** in het menu links en klik op uw database op de pagina **SQL-databases**. 
+3. In het deelvenster **Essentials** van de Azure Portal-pagina van uw database kopieert u de **servernaam**.
 
-   ![connection information](../articles/sql-database/media/sql-database-get-started-portal/server-name.png)
+   ![verbindingsgegevens](../articles/sql-database/media/sql-database-get-started-portal/server-name.png)

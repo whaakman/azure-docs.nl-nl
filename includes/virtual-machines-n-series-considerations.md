@@ -1,18 +1,18 @@
-## <a name="deployment-considerations"></a>Deployment considerations
+## <a name="deployment-considerations"></a>Overwegingen bij de implementatie
 
-* For availability of N-series VMs, see [Products available by region](https://azure.microsoft.com/en-us/regions/services/).
+* Zie voor de beschikbaarheid van virtuele machines N-serie, [producten die beschikbaar zijn in elke regio](https://azure.microsoft.com/en-us/regions/services/).
 
-* N-series VMs can only be deployed in the Resource Manager deployment model.
+* N-serie VM's kunnen alleen worden geïmplementeerd in het Resource Manager-implementatiemodel.
 
-* When creating an N-series VM using the Azure portal, on the **Basics** blade, select a **VM disk type** of **HDD**. To choose an available N-series size, on the **Size** blade, click **View all**.
+* Bij het maken van een virtuele machine in N-reeks met de Azure-portal op de **basisbeginselen** blade, selecteer een **VM schijftype** van **HDD**. Een formaat N-serie, kiezen op de **grootte** blade, klikt u op **weergeven van alle**.
 
-* N-series VMs do not support VM disks that are backed by Azure Premium storage.
+* N-serie VM's bieden geen ondersteuning voor VM-schijven die worden ondersteund door Azure Premium-opslag.
 
-* If you want to deploy more than a few N-series VMs, consider a pay-as-you-go subscription or other purchase options. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
+* Als u wilt meer dan een paar N-reeks virtuele machines te implementeren, kunt u een abonnement op gebruiksbasis of andere Aankoopopties. Als u een [gratis account van Azure](https://azure.microsoft.com/free/) gebruikt, kunt u slechts een paar Azure Compute-resources van Azure gebruiken.
 
-* You might need to increase the cores quota (per region) in your Azure subscription, and increase the separate quota for NC or NV cores. To request a quota increase, [open an online customer support request](../articles/azure-supportability/how-to-create-azure-support-request.md) at no charge. Default limits may vary depending on your subscription category.
+* Mogelijk moet u het quotum voor kernen (per regio) in uw Azure-abonnement te verhogen en het verhogen van de afzonderlijke quotum voor kernen NC of NV. Om aan te vragen een verhoging van het quotum [opent u een ondersteuningsaanvraag online klant](../articles/azure-supportability/how-to-create-azure-support-request.md) zonder kosten. Standaardlimiet kunnen variëren, afhankelijk van de abonnementscategorie van uw.
 
-* One VM image you can deploy on N-series VMs is the [Azure Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md). The Data Science Virtual Machine preinstalls and configures many popular data science and deep learning tools. It also preinstalls NVIDIA Tesla GPU drivers for NC instances.
+* Een VM-installatiekopie die u op virtuele machines N-reeks implementeren kunt is de [virtuele Machine van Azure Data wetenschappelijke](../articles/machine-learning/data-science-virtual-machine/overview.md). De virtuele Machine van de gegevens wetenschappelijke vooraf installeert en configureert veel populaire gegevenswetenschap en diepe leren werken met hulpprogramma's. Deze NVIDIA Tesla GPU-stuurprogramma's voor NC-exemplaren ook vooraf installeert.
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Subscribe to an offer | Microsoft Docs
-description: As a tenant, learn how to subscribe to an offer.
+title: Abonneren op een aanbieding | Microsoft Docs
+description: Informatie over het abonneren op een aanbieding als een gebruiker.
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/03/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 3cd87ebe9827249d32f15b5de0ad8521d0282c47
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/10/2017
-
-
+ms.openlocfilehash: f70815b5e89753a4b0083ffbe10d9920062d1ff0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="subscribe-to-an-offer"></a>Subscribe to an offer
-Now that you've [created an offer](azure-stack-create-offer.md), test that your tenants can create a subscription.
+# <a name="subscribe-to-an-offer"></a>Abonneren op een aanbieding
 
-1. [Sign in](azure-stack-connect-azure-stack.md) to the Azure Stack tenant portal (https://portal.local.azurestack.external) and click **Get a Subscription**.
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+
+Nu dat u hebt [gemaakt van een aanbieding](azure-stack-create-offer.md), testen van uw gebruikers kunnen een abonnement maken.
+
+1. [Meld u aan](azure-stack-connect-azure-stack.md) naar de gebruikersportal van Azure-Stack (https://portal.local.azurestack.external) en klik op **Neem een abonnement op**.
 
    ![](media/azure-stack-subscribe-plan-provision-vm/image01.png)
-2. In the **Display Name** field, type a name for your subscription, click **Offer**, click one of the offers in the **Choose an offer** blade, and then click **Create**.
+2. In de **weergavenaam** veld, typ een naam voor uw abonnement, klik op **bieden**, klikt u op een van de aanbiedingen in de **kiest u een aanbieding** blade en klik vervolgens op  **Maak**.
 
    ![](media/azure-stack-subscribe-plan-provision-vm/image02.png)
-3. To view the subscription you created, click **More services**, click **Subscriptions**, then click your new subscription.  
+3. Als u wilt weergeven van het abonnement dat u hebt gemaakt, klikt u op **meer services**, klikt u op **abonnementen**, klik vervolgens op het nieuwe abonnement.  
 
-After you subscribe to an offer, refresh the portal to see which services are part of the new subscription.
+Nadat u zich op een aanbieding abonneert, vernieuw de portal om te zien welke services deel uitmaken van het nieuwe abonnement.
 
-## <a name="subscribe-to-an-add-on-plan"></a>Subscribe to an add-on plan
-If the offer has an add-on plan, tenants can add them to their subscription at any time.  
+## <a name="subscribe-to-an-add-on-plan"></a>Abonneren op een plan voor de invoegtoepassing
+Als de aanbieding een invoegtoepassing plan heeft, kunnen gebruikers ze toevoegen aan hun abonnement op elk gewenst moment.  
 
-1. In the tenant portal, select **More services** > **Subscriptions**.
+1. Selecteer in de gebruikersportal **meer services** > **abonnementen**.
 
-2. Click on the subscription > **Add Plan** button, and select the add-on plan.
+2. Klik op het abonnement > **Plan toevoegen** en selecteer het plan voor de invoegtoepassing.
 
 
 
-## <a name="next-steps"></a>Next steps
-[Provision a virtual machine](azure-stack-provision-vm.md)
-
+## <a name="next-steps"></a>Volgende stappen
+[Een virtuele machine inrichten](azure-stack-provision-vm.md)

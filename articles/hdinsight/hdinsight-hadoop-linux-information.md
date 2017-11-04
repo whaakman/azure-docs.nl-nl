@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: 29f245fdeaadd6f95755f7fd7564dfa7f6b2981f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: befd03d94f816cb2b59219cd9f1f9af238949592
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informatie over het gebruik van HDInsight op Linux
 
@@ -39,9 +39,9 @@ Veel van de stappen in dit document met de volgende hulpprogramma's, die mogelij
 
 ## <a name="users"></a>Gebruikers
 
-Tenzij [domein](hdinsight-domain-joined-introduction.md), HDInsight moet worden beschouwd als een **één gebruiker** system. Een SSH-account voor één gebruiker is gemaakt met het cluster, met de beheerdersmachtigingen. Aanvullende SSH-accounts kunnen worden gemaakt, maar ze hebben beheerderstoegang tot het cluster.
+Tenzij [domein](./domain-joined/apache-domain-joined-introduction.md), HDInsight moet worden beschouwd als een **één gebruiker** system. Een SSH-account voor één gebruiker is gemaakt met het cluster, met de beheerdersmachtigingen. Aanvullende SSH-accounts kunnen worden gemaakt, maar ze hebben beheerderstoegang tot het cluster.
 
-Domein HDInsight biedt ondersteuning voor meerdere gebruikers en meer gedetailleerde instellingen voor machtigingen en de rol. Zie voor meer informatie [beheren domein HDInsight-clusters](hdinsight-domain-joined-manage.md).
+Domein HDInsight biedt ondersteuning voor meerdere gebruikers en meer gedetailleerde instellingen voor machtigingen en de rol. Zie voor meer informatie [beheren domein HDInsight-clusters](./domain-joined/apache-domain-joined-manage.md).
 
 ## <a name="domain-names"></a>Domeinnamen
 
@@ -277,6 +277,6 @@ Upload de versie die u nodig hebt en deze gebruiken in uw taken voor het gebruik
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Migreren van HDInsight op basis van Windows naar op basis van Linux](hdinsight-migrate-from-windows-to-linux.md)
-* [Hive gebruiken met HDInsight](hdinsight-use-hive.md)
-* [Pig gebruiken met HDInsight](hdinsight-use-pig.md)
-* [MapReduce-taken gebruiken met HDInsight](hdinsight-use-mapreduce.md)
+* [Hive gebruiken met HDInsight](hadoop/hdinsight-use-hive.md)
+* [Pig gebruiken met HDInsight](hadoop/hdinsight-use-pig.md)
+* [MapReduce-taken gebruiken met HDInsight](hadoop/hdinsight-use-mapreduce.md)

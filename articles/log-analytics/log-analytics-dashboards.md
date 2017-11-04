@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a90d9c620221bffbb225fb060b997af2f5e90390
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 22cc516c15353e39c73e762d2b8fa0d787a05ef4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Maken van een aangepast dashboard voor gebruik in Log Analytics
 
->[!NOTE]
-> Als uw werkruimte is bijgewerkt naar de [nieuwe logboekanalyse querytaal](log-analytics-log-search-upgrade.md), en u geen nieuwe dashboards maken of bewerken van bestaande dashboards. 
-
 Deze handleiding helpt u begrijpen hoe logboekanalyse dashboards Visualiseer al uw zoekopdrachten opgeslagen logboek zodat u een identiteitsonderdelen om weer te geven van uw omgeving.
+
+>[!NOTE]
+> Als uw werkruimte is bijgewerkt naar de [querytaal van nieuwe logboekanalyse](log-analytics-log-search-upgrade.md), en u kunt uw bestaande niet bewerken **mijn Dashboard**. Als uw werkruimte is geen **mijn Dashboard** tegels die zijn toegevoegd, ziet u niet **mijn Dashboard** in uw bijgewerkte werkruimte. 
 
 ![Voorbeeld van Dashboard](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
 

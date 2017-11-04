@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: jgao
-ms.openlocfilehash: b44321619f2aa94a6d98624ab1ee35a598fb6fc8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4b2ca9dd60187904d9d22e8308e31ed46b1213e6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>Zeppelin gebruiken voor het uitvoeren van Hive-query's in Azure HDInsight 
 
@@ -29,7 +29,7 @@ Interactieve Query HDInsight-clusters bevatten Zeppelin-notebooks kunt u interac
 ## <a name="prerequisites"></a>Vereisten
 Voordat u verdergaat met dit artikel, hebt u de volgende items:
 
-* **Interactieve Query HDInsight-cluster**. Zie [cluster maken](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster) een HDInsight-cluster te maken.  Zorg ervoor dat de interactieve Query kiezen. 
+* **Interactieve Query HDInsight-cluster**. Zie [cluster maken](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) een HDInsight-cluster te maken.  Zorg ervoor dat de interactieve Query kiezen. 
 
 ## <a name="create-a-zeppelin-note"></a>Een notitie Zeppelin maken
 
@@ -76,9 +76,9 @@ Voordat u verdergaat met dit artikel, hebt u de volgende items:
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe Visualiseer gegevens uit HDInsight met behulp van Power BI.  Zie voor meer informatie de volgende artikelen:
 
-* [Hive-gegevens visualiseren met Microsoft Power BI in Azure HDInsight](./hdinsight-connect-hive-power-bi.md).
-* [Excel verbinden met HDInsight met het Microsoft Hive ODBC-stuurprogramma](./hdinsight-connect-excel-hive-odbc-driver.md).
-* [Excel en Hadoop koppelen met Power Query](./hdinsight-connect-excel-power-query.md).
-* [Verbinding maken met Azure HDInsight en het uitvoeren van Hive-query's met Data Lake Tools voor Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
+* [Hive-gegevens visualiseren met Microsoft Power BI in Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md).
+* [Excel verbinden met HDInsight met het Microsoft Hive ODBC-stuurprogramma](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
+* [Excel en Hadoop koppelen met Power Query](hadoop/apache-hadoop-connect-excel-power-query.md).
+* [Verbinding maken met Azure HDInsight en het uitvoeren van Hive-query's met Data Lake Tools voor Visual Studio](hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 * [Azure HDInsight-hulpprogramma gebruiken voor Visual Studio Code](hdinsight-for-vscode.md).
 * [Gegevens uploaden naar HDInsight](./hdinsight-upload-data.md).

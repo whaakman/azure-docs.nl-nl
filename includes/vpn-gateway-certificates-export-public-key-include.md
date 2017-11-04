@@ -1,7 +1,7 @@
-Point-to-Site connections require the certificate public key .cer file (not the private key) to be uploaded to Azure. The following steps help you export the .cer file for your self-signed root certificate:
+Punt-naar-Site-verbindingen nodig het certificaat openbare sleutel cer-bestand (niet de persoonlijke sleutel) kunnen worden geüpload naar Azure. De volgende stappen kunt u het cer-bestand voor uw zelfondertekende basiscertificaat exporteren:
 
-1. To obtain a .cer file from the certificate, open **Manage user certificates**. Locate the self-signed root certificate, typically in 'Certificates - Current User\Personal\Certificates', and right-click. Click **All Tasks**, and then click **Export**. This opens the **Certificate Export Wizard**.
-2. In the Wizard, click **Next**. Select **No, do not export the private key**, and then click **Next**.
-3. On the **Export File Format** page, select **Base-64 encoded X.509 (.CER).**, and then click **Next**. 
-4. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then, click **Next**.
-5. Click **Finish** to export the certificate. You see **The export was successful**. Click **OK** to close the wizard.
+1. Als u een CER-bestand wilt genereren van het certificaat, opent u **Gebruikerscertificaten beheren**. Zoek het zelfondertekende basiscertificaat, meestal in 'Certificaten - Huidige gebruiker\Persoonlijk\Certificaten', en klik er met de rechtermuisknop op. Klik op **Alle taken** en vervolgens op **Exporteren**. Hiermee opent u de **Wizard Certificaat exporteren**.
+2. Klik in de wizard op **Volgende**. Selecteer **Nee, de persoonlijke sleutel niet exporteren** en klik vervolgens op **Volgende**.
+3. Selecteer op de pagina **Bestandsindeling voor export** de optie **Met Base64 gecodeerde X.509 (*.CER)** en klik op **Volgende**. 
+4. Op de pagina **Te exporteren bestand** **bladert** u naar de locatie waar u het certificaat wilt exporteren. Geef bij **Bestandsnaam** de naam van het certificaatbestand op. Klik op **Volgende**.
+5. Klik op **Voltooien** om het certificaat te exporteren. U ziet **het exporteren geslaagd is**. Klik op **OK** om de wizard te sluiten.

@@ -1,3 +1,3 @@
-* Windows: `Ctrl-insert` to copy and `Shift-insert` to paste. Right-click dropdown can also enable copy/paste.
-  * FireFox/IE may not support clipboard permissions properly.
-* Mac OS: `Cmd-c` to copy and `Cmd-v` to paste. Right-click dropdown can also enable copy/paste.
+* Windows: `Ctrl-insert` kopiëren en `Shift-insert` te plakken. Klik met de rechtermuisknop dropdown kunt kopiëren en plakken ook inschakelen.
+  * FireFox/IE ondersteunen Klembord machtigingen niet goed.
+* Mac OS: `Cmd-c` kopiëren en `Cmd-v` te plakken. Klik met de rechtermuisknop dropdown kunt kopiëren en plakken ook inschakelen.

@@ -1,23 +1,23 @@
 
-For more information about disks, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Zie [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Informatie over schijven en VHD's voor virtuele machines) voor meer informatie over schijven.
 
 <a id="attachempty"></a>
 
-## <a name="attach-an-empty-disk"></a>Attach an empty disk
-1. Open Azure CLI 1.0 and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
-2. Enter `azure vm disk attach-new` to create and attach a new disk as shown in the following example. Replace *myVM* with the name of your Linux Virtual Machine and specify the size of the disk in GB, which is *100GB* in this example:
+## <a name="attach-an-empty-disk"></a>Een lege schijf koppelen
+1. Open Azure CLI 1.0 en [maak verbinding met uw Azure-abonnement](../articles/xplat-cli-connect.md). Zorg ervoor dat u zich in de modus voor Azure-servicebeheer (`azure config mode asm`) bevindt.
+2. Voer `azure vm disk attach-new` in om een nieuwe schijf te maken en te koppelen, zoals wordt weergegeven in het volgende voorbeeld. Vervang *myVM* met de naam van uw virtuele Linux-machine en geef de grootte van de schijf op in GB. In dit voorbeeld is dat *100 GB*:
 
     ```azurecli
     azure vm disk attach-new myVM 100
     ```
 
-3. After the data disk is created and attached, it's listed in the output of `azure vm disk list <virtual-machine-name>` as shown in the following example:
+3. Nadat u de gegevensschijf hebt gemaakt en gekoppeld, wordt deze weergegeven in de uitvoer van `azure vm disk list <virtual-machine-name>`, zoals weergegeven in het volgende voorbeeld:
    
     ```azurecli
     azure vm disk list TestVM
     ```
 
-    The output is similar to the following example:
+    De uitvoer lijkt op die in het volgende voorbeeld:
 
     ```bash
     info:    Executing command vm disk list
@@ -34,17 +34,17 @@ For more information about disks, see [About Disks and VHDs for Virtual Machines
 
 <a id="attachexisting"></a>
 
-## <a name="attach-an-existing-disk"></a>Attach an existing disk
-Attaching an existing disk requires that you have a .vhd available in a storage account.
+## <a name="attach-an-existing-disk"></a>Een bestaande schijf koppelen
+Als u een bestaande schijf wilt koppelen, dient u een .vhd beschikbaar te hebben in een opslagaccount.
 
-1. Open Azure CLI 1.0 and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
-2. Check if the VHD you want to attach is already uploaded to your Azure subscription:
+1. Open Azure CLI 1.0 en [maak verbinding met uw Azure-abonnement](../articles/xplat-cli-connect.md). Zorg ervoor dat u zich in de modus voor Azure-servicebeheer (`azure config mode asm`) bevindt.
+2. Controleer of de VHD die u wilt toevoegen al is geüpload naar uw Azure-abonnement:
    
     ```azurecli
     azure vm disk list
     ```
 
-    The output is similar to the following example:
+    De uitvoer lijkt op die in het volgende voorbeeld:
 
     ```azurecli
      info:    Executing command vm disk list
@@ -58,13 +58,13 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
      info:    vm disk list command OK
     ```
 
-3. If you don't find the disk that you want to use, you may upload a local VHD to your subscription by using `azure vm disk create` or `azure vm disk upload`. An example of `disk create` would be as in the following example:
+3. Als u de schijf die u wilt gebruiken niet kunt vinden, kunt u een lokale VHD uploaden naar uw abonnement door `azure vm disk create` of `azure vm disk upload` te gebruiken. `disk create` zou er als volgt uit kunnen zien:
    
     ```azurecli
     azure vm disk create myVhd .\TempDisk\test.VHD -l "East US" -o Linux
     ```
 
-    The output is similar to the following example:
+    De uitvoer lijkt op die in het volgende voorbeeld:
 
     ```azurecli
     info:    Executing command vm disk create
@@ -78,23 +78,23 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
     info:    vm disk create command OK
     ```
    
-   You may also use `azure vm disk upload` to upload a VHD to a specific storage account. Read more about the commands to manage your Azure virtual machine data disks [over here](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+   U kunt ook `azure vm disk upload` gebruiken om een VHD naar een specifiek opslagaccount te uploaden. [Hier](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) vindt u meer informatie over de opdrachten voor het beheren van de gegevensschijven voor uw virtuele Azure-machine.
 
-4. Now you attach the desired VHD to your virtual machine:
+4. U kunt nu de gewenste VHD koppelen aan uw virtuele machine:
    
     ```azurecli
     azure vm disk attach myVM myVhd
     ```
    
-   Make sure to replace *myVM* with the name of your virtual machine, and *myVHD* with your desired VHD.
+   Vervang *myVM* door de naam van uw virtuele machine en *myVHD* door de gewenste VHD.
 
-5. You can verify the disk is attached to the virtual machine with `azure vm disk list <virtual-machine-name>`:
+5. U kunt met `azure vm disk list <virtual-machine-name>` controleren of de schijf is gekoppeld aan de virtuele machine:
    
     ```azurecli
     azure vm disk list myVM
     ```
 
-    The output is similar to the following example:
+    De uitvoer lijkt op die in het volgende voorbeeld:
 
     ```azurecli
      info:    Executing command vm disk list
@@ -111,7 +111,7 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
     ```
 
 > [!NOTE]
-> After you add a data disk, you'll need to log on to the virtual machine and initialize the disk so the virtual machine can use the disk for storage (see the following steps for more information on how to do initialize the disk).
+> Nadat u een gegevensschijf hebt toegevoegd, dient u zich aan te melden bij de virtuele machine en de schijf te initialiseren zodat de virtuele machine de schijf voor opslag kan gebruiken. Zie de volgende stappen voor meer informatie over het initialiseren van de schijf.
 > 
 > 
 

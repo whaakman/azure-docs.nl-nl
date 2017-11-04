@@ -1,7 +1,7 @@
 ---
-title: Uw eerste Azure Container Instances-container maken | Azure Docs
+title: Quick Start - uw eerste Azure-Containerexemplaren container maken
 description: Azure Container Instances implementeren en ermee aan de slag gaan
-services: container-service
+services: container-instances
 documentationcenter: 
 author: seanmck
 manager: timlt
@@ -9,25 +9,22 @@ editor:
 tags: 
 keywords: 
 ms.assetid: 
-ms.service: 
+ms.service: container-instances
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 09/26/2017
 ms.author: seanmck
-ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: ad053391e6b3927ab11faaf4d9e70b610e86f3c3
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/28/2017
-
+ms.custom: mvc
+ms.openlocfilehash: e4af46f4b750937a636af3fe667c9979fdedfdc8
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/03/2017
 ---
-
 # <a name="create-your-first-container-in-azure-container-instances"></a>Uw eerste container maken in Azure Container Instances
-
-Met Azure Container Instances kunt u eenvoudig containers maken en beheren in Azure. In deze snelstartgids maakt u een container in Azure en geeft u deze op internet weer met een openbaar IP-adres. Deze bewerking wordt uitgevoerd in één opdracht. Binnen een paar seconden ziet u dit in uw browser:
+Azure Containerexemplaren gemakkelijk maken en beheren van Docker-containers in Azure, zonder te hoeven inrichten van virtuele machines of aannemen van een service op een hoger niveau. In deze snelstartgids een container maken in Azure en tijdens het blootgesteld aan internet met een openbaar IP-adres. Deze bewerking wordt uitgevoerd in één opdracht. Binnen een paar seconden ziet u dit in uw browser:
 
 ![App die is geïmplementeerd met Azure Container Instances, weergegeven in de browser][aci-app-browser]
 
@@ -35,29 +32,29 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids gebruikmaken van Azure CLI versie 2.0.12 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids gebruikmaken van Azure CLI versie 2.0.12 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
 Azure Container Instances zijn Azure-resources en moeten worden geplaatst in een Azure-resourcegroep, een logische verzameling waarin Azure resources worden geïmplementeerd en beheerd.
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). 
+Maak een resourcegroep met de [az groep maken] [ az-group-create] opdracht.
 
 In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-container"></a>Een container maken
 
-U kunt een container maken door een naam, een Docker-installatiekopie en een Azure-resourcegroep op te geven. U kunt de container desgewenst weergeven op internet met een openbaar IP-adres. We gebruiken in dit geval een container die als host fungeert voor een zeer eenvoudige web-app die is geschreven in [Node.js](http://nodejs.org).
+U kunt een container maken door op te geven van een naam, een Docker-installatiekopie en een Azure-resourcegroep voor de [az container maken] [ az-container-create] opdracht. U kunt de container desgewenst weergeven op internet met een openbaar IP-adres. We gebruiken in dit geval een container die als host fungeert voor een zeer eenvoudige web-app die is geschreven in [Node.js](http://nodejs.org).
 
 ```azurecli-interactive
-az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public 
+az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public
 ```
 
-Binnen enkele seconden krijgt u een reactie op uw aanvraag. In eerste instantie heeft de container de status **Maken** staat, maar deze moet binnen een paar seconden starten. U kunt de status controleren met de opdracht `show`:
+Binnen enkele seconden krijgt u een reactie op uw aanvraag. In eerste instantie heeft de container de status **Maken** staat, maar deze moet binnen een paar seconden starten. U kunt ook het gebruik van de status controleren de [az container weergeven] [ az-container-show] opdracht:
 
 ```azurecli-interactive
 az container show --name mycontainer --resource-group myResourceGroup
@@ -68,7 +65,7 @@ Aan de onderkant van de uitvoer ziet u de inrichtingsstatus en het IP-adres van 
 ```json
 ...
 "ipAddress": {
-      "ip": "13.88.8.148",
+      "ip": "13.88.176.27",
       "ports": [
         {
           "port": 80,
@@ -81,13 +78,13 @@ Aan de onderkant van de uitvoer ziet u de inrichtingsstatus en het IP-adres van 
 ...
 ```
 
-Als de container de status **Voltooid** heeft, u kunt deze benaderen in de browser met behulp van het opgegeven IP-adres. 
+Nadat de container wordt verplaatst naar de **geslaagd** staat, kunt u deze bereiken in uw browser met behulp van het opgegeven IP-adres.
 
 ![App die is geïmplementeerd met Azure Container Instances, weergegeven in de browser][aci-app-browser]
 
 ## <a name="pull-the-container-logs"></a>De containerlogboeken ophalen
 
-U kunt de logboeken voor de container die u hebt gemaakt ophalen met de opdracht `logs`:
+U kunt ophalen van de logboeken voor de container die u hebt gemaakt met de [az container logboeken] [ az-container-logs] opdracht:
 
 ```azurecli-interactive
 az container logs --name mycontainer --resource-group myResourceGroup
@@ -103,7 +100,7 @@ listening on port 80
 
 ## <a name="delete-the-container"></a>De container verwijderen
 
-Wanneer u klaar bent met de container, kunt u deze verwijderen met behulp van de opdracht `delete`:
+Wanneer u klaar bent met de container, kunt u verwijderen met behulp van de [az container verwijderen] [ az-container-delete] opdracht:
 
 ```azurecli-interactive
 az container delete --name mycontainer --resource-group myResourceGroup
@@ -111,14 +108,24 @@ az container delete --name mycontainer --resource-group myResourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Alle code voor de container die wordt gebruikt in deze snelstartgids is beschikbaar [op GitHub][app-github-repo], samen met het Dockerfile. Als u wilt proberen om deze zelf te bouwen en te implementeren in Azure Container Instances met behulp van het Azure Container Registry, gaat u verder met de zelfstudie van Azure Container Instances.
+Alle code voor de container die wordt gebruikt in deze snelstartgids is beschikbaar [op GitHub][app-github-repo], samen met de Dockerfile. Als u wilt proberen om deze zelf te bouwen en te implementeren in Azure Container Instances met behulp van het Azure Container Registry, gaat u verder met de zelfstudie van Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Zelfstudies voor Azure Container Instances](./container-instances-tutorial-prepare-app.md)
 
+Als u wilt uitproberen opties voor het uitvoeren van containers in een systeem orchestration op Azure, Zie de [Service Fabric] [ service-fabric] of [Azure Container Service (AKS)] [ container-service] snelstartgidsen.  
 
 <!-- LINKS -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
+[az-group-create]: /cli/azure/group?view=azure-cli-latest#az_group_create
+[az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
+[az-container-delete]: /cli/azure/container?view=azure-cli-latest#az_container_delete
+[az-container-list]: /cli/azure/container?view=azure-cli-latest#az_container_list
+[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
+[az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md
+[container-service]: ../aks/kubernetes-walkthrough.md
+
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

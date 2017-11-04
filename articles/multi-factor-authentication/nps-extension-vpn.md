@@ -16,17 +16,17 @@ ms.date: 08/15/2017
 ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: b47e9b321b2fd0d0db9762003531b0fe9f045f07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8ac4c5d88e724febf21fe6bcc8ecf939283f361e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-multi-factor-authentication-mfa-using-the-network-policy-server-nps-extension-for-azure"></a>Uw VPN-infrastructuur integreren met Azure multi-factor Authentication (MFA) met de Network Policy Server (NPS)-extensie voor Azure
 
 ## <a name="overview"></a>Overzicht
 
-De extensie Service NPS (Network Policy) voor Azure, waarmee organisaties beschermen Remote Authentication Dial-In User Service (RADIUS)-clientauthenticatie met behulp van cloud-gebaseerde [Azure multi-factor Authentication (MFA)](multi-factor-authentication-get-started-server-rdg.md), waarmee u verificatie in twee stappen.
+De Network Policy Server (NPS)-extensie voor Azure, waarmee organisaties beschermen Remote Authentication Dial-In User Service (RADIUS)-clientauthenticatie met behulp van cloud-gebaseerde [Azure multi-factor Authentication (MFA)](multi-factor-authentication-get-started-server-rdg.md), waarmee u verificatie in twee stappen.
 
 Dit artikel bevat instructies voor het integreren van de NPS-infrastructuur met Azure MFA met behulp van de NPS-extensie voor Azure verificatie van de beveiligde in twee stappen voor gebruikers die verbinding maken met uw netwerk via een VPN wilt inschakelen. 
 
@@ -88,11 +88,11 @@ De functieservice NPS biedt de RADIUS-server en clientfunctionaliteit. In dit ar
 
 Voor informatie over het installeren van de NPS-rolservice service Windows Server 2012 of hoger, Zie [installeren van een NAP-statusbeleidsserver](https://technet.microsoft.com/library/dd296890.aspx). Beleid voor NAP (Network Access) is afgeschaft in Windows Server 2016. Zie voor een beschrijving van best practices voor NPS, met inbegrip van de aanbeveling om NPS installeert op een domeincontroller [Best Practices voor NPS](https://technet.microsoft.com/library/cc771746).
 
-### <a name="licenses"></a>Licenties
+### <a name="azure-mfa-license"></a>Azure MFA-licentie
 
 Vereist, is een licentie voor Azure MFA, die beschikbaar via een Azure AD Premium, Enterprise Mobility plus Security (EMS) of een MFA-abonnement is. Zie voor meer informatie [het ophalen van Azure multi-factor Authentication](multi-factor-authentication-versions-plans.md). Voor testdoeleinden kunt u een proefabonnement.
 
-### <a name="software"></a>Software
+### <a name="windows-server-software"></a>Windows Server-software
 
 De NPS-uitbreiding vereist Windows Server 2008 R2 SP1 of hoger als de NPS-functieservice die is geïnstalleerd. De stappen in deze handleiding zijn uitgevoerd met behulp van Windows Server 2016.
 
@@ -111,7 +111,7 @@ Voor het gebruik van de NPS-extensie, zijn on-premises gebruikers gesynchronisee
 Voor informatie over Azure AD connect, Zie [uw on-premises adreslijsten integreren met Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md). 
 
 ### <a name="azure-active-directory-guid-id"></a>GUID-ID van Azure Active Directory 
-U moet weten de GUID van de Azure Active Directory voor het installeren van de NPS. Instructies voor het vinden van de GUID van de Azure Active Directory zijn beschikbaar in de volgende sectie.
+U moet weten de GUID van de Azure Active Directory voor het installeren van de NPS-extensie. Instructies voor het vinden van de GUID van de Azure Active Directory zijn beschikbaar in de volgende sectie.
 
 ## <a name="configure-radius-for-vpn-connections"></a>RADIUS voor VPN-verbindingen configureren
 
@@ -369,11 +369,11 @@ De NPS-uitbreiding moet worden geïnstalleerd op een server met Network Policy a
 1. Download de NPS-extensie van [https://aka.ms/npsmfa](https://aka.ms/npsmfa). 
 2. Kopieer het setup-bestand (NpsExtnForAzureMfaInstaller.exe) naar de NPS-server.
 3. Dubbelklik op de NPS-server op **NpsExtnForAzureMfaInstaller.exe**. Als u wordt gevraagd, klikt u op **uitvoeren**.
-4. In de NPS-extensie voor het dialoogvenster Azure MFA, controleert u de softwarelicentievoorwaarden controleren **ik ga akkoord met de licentievoorwaarden en voorwaarden**, en klik op **installeren**.
+4. Lees de licentievoorwaarden voor software in het dialoogvenster NPS-extensie voor Azure MFA Setup controleren **ik ga akkoord met de licentievoorwaarden en voorwaarden**, en klik op **installeren**.
 
  ![NPS-uitbreiding](./media/nps-extension-vpn/image36.png)
  
-5. Klik in de NPS-extensie voor Azure MFA-dialoogvenster **sluiten**.  
+5. Klik in het dialoogvenster NPS-extensie voor Azure MFA Setup **sluiten**.  
 
  ![Setup is voltooid](./media/nps-extension-vpn/image37.png) 
  
@@ -388,7 +388,7 @@ Het script voert de volgende handelingen uit:
 * Verleent toegang tot de persoonlijke sleutel van het certificaat voor de gebruiker van het netwerk
 * Network Policy Server-service wordt opnieuw gestart
 
-Als u wilt uw eigen certificaten te gebruiken, moet u het publiek van uw certificaat aan het principe van de service op Azure AD te koppelen, enzovoort.
+Als u wilt uw eigen certificaten te gebruiken, moet u de openbare sleutel van uw certificaat voor de service-principal over Azure AD te koppelen, enzovoort.
 Voor het gebruik van het script bieden u de uitbreiding met uw beheerdersreferenties voor de Azure Active Directory en de Azure Active Directory-tenant-ID die u eerder hebt gekopieerd. Het script uitvoeren op elke NPS-server waarop u de extensie NPS installeert.
 
 1. Open een administratieve Windows PowerShell-prompt.
@@ -413,11 +413,11 @@ Voor het gebruik van het script bieden u de uitbreiding met uw beheerdersreferen
 7. De server opnieuw opgestart.
  
 ### <a name="verify-configuration"></a>Configuratie controleren
-Om te controleren of de configuratie, moet u een nieuwe VPN-verbinding maken met VPN-server. Nadat het is uw referenties invoeren voor primaire verificatie, wacht de VPN-verbinding voor de secundaire verificatie mislukt voordat de verbinding tot stand is gebracht, zoals hieronder wordt weergegeven. 
+Om te controleren of de configuratie, moet u een nieuwe VPN-verbinding maken met de VPN-server. Nadat het is uw referenties invoeren voor primaire verificatie, wacht de VPN-verbinding voor de secundaire verificatie mislukt voordat de verbinding tot stand is gebracht, zoals hieronder wordt weergegeven. 
 
  ![Configuratie controleren](./media/nps-extension-vpn/image42.png)
 
-Als u verificatie is met de secundaire verificatiemethode die u eerder hebt geconfigureerd in de Azure MFA, kunt u bent verbonden met de resource. Als de secundaire verificatie niet lukt, wordt u toegang tot bron geweigerd. 
+Als u verificatie is met de secundaire verificatiemethode die u eerder hebt geconfigureerd in de Azure MFA, kunt u bent verbonden met de resource. Als de secundaire verificatie niet lukt, wordt u toegang tot de bron geweigerd. 
 
 In het volgende voorbeeld wordt de verificator-app op een Windows phone gebruikt om de secundaire verificatie te bieden.
 

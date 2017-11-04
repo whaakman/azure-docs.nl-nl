@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: 412fc8b76d2b5ac45532d3ccb7a2ab7361d53596
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d1098ea7f7ab7765f9769dd2e398eb3b62c5557b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Wat zijn de onderdelen en versies die beschikbaar met HDInsight?
 
@@ -174,7 +174,7 @@ Azure HDInsight biedt twee categorieën aanbiedingen de cloud big data: _standaa
 
 | HDInsight Premium-functie | Beschrijving |
 | --- | --- |
-| Domein-HDInsight-clusters |HDInsight-clusters toevoegen aan Azure Active Directory (Azure AD)-domeinen voor beveiliging op bedrijfsniveau. In HDInsight Premium kunt u een lijst met werknemers van uw bedrijf die kan worden geverifieerd via Azure AD aan te melden op een HDInsight-cluster configureren. De ondernemingsbeheerder toegangsbeheer op basis van rollen voor Hive-beveiliging kunt configureren met behulp van [Apache Zwerver](http://hortonworks.com/apache/ranger/) en beperken van toegang tot gegevens in het gebruik van alleen zoveel nodig. De beheerder kunt ten slotte de gegevens die worden gebruikt door werknemers en wijzigingen aan toegangsbeheerbeleid, waardoor het bereiken van een hoge mate van toezicht van hun bedrijfsbronnen controleren. Zie voor meer informatie [HDInsight-clusters domein configureren](hdinsight-domain-joined-configure.md). |
+| Domein-HDInsight-clusters |HDInsight-clusters toevoegen aan Azure Active Directory (Azure AD)-domeinen voor beveiliging op bedrijfsniveau. In HDInsight Premium kunt u een lijst met werknemers van uw bedrijf die kan worden geverifieerd via Azure AD aan te melden op een HDInsight-cluster configureren. De ondernemingsbeheerder toegangsbeheer op basis van rollen voor Hive-beveiliging kunt configureren met behulp van [Apache Zwerver](http://hortonworks.com/apache/ranger/) en beperken van toegang tot gegevens in het gebruik van alleen zoveel nodig. De beheerder kunt ten slotte de gegevens die worden gebruikt door werknemers en wijzigingen aan toegangsbeheerbeleid, waardoor het bereiken van een hoge mate van toezicht van hun bedrijfsbronnen controleren. Zie voor meer informatie [HDInsight-clusters domein configureren](./domain-joined/apache-domain-joined-configure.md). |
 
 ### <a name="cluster-types-supported-in-hdinsight-premium"></a>Clustertypen worden ondersteund in HDInsight Premium
 De volgende tabel bevat de clustertypen die worden ondersteund in HDInsight Premium.

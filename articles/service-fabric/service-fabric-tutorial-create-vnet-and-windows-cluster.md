@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2017
+ms.date: 11/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: b3bab57f5ca6627b4532284376a9809d5ab543f2
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: HT
+ms.openlocfilehash: 1ac5ca34e412aeb8b24e657abfe8eca04943799d
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Een Service Fabric Windows-cluster in een Azure-netwerk implementeren
 Deze zelfstudie maakt deel uit een reeks. U leert het implementeren van een Windows-Service Fabric-cluster naar een bestaande Azure-netwerk (VNET) en subplan net met behulp van PowerShell. Wanneer u klaar bent, hebt u een cluster uitvoert in de cloud die u kunt toepassingen implementeren op.  Zie het maken van een Linux-cluster met behulp van Azure CLI [beveiligde Linux-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -78,44 +78,42 @@ De volgende Resource Manager-sjabloon en parameters bestand te downloaden:
 Gebruik de volgende PowerShell-opdracht de Resource Manager-sjabloon en de parameterbestanden bestanden voor de netwerkinstallatie van de te implementeren:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile C:\winclustertutorial\network.json -TemplateParameterFile C:\winclustertutorial\network.parameters.json -Verbose
 ```
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 ## <a name="deploy-the-service-fabric-cluster"></a>De Service Fabric-cluster implementeren
-Zodra de netwerkbronnen hebt implementeren, wordt de volgende stap is een Service Fabric-cluster implementeren voor het VNET in het subnet en NSG aangewezen voor de Service Fabric-cluster. Een cluster implementeren op een bestaande VNET en subnet (geïmplementeerd eerder in dit artikel), moet een Resource Manager-sjabloon.  Zie voor meer informatie [maken van een cluster met behulp van Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). De sjabloon is vooraf geconfigureerd voor het gebruik van de namen van de VNET, subnet en NSG die u in de vorige stap hebt ingesteld voor deze zelfstudie reeks.  De volgende Resource Manager-sjabloon en parameters bestand te downloaden:
+Zodra de netwerkbronnen hebt implementeren, wordt de volgende stap is een Service Fabric-cluster implementeren voor het VNET in het subnet en NSG aangewezen voor de Service Fabric-cluster. Een cluster implementeren op een bestaande VNET en subnet (geïmplementeerd eerder in dit artikel), moet een Resource Manager-sjabloon.  De sjabloon is vooraf geconfigureerd voor het gebruik van de namen van de VNET, subnet en NSG die u in de vorige stap hebt ingesteld voor deze zelfstudie reeks.  
+
+De volgende Resource Manager-sjabloon en parameters bestand te downloaden:
 - [cluster.JSON][cluster-arm]
 - [cluster.parameters.JSON][cluster-parameters-arm]
 
-Een certificaat wordt gebruikt voor het beveiligen van communicatie van knooppunt naar voor uw cluster en voor het beheren van de gebruikerstoegang tot uw Service Fabric-cluster. API Management gebruikt dit certificaat ook toegang tot de Service Fabric Naming Service voor de servicedetectie van de. 
+Deze sjabloon gebruiken om een beveiligde cluster te maken.  Een certificaat van de cluster is een X.509-certificaat gebruikt voor het beveiligen van communicatie van knooppunt naar en de eindpunten voor het beheer van cluster naar een management-client te verifiëren.  Het certificaat van het cluster biedt ook een met SSL voor de HTTPS-API en voor Service Fabric Explorer via HTTPS. Azure Sleutelkluis wordt gebruikt voor het beheren van certificaten voor Service Fabric-clusters in Azure.  Wanneer een cluster is geïmplementeerd in Azure, wordt de Azure-resourceprovider verantwoordelijk voor het maken van Service Fabric-clusters certificaten ophaalt uit Sleutelkluis en installeert ze op het cluster virtuele machines. 
 
-Het volgende script maakt gebruik van de [nieuw AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet voor het implementeren van een nieuw cluster in Azure. De cmdlet ook een sleutelkluis maakt in Azure, maakt een zelfondertekend certificaat en de sleutelkluis en downloadt het certificaatbestand lokaal.   
+U kunt een certificaat van een certificeringsinstantie (CA) gebruiken als het certificaat van het cluster of voor testdoeleinden, een zelfondertekend certificaat maken. De cluster-certificaat moet:
+
+- een persoonlijke sleutel bevatten.
+- voor sleuteluitwisseling, kan worden geëxporteerd naar een bestand Personal Information Exchange (.pfx) worden gemaakt.
+- een onderwerpnaam hebben die overeenkomt met het domein dat u gebruikt voor toegang tot de Service Fabric-cluster. Deze overeenkomst is vereist voor SSL voor het HTTPS-eindpunten voor beheer en de Service Fabric Explorer van het cluster. U kunt een SSL-certificaat van een certificeringsinstantie (CA) kan niet ophalen voor de. cloudapp.azure.com domein. U moet een aangepaste domeinnaam voor uw cluster. Wanneer u een certificaat bij een Certificeringsinstantie aanvraagt, moet de onderwerpnaam van het certificaat overeenkomen met de aangepaste domeinnaam die u voor uw cluster gebruikt.
+
+Vul de lege *locatie*, *clusterName*, *adminUserName*, en *adminPassword* parameters in de * cluster.parameters.JSON* -bestand voor uw implementatie.  Laat de *certificateThumbprint*, *certificateUrlValue*, en *sourceVaultValue* parameters leeg te maken van een zelfondertekend certificaat.  Als u een bestaand certificaat hebt geüpload om een sleutelkluis te gebruiken wilt, vult u deze parameterwaarden.
+
+Het volgende script maakt gebruik van de [nieuw AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet en sjabloon voor het implementeren van een nieuw cluster in Azure. De cmdlet ook een nieuwe sleutelkluis maakt in Azure, wordt een nieuw zelfondertekend certificaat toegevoegd aan de sleutelkluis en downloadt het certificaatbestand lokaal. U kunt een bestaand certificaat en/of de sleutelkluis opgeven met behulp van de andere parameters van de [nieuw AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet.
 
 ```powershell
-# Certificate variables.
+# Variables.
 $certpwd="q6D7nN%6ck@6" | ConvertTo-SecureString -AsPlainText -Force
 $certfolder="c:\mycertificates\"
-
-# Variables for VM admin.
-$adminuser="vmadmin"
-$adminpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
-
-# Variables for common values
 $clustername = "mysfcluster"
-$vmsku = "Standard_D2_v2"
-$vaultname = "clusterkeyvault"
-$vaultgroupname="clusterkeyvaultgroup"
+$vaultname = "clusterkeyvault111"
+$vaultgroupname="clusterkeyvaultgroup111"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
-# Set the number of cluster nodes. Possible values: 1, 3-99
-$clustersize=5 
-
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster -Name $clustername -ResourceGroupName $groupname -Location $clusterloc `
--ClusterSize $clustersize -VmUserName $adminuser -VmPassword $adminpwd -CertificateSubjectName $subname `
--CertificatePassword $certpwd -CertificateOutputFolder $certfolder `
--OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname `
--TemplateFile .\cluster.json -ParameterFile .\cluster.parameters.json
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile 'C:\winclustertutorial\cluster.json' `
+-ParameterFile 'C:\winclustertutorial\cluster.parameters.json' -CertificatePassword $certpwd `
+-CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateSubjectName $subname
 ```
 
 ## <a name="connect-to-the-secure-cluster"></a>Verbinding maken met de beveiligde cluster

@@ -1,5 +1,5 @@
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>TCP-poorten in de Windows-firewall openen voor het standaardexemplaar van de database-engine
-1. Maak verbinding met de virtuele machine via Extern bureaublad. Zie [De virtuele machine openen via Extern bureaublad](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop) voor gedetailleerde instructies voor het verbinden met de virtuele machine.
+1. Maak verbinding met de virtuele machine via Extern bureaublad. Zie [De virtuele machine openen via Extern bureaublad](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop) voor gedetailleerde instructies voor het verbinden met de virtuele machine.
 2. Nadat u bent aangemeld, typt u **WF.msc** op het startscherm en drukt u op ENTER.
    
     ![Het firewallprogramma starten](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)

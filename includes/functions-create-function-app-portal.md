@@ -1,15 +1,16 @@
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
 
-1. Click **Compute** > **Function App**, select your **Subscription**. Then, use the function app settings as specified in the table.
+1. Klik op **Compute** > **functie-App**. Vervolgens gebruikt u de instellingen voor de functie-app zoals in de tabel wordt vermeld.
 
-    ![Create function app in the Azure portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
+    ![Functie-app maken in Azure Portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
-    | Setting      | Suggested value  | Description                                        |
+    | Instelling      | Voorgestelde waarde  | Beschrijving                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **App name** | Globally unique name | Name that identifies your new function app. | 
-    | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. | 
-    | **[Hosting plan](../articles/azure-functions/functions-scale.md)** |   Consumption plan | Hosting plan that defines how resources are allocated to your function app. In the default **Consumption Plan**, resources are added dynamically as required by your functions. You only pay for the time your functions run.   |
-    | **Location** | West Europe | Choose a location near you or near other services your functions will access. |
-    | **[Storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  Globally unique name |  Name of the new storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account. |
+    | **Naam van app** | Wereldwijd unieke naam | Naam waarmee uw nieuwe functie-app wordt aangeduid. Geldige tekens zijn `a-z`, `0-9`, en `-`.  | 
+    | **Abonnement** | Uw abonnement | Het abonnement waaronder deze nieuwe functie-app wordt gemaakt. | 
+    | **[Resourcegroep](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Naam voor de nieuwe resourcegroep waarin uw functie-app moet worden gemaakt. | 
+    | **[Hostingplan](../articles/azure-functions/functions-scale.md)** |   Verbruiksabonnement | Hostingabonnement dat definieert hoe resources worden toegewezen aan uw functie-app. In het standaard **Verbruiksabonnement** worden resources dynamisch toegevoegd zoals door uw functies wordt vereist. U betaalt alleen voor de tijd die uw functies worden uitgevoerd.   |
+    | **Locatie** | West-Europa | Kies een locatie in de buurt of in de buurt van andere services die door uw functies worden gebruikt. |
+    | **[Opslagaccount](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  Wereldwijd unieke naam |  Naam van het nieuwe opslagaccount dat door uw functie-app wordt gebruikt. Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten. U kunt ook een bestaand account gebruiken. |
 
-1. Click **Create** to provision and deploy the new function app.
+1. Klik op **Maken** om de nieuwe functie-app in te richten en te implementeren.

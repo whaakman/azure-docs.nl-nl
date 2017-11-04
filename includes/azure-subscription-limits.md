@@ -1,18 +1,18 @@
-| Resource | Default Limit | Maximum Limit |
+| Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
-| Cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup> |20 |10,000 |
-| [Co-administrators](../articles/billing-add-change-azure-subscription-administrator.md) per subscription |200 |200 |
-| [Storage accounts](../articles/storage/common/storage-create-storage-account.md) per subscription<sup>2</sup> |200 |250 |
-| [Cloud services](../articles/cloud-services/cloud-services-choose-me.md) per subscription |20 |200 |
-| [Local networks](http://msdn.microsoft.com/library/jj157100.aspx) per subscription |10 |500 |
-| SQL Database servers per subscription |6 |150 |
-| DNS servers per subscription |9 |100 |
-| Reserved IPs per subscription |20 |100 |
-| Hosted service certificates per subscription |400 |400 |
-| [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription |256 |256 |
-| Alert rules per subscription |250 |250 |
+| Cores per [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup> |20 |10.000 |
+| [Medebeheerders](../articles/billing-add-change-azure-subscription-administrator.md) per abonnement |200 |200 |
+| [Storage-accounts](../articles/storage/common/storage-create-storage-account.md) per abonnement<sup>2</sup> |200 |250 |
+| [Cloudservices](../articles/cloud-services/cloud-services-choose-me.md) per abonnement |20 |200 |
+| [Lokale netwerken](http://msdn.microsoft.com/library/jj157100.aspx) per abonnement |10 |500 |
+| SQL Database-servers per abonnement |6 |150 |
+| DNS-servers per abonnement |9 |100 |
+| Gereserveerd IP-adressen per abonnement |20 |100 |
+| Certificaten van de gehoste service per abonnement |400 |400 |
+| [Affiniteitsgroepen](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per abonnement |256 |256 |
 
-<sup>1</sup>Extra Small instances count as one core towards the core limit despite using a partial core.
 
-<sup>2</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts. 
+<sup>1</sup>extra klein aantal exemplaren als één kern naar de limiet voor kernen ondanks gebruikmaken van een gedeeltelijke kern.
+
+<sup>2</sup>Hieronder vallen zowel Standard als Premium opslagaccounts. Als u meer dan 200 opslagaccounts nodig hebt, dient u een aanvraag in te dienen via de [ondersteuning van Azure](https://azure.microsoft.com/support/faq/). Het Azure Storage-team bekijkt dan uw bedrijfsscenario en kan tot 250 opslagaccounts goedkeuren. 
 

@@ -1,14 +1,14 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [SendGrid](https://www.SendGrid.com/) account 
+### <a name="prerequisites"></a>Vereisten
+* Een [SendGrid](https://www.SendGrid.com/) account 
 
-Before you can use your SendGrid account in a Logic app, you must authorize the Logic app to connect to your SendGrid account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Voordat u uw SendGrid-account in een logische app gebruiken kunt, moet u de logische app verbinding maken met uw SendGrid-account toestaan. U kunt dit eenvoudig vanuit gelukkig doen in uw logische app in de Azure Portal. 
 
-Here are the steps to authorize your Logic app to connect to your SendGrid account:
+Hier volgen de stappen voor het autoriseren van uw logische app verbinding maken met uw SendGrid-account:
 
-1. To create a connection to SendGrid, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *SendGrid* in the search box. Select the trigger or action you'll like to use:  
-   ![SendGrid step 1](./media/connectors-create-api-sendgrid/sendgrid-1.png)
-2. If you haven't created any connections to SendGrid before, you'll get prompted to provide your SendGrid credentials. These credentials will be used to authorize your Logic app to connect to, and access your SendGrid account's data:  
-   ![SendGrid step 2](./media/connectors-create-api-sendgrid/sendgrid-2.png)
-3. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-   ![SendGrid step 3](./media/connectors-create-api-sendgrid/sendgrid-3.png)   
+1. Voor het maken van een verbinding met de SendGrid, in de ontwerpfunctie voor Logic app selecteert **beheerde API's van Microsoft weergeven** Voer in de vervolgkeuzelijst *SendGrid* in het zoekvak. Selecteer de trigger of je actie moet worden gebruikt:  
+   ![SendGrid-stap 1](./media/connectors-create-api-sendgrid/sendgrid-1.png)
+2. Als u verbindingen met de SendGrid voordat u dit nog niet hebt gemaakt, hebt u wordt gevraagd uw SendGrid-referenties op te geven. Deze referenties worden gebruikt voor het autoriseren van uw logische app verbinding maken met en toegang tot gegevens van uw SendGrid-account:  
+   ![SendGrid-stap 2](./media/connectors-create-api-sendgrid/sendgrid-2.png)
+3. U ziet de verbinding is gemaakt en u bent nu vrij om door te gaan met de overige stappen in uw logische app:  
+   ![SendGrid-stap 3](./media/connectors-create-api-sendgrid/sendgrid-3.png)   
 

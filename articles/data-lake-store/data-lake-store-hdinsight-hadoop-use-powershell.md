@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 0e2e0d02677013252b0806558535fe970b5c50b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2d601cfa6e2e89ef26d4a2d7824b239a2f6ca7a7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Azure PowerShell gebruiken voor het maken van een HDInsight-cluster met Data Lake Store (als extra opslag)
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ Volg deze stappen voor het maken van een Data Lake Store.
 
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-store"></a>Verificatie voor op rollen gebaseerde toegang tot Data Lake Store instellen
-Elke Azure-abonnement is gekoppeld aan een Azure Active Directory. Gebruikers en services die toegang tot bronnen van het abonnement met de klassieke Azure-Portal of Azure Resource Manager-API moeten eerst worden geverifieerd met die Azure Active Directory. Toegang te krijgen tot Azure-abonnementen en services door het toewijzen van de juiste rol op een Azure-resource.  Voor services identificeert een service-principal in de Azure Active Directory (AAD) van de service. Deze sectie ziet u hoe u een toepassingsservice,, zoals HDInsight, toegang tot een Azure-resource (de Azure Data Lake Store-account u eerder hebt gemaakt) verlenen door het maken van een service-principal voor de toepassing en rollen toewijzen aan die via Azure PowerShell.
+Elke Azure-abonnement is gekoppeld aan een Azure Active Directory. Gebruikers en services die toegang tot bronnen van het abonnement via de Azure portal of Azure Resource Manager-API moeten eerst worden geverifieerd met die Azure Active Directory. Toegang te krijgen tot Azure-abonnementen en services door het toewijzen van de juiste rol op een Azure-resource.  Voor services identificeert een service-principal in de Azure Active Directory (AAD) van de service. Deze sectie ziet u hoe u een toepassingsservice,, zoals HDInsight, toegang tot een Azure-resource (de Azure Data Lake Store-account u eerder hebt gemaakt) verlenen door het maken van een service-principal voor de toepassing en rollen toewijzen aan die via Azure PowerShell.
 
 Als u Active Directory-verificatie voor Azure Data Lake instelt, moet u de volgende taken uitvoeren.
 

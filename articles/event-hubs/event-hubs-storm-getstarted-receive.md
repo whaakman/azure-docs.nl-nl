@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3e15370c7602276ef323708632b324fe05497f41
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cabfbda3ea31a81248e7f87b79a5637063091be0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Gebeurtenissen van Event Hubs met behulp van Apache Storm ontvangen
 
@@ -30,7 +30,7 @@ Voor meer informatie over Event Hubs ontvangen patronen, Zie de [overzicht van E
 
 In deze zelfstudie wordt een [HDInsight Storm] [ HDInsight Storm] installatie, die wordt geleverd met het Event Hubs spout al beschikbaar.
 
-1. Ga als volgt de [HDInsight Storm - aan de slag](../hdinsight/hdinsight-storm-overview.md) procedure voor het maken van een nieuwe HDInsight-cluster en er verbinding mee maken via Extern bureaublad.
+1. Ga als volgt de [HDInsight Storm - aan de slag](../hdinsight/storm/apache-storm-overview.md) procedure voor het maken van een nieuwe HDInsight-cluster en er verbinding mee maken via Extern bureaublad.
 2. Kopieer de `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` bestand op uw lokale ontwikkelomgeving. Deze bevat gebeurtenissen-storm-spout.
 3. Gebruik de volgende opdracht voor het installeren van het pakket in het lokale archief van Maven. Hiermee kunt u het toe te voegen als een verwijzing in de Storm-project in een latere stap.
 
@@ -246,8 +246,8 @@ U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
-[HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
-[HDInsight sensor analysis zelfstudie]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
+[HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
+[HDInsight sensor analysis zelfstudie]:../hdinsight/storm/apache-storm-sensor-data-analysis.md
 
 <!-- Images -->
 

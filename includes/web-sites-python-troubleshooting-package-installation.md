@@ -5,18 +5,18 @@ In deze sectie zullen we kijken naar manieren om dit probleem op te lossen.
 ### <a name="request-wheels"></a>Wheels aanvragen
 Als de pakketinstallatie een compiler vereist, dient u contact op te nemen met de eigenaar van het pakket om te vragen of wheels beschikbaar gesteld kunnen worden voor het pakket.
 
-Met de recente beschikbaarheid van [Microsoft Visual C++ Compiler voor Python 2.7][Microsoft Visual C++ Compiler voor Python 2.7] is het nu eenvoudiger geworden om pakketten met systeemeigen code voor Python 2.7 te bouwen.
+Met de recente beschikbaarheid van [Microsoft Visual C++ Compiler voor Python 2.7][Microsoft Visual C++ Compiler for Python 2.7], het is nu eenvoudiger om pakketten met systeemeigen code voor Python 2.7 samen te stellen.
 
 ### <a name="build-wheels-requires-windows"></a>Wheels bouwen (vereist Windows)
 Opmerking: wanneer u deze optie gebruikt, dient u ervoor te zorgen dat u het pakket compileert met behulp van een Python-omgeving die overeenkomt met het platform of de architectuur of versie die wordt gebruikt op de web-app in Azure App Service (Windows/32-bits/2.7 of 3.4).
 
 Als het pakket niet wordt geïnstalleerd omdat het een compiler vereist, kunt u de compiler installeren op uw lokale computer en een wheel bouwen voor het pakket dat u vervolgens kunt opnemen in de opslagplaats.
 
-Gebruikers van Mac/Linux: als u geen toegang hebt tot een Windows-computer, raadpleegt u [Een virtuele machine met Windows maken][Een virtuele machine met Windows maken] voor het maken van een VM op Azure.  U kunt deze gebruiken om de wheels te bouwen, deze toevoegen aan de opslagplaats en de VM desgewenst verwijderen. 
+Mac/Linux-gebruikers: Als u geen toegang tot een Windows-machine hebt, raadpleegt u [maken van een virtuele Machine met Windows] [ Create a Virtual Machine Running Windows] voor het maken van een virtuele machine in Azure.  U kunt deze gebruiken om de wheels te bouwen, deze toevoegen aan de opslagplaats en de VM desgewenst verwijderen. 
 
-Voor Python 2.7 kunt u [Microsoft Visual C++ Compiler voor Python 2.7][Microsoft Visual C++ Compiler voor Python 2.7] installeren.
+U kunt installeren voor Python 2.7 [Microsoft Visual C++ Compiler voor Python 2.7][Microsoft Visual C++ Compiler for Python 2.7].
 
-Voor Python 3.4 kunt u [Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express] installeren.
+U kunt installeren voor Python 3.4 [Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express].
 
 Om wheels te bouwen, hebt u het wheel-pakket nodig:
 
@@ -59,11 +59,6 @@ Als u de virtuele omgeving opneemt in de opslagplaats, kunt u voorkomen u dat he
 
 Het is raadzaam dat u de bestaande virtuele omgeving op de app verwijdert, om te voorkomen dat er bestanden overblijven uit de periode dat de virtuele omgeving automatisch werd beheerd.
 
-[Een virtuele machine met Windows maken]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
-[Microsoft Visual C++ Compiler voor Python 2.7]: http://aka.ms/vcpython27
+[Create a Virtual Machine Running Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
+[Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-
-
-<!--HONumber=Nov16_HO2-->
-
-

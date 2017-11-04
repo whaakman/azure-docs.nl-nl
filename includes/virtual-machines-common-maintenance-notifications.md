@@ -1,56 +1,56 @@
 
-## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>View VMs scheduled for maintenance in the portal
+## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Weergave virtuele machines die zijn gepland voor onderhoud in de portal
 
-Once a planned maintenance wave is scheduled, and notifications are sent, you can observe the list of virtual machines that are impacted by the upcoming maintenance wave. 
+Zodra een golf gepland onderhoud is gepland en meldingen worden verzonden, kunt u de lijst met virtuele machines die worden beïnvloed door het aanstaande onderhoud wave kunt zien. 
 
-You can use the Azure portal and look for VMs scheduled for maintenance.
+U kunt de Azure portal gebruiken en zoekt u naar virtuele machines die zijn gepland voor onderhoud.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. In the left navigation, click **Virtual Machines**.
+2. Klik in het linkernavigatievenster op **virtuele Machines**.
 
-3. In the Virtual Machines pane, click the **Columns** button to open the list of available columns.
+3. Klik in het deelvenster met virtuele Machines op de **kolommen** knop om de lijst met beschikbare kolommen te openen.
 
-4. Select and add the following columns:
+4. Selecteer en voeg de volgende kolommen:
 
-   **Maintenance** - shows the maintenance status for the VM. The following are the potential values:
+   **Onderhoud** -ziet u de onderhoudsstatus voor de virtuele machine. Hier volgen de mogelijke waarden:
       
-      | Value | Description |
+      | Waarde | Beschrijving |
       |-------|-------------|
-      | Start now | The VM is in the self-service maintenance window which lets you initiate the maintenance yourself. See below on how to start maintenance on your VM | 
-      | Scheduled | The VM is scheduled for maintenance with no option for you to initiate maintenance. You can learn of the maintenance window by selecting the Auto-Scheduled window in this view or by clicking on the VM | 
-      | Completed | You have successfully initiated and completed maintenance on your VM. | 
-      | Skipped| You have selected to initiate maintenance with no success. Azure has canceled the maintenance for your VM and will reschedule it in a later time | 
-      | Retry later| You have selected to initiate maintenance and Azure was not able to fulfill your request. In this case, you can try again in a later time. | 
+      | Nu beginnen | De VM bevindt zich binnen het onderhoudsvenster selfservice waarmee u de onderhoudsmodus starten zelf. Hieronder vindt u voor het onderhoud op de virtuele machine starten | 
+      | Gepland | De virtuele machine is gepland voor onderhoud geen optie waarmee u onderhoud initiëren. U leert van het onderhoudsvenster door te selecteren van het venster automatisch gepland in deze weergave of door te klikken op de virtuele machine | 
+      | Voltooid | U hebt gestart en onderhoud voltooid op de virtuele machine. | 
+      | Overgeslagen| U hebt geselecteerd om te initiëren onderhoud met niets succes. Azure heeft het onderhoud geannuleerd voor uw virtuele machine en wordt opnieuw te plannen in een later tijdstip | 
+      | Probeer het later opnieuw| U hebt geselecteerd voor het initiëren van onderhoud en Azure is niet in staat om uw aanvraag te voldoen. In dit geval kunt u in een later tijdstip opnieuw proberen. | 
    
-   **Maintenance Pro-Active** - shows the time window when you can self-start maintenance on your VMs.
+   **Onderhoud proactief** -het tijdvenster ziet wanneer u onderhoud zelf op uw virtuele machines kunt starten.
    
-   **Maintenance Scheduled** - shows the time window when Azure will reboot your VM in order to complete maintenance. 
+   **Gepland onderhoud** -ziet u het tijdvenster wanneer Azure opnieuw wordt opgestart van uw virtuele machine om te kunnen voltooien onderhoud. 
 
 
 
 
-## <a name="notification-and-alerts-in-the-portal"></a>Notification and alerts in the portal
+## <a name="notification-and-alerts-in-the-portal"></a>Meldingen en waarschuwingen in de portal
 
-Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add additional recipients and channels to this communication by creating Azure activity log alerts. For more information, see [Monitor subscription activity with the Azure Activity Log] (../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+Een planning voor gepland onderhoud communiceert Azure met een e-mailbericht verzenden naar de groep van eigenaar en mede-eigenaren abonnement. U kunt extra ontvangers en kanalen toevoegen aan deze communicatie door het maken van Azure activiteit logboek waarschuwingen. Zie voor meer informatie [Monitor abonnement activiteit met de Azure Activity Log] (... / articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the menu on the left, select **Monitor**. 
-3. In the **Monitor - Activity log** pane, select **Alerts**.
-4. In the **Monitor - Alerts** pane, click **+ Add activity log alert**.
-5. Complete the information in the **Add activity log alert** page and make sure you set the following in **Criteria**:  **Type**: Maintenance  **Status**: All (Do not set status to Active or Resolved)  **Level**: All
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer in het menu aan de linkerkant **Monitor**. 
+3. In de **Monitor - activiteitenlogboek** deelvenster **waarschuwingen**.
+4. In de **Monitor - waarschuwingen** deelvenster, klikt u op **+ toevoegen activiteit logboek waarschuwing**.
+5. Vul de gegevens in de **toevoegen activiteit logboek waarschuwing** pagina en zorg ervoor dat u het volgende instellen in **Criteria**: **Type**: onderhoud **Status**: Alle (status niet ingesteld op actief of opgelost) **niveau**: alle
     
-To learn more on how to configure Activity Log Alerts, see [Create activity log alerts](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
+Zie voor meer informatie over het configureren van de activiteit logboek waarschuwingen, [logboek waarschuwingen voor de activiteit maken](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
     
     
-## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Start Maintenance on your VM from the portal
+## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Onderhoudsmodus starten op de virtuele machine vanuit de portal
 
-While looking at the VM details, you will be able to see more maintenance-related details.  
-At the top of the VM details view, a new notification ribbon will be added if your VM is included in a planned maintenance wave. In addition, a new option is added to start maintenance when possible. 
+Terwijl u bekijkt de details van de virtuele machine, kunt u zich kunnen meer onderhoud gerelateerde informatie.  
+Aan de bovenkant van de VM-detailweergave, worden een nieuwe melding lint toegevoegd als uw VM is opgenomen in een golf gepland onderhoud. Bovendien wordt een nieuwe optie toegevoegd aan het onderhoud indien mogelijk te starten. 
 
 
-Click on the maintenance notification to see the maintenance page with more details on the planned maintenance. From there you will be able to **start maintenance** on your VM.
+Klik op de melding onderhoud voor de onderhoudspagina met meer informatie over het geplande onderhoud. Daar kunt u zich kunt **start onderhoud** op de virtuele machine.
 
-Once you start maintenance, your virtual machine will be rebooted and the maintenance status will be updated to reflect the result within few minutes.
+Zodra u onderhoud gaat uw virtuele machine opnieuw wordt opgestart en de onderhoudsstatus wordt bijgewerkt naar aanleiding van het resultaat binnen enkele minuten.
 
-If you missed the window where you can start maintenance, you will still be able to see the window when your VM will be rebooted by Azure. 
+Als u het venster waar u onderhoud kan starten gemist, is het nog steeds mogelijk om het venster openen wanneer de virtuele machine opnieuw door Azure opgestart. 

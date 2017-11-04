@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: nitinme
-ms.openlocfilehash: c1c74c797449c2fa6d76438f9ec33eaf0fe51af4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dbd3d0ed4337d4fe86465c5c59bf20c0a50a87b4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters-preview"></a>Azure Log Analytics gebruiken voor het bewaken van HDInsight-clusters (Preview)
 
@@ -39,7 +39,7 @@ Log Analytics is een service in [Operations Management Suite (OMS)](../operation
     * Kafka
     * Interactieve Hive
 
-    Zie voor instructies over het maken van een HDInsight-cluster [aan de slag met Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+    Zie voor instructies over het maken van een HDInsight-cluster [aan de slag met Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 
 * **Een werkruimte voor logboekanalyse**. U kunt deze werkruimte beschouwen als een unieke Log Analytics-omgeving met een eigen data-opslagplaats, gegevensbronnen en oplossingen. Hebt u een dergelijke werkruimte al gemaakt die u kunt koppelen aan Azure HDInsight-clusters. Zie voor instructies [maken van een werkruimte voor logboekanalyse](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).

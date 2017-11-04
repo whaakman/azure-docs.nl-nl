@@ -1,9 +1,9 @@
-| Resource | Default Limit | Maximum Limit |
+| Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
-| [Web/worker roles per deployment](../articles/cloud-services/cloud-services-choose-me.md)<sup>1</sup> |25 |25 |
-| [Instance Input Endpoints](http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint) per deployment |25 |25 |
-| [Input Endpoints](http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint) per deployment |25 |25 |
-| [Internal Endpoints](http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint) per deployment |25 |25 |
+| [Web/werkrollen per implementatie](../articles/cloud-services/cloud-services-choose-me.md)<sup>1</sup> |25 |25 |
+| [Exemplaar van de invoer-eindpunten](http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint) per implementatie |25 |25 |
+| [Voer de eindpunten](http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint) per implementatie |25 |25 |
+| [Interne eindpunten](http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint) per implementatie |25 |25 |
 
-<sup>1</sup>Each Cloud Service with Web/Worker roles can have two deployments, one for production and one for staging. Also note that this limit refers to the number of distinct roles (configuration) and not the number of instances per role (scaling).
+<sup>1</sup>elke Cloudservice met Web/Worker rollen kan hebben twee implementaties, één voor productie en één voor fasering. Houd er ook rekening mee dat deze limiet naar het aantal afzonderlijke rollen (configuratie) en niet het aantal instanties per rol (vergroten/verkleinen verwijst).
 

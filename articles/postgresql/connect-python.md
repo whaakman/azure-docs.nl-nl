@@ -6,19 +6,17 @@ author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
-ms.custom: mvc
+ms.service: postgresql
+ms.custom: mvc, devcenter
 ms.devlang: python
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 08/15/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 481e2552e2a2cd91d026774438788143109b28df
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/16/2017
-
+ms.openlocfilehash: 0e1a334f4dd4d142c923fababc336897d9020fad
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database voor PostgreSQL: Python gebruiken om verbinding te maken en gegevens op te vragen
 In deze snelstartgids ziet u hoe u met behulp van [Python](https://python.org) verbinding maakt met Azure Database PostgreSQL. U kunt ook zien hoe SQL-instructies worden gebruikt om gegevens in te voegen, bij te werken, te verwijderen en er query's op uit te voeren in de database vanaf Mac OS-, Ubuntu Linux- en Windows-platforms. In de stappen van dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Python en geen ervaring hebt met het werken met Azure Database voor PostgreSQL.
 
@@ -63,8 +61,8 @@ Dit onderwerp bevat in totaal vier codevoorbeelden. Met elk van deze codes kan e
 
 - Maak een nieuw bestand in uw favoriete teksteditor.
 - Kopieer en plak een van de codevoorbeelden uit de volgende secties in het tekstbestand. Vervang de parameters **host**, **dbname**, **user** en **password** door de waarden die u hebt opgegeven tijdens het maken van de server en database.
-- Sla het bestand met de extensie .py (bijvoorbeeld postgres.py) op in de projectmap. Als u een Windows-besturingssysteem hebt, selecteert u UTF-8-codering als u het bestand opslaat. 
-- Start de opdrachtprompt of Bash-shell en wijzig vervolgens de map in uw projectmap, bijvoorbeeld `cd postgres`.
+- Sla het bestand met de extensie .py (bijvoorbeeld postgres.py) op in de projectmap. Als u Windows uitvoert, moet u UTF-8-codering bij het opslaan van het bestand selecteren. 
+- Start de opdrachtprompt, Terminal of Bash-shell en wijzig de map in de projectmap bijvoorbeeld `cd postgres`.
 -  Typ de Python-opdracht, gevolgd door de bestandsnaam (bijvoorbeeld `Python postgres.py`) om de code uit te voeren.
 
 > [!NOTE]
@@ -211,4 +209,3 @@ conn.close()
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
 > [Een database migreren met behulp van Exporteren en importeren](./howto-migrate-using-export-and-import.md)
-

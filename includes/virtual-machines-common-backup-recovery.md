@@ -1,31 +1,31 @@
 
 ## <a name="azure-backup"></a>Azure Backup
 
-For backing up Azure VMs running production workloads, use Azure Backup. Azure Backup supports application-consistent backups for both Windows and Linux VMs. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or just specific files. 
+Voor back-ups van virtuele Azure-machines productieworkloads wordt uitgevoerd, gebruikt u Azure Backup. Azure Backup biedt ondersteuning voor toepassingsconsistente back-ups voor zowel Windows als een virtuele Linux-machines. Azure Backup maakt herstelpunten die zijn opgeslagen in een geografisch redundante recovery kluizen. Wanneer u vanaf een herstelpunt herstelt, kunt u de hele virtuele machine of alleen specifieke bestanden kunt herstellen. 
 
-For a simple, hands-on introduction to Azure Backup for Azure VMs, see the "Back up Windows virtual machines tutorial" for [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) or [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md)
+Zie voor een eenvoudige, praktische Inleiding tot Azure Backup voor Azure Virtual machines, de 'Back-up Windows virtuele machines zelfstudie' voor [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) of [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md)
 
-For more information on how Azure Backup works, see [Plan your VM backup infrastructure in Azure](../articles/backup/backup-azure-vms-introduction.md)
+Zie voor meer informatie over hoe Azure Backup werkt [plannen van uw back-infrastructuur van de virtuele machine in Azure](../articles/backup/backup-azure-vms-introduction.md)
 
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 
-Azure Site Recovery protects your VMs from a major disaster scenario, when a whole region experiences an outage due to major natural disaster or widespread service interruption. You can configure Azure Site Recovery for your VMs so that you can recover your application with a single click in matter of minutes. You can replicate to an Azure region of your choice, it is not restricted to paired regions. 
+Azure Site Recovery beveiligt uw virtuele machines van een noodgeval-scenario wanneer een hele regio optreedt in een storing veroorzaakt door grote natuurramp of wijdverbreid service wordt onderbroken. U kunt Azure Site Recovery voor uw virtuele machines configureren zodat u uw toepassing met één klik in kwestie van minuten kan herstellen. U kunt repliceren naar een Azure-regio van uw keuze, is niet beperkt tot gekoppelde regio's. 
 
-You can run disaster-recovery drills with on-demand test failovers, without affecting your production workloads or ongoing replication. Create recovery plans to orchestrate failover and failback of the entire application running on multiple VMs. The recovery plan feature is integrated with Azure automation runbooks.
+Herstel na noodgevallen zoomt kunt u uitvoeren met testfailovers op aanvraag, zonder de productie-workloads of lopende replicatie te beïnvloeden. Herstelplannen indelen failover en failback van de gehele toepassing uitgevoerd op meerdere virtuele machines maken. De herstelfunctie van plan is geïntegreerd met Azure automation-runbooks.
 
-You can get started by [replicating your virtual machines](https://aka.ms/a2a-getting-started). 
+U kunt aan de slag door [uw virtuele machines repliceren](https://aka.ms/a2a-getting-started). 
 
-## <a name="managed-snapshots"></a>Managed snapshots 
+## <a name="managed-snapshots"></a>Beheerde momentopnamen 
 
-In development and test environments, snapshots provide a quick and simple option for backing up VMs that use Managed Disks. A managed snapshot is a read-only full copy of a managed disk. Snapshots exist independent of the source disk and can be used to create new managed disks for rebuilding a VM. They are billed based on the used portion of the disk. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GB and actual used data size of 10 GB, snapshot will be billed only for the used data size of 10 GB.  
+Ontwikkel- en testomgevingen geeft momentopnamen een snel en eenvoudig optie voor back-ups van virtuele machines die gebruikmaken van schijven worden beheerd. Een beheerde momentopname is een alleen-lezen kopie van een beheerde schijf. Momentopnamen onafhankelijk van de bronschijf bestaan en kunnen worden gebruikt om nieuwe beheerde schijven voor het opnieuw opbouwen van een virtuele machine te maken. Ze worden gefactureerd op basis van het gebruikte gedeelte van de schijf. Als u een momentopname van een beheerde schijf met ingerichte capaciteit van 64 GB en grootte van 10 GB gegevens die u gebruikt maakt, wordt bijvoorbeeld momentopname gefactureerd alleen voor de gebruikte gegevensgrootte van 10 GB.  
 
-For more information on creating snapshots, see:
+Zie voor meer informatie over het maken van momentopnamen:
 
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 
-## <a name="next-steps"></a>Next steps
-You can try out Azure Backup by following the "Back up Windows virtual machines tutorial" for [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) or [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
+## <a name="next-steps"></a>Volgende stappen
+U kunt Azure Backup aan de hand van de 'Back-up Windows virtuele machines zelfstudie' uitproberen voor [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) of [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).

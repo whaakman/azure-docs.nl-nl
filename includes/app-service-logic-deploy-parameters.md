@@ -1,13 +1,10 @@
-Met Azure Resource Manager kunt u parameters definiëren voor waarden die u wilt opgeven wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie met de naam van de Parameters die alle van de parameterwaarden bevat.
-U moet een parameter voor de waarden die variëren op basis van het project dat u wilt implementeren of op basis van de omgeving die u om te implementeert definiëren. Geen parameters op voor waarden die u altijd hetzelfde gedefinieerd. De waarde van elke parameter wordt gebruikt in de sjabloon voor het definiëren van de resources die zijn implementeren. 
+Met Azure Resource Manager kunt u parameters voor de waarden voor gebruik bij het implementeren van de sjabloon definiëren. De sjabloon bevat een `parameters` sectie waarin de parameterwaarden. De waarde van elke parameter wordt gebruikt door de sjabloon voor het definiëren van de resources die u wilt implementeren.
 
-Bij het definiëren van parameters, gebruiken de **allowedValues** aan te geven op welke waarden van een gebruiker kunt opgeven tijdens de implementatie. Gebruik de **defaultValue** veld een waarde toewijzen aan de parameter als u geen waarde is opgegeven tijdens de implementatie.
+> [!NOTE]
+> Definieer geen parameters voor waarden die altijd hetzelfde blijven. Definieer de parameters alleen voor waarden die variëren op basis van het project dat u wilt implementeren of op basis van de omgeving waar u implementeert.
 
-Elke parameter in de sjabloon wordt beschreven.
+Wanneer u parameters definiëren:
 
-### <a name="logicappname"></a>logicAppName
-De naam van de logische app maken.
+* De toegestane waarden die een gebruiker tijdens de implementatie opgeven kunt wilt opgeven, gebruikt u de **allowedValues** veld.
 
-    "logicAppName": {
-        "type": "string"
-    }
+* Als u wilt toewijzen aan parameter standaardwaarden wanneer geen waarden zijn opgegeven tijdens de implementatie, gebruiken de **defaultValue** veld. 

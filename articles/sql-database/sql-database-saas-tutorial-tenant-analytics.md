@@ -1,6 +1,6 @@
 ---
-title: Analytics-query&quot;s uitvoeren voor meerdere Azure SQL-databases | Microsoft Docs
-description: Gedistribueerde query&quot;s uitvoeren voor meerdere Azure SQL-databases
+title: Analytics-query's uitvoeren voor meerdere Azure SQL-databases | Microsoft Docs
+description: Gegevens ophalen uit de tenant-databases in een database analytics voor offline-analyse
 keywords: zelfstudie sql-database
 services: sql-database
 documentationcenter: 
@@ -9,24 +9,22 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
-ms.workload: data-management
+ms.custom: scale out apps
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
+ms.topic: article
+ms.date: 06/16/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: a0742a004b618dda304618bca21ae715552c16e6
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 4a96efb15268c56e3625832b0b4d6dd8f6a78614
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="run-distributed-queries-across-multiple-azure-sql-databases"></a>Gedistribueerde query's uitvoeren voor meerdere Azure SQL-databases
+# <a name="extract-data-from-tenant-databases-into-an-analytics-database-for-offline-analysis"></a>Gegevens ophalen uit de tenant-databases in een database analytics voor offline-analyse
 
-In deze zelfstudie voert u analytics-query’s uit op elke tenant in de catalogus. Er wordt een elastische taak gemaakt die de query’s uitvoert. De taak haalt gegevens op en laadt deze in een aparte analytics-database die op de catalogusserver wordt aangemaakt. Op deze database kunnen query’s worden uitgevoerd om inzichten op te doen die verborgen liggen in de alledaagse operationele gegevens van alle tenants. De uitvoer van deze taak is een tabel van de resultaten van de query’s op de analytics-database van de tenant.
+In deze zelfstudie kunt u een taak elastische query's uitvoeren op elke tenant-database. De taak ticket verkoopgegevens extraheert en laadt deze in een analytics-database (of het datawarehouse) voor analyse. De analytics-database wordt vervolgens gevraagd insights extraheren uit deze dagelijkse operationele gegevens van alle tenants.
 
 
 In deze zelfstudie leert u het volgende:
@@ -37,7 +35,7 @@ In deze zelfstudie leert u het volgende:
 
 Voor het voltooien van deze zelfstudie moet u ervoor zorgen dat aan de volgende vereisten is voldaan:
 
-* De WTP-app is geïmplementeerd. Zie [De WTP SaaS-toepassing implementeren en verkennen](sql-database-saas-tutorial.md) om dit in minder dan vijf minuten te doen
+* De Wingtip SaaS-app wordt geïmplementeerd. Als u wilt implementeren in minder dan vijf minuten, Zie [implementeren en Verken de Wingtip SaaS-toepassing](sql-database-saas-tutorial.md)
 * Azure PowerShell is geïnstalleerd. Zie [Aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) voor meer informatie.
 * De laatste versie van SQL Server Management Studio (SSMS) moet zijn geïnstalleerd. [SSMS downloaden en installeren](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
@@ -47,7 +45,7 @@ Een van de geweldige mogelijkheden met SaaS-toepassingen is het gebruik van de u
 
 ## <a name="get-the-wingtip-application-scripts"></a>De scripts van de Wingtip-toepassing downloaden
 
-De scripts en broncode van de Wingtip Tickets-toepassing zijn beschikbaar in de GitHub-opslagplaats [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). U vindt de scriptbestanden in de map [Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download de map **Learning Modules** naar uw lokale computer en behoud de mapstructuur.
+De Wingtip SaaS-scripts en de broncode van toepassing zijn beschikbaar in de [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github-opslagplaats. [Stappen voor het downloaden van de scripts Wingtip SaaS](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="deploy-a-database-for-tenant-analytics-results"></a>Implementeer een database voor de analytics-resultaten van de tenant
 
@@ -68,14 +66,14 @@ Voor deze zelfstudie moet u een database hebben geïmplementeerd om de resultate
 
 Dit script maakt een taak om informatie over kaartverkoop op te halen van alle tenants. Zodra dit in één tabel is verzameld, krijgt u waardevolle gegevens over de patronen van kaartverkoop bij alle tenants.
 
-1. Open SSMS en maak verbinding met de catalog-\<user\>.database.windows.net-server
+1. Open SSMS en maak verbinding met de catalog-&lt;user&gt;.database.windows.net-server
 1. Open ...\\Learning Modules\\Operational Analytics\\Tenant Analytics\\*TicketPurchasesfromAllTenants.sql*
-1. Wijzig \<WtpUser\>, gebruik dezelfde gebruikersnaam als toen u de WTP-app implementeerde boven aan in het script, **sp\_add\_target\_group\_member** en **sp\_add\_jobstep**
-1. Klik met de rechtermuisknop, selecteer **Verbinding** en maak verbinding met de catalog-\<WtpUser\>.database.windows.net-server, als deze verbinding nog niet is gemaakt
+1. Wijzig &lt;gebruiker&gt;, gebruikt u de naam van de gebruiker gebruikt wanneer u de Wingtip SaaS-app aan de bovenkant van het script hebt geïmplementeerd **sp\_toevoegen\_doel\_groep\_lid** en **sp\_toevoegen\_taakstap**
+1. Klik met de rechtermuisknop, selecteer **verbinding**, en maak verbinding met de catalogus -&lt;gebruiker&gt;. database.windows.net server, indien nog niet verbonden
 1. Zorg dat u verbinding hebt met de **jobaccount**-database en druk op **F5** om het script uit te voeren
 
 * **sp\_add\_target\_group** maakt de doelgroepnaam *TenantGroup*. Nu moeten we de doelleden toevoegen.
-* **sp\_add\_target\_group\_member** voegt het doelledentype *server* toe. Dit type schrijft voor dat alle databases binnen die server (let op, dit is de customer1-&lt;WtpUser&gt;-server, die de tenantdatabases bevat) ten tijde van de taakuitvoering in de taak moeten zijn opgenomen.
+* **SP\_toevoegen\_doel\_groep\_lid** voegt een *server* doeltype lid, die alle databases binnen die server acht (dit is de customer1 -&lt;gebruiker&gt; server met de tenant-databases) op moment van de taak kan worden uitgevoerd in de taak moet worden opgenomen.
 * **sp\_add\_job** maakt een nieuwe wekelijks geplande taak met de naam “Ticket Purchases from all Tenants”
 * **sp\_add\_jobstep** maakt de taakstap die de T-SQL-opdrachttekst bevat om alle kaartverkoopinformatie op te halen van alle tenants en het resultaat te kopiëren naar een tabel met de naam *AllTicketsPurchasesfromAllTenants*
 * De resterende weergaven in het script tonen het bestaan van de objecten en controleren de taakuitvoering. Bekijk de statuswaarde in de kolom **lifecycle** om de status te controleren. Zodra het is gelukt, is de taak met succes voltooid op alle tenantdatabases en de twee andere databases die de referentietabel bevatten.
@@ -90,8 +88,8 @@ Dit script maakt een taak om het totaal van alle kaartverkopen op te halen van a
 
 1. Open SSMS en maak verbinding met de *catalog-&lt;User&gt;.database.windows.net*-server
 1. Open het bestand …\\Learning Modules\\Provision en Catalog\\Operational Analytics\\Tenant Analytics\\*Results-TicketPurchasesfromAllTenants.sql*
-1. Wijzig &lt;WtpUser&gt;; gebruik dezelfde gebruikersnaam als toen u de WTP-app implementeerde in het script, in de opgeslagen procedure **sp\_add\_jobstep**
-1. Klik met de rechtermuisknop, selecteer **Verbinding** en maak verbinding met de catalog-\<WtpUser\>.database.windows.net-server, als deze verbinding nog niet is gemaakt
+1. Wijzig &lt;gebruiker&gt;, gebruikt u de naam van de gebruiker gebruikt wanneer u de app Wingtip SaaS in het script wordt geïmplementeerd de **sp\_toevoegen\_taakstap** opgeslagen procedure
+1. Klik met de rechtermuisknop, selecteer **verbinding**, en maak verbinding met de catalogus -&lt;gebruiker&gt;. database.windows.net server, indien nog niet verbonden
 1. Zorg dat u verbinding hebt met de **tenantanalytics**-database en druk op **F5** om het script uit te voeren
 
 Als het script met succes is uitgevoerd, moet u een soortgelijk resultaat zien:
@@ -119,5 +117,5 @@ Gefeliciteerd.
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Aanvullende zelfstudies als vervolg op de eerste implementatie van de toepassing Wingtip Tickets Platform (WTP)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* Aanvullende [zelfstudies waarin voort op de Wingtip SaaS-toepassing bouwen](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Elastische taken](sql-database-elastic-jobs-overview.md)

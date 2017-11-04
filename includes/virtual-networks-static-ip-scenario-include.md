@@ -1,7 +1,7 @@
 ## <a name="scenario"></a>Scenario
-To better illustrate how to configure a static IP address for a VM, this document will use the scenario below.
+Dit document om beter te laten zien hoe u een statisch IP-adres voor een virtuele machine configureert, gebruikt het onderstaande scenario.
 
-![VNet scenario](./media/virtual-networks-static-ip-scenario-include/static-ip-scenario.png)
+![VNet-scenario](./media/virtual-networks-static-ip-scenario-include/static-ip-scenario.png)
 
-In this scenario you will create a VM named **DNS01** in the **FrontEnd** subnet, and set it to use a static IP address of **192.168.1.101**.
+In dit scenario maakt u een virtuele machine met de naam **DNS01** in de **FrontEnd** subnet, en stel deze in op een statisch IP-adres van **192.168.1.101**.
 

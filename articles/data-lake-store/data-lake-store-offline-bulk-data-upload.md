@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 1309b44ea99af6d20a4d0f730dd68969f3c3082b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 744759968706e0a2c9fe8c1c153f44cc958e31b8
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Gebruik de Azure Import/Export-service voor offline kopiëren van gegevens naar Data Lake Store
 In dit artikel leert u hoe u kunt kopiëren van grote gegevenssets (> 200 GB) in een Azure Data Lake Store met behulp van methoden van offline-exemplaar, zoals de [Azure Import/Export-service](../storage/common/storage-import-export-service.md). Het bestand dat wordt gebruikt als voorbeeld in dit artikel is bijzonder 339,420,860,416 bytes of ongeveer 319 GB op schijf. Laten we dit bestand 319GB.tsv aanroepen.
@@ -58,7 +58,7 @@ Volg de instructies in [via de Azure Import/Export-service](../storage/common/st
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
     ````
     Zie [via de Azure Import/Export-service](../storage/common/storage-import-export-service.md) voor meer voorbeelden codefragmenten.
-4. De voorgaande opdracht maakt een journal-bestand op de opgegeven locatie. Dit logboek-bestand gebruiken voor het maken van een import-taak van de [klassieke Azure-portal](https://manage.windowsazure.com).
+4. De voorgaande opdracht maakt een journal-bestand op de opgegeven locatie. Dit logboek-bestand gebruiken voor het maken van een import-taak van de [Azure-portal](https://portal.azure.com).
 
 ## <a name="create-an-import-job"></a>Een importtaak maken
 U kunt nu een import-taak maken met behulp van de instructies in [via de Azure Import/Export-service](../storage/common/storage-import-export-service.md) (onder de **de Import-taak maken** sectie). Voor deze taak importeren met andere informatie, bieden ook het journaalbestand dat is gemaakt tijdens het voorbereiden van de schijfstations.

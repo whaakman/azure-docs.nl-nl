@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: c0ea91ae6e03429b197eeb3767b709fb03aa0dc8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e0df58c24653d60e7594a70b911540662548a236
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Ambari-weergaven gebruiken om op te sporen Tez-taken in HDInsight
 
@@ -30,7 +30,7 @@ De Ambari-Webgebruikersinterface voor HDInsight bevat een Tez-weergave die kan w
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Linux gebaseerde HDInsight-cluster. Zie voor stapsgewijze instructies voor het maken van een cluster, [aan de slag met HDInsight op basis van Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
+* Een Linux gebaseerde HDInsight-cluster. Zie voor stapsgewijze instructies voor het maken van een cluster, [aan de slag met HDInsight op basis van Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Een moderne webbrowser met ondersteuning voor HTML5.
 
 ## <a name="understanding-tez"></a>Understanding Tez
@@ -106,7 +106,7 @@ Gebruik de volgende stappen uitvoeren van een Hive-query die gebruikmaakt van Te
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe u de weergave Tez, meer informatie over [met behulp van Hive in HDInsight](hdinsight-use-hive.md).
+U hebt geleerd hoe u de weergave Tez, meer informatie over [met behulp van Hive in HDInsight](hadoop/hdinsight-use-hive.md).
 
 Zie voor meer technische informatie over Tez, de [Tez-pagina op Hortonworks](http://hortonworks.com/hadoop/tez/).
 

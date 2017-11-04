@@ -1,6 +1,6 @@
 ---
-title: Download marketplace items from Azure | Microsoft Docs
-description: I can download marketplace items from Azure to my Azure Stack deployment.
+title: Downloaden van marketplace-items van Azure | Microsoft Docs
+description: Ik kan de marketplace-items van Azure downloaden aan mijn Azure-Stack-implementatie.
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,42 +14,41 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/03/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 4baa1b675d2930cd111b5b8368ac081dc2b77841
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/10/2017
-
-
+ms.openlocfilehash: 4d7c335a3c68cc9bb8cb0c823883716a3dd6620a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Download marketplace items from Azure to Azure Stack
+# <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Marketplace-items van Azure naar Azure Stack downloaden
 
-As you decide what content to include in your Azure Stack marketplace, you should consider the content available from the Azure marketplace. You can download from a curated list of Azure marketplace items that have been pre-tested to run on Azure Stack. New items are frequently added to this list, so make sure check back for new content.
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-To download marketplace items, you must first [register Azure Stack with Azure](azure-stack-register.md). 
+Als u welke inhoud besluit wilt opnemen in uw Azure-Stack marketplace, moet u rekening houden met de inhoud die beschikbaar zijn vanuit Azure marketplace. U kunt downloaden van een geselecteerde lijst met Azure marketplace-items die vooraf geteste zijn worden uitgevoerd op Azure-Stack. Nieuwe items worden regelmatig toegevoegd aan deze lijst, dus zorg ervoor dat selectievakje terug voor nieuwe inhoud.
 
-## <a name="download"></a>Download
-1. Sign in to the Azure Stack administrator portal (https://portal.local.azurestack.external).
-2. Some marketplace items can be very large.  Check to make sure you have enough space on your system by clicking **Resource Providers** > **Storage**.
+Als u wilt downloaden marketplace-items, moet u eerst [Azure Stack registreren bij Azure](azure-stack-register.md). 
+
+## <a name="download"></a>Downloaden
+1. Aanmelden bij de Azure-Stack-beheerdersportal (https://portal.local.azurestack.external).
+2. Sommige marketplace-items kunnen erg groot worden.  Controleer of er voldoende schijfruimte op het systeem door te klikken op **Resourceproviders** > **opslag**.
 
     ![](media/azure-stack-download-azure-marketplace-item/image01.png)
 
-3. Click **More Services** > **Marketplace Management**.
+3. Klik op **meer Services** > **Marketplace Management**.
 
     ![](media/azure-stack-download-azure-marketplace-item/image02.png)
 
-4. Click **Add from Azure** to see a list of items available for download. You can click on each item in the list to view its description and download size.
+4. Klik op **toevoegen uit Azure** voor een overzicht van de items beschikbaar voor downloaden. U kunt op elk item in de lijst weergeven van de beschrijving en downloadgrootte klikken.
 
     ![](media/azure-stack-download-azure-marketplace-item/image03.png)
 
-5. Select the item you want in the list and then click **Download**. This starts downloading the VM image for the item you selected. Download times vary.
+5. Selecteer het item dat u wilt dat in de lijst en klik vervolgens op **downloaden**. Hiermee start u downloaden van de VM-installatiekopie voor het geselecteerde item. Downloadtijden variëren.
 
     ![](media/azure-stack-download-azure-marketplace-item/image04.png)
 
-6. After the download completes, you can deploy your new marketplace item as either a cloud operator or tenant user. Click **+New**, search among the categories for the new marketplace item, and then select the item.
-7. Click **Create** to open up the creation experience for the newly downloaded item. Follow the step-by-step instructions to deploy your item.
+6. Nadat het downloaden is voltooid, kunt u uw nieuwe marketplace-item als een Azure-Stack operator of een gebruiker kunt implementeren. Klik op **+ nieuw**zoeken in de categorieën voor het nieuwe marketplace-item en selecteer vervolgens het item.
+7. Klik op **maken** om de ervaring maken voor de zojuist gedownloade item te openen. Volg de stapsgewijze instructies voor het implementeren van uw item.
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Volgende stappen
 
-[Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
-
+[Een Marketplace-item maken en publiceren](azure-stack-create-and-publish-marketplace-item.md)

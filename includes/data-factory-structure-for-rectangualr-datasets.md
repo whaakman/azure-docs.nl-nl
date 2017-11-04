@@ -1,16 +1,16 @@
-## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Specifying structure definition for rectangular datasets
-The structure section in the datasets JSON is an **optional** section for rectangular tables (with rows & columns) and contains a collection of columns for the table. You will use the structure section for either providing type information for type conversions or doing column mappings. The following sections describe these features in detail. 
+## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Structuurdefinitie voor de rechthoekige gegevenssets opgeven
+De sectie structuur in de gegevenssets JSON is een **optionele** sectie voor rechthoekige tabellen (met rijen en kolommen) en bevat een verzameling van kolommen voor de tabel. U gebruikt de sectie structuur voor beide met type-informatie voor typeconversies of kolomtoewijzingen doen. De volgende secties worden deze functies in detail beschreven. 
 
-Each column contains the following properties:
+Elke kolom bevat de volgende eigenschappen:
 
-| Property | Description | Required |
+| Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| name |Name of the column. |Yes |
-| type |Data type of the column. See type conversions section below for more details regarding when should you specify type information |No |
-| culture |.NET based culture to be used when type is specified and is .NET type Datetime or Datetimeoffset. Default is “en-us”. |No |
-| format |Format string to be used when type is specified and is .NET type Datetime or Datetimeoffset. |No |
+| naam |De naam van de kolom. |Ja |
+| type |Het gegevenstype van de kolom. Zie type conversies hieronder voor meer details met betrekking tot wanneer moet u informatie opgeven |Nee |
+| Cultuur |.NET gebaseerde cultuur moet worden gebruikt wanneer het type is opgegeven en .NET-type Datetime of Datetimeoffset. Standaardwaarde is "en-us '. |Nee |
+| Indeling |Indeling van tekenreeks moet worden gebruikt wanneer het type is opgegeven en .NET-type Datetime of Datetimeoffset. |Nee |
 
-The following sample shows the structure section JSON for a table that has three columns userid, name, and lastlogindate.
+Het volgende voorbeeld ziet u de sectie met de structuur JSON voor een tabel met drie kolommen userid, naam en lastlogindate.
 
 ```json
 "structure": 
@@ -21,31 +21,31 @@ The following sample shows the structure section JSON for a table that has three
 ],
 ```
 
-Please use the following guidelines for when to include “structure” information and what to include in the **structure** section.
+Gebruik de volgende richtlijnen voor wanneer 'structuur,' informatie op te nemen en wat u wilt opnemen de **structuur** sectie.
 
-* **For structured data sources** that store data schema and type information along with the data itself (sources like SQL Server, Oracle, Azure table etc.), you should specify the “structure” section only if you want do column mapping of specific source columns to specific columns in sink and their names are not the same (see details in column mapping section below). 
+* **Voor gestructureerde gegevensbronnen** dat store schema en het type gegevens samen met de gegevens zelf (bronnen, zoals Azure-tabel van SQL Server, Oracle, enzovoort), moet u de sectie 'structuur' alleen als u wilt kolomtoewijzing van specifieke bron doen kolommen aan specifieke kolommen in sink en hun namen komen niet overeen (Zie de details in de kolom toewijzing hieronder). 
   
-    As mentioned above, the type information is optional in “structure” section. For structured sources, type information is already available as part of dataset definition in the data store, so you should not include type information when you do include the “structure” section.
-* **For schema on read data sources (specifically Azure blob)**  you can choose to store data without storing any schema or type information with the data. For these types of data sources you should include “structure” in the following 2 cases:
-  * You want to do column mapping.
-  * When the dataset is a source in a Copy activity, you can provide type information in “structure” and data factory will use this type information for conversion to native types for the sink. See [Move data to and from Azure Blob](../articles/data-factory/v1/data-factory-azure-blob-connector.md) article for more information.
+    Zoals eerder vermeld, is de type-informatie optioneel in de sectie 'structuur'. Voor gestructureerde bronnen al type-informatie beschikbaar is als onderdeel van de definitie van de gegevensset in de gegevensopslag, dus u mag geen bevatten informatie over wanneer u de sectie "structuur" opneemt.
+* **Voor schema op lezen gegevensbronnen (specifiek Azure-blobopslag)** kunt u gegevens opslaan zonder een schema of het type informatie met de gegevens op te slaan. Voor deze soorten gegevensbronnen moet u 'structuur' opnemen in de volgende gevallen 2:
+  * U wilt doen kolomtoewijzing.
+  * Wanneer de dataset een bron in een kopieeractiviteit is, kunt u informatie in 'structuur' en gegevensfactory deze type-informatie wordt gebruikt voor conversie naar native-typen voor de sink. Zie [gegevens verplaatsen en naar Azure Blob](../articles/data-factory/v1/data-factory-azure-blob-connector.md) artikel voor meer informatie.
 
-### <a name="supported-net-based-types"></a>Supported .NET-based types
-Data factory supports the following CLS compliant .NET based type values for providing type information in “structure” for schema on read data sources like Azure blob.
+### <a name="supported-net-based-types"></a>Ondersteund. Op basis van NET typen
+Data factory ondersteunt de volgende CLS compatibele .NET op basis van typewaarden voor het bieden van informatie in 'structuur' voor schema op lezen gegevensbronnen zoals Azure blob.
 
 * Int16
 * Int32 
 * Int64
-* Single
-* Double
-* Decimal
-* Byte[]
-* Bool
-* String 
-* Guid
-* Datetime
-* Datetimeoffset
-* Timespan 
+* Één
+* dubbele
+* Decimale
+* Byte]
+* BOOL
+* Tekenreeks 
+* GUID
+* Datum/tijd
+* DateTimeOffset
+* Periode 
 
-For Datetime & Datetimeoffset you can also optionally specify “culture” & “format” string to facilitate parsing of your custom Datetime string. See sample for type conversion below.
+U kunt eventueel ook 'Cultuur' & 'indeling' string vergemakkelijkt het parseren van de aangepaste datum/tijd-tekenreeks voor datum/tijd & Datetimeoffset opgeven. Zie voorbeeld voor typeconversie hieronder.
 

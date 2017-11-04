@@ -1,142 +1,142 @@
-# <a name="azure-managed-disks-overview"></a>Azure Managed Disks Overview
+# <a name="azure-managed-disks-overview"></a>Overzicht van Azure-beheerde schijven
 
-Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](../articles/storage/common/storage-introduction.md) associated with the VM disks. You only have to specify the type ([Premium](../articles/storage/common/storage-premium-storage.md) or [Standard](../articles/storage/common/storage-standard-storage.md)) and the size of disk you need, and Azure creates and manages the disk for you.
+Azure-schijven die worden beheerd vereenvoudigt Schijfbeheer voor Azure IaaS VM's met het beheren van de [opslagaccounts](../articles/storage/common/storage-introduction.md) die zijn gekoppeld aan de VM-schijven. U hoeft alleen te geven van het type ([Premium](../articles/virtual-machines/windows/premium-storage.md) of [standaard](../articles/virtual-machines/windows/standard-storage.md)) en de grootte van de schijf die u nodig en Azure maken en beheren van de schijf voor u.
 
-## <a name="benefits-of-managed-disks"></a>Benefits of managed disks
+## <a name="benefits-of-managed-disks"></a>Voordelen van beheerde schijven
 
-Let's take a look at some of the benefits you gain by using managed disks, starting with this Channel 9 video, [Better Azure VM Resiliency with Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
+We gaan verdiepen in enkele voordelen u krijgt met behulp van beheerde schijven vanaf deze video Channel 9 [betere Azure VM tolerantie met schijven beheerd](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
 <br/>
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency/player]
 
-### <a name="simple-and-scalable-vm-deployment"></a>Simple and scalable VM deployment
+### <a name="simple-and-scalable-vm-deployment"></a>Eenvoudige en schaalbare implementaties van virtuele machines
 
-Managed Disks handles storage for you behind the scenes. Previously, you had to create storage accounts to hold the disks (VHD files) for your Azure VMs. When scaling up, you had to make sure you created additional storage accounts so you didn't exceed the IOPS limit for storage with any of your disks. With Managed Disks handling storage, you are no longer limited by the storage account limits (such as 20,000 IOPS / account). You also no longer have to copy your custom images (VHD files) to multiple storage accounts. You can manage them in a central location – one storage account per Azure region – and use them to create hundreds of VMs in a subscription.
+Schijven ingangen opslag achter de schermen voor u beheerd. Voorheen moest u storage-accounts voor het opslaan van de schijven (VHD-bestanden) voor uw Azure VM's maken. Wanneer het omhoog schalen, moest u om ervoor te zorgen dat u extra opslagaccounts hebt gemaakt, zodat u niet langer zijn dan de maximale IOPS voor opslag met een van uw schijven. Met beheerde schijven afhandeling van opslag, u niet langer beperkt door de limieten van het opslagaccount (zoals 20.000 IOPS / -account). U moet ook niet langer aangepaste installatiekopieën (VHD-bestanden) kopiëren naar meerdere accounts voor opslag. U kunt ze beheren op een centrale locatie – één opslagaccount per Azure-regio- en honderden van virtuele machines in een abonnement maken.
 
-Managed Disks will allow you to create up to 10,000 VM **disks** in a subscription, which will enable you to create thousands of **VMs** in a single subscription. This feature also further increases the scalability of [Virtual Machine Scale Sets (VMSS)](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) by allowing you to create up to a thousand VMs in a VMSS using a Marketplace image.
+Beheerde schijven kunt u maximaal 10.000 virtuele machine maken **schijven** in een abonnement inschakelen die u voor het maken van de duizenden **VMs** in één abonnement. Deze functie ook verder verhoogt de schaalbaarheid van [virtuele Machine Scale Sets (VMSS)](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) doordat u virtuele machines tot duizend in een VMSS met behulp van een Marketplace-installatiekopie maken.
 
-### <a name="better-reliability-for-availability-sets"></a>Better reliability for Availability Sets
+### <a name="better-reliability-for-availability-sets"></a>Betere betrouwbaarheid voor Beschikbaarheidssets
 
-Managed Disks provides better reliability for Availability Sets by ensuring that the disks of [VMs in an Availability Set](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) are sufficiently isolated from each other to avoid single points of failure. It does this by automatically placing the disks in different storage scale units (stamps). If a stamp fails due to hardware or software failure, only the VM instances with disks on those stamps fail. For example, let's say you have an application running on five VMs, and the VMs are in an Availability Set. The disks for those VMs won't all be stored in the same stamp, so if one stamp goes down, the other instances of the application continue to run.
+Beheerde schijven biedt betere betrouwbaarheid voor Beschikbaarheidssets door ervoor te zorgen dat de schijven van [virtuele machines in een Beschikbaarheidsset](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) voldoende los van elkaar te vermijden individuele storingspunten zijn. Dit gebeurt automatisch als u de schijven in verschillende opslagunits (stempels). Als een stempel als gevolg van hardware-of softwarefout mislukt, wordt alleen de VM-exemplaren met schijven op die stempels mislukken. Bijvoorbeeld, Stel dat u hebt een toepassing die wordt uitgevoerd op vijf virtuele machines en de virtuele machines zich in een Beschikbaarheidsset. De schijven verder voor deze VMs won't alle worden opgeslagen in dezelfde tijdstempel, dus als één stamp is uitvalt, worden de andere exemplaren van de toepassing.
 
-### <a name="highly-durable-and-available"></a>Highly durable and available
+### <a name="highly-durable-and-available"></a>Zeer duurzaam en hoge beschikbaarheid
 
-Azure Disks are designed for 99.999% availability. Rest easier knowing that you have three replicas of your data that enables high durability. If one or even two replicas experience issues, the remaining replicas help ensure persistence of your data and high tolerance against failures. This architecture has helped Azure consistently deliver enterprise-grade durability for IaaS disks, with an industry-leading ZERO% Annualized Failure Rate. 
+Azure-schijven zijn ontworpen om 99,999% van de tijd beschikbaar te zijn. Rest-eenvoudiger weten dat u hebt drie replica's van uw gegevens waarmee hoge duurzaamheid. Als er zich problemen voordoen met een of zelfs twee van de replica’s, kunnen de resterende replica’s ervoor zorgen dat uw gegevens bewaard blijven en storingen weinig kwaad kunnen. Dankzij deze architectuur heeft Azure consistente duurzaamheid op ondernemingsniveau kunnen leveren voor IaaS-schijven, met een foutpercentage van NUL% op jaarbasis, het beste in de bedrijfstak. 
 
-### <a name="granular-access-control"></a>Granular access control
+### <a name="granular-access-control"></a>Gedetailleerd toegangsbeheer
 
-You can use [Azure Role-Based Access Control (RBAC)](../articles/active-directory/role-based-access-control-what-is.md) to assign specific permissions for a managed disk to one or more users. Managed Disks exposes a variety of operations, including read, write (create/update), delete, and retrieving a [shared access signature (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) for the disk. You can grant access to only the operations a person needs to perform his job. For example, if you don't want a person to copy a managed disk to a storage account, you can choose not to grant access to the export action for that managed disk. Similarly, if you don't want a person to use an SAS URI to copy a managed disk, you can choose not to grant that permission to the managed disk.
+U kunt [gebaseerd toegangsbeheer (RBAC)](../articles/active-directory/role-based-access-control-what-is.md) specifieke machtigingen voor een beheerde schijf toewijzen aan een of meer gebruikers. Beheerd schijven zichtbaar gemaakt talloze voor bewerkingen, inclusief lezen, schrijven (maken/bijwerken), verwijderen en bij het ophalen van een [shared access signature (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) voor de schijf. U kunt toegang verlenen tot alleen de bewerkingen die een persoon moet de taak uitvoeren. Bijvoorbeeld, als u niet dat een persoon een beheerde schijf kopiëren naar een opslagaccount wilt, kunt u niet om toegang te verlenen aan de export-actie voor die beheerde schijf. Op dezelfde manier als u niet dat een persoon een SAS-URI wilt voor het kopiëren van een beheerde schijf gebruiken, kunt u geen machtiging te verlenen die aan de beheerde schijf.
 
-### <a name="azure-backup-service-support"></a>Azure Backup service support
-Use Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. Managed Disks only support Locally Redundant Storage (LRS) as the replication option; this means it keeps three copies of the data within a single region. For regional disaster recovery, you must backup your VM disks in a different region using [Azure Backup service](../articles/backup/backup-introduction-to-azure-backup.md) and a GRS storage account as backup vault. Currently Azure Backup supports data disk sizes up to 1TB for backup. Read more about this at [Using Azure Backup service for VMs with Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+### <a name="azure-backup-service-support"></a>Ondersteuning voor Azure Backup-service
+Gebruik Azure Backup-service met beheerde schijven te maken van een back-uptaak met back-ups op basis van tijd, eenvoudig herstel van de virtuele machine en back-up bewaarbeleid. Beheerde schijven ondersteunen alleen lokaal redundante opslag (LRS) als de replicatieoptie; Dit betekent dat drie kopieën van de gegevens in één regio blijven. Voor de regionale noodherstel, u moet back-up van uw VM-schijven in een andere regio met [Azure Backup-service](../articles/backup/backup-introduction-to-azure-backup.md) en een GRS-opslagaccount als back-upkluis. Azure Backup ondersteunt gegevensschijf groottes momenteel maximaal 1TB voor back-up. Meer informatie over deze [met behulp van Azure Backup-service voor virtuele machines met schijven beheerd](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
-## <a name="pricing-and-billing"></a>Pricing and Billing
+## <a name="pricing-and-billing"></a>Prijzen en facturering
 
-When using Managed Disks, the following billing considerations apply:
-* Storage Type
+Wanneer u schijven beheerd, zijn de volgende factureringsvoorwaarden van toepassing:
+* Opslagtype
 
-* Disk Size
+* Schijfgrootte
 
-* Number of transactions
+* Het aantal transacties
 
-* Outbound data transfers
+* Uitgaande gegevensoverdracht
 
-* Managed Disk Snapshots (full disk copy)
+* Beheerde schijf-momentopnamen (volledige schijf kopiëren)
 
-Let's take a closer look at these.
+We gaan deze nader bekijken.
 
-**Storage Type:** Managed Disks offers 2 performance tiers: [Premium](../articles/storage/common/storage-premium-storage.md) (SSD-based) and [Standard](../articles/storage/common/storage-standard-storage.md) (HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
+**Opslagtype:** beheerde schijven biedt 2 prestatielagen: [Premium](../articles/virtual-machines/windows/premium-storage.md) (SSD-gebaseerde) en [standaard](../articles/virtual-machines/windows/standard-storage.md) (gebaseerd op harde schijf). De facturering van een beheerde schijf is afhankelijk van welk type opslagruimte die u hebt geselecteerd voor de schijf.
 
 
-**Disk Size**: Billing for managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you create a standard managed disk and specify a provisioned size of 200 GB, you are billed as per the pricing of the S20 Disk type.
+**Schijfgrootte**: facturering voor beheerde schijven, is afhankelijk van de ingerichte grootte van de schijf. De grootte van de ingerichte (naar boven afronden) Azure toegewezen aan de dichtstbijzijnde schijven beheerd optie zoals opgegeven in de onderstaande tabellen. Elke beheerde schijf toegewezen aan een van de ondersteunde ingerichte grootten en dienovereenkomstig wordt gefactureerd. Bijvoorbeeld, als u een standard-beheerde schijven maken en geef een ingerichte grootte van 200 GB, u worden kosten in rekening gebracht volgens de prijzen van het type S20 schijf.
 
-Here are the disk sizes available for a premium managed disk:
+Hier volgen de schijfgrootte beschikbaar voor premium-beheerde schijven:
 
-| **Premium Managed <br>Disk Type** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
+| **Premium beheerd <br>schijftype** | **P4** | **P6** |**P10** | **P20** | **P30** | **P 40** | **P50** | 
 |------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Disk Size        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Schijfgrootte        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
 
-Here are the disk sizes available for a standard managed disk:
+Hier volgen de schijfgrootte beschikbaar voor een standard-beheerde schijven:
 
-| **Standard Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
+| **Standaard beheerde <br>schijftype** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **AANBEVELING S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Disk Size        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Schijfgrootte        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
 
-**Number of transactions**: You are billed for the number of transactions that you perform on a standard managed disk. There is no cost for transactions for a premium managed disk.
+**Het aantal transacties**: U wordt gefactureerd voor het aantal transacties die u op een standard-beheerde schijven uitvoert. Er is geen kosten voor transacties voor een premium-beheerde schijven.
 
-**Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
+**Uitgaande gegevensoverdracht**: [uitgaande gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/) (gegevens uit de Azure-datacenters gaan) worden gefactureerd voor bandbreedtegebruik.
 
-For detailed information on pricing for Managed Disks, see [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks).
-
-
-## <a name="managed-disk-snapshots"></a>Managed Disk Snapshots
-
-A Managed Snapshot is a read-only full copy of a managed disk which is stored as a standard managed disk by default. With snapshots, you can back up your managed disks at any point in time. These snapshots exist independent of the source disk and can be used to create new Managed Disks. They are billed based on the used size. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GB and actual used data size of 10 GB, snapshot will be billed only for the used data size of 10 GB.  
-
-[Incremental snapshots](../articles/virtual-machines/windows/incremental-snapshots.md) are currently not supported for Managed Disks, but will be supported in the future.
-
-To learn more about how to create snapshots with Managed Disks, please check out these resources:
-
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+Zie voor gedetailleerde informatie over prijzen voor schijven beheerd [beheerd schijven prijzen](https://azure.microsoft.com/pricing/details/managed-disks).
 
 
-## <a name="images"></a>Images
+## <a name="managed-disk-snapshots"></a>Beheerde schijf momentopnamen
 
-Managed Disks also support creating a managed custom image. You can create an image from your custom VHD in a storage account or directly from a generalized (sys-prepped) VM. This captures in a single image all managed disks associated with a VM, including both the OS and data disks. This enables creating hundreds of VMs using your custom image without the need to copy or manage any storage accounts.
+Een momentopname van een beheerd is een alleen-lezen kopie van een beheerde schijf die wordt opgeslagen als een standard-beheerde schijven standaard. Met momentopnamen, kunt u back-up uw beheerde schijven op elk punt in tijd. Deze momentopnamen onafhankelijk van de bronschijf bestaan en kunnen worden gebruikt voor het maken van nieuwe schijven die worden beheerd. Ze worden gefactureerd op basis van de gebruikte grootte. Als u een momentopname van een beheerde schijf met ingerichte capaciteit van 64 GB en grootte van 10 GB gegevens die u gebruikt maakt, wordt bijvoorbeeld momentopname gefactureerd alleen voor de gebruikte gegevensgrootte van 10 GB.  
 
-For information on creating images, please check out the following articles:
-* [How to capture a managed image of a generalized VM in Azure](../articles/virtual-machines/windows/capture-image-resource.md)
-* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0](../articles/virtual-machines/linux/capture-image.md)
+[Incrementele momentopnamen](../articles/virtual-machines/windows/incremental-snapshots.md) worden momenteel niet ondersteund voor schijven die worden beheerd, maar in de toekomst worden ondersteund.
 
-## <a name="images-versus-snapshots"></a>Images versus snapshots
+Controleer deze bronnen voor meer informatie over het maken van momentopnamen met schijven beheerd:
 
-You often see the word "image" used with VMs, and now you see "snapshots" as well. It's important to understand the difference between these. With Managed Disks, you can take an image of a generalized VM that has been deallocated. This image will include all of the disks attached to the VM. You can use this image to create a new VM, and it will include all of the disks.
+* [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
-A snapshot is a copy of a disk at the point in time it is taken. It only applies to one disk. If you have a VM that only has one disk (the OS), you can take a snapshot or an image of it and create a VM from either the snapshot or the image.
 
-What if a VM has five disks and they are striped? You could take a snapshot of each of the disks, but there is no awareness within the VM of the state of the disks – the snapshots only know about that one disk. In this case, the snapshots would need to be coordinated with each other, and that is not currently supported.
+## <a name="images"></a>Installatiekopieën
 
-## <a name="managed-disks-and-encryption"></a>Managed Disks and Encryption
+Beheerde schijven bieden ook ondersteuning voor het maken van een beheerde aangepaste installatiekopie. U kunt een installatiekopie van het maken van uw aangepaste VHD in een opslagaccount of rechtstreeks van een gegeneraliseerde (sys DomainPrep) VM. Dit wordt vastgelegd in één installatiekopie alle schijven die zijn gekoppeld aan een virtuele machine, met inbegrip van zowel het besturingssysteem en gegevensschijven die worden beheerd. Hierdoor maken honderden virtuele machines met uw aangepaste installatiekopie zonder de noodzaak om te kopiëren of beheren van alle opslagaccounts.
 
-There are two kinds of encryption to discuss in reference to managed disks. The first one is Storage Service Encryption (SSE), which is performed by the storage service. The second one is Azure Disk Encryption, which you can enable on the OS and data disks for your VMs.
+Controleer voor meer informatie over het maken van installatiekopieën uit de volgende artikelen:
+* [Het vastleggen van een begeleide afbeelding van een gegeneraliseerde virtuele machine in Azure](../articles/virtual-machines/windows/capture-image-resource.md)
+* [Het generaliseren en vastleggen van een virtuele Linux-machine met behulp van de Azure CLI 2.0](../articles/virtual-machines/linux/capture-image.md)
 
-### <a name="storage-service-encryption-sse"></a>Storage Service Encryption (SSE)
+## <a name="images-versus-snapshots"></a>Installatiekopieën versus momentopnamen
 
-[Azure Storage Service Encryption](../articles/storage/common/storage-service-encryption.md) provides encryption-at-rest and safeguard your data to meet your organizational security and compliance commitments. SSE is enabled by default for all Managed Disks, Snapshots and Images in all the regions where managed disks is available. Starting June 10th, 2017, all new managed disks/snapshots/images and new data written to existing managed disks are automatically encrypted-at-rest with keys managed by Microsoft.  Visit the [Managed Disks FAQ page](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) for more details.
+Vaak ziet u het woord 'installatiekopie' gebruikt met virtuele machines en u ziet nu 'momentopnamen' ook. Het is belangrijk om het verschil tussen deze. U kunt een installatiekopie van een gegeneraliseerde virtuele machine die is opgeheven nemen met schijven beheerd. Deze installatiekopie bevat alle schijven die zijn gekoppeld aan de virtuele machine. U kunt deze installatiekopie van een nieuwe virtuele machine maken en neemt alle schijven.
+
+Een momentopname is een kopie van een schijf op het punt in tijd die nodig is. Dit is alleen van toepassing op één schijf. Als u een virtuele machine die slechts één schijf (OS heeft) hebt, kunt u een momentopname of een installatiekopie van het en een virtuele machine maken van de momentopname of de installatiekopie.
+
+Wat gebeurt er als een virtuele machine heeft vijf schijven en ze worden striped opgeslagen? U kunt een momentopname van elk van de schijven, maar er is geen awareness vanuit de virtuele machine van de status van de schijven – de momentopnamen alleen weten over één schijf. In dit geval de momentopnamen zou moeten zijn met elkaar en die momenteel niet wordt ondersteund.
+
+## <a name="managed-disks-and-encryption"></a>Beheerde schijven en versleuteling
+
+Er zijn twee soorten versleuteling te bespreken met betrekking tot beheerde schijven. De eerste is opslag Service versleuteling (SSE), die wordt uitgevoerd door de storage-service. Het tweede is Azure Disk Encryption toe die u voor uw virtuele machines op het besturingssysteem en gegevensschijven kunt inschakelen.
+
+### <a name="storage-service-encryption-sse"></a>Versleuteling van opslag-Service (SSE)
+
+[Azure Storage-Service: versleuteling](../articles/storage/common/storage-service-encryption.md) biedt versleuteling in rust en bescherming van uw gegevens om te voldoen aan uw organisatie beveiliging en naleving verplichtingen. SSE is standaard ingeschakeld voor alle beheerde schijven, momentopnamen en afbeeldingen in alle regio's waar beheerde schijven beschikbaar is. Starten van 10 juni 2017 worden alle nieuwe beheerde momentopnamen-schijven-installatiekopieën en nieuwe gegevens geschreven naar de bestaande beheerde schijven automatisch versleuteld in rust met sleutels die worden beheerd door Microsoft zijn.  Ga naar de [pagina met veelgestelde vragen voor schijven beheerd](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) voor meer informatie.
 
 
 ### <a name="azure-disk-encryption-ade"></a>Azure Disk Encryption (ADE)
 
-Azure Disk Encryption allows you to encrypt the OS and Data disks used by an IaaS Virtual Machine. This includes managed disks. For Windows, the drives are encrypted using industry-standard BitLocker encryption technology. For Linux, the disks are encrypted using the DM-Crypt technology. This is integrated with Azure Key Vault to allow you to control and manage the disk encryption keys. For more information, please see [Azure Disk Encryption for Windows and Linux IaaS VMs](../articles/security/azure-security-disk-encryption.md).
+Azure Disk Encryption kunt u voor het versleutelen van het besturingssysteem en gegevensschijven die wordt gebruikt door een virtuele Machine voor IaaS. Dit omvat beheerde schijven. De stations zijn versleuteld met behulp van standaard-BitLocker-versleuteling technologie voor Windows. De schijven zijn versleuteld met behulp van de technologie DM-Crypt voor Linux. Dit is geïntegreerd met Azure Sleutelkluis kunt u te controleren en beheren van de versleutelingssleutels voor de schijf. Zie voor meer informatie [Azure Disk Encryption for Windows en Linux IaaS VM's](../articles/security/azure-security-disk-encryption.md).
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Volgende stappen
 
-For more information about Managed Disks, please refer to the following articles.
+Raadpleeg de volgende artikelen voor meer informatie over schijven beheerd.
 
-### <a name="get-started-with-managed-disks"></a>Get started with Managed Disks
+### <a name="get-started-with-managed-disks"></a>Aan de slag met beheerde schijven
 
-* [Create a VM using Resource Manager and PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md)
+* [Een virtuele machine maken met behulp van Resource Manager en PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md)
 
-* [Create a Linux VM using the Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Een virtuele Linux-machine maken met behulp van de Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
 
-* [Attach a managed data disk to a Windows VM using PowerShell](../articles/virtual-machines/windows/attach-disk-ps.md)
+* [Een beheerde gegevensschijf koppelen aan een virtuele machine van Windows met behulp van PowerShell](../articles/virtual-machines/windows/attach-disk-ps.md)
 
-* [Add a managed disk to a Linux VM](../articles/virtual-machines/linux/add-disk.md)
+* [Een beheerde schijf toevoegen aan een virtuele Linux-machine](../articles/virtual-machines/linux/add-disk.md)
 
-* [Managed Disks PowerShell Sample Scripts](https://github.com/Azure-Samples/managed-disks-powershell-getting-started)
+* [Het PowerShell-voorbeeldscripts schijven beheerd](https://github.com/Azure-Samples/managed-disks-powershell-getting-started)
 
-* [Use Managed Disks in Azure Resource Manager templates](../articles/virtual-machines/windows/using-managed-disks-template-deployments.md)
+* [Beheerd schijven gebruiken in Azure Resource Manager-sjablonen](../articles/virtual-machines/windows/using-managed-disks-template-deployments.md)
 
-### <a name="compare-managed-disks-storage-options"></a>Compare Managed Disks storage options
+### <a name="compare-managed-disks-storage-options"></a>Opties voor opslag van schijven beheerd vergelijken
 
-* [Premium storage and disks](../articles/storage/common/storage-premium-storage.md)
+* [Premium-opslag en schijven](../articles/virtual-machines/windows/premium-storage.md)
 
-* [Standard storage and disks](../articles/storage/common/storage-standard-storage.md)
+* [Standard-opslag en schijven](../articles/virtual-machines/windows/standard-storage.md)
 
-### <a name="operational-guidance"></a>Operational guidance
+### <a name="operational-guidance"></a>Gebruiksaanwijzing
 
-* [Migrate from AWS and other platforms to Managed Disks in Azure](../articles/virtual-machines/windows/on-prem-to-azure.md)
+* [Migreren van AWS en andere platforms naar schijven beheerd in Azure](../articles/virtual-machines/windows/on-prem-to-azure.md)
 
-* [Convert Azure VMs to managed disks in Azure](../articles/virtual-machines/windows/migrate-to-managed-disks.md)
+* [Azure Virtual machines converteren naar beheerde schijven in Azure](../articles/virtual-machines/windows/migrate-to-managed-disks.md)

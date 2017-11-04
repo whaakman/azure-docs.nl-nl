@@ -1,6 +1,6 @@
 ---
-title: 'Azure Stack Storage: Differences and considerations'
-description: Understand the differences between Azure Stack Storage and Azure Storage, along with Azure Stack deployment considerations.
+title: 'Azure Storage Stack: Verschillen en overwegingen'
+description: Het verschil tussen Azure Stack Storage en Azure Storage, samen met aandachtspunten voor implementatie van Azure-Stack.
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -14,52 +14,51 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 381950321ac3a5ea8a43b76f3fba868da4be4682
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 4d6fb44fd6fd2261059ca45093d8b49345adfa74
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack Storage: Differences and considerations
+# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Storage Stack: Verschillen en overwegingen
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Azure Stack Storage is the set of storage cloud services in Microsoft Azure Stack. Azure Stack Storage provides blob, table, queue, and account management functionality with Azure-consistent semantics.
+Azure Storage van de Stack is de set van opslag cloudservices in Microsoft Azure-Stack. Stack aan Azure Storage biedt blob, table, wachtrij en functionaliteit voor Gebruikersaccountbeheer met Azure consistent semantiek.
 
-This article summarizes the known Azure Stack Storage differences from Azure Storage. It also summarizes other considerations to keep in mind when you deploy Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
+In dit artikel bevat een overzicht van de bekende Azure Stack Storage verschillen van Azure Storage. Ook ziet u u andere overwegingen rekening moet houden bij het implementeren van Azure-Stack. Zie voor meer informatie over belangrijke verschillen tussen Azure-Stack en Azure, de [belangrijke overwegingen](azure-stack-considerations.md) onderwerp.
 
-## <a name="cheat-sheet-storage-differences"></a>Cheat sheet: Storage differences
+## <a name="cheat-sheet-storage-differences"></a>Blad cheats: opslag verschillen
 
-| Feature | Azure (global) | Azure Stack |
+| Functie | Azure (global) | Azure Stack |
 | --- | --- | --- |
-|File storage|Cloud-based SMB file shares supported|Not yet supported
-|Data at rest encryption|256-bit AES encryption|Not yet supported
-|Storage account type|General-purpose and Azure Blob storage accounts|General-purpose only
-|Replication options|Locally redundant storage, geo-redundant storage, read-access geo-redundant storage, and zone-redundant storage|Locally redundant storage
-|Premium storage|Fully supported|Can be provisioned, but no performance limit or guarantee
-|Managed disks|Premium and standard supported|Not yet supported
-|Blob name|1,024 characters (2,048 bytes)|880 characters (1,760 bytes)
-|Block blob max size|4.75 TB (100 MB X 50,000 blocks)|50,000 X 4 MB (approx. 195 GB)
-|Page blob incremental snapshot copy|Premium and standard Azure page blobs supported|Not yet supported
-|Page blob max size|8 TB|1 TB
-|Page blob page size|512 bytes|4 KB
-|Table partition key and row key size|1,024 characters (2,048 bytes)|400 characters (800 bytes)
+|File Storage|Cloud-gebaseerde SMB-bestandsshares ondersteund|Nog niet ondersteund
+|Data-at-rest versleuteling|256-bits AES-versleuteling|Nog niet ondersteund
+|Type opslagaccount|Voor algemene doeleinden en Azure Blob storage-accounts|Voor algemene doeleinden alleen
+|Opties voor gegevensreplicatie|Lokaal redundante opslag, geografisch redundante opslag met leestoegang geografisch redundante opslag en zone-redundante opslag|Lokaal redundante opslag
+|Premium Storage|Volledig ondersteund|Kunnen worden ingericht, maar geen prestatielimiet voor of de garantie
+|Managed Disks|Premium en standard ondersteund|Nog niet ondersteund
+|BLOB-naam|1024 tekens (2048 bytes)|880 tekens (1,760 bytes)
+|Maximale grootte van blok-blob|4.75 TB (100 MB X 50.000 blokken)|50.000 x 4 MB (ongeveer 195 GB)
+|Pagina-blob snapshotkopieën|Back-up Azure onbeheerde VM schijven zijn gekoppeld aan een actieve virtuele machine die wordt ondersteund|Nog niet ondersteund
+|Pagina-blob incrementele snapshotkopieën|Premium en standard Azure pagina-blobs ondersteund|Nog niet ondersteund
+|Maximale grootte voor pagina-blob|8 TB|1 TB
+|Paginagrootte voor pagina-blob|512 bytes|4 KB
+|De partitiesleutel tabel- en rijkoppen sleutelgrootte|1024 tekens (2048 bytes)|400 tekens (800 bytes)
 
-### <a name="metrics"></a>Metrics
-There are also some differences with storage metrics:
-* The transaction data in storage metrics does not differentiate internal or external network bandwidth.
-* The transaction data in storage metrics does not include virtual machine access to the mounted disks.
+### <a name="metrics"></a>Metrische gegevens
+Er zijn ook enkele verschillen met opslag metrische gegevens:
+* De transactiegegevens in de metrische gegevens storage geen onderscheid tussen interne of externe netwerkbandbreedte.
+* De transactiegegevens in de metrische gegevens storage bevat geen virtuele machine toegang tot de gekoppelde schijven.
 
-## <a name="api-version"></a>API version
-The following versions are supported with Azure Stack Storage:
+## <a name="api-version"></a>API-versie
+De volgende versies worden ondersteund met Azure Stack Storage:
 
-* Azure Storage data services: [2015-04-05 REST API version](https://docs.microsoft.com/rest/api/storageservices/Version-2015-04-05?redirectedfrom=MSDN)
-* Azure Storage management services: [2015-05-01-preview, 2015-06-15, and 2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN) 
+* Azure Storage-services voor gegevens: [REST-API-versie 2015-04-05](https://docs.microsoft.com/rest/api/storageservices/Version-2015-04-05?redirectedfrom=MSDN)
+* Azure Storage management-services: [2015-05-01-preview 2015-06-15 en 2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN) 
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Volgende stappen
 
-* [Get started with Azure Stack Storage development tools](azure-stack-storage-dev.md)
-* [Introduction to Azure Stack Storage](azure-stack-storage-overview.md)
-
+* [Aan de slag met Azure Stack Storage ontwikkelingsprogramma 's](azure-stack-storage-dev.md)
+* [Inleiding tot Azure Stack Storage](azure-stack-storage-overview.md)
 

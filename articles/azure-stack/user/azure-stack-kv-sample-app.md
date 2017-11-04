@@ -1,6 +1,6 @@
 ---
-title: Allow applications to retrieve Azure Stack Key Vault secrets | Microsoft Docs
-description: Use a sample app to work with Azure Stack Key Vault
+title: Toepassingen kunnen ophalen van geheimen Azure Stack Sleutelkluis | Microsoft Docs
+description: Een voorbeeld-app gebruiken om te werken met Azure Sleutelkluis voor Stack
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,28 +14,26 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: 9b39c949e33dfbcc75ba8c09d6b38e4bdb243766
 ms.openlocfilehash: 7cfb78cc5219d4adab5ceddc9d7eb8d1fc71b678
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Voorbeeldtoepassing die gebruikmaakt van sleutels en geheimen die zijn opgeslagen in een sleutelkluis
 
-# <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Sample application that uses keys and secrets stored in a key vault
+In dit artikel wordt beschreven hoe u een voorbeeldtoepassing (HelloKeyVault) die sleutels en geheimen opgehaald uit een sleutelkluis in Azure-Stack uitvoeren.
 
-In this article, we show you how to run a sample application (HelloKeyVault) that retrieves keys and secrets from a key vault in Azure Stack.
+## <a name="prerequisites"></a>Vereisten 
 
-## <a name="prerequisites"></a>Prerequisites 
+Voer de volgende vereisten een van de [Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), of vanuit een Windows-externe client als u [verbonden via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
-Run the following prerequisites either from the [Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+* Installeer [Azure Stack-compatibele Azure PowerShell-modules](azure-stack-powershell-install.md).  
+* Download de [hulpprogramma's voor het werken met Azure-Stack](azure-stack-powershell-download.md). 
 
-* Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md). 
+## <a name="create-and-get-the-key-vault-and-application-settings"></a>Maken en de sleutelkluis en toepassingsinstellingen
 
-## <a name="create-and-get-the-key-vault-and-application-settings"></a>Create and get the key vault and application settings
-
-First, you should create a key vault in Azure Stack, and register an application in Azure Active Directory (Azure AD). You can create and register the key vaults by using the Azure portal or PowerShell. This article shows you the PowerShell way to do the tasks. By default, this PowerShell script creates a new application in Active Directory. However, you can also use one of your existing applications. Make sure to provide a value for the `aadTenantName` and `applicationPassword` variables. If you don't specify a value for the `applicationPassword` variable, this script generates a random password. 
+U moet eerst een sleutelkluis maken in Azure-Stack en een toepassing registreren in Azure Active Directory (Azure AD). U kunt maken en de sleutelkluizen registreren via de Azure-portal of PowerShell. Dit artikel ziet u de PowerShell-manier om de taken uitvoeren. Deze PowerShell-script wordt standaard een nieuwe toepassing gemaakt in Active Directory. Echter, u kunt ook gebruiken een van uw bestaande toepassingen. Zorg ervoor dat u een waarde opgeven voor de `aadTenantName` en `applicationPassword` variabelen. Als u niet een waarde opgeven voor de `applicationPassword` variabele, dit script genereert een willekeurig wachtwoord. 
 
 ```powershell
 $vaultName           = 'myVault'
@@ -126,28 +124,27 @@ Write-Host
 
 ``` 
 
-The following screenshot shows the output of the previous script:
+De volgende schermafbeelding ziet de uitvoer van het vorige script:
 
-![App config](media/azure-stack-kv-sample-app/settingsoutput.png)
+![App-configuratie](media/azure-stack-kv-sample-app/settingsoutput.png)
 
-Make a note of the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** values returned by the previous script. You use these values to run the HelloKeyVault application.
+Noteer de **VaultUrl**, **AuthClientId**, en **AuthClientSecret** door het vorige script geretourneerde waarden. Deze waarden kunt u de toepassing HelloKeyVault uitvoeren.
 
-## <a name="download-and-run-the-sample-application"></a>Download and run the sample application
+## <a name="download-and-run-the-sample-application"></a>Downloaden en uitvoeren van de voorbeeldtoepassing
 
-Download the key vault sample from the Azure [Key Vault client samples](https://www.microsoft.com/en-us/download/details.aspx?id=45343) page. Extract the contents of the .zip file onto your development workstation. There are two samples within the samples folder. We use the HellpKeyVault sample in this topic. Browse to the **Microsoft.Azure.KeyVault.Samples** > **samples** > **HelloKeyVault** folder and open the HelloKeyVault application in Visual Studio. 
+De sleutelkluis-voorbeeld downloaden van de Azure [Sleutelkluis client voorbeelden](https://www.microsoft.com/en-us/download/details.aspx?id=45343) pagina. Pak de inhoud van het ZIP-bestand op uw ontwikkelwerkstation. Er zijn twee voorbeelden in de map met voorbeelden. We gebruiken de steekproef HellpKeyVault in dit onderwerp. Blader naar de **Microsoft.Azure.KeyVault.Samples** > **voorbeelden** > **HelloKeyVault** map en open de toepassing HelloKeyVault in Visual Studio. 
 
-Open the HelloKeyVault\App.config file and replace the values of the <appSettings> element with the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** values returned by the previous script. Note that by default the App.config contains a placeholder for *AuthCertThumbprint*, but use *AuthClientSecret* instead. After you replace the settings, rebuild the solution and start the application.
+Open het bestand HelloKeyVault\App.config en vervang de waarden van de <appSettings> element met de **VaultUrl**, **AuthClientId**, en **AuthClientSecret** waarden door het vorige script geretourneerd. Houd er rekening mee dat de App.config bevat standaard een tijdelijke aanduiding voor *AuthCertThumbprint*, maar gebruiken *AuthClientSecret* in plaats daarvan. Nadat u de instellingen vervangt, opnieuw opbouwen van de oplossing en de toepassing niet starten.
 
-![App settings](media/azure-stack-kv-sample-app/appconfig.png)
+![App-instellingen](media/azure-stack-kv-sample-app/appconfig.png)
  
-The application signs in to Azure AD, and then uses that token to authenticate to the key vault in Azure Stack. The application performs operations like create, encrypt, wrap, and delete on the keys and secrets of the key vault. You can also pass specific parameters such as *encrypt* and *decrypt* to the application, which makes sure that the application executes only those operations against the vault. 
+De toepassing zich aanmeldt bij Azure AD en vervolgens dat token gebruikt voor verificatie bij de sleutelkluis in Azure-Stack. Bewerkingen zoals maakt voor de toepassing uitvoert, coderen en verpakken van de sleutels en geheimen van de sleutelkluis verwijderen. U kunt ook specifieke parameters zoals doorgeven *versleutelen* en *ontsleutelen* tot de toepassing die ervoor zorgt dat de toepassing wordt uitgevoerd alleen deze bewerkingen op basis van de kluis. 
 
 
-## <a name="next-steps"></a>Next steps
-[Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
+## <a name="next-steps"></a>Volgende stappen
+[Een virtuele machine implementeren met een Key Vault-wachtwoord](azure-stack-kv-deploy-vm-with-secret.md)
 
-[Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
-
+[Een virtuele machine met een certificaat Sleutelkluis implementeren](azure-stack-kv-push-secret-into-vm.md)
 
 
 

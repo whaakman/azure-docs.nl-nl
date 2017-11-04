@@ -1,13 +1,13 @@
-Next, if any servers on the cluster are running Windows Server 2008 R2 or Windows Server 2012, you must verify that the hotfix [KB2854082](http://support.microsoft.com/kb/2854082) is installed on each of the on-premises servers or Azure VMs that are part of the cluster. Any server or VM that is in the cluster, but not in the availability group, should also have this hotfix installed.
+Vervolgens als alle servers op het cluster werkt met Windows Server 2008 R2 of Windows Server 2012, moet u controleren of de hotfix [KB2854082](http://support.microsoft.com/kb/2854082) is geïnstalleerd op elk van de lokale servers of virtuele Azure-machines die deel van het cluster uitmaken. Een server of de virtuele machine die in het cluster, maar niet in de beschikbaarheidsgroep, moet u ook deze hotfix is geïnstalleerd hebben.
 
-In the remote desktop session for each of the cluster nodes, download [KB2854082](http://support.microsoft.com/kb/2854082) to a local directory. Then, install the hotfix on each cluster node sequentially. If the cluster service is currently running on the cluster node, the server is restarted at the end of the hotfix installation.
+In de extern bureaublad-sessiehost voor elk van de clusterknooppunten, downloaden [KB2854082](http://support.microsoft.com/kb/2854082) naar een lokale map. Vervolgens installeert u de hotfix op elk clusterknooppunt sequentieel worden verwerkt. Als de clusterservice wordt momenteel uitgevoerd op het clusterknooppunt, wordt de server opnieuw opgestart aan het einde van de hotfixinstallatie.
 
 > [!WARNING]
-> Stopping the cluster service or restarting the server affects the quorum health of your cluster and the availability group, and it might cause your cluster to go offline. To maintain the high availability of your cluster during installation, make sure that:
+> De clusterservice wordt gestopt of opnieuw starten van de server heeft gevolgen voor de status van het quorum van uw cluster en de beschikbaarheidsgroep en kan ertoe leiden dat uw cluster offline te gaan. Als u wilt de hoge beschikbaarheid van uw cluster behouden tijdens de installatie, zorg ervoor dat:
 > 
-> * The cluster is in optimal quorum health. 
-> * Before you install the hotfix on any node, all cluster nodes are online.
-> * Before you install the hotfix on any other node in the cluster, allow the hotfix installation to run to completion on one node, including fully restarting the server.
+> * Het cluster heeft quorum optimale health. 
+> * Voordat u de hotfix op een willekeurig knooppunt installeert, worden alle clusterknooppunten online zijn.
+> * Voordat u de hotfix op een ander knooppunt in het cluster installeert, kunt u de installatie van de hotfix in voor uitvoering op één knooppunt, met inbegrip van de server volledig opnieuw te starten.
 > 
 > 
 

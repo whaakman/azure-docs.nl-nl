@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Key Vault introduction | Microsoft Docs
-description: Learn how Azure Stack Key Vault manages keys and secrets
+title: Azure Sleutelkluis Stack Inleiding | Microsoft Docs
+description: Meer informatie over hoe Azure-Stack Sleutelkluis sleutels en geheimen beheert
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,57 +14,60 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/04/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ecb542e967669fc4e4465ae59b3e9c37e4a5c332
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 621a0cb865d0c050d7271d10bd14076f9f0c6f67
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/20/2017
 ---
-# <a name="introduction-to-key-vault-in-azure-stack"></a>Introduction to Key Vault in Azure Stack
+# <a name="introduction-to-key-vault-in-azure-stack"></a>Inleiding tot de Sleutelkluis in Azure-Stack
 
-## <a name="before-you-start"></a>Before you start
-This article assumes the following:
+## <a name="prerequisites"></a>Vereisten 
 
-* You must must subscribe to an offer that includes the Key Vault service.  
-* [PowerShell is configured for use with Azure Stack](azure-stack-powershell-configure-user.md) 
+* U moet zich abonneren op een aanbieding met de Azure Sleutelkluis-service.  
+* [PowerShell is geconfigureerd voor gebruik met Azure-Stack](azure-stack-powershell-configure-user.md).
  
-## <a name="key-vault-basics"></a>Key Vault basics
-Key Vault in Azure Stack helps safeguard cryptographic keys and secrets that cloud applications and services use. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .pfx files, and passwords).
+## <a name="key-vault-basics"></a>Sleutelkluis-basisbeginselen
+Sleutelkluis in Azure-Stack kunt beschermen cryptografische sleutels en geheimen die cloud toepassingen en services gebruiken. Met behulp van de Sleutelkluis u kan sleutels en geheimen versleutelen, zoals:
+   * Verificatiesleutels 
+   * Toegangscodes voor opslag
+   * De gegevensversleutelingssleutels
+   * PFX-bestanden
+   * Wachtwoorden
 
-Key Vault streamlines the key management process and enables you to maintain control of keys that access and encrypt your data. Developers can create keys for development and testing in minutes, and then seamlessly migrate them to production keys. Security administrators can grant (and revoke) permission to keys, as needed.
+Key Vault stroomlijnt het beheerproces voor sleutels en zorgt dat u de controle houdt over de sleutels waarmee uw gegevens toegankelijk zijn en worden versleuteld. Ontwikkelaars kunnen binnen enkele minuten sleutels voor ontwikkel- en testdoeleinden maken en deze vervolgens probleemloos migreren naar productiesleutels. Beveiligingsadministrator kunnen wanneer dit nodig is machtigingen aan sleutels verlenen (en intrekken).
 
-Anybody with an Azure Stack subscription can create and use key vaults. Although Key Vault benefits developers and security administrators, it can be implemented and managed by the operator who manages other Azure Stack services for an organization. For example, the Azure Stack operator can sign in with an Azure Stack subscription, create a vault for the organization in which to store keys, and then be responsible for these operational tasks:
+Iedereen met een Azure-Stack-abonnement kunt maken en gebruiken van sleutelkluizen. Hoewel Sleutelkluis voordelen biedt voor ontwikkelaars en beveiligingsadministrators, kan de operator die andere Azure-Stack-services voor een organisatie beheert kunt implementeren en beheren. Bijvoorbeeld, maken de Azure-Stack operator kunt aanmelden met een Azure-Stack-abonnement een kluis voor de organisatie waarin sleutels opslaan en vervolgens worden die verantwoordelijk is voor deze operationele taken:
 
-* Create or import a key or secret
-* Revoke or delete a key or secret
-* Authorize users or applications to access the key vault, so they can   then manage or use its keys and secrets
-* Configure key usage (for example, sign or encrypt)
+* Maken of importeren van een sleutel of geheim.
+* Intrekken of verwijderen van een sleutel of geheim.
+* Gebruikers of toepassingen voor toegang tot de sleutelkluis, zodat ze kunnen beheren of gebruiken van de sleutels en geheimen autoriseren.
+* Sleutelgebruik configureren (bijvoorbeeld ondertekenen of versleutelen).
 
-The operator can then provide developers with URIs to call from their applications, and provide a security administrator with key usage logging information.
+De operator kan ontwikkelaars vervolgens met de Uniform Resource-id's (URI) aan te roepen vanuit hun toepassingen bieden. Operators kunnen ook Beveiligingsbeheerders met sleutelgebruik logboekregistratie informatie bieden.
 
-Developers can also manage the keys directly, by using APIs. For more information, see the Key Vault developer's guide.
+Ontwikkelaars kunnen de sleutels ook rechtstreeks beheren door gebruik te maken van API's. Zie de Sleutelkluis developer's guide voor meer informatie.
 
-## <a name="scenarios"></a>Scenarios
-The following table depicts some of the scenarios where Key Vault can help meet the needs of developers and security administrators:
+## <a name="scenarios"></a>Scenario's
+De volgende scenario's wordt beschreven hoe Sleutelkluis u kunt de behoeften van ontwikkelaars en beveiligingsadministrators.
 
-### <a name="developer-for-an-azure-stack-application"></a>Developer for an Azure Stack application
-**Problem**: I want to write an application for Azure Stack that uses keys for signing and encryption, but I want these to be external from my application so that the solution is suitable for an application that is geographically distributed.
+### <a name="developer-for-an-azure-stack-application"></a>Ontwikkelaar voor een Azure-Stack-toepassing
+**Probleem:** ik wil een toepassing schrijven voor Azure-Stack die gebruikmaakt van sleutels voor ondertekening en versleuteling. Ik wil deze sleutels worden externe van mijn toepassing, zodat de oplossing geschikt voor een toepassing die geografisch wordt gedistribueerd.
 
-**Statement**: Keys are stored in a vault and invoked by URI when needed.
+**Overzicht:** sleutels worden opgeslagen in een kluis en aangeroepen door een URI, wanneer deze nodig is.
 
-### <a name="developer-for-software-as-a-service-saas"></a>Developer for software as a service (SaaS)
-**Problem:** I don’t want the responsibility or potential liability for my customer's keys and secrets.
+### <a name="developer-for-software-as-a-service-saas"></a>Ontwikkelaar voor software als een service (SaaS)
+**Probleem:** ik wil niet de verantwoordelijk of potentiële aansprakelijkheid voor de sleutels en geheimen van mijn klant. Ik wil dat klanten eigenaar en beheren van hun sleutels, zodat ik mij concentreren kan op hetgeen waar ik beste, namelijk het leveren van de kern van het software-onderdelen.
 
-**Statement:** Customers can import their own keys into Azure Stack, and manage them. I want customers to own and manage their keys so that I can concentrate on doing what I do best, which is providing the core software features.
+**Overzicht:** klanten hun eigen sleutels importeren in Azure-Stack en deze vervolgens te beheren. 
 
 ### <a name="chief-security-officer-cso"></a>Chief Security Officer (CSO)
-**Problem:** I want to make sure that my organization is in control of the key life cycle and can monitor key usage.
+**Probleem:** ik wil ervoor zorgen dat mijn organisatie controle over de levenscyclus van de en sleutelgebruik kan controleren.
 
-**Statement** Key Vault is designed so that Microsoft does not see or extract your keys.  When an application needs to perform cryptographic operations by using customers’ keys, Key Vault does this on behalf of the application. The application does not see the customers’ keys.  Although we use multiple Azure Stack services and resources, I want to manage the keys from a single location in Azure Stack. The vault provides a single interface, regardless of how many vaults you have in Azure Stack, which regions they support, and which applications use them.
+**Overzicht:** Sleutelkluis is zodanig ontworpen dat Microsoft niet kan zien of extraheren van uw sleutels. Wanneer een toepassing moet om uit te voeren cryptografische bewerkingen met behulp van klanten sleutels, Sleutelkluis maakt gebruik van de sleutels voor de toepassing is. De toepassing krijgt de sleutels van de klant niet te zien. Hoewel we meerdere Azure-Stack-services en bronnen gebruiken, kunt u de sleutels beheren vanaf één locatie in Azure-Stack. De kluis biedt één interface, ongeacht het aantal kluizen hebt u in Azure Stack, welke regio's ze ondersteuning en welke toepassingen ze worden gebruikt.
 
-## <a name="next-steps"></a>Next Steps
+## <a name="next-steps"></a>Volgende stappen
 
-* [Manage Key Vault in Azure Stack using the portal](azure-stack-kv-manage-portal.md)  
-* [Manage Key Vault in Azure Stack using PowerShell](azure-stack-kv-manage-powershell.md)
+* [Sleutelkluis in Azure-Stack beheren via de portal](azure-stack-kv-manage-portal.md)  
+* [Sleutelkluis in Azure-Stack beheren met PowerShell](azure-stack-kv-manage-powershell.md)
 

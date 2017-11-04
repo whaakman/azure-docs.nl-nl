@@ -1,20 +1,20 @@
-### <a name="prepare-for-a-push-installation-on-a-windows-computer"></a>Prepare for a push installation on a Windows computer
+### <a name="prepare-for-a-push-installation-on-a-windows-computer"></a>Voorbereiden voor een pushinstallatie op een Windows-computer
 
-1. Ensure that there’s network connectivity between the Windows computer and the process server.
-2. Create an account that the process server can use to access the computer. The account should have administrator rights (local or domain). (Use this account only for the push installation and for agent updates.)
+1. Zorg ervoor dat er netwerkverbinding tussen de Windows-computer en de processerver is.
+2. Maak een account dat op de processerver kan worden gebruikt voor toegang tot de computer. Het account moet administrator-rechten (lokaal of domeinbeheerder) hebben. (Gebruik dit account alleen voor de push-installatie en agentupdates.)
 
    > [!NOTE]
-   > If you're not using a domain account, disable Remote User Access control on the local computer. To disable Remote User Access control, under the HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registry key, add a new DWORD: **LocalAccountTokenFilterPolicy**. Set the value to **1**. To do this at a command prompt, run the following command:  
+   > Als u niet een domeinaccount, moet u externe toegang van de gebruiker besturingselement op de lokale computer uitschakelen. Een nieuwe DWORD uitschakelen van de externe gebruiker toegangsbeheer, onder de registersleutel HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System toevoegen: **LocalAccountTokenFilterPolicy**. De waarde instelt op **1**. Om dit te doen bij een opdrachtprompt, voer de volgende opdracht:  
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
    >
    >
-2. In Windows Firewall on the computer you want to protect, select **Allow an app or feature through Firewall**. Enable **File and Printer Sharing** and **Windows Management Instrumentation (WMI)**. For computers that belong to a domain, you can configure the firewall settings by using a Group Policy object (GPO).
+2. Selecteer in Windows Firewall op de computer die u wilt beveiligen, **toestaan van een app of functie via Firewall**. Schakel **bestands- en printerdeling** en **Windows Management Instrumentation (WMI)**. Voor computers die deel uitmaken van een domein, kunt u de firewall-instellingen configureren met behulp van een groepsbeleidsobject (GPO).
 
-   ![Firewall settings](./media/site-recovery-prepare-push-install-mob-svc-win/mobility1.png)
+   ![Firewallinstellingen](./media/site-recovery-prepare-push-install-mob-svc-win/mobility1.png)
 
-3. Add the account that you created in CSPSConfigtool.
-    1.  Sign in to your configuration server.
-    2.  Open **cspsconfigtool.exe**. (It's available as a shortcut on the desktop and in the %ProgramData%\home\svsystems\bin folder.)
-    3.  On the **Manage Accounts** tab, select **Add Account**.
-    4.  Add the account you created.
-    5.  Enter the credentials you use when you enable replication for a computer.
+3. Voeg het account toe dat u hebt gemaakt in CSPSConfigtool.
+    1.  Meld u aan bij de configuratieserver.
+    2.  Open **cspsconfigtool.exe**. (Als snelkoppeling beschikbaar op het bureaublad en in de map %ProgramData%\home\svsystems\bin.)
+    3.  Op de **Accounts beheren** tabblad **Account toevoegen**.
+    4.  Voeg het account toe dat u hebt gemaakt.
+    5.  Voer de referenties in die u gebruikt wanneer u replicatie voor een computer inschakelt.

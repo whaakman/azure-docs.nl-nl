@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 76e6e1b826f37bfea7a8463808566191753e4f2d
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 05c5149ed6c8502c31539f31bfff046f98dc633d
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="push-an-updated-image-to-regional-deployments"></a>Een installatiekopie van een bijgewerkte push naar regionale implementaties
 
@@ -91,6 +91,20 @@ Push-nu de bijgewerkte *acr helloworld* container installatiekopie toe aan het r
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
+Uitvoer ziet er ongeveer als volgt:
+
+```bash
+The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
+c003ed6fc8b8: Pushed
+02b11afef3fd: Layer already exists
+cf17b6f921be: Layer already exists
+c93ae914d31e: Layer already exists
+2eea44510cee: Layer already exists
+670f809bd6d5: Layer already exists
+a75caa09eb1f: Layer already exists
+v1: digest: sha256:e44c0956a21c91e1f5f7bc83f23f1de710c798246df1e0e508c0c88025449646 size: 1792
+```
+
 ## <a name="view-the-webhook-logs"></a>Bekijk de logboeken van de webhook
 
 Terwijl de installatiekopie wordt gerepliceerd, ziet u de Azure-Container register webhooks wordt geactiveerd.
@@ -123,7 +137,7 @@ Met één `docker push`u beide regionale Web-App-implementaties hebt bijgewerkt 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie, bijgewerkt en een nieuwe versie van de webcontainer van de toepassing toe aan het register geogerepliceerde gepusht. Webhooks in Azure Container register melding App Services van de update, wat een lokale pull van de gerepliceerde registers geactiveerd.
+In deze zelfstudie, bijgewerkt en een nieuwe versie van de webcontainer van de toepassing toe aan het register geogerepliceerde gepusht. Webhooks in Azure Container register gewaarschuwd Web-Apps voor Containers van de update, wat een lokale pull vanuit de Register-replica's.
 
 In dit de laatste zelfstudie in de reeks u:
 

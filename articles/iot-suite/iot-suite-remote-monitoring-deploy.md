@@ -1,0 +1,84 @@
+---
+title: De oplossing voor externe controle - Azure implementeren | Microsoft Docs
+description: Deze zelfstudie laat zien hoe u de vooraf geconfigureerde oplossing voor externe controle van azureiotsuite.com inrichten.
+services: 
+suite: iot-suite
+author: dominicbetts
+manager: timlt
+ms.author: dobett
+ms.service: iot-suite
+ms.date: 08/09/2017
+ms.topic: article
+ms.devlang: NA
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.openlocfilehash: b16990d41b691c13b01d61aa0cde7d14e533e440
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/03/2017
+---
+# <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>De vooraf geconfigureerde oplossing voor externe controle implementeren
+
+In deze zelfstudie leert u hoe de vooraf geconfigureerde oplossing voor externe controle inricht. U implementeren de oplossing van azureiotsuite.com. U kunt ook de oplossing met behulp van de CLI voor meer informatie over deze optie Zie implementeren [implementeren van een vooraf geconfigureerde oplossing vanaf de opdrachtregel](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#deploy-a-pcs-from-the-command-line).
+
+In deze zelfstudie leert u het volgende:
+
+> [!div class="checklist"]
+> * De vooraf geconfigureerde oplossing configureren
+> * De vooraf geconfigureerde oplossing implementeren
+> * Aanmelden bij de vooraf geconfigureerde oplossing
+
+## <a name="prerequisites"></a>Vereisten
+
+U hebt een actief Azure-abonnement nodig om deze zelfstudie te voltooien.
+
+Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](http://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+
+## <a name="deploy-the-preconfigured-solution"></a>De vooraf geconfigureerde oplossing implementeren
+
+Voordat u de vooraf geconfigureerde oplossing voor uw Azure-abonnement implementeert, moet u bepaalde configuratie-opties kiezen:
+
+1. Meld u aan bij [azureiotsuite.com](https://www.azureiotsuite.com) met behulp van uw Azure accountreferenties en klikt u op  **+**  om een oplossing te maken.
+
+1. Klik op de tegel **Externe controle** op **Selecteren**.
+
+1. Op de **oplossing voor externe controle maken** pagina, voert u een **oplossingsnaam** voor uw externe controle vooraf oplossing geconfigureerde.
+
+1. Selecteer een **Basic** of **standaard** implementatie. Als u de oplossing voor meer informatie over hoe het werkt of voor het uitvoeren van een demonstratie, kies zijn deplying de **Basic** optie voor de kosten kunt minimaliseren.
+
+1. Kies een **Java** of **.NET** als de taal. Alle microservices zijn beschikbaar als Java of .NET-implementaties.
+
+1. Controleer de **oplossingsgegevens** Configuratiescherm voor meer informatie over de configuratie-opties.
+
+1. Selecteer het **abonnement** dat en de **regio** die u wilt gebruiken voor het inrichten van de oplossing.
+
+1. Klik op **Oplossing maken** om het inrichtingsproces te starten. Doorgaans duurt het enkele minuten om dit proces uit te voeren.
+
+Zie voor informatie over probleemoplossing, [wat te doen wanneer een implementatie mislukt](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide#what-to-do-when-a-deployment-fails) in de GitHub-opslagplaats.
+
+## <a name="sign-in-to-the-preconfigured-solution"></a>Aanmelden bij de vooraf geconfigureerde oplossing
+
+Wanneer het inrichtingsproces voltooid is, kunt u zich aanmeldt bij uw vooraf geconfigureerde oplossing voor externe controle.
+
+1. Op de **ingerichte oplossingen** pagina, kiest u uw nieuwe oplossing voor externe controle.
+
+1. U kunt informatie weergeven over uw oplossing voor externe controle in het deelvenster die wordt weergegeven. Kies **dashboard van de oplossing** verbinding maken met uw oplossing voor externe controle.
+
+    > [!NOTE]
+    > Wanneer u klaar bent, kunt u uw oplossing voor externe controle vanuit dit deelvenster verwijderen.
+
+1. Het dashboard externe controle oplossing wordt weergegeven in uw browser.
+
+## <a name="next-steps"></a>Volgende stappen
+
+In deze zelfstudie heeft u het volgende geleerd:
+
+> [!div class="checklist"]
+> * De vooraf geconfigureerde oplossing configureren
+> * De vooraf geconfigureerde oplossing implementeren
+> * Aanmelden bij de vooraf geconfigureerde oplossing
+
+Nu dat u de oplossing voor externe controle hebt geïmplementeerd, wordt de volgende stap is het [verkennen van de mogelijkheden van het dashboard van de oplossing](./iot-suite-remote-monitoring-explore.md).
+
+<!-- Next tutorials in the sequence -->

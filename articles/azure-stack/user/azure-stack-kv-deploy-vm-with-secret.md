@@ -1,6 +1,6 @@
 ---
-title: Deploy a VM with securely stored password on Azure Stack | Microsoft Docs
-description: Learn how to deploy a VM using a password stored in Azure Stack Key Vault
+title: Een virtuele machine met veilig opgeslagen wachtwoord op Azure-Stack implementeren | Microsoft Docs
+description: Informatie over het implementeren van een virtuele machine met een wachtwoord opgeslagen in Azure Stack Sleutelkluis
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,34 +14,33 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/08/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3292a2dfefc17e5034c66122a3eab24d6c03e694
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-virtual-machine-by-retrieving-the-password-stored-in-a-key-vault"></a>Create a virtual machine by retrieving the password stored in a Key Vault
+# <a name="create-a-virtual-machine-by-retrieving-the-password-stored-in-a-key-vault"></a>Een virtuele machine door op te halen van het wachtwoord dat is opgeslagen in een Sleutelkluis maken
 
-When you need to pass a secure value such as a password during deployment, you can store that value as a secret in an Azure Stack key vault and reference it in the Azure Resource Manager templates. You do not need to manually enter the secret each time you deploy the resources, you can also specify which users or service principals can access the secret. 
+Wanneer u een beveiligde waarde zoals een wachtwoord doorgegeven tijdens de implementatie, kunt u die waarde opslaan als een geheim in de sleutelkluis voor een Azure-Stack en ernaar wordt verwezen in de Azure Resource Manager-sjablonen. U doet dat niet moet het geheim handmatig invoeren telkens wanneer die u de resources, implementeert u kunt ook opgeven welke gebruikers of service-principals hebben toegang tot het geheim. 
 
-In this article, we walk you through the steps required to deploy a Windows virtual machine in Azure Stack by retrieving the password that is stored in a Key Vault. Therefore the password is never put in plain text in the template parameter file. You can use these steps either from the Azure Stack Development Kit, or from an external client if you are connected through VPN.
+In dit artikel doorlopen we de stappen die nodig zijn voor het implementeren van een virtuele Windows-machine in Azure-Stack door op te halen van het wachtwoord dat is opgeslagen in een Sleutelkluis. Daarom is het wachtwoord nooit in tekst zonder opmaak in het parameterbestand sjabloon geplaatst. U kunt deze stappen van de Azure-Stack Development Kit of via een externe client gebruiken als u via VPN-verbinding verbonden bent.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Vereisten
  
-* You must must subscribe to an offer that includes the Key Vault service.  
-* [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
-* [Configure the Azure Stack user's PowerShell environment.](azure-stack-powershell-configure-user.md)
+* U moet moet zich abonneren op een aanbieding met de Sleutelkluis-service.  
+* [Installeer PowerShell voor Azure-Stack.](azure-stack-powershell-install.md)  
+* [Configureren van de gebruiker van de Stack van Azure PowerShell-omgeving.](azure-stack-powershell-configure-user.md)
 
-The following steps describe the process required to create a virtual machine by retrieving the password stored in a Key Vault:
+De volgende stappen beschrijven het proces is vereist voor het maken van een virtuele machine door op te halen van het wachtwoord dat is opgeslagen in een Sleutelkluis:
 
-1. Create a Key Vault secret.
-2. Update the azuredeploy.parameters.json file.
-3. Deploy the template.
+1. Een Sleutelkluis geheim maken.
+2. Het bestand azuredeploy.parameters.json bijwerken.
+3. De sjabloon implementeert.
 
-## <a name="create-a-key-vault-secret"></a>Create a Key Vault secret
+## <a name="create-a-key-vault-secret"></a>Een Sleutelkluis geheim maken
 
-The following script creates a key vault, and stores a password in the key vault as a secret. Use the `-EnabledForDeployment` parameter when you're creating the key vault. This parameter makes sure that the key vault can be referenced from Azure Resource Manager templates.
+Het volgende script maakt een sleutelkluis en een wachtwoord wordt opgeslagen in de sleutelkluis als een geheim. Gebruik de `-EnabledForDeployment` parameter als u de sleutelkluis. Deze parameter zorgt ervoor dat de sleutelkluis kan worden verwezen vanuit de Azure Resource Manager-sjablonen.
 
 ```powershell
 
@@ -69,13 +68,13 @@ Set-AzureKeyVaultSecret `
 
 ```
 
-When you run the previous script, the output includes the secret URI. Make a note of this URI. You have to reference it in the [Deploy Windows virtual machine with password in key vault template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv). Download the [101-vm-secure-password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) folder onto your development computer. This folder contains the `azuredeploy.json` and `azuredeploy.parameters.json` files, which you will need in the next steps.
+Wanneer u het vorige script uitvoert, wordt de uitvoer de geheime URI bevat. Noteer deze URI. U moet verwijzen naar deze in de [Windows implementeren virtuele machine met een wachtwoord in de sjabloon sleutelkluis](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv). Download de [101-vm-beveiligd-wachtwoord](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) map op uw ontwikkelcomputer. Deze map bevat de `azuredeploy.json` en `azuredeploy.parameters.json` bestanden, wat u in de volgende stappen moet.
 
-Modify the `azuredeploy.parameters.json` file according to your environment values. The parameters of special interest are the vault name, the vault resource group, and the secret URI (as generated by the previous script). The following file is an example of a parameter file:
+Wijzig de `azuredeploy.parameters.json` bestand volgens de Omgevingswaarden in de. De parameters van speciaal belang zijn de kluisnaam van de, de resourcegroep voor de kluis en het geheim URI (zoals gegenereerd door het vorige script). Het volgende bestand is een voorbeeld van een parameterbestand:
 
-## <a name="update-the-azuredeployparametersjson-file"></a>Update the azuredeploy.parameters.json file
+## <a name="update-the-azuredeployparametersjson-file"></a>Het bestand azuredeploy.parameters.json bijwerken
 
-Update the azuredeploy.parameters.json file with the KeyVault URI, secretName, adminUsername of the virtual machine values as per your environment. The following JSON file shows an example of the template parameters file: 
+Het bestand azuredeploy.parameters.json bijwerken met de KeyVault-URI, secretName, adminUsername van de waarden van de virtuele machine aan de hand van uw omgeving. Het volgende JSON-bestand ziet u een voorbeeld van de sjabloon parameters: 
 
 ```json
 {
@@ -104,9 +103,9 @@ Update the azuredeploy.parameters.json file with the KeyVault URI, secretName, a
 
 ```
 
-## <a name="template-deployment"></a>Template deployment
+## <a name="template-deployment"></a>Sjabloonimplementatie
 
-Now deploy the template by using the following PowerShell script:
+Nu u de sjabloon implementeren met behulp van de volgende PowerShell-script:
 
 ```powershell
 New-AzureRmResourceGroupDeployment `
@@ -115,14 +114,13 @@ New-AzureRmResourceGroupDeployment `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
-When the template is deployed successfully, it results in the following output:
+Wanneer de sjabloon wordt geïmplementeerd, resulteert dit in de volgende uitvoer:
 
-![Deployment output](media/azure-stack-kv-deploy-vm-with-secret/deployment-output.png)
+![Implementatie-uitvoer](media/azure-stack-kv-deploy-vm-with-secret/deployment-output.png)
 
 
-## <a name="next-steps"></a>Next steps
-[Deploy a sample app with Key Vault](azure-stack-kv-sample-app.md)
+## <a name="next-steps"></a>Volgende stappen
+[Een voorbeeld-app met Sleutelkluis implementeren](azure-stack-kv-sample-app.md)
 
-[Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
-
+[Een virtuele machine met een certificaat Sleutelkluis implementeren](azure-stack-kv-push-secret-into-vm.md)
 

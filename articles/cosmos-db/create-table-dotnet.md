@@ -12,16 +12,14 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/22/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 29e7eebda5177d6e852ef04ad82d9d38a8d30ed8
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/23/2017
-
-
+ms.openlocfilehash: 0ce99a4754d7ec6f35bda63af6fc0166cf7e0eb4
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB: een .NET-toepassing ontwikkelen met de Table-API
 
@@ -88,18 +86,23 @@ Laten we eens kijken wat er precies gebeurt in de app. Open het bestand Program.
     table.CreateIfNotExists();
     ```
 
-* Er wordt een nieuwe Table-container gemaakt. Deze code is vergelijkbaar met de reguliere code van de Azure Table Storage-SDK. 
+* Een reeks stappen worden uitgevoerd op de tabel met behulp van de `TableOperation` klasse.
 
-    ```csharp
-    CustomerEntity item = new CustomerEntity()
-                {
-                    PartitionKey = Guid.NewGuid().ToString(),
-                    RowKey = Guid.NewGuid().ToString(),
-                    Email = $"{GetRandomString(6)}@contoso.com",
-                    PhoneNumber = "425-555-0102",
-                    Bio = GetRandomString(1000)
-                };
-    ```
+   ```csharp
+   TableOperation insertOperation = TableOperation.Insert(item);
+   table.Execute(insertOperation);
+   ```
+   
+   ```csharp
+   TableOperation retrieveOperation = TableOperation.Retrieve<T>(items[i].PartitionKey, items[i].RowKey);
+   table.Execute(retrieveOperation);
+   ```
+   
+   ```csharp
+   TableOperation deleteOperation = TableOperation.Delete(items[i]);
+   table.Execute(deleteOperation);
+   ```
+
 
 ## <a name="update-your-connection-string"></a>Uw verbindingsreeks bijwerken
 
@@ -120,7 +123,7 @@ We werken nu de verbindingsreeksinformatie bij, zodat uw app kan communiceren me
 
 U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Azure Cosmos DB. 
 
-## <a name="run-the-web-app"></a>De web-app uitvoeren
+## <a name="run-the-console-app"></a>De console-app uitvoeren
 
 1. Klik in Visual Studio met de rechtermuisknop op het project in **PremiumTableGetStarted** in **Solution Explorer** en klik vervolgens op **NuGet-pakketten beheren**. 
 
@@ -159,5 +162,4 @@ In deze Quick Start hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken,
 
 > [!div class="nextstepaction"]
 > [Query uitvoeren met behulp van de Table-API](tutorial-query-table.md)
-
 

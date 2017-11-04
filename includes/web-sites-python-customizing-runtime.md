@@ -15,8 +15,3 @@ zijn:
 
 Als de microversie (derde cijfer) is opgegeven, wordt dit genegeerd.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

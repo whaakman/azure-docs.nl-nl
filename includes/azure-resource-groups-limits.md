@@ -1,7 +1,7 @@
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
 | Resources per [resourcegroep](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (per resourcetype) |800 |Varieert per resourcetype |
-| Implementaties per resourcegroep |800 |800 |
+| Implementaties per resourcegroep in de implementatiegeschiedenis van de |800 |800 |
 | Resources per implementatie |800 |800 |
 | De vergrendelingen Management (per unieke bereik) |20 |20 |
 | Aantal Tags (per resource of resourcegroep) |15 |15 |
@@ -23,3 +23,5 @@
 | De parameter-bestandsgrootte |64 kB |64 kB |
 
 U kunt sommige limieten sjabloon met een geneste sjabloon overschrijdt. Zie voor meer informatie [gekoppelde sjablonen gebruiken bij het implementeren van Azure-resources](../articles/azure-resource-manager/resource-group-linked-templates.md). Als u het aantal parameters en variabelen en uitvoer, kunt u verschillende waarden combineren in een object. Zie voor meer informatie [objecten als parameters](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).
+
+Als u de limiet van 800 implementaties per resourcegroep bereiken, kunt u implementaties verwijderd uit de geschiedenis die niet langer nodig zijn. U kunt items verwijderen uit de geschiedenis met [az implementatie verwijderen](/cli/azure/group/deployment#az_group_deployment_delete) voor Azure CLI of [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) in PowerShell. Verwijderen van een vermelding uit de implementatiegeschiedenis van de heeft geen invloed op de resources implementeren. 

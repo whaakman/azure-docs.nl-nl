@@ -1,29 +1,29 @@
-## <a name="specifying-formats"></a>Specifying formats
-Azure Data Factory supports the following format types:
+## <a name="specifying-formats"></a>Indelingen opgeven
+Azure Data Factory ondersteunt de volgende bestandsindelingen:
 
-* [Text Format](#specifying-textformat)
-* [JSON Format](#specifying-jsonformat)
-* [Avro Format](#specifying-avroformat)
-* [ORC Format](#specifying-orcformat)
-* [Parquet Format](#specifying-parquetformat)
+* [Tekstindeling](#specifying-textformat)
+* [JSON-indeling](#specifying-jsonformat)
+* [Avro-indeling](#specifying-avroformat)
+* [ORC-indeling](#specifying-orcformat)
+* [Parquet-indeling](#specifying-parquetformat)
 
-### <a name="specifying-textformat"></a>Specifying TextFormat
-If you want to parse the text files or write the data in text format, set the `format` `type` property to **TextFormat**. You can also specify the following **optional** properties in the `format` section. See [TextFormat example](#textformat-example) section on how to configure.
+### <a name="specifying-textformat"></a>TextFormat opgeven
+Als u de tekstbestanden wilt parseren of de gegevens in tekstindeling wilt schrijven, stelt u de eigenschap `format` `type` in op **TextFormat**. U kunt ook de volgende **optionele** eigenschappen opgeven in het gedeelte `format`. Raadpleeg het gedeelte [TextFormat-voorbeeld](#textformat-example) voor configuratie-instructies.
 
-| Property | Description | Allowed values | Required |
+| Eigenschap | Beschrijving | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
-| columnDelimiter |The character used to separate columns in a file. You can consider to use a rare unprintable char which not likely exists in your data: e.g. specify "\u0001" which represents Start of Heading (SOH). |Only one character is allowed. The **default** value is **comma (',')**. <br/><br/>To use an Unicode character, refer to [Unicode Characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters) to get the corresponding code for it. |No |
-| rowDelimiter |The character used to separate rows in a file. |Only one character is allowed. The **default** value is any of the following values on read: **["\r\n", "\r", "\n"]** and **"\r\n"** on write. |No |
-| escapeChar |The special character used to escape a column delimiter in the content of input file. <br/><br/>You cannot specify both escapeChar and quoteChar for a table. |Only one character is allowed. No default value. <br/><br/>Example: if you have comma (',') as the column delimiter but you want to have the comma character in the text (example: "Hello, world"), you can define ‘$’ as the escape character and use string "Hello$, world" in the source. |No |
-| quoteChar |The character used to quote a string value. The column and row delimiters inside the quote characters would be treated as part of the string value. This property is applicable to both input and output datasets.<br/><br/>You cannot specify both escapeChar and quoteChar for a table. |Only one character is allowed. No default value. <br/><br/>For example, if you have comma (',') as the column delimiter but you want to have comma character in the text (example: <Hello, world>), you can define " (double quote) as the quote character and use the string "Hello, world" in the source. |No |
-| nullValue |One or more characters used to represent a null value. |One or more characters. The **default** values are **"\N" and "NULL"** on read and **"\N"** on write. |No |
-| encodingName |Specify the encoding name. |A valid encoding name. see [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). Example: windows-1250 or shift_jis. The **default** value is **UTF-8**. |No |
-| firstRowAsHeader |Specifies whether to consider the first row as a header. For an input dataset, Data Factory reads first row as a header. For an output dataset, Data Factory writes first row as a header. <br/><br/>See [Scenarios for using `firstRowAsHeader` and `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) for sample scenarios. |True<br/>**False (default)** |No |
-| skipLineCount |Indicates the number of rows to skip when reading data from input files. If both skipLineCount and firstRowAsHeader are specified, the lines are skipped first and then the header information is read from the input file. <br/><br/>See [Scenarios for using `firstRowAsHeader` and `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) for sample scenarios. |Integer |No |
-| treatEmptyAsNull |Specifies whether to treat null or empty string as a null value when reading data from an input file. |**True (default)**<br/>False |No |
+| columnDelimiter |Het teken dat wordt gebruikt voor het scheiden van kolommen in een bestand. U kunt overwegen om een zeldzaam niet-afdrukbaar teken te gebruiken dat waarschijnlijk niet in uw gegevens bestaat: bijvoorbeeld '\u0001', dat het begin van een kop aangeeft. |Er is slechts één teken toegestaan. De **standaardwaarde** is een **komma (',')**. <br/><br/>Raadpleeg voor het gebruik van een Unicode-teken [Unicode-tekens](https://en.wikipedia.org/wiki/List_of_Unicode_characters) om de overeenkomstige code op te halen. |Nee |
+| rowDelimiter |Het teken dat wordt gebruikt voor het scheiden van rijen in een bestand. |Er is slechts één teken toegestaan. De **standaardwaarde** is een van de volgende leeswaarden **['\r\n', '\r', '\n']** en de schrijfwaarde **'\r\n'**. |Nee |
+| escapeChar |Dit speciale teken wordt gebruikt om een scheidingsteken voor kolommen van de inhoud van het invoerbestand om te zetten. <br/><br/>Het is niet mogelijk om zowel escapeChar als quoteChar voor een tabel op te geven. |Er is slechts één teken toegestaan. Er is geen standaardwaarde. <br/><br/>Voorbeeld: als u kolommen scheidt met komma's (', '), maar u het kommateken in een tekst wilt gebruiken (voorbeeld: 'Hallo, wereld'), kunt u '$' als het omzettingsteken opgeven en in de bron de tekenreeks 'Hallo$, wereld' gebruiken. |Nee |
+| quoteChar |Het teken dat wordt gebruikt om een tekenreekswaarde te citeren. De scheidingstekens voor kolommen en rijen binnen de aanhalingstekens worden beschouwd als onderdeel van de tekenreekswaarde. Deze eigenschap is van toepassing op gegevenssets voor invoer en uitvoer.<br/><br/>Het is niet mogelijk om zowel escapeChar als quoteChar voor een tabel op te geven. |Er is slechts één teken toegestaan. Er is geen standaardwaarde. <br/><br/>Voorbeeld: als u kolommen scheidt met komma's (', '), maar u het kommateken in een tekst wilt gebruiken (voorbeeld: <Hallo, wereld>), kunt u " (dubbel aanhalingsteken) als het aanhalingsteken opgeven en de tekenreeks "Hallo, wereld" in de bron gebruiken. |Nee |
+| nullValue |Een of meer tekens die worden gebruikt om een null-waarde te vertegenwoordigen. |Een of meer tekens. De **standaardwaarden** zijn **'\N' en 'NULL'** voor lezen en **'\N'** voor schrijven. |Nee |
+| encodingName |Geef de coderingsnaam op. |Een geldige coderingsnaam. Zie [De eigenschap Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Voorbeeld: windows 1250 of shift_jis. De **standaardwaarde** is **UTF-8**. |Nee |
+| firstRowAsHeader |Hiermee geeft u op of de eerste rij als een header moet worden gezien. Bij een gegevensset voor invoer leest Data Factory de eerste rij als een header. Bij een gegevensset voor uitvoer schrijft Data Factory de eerste rij als een header. <br/><br/>Zie [Gebruiksscenario's`firstRowAsHeader` en `skipLineCount` ](#scenarios-for-using-firstrowasheader-and-skiplinecount) voor voorbeeldscenario's. |True<br/>**False (standaard)** |Nee |
+| skipLineCount |Geeft het aantal rijen aan dat moet worden overgeslagen bij het lezen van gegevens in invoerbestanden. Als zowel skipLineCount als firstRowAsHeader is opgegeven, worden de regels eerst overgeslagen en wordt de headerinformatie gelezen uit het invoerbestand. <br/><br/>Zie [Gebruiksscenario's`firstRowAsHeader` en `skipLineCount` ](#scenarios-for-using-firstrowasheader-and-skiplinecount) voor voorbeeldscenario's. |Geheel getal |Nee |
+| treatEmptyAsNull |Hiermee geeft u aan of null of lege tekenreeks moeten worden behandeld als een null-waarde bij het lezen van gegevens uit een invoerbestand. |**True (standaard)**<br/>False |Nee |
 
-#### <a name="textformat-example"></a>TextFormat example
-The following sample shows some of the format properties for TextFormat.
+#### <a name="textformat-example"></a>Voorbeeld van TextFormat
+Het volgende voorbeeld toont een aantal van de eigenschappen van de TextFormat-indeling.
 
 ```json
 "typeProperties":
@@ -44,39 +44,39 @@ The following sample shows some of the format properties for TextFormat.
 },
 ```
 
-To use an `escapeChar` instead of `quoteChar`, replace the line with `quoteChar` with the following escapeChar:
+Gebruik een `escapeChar` in plaats van `quoteChar`, vervang de regel door `quoteChar` met het volgende escapeChar:
 
 ```json
 "escapeChar": "$",
 ```
 
-#### <a name="scenarios-for-using-firstrowasheader-and-skiplinecount"></a>Scenarios for using firstRowAsHeader and skipLineCount
-* You are copying from a non-file source to a text file and would like to add a header line containing the schema metadata (for example: SQL schema). Specify `firstRowAsHeader` as true in the output dataset for this scenario.
-* You are copying from a text file containing a header line to a non-file sink and would like to drop that line. Specify `firstRowAsHeader` as true in the input dataset.
-* You are copying from a text file and want to skip a few lines at the beginning that contain no data or header information. Specify `skipLineCount` to indicate the number of lines to be skipped. If the rest of the file contains a header line, you can also specify `firstRowAsHeader`. If both `skipLineCount` and `firstRowAsHeader` are specified, the lines are skipped first and then the header information is read from the input file
+#### <a name="scenarios-for-using-firstrowasheader-and-skiplinecount"></a>Scenario's voor het gebruik van firstRowAsHeader en skipLineCount
+* U kopieert vanuit een bron die geen bestand is, naar een tekstbestand en wilt een headerregel toevoegen die de metagegevens van het schema bevat (bijvoorbeeld: SQL-schema). Geef voor `firstRowAsHeader` 'True' op in de uitvoergegevensset voor dit scenario.
+* U wilt kopiëren vanuit een tekstbestand met een headerregel naar een sink die geen bestand is en wilt die regel verwijderen. Geef voor `firstRowAsHeader` 'True' op in de invoergegevensset.
+* U wilt kopiëren uit een tekstbestand en wilt een paar regels aan het begin overslaan die geen gegevens of headerinformatie bevatten. Geef `skipLineCount` op om aan te geven hoeveel regels er moeten worden overgeslagen. Als de rest van het bestand een headerregel bevat, kunt u ook `firstRowAsHeader` opgeven. Als zowel `skipLineCount` als `firstRowAsHeader` is opgegeven, worden de regels eerst overgeslagen en wordt de headerinformatie gelezen uit het invoerbestand
 
-### <a name="specifying-jsonformat"></a>Specifying JsonFormat
-To **import/export JSON files as-is into/from Azure Cosmos DB**, see [Import/export JSON documents](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents) section in the Azure Cosmos DB connector with details.
+### <a name="specifying-jsonformat"></a>JsonFormat opgeven
+Naar **als JSON-bestanden voor importeren/exporteren-is naar/van Azure DB die Cosmos**, Zie [voor importeren/exporteren JSON-documenten](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents) sectie in de Azure DB die Cosmos-connector met details.
 
-If you want to parse the JSON files or write the data in JSON format, set the `format` `type` property to **JsonFormat**. You can also specify the following **optional** properties in the `format` section. See [JsonFormat example](#jsonformat-example) section on how to configure.
+Als u de JSON-bestanden wilt parseren of de gegevens in JSON-indeling wilt schrijven, stelt u de eigenschap `format` `type` in op **JsonFormat**. U kunt ook de volgende **optionele** eigenschappen opgeven in het gedeelte `format`. Zie het gedeelte [JsonFormat-voorbeeld](#jsonformat-example) voor configuratie-instructies.
 
-| Property | Description | Required |
+| Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| filePattern |Indicate the pattern of data stored in each JSON file. Allowed values are: **setOfObjects** and **arrayOfObjects**. The **default** value is **setOfObjects**. See [JSON file patterns](#json-file-patterns) section for details about these patterns. |No |
-| jsonNodeReference | If you want to iterate and extract data from the objects inside an array field with the same pattern, specify the JSON path of that array. This property is supported only when copying data from JSON files. | No |
-| jsonPathDefinition | Specify the JSON path expression for each column mapping with a customized column name (start with lowercase). This property is supported only when copying data from JSON files, and you can extract data from object or array. <br/><br/> For fields under root object, start with root $; for fields inside the array chosen by `jsonNodeReference` property, start from the array element. See [JsonFormat example](#jsonformat-example) section on how to configure. | No |
-| encodingName |Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) Property. For example: windows-1250 or shift_jis. The **default** value is: **UTF-8**. |No |
-| nestingSeparator |Character that is used to separate nesting levels. The default value is '.' (dot). |No |
+| filePattern |Hiermee geeft u het patroon aan van gegevens die zijn opgeslagen in elk JSON-bestand. Toegestane waarden zijn **setOfObjects** en **arrayOfObjects**. De **standaardwaarde** is **setOfObjects**. Zie het gedeelte [JSON-bestandpatronen](#json-file-patterns) voor meer informatie over deze patronen. |Nee |
+| jsonNodeReference | Als u wilt bladeren en gegevens wilt ophalen uit de objecten in een matrixveld met hetzelfde patroon, geeft u het JSON-pad van die matrix op. Deze eigenschap wordt alleen ondersteund bij het kopiëren van gegevens uit JSON-bestanden. | Nee |
+| jsonPathDefinition | Hiermee geeft u de JSON-padexpressie aan voor elke kolomtoewijzing met een aangepaste kolomnaam (begin met een kleine letter). Deze eigenschap wordt alleen ondersteund bij het kopiëren van gegevens uit JSON-bestanden. U kunt gegevens ophalen uit het object of een matrix. <br/><br/> Voor velden onder het hoofdobject begint u met root $; voor velden binnen de matrix die is gekozen door de eigenschap `jsonNodeReference`, begint u vanaf het element van de matrix. Zie het gedeelte [JsonFormat-voorbeeld](#jsonformat-example) voor configuratie-instructies. | Nee |
+| encodingName |Geef de coderingsnaam op. Zie voor de lijst met geldige namen voor versleuteling [De eigenschap Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Bijvoorbeeld: windows 1250 of shift_jis. De **standaardwaarde** is **UTF-8**. |Nee |
+| nestingSeparator |Teken dat wordt gebruikt voor het scheiden van geneste niveaus. De standaardwaarde is '.' (punt). |Nee |
 
-#### <a name="json-file-patterns"></a>JSON file patterns
+#### <a name="json-file-patterns"></a>JSON-bestandpatronen
 
-Copy activity can parse below patterns of JSON files:
+Kopieerbewerkingen kunnen onderstaande patronen van JSON-bestanden parseren:
 
 - **Type I: setOfObjects**
 
-    Each file contains single object, or line-delimited/concatenated multiple objects. When this option is chosen in an output dataset, copy activity produces a single JSON file with each object per line (line-delimited).
+    Elk bestand bevat één object of meerdere door regels gescheiden/samengevoegde objecten. Wanneer deze optie is geselecteerd in een uitvoergegevensset, produceert de kopieerbewerking een enkel JSON-bestand met één object per regel (door regels gescheiden).
 
-    * **single object JSON example**
+    * **voorbeeld van JSON-bestand met één object**
 
         ```json
         {
@@ -89,7 +89,7 @@ Copy activity can parse below patterns of JSON files:
         }
         ```
 
-    * **line-delimited JSON example**
+    * **voorbeeld van JSON-bestand dat door regels is gescheiden**
 
         ```json
         {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
@@ -97,7 +97,7 @@ Copy activity can parse below patterns of JSON files:
         {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
         ```
 
-    * **concatenated JSON example**
+    * **voorbeeld van JSON-bestand met samengevoegde objecten**
 
         ```json
         {
@@ -128,7 +128,7 @@ Copy activity can parse below patterns of JSON files:
 
 - **Type II: arrayOfObjects**
 
-    Each file contains an array of objects.
+    Elk bestand bevat een matrix met objecten.
 
     ```json
     [
@@ -159,15 +159,15 @@ Copy activity can parse below patterns of JSON files:
     ]
     ```
 
-#### <a name="jsonformat-example"></a>JsonFormat example
+#### <a name="jsonformat-example"></a>Voorbeeld van JsonFormat
 
-**Case 1: Copying data from JSON files**
+**Voorbeeld 1: gegevens uit JSON-bestanden kopiëren**
 
-See below two types of samples when copying data from JSON files, and the generic points to note:
+Hieronder ziet u twee soorten voorbeelden van het kopiëren van gegevens uit JSON-bestanden en de algemene punten om te onthouden:
 
-**Sample 1: extract data from object and array**
+**Voorbeeld 1: gegevens ophalen uit object en matrix**
 
-In this sample, you expect one root JSON object maps to single record in tabular result. If you have a JSON file with the following content:  
+In dit voorbeeld kunt u verwachten dat één JSON-hoofdobject wordt toegewezen aan één record in het tabelresultaat. Als u een JSON-bestand hebt met de volgende inhoud:  
 
 ```json
 {
@@ -192,16 +192,16 @@ In this sample, you expect one root JSON object maps to single record in tabular
     }
 }
 ```
-and you want to copy it into an Azure SQL table in the following format, by extracting data from both objects and array:
+en u wilt het kopiëren naar een Azure SQL-tabel in de volgende indeling door gegevens te extraheren uit de objecten en matrix:
 
 | id | deviceType | targetResourceType | resourceManagmentProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
-| ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
+| ed0e4960-d9c5-11e6-85dc-d7996816aad3 | Pc | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 13/1/2017 11:24:37 uur |
 
-The input dataset with **JsonFormat** type is defined as follows: (partial definition with only the relevant parts). More specifically:
+De invoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: (gedeeltelijke definitie met alleen belangrijke onderdelen). Met name:
 
-- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. This section is **optional** unless you need to do column mapping. See [Specifying structure definition for rectangular datasets](#specifying-structure-definition-for-rectangular-datasets) section for more details.
-- `jsonPathDefinition` specifies the JSON path for each column indicating where to extract the data from. To copy data from array, you can use **array[x].property** to extract value of the given property from the xth object, or you can use **array[*].property** to find the value from any object containing such property.
+- Het gedeelte `structure` definieert de aangepaste kolomnamen en het bijbehorende gegevenstype tijdens het converteren van gegevens in tabelvorm. Dit gedeelte is **optioneel**, tenzij u kolommen moet toewijzen. Zie het gedeelte [Een structuurdefinitie opgeven voor rechthoekige gegevenssets](#specifying-structure-definition-for-rectangular-datasets) voor meer informatie.
+- Met `jsonPathDefinition` geeft u het JSON-pad op voor elke kolom die aangeeft waar de gegevens moeten worden opgehaald. Voor het kopiëren van gegevens vanuit een matrix kunt u **array[x].property** gebruiken om de waarde van de opgegeven eigenschap op te halen uit het xth-object. U kunt ook **array[*].property** gebruiken om de waarde van een object met deze eigenschap te vinden.
 
 ```json
 "properties": {
@@ -238,9 +238,9 @@ The input dataset with **JsonFormat** type is defined as follows: (partial defin
 }
 ```
 
-**Sample 2: cross apply multiple objects with the same pattern from array**
+**Voorbeeld 2: meerdere objecten met hetzelfde patroon uit een matrix toepassen**
 
-In this sample, you expect to transform one root JSON object into multiple records in tabular result. If you have a JSON file with the following content:  
+In dit voorbeeld probeert u een JSON-hoofdobject te transformeren naar meerdere records in een tabelresultaat. Als u een JSON-bestand hebt met de volgende inhoud:  
 
 ```json
 {
@@ -263,7 +263,7 @@ In this sample, you expect to transform one root JSON object into multiple recor
     "city": [ { "sanmateo": "No 1" } ]
 }
 ```
-and you want to copy it into an Azure SQL table in the following format, by flattening the data inside the array and cross join with the common root info:
+en u wilt het kopiëren naar een Azure SQL-tabel in de volgende indeling, door de gegevens binnen de matrix af te vlakken en samen te voegen met de algemene root-gegevens:
 
 | ordernumber | orderdate | order_pd | order_price | city |
 | --- | --- | --- | --- | --- |
@@ -271,11 +271,11 @@ and you want to copy it into an Azure SQL table in the following format, by flat
 | 01 | 20170122 | P2 | 13 | [{"sanmateo":"No 1"}] |
 | 01 | 20170122 | P3 | 231 | [{"sanmateo":"No 1"}] |
 
-The input dataset with **JsonFormat** type is defined as follows: (partial definition with only the relevant parts). More specifically:
+De invoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: (gedeeltelijke definitie met alleen belangrijke onderdelen). Met name:
 
-- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. This section is **optional** unless you need to do column mapping. See [Specifying structure definition for rectangular datasets](#specifying-structure-definition-for-rectangular-datasets) section for more details.
-- `jsonNodeReference` indicates to iterate and extract data from the objects with the same pattern under **array** orderlines.
-- `jsonPathDefinition` specifies the JSON path for each column indicating where to extract the data from. In this example, "ordernumber", "orderdate" and "city" are under root object with JSON path starting with "$.", while "order_pd" and "order_price" are defined with path derived from the array element without "$.".
+- Het gedeelte `structure` definieert de aangepaste kolomnamen en het bijbehorende gegevenstype tijdens het converteren van gegevens in tabelvorm. Dit gedeelte is **optioneel**, tenzij u kolommen moet toewijzen. Zie het gedeelte [Een structuurdefinitie opgeven voor rechthoekige gegevenssets](#specifying-structure-definition-for-rectangular-datasets) voor meer informatie.
+- Met `jsonNodeReference` geeft u aan dat moet worden gebladerd naar het object en dat er gegevens uit moeten worden opgehaald met hetzelfde patroon onder de **matrix** orderlines.
+- Met `jsonPathDefinition` geeft u het JSON-pad op voor elke kolom die aangeeft waar de gegevens moeten worden opgehaald. In dit voorbeeld bevinden 'ordernumber', 'orderdate' en 'city' zich onder het root-object. Het JSON-pad begint met '$.', terwijl 'order_pd' en 'order_price' worden gedefinieerd met het pad dat is afgeleid van het matrixelement zonder '$.'.
 
 ```json
 "properties": {
@@ -313,16 +313,16 @@ The input dataset with **JsonFormat** type is defined as follows: (partial defin
 }
 ```
 
-**Note the following points:**
+**Houd rekening met de volgende punten:**
 
-* If the `structure` and `jsonPathDefinition` are not defined in the Data Factory dataset, the Copy Activity detects the schema from the first object and flatten the whole object.
-* If the JSON input has an array, by default the Copy Activity converts the entire array value into a string. You can choose to extract data from it using `jsonNodeReference` and/or `jsonPathDefinition`, or skip it by not specifying it in `jsonPathDefinition`.
-* If there are duplicate names at the same level, the Copy Activity picks the last one.
-* Property names are case-sensitive. Two properties with same name but different casings are treated as two separate properties.
+* Als `structure` en `jsonPathDefinition` niet zijn gedefinieerd in de gegevensset van Data Factory, detecteert de kopieerbewerking het schema van het eerste object en wordt het hele object afgevlakt.
+* Als de JSON-invoer een matrix heeft, zet de kopieerbewerking de volledige matrix-waarde standaard om in een tekenreeks. U kunt ervoor kiezen om er gegevens uit op te halen met behulp van `jsonNodeReference` en/of `jsonPathDefinition`, of deze stap over te slaan door deze niet op te geven in `jsonPathDefinition`.
+* Als er dubbele namen op hetzelfde niveau voorkomen, gebruikt de kopieerbewerking de laatste.
+* Eigenschapnamen zijn hoofdlettergevoelig. Twee eigenschappen met dezelfde naam maar met een verschil in hoofdletters en kleine letters worden behandeld als twee afzonderlijke eigenschappen.
 
-**Case 2: Writing data to JSON file**
+**Voorbeeld 2: gegevens schrijven naar een JSON-bestand**
 
-If you have below table in SQL Database:
+Als u de onderstaande tabel hebt in SQL-Database:
 
 | id | order_date | order_price | order_by |
 | --- | --- | --- | --- |
@@ -330,7 +330,7 @@ If you have below table in SQL Database:
 | 2 | 20170120 | 3500 | Patrick |
 | 3 | 20170121 | 4000 | Jason |
 
-and for each record, you expect to write to a JSON object in below format:
+en voor elke record die u verwacht te schrijven naar een JSON-object in onderstaande indeling:
 ```json
 {
     "id": "1",
@@ -342,7 +342,7 @@ and for each record, you expect to write to a JSON object in below format:
 }
 ```
 
-The output dataset with **JsonFormat** type is defined as follows: (partial definition with only the relevant parts). More specifically, `structure` section defines the customized property names in destination file, `nestingSeparator` (default is ".") will be used to identify the nest layer from the name. This section is **optional** unless you want to change the property name comparing with source column name, or nest some of the properties.
+De uitvoergegevensset met het type **JsonFormat** wordt als volgt gedefinieerd: (gedeeltelijke definitie met alleen belangrijke onderdelen). Het gedeelte `structure` bepaalt met name de namen van aangepaste eigenschappen in het doelbestand, `nestingSeparator` (de standaardwaarde is '.') wordt gebruikt voor het identificeren van de nestlaag van de naam. Dit gedeelte is **optioneel**, tenzij u de naam van de eigenschap wilt wijzigen ten opzichte van de naam van de bronkolom of sommige eigenschappen wilt nesten.
 
 ```json
 "properties": {
@@ -373,8 +373,8 @@ The output dataset with **JsonFormat** type is defined as follows: (partial defi
 }
 ```
 
-### <a name="specifying-avroformat"></a>Specifying AvroFormat
-If you want to parse the Avro files or write the data in Avro format, set the `format` `type` property to **AvroFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
+### <a name="specifying-avroformat"></a>AvroFormat opgeven
+Als u de Avro-bestanden wilt parseren of de gegevens in Avro-indeling wilt schrijven, stelt u de eigenschap `format` `type` in op **AvroFormat**. U hoeft geen eigenschappen op te geven in het gedeelte Indeling binnen het gedeelte typeProperties. Voorbeeld:
 
 ```json
 "format":
@@ -383,14 +383,14 @@ If you want to parse the Avro files or write the data in Avro format, set the `f
 }
 ```
 
-To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+Als u de Avro-indeling wilt gebruiken in een Hive-tabel, kunt u de [Zelfstudie voor Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe) raadplegen.
 
-Note the following points:  
+Houd rekening met de volgende punten:  
 
-* [Complex data types](http://avro.apache.org/docs/current/spec.html#schema_complex) are not supported (records, enums, arrays, maps, unions and fixed).
+* [Complexe gegevenstypen](http://avro.apache.org/docs/current/spec.html#schema_complex) worden niet ondersteund (records, enums, matrices, kaarten, samenvoegingen en vaste bestanden).
 
-### <a name="specifying-orcformat"></a>Specifying OrcFormat
-If you want to parse the ORC files or write the data in ORC format, set the `format` `type` property to **OrcFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
+### <a name="specifying-orcformat"></a>OrcFormat opgeven
+Als u de ORC-bestanden wilt parseren of de gegevens in ORC-indeling wilt schrijven, stelt u de eigenschap `format` `type` in op **OrcFormat**. U hoeft geen eigenschappen op te geven in het gedeelte Indeling binnen het gedeelte typeProperties. Voorbeeld:
 
 ```json
 "format":
@@ -400,17 +400,17 @@ If you want to parse the ORC files or write the data in ORC format, set the `for
 ```
 
 > [!IMPORTANT]
-> If you are not copying ORC files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
+> Als u de ORC niet **ongewijzigd** kopieert tussen on-premises gegevensopslag en gegevensopslag in de cloud, moet u de JRE 8 (Java Runtime Environment) op de gatewaycomputer installeren. Een 64-bits-gateway vereist 64-bits JRE en 32-bits JRE is vereist voor een 32-bits-gateway. U vindt beide versies [hier](http://go.microsoft.com/fwlink/?LinkId=808605). Kies de juiste versie.
 >
 >
 
-Note the following points:
+Houd rekening met de volgende punten:
 
-* Complex data types are not supported (STRUCT, MAP, LIST, UNION)
-* ORC file has three [compression-related options](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to an ORC file, Data Factory chooses ZLIB, which is the default for ORC. Currently, there is no option to override this behavior.
+* Complexe gegevenstypen worden niet ondersteund (STRUCT, MAP, LIST, UNION)
+* Een ORC-bestand heeft drie [opties voor compressie](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory ondersteunt het lezen van gegevens uit ORC-bestanden in een van deze gecomprimeerde indelingen. Hierbij wordt de compressiecodec in de metagegevens gebruikt om de gegevens te lezen. Bij het schrijven naar een ORC-bestand kiest Data Factory echter ZLIB, de standaardinstelling voor ORC. Er is momenteel geen optie om dit gedrag te overschrijven.
 
-### <a name="specifying-parquetformat"></a>Specifying ParquetFormat
-If you want to parse the Parquet files or write the data in Parquet format, set the `format` `type` property to **ParquetFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
+### <a name="specifying-parquetformat"></a>ParquetFormat opgeven
+Als u de Parquet-bestanden wilt parseren of de gegevens in Parquet-indeling wilt schrijven, stelt u de eigenschap `format` `type` in op **ParquetFormat**. U hoeft geen eigenschappen op te geven in het gedeelte Indeling binnen het gedeelte typeProperties. Voorbeeld:
 
 ```json
 "format":
@@ -419,11 +419,11 @@ If you want to parse the Parquet files or write the data in Parquet format, set 
 }
 ```
 > [!IMPORTANT]
-> If you are not copying Parquet files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
+> Als u de Parquet niet **ongewijzigd** kopieert tussen on-premises gegevensopslag en gegevensopslag in de cloud, moet u de JRE 8 (Java Runtime Environment) op de gatewaycomputer installeren. Een 64-bits-gateway vereist 64-bits JRE en 32-bits JRE is vereist voor een 32-bits-gateway. U vindt beide versies [hier](http://go.microsoft.com/fwlink/?LinkId=808605). Kies de juiste versie.
 >
 >
 
-Note the following points:
+Houd rekening met de volgende punten:
 
-* Complex data types are not supported (MAP, LIST)
-* Parquet file has the following compression-related options: NONE, SNAPPY, GZIP, and LZO. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec in the metadata to read the data. However, when writing to a Parquet file, Data Factory chooses SNAPPY, which is the default for Parquet format. Currently, there is no option to override this behavior.
+* Complexe gegevenstypen worden niet ondersteund (MAP, LIST)
+* Parquet-bestanden hebben de volgende opties voor compressie: NONE, SNAPPY, GZIP en LZO. Data Factory ondersteunt het lezen van gegevens uit ORC-bestanden in een van deze gecomprimeerde indelingen. Hierbij wordt de compressiecodec in de metagegevens gebruikt om de gegevens te lezen. Bij het schrijven naar een Parquet-bestand kiest Data Factory echter SNAPPY, de standaardinstelling voor Parquet. Er is momenteel geen optie om dit gedrag te overschrijven.

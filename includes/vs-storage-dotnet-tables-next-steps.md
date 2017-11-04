@@ -1,9 +1,9 @@
-Now that you've learned the basics of Azure Table storage, follow these links to learn about more complex storage tasks.
+Nu dat u de basisprincipes van Azure Table storage hebt geleerd, volgt u deze koppelingen voor meer informatie over complexere opslagtaken.
 
-* View the Table Service reference documentation in the [Azure Storage Client Library for .NET](http://go.microsoft.com/fwlink/?LinkID=390731) reference for complete details about available APIs.
-* To learn how to simplify the code you write to work with Azure Storage, check out [What is the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
-* View more feature guides to learn about additional options for storing data in Azure.
-  * To work with Azure Storage Blobs, see [Get Started with Azure Blob storage using .NET](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md).
-  * To work with Azure Storage Queues, [Get started with Azure Queue storage using .NET](../articles/storage/queues/storage-dotnet-how-to-use-queues.md).
-  * To store relational data, see [Connect to SQL Database by using .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
+* Bekijk de naslagdocumentatie van de Tabelservice in de [Azure Storage-clientbibliotheek voor .NET](http://go.microsoft.com/fwlink/?LinkID=390731) documentatie voor meer informatie over beschikbare API's.
+* Bekijk voor meer informatie over hoe u kunt de code die u schrijft om te werken met Azure Storage te vereenvoudigen, [wat is de Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
+* Bekijk meer functiehandleidingen voor informatie over aanvullende mogelijkheden voor het opslaan van gegevens in Azure.
+  * Om te werken met Azure Storage-Blobs, Zie [aan de slag met Azure Blob storage met .NET](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md).
+  * Werken met Azure-Opslagwachtrij, [aan de slag met Azure Queue storage met .NET](../articles/storage/queues/storage-dotnet-how-to-use-queues.md).
+  * Zie voor het opslaan van relationele gegevens [verbinding maken met SQL Database met behulp van .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.openlocfilehash: 6e6e7a199547135bd9695ff0867e8d5a98341b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3ec2eaaf4e8d54e7b1ea3d272c47eac96451f317
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Platforms en hulpprogramma's voor gegevenswetenschap projecten in een team
 
@@ -61,7 +61,7 @@ Apache Spark is een open source parallelle verwerking die ondersteuning biedt vo
 
 Wanneer u in HDInsight een Spark-cluster maakt, maakt u rekenresources in Azure, waarbij Spark is geïnstalleerd en geconfigureerd. Het duurt ongeveer 10 minuten voor het maken van een Spark-cluster in HDInsight. Opslaan van de gegevens moeten worden verwerkt in Azure Blob-opslag. Zie voor meer informatie over het gebruik van Azure Blob-opslag met een cluster [HDFS-compatibele Azure Blob storage gebruiken met Hadoop in HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-TDSP-team van Microsoft die beschikbaar heeft gesteld twee end-to-end-scenario's voor het gebruik van Azure HDInsight Spark-Clusters voor het bouwen van oplossingen voor wetenschap, één met behulp van Python en de andere Scala. Voor meer informatie over Azure HDInsight **Spark-Clusters**, Zie [overzicht: Apache Spark in HDInsight Linux](../../hdinsight/hdinsight-apache-spark-overview.md). Voor informatie over het bouwen van een data wetenschappelijke oplossing met **Python** op een Azure HDInsight Spark-Cluster Zie [overzicht van Gegevenswetenschap met Spark op Azure HDInsight](spark-overview.md). Voor informatie over het bouwen van een data wetenschappelijke oplossing met **Scala** op een Azure HDInsight Spark-Cluster Zie [Gegevenswetenschap met behulp van Scala en Spark op Azure](scala-walkthrough.md). 
+TDSP-team van Microsoft die beschikbaar heeft gesteld twee end-to-end-scenario's voor het gebruik van Azure HDInsight Spark-Clusters voor het bouwen van oplossingen voor wetenschap, één met behulp van Python en de andere Scala. Voor meer informatie over Azure HDInsight **Spark-Clusters**, Zie [overzicht: Apache Spark in HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Voor informatie over het bouwen van een data wetenschappelijke oplossing met **Python** op een Azure HDInsight Spark-Cluster Zie [overzicht van Gegevenswetenschap met Spark op Azure HDInsight](spark-overview.md). Voor informatie over het bouwen van een data wetenschappelijke oplossing met **Scala** op een Azure HDInsight Spark-Cluster Zie [Gegevenswetenschap met behulp van Scala en Spark op Azure](scala-walkthrough.md). 
 
 
 ##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
@@ -86,7 +86,7 @@ Hive kunt u de projectstructuur van het op grotendeels ongestructureerde gegeven
 
 Voor gegevenswetenschappers, kan Hive Python User-Defined functies (UDF's) in de Hive-query's voor het verwerken van records uitgevoerd. Deze mogelijkheid breidt de mogelijkheden van Hive-query's in data-analyse aanzienlijk. In het bijzonder kunt gegevenswetenschappers voor het uitvoeren van schaalbare functie-engineering in talen vooral bekend zijn met zijn: de SQL-achtige HiveQL en Python. 
 
-Zie voor meer informatie over Azure HDInsight Hive-Clusters [Hive en HiveQL met Hadoop in HDInsight gebruiken](../../hdinsight/hdinsight-use-hive.md). Zie voor meer informatie over het bouwen van een oplossing van de wetenschap schaalbare end-to-end-gegevens met Azure HDInsight Hive-Clusters, [het Team gegevens wetenschappelijke processen in actie: met behulp van HDInsight Hadoop-clusters](hive-walkthrough.md).
+Zie voor meer informatie over Azure HDInsight Hive-Clusters [Hive en HiveQL met Hadoop in HDInsight gebruiken](../../hdinsight/hadoop/hdinsight-use-hive.md). Zie voor meer informatie over het bouwen van een oplossing van de wetenschap schaalbare end-to-end-gegevens met Azure HDInsight Hive-Clusters, [het Team gegevens wetenschappelijke processen in actie: met behulp van HDInsight Hadoop-clusters](hive-walkthrough.md).
 
 
 ## <a name="azure-file-storage"></a>Azure File Storage 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.openlocfilehash: c1061811d205494969047fa3f91cbf449a25d8ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b9b73f6691af957e42236ef9a223411a0296f96f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Hadoop-clusters op aanvraag maken in HDInsight met behulp van Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -564,7 +564,7 @@ Als u niet dat het storage-account wordt verwijderd wilt wanneer u de resourcegr
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe Azure Data Factory gebruiken voor het maken van HDInsight-cluster op aanvraag voor het verwerken van Hive-taken. Voor meer informatie:
 
-* [Hadoop-zelfstudie: aan de slag met Hadoop op basis van Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Hadoop-zelfstudie: aan de slag met Hadoop op basis van Linux in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Hadoop op basis van Linux-clusters maken in HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [HDInsight-documentatie](https://azure.microsoft.com/documentation/services/hdinsight/)
 * [Data factory-documentatie](https://azure.microsoft.com/documentation/services/data-factory/)

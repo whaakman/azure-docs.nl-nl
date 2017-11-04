@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Development Kit deployment prerequisites| Microsoft Docs
-description: View the environment and hardware requirements for Azure Stack Development Kit (cloud operator).
+title: Vereisten voor Azure Stack Development Kit implementatie | Microsoft Docs
+description: Bekijk de hardware-omgeving en vereisten voor Azure Stack Development Kit (cloud-operator).
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,95 +14,94 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/11/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4a53065f76cef7b711f4a656b437cbefaf47c5d0
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 73e7efb7d789fe12846d68066c0927bb123831a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-stack-deployment-prerequisites"></a>Azure Stack deployment prerequisites
+# <a name="azure-stack-deployment-prerequisites"></a>Vereisten voor de implementatie van Azure Stack
 
-*Applies to: Azure Stack Development Kit*
+*Van toepassing op: Azure stapelen Development Kit*
 
-Before you deploy [Azure Stack Development Kit](azure-stack-poc.md), make sure your computer meets the following requirements:
+Voordat u implementeert [Azure Stack Development Kit](azure-stack-poc.md), zorg ervoor dat uw computer voldoet aan de volgende vereisten:
 
 
 ## <a name="hardware"></a>Hardware
-| Component | Minimum | Recommended |
+| Onderdeel | Minimum | Aanbevolen |
 | --- | --- | --- |
-| Disk drives: Operating System |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |
-| Disk drives: General development kit data* |4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). All available disks will be used. |4 disks. Each disk provides a minimum of 250 GB of capacity (SSD or HDD). All available disks will be used. |
-| Compute: CPU |Dual-Socket: 12 Physical Cores (total) |Dual-Socket: 16 Physical Cores (total) |
-| Compute: Memory |96 GB RAM |128 GB RAM (This is the minimum to support PaaS resource providers.)|
-| Compute: BIOS |Hyper-V Enabled (with SLAT support) |Hyper-V Enabled (with SLAT support) |
-| Network: NIC |Windows Server 2012 R2 Certification required for NIC; no specialized features required |Windows Server 2012 R2 Certification required for NIC; no specialized features required |
-| HW logo certification |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
+| Schijfstations: besturingssysteem |1 besturingssysteemschijf met minimaal 200 GB beschikbaar voor de systeempartitie (SSD of HDD) |1 besturingssysteemschijf met minimaal 200 GB beschikbaar voor de systeempartitie (SSD of HDD) |
+| Schijfstations: algemene development kit gegevens * |4 schijven. Elke schijf biedt minimaal 140 GB capaciteit (SSD of HDD). Alle beschikbare schijven worden gebruikt. |4 schijven. Elke schijf biedt minimaal 250 GB capaciteit (SSD of HDD). Alle beschikbare schijven worden gebruikt. |
+| Compute: CPU |Dual-Socket: 12 fysieke processorkernen (totaal) |Dual-Socket: 16 fysieke processorkernen (totaal) |
+| Compute: geheugen |96 GB RAM |128 GB RAM-geheugen (dit is de minimale ter ondersteuning van de resourceproviders PaaS).|
+| Compute: BIOS |Hyper-V ingeschakeld (met ondersteuning voor SLAT) |Hyper-V ingeschakeld (met ondersteuning voor SLAT) |
+| Netwerk: NIC |Windows Server 2012 R2-certificering vereist voor NIC, geen gespecialiseerde functies vereist |Windows Server 2012 R2-certificering vereist voor NIC, geen gespecialiseerde functies vereist |
+| Logocertificering HW |[Gecertificeerd voor Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Gecertificeerd voor Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
-\*You will need more than this recommended capacity if you plan on adding many of the [marketplace items](azure-stack-download-azure-marketplace-item.md) from Azure.
+\*U moet meer dan dit capaciteit aanbevolen als u van plan bent over het toevoegen van veel van de [marketplace-items](azure-stack-download-azure-marketplace-item.md) van Azure.
 
-**Data disk drive configuration:** All data drives must be of the same type (all SAS or all SATA) and capacity. If SAS disk drives are used, the disk drives must be attached via a single path (no MPIO, multi-path support is provided).
+**Configuratie van gegevensschijfstation:** alle gegevensstations moeten van hetzelfde type zijn (allemaal SAS of SATA) en dezelfde capaciteit hebben. Als harde schijven van het type SAS worden gebruikt, moet u de schijfstations koppelen via één pad (er wordt geen ondersteuning geboden voor MPIO, Multipath).
 
-**HBA configuration options**
+**HBA-configuratie-opties**
 
-* (Preferred) Simple HBA
-* RAID HBA – Adapter must be configured in “pass through” mode
-* RAID HBA – Disks should be configured as Single-Disk, RAID-0
+* (aanbevolen) Eenvoudige HBA
+* RAID HBA – adapter moet worden geconfigureerd in de modus 'passeren'
+* RAID HBA – schijven moeten worden geconfigureerd als één schijf, RAID-0
 
-**Supported bus and media type combinations**
+**Typ combinaties van ondersteunde bus en media**
 
 * SATA HDD
 * SAS HDD
 * RAID HDD
-* RAID SSD (If the media type is unspecified/unknown\*)
+* RAID SSD (als het mediatype niet is opgegeven/onbekend is\*)
 * SATA SSD + SATA HDD
 * SAS SSD + SAS HDD
 
-\* RAID controllers without pass-through capability can’t recognize the media type. Such controllers will mark both HDD and SSD as Unspecified. In that case, the SSD will be used as persistent storage instead of caching devices. Therefore, you can deploy the development kit on those SSDs.
+\*RAID-controllers zonder Pass Through-functionaliteit wordt het mediatype niet herkend. Deze controllers markeren zowel HDD als SSD als Niet-opgegeven. In dat geval wordt de SSD gebruikt als permanente opslag in plaats van het cachegeheugen van apparaten. Daarom kunt u de development kit op de SSD's implementeren.
 
-**Example HBAs**: LSI 9207-8i, LSI-9300-8i, or LSI-9265-8i in pass-through mode
+**Voorbeeld van HBA's**: LSI 9207-8i, LSI-9300-8i of LSI-9265-8i in de modus 'passeren'
 
-Sample OEM configurations are available.
+Er zijn voorbeelden van OEM-configuraties beschikbaar.
 
-## <a name="operating-system"></a>Operating system
-|  | **Requirements** |
+## <a name="operating-system"></a>Besturingssysteem
+|  | **Vereisten** |
 | --- | --- |
-| **OS Version** |Windows Server 2012 R2 or later. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in the Azure Stack installation. The OS and all required patches are already integrated into the image. Don’t use any keys to activate any Windows Server instances used in the development kit. |
+| **De versie van besturingssysteem** |Windows Server 2012 R2 of hoger. De versie van besturingssysteem niet essentieel voordat de implementatie wordt gestart, zoals u moet de computer opstart in de VHD die opgenomen in de Azure-Stack-installatie. Het besturingssysteem en alle vereiste patches zijn al geïntegreerd in de afbeelding. Gebruik geen sleutels voor het activeren van een Windows Server-exemplaren gebruikt in de development kit. |
 
-## <a name="deployment-requirements-check-tool"></a>Deployment requirements check tool
-After installing the operating system, you can use the [Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm that your hardware meets all the requirements.
+## <a name="deployment-requirements-check-tool"></a>Vereisten voor de implementatie controleren hulpprogramma
+Nadat het besturingssysteem is geïnstalleerd, kunt u de [implementatie Checker voor Azure-Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) om te bevestigen dat de hardware voldoet aan alle vereisten.
 
-## <a name="account-requirements"></a>Account requirements
-Typically, you deploy the development kit with internet connectivity, where you can connect to Microsoft Azure. In this case, you must configure an Azure Active Directory (Azure AD) account to deploy the development kit.
+## <a name="account-requirements"></a>Vereisten voor account
+U doorgaans implementeren de development kit met een internetverbinding, waar u verbinding met Microsoft Azure maken kunt. In dit geval moet u een account met Azure Active Directory (Azure AD) voor het implementeren van de development kit configureren.
 
-If your environment is not connected to the internet, or you don't want to use Azure AD, you can deploy Azure Stack by using Active Directory Federation Services (AD FS). The development kit includes its own AD FS and Active Directory Domain Services instances. If you deploy by using this option, you don't have to set up accounts ahead of time.
+Als uw omgeving niet met internet verbonden is of u niet wilt dat Azure AD gebruikt, kunt u Azure-Stack kunt implementeren met behulp van Active Directory Federation Services (AD FS). De development kit omvat een eigen AD FS en Active Directory Domain Services-exemplaren. Als u deze optie gebruikt implementeert, hebt u niet voor het instellen van accounts tevoren.
 
 >[!NOTE]
-If you deploy by using the AD FS option, you must redeploy Azure Stack to switch to Azure AD.
+Als u implementeert met behulp van de AD FS-optie, moet u Azure-Stack overschakelen naar Azure AD opnieuw implementeren.
 
-### <a name="azure-active-directory-accounts"></a>Azure Active Directory accounts
-To deploy Azure Stack by using an Azure AD account, you must prepare an Azure AD account before you run the deployment PowerShell script. This account becomes the Global Admin for the Azure AD tenant. It's used to provision and delegate applications and service principals for all Azure Stack services that interact with Azure Active Directory and Graph API. It's also used as the owner of the default provider subscription (which you can later change). You can log in to your Azure Stack system’s administrator portal by using this account.
+### <a name="azure-active-directory-accounts"></a>Azure Active Directory-accounts
+Als u wilt implementeren Stack van Azure met behulp van een Azure AD-account, moet u een Azure AD-account voorbereiden voordat u de implementatie van PowerShell-script uitvoeren. Dit account wordt de globale beheerder voor de Azure AD-tenant. Deze wordt gebruikt voor het inrichten en toepassingen en service-principals voor alle Azure-Stack-services die met Azure Active Directory en Graph API communiceren te delegeren. Dit wordt ook gebruikt als de eigenaar van de provider standaardabonnement (die u kunt later wijzigen). U kunt aanmelden bij uw Azure-Stack-systeem beheerdersportal met behulp van dit account.
 
-1. Create an Azure AD account that is the directory administrator for at least one Azure AD. If you already have one, you can use that. Otherwise, you can create one for free at [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead). If you plan to later [register Azure Stack with Azure](azure-stack-register.md), you must also have a subscription in this newly created account.
+1. Maak een Azure AD-account dat de directory-beheerder voor ten minste één Azure AD. Als u er al een hebt, kunt u die gebruiken. Anders kunt u een gratis op [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, gaat u naar <http://go.microsoft.com/fwlink/?LinkID=717821> in plaats daarvan). Als u van plan later bent [Azure Stack registreren bij Azure](azure-stack-register.md), moet u ook een abonnement hebben in de nieuwe account.
    
-    Save these credentials for use in step 6 of [Deploy the development kit](azure-stack-run-powershell-script.md#deploy-the-development-kit). This *service administrator* account can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
-2. [Create](azure-stack-add-new-user-aad.md) at least one account so that you can sign in to the development kit as a tenant.
+    Deze referenties voor gebruik opslaan in stap 6 van [implementeren de development kit](azure-stack-run-powershell-script.md#deploy-the-development-kit). Dit *servicebeheerders*account kan resourceclouds, gebruikersaccounts, tenantplannen, quota en prijzen configureren en beheren. In de portal kunnen ze websiteclouds, persoonlijke clouds voor virtuele machines en plannen maken en gebruikersabonnementen beheren.
+2. [Maak](azure-stack-add-new-user-aad.md) ten minste één account zodat u zich kunt aanmelden bij de development kit als een tenant.
    
-   | **Azure Active Directory account** | **Supported?** |
+   | **Azure Active Directory-account** | **Ondersteund?** |
    | --- | --- |
-   | Work or school account with valid Public Azure Subscription |Yes |
-   | Microsoft Account with valid Public Azure Subscription |Yes |
-   | Work or school account with valid China Azure Subscription |Yes |
-   | Work or school account with valid US Government Azure Subscription |Yes |
+   | Account voor werk of school met geldige openbare Azure-abonnement |Ja |
+   | Microsoft-account met geldig openbaar Azure-abonnement |Ja |
+   | Account voor werk of school met geldige China Azure-abonnement |Ja |
+   | Account voor werk of school met geldige US Government Azure-abonnement |Ja |
 
-## <a name="network"></a>Network
+## <a name="network"></a>Netwerk
 ### <a name="switch"></a>Switch
-One available port on a switch for the development kit machine.  
+Een beschikbare poort op een switch voor de ontwikkelcomputer kit.  
 
-The development kit machine supports connecting to a switch access port or trunk port. No specialized features are required on the switch. If you are using a trunk port or if you need to configure a VLAN ID, you have to provide the VLAN ID as a deployment parameter. You can see examples in the [list of deployment parameters](azure-stack-run-powershell-script.md).
+De ontwikkelcomputer kit ondersteunt verbindingen met een switchpoort toegang of de trunk-poort. Er zijn geen speciale functies vereist voor de switch. Als u een trunk-poort gebruikt of een VLAN-ID moet configureren, moet u de VLAN-ID als een implementatieparameter opgeven. Ziet u voorbeelden in de [lijst met implementatieparameters](azure-stack-run-powershell-script.md).
 
 ### <a name="subnet"></a>Subnet
-Do not connect the development kit machine to the following subnets:
+De ontwikkelcomputer kit niet verbinden met de volgende subnetten:
 
 * 192.168.200.0/24
 * 192.168.100.0/27
@@ -111,35 +110,35 @@ Do not connect the development kit machine to the following subnets:
 * 192.168.103.0/25
 * 192.168.104.0/25
 
-These subnets are reserved for the internal networks within the development kit environment.
+Deze subnetten zijn gereserveerd voor de interne netwerken vanuit de ontwikkelomgeving kit.
 
 ### <a name="ipv4ipv6"></a>IPv4/IPv6
-Only IPv4 is supported. You cannot create IPv6 networks.
+Alleen IPv4 wordt ondersteund. U kunt geen IPv6-netwerken maken.
 
 ### <a name="dhcp"></a>DHCP
-Make sure there is a DHCP server available on the network that the NIC connects to. If DHCP is not available, you must prepare an additional static IPv4 network besides the one used by host. You must provide that IP address and gateway as a deployment parameter. You can see examples in the [list of deployment parameters](azure-stack-run-powershell-script.md).
+Zorg ervoor dat er een DHCP-server beschikbaar is op het netwerk waarmee de NIC verbinding maakt. Als er geen DHCP beschikbaar is, moet u een extra statisch IPv4-netwerk voorbereiden naast het netwerk dat de host gebruikt. U moet dat IP-adres en die gateway opgeven als een implementatieparameter. Ziet u voorbeelden in de [lijst met implementatieparameters](azure-stack-run-powershell-script.md).
 
-### <a name="internet-access"></a>Internet access
-Azure Stack requires access to the Internet, either directly or through a transparent proxy. Azure Stack does not support the configuration of a web proxy to enable Internet access. Both the host IP and the new IP assigned to the MAS-BGPNAT01 (by DHCP or static IP) must be able to access Internet. Ports 80 and 443 are used under the graph.windows.net and login.microsoftonline.com domains.
+### <a name="internet-access"></a>Toegang tot het internet
+Stack Azure vereist toegang tot het Internet, rechtstreeks of via een transparentproxy. Azure-Stack biedt geen ondersteuning voor de configuratie van een webproxy waarmee toegang tot Internet. Zowel het host-IP- en het nieuwe IP-adres toegewezen aan de MAS-BGPNAT01 (door DHCP of statische IP-) moet mogelijk toegang tot Internet. Poorten 80 en 443 worden onder de graph.windows.net en login.microsoftonline.com domeinen gebruikt.
 
-## <a name="telemetry"></a>Telemetry
+## <a name="telemetry"></a>Telemetrie
 
-Telemetry helps us shape future versions of Azure Stack. It lets us respond quickly to feedback, provide new features, and improve quality. Microsoft Azure Stack includes Windows Server 2016 and SQL Server 2014. Neither of these products are changed from default settings and both are described by the Microsoft Enterprise Privacy Statement. Azure Stack also contains open source software which has not been modified to send telemetry to Microsoft. Here are some examples of Azure Stack telemetry data:
+Telemetrie helpt ons de vorm van toekomstige versies van Azure-Stack. Deze kan we snel reageren op feedback, nieuwe functies en kwaliteit te verbeteren. Microsoft Azure-Stack omvat Windows Server 2016 en SQL Server 2014. Geen van deze producten van standaardinstellingen zijn gewijzigd en beide worden beschreven in de privacyverklaring van Microsoft Enterprise. Azure Stack bevat ook open-sourcesoftware die is niet gewijzigd telemetrie naar Microsoft te verzenden. Hier volgen enkele voorbeelden van Azure-Stack telemetrische gegevens:
 
-- deployment registration information
-- when an alert is opened and closed
-- the number of network resources
+- informatie over de registratie van de implementatie
+- Wanneer een waarschuwing wordt geopend en gesloten
+- het aantal netwerkbronnen
 
-To support telemetry data flow, port 443 (HTTPS) must be open in your network. The client endpoint is https://vortex-win.data.microsoft.com.
+Ter ondersteuning van de gegevensstroom telemetrie moet poort 443 (HTTPS) openen in uw netwerk. Het eindpunt van de client is https://vortex-win.data.microsoft.com.
 
-If you don’t want to provide telemetry for Azure Stack, you can turn it off on the development kit host and the infrastructure virtual machines as explained below.
+Als u niet dat telemetrie bieden voor Azure-Stack wilt, kunt u deze uitschakelen op de host van de kit ontwikkeling en de infrastructuur voor virtuele machines zoals hieronder wordt uitgelegd.
 
-### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Turn off telemetry on the development kit host (optional)
+### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Telemetrie op de host van development kit (optioneel) uitschakelen
 
 >[!NOTE]
-If you want to turn off telemetry for the development kit host, you must do so before you run the deployment script.
+Als u telemetrie uitschakelen voor de development kit host wilt, moet u dit doen voordat u het script voor implementatie uitvoert.
 
-Before [running the asdk-installer.ps1 script]() to deploy the development kit host, boot into the CloudBuilder.vhdx and run the following script in an elevated PowerShell window:
+Voordat u [uitvoeren van het script asdk installer.ps1]() voor het implementeren van de host van development kit starten in de CloudBuilder.vhdx en voer het volgende script in een PowerShell-venster met verhoogde bevoegdheid:
 ```powershell
 ### Get current AllowTelmetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
@@ -151,12 +150,12 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 -Name AllowTelemetry).AllowTelemetry
 ```
 
-Setting **AllowTelemetry** to 0 turns off telemetry for both Windows and Azure Stack deployment. Only critical security events from the operating system are sent. The setting controls Windows telemetry across all hosts and infrastructure VMs, and is reapplied to new nodes/VMs when scale-out operations occur.
+Instelling **AllowTelemetry** naar 0 schakelt telemetrie uitschakelen voor Windows- en Azure Stack-implementatie. Alleen kritieke beveiligingsgebeurtenissen van het besturingssysteem worden verzonden. De instelling bepaalt Windows telemetrie voor alle hosts en virtuele machines-infrastructuur en is opnieuw toegepast op nieuwe knooppunten VM's wanneer scale-out-bewerkingen plaatsvinden.
 
 
-### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Turn off telemetry on the infrastructure virtual machines (optional)
+### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Telemetrie over de infrastructuur voor virtuele machines (optioneel) uitschakelen
 
-After the deployment is successful, run the following script in an elevated PowerShell window (as the AzureStack\AzureStackAdmin user) on the development kit host:
+Na de implementatie is geslaagd, voer het volgende script in een PowerShell-venster met verhoogde bevoegdheid (als de gebruiker AzureStack\AzureStackAdmin) op de host van de kit ontwikkeling:
 
 ```powershell
 $AzSVMs= get-vm |  where {$_.Name -like "AzS-*"}
@@ -170,18 +169,17 @@ invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
 "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
 ```
 
-To configure SQL Server telemetry, see [How to configure SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
+Zie voor het configureren van SQL Server-telemetrie [het configureren van SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
 
-### <a name="usage-reporting"></a>Usage reporting
+### <a name="usage-reporting"></a>Rapportage over het gebruik
 
-Through registration, Azure Stack is also configured to forward usage information to Azure. Usage reporting is controlled independently from telemetry. You can turn off usage reporting when [registering](azure-stack-register.md) by using the script on Github. Just set the **$reportUsage** parameter to **$false**.
+Via inschrijving, is Azure Stack ook geconfigureerd voor informatie over het gebruik van doorsturen naar Azure. Gebruiksrapportage wordt onafhankelijk van elkaar bepaald van telemetrie. U kunt gebruiksrapportage wanneer uitschakelen [registreren](azure-stack-register.md) met behulp van het script op Github. Stelt u de **$reportUsage** -parameter voor **$false**.
 
-Usage data is formatted as detailed in the [Report Azure Stack usage data to Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). Azure Stack Development Kit users are not actually charged. This functionality is included in the development kit so that you can test to see how usage reporting works. 
+Gebruiksgegevens is geformatteerd als beschreven in de [rapport Azure Stack gebruiksgegevens naar Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). Azure-Stack Development Kit gebruikers zijn niet daadwerkelijk in rekening gebracht. Deze functionaliteit is opgenomen in de development kit, zodat u testen kunt om te zien hoe gebruiksrapportage werkt. 
 
 
-## <a name="next-steps"></a>Next steps
-[Download the Azure Stack development kit deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
+## <a name="next-steps"></a>Volgende stappen
+[Het implementatiepakket Azure Stack development kit downloaden](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
-[Deploy Azure Stack development kit](azure-stack-run-powershell-script.md)
-
+[Azure-Stack development kit implementeren](azure-stack-run-powershell-script.md)
 

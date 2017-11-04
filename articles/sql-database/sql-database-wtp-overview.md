@@ -1,111 +1,114 @@
 ---
-title: Een Azure SQL Database-voorbeeld-app met meerdere tenants | Microsoft Docs
-description: Inleiding in de Azure SQL Database-voorbeeld-app Wingtip Tickets (WTP)
+title: Azure SQL Database multitenant app voorbeeld - Wingtip SaaS | Microsoft Docs
+description: Meer informatie over met behulp van een multitenant voorbeeldtoepassing die gebruikmaakt van Azure SQL Database, het Wingtip SaaS-voorbeeld
 keywords: zelfstudie sql-database
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
-ms.custom: tutorial
-ms.workload: data-management
+ms.custom: scale out apps
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
-ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 265eab8104d8af7c510a88dffb9d70a2b3b37631
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/12/2017
-
-
+ms.topic: article
+ms.date: 06/09/2017
+ms.author: sstein
+ms.openlocfilehash: 46c9a3eadc2c23959b4d08649c6c0215d44b493e
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="introduction-to-the-wingtip-tickets-platform-wtp-sample-saas-application"></a>Inleiding tot Wingtip Tickets Platform (WTP), een voorbeeld van een SaaS-toepassing
+# <a name="introduction-to-a-sql-database-multi-tenant-saas-app-example"></a>Inleiding tot een voorbeeld van een SQL-Database multitenant SaaS-app
 
-De SaaS-toepassing Wingtip Tickets Platform (WTP) is een voorbeeld van een multitenant-toepassing die de unieke voordelen van SQL Database duidelijk maakt. Deze SaaS-app maakt gebruik van een toepassingspatroon met een database-per-tenant om zodoende meerdere tenants te kunnen bedienen. De WTP-app is ontworpen om de functies van Azure SQL Database die SaaS-scenario’s ondersteunen, optimaal onder de aandacht te brengen, zoals ontwerp- en -beheerpatronen voor SaaS. U kunt heel snel aan de slag: [de WTP-app kan in minder dan vijf minuten worden geïmplementeerd](sql-database-saas-tutorial.md)!
+De *Wingtip SaaS* toepassing is een voorbeeld multitenant-app die u laat zien van de unieke voordelen van SQL-Database. Deze SaaS-app maakt gebruik van een toepassingspatroon met een database-per-tenant om zodoende meerdere tenants te kunnen bedienen. De app is ontworpen om de functies van Azure SQL Database waarmee SaaS-scenario's, met inbegrip van verschillende SaaS-ontwerp- en patronen presenteren. Als u snel gebruiksklaar, wordt de Wingtip SaaS-app implementeert in minder dan vijf minuten!
 
-Zodra de WTP-app is geïmplementeerd, kunt u de [verzameling zelfstudies](#sql-database-saas-tutorials) bekijken die dienen als vervolg op de eerste implementatie. Elke zelfstudie is gericht op veelgebruikte taken die worden geïmplementeerd in SaaS-toepassingen. Taken worden geïmplementeerd volgens SaaS-patronen die gebruikmaken van de krachtige ingebouwde functies van SQL Database. De omschreven patronen omvatten het inrichten van nieuwe tenants, het herstellen van tenantdatabases, het uitvoeren van gedistribueerde query’s bij alle tenants en het uitrollen van schemawijzigingen in alle tenantdatabases. In elke zelfstudie vindt u herbruikbare scripts met gedetailleerde en begrijpelijke uitleg, waarmee u dezelfde SaaS-beheerpatronen in uw toepassingen kunt implementeren.
+Bron en het beheer toepassingsscripts zijn beschikbaar in de [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github-opslagplaats. De scripts uitvoeren [downloaden van de map Learning-Modules](#download-and-unblock-the-wingtip-saas-scripts) op uw lokale computer.
 
-Hoewel de WTP-toepassing best wel volledig en nuttig is als voorbeeldtoepassing, is de bedoeling ervan meer het bestuderen van de principes van de SaaS-patronen en hun relatie met de gegevenslaag. Met andere woorden, kijkt u vooral naar de gegevenslaag en niet zozeer naar de app zelf. Als u begrijpt hoe deze principiële SaaS-patronen worden geïmplementeerd, helpt dat enorm bij het implementeren van deze patronen in uw eigen toepassingen. Tegelijk moet u natuurlijk overwegen welke wijzigingen nodig zijn voor de specifieke vereisten van uw bedrijf.
+## <a name="sql-database-wingtip-saas-tutorials"></a>SQL Database Wingtip SaaS-zelfstudies
+
+Nadat de app is geïmplementeerd, gebruik de volgende zelfstudies die voort op de eerste implementatie bouwen. Deze zelfstudies verkennen algemene SaaS-patronen die van de ingebouwde functies van SQL-Database, SQL Data Warehouse en andere Azure-services gebruikmaken. Zelfstudies bevatten PowerShell-scripts, met gedetailleerde uitleg die aanzienlijk te vereenvoudigen, begrijpen en implementeren van de dezelfde patronen voor SaaS-beheer in uw toepassingen.
+
+
+| Zelfstudie | Beschrijving |
+|:--|:--|
+|[Implementeren en Verken de Wingtip SaaS-toepassing](sql-database-saas-tutorial.md)| **BEGIN HIER!** Implementeer en Verken de Wingtip SaaS-toepassing naar uw Azure-abonnement. |
+|[Inrichten en catalogus tenants](sql-database-saas-tutorial-provision-and-catalog.md)| Informatie over hoe de toepassing verbinding maakt met tenants met behulp van een catalogusdatabase, en hoe tenants in de catalogus worden toegewezen aan hun gegevens. |
+|[Bewaken en beheren van prestaties](sql-database-saas-tutorial-performance-monitoring.md)| Informatie over het gebruik van de controlemogelijkheden van SQL-Database en het instellen van meldingen wanneer drempelwaarden worden overschreden. |
+|[Monitor met logboekanalyse (OMS)](sql-database-saas-tutorial-log-analytics.md) | Meer informatie over het gebruik van [logboekanalyse](../log-analytics/log-analytics-overview.md) voor het bewaken van grote hoeveelheden bronnen, tussen meerdere pools. |
+|[Herstellen van een enkele tenant](sql-database-saas-tutorial-restore-single-tenant.md)| Ontdek hoe u een tenant-database naar een eerder tijdstip herstellen. Stappen om een parallelle database, waarbij de bestaande tenant-database online te herstellen, zijn ook opgenomen. |
+|[Schema van de tenant beheren](sql-database-saas-tutorial-schema-management.md)| Informatie over het schema bijwerken en referentiegegevens, bijwerken op alle Wingtip SaaS-tenants. |
+|[Ad-hoc-analyses uitvoeren](sql-database-saas-tutorial-adhoc-analytics.md) | Maakt de database van een ad-hoc analytics en realtime gedistribueerde query's uitvoeren op alle tenants.  |
+|[Tenant-analyses uitvoeren](sql-database-saas-tutorial-tenant-analytics.md) | Tenant-gegevens ophalen naar een analytics database of de data warehouse voor het uitvoeren van offline analytische query's. |
 
 
 
 ## <a name="application-architecture"></a>Toepassingsarchitectuur
 
-De WTP-app maakt gebruik van het database-per-tenant-model en van elastische SQL-pools voor een maximale efficiency.
-Gebruik van een tenantcatalogus voor beheer van de inrichting en connectiviteit.
-Geïntegreerde app, pool, databasecontrole en waarschuwingen (OMS).
-Schema- en referentiegegevensbeheer voor alle tenants (elastische databasetaken).
-Query’s, operationele analytics voor alle tenants (elastische query).
-Gebruik van geografisch gedistribueerde gegevens voor een wijder bereik.
-Herstel van één tenant voor bedrijfscontinuïteit (PITR) DR op schaal (geo-herstel, geo-replicatie, auto-DR) self-servicebeheer voor tenants (via beheer-API’s) PITR voor herstel van zelfveroorzaakte fouten.
-
-De Wingtip-toepassing zelf maakt gebruik van drie voorbeeldtenants en een catalogusdatabase.
-
-![WTP-architectuur](media/sql-database-wtp-overview/wtp-architecture.png)
+De app Wingtip SaaS maakt gebruik van de database per tenant en elastische pools SQL gebruikt om het te optimaliseren. Voor het inrichten en de toewijzing van tenants tot hun gegevens, wordt de catalogusdatabase van een gebruikt. De kern Wingtip SaaS-toepassing maakt gebruik van een groep met drie voorbeeld tenants, plus de catalogusdatabase. Veel van de Wingtip SaaS zelfstudies tot invoegtoepassingen voor de eerste implementatie leiden is voltooid, door de introductie van analytische databases tussen meerdere databases Schemabeheer, enzovoort.
 
 
-## <a name="sql-database-wtp-saas-tutorials"></a>SQL Database WTP SaaS-zelfstudies
-
-De volgende zelfstudies bouwen voort op de eerste implementatie van de [SaaS-voorbeeldtoepassing Wingtip Tickets Platform](sql-database-saas-tutorial.md):
-
-| Onderwerp | Beschrijving | Scriptlocatie |
-|:--|:--|:--|
-|[Zelfstudie Tenants inrichten en catalogiseren](sql-database-saas-tutorial-provision-and-catalog.md)| Nieuwe tenants inrichten en in de catalogus registreren | [Scripts op github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Provision%20and%20Catalog) |
-|[Zelfstudie Prestaties controleren en beheren](sql-database-saas-tutorial-performance-monitoring.md)| De prestaties van database en pool controleren en beheren | [Scripts op github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Performance%20Monitoring%20and%20Management) |
-|[Zelfstudie Een individuele tenant terugzetten](sql-database-saas-tutorial-restore-single-tenant.md)| Tenantdatabases terugzetten | [Scripts op github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Business%20Continuity%20and%20Disaster%20Recovery/RestoreTenant) |
-|[Zelfstudie tenantschema’s beheren](sql-database-saas-tutorial-schema-management.md)| Query’s uitvoeren op alle tenants  | [Scripts op github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Schema%20Management) |
-|[Zelfstudie Ad-hoc-analyses uitvoeren](sql-database-saas-tutorial-adhoc-analytics.md) | Een ad-hoc analytics-database maken en query’s uitvoeren op alle tenants  | [Scripts op github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Operational%20Analytics/Adhoc%20Analytics) |
-|[Zelfstudie Beheer met Log Analytics (OMS)](sql-database-saas-tutorial-log-analytics.md) | Log Analytics configureren en bekijken | [Scripts op github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Performance%20Monitoring%20and%20Management/LogAnalytics) |
-|[Zelfstudie Tenant-analytics uitvoeren](sql-database-saas-tutorial-tenant-analytics.md) | Query’s voor tenant-analytics instellen en uitvoeren | [Scripts op github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Operational%20Analytics/Tenant%20Analytics) |
-
-## <a name="get-the-wingtip-application-scripts"></a>De scripts van de Wingtip-toepassing downloaden
-
-De scripts en broncode van de Wingtip Tickets-toepassing zijn beschikbaar in de GitHub-opslagplaats [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). U vindt de scriptbestanden in de map [Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download de map **Learning Modules** naar uw lokale computer en behoud de mapstructuur.
-
-## <a name="working-with-the-wtp-powershell-scripts"></a>Werken met de WTP PowerShell-scripts
-
-Werken met de WTP-toepassing biedt vooral als voordeel dat u meteen aan de slag kunt met de geleverde scripts en goed kunt zien hoe de verschillende SaaS-patronen zijn geïmplementeerd.
-
-Gebruik de [Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise) om de ter beschikking gestelde scripts en modules te bekijken en stapsgewijs te doorlopen zodat u ze beter zult begrijpen. Omdat de meeste scripts met het voorvoegsel *Demo-* variabelen bevatten die u kunt aanpassen voordat u het script uitvoert, is het handig om PowerShell ISE te gebruiken voor het werken met deze scripts.
-
-Voor elke implementatie van WTP is er een bestand **UserConfig.psm1** met daarin twee parameters voor het instellen van de waarden voor de resourcegroep en de gebruikersnaam die u tijdens de implementatie hebt gedefinieerd. Zodra de implementatie is voltooid, bewerkt u de module **UserConfig.psm1** door de parameters voor _ResourceGroupName_ en _Name_ in te stellen. Deze waarden zijn ook nodig voor een goede uitvoering van andere scripts, dus het wordt aanbevolen om deze waarden in te stellen zodra de implementatie is voltooid!
+![Wingtip SaaS-architectuur](media/sql-database-wtp-overview/app-architecture.png)
 
 
+Tijdens het doorlopen van de zelfstudies en werken met de app, is het belangrijk dat u zich richten op de SaaS-patronen die betrekking heeft op de gegevenslaag. Met andere woorden, kijkt u vooral naar de gegevenslaag en niet zozeer naar de app zelf. Informatie over de implementatie van deze SaaS patronen essentieel is voor het implementeren van deze patronen in uw toepassingen bij het beoordelen van de benodigde wijzigingen voor uw specifieke bedrijfsvereisten.
+
+## <a name="download-and-unblock-the-wingtip-saas-scripts"></a>Downloaden en de scripts Wingtip SaaS deblokkeren
+
+Uitvoerbare inhoud (scripts, dll-bestanden) mogelijk geblokkeerd door Windows als zip-bestanden van een externe bron wordt gedownload en uitgepakt. Bij het uitpakken van de scripts van een zip-bestand ***Volg onderstaande stappen voor het deblokkeren van het ZIP-bestand voor het uitpakken van***. Dit zorgt ervoor dat de scripts mogen worden uitgevoerd.
+
+1. Blader naar [de github-repo Wingtip SaaS](https://github.com/Microsoft/WingtipSaaS).
+1. Klik op **klonen of downloaden**.
+1. Klik op **ZIP downloaden** en sla het bestand.
+1. Met de rechtermuisknop op de **WingtipSaaS master.zip** bestand en selecteer **eigenschappen**.
+1. Op de **algemene** tabblad **blokkering**.
+1. Klik op **OK**.
+1. Pak de bestanden.
+
+Scripts bevinden zich in de *... \\WingtipSaaS master\\Learning-Modules* map.
+
+
+## <a name="working-with-the-wingtip-saas-powershell-scripts"></a>Werken met de Wingtip SaaS PowerShell-Scripts
+
+Als u optimaal buiten het voorbeeld moet u Duik in de opgegeven scripts. Gebruik onderbrekingspunten en doorloop de scripts, in de details van hoe de andere SaaS-patronen worden geïmplementeerd. Om het eenvoudig stap via de opgegeven scripts en modules voor het beste begrijpen, wordt u aangeraden de [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
+
+### <a name="update-the-configuration-file-for-your-deployment"></a>Het configuratiebestand voor uw implementatie bijwerken
+
+Bewerk de **UserConfig.psm1** -bestand met de resource-groep en gebruiker waarde die u hebt ingesteld tijdens de implementatie:
+
+1. Open de *PowerShell ISE* en laden... \\Learning-Modules\\*UserConfig.psm1* 
+1. Update *ResourceGroupName* en *naam* met de specifieke waarden voor uw implementatie (op regels 10 en 11 alleen).
+1. De wijzigingen opslaan!
+
+Instellen van deze waarden hier simpelweg voorkomt u moet deze implementatie-specifieke waarden in elk script bijwerken.
 
 ### <a name="execute-scripts-by-pressing-f5"></a>Voer scripts uit door op F5 te drukken
 
-Verschillende scripts maken gebruik van *$PSScriptRoot* om door mappen te navigeren en deze variabele wordt pas geëvalueerd wanneer het script wordt uitgevoerd, dus nadat er op **F5** is gedrukt.  Het markeren en uitvoeren van een selectie (**F8**) kan fouten veroorzaken, dus druk op **F5** wanneer u WTP-scripts wilt uitvoeren.
+Gebruik van meerdere scripts *$PSScriptRoot* om mappen te bladeren en *$PSScriptRoot* worden alleen geëvalueerd als scripts worden uitgevoerd door te drukken **F5**.  Syntaxismarkering en een selectie actief (**F8**) kunnen leiden tot fouten, indrukt **F5** wanneer het uitvoeren van scripts.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Doorloop de scripts stapsgewijs om de implementatie te kunnen bekijken
 
-De meeste waarde van het bekijken van scripts haalt u uit het stapsgewijs doorlopen van de scripts. Zo kunt u precies zien wat ze doen. Kijk eens naar de _Demo-_scripts op het eerste niveau. Deze bieden een gemakkelijk leesbare globale werkstroom inclusief de stappen die nodig zijn om elke taak te volbrengen. Bekijk de afzonderlijke aanroepen in meer detail om de implementatie voor de verschillende SaaS-patronen nader te bekijken.
+De beste manier om te begrijpen van de scripts is door doorlopen zien wat ze doen. Bekijk de opgenomen **Demo -** scripts die een eenvoudig te volgen werkstroom op hoog niveau. De **Demo -** scripts tonen de stappen die nodig zijn voor elke taak, dus onderbrekingspunten instellen en inzoomen dieper in de afzonderlijke aanroepen voor implementatie-informatie voor de verschillende SaaS-patronen.
 
-Tips voor het werken met en [opsporen van fouten in PowerShell-scripts](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise):
+Tips voor het verkennen en PowerShell-scripts doorlopen:
 
-* Open en configureer demo-scripts in de PowerShell ISE.
-* Voer scripts uit of hervat ze met **F5**. Het gebruik van **F8** wordt afgeraden, omdat *$PSScriptRoot* niet wordt geëvalueerd wanneer slechts selecties van een script worden uitgevoerd.
+* Open **Demo -** scripts in de PowerShell ISE.
+* Of Ga door met uitvoeren **F5** (met behulp van **F8** wordt niet aanbevolen omdat *$PSScriptRoot* wordt niet geëvalueerd wanneer selecties van een script wordt uitgevoerd).
 * Plaats onderbrekingspunten door op een regel te klikken of een regel te selecteren en op **F9** te drukken.
 * Stap over een functie of scriptaanroep heen met **F10**.
 * Stap in een functie of scriptaanroep met **F11**.
 * Stap uit de huidige functie of scriptaanroep met **Shift + F11**.
 
 
-
-
 ## <a name="explore-database-schema-and-execute-sql-queries-using-ssms"></a>Bekijk het databaseschema en voer SQL-query’s uit met SSMS
 
-Gebruik [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) om verbinding te maken en te bladeren in de WTP-servers en databases.
+Gebruik [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) verbinding maken en blader door de toepassingsservers en databases.
 
-De WTP-voorbeeldapp heeft aanvankelijk twee SQL Database-servers waarmee u verbinding kunt maken: de *tenants1*-server en de *catalogus*server:
+De implementatie in eerste instantie heeft twee SQL Database-servers verbinding maken met de - de *tenants1 -&lt;gebruiker&gt;*  -server en de *catalogus -&lt;gebruiker&gt;*  server. Een geslaagde demo-verbinding, zodat beide servers hebben een [firewallregel](sql-database-firewall-configure.md) toestaan via alle IP-adressen.
 
 
 1. open *SSMS* en maak verbinding met de *tenants1-&lt;User&gt;.database.windows.net*-server.
-2. Klik op **Verbinding maken**  > **Database-engine...**:
+1. Klik op **Verbinding maken**  > **Database-engine...**:
 
    ![catalogusserver](media/sql-database-wtp-overview/connect.png)
 
@@ -115,7 +118,7 @@ De WTP-voorbeeldapp heeft aanvankelijk twee SQL Database-servers waarmee u verbi
 
 1. Herhaal de stappen 2-3 en maak verbinding met de *catalog-&lt;User&gt;.database.windows.net*-server.
 
-Als de verbinding is geslaagd, ziet u beide servers. U ziet mogelijk meer of minder databases, afhankelijk van hoeveel tenants u hebt ingericht:
+Als de verbinding is geslaagd, ziet u beide servers. Uw lijst met databases mogelijk verschillen, afhankelijk van de tenants die u hebt ingericht:
 
 ![objectverkenner](media/sql-database-wtp-overview/object-explorer.png)
 
@@ -123,4 +126,4 @@ Als de verbinding is geslaagd, ziet u beide servers. U ziet mogelijk meer of min
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Wingtip Tickets implementeren, het voorbeeld van een SaaS-app](sql-database-saas-tutorial.md)
+[De Wingtip SaaS-toepassing implementeren](sql-database-saas-tutorial.md)

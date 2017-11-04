@@ -1,50 +1,50 @@
-Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. These updates range from patching software components in the hosting environment (like operating system, hypervisor, and various agents deployed on the host), upgrading networking components, to hardware decommissioning. The majority of these updates are performed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
+Azure voert regelmatig updates ter verbetering van de betrouwbaarheid, prestaties en beveiliging van de infrastructuur van de host voor virtuele machines. Deze updates tussen softwareonderdelen in de hosting-omgeving (zoals het besturingssysteem, hypervisor en verschillende agents die zijn geïmplementeerd op de host) patching bijwerken netwerkonderdelen, naar hardware buiten gebruik stellen. De meeste van deze updates worden uitgevoerd zonder nadelige gevolgen voor de gehoste virtuele machines. Er zijn echter gevallen bekend waarbij updates gevolgen:
 
-- If the maintenance does not require a reboot, Azure uses in-place migration to pause the VM while the host is updated.
+- Als het onderhoud niet opnieuw worden opgestart hoeft, gebruikt Azure in-place migratie voor het onderbreken van de virtuele machine, terwijl de host is bijgewerkt.
 
-- If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you'll also be given a time window where you can start the maintenance yourself, at a time that works for you.
+- Als u onderhoud moet worden opgestart, krijgt u een bericht wanneer het onderhoud is gepland. In dergelijke gevallen u ook krijgt een tijdvenster op waar u kunt beginnen het onderhoud zelf tegelijk die geschikt is voor u.
 
-This page describes how Microsoft Azure performs both types of maintenance. For more information about unplanned events (outages), see Manage the availability of virtual machines for [Windows] (../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Deze pagina wordt beschreven hoe Microsoft Azure uitvoert voor beide typen van onderhoud. Zie voor meer informatie over niet-geplande gebeurtenissen (uitval), de beschikbaarheid van virtuele machines beheren voor [Windows] (... / articles/virtual-machines/windows/manage-availability.md) of [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-Applications running in a virtual machine can gather information about upcoming updates by using the Azure Metadata Service for [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) or [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
+Toepassingen die worden uitgevoerd in een virtuele machine kunnen informatie verzamelen over toekomstige updates met behulp van de Service Azure metagegevens voor [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) of [Linux] (... / articles/virtual-machines/linux/instance-metadata-service.md).
 
-For "how-to" information on managing planned maintence, see "Handling planned maintenance notifications" for [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) or [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
+Zie voor 'procedures' informatie over het beheer van geplande maintence 'Verwerken geplande onderhoud meldingen' voor [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) of [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="in-place-vm-migration"></a>In-place VM migration
+## <a name="in-place-vm-migration"></a>In-place migratie voor VM
 
-When updates don't require a full reboot, an in-place live migration is used. During the update the virtual machine is paused for about 30 seconds, preserving the memory in RAM, while the hosting environment applies the necessary updates and patches. The virtual machine is then resumed and the clock of the virtual machine is automatically synchronized.
+Als updates niet volledig opnieuw opstarten vereist, wordt een in-place live migratie wordt gebruikt. Tijdens het bijwerken de virtuele machine onderbroken ongeveer 30 seconden, het geheugen in RAM, behouden terwijl de hosting-omgeving van toepassing de vereiste updates en -patches is. De virtuele machine wordt vervolgens hervat en de klok van de virtuele machine automatisch wordt gesynchroniseerd.
 
-For VMs in availability sets, update domains are updated one at a time. All VMs in one update domain (UD) are paused, updated and then resumed before planned maintenance moves on to the next UD.
+Voor virtuele machines in beschikbaarheidssets, worden bijgewerkt een voor een update-domeinen. Alle virtuele machines in één updatedomein (UD) worden onderbroken, bijgewerkt en hervat vervolgens voordat gepland onderhoud verder met de volgende UD gaat.
 
-Some applications may be impacted by these types of updates. Applications that perform real-time event processing, like media streaming or transcoding, or high throughput networking scenarios, may not be designed to tolerate a 30 second pause. <!-- sooooo, what should they do? --> 
+Sommige toepassingen worden beïnvloed door deze typen updates. Toepassingen die realtime-gebeurtenissen verwerken, zoals mediastreaming of transcodering of hoge doorvoersnelheid scenario's, toegang uitvoeren kunnen niet worden ontworpen voor een pauze van 30 seconde tolereren. <!-- sooooo, what should they do? --> 
 
 
-## <a name="maintenance-requiring-a-reboot"></a>Maintenance requiring a reboot
+## <a name="maintenance-requiring-a-reboot"></a>Onderhoud vereisen opnieuw opstarten
 
-When VMs need to be rebooted for planned maintenance, you are notified in advance. Planned maintenance has two phases: the self-service window and a scheduled maintenance window.
+Wanneer virtuele machines opnieuw worden opgestart voor gepland onderhoud, u een melding van tevoren. Gepland onderhoud heeft twee fasen: het venster selfservice en een geplande onderhoudsvenster.
 
-The **self-service window** lets you initiate the maintenance on your VMs. During this time, you can query each VM to see their status and check the result of your last maintenance request.
+De **selfservice venster** kunt u het onderhoud op uw virtuele machines starten. U kunt elke virtuele machine om te zien van hun status en controleer het resultaat van uw laatste verzoek in de onderhoudsmodus query tijdens deze periode.
 
-When you start self-service maintenance, your VM is moved to a node that has already been updated and then powers it back on. Because the VM reboots, the temporary disk is lost and dynamic IP addresses associated with virtual network interface are updated.
+Wanneer u onderhoud selfservice start, wordt uw virtuele machine wordt verplaatst naar een knooppunt dat al is bijgewerkt en wordt deze vervolgens weer ingeschakeld. Omdat de virtuele machine opnieuw is opgestart, is de tijdelijke schijf verloren en dynamische IP-adressen die zijn gekoppeld aan virtuele netwerkinterface worden bijgewerkt.
 
-If you start self-service maintenance and there is an error during the process, the operation is stopped, the VM is not updated and it is also removed from the planned maintenance iteration. You will be contacted in a later time with a new schedule and offered a new opportunity to do self-service maintenance. 
+Als u onderhoud selfservice start en er een fout opgetreden tijdens het proces is, de bewerking is gestopt, de virtuele machine is niet bijgewerkt en wordt deze ook verwijderd uit de herhaling gepland onderhoud. U wordt verbinding gemaakt met in een later tijdstip met een nieuw schema en krijgt een nieuwe mogelijkheid selfservice onderhoud doen. 
 
-When the self-service window has passed, the **scheduled maintenance window** begins. During this time window, you can still query for the maintenance window, but no longer be able to start the maintenance yourself.
+Wanneer het venster selfservice is verstreken, de **geplande onderhoudsvenster** begint. Tijdens dit tijdvenster kunt u nog steeds een query voor het onderhoudsvenster, maar niet langer mogelijk om te starten van het onderhoud zelf.
 
-## <a name="availability-considerations-during-planned-maintenance"></a>Availability Considerations during Planned Maintenance 
+## <a name="availability-considerations-during-planned-maintenance"></a>Overwegingen voor beschikbaarheid tijdens gepland onderhoud 
 
-If you decide to wait until the planned maintenance window, there are a few things to consider for maintaining the highest availabilty of your VMs. 
+Als u besluit om te wachten tot het geplande onderhoudsvenster, moet u er een paar aandachtspunten voor het onderhouden van de hoogste availabilty van uw virtuele machines zijn. 
 
-### <a name="paired-regions"></a>Paired Regions
+### <a name="paired-regions"></a>Gekoppelde regio 's
 
-Each Azure region is paired with another region within the same geography, together they make a regional pair. During planned maintenance, Azure will only update the VMs in a single region of a region pair. For example, when updating the Virtual Machines in North Central US, Azure will not update any Virtual Machines in South Central US at the same time. However, other regions such as North Europe can be under maintenance at the same time as East US. Understanding how region pairs work can help you better distribute your VMs across regions. For more information, see [Azure region pairs](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Elke Azure-regio is gekoppeld aan een andere regio binnen de dezelfde Geografie, samen een combinatie van regionale indienen. Azure wordt alleen de virtuele machines in één regio uit een combinatie van regio bijgewerkt tijdens gepland onderhoud. Wanneer bijvoorbeeld de virtuele machines in Noord-centraal VS worden bijgewerkt, worden er tegelijkertijd geen virtuele machines in Zuid-centraal VS bijgewerkt. Tegelijkertijd met VS - oost kan er echter wel onderhoud plaatsvinden in andere regio's, zoals Noord-Europa. Uw VM's begrijpen hoe regio paren werken, kunt u beter verdelen over regio's. Zie voor meer informatie [Azure-regio paren](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-### <a name="availability-sets-and-scale-sets"></a>Availability sets and scale sets
+### <a name="availability-sets-and-scale-sets"></a>Beschikbaarheidssets en schaalsets
 
-When deploying a workload on Azure VMs, you can create the VMs within an availability set to provide high availability to your application. This ensures that during either an outage or maintenance events, at least one virtual machine is available.
+Bij het implementeren van een werklast op Azure Virtual machines, kunt u de virtuele machines binnen een beschikbaarheidsset voor maximale beschikbaarheid voor uw toepassing. Dit zorgt ervoor dat bij een stroomstoring of een onderhoud gebeurtenissen, ten minste één virtuele machine beschikbaar is.
 
-Within an availability set, individual VMs are spread across up to 20 update domains (UDs). During planned maintenance, only a single update domain is impacted at any given time. Be aware that the order of update domains being impacted does not necessarily happen sequentially. 
+Afzonderlijke virtuele machines worden in een beschikbaarheidsset verdeeld over maximaal 20 update domeinen (UDs). Tijdens gepland onderhoud één updatedomein is dit van invloed op een bepaald moment. Let erop dat de volgorde van update-domeinen die worden beïnvloed noodzakelijkerwijs niet opeenvolgend gebeurt. 
 
-Virtual machine scale sets are an Azure compute resource that enables you to deploy and manage a set of identical VMs as a single resource. The scale set is automatically deployed across update domains, like VMs in an availability set. Just like with availability sets, with scale sets only a single update domain is impacted at any given time.
+Virtuele-machineschaalsets zijn een Azure compute resource waarmee u kunt implementeren en beheren van een set van identieke virtuele machines als één bron. De schaalaanpassingsset wordt automatisch geïmplementeerd in meerdere domeinen van de update, zoals virtuele machines in een beschikbaarheidsset. Net als met beschikbaarheidssets met schaalsets één updatedomein is dit van invloed op een bepaald moment.
 
-For more information about configuring your virtual machines for high availability, see Manage the availability of your virtual machines for Windows (../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Zie voor meer informatie over het configureren van uw virtuele machines voor hoge beschikbaarheid, de beschikbaarheid van uw virtuele machines beheren voor Windows (.. / articles/virtual-machines/windows/manage-availability.md) of [Linux](../articles/virtual-machines/linux/manage-availability.md).

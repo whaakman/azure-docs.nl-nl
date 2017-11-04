@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.openlocfilehash: 8118570071aa5af6ec74c971a711b2eab07fb1b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c0f89f98c26b80e8b71c58fc89ea7ecebe734f71
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Clusters in HDInsight met Hadoop, Spark en Kafka instellen
 
@@ -76,13 +76,13 @@ Azure HDInsight biedt momenteel de volgende clustertypen, elk met een reeks onde
 
 | Clustertype | Functionaliteit |
 | --- | --- |
-| [Hadoop](hdinsight-hadoop-introduction.md) |Batch-query's en analyse van opgeslagen gegevens |
-| [HBase](hdinsight-hbase-overview.md) |Voor grote hoeveelheden schemaloos, NoSQL-gegevens verwerken |
-| [Storm](hdinsight-storm-overview.md) |Gebeurtenissen in realtime verwerken |
-| [Spark](hdinsight-apache-spark-overview.md) |In-memory verwerking, interactieve query's micro batch stroom verwerken |
-| [Kafka (preview)](hdinsight-apache-kafka-introduction.md) | Een gedistribueerde streaming-platform die kan worden gebruikt voor het bouwen van realtime streaming gegevenspijplijnen en toepassingen |
-| [R Server](hdinsight-hadoop-r-server-overview.md) |Diverse big data-statistieken, voorspellende modellen en machine learning-mogelijkheden |
-| [Interactieve Query](hdinsight-hadoop-use-interactive-hive.md) |In-memory caching voor interactieve en sneller Hive-query 's |
+| [Hadoop](hadoop/apache-hadoop-introduction.md) |Batch-query's en analyse van opgeslagen gegevens |
+| [HBase](hbase/apache-hbase-overview.md) |Voor grote hoeveelheden schemaloos, NoSQL-gegevens verwerken |
+| [Storm](storm/apache-storm-overview.md) |Gebeurtenissen in realtime verwerken |
+| [Spark](spark/apache-spark-overview.md) |In-memory verwerking, interactieve query's micro batch stroom verwerken |
+| [Kafka (preview)](kafka/apache-kafka-introduction.md) | Een gedistribueerde streaming-platform die kan worden gebruikt voor het bouwen van realtime streaming gegevenspijplijnen en toepassingen |
+| [R Server](r-server/r-server-overview.md) |Diverse big data-statistieken, voorspellende modellen en machine learning-mogelijkheden |
+| [Interactieve Query](./interactive-query/apache-interactive-query-get-started.md) |In-memory caching voor interactieve en sneller Hive-query 's |
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Het aantal knooppunten voor elk clustertype
 Elk clustertype heeft een eigen aantal knooppunten, terminologie voor knooppunten en standaard VM-grootte. In de volgende tabel is het aantal knooppunten voor elk knooppunttype tussen haakjes.
@@ -208,7 +208,7 @@ De meeste van de HDInsight-toepassingen zijn geïnstalleerd op een lege edge-kno
 
 U kunt extra onderdelen installeren of clusterconfiguratie aanpassen met behulp van scripts tijdens het maken van. Deze scripts worden aangeroepen **scriptactie**, dit is een configuratieoptie die kan worden gebruikt vanuit de Azure-portal, HDInsight Windows PowerShell-cmdlets of de HDInsight .NET SDK. Zie voor meer informatie [aanpassen HDInsight-cluster via scriptactie](hdinsight-hadoop-customize-cluster-linux.md).
 
-Sommige systeemeigen Java-onderdelen, zoals Mahout en trapsgewijze, kunnen worden uitgevoerd op het cluster als Java-archief (JAR)-bestanden. Deze JAR-bestanden worden gedistribueerd naar Azure Storage en verzonden naar HDInsight-clusters met Hadoop taak verzending mechanismen. Zie voor meer informatie [Hadoop verzenden via een programma taken](hdinsight-submit-hadoop-jobs-programmatically.md).
+Sommige systeemeigen Java-onderdelen, zoals Mahout en trapsgewijze, kunnen worden uitgevoerd op het cluster als Java-archief (JAR)-bestanden. Deze JAR-bestanden worden gedistribueerd naar Azure Storage en verzonden naar HDInsight-clusters met Hadoop taak verzending mechanismen. Zie voor meer informatie [Hadoop verzenden via een programma taken](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 > [!NOTE]
 > Als u problemen met het implementeren van de JAR-bestanden op HDInsight-clusters hebt, of het aanroepen van de JAR-bestanden op HDInsight-clusters, neem contact op met [Microsoft Support](https://azure.microsoft.com/support/options/).
@@ -242,7 +242,7 @@ Als uw oplossing technologieën die worden verdeeld over meerdere HDInsight-clus
 
 Zie voor meer informatie over het gebruik van een virtuele Azure-netwerk met HDInsight [HDInsight uitbreiden met virtuele netwerken van Azure](hdinsight-extend-hadoop-virtual-network.md).
 
-Zie voor een voorbeeld van het gebruik van twee clustertypen binnen een virtuele Azure-netwerk [analyseren van sensorgegevens met Storm en HBase](hdinsight-storm-sensor-data-analysis.md). Zie voor meer informatie over het gebruik van HDInsight met een virtueel netwerk, met inbegrip van specifieke configuratievereisten voor het virtuele netwerk [mogelijkheden uitbreiden HDInsight met behulp van Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+Zie voor een voorbeeld van het gebruik van twee clustertypen binnen een virtuele Azure-netwerk [analyseren van sensorgegevens met Storm en HBase](storm/apache-storm-sensor-data-analysis.md). Zie voor meer informatie over het gebruik van HDInsight met een virtueel netwerk, met inbegrip van specifieke configuratievereisten voor het virtuele netwerk [mogelijkheden uitbreiden HDInsight met behulp van Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 ## <a name="troubleshoot-access-control-issues"></a>Besturingselement toegangsproblemen
 
@@ -250,6 +250,6 @@ Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#cre
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Wat zijn HDInsight, het Hadoop-ecosysteem en Hadoop-clusters?](hdinsight-hadoop-introduction.md)
-- [Aan de slag met Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+- [Wat zijn HDInsight, het Hadoop-ecosysteem en Hadoop-clusters?](hadoop/apache-hadoop-introduction.md)
+- [Aan de slag met Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Werken in Hadoop in HDInsight via Windows-PC](hdinsight-hadoop-windows-tools.md)

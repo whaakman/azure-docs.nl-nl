@@ -10,20 +10,18 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/14/2017
+ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: a7cba5b2c43704d92e36d6f808efaa9fc73fdf36
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: dab783e574ef4f5507737d5004fd8d2a98629458
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/16/2017
 ---
-
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Een virtuele Linux-machine maken met de Azure CLI
 
 De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. In deze handleiding staat informatie over het gebruik van de Azure CLI om een virtuele machine met Ubuntu Server te implementeren. Zodra de server is geïmplementeerd, wordt een SSH-verbinding gemaakt en een NGINX-webserver geïnstalleerd.
@@ -32,7 +30,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze Quickstart gebruikmaken van Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids de versie Azure CLI 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -46,7 +44,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
 
-Maak een VM met de opdracht [az vm create](/cli/azure/vm#create). 
+Maak een VM met de opdracht [az vm create](/cli/azure/vm#az_vm_create). 
 
 In het volgende voorbeeld wordt een VM gemaakt met de naam *myVM* en worden er SSH-sleutels gemaakt, als deze nog niet bestaan op een standaardsleutellocatie. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.  
 
@@ -87,16 +85,14 @@ ssh <publicIpAddress>
 
 ## <a name="install-nginx"></a>NGINX installeren
 
-Gebruik het volgende bash-script om pakketbronnen bij te werken en het meest recente NGINX-pakket te installeren. 
+Gebruik de volgende opdrachten pakket bronnen bijwerken en het meest recente NGINX-pakket installeert. 
 
 ```bash 
-#!/bin/bash
-
 # update package source
-apt-get -y update
+sudo apt-get -y update
 
 # install NGINX
-apt-get -y install nginx
+sudo apt-get -y install nginx
 ```
 
 ## <a name="view-the-nginx-welcome-page"></a>De welkomstpagina van NGINX weergeven
@@ -108,7 +104,7 @@ Nu NGINX is geïnstalleerd en poort 80 op de virtuele machine is geopend voor to
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-U kunt de opdracht [az group delete](/cli/azure/group#delete) gebruiken om de resourcegroep, de VM en alle gerelateerde resources te verwijderen wanneer u ze niet meer nodig hebt.
+U kunt de opdracht [az group delete](/cli/azure/group#delete) gebruiken om de resourcegroep, de VM en alle gerelateerde resources te verwijderen wanneer u ze niet meer nodig hebt. De SSH-sessie met uw virtuele machine afsluiten en verwijder vervolgens de resources als volgt:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
@@ -121,4 +117,3 @@ In deze Snel starten hebt u een eenvoudige virtuele machine geïmplementeerd, ee
 
 > [!div class="nextstepaction"]
 > [Zelfstudies over virtuele Linux-machines](./tutorial-manage-vm.md)
-
