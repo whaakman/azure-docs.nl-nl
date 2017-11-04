@@ -11,21 +11,21 @@ keywords:
 ms.assetid: 8da267e8-2aeb-4c24-9a7a-65bdca3a82d6
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/21/2017
 ms.author: nepeters
-ms.custom: H1Hack27Feb2017, mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 5a2131659903e79b28f4d1b795d25a31d8d4ce8d
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/24/2017
-
+ms.custom: H1Hack27Feb2017, mvc, devcenter
+ms.openlocfilehash: 59f37565d7e1912a149497223707e96a5ce8b24e
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Kubernetes-cluster voor Linux-containers implementeren
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 In deze snelstartgids wordt een Kubernetes-cluster geïmplementeerd met behulp van de Azure CLI. Vervolgens wordt er een toepassing met meerdere containers die bestaat uit een web-front-end en een Redis-exemplaar, geïmplementeerd en uitgevoerd op het cluster. Zodra de toepassing is voltooid, is deze toegankelijk via internet. 
 
@@ -71,8 +71,10 @@ Uitvoer:
 Maak een Kubernetes-cluster in Azure Container Service met de opdracht [az acs create](/cli/azure/acs#create). In het volgende voorbeeld wordt een cluster gemaakt met de naam *myK8sCluster* met een Linux-hoofdknooppunt en drie knooppunten van de Linux-agent.
 
 ```azurecli-interactive 
-az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys 
+az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys
 ```
+
+In sommige gevallen, zoals met een beperkte proefversie, heeft een Azure-abonnement beperkte toegang tot Azure-resources. Als de implementatie mislukt vanwege beperkte beschikbare kernen, verminder dan het aantal standaardagenten door `--agent-count 1` toe te voegen aan de opdracht [az acs create](/cli/azure/acs#create). 
 
 Na enkele minuten is de opdracht voltooid en retourneert deze informatie over het cluster in json-indeling. 
 
@@ -228,4 +230,3 @@ Voor meer informatie over Azure Container Service en een volledig voorbeeld van 
 
 > [!div class="nextstepaction"]
 > [Een ACS Kubernetes-cluster beheren](./container-service-tutorial-kubernetes-prepare-app.md)
-

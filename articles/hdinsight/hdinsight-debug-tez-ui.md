@@ -15,11 +15,11 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3889fa1c3523eb0330cbe3b7640fd8590a5ceadf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 32f6a12544c05dbf4ac65dd386cd9dea18ca79b3
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>De UI Tez gebruiken om op te sporen Tez-taken in HDInsight op basis van Windows
 De UI Tez is een webpagina die kunnen worden gebruikt om te begrijpen en foutopsporing van taken die Tez als de engine voor het uitvoeren op Windows gebaseerde HDInsight-clusters gebruiken. De UI Tez kunt u de taak als een grafiek van verbonden items visualiseren, Inzoomen op elk item en statistieken en logboekregistratie informatie ophalen.
@@ -139,6 +139,6 @@ Gebruik de volgende stappen uitvoeren van een Hive-query die wordt uitgevoerd me
     ![Taakdetails](./media/hdinsight-debug-tez-ui/taskdetails.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-U hebt geleerd hoe u de weergave Tez, meer informatie over [met behulp van Hive in HDInsight](hdinsight-use-hive.md).
+U hebt geleerd hoe u de weergave Tez, meer informatie over [met behulp van Hive in HDInsight](hadoop/hdinsight-use-hive.md).
 
 Zie voor meer technische informatie over Tez, de [Tez-pagina op Hortonworks](http://hortonworks.com/hadoop/tez/).

@@ -1,21 +1,21 @@
-Click the **New** button. In the **Search the marketplace** field, enter `Azure Active Directory B2C`.
+Klik op de knop **Nieuw**. Voer in het veld **Marketplace doorzoeken** in: `Azure Active Directory B2C`.
 
-![Add button highlighted and the text Azure Active Directory B2C in the search the marketplace field](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+![Knop Toevoegen gemarkeerd en de tekst Azure Active Directory B2C in het veld Marketplace doorzoeken](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
-In the results list, select **Azure Active Directory B2C**.
+Selecteer **Azure Active Directory B2C** in de lijst met resultaten.
 
-![Azure Active Directory B2C selected in the results list](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
+![Azure Active Directory B2C geselecteerd in de lijst met resultaten](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
 
-Details about Azure Active Directory B2C are shown. To begin configuring your new Azure Active Directory B2C tenant, click the **Create** button.
+Details over Azure Active Directory B2C worden weergegeven. Klik op de knop **Maken** om de nieuwe Azure Active Directory B2C-tenant te configureren.
 
-Select **Create a new Azure AD B2C Tenant**. The settings specified in the following table use the company name Contoso as an example. You will need to provide your own organization name and a unique tenant name when creating your tenant.  
+Selecteer **Een nieuwe Azure AD B2C-tenant maken**. De instellingen die zijn opgegeven in de volgende tabel wordt de naam van het bedrijf Contoso gebruiken als voorbeeld. U moet de naam van uw eigen organisatie en een unieke tenantnaam bieden bij het maken van uw tenant.  
 
-![Azure AD B2C create tenant with sample text in the available fields](./media/active-directory-b2c-create-tenant/create-new-b2c-tenant.png)
+![Azure AD B2C-tenant maken met voorbeeldtekst in de beschikbare velden](./media/active-directory-b2c-create-tenant/create-new-b2c-tenant.png)
 
-| Setting      | Sample value  | Description                                        |
+| Instelling      | Voorbeeldwaarde  | Beschrijving                                        |
 | ------------ | ------- | -------------------------------------------------- |
-| **Organization name** | Contoso | Name of the organization. | 
-| **Initial domain name** |  ContosoB2CTenant | Domain name for the B2C tenant. By default, the initial domain name includes .onmicrosoft.com. If you are creating a test tenant, choose a non-production name such as ContosoB2CTesting. |
-| **Country or region** | United States | Choose the country or region for the directory. The directory will be created in this location and cannot be changed later.  |
+| **Naam van de organisatie** | Contoso | Voer de naam van de organisatie in. | 
+| **Initiële domeinnaam** |  ContosoB2CTenant | Domeinnaam voor de B2C-tenant. Omvat standaard de initiële domeinnaam. onmicrosoft.com. Als u een testtenant maakt, kiest u de naam van een niet-productieve zoals ContosoB2CTesting. |
+| **Land of regio** | Verenigde Staten | Kies het land of de regio voor de map. De map wordt op deze locatie gemaakt en kan later niet worden gewijzigd.  |
 
-Click the **Create** button to create your tenant. Creating the tenant may take a few minutes. You are alerted in your notifications when it is complete.
+Klik op de knop **Maken** om de tenant te maken. Het maken van de tenant kan enkele minuten duren. U wordt gewaarschuwd in uw meldingen wanneer dit is voltooid.

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3c506ee95281e1250a721a9c150bd839b4c1fcdb
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
-ms.translationtype: HT
+ms.openlocfilehash: c0145a5b5c54f5b9e3b5731d52df99c0a80fc271
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - functies en systeemvariabelen
 > [!NOTE]
@@ -59,7 +59,7 @@ U kunt functies gebruiken in gegevensfactory samen met de variabelen voor de vol
 
 1. Query's voor selectie opgeven (Zie connector artikelen waarnaar wordt verwezen door de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel.
    
-   De syntaxis voor het aanroepen van een data factory-functie is:  **$$ <function>**  voor selectie van query's en andere eigenschappen in de activiteit en gegevenssets.  
+   De syntaxis voor het aanroepen van een data factory-functie is: ** $$ <function> ** voor selectie van query's en andere eigenschappen in de activiteit en gegevenssets.  
 2. Invoer afhankelijkheden opgeven data factory-functies in activiteit invoer verzameling.
    
     $$ is niet nodig voor het opgeven van invoer afhankelijkheid expressies.     
@@ -100,7 +100,7 @@ De volgende tabellen worden de functies in Azure Data Factory:
 | Tekst |Format(X) |X: tekenreeksvariabele |Hiermee maakt u de tekst (Gebruik `\\'` combinatie escape `'` teken).|
 
 > [!IMPORTANT]
-> Wanneer u een functie binnen een andere functie, hoeft u niet te gebruiken  **$$**  voorvoegsel voor de interne functie. Bijvoorbeeld: $$Text.Format ('PartitionKey eq \\' my_pkey_filter_value\\' en RowKey ge \\' {0: jjjj-MM-dd: mm: SS}\\'', Time.AddHours (SliceStart -6)). U ziet dat in dit voorbeeld  **$$**  voorvoegsel wordt niet gebruikt voor de **Time.AddHours** functie. 
+> Wanneer u een functie binnen een andere functie, hoeft u niet te gebruiken ** $$ ** voorvoegsel voor de interne functie. Bijvoorbeeld: $$Text.Format ('PartitionKey eq \\' my_pkey_filter_value\\' en RowKey ge \\' {0: jjjj-MM-dd: mm: SS}\\'', Time.AddHours (SliceStart -6)). U ziet dat in dit voorbeeld ** $$ ** voorvoegsel wordt niet gebruikt voor de **Time.AddHours** functie. 
 
 #### <a name="example"></a>Voorbeeld
 In het volgende voorbeeld invoer- en parameters voor de Hive-activiteit worden bepaald met behulp van de `Text.Format` functie en SliceStart systeemvariabele. 

@@ -21,7 +21,7 @@
   items:
     - name: Bronnen van bewakingsgegevens
       href: monitoring-data-sources.md
-    - name: Rolmachtigingen en beveiliging
+    - name: Rolmachtigingen en -beveiliging
       href: monitoring-roles-permissions-security.md
     - name: Partnerintegraties
       href: monitoring-partners.md
@@ -124,7 +124,7 @@
       items:
         - name: Meer informatie over webhook-schema
           href: monitoring-activity-log-alerts-webhook.md
-        - name: Gedrag SMS-waarschuwingen
+        - name: Gedrag van sms-waarschuwingen
           href: monitoring-sms-alert-behavior.md
         - name: Beperking waarschuwingsaantallen
           href: monitoring-alerts-rate-limiting.md
@@ -134,6 +134,8 @@
       items:
         - name: Archiveren
           href: monitoring-archive-diagnostic-logs.md
+        - name: Verzenden naar Log Analytics
+          href: monitor-stream-diagnostic-logs-log-analytics.md
         - name: Streamen naar Event Hubs
           href: monitoring-stream-diagnostic-logs-to-event-hubs.md
         - name: Diagnostische instellingen inschakelen met Resource Manager-sjablonen
@@ -164,7 +166,7 @@
       href: /rest/api/monitor/
     - name: Ondersteunde metrische gegevens
       href: monitoring-supported-metrics.md
-    - name: 'Ondersteunde services, categorieën en schema''s voor diagnostische logboeken'
+    - name: 'Services, categorieën en schema''s voor diagnostische logboeken'
       href: monitoring-diagnostic-logs-schema.md
     - name: Gebeurtenisschema in het activiteitenlogboek
       href: monitoring-activity-log-schema.md

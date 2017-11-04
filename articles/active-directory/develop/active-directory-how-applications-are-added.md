@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 6ffcfcb7ed071a12b0b3495ad534fd00f6d6ad99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a97c6af38b1d3191447ad16a789a034a9d475422
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hoe en waarom toepassingen worden toegevoegd aan Azure AD
 Een van de in eerste instantie puzzling dingen tijdens het weergeven van een lijst met toepassingen in uw exemplaar van Azure Active Directory is het waar de toepassingen vandaan komen en waarom ze zijn er registreren.  In dit artikel biedt een hoog niveau overzicht van hoe toepassingen worden weergegeven in de map en bieden u context die u u helpt begrijpen hoe een toepassing zijn geworden in uw directory.
@@ -84,8 +84,8 @@ Toepassingen die u zelf toevoegen omvatten:
   * Claimregels voor transformatie
   * Kenmerktoewijzingen (gebruikersinrichting)
 * Voor meer gedetailleerde informatie over de service-principal en toepassingsobjecten Raadpleeg de documentatie van Azure AD Graph REST-API-verwijzing.  *Hint*: de Azure AD Graph API-documentatie het dichtstbijzijnde wat u moet een schemaverwijzing voor Azure AD dat beschikbaar is.  
-  * [Toepassing](https://msdn.microsoft.com/library/azure/dn151677.aspx)
-  * [Service-Principal](https://msdn.microsoft.com/library/azure/dn194452.aspx)
+  * [Toepassing](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [Service-Principal](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="how-are-apps-added-to-my-azure-ad-instance"></a>Hoe worden apps toegevoegd aan mijn Azure AD-exemplaar?
 Er zijn veel manieren die een app kan worden toegevoegd aan Azure AD:

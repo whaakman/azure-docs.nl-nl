@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/06/2017
+ms.date: 10/01/2017
 ms.author: maroche
-ms.openlocfilehash: 7259505b68202f3741e64e86555d2e3f968b8951
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2eab8ce96399c7d6da9b4afbccdfd8b836f0c9f3
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Wat is er nieuw in Azure Data Catalog
 Updates voor de **Azure Data Catalog** regelmatig worden vrijgegeven. Niet elke versie bevat nieuwe gebruikersgerichte functies, zoals sommige versies zijn gericht op de mogelijkheden van de back-end-service. Deze pagina licht nieuwe gebruikersgerichte mogelijkheden toegevoegd aan de service Azure Data Catalog.
@@ -239,7 +239,7 @@ Vanaf September 2015, zijn de volgende mogelijkheden toegevoegd aan Azure Data C
 * Ondersteuning voor het registreren en detectie van Azure SQL Data Warehouse-objecten en -databases. Zie voor meer informatie over Azure SQL Data Warehouse [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 * Ondersteuning voor het registreren en detectie van SQL Server Analysis Services-modellen en SQL Server Reporting Services-servers als containers. Bij het registreren van SSAS en SSRS objecten maakt Azure Data Catalog een vermelding voor de SSAS-model en de SSRS-server, en voor de rapporten en andere objecten. De containers kunnen worden gedetecteerd en aangetekend met de Azure Data Catalog-portal. Gebruikers kunnen ook zoeken en filteren van de inhoud van een model of de server naast zoeken en filteren van de inhoud van de catalogus.
 * Ondersteuning voor het registreren en het detecteren van SQL Server Analysis Services-objecten via HTTP/HTTPS. Gebruikers kunnen nu verbinding maken met de SSAS-servers met een URL (zoals https://servername/olap/msmdpump.dll) in plaats van een servernaam en basisverificatie en anonieme verbindingen naast Windows-verificatie kunnen gebruiken. Zie voor meer informatie over HTTP/HTTPS-verbindingen met SSAS [HTTP-toegang tot Analysis Services configureren](https://msdn.microsoft.com/library/gg492140.aspx).
-* Ondersteuning voor de gegevensbronnen Hive in HDInsight. Gebruikers kunnen nu worden geregistreerd en het detecteren van Hive-tabellen voor Apache Hive in Hadoop op HDInsight-gegevensbronnen. Zie voor meer informatie over Hive in HDInsight, het [HDInsight-documentatiecentrum](../hdinsight/hdinsight-use-hive.md).
+* Ondersteuning voor de gegevensbronnen Hive in HDInsight. Gebruikers kunnen nu worden geregistreerd en het detecteren van Hive-tabellen voor Apache Hive in Hadoop op HDInsight-gegevensbronnen. Zie voor meer informatie over Hive in HDInsight, het [HDInsight-documentatiecentrum](../hdinsight/hadoop/hdinsight-use-hive.md).
 * Ondersteuning voor het registreren en Oracle-databases en clusters van HDFS als containers detecteren. Bij het registreren van Oracle-tabellen en weergaven of HDFS, wordt een vermelding voor de database, tabellen en weergaven gemaakt in Azure Data Catalog. De database kan worden gedetecteerd en van aantekeningen voorzien met het Azure Data Catalog-portal. Gebruikers kunnen ook zoeken en filteren van de inhoud van een database of het cluster naast zoeken en filteren van de inhoud van de catalogus.
 * Ondersteuning voor onbekende typen gegevensbronnen handmatig registreren. Gebruikers kunnen de informatie van gegevensbron met behulp van de portal voor Azure Data Catalog, zodat de gegevensbronnen niet expliciet worden ondersteund door het registratiehulpprogramma van gegevensbronnen kunnen worden aangetekend en gedetecteerd handmatig invoeren.
 * Ondersteuning voor het registreren en detectie van SQL Server-databases als containers. Bij het registreren van SQL Server-tabellen en weergaven, wordt een vermelding voor de database, tabellen en weergaven gemaakt in Azure Data Catalog. De database kan worden gedetecteerd en van aantekeningen voorzien met het Azure Data Catalog-portal. Gebruikers kunnen ook zoeken en filteren van de inhoud van een database naast zoeken en filteren van de inhoud van de catalogus.

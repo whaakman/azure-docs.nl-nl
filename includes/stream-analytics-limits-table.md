@@ -1,11 +1,11 @@
 ---
-| Limit identifier | Limit | Comments |
+| Limiet-id | Limiet | Opmerkingen |
 | --- | --- | --- |
-| Maximum number of Streaming Units per subscription per region |200 |A request to increase streaming units for your subscription beyond 200 can be made by contacting [Microsoft Support](https://support.microsoft.com/en-us). |
-| Maximum number of inputs per job |60 |There is a hard limit of 60 inputs per Stream Analytics job. |
-| Maximum number of outputs per job |60 |There is a hard limit of 60 outputs per Stream Analytics job. |
-| Maximum number of functions per job |60 |There is a hard limit of 60 functions per Stream Analytics job. |
-| Maximum number of Streaming Units per job |120 |There is a hard limit of 120 Streaming Units per Stream Analytics job. |
-| Maximum number of jobs per region |1500 |Each subscription may have up to 1500 jobs per geographical region. |
-| Reference data blob MB | 100 | Reference data blobs cannot be larger than 100 MB each. |
+| Maximumaantal streamingeenheden per abonnement per regio |200 |Een aanvraag voor het streaming-eenheden verhogen voor uw abonnement dan 200 kan worden gemaakt contact opnemen met de [Microsoft Support](https://support.microsoft.com/en-us). |
+| Maximuminvoer per taak |60 |Er is een vaste limiet van 60 invoerwaarden per Stream Analytics-taak. |
+| Maximumuitvoer per taak |60 |Er is een vaste limiet van 60 uitvoerwaarden per Stream Analytics-taak. |
+| Maximumaantal functies per taak |60 |Er is een vaste limiet van 60 functies per Stream Analytics-taak. |
+| Maximum aantal Streaming-eenheden per taak |120 |Er is een vaste limiet van 120 Streaming-eenheden per Stream Analytics-taak. |
+| Maximumaantal taken per regio |1500 |Elk abonnement kan maximaal 1500 taken per geografische regio hebben. |
+| MB per referentiegegevens-blob | 100 | Referentiegegevens-blobs kunnen elk niet groter zijn dan 100 MB. |
 

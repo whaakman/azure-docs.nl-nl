@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: maheshu
-ms.openlocfilehash: b73bfc7703d79681f0de345f4ec994da540aa2a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc1aa4d778a6232258470fc9a58a98906c86ec7b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Implementatiescenario's en gebruik
 In deze sectie bekijken we enkele scenario's en use cases die van Azure Active Directory (AD) Domain Services profiteren.
@@ -85,4 +85,4 @@ Zie voor meer informatie over dit implementatiescenario hoe [Azure AD Domain Ser
 ## <a name="domain-joined-hdinsight-clusters-preview"></a>HDInsight-clusters domein (Preview)
 U kunt een Azure HDInsight-cluster die is gekoppeld aan een beheerd domein van Azure AD Domain Services met Apache Zwerver ingeschakeld instellen. Maken en Hive beleidsregels via Apache Zwerver en toestaan dat gebruikers (bijvoorbeeld gegevenswetenschappers) verbinding maken met Hive ODBC-hulpprogramma's, zoals Excel, Tableau enzovoort met. Microsoft werkt over het toevoegen van andere werkbelastingen verwerken, zoals HBase, Spark en Storm, aan het domein HDInsight snel.
 
-Zie voor meer informatie over dit implementatiescenario hoe [HDInsight-clusters domein configureren](../hdinsight/hdinsight-domain-joined-configure.md)
+Zie voor meer informatie over dit implementatiescenario hoe [HDInsight-clusters domein configureren](../hdinsight/domain-joined/apache-domain-joined-configure.md)

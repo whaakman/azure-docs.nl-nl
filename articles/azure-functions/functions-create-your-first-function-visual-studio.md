@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 016179372d69dc63f5e5226723d87ac6e74b31fd
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: aeac4feaeea376ae5231d9c24d44d94f8132af42
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Uw eerste functie maken met Visual Studio
 
@@ -35,12 +35,10 @@ In dit onderwerp leert u hoe u met de Visual Studio 2017 hulpprogramma's voor Az
 
 Voor deze zelfstudie installeert u het volgende:
 
-* [Visual Studio 2017 versie 15,3](https://www.visualstudio.com/vs/preview/) of een latere versie, met inbegrip van de **ontwikkelen van Azure** werkbelasting.
+* [Visual Studio 2017 versie 15,4](https://www.visualstudio.com/vs/) of een latere versie, met inbegrip van de **ontwikkelen van Azure** werkbelasting.
 
     ![Visual Studio 2017 installeren met de Azure-ontwikkelworkload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
     
-[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
 ## <a name="create-an-azure-functions-project-in-visual-studio"></a>Een Azure Functions-project in Visual Studio maken
@@ -51,9 +49,9 @@ Nu u het project hebt gemaakt, kunt u uw eerste functie maken.
 
 ## <a name="create-the-function"></a>De functie maken
 
-1. Klik in **Solution Explorer** met de rechtermuisknop op het projectknooppunt en selecteer  > **Nieuw item****Toevoegen**. Selecteer **Azure-functie** en klik op **Toevoegen**.
+1. Klik in **Solution Explorer** met de rechtermuisknop op het projectknooppunt en selecteer  > **Nieuw item****Toevoegen**. Selecteer **Azure-functie**, voer `HttpTriggerCSharp.cs` voor **naam**, en klik op **toevoegen**.
 
-2. Selecteer **HttpTrigger**, typ een **Functienaam**, selecteer **Anoniem** bij **Toegangsrechten** en klik op **Maken**. De gemaakte functie wordt geopend door een HTTP-aanvraag vanaf een client. 
+2. Selecteer **HttpTrigger**, selecteer **anoniem** voor **toegangsrechten**, en klik op **OK**. De gemaakte functie wordt geopend door een HTTP-aanvraag vanaf een client. 
 
     ![Een nieuwe Azure-functie maken](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 

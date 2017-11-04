@@ -1,131 +1,131 @@
-# <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Use infrastructure automation tools with virtual machines in Azure
-To create and manage Azure virtual machines (VMs) in a consistent manner at scale, some form of automation is typically desired. There are many tools and solutions that allow you to automate the complete Azure infrastructure deployment and management lifecycle. This article introduces some of the infrastructure automation tools that you can use in Azure. These tools commonly fit in to one of the following approaches:
+# <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Infrastructuur automatiseringsprogramma's gebruiken met virtuele machines in Azure
+Als u wilt maken en beheren van virtuele Azure-machines (VM's) in een consistente, geschaalde manier, is een vorm van automatisering doorgaans gewenst. Er zijn veel hulpprogramma's en oplossingen waarmee u kunt de implementatie van de volledige Azure-infrastructuur en het levenscyclusbeheer van automatiseren. Dit artikel bevat enkele van de infrastructuur automatiseringsprogramma's die u in Azure gebruiken kunt. Deze hulpprogramma's passend vaak een van de volgende methoden:
 
-- Automate the configuration of VMs
-    - Tools include [Ansible](#ansible), [Chef](#chef), and [Puppet](#puppet).
-    - Tools specific to VM customization include [cloud-init](#cloud-init) for Linux VMs, [PowerShell Desired State Configuration (DSC)](#powershell-dsc), and the [Azure Custom Script Extension](#azure-custom-script-extension) for all Azure VMs.
+- De configuratie van virtuele machines automatiseren
+    - De volgende hulpprogramma [Ansible](#ansible), [Chef](#chef), en [Puppet](#puppet).
+    - Hulpprogramma's die specifiek zijn voor aanpassing van de VM zijn [cloud init](#cloud-init) voor Linux VM's [PowerShell Desired State Configuration (DSC)](#powershell-dsc), en de [Azure aangepaste Scriptextensie](#azure-custom-script-extension) voor alle Virtuele machines in Azure.
  
-- Automate infrastructure management
-    - Tools include [Packer](#packer) to automate custom VM image builds, and [Terraform](#terraform) to automate the infrastructure build process.
-    - [Azure Automation](#azure-automation) can perform actions across your Azure and on-prem infrastructure.
+- Beheer van infrastructuur automatiseren
+    - De volgende hulpprogramma [verpakker](#packer) voor het automatiseren van aangepaste VM image te maken, en [Terraform](#terraform) voor het automatiseren van de procedure voor het maken van de infrastructuur.
+    - [Azure Automation](#azure-automation) acties kunnen uitvoeren in uw Azure- en on-premises infrastructuur.
 
-- Automate application deployment and delivery
-    - Examples include [Visual Studio Team Services](#visual-studio-team-services) and [Jenkins](#jenkins).
+- Implementatie van de toepassing en levering automatiseren
+    - Voorbeelden zijn onder meer [Visual Studio Team Services](#visual-studio-team-services) en [Jenkins](#jenkins).
 
 
 ## <a name="ansible"></a>Ansible
-[Ansible](https://www.ansible.com/) is an automation engine for configuration management, VM creation, or application deployment. Ansible uses an agent-less model, typically with SSH keys, to authenticate and manage target machines. Configuration tasks are defined in runbooks, with a number of Ansible modules available to carry out specific tasks. For more information, see [How Ansible works](https://www.ansible.com/how-ansible-works).
+[Ansible](https://www.ansible.com/) is een automatiseringsengine voor het beheer van de configuratie of maken van VM-toepassingsimplementatie. Ansible maakt gebruik van een agent minder, meestal met SSH-sleutels, om te verifiëren en beheren van de doelmachines. Configuratietaken zijn gedefinieerd in runbooks, met een aantal Ansible modules beschikbaar specifieke taken uit te voeren. Zie voor meer informatie [hoe Ansible werkt](https://www.ansible.com/how-ansible-works).
 
-Learn how to:
+Leer hoe u het volgende doet:
 
-- [Install and configure Ansible on Linux for use with Azure](../articles/virtual-machines/linux/ansible-install-configure.md).
-- [Create a basic VM](../articles/virtual-machines/linux/ansible-create-vm.md).
-- [Create a complete VM environment including supporting resources](../articles/virtual-machines/linux/ansible-create-complete-vm.md).
+- [Installeren en configureren van Ansible op Linux voor gebruik met Azure](../articles/virtual-machines/linux/ansible-install-configure.md).
+- [Maak een basic VM](../articles/virtual-machines/linux/ansible-create-vm.md).
+- [Maakt een complete VM-omgeving met inbegrip van ondersteunende resources](../articles/virtual-machines/linux/ansible-create-complete-vm.md).
 
 
 ## <a name="chef"></a>Chef
-[Chef](https://www.chef.io/) is an automation platform that helps define how your infrastructure is configured, deployed, and managed. Additional components included Chef Habitat for application lifecycle automation rather than the infrastructure, and Chef InSpec that helps automate compliance with security and policy requirements. Chef Clients are installed on target machines, with one or more central Chef Servers that store and manage the configurations. For more information, see [An Overview of Chef](https://docs.chef.io/chef_overview.html).
+[Chef](https://www.chef.io/) is een automatiseringsplatform die helpt bepalen hoe uw infrastructuur is geconfigureerd, geïmplementeerd en beheerd. Extra onderdelen opgenomen Chef Habitat voor automatisering van de levenscyclus van toepassingen in plaats van de infrastructuur en Chef inspectie mogelijk die helpt het automatiseren van naleving van de beveiligings- en vereisten. Chef-Clients worden geïnstalleerd op de doelmachines met een of meer centrale Chef-Servers die opslaan en beheren van de configuraties. Zie voor meer informatie [een overzicht van Chef](https://docs.chef.io/chef_overview.html).
 
-Learn how to:
+Leer hoe u het volgende doet:
 
-- [Deploy Chef Automate from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview).
-- [Install Chef on Windows and create Azure VMs](../articles/virtual-machines/windows/chef-automation.md).
+- [Chef implementeren vanuit Azure Marketplace automatiseren](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview).
+- [Chef installeren op Windows en maken van Azure Virtual machines](../articles/virtual-machines/windows/chef-automation.md).
 
 
 ## <a name="puppet"></a>Puppet
-[Puppet](https://www.puppet.com) is an enterprise-ready automation platform that handles the application delivery and deployment process. Agents are installed on target machines to allow Puppet Master to run manifests that define the desired configuration of the Azure infrastructure and VMs. Puppet can integrate with other solutions such as Jenkins and GitHub for an improved devops workflow. For more information, see [How Puppet works](https://puppet.com/product/how-puppet-works).
+[Puppet](https://www.puppet.com) is een automatiseringsplatform voor enterprise-ready die verantwoordelijk is voor het proces voor levering en implementatie van toepassing. Agents zijn geïnstalleerd op de doelmachines om toe te staan, Puppet-Master om uit te voeren manifesten die de gewenste configuratie van de Azure-infrastructuur bepalen en virtuele machines. Puppet kunt integreren met andere oplossingen zoals Jenkins en GitHub voor een verbeterde devops-werkstroom. Zie voor meer informatie [hoe Puppet werkt](https://puppet.com/product/how-puppet-works).
 
-Learn how to:
+Leer hoe u het volgende doet:
 
-- [Deploy Puppet from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2016-1?tab=Overview).
+- [Puppet vanuit Azure Marketplace implementeren](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2016-1?tab=Overview).
 
 
-## <a name="cloud-init"></a>Cloud-init
-[Cloud-init](https://cloudinit.readthedocs.io) is a widely used approach to customize a Linux VM as it boots for the first time. You can use cloud-init to install packages and write files, or to configure users and security. As cloud-init runs during the initial boot process, there are no additional steps or required agents to apply your configuration.
+## <a name="cloud-init"></a>cloud-init
+[Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud init gebruiken voor het installeren van pakketten en bestanden schrijven of om gebruikers en beveiliging te configureren. Als de initialisatie van de cloud wordt uitgevoerd tijdens het opstartproces, zijn er geen extra stappen of vereist agents naar uw configuratie toe te passen.
 
-Cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead, you define a list of packages to install. Cloud-init automatically uses the native package management tool for the distro you select.
+Cloud-init werkt ook via distributies. Bijvoorbeeld, u niet gebruikt **apt get-installatie** of **yum installeren** om een pakket te installeren. In plaats daarvan kunt u een lijst met pakketten installeren definiëren. Het hulpprogramma voor systeemeigen pakket cloud init automatisch gebruikt voor de distro die u selecteert.
 
-We are working with our partners to get cloud-init included and working in the images that they provide to Azure. The following table outlines the current cloud-init availability on Azure platform images:
+We werken met onze partners ophalen van cloud-init opgenomen en in de afbeeldingen die ze naar Azure bieden werkt. De volgende tabel geeft een overzicht van de huidige beschikbaarheid van de cloud init op Azure-platform installatiekopieën:
 
-| Alias | Publisher | Offer | SKU | Version |
+| Alias | Uitgever | Aanbieding | SKU | Versie |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |latest |
-| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |latest |
-| CoreOS |CoreOS |CoreOS |Stable |latest |
+| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |meest recente |
+| UbuntuLTS |Canonical |UbuntuServer |16.04 TNS |meest recente |
+| CoreOS |CoreOS |CoreOS |Stabiel |meest recente |
 
-Learn how to:
+Leer hoe u het volgende doet:
 
-- [Customize a Linux VM with cloud-init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
+- [Aanpassen van een Linux-VM met cloud-init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC
-[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) is a management platform to define the configuration of target machines. DSC can also be used on Linux through the [Open Management Infrastructure (OMI) server](https://collaboration.opengroup.org/omi/).
+[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) is een beheerplatform voor het definiëren van de configuratie van de doelcomputers. DSC kan ook worden gebruikt op Linux via de [Open Management Infrastructure (OMI) server](https://collaboration.opengroup.org/omi/).
 
-DSC configurations define what to install on a machine and how to configure the host. A Local Configuration Manager (LCM) engine runs on each target node that processes requested actions based on pushed configurations. A pull server is a web service that runs on a central host to store the DSC configurations and associated resources. The pull server communicates with the LCM engine on each target host to provide the required configurations and report on compliance.
+DSC-configuraties definiëren wat u wilt installeren op een computer en het configureren van de host. Een lokale Configuration Manager (LCM)-engine wordt uitgevoerd op elk doelknooppunt waarmee aangevraagde acties op basis van pushed configuraties worden verwerkt. Een pull-server is een webservice die wordt uitgevoerd op een centrale host voor het opslaan van de DSC-configuraties en de bijbehorende bronnen. De pull-server communiceert met de engine LCM op elke doelhost voor de vereiste configuraties bieden en rapporteren van naleving.
 
-Learn how to:
+Leer hoe u het volgende doet:
 
-- [Create a basic DSC configuration](https://msdn.microsoft.com/powershell/dsc/quickstart).
-- [Configure a DSC pull server](https://msdn.microsoft.com/powershell/dsc/pullserver).
-- [Use DSC for Linux](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted).
-
-
-## <a name="azure-custom-script-extension"></a>Azure Custom Script Extension
-The Azure Custom Script Extension for [Linux](../articles/virtual-machines/linux/extensions-customscript.md) or [Windows](../articles/virtual-machines/windows/extensions-customscript.md) downloads and executes scripts on Azure VMs. You can use the extension when you create a VM, or any time after the VM is in use. 
-
-Scripts can be downloaded from Azure storage or any public location such as a GitHub repository. With the Custom Script Extension, you can write scripts in any language that runs on the source VM. These scripts can be used to install applications or configure the VM as desired. To secure credentials, sensitive information such as passwords can be stored in a protected configuration. These credentials are only decrypted inside the VM.
-
-Learn how to:
-
-- [Create a Linux VM with the Azure CLI and use the Custom Script Extension](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json).
-- [Create a Windows VM with Azure PowerShell and use the Custom Script Extension](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+- [Maak een DSC-basisconfiguratie](https://msdn.microsoft.com/powershell/dsc/quickstart).
+- [Een DSC-pull-server configureren](https://msdn.microsoft.com/powershell/dsc/pullserver).
+- [Gebruik van DSC voor Linux](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted).
 
 
-## <a name="packer"></a>Packer
-[Packer](https://www.packer.io) automates the build process when you create a custom VM image in Azure. You use Packer to define the OS and run post-configuration scripts that customize the VM for your specific needs. Once configured, the VM is then captured as a Managed Disk image. Packer automates the process to create the source VM, network and storage resources, run configuration scripts, and then create the VM image.
+## <a name="azure-custom-script-extension"></a>Extensie voor aangepaste scripts Azure
+De extensie Azure aangepaste scripts voor [Linux](../articles/virtual-machines/linux/extensions-customscript.md) of [Windows](../articles/virtual-machines/windows/extensions-customscript.md) worden gedownload en scripts uitgevoerd op Azure Virtual machines. U kunt de uitbreiding kunt gebruiken wanneer u een virtuele machine maken of elk gewenst moment na de virtuele machine gebruikt wordt. 
 
-Learn how to:
+Scripts kunnen worden gedownload vanuit Azure-opslag of een openbare locatie zoals een GitHub-opslagplaats. Met de extensie voor aangepaste scripts, kunt u scripts schrijven in elke taal die wordt uitgevoerd op de bron-VM. Deze scripts kunnen worden gebruikt voor toepassingen installeren of de virtuele machine naar wens configureren. Als u wilt beveiligen referenties, kan gevoelige informatie, zoals wachtwoorden worden opgeslagen in een beveiligde configuratie. Deze referenties worden alleen ontsleuteld in de virtuele machine.
 
-- [Use Packer to create a Linux VM image in Azure](../articles/virtual-machines/linux/build-image-with-packer.md).
-- [Use Packer to create a Windows VM image in Azure](../articles/virtual-machines/windows/build-image-with-packer.md).
+Leer hoe u het volgende doet:
+
+- [Maak een Linux-VM met de Azure CLI en gebruiken van de aangepaste Scriptextensie](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json).
+- [Een virtuele Windows-machine maken met Azure PowerShell en gebruiken van de aangepaste Scriptextensie](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+
+
+## <a name="packer"></a>Verpakker
+[Verpakker](https://www.packer.io) automatiseert de build wanneer u een aangepaste installatiekopie van de virtuele machine in Azure maakt. U verpakker gebruiken voor het definiëren van het besturingssysteem en na configuratie scripts uitvoeren die voor het aanpassen van de virtuele machine voor uw specifieke behoeften. Zodra geconfigureerd, wordt de virtuele machine vervolgens vastgelegd als een beheerde schijf-installatiekopie. Verpakker automatiseert het proces voor het maken van de bron VM-, netwerk-en opslagbronnen, configuratiescripts uitvoeren en maak vervolgens een installatiekopie van de virtuele machine.
+
+Leer hoe u het volgende doet:
+
+- [Verpakker gebruiken voor het maken van een Linux-VM-installatiekopie in Azure](../articles/virtual-machines/linux/build-image-with-packer.md).
+- [Verpakker gebruiken voor het maken van een virtuele machine van Windows-installatiekopie in Azure](../articles/virtual-machines/windows/build-image-with-packer.md).
 
 
 ## <a name="terraform"></a>Terraform
-[Terraform](https://www.terraform.io) is an automation tool that allows you to define and create an entire Azure infrastructure with a single template format language - the HashiCorp Configuration Language (HCL). With Terraform, you define templates that automate the process to create network, storage, and VM resources for a given application solution. You can use your existing Terraform templates for other platforms with Azure to ensure consistency and simplify the infrastructure deployment without needing to convert to an Azure Resource Manager template.
+[Terraform](https://www.terraform.io) is een automation-hulpprogramma waarmee u definieert en maakt u een volledige Azure-infrastructuur met een bepaalde sjabloon indelingstaal - de HashiCorp configuratie taal (lijst met compatibele hardware). Met Terraform definieert u de sjablonen die het proces voor het maken van netwerk-, opslag- en VM-netwerkbronnen voor een bepaalde toepassing oplossing automatiseren. U kunt uw bestaande Terraform sjablonen gebruiken voor andere platforms met Azure consistentie te garanderen en de implementatie van de infrastructuur vereenvoudigen zonder converteren naar een Azure Resource Manager-sjabloon.
 
-Learn how to:
+Leer hoe u het volgende doet:
 
-- [Install and configure Terraform with Azure](../articles/virtual-machines/linux/terraform-install-configure.md).
-- [Create an Azure infrastructure with Terraform](../articles/virtual-machines/linux/terraform-create-complete-vm.md).
+- [Installeer en configureer Terraform met Azure](../articles/virtual-machines/linux/terraform-install-configure.md).
+- [Maken van een Azure-infrastructuur met Terraform](../articles/virtual-machines/linux/terraform-create-complete-vm.md).
 
 
 ## <a name="azure-automation"></a>Azure Automation
-[Azure Automation](https://azure.microsoft.com/services/automation/) uses runbooks to process a set of tasks on the VMs you target. Azure Automation is used to manage existing VMs rather than to create an infrastructure. Azure Automation can run across both Linux and Windows VMs, as well as on-prem virtual or physical machines with a hybrid runbook worker. Runbooks can be stored in a source control repository, such as GitHub. These runbooks can then run manually or on a defined schedule.
+[Azure Automation](https://azure.microsoft.com/services/automation/) runbooks gebruikt om te verwerken van een set taken op de virtuele machines is gericht. Azure Automation wordt gebruikt voor het beheren van bestaande virtuele machines in plaats van te maken van een infrastructuur. Azure Automation kan worden uitgevoerd op zowel Linux en Windows-VM's, evenals on-premises virtuele of fysieke machines met een hybride runbook worker. Runbooks kunnen worden opgeslagen in een resourcebeheerbibliotheek zoals GitHub. Deze runbooks kunnen vervolgens handmatig uitvoeren of volgens een ingesteld schema.
 
-Azure Automation also provides a Desired State Configuration (DSC) service that allows you to create definitions for how a given set of VMs should be configured. DSC then ensures that the required configuration is applied and the VM stays consistent. Azure Automation DSC runs on both Windows and Linux machines.
+Azure Automation biedt ook een Desired State Configuration (DSC)-service die u maken van de definities kunt voor hoe een bepaalde set van virtuele machines moet worden geconfigureerd. DSC zorgt er daarna dat de vereiste configuratie wordt toegepast en de virtuele machine consistent blijft. Azure Automation DSC wordt uitgevoerd op Windows- en Linux-machines.
 
-Learn how to:
+Leer hoe u het volgende doet:
 
-- [Create a PowerShell runbook](../articles/automation/automation-first-runbook-textual-powershell.md).
-- [Use Hybrid Runbook Worker to manage on-prem resources](../articles/automation/automation-hybrid-runbook-worker.md).
-- [Use Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md).
+- [Maken van een PowerShell-runbook](../articles/automation/automation-first-runbook-textual-powershell.md).
+- [Hybride Runbook Worker gebruiken om on-premises resources te beheren](../articles/automation/automation-hybrid-runbook-worker.md).
+- [Gebruik Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md).
 
 
 ## <a name="visual-studio-team-services"></a>Visual Studio Team Services
-[Team Services](https://www.visualstudio.com/team-services/) is a suite of tools that help you share and track code, use automated builds, and create a complete continuous integration and development (CI/CD) pipeline. Team Services integrates with Visual Studio and other editors to simplify usage. Team Services can also create and configure Azure VMs and then deploy code to them.
+[Services in een team](https://www.visualstudio.com/team-services/) is een suite met hulpprogramma's die u helpen te delen en bijhouden code, geautomatiseerde builds gebruiken en een volledige continue integratie en ontwikkeling (CI/CD) pijplijn maken. Teamservices kan worden geïntegreerd met Visual Studio en andere editors gebruik vereenvoudigen. Teamservices kunnen ook maken en Azure VM's configureren en vervolgens implementeert code toe.
 
-Learn how to:
+Leer hoe u het volgende doet:
 
-- [Create a continuous integration pipeline with Team Services](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
+- [Een continue integratie-pijplijn maken met het Team Services](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
 
 
 ## <a name="jenkins"></a>Jenkins
-[Jenkins](https://www.jenkins.io) is a continuous integration server that helps deploy and test applications, and create automated pipelines for code delivery. There are hundreds of plugins to extend the core Jenkins platform, and you can also integrate with many other products and solutions through webhooks. You can manually install Jenkins on an Azure VM, run Jenkins from within a Docker container, or use a pre-built Azure Marketplace image.
+[Jenkins](https://www.jenkins.io) is een continue integratie-server die u kunt implementeren en testen van toepassingen en geautomatiseerde pijplijnen voor de levering van code maken. Er zijn honderden invoegtoepassingen uit te breiden het Jenkins-kernplatform en u kunt ook integreren met veel andere producten en oplossingen via webhooks. U kunt handmatig Jenkins installeren op een virtuele machine in Azure, Jenkins van uitgevoerd binnen een Docker-container of een vooraf samengestelde Azure Marketplace-installatiekopie gebruiken.
 
-Learn how to:
+Leer hoe u het volgende doet:
 
-- [Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker](../articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md).
+- [Een infrastructuur ontwikkeling maken op een Linux-VM in Azure met Jenkins, GitHub en Docker](../articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md).
 
 
-## <a name="next-steps"></a>Next steps
-There are many different options to use infrastructure automation tools in Azure. You have the freedom to use the solution that best fits your needs and environment. To get started and try some of the tools built-in to Azure, see how to automate the customization of a [Linux](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md) or [Windows](../articles/virtual-machines/windows/tutorial-automate-vm-deployment.md) VM.
+## <a name="next-steps"></a>Volgende stappen
+Er zijn diverse opties beschikbaar voor gebruik van infrastructuur automatiseringsprogramma's in Azure. U hebt de vrijheid welke oplossing het beste past bij uw behoeften en omgeving gebruiken. Om aan de slag en probeert enkele van de hulpprogramma's voor ingebouwde naar Azure, informatie over het automatiseren van het aanpassen van een [Linux](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md) of [Windows](../articles/virtual-machines/windows/tutorial-automate-vm-deployment.md) VM.

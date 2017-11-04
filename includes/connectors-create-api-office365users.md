@@ -1,16 +1,16 @@
-### <a name="prerequisites"></a>Prerequisites
-* An [Office 365 Users](https://office365.com) account  
+### <a name="prerequisites"></a>Vereisten
+* Een [Office 365-gebruikers](https://office365.com) account  
 
-Before you can use your Office 365 Users account in a Logic app, you must authorize the Logic app to connect to your Office 365 Users account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  
+Voordat u uw gebruikers van Office 365-account in een logische app gebruiken kunt, moet u de logische app verbinding maken met het account van uw Office 365-gebruikers machtigen. U kunt dit eenvoudig vanuit gelukkig doen in uw logische app in de Azure Portal.  
 
-Here are the steps to authorize your Logic app to connect to your Office 365 Users account:  
+Hier volgen de stappen voor het autoriseren van uw logische app verbinding maken met uw gebruikers van Office 365-account:  
 
-1. To create a connection to Office 365 Users, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Office 365 Users* in the search box. Select the trigger or action you'll like to use:  
-   ![Office 365 Users connection creation step](./media/connectors-create-api-office365users/office365users-1.png)  
-2. If you haven't created any connections to Office 365 Users before, you'll get prompted to provide your Office 365 Users credentials. These credentials will be used to authorize your Logic app to connect to, and access your Office 365 Users account's data:  
-   ![Office 365 Users connection creation step](./media/connectors-create-api-office365users/office365users-2.png)  
-3. Provide your Office 365 Users user name and password to authorize your Logic app:  
-   ![Office 365 Users connection creation step](./media/connectors-create-api-office365users/office365users-3.png)  
-4. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-   ![Office 365 Users connection creation step](./media/connectors-create-api-office365users/office365users-4.png)  
+1. Voor het maken van een verbinding met Office 365-gebruikers in de ontwerpfunctie voor Logic app selecteert **beheerde API's van Microsoft weergeven** Voer in de vervolgkeuzelijst *Office 365-gebruikers* in het zoekvak. Selecteer de trigger of je actie moet worden gebruikt:  
+   ![Stap voor Office 365 gebruikers verbinding maken](./media/connectors-create-api-office365users/office365users-1.png)  
+2. Als u verbindingen met Office 365-gebruikers voordat u dit nog niet hebt gemaakt, hebt u wordt gevraagd de referenties van uw Office 365-gebruikers op te geven. Deze referenties worden gebruikt voor het autoriseren van uw logische app verbinding maken met en toegang tot gegevens van de account van uw Office 365-gebruikers:  
+   ![Stap voor Office 365 gebruikers verbinding maken](./media/connectors-create-api-office365users/office365users-2.png)  
+3. Geef uw gebruikers van Office 365-gebruikersnaam en wachtwoord voor het autoriseren van uw logische app:  
+   ![Stap voor Office 365 gebruikers verbinding maken](./media/connectors-create-api-office365users/office365users-3.png)  
+4. U ziet de verbinding is gemaakt en u bent nu vrij om door te gaan met de overige stappen in uw logische app:  
+   ![Stap voor Office 365 gebruikers verbinding maken](./media/connectors-create-api-office365users/office365users-4.png)  
 

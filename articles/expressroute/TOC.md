@@ -19,15 +19,15 @@
 ## Een circuit maken en wijzigen
 ### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-circuit-arm.md)
-### [Azure-CLI](howto-circuit-cli.md)
+### [Azure CLI](howto-circuit-cli.md)
 ## Een peeringconfiguratie maken en wijzigen
 ### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-routing-arm.md)
-### [Azure-CLI](howto-routing-cli.md)
+### [Azure CLI](howto-routing-cli.md)
 ## Een virtueel netwerk koppelen aan een ExpressRoute-circuit
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
-### [Azure-CLI](howto-linkvnet-cli.md)
+### [Azure CLI](howto-linkvnet-cli.md)
 ## Een virtuele netwerkgateway configureren voor ExpressRoute
 ### [Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
@@ -35,12 +35,13 @@
 ## Routefilters voor Microsoft-peering configureren
 ### [Azure Portal](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
-### [Azure-CLI](how-to-routefilter-cli.md)
+### [Azure CLI](how-to-routefilter-cli.md)
 ## [Een circuit van klassiek naar Resource Manager verplaatsen](expressroute-howto-move-arm.md)
 ## [Gekoppelde virtuele netwerken van het klassieke model naar Resource Manager migreren](expressroute-migration-classic-resource-manager.md)
 ## Een router voor ExpressRoute configureren
 ### [Een router configureren](expressroute-config-samples-routing.md)
 ### [Voorbeelden van routerconfiguraties voor NAT](expressroute-config-samples-nat.md)
+## [Netwerkprestatiemeter configureren voor ExpressRoute](how-to-npm.md)
 
 ## Beste praktijken
 ### [Aanbevolen procedures voor netwerkbeveiliging en cloudservices](../best-practices-network-security.md)
@@ -55,7 +56,7 @@
 
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
-## [Azure-CLI](/cli/azure/network/express-route)
+## [Azure CLI](/cli/azure/network/express-route)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (klassiek)](https://msdn.microsoft.com/library/azure/dn606310)
 

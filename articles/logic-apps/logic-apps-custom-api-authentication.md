@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 6ccd8728697040b4c783d8a1e51bc68c09ef7001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2528f4318d92bbfdc1008795876f0240a5e3e4f6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>Aanroepen van uw aangepaste API's vanuit logic apps beveiligen
 
@@ -49,7 +49,7 @@ Hier volgen de algemene stappen voor deze methode:
 
 #### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Deel 1: Een Azure AD-toepassings-id voor uw logische app maken
 
-Uw logische app gebruikt deze identiteit van de toepassing Azure AD om te verifiëren met Azure AD. U hebt alleen voor het instellen van deze identiteit voor uw directory. Bijvoorbeeld, kunt u met dezelfde identiteit voor alle logic apps, zelfs als u de unieke id's voor elke logische app kunt maken. U kunt deze identiteiten in de Azure portal instellen [klassieke Azure-portal](#app-identity-logic-classic), of gebruik [PowerShell](#powershell).
+Uw logische app gebruikt deze identiteit van de toepassing Azure AD om te verifiëren met Azure AD. U hebt alleen voor het instellen van deze identiteit voor uw directory. Bijvoorbeeld, kunt u met dezelfde identiteit voor alle logic apps, zelfs als u de unieke id's voor elke logische app kunt maken. U kunt deze identiteiten in de Azure portal instellen of [PowerShell](#powershell).
 
 **De toepassings-id voor uw logische app maken in de Azure portal**
 
@@ -94,34 +94,6 @@ Uw logische app gebruikt deze identiteit van de toepassing Azure AD om te verifi
 
    ![Kopieer en sleutel opslaan voor later](./media/logic-apps-custom-api-authentication/logic-app-copy-key-secret-password.png)
 
-<a name="app-identity-logic-classic"></a>
-
-**De toepassings-id voor uw logische app maken in de klassieke Azure portal**
-
-1. Kies in de klassieke Azure portal [ **Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
-
-2. De directory selecteren die u voor uw web-app of API-app gebruikt.
-
-3. Op de **toepassingen** Kies **toevoegen** aan de onderkant van de pagina.
-
-4. Geef een naam op voor de toepassingsidentiteit van uw en kies **volgende** (pijl naar rechts).
-
-5. Onder **App-eigenschappen**, Geef een unieke tekenreeks die is opgemaakt als een domein voor **aanmeldings-URL** en **App ID URI**, en kies **Complete** (vinkje).
-
-6. Op de **configureren** tabblad-, kopieer- en sla de **Client-ID** voor uw logische app in deel 3 gebruiken.
-
-7. Onder **sleutels**, open de **Selecteer duur** lijst. Selecteer een duur voor de sleutel.
-
-   De sleutel die u maakt, fungeert als de toepassings-id 'de geheime' of het wachtwoord voor uw logische app.
-
-8. Kies aan de onderkant van de pagina **opslaan**. U moet wellicht wacht een paar seconden.
-
-9. Onder **sleutels**, zorg ervoor dat u kopiëren en opslaan van de sleutel die nu wordt weergegeven. 
-
-   Wanneer u uw logische app in deel 3 configureert, kunt u deze sleutel als de 'geheim' of het wachtwoord opgeven.
-
-Informatie voor meer informatie over hoe [uw App Service toepassing configureren voor gebruik Azure Active Directory-aanmelding](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
-
 <a name="powershell"></a>
 
 **De toepassings-id voor uw logische app maken in PowerShell**
@@ -156,7 +128,7 @@ Als uw web-app of API-app al is geïmplementeerd, kunt u verificatie inschakelen
 
 4. Op de **verificatie / autorisatie** pagina **opslaan**.
 
-U moet nu de client-ID en tenant-ID vinden voor de identiteit die is gekoppeld aan uw web-app of API-app. U gebruikt deze id in deel 3. Dus doorgaan met deze stappen voor de Azure portal of [klassieke Azure-portal](#find-id-classic).
+U moet nu de client-ID en tenant-ID vinden voor de identiteit die is gekoppeld aan uw web-app of API-app. U gebruikt deze id in deel 3. Zo kunt u doorgaan met deze stappen voor de Azure-portal.
 
 **De client-ID en het tenant-ID toepassings-id vinden voor uw web-app of API-app in de Azure portal**
 
@@ -177,32 +149,6 @@ U moet nu de client-ID en tenant-ID vinden voor de identiteit die is gekoppeld a
 
 5. Zonder uw wijzigingen worden opgeslagen, sluit u de **Azure Active Directory-instellingen** pagina.
 
-<a name="find-id-classic"></a>
-
-**De client-ID en de tenant-ID toepassings-id vinden voor uw web-app of API-app in de klassieke Azure portal**
-
-1. Kies in de klassieke Azure portal [ **Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
-
-2.  Selecteer de map die u voor uw web-app of API-app gebruikt.
-
-3. In de **Search** , zoeken en kiest u de toepassings-id voor uw web-app of API-app.
-
-4. Op de **configureren** tabblad, kopieert u de **Client-ID**, en sla deze GUID voor gebruik in deel 3.
-
-5. Nadat u de client-ID aan de onderkant van de **configureren** Kies **eindpunten weergeven**.
-
-6. Kopieer de URL voor **Document met federatieve metagegevens**, en Ga naar deze URL.
-
-7. Zoek in het metagegevensdocument dat wordt geopend, naar de hoofdmap **EntityDescriptor ID** -element, wat is een **id van de entiteit** kenmerk in dit formulier:`https://sts.windows.net/{GUID}` 
-
-   De GUID in dit kenmerk is van de tenant van uw specifieke GUID (tenant-ID).
-
-8. De tenant-ID kopiëren en opslaan die ID voor gebruik in deel 3 en gebruiken in uw web-app of sjabloon API-app-implementatie, indien nodig.
-
-Zie de volgende onderwerpen voor meer informatie:
-
-* [Verificatie en autorisatie in Azure App Service](../app-service/app-service-authentication-overview.md)
-
 <a name="authen-deploy"></a>
 
 **Verificatie inschakelen wanneer u met een Azure Resource Manager-sjabloon implementeren**
@@ -212,7 +158,7 @@ U moet nog steeds een Azure AD-toepassings-id voor uw web-app of API-app die ver
 U kunt ook de stappen in deel 1 maar zorg ervoor dat u het gebruik van uw web-app of API-app werkelijke `https://{URL}` voor **aanmeldings-URL** en **App ID URI**. U hebt de client-ID en de tenant-ID voor gebruik in uw app implementatiesjabloon en ook voor deel 3 opslaan van deze stappen.
 
 > [!NOTE]
-> Wanneer u de Azure AD-toepassings-id voor uw web-app of API-app maakt, moet u de Azure-portal of klassieke Azure-portal, in plaats van PowerShell. De PowerShell-cmdlet instellen niet de vereiste machtigingen voor gebruikers zich aanmelden bij een website.
+> Wanneer u de Azure AD-toepassings-id voor uw web-app of API-app maakt, moet u de Azure-portal, niet PowerShell gebruiken. De PowerShell-cmdlet instellen niet de vereiste machtigingen voor gebruikers zich aanmelden bij een website.
 
 Nadat u de client-ID en tenant-ID hebt ontvangen, moet u deze id opnemen als een subresource van uw web-app of API-app in de implementatiesjabloon voor:
 

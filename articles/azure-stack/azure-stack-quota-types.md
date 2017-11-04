@@ -1,6 +1,6 @@
 ---
-title: Quota types in Azure Stack | Microsoft Docs
-description: Review the different quota types available for services and resources in Azure Stack.
+title: Quotatypen in Azure-Stack | Microsoft Docs
+description: Bekijk de voor verschillende quotatypen beschikbaar voor services en bronnen in Azure-Stack.
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,53 +14,54 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/23/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 9c65abd596b1a67175a4f91558c318f16ddbb11f
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/24/2017
-
+ms.openlocfilehash: d9bb048ece32bf5b34e05d7459488aa0f24d0d44
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="quota-types-in-azure-stack"></a>Quota types in Azure Stack
-[Quotas](azure-stack-plan-offer-quota-overview.md#plans) define the limits of resources that a user subscription can provision or consume. For example, a quota might allow a user to create up to five VMs. Each resource can have its own types of quotas.
+# <a name="quota-types-in-azure-stack"></a>Quotatypen in Azure-Stack
 
-## <a name="compute-quota-types"></a>Compute quota types
-| **Type** | **Default value** | **Description** |
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+
+[Quota's](azure-stack-plan-offer-quota-overview.md#plans) definiëren de grenzen van de resources die een gebruikerabonnement kan inrichten of gebruiken. Een quotum kunt bijvoorbeeld een gebruiker tot vijf virtuele machines maken. Elke bron kan een eigen typen quota's hebben.
+
+## <a name="compute-quota-types"></a>Quotatypen berekenen
+| **Type** | **Standaardwaarde** | **Beschrijving** |
 | --- | --- | --- |
-| Max number of virtual machines |50 | The maximum number of virtual machines that a subscription can create in this location. |
-| Max number of virtual machine cores |100 | The maximum number of cores that a subscription can create in this location (for example, an A3 VM has four cores). |
-| Max number of availability sets |10 | The maximum number of availability sets that can be created in this location. |
-| Max number of virtual machine scale sets |100 | The maximum number of virtual machine scale sets that can be created in this location. |
+| Maximumaantal virtuele machines | 20 | Het maximale aantal virtuele machines die een abonnement op deze locatie kan maken. |
+| Maximumaantal kernen voor virtuele machine | 50 | Het maximum aantal kernen die een abonnement op deze locatie maken kunt (bijvoorbeeld een A3-VM vier kernen heeft). |
+| Hiermee stelt u het maximumaantal beschikbaarheid | 10 | Het maximum aantal beschikbaarheidssets die kunnen worden gemaakt op deze locatie. |
+| Hiermee stelt u het maximumaantal virtuele-machineschaalset | 20 | Het maximum aantal virtuele-machineschaalsets die kunnen worden gemaakt op deze locatie. |
 
 > [!NOTE]
-> Compute quotas are not enforced in this technical preview.
+> COMPUTE quota's worden niet afgedwongen in deze technical preview.
 > 
 > 
 
-## <a name="storage-quota-types"></a>Storage quota types
-| **Item** | **Default value** | **Description** |
+## <a name="storage-quota-types"></a>Opslagtypen quotum
+| **Item** | **Standaardwaarde** | **Beschrijving** |
 | --- | --- | --- |
-| Maximum capacity (GB) |500 |Total storage capacity that can be consumed by a subscription in this location. |
-| Total number of storage accounts |20 |The maximum number of storage accounts that a subscription can create in this location. |
+| Maximale capaciteit (GB) |500 |Totale capaciteit die kan worden gebruikt door een abonnement op deze locatie. |
+| Totaal aantal storage-accounts |20 |Het maximum aantal opslagaccounts die een abonnement op deze locatie kan maken. |
 
-## <a name="network-quota-types"></a>Network quota types
-| **Item** | **Default value** | **Description** |
+## <a name="network-quota-types"></a>Quotum netwerktypen
+| **Item** | **Standaardwaarde** | **Beschrijving** |
 | --- | --- | --- |
-| Max public IPs |50 |The maximum number of public IPs that a subscription can create in this location. |
-| Max virtual networks |50 |The maximum number of virtual networks that a subscription can create in this location. |
-| Max virtual network gateways |1 |The maximum number of virtual network gateways (VPN Gateways) that a subscription can create in this location. |
-| Max network connections |2 |The maximum number of network connections (point-to-point or site-to-site) that a subscription can create across all virtual network gateways in this location. |
-| Max load balancers |50 |The maximum number of load balancers that a subscription can create in this location. |
-| Max NICs |100 |The maximum number of network interfaces that a subscription can create in this location. |
-| Max network security groups |50 |The maximum number of network security groups that a subscription can create in this location. |
+| Maximum aantal openbare IP-adressen |50 |Het maximum aantal openbare IP-adressen die een abonnement op deze locatie maken kunt. |
+| Maximum aantal virtuele netwerken |50 |Het maximum aantal virtuele netwerken die een abonnement op deze locatie kan maken. |
+| Maximum aantal virtuele netwerkgateways |1 |Het maximum aantal virtuele netwerkgateways (VPN-Gateways) die een abonnement op deze locatie maken kunt. |
+| Maximum aantal netwerkverbindingen |2 |Het maximale aantal netwerkverbindingen (point-to-point of site-naar-site) die een abonnement voor alle virtuele netwerkgateways op deze locatie maken kunt. |
+| Maximum aantal load balancers |50 |Het maximum aantal load balancers die een abonnement op deze locatie kan maken. |
+| Max. aantal NIC's |100 |Het maximum aantal netwerkinterfaces die een abonnement op deze locatie maken kunt. |
+| Maximum aantal netwerkbeveiligingsgroepen |50 |Het maximum aantal netwerkbeveiligingsgroepen die een abonnement op deze locatie maken kunt. |
 
-## <a name="view-an-existing-quota"></a>View an existing quota
-1. Click **More services** > **Resource Providers**.
-2. Select the service with the quota that you want to view.
-3. Click **Quotas**, and select the quota you want to view.
+## <a name="view-an-existing-quota"></a>Een bestaande quotum weergeven
+1. Klik op **meer services** > **Resourceproviders**.
+2. Selecteer de service met het quotum dat u wilt weergeven.
+3. Klik op **quota**, en selecteer de quota die u wilt weergeven.
 
-## <a name="next-steps"></a>Next steps
-[Learn more about plans, offers, and quotas.](azure-stack-plan-offer-quota-overview.md)
+## <a name="next-steps"></a>Volgende stappen
+[Meer informatie over plannen, aanbiedingen en quota's.](azure-stack-plan-offer-quota-overview.md)
 
-[Create quotas while creating a plan.](azure-stack-create-plan.md)
-
+[Quota's maken tijdens het maken van een plan.](azure-stack-create-plan.md)

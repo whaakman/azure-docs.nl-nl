@@ -8,22 +8,22 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 -->
 
 
-### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Obtain the connection string from the Azure portal
-Use the [Azure portal](https://portal.azure.com/) to obtain the connection string necessary for your client program to interact with Azure SQL Database: 
+### <a name="obtain-the-connection-string-from-the-azure-portal"></a>De verbindingsreeks ophalen via de Azure portal
+Gebruik de [Azure-portal](https://portal.azure.com/) om op te halen van de verbindingsreeks die nodig zijn voor uw clientprogramma om te communiceren met Azure SQL Database: 
 
-1. Click **BROWSE** > **SQL databases**.
-2. Enter the name of your database into the filter text box near the upper-left of the **SQL databases** blade.
-3. Click the row for your database.
-4. After the blade appears for your database, for visual convenience you can click the standard minimize controls to collapse the blades  you used for browsing and database filtering. 
+1. Klik op **Bladeren** > **SQL-databases**.
+2. Voer de naam van uw database in het filtertekstvak in de buurt van de linkerbovenhoek van de **SQL-databases** blade.
+3. Klik op de rij voor uw database.
+4. Nadat de blade wordt weergegeven voor uw database, voor het gemak visual kunt u de besturingselementen standaard minimaliseren om samen te vouwen de blades die u voor bladeren en het filteren van de database gebruikt. 
    
-    ![Filter to isolate your database][10-FilterDatabase]
-5. On the blade for your database, click **Show database connection strings**.
-6. If you intend to use the ADO.NET connection library, copy the string labeled **ADO**. 
+    ![Filter voor het isoleren van uw database][10-FilterDatabase]
+5. Klik op de blade voor uw database **databaseverbindingsreeksen tonen**.
+6. Als u de verbindingsbibliotheek ADO.NET gebruiken wilt, kopieert u de tekenreeks met het label **ADO**. 
    
-    ![Copy the ADO connection string for your database][20-CopyAdoConnectionString]
-7. In one format or another, paste the connection string information into your client program code.
+    ![Kopieer de verbindingsreeks ADO voor uw database][20-CopyAdoConnectionString]
+7. In een indeling of een andere door de verbindingsinformatie in uw clientcode programma te plakken.
 
-For more information, see:<br/>[Connection Strings and Configuration Files](http://msdn.microsoft.com/library/ms254494.aspx).
+Zie voor meer informatie:<br/>[Verbindingsreeksen en configuratiebestanden](http://msdn.microsoft.com/library/ms254494.aspx).
 
 <!-- Image references. -->
 

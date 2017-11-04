@@ -5,47 +5,46 @@ keywords: zelfstudie sql-database
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
-ms.workload: data-management
+ms.custom: scale out apps
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
+ms.topic: article
+ms.date: 07/28/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 19d02229781186053a0063af1c7e1a3280179f46
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 14912df26074b525585594cc1b5d32c85ce9094f
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="manage-schema-for-multiple-tenants-in-the-wtp-saas-application"></a>Het schema voor meerdere tenants beheren in de WTP SaaS-toepassing
+# <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Het schema voor meerdere tenants beheren in een toepassing met meerdere tenants die gebruikmaakt van Azure SQL Database
 
-In de zelfstudie met een inleiding tot de WTP-toepassing ziet u hoe de WTP-app een tenantdatabase kan inrichten met zijn basisschema en deze database kan registreren in de database. Net als elke toepassing verandert de WTP-app na verloop van tijd, en moeten er af en toe wijzigingen worden aangebracht aan de database. Dit kunnen bijvoorbeeld wijzigingen zijn aan het schema en de referentiegegevens, of er kan routineus database-onderhoud worden uitgevoerd om ervoor te zorgen dat de app optimaal presteert. Bij een SaaS-toepassing moeten deze wijzigingen op een gecoördineerde wijze worden geïmplementeerd in een mogelijk enorme reeks tenantdatabases. De wijzigingen moeten ook worden opgenomen in het inrichtingsproces voor toekomstige tenantdatabases.
+De [eerste Wingtip SaaS-zelfstudie](sql-database-saas-tutorial.md) ziet u hoe de app kunt inrichten van een tenant-database en deze te registreren in de catalogus. Net als elke toepassing, de app Wingtip SaaS gedurende een periode wordt aangepast en op tijdstippen waarvoor wijzigingen in de database. Dit kunnen bijvoorbeeld wijzigingen zijn aan het schema en de referentiegegevens, of er kan routineus database-onderhoud worden uitgevoerd om ervoor te zorgen dat de app optimaal presteert. Bij een SaaS-toepassing moeten deze wijzigingen op een gecoördineerde wijze worden geïmplementeerd in een mogelijk enorme reeks tenantdatabases. Ze moeten worden opgenomen in het inrichtingsproces deze wijzigingen worden in de toekomst tenant-databases.
 
-In deze zelfstudie worden twee scenario's beschreven: referentiegegevensupdates implementeren voor alle tenants en een index retourneren van de tabel met de referentiegegevens. De functie [Elastische taken](sql-database-elastic-jobs-overview.md) wordt gebruikt om deze bewerkingen voor alle tenants uit te voeren. Er wordt een *basis*tenantdatabase gebruikt als sjabloon voor nieuwe databases.
+In deze zelfstudie worden twee scenario's beschreven: referentiegegevensupdates implementeren voor alle tenants en een index retourneren van de tabel met de referentiegegevens. De [elastische taken](sql-database-elastic-jobs-overview.md) functie deze bewerkingen uitvoeren op alle tenants wordt gebruikt en de *gouden* tenant-database die wordt gebruikt als een sjabloon voor nieuwe databases.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 
-> * Een taakaccount maken om query's uit te voeren voor meerdere tenants
+> * De account van een taak maken
+> * Vragen over meerdere tenants
 > * Gegevens in alle tenantdatabases bijwerken
 > * Een index in een tabel maken in alle tenantdatabases
 
 
-Voor het voltooien van deze zelfstudie moet u ervoor zorgen dat aan de volgende vereisten wordt voldaan:
+Voor het voltooien van deze zelfstudie moet u ervoor zorgen dat aan de volgende vereisten is voldaan:
 
-* De WTP-app is geïmplementeerd. Zie [De WTP SaaS-toepassing implementeren en verkennen](sql-database-saas-tutorial.md) om dit in minder dan vijf minuten te doen
+* De Wingtip SaaS-app wordt geïmplementeerd. Als u wilt implementeren in minder dan vijf minuten, Zie [implementeren en Verken de Wingtip SaaS-toepassing](sql-database-saas-tutorial.md)
 * Azure PowerShell is geïnstalleerd. Zie [Aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) voor meer informatie.
 * De laatste versie van SQL Server Management Studio (SSMS) moet zijn geïnstalleerd. [SSMS downloaden en installeren](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
-*In deze zelfstudie wordt gebruikgemaakt van de functies van de SQL Database-service die deel uitmaken van een beperkte preview (elastische databasetaken). Als u deze zelfstudie wilt volgen, stuurt u uw abonnements-id naar SaaSFeedback@microsoft.com, met als onderwerp 'Elastic Jobs Preview'. Wanneer u de bevestiging hebt ontvangen dat uw abonnement is ingeschakeld, [downloadt en installeert u de taak-cmdlets van de voorlopige versie](https://github.com/jaredmoo/azure-powershell/releases). Omdat dit een beperkte preview is, neemt u contact op met SaaSFeedback@microsoft.com bij vragen of voor ondersteuning.*
+*In deze zelfstudie wordt gebruikgemaakt van de functies van de SQL Database-service die deel uitmaken van een beperkte preview (elastische databasetaken). Als u deze zelfstudie wilt volgen, stuurt u uw abonnements-id naar SaaSFeedback@microsoft.com, met als onderwerp 'Elastic Jobs Preview'. Wanneer u de bevestiging hebt ontvangen dat uw abonnement is ingeschakeld, [downloadt en installeert u de taak-cmdlets van de voorlopige versie](https://github.com/jaredmoo/azure-powershell/releases). Dit voorbeeld is beperkt, dus neem contact op met SaaSFeedback@microsoft.com voor vragen over of ondersteuning.*
 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Kennismaking met patronen voor SaaS-schemabeheer
@@ -60,11 +59,11 @@ Het SaaS-patroon met één tenant per database is enorm handig door de gegevensi
 Er is een nieuwe versie beschikbaar van Elastische taken; dit is nu een ingebouwde functie in Azure SQL Database (waarvoor geen extra services of onderdelen zijn vereist). Van deze nieuwe versie van Elastische taken is momenteel een beperkte preview beschikbaar. Deze beperkte preview biedt ondersteuning voor PowerShell voor het maken van taakaccounts en voor T-SQL voor het maken en beheren van taken.
 
 > [!NOTE]
-> *In deze zelfstudie wordt gebruikgemaakt van de functies van de SQL Database-service die deel uitmaken van een beperkte preview (elastische databasetaken). Als u deze zelfstudie wilt volgen, stuurt u uw abonnements-id naar SaaSFeedback@microsoft.com, met als onderwerp 'Elastic Jobs Preview'. Wanneer u de bevestiging hebt ontvangen dat uw abonnement is ingeschakeld, [downloadt en installeert u de taak-cmdlets van de voorlopige versie](https://github.com/jaredmoo/azure-powershell/releases). Omdat dit een beperkte preview is, neemt u contact op met SaaSFeedback@microsoft.com bij vragen of voor ondersteuning.*
+> *In deze zelfstudie wordt gebruikgemaakt van de functies van de SQL Database-service die deel uitmaken van een beperkte preview (elastische databasetaken). Als u deze zelfstudie wilt volgen, stuurt u uw abonnements-id naar SaaSFeedback@microsoft.com, met als onderwerp 'Elastic Jobs Preview'. Wanneer u de bevestiging hebt ontvangen dat uw abonnement is ingeschakeld, [downloadt en installeert u de taak-cmdlets van de voorlopige versie](https://github.com/jaredmoo/azure-powershell/releases). Dit voorbeeld is beperkt, dus neem contact op met SaaSFeedback@microsoft.com voor vragen over of ondersteuning.*
 
 ## <a name="get-the-wingtip-application-scripts"></a>De scripts van de Wingtip-toepassing downloaden
 
-De scripts en broncode van de Wingtip Tickets-toepassing zijn beschikbaar in de GitHub-opslagplaats [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). U vindt de scriptbestanden in de map [Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download de map **Learning Modules** naar de lokale computer en behoud de mapstructuur.
+De Wingtip SaaS-scripts en de broncode van toepassing zijn beschikbaar in de [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github-opslagplaats. [Stappen voor het downloaden van de scripts Wingtip SaaS](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>Een taakaccountdatabase en een nieuw taakaccount maken
 
@@ -89,14 +88,14 @@ Voor het maken van een nieuwe taak gebruikt u een reeks in het systeem opgeslage
 1. Maak ook verbinding met deze tenantserver: tenants1-\<user\>.database.windows.net
 1. Blader naar de *contosoconcerthall*-database op de *tenants1*-server en voer een query uit voor de *VenueTypes*-tabel om te controleren of *Motorcycle Racing* en *Swimming Club* **in de resultatenlijst** staan.
 1. Open het bestand …\\Learning Modules\\Schemabeheer\\DeployReferenceData.sql
-1. Bewerk de \<gebruiker\>: gebruik de gebruikersnaam die u hebt gebruikt bij het implementeren van de WTP-app op alle drie de locaties in het script
+1. Wijzig de instructie: Stel @wtpUser = &lt;gebruiker&gt; en vervang de waarde van de gebruiker gebruikt wanneer u de app Wingtip geïmplementeerd
 1. Zorg dat u verbinding hebt met de jobaccount-database en druk op **F5** om het script uit te voeren
 
 * Met **sp\_add\_target\_group** maakt u de doelgroepnaam DemoServerGroup. Nu gaat u de beoogde leden toevoegen.
-* Met **sp\_add\_target\_group\_member** voegt u een *server*doellidtype toe, waarbij ervan uit wordt gegaan dat alle databases op de server (dit is de customer1-&lt;WtpUser&gt;-server met de tenantdatabases) tijdens het uitvoeren van de taak deel uitmaken van de taak. Ten tweede wordt een *database*doellidtype toegevoegd, de basisdatabase (baseTenantDB), die op de catalog-&lt;WtpUser&gt;-server staat. Tot slot wordt een ander *database*doelgroeplidtype toegevoegd zodat ook de adhocanalytics-database wordt toegevoegd die in een latere zelfstudie wordt gebruikt.
+* **SP\_toevoegen\_doel\_groep\_lid** wordt toegevoegd een *server* doeltype lid, die alle databases binnen die server acht (dit is de tenants1 -&lt;gebruiker&gt; -server met de tenant-databases) op het moment van taak uitvoering moet worden opgenomen in de taak is het toevoegen van de tweede een *database* lidtype, specifiek de 'gouden'-database (basetenantdb) die zich in een catalogus - doel&lt;gebruiker&gt; server, en ten slotte een andere *database* lidtype groep wilt opnemen, de adhocanalytics-database die wordt gebruikt in een latere zelfstudie richt.
 * Met **sp\_add\_job** maakt u een taak die ook wel 'Implementatie van referentiegegevens' heet
-* Met **sp\_add\_jobstep** maakt u de taakstap met de T-SQL-opdracht om de referentietabel VenueTypes bij te werken
-* De resterende weergaven in het script tonen het bestaan van de objecten en controleren de taakuitvoering. Bekijk de statuswaarde in de kolom **lifecycle**. De taak is voltooid op alle tenantdatabases en de twee andere databases die de referentietabel bevatten.
+* **SP\_toevoegen\_taakstap** wordt gemaakt met de tekst van T-SQL-opdracht voor het bijwerken van de verwijzingstabel, VenueTypes taakstap
+* De resterende weergaven in het script tonen het bestaan van de objecten en controleren de taakuitvoering. Gebruik deze query's om te controleren van de statuswaarde in de **lifecycle** kolom om te bepalen wanneer de taak is voltooid op alle databases van de tenant en de twee extra databases met de referentietabel.
 
 1. Blader in SSMS naar de *contosoconcerthall*-database op de *tenants1*-server en voer een query uit voor de *VenueTypes*-tabel om te controleren of *Motorcycle Racing* en *Swimming Club* **in de resultatenlijst** staan.
 
@@ -107,9 +106,9 @@ Net als bij de vorige oefening, wordt bij deze oefening een taak gemaakt om de i
 
 Maak een taak met dezelfde in het systeem opgeslagen procedures.
 
-1. Open SSMS en maak verbinding met de server catalog-&lt;WtpUser&gt;.database.windows.net
+1. SSMS opent en verbinding maken met de catalogus -&lt;gebruiker&gt;. database.windows.net server
 1. Open het bestand …\\Learning Modules\\Schemabeheer\\OnlineReindex.sql
-1. Klik met de rechtermuisknop, selecteer Verbinding en maak verbinding met de catalog-&lt;WtpUser&gt;.database.windows.net-server, als deze verbinding nog niet is gemaakt
+1. Klik met de rechtermuisknop, selecteer verbinding en verbinding maken met de catalogus -&lt;gebruiker&gt;. database.windows.net server, indien nog niet verbonden
 1. Zorg dat u verbinding hebt met de jobaccount-database en druk op F5 om het script uit te voeren
 
 * Met sp\_add\_job maakt u een nieuwe taak met de naam Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885
@@ -133,6 +132,6 @@ In deze zelfstudie hebt u het volgende geleerd:
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Aanvullende zelfstudies die voortbouwen op de eerste implementatie van WTP (Wingtip Tickets Platform)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Aanvullende zelfstudies waarin voort op de implementatie van de Wingtip SaaS-toepassing bouwen](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Uitgeschaalde clouddatabases beheren](sql-database-elastic-jobs-overview.md)
 * [Uitgeschaalde clouddatabases maken en beheren](sql-database-elastic-jobs-create-and-manage.md)

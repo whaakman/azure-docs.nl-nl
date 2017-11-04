@@ -18,8 +18,3 @@ Bij dit alternatief wordt gebruikgemaakt van het feit dat het implementatiescrip
 ### <a name="option-3-customize-deployment-script"></a>Optie 3: implementatiescript aanpassen
 Als u het implementatiescript hebt aangepast, kunt u de code in deploy.cmd wijzigen om deze te dwingen de map env te verwijderen.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

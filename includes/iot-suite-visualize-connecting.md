@@ -1,40 +1,40 @@
-## <a name="view-device-telemetry-in-the-dashboard"></a>Telemetrie van apparaten weergeven in het dashboard
-Via het dashboard van de oplossing voor externe controle kunt u de telemetrie bekijken die uw apparaten naar IoT Hub verzenden.
+## <a name="view-device-telemetry"></a>Telemetrie van apparaten weergeven
 
-1. Ga in de browser terug naar het dashboard van de oplossing voor externe controle en klik in het linkerdeelvenster op **Apparaten** om naar de **Lijst met apparaten** te navigeren.
-2. In de **Lijst met apparaten** zou de status van uw apparaat nu **Wordt uitgevoerd** moeten zijn. Als dat niet zo is, klikt u in het deelvenster **Apparaatdetails** op **Apparaat inschakelen**.
-   
-    ![Apparaatstatus weergeven][18]
-3. Klik op **Dashboard** om terug te keren naar het dashboard en selecteer het apparaat in de vervolgkeuzelijst **Weer te geven apparaat** om de telemetrie ervan weer te geven. De telemetrie uit de voorbeeldtoepassing is 50 eenheden voor de interne temperatuur, 55 eenheden voor de externe temperatuur en 50 eenheden voor de vochtigheid.
-   
-    ![Telemetrie van apparaten weergeven][img-telemetry]
+U kunt de telemetrie van uw apparaat op verzonden weergeven de **apparaten** pagina in de oplossing.
 
-## <a name="invoke-a-method-on-your-device"></a>Een methode op het apparaat aanroepen
-Via het dashboard van de oplossing voor externe controle kunt u methoden op uw apparaten aanroepen via IoT Hub. U kunt in de oplossing voor externe controle bijvoorbeeld een methode aanroepen om het opnieuw opstarten van een apparaat te simuleren.
+1. Selecteer het apparaat dat u hebt ingericht in de lijst met apparaten op de **apparaten** pagina. Een paneel geeft informatie weer over uw apparaat met inbegrip van de tekening van de apparaattelemetrie:
 
-1. Klik op het dashboard van de oplossing voor externe controle in het linkerdeelvenster op **Apparaten** om naar de **Lijst met apparaten** te navigeren.
-2. Klik in de **Lijst met apparaten** op **Apparaat-id** voor uw apparaat.
-3. Klik in het deelvenster **Apparaatdetails** op **Methoden**.
-   
-    ![Apparaatmethoden][13]
-4. Selecteer in de vervolgkeuzelijst **Methode** de methode **InitiateFirmwareUpdate** en voer in **FWPACKAGEURI** een dummy URL in. Klik op **Methode aanroepen** om de methode op het apparaat aan te roepen.
-   
-    ![Een apparaatmethode aanroepen][14]
-   
+    ![Zie de details van het apparaat](media/iot-suite-visualize-connecting/devicesdetail.png)
 
-5. In de console waarin de apparaatcode wordt uitgevoerd, wordt een bericht weergegeven wanneer het apparaat de methode afhandelt. De resultaten van de methode worden toegevoegd aan de geschiedenis in de portal van de oplossing:
+1. Kies **druk** de telemetrie-weergave wijzigen:
 
-    ![Geschiedenis van methoden weergeven][img-method-history]
+    ![Druk telemetrie van paginaweergaven](media/iot-suite-visualize-connecting/devicespressure.png)
+
+1. Als u diagnostische informatie over uw apparaat, schuif omlaag naar **Diagnostics**:
+
+    ![Weergave apparaat diagnostische gegevens](media/iot-suite-visualize-connecting/devicesdiagnostics.png)
+
+## <a name="act-on-your-device"></a>Reageren op uw apparaat
+
+Gebruiken om aan te roepen methoden op uw apparaten, de **apparaten** pagina in de oplossing voor externe controle. Bijvoorbeeld, in de oplossing voor externe controle **Koelunit** apparaten implementeren een **opnieuw opstarten** methode.
+
+1. Kies **apparaten** om te navigeren naar de **apparaten** pagina in de oplossing.
+
+1. Selecteer het apparaat dat u hebt ingericht in de lijst met apparaten op de **apparaten** pagina:
+
+    ![Selecteer het fysieke apparaat](media/iot-suite-visualize-connecting/devicesselect.png)
+
+1. Voor een lijst van de methoden die u op uw apparaat aanroepen kunt, kies **planning**. Als u een methode uit te voeren op meerdere apparaten plannen, kunt u meerdere apparaten in de lijst. De **planning** deelvenster toont de typen van de methode algemene op alle apparaten die u hebt geselecteerd.
+
+1. Kies **opnieuw opstarten**, de taaknaam van de ingesteld op **RebootPhysicalChiller**, en kies **toepassen**:
+
+    ![Het opnieuw opstarten plannen](media/iot-suite-visualize-connecting/deviceschedule.png)
+
+1. Er verschijnt een bericht in de console met de apparaatcode van uw wanneer het apparaat de methode verwerkt.
+
+> [!NOTE]
+> Om bij te houden de status van de taak in de oplossing, kies **weergave**.
 
 ## <a name="next-steps"></a>Volgende stappen
-In het artikel [Customizing preconfigured solutions][lnk-customize] (Vooraf geconfigureerde oplossingen aanpassen) worden enkele manieren beschreven waarop u dit voorbeeld kunt uitbreiden. Mogelijke uitbreidingen zijn het gebruik van echte sensoren en de implementatie van aanvullende opdrachten.
 
-Zie [Permissions on the azureiotsuite.com site][lnk-permissions] (Machtigingen op de site azureiotsuite.com) voor meer informatie.
-
-[13]: ./media/iot-suite-visualize-connecting/suite4.png
-[14]: ./media/iot-suite-visualize-connecting/suite7-1.png
-[18]: ./media/iot-suite-visualize-connecting/suite10.png
-[img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
-[img-method-history]: ./media/iot-suite-visualize-connecting/history.png
-[lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
+Het artikel [aanpassen van de vooraf geconfigureerde oplossing voor externe controle](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) enkele manieren voor het aanpassen van de vooraf geconfigureerde oplossing beschrijft.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;deguhath
-ms.openlocfilehash: 8f1d9ab5186684c4aac806ace4ebfd38ca1fb306
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 19e963a56e8f905bb89d0162c65e893ae7515a97
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Gegevenswetenschap met Scala en Spark op Azure
 In dit artikel leest u hoe Scala gebruiken voor beheerde machine learning taken met de Spark schaalbare MLlib en Spark ML pakketten op een Azure HDInsight Spark-cluster. Dit leidt u door de taken die deel uitmaken van de [proces voor Gegevenswetenschap](http://aka.ms/datascienceprocess): gegevensopname en verkennen, visualisatie, functie-engineering, modellering en model verbruik. De modellen in het artikel zijn logistic en lineaire regressie, willekeurige forests en verloop boosted structuren (GBTs), naast de twee algemene beheerde machine learning-taken:
@@ -32,7 +32,7 @@ Het modelleringsproces is vereist voor trainings- en evaluatie van een testgegev
 
 [Spark](http://spark.apache.org/) is een open source parallelle verwerking framework die ondersteuning biedt voor in-memory verwerking om zo de prestaties van toepassingen voor big data-analyses. De Spark-verwerkingsengine is gebouwd voor snelheid, gebruiksgemak en geavanceerde analyses. De Spark in-memory gedistribueerde rekencapaciteiten kunnen u een goede keuze voor zich herhalende algoritmen in machine learning- en grafiekberekeningen. De [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) pakket biedt een uniforme set op hoog niveau API's die zijn gebouwd op gegevens frames waarmee u kunnen maken en praktische machine learning-pijplijnen afstemmen. [MLlib](http://spark.apache.org/mllib/) is Spark van schaalbare machine learning-bibliotheek, dat het modellering mogelijkheden voor deze gedistribueerde omgeving.
 
-[HDInsight Spark](../../hdinsight/hdinsight-apache-spark-overview.md) is de oplossing Azure gehoste van open-source Spark. Ook biedt ondersteuning voor Jupyter Scala notitieblokken op het Spark-cluster en interactieve Spark SQL query transformeren en opgeslagen in Azure Blob storage-gegevens visualiseren filteren's kunnen worden uitgevoerd. De Scala codefragmenten in dit artikel die voorzien van de oplossingen en weergeven van de relevante waarnemingspunten om de gegevens te visualiseren in Jupyter-notebooks geïnstalleerd op de Spark-clusters worden uitgevoerd. De stappen modelleren in de volgende onderwerpen hebben code die wordt beschreven hoe trainen, evalueren, opslaan en gebruiken van elk type model u.
+[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) is de oplossing Azure gehoste van open-source Spark. Ook biedt ondersteuning voor Jupyter Scala notitieblokken op het Spark-cluster en interactieve Spark SQL query transformeren en opgeslagen in Azure Blob storage-gegevens visualiseren filteren's kunnen worden uitgevoerd. De Scala codefragmenten in dit artikel die voorzien van de oplossingen en weergeven van de relevante waarnemingspunten om de gegevens te visualiseren in Jupyter-notebooks geïnstalleerd op de Spark-clusters worden uitgevoerd. De stappen modelleren in de volgende onderwerpen hebben code die wordt beschreven hoe trainen, evalueren, opslaan en gebruiken van elk type model u.
 
 De installatiestappen en code in dit artikel zijn voor Azure HDInsight 3.4 Spark 1.6. Echter, de code in dit artikel en in de [Scala Jupyter-Notebook](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) algemeen zijn en moet werken op een Spark-cluster. De instructies voor het cluster setup en beheer mogelijk enigszins afwijken van wat wordt weergegeven in dit artikel als u geen van HDInsight Spark gebruikmaakt.
 
@@ -43,7 +43,7 @@ De installatiestappen en code in dit artikel zijn voor Azure HDInsight 3.4 Spark
 
 ## <a name="prerequisites"></a>Vereisten
 * U moet een Azure-abonnement hebben. Als u geen hebt nog, [ophalen van een gratis proefversie van Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* U moet een Azure HDInsight 3.4 Spark 1.6 cluster om de volgende procedures te voltooien. Zie de instructies in een cluster maken [aan de slag: Apache Spark maken in Azure HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Instellen van het clustertype en de versie op de **clustertype Selecteer** menu.
+* U moet een Azure HDInsight 3.4 Spark 1.6 cluster om de volgende procedures te voltooien. Zie de instructies in een cluster maken [aan de slag: Apache Spark maken in Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Instellen van het clustertype en de versie op de **clustertype Selecteer** menu.
 
 ![Configuratie van het HDInsight-cluster](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -86,7 +86,7 @@ De kernel Spark biedt een aantal vooraf gedefinieerde 'magics', die zijn special
 * `%%local`Hiermee geeft u op dat de code in de volgende regels lokaal worden uitgevoerd. De sitecode moet geldige Scala-code.
 * `%%sql -o <variable name>`voert een Hive-query op `sqlContext`. Als de `-o` parameter is doorgegeven, het resultaat van de query wordt bewaard de `%%local` Scala context als een tijdskader Spark-gegevens.
 
-Voor meer informatie over de kernels voor Jupyter-notebooks en hun vooraf gedefinieerde 'magics' die u aanroept met `%%` (bijvoorbeeld `%%local`), Zie [beschikbare Kernels voor Jupyter-notebooks met HDInsight Spark Linux-clusters in HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Voor meer informatie over de kernels voor Jupyter-notebooks en hun vooraf gedefinieerde 'magics' die u aanroept met `%%` (bijvoorbeeld `%%local`), Zie [beschikbare Kernels voor Jupyter-notebooks met HDInsight Spark Linux-clusters in HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ### <a name="import-libraries"></a>Bibliotheken importeren
 Importeer de Spark, MLlib en andere bibliotheken u moet met behulp van de volgende code.

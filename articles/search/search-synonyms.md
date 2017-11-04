@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/07/2016
 ms.author: nateko
-ms.openlocfilehash: 739a0ad77c68ea74ec25bc80c7539ac8b3f18201
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 447abc48cca3dee398e641f8458e52a5b2cb8e42
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="synonyms-in-azure-search-preview"></a>Synoniemen in Azure Search (preview)
 
 Synoniemen in zoekmachines koppelen vergelijkbare termen die impliciet uitbreiden van het bereik van een query, zonder dat de gebruiker naar de term daadwerkelijk te bieden. Bijvoorbeeld, vallen gezien de term 'aquaduct' en synoniem koppelingen van 'canine' en 'puppy' alle documenten met 'aquaduct', 'hondachtige' of 'puppy' binnen het bereik van de query.
 
-In Azure Search wordt synoniem uitbreiding uitgevoerd op moment dat de query. U kunt synoniem maps toevoegen aan een service met niets onderbreking van bewerkingen voor bestaande. U kunt toevoegen een **synonymMaps** eigenschap in op de velddefinitie van een zonder dat de index opnieuw maken. Zie voor meer informatie [Index bijwerken](https://docs.microsoft.com/rest/api/searchservice/update-index).
+In Azure Search wordt synoniem uitbreiding uitgevoerd op moment dat de query. U kunt synoniem maps toevoegen aan een service met niets onderbreking van bewerkingen voor bestaande. U kunt toevoegen een **synonymMaps** eigenschap in op de velddefinitie van een zonder dat de index opnieuw maken.
 
 ## <a name="feature-availability"></a>Beschikbaarheid van functies
 
@@ -78,14 +78,14 @@ U kunt ook gebruik van opslag en geef de naam van de kaart synoniem op de URI. A
 
 De indeling Solr ondersteunt gelijkwaardige en expliciete synoniem toewijzingen. Regels voor apparaatgroeptoewijzing voldoen aan de open-source synoniem filterspecificatie van Apache Solr, in dit document beschreven: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Hieronder volgt een voorbeeldregel voor de equivalente synoniemen.
 ```
-              USA, United States, United States of America
+USA, United States, United States of America
 ```
 
 Met de regel boven een zoekopdracht wilt uitbreiden, 'VS' naar 'VS' of 'Verenigde Staten' of 'Verenigde Staten van Amerika'.
 
 Expliciete toewijzing wordt aangeduid met een pijl ' = > '. Als u opgeeft, een reeks termijn van een zoekopdracht die overeenkomt met de linkerkant van ' = > ' wordt vervangen door de alternatieven aan de rechterkant. De onderstaande regel opgegeven, zoekquery's 'Washington', 'Staat Washington' of "WA" alle herschreven "WA". Expliciete toewijzing is alleen van toepassing is in de opgegeven richting en Herschrijf de query "WA" naar 'Washington' niet in dit geval.
 ```
-              Washington, Wash., WA => WA
+Washington, Wash., WA => WA
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>Lijst synoniem maps onder uw service.

@@ -1,4 +1,4 @@
-Voeg in het lokale terminalvenster een externe Azure-instantie toe aan uw lokale Git-opslagplaats.
+Voeg in het lokale terminalvenster een externe Azure-instantie toe aan uw lokale Git-opslagplaats. Deze Azure extern is gemaakt voor u in [maken van een web-app](#create-a-web-app).
 
 ```bash
 git remote add azure <URI from previous step>

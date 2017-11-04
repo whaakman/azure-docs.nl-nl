@@ -1,73 +1,71 @@
 > [!div class="op_single_selector"]
 > * [C op Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
 > * [C op Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
-> * [Node.js](../articles/iot-suite/iot-suite-connecting-devices-node.md)
-> 
-> 
+> * [Node.js (algemeen)](../articles/iot-suite/iot-suite-connecting-devices-node.md)
+> * [Node.js op Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-node.md)
+> * [C op Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-c.md)
 
-## <a name="scenario-overview"></a>Overzicht van scenario's
-In dit scenario maakt u een apparaat dat de volgende telemetrie verzendt naar de [vooraf geconfigureerde oplossing][lnk-what-are-preconfig-solutions] voor externe controle:
+In deze zelfstudie implementeert u een **Koelunit** apparaat dat de volgende telemetrie naar de externe controle verzendt [vooraf geconfigureerde oplossing](../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md):
 
-* Externe temperatuur
-* Interne temperatuur
+* Temperatuur
+* Druk
 * Vochtigheid
 
-Om het eenvoudig te houden, genereert de code op het apparaat voorbeeldwaarden, maar we moedigen u aan om het voorbeeld uit te breiden door echte sensoren met het apparaat te verbinden en echte telemetrie te verzenden.
+Voor het gemak, genereert de code telemetrie voorbeeldwaarden voor de **Koelunit**. U kunt het voorbeeld kan uitbreiden door echte sensoren verbinden met uw apparaat en het verzenden van telemetrie echte.
 
-Het apparaat kan ook reageren op methoden die zijn aangeroepen vanuit het oplossingsdashboard en op waarden van gewenste eigenschappen die in het oplossingsdashboard zijn ingesteld.
+Het apparaat voorbeeld ook:
 
-U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure][lnk-free-trial] voor meer informatie.
+* Metagegevens verzendt naar de oplossing voor het beschrijven van de mogelijkheden ervan.
+* Reageert op acties geactiveerd vanuit de **apparaten** pagina in de oplossing.
+* Reageert op wijzigingen in de configuratie verzenden vanuit de **apparaten** pagina in de oplossing.
+
+U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](http://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 
 ## <a name="before-you-start"></a>Voordat u begint
+
 Voordat u code voor het apparaat gaat schrijven, moet u de vooraf geconfigureerde oplossing voor externe controle inrichten en een nieuw aangepast apparaat in die oplossing inrichten.
 
 ### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>De vooraf geconfigureerde oplossing voor externe controle inrichten
-Het apparaat dat u in deze zelfstudie maakt, verzendt gegevens naar een exemplaar van de vooraf geconfigureerde oplossing voor [externe controle][lnk-remote-monitoring]. Als u de vooraf geconfigureerde oplossing voor externe controle in uw Azure-account nog niet hebt ingericht, voer dan de volgende stappen uit:
 
-1. Klik op de pagina <https://www.azureiotsuite.com/> op **+** om een oplossing te maken.
-2. Klik in het deelvenster **Externe controle** op **Selecteren** om de oplossing te maken.
-3. Voer op de pagina **Oplossing voor externe controle maken** een zelfgekozen **Oplossingsnaam** in, selecteer de **Regio** waarin u deze wilt implementeren en selecteer het Azure-abonnement dat u wilt gebruiken. Klik vervolgens op **Oplossing maken**.
-4. Wacht tot het inrichtingsproces is voltooid.
-
-> [!WARNING]
-> De vooraf geconfigureerde oplossingen maken gebruik van factureerbare Azure-services. Zorg dat u de vooraf geconfigureerde oplossing uit uw abonnement verwijdert wanneer u klaar bent, om overbodige kosten te voorkomen. U kunt een vooraf geconfigureerde oplossing volledig uit uw abonnement verwijderen door naar de pagina <https://www.azureiotsuite.com/> te gaan.
-> 
-> 
+De **Koelunit** apparaat die u in deze zelfstudie maakt gegevens verzendt naar een exemplaar van de [externe controle](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) vooraf geconfigureerde oplossing. Als u dit nog niet hebt in uw Azure-account al en de vooraf geconfigureerde oplossing voor externe controle ingericht, Zie [implementeren van de vooraf geconfigureerde oplossing voor externe controle](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
 
 Wanneer het inrichtingsproces voor de oplossing voor externe controle is voltooid, klikt u op **Starten** om het dashboard van de oplossing in uw browser te openen.
 
-![Dashboard van de oplossing][img-dashboard]
+![Dashboard van de oplossing](media/iot-suite-selector-connecting/dashboard.png)
 
 ### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Het apparaat inrichten in de oplossing voor externe controle
+
 > [!NOTE]
-> Als u al een apparaat in uw oplossing hebt ingericht, kunt u deze stap overslaan. U moet de referenties van het apparaat weten wanneer u de clienttoepassing maakt.
-> 
-> 
+> Als u al een apparaat in uw oplossing hebt ingericht, kunt u deze stap overslaan. De referenties van het apparaat moet u bij het maken van de clienttoepassing.
 
-Een apparaat kan alleen verbinding maken met de vooraf geconfigureerde oplossing als het zichzelf met geldige referenties kan identificeren bij IoT Hub. U kunt de apparaatreferenties ophalen via het dashboard van de oplossing. Verderop in deze zelfstudie neemt u de referenties van het apparaat op in de clienttoepassing.
+Een apparaat kan alleen verbinding maken met de vooraf geconfigureerde oplossing als het zichzelf met geldige referenties kan identificeren bij IoT Hub. U kunt de apparaat-referenties ophalen uit de oplossing **apparaten** pagina. Verderop in deze zelfstudie neemt u de referenties van het apparaat op in de clienttoepassing.
 
-Als u een apparaat aan de oplossing voor externe controle wilt toevoegen, voert u de volgende stappen uit in het dashboard van de oplossing:
+Als u wilt een apparaat toevoegt aan uw oplossing voor externe controle, kunt u de volgende stappen uitvoeren op de **apparaten** pagina in de oplossing:
 
-1. Klik in de linkerbenedenhoek van het dashboard op **Een apparaat toevoegen**.
-   
-   ![Een apparaat toevoegen][1]
-2. Klik in het deelvenster **Aangepast apparaat** op **Nieuw toevoegen**.
-   
-   ![Een aangepast apparaat toevoegen][2]
-3. Kies **Laat mij mijn eigen apparaat-id definiëren**. Voer een apparaat-id in, bijvoorbeeld **mijnapparaat**, en klik op **Id controleren** om te controleren of de naam nog niet wordt gebruikt. Klik tot slot op **Maken** om het apparaat in te richten.
-   
-   ![Apparaat-id toevoegen][3]
-4. Noteer de referenties van het apparaat (apparaat-id, hostnaam van IoT Hub en apparaatsleutel). De clienttoepassing heeft deze waarden nodig om verbinding te maken met de oplossing voor externe controle. Klik vervolgens op **Gereed**.
-   
-    ![Apparaatreferenties weergeven][4]
-5. Selecteer uw apparaat in de lijst met apparaten in het oplossingsdashboard. Klik vervolgens in het deelvenster **Apparaatdetails** op **Apparaat inschakelen**. De status van het apparaat is nu **Wordt uitgevoerd**. De oplossing voor externe controle kan nu telemetrie ontvangen van uw apparaat en methoden op het apparaat aanroepen.
+1. Kies **inrichten**, en kies vervolgens **fysieke** als de **apparaattype**:
 
-[img-dashboard]: ./media/iot-suite-selector-connecting/dashboard.png
-[1]: ./media/iot-suite-selector-connecting/suite0.png
-[2]: ./media/iot-suite-selector-connecting/suite1.png
-[3]: ./media/iot-suite-selector-connecting/suite2.png
-[4]: ./media/iot-suite-selector-connecting/suite3.png
+    ![Een fysiek apparaat inrichten](media/iot-suite-selector-connecting/devicesprovision.png)
 
-[lnk-what-are-preconfig-solutions]: ../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md
-[lnk-remote-monitoring]: ../articles/iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+1. Voer **fysiek Koelunit** als de apparaat-ID. Kies de **symmetrische sleutel** en **automatisch genereren van sleutels** opties:
+
+    ![Opties voor apparaten kiezen](media/iot-suite-selector-connecting/devicesoptions.png)
+
+Als u wilt de referenties op die het apparaat gebruiken moet voor verbinding met de vooraf geconfigureerde oplossing hebt gevonden, gaat u naar de Azure-portal in uw browser. Meld u aan uw abonnement.
+
+1. Zoek de resourcegroep met de Azure-services die maakt gebruik van uw oplossing voor externe controle. De resourcegroep heeft dezelfde naam als de externe bewakingsoplossing die u hebt ingericht.
+
+1. Navigeer naar de IoT-hub in deze resourcegroep. Kies vervolgens **apparaat explorer**:
+
+    ![Apparaat explorer](media/iot-suite-selector-connecting/deviceexplorer.png)
+
+1. Kies de **apparaat-ID** u hebt gemaakt op de **apparaten** pagina in de oplossing voor externe controle.
+
+1. Noteer de **apparaat-ID** en **primaire sleutel** waarden. U kunt deze waarden gebruiken wanneer u code toevoegen aan uw apparaat aansluit op de oplossing.
+
+U hebt nu een fysiek apparaat in de externe controle ingericht vooraf geconfigureerde oplossing. In de volgende secties vindt implementeren u de clienttoepassing die de referenties van het apparaat verbinding maakt met uw oplossing.
+
+De clienttoepassing implementeert de ingebouwde **Koelunit** Apparaatmodel. Een model van de vooraf geconfigureerde oplossing apparaat Hiermee geeft u de volgende met betrekking tot een apparaat:
+
+* De eigenschappen van het apparaat rapporteert aan de oplossing. Bijvoorbeeld, een **Koelunit** apparaat rapporteert informatie over de firmware en de locatie.
+* De typen telemetrie het apparaat verzendt naar de oplossing. Bijvoorbeeld, een **Koelunit** apparaat verzendt temperatuur en vochtigheid druk waarden.
+* De methoden die u kunt vanuit de oplossing wilt laten uitvoeren op het apparaat. Bijvoorbeeld, een **Koelunit** apparaat moet worden geïmplementeerd **opnieuw opstarten**, **FirmwareUpdate**, **EmergencyValveRelease**, en  **IncreasePressuree** methoden.

@@ -79,8 +79,6 @@
   items:
     - name: Herstel na noodgeval
       items:
-        - name: Virtuele VMware-machines met ondersteuning voor meerdere tenants naar Azure
-          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: Virtuele Hyper-V-machines naar Azure
           href: tutorial-hyper-v-to-azure.md
         - name: Fysieke servers naar Azure
@@ -99,6 +97,8 @@
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: Een failover en failback uitvoeren tussen on-premises sites
           href: tutorial-vmm-to-vmm-failover-failback.md
+        - name: Virtuele VMware-machines met ondersteuning voor meerdere tenants naar Azure
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
     - name: Capaciteit en schalen
       items:
         - name: Capaciteitsplanning voor VMware-replicatie naar Azure
@@ -203,6 +203,8 @@
           href: 'site-recovery-workload.md#protect-exchange'
         - name: SAP
           href: site-recovery-sap.md
+        - name: Bestandsserver
+          href: file-server-disaster-recovery.md
         - name: Webtoepassingen op basis van IIS
           href: site-recovery-iis.md
         - name: Citrix XenApp en XenDesktop

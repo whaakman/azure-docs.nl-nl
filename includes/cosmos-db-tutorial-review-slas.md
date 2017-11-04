@@ -1,7 +1,11 @@
-Now that your app is up and running, you'll want to ensure business continuity and watch user access to ensure high availability. You can use the Azure portal to review the availability, latency, throughput, and consistency of your collection. 
+De doorvoer, opslag, beschikbaarheid, latentie en consistentie van de resources in uw account worden bewaakt in de Azure portal. U gaat nu een kort overzicht van deze metrische gegevens. 
 
-Each graph that's associated with the [Azure Cosmos DB Service Level Agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) provides a line that shows the quota required to meet the SLA and your actual usage. This information gives you a clear view into your database performance. Additional metrics, such as storage usage and number of requests per minute, are also included in the portal.
+1. Klik op **metrische gegevens** in het navigatiemenu.
 
-* In the Azure portal, in the pane on the left, under **Monitoring**, select **Metrics**.
+   ![Metrische gegevens in de Azure portal](./media/cosmos-db-tutorial-review-slas/metrics.png)
 
-   ![Todo app with sample data](./media/cosmos-db-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)
+2. Klik in de tabbladen zodat u op de hoogte van de metrische gegevens Azure Cosmos DB biedt. 
+
+    Elke grafiek die gekoppeld aan de [Azure Cosmos DB Service Level Agreements (Sla's)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) biedt een regel die laat zien als een van de serviceovereenkomsten zijn overtreden. Azure Cosmos DB maakt bewaking van uw serviceovereenkomsten die transparant met dit pakket van metrische gegevens. 
+
+   ![Azure DB Cosmos metrische gegevens suite](./media/cosmos-db-tutorial-review-slas/metrics-suite.png)

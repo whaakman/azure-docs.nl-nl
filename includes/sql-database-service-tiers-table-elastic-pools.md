@@ -4,106 +4,106 @@ sql-database-elastic-pool.md
 -->
 
  
-### <a name="basic-elastic-pool-limits"></a>Basic elastic pool limits
+### <a name="basic-elastic-pool-limits"></a>Basisbeperkingen voor elastische groepen
 
-| eDTUs per pool | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
+| eDTU's per groep | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
-| Included storage per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Max storage choices per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Max In-Memory OLTP storage per pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
-| Max number DBs per pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
-| Max concurrent workers (requests) per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
-| Max concurrent logins per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
-| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
-| Min eDTUs choices per database | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
-| Max eDTUs choices per database | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
-| Max storage per database (GB) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 
+| Opgenomen opslag per groep van toepassingen (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
+| Maximum aantal opslagopties per groep (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
+| Maximum aantal In het geheugen OLTP-opslag per pool (GB) | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. |
+| Maximaal aantal databases per pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
+| Maximaal aantal gelijktijdige werknemers (aanvragen) per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
+| Maximaal aantal gelijktijdige aanmeldingen per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
+| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30.000 | 30.000 | 30.000 |30.000 | 30.000 | 30.000 | 30.000 |
+| Opties voor min-edtu's per database | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
+| Opties van de Max edtu's per database | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
+| Maximale opslag per database (GB) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 
 ||||||||
 
-### <a name="standard-elastic-pool-limits"></a>Standard elastic pool limits
+### <a name="standard-elastic-pool-limits"></a>Standaardbeperkingen voor elastische pools
 
-| eDTUs per pool | **50** | **100** | **200** | **300** | **400** | **800**| 
+| eDTU's per groep | **50** | **100** | **200** | **300** | **400** | **800**| 
 |:---|---:|---:|---:| ---: | ---: | ---: | 
-| Included storage per pool (GB) | 50 | 100 | 200 | 300 | 400 | 800 | 
-| Max storage choices per pool (GB)* | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 | 
-| Max In-Memory OLTP storage per pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A | 
-| Max number DBs per pool | 100 | 200 | 500 | 500 | 500 | 500 | 
-| Max concurrent workers (requests) per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
-| Max concurrent logins per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
-| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Min eDTUs choices per database** | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
-| Max eDTUs choices per database** | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
-| Max storage per database (GB)* | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
+| Opgenomen opslag per groep van toepassingen (GB) | 50 | 100 | 200 | 300 | 400 | 800 | 
+| Maximum aantal opslagopties per groep (GB) * | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 | 
+| Maximum aantal In het geheugen OLTP-opslag per pool (GB) | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. | 
+| Maximaal aantal databases per pool | 100 | 200 | 500 | 500 | 500 | 500 | 
+| Maximaal aantal gelijktijdige werknemers (aanvragen) per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
+| Maximaal aantal gelijktijdige aanmeldingen per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
+| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 |
+| Opties voor min-edtu's per database ** | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
+| Opties van max edtu's per database ** | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
+| Maximale opslag per database (GB)* | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
 ||||||||
 
-### <a name="standard-elastic-pool-limits-continued"></a>Standard elastic pool limits (continued) 
+### <a name="standard-elastic-pool-limits-continued"></a>Limieten voor Standard elastische pools (vervolg) 
 
-| eDTUs per pool | **1200** | **1600** | **2000** | **2500** | **3000** |
+| eDTU's per groep | **1200** | **1600** | **2000** | **2500** | **3000** |
 |:---|---:|---:|---:| ---: | ---: |
-| Included storage per pool (GB) | 1200 | 1600 | 2000 | 2500 | 3000 | 
-| Max storage choices per pool (GB)* | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
-| Max In-Memory OLTP storage per pool (GB) | N/A | N/A | N/A | N/A | N/A | 
-| Max number DBs per pool | 500 | 500 | 500 | 500 | 500 | 
-| Max concurrent workers (requests) per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
-| Max concurrent logins per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
-| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Min eDTUs choices per database** | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
-| Max eDTUs choices per database** | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
-| Max storage choices per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
+| Opgenomen opslag per groep van toepassingen (GB) | 1200 | 1600 | 2000 | 2500 | 3000 | 
+| Maximum aantal opslagopties per groep (GB) * | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
+| Maximum aantal In het geheugen OLTP-opslag per pool (GB) | N.v.t. | N.v.t. | N.v.t. | N.v.t. | N.v.t. | 
+| Maximaal aantal databases per pool | 500 | 500 | 500 | 500 | 500 | 
+| Maximaal aantal gelijktijdige werknemers (aanvragen) per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
+| Maximaal aantal gelijktijdige aanmeldingen per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
+| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 | 
+| Opties voor min-edtu's per database ** | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Opties van max edtu's per database ** | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
+| Maximum aantal opslagopties per database (GB) * | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
-### <a name="premium-elastic-pool-limits"></a>Premium elastic pool limits
+### <a name="premium-elastic-pool-limits"></a>Limieten voor Premium elastische pools
 
-| eDTUs per pool | **125** | **250** | **500** | **1000** | **1500**| 
+| eDTU's per groep | **125** | **250** | **500** | **1000** | **1500**| 
 |:---|---:|---:|---:| ---: | ---: | 
-| Included storage per pool (GB) | 250 | 500 | 750 | 1024 | 1536 | 
-| Max storage choices per pool (GB)* | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 1536 |
-| Max In-Memory OLTP storage per pool (GB) | 1 | 2 | 4 | 10 | 12 | 
-| Max number DBs per pool | 50 | 100 | 100 | 100 | 100 | 
-| Max concurrent workers per pool (requests) | 200 | 400 | 800 | 1600 | 2400 | 
-| Max concurrent logins per pool | 200 | 400 | 800 | 1600 | 2400 |
-| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Min eDTUs per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 | 
-| Max eDTUs per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
-| Max storage per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
+| Opgenomen opslag per groep van toepassingen (GB) | 250 | 500 | 750 | 1024 | 1536 | 
+| Maximum aantal opslagopties per groep (GB) * | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 1536 |
+| Maximum aantal In het geheugen OLTP-opslag per pool (GB) | 1 | 2 | 4 | 10 | 12 | 
+| Maximaal aantal databases per pool | 50 | 100 | 100 | 100 | 100 | 
+| Maximaal aantal gelijktijdige werknemers per pool (aanvragen) | 200 | 400 | 800 | 1600 | 2400 | 
+| Maximaal aantal gelijktijdige aanmeldingen per pool | 200 | 400 | 800 | 1600 | 2400 |
+| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 | 
+| Minimaal aantal eDTU’s per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 | 
+| Maximaal aantal eDTU’s per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
+| Maximale opslag per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
-### <a name="premium-elastic-pool-limits-continued"></a>Premium elastic pool limits (continued) 
+### <a name="premium-elastic-pool-limits-continued"></a>Limieten voor Premium elastische pools (vervolg) 
 
-| eDTUs per pool | **2000** | **2500** | **3000** | **3500** | **4000**|
+| eDTU's per groep | **2000** | **2500** | **3000** | **3500** | **4000**|
 |:---|---:|---:|---:| ---: | ---: | 
-| Included storage per pool (GB) | 2048 | 2560 | 3072 | 3548 | 4096 |
-| Max storage choices per pool (GB)* | 2048 | 2560 | 3072 | 3548 | 4096|
-| Max In-Memory OLTP storage per pool (GB) | 16 | 20 | 24 | 28 | 32 |
-| Max number DBs per pool | 100 | 100 | 100 | 100 | 100 | 
-| Max concurrent workers (requests) per pool | 3200 | 4000 | 4800 | 5600 | 6400 |
-| Max concurrent logins per pool | 3200 | 4000 | 4800 | 5600 | 6400 |
-| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Min eDTUs choices per database | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
-| Max eDTUs choices per database | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
-| Max storage per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
+| Opgenomen opslag per groep van toepassingen (GB) | 2048 | 2560 | 3072 | 3548 | 4096 |
+| Maximum aantal opslagopties per groep (GB) * | 2048 | 2560 | 3072 | 3548 | 4096|
+| Maximum aantal In het geheugen OLTP-opslag per pool (GB) | 16 | 20 | 24 | 28 | 32 |
+| Maximaal aantal databases per pool | 100 | 100 | 100 | 100 | 100 | 
+| Maximaal aantal gelijktijdige werknemers (aanvragen) per pool | 3200 | 4000 | 4800 | 5600 | 6400 |
+| Maximaal aantal gelijktijdige aanmeldingen per pool | 3200 | 4000 | 4800 | 5600 | 6400 |
+| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 | 
+| Opties voor min-edtu's per database | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
+| Opties van de Max edtu's per database | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
+| Maximale opslag per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
-### <a name="premium-rs-elastic-pool-limits"></a>Premium RS elastic pool limits
+### <a name="premium-rs-elastic-pool-limits"></a>Limieten voor Premium RS elastische pools
 
-| eDTUs per pool | **125** | **250** | **500** | **1000** |
+| eDTU's per groep | **125** | **250** | **500** | **1000** |
 |:---|---:|---:|---:| ---: | ---: | 
-| Included storage per pool (GB) | 250 | 500 | 750 | 750 |
-| Max storage choices per pool (GB)* | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 
-| Max In-Memory OLTP storage per pool (GB) | 1 | 2 | 4 | 10 |
-| Max number DBs per pool | 50 | 100 | 100 | 100 |
-| Max concurrent workers (requests) per pool | 200 | 400 | 800 | 1600 |
-| Max concurrent logins per pool | 200 | 400 | 800 | 1600 |
-| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 |
-| Min eDTUs choices per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 |
-| Max eDTUs choices per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 
-| Max storage per database (GB)* | 1024 | 1024 | 1024 | 1024 | 
+| Opgenomen opslag per groep van toepassingen (GB) | 250 | 500 | 750 | 750 |
+| Maximum aantal opslagopties per groep (GB) * | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 
+| Maximum aantal In het geheugen OLTP-opslag per pool (GB) | 1 | 2 | 4 | 10 |
+| Maximaal aantal databases per pool | 50 | 100 | 100 | 100 |
+| Maximaal aantal gelijktijdige werknemers (aanvragen) per pool | 200 | 400 | 800 | 1600 |
+| Maximaal aantal gelijktijdige aanmeldingen per pool | 200 | 400 | 800 | 1600 |
+| Maximaal aantal gelijktijdige sessies per pool | 30.000 | 30.000 | 30.000 | 30.000 |
+| Opties voor min-edtu's per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 |
+| Opties van de Max edtu's per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 
+| Maximale opslag per database (GB)* | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
 > [!IMPORTANT]
-> \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/). Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).
+> \* Opslagruimten groter dan de hoeveelheid inbegrepen opslagruimte zijn in preview en hiervoor gelden extra kosten. Zie voor meer informatie de [pagina met prijzen SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/). Opslag groter zijn dan de hoeveelheid opslagruimte die opgenomen zijn in preview en extra kosten gelden. Zie voor meer informatie de [pagina met prijzen SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. 
+> \* In de Premium-laag is op dit moment opslag van meer dan 1 TB beschikbaar in de volgende regio's: VS Oost 2, VS West, VS (overheid) Virginia, West-Europa, Duitsland Centraal, Zuidoost-Azië, Japan - oost, Australië - oost, Canada Centraal en Canada Oost. 
 >
->\*\* Min/max eDTUs per database starting at 200 eDTUs and higher in **Standard** pools are in preview.
+>\*\*Min/max edtu's per database vanaf op 200 edtu's en hoger **standaard** pools zijn Preview-versie.
 >

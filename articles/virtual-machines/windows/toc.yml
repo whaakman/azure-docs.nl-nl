@@ -82,6 +82,13 @@
       href: maintenance-and-updates.md
     - name: Storage
       href: about-disks-and-vhds.md
+      items:
+        - name: Premium Storage
+          href: premium-storage.md
+        - name: Prestaties van Premium Storage
+          href: premium-storage-performance.md
+        - name: Standard Storage
+          href: standard-storage.md
     - name: Netwerken
       href: network-overview.md
     - name: Toepassingen automatisch schalen
@@ -235,12 +242,16 @@
           href: detach-disk.md
         - name: De grootte van een schijf wijzigen
           href: expand-os-disk.md
+        - name: Back-up en herstel na noodgeval voor schijven
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Een momentopname maken van een schijf
           href: snapshot-copy-managed-disk.md
         - name: Back-up maken van niet-beheerde schijven
           href: incremental-snapshots.md
         - name: Een schijf converteren van Standard naar Premium
           href: convert-disk-storage.md
+        - name: Migreren naar Premium Storage met Azure Site Recovery
+          href: migrate-to-premium-storage-using-azure-site-recovery.md
         - name: Bestandsopslag gebruiken
           href: mount-azure-file-storage.md
         - name: Schijven implementeren met sjabloon

@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: kgremban
-ms.openlocfilehash: cacb027fad4127072e542f554373881932870841
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 159e56c7ba1e0c27cd854f7d835611d5707c7a23
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Het ophalen van Azure multi-factor Authentication
 
 Bij het beveiligen van uw accounts, moet verificatie in twee stappen standaard in uw organisatie. Deze functie is vooral belangrijk voor beheerdersaccounts met toegang tot bronnen uitgebreide. Om deze reden biedt Microsoft basic in twee stappen verificatie functies op Office 365 en Azure beheerders voor geen extra kosten verbonden. Als u wilt upgraden van de functies voor uw beheerders of uitbreiden verificatie in twee stappen voor de rest van uw gebruikers, kunt u Azure multi-factor Authentication kunt aanschaffen. 
 
 Dit artikel wordt uitgelegd dat het verschil tussen de versies die worden aangeboden aan administrators en de volledige versie van Azure MFA. Als u klaar bent voor het implementeren van de volledige Azure MFA biedt, wordt de volgende sectie behandelt implementatie-opties en hoe Microsoft verbruik berekent.
+
 
 >[!IMPORTANT]
 >In dit artikel is bedoeld als een handleiding voor inzicht in de verschillende manieren voor het kopen van Azure multi-factor Authentication. Voor specifieke informatie over prijzen en facturering u altijd moet verwijzen naar de [multi-factor Authentication-pagina met prijzen](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
@@ -55,6 +56,7 @@ De volgende tabel bevat een lijst van de functies die beschikbaar in de verschil
 | SMS als tweede factor |● |● |● |
 | App-wachtwoorden voor clients die geen ondersteuning voor MFA bieden |● |● |● |
 | Beheerdercontrole over verificatiemethoden |● |● |● |
+| Beveiligen van niet-beheerdersaccounts met MFA | | |● |
 | Pincodemodus | | |● |
 | Fraudewaarschuwing | | |● |
 | MFA-rapporten | | |● |
@@ -87,7 +89,7 @@ Een Azure multi-factor Authentication-Provider binnen een Azure-abonnement maken
 
 Wanneer u een Azure multi-factor Authentication-Provider gebruikt, zijn er twee modellen beschikbaar die via uw Azure-abonnement worden gefactureerd:  
 
-1. **Per gebruiker** - voor ondernemingen die in staat wilt stellen verificatie in twee stappen voor een vast aantal werknemers die regelmatig dienen te worden geverifieerd. Facturering per gebruiker is gebaseerd op het aantal gebruikers dat is ingeschakeld voor MFA in uw Azure AD-tenant en uw Azure MFA-Server. Als gebruikers zijn ingeschakeld voor MFA in beide Azure AD en Azure MFA-Server en domein sync (Azure AD Connect) is ingeschakeld, moet we de grotere set van gebruikers tellen. Als synchronisatie van domein is niet ingeschakeld, wordt er de som van alle gebruikers die zijn ingeschakeld voor MFA in Azure AD tellen en Azure MFA-Server. Facturering is naar rato en gemeld aan het systeem Commerce dagelijks. 
+1. **Per ingeschakelde gebruiker** - voor ondernemingen die in staat wilt stellen verificatie in twee stappen voor een vast aantal werknemers die regelmatig dienen te worden geverifieerd. Facturering per gebruiker is gebaseerd op het aantal gebruikers dat is ingeschakeld voor MFA in uw Azure AD-tenant en uw Azure MFA-Server. Als gebruikers zijn ingeschakeld voor MFA in beide Azure AD en Azure MFA-Server en domein sync (Azure AD Connect) is ingeschakeld, moet we de grotere set van gebruikers tellen. Als synchronisatie van domein is niet ingeschakeld, wordt er de som van alle gebruikers die zijn ingeschakeld voor MFA in Azure AD tellen en Azure MFA-Server. Facturering is naar rato en gemeld aan het systeem Commerce dagelijks. 
 
   > [!NOTE]
   > Facturering voorbeeld 1: U hebt 5000 gebruikers die zijn ingeschakeld voor MFA vandaag. Het MFA-systeem wordt dit nummer gedeeld door 31 en 161.29 gebruikers rapporten voor die dag. In de toekomst u 15 meer gebruikers, schakelt zodat het systeem MFA 161.77 gebruikers voor die dag rapporten. Aan het einde van de factureringscyclus voegt het totale aantal gebruikers kosten in rekening gebracht op basis van uw Azure-abonnement maximaal rond 5.000. 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 686231a03b962dce9a1980affd308e52b36d2987
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 016d7760895e9b8cca082bac4e14388680fbbc05
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Met Spark verkennen en modelleren van geavanceerde gegevens
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -119,7 +119,7 @@ De PySpark-kernel biedt een aantal vooraf gedefinieerde 'magics', die zijn speci
 * **%% lokale** geeft aan dat de code in de volgende regels wordt lokaal uitgevoerd. De sitecode moet geldige Python-code.
 * **%% sql -o <variable name>**  een Hive-query op de sqlContext wordt uitgevoerd. Als de parameter -o is doorgegeven, het resultaat van de query wordt bewaard de %% lokale Python context als een DataFrame Pandas.
 
-Voor meer informatie over de kernels voor Jupyter-notebooks en de vooraf gedefinieerde 'magics' die ze bieden, Zie [beschikbare Kernels voor Jupyter-notebooks met HDInsight Spark Linux-clusters in HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Voor meer informatie over de kernels voor Jupyter-notebooks en de vooraf gedefinieerde 'magics' die ze bieden, Zie [beschikbare Kernels voor Jupyter-notebooks met HDInsight Spark Linux-clusters in HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="data-ingestion-from-public-blob"></a>Gegevensopname van een openbare blob:
 De eerste stap in het proces van de wetenschappelijke gegevens is om op te nemen van de gegevens van bronnen waarin deze zich in uw gegevensverkenning en modellering omgeving bevindt worden geanalyseerd. Deze omgeving is Spark in dit scenario. Deze sectie bevat de code voor het voltooien van een reeks taken:

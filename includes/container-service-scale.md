@@ -1,4 +1,3 @@
-# <a name="scale-agent-nodes-in-a-container-service-cluster"></a>Agentknooppunten schalen in een Container Service-cluster
 Nadat u [een Azure Container Service-cluster hebt geïmplementeerd](../articles/container-service/dcos-swarm/container-service-deployment.md), moet u mogelijk het aantal agentknooppunten wijzigen. U hebt mogelijk meer agents nodig zodat u meer containertoepassingen of -exemplaren kunt uitvoeren. 
 
 U kunt het aantal agentknooppunten in een DC/OS-, Docker Swarm- of Kubernetes-cluster wijzigen met behulp van Azure Portal of de Azure CLI 2.0. 

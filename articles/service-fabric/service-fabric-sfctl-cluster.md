@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: dc2ed59d6adaca97b23dddcb7ec968d90171b483
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2af214a9aa3c67818e8ce64f204ebda32c35abc7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Selecteer, beheren en gebruiken van Service Fabric-clusters.
@@ -54,36 +54,12 @@ Hiermee haalt u de status van een Service Fabric-cluster. EventsHealthStateFilte
 
 |Argument|Beschrijving|
 | --- | --- |
-| --toepassingen-health-status-filter| Hiermee kunt u filteren van de status van de toepassing
-                                                    objects returned in the result of cluster health
-                                                    query based on their health state. The possible
-                                                    values for this parameter include integer value
-                                                    obtained from members or bitwise operations on
-                                                    members of HealthStateFilter enumeration. Only
-                                                    applications that match the filter are returned.
-                                                    All applications are used to evaluate the
-                                                    aggregated health state. If not specified, all
-                                                    entries are returned. The state values are flag
-                                                    based enumeration, so the value could be a
-                                                    combination of these values obtained using
-                                                    bitwise 'OR' operator. For example, if the
-                                                    provided value is 6 then health state of
-                                                    applications with HealthState value of OK (2)
-                                                    and Warning (4) are returned. - Default -
-                                                    Default value. Matches any HealthState. The
-                                                    value is zero. - None - Filter that doesn't
-                                                    match any HealthState value. Used in order to
-                                                    return no results on a given collection of
-                                                    states. The value is 1. - Ok - Filter that
-                                                    matches input with HealthState value Ok. The
-                                                    value is 2. - Warning - Filter that matches
-                                                    input with HealthState value Warning. The value
-                                                    is 4. - Error - Filter that matches input with
-                                                    HealthState value Error. The value is 8. - All -
-                                                    Filter that matches input with any HealthState value. The value is 65535.|
-| --gebeurtenissen-health-status-filter | Hiermee kunt u filteren van de verzameling HealthEvent objecten geretourneerd op basis van status. De mogelijke waarden voor deze parameter zijn geheel getal van een van de volgende statussen. Alleen de gebeurtenissen die overeenkomen met het filter worden geretourneerd. Alle gebeurtenissen die worden gebruikt voor het evalueren van de geaggregeerde status. Als niet wordt opgegeven, worden alle items geretourneerd. De statuswaarden zijn vlag op basis van opsomming, zodat de waarde kan een combinatie van deze waarden die zijn verkregen met behulp van bitwise "OR"-operator zijn. Bijvoorbeeld, als de opgegeven waarde is ingesteld op 6 vervolgens alle gebeurtenissen met HealthState waarde OK (2) en de waarschuwing (4) geretourneerd. -Standaard - standaardwaarde. Komt overeen met een HealthState. De waarde is nul. -None - filteren die niet overeenkomt met de waarde van een HealthState. Gebruikt om te kunnen geen resultaten geretourneerd bij een bepaalde verzameling van statussen. De waarde is 1. -Ok - Filter dat overeenkomt met invoer-met HealthState waarde Ok. De waarde is 2. -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde.
-De waarde is 4. -Fout - Filter dat overeenkomt met invoer met HealthState waarde fout. De waarde is 8. -All - Filter dat overeenkomt met invoer met de waarde van een HealthState. De waarde is 65535. | |--uitsluiten-health-statistieken | Hiermee wordt aangegeven of de statistieken van de status moet worden geretourneerd als onderdeel van het queryresultaat. Standaard False. De statistieken zien hoeveel kinderen entiteiten in de status Ok, waarschuwing en fout. | |   --opnemen-systeem-toepassing-health-statistieken | Hiermee wordt aangegeven of de gezondheidsstatistieken van de fabric moet bevatten: / System application health statistieken. Standaard False. Als IncludeSystemApplicationHealthStatistics is ingesteld op true, wordt de status statistieken omvatten de entiteiten die deel uitmaken van de fabric: / System-toepassing. Anders wordt het queryresultaat health statistische gegevens bevat, alleen voor toepassingen. De health-statistieken worden opgenomen in het queryresultaat voor deze parameter moet worden toegepast. | | --knooppunten-health-status-filter | Hiermee kunt u filteren van het knooppunt health status objecten geretourneerd in het resultaat van het cluster health query op basis van hun status. De mogelijke waarden voor deze parameter zijn geheel getal van een van de volgende statussen. Alleen knooppunten die overeenkomen met het filter worden geretourneerd. Alle knooppunten worden gebruikt voor het evalueren van de geaggregeerde status. Als niet wordt opgegeven, worden alle items geretourneerd. De statuswaarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan een combinatie van deze waarden die zijn verkregen met behulp van bitwise "OR"-operator worden. Bijvoorbeeld, als de opgegeven waarde is '6' wordt de status van knooppunten met HealthState waarde OK (2) en de waarschuwing (4) zijn geretourneerd. -Standaard - standaardwaarde. Komt overeen met een HealthState. De waarde is nul. -None - filteren die niet overeenkomt met de waarde van een HealthState. Gebruikt om te kunnen geen resultaten geretourneerd bij een bepaalde verzameling van statussen. De waarde is 1. -Ok - Filter dat overeenkomt met invoer-met HealthState waarde Ok. De waarde is 2. -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde.
-De waarde is 4. -Fout - Filter dat overeenkomt met invoer met HealthState waarde fout. De waarde is 8. -All - Filter dat overeenkomt met invoer met de waarde van een HealthState. De waarde is 65535. | | --time-out -t | Server time-out in seconden.  Standaard: 60. |
+| --toepassingen-health-status-filter| Hiermee kunt u filteren van de toepassing health status objecten geretourneerd in het resultaat van het cluster health query op basis van hun status. De mogelijke waarden voor deze parameter zijn geheel getal is verkregen van leden of een bitsgewijze bewerkingen op leden van HealthStateFilter opsomming. Alleen toepassingen die overeenkomen met het filter worden geretourneerd.  Alle toepassingen worden gebruikt voor het evalueren van de geaggregeerde status. Als niet wordt opgegeven, worden alle items geretourneerd. De statuswaarden zijn vlag op basis van opsomming, zodat de waarde kan een combinatie van deze waarden die zijn verkregen met behulp van bitwise "OR"-operator zijn. Bijvoorbeeld, als de opgegeven waarde is ingesteld op 6 wordt de status van toepassingen met HealthState waarde OK (2) en de waarschuwing (4) zijn geretourneerd. -Standaard - standaardwaarde. Komt overeen met een HealthState. De waarde is nul. -None - filteren die niet overeenkomt met de waarde van een HealthState. Gebruikt om te kunnen geen resultaten geretourneerd bij een bepaalde verzameling van statussen. De waarde is 1. -Ok - Filter dat overeenkomt met invoer-met HealthState waarde Ok. De waarde is 2. -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4. -Fout - Filter dat overeenkomt met invoer met HealthState waarde fout. De waarde is 8. -All - Filter dat overeenkomt met invoer met de waarde van een HealthState. De waarde is 65535.|
+| --gebeurtenissen-health-status-filter   | Hiermee kunt u filteren van de verzameling HealthEvent objecten geretourneerd op basis van status. De mogelijke waarden voor deze parameter zijn geheel getal van een van de volgende statussen. Alleen de gebeurtenissen die overeenkomen met het filter worden geretourneerd. Alle gebeurtenissen die worden gebruikt voor het evalueren van de geaggregeerde status. Als niet wordt opgegeven, worden alle items geretourneerd. De statuswaarden zijn vlag op basis van opsomming, zodat de waarde kan een combinatie van deze waarden die zijn verkregen met behulp van bitwise "OR"-operator zijn. Bijvoorbeeld, als de opgegeven waarde is ingesteld op 6 vervolgens alle gebeurtenissen met HealthState waarde OK (2) en de waarschuwing (4) geretourneerd. -Standaard - standaardwaarde. Komt overeen met een HealthState. De waarde is nul. -None - filteren die niet overeenkomt met de waarde van een HealthState. Gebruikt om te kunnen geen resultaten geretourneerd bij een bepaalde verzameling van statussen. De waarde is 1. -Ok - Filter dat overeenkomt met invoer-met HealthState waarde Ok. De waarde is 2. -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde.  De waarde is 4. -Fout - Filter dat overeenkomt met invoer met HealthState waarde fout. De waarde is 8. -All - Filter dat overeenkomt met invoer met de waarde van een HealthState. De waarde is 65535.|
+|--uitsluiten-health-statistieken                   | Hiermee wordt aangegeven of de statistieken van de status moet worden geretourneerd als onderdeel van het queryresultaat. Standaard False. De statistieken tonen het aantal onderliggende items entiteiten in de status Ok, waarschuwing en fout.|
+ |   --opnemen-systeem-toepassing-health-statistieken| Hiermee wordt aangegeven of de gezondheidsstatistieken van de fabric moet bevatten: / System application health statistieken. Standaard False. Als IncludeSystemApplicationHealthStatistics is ingesteld op true, wordt de status statistieken omvatten de entiteiten die deel uitmaken van de fabric: / System-toepassing. Anders wordt het queryresultaat health statistische gegevens bevat, alleen voor toepassingen. De health-statistieken moeten worden opgenomen in de resultaten voor deze parameter moet worden toegepast.|
+| --knooppunten-health-status-filter    | Hiermee kunt u filteren van het knooppunt health status objecten geretourneerd in het resultaat van het cluster health query op basis van hun status. De mogelijke waarden voor deze parameter zijn geheel getal van een van de volgende statussen. Alleen knooppunten die overeenkomen met het filter worden geretourneerd. Alle knooppunten worden gebruikt voor het evalueren van de geaggregeerde status. Als niet wordt opgegeven, worden alle items geretourneerd. De statuswaarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan een combinatie van deze waarden die zijn verkregen met behulp van bitwise "OR"-operator worden. Bijvoorbeeld, als de opgegeven waarde is '6' wordt de status van knooppunten met HealthState waarde OK (2) en de waarschuwing (4) zijn geretourneerd. -Standaard - standaardwaarde. Komt overeen met een HealthState. De waarde is nul. -None - filteren die niet overeenkomt met de waarde van een HealthState. Gebruikt om te kunnen geen resultaten geretourneerd bij een bepaalde verzameling van statussen. De waarde is 1. -Ok - Filter dat overeenkomt met invoer-met HealthState waarde Ok. De waarde is 2. -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde.  De waarde is 4. -Fout - Filter dat overeenkomt met invoer met HealthState waarde fout. De waarde is 8. -All - Filter dat overeenkomt met invoer met de waarde van een HealthState. De waarde is 65535.|
+| --time-out -t                   | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
@@ -118,8 +94,7 @@ Haal het manifest Service Fabric-cluster. Het clustermanifest bevat eigenschappe
 
 ## <a name="sfctl-cluster-provision"></a>sfctl cluster inrichten
 De pakketten code of configuratie van een Service Fabric-cluster inrichten.
-
-        Validate and provision the code or configuration packages of a Service Fabric cluster.
+Valideren en de pakketten code of configuratie van een Service Fabric-cluster inrichten.
 
 ### <a name="arguments"></a>Argumenten
 
@@ -169,7 +144,7 @@ Als verbinding maken met veilige cluster, geeft u een certificaat (.crt) en sleu
 ## <a name="sfctl-cluster-unprovision"></a>sfctl cluster verwijderen
 Inrichting van de pakketten code of configuratie van een Service Fabric-cluster.
 
-        Unprovision the code or configuration packages of a Service Fabric cluster.
+Inrichting van de pakketten code of configuratie van een Service Fabric-cluster.
 
 ### <a name="arguments"></a>Argumenten
 |Argument|Beschrijving|
@@ -184,43 +159,46 @@ Inrichting van de pakketten code of configuratie van een Service Fabric-cluster.
 |--fouten opsporen         | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
  |   --help -h       | Deze help-bericht en afsluiten weergeven.|
  |   --uitvoer -o     | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
- |   --query         | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie en
-                      voorbeelden.|
+ |   --query         | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
  |   --uitgebreide       | Logboekregistratie uitgebreidheid verhogen. Gebruik--foutopsporing voor volledige foutopsporingslogboeken.|
 
 
 ## <a name="sfctl-cluster-upgrade"></a>clusterupgrades sfctl
 Start de code of upgrade van een Service Fabric-cluster.
-
-        Validate the supplied upgrade parameters and start upgrading the code or configuration
-        version of a Service Fabric cluster if the parameters are valid.
+Valideren van de opgegeven parameters voor de upgrade en start de upgrade of de configuratie van een Service Fabric-cluster als de parameters geldig zijn.
 
 ### <a name="arguments"></a>Argumenten
 |Argument|Beschrijving|
 | --- | --- |
-|    --app-health-kaart                      | JSON gecodeerde woordenlijst van paren toepassingsnaam en
-                                            maximumpercentage slecht voordat de fout.|
- |   --app-type-health-kaart                 | JSON gecodeerde woordenlijst van het toepassingstype paren
-                                            name and maximum percentage unhealthy before raising
-                                            error.|
- |   --code-versie | De versie van de cluster. | |   --config-versie | De configuratieversie van de cluster. | |   --delta-health-evaluatie | Hiermee delta de statusevaluatie in plaats van absolute health evaluatie na voltooiing van elk upgradedomein. | |   --delta slecht knooppunten | Het maximaal toegestane percentage van de knooppunten verslechtering van de status toegestaan tijdens upgrades van de cluster.  Standaard: 10.
-De verschillen wordt tussen de status van de knooppunten aan het begin van de upgrade en de status van de knooppunten op het moment van de statusevaluatie gemeten. De controle wordt uitgevoerd na de upgrade voltooiing van elke upgradedomein om te controleren of de globale status van het cluster is binnen de limieten voor verdragen. | |   --actie bij fout | Mogelijke waarden zijn: 'Ongeldig', 'Terugdraaiactie', 'Manual'. | |   --opnieuw opstarten als force | Forceert herstart. | |   --health-controle-retry | Health selectievakje opnieuw time-out gemeten in milliseconden. | |   --health-controle-stabiel | Statuscontrole stabiele duur in milliseconden gemeten. | |  --wachtduur | Duur gemeten in milliseconden voor de statuscontrole van de wachttijd. | |  --replica-set-controle-timeout | Upgrade replicaset selectievakje time-out gemeten in seconden. | |   --rolling-upgrade-modus | Mogelijke waarden zijn: 'Ongeldig', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  Standaardwaarde: UnmonitoredAuto. | |  --time-out -t | Server time-out in seconden.  Standaard: 60. | |  --slecht toepassingen | Het maximaal toegestane percentage van de beschadigde toepassingen voordat u een foutmelding.
-Bijvoorbeeld, zodat 10% van toepassingen beschadigd is deze waarde 10. Het percentage vertegenwoordigt het verdragen maximumpercentage van toepassingen die beschadigd worden kunnen voordat het cluster wordt beschouwd als fout. Als het percentage is voldaan, maar er ten minste één slecht toepassingstype is, worden de status wordt geëvalueerd als de waarschuwing. Dit wordt berekend door het aantal beschadigde toepassingen delen via het totale aantal exemplaren van een toepassing in het cluster, met uitzondering van toepassingen van toepassingstypen die in de applicationtypehealthpolicymap; deze zijn opgenomen. De berekening rondt af naar boven op een storing op een klein aantal toepassingen tolereren. | |   --slecht knooppunten | Het maximaal toegestane percentage van slecht knooppunten voordat u een foutmelding.
-Bijvoorbeeld, zodat 10% van de knooppunten beschadigd is deze waarde 10. Het percentage geeft de maximale verdragen percentage van de knooppunten die niet in orde zijn mag voordat het cluster wordt beschouwd als fout. Als het percentage is voldaan, maar er ten minste één slecht knooppunt is, wordt de status wordt geëvalueerd als waarschuwing. Het percentage wordt berekend door het aantal beschadigde knooppunten delen via het totale aantal knooppunten in het cluster. De berekening rondt af naar boven op een storing op een klein aantal knooppunten tolereren. In grote clusters sommige knooppunten is niet actief of out-reparaties, zodat dit percentage moet worden geconfigureerd voor tolereren die. | |   --upgrade-domain-delta-slecht-knooppunten | Het maximaal toegestane percentage van de knooppunten van het upgradedomein verslechtering van de status toegestaan tijdens upgrades van de cluster.
-Standaard: 15.
-De verschillen wordt tussen de status van de upgradedomein-knooppunten aan het begin van de upgrade en de status van de upgradedomein-knooppunten op het moment van de statusevaluatie gemeten. De controle wordt uitgevoerd na elke opwaarderen upgradedomein is voltooid voor alle upgradedomeinen om te controleren of de status van de upgradedomeinen voltooid binnen de limieten voor verdragen is. | |   --upgrade-domain-timeout | Time-out upgradedomein gemeten in milliseconden. | |   --upgrade-timeout | Upgrade time-out gemeten in milliseconden. | |   --waarschuwing als fout | Waarschuwingen met de ernst van de dezelfde fouten worden behandeld. |
+|    --app-health-kaart                      | JSON gecodeerde woordenlijst van paren toepassingsnaam en het maximale percentage slecht voordat de fout.|
+ |   --app-type-health-kaart                 | JSON gecodeerde woordenlijst van paren met de naam van het toepassingstype en het maximale percentage slecht voordat de fout.|
+ |   --code-versie                        | De versie van de cluster.|
+ |   --config-versie                      | De versie van het cluster-configuratie.|
+ |   --delta-health-evaluatie             | Hiermee schakelt u delta de statusevaluatie in plaats van absolute health evaluatie na voltooiing van elk upgradedomein.|
+ |   --delta slecht knooppunten               | Het maximaal toegestane percentage van de knooppunten verslechtering van de status toegestaan tijdens upgrades van de cluster.  Standaard: 10. De verschillen wordt tussen de status van de knooppunten aan het begin van de upgrade en de status van de knooppunten op het moment van de statusevaluatie gemeten. De controle wordt uitgevoerd na de upgrade voltooiing van elke upgradedomein om te controleren of dat de globale status van het cluster is binnen de limieten voor verdragen.|
+ |   --actie bij fout                      | Mogelijke waarden zijn: 'Ongeldig', 'Terugdraaiactie', 'Manual'.|
+ |   --geforceerd opnieuw opstarten                       | Geforceerd opnieuw opstarten.|
+ |   --health-controle-probeer het opnieuw                  | Health selectievakje opnieuw time-out gemeten in milliseconden.|
+ |   --health-controle-stabiel                 | Serverstatus controleren stabiele duur van de gemeten in milliseconden.|
+  |  --wachtduur                   | Health controle wacht duur gemeten in milliseconden.|
+  |  --replica-set-controle-timeout           | Upgrade replicaset selectievakje time-out gemeten in seconden.|
+ |   --rolling-upgrade-modus                | Mogelijke waarden zijn: 'Ongeldig', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  Standaard: UnmonitoredAuto.|
+  |  --time-out -t                          | Server time-out in seconden.  Standaard: 60.|
+  |  --slecht toepassingen              | Het maximaal toegestane percentage van de beschadigde toepassingen voordat u een foutmelding. Bijvoorbeeld, zodat 10% van toepassingen beschadigd is deze waarde 10. Het percentage vertegenwoordigt het verdragen maximumpercentage van toepassingen die beschadigd worden kunnen voordat het cluster wordt beschouwd als fout. Als het percentage is voldaan, maar er ten minste één slecht toepassingstype is, worden de status wordt geëvalueerd als de waarschuwing. Dit wordt berekend door het aantal beschadigde toepassingen delen via het totale aantal exemplaren van een toepassing in het cluster, met uitzondering van toepassingen van toepassingstypen die in de applicationtypehealthpolicymap; deze zijn opgenomen. De berekening rondt af naar boven op een storing op een klein aantal toepassingen tolereren.|
+ |   --slecht knooppunten                     | Het maximaal toegestane percentage van slecht knooppunten voordat u een foutmelding. Bijvoorbeeld, zodat 10% van de knooppunten beschadigd is deze waarde 10. Het percentage geeft de maximale verdragen percentage van de knooppunten die niet in orde zijn mag voordat het cluster wordt beschouwd als fout. Als het percentage is voldaan, maar er ten minste één slecht knooppunt is, wordt de status wordt geëvalueerd als waarschuwing. Het percentage wordt berekend door het aantal beschadigde knooppunten delen via het totale aantal knooppunten in het cluster. De berekening rondt af naar boven op een storing op een klein aantal knooppunten tolereren. In grote clusters sommige knooppunten altijd worden omlaag of uit voor reparaties, zodat dit percentage moet worden geconfigureerd voor die tolereren.|
+ |   --upgrade-domain-delta-slecht-knooppunten| Het maximaal toegestane percentage van de knooppunten van het upgradedomein verslechtering van de status toegestaan tijdens upgrades van de cluster. Standaard: 15. De verschillen wordt tussen de status van de upgradedomein-knooppunten aan het begin van de upgrade en de status van de upgradedomein-knooppunten op het moment van de statusevaluatie gemeten. De controle wordt uitgevoerd na elke opwaarderen upgradedomein is voltooid voor alle upgradedomeinen om ervoor te zorgen dat de status van de upgradedomeinen is binnen de limieten voor verdragen.|
+ |   --time-out-domein-upgrade              | Time-out upgradedomein gemeten in milliseconden.|
+ |   --upgrade-time-out                     | Time-out van de upgrade, gemeten in milliseconden.|
+ |   --waarschuwing als fout                    | Waarschuwingen worden met de ernst van de dezelfde fouten behandeld.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
-    |Argument|Beschrijving|
+|Argument|Beschrijving|
 | --- | --- |
 |--fouten opsporen                               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 |    --help -h                             | Deze help-bericht en afsluiten weergeven.|
-|    --uitvoer -o                           | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.
-                                            Standaard: json.|
-|    --query                               | JMESPath queryreeks. Http://jmespath.org/ Zie voor meer informatie
-                                            informatie over en voorbeelden.|
-|    --uitgebreide                             | Logboekregistratie uitgebreidheid verhogen. Gebruik--foutopsporing voor volledige foutopsporing
-                                            de logboeken.|
+|    --uitvoer -o                           | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv. Standaard: json.|
+|    --query                               | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie over en voorbeelden.|
+|    --uitgebreide                             | Logboekregistratie uitgebreidheid verhogen. Gebruik--foutopsporing voor volledige foutopsporingslogboeken.|
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Setup](service-fabric-cli.md) de Service Fabric CLI.

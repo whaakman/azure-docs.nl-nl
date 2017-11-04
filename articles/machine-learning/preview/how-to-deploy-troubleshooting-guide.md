@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2017
-ms.openlocfilehash: b9287c7151c96aaccbcda81c111cfe36ead5ab38
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
-ms.translationtype: HT
+ms.openlocfilehash: b43ed29bda4412fb57bcb772da00f6405c3f1c26
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Problemen met implementatie van de service en de omgeving in te stellen
 De volgende informatie kunt de oorzaak van fouten bij het instellen van de model-omgeving.
@@ -30,13 +30,13 @@ U moet ook de eigenaarsmachtiging voor het instellen van een cluster voor de imp
 U moet voldoende bronnen beschikbaar zijn in uw abonnement hebben, zodat u de omgeving-resources kunt inrichten.
 
 ### <a name="subscription-caps"></a>Abonnement Caps
-Uw abonnement mogelijk een limiet op de facturering die kan verhinderen dat u de omgeving-resources inrichten. Removet die cap inrichting inschakelen.
+Uw abonnement mogelijk een limiet op de facturering die kan verhinderen dat u de omgeving-resources inrichten. Verwijder die cap voor inrichting inschakelen.
 
 ### <a name="enable-debug-and-verbose-options"></a>Foutopsporing en uitgebreide opties inschakelen
 Gebruik de `--debug` en `--verbose` vlaggen in de setup-opdracht om weer te geven informatie over foutopsporing en tracering als de omgeving wordt ingericht.
 
 ```
-az ml env setup -l <loation> -n <name> -c --debug --verbose 
+az ml env setup -l <location> -n <name> -c --debug --verbose 
 ```
 
 ## <a name="service-deployment"></a>Service-implementatie
@@ -89,7 +89,9 @@ Python-voorbeeld:
 ```
 
 ## <a name="other-common-problems"></a>Andere veelvoorkomende problemen
-- Als de `env setup` opdracht mislukt, Controleer of u voldoende kernen beschikbaar in uw abonnement hebt.
-- Gebruik niet het onderstrepingsteken (_) in de naam van de webservice (zoals in *my_webservice*).
-- Probeer het opnieuw als u krijgt een **502 Slechte Gateway** fout bij het aanroepen van de webservice. Normaal gesproken betekent dit dat de container is niet aan het cluster nog geïmplementeerd.
-- Als u krijgt **CrashLoopBackOff** fout bij het maken van een service, Raadpleeg de logboeken. Dit is meestal het resultaat van ontbrekende afhankelijkheden in de **init** functie.
+- Als de `env setup` mislukt met de opdracht `LocationNotAvailableForResourceType`, gebruikt u waarschijnlijk de verkeerde locatie (regio) voor de machine learning-resources. Zorg ervoor dat de locatie die is opgegeven met de `-l` parameter `eastus2`, `westcentralus`, of `australiaeast`.
+- Als de `env setup` mislukt met de opdracht `Resource quota limit exceeded`, Controleer of u voldoende kernen beschikbaar in uw abonnement hebt en dat uw resources niet worden gebruikt boven in andere processen.
+- Als de `env setup` mislukt met de opdracht `Invalid environment name. Name must only contain lowercase alphanumeric characters`, zorg ervoor dat de servicenaam geen hoofdletters, symbolen of het onderstrepingsteken (_) (zoals in *my_environment*).
+- Als de `service create` mislukt met de opdracht `Service Name: [service_name] is invalid. The name of a service must consist of lower case alphanumeric characters (etc.)`, Controleer of de servicenaam tussen 3 en 32 tekens lang is; begint en eindigt op kleine letters; en bevat geen hoofdletters, symbolen dan koppelteken (-) en periode ( . ), of het onderstrepingsteken (_) (zoals in *my_webservice*).
+- Probeer het opnieuw als u krijgt een `502 Bad Gateway` fout bij het aanroepen van de webservice. Normaal gesproken betekent dit dat de container is niet aan het cluster nog geïmplementeerd.
+- Als u krijgt `CrashLoopBackOff` fout bij het maken van een service, Raadpleeg de logboeken. Dit is meestal het resultaat van ontbrekende afhankelijkheden in de **init** functie.

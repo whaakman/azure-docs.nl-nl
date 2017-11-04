@@ -1,22 +1,22 @@
 <!--author=alkohli last changed: 08/29/17-->
 
-## <a name="troubleshooting-update-failures"></a>Troubleshooting update failures
-**What if you see a notification that the pre-upgrade checks have failed?**
+## <a name="troubleshooting-update-failures"></a>Problemen oplossen met mislukte updates
+**Wat moet ik doen als ik een melding zie dat de controles vóór de upgrade zijn mislukt?**
 
-If a pre-check fails, make sure that you have looked at the detailed notification bar at the bottom of the page. This provides guidance as to which pre-check has failed. For instance, you receive a notification that the controller health check and hardware component health check have failed. Go to **Monitor > Hardware health**. You need to make sure that both controllers are healthy and online. You also need to make sure that all the hardware components in the StorSimple device are shown to be healthy in this blade. You can then try to install updates. If you are not able to fix the hardware component issues, then you will need to contact Microsoft Support for next steps.
+Als een controle vooraf mislukt, bekijkt u de gedetailleerde meldingsbalk onder aan de pagina. Hierin kunt u zien welke controle vooraf is mislukt. Bijvoorbeeld: u ontvangt een melding dat de statuscontrole van de domeincontroller en de statuscontrole van de hardware-onderdeel is mislukt. Ga naar **Monitor > Hardware health**. U moet ervoor zorgen dat beide domeincontrollers in orde en online zijn. U moet ook om ervoor te zorgen dat alle hardwareonderdelen in de StorSimple-apparaat te zijn in orde in deze blade worden weergegeven. U kunt daarna proberen de updates te installeren. Als het niet lukt om de problemen met de hardwareonderdelen op te lossen, neemt u contact op met Microsoft-ondersteuning voor de volgende stappen.
 
-**What if you receive a "Could not install updates" error message, and the recommendation is to refer to the update troubleshooting guide to determine the cause of the failure?**
+**Wat moet ik doen als ik de foutmelding "Kan geen updates installeren" zie en de aanbeveling krijg de gids voor het oplossen van problemen met updates te raadplegen om de oorzaak van het probleem vast te stellen?**
 
-One likely cause for this could be that you do not have connectivity to the Microsoft Update servers. This is a manual check that needs to be performed. If you lose connectivity to the update server, your update job would fail. You can check the connectivity by running the following cmdlet from the Windows PowerShell interface of your StorSimple device:
+Een waarschijnlijke oorzaak hiervan is dat u geen verbinding hebt met de Microsoft Update-servers. Dit is een handmatige controle die moet worden uitgevoerd. Als u geen verbinding meer hebt met de updateserver, mislukt de updatetaak. U kunt de verbinding controleren door de volgende cmdlet uit te voeren vanuit de Windows PowerShell-interface van uw StorSimple-apparaat:
 
  `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter>`
 
-Run the cmdlet on both controllers.
+Voer de cmdlet uit op beide controllers.
 
-If you have verified the connectivity exists, and you continue to see this issue, please contact Microsoft Support for next steps.
+Als blijkt dat u wel verbinding hebt en het probleem blijft bestaan, neemt u contact op met Microsoft-ondersteuning voor de volgende stappen.
 
-**What if you see an update failure when updating your device to Update 4 and both the controllers are running Update 4?**
+**Wat moet ik doen als ik een updatefout krijg tijdens het bijwerken van mijn apparaat naar Update 4 en op beide controllers Update 4 wordt uitgevoerd?**
 
-Starting Update 4, if both the controllers are running the same software version and if there is an update failure, the controllers do not go into recovery mode. This situation can arise if the device software hotfix (1st order update) is applied to both the controllers successfully but other hotfixes (2nd order and 3rd order) are yet to be applied. Starting Update 4, the controllers will go into recovery mode only if the two controllers are running different software versions. 
+Vanaf Update 4 gaan de controllers niet in de herstelmodus als op beide controllers dezelfde softwareversie wordt uitgevoerd en er een updatefout optreedt. Deze situatie kan zich voordoen als de hotfix voor de apparaatsoftware (update met eerste prioriteit) op beide domeincontrollers wordt uitgevoerd maar andere hotfixes (tweede en derde prioriteit) nog moeten worden toegepast. Vanaf Update 4 gaan de controllers alleen in de herstelmodus als op de twee controllers verschillende softwareversies worden uitgevoerd. 
 
-If the user sees an update failure when both controllers are running Update 4, we recommend that they wait a few minutes and then retry updating. If the retry does not succeed, then they should contact Microsoft Support.
+Als u een updatefout krijgt en op beide controllers Update 4 wordt uitgevoerd, raden wij u aan een paar minuten te wachten en daarna de update opnieuw uit te voeren. Als de nieuwe poging ook mislukt, neemt u contact op met Microsoft-ondersteuning.

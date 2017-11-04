@@ -1,10 +1,10 @@
-This article is for Azure App Service (Web Apps, API Apps, Mobile Apps, Logic Apps); for Cloud Services, see [Configuring a custom domain name for an Azure cloud service](../articles/cloud-services/cloud-services-custom-domain-name.md).
+In dit artikel is bedoeld voor Azure App Service (Web-Apps, API-Apps, Mobile Apps, Logic Apps); Zie voor Cloud-Services, [configureren van een aangepaste domeinnaam voor een Azure cloudservice](../articles/cloud-services/cloud-services-custom-domain-name.md).
 
 > [!NOTE]
-> If you app is load-balanced by [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), click the selector at the top of this article to get specific steps.
+> Als u de app taakverdeling door [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), klik op de kiezer boven aan dit artikel als u specifieke stappen uitvoeren.
 > 
-> **Custom domain names are not enabled for Free tier**. You must [scale up to a higher pricing tier](../articles/app-service/web-sites-scale.md), which may change how much you are billed for your subscription. 
-> See [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/) for more information.
+> **Aangepast domein namen niet zijn ingeschakeld gratis laag**. U moet [scale tot een hogere prijscategorie](../articles/app-service/web-sites-scale.md), die kunnen worden gewijzigd hoeveel u wordt gefactureerd voor uw abonnement. 
+> Zie [prijzen van App Service](https://azure.microsoft.com/pricing/details/app-service/) voor meer informatie.
 > 
 > 
 

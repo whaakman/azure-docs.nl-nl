@@ -9,19 +9,18 @@ manager: jhubbard
 editor: cjgronlund
 ms.assetid: 7467f422-b77d-4b60-9cb5-0f1ec17ec565
 ms.service: sql-database
-ms.custom: compare
-ms.workload: data-management
+ms.custom: DBs & servers
+ms.workload: Active
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 02/01/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 48e95d51cb9414fb5ff50e587645ee6fd46abd5b
-ms.lasthandoff: 04/15/2017
-
-
+ms.openlocfilehash: 436166fcb0fa9103c6b702b63d93a0b222d536d0
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Kies een SQL Server-cloudoptie: Azure SQL (PaaS) Database of SQL Server op Azure Virtual Machines (IaaS)
 Azure heeft twee opties om SQL Server-workloads te hosten in Microsoft Azure:
@@ -64,13 +63,12 @@ De volgende tabel geeft een overzicht van de belangrijkste kenmerken van de SQL 
 | --- | --- | --- |
 |  |Nieuwe in de cloud ontworpen toepassingen met tijdsbeperkingen op het gebied van ontwikkeling en marketing. |Bestaande toepassingen waar snelle migratie naar de cloud met minimale wijzigingen voor nodig is. Snelle ontwikkelings- en testscenario's als u geen on-premises SQL Server-hardware wilt kopen die niet bestemd is voor productie. |
 |  | Teams die ingebouwde hoge beschikbaarheid, herstel na noodgevallen en upgrademogelijkheden van de database nodig hebben. |Teams die hoge beschikbaarheid, herstel na noodgevallen en patchen van SQL Server kunnen configureren en beheren. Sommige geleverde geautomatiseerde functies vereenvoudigen dit aanzienlijk. | |
-|  | Teams die het onderliggende besturingssysteem en configuratie-instellingen niet willen beheren. |Als u een aangepaste omgeving met volledige beheerdersrechten nodig hebt. | |
-|  | Databases van maximaal 1 TB of grotere databases die [horizontaal of verticaal zijn gepartitioneerd](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) met een opschaalpatroon. |SQL Server-exemplaren met maximaal 64 TB aan opslag. Het exemplaar kan zoveel databases ondersteunen als nodig is. | |
-|  | [SaaS-toepassingen (software als een service) ontwikkelen](sql-database-design-patterns-multi-tenancy-saas-applications.md). |Bedrijfs- en hybride toepassingen migreren en ontwikkelen. | |
+|  | Teams die het onderliggende besturingssysteem en configuratie-instellingen niet willen beheren. |U moet een aangepaste omgeving met volledige beheerdersrechten. | |
+|  | Databases van maximaal 4 TB of meer databases die kunnen worden [horizontaal of verticaal gepartitioneerd](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) met behulp van een scale-out-patroon. |SQL Server-exemplaren met maximaal 64 TB aan opslag. Het exemplaar kan zoveel databases ondersteunen als nodig is. | |
 |  | | |
 | **Bronnen:** |U wilt geen IT-resources voor configuratie en beheer van de onderliggende infrastructuur implementeren, maar u wilt zich richten op de toepassingslaag. |U hebt een aantal IT-resources voor configuratie en beheer. Sommige geleverde geautomatiseerde functies vereenvoudigen dit aanzienlijk. |
 | **Totale eigendomskosten:** |Elimineert hardwarekosten en verlaagt administratieve kosten. |Elimineert hardwarekosten. |
-| **Bedrijfscontinuïteit:** |Azure SQL Database biedt naast ingebouwde mogelijkheden voor fouttolerantie in de infrastructuur functies zoals [geautomatiseerde back-ups](sql-database-automated-backups.md), [Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore), [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore) en [Active Geo-Replication](sql-database-geo-replication-overview.md) om bedrijfscontinuïteit te verhogen. Zie voor meer informatie [SQL Database business continuity overview](sql-database-business-continuity.md). |Met SQL Server op Azure Virtual Machines kunt u een oplossing met hoge beschikbaarheid en herstel na een noodgeval instellen voor de specifieke behoeften van uw database. Daarmee creëert u een systeem dat is geoptimaliseerd voor uw toepassing. U kunt zelf tests en failovers uitvoeren wanneer dit nodig is. Zie voor meer informatie [High Availability and Disaster Recovery for SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
+| **Bedrijfscontinuïteit:** |Naast de mogelijkheden voor infrastructuur ingebouwde fouttolerantie, biedt Azure SQL Database-functies, zoals [geautomatiseerde back-ups](sql-database-automated-backups.md), [punt In tijd terugzetten](sql-database-recovery-using-backups.md#point-in-time-restore), [geo-restore](sql-database-recovery-using-backups.md#geo-restore), en [actieve geo-replicatie](sql-database-geo-replication-overview.md) zakelijke continuïteit te verhogen. Zie voor meer informatie [SQL Database business continuity overview](sql-database-business-continuity.md). |Met SQL Server op Azure Virtual Machines kunt u een oplossing met hoge beschikbaarheid en herstel na een noodgeval instellen voor de specifieke behoeften van uw database. Daarmee creëert u een systeem dat is geoptimaliseerd voor uw toepassing. U kunt zelf tests en failovers uitvoeren wanneer dit nodig is. Zie voor meer informatie [High Availability and Disaster Recovery for SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
 | **Hybride cloud:** |Uw on-premises toepassing heeft toegang tot gegevens in Azure SQL Database. |Met SQL Server op Azure Virtual Machines krijgt u de toepassingen die deels in de cloud draaien en deels on-premises. Zo kunt u uw on-premises netwerk en Active Directory-domein uitbreiden naar de cloud met [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Bovendien kunt u on-premises gegevensbestanden opslaan in Azure Storage met behulp van [SQL Server-gegevensbestanden in Azure](http://msdn.microsoft.com/library/dn385720.aspx). Zie voor meer informatie [Inleiding voor SQL Server 2014 hybride cloud](http://msdn.microsoft.com/library/dn606154.aspx). |
 |  | Ondersteunt [transactionele replicatie van SQL Server](https://msdn.microsoft.com/library/mt589530.aspx) als abonnee om gegevens te repliceren. |Biedt volledige ondersteuning voor [transactionele replicatie van SQL Server](https://msdn.microsoft.com/library/mt589530.aspx), [AlwaysOn Availability Groups](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), Integration Services en back-upfunctie voor logboekbestanden om gegevens te repliceren. Ook worden traditionele SQL Server-back-ups volledig ondersteund. | |
 |  | | |
@@ -139,12 +137,11 @@ Kies voor een **Azure SQL Database** als:
 
 Kies voor **SQL Server op Azure VM's** als:
 
-* U beschikt over bestaande on-premises toepassingen die u naar de cloud wilt migreren of uitbreiden of als u bedrijfstoepassingen wilt ontwikkelen die groter zijn dan 1 TB. Met deze aanpak profiteert u van 100% SQL-compatibiliteit, een grote databasecapaciteit, volledig beheer van SQL Server en Windows en beveiligt u tunneling naar on-premises. Deze aanpak minimaliseert de kosten voor ontwikkeling en wijzigingen van bestaande toepassingen.
+* U hebt bestaande on-premises toepassingen die u wilt migreren of uitbreiden naar de cloud, of als u wilt maken van bedrijfstoepassingen groter is dan 4 TB. Met deze aanpak profiteert u van 100% SQL-compatibiliteit, een grote databasecapaciteit, volledig beheer van SQL Server en Windows en beveiligt u tunneling naar on-premises. Deze aanpak minimaliseert de kosten voor ontwikkeling en wijzigingen van bestaande toepassingen.
 * U hebt bestaande IT-resources en kunt eigenaar zijn van patchen, back-ups en hoge beschikbaarheid van databases. Houd er rekening mee dat sommige geautomatiseerde functies deze bewerkingen aanzienlijk kunnen vereenvoudigen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Uw eerste Azure SQL Database](sql-database-get-started-portal.md) om aan de slag te gaan met SQL Database.
 * Zie [Prijzen van SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 * Zie [Provision a SQL Server virtual machine in Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) om aan de slag te kunnen met SQL Server op Azure VM’s.
-
 

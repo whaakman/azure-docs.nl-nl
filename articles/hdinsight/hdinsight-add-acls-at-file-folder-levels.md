@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 42d617ffeb8c2fee6be6d747b39d80b09774a1c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9ca91721e691eca239478c4ac8b85e2652babdfd
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-user-permissions-at-the-file-and-folder-levels"></a>Gebruikersmachtigingen op het niveau van bestanden en mappen beheren
 
-[HDInsight-clusters domein](hdinsight-domain-joined-introduction.md) sterke verificatie gebruiken met Azure Active Directory (Azure AD) gebruikers, en ook *toegangsbeheer op basis van rollen* (RBAC)-beleidsregels voor verschillende services, zoals YARN en Hive. Als het standaardarchief van gegevens voor uw cluster Azure Storage of Windows Azure Storage-Blobs (WASB), kunt u ook mapniveau machtigingen voor bestanden en afdwingen. U kunt Apache Zwerver gebruiken voor toegang tot het cluster bestanden beheren voor uw gesynchroniseerde Azure AD-gebruikers en groepen.
+[HDInsight-clusters domein](./domain-joined/apache-domain-joined-introduction.md) sterke verificatie gebruiken met Azure Active Directory (Azure AD) gebruikers, en ook *toegangsbeheer op basis van rollen* (RBAC)-beleidsregels voor verschillende services, zoals YARN en Hive. Als het standaardarchief van gegevens voor uw cluster Azure Storage of Windows Azure Storage-Blobs (WASB), kunt u ook mapniveau machtigingen voor bestanden en afdwingen. U kunt Apache Zwerver gebruiken voor toegang tot het cluster bestanden beheren voor uw gesynchroniseerde Azure AD-gebruikers en groepen.
 <!-- [synchronized Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md). -->
 
 Het exemplaar Apache Zwerver voor HDInsight-clusters domein is vooraf geconfigureerd met de service Zwerver WASB. De service Zwerver WASB is een beleid management-engine die vergelijkbaar is met HDFS-Zwerver, maar met een andere afdwinging van Zwerver toegangsbeleid. Als een inkomende aanvraag voor de resource een overeenkomende Zwerver-beleid, geen heeft is Standaardantwoord van de in de service Zwerver WASB weigeren. De service Zwerver voldoet niet aan machtiging om WASB te controleren.
@@ -69,7 +69,7 @@ Wanneer een jokerteken (`*`) is aanwezig in het pad voor een beleid voor het jok
 
 ## <a name="manage-file-and-folder-level-permissions-with-apache-ranger"></a>Bestands- en machtigingen met Apache Zwerver beheren
 
-Als u dit nog niet hebt gedaan, volgt u [deze instructies](hdinsight-domain-joined-configure.md) voor het inrichten van een nieuw domein-cluster.
+Als u dit nog niet hebt gedaan, volgt u [deze instructies](./domain-joined/apache-domain-joined-configure.md) voor het inrichten van een nieuw domein-cluster.
 
 Zwerver WASB openen door te bladeren naar `https://<YOUR CLUSTER NAME>.azurehdinsight.net/ranger/`. Voer de gebruikersnaam voor de beheerder cluster en het wachtwoord die u hebt gedefinieerd bij het maken van uw cluster.
 
@@ -117,8 +117,8 @@ De Apache-Zwerver [beleid evaluatie stroom](#permission-and-policy-model) kunt u
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Op domein HDInsight Hive-beleid configureren](hdinsight-domain-joined-run-hive.md)
-* [Domein-HDInsight-clusters beheren](hdinsight-domain-joined-manage.md)
+* [Op domein HDInsight Hive-beleid configureren](./domain-joined/apache-domain-joined-run-hive.md)
+* [Domein-HDInsight-clusters beheren](./domain-joined/apache-domain-joined-manage.md)
 * [Beheren van de Ambari - Ambari gebruikers autoriseren](hdinsight-authorize-users-to-ambari.md)
 
 <!-- * [Synchronize Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md) -->

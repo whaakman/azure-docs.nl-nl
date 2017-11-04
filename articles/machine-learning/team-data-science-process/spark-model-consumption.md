@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 85424a00b34b4bccf7dc38b2bae1cfe31b2507d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9ff633b4543fbc537ffdb721756706e8de5e8e88
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark is gebouwd machine learning-modellen operationeel maken
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -118,7 +118,7 @@ De PySpark-kernel biedt een aantal vooraf gedefinieerde 'magics', die zijn speci
 * **%% sql -o<variable name>** 
 * Een Hive-query op de sqlContext worden uitgevoerd. Als de parameter -o is doorgegeven, het resultaat van de query wordt bewaard de %% lokale Python context als een dataframe Pandas.
 
-Voor meer informatie over de kernels voor Jupyter-notebooks en de vooraf gedefinieerde 'magics' die ze bieden, Zie [beschikbare Kernels voor Jupyter-notebooks met HDInsight Spark Linux-clusters in HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Voor meer informatie over de kernels voor Jupyter-notebooks en de vooraf gedefinieerde 'magics' die ze bieden, Zie [beschikbare Kernels voor Jupyter-notebooks met HDInsight Spark Linux-clusters in HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="ingest-data-and-create-a-cleaned-data-frame"></a>Voor het opnemen van gegevens en een kader opgeschoonde gegevens maken
 Deze sectie bevat de code voor een reeks vereiste taken voor het opnemen van de gegevens moet worden berekend. In de steekproef van een gekoppelde 0,1% van het taxi reis en tarief bestand (opgeslagen als een bestand .tsv), indeling van de gegevens niet lezen en maakt vervolgens een schone gegevensframe.
@@ -527,7 +527,7 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>Spark modellen gebruiken via een webinterface
-Spark biedt een mechanisme voor het op afstand verzenden batchtaken of interactieve query's via een REST-interface met een component Livy genoemd. Livy is standaard ingeschakeld op uw HDInsight Spark-cluster. Zie voor meer informatie over Livy: [Spark verzenden van taken op afstand met behulp van Livy](../../hdinsight/hdinsight-apache-spark-livy-rest-interface.md). 
+Spark biedt een mechanisme voor het op afstand verzenden batchtaken of interactieve query's via een REST-interface met een component Livy genoemd. Livy is standaard ingeschakeld op uw HDInsight Spark-cluster. Zie voor meer informatie over Livy: [Spark verzenden van taken op afstand met behulp van Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
 U kunt Livy op afstand verzenden van een taak die door de batch scores een bestand dat is opgeslagen in een Azure-blob en schrijft vervolgens de resultaten naar een andere blob. Dit doet uploaden u het Python-script uit  
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) naar de blob van het Spark-cluster. U kunt een hulpprogramma zoals **Microsoft Azure Storage Explorer** of **AzCopy** het script kopiëren naar de blob van het cluster. In ons geval we het script hebt geüpload ***wasb:///example/python/ConsumeGBNYCReg.py***.   

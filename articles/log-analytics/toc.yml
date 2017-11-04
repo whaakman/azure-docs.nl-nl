@@ -150,6 +150,12 @@
           href: log-analytics-alerts-webhooks.md
         - name: Waarschuwingenbeheeroplossing
           href: log-analytics-solution-alert-management.md
+    - name: Beheren
+      items:
+        - name: De kosten voor werkruimtes beheren
+          href: log-analytics-manage-cost-storage.md
+        - name: Een werkruimte verwijderen
+          href: log-analytics-manage-del-workspace.md
     - name: Oplossingen gebruiken
       items:
         - name: Overzicht van oplossingen

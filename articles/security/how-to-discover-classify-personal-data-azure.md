@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 6ccb064a9a76e7041d4f365b3997673dc9182e0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d60a5ca6229939e5d368c216688e4964261f85c7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Detecteren, identificeren en classificeren van persoonlijke gegevens in Microsoft Azure
 
@@ -150,13 +150,13 @@ Persoonlijke gegevens die zijn gekoppeld aan de Hadoop-clusters in Azure HDInsig
 
 #### <a name="how-do-i-use-excel-power-query-to-import-hadoop-clusters-in-azure-hdinsight-into-excel"></a>Hoe gebruik Power Query voor Excel te importeren in Azure HDInsight Hadoop-clusters in Excel?
 
-Een zelfstudie voor HDInsight begeleidt u door deze hele proces. Deze vereisten wordt uitgelegd en bevat een koppeling naar een [aan de slag met Azure HDInsight](../hdinsight/hdinsight-hadoop-linux-tutorial-get-started.md) zelfstudie. Instructies behandelen Excel 2016 evenals 2010 en 2013 (stappen zijn enigszins verschillen voor de oudere versies van Excel). Als u geen de Power Query voor Excel-invoegtoepassing, de zelfstudie ziet u hoe u deze. U de zelfstudie beginnen in Excel en een Azure Blob storage-account die is gekoppeld aan het cluster hebben.
+Een zelfstudie voor HDInsight begeleidt u door deze hele proces. Deze vereisten wordt uitgelegd en bevat een koppeling naar een [aan de slag met Azure HDInsight](../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md) zelfstudie. Instructies behandelen Excel 2016 evenals 2010 en 2013 (stappen zijn enigszins verschillen voor de oudere versies van Excel). Als u geen de Power Query voor Excel-invoegtoepassing, de zelfstudie ziet u hoe u deze. U de zelfstudie beginnen in Excel en een Azure Blob storage-account die is gekoppeld aan het cluster hebben.
 
   ![De query in Excel](media/how-to-discover-classify-personal-data-azure/excel.png)
 
-Voor meer informatie over hoe u dit doet, gaat u naar de [verbinding maken met Excel en Hadoop via Power Query](../hdinsight/hdinsight-connect-excel-power-query.md) zelfstudie.
+Voor meer informatie over hoe u dit doet, gaat u naar de [verbinding maken met Excel en Hadoop via Power Query](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md) zelfstudie.
 
-Bron: [verbinding maken met Excel en Hadoop via Power Query](../hdinsight/hdinsight-connect-excel-power-query.md)
+Bron: [verbinding maken met Excel en Hadoop via Power Query](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md)
 
 ## <a name="azure-information-protection-personal-data-classification-for-documents-and-email"></a>Azure Information Protection: persoonsgegevens classificatie van documenten en e-mailadres
 

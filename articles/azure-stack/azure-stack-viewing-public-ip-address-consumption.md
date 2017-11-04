@@ -1,6 +1,6 @@
 ---
-title: View public IP address consumption in Azure Stack | Microsoft Docs
-description: Administrators can view the consumption of public IP addresses in a region
+title: Openbare IP-adres verbruik weergeven in Azure-Stack | Microsoft Docs
+description: Beheerders kunnen het verbruik van openbare IP-adressen weergeven in een regio
 services: azure-stack
 documentationcenter: 
 author: ScottNapolitan
@@ -14,55 +14,54 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7651565eebf6272f307a4ce4790ca19b41bfa826
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="view-public-ip-address-consumption-in-azure-stack"></a>View public IP address consumption in Azure Stack
+# <a name="view-public-ip-address-consumption-in-azure-stack"></a>Openbare IP-adres verbruik in Azure Stack weergeven
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-As a cloud administrator, you can view the number of public IP addresses that have been allocated to tenants, the number of public IP addresses that are still available for allocation, and the percentage of public IP addresses that have been allocated in that location.
+Als de cloudbeheerder van een, kunt u het aantal openbare IP-adressen die zijn toegewezen aan tenants, het aantal openbare IP-adressen die zijn nog steeds beschikbaar voor toewijzing en het percentage van de openbare IP-adressen die zijn toegewezen op die locatie weergeven.
 
-The **Public IP pools usage** tile shows the total number of public IP addresses that have been consumed across all public IP address pools on the fabric, whether they have been used for tenant IaaS VM instances, fabric infrastructure services, or public IP address resources that were explicitly created by tenants.
+De **openbare IP-adres aan de groep gebruik** tegel ziet u het totale aantal openbare IP-adressen die moeten zijn geconsumeerd voor alle openbare IP-adresgroepen op de fabric, of deze zijn gebruikt voor de tenant IaaS VM-instanties, fabric-infrastructuur Services of openbare IP-adresbronnen die expliciet zijn gemaakt door tenants.
 
-The purpose of this tile is to give Azure Stack administrators a sense of the overall number of public IP addresses that have been consumed in this location. This helps administrators determine whether they are running low on this resource.
+Het doel van deze tegel is Azure Stack-beheerders geven een beeld krijgt van het totale aantal openbare IP-adressen die op deze locatie moeten zijn geconsumeerd. Hiermee kan beheerders bepalen of ze weinig op deze resource.
 
-On the **Resource providers**, **Network** blade, the **Public IP addresses** menu item under **Tenant Resources** lists only those public IP addresses that have been *explicitly created by tenants*. As such, the number of **Used** public IP addresses on the **Public IP pools usage** tile is always different from (larger than) the number on the **Public IP Addresses** tile under **Tenant Resources**.
+Op de **resourceproviders**, **netwerk** blade de **openbare IP-adressen** menu-item onder **Tenantbronnen** bevat alleen de openbare IP-adressen die zijn *expliciet gemaakt door tenants*. Als bijvoorbeeld het aantal **gebruikt** openbare IP-adressen op de **openbare IP-adres aan de groep gebruik** tegel is altijd (groter dan) verschilt het nummer op de **openbare IP-adressen** tegel onder **Tenant Resources**.
 
-## <a name="view-the-public-ip-address-usage-information"></a>View the public IP address usage information
-To view the total number of public IP addresses that have been consumed in the region:
+## <a name="view-the-public-ip-address-usage-information"></a>Het openbare IP-adres gebruiksgegevens weergeven
+Het totale aantal openbare IP-adressen in de regio zijn verbruikt weergeven:
 
-1. In the Azure Stack administrator portal, click **More services**, under **Administrative Resources**, click **Resource providers**.
-2. From the list of **Resource Providers**, select **Network**.
-3. The **Network** blade displays the **Public IP pools usage** tile in the **Overview** section.
+1. Klik in de Azure-Stack-beheerdersportal **meer services**onder **servervirtualisatie**, klikt u op **resourceproviders**.
+2. In de lijst met **Resourceproviders**, selecteer **netwerk**.
+3. De **netwerk** blade geeft de **openbare IP-adres aan de groep gebruik** -tegel in de **overzicht** sectie.
 
-![Network Resource Provider blade](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
+![Netwerk Resource Provider-blade](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
 
-Keep in mind that the **Used** number represents the number of public IP addresses from all public IP address pools in that location that are assigned. The **Free** number represents the number of public IP addresses from all public IP address pools that have not been assigned and are still available. The **% Used** number represents the number of used or assigned addresses as a percentage of the total number of public IP addresses in all public IP address pools in that location.
+Houd rekening met de **gebruikt** nummer geeft het aantal openbare IP-adressen van alle openbare IP-adresgroepen op die locatie die zijn toegewezen. De **vrije** getal is het aantal openbare IP-van alle openbare IP adressen-adresgroepen die niet zijn toegewezen en zijn nog steeds beschikbaar. De **% gebruikt** nummer geeft het aantal gebruikt of adressen toegewezen als een percentage van het totale aantal openbare IP-adressen in alle openbare IP-adresgroepen op die locatie.
 
-## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>View the public IP addresses that were created by tenant subscriptions
-To see a list of public IP addresses that were explicitly created by tenant subscriptions in a specific region, click **Public IP addresses** under **Tenant Resources**.
+## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>De openbare IP-adressen die zijn gemaakt door tenant-abonnementen weergeven
+Een lijst van openbare IP-adressen die expliciet zijn gemaakt door tenant-abonnementen in een specifieke regio wilt bekijken, klikt u op **openbare IP-adressen** onder **Tenantbronnen**.
 
-![Tenant public IP addresses](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
+![Tenant openbare IP-adressen](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
 
-You might notice that some public IP addresses that have been dynamically allocated appear in the list but do not have an address associated with them yet. This is because the address resource has been created in the Network Resource Provider, but not in the Network Controller yet.
+Mogelijk ziet u dat een aantal openbare IP-adressen die dynamisch toegewezen in de lijst weergegeven, maar een adres die zijn gekoppeld aan deze nog niet hebt. Dit is omdat de bron van het adres is in de Resource-Provider van het netwerk maar niet in de netwerkcontroller nog gemaakt.
 
-The Network Controller does not assign an address to this resource until it is actually bound to an interface, a network interface card (NIC), a load balancer, or a virtual network gateway. When the public IP address is bound to an interface, the Network Controller allocates an IP address to it, and it appears in the **Address** field.
+De netwerkcontroller biedt een adres niet toewijzen aan deze resource totdat deze daadwerkelijk is gekoppeld aan een interface, een netwerkinterfacekaart (NIC), een load balancer of een virtuele netwerkgateway. Wanneer het openbare IP-adres is gebonden aan een interface en wordt deze weergegeven in de netwerkcontroller wijst een IP-adres aan de **adres** veld.
 
-## <a name="view-the-public-ip-address-information-summary-table"></a>View the public IP address information summary table
-There are a number of different cases in which public IP addresses are assigned that determine whether the address appears in one list or another.
+## <a name="view-the-public-ip-address-information-summary-table"></a>De openbare IP-adres informatie samenvattingstabel weergeven
+Er zijn een aantal andere gevallen waarin het openbare IP-adressen zijn toegewezen om te bepalen of het adres moet worden weergegeven in één lijst of een andere.
 
-| **Public IP address assignment case** | **Appears in usage summary** | **Appears in tenant public IP addresses list** |
+| **Toewijzing geval van openbare IP-adres** | **Wordt weergegeven in de samenvatting van gebruik** | **Wordt weergegeven in de lijst met tenant openbare IP-adressen** |
 | --- | --- | --- |
-| Dynamic public IP address not yet assigned to an NIC or load balancer (temporary) |No |Yes |
-| Dynamic public IP address assigned to an NIC or load balancer. |Yes |Yes |
-| Static public IP address assigned to a tenant NIC or load balancer. |Yes |Yes |
-| Static public IP address assigned to a fabric infrastructure service endpoint. |Yes |No |
-| Public IP address implicitly created for IaaS VM instances and used for outbound NAT on the virtual network. These are created behind the scenes whenever a tenant creates a VM instance so that VMs can send information out to the Internet. |Yes |No |
+| Dynamische openbare IP-adres nog niet toegewezen aan een NIC of een load balancer (tijdelijke) |Nee |Ja |
+| Dynamische openbare IP-adres toegewezen aan een NIC of een load balancer. |Ja |Ja |
+| Statisch openbaar IP-adres toegewezen aan een tenant-NIC of een load balancer. |Ja |Ja |
+| Statisch openbaar IP-adres toegewezen aan een service-eindpunt van de fabric-infrastructuur. |Ja |Nee |
+| Openbaar IP-adres is impliciet gemaakt voor IaaS VM-instanties en gebruikt voor de uitgaande NAT in het virtuele netwerk. Deze worden achter de schermen gemaakt wanneer een tenant een VM-instantie maakt zodat virtuele machines informatie uit met het Internet verzenden kunnen. |Ja |Nee |
 
-## <a name="next-steps"></a>Next steps
-[Manage Storage Accounts in Azure Stack](azure-stack-manage-storage-accounts.md)
+## <a name="next-steps"></a>Volgende stappen
+[Storage-Accounts in Azure-Stack beheren](azure-stack-manage-storage-accounts.md)

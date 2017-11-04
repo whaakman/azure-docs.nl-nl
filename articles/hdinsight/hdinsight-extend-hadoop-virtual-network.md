@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/21/2017
 ms.author: larryfr
-ms.openlocfilehash: 17059c5861962a56ed2011a8f8874fc23673ed68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5835d4ac83b54648b4f7885de577f90008018baa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -671,8 +671,8 @@ Na het voltooien van deze stappen kunt u verbinding maken met resources in het v
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie voor een voorbeeld van de end-to-end van de configuratie van HDInsight verbinding maken met een on-premises netwerk, [verbinding maken met HDInsight op een on-premises netwerk](./connect-on-premises-network.md).
-* Zie voor het configureren van Hbase-clusters in virtuele netwerken in Azure, [maken HBase-clusters in HDInsight in Azure Virtual Network](./hdinsight-hbase-provision-vnet.md).
-* Zie voor het configureren van HBase geo-replicatie [HBase-cluster-replicatie in virtuele netwerken in Azure instellen](./hdinsight-hbase-replication.md).
+* Zie voor het configureren van Hbase-clusters in virtuele netwerken in Azure, [maken HBase-clusters in HDInsight in Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).
+* Zie voor het configureren van HBase geo-replicatie [HBase-cluster-replicatie in virtuele netwerken in Azure instellen](hbase/apache-hbase-replication.md).
 * Zie voor meer informatie over virtuele netwerken in Azure, de [Azure Virtual Network-overzicht](../virtual-network/virtual-networks-overview.md).
 
 * Zie voor meer informatie over netwerkbeveiligingsgroepen [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md).

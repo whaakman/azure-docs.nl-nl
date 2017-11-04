@@ -1,35 +1,33 @@
 ---
-title: Introduction to Azure Stack networking
-description: Learn about Azure Stack networking
+title: Inleiding tot Azure-Stack-netwerken
+description: Meer informatie over Azure-Stack-netwerken
 services: azure-stack
 author: ScottNapolitan
 ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 02406ef396fdaa40cb4d46f32d0b2b00c4ec295e
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="introduction-to-azure-stack-networking"></a>Introduction to Azure Stack networking
+# <a name="introduction-to-azure-stack-networking"></a>Inleiding tot Azure-Stack-netwerken
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Azure Stack provides a variety of networking capabilities that can be used together or separately:
-- Connectivity between Azure Stack resources: connect Azure resources together in a secure, private virtual network in the cloud.
-- Internet connectivity: communicate to and from Azure Stack resources over the Internet.
-- On-premises connectivity: connect an on-premises network to Azure Stack resources through a virtual private network (VPN) over the Internet, or through a dedicated connection to Azure Stack.
-- Load balancing and traffic direction: load balance traffic to servers in the same location and direct traffic to servers in different locations.
-- Security: filter network traffic between network subnets or individual virtual machines (VM).
-- Routing: use default routing or fully control routing between your Azure Stack and on-premises resources.
-- Manageability: monitor and manage your Azure Stack networking resources.
-- Deployment and configuration tools: use a web-based portal or cross-platform command-line tools to deploy and configure network resources.
+Azure Stack biedt tal van netwerkmogelijkheden die samen of afzonderlijk kunnen worden gebruikt:
+- Connectiviteit tussen Azure Stack bronnen: verbinding maken met Azure-resources samen in een beveiligd, persoonlijk virtueel netwerk in de cloud.
+- Verbinding met Internet: naar en van de Stack van Azure-resources via Internet communiceren.
+- Lokale connectiviteit: een on-premises netwerk koppelen aan Azure-Stack-resources via een virtueel particulier netwerk (VPN) via Internet of een specifieke verbinding met Azure-Stack.
+- Load balancing en verkeer richting: laden saldo verkeer naar servers op dezelfde locatie en direct op de servers in verschillende locaties.
+- Beveiliging: het filteren van netwerkverkeer tussen subnetten of afzonderlijke virtuele machines (VM).
+- Routering: gebruik standaardroutering of volledig beheren routering tussen uw Azure-Stack en lokale bronnen.
+- Beheerbaarheid: bewaken en beheren van uw Azure-Stack netwerkresources.
+- Hulpprogramma's voor implementatie en configuratie: gebruiken een webportal of netwerkbronnen platformoverschrijdende opdrachtregelprogramma's implementeren en configureren.
 
 
-## <a name="next-steps"></a>Next steps
-* [Considerations for Azure Stack networking](azure-stack-network-differences.md)
-
+## <a name="next-steps"></a>Volgende stappen
+* [Overwegingen voor het Azure-Stack-netwerken](azure-stack-network-differences.md)
 

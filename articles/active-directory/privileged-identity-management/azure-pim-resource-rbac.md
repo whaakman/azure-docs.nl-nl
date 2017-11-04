@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barclayn
-ms.openlocfilehash: abaf78428cb12235a659bad5c13d64e8e51f4ba6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 114ef434e6167ef2b25b040e35ab3ce1b85151a9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="pim-for-azure-resources-preview"></a>PIM voor Azure-resources (Preview)
 
@@ -43,11 +43,12 @@ Azure AD PIM kunt beheren de ingebouwde Azure Resource rollen, evenals aangepast
 - Beveiligingsbeheer en meer
 
 >[!NOTE]
-Gebruikers of leden van een groep die is toegewezen aan de eigenaar of beheerder voor gebruikerstoegang rollen en globale beheerders die beheer van abonnementen inschakelen in Azure AD zijn Resource-beheerders. Deze beheerders kunnen rollen toewijzen, serverfunctie-instellingen configureren en controleren via toegang tot PIM voor Azure-Resources. De lijst weergeven met [ingebouwde functies voor Azure-resources](../role-based-access-built-in-roles.md)
+Gebruikers of leden van een groep die is toegewezen aan de eigenaar of beheerder voor gebruikerstoegang rollen en globale beheerders die beheer van abonnementen inschakelen in Azure AD zijn Resource-beheerders. Deze beheerders kunnen rollen toewijzen, serverfunctie-instellingen configureren en controleren via toegang tot PIM voor Azure-Resources. De lijst weergeven met [ingebouwde functies voor Azure-resources](../role-based-access-built-in-roles.md).
 
 ## <a name="tasks"></a>Taken
 
 PIM biedt snel toegang tot rollen activeren, bekijken in behandeling zijnde activeringen/aanvragen in behandeling genomen goedkeuringen (voor [functies van Azure AD-directory](azure-ad-pim-approval-workflow.md)), en in afwachting van uw antwoord in het gedeelte van de taken van het navigatiemenu links beoordeelt.
+
 Bij het openen van een van de taken menu-items van het toegangspunt overzicht, bevat het resulterende weergave resultaten voor Azure AD-directory-functies en functies van Azure Resource (Preview). 
 
 ![](media/azure-pim-resource-rbac/role-settings-details.png)
@@ -56,7 +57,7 @@ Mijn rollen bevatten een lijst met uw actieve en in aanmerking komende functieto
 
 ## <a name="activate-roles"></a>Rollen activeren
 
-Rollen activeren voor Azure-Resources (Preview) introduceert een nieuwe ervaring waarmee de leden van een in aanmerking komende rol activeren voor een toekomstige datum/tijd plannen en selecteert u een specifieke activeringsduur binnen de maximale (geconfigureerd door beheerders). Meer informatie over [hier Azure AD-rollen activeren](../active-directory-privileged-identity-management-how-to-activate-role.md)
+Rollen activeren voor Azure-Resources (Preview) introduceert een nieuwe ervaring waarmee de leden van een in aanmerking komende rol activeren voor een toekomstige datum/tijd plannen en selecteert u een specifieke activeringsduur binnen de maximale (geconfigureerd door beheerders). Meer informatie over [hier Azure AD-rollen activeren](../active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 

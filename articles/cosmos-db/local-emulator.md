@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: arramac
-ms.openlocfilehash: a6124a8fa630424558c0812edbf12d5ad25d6bf6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
-ms.translationtype: HT
+ms.openlocfilehash: 5ea254110a24ea3315d614ebca2d43bda0e1a674
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>De Azure Cosmos DB Emulator gebruiken voor lokale ontwikkeling en testen
 
@@ -86,7 +86,7 @@ De Azure-Emulator Cosmos DB heeft de volgende hardware en software-vereisten:
   * 10 GB beschikbare schijfruimte
 
 ## <a name="installation"></a>Installeren
-U kunt downloaden en installeren van de Azure Cosmos DB-Emulator van de [Microsoft Download Center](https://aka.ms/cosmosdb-emulator) of u kunt de emulator uitvoeren op Docker voor Windows. Zie voor instructies over het gebruik van de Emulator op Docker voor Windows [uitgevoerd op Docker](#running-on-docer). 
+U kunt downloaden en installeren van de Azure Cosmos DB-Emulator van de [Microsoft Download Center](https://aka.ms/cosmosdb-emulator) of u kunt de emulator uitvoeren op Docker voor Windows. Zie voor instructies over het gebruik van de Emulator op Docker voor Windows [uitgevoerd op Docker](#running-on-docker). 
 
 > [!NOTE]
 > Als u wilt installeren, configureren en uitvoeren van de Azure Cosmos DB-Emulator, moet u beheerdersbevoegdheden hebben op de computer.

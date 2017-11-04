@@ -6,7 +6,7 @@ Selecteer bij instellingen in de sectie Beleid de optie **Beleid voor profielbew
 
 ![Selecteer Beleid voor profielbewerking en klik op de knop Toevoegen](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-policy.png)
 
-Geef een**** naam op voor het beleid waarnaar de toepassing kan verwijzen. Geef bijvoorbeeld `SiPe` op.
+Geef een **naam** op voor het beleid waarnaar de toepassing kan verwijzen. Geef bijvoorbeeld `SiPe` op.
 
 Selecteer **Id-providers** en schakel **Aanmelden met lokaal account** in. U kunt er ook voor kiezen om sociale id-providers te selecteren als dit al is geconfigureerd. Klik op **OK**.
 

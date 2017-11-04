@@ -1,28 +1,53 @@
-Data factory is a multi-tenant service that has the following default limits in place to make sure customer subscriptions are protected from each other's workloads. Many of the limits can be easily raised for your subscription up to the maximum limit by contacting support.
+Gegevensfactory is een multitenant-service die beschikt over de volgende standaardlimiet om ervoor te zorgen klantabonnementen zijn beveiligd tegen elkaars werkbelastingen. Veel van de limieten kunnen eenvoudig gegeven voor uw abonnement tot het maximum aantal contact opnemen met de ondersteuning.
 
-| **Resource** | **Default Limit** | **Maximum Limit** |
+### <a name="version-2"></a>Versie 2
+
+| Resource | Standaardlimiet | Maximumaantal | 
+| -------- | ------------- | ------------- | 
+| Data Factory's in een Azure-abonnement | 50 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| pijplijnen binnen een gegevensfactory | 2500 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| gegevenssets binnen een gegevensfactory | 2500 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Triggers binnen een gegevensfactory | 2500 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Gekoppelde services binnen een gegevensfactory | 2500 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Integratie runtimes binnen een gegevensfactory <sup>4</sup> | 2500 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Gelijktijdige pipeline wordt per pijplijn | 20 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Maximum aantal activiteiten per pijplijn | 20 | 30 |
+| Maximum aantal parameters per pijplijn | 20 | 30 |
+| aantal bytes per object voor pipeline-objecten <sup>1</sup> | 200 KB | 200 KB |
+| aantal bytes per object voor de gegevensset en objecten van de gekoppelde service <sup>1</sup> | 100 KB | 2000 KB |
+| Data movement eenheden cloud <sup>3</sup> | 32 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Aantal voor pijplijn activiteiten bij uitvoering nieuwe pogingen | 1 day(timeout) | 1 dag (time-out) |
+| API-aanroepen schrijven | 2500/hr<br/><br/> Deze limiet is opgelegd door Azure Resource Manager, niet-Azure Data Factory. | [Neem contact op met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Lees API-aanroepen | 12.500/hr<br/><br/> Deze limiet is opgelegd door Azure Resource Manager, niet-Azure Data Factory. | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+
+
+### <a name="version-1"></a>Versie 1
+
+| **Resource** | **Standaardlimiet** | **Maximumaantal** |
 | --- | --- | --- |
-| data factories in an Azure subscription |50 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| pipelines within a data factory |2500 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| datasets within a data factory |5000 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| concurrent slices per dataset |10 |10 |
-| bytes per object for pipeline objects <sup>1</sup> |200 KB |200 KB |
-| bytes per object for dataset and linked service objects <sup>1</sup> |100 KB |2000 KB |
-| HDInsight on-demand cluster cores within a subscription <sup>2</sup> |60 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Cloud data movement unit <sup>3</sup> |32 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Retry count for pipeline activity runs |1000 |MaxInt (32 bit) |
+| Data Factory's in een Azure-abonnement |50 |[Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| pijplijnen binnen een gegevensfactory |2500 |[Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| gegevenssets binnen een gegevensfactory |5000 |[Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| gelijktijdige segmenten per gegevensset |10 |10 |
+| aantal bytes per object voor pipeline-objecten <sup>1</sup> |200 KB |200 KB |
+| aantal bytes per object voor de gegevensset en objecten van de gekoppelde service <sup>1</sup> |100 KB |2000 KB |
+| HDInsight-cluster op aanvraag kernen binnen een abonnement <sup>2</sup> |60 |[Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Data movement eenheden cloud <sup>3</sup> |32 |[Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Aantal voor pijplijn activiteiten bij uitvoering nieuwe pogingen |1000 |MaxInt (32 bits) |
 
-<sup>1</sup> Pipeline, dataset, and linked service objects represent a logical grouping of your workload. Limits for these objects do not relate to amount of data you can move and process with the Azure Data Factory service. Data factory is designed to scale to handle petabytes of data.
+<sup>1</sup> pipeline, gegevensset en objecten van de gekoppelde service vertegenwoordigen een logische groepering van uw workload. Limieten voor deze objecten geen betrekking hebben op de hoeveelheid gegevens die u kunt verplaatsen en met de Azure Data Factory-service verwerken. Gegevensfactory is ontworpen om te schalen voor petabytes aan gegevens.
 
-<sup>2</sup> On-demand HDInsight cores are allocated out of the subscription that contains the data factory. As a result, the above limit is the Data Factory enforced core limit for on-demand HDInsight cores and is different from the core limit associated with your Azure subscription.
+<sup>2</sup> on-demand HDInsight-kernen worden toegewezen uit het abonnement dat u de gegevensfactory bevat. Als gevolg hiervan is de bovenstaande limiet voor de Data Factory afgedwongen limiet kernen voor bellen op HDInsight kernen en verschilt van de core limiet die is gekoppeld aan uw Azure-abonnement.
 
-<sup>3</sup> Cloud data movement unit (DMU) is being used in a cloud-to-cloud copy operation. It is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Data Factory. You can achieve higher copy throughput by leveraging more DMUs for some scenarios. Refer to [Cloud data movement units](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) section on details.
+<sup>3</sup> cloud gegevensverplaatsing gegevenseenheid (DMU) wordt gebruikt in een cloud-naar-cloud kopieerbewerking. Is een meting met de kracht (een combinatie van CPU, geheugen en netwerkresourcetoewijzing) van één eenheid in de Data Factory. Met behulp van meer DMUs voor sommige scenario's kunt u hogere kopie doorvoer behalen. Raadpleeg [Cloud data movement eenheden](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) sectie voor meer informatie.
 
-| **Resource** | **Default lower limit** | **Minimum limit** |
+<sup>4</sup> de integratie Runtime (IR) wordt de beheerinfrastructuur gebruikt door Azure Data Factory om te voorzien in de volgende mogelijkheden voor integratie van verschillende netwerkomgevingen: verplaatsing van gegevens tijdens het verzenden van activiteiten voor de compute-services, uitvoeren van SSIS-pakketten. Zie voor meer informatie [integratie Runtime overzicht](../articles/data-factory/concepts-integration-runtime.md).
+
+| **Resource** | **De ondergrens standaard** | **Minimale limiet** |
 | --- | --- | --- |
-| Scheduling interval |15 minutes |15 minutes |
-| Interval between retry attempts |1 second |1 second |
-| Retry timeout value |1 second |1 second |
+| Plannen van interval |15 minuten |15 minuten |
+| Interval tussen nieuwe pogingen |1 seconde |1 seconde |
+| Probeer de time-outwaarde |1 seconde |1 seconde |
 
-### <a name="web-service-call-limits"></a>Web service call limits
-Azure Resource Manager has limits for API calls. You can make API calls at a rate within the [Azure Resource Manager API limits](../articles/azure-subscription-service-limits.md#resource-group-limits).
+#### <a name="web-service-call-limits"></a>Limieten voor aanroep van Web service
+Azure Resource Manager heeft limieten voor API-aanroepen. U kunt de API-aanroepen maken met een frequentie binnen de [Azure Resource Manager-API beperkt](../articles/azure-subscription-service-limits.md#resource-group-limits).

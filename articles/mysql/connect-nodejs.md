@@ -6,20 +6,19 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
 ms.devlang: nodejs
-ms.topic: hero-article
-ms.date: 07/17/2017
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 0c0bd4b707c114d2991e5f0473a4bfbe9e463e3c
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/18/2017
-
+ms.topic: quickstart
+ms.date: 09/22/2017
+ms.openlocfilehash: 2f18016614b229273aa4d661991149be949ce238
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>Azure Database voor MySQL: Node.js gebruiken om verbinding te maken en query's uit te voeren op gegevens
-In deze snelstartgids ziet u hoe u vanuit de platformen Windows, Ubuntu Linux, en Mac met behulp van [Node.js](https://nodejs.org/) verbinding maakt met een Azure Database voor MySQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In de stappen van dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Node.js, maar geen ervaring hebt met het werken met Azure Database voor MySQL.
+In deze snelstartgids ziet u hoe u vanuit de platformen Windows, Ubuntu Linux, en Mac met behulp van [Node.js](https://nodejs.org/) verbinding maakt met een Azure Database voor MySQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In dit onderwerp wordt ervan uitgegaan dat u bekend bent met behulp van Node.js ontwikkelen en dat u niet bekend bent met werken met Azure-Database voor MySQL.
 
 ## <a name="prerequisites"></a>Vereisten
 In deze snelstartgids worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
@@ -31,12 +30,12 @@ U moet ook het volgende doen:
 - Het [mysql2](https://www.npmjs.com/package/mysql2)-pakket installeren om vanuit de Node.js-toepassing verbinding te maken met MySQL. 
 
 ## <a name="install-nodejs-and-the-mysql-connector"></a>Node.js en de MySQL-connector installeren
-Volg afhankelijk van uw platform de juiste instructies voor het installeren van Node.js. Gebruik NPM voor het installeren van het mysql2-pakket en de bijbehorende afhankelijkheden in de projectmap.
+Volg de instructies in het desbetreffende gedeelte voor het installeren van Node.js afhankelijk van uw platform. Gebruik NPM voor het installeren van het mysql2-pakket en de bijbehorende afhankelijkheden in de projectmap.
 
 ### <a name="windows"></a>**Windows**
-1. Ga naar de [downloadpagina van Node.js](https://nodejs.org/en/download/) en selecteer het gewenste Windows-installatieprogramma.
+1. Ga naar de [Node.js pagina met downloads](https://nodejs.org/en/download/), en selecteer vervolgens de gewenste optie voor Windows installer.
 2. Maak een lokale projectmap, zoals `nodejsmysql`. 
-3. Start de opdrachtprompt en ga naar de juiste projectmap, zoals `cd c:\nodejsmysql\`
+3. Start de opdrachtprompt en wijzig vervolgens de directory in de projectmap zoals`cd c:\nodejsmysql\`
 4. Voer het hulpprogramma NPM uit om de mysql2-bibliotheek in de projectmap te installeren.
 
    ```cmd
@@ -54,7 +53,7 @@ Volg afhankelijk van uw platform de juiste instructies voor het installeren van 
    sudo apt-get install -y nodejs npm
    ```
 
-2. Voer de volgende opdrachten uit om een projectmap `mysqlnodejs` te maken en installeer het mysql2-pakket in die map.
+2. Voer de volgende opdrachten voor het maken van een projectmap `mysqlnodejs` en installeer het pakket mysql2 in die map.
 
    ```bash
    mkdir nodejsmysql
@@ -71,7 +70,7 @@ Volg afhankelijk van uw platform de juiste instructies voor het installeren van 
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    brew install node
    ```
-2. Voer de volgende opdrachten uit om een projectmap `mysqlnodejs` te maken en installeer het mysql2-pakket in die map.
+2. Voer de volgende opdrachten voor het maken van een projectmap `mysqlnodejs` en installeer het pakket mysql2 in die map.
 
    ```bash
    mkdir nodejsmysql
@@ -88,18 +87,18 @@ Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azur
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Klik in het linkerdeelvenster op **Alle resources** en zoek vervolgens naar de server die u hebt gemaakt (bijvoorbeeld **myserver4demo**).
 3. Klik op de servernaam **myserver4demo**.
-4. Selecteer de pagina **Eigenschappen** van de server. Noteer de **servernaam** en de **gebruikersnaam van de serverbeheerder**.
+4. Selecteer de server **eigenschappen** pagina en maak een notitie van de **servernaam** en **aanmeldingsnaam van Server-beheerder**.
  ![Azure Database voor MySQL - Aanmeldgegevens van de serverbeheerder](./media/connect-nodejs/1_server-properties-name-login.png)
-5. Als u uw aanmeldingsgegevens voor de server bent vergeten, gaat u naar de pagina **Overzicht** om de aanmeldingsnaam van de serverbeheerder weer te geven en indien nodig het wachtwoord opnieuw in te stellen.
+5. Als u uw aanmeldingsgegevens server bent vergeten, gaat u naar de **overzicht** pagina om de aanmeldingsnaam voor Server-beheerder weer te geven en zo nodig het wachtwoord opnieuw instellen.
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>De JavaScript-code in Node.js uitvoeren
-1. Plak de JavaScript-code in tekstbestanden en sla deze op in een projectmap met de bestandsextensie .js, zoals C:\nodejsmysql\createtable.js of /home/username/nodejsmysql/createtable.js
-2. Open de opdrachtprompt of de bash-shell. Ga naar de projectmap `cd nodejsmysql`.
+1. Plak de JavaScript-code in tekstbestanden en vervolgens opslaan in een projectmap met bestand extensie .js (zoals C:\nodejsmysql\createtable.js of /home/username/nodejsmysql/createtable.js).
+2. Start de opdrachtprompt of bash-shell en wijzig vervolgens de directory in de projectmap `cd nodejsmysql`.
 3. Typ de knooppuntopdracht, gevolgd door de bestandsnaam `node createtable.js` om de toepassing uit te voeren.
 4. In Windows moet u als de knooppunttoepassing zich niet in uw omgevingsvariabelepad bevindt mogelijk het volledige pad gebruiken om de knooppunttoepassing te starten, zoals `"C:\Program Files\nodejs\node.exe" createtable.js`
 
 ## <a name="connect-create-table-and-insert-data"></a>Verbinden, tabel maken en gegevens invoegen
-Gebruik de volgende code om verbinding te maken en de gegevens te laden met de SQL-instructies **CREATE TABLE** EN **INSERT INTO**.
+De volgende code gebruiken om verbinding te en de gegevens laden met behulp van **CREATE TABLE** en **INSERT INTO** SQL-instructies.
 
 De methode [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) wordt gebruikt om een koppeling te maken met de MySQL-server. De functie [connect()](https://github.com/mysqljs/mysql#establishing-connections) wordt gebruikt om verbinding met de server te maken. De functie [query()](https://github.com/mysqljs/mysql#performing-queries) wordt gebruikt om de SQL-query uit te voeren op de MySQL-database. 
 
@@ -166,7 +165,7 @@ function queryDatabase(){
 ```
 
 ## <a name="read-data"></a>Gegevens lezen
-Gebruik de volgende code om verbinding te maken en de gegevens te lezen met de SQL-instructie **SELECT**. 
+De volgende code gebruiken om verbinding te en de gegevens niet lezen via een **Selecteer** SQL-instructie. 
 
 De methode [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) wordt gebruikt om een koppeling te maken met de MySQL-server. De methode [connect()](https://github.com/mysqljs/mysql#establishing-connections) wordt gebruikt om verbinding met de server te maken. De methode [query()](https://github.com/mysqljs/mysql#performing-queries) wordt gebruikt om de SQL-query uit te voeren op de MySQL-database. De resultatenmatrix wordt gebruikt om de resultaten van de query op te slaan.
 
@@ -218,7 +217,7 @@ function readData(){
 ```
 
 ## <a name="update-data"></a>Gegevens bijwerken
-Gebruik de volgende code om verbinding te maken en de gegevens te lezen met de SQL-instructie **UPDATE**. 
+De volgende code gebruiken om verbinding te en de gegevens niet lezen via een **UPDATE** SQL-instructie. 
 
 De methode [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) wordt gebruikt om een koppeling te maken met de MySQL-server. De methode [connect()](https://github.com/mysqljs/mysql#establishing-connections) wordt gebruikt om verbinding met de server te maken. De methode [query()](https://github.com/mysqljs/mysql#performing-queries) wordt gebruikt om de SQL-query uit te voeren op de MySQL-database. 
 
@@ -266,7 +265,7 @@ function updateData(){
 ```
 
 ## <a name="delete-data"></a>Gegevens verwijderen
-Gebruik de volgende code om verbinding te maken en de gegevens te lezen met de SQL-instructie **DELETE**. 
+De volgende code gebruiken om verbinding te en de gegevens niet lezen via een **verwijderen** SQL-instructie. 
 
 De methode [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) wordt gebruikt om een koppeling te maken met de MySQL-server. De methode [connect()](https://github.com/mysqljs/mysql#establishing-connections) wordt gebruikt om verbinding met de server te maken. De methode [query()](https://github.com/mysqljs/mysql#performing-queries) wordt gebruikt om de SQL-query uit te voeren op de MySQL-database. 
 
@@ -316,4 +315,3 @@ function deleteData(){
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
 > [Een database migreren met behulp van Exporteren en importeren](./concepts-migrate-import-export.md)
-

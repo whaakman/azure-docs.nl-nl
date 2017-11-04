@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/01/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: 0ed27077f649df2d0673351cda708b9a358ff92b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: 4c917a500e8d230c5b9885d9c0a96424201588f7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-java"></a>Objecten voor overdracht naar/van Azure Blob storage met Java
 
@@ -23,32 +23,15 @@ In deze snelstartgids leert u hoe u Java gebruikt om te uploaden, downloaden en 
 
 Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
-* Installeren van een IDE dat geïntegreerd met Maven is of installeren en configureren van Maven te laten werken vanuit de opdrachtregel
-    * Deze zelfstudie wordt gebruikgemaakt van [Eclipse](http://www.eclipse.org/downloads/) met de configuratie 'Eclipse IDE voor Java-ontwikkelaars'
-    
+* Installeren van een IDE met Maven-integratie
 
+* U kunt ook installeren en configureren van Maven te laten werken vanuit de opdrachtregel
+
+Deze zelfstudie wordt gebruikgemaakt van [Eclipse](http://www.eclipse.org/downloads/) met de configuratie 'Eclipse IDE voor Java-ontwikkelaars'.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Een opslagaccount met de Azure portal maken
-
-Maak eerst een nieuwe, algemeen opslagaccount moet worden gebruikt voor deze snelstartgids. 
-
-1. Ga naar de [Azure-portal](https://portal.azure.com) en meld u aan met uw Azure-account. 
-2. Selecteer in het menu Hub **nieuw** > **opslag** > **opslagaccount - blob, bestand, tabel, wachtrij**. 
-3. Voer een naam in voor het opslagaccount. De naam moet tussen 3 en 24 tekens lang zijn en mag alleen cijfers en kleine letters bevatten. Ook moet het uniek.
-4. Stel `Deployment model` naar **resourcemanager**.
-5. Stel `Account kind` naar **algemeen**.
-6. Stel `Performance` naar **standaard**. 
-7. Stel `Replication` naar **lokaal redundante opslag (LRS)**.
-8. Stel `Storage service encryption` naar **uitgeschakelde**.
-9. Stel `Secure transfer required` naar **uitgeschakelde**.
-10. Selecteer uw abonnement. 
-11. Voor `resource group`, een nieuwe maken en een unieke naam geven. 
-12. Selecteer de `Location` moet worden gebruikt voor uw opslagaccount.
-13. Controleer **vastmaken aan dashboard** en klik op **maken** om uw opslagaccount te maken. 
-
-Nadat uw storage-account is gemaakt, wordt deze is vastgemaakt aan het dashboard. Klik op deze te openen. Klik op instellingen **toegangssleutels**. Een sleutel selecteren en kopiëren naar het Klembord en plak deze in een teksteditor voor later gebruik. De naam van uw storage-account Kopieer en plak deze in een teksteditor voor later gebruik.
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>De voorbeeldtoepassing downloaden
 
@@ -110,6 +93,9 @@ Het eerste wat te doen is de verwijzingen naar objecten die worden gebruikt voor
 * Geen exemplaar maken van de **CloudBlobContainer** -object, dat staat voor de [container](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container) u opent. Containers worden gebruikt om uw blobs te organiseren dat u de mappen op uw computer gebruiken om uw bestanden te organiseren.
 
 Zodra u hebt de **CloudBlobContainer**, kunt u een exemplaar van de **CloudBlockBlob** -object dat naar de specifieke verwijst [blob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) in die u vinden wilt, en een upload, downloaden, kopiëren, enzovoort-bewerking uitvoeren.
+
+> [!IMPORTANT]
+> Containernamen moeten kleine letters. Zie [Naming en verwijzen naar Containers, Blobs en metagegevens](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) voor meer informatie over de container en de blob-namen.
 
 In deze sectie geen exemplaar maken van de objecten, een nieuwe container maken en vervolgens machtigingen instellen voor de container, zodat de blobs openbaar zijn en kunnen worden geopend met alleen een URL. De container wordt aangeroepen **quickstartblobs**. 
 

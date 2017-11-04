@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 5e6e56dd7ce1a16cadf35f9efe959ac490a65071
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 1e130fbf36d00a57563419670195fe356e8e5582
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Store met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ Als u verificatie van de service-principal, registreren van een Toepassingsentit
 - Sleutel van toepassing
 - Tenant-id
 
-[!TIP]
+>[!TIP]
 > Zorg ervoor dat u service principal juiste toestemming geven in Azure Data Lake Store:
 >- Als de bron, verlenen ten minste **lezen + Execute** data access-machtiging voor het weergeven en kopieer de inhoud van een map of **lezen** machtiging voor het kopiëren van één bestand. Er is geen vereiste voor toegangsbeheer op account.
 >- Als sink verlenen ten minste **schrijven + uitvoeren** data access-machtiging voor het maken van onderliggende items in de map. En als u Azure IR gebruiken om te zorgen dat kopiëren (bron- en sink zijn in de cloud), om te kunnen laten Data Factory Data Lake Store regio detecteren, verlenen ten minste **lezer** rol in account toegangsbeheer (IAM). Als u wilt voorkomen dat deze rol IAM [maken van een Azure-IR](create-azure-integration-runtime.md#create-azure-ir) gekoppelde service als het volgende voorbeeld met de locatie van uw Data Lake Store en koppelen in de Data Lake Store.

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d8b389d45673970b2769a9cb7327b47637bea60f
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: 1547b5c3a5c629b85ff5fa9de6b39b25531d9ec9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE omgevingen wordt ondersteund door Azure Data Factory
 > [!NOTE]
@@ -28,77 +28,53 @@ Dit artikel wordt uitgelegd verschillende berekeningsomgevingen waarmee u kunt g
 
 De volgende tabel bevat een lijst van compute-omgevingen wordt ondersteund door de Data Factory en de activiteiten die kunnen worden uitgevoerd op deze. 
 
-| Compute-omgeving | activities |
-| --- | --- |
-| [HDInsight-cluster op aanvraag](#azure-hdinsight-on-demand-linked-service) of [uw eigen HDInsight-cluster](#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop-Streaming](data-factory-hadoop-streaming-activity.md) |
-| [Azure Batch](#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) |[Machine Learning-activiteiten: batchuitvoering en resources bijwerken](data-factory-azure-ml-batch-execution-activity.md) |
-| [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](#azure-sql-linked-service), [Azure SQL datawarehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) |[Opgeslagen procedure](data-factory-stored-proc-activity.md) |
+| Compute-omgeving                      | activities                               |
+| ---------------------------------------- | ---------------------------------------- |
+| [HDInsight-cluster op aanvraag](#azure-hdinsight-on-demand-linked-service) of [uw eigen HDInsight-cluster](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop-Streaming](data-factory-hadoop-streaming-activity.md) |
+| [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning-activiteiten: batchuitvoering en resources bijwerken](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
+| [Azure SQL](#azure-sql-linked-service), [Azure SQL datawarehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Opgeslagen procedure](data-factory-stored-proc-activity.md) |
 
 ## <a name="supported-hdinsight-versions-in-azure-data-factory"></a>Ondersteunde versies van HDInsight in Azure Data Factory
-Azure HDInsight biedt ondersteuning voor meerdere versies van Hadoop-cluster die op elk gewenst moment kunnen worden geïmplementeerd. Elke versie keuze maakt een specifieke versie van de distributie Hortonworks Data Platform HDP () en een reeks onderdelen die deel uitmaken van dit distributiepunt. Microsoft houdt bijwerken van de lijst met ondersteunde versies van HDInsight nieuwste onderdelen voor Hadoop-ecosysteem en oplossingen te geven. De HDInsight-3.2 is op 1 April 2017 afgeschaft. Zie voor gedetailleerde informatie [ondersteunde versies van HDInsight](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).
+Azure HDInsight biedt ondersteuning voor meerdere versies van Hadoop-cluster die op elk gewenst moment kunnen worden geïmplementeerd. Elke versie keuze maakt een specifieke versie van de distributie Hortonworks Data Platform HDP () en een reeks onderdelen die deel uitmaken van dit distributiepunt. Microsoft houdt bijwerken van de lijst met ondersteunde versies van HDInsight nieuwste onderdelen voor Hadoop-ecosysteem en oplossingen te geven. Zie voor gedetailleerde informatie [ondersteunde versies van HDInsight](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-Dit heeft gevolgen voor bestaande Azure Data Factory activiteiten uitgevoerd tegen 3.2 HDInsight-clusters. Het wordt aangeraden de gebruikers dat u de richtlijnen in de volgende sectie om bij te werken van de betrokken Data Factory:
+> [!IMPORTANT]
+> De Linux gebaseerde HDInsight versie 3.3 buiten gebruik werd gesteld op 31 juli 2017. Data Factory v1 On-Demand HDInsight gekoppelde Services klanten gekregen tot en met 15 December 2017 om te testen en bijwerken naar een nieuwere versie van HDInsight. De HDInsight op basis van Windows wordt buiten gebruik worden gesteld op 31 juli 2018.
+>
+> 
 
-### <a name="for-linked-services-pointing-to-your-own-hdinsight-clusters"></a>Voor de gekoppelde Services die verwijst naar uw eigen HDInsight-clusters
-* **HDInsight gekoppelde Services aan te wijzen aan uw eigen HDInsight 3.2 of hieronder clusters:**
+**Wat gebeurt er na de datum buiten gebruik stellen** 
 
-  Azure Data Factory ondersteunt het verzenden van taken aan uw eigen HDInsight-clusters van HDI 3.1 [de meest recente versie van het HDInsight ondersteund](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions). U kunt echter niet langer maken 3.2 HDInsight-cluster na 1 April 2017 op basis van het beleid voor buitengebruikstelling gedocumenteerd in [ondersteunde versies van HDInsight](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).  
+Na 15 December 2017:
 
-  **Aanbevelingen:** 
-  * Uitvoeren van tests om te controleren of de compatibiliteit van de activiteiten die verwijzen naar deze gekoppelde Services naar [de meest recente versie van het HDInsight ondersteund](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) met gegevens die worden beschreven in [Hadoop-onderdelen met verschillende Versies van HDInsight](../../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) en [Hortonworks release-opmerkingen die zijn gekoppeld aan de versies van HDInsight](../../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).
-  * Upgrade van uw cluster 3.2 HDInsight [de meest recente versie van het HDInsight ondersteund](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) ophalen van de nieuwste onderdelen voor Hadoop-ecosysteem en oplossingen. 
+- U wordt niet langer Linux gebaseerde HDInsight versie 3.3 (of eerdere versies) maken met behulp van gekoppelde On-Demand HDInsight-Service in Azure Data Factory-v1-clusters. 
 
-* **HDInsight gekoppelde Services aan te wijzen aan uw eigen HDInsight 3.3 of hierboven clusters:**
+- Als de [besturingssysteemtype en/of de eigenschap Version](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) zijn niet expliciet is opgegeven in de bestaande Azure Data Factory v1 On-Demand HDInsight gekoppelde Service JSON definities, de standaardwaarde wordt gewijzigd van **versie 3.1, besturingssysteemtype = = Windows** naar **versie 3.6, besturingssysteemtype = Linux =**.
 
-  Azure Data Factory ondersteunt het verzenden van taken aan uw eigen HDInsight-clusters van HDI 3.1 [de meest recente versie van het HDInsight ondersteund](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions). 
-  
-  **Aanbevelingen:** 
-  * Er is geen actie vereist vanuit het perspectief van de Data Factory. We raden echter als u zich op een lagere versie van HDInsight, nog steeds aan een upgrade naar [de meest recente versie van het HDInsight ondersteund](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) ophalen van de nieuwste onderdelen voor Hadoop-ecosysteem en oplossingen.
+Na 31 juli 2018:
 
-### <a name="for-hdinsight-on-demand-linked-services"></a>Voor HDInsight On-Demand gekoppelde Services
-* **Versie 3.2 of hieronder is opgegeven in HDInsight On Demand gekoppelde Services JSON-definitie:**
-  
-  Azure Data Factory wordt ondersteuning voor het maken van On-Demand HDInsight-clusters van versie 3.3 of meer objecten uit **15-05/2017** en hoger. En het einde van ondersteuning voor bestaande op aanvraag HDInsight 3.2 gekoppelde services wordt uitgebreid naar **15-07/2017**.  
+- Niet meer mogelijk te maken van een willekeurige versie van Windows gebaseerde HDInsight-clusters met gekoppelde On-Demand HDInsight-Service in Azure Data Factory v1. 
 
-  **Aanbevelingen:** 
-  * Uitvoeren van tests om te controleren of de compatibiliteit van de activiteiten die verwijzen naar deze gekoppelde Services naar [de meest recente versie van het HDInsight ondersteund](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) met gegevens die worden beschreven in [Hadoop-onderdelen met verschillende Versies van HDInsight](../../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) en [Hortonworks release-opmerkingen die zijn gekoppeld aan de versies van HDInsight](../../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).
-  * Voordat u **15-07/2017**, werk de versie-eigenschap in op aanvraag HDI gekoppelde Service JSON-definitie [de meest recente versie van het HDInsight ondersteund](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) ophalen van de nieuwste onderdelen voor Hadoop-ecosysteem en oplossingen. Raadpleeg voor gedetailleerde JSON-definitie de [Azure HDInsight On Demand Linked Service voorbeeld](#azure-hdinsight-on-demand-linked-service). 
+ **Aanbevolen acties** 
 
-* **De versie niet is opgegeven in de On-Demand HDInsight gekoppelde Services:**
-  
-  Azure Data Factory wordt ondersteuning voor het maken van HDInsight-clusters op aanvraag van versie 3.3 of meer objecten uit **15-05/2017** en hoger. En het einde van de ondersteuning van bestaande op aanvraag HDInsight 3.2 gekoppelde services wordt uitgebreid naar **15-07/2017**. 
-
-  Voordat u **15-07/2017**, als dit leeg laat, de standaardwaarden voor versie en eigenschappen voor het besturingssysteemtype zijn: 
-
-  | Eigenschap | Standaardwaarde | Vereist |
-  | --- | --- | --- |
-  Versie   | HDI 3.1 voor Windows-cluster en HDI 3.2 voor Linux-cluster.| Nee
-  besturingssysteemtype | De standaardwaarde is Windows | Nee
-
-  Na **15-07/2017**, als dit leeg laat, de standaardwaarden voor versie en eigenschappen voor het besturingssysteemtype zijn:
-
-  | Eigenschap | Standaardwaarde | Vereist |
-  | --- | --- | --- |
-  Versie   | 3.3 HDI voor Windows-cluster en 3.5 voor Linux-cluster.    | Nee
-  besturingssysteemtype | De standaardwaarde is Linux | Nee
-
-  **Aanbevelingen:** 
-  * Voordat u **15-07/2017**, voert tests uit om te controleren of de compatibiliteit van de activiteiten die verwijzen naar deze gekoppelde Services naar [de meest recente versie van het HDInsight ondersteund](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) met gegevens die worden beschreven in [ Hadoop-onderdelen met verschillende versies van HDInsight](../../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) en [Hortonworks release-opmerkingen die zijn gekoppeld aan de versies van HDInsight](../../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).  
-  * Na **15-07/2017**, zorg ervoor dat u expliciet besturingssysteemtype en versie waarden opgeven als u wilt overschrijven de standaardinstellingen. 
+- Update de [besturingssysteemtype en/of de eigenschap Version](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) van de betrokken Azure Data Factory v1 gekoppelde On-Demand HDInsight-Service-definities voor de nieuwere op Linux gebaseerde HDInsight versies (HDInsight 3.6) om te controleren of u de meest recente Hadoop kunnen gebruiken ecosysteem onderdelen en oplossingen. 
+- Voordat 15 December 2017 testen Azure Data Factory V1 Hive, Pig, MapReduce en Hadoop streaming van activiteiten die verwijzen naar de betrokken gekoppelde Service te controleren of ze compatibel zijn met de nieuwe *besturingssysteemtype* en/of  *Versie* standaardwaarde (versie 3.6, besturingssysteemtype = = Linux) of de expliciete HDInsight-versie en het besturingssysteemtype u naar bijwerkt. Raadpleeg voor meer informatie over de compatibiliteit van de [migreren vanaf een cluster met HDInsight op basis van Windows naar een cluster op basis van Linux](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) en [wat zijn de Hadoop-onderdelen en versies die beschikbaar met HDInsight?](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions) documentatie-webpagina's. 
+- Expliciet ingesteld het besturingssysteemtype bij Windows voordat 15 December 2017 als u wilt doorgaan met het gebruik van Azure Data Factory v1On-Demand HDInsight gekoppelde Service maken op basis van Windows HDInsight-clusters. We raden echter nog steeds aan migreren naar Linux gebaseerde HDInsight-clusters voordat 31 juli 2018. 
+- Werk de DotNet aangepaste activiteit JSON-definitie voor het gebruik van een gekoppelde Azure Batch-Service in plaats daarvan als u gekoppelde On-Demand HDInsight-Service gebruikt voor het uitvoeren van Azure Data Factory v1DotNet aangepaste activiteit. Meer informatie over de [aangepaste activiteiten gebruiken in een pijplijn Azure DataFactory](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities) documentatie webpagina. 
 
 >[!Note]
->Azure Data Factory biedt momenteel geen ondersteuning voor HDInsight-clusters met behulp van Azure Data Lake Store als primaire archief. Azure Storage gebruiken als primaire winkel voor HDInsight-clusters. 
->  
->  
+>Voor klanten die gebruikmaken van uw bestaande Bring Your Own Cluster (BYOC) gekoppelde HDInsight-Service in Azure Data Factory-v1- of personen die van BYOC gebruikmaakt en On-Demand HDInsightLinked Service in Azure Data Factory-v2 is de meest recente versie beleid ofAzure HDInsight ondersteuning clusters al wordt afgedwongen, is daarom geen actie vereist. 
+>
+> 
+
 
 ## <a name="on-demand-compute-environment"></a>Op aanvraag compute-omgeving
 In dit type configuratie, wordt de computeromgeving volledig beheerd door de Azure Data Factory-service. Deze is automatisch gemaakt door de Data Factory-service voordat een taak wordt verzonden om gegevens te verwerken en verwijderd wanneer de taak is voltooid. U kunt een gekoppelde service voor de omgeving compute op aanvraag maken, configureren en gedetailleerde instellingen voor het uitvoeren van taak Clusterbeheer en acties uitvoeren van de bootstrap.
 
 > [!NOTE]
 > De configuratie op aanvraag wordt momenteel alleen ondersteund voor Azure HDInsight-clusters.
-> 
+>
 > 
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Azure HDInsight On-Demand gekoppelde Service
@@ -112,7 +88,7 @@ Let op het volgende **belangrijke** punten met betrekking tot HDInsight op aanvr
 
 > [!IMPORTANT]
 > Het duurt meestal **20 minuten** of meer voor het inrichten van een Azure HDInsight-cluster op aanvraag.
-> 
+>
 > 
 
 ### <a name="example"></a>Voorbeeld
@@ -138,22 +114,22 @@ Voor het gebruik van een HDInsight op basis van Windows-cluster instellen **best
 
 > [!IMPORTANT]
 > Het HDInsight-cluster maakt een **standaardcontainer** in de blobopslag die u hebt opgegeven in de JSON (**linkedServiceName**). HDInsight verwijdert deze container niet wanneer het cluster wordt verwijderd. Dit gedrag is standaard. Met een gekoppelde on-demand HDInsight-service wordt er steeds een HDInsight-cluster gemaakt wanneer er een segment moet worden verwerkt, tenzij er een bestaand livecluster is (**timeToLive**). Het cluster wordt verwijderd wanneer het verwerken is voltooid. 
-> 
+>
 > Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers volgen een patroon: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om containers in uw Azure-blobopslag te verwijderen.
-> 
+>
 > 
 
 ### <a name="properties"></a>Eigenschappen
-| Eigenschap | Beschrijving | Vereist |
-| --- | --- | --- |
-| type |De eigenschap type moet worden ingesteld op **HDInsightOnDemand**. |Ja |
-| De clustergrootte |Het aantal worker/gegevens knooppunten in het cluster. Het HDInsight-cluster wordt gemaakt met 2 hoofdknooppunten samen met het aantal worker-knooppunten die u voor deze eigenschap opgeeft. De knooppunten zijn met een grootte van Standard_D3 met 4 kernen, zodat een cluster met 4 worker-knooppunten 24 kernen duurt (4\*4 = 16 cores voor worker-knooppunten plus 2\*4 = 8 cores voor hoofdknooppunten). Zie [maken Linux gebaseerde Hadoop-clusters in HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) voor meer informatie over de Standard_D3-laag. |Ja |
-| TimeToLive |De toegestane niet-actieve tijd voor het HDInsight-cluster op aanvraag. Hiermee geeft u op hoelang het HDInsight-cluster op aanvraag na voltooiing van een activiteit die wordt uitgevoerd als er geen actieve taken in het cluster actief blijft.<br/><br/>Bijvoorbeeld, als het uitvoeren van een activiteit 6 minuten duurt en timetolive is ingesteld op 5 minuten, blijft het cluster actief gedurende vijf minuten nadat de 6 minuten van de verwerking van de activiteit is uitgevoerd. Als een andere activiteit die wordt uitgevoerd met het venster 6 minuten wordt uitgevoerd, wordt het verwerkt door hetzelfde cluster.<br/><br/>Maken van een HDInsight-cluster op aanvraag is een dure bewerking (kan even duren) in dat geval gebruik deze instelling als die nodig zijn voor de prestaties van een gegevensfactory verbeteren door een HDInsight-cluster op aanvraag opnieuw te gebruiken.<br/><br/>Als u timetolive-waarde op 0 instelt, wordt het cluster wordt verwijderd zodra de uitvoering van de activiteit is voltooid. Dat, als u een hoge waarde instelt, kan het cluster niet-actieve onnodig wat resulteert in hoge kosten blijven. Het is daarom belangrijk dat u de juiste waarde op basis van uw behoeften.<br/><br/>Als de waarde van de eigenschap timetolive op de juiste wijze is ingesteld, kunnen meerdere pijplijnen het exemplaar van het HDInsight-cluster op aanvraag delen.  |Ja |
-| Versie |Versie van het HDInsight-cluster. De standaardwaarde is 3.1 voor Windows-cluster en 3.2 voor Linux-cluster. |Nee |
-| linkedServiceName | Gekoppelde Azure Storage-service moet worden gebruikt door het cluster op aanvraag voor het opslaan en verwerken van gegevens. Het HDInsight-cluster wordt gemaakt in dezelfde regio bevinden als dit Azure Storage-account.<p>Op dit moment kunt maken u een HDInsight-cluster op aanvraag die gebruikmaakt van een Azure Data Lake Store als de opslag niet. Als u wilt voor het opslaan van de resultaatgegevens van HDInsight worden verwerkt in een Azure Data Lake Store, gebruikt u een Kopieeractiviteit in de gegevens uit de Azure Blob Storage kopiëren naar Azure Data Lake Store. </p>  | Ja |
-| additionalLinkedServiceNames |Hiermee geeft u extra opslagaccounts voor het HDInsight gekoppelde service, zodat de Data Factory-service namens jou registreren kunt. Deze opslagaccounts moeten zich in dezelfde regio bevinden als het HDInsight-cluster wordt gemaakt in dezelfde regio als het opslagaccount dat is opgegeven door linkedServiceName. |Nee |
-| besturingssysteemtype |Type besturingssysteem. Toegestane waarden zijn: (standaard) voor Windows en Linux |Nee |
-| hcatalogLinkedServiceName |De naam van de Azure SQL gekoppelde service die verwijzen naar de HCatalog-database. Het HDInsight-cluster op aanvraag wordt gemaakt met behulp van de Azure SQL database als de metastore. |Nee |
+| Eigenschap                     | Beschrijving                              | Vereist |
+| ---------------------------- | ---------------------------------------- | -------- |
+| type                         | De eigenschap type moet worden ingesteld op **HDInsightOnDemand**. | Ja      |
+| De clustergrootte                  | Het aantal worker/gegevens knooppunten in het cluster. Het HDInsight-cluster wordt gemaakt met 2 hoofdknooppunten samen met het aantal worker-knooppunten die u voor deze eigenschap opgeeft. De knooppunten zijn met een grootte van Standard_D3 met 4 kernen, zodat een cluster met 4 worker-knooppunten 24 kernen duurt (4\*4 = 16 cores voor worker-knooppunten plus 2\*4 = 8 cores voor hoofdknooppunten). Zie [maken Linux gebaseerde Hadoop-clusters in HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) voor meer informatie over de Standard_D3-laag. | Ja      |
+| TimeToLive                   | De toegestane niet-actieve tijd voor het HDInsight-cluster op aanvraag. Hiermee geeft u op hoelang het HDInsight-cluster op aanvraag na voltooiing van een activiteit die wordt uitgevoerd als er geen actieve taken in het cluster actief blijft.<br/><br/>Bijvoorbeeld, als het uitvoeren van een activiteit 6 minuten duurt en timetolive is ingesteld op 5 minuten, blijft het cluster actief gedurende vijf minuten nadat de 6 minuten van de verwerking van de activiteit is uitgevoerd. Als een andere activiteit die wordt uitgevoerd met het venster 6 minuten wordt uitgevoerd, wordt het verwerkt door hetzelfde cluster.<br/><br/>Maken van een HDInsight-cluster op aanvraag is een dure bewerking (kan even duren) in dat geval gebruik deze instelling als die nodig zijn voor de prestaties van een gegevensfactory verbeteren door een HDInsight-cluster op aanvraag opnieuw te gebruiken.<br/><br/>Als u timetolive-waarde op 0 instelt, wordt het cluster wordt verwijderd zodra de uitvoering van de activiteit is voltooid. Dat, als u een hoge waarde instelt, kan het cluster niet-actieve onnodig wat resulteert in hoge kosten blijven. Het is daarom belangrijk dat u de juiste waarde op basis van uw behoeften.<br/><br/>Als de waarde van de eigenschap timetolive op de juiste wijze is ingesteld, kunnen meerdere pijplijnen het exemplaar van het HDInsight-cluster op aanvraag delen. | Ja      |
+| Versie                      | Versie van het HDInsight-cluster. De standaardwaarde is 3.1 voor Windows-cluster en 3.2 voor Linux-cluster. | Nee       |
+| linkedServiceName            | Gekoppelde Azure Storage-service moet worden gebruikt door het cluster op aanvraag voor het opslaan en verwerken van gegevens. Het HDInsight-cluster wordt gemaakt in dezelfde regio bevinden als dit Azure Storage-account.<p>Op dit moment kunt maken u een HDInsight-cluster op aanvraag die gebruikmaakt van een Azure Data Lake Store als de opslag niet. Als u wilt voor het opslaan van de resultaatgegevens van HDInsight worden verwerkt in een Azure Data Lake Store, gebruikt u een Kopieeractiviteit in de gegevens uit de Azure Blob Storage kopiëren naar Azure Data Lake Store. </p> | Ja      |
+| additionalLinkedServiceNames | Hiermee geeft u extra opslagaccounts voor het HDInsight gekoppelde service, zodat de Data Factory-service namens jou registreren kunt. Deze opslagaccounts moeten zich in dezelfde regio bevinden als het HDInsight-cluster wordt gemaakt in dezelfde regio als het opslagaccount dat is opgegeven door linkedServiceName. | Nee       |
+| besturingssysteemtype                       | Type besturingssysteem. Toegestane waarden zijn: (standaard) voor Windows en Linux | Nee       |
+| hcatalogLinkedServiceName    | De naam van de Azure SQL gekoppelde service die verwijzen naar de HCatalog-database. Het HDInsight-cluster op aanvraag wordt gemaakt met behulp van de Azure SQL database als de metastore. | Nee       |
 
 #### <a name="additionallinkedservicenames-json-example"></a>additionalLinkedServiceNames JSON-voorbeeld
 
@@ -167,16 +143,16 @@ Voor het gebruik van een HDInsight op basis van Windows-cluster instellen **best
 ### <a name="advanced-properties"></a>Geavanceerde eigenschappen
 U kunt ook de volgende eigenschappen voor de gedetailleerde configuratie van het HDInsight-cluster op aanvraag opgeven.
 
-| Eigenschap | Beschrijving | Vereist |
-|:--- |:--- |:--- |
-| coreConfiguration |Hiermee geeft u de configuratieparameters core (zoals in core site.xml) voor het HDInsight-cluster moet worden gemaakt. |Nee |
-| hBaseConfiguration |Hiermee geeft u de HBase-configuratieparameters (hbase-site.xml) voor het HDInsight-cluster. |Nee |
-| hdfsConfiguration |Hiermee geeft u de HDFS-configuratieparameters (hdfs-site.xml) voor het HDInsight-cluster. |Nee |
-| hiveConfiguration |Hiermee geeft u de hive-configuratieparameters (hive-site.xml) voor het HDInsight-cluster. |Nee |
-| mapReduceConfiguration |Hiermee geeft u de configuratieparameters van MapReduce (mapred-site.xml) voor het HDInsight-cluster. |Nee |
-| oozieConfiguration |Hiermee geeft u de Oozie-configuratieparameters (oozie-site.xml) voor het HDInsight-cluster. |Nee |
-| stormConfiguration |Hiermee geeft u de Storm-configuratieparameters (storm-site.xml) voor het HDInsight-cluster. |Nee |
-| yarnConfiguration |Hiermee geeft u de Yarn-configuratieparameters (yarn-site.xml) voor het HDInsight-cluster. |Nee |
+| Eigenschap               | Beschrijving                              | Vereist |
+| :--------------------- | :--------------------------------------- | :------- |
+| coreConfiguration      | Hiermee geeft u de configuratieparameters core (zoals in core site.xml) voor het HDInsight-cluster moet worden gemaakt. | Nee       |
+| hBaseConfiguration     | Hiermee geeft u de HBase-configuratieparameters (hbase-site.xml) voor het HDInsight-cluster. | Nee       |
+| hdfsConfiguration      | Hiermee geeft u de HDFS-configuratieparameters (hdfs-site.xml) voor het HDInsight-cluster. | Nee       |
+| hiveConfiguration      | Hiermee geeft u de hive-configuratieparameters (hive-site.xml) voor het HDInsight-cluster. | Nee       |
+| mapReduceConfiguration | Hiermee geeft u de configuratieparameters van MapReduce (mapred-site.xml) voor het HDInsight-cluster. | Nee       |
+| oozieConfiguration     | Hiermee geeft u de Oozie-configuratieparameters (oozie-site.xml) voor het HDInsight-cluster. | Nee       |
+| stormConfiguration     | Hiermee geeft u de Storm-configuratieparameters (storm-site.xml) voor het HDInsight-cluster. | Nee       |
+| yarnConfiguration      | Hiermee geeft u de Yarn-configuratieparameters (yarn-site.xml) voor het HDInsight-cluster. | Nee       |
 
 #### <a name="example--on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>Voorbeeld: configuratie van de On-demand HDInsight-cluster met geavanceerde eigenschappen
 
@@ -218,11 +194,11 @@ U kunt ook de volgende eigenschappen voor de gedetailleerde configuratie van het
 ### <a name="node-sizes"></a>Knooppuntgrootten
 U kunt de grootte van de kop, gegevens en zookeeper-knooppunten met de volgende eigenschappen opgeven: 
 
-| Eigenschap | Beschrijving | Vereist |
-|:--- |:--- |:--- |
-| headNodeSize |Hiermee geeft u de grootte van het hoofdknooppunt. De standaardwaarde is: Standard_D3. Zie de **knooppuntgrootten geven** sectie voor meer informatie. |Nee |
-| dataNodeSize |Geeft de grootte van het gegevensknooppunt. De standaardwaarde is: Standard_D3. |Nee |
-| zookeeperNodeSize |Geeft de grootte van het knooppunt dierenverzorger. De standaardwaarde is: Standard_D3. |Nee |
+| Eigenschap          | Beschrijving                              | Vereist |
+| :---------------- | :--------------------------------------- | :------- |
+| headNodeSize      | Hiermee geeft u de grootte van het hoofdknooppunt. De standaardwaarde is: Standard_D3. Zie de **knooppuntgrootten geven** sectie voor meer informatie. | Nee       |
+| dataNodeSize      | Geeft de grootte van het gegevensknooppunt. De standaardwaarde is: Standard_D3. | Nee       |
+| zookeeperNodeSize | Geeft de grootte van het knooppunt dierenverzorger. De standaardwaarde is: Standard_D3. | Nee       |
 
 #### <a name="specifying-node-sizes"></a>Knooppuntgrootten opgeven
 Zie de [grootten van virtuele Machines](../../virtual-machines/linux/sizes.md) artikel voor string-waarden die u wilt opgeven voor de eigenschappen die worden vermeld in de vorige sectie. De waarden moeten voldoen aan de **CMDLETs & API's** waarnaar wordt verwezen in het artikel. Zoals u in het artikel ziet, op het gegevensknooppunt met een grootte van de grote (standaard) 7 GB geheugen heeft, wat mogelijk niet goed voor uw scenario. 
@@ -235,6 +211,12 @@ Als u maken van de hoofdknooppunten D4 grootte en worker-knooppunten wilt, geeft
 ```
 
 Als u een onjuiste waarde voor deze eigenschappen opgeeft, wordt het volgende **fout:** cluster maken is mislukt. Uitzondering: Kan het cluster niet maken. Bewerking is mislukt met code 400. Cluster heeft status: 'Fout'. Bericht: 'PreClusterCreationValidationFailure'. Wanneer u deze fout ontvangt, controleert u of u de **CMDLET & API's** naam uit de tabel in de [grootten van virtuele Machines](../../virtual-machines/linux/sizes.md) artikel.  
+
+> [!NOTE]
+> Azure Data Factory biedt momenteel geen ondersteuning voor HDInsight-clusters met behulp van Azure Data Lake Store als primaire archief. Azure Storage gebruiken als primaire winkel voor HDInsight-clusters. 
+>
+> 
+
 
 ## <a name="bring-your-own-compute-environment"></a>Breng uw eigen compute-omgeving
 Gebruikers kunnen met dit type configuratie, een al bestaande computeromgeving registreren als een gekoppelde service in de Data Factory. Door de gebruiker de computeromgeving wordt beheerd en de Data Factory-service gebruikt deze om de activiteiten worden uitgevoerd.
@@ -268,13 +250,13 @@ U kunt een gekoppelde HDInsight-service voor het registreren van uw eigen HDInsi
 ```
 
 ### <a name="properties"></a>Eigenschappen
-| Eigenschap | Beschrijving | Vereist |
-| --- | --- | --- |
-| type |De eigenschap type moet worden ingesteld op **HDInsight**. |Ja |
-| clusterUri |De URI van het HDInsight-cluster. |Ja |
-| gebruikersnaam |Geef de naam van de gebruiker moet worden gebruikt voor het verbinding maken met een bestaand HDInsight-cluster. |Ja |
-| wachtwoord |Wachtwoord voor het gebruikersaccount opgeven. |Ja |
-| linkedServiceName | Naam van de gekoppelde Azure Storage-service die naar de Azure blob storage gebruikt door het HDInsight-cluster verwijst. <p>Op dit moment kunt opgeven u niet dat een Azure Data Lake Store gekoppelde service voor deze eigenschap. Als het HDInsight-cluster toegang tot de Data Lake Store heeft, kunt u toegang tot gegevens in Azure Data Lake Store van Hive/Pig-scripts. </p>  |Ja |
+| Eigenschap          | Beschrijving                              | Vereist |
+| ----------------- | ---------------------------------------- | -------- |
+| type              | De eigenschap type moet worden ingesteld op **HDInsight**. | Ja      |
+| clusterUri        | De URI van het HDInsight-cluster.        | Ja      |
+| gebruikersnaam          | Geef de naam van de gebruiker moet worden gebruikt voor het verbinding maken met een bestaand HDInsight-cluster. | Ja      |
+| wachtwoord          | Wachtwoord voor het gebruikersaccount opgeven.   | Ja      |
+| linkedServiceName | Naam van de gekoppelde Azure Storage-service die naar de Azure blob storage gebruikt door het HDInsight-cluster verwijst. <p>Op dit moment kunt opgeven u niet dat een Azure Data Lake Store gekoppelde service voor deze eigenschap. Als het HDInsight-cluster toegang tot de Data Lake Store heeft, kunt u toegang tot gegevens in Azure Data Lake Store van Hive/Pig-scripts. </p> | Ja      |
 
 ## <a name="azure-batch-linked-service"></a>Gekoppelde Service van Azure Batch
 U kunt een gekoppelde Azure-Batch-service voor het registreren van een Batch-pool van virtuele machines (VM's) maken met een data factory. U kunt aangepaste .NET-activiteiten met behulp van Azure Batch of Azure HDInsight kunt uitvoeren.
@@ -316,13 +298,13 @@ Er is een andere optie voor het eindpunt batchUri zoals weergegeven in het volge
 ```
 
 ### <a name="properties"></a>Eigenschappen
-| Eigenschap | Beschrijving | Vereist |
-| --- | --- | --- |
-| type |De eigenschap type moet worden ingesteld op **AzureBatch**. |Ja |
-| Accountnaam |Naam van de Azure Batch-account. |Ja |
-| accessKey |De toegangssleutel voor de Azure Batch-account. |Ja |
-| Groepsnaam |Naam van de groep van virtuele machines. |Ja |
-| linkedServiceName |Naam van de Azure Storage gekoppelde service die is gekoppeld aan deze gekoppelde Azure-Batch-service. Deze gekoppelde service wordt gebruikt voor tijdelijke bestanden die zijn vereist voor het uitvoeren van de activiteit en opslaan van logboekbestanden voor het uitvoeren van de activiteit. |Ja |
+| Eigenschap          | Beschrijving                              | Vereist |
+| ----------------- | ---------------------------------------- | -------- |
+| type              | De eigenschap type moet worden ingesteld op **AzureBatch**. | Ja      |
+| Accountnaam       | Naam van de Azure Batch-account.         | Ja      |
+| accessKey         | De toegangssleutel voor de Azure Batch-account.  | Ja      |
+| Groepsnaam          | Naam van de groep van virtuele machines.    | Ja      |
+| linkedServiceName | Naam van de Azure Storage gekoppelde service die is gekoppeld aan deze gekoppelde Azure-Batch-service. Deze gekoppelde service wordt gebruikt voor tijdelijke bestanden die zijn vereist voor het uitvoeren van de activiteit en opslaan van logboekbestanden voor het uitvoeren van de activiteit. | Ja      |
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning gekoppelde Service
 U maakt een Azure Machine Learning gekoppelde service voor het registreren van een Machine Learning-batch score-eindpunt met een data factory.
@@ -343,24 +325,24 @@ U maakt een Azure Machine Learning gekoppelde service voor het registreren van e
 ```
 
 ### <a name="properties"></a>Eigenschappen
-| Eigenschap | Beschrijving | Vereist |
-| --- | --- | --- |
-| Type |De eigenschap type moet worden ingesteld op: **AzureML**. |Ja |
-| mlEndpoint |De URL voor batchscores. |Ja |
-| apiKey |Het gepubliceerde werkruimtemodel API. |Ja |
+| Eigenschap   | Beschrijving                              | Vereist |
+| ---------- | ---------------------------------------- | -------- |
+| Type       | De eigenschap type moet worden ingesteld op: **AzureML**. | Ja      |
+| mlEndpoint | De URL voor batchscores.                   | Ja      |
+| apiKey     | Het gepubliceerde werkruimtemodel API.     | Ja      |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics gekoppelde Service
 U maakt een **Azure Data Lake Analytics** gekoppelde service om te koppelen van een Azure Data Lake Analytics compute een Azure data factory-service. De Data Lake Analytics U-SQL-activiteit in de pijplijn verwijst naar deze gekoppelde service. 
 
 De volgende tabel bevat beschrijvingen van de algemene eigenschappen die in de JSON-definitie. U kunt verder tussen service-principal en verificatie van gebruikersreferenties.
 
-| Eigenschap | Beschrijving | Vereist |
-| --- | --- | --- |
-| **type** |De eigenschap type moet worden ingesteld op: **AzureDataLakeAnalytics**. |Ja |
-| **Accountnaam** |Azure Data Lake Analytics-accountnaam. |Ja |
-| **dataLakeAnalyticsUri** |Azure Data Lake Analytics-URI. |Nee |
-| **abonnements-id** |Azure-abonnement-id |Nee (als niet wordt opgegeven, abonnement van de gegevensfactory wordt gebruikt). |
-| **resourceGroupName** |Naam van een Azure-resourcegroep |Nee (als niet wordt opgegeven, brongroep van de gegevensfactory wordt gebruikt). |
+| Eigenschap                 | Beschrijving                              | Vereist                                 |
+| ------------------------ | ---------------------------------------- | ---------------------------------------- |
+| **type**                 | De eigenschap type moet worden ingesteld op: **AzureDataLakeAnalytics**. | Ja                                      |
+| **Accountnaam**          | Azure Data Lake Analytics-accountnaam.  | Ja                                      |
+| **dataLakeAnalyticsUri** | Azure Data Lake Analytics-URI.           | Nee                                       |
+| **abonnements-id**       | Azure-abonnement-id                    | Nee (als niet wordt opgegeven, abonnement van de gegevensfactory wordt gebruikt). |
+| **resourceGroupName**    | Naam van een Azure-resourcegroep                | Nee (als niet wordt opgegeven, brongroep van de gegevensfactory wordt gebruikt). |
 
 ### <a name="service-principal-authentication-recommended"></a>Verificatie van de service principal (aanbevolen)
 Registreren van een Toepassingsentiteit in Azure Active Directory (Azure AD) voor het gebruik van verificatie van de service-principal en wordt de toegang verlenen tot Data Lake Store. Zie voor gedetailleerde stappen [authentication Service-naar-serviceconnector](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Noteer de volgende waarden die u gebruikt voor het definiëren van de gekoppelde service:
@@ -370,11 +352,11 @@ Registreren van een Toepassingsentiteit in Azure Active Directory (Azure AD) voo
 
 Verificatie van de service-principal gebruiken door te geven van de volgende eigenschappen:
 
-| Eigenschap | Beschrijving | Vereist |
-|:--- |:--- |:--- |
-| **servicePrincipalId** | Geef de toepassing client-ID. | Ja |
-| **servicePrincipalKey** | De sleutel van de toepassing opgeven. | Ja |
-| **tenant** | De tenant-gegevens (domain name of tenant-ID) opgeven onder uw toepassing zich bevindt. U kunt deze ophalen door de muis in de rechterbovenhoek van de Azure portal. | Ja |
+| Eigenschap                | Beschrijving                              | Vereist |
+| :---------------------- | :--------------------------------------- | :------- |
+| **servicePrincipalId**  | Geef de toepassing client-ID.     | Ja      |
+| **servicePrincipalKey** | De sleutel van de toepassing opgeven.           | Ja      |
+| **tenant**              | De tenant-gegevens (domain name of tenant-ID) opgeven onder uw toepassing zich bevindt. U kunt deze ophalen door de muis in de rechterbovenhoek van de Azure portal. | Ja      |
 
 **Voorbeeld: Service-principal-verificatie**
 ```json
@@ -398,10 +380,10 @@ Verificatie van de service-principal gebruiken door te geven van de volgende eig
 ### <a name="user-credential-authentication"></a>Verificatie van gebruikersreferenties
 U kunt ook referentie gebruikersverificatie voor Data Lake Analytics gebruiken door te geven van de volgende eigenschappen:
 
-| Eigenschap | Beschrijving | Vereist |
-|:--- |:--- |:--- |
-| **autorisatie** | Klik op de **autoriseren** in de Data Factory-Editor en voer uw referenties op waarmee de automatisch gegenereerde autorisatie-URL worden toegewezen aan deze eigenschap. | Ja |
-| **sessie-id** | OAuth-sessie-ID van de OAuth-autorisatie-sessie. Elke sessie-ID is uniek en kan slechts één keer worden gebruikt. Deze instelling wordt automatisch gegenereerd wanneer u de Data Factory-Editor. | Ja |
+| Eigenschap          | Beschrijving                              | Vereist |
+| :---------------- | :--------------------------------------- | :------- |
+| **autorisatie** | Klik op de **autoriseren** in de Data Factory-Editor en voer uw referenties op waarmee de automatisch gegenereerde autorisatie-URL worden toegewezen aan deze eigenschap. | Ja      |
+| **sessie-id**     | OAuth-sessie-ID van de OAuth-autorisatie-sessie. Elke sessie-ID is uniek en kan slechts één keer worden gebruikt. Deze instelling wordt automatisch gegenereerd wanneer u de Data Factory-Editor. | Ja      |
 
 **Voorbeeld: Verificatie van gebruikersreferenties**
 ```json
@@ -424,10 +406,10 @@ U kunt ook referentie gebruikersverificatie voor Data Lake Analytics gebruiken d
 #### <a name="token-expiration"></a>Verlopen van het token
 De autorisatiecode die u hebt gegenereerd met de **autoriseren** knop verloopt na enige tijd opnieuw. Zie de volgende tabel voor de vervaldatum tijdstippen voor verschillende soorten gebruikersaccounts. Mogelijk ziet u de volgende fout weergegeven wanneer de verificatie **-token verloopt**: referentie-bewerkingsfout: invalid_grant - AADSTS70002: fout bij het valideren van referenties. AADSTS70008: De toegewezen toegangsmachtiging is verlopen of ingetrokken. Traceer-ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 correlatie-ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 tijdstempel: 2015-12-15 21:09:31Z
 
-| Gebruikerstype | Verloopt na |
-|:--- |:--- |
-| Gebruikersaccounts die niet worden beheerd door Azure Active Directory (@hotmail.com, @live.com, enz.) |12 uur |
-| Gebruikersaccounts die worden beheerd door Azure Active Directory (AAD) |het is 14 dagen na het laatste segment worden uitgevoerd. <br/><br/>negentig dagen weergegeven, als een segment op basis van de gekoppelde service op basis van OAuth ten minste eenmaal in de 14 dagen wordt uitgevoerd. |
+| Gebruikerstype                                | Verloopt na                            |
+| :--------------------------------------- | :--------------------------------------- |
+| Gebruikersaccounts die niet worden beheerd door Azure Active Directory (@hotmail.com, @live.com, enz.) | 12 uur                                 |
+| Gebruikersaccounts die worden beheerd door Azure Active Directory (AAD) | het is 14 dagen na het laatste segment worden uitgevoerd. <br/><br/>negentig dagen weergegeven, als een segment op basis van de gekoppelde service op basis van OAuth ten minste eenmaal in de 14 dagen wordt uitgevoerd. |
 
 Autoriseren om deze fout voorkomen/oplossen, met behulp van de **autoriseren** knop wanneer de **-token verloopt** en de gekoppelde service implementeren. U kunt ook de waarden voor genereren **sessionId** en **autorisatie** eigenschappen programmatisch met code als volgt:
 

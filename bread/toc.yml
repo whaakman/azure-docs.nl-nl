@@ -34,7 +34,7 @@
       tocHref: /azure/app-service/
       topicHref: /azure/app-service/
       items:
-        - name: Web Apps for Containers
+        - name: App Service op Linux
           tocHref: /azure/app-service/containers/
           topicHref: /azure/app-service/containers/
         - name: App Service-omgevingen
@@ -61,6 +61,9 @@
     - name: Container Registry
       tocHref: /azure/container-registry/
       topicHref: /azure/container-registry/
+    - name: Kostenbeheer
+      tocHref: /azure/cost-management/
+      topicHref: /azure/cost-management/
     - name: Functies
       tocHref: /azure/azure-functions/
       topicHref: /azure/azure-functions/
@@ -91,6 +94,9 @@
     - name: Batch
       tocHref: /azure/batch/
       topicHref: /azure/batch/
+    - name: AI-batch
+      tocHref: /azure/batch-ai/
+      topicHref: /azure/batch-ai/
     - name: Facturering
       tocHref: /azure/billing/
       topicHref: /azure/billing/
@@ -116,6 +122,9 @@
         - name: Zoeken op het web met Bing
           tocHref: /azure/cognitive-services/bing-web-search/
           topicHref: /azure/cognitive-services/bing-web-search/
+        - name: Speech
+          tocHref: /azure/cognitive-services/Speech/
+          topicHref: /azure/cognitive-services/Speech/
         - name: Computer Vision
           tocHref: /azure/cognitive-services/computer-vision/
           topicHref: /azure/cognitive-services/computer-vision/
@@ -143,6 +152,9 @@
     - name: Container Instances
       tocHref: /azure/container-instances/
       topicHref: /azure/container-instances/
+    - name: AKS
+      tocHref: /azure/aks/
+      topicHref: /azure/aks/
     - name: Container Service
       tocHref: /azure/container-service/
       topicHref: /azure/container-service/

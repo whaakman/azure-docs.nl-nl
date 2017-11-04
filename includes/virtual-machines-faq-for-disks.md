@@ -2,7 +2,7 @@
 
 Dit artikel worden enkele veelgestelde vragen over Azure beheerd schijven en Azure Premium-opslag.
 
-## <a name="managed-disks"></a>Managed Disks
+## <a name="managed-disks"></a>Beheerde schijven
 
 **Wat is Azure beheerd schijven?**
 
@@ -54,7 +54,7 @@ Nee. De virtuele machines in een beschikbaarheidsset moeten gebruiken voor alle 
 
 **Is beheerd schijven op de standaardoptie in de Azure portal?**
 
-Momenteel niet, maar deze wordt standaard in de toekomst.
+Ja. 
 
 **Kan ik een lege beheerde schijf maken?**
 

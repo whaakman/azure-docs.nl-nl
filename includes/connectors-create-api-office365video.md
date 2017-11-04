@@ -1,16 +1,16 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [Office 365 Video](https://support.office.com/article/Meet-Office-365-Video-ca1cc1a9-a615-46e1-b6a3-40dbd99939a6) account  
+### <a name="prerequisites"></a>Vereisten
+* Een [Office 365 Video](https://support.office.com/article/Meet-Office-365-Video-ca1cc1a9-a615-46e1-b6a3-40dbd99939a6) account  
 
-Before you can use your Office 365 Video account in a Logic app, you must authorize the Logic app to connect to your Office 365 Video account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  
+Voordat u uw Video van Office 365-account in een logische app gebruiken kunt, moet u de logische app verbinding maken met uw Office 365 Video-account toestaan. U kunt dit eenvoudig vanuit gelukkig doen in uw logische app in de Azure Portal.  
 
-Here are the steps to authorize your Logic app to connect to your Office 365 Video account:  
+Hier volgen de stappen voor het autoriseren van uw logische app verbinding maken met uw Office 365 Video-account:  
 
-1. To create a connection to Office 365 Video, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Office 365 Video* in the search box. Select the trigger or action you'll like to use:  
-   ![Office 365 Video connection creation step](./media/connectors-create-api-office365video/office365video-1.png)  
-2. If you haven't created any connections to Office 365 Video before, you'll get prompted to provide your Office 365 Video credentials. These credentials will be used to authorize your Logic app to connect to, and access your Office 365 Video account's data:  
-   ![Office 365 Video connection creation step](./media/connectors-create-api-office365video/office365video-2.png)  
-3. Provide your credentials to connect to Office 365 Video:  
-   ![Office 365 Video connection creation step](./media/connectors-create-api-office365video/office365video-3.png)  
-4. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-   ![Office 365 Video connection creation step](./media/connectors-create-api-office365video/office365video-4.png)  
+1. Voor het maken van een verbinding met Office 365 Video in de ontwerpfunctie voor Logic app selecteert **beheerde API's van Microsoft weergeven** Voer in de vervolgkeuzelijst *Office 365 Video* in het zoekvak. Selecteer de trigger of je actie moet worden gebruikt:  
+   ![Stap voor Office 365 Video verbinding maken](./media/connectors-create-api-office365video/office365video-1.png)  
+2. Als u verbindingen met Office 365 Video voordat u dit nog niet hebt gemaakt, hebt u wordt gevraagd de referenties van uw Office 365 Video op te geven. Deze referenties worden gebruikt voor het autoriseren van uw logische app verbinding maken met en toegang tot gegevens van uw Video van Office 365-account:  
+   ![Stap voor Office 365 Video verbinding maken](./media/connectors-create-api-office365video/office365video-2.png)  
+3. Geef uw referenties verbinding maken met Office 365 Video:  
+   ![Stap voor Office 365 Video verbinding maken](./media/connectors-create-api-office365video/office365video-3.png)  
+4. U ziet de verbinding is gemaakt en u bent nu vrij om door te gaan met de overige stappen in uw logische app:  
+   ![Stap voor Office 365 Video verbinding maken](./media/connectors-create-api-office365video/office365video-4.png)  
 

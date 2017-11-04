@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.openlocfilehash: 5bcb5dcb6afc3909e34dde31f845e014e7c539e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2d033e5af13660c99aba813c58b743bf94a6b95a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>Controleren en problemen oplossen van beveiliging voor virtuele machines en fysieke servers
 Deze handleiding bewaking en probleemoplossing vindt u informatie over het bijhouden van de status van replicatie en problemen oplossen technieken voor Azure Site Recovery.
@@ -55,7 +55,7 @@ Details van de fout kunt u een mogelijke oorzaak en de aanbeveling voor het prob
 
 ![Dialoogvenster met daarin de foutdetails voor een specifieke taak](media/site-recovery-monitoring-and-troubleshooting/image5.png)
 
-In het vorige voorbeeld lijkt op een andere bewerking die wordt uitgevoerd te worden veroorzaakt door de configuratie van de beveiliging mislukken. Los het probleem op basis van de aanbeveling en klik vervolgens op **RESART** starten van de bewerking opnieuw uit.
+In het vorige voorbeeld lijkt op een andere bewerking die wordt uitgevoerd te worden veroorzaakt door de configuratie van de beveiliging mislukken. Los het probleem op basis van de aanbeveling en klik vervolgens op **opnieuw** starten van de bewerking opnieuw uit.
 
 ![De knop opnieuw opstarten op het tabblad taken](media/site-recovery-monitoring-and-troubleshooting/image6.png)
 

@@ -37,6 +37,8 @@
       href: kubernetes-helm.md
     - name: Toepassingen ontwikkelen met Draft
       href: kubernetes-draft.md
+    - name: Gegevens behouden met Azure Files
+      href: azure-files.md
     - name: Kubernetes-dashboard gebruiken
       href: kubernetes-dashboard.md
     - name: Een service-principal maken

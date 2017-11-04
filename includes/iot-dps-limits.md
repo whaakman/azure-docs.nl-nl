@@ -1,19 +1,19 @@
-The following table lists the limits that apply to IoT Hub Device Provisioning Service resources:
+De volgende tabel worden de beperkingen die van toepassing op IoT Hub apparaat-inrichtingsservice bronnen:
 
-| Resource | Limit |
+| Resource | Limiet |
 | --- | --- |
-| Maximum Device Provisioning Services per Azure subscription | 10 |
-| Maximum number of enrollments | 10,000 |
-| Maximum number of registrations | 10,000 |
-| Maximum number of enrollment groups | 100 |
-| Maximum number of CAs | 10 |
+| Maximale apparaat leveren van Services per Azure-abonnement | 10 |
+| Maximum aantal inschrijvingen | 10.000 |
+| Maximum aantal registraties | 10.000 |
+| Maximum aantal groepen voor inschrijving | 100 |
+| Maximum aantal CA 's | 10 |
 
 > [!NOTE]
-> These limits are for public preview. Once the service is generally available, you can contact [Microsoft Support](https://azure.microsoft.com/support/options/) to increase the number of instances in your subscription.
+> Deze limieten zijn voor de openbare preview. Zodra de service in het algemeen beschikbaar is, u kunt contact met [Microsoft Support](https://azure.microsoft.com/support/options/) te verhogen van het aantal exemplaren in uw abonnement.
 
-The Device Provisioning Service throttles requests when the following quotas are exceeded:
+De Service voor het inrichten van apparaten beperkt aanvragen wanneer de volgende quota worden overschreden:
 
-| Throttle | Per-service value |
+| Vertragen | Service-waarde |
 | --- | --- |
-| Operations | 100/min |
-| Device registrations | 100/min |
+| Bewerkingen | 100/min |
+| Apparaat-registraties | 100/min |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 44d2ac2fd35621ab8cd8d7584744139ee3bab5c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7f5c034df3410fc5563a5ed657f7c1aa0f4135ec
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Overzicht van Azure-Cloud-Shell (Preview)
 Azure Cloud-Shell is een interactieve, browser toegankelijke shell voor het beheren van Azure-resources.
@@ -44,7 +44,7 @@ Cloud-Shell is voorgeïnstalleerd met populaire opdrachtregelprogramma's en tale
 Overzicht van de volledige tooling voor [Bash ervaring](features.md#tools) en [PowerShell-ervaring.](features-powershell.md#tools)
 
 ### <a name="automatic-authentication"></a>Automatische verificatie
-Cloud-Shell verifieert veilig automatisch op elke sessie voor directe toegang tot uw resources via de Azure CLI 2.0.
+Cloud-Shell verifieert veilig automatisch op elke sessie voor directe toegang tot uw resources via de PowerShell-Cmdlets en de Azure CLI 2.0.
 
 ### <a name="connect-your-azure-file-storage"></a>Verbinding maken met uw Azure File storage
 Cloud-Shell-machines zijn tijdelijk en als gevolg hiervan vereisen een Azure-bestandsshare te koppelen als `clouddrive` voor het persistent maken van uw directory $Home.

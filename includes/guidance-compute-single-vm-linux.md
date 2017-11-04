@@ -155,7 +155,7 @@ Een implementatie voor deze referentiearchitectuur is beschikbaar op [GitHub][gi
    * De naam voor de **Resourcegroep** is al gedefinieerd in het parameterbestand. Selecteer daarom **Nieuwe maken** en voer `ra-single-vm-rg` in het tekstvak in.
    * Selecteer de regio in de vervolgkeuzelijst **Locatie**.
    * Breng geen wijzigingen aan in de tekstvakken **Basis-URI-sjabloon** en **Basis-URI-parameter**.
-.   *Selecteer **linux** in de vervolgkeuzelijst **Type besturingssysteem**.
+.   * Selecteer **linux** in de **Type besturingssysteem** vervolgkeuzelijst.
    * Lees de voorwaarden en bepalingen, en klik vervolgens op het selectievakje **Ik ga akkoord met de bovenstaande voorwaarden**.
    * Klik op de knop **Kopen**.
 3. Wacht totdat de installatie is voltooid.
@@ -188,7 +188,7 @@ Implementeer voor hogere beschikbaarheid twee of meer virtuele machines achter e
 [nsg-default-rules]: ../articles/virtual-network/virtual-networks-nsg.md#default-rules
 [OSPatching]: https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching
 [planned-maintenance]:../articles/virtual-machines/linux/planned-maintenance.md
-[premium-storage]:../articles/storage/common/storage-premium-storage.md
+[premium-storage]:../articles/virtual-machines/windows/premium-storage.md
 [rbac]: ../articles/active-directory/role-based-access-control-what-is.md
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-labs-user

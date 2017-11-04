@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: c6c929c568cf7246c2c2e414723a38429727df36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f057ee80e8a26595c17e6610a2aaaad08d0346b5
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Prestaties van query's met Azure Cosmos DB afstemmen
 Azure Cosmos DB biedt een [SQL-API voor het opvragen van gegevens](documentdb-sql-query.md), zonder schema of secundaire indexen. In dit artikel biedt de volgende informatie voor ontwikkelaars:
@@ -253,7 +253,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | milliseconden | Tijd besteed aan het laden van documenten  | 
 | `systemFunctionExecuteTimeInMs` | milliseconden | Totale tijd besteed aan het uitvoerende system (ingebouwde) functies in milliseconden  | 
 | `userFunctionExecuteTimeInMs` | milliseconden | Totale tijd besteed worden uitgevoerd door de gebruiker gedefinieerde functies in milliseconden | 
-| `retrievedDocumentCount` | milliseconden | Totaal aantal opgehaalde documenten  | 
+| `retrievedDocumentCount` | Aantal | Totaal aantal opgehaalde documenten  | 
 | `retrievedDocumentSize` | Bytes | Totale grootte van de opgehaalde documenten in bytes  | 
 | `outputDocumentCount` | Aantal | Het aantal uitvoerdocumenten | 
 | `writeOutputTimeInMs` | milliseconden | Uitvoeringstijd van de query in milliseconden | 

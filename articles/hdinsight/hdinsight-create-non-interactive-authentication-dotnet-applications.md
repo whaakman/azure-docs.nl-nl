@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: jgao
-ms.openlocfilehash: c1aeed8c6fe4f83b170838e4efb9d9c4744fb951
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 00eb9f6e13035ba5827b70e911be4afeafd442a2
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Een niet-interactieve verificatie .NET HDInsight-toepassing maken
 U kunt uw Microsoft .NET Azure HDInsight-toepassing onder de identiteit van de toepassing (niet-interactieve) of onder de identiteit van de aangemelde gebruiker van de toepassing (interactief) uitvoeren. Dit artikel ziet u het maken van een niet-interactieve verificatie .NET-toepassing verbinding maken met Azure en beheren van HDInsight. Zie voor een voorbeeld van een interactieve toepassing [verbinding maken met Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -32,7 +32,7 @@ U moet van een niet-interactieve .NET-toepassing:
 * De Azure AD-toepassing geheime sleutel. Zie [Get toepassing verificatiesleutel](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 ## <a name="prerequisites"></a>Vereisten
-* Een HDInsight-cluster. Zie de [zelfstudie aan de slag](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
+* Een HDInsight-cluster. Zie de [zelfstudie aan de slag](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Een rol toewijzen aan de Azure AD-toepassing
 Toewijzen van uw Azure AD-toepassing een [rol](../active-directory/role-based-access-built-in-roles.md), dit om machtigingen te verlenen acties uit te voeren. U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of resource. De machtigingen worden overgenomen op lagere niveaus van het bereik. (Bijvoorbeeld een toepassing met de rol Lezer voor een resourcegroep toe te voegen betekent dat de toepassing de resourcegroep en alle resources daarin kan lezen.) In deze zelfstudie stelt u het bereik op het niveau van de resourcegroep. Zie voor meer informatie [roltoewijzingen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](../active-directory/role-based-access-control-configure.md).

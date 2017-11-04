@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 12/15/2016
 ms.author: eugenesh
-ms.openlocfilehash: af9da85c37211d2436c23cc05400031c661ef51e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 60ca696a6fa8f277a13875c39b44577c4b38c92a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexeren van CSV-blobs met Azure Search blob indexeerfunctie
 Standaard [Azure Search-indexeerfunctie voor blob](search-howto-indexing-azure-blob-storage.md) parseert gescheiden tekst blobs als een enkel deel van de tekst. Echter met blobs met CSV-gegevens, wilt u meestal op dezelfde manier behandelen elke regel in de blob als een afzonderlijk document. Bijvoorbeeld, krijgt de volgende gescheiden tekst: 
@@ -45,7 +45,7 @@ Indexeren van CSV-blobs, maken of bijwerken van de definitie van een indexeerfun
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "firstLineContainsHeaders" : true } }
     }
 
-Bekijk voor meer informatie over de indexeerfunctie maken API [indexeerfunctie maken](search-api-indexers-2015-02-28-preview.md#create-indexer).
+Bekijk voor meer informatie over de indexeerfunctie maken API [indexeerfunctie maken](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 `firstLineContainsHeaders`Geeft aan dat de eerste regel (niet-lege) van elke blob kopteksten bevat.
 Als blobs niet een initiële kopregel bevatten, moeten de headers worden opgegeven in de configuratie van de indexeerfunctie: 

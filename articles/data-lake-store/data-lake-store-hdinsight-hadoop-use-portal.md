@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/14/2017
 ms.author: nitinme
-ms.openlocfilehash: 9dd56efb89e07ea61ae431d1ea2accd721cd6502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 88fd608a02364000699224f0f2df5b4df8a29e11
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>HDInsight-clusters maken met Data Lake Store via de Azure-portal
 > [!div class="op_single_selector"]
@@ -176,7 +176,7 @@ Nadat u het cluster met Data Lake Store als uw opslag hebt ingesteld, kunt u ver
 
 ### <a name="run-a-hive-query-against-data-in-a-data-lake-store-as-primary-storage"></a>Een Hive-query uitvoeren op gegevens in een Data Lake Store (als primaire opslag)
 
-Als u wilt een Hive-query uitvoert, moet u de interface van de weergaven Hive in de portal Ambari gebruiken. Zie voor instructies over het gebruik van de Ambari Hive-weergaven [de weergave Hive gebruiken met Hadoop in HDInsight](../hdinsight/hdinsight-hadoop-use-hive-ambari-view.md).
+Als u wilt een Hive-query uitvoert, moet u de interface van de weergaven Hive in de portal Ambari gebruiken. Zie voor instructies over het gebruik van de Ambari Hive-weergaven [de weergave Hive gebruiken met Hadoop in HDInsight](../hdinsight/hadoop/apache-hadoop-use-hive-ambari-view.md).
 
 Wanneer u met gegevens in een Data Lake Store werkt, zijn er enkele tekenreeksen te wijzigen.
 
@@ -199,11 +199,11 @@ Zie de volgende artikelen voor meer informatie over de gegevens uit Blob storage
 * [AdlCopy gebruiken om gegevens te kopiëren van Azure Storage-blobs naar Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 
 ### <a name="use-data-lake-store-with-a-spark-cluster"></a>Gebruik Data Lake Store met een Spark-cluster
-U kunt een Spark-cluster Spark taken uitvoeren op gegevens die zijn opgeslagen in een Data Lake Store. Zie voor meer informatie [gebruik HDInsight Spark-cluster voor het analyseren van gegevens in Data Lake Store](../hdinsight/hdinsight-apache-spark-use-with-data-lake-store.md).
+U kunt een Spark-cluster Spark taken uitvoeren op gegevens die zijn opgeslagen in een Data Lake Store. Zie voor meer informatie [gebruik HDInsight Spark-cluster voor het analyseren van gegevens in Data Lake Store](../hdinsight/spark/apache-spark-use-with-data-lake-store.md).
 
 
 ### <a name="use-data-lake-store-in-a-storm-topology"></a>Gebruik Data Lake Store in een Storm-topologie
-Schrijven van gegevens van een Storm-topologie kunt u de Data Lake Store. Zie voor instructies over het bereiken van dit scenario [gebruik Azure Data Lake Store met Apache Storm met HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
+Schrijven van gegevens van een Storm-topologie kunt u de Data Lake Store. Zie voor instructies over het bereiken van dit scenario [gebruik Azure Data Lake Store met Apache Storm met HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
 ## <a name="see-also"></a>Zie ook
 * [PowerShell: Een HDInsight-cluster voor het gebruik van Data Lake Store maken](data-lake-store-hdinsight-hadoop-use-powershell.md)

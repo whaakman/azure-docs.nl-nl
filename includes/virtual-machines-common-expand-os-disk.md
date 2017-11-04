@@ -1,40 +1,40 @@
-## <a name="overview"></a>Overview
-When you create a new virtual machine (VM) in a Resource Group by deploying an image from [Azure Marketplace](https://azure.microsoft.com/marketplace/), the default OS drive is often 127 GB (some images have smaller OS disk sizes by default). Even though it’s possible to add data disks to the VM (how many depending upon the SKU you’ve chosen) and moreover it’s recommended to install applications and CPU intensive workloads on these addendum disks, oftentimes customers need to expand the OS drive to support certain scenarios such as following:
+## <a name="overview"></a>Overzicht
+Wanneer u een nieuwe virtuele machine (VM) maakt in een resourcegroep met de implementatie van een installatiekopie van [Azure Marketplace](https://azure.microsoft.com/marketplace/), de standaard OS-station is vaak 127 GB (enkele afbeeldingen hebben kleinere voor OS-schijf standaard). Hoewel het mogelijk is om gegevensschijven toe te voegen aan de VM (het aantal is afhankelijk van de SKU die u hebt gekozen) en het bovendien wordt aangeraden om toepassingen en CPU-intensieve werkbelastingen te installeren op deze aanvullende schijven, moeten klanten vaak ook de besturingssysteemschijf uitbreiden om bepaalde scenario's te ondersteunen, zoals de volgende:
 
-1. Support legacy applications that install components on OS drive.
-2. Migrate a physical PC or virtual machine from on-premises with a larger OS drive.
+1. Ondersteuning voor oudere toepassingen die onderdelen op de besturingssysteemschijf installeren.
+2. Een fysieke computer of virtuele machine migreren van on-premises met een grotere besturingssysteemschijf.
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: Resource Manager and Classic. This article covers using the Resource Manager model. Microsoft recommends that most new deployments use the Resource Manager model.
+> In Azure zijn twee verschillende implementatiemodellen beschikbaar voor het maken van en werken met resources: Resource Manager en het klassieke model. In dit artikel wordt het Resource Manager-model beschreven. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
 > 
 > 
 
-## <a name="resize-the-os-drive"></a>Resize the OS drive
-In this article we’ll accomplish the task of resizing the OS drive using resource manager modules of [Azure Powershell](/powershell/azureps-cmdlets-docs). Open your Powershell ISE or Powershell window in administrative mode and follow the steps below:
+## <a name="resize-the-os-drive"></a>Besturingssysteemschijf uitbreiden
+In dit artikel gaan we de grootte van de besturingssysteemschijf aanpassen met behulp van Resource Manager-modules van [Azure Powershell](/powershell/azureps-cmdlets-docs). Open de Powershell ISE of het Powershell-venster in de beheerdersmodus en voer de volgende stappen uit:
 
-1. Sign-in to your Microsoft Azure account in resource management mode and select your subscription as follows:
+1. Meld u in de modus voor resourcebeheer aan bij uw Microsoft Azure-account en selecteer uw abonnement als volgt:
    
    ```Powershell
    Login-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
-2. Set your resource group name and VM name as follows:
+2. Stel de naam van de resourcegroep en de VM als volgt in:
    
    ```Powershell
    $rgName = 'my-resource-group-name'
    $vmName = 'my-vm-name'
    ```
-3. Obtain a reference to your VM as follows:
+3. Vraag als volgt een verwijzing op naar uw VM:
    
    ```Powershell
    $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
    ```
-4. Stop the VM before resizing the disk as follows:
+4. Ga als volgt te werk om de VM te stoppen voordat u de grootte van de schijf aanpast:
    
     ```Powershell
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     ```
-5. And here comes the moment we’ve been waiting for! Set the size of the OS disk to the desired value and update the VM as follows:
+5. En dan nu het moment waarop we allemaal gewacht hebben! Stel de grootte van de besturingssysteemschijf in op de gewenste waarde en werk de VM als volgt bij:
    
    ```Powershell
    $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
@@ -42,19 +42,19 @@ In this article we’ll accomplish the task of resizing the OS drive using resou
    ```
    
    > [!WARNING]
-   > The new size should be greater than the existing disk size. The maximum allowed is 2048 GB. (It is possible to expand the VHD blob beyond that size, but the OS will only be able to work with the first 2048 GB of space.)
+   > De nieuwe grootte moet groter zijn dan de bestaande schijfgrootte. Het toegestane maximum is 2048 GB. (Het is mogelijk uit te breiden de VHD-blob afgezien van deze grootte, maar het besturingssysteem is alleen mogelijk voor gebruik met de eerste 2048 GB aan ruimte.)
    > 
    > 
-6. Updating the VM may take a few seconds. Once the command finishes executing, restart the VM as follows:
+6. Het bijwerken van de VM kan een paar seconden duren. Zodra de opdracht is voltooid, start u de VM als volgt opnieuw op:
    
    ```Powershell
    Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
    ```
 
-And that’s it! Now RDP into the VM, open Computer Management (or Disk Management) and expand the drive using the newly allocated space.
+Dat is alles. Ga nu met RDP naar de VM, open Computerbeheer (of Schijfbeheer) en vouw het station met de zojuist toegewezen ruimte uit.
 
-## <a name="summary"></a>Summary
-In this article, we used Azure Resource Manager modules of Powershell to expand the OS drive of an IaaS virtual machine. Reproduced below is the complete script for your reference:
+## <a name="summary"></a>Samenvatting
+In dit artikel hebben we Azure Resource Manager-modules van Powershell gebruikt om de besturingssysteemschijf van een virtuele IaaS-machine uit te breiden. Hieronder ziet u het volledige script ter referentie:
 
 ```Powershell
 Login-AzureRmAccount
@@ -68,17 +68,17 @@ Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## <a name="next-steps"></a>Next Steps
-Though in this article, we focused primarily on expanding the OS disk of the VM, the developed script may also be used for expanding the data disks attached to the VM by changing a single line of code. For example, to expand the first data disk attached to the VM, replace the ```OSDisk``` object of ```StorageProfile``` with ```DataDisks``` array and use a numeric index to obtain a reference to first attached data disk, as shown below:
+## <a name="next-steps"></a>Volgende stappen
+Hoewel we in dit artikel voornamelijk hebben gekeken naar het uitbreiden van de besturingssysteemschijf van de VM, kan het script ook worden gebruikt voor het uitbreiden van de gegevensschijven die zijn gekoppeld aan de VM. Hiervoor hoeft maar één regel met code te worden gewijzigd. Als u bijvoorbeeld de eerste gegevensschijf die is gekoppeld aan de VM wilt uitbreiden, vervangt u het object ```OSDisk``` van ```StorageProfile``` door de matrix ```DataDisks``` en gebruikt u een numerieke index om een verwijzing naar de eerste gekoppelde schijf te verkrijgen, zoals hieronder wordt weergegeven:
 
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
-Similarly you may reference other data disks attached to the VM, either by using an index as shown above or the ```Name``` property of the disk as illustrated below:
+Op dezelfde manier kunt u verwijzen naar andere gegevensschijven die aan de VM zijn gekoppeld. Dit kan met behulp van een index, zoals hierboven, of met de eigenschap ```Name``` van de schijf, zoals hieronder wordt weergegeven:
 
 ```Powershell
 ($vm.StorageProfile.DataDisks | Where {$_.Name -eq 'my-second-data-disk'})[0].DiskSizeGB = 1023
 ```
 
-If you want to find out how to attach disks to an Azure Resource Manager VM, check this [article](../articles/virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Als u wilt weten hoe u schijven koppelt aan een Azure Resource Manager-VM, raadpleegt u dit [artikel](../articles/virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

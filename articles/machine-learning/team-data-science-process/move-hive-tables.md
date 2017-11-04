@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.openlocfilehash: e879ab2874cb3298de4b0929b286482d824e8309
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c90c3d3c0effd68a4a5962d4d097fccbdc3fee56
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive-tabellen maken en gegevens uit Azure Blob-opslag laden
 Dit onderwerp bevat algemene Hive-query's die Hive-tabellen maken en gegevens uit Azure blob-opslag laden. Sommige richtlijnen is ook beschikbaar op het Hive-tabellen te partitioneren en over het gebruik van de optimale rij kolommen (ORC) opmaak ter verbetering van de prestaties van query's.
@@ -120,7 +120,7 @@ Als u de standaard-container van het Hadoop-cluster met behulp van Azure Storage
 U kunt ook de Query-Console (Hive-Editor) gebruiken door een URL van het formulier *https://&#60; De naam van de Hadoop-cluster >.azurehdinsight.net/Home/HiveEditor* in een webbrowser. U moet zijn geregistreerd in de zien deze console en dus moet u uw hier Hadoop-cluster-referenties.
 
 ### <a name="ps"></a> 3. Indienen van Hive-query's met Azure PowerShell-opdrachten
-U kunt ook PowerShell gebruiken voor het indienen van Hive-query's. Zie voor instructies [indienen Hive-taken met behulp van PowerShell](../../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
+U kunt ook PowerShell gebruiken voor het indienen van Hive-query's. Zie voor instructies [indienen Hive-taken met behulp van PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
 
 ## <a name="create-tables"></a>Hive-database en tabellen maken
 Het Hive-query's worden gedeeld in de [GitHub-opslagplaats](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) en van daaruit kan worden gedownload.

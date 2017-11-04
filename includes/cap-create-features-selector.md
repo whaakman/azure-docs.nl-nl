@@ -1,8 +1,8 @@
 > [!div class="op_single_selector"]
-> * [Create features for data](../articles/machine-learning/team-data-science-process/create-features.md)
-> * [Create features for data in Azure blob storage](../articles/machine-learning/team-data-science-process/create-features-blob.md)
-> * [Create features for data in SQL Server](../articles/machine-learning/team-data-science-process/create-features-sql-server.md)
-> * [Create features for data in an Hadoop cluster using Hive queries](../articles/machine-learning/team-data-science-process/create-features-hive.md)
+> * [Functies voor gegevens maken](../articles/machine-learning/team-data-science-process/create-features.md)
+> * [Functies voor gegevens in Azure blob-opslag maken](../articles/machine-learning/team-data-science-process/create-features-blob.md)
+> * [Functies voor gegevens in SQL Server maken](../articles/machine-learning/team-data-science-process/create-features-sql-server.md)
+> * [Functies voor gegevens in een Hadoop-cluster met behulp van Hive-query's maken](../articles/machine-learning/team-data-science-process/create-features-hive.md)
 > 
 > 
 

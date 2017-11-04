@@ -1,6 +1,6 @@
 ---
-title: Connect Storage Explorer to an Azure Stack subscription
-description: Learn how to connect Storage Exporer to an  Azure Stack subscription
+title: Storage Explorer verbinding met een Azure-Stack-abonnement
+description: Informatie over het aansluiten van Verkenner opslag met een Azure-Stack-abonnement
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -14,97 +14,96 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8cd52e9561f2ad92664c01959df8919aa56e8738
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: c7e6d70148d39fd74f6409a0a239833f8e9f7614
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/12/2017
 ---
-# <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Connect Storage Explorer to an Azure Stack subscription
+# <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Storage Explorer verbinding met een Azure-Stack-abonnement
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Stack Storage data on Windows, macOS, and Linux. There are several tools avaialble to move data to and from Azure Stack Storage. For more information, see [Data transfer tools for Azure Stack storage](azure-stack-storage-transfer.md).
+Azure Opslagverkenner (Preview) is een zelfstandige app waardoor u eenvoudig werken met Azure Stack Storage-gegevens op Windows-, Mac OS- en Linux. Er zijn verschillende hulpprogramma's voor beschikbare gegevens te verplaatsen naar en van Azure-Storage-Stack. Zie voor meer informatie [gegevensoverdracht hulpprogramma's voor de opslag van Azure-Stack](azure-stack-storage-transfer.md).
 
-In this article, you learn how to connect to your Azure Stack storage accounts using Storage Explorer. 
+In dit artikel leert u hoe u verbinding maken met uw Azure-Stack-opslagaccounts met Opslagverkenner. 
 
-If you haven't installed Storage Explorer yet, [download](http://www.storageexplorer.com/) and and install it.
+Als u Opslagverkenner nog niet hebt geïnstalleerd [downloaden](http://www.storageexplorer.com/) en en te installeren.
 
-After you connect to your Azure Stack subscription, you can use the [Azure Storage Explorer articles](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to work with your Azure Stack data. 
+Nadat u verbinding met uw Azure-Stack-abonnement, kunt u de [Azure Opslagverkenner artikelen](../../vs-azure-tools-storage-manage-with-storage-explorer.md) werken met de gegevens van uw Azure-Stack. 
 
-## <a name="prepare-an-azure-stack-subscription"></a>Prepare an Azure Stack subscription
+## <a name="prepare-an-azure-stack-subscription"></a>Voorbereiden van een Azure-Stack-abonnement
 
-You need access to the Azure Stack host machine's desktop or a VPN connection for Storage Explorer to access the Azure Stack subscription. To learn how to set up a VPN connection to Azure Stack, see [Connect to Azure Stack with VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+U moet toegang tot de Azure-Stack-hostmachine bureaublad of een VPN-verbinding voor Opslagverkenner voor toegang tot de Stack van Azure-abonnement. Raadpleeg [Verbinding maken met Azure Stack met VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) voor meer informatie over het instellen van een VPN-verbinding naar Azure Stack.
 
-For the Azure Stack Development Kit, you need to export the Azure Stack authority root certificate.
+Voor de Azure-Stack Development Kit moet u exporteren van het basiscertificaat van de Azure-Stack-instantie.
 
-### <a name="to-export-and-then-import-the-azure-stack-certificate"></a>To export and then import the Azure Stack certificate
+### <a name="to-export-and-then-import-the-azure-stack-certificate"></a>Om te exporteren en vervolgens de Azure-Stack-certificaten importeren
 
-1. Open `mmc.exe` on an Azure Stack host machine, or a local machine with a VPN connection to Azure Stack. 
+1. Open `mmc.exe` op de computer van een Azure-Stack host of op een lokale computer met een VPN-verbinding met Azure-Stack. 
 
-2. In **File**, select **Add/Remove Snap-in**, and then add **Certificates** to manage **Computer account** of **Local Computer**.
-
-
-
-3. Under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** find **AzureStackSelfSignedRootCert**.
-
-    ![Load the Azure Stack root certificate through mmc.exe][25]
-
-4. Right-click the certificate, select **All Tasks** > **Export**, and then follow the instructions to export the certificate with **Base-64 encoded X.509 (.CER)**.  
-
-    The exported certificate will be used in the next step.
-5. Start Storage Explorer (Preview), and if you see the **Connect to Azure Storage** dialog box, cancel it.
-
-6. On the **Edit** menu, point to **SSL Certificates**, and then click **Import Certificates**. Use the file picker dialog box to find and open the certificate that you exported in the previous step.
-
-    After importing, you are prompted to restart Storage Explorer.
-
-    ![Import the certificate into Storage Explorer (Preview)][27]
-
-Now you are ready to connect Storage Explorer to an Azure Stack subscription.
-
-### <a name="to-connect-an-azure-stack-subscription"></a>To connect an Azure Stack subscription
+2. In **bestand**, selecteer **module toevoegen/verwijderen**, en voeg vervolgens **certificaten** voor het beheren van **Mijn gebruikersaccount**.
 
 
-1. After Storage Explorer (Preview) restarts, select the **Edit** menu, and then ensure that **Target Azure Stack** is selected. If it is not selected, select it, and then restart Storage Explorer for the change to take effect. This configuration is required for compatibility with your Azure Stack environment.
 
-    ![Ensure Target Azure Stack is selected][28]
+3. Onder **Console Root\Certificated (lokale Computer) \Trusted Root Certification Authorities\Certificates** vinden **AzureStackSelfSignedRootCert**.
 
-7. In the left pane, select **Manage Accounts**.  
-    All the Microsoft accounts that you are signed in to are displayed.
+    ![Laad het Azure Stack-basiscertificaat via mmc.exe][25]
 
-8. To connect to the Azure Stack account, select **Add an account**.
+4. Met de rechtermuisknop op het certificaat, selecteert u **alle taken** > **exporteren**, en volg de instructies voor het exporteren van het certificaat met **Base-64 gecodeerde X.509 (. CER)**.  
 
-    ![Add an Azure Stack account][29]
+    Het geëxporteerde certificaat zal worden gebruikt in de volgende stap.
+5. Open Opslagverkenner (Preview), en als u ziet de **verbinding maken met Azure Storage** dialoogvenster vak, te annuleren.
 
-9. In the **Connect to Azure Storage** dialog box, under **Azure environment**, select **Use Azure Stack Environment**, and then click **Next**.
+6. Op de **bewerken** in het menu **SSL-certificaten**, en klik vervolgens op **certificaten importeren**. Gebruik het dialoogvenster Bestand kiezen om het certificaat dat u in de vorige stap hebt gezocht te zoeken en te openen.
 
-10. To sign in with the Azure Stack account that's associated with at least one active Azure Stack subscription, fill in the **Sign in to Azure Stack Environment** dialog box.  
+    Na het importeren wordt u gevraagd om Opslagverkenner opnieuw te starten.
 
-    The details for each field are as follows:
+    ![Importeer het certificaat in Opslagverkenner (Preview)][27]
 
-    * **Environment name**: The field can be customized by user.
-    * **ARM resource endpoint**: The samples of Azure Resource Manager resource endpoints:
+U bent nu klaar Storage Explorer verbinding met een Azure-Stack-abonnement.
 
-        * For cloud operator:<br> https://adminmanagement.local.azurestack.external   
-        * For tenant:<br> https://management.local.azurestack.external
+### <a name="to-connect-an-azure-stack-subscription"></a>Verbinding maken van een Azure-Stack-abonnement
+
+
+1. Nadat Opslagverkenner (Preview) opnieuw is gestart, selecteert u het menu **Bewerken** en controleert u of de optie **Azure Stack als doel** is geselecteerd. Als dat niet het geval is, selecteert u deze en start u Opslagverkenner opnieuw om de wijziging door te voeren. Deze configuratie is vereist om compatibiliteit met uw Azure Stack-omgeving te garanderen.
+
+    ![Zorg dat de optie Azure Stack als doel is geselecteerd][28]
+
+7. Selecteer **Accounts beheren** in het linkerdeelvenster.  
+    Alle Microsoft-accounts waarbij u bent aangemeld worden weergegeven.
+
+8. Om verbinding te maken met een Azure Stack-account, selecteert u **Een account toevoegen**.
+
+    ![Een Azure Stack-account toevoegen][29]
+
+9. In de **verbinding maken met Azure Storage** dialoogvenster onder **Azure-omgeving**, selecteer **gebruik Azure Stack-omgeving**, en klik vervolgens op **volgende**.
+
+10. Als u wilt aanmelden met de Azure-Stack-account dat is gekoppeld aan ten minste één actief Azure-Stack-abonnement, vult u de **aanmelden bij Azure Stack-omgeving** in het dialoogvenster.  
+
+    De details voor elk veld zijn als volgt:
+
+    * **De naam van de omgeving**: dit veld kan worden aangepast door de gebruiker.
+    * **ARM-resource-eindpunt**: de voorbeelden van een Azure Resource Manager-resource-eindpunt:
+
+        * Voor cloud-operator:<br> https://adminmanagement.local.azurestack.external   
+        * Voor de tenant:<br> https://Management.local.azurestack.external
  
-    * **Tenant Id**: Optional. The value is given only when the directory must be specified.
+    * **Tenant-Id**: optioneel. Deze waarde wordt alleen ingevuld wanneer de map moet worden opgegeven.
 
-12. After you successfully sign in with an Azure Stack account, the left pane is populated with the Azure Stack subscriptions associated with that account. Select the Azure Stack subscriptions that you want to work with, and then select **Apply**. (Selecting or clearing the **All subscriptions** check box toggles selecting all or none of the listed Azure Stack subscriptions.)
+12. Nadat u bent aangemeld met een Azure Stack-account, worden in het linkerdeelvenster de Azure Stack-abonnementen weergegeven die aan dat account zijn gekoppeld. Selecteer de Azure Stack-abonnementen waarmee u wilt werken en selecteer vervolgens **Toepassen**. (Door het selectievakje **Alle abonnementen** in of uit te schakelen, selecteert u of alle of geen van de vermelde Azure Stack-abonnementen.)
 
-    ![Select the Azure Stack subscriptions after filling out the Custom Cloud Environment dialog box][30]  
-    The left pane displays the storage accounts associated with the selected Azure Stack subscriptions.
+    ![De Azure Stack-abonnementen selecteren na het invullen van het dialoogvenster Aangepaste cloudomgeving][30]  
+    In het linkerdeelvenster worden de opslagaccounts weergegeven die aan de geselecteerde Azure Stack-abonnementen zijn gekoppeld.
 
-    ![List of storage accounts including Azure Stack subscription accounts][31]
+    ![Lijst met opslagaccounts, waaronder Azure Stack-abonnementsaccounts][31]
 
-## <a name="next-steps"></a>Next steps
-* [Get started with Storage Explorer (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [Azure Stack Storage: differences and considerations](azure-stack-acs-differences.md)
+## <a name="next-steps"></a>Volgende stappen
+* [Aan de slag met Opslagverkenner (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Azure Storage Stack: verschillen en overwegingen](azure-stack-acs-differences.md)
 
 
-* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
+* Zie voor meer informatie over Azure Storage, [Inleiding tot Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 
 [25]: ./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png
 [26]: ./media/azure-stack-storage-connect-se/export-root-cert-azure-stack.png
@@ -113,4 +112,3 @@ Now you are ready to connect Storage Explorer to an Azure Stack subscription.
 [29]: ./media/azure-stack-storage-connect-se/add-azure-stack-account.png
 [30]: ./media/azure-stack-storage-connect-se/select-accounts-azure-stack.png
 [31]: ./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png
-

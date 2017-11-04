@@ -6,7 +6,7 @@ Selecteer bij instellingen in de sectie Beleid de optie **Registratie- of aanmel
 
 ![Beleid voor registreren of aanmelden selecteren en op de knop Toevoegen klikken](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-policy.png)
 
-Geef een**** naam op voor het beleid waarnaar de toepassing kan verwijzen. Geef bijvoorbeeld `SiUpIn` op.
+Geef een**naam** op voor het beleid waarnaar de toepassing kan verwijzen. Geef bijvoorbeeld `SiUpIn` op.
 
 Selecteer **Id-providers** en schakel **Registreren met e-mailadres** in. U kunt er ook voor kiezen om sociale id-providers te selecteren als dit al is geconfigureerd. Klik op **OK**.
 

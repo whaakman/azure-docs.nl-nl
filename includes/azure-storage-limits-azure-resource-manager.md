@@ -1,4 +1,4 @@
-De volgende beperkingen gelden als u alleen de Azure Resource Manager en Azure-resourcegroepen.
+De volgende limieten bij het uitvoeren van beheertaken uit te voeren met de Azure Resource Manager alleen van toepassing.
 
 | Resource | Standaardlimiet |
 | --- | --- |

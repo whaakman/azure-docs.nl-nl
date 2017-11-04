@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: bfbfc5b46985d3413510ba69cbdfc688f46f0f1b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: c6289df50d17de1ef542abbf617eb1cdb2f32311
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Instellingen voor Service Fabric-cluster en het beleid voor Fabric-Upgrade aanpassen
 Dit document wordt uitgelegd hoe de verschillende fabric-instellingen aanpassen en de fabric-upgrade beleid voor uw Service Fabric-cluster. U kunt aanpassen via de [Azure-portal](https://portal.azure.com) of met een Azure Resource Manager-sjabloon.
@@ -596,7 +596,7 @@ PropertyGroup|X509NameMap, standaardwaarde is geen|Dynamisch| |
 | PeriodicApiSlowTraceInterval | Tijd in seconden, de standaardwaarde is 5 minuten |Dynamisch| Geef de interval in seconden. PeriodicApiSlowTraceInterval definieert het interval waarover wordt traag API-aanroepen worden ververst door de API-monitor. |
 | NodeDeactivationMaxReplicaCloseDuration | Tijd in seconden, de standaardwaarde is 900 |Dynamisch|Geef de interval in seconden. De duur waarvoor het systeem wachten moet voordat het wordt beëindigd servicehosts die replica's hebben die zijn achtergebleven in de wordt afgesloten tijdens de deactivering van het knooppunt. |
 | FabricUpgradeMaxReplicaCloseDuration | Tijd in seconden, de standaardwaarde is 900 |Dynamisch| Geef de interval in seconden. De duur waarvoor het systeem wachten moet voordat het wordt beëindigd servicehosts die replica's hebben die zijn achtergebleven in de wordt afgesloten tijdens de fabric-upgrade. |
-|GracefulReplicaShutdownMaxDuration|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(120)|Dynamisch|Geef de interval in seconden. De duur waarvoor het systeem wachten moet voordat het wordt beëindigd servicehosts die replica's hebben die zijn vastgelopen in te sluiten.|
+|GracefulReplicaShutdownMaxDuration|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(120)|Dynamisch|Geef de interval in seconden. De duur waarvoor het systeem wachten moet voordat het wordt beëindigd servicehosts die replica's hebben die zijn vastgelopen in te sluiten. Als deze waarde is ingesteld op 0, replica's niet gevraagd om te sluiten.|
 |ReplicaChangeRoleFailureRestartThreshold|Int, de standaardwaarde is 10|Dynamisch| Geheel getal. Geef het aantal API-fouten tijdens de promotie van primaire waarna automatisch risicobeperking actie (replica opnieuw is opgestart) wordt toegepast. |
 |ReplicaChangeRoleFailureWarningReportThreshold|int, de standaardwaarde is 2147483647|Dynamisch| Geheel getal. Geef het aantal API-fouten tijdens de promotie van primaire waarna statusrapport waarschuwing verschijnt.|
 

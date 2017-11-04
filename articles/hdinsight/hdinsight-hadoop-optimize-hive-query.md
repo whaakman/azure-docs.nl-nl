@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/26/2016
 ms.author: jgao
-ms.openlocfilehash: edbf797e6277a65b5311e4939f5ab72776b11557
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 56c00c3ea885bd1f431613ea90868dc65c98818b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>In Azure HDInsight Hive-query's optimaliseren
 
@@ -180,11 +180,11 @@ Er zijn meer optimalisatie methoden die u, bijvoorbeeld overwegen kunt:
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u verschillende algemene Hive query optimalisatie methoden geleerd. Zie voor meer informatie de volgende artikelen:
 
-* [Apache Hive in HDInsight gebruiken](hdinsight-use-hive.md)
+* [Apache Hive in HDInsight gebruiken](hadoop/hdinsight-use-hive.md)
 * [Vertraging vluchtgegevens analyseren met behulp van Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
 * [Twitter-gegevens met Hive in HDInsight analyseren](hdinsight-analyze-twitter-data.md)
-* [Met behulp van de Console Hive-Query met Hadoop in HDInsight-sensorgegevens analyseren](hdinsight-hive-analyze-sensor-data.md)
-* [Hive gebruiken met HDInsight logboeken van websites te analyseren](hdinsight-hive-analyze-website-log.md)
+* [Met behulp van de Console Hive-Query met Hadoop in HDInsight-sensorgegevens analyseren](hadoop/apache-hive-analyze-sensor-data.md)
+* [Hive gebruiken met HDInsight logboeken van websites te analyseren](hadoop/apache-hive-analyze-website-log.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

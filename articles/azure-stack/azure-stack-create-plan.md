@@ -1,6 +1,6 @@
 ---
-title: Create a plan in Azure Stack | Microsoft Docs
-description: As a cloud administrator, create a plan that lets subscribers provision virtual machines.
+title: Een plan maken in Azure-Stack | Microsoft Docs
+description: Als een cloudbeheerder een plan waarmee abonnees inrichten van virtuele machines te maken.
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,58 +14,56 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ddd69acaed4d56211092866571350d855b14e8b3
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 30759dca746fd7fd02653556cb105f419f5bf854
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-plan-in-azure-stack"></a>Create a plan in Azure Stack
+# <a name="create-a-plan-in-azure-stack"></a>Een plan maken in Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-[Plans](azure-stack-key-features.md) are groupings of one or more services. As a provider, you can create plans to offer to your tenants. In turn, your tenants subscribe to your offers to use the plans and services they include. This example shows you how to create a plan that includes the compute, network, and storage resource providers. This plan gives subscribers the ability to provision virtual machines.
+[Plannen](azure-stack-key-features.md) zijn pakketten van één of meer services. Als een provider, kunt u plannen om aan te bieden aan uw gebruikers. Uw gebruikers abonneren op zijn beurt op uw aanbiedingen plannen en services die ze gebruiken. Dit voorbeeld ziet u het maken van een abonnement met de compute, network en storage resourceproviders. Dit abonnement biedt abonnees de mogelijkheid voor het inrichten van virtuele machines.
 
-1. Sign in to the Azure Stack administrator portal (https://adminportal.local.azurestack.external). Enter the credentials for the account that you created during step 5 of the [Run the PowerShell script](azure-stack-run-powershell-script.md) section.
+1. Aanmelden bij de Azure-Stack-beheerdersportal (https://adminportal.local.azurestack.external). Voer de referenties voor het account dat u hebt gemaakt tijdens stap 5 van de [de PowerShell-script uitvoeren](azure-stack-run-powershell-script.md) sectie.
 
-2. To create a plan and offer that tenants can subscribe to, click **New** > **Tenant Offers + Plans** > **Plan**.
+2. Klik op om een plan en een aanbieding die gebruikers kunnen zich abonneren op **nieuw** > **Tenant biedt + plannen** > **Plan**.
 
    ![](media/azure-stack-create-plan/image01.png)
-3. In the **New Plan** blade, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that tenants see. Only the admin can see the Resource Name. It's the name that admins use to work with the plan as an Azure Resource Manager resource.
+3. In de **nieuwe plannen** blade invullen **weergavenaam** en **resourcenaam**. De weergegeven naam is van het plan beschrijvende naam die gebruikers te zien. Alleen de beheerder kan de resourcenaam zien. Dit is de naam die beheerders gebruiken om te werken met het abonnement als een Azure Resource Manager-resource.
 
    ![](media/azure-stack-create-plan/image02.png)
-4. Create a new **Resource Group**, or select an existing one, as a container for the plan.
+4. Maak een nieuwe **resourcegroep**, of Selecteer een bestaande, als een container voor het plan.
 
    ![](media/azure-stack-create-plan/image02a.png)
-5. Click **Services**, select **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**, and then click **Select**.
+5. Klik op **Services**, selecteer **Microsoft.Compute**, **Microsoft.Network**, en **Microsoft.Storage**, en klik vervolgens op **Selecteer**.
 
    ![](media/azure-stack-create-plan/image03.png)
-6. Click **Quotas**, click **Microsoft.Storage (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
+6. Klik op **quota**, klikt u op **Microsoft.Storage (lokaal)**, en vervolgens selecteert u het standaardquotum of klik op **maken nieuwe quota** voor het aanpassen van het quotum.
 
    ![](media/azure-stack-create-plan/image04.png)
-7. If you're creating a new quota, enter a name for the quota > set the quota values > click **OK** > click the name of the new quota.
+7. Als u een nieuwe quota maakt, voer een naam voor het quotum > Stel de quotawaarden > klikt u op **OK** > Klik op de naam van de nieuwe quota.
 
    ![](media/azure-stack-create-plan/image06.png)
-8. Click **Microsoft.Network (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
+8. Klik op **Microsoft.Network (lokaal)**, en vervolgens selecteert u het standaardquotum of klik op **maken nieuwe quota** voor het aanpassen van het quotum.
 
     ![](media/azure-stack-create-plan/image07.png)
-9. If you're creating a new quota, type a name for the quota > set the quota values > click **OK** > click the name of the new quota.
+9. Als u een nieuwe quota maakt, typt u een naam voor het quotum > Stel de quotawaarden > klikt u op **OK** > Klik op de naam van de nieuwe quota.
 
     ![](media/azure-stack-create-plan/image08.png)
-10. Click **Microsoft.Compute (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
+10. Klik op **Microsoft.Compute (lokaal)**, en vervolgens selecteert u het standaardquotum of klik op **maken nieuwe quota** voor het aanpassen van het quotum.
 
     ![](media/azure-stack-create-plan/image09.png)
-11. If you're creating a new quota, type a name for the quota > set the quota values > click **OK** > click the name of the new quota.
+11. Als u een nieuwe quota maakt, typt u een naam voor het quotum > Stel de quotawaarden > klikt u op **OK** > Klik op de naam van de nieuwe quota.
 
     ![](media/azure-stack-create-plan/image10.png)
-12. In the **Quotas** blade, click **OK**, and then in the **New Plan** blade, click **Create** to create the plan.
+12. In de **quota** blade, klikt u op **OK**, en klik vervolgens in de **nieuw Plan** blade, klikt u op **maken** om het plan te maken.
 
     ![](media/azure-stack-create-plan/image11.png)
-13. To see your new plan, click **All resources**, then search for the plan and click its name.
+13. Klik op een overzicht van uw nieuwe schema **alle resources**, zoekt u naar het plan en klik op de naam.
 
     ![](media/azure-stack-create-plan/image12.png)
 
-### <a name="next-steps"></a>Next steps
-[Create an offer](azure-stack-create-offer.md)
-
+### <a name="next-steps"></a>Volgende stappen
+[Een aanbieding maken](azure-stack-create-offer.md)

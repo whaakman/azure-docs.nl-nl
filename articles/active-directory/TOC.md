@@ -48,7 +48,6 @@
 #### [Azure PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
 #### [Naslaginformatie voor producten en serviceabonnementen in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Gebruikersprofielen beheren](active-directory-users-profile-azure-portal.md)
-### [Een wachtwoord opnieuw instellen](active-directory-users-reset-password-azure-portal.md)
 ### [Werkgegevens van gebruikers beheren](active-directory-users-work-info-azure-portal.md)
 ### [Accounts delen](active-directory-sharing-accounts.md)
 
@@ -126,7 +125,6 @@
 ### [Rapportage voor SSPR](active-directory-passwords-reporting.md)
 ### IT-beheerders: wachtwoorden opnieuw instellen
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
-#### [Klassieke Azure Portal](active-directory-create-users-reset-password.md)
 ### [SSPR licentiëren](active-directory-passwords-licensing.md)
 ### [Wachtwoord terugschrijven](active-directory-passwords-writeback.md)
 ### [Problemen oplossen](active-directory-passwords-troubleshoot.md)

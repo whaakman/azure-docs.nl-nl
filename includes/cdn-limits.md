@@ -1,11 +1,11 @@
 
-| Resource | Default limit | Maximum limit | 
+| Resource | Standaardlimiet | Maximumaantal | 
 | --- | --- | --- |
-| CDN profiles |8 |25 |
-| CDN endpoints per profile |10 |25 |
-| Custom domains per endpoint |10 |25 |
+| CDN-profielen |8 |25 |
+| CDN-eindpunten per profiel |10 |25 |
+| Aangepaste domeinen per eindpunt |10 |25 |
 
-A CDN subscription can contain one or more CDN profiles and a CDN profile can contain one or more CDN endpoints. You may wish to use multiple profiles to organize your CDN endpoints by internet domain, web application, or some other criteria. 
+Een CDN-abonnement kan bevatten een of meer CDN-profielen en een CDN-profiel een of meer CDN-eindpunten kunnen bevatten. Mogelijk wilt meerdere profielen gebruiken om de CDN-eindpunten te ordenen op basis van het internetdomein, de webtoepassing of andere criteria. 
 
-To request an update to your subscription's default limits, open a support ticket. 
+Om aan te vragen een update voor de standaardlimiet van uw abonnement, moet u een ondersteuningsticket opent. 
 

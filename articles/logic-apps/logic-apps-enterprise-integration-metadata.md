@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 28bb8296ddd820ec5aa9793dc0928b4b1e67bf6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 473da6436ad39709359b579162a6b60efc38d61f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>De metagegevens van de artefacten in integratieaccounts voor logic apps beheren
 
-U kunt aangepaste metagegevens voor artefacten in integratieaccounts definiëren en ophalen van metagegevens tijdens de runtime voor uw logische app. Bijvoorbeeld, kunt u metagegevens voor artefacten zoals partners, overeenkomsten, schema's en maps - alle sleutelwaarde-paren met metagegevens opslaan. Op dit moment artefacten metagegevens via de gebruikersinterface kunnen niet worden gemaakt, maar u kunt REST-API's gebruiken voor het maken van metagegevens. Om toe te voegen metagegevens wanneer u maakt of selecteert u een partner, een overeenkomst of een schema in de Azure-portal, kies **bewerken als JSON**. Voor het ophalen van metagegevens van het artefact in logic apps, kunt u de functie Integratie Account artefact opzoeken.
+U kunt aangepaste metagegevens voor artefacten in integratieaccounts definiëren en ophalen van metagegevens tijdens de runtime voor uw logische app. Bijvoorbeeld, kunt u metagegevens voor artefacten zoals partners, overeenkomsten, schema's en maps - alle sleutelwaarde-paren met metagegevens opslaan. Op dit moment artefacten metagegevens via de gebruikersinterface kunnen niet worden gemaakt, maar u kunt REST-API's gebruiken voor het maken van metagegevens. Om toe te voegen metagegevens wanneer u maakt of selecteert u een partner, een overeenkomst of een schema in de Azure-portal, kies **bewerken**. Voor het ophalen van metagegevens van het artefact in logic apps, kunt u de functie Integratie Account artefact opzoeken.
 
 ## <a name="add-metadata-to-artifacts-in-integration-accounts"></a>Metagegevens toevoegen aan artefacten in integratieaccounts
 
@@ -31,7 +31,7 @@ U kunt aangepaste metagegevens voor artefacten in integratieaccounts definiëren
 
 2. Voeg bijvoorbeeld een artefact toe aan uw account integratie, een [partner](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner), [overeenkomst](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements), of [schema](logic-apps-enterprise-integration-schemas.md).
 
-3.  Selecteer het artefact, kies **bewerken als JSON**, en voer de details van de metagegevens.
+3.  Selecteer het artefact, kies **bewerken**, en voer de details van de metagegevens.
 
     ![Voer de metagegevens](media/logic-apps-enterprise-integration-metadata/image1.png)
 

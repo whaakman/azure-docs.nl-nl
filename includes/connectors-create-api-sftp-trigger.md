@@ -1,18 +1,18 @@
-Let's add a trigger.
+We gaan een trigger toevoegen.
 
-1. Enter *sftp* in the search box on the logic apps designer then select the **SFTP - When a file is added or modified**  trigger   
-   ![SFTP trigger image 1](./media/connectors-create-api-sftp/trigger-1.png)  
-2. The **When a file is added or modified** control opens up  
-   ![SFTP trigger image 2](./media/connectors-create-api-sftp/trigger-2.png)  
-3. Select the **...** located on the right side of the control. This opens the folder picker control  
-   ![SFTP trigger image 3](./media/connectors-create-api-sftp/action-1.png)  
-4. Select the **SFTP** to select the root folder as the folder to monitor for new or modified files. Notice the root folder is now displayed in the **Folder** control.  
-   ![SFTP trigger image 4](./media/connectors-create-api-sftp/action-2.png)   
+1. Voer *sftp* in het zoekvak op de ontwerpfunctie van logic apps selecteert u vervolgens de **SFTP - wanneer een bestand wordt toegevoegd of gewijzigd** trigger   
+   ![SFTP triggerafbeelding 1](./media/connectors-create-api-sftp/trigger-1.png)  
+2. De **wanneer een bestand wordt toegevoegd of gewijzigd** besturingselement wordt geopend  
+   ![SFTP triggerafbeelding 2](./media/connectors-create-api-sftp/trigger-2.png)  
+3. Selecteer de **...**  zich aan de rechterkant van het besturingselement. Hiermee opent u het kiezerbesturingselement map  
+   ![SFTP triggerafbeelding 3](./media/connectors-create-api-sftp/action-1.png)  
+4. Selecteer de **SFTP** de basismap selecteren als de map om te controleren op nieuwe en gewijzigde bestanden. U ziet de hoofdmap wordt nu weergegeven in de **map** besturingselement.  
+   ![SFTP triggerafbeelding 4](./media/connectors-create-api-sftp/action-2.png)   
 
-At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a file is either modified or created in the specific SFTP folder. 
+Op dit moment is uw logische app geconfigureerd met een trigger die een uitvoering van de andere triggers en acties in de werkstroom wordt gestart wanneer een bestand wordt gewijzigd of in de specifieke SFTP-map gemaakt. 
 
 > [!NOTE]
-> For a logic app to be functional, it must contain at least one trigger and one action. Follow the steps in the next section to add an action.  
+> Voor een logische app wilt gebruiken, moet er ten minste één trigger en één actie bevatten. Volg de stappen in de volgende sectie voor een actie toevoegen.  
 > 
 > 
 

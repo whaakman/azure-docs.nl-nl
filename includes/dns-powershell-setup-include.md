@@ -1,47 +1,47 @@
-## <a name="set-up-azure-powershell-for-azure-dns"></a>Set up Azure PowerShell for Azure DNS
+## <a name="set-up-azure-powershell-for-azure-dns"></a>Azure PowerShell voor Azure DNS instellen
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Voordat u begint
 
-Verify that you have the following items before beginning your configuration.
+Controleer voordat u met de configuratie begint of u de volgende items hebt.
 
-* An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* You need to install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Een Azure-abonnement. Als u nog geen Azure-abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of [u aanmelden voor een gratis account](https://azure.microsoft.com/pricing/free-trial/).
+* U moet de meest recente versie van de Azure Resource Manager PowerShell-cmdlets installeren. Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor meer informatie.
 
-### <a name="sign-in-to-your-azure-account"></a>Sign in to your Azure account
+### <a name="sign-in-to-your-azure-account"></a>Aanmelden bij uw Azure-account
 
-Open your PowerShell console and connect to your account. For more information, see [Using PowerShell with Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md).
+Open de PowerShell-console en maak verbinding met uw account. Zie voor meer informatie [met behulp van PowerShell met Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md).
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-### <a name="select-the-subscription"></a>Select the subscription
+### <a name="select-the-subscription"></a>Het abonnement selecteren
  
-Check the subscriptions for the account.
+Controleer de abonnementen voor het account.
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Choose which of your Azure subscriptions to use.
+Kies welk Azure-abonnement u wilt gebruiken.
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "your_subscription_name"
 ```
 
-### <a name="create-a-resource-group"></a>Create a resource group
+### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Azure Resource Manager requires that all resource groups specify a location. This location is used as the default location for resources in that resource group. However, because all DNS resources are global, not regional, the choice of resource group location has no impact on Azure DNS.
+Azure Resource Manager vereist dat er voor alle resourcegroepen een locatie wordt opgegeven. Deze locatie wordt gebruikt als de standaardlocatie voor resources in die resourcegroep. Aangezien alle DNS-resources globaal en niet regionaal zijn, is de keuze van de locatie voor de resourcegroep niet van invloed op Azure DNS.
 
-You can skip this step if you are using an existing resource group.
+U kunt deze stap overslaan als u een bestaande resourcegroep gebruikt.
 
 ```powershell
 New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
 ```
 
-### <a name="register-resource-provider"></a>Register resource provider
+### <a name="register-resource-provider"></a>Resourceprovider registreren
 
-The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription must be registered to use this resource provider before you can use Azure DNS. This is a one-time operation for each subscription.
+De Azure DNS-service wordt beheerd door de Microsoft.Network-resourceprovider. Uw Azure-abonnement moet worden geregistreerd voor het gebruik van deze resourceprovider voordat u Azure DNS kunt gebruiken. Dit is een eenmalige bewerking voor elk abonnement.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network

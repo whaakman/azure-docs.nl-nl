@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 25488640e4a1e129f06dffbe5e7896f5ace8facc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 13e681ec8893aa2cbd97f6c4e2ca66be634c9cb9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="team-data-science-structured-projects-in-azure-machine-learning-workbench"></a>Teamprojecten voor Gegevenswetenschap gestructureerd in Azure Machine Learning Workbench
 
-Deze zelfstudies en voorbeelden laten zien hoe projecten voor Gegevenswetenschap Team gestructureerd maken met Azure Machine Learning-Workbench. Zie voor een overzicht van het Team gegevens wetenschap proces [gegevens wetenschap proces](overview.md). Zie voor een overzicht van Spark in HDInsight [Inleiding tot Spark in HDInsight](../../hdinsight/hdinsight-apache-spark-overview.md).
+Deze zelfstudies en voorbeelden laten zien hoe projecten voor Gegevenswetenschap Team gestructureerd maken met Azure Machine Learning-Workbench. Zie voor een overzicht van het Team gegevens wetenschap proces [gegevens wetenschap proces](overview.md). Zie voor een overzicht van Spark in HDInsight [Inleiding tot Spark in HDInsight](../../hdinsight/spark/apache-spark-overview.md).
 
 Aanvullende gegevens wetenschap-scenario's die het Team gegevens wetenschap proces worden uitgevoerd zijn gegroepeerd op de **platform** die ze gebruiken. Zie [scenario's voor het uitvoeren van het Team gegevens wetenschap proces](walkthroughs.md) voor een specificatie van deze voorbeelden.
 

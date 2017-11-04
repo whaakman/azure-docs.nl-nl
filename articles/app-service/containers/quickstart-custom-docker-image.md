@@ -1,10 +1,10 @@
 ---
-title: Voer een aangepaste installatiekopie van de Docker-Hub in Web-App voor Containers | Microsoft Docs
-description: Klik hier voor meer informatie over het gebruik van een aangepaste Docker-afbeelding voor Web-App voor Containers.
+title: Voer een aangepaste installatiekopie van de Docker-Hub in Azure-Web-App voor Containers | Microsoft Docs
+description: Klik hier voor meer informatie over het gebruik van een aangepaste Docker-afbeelding voor Azure-Web-App voor Containers.
 keywords: Azure app service, web-app, linux, docker, container
 services: app-service
 documentationcenter: 
-author: naziml
+author: cephalin
 manager: cfowler
 editor: 
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
@@ -13,18 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/05/2017
-ms.author: wesmc
+ms.date: 11/02/2017
+ms.author: cephalin;wesmc
 ms.custom: mvc
-ms.openlocfilehash: c85f79cc14cdcecd2a05fc0ff91c4864b9fba277
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
-ms.translationtype: HT
+ms.openlocfilehash: 8e7afd89def170ce756aae9e76daf91d78cc20e0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/03/2017
 ---
-# <a name="run-a-custom-docker-hub-image-in-web-app-for-containers"></a>Voer een aangepaste installatiekopie van de Docker-Hub in Web-App voor Containers
+# <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>Voer een aangepaste installatiekopie van de Docker-Hub in Azure-Web-App voor Containers
 
-App Service biedt vooraf gedefinieerde toepassing stacks op Linux met ondersteuning voor specifieke versies, zoals PHP 7.0 en Node.js 4.5. U kunt ook een aangepaste Docker-installatiekopie gebruiken voor het implementeren van uw web-app naar de stack van een toepassing die niet al is gedefinieerd in Azure. Deze snelstartgids laat zien hoe een web-app maken en implementeren van een Python op basis van Docker-installatiekopie aan. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+App Service biedt vooraf gedefinieerde toepassing stacks op Linux met ondersteuning voor specifieke versies, zoals PHP 7.0 en Node.js 4.5. U kunt ook een aangepaste Docker-installatiekopie gebruiken om uit te voeren van uw web-app op de stack van een toepassing die niet al is gedefinieerd in Azure. Deze snelstartgids laat zien hoe een web-app maken en implementeren van de [officiële Nginx Docker-afbeelding](https://hub.docker.com/r/_/nginx/) aan. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+
+![Voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-custom-docker-image/hello-world-in-browser.png)
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -39,10 +41,10 @@ App Service biedt vooraf gedefinieerde toepassing stacks op Linux met ondersteun
 Maak een [web-app](../app-service-web-overview.md) in het App Service-plan `myAppServicePlan` met de opdracht [az webapp create](/cli/azure/webapp#create). Vergeet niet om te vervangen `<app name>` met een unieke app-naam.
 
 ```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name elnably/dockerimagetest
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name nginx
 ```
 
-In de voorgaande opdracht `--deployment-container-image-name` verwijst naar de installatiekopie van het openbare Docker Hub [https://hub.docker.com/r/elnably/dockerimagetest/](https://hub.docker.com/r/elnably/dockerimagetest/). U kunt de inhoud op inspecteren [https://github.com/ahmedelnably/dockerimagetest](https://github.com/ahmedelnably/dockerimagetest).
+In de voorgaande opdracht `--deployment-container-image-name` verwijst naar de installatiekopie van het openbare Docker Hub [https://hub.docker.com/r/_/nginx/](https://hub.docker.com/r/_/nginx/).
 
 Wanneer de web-app is gemaakt, ziet de Azure CLI u uitvoer lijkt op het volgende voorbeeld:
 
@@ -76,4 +78,4 @@ http://<app_name>.azurewebsites.net
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Een Docker Python en PostgreSQL web-app in Azure bouwen](tutorial-docker-python-postgresql-app.md)
+> [Gebruik een aangepaste Docker-afbeelding](tutorial-custom-docker-image.md)

@@ -1,7 +1,7 @@
 ---
 title: Migratie van de SQL Server-database naar Azure SQL Database | Microsoft Docs
-description: "Lees meer over on-premises SQL Server-databasemigratie naar Azure SQL Database in de cloud. Hulpprogramma&quot;s voor databasemigratie gebruiken voor het testen van de compatibiliteit vóór de databasemigratie."
-keywords: databasemigratie, sql server-databasemigratie, hulpprogramma&quot;s voor databasemigratie, database migreren, sql-database migreren
+description: Lees meer over SQL Server-databasemigratie naar Azure SQL Database in de cloud.
+keywords: databasemigratie, sql server-databasemigratie, hulpprogramma's voor databasemigratie, database migreren, sql-database migreren
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -9,55 +9,99 @@ manager: jhubbard
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: migrate
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: sqldb-migrate
-ms.date: 11/08/2016
+ms.workload: Active
+ms.date: 02/08/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: 61fb027dfdd5830d87fe4fcfff57f685db71475e
-
-
+ms.openlocfilehash: f27d2fbeb8ec514419bd0d208429e3d3de2d07ea
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>SQL Server-databasemigratie naar SQL Database in de cloud
-In dit artikel leest u hoe u een on-premises SQL Server 2005- of latere database kunt migreren naar Azure SQL Database. In dit databasemigratieproces migreert u het schema en de gegevens van de SQL Server-database in uw huidige omgeving naar SQL Database. Dit lukt alleen als de bestaande database eerst een compatibiliteitstest doorstaat. Met SQL Database V12 passen we een benadering op basis van [functiepariteit](sql-database-features.md) toe, behalve voor problemen met betrekking tot bewerkingen op serverniveau en tussen databases. Bij databases en toepassingen die afhankelijk zijn van [slechts gedeeltelijk of niet ondersteunde functies](sql-database-transact-sql-information.md), is een zekere mate van herstructurering vereist om compatibiliteitsproblemen op te lossen voordat de SQL Server-database kan worden gemigreerd.
+In dit artikel leest u over de twee primaire methoden voor het migreren van een SQL Server 2005 of latere database naar Azure SQL Database. De eerste methode is eenvoudiger, maar leidt wel tot enige uitvaltijd tijdens de migratie. In bepaalde gevallen kan deze uitvaltijd aanzienlijk zijn. De tweede methode is complexer, maar veroorzaakt tijdens de migratie veel minder uitvaltijd.
 
-Als u uw database wilt migreren, doorloopt u de volgende stappen:
-
-* **Compatibiliteit testen**: valideer de databasecompatibiliteit met SQL Database. 
-* **Eventuele compatibiliteitsproblemen oplossen**: als de validatie is mislukt, moet u de validatiefouten oplossen.  
-* **De migratie uitvoeren**: is uw database eenmaal compatibel, dan kunt u een of meer methoden gebruiken om de migratie uit te voeren. 
-
-SQL Server biedt verschillende methoden om elk van deze taken uit te voeren. Dit artikel biedt een overzicht van de beschikbare methoden voor elke taak. Het volgende diagram illustreert de stappen en de methoden.
-
-  ![Diagram van VSSSDT-migratie](./media/sql-database-cloud-migrate/03VSSSDTDiagram.png)
+In beide gevallen moet u ervoor zorgen dat de brondatabase compatibel met Azure SQL Database met behulp van is de [gegevens migratie-assistent (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). SQL Database V12 nadert [functie pariteit](sql-database-features.md) met SQL Server dan problemen met het niveau van de server en meerdere databases. Bij databases en toepassingen die afhankelijk zijn van [slechts gedeeltelijk of in het geheel niet ondersteunde functies](sql-database-transact-sql-information.md), is een zekere mate van [herstructurering vereist om compatibiliteitsproblemen](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) op te lossen voordat de SQL Server-database kan worden gemigreerd.
 
 > [!NOTE]
-> Voor het migreren van een SQL Server-database, met inbegrip van Microsoft Access, Sybase, MySQL Oracle en DB2, naar Azure SQL Database raadpleegt u [SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/) (Migratieassistent voor SQL Server).
-> 
-> 
-
-## <a name="database-migration-tools-test-sql-server-database-compatibility-with-sql-database"></a>Hulpprogramma's voor databasemigratie testen de databasecompatibiliteit met de SQL-database
-Om te testen op problemen met de SQL-databasecompatibiliteit voordat u het databasemigratieproces start, gebruikt u een van de volgende methoden:
-
-> [!div class="op_single_selector"]
-> * [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-> * [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-> * [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-> * [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
-> 
+> Voor het migreren van een SQL Server-database, met inbegrip van Microsoft Access, Sybase, MySQL Oracle en DB2, naar Azure SQL Database raadpleegt u [SQL Server Migration Assistant](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/) (Migratieassistent voor SQL Server).
 > 
 
-* [SQL Server Data Tools voor Visual Studio (SSDT)](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): SSDT gebruikt de recentste compatibiliteitsregels om incompatibiliteit met SQL Database V12 te detecteren. Als er incompatibiliteit wordt gedetecteerd, kunt u de gedetecteerde problemen direct in dit hulpprogramma oplossen. Dit is de aanbevolen methode om te testen op SQL Database V12-compatibiliteitsproblemen en deze op te lossen. 
-* [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md): SqlPackage is een opdrachtregelprogramma dat test op compatibiliteitsproblemen en een rapport met gedetecteerde compatibiliteitsproblemen genereert. Als u dit hulpprogramma gebruikt, moet u ervoor zorgen dat u de nieuwste versie installeert, zodat u kunt profiteren van de recentste compatibiliteitsregels. Worden er fouten gedetecteerd, dan moet u een ander hulpprogramma gebruiken om gedetecteerde compatibiliteitsproblemen op te lossen. SSDT wordt hiervoor aanbevolen.  
-* [De toepassingswizard Data-Tier exporteren in SQL Server Management Studio](sql-database-cloud-migrate-determine-compatibility-ssms.md): deze wizard detecteert fouten en rapporteert deze op het scherm. Als er geen fouten zijn gedetecteerd, kunt u doorgaan en de migratie naar SQL Database voltooien. Worden er fouten gedetecteerd, dan moet u een ander hulpprogramma gebruiken om gedetecteerde compatibiliteitsproblemen op te lossen. SSDT wordt hiervoor aanbevolen.
-* [SQL Azure-migratiewizard (SAMW)](sql-database-cloud-migrate-fix-compatibility-issues.md): SAMW is een codeplex-hulpprogramma dat de compatibiliteitsregels van Azure SQL Database V11 gebruikt voor het detecteren van Azure SQL Database V12-compatibiliteitsproblemen. Als er incompatibiliteit wordt gedetecteerd, kunt u sommige problemen direct in dit hulpprogramma oplossen. Dit hulpprogramma kan vormen van incompatibiliteit detecteren die u niet hoeft op te lossen. Het was het eerste beschikbare hulpprogramma voor hulp bij Azure SQL Database-migratie en wordt actief ondersteund door de SQL Server-community. Met dit hulpprogramma kunt u ook de migratie voltooien vanuit het programma zelf. 
+## <a name="method-1-migration-with-downtime-during-the-migration"></a>Methode 1: Migratie die gepaard gaat met uitvaltijd
 
-## <a name="fix-database-migration-compatibility-issues"></a>Compatibiliteitsproblemen met databasemigratie oplossen
-Als er compatibiliteitsproblemen zijn gedetecteerd, moet u deze oplossen voordat u doorgaat met de migratie van uw SQL Server-database. Er zijn veel verschillende compatibiliteitsproblemen die zich kunnen voordoen. Dit is afhankelijk van de versie van SQL Server in de brondatabase en de complexiteit van de database die u migreert. Oudere versies van SQL Server hebben vaker te maken met compatibiliteitsproblemen. Gebruik de volgende resources en voer ook op internet een gerichte zoekopdracht uit (met uw zoekmachine):
+ Gebruik deze methode als u zich enige uitvaltijd kunt permitteren of als u met het oog op een latere migratie een testmigratie van een productiedatabase uitvoert. Zie voor een zelfstudie [migreren van een SQL Server-database](sql-database-migrate-your-sql-server-database.md).
+
+De volgende lijst bevat de algemene werkstroom voor de migratie van een SQL Server-database met deze methode.
+
+  ![Diagram van VSSSDT-migratie](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
+
+1. Beoordeel de compatibiliteit van de database met behulp van de meest recente versie van de [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+2. Bereid alle benodigde fixes voor als Transact-SQL-scripts.
+3. Maak een transactioneel consistente kopie van de brondatabase die wordt gemigreerd en zorg ervoor dat er aan de brondatabase geen verdere wijzigingen worden aangebracht. Als er wijzigingen zijn vereist, brengt u deze handmatig aan nadat de migratie is voltooid. Er zijn veel methoden om een database stil te leggen, van het uitschakelen van de clientconnectiviteit tot het maken van een [databasemomentopname](https://msdn.microsoft.com/library/ms175876.aspx).
+4. Implementeer de Transact-SQL-scripts om de fixes toe te passen op de databasekopie.
+5. [Exporteren](sql-database-export.md) het database-exemplaar naar een Bacpac-bestand op een lokale schijf.
+6. [Importeren](sql-database-import.md) het Bacpac-bestand als een nieuwe Azure SQL database met behulp van een BACPAC van verschillende hulpprogramma's, importeren met SQLPackage.exe wordt het aanbevolen hulpprogramma voor de beste prestaties.
+
+### <a name="optimizing-data-transfer-performance-during-migration"></a>De prestaties van de gegevensoverdracht tijdens de migratie optimaliseren 
+
+Hieronder leest u enkele aanbevelingen voor het behalen van optimale prestaties tijdens het importeren.
+
+* Kies voor optimale overdrachtprestaties het hoogste serviceniveau en de hoogste prestatielaag die binnen uw budget mogelijk zijn. Na voltooiing van de migratie kunt u weer omlaag schalen om geld te besparen. 
+* De afstand tussen het Bacpac-bestand en het doel-Datacenter minimaliseren.
+* Schakel automatische statistieken tijdens de migratie uit.
+* Partitioneer tabellen en indexen.
+* Verwijder geïndexeerde weergaven en maak ze opnieuw nadat de migratie is voltooid.
+* Verplaats zelden opgevraagde historische gegevens naar een andere database en migreer ze vervolgens naar een afzonderlijke Azure SQL Database. U kunt dan [elastische query's](sql-database-elastic-query-overview.md) uitvoeren om eventueel benodigde historische gegevens op te vragen.
+
+### <a name="optimize-performance-after-the-migration-completes"></a>Prestaties optimaliseren nadat de migratie is voltooid
+
+[Werk uw statistieken bij](https://msdn.microsoft.com/library/ms187348.aspx) met een volledige scan nadat de migratie is voltooid.
+
+## <a name="method-2-use-transactional-replication"></a>Methode 2: Transactionele replicatie gebruiken
+
+Als u het zich niet kunt permitteren om tijdens de migratie uw SQL Server-database uit de productieomgeving te verwijderen, kunt u als migratieoplossing transactionele replicatie voor SQL Server gebruiken. Voor het gebruik van deze methode moet de brondatabase voldoen aan de [vereisten voor transactionele replicatie](https://msdn.microsoft.com/library/mt589530.aspx) en compatibel zijn met Azure SQL Database. Zie voor meer informatie over SQL-replicatie met AlwaysOn [replicatie configureren voor AlwaysOn-beschikbaarheidsgroepen (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
+
+Als u deze oplossing wilt gebruiken, configureert u uw Azure SQL Database als abonnee voor de SQL Server-instantie die u wilt migreren. De distributeur voor transactionele replicatie synchroniseert dan de gegevens uit de database die moeten worden gesynchroniseerd (de uitgever) terwijl er nieuwe transacties blijven binnenkomen. 
+
+Met transactionele replicatie komen alle wijzigingen aan uw gegevens of schema in uw Azure SQL Database terecht. Nadat de synchronisatie is voltooid en u klaar bent om te migreren, wijzigt u de verbindingstekenreeks in uw toepassingen zodanig dat deze naar uw Azure SQL Database verwijst. Wanneer door toepassing van transactionele replicatie alle wijzigingen die nog in uw brondatabase aanwezig zijn, zijn overgenomen en al uw toepassingen naar Azure DB verwijzen, kunt u de functie voor transactionele replicatie verwijderen. Uw Azure SQL Database is nu uw productiesysteem.
+
+ ![SeedCloudTR-diagram](./media/sql-database-cloud-migrate/SeedCloudTR.png)
+
+> [!TIP]
+> U kunt transactionele replicatie ook gebruiken voor het migreren van een subset van uw brondatabase. De publicatie die u naar Azure SQL Database repliceert, kan worden beperkt tot een subset van de tabellen in de betreffende database. Voor elke tabel die wordt gerepliceerd, kunt u de gegevens beperken tot een subset van de rijen en/of een subset van de kolommen.
+>
+
+### <a name="migration-to-sql-database-using-transaction-replication-workflow"></a>Migratie naar SQL Database met de transactiereplicatiewerkstroom
+
+> [!IMPORTANT]
+> Gebruik altijd de nieuwste versie van SQL Server Management Studio om gesynchroniseerd te blijven met updates voor Microsoft Azure en SQL Database. In oudere versies van SQL Server Management Studio kunt u SQL Database niet instellen als abonnee. [SQL Server Management Studio bijwerken](https://msdn.microsoft.com/library/mt238290.aspx).
+> 
+
+1. Distributie instellen
+   -  [SQL Server Management Studio (SSMS) gebruiken](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_1)
+   -  [Transact-SQL gebruiken](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_2)
+2. Publicatie maken
+   -  [SQL Server Management Studio (SSMS) gebruiken](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_1)
+   -  [Transact-SQL gebruiken](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
+3. Abonnement maken
+   -  [SQL Server Management Studio (SSMS) gebruiken](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
+   -  [Transact-SQL gebruiken](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
+
+### <a name="some-tips-and-differences-for-migrating-to-sql-database"></a>Enkele tips en verschillen met betrekking tot migratie naar SQL Database
+
+1. Gebruik een lokale distributeur. 
+   - Dit veroorzaakt een prestatie-impact op de server. 
+   - Als de prestatie-impact onacceptabel is, kunt u een andere server gebruiken, maar dit verhoogt wel de complexiteit van het beheer.
+2. Als u een map met momentopnamen selecteert, moet u ervoor zorgen dat de map die u selecteert, groot genoeg is voor een BCP van elke tabel die u wilt repliceren. 
+3. Als u een momentopname maakt, worden de gekoppelde tabellen vergrendeld totdat het proces is voltooid. Het is dus belangrijk dat u het maken van momentopnamen goed plant. 
+4. In Azure SQL Database worden alleen push-abonnementen ondersteund. U kunt alleen abonnees toevoegen vanuit de brondatabase.
+
+## <a name="resolving-database-migration-compatibility-issues"></a>Compatibiliteitsproblemen met databasemigratie oplossen
+Er zijn veel verschillende compatibiliteitsproblemen die zich kunnen voordoen. Dit is afhankelijk van de versie van SQL Server in de brondatabase en de complexiteit van de database die u migreert. Oudere versies van SQL Server hebben vaker te maken met compatibiliteitsproblemen. Gebruik de volgende resources en voer ook op internet een gerichte zoekopdracht uit (met uw zoekmachine):
 
 * [SQL Server-databasefuncties die niet worden ondersteund in Azure SQL Database](sql-database-transact-sql-information.md)
 * [Database Engine-functionaliteit in SQL Server 2016 stopgezet](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
@@ -68,56 +112,11 @@ Als er compatibiliteitsproblemen zijn gedetecteerd, moet u deze oplossen voordat
 
 In aanvulling op deze resources en uw zoekopdrachten op internet kunt u ook de [MSDN SQL Server-communityforums](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) of [StackOverflow](http://stackoverflow.com/) raadplegen.
 
-Gebruik een van de volgende hulpprogramma's voor databasemigratie om de gedetecteerde problemen op te lossen:
-
-> [!div class="op_single_selector"]
-> * [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-> * [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
-> * [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
-> 
-> 
-
-* [SQL Server Data Tools voor Visual Studio (SSDT)](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md) gebruiken: voor het gebruik van SSDT importeert u uw databaseschema in SQL Server Data Tools voor Visual Studio (SSDT) en bouwt u het project voor een implementatie van SQL Database V12. U kunt dan alle gedetecteerde compatibiliteitsproblemen oplossen in SSDT. Als u klaar bent, synchroniseert u de wijzigingen naar de brondatabase (of naar een kopie van de brondatabase. SSDT is momenteel de aanbevolen methode om SQL Database V12-compatibiliteitsproblemen te testen en op te lossen. Volg de koppeling voor een [overzicht van het gebruik van SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
-* [SQL Server Management Studio (SSMS)](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md) gebruiken: als u SSMS wilt gebruiken, voert u de Transact-SQL-opdrachten uit om de gedetecteerde fouten te herstellen met een ander hulpprogramma. Deze methode is vooral bedoeld voor gevorderde gebruikers die het databaseschema direct in de brondatabase willen wijzigen. 
-* [SQL Azure migratiewizard (SAMW)](sql-database-cloud-migrate-fix-compatibility-issues.md) gebruiken: als u SAMW wilt gebruiken, genereert u een Transact-SQL-script vanuit de brondatabase. De wizard transformeert het script, indien mogelijk, om het schema compatibel te maken met de SQL Database V12. Als u klaar bent, kan SAMW verbinding maken met SQL Database V12 voor het uitvoeren van het script. Dit hulpprogramma analyseert ook traceringsbestanden om problemen met de compatibiliteit vast te stellen. Het script kan worden gegenereerd met alleen het schema of met gegevens in BCP-indeling.
-
-## <a name="migrate-a-compatible-sql-server-database-to-sql-database"></a>Een compatibele SQL Server-database migreren naar SQL Database
-Voor de migratie van een compatibele SQL Server-database levert Microsoft meerdere migratiemethoden voor verschillende scenario's. Welke methode u kiest, is afhankelijk van de tolerantie voor uitvaltijd, de grootte en de complexiteit van de SQL Server-database, en de verbinding met de Microsoft Azure-cloud.  
-
-> [!div class="op_single_selector"]
-> * [SSMS-migratiewizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
-> * [Een BACPAC-bestand exporteren](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-> * [Importeren vanuit BACPAC-bestand](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-> * [Transactionele replicatie](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
-> 
-> 
-
-Bij het kiezen van de meest geschikte migratiemethode moet u zich eerst afvragen of u het zich kunt permitteren om de database tijdens de migratie uit productie te halen. Migratie van een database terwijl er actieve transacties plaatsvinden, kan leiden tot database-inconsistenties en tot mogelijke beschadiging van de database. Er zijn veel methoden om een database stil te leggen, van het uitschakelen van de clientconnectiviteit tot het maken van een [databasemomentopname](https://msdn.microsoft.com/library/ms175876.aspx).
-
-Als u de migratie wilt uitvoeren met minimale uitvaltijd, gebruikt u [SQL Server-transactiereplicatie](sql-database-cloud-migrate-compatible-using-transactional-replication.md). Uw database moet dan wel voldoen aan de vereisten voor transactionele replicatie. Als u zich enige uitvaltijd kunt permitteren of als u met het oog op een latere migratie een testmigratie van een productiedatabase uitvoert, kunt u een van de volgende drie methoden overwegen:
-
-* [SSMS-migratiewizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md): voor kleine tot middelgrote databases is het migreren van een compatibele SQL Server 2005- of latere database net zo eenvoudig als het uitvoeren van de [wizard Deploy Database to Microsoft Azure](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md) in SQL Server Management Studio.
-* [Exporteren naar BACPAC-bestand](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) en vervolgens [importeren vanuit PACPAC-bestand](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md): als u verbindingsproblemen hebt (geen verbinding, lage bandbreedte of time-outproblemen), gebruikt u voor middelgrote tot grote databases een [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4)-bestand. Met deze methode exporteert u het SQL Server-schema en de gegevens naar een BACPAC-bestand. Vervolgens importeert u het BACPAC-bestand in SQL Database met de wizard Export Data Tier Application in SQL Server Management Studio of met het opdrachtprompthulpprogramma [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx).
-* BACPAC en BCP samen gebruiken: gebruik een [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4)-bestand en [BCP](https://msdn.microsoft.com/library/ms162802.aspx) voor veel grotere databases om een grotere parallellisering te bereiken voor betere prestaties. Dit leidt echter ook tot een hogere mate van complexiteit. Met deze methode worden het schema en de gegevens afzonderlijk gemigreerd.
-  
-  * [Alleen het schema exporteren naar een BACPAC-bestand](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md).
-  * [Alleen het schema vanuit het BACPAC-bestand importeren](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) in SQL Database.
-  * Gebruik [BCP](https://msdn.microsoft.com/library/ms162802.aspx) om gegevens op te halen in platte bestanden en laad deze bestanden vervolgens [parallel](https://technet.microsoft.com/library/dd425070.aspx) in Azure SQL Database.
-    
-     ![SQL Server-databasemigratie - SQL-database migreren naar de cloud.](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
-
 ## <a name="next-steps"></a>Volgende stappen
-* [Nieuwste versie van SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-* [Nieuwste versie van SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
-
-## <a name="additional-resources"></a>Aanvullende bronnen
-* [SQL Database-functies](sql-database-features.md)
-  [Transact-SQL gedeeltelijk of niet ondersteunde functies](sql-database-transact-sql-information.md)
-* [Niet-SQL Server-databases migreren met de SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
+* Gebruik het script dat beschikbaar is op de Azure SQL EMEA Engineers-blog [om het tempdb-gebruik tijdens de migratie te bewaken](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/).
+* Gebruik het script dat beschikbaar is op de Azure SQL EMEA Engineers-blog [om de transactielogboekruimte van de database te bewaken terwijl de migratie bezig is](https://blogs.msdn.microsoft.com/azuresqlemea/2016/10/31/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database/0).
+* Raadpleeg dit blogartikel van het SQL Server-klantadviesteam over migratie met behulp van BACPAC-bestanden: [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migreren van SQL Server naar Azure SQL Database met BACPAC-bestanden).
+* Meer informatie over hoe u na de migratie met de UTC-tijd werkt, vindt u in [Modifying the default time zone for your local time zone](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/) (De standaardtijdzone voor uw lokale tijdzone wijzigen).
+* Meer informatie over hoe u na de migratie de standaardtaal van een database wijzigt, vindt u in [How to change the default language of Azure SQL Database](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/) (De standaardtaal van Azure SQL Database wijzigen).
 
 

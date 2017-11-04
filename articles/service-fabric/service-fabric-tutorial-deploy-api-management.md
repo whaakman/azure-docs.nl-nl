@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: d98d2823c19f24a2d9040f7959bd5189bd6bcc16
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
-ms.translationtype: HT
+ms.openlocfilehash: 8ff8c425189efdd7ea21984528bf7ea765e17955
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>API Management met Service Fabric implementeren
 Deze zelfstudie maakt deel uit twee van een serie. Deze zelfstudie ziet u het instellen van [Azure API Management](../api-management/api-management-key-concepts.md) met Service Fabric om verkeer te leiden naar een back-end-service in Service Fabric.  Wanneer u klaar bent, hebt u API Management geïmplementeerd op een VNET, een API-bewerking voor het verzenden van verkeer naar de back-end-stateless services geconfigureerd. Zie voor meer informatie over Azure API Management-scenario's met Service Fabric, de [overzicht](service-fabric-api-management-overview.md) artikel.
@@ -384,7 +384,7 @@ ResourceGroupName="tutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>Volgende stappen
+## <a name="conclusion"></a>Conclusie
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
@@ -393,7 +393,6 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Een API-bewerking maken
 > * Een back-end-beleid configureren
 > * De API toevoegen aan een product
-
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 

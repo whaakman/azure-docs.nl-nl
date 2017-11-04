@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: v-dotren
-ms.openlocfilehash: 3c62bff7ba37f7e45d73fa2cf67a4aee3b4a7a38
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
-ms.translationtype: HT
+ms.openlocfilehash: f34647afc600b72704859952d0a40edad4a3b40f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Een Azure Batch-pool in een virtueel netwerk maken
 
@@ -62,7 +62,12 @@ Om ervoor te zorgen dat de rekenknooppunten van uw Azure Batch-pool werken in ee
 * De Batch-service moet communiceren met een pool van rekenknooppunten voor het plannen van taken. Toevoegen zodat deze communicatie een door de gebruiker gedefinieerde route voor elk IP-adres gebruikt door de Batch-service in de regio waar uw Batch-account bestaat. De lijst met IP-adressen van de Batch-service, neem contact op met ondersteuning van Azure.
 
 * Zorg ervoor dat uitgaand verkeer naar Azure Storage (in het bijzonder URL's van het formulier `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, en `<account>.blob.core.windows.net`) niet is geblokkeerd via uw lokale netwerkapparaat.
-    
+
+Wanneer u een gebruiker gedefinieerde route toevoegt, de route voor elk gerelateerde Batch IP-adresvoorvoegsel definiëren en instellen **volgende hop type** naar **Internet**. Zie het volgende voorbeeld:
+
+![Gebruiker gedefinieerde route](./media/batch-virtual-network/user-defined-route.png)
+
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor een gedetailleerd overzicht van Batch [ontwikkelen grootschalige parallelle compute-oplossingen met Batch](batch-api-basics.md).
+- Zie voor meer informatie over het maken van een gebruiker gedefinieerde route [maken van een gebruiker gedefinieerde route - Azure-portal](../virtual-network/create-user-defined-route-portal.md).

@@ -1,35 +1,35 @@
-## <a name="install-the-prerequisites"></a>Install the prerequisites
+## <a name="install-the-prerequisites"></a>De vereiste software installeren
 
-The steps in this tutorial assume you are running Ubuntu Linux.
+De stappen in deze zelfstudie wordt ervan uitgegaan dat u Ubuntu Linux wordt uitgevoerd.
 
-Open a shell and run the following commands to install the prerequisite packages:
+De vereiste pakketten installeren, opent u een shell en voer de volgende opdrachten:
 
 ```bash
 sudo apt-get update
-sudo apt-get install curl build-essential libcurl4-openssl-dev git cmake libssl-dev uuid-dev valgrind libglib2.0-dev libtool autoconf
+sudo apt-get install curl build-essential libcurl4-openssl-dev git cmake pkg-config libssl-dev uuid-dev valgrind libglib2.0-dev libtool autoconf
 ```
 
-In the shell, run the following command to clone the Azure IoT Edge GitHub repository to your local machine:
+Voer de volgende opdracht voor het klonen van de Azure IoT rand GitHub-opslagplaats op uw lokale computer in de shell:
 
 ```bash
 git clone https://github.com/Azure/iot-edge.git
 ```
 
-## <a name="how-to-build-the-sample"></a>How to build the sample
+## <a name="how-to-build-the-sample"></a>Het voorbeeld maken
 
-You can now build the IoT Edge runtime and samples on your local machine:
+Nu kunt u de rand van de IoT-runtime en voorbeelden bouwen op uw lokale machine:
 
-1. Open a shell.
+1. Open een shell.
 
-1. Navigate to the root folder in your local copy of the **iot-edge** repository.
+1. Navigeer naar de hoofdmap van uw lokale exemplaar van de **iot-edge**-opslagplaats.
 
-1. Run the build script as follows:
+1. Voer het build-script als volgt:
 
     ```sh
     tools/build.sh --disable-native-remote-modules
     ```
 
-This script uses the **cmake** utility to create a folder called **build** in the root folder of your local copy of the **iot-edge** repository and generate a makefile. The script then builds the solution, skipping unit tests and end to end tests. If you want to build and run the unit tests, add the `--run-unittests` parameter. If you want to build and run the end to end tests, add the `--run-e2e-tests`.
+Dit script gebruikt het hulpprogramma **cmake** om een map **build** te maken in de hoofdmap van uw lokale exemplaar van de **iot-edge**-opslagplaats en een makefile te genereren. Het script bouwt vervolgens de oplossing, waarbij eenheidstest en end-to-end-tests worden overgeslagen. Als u wilt bouwen en de eenheidstests uitvoeren, voegt de `--run-unittests` parameter. Als u wilt bouwen en de end-to-end-tests uitvoeren, voegt de `--run-e2e-tests`.
 
 > [!NOTE]
-> Every time you run the **build.sh** script, it deletes and then recreates the **build** folder in the root folder of your local copy of the **iot-edge** repository.
+> Telkens wanneer u het script **build.sh** uitvoert, wordt de map **build** in de hoofdmap van het lokale exemplaar van de **iot-edge**-opslagplaats verwijderd en opnieuw gemaakt.

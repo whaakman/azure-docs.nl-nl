@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: e8ac4bef5af7a98857278b82304bb58f1ac6e342
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 534bf37cc70420dc30fcd5c994ae7d9beb654072
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure DB Cosmos
@@ -376,7 +376,7 @@ Met behulp van de specificatie doorvoer, kunt u deze om te profiteren van de sei
 
 ### <a name="azure-storage-sdk-has-been-very-inexpensive-for-me-because-i-pay-only-to-store-the-data-and-i-rarely-query-the-new-azure-cosmos-db-offering-seems-to-be-charging-me-even-though-i-have-not-performed-a-single-transaction-or-stored-anything-can-you-please-explain"></a>Azure-opslag-SDK is zeer goedkope voor mij, omdat ik betaalt alleen voor het opslaan van de gegevens, en ik zelden query. De nieuwe Azure Cosmos DB aanbieding lijkt te worden in rekening gebracht mij ondanks dat ik niet heb één transactie uitgevoerd of iets opgeslagen. Kunt u Leg?
 
-Azure Cosmos DB is ontworpen om te worden van een systeem globaal gedistribueerd, op basis van een SLA met garanties met betrekking tot beschikbaarheid, latentie en doorvoer. Bij het reserveren van doorvoer in Azure DB die Cosmos is gegarandeerd, in tegenstelling tot de doorvoer van andere systemen. Azure Cosmos DB biedt aanvullende functies die klanten hebt aangevraagd, zoals secundaire indexen en distributielijsten. Tijdens de preview-periode, bieden we een model geoptimaliseerd voor doorvoer en uiteindelijk we zullen een model opslag geoptimaliseerd om te voldoen aan de behoeften van onze klanten te bieden. 
+Azure Cosmos DB is ontworpen om te worden van een systeem globaal gedistribueerd, op basis van een SLA met garanties met betrekking tot beschikbaarheid, latentie en doorvoer. Bij het reserveren van doorvoer in Azure DB die Cosmos is gegarandeerd, in tegenstelling tot de doorvoer van andere systemen. Azure Cosmos DB biedt aanvullende functies die klanten hebt aangevraagd, zoals secundaire indexen en distributielijsten.  
 
 ### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-table-storage-with-the-table-api-preview-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Krijg ik nooit een ' volledige ' quotamelding (waarmee wordt aangegeven dat een partitie vol is) wanneer ik opnemen van gegevens in de Table storage. Ik ontvangt dit bericht met de tabel-API (Preview). Dit biedt mij beperken en dwingen mij mijn bestaande toepassing aan te passen?
 

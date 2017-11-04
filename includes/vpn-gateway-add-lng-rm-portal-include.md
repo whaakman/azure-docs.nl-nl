@@ -1,12 +1,12 @@
-1. In the portal, from **All resources**, click **+Add**. In the **Everything** blade search box, type **Local network gateway**, then click to return a list of resources. Click **Local network gateway** to open the blade, then click **Create** to open the **Create local network gateway** blade.
+1. In de portal klikt u via **Alle resources** op **+Toevoegen**. In de **Alles** blade zoekvak, type **lokale netwerkgateway**, klikt u om te retourneren van een lijst met bronnen. Klik op **Lokale netwerkgateway** om de blade te openen en klik op **Maken** om de blade **Lokale netwerkgateway maken** te openen.
    
-    ![create local network gateway](./media/vpn-gateway-add-lng-rm-portal-include/lng.png)
+    ![maak een lokale netwerkgateway](./media/vpn-gateway-add-lng-rm-portal-include/lng.png)
 
-2. On the **Create local network gateway blade**, specify a **Name** for your local network gateway object. If possible, use something intuitive, such as **ClassicVNetLocal** or **TestVNet1Local**. This makes it easier for you to identify the local network gateway in the portal.
-3. Specify a valid Public **IP address** for the VPN device or virtual network gateway to which you want to connect.<br>**If this local network represents an on-premises location:** Specify the Public IP address of the VPN device that you want to connect to. It cannot be behind NAT and has to be reachable by Azure.<br>**If this local network represents another VNet:** Specify the Public IP address that was assigned to the virtual network gateway for that VNet.<br>**If you don't yet have the IP address:** You can make up a valid placeholder IP address, and then come back and modify this setting before connecting.
-4. **Address Space** refers to the address ranges for the network that this local network represents. You can add multiple address space ranges. Make sure that the ranges you specify here do not overlap with ranges of other networks to which you connect.
-5. For **Subscription**, verify that the correct subscription is showing.
-6. For **Resource Group**, select the resource group that you want to use. You can either create a new resource group, or select one that you have already created.
-7. For **Location**, select the location in which this resource will be created. You may want to select the same location that your VNet resides in, but you are not required to do so.
-8. Click **Create** to create the local network gateway.
+2. Op de **blade Lokale netwerkgateway maken**, voert u een **Naam** in voor uw lokale netwerkgateway-object. Gebruik indien mogelijk iets intuïtieve zoals **ClassicVNetLocal** of **TestVNet1Local**. Dit maakt het gemakkelijker kunt identificeren van de lokale netwerkgateway in de portal.
+3. Geef een geldige openbare **IP-adres** voor de VPN-apparaat of de virtuele netwerkgateway waarmee u verbinding wilt maken.<br>**Als deze lokaal netwerk een on-premises-locatie vertegenwoordigt:** het openbare IP-adres van het VPN-apparaat dat u verbinding wilt maken. Het mag zich niet achter NAT bevinden en moet bereikbaar zijn voor Azure.<br>**Als u deze lokaal netwerk vertegenwoordigt een andere VNet:** het openbare IP-adres dat is toegewezen aan de virtuele netwerkgateway voor dit VNet opgeven.<br>**Als u het IP-adres nog geen hebt:** u kunt een geldige tijdelijke aanduiding voor IP-adres, gezamenlijk en keert u terug en wijzig deze instelling voordat u verbinding maakt.
+4. **Adresruimte** verwijst naar de adresbereiken voor het netwerk dat dit lokale netwerk vertegenwoordigt. U kunt meerdere adresruimtebereiken toevoegen. Zorg ervoor dat de bereiken die u hier opgeeft niet overlappen met adresbereiken van andere netwerken waarmee u verbinding maken.
+5. Voor **Abonnement** controleert u of het juiste abonnement wordt weergegeven.
+6. Voor **Resourcegroep** selecteert u de resourcegroep die u wilt gebruiken. U kunt een nieuwe resourcegroep maken of een resourcegroep selecteren die u al hebt gemaakt.
+7. Voor **locatie**, selecteer de locatie waarin deze bron wordt gemaakt. U kunt dezelfde locatie selecteren als die van uw VNet, maar dat is niet vereist.
+8. Klik op **Maken** om de lokale netwerkgateway te maken.
 

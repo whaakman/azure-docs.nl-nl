@@ -6,7 +6,7 @@ Ga in Instellingen naar de sectie Beleid, kies de optie **Beleid voor het opnieu
 
 ![Beleid voor registreren of aanmelden selecteren en op de knop Toevoegen klikken](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-policy.png)
 
-Geef een**** naam op voor het beleid waarnaar de toepassing kan verwijzen. Geef bijvoorbeeld `SSPR` op.
+Geef een**naam** op voor het beleid waarnaar de toepassing kan verwijzen. Geef bijvoorbeeld `SSPR` op.
 
 Selecteer **Id-providers** en schakel de optie **Het wachtwoord opnieuw instellen met e-mailadres** in. Klik op **OK**.
 

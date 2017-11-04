@@ -1,52 +1,52 @@
-1. Sign in to the [Azure classic portal](http://manage.windowsazure.com).  
-2. On the command bar at the bottom of the window, click **New**.
-3. Under **Compute**, click **Virtual Machine**, and then click **From Gallery**.
+1. Meld u aan bij de [klassieke Azure-portal](http://manage.windowsazure.com).  
+2. Klik op de opdrachtbalk aan de onderkant van het venster **nieuw**.
+3. Onder **Compute**, klikt u op **virtuele Machine**, en klik vervolgens op **uit galerie**.
    
-    ![Create a New Virtual Machine][Image1]
-4. Under the **SUSE** group, select an OpenSUSE virtual machine image, and then click the arrow to continue.
-5. On the first **Virtual machine configuration** page:
+    ![Maak een nieuwe virtuele Machine][Image1]
+4. Onder de **SUSE** groep, selecteert u een installatiekopie van de virtuele machine OpenSUSE en klik op de pijl om door te gaan.
+5. Op de eerste **Virtuele-machineconfiguratie** pagina:
    
-   * Type a **Virtual Machine Name**, such as "testlinuxvm". The name must contain between 3 and 15 characters, can contain only letters, numbers, and hyphens, and must start with a letter and end with either a letter or number.
-   * Verify the **Tier** and pick a **Size**. The tier determines the sizes you can choose from. The size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For details, see [Sizes for virtual machines](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-   * Type a **New User Name**, or accept the default, **azureuser**. This name is added to the Sudoers list file.
-   * Decide which type of **Authentication** to use. For general password guidelines, see [Strong passwords](http://msdn.microsoft.com/library/ms161962.aspx).
-6. On the next **Virtual machine configuration** page:
+   * Typ een **virtuele-machinenaam**, zoals 'testlinuxvm'. De naam moet tussen 3 en 15 tekens bevatten, kunnen alleen letters, cijfers en afbreekstreepjes bevatten en moet beginnen met een letter en eindigen met een letter of een cijfer.
+   * Controleer of de **laag** en kies een **grootte**. De laag bepaalt de grootte die u kunt kiezen uit. De grootte van invloed op de kosten voor het gebruik ervan, alsmede configuratie-opties, zoals hoeveel gegevens u schijven kunnen koppelen. Zie voor meer informatie [grootten voor virtuele machines](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+   * Typ een **nieuwe gebruikersnaam**, of accepteer de standaardnaam **azureuser**. Deze naam is toegevoegd aan het bestand met de Sudoers.
+   * Bepaal welk type **verificatie** te gebruiken. Zie voor richtlijnen voor algemene wachtwoord [sterke wachtwoorden](http://msdn.microsoft.com/library/ms161962.aspx).
+6. Op de volgende **Virtuele-machineconfiguratie** pagina:
    
-   * Use the default **Create a new cloud service**.
-   * In the **DNS Name** box, type a unique DNS name to use as part of the address, such as "testlinuxvm".
-   * In the **Region/Affinity Group/Virtual Network** box, select a region where this virtual image will be hosted.
-   * Under **Endpoints**, keep the SSH endpoint. You can add others now, or add, change, or delete them after the virtual machine is created.
+   * De standaard **Maak een nieuwe cloudservice**.
+   * In de **DNS-naam** typt u een unieke DNS-naam te gebruiken als onderdeel van het adres, zoals 'testlinuxvm'.
+   * In de **regio/affiniteit groep/virtueel netwerk** Selecteer een regio waar deze virtuele-installatiekopie wordt gehost.
+   * Onder **eindpunten**, blijven de SSH-eindpunt. U kunt nu toevoegen of toevoegen, wijzigen of verwijderen nadat de virtuele machine is gemaakt.
      
      > [!NOTE]
-     > If you want a virtual machine to use a virtual network, you **must** specify the virtual network when you create the virtual machine. You can't add a virtual machine to a virtual network after you create the virtual machine. For more information, see [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md).
+     > Als u wilt dat een virtuele machine een virtueel netwerk, gebruikt u **moet** opgeven van het virtuele netwerk bij het maken van de virtuele machine. Nadat u de virtuele machine hebt gemaakt, kan u een virtuele machine toevoegen aan een virtueel netwerk. Zie voor meer informatie [Virtual Network-overzicht](../articles/virtual-network/virtual-networks-overview.md).
      > 
      > 
-7. On the last **Virtual machine configuration** page, keep the default settings and then click the check mark to finish.
+7. Op de laatste **Virtuele-machineconfiguratie** up, behoud de standaardinstellingen en klik op het vinkje om het te voltooien.
 
-The portal lists the new virtual machine under **Virtual Machines**. While the status is reported as **(Provisioning)**, the virtual machine is being set up. When the status is reported as **Running**, you can move on to the next step.
+De portal geeft een lijst van de nieuwe virtuele machine onder **virtuele Machines**. Terwijl de status wordt vermeld als **(Provisioning genoemd)**, de virtuele machine wordt ingesteld. Wanneer de status wordt vermeld als **met**, kunt u op met de volgende stap.
 
-## <a name="connect-to-the-virtual-machine"></a>Connect to the Virtual Machine
-You'll use SSH or PuTTY to connect to the virtual machine, depending on the operating system on the computer you'll connect from:
+## <a name="connect-to-the-virtual-machine"></a>Verbinding maken met de virtuele Machine
+U SSH of PuTTY verbinding maken met de virtuele machine, afhankelijk van het besturingssysteem op de computer maakt u verbinding met:
 
-* From a computer running Linux, use SSH. At the command prompt, type:
+* Vanaf een computer waarop Linux wordt uitgevoerd, SSH te gebruiken. Typ het volgende achter de opdrachtprompt:
   
     `$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
   
-    Type the user's password.
-* From a computer running Windows, use PuTTY. If you don't have it installed, download it from the [PuTTY Download Page][PuTTYDownload].
+    Typ het wachtwoord van de gebruiker.
+* Vanaf een computer waarop Windows wordt uitgevoerd, moet u PuTTY gebruiken. Als u niet geïnstalleerd hebt, downloaden via de [PuTTY-downloadpagina][PuTTYDownload].
   
-    Save **putty.exe** to a directory on your computer. Open a command prompt, navigate to that folder, and run **putty.exe**.
+    Sla **putty.exe** naar een map op uw computer. Open een opdrachtprompt, gaat u naar die map en voer **putty.exe**.
   
-    Type the host name, such as "testlinuxvm.cloudapp.net", and type "22" for the **Port**.
+    Typ de hostnaam, bijvoorbeeld 'testlinuxvm.cloudapp.net' en '22' voor de **poort**.
   
-    ![PuTTY Screen][Image6]  
+    ![PuTTY scherm][Image6]  
 
-## <a name="update-the-virtual-machine-optional"></a>Update the Virtual Machine (optional)
-1. After you're connected to the virtual machine, you can optionally install system updates and patches. To run the update, type:
+## <a name="update-the-virtual-machine-optional"></a>Werk de virtuele Machine (optioneel)
+1. Nadat u met de virtuele machine verbonden bent, kunt u eventueel systeemupdates en -patches installeren. Voor het uitvoeren van de update, typt u:
    
     `$ sudo zypper update`
-2. Select **Software**, then **Online Update** to list available updates. Select **Accept** to start the installation and apply all new available patches (except the optional ones).
-3. After installation is done, select **Finish**.  Your system is now up to date.
+2. Selecteer **Software**, klikt u vervolgens **Online-Update** voor een lijst met beschikbare updates. Selecteer **accepteren** begint met de installatie en het toepassen van alle nieuwe beschikbaar patches (met uitzondering van de optionele velden).
+3. Nadat de installatie wordt uitgevoerd, selecteert u **voltooien**.  Uw systeem is nu up-to-date te houden.
 
 [PuTTYDownload]: http://www.puttyssh.org/download.html
 

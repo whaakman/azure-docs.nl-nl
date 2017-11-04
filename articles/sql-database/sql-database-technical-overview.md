@@ -9,19 +9,18 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
-ms.custom: overview
+ms.custom: overview, mvc
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 06/30/2017
+ms.workload: Active
+ms.date: 09/20/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 54aa8c2f738ef92c211462498103d368e4cb4c5c
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/28/2017
-
+ms.openlocfilehash: f97a1e7977e28765985991ba9e38ed4618e00bda
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Wat is de service Azure SQL Database? 
 
@@ -85,16 +84,20 @@ De toonaangevende serviceovereenkomst [(SLA)](http://azure.microsoft.com/support
 
 Met SQL Database beschikt u over ingebouwde intelligentie waarmee u de kosten van het uitvoeren en beheren van databases drastisch verlaagt en de prestaties en beveiliging van uw toepassing optimaliseert. SQL Database verwerkt 24 uur per dag miljoenen workloads van klanten en verzamelt en verwerkt daarbij enorme hoeveelheden telemetriegegevens, waarbij de privacy van klanten te allen tijde volledig wordt gerespecteerd. Er worden verschillen de algoritmen gebruikt om de telemetriegegevens continu te evalueren zodat de service zich kan aanpassen aan uw toepassing. Op basis van deze analyses stelt de service aanbevelingen op voor het verbeteren van de prestaties, afgestemd op uw specifieke workloads. 
 
-### <a name="automatic-performance-tuning"></a>Automatische afstemming van prestaties
+### <a name="automatic-performance-monitoring-and-tuning"></a>Automatische prestaties controleren en afstemmen
 
-SQL Database biedt gedetailleerde informatie over de query’s die u wilt bewaken. SQL Database leert uw databasepatronen zodat u uw databaseschema kunt aanpassen aan uw workload. SQL Database geeft aanbevelingen voor het afstemmen van de prestaties met [SQL Database Advisor](sql-database-advisor.md), waarmee u de aanbevolen acties kunt weergegeven en uitvoeren. Maar doorlopende databasebewaking is een moeilijke, tijdrovende taak, zeker wanneer het om vele databases gaat. Het is vrijwel onmogelijk om het beheer van enorme hoeveelheden databases op een efficiënte manier uit te voeren, zelfs met de hulpprogramma’s en rapporten van SQL Database en de Azure-portal. In plaats van het handmatig bewaken en afstemmen van uw database, kunt u overwegen sommige van deze taken over te laten aan SQL Database, met de functie voor automatisch afstemmen. Aanbevolen acties worden automatisch door SQL Database uitgevoerd, getest en geverifieerd om te garanderen dat de prestaties optimaal blijven. Op die manier past SQL Database zich automatisch op een gecontroleerde en veilige manier aan uw workloads aan. Automatische afstemming betekent dat de prestaties van uw database zorgvuldig worden bewaakt en vergeleken voor en na elke afstemactie. Als de prestaties niet zijn verbeterd, wordt de betreffende actie teruggedraaid.
+SQL Database biedt gedetailleerde informatie over de query’s die u wilt bewaken. SQL Database leert uw databasepatronen zodat u uw databaseschema kunt aanpassen aan uw workload. SQL Database biedt [prestaties afstemmen aanbevelingen](sql-database-advisor.md), waarbij u kunt afstemmen acties beoordelen en ze toepassen. 
+
+Maar doorlopende databasebewaking is een moeilijke, tijdrovende taak, zeker wanneer het om vele databases gaat. [Intelligent Insights](sql-database-intelligent-insights.md) deze taak wordt u door de bewaking van prestaties van de SQL-Database op schaal automatisch en informeert u prestatieproblemen vermindering, identificeert u de hoofdoorzaak van het probleem en prestatieverbeteringen biedt aanbevelingen indien mogelijk.
+
+Het is vrijwel onmogelijk om het beheer van enorme hoeveelheden databases op een efficiënte manier uit te voeren, zelfs met de hulpprogramma’s en rapporten van SQL Database en de Azure-portal. In plaats van controleren en de database handmatig afstemmen, kunt u overwegen delegeren enkele van de bewaking en het afstemmen van acties voor het gebruik van SQL-Database [automatische afstemming](sql-database-automatic-tuning.md). Aanbevolen acties worden automatisch door SQL Database uitgevoerd, getest en geverifieerd om te garanderen dat de prestaties optimaal blijven. Op die manier past SQL Database zich automatisch op een gecontroleerde en veilige manier aan uw workloads aan. Automatische afstemming betekent dat de prestaties van uw database zorgvuldig worden bewaakt en vergeleken voor en na elke afstemactie. Als de prestaties niet zijn verbeterd, wordt de betreffende actie teruggedraaid.
 
 Veel van onze partners die [multitenant SaaS-apps](sql-database-design-patterns-multi-tenancy-saas-applications.md) uitvoeren op SQL Database, vertrouwen al op deze automatische afstemming, zodat de prestaties van hun toepassingen altijd stabiel en voorspelbaar zijn. Dankzij deze functie wordt de kans op prestatieproblemen (op welk moment dan ook) aanzienlijk kleiner. En omdat een deel van hun klanten ook werkt met SQL Server, maken ze gebruik van dezelfde indexeringsaanbevelingen van SQL Database om hun klanten met SQL Server te helpen.
 
-Er zijn twee automatisch afstemmingsmethoden in SQL Database:
+Er zijn twee automatische afstemmen aspecten die zijn [beschikbaar in SQL-Database](sql-database-automatic-tuning.md):
 
-- **[Automatisch indexbeheer](sql-database-automatic-tuning.md#automatic-index-management)**: hiermee worden indexen geïdentificeerd die moeten worden toegevoegd aan of verwijderd uit uw database.
-- **[Automatische abonnementcorrectie](sql-database-automatic-tuning.md#automatic-plan-choice-correction)**: hiermee worden abonnementen met problemen geïdentificeerd en prestatieproblemen met SQL-abonnementen opgelost (binnenkort beschikbaar, nu al beschikbaar in SQL Server 2017).
+- **Automatische indexbeheer**: identificeert indexen die moeten worden toegevoegd in de database en indexen die moeten worden verwijderd.
+- **Automatische plan correctie**: identificeert problematisch plannen en oplossingen prestatieproblemen met SQL-abonnement (binnenkort beschikbaar, al beschikbaar in SQL Server 2017).
 
 ### <a name="adaptive-query-processing"></a>Verwerking van adaptieve query’s
 
@@ -114,7 +117,7 @@ Met [Azure SQL Database Auditing](sql-database-auditing.md) worden databasegebeu
 
 ### <a name="data-encryption-at-rest"></a>Versleuteling van inactieve gegevens
 
-De [transparante gegevensversleuteling](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) van SQL Database beschermt gegevens tegen schadelijke activiteiten met behulp van real-time versleuteling en ontsleuteling van de database, gekoppelde back-ups en inactieve transactielogboeken, zonder dat er wijzigingen in de toepassing nodig zijn. Met ingang van mei 2017 worden alle nieuw gemaakte Azure-database automatisch beschermd met transparante gegevensversleuteling (TDE). TDE is een beproefde technologie voor versleuteling van inactieve gegevens, die verplicht is volgens veel nalevingsstandaarden voor de bescherming tegen diefstal van opslagmedia. Klanten kunnen Azure Key Vault gebruiken voor het beheren van hun TDE-versleutelingssleutels en andere geheimen, op een veilig manier die voldoet aan de voorschriften.
+De [transparante gegevensversleuteling](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) van SQL Database beschermt gegevens tegen schadelijke activiteiten met behulp van real-time versleuteling en ontsleuteling van de database, gekoppelde back-ups en inactieve transactielogboeken, zonder dat er wijzigingen in de toepassing nodig zijn. Met ingang van mei 2017 worden alle nieuw gemaakte Azure-database automatisch beschermd met transparante gegevensversleuteling (TDE). TDE is een beproefde technologie voor versleuteling van inactieve gegevens, die verplicht is volgens veel nalevingsstandaarden voor de bescherming tegen diefstal van opslagmedia. Klanten kunnen Azure Key Vault gebruiken voor het beheren van hun TDE-versleutelingssleutels en andere geheimen, op een veilig manier die voldoet aan de voorschriften.
 
 ### <a name="data-encryption-in-motion"></a>Versleuteling van gegevens in beweging
 
@@ -147,6 +150,14 @@ SQL Database maakt het bouwen en onderhouden van toepassingen makkelijker en pro
 
 SQL Database ondersteunt het maken van toepassingen met Python, Java, Node.js, PHP, Ruby en .NET op macOS, Linux en Windows. SQL Database ondersteunt dezelfde [verbindingsbibliotheken](sql-database-libraries.md) als SQL Server.
 
+## <a name="engage-with-the-sql-server-engineering-team"></a>Contact met het technische team van SQL Server
+
+- [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): stel hier uw vragen over databasebeheer
+- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): stel hier uw vragen over ontwikkeling
+- [MSDN-forums](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): stel hier uw technische vragen
+- [Microsoft Connect](https://connect.microsoft.com/SQLServer/Feedback): hier kunt u bugs doorgeven en functies aanvragen
+- [Reddit](https://www.reddit.com/r/SQLServer/): vragen en antwoorden voor SQL Server
+
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/sql-database/) voor hulpprogramma's voor het berekenen en vergelijken van de kosten voor individuele databases en elastische pools.
@@ -160,4 +171,3 @@ SQL Database ondersteunt het maken van toepassingen met Python, Java, Node.js, P
 - Zie de volgende artikelen voor een reeks Azure CLI- en PowerShell-voorbeelden:
   - [Azure CLI-voorbeelden voor SQL Database](sql-database-cli-samples.md)
   - [Azure PowerShell-voorbeelden voor SQL Database](sql-database-powershell-samples.md)
-

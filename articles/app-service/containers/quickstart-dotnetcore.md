@@ -1,0 +1,183 @@
+---
+title: Een web-app voor .NET Core maken en implementeren op op Linux-App Service | Microsoft Docs
+description: Uw eerste .NET Core Hallo wereld-app implementeren in App Service op Linux in minuten.
+keywords: Azure app service, web-app, dotnet, core, linux, oss
+services: app-service
+documentationCenter: 
+author: cephalin
+manager: syntaxc4
+editor: 
+ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
+ms.service: app-service
+ms.workload: web
+ms.tgt_pltfrm: linux
+ms.devlang: na
+ms.topic: quickstart
+ms.date: 08/30/2017
+ms.author: cfowler
+ms.custom: mvc
+ms.openlocfilehash: 2a8000cadd6f6d7204e1790df62443a7ac7598c9
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/27/2017
+---
+# <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Een .NET Core web-app maken in App-Service op Linux
+
+[App-Service op Linux](app-service-linux-intro.md) biedt een zeer schaalbaar, zelf patch webhosting-service met het Linux-besturingssysteem. Deze snelstartgids toont het maken van een [.NET Core](https://docs.microsoft.com/aspnet/core/) app op op Linux-App Service. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en u Git gebruiken de .NET Core om code te implementeren in de web-app.
+
+![Voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
+
+U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux-computer.
+
+## <a name="prerequisites"></a>Vereisten
+
+Dit zijn de vereisten voor het voltooien van deze Quickstart:
+
+* [Git installeren](https://git-scm.com/)
+* [De .NET Core SDK installeren](https://www.microsoft.com/net/download/core)
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="create-the-app-locally"></a>De app lokaal maken
+
+Maak een map met de naam in een terminalvenster op uw computer `hellodotnetcore` en wijzigen van de huidige map.
+
+```bash
+md hellodotnetcore
+cd hellodotnetcore
+```
+
+Maak een nieuwe web-app voor .NET Core.
+
+```bash
+dotnet new web
+```
+
+## <a name="run-the-app-locally"></a>De app lokaal uitvoeren
+
+Herstel de NuGet-pakketten en voer de app.
+
+```bash
+dotnet restore
+dotnet run
+```
+
+Open een webbrowser en navigeer naar de app op `http://localhost:5000`.
+
+Het bericht **Hello World** uit de voorbeeld-app wordt weergegeven op de pagina.
+
+![Testen met browser](media/quickstart-dotnetcore/dotnet-browse-local.png)
+
+Druk in uw terminalvenster op **Ctrl + C** om de webserver af te sluiten. Een Git-opslagplaats voor het project .NET Core initialiseren.
+
+```bash
+git init
+git add .
+git commit -m "first commit"
+```
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
+
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
+
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
+
+## <a name="create-a-web-app-with-built-in-image"></a>Een web-app maken met installatiekopie van het ingebouwde
+
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)]
+
+Blader naar uw nieuwe web-app. Vervang  _&lt;app-naam >_ met een unieke app-naam.
+
+```bash
+http://<app name>.azurewebsites.net
+```
+
+![Lege pagina van web-app](media/quickstart-dotnetcore/dotnet-browse-created.png)
+
+[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
+
+```bash
+Counting objects: 22, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (18/18), done.
+Writing objects: 100% (22/22), 51.21 KiB | 3.94 MiB/s, done.
+Total 22 (delta 1), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id '741f16d1db'.
+remote: Generating deployment script.
+remote: Project file path: ./hellodotnetcore.csproj
+remote: Generated deployment script files
+remote: Running deployment command...
+remote: Handling ASP.NET Core Web Application deployment.
+remote: ...............................................................................................
+remote:   Restoring packages for /home/site/repository/hellodotnetcore.csproj...
+remote: ....................................
+remote:   Installing System.Xml.XPath 4.0.1.
+remote:   Installing System.Diagnostics.Tracing 4.1.0.
+remote:   Installing System.Threading.Tasks.Extensions 4.0.0.
+remote:   Installing System.Reflection.Emit.ILGeneration 4.0.1.
+remote:   ...
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+To https://cephalin-dotnetcore.scm.azurewebsites.net/cephalin-dotnetcore.git
+ * [new branch]      master -> master
+```
+
+## <a name="browse-to-the-app"></a>Bladeren naar de app
+
+Blader naar de geïmplementeerde toepassing via uw webbrowser.
+
+```bash
+http://<app_name>.azurewebsites.net
+```
+
+De voorbeeldcode Node.js wordt uitgevoerd in een web-app met ingebouwde installatiekopie.
+
+![Voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
+
+**Gefeliciteerd!** U hebt uw eerste Node.js-app geïmplementeerd in App Service op Linux.
+
+## <a name="update-and-redeploy-the-code"></a>De code bijwerken en opnieuw implementeren
+
+Open in de lokale adreslijstservice de _Startup.cs_ bestand. Een kleine wijziging aanbrengt in de tekst in de methodeaanroep van `context.Response.WriteAsync`:
+
+```csharp
+await context.Response.WriteAsync("Hello Azure!");
+```
+
+Leg uw wijzigingen vast in Git en push de codewijzigingen vervolgens naar Azure.
+
+```bash
+git commit -am "updated output"
+git push azure master
+```
+
+Als de implementatie is voltooid, gaat u terug naar het browservenster dat is geopend in de stap **Bladeren naar de app** en klikt u op Vernieuwen.
+
+![Bijgewerkte voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
+
+## <a name="manage-your-new-azure-web-app"></a>Uw nieuwe Azure-web-app beheren
+
+Ga naar <a href="https://portal.azure.com" target="_blank">Azure Portal</a> om de web-app te beheren die u hebt gemaakt.
+
+Klik in het linkermenu op **App Services** en klik op de naam van uw Azure-web-app.
+
+![Navigatie in de portal naar de Azure-web-app](./media/quickstart-dotnetcore/portal-app-service-list.png)
+
+De pagina Overzicht van uw web-app wordt weergegeven. Hier kunt u algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen. 
+
+![App Service-pagina in Azure Portal](media/quickstart-dotnetcore/portal-app-overview.png)
+
+Het linkermenu bevat een aantal pagina's voor het configureren van uw app. 
+
+[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+
+## <a name="next-steps"></a>Volgende stappen
+
+> [!div class="nextstepaction"]
+> [Een .NET Core en SQL Database web-app in Azure App Service maken op Linux](tutorial-dotnetcore-sqldb-app.md)

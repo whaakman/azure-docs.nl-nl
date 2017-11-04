@@ -1,0 +1,5 @@
+| SKU | Beschrijving |
+|---|---|
+| Basic | Een geoptimaliseerde kosten toegangspunt voor meer informatie over Azure-Container register ontwikkelaars. Basic registers hebben dezelfde programmatische mogelijkheden als Standard en Premium (integratie van Azure Active Directory-verificatie, verwijderen van een installatiekopie en web hooks), er zijn echter beperkingen voor de grootte en informatie over het gebruik. |
+| Standard | Het standaard register biedt dezelfde mogelijkheden als basis, maar met hogere opslaglimieten en image-doorvoer. Standaard registers moeten voldoen aan de behoeften van de meeste scenario's voor productie. |
+| Premium | Premium-registers hebben hogere limieten op beperkingen, zoals opslag en gelijktijdige bewerkingen, inclusief verbeterde opslagmogelijkheden ter ondersteuning van grootschalige scenario's. Naast de hogere doorvoercapaciteit van de installatiekopie, Premium profiteert u onder functies zoals geo-replicatie voor het beheren van een enkele register over meerdere regio's, onderhouden van een netwerk sluit Register in op elke implementatie. |
