@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: b19aaa652f2c15573ded632ca1348e1a6752f080
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Een service webfront-end voor uw toepassing met behulp van ASP.NET Core bouwen
 Azure Service Fabric-services bieden standaard geen een openbare interface op het web. Om de functionaliteit van uw toepassing HTTP-clients weergeven, moet u een webproject maken om te fungeren als een toegangspunt en vervolgens communiceren van daaruit naar uw afzonderlijke services.
@@ -210,12 +210,6 @@ Onze stateful service is nu gereed voor het ontvangen verkeer van andere service
     ![De stateful waarde weergegeven in de browser][browser-aspnet-counter-value]
    
     Vernieuw de browser regelmatig om te zien van de itemwaarde bijwerken.
-
-## <a name="kestrel-and-weblistener"></a>Kestrel en WebListener
-
-De standaard ASP.NET Core webserver, Kestrel, ook wel is [momenteel niet ondersteund voor het verwerken van directe internetverkeer](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel). Als gevolg hiervan de staatloze ASP.NET Core-servicesjabloon voor Service Fabric gebruikt [WebListener](https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener) standaard. 
-
-Voor meer informatie over Kestrel en WebListener in Service Fabric-services, Raadpleeg [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="connecting-to-a-reliable-actor-service"></a>Verbinding maken met een betrouwbare Actor-service
 Deze zelfstudie is gericht op het toevoegen van een webfront-end die gecommuniceerd met een stateful service. U kunt echter een vergelijkbaar model contact opnemen met actoren volgen. Wanneer u een betrouwbare Actor-project maakt, wordt in Visual Studio automatisch een interface-project voor u gegenereerd. U kunt die interface gebruiken voor het genereren van een actor-proxy in het webproject om te communiceren met de actor. Het communicatiekanaal is automatisch beschikbaar. Dus u niet hoeft te ondernemen die gelijk is aan het tot stand brengen van een `ServiceRemotingListener` net zoals voor de stateful service in deze zelfstudie.

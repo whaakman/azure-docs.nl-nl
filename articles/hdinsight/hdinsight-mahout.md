@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/03/2017
 ms.author: larryfr
-ms.openlocfilehash: 569aeef58e601174aa9f28dc3ba39ebae17c17f8
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8f40beb4e3eb8020a65eac6e43ffefe4fedfcee2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>Filmaanbevelingen genereren met behulp van Apache Mahout met Hadoop in HDInsight (PowerShell)
 
@@ -56,11 +56,11 @@ Het volgende voorbeeld is een vereenvoudigde procedure van de werking van het pr
 
 ### <a name="understanding-the-data"></a>Wat zijn de gegevens?
 
-[GroupLens Research] [ movielens] biedt classificatie gegevens voor films in een indeling die compatibel is met Mahout. Deze gegevens zijn beschikbaar op de standaard-opslag voor uw cluster op `/HdiSamples//HdiSamples/MahoutMovieData`.
+[GroupLens Research] [ movielens] biedt classificatie gegevens voor films in een indeling die compatibel is met Mahout. Deze gegevens zijn beschikbaar op de standaard-opslag voor uw cluster op `/HdiSamples/HdiSamples/MahoutMovieData`.
 
 Er zijn twee bestanden: `moviedb.txt` (informatie over de films) en `user-ratings.txt`. De `user-ratings.txt` -bestand wordt gebruikt tijdens de analyse. De `moviedb.txt` bestand wordt gebruikt voor de beschrijvende tekst opgeven bij het weergeven van de resultaten van de analyse.
 
-De gegevens in gebruiker ratings.txt heeft een structuur van `userID`, `movieID`, `userRating`, en `timestamp`, die vertellen hoe maximaal elke gebruiker een film beoordeeld. Hier volgt een voorbeeld van de gegevens:
+De gegevens in gebruiker ratings.txt heeft een structuur van `userID`, `movieID`, `userRating`, en `timestamp`, waarmee wordt uitgelegd hoe maximaal elke gebruiker een film beoordeeld. Hier volgt een voorbeeld van de gegevens:
 
     196    242    3    881250949
     186    302    3    891717742

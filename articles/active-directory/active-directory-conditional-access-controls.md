@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2017
+ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: be3631db20ae744965f9f6677c536ade45e34c49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16ce69855aa7505f52cd9d01dcd0843784fcb706
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Besturingselementen in Azure Active Directory voorwaardelijke toegang 
 
@@ -101,7 +101,7 @@ U kunt aangepaste besturingselementen kunt maken van voorwaardelijke toegang die
 
 ## <a name="custom-controls"></a>Aangepaste besturingselementen
 
-Aangepaste besturingselementen in voorwaardelijke toegang worden uw gebruikers omleiden naar een compatibele service voor verdere buiten Azure Active Directory-vereisten. Voert de vereiste verificatie of validatie van activiteiten en wordt vervolgens omgeleid naar Azure Active Directory om te voldoen aan dit besturingselement, browser van een gebruiker wordt omgeleid naar de externe service. Controleert de reactie van Azure Active Directory en als de gebruiker is geverifieerd of gevalideerd, wordt de gebruiker blijft in de stroom voor voorwaardelijke toegang.
+Aangepaste besturingselementen zijn een functie van de Azure Active Directory Premium P2-editie. Wanneer u aangepaste besturingselementen, worden gebruikers omgeleid naar een compatibele service voor verdere buiten Azure Active Directory-vereisten. Voert de vereiste verificatie of validatie van activiteiten en wordt vervolgens omgeleid naar Azure Active Directory om te voldoen aan dit besturingselement, browser van een gebruiker wordt omgeleid naar de externe service. Controleert de reactie van Azure Active Directory en als de gebruiker is geverifieerd of gevalideerd, wordt de gebruiker blijft in de stroom voor voorwaardelijke toegang.
 
 Deze besturingselementen toestaan van het gebruik van bepaalde diensten externe of aangepaste als besturingselementen voor voorwaardelijke toegang en in het algemeen van de mogelijkheden van voorwaardelijke toegang.
 

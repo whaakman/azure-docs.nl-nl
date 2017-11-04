@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 00fcccb379bf1ba3875fbaba57a05b00fa228622
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dec785757ac582f044811c0f64ae0d452d6ad9a0
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="reliable-actors-reentrancy"></a>Betrouwbare actoren herintreding
 De runtime Reliable Actors kunt standaard u logische aanroep context gebaseerde herintreding. Hierdoor actoren worden inspringende als ze in dezelfde aanroep context keten. Bijvoorbeeld, verzendt Actor A een bericht naar Actor-B, die een bericht naar Actor C. verzendt Als onderdeel van de berichtverwerking als Actor C Actor A, roept is het bericht inspringende, dus wordt toegestaan. Alle berichten die deel van de aanroepcontext van een andere uitmaken wordt geblokkeerd op Actor A totdat het verwerken is voltooid.

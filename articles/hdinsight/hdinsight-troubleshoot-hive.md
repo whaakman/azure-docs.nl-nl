@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: dharmeshkakadia
-ms.openlocfilehash: 53e9685458190efe6a586504721b8e7baadaed60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 398cc7cd0fa815f12ba5b503a1328688e1159eee
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Hive oplossen met behulp van Azure HDInsight
 
 Meer informatie over de bovenste vragen en hun oplossingen bij het werken met Apache Hive nettoladingen in Apache Ambari.
 
 
-## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hoe ik een Hive-metastore exporteren en importeren op een ander cluster
+## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hoe ik een Hive-metastore exporteren en importeren op een ander cluster?
 
 
 ### <a name="resolution-steps"></a>Stappen voor het oplossen
@@ -54,7 +54,7 @@ De code in de stappen voor het oplossen wordt ervan uitgegaan dat gegevenspaden 
 - [Verbinding maken met een HDInsight-cluster via SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Hoe ga ik Hive logboeken naar op een cluster
+## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Hoe ga ik Hive logboeken naar op een cluster?
 
 ### <a name="resolution-steps"></a>Stappen voor het oplossen
 
@@ -83,7 +83,7 @@ De code in de stappen voor het oplossen wordt ervan uitgegaan dat gegevenspaden 
 - [Verbinding maken met een HDInsight-cluster via SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Hoe ik de Hive-shell met specifieke configuraties die op een cluster starten
+## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Hoe ik de Hive-shell met specifieke configuraties die op een cluster starten?
 
 ### <a name="resolution-steps"></a>Stappen voor het oplossen
 
@@ -150,7 +150,7 @@ De code in de stappen voor het oplossen wordt ervan uitgegaan dat gegevenspaden 
 - [Verbinding maken met een HDInsight-cluster via SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>Hoe kan ik Tez DAG gegevens downloaden vanaf een cluster
+## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>Hoe kan ik Tez DAG gegevens downloaden vanaf een cluster?
 
 
 #### <a name="resolution-steps"></a>Stappen voor het oplossen
@@ -177,6 +177,8 @@ Er zijn twee manieren om de DAG van de Tez-gegevens te verzamelen:
 [Verbinding maken met een HDInsight-cluster via SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
+### <a name="see-also"></a>Zie ook
+[Problemen oplossen met behulp van Azure HDInsight](hdinsight-troubleshoot-guide.md)
 
 
 

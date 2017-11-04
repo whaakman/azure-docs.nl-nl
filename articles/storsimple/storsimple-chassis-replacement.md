@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 5295c5dd039b1d4746ebaaf90372932e4c3e7c26
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bc23e64331ad18c604ffaa29476766827119cd4
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="replace-the-chassis-on-your-storsimple-device"></a>Vervang het chassis op uw StorSimple-apparaat
+> [!NOTE]
+> De klassieke portal voor StorSimple is afgeschaft. Uw Managers StorSimple-apparaat wordt automatisch verplaatst naar de nieuwe Azure portal aan de hand van de planning afschaffing. U ontvangt een e-mailbericht en een portal melding voor deze verplaatsen. Dit document wordt ook snel worden ingetrokken. De versie van dit artikel voor de nieuwe Azure portal, Ga naar [vervangt het chassis op uw StorSimple-apparaat](storsimple-8000-chassis-replacement.md). Zie voor vragen met betrekking tot de verplaatsing, [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Overzicht
 Deze zelfstudie wordt uitgelegd hoe verwijderen en een chassis in een serie StorSimple 8000 apparaat vervangen. Het StorSimple 8100-model is een apparaat met één behuizing (één chassis), terwijl de 8600 een dubbele behuizing-apparaat (twee chassis is). Voor een model 8600 zijn mogelijk twee chassis dat op het apparaat kan mislukken: het chassis voor de primaire behuizing of het chassis voor de EBOD behuizing.
 

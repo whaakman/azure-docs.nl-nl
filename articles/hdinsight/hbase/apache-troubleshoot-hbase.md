@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 7/7/2017
 ms.author: nitinver
-ms.openlocfilehash: f661aa5eb6ba87671a83b41aa25621da405aa335
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: cd6315c192ad3c33d43406993b1a3e6bd6ec7e4d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>HBase oplossen met behulp van Azure HDInsight
 
 Meer informatie over de meest voorkomende problemen en hun oplossingen bij het werken met Apache HBase nettoladingen in Apache Ambari.
 
-## <a name="how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions"></a>Hoe voer hbck opdracht rapporten met meerdere niet-toegewezen gebieden
+## <a name="how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions"></a>Hoe voer hbck opdracht rapporten met meerdere niet-toegewezen gebieden?
 
 Een algemene foutmelding dat u mogelijk zien bij het uitvoeren van de `hbase hbck` opdracht is "meerdere regio's wordt niet-toegewezen of gaten in de keten van regio's."
 
@@ -41,7 +41,7 @@ Voor het maken van de niet-toegewezen gebieden terug naar een normale status, mo
 6. Voer de `hbase hbck` opdracht (zonder opties) opnieuw. Controleer de uitvoer van deze opdracht om ervoor te zorgen dat alle regio's worden toegewezen.
 
 
-## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>Hoe los ik problemen time-out bij gebruik van hbck opdrachten voor toewijzingen regio
+## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>Hoe los ik problemen time-out bij gebruik van hbck opdrachten voor toewijzingen regio?
 
 ### <a name="issue"></a>Probleem
 
@@ -56,7 +56,7 @@ Een mogelijke oorzaak voor time-out van problemen wanneer u de `hbck` opdracht m
 5. In de Ambari-UI de actieve HBase Master-service opnieuw te starten.
 6. Voer de `hbase hbck -fixAssignments` opdracht opnieuw.
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Hoe ik geforceerde-/ uitschakelen HDFS veilige modus in een cluster
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Hoe ik geforceerde-/ uitschakelen HDFS veilige modus in een cluster?
 
 ### <a name="issue"></a>Probleem
 
@@ -211,7 +211,7 @@ De grootte van het HDInsight-cluster is gewijzigd om een zeer weinig knooppunten
    ```
 
 
-## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>Hoe los JDBC of SQLLine verbinding problemen met Apache Phoenix
+## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>Hoe los JDBC of SQLLine verbinding problemen met Apache Phoenix?
 
 ### <a name="resolution-steps"></a>Stappen voor het oplossen
 
@@ -262,7 +262,7 @@ Het kan tot vijf minuten duren voordat de HBase-Master service stabiel en het he
 Wanneer het systeem. Catalogustabel is weer in de normale, het connectiviteitsprobleem naar Phoenix moet worden automatisch opgelost.
 
 
-## <a name="what-causes-a-master-server-to-fail-to-start"></a>Wat zorgt ervoor dat een master server niet worden gestart
+## <a name="what-causes-a-master-server-to-fail-to-start"></a>Wat wordt een master server niet worden gestart?
 
 ### <a name="error"></a>Fout 
 
@@ -344,7 +344,7 @@ Dit is een bekend probleem met de service HMaster. Algemene cluster starten van 
 2. De vereiste services (HMaster en mogelijk andere HBase-services) opnieuw te starten.  
 
 
-## <a name="what-causes-a-restart-failure-on-a-region-server"></a>Wat veroorzaakt een fout opnieuw opstarten op een server regio
+## <a name="what-causes-a-restart-failure-on-a-region-server"></a>Wat veroorzaakt een fout opnieuw opstarten op een server regio?
 
 ### <a name="issue"></a>Probleem
 
@@ -421,3 +421,5 @@ Vanwege het abrupte afsluiten, kan de poort die is gekoppeld aan het proces niet
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
 
+### <a name="see-also"></a>Zie ook
+[Problemen oplossen met behulp van Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: f8b89b3f6851ec9ee0570f551b5407419fdba2d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1646d800692d93d7dfc2e9a9c48c3671c280e02
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Vervang de module voor back-up batterij op uw StorSimple-apparaat
+> [!NOTE]
+> De klassieke portal voor StorSimple is afgeschaft. Uw Managers StorSimple-apparaat wordt automatisch verplaatst naar de nieuwe Azure portal aan de hand van de planning afschaffing. U ontvangt een e-mailbericht en een portal melding voor deze verplaatsen. Dit document wordt ook snel worden ingetrokken. De versie van dit artikel voor de nieuwe Azure portal, Ga naar [vervangen door de module voor back-up batterij op uw StorSimple-apparaat](storsimple-8000-battery-replacement.md). Zie voor vragen met betrekking tot de verplaatsing, [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Overzicht
 De primaire behuizing stroom en koeling Module (PCM) op uw Microsoft Azure StorSimple-apparaat heeft een extra batterij pack. Dit pakket biedt power zodat het StorSimple-apparaat kunt gegevens opslaan als er verlies van Netstroom zijn aangesloten op de primaire behuizing. Dit pack accu wordt aangeduid als de *back-up batterij module*. De module back-up batterij bestaat alleen voor de primaire behuizing in uw StorSimple-apparaat (de behuizing EBOD bevat geen een back-up batterij module). 
 

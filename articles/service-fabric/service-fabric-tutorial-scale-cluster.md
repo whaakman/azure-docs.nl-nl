@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: e1d35bcd51349e6460d50acec0d9706fcd291e89
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b8b1ac04c20cf9fe6d6d8ea58571af05010461d9
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Een Service Fabric-cluster schalen
 
@@ -48,6 +48,11 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
+```azurecli
+az login
+az account set --subscription <guid>
+```
+
 ## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
 
 Als u wilt dit deel van de zelfstudie voltooien, moet u verbinding maken met zowel de Service Fabric-cluster en de virtuele-machineschaalset (die als host fungeert voor het cluster). De virtuele-machineschaalset is de Azure resource die als host fungeert voor Service Fabric in Azure.
@@ -67,7 +72,12 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $endpoint `
 Get-ServiceFabricClusterHealth
 ```
 
-Met de `Get-ServiceFabricClusterHealth` opdracht status aan u wordt geretourneerd met informatie over de status van elk knooppunt in het cluster.
+```azurecli
+sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \
+--pem ./aztestcluster201709151446.pem --no-verify
+```
+
+Nu dat u verbonden bent, kunt u een opdracht voor het ophalen van de status van elk knooppunt in het cluster. Voor PowerShell, gebruikt u de `Get-ServiceFabricClusterHealth` opdracht, en voor **sfctl** gebruiken de '' opdracht.
 
 ## <a name="scale-out"></a>Uitschalen
 
@@ -80,7 +90,15 @@ $scaleset.Sku.Capacity += 1
 Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
 
-Nadat de update-bewerking is voltooid, voert de `Get-ServiceFabricClusterHealth` opdracht om te zien van de nieuwe knooppuntgegevens.
+Deze code wordt de capaciteit ingesteld op 6.
+
+```azurecli
+# Get the name of the node with
+az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
+
+# Use the name to scale
+az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
+```
 
 ## <a name="scale-in"></a>Schalen in
 
@@ -91,22 +109,29 @@ Schalen hetzelfde is als uitbreiden, behalve het gebruik van een lagere **capaci
 > [!NOTE]
 > Dit onderdeel is alleen van toepassing op de *Brons* duurzaamheid laag. Zie voor meer informatie over duurzaamheid [capaciteitsplanning voor Service Fabric-cluster][durability].
 
-Wanneer u in een virtuele-machineschaalset schaalt, verwijdert de schaal instellen (in de meeste gevallen) de virtuele machine-instantie die het laatst is gemaakt. Daarom moet u de overeenkomende, het laatst is gemaakt, service fabric-knooppunt gevonden. U vindt dit laatste knooppunt door het controleren van de grootste `NodeInstanceId` waarde van de eigenschap op de service fabric-knooppunten. 
+Wanneer u in een virtuele-machineschaalset schaalt, verwijdert de schaal instellen (in de meeste gevallen) de virtuele machine-instantie die het laatst is gemaakt. Daarom moet u de overeenkomende, het laatst is gemaakt, service fabric-knooppunt gevonden. U vindt dit laatste knooppunt door het controleren van de grootste `NodeInstanceId` waarde van de eigenschap op de service fabric-knooppunten. De codevoorbeelden hieronder sorteren op het knooppunt exemplaar en de details van het exemplaar met de grootste id-waarde retourneren. 
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
 ```
 
+```azurecli
+`sfctl node list --query "sort_by(items[*], &instanceId)[-1]"`
+```
+
 De service fabric-cluster moet bekend dat dit knooppunt is vereist, worden verwijderd. Er zijn drie stappen die u moet uitvoeren:
 
 1. Het knooppunt uitschakelen zodat deze niet langer een repliceren van gegevens.  
-`Disable-ServiceFabricNode`
+PowerShell:`Disable-ServiceFabricNode`  
+sfcli:`sfctl node disable`
 
 2. Stop het knooppunt zodat de service fabric-runtime foutloos wordt afgesloten en uw app een terminate-aanvraag ontvangt.  
-`Start-ServiceFabricNodeTransition -Stop`
+PowerShell:`Start-ServiceFabricNodeTransition -Stop`  
+sfcli:`sfctl node transition --node-transition-type Stop`
 
 2. Het knooppunt uit het cluster verwijdert.  
-`Remove-ServiceFabricNodeState`
+PowerShell:`Remove-ServiceFabricNodeState`  
+sfcli:`sfctl node remove-state`
 
 Zodra deze drie stappen op het knooppunt zijn toegepast, kan deze worden verwijderd uit de schaalaanpassingsset. Als u elke categorie duurzaamheid naast [Brons][durability], deze stappen worden uitgevoerd voor u wanneer u de schaal ingesteld exemplaar wordt verwijderd.
 
@@ -169,6 +194,30 @@ else
 }
 ```
 
+In de **sfctl** code hieronder, de volgende opdracht wordt gebruikt om op te halen de **knooppuntnaam** en **knooppunt-exemplaar-id** waarden van het laatste knooppunt:`sfctl node list --query "sort_by(items[*], &instanceId)[-1].[instanceId,name]"`
+
+```azurecli
+# Inform the node that it is going to be removed
+sfctl node disable --node-name _nt1vm_5 --deactivation-intent 4 -t 300
+
+# Stop the node using a random guid as our operation id
+sfctl node transition --node-instance-id 131541348482680775 --node-name _nt1vm_5 --node-transition-type Stop --operation-id c17bb4c5-9f6c-4eef-950f-3d03e1fef6fc --stop-duration-in-seconds 14400 -t 300
+
+# Remove the node from the cluster
+sfctl node remove-state --node-name _nt1vm_5
+```
+
+> [!TIP]
+> Gebruik de volgende **sfctl** query's naar de status van elke stap controleren
+>
+> **Deactivering status controleren**  
+> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].nodeDeactivationInfo"`
+>
+> **Controleer de status van stoppen**  
+> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].isStopped"`
+>
+
+
 ### <a name="scale-in-the-scale-set"></a>Schalen in de schaalset
 
 Nu dat de service fabric-knooppunt is verwijderd uit het cluster, kunt u de virtuele-machineschaalset geschaald in. In het volgende voorbeeld wordt de capaciteit van de set scale verminderd met 1.
@@ -179,6 +228,17 @@ $scaleset.Sku.Capacity -= 1
 
 Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
+
+Deze code wordt de capaciteit ingesteld op 5.
+
+```azurecli
+# Get the name of the node with
+az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
+
+# Use the name to scale
+az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
+```
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

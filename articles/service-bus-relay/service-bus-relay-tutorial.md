@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus WCF Relay-zelfstudie | Microsoft Docs
-description: U een Service Bus-clienttoepassing en met Relay WCF-service.
+description: Een client en service-toepassing met WCF Relay bouwt.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2017
+ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: 0298a93da0d8cd0b1f2e15146a708c8dd6ecb8e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0b06c32cf5f154cf5eb01842d9b917dcb35f7b3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure Relay WCF-zelfstudie
 
@@ -54,7 +54,7 @@ Het servicecontract wordt aangegeven welke bewerkingen (de webserviceterminologi
 
 3. Installeer het Service Bus-pakket NuGet. Met dit pakket worden automatisch verwijzingen naar de Service Bus-bibliotheken en naar het **System.ServiceModel** van WCF toegevoegd. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) is de naamruimte die programmatisch toegang biedt tot de basisfuncties van WCF. Service Bus maakt gebruik van veel van de objecten en kenmerken van WCF om servicecontracten te definiëren.
 
-    Klik in Solution Explorer met de rechtermuisknop op het project en klik vervolgens op **NuGet-pakketten beheren...** . Klik op het tabblad **Bladeren** en zoek vervolgens naar `Microsoft Azure Service Bus`. Zorg ervoor dat de naam van het project is geselecteerd in het vak **Versie(s)**. Klik op **Installeren** en accepteer de gebruiksvoorwaarden.
+    Klik in Solution Explorer met de rechtermuisknop op het project en klik vervolgens op **NuGet-pakketten beheren...** . Klik op het tabblad **Bladeren** en zoek vervolgens naar **WindowsAzure.ServiceBus**. Zorg ervoor dat de naam van het project is geselecteerd in het vak **Versie(s)**. Klik op **Installeren** en accepteer de gebruiksvoorwaarden.
 
     ![][3]
 4. Dubbelklik in Solution Explorer op het bestand Program.cs om het in de editor te openen, als het bestand nog niet was geopend.

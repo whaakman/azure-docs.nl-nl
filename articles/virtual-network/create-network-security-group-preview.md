@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 19f94f009aac53baca31dcb6973a8aff3f4f5ab9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9aea299738eb5cac6fe6d3b633707862d978fff0
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filteren van netwerkverkeer met netwerk- en beveiligingsgroepen (Preview)
 
@@ -53,7 +53,9 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
-    Ga niet verder met de resterende stappen totdat *geregistreerde* wordt weergegeven voor **status** in de uitvoer geretourneerd van de vorige opdracht. Als u doorgaat voordat u bent geregistreerd, mislukt de resterende stappen.
+    > [!WARNING]
+    > Registratie kan een uur duren om te voltooien. Ga niet verder met de resterende stappen totdat *geregistreerde* wordt weergegeven voor **status** in de uitvoer geretourneerd van de vorige opdracht. Als u doorgaat voordat u bent geregistreerd, mislukt de resterende stappen.
+
 6. Voer het volgende bash-script voor het maken van een resourcegroep:
 
     ```azurecli-interactive
@@ -161,7 +163,6 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
       --name myNic1 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "WebServers" "AppServers"
 
@@ -170,7 +171,6 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
       --name myNic2 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "AppServers"
 
@@ -179,12 +179,11 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
       --name myNic3 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "DatabaseServers"
     ```
 
-    Alleen de bijbehorende beveiligingsregel die u hebt gemaakt in stap 9 wordt toegepast op de netwerkinterface, op basis van de beveiligingsgroep van de toepassing die de netwerkinterface lid van is. Bijvoorbeeld alleen de *WebRule* is van kracht voor het *myWebNic*, omdat de netwerkinterface lid van is de *endwebservers servers* beveiligingsgroep van de toepassing en de regel Hiermee geeft u de *endwebservers servers* toepassing beveiligingsgroep als doel. De *AppRule* en *DatabaseRule* regels worden niet toegepast op de *myWebNic*, omdat de netwerkinterface geen lid van is de *AppServers*en *DatabaseServers* toepassing beveiligingsgroepen.
+    Alleen de bijbehorende beveiligingsregel die u hebt gemaakt in stap 9 wordt toegepast op de netwerkinterface, op basis van de beveiligingsgroep van de toepassing die de netwerkinterface lid van is. Bijvoorbeeld alleen de *WebRule* is van kracht voor *myNic1*, omdat de netwerkinterface lid van is de *endwebservers servers* beveiligingsgroep van de toepassing en de regel Hiermee geeft u de *endwebservers servers* toepassing beveiligingsgroep als doel. De *AppRule* en *DatabaseRule* regels worden niet toegepast op *myNic1*, omdat de netwerkinterface geen lid van is de *AppServers*en *DatabaseServers* toepassing beveiligingsgroepen.
 
 13. Een virtuele machine maken voor elk servertype, de bijbehorende netwerkinterface koppelen aan elke virtuele machine. In dit voorbeeld maakt u virtuele machines van Windows, maar u kunt wijzigen *win2016datacenter* naar *UbuntuLTS* Linux virtuele machines in plaats daarvan maken.
 
@@ -240,7 +239,8 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
     Get-AzureRmProviderFeature -FeatureName AllowApplicationSecurityGroups -ProviderNamespace Microsoft.Network
     ```
 
-    Ga niet verder met de resterende stappen totdat *geregistreerde* wordt weergegeven in de **RegistrationState** kolom van de uitvoer geretourneerd van de vorige opdracht. Als u doorgaat voordat u bent geregistreerd, mislukt de resterende stappen.
+    > [!WARNING]
+    > Registratie kan een uur duren om te voltooien. Ga niet verder met de resterende stappen totdat *geregistreerde* wordt weergegeven voor **RegistrationState** in de uitvoer geretourneerd van de vorige opdracht. Als u doorgaat voordat u bent geregistreerd, mislukt de resterende stappen.
         
 6. Een resourcegroep maken:
 
@@ -344,7 +344,6 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $webAsg,$appAsg
 
     $nic2 = New-AzureRmNetworkInterface `
@@ -352,7 +351,6 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $appAsg
 
     $nic3 = New-AzureRmNetworkInterface `
@@ -360,11 +358,10 @@ Azure CLI-opdrachten zijn hetzelfde, ongeacht of u de opdrachten vanaf Windows, 
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    Alleen de bijbehorende beveiligingsregel die u hebt gemaakt in stap 8 wordt toegepast op de netwerkinterface, op basis van de beveiligingsgroep van de toepassing die de netwerkinterface lid van is. Bijvoorbeeld alleen de *WebRule* is van kracht voor het *myWebNic*, omdat de netwerkinterface lid van is de *endwebservers servers* beveiligingsgroep van de toepassing en de regel Hiermee geeft u de *endwebservers servers* toepassing beveiligingsgroep als doel. De *AppRule* en *DatabaseRule* regels worden niet toegepast op de *myWebNic*, omdat de netwerkinterface geen lid van is de *AppServers*en *DatabaseServers* toepassing beveiligingsgroepen.
+    Alleen de bijbehorende beveiligingsregel die u hebt gemaakt in stap 8 wordt toegepast op de netwerkinterface, op basis van de beveiligingsgroep van de toepassing die de netwerkinterface lid van is. Bijvoorbeeld alleen de *WebRule* is van kracht voor *myNic1*, omdat de netwerkinterface lid van is de *endwebservers servers* beveiligingsgroep van de toepassing en de regel Hiermee geeft u de *endwebservers servers* toepassing beveiligingsgroep als doel. De *AppRule* en *DatabaseRule* regels worden niet toegepast op *myNic1*, omdat de netwerkinterface geen lid van is de *AppServers*en *DatabaseServers* toepassing beveiligingsgroepen.
 
 13. Een virtuele machine maken voor elk servertype, de bijbehorende netwerkinterface koppelen aan elke virtuele machine. In dit voorbeeld maakt u virtuele machines van Windows, maar voordat het script wordt uitgevoerd, kunt u *-Windows* naar *- Linux*, *legitieme Microsoft Windows Server* naar *Canonieke*, *Windows Server* naar *UbuntuServer* en *2016 Datacenter* naar *14.04.2-LTS*Linux virtuele machines in plaats daarvan maken.
 

@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 36b4e73d0336deb9560d44163fc5330d1c9d775c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83ad256522ca19a19b3fe46fcc48e9cb37cbe246
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>CHAP configureren voor uw StorSimple-apparaat
+> [!NOTE]
+> De klassieke portal voor StorSimple is afgeschaft. Uw Managers StorSimple-apparaat wordt automatisch verplaatst naar de nieuwe Azure portal aan de hand van de planning afschaffing. U ontvangt een e-mailbericht en een portal melding voor deze verplaatsen. Dit document wordt ook snel worden ingetrokken. De versie van dit artikel voor de nieuwe Azure portal, Ga naar [CHAP configureren voor uw StorSimple-apparaat](storsimple-8000-configure-chap.md). Zie voor vragen met betrekking tot de verplaatsing, [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md).
+
 Deze zelfstudie wordt uitgelegd hoe CHAP configureren voor uw StorSimple-apparaat. De procedure beschreven in dit artikel is van toepassing op StorSimple 8000-serie, evenals 1200 StorSimple-apparaten.
 
 CHAP staat voor Challenge Handshake Authentication Protocol. Het is een verificatieschema dat wordt gebruikt door servers om de identiteit van externe clients te valideren. De verificatie is gebaseerd op een gedeelde wachtwoord of geheim. CHAP mag eenzijdige (Unidirectioneel) of onderlinge (bidirectioneel). Eenzijdige CHAP is wanneer het doel een initiator verifieert. Wederzijdse of omgekeerde CHAP, moet aan de andere kant het doel de initiator verifiëren en vervolgens de initiator het doel te verifiëren. Initiator verificatie kan worden geïmplementeerd zonder verificatie doel. Doel-verificatie kan echter alleen als de verificatie van de initiator is ook geïmplementeerd worden geïmplementeerd. 

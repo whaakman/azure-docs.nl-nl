@@ -1,6 +1,6 @@
 ---
-title: Levenscyclus van de gegevens wetenschap proces - Azure in een team | Microsoft Docs
-description: De stappen die nodig zijn om uit te voeren van uw gegevens wetenschap-projecten.
+title: De levenscyclus van het Team gegevens wetenschappelijke processen - Azure | Microsoft Docs
+description: De stappen die nodig zijn voor gegevenswetenschap projecten uitvoeren
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2017
 ms.author: bradsev;
-ms.openlocfilehash: 264386b527626f3241966bfdb2fb061781121be1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aed74111402a1d5b1d1e2659d78a7997ad9c457e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
-# <a name="team-data-science-process-lifecycle"></a>Levenscyclus van de procedure voor het wetenschappelijke gegevens team
+# <a name="the-team-data-science-process-lifecycle"></a>De levensduur van het Team gegevens wetenschappelijke processen
 
-Team gegevens wetenschap proces (TDSP) biedt de levensduur van een aanbevolen die u gebruiken kunt voor de structuur van uw gegevens wetenschap-projecten. De levenscyclus van bevat de stappen, van begin tot eind, projecten meestal volgen wanneer ze worden uitgevoerd. Als u een andere gegevens wetenschappelijke levensduur, zoals gebruikt [heldere DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) of uw organisatie eigen aangepaste proces, kunt u de TDSP op basis van een taak met deze levenscycli van de ontwikkeling. 
+Team gegevens wetenschap proces (TDSP) biedt een aanbevolen lifecycle waarmee u kunt uw projecten voor gegevenswetenschap structuur. De levenscyclus van bevat de stappen, van begin tot eind, projecten meestal volgen wanneer ze worden uitgevoerd. Als u een andere gegevenswetenschap levensduur, zoals de Cross-industrie standaardproces voor gegevensanalyse [(heldere-DM)](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), Knowledge detectie in Databases [(KDD)](https://wikipedia.org/wiki/Data_mining#Process), of uw aangepaste proces van organisatie , kunt u de TDSP op basis van een taak. 
 
-Deze levenscyclus beheren is ontworpen voor wetenschap-projecten voor gegevens die zijn bedoeld om te worden geleverd als onderdeel van intelligente toepassingen. Deze toepassingen implementeren machine learning of kunstmatige intelligence modellen voor predictive analytics. Experimentele gegevens wetenschappelijke projecten en ad-hoc analytics projecten kunnen ook profiteren van dit proces. Maar in dergelijke gevallen mogelijk niet sommige stappen nodig.    
+Deze levenscyclus beheren is ontworpen voor gegevenswetenschap projecten die zijn bedoeld om te worden geleverd als onderdeel van intelligente toepassingen. Deze toepassingen implementeren machine learning of kunstmatige intelligence modellen voor predictive analytics. Experimentele gegevenswetenschap projecten en ad-hoc analytics projecten kunnen ook profiteren van het gebruik van dit proces. Maar voor de projecten sommige van de hier beschreven stappen mogelijk niet nodig zijn. 
 
-De levenscyclus van de TDSP bestaat uit vijf belangrijke fasen die iteratief worden uitgevoerd. Deze omvatten:
+De levenscyclus van de TDSP bestaat uit vijf belangrijke fasen die iteratief worden uitgevoerd. Deze stadia zijn:
 
-* [1. Understanding business](lifecycle-business-understanding.md)
-* [2. gegevensverzameling en begrijpen](lifecycle-data.md)
-* [3. het modelleren van](lifecycle-modeling.md)
-* [4. Klik implementatie](lifecycle-deployment.md)
-* [5. acceptatie van de klant](lifecycle-acceptance.md)
+   1. [Wat voor bedrijven](lifecycle-business-understanding.md)
+   2. [Gegevensverzameling en begrijpen](lifecycle-data.md)
+   3. [Modeling](lifecycle-modeling.md)
+   4. [Implementatie](lifecycle-deployment.md)
+   5. [Acceptatie van de klant](lifecycle-acceptance.md)
 
-Hier volgt een visuele representatie van het **Team gegevens wetenschap proces lifecycle**. 
+Hier volgt een visuele representatie van de levenscyclus TDSP: 
 
-![Levenscyclus van TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
+![TDSP levenscyclus](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
-De levensduur van het Team gegevens wetenschappelijke processen is gemodelleerd als een reeks stappen herhaald met informatie over de taken die nodig zijn voor het gebruik van voorspellende modellen. Deze modellen kunnen worden geïmplementeerd in een productieomgeving worden gebruikt om intelligente toepassingen te bouwen. Het doel van de levenscyclus van dit proces is om door te gaan een wetenschappelijke gegevensproject doorsturen naar het eindpunt van een duidelijke engagement verplaatsen. Het is weliswaar dat gegevenswetenschap is een oefening in onderzoek en -detectie wordt duidelijk communiceren deze taken en uw klanten met een goed gedefinieerde set van artefacten die werknemers gestandaardiseerde sjablonen kunnen u voorkomen misverstand en verhoogt de kans op een geslaagde voltooiing van een complexe gegevens wetenschappelijke project van uw team.
+De levenscyclus van de TDSP is gemodelleerd als een reeks stappen herhaald met informatie over de taken die nodig zijn voor het gebruik van voorspellende modellen. U implementeert de voorspellende modellen in de productieomgeving die u wilt gebruiken om de intelligent toepassingen te bouwen. Het doel van de levenscyclus van dit proces is om door te gaan een gegevenswetenschap project naar een eindpunt wissen engagement verplaatsen. Gegevenswetenschap is een oefening in onderzoek en detectie. De mogelijkheid om te communiceren taken van uw team en uw klanten met een goed gedefinieerde set van artefacten die gebruikmaken van gestandaardiseerde sjablonen met helpt om te voorkomen dat misverstanden. Met behulp van deze sjablonen verhoogt ook de kans op een project complexe gegevenswetenschap voltooid.
 
 Voor elke fase bieden we de volgende informatie:
 
-* **Doelstellingen**: de specifieke doelstellingen.
-* **Hoe u kunt dit doen**: de specifieke taken die worden beschreven en richtlijnen voor het voltooien van deze.
-* **Artefacten**: de producten en de ondersteuning voor productie.
+   * **Doelstellingen**: de specifieke doelstellingen.
+   * **Hoe u kunt dit doen**: een overzicht van de specifieke taken en instructies voor het uit te voeren.
+   * **Artefacten**: de producten en de ondersteuning van deze resultaten.
 
 ## <a name="next-steps"></a>Volgende stappen
-Volledige end-to-end-scenario's die de stappen in het proces voor het demonstreren **specifieke scenario's** worden ook gegeven. Ze worden weergegeven en gekoppeld aan de miniatuur beschrijvingen in de [voorbeeld-scenario's](walkthroughs.md) onderwerp. Ze te laten zien hoe cloud, 's voor on-premises en -services combineren in een werkstroom of pijplijn een intelligente toepassing maken. 
 
-Zie voor voorbeelden van stappen uitvoeren in het Team gegevens wetenschappelijke processen die gebruikmaken van Azure Machine Learning Studio de [met Azure ML](http://aka.ms/datascienceprocess) leertraject.
+We bieden volledige end-to-end-scenario's die de stappen in het proces voor specifieke scenario's laten zien. De [voorbeeld-scenario's](walkthroughs.md) artikel bevat een lijst van de scenario's met koppelingen en beschrijvingen van de miniatuur. De scenario's te laten zien hoe cloud, 's voor on-premises en -services combineren in een werkstroom of pijplijn een intelligente toepassing maken. 
 
+Zie voor voorbeelden van hoe u de stappen uitvoeren in TDSPs die gebruikmaken van Azure Machine Learning Studio [de TDSP gebruiken met Azure Machine Learning](http://aka.ms/datascienceprocess).

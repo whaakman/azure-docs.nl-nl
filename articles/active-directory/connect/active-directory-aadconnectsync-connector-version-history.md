@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.openlocfilehash: 98eb9b3a58737da2436eed591d69a900166c6af9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="connector-version-release-history"></a>Releasegeschiedenis van connectorversie
 De Connectors voor Forefront Identity Manager (FIM) en Microsoft Identity Manager (MIM) worden regelmatig bijgewerkt.
 
 > [!NOTE]
 > In dit onderwerp is alleen van FIM en MIM. Deze Connectors worden niet ondersteund voor installatie op Azure AD Connect. Uitgebrachte Connectors zijn vooraf geïnstalleerd op AADConnect wanneer een upgrade naar Build opgegeven.
+
 
 In dit onderwerp lijst van alle versies van de Connectors die zijn uitgebracht.
 
@@ -37,6 +38,29 @@ Verwante koppelingen:
 * [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) documentatie verwijst naar
 * [Lotus Domino-Connector](active-directory-aadconnectsync-connector-domino.md) documentatie verwijst naar
 
+## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
+
+### <a name="fixed-issues"></a>Opgeloste problemen:
+
+* Lotus Notes:
+  * Aangepaste certifiers filteroptie
+  * Importeren van de klasse ImportOperations werd de definitie van welke bewerkingen kunnen worden uitgevoerd in de modus 'Weergaven' en die in de zoekmodus opgelost.
+* Algemene LDAP:
+  * DN-naam OpenLDAP Directory gebruikt als anker in plaats van entryUUI. Nieuwe opties GLDAP-connector waarmee anker wijzigen
+* Algemene SQL:
+  * Vaste exporteren naar veld die varbinary (max)-type.
+  * Bij het toevoegen van binaire gegevens van een gegevensbron naar CSEntry object, de DataTypeConversion-functie op nul bytes is mislukt. Vaste DataTypeConversion-functie van de klasse CSEntryOperationBase.
+
+
+
+
+### <a name="enhancements"></a>Verbeteringen:
+
+* Algemene SQL:
+  * De mogelijkheid voor het configureren van de modus voor het uitvoeren van opgeslagen procedure met benoemde parameters of geen naam is toegevoegd in een venster van de configuratie van de algemene SQL-beheeragent op de pagina 'Globale Parameters'. Op de pagina 'Globale Parameters' Er wordt selectievakje met het label 'Gebruik benoemde parameters uit te voeren van een opgeslagen procedure' die verantwoordelijk is voor de modus voor execute opgeslagen procedure met benoemde parameters of niet.
+    * Op dit moment de mogelijkheid om uit te voeren van opgeslagen procedure met benoemde parameters werkt alleen voor IBM DB2 en MSSQL-databases. Niet voor Oracle en MySQL-databases werkt deze methode: 
+      * De SQL-syntaxis van MySQL biedt geen ondersteuning voor benoemde parameters in opgeslagen procedures.
+      * Het ODBC-stuurprogramma voor de Oracle biedt geen ondersteuning voor benoemde parameters voor benoemde parameters in de opgeslagen procedures)
 
 ## <a name="116040-aadconnect-116140"></a>1.1.604.0 (AADConnect 1.1.614.0)
 
@@ -203,6 +227,22 @@ De Connectors zijn vóór maart 2016 uitgebracht als ondersteuning onderwerpen.
 * [KB2932635](https://support.microsoft.com/kb/2932635) -5.3.1003, februari 2014  
 * [KB2899874](https://support.microsoft.com/kb/2899874) -5.3.0721, oktober 2013
 * [KB2875551](https://support.microsoft.com/kb/2875551) -5.3.0534, 2013-augustus
+
+## <a name="troubleshooting"></a>Problemen oplossen 
+
+> [!NOTE]
+> Bij het bijwerken van Microsoft Identity Manager of AADConnect met gebruik van een van de ECMA2-connectors. 
+
+U kunt de upgrade naar overeenkomen met de definitie van de connector moet vernieuwen of ontvangt u de volgende fout in het begin van het gebeurtenislogboek toepassing voor het rapporteren van waarschuwing 6947-ID: 'Assembly-versie in de configuratie van de AAD-Connector ('X.X.XXX. X') is ouder dan de werkelijke versie ('X.X.XXX. X)' van 'C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll'.
+
+De definitie vernieuwen:
+* Open de eigenschappen voor het exemplaar van de Connector
+* Klik op de verbinding / verbinding maken met het tabblad
+  * Voer het wachtwoord voor de Connector-account
+* Klik op elk van de tabbladen, op zijn beurt
+  * Als dit type verbindingslijn een tabblad partities heeft met een knop vernieuwen, klikt u op de knop vernieuwen terwijl u op dat tabblad
+* Nadat alle eigenschappentabbladen zijn geopend, klikt u op de knop OK om de wijzigingen opslaan.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over de [Azure AD Connect-synchronisatie](active-directory-aadconnectsync-whatis.md) configuratie.

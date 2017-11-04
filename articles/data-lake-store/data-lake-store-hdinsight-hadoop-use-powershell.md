@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 2d601cfa6e2e89ef26d4a2d7824b239a2f6ca7a7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: dc46e3987f3710bc73ef13a2c195b68f78bd104d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Azure PowerShell gebruiken voor het maken van een HDInsight-cluster met Data Lake Store (als extra opslag)
 > [!div class="op_single_selector"]
@@ -264,6 +264,7 @@ Dit moet het bestand dat u eerder hebt geüpload naar de Data Lake Store weergev
 U kunt ook de `hdfs dfs -put` opdracht voor sommige bestanden uploaden naar Data Lake Store en vervolgens gebruik `hdfs dfs -ls` om te controleren of de bestanden zijn geüpload.
 
 ## <a name="see-also"></a>Zie ook
+* [Gebruik Data Lake Store met Azure HDInsight-clusters](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [Portal: Maak een HDInsight-cluster voor het gebruik van Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx

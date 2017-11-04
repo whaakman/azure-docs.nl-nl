@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 32d20e7a8adcfc646c592213fe7395b87a93c985
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: addfb01998271ee3a431d92bf2a6fec70f0577a6
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-and-manage-a-storsimple-support-package"></a>Maken en beheren van een pakket StorSimple-ondersteuning
+> [!NOTE]
+> De klassieke portal voor StorSimple is afgeschaft. Uw Managers StorSimple-apparaat wordt automatisch verplaatst naar de nieuwe Azure portal aan de hand van de planning afschaffing. U ontvangt een e-mailbericht en een portal melding voor deze verplaatsen. Dit document wordt ook snel worden ingetrokken. De versie van dit artikel voor de nieuwe Azure portal, Ga naar [maken en beheren van een StorSimple-ondersteuningspakket](storsimple-8000-create-manage-support-package.md). Zie voor vragen met betrekking tot de verplaatsing, [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Overzicht
 Een StorSimple-ondersteuningspakket is een mechanisme voor eenvoudig te gebruiken dat alle relevante Logboeken om te helpen bij het oplossen van eventuele problemen StorSimple-apparaat met Microsoft Support verzamelt. De logboeken van de verzamelde zijn versleuteld en gecomprimeerd.
 

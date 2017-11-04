@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: aca8cf2b94e8b746a5cac6af021c7221a29b7345
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fae68c9fb40951e3f7a6fce67d75872cecfc52bd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="reliable-actors-state-management"></a>Statusbeheer voor betrouwbare Actors
 Reliable Actors zijn single thread-objecten die zowel de logica en de status kunnen inkapselen. Omdat actoren op Reliable Services worden uitgevoerd, kunnen ze status betrouwbaar onderhouden met behulp van dezelfde persistentie en replicatiemechanismen die gebruikmaakt van Reliable Services. Op deze manier actoren niet hun status na fouten bij het opnieuw te activeren nadat garbagecollection of wanneer ze worden verplaatst tussen knooppunten in een cluster als gevolg van resource netwerktaakverdeling of upgrades verliezen.

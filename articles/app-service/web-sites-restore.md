@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 79d4084deb6d8c028918690c339c21c720e63594
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2879e72636ffc7603e29fe8f8233a065fe6f897c
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="restore-an-app-in-azure"></a>Een app in Azure herstellen
-Dit artikel laat zien hoe u een app in [Azure App Service](../app-service/app-service-web-overview.md) die u hebt eerder back-up gemaakt (Zie [Back-up van uw app in Azure](web-sites-backup.md)). U kunt uw app met de gekoppelde databases op aanvraag naar een eerdere status herstellen of een nieuwe app op basis van een back-up van uw oorspronkelijke app maken. Azure App Service ondersteunt de volgende databases voor back-up en herstel:
+Dit artikel laat zien hoe u een app in [Azure App Service](../app-service/app-service-web-overview.md) die u hebt eerder back-up gemaakt (Zie [Back-up van uw app in Azure](web-sites-backup.md)). U kunt uw app met de gekoppelde databases op aanvraag naar een eerdere status herstellen of een nieuwe app op basis van een back-ups van uw oorspronkelijke app maken. Azure App Service ondersteunt de volgende databases voor back-up en herstel:
 - [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
 - [Azure-Database voor MySQL (Preview)](https://azure.microsoft.com/en-us/services/mysql)
 - [Azure-Database voor PostgreSQL (Preview)](https://azure.microsoft.com/en-us/services/postgres)
@@ -33,10 +33,10 @@ Herstellen vanuit back-ups is beschikbaar voor apps die worden uitgevoerd **stan
 <a name="PreviousBackup"></a>
 
 ## <a name="restore-an-app-from-an-existing-backup"></a>Een app uit een bestaande back-up herstellen
-1. Op de **instellingen** blade van uw app in de Azure-Portal klikt u op **back-ups** om weer te geven de **back-ups** blade. Klik vervolgens op **herstellen**.
+1. Op de **instellingen** pagina van uw app in de Azure portal, klikt u op **back-ups** om weer te geven de **back-ups** pagina. Klik vervolgens op **herstellen**.
    
     ![Kies nu terugzetten][ChooseRestoreNow]
-2. In de **herstellen** blade, selecteert u eerst de back-bron.
+2. In de **herstellen** pagina, selecteert u eerst de back-bron.
    
     ![](./media/web-sites-restore/021ChooseSource1.png)
    
@@ -59,9 +59,9 @@ Herstellen vanuit back-ups is beschikbaar voor apps die worden uitgevoerd **stan
 <a name="StorageAccount"></a>
 
 ## <a name="download-or-delete-a-backup-from-a-storage-account"></a>Downloaden of een back-up van een opslagaccount verwijderen
-1. Vanuit het hoofdvenster **Bladeren** blade van de Azure portal, selecteer **opslagaccounts**. Er wordt een lijst met uw bestaande opslagaccounts weergegeven.
-2. Selecteer het opslagaccount waarin de back-up die u wilt downloaden of verwijderen. De blade voor het opslagaccount wordt weergegeven.
-3. Selecteer de container die u wilt dat in de blade opslagaccount
+1. Vanuit het hoofdvenster **Bladeren** pagina van de Azure portal, selecteer **opslagaccounts**. Er wordt een lijst met uw bestaande opslagaccounts weergegeven.
+2. Selecteer het opslagaccount waarin de back-up die u wilt downloaden of verwijderen. De pagina voor het opslagaccount wordt weergegeven.
+3. Selecteer de container die u wilt dat in de pagina opslag account
    
     ![Weergavecontainers][ViewContainers]
 4. Selecteer de back-upbestand dat u wilt downloaden of verwijderen.
@@ -72,12 +72,21 @@ Herstellen vanuit back-ups is beschikbaar voor apps die worden uitgevoerd **stan
 <a name="OperationLogs"></a>
 
 ## <a name="monitor-a-restore-operation"></a>Een herstelbewerking bewaken
-Voor informatie over het slagen of mislukken van de app-herstelbewerking, gaat u naar de **activiteitenlogboek** blade in de Azure portal.  
+Voor informatie over het slagen of mislukken van de app-herstelbewerking, gaat u naar de **activiteitenlogboek** pagina in de Azure-portal.  
  
 
 Schuif naar beneden om te zoeken naar de gewenste herstelbewerking en klikt u op om deze te selecteren.
 
-De blade toewijzingdetails geeft de beschikbare informatie met betrekking tot de herstelbewerking opnieuw.
+De detailpagina geeft de beschikbare informatie met betrekking tot de herstelbewerking opnieuw.
+
+## <a name="automate-with-scripts"></a>Automatiseren met behulp van scripts
+
+U kunt back-beheer met behulp van scripts, automatiseren met behulp van de [Azure CLI](/cli/azure/install-azure-cli) of [Azure PowerShell](/powershell/azure/overview).
+
+Raadpleeg voor voorbeelden:
+
+- [Azure CLI-voorbeelden](app-service-cli-samples.md)
+- [Azure PowerShell-voorbeelden](app-service-powershell-samples.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

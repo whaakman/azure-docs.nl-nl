@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: denlee
-ms.openlocfilehash: 8ecbb478c81cde25bbd0d1c9ee07ae02b07f8cc7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7500ed798519671ba864cc185efffa0f93a8be70
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Versnellen realtime big data-analyses met de Spark op Azure DB die Cosmos-connector
 
@@ -44,7 +44,7 @@ De connector maakt gebruik van de volgende onderdelen:
 
 * [Apache Spark](http://spark.apache.org/) is een krachtige open-source-verwerkingsengine die gebaseerd op snelheid, gebruiksgemak en geavanceerde analyses,.
 
-* [Apache Spark in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) zodat u Apache Spark in de cloud voor essentiële implementaties implementeren met behulp van kunt [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/).
+* [Apache Spark in Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) zodat u Apache Spark in de cloud voor essentiële implementaties implementeren met behulp van kunt [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/).
 
 Officieel ondersteunde versies:
 
@@ -351,4 +351,4 @@ Als u nog niet gedaan hebt, downloadt u de Spark naar Azure DB die Cosmos-connec
 * [Voorbeelden van gedistribueerde aggregaties](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples)
 * [Voorbeelden van Scripts en laptops](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
 
-U kunt ook om te controleren de [Apache Spark SQL, DataFrames en gegevenssets handleiding](http://spark.apache.org/docs/latest/sql-programming-guide.html) en de [Apache Spark in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) artikel.
+U kunt ook om te controleren de [Apache Spark SQL, DataFrames en gegevenssets handleiding](http://spark.apache.org/docs/latest/sql-programming-guide.html) en de [Apache Spark in Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) artikel.

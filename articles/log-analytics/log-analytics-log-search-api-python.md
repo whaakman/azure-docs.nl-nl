@@ -4,23 +4,26 @@ description: Log Analytics logboek Search API kan een REST-API-client gegevens o
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/28/2017
+ms.date: 11/03/2017
 ms.author: bwren
-ms.openlocfilehash: 56d7c6dc648a01e7b0efc167cb65c94bac5468ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8a4ec7a6ddf2daeca6ead11460fa076a7eb5c94
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="retrieve-data-from-log-analytics-with-a-python-script"></a>Gegevens ophalen van logboekanalyse met een pythonscript
 De [Log Analytics Log-API van zoekservice](log-analytics-log-search-api.md) kunnen een REST-API-clientcomputers gegevens ophalen van een werkruimte voor logboekanalyse.  Dit artikel bevat een voorbeeldscript Python die gebruikmaakt van de Log Analytics logboek zoeken-API.  
+
+>[!NOTE]
+> In dit artikel gebruikt de Search-API van het logboek voor de verouderde querytaal in logboekanalyse.  Een update aan dit artikel worden verstrekt voor werkruimten die zijn geüpgraded naar de [querytaal van nieuwe logboekanalyse](log-analytics-log-search-upgrade.md).
 
 ## <a name="authentication"></a>Authentication
 Dit script maakt gebruik van een service-principal in Azure Active Directory om te verifiëren naar de werkruimte.  Service-principals toestaan dat een clienttoepassing om aan te vragen of de service een account verifiëren, zelfs als de client beschikt niet over de accountnaam. Voordat u dit script uitvoert, moet u een service-principal met behulp van het proces op [portal gebruik maken van een Azure Active Directory-toepassing en service-principal die toegang bronnen tot](../azure-resource-manager/resource-group-create-service-principal-portal.md).  U moet de toepassings-ID, Tenant-ID en verificatiesleutel bieden aan het script. 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 9336743b92130e37b1df2992aab806696f8276aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8031c9bae923e19574b7189a97cb71a148b63d77
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>On-demand 'burst' knooppunten toevoegen aan een HPC Pack cluster in Azure
 Als u een [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster in Azure, kunt u een manier om snel de capaciteit van het cluster omhoog of omlaag schalen, zonder het onderhouden van een reeks vooraf geconfigureerde rekenknooppunt virtuele machines. In dit artikel leest u hoe on demand 'burst' knooppunten (worker rolinstanties uitgevoerd in een cloudservice) toevoegen als de rekenresources voor een hoofdknooppunt in Azure. 
@@ -42,10 +42,10 @@ De stappen in dit artikel kunt u snel Azure knooppunten toevoegen aan een cloud-
 * **Quotum voor kernen** -moet u mogelijk verhogen van het quotum van kernen, vooral als u kiest voor het implementeren van verschillende Azure knooppunten met multicore grootten. Een quotum te verhogen [opent u een ondersteuningsaanvraag online klant](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) zonder kosten.
 
 ## <a name="step-1-create-a-cloud-service-and-a-storage-account-for-the-azure-nodes"></a>Stap 1: Een cloudservice en een opslagaccount voor de Azure knooppunten maken
-Gebruik de klassieke Azure-portal of vergelijkbare's voor het configureren van de volgende bronnen die nodig zijn voor het implementeren van uw Azure knooppunten:
+De Azure-portal of vergelijkbare's gebruiken voor het configureren van de volgende bronnen die nodig zijn voor het implementeren van uw Azure knooppunten:
 
-* Een nieuwe Azure-cloud-service
-* Een nieuwe Azure storage-account
+* Een nieuwe Azure-cloud-service (klassiek)
+* Een nieuwe Azure storage-account (klassiek)
 
 > [!NOTE]
 > Niet opnieuw gebruiken van een bestaande cloudservice in uw abonnement. 
@@ -60,7 +60,11 @@ Gebruik de klassieke Azure-portal of vergelijkbare's voor het configureren van d
 ## <a name="step-2-configure-an-azure-management-certificate"></a>Stap 2: Een Azure-beheercertificaat configureren
 Als u Azure knooppunten toevoegen als rekenresources, moet u een beheercertificaat op het hoofdknooppunt en het uploaden van een overeenkomt met de Azure-abonnement gebruikt voor de implementatie van het certificaat.
 
-Voor dit scenario kunt u de **standaard HPC Azure-Beheercertificaat** die HPC Pack automatisch geïnstalleerd en geconfigureerd op het hoofdknooppunt. Dit certificaat is handig voor het testen van de toepassing en bewijs van concept implementaties. Upload het bestand C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer vanaf het hoofdknooppunt van VM aan het abonnement voor het gebruik van dit certificaat. Voor het uploaden van het certificaat in de [klassieke Azure-portal](https://manage.windowsazure.com), klikt u op **instellingen** > **Beheercertificaten**.
+Voor dit scenario kunt u de **standaard HPC Azure-Beheercertificaat** die HPC Pack automatisch geïnstalleerd en geconfigureerd op het hoofdknooppunt. Dit certificaat is handig voor het testen van de toepassing en bewijs van concept implementaties. Upload het bestand C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer vanaf het hoofdknooppunt van VM aan het abonnement voor het gebruik van dit certificaat. Voor het uploaden van het certificaat in de [Azure-portal](https://portal.azure.com):
+
+1. Klik op **abonnementen** > *your_subscription_name*.
+
+2. Klik op **beheercertificaten** > **uploaden**.
 
 Zie voor aanvullende opties voor het configureren van het beheercertificaat [scenario's voor het configureren van het Azure-Beheercertificaat voor Azure Burst implementaties](http://technet.microsoft.com/library/gg481759.aspx).
 

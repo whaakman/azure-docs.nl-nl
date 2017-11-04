@@ -4,7 +4,7 @@ description: Beveiligde LDAP (LDAPS) voor een beheerd domein van Azure AD Domain
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 11/03/2017
 ms.author: maheshu
-ms.openlocfilehash: 245ad4948cf4b8c2d44a0dafb61923b0b4267856
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2ef65bb4dc8e12a18265ae8264def2bb32e191f
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Beveiligde LDAP (LDAPS) voor een beheerd domein van Azure AD Domain Services configureren
 
@@ -48,8 +48,8 @@ Om veilige LDAP, moet u de volgende configuratiestappen uitvoeren:
     ![Beveiligde LDAP inschakelen](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
 5. Beveiligde LDAP-toegang tot uw beheerde domein via internet is standaard uitgeschakeld. Wisselknop **beveiligde LDAP toegang via internet toestaan** naar **inschakelen**, indien gewenst. 
 
-    > [!TIP]
-    > Als u beveiligde LDAP toegang via internet inschakelt, wordt aangeraden een NSG vergrendelen toegang tot de vereiste bron-IP-adresbereiken instellen. Zie de instructies voor het [vergrendelen LDAPS toegang tot uw beheerde domein via internet](#task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet).
+    > [!WARNING]
+    > Wanneer u beveiligde LDAP toegang via internet inschakelt, is uw domein is vatbaar voor wachtwoord gewelddadige aanvallen via internet. Daarom raden we instellen van een NSG toegang tot de vereiste bron-IP-adresbereiken vergrendelen. Zie de instructies voor het [vergrendelen LDAPS toegang tot uw beheerde domein via internet](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
     >
 
 6. Klik op het pictogram map volgende **. PFX-bestand met LDAP om certificaten veilig**. Geef het pad naar het PFX-bestand met het certificaat voor beveiligde LDAP-toegang tot het beheerde domein.
@@ -79,7 +79,7 @@ Voordat u deze taak begint, moet u de stappen in hebben voltooid [taak 3](#task-
 
 Als u kunt beveiligde LDAP toegang via het internet hebt ingeschakeld voor uw beheerde domein, moet u DNS bijwerken zodat clientcomputers dit beheerde domein vindt. Aan het einde van de taak 3, een externe IP-adres wordt weergegeven op de **eigenschappen** tabblad **externe IP-adres voor LDAPS toegang**.
 
-Uw externe DNS-provider zo configureren dat de DNS-naam van het beheerde domein (bijvoorbeeld ' ldaps.contoso100.com') naar deze externe IP-adres verwijst. In ons voorbeeld moeten we de volgende DNS-vermelding maken:
+Uw externe DNS-provider zo configureren dat de DNS-naam van het beheerde domein (bijvoorbeeld ' ldaps.contoso100.com') naar deze externe IP-adres verwijst. Bijvoorbeeld de volgende DNS-vermelding maken:
 
     ldaps.contoso100.com  -> 52.165.38.113
 
@@ -91,9 +91,9 @@ Dat is alles: u bent nu klaar om verbinding maken met het beheerde domein met be
 >
 
 
-## <a name="task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet"></a>Taak 5 - vergrendeling LDAPS toegang tot uw beheerde domein via internet
+## <a name="task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>Taak 5: het vergrendelen van beveiligde LDAP-toegang tot uw beheerde domein via internet
 > [!NOTE]
-> **Optionele taak** - als LDAPS toegang tot het beheerde domein niet is ingeschakeld via het internet, deze configuratietaak overslaan.
+> Als u LDAPS toegang tot het beheerde domein niet via het internet hebt ingeschakeld, slaat u deze taak voor de configuratie.
 >
 >
 
@@ -101,13 +101,28 @@ Voordat u deze taak begint, moet u de stappen in hebben voltooid [taak 3](#task-
 
 Het blootstellen van uw beheerde domein voor LDAPS toegang via internet vertegenwoordigt een beveiligingsrisico. Het beheerde domein bereikbaar is via het internet op de poort die wordt gebruikt voor beveiligde LDAP (dat wil zeggen, poort 636). Daarom kunt u toegang tot het beheerde domein specifieke bekende IP-adressen te beperken. Voor betere beveiliging, een netwerkbeveiligingsgroep (NSG) maken en deze koppelen aan het subnet waarin u Azure AD Domain Services hebt ingeschakeld.
 
-De volgende tabel ziet u een voorbeeld van een NSG die u configureren kunt, als u wilt vergrendelen beveiligde LDAP toegang via internet. Het NSG bevat een reeks regels waarmee binnenkomende LDAPS toegang via TCP-poort 636 alleen uit een opgegeven set van IP-adressen. De 'DenyAll' standaardregel geldt voor alle binnenkomend verkeer van het internet. De regel NSG LDAPS om toegang te verlenen via het internet vanaf de opgegeven IP-adressen heeft een hogere prioriteit dan de DenyAll NSG-regel.
+De volgende tabel ziet u een voorbeeld van een NSG die u configureren kunt, als u wilt vergrendelen beveiligde LDAP toegang via internet. Het NSG bevat een reeks regels waarmee binnenkomend beveiligde LDAP toegang via TCP-poort 636 alleen uit een opgegeven set van IP-adressen. De 'DenyAll' standaardregel geldt voor alle binnenkomend verkeer van het internet. De regel NSG LDAPS om toegang te verlenen via het internet vanaf de opgegeven IP-adressen heeft een hogere prioriteit dan de DenyAll NSG-regel.
 
 ![Voorbeeld NSG LDAPS om toegang te beveiligen via internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
 **Meer informatie** - [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md).
 
 <br>
+
+
+## <a name="troubleshooting"></a>Problemen oplossen
+Als u problemen ondervindt bij het verbinding maken met het beheerde domein met behulp van beveiligde LDAP, voert u de volgende stappen:
+* Zorg ervoor dat de keten van de verlener van het beveiligde LDAP-certificaat wordt vertrouwd op de client. U kunt de basiscertificeringsinstantie toevoegen aan het certificaatarchief van vertrouwde basiscertificeringsinstanties op de client de vertrouwensrelatie tot stand brengen.
+* Controleer of dat het beveiligde LDAP-certificaat niet is uitgegeven door een tussenliggende certificeringsinstantie die niet standaard op een nieuwe windows-computer wordt vertrouwd.
+* Controleer of de LDAP-client (bijvoorbeeld ldp.exe) een verbinding maakt met het beveiligde LDAP-eindpunt met een DNS-naam, niet het IP-adres.
+* Controleer of de DNS-naam die van de LDAP-client verbinding met wordt omgezet in het openbare IP-adres voor beveiligde LDAP op het beheerde domein maakt.
+* Controleer of dat de beveiligde LDAP-certificaat voor uw beheerde domein heeft de DNS-naam in het onderwerp of de alternatieve onderwerpnamen-kenmerk.
+
+Als u nog steeds problemen ondervindt verbinding te maken met het beheerde domein met behulp van beveiligde LDAP [Neem contact op met het productteam](active-directory-ds-contact-us.md) voor hulp. De volgende informatie om u te helpen bij het analyseren van het probleem beter omvatten:
+* Een schermopname van ldp.exe zodat de verbinding en mislukt.
+* Uw Azure AD-tenant-ID en de DNS-domeinnaam van uw beheerde domein.
+* Exacte gebruikersnaam die u probeert te binden als.
+
 
 ## <a name="related-content"></a>Gerelateerde inhoud
 * [Azure AD Domain Services - handleiding aan de slag](active-directory-ds-getting-started.md)

@@ -3,7 +3,7 @@ title: Azure multi-factor Authentication Veelgestelde vragen | Microsoft Docs
 description: "Veelgestelde vragen en antwoorden die betrekking hebben op de Azure multi-factor Authentication. Multi-factor Authentication is een methode voor het verifiëren van de identiteit van een gebruiker die meer dan een gebruikersnaam en wachtwoord vereist. Dit biedt een extra beveiligingslaag voor de gebruiker zich aanmelden en transacties."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
-ms.author: kgremban
+ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 023dee623ca6ec35ab77578c97e5bf197b4bfe75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b1d48d3ff0d264042f2d282c6b8006e16a251f5
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Veelgestelde vragen over Azure multi-factor Authentication
 Deze Veelgestelde vragen over de antwoorden op veelgestelde vragen over Azure multi-factor Authentication en het gebruik van de multi-factor Authentication-service. Het onderverdeeld in vragen over de service in het algemeen modellen, gebruikerservaringen, facturering en het oplossen van problemen.

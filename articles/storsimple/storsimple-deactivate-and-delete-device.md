@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2017
+ms.date: 11/03/2017
 ms.author: anbacker
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c000a642aa088ac80cc7077453b87e9a47f96900
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5778d54060c9be1b0c90c34bcf7c8e9bacb414d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="deactivate-and-delete-a-storsimple-8000-series-device-via-storsimple-manager-service"></a>Deactiveren en verwijderen van een StorSimple 8000 series apparaat via de StorSimple Manager-service
+> [!NOTE]
+> De klassieke portal voor StorSimple is afgeschaft. Uw Managers StorSimple-apparaat wordt automatisch verplaatst naar de nieuwe Azure portal aan de hand van de planning afschaffing. U ontvangt een e-mailbericht en een portal melding voor deze verplaatsen. Dit document wordt ook snel worden ingetrokken. De versie van dit artikel voor de nieuwe Azure portal, Ga naar [deactiveren en verwijderen van een StorSimple 8000 series apparaat via de StorSimple Manager-service](storsimple-8000-deactivate-and-delete-device.md). Zie voor vragen met betrekking tot de verplaatsing, [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Overzicht
 U kunt desgewenst een StorSimple-apparaat buiten dienst duren (bijvoorbeeld, als u uw apparaat upgraden of vervangen of als u niet langer StorSimple gebruikt). Als dit het geval is, moet u het apparaat deactiveren voordat u het kunt verwijderen. Deactiveren verbreekt de verbinding tussen het apparaat en de bijbehorende StorSimple Manager-service. Deze zelfstudie wordt uitgelegd hoe u een StorSimple-apparaat verwijdert uit de service door het eerste te deactiveren en vervolgens te verwijderen. 
 

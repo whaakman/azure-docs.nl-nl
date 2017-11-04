@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/13/2017
-ms.openlocfilehash: 2164562af60442375b96a51f820a65d4d4a6f257
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/02/2017
+ms.openlocfilehash: 36ffa7082ce60093cbd90d0c12187e28f517646d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Uw MySQL-database migreren met behulp van importeren en exporteren
 Dit artikel wordt uitgelegd twee algemene manieren om te importeren en exporteren van gegevens naar een Azure-Database voor de MySQL-server met behulp van MySQL-Workbench. 
@@ -45,7 +45,7 @@ De verbindingsinformatie toevoegen aan MySQL-Workbench.
 MySQL-hulpprogramma's gebruiken om te importeren en exporteren van de databases naar Azure MySQL-Database in de volgende scenario's. In andere scenario's, kunt u profiteren van de [dump maken en terugzetten](concepts-migrate-dump-restore.md) in plaats daarvan benaderen. 
 
 - Wanneer u een keuze maken uit een paar tabellen importeren uit een bestaande MySQL-database in Azure MySQL-Database, is het raadzaam te importeren en exporteren van techniek.  Op deze manier kunt u eventuele overbodige tabellen van de migratie naar bespaart tijd en bronnen weglaten. Gebruik bijvoorbeeld de `--include-tables` of `--exclude-tables` overschakelen met [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables) en de `--tables` overschakelen met [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
-- Wanneer u de database-objecten dan tabellen wilt verplaatsen, die expliciet te maken. Omvatten beperkingen (primaire sleutel, refererende sleutel, indexen), weergaven, functies, procedures, triggers en andere databaseobjecten die u wilt migreren.
+- Wanneer u de database-objecten dan tabellen verplaatsen wilt, expliciet die objecten te maken. Omvatten beperkingen (primaire sleutel, refererende sleutel, indexen), weergaven, functies, procedures, triggers en andere databaseobjecten die u wilt migreren.
 - Uit externe gegevensbronnen dan een MySQL-database waarnaar u gegevens migreert, platte bestanden te maken en deze importeren met behulp van [mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html).
 
 Zorg ervoor dat alle tabellen in de database de InnoDB opslag-engine gebruiken wanneer u gegevens in Azure-Database voor MySQL laadt. Azure MySQL-Database ondersteunt alleen de InnoDB opslag-engine, zodat deze biedt geen ondersteuning voor alternatieve opslag-engines. Als uw tabellen engines alternatieve opslag is vereist, moet u deze voor de indeling van de engine InnoDB vóór de migratie naar Azure Database voor MySQL converteren. 

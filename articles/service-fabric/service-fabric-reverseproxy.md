@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 08/08/2017
+ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 3168a8129e2e73d7ab1de547679aabd10d8f7112
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f29860519d4dce76f0b7f866852484b93ce7b02
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric-omgekeerde proxy
 Omgekeerde proxy is ingebouwd in Azure Service Fabric helpt microservices uitgevoerd in een Service Fabric-cluster detecteren en te communiceren met andere services die HTTP-eindpunten hebben.
@@ -114,9 +114,7 @@ De gateway stuurt vervolgens deze aanvragen naar de URL van de service:
 * `http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/api/users/6`
 
 ## <a name="special-handling-for-port-sharing-services"></a>Speciale verwerking voor het delen van poort services
-Azure Application Gateway probeert omzetten van een serviceadres opnieuw en probeer de aanvraag als een service kan niet worden bereikt. Dit is een belangrijk voordeel van Application Gateway omdat clientcode niet hoeft de eigen service-oplossing te implementeren en oplossen van de lus.
-
-In het algemeen als een service kan niet worden bereikt, is de service-exemplaar of de replica verplaatst naar een ander knooppunt als onderdeel van de normale levenscyclus. Als dit gebeurt, kan een netwerkfout verbinding die wijzen op een eindpunt is niet meer openen op het adres van oorspronkelijk opgelost Application Gateway worden weergegeven.
+De omgekeerde proxy voor Service Fabric probeert opnieuw omzetten van een serviceadres en de aanvraag opnieuw proberen bij een service kan niet worden bereikt. In het algemeen als een service kan niet worden bereikt, is de service-exemplaar of de replica verplaatst naar een ander knooppunt als onderdeel van de normale levenscyclus. Als dit gebeurt, kan de omgekeerde proxy een netwerkfout verbinding die wijzen op een eindpunt is niet meer openen op het adres van oorspronkelijk opgelost worden weergegeven.
 
 Echter replica's of service-exemplaren kunnen delen een hostproces verstrekt en mogelijk ook delen van een poort wanneer deze wordt gehost door een op basis van het http.sys-webserver, met inbegrip van:
 
@@ -124,21 +122,21 @@ Echter replica's of service-exemplaren kunnen delen een hostproces verstrekt en 
 * [ASP.NET Core WebListener](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
 * [Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 
-In dit geval is het waarschijnlijk dat de webserver is beschikbaar in het hostproces en reageren op aanvragen, maar de opgelost service-exemplaar of de replica niet meer beschikbaar op de host is. De gateway wordt in dit geval een HTTP 404-reactie ontvangen van de webserver. Een HTTP 404 is dus twee verschillende betekenis:
+In dit geval is het waarschijnlijk dat de webserver is beschikbaar in het hostproces en reageren op aanvragen, maar de opgelost service-exemplaar of de replica niet meer beschikbaar op de host is. De gateway wordt in dit geval een HTTP 404-reactie ontvangen van de webserver. Een HTTP 404-respons kan dus twee verschillende betekenis hebben:
 
 - Case #1: Het serviceadres juist is, maar de resource die de gebruiker heeft aangevraagd, bestaat niet.
 - Case #2: Het serviceadres is onjuist en de resource die de gebruiker heeft aangegeven bestaat mogelijk op een ander knooppunt.
 
-Het eerste geval is een normale HTTP 404, wordt beschouwd als een gebruikersfout opgetreden. De gebruiker heeft echter in het tweede geval verzocht een resource die bestaat. Application Gateway is niet vinden omdat de service zelf is verplaatst. Toepassingsgateway moet het omzetten van het adres opnieuw en probeer de aanvraag.
+Het eerste geval is een normale HTTP 404, wordt beschouwd als een gebruikersfout opgetreden. De gebruiker heeft echter in het tweede geval verzocht een resource die bestaat. De omgekeerde proxy was niet vinden omdat de service zelf is verplaatst. De omgekeerde proxy moet het omzetten van het adres opnieuw en probeer de aanvraag.
 
-Toepassingsgateway moet dus een manier onderscheid maken tussen deze twee gevallen. Als u dit onderscheid, is een aanwijzing van de server vereist.
+De omgekeerde proxy moet dus een manier onderscheid maken tussen deze twee gevallen. Als u dit onderscheid, is een aanwijzing van de server vereist.
 
-* Standaard Application Gateway wordt ervan uitgegaan dat het geval #2 en probeert oplossen en de aanvraag opnieuw uitgeven.
-* Om aan te geven geval #1 aan de toepassingsgateway, moet de service de volgende HTTP-antwoordheader geretourneerd:
+* Standaard de omgekeerde proxy wordt ervan uitgegaan dat het geval #2 en probeert oplossen en de aanvraag opnieuw uitgeven.
+* Om aan te geven aanvraag #1 aan de omgekeerde proxy, moet de service de volgende HTTP-antwoordheader geretourneerd:
 
   `X-ServiceFabric : ResourceNotFound`
 
-Deze HTTP-antwoordheader geeft aan dat een normale HTTP 404-situatie waarin de aangevraagde resource bestaat niet en Application Gateway niet probeert te zetten van het serviceadres opnieuw.
+Deze HTTP-antwoordheader geeft aan dat een normale HTTP 404-situatie waarin de aangevraagde resource bestaat niet en de omgekeerde proxy niet voor het omzetten van de serviceadres opnieuw probeert.
 
 ## <a name="setup-and-configuration"></a>Installatie en configuratie
 

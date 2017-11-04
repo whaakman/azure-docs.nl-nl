@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: 63f2d88ad59661b7fbcffd0aaeb94c58d40bdb73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a30d7a8e3f2e11a0c5ed05c5b68d75d32b138fb9
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>YARN oplossen met behulp van Azure HDInsight
 
 Meer informatie over de meest voorkomende problemen en hun oplossingen bij het werken met Apache Hadoop YARN nettoladingen in Apache Ambari.
 
-## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Hoe maak een nieuwe YARN-wachtrij op een cluster
+## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Hoe maak een nieuwe YARN-wachtrij op een cluster?
 
 
 ### <a name="resolution-steps"></a>Stappen voor het oplossen 
@@ -70,7 +70,7 @@ Deze wijzigingen zijn onmiddellijk voor de gebruikersinterface van YARN Schedule
 - [YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
 
-## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Hoe kan ik YARN-logboeken downloaden vanaf een cluster
+## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Hoe kan ik YARN-logboeken downloaden vanaf een cluster?
 
 
 ### <a name="resolution-steps"></a>Stappen voor het oplossen 
@@ -141,6 +141,10 @@ Deze wijzigingen zijn onmiddellijk voor de gebruikersinterface van YARN Schedule
 
 - [Verbinding maken met HDInsight (Hadoop) via SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop YARN-concepten en toepassingen](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
+
+
+### <a name="see-also"></a>Zie ook
+[Problemen oplossen met behulp van Azure HDInsight](hdinsight-troubleshoot-guide.md)
 
 
 
