@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 270d1aec5855ee3bb9cc121526d311ab78d989c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: afe5dcab2beca2c6bf3d116adf249fc9717eeb09
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="iot-hub-documentation"></a>Documentatie voor IoT Hub 
 
@@ -48,7 +48,7 @@ Meer informatie over hoe u IoT Hub gebruikt om miljarden IoT-items (Internet der
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_video.svg" alt="" />
+                            <img src="media/common/i_video.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -66,7 +66,7 @@ Meer informatie over hoe u IoT Hub gebruikt om miljarden IoT-items (Internet der
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_get-started.svg" alt="" />
+                            <img src="media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -84,7 +84,7 @@ Meer informatie over hoe u IoT Hub gebruikt om miljarden IoT-items (Internet der
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_get-started.svg" alt="" />
+                            <img src="media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -102,7 +102,7 @@ Meer informatie over hoe u IoT Hub gebruikt om miljarden IoT-items (Internet der
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_road-map.svg" alt="" />
+                            <img src="media/common/i_road-map.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -125,7 +125,19 @@ Meer informatie over hoe u IoT Hub gebruikt om miljarden IoT-items (Internet der
                 <div class="card">
                     <div class="cardText">
                         <h3>Opdrachtregel</h3>
-                        <p><a href="/cli/azure/iot">Azure-CLI</a></p>
+                        <p><a href="/cli/azure/iot">Azure CLI</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Codevoorbeelden</h3>
+                        <p><a href="https://azure.microsoft.com/resources/samples/?service=iot-hub">Codevoorbeelden</a></p>
                     </div>
                 </div>
             </div>
@@ -142,7 +154,8 @@ Meer informatie over hoe u IoT Hub gebruikt om miljarden IoT-items (Internet der
                         <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">Apparaat-SDK voor C</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (service)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (apparaten)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdk-node/">SDK's voor Node.js</a></p>
+                        <p><a href="/javascript/api/azure-iot-device/">Node.js (apparaten)</a></p>
+                        <p><a href="/javascript/api/azure-iothub">Node.js (service)</a></p>
                         <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
                     </div>
                 </div>

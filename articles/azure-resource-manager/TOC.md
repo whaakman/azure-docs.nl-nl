@@ -71,15 +71,10 @@
 
 ## Resourcebeleid instellen
 ### [Wat is een resourcebeleid?](resource-manager-policy.md)
-### [Azure Portal gebruiken voor het toewijzen van beleid](resource-manager-policy-portal.md)
 ### [Scripts gebruiken voor het toewijzen van beleid](resource-manager-policy-create-assign.md)
 ### Voorbeelden
 #### [Tags](resource-manager-policy-tags.md)
 #### [Naamconventies](resource-manager-policy-naming-convention.md)
-#### [Netwerk](resource-manager-policy-network.md)
-#### [Storage](resource-manager-policy-storage.md)
-#### [Linux-VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Windows-VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Controleren
 ### [Activiteitenlogboeken bekijken](resource-group-audit.md)
