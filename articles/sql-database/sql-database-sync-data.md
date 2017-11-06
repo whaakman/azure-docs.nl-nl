@@ -1,6 +1,6 @@
 ---
-title: Synchroniseren van gegevens (Preview) | Microsoft Docs
-description: Dit overzicht introduceert Azure SQL-gegevenssynchronisatie (Preview).
+title: Synchroniseren van Azure SQL-gegevens (Preview) | Microsoft Docs
+description: Dit overzicht introduceert Azure SQL-gegevenssynchronisatie (Preview)
 services: sql-database
 documentationcenter: 
 author: douglaslms
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 34bc9588745eb24d8b8c2e81389a9e5144497b34
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: c53eabfeb9ee1a7c50340bbfc65674b478068c75
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchronisatie van gegevens over meerdere cloud en on-premises databases met SQL-gegevens synchroniseren
 
@@ -58,7 +58,7 @@ Synchroniseren van gegevens is handig in gevallen waarbij gegevens moet worden b
 
 -   **Globaal gedistribueerde toepassingen:** veel bedrijven verschillende regio's en zelfs meerdere landen omvatten. Om te beperken netwerklatentie, is het raadzaam om uw gegevens in een regio dicht bij u. U kunt databases eenvoudig in regio's over de hele wereld gesynchroniseerd houden met het synchroniseren van gegevens.
 
-Synchroniseren van gegevens wordt niet aanbevolen voor de volgende scenario's:
+Synchroniseren van gegevens is niet geschikt is voor de volgende scenario's:
 
 -   Herstel na noodgevallen
 
@@ -77,48 +77,6 @@ Synchroniseren van gegevens wordt niet aanbevolen voor de volgende scenario's:
 -   **Het oplossen van conflicten:** synchroniseren van gegevens biedt twee opties voor conflictoplossing, *Hub wins* of *lid wins*.
     -   Als u selecteert *Hub wins*, de wijzigingen in de hub altijd overschreven, wijzigingen in het lid.
     -   Als u selecteert *lid wins*, de wijzigingen in de wijzigingen voor het overschrijven van lid in de hub. Als er meer dan één lid, afhankelijk van de uiteindelijke waarde waarvoor de eerste wordt gesynchroniseerd.
-
-## <a name="limitations-and-considerations"></a>Beperkingen en overwegingen
-
-### <a name="performance-impact"></a>Prestatie-invloed
-Gegevens synchroniseren gebruikt invoegen, bijwerken en verwijderen van triggers voor het bijhouden van wijzigingen. Tabellen wordt gemaakt in de database voor het bijhouden. Deze wijziging bijhouden activiteiten heeft dit gevolgen voor de werkbelasting van uw database. De servicelaag beoordelen en indien nodig te upgraden.
-
-### <a name="eventual-consistency"></a>Uiteindelijke consistentie
-Omdat synchroniseren van gegevens op basis van een trigger, transactionele consistentie kan niet worden gegarandeerd. Microsoft zorgt ervoor dat alle uiteindelijk wijzigingen en synchroniseren van gegevens veroorzaakt geen gegevens verloren gaan.
-
-### <a name="unsupported-data-types"></a>Niet-ondersteunde gegevenstypen
-
--   FileStream
-
--   SQL/CLR UDT
-
--   XMLSchemaCollection (XML wordt ondersteund)
-
--   Cursor, Timestamp, Hierarchyid
-
-### <a name="requirements"></a>Vereisten
-
--   Elke tabel moet een primaire sleutel hebben. De waarde van de primaire sleutel in elke rij niet te wijzigen. Als u hebt om dit te doen, verwijdert u de rij en maak deze opnieuw met de nieuwe waarde voor de primaire sleutel. 
-
--   Een tabel kan niet een identiteitskolom die niet de primaire sleutel hebben.
-
--   De namen van objecten (databases, tabellen en kolommen) kunnen bevatten de afdrukbare tekens punt (.), vierkante linkerhaak ([) of rechts vierkante haak (]).
-
--   Snapshot-isolatie moet zijn ingeschakeld. Zie voor meer informatie [Snapshot-isolatie in SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
-
-### <a name="limitations-on-service-and-database-dimensions"></a>Beperkingen met betrekking tot dimensies service en -database
-
-|                                                                 |                        |                             |
-|-----------------------------------------------------------------|------------------------|-----------------------------|
-| **Dimensies**                                                      | **Limiet**              | **Tijdelijke oplossing**              |
-| Maximum aantal synchronisatiegroepen die elke database kan deel uitmaken.       | 5                      |                             |
-| Maximum aantal eindpunten in een enkel sync-groep              | 30                     | Meerdere synchronisatiegroepen maken |
-| Maximum aantal lokale eindpunten in een enkel sync-groep. | 5                      | Meerdere synchronisatiegroepen maken |
-| Database-, tabel-, schema-en kolomnamen                       | 50 tekens per naam |                             |
-| Tabellen in een groep voor synchronisatie                                          | 500                    | Meerdere synchronisatiegroepen maken |
-| Kolommen in een tabel in een groep voor synchronisatie                              | 1000                   |                             |
-| Grootte van de rij gegevens in een tabel                                        | 24 mb                  |                             |
-| Minimale synchronisatie-interval                                           | 5 minuten              |                             |
 
 ## <a name="common-questions"></a>Veelgestelde vragen
 
@@ -143,9 +101,55 @@ Dit foutbericht geeft aan dat een van de twee volgende problemen:
 Synchroniseren van gegevens kunnen kringverwijzingen niet worden verwerkt. Zorg ervoor dat ze kunnen worden vermeden. 
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Hoe kan ik exporteren en importeren van een database met het synchroniseren van gegevens?
-Nadat u een database als een Bacpac-bestand exporteren en importeren als een nieuwe database wilt maken, hebt u de volgende twee dingen doen om synchroniseren van gegevens in de nieuwe database te gebruiken:
+Na het exporteren van een database als een `.bacpac` bestand en importeer het bestand om een nieuwe database te maken, moet u de volgende twee taken uitvoeren om te synchroniseren van gegevens in de nieuwe database te gebruiken:
 1.  Opschonen van de objecten synchroniseren van gegevens en de tabellen op de **nieuwe database** met behulp van [dit script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Dit script worden alle vereiste objecten synchroniseren van gegevens uit de database verwijderd.
 2.  Maak de groep voor synchronisatie met de nieuwe database opnieuw. Als u niet langer de oude groep voor synchronisatie, verwijderen.
+
+## <a name="sync-req-lim"></a>Vereisten en beperkingen
+
+### <a name="general-requirements"></a>Algemene vereisten
+
+-   Elke tabel moet een primaire sleutel hebben. De waarde van de primaire sleutel in elke rij niet te wijzigen. Als u hebt om dit te doen, verwijdert u de rij en maak deze opnieuw met de nieuwe waarde voor de primaire sleutel. 
+
+-   Een tabel kan niet een identiteitskolom die niet de primaire sleutel hebben.
+
+-   De namen van objecten (databases, tabellen en kolommen) kunnen bevatten de afdrukbare tekens punt (.), vierkante linkerhaak ([]) of rechts vierkante haak (]).
+
+-   Snapshot-isolatie moet zijn ingeschakeld. Zie voor meer informatie [Snapshot-isolatie in SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+
+### <a name="general-considerations"></a>Algemene overwegingen
+
+#### <a name="eventual-consistency"></a>Uiteindelijke consistentie
+Omdat synchroniseren van gegevens op basis van een trigger, transactionele consistentie kan niet worden gegarandeerd. Microsoft zorgt ervoor dat alle uiteindelijk wijzigingen en synchroniseren van gegevens veroorzaakt geen gegevens verloren gaan.
+
+#### <a name="performance-impact"></a>Prestatie-invloed
+Gegevens synchroniseren gebruikt invoegen, bijwerken en verwijderen van triggers voor het bijhouden van wijzigingen. Tabellen wordt gemaakt in de database voor het bijhouden. Deze wijziging bijhouden activiteiten heeft dit gevolgen voor de werkbelasting van uw database. De servicelaag beoordelen en indien nodig te upgraden.
+
+### <a name="general-limitations"></a>Algemene beperkingen
+
+#### <a name="unsupported-data-types"></a>Niet-ondersteunde gegevenstypen
+
+-   FileStream
+
+-   SQL/CLR UDT
+
+-   XMLSchemaCollection (XML wordt ondersteund)
+
+-   Cursor, Timestamp, Hierarchyid
+
+#### <a name="limitations-on-service-and-database-dimensions"></a>Beperkingen met betrekking tot dimensies service en -database
+
+| **Dimensies**                                                      | **Limiet**              | **Tijdelijke oplossing**              |
+|-----------------------------------------------------------------|------------------------|-----------------------------|
+| Maximum aantal synchronisatiegroepen die elke database kan deel uitmaken.       | 5                      |                             |
+| Maximum aantal eindpunten in een enkel sync-groep              | 30                     | Meerdere synchronisatiegroepen maken |
+| Maximum aantal lokale eindpunten in een enkel sync-groep. | 5                      | Meerdere synchronisatiegroepen maken |
+| Database-, tabel-, schema-en kolomnamen                       | 50 tekens per naam |                             |
+| Tabellen in een groep voor synchronisatie                                          | 500                    | Meerdere synchronisatiegroepen maken |
+| Kolommen in een tabel in een groep voor synchronisatie                              | 1000                   |                             |
+| Grootte van de rij gegevens in een tabel                                        | 24 mb                  |                             |
+| Minimale synchronisatie-interval                                           | 5 minuten              |                             |
+|||
 
 ## <a name="next-steps"></a>Volgende stappen
 
