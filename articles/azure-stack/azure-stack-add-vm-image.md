@@ -1,6 +1,6 @@
 ---
-title: Adding a VM image to Azure Stack | Microsoft Docs
-description: Add your organization's custom Windows or Linux VM image for tenants to use
+title: Een VM-installatiekopie toevoegen aan Azure-Stack | Microsoft Docs
+description: Toevoegen van uw organisatie aangepaste Windows of Linux-VM-installatiekopie voor tenants kunnen gebruiken.
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,127 +14,126 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: de8540397b63093457382cf427a65ea0e48b93e0
-ms.contentlocale: nl-nl
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 520e4dfaadf1d476447a600ef2b3d092b6955a89
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/18/2017
 ---
-# <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Make a custom virtual machine image available in Azure Stack
+# <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>De installatiekopie van een aangepaste virtuele machine in Azure Stack beschikbaar maken
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Azure Stack enables operators to make custom virtual machine images available to their users. These images can be referenced by Azure Resource Manager templates or added to the Azure Marketplace UI with the creation of a Marketplace item. 
+In Azure-Stack kunnen operators aangepaste virtuele machine installatiekopieën beschikbaar maken voor gebruikers. Deze installatiekopieën kunnen worden verwezen vanuit de Azure Resource Manager-sjablonen of u ze kunt toevoegen aan de Azure Marketplace-gebruikersinterface als een Marketplace-item. 
 
-## <a name="add-a-vm-image-to-marketplace-with-powershell"></a>Add a VM image to marketplace with PowerShell
+## <a name="add-a-vm-image-to-marketplace-by-using-powershell"></a>Een VM-installatiekopie in Marketplace toevoegen met behulp van PowerShell
 
-Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)
+Voer de volgende vereisten uitvoeren vanuit de [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) of vanuit een Windows-externe client, bent u [verbonden via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
-* [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).  
+1. [Installeer PowerShell voor Azure Stack](azure-stack-powershell-install.md).  
 
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
+2. Download de [hulpprogramma's voor het werken met Azure-Stack](azure-stack-powershell-download.md).  
 
-* Prepare a Windows or Linux operating system virtual hard disk image in VHD format (not VHDX).
+3. Voorbereiden van een Windows- of Linux-besturingssysteeminstallatiekopie virtuele harde schijf in VHD-indeling (gebruik niet VHDX-indeling).
    
-   * For Windows images, the article [Upload a Windows VM image to Azure for Resource Manager deployments](../virtual-machines/windows/upload-generalized-managed.md) contains image preparation instructions in the **Prepare the VHD for upload** section.
-   * For Linux images, follow the steps to prepare the image or use an existing Azure Stack Linux image as described in the article [Deploy Linux virtual machines on Azure Stack](azure-stack-linux.md).  
+   * Voor Windows-installatiekopieën voor instructies over het voorbereiden van de afbeelding Zie [een virtuele machine van Windows-installatiekopie uploaden naar Azure voor implementaties van Resource Manager](../virtual-machines/windows/upload-generalized-managed.md).
+   * Zie voor Linux-installatiekopieën, [implementeren Linux virtuele machines op Azure-Stack](azure-stack-linux.md). Voltooi de stappen voor het voorbereiden van de afbeelding of gebruiken van een installatiekopie van een bestaande Azure Stack Linux zoals beschreven in het artikel.  
 
-Now run the following steps to add the image to the Azure Stack marketplace:
+Als u wilt de installatiekopie toevoegen aan de Stack Azure Marketplace, moet u de volgende stappen uitvoeren:
 
-1. Import the Connect and ComputeAdmin modules:
+1. Importeer de modules Connect en ComputeAdmin:
    
    ```powershell
    Set-ExecutionPolicy RemoteSigned
 
-   # import the Connect and ComputeAdmin modules
+   # Import the Connect and ComputeAdmin modules.
    Import-Module .\Connect\AzureStack.Connect.psm1
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
    ``` 
 
-2. Sign in to your Azure Stack environment. Run the following script depending on if your Azure Stack environment is deployed by using AAD or AD FS (Make sure to replace the AAD tenantName, GraphAudience endpoint and ArmEndpoint values as per your environment configuration): 
+2. Aanmelden bij uw Azure-Stack-omgeving. Voer een van de volgende scripts, afhankelijk van of u uw Azure-Stack-omgeving hebt geïmplementeerd met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS). (De Azure AD vervangen `tenantName`, `GraphAudience` eindpunt, en `ArmEndpoint` waarden in overeenstemming met de configuratie van uw omgeving.)
 
-   a. **Azure Active Directory**, use the following cmdlet:
+    * **Azure Active Directory**. Gebruik de volgende cmdlet:
 
-   ```PowerShell
-   # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+      ```PowerShell
+      # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+      $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-   # For Azure Stack development kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
-   $GraphAudience = "<GraphAuidence endpoint for your environment>"
+      # For Azure Stack Development Kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
+      $GraphAudience = "<GraphAuidence endpoint for your environment>"
+      
+      # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+      Add-AzureRMEnvironment `
+        -Name "AzureStackAdmin" `
+        -ArmEndpoint $ArmEndpoint
 
-   #Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
-   Add-AzureRMEnvironment `
-     -Name "AzureStackAdmin" `
-     -ArmEndpoint $ArmEndpoint 
+      Set-AzureRmEnvironment `
+        -Name "AzureStackAdmin" `
+        -GraphAudience $GraphAudience
 
-   Set-AzureRmEnvironment `
-    -Name "AzureStackAdmin" `
-    -GraphAudience $GraphAudience
+      $TenantID = Get-AzsDirectoryTenantId `
+        -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+        -EnvironmentName AzureStackAdmin
 
-   $TenantID = Get-AzsDirectoryTenantId `
-     -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
-     -EnvironmentName AzureStackAdmin
+      Login-AzureRmAccount `
+        -EnvironmentName "AzureStackAdmin" `
+        -TenantId $TenantID 
+      ```
 
-   Login-AzureRmAccount `
-     -EnvironmentName "AzureStackAdmin" `
-     -TenantId $TenantID 
-   ```
-
-   b. **Active Directory Federation Services**, use the following cmdlet:
+   * **Active Directory Federatieservices**. Gebruik de volgende cmdlet:
     
-   ```PowerShell
-   # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+        ```PowerShell
+        # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+        $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-   # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
-   $GraphAudience = "<GraphAuidence endpoint for your environment>"
+        # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+        $GraphAudience = "<GraphAuidence endpoint for your environment>"
 
-   # Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
-   Add-AzureRMEnvironment `
-     -Name "AzureStackAdmin" `
-     -ArmEndpoint $ArmEndpoint
+        # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+        Add-AzureRMEnvironment `
+          -Name "AzureStackAdmin" `
+          -ArmEndpoint $ArmEndpoint
 
-   Set-AzureRmEnvironment `
-     -Name "AzureStackAdmin" `
-     -GraphAudience $GraphAudience `
-     -EnableAdfsAuthentication:$true
+        Set-AzureRmEnvironment `
+          -Name "AzureStackAdmin" `
+          -GraphAudience $GraphAudience `
+          -EnableAdfsAuthentication:$true
 
-   $TenantID = Get-AzsDirectoryTenantId `
-     -ADFS 
-     -EnvironmentName AzureStackAdmin 
+        $TenantID = Get-AzsDirectoryTenantId `
+          -ADFS 
+          -EnvironmentName AzureStackAdmin 
 
-   Login-AzureRmAccount `
-     -EnvironmentName "AzureStackAdmin" `
-     -TenantId $TenantID 
-   ```
+        Login-AzureRmAccount `
+          -EnvironmentName "AzureStackAdmin" `
+          -TenantId $TenantID 
+        ```
     
-3. Add the VM image by invoking the `Add-AzsVMImage` cmdlet. In the Add-AzsVMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. See the [Parameters](#parameters) section for information about the allowed parameters. These parameters are used by Azure Resource Manager templates to reference the VM image. Following is an example invocation of the script:
+3. De VM-installatiekopie toevoegen door het aanroepen van de `Add-AzsVMImage` cmdlet. In de `Add-AzsVMImage` cmdlet, geef `osType` als Windows of Linux. De uitgever, aanbieding, SKU en versie voor de VM-installatiekopie opnemen. Zie voor meer informatie over de toegestane parameters [Parameters](#parameters). De parameters worden gebruikt door Azure Resource Manager-sjablonen om te verwijzen naar de VM-installatiekopie. Het volgende voorbeeld wordt het script:
      
-     ```powershell
-     Add-AzsVMImage `
-       -publisher "Canonical" `
-       -offer "UbuntuServer" `
-       -sku "14.04.3-LTS" `
-       -version "1.0.0" `
-       -osType Linux `
-       -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
-     ```
+  ```powershell
+  Add-AzsVMImage `
+    -publisher "Canonical" `
+    -offer "UbuntuServer" `
+    -sku "14.04.3-LTS" `
+    -version "1.0.0" `
+    -osType Linux `
+    -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
+  ```
 
-The command does the following:
+De opdracht doet het volgende:
 
-* Authenticates to the Azure Stack environment
-* Uploads the local VHD to a newly created temporary storage account
-* Adds the VM image to the VM image repository and
-* Creates a Marketplace item
+* Wordt geverifieerd op de Stack van Azure-omgeving.
+* De lokale VHD naar een nieuwe tijdelijke opslagaccount geüpload.
+* Voegt de VM-installatiekopie toe aan de opslagplaats voor VM-installatiekopieën.
+* Maakt een Marketplace-item.
 
-To verify that the command ran successfully, go to Marketplace in the portal, and then verify that the VM image is available in the **Virtual Machines** category.
+Om te controleren of de opdracht is geslaagd, in de portal, gaat u naar de Marketplace. Controleer of de VM-installatiekopie is beschikbaar in de **virtuele Machines** categorie.
 
-![VM image added successfully](./media/azure-stack-add-vm-image/image5.PNG) 
+![VM-installatiekopie is toegevoegd](./media/azure-stack-add-vm-image/image5.PNG) 
 
-## <a name="remove-a-vm-image-with-powershell"></a>Remove a VM image with PowerShell
+## <a name="remove-a-vm-image-by-using-powershell"></a>Een VM-installatiekopie verwijderen met behulp van PowerShell
 
-When you no longer need the virtual machine image that you have uploaded earlier, you can delete it from the marketplace by using the following cmdlet:
+Wanneer u de installatiekopie van de virtuele machine die u hebt geüpload niet meer nodig hebt, kunt u het verwijderen van de Marketplace met behulp van de volgende cmdlet:
 
 ```powershell
 Remove-AzsVMImage `
@@ -146,53 +145,53 @@ Remove-AzsVMImage `
 
 ## <a name="parameters"></a>Parameters
 
-| Parameter | Description |
+| Parameter | Beschrijving |
 | --- | --- |
-| **publisher** |The publisher name segment of the VM image that users use when deploying the image. An example is ‘Microsoft’. Do not include a space or other special characters in this field. |
-| **offer** |The offer name segment of the VM Image that users use when deploying the VM image. An example is ‘WindowsServer’. Do not include a space or other special characters in this field. |
-| **sku** |The SKU name segment of the VM Image that users use when deploying the VM image. An example is ‘Datacenter2016’. Do not include a space or other special characters in this field. |
-| **version** |The version of the VM Image that users use when deploying the VM image. This version is in the format *\#.\#.\#*. An example is ‘1.0.0’. Do not include a space or other special characters in this field. |
-| **osType** |The osType of the image must be either ‘Windows’ or ‘Linux’. |
-| **osDiskLocalPath** |The local path to the OS disk VHD that you are uploading as a VM image to Azure Stack. |
-| **dataDiskLocalPaths** |An optional array of the local paths for data disks that can be uploaded as part of the VM image. |
-| **CreateGalleryItem** |A Boolean flag that determines whether to create an item in Marketplace. By default, it is set to true. |
-| **title** |The display name of Marketplace item. By default, it is set to the Publisher-Offer-Sku of the VM image. |
-| **description** |The description of the Marketplace item. |
-| **location** |The location to which the VM image should be published. By default, this value is set to local.|
-| **osDiskBlobURI** |Optionally, this script also accepts a Blob storage URI for osDisk. |
-| **dataDiskBlobURIs** |Optionally, this script also accepts an array of Blob storage URIs for adding data disks to the image. |
+| **uitgever** |Het segment van de naam van uitgever van de VM-installatiekopie die gebruikers gebruiken wanneer ze de installatiekopie implementeren. Een voorbeeld is **Microsoft**. Neem geen een spatie of andere speciale tekens in dit veld. |
+| **aanbieding** |De aanbieding naam segment van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeert. Een voorbeeld is **Windows Server**. Neem geen een spatie of andere speciale tekens in dit veld. |
+| **SKU** |De SKU-naam-segment van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeert. Een voorbeeld is **Datacenter2016**. Neem geen een spatie of andere speciale tekens in dit veld. |
+| **Versie** |De versie van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeert. Deze versie is in de notatie *\#.\#.\#*. Een voorbeeld is **1.0.0**. Neem geen een spatie of andere speciale tekens in dit veld. |
+| **besturingssysteemtype** |Het besturingssysteemtype van de afbeelding moet een **Windows** of **Linux**. |
+| **osDiskLocalPath** |Het lokale pad naar de schijf met het besturingssysteem VHD die u als een VM-installatiekopie naar Azure-Stack uploaden wilt. |
+| **dataDiskLocalPaths** |Een optionele matrix van de lokale paden voor gegevensschijven dat als onderdeel van de VM-installatiekopie kunnen worden geüpload. |
+| **CreateGalleryItem** |Een Booleaanse vlag waarmee wordt bepaald of het maken van een item in de Marketplace. Standaard is ingesteld op **true**. |
+| **titel** |De weergavenaam van de Marketplace-item. Standaard is ingesteld op de `Publisher-Offer-Sku` waarde van de VM-installatiekopie. |
+| **Beschrijving** |De beschrijving van de Marketplace-item. |
+| **location** |De locatie waar de installatiekopie van de virtuele machine moet worden gepubliceerd. Deze waarde is standaard ingesteld op **lokale**.|
+| **osDiskBlobURI** |(Optioneel) Dit script accepteert ook een Blob storage-URI voor `osDisk`. |
+| **dataDiskBlobURIs** |(Optioneel) Dit script accepteert ook een matrix van URI's van de Blob-opslag voor gegevensschijven toevoegen aan de installatiekopie. |
 
-## <a name="add-a-vm-image-through-the-portal"></a>Add a VM image through the portal
+## <a name="add-a-vm-image-through-the-portal"></a>Toevoegen van een VM-installatiekopie via de portal
 
 > [!NOTE]
-> This method requires creating the Marketplace item separately.
+> Met deze methode, moet u het Marketplace-item afzonderlijk maken.
 
-One requirement of images is that they can be referenced by a Blob storage URI. Prepare a Windows or Linux operating system image in VHD format (not VHDX), and then upload the image to a storage account in Azure or Azure Stack. If your image is already uploaded to the Blob storage in Azure or Azure Stack, you can skip step1.
+Installatiekopieën moet kunnen worden verwezen door een Blob storage-URI. De installatiekopie voor een Windows- of Linux-besturingssysteem in VHD-indeling (geen VHDX) voorbereiden en vervolgens de installatiekopie uploadt naar een opslagaccount in Azure of Azure-Stack. Als uw installatiekopie is al geüpload naar de Blob-opslag in Azure of Azure-Stack, kunt u stap 1 overslaan.
 
-1. [Upload a Windows VM image to Azure for Resource Manager deployments](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) or for a Linux image, follow the instructions described in the [Deploy Linux virtual machines on Azure Stack](azure-stack-linux.md) article. You should understand the following considerations before you upload the image:
+1. [Een virtuele machine van Windows-installatiekopie uploaden naar Azure voor implementaties van Resource Manager](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) of voor een Linux-installatiekopie, volgt u de instructies die worden beschreven [implementeren Linux virtuele machines op Azure-Stack](azure-stack-linux.md). Voordat u de installatiekopie uploadt, is het belangrijk in de volgende factoren:
 
-   * It's more efficient to upload an image to Azure Stack Blob storage than to Azure Blob storage because it takes less time to push the image to the Azure Stack image repository. 
+   * Het is efficiënter een installatiekopie uploaden naar Azure Stack Blob-opslag dan naar Azure Blob-opslag omdat kost het minder tijd om de installatiekopie naar de Stack van Azure-opslagplaats voor installatiekopieën. 
    
-   * When uploading the [Windows VM image](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), make sure to substitute the **Login to Azure** step with the [Configure the Azure Stack operator's PowerShell environment](azure-stack-powershell-configure-admin.md)  step.  
+   * Wanneer u uploadt de [Windows VM-installatiekopie](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), Vervang door de **aanmelden bij Azure** stap met het [configureren van de Azure-Stack-operator PowerShell-omgeving](azure-stack-powershell-configure-admin.md) stap.  
 
-   * Make a note of the Blob storage URI where you upload the image, which is in the following format: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd
+   * Noteer de URI waar u de installatiekopie van het uploaden van Blob-opslag. De Blob storage-URI heeft de volgende indeling:  *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* VHD.
 
-   * To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded to **Blob,** and then select **Access Policy**. If you want, you can instead generate a shared access signature for the container and include it as part of the blob URI.
+   * U kunt de blob anoniem toegankelijk maken, gaat u naar de storage-account blob-container waar de VHD van de VM-installatiekopie is geüpload. Selecteer **Blob**, en selecteer vervolgens **toegangsbeleid**. Eventueel, kunt u in plaats daarvan een shared access signature voor de container genereren en opnemen als onderdeel van de blob-URI.
 
-   ![Navigate to storage account blobs](./media/azure-stack-add-vm-image/image1.png)
+   ![Ga naar de storage-account blobs](./media/azure-stack-add-vm-image/image1.png)
 
-   ![Set blob access to public](./media/azure-stack-add-vm-image/image2.png)
+   ![Set blob toegang tot openbare](./media/azure-stack-add-vm-image/image2.png)
 
-2. Sign in to Azure Stack as operator > From the menu, click **More services** > **Resource Providers** > select  **Compute** > **VM images** > **Add**
+2. Aanmelden bij Azure Stack als operator. Selecteer in het menu **meer services** > **Resourceproviders**. Selecteer **Compute** > **VM-installatiekopieën** > **toevoegen**.
 
-3. On the **Add a VM Image** blade, enter the publisher, offer, SKU, and version of the virtual machine image. These name segments refer to the VM image in Resource Manager templates. Make sure to select the **osType** correctly. For **OD Disk Blob URI**, enter the Blob URI where the image was uploaded and click **Create** to begin creating the VM Image.
+3. Onder **een VM-installatiekopie toe te voegen**, voer de uitgever, aanbieding, SKU en versie van de installatiekopie van de virtuele machine. Deze segmenten naam verwijzen naar de VM-installatiekopie in de Resource Manager-sjablonen. Zorg ervoor dat u selecteert de **besturingssysteemtype** correct waarde. Voor **OD schijf Blob-URI**, voer de Blob-URI waar de installatiekopie is geüpload. Selecteer **maken** om te beginnen met het maken van de VM-installatiekopie.
    
-   ![Begin to create the image](./media/azure-stack-add-vm-image/image4.png)
+   ![Begin met het maken van de installatiekopie](./media/azure-stack-add-vm-image/image4.png)
 
-   When the image is successfully created, the VM image status changes to ‘Succeeded’.
+   Wanneer de installatiekopie is gemaakt, verandert de status van de installatiekopie van virtuele machine in **geslaagd**.
 
-4. To make the virtual machine image more readily available for user consumption in the UI, it is best to [create a Marketplace item](azure-stack-create-and-publish-marketplace-item.md).
+4. Als u de installatiekopie van de virtuele machine meer gemakkelijk beschikbaar voor consumptie van de gebruiker in de gebruikersinterface, is een goed idee om [een Marketplace-item maken](azure-stack-create-and-publish-marketplace-item.md).
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Volgende stappen
 
-[Provision a virtual machine](azure-stack-provision-vm.md)
+[Een virtuele machine inrichten](azure-stack-provision-vm.md)
