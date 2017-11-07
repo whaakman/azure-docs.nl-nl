@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/27/2017
-ms.openlocfilehash: 56a79906a0f43f06d35db703d641f547e7bdf868
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 048d734277f855086a48ad00a52b873adbf419b4
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="classifying-iris-part-3-deploy-a-model"></a>Classificeren van Iris deel 3: een model implementeren
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
@@ -85,15 +85,15 @@ Om de webservice te implementeren, hebt nu niet alleen het modelbestand nodig, m
 
    ![Scoring-bestand](media/tutorial-classifying-iris/model_data_collection.png)
 
-4. Voer het script uit om het schemabestand te maken. Kies de omgeving **local** en het script **iris_score.py** in de opdrachtbalk en klik vervolgens op de knop **Run**. 
+4. Voer het script uit om het schemabestand te maken. Kies de omgeving **local** en het script **iris-score.py** in de opdrachtbalk en klik vervolgens op de knop **Run**. 
 
 5. Dit script maakt een JSON-bestand in de map **outputs**, met daarin het schema voor invoergegevens dat is vereist voor het model.
 
-6. U ziet het deelvenster Jobs aan de rechterkant van het venster Machine Learning Workbench. Wacht tot de meest recente taak **iris\_score.py** groen wordt weergegeven met de status **Completed**. Klik vervolgens op de hyperlink **iris\__score.py [1]** voor de laatste taak om de details van de uitvoering van de run **iris_score.py** te zien. 
+6. U ziet het deelvenster Jobs aan de rechterkant van het venster Machine Learning Workbench. Wacht tot de meest recente **iris-score.py**-taak groen wordt weergegeven met de status **Completed**. Klik vervolgens op de hyperlink **iris-score.py [1]** voor de laatste taak om de details van de uitvoering van de run **iris-score.py** te zien. 
 
 7. Ga op de pagina Run Properties naar de sectie **Outputs** en selecteer het zojuist gemaakte bestand **service_schema.json**. **Controleer** het bestand en klik op **Download**. Sla het bestand op in de hoofdmap van het project.
 
-8. Ga terug naar het vorige tabblad, waar u het script **iris_score.py** hebt geopend. 
+8. Ga terug naar het vorige tabblad, waar u het script **iris-score.py** hebt geopend. 
 
    Let op het gebruik van gegevensverzameling waarmee het mogelijk is om modelinvoer en voorspellingen van de webservice vast te leggen. De volgende punten zijn met name van belang voor gegevensverzameling:
 
@@ -120,6 +120,9 @@ Om de webservice te implementeren, hebt nu niet alleen het modelbestand nodig, m
    ```
 
 U kunt uw omgeving nu gaan voorbereiden voor het operationeel maken van het model.
+
+>[!NOTE]
+>Voor het implementeren van modellen, moet u als eigenaar toegang hebben tot een Azure-abonnement.
 
 ## <a name="prepare-to-operationalize-locally"></a>Voorbereiden op operationeel maken in lokale omgeving
 Gebruik de implementatie _lokale modus_ voor uitvoering in Docker-containers op uw lokale computer.
@@ -201,7 +204,7 @@ U kunt nu de realtime webservice gaan maken.
 1. Gebruik de volgende opdracht om een realtime webservice te maken:
 
    ```azurecli
-   az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f iris-score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
    ```
    Hiermee wordt een id voor de webservice gegenereerd die u later kunt gebruiken.
 
@@ -241,7 +244,7 @@ Als alternatief voor de opdracht **az ml service create realtime** hierboven, ku
    Om een manifest te maken, gebruikt u deze opdracht en geeft u de model-id op die in de vorige stap is gegenereerd:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f iris_score.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f iris-score.py -r python -i <model ID> -s service_schema.json
    ```
    Er wordt nu een id voor het manifest gegenereerd.
 
@@ -296,7 +299,7 @@ Test de webservice **irisapp** door deze uit te voeren met een JSON-record die e
 
 3. Typ **opslagaccount** in het zoekvak en druk op **Enter**.
 
-4. Selecteer op de pagina met zoekresultaten voor **opslagaccounts het****opslagaccount** dat overeenkomt met uw omgeving. 
+4. Selecteer op de pagina met zoekresultaten voor**opslagaccount** s het **opslagaccount** dat overeenkomt met uw omgeving. 
 
    > [!TIP]
    > Om te bepalen welk opslagaccount wordt gebruikt: open Azure Machine Learning Workbench, selecteer het project waaraan u werkt en open de opdrachtprompt via het menu **File**. Typ `az ml env show -v` bij de opdrachtprompt en controleer de waarde voor *storage_account*. Dit is de naam van uw opslagaccount.
