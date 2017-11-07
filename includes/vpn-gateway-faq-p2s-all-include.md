@@ -8,6 +8,7 @@ De volgende clientbesturingssystemen worden ondersteund:
 * Windows 8.1 (32-bits en 64-bits)
 * Windows Server 2012 (alleen 64-bits)
 * Windows Server 2012 R2 (alleen 64-bits)
+* Windows Server 2016 (alleen 64-bits)
 * Windows 10
 * OSX versie 10.11 voor Mac (El Capitan)
 * macOS version 10.12 voor Mac (Sierra)

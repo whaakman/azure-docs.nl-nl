@@ -1,6 +1,6 @@
 ---
-title: Welke workloads kunt u met Azure Site Recovery beveiligen?
-description: "Azure Site Recovery beveiligt uw workloads en toepassingen door de replicatie, failovers en het herstel van on-premises virtuele machines en fysieke servers naar Azure of een secundaire on-premises site te coördineren."
+title: Welke workloads kunt u met Azure Site Recovery beveiligen? | Microsoft Docs
+description: Hierin worden de workloads beschreven die met behulp van herstel na noodgevallen kunnen worden beveiligd met de service Azure Site Recovery.
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/08/2017
+ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Welke workloads kunt u met Azure Site Recovery beveiligen?
-Dit artikel beschrijft de workloads en toepassingen die u met Azure Site Recovery kunt repliceren.
 
-U kunt onder aan dit artikel of op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) opmerkingen of vragen plaatsen.
+Dit artikel beschrijft de workloads en toepassingen die u met [Azure Site Recovery](site-recovery-overview.md) kunt repliceren.
+
+
 
 ## <a name="overview"></a>Overzicht
+
 Organisaties hebben een BCDR-strategie (strategie voor bedrijfscontinuïteit en noodherstel) nodig om workloads en gegevens veilig en beschikbaar te houden tijdens geplande en ongeplande uitval en om ervoor te zorgen dat deze zo snel mogelijk worden hersteld naar een normale manier van functioneren.
 
 Site Recovery is een Azure-service die deel uitmaakt van uw BCDR-strategie. Met Site Recovery kunt u de toepassingsbewuste replicatie naar de cloud of naar een secundaire site implementeren. U kunt Site Recovery gebruiken om replicatie, noodhersteltests, failovers en failbacks uit te voeren. Hierbij maakt het niet uit of u Windows-apps of Linux-apps gebruikt, en of deze worden uitgevoerd op fysieke servers of op virtuele VMware- of Hyper-V-machines.
@@ -33,6 +35,7 @@ Site Recovery is een Azure-service die deel uitmaakt van uw BCDR-strategie. Met 
 Site Recovery kan worden geïntegreerd met diverse Microsoft-toepassingen, waaronder SharePoint, Exchange, Dynamics, SQL Server en Active Directory. Microsoft werkt ook nauw samen met toonaangevende leveranciers zoals Oracle, SAP en Red Hat. U kunt replicatie-oplossingen per app aanpassen.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>Waarom u Site Recovery moet gebruiken voor het repliceren van toepassingen
+
 Site Recovery biedt als volgt beveiliging op toepassingsniveau en herstel:
 
 * Toepassingsonafhankelijk, met replicatie voor alle workloads die worden uitgevoerd op een ondersteunde machine.
@@ -157,4 +160,5 @@ Gebruik Site Recovery om de Citrix XenApp- en XenDesktop-implementaties te bevei
 [Meer informatie](site-recovery-citrix-xenapp-and-xendesktop.md) over het beveiligen van Citrix XenApp- en XenDesktop-implementaties. U kunt ook [dit technische document van Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) raadplegen, waarin deze informatie eveneens is opgenomen.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Vereisten controleren](site-recovery-prereq.md)
+
+[Aan de slag](azure-to-azure-quickstart.md) met Azure-VM-replicatie.

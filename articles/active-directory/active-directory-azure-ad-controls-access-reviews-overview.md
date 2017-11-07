@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.openlocfilehash: d803e814828132aa5c8355de6192e45cd9e902b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebeff09a16ca7ecb4214cbccb31ffcfb2c512f7c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-ad-access-reviews-preview"></a>Azure AD-toegangsbeoordelingen (preview)
 
-Met toegangsbeoordelingen kunnen organisaties op efficiënte manier groepslidmaatschappen en de toegang tot bedrijfstoepassingen beheren. 
+Met Azure Active Directory (Azure AD)-toegangsbeoordelingen kunnen organisaties op efficiënte wijze groepslidmaatschappen en de toegang tot bedrijfstoepassingen beheren. 
 
 ## <a name="what-can-you-do-with-access-reviews"></a>Wat kunt u doen met toegangsbeoordelingen?
    
-- U kunt gasttoegang opnieuw certificeren met beoordelingen van hun toegang tot toepassingen en lidmaatschappen van groepen gebruiken, met inzichten waarmee beoordelaars efficiënt kunnen beslissen of gasten blijvende toegang moeten hebben.
+- U kunt toegang voor gastgebruikers opnieuw certificeren door gebruik te maken van toegangsbeoordelingen van hun toegang tot toepassingen en lidmaatschappen van groepen. Beoordelaars kunnen de verstrekte inzichten gebruiken om effectief te besluiten of gasten voortgaande toegang moeten hebben.
       
-- U kunt werknemerstoegang tot toepassingen en groepslidmaatschappen opnieuw certificeren met toegangsbeoordelingen.
+- Met toegangsbeoordelingen kunt u de toegang van werknemers voor toepassingen en groepslidmaatschappen opnieuw certificeren.
    
-- U kunt de controles van toegangsbeoordelingen verzamelen in programma's die relevant zijn voor uw organisatie, om beoordelingen bij te houden voor naleving of risicogevoelige toepassingen.
+- U kunt controles van toegangsbeoordelingen verzamelen in programma's die relevant zijn voor uw organisatie, om beoordelingen bij te houden voor naleving of risicogevoelige toepassingen.
     
 
 ## <a name="next-steps"></a>Volgende stappen

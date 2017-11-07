@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/29/2017
+ms.date: 11/01/2017
 ms.author: arramac
-ms.openlocfilehash: c184b02f46ac2ad66c6ce607967a687c82d31477
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a399a3a7979f6165d26eb48505242976d51e64f
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Inleiding tot Azure Cosmos DB: tabel-API
 
@@ -38,10 +38,10 @@ Het is raadzaam om eerst de volgende video te bekijken, waarin Aravind Ramachand
 > 
 > 
 
-## <a name="premium-and-standard-table-apis"></a>Premium- en Standard-table-API's
-Als u momenteel gebruikmaakt van Table-opslag, levert overstappen naar de preview-versie van (de premium tabellen van) Azure Cosmos DB de volgende voordelen op:
+## <a name="table-offerings"></a>Aanbiedingen voor Table
+Als u momenteel gebruikmaakt van Azure Table-opslag, levert overstappen naar de preview-versie van de Azure Cosmos DB Table-API de volgende voordelen op:
 
-| | Azure Table Storage | Azure Cosmos DB: tabelopslag (preview-versie) |
+| | Azure-tabelopslag | Azure Cosmos DB Table-API (preview) |
 | --- | --- | --- |
 | Latentie | Snel, maar geen bovengrens voor latentie. | Latentie van slechts enkele milliseconden voor lees- en schrijfbewerkingen, ondersteund door <10 ms latentie voor leesbewerkingen en <15 ms latentie voor schrijfbewerkingen in het 99e percentiel, op elke schaal, overal ter wereld. |
 | Doorvoer | Model voor variabele doorvoersnelheid. Tabellen hebben een schaalbaarheidslimiet van 20.000 bewerkingen/sec. | Zeer schaalbaar met [toegewezen gereserveerde doorvoer per tabel](request-units.md), op basis van serviceovereenkomsten. Accounts hebben geen bovengrens voor doorvoer en bieden ondersteuning voor > 10 miljoen bewerkingen/sec per tabel. |

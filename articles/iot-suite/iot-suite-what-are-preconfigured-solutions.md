@@ -1,6 +1,6 @@
 ---
-title: Vooraf geconfigureerde Azure IoT-oplossingen | Microsoft Docs
-description: Een beschrijving van de vooraf geconfigureerde IoT Azure-oplossingen en hun architectuur, met koppelingen naar aanvullende resources.
+title: Overzicht van vooraf geconfigureerde Azure IoT Suite-oplossingen | Microsoft Docs
+description: Een beschrijving van de vooraf geconfigureerde Azure IoT Suite-oplossingen en hun architectuur, met links naar aanvullende resources.
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,33 +15,50 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: e0e79cb3b4c71c5d424f3b46af72fcb8b2f63ead
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 502b7678e0c47f594291409a9ede976dea3895e5
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>Wat zijn de vooraf geconfigureerde Azure IoT Suite-oplossingen?
+# <a name="what-is-azure-iot-suite"></a>Wat is Azure IoT Suite?
 
-De vooraf geconfigureerde Azure IoT Suite-oplossingen zijn implementaties van algemene IoT-oplossingspatronen die u in Azure kunt implementeren met behulp van uw abonnement. U kunt de vooraf geconfigureerde oplossingen gebruiken:
+Azure IoT Suite is een verzameling van *vooraf geconfigureerde oplossingen* met de volgende eigenschappen:
 
-* Als een beginpunt voor uw eigen IoT-oplossingen.
-* Voor meer informatie over algemene patronen bij het ontwerpen en ontwikkelen van IoT-oplossingen.
+* Ze implementeren binnen een paar minuten
+* Ze helpen u snel aan de slag te gaan
+* U kunt ze aanpassen aan uw specifieke vereisten
 
-Elke vooraf geconfigureerde oplossing is een volledige totaalimplementatie die gesimuleerde apparaten gebruikt om telemetrie te genereren.
+De vooraf geconfigureerde oplossingen van *IoT Suite* zijn ontworpen volgens dezelfde beginselen en doelstellingen.
 
-U kunt de volledige broncode downloaden om de oplossing aan te passen en uit te breiden om te voldoen aan uw specifieke IoT-vereisten.
+## <a name="preconfigured-solutions-overview"></a>Overzicht van vooraf geconfigureerde oplossingen
 
-> [!NOTE]
-> Als u een van de vooraf geconfigureerde oplossingen wilt implementeren, gaat u naar [Microsoft Azure IoT Suite][lnk-azureiotsuite]. In het artikel [Get started with the IoT preconfigured solutions][lnk-getstarted-preconfigured] (Aan de slag met de vooraf geconfigureerde IoT-oplossingen) vindt u meer informatie over het implementeren en uitvoeren van een van de oplossingen.
+Een vooraf geconfigureerde oplossing is een open-source implementatie van algemene IoT-oplossingspatronen die u in Azure kunt implementeren met behulp van uw abonnement. Elke vooraf geconfigureerde oplossing combineert aangepaste code en Azure-services om een specifiek IoT-scenario of IoT-scenario's te implementeren. U kunt elk scenario aanpassen aan uw specifieke vereisten. Deze scenario's omvatten:
+
+* Gegevens in een uitgebreide dashboard visualiseren voor diepe inzichten en oplossingsstatus.
+* Regels en alarmen configureren via live IoT-apparaattelemetrie.
+* Apparaatbeheertaken plannen, zoals updates voor software en configuratie.
+* Uw eigen aangepaste fysieke of gesimuleerde apparaten inrichten.
+* Problemen oplossen binnen uw IoT-apparaatgroepen.
+
+Elke vooraf geconfigureerde oplossing is een volledige totaalimplementatie die gesimuleerde of fysieke apparaten kan gebruiken om telemetrie te genereren. U kunt de vooraf geconfigureerde oplossingen als oplossingaccelerators gebruiken voor het volgende:
+
+* Een beginpunt voor uw eigen IoT-oplossingen bieden.
+* Meer informatie krijgen over algemene patronen bij het ontwerpen en ontwikkelen van IoT-oplossingen.
+
+Er zijn momenteel drie vooraf geconfigureerde oplossingen beschikbaar:
+
+* [Externe bewaking](iot-suite-remote-monitoring-explore.md)
+* [Predictief onderhoud](iot-suite-predictive-overview.md)
+* [Verbonden factory](iot-suite-connected-factory-overview.md)
 
 De volgende tabel toont u hoe de oplossingen aan specifieke IoT-functies zijn toegewezen:
 
-| Oplossing | Gegevensopname | Apparaat-id | Apparaatbeheer | Opdracht en controle | Regels en acties | Predictive analytics |
-| --- | --- | --- | --- | --- | --- | --- |
-| [Externe bewaking][lnk-getstarted-preconfigured] |Ja |Ja |Ja |Ja |Ja |- |
-| [Voorspeld onderhoud][lnk-predictive-maintenance] |Ja |Ja |- |Ja |Ja |Ja |
-| [Verbonden factory][lnk-getstarted-factory] |Ja |Ja |Ja |Ja |Ja |- |
+| Oplossing | Gegevensopname | Apparaat-id | Apparaatbeheer | Randbewerking | Opdracht en controle | Regels en acties | Predictive analytics |
+| ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
+| [Externe bewaking](iot-suite-remote-monitoring-explore.md)  |Ja |Ja |Ja |-   |Ja |Ja |-   |
+| [Predictief onderhoud](iot-suite-predictive-overview.md)   |Ja |Ja |-   |-   |Ja |Ja |Ja |
+| [Verbonden factory](iot-suite-connected-factory-overview.md) |Ja |Ja |Ja |Ja |Ja |Ja |-   |
 
 * *Gegevensopname*: instroom van gegevens op de gewenste schaal in de cloud.
 * *Apparaat-id*: beheer unieke apparaat-id's en regel de toegang van apparaten tot de oplossing.
@@ -50,128 +67,84 @@ De volgende tabel toont u hoe de oplossingen aan specifieke IoT-functies zijn to
 * *Regels en acties*: de back-end van de oplossing gebruikt regels om te reageren op specifieke apparaat-naar-cloudgegevens.
 * *Predictive analytics*: de back-end van de oplossing analyseert apparaat-naar-cloudgegevens om te voorspellen wanneer bepaalde acties moeten plaatsvinden. Zo kan de telemetrie van vliegtuigmotoren worden geanalyseerd om te bepalen wanneer motoronderhoud is vereist.
 
-## <a name="remote-monitoring-preconfigured-solution-overview"></a>Overzicht van vooraf geconfigureerde oplossing voor externe controle
+> [!NOTE]
+> Als u een vooraf geconfigureerde oplossing wilt implementeren en meer wil weten over hoe u deze kunt aanpassen, gaat u naar [Microsoft Azure IoT Suite](https://www.azureiotsuite.com/).
 
-We hebben ervoor gekozen om in dit artikel de vooraf geconfigureerde oplossing voor externe controle te bespreken omdat dit veel voorkomende ontwerpelementen illustreert die de andere oplossingen ook gebruiken.
+## <a name="azure-services"></a>Azure-services
 
-Het volgende diagram illustreert de belangrijkste elementen van de oplossing voor externe controle. De volgende secties bevatten meer informatie over deze elementen.
+Wanneer u een vooraf geconfigureerde oplossing implementeert, wordt in het inrichtingsproces een aantal Azure-services geconfigureerd. De volgende tabel toont de services die in de vooraf geconfigureerde oplossingen worden gebruikt:
 
-![Architectuur van de vooraf geconfigureerde oplossing voor externe controle][img-remote-monitoring-arch]
+|                      | Externe bewaking  | Voorspellend onderhoud | Verbonden factory |
+| -------------------- | ------------------ | ---------------------- | ----------------- |
+| IoT Hub              | Ja                |                        | Ja               |
+| Event Hubs           |                    | Ja                    |                   |
+| Time Series Insights |                    |                        | Ja               |
+| Containerservices   | Ja                |                        | Ja               |
+| Stream Analytics     |                    | Ja                    |                   |
+| Web Apps             | Ja                | Ja                    | Ja               |
+| Cosmos DB            | Ja                | Ja                    | Ja               |
+| Azure-tabellen         |                    | Ja                    | Ja               |
 
-## <a name="devices"></a>Apparaten
+* [Azure IoT Hub](../iot-hub/index.md). Deze service verzorgt de berichtgeving van het apparaat naar de cloud en van de cloud naar het apparaat, en fungeert als toegangspoort tot de cloud en de andere belangrijke IoT Suite-services. Door deze service kunt u op grote schaal berichten ontvangen van uw apparaten en opdrachten naar uw apparaten verzenden. Met deze service kunt u ook [uw apparaten beheren](../iot-hub/iot-hub-device-management-overview.md). U kunt bijvoorbeeld een of meer apparaten die zijn verbonden met de hub configureren, opnieuw opstarten of hierop de fabrieksinstellingen terugzetten.
+* [Azure Event Hubs](../event-hubs/index.md). Deze service biedt gebeurtenisopname naar de cloud met grote volumes. Zie [Comparison of Azure IoT Hub and Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md) (Vergelijking van Azure IoT Hub en Azure Event Hubs).
+* [Azure Time Series Insights](../time-series-insights/index.md). De vooraf geconfigureerde oplossingen gebruiken deze service om de telemetriegegevens van uw apparaten te analyseren en weer te geven.
+* [Azure Container Service](../container-service/index.yml). Deze service host en beheert de microservices in de vooraf geconfigureerde oplossingen.
+* [Azure Cosmos DB](../cosmos-db/index.yml) en [Azure Storage](../storage/index.yml) voor gegevensopslag.
+* [Azure Stream Analytics](../stream-analytics/index.md). De vooraf geconfigureerde oplossing voor predictief onderhoud gebruikt deze service om binnenkomende telemetriegegevens te verwerken, aggregatiebewerkingen uit te voeren en gebeurtenissen te detecteren. Deze vooraf geconfigureerde oplossing maakt ook gebruik van Stream Analytics voor het verwerken van informatieve berichten met gegevens, zoals metagegevens of reacties van apparaten op opdrachten.
+* [Azure Web Apps](../app-service/index.yml) voor het hosten van aangepaste toepassingscode in de vooraf geconfigureerde oplossingen.
 
-Wanneer u de vooraf geconfigureerde oplossing voor externe controle implementeert, zijn in de oplossing vooraf vier gesimuleerde apparaten ingericht die een koelapparaat simuleren. Deze gesimuleerde apparaten hebben een ingebouwd temperatuur- en vochtigheidsmodel dat telemetrie verzendt. Deze gesimuleerde apparaten zijn opgenomen om:
+Zie [Microsoft Azure en het Internet of Things (IoT)](iot-suite-what-is-azure-iot.md) voor een overzicht van de architectuur van een typische IoT-oplossing.
 
-- De end-to-end-stroom van gegevens via de oplossing te illustreren.
-- Een handige bron van telemetrie te verstrekken.
-- Een doel te verstrekken voor methoden of opdrachten als u een back-endontwikkelaar bent die de oplossing gebruikt als uitgangspunt om een aangepaste implementatie te maken.
+## <a name="whats-new-in-preconfigured-solutions"></a>Wat is er vernieuwd voor vooraf geconfigureerde oplossingen?
 
-De gesimuleerde apparaten in de oplossing kunnen reageren op de volgende communicaties van cloud naar apparaat:
+Microsoft werkt de vooraf geconfigureerde oplossingen bij naar een nieuwe architectuur op basis van microservices. De volgende tabel toont de huidige status van de vooraf geconfigureerde oplossingen:
 
-- *Methoden ([directe methoden][lnk-direct-methods])*: een methode voor communicatie in twee richtingen, waarbij van een verbonden apparaat wordt verwacht dat het direct reageert.
-- *Opdrachten (berichten van cloud naar apparaat)*: een methode voor communicatie in één richting, waarbij een apparaat de opdracht ophaalt uit een duurzame wachtrij.
+| Vooraf geconfigureerde oplossing | Architectuur  | Talen     |
+| ---------------------- | ------------- | ------------- |
+| Externe bewaking      | Microservices | Java en .NET |
+| Voorspellend onderhoud | MVC           | .NET          |
+| Verbonden factory      | MVC           | .NET          |
 
-Zie [Cloud-to-device communications guidance][lnk-c2d-guidance] (Richtlijnen voor communicatie tussen cloud en apparaat) voor een vergelijking van deze verschillende methoden.
+In de volgende gedeeltes wordt beschreven wat er is vernieuwd in de vooraf geconfigureerde oplossingen op basis van microservices:
 
-Wanneer een apparaat in de vooraf geconfigureerde oplossing voor het eerst verbinding maakt met IoT Hub, stuurt het apparaat een bericht met apparaatgegevens naar de hub. Dit bericht bevat met een opsomming van de methoden waarop het apparaat kan reageren. In de vooraf geconfigureerde oplossing voor externe controle ondersteunen gesimuleerde apparaten de volgende methoden:
+### <a name="microservices"></a>Microservices
 
-* *InitiateFirmwareUpdate*: deze methode initieert een asynchrone taak op het apparaat om een firmware-update uit te voeren. De asynchrone taak gebruikt gerapporteerde eigenschappen om statusupdates aan het oplossingsdashboard te leveren.
-* *Reboot*: deze methode zorgt ervoor dat het gesimuleerde apparaat opnieuw wordt opgestart.
-* *FactoryReset*: deze methode zorgt ervoor dat de fabrieksinstellingen op het gesimuleerde apparaat worden teruggezet.
+De nieuwe versie van de vooraf geconfigureerde oplossing voor externe bewaking maakt gebruik van een architectuur op basis van microservices. Deze vooraf geconfigureerde oplossing bestaat uit meerdere microservices, zoals *IoT Hub-beheer* en *Storage-beheer*. Er zijn Java- en .NET-versies van elke microservice beschikbaar om te downloaden, samen met de bijbehorende ontwikkelaarsdocumentatie. Zie [Architectuur voor externe bewaking](iot-suite-remote-monitoring-sample-walkthrough.md) voor meer informatie over de microservices.
 
-Wanneer een apparaat in de vooraf geconfigureerde oplossing voor het eerst verbinding maakt met IoT Hub, stuurt het apparaat een bericht met apparaatgegevens naar de hub. Dit bericht bevat met een opsomming van de opdrachten waarop het apparaat kan reageren. In de vooraf geconfigureerde oplossing voor externe controle ondersteunen gesimuleerde apparaten de volgende opdrachten:
+Deze architectuur op basis van microservices is een beproefd patroon voor cloudoplossingen met de volgende eigenschappen:
 
-* *PingDevice*: Het apparaat reageert op deze opdracht met een bevestiging. Deze opdracht is handig om te controleren of het apparaat nog steeds actief is en luistert.
-* *StartTelemetry*: hiermee geeft u het apparaat de opdracht om te beginnen met het verzenden van telemetrie.
-* *StopTelemetry*: hiermee geeft u het apparaat de opdracht om te stoppen met het verzenden van telemetrie.
-* *ChangeSetPointTemperature*: bepaalt de telemetriewaarden van de gesimuleerde temperatuur die het apparaat verzendt. Deze opdracht is handig voor het testen van back-endlogica.
-* *DiagnosticTelemetry*: bepaalt of het apparaat de externe temperatuur als telemetrie moet verzenden.
-* *ChangeDeviceState*: stelt de eigenschap voor metagegevens van de apparaatstatus in die met het apparaat wordt gerapporteerd. Deze opdracht is handig voor het testen van back-endlogica.
+* Het is schaalbaar.
+* Het maakt uitbreidbaarheid mogelijk.
+* Het is eenvoudig te begrijpen.
+* Het stelt u in staat afzonderlijke services voor alternatieven te wisselen.
 
-U kunt aan de oplossing meer gesimuleerde apparaten toevoegen die dezelfde telemetrie verzenden en reageren op dezelfde methoden en opdrachten.
+> [!TIP]
+> Zie [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (.NET-toepassingsarchitectuur) en [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservices: een toepassingsrevolutie aangedreven door de cloud) voor meer informatie over microservicearchitectuur.
 
-Naast het reageren op opdrachten en methoden maakt de oplossing gebruik van [apparaatdubbels][lnk-device-twin]. Apparaten gebruiken apparaatdubbels om eigenschapswaarden aan de back-end van de oplossing te rapporteren. Het oplossingsdashboard maakt gebruik van apparaatdubbels om nieuwe gewenste eigenschapswaarden op apparaten in te stellen. Tijdens het firmware-updateproces meldt het gesimuleerde apparaat bijvoorbeeld de status van de update met behulp van gerapporteerde eigenschappen.
+Wanneer u de nieuwe versie van externe bewaking implementeert, moet u een van de volgende implementatieopties selecteren:
 
-## <a name="iot-hub"></a>IoT Hub
+* **Basic:** voordelige versie voor een demonstratie of het testen van een implementatie. Alle microservices worden geïmplementeerd op een enkele virtuele Azure-machine.
+* **Enterprise:** uitgebreide infrastructuurimplementatie voor het ontwikkelen van een productie-implementatie. De Azure Container Service implementeert de microservices naar meerdere virtuele Azure-machines. Kubernetes deelt de Docker-containers in die de afzonderlijke microservices hosten.
 
-In deze vooraf geconfigureerde oplossing komt de IoT Hub-instantie overeen met de *cloudgateway* in een typische [IoT-oplossingsarchitectuur][lnk-what-is-azure-iot].
+### <a name="language-choices-java-and-net"></a>Computertalen: Java en .NET
 
-IoT Hub ontvangt telemetrie van de apparaten op één eindpunt. IoT Hub onderhoudt ook apparaatspecifieke eindpunten waar met elk apparaat de verzonden opdrachten kunnen worden opgehaald.
+Implementaties van elk van de microservices zijn in zowel Java als .NET beschikbaar. De Java-broncode is open-source, net als de .NET-code, en u kunt deze aan uw specifieke behoeften aanpassen:
 
-IoT Hub stelt de ontvangen telemetrie beschikbaar via het eindpunt voor het lezen van telemetrie aan servicezijde.
+* [.NET GitHub-opslagplaats voor externe bewaking](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
+* [Java GitHub-opslagplaats voor externe bewaking](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 
-Met de IoT Hub-functie voor apparaatbeheer kunt u de apparaateigenschappen beheren vanuit de oplossingsportal en taken plannen die bewerkingen uitvoeren, zoals:
+Als u andere taalimplementaties wilt zien, voegt u een aanvraag toe aan [Azure IoT user voice](https://feedback.azure.com/forums/321918-azure-iot).
 
-- Apparaten opnieuw opstarten
-- Apparaatstatussen wijzigen
-- Firmware-updates
+### <a name="react-user-interface-framework"></a>Framework voor gebruikersinterface van React
 
-## <a name="azure-stream-analytics"></a>Azure Stream Analytics
-
-De vooraf geconfigureerde oplossing maakt gebruik van drie [Azure Stream Analytics][lnk-asa]-jobs (ASA) voor het filteren van de telemetriestroom vanaf de apparaten:
-
-* *De job DeviceInfo* voert gegevens uit naar een Event Hub die apparaatregistratiespecifieke berichten doorstuurt naar het apparaatregister van de oplossing. Dit apparaatregister is een Azure Cosmos DB-database. Deze berichten worden verzonden wanneer een apparaat de eerste keer verbinding maakt of reageert op een opdracht voor het **wijzigen van de apparaatstatus**.
-* *De job Telemetry* verzendt alle onbewerkte telemetrie naar Azure Blob Storage voor koude opslag en berekent telemetrieaggregaties die op het dashboard van de oplossing worden weergegeven.
-* *De job Rules* filtert de telemetriestroom op waarden die groter zijn dan regeldrempelwaarden en voert de gegevens uit naar een Event Hub. Wanneer een regel wordt gestart, wordt deze gebeurtenis in het portaldashboard van de oplossing weergegeven als een nieuwe rij in de alarmhistorietabel. Deze regels kunnen ook een actie activeren op basis van de instellingen die zijn gedefinieerd in de weergaven **Regels** en **Acties** van de oplossingsportal.
-
-In deze vooraf geconfigureerde oplossing maken de ASA-jobs deel uit van de **back-end van de IoT-oplossing** in een typische [IoT-oplossingsarchitectuur][lnk-what-is-azure-iot].
-
-## <a name="event-processor"></a>Gebeurtenisprocessor
-
-In deze vooraf geconfigureerde oplossing maakt de gebeurtenisprocessor deel uit van de **back-end van de IoT-oplossing** in een typische [IoT-oplossingsarchitectuur][lnk-what-is-azure-iot].
-
-De ASA-jobs **DeviceInfo** en **Rules** verzenden hun uitvoer naar Event Hubs voor levering aan andere back-endservices. De oplossing maakt gebruik van een [EventProcessorHost][lnk-event-processor]-instantie, die in een [WebJob][lnk-web-job] wordt uitgevoerd, om de berichten van deze Event Hubs te lezen. De **EventProcessorHost** gebruikt:
-- De gegevens in **DeviceInfo** om de apparaatgegevens in de Azure Cosmos DB-database bij te werken.
-- De gegevens in **Regels** om de logische app aan te roepen en de weergave Waarschuwingen in de portal van de oplossing bij te werken.
-
-## <a name="device-identity-registry-device-twin-and-cosmos-db"></a>Register voor apparaat-id's, apparaatdubbel en Cosmos DB
-
-Elke IoT Hub bevat een [register voor apparaat-id's][lnk-identity-registry] waarin apparaatsleutels worden opgeslagen. IoT Hub gebruikt deze informatie om apparaten te verifiëren; een apparaat moet zijn geregistreerd en over een geldige sleutel beschikken voordat het verbinding kan maken met de hub.
-
-Een [apparaatdubbel][lnk-device-twin] is een JSON-document dat wordt beheerd door de IoT Hub. Een apparaatdubbel voor een apparaat bevat:
-
-- Gerapporteerde eigenschappen die door het apparaat naar de hub zijn verzonden. U kunt deze eigenschappen in de oplossingsportal bekijken.
-- Gewenste eigenschappen die u naar het apparaat wilt verzenden. U kunt deze eigenschappen in de oplossingsportal instellen.
-- Tags die alleen in de apparaatdubbel bestaan en niet op het apparaat. U kunt deze tags gebruiken om lijsten van apparaten in de oplossingsportal te filteren.
-
-Deze oplossing gebruikt apparaatdubbels om metagegevens van apparaten te beheren. De oplossing gebruikt ook een Cosmos DB-database. Hierin worden aanvullende oplossingsspecifieke apparaatgegevens opgeslagen, zoals de opdrachten die door elk apparaat worden ondersteund en de opdrachtgeschiedenis.
-
-De oplossing moet ook de gegevens in het register voor apparaat-id's gesynchroniseerd houden met de inhoud van de Cosmos DB-database. **EventProcessorHost** gebruikt de gegevens uit de Stream Analytics-job **DeviceInfo** om de synchronisatie te beheren.
-
-## <a name="solution-portal"></a>Oplossingsportal
-
-![oplossingsportal][img-dashboard]
-
-De oplossingsportal is een webgebaseerde gebruikersinterface die naar de cloud wordt geïmplementeerd als onderdeel van de vooraf geconfigureerde oplossing. Hiermee kunt u:
-
-* De telemetrie- en waarschuwingsgeschiedenis weergeven in een dashboard.
-* Nieuwe apparaten inrichten.
-* Apparaten beheren en controleren.
-* Opdrachten naar specifieke apparaten verzenden.
-* Methoden aanroepen op specifieke apparaten.
-* Regels en acties beheren.
-* Taken plannen die op een of meer apparaten moeten worden uitgevoerd.
-
-In deze vooraf geconfigureerde oplossing maakt de oplossingsportal deel uit van de **back-end van de IoT-oplossing** en van de **verwerkings- en bedrijfsconnectiviteit** in de typische [IoT-oplossingsarchitectuur][lnk-what-is-azure-iot].
+De gebruikersinterface is gebouwd met behulp van de JavaScript-bibliotheek van [React](https://facebook.github.io/react/). De broncode is open-source en u kunt deze downloaden en aanpassen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie [Microsoft Azure IoT services: Reference Architecture][lnk-refarch] (Microsoft Azure IoT-services: referentiearchitectuur) voor meer informatie over IoT-oplossingsarchitecturen.
+Nu dat u een overzicht van de vooraf geconfigureerde IoT Suite-oplossingen hebt, kunt u deze voorgestelde volgende stappen voor elk van de vooraf geconfigureerde oplossingen bekijken:
 
-Nu u weet wat een vooraf geconfigureerde oplossing is, kunt u aan de slag met het implementeren van de vooraf geconfigureerde *externe controle* als oplossing: [Aan de slag met de vooraf geconfigureerde oplossingen][lnk-getstarted-preconfigured].
+* [Verken het Resource Manager-implementatiemodel van de Azure IoT Suite-oplossing voor externe bewaking](iot-suite-remote-monitoring-explore.md).
+* [Overzicht van de vooraf geconfigureerde oplossing voor predictief onderhoud](iot-suite-predictive-overview.md).
+* [Aan de slag met de vooraf geconfigureerde oplossing voor verbonden factory's](iot-suite-connected-factory-overview.md).
 
-[img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
-[img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
-[lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
-[lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
-[lnk-web-job]: ../app-service/web-sites-create-web-jobs.md
-[lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-predictive-maintenance]: iot-suite-predictive-overview.md
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-[lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
-[lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-getstarted-factory]: iot-suite-connected-factory-overview.md
+Zie [Microsoft Azure IoT services: Reference Architecture](http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf) (Microsoft Azure IoT-services: referentiearchitectuur) voor meer informatie over IoT-oplossingsarchitecturen.
