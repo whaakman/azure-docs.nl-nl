@@ -1,14 +1,14 @@
 # Overzicht
 ## [Virtuele netwerken](virtual-networks-overview.md)
-## [Door de gebruiker gedefinieerde routes en doorsturen via IP](virtual-networks-udr-overview.md)
+## [Routering](virtual-networks-udr-overview.md)
 ## [Peering op virtueel netwerk](virtual-network-peering-overview.md)
 ## [Service-eindpunten voor virtueel netwerk](virtual-network-service-endpoints-overview.md)
 ## [Virtueel netwerk voor Azure-services](virtual-network-for-azure-services.md)
 ## [Beveiliging](security-overview.md)
 ## [Bedrijfscontinuïteit](virtual-network-disaster-recovery-guidance.md)
-## [Veelgestelde vragen](virtual-networks-faq.md)
 ## [IP-adressering](virtual-network-ip-addresses-overview-arm.md)
 ## [DDoS-beveiliging](ddos-protection-overview.md)
+## [Veelgestelde vragen](virtual-networks-faq.md)
 ## Klassiek
 ### [IP-adressering](virtual-network-ip-addresses-overview-classic.md)
 ### [Toegangsbeheerlijsten](virtual-networks-acl.md)
@@ -79,7 +79,7 @@
 ##### Klassiek
 ###### [Azure Portal](virtual-networks-static-private-ip-classic-pportal.md)
 ###### [Azure PowerShell](virtual-networks-static-private-ip-classic-ps.md)
-###### [Azure-CLI](virtual-networks-static-private-ip-classic-cli.md)
+###### [Azure CLI](virtual-networks-static-private-ip-classic-cli.md)
 
 #### Een virtuele machine met meerdere netwerkinterfaces maken
 ##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -89,7 +89,7 @@
 
 ##### Klassiek
 ###### [Azure PowerShell](virtual-network-deploy-multinic-classic-ps.md)
-###### [Azure-CLI](virtual-network-deploy-multinic-classic-cli.md)
+###### [Azure CLI](virtual-network-deploy-multinic-classic-cli.md)
 
 #### Een virtuele machine met meerdere IP-adressen maken
 ##### [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
@@ -122,7 +122,7 @@
 #### [Virtueel netwerk](create-virtual-network-classic.md)
 ##### [Azure Portal](virtual-networks-create-vnet-classic-pportal.md)
 ##### [Azure PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [Azure-CLI](virtual-networks-create-vnet-classic-cli.md)
+##### [Azure CLI](virtual-networks-create-vnet-classic-cli.md)
 #### [DNS-instellingen in een virtueel-netwerkconfiguratiebestand opgeven](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 #### [DNS-instellingen in een serviceconfiguratiebestand opgeven](virtual-networks-specifying-dns-settings-in-a-service-configuration-file.md)
 
@@ -183,7 +183,7 @@
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [Azure PowerShell (klassiek)](/powershell/module/azure/)
-## [Azure-CLI](/cli/azure/network)
+## [Azure CLI](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
 ## [REST (klassiek)](https://msdn.microsoft.com/library/jj157182.aspx)

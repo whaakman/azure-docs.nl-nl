@@ -22,6 +22,8 @@
       href: storage-quickstart-blobs-java.md
     - name: Werken met blobs - Python
       href: storage-quickstart-blobs-python.md
+    - name: Werken met blobs - Node.js
+      href: storage-quickstart-blobs-nodejs.md
 - name: Zelfstudies
   items:
     - name: Een installatiekopie uploaden en verwerken

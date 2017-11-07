@@ -78,6 +78,7 @@
 ### [Suggesties](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Facetnavigatie](search-faceted-navigation.md)
 ### [Voorbeeld synoniemen](search-synonyms.md)
+### [Preview moreLikeThis](search-more-like-this.md)
 
 # Naslaginformatie
 
@@ -86,7 +87,7 @@
 ## [Python (beheer)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (beheer)](/rest/api/searchmanagement)
-## [Service REST (voorbeeld)](search-api-2015-02-28-preview.md)
+## [Service REST (voorbeeld)](search-api-2016-09-01-preview.md)
 
 # Resources
 

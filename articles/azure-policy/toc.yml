@@ -15,6 +15,14 @@
   items:
     - name: Azure-beleid maken en beheren
       href: create-manage-policy.md
+- name: Voorbeelden
+  items:
+    - name: Beleidssjablonen
+      href: json-samples.md
+- name: Concepten
+  items:
+    - name: Structuur van Azure-beleidsdefinities
+      href: policy-definition.md
 - name: Naslaginformatie
   items:
     - name: Azure CLI

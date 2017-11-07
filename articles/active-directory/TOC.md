@@ -240,6 +240,7 @@
 ### [Meerdere directory’s beheren](active-directory-licensing-directory-independence.md)
 ### [O365-directory's](active-directory-manage-o365-subscription.md)
 ### [Selfservice registreren](active-directory-self-service-signup.md)
+#### [Een niet-beheerde directory overnemen](domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Inschakelen](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Instellingen voor groepsbeleid](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)

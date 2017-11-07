@@ -79,8 +79,8 @@
       href: concepts-monitoring.md
     - name: Ontwikkeling
       items:
-        - name: Verbindingsbibliotheken
-          href: concepts-connection-libraries.md
+        - name: Compatibiliteit van stuurprogramma's en hulpprogramma's
+          href: concepts-compatibility.md
         - name: Toepassingen ontwikkelen
           href: concepts-database-application-development.md
     - name: Uw database migreren
