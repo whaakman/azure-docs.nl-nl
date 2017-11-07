@@ -1,113 +1,257 @@
 ---
-title: Door de gebruiker gedefinieerde routes en doorsturen via IP in Azure | Microsoft Docs
-description: Meer informatie over het gebruik van door de gebruiker gedefinieerde routes (UDR-route) en doorsturen via IP om verkeer door te sturen naar virtuele apparaten in Azure.
+title: Routering van verkeer in virtueel netwerk van Azure | Microsoft Docs
+description: Lees hier hoe Azure verkeer in virtuele netwerken routeert en hoe u de routering van Azure kunt aanpassen.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: tysonn
-ms.assetid: c39076c4-11b7-4b46-a904-817503c4b486
+manager: jeconnoc
+editor: 
+ms.assetid: 
 ms.service: virtual-network
-ms.devlang: na
+ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
+ms.date: 10/26/2017
 ms.author: jdial
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6274e0101f6fb0864c8d1efaef7fcde78b8760c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: 
+ms.openlocfilehash: ab8689defed59bef362b1f22f78d41923087841d
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/30/2017
 ---
-# <a name="user-defined-routes-and-ip-forwarding"></a>Door de gebruiker gedefinieerde routes en doorsturen via IP
+# <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
 
-Als u virtuele machines (VM's) aan een virtueel netwerk (VNet) in Azure toevoegt, ziet u dat de virtuele machines automatisch met elkaar kunnen communiceren via het netwerk. U hoeft geen gateway op te geven, ook niet als de virtuele machines tot verschillende subnetten behoren. Hetzelfde geldt voor de communicatie tussen VM's en internet. Als er een hybride verbinding is tussen Azure en uw eigen datacentrum, is er zelfs communicatie met uw on-premises netwerk mogelijk.
+Lees hier hoe Azure verkeer routeert tussen Azure, on-premises en resources op internet. Azure maakt automatisch een routetabel voor elk subnet binnen een virtueel Azure-netwerk en voegt standaardysteemroutes toe aan de tabel. Zie [Azure Virtual Network](virtual-networks-overview.md) voor meer informatie over virtuele netwerken en subnetten. U kunt een aantal systeemroutes van Azure vervangen door [aangepaste routes](#custom-routes). Daarnaast kunt u aanvullende aangepaste routes toevoegen aan routetabellen. De route van uitgaand verkeer van een subnet wordt gebaseerd op de routes in de routetabel van een subnet.
 
-Deze communicatiestroom is mogelijk omdat de IP-verkeersstromen in Azure wordt gedefinieerd met behulp van een reeks systeemroutes. Systeemroutes bepalen de communicatiestroom in de volgende scenario's:
+## <a name="system-routes"></a>Systeemroutes
 
-* Binnen een en hetzelfde subnet.
-* Van het ene naar het andere subnet binnen een VNet.
-* Van virtuele machines naar internet.
-* Van het ene naar het andere VNet via een VPN-gateway.
-* Van het ene naar het andere VNet via VNet-peering (servicechaining).
-* Van een VNet naar uw on-premises netwerk via een VPN-gateway.
+Azure maakt automatisch systeemroutes en wijst de routes toe aan elk subnet in een virtueel netwerk. U kunt zelf geen systeemroutes maken en ook niet verwijderen. Het is wel mogelijk om bepaalde systeemroutes te vervangen door [aangepaste routes](#custom-routes). Azure maakt standaardsysteemroutes voor elk subnet en voegt extra, [optionele standaardroutes](#optional-default-routes) naar specifieke subnetten toe, of elk subnet, wanneer u specifieke mogelijkheden van Azure gebruikt.
 
-In de afbeelding hieronder ziet u eenvoudige configuratie met een VNet, twee subnetten en enkele virtuele machines, plus de systeemroutes voor het toestaan van IP-verkeer.
+### <a name="default"></a>Standaard
 
-![Systeemroutes in Azure](./media/virtual-networks-udr-overview/Figure1.png)
+Elke route bevat een adresvoorvoegsel en het volgende hoptype. Wanneer uitgaand verkeer van een subnet wordt verzonden naar een IP-adres binnen het adresvoorvoegsel van een route, is de route met het voorvoegsel de route die door Azure wordt gebruikt. Lees [hoe Azure een route selecteert](#how-azure-selects-a-route) wanneer meerdere routes dezelfde voorvoegsels bevatten, of overlappende voorvoegsels. Wanneer er een virtueel netwerk wordt gemaakt, maakt Azure automatisch de volgende standaardsysteemroutes voor elk subnet in het virtuele netwerk:
 
-Hoewel bij het gebruik van systeemroutes verkeer automatisch wordt gefaciliteerd voor uw implementatie, kunnen er gevallen zijn waarin u pakketten liever wilt routeren via een virtueel apparaat. U kunt hiertoe door de gebruiker gedefinieerde routes maken waarin u de volgende hop voor pakketstromen naar een specifiek subnet opgeeft, zodat de pakketten worden doorgestuurd naar uw virtuele apparaat. Daarvoor schakelt u Doorsturen via IP in voor de virtuele machine die u gebruikt als virtueel apparaat.
 
-In de volgende afbeelding ziet u een voorbeeld van door de gebruiker gedefinieerde routes en doorsturen via IP om af te dwingen dat pakketten die van het ene naar het andere subnet worden verzonden, naar een virtueel apparaat op een derde subnet worden doorgestuurd.
+|Bron |Adresvoorvoegsels                                        |Volgend hoptype  |
+|-------|---------                                               |---------      |
+|Standaard|Uniek voor het virtuele netwerk                           |Virtueel netwerk|
+|Standaard|0.0.0.0/0                                               |Internet       |
+|Standaard|10.0.0.0/8                                              |Geen           |
+|Standaard|172.16.0.0/12                                           |Geen           |
+|Standaard|192.168.0.0/16                                          |Geen           |
+|Standaard|100.64.0.0/10                                           |Geen           |
 
-![Systeemroutes in Azure](./media/virtual-networks-udr-overview/Figure2.png)
+De 'volgende hoptypen' in de bovenstaande tabel bepalen hoe Azure verkeer routeert dat bestemd is voor het vermelde adresvoorvoegsel. Hieronder worden de 'volgende hoptypen' toegelicht:
 
-> [!IMPORTANT]
-> Door de gebruiker gedefinieerde routes worden toegepast op verkeer dat een subnet van een willekeurige resource (zoals netwerkinterfaces gekoppeld aan virtuele machines) in het subnet verlaat. U kunt bijvoorbeeld geen routes maken om op te geven hoe verkeer vanaf internet in een subnet binnenkomt. Het apparaat waarnaar u verkeer doorstuurt, kan zich niet in hetzelfde subnet bevinden als waar het verkeer van afkomstig is. Maak altijd een apart subnet voor uw apparaten. 
-> 
-> 
+- **Virtueel netwerk**: routeert verkeer tussen adresbereiken in de [adresruimte](virtual-network-manage-network.md#add-address-spaces) van een virtueel netwerk. Azure maakt een route met een adresvoorvoegsel dat overeenkomt met elk-adresbereik dat is gedefinieerd in de adresruimte van een virtueel netwerk. Als in de adresruimte van het virtuele netwerk meerdere adresbereiken zijn gedefinieerd, maakt Azure een afzonderlijke route voor elk adresbereik. Verkeer tussen subnetten wordt door Azure automatisch gerouteerd met behulp van de routes die voor elk adresbereik zijn gemaakt. U hoeft geen gateways te definiëren voor Azure voor het routeren van verkeer tussen subnetten. Hoewel een virtueel netwerk subnetten bevat, en elk subnet een gedefinieerd adresbereik heeft, worden er door Azure *geen* standaardroutes gemaakt voor adresbereiken van een subnet. De reden hiervoor is dat elk adresbereik van een subnet binnen een adresbereik valt van de adresruimte van een virtueel netwerk.
 
-## <a name="route-resource"></a>Bron routeren
-Pakketten worden gerouteerd via een TCP/IP-netwerk op basis van een routetabel die op elk knooppunt van het fysieke netwerk is gedefinieerd. Een routetabel is een verzameling van afzonderlijke routes waarmee wordt bepaald waarnaar pakketten worden doorgestuurd op basis van het doel-IP-adres. Een route bestaat uit het volgende:
+- **Internet**: routeert verkeer dat is opgegeven met het adresvoorvoegsel naar internet. De standaardsysteemroute is gekoppeld aan het adresvoorvoegsel 0.0.0.0/0. Als u de standaardroutes van Azure niet overschrijft, stuurt Azure verkeer voor een adres dat niet is opgegeven door een adresbereik binnen een virtueel netwerk, naar internet. Met één uitzondering. Als het doeladres hoort bij een service van Azure, stuurt Azure het verkeer rechtstreeks naar de service. Het verkeer loopt dan via het backbone-netwerk van Azure en wordt dus niet naar internet gerouteerd. Verkeer tussen Azure-services loopt niet via internet, ongeacht de Azure-regio waarin het virtuele netwerk zich bevindt of in welke Azure-regio een instantie van de Azure-service is geïmplementeerd. U kunt de standaardsysteemroute van Azure voor het adresvoorvoegsel 0.0.0.0/0 vervangen door een [aangepaste route](#custom-routes).
 
-| Eigenschap | Beschrijving | Beperkingen | Overwegingen |
-| --- | --- | --- | --- |
-| Adresvoorvoegsel |De doel-CIDR waarop de route van toepassing is, zoals 10.1.0.0/16. |Dit moet een geldig CIDR-bereik zijn van adressen op internet, in een virtueel Azure-netwerk of in een on-premises datacentrum. |Zorg ervoor dat het **adresvoorvoegsel** niet het adres voor het **Nexthop-adres** bevat, anders raken de pakketten in een lus van de bron naar de volgende hop zonder ooit hun doel te bereiken. |
-| Volgend hoptype |Het type hop in Azure waarnaar het pakket moet worden doorgestuurd. |Dit moet een van de volgende waarden zijn: <br/> **Virtueel netwerk**. Hiermee geeft u het lokale virtuele netwerk op. Als u bijvoorbeeld twee subnetten, 10.1.0.0/16 en 10.2.0.0/16, in hetzelfde virtuele netwerk hebt, heeft de route voor elk subnet in de routetabel de waarde *Virtueel netwerk* voor de volgende hop. <br/> **Gateway voor een virtueel netwerk**. Hiermee geeft u een Azure S2S VPN-gateway op. <br/> **Internet**. Hiermee geeft u de standaard-internetgateway van de Azure-infrastructuur op. <br/> **Virtueel apparaat**. Hiermee geeft u een virtueel apparaat op dat u hebt toegevoegd aan uw virtuele Azure-netwerk. <br/> **Geen**. Hiermee geeft u een black hole op. Pakketten die worden doorgestuurd naar een black hole, worden helemaal niet doorgestuurd. |Overweeg het gebruik van een **virtueel apparaat** om verkeer naar een intern IP-adres van een VM of Azure Load Balancer te leiden.  Dit type staat de specificatie van een IP-adres toe, zoals hieronder wordt beschreven. Overweeg het gebruik van het type **Geen** als u het doorsturen van pakketten naar een bepaalde bestemming wilt stoppen. |
-| Adres van de volgende hop |Het adres voor de volgende hop bevat het IP-adres waarnaar pakketten moeten worden doorgestuurd. Waarden voor de volgende hop zijn alleen toegestaan in routes waar het volgende hoptype *Virtueel apparaat* is. |Moet een IP-adres zijn dat bereikbaar is binnen het virtuele netwerk waar de door de gebruiker gedefinieerde route wordt toegepast, zonder via een **virtuele netwerkgateway** te gaan. Het IP-adres moet zich bevinden in hetzelfde virtuele netwerk als waar het wordt toegepast, of in een gekoppeld virtueel netwerk. |Als het IP-adres een VM vertegenwoordigt, moet u [Doorsturen via IP](#IP-forwarding) in Azure voor de VM inschakelen. Als het IP-adres het interne IP-adres van een Azure Load Balancer vertegenwoordigt, zorg er dan voor dat u beschikt over een overeenkomende taakverdelingsregel voor elke poort die u wilt verdelen.|
+- **Geen**: verkeer dat wordt doorgestuurd naar het 'volgende hoptype' **Geen**, wordt verwijderd en niet buiten het subnet gerouteerd. Azure maakt automatisch standaardroutes voor de volgende adresvoorvoegsels:
+    - **10.0.0.0/8, 172.16.0.0/12 of 192.168.0.0/16**: gereserveerd voor persoonlijk gebruik in RFC 1918.
+    - **100.64.0.0/10**: gereserveerd in RFC 6598.
 
-Sommige van de NextHopType-waarden hebben verschillende namen in Azure PowerShell:
+    Als u een van de bovenstaande adresbereiken toewijst binnen de adresruimte van een virtueel netwerk, wijzigt Azure het 'volgende hoptype' voor de route automatisch van **Geen** in **Virtueel netwerk**. Als u een adresbereik toewijst aan de adresruimte van een virtueel netwerk dat weliswaar een van de vier gereserveerde adresvoorvoegsels bevat, maar dat niet hetzelfde is, verwijdert Azure de route voor het voorvoegsel en wordt er een route toegevoegd voor het adresvoorvoegsel dat u hebt toegevoegd, met **Virtueel netwerk** als het 'volgende hoptype'.
 
-* Virtueel netwerk is VnetLocal
-* De gateway van het virtuele netwerk is VirtualNetworkGateway
-* Het virtuele apparaat is VirtualAppliance
-* Internet is Internet
-* Geen is Geen
+### <a name="optional-default-routes"></a>Optionele standaardroutes
 
-### <a name="system-routes"></a>Systeemroutes
-Elk subnet dat in een virtueel netwerk wordt gemaakt, wordt automatisch gekoppeld aan een routetabel met de volgende systeemrouteregels:
+Azure voegt aanvullende standaardsysteemroutes toe voor verschillende mogelijkheden van Azure, maar alleen als u de mogelijkheden inschakelt. Afhankelijk van de mogelijkheid, voegt Azure optionele standaardroutes toe naar specifieke subnetten in het virtuele netwerk of naar alle subnetten in een virtueel netwerk. Dit zijn de aanvullende systeemroutes en 'volgende hoptypen' die Azure kan toevoegen wanneer u verschillende mogelijkheden inschakelt:
 
-* **Lokale VNnet-regel**: deze regel wordt automatisch gemaakt voor elk subnet in een virtueel netwerk. Hiermee wordt aangegeven dat er een directe koppeling tussen de VM's in het VNET is zonder tussenliggende volgende hop.
-* **On-premises regel**: deze regel wordt toegepast op al het verkeer naar het on-premises adresbereik en maakt gebruik van VPN-gateway als bestemming voor de volgende hop.
-* **Internetregel**: met deze regel wordt al het verkeer afgehandeld dat bestemd is voor het openbare internet (adresvoorvoegsel 0.0.0.0/0) en wordt gebruikgemaakt van de internetgateway van de infrastructuur als de volgende hop voor al het verkeer dat bestemd is voor internet.
+|Bron                 |Adresvoorvoegsels                       |Volgend hoptype|Subnet binnen het virtuele netwerk waarnaar een route wordt toegevoegd|
+|-----                  |----                                   |---------                    |--------|
+|Standaard                |Uniek is voor het virtuele netwerk, bijvoorbeeld: 10.1.0.0/16|VNet-peering                 |Alle|
+|Gateway van een virtueel netwerk|Voorvoegsels geadverteerd van on-premises via BGP of geconfigureerd in de lokale netwerkgateway     |Gateway van een virtueel netwerk      |Alle|
+|Standaard                |Meerdere                               |VirtualNetworkServiceEndpoint|Alleen het subnet waarvoor een service-eindpunt is ingeschakeld.|
 
-### <a name="user-defined-routes"></a>Door de gebruiker gedefinieerde routes
-Voor de meeste omgevingen hebt u alleen de systeemroutes nodig die al zijn gedefinieerd door Azure. In bepaalde gevallen moet u echter een routetabel maken en een of meer routes toevoegen, zoals bij:
+- **VNet-peering**: wanneer u een VNet-peering maakt tussen twee virtuele netwerken, wordt er een route toegevoegd voor elk adresbereik in de adresruimte van elk virtueel netwerk waarvoor een peering wordt gemaakt. Meer informatie over [peering van virtuele netwerken](virtual-network-peering-overview.md).  
+- **Gateway van een virtueel netwerk**: er worden een of meer routes met *Gateway van een virtueel netwerk* als het 'volgende hoptype' toegevoegd wanneer er een gateway van een virtueel netwerk wordt toegevoegd aan een virtueel netwerk. De bron is ook *Gateway van virtueel netwerk* omdat de gateway de routes naar het subnet toevoegt. Als de gateway van uw on-premises netwerk BGP-routes ([Border Gateway Protocol](#border-gateway-protocol)-routes met een gateway van een virtueel Azure-netwerk) uitwisselt, wordt er een route toegevoegd voor elke route die wordt doorgegeven vanaf de gateway van het on-premises netwerk. Het is raadzaam dat u on-premises routes samenvat tot de grootst mogelijke adresbereiken, zodat het kleinste aantal routes wordt doorgegeven aan de gateway van een virtueel Azure-netwerk. Er gelden beperkingen voor het aantal routes dat kan worden doorgegeven aan de gateway van een virtueel Azure-netwerk. Zie [Netwerkenlimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) voor meer informatie.
+- **VirtualNetworkServiceEndpoint**: de openbare IP-adressen voor bepaalde services worden door Azure aan de routetabel toegevoegd wanneer u een service-eindpunt voor de service inschakelt. Service-eindpunten worden ingeschakeld voor afzonderlijke subnetten in een virtueel netwerk, zodat de route alleen wordt toegevoegd aan de routetabel van een subnet waarvoor een service-eindpunt is ingeschakeld. De openbare IP-adressen van Azure-services worden periodiek gewijzigd. Azure beheert de adressen in de routetabel automatisch als de adressen worden gewijzigd. Lees hier meer over [service-eindpunten van virtuele netwerken](virtual-network-service-endpoints-overview.md), en de services waarvoor u service-eindpunten kunt maken. 
 
-* Geforceerde tunneling naar internet via uw on-premises netwerk.
-* Gebruik van virtuele apparaten in uw Azure-omgeving.
+> [!NOTE]
+> De 'volgende hoptypen' **VNet-peering** en **VirtualNetworkServiceEndpoint** worden alleen toegevoegd aan routetabellen van subnetten in virtuele netwerken die zijn gemaakt via het implementatiemodel Azure Resource Manager. De 'volgende hoptypen' worden niet toegevoegd aan routetabellen die zijn gekoppeld aan subnetten van virtuele netwerken die zijn gemaakt met behulp van het klassieke implementatiemodel. Lees hier meer over [implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) van Azure.
 
-In de bovenstaande gevallen moet u een routetabel maken en er door de gebruiker gedefinieerde routes aan toevoegen. U kunt meerdere routetabellen hebben en dezelfde routetabel kan worden gekoppeld aan een of meer subnetten. Elk subnet kan slechts worden gekoppeld aan één routetabel. Voor alle VM's en cloudservices in een subnet wordt de routetabel gebruikt die is gekoppeld aan dat subnet.
+## <a name="custom-routes"></a>Aangepaste routes
 
-Subnetten zijn afhankelijk van systeemroutes totdat er een routetabel aan het subnet gekoppeld is. Zodra een dergelijke koppeling bestaat, vindt routering plaats op basis van het LPM (Longest Prefix Match, langste overeenkomende voorvoegsel) van door de gebruiker gedefinieerde routes en systeemroutes. Als er meer dan één route met dezelfde overeenkomende LPM is, wordt een route geselecteerd op basis van de oorsprong in de volgende volgorde:
+U maakt aangepaste routes door [door de gebruiker gedefinieerde](#user-defined) routes te maken of door [BGP-routes](#border-gateway-protocol) (Border Gateway Protocol) uit te wisselen tussen de gateway van uw on-premises netwerk en de gateway van een virtueel Azure-netwerk. 
+ 
+### <a name="user-defined"></a>Door de gebruiker gedefinieerde routes
+
+U kunt aangepaste, of door de gebruiker gedefinieerde, routes maken in Azure om de standaardsysteemroutes van Azure te vervangen of om aanvullende routes toe te voegen aan de routetabel van een subnet. In Azure maakt u een routetabel, waarna u de routetabel koppelt aan nul of meer subnetten van een virtueel netwerk. Elk subnet kan zijn gekoppeld aan geen enkele of één routetabel. Zie [Netwerklimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) voor meer informatie over het maximum aantal routes dat u kunt toevoegen aan een routetabel en het maximum aantal door de gebruiker gedefinieerde routetabellen dat u per Azure-abonnement kunt maken. Als u een routetabel maakt en deze aan een subnet koppelt, worden de routes in de tabel gecombineerd met de standaardroutes die Azure standaard toevoegt aan een subnet, of vervangen ze deze routes.
+
+U kunt de onderstaande 'volgende hoptypen' opgeven wanneer u een door de gebruiker gedefinieerde route maakt:
+
+- **Virtueel apparaat**: een virtueel apparaat is een virtuele machine waarop meestal een netwerktoepassing wordt uitgevoerd, zoals een firewall. Ga naar de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances) voor meer informatie over een aantal vooraf geconfigureerde virtuele netwerkapparaten die u in een virtueel netwerk kunt implementeren. Wanneer u een route maakt met het hoptype **Virtueel apparaat**, moet u ook het IP-adres van de volgende hop opgeven. Het IP-adres kan bestaan uit:
+
+    - Het [privé-IP-adres](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) van een netwerkinterface die is gekoppeld aan een virtuele machine. Als een netwerkinterface is gekoppeld aan een virtuele machine die netwerkverkeer doorstuurt naar een ander adres dan het eigen adres, moet in Azure de optie *Doorsturen via IP inschakelen* zijn ingeschakeld voor de interface. Deze instelling zorgt ervoor dat Azure de bron en bestemming voor een netwerkinterface niet controleert. Lees hier meer over het [inschakelen van doorsturen via IP voor een netwerkinterface](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Hoewel *Doorsturen via IP inschakelen* een instelling van Azure is, moet u doorsturen via IP mogelijk ook inschakelen in het besturingssysteem van de virtuele machine, omdat de virtuele machine anders geen verkeer kan doorsturen tussen netwerkinterfaces. Raadpleeg de documentatie voor uw besturingssysteem of netwerktoepassing om de vereiste instellingen voor de virtuele machine te bepalen.
+
+    > [!NOTE]
+    > Het is belangrijk dat u een virtueel apparaat in een ander subnet implementeert dan het subnet waarin de resources zijn geïmplementeerd die gegevens via het virtuele apparaat routeren. Als u het virtuele apparaat in hetzelfde subnet implementeert en vervolgens een routetabel toepast op het subnet dat verkeer via het virtuele apparaat leidt, kan dit routeringslussen veroorzaken, waardoor verkeer het subnet nooit verlaat.
+
+    - Het privé IP-adres van een [interne load balancer](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) van Azure. Een load balancer wordt vaak gebruikt als onderdeel van een [strategie voor hoge beschikbaarheid van virtuele netwerkapparaten](/azure/architecture/reference-architectures/dmz/nva-ha.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+    U kunt een route met 0.0.0.0/0 als het adresvoorvoegsel definiëren en het 'volgende hoptype' Virtueel apparaat. Het apparaat kan dan het gegevensverkeer inspecteren en bepalen of dit moet worden doorgestuurd of verwijderd. Als u van plan bent een door de gebruiker gedefinieerde route te maken met het adresvoorvoegsel 0.0.0.0/0, moet u eerst [Adresvoorvoegsel 0.0.0.0/0](#default-route) lezen.
+
+- **Gateway van virtueel netwerk**: gebruik dit type als u verkeer dat is bestemd voor specifieke adresvoorvoegsels wilt doorsturen naar de gateway van een virtueel netwerk. De gateway van het virtuele netwerk moet worden gemaakt met het type **VPN**. U kunt in een door de gebruiker gedefinieerde route geen gateway van het type **ExpressRoute** opgeven omdat u met ExpressRoute [BGP](#border-gateway-protocol-routes) moet gebruiken voor aangepaste routes. U kunt een route definiëren om ervoor te zorgen dat verkeer dat is bestemd voor het adresvoorvoegsel 0.0.0.0/0 wordt omgeleid naar de gateway van een virtueel netwerk die [op routes is gebaseerd](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype). Het is mogelijk dat u on-premises een apparaat hebt dat het verkeer inspecteert en vervolgens bepaalt of dit moet worden doorgestuurd of verwijderd. Als u van plan bent een door de gebruiker gedefinieerde route te maken voor het adresvoorvoegsel 0.0.0.0/0, moet u eerst [Adresvoorvoegsel 0.0.0.0/0](#default-route) lezen. In plaats van een door de gebruiker gedefinieerde route te configureren voor het adresvoorvoegsel 0.0.0.0/0, kunt u een route met het voorvoegsel 0.0.0.0/0 adverteren via BGP, maar alleen als u [BGP hebt ingeschakeld voor de gateway van een virtueel netwerk](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Geen**: gebruik dit type als u het verkeer naar een adresvoorvoegsel wilt verwijderen, in plaats van het verkeer door te sturen naar een bestemming. Als u een mogelijkheid van Azure niet volledig hebt geconfigureerd, kan voor sommige optionele systeemroutes *Geen* worden vermeld. Als u bijvoorbeeld *Geen* ziet staan bij **IP-adres van volgende hop** met **Volgende hoptype** ingesteld op *Gateway van virtueel netwerk* of *Virtueel apparaat*, kan het zijn dat het apparaat niet wordt uitgevoerd of niet volledig is geconfigureerd. Azure maakt [standaardsysteemroutes](#default) voor gereserveerde adresvoorvoegsels met **Geen** als het 'volgende hoptype'.
+- **Virtueel netwerk**: kies dit type wanneer u de standaardroutering binnen een virtueel netwerk wilt vervangen. Zie [Voorbeeld van routering](#routing-example) voor een voorbeeld van waarom u een route met het hoptype **Virtueel netwerk** zou maken.
+- **Internet**: gebruik dit type als u verkeer dat is bestemd voor een adresvoorvoegsel expliciet naar internet wilt routeren, of als u verkeer dat is bestemd voor Azure-services met openbare IP-adressen binnen het backbone-netwerk van Azure wilt houden.
+
+**VNet-peering** en **VirtualNetworkServiceEndpoint** kunt u niet opgeven als het 'volgende hoptype' in door de gebruiker gedefinieerde routes. Routes met het hoptype **VNet-peering** of **VirtualNetworkServiceEndpoint** worden alleen gemaakt door Azure, wanneer u peering van virtuele netwerken of een service-eindpunt configureert.
+
+**'Volgende hoptypen' in Azure-hulpprogramma's**
+
+De naam die wordt weergegeven en waarnaar wordt verwezen voor 'volgende hoptypen' is verschillend voor de Azure-portal en voor opdrachtregelprogramma's, evenals voor het implementatiemodel Azure Resource Manager en het klassieke implementatiemodel. De onderstaande tabel bevat de namen die worden gebruikt om te verwijzen naar elk 'volgend hoptype' in de verschillende hulpprogramma's en [implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
+
+|Volgend hoptype                   |Azure CLI 2.0 en PowerShell (Resource Manager) |Azure CLI 1.0 en PowerShell (klassiek)|
+|-------------                   |---------                                       |-----|
+|Gateway van een virtueel netwerk         |VirtualNetworkGateway                           |VPNGateway|
+|Virtueel netwerk                 |VNetLocal                                       |VNETLocal (niet beschikbaar in CLI 1.0 in de asm-modus)|
+|Internet                        |Internet                                        |Internet (niet beschikbaar in CLI 1.0 in de asm-modus)|
+|Virtueel apparaat               |VirtualAppliance                                |VirtualAppliance|
+|Geen                            |Geen                                            |Null (niet beschikbaar in CLI 1.0 in de asm-modus)|
+|Peering op virtueel netwerk         |VNet-peering                                    |Niet van toepassing|
+|Service-eindpunt voor virtueel netwerk|VirtualNetworkServiceEndpoint                   |Niet van toepassing|
+
+### <a name="border-gateway-protocol"></a>Border Gateway Protocol
+
+Een on-premises netwerkgateway kan via BGP (Border Gateway Protocol) routes uitwisselen met de gateway van een virtueel Azure-netwerk. Het gebruik van BGP met de gateway van een virtueel Azure-netwerk is afhankelijk van het type dat u hebt geselecteerd tijdens het maken van de gateway. Als het geselecteerde type is:
+
+- **ExpressRoute**: u moet BGP gebruiken om routes te adverteren naar de Microsoft-edge router. U kunt geen door de gebruiker gedefinieerde routes maken als u de gateway van een virtueel netwerk implementeert als het type: ExpressRoute.
+- **VPN**: u kunt desgewenst BGP gebruiken. Zie [Overzicht van BGP met Azure VPN-gateways](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie.
+
+Wanneer u routes met Azure uitwisselt via BGP, wordt er voor elk geadverteerd voorvoegsel een afzonderlijke route toegevoegd aan de routetabel van alle subnetten in een virtueel netwerk. De route wordt toegevoegd met *Gateway van virtueel netwerk* als de bron en het 'volgende hoptype'. 
+ 
+## <a name="how-azure-selects-a-route"></a>Hoe Azure een route selecteert
+
+Als er uitgaand verkeer wordt verzonden vanuit een subnet, selecteert Azure een route op basis van het doel-IP-adres, met behulp van een algoritme voor het matchen van het langste voorvoegsel. Een routetabel heeft bijvoorbeeld twee routes: één route met het adresvoorvoegsel 10.0.0.0/24 en een andere route met het adresvoorvoegsel 10.0.0.0/16. Azure stuurt verkeer dat is bestemd voor 10.0.0.5 naar het 'volgende hoptype' dat is opgegeven in de route met het adresvoorvoegsel 10.0.0.0/24 omdat 10.0.0.0/24 een langer voorvoegsel is dan 10.0.0.0/16, ondanks dat 10.0.0.5 is opgenomen in beide adresvoorvoegsels. Azure stuurt verkeer dat is bestemd voor 10.0.1.5 naar het 'volgende hoptype' dat is opgegeven in de route met het adresvoorvoegsel 10.0.0.0/16 omdat 10.0.1.5 niet is opgenomen in het adresvoorvoegsel 10.0.0.0/24. Om die reden is de route met het adresvoorvoegsel 10.0.0.0/16 het langste overeenkomende voorvoegsel.
+
+Als meerdere routes hetzelfde adresvoorvoegsel bevatten, selecteert Azure het routetype op basis van de volgende prioriteit:
 
 1. Door de gebruiker gedefinieerde route
-2. BGP-route (wanneer u ExpressRoute gebruikt)
+2. BGP-route
 3. Systeemroute
 
-Zie [Routes maken en 'Doorsturen via IP' inschakelen in Azure](virtual-network-create-udr-arm-template.md) voor meer informatie over het maken van door de gebruiker gedefinieerde routes.
+Een routetabel bevat bijvoorbeeld de volgende routes:
 
-> [!IMPORTANT]
-> Door de gebruiker gedefinieerde routes worden alleen toegepast op Azure VM's en cloudservices. Als u bijvoorbeeld een virtueel apparaat voor een firewall tussen uw on-premises netwerk en Azure wilt toevoegen, moet u een door de gebruiker gedefinieerde route voor uw Azure-routetabellen maken waarmee al het verkeer wordt doorgestuurd naar de on-premises adresruimte op het virtuele apparaat. U kunt ook een door de gebruiker gedefinieerde route (UDR) toevoegen aan GatewaySubnet om al het on-premises verkeer via het de virtuele apparaat naar Azure door te sturen. Dit is een recente toevoeging.
-> 
-> 
 
-### <a name="bgp-routes"></a>BGP-routes
-Als u een ExpressRoute-verbinding tussen uw on-premises netwerk en Azure hebt, kunt u BGP configureren voor het propageren van routes van uw on-premises netwerk naar Azure. Deze BGP-routes worden op dezelfde manier gebruikt als systeemroutes en door de gebruiker gedefinieerde routes in elk Azure-subnet. Zie [Inleiding tot ExpressRoute](../expressroute/expressroute-introduction.md) voor meer informatie.
+|Bron   |Adresvoorvoegsels  |Volgend hoptype           |
+|---------|---------         |-------                 |
+|Standaard  | 0.0.0.0/0        |Internet                |
+|Gebruiker     | 0.0.0.0/0        |Gateway van een virtueel netwerk |
 
-> [!IMPORTANT]
-> U kunt uw Azure-omgeving configureren voor het gebruik van geforceerde tunneling via uw on-premises netwerk door een door de gebruiker gedefinieerde route voor subnet 0.0.0.0/0 te maken waarin de VPN-gateway wordt gebruikt als de volgende hop. Dit werkt alleen als u een VPN-gateway gebruikt en niet ExpressRoute. Voor ExpressRoute wordt geforceerde tunneling geconfigureerd via BGP.
-> 
-> 
+Wanneer verkeer bestemd is voor een IP-adres buiten de adresvoorvoegsels van alle andere routes in de routetabel, selecteert Azure de route met de bron **Gebruiker** omdat door de gebruiker gedefinieerde routes een hogere prioriteit hebben dan standaardsysteemroutes.
 
-## <a name="ip-forwarding"></a>Doorsturen via IP
-Zoals hierboven beschreven, worden door de gebruiker gedefinieerde routes meestal gemaakt om verkeer door te sturen naar een virtueel apparaat. Een virtueel apparaat is niets meer dan een virtuele machine waarop een toepassing wordt uitgevoerd om netwerkverkeer op een bepaalde manier af te handelen, zoals een firewall of een NAT-apparaat.
+Zie [Voorbeeld van routering](#routing-example) voor een uitgebreide routeringstabel met uitleg van de routes in de tabel.
 
-Deze VM op het virtuele apparaat moet in staat zijn om binnenkomend verkeer te ontvangen dat niet is geadresseerd aan zichzelf. Om met een VM verkeer te kunnen ontvangen dat is geadresseerd aan andere bestemmingen, moet u Doorsturen via IP inschakelen voor die VM. Dit is een Azure-instelling, niet een instelling in het gastbesturingssysteem.
+## <a name="default-route"></a>Adresvoorvoegsel 0.0.0.0/0
+
+Een route met het adresvoorvoegsel 0.0.0.0/0 wordt gebruikt door Azure voor het routeren van verkeer dat is bestemd voor een IP-adres dat zich niet in het adresvoorvoegsel van een andere route in de routetabel van een subnet bevindt. Wanneer er een subnet wordt gemaakt, maakt Azure een [standaard](#default)route naar het adresvoorvoegsel 0.0.0.0/0 van het 'volgende hoptype' **Internet**. Als u deze route niet overschrijft, stuurt Azure al het verkeer dat is bestemd voor IP-adressen die niet zijn opgenomen in het adresvoorvoegsel van een andere route naar internet. De uitzondering op de regel is dat verkeer naar de openbare IP-adressen van Azure-services het backbone-netwerk van Azure niet verlaten en dus niet wordt doorgestuurd naar internet. Als u deze route overschrijft door een [aangepaste](#custom-routes) route, wordt verkeer dat is bestemd voor adressen die geen deel uitmaken van de adresvoorvoegsels van een andere route in de routetabel verzonden naar een virtueel netwerkapparaat of een virtuele netwerkgateway, afhankelijk van wat u opgeeft in de aangepaste route.
+
+Wanneer u het adresvoorvoegsel 0.0.0.0/0 overschrijft, wordt de standaardroutering van Azure als volgt aangepast, in aanvulling op het omleiden van het uitgaande verkeer van het subnet via de virtuele netwerkgateway of het virtuele apparaat: 
+
+- Azure verzendt alle verkeer naar het 'volgende hoptype' dat is opgegeven in de route, om ook verkeer op te nemen dat is bestemd voor openbare IP-adressen van Azure-services. Wanneer het 'volgende hoptype' voor de route met het adresvoorvoegsel 0.0.0.0/0 **Internet** is, blijft verkeer van het subnet dat is bestemd voor de openbare IP-adressen van Azure-services altijd in het backbone-netwerk, ongeacht de Azure-regio waarin het virtuele netwerk of de Azure-serviceresource zich bevindt. Wanneer u echter een door de gebruiker gedefinieerde route of BGP-route maakt met **Gateway van virtueel netwerk** of **Virtueel apparaat** als het 'volgende hoptype', wordt al het verkeer, dus ook het verkeer dat wordt verzonden naar openbare IP-adressen van Azure services waarvoor u geen [service-eindpunten](virtual-network-service-endpoints-overview.md) hebt ingeschakeld, verzonden naar het 'volgende hoptype' dat is opgegeven in de route. Als u een service-eindpunt voor een service hebt ingeschakeld, wordt verkeer naar de service niet doorgestuurd naar het 'volgende hoptype' in een route met het adresvoorvoegsel 0.0.0.0/0 omdat adresvoorvoegsels voor de service zijn opgegeven in de route die Azure maakt wanneer u het service-eindpunt inschakelt, en de adresvoorvoegsels voor de service langer zijn dan 0.0.0.0/0.
+- U kunt niet meer rechtstreeks vanaf internet toegang krijgen tot resources in het subnet. U kunt indirect vanaf internet toegang krijgen tot resources in het subnet als binnenkomend verkeer wordt doorgegeven via het apparaat dat is opgegeven door het 'volgende hoptype' voor een route met het adresvoorvoegsel 0.0.0.0/0 voordat de resource in het virtuele netwerk wordt bereikt. Als de route de volgende waarden voor het 'volgende hoptype' bevat:
+    - **Virtueel apparaat**: de volgende voorwaarden moeten van toepassing zijn op het apparaat:
+        - Het apparaat is toegankelijk vanaf internet
+        - Het apparaat heeft een openbaar IP-adres
+        - Er mag geen regel uit een netwerkbeveiligingsgroep zijn gekoppeld aan het apparaat waarmee communicatie met het apparaat wordt voorkomen
+        - De communicatie mag niet worden geweigerd
+        - Het apparaat moet het netwerkadres kunnen omzetten en doorsturen, of het verkeer via een proxy omleiden naar de doelresource in het subnet, en het verkeer terugleiden naar internet. 
+    - **Gateway van virtueel netwerk**: als de gateway een ExpressRoute-gateway is, kan een on-premises apparaat dat met internet is verbonden het netwerkadres omzetten en doorsturen, of het verkeer via een proxy omleiden naar de doelresource in het subnet, via [privé-peering](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) van ExpressRoute. 
+
+  Zie [DMZ tussen Azure en uw on-premises datacenter](/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) en [DMZ tussen Azure en internet](/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) voor uitgebreide informatie over de implementatie bij gebruik van virtuele netwerkgateways en virtuele apparaten tussen internet en Azure.
+
+## <a name="routing-example"></a>Voorbeeld van routering
+
+Ter illustratie van de concepten in dit artikel, wordt in de volgende secties aandacht besteed aan:
+- Een scenario, inclusief vereisten
+- De aangepaste routes die nodig zijn om te voldoen aan de vereisten
+- De routetabel voor een subnet, met inbegrip van de standaard- en aangepaste routes die nodig zijn om aan de vereisten te voldoen
+
+> [!NOTE]
+> Dit voorbeeld is niet bedoeld als een aanbevolen of best practice-implementatie, maar uitsluitend ter illustratie van de concepten in dit artikel.
+
+### <a name="requirements"></a>Vereisten
+
+1. Implementeer twee virtuele netwerken in dezelfde Azure-regio en zorg dat resources kunnen communiceren tussen de virtuele netwerken.
+2. Zorg dat een on-premises netwerk veilig kan communiceren met beide virtuele netwerken via een VPN-tunnel over internet. *U kunt ook een ExpressRoute-verbinding gebruiken, maar in dit voorbeeld wordt een VPN-verbinding gebruikt.*
+3. Voor één subnet in één virtueel netwerk:
+ 
+    - Laat al het uitgaande verkeer vanuit het subnet, behalve naar Azure Storage en binnen het subnet, geforceerd langs een virtueel netwerkapparaat lopen, voor controle en logboekregistratie.
+    - Controleer geen verkeer tussen privé IP-adressen binnen het subnet; sta rechtstreeks verkeer toe tussen alle resources. 
+    - Verwijder al het uitgaande verkeer dat is bestemd voor het andere virtuele netwerk.
+    - Zorg dat uitgaand verkeer naar Azure Storage rechtstreeks naar de opslag wordt geleid, zonder geforceerde omleiding via een virtueel netwerkapparaat.
+
+4. Sta al het verkeer tussen alle andere subnetten en virtuele netwerken toe.
+
+### <a name="implementation"></a>Implementatie
+
+De volgende afbeelding laat een implementatie via het Azure Resource Manager-implementatiemodel zien die voldoet aan de bovenstaande vereisten:
+
+![Netwerkdiagram](./media/virtual-networks-udr-overview/routing-example.png)
+
+De pijlen geven de richting van het verkeer aan. 
+
+### <a name="route-tables"></a>Routetabellen
+
+#### <a name="subnet1"></a>Subnet1
+
+De routetabel voor *Subnet1* in de afbeelding bevat de volgende routes:
+
+|Id  |Bron |Status  |Adresvoorvoegsels    |Volgend hoptype          |IP-adres van volgende hop|Naam van door gebruiker gedefinieerde route| 
+|----|-------|-------|------              |-------                |--------           |--------      |
+|1   |Standaard|Ongeldig|10.0.0.0/16         |Virtueel netwerk        |                   |              |
+|2   |Gebruiker   |Actief |10.0.0.0/16         |Virtueel apparaat      |10.0.100.4         |Within-VNet1  |
+|3   |Gebruiker   |Actief |10.0.0.0/24         |Virtueel netwerk        |                   |Within-Subnet1|
+|4   |Standaard|Ongeldig|10.1.0.0/16         |VNet-peering           |                   |              |
+|5   |Standaard|Ongeldig|10.2.0.0/16         |VNet-peering           |                   |              |
+|6   |Gebruiker   |Actief |10.1.0.0/16         |Geen                   |                   |ToVNet2-1-Drop|
+|7   |Gebruiker   |Actief |10.2.0.0/16         |Geen                   |                   |ToVNet2-2-Drop|
+|8   |Standaard|Ongeldig|10.10.0.0/16        |Gateway van een virtueel netwerk|[X.X.X.X]          |              |
+|9   |Gebruiker   |Actief |10.10.0.0/16        |Virtueel apparaat      |10.0.100.4         |To-On-Prem    |
+|10  |Standaard|Actief |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
+|11  |Standaard|Ongeldig|0.0.0.0/0           |Internet|              |                   |              |
+|12  |Gebruiker   |Actief |0.0.0.0/0           |Virtueel apparaat      |10.0.100.4         |Default-NVA   |
+
+Hier volgt een uitleg van elke route-id:
+
+1. Azure heeft deze route automatisch toegevoegd voor alle subnetten in *Virtual-network-1*omdat 10.0.0.0/16 het enige adresbereik is dat is gedefinieerd in de adresruimte voor het virtuele netwerk. Als de door de gebruiker gedefinieerde route in route ID2 niet zou zijn gemaakt, zou verkeer dat wordt verzonden naar een adres tussen 10.0.0.1 en 10.0.255.254 worden gerouteerd binnen het virtuele netwerk omdat het voorvoegsel langer is dan 0.0.0.0/0 en niet overeenkomt met de adresvoorvoegsels van een van de andere routes. Azure heeft de status automatisch gewijzigd van *Actief* in *Ongeldig* op het moment dat ID2, een door de gebruiker gedefinieerde route, werd toegevoegd. De reden hiervoor is dat de route hetzelfde voorvoegsel heeft als de standaardroute, en door de gebruiker gedefinieerde routes hebben prioriteit boven standaardroutes. De status van deze route is nog steeds *Actief* voor *Subnet2*, omdat de routetabel waarin die door de gebruiker gedefinieerde route zich bevindt, ID2, niet is gekoppeld aan *Subnet2*.
+2. Azure heeft deze route toegevoegd op het moment dat een door de gebruiker gedefinieerde route voor het adresvoorvoegsel 10.0.0.0/16 werd gekoppeld aan het subnet *Subnet1* in het virtuele netwerk *Virtual-network-1*. In de door de gebruiker gedefinieerde route is 10.0.100.4 ingesteld als het IP-adres van het virtuele apparaat omdat het adres het privé IP-adres is dat is toegewezen aan het virtuele apparaat. De routetabel van deze route is niet gekoppeld aan *Subnet2* en wordt dus niet weergegeven in de routetabel voor *Subnet2*. Deze route overschrijft de standaardroute voor het adresvoorvoegsel 10.0.0.0/16 (ID1), waarmee verkeer dat is geadresseerd aan 10.0.0.1 en 10.0.255.254 automatisch binnen het virtuele netwerk wordt doorgestuurd via het 'volgende hoptype' Virtueel netwerk. Deze route bestaat om te voldoen aan [vereiste](#requirements) 3; al het uitgaande verkeer geforceerd omleiden via een virtueel apparaat.
+3. Azure heeft deze route toegevoegd op het moment dat een door de gebruiker gedefinieerde route voor het adresvoorvoegsel 10.0.0.0/24 werd gekoppeld aan het subnet *Subnet1*. Verkeer dat is bestemd voor adressen tussen 10.0.0.1 en 10.0.0.0.254 blijft binnen het subnet en wordt niet doorgestuurd naar het virtuele apparaat dat is opgegeven in de vorige regel (ID2). De reden hiervoor is dat deze route een langer voorvoegsel heeft dan de route ID2. Deze route is niet gekoppeld aan *Subnet2* en wordt dus niet weergegeven in de routetabel voor *Subnet2*. In feite vervangt deze route de route ID2 voor verkeer binnen *Subnet1*. Deze route bestaat om te voldoen aan [vereiste](#requirements) 3.
+4. Azure heeft de routes in de id's 4 en 5 automatisch toegevoegd voor alle subnetten in *Virtual-network-1* op het moment dat het virtuele netwerk via peering werd gekoppeld met *Virtual-network-2.* *Virtual-network-2* heeft twee adresbereiken in de eigen adresruimte: 10.1.0.0/16 en 10.2.0.0/16, en dus heeft Azure voor elk bereik een route toegevoegd. Als de door de gebruiker gedefinieerde routes in route-id's 6 en 7 niet zouden zijn gemaakt, zou verkeer dat wordt verzonden naar een adres tussen 10.1.0.1-10.1.255.254 en 10.2.0.1-10.2.255.254 worden gerouteerd naar het via peering gekoppelde virtuele netwerk omdat het voorvoegsel langer is dan 0.0.0.0/0 en niet overeenkomt met de adresvoorvoegsels van een van de andere routes. Azure heeft de status automatisch gewijzigd van *Actief* in *Ongeldig* op het moment dat de routes in id's 6 en 7 werden toegevoegd. De reden hiervoor is dat deze routes hetzelfde voorvoegsel hebben als de routes in id's 4 en 5, en door de gebruiker gedefinieerde routes hebben prioriteit boven standaardroutes. De status van de routes in id's 4 en 5 is nog steeds *Actief* voor *Subnet2*, omdat de routetabel waarin die door de gebruiker gedefinieerde routes zich bevinden, niet is gekoppeld aan *Subnet2*. Er is een peering van virtuele netwerken gemaakt om te voldoen aan [vereiste](#requirements) 1.
+5. Zie de uitleg voor ID4.
+6. Azure heeft deze route en de route in ID7 toegevoegd op het moment dat door de gebruiker gedefinieerde routes voor de adresvoorvoegsels 10.1.0.0/16 en 10.2.0.0/16 werden gekoppeld aan het subnet *Subnet1*. Verkeer dat is bestemd voor adressen tussen 10.1.0.1-10.1.255.254 en 10.2.0.1-10.2.255.254 wordt verwijderd door Azure, en wordt dus niet doorgestuurd naar de via peering gekoppelde virtuele netwerken. De reden hiervoor is dat door de gebruiker gedefinieerde routes standaardroutes vervangen. De routes worden niet gekoppeld aan *Subnet2* en worden dus niet weergegeven in de routetabel voor *Subnet2*. De routes overschrijven de routes ID4 en ID5 voor verkeer dat *Subnet1* verlaat. De routes ID6 en ID7 bestaan om te voldoen aan [vereiste](#requirements) 3; verkeer verwijderen dat is bestemd voor het andere virtuele netwerk.
+7. Zie de uitleg voor ID6.
+8. Azure heeft deze routes automatisch toegevoegd voor alle subnetten in *Virtual-network-1* op het moment dat er binnen het virtuele netwerk een gateway van het type VPN werd gemaakt. Azure heeft het openbare IP-adres van de virtuele netwerkgateway toegevoegd aan de routetabel. Verkeer dat wordt verzonden naar een adres tussen 10.10.0.1 en 10.10.255.254 wordt doorgestuurd naar de virtuele netwerkgateway. Het voorvoegsel is langer dan 0.0.0.0/0 en komt niet overeen met de adresvoorvoegsels van een van de andere routes. Er is een virtuele netwerkgateway gemaakt om te voldoen aan [vereiste](#requirements) 2.
+9. Azure heeft deze route toegevoegd op het moment dat een door de gebruiker gedefinieerde route voor het adresvoorvoegsel 10.10.0.0/16 werd toegevoegd aan de routetabel van *Subnet1*. Deze route vervangt ID8. De route verzendt al het verkeer dat is bestemd voor het on-premises netwerk naar een NVA voor inspectie, in plaats van verkeer rechtstreeks on-premises te routeren. Deze route is gemaakt om te voldoen aan [vereiste](#requirements) 3.
+10. Azure heeft deze route automatisch toegevoegd aan het subnet op het moment dat een service-eindpunt voor een Azure-service werd ingeschakeld voor het subnet. Verkeer vanuit het subnet wordt door Azure omgeleid naar een openbaar IP-adres van de service, via het infrastructuurnetwerk van Azure. Het voorvoegsel is langer dan 0.0.0.0/0 en komt niet overeen met de adresvoorvoegsels van een van de andere routes. Er is een service-eindpunt gemaakt om te voldoen aan [vereiste](#requirements) 3, waarmee verkeer dat is bestemd voor Azure Storage rechtstreeks naar Azure-opslag kan worden gestuurd.
+11. Azure heeft deze route automatisch toegevoegd aan de routetabel van alle subnetten in *Virtual-network-1* en *Virtual-network-2.* Het adresvoorvoegsel 0.0.0.0/0 is het kortste voorvoegsel. Verkeer dat wordt verzonden naar adressen met een langer adresvoorvoegsel worden gerouteerd op basis van andere routes. De standaardinstelling is dat Azure al het verkeer dat is bestemd voor andere adressen dan de adressen die zijn opgegeven in een van de andere routes naar internet stuurt. Azure heeft de status voor *Subnet1* automatisch gewijzigd van *Actief* in *Ongeldig* op het moment dat een door de gebruiker gedefinieerde route voor het adresvoorvoegsel 0.0.0.0/0 (ID12) werd gekoppeld aan het subnet. De status van deze route is nog steeds *Actief* voor alle andere subnetten in beide virtuele netwerken. De reden hiervoor is dat de route niet is gekoppeld aan andere subnetten van andere virtuele netwerken.
+12. Azure heeft deze route toegevoegd op het moment dat een door de gebruiker gedefinieerde route voor het adresvoorvoegsel 0.0.0.0/0 werd gekoppeld aan het subnet *Subnet1*. In de door de gebruiker gedefinieerde route is 10.0.100.4 ingesteld als het IP-adres van het virtuele apparaat. Deze route is niet gekoppeld aan *Subnet2* en wordt dus niet weergegeven in de routetabel voor *Subnet2*. Al het verkeer voor adressen die niet overeenkomen met de adresvoorvoegsels van een andere route wordt verzonden naar het virtuele apparaat. Door het toevoegen van deze route is de status van de standaardroute voor het adresvoorvoegsel 0.0.0.0/0 (ID11) gewijzigd van *Actief* in *Ongeldig* voor *Subnet1*. De reden hiervoor is dat een door de gebruiker gedefinieerde route prioriteit heeft boven een standaardroute. Deze route bestaat om te voldoen aan [vereiste](#requirements) 3.
+
+#### <a name="subnet2"></a>Subnet2
+
+De routetabel voor *Subnet2* in de afbeelding bevat de volgende routes:
+
+|Bron  |Status  |Adresvoorvoegsels    |Volgend hoptype             |IP-adres van volgende hop|
+|------- |-------|------              |-------                   |--------           
+|Standaard |Actief |10.0.0.0/16         |Virtueel netwerk           |                   |
+|Standaard |Actief |10.1.0.0/16         |VNet-peering              |                   |
+|Standaard |Actief |10.2.0.0/16         |VNet-peering              |                   |
+|Standaard |Actief |10.10.0.0/16        |Gateway van een virtueel netwerk   |[X.X.X.X]          |
+|Standaard |Actief |0.0.0.0/0           |Internet                  |                   |
+|Standaard |Actief |10.0.0.0/8          |Geen                      |                   |
+|Standaard |Actief |100.64.0.0/10       |Geen                      |                   |
+|Standaard |Actief |172.16.0.0/12       |Geen                      |                   |
+|Standaard |Actief |192.168.0.0/16      |Geen                      |                   |
+
+De routetabel voor *Subnet2* bevat alle standaardroutes van Azure, plus de optionele routes Virtual network peering en VPN Gateway. Azure heeft de optionele routes toegevoegd aan alle subnetten in het virtuele netwerk op het moment dat de gateway en peering werden toegevoegd aan het virtuele netwerk. Azure heeft de routes voor de adresvoorvoegsels 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 en 100.64.0.0/10 verwijderd uit de routetabel van *Subnet1* op het moment dat de door de gebruiker gedefinieerde route voor het adresvoorvoegsel 0.0.0.0/0 werd toegevoegd aan *Subnet1*.  
 
 ## <a name="next-steps"></a>Volgende stappen
-* Ontdek hoe u [routes maakt in het implementatiemodel van Resource Manager](virtual-network-create-udr-arm-template.md) en deze koppelt aan subnetten. 
-* Ontdek hoe u [routes maakt in het klassieke implementatiemodel](virtual-network-create-udr-classic-ps.md) en deze koppelt aan subnetten.
 
+- [Maken van een gebruiker gedefinieerde route - Azure-portal](create-user-defined-route-portal.md)
+- [Het configureren van BGP op Azure VPN-Gateways met behulp van PowerShell](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [BGP gebruiken met ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
+- [Alle routes weergeven voor een subnet](virtual-network-routes-troubleshoot-portal.md). Een door de gebruiker gedefinieerde routetabel bevat alleen door de gebruiker gedefinieerde routes, niet de standaard- en BGP-routes voor een subnet. Als u alle routes weergeeft, ziet u de standaardroutes, de BGP-routes en de door de gebruiker gedefinieerde routes voor het subnet waarin een netwerkinterface zich bevindt.
+- [Het 'volgende hoptype' bepalen](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) tussen een virtuele machine en een doel-IP-adres. De functie Azure Network Watcher maakt het mogelijk om te bepalen of verkeer een subnet verlaat en wordt doorgestuurd naar wat volgens u de bestemming moet zijn.

@@ -1,5 +1,5 @@
 ---
-title: Wat is Azure Site Recovery? | Microsoft Docs
+title: Azure Site Recovery | Microsoft Docs
 description: "Dit artikel biedt een overzicht van de Azure Site Recovery-service en van de implementatiescenario’s."
 services: site-recovery
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/25/2017
+ms.date: 11/01/2017
 ms.author: raynew
-ms.openlocfilehash: aa657c92f347f7529affee78ad1842e5e066b74d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: MVC
+ms.openlocfilehash: 90f9fe5775f493298dad3b12f2be9d6da6cb480e
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="what-is-site-recovery"></a>Wat is Site Recovery?
+# <a name="about-site-recovery"></a>Site Recovery
 
 Welkom bij de Azure Site Recovery-service! In dit artikel vindt u een kort overzicht van de service.
 
@@ -62,19 +63,15 @@ Met Site Recovery kunt u replicatie beheren voor:
 
 **Ondersteund** | **Details**
 --- | ---
-**Wat kan ik repliceren?** | Azure-VM's tussen Azure-regio's (in preview)<br/><br/>  On-premises VMware-VM's, Hyper-V-VM's, fysieke servers (Windows en Linux) naar Azure<br/> On-premises VMware-VM's, Hyper-V-VM's, fysieke servers naar een secundaire site. Voor Hyper-V-VM's wordt replicatie naar een secundaire site alleen ondersteund als Hyper-V-hosts worden beheerd door System Center VMM.
+**Wat kan ik repliceren?** | Virtuele Azure-machines tussen Azure-regio's.<br/><br/>  On-premises VMware-VM's, Hyper-V-VM's, fysieke servers (Windows en Linux) naar Azure.<br/><br/> On-premises VMware-VM's, Hyper-V-VM's, fysieke servers naar VMM (Virtual Machine Manager).
 **Welke regio's worden ondersteund voor Site Recovery?** | [Ondersteunde regio's](https://azure.microsoft.com/regions/services/) |
-**Welke besturingssystemen zijn vereist voor gerepliceerde machines?** | [Vereisten voor Azure-VM's](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)<br></br>[Vereisten voor VMware-VM's](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> Voor Hyper-V-VM's worden alle [gastbesturingssystemen](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) ondersteund die door Azure en Hyper-V worden ondersteund.<br/><br/> [Vereisten voor fysieke servers](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
-**Welke VMware-servers/-hosts moet ik gebruiken?** | VMware-VM's kunnen zich bevinden op [ondersteunde vSphere-hosts/vCenter-servers](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)
-**Welke workloads kan ik repliceren?** | U kunt iedere werkload repliceren die wordt uitgevoerd op een ondersteunde replicatiemachine. Daarnaast heeft het Site Recovery-team specifieke tests uitgevoerd voor een [aantal apps](site-recovery-workload.md#workload-summary).
+**Welke besturingssystemen zijn vereist voor gerepliceerde machines?** | [Vereisten voor Azure-VM's](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)</br></br>[Vereisten voor VMware-VM's](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> Voor Hyper-V-VM's worden alle [gastbesturingssystemen](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) ondersteund die door Azure en Hyper-V worden ondersteund.<br/><br/> [Vereisten voor fysieke servers](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
+**Welke VMware-servers/-hosts moet ik gebruiken?** | VMware-VM's kunnen zich bevinden op [ondersteunde vSphere-hosts/vCenter-servers](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
+
+**Welke workloads kan ik repliceren?** | U kunt iedere workload repliceren die wordt uitgevoerd op een ondersteunde replicatiemachine. Daarnaast heeft het Site Recovery-team specifieke tests uitgevoerd voor een [aantal apps](site-recovery-workload.md#workload-summary).
 
 
-## <a name="azure-portal-considerations"></a>Overwegingen voor Azure Portal
-
-* Site Recovery kan worden geïmplementeerd in [Azure Portal](https://portal.azure.com).
-* In de klassieke Azure Portal kunt u Site Recovery beheren met het klassieke model voor het beheren van services.
-- De klassieke portal moet alleen worden gebruikt voor het onderhouden van de bestaande Site Recovery-implementaties. U kunt via de klassieke portal geen nieuwe kluizen maken.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [workloadondersteuning](site-recovery-workload.md)
-* Aan de slag met [Azure VM-replicatie tussen regio's](site-recovery-azure-to-azure.md), [VMware-replicatie naar Azure](vmware-walkthrough-overview.md) of [Hyper-V-replicatie naar Azure](hyper-v-site-walkthrough-overview.md).
+* Meer informatie over [workloadondersteuning](site-recovery-workload.md).
+* Aan de slag met [Azure-VM-replicatie tussen regio's](azure-to-azure-quickstart.md). 

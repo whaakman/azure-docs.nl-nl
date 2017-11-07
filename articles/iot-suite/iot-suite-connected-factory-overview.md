@@ -1,5 +1,5 @@
 ---
-title: Overzicht van verbonden factory's in Azure IoT Suite | Microsoft Docs
+title: Overzicht van oplossingen voor verbonden factory's - Azure | Microsoft Docs
 description: Een beschrijving van de vooraf geconfigureerde oplossing voor verbonden factory's van Azure IoT Suite.
 services: 
 suite: iot-suite
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
-ms.openlocfilehash: d502c8e2e2715899279f6ebcf7ed89c19a1bb9a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7fbb47390b6b1d918cbef0770ce1822591341866
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Aan de slag met de vooraf geconfigureerde oplossing voor verbonden factory's
 

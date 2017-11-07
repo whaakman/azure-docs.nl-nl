@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 29733f6f6b725dd4735219ed221431805558a5e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b84c365defbaadbc83c86e6e387c15a63e0f17ce
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Een combinatie van ScaleR en SparkR in HDInsight
 
@@ -552,7 +552,7 @@ In dit artikel hebben we zien hoe het is mogelijk gebruik van SparkR voor gegeve
 
 - Raadpleeg voor algemene informatie op R Server de [aan de slag met R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) artikel.
 
-- Zie voor informatie over op HDInsight R Server, [R Server op Azure HDInsight overzicht](hdinsight-hadoop-r-server-overview.md) en [op Azure HDInsight R Server](hdinsight-hadoop-r-server-get-started.md).
+- Zie voor informatie over op HDInsight R Server, [R Server op Azure HDInsight overzicht](r-server/r-server-overview.md) en [op Azure HDInsight R Server](r-server/r-server-get-started.md).
 
 Zie voor meer informatie over gebruik van SparkR:
 
