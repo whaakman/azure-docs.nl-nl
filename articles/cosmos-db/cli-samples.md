@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
-ms.date: 06/07/2017
+ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 189034b049e776a3b929930be937ec60bc1db241
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 989ef9915028c42a4da817bf2dd3aa5ad2beb2ef
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Azure CLI-voorbeelden voor Azure Cosmos-DB
 
@@ -28,7 +28,7 @@ De volgende tabel bevat koppelingen naar de Azure CLI-voorbeeldscripts voor Azur
 | |  |
 |---|---|
 |**Azure DB die Cosmos-account, database en containers maken**||
-|[Een DocumentDB-API, grafiek of tabel API-account maken](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Maakt een enkele Cosmos DB-API van Azure-account, database en container voor gebruik met de DocumentDB, de grafiek of de tabel-API's. |
+|[Een DocumentDB-API-account maken](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Maakt een enkele Cosmos DB-API van Azure-account, database en container voor gebruik met de DocumentDB-API. |
 | [Een API MongoDB-account maken](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Maakt een enkel account, database en verzameling in Azure Cosmos DB MongoDB-API. |
 |**Azure Cosmos DB schalen**||
 | [Schaal container doorvoer](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Hiermee wijzigt u de ingerichte througput in een container.|

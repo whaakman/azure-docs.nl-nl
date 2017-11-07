@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 06/29/2017
-ms.openlocfilehash: 1a581752e3803e9c9aba826b23db14a76080b4ec
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.date: 11/03/2017
+ms.openlocfilehash: 8b52aeaadf7ba94d6b79ef447600cd7b57e70dfa
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>Azure Database voor PostgreSQL: Go-taal gebruiken om verbinding te maken en gegevens op te vragen
 In deze snelstartgids ziet u hoe u met behulp van code in de [Go](https://golang.org/)-taal (golang) verbinding maakt met een Azure-database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met Go, maar geen ervaring hebt met het werken met Azure Database voor PostgreSQL.
@@ -88,8 +88,8 @@ Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azur
 5. Als u uw aanmeldingsgegevens voor de server bent vergeten, gaat u naar de pagina **Overzicht** om de aanmeldingsnaam van de serverbeheerder weer te geven. Stel het wachtwoord indien nodig opnieuw in.
 
 ## <a name="build-and-run-go-code"></a>Go-code schrijven en uitvoeren 
-1. Als u Golang-code wilt schrijven, gebruikt u een eenvoudige teksteditor zoals Kladblok in Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) of [Nano](https://www.nano-editor.org/) in Ubuntu en TextEdit in macOS. Als u liever een uitgebreidere Interactive Development Environment (IDE) gebruikt, gaat u aan de slag met [Gogland](https://www.jetbrains.com/go/) van Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) van Microsoft of [Atom](https://atom.io/).
-2. Plak de Golang-code uit de secties hieronder in tekstbestanden en sla deze in de projectmap op met de bestandsextensie \*.go, zoals het pad `%USERPROFILE%\go\src\postgresqlgo\createtable.go` (voor Windows) of het pad `~/go/src/postgresqlgo/createtable.go` (voor Linux).
+1. Golang om code te schrijven, kunt u een teksteditor zoals Kladblok in Microsoft Windows [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) of [Nano](https://www.nano-editor.org/) in Ubuntu en TextEdit voor Mac OS. Als u liever een uitgebreidere Interactive Development Environment (IDE) gebruikt, gaat u aan de slag met [Gogland](https://www.jetbrains.com/go/) van Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) van Microsoft of [Atom](https://atom.io/).
+2. Plak de code Golang uit de volgende secties in tekstbestanden en opslaan in de projectmap van uw met de bestandsextensie \*.gaat u, zoals Windows-pad `%USERPROFILE%\go\src\postgresqlgo\createtable.go` of Linux-pad `~/go/src/postgresqlgo/createtable.go`.
 3. Zoek de constanten `HOST`, `DATABASE`, `USER` en `PASSWORD` in de code en vervang de voorbeeldwaarden door uw eigen waarden.  
 4. Open de opdrachtprompt of de Bash-shell. Wijzig de map in de projectmap. Voorbeeld voor Windows: `cd %USERPROFILE%\go\src\postgresqlgo\`. Voorbeeld voor Linux: `cd ~/go/src/postgresqlgo/`. Sommige van de vermelde IDE-omgevingen bieden mogelijkheden voor foutopsporing en runtime zonder dat daarvoor shell-opdrachten zijn vereist.
 5. Voer de code uit door de opdracht `go run createtable.go` te typen. De toepassing wordt nu gecompileerd en uitgevoerd. 
@@ -166,7 +166,7 @@ Gebruik de volgende code om verbinding te maken en de gegevens te lezen met de S
 
 De code drie pakketten invoer: de [sql-pakket](https://golang.org/pkg/database/sql/), wordt de [pq pakket](http://godoc.org/github.com/lib/pq) als een stuurprogramma te communiceren met de server PostgreSQL en de [fmt pakket](https://golang.org/pkg/fmt/) voor afgedrukte invoer en de uitvoer op de opdrachtregel.
 
-De code roept de methode [sql. Open()](http://godoc.org/github.com/lib/pq#Open) verbinding maken met Azure-Database voor PostgreSQL-database en controleert u de verbinding met de methode [db. Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Er wordt telkens gebruikgemaakt van een [database-ingang](https://golang.org/pkg/database/sql/#DB), die de verbindingsgroep voor de databaseserver bevat. De query select wordt uitgevoerd door het aanroepen van methode [db. Query()](https://golang.org/pkg/database/sql/#DB.Query), en de resulterende rijen worden bewaard in een variabele van het type [rijen](https://golang.org/pkg/database/sql/#Rows). In de code worden de kolomgegevenswaarden in de huidige rij gelezen met de methode [rows.Scan()](https://golang.org/pkg/database/sql/#Rows.Scan) en de rijen worden helemaal doorlopen met behulp van de iterator [rows.Next()](https://golang.org/pkg/database/sql/#Rows.Next), totdat er geen rijen meer zijn. De kolomwaarden van elke rij worden weergegeven in de console. Elke keer dat een aangepaste checkError()-methode wordt gebruikt om te controleren als er een fout is opgetreden en om af te sluiten als zorgen er treedt een fout op.
+De code roept de methode [sql. Open()](http://godoc.org/github.com/lib/pq#Open) verbinding maken met Azure-Database voor PostgreSQL-database en controleert u de verbinding met de methode [db. Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Er wordt telkens gebruikgemaakt van een [database-ingang](https://golang.org/pkg/database/sql/#DB), die de verbindingsgroep voor de databaseserver bevat. De query select wordt uitgevoerd door het aanroepen van methode [db. Query()](https://golang.org/pkg/database/sql/#DB.Query), en de resulterende rijen worden bewaard in een variabele van het type [rijen](https://golang.org/pkg/database/sql/#Rows). In de code worden de kolomgegevenswaarden in de huidige rij gelezen met de methode [rows.Scan()](https://golang.org/pkg/database/sql/#Rows.Scan) en de rijen worden helemaal doorlopen met behulp van de iterator [rows.Next()](https://golang.org/pkg/database/sql/#Rows.Next), totdat er geen rijen meer zijn. De kolomwaarden van elke rij worden weergegeven in de console. Telkens wanneer een aangepaste checkError()-methode wordt gebruikt om te controleren als er een fout is opgetreden en zorgen om af te sluiten als een fout optreedt.
 
 Vervang de parameters `HOST`, `DATABASE`, `USER` en `PASSWORD` door uw eigen waarden. 
 
@@ -286,7 +286,7 @@ Gebruik de volgende code om verbinding te maken en de gegevens te verwijderen me
 
 Met de code worden drie pakketten geïmporteerd: het [sql-pakket](https://golang.org/pkg/database/sql/), het [pq-pakket](http://godoc.org/github.com/lib/pq) als een stuurprogramma om te communiceren met de Postgres-server, en het [fmt-pakket](https://golang.org/pkg/fmt/) voor de weergave van invoer en uitvoer op de opdrachtregel.
 
-De code roept de methode [sql. Open()](http://godoc.org/github.com/lib/pq#Open) verbinding maken met Azure-Database voor PostgreSQL-database en controleert u de verbinding met de methode [db. Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Er wordt telkens gebruikgemaakt van een [database-ingang](https://golang.org/pkg/database/sql/#DB), die de verbindingsgroep voor de databaseserver bevat. Het aanroepen van de code de [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) methode voor het uitvoeren van de SQL-instructie die een rij uit de tabel verwijdert. Een aangepaste checkError()-methode wordt gebruikt om te controleren of er is een fout opgetreden en paniek om af te sluiten als een fout optreedt.
+De code roept de methode [sql. Open()](http://godoc.org/github.com/lib/pq#Open) verbinding maken met Azure-Database voor PostgreSQL-database en controleert u de verbinding met de methode [db. Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Er wordt telkens gebruikgemaakt van een [database-ingang](https://golang.org/pkg/database/sql/#DB), die de verbindingsgroep voor de databaseserver bevat. Het aanroepen van de code de [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) methode voor het uitvoeren van de SQL-instructie die een rij uit de tabel verwijdert. Een aangepaste checkError()-methode wordt gebruikt om te controleren als er een fout is opgetreden en zorgen om af te sluiten als een fout optreedt.
 
 Vervang de parameters `HOST`, `DATABASE`, `USER` en `PASSWORD` door uw eigen waarden. 
 ```go

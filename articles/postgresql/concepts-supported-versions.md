@@ -8,14 +8,16 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/06/2017
-ms.openlocfilehash: cdc8f570c66630e210efa3163f8ee419337df3a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.openlocfilehash: 646e95f5c3c7bc9bb175a5532435b28bb998b49b
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="supported-postgresql-database-versions"></a>Versies van de ondersteunde PostgreSQL-Database
+Microsoft is erop gericht ter ondersteuning van n-2 versies van de PostgreSQL-engine in de Azure-Database voor PostgreSQL-service, wat betekent dat de primaire momenteel uitgebrachte versie (n) en de twee vorige primaire versies-(2).
+
 Azure PostgreSQL-Database ondersteunt momenteel de volgende versies:
 
 ## <a name="postgresql-version-962"></a>PostgreSQL versie 9.6.2

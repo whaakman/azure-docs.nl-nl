@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/02/2017
-ms.openlocfilehash: 7396b8f66dc65cfad497e336887978fa487c42f6
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.date: 11/03/2017
+ms.openlocfilehash: ae7e57e9b40f5194c15525a48843060bbccaa956
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Azure-Database voor de MySQL-opties en prestaties: inzicht in wat er beschikbaar is in elke prijscategorie
 Wanneer u een Azure-Database voor de MySQL-server maakt, besluit u over drie belangrijkste keuzes voor het configureren van de resources die voor die server toegewezen. Deze keuzes invloed hebben op de prestaties en schaalbaarheid van de server.
@@ -96,7 +96,7 @@ U kiezen het niveau van de prijscategorie prijscategorie en prestatieniveau in e
 
 De Compute-eenheden schalen gebeurt onafhankelijk van de maximum opslagruimte die u hebt gekozen.
 
-Achter de schermen voor het wijzigen van het prestatieniveau van een database maakt een kopie van de oorspronkelijke database op het nieuwe prestatieniveau en vervolgens wordt overgeschakeld verbindingen naar de gekopieerde server. Gegevens niet verloren tijdens dit proces. Verbindingen met de database zijn tijdens de korte ogenblikken wanneer het systeem overgeschakeld naar de nieuwe kopie van de server uitgeschakeld, zodat het aantal transacties tijdens de vlucht kunnen worden teruggedraaid. Deze tijdsduur varieert, maar is gemiddeld korter dan 4 seconden en in meer dan 99% van de gevallen minder dan 30 seconden. Als er veel transacties actief zijn op het moment dat de verbindingen worden uitgeschakeld, wordt deze tijdsduur mogelijk ook langer.
+Achter de schermen voor het wijzigen van het prestatieniveau van een server maakt een kopie van de oorspronkelijke server op het nieuwe prestatieniveau en vervolgens wordt overgeschakeld verbindingen naar de gekopieerde server. Gegevens niet verloren tijdens dit proces. Verbindingen met de database zijn tijdens de korte ogenblikken wanneer het systeem overgeschakeld naar de nieuwe kopie van de server uitgeschakeld, zodat het aantal transacties tijdens de vlucht kunnen worden teruggedraaid. Deze tijdsduur varieert, maar is gemiddeld korter dan 4 seconden en in meer dan 99% van de gevallen minder dan 30 seconden. Als er veel transacties actief zijn op het moment dat de verbindingen worden uitgeschakeld, wordt deze tijdsduur mogelijk ook langer.
 
 De duur van het gehele scale-proces is afhankelijk van zowel de grootte en prijscategorie van de server vóór en na de wijziging. Bijvoorbeeld, moet een server die Compute eenheden wordt gewijzigd in de prijscategorie Standard uitvoeren binnen enkele minuten. De nieuwe eigenschappen voor de server worden niet toegepast totdat de wijzigingen voltooid zijn.
 

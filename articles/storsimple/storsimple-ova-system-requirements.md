@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/10/2017
+ms.date: 10/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 4dc228ce8a7a73dd32bde77d529698bdcb7f490c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 8cae0577d950e3968bc25083e59d637963e6b442
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Systeemvereisten voor StorSimple virtuele array
 ## <a name="overview"></a>Overzicht
@@ -50,7 +50,7 @@ De softwarevereisten omvatten de informatie over de ondersteunde webbrowsers, SM
 | Minimaal geheugen (RAM) |8 GB <br> Voor een bestandsserver, 8 GB voor minder dan 2 miljoen bestanden en 16 GB voor 2-4 miljoen bestanden|
 | Schijfruimte<sup>1</sup> |Besturingssysteemschijf - 80 GB <br></br>Gegevensschijf - 500 GB 8 TB |
 | Minimum aantal netwerkinterfaces |1 |
-| Minimale bandbreedte met Internet<sup>2</sup> |5 Mbps |
+| Internetbandbreedte<sup>2</sup> |Minimale bandbreedte die is vereist: 5 Mbps <br> Aanbevolen bandbreedte: 100 Mbps <br> De snelheid van de gegevensoverdracht kan worden geschaald met de Internet-bandbreedte. Bijvoorbeeld duurt 100 GB aan gegevens 2 dagen om over te dragen met 5 Mbps die tot mislukte back-ups leiden kunnen omdat de dagelijkse back-ups zou niet worden voltooid in een dag. Met een bandbreedte van 100 Mbps kan 100 GB aan gegevens worden overgebracht in 2,5 uur.   |
 
 <sup>1</sup> - thin ingericht
 
@@ -113,7 +113,7 @@ Het is raadzaam dat u de firewallregels voor uitgaand verkeer, op basis van vast
 > [!NOTE]
 > 
 > * Het apparaat (bron) IP-adressen moet altijd worden ingesteld op alle interfaces voor cloud-netwerk. 
-> * De bestemming IP-adressen moet worden ingesteld op [Azure datacenter IP-adresbereiken](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
+> * De bestemming IP-adressen moet worden ingesteld op [Azure datacenter IP-adresbereiken](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 > 
 > 
 
@@ -128,6 +128,5 @@ Het is raadzaam dat u de firewallregels voor uitgaand verkeer, op basis van vast
 | `https://*.partners.extranet.microsoft.com/*` |Ondersteuningspakket |
 | `http://*.data.microsoft.com ` |Telemetrie-service in Windows, Zie de [update voor klantervaring en diagnostische telemetrie](https://support.microsoft.com/en-us/kb/3068708) |
 
-## <a name="next-step"></a>Volgende stap
+## <a name="next-steps"></a>Volgende stappen
 * [Voorbereiden van de portal voor het implementeren van uw virtuele StorSimple-matrix](storsimple-virtual-array-deploy1-portal-prep.md)
-

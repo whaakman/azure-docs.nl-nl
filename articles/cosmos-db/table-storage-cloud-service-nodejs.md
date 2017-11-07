@@ -1,5 +1,5 @@
 ---
-title: Web-app met table storage (Node.js) | Microsoft Docs
+title: 'Azure Table storage: een Node.js-web-app bouwen | Microsoft Docs'
 description: Een zelfstudie bouwt op de Web-App met snelle zelfstudie voort door toevoeging van Azure Storage-services en de Azure-module.
 services: cosmos-db
 documentationcenter: nodejs
@@ -12,15 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: b802f880c1131abb7eb9ba00dd8f2e65017bc802
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e931f0457511963b87c1b14fe873593bcb000c7
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="nodejs-web-application-using-storage"></a>Node.js-webtoepassing met opslag
+# <a name="azure-table-storage-nodejs-web-application"></a>Azure Table storage: Node.js-webtoepassing
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+
 ## <a name="overview"></a>Overzicht
 In deze zelfstudie, de toepassing u gemaakt in de [Node.js-webtoepassing met een snelle] zelfstudie wordt uitgebreid met de Microsoft Azure-clientbibliotheken voor Node.js gebruiken om te werken met data management-services. U kunt uw toepassing uitbreiden door een web gebaseerde takenlijst-toepassing die u naar Azure implementeren kunt te maken. De takenlijst kan een gebruiker taken ophalen, het toevoegen van nieuwe taken en taken te markeren als voltooid.
 

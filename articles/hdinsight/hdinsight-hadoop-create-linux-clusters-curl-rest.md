@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/10/2017
+ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: b2078e5f1bb1bafdf8b53ec8c8ead014773cc9f0
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
-ms.translationtype: HT
+ms.openlocfilehash: f35c50a3b05bfeb06556f5eb9ba70e24b80de6e9
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Hadoop-clusters met de REST-API van Azure maken
 
@@ -130,7 +130,7 @@ Het volgende JSON-document is een fusie van de sjabloon en de parameters-bestand
 
                    },
                    "properties": {
-                       "clusterVersion": "3.5",
+                       "clusterVersion": "3.6",
                        "osType": "Linux",
                        "clusterDefinition": {
                            "kind": "[parameters('clusterType')]",
@@ -361,17 +361,17 @@ Nu dat u een HDInsight-cluster hebt gemaakt, gebruikt u de volgende voor informa
 
 ### <a name="hadoop-clusters"></a>Hadoop-clusters
 
-* [Hive gebruiken met HDInsight](hdinsight-use-hive.md)
-* [Pig gebruiken met HDInsight](hdinsight-use-pig.md)
-* [MapReduce gebruiken met HDInsight](hdinsight-use-mapreduce.md)
+* [Hive gebruiken met HDInsight](hadoop/hdinsight-use-hive.md)
+* [Pig gebruiken met HDInsight](hadoop/hdinsight-use-pig.md)
+* [MapReduce gebruiken met HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>HBase-clusters
 
-* [Aan de slag met HBase in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Ontwikkelen van Java-toepassingen voor HBase in HDInsight](hdinsight-hbase-build-java-maven-linux.md)
+* [Aan de slag met HBase in HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Ontwikkelen van Java-toepassingen voor HBase in HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm-clusters
 
-* [Java-topologieën ontwikkelen voor Storm op HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Python-onderdelen in Storm op HDInsight gebruiken](hdinsight-storm-develop-python-topology.md)
-* [Implementeren en bewaken topologieën met Storm op HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Java-topologieën ontwikkelen voor Storm op HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Python-onderdelen in Storm op HDInsight gebruiken](storm/apache-storm-develop-python-topology.md)
+* [Implementeren en bewaken topologieën met Storm op HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

@@ -1,30 +1,35 @@
 ---
 title: Handleiding voor Azure Marketplace verkoper | Microsoft Docs
-description: "Deze handleiding is bedoeld voor zakelijke gebruikers en productmanagers op onafhankelijke softwareleveranciers (ISV's) die geïnteresseerd zijn in hun installatiekopieën van de virtuele machine Azure gecertificeerd voor IT-professionals en ontwikkelaars verkopen."
+description: "Deze handleiding is bedoeld voor zakelijke gebruikers en productmanagers op onafhankelijke softwareleveranciers (ISV's) die geïnteresseerd zijn in hun installatiekopieën van virtuele machines Azure gecertificeerd en beheerde toepassingen voor IT-professionals en ontwikkelaars verkopen."
 documentationcenter: 
-author: rupeshazure
-manager: hamidm
+author: divacc
+manager: prkumar
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
-ms.author: rupesk@microsoft.com
-ms.robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: c78708687fbb5716e3e8d62967013310d6ccc735
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.author: divacc@microsoft.com
+ms.openlocfilehash: 0985c7da429202cc6003df73c6ca17714b5a1287
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-marketplace-seller-guide"></a>Verkopershandleiding voor Azure Marketplace
 
-Welkom bij de Azure Marketplace verkoper guide. Deze handleiding is ontworpen voor zakelijke gebruikers en productmanagers op onafhankelijke softwareleveranciers (ISV's) die geïnteresseerd zijn in hun installatiekopieën van de virtuele machine Azure gecertificeerd voor IT-professionals en ontwikkelaars verkopen. Met Azure-klanten over de hele wereld, de [Marketplace](https://azuremarketplace.microsoft.com/) geweldige reach en blootstelling voor uw producten kunnen bieden.
-
+Welkom bij de Azure Marketplace verkoper guide. Deze handleiding is ontworpen voor zakelijke gebruikers en productmanagers op onafhankelijke softwareleveranciers (ISV's) die geïnteresseerd zijn in hun installatiekopieën van virtuele machines Azure gecertificeerd en beheerde toepassingen voor IT-professionals en ontwikkelaars verkopen. Met Azure-klanten over de hele wereld, [Azure Marketplace](https://azuremarketplace.microsoft.com/) geweldige reach en blootstelling voor uw producten kunnen bieden.
 
 > [!NOTE]
-> Als u geïnteresseerd bent in de voltooide software as a (SaaS)-serviceproducten verkopen naar zakelijke gebruikers, kunt u opties om deze in onderzoeken [AppSource](https://appsource.microsoft.com).
+> Als u geïnteresseerd in verkopen bent uw [beheerde toepassing](https://docs.microsoft.com/en-us/azure/managed-applications/overview), u moet de instructies om deze in Azure Marketplace [hier](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+
+> [!NOTE]
+> Als u geïnteresseerd bent in uw klaar software as a (SaaS)-serviceproducten te verkopen _IT-professionals en ontwikkelaars_, u kunt bereiken saas-on-amp@microsoft.com voor meer informatie over uw opties.
+
+> [!NOTE]
+> Als u geïnteresseerd bent in uw klaar software as a (SaaS)-serviceproducten te verkopen _zakelijke gebruikers_, kunt u opties om deze in onderzoeken [AppSource](https://appsource.microsoft.com).
+
 
 U weet waar vind ik meer gedetailleerde informatie over deze onderwerpen aan het einde van deze handleiding:
 
@@ -43,9 +48,9 @@ Aan de slag.
 
 ## <a name="whats-the-azure-marketplace"></a>Wat is de Azure Marketplace?
 
-Azure Marketplace is een online toepassingen en services marketplace waarop ISV's--van startups tot ondernemingen--hun oplossingen Azure aan klanten te over de hele wereld bieden. Via de Marketplace Azure uitgevers distribueren en hun installatiekopieën van virtuele machines aan andere professionals die willen hun cloud-gebaseerde toepassingen en mobiele oplossingen in Azure snel kunt ontwikkelen verkopen. De Marketplace biedt ondersteuning voor een bereik van de offerings--van end-to-end analytics gegevenstoepassingen met gegevensverwerking, gegevensopslag en analyse-lagen voor gelaagde e-commerce-apps (gegevens, service en Internet).
+Azure Marketplace is een online toepassingen en services marketplace waarop ISV's--van startups tot ondernemingen--hun oplossingen Azure aan klanten te over de hele wereld bieden. Via de Marketplace Azure uitgevers kunnen distribueren en hun installatiekopieën van virtuele machines verkopen, beheerde toepassingen en andere professionals die snel willen SaaS-toepassingen ontwikkelen hun cloud-gebaseerde toepassingen en mobiele oplossingen in Azure. Azure Marketplace biedt ondersteuning voor een bereik van de offerings--van end-to-end analytics gegevenstoepassingen met gegevensverwerking, gegevensopslag en analyse-lagen voor gelaagde e-commerce-apps (gegevens, service en Internet).
 
-Cloud-klanten staan enkele uitdagingen bij het zoeken naar oplossingen voor hun unieke behoeften. De Marketplace biedt een manier om deze problemen op te lossen en klanten verbinding met innovatieve ISV-oplossingen, zoals wordt beschreven in de volgende tabel:
+Cloud-klanten staan enkele uitdagingen bij het zoeken naar oplossingen voor hun unieke behoeften. Azure Marketplace biedt een manier om deze problemen op te lossen en klanten verbinding met innovatieve ISV-oplossingen, zoals wordt beschreven in de volgende tabel:
 
 | Klant | Azure Marketplace-oplossing |
 | --- | --- |
@@ -54,14 +59,14 @@ Cloud-klanten staan enkele uitdagingen bij het zoeken naar oplossingen voor hun 
 | Moet een schaalbare implementatiemechanisme voor toepassingen van derden en services | Hiermee kunnen maken en configuratie van schaalbare implementaties voor toepassingen van derden en services |
 | Nieuwe toepassingen en services te integreren met bestaande oplossingen werken vereist | Toepassingen van derden en services gemakkelijk geïntegreerd met bestaande oplossingen in Azure |
 
-De Marketplace maakt op de kwaliteit, keuze en sterkte van het ecosysteem van de Azure-partner met globale klanten. De belangrijkste voordelen zijn:
+Azure Marketplace maakt op de kwaliteit, keuze en sterkte van het ecosysteem van de Azure-partner met globale klanten. De belangrijkste voordelen zijn:
 
 - Centrale locatie voor op basis van een Azure-aanbiedingen van Microsoft en partners.
 - Meer dan 5000 aanbiedingen.
 - Geïntegreerd platform-ervaring.
 - Gestroomlijnde configuratie, implementatie en beheer.
 
-## <a name="is-the-marketplace-right-for-my-business"></a>Is het recht Marketplace voor mijn bedrijf?
+## <a name="is-azure-marketplace-right-for-my-business"></a>Azure Marketplace is geschikt voor mijn bedrijf?
 
 Nu wellicht u als Azure Marketplace de juiste keuze te maken voor uw bedrijf is. En als het, wat u krijgt buiten het? De Marketplace worden nieuwe verkoopkansen voor u gemaakt:
 
@@ -74,23 +79,32 @@ Nu wellicht u als Azure Marketplace de juiste keuze te maken voor uw bedrijf is.
 
 Marketplace-klanten zijn diverse. Azure heeft ook een van de klant snelst groeiende bases van alle cloudproviders. Hebt u toegang tot IT-professionals en ontwikkelaars die werken voor bedrijven, variërend van startende voor bedrijven, in hele branches en in de openbare en privé-sector.
 
-## <a name="how-does-the-marketplace-work"></a>Hoe werkt de Marketplace?
+## <a name="how-does-marketplace-work"></a>Hoe werkt Marketplace?
 
-&#39; s tamelijk eenvoudig. Nadat u &#39; re goedgekeurd, u de installatiekopie van uw Azure-gecertificeerd virtuele machine maken en deze publiceren naar de Marketplace. Daar Azure-klanten kunnen vinden, kopen, en implementeren van uw product in minuten. Klanten wordt zelfs uw oplossing implementeren met vertrouwen. Ze weten dat de omgeving voor een correcte werking in Azure is geconfigureerd en dat de infrastructuur is klaar voor gebruik binnen een paar minuten.
+&#39; s tamelijk eenvoudig. Nadat u &#39; re goedgekeurd, de installatiekopie van virtuele machine Azure gecertificeerd of beheerde toepassingsservices te maken en deze publiceren naar de Marketplace. Daar Azure-klanten kunnen vinden, kopen, en implementeren van uw product in minuten. Klanten wordt zelfs uw oplossing implementeren met vertrouwen. Ze weten dat de omgeving voor een correcte werking in Azure is geconfigureerd en dat de infrastructuur is klaar voor gebruik binnen een paar minuten.
 
-De Cloud Partner-Portal is de hub voor het maken van uw aanbieding op de Marketplace. Installatiekopieën van virtuele machines zijn vooraf geconfigureerd met een volledig geïnstalleerde besturingssysteem en een of meer toepassingen. Om te certificeren van uw installatiekopie zo dat deze &#39; s gereed voor publicatie er aan bepaalde vereisten voldoen. Bespreken we deze in de volgende sectie.
+De Cloud Partner-Portal is de hub voor het maken van uw aanbieding op de Marketplace. Uw aanbieding dus vast te stellen dat deze &#39; s gereed voor publicatie, u moet voldoen aan bepaalde vereisten. Bespreken we deze in de volgende sectie.
 
 
 ## <a name="whats-next"></a>Volgende stappen
 
-U kan denkt dat de juiste keuze te maken voor het product die door Azure Marketplace echt is. Hoe u aan de slag? Deze sectie gaat over het ophalen van en wordt uitgevoerd op de Marketplace (afbeelding 1) door: 
+U kan denkt dat de juiste keuze te maken voor het product die door Azure Marketplace echt is. Hoe u aan de slag? Deze sectie is gericht op slag en wordt uitgevoerd op de Marketplace (afbeelding 1) voor installatiekopieën van virtuele machines door: 
 * Worden Azure gecertificeerd.
 * Als u wilt uw product verkopen ophalen goedgekeurd.
-* Maken van uw aanbieding in de Cloud Partner-Portal. 
+* Maken en publiceren van uw aanbieding via de Cloud Partner-Portal. 
 
 ![Proces voor het gebruiken van Azure Marketplace](./media/cloud-partner-portal-seller-guide/processforselling.png)
 
 Afbeelding 1: Proces voor het gebruiken van Azure Marketplace
+
+Afhankelijk van de werkbelasting (virtuele machine of beheerde toepassing) die u wilt publiceren, wordt u een ander proces voor het publiceren van uw aanbieding volgen. De volgende inhoud is gericht op de publicatie _aanbiedingen van de virtuele machine_.
+
+> [!NOTE]
+> Als u geïnteresseerd in verkopen bent uw [beheerde toepassing](https://docs.microsoft.com/en-us/azure/managed-applications/overview), u moet de instructies om deze in Azure Marketplace [hier](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+
+> [!NOTE]
+> Als u geïnteresseerd bent in uw klaar software as a (SaaS)-serviceproducten te verkopen _IT-professionals en ontwikkelaars_, u kunt bereiken saas-on-amp@microsoft.com voor meer informatie over uw opties.
+
 
 Eerst een set van technische en niet-technische vereisten voldoen en de installatiekopie van de virtuele machine voorbereiden. Vervolgens uw product benoemen en inschrijven als verkoper. Ten slotte marketing inhoud toevoegen en verzenden voor de publicatie. U kunt uw aanbieding in een preview/fasering controleren vóór de omgeving te maken live op de Marketplace.
 
@@ -103,6 +117,7 @@ De eerste stap bij het maken van uw aanbieding voor Azure Marketplace is om te w
 ![Vereisten voor Azure gecertificeerd steeds](./media/cloud-partner-portal-seller-guide/azurecertified.png)
 
 Afbeelding 2: Vereisten voor Azure gecertificeerd steeds
+
 
 ### <a name="technical-prerequisites"></a>Technische vereisten
 
@@ -147,13 +162,15 @@ Verdienen _Azure gecertificeerd_ status voltooid van het voorbereidingsproces ve
 
 ## <a name="how-do-i-nominate-my-product-and-get-approved"></a>Hoe benoemen mijn product en goedgekeurd?
 
-Het is nu tijd om goedkeuring van uw product in de Marketplace (afbeelding 3) te verkopen. Microsoft kunt eenvoudig uw product benoemen en inschrijven als verkoper het publicatieproces voltooid.
+Het is nu tijd om goedkeuring van uw product in de Marketplace (afbeelding 3) te verkopen. 
+
+Microsoft kunt eenvoudig uw product benoemen en inschrijven als verkoper het publicatieproces voltooid. Afhankelijk van de werkbelasting (virtuele machine of beheerde toepassing) die u wilt publiceren, u een andere benoeming proces volgt.
 
 ![ophalen van goedgekeurd voor verkopen op Azure Marketplace](./media/cloud-partner-portal-seller-guide/gettingapprovedsteps.png)
 
 Afbeelding 3: De stappen voor het ophalen van goedgekeurd verkopen op Azure Marketplace
 
-De eerste stap voor goedkeuring is het [benoemen](https://createopportunity.azurewebsites.net/) uw product vóór registratie en publicatie. Goedkeuring kan duren _maximaal drie werkdagen_.
+Als u wilt publiceren een _aanbieding van de virtuele machine_, wijst u het product [hier](https://createopportunity.azurewebsites.net/). Goedkeuring kan duren _maximaal drie werkdagen_.
 
 Na goedkeuring wordt het volgende:
 
@@ -172,17 +189,19 @@ U bent nu klaar om te certificeren van de installatiekopie van de virtuele machi
 
 ## <a name="what-about-best-practices"></a>Wat over best practices?
 
-Hier volgen een aantal hulpprogramma's en aanbevolen procedures waarmee u kunnen u alles uit de verkopers op Marketplace de.
+Hier volgen enkele aanbevolen procedures kunt u optimaal van verkopers op de Marketplace.
 
 ### <a name="azure-test-drives"></a>Azure test stations
 
 [Azure test stations](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/test-drives?page=1) zijn een uitstekende manier om uw product voor potentiële klanten presenteren en geeft u de optie om te proberen voordat ze kopen. Test stations kunt verhogen conversie en potentiële klanten te genereren.
 
-Na het opgeven van hun contactgegevens klanten toegang krijgen tot uw station vooraf gedefinieerde test. Er is sprake van een praktische Zelfgestuurde evaluatieversie van uw product &#39; s belangrijke functies en voordelen van een Praktijkscenario.
+Na het opgeven van hun contactgegevens klanten toegang krijgen tot uw station vooraf gedefinieerde test. Er is sprake van een praktische Zelfgestuurde evaluatieversie van uw product &#39; s belangrijke functies en voordelen van een Praktijkscenario. Zelfs beter? U kunt krijgen tot 36% meer potentiële klanten door het publiceren van een test-station gekoppeld aan uw aanbieding.
 
-Publiceren van een test-station voor het product is momenteel alleen beschikbaar in de klassieke portal publiceren. Meer informatie gaat u naar de documentatie op [het publiceren van een nieuw station van de test](https://github.com/Azure/AzureTestDrive/wiki).
+We bieden u de richtlijnen die u wilt publiceren een test in de Cloud-Partnerportal station tijdens het voorbereidingsproces beschreven. Meer informatie over [Azure test stations](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
 
-Meer informatie over [Azure test stations](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
+###<a name="lead-generation"></a>Generatie leiden
+
+Een van de eigenschappen van de sleutelwaarde van uw product in Azure Marketplace is dat we sturen dat u maximaal leads in aanmerking voor klanten die geïnteresseerd bent in het of het product hebt geïmplementeerd. Wat is er nog beter is dat we deze leads rechtstreeks naar uw CRM verzenden zodat u kunt doen en snel vervolgactie meer mogelijkheden en meer aanbiedingen sluiten. De integratie voor het genereren van lead duurt een paar minuten en wordt uitgevoerd tijdens het publicatieproces in de Cloud Partner-Portal.
 
 ### <a name="go-to-market-checklist"></a>Ga op de markt controlelijst
 
@@ -198,21 +217,20 @@ Vóór het starten, wordt u aangeraden duurt een paar stappen uitvoeren om op te
 
 ## <a name="what-about-reports"></a>Hoe zit het met rapporten?
 
-De Marketplace biedt rapporten over uw orders, gebruik en klanten die toegankelijk via de Marketplace zijn [Publisher Reporting portal](https://reports.azure.com). Naast handig inzicht en analyse onbewerkte gegevens in een tabel navigeerbaar is verstrekt en kan worden gedownload als een CSV of XLS-bestand.
+De Marketplace biedt rapporten over uw orders, gebruik en klanten die toegankelijk via de Cloud Partner-Portal Insights-sectie zijn. Naast handig inzicht en analyse onbewerkte gegevens in een tabel navigeerbaar is verstrekt en kan worden gedownload als een CSV of XLS-bestand.
 
-[In deze video](https://player.vimeo.com/video/200859918) biedt u een voorproefje van functies en voordelen, waaronder:
+Enkele van de Insights-functies en voordelen:
 
-- Rapporttypen: samenvatting momentopname van orders, gebruik en klantentrends op de startpagina.
+- Rapporttypen: samenvatting momentopname van orders, gebruik, deployements en de klant trends op de startpagina Insights.
 - Gedetailleerde orders, het gebruik en de gegevens van de klant.
 - Orders en gebruiksgegevens weergeven als een maandelijks overzicht of als een weergave trend van zes maanden.
-- Verschillende insights weergegeven als standaard.
 - Gebruik/orders door:
   - Market
   - Kanaal
   - Trends aanbiedingen
   - Het licentietype Marketplace
 
-Gedetailleerde rapporten weergeven klantgegevens, zoals de bedrijfsnaam en geografische locatie omlaag naar de postcode, zodat u uw klanten kunt vergelijken. De volgende lijst bevat de specifieke kenmerken, we over uw klanten bieden:
+Gedetailleerde rapporten weergeven klantgegevens, zoals de bedrijfsnaam en geografische locatie omlaag naar de postcode, zodat u kunt uw klanten vergelijken en uw verkopers compenseren. De volgende lijst bevat de specifieke kenmerken, we over uw klanten bieden:
 
 - Reseller
 - Voornaam
@@ -221,7 +239,7 @@ Gedetailleerde rapporten weergeven klantgegevens, zoals de bedrijfsnaam en geogr
 - Bedrijfsnaam
 - TransactionDate
 - SubscriptionName
-- AzureSubscriptionId
+- AzureSubscriptionId (alleen Omslagstelsel klanten)
 - CloudInstanceName
 - OrderCount
 - CustomerCountryRegion
@@ -229,7 +247,7 @@ Gedetailleerde rapporten weergeven klantgegevens, zoals de bedrijfsnaam en geogr
 - CustomerCommunicationCulture
 - CustomerZipCode
 
-We bieden ook training via Help-documentatie, een woordenlijst en een demo opgenomen. Als u of u kunt helpen ondersteunen met uw rapporten, opent u een [ondersteunen ticket](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=636233723471685249).
+We bieden ook training via Help-documentatie, een woordenlijst en een demo opgenomen. Als u moet helpen of met uw rapporten ondersteunen, opent u een ondersteuningsticket via Cloud-Partnerportal op elk gewenst moment.
 
 We Welkom bij onze community van ISV verkopers en graag uw aanbieding te zien.
 

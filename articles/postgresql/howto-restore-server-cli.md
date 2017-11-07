@@ -9,14 +9,14 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/13/2017
-ms.openlocfilehash: 871887e67d686a965a0648d2c6f0c72b3008db05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.openlocfilehash: 0cfce63b1523f939dc2d706dba771e56ce9ccd6c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Het back-up en herstellen van een server in Azure-Database voor PostgreSQL met behulp van de Azure CLI
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Het back-up en herstellen van een server in Azure-Database voor PostgreSQL met behulp van de Azure CLI
 
 Gebruik Azure voor PostgreSQL-Database naar een server-database herstellen naar een eerdere datum die uit 7 tot 35 dagen omvat.
 
@@ -31,7 +31,7 @@ Voor het voltooien van deze handleiding instructies, hebt u het volgende nodig:
 > [!IMPORTANT]
 > Als u installeert en de Azure CLI lokaal gebruiken, is deze handleiding instructies vereist dat u Azure CLI versie 2.0 of hoger. Controleer de versie, bij de opdrachtprompt Azure CLI Voer `az --version`. Als u wilt installeren of upgraden, Zie [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli).
 
-## <a name="back-up-happens-automatically"></a>Wordt automatisch een back-up.
+## <a name="backup-happens-automatically"></a>Back-up automatisch wordt uitgevoerd
 Wanneer u Azure-Database voor PostgreSQL, wordt de database-service automatisch een back-up van de service om de 5 minuten. 
 
 Basic-laag zijn de back-ups beschikbaar voor 7 dagen. Standard-laag zijn de back-ups beschikbaar voor 35 dagen. Zie voor meer informatie [Azure Database voor PostgreSQL Prijscategorieën](concepts-service-tiers.md).
@@ -56,7 +56,7 @@ De `az postgres server restore` opdracht worden de volgende parameters:
 | --- | --- | --- |
 | resourcegroep |  myResourceGroup |  De resourcegroep waar de bronserver bestaat.  |
 | naam | mypgserver hersteld | De naam van de nieuwe server die door de opdracht restore wordt gemaakt. |
-| herstel punt in tijd | 2017-04-13T13:59:00Z | Selecteer een punt in tijd om naar te herstellen. Deze datum en tijd moeten in van de bronserver maakt u een back-up van de bewaarperiode. Gebruik de ISO8601-indeling voor datum en tijd. Bijvoorbeeld, kunt u uw eigen lokale tijdzone, zoals `2017-04-13T05:59:00-08:00`. U kunt ook de Zulu UTC-notatie, bijvoorbeeld gebruiken `2017-04-13T13:59:00Z`. |
+| herstel punt in tijd | 2017-04-13T13:59:00Z | Selecteer een punt in tijd om naar te herstellen. Deze datum en tijd moet binnen de back-up bewaarperiode van de bronserver. Gebruik de ISO8601-indeling voor datum en tijd. Bijvoorbeeld, kunt u uw eigen lokale tijdzone, zoals `2017-04-13T05:59:00-08:00`. U kunt ook de Zulu UTC-notatie, bijvoorbeeld gebruiken `2017-04-13T13:59:00Z`. |
 | bron-server | mypgserver 20170401 | De naam of ID van de bronserver in om te herstellen. |
 
 Wanneer u een server naar een eerder tijdstip herstellen, wordt een nieuwe server gemaakt. De oorspronkelijke server en de databases van het opgegeven punt in tijd worden gekopieerd naar de nieuwe server.

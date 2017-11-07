@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: jingwang
-ms.openlocfilehash: c9395ab077a112e64811b860dd5aa2345a3206fc
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 0dd2c7aa0f8e845c8aae42575c3e46e3ac17ad63
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Gegevens kopiëren van PostgreSQL met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in A
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [PostgreSQL-connector in V1](v1/data-factory-onprem-postgresql-connector.md).
 
-## <a name="supported-scenarios"></a>Ondersteunde scenario's
+## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
 U kunt gegevens uit een PostgreSQL-database kopiëren naar een ondersteunde sink-gegevensarchief. Zie voor een lijst van opgeslagen gegevens die worden ondersteund als bronnen/put door met de kopieerbewerking de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 

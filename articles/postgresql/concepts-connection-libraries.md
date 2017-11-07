@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 7d6f13336b3913299433e25c69a41f8c94f598b2
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: f371d5cd4e20096d5101fadf9066e3a135218d0b
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Verbindingsbibliotheken voor Azure-Database voor PostgreSQL
-In dit onderwerp worden de bibliotheken en stuurprogramma's die ontwikkelaars gebruikmaken van kunnen programmeren van toepassingen verbinding te maken voor PostgreSQL query uitvoeren op Azure-Database.
+Dit artikel worden de bibliotheken en stuurprogramma's die ontwikkelaars gebruiken kunnen voor het ontwikkelen van toepassingen verbinding te maken voor PostgreSQL query uitvoeren op Azure-Database.
 
 ## <a name="client-interfaces"></a>Clientinterfaces
-De meeste taal clientbibliotheken waarmee verbinding met server PostgreSQL externe projecten zijn en onafhankelijk van elkaar worden gedistribueerd. Deze worden ondersteund op Windows, Linux en Mac-platforms. Sommige van de populaire clientstuurprogramma's worden vermeld in de volgende tabel:
+De meeste taal clientbibliotheken waarmee verbinding met server PostgreSQL externe projecten zijn en onafhankelijk van elkaar worden gedistribueerd. De bibliotheken die worden vermeld worden op de Windows, Linux en Mac-platforms voor het verbinden met Azure-Database voor PostgreSQL ondersteund. Enkele voorbeelden van de Quick Start worden in de volgende sectie van de stappen vermeld.
 
 | **Taal** | **Client-interface** | **Aanvullende informatie** | **Downloaden** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|

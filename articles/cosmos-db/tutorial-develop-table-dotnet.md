@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/12/2017
+ms.date: 11/03/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 2189dc7900f03a45c360fceffbcd7c1ff36f7e48
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: a4145f70af429274c3c908d3dedef63c5f973bf6
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Ontwikkelen met de tabel API in .NET
 
@@ -41,29 +41,11 @@ Deze zelfstudie bevat de volgende taken:
  
 ## <a name="tables-in-azure-cosmos-db"></a>Tabellen in Azure Cosmos DB 
 
-Azure Cosmos DB biedt de [tabel API](table-introduction.md) (preview) voor toepassingen die een sleutel-waardearchief met een schema-less-ontwerp moeten. [Azure-tabelopslag](../storage/common/storage-introduction.md) SDK‘s en REST-API‘s kunnen worden gebruikt om te werken met Azure Cosmos DB. U kunt Azure Cosmos DB gebruiken om tabellen te maken met hoge vereisten voor doorvoersnelheid. Azure Cosmos DB ondersteunt tabellen die zijn geoptimaliseerd voor doorvoer (ook wel eens premium-tabellen genoemd), en is momenteel beschikbaar in de openbare preview-versie. 
+Azure Cosmos DB biedt de [tabel API](table-introduction.md) (preview) voor toepassingen die een sleutel / waarde-moeten opslaan met een schema-less-ontwerp en hoge througput vereisten hebben. [Azure Table storage](../storage/common/storage-introduction.md) SDK's en REST-API's kunnen worden gebruikt om te werken met tabellen in Azure Cosmos DB.   
 
-U kunt Azure-tabelopslag blijven gebruiken voor tabellen met hoge vereisten voor opslag en lagere vereisten voor doorvoer.
+Deze zelfstudie is bedoeld voor ontwikkelaars die bekend bent met het Azure Table-opslag-SDK en wilt de beschikbare Premiumfuncties gebruiken met Azure Cosmos DB. Deze is gebaseerd op [aan de slag met Azure Table storage met .NET](table-storage-how-to-use-dotnet.md) en laat zien hoe om te profiteren van extra mogelijkheden, zoals secundaire indexen, ingerichte doorvoer en multihoming. Deze zelfstudie wordt beschreven hoe u met de Azure portal een Azure DB die Cosmos-account maken en bouwen en implementeren van een tabel-API-toepassing. We helpt ook bij .NET-voorbeelden voor het maken en verwijderen van een tabel en invoegen, bijwerken, verwijderen en opvragen van tabelgegevens. 
 
-Als u momenteel Azure Table storage, krijgt u de volgende voordelen met de preview 'tabel premium':
-
-- Directe [globale distributie](distribute-data-globally.md) met multihoming en [automatische en handmatige failover](regional-failover.md)
-- Ondersteuning voor automatische schema-networkdirect indexeren tegen alle eigenschappen ('secundaire indexen') en snelle query 's 
-- Ondersteuning voor [onafhankelijke schalen van opslag en doorvoer](partition-data.md), via verschillende regio's
-- Ondersteuning voor [toegewezen doorvoer per tabel](request-units.md) die kunnen worden geschaald van honderden miljoenen aanvragen per seconde
-- Ondersteuning voor [vijf instelbare consistentieniveaus](consistency-levels.md) moeten op de handel uitschakelen beschikbaarheid, latentie en consistentie op basis van uw toepassing
-- 99,99% beschikbaarheid binnen één regio, en het toevoegen van meer regio's voor hogere beschikbaarheid en [toonaangevende uitgebreide serviceovereenkomsten](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) op algemene beschikbaarheid
-- Werken met de bestaande Azure-opslag .NET SDK en geen codewijzigingen in uw toepassing
-
-Tijdens de preview ondersteunt Azure Cosmos DB de API van de tabel met de .NET SDK. U kunt downloaden de [Preview-SDK van Azure Storage](https://aka.ms/premiumtablenuget) van NuGet, die dezelfde klassen en handtekeningen als heeft de [Azure-opslag-SDK](https://www.nuget.org/packages/WindowsAzure.Storage), maar ook verbinding kunt maken met Azure DB die Cosmos-accounts met behulp van de tabel-API.
-
-Zie voor meer informatie over complexe Azure Table storage taken:
-
-* [Inleiding tot Azure Cosmos DB: tabel API](table-introduction.md)
-* De tabel-naslagdocumentatie voor meer informatie over beschikbare API's [Storage-clientbibliotheek voor .NET-verwijzing](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-
-### <a name="about-this-tutorial"></a>Over deze zelfstudie
-Voor ontwikkelaars die bekend bent met het Azure Table-opslag-SDK en wilt gebruiken, de premiumfuncties die beschikbaar is in deze zelfstudie met behulp van Azure Cosmos DB. Deze is gebaseerd op [aan de slag met Azure Table storage met .NET](table-storage-how-to-use-dotnet.md) en laat zien hoe om te profiteren van extra mogelijkheden, zoals secundaire indexen, ingerichte doorvoer en multihoming. We uitgelegd hoe de Azure portal gebruiken voor een Azure DB die Cosmos-account maken en bouwen en implementeren van de toepassing van een tabel. We helpt ook bij .NET-voorbeelden voor het maken en verwijderen van een tabel en invoegen, bijwerken, verwijderen en opvragen van tabelgegevens. 
+## <a name="prerequisites"></a>Vereisten
 
 Als u Visual Studio 2017 geïnstalleerd nog geen hebt, kunt u downloaden en gebruiken de **gratis** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
 
@@ -72,14 +54,6 @@ Als u Visual Studio 2017 geïnstalleerd nog geen hebt, kunt u downloaden en gebr
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
 
 Begint met het maken van een Azure DB die Cosmos-account in de Azure portal.  
-
-> [!TIP]
-> * Hebt u al een Azure DB die Cosmos-account? Als dit het geval is, gaat u verder met [instellen van uw Visual Studio-oplossing](#SetupVS).
-> * Hebt u een Azure-DocumentDB-account? Als u dus uw account is nu een Cosmos-DB Azure-account en kunt u verder gaan naar [instellen van uw Visual Studio-oplossing](#SetupVS).  
-> * Als u de Emulator Azure Cosmos DB, volgt u de stappen in [Azure Cosmos DB Emulator](local-emulator.md) instellen van de emulator en gaat u verder met [instellen van uw Visual Studio-oplossing](#SetupVS).
-<!---Loc Comment: Please, check link [Set up your Visual Studio solution] since it's not redirecting to any location.---> 
->
->
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
@@ -112,7 +86,7 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 ```
 
 > [!NOTE]
-> Om deze app met standaard Azure Table Storage gebruiken, moet u de verbindingsreeks in wijzigen `app.config file`. De accountnaam gebruiken als tabel accountnaam en de sleutel als Azure Storage primaire sleutel. <br>
+> Voor het gebruik van deze app met Azure Table storage, moet u de verbindingsreeks in wijzigen `app.config file`. De accountnaam gebruiken als tabel accountnaam en de sleutel als Azure Storage primaire sleutel. <br>
 >`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
 > 
 >
@@ -135,7 +109,7 @@ U kunt nu gaat u terug naar de Data Explorer en Zie query, wijzigen en werken me
 >
 
 ## <a name="azure-cosmos-db-capabilities"></a>Mogelijkheden van Azure DB Cosmos
-Azure Cosmos DB ondersteunt een aantal mogelijkheden die niet beschikbaar in de Azure Table storage-API. De nieuwe functionaliteit kan worden ingeschakeld via de volgende `appSettings` configuratiewaarden. Wij kon niet alle nieuwe handtekeningen of overloads voor de preview-opslag-SDK van Azure introduceren. Hiermee kunt u verbinding maken met de standard en premium-tabellen en werken met andere Azure Storage-services zoals Blobs en wachtrijen. 
+Azure Cosmos DB tabel API ondersteunt een aantal mogelijkheden die niet beschikbaar in de Azure Table-opslag. De nieuwe functionaliteit kan worden ingeschakeld via de volgende `appSettings` configuratiewaarden. Er is geen nieuwe handtekeningen of overloads zijn toegevoegd aan de tabel-API die niet in de Azure-opslag-SDK. Hiermee kunt u verbinding maakt met tabellen in Azure Table storage en Azure Cosmos DB en werken met andere Azure Storage-services zoals Blobs en wachtrijen. 
 
 
 | Sleutel | Beschrijving |

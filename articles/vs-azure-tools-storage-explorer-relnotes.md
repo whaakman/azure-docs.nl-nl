@@ -14,25 +14,93 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: c1a3370d29b47da752e4ab1ea67ccc1a4cdd94df
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: cf077fef6df2fd21cf51f6b4fd4e26a4b5081247
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Opmerkingen bij de release van Microsoft Azure Opslagverkenner (Preview)
 
-Dit artikel bevat de release-opmerkingen voor Azure Storage Explorer 0.9.0 (Preview), evenals release-opmerkingen voor eerdere versies vrijgeven.
+Dit artikel bevat de release-opmerkingen voor Azure Storage Explorer 0.9.2 (Preview), evenals release-opmerkingen voor eerdere versies vrijgeven.
 
 [Microsoft Azure Opslagverkenner (Preview)](./vs-azure-tools-storage-manage-with-storage-explorer.md) is een zelfstandige app waardoor u eenvoudig werken met Azure Storage-gegevens op Windows-, Mac OS- en Linux.
 
+## <a name="version-092"></a>Versie 0.9.2
+11/01/2017
+
+### <a name="download-azure-storage-explorer-092-preview"></a>Azure Storage Explorer 0.9.2 (Preview) downloaden
+- [Azure Opslagverkenner (Preview) 0.9.2 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Opslagverkenner (Preview) 0.9.2 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Opslagverkenner (Preview) 0.9.2 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="hotfixes"></a>Hotfixes
+* Er zijn onverwachte gegevenswijzigingen zijn mogelijk bij het bewerken van Edm.DateTime waarden voor de tabelentiteiten, afhankelijk van de lokale tijdzone. De editor gebruikt nu een vak tekst zonder opmaak waardoor nauwkeurige, consistente controle hebt over Edm.DateTime waarden.
+* Een groep van blobs wanneer gekoppeld met de naam en sleutel uploaden/downloaden zou niet starten. Dit probleem is opgelost.
+* Eerder Opslagverkenner zouden alleen gevraagd of u wilt een verlopen account verifiëren als een of meer van de account abonnementen is geselecteerd. Nu wordt Opslagverkenner u gevraagd zelfs als het account is volledig wordt gefilterd.
+* Het domein eindpunten voor het Azure US Government is onjuist. Het is opgelost.
+* De knop toepassen op het deelvenster Accounts beheren was soms moeilijk te klikken. Dit mag niet langer gebeuren.
+
+### <a name="new"></a>Nieuw
+* Preview-ondersteuning voor Azure Cosmos DB:
+    * [Online documentatie](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * Databases en verzamelingen maken
+    * Gegevens bewerken
+    * Een query, maken of verwijderen van documenten
+    * Opgeslagen procedures, door de gebruiker gedefinieerde functies of triggers bijwerken
+    * Gebruik verbindingsreeksen met verbinding maken met en beheren van uw databases
+* Verbetert de prestaties van veel kleine blobs uploaden/downloaden.
+* Een 'Opnieuw alle' actie toegevoegd als er fouten in een blob uploaden groep of blob downloaden.
+* Opslagverkenner pauzeert nu herhaling tijdens blob uploaden/downloaden als wordt gedetecteerd dat de netwerkverbinding is verbroken. U kunt vervolgens herhaling hervatten zodra de netwerkverbinding hersteld is.
+* De mogelijkheid 'Sluiten alle', "Sluiten anderen" en "Sluiten" tabbladen via contextmenu toegevoegd.
+* Opslagverkenner gebruikt nu systeemeigen dialoogvensters en systeemeigen context menu's.
+* Opslagverkenner is nu beter toegankelijk. Verbeteringen zijn onder andere:
+    * Verbeterde ondersteuning voor schermlezers, voor NVDA in Windows en voor Voice-over op Mac
+    * Verbeterde hoog contrast thema 's
+    * TAB-toets en toetsenbord toetsenbordfocus wordt opgelost
+
+### <a name="fixes"></a>Oplossingen
+* Als u probeert te openen of downloaden van een blob met een ongeldige naam van de Windows-bestand, mislukken de bewerking. Opslagverkenner wordt nu detecteren of een blob-naam ongeldig is en vraag of u wilt deze coderen noch overslaan van de blob. Opslagverkenner detecteert ook als een bestandsnaam worden gecodeerd en vraag u weergegeven als wilt voordat u uploadt worden ontsleuteld.
+* Tijdens het uploaden van blob de editor voor de doel-blob-container zou soms niet goed worden vernieuwd. Dit probleem is opgelost.
+* De ondersteuning voor verschillende soorten verbindingsreeksen en SAS-URI's opgelost. We alle bekende problemen hebt opgelost, maar Geef feedback verzenden als u meer problemen.
+* Het updatebericht dat is verbroken voor sommige gebruikers in 0.9.0. Dit probleem is opgelost en die van invloed op een door de fout, kunt u handmatig de nieuwste versie van Opslagverkenner downloaden [hier](https://azure.microsoft.com/en-us/features/storage-explorer/).
+
+### <a name="known-issues"></a>Bekende problemen
+* Opslagverkenner biedt geen ondersteuning voor AD FS-accounts.
+* Sneltoetsen voor 'Weergave Explorer' en 'Accountbeheer weergave' moet Ctrl / Cmd + Shift + E en Ctrl / Cmd + Shift + A respectievelijk.
+* Wanneer u ontwikkelt voor Azure-Stack, mislukken uploaden van bepaalde bestanden zoals toevoeg-blobs.
+* Wanneer u op 'Annuleren' voor een taak, duurt het even voor die taak te annuleren. Dit is omdat we de annuleren filter tijdelijke oplossing hier gebruiken.
+* Als u de verkeerde PINCODE/smartcardcertificaat kiest, moet u opnieuw opstarten om Opslagverkenner besluit vergeet.
+* Het paneel met toepassingsinstellingen account kan worden weergegeven dat u moet referenties voor het filteren van abonnementen opnieuw invoeren.
+* Naam van de BLOB's (afzonderlijk of in een nieuwe naam blob-container) behoudt niet momentopnamen. Alle andere eigenschappen en metagegevens voor blobs, bestanden en entiteiten blijven behouden tijdens een naam te wijzigen.
+* Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde Azure-Stack storage-account.
+* De Electron shell die wordt gebruikt door Opslagverkenner heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Opslagverkenner is leeg (leeg) hoofdvenster weer te geven, kunt u proberen Storage Explorer te starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door het toevoegen van de `--disable-gpu` switch:
+```
+./StorageExplorer.exe --disable-gpu
+```
+* Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is up-to-date - kunt u dit doen door de volgende opdrachten uit te voeren en de computer opnieuw te starten:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* U moet installeren GConf voor gebruikers op Ubuntu 17.04 - kunt u dit doen door de volgende opdrachten uit te voeren en de computer opnieuw te starten:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+
+
 ## <a name="version-091--090-preview"></a>Versie 0.9.1 / 0.9.0 (Preview)
 10/20/2017
-
 ### <a name="download-azure-storage-explorer-091-preview"></a>Azure Storage Explorer 0.9.1 (Preview) downloaden
-- [Azure Opslagverkenner (Preview) 0.9.1 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Opslagverkenner (Preview) 0.9.1 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Opslagverkenner (Preview) 0.9.1 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [Download de Azure Opslagverkenner (Preview) 0.9.1 voor Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Download de Azure Opslagverkenner (Preview) 0.9.1 voor Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Azure Opslagverkenner (Preview) 0.9.1 voor Linux downloaden](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### <a name="new"></a>Nieuw
 * Preview-ondersteuning voor Azure Cosmos DB:
@@ -86,13 +154,30 @@ Dit artikel bevat de release-opmerkingen voor Azure Storage Explorer 0.9.0 (Prev
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-0816-preview"></a>Versie 0.8.16 (Preview)
-8/21/2017
 
-### <a name="download-azure-storage-explorer-0816-preview"></a>Azure Storage Explorer 0.8.16 (Preview) downloaden
-* [Download de Azure Opslagverkenner (Preview) 0.8.16 voor Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Download de Azure Opslagverkenner (Preview) 0.8.16 voor Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Azure Opslagverkenner (Preview) 0.8.16 voor Linux downloaden](https://go.microsoft.com/fwlink/?LinkId=809308)
+
+## <a name="previous-releases"></a>Eerdere versies
+
+* [Versie 0.8.16](#version-0816)
+* [Versie 0.8.14](#version-0814)
+* [Versie 0.8.13](#version-0813)
+* [Versie 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
+* [Versie 0.8.9 / 0.8.8](#version-089--088)
+* [Versie 0.8.7](#version-087)
+* [Versie 0.8.6](#version-086)
+* [Versie 0.8.5](#version-085)
+* [Versie 0.8.4](#version-084)
+* [Versie 0.8.3](#version-083)
+* [Versie 0.8.2](#version-082)
+* [Versie 0.8.0](#version-080)
+* [Versie 0.7.20160509.0](#version-07201605090)
+* [Versie 0.7.20160325.0](#version-07201603250)
+* [Versie 0.7.20160129.1](#version-07201601291)
+* [Versie 0.7.20160105.0](#version-07201601050)
+* [Versie 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-0816"></a>Versie 0.8.16
+8/21/2017
 
 ### <a name="new"></a>Nieuw
 * Wanneer u een blob opent, wordt Opslagverkenner u gevraagd het gedownloade bestand uploaden als een wijziging wordt gedetecteerd
@@ -130,26 +215,6 @@ Dit artikel bevat de release-opmerkingen voor Azure Storage Explorer 0.9.0 (Prev
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Eerdere versies
-
-* [Versie 0.8.14](#version-0814)
-* [Versie 0.8.13](#version-0813)
-* [Versie 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
-* [Versie 0.8.9 / 0.8.8](#version-089--088)
-* [Versie 0.8.7](#version-087)
-* [Versie 0.8.6](#version-086)
-* [Versie 0.8.5](#version-085)
-* [Versie 0.8.4](#version-084)
-* [Versie 0.8.3](#version-083)
-* [Versie 0.8.2](#version-082)
-* [Versie 0.8.0](#version-080)
-* [Versie 0.7.20160509.0](#version-07201605090)
-* [Versie 0.7.20160325.0](#version-07201603250)
-* [Versie 0.7.20160129.1](#version-07201601291)
-* [Versie 0.7.20160105.0](#version-07201601050)
-* [Versie 0.7.20151116.0](#version-07201511160)
-
 
 ### <a name="version-0814"></a>Versie 0.8.14
 06/22/2017

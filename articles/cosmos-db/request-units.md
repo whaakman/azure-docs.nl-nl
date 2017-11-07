@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 83cbc622975344ec2a5700d2e10a5c77371e9899
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc544a776293e94114d8c07d89df588a17aa1962
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Aanvraageenheden in Azure Cosmos DB
 Nu beschikbaar: Azure Cosmos DB [aanvraag eenheid Rekenmachine](https://www.documentdb.com/capacityplanner). Meer informatie [schatting van de doorvoer moet](request-units.md#estimating-throughput-needs).
@@ -26,7 +26,7 @@ Nu beschikbaar: Azure Cosmos DB [aanvraag eenheid Rekenmachine](https://www.docu
 ![Doorvoer Rekenmachine][5]
 
 ## <a name="introduction"></a>Inleiding
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) van Microsoft wereldwijd gedistribueerde database voor meerdere model is. Met Azure Cosmos DB er geen virtuele machines te verhuren, software implementeren of databases bewaken. Azure Cosmos DB wordt beheerd en continu bewaakt door Microsoft bovenste engineers leveren world klasse beschikbaarheid, prestaties en beveiliging. U toegang hebt tot uw gegevens met behulp van API's van uw keuze als [DocumentDB SQL](documentdb-sql-query.md) (document) MongoDB (document) [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/) (sleutel-waarde), en [Gremlin](https://tinkerpop.apache.org/gremlin.html) (grafiek) worden ondersteund. De valuta van Azure DB die Cosmos is de aanvraag Unit (ru/s). Met RUs hoeft u niet reserveren lezen/schrijven capaciteiten of inrichten CPU, geheugen en IOPS.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) van Microsoft wereldwijd gedistribueerde database voor meerdere model is. Met Azure Cosmos DB er geen virtuele machines te verhuren, software implementeren of databases bewaken. Azure Cosmos DB wordt beheerd en continu bewaakt door Microsoft bovenste engineers leveren world klasse beschikbaarheid, prestaties en beveiliging. U toegang hebt tot uw gegevens met behulp van API's van uw keuze, zoals SQL via de [DocumentDB API](documentdb-introduction.md), MongoDB-APIs [tabel API](table-introduction.md), en Gremlin via de [Graph API](graph-introduction.md) -zijn alle systeemeigen ondersteund. De valuta van Azure DB die Cosmos is de aanvraag Unit (ru/s). Met RUs hoeft u niet reserveren lezen/schrijven capaciteiten of inrichten CPU, geheugen en IOPS.
 
 Azure Cosmos DB ondersteunt een aantal API's met verschillende bewerkingen, variërend van eenvoudige leest en schrijft naar grafiek complexe query's. Omdat niet alle aanvragen gelijk zijn, zijn ze een genormaliseerde hoeveelheid toegewezen **aanvraageenheden** op basis van de hoeveelheid berekeningen voor het uitvoeren van de aanvraag. Het aantal aanvraageenheden voor een bewerking is deterministisch en kunt u het aantal aanvraageenheden verbruikt door elke bewerking in Azure Cosmos DB via een antwoordheader bijhouden. 
 
@@ -39,12 +39,12 @@ Na het lezen van dit artikel, hebt u mogelijk de volgende vragen beantwoorden:
 * Hoe u schat dat mijn toepassing aanvraag heeft?
 * Wat gebeurt er als ik aanvraag eenheid capaciteit voor een verzameling overschrijdt?
 
-Als Azure Cosmos DB een meerdere model-database is, is het belangrijk te weten dat wordt verwezen naar een verzameling/document voor een API-document, een grafiek/knooppunt voor de API van een grafiek en een Tabelentiteit voor tabel-API. In dit hele document wordt we naar de concepten van container item/generalize.
+Als Azure Cosmos DB een meerdere model-database is, is het belangrijk te weten dat in dit artikel naar een verzameling/document voor een document een grafiek/knooppunt voor de API van een grafiek en een Tabelentiteit voor de tabel-API-API verwijst. Dit artikel verwijst naar het concept van een verzameling, de grafiek of de tabel als een container en een document, een knooppunt of een entiteit als een item.
 
 ## <a name="request-units-and-request-charges"></a>Aanvraageenheden en kosten van de aanvraag
 Azure Cosmos DB biedt snelle en voorspelbare prestaties door *reserveren* bronnen om te voldoen aan de behoeften van uw toepassing doorvoer.  Omdat de toepassing laden en patronen wijzigen na verloop van tijd toegang, wordt Azure Cosmos DB kunt u eenvoudig vergroten of verkleinen van de hoeveelheid gereserveerde doorvoer die beschikbaar zijn voor uw toepassing.
 
-Met Azure Cosmos DB is gereserveerde doorvoer opgegeven in termen van aanvraageenheden per seconde verwerkt. U kunt zien aanvraageenheden als valuta doorvoer, waarbij u *reserveren* een hoeveelheid gegarandeerde aanvraageenheden die beschikbaar zijn voor uw toepassing op basis van per seconde.  Elke bewerking in Azure Cosmos DB - schrijven, uitvoeren van een query, het bijwerken van een document - verbruikt CPU, geheugen en IOPS.  Dat wil zeggen, elke bewerking leidt ertoe dat een *aanvragen kosten*, die wordt uitgedrukt in *aanvraageenheden*.  Informatie over de factoren die van invloed zijn de kosten van het aanvraag-eenheid, samen met de vereisten van de doorvoer van uw toepassing, kunt u uw toepassing uitvoeren als de kosten-effectief mogelijk. De queryverkenner is ook een fantastische hulpprogramma voor het testen van de kern van een query.
+Met Azure Cosmos DB is gereserveerde doorvoer opgegeven in termen van aanvraageenheden per seconde verwerkt. U kunt zien aanvraageenheden als valuta doorvoer, waarbij u *reserveren* een hoeveelheid gegarandeerde aanvraageenheden die beschikbaar zijn voor uw toepassing op basis van per seconde.  Elke bewerking in Azure Cosmos DB - schrijven, uitvoeren van een query, het bijwerken van een document - verbruikt CPU, geheugen en IOPS.  Dat wil zeggen, elke bewerking leidt ertoe dat een *aanvragen kosten*, die wordt uitgedrukt in *aanvraageenheden*.  Informatie over de factoren die van invloed zijn op aanvraag eenheid kosten, samen met de vereisten van de doorvoer van uw toepassing, kunt u uw toepassing uitvoeren als de kosten-effectief mogelijk. De queryverkenner is ook een fantastische hulpprogramma voor het testen van de kern van een query.
 
 Het is raadzaam om aan de slag door het bekijken van de volgende video, waarbij Aravind Ramachandran wordt uitgelegd aanvraageenheden en voorspelbare prestaties met Azure Cosmos DB.
 
@@ -55,7 +55,7 @@ Het is raadzaam om aan de slag door het bekijken van de volgende video, waarbij 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Capaciteit van de aanvraag-eenheid opgeven in Azure Cosmos-DB
 Bij het starten van een nieuwe verzameling, de tabel of de grafiek, u het aantal aanvraageenheden per seconde (ru/s per seconde) die u wilt gereserveerd. Op basis van de ingerichte doorvoer, Azure Cosmos DB toegewezen fysieke partities voor het hosten van uw verzameling en splitsingen/rebalances gegevens meerdere partities wanneer deze groeit.
 
-Azure Cosmos DB vereist een partitiesleutel worden opgegeven wanneer een verzameling is ingericht met 2500 aanvraageenheden of hoger. Een partitiesleutel is ook vereist voor het schalen van uw verzameling doorvoer afgezien van 2500 aanvraageenheden in de toekomst. Daarom sterk aanbevolen voor het configureren van een [partitiesleutel](partition-data.md) bij het maken van een container ongeacht uw eerste doorvoer. Aangezien uw gegevens hebben mogelijk om te worden verdeeld over meerdere partities, is het nodig om het kiezen van een partitiesleutel met een hoge kardinaliteit (100 tot miljoenen afzonderlijke waarden) zodat uw tabel-verzameling/grafiek en aanvragen kunnen worden vergroot of verkleind gelijkmatig door Azure Cosmos DB. 
+Azure Cosmos DB vereist een partitiesleutel worden opgegeven wanneer een verzameling is ingericht met 2500 aanvraageenheden of hoger. Een partitiesleutel is ook vereist voor het schalen van uw verzameling doorvoer afgezien van 2500 aanvraageenheden in de toekomst. Daarom sterk aanbevolen voor het configureren van een [partitiesleutel](partition-data.md) bij het maken van een container ongeacht uw eerste doorvoer. Aangezien uw gegevens hebben mogelijk om te worden verdeeld over meerdere partities, is het nodig om het kiezen van een partitiesleutel met een hoge kardinaliteit (100 tot miljoenen afzonderlijke waarden). Selecteren van een partitiesleutel met veel afzonderlijke waarden zorgt u ervoor dat uw tabel-verzameling/grafiek en aanvragen kunnen worden geschaald op uniforme wijze door Azure Cosmos DB. 
 
 > [!NOTE]
 > Een partitiesleutel is een grens van een logische en niet een fysieke. Daarom hoeft u niet wilt beperken het aantal afzonderlijke partitie sleutelwaarden. In feite is het beter om meer afzonderlijke partitie sleutelwaarden dan minder Azure Cosmos DB beschikt over meer opties voor taakverdeling.
@@ -96,23 +96,23 @@ Er zijn geen gevolgen voor de beschikbaarheid van de container wanneer u de door
 ## <a name="request-unit-considerations"></a>Overwegingen voor aanvraag-eenheid
 Bij het bepalen van het aantal aanvraageenheden moet worden gereserveerd voor uw Azure DB die Cosmos-container, is het belangrijk dat u rekening met de volgende variabelen:
 
-* **De grootte van item**. Als de grootte van de eenheden gebruikt om te lezen of schrijven van dat de gegevens ook vergroten toeneemt.
-* **Aantal eigenschappen item**. Uitgaande standaard indexeren van alle eigenschappen, de eenheden verbruikt voor het schrijven van een document, de knooppunt/het ntity wordt verhoogd als de eigenschap aantal toeneemt.
-* **Gegevensconsistentie**. Wanneer u gegevens consistentieniveaus van sterke of gebonden veroudering, worden aanvullende eenheden gebruikt om te lezen van de items.
+* **De grootte van item**. Als de grootte van de eenheden gebruikt om te lezen of schrijven verhoogt ook de gegevens toeneemt.
+* **Aantal eigenschappen item**. Ervan uitgaande dat standaard indexeren van alle eigenschappen, de eenheden verbruikt voor het schrijven van een verhoging van het knooppunt-document/entiteit als de eigenschap aantal toeneemt.
+* **Gegevensconsistentie**. Wanneer u gegevens consistentieniveaus van sterke of gebonden veroudering, worden extra eenheden verbruikt voor het lezen van de items.
 * **Geïndexeerde eigenschappen**. Een index-beleid op elke container bepaalt welke eigenschappen standaard worden geïndexeerd. Door het aantal geïndexeerde eigenschappen te beperken of doordat de vertraagde indexeren, kunt u uw aanvraag eenheidsverbruik verminderen.
-* **Document indexeren**. Standaard die elk item wordt automatisch geïndexeerd, wordt u minder aanvraageenheden gebruiken als u ervoor kiest niet te indexeren aantal objecten.
+* **Document indexeren**. Elk item wordt standaard automatisch geïndexeerd. U minder aanvraageenheden gebruiken als u ervoor kiest niet te indexeren aantal objecten.
 * **Query uitvoeren op patronen**. De complexiteit van een query heeft gevolgen voor het aantal eenheden van de aanvraag voor een bewerking worden verbruikt. Het aantal predicaten, aard van de predikaten, projecties, aantal UDF's en de grootte van de bron-gegevensset alle invloed hebben op de kosten van querybewerkingen.
 * **Gebruik een script**.  Net als bij query's, opgeslagen procedures en triggers in beslag nemen aanvraageenheden op basis van de complexiteit van de bewerkingen die worden uitgevoerd. Inspecteer de aanvraagheader kosten om beter te begrijpen hoe elke bewerking aanvraag eenheid capaciteit is verbruikt tijdens het ontwikkelen van uw toepassing.
 
 ## <a name="estimating-throughput-needs"></a>Schatten van doorvoerbehoeften
-Een aanvraag-eenheid is een genormaliseerde meting van de kosten voor aanvraagverwerking. Een enkele aanvraag eenheid vertegenwoordigt de verwerkingscapaciteit vereist om te lezen (via self link- of -id) van een enkele 1KB item dat bestaat uit 10 unieke eigenschapswaarden (met uitzondering van Systeemeigenschappen). Een aanvraag wilt maken (invoegen), vervangen of verwijderen van hetzelfde artikel verbruikt meer verwerken van de service en zodoende meer aanvraageenheden.   
+Een aanvraag-eenheid is een genormaliseerde meting van de kosten voor aanvraagverwerking. Een enkele aanvraag eenheid vertegenwoordigt de verwerkingscapaciteit vereist om te lezen (via self link- of -id) van een enkele 1 KB item dat bestaat uit 10 unieke eigenschapswaarden (met uitzondering van Systeemeigenschappen). Een aanvraag wilt maken (invoegen), vervangen of verwijderen van hetzelfde artikel verbruikt meer verwerken van de service en zodoende meer aanvraageenheden.   
 
 > [!NOTE]
-> De basislijn van 1 aanvraag eenheid voor een 1KB item overeenkomt met een eenvoudige GET door self link of id van het item.
+> De basislijn van de eenheid voor een 1 KB-artikel 1 aanvraag komt overeen met een eenvoudige GET door self link of id van het item.
 > 
 > 
 
-Hier is bijvoorbeeld een tabel waarin het aantal aanvraageenheden om in te richten op drie verschillende item grootten (1KB, 4KB en 64KB) en op twee verschillende prestatieniveaus (500 leesbewerkingen per seconde + 100 schrijfbewerkingen per seconde en 500 leesbewerkingen per seconde + 500 schrijfbewerkingen per seconde). De consistentie van de gegevens op sessie is geconfigureerd en het indexeringsbeleid is ingesteld op None.
+Hier is bijvoorbeeld een tabel waarin het aantal aanvraageenheden om in te richten op drie verschillende item grootten (1 KB, 4 KB en 64 KB) en op twee verschillende prestatieniveaus (500 leesbewerkingen per seconde + 100 schrijfbewerkingen per seconde en 500 leesbewerkingen per seconde + 500 schrijfbewerkingen per seconde). De consistentie van de gegevens op sessie is geconfigureerd en het indexeringsbeleid is ingesteld op None.
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -162,7 +162,7 @@ Hier is bijvoorbeeld een tabel waarin het aantal aanvraageenheden om in te richt
 </table>
 
 ### <a name="use-the-request-unit-calculator"></a>De rekenhulp voor aanvraag-eenheid
-Om klanten goed te helpen hun schattingen doorvoer afstemmen, wordt er een op het web gebaseerd [aanvraag eenheid Rekenmachine](https://www.documentdb.com/capacityplanner) om te schatten van de vereisten van de aanvraag-eenheid voor normale bewerkingen, inclusief:
+Om te helpen klanten hun schattingen doorvoer stemmen, er is een webgebaseerde [aanvraag eenheid Rekenmachine](https://www.documentdb.com/capacityplanner) om te schatten van de vereisten van de aanvraag-eenheid voor normale bewerkingen, inclusief:
 
 * Item maakt (schrijft)
 * Item leest
@@ -197,7 +197,7 @@ Elke reactie van de service Azure Cosmos DB bestaat uit een aangepaste header (`
 Met deze in gedachten, één methode voor het schatten van de hoeveelheid gereserveerde doorvoer vereist door uw toepassing is voor het vastleggen van de aanvraag eenheid kosten die zijn gekoppeld aan met het normale bewerkingen uitvoeren in een representatieve item gebruikt door de toepassing en vervolgens het schatten van het aantal bewerkingen wilt u uitvoeren per seconde.  Zorg ervoor dat voor het meten en zijn typische query's en ook gebruik van Azure DB die Cosmos-script.
 
 > [!NOTE]
-> Als er itemtypen die aanzienlijk in termen van de grootte en het aantal geïndexeerde eigenschappen verschillen wordt, en noteer vervolgens de betreffende bewerking aanvraag eenheid kosten die zijn gekoppeld aan elk *type* van typische item.
+> Als er itemtypen die aanzienlijk verschilt en grootte en het aantal geïndexeerde eigenschappen, en noteer vervolgens de betreffende bewerking aanvraag eenheid kosten die zijn gekoppeld aan elk *type* van typische item.
 > 
 > 
 
@@ -243,7 +243,7 @@ De eenvoudigste manier om een goede schatting van de aanvraag eenheid kosten voo
 ![API voor MongoDB portal metrische gegevens][6]
 
 ## <a name="a-request-unit-estimation-example"></a>Een voorbeeld van een aanvraag eenheid schatting
-Houd rekening met het volgende ~ 1KB-document:
+Houd rekening met het volgende ~ 1 KB-document:
 
 ```json
 {
@@ -296,7 +296,7 @@ Houd rekening met het volgende ~ 1KB-document:
 ```
 
 > [!NOTE]
-> Documenten worden minified in Azure Cosmos DB, zodat het systeem berekend grootte van het document dat hierboven is iets minder dan 1KB.
+> Documenten worden minified in Azure Cosmos DB, zodat het systeem berekend grootte van het document dat hierboven is iets minder dan 1 KB.
 > 
 > 
 
@@ -322,7 +322,7 @@ In deze tabel ziet een benadering aanvraag bovendien eenheid kosten voor typisch
 > 
 > 
 
-Met deze informatie kunnen we de RU-vereisten voor deze toepassing gezien het aantal bewerkingen en query's die we verwachten dat per seconde schat:
+Met deze informatie kunt u schat de RU-vereisten voor deze toepassing gezien het aantal bewerkingen en query's die u verwacht dat per seconde:
 
 | Bewerking/Query | Het geschatte aantal per seconde | Vereiste RUs |
 | --- | --- | --- |
@@ -332,10 +332,10 @@ Met deze informatie kunnen we de RU-vereisten voor deze toepassing gezien het aa
 | Selecteer door de Voedingsgroep |10 |700 |
 | Selecteer top 10 |15 |150 totaal |
 
-In dit geval we verwachten dat de vereiste van een gemiddelde doorvoersnelheid van 1,275 RU/s.  Afronden naar de dichtstbijzijnde 100 we 1.300 RU/s voor de verzameling van deze toepassing wilt inrichten.
+In dit geval verwacht u dat de vereiste van een gemiddelde doorvoersnelheid van 1,275 RU/s.  Afronden naar de dichtstbijzijnde 100, zou u 1.300 RU/s voor de verzameling van deze toepassing inrichten.
 
 ## <a id="RequestRateTooLarge"></a>Overschrijding van gereserveerde doorvoer grenzen in Azure Cosmos-DB
-Intrekken dat verzoek eenheidsverbruik wordt beoordeeld als een percentage per seconde als het budget leeg is. Voor toepassingen die groter zijn dan de frequentie van de eenheid ingerichte aanvraag voor een container, wordt pas de frequentie waarmee het niveau van de gereserveerde aanvragen voor deze verzameling worden beperkt. Wanneer er een vertraging optreedt, wordt de server optie preventief beëindigen van de aanvraag met RequestRateTooLargeException (HTTP-statuscode 429) en de x-ms-opnieuw-na-ms-header die de hoeveelheid tijd in milliseconden, dat de gebruiker wachten moet voordat de aanvraag opnieuw proberen aangeeft retourneren.
+Intrekken dat verzoek eenheidsverbruik wordt beoordeeld als een percentage per seconde als het budget leeg is. Voor toepassingen die groter zijn dan de frequentie van de eenheid ingerichte aanvraag voor een container, worden aanvragen voor deze verzameling beperkt tot de snelheid onder het niveau van de gereserveerde zakt. Wanneer er een vertraging optreedt, de server optie preventief eindigt de aanvraag met RequestRateTooLargeException (HTTP-statuscode 429) en retourneert de x-ms-opnieuw-na-ms-header die aangeeft van de hoeveelheid tijd in milliseconden, dat de gebruiker alvorens nogmaals te proberen wachten moet de de aanvraag.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge

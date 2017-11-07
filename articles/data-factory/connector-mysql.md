@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 3d702f4e0746f07c5420853a7b93bdc793e4f288
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: d91ff1738f423928699f056a4d529d764889a6e9
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Gegevens kopiëren van MySQL met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +29,7 @@ In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in A
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [MySQL-connector in V1](v1/data-factory-onprem-mysql-connector.md).
 
-## <a name="supported-scenarios"></a>Ondersteunde scenario's
+## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
 U kunt gegevens uit de MySQL-database kopiëren naar een ondersteunde sink-gegevensarchief. Zie voor een lijst van opgeslagen gegevens die worden ondersteund als bronnen/put door met de kopieerbewerking de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
@@ -209,4 +209,4 @@ Bij het kopiëren van gegevens van MySQL, worden de volgende toewijzingen van My
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md##supported-data-stores-and-formats).
+Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).

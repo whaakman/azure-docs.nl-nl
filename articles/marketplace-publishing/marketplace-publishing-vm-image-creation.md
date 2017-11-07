@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 046ce7af40301014746c6aef07d08d81ab4adcc2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31f80e93dc741d41a00826c9c8b7ab061c0ca414
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Handleiding voor het maken van de installatiekopie van een virtuele machine voor Azure Marketplace
 In dit artikel **stap 2**, wordt u begeleid bij het voorbereiden van de virtuele harde schijven (VHD's) dat u naar Azure Marketplace implementeren wilt. Uw VHD's vormen de basis van uw SKU. Het proces is afhankelijk van of u een SKU op basis van Linux of op basis van Windows biedt. In dit artikel komen beide scenario's. Dit proces kan worden uitgevoerd in combinatie met [accountaanmaking en registratie][link-acct-creation].
@@ -289,6 +289,8 @@ Nadat u de vragenlijst hebt voltooid, kunt u aanvullende informatie zoals SSH to
 Tijdens het publicatieproces, moet u de uniform resource-id's (URI's) die leiden tot elk van de VHD's die u hebt gemaakt voor de SKU opgeven. Tijdens het certificeringsproces moet Microsoft toegang hebben tot deze VHD's. Daarom moet u een shared access signature URI voor elke VHD te maken. Dit is de URI die moet worden ingevoerd in de **installatiekopieën** tabblad in de Portal voor publiceren.
 
 De shared access signature die URI gemaakt moet voldoen aan de volgende vereisten:
+
+Opmerking: de volgende instructies zijn alleen van toepassing op niet-beheerde schijven die met het enige type dat wordt ondersteund.
 
 * Bij het genereren van shared access signature voor URI's voor uw virtuele harde schijven, zijn machtigingen lijst en lezen voldoende. Verleen geen toegang voor schrijven ('Write') of verwijderen ('Delete').
 * De duur voor toegang moet minimaal drie (3) de weken van wanneer de shared access signature URI wordt gemaakt.

@@ -9,11 +9,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: jingwang
-ms.openlocfilehash: c0fd6db570a91eeb1ddcc8a0dcade009b8179f2c
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 76b44766780a730092b31a0c44396f9851dd411a
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Kopiëren van gegevens of naar Azure Blob Storage met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -26,7 +26,7 @@ In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in A
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Azure Blog van Storage connnector in V1](v1/data-factory-azure-blob-connector.md).
 
 
-## <a name="supported-scenarios"></a>Ondersteunde scenario's
+## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
 U kunt gegevens van alle ondersteunde brongegevensarchief kopiëren naar Azure Blob-opslag of gegevens uit Azure Blob Storage kopiëren naar een ondersteunde sink-gegevensarchief. Voor een lijst met opgeslagen gegevens die worden ondersteund als bronnen / of PUT door de kopieeractiviteit, Zie de [ondersteunde gegevensarchieven](copy-activity-overview.md) tabel.
 

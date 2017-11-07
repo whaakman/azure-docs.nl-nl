@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: fba3de916fc3fb0b83b300cc2cf78ef556b35556
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: affe0d7da4b6e40da3b7fdb10d53b9e793ec19bd
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Gegevens kopiëren van Web-tabel met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in A
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Web tabel-connector in V1](v1/data-factory-web-table-connector.md).
 
-## <a name="supported-scenarios"></a>Ondersteunde scenario's
+## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
 U kunt gegevens van Web tabel database kopiëren naar een ondersteunde sink data store. Zie voor een lijst van opgeslagen gegevens die worden ondersteund als bronnen/put door met de kopieerbewerking de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 

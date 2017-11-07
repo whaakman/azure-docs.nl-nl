@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: d23721eba308096a05211eb6e26e1338a69cae0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f1c601f5de440346d35e25299f6f800f3e3c10d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Configureerbare token levensduur in Azure Active Directory (openbare Preview)
 U kunt de levensduur van een token dat is uitgegeven door Azure Active Directory (Azure AD) opgeven. Token levensduur voor alle apps in uw organisatie, voor een multitenant (meerdere organisatie)-toepassing of voor een specifieke service-principal kunt u instellen in uw organisatie.
@@ -58,9 +58,9 @@ Openbare clients kunnen niet veilig opslaan van het wachtwoord van een client (g
 ID-tokens worden doorgegeven aan websites en systeemeigen clients. ID-tokens profielinformatie bevatten over een gebruiker. Een token ID is gebonden aan een specifieke combinatie van client en de gebruiker. ID-tokens worden beschouwd als geldig totdat ze aflopen. Meestal een gebruiker in een webtoepassing overeenkomt met de levensduur van de sessie in de toepassing op de levensduur van het token ID uitgegeven voor de gebruiker. U kunt de levensduur van een token ID om te bepalen hoe vaak de webtoepassing de toepassingssessie is verlopen, en hoe vaak moet de gebruiker te worden geverifieerd met Azure AD (achtergrond of interactief).
 
 ### <a name="single-sign-on-session-tokens"></a>Tokens van de sessie voor eenmalige aanmelding
-Wanneer een gebruiker wordt geverifieerd met Azure AD en selecteert de **aangemeld blijven** selectievakje, één aanmelding sessie (SSO) tot stand is gebracht met de browser van de gebruiker en de Azure AD. Het token eenmalige aanmelding in de vorm van een cookie vertegenwoordigt deze sessie. Houd er rekening mee dat het sessietoken eenmalige aanmelding niet is gebonden aan een specifieke bron/client-toepassing. SSO-sessie tokens kunnen worden ingetrokken en de geldigheid gecontroleerd telkens wanneer ze worden gebruikt.
+Wanneer een gebruiker wordt geverifieerd met Azure AD, één aanmelding sessie (SSO) tot stand is gebracht met de browser van de gebruiker en de Azure AD. Het token eenmalige aanmelding in de vorm van een cookie vertegenwoordigt deze sessie. Houd er rekening mee dat het sessietoken eenmalige aanmelding niet is gebonden aan een specifieke bron/client-toepassing. SSO-sessie tokens kunnen worden ingetrokken en de geldigheid gecontroleerd telkens wanneer ze worden gebruikt.
 
-Azure AD maakt gebruik van twee soorten SSO sessie tokens: persistent en niet-persistente. Permanente sessie tokens worden opgeslagen als permanente cookies door de browser. Niet-persistente sessie tokens worden opgeslagen als sessiecookies. (Sessiecookies worden vernietigd bij de browser wordt gesloten.)
+Azure AD maakt gebruik van twee soorten SSO sessie tokens: persistent en niet-persistente. Permanente sessie tokens worden opgeslagen als permanente cookies door de browser. Niet-persistente sessie tokens worden opgeslagen als sessiecookies. (Sessiecookies worden vernietigd bij de browser wordt gesloten.) Normaal gesproken wordt een niet-persistente sessietoken opgeslagen. Maar wanneer de gebruiker selecteert de **aangemeld blijven** selectievakje tijdens verificatie wordt een permanente sessietoken is opgeslagen.
 
 Niet-persistente sessie tokens hebben een levensduur van 24 uur. Permanente tokens hebben een levensduur van 180 dagen. Elk gewenst moment die een sessietoken SSO wordt gebruikt binnen de geldigheidsperiode wordt de geldigheidsperiode uitgebreid andere 24 uur of 180 dagen, afhankelijk van het type token. Als een SSO-sessietoken niet binnen de geldigheidsperiode wordt gebruikt, is er sprake verlopen en wordt niet meer geaccepteerd.
 

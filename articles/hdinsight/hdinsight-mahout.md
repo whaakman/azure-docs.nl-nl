@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: larryfr
-ms.openlocfilehash: 8f40beb4e3eb8020a65eac6e43ffefe4fedfcee2
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: a0dd7388b3fa7517b97f4dd66eb121ebfd98d4a4
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>Filmaanbevelingen genereren met behulp van Apache Mahout met Hadoop in HDInsight (PowerShell)
 
@@ -32,8 +32,8 @@ Meer informatie over het gebruik van de [Apache Mahout](http://mahout.apache.org
 
 * Een Linux gebaseerde HDInsight-cluster. Zie voor meer informatie over het maken van een [aan de slag met Hadoop op basis van Linux in HDInsight][getstarted].
 
-> [!IMPORTANT]
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+    > [!IMPORTANT]
+    > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 * [Azure PowerShell](/powershell/azure/overview)
 
@@ -64,8 +64,8 @@ De gegevens in gebruiker ratings.txt heeft een structuur van `userID`, `movieID`
 
     196    242    3    881250949
     186    302    3    891717742
-    22    377    1    878887116
-    244    51    2    880606923
+    22     377    1    878887116
+    244    51     2    880606923
     166    346    1    886397596
 
 ### <a name="run-the-job"></a>De taak uitvoeren

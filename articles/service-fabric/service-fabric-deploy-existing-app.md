@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.openlocfilehash: a8579c66cbfb0968a3659316aa5f03b798f4e332
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c851e1f756957d58d5f7372098620e4b7129b089
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="deploy-a-guest-executable-to-service-fabric"></a>Uitvoerbare Gast implementeren op Service Fabric
 Als een service kunt u verschillende typen code, zoals Node.js, Java of C++ uitvoeren in Azure Service Fabric. Service Fabric verwijst naar deze soorten services als gast uitvoerbare bestanden.
@@ -349,6 +349,6 @@ Als u naar de map bladeren met behulp van de Server Explorer, vindt u de werkmap
 In dit artikel hebt u geleerd hoe een gast uitvoerbaar bestand van het pakket en deze implementeren in Service Fabric. Zie de volgende artikelen voor meer informatie en taken.
 
 * [Voorbeeld voor verpakken en distribueren van een gast uitvoerbaar bestand](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), inclusief een koppeling naar de voorlopige versie van het hulpprogramma verpakking
-* [Voorbeeld van twee Gast uitvoerbare bestanden (C# en nodejs) communiceren via de Naming service met behulp van REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Voorbeeld van twee Gast uitvoerbare bestanden (C# en nodejs) communiceren via de Naming service met behulp van REST](https://github.com/Azure-Samples/service-fabric-containers)
 * [Meerdere toepassingen implementeren die door gasten kunnen worden uitgevoerd](service-fabric-deploy-multiple-apps.md)
 * [Uw eerste Service Fabric-toepassing met Visual Studio maken](service-fabric-create-your-first-application-in-visual-studio.md)

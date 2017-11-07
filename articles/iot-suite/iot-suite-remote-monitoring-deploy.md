@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: b16990d41b691c13b01d61aa0cde7d14e533e440
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1442f6ccc1d4ec349bb20d302faabd6788ff9253
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>De vooraf geconfigureerde oplossing voor externe controle implementeren
 
@@ -39,9 +39,13 @@ Als u geen account hebt, kunt u binnen een paar minuten een account voor de grat
 
 Voordat u de vooraf geconfigureerde oplossing voor uw Azure-abonnement implementeert, moet u bepaalde configuratie-opties kiezen:
 
-1. Meld u aan bij [azureiotsuite.com](https://www.azureiotsuite.com) met behulp van uw Azure accountreferenties en klikt u op  **+**  om een oplossing te maken.
+1. Meld u aan bij [azureiotsuite.com](https://www.azureiotsuite.com) met behulp van uw Azure accountreferenties en klikt u op  **+**  om een nieuwe oplossing te maken:
 
-1. Klik op de tegel **Externe controle** op **Selecteren**.
+    ![Een nieuwe oplossing maken](media/iot-suite-remote-monitoring-deploy/createnewsolution.png)
+
+1. Klik op **Selecteer** op de **externe controle preview** tegel.
+
+    ![Kies externe controle](media/iot-suite-remote-monitoring-deploy/remotemonitoring.png)
 
 1. Op de **oplossing voor externe controle maken** pagina, voert u een **oplossingsnaam** voor uw externe controle vooraf oplossing geconfigureerde.
 
@@ -53,7 +57,9 @@ Voordat u de vooraf geconfigureerde oplossing voor uw Azure-abonnement implement
 
 1. Selecteer het **abonnement** dat en de **regio** die u wilt gebruiken voor het inrichten van de oplossing.
 
-1. Klik op **Oplossing maken** om het inrichtingsproces te starten. Doorgaans duurt het enkele minuten om dit proces uit te voeren.
+1. Klik op **Oplossing maken** om het inrichtingsproces te starten. Dit proces duurt gewoonlijk enkele minuten om uit te voeren:
+
+    ![De details van oplossing voor externe controle](media/iot-suite-remote-monitoring-deploy/createform.png)
 
 Zie voor informatie over probleemoplossing, [wat te doen wanneer een implementatie mislukt](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide#what-to-do-when-a-deployment-fails) in de GitHub-opslagplaats.
 
@@ -61,12 +67,16 @@ Zie voor informatie over probleemoplossing, [wat te doen wanneer een implementat
 
 Wanneer het inrichtingsproces voltooid is, kunt u zich aanmeldt bij uw vooraf geconfigureerde oplossing voor externe controle.
 
-1. Op de **ingerichte oplossingen** pagina, kiest u uw nieuwe oplossing voor externe controle.
+1. Op de **ingerichte oplossingen** pagina, kiest u uw nieuwe oplossing voor externe controle:
+
+    ![Kies nieuwe oplossing](media/iot-suite-remote-monitoring-deploy/choosenew.png)
 
 1. U kunt informatie weergeven over uw oplossing voor externe controle in het deelvenster die wordt weergegeven. Kies **dashboard van de oplossing** verbinding maken met uw oplossing voor externe controle.
 
     > [!NOTE]
     > Wanneer u klaar bent, kunt u uw oplossing voor externe controle vanuit dit deelvenster verwijderen.
+
+    ![Oplossing Configuratiescherm](media/iot-suite-remote-monitoring-deploy/solutionpanel.png)
 
 1. Het dashboard externe controle oplossing wordt weergegeven in uw browser.
 

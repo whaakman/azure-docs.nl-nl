@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: aa99d3ebd181a76d582670c5219f29858c462d30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5eea5e4499b9de40002ce2fc6aac39239c41b19
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>IP-adrestypen en toewijzingsmethoden Azure (klassiek)
 U kunt IP-adressen toewijzen aan Azure-resources om te communiceren met andere Azure-resources, uw on-premises netwerk en internet. Er zijn twee soorten IP-adressen kunt u in Azure: openbare en persoonlijke.
@@ -141,9 +141,8 @@ De onderstaande tabel ziet elk resourcetype met de mogelijke toewijzingsmethoden
 
 | Resource | Dynamisch | Statisch | Meerdere IP-adressen |
 | --- | --- | --- | --- |
-| Virtuele machine (in een *zelfstandige* cloudservice) |Ja |Ja |Ja |
-| De rolinstantie PaaS (in een *zelfstandige* cloudservice) |Ja |Nee |Ja |
-| Virtuele machine of PaaS rolinstantie (in een VNet) |Ja |Ja |Ja |
+| Virtuele machine (in een *zelfstandige* cloud service of VNet) |Ja |Ja |Ja |
+| De rolinstantie PaaS (in een *zelfstandige* cloud service of VNet) |Ja |Nee |Nee |
 | Interne load balancer-front-end |Ja |Ja |Ja |
 | Application gateway-front-end |Ja |Ja |Ja |
 

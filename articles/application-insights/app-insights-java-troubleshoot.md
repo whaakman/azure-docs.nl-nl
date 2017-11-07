@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5a729139e122693b4199607919c876bda45fd4b5
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6b1cfa2b52e8e9e2b6a8ab87be6d4269cbe3f1cf
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Probleemoplossing voor en antwoorden op vragen over Application Insights voor Java
 Vragen of problemen met [Azure Application Insights in Java][java]? Hier volgen enkele tips.
@@ -124,6 +124,13 @@ Mogelijk moet u TCP-poorten 80 en 443 voor het uitgaande verkeer naar dc.service
 **Hoe lang gegevens bewaard in de portal? Is het veilig?**
 
 Zie [bewaren van gegevens en privacy][data].
+
+## <a name="debug-logging"></a>Logboekregistratie voor foutopsporing
+Maakt gebruik van Application Insights `org.apache.http`. Dit is verplaatst in Application Insights core potten onder de naamruimte `com.microsoft.applicationinsights.core.dependencies.http`. Hierdoor kunnen Application Insights voor het afhandelen van scenario's waarbij andere versies van dezelfde `org.apache.http` bestaan in één codebasis. 
+
+>[!NOTE]
+>Als u logboekregistratie voor alle naamruimten in de app FOUTOPSPORING inschakelt, wordt het door alle uitvoerende modules, met inbegrip van kracht `org.apache.http` naam als `com.microsoft.applicationinsights.core.dependencies.http`. Application Insights kan niet worden om toe te passen filteren voor deze aanroepen omdat het logboek-aanroep wordt gedaan door de Apache-bibliotheek. Logboekregistratie voor FOUTOPSPORING in niveau produceren van een aanzienlijke hoeveelheid gegevens aan het logboek en wordt niet aanbevolen voor productie-live-exemplaren.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 **Ik instellen Application Insights voor de app my server Java. Wat kan ik doen?**

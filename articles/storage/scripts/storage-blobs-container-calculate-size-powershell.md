@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell-Script steekproef - berekenen blob-container grootte | Microsoft Docs
+title: Azure PowerShell-script steekproef - berekenen blob-container grootte | Microsoft Docs
 description: De grootte van een container in Azure Blob-opslag berekenen door de grootte van elk van de blobs totaal te berekenen.
 services: storage
 documentationcenter: na
@@ -15,13 +15,13 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 10/23/2017
 ms.author: fryu
-ms.openlocfilehash: 46f3eac0129da41062caba2da090f9e532505d67
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: cb053ba730a7dac5c23d98e1046fd63d27831e16
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="calculate-the-size-of-a-blob-storage-container"></a>De grootte van een Blob storage-container berekenen
+# <a name="calculate-the-size-of-a-blob-container"></a>De grootte van een blob-container berekenen
 
 Dit script wordt de grootte van een container in Azure Blob storage berekend door het totaal te berekenen van de grootte van de blobs in de container.
 
@@ -29,15 +29,15 @@ Dit script wordt de grootte van een container in Azure Blob storage berekend doo
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="understand-the-size-of-blob-storage-container"></a>De grootte van Blob storage-container begrijpen
+## <a name="determine-the-size-of-the-blob-container"></a>De grootte van de blob-container bepalen
 
-Totale grootte van Blob storage-container bevat de grootte van de container zelf en de grootte van alle blobs in de container.
+De totale grootte van de blob-container bevat de grootte van de container zelf en de grootte van alle blobs in de container.
 
-Hieronder wordt beschreven hoe de opslagcapaciteit voor Blob-Containers en Blobs wordt berekend. In de onderstaande Len(X): het aantal tekens in de tekenreeks.
+De volgende secties wordt beschreven hoe de opslagcapaciteit voor blob-containers en blobs wordt berekend. In de volgende sectie: Len(X) het aantal tekens in de tekenreeks.
 
-### <a name="blob-containers"></a>BLOB-Containers
+### <a name="blob-containers"></a>BLOB-containers
 
-Hieronder ziet u hoe u schat de hoeveelheid opslagruimte is verbruikt per blob-container:
+De volgende berekening wordt beschreven hoe schatting maken van de hoeveelheid opslagruimte die per blob-container wordt gebruikt:
 
 `
 48 bytes + Len(ContainerName) * 2 bytes +
@@ -45,47 +45,72 @@ For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
 For-Each Signed Identifier[512 bytes]
 `
 
-Hier volgt de uitsplitsing:
+Hieronder vindt u de verdeling:
 * 48 bytes overhead voor elke container omvat het laatst is gewijzigd, machtigingen, instellingen voor openbare en sommige metagegevens van het systeem.
-* De containernaam wordt opgeslagen als Unicode-zodat het aantal tekens en vermenigvuldigen met 2.
-* Voor elke blobcontainermetagegevens opgeslagen, bewaren wij de lengte van de naam (opgeslagen als ASCII), plus de lengte van de tekenreekswaarde.
-* De 512 bytes per ondertekend identificatie bevat ondertekende id-naam, de starttijd, verlooptijd en machtigingen.
+
+* De containernaam is opgeslagen als Unicode, dus het aantal tekens en vermenigvuldigen met twee.
+
+* Voor elk blok van metagegevens van de blob-container die opgeslagen, zo bewaren wij de lengte van de naam (ASCII), plus de lengte van de tekenreekswaarde.
+
+* De 512 bytes per ondertekend identificatie bevat ondertekende id-naam, begintijd, verlooptijd en machtigingen.
 
 ### <a name="blobs"></a>Blobs
 
-Hieronder ziet u hoe u schat de hoeveelheid opslagruimte per blob verbruikt:
+De volgende berekeningen laten zien hoe de hoeveelheid opslagruimte is verbruikt per blob schatten.
 
-* Blok-Blob (base blob of momentopname)
+* Blok-blob (base blob of momentopname):
 
-`
-124 bytes + Len(BlobName) * 2 bytes +
-For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
-8 bytes + number of committed and uncommitted blocks * Block ID Size in bytes +
-SizeInBytes(data in unique committed data blocks stored) +
-SizeInBytes(data in uncommitted data blocks)
-`
+   `
+   124 bytes + Len(BlobName) * 2 bytes +
+   For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
+   8 bytes + number of committed and uncommitted blocks * Block ID Size in bytes +
+   SizeInBytes(data in unique committed data blocks stored) +
+   SizeInBytes(data in uncommitted data blocks)
+   `
 
-* Pagina-Blob (base blob of momentopname)
+* Pagina-blob (base blob of momentopname):
 
-`
-124 bytes + Len(BlobName) * 2 bytes +
-For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
-number of nonconsecutive page ranges with data * 12 bytes +
-SizeInBytes(data in unique pages stored)
-`
+   `
+   124 bytes + Len(BlobName) * 2 bytes +
+   For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
+   number of nonconsecutive page ranges with data * 12 bytes +
+   SizeInBytes(data in unique pages stored)
+   `
 
-Hier volgt de uitsplitsing:
+Hieronder vindt u de verdeling:
 
-* 124 bytes overhead voor blob, waaronder het laatst is gewijzigd, grootte, Cache-Control, Content-Type, Content-Language Content-Encoding, Content-MD5, machtigingen, momentopname informatie, Lease en sommige metagegevens van het systeem.
-* De blob-naam wordt opgeslagen als Unicode zodat het aantal tekens en veelvoud van 2.
-* Klik voor elke metagegevens opgeslagen, de lengte van de naam (opgeslagen als ASCII), plus de lengte van de tekenreekswaarde.
-* Klik voor blok-Blobs
-    * 8 bytes voor de lijst met geblokkeerde websites
-    * Aantal blokken keer de grootte van het blok-ID in bytes
-    * Plus de grootte van de gegevens in alle van de toegewezen en niet-doorgevoerde blokkeert. Opmerking: wanneer momentopnamen worden gebruikt, de grootte van deze alleen bevat de unieke gegevens voor deze blob base of een momentopname. Als de niet-doorgevoerde blokken niet worden gebruikt na een week, garbage collector zijn verzameld worden en klik vervolgens op dat moment ze niet meer meetelt voor facturering daarna.
-* Klik voor pagina-Blobs
-    * Aantal niet-aaneengesloten paginabereiken met gegevens keren 12 bytes. Dit is het aantal unieke paginabereiken u ziet bij het aanroepen van de API GetPageRanges.
-    * Plus de grootte van de gegevens in bytes van alle van de pagina's. Opmerking wanneer momentopnamen worden gebruikt, de grootte van deze omvat alleen unieke pagina's voor de base blob of momentopname blob wordt geteld.
+* 124 bytes overhead voor blob, waaronder:
+    - Laatst gewijzigd
+    - Grootte
+    - Cache-Control
+    - Content-Type
+    - Inhoud taal
+    - Codering van inhoud
+    - Content-MD5
+    - Machtigingen
+    - Informatie over
+    - Lease
+    - Sommige metagegevens van het systeem
+
+* De blob-naam wordt opgeslagen als Unicode, dus het aantal tekens en vermenigvuldigen met twee.
+
+* Voor elk blok van metagegevens die zijn opgeslagen, voegt u de lengte van de naam (opgeslagen als ASCII), plus de lengte van de tekenreekswaarde.
+
+* Voor de blok-blobs:
+    * 8 bytes voor de lijst met geblokkeerde websites.
+    * Aantal blokken keer de grootte van het blok-ID in bytes.
+    * De grootte van de gegevens in alle van de toegewezen en niet-doorgevoerde blokkeert. 
+    
+    >[!NOTE]
+    >Wanneer momentopnamen worden gebruikt, bevat deze grootte alleen de unieke gegevens voor deze blob base of een momentopname. Als de niet-doorgevoerde blokken niet worden gebruikt na een week, zijn deze garbage collector zijn verzameld. Daarna meetellen niet ze voor facturering.
+
+* Pagina-blobs:
+    * Het aantal niet-aaneengesloten paginabereiken met gegevens keren 12 bytes. Dit is het aantal unieke paginabereiken u ziet bij het aanroepen van de **GetPageRanges** API.
+
+    * De grootte van de gegevens in bytes van alle pagina's opgeslagen. 
+    
+    >[!NOTE]
+    >Wanneer momentopnamen worden gebruikt, bevat deze grootte alleen de unieke's voor de base blob of de momentopname blob die wordt geteld.
 
 ## <a name="sample-script"></a>Voorbeeld van een script
 
@@ -93,8 +118,8 @@ Hier volgt de uitsplitsing:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over het Azure Storage facturering [Understanding Windows Azure-opslag facturering](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
+- Zie voor meer informatie over Azure Storage facturering [Understanding Windows Azure-opslag facturering](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-Zie voor meer informatie over de Azure PowerShell-module [documentatie van Azure PowerShell](/powershell/azure/overview).
+- Zie voor meer informatie over de Azure PowerShell-module [documentatie van Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.4.1).
 
-Voorbeelden van extra opslagruimte PowerShell-script kunnen worden gevonden in [voorbeelden van PowerShell voor Azure Storage](../blobs/storage-samples-blobs-powershell.md).
+- U vindt aanvullende voorbeelden van opslag PowerShell script in [voorbeelden van PowerShell voor Azure Storage](../blobs/storage-samples-blobs-powershell.md).

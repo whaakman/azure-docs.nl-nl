@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: 77315171754304c965f296670fbba3a4751a3656
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88a5fe33d048814d956a1221802f059cfbcccb0a
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Toegangsbeheer op basis van rollen met de Azure-opdrachtregelinterface beheren
 > [!div class="op_single_selector"]
@@ -150,7 +150,7 @@ Het voorbeeld wordt de roltoewijzing vervolgens verwijderd uit een groep op het 
 ## <a name="create-a-custom-role"></a>Een aangepaste beveiligingsrol maken
 Gebruik het volgende voor het maken van een aangepaste rol:
 
-    azure role definition create --role-definition <file path>
+    azure role create --inputfile <file path>
 
 Het volgende voorbeeld wordt een aangepaste beveiligingsrol aangeroepen *virtuele Machine Operator*. Deze aangepaste rol verleent toegang tot alle leesbewerkingen van *Microsoft.Compute*, *Microsoft.Storage*, en *Microsoft.Network* resourceproviders en verleent toegang tot Start, opnieuw opstarten en controleren van de virtuele machines. Deze aangepaste rol kan worden gebruikt in twee abonnementen. Dit voorbeeld wordt een JSON-bestand als invoer.
 
@@ -159,9 +159,9 @@ Het volgende voorbeeld wordt een aangepaste beveiligingsrol aangeroepen *virtuel
 ![RBAC Azure vanaf de opdrachtregel - azure-functie maken - schermafbeelding](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
 ## <a name="modify-a-custom-role"></a>Een aangepaste rol wijzigen
-Voor het wijzigen van een aangepaste rol voor het eerst gebruiken de `azure role definition list` opdracht roldefinitie ophalen. Controleer vervolgens de gewenste wijzigingen aan in het definitiebestand voor de rol. Gebruik tot slot `azure role definition update` de gewijzigde roldefinitie opslaan.
+Voor het wijzigen van een aangepaste rol voor het eerst gebruiken de `azure role list` opdracht roldefinitie ophalen. Controleer vervolgens de gewenste wijzigingen aan in het definitiebestand voor de rol. Gebruik tot slot `azure role set` de gewijzigde roldefinitie opslaan.
 
-    azure role definition update --role-definition <file path>
+    azure role set --inputfile <file path>
 
 Het volgende voorbeeld wordt de *Microsoft.Insights/diagnosticSettings/* bewerking is de **acties**, en een Azure-abonnement de **AssignableScopes** van de De aangepaste rol virtuele Machine-Operator.
 
@@ -170,7 +170,7 @@ Het volgende voorbeeld wordt de *Microsoft.Insights/diagnosticSettings/* bewerki
 ![Azure RBAC opdrachtregel - azure-functie set - schermafbeelding](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
 ## <a name="delete-a-custom-role"></a>Een aangepaste rol verwijderen
-U verwijdert een aangepaste rol door eerst gebruiken de `azure role definition list` opdracht om te bepalen de **ID** van de rol. Gebruik vervolgens de `azure role definition delete` opdracht voor het verwijderen van de rol door op te geven de **ID**.
+U verwijdert een aangepaste rol door eerst gebruiken de `azure role list` opdracht om te bepalen de **ID** van de rol. Gebruik vervolgens de `azure role delete` opdracht voor het verwijderen van de rol door op te geven de **ID**.
 
 Het volgende voorbeeld verwijdert u de *virtuele Machine Operator* aangepaste rol.
 
@@ -182,7 +182,7 @@ Als de functies die beschikbaar voor toewijzing op een scope zijn wilt weergeven
 De volgende opdracht worden alle functies die beschikbaar voor toewijzing in het geselecteerde abonnement zijn.
 
 ```
-azure role definition list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
+azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
 ```
 
 ![Azure RBAC opdrachtregel - lijst van de functie van de azure - schermafbeelding](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
@@ -190,7 +190,7 @@ azure role definition list --json | jq '.[] | {"name":.properties.roleName, type
 In het volgende voorbeeld wordt de *virtuele Machine Operator* aangepaste rol is niet beschikbaar in de *Production4* abonnement omdat dat abonnement bevindt zich niet in de **AssignableScopes** van de rol.
 
 ```
-azure role definition list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
+azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
 ```
 
 ![Azure RBAC opdrachtregel - lijst met azure-functie voor aangepaste rollen - schermafbeelding](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)

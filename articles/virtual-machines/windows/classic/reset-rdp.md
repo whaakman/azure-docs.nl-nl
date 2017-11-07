@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 43e5cf1ab3bc3121d7e3915ea0785998e0ee2fc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a38c792decdc571421c6bed7d2edc5f442591ca
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>Het opnieuw instellen van de extern bureaublad-service of het aanmeldingswachtwoord op een Windows-virtuele machine gemaakt met behulp van het klassieke implementatiemodel
 > [!IMPORTANT]
 > Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. U kunt ook [deze stappen uitvoert voor virtuele machines die zijn gemaakt met het implementatiemodel van Resource Manager](../reset-rdp.md).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Als u geen verbinding maken met een Windows virtuele machine (VM), kunt u het lokale administrator-wachtwoord opnieuw instellen of opnieuw instellen van de configuratie van de extern bureaublad-service. U kunt de Azure portal of de toegang van de VM-extensie in Azure PowerShell om het wachtwoord opnieuw in te gebruiken.
 

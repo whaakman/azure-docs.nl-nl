@@ -15,11 +15,11 @@ ms.date: 08/14/2017
 ms.author: joflore
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 3cdeec642590d4ab4ae342e8675c124fa86bc970
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e5e0a852ae9b245ef69fcbff2e87712a31197790
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Uw bestaande NPS-infrastructuur integreren met Azure multi-factor Authentication
 
@@ -52,7 +52,7 @@ De NPS-extensie is bedoeld voor gebruik met uw bestaande infrastructuur. Zorg er
 
 ### <a name="licenses"></a>Licenties
 
-De NPS-extensie voor Azure MFA is beschikbaar voor klanten met [licenties voor Azure multi-factor Authentication](multi-factor-authentication.md) (meegeleverd bij Azure AD Premium, EMS of een MFA-abonnement).
+De NPS-extensie voor Azure MFA is beschikbaar voor klanten met [licenties voor Azure multi-factor Authentication](multi-factor-authentication.md) (meegeleverd bij Azure AD Premium, EMS of een MFA-abonnement). Op basis van verbruik licenties voor Azure MFA zoals per gebruiker of per authenticatie licenties zijn niet compatibel met de NPS-extensie. 
 
 ### <a name="software"></a>Software
 

@@ -8,13 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: tutorial
-ms.date: 06/06/2017
+ms.date: 11/03/2017
 ms.custom: mvc
-ms.openlocfilehash: 92ae809646cb956b0b7cb71cf2a21610bb2d610f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f38484e000b05a57cad9bc95abb255414d0162
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Ontwerp van uw eerste Azure-Database voor de MySQL-database
 Azure Database voor MySQL is een beheerde service waarmee u MySQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. Met de Azure portal, kunt u eenvoudig beheren van uw server en ontwerpen van een database.
@@ -41,7 +41,7 @@ Een Azure Database voor MySQL-server wordt gemaakt met een gedefinieerde set [re
 
 2. Klik op **Azure Database voor MySQL** tegel en klik vervolgens op **maken**.
 
-Vul in ons voorbeeld wordt de Azure-Database MySQL formulier met de volgende informatie:
+Vul de Azure-Database MySQL formulier met de volgende informatie in dit voorbeeld:
 
 | **Instelling** | **Voorgestelde waarde** | **Beschrijving van veld** |
 |---|---|---|
@@ -98,9 +98,9 @@ USE mysampledb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Tabellen maken in de database
-Nu dat u hoe u verbinding maken met de Azure-Database voor de MySQL-database weet, kunnen we gaan over hoe u enkele eenvoudige taken uitvoeren.
+Nu dat u hoe u verbinding maken met de Azure-Database voor de MySQL-database weet, kunt u enkele eenvoudige taken voltooien:
 
-We kunnen eerst een tabel maken en deze met enkele gegevens te laden. We maken een tabel met inventarisatie-informatie.
+Eerst een tabel maken en deze met enkele gegevens te laden. We maken een tabel met inventarisatie-informatie.
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -110,7 +110,7 @@ CREATE TABLE inventory (
 ```
 
 ## <a name="load-data-into-the-tables"></a>Gegevens laden in de tabellen
-Nu dat we een tabel hebben, kunnen we sommige gegevens invoegen in het. Voer de volgende query voor het invoegen van een aantal rijen van de gegevens in het venster opdrachtprompt openen.
+Nu dat u een tabel hebt, moet u enkele gegevens invoegen in het. Voer de volgende query voor het invoegen van een aantal rijen van de gegevens in het venster opdrachtprompt openen.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
