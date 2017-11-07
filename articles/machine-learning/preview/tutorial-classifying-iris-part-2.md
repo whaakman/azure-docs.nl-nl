@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/25/2017
-ms.openlocfilehash: 5d86f3bdf19603d2f92fc1a704376beefd7323c0
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 976407daee45e2f3a8360c1316227cc3399ad43e
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="classifying-iris-part-2-build-a-model"></a>Classificeren van Iris deel 2: een model bouwen
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
@@ -149,7 +149,7 @@ We gaan nu de voorbereidingen treffen om het script **iris_sklearn.py** voor het
 ## <a name="review-run-history-in-detail"></a>Uitvoeringsgeschiedenis in detail bekijken
 In Azure Machine Learning Workbench wordt elke uitvoering van een script vastgelegd in een record met de uitvoeringsgeschiedenis. U kunt de uitvoeringsgeschiedenis van een bepaald script weergeven door de weergave **Runs** te openen.
 
-1. Klik op de werkbalk links op de knop **Runs** (klokpictogram) om een lijst met**** uitvoeringen te openen. Klik vervolgens op **iris_sklearn.py** om het **Run Dashboard** van `iris_sklearn.py` weer te geven.
+1. Klik op de werkbalk links op de knop **Runs** (klokpictogram) om een lijst met **uitvoeringen** te openen. Klik vervolgens op **iris_sklearn.py** om het **Run Dashboard** van `iris_sklearn.py` weer te geven.
 
    ![afbeelding](media/tutorial-classifying-iris/run_view.png)
 
@@ -198,11 +198,11 @@ In Azure ML kunt u gemakkelijk extra uitvoeringsomgevingen configureren, zoals D
 
 5. Laten we nu Spark eens proberen. De Docker-basisinstallatiekopie bevat een vooraf geïnstalleerde en geconfigureerde Spark-instantie. Dit betekent dat u een PySpark-script kunt uitvoeren in Docker. Dit is een eenvoudige manier om een Spark-programma te ontwikkelen en testen zonder tijd te hoeven te besteden aan installatie en configuratie van Spark. 
 
-   Open het `iris_pyspark.py`-bestand. Met dit script wordt het gegevensbestand `iris.csv` geladen, waarna het algoritme voor logistieke regressie uit de Spark ML-bibliotheek wordt gebruikt voor het classificeren van de Iris-gegevensset. Wijzig nu de uitvoeringsomgeving in **docker-spark**, het script in **iris_pyspark.py** en voer het script opnieuw uit. Dit duurt iets langer omdat er een Spark-sessie moet worden gemaakt en gestart binnen de Docker-container. U ziet ook dat de stdout anders is dan de stdout van `iris_pyspark.py`.
+   Open het `iris_spark.py`-bestand. Met dit script wordt het gegevensbestand `iris.csv` geladen, waarna het algoritme voor logistieke regressie uit de Spark ML-bibliotheek wordt gebruikt voor het classificeren van de Iris-gegevensset. Wijzig nu de uitvoeringsomgeving in **docker-spark**, het script in **iris_spark.py** en voer het script opnieuw uit. Dit duurt iets langer omdat er een Spark-sessie moet worden gemaakt en gestart binnen de Docker-container. U ziet ook dat de stdout anders is dan de stdout van `iris_spark.py`.
 
 6. Voer nog een paar runs uit en experimenteer met verschillende argumenten. 
 
-7. Open het bestand `iris_pyspark.py` om het eenvoudige logistieke regressiemodel te zien dat is gebouwd met behulp van de Spark ML-bibliotheek. 
+7. Open het bestand `iris_spark.py` om het eenvoudige logistieke regressiemodel te zien dat is gebouwd met behulp van de Spark ML-bibliotheek. 
 
 8. Probeer wat dingen uit in het deelvenster **Jobs**, bekijk de uitvoeringsgeschiedenis en open de detailweergave van de runs die zijn uitgevoerd in verschillende omgevingen.
 
@@ -249,8 +249,8 @@ In Azure ML kunt u gemakkelijk extra uitvoeringsomgevingen configureren, zoals D
    REM Execute iris_sklearn.py in local Docker container Python environment.
    az ml experiment submit -c docker-python .\iris_sklearn.py 0.01
    
-   REM Execute iris_pyspark.py in local Docker container Spark environment.
-   az ml experiment submit -c docker-spark .\iris_pyspark.py 0.1
+   REM Execute iris_spark.py in local Docker container Spark environment.
+   az ml experiment submit -c docker-spark .\iris_spark.py 0.1
    ```
 6. Klik in de Azure Machine Learning Workbench op het mappictogram op de werkbalk links om de projectbestanden weer te geven en open vervolgens het Python-script met de naam **run.py**. 
 
@@ -320,8 +320,8 @@ Als u het script wilt uitvoeren in een Docker-container op een externe Linux-com
 
 5. Typ de volgende opdracht om het script uit te voeren in de Spark-instantie in de externe Docker-container:
    ```azureli
-   REM execute iris_pyspark.py in Spark instance on remote Docker container
-   az ml experiment submit -c myvm-spark .\iris_pyspark.py
+   REM execute iris_spark.py in Spark instance on remote Docker container
+   az ml experiment submit -c myvm-spark .\iris_spark.py
    ```
 
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>Script uitvoeren in een HDInsight-cluster
@@ -345,8 +345,8 @@ U kunt dit script ook uitvoeren in een echt Spark-cluster.
 2. Voer de volgende opdracht uit en het script wordt uitgevoerd in het HDInsight-cluster:
 
    ```azurecli
-   REM execute iris_pyspark on the HDI cluster
-   az ml experiment submit -c myhdi .\iris_pyspark.py
+   REM execute iris_spark on the HDI cluster
+   az ml experiment submit -c myhdi .\iris_spark.py
    ```
 
    >[!NOTE]
