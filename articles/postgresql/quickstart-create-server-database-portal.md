@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 08/10/2017
-ms.openlocfilehash: 3a76e816f9b1fa484789f548899d7e8e7043febb
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: b78009a4b2683bb7ee881808ddbbc792d66dea6c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Maken van een Azure-Database voor PostgreSQL-server in de Azure portal
 
@@ -199,13 +199,13 @@ Verbinding maken met de Azure-PostgreSQL-server met behulp van de GUI-hulpprogra
 
 6. In de **Browser** in het linkerdeelvenster Vouw de **Servers** knooppunt. Selecteer uw server, bijvoorbeeld **Azure PostgreSQL Server**. Klik op verbinding kunnen maken.
 
-7. Vouw het knooppunt Servers uit en vouw vervolgens **Databases** eronder uit. De lijst moet opnemen met uw bestaande *postgres* database en een nieuwe gebruiker-database, zoals **mypgsqldb**, die we in de vorige sectie hebt gemaakt. U ziet u meerdere databases per server kunt maken met Azure-Database voor PostgreSQL.
+7. Vouw het knooppunt Servers uit en vouw vervolgens **Databases** eronder uit. De lijst moet opnemen met uw bestaande *postgres* database en een nieuwe gebruiker-database, zoals **mypgsqldb**, die is gemaakt in de vorige sectie. U ziet u meerdere databases per server kunt maken met Azure-Database voor PostgreSQL.
 
 8. Met de rechtermuisknop op **Databases**, kies de **maken** menu en selecteer vervolgens **Database**.
 
 9. Typ de naam van een database van uw keuze in de **Database** veld zoals **mypgsqldb**, zoals wordt weergegeven in het voorbeeld.
 
-10. Selecteer de **eigenaar** voor de database uit de lijst. Aanmeldingsnaam van de beheerder, zoals in dit voorbeeld kiest u uw server **mylogin**.
+10. Selecteer de **eigenaar** voor de database uit de lijst. Kies uw server admin aanmeldingsnaam, zoals in het voorbeeld **mylogin**.
 
 11. Selecteer **opslaan** een nieuwe lege database maken.
 
@@ -221,9 +221,9 @@ U kunt de resources die u hebt gemaakt in de Quick Start op twee manieren opscho
 > Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als u van plan bent om ook deze Quick Starts te volgen, moet u geen resources opschonen die u in deze Quick Start hebt gemaakt. Als u niet van plan bent om door te gaan, volg deze stappen voor het verwijderen van de resources die zijn gemaakt door deze Quick Start in de portal.
 
 Verwijderen van de hele resourcegroep, met inbegrip van de nieuwe server:
-1. De resourcegroep niet vinden in de portal. Selecteer in het menu aan de linkerkant **resourcegroepen**. Selecteer vervolgens de naam van de resourcegroep, zoals in ons voorbeeld **myresourcegroup**.
+1. De resourcegroep niet vinden in de portal. Selecteer in het menu aan de linkerkant **resourcegroepen**. Selecteer vervolgens de naam van de resourcegroep, zoals in het voorbeeld **myresourcegroup**.
 
-2. Selecteer **Verwijderen** op de pagina van de resourcegroep. Typ de naam van de resourcegroep, zoals in ons voorbeeld **myresourcegroup**, in het tekstvak verwijderen te bevestigen. Selecteer **Verwijderen**.
+2. Selecteer **Verwijderen** op de pagina van de resourcegroep. Typ de naam van de resourcegroep, zoals in het voorbeeld **myresourcegroup**, in het tekstvak verwijderen te bevestigen. Selecteer **Verwijderen**.
 
 Alleen de zojuist gemaakte server verwijderen:
 1. Als u nog niet hebt geopend, moet u uw server vinden in de portal. Selecteer in het menu aan de linkerkant **alle resources**. Zoek vervolgens naar de server die u hebt gemaakt.
@@ -232,7 +232,7 @@ Alleen de zojuist gemaakte server verwijderen:
 
     ![De knop 'Verwijderen'](./media/quickstart-create-database-portal/12-delete.png)
 
-3. Bevestig de naam van de server die u wilt verwijderen en weergeven van de databases in deze die worden beïnvloed. Typ de naam van uw server in het tekstvak, zoals in ons voorbeeld **mypgserver 20170401**. Selecteer **Verwijderen**.
+3. Bevestig de naam van de server die u wilt verwijderen en weergeven van de databases in deze die worden beïnvloed. Typ de naam van uw server in het tekstvak, zoals in het voorbeeld **mypgserver 20170401**. Selecteer **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]

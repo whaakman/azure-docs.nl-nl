@@ -1,6 +1,6 @@
 ---
 title: Wat is er nieuw? Release-opmerkingen voor Azure Active Directory | Microsoft Docs
-description: Gebruik deze release notes Houd contact met de meest recente versies, bekende problemen, bug oplossingen, afgeschafte functies en plannen van wijzigingen in Azure Active Directory (Azure AD).
+description: Ontdek wat er nieuw is bij Azure Active Directory (Azure AD) met inbegrip van de meest recente release-opmerkingen, bekende problemen, oplossingen voor problemen, afgeschafte functionaliteit en toekomstige wijzigingen.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,23 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 54a6f197de82e5c4ae93d196a532aec7793bbd4c
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0fd0ee5bb0bc3e9dcda9db291a1f9dbac6a2e7dc
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
 
----
 
-De hoogte blijven van wat is er nieuw in Azure Active Directory Abonneer u op dit [feed](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3%22&locale=en-us) in uw favoriete RSS-feed reader.
 
----
+> De hoogte blijven van wat is er nieuw in Azure Active Directory Abonneer u op dit [feed](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3F%22&locale=en-us) in uw favoriete RSS-feed reader.
+
 
 
 We zijn voortdurend verbeteren van de Azure Active Directory. Zodat u het product up-to-date houden met de meest recente ontwikkelingen vindt in dit onderwerp u informatie over:

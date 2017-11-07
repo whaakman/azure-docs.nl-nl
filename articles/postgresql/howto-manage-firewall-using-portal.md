@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/10/2017
-ms.openlocfilehash: 5d62a138313ae3568470cbf5a8eb191321cd6cc7
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 11/03/2017
+ms.openlocfilehash: 96e917d1ea147e3b53b00002675ed16facb69255
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Maken en beheren van Azure-Database voor firewallregels PostgreSQL met de Azure portal
 Firewallregels op serverniveau kunnen beheerders toegang krijgen tot een Azure-Database voor PostgreSQL-Server uit een opgegeven IP-adres of een bereik van IP-adressen. 
@@ -23,11 +23,11 @@ Stap in deze handleiding instructies, wilt u het volgende nodig:
 - Een server [PostgreSQL een Azure-Database gemaakt](quickstart-create-server-database-portal.md)
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Een serverfirewallregel maken in Azure Portal
-1. Op de blade PostgreSQL server onder de instellingen voor kop, klikt u op **verbindingsbeveiliging** de blade van de beveiliging verbinding voor de Azure-Database voor PostgreSQL openen.
+1. Op de pagina PostgreSQL-server onder de instellingen voor kop, klikt u op **verbindingsbeveiliging** de beveiligingspagina verbinding voor de Azure-Database voor PostgreSQL openen.
 
   ![Azure-portal - Klik op de beveiliging van de verbinding](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
-2. Klik op **Mijn IP toevoegen** op de werkbalk. Hiermee wordt automatisch een firewallregel gemaakt met het openbare IP-adres van uw computer, zoals waargenomen door het systeem Azure.
+2. Selecteer **Mijn IP toevoegen** op de werkbalk. Een firewallregel deze actie automatisch gemaakt met het openbare IP-adres van uw computer, zoals waargenomen door het Azure-systeem.
 
   ![Azure-portal - Klik op toevoegen Mijn IP](./media/howto-manage-firewall-using-portal/2-add-my-ip.png)
 
@@ -36,7 +36,7 @@ Gebruik een zoekmachine of andere online hulpprogramma om te controleren van uw 
 
   ![Bing zoeken naar wat Mijn IP is](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. Voeg aanvullende adresbereiken. U kunt één IP-adres of een bereik aan adressen opgeven in de firewallregels voor de Azure-Database voor PostgreSQL. Als u beperken van de regel met een enkel IP-adres wilt, typt u hetzelfde adres in het veld voor het eerste IP- en End IP-adres. De firewall te openen, kunnen beheerders, gebruikers en toepassingen om aan te melden met een database op de PostgreSQL-server waarmee ze geldige referenties bevatten.
+4. Voeg aanvullende adresbereiken. U kunt één IP-adres of een bereik aan adressen opgeven in de firewallregels voor de Azure-Database voor PostgreSQL. Als u beperken van de regel met een enkel IP-adres wilt, typt u hetzelfde adres in het veld voor het eerste IP- en End IP-adres. De firewall te openen, kunnen beheerders, gebruikers en toepassingen aan te melden met een database op de PostgreSQL-server waarmee ze geldige referenties bevatten.
 
   ![Azure portal - firewall-regels ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 

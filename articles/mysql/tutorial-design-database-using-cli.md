@@ -5,16 +5,17 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
+editor: jasonwhowell
 ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.custom: mvc
-ms.openlocfilehash: 0e6a92eeb9711b086359ab2cd1aea87a57f1fc36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcd59442c0b3aa5d6ed1a9ef287949d1d17fa80f
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Ontwerp van uw eerste Azure-Database voor de MySQL-database
 
@@ -23,7 +24,7 @@ Azure MySQL-Database is een relationele database-service in de Microsoft-cloud o
 > [!div class="checklist"]
 > * Een Azure-Database maken voor MySQL
 > * De serverfirewall configureren
-> * Gebruik [mysql-opdrachtregelprogramma](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) om een database te maken
+> * Gebruik [mysql opdrachtregelprogramma](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) om een database te maken
 > * Voorbeeldgegevens laden
 > * Querygegevens
 > * Gegevens bijwerken
@@ -33,7 +34,7 @@ U kunt de Azure-Cloud-Shell gebruiken in de browser of [2.0 voor Azure CLI insta
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u wilt installeren en gebruiken van de CLI lokaal, in dit artikel is vereist dat u de Azure CLI versie 2.0 of hoger worden uitgevoerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 Als u meerdere abonnementen hebt, kiest u het abonnement waarin de resource is opgenomen of wordt gefactureerd. Selecteer een specifiek abonnements-ID in uw account met de opdracht [az account set](/cli/azure/account#set).
 ```azurecli-interactive
@@ -102,7 +103,7 @@ Het resultaat wordt in JSON-indeling weergegeven. Noteer de **fullyQualifiedDoma
 ```
 
 ## <a name="connect-to-the-server-using-mysql"></a>Verbinding maken met de server met behulp van mysql
-Gebruik [mysql-opdrachtregelprogramma](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) geen verbinding met uw Azure-Database voor de MySQL-server. In dit voorbeeld is de opdracht:
+Gebruik de [mysql opdrachtregelprogramma](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) geen verbinding met uw Azure-Database voor de MySQL-server. In dit voorbeeld is de opdracht:
 ```cmd
 mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
 ```
@@ -119,9 +120,9 @@ mysql> USE mysampledb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Tabellen maken in de database
-Nu dat u hoe u verbinding maken met de Azure-Database voor de MySQL-database weet, kunnen we gaan over hoe u enkele eenvoudige taken uitvoeren.
+Nu dat u hoe u verbinding maken met de Azure-Database voor de MySQL-database weet, een aantal algemene taken uitvoeren:
 
-We kunnen eerst een tabel maken en deze met enkele gegevens te laden. We maken een tabel met inventarisatie-informatie.
+Eerst een tabel maken en deze met enkele gegevens te laden. We maken een tabel met inventarisatie-informatie.
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -131,7 +132,7 @@ CREATE TABLE inventory (
 ```
 
 ## <a name="load-data-into-the-tables"></a>Gegevens laden in de tabellen
-Nu dat we een tabel hebben, kunnen we sommige gegevens invoegen in het. Voer de volgende query voor het invoegen van een aantal rijen van de gegevens in het venster opdrachtprompt openen.
+Nu dat u een tabel hebt, moet u enkele gegevens invoegen in het. Voer de volgende query voor het invoegen van een aantal rijen van de gegevens in het venster opdrachtprompt openen.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
@@ -158,7 +159,7 @@ SELECT * FROM inventory;
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Een database herstellen naar een eerder tijdstip
 Stel dat u deze tabel per ongeluk hebt verwijderd. Dit is iets dat die u eenvoudig niet vanuit herstellen. Azure MySQL-Database kunt u teruggaan naar een willekeurig punt in tijd in het laatste tot 35 dagen en dit punt in tijd naar een nieuwe server herstellen. U kunt deze nieuwe server gebruiken om uw verwijderde gegevens te herstellen. Voordat u de tabel is toegevoegd, de volgende stappen uit de voorbeeldserver herstellen naar een punt.
 
-Voor het herstel moet u de volgende informatie:
+Voor het herstellen moet u de volgende informatie:
 
 - Herstelpunt: Selecteer een point-in-time die deze gebeurtenis treedt op voordat de server is gewijzigd. Moet groter zijn dan of gelijk zijn aan de oudste back-waarde van de brondatabase.
 - Doelserver: Geef een nieuwe servernaam die u terugzetten wilt naar
@@ -176,7 +177,7 @@ In deze zelfstudie hebt u geleerd:
 > [!div class="checklist"]
 > * Een Azure-Database maken voor MySQL
 > * De serverfirewall configureren
-> * Gebruik [mysql-opdrachtregelprogramma](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) om een database te maken
+> * Gebruik [mysql opdrachtregelprogramma](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) om een database te maken
 > * Voorbeeldgegevens laden
 > * Querygegevens
 > * Gegevens bijwerken

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.openlocfilehash: 9f1c8241d0d7e68abd175c7c1c3b023d18b24a68
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 1a210f813319a4f21c7c246002c968b8093f8a4e
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Ontwerp van uw eerste Azure-Database voor PostgreSQL met de Azure portal
 
@@ -71,13 +71,13 @@ Volg deze stappen voor het maken van een Azure Database voor PostgreSQL-server:
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Een serverfirewallregel configureren
 
-De Azure Database voor PostgreSQL-service maakt een firewall op serverniveau. Standaard deze firewall voorkomt u dat alle externe toepassingen en hulpprogramma's verbinding te maken met de server en alle databases op de server, tenzij een firewallregel is gemaakt om de firewall voor een specifiek IP-adresbereik te openen. 
+De Azure-Database voor PostgreSQL-service maakt gebruik van een firewall op het serverniveau. Standaard deze firewall voorkomt u dat alle externe toepassingen en hulpprogramma's verbinding te maken met de server en alle databases op de server, tenzij een firewallregel is gemaakt om de firewall voor een specifiek IP-adresbereik te openen. 
 
 1.  Nadat de implementatie is voltooid, klikt u op **Alle resources** in het menu links en voert u de naam **mypgserver-20170401** in om te zoeken naar de zojuist gemaakte server. Klik op de servernaam in de zoekresultaten. De pagina **Overzicht** wordt geopend voor uw server en biedt opties voor verdere configuratie.
  
  ![Azure Database voor PostgreSQL - Zoeken naar de server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-2.  Selecteer in de serverblade **verbindingsbeveiliging**. 
+2.  Selecteer **Verbindingsbeveiliging** op de serverpagina. 
 3.  Klik in het tekstvak onder **Regelnaam** en voeg een nieuwe firewallregel toe om het IP-bereik voor connectiviteit op de goedgekeurde lijst te plaatsen. Voor deze zelfstudie gaan we toestaan dat alle IP-adressen door te typen in **regelnaam = AllowAllIps**, **eerste IP-0.0.0.0 =** en **End-IP 255.255.255.255 =** en klik vervolgens op **opslaan** . U kunt een specifieke firewallregel die betrekking heeft op een kleinere IP-adresbereik om verbinding te maken van uw netwerk te kunnen instellen.
  
  ![Azure Database voor PostgreSQL - Een firewallregel maken](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
@@ -85,19 +85,20 @@ De Azure Database voor PostgreSQL-service maakt een firewall op serverniveau. St
 4.  Klik op **opslaan** en klik vervolgens op de **X** sluiten de **verbindingen beveiliging** pagina.
 
   > [!NOTE]
-  > De Azure PostgreSQL-server communiceert via poort 5432. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 5432 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u alleen verbinding maken met uw Azure SQL Database-server als uw IT-afdeling poort 5432 openstelt.
+  > De Azure PostgreSQL-server communiceert via poort 5432. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 5432 mogelijk niet toegestaan door de firewall van uw netwerk. Zo ja, u geen verbinding maken met uw Azure SQL Database-server tenzij uw IT-afdeling poort 5432 wordt geopend.
   >
 
 
 ## <a name="get-the-connection-information"></a>De verbindingsgegevens ophalen
 
-Wanneer u de Azure Database voor PostgreSQL-server maakt, wordt de standaarddatabase **postgres** ook gemaakt. Als u verbinding met uw databaseserver wilt maken, moet u hostgegevens en toegangsreferenties opgeven.
+Tijdens het maken van de Azure-Database voor PostgreSQL-server, de standaard **postgres** database ook is gemaakt. Als u verbinding met uw databaseserver wilt maken, moet u hostgegevens en toegangsreferenties opgeven.
 
 1. Klik in het menu links in de Azure portal op **alle resources** en zoek naar de server die u zojuist hebt gemaakt **mypgserver 20170401**.
 
   ![Azure Database voor PostgreSQL - Zoeken naar de server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 3. Klik op de servernaam **mypgserver-20170401**.
+
 4. Selecteer de pagina **Overzicht** van de server. Noteer de **servernaam** en de **gebruikersnaam van de serverbeheerder**.
 
  ![Azure Database voor PostgreSQL - Aanmeldgegevens van de serverbeheerder](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
@@ -125,7 +126,7 @@ We gaan nu gebruiken de [psql](https://www.postgresql.org/docs/9.6/static/app-ps
    psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
    ```
 
-## <a name="create-a-new-database"></a>Een nieuwe Database maken
+## <a name="create-a-new-database"></a>Een nieuwe database maken
 Wanneer u met de server bent verbonden, maakt u in het prompt een lege database.
 ```bash
 CREATE DATABASE mypgsqldb;
@@ -136,9 +137,9 @@ In het prompt voert u de volgende opdracht uit om verbinding te maken met de zoj
 \c mypgsqldb
 ```
 ## <a name="create-tables-in-the-database"></a>Tabellen maken in de database
-Nu dat u hoe u verbinding maken met de Azure-Database voor PostgreSQL weet, kunnen we gaan over hoe u enkele eenvoudige taken uitvoeren.
+Nu dat u hoe u verbinding maken met de Azure-Database voor PostgreSQL weet, kunt u enkele eenvoudige taken voltooien:
 
-We kunnen eerst een tabel maken en deze met enkele gegevens te laden. We gaan een tabel maken die inventarisgegevens houdt.
+Eerst een tabel maken en deze met enkele gegevens te laden. We gaan een tabel maken die houdt inventarisgegevens met behulp van deze SQL-code:
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -153,7 +154,7 @@ U kunt nu de zojuist gemaakte tabel in de lijst met tabellen zien door te typen:
 ```
 
 ## <a name="load-data-into-the-tables"></a>Gegevens laden in de tabellen
-Nu dat we een tabel hebben, kunnen we sommige gegevens invoegen in het. Voer de volgende query voor het invoegen van een aantal rijen van de gegevens in het venster opdrachtprompt openen.
+Nu dat u een tabel hebt, moet u enkele gegevens invoegen in het. Voer de volgende query voor het invoegen van een aantal rijen van de gegevens in het venster opdrachtprompt openen.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);

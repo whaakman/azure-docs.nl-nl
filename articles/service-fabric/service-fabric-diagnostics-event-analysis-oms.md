@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: f0cefab15a115719ea9c378546a7e6004bd06187
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 09542c0e7f628ca4fea00a6562c0b9525432c213
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="event-analysis-and-visualization-with-oms"></a>Analyse van gebeurtenis en visualisatie met OMS
 
@@ -37,52 +37,13 @@ Het is raadzaam dat u de Service Fabric-oplossing in uw werkruimte OMS opnemen-b
 
 ![OMS SF-oplossing](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
-Er zijn twee manieren om te richten en te configureren van een OMS-werkruimte, via een Resource Manager-sjabloon of rechtstreeks uit Azure Marketplace. Gebruik de voormalige wanneer u een cluster implementeert en de laatste als u al een cluster dat is geïmplementeerd met diagnostische gegevens hebt ingeschakeld.
-
-### <a name="deploying-oms-using-a-resource-management-template"></a>OMS met een Resource Management-sjabloon implementeren
-
-Bij het implementeren van een cluster met behulp van een Resource Manager-sjabloon, het Service Fabric-oplossing aan de sjabloon kunt ook een nieuwe OMS-werkruimte maken toevoegen en configureren voor het lezen van gegevens uit de tabellen met de juiste opslag.
-
->[!NOTE]
->Dit werkt, diagnostische gegevens moet worden ingeschakeld om de Azure storage-tabellen bestaan voor OMS / Log Analytics om informatie in uit te lezen.
-
-[Hier](https://azure.microsoft.com/resources/templates/service-fabric-oms/) is een voorbeeldsjabloon die u kunt gebruiken en aanpassen aan de hand van behoefte die wordt uitgevoerd boven acties. In het geval dat u meer optionaliteit wilt, er enkele meer sjablonen waarmee u verschillende opties zijn, afhankelijk van waar in het proces mogelijk voor het instellen van een OMS-werkruimte: kan worden gevonden op [Service Fabric en OMS sjablonen](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
-
-### <a name="deploying-oms-using-through-azure-marketplace"></a>Implementatie met behulp van OMS via Azure Marketplace
-
-Als u liever een OMS-werkruimte toevoegen nadat u een cluster hebt geïmplementeerd, Ga naar Azure Marketplace en zoekt u *'Service Fabric Analytics'*.
-
-![OMS SF analyses in de Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
-
-* Klik op **maken**
-* Klik in het venster van het maken van Service Fabric Analytics **Selecteer een werkruimte** voor de *OMS-werkruimte* veld en vervolgens **Maak een nieuwe werkruimte**. Vul de vereiste vermeldingen - hier de enige vereiste is dat het abonnement voor de Service Fabric-cluster en de OMS-werkruimte moet gelijk zijn. Zodra uw vermeldingen zijn geverifieerd, wordt de OMS-werkruimte gaat implementeren. Dit moet alleen een paar minuten duren.
-* Wanneer u klaar bent, klikt u op **maken** opnieuw op de onderkant van het Service Fabric Analytics-venster maken. Zorg ervoor dat de nieuwe werkruimte wordt weergegeven onder *OMS-werkruimte*. Hierdoor wordt de oplossing toegevoegd aan de werkruimte die u zojuist hebt gemaakt.
-
-
-Hoewel de oplossing wordt toegevoegd aan de werkruimte, moet de werkruimte nog worden verbonden met de diagnostics-gegevens die afkomstig zijn van uw cluster. Navigeer naar de resourcegroep die u hebt gemaakt met de Service Fabric Analytics-oplossing in. U ziet een *ServiceFabric (\<nameOfOMSWorkspace\>)*.
-
-* Klik op de oplossing om te navigeren naar de overzichtspagina van waar u Oplossingsinstellingen, werkruimte-instellingen wijzigen en navigeer naar de OMS-portal.
-* Klik in het navigatiemenu links op **opslagaccounts logboeken**onder *werkruimte gegevensbronnen*.
-
-    ![Service Fabric Analytics-oplossing in de Portal](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-portal.png)
-
-* Op de *Storage account logboeken* pagina, klikt u op **toevoegen** aan de bovenkant van uw cluster logboeken toevoegen aan de werkruimte.
-* Klik op **opslagaccount** de juiste account gemaakt in het cluster toe te voegen. Als u de standaardnaam gebruikt, het storage-account heet *sfdg\<resourceGroupName\>*. U kunt dit ook bevestigen door het controleren van de Azure Resource Manager-sjabloon gebruikt voor het implementeren van uw cluster, door de waarde die wordt gebruikt voor de `applicationDiagnosticsStorageAccountName`. Misschien hebt u ook Schuif naar beneden en klik op **laden meer** als de accountnaam wordt niet weergegeven. Klik op de juiste opslagaccountnaam wanneer deze wordt weergegeven om deze te selecteren.
-* Vervolgens hebt u om op te geven de *gegevenstype*, die moet worden **gebeurtenissen van de Service Fabric**.
-* De *bron* automatisch moet worden ingesteld op *WADServiceFabric\*EventTable*.
-* Klik op **OK** verbinding maken met uw werkruimte logboeken voor uw cluster.
-
-    ![Logboeken voor storage-account toevoegen aan OMS](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
-
-* Het account moet nu worden weergegeven als onderdeel van uw *Storage account logboeken* in uw werkruimte-gegevensbronnen.
-
-U hebt nu de Service Fabric Analytics-oplossing in een logboekanalyse OMS-werkruimte nu goed met uw cluster-platform en de logboektabel van toepassing verbonden is met dit toegevoegd. U kunt aanvullende bronnen toevoegen aan de werkruimte op dezelfde manier.
+Zie [OMS Log Analytics instellen](service-fabric-diagnostics-oms-setup.md) aan de slag met deze voor uw cluster.
 
 ## <a name="using-the-oms-agent"></a>Met behulp van de OMS-Agent
 
-Het is aanbevolen en te gebruiken EventFlow af als aggregatieoplossingen omdat ze is toegestaan voor een meer modulaire benadering voor diagnostische gegevens en bewaking. Bijvoorbeeld: als u wilt wijzigen van de uitvoer van EventFlow, heeft deze geen wijziging in uw werkelijke instrumentation, alleen een eenvoudige wijziging aan het configuratiebestand. Als u echter besluit te investeren in met behulp van OMS en bereid bent te blijven gebruiken voor analyse van gebeurtenis (hoeft niet te zijn de enige platform dat u gebruikt in plaats dat deze worden echter ten minste één van de platforms), het is raadzaam dat u zou ook een instelling van de [OMS ag ent](../log-analytics/log-analytics-windows-agents.md). U moet ook de OMS-agent gebruiken bij het implementeren van containers met uw cluster, zoals hieronder beschreven.
+Het is aanbevolen en te gebruiken EventFlow af als aggregatieoplossingen omdat ze is toegestaan voor een meer modulaire benadering voor diagnostische gegevens en bewaking. Bijvoorbeeld: als u wilt wijzigen van de uitvoer van EventFlow, heeft deze geen wijziging in uw werkelijke instrumentation, alleen een eenvoudige wijziging aan het configuratiebestand. Als u echter besluit te investeren in OMS Log Analytics gebruiken, moet u instellen de [OMS-agent](../log-analytics/log-analytics-windows-agents.md). U moet ook de OMS-agent gebruiken bij het implementeren van containers met uw cluster, zoals hieronder beschreven. 
 
-Het proces om dit te doen is betrekkelijk eenvoudig, omdat u zojuist hebt voor de agent niet toevoegen als een virtuele-machineschaalset uitbreiding naar de Resource Manager-sjabloon instellen waarbij u ervoor zorgt dat deze wordt geïnstalleerd op elk van de knooppunten. Een voorbeeld Resource Manager-sjabloon die de OMS-werkruimte met de Service Fabric-oplossing (Zie boven) implementeert en de agent toegevoegd aan uw knooppunten gevonden voor clusters met [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) of [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
+HEAD via naar [de OMS-Agent toevoegen aan een cluster](service-fabric-diagnostics-oms-agent.md) voor stapsgewijze instructies voor dit.
 
 De voordelen hiervan zijn de volgende:
 
@@ -107,16 +68,7 @@ De agent kunt het verzamelen van verschillende container-specifieke logboeken di
 * ContainerServiceLog: docker-daemon opdrachten die zijn uitgevoerd
 * Prestaties: prestatiemeteritems met inbegrip van container cpu, geheugen, netwerkverkeer, schijf-i/o en aangepaste metrische gegevens van de hostmachines
 
-In dit artikel bevat informatie over de stappen die nodig zijn voor het instellen van de bewaking van de container voor uw cluster. Bekijk voor meer informatie over de OMS-Containers oplossing hun [documentatie](../log-analytics/log-analytics-containers.md).
-
-Als u de Container-oplossing in uw werkruimte instelt, moet u de OMS-agent die is geïmplementeerd op knooppunten in het cluster met de bovengenoemde stappen te volgen. Zodra het cluster gereed is, implementeert u een container voor het. Vergeet dat de eerste keer dat de installatiekopie van een container wordt geïmplementeerd naar een cluster duurt enkele minuten om de installatiekopie, afhankelijk van de grootte te downloaden.
-
-Zoek in Azure Marketplace voor *Container bewaking oplossing* en maak de **Container bewaking oplossing** resultaat die moet worden geleverd, onder de bewaking en beheer categorie.
-
-![Containers oplossing toevoegen](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
-
-In de stap het maken van aanvraagt het een OMS-werkruimte. Selecteer de versie die is gemaakt met de bovenstaande implementatie. Deze stap voegt een oplossing Containers in de OMS-werkruimte en wordt automatisch gedetecteerd door de OMS-agent die is geïmplementeerd door de sjabloon. De agent wordt gestart met het verzamelen van gegevens over de containers processen in het cluster en minder dan 15 minuten of geval is, ziet u de oplossing lichte up met gegevens, zoals in de installatiekopie van het bovenstaande dashboard.
-
+[Containers met OMS Log Analytics bewaken](service-fabric-diagnostics-oms-containers.md) bevat informatie over de stappen die nodig zijn voor het instellen van de bewaking van de container voor uw cluster. Bekijk voor meer informatie over de OMS-Containers oplossing hun [documentatie](../log-analytics/log-analytics-containers.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

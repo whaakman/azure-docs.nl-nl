@@ -12,19 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/02/2017
+ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 9c6035e97de38ff63ef074109afd9f3c7484f828
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 252dcdf0ff9e1fecd6665808bfe7978a4417018b
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Toevoegen of verwijderen van knooppunten naar een zelfstandige Service Fabric-cluster met Windows Server
-Nadat u hebt [uw zelfstandige Service Fabric-cluster gemaakt op Windows Server-machines](service-fabric-cluster-creation-for-windows-server.md), behoeften van uw bedrijf kunnen worden gewijzigd en moet u mogelijk toevoegen of verwijderen van knooppunten aan het cluster. In dit artikel biedt gedetailleerde stappen om dit te bereiken. Houd er rekening mee toevoegen of verwijderen knooppunt functionaliteit wordt niet ondersteund in lokale ontwikkeling clusters.
+Nadat u hebt [uw zelfstandige Service Fabric-cluster gemaakt op Windows Server-machines](service-fabric-cluster-creation-for-windows-server.md), uw (bedrijfsbehoeften) kunnen worden gewijzigd en moet u toevoegen of verwijderen van knooppunten aan het cluster. In dit artikel biedt gedetailleerde stappen om dit te bereiken. Houd er rekening mee toevoegen of verwijderen knooppunt functionaliteit wordt niet ondersteund in lokale ontwikkeling clusters.
 
 ## <a name="add-nodes-to-your-cluster"></a>Knooppunten toevoegen aan het cluster
-1. Voorbereiden van de virtuele machine/machine die u toevoegen aan het cluster de stappen die worden vermeld wilt de [voorbereiden van de machines om te voldoen aan de vereisten voor implementatie van het cluster](service-fabric-cluster-creation-for-windows-server.md) sectie
+
+1. Voorbereiden van de virtuele machine/machine die u toevoegen aan het cluster de stappen die worden beschreven wilt in [plannen en voorbereiden van uw implementatie van Service Fabric-cluster](service-fabric-cluster-creation-for-windows-server.md)
 2. Identificeren welke foutdomein en upgradedomein die u gaat deze VM/machine toevoegen
 3. Extern bureaublad (RDP) naar de virtuele machine/machine die u wilt toevoegen aan het cluster
 4. Kopieer of [de zelfstandige downloaden voor Service Fabric voor Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) aan de virtuele machine/machine en pak het pakket

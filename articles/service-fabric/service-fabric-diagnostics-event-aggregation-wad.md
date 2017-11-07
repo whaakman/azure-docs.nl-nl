@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2017
+ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 5773361fdec4cb8ee54fa2856f6aa969d5dac4e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c05cfec995538a95d99451155cf269d33e2716d0
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Gebeurtenis-aggregatie en verzameling op basis van Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -174,7 +174,7 @@ Nadat u het bestand template.json aanpassen zoals is beschreven, publiceert u de
 
 Beginnen met de 5,4 release van Service Fabric, zijn status en load metrische gebeurtenissen beschikbaar voor de verzameling. Deze gebeurtenissen gebeurtenissen die door het systeem of uw code worden gegenereerd met behulp van de status aangeven of rapportage-API's, zoals laden [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) of [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Hierdoor kan voor het aggregeren en weergeven van systeemstatus na verloop van tijd en voor waarschuwingen op basis van status- of load-gebeurtenissen. Om weer te geven deze gebeurtenissen in Visual Studio diagnostische logboeken toevoegen ' Microsoft-ServiceFabric:4:0x4000000000000008 ' aan de lijst met ETW-providers.
 
-Voor het verzamelen van gebeurtenissen, wijzigt u de Resource Manager-sjabloon wilt opnemen
+Voor het verzamelen van gebeurtenissen in het cluster, wijzig de `scheduledTransferKeywordFilter` in de WadCfg van uw sjabloon Resource Manager `4611686018427387912`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -191,11 +191,15 @@ Voor het verzamelen van gebeurtenissen, wijzigt u de Resource Manager-sjabloon w
 
 ## <a name="collect-reverse-proxy-events"></a>Omgekeerde proxy-gebeurtenissen verzamelen
 
-Beginnen met de 5.7 release van Service Fabric [omgekeerde proxy](service-fabric-reverseproxy.md) gebeurtenissen zijn beschikbaar voor de verzameling.
-Omgekeerde proxy verzendt gebeurtenissen naar twee kanalen, één met foutgebeurtenissen als gevolg van fouten en een andere uitgebreide gebeurtenissen over alle aanvragen met verwerking van aanvragen op de omgekeerde proxy verwerkt. 
+Beginnen met de 5.7 release van Service Fabric [omgekeerde proxy](service-fabric-reverseproxy.md) gebeurtenissen zijn beschikbaar voor de verzameling via de kanalen gegevens & Messaging. 
 
-1. Verzamelen van foutgebeurtenissen: om weer te geven deze gebeurtenissen in Visual Studio diagnostische logboeken toevoegen ' Microsoft-ServiceFabric:4:0x4000000000000010 ' aan de lijst met ETW-providers.
-Voor het verzamelen van gebeurtenissen van Azure-clusters, wijzigt u de Resource Manager-sjabloon wilt opnemen
+De omgekeerde proxy duwt alleen foutgebeurtenissen via de belangrijkste gegevens & Messaging kanaal - Aanvraagverwerking kritieke problemen en fouten opgetreden bij het weergeven. De gedetailleerde kanaal bevat uitgebreide gebeurtenissen over de aanvragen die zijn verwerkt door de omgekeerde proxy. 
+
+Om weer te geven de foutgebeurtenissen in Visual Studio diagnostische logboeken toevoegen ' Microsoft-ServiceFabric:4:0x4000000000000010 ' aan de lijst met ETW-providers. Voor alle aanvraagtelemetrie update voor de Microsoft-ServiceFabric vermelding in de lijst voor ETW-provider voor ' Microsoft-ServiceFabric:4:0x4000000000000020 '.
+
+Voor clusters worden uitgevoerd in Azure:
+
+Wijzigen zodat de traceringen in de belangrijkste gegevens & Messaging-kanaal worden opgepikt, de `scheduledTransferKeywordFilter` waarde in de WadCfg van uw sjabloon Resource Manager `4611686018427387920`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -210,8 +214,7 @@ Voor het verzamelen van gebeurtenissen van Azure-clusters, wijzigt u de Resource
     }
 ```
 
-2. Verzamelt alle verwerking van gebeurtenissen aanvragen: In Visual Studio van diagnostische logboeken update de Microsoft-ServiceFabric vermelding in de lijst voor ETW-provider voor ' Microsoft-ServiceFabric:4:0x4000000000000020 '.
-Voor Azure Service Fabric-clusters, wijzigt u de resource manager-sjabloon wilt opnemen
+Gedetailleerde verwerking van alle gebeurtenissen verzamelt, schakelt u de gegevens & Messaging - kanaal door het wijzigen van de `scheduledTransferKeywordFilter` waarde in de WadCfg van uw sjabloon Resource Manager `4611686018427387936`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -225,9 +228,8 @@ Voor Azure Service Fabric-clusters, wijzigt u de resource manager-sjabloon wilt 
       }
     }
 ```
-> Het verdient aanbeveling zorgvuldig verzamelen gebeurtenissen van dit kanaal inschakelen als dit al het verkeer via de omgekeerde proxy verzamelt en opslagcapaciteit snel kan gebruiken.
 
-Voor Azure Service Fabric-clusters, worden de gebeurtenissen van alle knooppunten worden verzameld en geaggregeerd in de SystemEventTable.
+Inschakelen van verzamelen van gebeurtenissen van deze gedetailleerde kanaal resultaten in een groot aantal traceringen snel wordt gegenereerd en opslagcapaciteit kan gebruiken. Alleen dit inschakelen als dit echt nodig.
 Voor gedetailleerde probleemoplossing van de reverse proxy-gebeurtenissen, raadpleegt u de [omgekeerde proxy diagnostics handleiding](service-fabric-reverse-proxy-diagnostics.md).
 
 ## <a name="collect-from-new-eventsource-channels"></a>Verzamelen van nieuwe EventSource kanalen

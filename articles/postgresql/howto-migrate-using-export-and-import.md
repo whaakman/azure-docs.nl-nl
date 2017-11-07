@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/14/2017
-ms.openlocfilehash: 5c3a642940bbaf766b87c74522a97b145632291f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 937423d0b844f6ce30e532bbae12b85071a6f8d4
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migreer uw PostgreSQL-database met exporteren en importeren
 U kunt [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) een PostgreSQL-database in een scriptbestand uitpakken en [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) de gegevens in de doeldatabase van dat bestand importeert.
@@ -37,7 +37,7 @@ pg_dump --host=localhost --username=masterlogin --dbname=testdb --file=testdb.sq
 ```
 
 ## <a name="import-the-data-on-target-azure-database-for-postrgesql"></a>De gegevens op de doel-Azure-Database importeren voor PostrgeSQL
-U kunt de psql vanaf de opdrachtregel en de -d,--dbname-parameter voor de gegevens importeren in Azure-Database voor PostrgeSQL gemaakt en gegevens laden uit het sql-bestand.
+U kunt de psql vanaf de opdrachtregel en de parameter--dbname (-d) de gegevens wilt importeren in de Azure-Database voor PostgreSQL-server en gegevens laden van het sql-bestand.
 ```bash
 psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@servername> --dbname=<target database name>
 ```

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: mimig
-ms.openlocfilehash: edbed5654a4df8a28b43f03ffd0ac204e0d7f8b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68800ab14cbca367fd97827a923a2edc377e9aee
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Algemene gebruiksvoorbeelden voor Azure Cosmos-DB
 In dit artikel biedt een overzicht van enkele algemene gebruiksvoorbeelden voor Azure Cosmos DB.  De aanbevelingen in dit artikel fungeren als een beginpunt tijdens het ontwikkelen van uw toepassing met Cosmos-DB.   
@@ -35,7 +35,7 @@ Na het lezen van dit artikel, hebt u mogelijk de volgende vragen beantwoorden:
 
 Het project Azure Cosmos DB begonnen in 2011 als 'Project Florence' adres developer-knelpunten worden managementoverhead voor grote Internet-toepassingen binnen Microsoft. We besloten inachtneming van deze problemen zijn niet uniek is voor toepassingen van Microsoft Azure Cosmos DB in het algemeen beschikbaar maken voor externe ontwikkelaars in 2015 is in de vorm van [Azure DocumentDB](https://azure.microsoft.com/blog/documentdb-moving-to-general-availability/). De service wordt ubiquitously intern gebruikt binnen Microsoft en is een van de services snelst groeiende door Azure ontwikkelaars extern gebruikt. 
 
-Azure Cosmos-database is een globale gedistribueerde, meerdere model-database die wordt gebruikt in een breed scala aan toepassingen en gebruiksvoorbeelden. Er is een goede keuze voor een [zonder server](http://azure.com/serverless) toepassing die u moet beschikken over lage reactietijden van de volgorde van milliseconde en moet snel en globaal worden geschaald. Deze ondersteuning biedt voor meerdere gegevensmodellen (sleutel / waarde-, documenten, grafieken en kolommen) en veel API's voor toegang tot inclusief [MongoDB](mongodb-introduction.md), [DocumentDB SQL](documentdb-introduction.md), [Gremlin](graph-introduction.md), en [Azure-tabellen](table-introduction.md) systeemeigen en in een uitbreidbare manier. 
+Azure Cosmos-database is een globale gedistribueerde, meerdere model-database die wordt gebruikt in een breed scala aan toepassingen en gebruiksvoorbeelden. Er is een goede keuze voor een [zonder server](http://azure.com/serverless) toepassing die u moet beschikken over lage reactietijden van de volgorde van milliseconde en moet snel en globaal worden geschaald. Deze ondersteuning biedt voor meerdere gegevensmodellen (sleutel / waarde-, documenten, grafieken en kolommen) en veel API's voor toegang tot inclusief [MongoDB API](mongodb-introduction.md), [DocumentDB-API (SQL)](documentdb-introduction.md), [Graph API (Gremlin)](graph-introduction.md), en [tabellen API](table-introduction.md) systeemeigen en in een uitbreidbare manier. 
 
 Hier volgen enkele kenmerken die geschikt zijn voor krachtige toepassingen met globale streven van Azure Cosmos-database.
 

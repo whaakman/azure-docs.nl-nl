@@ -1,6 +1,6 @@
 ---
-title: Gebruik Azure Import/Export voor het overbrengen van gegevens naar en van blob-opslag | Microsoft Docs
-description: Informatie over het maken van importeren en exporteren van taken in de Azure-portal voor het overbrengen van gegevens naar en van blob-opslag.
+title: Gebruik Azure Import/Export voor het overbrengen van gegevens van en naar Azure Storage | Microsoft Docs
+description: Informatie over het maken van importeren en exporteren van taken in de Azure-portal voor het overbrengen van gegevens van en naar Azure Storage.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: fb5b059ad8dc87f445bd84a5fe3bb90822d13f94
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>De Microsoft Azure Import/Export-service gebruiken om gegevens overdragen naar Azure storage
-In dit artikel bieden we Stapsgewijze instructies over het gebruik van Azure Import/Export-service voor grote hoeveelheden gegevens veilig overdragen naar Azure blob- en -opslag door back-upfunctie schijven naar een Azure-Datacenter. Deze service kan ook gegevens uit Azure blob storage overbrengen naar harde schijven en verzenden naar uw on-premises sites worden gebruikt. Gegevens uit een enkele interne SATA harde schijf kunnen worden geïmporteerd in Azure blob-opslag- of Azure File storage. 
+# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>De Microsoft Azure Import/Export-service gebruiken om gegevens overdragen naar Azure Storage
+In dit artikel bieden we Stapsgewijze instructies over het gebruik van Azure Import/Export-service veilig grote hoeveelheden gegevens overdragen naar Azure Blob storage en Azure-bestanden door de back-upfunctie schijven naar een Azure-Datacenter. Deze service kan ook worden gebruikt gegevens overdragen naar Azure storage naar harde schijven en verzenden naar uw on-premises-sites. Gegevens uit een enkele interne SATA harde schijf kunnen worden geïmporteerd naar Azure Blob storage of Azure-bestanden. 
 
 > [!IMPORTANT] 
-> Deze dienst accepteert alleen interne SATA harde schijven en SSD's alleen. Er is geen ander apparaat wordt ondersteund. Stuur geen externe HDD's of NAS-apparaten enzovoort als ze worden geretourneerd wanneer mogelijke of verwijderd.
+> Deze dienst accepteert alleen interne SATA harde schijven en SSD's alleen. Er is geen ander apparaat wordt ondersteund. Stuur geen externe HDD's NAS-apparaten, enz., zoals ze worden geretourneerd, indien mogelijk, of anderszins verwijderde.
 >
 >
 
-Volg de onderstaande stappen te volgen als de gegevens op de schijf moet worden geïmporteerd in Azure Blob Storage.
+Volg de onderstaande stappen te volgen als de gegevens op de schijf moet worden geïmporteerd in Azure Storage.
 ### <a name="step-1-prepare-the-drives-using-waimportexport-tool-and-generate-journal-files"></a>Stap 1: Voorbereiden van de schijf (s) met hulpprogramma WAImportExport en wijzigingslogboek bestand/s genereren.
 
-1.  Identificeer de gegevens moeten worden geïmporteerd in Azure blob-opslag. Dit kan mappen en bestanden op een lokale server of een netwerkshare zelfstandig zijn.
+1.  Identificeer de gegevens moeten worden geïmporteerd in Azure Storage. Dit kan mappen en bestanden op een lokale server of een netwerkshare zelfstandig zijn.
 2.  Afhankelijk van de totale grootte van de gegevens, schaft u het vereiste aantal 2,5 inch SSD of 2,5-inch of 3.5" SATA II of III harde schijven.
 3.  Koppelen van de harde schijven die rechtstreeks met SATA of met externe USB-adapters aan een windows-machine.
 4.  Maak één NTFS-volume op elke harde schijf en een stationsletter toewijzen aan het volume. Er is geen quorumbron:.
@@ -80,7 +80,7 @@ U kunt deze service, zoals in scenario's gebruiken:
 
 * Migreren van gegevens naar de cloud: grote hoeveelheden gegevens snel verplaatsen naar Azure en voordelige wijze.
 * Inhoudsdistributie: snel gegevens verzenden naar uw klant-sites.
-* Back-up: Back-ups van uw on-premises gegevens op te slaan in Azure blob-opslag in beslag nemen.
+* Back-up: Back-ups van uw on-premises gegevens op te slaan in Azure Storage in beslag nemen.
 * Herstel van gegevens: grote hoeveelheid gegevens die zijn opgeslagen in de opslagruimte te herstellen en bezorgd bij uw on-premises locatie.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -90,13 +90,13 @@ In deze sectie wordt de vereiste onderdelen voor het gebruik van deze service we
 Er moet een bestaande Azure-abonnement en een of meer opslagaccounts de Import/Export-service gebruiken. Elke taak kan worden gebruikt voor gegevensoverdracht naar of van slechts één opslagaccount. Een enkel voor importeren/exporteren-taak kan niet met andere woorden, meerdere opslagaccounts overbruggen. Zie voor meer informatie over het maken van een nieuw opslagaccount [het maken van een Opslagaccount](storage-create-storage-account.md#create-a-storage-account).
 
 ### <a name="data-types"></a>Gegevenstypen
-U kunt Azure Import/Export-service gebruiken om gegevens te kopiëren **blok** blobs of **pagina** blobs of **bestanden**. Als u daarentegen, kunt u alleen exporteren **blok** blobs, **pagina** blobs of **Append** blobs uit Azure-opslag met deze service. De service biedt geen ondersteuning voor het exporteren van de Azure-bestanden en kunt alleen bestanden importeren in Azure storage.
+U kunt Azure Import/Export-service gebruiken om gegevens te kopiëren **blok** blobs, **pagina** blobs, of **bestanden**. Als u daarentegen, kunt u alleen exporteren **blok** blobs, **pagina** blobs of **Append** blobs uit Azure-opslag met deze service. De service ondersteunt alleen importeren van de Azure-bestanden in de Azure-opslag. Exporteren van Azure Files is momenteel niet ondersteund.
 
 ### <a name="job"></a>Job
 Als u wilt beginnen met het importeren of exporteren uit de opslag, moet u eerst een taak maken. Een taak kan een import-taak of een taak voor het exporteren worden uitgevoerd:
 
-* Een import-taak maken wanneer u overbrengen van gegevens die u wilt on-premises naar BLOB's hebt in uw Azure storage-account.
-* Een exporttaak maken wanneer u wilt overbrengen van gegevens als blobs in uw storage-account voor de harde schijven die worden geleverd aan ons momenteel zijn opgeslagen. Wanneer u een taak maakt, waarschuwen u dat de Import/Export-service dat u een of meer harde schijven voor een Azure-Datacenter wordt verzending.
+* Maak een import-taak wanneer u uw Azure storage-account moet lokale gegevens overdraagt.
+* Een exporttaak maken wanneer u wilt overbrengen van gegevens die momenteel zijn opgeslagen in uw storage-account voor de harde schijven die worden geleverd aan ons. Wanneer u een taak maakt, waarschuwen u dat de Import/Export-service dat u een of meer harde schijven voor een Azure-Datacenter wordt verzending.
 
 * Voor een import-taak wordt u harde schijven met uw gegevens verzending.
 * Voor een exporttaak wordt u lege harde schijven verzending.
@@ -107,7 +107,7 @@ U kunt maken van een import of exporteren van de taak met de Azure portal of de 
 ### <a name="waimportexport-tool"></a>WAImportExport hulpprogramma
 De eerste stap bij het maken van een **importeren** taak is het voorbereiden van uw schijven die worden verzonden voor importeren. Als u met het voorbereiden van uw schijven, moet u deze verbinding te maken met een lokale server en het hulpprogramma WAImportExport uitvoeren op de lokale server. Dit hulpprogramma WAImportExport vereenvoudigt het kopiëren van uw gegevens naar het station, de gegevens op het station met BitLocker versleutelen en het genereren van het station journaal-bestanden.
 
-De wijzigingslogboek-bestanden opslaan basisinformatie over de taak en het station zoals serienummer van station en de naam van het opslagaccount. Dit logboek-bestand wordt niet opgeslagen op de schijf. Het wordt gebruikt tijdens het maken van de import-taak. Meer informatie over het maken van de taak wordt stap voor stap opgegeven verderop in dit artikel.
+De wijzigingslogboek-bestanden opslaan basisinformatie over de taak en het station zoals serienummer van station en de naam van het opslagaccount. Dit logboek-bestand wordt niet opgeslagen op de schijf. Het wordt gebruikt tijdens het maken van de import-taak. Verderop in dit artikel vindt u stapsgewijze informatie over het maken van de taak.
 
 Het hulpprogramma WAImportExport is alleen compatibel met 64-bits Windows-besturingssysteem. Zie de [besturingssysteem](#operating-system) sectie voor specifieke OS-versies die worden ondersteund.
 
@@ -294,7 +294,7 @@ Tijdens het verzenden van stations naar Azure, betaalt u de kosten van de back-u
 
 **Transactiekosten**
 
-Er zijn geen transactiekosten bij het importeren van gegevens in blob-opslag. De kosten voor standaard uitgaande zijn van toepassing wanneer gegevens worden geëxporteerd van blob-opslag. Zie voor meer informatie over transactiekosten [gegevensoverdracht prijzen.](https://azure.microsoft.com/pricing/details/data-transfers/)
+Er zijn geen transactiekosten bij het importeren van gegevens in Azure Storage. De kosten voor standaard uitgaande zijn van toepassing wanneer gegevens worden geëxporteerd van Blob-opslag. Zie voor meer informatie over transactiekosten [gegevensoverdracht prijzen.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 
 
@@ -304,7 +304,6 @@ De eerste stap bij het importeren van gegevens met behulp van de Azure Import/Ex
 
 1. De gegevens wilt importeren in Azure File Storage identificeren. Dit kan mappen en bestanden op de lokale server of een netwerkshare zelfstandig zijn.  
 2. Het aantal stations dat u, afhankelijk van de totale grootte van de gegevens moet bepalen. Het vereiste aantal 2,5 inch SSD of 2,5-inch of 3.5" schaft u SATA II of III harde schijven.
-3. Identificeer de doel-storage-account, container, virtuele mappen en blobs.
 4. Bepaal de mappen en/of de zelfstandige bestanden die moeten worden gekopieerd naar elke harde schijf.
 5. De CSV-bestanden voor de gegevensset en driveset maken.
     
@@ -500,9 +499,9 @@ De gegevens onder uw Azure storage-account toegankelijk zijn via Azure Portal of
 
 Als u een harde schijf voorbereidt voor een import-taak, wordt de bestemming opgegeven in het veld DstBlobPathOrPrefix in de gegevensset CSV. Dit is de doelcontainer in het opslagaccount waarvoor gegevens van de vaste schijf worden gekopieerd. Virtuele mappen worden gemaakt voor mappen van de vaste schijf en blobs zijn gemaakt voor bestanden in deze bestemmingscontainer. 
 
-**Als het station bestanden die al bestaan in mijn storage-account heeft, de service overschrijft bestaande blobs in mijn storage-account?**
+**Als het station bestanden die al bestaan in mijn storage-account heeft, de service overschrijft bestaande blobs of bestanden in mijn storage-account?**
 
-Bij het voorbereiden van het station kunt u opgeven of de doel-bestanden moeten worden overschreven of genegeerd met het veld in het CSV-bestand gegevensset toestand aangeroepen: < naam | Nee overschrijven | overschrijven >. Standaard wordt de service de naam van de nieuwe bestanden plaats van bestaande blobs te overschrijven.
+Bij het voorbereiden van het station kunt u opgeven of de doel-bestanden moeten worden overschreven of genegeerd met het veld in het CSV-bestand gegevensset toestand aangeroepen: < naam | Nee overschrijven | overschrijven >. Standaard wordt de service de naam van de nieuwe bestanden en niet overschrijven bestaande blobs of bestanden.
 
 **Het hulpprogramma WAImportExport compatibel is met 32-bits besturingssystemen?**
 Nee. Het hulpprogramma WAImportExport is alleen compatibel met 64-bits Windows-besturingssystemen. Raadpleeg de sectie Operating Systems in de [vereisten](#pre-requisites) voor een volledige lijst met ondersteunde versies van het besturingssysteem.

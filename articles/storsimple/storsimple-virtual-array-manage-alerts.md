@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3062c7c060c3730c5edef3ada16f3a5077cf5558
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a96e52bad725acb70a429c8eaafd6942b13d9b8
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Het StorSimple-Apparaatbeheer gebruiken voor het beheren van waarschuwingen voor de virtuele StorSimple-matrix
 
@@ -146,6 +146,11 @@ De volgende tabellen worden enkele van de StorSimple-waarschuwingen die u tegenk
 |:--- |:--- |:--- |
 | Back-up van <*apparaatnaam*> kan niet worden voltooid. |Back-uptaak is mislukt. |Kan een back-up niet maken. Houd rekening met het volgende:<ul><li>Verbindingsproblemen kunnen worden voorkomen dat de back-upbewerking is voltooid. Zorg ervoor dat er geen verbindingsproblemen zijn. Ga voor meer informatie over het oplossen van problemen met de netwerkverbinding naar de [lokale webgebruikersinterface](storsimple-ova-web-ui-admin.md) voor uw virtuele apparaat.</li><li>U kunt de beschikbare opslagruimte limiet hebt bereikt. Overweeg om ruimte vrij, het verwijderen van een back-ups die niet langer nodig zijn.</li></ul> Los de problemen op, schakel de waarschuwing en probeer het opnieuw. |
 | Klonen van <*apparaatnaam*> kan niet worden voltooid. |Kloon de taak is mislukt. |Kan een kloon niet maken. Houd rekening met het volgende:<ul><li>Uw back-lijst is mogelijk niet geldig. Vernieuw de lijst om te controleren of dat het nog geldig is.</li><li>Verbindingsproblemen kunnen worden voorkomen dat de kopieerbewerking is voltooid. Zorg ervoor dat er geen verbindingsproblemen zijn.</li><li>U kunt de beschikbare opslagruimte limiet hebt bereikt. Overweeg om ruimte vrij, het verwijderen van een back-ups die niet langer nodig zijn.</li></ul>Los de problemen op, schakel de waarschuwing en probeer het opnieuw. |
+
+### <a name="networking-alerts"></a>Waarschuwingen voor netwerken
+| Tekst van de waarschuwing | Gebeurtenis | Meer informatie / aanbevolen acties |
+|:--- |:--- |:--- |
+| Kan geen verbinding met de verificatieservice. |Gegevenspad fout |De URL die wordt gebruikt voor verificatie is niet bereikbaar. Zorg ervoor dat uw firewallregels de URL-patronen die is opgegeven voor de StorSimple-apparaat bevatten. Voor meer informatie over de URL-patronen in Azure-portal, gaat u naar [virtuele StorSimple-matrix netwerkvereisten](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|
 
 ### <a name="performance-alerts"></a>Waarschuwingen over toepassingsprestaties
 

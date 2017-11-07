@@ -1,9 +1,9 @@
 ---
-title: VMware-machines of fysieke servers repliceren naar een andere site (klassieke Azure-portal) | Microsoft Docs
-description: Gebruik dit artikel naar VMware-machines of Windows of Linux fysieke servers repliceren naar een secundaire site met Azure Site Recovery.
+title: Instellen van herstel na noodgevallen van virtuele VMware-machines of fysieke servers naar een secundaire site | Microsoft Docs
+description: In dit artikel wordt uitgelegd hoe lokale VMware-machines of Windows of Linux-fysieke servers repliceren naar een secundaire site, met de Azure Site Recovery-service.
 services: site-recovery
 documentationcenter: 
-author: nsoneji
+author: rayne-wiselman
 manager: jwhit
 editor: 
 ms.assetid: b2cba944-d3b4-473c-8d97-9945c7eabf63
@@ -12,33 +12,33 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
-ms.author: nisoneji
-ms.openlocfilehash: 01a6f35fe61290f8c7275c34273d66956a53d3f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/05/2017
+ms.author: raynew
+ms.openlocfilehash: 8cfaa56735c1f4e2e01b58fdde2ad0e77b388762
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="replicate-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site-in-the-classic-azure-portal"></a>On-premises VMware-virtuele machines of fysieke servers repliceren naar een secundaire site in de klassieke Azure portal
+# <a name="set-up-disaster-recovery-of-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Instellen van herstel na noodgevallen van virtuele VMware-machines of fysieke servers naar een secundaire site
 
-## <a name="overview"></a>Overzicht
-InMage Scout in Azure Site Recovery biedt realtime replicatie tussen on-premises VMware-sites. InMage Scout is opgenomen in de Azure Site Recovery-service-abonnementen. 
 
-## <a name="prerequisites"></a>Vereisten
-**Azure-account**: U moet een [Microsoft Azure](https://azure.microsoft.com/) account. U kunt beginnen met een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/). [Meer informatie](https://azure.microsoft.com/pricing/details/site-recovery/) over prijzen voor Site Recovery.
+InMage Scout in Azure Site Recovery biedt realtime replicatie tussen on-premises VMware-sites. InMage Scout is opgenomen in de Azure Site Recovery-service-abonnementen.
 
-## <a name="step-1-create-a-vault"></a>Stap 1: Een kluis maken
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+Als u een Azure-abonnement geen [een gratis account maken](https://azure.microsoft.com/pricing/free-trial/) voordat u begint.
+
+
+## <a name="create-a-vault"></a>Een kluis maken
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/) > **Recovery Services**.
 2. Klik op Nieuw > Beheer > back-up en siteherstel (OMS). U kunt ook klikken op Bladeren > Recovery Services-kluis > toevoegen.
 3. Geef in **Naam** een beschrijvende naam op om de kluis mee aan te duiden. Als u meer dan één abonnement hebt, selecteert u een van uw abonnementen.
 4. In **resourcegroep** een nieuwe resourcegroep maken of een bestaande set selecteren. Geef een Azure-regio voor het voltooien van de vereiste velden.
 5. In **locatie**, selecteer de geografische regio voor de kluis. Ondersteunde regio's, Zie [prijzen van Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Als u wilt voor snel toegang tot de kluis vanuit het Dashboard vastmaken aan dashboard en klik op maken.
-7. De nieuwe kluis wordt weergegeven op het Dashboard > alle resources en op de belangrijkste Recovery Services-kluizen blade.
+7. De nieuwe kluis wordt weergegeven op het Dashboard > alle resources en op de belangrijkste Recovery Services-kluizen pagina.
 
-## <a name="step-2-configure-the-vault-and-download-inmage-scout-components"></a>Stap 2: Configureer de kluis en InMage Scout onderdelen downloaden
-1. Uw kluis selecteert in de blade Recovery Services-kluizen en klik op instellingen.
+## <a name="configure-the-vault-and-download-inmage-scout-components"></a>Configureren van de kluis en InMage Scout onderdelen downloaden
+1. De Recovery Services kluizen pagina, selecteer uw kluis en klik op **instellingen**.
 2. In **instellingen** > **aan de slag** klikt u op **siteherstel** > stap 1: **infrastructuur voorbereiden**  >  **Beveiligingsdoel**.
 3. In **beveiligingsdoel** Selecteer met site recovery en selecteer Ja, met VMware vSphere-Hypervisor. Klik vervolgens op OK.
 4. In **Scout setup**, klik op downloaden om te downloaden InMage Scout 8.0.1 GA software en registratie-sleutel. De setup-bestanden voor alle vereiste onderdelen zijn in het gedownloade ZIP-bestand.
@@ -46,7 +46,7 @@ InMage Scout in Azure Site Recovery biedt realtime replicatie tussen on-premises
 ## <a name="step-3-install-component-updates"></a>Stap 3: Component updates installeren
 Meer informatie over de meest recente [updates](#updates). Installeert u de updatebestanden op servers in de volgende volgorde:
 
-1. RX-server als er een
+1. RX-server, indien van toepassing
 2. Van configuratieservers
 3. Processervers
 4. Hoofddoelservers
@@ -69,7 +69,7 @@ Als volgt te werk om de updates te installeren:
 5. **Voor de Windows-hoofddoelserver**: kopiëren voor het bijwerken van de unified agent **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** op de hoofddoelserver. Dubbelklik erop uit te voeren. Houd er rekening mee dat de unified agent ook van toepassing op de bronserver is als bron niet tot Update4 bijgewerkt is. U moet deze installeren op de bronserver en, zoals verderop in deze lijst worden vermeld.<br>
 6. **Voor de vContinuum-server**: kopie **vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe** naar de vContinuum-server.  Zorg ervoor dat u de vContinuum-wizard hebt gesloten. Dubbelklik op het bestand uit te voeren.<br>
 7. **Voor de Linux-hoofddoelserver**: kopiëren voor het bijwerken van de unified agent **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** naar het hoofdniveau doelserver en pak het bestand. Voer in de uitgepakte map **/installeren**.<br>
-8. **Voor de bronserver Windows**: U hoeft niet te installeren Update 5-agent op de bron als soruce zich al op update4. Als het is minder dan update4, de update 5-agent van toepassing.
+8. **Voor de bronserver Windows**: U hoeft niet te installeren Update 5-agent op de bron-als Update 4 het al wordt uitgevoerd. Als er minder dan Update 4 wordt uitgevoerd, de Update 5-agent van toepassing.
 Voor het bijwerken van de unified agent kopiëren **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** naar de bronserver. Dubbelklik erop uit te voeren. <br>
 9. **Voor de Linux-bronserver**: voor het bijwerken van de unified agent bijbehorende versie van UA bestand kopiëren naar de Linux-server en pak het bestand. Voer in de uitgepakte map **/installeren**.  Voorbeeld: Voor RHEL 6,7 64-bits-server kopiëren **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** naar de server en pak het bestand. Voer in de uitgepakte map **/installeren**.
 
@@ -86,7 +86,7 @@ Voor het bijwerken van de unified agent kopiëren **UA_Windows_8.0.5.0_GA_Update
 ## <a name="updates"></a>Updates
 ### <a name="azure-site-recovery-scout-801-update-5"></a>Azure Site Recovery Scout 8.0.1 Update 5
 Scout Update 5 is een cumulatieve update. Heeft de oplossingen van update1 tot update4 en volgende nieuwe oplossingen voor problemen en verbeteringen.
-Oplossingen die zijn toegevoegd vanuit ASR Scout update4 naar update5 zijn specifiek voor het hoofddoel en vContinuum-onderdelen. Als u al uw bronservers, hoofddoel, configuratieserver, processerver en RX zich al op ASR Scout update4 moet u update 5 toepassing alleen op de hoofddoelserver. 
+Oplossingen die van Site Recovery Scout update4 worden toegevoegd aan update5 zijn specifiek voor het hoofddoel en vContinuum-onderdelen. Als u al uw bronservers, hoofddoel, configuratieserver, processerver en RX zich al op de Site Recovery Scout update4 moet u update 5 toepassing alleen op de hoofddoelserver. 
 
 **Nieuwe platformondersteuning**
 * SUSE Linux Enterprise Server 11 4(SP4) servicepack
@@ -109,11 +109,11 @@ Oplossingen die zijn toegevoegd vanuit ASR Scout update4 naar update5 zijn speci
 
 > [!NOTE]
 > 
-> * Hierboven P2V cluster oplossingen van toepassing zijn op alleen de fysieke MSCS-cluster die zijn opnieuw worden beveiligd met ASR Scout update5. Gebruik van het cluster worden opgelost op het al beveiligde P2V MSCS-cluster met oudere updates, moet u de upgrade stappen die worden vermeld in de sectie 12, Upgrade beveiligd P2V MSCS-cluster naar Scout Update5 van [ASR Scout releaseopmerkingen](https://aka.ms/asr-scout-release-notes).
+> * Hierboven P2V cluster oplossingen van toepassing zijn op alleen de fysieke MSCS-clusters die zijn opnieuw worden beveiligd met Site Recovery Scout update5. Gebruik van het cluster worden opgelost op het al beveiligde P2V MSCS-cluster met oudere updates, moet u de upgrade stappen die worden vermeld in de sectie 12, Upgrade beveiligd P2V MSCS-clusters op Scout Update 5 van de [release-opmerkingen](https://aka.ms/asr-scout-release-notes) .
 > 
-> * Opnieuw beveiligen van fysieke MSCS-cluster kunt bestaande doel schijven hergebruiken alleen als op het moment van opnieuw beveiliging, dezelfde set met schijven zijn actief is op elk van de clusterknooppunten als ze in eerste instantie beveiligd waren. Als niet zo is, waarna er handmatige stappen zijn zoals vermeld in de sectie 12 van [ASR Scout Release-opmerkingen](https://aka.ms/asr-scout-release-notes) de doel-zijde schijven verplaatsen naar het pad juist gegevensarchief opnieuw te gebruiken tijdens het opnieuw beveiligen. Als u de MSCS-cluster in de modus voor P2V beveiligt zonder de volgende stappen de upgrade wordt het nieuwe schijf gemaakt op de doelserver ESXi. U moet de oude schijven handmatig verwijderen uit het gegevensarchief.
+> * Opnieuw beveiligen van fysieke MSCS-cluster kunt bestaande doel schijven hergebruiken alleen als op het moment van opnieuw beveiliging, dezelfde set met schijven zijn actief is op elk van de clusterknooppunten als ze in eerste instantie beveiligd waren. Als niet zo is, klikt u vervolgens er handmatige stappen zoals vermeld in de sectie 12 van de [release-opmerkingen](https://aka.ms/asr-scout-release-notes) de doel-zijde schijven verplaatsen naar het pad juist gegevensarchief opnieuw te gebruiken tijdens het opnieuw beveiligen. Als u de MSCS-cluster in de modus voor P2V beveiligt zonder de volgende stappen de upgrade wordt het nieuwe schijf gemaakt op de doelserver ESXi. U moet de oude schijven handmatig verwijderen uit het gegevensarchief.
 > 
-> * Wanneer de gegevensbron SLES11 of SLES11 met een andere service pack server probleemloos opnieuw wordt opgestart, wordt een moet handmatig worden gemarkeerd de **hoofdmap** paren van replicatie voor het opnieuw synchroniseren schijf zoals deze wordt niet gewaarschuwd in CX UI. Als u dit niet doet, markeer de schijf van de hoofdmap voor resync, ziet u mogelijk problemen met de gegevensintegriteit (DI).
+> * Wanneer de gegevensbron SLES11 of SLES11 met een andere service pack server probleemloos opnieuw wordt opgestart, wordt een moet handmatig worden gemarkeerd de **hoofdmap** paren van replicatie voor het opnieuw synchroniseren schijf zoals deze wordt niet gewaarschuwd in CX UI. Als u niet de hoofdmap schijf voor resync markeert, ziet u mogelijk problemen met de gegevensintegriteit (DI).
 > 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 Update 4
@@ -144,7 +144,7 @@ Scout Update 4 is een cumulatieve update. Heeft de oplossingen van update1 tot u
 * VMware vCLI 6.0 downloadkoppeling wordt toegevoegd aan Windows hoofddoel base installatieprogramma.
 * Meer controle en logboeken voor wijzigingen in het netwerk configuraties tijdens failover en Noodherstel zoomt toegevoegd.
 * Sometime bewaren van gegevens is niet gerapporteerd aan de CX.  
-* Voor fysieke cluster mislukt volume bewerking formaat wijzigen via de wizard vContinuum bij het volume verkleinen van bron is opgetreden.
+* Voor fysieke cluster mislukt volume bewerking formaat wijzigen via de wizard vContinuum als de bron volume verkleinen plaatsvindt.
 * Cluster-beveiliging is mislukt met fout 'Is mislukt voor het vinden van de schijfhandtekening' wanneer clusterschijf PRDM schijf is.
 * cxps transport server vastlopen vanwege uitzondering van buiten het bereik.
 * Servernaam en IP-kolommen zijn nu formaat kunt wijzigen in push installeren pagina van de vContinuum-wizard.
@@ -164,7 +164,7 @@ Scout Update 4 is een cumulatieve update. Heeft de oplossingen van update1 tot u
 Update 3 bevat de volgende oplossingen voor problemen en de volgende verbeteringen:
 
 * De configuratieserver en RX niet registreren bij de Site Recovery-kluis wanneer ze zich achter de proxy.
-* Het aantal uren dat niet wordt voldaan aan het beoogde herstelpunt (RPO) is niet in het statusrapport wordt bijgewerkt.
+* Het aantal uren dat het beoogde herstelpunt (RPO) nog niet is voldaan, wordt niet bijgewerkt in het statusrapport.
 * De configuratieserver wordt niet gesynchroniseerd met RX wanneer de gegevens van de hardware ESX of netwerkdetails UTF-8 tekens bevatten.
 * Windows Server 2008 R2-domeincontrollers niet kunnen worden opgestart na het herstel.
 * Offlinesynchronisatie werkt niet zoals verwacht.

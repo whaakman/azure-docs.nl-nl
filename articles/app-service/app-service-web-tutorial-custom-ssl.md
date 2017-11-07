@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 52d03c535d63aa1985a0991f309f2db1e189717e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c18ca8e81fefdee723714c6535160e75ef4d698d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Een bestaande aangepaste SSL-certificaat binden aan Azure-Web-Apps
 
@@ -151,13 +151,13 @@ Als u IIS gebruikt of _Certreq.exe_ bij het genereren van uw certificaataanvraag
 
 Als u wilt uw SSL-certificaat uploaden, klikt u op **SSL-certificaten** in het linkernavigatievenster van uw web-app.
 
-Klik op **-certificaat uploaden**.
+Klik op **-certificaat uploaden**. 
 
 In **PFX-certificaatbestand**, selecteer uw PFX-bestand. In **certificaatwachtwoord**, typ het wachtwoord dat u hebt gemaakt toen u het PFX-bestand hebt geëxporteerd.
 
 Klik op **Uploaden**.
 
-![Certificaat uploaden](./media/app-service-web-tutorial-custom-ssl/upload-certificate.png)
+![Certificaat uploaden](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
 Wanneer de App Service klaar is met uw certificaat uploaden, wordt deze weergegeven de **SSL-certificaten** pagina.
 
@@ -311,6 +311,10 @@ New-AzureRmWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
+## <a name="public-certificates-optional"></a>Certificaten voor openbare (optioneel)
+U kunt uploaden [certificaten voor openbare](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) aan uw web-app. U kunt certificaten voor openbare gebruiken met Web-Apps in App Service- of as-omgeving (App Service omgeving). Als u het certificaat wordt opgeslagen in het certificaatarchief van de hoofdmap van LocalMachine moet, moet u een web-app op App Service-omgeving gebruiken. Zie voor meer informatie [openbare certificaten aan uw Web-App configureren](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+
+![Openbaar certificaat uploaden](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

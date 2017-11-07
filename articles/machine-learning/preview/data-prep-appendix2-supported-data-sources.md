@@ -1,6 +1,6 @@
 ---
-title: Ondersteunde gegevensbronnen die beschikbaar zijn met Azure Machine Learning gegevens voorbereiden | Microsoft Docs
-description: Dit document bevat een volledige lijst met ondersteunde gegevensbronnen beschikbaar voor Azure Machine Learning gegevens voorbereiden
+title: Ondersteunde gegevensbronnen beschikbaar met voorbereiden van gegevens van Azure Machine Learning | Microsoft Docs
+description: Dit document bevat een volledige lijst met ondersteunde gegevensbronnen beschikbaar voor het voorbereiden van gegevens van Azure Machine Learning.
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -12,29 +12,31 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 1ef4c5c33d98cfeb566e8fe23bda9e0d3f041781
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: db4774de28a17e022de111986f72a1f15ec32beb
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="supported-data-sources-for-this-release"></a>Ondersteunde gegevensbronnen voor deze release 
-Het volgende document bevat een overzicht van de lijst met ondersteunde gegevensbronnen in Azure Machine Learning gegevens voorbereiden.
+# <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Ondersteunde gegevensbronnen voor Azure Machine Learning gegevens voorbereiden 
+In dit artikel bevat een overzicht van de momenteel ondersteunde gegevensbronnen voor Azure Machine Learning gegevens voorbereiden.
 
 De ondersteunde gegevensbronnen voor deze release zijn als volgt.
 
 ## <a name="types"></a>Typen 
-### <a name="directory-versus-file"></a>Directory versus bestand
-*Bestanden/mappen*: één bestand kiezen en lezen in het voorbereiden van gegevens. Het bestandstype wordt geparseerd om te bepalen van de standaardparameters voor de bestand-verbinding die is op het volgende scherm. Kies een directory of een set bestanden in een map (de bestandskiezer is meervoudige selectie). Een benadering resultaten in de bestanden wordt gelezen als een enkel gegevensstroomblok met de bestanden die zijn toegevoegd aan elkaar (met kopteksten verwijderd, indien nodig).
+### <a name="directory-vs-file"></a>Directory versus bestand
+Kies één bestand en het in het voorbereiden van gegevens gelezen. Het bestandstype wordt geparseerd om te bepalen van de standaardparameters voor de bestand-verbinding op het volgende scherm wordt weergegeven.
 
-De bestandstypen zijn als volgt:
-- Gescheiden (CSV, .tsv, txt, enzovoort) 
+Kies een map of een aantal bestanden in een map (de bestandskiezer is meervoudige selectie). Met de methode worden de bestanden worden gelezen als een enkele gegevensstroom en worden toegevoegd aan elkaar met kopteksten verwijderd, indien nodig.
+
+De ondersteunde bestandstypen zijn:
+- Gescheiden (CSV, .tsv, txt, enz.)
 - Vaste breedte
 - Tekst zonder opmaak
 - JSON-bestand
 
 ### <a name="csv-file"></a>CSV-bestand
-Hiermee wordt een CSV-bestand gelezen uit de opslag.
+Een bestand met door komma's gescheiden waarden lezen uit de opslag.
 
 #### <a name="options"></a>Opties
 - Scheidingsteken
@@ -45,7 +47,7 @@ Hiermee wordt een CSV-bestand gelezen uit de opslag.
 - Regels over te slaan
 
 ### <a name="tsv-file"></a>TSV bestand
-Een bestand TSV waarden leest uit de opslag.
+Een bestand tabblad's gescheiden waarden lezen uit de opslag.
 
 #### <a name="options"></a>Opties
 - Opmerking
@@ -54,39 +56,39 @@ Een bestand TSV waarden leest uit de opslag.
 - Regels over te slaan
 
 ### <a name="excel-xlsxlsx"></a>Excel (.xls/.xlsx)
-Een Excel-bestand, een blad tegelijk leest door bladnaam of nummer te geven.
+Een Excel-bestand een blad tegelijk lezen door bladnaam of nummer te geven.
 
 #### <a name="options"></a>Opties
-- Blad naam/nummer
+- Bladnaam of een cijfer
 - Headers
 - Regels over te slaan
 
 ### <a name="json-file"></a>JSON-bestand
-Een JSON-bestand gelezen uit de opslag. Houd er rekening mee dat het bestand "afgevlakt" bij lezen.
+Een JSON-bestand gelezen uit de opslag. Het bestand wordt "afgevlakt" bij lezen.
 
 #### <a name="options"></a>Opties
-Geen
+- Geen
 
 ### <a name="parquet"></a>Parketvloeren
-Lees een gegevensset parketvloeren ofwel een enkel bestand of map.
+Lees een gegevensset parketvloeren ofwel één bestand of map.
 
-Parketvloeren als een indeling verschillende vormen in de opslag aannemen kan. Een bestand één .parquet wordt soms gebruikt voor kleinere gegevenssets. Verschillende Python-bibliotheken ondersteuning voor lezen of schrijven naar één .parquet-bestand. Azure Machine Learning-Workbench is op dit moment is afhankelijk van de PyArrow Python-bibliotheek voor het lezen van parketvloeren tijdens het gebruik van lokale interactieve. Het ondersteunt één .parquet-bestanden (zo lang ze zijn geschreven als zodanig niet als onderdeel van een grotere gegevensset). Het ondersteunt ook parketvloeren gegevenssets. 
+Parketvloeren als een indeling verschillende vormen in de opslag aannemen kan. Een bestand één .parquet wordt soms gebruikt voor kleinere gegevenssets. Verschillende Python-bibliotheken ondersteuning voor lezen of schrijven naar één .parquet bestanden. Momenteel worden gegevens voorbereiden voor Azure Machine Learning afhankelijk van de PyArrow Python-bibliotheek voor het lezen van parketvloeren tijdens het gebruik van lokale interactieve. Het ondersteunt één .parquet-bestanden (zolang ze zijn geschreven als zodanig en niet als onderdeel van een grotere set gegevens), evenals parketvloeren gegevenssets.
 
-Een gegevensset parketvloeren is een verzameling van meer dan één .parquet-bestand, die elk een kleinere partitie van een grotere gegevensset vertegenwoordigen. Gegevenssets zijn gewoonlijk opgenomen in een map. De indeling standaard parketvloeren uitvoer voor algemene platforms zoals Spark en Hive zijn.
+Een gegevensset parketvloeren is een verzameling van meer dan één .parquet-bestand, die elk een kleinere partitie van een grotere set gegevens vertegenwoordigen. Gegevenssets gewoonlijk zijn opgenomen in een map en de indeling standaard parketvloeren uitvoer voor platforms zoals Spark en Hive zijn.
 
 >[!NOTE]
->Wanneer u parketvloeren gegevens die zich in een map met meerdere .parquet bestanden leest, is het veiligste selecteren de map voor lezen en maatstreepjes de **parketvloeren gegevensset** optie. Hierdoor kunt u de hele map in plaats van de afzonderlijke bestanden lezen PyArrow. Dit zorgt ervoor ondersteuning voor het lezen van gecompliceerdere manieren voor het opslaan van parketvloeren op schijf (zoals de map partitioneren.)
+>Wanneer u parketvloeren gegevens die zich in een map met meerdere .parquet bestanden leest, is het veiligste selecteren de map voor lezen, en de **parketvloeren gegevensset** optie. Hierdoor kunt u de hele map in plaats van de afzonderlijke bestanden lezen PyArrow. Dit zorgt ervoor ondersteuning voor het ingewikkelder manieren van het parketvloeren opslaan op schijf, zoals het partitioneren van de map lezen.
 
-Uitvoering van de scale-out is afhankelijk van de Spark parketvloeren lezen van de mogelijkheden en ondersteunt afzonderlijke bestanden en mappen.
+Uitvoering van de scale-out is afhankelijk van de Spark parketvloeren lezen van de mogelijkheden en ondersteunt afzonderlijke bestanden en mappen, vergelijkbaar met lokale interactief gebruik.
 
 #### <a name="options"></a>Opties
-*Parketvloeren gegevensset*: deze optie wordt bepaald als Azure Machine Learning Workbench de unticked modus of in de modus ticked gebruikt. De unticked modus wordt een bepaalde directory uitgebreid en probeert dan te lezen van elk bestand in deze afzonderlijk. De modus voor ticked de map beschouwd als de volledige set gegevens en PyArrow kunt nagaan wat de beste manier om de bestanden worden geïnterpreteerd.
+- Parketvloeren gegevensset. Deze optie wordt bepaald of gegevens voorbereiden voor Azure Machine Learning wordt een bepaalde directory uitgebreid en probeert dan te lezen van elk bestand afzonderlijk (de niet-geselecteerde modus), of of de map worden beschouwd als de volledige set gegevens (de geselecteerde modus). Met de geselecteerde modus kiest PyArrow de beste manier om de bestanden worden geïnterpreteerd.
 
 
 ## <a name="locations"></a>Locaties
 ### <a name="local"></a>Lokaal
-Lokale harde schijf of locatie voor de opslag toegewezen netwerkpad.
+Een lokale vaste schijf of een toegewezen netwerkstation opslaglocatie.
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
-Een Azure-abonnement vereist.
+Azure Blob storage, een Azure-abonnement vereist.
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/03/2017
 ms.author: terrylan
-ms.openlocfilehash: 35aa45ce09b756dd7413a1df3d3c7b0c428b7a97
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71d407050f210c770bcac30259b9c2f2fb27aa3
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Veelgestelde vragen over Azure Security Center
 Deze Veelgestelde vragen over de antwoorden op vragen over Azure Security Center, een service waarmee u detecteren, voorkomen van en reageren op bedreigingen dankzij een verhoogde zichtbaarheid van en controle over de beveiliging van uw Microsoft Azure-resources.
@@ -127,6 +127,15 @@ Azure Security Center heeft zichtbaarheid van antimalware geïnstalleerd via de 
 
 ### <a name="why-do-i-get-the-message-missing-scan-data-for-my-vm"></a>Waarom krijg ik het bericht 'Missing scannen Data' voor mijn VM?
 Dit bericht wordt weergegeven wanneer er geen Scangegevens voor een virtuele machine zijn. Het kan even duren (minder dan een uur) om Scangegevens te vullen nadat gegevensverzameling is ingeschakeld in Azure Security Center. Na de initiële gegevenspopulatie scan, kan dit bericht wordt weergegeven omdat er helemaal geen Scangegevens zijn of er geen recente Scangegevens zijn. Scans vullen voor een virtuele machine gestopt. Dit bericht kan ook optreden als Scangegevens heeft onlangs (in overeenstemming met het bewaarbeleid voor de Windows-agent, die een standaardwaarde van 30 dagen heeft) niet is ingevuld.
+
+### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>Hoe vaak Security Center scannen voor besturingssysteem beveiligingsproblemen, systeemupdates en endpoint protection-problemen?
+De latentie in Security Center scant op beveiligingsproblemen, updates, en problemen is:
+
+- Besturingssysteem-beveiligingsproblemen (door Microsoft) – gegevens worden bijgewerkt binnen 48 uur
+- Systeemupdates – gegevens wordt bijgewerkt binnen 24 uur
+- Endpoint Protection-problemen: gegevens worden bijgewerkt binnen de 8 uur
+
+Security Center scant doorgaans naar nieuwe gegevens elk uur. De latentie-waarden die hierboven zijn een slechtste scenario waarbij er niet een recente scan of een controle mislukt.
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Waarom krijg ik het bericht 'VM-Agent is ontbreekt?'
 De VM-Agent moet worden geïnstalleerd op VM's gegevensverzameling inschakelen. De VM-agent wordt standaard geïnstalleerd op VM's die zijn geïmplementeerd vanuit Azure Marketplace. Zie voor informatie over het installeren van de VM-Agent op andere virtuele machines, het blogbericht [VM-Agent en -extensies](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

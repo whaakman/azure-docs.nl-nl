@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/06/2017
-ms.openlocfilehash: 09b8634160c35f3c6a48812358ec872e52d8b21c
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 67cf6b133e8e869ee3a157d79d68602760d9137c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Azure-Database voor PostgreSQL-Servers
-In dit onderwerp worden overwegingen en richtlijnen gegeven voor het werken met Azure-Database voor PostgreSQL-servers.
+Dit artikel vindt overwegingen en richtlijnen voor het werken met Azure-Database voor PostgreSQL-servers.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>Wat is een Azure-Database voor PostgreSQL-server?
 Een Azure-Database voor PostgreSQL-server is een centrale beheerdersrechten voor meerdere databases. Het is dezelfde PostgreSQL server constructie die u mogelijk nagegaan wat in de lokale wereld. In het bijzonder de PostgreSQL-service wordt beheerd, prestaties garanties biedt, beschrijft de toegangs- en -functies op het niveau van de server.
@@ -43,7 +43,7 @@ De volgende elementen zorgt het veilige toegang tot uw database.
 | **Verificatie en autorisatie** | Azure-Database voor PostgreSQL-server ondersteunt systeemeigen PostgreSQL-verificatie. U kunt verbinding maken en verifiëren bij de server met de server admin aanmelden. |
 | **Protocol** | De service ondersteunt een protocol op basis van een bericht dat wordt gebruikt door PostgreSQL. |
 | **TCP/IP** | Het protocol wordt ondersteund via TCP/IP en via Unix-domain-sockets. |
-| **Firewall** | Ter bescherming van uw gegevens, een firewallregel voorkomt u dat alle toegang tot uw databaseserver en de databases totdat u opgeven welke computers over machtigingen beschikken. Zie [Azure Database voor firewallregels voor PostgreSQL Server](concepts-firewall-rules.md). |
+| **Firewall** | Ter bescherming van uw gegevens, een firewallregel voorkomt u dat alle toegang tot uw server en de databases, totdat u opgeven welke computers over de machtiging beschikken. Zie [Azure Database voor firewallregels voor PostgreSQL Server](concepts-firewall-rules.md). |
 |||
 
 ## <a name="how-do-i-manage-a-server"></a>Hoe kan ik een server beheren?

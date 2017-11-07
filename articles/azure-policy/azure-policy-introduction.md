@@ -5,16 +5,16 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark; nini
-ms.date: 10/25/2017
+ms.date: 11/06/2017
 ms.topic: overview
 ms.service: azure-policy
 manager: jochan
 ms.custom: mvc
-ms.openlocfilehash: 82721fe984ff7b3c7440b11d7526a9413b0770de
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: b784c79166eb614988d84b4553bb95e4d1e457af
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="what-is-azure-policy"></a>Wat is Azure beleid?
 
@@ -55,7 +55,7 @@ Bekijk voor meer informatie over de structuur van de beleidsdefinities, in dit a
 
 ## <a name="policy-assignment"></a>Toewijzing van beleid
 
-Een beleidstoewijzing is een beleidsdefinitie die is toegewezen aan plaatsvinden binnen een bepaald bereik. Dit bereik kan variëren van een beheergroep aan een resourcegroep. Beleidstoewijzingen worden overgenomen door alle onderliggende resources. Dus als een beleid wordt toegepast op een resourcegroep, deze op alle resources in die resourcegroep toegepast wordt. De term *bereik* verwijst naar alle resourcegroepen, abonnementen of beheergroepen waaraan de beleidsdefinitie is toegewezen.
+Een beleidstoewijzing is een beleidsdefinitie die is toegewezen aan plaatsvinden binnen een bepaald bereik. Dit bereik kan variëren van een beheergroep aan een resourcegroep. De term *bereik* verwijst naar alle resourcegroepen, abonnementen of beheergroepen waaraan de beleidsdefinitie is toegewezen. Beleidstoewijzingen worden overgenomen door alle onderliggende resources. Dus als een beleid wordt toegepast op een resourcegroep, deze op alle resources in die resourcegroep toegepast wordt. U kunt echter een subscope uitsluiten van de beleidstoewijzing. U kunt bijvoorbeeld een beleid dat voorkomt het maken van netwerkresources dat toewijzen voor de scope abonnement. Echter, u een resourcegroep in het abonnement dat is bedoeld om de netwerkinfrastructuur uitsluiten. U kunt toegang verlenen aan deze resourcegroep netwerken voor gebruikers die u met het maken van netwerkresources vertrouwt.
 
 Zie voor meer informatie over beleidsdefinities en toewijzingen [een beleidstoewijzing om te identificeren van niet-compatibele bronnen in uw Azure-omgeving maken](assign-policy-definition.md).
 

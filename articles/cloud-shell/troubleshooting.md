@@ -12,27 +12,29 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 11/2/2017
 ms.author: damaerte
-ms.openlocfilehash: 4c99ae37b66200244514ee554c9696cf18c1b800
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 1bf0acdfad04a55d5b85aabee150526836062002
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Azure-Cloud-Shell probleemoplossing
 
 Bekende oplossingen voor problemen in de Azure-Cloud-Shell zijn onder andere:
 
-## <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Opslag-dialoogvenster - fout: 403 RequestDisallowedByPolicy
+## <a name="general-resolutions"></a>Algemene oplossingen
+
+### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Opslag-dialoogvenster - fout: 403 RequestDisallowedByPolicy
 - **Details**: bij het maken van een opslagaccount via Cloud-Shell, is het mislukt als gevolg van een Azure-beleid geplaatst door uw beheerder. Foutbericht omvatten:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **Resolutie**: Neem contact op met uw Azure-beheerder om te verwijderen of bijwerken van het Azure-beleid voor het weigeren van het maken van opslag.
 
-## <a name="storage-dialog---error-400-disallowedoperation"></a>Opslag-dialoogvenster - fout: 400 DisallowedOperation
+### <a name="storage-dialog---error-400-disallowedoperation"></a>Opslag-dialoogvenster - fout: 400 DisallowedOperation
  - **Details**: wanneer u een abonnement op Azure Active Directory, kunt u opslag kan niet maken.
  - **Resolutie**: een Azure-abonnement te maken van de storage-resources gebruiken. Azure AD-abonnementen kunnen geen Azure-resources te maken.
 
-## <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Terminal output - fout: kan geen verbinding maken terminal: websocket kan niet worden vastgesteld. Druk op `Enter` opnieuw verbinding te maken.
+### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Terminal output - fout: kan geen verbinding maken terminal: websocket kan niet worden vastgesteld. Druk op `Enter` opnieuw verbinding te maken.
  - **Details**: Cloud Shell is de mogelijkheid tot stand brengen van een websocket-verbinding met de Cloud Shell-infrastructuur vereist.
  - **Resolutie**: Controleer u de netwerkinstellingen zodat verzenden https-aanvragen en websocket-aanvragen voor domeinen op hebt geconfigureerd *. console.azure.com.
 

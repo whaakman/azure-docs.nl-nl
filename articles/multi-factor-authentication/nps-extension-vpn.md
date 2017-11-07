@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 92b95b91073ef0a53a936bea53a7c63fe37f1746
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 8bb4c754f7bf22198b997ded7a994ccf0e4ad265
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Uw VPN-infrastructuur integreren met Azure MFA met behulp van de Network Policy Server-extensie voor Azure
 
@@ -99,7 +99,7 @@ Deze sectie beschrijft de vereisten die moeten worden voltooid voordat u MFA met
 In dit artikel wordt ervan uitgegaan dat u hebt een werkende VPN-infrastructuur die gebruikmaakt van Microsoft Windows Server 2016 en de VPN-server is momenteel niet geconfigureerd voor verbindingsaanvragen wilt doorsturen naar een RADIUS-server. In het artikel configureert u de VPN-infrastructuur voor het gebruik van een centrale RADIUS-server.
 
 Als u een werkende VPN-infrastructuur niet geïmplementeerd hebt, kunt u snel maken volgt u de instructies in talloze zelfstudies van de VPN-instellingen die u kunt vinden op de Microsoft en de sites van derden. 
-
+            
 ### <a name="the-network-policy-and-access-services-role"></a>De functie Network Policy and Access Services
 
 Network Policy and Access Services biedt de RADIUS-server en client-functionaliteit. In dit artikel wordt ervan uitgegaan dat u de functie Network Policy and Access Services op een lidserver of domeincontroller hebt geïnstalleerd in uw omgeving. In deze handleiding configureert u RADIUS voor een VPN-configuratie. De functie Network Policy and Access Services installeren op een server *dan* de VPN-server.
@@ -108,7 +108,7 @@ Voor informatie over het installeren van de functie Network Policy and Access Se
 
 ### <a name="azure-mfa-license"></a>Azure MFA-licentie
 
-Een licentie is vereist voor Azure multi-factor Authentication en is beschikbaar in een Azure AD Premium, Enterprise Mobility + Security of een multi-Factor Authentication-abonnement. Zie voor meer informatie [het ophalen van Azure multi-factor Authentication](multi-factor-authentication-versions-plans.md). Voor testdoeleinden kunt u een proefabonnement.
+Een licentie is vereist voor Azure multi-factor Authentication en is beschikbaar in een Azure AD Premium, Enterprise Mobility + Security of een multi-Factor Authentication-abonnement. Op basis van verbruik licenties voor Azure MFA zoals per gebruiker of per authenticatie licenties zijn niet compatibel met de NPS-extensie. Zie voor meer informatie [het ophalen van Azure multi-factor Authentication](multi-factor-authentication-versions-plans.md). Voor testdoeleinden kunt u een proefabonnement.
 
 ### <a name="windows-server-software"></a>Windows Server-software
 

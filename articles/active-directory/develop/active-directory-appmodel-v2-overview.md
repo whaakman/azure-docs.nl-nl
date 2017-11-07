@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1e286044fb1a1b367fcac2dc14c47f68d5ed120d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a6a7c6bdf3deaee3a3949fe409a7fab6b7664695
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>Meld u aan Microsoft-Account en Azure AD-gebruikers in een enkele app
 In het verleden is een app-ontwikkelaar die ondersteuning bieden voor beide persoonlijke Microsoft-accounts en -werkaccounts van Azure Active Directory wilt integreren met twee afzonderlijke systemen vereist.  De **Azure AD v2.0-eindpunt** introduceert een nieuwe authenticatie-API-versie waarmee u zich kunt aanmelden beide typen accounts met een eenvoudige integratie.  Apps die gebruikmaken van het v2.0-eindpunt kunnen ook gebruiken voor REST-API's van de [Microsoft Graph](https://graph.microsoft.io) met behulp van een type account.
@@ -49,13 +49,8 @@ Deze koppelingen zijn handig voor het platform in de diepte verkennen:
 * [Scopes en toestemming in het v2.0-eindpunt](active-directory-v2-scopes.md)
 * [Microsoft Graph](https://graph.microsoft.io)
 
-## <a name="help--support"></a>Help en ondersteuning
-Dit zijn de aanbevolen plaatsen voor hulp bij het ontwikkelen met Azure Active Directory.
-
-* [Stack Overflow's tags voor `azure-active-directory` en `adal`](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)
-* [Feedback op Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)
-
-
 > [!NOTE]
 > Als u alleen hoeft aan te melden werk- en schoolaccounts accounts van Azure Active Directory, moet u beginnen met onze [ontwikkelaarshandleiding Azure AD](active-directory-developers-guide.md).  Het v2.0-eindpunt is bedoeld voor gebruik door ontwikkelaars die expliciet hoeft aan te melden in persoonlijke Microsoft-accounts.
 
+
+[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]
