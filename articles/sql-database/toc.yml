@@ -309,6 +309,10 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Automation
           href: sql-database-manage-automation.md
+        - name: Aanbevolen procedures voor SQL Data Sync
+          href: sql-database-best-practices-data-sync.md
+        - name: Problemen met SQL Data Sync oplossen
+          href: sql-database-troubleshoot-data-sync.md
     - name: Uitschalen
       items:
         - name: Een shard-app maken

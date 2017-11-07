@@ -6,6 +6,7 @@
 ## [Een .NET-toepassing maken](service-fabric-quickstart-dotnet.md)
 ## [Een Linux-containertoepassing implementeren](service-fabric-quickstart-containers-linux.md)
 ## [Een Windows-containertoepassing implementeren](service-fabric-quickstart-containers.md)
+## [Een Java-toepassing implementeren](service-fabric-quickstart-java.md)
 
 # Zelfstudies
 ## Een .NET-toepassing implementeren
@@ -28,7 +29,9 @@
 ### 1 - Een cluster maken in Azure
 #### [1a: Een Windows-cluster maken](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b: Een Linux-cluster maken](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
-### [2 - API Management met Service Fabric implementeren](service-fabric-tutorial-deploy-api-management.md)
+### [2: Het cluster schalen](service-fabric-tutorial-scale-cluster.md)
+### [3: API Management met Service Fabric implementeren](service-fabric-tutorial-deploy-api-management.md)
+
 
 # Voorbeelden
 ## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=service-fabric)
