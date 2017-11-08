@@ -29,12 +29,15 @@
       href: concepts-service.md
     - name: Beveiligingsconcepten
       href: concepts-security.md
+    - name: Beveiliging
 - name: Handleidingen
   items:
     - name: Apparaatregistraties beheren
       href: how-to-manage-enrollments.md
     - name: Gebruik HSM met SDK
       href: use-hsm-with-sdk.md
+    - name: Toegang tot de inrichtingsservice beheren
+      href: how-to-control-access.md
 - name: Naslaginformatie
   items:
     - name: REST

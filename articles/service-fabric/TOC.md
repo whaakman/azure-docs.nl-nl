@@ -136,11 +136,30 @@
 ## [Integreren met API Management](service-fabric-api-management-overview.md)
 
 ## Bewaken en diagnoses uitvoeren
-### [Overzicht](service-fabric-diagnostics-overview.md)
-### [Statusmodel](service-fabric-health-introduction.md)
-### [Diagnose in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
-### [Diagnose in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
-### [Prestatiemeteritems voor externe communicatie Reliable Service](service-fabric-reliable-serviceremoting-diagnostics.md)
+### [Toepassingen bewaken en er diagnoses op uitvoeren](service-fabric-diagnostics-overview.md)
+### Gebeurtenissen genereren
+#### [Gebeurtenissen genereren op platformniveau](service-fabric-diagnostics-event-generation-infra.md)
+##### [Operationele kanaal](service-fabric-diagnostics-event-generation-operational.md)
+##### [Reliable Services-gebeurtenissen](service-fabric-reliable-services-diagnostics.md)
+##### [Reliable Actors-gebeurtenissen](service-fabric-reliable-actors-diagnostics.md)
+##### [Metrische gegevens voor prestaties](service-fabric-diagnostics-event-generation-perf.md)
+##### [Externe toegang tot service bewaken](service-fabric-reliable-serviceremoting-diagnostics.md)
+#### [Gebeurtenissen op toepassingsniveau genereren](service-fabric-diagnostics-event-generation-app.md)
+### Status van toepassing en cluster inspecteren
+#### [Service Fabric-status bewaken](service-fabric-health-introduction.md)
+#### [Servicestatus rapporteren en controleren](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+#### [Aangepaste statusrapporten toevoegen](service-fabric-report-health.md)
+#### [Problemen met systeemstatusrapporten oplossen](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+#### [Statusrapporten weergeven](service-fabric-view-entities-aggregated-health.md)
+### Gebeurtenissen samenstellen
+#### [Gebeurtenissen samenstellen met EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
+#### Gebeurtenissen samenstellen met Azure Diagnostics
+##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
+### Gebeurtenissen analyseren
+#### [Gebeurtenissen analyseren met Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+#### [Gebeurtenissen analyseren met OMS](service-fabric-diagnostics-event-analysis-oms.md)
+### [Problemen met uw lokale cluster oplossen](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Handleidingen
 ## De ontwikkelomgeving instellen
@@ -317,30 +336,12 @@
 #### [Servicebeweging](service-fabric-cluster-resource-manager-movement-cost.md)
 
 ## Bewaken en diagnoses uitvoeren
-### [Toepassingen bewaken en er diagnoses op uitvoeren](service-fabric-diagnostics-overview.md)
-### Gebeurtenissen genereren
-#### [Gebeurtenissen genereren op platformniveau](service-fabric-diagnostics-event-generation-infra.md)
-##### [Operationele kanaal](service-fabric-diagnostics-event-generation-operational.md)
-##### [Reliable Services-gebeurtenissen](service-fabric-reliable-services-diagnostics.md)
-##### [Reliable Actors-gebeurtenissen](service-fabric-reliable-actors-diagnostics.md)
-##### [Metrische gegevens voor prestaties](service-fabric-diagnostics-event-generation-perf.md)
-#### [Gebeurtenissen op toepassingsniveau genereren](service-fabric-diagnostics-event-generation-app.md)
-### Status van toepassing en cluster inspecteren
-#### [Service Fabric-status bewaken](service-fabric-health-introduction.md)
-#### [Servicestatus rapporteren en controleren](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-#### [Aangepaste statusrapporten toevoegen](service-fabric-report-health.md)
-#### [Problemen met systeemstatusrapporten oplossen](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-#### [Statusrapporten weergeven](service-fabric-view-entities-aggregated-health.md)
-#### [Windows Server-containers bewaken](service-fabric-diagnostics-containers-windowsserver.md)
-### Gebeurtenissen samenstellen
-#### [Gebeurtenissen samenstellen met EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
-#### Gebeurtenissen samenstellen met Azure Diagnostics
-##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
-##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
-### Gebeurtenissen analyseren
-#### [Gebeurtenissen analyseren met Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-#### [Gebeurtenissen analyseren met OMS](service-fabric-diagnostics-event-analysis-oms.md)
-### [Problemen met uw lokale cluster oplossen](service-fabric-troubleshoot-local-cluster-setup.md)
+### OMS
+#### [OMS Log Analytics instellen](service-fabric-diagnostics-oms-setup.md)
+#### [De OMS-agent toevoegen](service-fabric-diagnostics-oms-agent.md)
+#### [Containers bewaken](service-fabric-diagnostics-oms-containers.md)
+### Prestatiebewaking
+#### [Prestatiebewaking met WAD](service-fabric-diagnostics-perf-wad.md)
 
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)

@@ -8,6 +8,41 @@
 ### [De vooraf geconfigureerde oplossing implementeren](iot-suite-remote-monitoring-deploy.md)
 ### [De vooraf geconfigureerde oplossing uitvoeren](iot-suite-remote-monitoring-explore.md)
 
+## Externe bewaking (vorige versie)
+### [Wat zijn de vooraf geconfigureerde oplossingen?](iot-suite-v1-what-are-preconfigured-solutions.md)
+### [Veelgestelde vragen](iot-suite-v1-faq.md)
+
+### Aan de slag
+#### [Aan de slag met vooraf geconfigureerde oplossingen](iot-suite-v1-getstarted-preconfigured-solutions.md)
+#### [Machtigingen op azureiotsuite.com](iot-suite-v1-permissions.md)
+#### [Kennismaken met de oplossing voor controle op afstand](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
+#### [Verbinding maken met uw Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+##### C gebruiken
+###### [Gesimuleerde gegevens](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
+###### [Echte sensoren gebruiken](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
+###### [Firmware-update implementeren](iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md)
+##### Node.js gebruiken
+###### [Gesimuleerde gegevens](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
+###### [Echte sensoren gebruiken](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
+###### [Firmware-update implementeren](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### Verbinding maken met uw Intel NUC-gateway
+##### [Gesimuleerde gegevens](iot-suite-v1-gateway-kit-get-started-simulator.md)
+##### [Een echte sensor gebruiken](iot-suite-v1-gateway-kit-get-started-sensortag.md)
+
+### Procedures
+#### Een gesimuleerd apparaat verbinden
+##### [C op Windows](iot-suite-v1-connecting-devices.md)
+##### [C op Linux](iot-suite-v1-connecting-devices-linux.md)
+##### [Node.js](iot-suite-v1-connecting-devices-node.md)
+#### [Een logische app aansluiten op de oplossing voor controle op afstand](iot-suite-v1-logic-apps-tutorial.md)
+#### [Een vooraf geconfigureerde oplossing aanpassen](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
+#### [Dynamische telemetrie gebruiken bij de oplossing voor controle op afstand](iot-suite-v1-dynamic-telemetry.md)
+#### [Een aangepaste regel maken in de oplossing voor controle op afstand](iot-suite-v1-custom-rule.md)
+#### [Apparaatgegevens in de oplossing voor controle op afstand](iot-suite-v1-remote-monitoring-device-info.md)
+
+
+
+
 ## Voorspellend onderhoud
 ### [Een overzicht van de oplossing voor voorspellend onderhoud](iot-suite-predictive-overview.md)
 ### [Kennismaken met de oplossing voor voorspellend onderhoud](iot-suite-predictive-walkthrough.md)

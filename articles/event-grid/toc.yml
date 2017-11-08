@@ -4,6 +4,8 @@
   items:
     - name: Over Event Grid
       href: overview.md
+    - name: Berichtenservices vergelijken
+      href: compare-messaging-services.md
 - name: Snelstartgidsen
   items:
     - name: Doorsturen van blob-opslaggebeurtenissen - Azure CLI
