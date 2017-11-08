@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0ed612a0e2101397fb1074de61db07d2361f8463
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: af184574bdfa7d3a11baf75d8cdfbf80f1544dde
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sampling-in-application-insights"></a>Steekproeven in Application Insights
 
@@ -57,7 +57,7 @@ Net als andere soorten steekproeven behoudt de algoritme gerelateerde telemetrie
 
 Gegevenspunten die zijn verwijderd door steekproeven zijn niet beschikbaar in de Application Insights-functies, zoals [continue Export](app-insights-export-telemetry.md).
 
-Opname steekproeven functioneren niet terwijl er op basis van SDK adaptieve of vast aantal steekproeven wordt uitgevoerd. Als u de samplingfrequentie op de SDK is minder dan 100%, wordt de samplefrequentie voor opname die u instelt genegeerd.
+Opname steekproeven functioneren niet terwijl er op basis van SDK adaptieve of vast aantal steekproeven wordt uitgevoerd. Houd er rekening mee dat adaptieve steekproeven is standaard ingeschakeld als ASP.NET-SDK is ingeschakeld in Visual Studio of met behulp van de Status Monitor en opname steekproeven is uitgeschakeld. Als u de samplingfrequentie op de SDK is minder dan 100%, wordt de samplefrequentie voor opname die u instelt genegeerd.
 
 > [!WARNING]
 > De waarde die wordt weergegeven op de tegel geeft de waarde die u voor de opname steekproeven instellen. Het vertegenwoordigen niet de werkelijke samplefrequentie als SDK steekproeven uitgevoerd wordt.

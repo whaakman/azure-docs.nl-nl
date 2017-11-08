@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: bf92ffdb16b86c4033cc96ae2abb060d90f9505e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02373633f2a30c6cd50e30b77a9faac2922926e6
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-device"></a>Failover en herstel na noodgevallen voor uw StorSimple-apparaat
+> [!NOTE]
+> De klassieke portal voor StorSimple is afgeschaft. Uw Managers StorSimple-apparaat wordt automatisch verplaatst naar de nieuwe Azure portal aan de hand van de planning afschaffing. U ontvangt een e-mailbericht en een portal melding voor deze verplaatsen. Dit document wordt ook snel worden ingetrokken. De versie van dit artikel voor de nieuwe Azure portal, Ga naar [Failover en herstel na noodgevallen voor uw StorSimple-apparaat](storsimple-8000-device-failover-disaster-recovery.md). Zie voor vragen met betrekking tot de verplaatsing, [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Overzicht
 Deze zelfstudie wordt beschreven hoe u een StorSimple-apparaat in het geval van een noodgeval failover. Een failover kunt u uw gegevens migreren vanaf een Bronapparaat in het datacenter naar het andere fysieke of zelfs een virtueel apparaat zich in hetzelfde of een andere geografische locatie. 
 

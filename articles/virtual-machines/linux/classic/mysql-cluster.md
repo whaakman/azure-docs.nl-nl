@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.openlocfilehash: 4eaf86c9ac3e4dc2b51b88383626eda774cab0e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be178a59f7c3558cc0fef89e5529893f160c649b
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>Sets met gelijke taakverdeling kunt clusterize MySQL op Linux
 > [!IMPORTANT]
 > Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Azure Resource Manager](../../../resource-manager-deployment-model.md) en klassieke. Dit artikel gaat over het gebruik van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Een [Resource Manager-sjabloon](https://azure.microsoft.com/documentation/templates/mysql-replication/) is beschikbaar als u moet een MySQL-cluster implementeren.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Dit artikel wordt verkend en ziet u de verschillende methoden beschikbaar om maximaal beschikbare op basis van Linux-services op Microsoft Azure kunt verkennen van hoge beschikbaarheid van de MySQL-Server als een primer te implementeren. Een video ter illustratie van deze benadering is beschikbaar op [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL).
 

@@ -12,16 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/29/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0577c837e0c47ba37a4f586603b0f5b951f1b549
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6a6b0ab5c493aa99438f27222d1112053951c97
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Op of het apparaat van de serie StorSimple 8000 uitschakelen
+
 ## <a name="overview"></a>Overzicht
 Afsluiten van een Microsoft Azure StorSimple-apparaat is niet vereist als onderdeel van de werking van het normale systeem. U wilt, schakelt u een nieuw apparaat of een apparaat dat opnieuw moest worden afgesloten. In het algemeen is afsluiten vereist in gevallen waarin u moet mislukte hardware vervangen, fysiek verplaatsen een eenheid of een apparaat buiten dienst te nemen. Deze zelfstudie wordt de vereiste procedure voor het inschakelen van en afsluiten van het StorSimple-apparaat in verschillende scenario's beschreven.
 

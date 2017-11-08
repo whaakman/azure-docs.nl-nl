@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: c05cfec995538a95d99451155cf269d33e2716d0
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: e417458a16a5f23d8b89cbf87ab2713fab352046
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Gebeurtenis-aggregatie en verzameling op basis van Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -254,27 +254,9 @@ Wijzigen voor het verzamelen van prestatiemeteritems of de gebeurtenislogboeken 
 
 ## <a name="collect-performance-counters"></a>Verzamelen van prestatiemeteritems
 
-Toevoegen voor het verzamelen van prestatiegegevens van het cluster, de prestatiemeteritems voor uw 'WadCfg > DiagnosticMonitorConfiguration' in de Resource Manager-sjabloon voor uw cluster. Zie [Service Fabric-prestatiemeteritems](service-fabric-diagnostics-event-generation-perf.md) voor prestatiemeteritems die wordt aangeraden verzamelen.
-
-Bijvoorbeeld: Hier wordt een prestatiemeteritem dat elke 15 seconden instellen (dit kan worden gewijzigd en volgt u de indeling van ' PT\<tijd >\<eenheid > ', bijvoorbeeld PT3M zou een steekproef nemen uit drie minuten durende intervallen), en overgebracht naar de de juiste opslag tabel om één minuut.
-
-  ```json
-  "PerformanceCounters": {
-      "scheduledTransferPeriod": "PT1M",
-      "PerformanceCounterConfiguration": [
-          {
-              "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-              "sampleRate": "PT15S",
-              "unit": "Percent",
-              "annotation": [
-              ],
-              "sinks": ""
-          }
-      ]
-  }
-  ```
+Toevoegen voor het verzamelen van prestatiegegevens van het cluster, de prestatiemeteritems voor uw 'WadCfg > DiagnosticMonitorConfiguration' in de Resource Manager-sjabloon voor uw cluster. Zie [prestatiebewaking met af](service-fabric-diagnostics-perf-wad.md) voor stapsgewijze instructies voor het wijzigen van uw `WadCfg` voor het verzamelen van specifieke prestatiemeteritems. Verwijzing [Service Fabric-prestatiemeteritems](service-fabric-diagnostics-event-generation-perf.md) voor een lijst van de prestaties van prestatiemeteritems die wordt aangeraden verzamelen.
   
-Als u een Application Insights-sink gebruikt zoals beschreven in de onderstaande sectie en wilt dat deze metrische gegevens worden weergegeven in Application Insights, Controleer of de naam van de sink toevoegen in de sectie 'put' zoals hierboven. Houd ook rekening met het maken van een afzonderlijke tabel voor het verzenden van de prestatiemeteritems, zodat ze niet opnemen uit de gegevens die afkomstig zijn van de andere logboekkanalen die u hebt ingeschakeld.
+Als u een Application Insights-sink gebruikt zoals beschreven in de onderstaande sectie en wilt dat deze metrische gegevens worden weergegeven in Application Insights, Controleer of de naam van de sink toevoegen in de sectie 'put' zoals hierboven. Hiermee wordt de prestatiemeteritems die afzonderlijk zijn geconfigureerd automatisch verzonden naar uw Application Insights-resource.
 
 
 ## <a name="send-logs-to-application-insights"></a>Logboeken verzenden naar Application Insights

@@ -16,11 +16,11 @@ ms.date: 11/01/2017
 ms.author: joflore
 ms.reviewer: sahenry
 ms.custom: it-pro
-ms.openlocfilehash: 3dede0f026ab38bae64df664d190b47937416d2d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: bea082081e3f3f52ba78188903a9536fe9de9392
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="reset-the-password-for-a-user-in-azure-active-directory"></a>Het wachtwoord voor een gebruiker in Azure Active Directory opnieuw instellen
 
@@ -37,6 +37,9 @@ Beheerders moeten mogelijk opnieuw instellen van het wachtwoord van een gebruike
     
 6. Op **wachtwoord opnieuw instellen**, selecteer **wachtwoord opnieuw instellen**.
 7. Een tijdelijk wachtwoord wordt weergegeven dat u kunt vervolgens met de gebruiker opgeven. De gebruiker gevraagd hun wachtwoord vervolgens de volgende keer dat ze zich aanmelden te wijzigen. 
+
+   > [!NOTE]
+   > Dit tijdelijke wachtwoord komt niet hebben een verlooptijd zodat deze alleen geldig totdat ze zich aanmelden en worden vervolgens worden gedwongen om dit te wijzigen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Een gebruiker toevoegen](active-directory-users-create-azure-portal.md)

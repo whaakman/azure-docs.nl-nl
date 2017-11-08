@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/08/2017
+ms.date: 11/03/2017
 ms.author: anbacker
-ms.openlocfilehash: 5772334aade138101730fa7345f4515664d6d22f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3ca8e1f22e50f5cffa982f321c9a6c325785a2d
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-alerts"></a>De StorSimple Manager-service gebruiken voor StorSimple waarschuwingen bekijken en beheren
+> [!NOTE]
+> De klassieke portal voor StorSimple is afgeschaft. Uw Managers StorSimple-apparaat wordt automatisch verplaatst naar de nieuwe Azure portal aan de hand van de planning afschaffing. U ontvangt een e-mailbericht en een portal melding voor deze verplaatsen. Dit document wordt ook snel worden ingetrokken. De versie van dit artikel voor de nieuwe Azure portal, Ga naar [de StorSimple Manager-service gebruiken voor StorSimple waarschuwingen bekijken en beheren](storsimple-8000-manage-alerts.md). Zie voor vragen met betrekking tot de verplaatsing, [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Overzicht
 De **waarschuwingen** tabblad in de StorSimple Manager-service biedt een manier om te controleren en het StorSimple-apparaat – meldingen op basis van realtime wissen. Op dit tabblad kunt u de statusproblemen van uw StorSimple-apparaten en de algehele oplossing voor Microsoft Azure StorSimple centraal bewaken.
 

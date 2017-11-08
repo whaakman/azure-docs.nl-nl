@@ -14,13 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 02/08/2017
+ms.date: 11/07/2017
 ms.author: carlrab
-ms.openlocfilehash: f27d2fbeb8ec514419bd0d208429e3d3de2d07ea
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 4e22a512f7ee11dde14f8eac818506b59791e17f
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>SQL Server-databasemigratie naar SQL Database in de cloud
 In dit artikel leest u over de twee primaire methoden voor het migreren van een SQL Server 2005 of latere database naar Azure SQL Database. De eerste methode is eenvoudiger, maar leidt wel tot enige uitvaltijd tijdens de migratie. In bepaalde gevallen kan deze uitvaltijd aanzienlijk zijn. De tweede methode is complexer, maar veroorzaakt tijdens de migratie veel minder uitvaltijd.
@@ -28,7 +28,7 @@ In dit artikel leest u over de twee primaire methoden voor het migreren van een 
 In beide gevallen moet u ervoor zorgen dat de brondatabase compatibel met Azure SQL Database met behulp van is de [gegevens migratie-assistent (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). SQL Database V12 nadert [functie pariteit](sql-database-features.md) met SQL Server dan problemen met het niveau van de server en meerdere databases. Bij databases en toepassingen die afhankelijk zijn van [slechts gedeeltelijk of in het geheel niet ondersteunde functies](sql-database-transact-sql-information.md), is een zekere mate van [herstructurering vereist om compatibiliteitsproblemen](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) op te lossen voordat de SQL Server-database kan worden gemigreerd.
 
 > [!NOTE]
-> Voor het migreren van een SQL Server-database, met inbegrip van Microsoft Access, Sybase, MySQL Oracle en DB2, naar Azure SQL Database raadpleegt u [SQL Server Migration Assistant](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/) (Migratieassistent voor SQL Server).
+> Voor het migreren van een SQL Server-database, met inbegrip van Microsoft Access, Sybase, MySQL Oracle en DB2, naar Azure SQL Database raadpleegt u [SQL Server Migration Assistant](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/) (Migratieassistent voor SQL Server).
 > 
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>Methode 1: Migratie die gepaard gaat met uitvaltijd
@@ -39,12 +39,11 @@ De volgende lijst bevat de algemene werkstroom voor de migratie van een SQL Serv
 
   ![Diagram van VSSSDT-migratie](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. Beoordeel de compatibiliteit van de database met behulp van de meest recente versie van de [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+1. [Beoordelen](https://docs.microsoft.com/en-us/sql/dma/dma-assesssqlonprem) de database voor compatibiliteit met behulp van de nieuwste versie van de [gegevens migratie-assistent (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Bereid alle benodigde fixes voor als Transact-SQL-scripts.
-3. Maak een transactioneel consistente kopie van de brondatabase die wordt gemigreerd en zorg ervoor dat er aan de brondatabase geen verdere wijzigingen worden aangebracht. Als er wijzigingen zijn vereist, brengt u deze handmatig aan nadat de migratie is voltooid. Er zijn veel methoden om een database stil te leggen, van het uitschakelen van de clientconnectiviteit tot het maken van een [databasemomentopname](https://msdn.microsoft.com/library/ms175876.aspx).
+3. Maak een transactioneel consistent kopie van de brondatabase wordt gemigreerd - en zorg ervoor dat er geen verdere wijzigingen worden aangebracht voor de database (of kunt u deze wijzigingen handmatig toepassen nadat de migratie is voltooid). Er zijn veel methoden om een database stil te leggen, van het uitschakelen van de clientconnectiviteit tot het maken van een [databasemomentopname](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Implementeer de Transact-SQL-scripts om de fixes toe te passen op de databasekopie.
-5. [Exporteren](sql-database-export.md) het database-exemplaar naar een Bacpac-bestand op een lokale schijf.
-6. [Importeren](sql-database-import.md) het Bacpac-bestand als een nieuwe Azure SQL database met behulp van een BACPAC van verschillende hulpprogramma's, importeren met SQLPackage.exe wordt het aanbevolen hulpprogramma voor de beste prestaties.
+5. [Migreren](https://docs.microsoft.com/en-us/sql/dma/dma-migrateonpremsql) het database-exemplaar naar een nieuwe Azure SQL Database met behulp van de gegevens migratie-assistent.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>De prestaties van de gegevensoverdracht tijdens de migratie optimaliseren 
 
@@ -94,7 +93,7 @@ Met transactionele replicatie komen alle wijzigingen aan uw gegevens of schema i
 ### <a name="some-tips-and-differences-for-migrating-to-sql-database"></a>Enkele tips en verschillen met betrekking tot migratie naar SQL Database
 
 1. Gebruik een lokale distributeur. 
-   - Dit veroorzaakt een prestatie-impact op de server. 
+   - In dat geval zorgt ervoor dat invloed op de prestaties op de server. 
    - Als de prestatie-impact onacceptabel is, kunt u een andere server gebruiken, maar dit verhoogt wel de complexiteit van het beheer.
 2. Als u een map met momentopnamen selecteert, moet u ervoor zorgen dat de map die u selecteert, groot genoeg is voor een BCP van elke tabel die u wilt repliceren. 
 3. Als u een momentopname maakt, worden de gekoppelde tabellen vergrendeld totdat het proces is voltooid. Het is dus belangrijk dat u het maken van momentopnamen goed plant. 

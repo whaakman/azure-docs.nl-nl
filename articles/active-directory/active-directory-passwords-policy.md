@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5c33f08e54d522e0eea13a3e267f14f407fc59b6
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9d61f46070e6956c60f1135b98a9ebe71011b922
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Wachtwoordbeleid en -beperkingen in Azure Active Directory
 
@@ -94,7 +94,7 @@ De volgende tabel beschrijft de instellingen voor wachtwoordbeleid beschikbaar d
 
 ## <a name="set-password-expiration-policies-in-azure-active-directory"></a>Beleidsregels voor het verlopen van wachtwoord instellen in Azure Active Directory
 
-Een globale beheerder voor een cloudservice van Microsoft kunt u de Microsoft Azure Active Directory-Module voor Windows PowerShell gebruiken voor het instellen van wachtwoorden niet te laten verlopen. U kunt ook Windows PowerShell-cmdlets gebruiken om te verwijderen de-verloopt nooit configuratie of om te zien welke gebruiker wachtwoorden zijn ingesteld op niet verlopen. In deze richtlijnen is van toepassing op andere providers zoals Microsoft Intune en Office 365, die ook afhankelijk van Microsoft Azure Active Directory voor identiteits- en directory services zijn.
+Een globale beheerder voor een cloudservice van Microsoft kunt u de Microsoft Azure Active Directory-Module voor Windows PowerShell gebruiken voor het instellen van wachtwoorden niet te laten verlopen. U kunt ook Windows PowerShell-cmdlets gebruiken om te verwijderen de-verloopt nooit configuratie of om te zien welke gebruiker wachtwoorden zijn ingesteld op niet verlopen. In deze richtlijnen is van toepassing op andere providers zoals Microsoft Intune en Office 365, die ook afhankelijk van Microsoft Azure Active Directory voor identiteits- en directory services zijn. Dit is het enige deel van het beleid dat kan worden gewijzigd.
 
 > [!NOTE]
 > Alleen de wachtwoorden voor gebruikersaccounts die niet zijn gesynchroniseerd door middel van directory-synchronisatie kunnen worden geconfigureerd voor het niet is verlopen. Zie voor meer informatie over adreslijstsynchronisatie[AD met Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
@@ -128,18 +128,21 @@ Om te beginnen, moet u [downloaden en installeren van de Azure AD PowerShell-mod
    * Stel het wachtwoord van een gebruiker nooit verlopen door de volgende cmdlet uitvoeren met behulp van de UPN (user Principal name) of de gebruikers-ID van de gebruiker:`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    * Om in te stellen de wachtwoorden van alle gebruikers in een organisatie nooit verloopt, moet u de volgende cmdlet uitvoeren:`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
+   > [!WARNING]
+   > Als u instelt `-PasswordNeverExpires $true` het wachtwoord wordt nog steeds leeftijd op basis van de `pwdLastSet` kenmerk. Dit betekent dat als u instellen dat wachtwoorden nooit verlopen en 90 dagen door op basis van gaat `pwdLastSet` en u kunt wijzigen `-PasswordNeverExpires $false` alle wachtwoorden die u hebt een `pwdLastSet` ouder is dan 90 dagen moet wijzigen bij volgende aanmelding. Deze wijziging kan invloed op een groot aantal gebruikers. 
+
 ## <a name="next-steps"></a>Volgende stappen
 
 De volgende koppelingen bieden aanvullende informatie over wachtwoordherstel met behulp van Azure AD
 
-* [Hoe ik een geslaagde implementatie van SSPR voltooien?](active-directory-passwords-best-practices.md)
-* [Opnieuw instellen of wijzigen van uw wachtwoord](active-directory-passwords-update-your-own-password.md).
-* [Registreren voor selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md).
-* [Hebt u een vraag licentieverlening?](active-directory-passwords-licensing.md)
-* [Welke gegevens wordt gebruikt door de SSPR en welke gegevens moet u voor uw gebruikers vullen?](active-directory-passwords-data.md)
+* [Hoe kan ik een geslaagde implementatie van SSPR voltooien?](active-directory-passwords-best-practices.md)
+* [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md).
+* [Registreer u voor selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md).
+* [Hebt u een vraag over licenties?](active-directory-passwords-licensing.md)
+* [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](active-directory-passwords-data.md)
 * [Welke verificatiemethoden zijn beschikbaar voor gebruikers?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Wat is Write-back van wachtwoord en waarom ik van belang?](active-directory-passwords-writeback.md)
-* [Hoe meld ik op activiteit in SSPR?](active-directory-passwords-reporting.md)
-* [Wat zijn alle opties in de SSPR en wat ze aan de hand?](active-directory-passwords-how-it-works.md)
-* [Ik denk dat er iets is verbroken. Hoe kan ik SSPR oplossen?](active-directory-passwords-troubleshoot.md)
-* [Ik heb een vraag waarvoor is geen ergens anders](active-directory-passwords-faq.md)
+* [Wat is Wachtwoord terugschrijven en waarom is dit van belang?](active-directory-passwords-writeback.md)
+* [Hoe maak ik rapporten van activiteit in selfservice voor wachtwoordherstel?](active-directory-passwords-reporting.md)
+* [Wat zijn alle opties in selfservice voor wachtwoordherstel en wat houden ze in?](active-directory-passwords-how-it-works.md)
+* [Ik denk dat er iets misgaat. Hoe los ik problemen in selfservice voor wachtwoordherstel op?](active-directory-passwords-troubleshoot.md)
+* [Ik heb een vraag die nog niet is beantwoord](active-directory-passwords-faq.md)

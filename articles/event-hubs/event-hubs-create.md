@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 11/07/2017
 ms.author: sethm
-ms.openlocfilehash: 816bf1426704d3391550e80c0700f1b011683a94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e444c4505d4744c95e08c4ef0d33566356785c81
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>Een Event Hubs-naamruimte en een event hub met de Azure portal maken
 
 ## <a name="create-an-event-hubs-namespace"></a>Een Event Hubs-naamruimte maken
-1. Meld u aan bij [Azure Portal][Azure portal] en klik op**Nieuw** linksboven in het scherm.
+1. Meld u aan bij de [Azure-portal][Azure portal], en klik op **maken van een resource** op linksboven op het scherm.
 1. Klik op **Internet der dingen**, en klik vervolgens op **Event Hubs**.
    
     ![](./media/event-hubs-create/create-event-hub9.png)
-1. Voer op de blade **Naamruimte maken** een naam in voor de naamruimte. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
+1. In **naamruimte maken**, voer de naam van een naamruimte. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
    
     ![](./media/event-hubs-create/create-event-hub1.png)
 1. Nadat u hebt gecontroleerd of de naam van de naamruimte beschikbaar is, kiest u de prijscategorie (Basic of Standard). Kies ook een Azure-abonnement, resourcegroep en locatie voor het maken van de resource. 

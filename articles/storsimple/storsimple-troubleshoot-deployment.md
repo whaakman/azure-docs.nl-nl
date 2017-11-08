@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/18/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 230a652ceca8b4643d1984d81383c6628b8e1f5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a46b68e63ddd039760d71ca85eeabe8fd07e80bd
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>StorSimple-apparaat implementatieproblemen oplossen
+> [!NOTE]
+> De klassieke portal voor StorSimple is afgeschaft. Uw Managers StorSimple-apparaat wordt automatisch verplaatst naar de nieuwe Azure portal aan de hand van de planning afschaffing. U ontvangt een e-mailbericht en een portal melding voor deze verplaatsen. Dit document wordt ook snel worden ingetrokken. De versie van dit artikel voor de nieuwe Azure portal, Ga naar [implementatieproblemen oplossen StorSimple-apparaat](storsimple-8000-troubleshoot-deployment.md). Zie voor vragen met betrekking tot de verplaatsing, [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Overzicht
 Dit artikel bevat nuttige richtlijnen voor probleemoplossing voor uw Microsoft Azure StorSimple-implementatie. Hierin worden veelvoorkomende problemen, mogelijke oorzaken en aanbevolen stappen waarmee u problemen kunt oplossen die u ervaren kunt wanneer u StorSimple configureren. Deze informatie is van toepassing op StorSimple on-premises fysieke apparaat en het virtuele StorSimple-apparaat.
 

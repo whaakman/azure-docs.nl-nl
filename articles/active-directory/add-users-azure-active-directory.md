@@ -1,6 +1,6 @@
 ---
-title: Nieuwe gebruikers toevoegen aan Azure Active Directory | Microsoft Docs
-description: Legt uit hoe u nieuwe gebruikers toevoegen in Azure Active Directory.
+title: Toevoegen of verwijderen van gebruikers in Azure Active Directory | Microsoft Docs
+description: Wordt uitgelegd hoe u nieuwe gebruikers toevoegen of bestaande gebruikers in Azure Active Directory verwijderen
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2017
+ms.date: 11/07/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 9b6a48220132bb8ea18ae5efca46ea2faf825806
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3df0324cae65418f35743b6543753c405dee01d0
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Snelstartgids: Nieuwe gebruikers toevoegen aan Azure Active Directory
 In dit artikel wordt uitgelegd hoe u nieuwe gebruikers toevoegen in uw organisatie in Azure Active Directory (Azure AD) een op een tijdstip met de Azure portal of door het synchroniseren van uw on-premises Windows Server AD-gegevens voor account van gebruiker. 
@@ -47,7 +47,7 @@ In dit artikel wordt uitgelegd hoe u nieuwe gebruikers toevoegen in uw organisat
 
 
 ### <a name="learn-more"></a>Meer informatie 
-* [Een externe gebruiker toevoegen](active-directory-users-create-external-azure-portal.md)
+* [Gastgebruikers van een andere map toevoegen](active-directory-b2b-what-is-azure-ad-b2b.md) 
 
 * [Een gebruiker toewijzen aan een rol in uw Azure AD](active-directory-users-assign-role-azure-portal.md)
 

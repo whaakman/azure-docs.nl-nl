@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2e0d2e9830639209a22e9b62b0679d31854150e4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6faa8b4d259eddb1b26345d8900e829f6ca4dba8
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="resource-policy-overview"></a>Overzicht van de resource-beleid
 Bronbeleid kunnen u tot stand brengen conventies voor resources in uw organisatie. Door het definiëren van conventies u kosten kunt beheren en meer eenvoudig beheren van uw resources. U kunt bijvoorbeeld opgeven dat alleen bepaalde typen virtuele machines zijn toegestaan. Of u kunt vereisen dat alle resources een bepaald label hebben. Beleidsregels worden overgenomen door alle onderliggende resources. Dus als een beleid wordt toegepast op een resourcegroep, is van toepassing op alle resources in die resourcegroep.
@@ -55,8 +55,6 @@ Azure biedt een aantal ingebouwde beleidsdefinities die wellicht minder van bele
 * Brontypen die toegestaan niet
 * SQL Server versie 12.0 vereisen
 * Storage-accountversleuteling vereisen
-
-U kunt een van deze beleidsregels via de [portal](resource-manager-policy-portal.md), [PowerShell](resource-manager-policy-create-assign.md#powershell), of [Azure CLI](resource-manager-policy-create-assign.md#azure-cli).
 
 ## <a name="policy-definition-structure"></a>Definitie beleidsstructuur
 JSON kunt u een beleidsdefinitie maken. De beleidsdefinitie bevat-elementen voor:

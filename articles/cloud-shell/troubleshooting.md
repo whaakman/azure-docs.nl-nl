@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: damaerte
-ms.openlocfilehash: 1bf0acdfad04a55d5b85aabee150526836062002
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 89d5d8df9327c6136fbd00078f6a34f78d85032e
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Azure-Cloud-Shell probleemoplossing
 
@@ -37,6 +37,18 @@ Bekende oplossingen voor problemen in de Azure-Cloud-Shell zijn onder andere:
 ### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Terminal output - fout: kan geen verbinding maken terminal: websocket kan niet worden vastgesteld. Druk op `Enter` opnieuw verbinding te maken.
  - **Details**: Cloud Shell is de mogelijkheid tot stand brengen van een websocket-verbinding met de Cloud Shell-infrastructuur vereist.
  - **Resolutie**: Controleer u de netwerkinstellingen zodat verzenden https-aanvragen en websocket-aanvragen voor domeinen op hebt geconfigureerd *. console.azure.com.
+
+## <a name="bash-resolutions"></a>Bash-oplossingen
+
+### <a name="cannot-run-az-login"></a>Az aanmelding kan niet worden uitgevoerd.
+
+- **Details**: uitgevoerd `az login` werkt niet als u al onder het account dat wordt gebruikt voor aanmelding bij Cloud-Shell of Azure portal zijn geverifieerd.
+- **Resolutie**: gebruikmaken van je account aanmelden of afmelden en verifiëren met uw Azure-account van de beoogde gebruikt.
+
+### <a name="cannot-run-the-docker-daemon"></a>De docker-daemon kan niet worden uitgevoerd.
+
+- **Details**: een container voor het hosten van uw shell-omgeving maakt gebruik van Cloud-Shell, uitgevoerd als gevolg hiervan de daemon is niet toegestaan.
+- **Resolutie**: gebruikmaken van [docker-machine](https://docs.docker.com/machine/overview/), dat standaard docker-containers beheren vanaf een externe Docker-host is geïnstalleerd.
 
 ## <a name="powershell-resolutions"></a>PowerShell-oplossingen
 

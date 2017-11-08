@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: nitinme
-ms.openlocfilehash: ef9154b0d400ff23c53460454c886ab90e290f0c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0d93e261121f11d2a1082b9672e6d979955d3bee
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="run-interactive-queries-on-an-hdinsight-spark-cluster"></a>Interactieve query's uitvoeren op een HDInsight Spark-cluster
 
@@ -34,10 +34,12 @@ Voor deze zelfstudie maakt u de **PySpark** kernel in de Jupyter-notebook een in
 
 ## <a name="create-a-jupyter-notebook-to-run-interactive-queries"></a>Maken van een Jupyter-notebook om interactieve query's uitvoeren
 
-Uitvoeren van query's, gebruiken we voorbeeldgegevens die standaard beschikbaar in de opslag die is gekoppeld aan het cluster. U moet echter eerst die gegevens laden in Spark als een dataframe. Zodra u de dataframe hebt, kunt u query's uitvoeren op met behulp van de Jupyter-notebook. In dit gedeelte kijken hoe in:
+Uitvoeren van query's, gebruiken we voorbeeldgegevens die standaard beschikbaar in de opslag die is gekoppeld aan het cluster. U moet echter eerst die gegevens laden in Spark als een dataframe. Zodra u de dataframe hebt, kunt u query's uitvoeren op met behulp van de Jupyter-notebook. In dit artikel leert bekijkt u hoe u:
 
 * Een verzameling voorbeeldgegevens registreren als een Spark-dataframe.
 * Query's uitvoeren op de dataframe.
+
+Aan de slag.
 
 1. Open de [Azure Portal](https://portal.azure.com/). Als u ervoor hebt gekozen om het cluster vast te maken aan het dashboard, klikt u vanuit het dashboard op de clustertegel om de clusterblade te starten.
 
@@ -78,7 +80,7 @@ Uitvoeren van query's, gebruiken we voorbeeldgegevens die standaard beschikbaar 
 
     ![Momentopname van gegevens voor interactieve Spark SQL-query](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "momentopname voor interactieve Spark SQL-query")
 
-6. Maak een dataframe en een tijdelijke tabel (**hvac**) door het uitvoeren van de volgende code. Voor deze zelfstudie Maak we niet alle kolommen in de tijdelijke tabel in vergelijking met de kolommen in de onbewerkte gegevens van de CSV. 
+6. Maak een dataframe en een tijdelijke tabel (**hvac**) door het uitvoeren van de volgende code. Voor deze zelfstudie Maak we niet alle beschikbare kolommen in het CSV-bestand. 
 
         # Create an RDD from sample data
         hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -96,7 +98,7 @@ Uitvoeren van query's, gebruiken we voorbeeldgegevens die standaard beschikbaar 
         dfw = DataFrameWriter(hvacTable)
         dfw.saveAsTable('hvac')
 
-7. Zodra de tabel is gemaakt, interactieve query uitvoeren op de gegevens, moet u de volgende code gebruiken.
+7. Zodra de tabel is gemaakt, een interactieve query uitvoeren op de gegevens, moet u de volgende code gebruiken.
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
@@ -107,11 +109,13 @@ Uitvoeren van query's, gebruiken we voorbeeldgegevens die standaard beschikbaar 
 
      ![Tabeluitvoer van resultaat van interactieve Spark-query](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Tabeluitvoer van resultaat van interactieve Spark-query")
 
-    U kunt de resultaten ook in andere visualisaties bekijken. Zo ziet een gebiedsgrafiek voor dezelfde uitvoer er als volgt uit.
+9. U kunt de resultaten ook in andere visualisaties bekijken. U ziet een gebiedsgrafiek voor dezelfde uitvoer, selecteer **gebied** Stel u andere waarden, zoals wordt weergegeven.
 
     ![Gebiedsgrafiek van resultaat van interactieve Spark-query](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Gebiedsgrafiek van resultaat van interactieve Spark-query")
 
-9. Sluit de notebook af om de clusterresources vrij te geven nadat u de toepassing hebt uitgevoerd. Dit doet u door in het menu **Bestand** in de notebook te klikken op **Sluiten en stoppen**.
+10. Van de **bestand** menu aan de laptop, klikt u op **opslaan en controlepunt**. 
+
+11. Als u begint de [volgende zelfstudie](apache-spark-use-bi-tools.md) nu, laat u de notebook open. Als dit niet het geval is, sluit de notebook voor het vrijgeven van de clusterbronnen: van de **bestand** menu aan de laptop, klikt u op **sluiten en stoppen**.
 
 ## <a name="next-step"></a>Volgende stap
 

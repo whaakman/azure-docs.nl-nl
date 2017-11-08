@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 10/04/2017
 ms.author: v-shysun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88c54293b4a9b470febeda3c0e9a1755ad3b0638
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d692d806bab072fc2c4b734677223bad4142561
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-windows-azure-virtual-machines"></a>Veelgestelde vragen over SQL Server op Windows Azure Virtual Machines
 
@@ -60,6 +60,9 @@ In dit onderwerp vindt u antwoorden op enkele veelgestelde vragen over het uitvo
       Er is een netwerkgerelateerde of exemplaarspecifieke fout opgetreden tijdens het maken van een verbinding met SQL Server. De server is niet gevonden of is niet toegankelijk.
 
    Als u verwijderen van het standaardexemplaar wilt, ook verwijdert de [uitbreiding voor SQL Server IaaS-Agent](virtual-machines-windows-sql-server-agent-extension.md) ook.
+   
+   >[!NOTE]
+   >Een SQL Server Azure virtuele machine wordt in rekening gebracht zoals beschreven in [richtlijnen voor Azure VM's van SQL Server-prijzen](virtual-machines-windows-sql-server-pricing-guidance.md). Als u SQL Server verwijdert, blijven de kosten. Als u SQL Server niet meer nodig hebt, kunt u een nieuwe virtuele machine implementeren en migreren van gegevens en toepassingen naar de nieuwe virtuele machine. Vervolgens kunt u de virtuele machine van SQL Server verwijderen.
 
 1. **Hoe voer ik een upgrade naar een nieuwe versie /-editie van SQL Server in een Azure VM?**
 

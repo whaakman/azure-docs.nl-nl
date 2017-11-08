@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: e7663f931594c0626a173562b846f3f9324d8ba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Een bestaande voorspellende webservice opnieuw trainen
 Dit document beschrijft de retraining voor het volgende scenario:
@@ -86,9 +86,10 @@ In de **Basic verbruik info** sectie van de **verbruiken** pagina, Ga naar de pr
 ### <a name="update-the-azure-storage-information"></a>De informatie van de Azure Storage bijwerken
 De voorbeeldcode BES uploadt een bestand vanaf een lokaal station (bijvoorbeeld ' C:\temp\CensusIpnput.csv') naar Azure Storage, verwerkt en schrijft de resultaten terug naar Azure Storage.  
 
-Voor het bijwerken van de Azure Storage-gegevens, moet u de naam van het opslagaccount, de sleutel en de container-informatie ophalen voor uw opslagaccount vanuit de klassieke Azure portal en werk vervolgens de correspondi na het uitvoeren van uw experiment, de resulterende werkstroom moet er ongeveer als volgt:
+Voor het bijwerken van de Azure Storage-gegevens, moet u de naam van het opslagaccount, de sleutel en de container-informatie ophalen voor uw opslagaccount vanuit de klassieke Azure portal en werk vervolgens de bijbehorende waarden in de code.
+Nadat uw experiment is uitgevoerd, moet de resulterende werkstroom ziet er als volgt:
 
-![Resulterende werkstroom na het uitvoeren van][4]NG waarden in de code.
+![Resulterende werkstroom na het uitvoeren van][4]
 
 1. Meld u aan bij de klassieke Azure-portal.
 2. Klik in de kolom linkernavigatievenster **opslag**.
@@ -119,7 +120,9 @@ Wanneer u de uitvoerlocatie opgeeft in de nettolading aanvragen, de uitbreiding 
             }
         },
 
-Hieronder volgt een voorbeeld van uitvoer retraining: ![Retraining uitvoer][6]
+Hier volgt een voorbeeld van uitvoer retraining:
+
+![Uitvoer retraining][6]
 
 ## <a name="evaluate-the-retraining-results"></a>De retraining resultaten evalueren
 Wanneer u de toepassing uitvoert, wordt de uitvoer bevat de URL en de gedeelde handtekeningen toegangstoken die nodig zijn voor toegang tot de evaluatieresultaten.

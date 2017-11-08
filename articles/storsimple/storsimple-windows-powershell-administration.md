@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/18/2016
+ms.date: 11/03/2017
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: af135518f66eb8c94c183f28191f016fcd601ae1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 811c06c6355ae881037cceb573ae0f96fa1ec2ad
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Windows PowerShell voor StorSimple gebruiken voor het beheren van uw apparaat
+> [!NOTE]
+> De klassieke portal voor StorSimple is afgeschaft. Uw Managers StorSimple-apparaat wordt automatisch verplaatst naar de nieuwe Azure portal aan de hand van de planning afschaffing. U ontvangt een e-mailbericht en een portal melding voor deze verplaatsen. Dit document wordt ook snel worden ingetrokken. De versie van dit artikel voor de nieuwe Azure portal, Ga naar [gebruik Windows PowerShell voor StorSimple voor het beheren van uw apparaat](storsimple-8000-windows-powershell-administration.md). Zie voor vragen met betrekking tot de verplaatsing, [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Overzicht
 Windows PowerShell voor StorSimple biedt een opdrachtregelinterface die u gebruiken kunt om uw Microsoft Azure StorSimple-apparaat te beheren. Zoals de naam wordt voorgesteld, is een Windows PowerShell gebaseerde opdrachtregelinterface die is ingebouwd in een beperkte runspace. Vanuit het perspectief van de gebruiker op de opdrachtregel, wordt een beperkte runspace weergegeven als een beperkte versie van Windows PowerShell. Deze interface heeft terwijl sommige van de basismogelijkheden van Windows PowerShell andere speciale cmdlets die zijn gericht op het beheren van uw Microsoft Azure StorSimple-apparaat. 
 

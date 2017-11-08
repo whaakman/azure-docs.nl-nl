@@ -12,16 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d8035b9608ca3bac3d4822c7c755b81c96d481e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2209790b54f5dd18a413f2e08ddc6ffd6aef662
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-device-dashboard-in-storsimple-manager-service"></a>Gebruik het dashboard van het apparaat in StorSimple Manager-service  
+> [!NOTE]
+> De klassieke portal voor StorSimple is afgeschaft. Uw Managers StorSimple-apparaat wordt automatisch verplaatst naar de nieuwe Azure portal aan de hand van de planning afschaffing. U ontvangt een e-mailbericht en een portal melding voor deze verplaatsen. Dit document wordt ook snel worden ingetrokken. De versie van dit artikel voor de nieuwe Azure portal, Ga naar [gebruik van het dashboard van het apparaat in de StorSimple Manager-service ](storsimple-8000-device-dashboard.md). Zie voor vragen met betrekking tot de verplaatsing, [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md).
+
 
 ## <a name="overview"></a>Overzicht
 Het dashboard van het apparaat StorSimple Manager biedt u een overzicht van informatie voor een specifiek StorSimple-apparaat, in tegenstelling tot het servicedashboard waarmee u informatie over alle apparaten die deel uitmaken van uw Microsoft Azure StorSimple-oplossing.

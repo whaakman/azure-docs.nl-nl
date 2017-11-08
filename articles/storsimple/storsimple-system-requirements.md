@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/06/2017
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 55e1cd90df0e4413ce027361c636257d823a50d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 673da6a9202fedba4ce3fb8fe54ee89a3502bb02
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="storsimple-software-high-availability-and-networking-requirements"></a>StorSimple-software, hoge beschikbaarheid en netwerkvereisten
+> [!NOTE]
+> De klassieke portal voor StorSimple is afgeschaft. Uw Managers StorSimple-apparaat wordt automatisch verplaatst naar de nieuwe Azure portal aan de hand van de planning afschaffing. U ontvangt een e-mailbericht en een portal melding voor deze verplaatsen. Dit document wordt ook snel worden ingetrokken. De versie van dit artikel voor de nieuwe Azure portal, Ga naar [StorSimple software, hoge beschikbaarheid en netwerkvereisten](storsimple-8000-system-requirements.md). Zie voor vragen met betrekking tot de verplaatsing, [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Overzicht
 Welkom bij Microsoft Azure StorSimple. Dit artikel worden de systeemvereisten voor belangrijke en aanbevolen procedures voor uw StorSimple-apparaat en voor de opslag-clients toegang tot het apparaat. Het is raadzaam dat u de informatie voordat u uw StorSimple-systeem te implementeren en vervolgens naar deze zo nodig tijdens de implementatie en de volgende bewerking terugverwijzen zorgvuldig te controleren.
 

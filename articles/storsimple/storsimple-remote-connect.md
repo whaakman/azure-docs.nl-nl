@@ -12,16 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b916173e127394d3ea06eded36285bdbbf884b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec625a604660489812b1a8c133fa0156a422b605
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Extern verbinding maken met uw StorSimple 8000 series apparaat
+> [!NOTE]
+> De klassieke portal voor StorSimple is afgeschaft. Uw Managers StorSimple-apparaat wordt automatisch verplaatst naar de nieuwe Azure portal aan de hand van de planning afschaffing. U ontvangt een e-mailbericht en een portal melding voor deze verplaatsen. Dit document wordt ook snel worden ingetrokken. De versie van dit artikel voor de nieuwe Azure portal, Ga naar [op afstand verbinding maken met uw StorSimple 8000 series apparaat](storsimple-8000-remote-connect.md). Zie voor vragen met betrekking tot de verplaatsing, [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md).
+
 
 ## <a name="overview"></a>Overzicht
 U kunt Windows PowerShell op afstand verbinding maken met uw StorSimple-apparaat gebruiken. Als u op deze manier verbinding, ziet u een menu. (Ziet u een menu alleen als u de seriële console op het apparaat om verbinding te gebruiken.) Met Windows PowerShell op afstand verbinding u met een specifieke runspace. U kunt ook de weergavetaal opgeven. 

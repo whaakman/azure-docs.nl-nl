@@ -11,13 +11,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: dc9a1b6061c41cd623e1ddb3bb9dbb87530a13d5
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: e8a4b0cc620c887aac3cc442154429b43336d8f1
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java-handleiding voor ontwikkelaars
 > [!div class="op_single_selector"]
@@ -164,10 +164,11 @@ Invoer zijn onderverdeeld in twee categorieën worden onderverdeeld in Azure Fun
 package com.example;
 
 import com.microsoft.azure.serverless.functions.annotation.BindingName;
+import java.util.Optional;
 
 public class MyClass {
-    public static String echo(String in, @BindingName("item") MyObject obj) {
-        return "Hello, " + in + " and " + obj.getKey() + ".";
+    public static String echo(Optional<String> in, @BindingName("item") MyObject obj) {
+        return "Hello, " + in.orElse("Azure") + " and " + obj.getKey() + ".";
     }
 
     private static class MyObject {
@@ -210,7 +211,7 @@ De `@BindingName` aantekening accepteert een `String` eigenschap met de naam van
 }
 ```
 
-Dus wanneer deze functie is aangeroepen, de HTTP-aanvraag nettolading geeft een `String` voor het argument `in` en een Azure-tabelopslag `MyObject` type doorgegeven naar argument `obj`.
+Dus als u deze functie is aangeroepen, de nettolading van de HTTP-aanvraag een optionele doorgegeven `String` voor het argument `in` en een Azure-tabelopslag `MyObject` type doorgegeven naar argument `obj`. Gebruik de `Optional<T>` type voor het afhandelen van invoer in uw functies waarmee kunnen niet null zijn.
 
 ## <a name="outputs"></a>uitvoer
 
@@ -271,11 +272,34 @@ Soms moet u een functie controle over in- en uitgangen hebt gedetailleerde. Spec
 
 | Speciaal Type      |       doel        | Typische gebruiksscenario                  |
 | --------------------- | :-----------------: | ------------------------------ |
-| `HttpRequestMessage`  |    HTTP-Trigger     | Methode, kopteksten of query's ophalen |
-| `HttpResponseMessage` | HTTP-uitvoer Binding | Geretourneerde status dan 200   |
+| `HttpRequestMessage<T>`  |    HTTP-Trigger     | Methode, kopteksten of query's ophalen |
+| `HttpResponseMessage<T>` | HTTP-uitvoer Binding | Geretourneerde status dan 200   |
 
 > [!NOTE] 
 > U kunt ook `@BindingName` aantekening ophalen van HTTP-headers en query's. Bijvoorbeeld: `@Bind("name") String query` doorloopt de HTTP-aanvraagheaders en query's en wordt die waarde doorgegeven aan de methode. Bijvoorbeeld: `query` worden `"test"` als de aanvraag-URL is `http://example.org/api/echo?name=test`.
+
+### <a name="metadata"></a>Metagegevens
+
+Metagegevens afkomstig is van verschillende bronnen, zoals HTTP-headers, HTTP-query's en [activeren metagegevens](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties). Gebruik de `@BindingName` aantekening samen met de naam van de metagegevens van de waarde op te halen.
+
+Bijvoorbeeld, de `queryValue` worden in de volgende code codefragment `"test"` als de aangevraagde URL `http://{example.host}/api/metadata?name=test`.
+
+```Java
+package com.example;
+
+import java.util.Optional;
+import com.microsoft.azure.serverless.functions.annotation.*;
+
+public class MyClass {
+    @FunctionName("metadata")
+    public static String metadata(
+        @HttpTrigger(name = "req", methods = { "get", "post" }, authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> body,
+        @BindingName("name") String queryValue
+    ) {
+        return body.orElse(queryValue);
+    }
+}
+```
 
 ## <a name="functions-execution-context"></a>Uitvoeringscontext van functies
 
@@ -294,7 +318,7 @@ import com.microsoft.azure.serverless.functions.ExecutionContext;
 public class Function {
     public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
         if (req.isEmpty()) {
-            context.getLogger().warning("Empty request body received in " + context.getInvocationId());
+            context.getLogger().warning("Empty request body received by function " + context.getFunctionName() + " with invocation " + context.getInvocationId());
         }
         return String.format(req);
     }

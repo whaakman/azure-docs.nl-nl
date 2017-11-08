@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/18/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 2a956de58b279a013913631a077d7b03c6327f72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7031aff9d4797e99e6523a65ded7495c88aff282
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Vervangen van een stroom en koeling Module op uw StorSimple-apparaat
+> [!NOTE]
+> De klassieke portal voor StorSimple is afgeschaft. Uw Managers StorSimple-apparaat wordt automatisch verplaatst naar de nieuwe Azure portal aan de hand van de planning afschaffing. U ontvangt een e-mailbericht en een portal melding voor deze verplaatsen. Dit document wordt ook snel worden ingetrokken. De versie van dit artikel voor de nieuwe Azure portal, Ga naar [vervangen van een stroom en koeling Module op uw StorSimple-apparaat](storsimple-8000-power-cooling-module-replacement.md). Zie voor vragen met betrekking tot de verplaatsing, [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Overzicht
 De stroom en koeling Module (PCM) in uw Microsoft Azure StorSimple-apparaat bestaat uit een voeding en koeling van ventilatoren die worden beheerd via de primaire en EBOD behuizingen. Er is slechts één model van PCM die is gecertificeerd voor elke behuizing. De primaire behuizing is gecertificeerd voor een 764 W PCM en de behuizing EBOD is gecertificeerd voor een 580 W PCM. Hoewel de PCMs voor de primaire behuizing en de behuizing EBOD verschillend zijn, is de vervangingsprocedure is vrijwel identiek.
 

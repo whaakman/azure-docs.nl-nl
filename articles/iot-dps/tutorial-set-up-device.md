@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c99279413b50e7bf1e6058a4151890e3a8f83892
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7031409aa63f5d64d5bb7a1b9dcac50a97718630
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Een apparaat om in te richten via de Azure IoT Hub apparaat inrichtingsservice instellen
 
@@ -35,7 +35,7 @@ Voordat u doorgaat, maakt u uw apparaat inrichtingsservice-exemplaar en een ioth
 
 ## <a name="select-a-hardware-security-module"></a>Selecteer een Hardware Security Module
 
-De [apparaat inrichtingsservice client SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/dps_client) biedt ondersteuning voor twee soorten Hardware Security Modules (of HSM's): 
+De [apparaat inrichtingsservice client SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) biedt ondersteuning voor twee soorten Hardware Security Modules (of HSM's): 
 
 - [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module).
     - TPM is een vastgestelde norm voor de meeste Windows-apparaat-platforms, evenals enkele op basis van Linux/Ubuntu-apparaten. U kunt deze HSM als een fabrikant kiezen als u een van deze besturingssystemen uitvoeren op uw apparaten hebt, en als u zoekt een vastgestelde norm voor HSM's. U kunt alleen op elk apparaat afzonderlijk dat de Service voor het inrichten van apparaten inschrijven met TPM-chips. Voor ontwikkelingsdoeleinden, kunt u de simulator TPM op uw ontwikkelcomputer Windows of Linux.

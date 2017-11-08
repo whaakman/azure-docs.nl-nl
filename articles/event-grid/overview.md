@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/02/2017
 ms.author: babanisa
-ms.openlocfilehash: e798a1e751cb9e789bc479a6f842fb7f8f703bbf
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: a0bcc9650fda10c099887b74b408551b12cde667
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Een inleiding tot Azure gebeurtenis raster
 
@@ -50,6 +50,8 @@ Hier volgen enkele van de belangrijkste functies van Azure Event raster:
 * **Hoge doorvoersnelheid** -hoog volume werkbelastingen voor gebeurtenis raster bouwen met ondersteuning voor miljoenen gebeurtenissen per seconde.
 * **Ingebouwde gebeurtenissen** - slag snel gebruiksklaar met ingebouwde gebeurtenissen resource gedefinieerd.
 * **Aangepaste gebeurtenissen** -gebeurtenis raster route, filter en betrouwbaar afleveren aangepaste gebeurtenissen in uw app gebruiken.
+
+Zie voor een vergelijking van gebeurtenis raster, Event Hubs en Service Bus [Kies tussen Azure-services die berichten bezorgen](compare-messaging-services.md).
 
 ## <a name="built-in-publisher-and-handler-integration"></a>Ingebouwde publisher en de handler-integratie
 
@@ -100,14 +102,6 @@ Met Event Grid kunt u sneller automatiseren en makkelijker beleid afdwingen. Zo 
 ![Integratie van toepassingen](./media/overview/app_integration.png)
 
 Event Grid verbindt uw app met andere services. Bijvoorbeeld, een eigen onderwerp om uw app gebeurtenisgegevens verzenden naar Event raster en te profiteren van de betrouwbare levering, geavanceerde routering, maken en directe integratie met Azure. U kunt Event Grid ook gebruiken met Logic Apps om op elke locatie gegevens te verwerken, zonder dat u hiervoor code hoeft te schrijven. 
-
-## <a name="how-is-event-grid-different-from-other-azure-integration-services"></a>Hoe wordt gebeurtenis raster van andere integratie van Azure-services?
-
-Gebeurtenis raster is een eventing backplane waarmee gebeurtenisafhankelijke, reactieve programmering. Het is nauw geïntegreerd met Azure-services en kan worden geïntegreerd met services van derden. Het gebeurtenisbericht bevat informatie die u nodig hebt om te reageren op wijzigingen in de services en toepassingen. Raster gebeurtenis is niet een gegevens-pijplijn en levert niet het werkelijke object dat is bijgewerkt.
-
-Service Bus is geschikt voor traditionele enterprise-toepassingen waarvoor transacties, rangschikken, detectie van duplicaten en onmiddellijk consistentie. Gebeurtenis raster is ontworpen voor snelheid, schaal, breedte en lage kosten in een reactieve model. Het is zeer geschikt voor zonder server architectuur.
-
-Gebeurtenis raster vormt een aanvulling op andere Azure-services zoals Logic Apps en Event Hubs. De logische app om te beginnen met de werkstroom wordt geactiveerd door gebeurtenis raster. Event Hubs werkt met gebeurtenis raster doordat u reageren op gebeurtenissen van Event Hubs vastleggen en bouwen van toegangsroutes en transformatie gegevenspijplijnen.
 
 ## <a name="how-much-does-event-grid-cost"></a>Wat kost gebeurtenis raster?
 

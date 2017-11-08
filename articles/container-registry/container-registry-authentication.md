@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 11/05/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 51fb72fc3c0e9b9e261f19883820f5d7399a57ab
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 37514e7b90afe1162aa4bbd2869326a691f75c4e
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Verificatie met een persoonlijke Docker-container register
 
@@ -39,7 +39,7 @@ Als u werkt met het register rechtstreeks, zoals afbeeldingen ophalen en opslaan
 az acr login --name <acrName>
 ```
 
-Wanneer u zich aanmeldt met `az acr login`, de CLI gebruikt het token dat wordt gemaakt wanneer u uitgevoerd `az login` naadloos verifiëren uw sessie met het register. Zodra u op deze manier hebt aangemeld, uw referenties zijn in de cache en volgende `docker` opdrachten vereisen geen gebruikersnaam of wachtwoord. Als uw token is verlopen, kunt u het vernieuwen met behulp van de `az acr login` opdracht opnieuw uit om te verifiëren.
+Wanneer u zich aanmeldt met `az acr login`, de CLI gebruikt het token dat wordt gemaakt wanneer u uitgevoerd `az login` naadloos verifiëren uw sessie met het register. Zodra u op deze manier hebt aangemeld, uw referenties zijn in de cache en volgende `docker` opdrachten vereisen geen gebruikersnaam of wachtwoord. Als uw token is verlopen, kunt u het vernieuwen met behulp van de `az acr login` opdracht opnieuw uit om te verifiëren. Met behulp van `az acr login` met Azure identiteiten biedt [toegangsgroepen op basis van](../active-directory/role-based-access-control-configure.md).
 
 ## <a name="service-principal"></a>Service-principal
 
@@ -75,6 +75,10 @@ Afhankelijk van de versie van Docker die u hebt geïnstalleerd, ziet u een bevei
 
 Elke container register bevat een admin-gebruikersaccount is standaard uitgeschakeld. U kunt de gebruiker met beheerdersrechten en beheren van de referenties in de [Azure-portal](container-registry-get-started-portal.md#create-a-container-registry), of met behulp van de Azure CLI.
 
+> [!IMPORTANT]
+> Het beheerdersaccount is ontworpen voor een enkele gebruiker toegang tot het register, hoofdzakelijk voor testdoeleinden. We raden niet de accountreferenties admin delen met meerdere gebruikers. Alle gebruikers die worden geverifieerd met het beheerdersaccount weergegeven als een enkele gebruiker met push als pull-toegang tot het register. Hiermee schakelt u toegang tot het register voor alle gebruikers die de referenties gebruiken wijzigen of dit account uitschakelen. Afzonderlijke identiteit wordt aanbevolen voor gebruikers en service-principals voor headless scenario's.
+>
+
 Het beheerdersaccount is opgegeven met de twee wachtwoorden, die beide kunnen worden hersteld. Twee wachtwoorden kunnen u verbinding met het register onderhouden met behulp van één wachtwoord terwijl u de andere opnieuw genereert. Als de admin-account is ingeschakeld, kunt u de gebruikersnaam en een wachtwoord voor het doorgeven de `docker login` opdracht voor basisverificatie in het register. Bijvoorbeeld:
 
 ```
@@ -92,10 +96,6 @@ az acr update -n <acrName> --admin-enabled true
 U kunt de gebruiker met beheerdersrechten in de Azure portal door te gaan van het register inschakelen selecteren **toegangssleutels** onder **instellingen**, vervolgens **inschakelen** onder **Admin gebruiker**.
 
 ![Inschakelen van de gebruiker met beheerdersrechten gebruikersinterface in de Azure portal][auth-portal-01]
-
-> [!IMPORTANT]
-> Het beheerdersaccount is ontworpen voor een enkele gebruiker toegang tot het register, hoofdzakelijk voor testdoeleinden. We raden niet de accountreferenties admin delen met meerdere gebruikers. Alle gebruikers die worden geverifieerd met het beheerdersaccount weergegeven als een enkele gebruiker in het register. Hiermee schakelt u toegang tot het register voor alle gebruikers die de referenties gebruiken wijzigen of dit account uitschakelen.
->
 
 ## <a name="next-steps"></a>Volgende stappen
 

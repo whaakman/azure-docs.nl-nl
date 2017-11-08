@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/02/2017
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3be8836ae6b877bc4caa98f0467147b008c42aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdb5fdb094a185db12ee08969a12e556dab96389
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Een .NET-Service Fabric-toepassing maken in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
@@ -57,12 +57,14 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ## <a name="run-the-application-locally"></a>De toepassing lokaal uitvoeren
 Met de rechtermuisknop op het pictogram Visual Studio in het Menu Start en kies **als administrator uitvoeren**. U moet het foutopsporingsprogramma koppelen aan uw services, Visual Studio als administrator uitvoeren.
 
-Open de **Voting.sln** Visual Studio-oplossing uit de opslagplaats voor u.
+Open de **Voting.sln** Visual Studio-oplossing uit de opslagplaats voor u.  
+
+De toepassing Voting is standaard ingesteld om te luisteren op poort 8080.  De poort van de toepassing is ingesteld de */VotingWeb/PackageRoot/ServiceManifest.xml* bestand.  U kunt de poort van de toepassing wijzigen door het bijwerken van de **poort** kenmerk van de **eindpunt** element.  Als u wilt implementeren en de toepassing lokaal uitvoeren, moet de poort van de toepassing open en beschikbare op uw computer.  Als u de poort van de toepassing wijzigt, vervangen door de waarde van de nieuwe toepassing poort 8080' ' in dit artikel.
 
 Voor het implementeren van de toepassing, drukt u op **F5**.
 
 > [!NOTE]
-> De eerste keer dat u uitvoert en implementeer de toepassing in Visual Studio maakt een lokaal cluster voor foutopsporing. Deze bewerking kan enige tijd duren. De status van het maken van het cluster wordt weergegeven in het Visual Studio-uitvoervenster.
+> De eerste keer dat u uitvoert en implementeer de toepassing in Visual Studio maakt een lokaal cluster voor foutopsporing. Deze bewerking kan enige tijd duren. De status van het maken van het cluster wordt weergegeven in het Visual Studio-uitvoervenster.  In de uitvoer ziet u het bericht "De URL van de toepassing is niet ingesteld of is geen HTTP/HTTPS-URL zodat de browser wordt niet naar de toepassing worden geopend."  Dit bericht geeft niet aan voor een fout optreedt, maar dat een browser wordt niet automatisch starten.
 
 Wanneer de implementatie voltooid is, een browser starten en open deze pagina: `http://localhost:8080` -de webfront-end van de toepassing.
 
@@ -114,14 +116,15 @@ Als u wilt kijken wat er in de code gebeurt, kunt u de volgende stappen uitvoere
 Als u wilt de Foutopsporingssessie stoppen, drukt u op **Shift + F5**.
 
 ## <a name="deploy-the-application-to-azure"></a>De toepassing implementeren in Azure
-U kunt voor het implementeren van de toepassing naar een cluster in Azure, ofwel uw eigen cluster maken of een Cluster van derden gebruiken.
+Voor het implementeren van de toepassing in Azure, moet u een Service Fabric-cluster dat de toepassing wordt uitgevoerd. 
 
-Clusters van derden zijn gratis, tijdelijke Service Fabric-clusters die worden gehost op Azure en uitgevoerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en meer te weten komen over het platform. [Volg de instructies](http://aka.ms/tryservicefabric) om toegang te krijgen tot een cluster van derden. 
+### <a name="join-a-party-cluster"></a>Deelnemen aan een cluster van derden
+Clusters van derden zijn gratis, tijdelijke Service Fabric-clusters die worden gehost op Azure en uitgevoerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en meer te weten komen over het platform. 
 
-Zie voor meer informatie over het maken van uw eigen cluster [Uw eerste Service Fabric-cluster maken op Azure](service-fabric-get-started-azure-cluster.md).
+Meld u aan en [deelnemen aan een Windows-cluster](http://aka.ms/tryservicefabric). Vergeet niet de **verbindingseindpunt** waarde, die wordt gebruikt in volgende stappen.
 
 > [!Note]
-> De web-front-service is geconfigureerd om te luisteren op poort 8080 voor binnenkomend verkeer. Zorg ervoor dat de poort is geopend in het cluster. Als u het Cluster van derden gebruikt, is deze poort is geopend.
+> De web-front-service is standaard geconfigureerd om te luisteren op poort 8080 voor binnenkomend verkeer. Poort 8080 is geopend in het Cluster partij.  Als u de poort van de toepassing wijzigen moet, kunt u deze op een van de poorten die geopend in het Cluster Party zijn wijzigen.
 >
 
 ### <a name="deploy-the-application-using-visual-studio"></a>Implementeer de toepassing met Visual Studio
@@ -131,7 +134,9 @@ Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio impleme
 
     ![Het dialoogvenster Publiceren](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Typ het verbindingseindpunt van het cluster in het veld **Verbindingseindpunt** en klik op **Publiceren**. Wanneer u zich registreren voor het Cluster Party, wordt het verbindingseindpunt beschikbaar in de browser. -bijvoorbeeld `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. Kopiëren de **verbindingseindpunt** van de partij cluster pagina in de **verbindingseindpunt** veld en klikt u op **publiceren**. Bijvoorbeeld `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+
+    Elke toepassing in het cluster moet een unieke naam hebben.  Partijen clusters zijn echter een openbare, gedeelde omgeving en kan er een conflict met een bestaande toepassing.  Als er een naamconflict, wijzig de naam van de Visual Studio-project en implementeer opnieuw.
 
 3. Open een browser en typ in het cluster adres foolowed door ': 8080' om te krijgen tot de toepassing in het cluster - bijvoorbeeld `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. U ziet nu de toepassing in het cluster in Azure wordt uitgevoerd.
 

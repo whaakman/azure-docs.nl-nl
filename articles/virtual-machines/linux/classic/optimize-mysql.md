@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: ningk
-ms.openlocfilehash: 8f2ec884fa98e989448ac11675e71f39aa21fa7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e7582a31cb3e74fd8c3cd0dd54961392d9c53bb
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>MySQL-optimaliseren op Azure Linux VM 's
 Er zijn talloze factoren die van invloed op prestaties MySQL in Azure, zowel in de selectie van de virtuele hardware en softwareconfiguratie. Dit artikel is gericht op optimaliseren prestaties door middel van opslag-, systeem- en databaseconfiguraties.
 
 > [!IMPORTANT]
 > Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Azure Resource Manager](../../../resource-manager-deployment-model.md) en klassieke. Dit artikel gaat over het gebruik van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Zie voor meer informatie over Linux-VM-optimalisatie met het Resource Manager-model [optimaliseren van uw Linux-VM op Azure](../optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="utilize-raid-on-an-azure-virtual-machine"></a>Gebruikmaken van RAID op een virtuele machine van Azure
 Opslag is de belangrijkste factor die invloed heeft op de prestaties van de database in cloudomgevingen. Vergeleken met een enkele schijf, kan RAID sneller toegang via Gelijktijdigheidsfout bieden. Zie voor meer informatie [standaard RAID-niveaus](http://en.wikipedia.org/wiki/Standard_RAID_levels).   

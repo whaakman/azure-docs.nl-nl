@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
-ms.openlocfilehash: b02b1260cedcade9bf69a99453ab0f5aa2c3c7b1
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 42dca05c4d7d104ed0e7e21f1e53411e5983cd38
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Systeemstatusrapporten gebruiken om fouten op te lossen
 Azure Service Fabric-onderdelen bieden systeemstatusrapporten op alle entiteiten in het cluster uit de verpakking. De [health store](service-fabric-health-introduction.md#health-store) maken en verwijderen van de entiteiten die zijn gebaseerd op systeemrapporten van het. Ook ordent ze in een hiërarchie die entiteit interacties worden vastgelegd.
@@ -55,6 +55,18 @@ Het rapport geeft de algemene lease time-out als de time-to-live (TTL). Het rapp
 * **SourceId**: System.Federation
 * **De eigenschap**: begint met **groep** en informatie gegeven knooppunt.
 * **Volgende stappen**: onderzoeken waarom de groep bijvoorbeeld verloren is, controleert u de communicatie tussen clusterknooppunten.
+
+### <a name="rebuild"></a>Opnieuw samenstellen
+
+De **Failover Manager** service (**FM**) beheer van informatie over de clusterknooppunten. Wanneer FM de gegevens verliest en probeert het verlies van gegevens die kan niet dat garanderen is de meest actuele informatie over de clusterknooppunten. In dit geval wordt het systeem doorloopt een **opnieuw samenstellen**, en **System.FM** verzamelt gegevens van alle knooppunten in het cluster om de status opnieuw opbouwen. Soms als gevolg van netwerk- of knooppunt problemen kan rebuild ophalen vastgelopen of vastgelopen. Hetzelfde kan optreden met de **Failover Manager Master** service (**FMM**). De **FMM** is een staatloze systeemservice waarin wordt bijgehouden waar alle van de **FMs** zijn in het cluster. De **FMMs** primaire is altijd het knooppunt met de ID die het dichtst bij 0. Als u dat knooppunt wegvalt, een **opnieuw samenstellen** wordt geactiveerd.
+Als een van de vorige voorwaarden optreden, **System.FM** of **System.FMM** markeren via een foutenrapport. Rebuild kan blijven steken bij een van twee fasen:
+
+* Een ogenblik geduld: **FM/FMM** wordt gewacht op het antwoord broadcast-bericht van de andere knooppunten. **Volgende stappen:** onderzoek of er een netwerkprobleem verbinding tussen knooppunten is.   
+* Wachten op knooppunten: **FM/FMM** al een broadcast-antwoord ontvangen van de andere knooppunten en wacht op een antwoord van de specifieke knooppunten. Het statusrapport geeft een lijst van de knooppunten waarvoor de **FM/FMM** wachten op reactie. **Volgende stappen:** onderzoeken van de netwerkverbinding tussen de **FM/FMM** en de vermelde knooppunten. Elke vermelde knooppunt voor andere mogelijke problemen onderzoeken.
+
+* **SourceID**: System.FM of System.FMM
+* **De eigenschap**: opnieuw opbouwen.
+* **Volgende stappen**: de netwerkverbinding tussen de knooppunten, evenals de status van de specifieke knooppunten die worden vermeld op de beschrijving van het statusrapport onderzoeken.
 
 ## <a name="node-system-health-reports"></a>Systeemstatusrapporten knooppunt
 **System.FM**, die staat voor de Failover Manager service, wordt de instantie die het beheer van informatie over de clusterknooppunten. Elk knooppunt moet één rapport van System.FM met de status hebben. De knooppunt-entiteiten worden verwijderd wanneer de status van knooppunt is verwijderd. Zie voor meer informatie [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).

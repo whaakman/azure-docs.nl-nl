@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/25/2017
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: d03e45b839e3630e7f5df4b3144b823955920088
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 285c5abf574544737f3d30981a6c5b8f9548922a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>Opmerkingen bij de release van de StorSimple 8000 Series Update 2
+> [!NOTE]
+> De klassieke portal voor StorSimple is afgeschaft. Uw Managers StorSimple-apparaat wordt automatisch verplaatst naar de nieuwe Azure portal aan de hand van de planning afschaffing. U ontvangt een e-mailbericht en een portal melding voor deze verplaatsen. Dit document wordt ook snel worden ingetrokken. Zie voor vragen met betrekking tot de verplaatsing, [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Overzicht
 De volgende releaseopmerkingen beschrijven de nieuwe functies en problemen met de kritieke open voor StorSimple 8000 Series Update 2. Ze bevatten ook een lijst van de StorSimple-software, stuurprogramma en schijf firmware-updates is opgenomen in deze release. 
 
@@ -87,7 +90,7 @@ De volgende tabel bevat een samenvatting van bekende problemen in deze release.
 | 12 |Migratie |Nadat de migratie voltooid is, moet het 5000/7000-serie apparaat geen toegang tot de gemigreerde gegevenscontainers. |Het is raadzaam dat u de gemigreerde gegevenscontainers verwijdert nadat de migratie voltooid en doorgevoerd is. |Ja |Nee |
 | 13 |Kloon en Noodherstel |Een StorSimple-apparaat met Update 1 kan niet klonen of herstel na noodgevallen bij een apparaat met 1 software vóór het bijwerken uitvoeren. |U moet het doelapparaat op 1 bijwerken zodat deze bewerkingen bijwerken |Ja |Ja |
 | 14 |Migratie |Configuratieback-up voor de migratie kan op een apparaat 5000 7000-serie mislukken wanneer er groepen met geen gekoppelde volumes volume zijn. |Alle lege volume-groepen die geen gekoppelde volumes verwijderen en probeer vervolgens de configuratieback-up. |Ja |Nee |
-| 15 |Azure PowerShell-cmdlets en lokaal vastgemaakte volumes |U kunt een lokaal vastgemaakt volume via Azure PowerShell-cmdlets kan niet maken. (Alle volumes die u via Azure PowerShell maakt worden gelaagd.) Bovendien geen gebruiken de Azure PowerShell-cmdlets voor alle eigenschappen van een lokaal vastgemaakt volume wijzigen omdat het het ongewenst effect van het wijzigen van het volumetype zal hebben tot gelaagde. |Gebruik altijd de StorSimple Manager-service te configureren of lokaal vastgemaakte volumes wijzigen. |Ja |Nee |
+| 15 |Azure PowerShell-cmdlets en lokaal vastgemaakte volumes |U kunt een lokaal vastgemaakt volume via Azure PowerShell-cmdlets kan niet maken. (Alle volumes die u via Azure PowerShell maakt worden gelaagd.) |Gebruik altijd de StorSimple Manager-service voor het configureren van lokaal vastgemaakte volumes. |Ja |Nee |
 | 16 |Beschikbare schijfruimte voor het lokaal vastgemaakte volumes |Als u een lokaal vastgemaakt volume verwijdert, worden de beschikbare schijfruimte voor de nieuwe volumes mogelijk niet meteen bijgewerkt. De StorSimple Manager-service-updates de lokale schijfruimte ongeveer om het uur. |Wacht tot een uur voordat u probeert te maken van het nieuwe volume. |Ja |Nee |
 | 17 |Lokaal vastgemaakte volumes |De hersteltaak wordt de momentopname van de tijdelijke back-up in de back-upcatalogus, maar alleen voor de duur van de hersteltaak. Bovendien beschrijft de virtuele schijf wordt een groep met voorvoegsel **tmpCollection** op de **back-upbeleid** pagina, maar alleen voor de duur van de hersteltaak. |Dit kan gebeuren als de hersteltaak alleen lokaal volumes of een combinatie van lokaal vastgemaakte en gelaagde volumes vastgemaakte is. De hersteltaak bevat alleen gelaagde volumes, wordt vervolgens dit gedrag niet uitgevoerd als. Er is geen tussenkomst van de gebruiker is vereist. |Ja |Nee |
 | 18 |Lokaal vastgemaakte volumes |Als u een hersteltaak annuleren en een failover controller optreedt onmiddellijk daarna de hersteltaak ziet **mislukt** in plaats van **geannuleerd**. Als een hersteltaak mislukt en een failover controller optreedt onmiddellijk daarna de hersteltaak ziet **geannuleerd** in plaats van **mislukt**. |Dit kan gebeuren als de hersteltaak alleen lokaal volumes of een combinatie van lokaal vastgemaakte en gelaagde volumes vastgemaakte is. De hersteltaak bevat alleen gelaagde volumes, wordt vervolgens dit gedrag niet uitgevoerd als. Er is geen tussenkomst van de gebruiker is vereist. |Ja |Nee |
