@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 1b0d0fa1afc94d5261443f6b08cb6f0c3518f3eb
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: a1214d8327075ee081124d42aeb78846e09ff588
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Azure SQL Database met behulp van Azure SQL Analytics (Preview) in logboekanalyse bewaken
 
@@ -102,7 +102,16 @@ Als u een van de tegels selecteert, wordt een rapport zoomen geopend in de speci
 
 Elk perspectief biedt samenvattingen op abonnement, server elastische pool en databaseniveau. Bovendien elk perspectief perspectief specifieke rapport aan de rechterkant wordt weergegeven. Abonnement, server, groep of database selecteren in de lijst blijft van de analyse omlaag.
 
-| Perspectief | Beschrijving || Resource door het type | Perspectief waarmee alle resources bewaakt wordt geteld. Inzoomen biedt een overzicht van metrische gegevens voor DTU en GB. | | Insights | Biedt hiërarchische inzoomen in Intelligent inzichten. Meer informatie over intelligent insights. | | Fouten | Biedt hiërarchische inzoomen in SQL-fouten die zich op de databases voorgedaan. | | Time-outs | Biedt hiërarchische inzoomen in SQL-outs die hebben plaatsgevonden van de databases. | | Blockings | Biedt hiërarchische inzoomen in SQL-blockings die hebben plaatsgevonden van de databases. | | Wachten op database | Biedt hiërarchische inzoomen in SQL wacht statistieken op databaseniveau. Bevat overzichten van de totale wachttijd en de wachttijd per type wacht. | | Duur van de query | Biedt hiërarchische inzoomen in de statistieken van de query kan worden uitgevoerd zoals duur van de query, CPU-gebruik, gegevens-IO-gebruik, logboek-i/o-gebruik. | | Wachten op een query | Biedt hiërarchische inzoomen in de query wacht statistieken per categorie wacht. |
+| Perspectief | Beschrijving |
+| --- | --- |
+| Resource per type | Perspectief waarmee alle resources bewaakt wordt geteld. Inzoomen biedt een overzicht van metrische gegevens voor DTU en GB. |
+| Inzichten | Biedt hiërarchische inzoomen in Intelligent inzichten. Meer informatie over intelligent insights. |
+| Fouten | Biedt hiërarchische inzoomen in SQL-fouten die zich op de databases voorgedaan. |
+| Time-outs | Biedt hiërarchische inzoomen in SQL-outs die hebben plaatsgevonden van de databases. |
+| Blockings | Biedt hiërarchische inzoomen in SQL-blockings die hebben plaatsgevonden van de databases. |
+| Wachten op database | Biedt hiërarchische inzoomen in SQL wacht statistieken op databaseniveau. Bevat overzichten van de totale wachttijd en de wachttijd per type wacht. |
+| duur van de query | Biedt hiërarchische inzoomen in de statistieken van de query kan worden uitgevoerd zoals duur van de query, CPU-gebruik, gegevens-IO-gebruik, logboek-i/o-gebruik. |
+| Query moet wachten | Biedt hiërarchische inzoomen in de query wacht statistieken per categorie wacht. |
 
 ### <a name="intelligent-insights-report"></a>Intelligent Insights-rapport
 

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: d8c357474e040f2e35c51dec0c7785cf98381a37
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 533add8948544e37dc27623a2f51aad1054b1bef
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Installeren en configureren van Terraform voor het inrichten van virtuele machines en andere infrastructuur in Azure
  
 Terraform biedt een eenvoudige manier om te definiëren, weergeven en cloudinfrastructuur implementeren met behulp van een [eenvoudige templating taal](https://www.terraform.io/docs/configuration/syntax.html). Dit artikel worden de benodigde stappen voor het gebruik van Terraform aan inrichten bronnen in Azure. 
 
 > [!TIP]
-> Terraform maakt deel uit van de [ervaring Azure Cloud Shell Bash](/azure/cloud-shell/quickstart), en vooraf is geconfigureerd met de referenties en [Azure Terraform modules](https://registry.terraform.io/modules/Azure).
+> Terraform is standaard geïnstalleerd in de [Bash in Azure Cloud Shell ervaring](/azure/cloud-shell/quickstart). Deze ook vooraf is geconfigureerd met de referenties en [Azure Terraform modules](https://registry.terraform.io/modules/Azure). Met behulp van Cloud-Shell, kunt u de installatie-instellingen delen van dit document overslaan.
 
 ## <a name="install-terraform"></a>Terraform installeren
 
@@ -47,9 +47,7 @@ Er zijn verschillende manieren een Azure AD-toepassing en een Azure AD-service p
 
 Meld u bij het beheren van uw Azure-abonnement door de volgende opdracht:
 
-```azurecli-interactive
-az login
-```
+   `az login`
 
 Als u meerdere Azure-abonnementen hebt, de bijbehorende gegevens worden geretourneerd door de `az login` opdracht. Stel de `SUBSCRIPTION_ID` omgevingsvariabele voor de waarde van de geretourneerde `id` veld van het abonnement dat u wilt gebruiken. 
 

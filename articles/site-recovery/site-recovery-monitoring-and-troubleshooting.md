@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.openlocfilehash: 2d033e5af13660c99aba813c58b743bf94a6b95a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ad1e0bcb2e2c073c8fb186f5a9d8bcb0bac588a0
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>Controleren en problemen oplossen van beveiliging voor virtuele machines en fysieke servers
 Deze handleiding bewaking en probleemoplossing vindt u informatie over het bijhouden van de status van replicatie en problemen oplossen technieken voor Azure Site Recovery.
 
 ## <a name="understand-the-components"></a>Inzicht in de onderdelen
 ### <a name="vmware-virtual-machine-or-physical-server-site-deployment-for-replication-between-on-premises-and-azure"></a>Virtuele VMware-machine of fysieke server site-implementatie voor replicatie tussen de on-premises en Azure
-Als u databaseherstel tussen een on-premises VMware virtuele machine of fysieke server en Azure instelt, moet u voor het instellen van de configuratieserver, hoofddoelserver en serveronderdelen proces op de virtuele machine of de server. Wanneer u beveiliging voor de bronserver inschakelt, installeert Azure Site Recovery de functie Mobile Apps van Microsoft Azure App Service. Na een storing van de lokale en de bron-server is overgeschakeld naar Azure, klanten nodig hebben voor het instellen van een processerver in Azure en een hoofddoelserver on-premises opnieuw opbouwen van de bronserver on-premises.
+Als u databaseherstel tussen een on-premises VMware virtuele machine of fysieke server en Azure instelt, moet u voor het instellen van de configuratieserver, hoofddoelserver en serveronderdelen proces op de virtuele machine of de server. Als u beveiliging voor de bronserver inschakelt, installeert Azure Site Recovery de Mobility-Service van de gekozen processerver, als een actuele versie wordt niet geïmplementeerd. Na een storing van de lokale en de bron-server is overgeschakeld naar Azure, klanten nodig hebben voor het instellen van een processerver in Azure en een hoofddoelserver on-premises opnieuw opbouwen van de bronserver on-premises.
 
 ![VMware of fysieke-site-implementatie voor replicatie tussen de on-premises en Azure](media/site-recovery-monitoring-and-troubleshooting/image18.png)
 

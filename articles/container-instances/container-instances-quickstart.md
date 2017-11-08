@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: 
 author: seanmck
 manager: timlt
-editor: 
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: e4af46f4b750937a636af3fe667c9979fdedfdc8
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: dc8a94e998b36331a6a42253a68b43d76be6657c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Uw eerste container maken in Azure Container Instances
 Azure Containerexemplaren gemakkelijk maken en beheren van Docker-containers in Azure, zonder te hoeven inrichten van virtuele machines of aannemen van een service op een hoger niveau. In deze snelstartgids een container maken in Azure en tijdens het blootgesteld aan internet met een openbaar IP-adres. Deze bewerking wordt uitgevoerd in één opdracht. Binnen een paar seconden ziet u dit in uw browser:
@@ -32,7 +32,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids gebruikmaken van Azure CLI versie 2.0.12 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+U kunt de Azure-Cloud-Shell of een lokale installatie van de Azure CLI gebruiken voor het voltooien van deze snelstartgids. Als u wilt installeren en gebruiken van de CLI lokaal, is deze snelstartgids vereist dat u de Azure CLI versie 2.0.20 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -48,13 +48,13 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Een container maken
 
-U kunt een container maken door op te geven van een naam, een Docker-installatiekopie en een Azure-resourcegroep voor de [az container maken] [ az-container-create] opdracht. U kunt de container desgewenst weergeven op internet met een openbaar IP-adres. We gebruiken in dit geval een container die als host fungeert voor een zeer eenvoudige web-app die is geschreven in [Node.js](http://nodejs.org).
+U kunt een container maken door op te geven van een naam, een Docker-installatiekopie en een Azure-resourcegroep voor de [az container maken] [ az-container-create] opdracht. U kunt de container desgewenst weergeven op internet met een openbaar IP-adres. In deze snelstartgids die u implementeert een container die als host fungeert voor een kleine web-app die is geschreven in [Node.js](http://nodejs.org).
 
 ```azurecli-interactive
 az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public
 ```
 
-Binnen enkele seconden krijgt u een reactie op uw aanvraag. In eerste instantie heeft de container de status **Maken** staat, maar deze moet binnen een paar seconden starten. U kunt ook het gebruik van de status controleren de [az container weergeven] [ az-container-show] opdracht:
+Binnen enkele seconden krijgt u een reactie op uw aanvraag. In eerste instantie is de container is in de **maken** staat, maar moet worden gestart binnen een paar seconden. U kunt ook het gebruik van de status controleren de [az container weergeven] [ az-container-show] opdracht:
 
 ```azurecli-interactive
 az container show --name mycontainer --resource-group myResourceGroup
@@ -106,6 +106,14 @@ Wanneer u klaar bent met de container, kunt u verwijderen met behulp van de [az 
 az container delete --name mycontainer --resource-group myResourceGroup
 ```
 
+Uitvoeren om te bevestigen dat de container is verwijderd, de [az container lijst](/cli/azure/container#az_container_list) opdracht:
+
+```azurecli-interactive
+az container list --resource-group myResourceGroup -o table
+```
+
+De **mycontainer** container moet niet worden weergegeven in de uitvoer van de opdracht. Als u geen andere containers in de resourcegroep hebt, wordt geen uitvoer wordt weergegeven.
+
 ## <a name="next-steps"></a>Volgende stappen
 
 Alle code voor de container die wordt gebruikt in deze snelstartgids is beschikbaar [op GitHub][app-github-repo], samen met de Dockerfile. Als u wilt proberen om deze zelf te bouwen en te implementeren in Azure Container Instances met behulp van het Azure Container Registry, gaat u verder met de zelfstudie van Azure Container Instances.
@@ -113,7 +121,7 @@ Alle code voor de container die wordt gebruikt in deze snelstartgids is beschikb
 > [!div class="nextstepaction"]
 > [Zelfstudies voor Azure Container Instances](./container-instances-tutorial-prepare-app.md)
 
-Als u wilt uitproberen opties voor het uitvoeren van containers in een systeem orchestration op Azure, Zie de [Service Fabric] [ service-fabric] of [Azure Container Service (AKS)] [ container-service] snelstartgidsen.  
+Als u wilt uitproberen opties voor het uitvoeren van containers in een systeem orchestration op Azure, Zie de [Service Fabric] [ service-fabric] of [Azure Container Service (AKS)] [ container-service] snelstartgidsen.
 
 <!-- LINKS -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git

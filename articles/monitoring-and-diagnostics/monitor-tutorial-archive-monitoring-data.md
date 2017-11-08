@@ -10,15 +10,23 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: 445901a740920a74f259aaa9c6b862680c1c807e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="archive-azure-monitoring-data"></a>Archief Azure bewakingsgegevens
 
 Verschillende lagen van uw Azure-omgeving produceren logboek en metrische gegevens die kunnen worden gearchiveerd naar een Azure Storage-Account. U kunt dit doen om een geschiedenis van het bewaken van gegevens gedurende een bepaalde periode in een goedkope, niet-doorzoekbare archief nadat die gegevens de bewaarperiode in Log Analytics of Azure-Monitor is verstreken behouden. Deze zelfstudie stappen aan de hand van de configuratie van uw Azure-omgeving voor het archiveren van gegevens naar een opslagaccount.
+
+> [!div class="checklist"]
+> * Een opslagaccount voor het opslaan van bewakingsgegevens maken
+> * Abonnement logboeken te routeren 
+> * Route bron van gegevens 
+> * Route voor virtuele machine (Gast OS) van gegevens 
+> * De bewakingsgegevens weergeven in het 
+> * Uw resources opschonen 
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -158,7 +166,18 @@ U hebt nu ingesteld het bewaken van gegevens naar een opslagaccount worden gearc
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u gegevens van uw Azure-omgeving (abonnement, resource en gastbesturingssysteem) naar een opslagaccount worden gearchiveerd bewaking hebt ingesteld. Meer betekenis buiten uw gegevens maken en insights afgeleid, kies dan ook verzenden van uw gegevens in logboekanalyse.
+In deze zelfstudie hebt u geleerd hoe u gegevens van uw Azure-omgeving (abonnement, resource en gastbesturingssysteem) naar een opslagaccount worden gearchiveerd bewaking hebt ingesteld. 
+
+
+> [!div class="checklist"]
+> * Een opslagaccount voor het opslaan van bewakingsgegevens maken
+> * Abonnement logboeken te routeren 
+> * Route bron van gegevens 
+> * Route voor virtuele machine (Gast OS) van gegevens 
+> * De bewakingsgegevens weergeven in het 
+> * Uw resources opschonen 
+
+Om meer uit uw gegevens en afgeleid van extra inzichten, moet u ook uw gegevens verzenden in logboekanalyse.
 
 > [!div class="nextstepaction"]
 > [Aan de slag met Log Analytics](../log-analytics/log-analytics-get-started.md)

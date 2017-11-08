@@ -71,7 +71,6 @@
 
 ## Resourcebeleid instellen
 ### [Wat is een resourcebeleid?](resource-manager-policy.md)
-### [Scripts gebruiken voor het toewijzen van beleid](resource-manager-policy-create-assign.md)
 ### Voorbeelden
 #### [Tags](resource-manager-policy-tags.md)
 #### [Naamconventies](resource-manager-policy-naming-convention.md)

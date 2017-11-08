@@ -1,8 +1,8 @@
 ---
 title: Azure PowerShell Monitor snel starten-voorbeelden. | Microsoft Docs
 description: PowerShell gebruiken voor toegang tot Azure Monitor functies zoals automatisch schalen, waarschuwingen, webhooks en activiteitenlogboeken zoeken.
-author: kamathashwin
-manager: orenr
+author: rboucher
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
-ms.author: ashwink
-ms.openlocfilehash: 48f064884c2a6d0a55cc58a44169ed03c62de46d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: robb
+ms.openlocfilehash: 60048ab8e0118bc67850aa6ad91c82dcf8122b1d
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure PowerShell Monitor snel starten-voorbeelden
-In dit artikel worden steekproef van PowerShell-opdrachten kunt u toegang tot Azure Monitor functies. Monitor voor Azure kunt u voor automatisch schalen Cloud Services, virtuele Machines en Web-Apps en voor het verzenden van meldingen van waarschuwingen of web-URL's op basis van waarden van de geconfigureerde telemetriegegevens aanroepen.
+In dit artikel worden steekproef van PowerShell-opdrachten kunt u toegang tot Azure Monitor functies. Monitor voor Azure kunt u automatisch schalen Cloudservices, virtuele Machines en Web-Apps. Ook kunt u meldingen van waarschuwingen verzenden of web-URL's op basis van waarden van de geconfigureerde telemetriegegevens aanroepen.
 
 > [!NOTE]
-> Monitor voor Azure is de nieuwe naam voor wat 'Azure Insights' is aangeroepen tot 25 september 2016. Echter bevatten de naamruimten, en daarom de volgende opdrachten nog steeds de 'inzichten'.
+> Monitor voor Azure is de nieuwe naam voor wat 'Azure Insights' is aangeroepen tot 25 september 2016. Echter, de naamruimten, en daarom de volgende opdrachten nog steeds de het woord 'insights'.
 > 
 > 
 
@@ -41,13 +41,13 @@ Eerst aanmelden bij uw Azure-abonnement.
 Login-AzureRmAccount
 ```
 
-Hiervoor moet u zich kunt aanmelden. Zodra u dit, uw Account doet worden TenantID en standaard abonnements-ID weergegeven. Alle Azure-cmdlets werkt in de context van uw standaardabonnement. U hebt toegang tot de volgende opdracht gebruiken om de lijst met abonnementen weer te geven.
+Hier ziet u een teken in het scherm. Eenmaal u uw Account, TenantID, zich aanmelden en standaard abonnements-ID worden weergegeven. Alle Azure-cmdlets werkt in de context van uw standaardabonnement. U hebt toegang tot de volgende opdracht gebruiken om de lijst met abonnementen weer te geven:
 
 ```PowerShell
 Get-AzureRmSubscription
 ```
 
-Als u wilt uw werkende context wijzigen naar een ander abonnement, moet u de volgende opdracht gebruiken.
+Als u wilt uw werkende context wijzigen naar een ander abonnement, moet u de volgende opdracht gebruiken:
 
 ```PowerShell
 Set-AzureRmContext -SubscriptionId <subscriptionid>
@@ -141,7 +141,7 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 ## <a name="create-metric-alerts"></a>Metrische waarschuwingen maken
 U kunt de `Add-AlertRule` cmdlet maken, bijwerken of een waarschuwingsregel uitschakelen.
 
-Kunt u e-mail en -webhook eigenschappen met behulp van `New-AzureRmAlertRuleEmail` en `New-AzureRmAlertRuleWebhook`respectievelijk. In de cmdlet waarschuwingsregel toewijzen deze poorten als acties voor de **acties** eigenschap van de waarschuwingsregel.
+Kunt u e-mail en -webhook eigenschappen met behulp van `New-AzureRmAlertRuleEmail` en `New-AzureRmAlertRuleWebhook`respectievelijk. In de waarschuwingsregel-cmdlet kunt u deze eigenschappen toewijzen als acties voor de **acties** eigenschap van de waarschuwingsregel.
 
 De volgende tabel beschrijft de parameters en waarden die worden gebruikt voor het maken van een waarschuwing met behulp van een metriek.
 
@@ -201,10 +201,10 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 Een volledige lijst met beschikbare opties voor `Get-AzureRmMetricDefinition` is beschikbaar op [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
 ## <a name="create-and-manage-autoscale-settings"></a>Maken en beheren van instellingen voor automatisch schalen
-Een resource, zoals een Web-app, VM, Cloudservice of virtuele-Machineschaalset kan slechts één instelling voor automatisch schalen geconfigureerd hebben.
+Een resource (een Web-app, VM, Cloud Service- of virtuele-Machineschaalset) kan slechts één instelling voor automatisch schalen geconfigureerd hebben.
 Elke instelling voor automatisch schalen kunt echter meerdere profielen hebben. Bijvoorbeeld, een voor een profiel schalen op basis van prestaties en een tweede voor een profiel op basis van een planning. Elk profiel kan meerdere regels die zijn geconfigureerd op deze hebben. Zie voor meer informatie over automatisch schalen, [hoe een toepassing voor automatisch schalen](../cloud-services/cloud-services-how-to-scale.md).
 
-Hier volgen de stappen die zullen worden gebruikt:
+Hier volgen de stappen om te gebruiken:
 
 1. Regel (s) maken.
 2. Profielen die eerder toewijzing van de regels die u hebt gemaakt om de profielen te maken.
@@ -213,13 +213,13 @@ Hier volgen de stappen die zullen worden gebruikt:
 
 De volgende voorbeelden ziet u hoe u een instelling voor automatisch schalen voor een virtuele-Machineschaalset voor een Windows-besturingssysteem op basis van met behulp van de CPU-gebruik metrische gegevens kunt maken.
 
-Maak eerst een regel voor het scale-out met de toename van een exemplaar count.
+Maak eerst een regel moet worden uitgebreid, met een verhoging van het aantal exemplaar.
 
 ```PowerShell
 $rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionValue 1
 ```        
 
-Maak vervolgens een regel voor het scale-in, met een aantal exemplaar verlagen.
+Vervolgens maakt u een regel, met een aantal exemplaar daling schalen.
 
 ```PowerShell
 $rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Decrease -ScaleActionValue 1
@@ -243,7 +243,7 @@ Maken van de eigenschap melding voor de instelling voor automatisch schalen, met
 $notification1= New-AzureRmAutoscaleNotification -CustomEmails ashwink@microsoft.com -SendEmailToSubscriptionAdministrators SendEmailToSubscriptionCoAdministrators -Webhooks $webhook_scale
 ```
 
-Maak ten slotte de instelling voor automatisch schalen om toe te voegen van het profiel dat u hierboven hebt gemaakt.
+Maak ten slotte de instelling voor automatisch schalen om toe te voegen van het profiel dat u eerder hebt gemaakt. 
 
 ```PowerShell
 Add-AzureRmAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
@@ -289,7 +289,7 @@ Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ```
 
 ## <a name="manage-log-profiles-for-activity-log"></a>Logboek profielen beheert voor activiteitenlogboek
-Kunt u een *Meld profiel* en gegevens uit uw activiteitenlogboek exporteren naar een opslagaccount en u kunt bewaren van gegevens voor het configureren. U kunt eventueel ook de gegevens naar uw Event Hub streamen. Let op: deze functie momenteel in Preview en u is kunt slechts één log-profiel per abonnement maken. U kunt de volgende cmdlets met uw huidige abonnement logboek-profielen maken en beheren. U kunt ook een bepaald abonnement. Hoewel PowerShell wordt standaard ingesteld op het huidige abonnement, kunt u altijd wijzigen die met `Set-AzureRmContext`. U kunt configureren activiteitenlogboek van gegevens voor het routeren naar een opslagaccount of Event Hub binnen dat abonnement. Gegevens worden geschreven als blob-bestanden in de JSON-indeling.
+Kunt u een *Meld profiel* en gegevens uit uw activiteitenlogboek exporteren naar een opslagaccount en u kunt bewaren van gegevens voor het configureren. U kunt eventueel ook de gegevens naar uw Event Hub streamen. Deze functie is momenteel in Preview en u kunt slechts één log-profiel per abonnement maken. U kunt de volgende cmdlets met uw huidige abonnement logboek-profielen maken en beheren. U kunt ook een bepaald abonnement. Hoewel PowerShell wordt standaard ingesteld op het huidige abonnement, kunt u altijd wijzigen die met `Set-AzureRmContext`. U kunt configureren activiteitenlogboek van gegevens voor het routeren naar een opslagaccount of Event Hub binnen dat abonnement. Gegevens worden geschreven als blob-bestanden in de JSON-indeling.
 
 ### <a name="get-a-log-profile"></a>Een profiel voor een logboek ophalen
 Voor het ophalen van de profielen van uw bestaande logboek, gebruiken de `Get-AzureRmLogProfile` cmdlet.
@@ -312,14 +312,19 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 ```
 
 ### <a name="add-log-profile-with-retention-and-eventhub"></a>Logboek-profiel met bewaren en EventHub toevoegen
-Bovendien uw gegevens naar het opslagaccount kunt u deze ook stream naar een Event Hub. Houd er rekening mee dat in deze preview-versie en de opslag accountconfiguratie verplicht is, maar de configuratie van de Event Hub optioneel is.
+Bovendien uw gegevens naar het opslagaccount kunt u deze ook stream naar een Event Hub. In deze preview-versie de opslagconfiguratie van het account is verplicht, maar de configuratie van de Event Hub is optioneel.
 
 ```PowerShell
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
 ## <a name="configure-diagnostics-logs"></a>Logboeken met diagnostische gegevens configureren
-Veel Azure-services bieden extra logboeken en telemetrie die kan worden geconfigureerd voor het opslaan van gegevens in uw Azure Storage-account, verzenden naar Event Hubs en/of verzonden naar een logboekanalyse OMS-werkruimte. Deze bewerking kan alleen worden uitgevoerd op het niveau van een resource en de storage-account of event hub moet aanwezig zijn in dezelfde regio bevinden als de doelresource waar de diagnostics-instelling is geconfigureerd.
+Veel Azure-services bieden extra logboeken en telemetrie die een of meer van de volgende kunt doen: 
+ - worden geconfigureerd voor het opslaan van gegevens in uw Azure Storage-account
+ - verzonden naar Event Hubs
+ - verzonden naar een logboekanalyse OMS-werkruimte. 
+
+De bewerking kan alleen worden uitgevoerd op het niveau van een resource. De storage-account of event hub moet aanwezig zijn in dezelfde regio bevinden als de doelresource waar de diagnostics-instelling is geconfigureerd.
 
 ### <a name="get-diagnostic-setting"></a>De diagnostische instelling niet ophalen
 ```PowerShell

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 71310534ec62b62bcd408d75060859c79bc470cf
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: fd9515120049dd3837a43c95de8a9b6822719e19
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Selfservice voor wachtwoordherstel in Azure AD-diepgaand
 
@@ -88,6 +88,23 @@ Deze optie bepaalt u het minimale aantal van de beschikbare verificatiemethoden 
 Gebruikers kunnen kiezen om op te geven meer verificatiemethoden als ze zijn ingeschakeld door de beheerder.
 
 Als een gebruiker niet de minimale vereiste methoden die zijn geregistreerd heeft, zien ze een foutpagina die ze hun wachtwoord opnieuw instellen van een beheerder vragen worden omgeleid.
+
+#### <a name="changing-authentication-methods"></a>Verificatiemethoden wijzigen
+
+Als u met begint een beleid dat slechts één verificatiemethode vereist voor opnieuw instellen of ontgrendelen heeft geregistreerd en u instellen dat op twee wat er gebeurt?
+
+| Aantal methoden die zijn geregistreerd | Aantal methoden vereist | Resultaat |
+| :---: | :---: | :---: |
+| 1 of meer | 1 | **Kan** opnieuw instellen of ontgrendelen |
+| 1 | 2 | **Kan geen** opnieuw instellen of ontgrendelen |
+| 2 of hoger | 2 | **Kan** opnieuw instellen of ontgrendelen |
+
+De typen verificatiemethoden die een gebruiker kunt u gebruiken als u per ongeluk niet meer gebruikers kunnen SSPR gebruiken als ze niet de minimale hoeveelheid gegevens beschikbaar zijn.
+
+Voorbeeld: 
+1. Oorspronkelijke beleid dat is geconfigureerd met 2 verificatiemethoden vereist met alleen office telefoon- en vragen. 
+2. Beheerder wijzigt het beleid niet meer beveiligingsvragen gebruiken terwijl het gebruik van mobiele telefoon en alternatieve e-mailadres wordt toegestaan.
+3. Gebruikers zonder mobiele telefoon en alternatieve e-velden ingevuld kunnen hun wachtwoorden niet opnieuw instellen.
 
 ### <a name="how-secure-are-my-security-questions"></a>Hoe veilig weet mijn beveiligingsvragen
 
@@ -169,6 +186,7 @@ Wanneer dit is uitgeschakeld. gebruikers kunnen nog steeds handmatig zich regist
 > [!NOTE]
 > Gebruikers de registratieportal voor wachtwoordherstel kunnen negeren door op Annuleren te klikken of u het venster sluit, maar telkens wanneer die ze zich aanmelden totdat ze registratie hebt voltooid, wordt gevraagd.
 >
+> Dit verbreekt niet de verbinding als ze al aangemeld.
 
 ### <a name="number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Het aantal dagen waarna gebruikers wordt gevraagd om de verificatiegegevens opnieuw te bevestigen
 
@@ -190,7 +208,7 @@ Voorbeeld: Zijn er vier beheerders in een omgeving. Beheerder "A" instelt hun wa
 
 ## <a name="on-premises-integration"></a>On-premises integratie
 
-Als u hebt geïnstalleerd, geconfigureerd en Azure AD Connect is ingeschakeld, wordt u de volgende aanvullende opties voor lokale integraties hebben.
+Als u hebt geïnstalleerd, geconfigureerd en Azure AD Connect is ingeschakeld, wordt u de volgende aanvullende opties voor lokale integraties hebben. Als u deze opties zijn grijs weergegeven-out en Write-back is niet correct geconfigureerd Zie [wachtwoord terugschrijven configureren](active-directory-passwords-writeback.md#configuring-password-writeback) voor meer informatie.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Wachtwoorden terugschrijven naar uw on-premises directory
 
@@ -215,21 +233,24 @@ Wachtwoord opnieuw instellen en wijzigen worden volledig ondersteund in alle B2B
 
 Als u wilt testen van dit scenario, gaat u naar http://passwordreset.microsoftonline.com met een van deze partner-gebruikers. Zolang ze beschikken over een alternatieve e-mailadres of verificatie e-mailadres is gedefinieerd, heeft wachtwoord opnieuw instellen werkt zoals verwacht.
 
+> [!NOTE]
+> Microsoft-accounts die toegang voor gasten zijn verleend aan uw Azure AD-tenant zoals die van Hotmail.com, Outlook.com, of andere persoonlijke e-mailadressen kunnen geen Azure AD SSPR gebruiken en moeten kunnen hun wachtwoord met behulp van de gegevens gevonden in de artikel [wanneer u kan niet aanmelden bij je Microsoft-account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+
 ## <a name="next-steps"></a>Volgende stappen
 
 De volgende koppelingen bieden aanvullende informatie over wachtwoordherstel met behulp van Azure AD
 
-* [Hoe ik een geslaagde implementatie van SSPR voltooien?](active-directory-passwords-best-practices.md)
-* [Opnieuw instellen of wijzigen van uw wachtwoord](active-directory-passwords-update-your-own-password.md).
-* [Registreren voor selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md).
-* [Hebt u een vraag licentieverlening?](active-directory-passwords-licensing.md)
-* [Welke gegevens wordt gebruikt door de SSPR en welke gegevens moet u voor uw gebruikers vullen?](active-directory-passwords-data.md)
+* [Hoe kan ik een geslaagde implementatie van SSPR voltooien?](active-directory-passwords-best-practices.md)
+* [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md).
+* [Registreer u voor selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md).
+* [Hebt u een vraag over licenties?](active-directory-passwords-licensing.md)
+* [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](active-directory-passwords-data.md)
 * [Welke verificatiemethoden zijn beschikbaar voor gebruikers?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Wat zijn de beleidsopties met SSPR?](active-directory-passwords-policy.md)
-* [Wat is Write-back van wachtwoord en waarom ik van belang?](active-directory-passwords-writeback.md)
-* [Hoe meld ik op activiteit in SSPR?](active-directory-passwords-reporting.md)
-* [Wat zijn alle opties in de SSPR en wat ze aan de hand?](active-directory-passwords-how-it-works.md)
-* [Ik denk dat er iets is verbroken. Hoe kan ik SSPR oplossen?](active-directory-passwords-troubleshoot.md)
-* [Ik heb een vraag waarvoor is geen ergens anders](active-directory-passwords-faq.md)
+* [Wat zijn de beleidsopties bij selfservice voor wachtwoordherstel?](active-directory-passwords-policy.md)
+* [Wat is Wachtwoord terugschrijven en waarom is dit van belang?](active-directory-passwords-writeback.md)
+* [Hoe maak ik rapporten van activiteit in selfservice voor wachtwoordherstel?](active-directory-passwords-reporting.md)
+* [Wat zijn alle opties in selfservice voor wachtwoordherstel en wat houden ze in?](active-directory-passwords-how-it-works.md)
+* [Ik denk dat er iets misgaat. Hoe los ik problemen in selfservice voor wachtwoordherstel op?](active-directory-passwords-troubleshoot.md)
+* [Ik heb een vraag die nog niet is beantwoord](active-directory-passwords-faq.md)
 
-[Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Azure AD-verificatiemethoden die beschikbaar zijn en hoeveel er nodig is"
+[Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Azure Active Directory-verificatiemethoden die beschikbaar zijn en hoeveel er vereist zijn"

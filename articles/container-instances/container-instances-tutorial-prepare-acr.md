@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
+editor: mmacy
 tags: acs, azure-container-service
 keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 8cb00210ee260383d546be4faf141c133661156b
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 848f6cbde49efdcfe96fc58ebc4160e0ea39f3f2
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Implementeren en gebruiken van Azure Container register
 
@@ -54,13 +54,19 @@ Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#creat
 az group create --name myResourceGroup --location eastus
 ```
 
-Maken van een Azure-Container register met de [az acr maken](/cli/azure/acr#create) opdracht. De naam van een Container register **moeten uniek zijn**. In het volgende voorbeeld gebruiken we de naam van de *mycontainerregistry082*.
+Maken van een Azure container register met de [az acr maken](/cli/azure/acr#create) opdracht. De containernaam register **moeten uniek zijn** in Azure, en 5 50 alfanumerieke tekens moeten bevatten. Vervang `<acrName>` met een unieke naam voor het register:
+
+```azurecli
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
+```
+
+Bijvoorbeeld, een Azure container registry maken met de naam *mycontainerregistry082*:
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
 ```
 
-In de rest van deze zelfstudie gebruiken we `<acrname>` als tijdelijke aanduiding voor de container register-naam die u hebt gekozen.
+In de rest van deze zelfstudie gebruiken we `<acrName>` als tijdelijke aanduiding voor de container register-naam die u hebt gekozen.
 
 ## <a name="container-registry-login"></a>Container register aanmelding
 
@@ -70,7 +76,7 @@ U moet zich aanmelden met uw ACR-exemplaar voordat u installatiekopieën aan. Ge
 az acr login --name <acrName>
 ```
 
-De opdracht retourneert een bericht 'Aanmelding geslaagd' eenmaal is voltooid.
+De opdracht retourneert een `Login Succeeded` bericht eenmaal is voltooid.
 
 ## <a name="tag-container-image"></a>De installatiekopie van de tag-container
 
@@ -89,13 +95,21 @@ REPOSITORY                   TAG                 IMAGE ID            CREATED    
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
 ```
 
-Als u de naam van de loginServer, voer de volgende opdracht:
+Als u de naam van de loginServer, voer de volgende opdracht. Vervang `<acrName>` met de naam van het register van de container.
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Tag de *aci-zelfstudie-app* installatiekopie met de loginServer van het register van de container. Ook toe te voegen `:v1` aan het einde van de naam van de installatiekopie. Deze code geeft het versienummer van de installatiekopie.
+Voorbeelduitvoer:
+
+```
+Result
+------------------------
+mycontainerregistry082.azurecr.io
+```
+
+Tag de *aci-zelfstudie-app* installatiekopie met de loginServer van het register van de container. Ook toe te voegen `:v1` aan het einde van de naam van de installatiekopie. Deze code geeft het versienummer van de installatiekopie. Vervang `<acrLoginServer>` met het resultaat van de `az acr show` opdracht u zojuist hebt uitgevoerd.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
@@ -117,12 +131,23 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app        v1                  a9
 
 ## <a name="push-image-to-azure-container-registry"></a>Push-installatiekopie in Azure Container register
 
-Push de *aci-zelfstudie-app* afbeelding in het register.
-
-In het volgende voorbeeld vervangen door de naam van de container register loginServer de loginServer uit uw omgeving.
+Push de *aci-zelfstudie-app* afbeelding in het register met de `docker push` opdracht. Vervang `<acrLoginServer>` met de volledige aanmeldingsnaam voor de server die u in de vorige stap verkrijgen.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
+```
+
+De `push` bewerking duurt een paar seconden enkele minuten duren, afhankelijk van uw internetverbinding en de uitvoer ziet er ongeveer als volgt:
+
+```bash
+The push refers to a repository [mycontainerregistry082.azurecr.io/aci-tutorial-app]
+3db9cac20d49: Pushed
+13f653351004: Pushed
+4cd158165f4d: Pushed
+d8fbd47558a8: Pushed
+44ab46125c35: Pushed
+5bef08742407: Pushed
+v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05715 size: 1576
 ```
 
 ## <a name="list-images-in-azure-container-registry"></a>Lijst met afbeeldingen in Azure Container register

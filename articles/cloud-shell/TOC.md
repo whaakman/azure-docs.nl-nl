@@ -8,7 +8,6 @@
 ## [Functies en hulpprogramma's in Bash](features.md)
 ## [Functies en hulpprogramma's in PowerShell](features-powershell.md)
 ## [Beperkingen](limitations.md)
-## [Problemen oplossen](troubleshooting.md)
 
 # Uitleg
 ## [Permanente opslag in Bash](persisting-shell-storage.md)
@@ -17,8 +16,10 @@
 
 # [Prijzen](pricing.md)
 
+# [Problemen oplossen](troubleshooting.md)
+
 # Naslaginformatie
-## [Azure-CLI](/cli/azure)
+## [Azure CLI](/cli/azure)
 ## [Azure PowerShell](/powershell/azure)
 
 # Resources

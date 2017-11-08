@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 1442f6ccc1d4ec349bb20d302faabd6788ff9253
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 159397ba4fc93628acbf2bb53edf5eb88fd0cac7
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>De vooraf geconfigureerde oplossing voor externe controle implementeren
 
@@ -49,7 +49,7 @@ Voordat u de vooraf geconfigureerde oplossing voor uw Azure-abonnement implement
 
 1. Op de **oplossing voor externe controle maken** pagina, voert u een **oplossingsnaam** voor uw externe controle vooraf oplossing geconfigureerde.
 
-1. Selecteer een **Basic** of **standaard** implementatie. Als u de oplossing voor meer informatie over hoe het werkt of voor het uitvoeren van een demonstratie, kies zijn deplying de **Basic** optie voor de kosten kunt minimaliseren.
+1. Selecteer een **Basic** of **standaard** implementatie. Als u de oplossing voor meer informatie over hoe het werkt of een demonstratie uitvoeren, kiest u implementeert de **Basic** optie voor de kosten kunt minimaliseren.
 
 1. Kies een **Java** of **.NET** als de taal. Alle microservices zijn beschikbaar als Java of .NET-implementaties.
 

@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 10/20/2017
-ms.openlocfilehash: 5b5da758e966cc5ca536d7b291be74409f02ca73
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 9aa24dd10ef29c716c05cafeb84e0beb23d50628
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Wat is Azure Database voor PostgreSQL?
 
@@ -39,7 +39,7 @@ Zie voor een set van Azure CLI-voorbeelden:
 - [Azure CLI-voorbeelden voor Azure-Database voor PostgreSQL](./sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Prestaties en schaal aanpassen binnen enkele seconden
-In voorbeeld van de Azure-Database voor de MySQL-service biedt twee Servicelagen: Basic en Standard. Elke laag biedt verschillende prestaties en mogelijkheden voor lichte tot zware workloads van databases. U kunt uw eerste app ontwikkelen op een kleine database voor enkele euro's per maand en past u de schaal aan de behoeften van uw oplossing. Dynamische schaalbaarheid kunt transparant reageren op snel veranderende resourcevereisten van uw database. U betaalt alleen voor de resources die u nodig en alleen wanneer u deze nodig hebt. Zie [Prijscategorieën](concepts-service-tiers.md) voor meer informatie.
+In voorbeeld van de Azure-Database voor PostgreSQL-service biedt twee Servicelagen: Basic en Standard. Elke laag biedt verschillende prestaties en mogelijkheden voor lichte tot zware workloads van databases. U kunt uw eerste app ontwikkelen op een kleine database voor enkele euro's per maand en past u de schaal aan de behoeften van uw oplossing. Dynamische schaalbaarheid kunt transparant reageren op snel veranderende resourcevereisten van uw database. U betaalt alleen voor de resources die u nodig en alleen wanneer u deze nodig hebt. Zie [Prijscategorieën](concepts-service-tiers.md) voor meer informatie.
 
 ## <a name="monitoring-and-alerting"></a>Bewaking en waarschuwingen
 Hoe bepaal u wanneer omhoog of omlaag schalen? U de ingebouwde prestaties bewaken en waarschuwen functies, gecombineerd met de prestatieclassificaties op basis van de Compute-eenheden gebruiken. Met behulp van deze hulpprogramma's, u kunt snel inzicht in de impact van Compute eenheden omhoog schalen of naar beneden op basis van de prestatiebehoeften van uw huidige of de verwachte. Zie [waarschuwingen](howto-alert-on-metric.md) voor meer informatie.

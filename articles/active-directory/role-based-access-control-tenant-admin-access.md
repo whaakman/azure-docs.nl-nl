@@ -12,32 +12,39 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/09/2017
+ms.date: 10/30/2017
 ms.author: andredm
-ms.openlocfilehash: 22b62be1773c5042ecf6ee078e68a4ffdf791d53
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb6e5a398a1d7e20efbcc4a8900f9e8dea43ad2c
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Toegangsrechten uitbreiden als een tenantbeheerder met toegangsbeheer op basis van rollen
 
 Toegangsbeheer op basis van rollen kunt tenantbeheerders tijdelijke uitbreidingen in toegang krijgen, zodat ze hoger dan normaal machtigen kunnen. Een tenantbeheerder kan zichzelf uitbreiden naar de rol beheerder voor gebruikerstoegang wanneer deze nodig is. Die rol, krijgt de tenant beheerdersmachtigingen te verlenen aan zichzelf of andere functies op het bereik '/'.
 
-Deze functie is belangrijk omdat hiermee de tenantbeheerder om te zien van de abonnementen die zijn opgenomen in een organisatie. Kunt u ook voor automation-apps (zoals facturering en controle) voor toegang tot alle abonnementen en bieden een nauwkeurige weergave van de status van de organisatie voor facturerings- of asset management.  
+Deze functie is belangrijk omdat hiermee de tenantbeheerder om te zien van de abonnementen die zijn opgenomen in een organisatie. Kunt u ook voor automatisering apps zoals facturering en controle voor toegang tot alle abonnementen en geef een nauwkeurige weergave van de status van de organisatie voor facturerings- of beheer van bedrijfsmiddelen.  
 
-## <a name="how-to-use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>Het gebruik van elevateAccess voor tenant-toegang met Azure AD-beheercentrum
+## <a name="use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>ElevateAccess gebruiken voor toegang van de tenant met Azure AD-beheercentrum
 
-In de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) u kunt deze functie van aanroepen **eigenschappen**.
-De functie wordt aangeroepen **globale beheerder Azure-abonnementen kunt beheren**. De indruk is dat dit is een globale eigenschap voor Azure Active Directory, maar het functioneert op basis van per gebruiker voor de momenteel aangemelde gebruiker. Wanneer u rechten voor globale beheerder in Azure Active Directory hebt, kunt u de functie elevateAccess voor de gebruiker die u momenteel bent aangemeld bij Azure Active Directory-beheercentrum kunt aanroepen.
+1. Ga naar de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) en meld u aan met u referenties.
 
-Selecteren **Ja** en vervolgens **opslaan**: dit **wijst** de **beheerder voor gebruikerstoegang** rol in de hoofdmap '/' (Root Scope) voor de gebruiker met die u momenteel bent aangemeld bij de Portal.
+2. Kies **eigenschappen** links menu van Azure AD.
 
-Selecteren **Nee** en vervolgens **opslaan**: dit **verwijdert** de **beheerder voor gebruikerstoegang** rol in de hoofdmap '/' (Root Scope) voor de gebruiker met die u momenteel bent aangemeld bij de Portal.
+3. In de **eigenschappen** blade vinden **globale beheerder Azure-abonnementen kunt beheren**, kies **Ja**, klikt u vervolgens **opslaan**.
+    > [!IMPORTANT] 
+    > Wanneer u de optie **Ja**, wijst de **beheerder voor gebruikerstoegang** rol in de hoofdmap '/' (Root Scope) voor de gebruiker waarmee u momenteel bent aangemeld bij de Portal. **Hierdoor kan de gebruiker voor een overzicht van alle andere Azure-abonnementen.**
+    
+    > [!NOTE] 
+    > Wanneer u de optie **Nee**, verwijdert u de **beheerder voor gebruikerstoegang** rol in de hoofdmap '/' (Root Scope) voor de gebruiker waarmee u momenteel bent aangemeld bij de Portal.
+
+> [!TIP] 
+> De indruk is dat dit is een globale eigenschap voor Azure Active Directory, maar het functioneert op basis van per gebruiker voor de momenteel aangemelde gebruiker. Wanneer u rechten voor globale beheerder in Azure Active Directory hebt, kunt u de functie elevateAccess voor de gebruiker die u momenteel bent aangemeld bij Azure Active Directory-beheercentrum kunt aanroepen.
 
 ![Azure AD-beheercentrum - eigenschappen - Globaladmin kunt beheren Azure-abonnement - schermafbeelding](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
 
-## <a name="how-to-use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>Het gebruik van elevateAccess tenant toegang met de REST-API
+## <a name="use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>ElevateAccess gebruiken voor toegang van de tenant met de REST-API
 
 Het basisproces werkt met de volgende stappen uit:
 
@@ -70,47 +77,56 @@ Het basisproces werkt met de volgende stappen uit:
 
 Als u aanroept *elevateAccess* u een roltoewijzing maken voor uzelf, zodat deze bevoegdheden intrekken moet u de toewijzing verwijderen.
 
-1.  Roep [GET roleDefinitions](/rest/api/authorization/roledefinitions#RoleDefinitions_Get) waar roleName = beheerder voor gebruikerstoegang om te bepalen van de naam van de GUID van de rol beheerder voor gebruikerstoegang. Het antwoord ziet er als volgt:
+1.  Aanroepen van GET-roldefinities waar roleName = beheerder voor gebruikerstoegang om te bepalen van de naam van de GUID van de rol beheerder voor gebruikerstoegang.
+    1.  OPHALEN van *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$ filter = roleName + eq +'+ + beheerder voor gebruikerstoegang*
 
-    ```
-    {"value":[{"properties":{
-    "roleName":"User Access Administrator",
-    "type":"BuiltInRole",
-    "description":"Lets you manage user access to Azure resources.",
-    "assignableScopes":["/"],
-    "permissions":[{"actions":["*/read","Microsoft.Authorization/*","Microsoft.Support/*"],"notActions":[]}],
-    "createdOn":"0001-01-01T08:00:00.0000000Z",
-    "updatedOn":"2016-05-31T23:14:04.6964687Z",
-    "createdBy":null,
-    "updatedBy":null},
-    "id":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-    "type":"Microsoft.Authorization/roleDefinitions",
-    "name":"18d7d88d-d35e-4fb5-a5c3-7773c20a72d9"}],
-    "nextLink":null}
-    ```
+        ```
+        {"value":[{"properties":{
+        "roleName":"User Access Administrator",
+        "type":"BuiltInRole",
+        "description":"Lets you manage user access to Azure resources.",
+        "assignableScopes":["/"],
+        "permissions":[{"actions":["*/read","Microsoft.Authorization/*","Microsoft.Support/*"],"notActions":[]}],
+        "createdOn":"0001-01-01T08:00:00.0000000Z",
+        "updatedOn":"2016-05-31T23:14:04.6964687Z",
+        "createdBy":null,
+        "updatedBy":null},
+        "id":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+        "type":"Microsoft.Authorization/roleDefinitions",
+        "name":"18d7d88d-d35e-4fb5-a5c3-7773c20a72d9"}],
+        "nextLink":null}
+        ```
 
-    Sla de GUID van de *naam* parameter in dit geval **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
+        Sla de GUID van de *naam* parameter in dit geval **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
 
-2. Roep [GET roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_Get) waar principalId = uw eigen ObjectId. Hier ziet u alle toewijzingen in de tenant. Zoek naar de waar de scope is '/' en de RoleDefinitionId eindigt met de naam van de rol GUID die u in stap 1 hebt gevonden. De roltoewijzing moet er als volgt uitzien:
+2. U moet er ook voor het weergeven van de roltoewijzing voor tenantbeheerder binnen het bereik van de tenant. Lijst van alle toewijzingen in het bereik van de tenant voor de PrincipalId van de TenantAdmin die de uitbreiden toegang aanroepen. Hiermee wordt een lijst van alle toewijzingen in de tenant voor de object-id. 
+    1. OPHALEN van *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$ filter = principalId + eq + {objectid}*
+    
+        >[!NOTE] 
+        >Een tenantbeheerder mag geen veel toewijzingen hebben als de bovenstaande query te veel toewijzingen, u kunt ook een query retourneert voor alle toewijzingen van op scopeniveau tenant Just en vervolgens de resultaten filteren: ophalen *https://management.azure.com/providers/ Microsoft.Authorization/roleAssignments? api-version = 2015-07-01 & $filter=atScope()*
+        
+    2. Het aanroepen van de bovenstaande retourneren een lijst met roltoewijzingen. De roltoewijzing vinden waar de scope is '/' en de RoleDefinitionId eindigt met de naam van de rol GUID die u in stap 1 hebt gevonden en PrincipalId overeenkomt met de object-id van de Tenant-beheerder. De roltoewijzing ziet er als volgt:
 
-    ```
-    {"value":[{"properties":{
-    "roleDefinitionId":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-    "principalId":"{objectID}",
-    "scope":"/",
-    "createdOn":"2016-08-17T19:21:16.3422480Z",
-    "updatedOn":"2016-08-17T19:21:16.3422480Z",
-    "createdBy":"93ce6722-3638-4222-b582-78b75c5c6d65",
-    "updatedBy":"93ce6722-3638-4222-b582-78b75c5c6d65"},
-    "id":"/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
-    "type":"Microsoft.Authorization/roleAssignments",
-    "name":"e7dd75bc-06f6-4e71-9014-ee96a929d099"}],
-    "nextLink":null}
-    ```
+        ```
+        {"value":[{"properties":{
+        "roleDefinitionId":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+        "principalId":"{objectID}",
+        "scope":"/",
+        "createdOn":"2016-08-17T19:21:16.3422480Z",
+        "updatedOn":"2016-08-17T19:21:16.3422480Z",
+        "createdBy":"93ce6722-3638-4222-b582-78b75c5c6d65",
+        "updatedBy":"93ce6722-3638-4222-b582-78b75c5c6d65"},
+        "id":"/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
+        "type":"Microsoft.Authorization/roleAssignments",
+        "name":"e7dd75bc-06f6-4e71-9014-ee96a929d099"}],
+        "nextLink":null}
+        ```
+        
+        Opnieuw in en sla de GUID van de *naam* parameter in dit geval **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
 
-    Opnieuw in en sla de GUID van de *naam* parameter in dit geval **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
+    3. Gebruik tot slot de gemarkeerde **RoleAssignment ID** verwijderen van de toewijzing die door de bevoegdheden toegang toegevoegd:
 
-3. Tenslotte roept [verwijderen roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_DeleteById) waar roleAssignmentId = de naam van de GUID die u in stap 2 hebt vastgesteld.
+        Https://management.azure.com /providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01 verwijderen
 
 ## <a name="next-steps"></a>Volgende stappen
 

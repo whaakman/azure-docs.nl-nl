@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 11/07/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: d7bc694b05ed1eb3915ba913afdb3cc39e048ca7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1002ce29ff0d9ee2a6eac44c6e4402fc7e9ade31
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory-ontwikkelaar verklarende woordenlijst
 In dit artikel bevat definities voor enkele van de belangrijkste Azure Active Directory (AD) concepten voor ontwikkelaars, dit handig is bij leren over het ontwikkelen van toepassingen voor Azure AD.
@@ -153,13 +153,13 @@ De functie aanmelden van een toepassing wordt doorgaans gebruikt voor het implem
 Het proces van het niet verifiërende een eindgebruiker loskoppelen van de status van de gebruiker die is gekoppeld aan de [clienttoepassing](#client-application) sessie tijdens [aanmelden](#sign-in)
 
 ## <a name="tenant"></a>Tenant
-Een exemplaar van Azure AD-adreslijst wordt aangeduid als een Azure AD-tenant. Biedt tal van functies, waaronder:
+Een exemplaar van Azure AD-adreslijst wordt aangeduid als een Azure AD-tenant. Bevat verschillende functies, waaronder:
 
 * een registerservice voor geïntegreerde toepassingen
 * verificatie van gebruikersaccounts en geregistreerde toepassingen
 * REST-eindpunten die zijn vereist ter ondersteuning van verschillende protocollen zoals OAuth2 en SAML, met inbegrip van de [autorisatie eindpunt](#authorization-endpoint), [-tokeneindpunt](#token-endpoint) en de 'algemene' eindpunt dat wordt gebruikt door [ multitenant-toepassingen](#multi-tenant-application).
 
-Een tenant is ook gekoppeld aan een Azure AD of Office 365-abonnement tijdens het inrichten van het abonnement, bieden Identity & Access Management-functies voor het abonnement. Zie [een Azure Active Directory-tenant verkrijgen] [ AAD-How-To-Tenant] voor meer informatie over de verschillende manieren waarop u toegang kan krijgen tot een tenant. Zie [hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory] [ AAD-How-Subscriptions-Assoc] voor meer informatie over de relatie tussen abonnementen en Azure AD-tenant.
+Azure AD-tenants, zijn gemaakt/gekoppeld aan Azure en Office 365-abonnementen tijdens de registratie, verstrekken Identity & Access Management-functies voor het abonnement. Azure-abonnement kunnen beheerders ook maken extra Azure AD-tenants via de Azure-portal. Zie [een Azure Active Directory-tenant verkrijgen] [ AAD-How-To-Tenant] voor meer informatie over de verschillende manieren waarop u toegang kan krijgen tot een tenant. Zie [hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory] [ AAD-How-Subscriptions-Assoc] voor meer informatie over de relatie tussen abonnementen en Azure AD-tenant.
 
 ## <a name="token-endpoint"></a>-Tokeneindpunt
 Een van de eindpunten die zijn geïmplementeerd door de [autorisatie server](#authorization-server) voor ondersteuning van OAuth2 [toestemming verleent](#authorization-grant). Afhankelijk van de toekennen, kan worden gebruikt aan te schaffen een [toegangstoken](#access-token) (en verwante token 'vernieuwen') naar een [client](#client-application), of [token ID](#ID-token) gebruikt in combinatie met de [OpenID Verbinding maken met] [ OpenIDConnect] protocol.

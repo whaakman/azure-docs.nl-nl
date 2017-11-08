@@ -12,29 +12,31 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 72b004a6c2604e0fc20b71b4b69217622f8f9ea0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b99b9cd52dd28f7f62b5d8d5ffe32339a67f82a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="install-update-3-on-your-storsimple-8000-series-device"></a>Update 3 op uw StorSimple 8000 series apparaat installeert
+
+> [!NOTE]
+> De klassieke portal voor StorSimple is afgeschaft. Uw Managers StorSimple-apparaat wordt automatisch verplaatst naar de nieuwe Azure portal aan de hand van de planning afschaffing. U ontvangt een e-mailbericht en een portal melding voor deze verplaatsen. Dit document wordt ook snel worden ingetrokken. Zie voor vragen met betrekking tot de verplaatsing, [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md).
+
 
 ## <a name="overview"></a>Overzicht
 
 Deze zelfstudie wordt uitgelegd hoe Update 3 installeren op een StorSimple-apparaat waarop een eerdere softwareversie wordt uitgevoerd via de klassieke Azure portal en het gebruik van de hotfix-methode. De hotfix-methode wordt gebruikt wanneer een gateway is geconfigureerd op een andere netwerkinterface dan DATA 0 van de StorSimple-apparaat en u probeert bij te werken vanaf een versie 1 vóór het bijwerken.
 
-Update 3 omvat apparaatsoftware, LSI stuurprogramma en firmware, Storport en Spaceport updates. Als het bijwerken van de Update 2 of een eerdere versie, kunt u zich ook vereist voor het toepassen van iSCSI, WMI, en in bepaalde gevallen schijf firmware-updates. De software voor apparaten, WMI iSCSI-, LSI stuurprogramma, Spaceport en Storport oplossingen ononderbroken updates beschikbaar zijn en kunnen worden toegepast via de klassieke Azure portal. De schijf firmware-updates verstoren updates beschikbaar zijn en kunnen alleen worden toegepast via de Windows PowerShell-interface van het apparaat. 
+Update 3 omvat apparaatsoftware, LSI stuurprogramma en firmware, Storport en Spaceport updates. Als het bijwerken van de Update 2 of een eerdere versie, wordt u ook vereist voor het toepassen van iSCSI, WMI, en in bepaalde gevallen schijf firmware-updates. De software voor apparaten, WMI iSCSI-, LSI stuurprogramma, Spaceport en Storport oplossingen ononderbroken updates beschikbaar zijn. Deze updates kunnen worden toegepast via de klassieke Azure portal. De schijf firmware-updates verstoren updates beschikbaar zijn en kunnen alleen worden toegepast via de Windows PowerShell-interface van het apparaat.
 
 > [!IMPORTANT]
 > * Een aantal handmatige en automatische eerste controles worden uitgevoerd voordat de installatie om te bepalen van de apparaatstatus in termen van hardware-staat en de netwerkverbinding. Deze controles vooraf worden alleen uitgevoerd als u de updates via de klassieke Azure portal toepassen.
-> * Het is raadzaam dat u de software en stuurprogramma's via de klassieke Azure portal installeert. U moet alleen gaat u naar de Windows PowerShell-interface van het apparaat (om updates te installeren) als de controle van de gateway vóór het bijwerken is mislukt in de portal. Afhankelijk van de versie die u bijwerkt, de updates kunnen uren duren voordat 1.5 2.5 installeren. De updates van de modus onderhoud moeten worden geïnstalleerd via de Windows PowerShell-interface van het apparaat. Als onderhoud modus updates verstoren updates beschikbaar zijn, resulteert dit in een uitvaltijd voor uw apparaat.
+> * Het is raadzaam dat u de software en stuurprogramma's via de klassieke Azure portal installeert. Ga naar de Windows PowerShell-interface van het apparaat (om updates te installeren) alleen als de controle van de gateway vóór het bijwerken is mislukt in de portal. Afhankelijk van de versie die u bijwerkt, de updates kunnen uren duren voordat 1.5 2.5 installeren. De updates van de modus onderhoud moeten worden geïnstalleerd via de Windows PowerShell-interface van het apparaat. Als onderhoud modus updates verstoren updates beschikbaar zijn, krijgt uw apparaat uitvaltijd.
 > * Als de optionele StorSimple Snapshot Manager wordt uitgevoerd, zorg ervoor dat u uw Snapshot Manager-versie hebt bijgewerkt naar Update 2 vóór het bijwerken van het apparaat.
-> 
-> 
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
@@ -42,15 +44,14 @@ Update 3 omvat apparaatsoftware, LSI stuurprogramma en firmware, Storport en Spa
 Voer de volgende stappen uit voor het bijwerken van uw apparaat om te [Update 3](storsimple-update3-release-notes.md).
 
 > [!NOTE]
-> Als u bij het toepassen van Update 2 of hoger (inclusief Update 2.1), zich Microsoft voor het ophalen van aanvullende diagnostische gegevens van het apparaat. Als gevolg hiervan als onze teamleden identificeert de apparaten die problemen ondervindt, zijn wij beter ingericht voor het verzamelen van informatie van het apparaat en problemen diagnosticeren. Update 2 of hoger accepteren, kunnen wij deze proactieve ondersteuning.
-> 
-> 
+> Als u bij het toepassen van Update 2 of hoger (inclusief Update 2.1), zich Microsoft voor het ophalen van aanvullende diagnostische gegevens van het apparaat. Deze gegevens kunt identificeren van StorSimple-apparaten die ondervindt problemen en hulpmiddelen voor het oplossen van problemen. Update 2 of hoger accepteren, kunnen wij deze proactieve ondersteuning.
+
 
 [!INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-Controleren of uw apparaat wordt uitgevoerd **StorSimple 8000 Series Update 3 (6.3.9600.17759)**. De **datum laatst bijgewerkt** moet ook worden gewijzigd. 
-   - Als u een eerdere versie dan Update 2 bijwerkt, ook ziet u dat de modus onderhoud updates beschikbaar zijn (dit bericht kan nog wel weergegeven tot 24 uur nadat u de updates hebt geïnstalleerd).
-     Onderhoud modus updates zijn verstoren updates die leiden tot uitvaltijd apparaat en kunnen alleen worden toegepast via de Windows PowerShell-interface van uw apparaat. In sommige gevallen wanneer u Update 1.2 uitvoert uw schijf firmware mogelijk al up-to-date zijn, in dat geval moet u geen onderhoud modus updates installeren.
+Controleren of uw apparaat wordt uitgevoerd **StorSimple 8000 Series Update 3 (6.3.9600.17759)**. De **datum laatst bijgewerkt** wordt gewijzigd. 
+   - Als u een eerdere versie dan Update 2 bijwerkt, ziet u dat de modus onderhoud updates beschikbaar zijn. Dit bericht kan nog wel weergegeven tot 24 uur nadat u de updates installeren.
+     Onderhoud modus updates zijn verstoren updates die tot uitvaltijd van apparaat leiden. Deze updates kunnen alleen worden toegepast via de Windows PowerShell-interface van uw apparaat. In sommige gevallen wanneer u Update 1.2 uitvoert, de firmware van de schijf is mogelijk al up-to-date en u hoeft niet te onderhoud modus updates installeert.
    - Als u bijwerken van de Update 2 of hoger, het apparaat worden nu recente. U kunt de volgende stap overslaan.
 
 De modus onderhoud updates downloaden met behulp van de stappen in [downloaden hotfixes](#to-download-hotfixes) zoeken naar en downloaden van KB3121899, welke schijf firmware-updates zijn geïnstalleerd (de andere updates al is geïnstalleerd door nu). Volg de stappen die worden vermeld in [installeren en testen van onderhoud modus hotfixes](#to-install-and-verify-maintenance-mode-hotfixes) updates voor het installeren van de onderhoudsmodus. 

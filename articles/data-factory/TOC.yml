@@ -166,7 +166,9 @@
           href: compute-linked-services.md
     - name: Controlestroom
       items:
-        - name: Webactiviteit
+        - name: If Condition Activity
+          href: control-flow-if-condition-activity.md
+        - name: Web Activity
           href: control-flow-web-activity.md
         - name: Opzoekactiviteit
           href: control-flow-lookup-activity.md

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 82b1916a49cd1e04580fdb848545ce7d52299579
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1e715b54c78d42d88d2082e9b0e9f942bec72abd
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Rapportageopties voor Azure AD-wachtwoordbeheer
 
@@ -78,13 +78,7 @@ Op dit moment wordt de Azure AD-rapporten en gebeurtenissen API haalt maximaal *
 
 Als u wilt ophalen of gegevens buiten dit venster opslaan, het is raadzaam het persistent maken in een externe database en de API gebruiken om op te vragen van de delta's die het resultaat. Onze aanbeveling is begonnen met het ophalen van deze gegevens wanneer u begint met behulp van SSPR in uw organisatie, extern behouden en vervolgens doorgaan met het bijhouden van de delta's vanaf dit punt.
 
-## <a name="how-to-download-password-reset-registration-events-quickly-with-powershell"></a>Het downloaden van wachtwoord opnieuw instellen van inschrijving gebeurtenissen snel met PowerShell
-
-Naast het rechtstreeks gebruik van de Azure AD-rapporten en gebeurtenissen API, u kunt ook de onderstaande PowerShell-script voor een recente registratie gebeurtenissen in uw directory. Dit is handig als u zien wie onlangs is geregistreerd of wilt ervoor te zorgen wilt dat uw wachtwoord opnieuw instellen van implementatie plaatsvindt zoals verwacht.
-
-* [Azure AD SSPR-registratie activiteit PowerShell-Script](https://gallery.technet.microsoft.com/scriptcenter/azure-ad-self-service-e31b8aee)
-
-### <a name="description-of-report-columns-in-azure-portal"></a>Beschrijving van de kolommen in Azure-portal
+## <a name="description-of-report-columns-in-azure-portal"></a>Beschrijving van de kolommen in Azure-portal
 
 De volgende lijst wordt elk van de rapportkolommen in detail uitgelegd:
 
@@ -93,7 +87,7 @@ De volgende lijst wordt elk van de rapportkolommen in detail uitgelegd:
 * **Datum en tijd** – de datum en tijd van de poging.
 * **Geregistreerde gegevens** : registratie van welke verificatiegegevens die de gebruiker tijdens het wachtwoord opgegeven opnieuw instellen.
 
-### <a name="description-of-report-values-in-azure-portal"></a>Beschrijving van de waarden in Azure-portal
+## <a name="description-of-report-values-in-azure-portal"></a>Beschrijving van de waarden in Azure-portal
 
 De volgende tabel beschrijft de verschillende waarden voor elke kolom toegestaan:
 
@@ -198,16 +192,16 @@ De volgende lijst wordt deze activiteit in detail uitgelegd:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Hoe ik een geslaagde implementatie van SSPR voltooien?](active-directory-passwords-best-practices.md)
-* [Opnieuw instellen of wijzigen van uw wachtwoord](active-directory-passwords-update-your-own-password.md).
-* [Registreren voor selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md).
-* [Hebt u een vraag licentieverlening?](active-directory-passwords-licensing.md)
-* [Welke gegevens wordt gebruikt door de SSPR en welke gegevens moet u voor uw gebruikers vullen?](active-directory-passwords-data.md)
+* [Hoe kan ik een geslaagde implementatie van SSPR voltooien?](active-directory-passwords-best-practices.md)
+* [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md).
+* [Registreer u voor selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md).
+* [Hebt u een vraag over licenties?](active-directory-passwords-licensing.md)
+* [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](active-directory-passwords-data.md)
 * [Welke verificatiemethoden zijn beschikbaar voor gebruikers?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Wat zijn de beleidsopties met SSPR?](active-directory-passwords-policy.md)
-* [Wat is Write-back van wachtwoord en waarom ik van belang?](active-directory-passwords-writeback.md)
-* [Wat zijn alle opties in de SSPR en wat ze aan de hand?](active-directory-passwords-how-it-works.md)
-* [Ik denk dat er iets is verbroken. Hoe kan ik SSPR oplossen?](active-directory-passwords-troubleshoot.md)
-* [Ik heb een vraag waarvoor is geen ergens anders](active-directory-passwords-faq.md)
+* [Wat zijn de beleidsopties bij selfservice voor wachtwoordherstel?](active-directory-passwords-policy.md)
+* [Wat is Wachtwoord terugschrijven en waarom is dit van belang?](active-directory-passwords-writeback.md)
+* [Wat zijn alle opties in selfservice voor wachtwoordherstel en wat houden ze in?](active-directory-passwords-how-it-works.md)
+* [Ik denk dat er iets misgaat. Hoe los ik problemen in selfservice voor wachtwoordherstel op?](active-directory-passwords-troubleshoot.md)
+* [Ik heb een vraag die nog niet is beantwoord](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/active-directory-passwords-reporting/sspr-reporting.png "Voorbeeld van SSPR activiteit audit wordt geregistreerd in Azure AD"

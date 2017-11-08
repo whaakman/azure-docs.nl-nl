@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: d1cb92e15109775fd120d82df6cfa94b7023d5b9
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 08fd66ed68b651bd24bc1bc58ec9631106665381
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Draft gebruiken met Azure Container Service en Azure Container Registry om een Kubernetes-toepassing te bouwen en implementeren
 
@@ -41,7 +41,7 @@ U kunt eenvoudig [een nieuw Azure Container Registry maken](../../container-regi
 
 2. Maak een ACR installatiekopie register met [az acr maken](/cli/azure/acr#create) en zorg ervoor dat de `--admin-enabled` optie is ingesteld op `true`.
       ```azurecli
-      az acr create --resource-group draft --name draftacs --sku Basic --admin-enabled true 
+      az acr create --resource-group draft --name draftacs --sku Basic
       ```
 
 

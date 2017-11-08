@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 53075d20aff073ff46dcd6dccaefea5fc8ec3483
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 14c565bb67480681e1d398a0a21a11448f405e4e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Veelgestelde vragen over wachtwoordbeheer
 
@@ -176,6 +176,11 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
   > **A:** de levensduur van de sessie voor wachtwoordherstel is 15 minuten. De gebruiker heeft vanaf het begin van de bewerking van wachtwoord opnieuw instellen van 15 minuten hun wachtwoord opnieuw instellen. De e-mail en SMS eenmalige wachtwoordcode zijn ongeldig nadat deze periode is verstreken.
   >
   >
+* **V: kan ik verhinderen dat gebruikers hun wachtwoord opnieuw instellen?**
+
+  > **A:** Ja, als u een groep gebruikt voor het inschakelen van de selfservice voor wachtwoordherstel kunt u deze verwijderen uit de groep waarmee ze deze mogelijkheid.
+  >
+  >
 
 ## <a name="password-change"></a>Wachtwoord wijzigen
 
@@ -187,6 +192,11 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
 * **V: kunnen mijn gebruikers worden gewaarschuwd in de Office-Portal wanneer hun on-premises wachtwoord is verlopen?**
 
   > **A:** dit vandaag is mogelijk als u AD FS gebruikt door de volgende instructies te volgen: [wachtwoord beleid Claims verzenden met AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Als u synchronisatie van wachtwoordhash, is dit niet mogelijk vandaag. Dit is omdat we niet wachtwoordbeleid van on-premises synchroniseren zodat het is niet mogelijk om te posten verlopen-meldingen naar cloud ervaringen. In beide gevallen is het ook mogelijk te [Waarschuw gebruikers waarvan de wachtwoorden bijna verlopen zijn met behulp van PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  >
+  >
+* **V: kan ik verhinderen dat gebruikers hun wachtwoord wijzigen?**
+
+  > **A:** voor cloudconfiguratie gebruikers deze kan niet worden geblokkeerd. U kunt instellen voor on-premises gebruikers `User cannot change password` gecontroleerd en die gebruikers niet kunnen worden om hun wachtwoord te wijzigen.
   >
   >
 
@@ -263,14 +273,14 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Hoe ik een geslaagde implementatie van SSPR voltooien?](active-directory-passwords-best-practices.md)
-* [Opnieuw instellen of wijzigen van uw wachtwoord](active-directory-passwords-update-your-own-password.md).
-* [Registreren voor selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md).
-* [Hebt u een vraag licentieverlening?](active-directory-passwords-licensing.md)
-* [Welke gegevens wordt gebruikt door de SSPR en welke gegevens moet u voor uw gebruikers vullen?](active-directory-passwords-data.md)
+* [Hoe kan ik een geslaagde implementatie van SSPR voltooien?](active-directory-passwords-best-practices.md)
+* [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md).
+* [Registreer u voor selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md).
+* [Hebt u een vraag over licenties?](active-directory-passwords-licensing.md)
+* [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](active-directory-passwords-data.md)
 * [Welke verificatiemethoden zijn beschikbaar voor gebruikers?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Wat zijn de beleidsopties met SSPR?](active-directory-passwords-policy.md)
-* [Wat is Write-back van wachtwoord en waarom ik van belang?](active-directory-passwords-writeback.md)
-* [Hoe meld ik op activiteit in SSPR?](active-directory-passwords-reporting.md)
-* [Wat zijn alle opties in de SSPR en wat ze aan de hand?](active-directory-passwords-how-it-works.md)
-* [Ik denk dat er iets is verbroken. Hoe kan ik SSPR oplossen?](active-directory-passwords-troubleshoot.md)
+* [Wat zijn de beleidsopties bij selfservice voor wachtwoordherstel?](active-directory-passwords-policy.md)
+* [Wat is Wachtwoord terugschrijven en waarom is dit van belang?](active-directory-passwords-writeback.md)
+* [Hoe maak ik rapporten van activiteit in selfservice voor wachtwoordherstel?](active-directory-passwords-reporting.md)
+* [Wat zijn alle opties in selfservice voor wachtwoordherstel en wat houden ze in?](active-directory-passwords-how-it-works.md)
+* [Ik denk dat er iets misgaat. Hoe los ik problemen in selfservice voor wachtwoordherstel op?](active-directory-passwords-troubleshoot.md)
