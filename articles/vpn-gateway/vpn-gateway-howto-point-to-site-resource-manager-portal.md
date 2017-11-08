@@ -116,7 +116,7 @@ Certificaten worden in Azure gebruikt om clients te verifiëren die verbinding w
 
 De clientadrespool bestaat uit een privé-IP-adresbereik dat u opgeeft. De clients die verbinding maken via een punt-naar-site-VPN-verbinding krijgen een IP-adres uit dit bereik. Gebruik een privé-IP-adresbereik dat niet overlapt met de on-premises locatie waarvanaf u verbinding maakt of met het VNet waarmee u verbinding wilt maken.
 
-1. Nadat de virtuele netwerkgateway is gemaakt, gaat u naar de sectie **Instellingen** van de pagina van de virtuele netwerkgateway. Klik in de sectie **Instellingen** op **Punt-naar-site-configuratie** om de gelijknamige**** pagina te openen.
+1. Nadat de virtuele netwerkgateway is gemaakt, gaat u naar de sectie **Instellingen** van de pagina van de virtuele netwerkgateway. Klik in de sectie **Instellingen** op **Punt-naar-site-configuratie** om de gelijknamige pagina **Punt-naar-site-configuratie** te openen.
 
   ![De pagina Punt-naar-site](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png)
 2. Op de pagina **Punt-naar-site-configuratie** kunt u het automatisch ingevulde bereik verwijderen en daarna het bereik met privé-IP-adressen toevoegen dat u wilt gebruiken. Klik op **Opslaan** om de instelling te valideren en op te slaan.

@@ -380,6 +380,8 @@
           href: how-to-use-perfInsights.md
         - name: VM-extensie voor diagnostische gegevens over prestaties
           href: performance-diagnostics-vm-extension.md
+        - name: Geneste virtualisatie gebruiken
+          href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Naslaginformatie
   items:
     - name: Azure CLI
