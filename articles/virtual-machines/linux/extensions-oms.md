@@ -3,7 +3,7 @@ title: De extensie OMS Azure virtuele machine voor Linux | Microsoft Docs
 description: Implementeer de OMS-agent op Linux virtuele machine met de extensie van een virtuele machine.
 services: virtual-machines-linux
 documentationcenter: 
-author: neilpeterson
+author: danielsollondon
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: nepeters
-ms.openlocfilehash: 138fc8c98ea6f409b28407b20851c96ecc618b09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danis
+ms.openlocfilehash: 6eb07b5ad4b3ebdde75575fc5682ae2153a0c12f
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Extensie van de virtuele machine OMS voor Linux
 

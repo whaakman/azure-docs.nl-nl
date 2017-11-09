@@ -14,76 +14,119 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: a662841bebda460d4225e080f16705b3f16fdc46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc89cd29e1e8038f0ff317ff6acee332218ebce7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="get-started-with-azure-advisor"></a>Aan de slag met Azure Advisor
 
-Informatie over het Advisor toegang via de Azure portal, aanbevelingen krijgen, implementeer aanbevelingen, zoeken naar aanbevelingen en aanbevelingen voor vernieuwen.
+Informatie over het openen van Advisor via de Azure portal, aanbevelingen krijgen, en implementatie van de aanbevelingen.
 
 ## <a name="get-advisor-recommendations"></a>Ontvang aanbevelingen van Advisor
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Klik in het linkerdeelvenster op **meer services**.
-
-3. Klik in het deelvenster service menu onder **bewaking en beheer**, klikt u op **Azure Advisor**.  
+2. Klik in het linkerdeelvenster op **Advisor**.  Als u Advisor niet in het linkerdeelvenster ziet, klikt u op **meer services**.  Klik in het deelvenster service menu onder **bewaking en beheer**, klikt u op **Advisor**.
  De Advisor-dashboard wordt weergegeven.
 
-   ![Toegang tot Azure Advisor met de Azure portal](./media/advisor-overview/advisor-azure-portal-menu.png) 
+   ![Toegang tot Azure Advisor met de Azure portal](./media/advisor-get-started/advisor-portal-menu.png) 
 
-4. Selecteer het abonnement waarvoor u wilt ontvangen van aanbevelingen op het dashboard Advisor.  
-De Advisor-dashboard toont de persoonlijke aanbevelingen voor een geselecteerde abonnement. 
+4. Het dashboard Advisor wordt een samenvatting weergeven van de aanbevelingen voor alle geselecteerde abonnementen.  U kunt de abonnementen die u wilt dat de aanbevelingen voor het gebruik van het abonnement moet worden weergegeven filteren vervolgkeuzelijst.
 
-5. Als u de aanbevelingen voor een bepaalde categorie, klikt u op een van de tabbladen: **hoge beschikbaarheid**, **beveiliging**, **prestaties**, of **kosten**.
+5. Als u de aanbevelingen voor een specifieke categorie, klikt u op een van de tabbladen: **hoge beschikbaarheid**, **beveiliging**, **prestaties**, of **kosten**.
  
 > [!NOTE]
-> Voor toegang tot de aanbevelingen Advisor te ontvangen, moet u eerst *registreren van uw abonnement* met Advisor. Een abonnement is geregistreerd als een *abonnement eigenaar* start van de Advisor-dashboard en klikt op de **aanbevelingen krijgen** knop. Dit is een *eenmalige bewerking*. Nadat het abonnement is geregistreerd, kunt u de aanbevelingen van Advisor als openen *eigenaar*, *Inzender*, of *lezer* voor een abonnement, resourcegroep of een specifieke bron.
+> Gebruik Azure Advisor met een abonnement, een abonnement *eigenaar* moet het dashboard Advisor starten.  Deze actie wordt het abonnement met Advisor geregistreerd.  Vanaf dat moment op een abonnement *eigenaar*, *Inzender*, of *lezer* toegang heeft tot de aanbevelingen van Advisor voor het abonnement.  
 
-  ![Azure Advisor-dashboard](./media/advisor-overview/advisor-all-tab.png)
+  ![Azure Advisor-dashboard](./media/advisor-overview/advisor-dashboard.png)
 
 ## <a name="get-advisor-recommendation-details-and-implement-a-solution"></a>Details van de Advisor-aanbeveling ophalen en implementeren van een oplossing
 
-De **aanbeveling** blade in Advisor biedt aanvullende informatie over de aanbeveling. 
+U kunt een aanbeveling selecteren in Advisor om aanvullende informatie, zoals de aanbevolen acties en betrokken resources – weer te geven en om de oplossing naar de aanbeveling te implementeren.  
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en start vervolgens [Azure Advisor](https://aka.ms/azureadvisordashboard).
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en open vervolgens [Advisor](https://aka.ms/azureadvisordashboard).
 
-2. Op de **Advisor aanbevelingen** dashboard, klikt u op **aanbevelingen krijgen**.
+2. Selecteer een categorie aanbeveling in de lijst met aanbevelingen in die categorie weergeven of Selecteer de **alle** tabblad om alle uw aanbevelingen.
 
-3. Klik in de lijst met aanbevelingen op een aanbeveling die u wilt controleren in detail.  
-De **aanbeveling** blade wordt weergegeven.
+3. Klik op een aanbeveling die u wilt controleren in detail.
 
-4. Op de **aanbevelingen** blade gegevens bekijken over acties die u kunt uitvoeren als een mogelijk probleem wilt oplossen of profiteren van een kans kosten te besparen. 
-  
-  ![De Advisor-indexaanbeveling](./media/advisor-overview/advisor-recommendation-action-example.png)
+4. Lees de informatie over de aanbeveling en de resources die de aanbeveling is van toepassing op.
 
-## <a name="search-for-advisor-recommendations"></a>Zoeken naar Advisor aanbevelingen
+5. Klik op de **aanbevolen actie** voor het implementeren van de aanbeveling.
 
-U kunt zoeken naar aanbevelingen voor een bepaalde groep abonnement of resourcegroep. U kunt ook zoeken aanbevelingen op status.
+## <a name="filter-advisor-recommendations"></a>Filter aanbevelingen Advisor te ontvangen
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en start vervolgens [Azure Advisor](https://aka.ms/azureadvisordashboard).
+Aanbevelingen voor inzoomen op wat voor u het belangrijkst is, kunt u filteren.  U kunt filteren op abonnement, resourcetype of aanbeveling status.  
 
-2. Zoeken naar aanbevelingen op filteren voor abonnementen en resourcegroepen aanbeveling status (**Active** of **Snoozed**).
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en open vervolgens [Advisor](https://aka.ms/azureadvisordashboard).
 
-3. Een lijst met aanbevelingen Advisor te ontvangen die zijn gebaseerd op uw zoekopdracht filtercriteria, klikt u op **aanbevelingen krijgen**.
+2.  De vervolgkeuzelijsten op de Advisor-dashboard gebruiken om te filteren op abonnement, resourcetype of aanbeveling status.
 
-  ![Advisor zoekfilter criteria](./media/advisor-get-started/advisor-search.png)
+    ![Advisor zoekfilter criteria](./media/advisor-get-started/advisor-filters.png)
 
 ## <a name="snooze-or-dismiss-advisor-recommendations"></a>Uitstellen of negeren van Advisor aanbevelingen
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en start vervolgens [Azure Advisor](https://aka.ms/azureadvisordashboard).
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en open vervolgens [Advisor](https://aka.ms/azureadvisordashboard).
 
-2. Klik op **aanbevelingen krijgen**, en klik vervolgens in de lijst met aanbevelingen op een aanbeveling.
+2. Navigeer naar de aanbeveling die u wilt uitstellen of negeren.
 
-3. Op de **aanbeveling** blade, klikt u op **uitstellen**.  
+3. Klik op de aanbeveling.
 
-   ![Voorbeeld van Advisor aanbeveling actie](./media/advisor-get-started/advisor-snooze.png)
+4. Klik op **uitstellen**. 
 
-4. Geef een periode bewerkingen worden uitgesteld of selecteer **nooit** naar de aanbeveling negeren.
+5. Geef een periode bewerkingen worden uitgesteld of selecteer **nooit** naar de aanbeveling negeren.
 
+## <a name="exclude-subscriptions-or-resource-groups-from-advisor"></a>Abonnementen of resourcegroepen uitsluiten van Advisor
+
+Mogelijk hebt u resourcegroepen of abonnementen voor die u niet wilt ontvangen van de aanbevelingen van Advisor – zoals 'test'.  U kunt Advisor alleen om aanbevelingen te genereren voor specifieke abonnementen en resourcegroepen configureren.
+
+> [!NOTE]
+> Als u wilt opnemen of uitsluiten van een abonnement of resourcegroep van Advisor, moet u de eigenaar van een abonnement.  Als u niet de vereiste machtigingen voor een abonnement of resourcegroep hebt, wordt de optie voor het opnemen of uitsluiten van deze is uitgeschakeld in de gebruikersinterface.
+
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en open vervolgens [Advisor](https://aka.ms/azureadvisordashboard).
+
+2. Klik op **configureren** in de actiebalk.
+
+3. Schakel alle abonnementen of de resourcegroepen die u niet wilt ontvangen van aanbevelingen voor Advisor.
+
+    ![Advisor resources voorbeeld configureren](./media/advisor-get-started/advisor-configure-resources.png)
+
+4. Klik op de **toepassen** knop.
+
+## <a name="configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation"></a>De gemiddelde CPU-gebruik regel voor de virtuele machine geringe gebruiksduur aanbeveling configureren
+
+Advisor bewaakt het gebruik van uw virtuele machine 14 dagen en identificeert dan laag gebruik virtuele machines. Virtuele machines waarvan gemiddelde CPU-gebruik 5 is % of minder en netwerkgebruik is 7 MB of minder voor vier of meer dagen worden beschouwd als laag gebruik virtuele machines.
+
+Als u worden agressievere wilt op geringe gebruiksduur virtuele machines te identificeren, kunt u het gemiddelde CPU-gebruik regel op basis van per abonnement kunt aanpassen.  De gemiddelde CPU-gebruik regel kan worden ingesteld op % 5, 10%, 15% of 20%.
+
+> [!NOTE]
+> Om aan te passen de gemiddelde CPU-gebruik regel voor het identificeren van geringe gebruiksduur virtuele machines, moet u een abonnement *eigenaar*.  Als u niet de vereiste machtigingen voor een abonnement of resourcegroep hebt, wordt de optie voor het opnemen of uitsluiten van deze uitgeschakeld in de gebruikersinterface. 
+
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en open vervolgens [Advisor](https://aka.ms/azureadvisordashboard).
+
+2. Klik op **configureren** in de actiebalk.
+
+3. Klik op de **regels** tabblad.
+
+4. Selecteer de abonnementen die u wilt de gemiddelde CPU-gebruik regel voor het aanpassen en klik vervolgens op **bewerken**.
+
+5. Selecteer de gewenste waarde voor gemiddelde CPU-gebruik en op **toepassen**.
+
+6. Klik op **vernieuwen aanbevelingen** bijwerken van uw bestaande aanbevelingen voor het gebruik van de nieuwe regel voor gemiddelde CPU-gebruik. 
+
+   ![Advisor aanbeveling regels voorbeeld configureren](./media/advisor-get-started/advisor-configure-rules.png)
+
+## <a name="download-your-advisor-recommendations"></a>De aanbevelingen van Advisor downloaden
+
+Advisor kunt u een overzicht van uw aanbevelingen downloaden.  U kunt uw aanbevelingen als een PDF-bestand of een CSV-bestand downloaden.  Uw aanbevelingen downloaden, kunt u eenvoudig delen met uw collega's of uw eigen analyse boven op de aanbeveling gegevens uit te voeren.
+
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en open vervolgens [Advisor](https://aka.ms/azureadvisordashboard).
+
+2. Klik op **downloaden als CSV** of **downloaden als PDF** op de actiebalk.
+
+De downloadoptie respecteert alle filters die u hebt toegepast op de Advisor-dashboard.  Als u de downloadoptie tijdens het bekijken van een specifieke aanbeveling categorie of de aanbeveling selecteert, bevat de gedownloade samenvatting alleen informatie voor die categorie of de aanbeveling. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

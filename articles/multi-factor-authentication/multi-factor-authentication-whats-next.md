@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
-ms.openlocfilehash: 8ff991ffb05bb92f047cc8dfc40e80b704379898
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Configureren van instellingen voor Azure multi-factor Authentication - Public preview
 
@@ -29,6 +29,7 @@ Dit artikel helpt u bij het beheren van Azure multi-factor Authentication nu dat
 
 | Functie | Beschrijving | 
 |:--- |:--- |
+| [Gebruikers blokkeren/blokkering opheffen](#block/unblock-users) |Gebruikers blokkeren/blokkering opheffen kunnen voorkomen dat gebruikers verificatieaanvragen ontvangt. |
 | [Fraudewaarschuwing](#fraud-alert) |Fraudewaarschuwing worden geconfigureerd en zo instellen dat uw gebruikers frauduleuze probeert te krijgen tot hun bronnen kunnen rapporteren. |
 | [Eenmalig overslaan](#one-time-bypass) |Eenmalig overslaan kan een gebruiker één keer verifiëren door te multi-factor authentication 'negeren'. |
 | [Aangepaste spraakberichten](#custom-voice-messages) |Aangepaste spraakberichten kunnen u uw eigen opnamen of begroetingen met meervoudige verificatie gebruiken. |
@@ -38,6 +39,23 @@ Dit artikel helpt u bij het beheren van Azure multi-factor Authentication nu dat
 | [Houd er rekening mee multi-factor Authentication voor onthouden apparaten en browsers](#remember-multi-factor-authentication-for-devices-that-users-trust) |Hiermee kunt u apparaten onthouden voor een bepaald aantal dagen nadat een gebruiker heeft aangemeld met MFA. |
 | [Selecteerbare verificatiemethoden](#selectable-verification-methods) |Kunt u de verificatiemethoden die beschikbaar zijn voor gebruikers om te gebruiken. |
 
+## <a name="blockunblock-users"></a>Gebruikers blokkeren/blokkering opheffen
+Gebruikers blokkeren/blokkering kunnen worden gebruikt om te voorkomen dat gebruikers ontvangen van verificatieaanvragen. Alle verificatiepogingen voor geblokkeerde gebruikers worden automatisch geweigerd. Geblokkeerde gebruikers blijven geblokkeerde voor 90 dagen vanaf het moment dat ze worden geblokkeerd.
+
+### <a name="block-a-user"></a>Een gebruiker blokkeren
+1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
+2. Navigeer naar **Azure Active Directory** > **MFA-Server** > **gebruikers blokkeren/blokkering**.
+3. Klik op **toevoegen** om een gebruiker te blokkeren.
+4. Selecteer de **replicatiegroep**, de geblokkeerde gebruikersnaam als invoer  **username@domain.com** , en voer een opmerking in het **reden** veld.
+5. Klik op **toevoegen** voltooid blokkeren van de gebruiker.
+
+### <a name="unblock-a-user"></a>Een gebruiker de blokkering opheffen
+1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
+2. Navigeer naar **Azure Active Directory** > **MFA-Server** > **gebruikers blokkeren/blokkering**.
+3. Klik op **blokkering** in de **actie** kolom naast de gebruiker die u wilt deblokkeren.
+4. Voer een opmerking in het **reden voor het opheffen van de blokkering** veld.
+5. Klik op **blokkering** voltooid deblokkeren van de gebruiker.
+
 ## <a name="fraud-alert"></a>Fraudewaarschuwing
 Fraudewaarschuwing worden geconfigureerd en zo instellen dat uw gebruikers frauduleuze probeert te krijgen tot hun bronnen kunnen rapporteren.  Gebruikers kunnen rapporteren van fraude met de mobiele app of via hun telefoon.
 
@@ -45,7 +63,7 @@ Fraudewaarschuwing worden geconfigureerd en zo instellen dat uw gebruikers fraud
 1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
 2. Navigeer naar **Azure Active Directory** > **MFA-Server** > **fraudewaarschuwing**.
 
-   ![Fraudewaarschuwing](./media/multi-factor-authentication-whats-next/fraudalert.png)
+   ![Melding bij fraude](./media/multi-factor-authentication-whats-next/fraudalert.png)
 
 3. Schakel **dat gebruikers kunnen indienen Fraudewaarschuwingen** naar **op**.
 4. Selecteer **Opslaan**.
@@ -240,7 +258,7 @@ Onthoud multi-factor Authentication voor apparaten en browsers dat gebruikers ve
 
 Echter, als een account of apparaat is geknoeid, onthoud MFA voor vertrouwde apparaten kan invloed hebben op beveiliging. Als een zakelijke account wordt aangetast of een vertrouwd apparaat is zoekgeraakt of gestolen, moet u [multi-factor Authentication herstellen op alle apparaten](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user). Deze actie worden de vertrouwde status van alle apparaten ingetrokken en de gebruiker is vereist om opnieuw verificatie in twee stappen uitvoeren. U kunt ook instrueert u uw gebruikers MFA om op te herstellen met de instructies in hun eigen apparaten [beheren van uw instellingen voor verificatie in twee stappen](./end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)
 
-### <a name="how-it-works"></a>Hoe werkt het?
+### <a name="how-it-works"></a>Het werkt als volgt
 
 Onthouden van multi-factor Authentication werkt door het instellen van een permanente cookie op de browser wanneer een gebruiker controleert de ' niet opnieuw vragen voor **X** dagen ' vak bij het aanmelden. De gebruiker niet gevraagd voor MFA opnieuw in die browser totdat de cookie verloopt. Als de gebruiker een andere browser op hetzelfde apparaat opent of hun cookies wist, wordt deze gevraagd om te controleren of opnieuw. 
 

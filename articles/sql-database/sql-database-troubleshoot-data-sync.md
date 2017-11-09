@@ -8,15 +8,17 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: d0cbe02e5a99fc62869256ed86e774aa2729f7e6
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: bbfcac5a54f04f20dbdeeecef7c06b91128b8c6a
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="troubleshoot-issues-with-azure-sql-data-sync"></a>Problemen oplossen met het synchroniseren van Azure SQL-gegevens
+# <a name="troubleshoot-issues-with-azure-sql-data-sync-preview"></a>Problemen oplossen met Azure SQL-gegevenssynchronisatie (Preview)
 
 Dit artikel wordt beschreven hoe u problemen met huidige die bekend zijn bij het synchroniseren van de SQL-gegevens (Preview)-team. Als er een oplossing voor een probleem is, is het hier opgegeven.
+
+Zie voor een overzicht van de SQL-gegevenssynchronisatie [synchroniseren van gegevens via meerdere cloud en on-premises databases met Azure SQL-gegevenssynchronisatie (Preview)](sql-database-sync-data.md).
                                                            
 ## <a name="my-client-agent-doesnt-work"></a>Mijn clientagent werkt niet
 
@@ -487,3 +489,20 @@ Een van de volgende voorwaarden kan resulteren in een groep voor synchronisatie 
 
 Als u niet het probleem wilt verhelpen, de status van de groep voor synchronisatie met opnieuw instellen met Microsoft ondersteuning. Om de status opnieuw instellen, maakt u een bericht op de [-forum Azure SQL Database](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted), maar ook uw abonnements-ID en de synchronisatie-ID voor de groep die moet worden ingesteld. Een support engineer van Microsoft wordt gereageerd op uw bericht en kunt u weten wanneer de status is opnieuw ingesteld.
 
+## <a name="next-steps"></a>Volgende stappen
+Zie voor meer informatie over het synchroniseren van de SQL-gegevens:
+
+-   [Synchronisatie van gegevens over meerdere cloud en on-premises databases met synchroniseren van Azure SQL-gegevens](sql-database-sync-data.md)
+-   [Aan de slag met Azure SQL-gegevenssynchronisatie](sql-database-get-started-sql-data-sync.md)
+-   [Aanbevolen procedures voor het synchroniseren van Azure SQL-gegevens](sql-database-best-practices-data-sync.md)
+
+-   Voer de PowerShell-voorbeelden die laten hoe u zien voor het synchroniseren van de SQL-gegevens configureren:
+    -   [PowerShell gebruiken om te synchroniseren tussen meerdere Azure SQL-databases](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [PowerShell gebruiken om te synchroniseren tussen een Azure SQL Database en een lokale SQL Server-database.](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+-   [De SQL-gegevens synchroniseren REST-API-documentatie downloaden](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+Zie voor meer informatie over SQL-Database:
+
+-   [Overzicht van de SQL-Database](sql-database-technical-overview.md)
+-   [Database-levenscyclusbeheer](https://msdn.microsoft.com/library/jj907294.aspx)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: d3178413e894c095235dde067b369e3554375aa6
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 85d6ec20fb0447165c672ba267569994e3a96e45
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Vragen over de Azure VM Backup-service
 In dit artikel vindt u antwoorden op veelgestelde vragen om u snel een beeld te geven van de verschillende onderdelen van Azure VM Backup. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -48,6 +48,9 @@ Ja, back-ups naadloos werken en u hoeft geen back-up opnieuw configureren.
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>Mijn VM is afgesloten. Maakt op aanvraag of een geplande back-up werk?
 Ja. Zelfs wanneer een machine is afgesloten back-ups werken en het herstelpunt dat is gemarkeerd als Crash consistent. Voor meer informatie, Zie de sectie van de consistentie gegevens in [in dit artikel](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines)
+
+### <a name="can-i-cancel-an-in-progress-backup-job"></a>Kan ik een back-uptaak wordt uitgevoerd annuleren?
+Ja. Als het zich in momentopname ' te maken' fase, kunt u back-uptaak annuleren. **U kunt een taak als de overdracht van gegevens vanuit een momentopname uitgevoerd wordt niet annuleren**. 
 
 ## <a name="restore"></a>Herstellen
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Hoe bepaal ik of ik beter afzonderlijke schijven kan herstellen of de virtuele machine als geheel?

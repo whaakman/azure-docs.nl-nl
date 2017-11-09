@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/27/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4cf30130907151ade9eaf9db28748b8141dac8e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40849e7f0c8a76bdd8a0e03d0780534569d9874a
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Voorwaardelijke toegang in Azure Active Directory
 
@@ -131,18 +131,13 @@ U kunt het risiconiveau voor berekende aanmelden als voorwaarde in een beleid vo
 
 ### <a name="device-platforms"></a>Apparaatplatforms
 
-Platform van het apparaat wordt gekenmerkt door het besturingssysteem dat wordt uitgevoerd op uw apparaat:
+Platform van het apparaat wordt gekenmerkt door het besturingssysteem dat wordt uitgevoerd op uw apparaat: U kunt de apparaatplatforms die opgenomen zijn, evenals de apparaatplatforms die zijn uitgesloten van een beleid definiëren.  
+Als u apparaatplatforms in het beleid, moet u eerst de Schakelknoppen configureren om te wijzigen **Ja**, en selecteer vervolgens alle of afzonderlijke apparaatplatforms het beleid van toepassing. Als u afzonderlijke apparaatplatforms selecteert, wordt in het beleid alleen gevolgen heeft voor deze platforms. Aanmeldingen voor andere ondersteunde platforms zijn in dit geval wordt niet beïnvloed door het beleid.
 
-- Android
-- iOS
-- Windows Phone
-- Windows
-- Mac OS (preview). 
 
 ![Voorwaarden](./media/active-directory-conditional-access-azure-portal/02.png)
 
-U kunt de apparaatplatforms die zijn opgenomen en de apparaatplatforms die zijn uitgesloten van een beleid definiëren.  
-Als u apparaatplatforms in het beleid, moet u eerst de Schakelknoppen configureren om te wijzigen **Ja**, en selecteer vervolgens alle of afzonderlijke apparaatplatforms het beleid van toepassing. Als u afzonderlijke apparaatplatforms selecteert, wordt in het beleid alleen gevolgen heeft voor deze platforms. Aanmeldingen voor andere ondersteunde platforms zijn in dit geval wordt niet beïnvloed door het beleid.
+Zie voor een volledige lijst met de ondersteunde apparaatplatforms [apparaat platform voorwaarde](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
 ### <a name="locations"></a>Locaties

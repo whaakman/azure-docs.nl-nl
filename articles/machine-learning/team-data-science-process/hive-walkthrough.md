@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 238b7d6bb6289b5f2e8d2a20f4335724087dfd48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1be39ab258235740c7e0875a5c0c29ee4a665a71
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>De procedure van wetenschappelijke gegevens Team in actie: gebruik Azure HDInsight Hadoop-clusters
 In dit scenario, gebruiken we de [Team gegevens wetenschap proces (TDSP)](overview.md) aan een end-to-end-scenario met een [Azure HDInsight Hadoop-cluster](https://azure.microsoft.com/services/hdinsight/) om op te slaan, verkennen en engineer van gegevens uit de openbaar beschikbare functies [NYC Taxi reizen](http://www.andresmh.com/nyctaxitrips/) gegevensset, en om de voorbeeldgegevens omlaag. Modellen van de gegevens zijn gebouwd met Azure Machine Learning om af te handelen binaire en multiklassen classificatie en regressie voorspellende taken.
@@ -59,15 +59,15 @@ Hier volgen drie voorbeelden van voorspelling problemen die we in dit overzicht 
 
 1. **Binaire classificatie**: voorspellen of een tip betaald is voor een reis, dat wil zeggen een *tip\_bedrag* die groter is dan $0 een voorbeeld van een positieve is, terwijl een *tip\_bedrag* van $0 is een voorbeeld van een negatief.
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0
 2. **Multiklassen classificatie**: om te voorspellen van het bereik van tip bedragen voor de reis betaald. We delen de *tip\_bedrag* in vijf opslaglocaties of klassen:
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0 and tip_amount <= $5
-        Class 2 : tip_amount > $5 and tip_amount <= $10
-        Class 3 : tip_amount > $10 and tip_amount <= $20
-        Class 4 : tip_amount > $20
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0 and tip_amount <= $5
+        Class 2: tip_amount > $5 and tip_amount <= $10
+        Class 3: tip_amount > $10 and tip_amount <= $20
+        Class 4: tip_amount > $20
 3. **Regressie taak**: om te voorspellen van de hoeveelheid de tip voor een reis betaald.  
 
 ## <a name="setup"></a>Instellen van een HDInsight Hadoop-cluster voor geavanceerde analyses
@@ -132,7 +132,7 @@ De gegevens moet nu in Azure Blob Storage en klaar om te worden gebruikt binnen 
 > 
 > 
 
-Voor toegang tot het hoofdknooppunt van het cluster voor experimentele data-analyse en omlaag steekproeven van de gegevens, volgt u de procedure beschreven in [toegang tot de hoofd-knooppunt van Hadoop-Cluster](customize-hadoop-cluster.md#headnode).
+Voor toegang tot het hoofdknooppunt van het cluster voor experimentele data-analyse en omlaag steekproeven van de gegevens, volgt u de procedure beschreven in [toegang tot de hoofd-knooppunt van Hadoop-Cluster](customize-hadoop-cluster.md).
 
 In dit scenario, gebruiken we voornamelijk query's die zijn geschreven [Hive](https://hive.apache.org/), een SQL-achtige query language voorlopige gegevens explorations uitvoeren. Het Hive-query's worden opgeslagen in .hql bestanden. We vervolgens steekproef deze gegevens naar Azure Machine Learning worden gebruikt voor het ontwikkelen van modellen omlaag.
 
@@ -725,15 +725,15 @@ Sommige gegevens op de [importgegevens] [ import-data] module en de parameters v
 
 **HCatalog server-URI**: als de clusternaam abc123 is, is dit gewoon: https://abc123.azurehdinsight.net
 
-**Hadoop-gebruikersaccountnaam** : de naam van de gebruiker gekozen voor het cluster (**niet** de gebruikersnaam voor externe toegang)
+**Hadoop-gebruikersaccountnaam**: de naam van de gebruiker gekozen voor het cluster (**niet** de gebruikersnaam voor externe toegang)
 
-**Hadoop ser accountwachtwoord** : het wachtwoord voor het cluster gekozen (**niet** het wachtwoord voor externe toegang)
+**Hadoop ser accountwachtwoord**: het wachtwoord voor het cluster gekozen (**niet** het wachtwoord voor externe toegang)
 
-**Locatie van uitvoergegevens** : dit is gekozen als Azure.
+**Locatie van uitvoergegevens**: dit is gekozen als Azure.
 
-**Naam van het Azure-opslagaccount** : naam van het standaardopslagaccount die is gekoppeld aan het cluster.
+**Naam van het Azure-opslagaccount**: naam van het standaardopslagaccount die is gekoppeld aan het cluster.
 
-**Azure containernaam** : dit is de standaardnaam van de container voor het cluster en is meestal hetzelfde als de naam van het cluster. Voor een cluster 'abc123' genoemd, is dit alleen abc123.
+**Azure containernaam**: dit is de standaardnaam van de container voor het cluster en is meestal hetzelfde als de naam van het cluster. Voor een cluster 'abc123' genoemd, is dit alleen abc123.
 
 > [!IMPORTANT]
 > **Elke tabel wilt opvragen met behulp van de [importgegevens] [ import-data] module in Azure Machine Learning een interne tabel moet zijn.** Een tip om te bepalen of een tabel T in een database D.db een interne tabel is is als volgt.
@@ -783,7 +783,7 @@ Als gevolg hiervan krijgen we een AUC van 0.987 zoals weergegeven in de afbeeldi
 
 a. Voor dit probleem op door het label voor onze doel (of een klasse) is ' tip\_klasse ' die kan duren voordat een van vijf waarden (0,1,2,3,4). Net als bij de binaire classificatie hebben we enkele kolommen die doel lekken voor dit experiment. Met name: punt, tip\_bedrag totale\_bedrag onthullen informatie over het doellabel is niet beschikbaar voor het testen van tijd. Verwijderen we deze kolommen met behulp van de [Select Columns in Dataset] [ select-columns] module.
 
-De momentopname hieronder ziet u ons experiment te voorspellen, in welke opslaglocatie is een tip waarschijnlijk valt (klasse 0: tip = $0, 1 klasse: tip > $0 en tip < = $5, klasse 2: tip > $5 en tip < = $10, klasse 3: tip > $10 en tip < $20, klasse, 4 =: tip > $20)
+De momentopname hieronder ziet u ons experiment te voorspellen, in welke opslaglocatie is een tip waarschijnlijk valt (klasse 0: tip = $0, 1 klasse: tip > $0 en tip < = $5, klasse 2: tip > $5 en tip < = $10, klasse 3: tip > $10 en tip < = $20 Klasse 4: tip > $20)
 
 ![Experiment momentopname](./media/hive-walkthrough/5ztv0n0.png)
 
@@ -795,7 +795,7 @@ b. We gebruiken een matrix verwarring om te kijken naar onze accuratesse voorspe
 
 ![Verwarring matrix](./media/hive-walkthrough/cxFmErM.png)
 
-Houd er rekening mee dat onze accuratesse klasse op de gangbare klassen heel goed is, het model niet een goede 'learning'-taak op de zeldzame klassen biedt.
+Houd er rekening mee dat onze accuratesse klasse op de gangbare klassen zijn behoorlijk goed, het model niet een goede 'learning'-taak op de zeldzame klassen biedt.
 
 **3. Regressie taak**: om te voorspellen van de hoeveelheid tip voor een reis betaald.
 
@@ -814,14 +814,14 @@ b. Regressie problemen meten we de accuratesse van onze voorspelling door te kij
 Door onze coëfficiënten model wordt: de overdracht van ongeveer 71% van de variantie zien we dat 0.709 over de determinatiecoëfficiënt is, uitgelegd.
 
 > [!IMPORTANT]
-> Voor meer informatie over Azure Machine Learning en het openen en gebruiken, raadpleegt u [wat is Machine Learning?](../studio/what-is-machine-learning.md). Een zeer nuttig resource voor het afspelen van met een aantal Machine Learning-experimenten in Azure Machine Learning is de [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). De galerie bevat informatie over een kleurenbereik van experimenten en biedt een uitgebreide inleiding in het bereik van de mogelijkheden van Azure Machine Learning.
+> Voor meer informatie over Azure Machine Learning en het openen en gebruiken, raadpleegt u [wat is Machine Learning](../studio/what-is-machine-learning.md). Een zeer nuttig resource voor het afspelen van met een aantal Machine Learning-experimenten in Azure Machine Learning is de [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). De galerie bevat informatie over een kleurenbereik van experimenten en biedt een uitgebreide inleiding in het bereik van de mogelijkheden van Azure Machine Learning.
 > 
 > 
 
 ## <a name="license-information"></a>Licentie-informatie
-In dit voorbeeld scenario en de bijbehorende scripts worden gedeeld door Microsoft onder de MIT-licentie. Controleer of u het bestand LICENSE.txt in in de map van de voorbeeldcode op GitHub voor meer informatie.
+In dit voorbeeld scenario en de bijbehorende scripts worden gedeeld door Microsoft onder de MIT-licentie. Controleer of het bestand LICENSE.txt in de map van de voorbeeldcode op GitHub voor meer informatie.
 
-## <a name="references"></a>Verwijzingen
+## <a name="references"></a>Naslaginformatie
 • [Andrés Monroy NYC Taxi reizen downloadpagina](http://www.andresmh.com/nyctaxitrips/)  
 • [FOILing NYC Taxi reis gegevens door Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
 • [NYC Taxi en Limousine Commissie onderzoek en statistieken](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)

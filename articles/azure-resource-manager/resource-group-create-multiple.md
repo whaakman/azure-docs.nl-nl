@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: ed8e3081d2b2e07938d7cf3aa5f95f6dde81bc66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e6d68612be4b7d4e1d6cea13e0f29636931abd8
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementeren van meerdere exemplaren van een resource of eigenschap in Azure Resource Manager-sjablonen
 Dit onderwerp leest u hoe u in uw Azure Resource Manager-sjabloon voor het maken van meerdere exemplaren van een resource of meerdere exemplaren van een eigenschap van een resource.
 
 Als u Voeg logica toe aan de sjabloon waarmee u wilt kunt opgeven of een resource wordt geïmplementeerd, Zie [voorwaardelijk implementeren resource](#conditionally-deploy-resource).
+
+Zie voor een voorbeeld van het maken van meerdere elementen in een matrixvariabele [variabelen](resource-group-authoring-templates.md#variables).
 
 ## <a name="resource-iteration"></a>Resource herhaling
 Voor het maken van meerdere exemplaren van een brontype toevoegen een `copy` element aan het brontype. In het element kopiëren, moet u het aantal iteraties en een naam op voor deze lus opgeven. De waarde van count moet een positief geheel getal zijn en mag niet meer dan 800. Resource Manager maakt de resources parallel. De volgorde waarin ze zijn gemaakt kan daarom niet worden gegarandeerd. Zie voor informatie over het maken van resources herhaald in de reeks [seriële kopiëren](#serial-copy). 

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: cf7ba26369b3978bb0c2ad5e903a7aee804017ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: a34c47efbe811bec2ebe2c43abb9516cdab492bd
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Tips voor betere prestaties voor Azure Cosmos-DB
 Azure Cosmos-database is een snelle en flexibele gedistribueerde database waarin naadloos met gegarandeerde latentie en doorvoer schaalt. U beschikt niet over belangrijke architectuur wijzigen of complexe code schrijven om te schalen van uw database met Cosmos-DB. Omhoog en omlaag schalen is net zo eenvoudig als het maken van één API-aanroep of [SDK-aanroep van methode](set-throughput.md#set-throughput-sdk). Omdat Cosmos DB wordt benaderd via het netwerk aanroepen zijn er echter clientzijde optimalisaties die voor optimale prestaties kunt u.
@@ -165,7 +165,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
     Cosmos DB biedt een uitgebreide reeks databasebewerkingen, met inbegrip van relationele en hiërarchische query's met UDF's, opgeslagen procedures en triggers – alle operationele op de documenten binnen een verzameling van de database. De kosten die zijn gekoppeld aan elk van deze bewerkingen varieert op basis van de CPU, IO en geheugen dat nodig is om de bewerking te voltooien. In plaats van het denken over en beheer van hardwareresources, kunt u een aanvraag-eenheid (RU) beschouwen als een enkele meting voor de resources die zijn vereist voor het uitvoeren van verschillende databasebewerkingen en de aanvraag voor een toepassing.
 
-    [Aanvraageenheden](request-units.md) zijn ingericht voor het account van elke database op basis van het aantal eenheden voor capaciteit die u aanschaft. Aanvraag eenheidsverbruik wordt geëvalueerd als een percentage per seconde. Toepassingen die groter is dan het percentage van de eenheid ingerichte aanvragen voor het account beperkt is tot de snelheid onder het gereserveerde niveau voor het account zakt. Als uw toepassing een hogere mate van doorvoer vereist, kunt u extra capaciteitseenheden aanschaffen.
+    Doorvoer is ingericht op basis van de hoeveelheid [aanvraageenheden](request-units.md) instellen voor elke container. Aanvraag eenheidsverbruik wordt geëvalueerd als een percentage per seconde. Toepassingen die groter is dan het percentage van de eenheid ingerichte aanvragen voor het account beperkt is tot de snelheid onder het gereserveerde niveau voor het account zakt. Als uw toepassing een hogere mate van doorvoer vereist, kunt u uw doorvoer verhogen door extra aanvraageenheden provisioning. 
 
     De complexiteit van een query heeft gevolgen voor het aantal eenheden van de aanvraag voor een bewerking worden verbruikt. Het aantal predicaten, aard van de predicaten, aantal UDF's en de grootte van de bron-gegevensset alle invloed hebben op de kosten van querybewerkingen.
 

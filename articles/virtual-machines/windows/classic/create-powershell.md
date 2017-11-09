@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 75c6cf17ee269ae169d9f2f748d0985ca07e454e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af672a873b33cbd0b6151fd564e84c96f0b6e1e3
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell-and-the-classic-deployment-model"></a>Een Windows-machine maken met PowerShell en het klassieke implementatiemodel
 > [!div class="op_single_selector"]
@@ -32,6 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 > [!IMPORTANT] 
 > Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Lees [meer informatie over het uitvoeren van deze stappen met het Resource Manager-model](../../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Deze stappen ziet u hoe u kunt een set van Azure PowerShell-opdrachten die maken en vooraf configureren van een op basis van Windows Azure virtuele machine met behulp van een benadering bouwsteen aanpassen. U kunt dit proces te snel een opdrachtset voor een nieuwe Windows gebaseerde virtuele machine maken en uitbreiden van een bestaande implementatie of te maken van meerdere sets die snel van een aangepaste ontwikkelen en testen of de IT pro-omgeving bouwen.
 

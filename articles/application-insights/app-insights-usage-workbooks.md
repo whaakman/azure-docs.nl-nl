@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: e11d431c03be0d2aff05b2ceda8d3df41441a7ec
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3edaefa942b834a070c55fe28daf60c74ea9f59d
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="investigate-and-share-usage-data-with-interactive-workbooks-in-application-insights"></a>Onderzoek en gebruiksgegevens delen met interactieve werkmappen in Application Insights
 
@@ -117,7 +117,7 @@ Een koppeling naar een werkmap in een Azure-Dashboard vastmaken:
 ## <a name="next-steps"></a>Volgende stappen
 
 ## <a name="next-steps"></a>Volgende stappen
-- Om in te schakelen ervaringen gebruik, beginnen met het verzenden [aangepaste gebeurtenissen](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) of [paginaweergaven](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Om in te schakelen ervaringen gebruik, beginnen met het verzenden [aangepaste gebeurtenissen](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) of [paginaweergaven](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Als u al aangepaste gebeurtenissen of paginaweergaven verzendt, gebruik de informatie over het gebruik hulpprogramma's voor meer informatie over hoe gebruikers gebruiken voor uw service.
     - [Gebruikers, sessies, gebeurtenissen](app-insights-usage-segmentation.md)
     - [Trechters](usage-funnels.md)

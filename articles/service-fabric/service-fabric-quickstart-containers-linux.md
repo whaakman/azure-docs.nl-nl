@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 7c1ac13d50180909bbe55b01f47721387d1195d7
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 7623c5ac5cbc52e9fc77b1f944908b07ff43fbaf
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Een Linux-containertoepassing voor Azure Service Fabric implementeren in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
@@ -45,9 +45,9 @@ Als u containers wilt implementeren op Service Fabric, hebt u een set manifestbe
 Gebruik git in Cloud Shell om een kopie van de toepassingsdefinitie te maken.
 
 ```azurecli-interactive
-git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
+git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
-cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
+cd service-fabric-containers/Linux/container-tutorial/Voting
 ```
 
 ## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>De containers implementeren in een Service Fabric-cluster in Azure
@@ -141,7 +141,7 @@ In deze snelstartgids hebt u de volgende zaken geleerd:
 
 * Meer informatie over het uitvoeren van [containers in Service Fabric](service-fabric-containers-overview.md).
 * Meer informatie over de [levenscyclus](service-fabric-application-lifecycle.md) van de Service Fabric-toepassing.
-* Bekijk de [codevoorbeelden voor Service Fabric-containers](https://github.com/Azure-Samples/service-fabric-dotnet-containers) op GitHub.
+* Bekijk de [codevoorbeelden voor Service Fabric-containers](https://github.com/Azure-Samples/service-fabric-containers) op GitHub.
 
 [sfx]: ./media/service-fabric-quickstart-containers-linux/containersquickstartappinstance.png
 [quickstartpic]: ./media/service-fabric-quickstart-containers-linux/votingapp.png

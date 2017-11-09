@@ -3,7 +3,7 @@ title: RDG- en Azure MFA-server gebruiken RADIUS | Microsoft Docs
 description: Dit is de pagina Azure Multi-Factor Authentication die u helpt bij het implementeren van RD-gateway (Extern bureaublad) en Azure Multi-Factor Authentication-server met RADIUS.
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: f2354ac4-a3a7-48e5-a86d-84a9e5682b42
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/27/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.openlocfilehash: 3b4181701c5df03a3df7e0446b313eac201ad99e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 653712aebd274349b030eae653a8ea670e438d93
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Extern bureaublad-gateway en Azure Multi-Factor Authentication-server met behulp van RADIUS
 Extern bureaublad-gateway (RD-gateway) maakt vaak gebruik van de Network Policy Services (NPS) voor het verifiëren van gebruikers. In dit artikel wordt beschreven hoe u RADIUS-aanvragen van de Extern bureaublad-gateway (via de lokale NPS) omleidt naar de Multi-Factor Authentication-server. De combinatie van Azure MFA en RD-gateway zorgt ervoor dat uw gebruikers overal toegang hebben tot hun werkomgevingen terwijl sterke verificatie wordt uitgevoerd. 

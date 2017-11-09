@@ -3,7 +3,7 @@ title: Virtuele machine-extensies en functies voor Windows in Azure | Microsoft 
 description: Meer informatie over welke extensies beschikbaar zijn voor virtuele machines in Azure, gegroepeerd op wat ze bieden of verbeteren.
 services: virtual-machines-windows
 documentationcenter: 
-author: neilpeterson
+author: danielsollondon
 manager: timlt
 editor: 
 tags: azure-service-management,azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/06/2017
-ms.author: nepeters
+ms.author: danis
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ce0eebd2585c9457d7f922898d7f2fa3e7ffad7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0065468e4172f62dc1759c1905a8df48e91e01a6
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Virtuele machine-extensies en functies voor Windows
 

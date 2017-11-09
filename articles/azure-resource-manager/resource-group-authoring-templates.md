@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: dc9b64062d7f68c83aa090eec96744819a5ca423
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 85fff4c8c5a68a4ebaa63b263e90d0220c273e23
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Overzicht van de structuur en de syntaxis van Azure Resource Manager-sjablonen
 Dit onderwerp beschrijft de structuur van een Azure Resource Manager-sjabloon. Dit geeft de verschillende secties van een sjabloon en de eigenschappen die beschikbaar in deze secties zijn. De sjabloon bestaat uit JSON en uitdrukkingen die u gebruiken kunt om waarden voor uw implementatie samen te stellen. Zie voor een stapsgewijze zelfstudie over het maken van een sjabloon, [maken van uw eerste Azure Resource Manager-sjabloon](resource-manager-create-first-template.md).
@@ -283,7 +283,58 @@ Het volgende voorbeeld ziet u een variabele die is complex type JSON en variabel
 }
 ```
 
-## <a name="resources"></a>Resources
+U kunt de **kopie** syntaxis van een variabele maken met een matrix van meerdere elementen. U kunt een aantal opgeven voor het aantal elementen. Elk element bevat de eigenschappen in de **invoer** object. U kunt kopiëren binnen een variabele of de variabele maken. Beide benaderingen worden weergegeven in het volgende voorbeeld:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "disk-array-on-object": {
+      "copy": [
+        {
+          "name": "disks",
+          "count": 5,
+          "input": {
+            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+            "diskSizeGB": "1",
+            "diskIndex": "[copyIndex('disks')]"
+          }
+        }
+      ]
+    },
+    "copy": [
+      {
+        "name": "disks-top-level-array",
+        "count": 5,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks-top-level-array')]"
+        }
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "exampleObject": {
+      "value": "[variables('disk-array-on-object')]",
+      "type": "object"
+    },
+    "exampleArrayOnObject": {
+      "value": "[variables('disk-array-on-object').disks]",
+      "type" : "array"
+    },
+    "exampleArray": {
+      "value": "[variables('disks-top-level-array')]",
+      "type" : "array"
+    }
+  }
+}
+```
+
+## <a name="resources"></a>Bronnen
 In de bronnensectie definieert u de resources die worden geïmplementeerd of bijgewerkt. Deze sectie kunt krijgen ingewikkeld omdat de typen die u implementeert de juiste waarden opgeven dat u begrijpt. Zie voor de resource-specifieke waarden (apiVersion, type en eigenschappen) die u nodig hebt om in te stellen [resources in Azure Resource Manager-sjablonen definiëren](/azure/templates/). 
 
 U definieert resources met de volgende structuur:

@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 01/10/2017
 ms.devlang: na
 ms.author: delhan
-ms.openlocfilehash: 391653e8bb85489bb3ec3554e347ace09f92095d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f5718a7e1ab2b14902fa61ffb3053910e584ac6
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>Klassieke implementatieproblemen oplossen met opnieuw te starten of het formaat van een bestaande virtuele Linux-Machine in Azure
 > [!div class="op_single_selector"]
@@ -32,6 +32,7 @@ Wanneer u een gestopte Azure virtuele Machine (VM) start of het formaat van een 
 
 > [!IMPORTANT] 
 > Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Zie voor de versie van het Resource Manager, [hier](../restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
@@ -46,7 +47,7 @@ U probeert te starten van een gestopte VM maar een toewijzingsfout ophalen.
 ### <a name="cause"></a>Oorzaak
 De aanvraag voor het starten van de gestopte virtuele machine moet worden uitgevoerd op het oorspronkelijke cluster die als host fungeert voor de cloudservice. Het cluster heeft echter geen vrije schijfruimte om de aanvraag te voldoen.
 
-### <a name="resolution"></a>Oplossing
+### <a name="resolution"></a>Resolutie
 * Een nieuwe cloudservice maken en deze koppelen aan ofwel een regio of een virtueel netwerk met op basis van regio, maar niet in een affiniteitsgroep.
 * Verwijder de gestopte virtuele machine.
 * Maak de virtuele machine in de nieuwe cloudservice opnieuw met behulp van de schijven.
@@ -65,7 +66,7 @@ U probeert te vergroten of verkleinen van een bestaande virtuele machine, maar e
 ### <a name="cause"></a>Oorzaak
 De aanvraag voor het formaat van de virtuele machine moet worden uitgevoerd op het oorspronkelijke cluster die als host fungeert voor de cloudservice. Het cluster biedt echter geen ondersteuning voor de aangevraagde VM-grootte.
 
-### <a name="resolution"></a>Oplossing
+### <a name="resolution"></a>Resolutie
 De aangevraagde VM-grootte te beperken en probeer de aanvraag formaat.
 
 * Klik op **door alle Bladeren** > **virtuele machines (klassiek)** > *uw virtuele machine* > **instellingen** > **grootte**. Zie voor gedetailleerde stappen [vergroten of verkleinen van de virtuele machine](https://msdn.microsoft.com/library/dn168976.aspx).

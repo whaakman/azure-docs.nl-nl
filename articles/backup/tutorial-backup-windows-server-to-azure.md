@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: f81f23862e783de07b5ec5aebad7f0a781168bd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Maak back-ups van Windows Server naar Azure
 
@@ -116,23 +116,19 @@ De Microsoft Azure Recovery Services agent kunt u schema voor back-ups naar Azur
 
 3. Klik op **volgende** om te navigeren naar de **Items selecteren voor Back up** pagina.
 
-4. Klik op **Items toevoegen** en in het dialoogvenster dat wordt geopend Selecteer **systeemstatus** en bestanden of mappen die u back wilt-up. Klik vervolgens op **OK**.
+4. Klik op **Items toevoegen** en selecteer in het dialoogvenster **systeemstatus** en bestanden of mappen die u back wilt-up. Klik vervolgens op **OK**.
 
 5. Klik op **Volgende**.
 
-6. Op de **back-upschema opgeven** pagina, geeft u de tijd van de dag of week wanneer back-ups moeten worden geactiveerd voor bestanden en mappen. Back-upschema systeemstatus wordt automatisch geconfigureerd. 
+6. Op de **back-upschema opgeven (systeemstatus)** pagina, geef de tijd van de dag of week wanneer back-ups moeten worden geactiveerd voor systeemstatus en klikt u op **volgende** 
 
-    ![infrastructuur voorbereiden](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
- 
-
-
-7.  Op de **retentiebeleid selecteren** pagina, selecteert u het bewaarbeleid voor de back-up voor bestanden en mappen. De bewaarperiode van systeemstatus back-ups automatisch ingesteld op 60 dagen.
+7.  Op de **retentiebeleid selecteren (systeemstatus)** pagina, selecteert u het bewaarbeleid voor de back-up van systeemstatus en klikt u op **volgende**
+8. Op dezelfde manier, selecteer het back-planning en het bewaren van beleid voor de geselecteerde bestanden en mappen. 
 8.  Op de **Kies eerste Back-up Type** pagina, laat de optie **automatisch via het netwerk** geselecteerd en klik vervolgens op **volgende**.
 9.  Op de **bevestiging** pagina, lees de informatie en klik vervolgens op **voltooien**.
 10. Nadat u de wizard voor het maken van een back-upschema hebt doorlopen, klikt u op **Sluiten**.
 
 ## <a name="perform-an-ad-hoc-back-up"></a>Een ad-hoc back-up uitvoeren
-
 
 U kunt de planning hebt vastgesteld, wanneer back-uptaken uitgevoerd. Echter, u hebt geen back-up de server. Het is disaster recovery aanbevolen een back-up op-aanvraag om ervoor te zorgen gegevenstolerantie voor uw server uitvoeren.
 
@@ -140,8 +136,9 @@ U kunt de planning hebt vastgesteld, wanneer back-uptaken uitgevoerd. Echter, u 
 
     ![infrastructuur voorbereiden](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
-2.  Op de **bevestiging** pagina, controleert u de instellingen die de **Back-Up uit** wizard gebruikt voor back-up van uw server. Klik vervolgens op **Back-up maken**.
-3.  Klik op **Sluiten** om de wizard te sluiten. Als u de wizard sluit voordat de back-up proces is voltooid, blijft de wizard op de achtergrond uitgevoerd.
+2.  Op de **Back-Up uit** wizard, schakelt u een van **bestanden en mappen** of **systeemstatus** die u wilt back-up en klikt u op **volgende** 
+3. Op de **bevestiging** pagina, controleert u de instellingen die de **Back-Up uit** wizard gebruikt voor back-up van uw server. Klik vervolgens op **Back-up maken**.
+4.  Klik op **Sluiten** om de wizard te sluiten. Als u de wizard sluit voordat de back-up proces is voltooid, blijft de wizard op de achtergrond uitgevoerd.
 4.  Nadat de eerste back-up is voltooid, **taak voltooid** status wordt weergegeven **taken** deelvenster van de console MARS-agent.
 
 

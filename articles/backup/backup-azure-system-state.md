@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: 6fbd96935f444d8b0c6d068ebd0d28e612f19816
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5477068ddab46bbe0fdbdda754227642ed97bb36
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Back-up van systeemstatus Windows in de implementatie van Resource Manager
 Dit artikel wordt uitgelegd hoe u back-up van de systeemstatus van uw Windows Server naar Azure. Het artikel is bedoeld als handleiding waarmee u stapsgewijs de basis onder de knie krijgt.
@@ -29,7 +29,7 @@ Als u meer wilt weten over Azure Backup, lees dan dit [overzicht](backup-introdu
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan waarmee u toegang hebt tot alle services van Azure.
 
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
-Als u een back-up wilt maken van uw bestanden en mappen, moet u een Recovery Services-kluis maken in de regio waar u de gegevens wilt opslaan. U moet ook bepalen op welke manier u uw opslag wilt repliceren. 
+Als u wilt back-up van de systeemstatus van uw Windows-Server, moet u een Recovery Services-kluis maken in de regio waar u de gegevens worden opgeslagen. U moet ook bepalen op welke manier u uw opslag wilt repliceren. 
 
 ### <a name="to-create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 1. Meld u met uw Azure-abonnement aan bij de [Azure Portal](https://portal.azure.com/) als u dat nog niet hebt gedaan.
@@ -135,6 +135,9 @@ Nu dat u kunt een kluis hebt gemaakt, kunt u deze voor de back-up van systeemsta
     De kluisreferenties worden naar de map Downloads gedownload. Nadat de kluisreferenties zijn gedownload, ziet u een pop-upvenster waarin u wordt gevraagd of u de referenties wilt openen of opslaan. Klik op **Opslaan**. Als u per ongeluk klikt op **Openen**, kunt u het dialoogvenster waarmee wordt geprobeerd de kluisreferenties te openen, laten mislukken. U kunt de kluisreferenties niet openen. Ga door naar de volgende stap. De kluisreferenties bevinden zich in de map Downloads.   
 
     ![kluisreferenties downloaden is voltooid](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
+> [!NOTE]
+> De kluisreferenties moeten worden opgeslagen alleen naar een locatie die lokaal is voor de Windows-Server waarop u van plan bent de agent te gebruiken. 
+>
 
 ## <a name="install-and-register-the-agent"></a>De agent installeren en registreren
 
@@ -163,40 +166,13 @@ Nu dat u kunt een kluis hebt gemaakt, kunt u deze voor de back-up van systeemsta
 
 De agent wordt nu geïnstalleerd en uw computer wordt geregistreerd bij de kluis. U kunt nu uw back-up configureren en plannen.
 
-## <a name="back-up-windows-server-system-state-preview"></a>Back-up van Windows Server System State (Preview)
-De eerste back-up bevat drie taken:
+## <a name="back-up-windows-server-system-state"></a>Back-ups maken van Windows Server-systeemstatus 
+De eerste back-up bevat twee taken:
 
-* Systeemstatusback-up met behulp van de Azure Backup agent inschakelen
 * De back-up plannen
-* Voor de eerste keer een back-up maken van bestanden en mappen
+* Back-up van systeemstatus voor de eerste keer
 
 Gebruik de Microsoft Azure Recovery Services-agent om de eerste back-up uit te voeren.
-
-### <a name="to-enable-system-state-backup-using-the-azure-backup-agent"></a>Systeemstatusback-up met behulp van de Azure Backup agent inschakelen
-
-1. Voer de volgende opdracht voor stoppen van de Azure Backup-engine in een PowerShell-sessie.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Open het Windows-register.
-
-  ```
-  PS C:\> regedit.exe
-  ```
-
-3. Voeg de volgende registersleutel toe met de opgegeven DWord-waarde.
-
-  | Registerpad | Registersleutel | DWord-waarde |
-  |---------------|--------------|-------------|
-  | HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | TurnOffSSBFeature | 2 |
-
-4. Start de Backup-engine opnieuw door het uitvoeren van de volgende opdracht bij een opdrachtprompt met verhoogde bevoegdheid.
-
-  ```
-  PS C:\> Net start obengine
-  ```
 
 ### <a name="to-schedule-the-backup-job"></a>De back-up plannen
 
@@ -216,11 +192,7 @@ Gebruik de Microsoft Azure Recovery Services-agent om de eerste back-up uit te v
 
 6. Klik op **Volgende**.
 
-7. De planning voor systeemstatusback-up en retentie automatisch ingesteld op de back-up van elke zondag om 21:00 uur lokale tijd en de bewaarperiode is ingesteld op 60 dagen.
-
-   > [!NOTE]
-   > Beleid voor het back-up en retentie van systeemstatus wordt automatisch geconfigureerd. Als u back-up van bestanden en mappen naast de status van het Windows Server, geeft u alleen het back-up en retentie-beleid voor back-ups van de wizard. 
-   >
+7. Selecteer de vereiste back-upfrequentie en het bewaarbeleid voor uw back-ups van de status van de volgende pagina's. 
 
 8. Lees de informatie op de pagina Bevestiging en klik vervolgens op **Voltooien**.
 
@@ -234,88 +206,21 @@ Gebruik de Microsoft Azure Recovery Services-agent om de eerste back-up uit te v
 
     ![Nu back-up maken van Windows Server](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-3. Controleer op de pagina Bevestiging de instellingen die de wizard Nu back-up maken gebruikt om een back-up te maken van de machine. Klik vervolgens op **Back-up maken**.
+3. Selecteer **systeemstatus** op de **back-up-Item selecteren** scherm dat wordt weergegeven en klik op **volgende**.
+
+4. Controleer op de pagina Bevestiging de instellingen die de wizard Nu back-up maken gebruikt om een back-up te maken van de machine. Klik vervolgens op **Back-up maken**.
 
 4. Klik op **Sluiten** om de wizard te sluiten. Als u de wizard sluit voordat het back-upproces is voltooid, blijft de wizard op de achtergrond aanwezig.
 
-5. Als u back-up van bestanden en mappen op uw server, naast de systeemstatus van Windows Server, wordt de wizard Back-up nu alleen reservekopie van bestanden. Een ad-hoc systeemstatus back-up, gebruik de volgende PowerShell-opdracht uitvoeren:
 
-    ```
-    PS C:\> Start-OBSystemStateBackup
-    ```
-
-  Nadat de eerste back-up is voltooid, wordt de status **Taak voltooid** weergegeven in de back-upconsole.
+Nadat de eerste back-up is voltooid, wordt de status **Taak voltooid** weergegeven in de back-upconsole.
 
   ![IR voltooid](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
-
-## <a name="frequently-asked-questions"></a>Veelgestelde vragen
-
-De volgende vragen en antwoorden bevatten aanvullende informatie.
-
-### <a name="what-is-the-staging-volume"></a>Wat is het Volume fasering?
-
-Het Volume fasering vertegenwoordigt de locatie waar de standaard beschikbaar, Windows Server Backup de systeemstatusback-up bereidt. Azure backup-agent en vervolgens worden gecomprimeerd en versleuteld deze tussenliggende back-up en verzonden via een beveiligde HTTPS-Protocol naar de geconfigureerde Recovery Services-kluis. **Sterk aanbevolen dat u het Volume Fasering instellen in een niet-Windows-besturingssysteemvolume. Als u problemen met de systeemstatusback-ups ziet, is het controleren van de locatie van het Volume fasering de eerste stap voor het oplossen van problemen.** 
-
-### <a name="how-can-i-change-the-staging-volume-path-specified-in-the-azure-backup-agent"></a>Hoe kan ik het tijdelijke pad naar opgegeven in de Azure Backup agent wijzigen?
-
-Het Volume fasering bevindt zich in de cachemap van de standaard. 
-
-1. U kunt deze locatie wijzigen, moet u de volgende opdracht gebruiken (in een verhoogde opdrachtprompt):
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Werk vervolgens de volgende registervermeldingen met het pad naar de nieuwe map voor gefaseerde installatie Volume.
-
-  |Registerpad|Registersleutel|Waarde|
-  |-------------|------------|-----|
-  |HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | SSBStagingPath | nieuwe volume faseringslocatie |
-
-Het pad voor gefaseerde installatie is hoofdlettergevoelig en moet het exacte hetzelfde hoofdlettergebruik als wat op de server bestaat. 
-
-3. Zodra u het pad naar het tijdelijke wijzigt, start u de Backup-engine opnieuw:
-  ```
-  PS C:\> Net start obengine
-  ```
-4. Zodat het gewijzigde pad worden opgepikt, opent u de Microsoft Azure Recovery Services-agent en activeren van een ad-hoc back-up van systeemstatus.
-
-### <a name="why-is-the-system-state-default-retention-set-to-60-days"></a>Waarom is de bewaarperiode van systeemstatus standaard ingesteld op 60 dagen?
-
-De levensduur van een systeemstatusback-up is hetzelfde als de instelling 'tombstone-levensduur' voor de rol Windows Server Active Directory. De standaardwaarde voor de vermelding van tombstone-levensduur is 60 dagen. Deze waarde kan worden ingesteld op de Directory Service (NTDS) config-object.
-
-### <a name="how-do-i-change-the-default-backup-and-retention-policy-for-system-state"></a>Hoe wijzig ik de standaard back-up- en bewaarbeleid voor systeemstatus
-
-Wijzigen van de standaard back-up- en bewaarbeleid voor systeemstatus:
-1. Stop de Backup-engine. Voer de volgende opdracht vanaf een opdrachtprompt met verhoogde bevoegdheid.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Toevoegen of bijwerken van de volgende sleutel registervermeldingen in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.
-
-  |Naam van routeringsregister|Beschrijving|Waarde|
-  |-------------|-----------|-----|
-  |SSBScheduleTime|Gebruikt voor het configureren van de tijd van de back-up. Standaardinstelling is 21: 00 lokale tijd.|DWord: Indeling UUMM (decimaal) zo 2130 voor 9:30:00 lokale tijd|
-  |SSBScheduleDays|Gebruikt voor het configureren van de dagen waarop systeemstatusback-up moet worden uitgevoerd op de opgegeven tijd. Afzonderlijke cijfers opgeven dagen van de week. zondag 0, 1 is maandag, enzovoort. Standaarddag voor back-up is zondag.|DWord: dagen van de week voor de back-up (decimaal), bijvoorbeeld 1230 plant u back-ups op maandag, dinsdag, woensdag en zondag uitvoeren.|
-  |SSBRetentionDays|Gebruikt voor het configureren van de dagen als u wilt behouden back-up. Standaardwaarde is 60. Maximaal toegestane waarde is 180.|DWord: Dagen voor het bewaren van back-up (decimaal).|
-
-3. Gebruik de volgende opdracht om opnieuw te starten van de back-engine.
-    ```
-    PS C:\> Net start obengine
-    ```
-
-4. Open de Microsoft Recovery Services-agent.
-
-5. Klik op **back-up plannen** en klik vervolgens op **volgende** tot u de wijzigingen zijn doorgevoerd.
-
-6. Klik op **voltooien** de wijzigingen toe te passen.
-
 
 ## <a name="questions"></a>Vragen?
 Als u vragen hebt of als er een functie is die u graag opgenomen ziet worden, [stuur ons dan uw feedback](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [back-ups maken van Windows-machines](backup-configure-vault.md).
-* Wanneer u eenmaal een back-up hebt gemaakt van uw bestanden en mappen, kunt u [uw kluizen en servers beheren](backup-azure-manage-windows-server.md).
+* Nu dat u hebt een back-up van de systeemstatus van uw Windows-Server, kunt u [uw kluizen en servers beheren](backup-azure-manage-windows-server.md).
 * Als u een back-up moet herstellen, [zet de bestanden dan terug naar een Windows-machine](backup-azure-restore-windows-server.md) aan de hand van dit artikel.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8b90885583c411e5b1e513188a636fe54ec74b7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b7ec44b820e510d1e8bd99ef195546a519c365c
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Numerieke functies voor Azure Resource Manager-sjablonen
 
@@ -122,11 +122,13 @@ Retourneert de index van een lus herhaling.
 
 ### <a name="remarks"></a>Opmerkingen
 
-Deze functie wordt altijd gebruikt met een **kopie** object. Als geen waarde is opgegeven voor **offset**, de huidige waarde van de herhaling wordt geretourneerd. De waarde van de herhaling start bij nul.
+Deze functie wordt altijd gebruikt met een **kopie** object. Als geen waarde is opgegeven voor **offset**, de huidige waarde van de herhaling wordt geretourneerd. De waarde van de herhaling start bij nul. U kunt herhaling lussen gebruiken bij het definiëren van bronnen of variabelen.
 
 De **loopName** eigenschap kunt u opgeven of copyIndex naar een resource herhaling of eigenschap iteratie verwijst. Als geen waarde is opgegeven voor **loopName**, de huidige herhaling van de resource-type wordt gebruikt. Geef een waarde voor **loopName** wanneer voor een eigenschap. 
  
 Voor een volledige beschrijving van het gebruik van **copyIndex**, Zie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md).
+
+Voor een voorbeeld van het gebruik van **copyIndex** bij het definiëren van een variabele, Zie [variabelen](resource-group-authoring-templates.md#variables).
 
 ### <a name="example"></a>Voorbeeld
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: 2cdf7ad766fe47f2d2848815860ad545b43aec72
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: ee021f5679d3c5a37cd8a795732721b37aaf66ea
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 Dit document vindt u enkele van de meest voorkomende Microsoft Azure limieten, quota's worden ook wel worden genoemd. Dit document betrekking niet op dit moment op alle Azure-services. Na verloop van tijd wordt de lijst uitgebreid en bijgewerkt ten aanzien van het platform.
@@ -27,10 +27,10 @@ Dit document vindt u enkele van de meest voorkomende Microsoft Azure limieten, q
 Ga naar [overzicht van Azure prijzen](https://azure.microsoft.com/pricing/) voor meer informatie over prijzen voor Azure. Daar kunt u uw kosten met schatten de [Prijscalculator](https://azure.microsoft.com/pricing/calculator/) of via de detailpagina met prijzen voor een service (bijvoorbeeld [VM's van Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). Zie voor meer tips voor het beheer van uw kosten [te voorkomen dat onverwachte kosten met Azure-facturering en kostenbeheer](billing/billing-getting-started.md).
 
 > [!NOTE]
-> Als u wilt de limiet of bovenstaande quotum verhogen de **standaard limiet**, [opent u een ondersteuningsaanvraag online klant kosteloos](azure-supportability/resource-manager-core-quotas-request.md). De limieten kunnen niet worden verhoogd boven de **maximumlimiet** waarde weergegeven in de volgende tabellen. Als er geen **maximumlimiet** kolom en vervolgens de resource heeft geen instelbare limieten. 
-> 
+> Als u wilt de limiet of bovenstaande quotum verhogen de **standaard limiet**, [opent u een ondersteuningsaanvraag online klant kosteloos](azure-supportability/resource-manager-core-quotas-request.md). De limieten kunnen niet worden verhoogd boven de **maximumlimiet** waarde weergegeven in de volgende tabellen. Als er geen **maximumlimiet** kolom en vervolgens de resource heeft geen instelbare limieten.
+>
 > Gratis proefversie van abonnementen zijn niet in aanmerking komen voor limiet of quotum vergroot. Als u een gratis proefversie hebt, kunt u upgraden naar een [betalen naar gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) abonnement. Zie voor meer informatie [Upgrade gratis proefversie van Azure naar betalen per gebruik](billing/billing-upgrade-azure-subscription.md).
-> 
+>
 
 ## <a name="limits-and-the-azure-resource-manager"></a>Limieten en de Azure Resource Manager
 Het is nu mogelijk om te combineren meerdere Azure-resources in aan één Azure-resourcegroep. Bij gebruik van resourcegroepen limieten die eenmaal globale zijn beheerd op een regionaal niveau met het Azure Resource Manager. Zie voor meer informatie over Azure-resourcegroepen [overzicht van Azure Resource Manager](azure-resource-manager/resource-group-overview.md).
@@ -41,8 +41,8 @@ Een nieuwe tabel is in de onderstaande grenzen in overeenstemming met eventuele 
 > Het is belangrijk om te benadrukken dat quota's voor resources in Azure-resourcegroepen per regio toegankelijk zijn voor uw abonnement zijn, en niet per abonnement, omdat de service management-quota. Laten we core quota gebruiken als voorbeeld. Als u een verhoging van het quotum met ondersteuning voor kernen aanvragen moet, moet u bepalen hoeveel kernen die u wilt gebruiken in welke regio's en vervolgens een specifieke aanvraag voor Azure-resourcegroep core quota's voor de bedragen en regio's die u wilt maken. Dus als u wilt gebruiken, 30 kernen in West-Europa voor het uitvoeren van uw toepassing. specifiek moet u 30 kernen in West-Europa aanvragen. Maar u geen een quotum voor kernen verhogen in elke andere regio--alleen West-Europa heeft het quotum 30-core.
 > <!-- -->
 > U kunt als gevolg hiervan handiger om u te overwegen beslist wat uw Azure-resourcegroep quota's nodig zijn voor uw workload in elke regio een, en dat bedrag in elke regio waarin u implementatie overweegt aanvragen. Zie [implementatieproblemen oplossen](resource-manager-common-deployment-errors.md) voor meer informatie voor het detecteren van uw huidige quota's voor specifieke regio's.
-> 
-> 
+>
+>
 
 ## <a name="service-specific-limits"></a>Servicespecifieke limieten
 * [Active Directory](#active-directory-limits)
@@ -60,6 +60,7 @@ Een nieuwe tabel is in de onderstaande grenzen in overeenstemming met eventuele 
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
+* [Container Registry](#container-registry-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -120,6 +121,11 @@ De volgende beperkingen gelden bij gebruik van de Azure Resource Manager en Azur
 ### <a name="container-instances-limits"></a>Container exemplaren limieten
 [!INCLUDE [container-instances-limits](../includes/container-instances-limits.md)]
 
+### <a name="container-registry-limits"></a>Container register limieten
+De volgende tabel worden de functies en de ondergrenzen van de Basic, Standard en Premium [Servicelagen](./container-registry/container-registry-skus.md).
+
+[!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
+
 ### <a name="networking-limits"></a>Netwerklimieten
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
@@ -141,7 +147,7 @@ De volgende beperkingen gelden bij gebruik van de Azure Resource Manager en Azur
 ### <a name="storage-limits"></a>Opslaglimieten
 Zie voor meer informatie over opslagaccountlimieten [Azure Storage Scalability and Performance Targets](storage/common/storage-scalability-targets.md).
 
-<!--like # storage accts --> 
+<!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
@@ -164,7 +170,7 @@ Zie voor meer informatie over de limieten voor Azure Files [Azure Files schaalba
 [!INCLUDE [storage-tables-scale-targets](../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
-#### <a name="virtual-machine-disk-limits"></a>Schijfruimtelimiet van de virtuele machine 
+#### <a name="virtual-machine-disk-limits"></a>Schijfruimtelimiet van de virtuele machine
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
 Zie [grootten van virtuele machines](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie.

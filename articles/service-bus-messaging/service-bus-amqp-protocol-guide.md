@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/08/2017
 ms.author: clemensv;hillaryc;sethm
-ms.openlocfilehash: 2ef07d78a9d81fac933f2c3359e9ee48f86e6790
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4e1fa9db3b4801103069163c55a9b342a27d00ac
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # AMQP 1.0 in Azure Service Bus en Event Hubs-protocol-handleiding
 
@@ -32,7 +32,7 @@ Dit artikel bevat een overzicht van de belangrijkste concepten van de AMQP 1.0-s
 
 Het doel is voor ontwikkelaars met behulp van een bestaande AMQP 1.0-client-stack op elk platform te kunnen werken met Azure Service Bus via AMQP 1.0.
 
-Algemene algemene AMQP 1.0-stacks, zoals Apache Proton of AMQP.NET Lite, worden al alle core AMQP 1.0-gebaren implementeren. Deze fundamentele gebaren zijn soms verpakt met een hoger niveau API; Apache Proton biedt zelfs twee, de imperatieve Messenger-API en de reactieve Reactor-API.
+Algemene algemene AMQP 1.0-stacks, zoals Apache Proton of Lite AMQP.NET implementeren al alle kernprotocollen AMQP 1.0. Deze fundamentele gebaren zijn soms verpakt met een hoger niveau API; Apache Proton biedt zelfs twee, de imperatieve Messenger-API en de reactieve Reactor-API.
 
 In de volgende bespreking nemen we aan dat het beheer van AMQP-verbindingen, sessies, en koppelingen en de verwerking van frame overdrachten en datatransportbesturing worden verwerkt door de respectieve stack (zoals Apache Proton-C) en hoeven niet veel eventuele specifieke aandacht van ontwikkelaars van toepassingen. We abstract wordt ervan uitgegaan dat het bestaan van een paar API primitieven zoals de mogelijkheid verbinding maken en te maken van een vorm van *afzender* en *ontvanger* abstractie objecten, die vervolgens zijn de enige vorm van `send()` en `receive()` bewerkingen, respectievelijk.
 
@@ -238,13 +238,13 @@ De volgende secties wordt uitgelegd welke eigenschappen van de standaard AMQP be
 Deze sectie bevat informatie over geavanceerde mogelijkheden van Azure Service Bus die zijn gebaseerd op concept extensies AMQP, ontwikkeling in het technisch comité OASIS voor AMQP. Service Bus implementeert de nieuwste versies van deze concepten en wijzigingen die zijn geïntroduceerd als deze concepten worden standaard status bereikt aanneemt.
 
 > [!NOTE]
-> Service Bus-berichtenservice geavanceerde bewerkingen worden ondersteund door middel van een aanvraag/antwoord-patroon. De details van deze bewerkingen worden beschreven in het document [AMQP 1.0 in Service Bus: aanvraag-antwoord-bewerkingen](service-bus-amqp-request-response.md).
+> Service Bus-berichtenservice geavanceerde bewerkingen worden ondersteund door middel van een aanvraag/antwoord-patroon. De details van deze bewerkingen worden beschreven in het artikel [AMQP 1.0 in Service Bus: aanvraag-antwoord-bewerkingen](service-bus-amqp-request-response.md).
 > 
 > 
 
 ### AMQP-management
 
-De specificatie AMQP-management is de eerste dag van de ontwerp-extensies die hier worden besproken. Deze specificatie definieert een reeks protocol-gebaren gelaagd boven op het AMQP-protocol die management interactie met de messaging-infrastructuur via AMQP toestaan. De specificatie definieert algemene bewerkingen zoals *maken*, *lezen*, *bijwerken*, en *verwijderen* voor het beheren van entiteiten in een berichteninfrastructuur en een reeks querybewerkingen.
+De specificatie AMQP-management is de eerste dag van het concept-uitbreidingen die worden beschreven in dit artikel. Deze specificatie definieert een reeks protocollagen boven op het AMQP-protocol die management interactie met de messaging-infrastructuur via AMQP toestaan. De specificatie definieert algemene bewerkingen zoals *maken*, *lezen*, *bijwerken*, en *verwijderen* voor het beheren van entiteiten in een berichteninfrastructuur en een reeks querybewerkingen.
 
 Alle deze gebaren vereisen een aanvraag/antwoord-interactie tussen de client en de messaging-infrastructuur en daarom de specificatie definieert hoe interactie patroon boven op AMQP model: de client verbinding maakt met de messaging-infrastructuur, initieert een sessie en maakt vervolgens een combinatie van koppelingen. De client fungeert als de afzender en op de andere het fungeert als ontvanger, waardoor een paar koppelingen die als een bidirectioneel kanaal optreden kan op één koppeling.
 

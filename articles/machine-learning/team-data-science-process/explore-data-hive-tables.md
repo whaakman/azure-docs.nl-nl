@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.openlocfilehash: dc5cbbf8db46607179e8b0e8657462afac21f7da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e808d86900bcb855c65c73b9ab39060d3948befd
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Gegevens in Hive-tabellen verkennen met Hive-query's
 Dit document vindt u voorbeelden van Hive scripts die worden gebruikt voor gegevens in de Hive-tabellen in een HDInsight Hadoop-cluster.
@@ -33,7 +33,7 @@ In dit artikel wordt ervan uitgegaan dat u hebt:
 * Een Azure storage-account gemaakt. Als u instructies nodig hebt, raadpleegt u [een Azure Storage-account maken](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 * Een aangepaste Hadoop-cluster met de HDInsight-service wordt ingericht. Als u instructies nodig hebt, raadpleegt u [aanpassen Azure HDInsight Hadoop-Clusters voor geavanceerde analyses](customize-hadoop-cluster.md).
 * De gegevens is geüpload naar de Hive-tabellen in Azure HDInsight Hadoop-clusters. Als dit niet het geval is, volg de instructies in [maken en gegevens laden met Hive-tabellen](move-hive-tables.md) eerst gegevens uploaden naar Hive-tabellen.
-* Externe toegang tot het cluster is ingeschakeld. Als u instructies nodig hebt, raadpleegt u [toegang tot de hoofd-knooppunt van Hadoop-Cluster](customize-hadoop-cluster.md#headnode).
+* Externe toegang tot het cluster is ingeschakeld. Als u instructies nodig hebt, raadpleegt u [toegang tot de hoofd-knooppunt van Hadoop-Cluster](customize-hadoop-cluster.md).
 * Als u instructies voor het indienen van Hive-query's nodig hebt, raadpleegt u [het Hive-query's verzenden](move-hive-tables.md#submit)
 
 ## <a name="example-hive-query-scripts-for-data-exploration"></a>Voorbeeld Hive query scripts voor gegevensverkenning

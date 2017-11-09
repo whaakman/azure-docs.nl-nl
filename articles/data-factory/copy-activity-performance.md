@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/08/2017
 ms.author: jingwang
-ms.openlocfilehash: 3f2b95e57e34905bf1128e9aee2862110a598f75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0351e4c4dcf19f9e4b6ec11c59c4dd00f0013a2
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Prestaties van de activiteit en prestatieafstemming handleiding kopiëren
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Azure biedt een reeks bedrijfsniveau oplossingen voor opslag en data warehouse e
 Dit artikel wordt beschreven:
 
 * [Prestaties nummers](#performance-reference) voor ondersteunde gegevensarchieven bron- en sink voor het plannen van uw project.
-* Functies die de kopie doorvoer in verschillende scenario's, inclusief kunnen stimuleren [cloud data movement eenheden](#cloud-data-movement-units), [kopie parallelle](#parallel-copy), en [kopie gefaseerde](#staged-copy);
+* Functies die de kopie doorvoer in verschillende scenario's, inclusief kunnen stimuleren [cloud Data Movement Units](#cloud-data-movement-units), [kopie parallelle](#parallel-copy), en [kopie gefaseerde](#staged-copy);
 * [Prestaties afstemmen richtlijnen](#performance-tuning-steps) op het afstemmen van de prestaties en de belangrijkste factoren die invloed op prestaties van de kopie hebben kunnen.
 
 > [!NOTE]
@@ -53,7 +53,7 @@ Als een verwijzing onderstaande tabel ziet u het nummer van de doorvoer kopiëre
 ![Matrix van prestaties](./media/copy-activity-performance/CopyPerfRef.png)
 
 >[!IMPORTANT]
->In Azure Data Factory versie 2 als de kopieerbewerking wordt uitgevoerd op een Runtime-integratie van Azure is de minimale cloud Data Movement Units twee.
+>In Azure Data Factory versie 2 als de kopieerbewerking wordt uitgevoerd op een Runtime-integratie van Azure de minimale toegestane cloud data movement eenheden is twee. Als niet wordt opgegeven, raadpleegt u data movement standaardeenheden wordt gebruikt in [cloud data movement eenheden](#cloud-data-movement-units).
 
 Verwijst naar Let op:
 
@@ -84,13 +84,12 @@ Verwijst naar Let op:
 
 Een **cloud gegevensverplaatsing gegevenseenheid (DMU)** is een meting met de kracht (een combinatie van CPU, geheugen en netwerkresourcetoewijzing) van één eenheid in de Data Factory. **DMU is alleen van toepassing op [Azure integratie Runtime](concepts-integration-runtime.md#azure-integration-runtime)**, maar niet [Self-hosted integratie Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-**De minimale cloud gegevens gegevensverplaatsing eenheden zorgen Kopieeractiviteit uitvoeren is twee.** De volgende tabel bevat de standaard DMUs gebruikt in scenario's voor verschillende kopiëren.
+**De minimale cloud gegevens gegevensverplaatsing eenheden zorgen Kopieeractiviteit uitvoeren is twee.** Als niet wordt opgegeven, bevat de volgende tabel de standaard DMUs gebruikt in scenario's voor verschillende kopiëren:
 
 | Scenario voor kopiëren | Standaard DMUs bepaald door de service |
 |:--- |:--- |
-| Gegevens kopiëren tussen winkels op basis van bestanden | Tussen 2 en 16 afhankelijk van het aantal en de grootte van de bestanden. |
-| Gegevens kopiëren van Salesforce/Dynamics | 4 |
-| Alle andere kopie-scenario 's | 2 |
+| Gegevens kopiëren tussen winkels op basis van bestanden | Tussen 4 en 16 afhankelijk van het aantal en de grootte van de bestanden. |
+| Alle andere kopie-scenario 's | 4 |
 
 Om deze standaardinstelling negeren, Geef een waarde op voor de **cloudDataMovementUnits** eigenschap als volgt. De **toegestane waarden** voor de **cloudDataMovementUnits** eigenschap 2, 4, 8, 16 of 32 zijn. De **werkelijke aantal cloud DMUs** dat de kopieerbewerking wordt gebruikt tijdens de uitvoering is gelijk aan of kleiner zijn dan de geconfigureerde waarde, afhankelijk van het patroon van uw gegevens. Zie voor informatie over het niveau van prestatieverbetering krijgt u mogelijk wanneer u meer eenheden voor een specifieke kopieerbron en sink configureert, de [prestaties verwijzing](#performance-reference).
 
@@ -192,8 +191,8 @@ Configureer de **enableStaging** instellen in de kopieerbewerking om op te geven
 | Eigenschap | Beschrijving | Standaardwaarde | Vereist |
 | --- | --- | --- | --- |
 | **enableStaging** |Geef op of u wilt kopiëren van gegevens via een tussentijdse staging-store. |False |Nee |
-| **linkedServiceName** |Geef de naam van een [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) gekoppelde service die verwijst naar het exemplaar van de opslag die u als een tussentijdse staging store gebruiken. <br/><br/> U kunt opslag met een shared access signature niet gebruiken om gegevens te laden in SQL Data Warehouse met PolyBase. U kunt deze gebruiken in alle andere scenario's. |N.v.t. |Ja, wanneer **enableStaging** is ingesteld op TRUE |
-| **pad** |Geef het pad voor Blob-opslag die u wilt de voorbereide gegevens bevatten. Als u niet een pad opgeeft, maakt de service een container voor het opslaan van tijdelijke gegevens. <br/><br/> Geef een pad op als u opslag met een shared access signature gebruiken of u tijdelijke gegevens op een specifieke locatie te vereisen. |N.v.t. |Nee |
+| **linkedServiceName** |Geef de naam van een [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) gekoppelde service die verwijst naar het exemplaar van de opslag die u als een tussentijdse staging store gebruiken. <br/><br/> U kunt opslag met een shared access signature niet gebruiken om gegevens te laden in SQL Data Warehouse met PolyBase. U kunt deze gebruiken in alle andere scenario's. |N/A |Ja, wanneer **enableStaging** is ingesteld op TRUE |
+| **pad** |Geef het pad voor Blob-opslag die u wilt de voorbereide gegevens bevatten. Als u niet een pad opgeeft, maakt de service een container voor het opslaan van tijdelijke gegevens. <br/><br/> Geef een pad op als u opslag met een shared access signature gebruiken of u tijdelijke gegevens op een specifieke locatie te vereisen. |N/A |Nee |
 | **enableCompression** |Hiermee geeft u op of de gegevens moeten worden gecomprimeerd voordat deze is gekopieerd naar de bestemming. Deze instelling beperkt de hoeveelheid gegevens die worden overgedragen. |False |Nee |
 
 Hier volgt een voorbeeld-definitie van de Kopieeractiviteit met de eigenschappen die worden beschreven in de voorgaande tabel:
@@ -385,7 +384,7 @@ De prestatieknelpunt mogelijk worden veroorzaakt door een of meer van de volgend
 
 In dit geval kan bzip2 gegevenscompressie worden vertraagd de hele pijplijn. Overschakelen naar een compressiecodec gzip, kan dit knelpunt vereenvoudigen.
 
-## <a name="reference"></a>Naslaginformatie
+## <a name="reference"></a>Referentie
 
 Hier zijn prestaties controleren en afstemmen verwijzingen voor enkele van de ondersteunde gegevensarchieven:
 

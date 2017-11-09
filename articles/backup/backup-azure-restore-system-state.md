@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 320c85f8045d9b72cf7f430d2e2736ba8e5ec269
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 971f7979ca27bce5d147a9d479248c808dc658e3
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="restore-system-state-to-windows-server"></a>Systeemstatus terugzetten naar WindowsServer
 
-In dit artikel wordt uitgelegd hoe Windows Server System State back-ups herstellen uit een Azure Recovery Services-kluis. Als u systeemstatus herstellen, moet u een systeemstatusback-up hebben (gemaakt met behulp van de instructies in [Back-up van systeemstatus](backup-azure-system-state.md#back-up-windows-server-system-state-preview)), en zorg ervoor dat u hebt geïnstalleerd het [meest recente versie van de agent van Microsoft Azure Recovery Services (MARS)](http://aka.ms/azurebackup_agent). Systeemstatus van Windows Server-gegevens herstellen vanaf een Azure Recovery Services-kluis is een proces in twee stappen:
+In dit artikel wordt uitgelegd hoe Windows Server System State back-ups herstellen uit een Azure Recovery Services-kluis. Als u systeemstatus herstellen, moet u een systeemstatusback-up hebben (gemaakt met behulp van de instructies in [Back-up van systeemstatus](backup-azure-system-state.md#back-up-windows-server-system-state), en zorg ervoor dat u hebt geïnstalleerd het [meest recente versie van Microsoft Azure Recovery Services (MARS) Agent](http://aka.ms/azurebackup_agent). Systeemstatus van Windows Server-gegevens herstellen vanaf een Azure Recovery Services-kluis is een proces in twee stappen:
 
 1. Systeemstatus terugzetten als bestanden vanuit Azure Backup. Bij het herstellen van systeemstatus als bestanden vanuit Azure Backup, kunt u:
   * Restore systeemstatus naar dezelfde server waarop de back-ups zijn gemaakt, of

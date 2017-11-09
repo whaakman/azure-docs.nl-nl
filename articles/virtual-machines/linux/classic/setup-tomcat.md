@@ -15,21 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: fa30c78a5a5d458ba8845c3c10b87538427786c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b76f6f7f53bc649fbc740a79e182f81f3fd983c7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Tomcat7 instellen op een virtuele Linux-machine met Azure
 Apache Tomcat (of gewoon Tomcat, ook voorheen ondersteuning Tomcat) is een open-source-webserver en de servlet-container die is ontwikkeld door de Apache Software Foundation (AVP). Tomcat implementeert de Servlet Java en de specificaties Java Server Pages (JSP) van Sun Microsystems. Tomcat biedt een pure Java HTTP web server-omgeving waarin u Java-code uit te voeren. In de eenvoudigste configuratie, Tomcat uitgevoerd in een proces één besturingssysteem. Dit proces wordt uitgevoerd voor een virtuele Java-machine (JVM). Elke HTTP-aanvraag via een browser Tomcat wordt als een afzonderlijke thread in het proces Tomcat verwerkt.  
 
 > [!IMPORTANT]
 > Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Azure Resource Manager en classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over het gebruik van het klassieke implementatiemodel. U wordt aangeraden de meeste nieuwe implementaties het Resource Manager-model gebruiken. Als u een Resource Manager-sjabloon voor het implementeren van een VM Ubuntu met Open JDK en Tomcat, Zie [in dit artikel](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 In dit artikel leert u Tomcat7 installeren op een Linux-installatiekopie en deze implementeren in Azure.  
 
-U leert:  
+U leert het volgende:  
 
 * Het maken van een virtuele machine in Azure.
 * Klik hier voor meer informatie over het voorbereiden van de virtuele machine voor Tomcat7.

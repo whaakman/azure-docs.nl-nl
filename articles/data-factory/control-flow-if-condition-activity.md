@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: shlo
-ms.openlocfilehash: 0eb4f03a5d53da771a550bd5d79607ff7f0f52d3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d6f198f7376bf2fdbc812373721571162a8c4402
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Als de activiteit in Azure Data Factory-voorwaarde
 De activiteit als voorwaarde bieden dezelfde functionaliteit die een als instructie bevat in programmeertalen. Een set van activiteiten wanneer de voorwaarde is geëvalueerd `true` en een andere set activiteiten wanneer de voorwaarde wordt geëvalueerd als `false`. 
@@ -76,10 +76,13 @@ expressie | Expressie die moet worden geëvalueerd op true of false | Ja
 ifTrueActivities | Set van activiteiten die worden uitgevoerd wanneer de expressie resulteert in `true`. | Ja
 ifFalseActivities | Set van activiteiten die worden uitgevoerd wanneer de expressie resulteert in `false`. | Ja
 
-## <a name="sample"></a>Voorbeeld
+## <a name="example"></a>Voorbeeld
 De pijplijn in dit voorbeeld kopieert gegevens van een invoermap naar een map voor uitvoer. De uitvoermap wordt bepaald door de waarde van parameter pijplijn: routeSelection. Als de waarde van routeSelection waar is, wordt de gegevens gekopieerd naar outputPath1. En als de waarde van routeSelection ONWAAR is, wordt de gegevens gekopieerd naar outputPath2. 
 
-### <a name="pipeline-with-if-condition-activity"></a>Pijplijn met de activiteit als voorwaarde
+> [!NOTE]
+> Deze sectie bevat de definities van JSON en PowerShell-Voorbeeldopdrachten om uit te voeren van de pijplijn. Zie voor een overzicht met stapsgewijze instructies voor het maken van een Data Factory-pijplijn met behulp van Azure PowerShell en JSON definities [zelfstudie: Maak een gegevensfactory met Azure PowerShell](quickstart-create-data-factory-powershell.md).
+
+### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Pijplijn met als voorwaarde activiteit (Adfv2QuickStartPipeline.json)
 
 ```json
 {
@@ -190,7 +193,7 @@ Er is een ander voorbeeld voor expressie:
 ```
 
 
-### <a name="azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure gekoppelde Storage-service (AzureStorageLinkedService.json)
 
 ```json
 {
@@ -207,7 +210,7 @@ Er is een ander voorbeeld voor expressie:
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset"></a>Geparameteriseerde Azure Blob-gegevensset
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Geparameteriseerde Azure Blob-gegevensset (BlobDataset.json)
 De pijplijn sets de **folderPath** aan de waarde van een **outputPath1** of **outputPath2** parameter van de pijplijn. 
 
 ```json
@@ -234,7 +237,7 @@ De pijplijn sets de **folderPath** aan de waarde van een **outputPath1** of **ou
 }
 ```
 
-### <a name="pipeline-parameter-json"></a>Pipeline-parameter JSON
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Pipeline-parameter JSON (PipelineParameters.json)
 
 ```json
 {
@@ -246,10 +249,11 @@ De pijplijn sets de **folderPath** aan de waarde van een **outputPath1** of **ou
 ```
 
 ### <a name="powershell-commands"></a>PowerShell-opdrachten
+Deze opdrachten wordt ervan uitgegaan dat u de JSON-bestanden hebt opgeslagen in de map: C:\ADF. 
 
 ```powershell
-# Login-AzureRmAccount
-# Select-AzureRmSubscription "<Your subscription name>"
+Login-AzureRmAccount
+Select-AzureRmSubscription "<Your subscription name>"
 
 $resourceGroupName = "<Resource Group Name>"
 $dataFactoryName = "<Data Factory Name. Must be globally unique>";

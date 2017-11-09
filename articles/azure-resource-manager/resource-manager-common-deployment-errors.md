@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: d6dc0ffac1a3e688f93af903f51f798270b63711
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ebb469289afc36b08c90ae9839f5bdba41cd90b
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Veelvoorkomende fouten voor Azure-implementatie met Azure Resource Manager oplossen
 
-Dit onderwerp beschrijft een aantal veelvoorkomende fouten Azure-implementatie u mogelijk stuit en biedt informatie waarmee de fouten op te lossen. Als u de foutcode voor uw implementatiefout vinden kan, raadpleegt u [foutcode vinden](#find-error-code).
+In dit artikel beschrijft een aantal veelvoorkomende fouten Azure-implementatie u mogelijk stuit en biedt informatie waarmee de fouten op te lossen. Als u de foutcode voor uw implementatiefout vinden kan, raadpleegt u [foutcode vinden](#find-error-code).
 
 ## <a name="error-codes"></a>Foutcodes
 
@@ -61,6 +61,7 @@ Dit onderwerp beschrijft een aantal veelvoorkomende fouten Azure-implementatie u
 | PrivateIPAddressNotInSubnet | Het opgegeven IP-adres is buiten het subnetbereik. IP-adres valt binnen het subnetbereik wijzigen. | [IP-adressen](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PropertyChangeNotAllowed | Sommige eigenschappen kunnen niet worden gewijzigd voor een geïmplementeerde bron. Bij het bijwerken van een resource, beperkt u uw wijzigingen in de toegestane eigenschappen. | [Bron bijwerken](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | RequestDisallowedByPolicy | Uw abonnement omvat een bronbeleid een actie die u probeert uit te voeren tijdens de implementatie wordt verhinderd. Zoek het beleid dat de actie wordt geblokkeerd. Indien mogelijk uw implementatie om te voldoen aan de beperkingen van het beleid wijzigen. | [Beleid oplossen](resource-manager-policy-requestdisallowedbypolicy-error.md) |
+| ReservedResourceName | Geef de naam van een resource die geen een gereserveerde naam omvatten. | [Gereserveerde resourcenamen](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Wachttijd voor verwijderen is voltooid. | |
 | ResourceGroupNotFound | Controleer de naam van de brongroep van doel voor de implementatie. Het moet al bestaan in uw abonnement. Controleer de context van uw abonnement. | [Azure CLI](/cli/azure/account?#az_account_set) [PowerShell](/powershell/module/azurerm.profile/set-azurermcontext) |
 | ResourceNotFound | Uw implementatie verwijst naar een resource die niet kan worden omgezet. Controleer uw gebruik van de **verwijzing** functie bevat de vereiste parameters voor uw scenario. | [Verwijzingen oplossen](resource-manager-not-found-errors.md) |

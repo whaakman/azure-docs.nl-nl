@@ -15,20 +15,21 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: huvalo
-ms.openlocfilehash: 283a296fb39863c2801be1093cc4f56904786abd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01fa162d41e03e29f3b6f0ca128e7cc49aa91abb
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>Django Hallo wereld-web-app op een virtuele machine van Windows Server
 
 > [!IMPORTANT] 
 > Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Azure Resource Manager en het klassieke implementatiemodel](../../../resource-manager-deployment-model.md). Dit artikel wordt beschreven voor het klassieke implementatiemodel. U wordt aangeraden de meeste nieuwe implementaties het Resource Manager-model gebruiken.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Deze zelfstudie laat zien hoe u voor het hosten van een website op basis van Django in Windows Server in Azure Virtual Machines. In de zelfstudie gaan we ervan uit geen ervaring met Azure. Wanneer u de zelfstudie hebt voltooid, hebt u een toepassing op basis van de Django up en wordt uitgevoerd in de cloud.
 
-Leer hoe u het volgende doet:
+Procedures voor:
 
 * Een virtuele machine van Azure naar host Django instellen. Hoewel deze zelfstudie wordt uitgelegd hoe u dit doen voor **Windows Server**, kunt u dezelfde doen voor een Linux-VM wordt gehost in Azure.
 * Maak een nieuwe Django-toepassing in Windows.

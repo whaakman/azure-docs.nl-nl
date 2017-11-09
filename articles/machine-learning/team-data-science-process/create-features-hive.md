@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 0c8c2ab8c7daceb13fd39d2a109148a40430d59a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a967a8fccfe0dc051a7cf3a4a2fcefad2a2f187f
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-features-for-data-in-an-hadoop-cluster-using-hive-queries"></a>Met Hive-query’s functies maken voor gegevens in een Hadoop-cluster
 Dit document wordt beschreven hoe de functies voor gegevens die zijn opgeslagen in een Azure HDInsight Hadoop-cluster met behulp van Hive-query's maken. Deze Hive-query's gebruiken ingesloten Hive gebruiker gedefinieerde functies (UDF's), de scripts die worden geleverd.
@@ -37,18 +37,18 @@ In dit artikel wordt ervan uitgegaan dat u hebt:
 * Een Azure storage-account gemaakt. Als u instructies nodig hebt, raadpleegt u [een Azure Storage-account maken](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 * Een aangepaste Hadoop-cluster met de HDInsight-service wordt ingericht.  Als u instructies nodig hebt, raadpleegt u [aanpassen Azure HDInsight Hadoop-Clusters voor geavanceerde analyses](customize-hadoop-cluster.md).
 * De gegevens is geüpload naar de Hive-tabellen in Azure HDInsight Hadoop-clusters. Als dit niet het geval is, voert u [maken en gegevens laden met Hive-tabellen](move-hive-tables.md) eerst gegevens uploaden naar Hive-tabellen.
-* Externe toegang tot het cluster is ingeschakeld. Als u instructies nodig hebt, raadpleegt u [toegang tot de hoofd-knooppunt van Hadoop-Cluster](customize-hadoop-cluster.md#headnode).
+* Externe toegang tot het cluster is ingeschakeld. Als u instructies nodig hebt, raadpleegt u [toegang tot de hoofd-knooppunt van Hadoop-Cluster](customize-hadoop-cluster.md).
 
 ## <a name="hive-featureengineering"></a>Functie generatie
 In deze sectie vindt u enkele voorbeelden van de manieren waarop functies kunnen genereren met behulp van Hive-query's. Nadat u extra functies hebt gegenereerd, kunt u ze als kolommen toevoegen aan de bestaande tabel of een nieuwe tabel maken met de aanvullende functies en de primaire sleutel, die vervolgens kan worden samengevoegd met de oorspronkelijke tabel. Hier volgen de voorbeelden:
 
-1. [De frequentie op basis van functie generatie](#hive-frequencyfeature)
+1. [Generatie van de functie op basis van de frequentie](#hive-frequencyfeature)
 2. [Risico's van Categorische variabelen in binaire classificatie](#hive-riskfeature)
 3. [Functies van Datetime Field uitpakken](#hive-datefeatures)
 4. [Functies van tekstveld uitpakken](#hive-textfeatures)
 5. [Afstand tussen GPS-coördinaten berekenen](#hive-gpsdistance)
 
-### <a name="hive-frequencyfeature"></a>De frequentie op basis van functie generatie
+### <a name="hive-frequencyfeature"></a>Generatie van de functie op basis van de frequentie
 Vaak is het nuttig om de frequenties van de niveaus van een categorische variabele of de frequenties van bepaalde combinaties van niveaus uit meerdere categorische variabelen te berekenen. Gebruikers kunnen het volgende script gebruiken voor het berekenen van deze frequenties:
 
         select
@@ -63,7 +63,7 @@ Vaak is het nuttig om de frequenties van de niveaus van een categorische variabe
 
 
 ### <a name="hive-riskfeature"></a>Risico's van Categorische variabelen in binaire classificatie
-In binaire indeling moeten we niet-numerieke categorische variabelen converteren naar numerieke onderdelen wanneer de modellen die alleen wordt gebruikt, neemt de numerieke onderdelen. Dit wordt gedaan door elk niet-numerieke niveau vervangen door een numerieke risico. In deze sectie laten we zien enkele algemene Hive-query's die de waarden van de risico's (log kans) van een variabele categorische berekenen.
+In binaire indeling moeten we niet-numerieke categorische variabelen converteren naar numerieke onderdelen wanneer de modellen die alleen wordt gebruikt, neemt de numerieke onderdelen. Dit wordt gedaan door elk niet-numerieke niveau vervangen door een numerieke risico. Deze sectie vindt enkele algemene Hive-query's die de waarden van de risico's (log kans) van een variabele categorische berekenen.
 
         set smooth_param1=1;
         set smooth_param2=20;
@@ -83,12 +83,12 @@ In binaire indeling moeten we niet-numerieke categorische variabelen converteren
             group by <column_name1>, <column_name2>
             )b
 
-In dit voorbeeld variabelen `smooth_param1` en `smooth_param2` vloeiend de risico-waarden berekend op basis van de gegevens zijn ingesteld. Risico's hebben een bereik tussen -Inf en inf-bestand. Een risico's > 0 geeft aan dat de kans dat het doel gelijk aan 1 is groter dan 0,5 is.
+In dit voorbeeld variabelen `smooth_param1` en `smooth_param2` vloeiend de risico-waarden berekend op basis van de gegevens zijn ingesteld. Risico's hebben een bereik tussen -Inf en inf-bestand. Een risico > 0 geeft aan dat de kans dat het doel gelijk aan 1 is groter dan 0,5 is.
 
 Na het risico is tabel berekend dat gebruikers kunnen risico waarden toewijzen aan een tabel door deze samen te voegen met de tabel risico. De gekoppelde Hive-query is opgegeven in de vorige sectie.
 
 ### <a name="hive-datefeatures"></a>Functies van Datetime-Fields uitpakken
-Hive wordt geleverd met een reeks UDF's voor het verwerken van datetime-velden. In component, de standaardnotatie voor datum/tijd is ' jjjj-MM-dd 00:00:00 ' ('01-01-1970 12:21:32 ' bijvoorbeeld). In deze sectie laten we zien voorbeelden die de dag van een maand, de maand van een datetime-veld uitpakken en andere voorbeelden die een datum/tijd-tekenreeks in een indeling geconverteerd andere dan de standaardindeling naar een datum/tijd-tekenreeks in standaard opmaken.
+Hive wordt geleverd met een reeks UDF's voor het verwerken van datetime-velden. In component, de standaardnotatie voor datum/tijd is ' jjjj-MM-dd 00:00:00 ' ('01-01-1970 12:21:32 ' bijvoorbeeld). In deze sectie bevat voorbeelden die de dag van een maand, de maand van een datetime-veld uitpakken en andere voorbeelden die een datum/tijd-tekenreeks in een indeling geconverteerd andere dan de standaardindeling naar een datum/tijd-tekenreeks in standaard opmaken.
 
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
@@ -114,7 +114,7 @@ Wanneer de Hive-tabel een tekstveld die een tekenreeks met woorden die worden ge
         from <databasename>.<tablename>;
 
 ### <a name="hive-gpsdistance"></a>Afstand tussen sets GPS-coördinaten berekenen
-De query is opgegeven in deze sectie kan rechtstreeks worden toegepast op de NYC Taxi reis gegevens. Het doel van deze query is om het toepassen van een ingesloten wiskundige functies in de component voor het genereren van de functies weer te geven.
+De query is opgegeven in deze sectie kan rechtstreeks worden toegepast op de NYC Taxi reis gegevens. Het doel van deze query is om het toepassen van een ingesloten wiskundige functie in de component voor het genereren van de functies weer te geven.
 
 De velden die worden gebruikt in deze query zijn de GPS-coördinaten van ophalen en dropoff locaties, met de naam *ophalen\_lengtegraad*, *ophalen\_breedtegraad*, *dropoff\_lengtegraad*, en *dropoff\_breedtegraad*. De query's die de directe afstand tussen de coördinaten ophalen en dropoff berekenen zijn:
 
@@ -143,20 +143,20 @@ Een volledige lijst met Hive ingesloten UDF's vindt u in de **ingebouwde functie
 ## <a name="tuning"></a>Onderwerpen over geavanceerde: stemmen Hive-Parameters voor Query-snelheid verbeteren
 De standaardinstellingen van de parameter van Hive-cluster is mogelijk niet geschikt is voor de Hive-query's en de gegevens die de verwerking van de query's. In deze sectie bespreken we een aantal parameters die gebruikers kunnen afstemmen de prestaties van Hive-query's verbeteren. Gebruikers moeten de parameter afstemmen van query's voordat de query's van het verwerken van gegevens toevoegen.
 
-1. **Java-heap ruimte**: voor query's met betrekking tot lid te worden grote gegevenssets of verwerken van lange records **bijna vol heap** is een van de algemene fout. Dit door het instellen van de parameters kan worden afgestemd *mapreduce.map.java.opts* en *mapreduce.task.io.sort.mb* naar de gewenste waarden. Hier volgt een voorbeeld:
+1. **Java-heap ruimte**: voor query's met betrekking tot lid te worden grote gegevenssets of verwerken van lange records **bijna vol heap** is een van de algemene fouten. Dit door het instellen van de parameters kan worden afgestemd *mapreduce.map.java.opts* en *mapreduce.task.io.sort.mb* naar de gewenste waarden. Hier volgt een voorbeeld:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
     Deze parameter 4GB geheugen met Java heap adresruimte toewijst en maakt ook sorteren efficiënter door meer geheugen toewijzen voor deze. Er is een goed idee om af te spelen met deze toewijzingen als er een taak mislukt fouten met betrekking tot heap-ruimte.
 
-1. **DFS-blokgrootte** : deze parameter stelt de kleinste gegevenseenheid die het bestandssysteem worden opgeslagen. Als u bijvoorbeeld dat als de blokgrootte van DFS-128MB, klikt u vervolgens de gegevens van de grootte van minder dan en maximaal is 128MB wordt opgeslagen in één blok, terwijl de gegevens die groter is dan 128MB extra blokken wordt toegewezen. Het kiezen van een zeer kleine blokgrootte zorgt ervoor dat grote overhead in Hadoop omdat de naam van knooppunt heeft veel meer aanvragen zoeken van de relevante blok met betrekking tot het bestand te verwerken. Een aanbevolen instelling als betreft gigabyte (of groter) gegevens:
+1. **DFS-blokgrootte**: deze parameter stelt de kleinste gegevenseenheid die het bestandssysteem worden opgeslagen. Als u bijvoorbeeld dat als de blokgrootte van DFS-128MB, klikt u vervolgens de gegevens van de grootte van minder dan en maximaal is 128MB wordt opgeslagen in één blok, terwijl de gegevens die groter is dan 128MB extra blokken wordt toegewezen. Het kiezen van een zeer kleine blokgrootte zorgt ervoor dat grote overhead in Hadoop omdat de naam van knooppunt heeft veel meer aanvragen zoeken van de relevante blok met betrekking tot het bestand te verwerken. Een aanbevolen instelling als betreft gigabyte (of groter) gegevens:
    
         set dfs.block.size=128m;
-2. **Join-bewerking in Hive optimaliseren** : terwijl joinbewerkingen in het kader van de kaart/verminderen doorgaans in de verminderen fase soms plaatsvinden enorm veel toeneemt kunnen worden bereikt door planning joins in de fase van de kaart (ook wel 'mapjoins' genoemd). Rechtstreeks Hive om dit te doen indien mogelijk, kunt we instellen:
+2. **Join-bewerking in Hive optimaliseren**: terwijl joinbewerkingen in het kader van de kaart/verminderen doorgaans in de verminderen fase soms plaatsvinden enorm veel toeneemt kunnen worden bereikt door planning joins in de fase van de kaart (ook wel 'mapjoins' genoemd). Rechtstreeks Hive om dit te doen indien mogelijk, instellen:
    
         set hive.auto.convert.join=true;
-3. **Waarmee het aantal mappers aan component** : terwijl Hadoop kan de gebruiker het aantal verkleiningstoestellen instellen, het aantal mappers is doorgaans niet worden ingesteld door de gebruiker. Een slag waarmee bepaalde mate van controle op dit aantal is het kiezen van de variabelen Hadoop *mapred.min.split.size* en *mapred.max.split.size* als de grootte van elke kaart taak wordt bepaald door:
+3. **Waarmee het aantal mappers aan component**: terwijl Hadoop kan de gebruiker het aantal verkleiningstoestellen instellen, het aantal mappers is doorgaans niet worden ingesteld door de gebruiker. Een slag waarmee bepaalde mate van controle op dit aantal is het kiezen van de variabelen Hadoop *mapred.min.split.size* en *mapred.max.split.size* als de grootte van elke kaart taak wordt bepaald door:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    

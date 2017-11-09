@@ -15,21 +15,22 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 8c51c0bb37e25ad61fe58a85dd641dabe0a1958c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a71efa7ff052c7c69de2b9aba3c1ed9328538e3f
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Een rekenintensieve taak uitvoeren in Java op een virtuele machine
 > [!IMPORTANT] 
 > Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Met Azure, kunt u een virtuele machine voor het afhandelen van rekenintensieve taken. Bijvoorbeeld: een virtuele machine verwerkt taken en resultaten ervoor zorgen dat clientcomputers of mobiele toepassingen. Na het lezen van dit artikel hebt u een goed begrip van het maken van een virtuele machine die wordt uitgevoerd een rekenintensieve Java-toepassing die kan worden gecontroleerd door een andere Java-toepassing.
 
 Deze zelfstudie wordt ervan uitgegaan dat u weet van het maken van Java-consoletoepassingen, bibliotheken kunt importeren naar uw Java-toepassing en een Java-archief (JAR) kunt genereren. Er is geen kennis van Microsoft Azure wordt verondersteld.
 
-U leert:
+U leert het volgende:
 
 * Het maken van een virtuele machine met een Java Development Kit (JDK) al is geïnstalleerd.
 * Het op afstand aan te melden bij uw virtuele machine.

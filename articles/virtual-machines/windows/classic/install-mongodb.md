@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: iainfou
-ms.openlocfilehash: 6b5af18d02fd508a21cdc21b38b1c16e79f07ecb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d70194f30b7866cab38cfbbe1ea06664b0ddc1f5
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="install-mongodb-on-a-windows-vm-in-azure"></a>MongoDB installeren op een Windows virtuele machine in Azure
 > [!IMPORTANT]
 > Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md).  In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Als u wilt installeren en configureren met het implementatiemodel van Resource Manager MongoDB, Zie [in dit artikel](../install-mongodb.md).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [MongoDB] [ MongoDB] is een populaire open-source, hoogwaardige NoSQL-database. In dit artikel begeleidt u bij het maken van een Windows Server-virtuele machine (VM) met de [Azure-portal][AzurePortal]. U maakt en een gegevensschijf koppelen aan de virtuele machine voor het installeren en configureren van MongoDB. Hebt u een bestaande virtuele machine in Azure die u wilt gebruiken, kunt u meteen naar gaan [installeren en configureren van MongoDB](#install-and-run-mongodb-on-the-virtual-machine).
 

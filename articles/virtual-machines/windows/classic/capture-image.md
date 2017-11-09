@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6032263848c469ce2f416306e5c91c29f4cb30e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6fa6d3099d8427a186e6095fdcbbc327d1acab7f
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Leg een installatiekopie van een virtuele machine van Azure Windows vast die is gemaakt volgens het klassieke implementatiemodel.
 > [!IMPORTANT]
 > Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Zie voor informatie over het model van de Resource Manager, [beheerde-installatiekopie van een gegeneraliseerde virtuele machine in Azure](../capture-image-resource.md).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Dit artikel ziet u het vastleggen van een virtuele machine van Azure waarop Windows wordt uitgevoerd, zodat u deze als een installatiekopie van een gebruiken kunt andere virtuele machines maken. Deze installatiekopie bevat de schijf van het besturingssysteem en eventuele gegevensschijven die zijn gekoppeld aan de virtuele machine. Het bevat geen netwerkconfiguraties, dus u moet voor het instellen van de netwerkconfiguraties bij het maken van de andere virtuele machines die gebruikmaken van de installatiekopie.
 

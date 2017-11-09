@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: billmath
-ms.openlocfilehash: d005042fffcf8f4ff99876961a55d254fd4fb2d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61652d97429336dad23ba14f7349e27bf52d33d7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Azure AD Connect met een bestaande database van ADSync installeren
 Azure AD Connect vereist een SQL Server-database voor het opslaan van gegevens. De standaard die SQL Server 2012 Express LocalDB met Azure AD Connect geïnstalleerd of uw eigen volledige versie van SQL gebruiken. Voorheen wanneer u Azure AD Connect geïnstalleerd, is een nieuwe database met de naam ADSync altijd gemaakt. U hebt de optie voor het Azure AD Connect installeert door deze aan te wijzen aan een bestaande database van ADSync met Azure AD Connect versie 1.1.613.0 (of na).
@@ -35,7 +35,7 @@ Deze voordelen zijn nuttig in de volgende scenario's:
 
 
 - U hebt een bestaande implementatie van Azure AD Connect. De bestaande Azure AD Connect-server niet langer werkt, maar de SQL-server met de database van ADSync nog werkt. U kunt een nieuwe Azure AD Connect-server installeren en wijs de bestaande database van ADSync. 
-- U hebt een bestaande implementatie van Azure AD Connect. De SQL-server met de database van ADSync werkt niet meer. U hebt echter een recente back-up van de database. U kunt de database van ADSync eerst herstellen naar een nieuwe SQL-server. Waarna, kunt u een nieuwe Azure AD Connect-server installeren en wijs de teruggezette database van ADSync.
+- U hebt een bestaande implementatie van Azure AD Connect. De SQL-server met de database van ADSync werkt niet meer. Maar hebt u een recente back-up van de database. U kunt de database van ADSync eerst herstellen naar een nieuwe SQL-server. Waarna, kunt u een nieuwe Azure AD Connect-server installeren en wijs de teruggezette database van ADSync.
 - U hebt een bestaande Azure AD Connect-implementatie die van LocalDB gebruikmaakt. Als gevolg van het maximum van 10 GB die zijn opgelegd door LocalDB, wilt u migreren naar een volledige SQL. U kunt back-up van de database van ADSync van LocalDB en herstellen naar een SQL server. Waarna u kunt een nieuwe Azure AD Connect-server opnieuw en wijs de teruggezette database van ADSync.
 - U probeert een testserver instellen en wil ervoor zorgen dat de configuratie ervan overeenkomt met die van de huidige actieve server. U kunt back-up van de database van ADSync en herstellen naar een andere SQL-server. Waarna u kunt een nieuwe Azure AD Connect-server opnieuw en wijs de teruggezette database van ADSync.
 
@@ -43,11 +43,11 @@ Deze voordelen zijn nuttig in de volgende scenario's:
 
 Voordat u doorgaat, let er van belangrijke opmerkingen te laten op:
 
-
 - Zorg ervoor dat aan de vereisten voor Azure AD Connect op Hardware en vereisten, en -account en machtigingen die vereist zijn voor het installeren van Azure AD Connect installeert bekijken. De machtigingen die vereist zijn voor het installeren van Azure AD Connect met modus 'bestaande database gebruiken' is hetzelfde als 'aangepaste' installatie.
+- Database, dat is implementatie van Azure AD Connect op basis van een bestaande ADSync wordt alleen ondersteund met de volledige SQL. Dit wordt niet ondersteund met SQL Express LocalDB. Hebt u een bestaande database van ADSync in LocalDB die u wilt gebruiken, moet u back-up van de database van ADSync (LocalDB) en deze terugzetten naar volledige SQL. Waarna u Azure AD Connect op de herstelde database met deze methode kunt implementeren.
 - De versie van de Azure AD Connect gebruiken voor de installatie moet voldoen aan de volgende criteria:
     - 1.1.613.0 of hoger, en
-    - Dezelfde of hoger is dan de versie van de Azure AD Connect met de database van ADSync het laatst is gebruikt. Als de Azure AD Connect-versie die wordt gebruikt voor de installatie hoger dan de versie met de database van ADSync het laatst is gebruikt is, kan een volledige synchronisatie vereist zijn.  Dit is vereist als er wijzigingen in de regel schema of de synchronisatie tussen de twee versies. 
+    - Dezelfde of hoger is dan de versie van de Azure AD Connect met de database van ADSync het laatst is gebruikt. Als de Azure AD Connect-versie die wordt gebruikt voor de installatie hoger dan de versie met de database van ADSync het laatst is gebruikt is, kan een volledige synchronisatie vereist zijn.  Volledige synchronisatie is vereist als er wijzigingen in de regel schema of de synchronisatie tussen de twee versies. 
 - De ADSync database die wordt gebruikt, moet een relatief recente synchronisatiestatus van bevatten. De laatste synchronisatieactiviteit met de bestaande database van ADSync moet binnen de afgelopen drie weken.
 - Bij het installeren van Azure AD Connect met de methode 'bestaande database gebruiken', is aanmelden methode geconfigureerd op de vorige Azure AD Connect-server niet behouden. U kunt de aanmeldingsmethode bovendien niet configureren tijdens de installatie. U kunt alleen aanmeldingsmethode configureren nadat de installatie is voltooid.
 - U kunt geen meerdere Azure AD Connect-servers dezelfde database ADSync. De methode 'bestaande database gebruiken' kunt u een bestaande database ADSync met een nieuwe Azure AD Connect-server. Het ondersteunt niet delen.

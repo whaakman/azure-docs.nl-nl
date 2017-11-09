@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/17
 ms.author: cynthn
-ms.openlocfilehash: d7c9740f1866fdccb83be29a7ac335ff0a2e9407
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 54548ff2e8b881030bdbee3511b7ac13ddf67d99
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-a-custom-virtual-machine-running-windows-using-the-classic-deployment-model"></a>Maak een aangepaste virtuele machine met Windows met het klassieke implementatiemodel
 > [!IMPORTANT]
 > Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: zivr
-ms.openlocfilehash: be062ce9cfbe7486ef500dd9d27418cbf245d6e0
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: b31955e19883f9fe2e7ed6cf7f5076eaf52577c0
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Verwerken geplande onderhoud meldingen voor virtuele Linux-machines
 
@@ -65,6 +65,8 @@ De volgende waarden worden onder MaintenanceRedeployStatus geretourneerd:
 | LastOperationResultCode               | Het resultaat van de laatste poging tot het onderhoud op de virtuele machine starten ||
 
 
+
+
 ## <a name="start-maintenance-on-your-vm-using-cli"></a>Onderhoudsmodus starten op de virtuele machine met CLI
 
 De volgende oproep verzenden onderhoud op een virtuele machine wordt gestart als `IsCustomerInitiatedMaintenanceAllowed` is ingesteld op true.
@@ -74,6 +76,28 @@ az vm perform-maintenance rgName vmName
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
+
+## <a name="classic-deployments"></a>Klassieke implementaties
+
+Als er nog steeds verouderde virtuele machines die zijn kunt geïmplementeerd met behulp van het klassieke implementatiemodel, u gebruiken CLI 1.0 aan query voor virtuele machines en onderhoud initiëren.
+
+Zorg ervoor dat u in de juiste modus met klassieke VM werkt door te typen:
+
+```
+azure config mode asm
+```
+
+Ophalen van de onderhoudsstatus van een virtuele machine met de naam *myVM*, type:
+
+```
+azure vm show myVM 
+``` 
+
+Onderhoudsmodus starten op u klassieke virtuele machine met de naam *myVM* in de *myService* service en *myDeployment* voor implementatie, type:
+
+```
+azure compute virtual-machine initiate-maintenance --service-name myService --name myDeployment --virtual-machine-name myVM
+```
 
 
 ## <a name="faq"></a>Veelgestelde vragen

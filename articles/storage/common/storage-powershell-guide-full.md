@@ -11,13 +11,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: 1046e407bb4e9d07e91014384e9eba7b0c7020a8
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure PowerShell gebruiken met Azure Storage
 
@@ -28,7 +28,7 @@ Dit artikel bevat informatie over algemene bewerkingen met behulp van de vlak-cm
 > [!div class="checklist"]
 > * Lijst met storage-accounts
 > * Een verwijzing naar een bestaand opslagaccount ophalen
-> * Een opslagaccount maken 
+> * Maak een opslagaccount 
 > * Eigenschappen van het opslagaccount instellen
 > * Ophalen en de toegangssleutels opnieuw genereren
 > * Toegang tot uw storage-account beveiligen 
@@ -78,7 +78,7 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 U hebt nu $storageAccount die naar een bestaand opslagaccount wijst.
 
-### <a name="create-a-storage-account"></a>Een opslagaccount maken 
+### <a name="create-a-storage-account"></a>Maak een opslagaccount 
 
 Het volgende script toont het maken van een opslagaccounts voor algemeen gebruik voor het met [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Nadat u het account maakt, halen de context die kan worden gebruikt in de volgende opdrachten in plaats van geven de verificatie met elke aanroep.
 
@@ -165,7 +165,7 @@ Gebruiken om de andere sleutel opnieuw genereren, `key2` als de naam van de sleu
 Een van uw sleutels genereren en haal vervolgens opnieuw om te zien of de nieuwe waarde.
 
 > [!NOTE] 
-> U moet uitvoeren om een zorgvuldige planning vóór het opnieuw genereren van de sleutel voor een productie-opslagaccount. Opnieuw genereren van een of beide sleutels, de toegang voor elke toepassing met de sleutel die is opnieuw gegenereerd zijn ongeldig. Zie voor meer informatie [Regenate opslagtoegangssleutels](storage-create-storage-account.md#regenerate-storage-access-keys).
+> U moet uitvoeren om een zorgvuldige planning vóór het opnieuw genereren van de sleutel voor een productie-opslagaccount. Opnieuw genereren van een of beide sleutels, de toegang voor elke toepassing met de sleutel die is opnieuw gegenereerd zijn ongeldig. Zie voor meer informatie [opslagtoegangssleutels opnieuw genereren](storage-create-storage-account.md#regenerate-storage-access-keys).
 
 
 ### <a name="delete-a-storage-account"></a>Een opslagaccount verwijderen 
@@ -216,6 +216,12 @@ Nu dat u hoe uw storage-account met PowerShell beheren begrijpt, kunt u de volge
 * [Het beheren van BLOB's met PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [Bestanden met PowerShell beheren](../files/storage-how-to-use-files-powershell.md)
 * [Het beheren van wachtrijen met PowerShell](../queues/storage-powershell-how-to-use-queues.md)
+* [Azure Table storage bewerkingen uitvoeren met PowerShell](../../cosmos-db/table-storage-how-to-use-powershell.md)
+
+Premium-functies biedt Azure Cosmos DB tabel API voor tabelopslag zoals klare globale distribueren, lage latentie leesbewerkingen en schrijfbewerkingen, automatische secundaire indexeren en de speciale doorvoer. 
+
+* Zie voor meer informatie [Azure Cosmos DB tabel API](../../cosmos-db/table-introduction.md). 
+* Zie voor meer informatie over het gebruik van PowerShell voor Azure Cosmos DB tabel API-bewerkingen uitvoeren, [uitvoeren Azure Cosmos DB tabel-API-bewerkingen met PowerShell](../../cosmos-db/table-powershell.md).
 
 ## <a name="azures-independently-deployed-clouds"></a>Azure onafhankelijk geïmplementeerd clouds
 
@@ -241,7 +247,7 @@ Dit artikel bevat informatie over algemene bewerkingen met behulp van de vlak-cm
 > [!div class="checklist"]
 > * Lijst met storage-accounts
 > * Een verwijzing naar een bestaand opslagaccount ophalen
-> * Een opslagaccount maken 
+> * Maak een opslagaccount 
 > * Eigenschappen van het opslagaccount instellen
 > * Ophalen en de toegangssleutels opnieuw genereren
 > * Toegang tot uw storage-account beveiligen 

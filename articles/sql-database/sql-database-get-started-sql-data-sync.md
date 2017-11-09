@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 77e1c1e6ce345b83ba5d88150fd9642c506ae7b9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ddcf6868a0fca88a52774e20623d25de31c063bb
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="getting-started-with-azure-sql-data-sync-preview"></a>Aan de slag met Azure SQL-gegevenssynchronisatie (Preview)
+# <a name="get-started-with-azure-sql-data-sync-preview"></a>Aan de slag met Azure SQL-gegevenssynchronisatie (Preview)
 In deze zelfstudie leert u het instellen van het synchroniseren van Azure SQL-gegevens door te maken van een hybride-groep voor synchronisatie met Azure SQL Database- en SQL Server-exemplaren. De nieuwe groep voor synchronisatie is volledig geconfigureerd en gesynchroniseerd volgens de planning die u instelt.
 
 Deze zelfstudie wordt ervan uitgegaan dat er ten minste enige ervaring met SQL-Database en SQL Server. 
 
-Zie voor een overzicht van de SQL-gegevenssynchronisatie [synchroniseren van gegevens](sql-database-sync-data.md).
+Zie voor een overzicht van de SQL-gegevenssynchronisatie [synchroniseren van gegevens via meerdere cloud en on-premises databases met Azure SQL-gegevenssynchronisatie (Preview)](sql-database-sync-data.md).
 
 Voor volledige PowerShell voorbeelden van het synchroniseren van de SQL-gegevens configureren, Zie de volgende artikelen:
 -   [PowerShell gebruiken om te synchroniseren tussen meerdere Azure SQL-databases](scripts/sql-database-sync-data-between-sql-databases.md)
@@ -196,8 +196,19 @@ Nadat de nieuwe leden van de synchronisatie-groep worden gemaakt en geïmplement
 ## <a name="next-steps"></a>Volgende stappen
 Gefeliciteerd! U kunt een groep voor synchronisatie met zowel een exemplaar van SQL-Database en SQL Server-database hebt gemaakt.
 
-Zie voor meer informatie over SQL-Database en synchroniseren van de SQL-gegevens:
+Zie voor meer informatie over het synchroniseren van de SQL-gegevens:
+
+-   [Synchronisatie van gegevens over meerdere cloud en on-premises databases met synchroniseren van Azure SQL-gegevens](sql-database-sync-data.md)
+-   [Aanbevolen procedures voor het synchroniseren van Azure SQL-gegevens](sql-database-best-practices-data-sync.md)
+-   [Problemen oplossen met het synchroniseren van Azure SQL-gegevens](sql-database-troubleshoot-data-sync.md)
+
+-   Voer de PowerShell-voorbeelden die laten hoe u zien voor het synchroniseren van de SQL-gegevens configureren:
+    -   [PowerShell gebruiken om te synchroniseren tussen meerdere Azure SQL-databases](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [PowerShell gebruiken om te synchroniseren tussen een Azure SQL Database en een lokale SQL Server-database.](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 -   [De SQL-gegevens synchroniseren REST-API-documentatie downloaden](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+Zie voor meer informatie over SQL-Database:
+
 -   [Overzicht van de SQL-Database](sql-database-technical-overview.md)
 -   [Database-levenscyclusbeheer](https://msdn.microsoft.com/library/jj907294.aspx)
