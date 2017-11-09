@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: e4fe86b80d8a786da15cdea37619e54e55102e3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Een zonder Server API met behulp van Azure Functions maken
 
@@ -61,7 +61,8 @@ De functie voor het werken met de nieuwe API-gebied vervolgens testen.
 1. Ga terug naar de pagina ontwikkeling door te klikken op de functienaam in de linkernavigatiebalk.
 1. Klik op **ophalen van de functie URL** en kopieer de URL. U ziet dat deze gebruikmaakt van de `/api/hello` nu routeren.
 1. Kopieer de URL naar een nieuw browsertabblad of uw voorkeur REST-client. Browsers wordt GET standaard gebruikt.
-1. De functie uitvoeren en controleren of deze werkt. Mogelijk moet u de parameter 'name' opgeven als een queryreeks om te voldoen aan de Quick Start-code.
+1. Parameters toevoegen aan de query-tekenreeks in de URL bijvoorbeeld`/api/hello/?name=John`
+1. Druk op invoeren om te bevestigen dat het werkt. U ziet het antwoord '*Hello John*'
 1. U kunt ook proberen het aanroepen van het eindpunt met een andere HTTP-methode om te bevestigen dat de functie niet wordt uitgevoerd. Hiervoor moet u een REST-client, zoals cURL, Postman of Fiddler gebruiken.
 
 ## <a name="proxies-overview"></a>Overzicht van proxy 's
@@ -85,9 +86,8 @@ In deze sectie maakt u een nieuwe proxy die als een frontend naar uw algehele AP
 Herhaal de stappen voor het [maken van een functie-app](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) voor het maken van een nieuwe functie-app waarin u uw proxy maakt. Dit nieuwe app-URL voor onze API fungeert als de frontend en de functie-app die u eerder hebt bewerkt fungeert als een back-end.
 
 1. Navigeer naar uw nieuwe frontend functie-app in de portal.
-1. Selecteer **instellingen**. Klik in-of uitschakelen **inschakelen Azure Functions-proxy's (preview)** naar 'Op'.
-1. Selecteer **Platform instellingen** en kies **toepassingsinstellingen**.
-1. Schuif omlaag naar **appinstellingen** en maak een nieuwe instelling met sleutel 'HELLO_HOST'. Stel de waarde voor de host van uw back-end-functie-app, zoals `<YourBackendApp>.azurewebsites.net`. Dit is onderdeel van de URL die u eerder hebt gekopieerd bij het testen van uw HTTP-functie. U moet deze instelling in de configuratie later naar verwijzen.
+1. Selecteer **platformfuncties** en kies **toepassingsinstellingen**.
+1. Schuif omlaag naar **toepassingsinstellingen** waar de sleutel/waarde-paren worden opgeslagen en maak een nieuwe instelling met sleutel 'HELLO_HOST'. Stel de waarde voor de host van uw back-end-functie-app, zoals `<YourBackendApp>.azurewebsites.net`. Dit is onderdeel van de URL die u eerder hebt gekopieerd bij het testen van uw HTTP-functie. U moet deze instelling in de configuratie later naar verwijzen.
 
     > [!NOTE] 
     > App-instellingen worden aanbevolen voor de configuratie van de host om te voorkomen dat een afhankelijkheid vastgelegde omgeving voor de proxy. Met behulp van appinstellingen, betekent dat u de proxyconfiguratie tussen omgevingen verplaatsen kunt en de omgeving-specifieke app-instellingen worden toegepast.
@@ -120,7 +120,7 @@ Herhaal de stappen voor het [maken van een functie-app](https://docs.microsoft.c
 
 Vervolgens gebruikt u een proxy voor het maken van een mock-API voor uw oplossing. Hierdoor kunnen client-ontwikkeling voor de voortgang, zonder dat de back-end volledig geïmplementeerd. Verderop in ontwikkeling, kan u een nieuwe functie-app die ondersteuning biedt voor deze logica maken en uw proxy omleiden naar deze.
 
-Voor het maken van deze mock-API maken we een nieuwe proxy deze tijd met de [App Service-Editor](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Navigeer naar de functie-app in de portal om te beginnen. Selecteer **platformfuncties** en zoek **App Service-Editor**. Als u dit opent u de App Service-Editor in een nieuw tabblad.
+Voor het maken van deze mock-API maken we een nieuwe proxy deze tijd met de [App Service-Editor](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Navigeer naar de functie-app in de portal om te beginnen. Selecteer **platformfuncties** en klikt u onder **ontwikkelingsprogramma's** vinden **App Service-Editor**. Als u dit opent u de App Service-Editor in een nieuw tabblad.
 
 Selecteer `proxies.json` in de linkernavigatiebalk. Dit is het bestand waarin de configuratie voor al uw proxy's worden opgeslagen. Als u een van de [fungeert implementatiemethoden](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment), dit is het bestand dat u in bronbeheer wordt onderhouden. Zie voor meer informatie over dit bestand, [proxy's geavanceerde configuratie](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration).
 
@@ -178,7 +178,7 @@ Vervolgens voegt u uw mock-API. Vervang uw proxies.json-bestand met de volgende 
 
 Hiermee wordt een nieuwe proxy 'GetUserByName', zonder de eigenschap backendUri toegevoegd. In plaats van een andere resource aanroept, wordt het standaardantwoord van proxy's met een onderdrukking antwoord gewijzigd. Aanvraag en -antwoord onderdrukkingen kunnen ook worden gebruikt in combinatie met een back-end-URL. Dit is vooral handig als proxy voor een oudere systeem, waarin u mogelijk wilt wijzigen, kopteksten, query's parameters, enzovoort. Zie voor meer informatie over aanvraag- en onderdrukkingen, [wijzigen aanvragen en antwoorden in de proxy's](https://docs.microsoft.com/azure/azure-functions/functions-proxies#a-namemodify-requests-responsesamodifying-requests-and-responses).
 
-Uw mock API testen door het aanroepen van de `/api/users/{username}` -eindpunt met een browser of uw favoriete REST-client. Zorg ervoor dat u _{username}_ met de waarde van een tekenreeks die een gebruikersnaam vertegenwoordigt.
+Uw mock API testen door het aanroepen van de `<YourProxyApp>.azurewebsites.net/api/users/{username}` -eindpunt met een browser of uw favoriete REST-client. Zorg ervoor dat u _{username}_ met de waarde van een tekenreeks die een gebruikersnaam vertegenwoordigt.
 
 ## <a name="next-steps"></a>Volgende stappen
 

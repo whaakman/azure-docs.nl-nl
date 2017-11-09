@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/20/2017
+ms.date: 11/08/2017
 ms.author: gauravbh
-ms.openlocfilehash: b4fda06f85c7dab52ff38558b0d928193e0694f6
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 41eaff13cf55d58f58b33bc05d39a6665d51ea29
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Beheerde Azure-toepassingen in de Marketplace
 
@@ -122,7 +122,7 @@ Een SKU wordt weergegeven onder de bovenliggende aanbieding in de marketplace. D
    Vul de volgende velden:
 
    * **Huidige versie**: Voer een versie voor het pakket dat u uploadt. Deze moet de indeling `{number}.{number}.{number}{number}`.
-   * **Selecteer een pakketbestand**: dit pakket bevat het vereiste bestand comprimeren in een ZIP-pakket. Zie voor meer informatie [-catalogus-servicetoepassing maken](publish-service-catalog-app.md).
+   * **Selecteer een pakketbestand**: dit pakket bevat twee vereiste bestanden in een ZIP-pakket zijn gecomprimeerd. Een bestand is een Resource Manager-sjabloon die de resources te implementeren voor de beheerde toepassing definieert. Het andere bestand definieert het [gebruikersinterface](create-uidefinition-overview.md) voor consumenten implementeert de beheerde toepassing via de portal. In de gebruikersinterface geeft u de elementen waarmee consumenten parameterwaarden opgeven.
    * **PrincipalId**: deze eigenschap is de Azure Active Directory (Azure AD)-ID van een gebruiker, groep of toepassing die wordt verleend tot de resources in het abonnement van de klant. De roldefinitie worden de machtigingen beschreven.
    * **Roldefinitie**: deze eigenschap is een lijst met alle ingebouwde rollen gebaseerd toegangsbeheer (RBAC) rollen verstrekt door Azure AD. U kunt de functie die het meest geschikt is om te gebruiken voor het beheren van bronnen namens de klant selecteren.
 
@@ -197,5 +197,5 @@ Nadat u alle secties invult, selecteert u **publiceren** om het proces die uw aa
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een inleiding tot beheerde toepassingen, [beheerde toepassingsoverzicht](overview.md).
+* Zie [Overzicht van beheerde toepassingen](overview.md) voor een inleiding tot beheerde toepassingen.
 * Zie voor meer informatie over het publiceren van een Servicecatalogus beheerde toepassing [maken en publiceren van een Servicecatalogus beheerde toepassing](publish-service-catalog-app.md).

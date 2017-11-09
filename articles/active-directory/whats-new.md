@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 93b80744f68546e37934c987f45d7e2747d64f83
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 766ab10c853eb56a1203686d21d0e131c44a41b5
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
@@ -40,6 +40,18 @@ We zijn voortdurend verbeteren van de Azure Active Directory. Zodat u het produc
 -   Plannen voor wijzigingen 
 
 Neem terugkeren naar deze pagina regelmatig werken wij deze op maandelijkse basis.
+
+## <a name="november-2017"></a>November 2017
+
+**Type:** afgeschafte functies  
+**Servicecategorie:** ACS  
+**Mogelijkheid tot het product:** toegang tot de Control-Service 
+
+<a name="acs-retirement"></a>
+
+Microsoft Azure Active Directory-toegangsbeheer (ook wel bekend als Access Control Service of ACS) wordt buiten gebruik gesteld in latere 2018.  Meer informatie, inclusief een gedetailleerde planning en instructies voor migratie van hoog niveau wordt opgegeven in de volgende enkele weken. In de tussentijd laat opmerkingen op deze pagina met vragen met betrekking tot ACS en lid is van ons team antwoord geven op uw zal bereiken.
+
+---
 
 
 ## <a name="october-2017"></a>Oktober 2017
@@ -97,7 +109,7 @@ Zie voor meer informatie [verwijzing voor multi-factor authentication rapportage
 
 U kunt Azure AD gebruiksvoorwaarden gebruiken in de volgende scenario's:
 
-- Algemene gebruiksvoorwaarden voor alle gebruikers in uw organisatie. 
+- Algemene gebruiksrechtovereenkomst voor alle gebruikers in uw organisatie. 
 
 - Specifieke gebruiksvoorwaarden op basis van een gebruiker kenmerken (ex. arts tegenover verpleegkundigen of nationale tegenover internationale werknemers, uitgevoerd door dynamische groepen). 
 

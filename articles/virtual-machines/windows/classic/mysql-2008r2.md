@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: cynthn
-ms.openlocfilehash: 11850e5ce20efae88a7af9c1d2e4761ed2b70cd7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4135f96027cc25e1e0a149857ace1672570fc4b
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>MySQL installeren op een virtuele machine gemaakt met het klassieke implementatiemodel met Windows Server 2016
 [MySQL](https://www.mysql.com) is een populaire open-source, SQL-database. Deze zelfstudie ziet u het installeren en voer de **community-versie van MySQL 5.7.18** als een MySQL-Server op een virtuele machine met **Windows Server 2016**. Uw ervaring mogelijk enigszins verschillen voor andere versies van MySQL of Windows Server.
@@ -28,6 +28,7 @@ Zie voor instructies over het installeren van MySQL op Linux: [MySQL installeren
 
 > [!IMPORTANT]
 > Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="create-a-virtual-machine-running-windows-server-2016"></a>Maak een virtuele machine met Windows Server 2016
 Als u een virtuele machine met Windows Server 2016 nog geen hebt, kunt u dit [zelfstudie](./tutorial.md) voor het maken van de virtuele machine.

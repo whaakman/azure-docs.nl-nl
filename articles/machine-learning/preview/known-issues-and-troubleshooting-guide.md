@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: f39faea6b7e0886d63085b752f9532a7010ea941
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: e1ce5d337e8dea6e1dc48f04238ecb31c31909b1
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning-Workbench - bekende problemen en oplossen 
 In dit artikel helpt u bij het zoeken en corrigeer de fouten of fouten dat is aangetroffen als onderdeel van het gebruik van de toepassing Azure Machine Learning-Workbench. 
@@ -43,7 +43,7 @@ Als u probleem tijdens de installatie, worden de logboekbestanden van het instal
 U kunt een zip-up van de inhoud van deze mappen en naar ons verzenden voor diagnostische gegevens.
 
 ### <a name="workbench-desktop-app"></a>Workbench bureaublad-app
-Als het bureaublad Workbench vastloopt, vindt u hier logboekbestanden:
+Als u problemen ondervindt bij het aanmelden of als het bureaublad Workbench vastloopt, vindt u hier logboekbestanden:
 ```
 # Windows
 %APPDATA%\AmlWorkbench
@@ -83,6 +83,23 @@ Als u in Azure ML-Workbench werkt, kunt u ook verzenden ons een frons (of een gl
 - Clustering transformaties tekst worden niet ondersteund voor Mac.
 
 - Bibliotheek RevoScalePy wordt alleen ondersteund op Windows- en Linux (in Docker-containers). Dit wordt niet ondersteund op Mac OS.
+
+## <a name="delete-experimentation-account"></a>Experimenteren Account verwijderen
+U kunt de CLI gebruiken om een Account experimenteren te verwijderen, maar u moet de onderliggende werkruimten en de onderliggende projecten in deze werkruimten onderliggende eerst verwijderen.
+
+```azure-cli
+# delete a project
+$ az ml project delete -g <resource group name> -a <experimentation account name> -w <worksapce name> -n <project name>
+
+# delete a workspace 
+$ az ml workspace delete -g <resource group name> -a <experimentation account name> -n <worksapce name>
+
+# delete an experimentation account
+$ az ml account experimentation delete -g <resource group name> -n <experimentation account name>
+```
+
+U kunt ook de projecten en werkruimten van in de Workbench-app verwijderen.
+
 
 ## <a name="file-name-too-long-on-windows"></a>De bestandsnaam te lang in Windows
 Als u gebruikmaakt van Workbench op Windows, kunt u de standaard maximaal 260 tekens bestand naam lengtelimiet, die surface kan als iets misleiden 'systeem kan het opgegeven pad niet vinden' fout kunt tegenkomen. U kunt een registersleutelinstelling waarmee veel langer pad bestandsnaam wijzigen. Bekijk [in dit artikel](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) voor meer informatie over het instellen van de _MAX_PATH_ registersleutel.

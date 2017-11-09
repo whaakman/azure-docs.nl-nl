@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 52fd9375c71c42feaf87f4a0f4220e1cb3889e63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c4f0ec95c02116a19f2d69c6fa1e8aa639c56c69
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Upgraden van een eerdere versie naar de nieuwste versie
 Dit onderwerp beschrijft de verschillende methoden waarmee u kunt de Azure Active Directory (Azure AD) Connect-installatie bijwerken naar de meest recente versie. We adviseren dat u zelf de meest recente de releases van Azure AD Connect. U ook de stappen in de [migratie bewegen](#swing-migration) sectie wanneer u een aanzienlijke configuratie wijzigen.
@@ -47,6 +47,8 @@ Deze methode verdient de voorkeur wanneer u één server en minder dan ongeveer 
 Als u wijzigingen aan de out-of-box-synchronisatieregels aangebracht hebt, worden de deze regels weer ingesteld op de standaardconfiguratie bij een upgrade. Om ervoor te zorgen dat uw configuratie wordt gehouden tussen upgrades, zorg ervoor dat u wijzigingen aanbrengt, zoals ze zijn beschreven in [aanbevolen procedures voor het wijzigen van de standaardconfiguratie](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
 
 Tijdens een upgrade ter plekke, kunnen er wijzigingen die zijn geïntroduceerd waarvoor specifieke synchronisatiebewerkingen (met inbegrip van de stap van de volledige Import en volledige synchronisatie) moet worden uitgevoerd nadat de upgrade is voltooid. Om uit te stellen dergelijke activiteiten, Raadpleeg het gedeelte [het uitstellen van de volledige synchronisatie na de upgrade](#how-to-defer-full-synchronization-after-upgrade).
+
+Als u gebruikmaakt van Azure AD Connect met niet-standaard-connector (bijvoorbeeld algemene LDAP-Connector en algemene SQL-Connector), moet u de bijbehorende connectorconfiguratie in vernieuwen de [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) na een upgrade ter plekke. Raadpleeg voor meer informatie over het vernieuwen van de connectorconfiguratie artikel gedeelte [Connector versiegeschiedenis van Release - probleemoplossing](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Als u de configuratie niet vernieuwen, werkt importeren en exporteren stappen uitvoeren niet correct voor de connector. U ontvangt de volgende fout in het logboek voor toepassingsgebeurtenissen met het bericht *'Assembly-versie in de configuratie van de AAD-Connector ('X.X.XXX. X') is ouder dan de werkelijke versie ('X.X.XXX. X)' van 'C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll'.*
 
 ## <a name="swing-migration"></a>Swingmigratie
 Als u de implementatie van een complexe of veel objecten hebt, is dit mogelijk niet praktisch een in-place upgrade op het systeem live doen. Voor sommige klanten dit proces kan meerdere dagen--duren en gedurende deze tijd geen wijzigingen zijn verwerkt. U kunt deze methode ook gebruiken wanneer u grote wijzigingen aanbrengen in uw configuratie wilt maken en wilt ze om uit te proberen voordat ze naar de cloud bent gepusht.

@@ -3,7 +3,7 @@ title: Azure-resourcegroepen die VM-extensies bevatten exporteren | Microsoft Do
 description: Resource Manager-sjablonen met uitbreidingen van de virtuele machine exporteren.
 services: virtual-machines-windows
 documentationcenter: 
-author: neilpeterson
+author: danielsollondon
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
-ms.author: nepeters
-ms.openlocfilehash: cc3c705f1c9123de75ced016a5b39eb1a86b0f73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danis
+ms.openlocfilehash: 739ae7995fca41fe8abb7cd54ccb72ff3bc43854
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exporteren van resourcegroepen met VM-extensies
 
@@ -33,7 +33,7 @@ Er zijn veel uitbreidingen van de virtuele Machine beschikbaar. Niet alle uitbre
 
 De volgende extensies kunnen met de functie voor automatisering script worden geëxporteerd.
 
-| Toestelnummer ||||
+| Extensie ||||
 |---|---|---|---|
 | Acronis back-up | Datadog Windows-Agent | Patches voor Linux OS | VM-momentopname Linux
 | Back-up Acronis Linux | Docker-uitbreiding | Puppet-Agent |

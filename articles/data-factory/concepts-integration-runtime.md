@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/15/2017
 ms.author: shlo
-ms.openlocfilehash: 82b1dc036b53fbc1f0159d77ce102dcd054ea722
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7851a24e7053e03cc28927ffae3a2b69a3291635
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime in Azure Data Factory
 De Integratie Runtime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt om de volgende mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen te bieden:
@@ -155,8 +155,8 @@ Australië | Australië - oost | Australië - oost
 &nbsp; | Australië - zuidoost | Australië - zuidoost
 Japan | Japan - oost | Japan - oost
 &nbsp; | Japan - west | Japan - oost
-Korea | Korea - centraal | Korea - zuid
-&nbsp; | Korea - zuid | Korea - zuid
+Korea | Korea - centraal | Korea - centraal
+&nbsp; | Korea - zuid | Korea - centraal
 India | Centraal-India | Centraal-India
 &nbsp; | West-India | Centraal-India
 &nbsp; | Zuid-India | Centraal-India

@@ -8,15 +8,17 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 6101dfa4bc74acf5045975f6513886fa135fe833
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 7492fffd1c18a149ef12174c79d64b47afbaa3e4
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="best-practices-for-sql-data-sync"></a>Aanbevolen procedures voor het synchroniseren van de SQL-gegevens 
+# <a name="best-practices-for-azure-sql-data-sync-preview"></a>Aanbevolen procedures voor het synchroniseren van Azure SQL gegevens (Preview) 
 
 In dit artikel beschrijft aanbevolen procedures voor het synchroniseren van de SQL-gegevens (Preview).
+
+Zie voor een overzicht van de SQL-gegevenssynchronisatie [synchroniseren van gegevens via meerdere cloud en on-premises databases met Azure SQL-gegevenssynchronisatie (Preview)](sql-database-sync-data.md).
 
 ## <a name="security-and-reliability"></a>Beveiliging en betrouwbaarheid
 
@@ -221,3 +223,21 @@ Probeer niet te verwijderen van een database van een groep voor synchronisatie e
 Een database eerst verwijderen uit een groep voor synchronisatie. Vervolgens implementeert u de wijziging en wacht ongedaan inrichten is voltooid. Zodra deze bewerking is voltooid, kunt u deze kunt bewerken van de groep voor synchronisatie en de wijzigingen te implementeren.
 
 Als u probeert te verwijderen van een database en bewerk vervolgens een groep voor synchronisatie zonder de eerste implementatie van een van de wijzigingen, een of de andere bewerking is mislukt en de interface van de portal kan krijgen tot een inconsistente status heeft. In dit geval kunt u de pagina voor het herstellen van de juiste status vernieuwen.
+
+## <a name="next-steps"></a>Volgende stappen
+Zie voor meer informatie over het synchroniseren van de SQL-gegevens:
+
+-   [Synchronisatie van gegevens over meerdere cloud en on-premises databases met synchroniseren van Azure SQL-gegevens](sql-database-sync-data.md)
+-   [Aan de slag met Azure SQL-gegevenssynchronisatie](sql-database-get-started-sql-data-sync.md)
+-   [Problemen oplossen met het synchroniseren van Azure SQL-gegevens](sql-database-troubleshoot-data-sync.md)
+
+-   Voer de PowerShell-voorbeelden die laten hoe u zien voor het synchroniseren van de SQL-gegevens configureren:
+    -   [PowerShell gebruiken om te synchroniseren tussen meerdere Azure SQL-databases](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [PowerShell gebruiken om te synchroniseren tussen een Azure SQL Database en een lokale SQL Server-database.](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+-   [De SQL-gegevens synchroniseren REST-API-documentatie downloaden](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+Zie voor meer informatie over SQL-Database:
+
+-   [Overzicht van de SQL-Database](sql-database-technical-overview.md)
+-   [Database-levenscyclusbeheer](https://msdn.microsoft.com/library/jj907294.aspx)

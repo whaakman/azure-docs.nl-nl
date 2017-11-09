@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b7583a1556bb1113f349a78890768451e39c6878
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect-synchronisatie: operationele taken en afweging
 Het doel van dit onderwerp is om operationele taken voor Azure AD Connect-synchronisatie te beschrijven.
@@ -68,11 +68,18 @@ U hebt nu gefaseerde export wijzigingen naar Azure AD en on-premises AD (als u h
 #### <a name="verify"></a>Verifiëren
 1. Start een opdrachtprompt en Ga naar`%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Voer: `csexport "Name of Connector" %temp%\export.xml /f:x` de naam van de Connector vindt u in de synchronisatieservice. Een naam die vergelijkbaar is met 'contoso.com – AAD' voor Azure AD.
-3. Kopieer het PowerShell-script uit de sectie [CSAnalyzer](#appendix-csanalyzer) naar een bestand met de naam `csanalyzer.ps1`.
-4. Open een PowerShell-venster en blader naar de map waar u het PowerShell-script hebt gemaakt.
-5. Voer: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
-6. U hebt nu een bestand met de naam **processedusers1.csv** die kan worden onderzocht in Microsoft Excel. Alle wijzigingen die zijn voorbereid om te worden geëxporteerd naar Azure AD zijn gevonden in dit bestand.
-7. Noodzakelijke wijzigingen aanbrengen in de gegevens of configuratie en voer deze stappen opnieuw (importeren en synchroniseren en controleer of) totdat de wijzigingen die zijn geëxporteerd worden verwacht.
+3. Voer: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` hebt u een bestand in % temp % met de naam export.csv die kan worden onderzocht in Microsoft Excel. Dit bestand bevat alle wijzigingen die zullen worden uitgevoerd.
+4. Noodzakelijke wijzigingen aanbrengen in de gegevens of configuratie en voer deze stappen opnieuw (importeren en synchroniseren en controleer of) totdat de wijzigingen die zijn geëxporteerd worden verwacht.
+
+**Inzicht in het bestand export.csv** het merendeel van het bestand is geen uitleg. Sommige afkortingen te begrijpen van de inhoud:
+* OMODT – wijziging objecttype. Hiermee wordt aangegeven als de bewerking op het objectniveau van een een toevoegen, bijwerken of verwijderen is.
+* AMODT – wijziging kenmerktype. Hiermee wordt aangegeven als de bewerking op het kenmerkniveau van een een toevoegen, bijwerken of verwijderen is.
+
+**Algemene id's ophalen** het bestand export.csv bevat alle wijzigingen die zullen worden uitgevoerd. Elke rij overeenkomt met een wijziging van een object in de connectorruimte en het object wordt geïdentificeerd door de DN-kenmerk. Het kenmerk DN-naam is een unieke id die is toegewezen aan een object in het connectorgebied overgebracht. Wanneer er veel rijen en/of wijzigingen in de export.csv te analyseren, kan het lastig zijn om te achterhalen welke dat de wijzigingen objecten voor op basis van het kenmerk DN zelfstandig zijn. Gebruik de csanalyzer.ps1 PowerShell-script voor het vereenvoudigen van het analyseren van de wijzigingen. Het script wordt de algemene id's (bijvoorbeeld displayName, userPrincipalName) van de objecten opgehaald. Het script gebruiken:
+1. Kopieer het PowerShell-script uit de sectie [CSAnalyzer](#appendix-csanalyzer) naar een bestand met de naam `csanalyzer.ps1`.
+2. Open een PowerShell-venster en blader naar de map waar u het PowerShell-script hebt gemaakt.
+3. Voer: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
+4. U hebt nu een bestand met de naam **processedusers1.csv** die kan worden onderzocht in Microsoft Excel. Houd er rekening mee dat het bestand een toewijzing van het kenmerk DN aan algemene id's (bijvoorbeeld, weergavenaam en userPrincipalName bevat). Het is niet zo uitgebreid de werkelijke kenmerkwijzigingen die zullen worden uitgevoerd.
 
 #### <a name="switch-active-server"></a>Actieve switchserver
 1. Op de momenteel actieve server uitschakelen (FIM-DirSync/Azure AD Sync) van de server zodat deze niet worden geëxporteerd naar Azure AD of stel deze in de faseringsmodus (Azure AD Connect).

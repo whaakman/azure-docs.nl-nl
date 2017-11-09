@@ -15,19 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: cynthn
-ms.openlocfilehash: 7847a2485cd57d895c022afb12ef08f37fe5775d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 0440cd2fadffd945c75d1b94df67e0c8b8bf7c1e
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Een gegevensschijf koppelen aan een virtuele Windows-machine die is gemaakt volgens het klassieke implementatiemodel
-<!--
-Refernce article:
-    If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure portal](../../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
--->
 
 In dit artikel leest u hoe nieuwe en bestaande schijven die zijn gemaakt met het klassieke implementatiemodel om een virtuele Windows-computer met de Azure portal te koppelen.
+
+
 
 U kunt ook [een gegevensschijf koppelen aan een Linux-VM in de Azure portal](../../linux/attach-disk-portal.md).
 
@@ -43,6 +41,7 @@ U kunt ook [een gegevensschijf met behulp van Powershell koppelen](../../virtual
 
 > [!IMPORTANT]
 > Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="find-the-virtual-machine"></a>De virtuele machine gevonden
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).

@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: quickstart
-ms.date: 01/26/2017
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 39efa954fa1eb3d7d93dbeceac48b96d865349ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/06/2017
+ms.author: elbutter
+ms.openlocfilehash: 791990b6c544a416fc73bea69dc884e0b49d088e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Aan de slag met SQL Data Warehouse
 
@@ -198,7 +198,7 @@ U bent nu klaar om gegevens te laden in het datawarehouse. In deze stap wordt be
     WITH
     (
         TYPE = Hadoop,
-        LOCATION = 'wasbs://2013@nytpublic.blob.core.windows.net/'
+        LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
     );
     ```
 
@@ -239,7 +239,7 @@ U bent nu klaar om gegevens te laden in het datawarehouse. In deze stap wordt be
     ```
 5. Maak de externe tabellen. Deze tabellen verwijzen naar gegevens die zijn opgeslagen in Azure-blobopslag. Voer de volgende T-SQL-opdrachten uit om verschillende externe tabellen te maken die allemaal verwijzen naar de Azure-blob die eerder is gedefinieerd in de externe gegevensbron.
 
-```sql
+  ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
     (
         [DateID] int NOT NULL,
@@ -405,14 +405,14 @@ U bent nu klaar om gegevens te laden in het datawarehouse. In deze stap wordt be
     )
     WITH
     (
-        LOCATION = 'Weather2013',
+        LOCATION = 'Weather',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0
     )
     ;
-```
+  ```
 
 ### <a name="import-the-data-from-azure-blob-storage"></a>Importeer de gegevens vanuit Azure-blobopslag.
 
@@ -430,7 +430,7 @@ SQL Data Warehouse ondersteunt een sleutelinstructie met de naam CREATE TABLE AS
     AS SELECT * FROM [ext].[Date]
     OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
     ;
-    
+
     CREATE TABLE [dbo].[Geography]
     WITH
     ( 
@@ -441,7 +441,7 @@ SQL Data Warehouse ondersteunt een sleutelinstructie met de naam CREATE TABLE AS
     SELECT * FROM [ext].[Geography]
     OPTION (LABEL = 'CTAS : Load [dbo].[Geography]')
     ;
-    
+
     CREATE TABLE [dbo].[HackneyLicense]
     WITH
     ( 
@@ -451,7 +451,7 @@ SQL Data Warehouse ondersteunt een sleutelinstructie met de naam CREATE TABLE AS
     AS SELECT * FROM [ext].[HackneyLicense]
     OPTION (LABEL = 'CTAS : Load [dbo].[HackneyLicense]')
     ;
-    
+
     CREATE TABLE [dbo].[Medallion]
     WITH
     (
@@ -461,7 +461,7 @@ SQL Data Warehouse ondersteunt een sleutelinstructie met de naam CREATE TABLE AS
     AS SELECT * FROM [ext].[Medallion]
     OPTION (LABEL = 'CTAS : Load [dbo].[Medallion]')
     ;
-    
+
     CREATE TABLE [dbo].[Time]
     WITH
     (
@@ -471,7 +471,7 @@ SQL Data Warehouse ondersteunt een sleutelinstructie met de naam CREATE TABLE AS
     AS SELECT * FROM [ext].[Time]
     OPTION (LABEL = 'CTAS : Load [dbo].[Time]')
     ;
-    
+
     CREATE TABLE [dbo].[Weather]
     WITH
     ( 
@@ -481,7 +481,7 @@ SQL Data Warehouse ondersteunt een sleutelinstructie met de naam CREATE TABLE AS
     AS SELECT * FROM [ext].[Weather]
     OPTION (LABEL = 'CTAS : Load [dbo].[Weather]')
     ;
-    
+
     CREATE TABLE [dbo].[Trip]
     WITH
     (
@@ -495,9 +495,9 @@ SQL Data Warehouse ondersteunt een sleutelinstructie met de naam CREATE TABLE AS
 
 2. Bekijk uw gegevens tijdens het laden.
 
-   U laadt meerdere GB's aan gegevens en comprimeert die tot hoogwaardige geclusterde columnstore-indexen. Voer de volgende query uit, die gebruikmaakt van dynamische beheerweergaven (DMV's) om de status van de belasting weer te geven. Pak er een kopje koffie bij nadat u de query hebt gestart. SQL Data Warehouse doet ondertussen het zware werk voor u.
-    
-    ```sql
+  U laadt meerdere GB's aan gegevens en comprimeert die tot hoogwaardige geclusterde columnstore-indexen. Voer de volgende query uit, die gebruikmaakt van dynamische beheerweergaven (DMV's) om de status van de belasting weer te geven. Pak er een kopje koffie bij nadat u de query hebt gestart. SQL Data Warehouse doet ondertussen het zware werk voor u.
+
+  ```sql
     SELECT
         r.command,
         s.request_id,
@@ -523,7 +523,8 @@ SQL Data Warehouse ondersteunt een sleutelinstructie met de naam CREATE TABLE AS
     ORDER BY
         nbr_files desc, 
         gb_processed desc;
-    ```
+  ```
+
 
 3. Bekijk alle systeemquery's.
 
@@ -563,7 +564,7 @@ Eerst gaan we de bewerking omlaag schalen naar 100 DWU, zodat we een idee krijge
     > [!NOTE]
     > Query's kunnen niet worden uitgevoerd tijdens het wijzigen van de schaal. Het schalen **beëindigt** uw huidige actieve query's. U kunt ze opnieuw starten wanneer de bewerking is voltooid.
     >
-    
+
 5. Voer een scanbewerking uit op de reisgegevens, waarbij u het eerste miljoen vermeldingen voor alle kolommen selecteert. Als u snel door wilt gaan, kunt u gerust minder rijen selecteren. Noteer de tijd die nodig is voor het uitvoeren van deze bewerking.
 
     ```sql
@@ -626,11 +627,11 @@ Eerst gaan we de bewerking omlaag schalen naar 100 DWU, zodat we een idee krijge
 
     > [!NOTE]
     > SQL DW beheert niet automatisch statistieken voor u. Statistieken zijn belangrijk voor de prestaties van query's en we raden u ten zeerste aan statistieken te maken en bij te werken.
-    > 
+    >
     > **U haalt het meeste voordeel uit statistieken bij kolommen die onderdeel uitmaken van samenvoegingen, kolommen met het WHERE-component en kolommen in GROUP BY.**
     >
 
-3. Voer de query in Vereisten opnieuw uit en kijk of er prestatieverschillen zijn. De verschillen in de prestaties van query's zijn niet zo ingrijpend als wanneer u omhoog schaalt, maar u zou wel een versnelling moeten zien. 
+4. Voer de query in Vereisten opnieuw uit en kijk of er prestatieverschillen zijn. De verschillen in de prestaties van query's zijn niet zo ingrijpend als wanneer u omhoog schaalt, maar u zou wel een versnelling moeten zien. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 2e5475a0563549ddfaa2c146e4acf94c019841ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7109a3b21feac396d8c20c7e72a8987f72a909a
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>De oplossing Serviceoverzicht gebruiken in Operations Management Suite
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Met het Serviceoverzicht, kunt u uw servers weergeven in de manier waarop u denkt ze dat: als onderling verbonden systemen die essentiële services leveren. Serviceoverzicht ziet u de verbindingen tussen servers, processen en poorten voor elke architectuur TCP-verbinding waarvoor geen configuratie nodig andere dan de installatie van een agent.
@@ -224,11 +224,26 @@ De volgende afbeelding bevat een gedetailleerde weergave van een configuratiewij
 
 
 ## <a name="operations-management-suite-performance-integration"></a>Integratie van operations Management Suite-prestaties
-De **Machine prestaties** paneel geeft standaard prestatiemetrieken voor de geselecteerde server weer. De metrische gegevens omvatten CPU-gebruik, geheugengebruik verzonden en ontvangen netwerkbytes en een lijst van de belangrijkste processen door het verzonden en ontvangen netwerkbytes. Als u de prestatiegegevens van het netwerk, moet u ook zijn ingeschakeld de kabel gegevens 2.0-oplossing in de Operations Management Suite.
+De **Machine prestaties** paneel geeft standaard prestatiemetrieken voor de geselecteerde server weer. De metrische gegevens omvatten CPU-gebruik, geheugengebruik verzonden en ontvangen netwerkbytes en een lijst van de belangrijkste processen door het verzonden en ontvangen netwerkbytes.
 
 ![Machine prestaties deelvenster](media/oms-service-map/machine-performance.png)
 
+Om prestatiegegevens te bekijken, moet u mogelijk [inschakelen van de juiste Log Analytics-prestatiemeteritems](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  De items die u wilt inschakelen:
 
+Windows:
+- Processor(*)\% processortijd
+- Geheugen\% toegewezen Bytes In gebruik
+- Netwerk-Adapter (*) \Bytes verzonden per seconde
+- Netwerk-Adapter (*) \Bytes ontvangen per seconde
+
+Linux:
+- Processor(*)\% processortijd
+- Memory(*)\% gebruikt geheugen
+- Netwerk-Adapter (*) \Bytes verzonden per seconde
+- Netwerk-Adapter (*) \Bytes ontvangen per seconde
+
+Als u de prestatiegegevens van het netwerk, moet u ook zijn ingeschakeld de kabel gegevens 2.0-oplossing in de Operations Management Suite.
+ 
 ## <a name="operations-management-suite-security-integration"></a>Integratie van operations Management Suite-beveiliging
 Serviceoverzicht integratie met beveiligings- en Audit is automatische wanneer beide oplossingen zijn ingeschakeld en geconfigureerd in de Operations Management Suite-werkruimte.
 

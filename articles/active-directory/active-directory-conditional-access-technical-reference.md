@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/01/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 8cde8e10b6789e930ea1deda2f4aa0d4a5e7ea97
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 316157a7a8ed920e9f3b15e24e15035db4cefc6c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory voorwaardelijke toegang technische naslaginformatie
 
@@ -82,11 +82,7 @@ Naast de Microsoft cloud-apps kunt u een voorwaardelijk toegangsbeleid toewijzen
 
 ## <a name="device-platform-condition"></a>Apparaat platform voorwaarde
 
-U kunt de voorwaarde voor het platform van apparaat voor het koppelen van het beleid voor het besturingssysteem op een client te configureren in een beleid voor voorwaardelijke toegang.
-
-![Het toegangsbeleid naar de client OS koppelen](./media/active-directory-conditional-access-technical-reference/41.png)
-
-Voorwaardelijke toegang van Azure AD ondersteunt de volgende apparaatplatforms:
+U kunt de voorwaarde voor het platform van apparaat voor het koppelen van het beleid voor het besturingssysteem op een client te configureren in een beleid voor voorwaardelijke toegang. Voorwaardelijke toegang van Azure AD ondersteunt de volgende apparaatplatforms:
 
 - Android
 
@@ -96,7 +92,12 @@ Voorwaardelijke toegang van Azure AD ondersteunt de volgende apparaatplatforms:
 
 - Windows
 
-- Mac OS (preview)
+- macOS
+
+
+![Het toegangsbeleid naar de client OS koppelen](./media/active-directory-conditional-access-technical-reference/41.png)
+
+
 
 
 
@@ -118,7 +119,7 @@ Toegang tot de browser beheren met behulp van de **Browser** optie in uw beleid 
 In uw beleid voor voorwaardelijke toegang, zijn de volgende browsers worden ondersteund: 
 
 
-| OS                     | Browsers                    | Ondersteuning     |
+| Besturingssysteem                     | Browsers                    | Ondersteuning     |
 | :--                    | :--                         | :-:         |
 | Windows 10             | Internet Explorer rand     | ![Selecteren][1] |
 | Windows 10             | Chrome                      | ![Selecteren][1] |
@@ -131,8 +132,8 @@ In uw beleid voor voorwaardelijke toegang, zijn de volgende browsers worden onde
 | Windows Server 2016    | Chrome                      | Binnenkort beschikbaar |
 | Windows Server 2012 R2 | Internet Explorer, Chrome   | ![Selecteren][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome   | ![Selecteren][1] |
-| macOS                  | Safari                      | ![Selecteren][1] |
-| macOS                  | Chrome                      | Binnenkort beschikbaar |
+| macOS                  | Chrome, Safari              | ![Selecteren][1] |
+
 
 > [!NOTE]
 > Voor ondersteuning van Chrome, moet u Windows 10 auteurs Update (versie 1703) of hoger.<br>
@@ -153,7 +154,7 @@ De volgende apps voor mobiele en bureaublad-clients ondersteuning voor voorwaard
 | Dynamics CRM-app| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS en Android|
 | Agenda-mail/mensen app, Outlook 2016 Outlook 2013 (met moderne verificatie)| Office 365 Exchange Online| Windows 10|
 | Beleid voor apps MFA en locatie. Apparaten op basis van beleid worden niet ondersteund.| Alle services van de app mijn Apps| Android en iOS|
-| Services van Microsoft-Teams - Hiermee bepaalt u alle services die ondersteuning bieden voor Microsoft-Teams en alle bijbehorende Client-Apps - Windows-bureaublad, iOS, Android, WP en webclient| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS en Android|
+| Services van Microsoft-Teams - Hiermee bepaalt u alle services die ondersteuning bieden voor Microsoft-Teams en alle bijbehorende Client-Apps - Windows-bureaublad, iOS, Android, WP en webclient| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android en Mac OS|
 | Apps van Office 2016, Office 2013 (met moderne verificatie), OneDrive synchroniseren client (Zie [notities](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
 | Apps van Office 2016, Office Universal-apps, Office 2013 (met moderne verificatie), OneDrive sync-client (Zie [notities](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office-groepen ondersteuning voor de toekomst zijn gepland, ondersteuning voor SharePoint-app is gepland voor de toekomst| Office 365 SharePoint Online| Windows 10|
 | Office 2016 voor Mac OS (Word, Excel, PowerPoint, OneNote alleen). OneDrive voor bedrijven ondersteuning voor de toekomst worden gepland| Office 365 SharePoint Online| Mac OS X|
@@ -165,6 +166,7 @@ De volgende apps voor mobiele en bureaublad-clients ondersteuning voor voorwaard
 | Power BI-app. De Power BI-app voor Android biedt momenteel geen ondersteuning voor voorwaardelijke toegang op basis van apparaten.| Power BI-service| Windows 10, Windows 8.1, Windows 7 en iOS|
 | Skype voor bedrijven| Office 365 Exchange Online| Android-, IOS|
 | Visual Studio Team Services-app| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS en Android|
+
 
 
 

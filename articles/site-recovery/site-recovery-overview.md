@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 90f9fe5775f493298dad3b12f2be9d6da6cb480e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b4b39cd23557093edaec97f7ef7a3e354f1ecd03
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="about-site-recovery"></a>Site Recovery
 
@@ -67,8 +67,7 @@ Met Site Recovery kunt u replicatie beheren voor:
 **Welke regio's worden ondersteund voor Site Recovery?** | [Ondersteunde regio's](https://azure.microsoft.com/regions/services/) |
 **Welke besturingssystemen zijn vereist voor gerepliceerde machines?** | [Vereisten voor Azure-VM's](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)</br></br>[Vereisten voor VMware-VM's](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> Voor Hyper-V-VM's worden alle [gastbesturingssystemen](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) ondersteund die door Azure en Hyper-V worden ondersteund.<br/><br/> [Vereisten voor fysieke servers](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
 **Welke VMware-servers/-hosts moet ik gebruiken?** | VMware-VM's kunnen zich bevinden op [ondersteunde vSphere-hosts/vCenter-servers](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
-
-**Welke workloads kan ik repliceren?** | U kunt iedere workload repliceren die wordt uitgevoerd op een ondersteunde replicatiemachine. Daarnaast heeft het Site Recovery-team specifieke tests uitgevoerd voor een [aantal apps](site-recovery-workload.md#workload-summary).
+**Welke workloads kan ik repliceren?** | U kunt iedere werkload repliceren die wordt uitgevoerd op een ondersteunde replicatiemachine. Daarnaast heeft het Site Recovery-team specifieke tests uitgevoerd voor een [aantal apps](site-recovery-workload.md#workload-summary).
 
 
 

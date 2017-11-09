@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/16/2017
 ms.author: stevelas
-ms.openlocfilehash: 630bc088fcb6d3c7e5bb3a9713107c3fb6653ec6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: dae97084bdaab77efd38169cdf7e70c827b0b5ab
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-container-registry-skus"></a>Azure-Container register SKU 's
 
@@ -43,21 +43,7 @@ Het register klassieke SKU ingeschakeld voor de initiële versie van de Azure-Co
 
 De volgende tabel worden de functies en de ondergrenzen van de servicecategorieën Basic, Standard en Premium.
 
-| Functie | Basic | Standard | Premium |
-|---|---|---|---|---|
-| Storage | 10 giB | 100 giB| 500 giB |
-| ReadOps per minuut<sup>1, 2</sup> | 1k | 300 kB | 10.000 k |
-| WriteOps per minuut<sup>1, 3</sup> | 100 | 500 | 2 kB |
-| Download MBps bandbreedte<sup>1</sup> | 30 | 60 | 100 |
-| Uploaden van bandbreedte MBps<sup>1</sup> | 10 | 20 | 50 |
-| Webhooks. | 2 | 10 | 100 |
-| Geo-replicatie | N.v.t. | N.v.t. | [Ondersteund *(preview)*](container-registry-geo-replication.md) |
-
-<sup>1</sup> *ReadOps*, *WriteOps*, en *bandbreedte* zijn minimale schattingen. ACR wil de prestaties verbeteren als gebruik vereist.
-
-<sup>2</sup> [docker pull](https://docs.docker.com/registry/spec/api/#pulling-an-image) kan aan meerdere leesbewerkingen op basis van het aantal lagen in de afbeelding, plus het manifest ophalen.
-
-<sup>3</sup> [docker push](https://docs.docker.com/registry/spec/api/#pushing-an-image) kan aan meerdere schrijfbewerkingen, op basis van het aantal lagen die moet worden geactiveerd. Een `docker push` bevat *ReadOps* voor het ophalen van een manifest voor een bestaande installatiekopie.
+[!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
 ## <a name="manage-registry-size"></a>De registergrootte van het beheren
 De beperkingen van de opslag van elke SKU zijn bedoeld om uitgelijnd met een typisch scenario: Basic voor aan de slag, standaard voor het merendeel van de apps in productie- en Premium voor hyperschaal prestaties en [geo-replicatie](container-registry-geo-replication.md). Tijdens de levensduur van het register, moet u de grootte beheren door regelmatig ongebruikte inhoud verwijderen.

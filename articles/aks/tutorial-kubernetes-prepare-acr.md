@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 3cf0007f09c40fbccf58fbaee32df7be9bb2fa1a
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 22aa6c82aec7b8f6a16131878943fadd7762c1c0
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Implementeren en gebruiken van Azure Container register
 
@@ -60,7 +60,7 @@ In de rest van deze zelfstudie gebruiken we `<acrname>` als een tijdelijke aandu
 
 ## <a name="container-registry-login"></a>Container register aanmelding
 
-Gebruik de [az acr aanmelding](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) opdracht zich aanmelden bij de ACR-exemplaar. U moet de unieke naam die is opgegeven in het register van de container wanneer deze is gemaakt.
+Gebruik de [az acr aanmelding](https://docs.microsoft.com/cli/azure/acr#az_acr_login) opdracht zich aanmelden bij de ACR-exemplaar. U moet de unieke naam die is opgegeven in het register van de container wanneer deze is gemaakt.
 
 ```azurecli
 az acr login --name <acrName>

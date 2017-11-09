@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 5766ef2097b0da295d42e7c5909efc524049f418
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7496b0578301713ebae7381e9a54642e226eb96
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Een toepassing implementeert op een Cluster partij in Azure
 Deze zelfstudie maakt deel uit van een reeks en ziet u hoe u een Azure Service Fabric-toepassing naar een Cluster partij in Azure implementeert.
@@ -58,24 +58,6 @@ Als u wilt, kunt u uw eigen cluster in plaats van het Cluster partij.  De omgeke
 
 > [!NOTE]
 > Partijen clusters zijn niet beveiligd, zodat uw toepassingen en gegevens die u in deze plaatsen mogelijk zichtbaar voor anderen. Alles wat die u niet dat anderen wilt kunnen zien niet implementeren. Zorg ervoor dat Lees onze gebruiksvoorwaarden voor de details.
-
-## <a name="configure-the-listening-port"></a>De luisterpoort configureren
-Wanneer de front-endservice VotingWeb is gemaakt, zijn Visual Studio selecteert willekeurig een poort voor de service voor luisteren.  De service VotingWeb fungeert als front-end voor deze toepassing en externe verkeer accepteert, dus die service binden aan een vaste en poort ook weten. Open in Solution Explorer *VotingWeb/PackageRoot/ServiceManifest.xml*.  Zoeken de **eindpunt** resource in de **Resources** sectie en wijzig de **poort** waarde tot 80.
-
-```xml
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
-    </Endpoints>
-  </Resources>
-```
-
-De waarde van de toepassings-URL-eigenschap in het project Voting ook bijwerken zodat een webbrowser op de juiste poort opent wanneer u fouten opspoort, druk op F5 '.  Klik in Solution Explorer, selecteer de **Voting** project en werk de **toepassings-URL** eigenschap.
-
-![De URL van toepassing](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ## <a name="deploy-the-app-to-the-azure"></a>De app implementeren naar Azure
 Nu dat de toepassing klaar is, kunt u deze aan het Cluster partij directe implementeren vanuit Visual Studio.

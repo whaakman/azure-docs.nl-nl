@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: zivr
-ms.openlocfilehash: cf9a624574cc5d63e17537d07d23bf38cc9d442a
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 80c029866f3d28712be823692f3bf4ce6e210405
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Verwerken geplande onderhoud meldingen voor virtuele machines van Windows
 
@@ -87,8 +87,7 @@ function MaintenanceIterator
 
     for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
     {
-        $rg = $rgList[$rgIdx]
-        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
+        $rg = $rgList[$rgIdx]        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
         for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
         {
             $vm = $vmList[$vmIdx]
@@ -110,6 +109,23 @@ Met behulp van informatie van de functie in de vorige sectie, het volgende begin
 ```powershell
 Restart-AzureRmVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceGroupName 
 ```
+
+## <a name="classic-deployments"></a>Klassieke implementaties
+
+Als er nog steeds verouderde virtuele machines die zijn kunt geïmplementeerd met behulp van het klassieke implementatiemodel u PowerShell gebruiken voor de query voor virtuele machines en onderhoud initiëren.
+
+Als u de onderhoudsstatus van een virtuele machine, typt u:
+
+```
+Get-AzureVM -ServiceName <Service name> -Name <VM name>
+```
+
+Voor het onderhoud op uw klassieke VM starten, typt u:
+
+```
+Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
+```
+
 
 ## <a name="faq"></a>Veelgestelde vragen
 

@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 11/08/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5a095663b7e716fd63322c9f89f67a1f3187638b
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 341d275fbf9f80ac9e3363757d880b9546bdee13
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Maken en implementeren van een toepassing met een front-ASP.NET Core Web API-service en een stateful back-endservice
 Deze zelfstudie maakt deel uit een reeks.  U leert hoe een Azure Service Fabric-toepassing maken met een front-end van ASP.NET Core Web-API en een stateful back-end-service voor het opslaan van uw gegevens. Wanneer u klaar bent, hebt u een stemtoepassing met een ASP.NET Core web-front-die stemmende resultaten worden opgeslagen in een stateful back-end-service in het cluster. Als u niet wilt dat u handmatig de stemtoepassing maken, kunt u [download de broncode](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) voor de voltooide toepassing en gaat u verder met [doorlopen van de stemmende voorbeeldtoepassing](#walkthrough_anchor).
@@ -228,7 +228,11 @@ Open de *Views/Shared/_Layout.cshtml* -bestand, de standaardindeling voor de ASP
 ```
 
 ### <a name="update-the-votingwebcs-file"></a>Het bestand VotingWeb.cs bijwerken
-Open de *VotingWeb.cs* bestand, dat wordt gemaakt van de WebHost ASP.NET Core binnen de staatloze service met de webserver WebListener.  Voeg de `using System.Net.Http;` richtlijn boven aan het bestand.  Vervang de `CreateServiceInstanceListeners()` werken met het volgende en sla vervolgens uw wijzigingen.
+Open de *VotingWeb.cs* bestand, dat wordt gemaakt van de WebHost ASP.NET Core binnen de staatloze service met de webserver WebListener.  
+
+Voeg de `using System.Net.Http;` richtlijn boven aan het bestand.  
+
+Vervang de `CreateServiceInstanceListeners()` werken met het volgende en sla vervolgens uw wijzigingen.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -257,7 +261,9 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 ```
 
 ### <a name="add-the-votescontrollercs-file"></a>Het bestand VotesController.cs toevoegen
-Een controller waarmee wordt gedefinieerd stemmende acties toevoegen. Met de rechtermuisknop op de **domeincontrollers** map, selecteer vervolgens **toevoegen -> Nieuw item -> klasse**.  Naam van het bestand 'VotesController.cs' en klik op **toevoegen**.  Inhoud van het bestand vervangen door de volgende, sla de wijzigingen vervolgens.  Verderop in [bijwerken van het bestand VotesController.cs](#updatevotecontroller_anchor), wordt dit bestand worden gewijzigd om te lezen en schrijven van stemmende gegevens op de back-endservice.  Op dit moment retourneert de controller statische tekenreeksgegevens naar de weergave.
+Een controller waarmee wordt gedefinieerd stemmende acties toevoegen. Met de rechtermuisknop op de **domeincontrollers** map, selecteer vervolgens **toevoegen -> Nieuw item -> klasse**.  Naam van het bestand 'VotesController.cs' en klik op **toevoegen**.  
+
+Inhoud van het bestand vervangen door de volgende, sla de wijzigingen vervolgens.  Verderop in [bijwerken van het bestand VotesController.cs](#updatevotecontroller_anchor), wordt dit bestand worden gewijzigd om te lezen en schrijven van stemmende gegevens op de back-endservice.  Op dit moment retourneert de controller statische tekenreeksgegevens naar de weergave.
 
 ```csharp
 using System;
@@ -296,7 +302,23 @@ namespace VotingWeb.Controllers
 }
 ```
 
+### <a name="configure-the-listening-port"></a>De luisterpoort configureren
+Wanneer de front-endservice VotingWeb is gemaakt, zijn Visual Studio selecteert willekeurig een poort voor de service voor luisteren.  De service VotingWeb fungeert als front-end voor deze toepassing en externe verkeer accepteert, dus die service binden aan een vaste en poort ook weten. Open in Solution Explorer *VotingWeb/PackageRoot/ServiceManifest.xml*.  Zoeken de **eindpunt** resource in de **Resources** sectie en wijzig de **poort** waarde in op 80 of naar een andere poort. Als u wilt implementeren en de toepassing lokaal uitvoeren, moet de toepassing luisterpoort open en beschikbare op uw computer.
 
+```xml
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
+    </Endpoints>
+  </Resources>
+```
+
+De waarde van de toepassings-URL-eigenschap in het project Voting ook bijwerken zodat een webbrowser op de juiste poort opent wanneer u fouten opspoort, druk op F5 '.  Klik in Solution Explorer, selecteer de **Voting** project en werk de **toepassings-URL** eigenschap.
+
+![De URL van toepassing](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ### <a name="deploy-and-run-the-application-locally"></a>Implementeren en de toepassing lokaal uitvoeren
 U kunt nu doorgaan en de toepassing uitvoeren. Druk op `F5` in Visual Studio om de toepassing voor foutopsporing te implementeren. `F5`mislukt als u niet eerder Visual Studio als Open **beheerder**.

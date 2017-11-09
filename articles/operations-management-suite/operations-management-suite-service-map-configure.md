@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: daef11a0cea11b0f6633ab32f7d84fac4591180a
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 209631536d8c611b46a2ad3ff6c685062b17c649
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Serviceoverzicht configureren in Operations Management Suite
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers, zoals u ze--beschouwen als onderling verbonden systemen die essentiële services leveren. Service-kaart toont de verbindingen tussen servers, processen en poorten via een TCP-verbinding architectuur waarvoor geen configuratie vereist, behalve de installatie van een agent.
@@ -26,7 +26,7 @@ Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-
 Dit artikel worden de details van het Serviceoverzicht en voorbereiding agents configureren. Zie voor meer informatie over het gebruik van Serviceoverzicht [het Serviceoverzicht-oplossing gebruiken in Operations Management Suite](operations-management-suite-service-map.md).
 
 ## <a name="dependency-agent-downloads"></a>Agent voor afhankelijkheden gedownload
-| File | OS | Versie | SHA-256 |
+| Bestand | Besturingssysteem | Versie | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
 | [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
@@ -135,7 +135,7 @@ Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDepend
 ### <a name="shell-script-for-linux"></a>Shell-script voor Linux
 ```
 wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
-sh InstallDependencyAgent-Linux64.bin -s
+sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## <a name="azure-vm-extension"></a>Azure VM-extensie
@@ -228,10 +228,15 @@ Een beheerder kan de afhankelijkheid Agent voor Windows via het Configuratiesche
 Een beheerder kan ook uitvoeren %Programfiles%\Microsoft afhankelijkheid Agent\Uninstall.exe de afhankelijkheid-Agent verwijderen.
 
 ### <a name="uninstall-the-dependency-agent-on-linux"></a>Verwijder de Agent afhankelijkheid op Linux
-De afhankelijkheid-Agent volledig verwijderen van Linux, moet u de agent zelf en de connector die wordt automatisch geïnstalleerd met de agent verwijderen. U kunt beide met behulp van de volgende opdracht uit één verwijderen:
-
-    rpm -e dependency-agent dependency-agent-connector
-
+De afhankelijkheid-Agent volledig verwijderen van Linux, moet u de agent zelf en de connector die wordt automatisch geïnstalleerd met de agent verwijderen. U kunt beide met behulp van de volgende één opdracht verwijderen.
+<br>RHEL, CentOs of Oracle:
+```
+sudo rpm -e dependency-agent dependency-agent-connector
+```
+Ubuntu:
+```
+sudo dpkg --purge dependency-agent dependency-agent-connector
+```
 ## <a name="troubleshooting"></a>Problemen oplossen
 Als er problemen installeren of uitvoeren Serviceoverzicht, kunt in deze sectie u. Als u uw probleem niet kunt oplossen, neem contact op met Microsoft Support.
 
@@ -249,7 +254,7 @@ Mogelijk handig voor het installeren van de [nieuwste runtimebibliotheken](https
 
 De volgende tabel bevat de code cijfers en voorgestelde oplossingen.
 
-| Code | Beschrijving | Oplossing |
+| Coderen | Beschrijving | Resolutie |
 |:--|:--|:--|
 | 0x17 | Het installatieprogramma bibliotheek vereist een Windows-update is niet geïnstalleerd. | Zoek in de meest recente bibliotheek installer-logboekbestand.<br><br>Als een verwijzing naar 'Windows8.1-KB2999226-x64.msu' wordt gevolgd door een regel ' fout 0x80240017: uitvoeren van MSU-pakket is mislukt "u hebt de vereisten voor het installeren van KB2999226. Volg de instructies in de sectie vereisten in [universeel C Runtime in Windows](https://support.microsoft.com/kb/2999226). Mogelijk moet u Windows Update uit te voeren en meerdere keren opstarten om de vereiste software installeren.<br><br>Voer het installatieprogramma van Microsoft afhankelijkheid Agent opnieuw uit. |
 
@@ -282,7 +287,7 @@ De Agent voor afhankelijkheden verbruikt doorgaans 0,1 procent van het systeemge
 Serviceoverzicht is momenteel beschikbaar in de volgende Azure-regio's:
 - VS - oost
 - West-Europa
-- West-centraal VS
+- VS - west/centraal
 - Zuidoost-Azië
 
 
@@ -295,7 +300,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 - Windows Server 2012
 - Windows Server 2008 R2 SP1
 
-### <a name="windows-desktop"></a>Windows-bureaublad
+### <a name="windows-desktop"></a>Windows-desktop
 - Windows 10
 - Windows 8.1
 - Windows 8
@@ -316,6 +321,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 | 7.1 | 3.10.0-229 |
 | 7.2 | 3.10.0-327 |
 | 7.3 | 3.10.0-514 |
+| 7.4 | 3.10.0-693 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 | De versie van besturingssysteem | Kernelversie |
@@ -329,6 +335,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 | 6.6 | 2.6.32-504 |
 | 6.7 | 2.6.32-573 |
 | 6.8 | 2.6.32-642 |
+| 6.9 | 2.6.32-696 |
 
 #### <a name="red-hat-linux-5"></a>Red Hat Linux 5
 | De versie van besturingssysteem | Kernelversie |
@@ -336,10 +343,17 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
 | 5.10 | 2.6.18-371 |
-| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419 |
+| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419<br>2.6.18-420 |
 
-#### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux met Unbreakable Enterprise Kernel
+### <a name="ubuntu-server"></a>Ubuntu Server
+- Aangepaste kernels, met inbegrip van hercompilaties van standaard kernels worden niet ondersteund.
 
+| De versie van besturingssysteem | Kernelversie |
+|:--|:--|
+| 16.04 | 4.4.0-98 |
+| 14.04 | 3.13.0-135<br>4.4.0-98 |
+
+### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux met Unbreakable Enterprise Kernel
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
 | De versie van besturingssysteem | Kernelversie
 |:--|:--|

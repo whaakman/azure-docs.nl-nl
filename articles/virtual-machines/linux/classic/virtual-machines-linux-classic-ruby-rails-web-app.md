@@ -15,11 +15,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: 0518519da6c5e62a863a47d6743ab7b7c5923acf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb6ded1dcba2ac0f78fc6f1f4f7de9238cd752bd
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Ruby on Rails-webtoepassing op een Azure VM
 Deze zelfstudie laat zien hoe voor het hosten van een Ruby op Rails website op Azure met behulp van een virtuele Linux-machine.  
@@ -28,7 +28,7 @@ Deze zelfstudie is gevalideerd met behulp van Ubuntu Server 14.04 TNS. Als u een
 
 > [!IMPORTANT]
 > Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../../../azure-resource-manager/resource-manager-deployment-model.md).  Dit artikel gaat over het gebruik van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
->
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 >
 
 ## <a name="create-an-azure-vm"></a>Een Azure virtuele machine maken

@@ -1,5 +1,6 @@
 Als op uw virtuele machine (VM) in Azure een opstart- of schijffout optreedt, moet u mogelijk de stappen voor probleemoplossing uitvoeren op de virtuele harde schijf zelf. Een veelvoorkomend voorbeeld is een mislukte toepassingsupdate die verhindert dat de virtuele machine opstart. In dit artikel wordt beschreven hoe u Azure Portal gebruikt om verbinding maken met de virtuele harde schijf van een andere virtuele machine om eventuele fouten te corrigeren en de oorspronkelijke virtuele machine opnieuw te maken.
 
+
 ## <a name="recovery-process-overview"></a>Overzicht van het herstelproces
 Het probleemoplossingsproces is als volgt:
 

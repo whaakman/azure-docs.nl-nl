@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 7c0dab5ab2d7342ce4de8899040478a6143c184b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2501113fe75f20602059927a4e0a50cecd86b187
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Het gebruik van GPU in Azure Machine Learning
 Grafische verwerken Unit (GPU) wordt veel gebruikt voor het verwerken van rekenkracht taken die doorgaans kunnen ontstaan bij het trainen van bepaalde diepe neural network-modellen. Met behulp van GPU's, kunt u de trainingstijd van de modellen aanzienlijk verkorten. In dit document, u informatie over het configureren van Azure ML-Workbench om te gebruiken [DSVM (gegevens wetenschappelijke virtuele Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) uitgerust met GPU's als doel kan worden uitgevoerd. 
@@ -116,7 +116,7 @@ dependencies:
   - python=3.5.2
   - pip: 
     # use the Linux build of Microsoft Cognitive Toolkit 2.1 with GPU support
-    - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-win_amd64.whl
+    - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl
 ```
 
 U kunt ook de 1 bits SGD-versie van de Microsoft cognitieve Toolkit waarmee prestatieverbeteringen op meerdere GPU virtuele machines gebruiken. Houd er rekening mee [de licentievereiste voor 1-bits-SGD](https://docs.microsoft.com/en-us/cognitive-toolkit/cntk-1bit-sgd-license).
@@ -147,7 +147,7 @@ Total memory: 11.17GiB
 Free memory: 11.11GiB
 ```
 
-Gefeliciteerd. Uw script om alleen deze om de kracht van GPU via een Docker-container!
+Gefeliciteerd! Uw script om alleen deze om de kracht van GPU via een Docker-container!
 
 ## <a name="next-steps"></a>Volgende stappen
 Bekijk een voorbeeld van het gebruik van GPU te diep neurale netwerk trainingsmateriaal op Galerie van Azure ML versnellen.

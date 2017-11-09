@@ -15,17 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 8031c9bae923e19574b7189a97cb71a148b63d77
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 96e332504509ae98e280d1c8585b0b294e0e07cb
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>On-demand 'burst' knooppunten toevoegen aan een HPC Pack cluster in Azure
 Als u een [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster in Azure, kunt u een manier om snel de capaciteit van het cluster omhoog of omlaag schalen, zonder het onderhouden van een reeks vooraf geconfigureerde rekenknooppunt virtuele machines. In dit artikel leest u hoe on demand 'burst' knooppunten (worker rolinstanties uitgevoerd in een cloudservice) toevoegen als de rekenresources voor een hoofdknooppunt in Azure. 
 
 > [!IMPORTANT] 
 > Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ![Burst knooppunten][burst]
 

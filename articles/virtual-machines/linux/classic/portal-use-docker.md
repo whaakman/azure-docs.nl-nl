@@ -15,25 +15,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-ms.openlocfilehash: 932744208d9d53c87e31dcdf9e34539750be4bdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5c1822b7304c0360da866ddb504483f5a53432f
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>De Docker VM-extensie gebruiken met de klassieke Azure Portal
 > [!IMPORTANT] 
 > Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [Docker](https://www.docker.com/) is een van de meest populaire virtualisatie-methoden die gebruikmaakt van [Linux containers](http://en.wikipedia.org/wiki/LXC) in plaats van virtuele machines als een manier om gegevens te isoleren en berekeningen op gedeelde bronnen. U kunt de Docker-VM-extensie die worden beheerd door [Azure Linux Agent] voor het maken van een Docker-virtuele machine die als host fungeert voor een onbeperkt aantal containers voor uw toepassingen in Azure.
 
 > [!NOTE]
-> In dit onderwerp wordt beschreven hoe een Docker-virtuele machine maken vanuit de klassieke Azure portal. Zie voor het maken van een Docker-virtuele machine op de opdrachtregel [het gebruik van de Docker-VM-extensie met de Azure-opdrachtregelinterface (Azure CLI)]. Zie voor een hoog niveau bespreking van containers en hun voordelen de [Docker hoog niveau Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+> In dit onderwerp wordt beschreven hoe een Docker-virtuele machine maken vanuit de Azure-portal. Zie voor het maken van een Docker-virtuele machine op de opdrachtregel [het gebruik van de Docker-VM-extensie met de Azure-opdrachtregelinterface (Azure CLI)]. Zie voor een hoog niveau bespreking van containers en hun voordelen de [Docker hoog niveau Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 > 
 > 
 
 ## <a name="create-a-new-vm-from-the-image-gallery"></a>Een nieuwe virtuele machine uit de galerie installatiekopie maken
-De eerste stap is vereist voor een Azure-VM uit een Linux-installatiekopie die ondersteuning biedt voor de Docker VM-extensie met een installatiekopie van een virtuele Ubuntu 14.04 TNS uit de galerie installatiekopie als een serverinstallatiekopie voorbeeld en Ubuntu 14.04 bureaublad als een client. Klik in de portal op **+ nieuw** in de linkerbenedenhoek voor het maken van een nieuw exemplaar van de virtuele machine en selecteer een installatiekopie van een virtuele Ubuntu 14.04 TNS van de beschikbare selecties of van de volledige installatiekopie-galerie, zoals hieronder wordt weergegeven.
+De eerste stap is vereist voor een Azure-VM uit een Linux-installatiekopie die ondersteuning biedt voor de Docker VM-extensie met een installatiekopie van een virtuele Ubuntu 14.04 TNS uit de galerie installatiekopie als een serverinstallatiekopie voorbeeld en Ubuntu 14.04 bureaublad als een client. Klik in de portal op **+ nieuw** voor het maken van een nieuw exemplaar van de virtuele machine en selecteer een installatiekopie van een virtuele Ubuntu 14.04 TNS van de beschikbare selecties of van de volledige installatiekopie-galerie, zoals hieronder wordt weergegeven.
 
 > [!NOTE]
 > Op dit moment ondersteuning alleen Ubuntu 14.04 TNS afbeeldingen recenter dan juli 2014 voor de Docker-VM-extensie.
@@ -67,11 +68,6 @@ Op de opdrachtregel gebruiken  **`base64`**  of een ander favoriete codering hul
 
 ## <a name="add-the-docker-vm-extension"></a>De Docker-VM-extensie toevoegen
 De Docker-VM-extensie toevoegen: zoek het VM-exemplaar dat u hebt gemaakt en schuif omlaag naar **extensies** en klikt u op het online zetten van de VM-extensies, zoals hieronder wordt weergegeven.
-
-> [!NOTE]
-> Deze functionaliteit wordt ondersteund in de preview portal: https://portal.azure.com/
-> 
-> 
 
 ![](media/portal-use-docker/ClickExtensions.png)
 

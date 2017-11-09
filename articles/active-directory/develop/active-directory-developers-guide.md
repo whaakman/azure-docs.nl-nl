@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: dce813b885d492343428428056a2e8aada27b461
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1baf98616eb48bd3ae45b78ab1ac31e711fa655d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory voor ontwikkelaars
 Azure Active Directory is een identiteitsservice in de cloud waarmee ontwikkelaars ervoor kunnen zorgen dat elke gebruiker met een werk- of schoolaccount ondersteund door Microsoft zich veilig kan aanmelden.  In deze documentatie wordt beschreven hoe u Azure AD-ondersteuning aan uw toepassing kunt toevoegen met de standaardverificatieprotocollen OAuth en OpenID Connect.
@@ -59,16 +59,9 @@ Deze artikelen bieden gedetailleerde informatie over de API's, protocolberichten
 | [Woordenlijst](active-directory-dev-glossary.md)                                      | Termen en definities van woorden die in deze documenten worden gebruikt |
 | [Meer referentiemateriaal...](active-directory-developers-guide-index.md#reference)|     |
 
-## <a name="help--support"></a>Help en ondersteuning
-Dit zijn de aanbevolen plaatsen voor hulp bij het ontwikkelen met Azure Active Directory.
-
-|  |  
-|---|
-|[Stack Overflow's tags voor `azure-active-directory` en `adal`](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)      |
-|[Feedback op Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)|
-| [Microsoft Dev Chat Uitproberen (gratis gedurende beperkte tijd)](http://aka.ms/devchat) |
-
-<br />
 
 > [!NOTE]
 > Als u persoonlijke Microsoft-accounts wilt aanmelden, kunt u overwegen het [Azure AD v2.0-eindpunt](active-directory-appmodel-v2-overview.md) te gebruiken.  Het Azure AD v2.0-eindpunt combineert persoonlijke Microsoft-accounts en Microsoft-werkaccounts (vanuit Azure AD) in één verificatiesysteem.
+
+
+[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]
