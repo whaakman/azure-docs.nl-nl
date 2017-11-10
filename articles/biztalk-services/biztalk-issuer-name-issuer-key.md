@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: b9fd985c23558596408e78eadae00dd0f95c4214
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18eac72d75680ab12c4a0bea9dfc5ac8a5fce566
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: naam en sleutel van verlener
 
@@ -76,13 +76,9 @@ Meer op de [nieuw AzureSBNamespace](https://msdn.microsoft.com/library/dn495165.
 Naam van Service Bus verlener en sleutel van verlener worden gebruikt door de BizTalk Adapter Services. In uw BizTalk Services-project in Visual Studio gebruikt u de BizTalk Adapter Services verbinding maken met een on-premises Line-of-Business (LOB)-systeem. Als u wilt verbinden, de Relay LOB maken en voer de details van uw LOB-systeem. Wanneer u dit doet, typt u ook de naam van Service Bus verlener en sleutel van verlener.
 
 ### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Voor het ophalen van de naam van Service Bus verlener en sleutel van verlener
-1. Meld u aan bij de [klassieke Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Selecteer in het navigatiedeelvenster links **Service Bus**.
-3. Selecteer de naamruimte. Selecteer in de taakbalk **verbindingsgegevens**. U ziet nu de **standaard verlener** (naam van de certificaatverlener) en **standaard sleutel** (sleutel van verlener). De waarden kunnen worden gekopieerd.  
-
-Samengevat:  
-De naam van certificaatverlener = standaard certificaatverlener  
-Sleutel van verlener standaardsleutel =
+1. Meld u aan bij [Azure Portal](http://portal.azure.com).
+2. Zoeken naar **Service Bus**, selecteer de naamruimte. 
+3. Open de **gedeeld toegangsbeleid** eigenschappen, selecteert u het beleid en bekijk de **verbindingsreeks** voor de naam en sleutelwaarden.  
 
 ## <a name="next"></a>Volgende
 Aanvullende onderwerpen voor Azure BizTalk Services:
@@ -95,7 +91,7 @@ Aanvullende onderwerpen voor Azure BizTalk Services:
 ## <a name="see-also"></a>Zie ook
 * [How to: ACS-Management-Service gebruiken voor het configureren van de Service-identiteiten](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
 * [BizTalk Services: Developer, Basic, Standard en Premium-edities grafiek](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk Services: Inrichten met behulp van Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [BizTalk Services: inrichten](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [BizTalk Services: statusgrafiek voor de inrichting](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
 * [BizTalk Services: de tabbladen Dashboard, Bewaken en Schalen](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [BizTalk Services: back-ups maken en herstellen](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

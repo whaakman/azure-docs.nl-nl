@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.openlocfilehash: 918154852cf4ee1b80792eaddb588f5b0237da7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05470e75fc7b46603c8fce3a98c66ac6a24758a8
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Wat u wel en niet met behulp van de BizTalk Service-status
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 Afhankelijk van de huidige status van de BizTalk service zijn er bewerkingen die u wel of niet uitvoeren op de BizTalk service.
 
-Bijvoorbeeld, het inrichten van een nieuwe BizTalk-service in de klassieke Azure portal. Wanneer het is voltooid, wordt de BizTalk service `active` status. In de actieve status heeft, kunt u stoppen, onderbreken en de BizTalk service verwijderen. Als u de BizTalk-service stoppen en stop mislukt en de BizTalk service gaat dan naar een `StopFailed` status. In de `StopFailed` staat, kunt u de BizTalk service opnieuw starten. De volgende fout treedt op als u een bewerking die niet zijn toegestaan, zoals hervatten:
+Bijvoorbeeld, inrichten u een nieuwe BizTalk service. Wanneer het is voltooid, wordt de BizTalk service `active` status. In de actieve status heeft, kunt u stoppen, onderbreken en de BizTalk service verwijderen. Als u de BizTalk-service stoppen en stop mislukt en de BizTalk service gaat dan naar een `StopFailed` status. In de `StopFailed` staat, kunt u de BizTalk service opnieuw starten. De volgende fout treedt op als u een bewerking die niet zijn toegestaan, zoals hervatten:
 
 `Operation not allowed`
 
@@ -52,7 +52,6 @@ De volgende tabellen worden de bewerkingen of acties die kunnen worden uitgevoer
 
 
 ## <a name="see-also"></a>Zie ook
-* [Een BizTalk Service met de klassieke Azure portal maken](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [Wat u kunt doen op de tabbladen dashboard, bewaken en schalen van BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [U krijgt met de Developer, Basic, Standard en Premium-edities in BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 * [Het back-up en herstellen van een BizTalk Service](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

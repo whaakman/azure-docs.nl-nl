@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 6ef76763859482d24c088f58fe361882cc4a619b
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: daba616debcf445e092697575465311f39e9466f
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Store met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ U kunt gegevens van alle ondersteunde brongegevensarchief kopiëren naar Azure D
 
 In het bijzonder ondersteunt deze Azure Data Lake Store-connector:
 
-- Het kopiëren van bestanden met behulp van **service-principal** verificatie.
+- Het kopiëren van bestanden met behulp van **service-principal** of **beheerde service-identiteit (MSI)** verificatie.
 - Kopiëren van bestanden als-is, of parsering/genereren van bestanden met de [ondersteunde bestandsindelingen en compressiecodecs](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="get-started"></a>Aan de slag
@@ -44,7 +44,23 @@ De volgende secties bevatten informatie over de eigenschappen die worden gebruik
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
-U kunt een Azure Data Lake Store gekoppelde service maken met behulp van verificatie van de service-principal.
+De volgende eigenschappen worden ondersteund voor Azure Data Lake Store service gekoppelde:
+
+| Eigenschap | Beschrijving | Vereist |
+|:--- |:--- |:--- |
+| type | De eigenschap type moet worden ingesteld op **AzureDataLakeStore**. | Ja |
+| dataLakeStoreUri | Informatie over het Azure Data Lake Store-account. Deze informatie heeft een van de volgende indelingen: `https://[accountname].azuredatalakestore.net/webhdfs/v1` of `adl://[accountname].azuredatalakestore.net/`. | Ja |
+| Tenant | De tenant-gegevens (domain name of tenant-ID) opgeven onder uw toepassing zich bevindt. U kunt deze ophalen door de muis in de rechterbovenhoek van de Azure portal. | Ja |
+| subscriptionId | Azure-abonnement-ID waartoe het Data Lake Store-account behoort. | Vereist voor sink |
+| resourceGroupName | Naam Azure resourcegroep waartoe het Data Lake Store-account behoort. | Vereist voor sink |
+| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Azure integratie Runtime of Self-hosted integratie Runtime gebruiken (indien de gegevensopslag bevindt zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
+
+Zie de secties hieronder over meer eigenschappen en voorbeelden van JSON voor andere verificatietypen respectievelijk:
+
+- [Met behulp van verificatie van de service-principal](#using-service-principal-authentication)
+- [Beheerde service verificatie identitiy](#using-managed-service-identitiy-authentication)
+
+### <a name="using-service-principal-authentication"></a>Met behulp van verificatie van de service-principal
 
 Als u verificatie van de service-principal, registreren van een Toepassingsentiteit in Azure Active Directory (Azure AD) en het toegang geven tot Data Lake Store. Zie voor gedetailleerde stappen [authentication Service-naar-serviceconnector](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Noteer de volgende waarden die u gebruikt voor het definiëren van de gekoppelde service:
 
@@ -54,21 +70,15 @@ Als u verificatie van de service-principal, registreren van een Toepassingsentit
 
 >[!TIP]
 > Zorg ervoor dat u service principal juiste toestemming geven in Azure Data Lake Store:
->- Als de bron, verlenen ten minste **lezen + Execute** data access-machtiging voor het weergeven en kopieer de inhoud van een map of **lezen** machtiging voor het kopiëren van één bestand. Er is geen vereiste voor toegangsbeheer op account.
->- Als sink verlenen ten minste **schrijven + uitvoeren** data access-machtiging voor het maken van onderliggende items in de map. En als u Azure IR gebruiken om te zorgen dat kopiëren (bron- en sink zijn in de cloud), om te kunnen laten Data Factory Data Lake Store regio detecteren, verlenen ten minste **lezer** rol in account toegangsbeheer (IAM). Als u wilt voorkomen dat deze rol IAM [maken van een Azure-IR](create-azure-integration-runtime.md#create-azure-ir) gekoppelde service als het volgende voorbeeld met de locatie van uw Data Lake Store en koppelen in de Data Lake Store.
+>- Als de bron, verlenen ten minste **lezen + Execute** data access-machtiging voor het weergeven en kopieer de inhoud van een map of **lezen** machtiging voor het kopiëren van één bestand. Er is geen vereiste voor account toegangsniveau control (IAM).
+>- Als sink verlenen ten minste **schrijven + uitvoeren** data access-machtiging voor het maken van onderliggende items in de map. En als u Azure IR gebruiken om te zorgen dat kopiëren (bron- en sink zijn in de cloud), om te kunnen laten Data Factory Data Lake Store regio detecteren, verlenen ten minste **lezer** rol in account toegangsbeheer (IAM). Als u wilt voorkomen van deze rol IAM expliciet [maken van een Azure-IR](create-azure-integration-runtime.md#create-azure-ir) gekoppelde service als het volgende voorbeeld met de locatie van uw Data Lake Store en koppelen in de Data Lake Store.
 
 De volgende eigenschappen worden ondersteund:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op **AzureDataLakeStore**. | Ja |
-| dataLakeStoreUri | Informatie over het Azure Data Lake Store-account. Deze informatie heeft een van de volgende indelingen: `https://[accountname].azuredatalakestore.net/webhdfs/v1` of `adl://[accountname].azuredatalakestore.net/`. | Ja |
 | servicePrincipalId | Geef de toepassing client-ID. | Ja |
 | servicePrincipalKey | De sleutel van de toepassing opgeven. Dit veld markeren als een SecureString. | Ja |
-| Tenant | De tenant-gegevens (domain name of tenant-ID) opgeven onder uw toepassing zich bevindt. U kunt deze ophalen door de muis in de rechterbovenhoek van de Azure portal. | Ja |
-| subscriptionId | Azure-abonnement-ID waartoe het Data Lake Store-account behoort. | Vereist voor sink |
-| resourceGroupName | Naam Azure resourcegroep waartoe het Data Lake Store-account behoort. | Vereist voor sink |
-| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Azure integratie Runtime of Self-hosted integratie Runtime gebruiken (indien de gegevensopslag bevindt zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
 
 **Voorbeeld:**
 
@@ -84,6 +94,43 @@ De volgende eigenschappen worden ondersteund:
                 "type": "SecureString",
                 "value": "<service principal key>"
             },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "subscriptionId": "<subscription of ADLS>",
+            "resourceGroupName": "<resource group of ADLS>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-managed-service-identitiy-authentication"></a>Beheerde service verificatie identitiy
+
+Een gegevensfactory kan worden gekoppeld aan een [beheerde service-identiteit](data-factory-service-identity.md), die staat voor deze specifieke gegevensfactory. U kunt deze service-identiteit rechtstreeks gebruiken voor verificatie van Data Lake Store vergelijkbaar met het gebruik van uw eigen princial service. Hierdoor kan de aangewezen fabriek voor toegang en gegevens kopiëren van/naar uw Data Lake Store.
+
+Beheerde service identitiy (MSI) om verificatie te gebruiken:
+
+1. [Ophalen van de data factory-service-identiteit](data-factory-service-identity.md#retrieve-service-identity) door de waarde van 'SERVICE identiteit TOEPASSINGS-ID gegenereerd samen met uw gegevensfactory.
+2. De service-identiteit toegang verlenen aan Data Lake Store dezelfde manier als u zou voor service-principal doen. Zie voor gedetailleerde stappen [authentication Service-naar-service - toewijzen de Azure AD-toepassing met het Azure Data Lake Store-accountbestand of map](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder).
+
+>[!TIP]
+> Zorg ervoor dat u data factory-service identitiy juiste toestemming geven in Azure Data Lake Store:
+>- Als de bron, verlenen ten minste **lezen + Execute** data access-machtiging voor het weergeven en kopieer de inhoud van een map of **lezen** machtiging voor het kopiëren van één bestand. Er is geen vereiste voor account toegangsniveau control (IAM).
+>- Als sink verlenen ten minste **schrijven + uitvoeren** data access-machtiging voor het maken van onderliggende items in de map. En als u Azure IR gebruiken om te zorgen dat kopiëren (bron- en sink zijn in de cloud), om te kunnen laten Data Factory Data Lake Store regio detecteren, verlenen ten minste **lezer** rol in account toegangsbeheer (IAM). Als u wilt voorkomen van deze rol IAM expliciet [maken van een Azure-IR](create-azure-integration-runtime.md#create-azure-ir) gekoppelde service als het volgende voorbeeld met de locatie van uw Data Lake Store en koppelen in de Data Lake Store.
+
+In Azure Data Factory hoeft u niet naast de algemene gegevens voor de Data Lake Store-eigenschappen opgeven in de gekoppelde service.
+
+**Voorbeeld:**
+
+```json
+{
+    "name": "AzureDataLakeStoreLinkedService",
+    "properties": {
+        "type": "AzureDataLakeStore",
+        "typeProperties": {
+            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
             "subscriptionId": "<subscription of ADLS>",
             "resourceGroupName": "<resource group of ADLS>"

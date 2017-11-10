@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/8/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 2f7696e207b077f8ae31751f0b6e15459aa1ed52
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: bcbf536390786b61544d3e09638d89e6b3b5c004
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure virtuele-machineschaalsets Veelgestelde vragen
 
@@ -577,7 +577,7 @@ Een andere reden dat u een virtuele-machineschaalset ingesteld met minder dan tw
 
 ### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>Hoe kan ik het aantal virtuele machines in een virtuele-machineschaalset wijzigen?
 
-Zie het wijzigen van het aantal virtuele machines in een virtuele-machineschaalset [wijzigen van het aantal exemplaren van een virtuele-machineschaalset](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
+Om te wijzigen van het aantal virtuele machines in een virtuele-machineschaalset ingesteld in de Azure portal, uit de schaal van de virtuele machine instellen sectie met eigenschappen, klikt u op de blade 'Schaal' en de schuifknop te gebruiken. Zie voor andere manieren om te wijzigen van het aantal exemplaren [wijzigen van het aantal exemplaren van een virtuele-machineschaalset](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
 
 ### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>Hoe ik aangepaste waarschuwingen voor als bepaalde drempelwaarden zijn bereikt definiëren?
 

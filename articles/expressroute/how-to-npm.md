@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: aff54b86da6a8a062a3f1c76aa69e32c60008274
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 35dd3c6be2fb2fa5ec4d14eefce1c16005210364
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configureren van netwerk-Prestatiemeter voor ExpressRoute (Preview)
 
@@ -88,14 +88,14 @@ Als u al met een netwerk Prestatiemeter voor het bewaken van andere objecten of 
   >De Linux-agent wordt momenteel niet ondersteund voor ExpressRoute bewaking.
   >
   >
-2. Kopieer en plak de **werkruimte-ID** en **primaire sleutel** naar Kladblok.
+2. Kopieer de **werkruimte-ID** en **primaire sleutel** naar Kladblok.
 3. In de **Agents configureren** sectie, het downloaden van het Powershell-Script. Het PowerShell-script kunt u de relevante firewallpoort voor de TCP-transacties te openen.
 
   ![PowerShell-script](.\media\how-to-npm\7.png)
 
 ### <a name="installagent"></a>2.2: een monitoring agent installeren op elke server controleren
 
-1. Voer **Setup** de agent te installeren op elke server die u gebruiken wilt voor het bewaken van ExpressRoute. De server die u voor het bewaken van gebruikt een virtuele machine of on-premises kan zijn en toegang tot Internet moet hebben. U moet ten minste één agent on-premises, en één op elke netwerksegment dat u wilt bewaken in Azure installeren.
+1. Voer **Setup** de agent te installeren op elke server die u gebruiken wilt voor het bewaken van ExpressRoute. De server die u voor het bewaken van gebruikt een virtuele machine of on-premises kan zijn en toegang tot Internet moet hebben. U moet ten minste één agent on-premises, en een agent installeren op elk netwerksegment dat u wilt bewaken in Azure.
 2. Op de **Welkom** pagina, klikt u op **volgende**.
 3. Op de **licentievoorwaarden** pagina, lees de licentievoorwaarden en klik vervolgens op **ik ga akkoord**.
 4. Op de **doelmap** pagina, wijzigen of de standaardinstallatiemap houden en klik vervolgens op **volgende**.
@@ -116,7 +116,7 @@ Als u al met een netwerk Prestatiemeter voor het bewaken van andere objecten of 
 
 ### <a name="proxy"></a>2.3: Configureer proxy-instellingen (optioneel)
 
-Als u van een webproxy gebruikmaakt voor internettoegang, gebruikt u de volgende stappen uit voor het configureren van proxy-instellingen voor Microsoft Monitoring Agent. U moet deze stappen uitvoeren voor elke server. Als er veel servers zijn die u moet configureren, is het wellicht eenvoudiger om een script te gebruiken om dit proces te automatiseren. Zo ja, Zie [voor het configureren van proxy-instellingen voor Microsoft Monitoring Agent met een script](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+Als u van een webproxy gebruikmaakt voor internettoegang, gebruikt u de volgende stappen uit voor het configureren van proxy-instellingen voor Microsoft Monitoring Agent. Voer deze stappen uit voor elke server. Als er veel servers zijn die u moet configureren, is het wellicht eenvoudiger om een script te gebruiken om dit proces te automatiseren. Zo ja, Zie [voor het configureren van proxy-instellingen voor Microsoft Monitoring Agent met een script](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
 
 Proxy-instellingen voor Microsoft Monitoring Agent via het Configuratiescherm configureren:
 
@@ -140,7 +140,7 @@ Eenvoudig kunt u controleren of uw agents communiceren.
 
 ### <a name="firewall"></a>2.5: open de firewallpoorten op de monitoring agentservers
 
-Als u wilt gebruiken het TCP-protocol, dat u wilt openen firewall-poorten om ervoor te zorgen dat de bewaking agents kunnen communiceren.
+Als u wilt gebruiken het TCP-protocol, moet u de firewall-poorten om ervoor te zorgen dat de bewaking agents kunnen communiceren openen.
 
 U kunt een PowerShell-script waarmee de registersleutels vereist voor de Prestatiemeter voor netwerk, evenals de Windows Firewall-regels om toe te staan monitoring-agents voor het maken van TCP-verbindingen met elkaar maken uitvoeren. De registersleutels gemaakt door het script ook opgeven of om de logboeken voor foutopsporing en het pad voor het bestand logboeken te leggen. Het definieert ook de agent TCP-poort gebruikt voor communicatie. De waarden voor deze sleutels worden automatisch ingesteld door het script, zodat deze sleutels niet handmatig te wijzigen.
 
@@ -168,8 +168,7 @@ Zie voor meer informatie over het NSG [Netwerkbeveiligingsgroepen](../virtual-ne
 >
 >
 
-Voordat u kunt met behulp van de ExpressRoute-monitorfunctie van NPM, moet u vragen om uw werkruimte wilt plaatsen. [Klik hier om te gaan naar de pagina en vul het aanvraagformulier](https://go.microsoft.com/fwlink/?linkid=862263). (Hint: U kunt deze koppeling opent in een nieuw venster of tabblad). Het proces whitelisting kan een werkdag of langer duren. We sturen je een e-mail wanneer de whitelisting voltooid is.
-
+Voordat u kunt met behulp van de ExpressRoute-monitorfunctie van NPM, moet u vragen om uw werkruimte wilt plaatsen. [Klik hier om te gaan naar de pagina en vul het aanvraagformulier](https://go.microsoft.com/fwlink/?linkid=862263). (Hint: U kunt deze koppeling opent in een nieuw venster of tabblad). Het proces whitelisting kan een werkdag of langer duren. Zodra de whitelisting voltooid is, ontvangt u een e-mailbericht.
 
 ## <a name="setupmonitor"></a>Stap 5: NPM configureren voor het bewaken van ExpressRoute
 
@@ -189,7 +188,7 @@ Nadat u de vorige secties en controleer of dat u goedgekeurde lijst zijn, kunt u
 3. Navigeer naar de op het tabblad ExpressRoute-Peerings in het deelvenster links op de configuratiepagina. Klik op **nu detecteren**.
 
   ![Detecteren](.\media\how-to-npm\13.png)
-4. Wanneer detectie is voltooid, ziet u regels voor unieke naam van het Circuit en VNet-naam. In eerste instantie zijn deze regels uitgeschakeld. U moet de regels inschakelen en selecteer vervolgens de controle agents en drempelwaarden.
+4. Wanneer detectie is voltooid, ziet u regels voor unieke naam van het Circuit en VNet-naam. In eerste instantie zijn deze regels uitgeschakeld. Schakelt u de regels en selecteer vervolgens de controle agents en drempelwaarden.
 
   ![regels](.\media\how-to-npm\14.png)
 5. Na het inschakelen van de regels en selecteren van de waarden en de agents die u wilt bewaken, is een wachttijd van ongeveer 30 tot 60 minuten voor de waarden om te beginnen in te vullen en de **ExpressRoute bewaking** tegels beschikbaar. Zodra u de bewaking tegels ziet, zijn uw ExpressRoute-circuits en verbindingsbronnen worden bewaakt door NPM.
@@ -229,6 +228,7 @@ U kunt het niveau van zichtbaarheid lokale hops opnemen door de onderstaande sch
 
 ![filters](.\media\how-to-npm\topology.png)
 
-#### <a name="detailed-topology-view-of-a-particular-expressroute-circuit---with-vnet-connections"></a>Gedetailleerde weergave van de topologie van een bepaalde ExpressRoute-circuit - met VNet-verbindingen
+#### <a name="detailed-topology-view-of-a-circuit"></a>Gedetailleerde weergave van de topologie van een circuit
 
+Deze weergave toont de VNet-verbindingen.
 ![gedetailleerde topologie](.\media\how-to-npm\17.png)

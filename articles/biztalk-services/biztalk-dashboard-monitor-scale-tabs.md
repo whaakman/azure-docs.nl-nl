@@ -1,6 +1,6 @@
 ---
 title: Dashboard, bewaken, schaal, configureren, en hybride verbindingen in BizTalk Services | Microsoft Docs
-description: 'Meer informatie over de besturingselementen en bewaken op de prestaties van de klassieke portal tabbladen voor BizTalk Services: Dashboard, bewaken, schaal, configureren en hybride verbindingen. MABS, WABS'
+description: Meer informatie over de besturingselementen en prestaties voor BizTalk Services controleren
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 62bef0ee0141f6a7a92146ef230f0766a85aee5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 351809cd5f165a863dc02bfadf78fa59cbaabfd7
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>De tabbladen Dashboard, Controleren, Schaal, Configureren en Hybride verbinding controleren
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 Nadat u uw BizTalk Service maken en implementeren van uw toepassing, kunt u enkele van de BizTalk Service-instellingen wijzigen en controleren van de toepassingsprestaties. 
 
-Wanneer u de klassieke Azure portal opent, wordt u automatisch geplaatst op de **alle ITEMS** tabblad. Als u wilt weergeven van uw BizTalk Service, selecteer uw BizTalk Service in de **alle ITEMS** tabblad of Selecteer de **BIZTALK SERVICES** tabblad; en selecteer vervolgens de naam van uw BizTalk Service.
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 Hiermee wordt een nieuw venster geopend met de volgende tabbladen. Dit onderwerp beschrijft deze tabbladen.
 
@@ -84,9 +84,9 @@ U wilt dat de BizTalk Service met een nieuwe primaire sleutel voor het Opslagacc
 <br/><br/>
 <ol>
 <li>Selecteer uw BizTalk Service en selecteer <strong>sleutels synchroniseren</strong>. Selecteer de secundaire sleutel. Als u dit doet, wordt de BizTalk Service wordt gestart met behulp van de secundaire sleutel.</li>
-<li>In de klassieke Azure portal, selecteer uw Storage-account en de primaire sleutel opnieuw genereren. Vergeet niet uw BizTalk Service met behulp van de secundaire sleutel.</li>
+<li>Selecteer uw Storage-account en de primaire sleutel opnieuw genereren. Vergeet niet uw BizTalk Service met behulp van de secundaire sleutel.</li>
 <li>Selecteer uw BizTalk Service en selecteer <strong>sleutels synchroniseren</strong>. Selecteer nu de primaire sleutel. Dit is de nieuwe primaire sleutel die u opnieuw gegenereerd.</li>
-<li>In de klassieke Azure portal, selecteer uw Storage-account en de secundaire sleutel opnieuw genereren.</li>
+<li>Selecteer uw Storage-account en de secundaire sleutel opnieuw genereren.</li>
 </ol>
 <br/>
 Dit proces wordt 'rollover voor sleutels' genoemd. Het doel is om gebruikers schakelen tussen de primaire sleutel en de secundaire sleutel zonder te onderbreken van de BizTalk Service.</td>
@@ -169,7 +169,7 @@ Voor een beschrijving van deze maatstaven voor prestaties, gaat u naar [beschikb
 </tr>
 <tr>
 <td><strong>De naam van abonnement</strong></td>
-<td>Het abonnement dat als host fungeert voor uw BizTalk Service bevat. Het abonnement bepaalt toegang tot de klassieke Azure portal.</td>
+<td>Het abonnement dat als host fungeert voor uw BizTalk Service bevat. Het abonnement bepaalt toegang.</td>
 </tr>
 <tr>
 <td><strong>Abonnements-ID</strong></td>
@@ -177,7 +177,7 @@ Voor een beschrijving van deze maatstaven voor prestaties, gaat u naar [beschikb
 </tr>
 </table>
 
-[BizTalk Services: Inrichten met behulp van Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=302280) vermeldt de stappen voor het maken van een BizTalk Service.
+[BizTalk Services: Inrichten](http://go.microsoft.com/fwlink/p/?LinkID=302280) vermeldt de stappen voor het maken van een BizTalk Service.
 
 ##### <a name="manage-connection-information-sync-keys-and-delete-in-the-task-bar"></a>Beheren van de verbindingsinformatie, de sleutels synchroniseren, en verwijder in de taakbalk:
 <table border="1">
@@ -206,9 +206,9 @@ U wilt dat de BizTalk Service met een nieuwe primaire sleutel voor het Opslagacc
 <br/><br/>
 <ol>
 <li>Selecteer uw BizTalk Service en selecteer <strong>sleutels synchroniseren</strong>. Selecteer de secundaire sleutel. Als u dit doet, wordt de BizTalk Service wordt gestart met behulp van de secundaire sleutel.</li>
-<li>In de klassieke Azure portal, selecteer uw Storage-account en de primaire sleutel opnieuw genereren. Vergeet niet uw BizTalk Service met behulp van de secundaire sleutel.</li>
+<li>Selecteer uw Storage-account en de primaire sleutel opnieuw genereren. Vergeet niet uw BizTalk Service met behulp van de secundaire sleutel.</li>
 <li>Selecteer uw BizTalk Service en selecteer <strong>sleutels synchroniseren</strong>. Selecteer nu de primaire sleutel. Dit is de nieuwe primaire sleutel die u opnieuw gegenereerd.</li>
-<li>In de klassieke Azure portal, selecteer uw Storage-account en de secundaire sleutel opnieuw genereren.</li>
+<li>Selecteer uw Storage-account en de secundaire sleutel opnieuw genereren.</li>
 </ol>
 <br/>
 Dit proces wordt 'rollover voor sleutels' genoemd. Het doel is om gebruikers schakelen tussen de primaire sleutel en de secundaire sleutel zonder te onderbreken van de BizTalk Service.</td>
@@ -329,7 +329,7 @@ De back-Status wordt ingesteld op None of automatisch. Als op None is ingesteld,
 [BizTalk Services: Back-up en herstel](biztalk-backup-restore.md) bevat de details. 
 
 ## <a name="HybridConnections"></a>Hybride verbindingen
-Hybride verbinding wordt een Azure-toepassing, zoals Web-Apps of mobiele Apps in Azure App Service met een on-premises resource die gebruikmaakt van een statische TCP-poort, zoals SQL Server, MySQL, HTTP-Web-API's en de meeste aangepaste webservices. Hybride verbindingen worden beheerd in BizTalk Services in de klassieke Azure portal.
+Hybride verbinding wordt een Azure-toepassing, zoals Web-Apps of mobiele Apps in Azure App Service met een on-premises resource die gebruikmaakt van een statische TCP-poort, zoals SQL Server, MySQL, HTTP-Web-API's en de meeste aangepaste webservices. Hybride verbindingen worden beheerd in BizTalk Services.
 
 Als u wilt maken of beheren van hybride verbindingen in de Azure BizTalk Services, Zie [hybride verbindingen](integration-hybrid-connection-overview.md).
 
@@ -343,7 +343,7 @@ Nu dat u bekend met de verschillende tabbladen bent, kunt u meer informatie over
 ## <a name="see-also"></a>Zie ook
 * [Hybride verbindingen](integration-hybrid-connection-overview.md)  
 * [BizTalk Services: Developer, Basic, Standard en Premium-edities grafiek](biztalk-editions-feature-chart.md)  
-* [BizTalk Services: Inrichten met behulp van Azure classic portal](biztalk-provision-services.md)  
+* [BizTalk Services: inrichten](biztalk-provision-services.md)  
 * [BizTalk Services: Grafiek van de status van de BizTalk-Service](biztalk-service-state-chart.md)  
 * [De Azure BizTalk Services SDK gaan gebruiken](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 

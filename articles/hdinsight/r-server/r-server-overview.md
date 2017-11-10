@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 47896493fdaf651b8cf74a1ddf4fcffdd51d2972
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 57e28215124bc0330517c541e4cb74a66d939ff5
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Inleiding tot R Server en open-source R mogelijkheden in HDInsight
 
@@ -44,7 +44,9 @@ U hebt de mogelijkheid toegang toe te voegen aan extra Blob en Data lake slaat t
 U kunt ook [Azure Files](../../storage/files/storage-how-to-use-files-linux.md) als een opslagoptie voor gebruik op de edge-knooppunt. Azure Files kunt u een bestandsshare die is gemaakt in Azure Storage naar het bestandssysteem van Linux te koppelen. Zie voor meer informatie over deze opties voor het opslaan van gegevens voor R Server op HDInsight-cluster [Azure Storage-opties voor clusters op HDInsight R Server](r-server-storage.md).
 
 ## <a name="access-r-server-on-the-cluster"></a>-R Server op het cluster
-U kunt verbinding maken met R Server op de edge-knooppunt met een browser, mits u hebt gekozen om op te nemen RStudio Server tijdens het inrichtingsproces. Als u niet hebt geïnstalleerd het bij het inrichten van het cluster, kunt u deze later toevoegen. Zie voor meer informatie over het installeren van RStudio Server nadat een cluster is gemaakt, [RStudio-Server installeren op HDInsight-clusters](r-server-install-r-studio.md). U kunt ook verbinding maken met het R-Server met behulp van SSH/PuTTY toegang tot de R-console. 
+U kunt verbinding maken met R Server op de edge-knooppunt met een browser. Dit is standaard geïnstalleerd tijdens het maken van het cluster. Zie voor meer informatie [stared ophalen met op HDInsight R Server](r-server-get-started.md).
+
+U kunt ook verbinding maken met het R-Server vanaf de opdrachtregel met behulp van SSH/PuTTY toegang tot de R-console. 
 
 ## <a name="develop-and-run-r-scripts"></a>Ontwikkelen en uitvoeren van scripts R
 De R-scripts u maken en uitvoeren kunnen van de 8000 + open-source R-pakketten naast de geparallelliseerde en gedistribueerde routines in de bibliotheek ScaleR gebruiken. In het algemeen een script dat wordt uitgevoerd met R Server op de edge-knooppunt uitgevoerd binnen de R-interpreter op dat knooppunt. De uitzonderingen worden die stappen die nodig zijn om aan te roepen, een functie ScaleR met een compute-context die is ingesteld op Hadoop-kaart (RxHadoopMR) verminderen of Spark (RxSpark). De functie wordt in dit geval wordt uitgevoerd in een gedistribueerde manier over die (taak)-gegevensknooppunten van het cluster die gekoppeld aan de gegevens waarnaar wordt verwezen zijn. Zie voor meer informatie over de verschillende rekenscenario context opties [Compute context opties voor R Server op HDInsight](r-server-compute-contexts.md).
@@ -87,7 +89,7 @@ Onderhoud OS patches en andere updates toe te passen wordt uitgevoerd op de onde
 Aangezien de hoofdknooppunten redundant zijn en niet alle gegevensknooppunten zijn beïnvloed, vertragen alle taken die worden uitgevoerd tijdens deze periode. Ze moeten nog steeds uitgevoerd worden voltooid, maar. Alle aangepaste software- of lokale gegevens die u hebt blijft behouden over deze gebeurtenissen onderhoud tenzij er een onherstelbare fout optreedt waarvoor cluster opnieuw opbouwen.
 
 ## <a name="learn-about-ide-options-for-r-server-on-an-hdinsight-cluster"></a>Meer informatie over IDE-opties voor R Server op een HDInsight-cluster
-Het Linux-edge-knooppunt van een HDInsight-cluster is de zone landingspagina voor op basis van het R-analyse. Bieden een standaardoptie voor het installeren van de community-versie van recente versies van HDInsight [RStudio Server](https://www.rstudio.com/products/rstudio-server/) op de edge-knooppunt als een browser gebaseerde IDE. Gebruik van RStudio Server als een IDE voor de ontwikkeling en uitvoering van scripts R aanzienlijk meer productief zijn dan het gebruik van alleen de R-console. Als u niet RStudio Server toevoegen hebt bij het maken van het cluster maar wilt deze later toevoegen en vervolgens Zie [R Studio-Server installeren op een HDInsight-clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-install-r-studio). +
+Het Linux-edge-knooppunt van een HDInsight-cluster is de zone landingspagina voor op basis van het R-analyse. Recente versies van HDInsight biedt een standaardinstallatie van RStudio Server op de edge-knooppunt als een browser gebaseerde IDE. Gebruik van RStudio Server als een IDE voor de ontwikkeling en uitvoering van scripts R aanzienlijk meer productief zijn dan het gebruik van alleen de R-console.
 
 Een andere optie voor volledige IDE is een bureaublad IDE installeren en deze gebruiken voor toegang tot het cluster door gebruik te maken van een externe Map verminderen of Spark compute context. Opties zijn onder andere Microsoft [R-Tools voor Visual Studio](https://www.visualstudio.com/features/rtvs-vs.aspx) (RTVS) RStudio, en Walware's op basis van Eclipse [StatET](http://www.walware.de/goto/statet).
 
@@ -100,6 +102,5 @@ De kosten die gekoppeld aan een HDInsight-cluster met R Server zijn zijn manier 
 Zie de volgende onderwerpen voor meer informatie over het gebruik van R Server met HDInsight-clusters:
 
 * [Aan de slag met op HDInsight R Server](r-server-get-started.md)
-* [RStudio Server toevoegen aan HDInsight (indien niet geïnstalleerd tijdens het maken van het cluster)](r-server-install-r-studio.md)
 * [Opties voor compute-context voor R Server op HDInsight](r-server-compute-contexts.md)
 * [Opties voor Azure-opslag voor R Server op HDInsight](r-server-storage.md)

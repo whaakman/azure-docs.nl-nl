@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 5c4509bc1d05bc422f6bc5599d4635020ded63e9
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: c69fab3f711e2a650d088ccec1c05ec29e0e567b
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-azure-sql-data-sync-preview"></a>Synchronisatie van gegevens over meerdere cloud en on-premises databases met Azure SQL-gegevenssynchronisatie (Preview)
 
@@ -60,7 +60,7 @@ Synchroniseren van gegevens is handig in gevallen waarbij gegevens moet worden b
 
 Synchroniseren van gegevens is niet geschikt is voor de volgende scenario's:
 
--   Noodherstel
+-   Herstel na noodgevallen
 
 -   Lezen van schaal
 
@@ -157,6 +157,7 @@ Zie voor meer informatie over het synchroniseren van de SQL-gegevens:
 
 -   [Aan de slag met Azure SQL-gegevenssynchronisatie](sql-database-get-started-sql-data-sync.md)
 -   [Aanbevolen procedures voor het synchroniseren van Azure SQL-gegevens](sql-database-best-practices-data-sync.md)
+-   [Monitor Azure SQL-gegevens synchroniseren met OMS Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Problemen oplossen met het synchroniseren van Azure SQL-gegevens](sql-database-troubleshoot-data-sync.md)
 
 -   Voer de PowerShell-voorbeelden die laten hoe u zien voor het synchroniseren van de SQL-gegevens configureren:

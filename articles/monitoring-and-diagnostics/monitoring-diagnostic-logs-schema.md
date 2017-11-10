@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: johnkem
-ms.openlocfilehash: 2e99b7afa4e458e9ef62314e65d9e386657a747b
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Ondersteunde services, schema's en categorieën voor Azure diagnostische logboeken
 
@@ -56,20 +56,36 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 ## <a name="supported-log-categories-per-resource-type"></a>Logboek categorieën per resourcetype ondersteund
 |Resourcetype|Category|Weergavenaam van de categorie|
 |---|---|---|
+|Microsoft.AnalysisServices/servers|Engine|Engine|
+|Microsoft.AnalysisServices/servers|Service|Service|
 |Microsoft.ApiManagement/service|GatewayLogs|Logboeken die betrekking hebben op ApiManagement Gateway|
 |Microsoft.Automation/automationAccounts|JobLogs|Taaklogboeken|
 |Microsoft.Automation/automationAccounts|JobStreams|Taak stromen|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Status van de DSC-knooppunt|
 |Microsoft.Batch/batchAccounts|ServiceLog|Service-Logboeken|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Hiermee haalt u de metrische gegevens van het eindpunt, zoals bandbreedte, uitgaande, enzovoort.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
+|Microsoft.DataFactory/factories|Activiteiten|Pipeline-activiteitenlogboek wordt uitgevoerd|
+|Microsoft.DataFactory/factories|PipelineRuns|Pijplijn uitgevoerd logboek|
+|Microsoft.DataFactory/factories|TriggerRuns|Trigger voert logboek|
 |Microsoft.DataLakeAnalytics/accounts|Controleren|Controlelogboeken|
 |Microsoft.DataLakeAnalytics/accounts|Aanvragen|Logboeken aanvragen|
 |Microsoft.DataLakeStore/accounts|Controleren|Controlelogboeken|
 |Microsoft.DataLakeStore/accounts|Aanvragen|Logboeken aanvragen|
+|Microsoft.Devices/IotHubs|Verbindingen|Verbindingen|
+|Microsoft.Devices/IotHubs|DeviceTelemetry|De Apparaattelemetrie|
+|Microsoft.Devices/IotHubs|C2DCommands|C2D-opdrachten|
+|Microsoft.Devices/IotHubs|DeviceIdentityOperations|Bewerkingen voor apparaat-id|
+|Microsoft.Devices/IotHubs|FileUploadOperations|Bewerkingen voor het uploaden van een bestandsserver|
+|Microsoft.Devices/IotHubs|Routes|Routes|
+|Microsoft.Devices/IotHubs|D2CTwinOperations|D2CTwinOperations|
+|Microsoft.Devices/IotHubs|C2DTwinOperations|Bewerkingen voor C2D-Twin|
+|Microsoft.Devices/IotHubs|TwinQueries|Dubbele query 's|
+|Microsoft.Devices/IotHubs|JobsOperations|Bewerkingen voor taken|
+|Microsoft.Devices/IotHubs|DirectMethods|Rechtstreekse methoden|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Apparaatbewerkingen|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Servicebewerkingen|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
+|Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Archief Logboeken|
 |Microsoft.EventHub/namespaces|OperationalLogs|Operationele Logboeken|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Logboeken voor automatisch schalen|
@@ -78,6 +94,7 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Houd gebeurtenissen bij integratie-Account|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Gebeurtenis van Netwerkbeveiligingsgroep|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Regelteller van Netwerkbeveiligingsgroep|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Netwerkbeveiligingsgroep regel stroom gebeurtenis|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Load Balancer waarschuwingsgebeurtenissen|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Gezondheidsstatus van Load Balancer-test|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS-bescherming-meldingen|
@@ -85,6 +102,11 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Toegangslogboek voor Application Gateway|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Toepassingslogboek van het Gateway-prestaties|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Toepassingslogboek van het Gateway-Firewall|
+|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Diagnostische logboeken gateway|
+|Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Diagnostische logboeken tunnel|
+|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Logboeken met diagnostische gegevens routeren|
+|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager-test statusgebeurtenis resultaten|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabel met GWM prestatiemeteritems|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup rapportgegevens|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery-taken|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery-gebeurtenissen|
@@ -93,7 +115,6 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery-herstelpunten|
 |Microsoft.Search/searchServices|OperationLogs|Bewerkingslogboeken|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Operationele Logboeken|
-|Microsoft.Sql/servers/databases|QueryStore|Query Store|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Query Store Runtime-statistieken|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Query Store wacht statistieken|
 |Microsoft.Sql/servers/databases|Fouten|Fouten|

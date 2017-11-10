@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/03/2017
 ms.author: mezha
-ms.openlocfilehash: 700f4c49bbcda1eccbcc7eafc703e625697fa2b4
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 2f62c0c6783c3cdaf1ffda3299673071b8e4a6f2
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Azure Content Delivery Network activa met tokenverificatie beveiligen
 
@@ -30,7 +30,7 @@ Tokenverificatie is een mechanisme waarmee u om te voorkomen dat het Azure Conte
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
-Tokenverificatie controleert u of aanvragen worden gegenereerd door een vertrouwde site doordat aanvragen voor een token waarde bevatten die gecodeerd bevat informatie over de aanvrager. Inhoud is geleverd voor een aanvrager alleen als de gecodeerde gegevens voldoet aan de vereisten; anders worden aanvragen geweigerd. U kunt de vereisten instellen met behulp van een of meer van de volgende parameters:
+Tokenverificatie verifieert dat aanvragen worden gegenereerd door een vertrouwde site doordat aanvragen voor dat bevat informatie over de aanvrager van het gecodeerde token waarde bevat. Inhoud is geleverd voor een aanvrager alleen als de gecodeerde gegevens voldoet aan de vereisten; anders worden aanvragen geweigerd. U kunt de vereisten instellen met behulp van een of meer van de volgende parameters:
 
 - Land: Toestaan of weigeren van aanvragen die afkomstig uit de landen die is opgegeven zijn door hun [landcode](https://msdn.microsoft.com/library/mt761717.aspx).
 - URL: Toestaan dat alleen aanvragen die overeenkomen met de opgegeven asset of het pad.
@@ -41,8 +41,6 @@ Tokenverificatie controleert u of aanvragen worden gegenereerd door een vertrouw
 - Verlooptijd: een bepaalde datum en tijd om ervoor te zorgen dat er een koppeling geldig alleen voor een beperkte periode blijft toewijzen.
 
 Zie voor meer informatie de gedetailleerde configuratie-voorbeelden voor elke parameter in [tokenverificatie instellen](#setting-up-token-authentication).
-
-Nadat u een gecodeerde token genereren, kunt u deze toevoegt als een queryreeks aan het einde van het bestand URL-pad. Bijvoorbeeld `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
 
 ## <a name="reference-architecture"></a>Referentiearchitectuur
 
@@ -64,15 +62,21 @@ Het volgende stroomdiagram wordt beschreven hoe Azure CDN clientaanvraag validee
 
 2. Beweeg de muisaanwijzer over **HTTP grote**, en klik vervolgens op **Token Auth** in het doel. U kunt vervolgens instellen van de versleutelingssleutel en versleuteling parameters als volgt:
 
-    1. Voer een unieke coderingssleutel in de **primaire sleutel** in en voert u desgewenst een back-sleutel in de **back-sleutel** vak.
-
-        ![CDN-setup van token verificatiesleutel](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+    1. Een of meer versleutelingssleutels maken. Een coderingssleutel is hoofdlettergevoelig en kan een combinatie van alfanumerieke tekens bevatten. Andere soorten tekens, inclusief spaties, zijn niet toegestaan. De maximale lengte is 250 tekens. Om ervoor te zorgen dat uw coderingssleutels willekeurige zijn, wordt het aanbevolen dat u deze met het hulpprogramma OpenSSL maakt. Het hulpprogramma OpenSSL heeft de volgende syntaxis: `rand -hex <key length>`. Bijvoorbeeld `OpenSSL> rand -hex 32`. Om te voorkomen uitvaltijd, maakt u een primaire en een back-sleutel. Een back-sleutel biedt ononderbroken toegang tot uw inhoud wanneer de primaire sleutel wordt bijgewerkt.
     
-    2. Versleuteling parameters met het hulpprogramma versleutelen instellen. U kunt met het hulpprogramma versleutelen toestaan of weigeren van aanvragen op basis van de verlooptijd, land, verwijzende site, het protocol en client-IP (in een willekeurige combinatie). 
+    2. Voer een unieke coderingssleutel in de **primaire sleutel** in en voert u desgewenst een back-sleutel in de **back-sleutel** vak.
 
-        ![CDN hulpprogramma versleutelen](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+    3. Selecteer de versie van de minimale codering voor elke sleutel van de **minimumversie versleuteling** dropdown lijst en klik vervolgens op **Update**:
+       - **V2**: geeft aan dat de sleutel voor het genereren versie 2.0 en 3.0 tokens kan worden gebruikt. Gebruik deze optie alleen als u zijn overgang van een oudere versie 2.0-versleutelingssleutel met een sleutel versie 3.0.
+       - **V3**: (aanbevolen) geeft aan dat de sleutel kan alleen worden gebruikt voor het genereren versie 3.0-tokens.
 
-       Voer waarden in voor een of meer van de volgende parameters versleuteling in de **versleutelen hulpprogramma** gebied:  
+    ![CDN-setup van token verificatiesleutel](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+    
+    4. Gebruik het hulpprogramma coderen voor versleuteling parameters instellen en het genereren van een token. U kunt met het hulpprogramma versleutelen toestaan of weigeren van aanvragen op basis van de verlooptijd, land, verwijzende site, het protocol en client-IP (in een willekeurige combinatie). Hoewel er geen limiet voor het aantal en de combinatie van parameters die kunnen worden gecombineerd om een token, is de totale lengte van een token beperkt tot 512 tekens. 
+
+       ![CDN hulpprogramma versleutelen](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+
+       Voer waarden in voor een of meer van de volgende parameters versleuteling in de **versleutelen hulpprogramma** sectie:  
 
        - **ec_expire**: een verlooptijd wijst naar een token, waarna het token verloopt. Aanvragen verzonden nadat de vervaltijd worden geweigerd. Deze parameter wordt gebruikt voor een Unix-tijdstempel die is gebaseerd op het aantal seconden sinds de standard-epoche van `1/1/1970 00:00:00 GMT`. (U kunt online hulpprogramma's gebruiken om te converteren tussen stnd. tijd- en Unix-tijd.) Bijvoorbeeld, als u wilt dat het token verloopt op `12/31/2016 12:00:00 GMT`, gebruikt u de waarde van het tijdstempel Unix `1483185600`als volgt. 
     
@@ -98,7 +102,7 @@ Het volgende stroomdiagram wordt beschreven hoe Azure CDN clientaanvraag validee
     
        - **ec_ref_allow**: staat alleen aanvragen van de opgegeven verwijzende site. Een verwijzende identificeert de URL van de webpagina die is gekoppeld aan de aangevraagde resource. Het protocol niet opnemen in de parameterwaarde verwijzende site. De volgende typen van de invoer zijn toegestaan voor de waarde van parameter:
            - Een hostnaam of een hostnaam en een pad.
-           - Meerdere verwijzingen. Als u wilt toevoegen in meerdere verwijzingen, elke verwijzende site met een komma te scheiden. Als u een waarde van verwijzende site opgeven, maar de verwijzende site-informatie niet in de aanvraag als gevolg van de browserconfiguratie van de wordt verzonden, worden deze aanvragen standaard geweigerd. 
+           - Meerdere verwijzingen. Als u wilt toevoegen in meerdere verwijzingen, elke verwijzende site met een komma te scheiden. Als u een waarde van verwijzende site opgeven, maar de verwijzende site-informatie niet in de aanvraag als gevolg van de browserconfiguratie van de wordt verzonden, wordt standaard de aanvraag geweigerd. 
            - Aanvragen met ontbrekende verwijzende site-informatie. Als u wilt toestaan dat dergelijke aanvragen, de tekst 'ontbreekt' of voer een lege waarde. 
            - Subdomeinen. Als u wilt toestaan subdomeinen, geeft u een sterretje (\*). Bijvoorbeeld, om toe te staan alle subdomeinen van `consoto.com`, voer `*.consoto.com`. 
            
@@ -116,13 +120,17 @@ Het volgende stroomdiagram wordt beschreven hoe Azure CDN clientaanvraag validee
             
          ![CDN ec_clientip voorbeeld](./media/cdn-token-auth/cdn-token-auth-clientip.png)
 
-    3. Nadat u klaar bent met het invoeren van parameterwaarden voor versleuteling, selecteer het type van de sleutel voor het versleutelen (als u een primaire en een back-sleutel hebt gemaakt) in de **sleutel te versleutelen** wilt weergeven, een versie van de versleuteling van de  **Versleuteling versie** lijst en klik vervolgens op **versleutelen**.
+    5. Nadat u klaar bent met het invoeren van parameterwaarden voor versleuteling, selecteert u een sleutel voor het versleutelen (als u een primaire en een back-sleutel hebt gemaakt) van de **sleutel te versleutelen** lijst.
+    
+    6. Selecteer de versie van een versleuteling van de **versleuteling versie** lijst: **V2** voor versie 2 of **V3** voor versie 3 (aanbevolen). Klik vervolgens op **versleutelen** om het token te genereren.
+
+    Het token wordt gegenereerd, wordt weergegeven in de **Token gegenereerd** vak. Voor het gebruik van het token, voegt u deze als een queryreeks aan het einde van het bestand in de URL-pad. Bijvoorbeeld `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    4. Test indien gewenst uw token met het hulpprogramma ontsleutelen. De waarde van het token in plakken de **Token gebruikt voor het ontsleutelen** vak. Selecteer het type van de coderingssleutel voor het ontsleutelen van de **sleutel te ontsleutelen** vervolgkeuzelijst lijst en klik vervolgens op **ontsleutelen**.
+    7. Test indien gewenst uw token met het hulpprogramma ontsleutelen. De waarde van het token in plakken de **Token gebruikt voor het ontsleutelen** vak. Selecteer het sleutelgebruik voor de versleuteling van de **sleutel te ontsleutelen** vervolgkeuzelijst lijst en klik vervolgens op **ontsleutelen**.
 
-    5. Eventueel aanpassen van het type antwoordcode die worden geretourneerd wanneer een aanvraag wordt geweigerd. Selecteer de code van de **antwoordcode** vervolgkeuzelijst en klik op **opslaan**. De **403** antwoordcode (verboden) is standaard geselecteerd. Voor bepaalde reactiecodes, u kunt ook de URL invoeren van de foutpagina weergegeven in de **headerwaarde** vak. 
+    Nadat het token wordt ontsleuteld, de parameters worden weergegeven in de **oorspronkelijke Parameters** vak.
 
-    6. Nadat u een gecodeerde token hebt gegenereerd, toevoegt u deze als een queryreeks aan het einde van het bestand in het URL-pad. Bijvoorbeeld `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+    8. Eventueel aanpassen van het type antwoordcode die worden geretourneerd wanneer een aanvraag wordt geweigerd. Selecteer de code van de **antwoordcode** vervolgkeuzelijst en klik op **opslaan**. De **403** antwoordcode (verboden) is standaard geselecteerd. Voor bepaalde reactiecodes, u kunt ook de URL invoeren van de foutpagina weergegeven in de **headerwaarde** vak. 
 
 3. Onder **HTTP grote**, klikt u op **regelengine**. De regelengine voor kunt u paden voor het toepassen van de functie, de functie tokenverificatie inschakelen en aanvullende verificatie-gerelateerde functies token inschakelen definiëren. Zie voor meer informatie [regels engine verwijzing](cdn-rules-engine-reference.md).
 
@@ -151,4 +159,4 @@ Beschikbare talen zijn onder andere:
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN-functies en prijzen-provider
 
-Zie voor informatie [overzicht van CDN](cdn-overview.md).
+Zie voor meer informatie over functies [overzicht van CDN](cdn-overview.md). Zie voor meer informatie over prijzen [Content Delivery Network prijzen](https://azure.microsoft.com/pricing/details/cdn/).

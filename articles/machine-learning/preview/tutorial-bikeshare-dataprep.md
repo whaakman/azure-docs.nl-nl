@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 4918a820ca07a7d83dfb544ee9f0bbeb66d22722
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: acd61e9980b143ebbb81d2d144bdac9134e20a11
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Fiets-share-zelfstudie: gegevens voorbereiden met Azure Machine Learning Workbench geavanceerde
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end gegevenswetenschap en geavanceerde analyses oplossing voor professionals gegevenswetenschappers gegevens voorbereiden, experimenten te ontwikkelen en implementeren van modellen in de cloud.
@@ -347,7 +347,6 @@ Wijzigen van de gegevens in de numerieke kolommen in een bereik van 0-1, kunt so
     > Het script verwacht de kolomnamen die eerder in deze zelfstudie worden gebruikt. Als u verschillende kolomnamen hebt, moet u de namen in het script wijzigen.
 
    ```python
-   maxVal = max(df["HOURLYDRYBULBTEMPF_Mean"])
    maxVal = max(df["HOURLYDRYBULBTEMPF_Mean"])
    minVal = min(df["HOURLYDRYBULBTEMPF_Mean"])
    df["HOURLYDRYBULBTEMPF_Mean"] = (df["HOURLYDRYBULBTEMPF_Mean"]-minVal)/(maxVal-minVal)

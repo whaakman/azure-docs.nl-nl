@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 533add8948544e37dc27623a2f51aad1054b1bef
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: a2810d13d40272269341751b19b3010a8b135139
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Installeren en configureren van Terraform voor het inrichten van virtuele machines en andere infrastructuur in Azure
  
 Terraform biedt een eenvoudige manier om te definiëren, weergeven en cloudinfrastructuur implementeren met behulp van een [eenvoudige templating taal](https://www.terraform.io/docs/configuration/syntax.html). Dit artikel worden de benodigde stappen voor het gebruik van Terraform aan inrichten bronnen in Azure. 
 
 > [!TIP]
-> Terraform is standaard geïnstalleerd in de [Bash in Azure Cloud Shell ervaring](/azure/cloud-shell/quickstart). Deze ook vooraf is geconfigureerd met de referenties en [Azure Terraform modules](https://registry.terraform.io/modules/Azure). Met behulp van Cloud-Shell, kunt u de installatie-instellingen delen van dit document overslaan.
+Voor meer informatie over het gebruik van Terraform met Azure, gaat u naar de [Terraform Hub](/azure/terraform). Terraform is standaard geïnstalleerd in de [Cloud Shell](/terraform/terraform-cloud-shell). Met behulp van Cloud-Shell, kunt u de installatie-instellingen delen van dit document overslaan.
 
 ## <a name="install-terraform"></a>Terraform installeren
 

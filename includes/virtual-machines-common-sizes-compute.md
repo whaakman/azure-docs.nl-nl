@@ -10,7 +10,7 @@ Virtuele machines uit de F-serie vormen een uitstekende keuze voor workloads die
 
 De Fs-serie biedt alle voordelen van de F-serie, plus Premium-opslag.
 
-# <a name="fsv2-series"></a>Fsv2-serie
+## <a name="fsv2-series"></a>Fsv2-serie
 
 ACU: 195-210
 
@@ -18,7 +18,7 @@ ACU: 195-210
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Gemiddeld                                       |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Gemiddeld                                       |
-| Standad_F8s_v2   | 8      | 16          | 64             | 16             | 16000 (128)                                                           | Hoog                                           |
+| Standard_F8s_v2   | 8      | 16          | 64             | 16             | 16000 (128)                                                           | Hoog                                           |
 | Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | Hoog                                           |
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Zeer hoge                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Zeer hoge                                 |
@@ -31,11 +31,11 @@ ACU: 210 - 250
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_F1s |1 |2 |4 |2 |4000 / 32 (12) |3200 / 48 |2 / 750 |
-| Standard_F2s |2 |4 |8 |4 |8000 / 64 (24) |6400 / 96 |2 / 1500 |
-| Standard_F4s |4 |8 |16 |8 |16.000 / 128 (48) |12.800 / 192 |4 / 3000 |
-| Standard_F8s |8 |16 |32 |16 |32.000 / 256 (96) |25.600 / 384 |8 / 6000 |
-| Standard_F16s |16 |32 |64 |32 |64.000 / 512 (192) |51.200 / 768 |8 / 6000-12000 &#8224; |
+| Standard_F1s |1 |2 |4 |4 |4000 / 32 (12) |3200 / 48 |2 / 750 |
+| Standard_F2s |2 |4 |8 |8 |8000 / 64 (24) |6400 / 96 |2 / 1500 |
+| Standard_F4s |4 |8 |16 |16 |16.000 / 128 (48) |12.800 / 192 |4 / 3000 |
+| Standard_F8s |8 |16 |32 |32 |32.000 / 256 (96) |25.600 / 384 |8 / 6000 |
+| Standard_F16s |16 |32 |64 |64 |64.000 / 512 (192) |51.200 / 768 |8 / 6000-12000 &#8224; |
 
 MBps = 10^6 bytes per seconde en GiB = 1024^3 bytes.
 
@@ -50,11 +50,11 @@ ACU: 210 - 250
 
 | Grootte         | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Maximum aantal NIC's/verwachte netwerkprestaties (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 2 / 2 x 500                         | 2 / 750                 |
-| Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 4 / 4 x 500                         | 2 / 1500                     |
-| Standard_F4  | 4         | 8           | 64             | 12.000 / 187 / 93                                         | 8 / 8 x 500                         | 4 / 3000                     |
-| Standard_F8  | 8         | 16          | 128            | 24.000 / 375 / 187                                        | 16 / 16 x 500                       | 8 / 6000                     |
-| Standard_F16 | 16        | 32          | 256            | 48.000 / 750 / 375                                        | 32 / 32 x 500                       | 8 / 6000 - 12000 &#8224;           |
+| Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 4 / 4 x 500                         | 2 / 750                 |
+| Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1500                     |
+| Standard_F4  | 4         | 8           | 64             | 12.000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 3000                     |
+| Standard_F8  | 8         | 16          | 128            | 24.000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 6000                     |
+| Standard_F16 | 16        | 32          | 256            | 48.000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 6000 - 12000 &#8224;           |
 
 
 <br>

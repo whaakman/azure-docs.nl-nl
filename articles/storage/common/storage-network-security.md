@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: b178be71824e427d88a811d87f1aeb6e5f80dbcc
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 7bb001f1ddcbf4f62fda27f286a502a3f7cbd64d
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configureren van Firewalls voor Azure-opslag en virtuele netwerken (preview)
 Azure Storage biedt een gelaagd beveiligingsmodel waarmee u voor het beveiligen van uw storage-accounts op een specifieke set toegestane netwerken.  Wanneer het netwerk regels zijn geconfigureerd, kan alleen toepassingen van toegestane netwerken toegang krijgen tot een opslagaccount.  Bij het aanroepen van een toegestane netwerk, blijven de toepassingen vereisen juiste autorisatie (een geldig toegangssleutel of SAS-token) voor toegang tot het opslagaccount.
@@ -81,7 +81,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 1. [Installeer Azure CLI 2.0](/cli/azure/install-azure-cli) en [aanmelding](/cli/azure/authenticate-azure-cli).
 2. De status van de standaardregel voor de storage-account weergeven.
 ```azurecli
-az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkAcls.defaultAction
+az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
 ```
 
 3. De standaardregel voor toegang tot het netwerk weigeren standaard ingesteld.  
@@ -340,7 +340,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 1. [Installeer Azure CLI 2.0](/cli/azure/install-azure-cli) en [aanmelding](/cli/azure/authenticate-azure-cli).
 2. De uitzonderingen voor de storage-account netwerk regels worden weergegeven.
 ```azurecli
-az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkAcls.bypass
+az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass
 ```
 
 3. De uitzonderingen aan de regels van storage account netwerk configureren.

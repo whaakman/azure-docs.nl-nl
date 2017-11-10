@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/13/2017
+ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e817e327b8890c91bd7db640b083fd6c5c11aa14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40433df5ebe90aec3a9294f2c5a6083c4567b161
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup-rapporten configureren
 In dit artikel wordt gesproken over de stappen voor het configureren van rapporten voor Azure Backup aan de hand van de Recovery Services-kluis en toegang tot deze rapporten via Power BI. Na deze stappen uitvoert, kunt u direct naar Power BI om alle rapporten weer te geven, aanpassen en rapporten maken gaan. 
@@ -29,6 +29,7 @@ In dit artikel wordt gesproken over de stappen voor het configureren van rapport
 2. Rapporten voor Azure SQL, DPM en Azure Backup-Server worden niet ondersteund op dit moment.
 3. U kunt rapporten weergeven tussen kluizen en abonnementen, als hetzelfde opslagaccount is geconfigureerd voor elk van de kluizen. Geselecteerde opslagaccount moet in dezelfde regio bevinden als de recovery services-kluis.
 4. De frequentie van geplande vernieuwing voor de rapporten is 24 uur in Power BI. U kunt ook een ad-hoc vernieuwing van de rapporten in Power BI, waarin de meest recente gegevens van de case in klant storage-account wordt gebruikt voor het weergeven van rapporten uitvoeren. 
+5. Azure Backup-rapporten worden momenteel niet ondersteund in nationale clouds.
 
 ## <a name="prerequisites"></a>Vereisten
 1. Maak een [Azure storage-account](../storage/common/storage-create-storage-account.md#create-a-storage-account) deze wilt configureren voor rapporten. Dit opslagaccount wordt gebruikt voor het opslaan van de bijbehorende gegevens van rapporten.
@@ -50,19 +51,26 @@ Gebruik de volgende stappen voor het configureren van het opslagaccount voor de 
 2. In de lijst met items die onder de kluis wordt weergegeven, klikt u op **back-up rapporten** onder de sectie bewaking en rapporten voor het configureren van het opslagaccount voor rapporten.
 
       ![Selecteer back-up rapporten menu-item stap 2](./media/backup-azure-configure-reports/backup-reports-settings.PNG)
-3. Klik op de blade back-up rapporten **configureren** knop. Hiermee opent u de Azure Application Insights-blade die wordt gebruikt voor het opslagaccount van de klant-gegevens worden gepusht.
+3. Klik op de blade back-up rapporten **diagnostische instellingen** koppeling. Hiermee opent u de diagnostische instellingen gebruikersinterface die wordt gebruikt voor het opslagaccount van de klant-gegevens worden gepusht.
 
-      ![Storage-account-stap 3 configureren](./media/backup-azure-configure-reports/configure-storage-account.PNG)
-4. De wisselknop Status ingesteld op **op** en selecteer **archiveren naar een Opslagaccount** inschakelen, zodat reporting gegevens kunt beginnen met het stromende naar het opslagaccount.
+      ![Stap 3 van diagnostische gegevens inschakelen](./media/backup-azure-configure-reports/backup-azure-configure-reports.png)
+4. Klik op de koppeling **diagnostische gegevens inschakelen**. Hiermee opent u de gebruikersinterface voor het configureren van de storage-account. 
 
-      ![Stap 4 van diagnostische gegevens inschakelen](./media/backup-azure-configure-reports/set-status-on.png)
-5. Objectkiezer Storage-Account op en selecteer het opslagaccount in de lijst voor het opslaan van gegevens en klik op **OK**.
+      ![Diagnostische gegevens stap 4 inschakelen](./media/backup-azure-configure-reports/enable-diagnostics.png)
+5. Geef de naam van de instelling in het veld **naam** en selecteer **archiveren naar een Opslagaccount** inschakelen, zodat reporting gegevens kunt beginnen met het stromende naar het opslagaccount.
 
-      ![Selecteer de storage-account-stap 5](./media/backup-azure-configure-reports/select-storage-account.png)
-6. Selecteer **AzureBackupReport** selectievakje en ook de schuifregelaar naar select bewaarperiode voor dit rapportgegevens. Rapportgegevens in het opslagaccount wordt bewaard gedurende de periode die met deze schuifregelaar geselecteerd.
+      ![Schakel diagnostische gegevens stap 5](./media/backup-azure-configure-reports/select-setting-name.png)
+6. Objectkiezer Storage-Account op en selecteer de relevante abonnement en storage-account in de lijst voor het opslaan van gegevens en klik op **OK**.
 
-      ![Selecteer de storage-account-stap 6](./media/backup-azure-configure-reports/save-configuration.png)
-7. Controleer alle wijzigingen en klik op **opslaan** knop bovenaan, zoals wordt weergegeven in de bovenstaande afbeelding. Deze actie zorgt ervoor dat al uw wijzigingen zijn opgeslagen en storage-account is nu geconfigureerd voor het opslaan van rapportgegevens.
+      ![Selecteer de storage-account-stap 6](./media/backup-azure-configure-reports/select-subscription-sa.png)
+7. Selecteer **AzureBackupReport** selectievakje onder de sectie logboek en verplaats de schuifregelaar naar select bewaarperiode voor dit rapportgegevens. Rapportgegevens in het opslagaccount wordt bewaard gedurende de periode die met deze schuifregelaar geselecteerd.
+
+      ![Storage-account stap 7 opslaan](./media/backup-azure-configure-reports/save-diagnostic-settings.png)
+8. Controleer alle wijzigingen en klik op **opslaan** knop bovenaan, zoals wordt weergegeven in de bovenstaande afbeelding. Deze actie zorgt ervoor dat al uw wijzigingen zijn opgeslagen en storage-account is nu geconfigureerd voor het opslaan van rapportgegevens.
+
+9. De tabel diagnostische instellingen worden nu weergegeven voor de nieuwe instelling is ingeschakeld voor de kluis. Als het niet wordt weergegeven, vernieuwt u de tabel om te zien van de bijgewerkte instelling.
+
+      ![Diagnostische instelling stap 9 weergeven](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
 > Wanneer u rapporten door op te slaan storage-account configureert, moet u **24 uur wachten** voor initiële gegevens-push te voltooien. Azure Backup in Power BI-inhoudspakket importeert u alleen na dit tijdstip. Raadpleeg [sectie Veelgestelde vragen over](#frequently-asked-questions) voor meer informatie. 

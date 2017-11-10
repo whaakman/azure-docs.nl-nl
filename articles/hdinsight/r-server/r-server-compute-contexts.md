@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: e15a263879ddc0edabc301201019f4209eee1058
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 24df96f55b0f207d8576bd05c2c83a884e7fc2bd
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>COMPUTE context opties voor R Server op HDInsight
 
@@ -42,7 +42,7 @@ De *'local'* en *'localpar'* opties verschillen alleen in het **rxExec** aanroep
 
 De volgende tabel geeft een overzicht van de verschillende compute context opties in te stellen hoe aanroepen uitgevoerd:
 
-| COMPUTE-context  | Het instellen                      | Uitvoeringscontext                        |
+| Compute-context  | Het instellen                      | Uitvoeringscontext                        |
 | ---------------- | ------------------------------- | ---------------------------------------- |
 | Lokale sequentiële | rxSetComputeContext('local')    | Uitvoering geparallelliseerde over de kernen van de edge-knooppunt server, met uitzondering van rxExec-aanroepen, opeenvolgend worden uitgevoerd |
 | Lokale parallel   | rxSetComputeContext('localpar') | Uitvoering geparallelliseerde over de kernen van de edge-knooppunt-server |
@@ -83,6 +83,5 @@ In dit artikel hebt u geleerd over de opties die beschikbaar zijn om op te geven
 
 * [Overzicht van R Server voor Hadoop](r-server-overview.md)
 * [Aan de slag met R Server voor Hadoop](r-server-get-started.md)
-* [RStudio Server toevoegen aan HDInsight (indien niet toegevoegd tijdens het maken van het cluster)](r-server-install-r-studio.md)
 * [Opties voor Azure-opslag voor R Server op HDInsight](r-server-storage.md)
 

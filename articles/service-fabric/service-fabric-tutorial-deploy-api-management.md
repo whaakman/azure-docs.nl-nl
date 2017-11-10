@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: 8ff8c425189efdd7ea21984528bf7ea765e17955
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e28ea6df24b9df144552739427427ee14e998584
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>API Management met Service Fabric implementeren
-Deze zelfstudie maakt deel uit twee van een serie. Deze zelfstudie ziet u het instellen van [Azure API Management](../api-management/api-management-key-concepts.md) met Service Fabric om verkeer te leiden naar een back-end-service in Service Fabric.  Wanneer u klaar bent, hebt u API Management geïmplementeerd op een VNET, een API-bewerking voor het verzenden van verkeer naar de back-end-stateless services geconfigureerd. Zie voor meer informatie over Azure API Management-scenario's met Service Fabric, de [overzicht](service-fabric-api-management-overview.md) artikel.
+Deze zelfstudie maakt deel uit drie van een serie.  Implementatie van Azure API Management met Service Fabric is een geavanceerd scenario is nuttig wanneer u nodig hebt voor het publiceren van API's met een groot aantal regels voor het doorsturen naar uw back-end Service Fabric-services. Deze zelfstudie ziet u het instellen van [Azure API Management](../api-management/api-management-key-concepts.md) met Service Fabric om verkeer te leiden naar een back-end-service in Service Fabric.  Wanneer u klaar bent, hebt u API Management geïmplementeerd op een VNET, een API-bewerking voor het verzenden van verkeer naar de back-end-stateless services geconfigureerd. Zie voor meer informatie over Azure API Management-scenario's met Service Fabric, de [overzicht](service-fabric-api-management-overview.md) artikel.
 
 In deze zelfstudie leert u het volgende:
 
@@ -63,6 +63,10 @@ az account set --subscription <guid>
 Cloud-toepassingen moeten doorgaans een front-gateway voor een potentieel inkomend voor gebruikers, apparaten of andere toepassingen. Een gateway kan in Service Fabric worden alle stateless services zoals een ASP.NET Core toepassing of een andere service die zijn ontworpen voor inkomend verkeer, zoals Event Hubs, IoT-Hub of Azure API Management. Deze zelfstudie is een inleiding tot het gebruik van Azure API Management als een gateway voor uw Service Fabric-toepassingen. API Management wordt rechtstreeks geïntegreerd met Service Fabric, zodat u voor het publiceren van API's met een groot aantal regels voor het doorsturen naar uw back-end Service Fabric-services. 
 
 Nu dat u een veilige hebt [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) implementeren in Azure API Management op het virtuele netwerk (VNET) in het subnet en het NSG aangewezen voor API Management. Voor deze zelfstudie de API Management-Resource Manager-sjabloon is vooraf geconfigureerd voor het gebruik van de namen van de VNET, subnet en NSG die u hebt ingesteld in de vorige [Windows cluster-zelfstudie](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux cluster zelfstudie](service-fabric-tutorial-create-vnet-and-linux-cluster.md). 
+
+Deze zelfstudie implementeert u de volgende topologie naar Azure waarin API Management en Service Fabric in de subnetten van hetzelfde virtuele netwerk zijn:
+
+ ![Een bijschrift][sf-apim-topology-overview]
 
 De volgende Resource Manager-sjabloon en parameters bestand te downloaden:
  
@@ -404,3 +408,6 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 [cluster-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
 [cluster-parameters-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
+
+<!-- pics -->
+[sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

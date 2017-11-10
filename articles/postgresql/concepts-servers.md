@@ -1,6 +1,6 @@
 ---
 title: Concepten van de server in Azure-Database voor PostgreSQL | Microsoft Docs
-description: In dit onderwerp worden overwegingen en richtlijnen gegeven voor het werken met Azure-Database voor PostgreSQL-servers.
+description: In dit onderwerp worden overwegingen en richtlijnen gegeven voor het configureren en beheren van de Azure-Database voor PostgreSQL-servers.
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 67cf6b133e8e869ee3a157d79d68602760d9137c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/08/2017
+ms.openlocfilehash: 46e109c25f8cbdba9b3769db7563259f7c6705d4
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Azure-Database voor PostgreSQL-Servers
 Dit artikel vindt overwegingen en richtlijnen voor het werken met Azure-Database voor PostgreSQL-servers.
@@ -30,7 +30,7 @@ Een Azure-Database voor PostgreSQL-server:
 - Collocates resources in een regio.
 - Biedt een eindpunt voor de verbinding voor server en database-toegang (. postgresql.database.azure.com).
 - Voorziet in het bereik voor management-beleidsregels die van toepassing op de databases: aanmelding, firewall, gebruikers, rollen, configuraties, enzovoort.
-- Is beschikbaar in meerdere versies. Zie voor meer informatie [ondersteund PostgreSQL-databaseversies](concepts-supported-versions.md).
+- Is beschikbaar in meerdere versies. Zie voor meer informatie [ondersteunde versies van PostgreSQL-database](concepts-supported-versions.md).
 - Kan worden uitgebreid door gebruikers. Zie voor meer informatie [PostgreSQL extensies](concepts-extensions.md).
 
 U kunt een of meerdere databases maken binnen een Azure-Database voor PostgreSQL-server. U kunt kiezen voor het maken van één database per server om gebruik te maken van alle resources of voor meerdere databases om de resources te delen. De prijzen is gestructureerde per server, op basis van de configuratie van prijscategorie, compute-eenheden, en opslag (GB). Zie voor meer informatie [Prijscategorieën](./concepts-service-tiers.md).
@@ -47,9 +47,16 @@ De volgende elementen zorgt het veilige toegang tot uw database.
 |||
 
 ## <a name="how-do-i-manage-a-server"></a>Hoe kan ik een server beheren?
-U kunt Azure-Database voor PostgreSQL-servers beheren met behulp van de Azure-portal of de [Azure CLI](/cli/azure/postgres).
+U kunt Azure-Database voor PostgreSQL-servers beheren met behulp van de [Azure-portal](https://portal.azure.com) of de [Azure CLI](/cli/azure/postgres).
+
+## <a name="server-parameters"></a>Parameters van de server
+De parameters van de server PostgreSQL bepalen de configuratie van de server. In Azure-Database voor PostgreSQL kan de lijst met parameters worden bekeken en bewerkt via de Azure-portal of Azure CLI. 
+
+Als een beheerde service voor Postgres configureerbare parameters in Azure-Database voor PostgreSQL zijn een subset van de parameters in een lokaal exemplaar van de Postgres (Zie voor meer informatie over de Postgres parameters voor de [PostgreSQL documentatie](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). Uw Azure-Database voor PostgreSQL-server is ingeschakeld met de standaardwaarden voor elke parameter op maken. Parameters waarvoor een server opnieuw opstarten of beheerder toegang wijzigingen van kracht te laten door de gebruiker kan niet worden geconfigureerd.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 - Zie voor een overzicht van de service [Azure-Database voor PostgreSQL overzicht](overview.md).
 - Voor informatie over specifieke resource quota's en beperkingen op basis van uw **servicelaag**, Zie [Servicelagen](concepts-service-tiers.md).
 - Zie voor informatie over verbinding maken met de service, [verbindingsbibliotheken voor Azure-Database voor PostgreSQL](concepts-connection-libraries.md).
+- Weergeven en bewerken van de parameters van de server via [Azure-portal](howto-configure-server-parameters-using-portal.md) of [Azure CLI](howto-configure-server-parameters-using-cli.md).

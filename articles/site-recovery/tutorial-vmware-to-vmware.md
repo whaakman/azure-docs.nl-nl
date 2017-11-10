@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: raynew
-ms.openlocfilehash: 17bd7f424117842fd0687ba8a5fcf4d83c96a0bb
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 503d7060437d08ed35681fca7f1b9306746b7f44
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Instellen van herstel na noodgevallen van on-premises VMware-virtuele machines of fysieke servers naar een secundaire site
 
@@ -45,7 +45,7 @@ Selecteer wat u wilt repliceren en waar u wilt repliceren naar.
 2. Selecteer **met site recovery** > **Ja, met VMware vSphere Hypervisor**. Klik vervolgens op **OK**.
 3. In **Scout Setup**, de InMage Scout 8.0.1 GA-software en de registratiesleutel downloaden. De setup-bestanden voor alle onderdelen zijn opgenomen in het gedownloade ZIP-bestand.
 
-## <a name="install-component-updates"></a>Onderdeelupdates installeren
+## <a name="download-and-install-component-updates"></a>Onderdeelupdates downloaden en installeren
 
  Bekijk en installeer de meest recente [updates](#updates). Updates moeten worden geïnstalleerd op servers in de volgende volgorde:
 
@@ -83,7 +83,7 @@ Download de [bijwerken](https://aka.ms/asr-scout-update6) ZIP-bestand. Het besta
 ## <a name="enable-replication"></a>Replicatie inschakelen
 
 1. Instellen van de replicatie tussen de bron en doel van de VMware-sites.
-2. Gebruik de InMage Scout documentatie die gedownload met het product voor instructies. U kunt ook de documentatie als volgt openen:
+2. Raadpleeg de volgende documenten voor meer informatie over de installatie, beveiliging en herstel:
 
    * [Releaseopmerkingen](https://aka.ms/asr-scout-release-notes)
    * [Compatibiliteit matrix](https://aka.ms/asr-scout-cm)
@@ -95,6 +95,8 @@ Download de [bijwerken](https://aka.ms/asr-scout-update6) ZIP-bestand. Het besta
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
 Bijgewerkte: 12 oktober 2017
+
+Download [Scout update 6](https://aka.ms/asr-scout-update6).
 
 Scout Update 6 is een cumulatieve update. Deze bevat alle correcties van Update 1 voor Update 5 plus de nieuwe oplossingen en verbeteringen die hieronder worden beschreven. 
 

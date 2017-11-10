@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 8f0186900caf6bff19e15ef6b99c1f49fbf90a81
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: bbf969927e96053df055ac6e347bb8fb746054c8
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Gegevens verplaatsen van een lokale SQL server naar SQL Azure met Azure Data Factory
 Dit onderwerp wordt beschreven hoe gegevens uit een lokale SQL Server-Database verplaatsen naar een Azure SQL Database via Azure Blob Storage met Azure Data Factory (ADF).
@@ -80,32 +80,14 @@ Data Management Gateway serialiseert en deserializes van de bron- en sink-gegeve
 Zie voor installatie-instructies en informatie over Data Management Gateway [gegevens verplaatsen tussen lokale bronnen en cloud met Data Management Gateway](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)
 
 ## <a name="adflinkedservices"></a>Gekoppelde services verbinding maken met de gegevensbronnen maken
-Een gekoppelde service definieert de informatie die nodig zijn voor Azure Data Factory verbinding maken met een bron van gegevens. Stapsgewijze procedures voor het maken van de gekoppelde services is beschikbaar in [gekoppelde services maken](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
+Een gekoppelde service definieert de informatie die nodig zijn voor Azure Data Factory verbinding maken met een bron van gegevens. Drie bronnen hebben we in dit scenario waarvoor de gekoppelde services vereist zijn:
 
-Er zijn drie bronnen in dit scenario waarvoor de gekoppelde services vereist zijn.
+1. On-premises SQL Server
+2. Azure Blob Storage
+3. Azure SQL-database
 
-1. [Gekoppelde service voor on-premises SQL-Server](#adf-linked-service-onprem-sql)
-2. [Gekoppelde service voor Azure Blob-opslag](#adf-linked-service-blob-store)
-3. [Gekoppelde service voor Azure SQL database](#adf-linked-service-azure-sql)
+Stapsgewijze procedures voor het maken van de gekoppelde services is beschikbaar in [gekoppelde services maken](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
 
-### <a name="adf-linked-service-onprem-sql"></a>Gekoppelde service voor on-premises SQL Server-database
-De gekoppelde service voor de lokale SQL Server maken:
-
-* Klik op de **gegevensarchief** in de ADF-startpagina op de klassieke Azure-Portal
-* Selecteer **SQL** en voer de *gebruikersnaam* en *wachtwoord* referenties voor de lokale SQL Server. U moet de servernaam als invoeren een **volledig gekwalificeerde servernaam backslash exemplaarnaam (servernaam\exemplaarnaam)**. Naam van de gekoppelde service *adfonpremsql*.
-
-### <a name="adf-linked-service-blob-store"></a>Gekoppelde service voor Blob
-De gekoppelde service voor het Azure Blob Storage-account maken:
-
-* Klik op de **gegevensarchief** in de ADF-startpagina op de klassieke Azure-Portal
-* Selecteer **Azure Storage-Account**
-* Voer de naam Azure Blob Storage-account sleutel en de container. Naam van de gekoppelde Service *adfds*.
-
-### <a name="adf-linked-service-azure-sql"></a>Gekoppelde service voor Azure SQL database
-De gekoppelde service voor de Azure SQL Database maken:
-
-* Klik op de **gegevensarchief** in de ADF-startpagina op de klassieke Azure-Portal
-* Selecteer **Azure SQL** en voer de *gebruikersnaam* en *wachtwoord* referenties voor de Azure SQL Database. De *gebruikersnaam* moet worden opgegeven als  *user@servername* .   
 
 ## <a name="adf-tables"></a>Definieer en tabellen om op te geven over toegang tot de gegevenssets maken
 Maak tabellen die de structuur, de locatie en de beschikbaarheid van de gegevenssets met de volgende procedures op basis van scripts opgeven. JSON-bestanden worden gebruikt voor het definiëren van de tabellen. Zie voor meer informatie over de structuur van deze bestanden [gegevenssets](../../data-factory/v1/data-factory-create-datasets.md).
@@ -311,9 +293,6 @@ Kopieer deze JSON-definitie van de pijplijn in een bestand genaamd *pipelinedef.
 
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
-Controleer of u kunt de pijplijn in de ADF in de klassieke Azure-Portal weergegeven als de volgende (wanneer u klikt op het diagram)
-
-![ADF-pipeline](./media/move-sql-azure-adf/DJP1kji.png)
 
 ## <a name="adf-pipeline-start"></a>Start de pijplijn
 De pijplijn kan nu worden uitgevoerd met de volgende opdracht:

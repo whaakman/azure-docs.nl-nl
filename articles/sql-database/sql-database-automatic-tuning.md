@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 09/19/2017
+ms.date: 11/08/2017
 ms.author: jovanpop
-ms.openlocfilehash: 1e884754682ecab4cdf097bd75caa6fcf2e0a29c
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 34aa035368a0516f9fa1c71c1bda491daf5ab370
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatische afstemming in Azure SQL Database
 
@@ -46,10 +46,7 @@ Prestatieafstemming bewerkingen die worden toegepast op Azure SQL-Databases zijn
 
 Mechanismen voor automatische afstemmen zijn volwassen en hebben is rechtsgevolg heeft op honderden of duizenden databases die worden uitgevoerd op Azure. Automatische afstemmen bewerkingen toegepast worden automatisch gecontroleerd om te controleren of dat er is een positieve verbetering van de prestaties van de workload. Prestaties opgelost aanbevelingen zijn dynamisch gedetecteerd en onmiddellijk ongedaan gemaakt. Via het afstemmen geschiedenislogboek is er een duidelijke trace van het afstemmen van verbeteringen van elke Azure SQL-Database. 
 
-Zie de ingesloten video voor een overzicht van de werking van automatische afstemmen werkt en typische gebruiksscenario's:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
->
+![Hoe werkt automatische afstemmen](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
 Azure SQL Database automatische afstemming, wordt de corelogica delen met de automatische afstemmen engine van SQL Server. Zie voor aanvullende technische informatie over de ingebouwde intelligentie wijze [automatische afstemming van SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
 
@@ -60,6 +57,12 @@ Automatische afstemming moet handmatig worden ingeschakeld voor uw abonnement. Z
 Automatische afstemming kan autonoom werken via het automatisch toepassen van aanbevelingen voor afstemmen, met inbegrip van automatische verificatie van de prestaties verbeteren. 
 
 Automatische toepassing van aanbevelingen afstemmen kan worden uitgeschakeld voor meer controle en aanbevelingen afstemmen kan worden handmatig toegepast via Azure portal. Het is ook mogelijk om te gebruiken van de oplossing geautomatiseerde afstemmen aanbevelingen alleen weergeven en deze handmatig toepassen via scripts en hulpprogramma's van uw keuze. 
+
+Zie voor een overzicht van de werking van automatische afstemmen werkt en typische gebruiksscenario's de ingesloten video:
+
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
+>
 
 ## <a name="automatic-tuning-options"></a>Opties voor automatische afstemmen
 

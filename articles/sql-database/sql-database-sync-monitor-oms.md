@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: e1099d2cd7eeccbe76d762028a0c5d5f95f53026
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 5a0d25d698ddb15b4ba88d322c07a28b329c4add
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="monitor-azure-sql-data-sync-preview-with-oms-log-analytics"></a>Monitor voor Azure SQL synchroniseren van gegevens (Preview) met OMS Log Analytics 
 
@@ -24,19 +24,19 @@ Zie voor een overzicht van de SQL-gegevenssynchronisatie [synchroniseren van geg
 
 Niet langer hoeft te zoeken in de logboeken van elke groep voor synchronisatie afzonderlijk om te zoeken naar problemen. U kunt alle groepen van de synchronisatie van een van uw abonnementen op één plek bewaken met behulp van een aangepaste weergave van OMS (Operations Management Suite). Deze weergave geeft de informatie die van belang is voor klanten synchroniseren van de SQL-gegevens weer.
 
-![Gegevens synchroniseren bewakingsdashboard](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.jpg)
+![Gegevens synchroniseren bewakingsdashboard](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>Geautomatiseerd e-mailmeldingen
 
-U moet niet langer Raadpleeg het logboek handmatig in de Azure Portal of via PowerShell of de REST-API. Dankzij het gebruik van [OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), kunt u waarschuwingen die direct naar e-mailadressen die deze bij een fout te zien moeten maken.
+U moet niet langer Raadpleeg het logboek handmatig in de Azure-portal of via PowerShell of de REST-API. Met [OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), kunt u waarschuwingen die rechtstreeks naar de e-mailadressen van de mensen die u zien wilt wanneer er een fout optreedt.
 
-![Gegevens synchroniseren e-mailmeldingen](media/sql-database-sync-monitor-oms/sync-email-notifications.jpg)
+![Gegevens synchroniseren e-mailmeldingen](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
-## <a name="how-do-you-set-this-up"></a>Hoe u dit instellen? 
+## <a name="how-do-you-set-up-these-monitoring-features"></a>Hoe u deze bewakingsfuncties instellen? 
 
-Implementeren van een aangepaste OMS bewakingsoplossing voor SQL-gegevenssynchronisatie in minder dan een uur door de volgende opdrachten uit te voeren.
+Implementeer een aangepaste OMS bewakingsoplossing voor SQL-gegevenssynchronisatie in minder dan een uur door het volgende doen:
 
-U moet 3 onderdelen configureren:
+U moet drie onderdelen configureren:
 
 -   Een PowerShell-runbook om te synchroniseren van gegevens van SQL-logboekgegevens feed met OMS.
 
@@ -70,7 +70,7 @@ Zie voor meer informatie over het maken van een runbook [Mijn eerste PowerShell-
 
 1.  Selecteer onder uw Azure Automation-account, de **Runbooks** tabblad onder procesautomatisering.
 
-2.  Selecteer **toevoegen van een Runbooks** in de linkerbovenhoek van de pagina Runbooks.
+2.  Selecteer **een Runbook toevoegen** in de linkerbovenhoek van de pagina Runbooks.
 
 3.  Selecteer **een bestaand Runbook importeren**.
 
@@ -80,7 +80,7 @@ Zie voor meer informatie over het maken van een runbook [Mijn eerste PowerShell-
 
 6.  Selecteer onder uw Azure Automation-Account de **variabelen** tabblad onder gedeelde bronnen.
 
-7.  Selecteer **toevoegen van een variabele** op de pagina variabelen. Er moet een variabele voor het opslaan van de laatste uitvoertijd voor het runbook te maken. Als u meerdere runbooks hebt, moet u een variabele voor elk runbook.
+7.  Selecteer **toevoegen van een variabele** op de pagina variabelen. Maak een variabele voor het opslaan van de laatste uitvoertijd voor het runbook. Als u meerdere runbooks hebt, moet u een variabele voor elk runbook.
 
 8.  Stel de naam van de variabele als `DataSyncLogLastUpdatedTime` en stel het Type datum/tijd.
 
@@ -96,7 +96,7 @@ Zie voor meer informatie over het maken van een runbook [Mijn eerste PowerShell-
 
 11. Het runbook worden uitgevoerd in het testvenster. Controleer of dat deze is geslaagd.
 
-    Als u fouten hebt, moet u de meest recente PowerShell-module geïnstalleerd. U kunt dit doen de **Modules galerie** in uw Automation-Account.
+    Als u fouten hebt, moet u de meest recente PowerShell-module geïnstalleerd. U kunt installeren de nieuwste PowerShell-module in de **Modules galerie** in uw Automation-Account.
 
 12. Klik op **publiceren**
 
@@ -118,7 +118,7 @@ Het runbook plannen:
 
 ### <a name="check-the-automation"></a>Controleer de automatisering
 
-Om te controleren of uw automation wordt uitgevoerd zoals verwacht, klikt u onder **overzicht** vinden voor uw automation-account, de **taak statistieken** weergeven onder **bewaking**. Dit vastmaken aan uw dashboard voor eenvoudige weergave. Geslaagde wordt uitgevoerd van het runbook als 'Voltooid' weergeven en kan niet wordt uitgevoerd weergegeven als 'Mislukt'.
+Om te controleren of uw automation wordt uitgevoerd zoals verwacht, klikt u onder **overzicht** vinden voor uw automation-account, de **taak statistieken** weergeven onder **bewaking**. Deze weergave aan uw dashboard voor eenvoudige weergave vastmaken. Geslaagde wordt uitgevoerd van het runbook als 'Voltooid' weergeven en kan niet wordt uitgevoerd, weergegeven als 'Mislukt'.
 
 ## <a name="create-an-oms-log-reader-alert-for-email-notifications"></a>Een waarschuwing OMS Log Reader voor e-mailmeldingen maken
 
@@ -136,7 +136,7 @@ Als u wilt maken van een waarschuwing die gebruikmaakt van OMS Log Analytics, he
 
     1.  De totale waarde ingesteld op **groter is dan**.
 
-    2.  Na **groter is dan**, voer de drempelwaarde voor de verstrijken voordat u meldingen ontvangen. Tijdelijke fouten worden in het synchroniseren van gegevens verwacht. U wordt aangeraden dat u de drempelwaarde ingesteld op 5 om geluid te beperken.
+    2.  Na **groter is dan**, voer de drempelwaarde voor de verstrijken voordat u meldingen ontvangen. Tijdelijke fouten worden in het synchroniseren van gegevens verwacht. Als u ruis, de drempelwaarde te ingesteld op 5.
 
 5.  Onder **acties**stelt **e-mailmeldingen** op 'Ja'. Geef de gewenste e-mailontvangers.
 
@@ -168,7 +168,7 @@ Voor het configureren van de OMS-weergave, het volgende doen:
 
         2.  Bijwerken op de tegels voor elke groep voor synchronisatie met de namen van de groep voor synchronisatie.
 
-    3.  Onn elke tegel, de titel werk indien nodig.
+    3.  Update de titel op voor elke tegel.
 
 4.  Klik op **opslaan** en de weergave is gereed.
 
@@ -189,10 +189,11 @@ Download de codevoorbeelden in dit artikel uit de volgende locaties beschreven:
 -   [Gegevens synchroniseren logboek OMS bekijken](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>Volgende stappen
-of meer informatie over het synchroniseren van de SQL-gegevens, Zie:
+Zie voor meer informatie over het synchroniseren van de SQL-gegevens:
 
 -   [Synchronisatie van gegevens over meerdere cloud en on-premises databases met synchroniseren van Azure SQL-gegevens](sql-database-sync-data.md)
 -   [Aan de slag met Azure SQL-gegevenssynchronisatie](sql-database-get-started-sql-data-sync.md)
+-   [Aanbevolen procedures voor het synchroniseren van Azure SQL-gegevens](sql-database-best-practices-data-sync.md)
 -   [Problemen oplossen met het synchroniseren van Azure SQL-gegevens](sql-database-troubleshoot-data-sync.md)
 
 -   Voer de PowerShell-voorbeelden die laten hoe u zien voor het synchroniseren van de SQL-gegevens configureren:
