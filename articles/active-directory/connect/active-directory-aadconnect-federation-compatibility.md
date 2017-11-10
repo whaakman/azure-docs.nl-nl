@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 11/08/2017
 ms.author: billmath
-ms.openlocfilehash: bce5867017647764546d872d97943d5d4f01f2d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed1e9276425b2c8577275e7ec6b57f54e5f7ae92
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Azure AD-federation compatibiliteitslijst
 Azure Active Directory biedt eenmalige aanmelding op en verbeterde beveiliging van toepassingen toegang voor Office 365 en andere Microsoft Online services voor hybride en alleen in de cloud-implementaties zonder een niet-Microsoft-oplossing. Office 365, zoals de meeste van de Microsoft Online services, is geïntegreerd met Azure Active Directory voor adreslijstservices, verificatie en autorisatie. Azure Active Directory biedt ook eenmalige aanmelding tot duizenden SaaS-toepassingen en lokale webtoepassingen. Raadpleeg de Azure Active Directory-toepassingsgalerie voor ondersteunde SaaS-toepassingen.
@@ -46,6 +46,7 @@ Voor informatie over hoe u hier vermeld van derden id-provider kan krijgen, neem
 * [Centrify](#centrify) 
 * [Dell één identiteitsbeheer Cloud toegang v7.1](#dell-one-identity-cloud-access-manager-v71) 
 * [DigitalPersona samengestelde verificatie](#digitalpersona-composite-authentication)
+* [Versie 5.x van ForgeRock identiteit Platform Access Management](#forgerock-identity-platform-access-management-v5x)
 * [IBM Tivoli federatieve Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
 * [IceWall Federation versie 3.0](#icewall-federation-version-30) 
 * [Memority](#memority)
@@ -186,6 +187,17 @@ Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aa
 
 Zie voor meer informatie [DigitalPersona samengestelde verificatie](http://www.crossmatch.com/uploadedFiles/Support/Reference_Material/DigitalPersona-Office-365-Deployment-Guide.pdf).
 
+## <a name="forgerock-identity-platform-access-management-v5x"></a>Versie 5.x van ForgeRock identiteit Platform Access Management
+
+Hier volgt de ondersteuningsmatrix scenario voor deze ervaring voor eenmalige aanmelding:
+
+| Client | Ondersteuning | Uitzonderingen |
+| --- | --- | --- |
+| Web-gebaseerde clients zoals Exchange Web Access en SharePoint Online |Ondersteund |Geen|
+| Interactieve toepassingen zoals Lync, Office-abonnement, CRM |Ondersteund |Geen|
+| E-rich clients, zoals Outlook en ActiveSync |Ondersteund |Geen |
+
+Zie voor meer informatie [ForgeRock identiteit Platform Access Management versie 5.x](https://backstage.forgerock.com/knowledge/kb/article/a98278517).
 
 ## <a name="ibm-tivoli-federated-identity-manager-622"></a>IBM Tivoli federatieve Identity Manager 6.2.2
 

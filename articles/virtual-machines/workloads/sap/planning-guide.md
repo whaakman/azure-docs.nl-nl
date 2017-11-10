@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 39b5c70c8740bc06beded42e9066e3be196741a1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7eb4f6c8c7ddfe0cb0d8a37e27d4e697e760107a
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie voor SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -341,7 +341,7 @@ In het hele document gebruiken we de volgende termen:
 * SAP-onderdeel: een afzonderlijke SAP toepassing zoals ECC, BW, oplossing Manager of EP is geplaatst.  SAP-onderdelen kunnen worden gebaseerd op traditionele ABAP of Java-technologieën of een NetWeaver op basis van toepassing zoals zakelijke objecten.
 * SAP-omgeving: een of meer onderdelen voor SAP logisch zijn gegroepeerd om uit te voeren van een zakelijke functie zoals ontwikkeling, QAS, Training, DR of productie.
 * SAP liggend: Dit verwijst naar de gehele SAP-elementen in een klant IT Liggend. De SAP-liggend bevat alle productie en niet-productieve omgevingen.
-* SAP-systeem: De combinatie van laag DBMS en toepassingslaag van bijvoorbeeld een SAP ERP-ontwikkelsysteem, SAP BW testsysteem, productiesysteem SAP CRM, enzovoort... In implementaties van Azure, is het niet ondersteund voor het delen van deze twee lagen tussen on-premises en Azure. Dit betekent dat er ofwel een SAP-systeem lokale geïmplementeerd of deze is geïmplementeerd in Azure. U kunt echter de verschillende systemen van een liggend SAP in Azure of on-premises implementeren. U kan bijvoorbeeld de CRM SAP-ontwikkeling implementeren en testen van systemen in Azure, maar de SAP CRM productie system on-premises.
+* SAP-systeem: De combinatie van laag DBMS en toepassingslaag van bijvoorbeeld een SAP ERP-ontwikkelsysteem, SAP BW testsysteem, productiesysteem SAP CRM, enzovoort.. In implementaties van Azure, is het niet ondersteund voor het delen van deze twee lagen tussen on-premises en Azure. Dit betekent dat er ofwel een SAP-systeem lokale geïmplementeerd of deze is geïmplementeerd in Azure. U kunt echter de verschillende systemen van een liggend SAP in Azure of on-premises implementeren. U kan bijvoorbeeld de CRM SAP-ontwikkeling implementeren en testen van systemen in Azure, maar de SAP CRM productie system on-premises.
 * Cloud-implementatie: een implementatie waarbij het Azure-abonnement niet is verbonden via een site-naar-site of een ExpressRoute-verbinding met de on-premises netwerk-infrastructuur. Gemeenschappelijk Azure-documentatie dergelijke implementaties worden ook beschreven als 'Alleen in de Cloud' implementaties. Virtuele Machines die worden geïmplementeerd met deze methode zijn toegankelijk via het internet en een openbare IP-adres en/of een openbare DNS-naam toegewezen aan de virtuele machines in Azure. Voor Microsoft Windows, de lokale Active Directory (AD) en DNS is niet uitgebreid naar Azure in dergelijke implementaties. Daarom is de virtuele machines maken geen deel uit van de lokale Active Directory. Hetzelfde geldt voor Linux-implementaties gebruikt, bijvoorbeeld OpenLDAP + Kerberos.
 
 > [!NOTE]
@@ -522,7 +522,7 @@ Met Azure Resource Manager kunt u uw toepassingen inrichten aan de hand van een 
 
 Meer informatie over het gebruik van Resource Manager-sjablonen vindt u hier:
 
-* [Implementeren en beheren van virtuele machines met behulp van Azure Resource Manager-sjablonen en de Azure CLI] [.. /.. / linux/create-ssh-secured-vm-from-template.md]
+* [Implementeren en beheren van virtuele machines met behulp van Azure Resource Manager-sjablonen en de Azure CLI] [../../linux/create-ssh-secured-vm-from-template.md]
 * [Virtuele machines beheren met Azure Resource Manager en PowerShell][virtual-machines-deploy-rmtemplates-powershell]
 * <https://Azure.Microsoft.com/Documentation/templates/>
 
@@ -839,7 +839,7 @@ De Azure CLI biedt een set van open-source platformoverschrijdende opdrachten vo
 Zie voor informatie over de installatie, configuratie en het gebruik van de CLI opdrachten Azure taken uitvoeren
 
 * [De Azure CLI installeren][xplat-cli]
-* [Implementeren en beheren van virtuele machines met behulp van Azure Resource Manager-sjablonen en de Azure CLI] [.. /.. / linux/create-ssh-secured-vm-from-template.md]
+* [Implementeren en beheren van virtuele machines met behulp van Azure Resource Manager-sjablonen en de Azure CLI] [../../linux/create-ssh-secured-vm-from-template.md]
 * [De Azure CLI voor Mac, Linux en Windows gebruiken met Azure Resource Manager gebruiken][xplat-cli-azure-resource-manager]
 
 Lees ook hoofdstuk [Azure CLI voor virtuele Linux-machines] [ deployment-guide-4.5.2] in de [Deployment Guide] [ planning-guide] over het gebruik van Azure CLI voor het implementeren van de Azure-bewaking De extensie voor SAP.
@@ -942,7 +942,7 @@ Als de virtuele machine is voldoende voorbereid algemene en uiteindelijk onafhan
 >
 > De laatste stap is voor aanmelding bij een virtuele machine met een Administrator-account. Open een opdrachtvenster Windows als *beheerder*. Ga naar %windir%\windows\system32\sysprep en sysprep.exe uitvoeren.
 > Een klein venster wordt weergegeven. Het is belangrijk om te controleren de **Generalize** optie (de standaardwaarde is uitgeschakeld) en wijzig de optie afsluiten van de standaardwaarde van 'Opnieuw opstarten' 'afsluiten'. Deze procedure wordt ervan uitgegaan dat de sysprep-proces uitgevoerd lokale in het Gastbesturingssysteem van een virtuele machine.
-> Als u uitvoeren van de procedure met een VM die al worden uitgevoerd in Azure wilt, volgt u de stappen in [in dit artikel](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource).
+> Als u uitvoeren van de procedure met een VM die al worden uitgevoerd in Azure wilt, volgt u de stappen in [in dit artikel](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource).
 >
 > ![Linux][Logo_Linux] Linux
 >
