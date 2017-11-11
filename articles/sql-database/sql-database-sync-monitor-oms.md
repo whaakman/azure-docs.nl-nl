@@ -8,13 +8,13 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 5a0d25d698ddb15b4ba88d322c07a28b329c4add
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: ace0eb671556dc980836464a365731d6100eab25
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/10/2017
 ---
-# <a name="monitor-azure-sql-data-sync-preview-with-oms-log-analytics"></a>Monitor voor Azure SQL synchroniseren van gegevens (Preview) met OMS Log Analytics 
+# <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Controleprogramma SQL synchroniseren van gegevens (Preview) met OMS Log Analytics 
 
 Controleer het activiteitenlogboek synchroniseren van de SQL-gegevens en fouten en waarschuwingen te detecteren, voorheen moest u handmatig synchroniseren van de SQL-gegevens controleren in de Azure portal of PowerShell of de REST-API gebruiken. Volg de stappen in dit artikel voor het configureren van een aangepaste oplossing waarmee het synchroniseren van gegevens implementatiebewakingservaring worden verbeterd. U kunt deze oplossing aanpassen aan uw scenario.
 
@@ -92,7 +92,7 @@ Zie voor meer informatie over het maken van een runbook [Mijn eerste PowerShell-
 
     2.  Informatie van de groep voor synchronisatie.
 
-    3.  OMS-informatie. Deze informatie vinden op OMS-Portal | Instellingen | Verbonden bronnen. Zie voor meer informatie over het verzenden van gegevens met logboekanalyse [gegevens verzenden naar logboekanalyse met de HTTP-API van Data Collector (openbare preview)](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api).
+    3.  OMS-informatie. Deze informatie vinden op OMS-Portal | Instellingen | Verbonden bronnen. Zie voor meer informatie over het verzenden van gegevens met logboekanalyse [gegevens verzenden naar logboekanalyse met de HTTP-API van Data Collector (openbare preview)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Het runbook worden uitgevoerd in het testvenster. Controleer of dat deze is geslaagd.
 
@@ -192,7 +192,7 @@ Download de codevoorbeelden in dit artikel uit de volgende locaties beschreven:
 Zie voor meer informatie over het synchroniseren van de SQL-gegevens:
 
 -   [Synchronisatie van gegevens over meerdere cloud en on-premises databases met synchroniseren van Azure SQL-gegevens](sql-database-sync-data.md)
--   [Aan de slag met Azure SQL-gegevenssynchronisatie](sql-database-get-started-sql-data-sync.md)
+-   [Synchroniseren van Azure SQL-gegevens instellen](sql-database-get-started-sql-data-sync.md)
 -   [Aanbevolen procedures voor het synchroniseren van Azure SQL-gegevens](sql-database-best-practices-data-sync.md)
 -   [Problemen oplossen met het synchroniseren van Azure SQL-gegevens](sql-database-troubleshoot-data-sync.md)
 

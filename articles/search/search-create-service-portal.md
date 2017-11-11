@@ -11,17 +11,17 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/01/2017
+ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: 58f4eab190e40e16ed261c165ffdfc8155eeb434
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaf317b42026298cc42edcc907bc48169f869460
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Maak een Azure Search-service in de portal
 
-In dit artikel wordt uitgelegd hoe maken of een Azure Search-service in de portal inrichten. Zie voor instructies PowerShell [Azure Search beheren met PowerShell](search-manage-powershell.md).
+Informatie over het maken of een Azure Search-service in de portal inrichten. Zie voor instructies PowerShell [Azure Search beheren met PowerShell](search-manage-powershell.md).
 
 ## <a name="subscribe-free-or-paid"></a>Abonneren (gratis of betaalde)
 
@@ -34,20 +34,21 @@ U kunt ook [voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pr
 2. Klik op het plusteken ('+') in de linkerbovenhoek.
 3. Selecteer **Web en mobiel** > **Azure Search**.
 
-![](./media/search-create-service-portal/find-search2.png)
+![](./media/search-create-service-portal/find-search3.png)
 
 ## <a name="name-the-service-and-url-endpoint"></a>Naam van de service en de URL-eindpunt
 
-Naam van een service maakt deel uit van het URL-eindpunt op basis waarvan de API-aanroepen zijn uitgegeven. Typ de servicenaam van uw in de **URL** veld. 
+Naam van een service maakt deel uit van het URL-eindpunt met welke API aanroepen worden uitgegeven: `https://your-service-name.search.windows.net`. Voer de servicenaam van uw in de **URL** veld. 
 
 Vereisten voor service-naam:
+   * Deze naam moet uniek zijn binnen de naamruimte search.windows.net
    * 2 en 60 tekens lang zijn
-   * kleine letters, getallen of streepjes ('-')
-   * Er is geen streepje ('-') als de eerste 2 tekens of laatste teken
-   * Er zijn geen twee opeenvolgende streepjes ('--')
+   * Gebruik van kleine letters, getallen of streepjes ('-')
+   * Vermijd streepjes ('-') in de eerste 2 tekens of als het laatste teken
+   * Er zijn geen twee opeenvolgende streepjes ('--') een willekeurige plaats
 
 ## <a name="select-a-subscription"></a>Een abonnement selecteren
-Als u meer dan één abonnement hebt, kiest u dat ook gegevens of file storage-services heeft. Azure Search kunt automatische detectie Azure Table- en Blob-opslag, SQL-Database en Azure Cosmos DB voor indexeren *indexeerfuncties*, maar alleen voor services in hetzelfde abonnement.
+Als u meer dan één abonnement hebt, kiest u dat ook gegevens of file storage-services heeft. Azure Search kunt automatische detectie Azure Table- en Blob-opslag, SQL-Database en Azure Cosmos DB voor indexeren [ *indexeerfuncties*](search-indexer-overview.md), maar alleen voor services in hetzelfde abonnement.
 
 ## <a name="select-a-resource-group"></a>Een resourcegroep selecteren
 Een resourcegroep is een verzameling Azure-services en bronnen die samen worden gebruikt. Bijvoorbeeld, als u van Azure Search gebruikmaakt index van een SQL-database, moeten klikt u vervolgens beide services deel uitmaken van dezelfde resourcegroep.
@@ -63,11 +64,13 @@ Als een Azure-service kan de Azure Search in datacenters over de hele wereld wor
 
 In dit overzicht hebben we de prijscategorie Standard gekozen voor onze service.
 
+Een prijscategorie kan niet worden gewijzigd zodra de service is gemaakt. Als u een hogere of lagere laag later nodig hebt, hebt u de service opnieuw te maken.
+
 ## <a name="create-your-service"></a>Uw service maken
 
 Vergeet niet om uw service aan het dashboard voor gemakkelijke toegang vast wanneer u zich aanmeldt.
 
-![](./media/search-create-service-portal/new-service2.png)
+![](./media/search-create-service-portal/new-service3.png)
 
 ## <a name="scale-your-service"></a>Schalen van uw service
 Het kan even duren om een service (15 minuten of langer, afhankelijk van de laag) te maken. Nadat de service is geconfigureerd, kunt u schalen om te voldoen aan uw behoeften. Omdat u de prijscategorie Standard voor uw Azure Search-service hebt gekozen, kunt u uw service schalen in twee dimensies: replica's en partities. Had u de basisstaffel gekozen, kunt u alleen toevoegen replica's. Als u de gratis service hebt ingericht, is scale niet beschikbaar.
@@ -79,7 +82,7 @@ Het kan even duren om een service (15 minuten of langer, afhankelijk van de laag
 > [!Important]
 > Een service moet hebben [2 replica's voor alleen-lezen-SLA en 3 replica's voor lezen/schrijven SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-1. Ga naar de blade van het zoeken in de Azure portal.
+1. Ga naar de pagina van de zoekopdracht in de Azure portal.
 2. Selecteer in het deelvenster navigatie aan de linkerkant **instellingen** > **Scale**.
 3. Gebruik de slidebar replica's of partities toe te voegen.
 
@@ -105,9 +108,7 @@ Hoewel de meeste klanten slechts één service gebruikt, is het mogelijk dat ser
 Een tweede service is niet vereist voor hoge beschikbaarheid. Hoge beschikbaarheid voor query's wordt bereikt wanneer u 2 of meer replica's in dezelfde service. Replica-updates zijn sequentiële, ten minste één operationeel is wanneer een service-update is geïmplementeerd. Zie voor meer informatie over bedrijfstijd [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## <a name="next-steps"></a>Volgende stappen
-Na het inrichten van een Azure Search-service, bent u klaar om [een index definiëren](search-what-is-an-index.md) zodat u kunt uploaden en uw gegevens te zoeken.
+Na het inrichten van een Azure Search-service, bent u klaar om [een index definiëren](search-what-is-an-index.md) zodat u kunt uploaden en uw gegevens te zoeken. 
 
-Voor toegang tot de service via code of script, en geef de URL (*servicenaam*. search.windows.net) en een sleutel. Beheersleutels bieden volledige toegang. querysleutels verlenen alleen-lezen toegang. Zie [het gebruik van Azure Search in .NET](search-howto-dotnet-sdk.md) aan de slag.
-
-Zie [bouwen en query uitvoeren op uw eerste index](search-get-started-portal.md) voor een snelle zelfstudie op basis van de portal.
-
+> [!div class="nextstepaction"]
+> [Het gebruik van Azure Search in .NET](search-howto-dotnet-sdk.md)

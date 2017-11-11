@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: tamram
-ms.openlocfilehash: cbc8654bf1755826afa2cf83e5476e88903e0854
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4dfca37e3a369fdfb41b4064b72ccd027bd8cbd3
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Een aangepaste domeinnaam configureren voor het eindpunt voor Blob Storage
 
@@ -55,7 +55,7 @@ Het proces voor het toewijzen van uw aangepaste domein naar een blobeindpunt kan
 De tussenliggende methode wordt beschreven in [registreren van een aangepast domein met de *asverify* subdomein](#register-a-custom-domain-using-the-asverify-subdomain).
 
 ## <a name="register-a-custom-domain"></a>Registreren van een aangepast domein
-Gebruik deze procedure voor het registreren van uw aangepaste domein als u zich geen zorgen over het domein wordt kort niet beschikbaar voor uw gebruikers, of als uw aangepaste domein is momenteel geen host voor een toepassing.
+Gebruik deze procedure voor het registreren van uw aangepaste domein als u zich geen zorgen over het domein wordt kort niet beschikbaar voor uw gebruikers, of als uw aangepaste domein is momenteel geen host voor een toepassing. Azure DNS kunt u een aangepaste DNS-naam voor uw Azure Blob-opslag configureren. Zie voor meer informatie [gebruik Azure DNS-instellingen van aangepast domein voor een Azure-service kan leveren](https://docs.microsoft.com/azure/dns/dns-custom-domain#blob-storage).
 
 Als uw aangepaste domein wordt momenteel ondersteund door een toepassing die geen uitvaltijd, volgt u de procedure beschreven in [registreren van een aangepast domein met de *asverify* subdomein](#register-a-custom-domain-using-the-asverify-subdomain).
 

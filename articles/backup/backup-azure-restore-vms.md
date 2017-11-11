@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 11/09/2017
 ms.author: trinadhk; jimpark;
-ms.openlocfilehash: fc52c909df5e91741ec1fa21fb911487be039fdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f6e5dd9d4fb96376762300856b594d772d84af8
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="restore-virtual-machines-in-azure"></a>Virtuele machines herstellen in Azure
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 Een virtuele machine naar een nieuwe virtuele machine herstellen vanuit de back-ups opgeslagen in een Azure Backup-kluis met de volgende stappen.
 
 > [!IMPORTANT]
-> U kunt uw back-upkluizen nu upgraden naar Recovery Services-kluizen. Zie voor meer informatie het artikel [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md) (Een back-upkluis upgraden naar een Recovery Services-kluis). Microsoft adviseert om uw back-upkluizen te upgraden naar Recovery Services-kluizen.<br/> Vanaf **15 oktober 2017** kunt u PowerShell niet meer gebruiken voor het maken van back-upkluizen. <br/> **Vanaf 1 november 2017**:
+> U kunt uw back-upkluizen nu upgraden naar Recovery Services-kluizen. Zie voor meer informatie het artikel [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md) (Een back-upkluis upgraden naar een Recovery Services-kluis). Microsoft adviseert om uw back-upkluizen te upgraden naar Recovery Services-kluizen. Na <br/> **30 november 2017**, worden niet langer PowerShell gebruiken voor het maken van de Backup-kluizen. <br/> Door **30 November 2017**:
 >- Alle resterende back-upkluizen worden automatisch omgezet in Recovery Services-kluizen.
 >- Het is niet mogelijk om via de klassieke portal toegang te krijgen tot uw back-upgegevens. In plaats daarvan gebruikt u Azure Portal voor toegang tot uw back-upgegevens in Recovery Services-kluizen.
 >

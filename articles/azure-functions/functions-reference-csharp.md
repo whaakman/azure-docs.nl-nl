@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/07/2017
 ms.author: glenga
-ms.openlocfilehash: 18d3a87da8c240a3153dfa68f9b1d8bd17bbe693
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 10943769e46adf05642e19d6be297820171bb9f6
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-functions-c-script-developer-reference"></a>Azure Functions C# script referentie voor ontwikkelaars
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -375,7 +375,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 
 `BindingTypeAttribute`is de .NET-kenmerk dat de binding wordt gedefinieerd en `T` is de invoer- of -type dat wordt ondersteund door deze bindingstype. `T`ook kan niet een `out` parametertype (zoals `out JObject`). Bijvoorbeeld, de tabel Mobile Apps binding ondersteunt uitvoer [zes typen uitvoer](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), maar u kunt alleen [ICollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) of [IAsyncCollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) voor `T`.
 
-De volgende voorbeeldcode maakt een [Storage-blob uitvoer binding](functions-bindings-storage-blob.md#using-a-blob-output-binding) met blob pad dat gedefinieerd tijdens runtime, hierna schrijft een tekenreeks naar de blob.
+De volgende voorbeeldcode maakt een [Storage-blob uitvoer binding](functions-bindings-storage-blob.md#blob-storage-input--output-bindings) met blob pad dat gedefinieerd tijdens runtime, hierna schrijft een tekenreeks naar de blob.
 
 ```cs
 using Microsoft.Azure.WebJobs;

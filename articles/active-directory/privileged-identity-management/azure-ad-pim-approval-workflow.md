@@ -14,27 +14,24 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: cf6a9213fa0a1cba8725aabb42abe51b805ece7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90aec90edcbbfb7833efd85752afc8f1937f5b5a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="approvals-preview"></a>Goedkeuringen (Preview)
+# <a name="approvals"></a>Goedkeuringen
 
 ## <a name="overview"></a>Overzicht
 
 Met goedkeuringen voor Privileged Identity Management, kunt u rollen configureren om te goedkeuring vereisen voor activering en kies een of meerdere gebruikers of groepen als gedelegeerde fiatteurs. Houd lezen voor meer informatie over het configureren van rollen en fiatteurs selecteren.
 
->[!NOTE]
-Houd er rekening mee dat deze functie nog in ontwikkeling is en fouten kunnen optreden. De functionaliteit, met inbegrip van tekst naamconventies nog worden gewijzigd en mogen niet worden beschouwd als laatste.
 
-
-## <a name="key-terminology"></a>Belangrijkste termen
+## <a name="new-terminology"></a>Nieuwe terminologie
 
 *In aanmerking komende gebruiker van de rol* – een in aanmerking komende rol is een gebruiker binnen uw organisatie die is toegewezen aan een Azure AD-rol als in aanmerking komende (rol activering vereist is).
 
-*Gedelegeerde goedkeurder* – een gemachtigde goedkeurder is een of meerdere personen of groepen binnen uw Azure AD die verantwoordelijk zijn voor het goedkeuren van aanvragen voor activering van rollen.
+*Gedelegeerde goedkeurder* : een gemachtigde goedkeurder is een of meerdere personen of groepen binnen uw Azure AD die verantwoordelijk is voor het goedkeuren van aanvragen voor het activeren van rollen.
 
 ## <a name="scenarios"></a>Scenario's
 

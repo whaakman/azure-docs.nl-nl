@@ -3,7 +3,7 @@ title: Host zichzelf integratie runtime maken in Azure Data Factory | Microsoft 
 description: Informatie over het maken van de host zichzelf integratie runtime in Azure Data Factory, waardoor de data factory voor toegang tot gegevensarchieven in een particulier netwerk.
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: spelluru
-ms.openlocfilehash: 63e4bb600d053a43c500b601a3942eb96ac16b07
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.author: abnarain
+ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Het maken en configureren van Self-hosted integratie Runtime
 De integratie Runtime (IR) is de beheerinfrastructuur gebruikt door Azure Data Factory om te bieden mogelijkheden voor de integratie in verschillende netwerkomgevingen. Zie voor meer informatie over IR [integratie Runtime overzicht](concepts-integration-runtime.md).
@@ -103,11 +103,11 @@ Host zichzelf integratie runtime kan worden geïnstalleerd door het downloaden v
 
 
 ## <a name="high-availability-and-scalability"></a>Hoge beschikbaarheid en schaalbaarheid
-Een Self-hosted integratie Runtime kan associateed met meerdere on-premises machines zijn. Deze machines worden knooppunten genoemd. U kunt maximaal vier knooppunten die zijn gekoppeld aan een Self-hosted integratie Runtime hebben. De voordelen van meerdere knooppunten (op lokale computers met de gateway is geïnstalleerd) voor een logische gateway zijn:
+Een Self-hosted integratie Runtime kan worden gekoppeld aan meerdere on-premises machines. Deze machines worden knooppunten genoemd. U kunt maximaal vier knooppunten die zijn gekoppeld aan een Self-hosted integratie Runtime hebben. De voordelen van meerdere knooppunten (op lokale computers met de gateway is geïnstalleerd) voor een logische gateway zijn:
 1. Hogere beschikbaarheid van Self-hosted integratie Runtime zodat deze niet langer de storingspunt in uw Big Data oplossing of cloud gegevensintegratie met Azure Data Factory gezorgd continuïteit met maximaal 4 knooppunten.
 2. Verbeterde prestaties en de doorvoer tijdens de verplaatsing van gegevens tussen on-premises en cloud gegevensarchieven. Meer informatie opvragen over [prestaties vergelijkingen](copy-activity-performance.md).
 
-U kunt meerdere knooppunten koppelen gewoon de Self-hosted integratie Runtime door software te installeren vanuit de [Downloadcentrum](https://www.microsoft.com/download/details.aspx?id=39717) en door het registreren van deze door een van de obtainined verificatiesleutels uit Nieuwe AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet zoals beschreven in de [zelfstudie](tutorial-hybrid-copy-powershell.md)
+U kunt meerdere knooppunten koppelen gewoon de Self-hosted integratie Runtime door software te installeren vanuit de [Downloadcentrum](https://www.microsoft.com/download/details.aspx?id=39717) en door het registreren van deze door een van de verificatiesleutels verkregen van Nieuwe AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet zoals beschreven in de [zelfstudie](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
 > U hoeft niet te maken van nieuwe Self-hosted integratie Runtime voor het koppelen van elk knooppunt.

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 11/10/2017
 ms.author: larryfr
-ms.openlocfilehash: 6ea3114a30b0ae313efb14495f5556e5484bef06
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d7e4e064a451831c7cf0753064522d0a0b4f5d63
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Application Insights telemetrie logboeken met Spark in HDInsight analyseren
 
@@ -61,7 +61,7 @@ Application Insights kunnen worden geconfigureerd voor het continu telemetrie ge
 
 * **BLOB-type**: HDInsight ondersteunt alleen blok-blobs. Application Insights standaardinstellingen voor het gebruik van blok-blobs, moet dus samenwerken met HDInsight standaard.
 
-Zie voor meer informatie over het toevoegen van extra opslagruimte aan een bestaand HDInsight-cluster de [extra opslagaccounts toevoegen](../hdinsight-hadoop-add-storage.md) document.
+Zie voor meer informatie over het toevoegen van opslag aan een bestaand cluster de [extra opslagaccounts toevoegen](../hdinsight-hadoop-add-storage.md) document.
 
 ### <a name="data-schema"></a>Gegevensschema
 
@@ -79,7 +79,7 @@ Als de Azure Storage-Account toevoegen aan een bestaand cluster, kunt u de infor
 
 ## <a name="analyze-the-data-pyspark"></a>De gegevens analyseren: PySpark
 
-1. Van de [Azure-portal](https://portal.azure.com), selecteer uw Spark in HDInsight-cluster. Van de **snelkoppelingen** sectie **Clusterdashboards**, en selecteer vervolgens **Jupyter-Notebook** uit de Cluster Dashboard__-blade.
+1. Van de [Azure-portal](https://portal.azure.com), selecteer uw Spark in HDInsight-cluster. Van de **snelkoppelingen** sectie **Clusterdashboards**, en selecteer vervolgens **Jupyter-Notebook** van de Cluster Dashboard__-sectie.
 
     ![De clusterdashboards](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
 
@@ -222,7 +222,7 @@ Als de Azure Storage-Account toevoegen aan een bestaand cluster, kunt u de infor
 
 ## <a name="analyze-the-data-scala"></a>De gegevens analyseren: Scala
 
-1. Van de [Azure-portal](https://portal.azure.com), selecteer uw Spark in HDInsight-cluster. Van de **snelkoppelingen** sectie **Clusterdashboards**, en selecteer vervolgens **Jupyter-Notebook** uit de Cluster Dashboard__-blade.
+1. Van de [Azure-portal](https://portal.azure.com), selecteer uw Spark in HDInsight-cluster. Van de **snelkoppelingen** sectie **Clusterdashboards**, en selecteer vervolgens **Jupyter-Notebook** van de Cluster Dashboard__-sectie.
 
     ![De clusterdashboards](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
 2. Selecteer in de rechterbovenhoek van de pagina Jupyter **nieuw**, en vervolgens **Scala**. Een nieuw browsertabblad met een Scala gebaseerde Jupyter-Notebook wordt weergegeven.

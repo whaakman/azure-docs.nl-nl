@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/24/2016
 ms.author: heidist
-ms.openlocfilehash: f9f3a7b2369818791ffac1c8eeccef45216c2ff0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 781683f27c943e25d5629dd846da357f51c9d4f9
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Kies een SKU of prijscategorie voor Azure Search
 In Azure Search een [service is ingericht](search-create-service-portal.md) op een specifieke prijscategorie of SKU. Opties zijn onder andere **vrije**, **Basic**, of **standaard**, waarbij **standaard** is beschikbaar in meerdere configuraties en capaciteit.
@@ -43,9 +43,9 @@ Ga hand voorhanden capaciteit en de kosten van het uitvoeren van de service. De 
 
 * Aantal en de grootte van indexen die u wilt maken
 * Aantal en de grootte van documenten te uploaden
-* Een idee van de query-volume, in termen van query's Per tweede (QPS)
+* Een idee van de query-volume, in termen van query's Per tweede (QPS). Zie voor instructies [Azure Search-prestaties en optimalisatie](search-performance-optimization.md).
 
-Aantal en de grootte zijn belangrijk omdat de maximale limiet wordt bereikt door middel van een vaste limiet op het aantal indexen of documenten in een service of op resources (opslag of replica's) dat wordt gebruikt door de service. De werkelijke limiet voor uw service is afhankelijk van wat eerst wordt gebruikt: bronnen of objecten.
+Aantal en de grootte zijn belangrijk omdat de maximale limiet wordt bereikt door middel van een vaste limiet op het aantal indexen per service of op resources (opslag of replica's) dat wordt gebruikt door de service. De werkelijke limiet voor uw service is afhankelijk van wat eerst wordt gebruikt: bronnen of objecten.
 
 Schattingen in hand moeten de volgende stappen uit het proces vereenvoudigen:
 
@@ -60,10 +60,10 @@ De volgende tabel bevat beschrijvingen van elke laag.
 | --- | --- |
 | **Gratis** |Een gedeelde service, zonder kosten, gebruikt voor de evaluatie, onderzoek of kleine werkbelastingen. Omdat deze wordt gedeeld met andere abonnees, varieert query-doorvoer en indexeren op basis van wie de service wordt gebruikt. Capaciteit is klein (50 MB of 3 indexen met van 10.000 documenten elk). |
 | **Basic** |Kleine productieworkloads op specifieke hardware. Maximaal beschikbaar. De capaciteit is maximaal 3 replica's en 1 partitie (2 GB). |
-| **S1** |Standaard 1 ondersteunt flexibele combinaties van partities (12) en replica's (12) gebruikt voor gemiddeld productieworkloads op specifieke hardware. U kunt partities en replica's in de combinaties die worden ondersteund door het maximale aantal 36 factureerbare search-eenheden toewijzen. Partities zijn 25 GB en QPS is ongeveer 15 query's per seconde op dit niveau. |
-| **S2** |Standaard 2 wordt uitgevoerd met behulp van de dezelfde 36 search-eenheden als S1, maar met grotere grootte partities en replica's groter productie-workloads. Partities zijn 100 GB en QPS is ongeveer 60 query's per seconde op dit niveau. |
-| **S3** |Standaard 3 wordt uitgevoerd proportioneel groter productieworkloads op hogere end-systemen in de configuratie van maximaal 12 partities of 12 replica's onder 36 search-eenheden. Partities zijn 200 GB en QPS is meer dan 60 query's per seconde op dit niveau. |
-| **HD S3** |Standaard 3 high-density is ontworpen voor een groot aantal kleinere indexen. U kunt maximaal 3 partities hebben van 200 GB. QPS is meer dan 60 query's per seconde. |
+| **S1** |Standaard 1 ondersteunt flexibele combinaties van partities (12) en replica's (12) gebruikt voor gemiddeld productieworkloads op specifieke hardware. U kunt partities en replica's in de combinaties die worden ondersteund door het maximale aantal 36 factureerbare search-eenheden toewijzen. Partities zijn op dit niveau 25 GB. |
+| **S2** |Standaard 2 wordt uitgevoerd met behulp van de dezelfde 36 search-eenheden als S1, maar met grotere grootte partities en replica's groter productie-workloads. Partities zijn op dit niveau 100 GB. |
+| **S3** |Standaard 3 wordt uitgevoerd proportioneel groter productieworkloads op hogere end-systemen in de configuratie van maximaal 12 partities of 12 replica's onder 36 search-eenheden. Partities zijn op dit niveau 200 GB. |
+| **HD S3** |Standaard 3 high-density is ontworpen voor een groot aantal kleinere indexen. U kunt maximaal 3 partities hebben van 200 GB.|
 
 > [!NOTE]
 > Replica- en partitie maximumwaarden wordt gefactureerd uit als de search-eenheden (36 maximale per service eenheid), die legt een effectieve ondergrens dan de maximale impliceert op face-waarde. Bijvoorbeeld: voor het gebruik van het maximum van 12 replica's, kan er maximaal 3 partities (12 * 3 = 36 units). Verminder op dezelfde manier voor het gebruik van de maximale partities replica's op 3. Zie [schalen niveaus van de bron voor query's en workloads in Azure Search indexeren](search-capacity-planning.md) voor een grafiek van toegestane combinaties.
@@ -81,7 +81,6 @@ De volgende tabel is een subset van de limieten van [Servicelimieten in Azure Se
 | Maximum aantal partities |N.v.t. |1 |12 |12 |12 |3 <sup>2</sup> |
 | Partitiegrootte |Totaal aantal 50 MB |2 GB per service |25 GB per partitie |100 GB per partitie (maximaal 1,2 TB per service) |200 GB per partitie (tot maximum van 2,4 TB per service) |200 GB (maximaal 600 GB per service) |
 | Maximum aantal replica 's |N.v.t. |3 |12 |12 |12 |12 |
-| Query's per seconde |N.v.t. |~3 per replica |~15 per replica |~60 per replica |>60 per replica |>60 per replica |
 
 <sup>1</sup> gratis laag en de preview-functies niet bij service level agreements (Sla's) worden geleverd. Voor alle factureerbare lagen, sla's van kracht als u voldoende redundantie voor uw service inricht. Twee of meer replica's zijn vereist voor de SLA voor query (gelezen). Drie of meer replica's zijn vereist voor query's en indexering SLA (lezen / schrijven). Het aantal partities is niet een SLA-overweging. 
 

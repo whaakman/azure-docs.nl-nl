@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/29/2017
 ms.author: denlee
-ms.openlocfilehash: 228d739ac4505d9f16c43bb484dd8050631f084e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 361f63141a8bf3f901eee6c93742f1a7fdc4348f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: een Node.js-toepassing ontwikkelen met de Graph API
 
@@ -75,9 +75,23 @@ Laten we eens kijken wat er precies gebeurt in de app. Open de `app.js` -bestand
         });
     ```
 
-  De configuraties bevinden zich allemaal in `config.js`, wat in het volgende gedeelte wordt bewerkt.
+  De configuraties bevinden zich allemaal in `config.js`, die we bewerken in de [volgende sectie](#update-your-connection-string).
 
-* Een reeks Gremlin-stappen wordt uitgevoerd met behulp van de methode `client.execute`.
+* Een reeks functies worden gedefinieerd voor het uitvoeren van verschillende Gremlin bewerkingen. Dit is een van beide:
+
+    ```nodejs
+    function addVertex1(callback)
+    {
+        console.log('Running Add Vertex1'); 
+        client.execute("g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44).property('userid', 1)", { }, (err, results) => {
+          if (err) callback(console.error(err));
+          console.log("Result: %s\n", JSON.stringify(results));
+          callback(null)
+        });
+    }
+    ```
+
+* Elke functie wordt uitgevoerd een `client.execute` methode met een Gremlin queryreeksparameter opgeven. Hier volgt een voorbeeld van hoe `g.V().count()` wordt uitgevoerd:
 
     ```nodejs
     console.log('Running Count'); 
@@ -88,11 +102,28 @@ Laten we eens kijken wat er precies gebeurt in de app. Open de `app.js` -bestand
     });
     ```
 
+* Aan het einde van het bestand, alle methoden vervolgens worden aangeroepen met behulp van de `async.waterfall()` methode. Dit zal ze achter elkaar uitvoeren:
+
+    ```nodejs
+    try{
+        async.waterfall([
+            dropGraph,
+            addVertex1,
+            addVertex2,
+            addEdge,
+            countVertices
+            ], finish);
+    } catch(err) {
+        console.log(err)
+    }
+    ```
+
+
 ## <a name="update-your-connection-string"></a>Uw verbindingsreeks bijwerken
 
 1. Open het bestand config.js. 
 
-2. Vul in config.js voor de sleutel config.endpoint de **Gremlin URI**-waarde in van de pagina **Overzicht** van de Azure Portal. 
+2. In het bestand config.js, vult u de `config.endpoint` sleutel met de **Gremlin URI** waarde uit de **overzicht** pagina van de Azure-portal. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 

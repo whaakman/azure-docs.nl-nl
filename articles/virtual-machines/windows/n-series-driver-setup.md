@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/07/2017
+ms.date: 11/09/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b480d10df777a2757c073ff77e1845d33d63163a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b16e57e06d5055fc0c2750385630a908e10bd217
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows-server"></a>GPU-stuurprogramma's instellen voor N-serie VM's met Windows Server
 Als u wilt profiteren van de GPU-mogelijkheden van N-reeks virtuele machines in Azure waarop Windows Server 2016 of Windows Server 2012 R2 wordt uitgevoerd, ondersteunde NVIDIA graphics-stuurprogramma's te installeren. Dit artikel bevat de installatiestappen stuurprogramma nadat u een VM N-serie implementeren. Stuurprogramma-installatie-informatie is ook beschikbaar voor [virtuele Linux-machines](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -50,7 +50,7 @@ Om te vragen van de apparaatstatus GPU, voer de [nvidia smi](https://developer.n
 
 1. Open een opdrachtprompt en Ga naar de **C:\Program Files\NVIDIA Corporation\NVSMI** directory.
 
-2. Voer **nvidia smi**. Als het stuurprogramma is geïnstalleerd ziet u uitvoer die vergelijkbaar is met hieronder. Houd er rekening mee dat **GPU-Util** toont **0%** tenzij u de werkbelasting van een GPU die momenteel worden uitgevoerd op de virtuele machine.
+2. Voer `nvidia-smi` uit. Als het stuurprogramma is geïnstalleerd ziet u uitvoer die vergelijkbaar zijn met de volgende. Houd er rekening mee dat **GPU-Util** toont **0%** tenzij u de werkbelasting van een GPU die momenteel worden uitgevoerd op de virtuele machine. Het is mogelijk dat uw versie van stuurprogramma en GPU details afwijken van de namen weergegeven.
 
 ![De apparaatstatus NVIDIA](./media/n-series-driver-setup/smi.png)  
 

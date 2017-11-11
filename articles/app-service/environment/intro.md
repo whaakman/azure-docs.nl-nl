@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 63e2256ca6d392a0cd284269e8c2d059f94e9139
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 2a619943abaf8835e591872cba0ed046d4c6c4a9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="introduction-to-app-service-environments"></a>Inleiding tot de App Service-omgevingen #
  
@@ -48,13 +48,13 @@ Een as-omgeving bestaat uit een front-ends en werknemers. Front-ends zijn verant
 
 Werknemers zijn functies die klant-apps host. Werknemers zijn beschikbaar in drie vaste grootten:
 
-* Een core/3.5 GB RAM-geheugen
-* Twee core/7 GB RAM-geheugen
-* Vier core/14 GB RAM-geheugen
+* Een vCPU/3.5 GB RAM-geheugen
+* Twee vCPU/7 GB RAM-geheugen
+* Vier vCPU/14 GB RAM-geheugen
 
 Klanten hoeven niet voor het beheren van front-ends en werknemers. Alle infrastructuur wordt automatisch toegevoegd als klanten scale-out hun App Service-abonnementen. Als de App Service-abonnementen zijn gemaakt of geschaald in een as-omgeving, wordt de vereiste infrastructuur toegevoegd of verwijderd afhankelijk van wat geschikt.
 
-Er is een plat maandelijks percentage voor een as-omgeving die betaalt voor de infrastructuur en verandert niet met de grootte van de as-omgeving. Er is bovendien een kosten per core van App Service-plan. Alle apps die worden gehost in een as-omgeving zijn in de SKU-prijzen geïsoleerd. Zie voor informatie over prijzen voor een as-omgeving, de [App Service-prijzen] [ Pricing] pagina en bekijk de beschikbare opties voor ASEs.
+Er is een plat maandelijks percentage voor een as-omgeving die betaalt voor de infrastructuur en verandert niet met de grootte van de as-omgeving. Er is bovendien een kosten per-App Service plan vCPU. Alle apps die worden gehost in een as-omgeving zijn in de SKU-prijzen geïsoleerd. Zie voor informatie over prijzen voor een as-omgeving, de [App Service-prijzen] [ Pricing] pagina en bekijk de beschikbare opties voor ASEs.
 
 ## <a name="virtual-network-support"></a>Virtual network-ondersteuning ##
 
@@ -76,7 +76,7 @@ App Service-omgeving zijn er twee versies: ASEv1 en ASEv2. De voorgaande informa
 
 In ASEv1 moet u alle bronnen handmatig te beheren. Dat betekent onder meer de front-ends, werknemers en IP-adressen gebruikt voor SSL op basis van IP. Voordat u uw App Service-abonnement uitbreiden kunt, moet u eerst scale-out de worker-groep waar u deze hosten.
 
-ASEv1 maakt gebruik van een andere prijscategorie model uit ASEv2. In ASEv1 betaalt u voor elke core toegewezen. Dat betekent onder meer kernen gebruikt voor de front-ends of workers die werkbelastingen worden niet als host. Grootte van de maximale schaal van een as-omgeving is in ASEv1, 55 totale hosts. Die bevat werknemers en -front-ends. Een voordeel ASEv1 is dat deze kan worden geïmplementeerd in een klassiek virtueel netwerk en een virtueel netwerk van Resource Manager. Zie voor meer informatie over ASEv1, [App Service-omgeving v1 inleiding][ASEv1Intro].
+ASEv1 maakt gebruik van een andere prijscategorie model uit ASEv2. In ASEv1 betaalt u voor elke vCPU toegewezen. Dat betekent onder meer vcpu's gebruikt voor de front-ends of workers die werkbelastingen worden niet als host. Grootte van de maximale schaal van een as-omgeving is in ASEv1, 55 totale hosts. Die bevat werknemers en -front-ends. Een voordeel ASEv1 is dat deze kan worden geïmplementeerd in een klassiek virtueel netwerk en een virtueel netwerk van Resource Manager. Zie voor meer informatie over ASEv1, [App Service-omgeving v1 inleiding][ASEv1Intro].
 
 <!--Links-->
 [Intro]: ./intro.md

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/28/2017
 ms.author: daredis
-ms.openlocfilehash: d25a0461bf194808f9bd66ddbd120448620eeba0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 90c03f1538197e1cd1c90165417a4ec74c9c5961
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="secure-your-azure-sql-database"></a>Beveiligen van uw Azure SQL Database
 
@@ -242,7 +242,7 @@ Detectie van dreigingen detecteert bijvoorbeeld bepaalde afwijkende databaseacti
 In deze zelfstudie hebt u geleerd verbeteren de beveiliging van uw database tegen kwaadwillende gebruikers of onbevoegde toegang met slechts enkele eenvoudige stappen.  U hebt geleerd hoe u: 
 
 > [!div class="checklist"]
-> * Firewallregels voor de server en of de database instellen
+> * Firewallregels voor uw server en/of database instellen
 > * Verbinding maken met uw database met behulp van een beveiligde verbindingsreeks
 > * Gebruikerstoegang beheren
 > * Uw gegevens beschermen met versleuteling

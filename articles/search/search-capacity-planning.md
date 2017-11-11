@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/08/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 26f5e71f3d00161a92de702209e224008ec8a5ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47dcd5366ef8ba3d4598e6d418b11997c61bddea
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Resource schaalniveaus voor query's en workloads in Azure Search indexeren
 Nadat u [Kies een prijscategorie](search-sku-tier.md) en [inrichten van een zoekservice](search-create-service-portal.md), de volgende stap is het eventueel verhogen van het aantal replica's of partities die worden gebruikt door uw service. Elke laag biedt een vast aantal facturering eenheden. Dit artikel wordt uitgelegd hoe deze eenheden om te zorgen voor een optimale configuratie die door een compromis uw vereisten voor het uitvoeren van de query tussen, indexeren en de opslag toewijzen.
 
-Resourceconfiguratie is beschikbaar bij het instellen van een service op de [basisstaffel](http://aka.ms/azuresearchbasic) of een van de [standaard lagen](search-limits-quotas-capacity.md). Voor factureerbare services op deze lagen capaciteit is aangeschaft per *zoekeenheden* (SUs) waar elke partitie en replica telt als een SU. 
+Resourceconfiguratie is beschikbaar bij het instellen van een service op de [basisstaffel](http://aka.ms/azuresearchbasic) of een van de [standaard lagen](search-limits-quotas-capacity.md). Voor services op deze lagen, capaciteit is aangeschaft per *zoekeenheden* (SUs) waar elke partitie en replica telt als een SU. 
 
 Gebruik minder SUs resulteert in een proportioneel lagere factuur. Facturering geldt voor als de service is ingesteld. Als u een service tijdelijk niet gebruikt, wordt de enige manier om te voorkomen dat facturering door de service verwijdert en vervolgens opnieuw maken wanneer dat nodig is.
 
@@ -51,21 +51,19 @@ Om te vergroten of wijzig de toewijzing van replica's en partities, wordt u aang
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) en selecteert u de search-service.
 2. In **instellingen**, open de **Scale** blade en gebruik de schuifregelaars om vergroten of verkleinen het aantal partities en replica's.
 
-Als u een script of code gebaseerde inrichting benadering, vereist de [Management REST API](https://msdn.microsoft.com/library/azure/dn832687.aspx) vormt een alternatief voor de portal.
+Als u een script of code gebaseerde inrichting benadering, vereist de [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) vormt een alternatief voor de portal.
 
 Meestal moeten zoektoepassingen meer replica's dan partities, met name wanneer de servicebewerkingen zijn gericht op de query-werkbelastingen. Het gedeelte [hoge beschikbaarheid](#HA) wordt uitgelegd waarom.
 
 > [!NOTE]
-> Nadat u een service is geconfigureerd, kan deze worden bijgewerkt naar een hogere SKU. U moet een search-service op de nieuwe laag maakt en laad de indexen opnieuw. Zie [maken van een Azure Search-service in de portal](search-create-service-portal.md) voor hulp bij het inrichten van de service.
+> Nadat u een service is geconfigureerd, kan deze worden bijgewerkt naar een hogere SKU. U moet een search-service maken op de nieuwe laag en de indexen opnieuw laden. Zie [maken van een Azure Search-service in de portal](search-create-service-portal.md) voor hulp bij het inrichten van de service.
 >
 >
 
 <a id="HA"></a>
 
 ## <a name="high-availability"></a>Hoge beschikbaarheid
-Omdat het opschalen relatief snel en gemakkelijk, in het algemeen wordt aangeraden dat u met één partitie en één begint of twee replica's en schaal omhoog als volumes query bouwen. Voor veel services op de basis- of S1 lagen biedt één partitie voldoende opslag en i/o-(op 15 miljoen documenten per partitie).
-
-Query-workloads uitvoeren voornamelijk op de replica's. Als u meer doorvoer of hoge beschikbaarheid nodig hebt, moet u waarschijnlijk meer replica's.
+Omdat het opschalen relatief snel en gemakkelijk, in het algemeen wordt aangeraden dat u met één partitie en één begint of twee replica's en schaal omhoog als volumes query bouwen. Query-workloads uitvoeren voornamelijk op de replica's. Als u meer doorvoer of hoge beschikbaarheid nodig hebt, moet u waarschijnlijk meer replica's.
 
 Algemene aanbevelingen voor hoge beschikbaarheid zijn:
 
@@ -73,6 +71,8 @@ Algemene aanbevelingen voor hoge beschikbaarheid zijn:
 * Drie of meer replica's voor hoge beschikbaarheid van lezen/schrijven-werkbelastingen (query's plus indexeren als afzonderlijke documenten worden toegevoegd, bijgewerkt of verwijderd)
 
 Serviceovereenkomsten (SLA) voor Azure Search is gericht op querybewerkingen en op index-updates die bestaan uit toevoegen, bijwerken of verwijderen van documenten.
+
+Basic-laag boven uit op één partitie en drie replica's. Als u de flexibiliteit om onmiddellijk reageren op fluctuaties in vraag voor doorvoer voor indexering en query wilt, kunt u een van de lagen Standard.
 
 ### <a name="index-availability-during-a-rebuild"></a>Index beschikbaarheid tijdens het opnieuw opbouwen
 
@@ -89,9 +89,9 @@ Er is momenteel geen ingebouwde methode voor herstel na noodgevallen. Toe te voe
 ## <a name="increase-query-performance-with-replicas"></a>Prestaties van query's met replica's vergroten
 Latentie van query is een indicatie dat de replica's meer nodig zijn. In het algemeen is de eerste stap bij het verbeteren van de prestaties van query's meer van deze resource toevoegen. Als u replica's toevoegt, extra exemplaren van de index online gezet ter ondersteuning van grotere query werkbelastingen en laden van een balans vinden tussen de aanvragen via de meerdere replica's.
 
-Kan geen wij harde maakt een schatting op query's per seconde (QPS): query prestaties, is afhankelijk van de complexiteit van de query en concurrerende werkbelastingen. Gemiddeld een replica basis-of S1 SKU's 15 QPS kunt onderhouden, maar de doorvoer kan hoger of lager, afhankelijk van de complexiteit van de query (meervoudige query's zijn meer complexe) en netwerklatentie. Het is ook belangrijk is dat hoewel replica's toe te voegen, definitief schaal en prestaties toevoegen wordt, het resultaat is niet strikt lineaire kan herkennen: drie doorvoer wordt niet gegarandeerd drie replica's toe te voegen.
+Kan geen wij harde maakt een schatting op query's per seconde (QPS): query prestaties, is afhankelijk van de complexiteit van de query en concurrerende werkbelastingen. Hoewel het toevoegen van replica's duidelijk resulteert in betere prestaties, het resultaat is niet strikt lineaire: drie doorvoer wordt niet gegarandeerd drie replica's toe te voegen.
 
-Zie voor meer informatie over QPS, met inbegrip van strategieën voor het schatten van QPS voor uw werkbelastingen [uw zoekservice beheren](search-manage.md).
+Zie voor instructies in het schatten van QPS voor uw werkbelastingen [aandachtspunten voor prestaties en optimalisatie van Azure Search](search-performance-optimization.md).
 
 ## <a name="increase-indexing-performance-with-partitions"></a>De prestaties van indexering met partities
 Zoektoepassingen waarvoor near realtime gegevens vernieuwen moet proportioneel meer partities dan replica's. Lees-/ schrijfbewerkingen toe te voegen partities worden verspreid over een groter aantal rekenresources. Dit ook biedt u meer schijfruimte voor het opslaan van aanvullende indexen en documenten.

@@ -11,7 +11,6 @@ De opslag wordt beperkt door de schijfruimte of door de vaste limiet voor het *m
 | Maximale aantal indexeerfuncties |3 |5 |50 |200 |200 |Geen ondersteuning voor indexeerfuncties |
 | Maximale aantal gegevensbronnen |3 |5 |50 |200 |200 |Geen ondersteuning voor indexeerfuncties |
 | Maximale aantal documenten |10.000 |1 miljoen |15 miljoen per partitie of 180 miljoen per service |60 miljoen per partitie of 720 miljoen per service |120 miljoen per partitie of 1,4 miljard per service |1 miljoen per index of 200 miljoen per partitie |
-| Geschatte aantal query's per seconde (QPS) |N.v.t. |~3 per replica |~15 per replica |~60 per replica |~60 per replica |>60 per replica |
 
 <sup>1</sup> gratis laag en de preview-functies niet bij service level agreements (Sla's) worden geleverd. Voor alle factureerbare lagen, sla's van kracht als u voldoende redundantie voor uw service inricht. Twee of meer replica's zijn vereist voor de SLA voor query (gelezen). Drie of meer replica's zijn vereist voor query's en indexering SLA (lezen / schrijven). Het aantal partities is niet een SLA-overweging. 
 

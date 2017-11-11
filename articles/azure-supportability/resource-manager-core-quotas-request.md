@@ -1,25 +1,25 @@
 ---
-title: Azure Resource Manager core quotum verhogen aanvragen | Microsoft Docs
-description: Azure Resource Manager core quotum verhogen aanvragen
+title: Azure Resource Manager vCPU quotum verhogen aanvragen | Microsoft Docs
+description: Azure Resource Manager vCPU quotum verhogen aanvragen
 author: ganganarayanan
 ms.author: gangan
 ms.date: 1/18/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: cb6c5b3e86f126d4110d1cd29d8c9891e356e414
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c22a6dde0067385a1bf8d889cc76178bb44dd0ac
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
-# <a name="resource-manager-core-quota-increase-requests"></a>Resource Manager core quotum verhogen aanvragen
+# <a name="resource-manager-vcpu-quota-increase-requests"></a>Resource Manager vCPU quotum verhogen aanvragen
 
-Resource Manager core quota worden afgedwongen op het regioniveau en de SKU-familie niveau.
+Resource Manager vCPU quota worden afgedwongen op het regioniveau en de SKU-familie niveau.
 Meer informatie over hoe quota's worden toegepast op de [Azure-abonnement en Servicelimieten](http://aka.ms/quotalimits) pagina.
 Voor meer informatie over de SKU-Families, kunt u kosten en prestaties vergelijken op de [prijzen van virtuele Machines](http://aka.ms/pricingcompute) pagina.
 
-Voor een verhoging aanvragen, maakt u een ondersteuningsaanvraag quotum voor kernen in de Azure portal [https://portal.azure.com](https://portal.azure.com).
+Als u een verhoging aanvragen, maakt een ondersteuningsaanvraag quotum voor vcpu's in de Azure portal [https://portal.azure.com](https://portal.azure.com).
 
 > [!NOTE]
 > Meer informatie over hoe [Maak een ondersteuningsaanvraag](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) in de Azure portal

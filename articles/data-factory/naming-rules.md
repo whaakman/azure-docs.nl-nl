@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: 8f0207853097a3d31e06a722025f3964678414bf
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 085328a9bbe304004f25f46ba5c366e911ac3836
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - naamgevingsregels
 De volgende tabel bevat de naamgevingsregels voor Data Factory-artefacten.
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u gebruikmaakt van versie 1 van de Data Factory-service, die is (GA) is algemeen beschikbaar is, raadpleegt u [naamgevingsregels in Data Factory version1 gedefinieerd](v1/data-factory-naming-rules.md).
+> Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [naamgevingsregels in Data Factory version1 gedefinieerd](v1/data-factory-naming-rules.md).
 
 | Naam | Uniekheid van de naam | De validatie wordt gecontroleerd |
 |:--- |:--- |:--- |
@@ -33,4 +33,4 @@ De volgende tabel bevat de naamgevingsregels voor Data Factory-artefacten.
 | Resourcegroep |Uniek zijn voor Microsoft Azure. De namen zijn niet hoofdlettergevoelig. |<ul><li>Maximum aantal tekens: 1000.</li><li>Naam mag letters, cijfers en de volgende tekens bevatten: '-', ' _ ',', 'en'. '</li></ul> |
 
 ## <a name="next-steps"></a>Volgende stappen
-Informatie over het maken van data Factory door volgen stapsgewijze insturctions in [Snelstartgids: Maak een gegevensfactory](quickstart-create-data-factory-powershell.md) artikel. 
+Informatie over het maken van data Factory door volgen Stapsgewijze instructies in [Snelstartgids: Maak een gegevensfactory](quickstart-create-data-factory-powershell.md) artikel. 

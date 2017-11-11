@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: 8ee171708364c3e29476302bef04a715df650b9b
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: cd727b2902dafdb8086ac4ce74db96ca8acf8fe8
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Een App Service-resourceprovider toevoegen aan een Azure-Stack omgeving zonder verbinding beveiligd met AD FS
 
@@ -110,7 +110,7 @@ Voor het App Service implementeren in een omgeving zonder verbinding, moet u eer
 
     ![App Service-installatie](media/azure-stack-app-service-deploy/image07.png)    
 
-12. Bekijk de rolinstantie en SKU-opties. De standaardwaarden worden ingevuld met het minimum aantal exemplaar en de minimale SKU voor elke rol in de implementatie van een ASDK. Een overzicht van de vereisten voor core en het geheugen is opgegeven bij het plannen van uw implementatie. Nadat u uw selecties maken, klikt u op **volgende**.
+12. Bekijk de rolinstantie en SKU-opties. De standaardwaarden worden ingevuld met het minimum aantal exemplaar en de minimale SKU voor elke rol in de implementatie van een ASDK. Een overzicht van de vereisten voor vCPU en het geheugen is opgegeven bij het plannen van uw implementatie. Nadat u uw selecties maken, klikt u op **volgende**.
 
      > [!NOTE]
      > Voor implementaties in de instructies in het volgende [planning van capaciteit voor Azure App Service-serverfuncties in Azure-Stack](azure-stack-app-service-capacity-planning.md).
@@ -119,11 +119,11 @@ Voor het App Service implementeren in een omgeving zonder verbinding, moet u eer
 
     | Rol | Minimale exemplaren | Minimale SKU | Opmerkingen |
     | --- | --- | --- | --- |
-    | Domeincontroller | 1 | Standard_A1 - (1 Kerngeheugen, 1792 MB) | Beheert en onderhoudt de status van de cloud-App Service. |
-    | Beheer | 1 | Standard_A2 - (2 kernen, 3584 MB) | Beheert de App Service Azure Resource Manager en API-eindpunten, portal-extensies (admin, tenant, Functions-portal) en de data-service. Ter ondersteuning van failover, vergroot u de aanbevolen exemplaren 2. |
-    | Uitgever | 1 | Standard_A1 - (1 Kerngeheugen, 1792 MB) | Inhoud via FTP en web deployment publiceert. |
-    | FrontEnd | 1 | Standard_A1 - (1 Kerngeheugen, 1792 MB) | Routes aanvragen voor App Service-toepassingen. |
-    | Gedeelde Worker | 1 | Standard_A1 - (1 Kerngeheugen, 1792 MB) | Hosts webtoepassingen of API en apps van Azure Functions. Mogelijk wilt meer exemplaren toe te voegen. Als operator kunt u definiëren van uw aanbod en eventuele SKU-categorie kiezen. De lagen moeten minimaal één kern hebben. |
+    | Domeincontroller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Beheert en onderhoudt de status van de cloud-App Service. |
+    | Beheer | 1 | Standard_A2 - (2 Vcpu, 3584 MB) | Beheert de App Service Azure Resource Manager en API-eindpunten, portal-extensies (admin, tenant, Functions-portal) en de data-service. Ter ondersteuning van failover, vergroot u de aanbevolen exemplaren 2. |
+    | Uitgever | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Inhoud via FTP en web deployment publiceert. |
+    | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Routes aanvragen voor App Service-toepassingen. |
+    | Gedeelde Worker | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Hosts webtoepassingen of API en apps van Azure Functions. Mogelijk wilt meer exemplaren toe te voegen. Als operator kunt u definiëren van uw aanbod en eventuele SKU-categorie kiezen. De lagen moeten minimaal één vCPU hebben. |
 
     ![App Service-installatie](media/azure-stack-app-service-deploy/image08.png)    
 

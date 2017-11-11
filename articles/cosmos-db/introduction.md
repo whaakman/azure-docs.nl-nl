@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: d5ae2a68f749310d4d6a2514055fb258978eec9c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 804b20111ea99892201079657d6d3602ececdd28
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Welkom bij Azure Cosmos DB
 
@@ -42,7 +42,7 @@ Als een wereldwijd gedistribueerde databaseservice biedt Azure Cosmos DB de volg
     * API's voor de volgende gegevensmodellen worden ondersteund, waarbij er SDK's beschikbaar zijn in meerdere talen:
         * [DocumentDB-API](documentdb-introduction.md): een schema minder JSON-database-engine met SQL querymogelijkheden.
         * [MongoDB API](mongodb-introduction.md): A MongoDB-databaseservice die is gebouwd op Cosmos-DB. Compatibel met bestaande MongoDB-bibliotheken, stuurprogramma's, hulpprogramma's en toepassingen.
-        * [Tabel API](table-introduction.md): een sleutel / waarde-opslag-databaseservice die is ontwikkeld voor premium-mogelijkheden bieden voor Azure Table storage toepassingen.
+        * [Tabel API](table-introduction.md): een sleutel / waarde-database-service die is ontwikkeld voor premium-mogelijkheden bieden voor Azure Table storage toepassingen.
         * [Graph API (Gremlin)](graph-introduction.md): een volgende grafiek database gebouwd-service de [Apache TinkerPop specificatie](http://tinkerpop.apache.org/).
         * Aanvullende gegevensmodellen binnenkort beschikbaar.
 

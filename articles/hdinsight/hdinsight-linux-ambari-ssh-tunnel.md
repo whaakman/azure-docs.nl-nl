@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/21/2017
+ms.date: 11/10/2017
 ms.author: larryfr
-ms.openlocfilehash: 4b606ea3797d685b9deacf72f1bd31e0ef007f98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f55abc84a8afea398cf0e95761d922b77e1c248
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>SSH-Tunneling gebruiken voor toegang tot de Ambari-webgebruikersinterface, JobHistory, NameNode, Oozie en andere web-UI
 
@@ -48,7 +48,7 @@ Als u scriptacties gebruikt voor het aanpassen van uw cluster, vereisen geen ser
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een SSH-client. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+* Een SSH-client. De meeste besturingssystemen bevatten een SSH client via de `ssh` opdracht. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
 * Een webbrowser die kan worden geconfigureerd om een proxy SOCKS5 te gebruiken.
 
@@ -74,9 +74,9 @@ Deze opdracht maakt u een verbinding die verkeer gerouteerd naar lokale poort 98
 * **C** -alle gegevens te comprimeren omdat webverkeer voornamelijk tekst is.
 * **2** -force SSH protocol versie 2 alleen proberen.
 * **q** -stille modus.
-* **T** -toewijzing van de pseudo-tty uitschakelen omdat we zojuist een poort doorstuurt.
-* **n**-Voorkomen dat het lezen van STDIN, aangezien we zojuist een poort doorstuurt.
-* **N** -een externe opdracht niet uitvoeren omdat er slechts een poort doorstuurt.
+* **T** -toewijzing van de pseudo-tty uitschakelen omdat u zojuist een poort doorstuurt.
+* **n**-Voorkomen dat het lezen van STDIN, omdat u zojuist een poort doorstuurt.
+* **N** -een externe opdracht niet uitvoeren omdat u zojuist een poort doorstuurt.
 * **f** -op de achtergrond uitgevoerd.
 
 Zodra de opdracht is voltooid, wordt verkeer dat wordt verzonden naar poort 9876 op de lokale computer naar het hoofdknooppunt van het cluster gestuurd.

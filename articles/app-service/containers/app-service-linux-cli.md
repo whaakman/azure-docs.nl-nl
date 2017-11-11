@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.openlocfilehash: 903fbe376cb3d75eb5ddc1eed4838cd10f3c6a28
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 54c979313a6ffa43008aa9870332b92d2b2f182a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Web-App voor Containers met Azure CLI beheren
 
 Met de opdrachten in dit artikel bent u maken en beheren van een Web-App voor Containers met Azure CLI 2.0.
 U kunt starten met behulp van de nieuwe versie van de CLI op twee manieren:
 
-* [Installatie van Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) op uw computer.
+* [Installatie van Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) op uw computer.
 * Met behulp van [Azure-Cloud-Shell (Preview)](../../cloud-shell/overview.md)
 
 ## <a name="create-a-linux-app-service-plan"></a>Een Linux-App Service-abonnement maken
@@ -104,7 +104,7 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Wat is Azure App Service op Linux?](app-service-linux-intro.md)
-* [Installeer Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+* [Installeer Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure-Cloud-Shell (Preview)](../../cloud-shell/overview.md)
 * [Faseringsomgevingen in Azure App Service instellen](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Continue implementatie met Web-App voor Containers](app-service-linux-ci-cd.md)

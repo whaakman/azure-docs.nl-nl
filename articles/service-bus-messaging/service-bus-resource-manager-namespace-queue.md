@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/10/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: 4358130a2c8e897a0fdd1f9560f766d6e22db4d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ac9bb07a1b690681e0b263eea233cd5373d990b
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Een Service Bus-naamruimte en een wachtrij met een Azure Resource Manager-sjabloon maken
 
-Dit artikel laat zien hoe u een Azure Resource Manager-sjabloon die wordt gemaakt van een Service Bus-naamruimte en een wachtrij binnen deze naamruimte. U leert hoe om te definiëren welke bronnen worden geïmplementeerd en het definiëren van de parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
+Dit artikel laat zien hoe u een Azure Resource Manager-sjabloon die wordt gemaakt van een Service Bus-naamruimte en een wachtrij binnen deze naamruimte. Het artikel wordt uitgelegd hoe om op te geven welke resources worden geïmplementeerd en het definiëren van de parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
 
 Zie voor meer informatie over het maken van sjablonen [Azure Resource Manager-sjablonen samenstellen][Authoring Azure Resource Manager templates].
 
@@ -36,13 +36,13 @@ Zie voor de volledige sjabloon, het [Service Bus-naamruimte en de wachtrij sjabl
 > * [Een Service Bus-naamruimte maken](service-bus-resource-manager-namespace.md)
 > * [Een Service Bus-naamruimte maken met onderwerp, abonnement en regel](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Om te controleren of de meest recente sjablonen, gaat u naar de [Azure-Snelstartsjablonen] [ Azure Quickstart Templates] galerie en zoek naar 'Servicebus'.
+> Om te controleren of de meest recente sjablonen, gaat u naar de [Azure-Snelstartsjablonen] [ Azure Quickstart Templates] galerie en zoek naar **Service Bus**.
 > 
 > 
 
 ## <a name="what-will-you-deploy"></a>Wat wilt u implementeren?
 
-Met deze sjabloon implementeert u een Service Bus-naamruimte met een wachtrij.
+Met deze sjabloon kunt u een Service Bus-naamruimte met een wachtrij implementeren.
 
 [Service Bus-wachtrijen](service-bus-queues-topics-subscriptions.md#queues) bieden First In, eerste Out (FIFO) berichtbezorging naar een of meer concurrerende consumenten.
 
@@ -81,9 +81,12 @@ De naam van de wachtrij in de Service Bus-naamruimte gemaakt.
 De Service Bus-API-versie van de sjabloon.
 
 ```json
-"serviceBusApiVersion": {
-"type": "string"
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2017-04-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       }
 ```
 
 ## <a name="resources-to-deploy"></a>Resources om te implementeren

@@ -4,7 +4,7 @@ description: Parallel bulkimporteren van gegevens met SQL-partitietabellen
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
 ms.service: machine-learning
@@ -12,24 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/09/2017
 ms.author: bradsev
-ms.openlocfilehash: 899f20b3642612386f2513c9c8649cd845be826e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77638ff52edbc2b782b21a4ca1c727a2b46f22f3
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Parallel bulkimporteren van gegevens met SQL-partitietabellen
 Dit document wordt beschreven hoe u gepartitioneerde tabellen voor het snel parallelle bulkbewerkingen voor importeren van gegevens naar een SQL Server-database. Voor grote laden/overdracht van gegevens naar een SQL-database, het importeren van gegevens naar de SQL-database en de volgende query's kan worden verbeterd via *gepartitioneerde tabellen en weergaven*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Maak een nieuwe database en een set bestandsgroepen
 * [Maak een nieuwe database](https://technet.microsoft.com/library/ms176061.aspx), als deze niet al bestaat.
-* Database-bestandsgroepen toevoegen aan de database waarin de gepartitioneerde fysieke bestanden. Dit kan worden gedaan met [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) als de nieuwe of [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) als de database al bestaat.
+* Database-bestandsgroepen toevoegen aan de database, die de gepartitioneerde fysieke bestanden bevat. 
+* Dit kan worden gedaan met [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) als de nieuwe of [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) als de database al bestaat.
 * Een of meer bestanden (indien nodig) toevoegen aan de bestandsgroep van elke database.
   
   > [!NOTE]
-  > Geef de doel-bestandsgroep die gegevens voor deze partitie bevat en de fysieke database bestand namen waar de gegevens van de bestandsgroep worden opgeslagen.
+  > Geef de doel-bestandsgroep, die gegevens voor deze partitie bevat en waar de gegevens van de bestandsgroep worden opgeslagen of hostnamen de fysieke database.
   > 
   > 
 
@@ -55,18 +56,19 @@ Het volgende voorbeeld maakt een nieuwe database met drie bestandsgroepen naast 
     ')
 
 ## <a name="create-a-partitioned-table"></a>Een gepartitioneerde tabel maken
-Maak gepartitioneerde tabellen volgens het gegevensschema, toegewezen aan de database-bestandsgroepen in de vorige stap hebt gemaakt. Als gegevens bulksgewijs naar de gepartitioneerde tabel(len) geïmporteerd, worden records worden verdeeld over de bestandsgroepen volgens een partitieschema, zoals hieronder wordt beschreven.
+Voor het maken van gepartitioneerde tabellen volgens het gegevensschema, toegewezen aan de database-bestandsgroepen gemaakt in de vorige stap, moet u eerst een partitiefunctie en schema maken. Als gegevens bulksgewijs naar de gepartitioneerde tabel(len) geïmporteerd, worden de records verdeeld over de bestandsgroepen volgens een partitieschema, zoals hieronder wordt beschreven.
 
-**Een als partitietabel wilt maken, moet u:**
-
-* [Maken van een partitiefunctie](https://msdn.microsoft.com/library/ms187802.aspx) definieert het bereik van waarden/grenzen worden opgenomen in elke afzonderlijke partitietabel, bijvoorbeeld, om te beperken van partities per maand (sommige\_datetime\_veld) in het jaar 2013:
+### <a name="1-create-a-partition-function"></a>1. De partitiefunctie van een maken
+[Maken van een partitiefunctie](https://msdn.microsoft.com/library/ms187802.aspx) deze functie definieert het bereik van waarden/grenzen worden opgenomen in elke afzonderlijke partitietabel, bijvoorbeeld, om te beperken van partities per maand (sommige\_datetime\_veld) in het jaar 2013:
   
         CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
         AS RANGE RIGHT FOR VALUES (
             '20130201', '20130301', '20130401',
             '20130501', '20130601', '20130701', '20130801',
             '20130901', '20131001', '20131101', '20131201' )
-* [Maken van een partitieschema](https://msdn.microsoft.com/library/ms179854.aspx) die elk partitiebereik in de partitiefunctie toegewezen aan een fysieke bestandsgroep, bijvoorbeeld:
+
+### <a name="2-create-a-partition-scheme"></a>2. Maken van een partitieschema opgeven
+[Maken van een partitieschema](https://msdn.microsoft.com/library/ms179854.aspx). Dit schema wordt bijvoorbeeld elk partitiebereik in de partitiefunctie aan een fysieke bestandsgroep toegewezen:
   
         CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
         PARTITION <DatetimeFieldPFN> TO (
@@ -83,7 +85,9 @@ Maak gepartitioneerde tabellen volgens het gegevensschema, toegewezen aan de dat
         INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id
         INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
         WHERE pfun.name = <DatetimeFieldPFN>
-* [Gepartitioneerde tabel maken](https://msdn.microsoft.com/library/ms174979.aspx)(s) op basis van uw gegevensschema en geeft u de partitie schema en beperking veld dat wordt gebruikt voor het partitioneren van de tabel, bijvoorbeeld:
+
+### <a name="3-create-a-partition-table"></a>3. Een partitietabel maken
+[Gepartitioneerde tabel maken](https://msdn.microsoft.com/library/ms174979.aspx)(s) op basis van uw gegevensschema en geeft u de partitie schema en beperking veld dat wordt gebruikt voor het partitioneren van de tabel, bijvoorbeeld:
   
         CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
@@ -91,8 +95,9 @@ Maak gepartitioneerde tabellen volgens het gegevensschema, toegewezen aan de dat
 Zie voor meer informatie [gepartitioneerde tabellen maken en indexen](https://msdn.microsoft.com/library/ms188730.aspx).
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>De gegevens voor elke afzonderlijke partitietabel bulkimport
+
 * U kunt BCP BULK INSERT of andere methoden, zoals [SQL Server Migration Wizard](http://sqlazuremw.codeplex.com/). Het opgegeven voorbeeld maakt gebruik van de BCP-methode.
-* [De database wijzigen](https://msdn.microsoft.com/library/bb522682.aspx) transactielogboeken schema wijzigen in BULK_LOGGED minimaliseren overhead van het aan te melden, bijvoorbeeld:
+* [De database wijzigen](https://msdn.microsoft.com/library/bb522682.aspx) transactie logboekregistratie schema wijzigen in BULK_LOGGED minimaliseren overhead van het aan te melden, bijvoorbeeld:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
 * Het laden van gegevens sneller, start u de bulkbewerkingen voor importeren parallel. Zie voor tips over bespoedigen bulksgewijs importeren van big data in SQL Server-databases [laden van 1TB in minder dan 1 uur](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
@@ -162,7 +167,7 @@ De volgende PowerShell-script is een voorbeeld van een parallelle gegevens laden
 
 
 ## <a name="create-indexes-to-optimize-joins-and-query-performance"></a>Maken van indexen voor het optimaliseren van joins en prestaties van query 's
-* Als u gegevens voor het model wordt ophaalt uit meerdere tabellen, kunt u de indexen maken voor de join-sleutels om de join-prestaties te verbeteren.
+* Als u gegevens voor modellering uit meerdere tabellen extraheren, maakt u indexen voor de join-sleutels om de join-prestaties te verbeteren.
 * [Maken van indexen](https://technet.microsoft.com/library/ms188783.aspx) (geclusterde of niet-geclusterde) die gericht is op de dezelfde bestandsgroep voor elke partitie voor bijvoorbeeld:
   
         CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
@@ -173,10 +178,10 @@ De volgende PowerShell-script is een voorbeeld van een parallelle gegevens laden
         ON <TablePScheme>(<partition)field>)
   
   > [!NOTE]
-  > U kunt ervoor kiezen de indexen voordat bulksgewijs importeren van gegevens. Maken van een index voor het bulksgewijs importeren wordt het laden van gegevens vertraagd.
+  > U kunt ervoor kiezen de indexen voordat bulksgewijs importeren van gegevens. Maken van een index voor het bulksgewijs importeren vertraagt de het laden van gegevens.
   > 
   > 
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Geavanceerde analyses proces en de technologie in actie voorbeeld
-Zie voor een overzicht van de end-to-end-voorbeeld het proces Cortana-Analytics gebruiken met een openbare gegevensset, [Cortana-Analytics proces in actie: met behulp van SQL Server](sql-walkthrough.md).
+Zie voor een overzicht van de end-to-end voorbeeld met het Team gegevens wetenschap proces met een openbare gegevensset, [Team gegevens wetenschappelijke processen in actie: met behulp van SQL Server](sql-walkthrough.md).
 

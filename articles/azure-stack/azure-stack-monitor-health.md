@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/10/2017
 ms.author: twooley
-ms.openlocfilehash: b2ba7ec922341464ea7160d08e475999c941c42a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf454a438f088d8079352ac60ce845185b741327
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Status en waarschuwingen in de Azure-Stack controleren
 
@@ -36,7 +36,7 @@ Azure Stack bevat mogelijkheden waarmee u om weer te geven van de status en waar
  
  Als een Azure-Stack-operator, kunt u de status van onderdelen weergeven in de beheerdersportal en via REST-API en PowerShell.
  
-De status in de portal klikt u op de regio die u weergeven wilt de **regio management** tegel. U kunt de status van de functies van de infrastructuur en resourceproviders bekijken. In deze release de resourceprovider voor Compute status niet gerapporteerd.
+De status in de portal klikt u op de regio die u weergeven wilt de **regio management** tegel. U kunt de status van de functies van de infrastructuur en resourceproviders bekijken.
 
 ![Lijst met rollen van de infrastructuur](media/azure-stack-monitor-health/image2.png)
 

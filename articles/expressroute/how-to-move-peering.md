@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: f48e270054ba45211c2a1517593d5d7b22925d0a
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 4fd0f1cbba36957ae5ecc1b7436d1f1734a3ef79
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Verplaatsen van een openbare peering voor het Microsoft-peering
 
@@ -34,7 +34,7 @@ In dit artikel helpt u bij de configuratie van een openbare peering verplaatsen 
 
 * Voor verbinding met Microsoft-peering, moet u instellen en beheren van NAT bevinden. Uw connectiviteitsprovider kan instellen en beheren van de NAT als een beheerde service. Als u van plan bent voor toegang tot de Azure-PaaS en Azure SaaS-services op Microsoft-peering, is het belangrijk dat u het formaat van het NAT IP-adresgroep correct. Zie voor meer informatie over de NAT voor ExpressRoute, de [NAT-vereisten voor Microsoft-peering](expressroute-nat.md#nat-requirements-for-microsoft-peering).
 
-* Als u momenteel een toegangsbeheerlijst (ACL) netwerk voor de resource voor de service Azure PaaS die hebt in de openbare Azure-peering voorkomt, moet u ervoor zorgen dat het NAT IP-groep **adresbereik** is opgenomen in de Firewall-ACL voor Microsoft peering.
+* Als u openbare peering en hebt momenteel de netwerk-IP-regels voor het openbare IP-adressen die worden gebruikt voor toegang tot [Azure Storage](../storage/common/storage-network-security.md) of [Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), moet u ervoor zorgen dat het NAT IP-adresgroep geconfigureerd met Microsoft is-peering opgenomen in de lijst met openbare IP-adressen voor de Azure-opslagaccount of Azure SQL-account.
 
 * Als u wilt verplaatsen naar de Microsoft-peering zonder uitvaltijd, gebruik de stappen in dit artikel in de volgorde waarin ze worden weergegeven.
 

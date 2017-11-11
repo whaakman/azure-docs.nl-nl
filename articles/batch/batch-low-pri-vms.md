@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: na
 ms.date: 09/28/2017
 ms.author: markscu
-ms.openlocfilehash: 541086d4b2f0c52f9e03c3993311705b7475e9a6
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: b9e5181baedba7cc4783553221521f5b08a7bc4d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Met lage prioriteit virtuele machines, met Batch
 
@@ -71,7 +71,7 @@ Azure Batch biedt verschillende mogelijkheden die gemakkelijk te gebruiken en pr
 
 -   Taken worden onderbroken, Batch wordt gedetecteerd als automatisch requeues taken opnieuw uit te voeren.
 
--   Prioriteit Laag VM's hebben een afzonderlijke kerngeheugenquotum, verschilt voor toegewezen virtuele machines. 
+-   Prioriteit Laag VM's hebben een quotum afzonderlijke vCPU, afwijkt van de versie voor toegewezen virtuele machines. 
     Het quotum voor virtuele machines prioriteit laag is hoger dan het quotum voor toegewezen virtuele machines, omdat minder VM met lage prioriteit kosten. Zie voor meer informatie [Batch-servicequota en limieten](batch-quota-limit.md#resource-quotas).    
 
 

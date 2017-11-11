@@ -12,17 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: b9b068df1c6aa8d4bea9428ddbe2e0bc6444c31f
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: f7604e251bd62ec382ac9ace3de058e345abb863
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/10/2017
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Opslaan van referenties in Azure Sleutelkluis
 
-Slaat u referenties voor gegevensopslag in een [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory haalt de referenties bij het uitvoeren van een activiteit die gebruikmaakt van het gegevensarchief. 
-
-Op dit moment alleen [Dynamics connector](connector-dynamics-crm-office-365.md) en [Salesforce-connector](connector-salesforce.md) deze functie ondersteunen.
+Slaat u referenties voor gegevensopslag in een [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory haalt de referenties bij het uitvoeren van een activiteit die gebruikmaakt van het gegevensarchief. Op dit moment alleen [Dynamics connector](connector-dynamics-crm-office-365.md) en [Salesforce-connector](connector-salesforce.md) deze functie ondersteunen.
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [documentatie voor Data Factory version1 gedefinieerd](v1/data-factory-introduction.md).

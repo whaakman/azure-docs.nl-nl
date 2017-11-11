@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure SQL-gegevenssynchronisatie (Preview) | Microsoft Docs
-description: Deze zelfstudie helpt u aan de slag met Azure SQL-gegevenssynchronisatie (Preview)
+title: Instellen van Azure SQL-gegevenssynchronisatie (Preview) | Microsoft Docs
+description: Deze zelfstudie ziet u het instellen van Azure SQL-gegevenssynchronisatie (Preview)
 services: sql-database
 documentationcenter: 
 author: douglaslms
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 0dc34a8e08ea75a84d1553963bdb892c84dacdb7
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: d0b3f3b188bc5da91414efb763b5165377009191
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/10/2017
 ---
-# <a name="get-started-with-azure-sql-data-sync-preview"></a>Aan de slag met Azure SQL-gegevenssynchronisatie (Preview)
+# <a name="set-up-sql-data-sync-preview"></a>Instellen van het synchroniseren van de SQL-gegevens (Preview)
 In deze zelfstudie leert u het instellen van het synchroniseren van Azure SQL-gegevens door te maken van een hybride-groep voor synchronisatie met Azure SQL Database- en SQL Server-exemplaren. De nieuwe groep voor synchronisatie is volledig geconfigureerd en gesynchroniseerd volgens de planning die u instelt.
 
 Deze zelfstudie wordt ervan uitgegaan dat er ten minste enige ervaring met SQL-Database en SQL Server. 
@@ -110,7 +110,7 @@ Op de **Azure-Database configureren** pagina, het volgende doen:
 
     ![Nieuw lid van de SQL-Database-synchronisatie is toegevoegd](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-### <a name="add-an-on-premises-sql-server-database"></a>Toevoegen van een lokale SQL Server-database.
+### <a name="add-on-prem"></a>Toevoegen van een lokale SQL Server-database.
 
 In de **Liddatabase** sectie eventueel een lokale SQL-Server toevoegen aan de groep voor synchronisatie door te selecteren **toevoegen van een On-Premises Database**. De **configureren On-Premises** pagina wordt geopend.
 

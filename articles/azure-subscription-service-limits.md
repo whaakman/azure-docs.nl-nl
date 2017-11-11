@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: ee021f5679d3c5a37cd8a795732721b37aaf66ea
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: ff5da6a07512c323cd281832d1ca8a4c0ec5a816
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 Dit document vindt u enkele van de meest voorkomende Microsoft Azure limieten, quota's worden ook wel worden genoemd. Dit document betrekking niet op dit moment op alle Azure-services. Na verloop van tijd wordt de lijst uitgebreid en bijgewerkt ten aanzien van het platform.
@@ -38,7 +38,7 @@ Het is nu mogelijk om te combineren meerdere Azure-resources in aan één Azure-
 Een nieuwe tabel is in de onderstaande grenzen in overeenstemming met eventuele verschillen in limieten bij gebruik van Azure Resource Manager toegevoegd. Er is bijvoorbeeld een **abonnementen** tabel en een **abonnementen - Azure Resource Manager** tabel. Wanneer er een limiet voor beide scenario's geldt, is het alleen weergegeven in de eerste tabel. Tenzij anders vermeld, gelden limieten in alle regio's.
 
 > [!NOTE]
-> Het is belangrijk om te benadrukken dat quota's voor resources in Azure-resourcegroepen per regio toegankelijk zijn voor uw abonnement zijn, en niet per abonnement, omdat de service management-quota. Laten we core quota gebruiken als voorbeeld. Als u een verhoging van het quotum met ondersteuning voor kernen aanvragen moet, moet u bepalen hoeveel kernen die u wilt gebruiken in welke regio's en vervolgens een specifieke aanvraag voor Azure-resourcegroep core quota's voor de bedragen en regio's die u wilt maken. Dus als u wilt gebruiken, 30 kernen in West-Europa voor het uitvoeren van uw toepassing. specifiek moet u 30 kernen in West-Europa aanvragen. Maar u geen een quotum voor kernen verhogen in elke andere regio--alleen West-Europa heeft het quotum 30-core.
+> Het is belangrijk om te benadrukken dat quota's voor resources in Azure-resourcegroepen per regio toegankelijk zijn voor uw abonnement zijn, en niet per abonnement, omdat de service management-quota. Laten we vCPU quota gebruiken als voorbeeld. Als u aanvragen van een verhoging van het quotum met ondersteuning voor Vcpu alleen, moet u bepalen hoeveel vcpu's die u wilt gebruiken in welke regio's en vervolgens een specifieke aanvraag voor Azure-resourcegroep vCPU quota's voor de bedragen en regio's die u wilt maken. Als u 30 vcpu's in West-Europa gebruiken wilt voor het uitvoeren van uw toepassing bevat, moet u daarom specifiek 30 vcpu's in West-Europa aanvragen. Maar u geen een vCPU quotum verhogen in elke andere regio--alleen West-Europa heeft het quotum 30 vCPU.
 > <!-- -->
 > U kunt als gevolg hiervan handiger om u te overwegen beslist wat uw Azure-resourcegroep quota's nodig zijn voor uw workload in elke regio een, en dat bedrag in elke regio waarin u implementatie overweegt aanvragen. Zie [implementatieproblemen oplossen](resource-manager-common-deployment-errors.md) voor meer informatie voor het detecteren van uw huidige quota's voor specifieke regio's.
 >

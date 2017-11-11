@@ -1,6 +1,6 @@
 ---
-title: OpenShift op Azure overzicht | Microsoft Docs
-description: OpenShift op overzicht van Azure.
+title: OpenShift in Azure overzicht | Microsoft Docs
+description: Een overzicht van OpenShift in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
@@ -15,55 +15,55 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: f9641b52db91a4356f6d5789a8cd78a6bb3da02b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 5d154a1c860a5ebd7af2efd55b470bb14efe6c67
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/11/2017
 ---
-# <a name="openshift-overview"></a>Overzicht van OpenShift
+# <a name="openshift-in-azure"></a>OpenShift in Azure
 
-OpenShift is een open en uitbreidbaar container toepassingsplatform die docker en Kubernetes naar de onderneming brengt.  
+OpenShift is een open en uitbreidbaar container toepassingsplatform die Docker en Kubernetes naar de onderneming brengt.  
 
-OpenShift bevat Kubernetes voor container orchestration en -beheer. Hiermee worden toegevoegd voor ontwikkelaars en bewerkingen gericht hulpprogramma's waarmee:
+OpenShift bevat Kubernetes voor container orchestration en -beheer. Ontwikkelaars en operations-gericht hulpprogramma's waarmee wordt toegevoegd:
 
-- Snelle ontwikkeling van toepassingen
-- Eenvoudige implementatie en schalen
-- Op lange termijn levenscyclus onderhoud voor teams en toepassingen
+- Snelle ontwikkeling van toepassingen.
+- Eenvoudige implementatie en schalen.
+- Op lange termijn onderhoud van de levenscyclus voor teams en toepassingen.
 
-Er zijn meerdere aanbiedingen van OpenShift van die twee zijn beschikbaar in Azure uit te voeren.
+Er zijn meerdere versies van OpenShift, die twee zijn beschikbaar in Azure uit te voeren:
 
 - OpenShift Origin
 - OpenShift Container Platform
 - OpenShift Online
 - OpenShift toegewezen
 
-Van de vier aanbiedingen gedekt, twee zijn beschikbaar voor klanten om te implementeren in Azure op hun eigen - OpenShift oorsprong en OpenShift Container Platform.
+De vier versies die in dit artikel, twee zijn beschikbaar voor klanten om te implementeren in Azure op hun eigen: OpenShift oorsprong en OpenShift Container Platform.
 
 ## <a name="openshift-origin"></a>OpenShift Origin
 
-[Open-source](https://www.openshift.org/) upstream-project van OpenShift die community ondersteund. Oorsprong kan worden geïnstalleerd op CentOS of RHEL.
+Oorsprong is een [open source](https://www.openshift.org/) upstream-project van OpenShift die community ondersteund. Oorsprong kan worden geïnstalleerd op CentOS of Red Hat Enterprise Linux (RHEL).
 
 ## <a name="openshift-container-platform"></a>OpenShift Container Platform
 
-Enterprise-ready ([commerciële aanbieding](https://www.openshift.com)) versie van Red Hat die wordt ondersteund door Red Hat. De klant de benodigde rechten voor OpenShift Container Platform koopt en is verantwoordelijk voor de installatie en beheer van de gehele infrastructuur.
+Container Platform is een enterprise-ready [commerciële versie](https://www.openshift.com) uit en ondersteund door Red Hat. Met deze versie klanten de benodigde rechten voor OpenShift Container Platform kopen en verantwoordelijk zijn voor installatie en beheer van de gehele infrastructuur.
 
-Omdat de klant 'eigenaar' het platform, kan worden geïnstalleerd in hun on-premises datacentrum, openbare cloud (Azure, AWS, Google, enzovoort), enzovoort.
+Omdat klanten 'eigenaar' van het platform, kunnen ze deze installeren in hun on-premises datacentrum of in een openbare cloud (zoals Azure, AWS of Google).
 
 ## <a name="openshift-online"></a>OpenShift Online
 
-Red Hat beheerd **multitenant** OpenShift (met behulp van de Container Platform). Red Hat beheert alle onderliggende infrastructuur (VM's, OpenShift cluster, netwerken, opslag, enz.). 
+Online is een Red Hat beheerde *multitenant* OpenShift die gebruikmaakt van de Container-Platform. Red Hat beheert alle van de onderliggende infrastructuur (zoals virtuele machines, OpenShift cluster, netwerken en opslag). 
 
-Klant containers worden geïmplementeerd, maar heeft geen controle over welke hosts de containers worden uitgevoerd. Aangezien het multitenant, kunnen containers worden geplaatst op hetzelfde VM-hosts als containers van andere klanten. Er is een kosten per container.
+Met deze versie, de klant containers worden geïmplementeerd, maar heeft geen controle over welke hosts de containers worden uitgevoerd. Omdat Online multitenant is, kunnen de containers zich bevinden op dezelfde VM-hosts als containers van andere klanten. Er is een kosten per container.
 
 ## <a name="openshift-dedicated"></a>OpenShift toegewezen
 
-Red Hat beheerd **één tenant** OpenShift (met behulp van de Container Platform). Red Hat beheert alle onderliggende infrastructuur (VM's, OpenShift cluster, netwerken, opslag, enz.). Het cluster is specifiek voor één klant en wordt uitgevoerd in een openbare cloud (Azure AWS, Google, - binnenkort in vroege 2018). Begin cluster bevat vier knooppunten van de toepassingen voor 48K-jaar (vooraf betaling voor een heel jaar).
+Speciale is een Red Hat beheerde *één tenant* OpenShift die gebruikmaakt van de Container-Platform. Red Hat beheert alle van de onderliggende infrastructuur (VM's, OpenShift cluster, netwerken, opslag, enz.). Het cluster is specifiek voor één klant en wordt uitgevoerd in een openbare cloud (zoals AWS of Google met Azure binnenkort in vroege 2018). Een begin-cluster bevat vier knooppunten van de toepassing voor $48,000 per jaar (vooraf betaald).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Algemene vereisten voor OpenShift configureren in Azure](./openshift-prerequisites.md)
-- [OpenShift oorsprong implementeren](./openshift-origin.md)
-- [OpenShift Container Platform implementeren](./openshift-container-platform.md)
-- [Taken voor na implementatie](./openshift-post-deployment.md)
+- [OpenShift oorsprong in Azure implementeren](./openshift-origin.md)
+- [OpenShift Container Platform in Azure implementeren](./openshift-container-platform.md)
+- [Taken na de implementatie](./openshift-post-deployment.md)
 - [Problemen met OpenShift implementatie oplossen](./openshift-troubleshooting.md)

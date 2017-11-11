@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d3df59afe595265fba88f7274154a36d42139859
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d59ef16de433ac9691f6996eab2bf56f056feb88
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>De prestaties en betrouwbaarheid van Azure Functions optimaliseren
 
@@ -66,8 +66,7 @@ Hoe uw code reageren als er een fout optreedt nadat 5.000 van deze items in een 
 
 Als een wachtrij-item al verwerkt is, kunt u de functie moet geen.
 
-Profiteren van beschermingsmaatregelen reeds wordt geboden voor onderdelen die u in de Azure Functions-platform gebruiken. Zie bijvoorbeeld **verwerken van verontreinigde berichten** in de documentatie voor [Azure-Opslagwachtrij activeert](functions-bindings-storage-queue.md#trigger).
- 
+Profiteren van beschermingsmaatregelen reeds wordt geboden voor onderdelen die u in de Azure Functions-platform gebruiken. Zie bijvoorbeeld **verwerken van verontreinigde berichten** in de documentatie voor [Azure Storage, Queue-triggers en bindingen](functions-bindings-storage-queue.md#trigger---poison-messages). 
 
 ## <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Combineer geen test en productie-code in dezelfde functie-app
 
@@ -97,4 +96,3 @@ Zie de volgende bronnen voor meer informatie:
 
 Omdat Azure Functions maakt gebruik van Azure App Service, dient u zich bewust bent van App Service-richtlijnen.
 * [Prestatieoptimalisaties patterns and practice HTTP](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
-

@@ -1,5 +1,5 @@
 ---
-title: Maken van Service Bus-autorisatieregel met Azure Resource Manager-sjabloon | Microsoft Docs
+title: Maken van een Service Bus-autorisatieregel met Azure Resource Manager-sjabloon | Microsoft Docs
 description: Een Service Bus-autorisatieregel voor de naamruimte en de wachtrij met Azure Resource Manager-sjabloon maken
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/10/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: fbd2372829a1aefa2c080c0a8a72b9ff4375b16f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 384a2fce4bf338ffc4ab6690980c12ad7ff34a6e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Een Service Bus-autorisatieregel voor de naamruimte en de wachtrij met een Azure Resource Manager-sjabloon maken
 
-Dit artikel laat zien hoe u een Azure Resource Manager-sjabloon die u maakt een [autorisatieregel](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) voor een Service Bus-naamruimte en de wachtrij. U leert hoe om te definiëren welke bronnen worden geïmplementeerd en het definiëren van de parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
+Dit artikel laat zien hoe u een Azure Resource Manager-sjabloon die u maakt een [autorisatieregel](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) voor een Service Bus-naamruimte en de wachtrij. Het artikel wordt uitgelegd hoe om op te geven welke resources worden geïmplementeerd en het definiëren van de parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
 
 Zie voor meer informatie over het maken van sjablonen [Azure Resource Manager-sjablonen samenstellen][Authoring Azure Resource Manager templates].
 
@@ -36,12 +36,13 @@ Zie voor de volledige sjabloon, het [Service Bus autorisatie regelsjabloon] [ Se
 > * [Een Service Bus-naamruimte met onderwerp en een abonnement maken](service-bus-resource-manager-namespace-topic.md)
 > * [Een Service Bus-naamruimte maken met onderwerp, abonnement en regel](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Om te controleren of de meest recente sjablonen, gaat u naar de [Azure-Snelstartsjablonen] [ Azure Quickstart Templates] galerie en zoek naar 'Servicebus'.
+> Om te controleren of de meest recente sjablonen, gaat u naar de [Azure-Snelstartsjablonen] [ Azure Quickstart Templates] galerie en zoek naar **Service Bus**.
 > 
 > 
 
 ## <a name="what-will-you-deploy"></a>Wat wilt u implementeren?
-Met deze sjabloon implementeert u een Service Bus-autorisatieregel voor een naamruimte en Berichtentiteit (in dit geval een wachtrij).
+
+Met deze sjabloon kunt u een Service Bus-autorisatieregel voor een naamruimte en Berichtentiteit (in dit geval een wachtrij) implementeren.
 
 Maakt gebruik van deze sjabloon [Shared Access Signature (SAS)](service-bus-sas.md) voor verificatie. SAS kan toepassingen te verifiëren bij Service Bus met behulp van een toegangssleutel die is geconfigureerd op de naamruimte of op de Berichtentiteit (wachtrij of onderwerp) waaraan de specifieke rechten zijn gekoppeld. U kunt deze sleutel vervolgens gebruiken voor het genereren van een SAS-token die clients op hun beurt gebruiken kunnen om Service Bus te verifiëren.
 
@@ -86,9 +87,12 @@ De naam van de wachtrij in de Service Bus-naamruimte.
 De Service Bus-API-versie van de sjabloon.
 
 ```json
-"serviceBusApiVersion": {
-"type": "string"
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2017-04-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       }
 ```
 
 ## <a name="resources-to-deploy"></a>Resources om te implementeren

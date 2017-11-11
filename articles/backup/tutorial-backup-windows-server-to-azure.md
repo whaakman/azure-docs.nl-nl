@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 67a5c1494f2944e91fed2b077cf04e8906788c1e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Maak back-ups van Windows Server naar Azure
 
@@ -42,9 +42,9 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
 
 Voordat u kunt back-up van Windows Server, moet u een locatie voor de back-ups maken of herstelpunten worden opgeslagen. Een [Recovery Services-kluis](backup-azure-recovery-services-vault-overview.md) is een container in Azure die de back-ups van uw Windows-Server worden opgeslagen. Volg onderstaande stappen voor het maken van een Recovery Services-kluis in de Azure-portal. 
 
-1. Selecteer op het menu links **meer services** en typt u in de lijst met services **Recovery Services**. Klik op **Recovery Services-kluizen**.
+1. Selecteer op het menu links **alle services** en typt u in de lijst met services **Recovery Services**. Klik op **Recovery Services-kluizen**.
 
-   ![Recovery Services-kluis openen](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault.png)
+   ![Recovery Services-kluis openen](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
 2.  Klik in het menu **Recovery Services-kluizen** op **Toevoegen**.
 
@@ -134,7 +134,7 @@ U kunt de planning hebt vastgesteld, wanneer back-uptaken uitgevoerd. Echter, u 
 
 1.  Klik in de console van de Microsoft Azure Recovery Services-agent op **Back-Up uit**.
 
-    ![infrastructuur voorbereiden](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![infrastructuur voorbereiden](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
 2.  Op de **Back-Up uit** wizard, schakelt u een van **bestanden en mappen** of **systeemstatus** die u wilt back-up en klikt u op **volgende** 
 3. Op de **bevestiging** pagina, controleert u de instellingen die de **Back-Up uit** wizard gebruikt voor back-up van uw server. Klik vervolgens op **Back-up maken**.

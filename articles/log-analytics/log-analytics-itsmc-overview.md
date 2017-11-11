@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: 411d6103852cbf534d3c420d5ea7b2146df5164e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f60586dcd09148d916bafdde21cc038f57ed9287
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Centraal beheren van werkitems ITSM met IT Service Management-Connector (Preview)
 
@@ -30,13 +30,13 @@ U kunt met de IT-Service Management-Connector:
 
   - Integreer operationele waarschuwingen met uw procedures incidentbeheer in het hulpprogramma ITSM van uw keuze.
     - Maak in ITSM werkitems (zoals waarschuwing, gebeurtenis, incident) van OMS-waarschuwingen en via logboek zoeken.
-    - Werkitems die op basis van uw Azure Activity Log waarschuwingen via de actie ITSM in Actiegroepen maken. 
-  
+    - Werkitems die op basis van uw Azure Activity Log waarschuwingen via de actie ITSM in Actiegroepen maken.
+
   - Combineer de bewaking, logboekbestanden en service management-gegevens in uw organisatie gebruikt.
     - Incident correleren en wijzig gegevens van aanvragen van uw ITSM tooling met relevante logboekgegevens in de werkruimte voor logboekanalyse.   
     - Op het hoogste niveau dashboards voor een overzicht weergeven van incidenten, wijzigingsaanvragen en betrokken systemen.
     - Log Analytics-query's voor het verkrijgen van inzicht in Service Management-gegevens schrijven.
-      
+
 ## <a name="adding-the-it-service-management-connector-solution"></a>Toevoegen van IT Service Management-Connector oplossing
 
 De oplossing IT Service Management-Connector toevoegen aan uw werkruimte voor logboekanalyse, met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md).
@@ -70,14 +70,15 @@ IT-Service Management-Connector-oplossing ondersteunt verbindingen met **System 
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
 
-Wanneer u de IT-Service Management-Connector hebt geconfigureerd met de details van uw ITSM software, start de Connector verzamelen van gegevens van de verbonden ITSM producten en diensten. Afhankelijk van het aantal incidenten en wijzigingsaanvragen in de ITSM product/service, moet de initiële synchronisatie worden uitgevoerd in enkele minuten. 
+Wanneer u de IT-Service Management-Connector hebt geconfigureerd met de details van uw ITSM software, start de Connector verzamelen van gegevens van de verbonden ITSM producten en diensten. Afhankelijk van het aantal incidenten en wijzigingsaanvragen in de ITSM product/service, moet de initiële synchronisatie worden uitgevoerd in enkele minuten.
 
 > [!NOTE]
 > - Gegevens die zijn geïmporteerd uit ITSM product door IT Service Management-Connector oplossing worden weergegeven in logboekanalyse als logboekrecords van het Type **ServiceDesk_CL**.
 > - Logboekrecord bevat een veld met de naam **ServiceDeskWorkItemType_s**, namelijk aanvraag incident of wijzigingsaanvraag, de twee soorten gegevens die zijn geïmporteerd uit het product ITSM
 
 ## <a name="data-synced-from-itsm-product"></a>Gegevens die zijn gesynchroniseerd vanaf de product ITSM
-Incidenten en wijzigingsaanvragen worden gesynchroniseerd vanuit uw product ITSM met uw werkruimte voor logboekanalyse. Hieronder ziet u voorbeelden van gegevens die worden verzameld door de IT-Service Management-connector:
+Incidenten en wijzigingsaanvragen worden gesynchroniseerd vanuit uw product ITSM met uw werkruimte voor logboekanalyse.
+Hieronder ziet u voorbeelden van gegevens die worden verzameld door de IT-Service Management-connector:
 
 > [!NOTE]
 > Afhankelijk van het werkitemtype geïmporteerd in Log Analytics **ServiceDesk_CL** bevat de volgende velden:
@@ -252,29 +253,29 @@ U kunt ook maken werkitems in de verbonden ITSM bronnen rechtstreeks vanuit een 
 4. Geef de juiste waarden in de **Type Contact**, **Impact**, **urgentie**, **categorie**, en **subcategorie** tekstvakken en klik vervolgens op **maken**.
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>ITSM-werkitems maken van Azure-waarschuwingen
-ITSM Connector is nu geïntegreerd met groepen in te grijpen. [Actiegroepen](../monitoring-and-diagnostics/monitoring-action-groups.md) bieden een manier computertoepassingen van acties voor uw Azure-waarschuwingen activeren. De bewerking ITSM in Actiegroepen maakt werkitems in uw ITSM product met een bestaande oplossing voor ITSM-Connector.
+ITSM Connector is nu geïntegreerd met groepen in te grijpen.
 
-1. Klik in de Azure-portal op **Monitor**
-2. Klik in het linkerdeelvenster op **actiegroepen**
+[Actiegroepen](../monitoring-and-diagnostics/monitoring-action-groups.md) bieden een manier computertoepassingen van acties voor uw Azure-waarschuwingen activeren. De bewerking ITSM in Actiegroepen maakt werkitems in uw ITSM product met een bestaande oplossing voor ITSM-Connector.
+
+1. Klik in de Azure-portal op **Monitor**.
+2. Klik in het linkerdeelvenster op **actiegroepen**.
 
     ![Actiegroepen](media/log-analytics-itsmc/ActionGroups.png)
 
-3. Geef **naam** en **korte naam** voor uw groep in te grijpen. Selecteer de **resourcegroep** en **abonnement** waar u uw actiegroep gemaakt.
+3. Geef **naam** en **korte naam** voor uw groep in te grijpen. Selecteer de **resourcegroep** en **abonnement** waar u wilt maken van uw groep in te grijpen.
 
     ![Detail van actie-groepen](media/log-analytics-itsmc/ActionGroupsDetail.png)
 
-4. Selecteer in de lijst met acties **ITSM** in de vervolgkeuzelijst voor **actietype**. Geef een **naam** voor de actie en klik op **details bewerken**.
-
-
+4. Selecteer in de lijst met acties **ITSM** uit de vervolgkeuzelijst voor **actietype**. Geef een **naam** voor de actie en klik op **details bewerken**.
 5. Selecteer de **abonnement** waar uw werkruimte voor logboekanalyse zich bevindt. Selecteer de **verbinding** eenledige de naam van uw ITSM Connector gevolgd door de naam van uw werkruimte. Bijvoorbeeld 'MyITSMMConnector(MyWorkspace)'.
 
     ![Details van ITSM actie](./media/log-analytics-itsmc/ITSMActionDetails.png)
 
-6. Selecteer **werkitem** type in de vervolgkeuzelijst.
+6. Selecteer **werkitem** type uit de vervolgkeuzelijst.
 7. Kies voor het gebruik van een bestaande sjabloon of vul de velden die vereist zijn voor het product ITSM.
 8. Klik op **OK**
 
-Bij het maken/bewerken van een Azure waarschuwingsregel, moet u een actie-groep, waarvoor een actie ITSM gebruiken. Als de waarschuwing wordt gegenereerd, wordt in het hulpprogramma ITSM werkitem gemaakt. 
+Bij het maken/bewerken van een Azure waarschuwingsregel, moet u een actie-groep, waarvoor een actie ITSM gebruiken. Als de waarschuwing wordt gegenereerd, wordt in het hulpprogramma ITSM werkitem gemaakt.
 
 >[!NOTE]
 >Momenteel wordt alleen activiteit logboek waarschuwingen ondersteuning voor de actie ITSM. Deze actie is geen voor andere waarschuwingen van Azure.
@@ -288,7 +289,7 @@ Bij het maken/bewerken van een Azure waarschuwingsregel, moet u een actie-groep,
     - Controleer of u voldoende rechten hebt in het bijbehorende ITSM product de verbinding te maken.
  - Voor Service Manager-verbindingen
      - Zorg ervoor dat de Web-app is geïmplementeerd en hybride verbinding is gemaakt. Om te controleren of de verbinding is tot stand gebracht met de Service Manager on-premises machine, gaat u naar de Web-app-URL zoals beschreven in de documentatie voor de [hybride verbinding](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
-     
+
 2.  Als u gegevens van ServiceNow is niet ophalen die zijn gesynchroniseerd met Log Analytics, zorg ervoor dat het ServiceNow exemplaar zich niet in de slaapstand. ServiceNow Dev exemplaren gaat soms slaapstand bij inactiviteit gedurende een lange periode. Anders Meld het probleem.
 3.  Als OMS waarschuwingen geactiveerd, maar werkt items ITSM product niet worden gemaakt of configuratie-items zijn niet gemaakt/gekoppeld aan werkitems of andere algemene informatie, vindt u in de volgende locaties:
  -  **IT-Service Management-Connector oplossing**: de oplossing bevat een overzicht van verbindingen werk items computers enzovoort. Klik op de tegel waarin **Connector-Status**, wat u duurt **logboek zoeken** met de relevante query. Bekijk de records in het logboek met LogType_S als fout voor meer informatie.

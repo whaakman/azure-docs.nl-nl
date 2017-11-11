@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 11/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e5dc642399ae58120f1757ffacff45a4188681d
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 4520b9ea730d2be7d30d946a8cbc7437c5be7899
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK: Releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -57,6 +57,11 @@ De Azure Cosmos DB .NET Core SDK heeft functie pariteit met de nieuwste versie v
 > [!NOTE] 
 > De Azure Cosmos DB .NET Core SDK is nog niet compatibel met Universal Windows Platform (UWP)-apps. Als u geïnteresseerd in de .NET Core-SDK die ondersteuning biedt voor UWP-apps bent, e-mailbericht verzendt [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
 
+### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
+ 
+ * Wijzigingen van de Azure DocumentDB naar Azure Cosmos-database in de API-verwijzing huisstijl documentatie, informatie over de metagegevens in assembly's en het NuGet-pakket. 
+ * Diagnostische gegevens en de latentie van de respons van aanvragen die worden verzonden met directe verbinding modus worden blootgesteld. De namen van eigenschappen zijn RequestDiagnosticsString en RequestLatency voor ResourceResponse-klasse.
+ 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 
 * Verschillende oplossingen betrouwbaarheid en verbeteringen toegevoegd.
@@ -144,6 +149,7 @@ Als u vragen met betrekking tot deze SDK hebt, posten naar [StackOverflow](http:
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [1.7.0](#1.7.0) |10 november 2017 |--- |
 | [1.6.0](#1.6.0) |17 oktober 2017 |--- |
 | [1.5.1](#1.5.1) |02 oktober 2017 |--- |
 | [1.5.0](#1.5.0) |10 augustus 2017 |--- | 

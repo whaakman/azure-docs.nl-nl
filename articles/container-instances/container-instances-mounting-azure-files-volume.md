@@ -1,5 +1,5 @@
 ---
-title: Koppelen van een volume van de Azure-bestanden in Azure Containerexemplaren
+title: Een Azure-bestanden volume in Azure Containerexemplaren koppelen
 description: Meer informatie over het koppelen van een Azure-bestanden volume om te blijven behouden status met exemplaren van Azure-Container
 services: container-instances
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 11/09/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 41c3a449b39d6ef77e1dd0cf10699f8debcad475
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 0f824dad7ba5b661941e952383025e5171f32e55
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="mounting-an-azure-file-share-with-azure-container-instances"></a>Koppelen van een Azure-bestandsshare met exemplaren van Azure-Container
+# <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Koppelen van een Azure-bestandsshare met exemplaren van Azure-Container
 
 Standaard zijn exemplaren van Azure-Container staatloze. Als de container vastloopt of stopt, gaat alle van de status verloren. Om te blijven behouden status afgezien van de levensduur van de container, moet u een volume koppelen vanuit een externe winkel. In dit artikel laat zien hoe een Azure-bestandsshare voor gebruik met Azure Containerexemplaren te koppelen.
 
@@ -66,7 +66,7 @@ STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_G
 echo $STORAGE_KEY
 ```
 
-## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Storage-account toegangsgegevens met Azure sleutelkluis opslaan
+## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Storage-account toegangsgegevens met Azure Sleutelkluis opslaan
 
 Toegangscodes voor opslag beveiligen toegang tot uw gegevens, zodat we het beste opslaan in een Azure sleutelkluis.
 
@@ -185,16 +185,16 @@ Voeg de waarden in het parameterbestand:
 Met de sjabloon is gedefinieerd, kunt u de container maken en koppelen van het volume met de Azure CLI. Ervan uitgaande dat de naam van het sjabloonbestand *azuredeploy.json* en met de naam van het parameterbestand *azuredeploy.parameters.json*, dan is de opdrachtregel:
 
 ```azurecli-interactive
-az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
+az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group $ACI_PERS_RESOURCE_GROUP
 ```
 
-Nadat de container wordt gestart, kunt u de eenvoudige web-app geïmplementeerd de **aci-seanmckenna-hellofiles** afbeelding voor het beheren van de bestanden in de Azure-bestandsshare op de koppelpad die u hebt opgegeven. Het IP-adres voor de web-app via de volgende verkrijgen:
+Nadat de container wordt gestart, kunt u de eenvoudige web-app geïmplementeerd de **aci-seanmckenna-hellofiles** afbeelding voor het beheren van de bestanden in de Azure-bestandsshare op het opgegeven koppelpad. Het IP-adres voor de web-app met de [az container weergeven](/cli/azure/container#az_container_show) opdracht:
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name hellofiles -o table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
 ```
 
-U kunt een hulpprogramma zoals de [Microsoft Azure Storage Explorer](http://storageexplorer.com) op te halen en het controleren van het bestand is geschreven naar de bestandsshare.
+U kunt een hulpprogramma zoals de [Microsoft Azure Storage Explorer](https://storageexplorer.com) op te halen en het controleren van het bestand is geschreven naar de bestandsshare.
 
 >[!NOTE]
 > Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen, parameterbestanden en implementeren met de Azure CLI [implementeren van resources met Resource Manager-sjablonen en Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
