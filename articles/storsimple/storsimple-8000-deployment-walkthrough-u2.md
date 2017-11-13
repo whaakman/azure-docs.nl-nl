@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: bcf42ebb081517d247690ee57c2be274784ef29d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc021d2277c419dd5a892aacd7bff0707e5564fa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Een on-premises StorSimple-apparaat implementeren (Update 3 en hoger)
 
@@ -49,7 +49,7 @@ Voer de volgende verplichte stappen uit om uw StorSimple-apparaat te configurere
 | [Stap 1: een nieuwe service maken](#step-1-create-a-new-service) |Stel cloudbeheer en -opslag voor uw StorSimple-apparaat in. *U kunt deze stap overslaan als u al een service voor andere StorSimple-apparaten hebt*. |
 | [Stap 2: de serviceregistratiesleutel ophalen](#step-2-get-the-service-registration-key) |Gebruik deze sleutel om uw StorSimple-apparaat te registreren en te verbinden met de managementservice. |
 | [Stap 3: het apparaat configureren en registreren via Windows PowerShell voor StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Verbind het apparaat met uw netwerk en registreer het bij Azure om de installatie met behulp van de beheerservice te voltooien. |
-| [Stap 4: minimale apparaatconfiguratie voltooien](#step-4-complete-minimum-device-setup)</br>[Optioneel: het StorSimple-apparaat bijwerken](#scan-for-and-apply-updates) |Gebruik de managementservice om de installatie van het apparaat te voltooien en het in te schakelen voor opslag. |
+| [Stap 4: minimale apparaatconfiguratie voltooien](#step-4-complete-minimum-device-setup)</br>[Best practice: het StorSimple-apparaat bijwerken](#scan-for-and-apply-updates) |Gebruik de managementservice om de installatie van het apparaat te voltooien en het in te schakelen voor opslag. |
 | [Stap 5: een volumecontainer maken](#step-5-create-a-volume-container) |Maak een container voor het inrichten van volumes. Een volumecontainer heeft opslagaccount, bandbreedte en versleutelingsinstellingen voor alle volumes in de container. |
 | [Stap 6: een volume maken](#step-6-create-a-volume) |Richt opslagvolumes op het StorSimple-apparaat in voor uw servers. |
 | [Stap 7: een volume koppelen, initialiseren en formatteren](#step-7-mount-initialize-and-format-a-volume)</br>[Optioneel: MPIO configureren](storsimple-8000-configure-mpio-windows-server.md) |Verbind uw servers met de iSCSI-opslag die is geleverd door het apparaat. U kunt MPIO desgewenst configureren om ervoor te zorgen dat uw servers koppelings-, netwerk- en interfacefouten kunnen tolereren. |
@@ -127,6 +127,8 @@ Voer de volgende stappen in Azure Portal uit om de minimale configuratie van het
 
 [!INCLUDE [storsimple-8000-complete-minimum-device-setup-u2](../../includes/storsimple-8000-complete-minimum-device-setup-u2.md)]
 
+Nadat u de minimale apparaatconfiguratie hebt voltooid, is het raadzaam om te [zoeken naar de nieuwste updates en deze toe te passen](#scan-for-and-apply-updates).
+
 ## <a name="step-5-create-a-volume-container"></a>Stap 5: een volumecontainer maken
 Een volumecontainer heeft opslagaccount, bandbreedte en versleutelingsinstellingen voor alle volumes in de container. U moet een volumecontainer maken voordat u de volumes op uw StorSimple-apparaat kunt gaan inrichten.
 
@@ -181,7 +183,7 @@ U moet terminalemulatiesoftware, zoals PuTTY, gebruiken om verbinding te maken m
 [!INCLUDE [Use PuTTY to connect to the device serial console](../../includes/storsimple-use-putty.md)]
 
 ## <a name="scan-for-and-apply-updates"></a>Updates zoeken en toepassen
-Het bijwerken van een apparaat kan enkele uren duren. Ga voor gedetailleerde stappen voor het installeren van de meest recente update naar [Update 4 installeren](storsimple-8000-install-update-4.md).
+Het bijwerken van een apparaat kan enkele uren duren. Ga voor gedetailleerde stappen voor het installeren van de meest recente update naar [Update 5 installeren](storsimple-8000-install-update-5.md).
 
 
 ## <a name="get-the-iqn-of-a-windows-server-host"></a>Het IQN ophalen van een Windows Server-host

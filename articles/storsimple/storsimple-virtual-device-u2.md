@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 29f33d01cc6b640a566dc371f4b9c704978da091
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 98892a0919b1ba49308fd3bc51c735977bbff437
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Een virtueel StorSimple-apparaat implementeren en beheren in Azure
+> [!NOTE]
+> De klassieke portal voor StorSimple is afgeschaft. De StorSimple-apparaatbeheerfuncties worden automatisch volgens schema verplaatst naar de nieuwe Azure Portal. U ontvangt hierover een e-mailbericht en een portalmelding. Dit document wordt binnenkort ook ingetrokken. Als u de versie van dit artikel voor de nieuwe Azure Portal wilt bekijken, gaat u naar [Deploy and manage a StorSimple virtual device in Azure](storsimple-8000-cloud-appliance-u2.md) (Een virtueel StorSimple-apparaat implementeren en beheren in Azure). Zie [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md) (Veelgestelde vragen: verplaatsing naar Azure Portal) voor vragen met betrekking tot de verplaatsing.
+
 ## <a name="overview"></a>Overzicht
 De virtuele apparaten van de serie StorSimple 8000 dienen ter aanvulling op de Microsoft Azure StorSimple-oplossing. Het virtuele StorSimple-apparaat wordt uitgevoerd op een virtuele machine in een Microsoft Azure Virtual Network. U kunt het gebruiken om back-ups te maken van gegevens en om gegevens van uw hosts te klonen. In deze zelfstudie wordt beschreven hoe u een virtueel apparaat implementeert en beheert in Azure. De informatie in deze zelfstudie geldt voor alle virtuele apparaten met softwareversie Update 2 en ouder.
 
@@ -33,7 +36,7 @@ Het virtuele StorSimple-apparaat is beschikbaar in twee modellen: de Standard 80
 | **Azure VM** |Standard_A3 (4 kerngeheugens, 7 GB geheugen) |Standard_DS3 (4 kerngeheugens, 14 GB geheugen) |
 | **Versiecompatibiliteit** |Versies met Update 2 of oudere of nieuwere software |Versies met Update 2 of nieuwere software |
 | **Beschikbaarheid in regio’s** |Alle Azure-regio's |Alle Azure-regio's waar ondersteuning wordt geboden voor Premium Storage en Azure-VM’s met DS3<br></br> Gebruik [deze lijst](https://azure.microsoft.com/en-us/regions/services) om te kijken of zowel *Virtuele Machines > DS-serie* als *Opslag > Schijfruimte* beschikbaar is in uw regio. |
-| **Opslagtype** |Maakt gebruik van Azure Standard-opslag voor lokale schijven<br></br> Ontdek hoe u [een Standard-opslagaccount maakt](../storage/common/storage-create-storage-account.md) |Maakt gebruik van Azure Premium Storage voor lokale schijven<sup>2</sup> <br></br>Ontdek hoe u [een Premium Storage-account maakt](../virtual-machines/windows/premium-storage.md) |
+| **Opslagtype** |Maakt gebruik van Azure Standard-opslag voor lokale schijven<br></br> Ontdek hoe u [een Standard-opslagaccount maakt](../storage/common/storage-create-storage-account.md) |Maakt gebruik van Azure Premium Storage voor lokale schijven<sup>2</sup> <br></br>Ontdek hoe u [een Premium Storage-account maakt](../storage/common/storage-premium-storage.md) |
 | **Richtlijnen voor de workload** |Bestanden ophalen uit back-ups op itemniveau |Cloudontwikkelings- en testscenario’s, lage latentie en werkbelasting met hogere prestaties <br></br>Secundair apparaat voor herstel na noodgevallen |
 
 <sup>1</sup> *Voorheen bekend als de 1100*.
@@ -63,7 +66,7 @@ In de volgende tabel ziet u enkele belangrijke verschillen tussen het virtuele S
 | **Gegevensversleutelingssleutel van service** |Genereer de sleutel opnieuw op het fysieke apparaat en werk het virtuele apparaat daarna bij met de nieuwe sleutel. |Het is niet mogelijk om sleutels opnieuw te genereren op het virtuele apparaat. |
 
 ## <a name="prerequisites-for-the-virtual-device"></a>Vereisten voor het virtuele apparaat
-In de volgende gedeelten worden de configuratievereisten voor het virtuele StorSimple-apparaat toegelicht. Zie [Beveiligingsoverwegingen voor het gebruik van een virtueel apparaat](storsimple-security.md) voordat u een virtueel apparaat implementeert.
+In de volgende gedeelten worden de configuratievereisten voor het virtuele StorSimple-apparaat toegelicht. Zie [Beveiligingsoverwegingen voor het gebruik van een virtueel apparaat](storsimple-8000-security.md#storsimple-cloud-appliance-security) voordat u een virtueel apparaat implementeert.
 
 #### <a name="azure-requirements"></a>Azure-vereisten
 Voordat u het virtuele apparaat inricht, moet u de volgende voorbereidingen treffen in uw Azure-omgeving:
@@ -82,7 +85,7 @@ Voordat u het virtuele apparaat inricht, moet u de volgende voorbereidingen tref
 Breng de volgende updates aan in uw Azure StorSimple-service voordat u een virtueel apparaat maakt:
 
 * Voeg [Access Control Records](storsimple-manage-acrs.md) toe voor de virtuele machines die gebruikt gaan worden als hostservers voor uw virtuele apparaat.
-* Gebruik een [opslagaccount](storsimple-manage-storage-accounts.md#add-a-storage-account) in dezelfde regio als het virtuele apparaat. Als u opslagaccounts in andere regio's gebruikt, kan dat leiden tot slechte prestaties. U kunt met het virtuele apparaat een Standard- of Premium-opslagaccount gebruiken. Meer informatie over het maken van een [Standard-opslagaccount](../storage/common/storage-create-storage-account.md) of een [Premium Storage-account](../virtual-machines/windows/premium-storage.md)
+* Gebruik een [opslagaccount](storsimple-manage-storage-accounts.md#add-a-storage-account) in dezelfde regio als het virtuele apparaat. Als u opslagaccounts in andere regio's gebruikt, kan dat leiden tot slechte prestaties. U kunt met het virtuele apparaat een Standard- of Premium-opslagaccount gebruiken. Meer informatie over het maken van een [Standard-opslagaccount](../storage/common/storage-create-storage-account.md) of een [Premium Storage-account](../storage/common/storage-premium-storage.md)
 * Gebruik een ander opslagaccount voor het maken van het virtuele apparaat dan voor het apparaat dat u gebruikt voor uw gegevens. Als u hetzelfde opslagaccount gebruikt, kan dat leiden tot slechte prestaties.
 
 Zorg ervoor dat u over de volgende informatie beschikt voordat u begint:

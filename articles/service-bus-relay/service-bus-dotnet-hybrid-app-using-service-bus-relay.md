@@ -12,16 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 06/14/2017
+ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: d15c30dad9fb4bbe9082d6a3c72cd20ed42bbc3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77bb769a094c2a619c0c75363e23ae3ee561c1e4
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Hybride .NET on-premises/cloudtoepassing met Azure WCF Relay
-## <a name="introduction"></a>Inleiding
 
 In dit artikel wordt beschreven hoe u een hybride cloudtoepassing opbouwt met Microsoft Azure en Visual Studio. Bij deze zelfstudie wordt ervan uitgegaan dat u nog geen ervaring hebt met Azure. In minder dan 30 minuten beschikt u over een toepassing die meerdere Azure-resources gebruikt en wordt uitgevoerd in de cloud.
 
@@ -52,7 +51,7 @@ In de zelfstudie wordt ervan uitgegaan dat u productgegevens in een bestaand on-
 Voordat u Azure-toepassingen kunt ontwikkelen, dient u de hulpprogramma's te downloaden en uw ontwikkelomgeving in te stellen:
 
 1. Installeer de Azure-SDK voor .NET via de [pagina met downloads](https://azure.microsoft.com/downloads/) voor SDK.
-2. Klik in de kolom **.NET** op de versie van [Visual Studio](http://www.visualstudio.com) die u gebruikt. In de stappen in deze zelfstudie wordt Visual Studio 2015 gebruikt, maar ze werken ook met Visual Studio 2017.
+2. Klik in de kolom **.NET** op de versie van [Visual Studio](http://www.visualstudio.com) die u gebruikt. In de stappen in deze zelfstudie wordt Visual Studio 2017 gebruikt.
 3. Klik op **Uitvoeren** wanneer u wordt gevraagd of u het installatieprogramma wilt uitvoeren of opslaan.
 4. Klik in het **webplatforminstallatieprogramma** op **Installeren** om door te gaan met de installatie.
 5. Nadat de installatie is voltooid, hebt u alles wat u nodig hebt om te starten met het ontwikkelen van de app. De SDK bevat hulpprogramma's waarmee u eenvoudig Azure-toepassingen kunt ontwikkelen in Visual Studio.
@@ -77,7 +76,7 @@ Dit project is een Visual Studio-consoletoepassing en gebruikt het [Azure Servic
 4. Klik op **OK** om het project **ProductsServer** te maken.
 5. Als u NuGet Package Manager voor Visual Studio al hebt geïnstalleerd, slaat u de volgende stap over. Anders gaat u naar [NuGet][NuGet] en klikt u op [NuGet installeren](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Volg de aanwijzingen om NuGet Package Manager te installeren en vervolgens Visual Studio opnieuw te starten.
 6. Klik in Solution Explorer met de rechtermuisknop op het project **ProductsServer** en klik vervolgens op **NuGet-pakketten beheren**.
-7. Klik op het tabblad **Bladeren** en zoek vervolgens naar `Microsoft Azure Service Bus`. Selecteer het pakket **WindowsAzure.ServiceBus**.
+7. Klik op het tabblad **Bladeren** en zoek vervolgens naar **WindowsAzure.ServiceBus**. Selecteer het pakket **WindowsAzure.ServiceBus**.
 8. Klik op **Installeren** en accepteer de gebruiksvoorwaarden.
 
    ![][13]
@@ -198,6 +197,8 @@ Dit project is een Visual Studio-consoletoepassing en gebruikt het [Azure Servic
       </behaviors>
     </system.serviceModel>
     ```
+    De fout die wordt veroorzaakt door transportClientEndpointBehavior is slechts een waarschuwing en is geen blokkerend probleem voor dit voorbeeld.
+    
 13. Terwijl App.config actief is, vervangt u in het `<appSettings>`-element de verbindingsreekswaarde door de verbindingsreeks die u eerder hebt verkregen via de portal.
 
     ```xml
@@ -230,7 +231,7 @@ In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens wor
     ![][18]
 
 7. Klik terug in het dialoogvenster **Nieuwe ASP.NET-webtoepassing** op **OK** om de MVC-app te maken.
-8. U moet nu Azure-resources configureren voor een nieuwe web-app. Volg de stappen in [het gedeelte Publiceren naar Azure van dit artikel](../app-service/app-service-web-get-started-dotnet.md). Ga vervolgens terug naar deze zelfstudie en ga door met de volgende stap.
+8. U moet nu Azure-resources configureren voor een nieuwe web-app. Volg de stappen in [het gedeelte Publiceren naar Azure van dit artikel](../app-service/app-service-web-get-started-dotnet.md#publish-to-azure). Ga vervolgens terug naar deze zelfstudie en ga door met de volgende stap.
 10. Klik in Solution Explorer met de rechtermuisknop op **Modellen** en klik achtereenvolgens op **Toevoegen** en **Klasse**. Typ in het vak **Naam** de naam **Product.cs**. Klik vervolgens op **Toevoegen**.
 
     ![][17]
@@ -274,7 +275,7 @@ In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens wor
     }
     ```
 4. Vouw in Solution Explorer de map Views\Shared uit en dubbelklik vervolgens op **_Layout.cshtml** om dit in de Visual Studio-editor te openen.
-5. Wijzig alle instanties van **Mijn ASP.NET-toepassing** in **Producten van LITWARE**.
+5. Wijzig alle instanties van **Mijn ASP.NET-toepassing** in **Producten van Northwind Traders**.
 6. Verwijder de koppelingen **Start**, **Info** en **Contact**. Verwijder de gemarkeerde code in het volgende voorbeeld.
 
     ![][41]
@@ -332,7 +333,7 @@ In de volgende stap koppelt u de on-premises productenserver aan de ASP.NET-toep
 
 1. Als het project **ProductsPortal** dat u hebt gemaakt in het gedeelte [Een ASP.NET-toepassing maken](#create-an-aspnet-application) nog niet open is, opent u het opnieuw in Visual Studio.
 2. Vergelijkbaar met de stap in het gedeelte 'Een on-premises server maken' voegt u het NuGet-pakket aan de projectverwijzingen toe. Klik in Solution Explorer met de rechtermuisknop op het project **ProductsPortal** en klik vervolgens op **NuGet-pakketten beheren**.
-3. Zoek ‘Service Bus’ en selecteer het item **WindowsAzure.ServiceBus**. Vervolgens voltooit u de installatie en sluit u dit dialoogvenster.
+3. Zoek naar **WindowsAzure.ServiceBus** en selecteer het item **WindowsAzure.ServiceBus**. Vervolgens voltooit u de installatie en sluit u dit dialoogvenster.
 4. Klik in Solution Explorer met de rechtermuisknop op het project **ProductsPortal** en klik achtereenvolgens op **Toevoegen** en **Bestaand item**.
 5. Ga naar het bestand **ProductsContract.cs** vanuit het **ProductsServer**-consoleproject. Klik om ProductsContract.cs te markeren. Klik op de pijl-omlaag naast **Toevoegen** en klik vervolgens op **Toevoegen als koppeling**.
 
@@ -455,7 +456,7 @@ Voordat u de toepassing in de cloud uitvoert, moet u ervoor zorgen dat **Product
 Raadpleeg de volgende resources voor meer informatie over Azure Relay:  
 
 * [Wat is Azure Relay?](relay-what-is-it.md)  
-* [Relay gebruiken](service-bus-dotnet-how-to-use-relay.md)  
+* [Azure Relay gebruiken](relay-wcf-dotnet-get-started.md)  
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png

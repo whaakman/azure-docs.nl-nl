@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: 6a399a3a7979f6165d26eb48505242976d51e64f
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 68c9f37b6e241d39911acff9c12aa4c978b4215d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Inleiding tot Azure Cosmos DB: tabel-API
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 11/02/2017
 * Gegarandeerde hoge beschikbaarheid.
 * [Automatische secundaire indexering](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-Deze toepassingen kunnen met behulp van de Table-API zonder codeaanpassingen worden gemigreerd naar Azure Cosmos DB en zo gebruikmaken van premium-mogelijkheden. De tabel-API is beschikbaar voor .NET- en Python.
+Toepassingen die zijn geschreven voor Azure Table-opslag kunnen met behulp van de Table-API zonder codeaanpassingen worden gemigreerd naar Azure Cosmos DB en zo gebruikmaken van premium-mogelijkheden. De Table-API heeft één client-SDK beschikbaar voor .NET.
 
-Het is raadzaam om eerst de volgende video te bekijken, waarin Aravind Ramachandran uitlegt hoe u aan de slag gaat met de Table-API voor Azure Cosmos DB:
+Het is raadzaam om de volgende video te bekijken, waarin Aravind Ramachandran uitlegt hoe u aan de slag gaat met de Table-API voor Azure Cosmos DB:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
 > 
@@ -41,7 +41,7 @@ Het is raadzaam om eerst de volgende video te bekijken, waarin Aravind Ramachand
 ## <a name="table-offerings"></a>Aanbiedingen voor Table
 Als u momenteel gebruikmaakt van Azure Table-opslag, levert overstappen naar de preview-versie van de Azure Cosmos DB Table-API de volgende voordelen op:
 
-| | Azure-tabelopslag | Azure Cosmos DB Table-API (preview) |
+| | Azure Table Storage | Azure Cosmos DB Table-API (preview) |
 | --- | --- | --- |
 | Latentie | Snel, maar geen bovengrens voor latentie. | Latentie van slechts enkele milliseconden voor lees- en schrijfbewerkingen, ondersteund door <10 ms latentie voor leesbewerkingen en <15 ms latentie voor schrijfbewerkingen in het 99e percentiel, op elke schaal, overal ter wereld. |
 | Doorvoer | Model voor variabele doorvoersnelheid. Tabellen hebben een schaalbaarheidslimiet van 20.000 bewerkingen/sec. | Zeer schaalbaar met [toegewezen gereserveerde doorvoer per tabel](request-units.md), op basis van serviceovereenkomsten. Accounts hebben geen bovengrens voor doorvoer en bieden ondersteuning voor > 10 miljoen bewerkingen/sec per tabel. |
@@ -64,5 +64,5 @@ Hier volgen enkele aanwijzingen om aan de slag te gaan:
 * [Tabelgegevens opvragen met de Table-API](tutorial-query-table.md)
 * [Meer informatie over het instellen van wereldwijde distributie met Azure Cosmos DB met behulp van de Table-API](tutorial-global-distribution-table.md)
 * [Azure Cosmos DB Table .NET API](table-sdk-dotnet.md)
-* [Inleiding tot Azure Cosmos DB Table SDK voor Python](table-sdk-python.md)
+
 

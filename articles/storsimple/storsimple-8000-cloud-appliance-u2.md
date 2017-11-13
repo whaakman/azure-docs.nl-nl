@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2017
+ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 1ece5b1b2ba8e4d26fe633fe7c7c60f4187f9d6b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 46b1be5bdd4fa400f437bca274e7f3f6e0dfec08
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Een StorSimple-cloudapparaat implementeren en beheren in Azure (Update 3 en hoger)
 
@@ -183,6 +183,18 @@ Voer de volgende stappen uit om een openbaar eindpunt te maken op het cloudappar
 [!INCLUDE [Create public endpoints on a cloud appliance](../../includes/storsimple-8000-create-public-endpoints-cloud-appliance.md)]
 
 U doet er verstandig aan om verbinding te maken via een andere virtuele machine in hetzelfde virtuele netwerk, omdat er dan in uw virtuele netwerk een minimaal aantal openbare eindpunten nodig is. Maak in dit geval verbinding met de virtuele machine via een extern bureaublad. Daarna configureert u de virtuele machine voor gebruik, net zoals u dat bij andere Windows-clients zou doen in een lokaal netwerk. U hoeft het openbare-poortnummer niet toe te voegen omdat de poort al bekend is.
+
+## <a name="get-private-ip-for-the-cloud-appliance"></a>Privé IP-adres voor het cloudapparaat ophalen
+
+U hebt het interne of privé IP-adres van het cloudapparaat nodig om dit apparaat te verbinden met de hostserver in hetzelfde virtuele netwerk. Voer de volgende stappen uit om het privé IP-adres van het cloudapparaat op te halen
+
+1. Ga naar de onderliggende virtuele machine voor het cloudapparaat. De virtuele machine heeft dezelfde naam als het cloudapparaat. Ga naar **Alle resources**, geef de naam van het cloudapparaat en abonnement op, en selecteer virtuele machines als type. Selecteer in de getoonde lijst met virtuele machines de virtuele machine die overeenkomt met het cloudapparaat en klik erop.
+
+     ![De virtuele machine voor het cloudapparaat selecteren](./media/storsimple-8000-cloud-appliance-u2/sca-vm.png)
+
+2. Ga naar **Instellingen > Netwerken**. In het rechterdeelvenster ziet u het privé IP-adres van het cloudapparaat. Noteer dit adres.
+
+    ![Het privé IP-adres voor het cloudapparaat ophalen](./media/storsimple-8000-cloud-appliance-u2/sca-private-ip-vm-networking.png)
 
 ## <a name="work-with-the-storsimple-cloud-appliance"></a>Werken met het StorSimple-cloudapparaat
 
