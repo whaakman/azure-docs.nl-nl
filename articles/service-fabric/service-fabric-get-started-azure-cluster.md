@@ -1,6 +1,6 @@
 ---
 title: Een Azure Service Fabric-cluster instellen | Microsoft Docs
-description: Quick Start - Maak een Service Fabric-cluster voor Windows of Linux in Azure.
+description: Gebruik deze Quick Start om in Azure een Service Fabric-cluster voor Windows of Linux te maken.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,62 +14,62 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: facb9643e0bb848f0ea9aadf447f05af218fdd0f
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: caf76bb739fa92982c511c8e3e6c6aaf2bf9d6c1
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>Uw eerste Service Fabric-cluster maken in Azure
-Een [Service Fabric-cluster](service-fabric-deploy-anywhere.md) is een met het netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Met deze Quick Start kunt u met behulp van [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) of [Azure Portal](http://portal.azure.com) in slechts enkele minuten een cluster met vijf knooppunten maken voor Windows of Linux.  
+Een [Service Fabric-cluster](service-fabric-deploy-anywhere.md) van Azure is een met het netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Met deze Quickstart kunt u met behulp van [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) of [Azure Portal](http://portal.azure.com) in slechts enkele minuten een cluster met vijf knooppunten maken voor Windows of Linux. U kunt ook Azure CLI gebruiken voor deze taak.  
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 
 ## <a name="use-the-azure-portal"></a>Azure Portal gebruiken
 
-Meld u bij Azure Portal aan via [http://portal.azure.com](http://portal.azure.com).
+Meld u via [http://portal.azure.com](http://portal.azure.com) aan bij Azure Portal.
 
 ### <a name="create-the-cluster"></a>Het cluster maken
 
-1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
-2. Zoek naar **Service Fabric** en selecteer **Service Fabric-cluster** in **Service Fabric-cluster** in de geretourneerde resultaten.  Klik op **Create**.
-3. Vul het Service Fabric-formulier **Basisinformatie** in. Bij **Besturingssysteem** selecteert u de versie van Windows of Linux waarop u de clusterknooppunten wilt uitvoeren. De gebruikersnaam en het wachtwoord die u hier opgeeft, worden gebruikt voor aanmelding bij de virtuele machine. Selecteer een **resourcegroep** of maak een nieuwe. Een resourcegroep is een logische container waarin Azure-resources worden gemaakt en waarin ze collectief worden beheerd. Na het voltooien klikt u op **OK**.
+1. Selecteer **Nieuw** in de linkerbovenhoek van Azure Portal.
+2. Zoek naar **Service Fabric** en selecteer **Service Fabric-cluster** in de zoekresultaten. Selecteer vervolgens **Maken**.
+3. Vul het Service Fabric-formulier **Basisinformatie** in. Bij **Besturingssysteem** selecteert u de versie van Windows of Linux waarop u de clusterknooppunten wilt uitvoeren. De gebruikersnaam en het wachtwoord die u hier opgeeft, worden gebruikt voor aanmelding bij de virtuele machine. Selecteer een **resourcegroep** of maak een nieuwe. Een resourcegroep is een logische container waarin Azure-resources worden gemaakt en waarin ze collectief worden beheerd. Klik op **OK** als u klaar bent.
 
-    ![Cluster-installatieuitvoer][cluster-setup-basics]
+    ![Schermafbeelding van configuratiegegevens voor cluster][cluster-setup-basics]
 
-4. Vul het formulier **Clusterconfiguratie** in.  Voer voor **Aantal knooppunttype** de waarde '1' in.
+4. Vul het formulier **Clusterconfiguratie** in. Voer voor **Aantal knooppunttype** de waarde **1** in.
 
-5. Selecteer **Knooppunttype 1 (primair)** en vul het formulier **Configuratie van knooppunttypen** in.  Voer een naam voor het type knooppunt in en geef voor de laag [Duurzaamheid](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de waarde 'Brons' op.  Selecteer een VM-grootte.
+5. Selecteer **Knooppunttype 1 (primair)** en vul het formulier **Configuratie van knooppunttypen** in. Voer een naam voor het type knooppunt in en geef voor de laag [Duurzaamheid](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de waarde **Brons** op. Selecteer vervolgens een VM-grootte.
 
-    Op basis van knooppunttypen worden de VM-grootte, het aantal virtuele machines, aangepaste eindpunten en andere instellingen voor de virtuele machines van elk type gedefinieerd. Elk gedefinieerd knooppunttype wordt ingesteld als een afzonderlijke VM-schaalset die wordt gebruikt voor het als set implementeren en beheren van virtuele machines. Elk knooppunttype kan onafhankelijk omhoog of omlaag worden geschaald, verschillende open poorten bevatten en verschillende capaciteitsstatistieken hebben.  Het eerste (primaire) knooppunttype is waar Service Fabric-systeemservices worden gehost. Dit type moet vijf of meer virtuele machines bevatten.
+    Op basis van knooppunttypen worden de VM-grootte, het aantal virtuele machines, aangepaste eindpunten en andere instellingen voor de virtuele machines van elk type gedefinieerd. Elk gedefinieerd knooppunttype wordt ingesteld als een afzonderlijke VM-schaalset, die wordt gebruikt voor het als set implementeren en beheren van virtuele machines. Elk knooppunttype kan onafhankelijk omhoog of omlaag worden geschaald, verschillende open poorten bevatten en verschillende capaciteitsstatistieken hebben. Het eerste (primaire) knooppunttype is waar Service Fabric-systeemservices worden gehost. Dit type moet vijf of meer virtuele machines bevatten.
 
-    Bij elke implementatie voor productie is [capaciteitsplanning](service-fabric-cluster-capacity.md) van groot belang.  Voor deze Quick Start voert u echter geen toepassingen uit, dus selecteert u de VM-grootte *DS1_v2 Standard*.  Selecteer Zilver als [betrouwbaarheidslaag](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) en selecteer een schaalset van 5 voor de virtuele machine.  
+    Bij elke implementatie voor productie is [capaciteitsplanning](service-fabric-cluster-capacity.md) van groot belang. Voor deze Quick Start voert u echter geen toepassingen uit, dus selecteert u de VM-grootte *DS1_v2 Standard*. Selecteer [Zilver](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) als **betrouwbaarheidslaag** en selecteer een schaalset van 5 voor de virtuele machine.  
 
-    Met aangepaste eindpunten opent u poorten in Azure Load Balancer, zodat u verbinding kunt maken met toepassingen die op het cluster worden uitgevoerd.  Voer '80, 8172' in om de poorten 80 en 8172 te openen.
+    Met aangepaste eindpunten opent u poorten in Azure Load Balancer, zodat u verbinding kunt maken met toepassingen die in het cluster worden uitgevoerd.  Voer **80, 8172** in om de poorten 80 en 8172 te openen.
 
-    Schakel het selectievakje bij **Geavanceerde instellingen configureren** in. Deze instellingen hebben betrekking op het aanpassen van TCP/HTTP-beheereindpunten, poortbereiken voor toepassingen, [plaatsingsbeperkingen](service-fabric-cluster-resource-manager-configure-services.md#placement-constraints) en [capaciteitseigenschappen](service-fabric-cluster-resource-manager-metrics.md).    
-
-    Selecteer **OK**.
-
-6. In het formulier **Clusterconfiguratie** stelt u **Diagnostische gegevens** in op **Aan**.  Voor deze Quick Start hoeft u geen eigenschappen op te geven voor de [infrastructuurinstelling](service-fabric-cluster-fabric-settings.md).  In **Infrastructuurversie** selecteert u de modus voor **automatisch** upgraden, zodat Microsoft de versie van de infrastructuurcode van het cluster automatisch bijwerkt.  Stel de modus in op **Handmatig** als u een [ondersteunde versie](service-fabric-cluster-upgrade.md) wilt kiezen om naar te upgraden. 
-
-    ![Configuratie van knooppunttypen][node-type-config]
+    Schakel het selectievakje **Geavanceerde instellingen configureren** niet in. Deze instellingen hebben betrekking op het aanpassen van TCP/HTTP-beheereindpunten, poortbereiken voor toepassingen, [plaatsingsbeperkingen](service-fabric-cluster-resource-manager-configure-services.md#placement-constraints) en [capaciteitseigenschappen](service-fabric-cluster-resource-manager-metrics.md).    
+    
+    ![Schermopname van configuratie van knooppunttype][node-type-config]
 
     Selecteer **OK**.
 
-7. Vul het formulier **Beveiliging** in.  Voor deze Quick Start selecteert u **Onbeveiligd**.  Het wordt echter aanbevolen om een beveiligd cluster te maken voor productieworkloads, omdat iedereen anoniem verbinding kan maken met een onbeveiligd cluster en beheerbewerkingen kan uitvoeren.  
-
-    Er worden in Service Fabric certificaten gebruikt voor verificatie en versleuteling om verschillende aspecten van een cluster en de bijbehorende toepassingen te beveiligen. Zie [Service Fabric-clusterbeveiligingsscenario's](service-fabric-cluster-security.md) voor meer informatie over hoe certificaten worden gebruikt in Service Fabric.  Als u gebruikersverificatie wilt inschakelen met Azure Active Directory of als u certificaten wilt instellen voor toepassingsbeveiliging, [maakt u een cluster op basis van een Resource Manager-sjabloon](service-fabric-cluster-creation-via-arm.md).
+6. In het formulier **Clusterconfiguratie** stelt u **Diagnostische gegevens** in op **Aan**. Voor deze Quick Start hoeft u geen eigenschappen op te geven voor de [infrastructuurinstelling](service-fabric-cluster-fabric-settings.md).  In **Infrastructuurversie** selecteert u de modus voor **automatisch** upgraden, zodat Microsoft de versie van de infrastructuurcode van het cluster automatisch bijwerkt.  Stel de modus in op **Handmatig** als u een [ondersteunde versie](service-fabric-cluster-upgrade.md) wilt kiezen om naar te upgraden.     
 
     Selecteer **OK**.
 
-8. Bekijk de samenvatting.  Als u een Resource Manager-sjabloon wilt downloaden dat is gebaseerd op de instellingen die u hebt ingevoerd, selecteert u **Sjabloon en parameters downloaden**.  Selecteer **Maken** om het cluster te maken.
+7. Vul het formulier **Beveiliging** in. Voor deze Quick Start selecteert u **Onbeveiligd**. Over het algemeen is het verstandig om een beveiligd cluster te maken voor productiewerkbelastingen. Iedereen kan anoniem verbinding maken met een onbeveiligd cluster en beheertaken uitvoeren.  
 
-    U kunt de voortgang van het maken in de meldingen bekijken. (Klik op het belpictogram bij de statusbalk rechtsboven in uw scherm.) Als u tijdens het maken van het cluster op **Vastmaken aan Startboard** hebt geklikt, ziet u dat **Service Fabric-cluster implementeren** is vastgemaakt aan het **Startboard**.
+   Er worden in Service Fabric certificaten gebruikt voor verificatie en versleuteling om verschillende aspecten van een cluster en de bijbehorende toepassingen te beveiligen. Zie [Scenario's voor beveiliging van Service Fabric-cluster](service-fabric-cluster-security.md) voor meer informatie. Als u gebruikersverificatie wilt inschakelen met Azure Active Directory of als u certificaten wilt instellen voor toepassingsbeveiliging, raadpleegt u [Een Service Fabric-cluster maken met behulp van Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
-### <a name="connect-to-the-cluster-using-powershell"></a>Verbinding maken met het cluster met behulp van PowerShell
-Controleer met PowerShell of het cluster actief is.  De Service Fabric PowerShell-module wordt met de [Service Fabric-SDK](service-fabric-get-started.md) geïnstalleerd.  De cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) brengt een verbinding met het cluster tot stand.   
+    Selecteer **OK**.
+
+8. Bekijk de samenvatting. Als u een Azure Resource Manager-sjabloon wilt downloaden die is gebaseerd op de instellingen die u hebt ingevoerd, selecteert u **Sjabloon en parameters downloaden**. Selecteer **Maken** om het cluster te maken.
+
+    U kunt de voortgang van het maken in de meldingen bekijken. (Selecteer het belpictogram bij de statusbalk rechtsboven in uw scherm.) Als u tijdens het maken van het cluster **Vastmaken aan Startboard** hebt geselecteerd, ziet u dat **Service Fabric-cluster implementeren** is vastgemaakt aan het **Startboard**.
+
+### <a name="connect-to-the-cluster-by-using-powershell"></a>Verbinding maken met het cluster met behulp van PowerShell
+Controleer via PowerShell of het cluster actief is. De Service Fabric PowerShell-module wordt met de [Service Fabric-SDK](service-fabric-get-started.md) geïnstalleerd. De cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) brengt een verbinding met het cluster tot stand.   
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint quickstartcluster.westus2.cloudapp.azure.com:19000
@@ -89,17 +89,19 @@ NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion  ConfigV
 ```
 
 ### <a name="remove-the-cluster"></a>Het cluster verwijderen
-Een Service Fabric-cluster bevat de clusterresource zelf én andere Azure-resources. Als u een Service Fabric-cluster volledig wilt verwijderen, moet u dus ook alle resources waar het cluster uit bestaat, verwijderen. De eenvoudigste manier om het cluster en alle resources te verwijderen, is om de resourcegroep te verwijderen. Zie [Een cluster verwijderen](service-fabric-cluster-delete.md) voor andere manieren om een cluster of enkele (maar niet alle) resources in een resourcegroep te verwijderen
+Een Service Fabric-cluster is opgebouwd uit andere Azure-resources, naast de clusterresource zelf. Als u een Service Fabric-cluster volledig wilt verwijderen, moet u dus ook alle resources waar het cluster uit bestaat, verwijderen. De eenvoudigste manier om het cluster en alle resources te verwijderen, is om de resourcegroep te verwijderen. Zie [Een cluster verwijderen](service-fabric-cluster-delete.md) voor andere manieren om een cluster of enkele (maar niet alle) resources in een resourcegroep te verwijderen
 
 Een resourcegroep verwijderen in Azure Portal:
-1. Ga naar het Service Fabric-cluster dat u wilt verwijderen.
-2. Klik op de naam van de **resourcegroep** op de pagina met clusterbenodigdheden.
-3. Klik op de pagina met **resourcegroepbenodigdheden** op **Resourcegroep verwijderen** en volg de instructies op die pagina om het verwijderen van de resourcegroep te voltooien.
-    ![De resourcegroep verwijderen][cluster-delete]
+1. Blader naar het Service Fabric-cluster dat u wilt verwijderen.
+2. Selecteer op de pagina met clusterbenodigdheden de naam van de **resourcegroep**.
+3. Selecteer **Resourcegroep verwijderen** op de pagina met informatie over de resourcegroep. Volg de instructies op die pagina om het verwijderen van de resourcegroep te voltooien.
+    ![Schermopname van de pagina met informatie over de resourcegroep, met Resourcegroep verwijderen gemarkeerd][cluster-delete]
 
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell gebruiken
-1. Download de [Azure Powershell-moduleversie 4.0 of hoger](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) op de computer.
+Een andere manier om een cluster te maken, is met behulp van PowerShell. Dit doet u al volgt:
+
+1. Download [Azure Powershell-moduleversie 4.0 of hoger](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) op uw computer.
 
 2. Voer de cmdlet [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/new-azurermservicefabriccluster) uit om een Service Fabric-cluster te maken met vijf knooppunten dat is beveiligd met een X.509-certificaat. Met de opdracht wordt een zelfondertekend certificaat gemaakt en geüpload naar een nieuwe sleutelkluis. Het certificaat wordt ook gekopieerd naar een lokale map. Stel de *-OS* parameter in om de versie van Windows of Linux die op de clusterknooppunten wordt uitgevoerd te kiezen. Pas de parameters zo nodig aan. 
 
@@ -138,9 +140,9 @@ Een resourcegroep verwijderen in Azure Portal:
     -OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname
     ```
 
-    Het duurt tussen de 10 en 30 minuten om de opdracht te voltooien. Als het goed is, wordt hierna ongeveer de volgende uitvoer weergegeven. De uitvoer bevat informatie over het certificaat, de KeyVault waarnaar dit is geüpload en de lokale map waarin het certificaat is gekopieerd.     
+    Het kan tien tot dertig minuten voordat de opdracht is voltooid. De uitvoer bevat informatie over het certificaat, de sleutelkluis waarnaar dit is geüpload en de lokale map waarin het certificaat is gekopieerd.     
 
-3. Kopieer de hele uitvoer en sla deze op in een tekstbestand, aangezien we deze later willen raadplegen. Noteer de volgende informatie uit de uitvoer. 
+3. Kopieer de hele uitvoer en sla deze op in een tekstbestand (u hebt deze informatie later nodig). Noteer de volgende informatie uit de uitvoer: 
 
     - CertificateSavedLocalPath
     - CertificateThumbprint
@@ -199,6 +201,7 @@ $groupname="mysfclustergroup"
 Remove-AzureRmResourceGroup -Name $groupname -Force
 ```
 ## <a name="use-azure-cli"></a>Azure CLI gebruiken
+Een andere manier om een cluster te maken, is met behulp van CLI. Dit doet u al volgt:
 
 1. Installeer [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) op de computer.
 2. Meld u aan bij Azure en selecteer het abonnement waarin u het cluster wilt maken.
@@ -228,7 +231,7 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
 
     # Create secure five node Linux cluster. Creates a key vault in a resource group
     # and creates a certficate in the key vault. The certificate's subject name must match 
-    # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
+    # the domain that you use to access the Service Fabric cluster. The certificate is downloaded locally.
     az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . \
         --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName \
         --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
@@ -236,7 +239,7 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
     ```
     
 ### <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
-Voer de volgende CLI-opdracht uit om verbinding met het cluster te maken met behulp van het certificaat.  Als u ter verificatie een clientcertificaat gebruikt, moeten de certificaatgegevens overeenkomen met een certificaat dat is geïmplementeerd in de clusterknooppunten.  Gebruik de optie `--no-verify` voor een zelfondertekend certificaat.
+Voer de volgende CLI-opdracht uit om verbinding met het cluster te maken met behulp van het certificaat.  Als u ter verificatie een clientcertificaat gebruikt, moeten de certificaatgegevens overeenkomen met een certificaat dat is geïmplementeerd op de clusterknooppunten. Gebruik de optie `--no-verify` voor een zelfondertekend certificaat.
 
 ```azurecli
 az sf cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 --pem ./linuxcluster201709161647.pem --no-verify
@@ -250,7 +253,7 @@ az sf cluster health
 
 ### <a name="connect-to-the-nodes-directly"></a>Rechtstreeks verbinding maken met de knooppunten 
 
-Als u verbinding wilt maken met de knooppunten in een Linux-cluster, kunt u SSH gebruiken en een poortnummer opgeven vanaf 3389. Voor bijvoorbeeld het cluster met vijf knooppunten dat eerder is gemaakt, zijn de opdrachten als volgt:
+Om verbinding te maken met de knooppunten in een Linux-cluster, kunt u de opdracht SSH (secure shell) gebruiken. Geef een poortnummer op van ten minste 3389. Voor bijvoorbeeld het cluster met vijf knooppunten dat eerder is gemaakt, zijn de opdrachten als volgt:
 ```bash
 ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3389
 ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3390
