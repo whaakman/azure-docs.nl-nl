@@ -71,9 +71,7 @@
 
 ## Resourcebeleid instellen
 ### [Wat is een resourcebeleid?](resource-manager-policy.md)
-### Voorbeelden
-#### [Tags](resource-manager-policy-tags.md)
-#### [Naamconventies](resource-manager-policy-naming-convention.md)
+### [Naamconventies](resource-manager-policy-naming-convention.md)
 
 ## Controleren
 ### [Activiteitenlogboeken bekijken](resource-group-audit.md)
@@ -89,6 +87,7 @@
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### Fouten bij de implementatie van virtuele machines

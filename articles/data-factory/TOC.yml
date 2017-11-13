@@ -55,10 +55,12 @@
       href: concepts-integration-runtime.md
 - name: Handleidingen
   items:
-    - name: Gegevens verplaatsen
+    - name: Gegevens kopiëren
       items:
-        - name: Overzicht kopieeractiviteit
+        - name: Gegevens vanuit ondersteunde bronnen naar bestemmingen kopiëren
           href: copy-activity-overview.md
+        - name: Gepartitioneerde gegevens lezen of schrijven
+          href: how-to-read-write-partitioned-data.md
         - name: Connectors
           items:
             - name: Amazon Redshift
@@ -71,6 +73,8 @@
               href: connector-azure-cosmos-db.md
             - name: Azure Data Lake Store
               href: connector-azure-data-lake-store.md
+            - name: Azure Database for MySQL
+              href: connector-azure-database-for-mysql.md
             - name: Azure File Storage
               href: connector-azure-file-storage.md
             - name: Azure Search
@@ -166,9 +170,11 @@
           href: compute-linked-services.md
     - name: Controlestroom
       items:
-        - name: If Condition Activity
+        - name: If Condition-activiteit
           href: control-flow-if-condition-activity.md
-        - name: Web Activity
+        - name: Until-activiteit
+          href: control-flow-until-activity.md
+        - name: Webactiviteit
           href: control-flow-web-activity.md
         - name: Opzoekactiviteit
           href: control-flow-lookup-activity.md
@@ -178,6 +184,8 @@
           href: control-flow-execute-pipeline-activity.md
         - name: Voor elke activiteit
           href: control-flow-for-each-activity.md
+        - name: Wachtactiviteit
+          href: control-flow-wait-activity.md
         - name: Expressietaal
           href: control-flow-expression-language-functions.md
         - name: Systeemvariabelen
@@ -190,6 +198,8 @@
           href: store-credentials-in-key-vault.md
         - name: Referenties voor de zelf-hostende integratie-runtime versleutelen
           href: encrypt-credentials-self-hosted-integration-runtime.md
+        - name: Data factory-service-identiteit
+          href: data-factory-service-identity.md
     - name: Controleren en beheren
       items:
         - name: SDK's gebruiken

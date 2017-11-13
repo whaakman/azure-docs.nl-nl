@@ -143,6 +143,8 @@
           href: web-sites-enable-diagnostic-log.md
     - name: Een app beheren
       items:
+        - name: Het hostingabonnement beheren
+          href: app-service-plan-manage.md
         - name: Een back-up maken van een app
           href: web-sites-backup.md
         - name: Een back-up terugzetten

@@ -28,7 +28,13 @@
 - name: Concepten
   items:
     - name: Upgrade van werkruimte
-      href: log-analytics-log-search-upgrade.md
+      items:
+        - name: Overzicht van de upgrade
+          href: log-analytics-log-search-upgrade.md
+        - name: Overzicht van wijzigingen
+          href: log-analytics-log-search-upgrade-changes.md
+        - name: Veelgestelde vragen over upgraden
+          href: log-analytics-log-search-faq.md
     - name: Veelgestelde vragen over Log Analytics
       href: log-analytics-faq.md
     - name: Gegevensverbruik
@@ -41,8 +47,6 @@
       items:
         - name: Overzicht van zoekopdrachten in logboeken
           href: log-analytics-log-search-new.md
-        - name: Veelgestelde vragen over zoeken in logboeken
-          href: log-analytics-log-search-faq.md
         - name: Portals voor zoekopdrachten in logboeken
           href: log-analytics-log-search-portals.md
 - name: Handleidingen

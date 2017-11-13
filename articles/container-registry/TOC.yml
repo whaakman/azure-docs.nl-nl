@@ -15,6 +15,12 @@
       href: container-registry-get-started-powershell.md
 - name: Zelfstudies
   items:
+    - name: Azure Container Instances
+      href: ../container-instances/container-instances-tutorial-prepare-app.md
+    - name: Azure Container Service (AKS)
+      href: ../aks/tutorial-kubernetes-prepare-app.md
+    - name: Service Fabric
+      href: ../service-fabric/service-fabric-tutorial-create-container-images.md
     - name: Geo-replicatie (preview)
       items:
         - name: 1 - Containerregister voorbereiden
@@ -23,12 +29,6 @@
           href: container-registry-tutorial-deploy-app.md
         - name: 3 - Webtoepassing bijwerken
           href: container-registry-tutorial-deploy-update.md
-    - name: Azure Container Instances
-      href: ../container-instances/container-instances-tutorial-prepare-app.md
-    - name: Azure Container Service (AKS)
-      href: ../aks/tutorial-kubernetes-prepare-app.md
-    - name: Service Fabric
-      href: ../service-fabric/service-fabric-tutorial-create-container-images.md
 - name: Concepten
   items:
     - name: Container Registry-SKU's
@@ -57,13 +57,19 @@
       href: /rest/api/containerregistry
     - name: PowerShell
       href: /powershell/module/azurerm.containerregistry
+    - name: Resource Manager-sjabloon
+      href: /azure/templates/microsoft.containerregistry/registries
 - name: Resources
   items:
-    - name: Roadmap
-      href: 'https://aka.ms/acr/roadmap'
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/container-registry/'
     - name: Beschikbaarheid in regio’s
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/container-registry/'
+    - name: Roadmap
+      href: 'https://aka.ms/acr/roadmap'
+    - name: Productfeedback geven
+      href: 'https://feedback.azure.com/forums/903958-azure-container-registry'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-container-registry'
+    - name: Video's
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest'

@@ -1,7 +1,7 @@
 # Overzicht
 ## [Ontwikkelaarsgids](azure-developer-guide.md) 
-## [Overzicht van Azure-services](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
-## [Overzicht van Portal](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [Overzicht van Azure-services](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
+## [Overzicht van Portal](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [SDK's en hulpprogramma's](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Snelstartgids
@@ -102,11 +102,12 @@
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 ### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README)
 ## Opdrachtregelinterfaces
-### [Azure-CLI](https://docs.microsoft.com/cli/azure/)
+### [Azure CLI](https://docs.microsoft.com/cli/azure/)
 ### [Azure PowerShell](https://docs.microsoft.com/powershell/)
 ## [Facturering](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Resources
+## [Limieten en quota in Azure](../../azure-subscription-service-limits.md)
 ## [Azure-regio's](https://azure.microsoft.com/regions/)
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

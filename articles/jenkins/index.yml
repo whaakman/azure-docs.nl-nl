@@ -1,0 +1,66 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Jenkins op Azure
+metadata:
+  description: Jenkins implementeren en integreren met Azure
+  services: multiple
+  author: rloutlaw
+  manager: justhe
+  layout: LandingPage
+  ms.service: multiple
+  ms.tgt_pltfrm: na
+  ms.devlang: devops
+  ms.topic: landing-page
+  ms.date: 11/01/2017
+  ms.author: routlaw
+  ms.custom: Jenkins
+abstract:
+  description: 'Gebruik de Jenkins-server (open source) om apps te bouwen in de cloud en deze in Azure te implementeren. Leer aan de hand van onze QuickStarts, zelfstudies en voorbeeldpijplijnen hoe u Jenkins in Azure installeert, configureert en de schaal ervan aanpast, en hoe u continue integratie (CI) instelt voor uw apps.'
+  aside:
+    image:
+      alt: Jenkins logo
+      height: 133
+      width: 110
+      src: media/Jenkins.png
+    title: null
+sections:
+  - title: QuickStarts van vijf minuten
+    items:
+      - type: paragraph
+        text: Maak een Jenkins-systeem in Azure en bouw een app.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg'
+            text: Azure Portal
+            href: 'https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template'
+  - title: Zelfstudies met stapsgewijze instructies
+    items:
+      - type: paragraph
+        text: 'Stel continue integratie in voor uw apps, voer agents uit in de cloud en gebruik Azure-services in uw taken.'
+      - type: list
+        style: ordered
+        items:
+          - html: 'Stel continue integratie met <a href="/azure/jenkins/java-deploy-webapp-tutorial">Azure App Service</a>, <a href="/azure/container-service/kubernetes/container-service-kubernetes-jenkins">Kubernetes</a> of een <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">virtuele Linux-machine</a> in.'
+          - html: <a href="/azure/jenkins/execute-cli-jenkins-pipeline">Richt resources in een pijplijntaak in</a>.
+          - html: <a href="/azure/jenkins/jenkins-azure-vm-agents">Pas de schaal aan met Azure-VM-agents</a>.
+  - title: Voorbeelden
+    items:
+      - type: paragraph
+        text: Voorbeeldscripts en -fasen voor uw pijplijnen.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: '<a href="https://github.com/Azure/azure-devops-utils/tree/master/jenkins">Jenkinsfile-fasen en -fragmenten</a>'
+  - title: Naslaginformatie
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Invoegtoepassingen
+            html: '<p><a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM Agents</a><p><a href="https://plugins.jenkins.io/azure-app-service">Azure App Service</a></p><p><a href="https://plugins.jenkins.io/windows-azure-storage">Azure Storage</a></p><p><a href="https://plugins.jenkins.io/azure-container-agents">Azure Container Agents</a><p><a href="https://plugins.jenkins.io/azure-function">Azure Function-invoegtoepassing</a><p><a href="https://plugins.jenkins.io/azure-acs">Azure Container Service-invoegtoepassing</a>'
+  - type: paragraph
+    text: '<h4>Jenkins® is een gedeponeerd merk van Software in the Public Interest, Inc. Het [logo van Jenkins®](https://wiki.jenkins.io/display/JENKINS/Logo) is gelicentieerd van het [Jenkins-project](https://jenkins.io) onder [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).</h4>'
