@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: c0f86e13e21f2af323e0a306b381054b6eb76755
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: da120d8e325867eaf9eb8b9be1ae8d9152db54c4
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>De ondersteuningsmatrix voor replicatie naar een secundaire site met Azure Site Recovery
 
@@ -28,7 +28,7 @@ In dit artikel bevat een overzicht van wat wordt ondersteund wanneer u de [Azure
 
 **Implementatie** | **Details** 
 --- | ---
-**VMware naar VMware** | Herstel na noodgevallen van lokale virtuele VMware-machines naar secundaire VMware-site.<br/><br/> Download de [InMage Scout gebruikershandleiding](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)
+**VMware naar VMware** | Herstel na noodgevallen van lokale virtuele VMware-machines naar secundaire VMware-site.<br/><br/> Download de [InMage Scout gebruikershandleiding](https://aka.ms/asr-scout-user-guide)
 **Hyper-V naar Hyper-V** | Herstel na noodgevallen van lokale Hyper-V-machines in VMM-clouds naar een secundaire VMM-cloud.<br></br> Zonder VMM niet wordt ondersteund.
 
 
@@ -39,7 +39,7 @@ In dit artikel bevat een overzicht van wat wordt ondersteund wanneer u de [Azure
 
 **Implementatie** | **Ondersteuning**
 --- | ---
-**VMware-virtuele machine of fysieke server** | vCenter 5.5 of 6.0 (ondersteuning voor alleen 5.5 functies)
+**VMware-virtuele machine of fysieke server** | vCenter 5.5, 6.0 en 6.5 (ondersteuning voor alleen 5.5 functies)
 **Hyper-V met VMM** | Windows Server 2016 en Windows Server 2012 R2 met de meest recente updates.<br/><br/> Windows Server 2016 hosts moeten worden beheerd door VMM 2016.<br/><br/> VMM 2016 clouds met een mengeling van Windows Server 2016 en 2012 R2-hosts worden momenteel niet ondersteund.<br/><br/> Implementatie met een upgrade van een bestaande VMM 2012 R2 naar System Center 2016 worden momenteel niet ondersteund.
 
 
@@ -49,7 +49,7 @@ De volgende tabel geeft een overzicht van besturingssysteemondersteuning voor ma
 
 **VMware of fysieke server** | **Hyper-V (met VMM)**
 --- | ---
-64-bits Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minste SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux, 6.4 of 6.5 uitgevoerd van de Red Hat compatibel kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Een besturingssysteem Gast [ondersteund door Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
+64-bits Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minste SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6,8, 6,9, 7.1, 7.2 <br/><br/> Centos 6.5 6.6, 6.7, 6,8, 6,9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, 6,8 met Red Hat compatibel kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4  | Een besturingssysteem Gast [ondersteund door Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
 ## <a name="linux-machine-storage"></a>Linux-opslag
 
@@ -104,15 +104,15 @@ VHD/VHDX | N.v.t. | Ja (maximaal 16 schijven)
 Generatie 2 VM | N.v.t. | Ja
 Clusterschijf gedeeld | Ja  | Nee
 Versleutelde schijf | Nee | Nee
-UEFI| Nee | N.v.t.
+UEFI| Ja | N.v.t.
 NFS | Nee | Nee
 SMB 3.0 | Nee | Nee
 RDM | Ja | N.v.t.
-Schijf > 1 TB | Nee | Ja
+Schijf > 1 TB | Ja | Ja
 Volume met striped schijf > 1 TB<br/><br/> LVM | Ja | Ja
 Opslagruimten | Nee | Ja
-Schijf hot toevoegen of verwijderen | Nee | Nee
-Schijf uitsluiten | Nee | Ja
+Schijf hot toevoegen of verwijderen | Ja | Nee
+Schijf uitsluiten | Ja | Ja
 Multipath (MPIO) | N.v.t. | Ja
 
 ## <a name="vaults"></a>Kluizen

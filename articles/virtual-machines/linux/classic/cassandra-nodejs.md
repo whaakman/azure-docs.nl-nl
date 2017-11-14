@@ -3,7 +3,7 @@ title: Cassandra met Linux uitvoeren in Azure | Microsoft Docs
 description: Uitvoeren van een cluster Cassandra op Linux in Azure Virtual Machines vanaf een Node.js-app
 services: virtual-machines-linux
 documentationcenter: nodejs
-author: tomarcher
+author: craigshoemaker
 manager: routlaw
 editor: 
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: tarcher
-ms.openlocfilehash: 1ff3d77ced6c9d90029b251490c05e52d9b43515
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: 28eb281d8d301fa5478afb0925c74349de92ca58
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Cassandra op Azure uitvoeren met Linux en vanaf Node.js openen
 > [!IMPORTANT] 
@@ -157,9 +157,9 @@ Voer de volgende gegevens op het scherm 'Virtuele-machineconfiguratie' #2:
 <tr><td> CLOUDSERVICE    </td><td> Maak een nieuwe cloudservice    </td><td>Cloudservice is een container compute-bronnen zoals virtuele machines</td></tr>
 <tr><td> DNS-NAAM VAN CLOUD-SERVICE    </td><td>Ubuntu template.cloudapp.net    </td><td>Geef de naam van een machine agnostisch load balancer</td></tr>
 <tr><td> REGIO/AFFINITEITSGROEP/VIRTUEEL NETWERK </td><td>    VS - west    </td><td> Selecteer een regio van waaruit de toegang tot het cluster Cassandra van uw webtoepassingen</td></tr>
-<tr><td>STORAGE-ACCOUNT </td><td>    Standaard gebruiken    </td><td>Het standaardopslagaccount of een vooraf gemaakte opslagaccount gebruiken in een bepaald gebied</td></tr>
+<tr><td>STORAGE-ACCOUNT </td><td>    Standaardinstelling gebruiken    </td><td>Het standaardopslagaccount of een vooraf gemaakte opslagaccount gebruiken in een bepaald gebied</td></tr>
 <tr><td>BESCHIKBAARHEIDSSET </td><td>    Geen </td><td>    Laat dit veld leeg</td></tr>
-<tr><td>EINDPUNTEN    </td><td>Standaard gebruiken </td><td>    De standaard SSH-configuratie gebruiken </td></tr>
+<tr><td>EINDPUNTEN    </td><td>Standaardinstelling gebruiken </td><td>    De standaard SSH-configuratie gebruiken </td></tr>
 </table>
 
 Klik op de pijl naar rechts, de standaardinstellingen laten staan op het scherm #3 en klik op de knop 'selectievakje' voor het voltooien van de virtuele machine inrichtingsproces. Na een paar minuten moet de virtuele machine met de naam 'ubuntu-sjabloon' status 'actief'.
@@ -327,7 +327,7 @@ Gegevens en Web subnetten kunnen worden beveiligd via netwerkbeveiligingsgroepen
 **Stap 2: Inrichten van virtuele Machines** met behulp van de installatiekopie van het eerder hebt gemaakt, wordt de volgende virtuele machines maken in de cloud-server 'hk-c-svc-west' en maak ze afhankelijk van de respectieve subnetten zoals hieronder wordt weergegeven:
 
 <table>
-<tr><th>Computernaam    </th><th>Subnet    </th><th>IP-adres    </th><th>Beschikbaarheidsset</th><th>DC/Rack</th><th>Seed?</th></tr>
+<tr><th>Machinenaam    </th><th>Subnet    </th><th>IP-adres    </th><th>Beschikbaarheidsset</th><th>DC/Rack</th><th>Seed?</th></tr>
 <tr><td>HK-c1-west-ons    </td><td>Gegevens    </td><td>10.1.2.4    </td><td>HK-c-uit-1    </td><td>DC = WESTUS rack rack1 = </td><td>Ja</td></tr>
 <tr><td>HK-c2-west-ons    </td><td>Gegevens    </td><td>10.1.2.5    </td><td>HK-c-uit-1    </td><td>DC = WESTUS rack rack1 =    </td><td>Nee </td></tr>
 <tr><td>HK-c3-west-ons    </td><td>Gegevens    </td><td>10.1.2.6    </td><td>HK-c-uit-1    </td><td>DC = WESTUS rack rack2 =    </td><td>Ja</td></tr>
@@ -451,8 +451,8 @@ U ziet een scherm wordt weergegeven zoals hieronder:
 
 <table>
   <tr><th> customer_id </th><th> Voornaam </th><th> Achternaam </th></tr>
-  <tr><td> 1 </td><td> John </td><td> De Vries </td></tr>
-  <tr><td> 2 </td><td> ANS </td><td> De Vries </td></tr>
+  <tr><td> 1 </td><td> Jan </td><td> Jansen </td></tr>
+  <tr><td> 2 </td><td> ANS </td><td> Jansen </td></tr>
 </table>
 
 Houd er rekening mee dat de keyspace gemaakt in stap 4 SimpleStrategy met een replication_factor van 3 gebruikt. SimpleStrategy wordt aanbevolen voor één data center-implementaties terwijl NetworkTopologyStrategy voor meerdere data center-implementaties. Een replication_factor van 3, tolerantie voor knooppuntfouten krijgt.
@@ -464,7 +464,7 @@ Zal gebruikmaken van de implementatie van één regio is voltooid en hetzelfde p
 Meld u aan bij de klassieke Azure portal en een virtueel netwerk maken met de kenmerken weergeven in de tabel. Zie [Cloud-Only virtueel netwerk configureren in de klassieke Azure portal](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) voor gedetailleerde stappen van het proces.      
 
 <table>
-<tr><th>Naam van kenmerk    </th><th>Waarde    </th><th>Opmerkingen</th></tr>
+<tr><th>Naam kenmerk    </th><th>Waarde    </th><th>Opmerkingen</th></tr>
 <tr><td>Naam    </td><td>vnet-cass-Oost-ons</td><td></td></tr>
 <tr><td>Regio    </td><td>VS - oost</td><td></td></tr>
 <tr><td>DNS-Servers        </td><td></td><td>Negeer deze melding als er niet met behulp van een DNS-Server</td></tr>
@@ -523,7 +523,7 @@ Gebruik het menu 'DASHBOARD' van de virtuele netwerken gateway-naar-gateway-verb
 ### <a name="step-8-create-the-virtual-machines-in-region-2"></a>Stap 8: Maak de virtuele machines in regio #2
 De installatiekopie Ubuntu maken zoals beschreven in de regio #1 implementatie door de dezelfde stappen of kopieer de VHD-bestand van de installatiekopie naar de Azure storage-account zich in regio #2 te volgen en maken van de installatiekopie. Deze afbeelding niet gebruiken en de volgende lijst met virtuele machines maken in een nieuwe cloudservice hk-c-svc-Oost-ons:
 
-| Computernaam | Subnet | IP-adres | Beschikbaarheidsset | DC/Rack | Seed? |
+| Machinenaam | Subnet | IP-adres | Beschikbaarheidsset | DC/Rack | Seed? |
 | --- | --- | --- | --- | --- | --- |
 | HK-c1-Oost-ons |Gegevens |10.2.2.4 |HK-c-uit-1 |DC = EASTUS rack rack1 = |Ja |
 | HK-c2-Oost-ons |Gegevens |10.2.2.5 |HK-c-uit-1 |DC = EASTUS rack rack1 = |Nee |
@@ -565,8 +565,8 @@ U ziet een scherm wordt weergegeven zoals hieronder:
 
 | customer_id | Voornaam | Achternaam |
 | --- | --- | --- |
-| 1 |John |De Vries |
-| 2 |ANS |De Vries |
+| 1 |Jan |Jansen |
+| 2 |ANS |Jansen |
 
 ### <a name="step-3-execute-the-following-in-the-east-region-after-logging-into-hk-w1-east-us"></a>Stap 3: Voer het volgende in de regio Oost na de aanmelding bij hk-w1-Oost-ons:
 1. Uitvoeren van $CASS_HOME/bin/cqlsh 10.2.2.101 9160
@@ -578,8 +578,8 @@ U ziet de dezelfde weergave zoals te zien voor de regio West:
 
 | customer_id | Voornaam | Achternaam |
 | --- | --- | --- |
-| 1 |John |De Vries |
-| 2 |ANS |De Vries |
+| 1 |Jan |Jansen |
+| 2 |ANS |Jansen |
 
 Enkele meer invoegingen uitvoeren en Zie dat die worden gerepliceerd naar west-ons deel uit van het cluster.
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2017
+ms.date: 11/11/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 316157a7a8ed920e9f3b15e24e15035db4cefc6c
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 0bb79929a431a81c1618e09ee76fcb8415480655
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory voorwaardelijke toegang technische naslaginformatie
 
@@ -119,20 +119,19 @@ Toegang tot de browser beheren met behulp van de **Browser** optie in uw beleid 
 In uw beleid voor voorwaardelijke toegang, zijn de volgende browsers worden ondersteund: 
 
 
-| Besturingssysteem                     | Browsers                    | Ondersteuning     |
-| :--                    | :--                         | :-:         |
-| Windows 10             | Internet Explorer rand     | ![Selecteren][1] |
-| Windows 10             | Chrome                      | ![Selecteren][1] |
-| Windows 8 / 8.1        | Internet Explorer, Chrome   | ![Selecteren][1] |
-| Windows 7              | Internet Explorer, Chrome   | ![Selecteren][1] |
-| iOS                    | Safari, Intune Managed Browser                      | ![Selecteren][1] |
-| Android                | Chrome, Intune Managed Browser                      | ![Selecteren][1] |
-| Windows Phone          | Internet Explorer rand     | ![Selecteren][1] |
-| Windows Server 2016    | Internet Explorer rand     | ![Selecteren][1] |
-| Windows Server 2016    | Chrome                      | Binnenkort beschikbaar |
-| Windows Server 2012 R2 | Internet Explorer, Chrome   | ![Selecteren][1] |
-| Windows Server 2008 R2 | Internet Explorer, Chrome   | ![Selecteren][1] |
-| macOS                  | Chrome, Safari              | ![Selecteren][1] |
+| OS                     | Browsers                            | Ondersteuning     |
+| :--                    | :--                                 | :-:         |
+| Windows 10             | Internet Explorer, rand Chrome     | ![Selecteren][1] |
+| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Selecteren][1] |
+| Windows 7              | Internet Explorer, Chrome           | ![Selecteren][1] |
+| iOS                    | Safari, Intune Managed Browser      | ![Selecteren][1] |
+| Android                | Chrome, Intune Managed Browser      | ![Selecteren][1] |
+| Windows Phone          | Internet Explorer rand             | ![Selecteren][1] |
+| Windows Server 2016    | Internet Explorer rand             | ![Selecteren][1] |
+| Windows Server 2016    | Chrome                              | Binnenkort beschikbaar |
+| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Selecteren][1] |
+| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Selecteren][1] |
+| macOS                  | Chrome, Safari                      | ![Selecteren][1] |
 
 
 > [!NOTE]

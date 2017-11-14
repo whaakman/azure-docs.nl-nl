@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 11/13/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: bcb072a2f2ab8c0e5097fca2c95309464483cb53
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 84f2fec61f791d4fc9264eaa01e24180696da853
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registreren bij de Partner van de CSP-programma en de weergave kostengegevens
 
@@ -22,7 +22,13 @@ U kunt met Azure kosten Management Cloudyn registreren als een CSP-partner. Uw r
 
 
 >[!NOTE]
->Inschrijving te voltooien, moet u een partner programma-beheerder met toegang tot de Partner Center-API. Configuratie van de Partner Center API is vereist voor verificatie en toegang tot gegevens. Zie voor meer informatie [verbinding maken met de Partner Center API](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx). Indirecte CSP-gebruikers kunnen bovendien alleen Cloudyn gebruiken wanneer hun directe CSP wederverkoper registreert bij Cloudyn om toegang te bieden aan hun klanten en abonnementen.
+
+>Alleen directe CSP partners en indirecte CSP-Providers kunnen Cloudyn inschrijving voltooien.
+>
+>Configureren van de Partner Center API is vereist voor verificatie en toegang tot gegevens. Een Partner Center Global Administrator-account is nodig voor het inrichten van de API-toegang.
+Zie voor meer informatie [verbinding maken met de Partner Center API](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
+>
+>Toegang tot Cloudyn kunt beschikbaar gesteld aan CSP indirecte Resellers nadat hun indirecte CSP-Provider wordt geregistreerd bij Cloudyn. De indirecte Resellers CSP kan vervolgens Cloudyn toegang verlenen tot Azure-klanten en abonnementen.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 

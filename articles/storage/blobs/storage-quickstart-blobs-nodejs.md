@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/30/2017
 ms.author: gwallace
-ms.openlocfilehash: 9ea7f77d3bbe45de49c798fe3d51151e1a5a6658
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: dd4d3abf082767c40760d020c0997b365452e769
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Objecten voor overdracht naar/van Azure Blob storage met Node.js
 
@@ -103,7 +103,11 @@ U kunt ook een hulpprogramma zoals gebruiken de [Azure Storage Explorer](http://
 
 Nadat u de bestanden hebt gecontroleerd, druk op een willekeurige toets om de demo voltooien en verwijderen van de testbestanden. Nu dat u wat het voorbeeld doet weet, open het bestand index.js om te kijken naar de code. 
 
-## <a name="get-references-to-the-storage-objects"></a>Het ophalen van verwijzingen naar de opslagobjecten
+## <a name="understand-the-sample-code"></a>Inzicht in de voorbeeldcode
+
+Daarna bekijken we de voorbeeldcode zodat u kunt begrijpen hoe het werkt.
+
+### <a name="get-references-to-the-storage-objects"></a>Het ophalen van verwijzingen naar de opslagobjecten
 
 Het eerste wat te doen is het maken van de verwijzing naar de `BlobService` gebruikt voor toegang tot en beheren van Blob-opslag. Deze objecten bouwen op elkaar--elk wordt gebruikt door de volgende gateway in de lijst.
 
@@ -120,7 +124,7 @@ blobService.createContainerIfNotExists(blockBlobContainerName, { 'publicAccessLe
     if (error) return callback(error);
 ```
 
-## <a name="upload-blobs-to-the-container"></a>BLOB's uploaden naar de container
+### <a name="upload-blobs-to-the-container"></a>BLOB's uploaden naar de container
 
 Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. Blok-blobs zijn het meest gebruikt. Ze zijn ideaal voor het opslaan van tekst en binaire gegevens, dit is de reden dat ze worden gebruikt in deze snelstartgids.
 
@@ -141,7 +145,7 @@ console.log('   Uploaded Blob URL:', blobService.getUrl(CONTAINER_NAME, BLOCK_BL
 
 Er zijn verschillende methoden voor het uploaden die u met Blob storage gebruiken kunt. Bijvoorbeeld, als u een geheugenstream hebt, kunt u de [createBlockBlobFromStream](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromStream) methode plaats [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile).
 
-## <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
+### <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
 Vervolgens wordt de toepassing krijgt voor een lijst met bestanden in de container met behulp [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). De volgende code haalt de lijst met blobs en doorlopen, met de URI van de blobs. U kunt de URI in het opdrachtvenster kopieert en plakt u deze in een browser om het bestand weer te geven.
 
@@ -158,7 +162,7 @@ blobService.listBlobsSegmented(CONTAINER_NAME, null, function (error, data) {
     console.log('\n');
 ```
 
-## <a name="download-blobs"></a>Blobs downloaden
+### <a name="download-blobs"></a>Blobs downloaden
 
 Blobs downloaden naar uw lokale schijf met [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_getBlobToLocalFile).
 
@@ -171,7 +175,7 @@ handleError(error);
 console.log('   Downloaded File:', DOWNLOADED_FILE_PATH, '\n');
 ```
 
-## <a name="clean-up-resources"></a>Resources opschonen
+### <a name="clean-up-resources"></a>Resources opschonen
 
 Als u de blobs in deze snelstartgids geüpload niet meer nodig hebt, kunt u de volledige container via te verwijderen [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) en [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteContainerIfExists). De bestanden die zijn gemaakt als ze niet meer nodig zijn ook verwijderd. Dit is afgehandeld in de toepassing wanneer u op enter om af te sluiten van de toepassing.
 

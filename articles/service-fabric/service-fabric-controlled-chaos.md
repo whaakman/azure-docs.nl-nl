@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: motanv
-ms.openlocfilehash: dad286aaf93dae49ef07a358c03b4bb13a3326ef
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c78d9e77d807f3ccf8c1f56d856abad8135989c2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Veroorzaken gecontroleerde Chaos in Service Fabric-clusters
 Grote gedistribueerde systemen zoals cloudinfrastructuren inherent onbetrouwbaar worden. Azure Service Fabric kunnen ontwikkelaars schrijven betrouwbare gedistribueerde services op een onbetrouwbaar-infrastructuur. Ontwikkelaars moeten kunnen testen van de stabiliteit van hun services terwijl de onderliggende infrastructuur onbetrouwbaar wordt verzonden via ingewikkeld statusovergangen als gevolg van fouten voor het schrijven van robuuste gedistribueerde services op een onbetrouwbaar-infrastructuur.
@@ -71,8 +71,8 @@ Als u welke fouten Chaos wordt veroorzaakt, kunt u GetChaosReport API (powershel
 * **ClusterHealthPolicy**: Cluster statusbeleid wordt gebruikt voor het valideren van de status van het cluster Between Chaos iteraties. Als de status van het cluster onjuist is of als een onverwachte uitzondering tijdens het uitvoeren van de fout gebeurt, wacht u totdat 30 minuten voordat de volgende-statuscontrole - om te voorzien van het cluster enige tijd recuperate Chaos.
 * **Context**: een verzameling van (string, string) typt u sleutel-waardeparen. De kaart kan worden gebruikt voor het vastleggen van informatie over het Chaos-run. Er mag niet meer dan 100 dergelijke paren en elke tekenreeks (sleutel of waarde) mag hoogstens 4095 tekens bevatten. Deze kaart is ingesteld door de starter de dank uitvoeren voor het opslaan van de context over de specifieke uitvoeren (optioneel).
 * **ChaosTargetFilter**: dit filter kan worden gebruikt voor doel Chaos fouten alleen bepaalde knooppunttypen of alleen bepaalde exemplaren van een toepassing. Als ChaosTargetFilter niet gebruikt wordt, bedrijfsstoringen Chaos alle entiteiten van het cluster. Als ChaosTargetFilter wordt gebruikt, bedrijfsstoringen Chaos alleen de entiteiten die voldoen aan de ChaosTargetFilter-specificatie. Toestaan dat alleen union semantiek NodeTypeInclusionList en ApplicationInclusionList. Met andere woorden, is het niet mogelijk om op te geven van een snijpunt van NodeTypeInclusionList en ApplicationInclusionList. Het is bijvoorbeeld niet mogelijk om op te geven "fault deze toepassing alleen wanneer deze zich op dit knooppunttype." Zodra een entiteit is opgenomen in NodeTypeInclusionList of ApplicationInclusionList, kan niet die entiteit worden uitgesloten ChaosTargetFilter gebruiken. Zelfs als applicationX niet wordt weergegeven in ApplicationInclusionList, in sommige iteratie Chaos kunt applicationX mislukt omdat dit gebeurt op een knooppunt van nodeTypeY die is opgenomen in NodeTypeInclusionList. Als zowel NodeTypeInclusionList als ApplicationInclusionList null of leeg zijn, wordt een ArgumentException gegenereerd.
-    * **NodeTypeInclusionList**: een lijst met knooppunttypen in Chaos fouten op te nemen. Alle soorten fouten (knooppunt opnieuw opstarten, codepackage opnieuw replica verwijderen, opnieuw opstarten replica, verplaatsen primaire en secundaire verplaatsen) zijn ingeschakeld voor de knooppunten van de volgende knooppunttypen. Als een nodetype (spreken NodeTypeX) niet wordt weergegeven in de NodeTypeInclusionList en vervolgens niveau fouten knooppunt (zoals NodeRestart) voor de knooppunten van NodeTypeX nooit worden ingeschakeld, maar het pakket en replica fouten code kunnen nog steeds worden ingeschakeld voor NodeTypeX als een toepassing in de ApplicationInclusionList gebeurt zich bevinden op een knooppunt van NodeTypeX. Maximaal 100 knooppunt Typenamen kunnen worden opgenomen in deze lijst, dit aantal vergroten, een upgrade van de configuratie is vereist voor MaxNumberOfNodeTypesInChaosEntityFilter configuratie.
-    * **ApplicationInclusionList**: een lijst van toepassing URI's in Chaos fouten op te nemen. Alle replica's die horen bij de services van deze toepassingen zijn voorwerp replica fouten (opnieuw opstarten replica, replica verwijderen, verplaatsen primaire en secundaire verplaatsen) door Chaos. Chaos mogelijk opnieuw opstarten van een codepakket alleen als het codepakket fungeert als host van de replica's van deze toepassingen alleen. Als een toepassing niet in deze lijst wordt weergegeven, kan deze nog steeds mislukt in sommige iteratie Chaos als de toepassing zich op een knooppunt van een knooppunttype dat incuded in NodeTypeInclusionList belandt. Echter als applicationX is gekoppeld aan nodeTypeY via plaatsingsbeperkingen en applicationX afwezig is van ApplicationInclusionList en nodeTypeY is afwezig van NodeTypeInclusionList, klikt u vervolgens applicationX nooit mislukt. Maximaal 1000 toepassingsnamen kunnen worden opgenomen in deze lijst, dit aantal vergroten, een upgrade van de configuratie is vereist voor MaxNumberOfApplicationsInChaosEntityFilter configuratie.
+    * **NodeTypeInclusionList**: een lijst met knooppunttypen in Chaos fouten op te nemen. Alle soorten fouten (knooppunt opnieuw opstarten, codepackage opnieuw replica verwijderen, opnieuw opstarten replica, verplaatsen primaire en secundaire verplaatsen) zijn ingeschakeld voor de knooppunten van de volgende knooppunttypen. Als een nodetype (spreken NodeTypeX) niet wordt weergegeven in de NodeTypeInclusionList en vervolgens niveau fouten knooppunt (zoals NodeRestart) voor de knooppunten van NodeTypeX nooit worden ingeschakeld, maar het pakket en replica fouten code kunnen nog steeds worden ingeschakeld voor NodeTypeX als een toepassing in de ApplicationInclusionList gebeurt zich bevinden op een knooppunt van NodeTypeX. Maximaal 100 knooppunt Typenamen kunnen worden opgenomen in deze lijst, dit aantal vergroten, een upgrade van de configuratie is vereist voor MaxNumberOfNodeTypesInChaosTargetFilter configuratie.
+    * **ApplicationInclusionList**: een lijst van toepassing URI's in Chaos fouten op te nemen. Alle replica's die horen bij de services van deze toepassingen zijn voorwerp replica fouten (opnieuw opstarten replica, replica verwijderen, verplaatsen primaire en secundaire verplaatsen) door Chaos. Chaos mogelijk opnieuw opstarten van een codepakket alleen als het codepakket fungeert als host van de replica's van deze toepassingen alleen. Als een toepassing niet in deze lijst wordt weergegeven, kan deze nog steeds mislukt in sommige iteratie Chaos als de toepassing zich op een knooppunt van een knooppunttype dat incuded in NodeTypeInclusionList belandt. Echter als applicationX is gekoppeld aan nodeTypeY via plaatsingsbeperkingen en applicationX afwezig is van ApplicationInclusionList en nodeTypeY is afwezig van NodeTypeInclusionList, klikt u vervolgens applicationX nooit mislukt. Maximaal 1000 toepassingsnamen kunnen worden opgenomen in deze lijst, dit aantal vergroten, een upgrade van de configuratie is vereist voor MaxNumberOfApplicationsInChaosTargetFilter configuratie.
 
 ## <a name="how-to-run-chaos"></a>Het uitvoeren van Chaos
 
@@ -141,7 +141,7 @@ class Program
             };
 
             // All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
-            // for nodes of types 'N0040Ref' and 'N0010Ref'
+            // for nodes of type 'FrontEndType'
             var nodetypeInclusionList = new List<string> { "FrontEndType"};
 
             // In addition to the faults included by nodetypeInclusionList, 
@@ -274,7 +274,7 @@ $chaosTargetFilter = new-object -TypeName System.Fabric.Chaos.DataStructures.Cha
 $chaosTargetFilter.NodeTypeInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
 
 # All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
-# for nodes of types 'N0040Ref' and 'N0010Ref'
+# for nodes of type 'FrontEndType'
 $chaosTargetFilter.NodeTypeInclusionList.AddRange( [string[]]@("FrontEndType") )
 $chaosTargetFilter.ApplicationInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
 
@@ -320,3 +320,4 @@ while($true)
     Start-Sleep -Seconds 1
 }
 ```
+GIT 

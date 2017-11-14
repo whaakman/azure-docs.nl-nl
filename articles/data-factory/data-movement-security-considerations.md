@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2017
 ms.author: abnarain
-ms.openlocfilehash: 61ccae3c77533037de1d8d8e3963d7beb3e07a65
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: bba2781d43aff9e462246cfe21961695e48196d8
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - beveiligingsoverwegingen voor gegevensverplaatsing
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +31,7 @@ In dit artikel beschrijft de infrastructuur van de basisprincipes van beveiligin
 
 In een Data Factory-oplossing maakt u een of meer gegevens[pijplijnen](concepts-pipelines-activities.md). Een pijplijn is een logische groep activiteiten die samen een taak uitvoeren. Deze pijplijnen zich bevinden in de regio waar de gegevensfactory is gemaakt. 
 
-Hoewel Data Factory is alleen beschikbaar in **VS-Oost** en **VS-Oost 2** regio (preview versie 2), data movement service is beschikbaar [globaal in meerdere regio's](concepts-integration-runtime.md#azure-ir). Als u data movement service nog niet is geïmplementeerd voor deze regio, de Data Factory-service zorgt ervoor dat gegevens een geografisch gebied laat / regio tenzij u expliciet de opdracht de service geven moet gebruiken een andere regio. 
+Hoewel Data Factory is alleen beschikbaar in **VS-Oost**, **VS-Oost 2**, en **West-Europa** regio's (versie 2 preview), data movement service is beschikbaar [globaal in meerdere regio's](concepts-integration-runtime.md#azure-ir). Als u data movement service nog niet is geïmplementeerd voor deze regio, de Data Factory-service zorgt ervoor dat gegevens een geografisch gebied laat / regio tenzij u expliciet de opdracht de service geven moet gebruiken een andere regio. 
 
 Azure Data Factory zelf slaat geen gegevens, met uitzondering van referenties van de gekoppelde service voor cloud-gegevensarchieven, die zijn gecodeerd met behulp van certificaten. U kunt er gegevensgestuurde werkstromen mee maken om de verplaatsing van gegevens te beheren tussen [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) en om er gegevens mee te verwerken middels [Compute Services](compute-linked-services.md) in andere regio's of in een on-premises omgeving. Ook kunt u bewaken en beheren van werkstromen met behulp van SDK's en Azure-Monitor.
 

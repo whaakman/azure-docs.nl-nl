@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: sngun
-ms.openlocfilehash: ae489cfab1effca8fa33c4e2693b8b5229eda9c5
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: f45b65c1cb16a79a44e873e3e001e0f5c12a8e37
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installeer PowerShell voor Azure Stack  
 
@@ -82,7 +82,7 @@ Bevestig de installatie door de volgende opdracht uitvoeren:
 
 ## <a name="install-powershell-in-a-disconnected-or-in-a-partially-connected-scenario"></a>In een niet-verbonden of in een gedeeltelijk verbonden scenario PowerShell installeren
 
-In een niet-verbonden scenario moet u eerst de PowerShell-modules voor een machine die verbinding heeft met internet te downloaden en ze vervolgens overbrengen naar de Azure-Stack Development Kit voor installatie.
+In een scenario met en zonder gedeeltelijk verbinding moet u eerst de PowerShell-modules voor een machine die verbinding heeft met internet te downloaden en deze vervolgens overbrengen naar de Azure-Stack Development Kit voor installatie.
 
 > [!IMPORTANT]
 > De versie van de PowerShell-module AzureRM 1.2.11 wordt geleverd met een lijst met wijzigingen op te splitsen. Upgrade van de 1.2.10 versie, Zie de Migratiehandleiding voor op [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 10/31/2016
+ms.date: 11/10/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: 52026a58a5b6e26a660f9e1374e67036c67ac525
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d10d06edfc75594854d8f4da5cf29d6c2fd5ed24
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse Capaciteitslimieten
 De volgende tabellen bevatten de maximumwaarden die is toegestaan voor de verschillende onderdelen van Azure SQL Data Warehouse.
@@ -27,12 +27,12 @@ De volgende tabellen bevatten de maximumwaarden die is toegestaan voor de versch
 ## <a name="workload-management"></a>Werklastbeheer
 | Category | Beschrijving | Maximum |
 |:--- |:--- |:--- |
-| [Datawarehouse Units (DWU)][Data Warehouse Units (DWU)] |Maximale DWU voor een enkele SQL Data Warehouse |6000 |
-| [Datawarehouse Units (DWU)][Data Warehouse Units (DWU)] |Maximale DWU voor één SQL server |6000 standaard<br/><br/> Elke SQL-server (bijvoorbeeld myserver.database.windows.net) heeft standaard een DTU-quotum van 45,000 waarmee maximaal 6000 DWU. Dit quotum is gewoon een veiligheidsbeperking. U kunt uw quotum door verhogen [een ondersteuningsticket maken] [ creating a support ticket] en te selecteren *quotum* als het aanvraagtype.  Voor het berekenen van uw DTU bedrijfsbehoeften, de 7.5 vermenigvuldigen met het totale aantal DWU die nodig zijn. U kunt uw huidige DTU-verbruik zien in de blade voor de SQL-server in de portal. Zowel onderbroken als niet-onderbroken databases tellen mee voor het DTU-quotum. |
-| De verbinding met database |Gelijktijdige sessies actief |1024<br/><br/>Wij ondersteunen maximaal 1024 actieve verbindingen, die elk aanvragen met een SQL Data Warehouse-database tegelijkertijd kan worden verzonden. Houd er rekening mee dat er gelden beperkingen voor het aantal query's die daadwerkelijk gelijktijdig kan worden uitgevoerd. Wanneer de gelijktijdigheid limiet wordt overschreden, gaat de aanvraag u naar een interne wachtrij waar wacht om te worden verwerkt. |
-| De verbinding met database |Maximale hoeveelheid geheugen voor voorbereide instructies |20 MB |
-| [Beheer van de werkbelasting][Workload management] |Maximum aantal gelijktijdige query 's |32<br/><br/> SQL Data Warehouse kan standaard maximaal 32 gelijktijdige query's en wachtrijen resterende query's worden uitgevoerd.<br/><br/>Het niveau van de gelijktijdigheid van taken kan afnemen wanneer gebruikers worden toegewezen aan een hogere bronklasse of wanneer de SQL Data Warehouse is geconfigureerd met een lage DWU. Sommige query's, zoals DMV-query's, zijn altijd toegestaan om uit te voeren. |
-| [TempDB][Tempdb] |Maximale grootte van Tempdb |399 GB per DW100. Daarom wordt op DWU1000 Tempdb aangepast tot 3,99 TB |
+| [Datawarehouse Units (DWU)][Data Warehouse Units (DWU)] |Maximale DWU voor een enkele SQL Data Warehouse | Geoptimaliseerd voor elasticiteit [prestatielaag](performance-tiers.md): DW6000<br></br>Geoptimaliseerd voor Compute [prestatielaag](performance-tiers.md): DW30000c |
+| [Datawarehouse Units (DWU)][Data Warehouse Units (DWU)] |Standaard DTU per server |54,000<br></br>Elke SQL-server (bijvoorbeeld myserver.database.windows.net) heeft een DTU-quotum 54.000, waardoor maximaal DW6000c standaard. Dit quotum is gewoon een veiligheidsbeperking. U kunt uw quotum door verhogen [een ondersteuningsticket maken] [ creating a support ticket] en te selecteren *quotum* als het aanvraagtype.  Voor het berekenen van uw DTU heeft, de 7.5 vermenigvuldigen met het totale aantal dat DWU nodig of 9.0 vermenigvuldigen met de totale cDWU nodig. Bijvoorbeeld:<br></br>DW6000 x 7.5 = 45,000 dtu's<br></br>DW600c x 9.0 = 54.000 dtu's.<br></br>U kunt uw huidige DTU-verbruik van de SQL server-optie weergeven in de portal. Onderbroken en hervat databases meetellen voor de DTU-quotum. |
+| Databaseverbinding |Gelijktijdige sessies actief |1024<br/><br/>Elk van de actieve sessies 1024 kunt aanvragen met een SQL Data Warehouse-database verzenden op hetzelfde moment. Let op: Er zijn limieten van het aantal query's die gelijktijdig kan worden uitgevoerd. Wanneer de gelijktijdigheid limiet wordt overschreden, gaat de aanvraag u naar een interne wachtrij waar wacht om te worden verwerkt. |
+| Databaseverbinding |Maximale hoeveelheid geheugen voor voorbereide instructies |20 MB |
+| [Beheer van de werkbelasting][Workload management] |Maximum aantal gelijktijdige query 's |32<br/><br/> SQL Data Warehouse kan standaard maximaal 32 gelijktijdige query's en wachtrijen resterende query's worden uitgevoerd.<br/><br/>Het aantal gelijktijdige query's kunt descrease wanneer gebruikers worden toegewezen aan hogere resource klassen of wanneer SQL Data Warehouse heeft een lagere [service level](performance-tiers.md#service-levels). Sommige query's, zoals DMV-query's, zijn altijd toegestaan om uit te voeren. |
+| [TempDB][Tempdb] |Maximale GB |399 GB per DW100. Daarom op DWU1000, wordt tempdb aangepast 3,99 TB |
 
 ## <a name="database-objects"></a>database-objecten
 | Category | Beschrijving | Maximum |
@@ -42,7 +42,7 @@ De volgende tabellen bevatten de maximumwaarden die is toegestaan voor de versch
 | Tabel |Tabellen per database |2 miljard |
 | Tabel |Kolommen per tabel |1024 kolommen |
 | Tabel |Bytes per kolom |Afhankelijk van de kolom [gegevenstype][data type].  De limiet is 8000 voor de gegevenstypen char, 4000 voor nvarchar of 2 GB voor de gegevenstypen MAX. |
-| Tabel |Bytes per rij, gedefinieerde grootte |8060 bytes<br/><br/>Het aantal bytes per rij wordt berekend op dezelfde manier als voor SQL Server bij de pagina compressie. Zoals SQL Server ondersteunt SQL Data Warehouse overloop rij-opslag waarmee **kolommen met variabele lengte** moet buiten een rij worden gepusht. Wanneer de rijen met variabele lengte zijn buiten de rij gepusht, wordt alleen 24-byte-hoofdmap opgeslagen in de belangrijkste record. Zie voor meer informatie de [overloop rij gegevens van meer dan 8 KB] [ Row-Overflow Data Exceeding 8 KB] MSDN-artikel. |
+| Tabel |Bytes per rij, gedefinieerde grootte |8060 bytes<br/><br/>Het aantal bytes per rij wordt berekend op dezelfde manier als voor SQL Server bij de pagina compressie. Zoals SQL Server ondersteunt SQL Data Warehouse overloop rij-opslag, waardoor **kolommen met variabele lengte** moet buiten een rij worden gepusht. Wanneer de rijen met variabele lengte zijn buiten de rij gepusht, wordt alleen 24-byte-hoofdmap opgeslagen in de belangrijkste record. Zie voor meer informatie de [overloop rij gegevens van meer dan 8 KB][Row-Overflow Data Exceeding 8 KB]. |
 | Tabel |Partities per tabel |15,000<br/><br/>Voor hoge prestaties raden we het nummer voor het minimaliseren van partities moet u terwijl toch op uw zakelijke vereisten. Wanneer het aantal partities groeit, wordt de overhead voor bewerkingen Data Definition Language (DDL) en gegevens manipulatie taal (DML) groeit en zorgt ervoor dat de tragere prestaties. |
 | Tabel |Tekens per partitie grenswaarde. |4000 |
 | Index |Niet-geclusterde indexen per tabel. |999<br/><br/>Van toepassing op alleen rowstore-tabellen. |
@@ -58,7 +58,7 @@ De volgende tabellen bevatten de maximumwaarden die is toegestaan voor de versch
 ## <a name="loads"></a>Belasting
 | Category | Beschrijving | Maximum |
 |:--- |:--- |:--- |
-| Polybase-belasting |MB per rij |1<br/><br/>Polybase belasting zijn beperkt tot het laden van rijen beide kleiner dan 1MB en kunnen niet worden geladen VARCHR(MAX), NVARCHAR(MAX) of VARBINARY(MAX).<br/><br/> |
+| Polybase-belasting |MB per rij |1<br/><br/>Polybase laadt alleen op rijen die kleiner zijn dan 1 MB en kunnen niet worden geladen naar VARCHAR(MAX), NVARCHAR(MAX) of VARBINARY(MAX).<br/><br/> |
 
 ## <a name="queries"></a>Query's
 | Category | Beschrijving | Maximum |

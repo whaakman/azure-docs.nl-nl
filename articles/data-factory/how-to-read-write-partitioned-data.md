@@ -1,6 +1,6 @@
 ---
 title: Het lezen of schrijven gepartitioneerd gegevens in Azure Data Factory | Microsoft Docs
-description: Informatie over het lezen of schrijven gepartitioneerde gegevens Azure Data Factory-versie 2.
+description: Informatie over het lezen of schrijven gepartitioneerde in Azure Data Factory versie 2.
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: ee83fce3eeef4bde6dc8e0ea6f17b40396619412
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2066847feb3dcdf36ead8901a679d8cae7a6acde
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory-version-2"></a>Het lezen of schrijven gepartitioneerd gegevens in Azure Data Factory versie 2
 Azure Data Factory ondersteund in versie 1, lezen of schrijven van gepartitioneerde gegevens met behulp van de SliceStart/SliceEnd/WindowStart/WindowEnd systeemvariabelen. In versie 2, kunt u dit gedrag kunt bereiken met behulp van een pipeline-parameter en van de trigger geplande tijd/begintijd als een waarde van de parameter. 
@@ -38,19 +38,19 @@ Zie voor meer informatie over de eigenschap partitonedBy [versie 1 Azure Blob-co
 
 In versie 2 is een manier om dit gedrag de volgende acties uitvoeren: 
 
-1. Definieer een **pipeline-parameter** van het type tekenreeks. In het volgende voorbeeld is de naam van de pipeline-parameter **ScheduledRunTime**. 
-2. Stel **folderPath** in de definitie van de gegevensset op de waarde van parameter van de pijplijn voor zoals weergegeven in het voorbeeld. 
+1. Definieer een **pipeline-parameter** van het type tekenreeks. In het volgende voorbeeld is de naam van de pipeline-parameter **scheduledRunTime**. 
+2. Stel **folderPath** in de definitie van de gegevensset op de waarde van de pipeline-parameter. 
 3. Geef een waarde hardcoded voor de parameter voordat de pijplijn wordt uitgevoerd. Of doorgeven van een trigger start tijd of geplande tijd dynamisch tijdens runtime. 
 
 ```json
 "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.ScheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.ScheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.ScheduledRunTime, '%d'), '/')",
+      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
       "type": "Expression"
 },
 ```
 
 ## <a name="pass-in-value-from-a-trigger"></a>In waarde van een trigger doorgeven
-Geplande tijd van de trigger wordt in de volgende definitie van de trigger doorgegeven als een waarde voor de parameter van de pijplijn ScheduledRunTime: 
+In de definitie van de trigger volgende geplande tijdstip van de trigger wordt doorgegeven als een waarde voor de **scheduledRunTime** pipeline-parameter: 
 
 ```json
 {
@@ -64,7 +64,7 @@ Geplande tijd van de trigger wordt in de volgende definitie van de trigger doorg
                 "referenceName": "MyPipeline"
             },
             "parameters": {
-                "ScheduledRunTime": "@trigger().scheduledTime"
+                "scheduledRunTime": "@trigger().scheduledTime"
             }
         }
     }
@@ -80,7 +80,7 @@ Hier volgt een voorbeeld gegevenssetdefinitie (die gebruikmaakt van een paramete
   "type": "AzureBlob",
   "typeProperties": {
     "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.date, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.date, '%M'), '/dayno=', formatDateTime(pipeline().parameters.date, '%d'), '/')",
+      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
       "type": "Expression"
     },
     "format": {
@@ -134,15 +134,15 @@ De definitie van de pijplijn:
                         "type": "Expression"
                     },
                     "Year": {
-                        "value": "@formatDateTime(pipeline().parameters.date, 'yyyy')",
+                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy')",
                         "type": "Expression"
                     },
                     "Month": {
-                        "value": "@formatDateTime(pipeline().parameters.date, '%M')",
+                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%M')",
                         "type": "Expression"
                     },
                     "Day": {
-                        "value": "@formatDateTime(pipeline().parameters.date, '%d')",
+                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%d')",
                         "type": "Expression"
                     }
                 }
@@ -154,7 +154,7 @@ De definitie van de pijplijn:
             "name": "HivePartitionGameLogs"
         }],
         "parameters": {
-            "date": {
+            "scheduledRunTime": {
                 "type": "String"
             },
             "blobStorageAccount": {

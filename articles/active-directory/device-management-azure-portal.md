@@ -1,5 +1,5 @@
 ---
-title: Het beheren van apparaten met behulp van de Azure portal - preview | Microsoft Docs
+title: Het beheren van apparaten met de Azure portal | Microsoft Docs
 description: Informatie over het gebruik van de Azure-portal om apparaten te beheren.
 services: active-directory
 documentationcenter: 
@@ -12,19 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2017
+ms.date: 11/11/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 4b46e1627a229b0649d9ccd2550cd28fda9849f8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ac076917092caa8b3c14ab179515c0693fc89bf
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="managing-devices-using-the-azure-portal---preview"></a>Het beheren van apparaten met behulp van de Azure portal - preview
-
->[!NOTE]
->Deze mogelijkheid is momenteel in de openbare preview. Wees voorbereid om te herstellen of verwijderen van eventuele wijzigingen. De functie is beschikbaar in een abonnement voor Azure Active Directory (Azure AD) tijdens de openbare preview. Wanneer de functie algemeen beschikbaar wordt, kunnen sommige aspecten van de functie echter een Azure Active Directory premium-abonnement nodig.
+# <a name="managing-devices-using-the-azure-portal"></a>Het beheer van apparaten met de Azure portal
 
 
 Met Apparaatbeheer in Azure Active Directory (Azure AD), kunt u ervoor zorgen dat uw gebruikers toegang hebben tot de bronnen vanaf apparaten die voldoen aan uw standaarden voor beveiliging en naleving. 
@@ -36,21 +33,17 @@ Dit onderwerp:
 - Biedt u informatie over het beheren van uw apparaten met de Azure portal
 
 
-Om apparaten te beheren in de Azure portal, moet u op **apparaten** in de **beheren** sectie van de de **Azure Active Directory** blade.
-
-![Een apparaat met Intune beheren](./media/device-management-azure-portal/11.png)
-
-
-
 
 ## <a name="configure-device-settings"></a>Apparaatinstellingen configureren
 
-Voor het beheren van uw apparaten met de Azure portal, moeten deze worden geregistreerd of toegevoegd aan Azure AD. Als beheerder, kunt u het proces van registreren en door apparaten te koppelen door het configureren van de instellingen aanpassen.
+Voor het beheren van uw apparaten met de Azure portal, moeten uw apparaten worden ingeschreven of toegevoegd aan Azure AD. Als beheerder, kunt u het proces van registreren en door apparaten te koppelen door het configureren van de instellingen aanpassen. 
 
-![Een apparaat met Intune beheren](./media/device-management-azure-portal/22.png)
+![Apparaatinstellingen configureren](./media/device-management-azure-portal/22.png)
 
+De instellingenpagina voor het apparaat kunt u configureren:
 
-De apparaat-instellingenblade kunt u configureren:
+![Een apparaat met Intune beheren](./media/device-management-azure-portal/21.png)
+
 
 - **Gebruikers kunnen apparaten te koppelen aan Azure AD** - deze instellingen kunt u selecteren welke gebruikers apparaten met Azure AD verbinden kunnen. De standaardwaarde is **alle**.
 
@@ -65,14 +58,13 @@ De apparaat-instellingenblade kunt u configureren:
 - **Gebruikers kunnen instellingen en app-gegevens synchroniseren via apparaten** -deze instelling is standaard ingesteld op **NONE**. Specifieke gebruikers of groepen of alle selecteren die u kunt de gebruiker instellingen en app-gegevens kunnen synchroniseren via hun Windows 10-apparaten. Meer informatie over de werking van synchronisatie in Windows 10.
 Deze optie is een premium-functie beschikbaar via producten zoals Azure AD Premium of Enterprise Mobility Suite (EMS).
  
-    ![Een apparaat met Intune beheren](./media/device-management-azure-portal/21.png)
 
 
 
 
 ## <a name="locate-devices"></a>Apparaten zoeken
 
-Als een beheerder hebt in de Azure portal u twee opties geregistreerd en gekoppelde apparaten vinden:
+U hebt twee opties geregistreerd en gekoppelde apparaten vinden:
 
 - **Alle apparaten** in de **beheren** sectie van de **apparaten** blade  
 
@@ -103,45 +95,73 @@ Met beide opties, kun je op een weergave die:
 Als beheerder, kunt u de geregistreerde of gekoppelde apparaten beheren. Deze sectie vindt u informatie over algemene taken.
 
 
-**Een apparaat met Intune beheren** -als u een Intune-beheerder bent, kunt u beheren met apparaten die zijn gemarkeerd als **Microsoft Intune**. Een beheerder kan aanvullende apparaat zien 
+### <a name="manage-an-intune-device"></a>Een apparaat met Intune beheren
+
+Als u een Intune-beheerder bent, kunt u beheren met apparaten die zijn gemarkeerd als **Microsoft Intune**. Een beheerder kan aanvullende apparaat zien 
 
 ![Een apparaat met Intune beheren](./media/device-management-azure-portal/31.png)
 
 
-**Inschakelen / uitschakelen van een Azure AD-apparaat**
+### <a name="enable--disable-an-azure-ad-device"></a>Inschakelen / uitschakelen van een Azure AD-apparaat
 
-Als u wilt in- of uitschakelen van een apparaat, moet u een globale beheerder in Azure AD. Als u een apparaat wordt voorkomen dat een apparaat toegang tot uw Azure AD-resources.  U kunt u het apparaat uitschakelen door op *...* Klik op het apparaat voor meer informatie.
+Als u wilt inschakelen / uitschakelen van een apparaat, hebt u twee opties:
 
+- Het menu taken ('...') op de **alle apparaten** pagina
+
+    ![Een apparaat met Intune beheren](./media/device-management-azure-portal/71.png)
+
+- De werkbalk op de **apparaten** pagina
+
+    ![Een apparaat met Intune beheren](./media/device-management-azure-portal/32.png)
+
+
+**Opmerkingen:**
+
+- U moet een globale beheerder in Azure AD inschakelen / uitschakelen van een apparaat. 
+- Als u een apparaat wordt voorkomen dat een apparaat toegang tot uw Azure AD-resources. 
+
+
+
+### <a name="delete-an-azure-ad-device"></a>Een Azure AD-apparaat verwijderen
+
+Als u wilt verwijderen van een apparaat, hebt u twee opties:
+
+- Het menu taken ('...') op de **alle apparaten** pagina
+
+    ![Een apparaat met Intune beheren](./media/device-management-azure-portal/72.png)
+
+- De werkbalk op de **apparaten** pagina
+
+    ![Een apparaat verwijderen](./media/device-management-azure-portal/34.png)
+
+
+**Opmerkingen:**
+
+- U moet een globale beheerder in Azure AD te verwijderen van een apparaat.  
+
+- Een apparaat verwijderen:
  
-![Een apparaat met Intune beheren](./media/device-management-azure-portal/33.png)
+    - Hiermee voorkomt dat een apparaat toegang tot uw Azure AD-resources. 
 
-Als u een apparaat wijzigt de status in de **ingeschakeld** kolom **Nee**.
+    - Hiermee verwijdert u alle gegevens die zijn gekoppeld aan het apparaat, bijvoorbeeld, BitLocker-sleutels voor Windows-apparaten.  
 
-![Een apparaat uitschakelen](./media/device-management-azure-portal/32.png)
-
-
-**Een Azure AD-apparaat verwijderen** : verwijderen van een apparaat, moet u een globale beheerder in Azure AD.  
-Een apparaat verwijderen:
- 
-- Voorkomen dat een apparaat toegang tot uw Azure AD-resources 
-
-- Hiermee verwijdert u alle gegevens die zijn gekoppeld aan het apparaat, bijvoorbeeld, BitLocker-sleutels voor Windows-apparaten  
-
-- Hiermee geeft u een niet-herstelbare activiteit en wordt niet aanbevolen, tenzij deze vereist is
+    - Hiermee geeft u een niet-herstelbare activiteit en wordt niet aanbevolen, tenzij deze vereist is.
 
 Als een apparaat wordt beheerd door een andere instantie voor beheer van (bijvoorbeeld Microsoft Intune), Controleer of het apparaat gewist / buiten gebruik gesteld voordat het apparaat wordt verwijderd in Azure AD.
 
-U kunt ook selecteren '...' het apparaat verwijderen of klik op het apparaat voor meer informatie
  
-![Een apparaat verwijderen](./media/device-management-azure-portal/34.png)
 
 
-**Weergeven of kopiëren van apparaat-ID** -kunt u een apparaat-ID om te controleren of de details van de apparaat-ID op het apparaat of met behulp van PowerShell tijdens het oplossen van problemen. Voor toegang tot de optie kopiëren, klikt u op het apparaat.
+### <a name="view-or-copy-device-id"></a>Weergeven of kopiëren van apparaat-ID
+
+U kunt een apparaat-ID gebruiken om te controleren of de details van de apparaat-ID op het apparaat of met behulp van PowerShell tijdens het oplossen van problemen. Voor toegang tot de optie kopiëren, klikt u op het apparaat.
 
 ![Een apparaat-ID weergeven](./media/device-management-azure-portal/35.png)
   
 
-**Weergeven of kopiëren van BitLocker-sleutels** -als u een beheerder bent, kunt u bekijken en kopiëren van de BitLocker-sleutels, zodat gebruikers kunnen hun versleutelde station te herstellen. Deze sleutels zijn alleen beschikbaar voor Windows-apparaten die zijn versleuteld en hun sleutels hebt opgeslagen in Azure AD. Bij het openen van de details van het apparaat, kunt u deze sleutels kopiëren.
+### <a name="view-or-copy-bitlocker-keys"></a>Weergeven of kopiëren van BitLocker-sleutels
+
+Als u een beheerder bent, kunt u deze kunt bekijken en kopiëren van de BitLocker-sleutels, zodat gebruikers kunnen hun versleutelde station te herstellen. Deze sleutels zijn alleen beschikbaar voor Windows-apparaten die zijn versleuteld en hun sleutels hebt opgeslagen in Azure AD. Bij het openen van de details van het apparaat, kunt u deze sleutels kopiëren.
  
 ![BitLocker-sleutels weergeven](./media/device-management-azure-portal/36.png)
 
@@ -165,7 +185,7 @@ Uw toegangspunt voor de controle gegevens is **controlelogboeken** in de **activ
 
 Een controlelogboek heeft een standaardlijstweergave die het volgende laat zien:
 
-- de datum en tijd van de gebeurtenis
+- de datum en tijd van de instantie
 
 - de doelen
 
@@ -186,7 +206,7 @@ Als u de gerapporteerde gegevens wilt beperken tot een niveau dat geschikt is vo
 - Resourcetype van activiteit
 - Activiteit
 - Datumbereik
-- doel
+- Doel
 - Gestart door (Actor)
 
 Naast de filters, kunt u zoeken naar specifieke vermeldingen.

@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 10/30/2017
+ms.date: 11/13/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: bb0d996b950a31e3eaaaa9d90a6b96617b58192f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 875c8c87f62ecf0e7459dfcec22089854ad95594
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="templates-for-azure-policy"></a>Sjablonen voor Azure-beleid
 
-De volgende tabel bevat koppelingen naar json-sjablonen voor Azure-beleid.
+De volgende tabel bevat koppelingen naar json-sjablonen voor Azure-beleid. Deze voorbeelden vindt u in de [Azure beleid voorbeelden opslagplaats](https://github.com/Azure/azure-policy).
 
 | | |
 |---|---|
 |**Compute**||
 | [Goedgekeurde VM-installatiekopieën](scripts/allowed-custom-images.md) | Vereist dat alleen goedgekeurde aangepaste installatiekopieën in uw omgeving zijn geïmplementeerd. U opgeven een matrix van goedgekeurde afbeelding id's. |
-| [Virtuele machine maken met beheerde-schijf](scripts/create-vm-managed-disk.md) | Audits wanneer een virtuele machine die wordt gemaakt, gebruikt geen beheerde schijven.|
+| [Audit wanneer VM niet beheerd schijf](scripts/create-vm-managed-disk.md) | Audits wanneer een virtuele machine die wordt gemaakt, gebruikt geen beheerde schijven.|
 | [Audit als uitbreiding niet bestaat](scripts/audit-ext-not-exist.md) | Audits als een uitbreiding niet met een virtuele machine wordt geïmplementeerd. Geeft u de uitgever van de extensie en het type om te controleren of deze is geïmplementeerd. |
 | [Aangepaste VM-installatiekopie van een resourcegroep toestaan](scripts/allow-custom-vm-image.md) |  Vereist dat aangepaste installatiekopieën afkomstig van een goedgekeurde resourcegroep zijn. U opgeven de naam van de goedgekeurde resourcegroep. |
 | [Hybride gebruik voordeel weigeren](scripts/deny-hybrid-use.md) | Verbiedt gebruik van Azure hybride gebruiken voordeel (AHUB). Gebruik deze optie wanneer u niet wilt toestaan van gebruik van on-premises-licenties. |
@@ -39,6 +39,11 @@ De volgende tabel bevat koppelingen naar json-sjablonen voor Azure-beleid.
 | [Virtuele machine maken met beheerde-schijf](scripts/use-managed-disk-vm.md) | Vereist dat virtuele machines gebruikmaken van beheerde schijven.|
 |**Bewaking**||
 | [De diagnostische instelling audit](scripts/audit-diag-setting.md) | Audits als diagnostische instellingen niet ingeschakeld voor brontypen die is opgegeven. U een matrix van resourcetypen om te controleren of de diagnostische instellingen zijn ingeschakeld. |
+|**Naam en de tekst conventies**||
+| [Meerdere bestandsnaampatronen toestaan](scripts/allow-multiple-name-patterns.md) | Toestaan dat een groot aantal bestandsnaampatronen moet worden gebruikt voor resources. |
+| [Vereisen zoals patroon](scripts/enforce-like-pattern.md) | Zorg ervoor dat resourcenamen voldoen aan de voorwaarde like voor een patroon. |
+| [Vereisen-matchpatroon](scripts/enforce-match-pattern.md) | Zorg ervoor dat de resourcenamen overeenkomen met het naamgevingspatroon. |
+| [Vereist label-matchpatroon](scripts/enforce-tag-match-pattern.md) | Zorg ervoor dat een tagwaarde overeenkomt met een tekstpatroon. |
 |**Netwerk**||
 | [Application Gateway-SKU's toegestaan](scripts/allowed-app-gate-sku.md) | Moet Toepassingsgateways gebruiken een goedgekeurde SKU. U opgeven een matrix van goedgekeurde SKU's. |
 | [Audit als netwerk-Watcher niet is ingeschakeld voor de regio](scripts/net-watch-not-enabled.md) | Audits als netwerk-watcher niet is ingeschakeld voor een opgegeven regio. U de naam van de regio waarin u wilt controleren of de netwerk-watcher is ingeschakeld. |

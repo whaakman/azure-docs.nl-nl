@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/11/2017
 ms.author: helaw
-ms.openlocfilehash: 3b40a657ee8eb391d14a38cb95acc0729a8dda21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a8e871a3a44cb14503832d2f3a096712f8112a7
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure-Stack probleemoplossing
 
@@ -37,16 +37,6 @@ Als er een fout tijdens de installatie optreden, kunt u de optie opnieuw uitvoer
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Aan het einde van de implementatie van de PowerShell-sessie is nog geopend en eventuele uitvoer wordt niet weergegeven
 Dit gedrag is waarschijnlijk alleen het resultaat van het standaardgedrag van een PowerShell-opdrachtvenster wanneer dit item is geselecteerd. De implementatie van development kit daadwerkelijk is geslaagd, maar het script is onderbroken bij het selecteren van het venster. U kunt controleren of dat dit het geval is door te zoeken naar het woord 'selecteren' in de titelbalk van het opdrachtvenster.  Druk op ESC deze selectie opheffen en de voltooiingsbericht nadat deze moet worden weergegeven.
-
-## <a name="templates"></a>Sjablonen
-### <a name="azure-template-wont-deploy-to-azure-stack"></a>Geen implementeert Azure-sjabloon op Azure-Stack
-Zorg ervoor dat:
-
-* De sjabloon moet gebruikmaken van een Microsoft Azure-service is al beschikbaar of in het voorbeeld in de Azure-Stack.
-* De API's gebruikt voor een specifieke bron worden ondersteund door het lokale exemplaar van Azure-Stack en dat u ontwikkelt voor een geldige locatie ('lokaal' in de Azure-Stack development kit tegenover de 'VS-Oost' of 'Zuid, India' in Azure).
-* U bekijkt [in dit artikel](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md) over de cmdlets Test-AzureRmResourceGroupDeployment catch die kleine verschillen in Azure Resource Manager-syntaxis.
-
-U kunt ook de Azure-Stack sjablonen al opgegeven in de [GitHub-opslagplaats](http://aka.ms/AzureStackGitHub/) waarmee u kunt aan de slag.
 
 ## <a name="virtual-machines"></a>Virtuele machines
 ### <a name="default-image-and-gallery-item"></a>Standaard installatiekopie en de galerie-item
@@ -75,20 +65,6 @@ Meer informatie over het configureren van de retentie drempelwaarde en on-demand
 ## <a name="storage"></a>Storage
 ### <a name="storage-reclamation"></a>Opslag vrijmaken
 Het duurt maximaal 14 uur geregenereerde capaciteit worden weergegeven in de portal. Ruimte vrijmaken, is afhankelijk van verschillende factoren, met inbegrip van gebruikspercentage van de informatie over het van interne containerbestanden in het bloblarchief blok. Daarom afhankelijk van hoeveel gegevens worden verwijderd, is er geen garantie van de hoeveelheid ruimte die kan worden vrijgemaakt bij-garbagecollector wordt uitgevoerd.
-
-## <a name="powershell"></a>PowerShell
-### <a name="resource-providers-not-registered"></a>Resourceproviders is niet geregistreerd
-Bij het verbinden met tenant-abonnementen met PowerShell, ziet u dat de resourceproviders niet automatisch worden geregistreerd. Gebruik de [Connect module](https://github.com/Azure/AzureStack-Tools/tree/master/Connect), of Voer de volgende opdracht vanuit PowerShell (nadat u [installeren en verbinding maken met](azure-stack-connect-powershell.md) als een tenant): 
-  
-       Get-AzureRMResourceProvider | Register-AzureRmResourceProvider
-
-## <a name="cli"></a>CLI
-
-* De interactieve modus CLI eenledige de `az interactive` opdracht is nog niet ondersteund in Azure-Stack.
-* Als u de lijst met installatiekopieën van virtuele machines beschikbaar zijn in Azure-Stack, gebruikt de `az vm images list --all` opdracht in plaats van de `az vm image list` opdracht. Geven de `--all` optie zorgt ervoor dat antwoord retourneert alleen de afbeeldingen die beschikbaar in uw Azure-Stack-omgeving zijn. 
-* Virtuele machine installatiekopie aliassen die beschikbaar in Azure zijn is mogelijk niet van toepassing op Azure-Stack. Als u installatiekopieën van virtuele machines gebruikt, moet u de volledige URN-parameter (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) in plaats van de alias van de installatiekopie. En deze URNmust overeenkomen met de installatiekopie-specificaties die is afgeleid van de `az vm images list` opdracht.
-* Standaard wordt met CLI 2.0 'Standard_DS1_v2' gebruikt als de standaardgrootte voor de installatiekopie van virtuele machine. Maar deze grootte is nog niet beschikbaar in de Stack van Azure, dus u moet opgeven de `--size` parameter expliciet bij het maken van een virtuele machine. U kunt u de lijst met grootten van virtuele machines die beschikbaar in Azure Stack met behulp van zijn de `az vm list-sizes --location <locationName>` opdracht.
-
 
 ## <a name="windows-azure-pack-connector"></a>Windows Azure Pack-Connector
 * Als u het wachtwoord van het account azurestackadmin wijzigt nadat u Azure-Stack development kit hebt geïmplementeerd, kunt u niet langer meerdere cloud-modus. Daarom zijn deze niet mogelijk verbinding maken met de Windows Azure Pack doelomgeving.

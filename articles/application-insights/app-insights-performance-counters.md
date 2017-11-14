@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 26837a72dd4539cd5b32e5b49a127a714f3a1426
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 40821d32c5bdfe51bb3cb205660d6f25b2c3fadc
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Systeemprestatiemeteritems in Application Insights
 Windows biedt een groot aantal [prestatiemeteritems](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) zoals bezetting CPU, geheugen, schijf en netwerkgebruik. U kunt ook uw eigen links definiëren. [Application Insights](app-insights-overview.md) weergeven van deze prestatiemeteritems als uw toepassing onder IIS wordt uitgevoerd op een lokale host of virtuele machine waarop u beheerderstoegang hebben. De diagrammen geven de resources die beschikbaar zijn voor uw live-toepassing en helpen bij het identificeren van onbalans load tussen serverexemplaren.
@@ -83,7 +83,6 @@ Om te verzamelen systeemprestatiemeteritems en ze verzenden naar Application Ins
       @"\.NET CLR Memory([replace-with-application-process-name])\# GC Handles", "GC Handles")));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
-
 Of u kunt dit ook doen met aangepaste metrische gegevens die u hebt gemaakt:
 
 ``` C#
@@ -115,6 +114,9 @@ Zoals u andere telemetrie **performanceCounters** heeft ook een kolom `cloud_Rol
 
 * *Snelheid van de uitzondering* is van een prestatiemeteritem voor het systeem. De CLR telt alle verwerkte en onverwerkte uitzonderingen die worden gegenereerd en de totale binnen een interval van steekproeven worden gedeeld door de lengte van het interval. De Application Insights-SDK dit resultaat verzamelt en verzendt het naar de portal.
 * *Uitzonderingen* is een aantal van de TrackException-rapporten ontvangen door de portal in het controle-interval van de grafiek. Het bevat alleen de verwerkte uitzonderingen waar u TrackException aanroept in uw code en niet alle opgenomen hebt geschreven [onverwerkte uitzonderingen](app-insights-asp-net-exceptions.md). 
+
+## <a name="performance-counters-in-aspnet-core-applications"></a>De prestatiemeteritems in Asp.Net Core toepassingen
+Prestatie-items worden alleen ondersteund als de toepassing het volledige .NET Framework is gericht. Er is geen mogelijkheid om te verzamelen prestatiemeteritems voor .net Core-toepassingen.
 
 ## <a name="alerts"></a>Waarschuwingen
 Net als andere metrische gegevens, kunt u [een waarschuwing instellen](app-insights-alerts.md) om u te waarschuwen als een prestatiemeteritem gaat buiten een grens die u opgeeft. Open de blade waarschuwingen en klik op waarschuwing toevoegen.

@@ -3,33 +3,30 @@ title: Azure Quickstart - objecten voor overdracht naar/van Azure Blob storage m
 description: Snel informatie over het overdragen van objecten uit Azure Blob storage met .NET
 services: storage
 documentationcenter: storage
-author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: 
+author: tamram
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/01/2017
-ms.author: robinsh
-ms.openlocfilehash: 9c5628307e76bd30d2dd59f284f2c4b30d434223
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/10/2017
+ms.author: tamram
+ms.openlocfilehash: 1eac4165c35cb116a359c074bd629c918b58097c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Objecten voor overdracht naar/van Azure Blob storage met .NET
 
-In deze snelstartgids leert u hoe u C# .NET om te uploaden, gedownload en lijst blok-blobs in een container in Azure Blob storage in Windows.
+In deze snelstartgids leert u hoe u met de .NET-clientbibliotheek voor Azure Storage uploadt, downloaden en weergeven van blok-blobs in een container.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze Quickstart:
-
-* Installeer [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) met de volgende werkbelasting:
+Installeren voor het voltooien van deze snelstartgids [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) met de volgende werkbelasting:
+    
     - **Azure-ontwikkeling**
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
@@ -86,7 +83,11 @@ U kunt ook een hulpprogramma zoals gebruiken de [Azure Storage Explorer](http://
 
 Nadat u de bestanden hebt gecontroleerd, druk op een willekeurige toets om de demo voltooien en verwijderen van de testbestanden. Nu dat u wat het voorbeeld doet weet, opent u het bestand Program.cs om te kijken naar de code. 
 
-## <a name="get-references-to-the-storage-objects"></a>Het ophalen van verwijzingen naar de opslagobjecten
+## <a name="understand-the-sample-code"></a>Inzicht in de voorbeeldcode
+
+Daarna bekijken we de voorbeeldcode zodat u kunt begrijpen hoe het werkt.
+
+### <a name="get-references-to-the-storage-objects"></a>Het ophalen van verwijzingen naar de opslagobjecten
 
 Het eerste wat te doen is de verwijzingen naar objecten die worden gebruikt voor toegang tot en beheren van Blob-opslag maken. Deze objecten bouwen op elkaar--elk wordt gebruikt door de volgende gateway in de lijst.
 
@@ -124,7 +125,7 @@ permissions.PublicAccess = BlobContainerPublicAccessType.Blob;
 await cloudBlobContainer.SetPermissionsAsync(permissions);
 ```
 
-## <a name="upload-blobs-to-the-container"></a>BLOB's uploaden naar de container
+### <a name="upload-blobs-to-the-container"></a>BLOB's uploaden naar de container
 
 Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. Blok-blobs zijn het meest gebruikt, en dat is wat wordt gebruikt in deze snelstartgids. 
 
@@ -148,7 +149,7 @@ Er zijn verschillende methoden voor het uploaden die u met Blob storage gebruike
 
 Blok-blobs kunnen elk type tekst of binair bestand zijn. Pagina-blobs zijn voornamelijk gebruikt voor de VHD-bestanden gebruikt voor back-IaaS VM's. Toevoeg-BLOB's worden gebruikt voor logboekregistratie, zoals indien u wenst te schrijven naar een bestand en klik vervolgens houden meer gegevens toe te voegen. De meeste objecten die zijn opgeslagen in Blob storage zijn blok-blobs.
 
-## <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
+### <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
 U krijgt een lijst met bestanden in de container met behulp [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). De volgende code haalt de lijst met blobs en doorlopen, met de URI van de blobs. U kunt de URI in het opdrachtvenster kopieert en plakt u deze in een browser om het bestand weer te geven.
 
@@ -168,7 +169,7 @@ do
 } while (blobContinuationToken != null);
 ```
 
-## <a name="download-blobs"></a>Blobs downloaden
+### <a name="download-blobs"></a>Blobs downloaden
 
 Blobs downloaden naar uw lokale schijf met [CloudBlob.DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync).
 
@@ -184,7 +185,7 @@ Console.WriteLine("Downloading blob to {0}", fileAndPath2);
 await cloudBlockBlob.DownloadToFileAsync(fileAndPath2, FileMode.Create);
 ```
 
-## <a name="clean-up-resources"></a>Resources opschonen
+### <a name="clean-up-resources"></a>Resources opschonen
 
 Als u de blobs in deze snelstartgids geüpload niet meer nodig hebt, kunt u de volledige container via te verwijderen [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). De bestanden die zijn gemaakt als ze niet meer nodig zijn ook verwijderd.
 
@@ -200,5 +201,7 @@ In deze snelstartgids hebt u geleerd hoe u bestanden overbrengen tussen een loka
 
 > [!div class="nextstepaction"]
 > [Procedures voor de bewerkingen van de BLOB-opslag](storage-dotnet-how-to-use-blobs.md)
+
+Voor extra Azure Storage-codevoorbeelden die u kunt downloaden en uitvoeren, raadpleegt u de lijst met [voorbeelden van Azure Storage met .NET](../common/storage-samples-dotnet.md).
 
 Zie voor meer informatie over de Storage Explorer en Blobs [beheren Azure Blob storage-resources met Opslagverkenner](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

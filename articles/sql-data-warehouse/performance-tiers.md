@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/23/2017
+ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: ffeaec73a38939783174c71641c3618f4f8a3c1b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c403a73d03fd5152e2c0617b3e3784926c28f5c3
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Azure SQL Data Warehouse prestatielagen (Preview)
 SQL Data Warehouse biedt twee prestatielagen die zijn geoptimaliseerd voor analytische workloads. Dit artikel wordt uitgelegd van de concepten van prestatielagen bij het kiezen van de meest geschikte prestatielaag voor uw workload. 
@@ -55,7 +55,7 @@ WITH
 ## <a name="memory-maximums"></a>Maximumwaarden geheugen
 De prestatielagen hebben verschillende geheugen profielen omgezet in een andere hoeveelheid geheugen per query. De optimaliseren voor de prestatielaag Compute biedt 2,5 x meer geheugen per query dan de optimaliseren voor de prestatielaag elasticiteit. Deze extra geheugen helpt de optimaliseren voor de prestatielaag Compute zijn razendsnel snelle prestaties leveren. Extra geheugen per query ook kunt u meer query's uitvoeren gelijktijdig omdat query's kunnen gebruiken lagere [resource klassen](resource-classes-for-workload-management.md). 
 
-### <a name="optimized-for-elasticity"></a>Geoptimaliseerd voor elasticiteit
+### <a name="optimized-for-elasticity"></a>Geoptimaliseerd voor Elasticity
 
 Het niveau van de service voor het optimaliseren voor elasticiteit prestaties laag tussen DW100 en DW6000. 
 
@@ -148,7 +148,7 @@ De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdi
 | DW15000c      | 32                         |  600                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW30000c      | 32                         | 1200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
-### <a name="optimized-for-elasticity"></a>Geoptimaliseerd voor elasticiteit
+### <a name="optimized-for-elasticity"></a>Geoptimaliseerd voor Elasticity
 De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdigheid sleuven voor elk [dynamische bronklasse](resource-classes-for-workload-management.md).  Deze gelden voor het optimaliseren voor de prestatielaag elasticiteit.
 
 **Dynamische Bronklassen**

@@ -1,5 +1,5 @@
 ---
-title: Json-voorbeeld Azure beleid - virtuele machine met beheerde schijf maken | Microsoft Docs
+title: Json-voorbeeld Azure beleid - Audit VM niet met beheerde schijf | Microsoft Docs
 description: Deze json-voorbeeld kunnen worden opgeslagen wanneer een virtuele machine wordt gemaakt die beheerde schijven niet wordt gebruikt.
 services: azure-policy
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.workload:
 ms.date: 10/30/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: d581280981ce93382ee48c38d74ed6eefa4403fd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 576cb49eee9404cfb09bc4374c4f8544b6db377a
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="create-vm-using-managed-disk"></a>Virtuele machine maken met beheerde-schijf
+# <a name="audit-when-vm-does-not-use-managed-disk"></a>Audit wanneer VM niet beheerd schijf
 
 Audits wanneer een virtuele machine die wordt gemaakt, gebruikt geen beheerde schijven.
 

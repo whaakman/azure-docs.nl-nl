@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 10/23/2017
+ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: 93f0d21c7214487ffa0c2c5e27bd6e468920418c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 02998c48dcab5d3ed191b168665c9e47bbfbd232
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Data Warehouse Units (dwu's) en rekencapaciteit Data Warehouse Units (cDWUs)
 Verklaart Data Warehouse Units (dwu's) en Data Warehouse Units (cDWUS) berekenen voor Azure SQL Data Warehouse. Aanbevelingen voor het kiezen van het aantal ideaal datawarehouse units en het wijzigen van het aantal bevatten. 
@@ -52,16 +52,8 @@ Zowel dwu's en cDWUs ondersteuning voor vergroten/verkleinen compute omhoog of o
 Als u datawarehouse units verhoogt, kunt u computerbronnen zijn lineair oplopende. De geoptimaliseerde voor compute prestatielaag biedt de beste queryprestaties en hoogste schaal heeft maar een hogere vermelding prijs. Het is ontworpen voor bedrijven die u een constante vraag voor prestaties hebt. Deze systemen maken de meeste gebruik van de cache. 
 
 ### <a name="capacity-limits"></a>Capaciteitslimieten
-Elke Server (bijvoorbeeld myserver.database.windows.net) heeft een quotum die de grootte en schaal van de databases op dat exemplaar beperkt. Een server kan SQL DW- en SQL DB-databases die allemaal binnen het quotum passen moeten hosten. Dit quotum wordt gemeten in eenheden DTU (Database Transaction), en standaard is ingesteld op 54.000 om maximaal 6000 cDWU toestaan. Dit quotum is gewoon een veiligheidsbeperking. U kunt uw quotum verhogen door een ondersteuningsticket maken en te selecteren 'Target' als het aanvraagtype. 
+Elke SQL-server (bijvoorbeeld myserver.database.windows.net) heeft een [Database Transaction Unit (DTU)](../sql-database/sql-database-what-is-a-dtu.md) quotum waarmee een bepaald aantal datawarehouse Units. Zie voor meer informatie de [werkbelasting management Capaciteitslimieten](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
-Voor het berekenen van de vereiste DTU, de volgende ze van toepassing op uw DTU berekening:
-
-| Prestatielaag | Meeteenheid | DTU vermenigvuldiger | Voorbeeld                   |
-|:----------------:|----------------:|---------------:|--------------------------:|
-| Elasticiteit       |  DWU            | 7.5            | DW6000 x 7.5 = 45,000 DTU |
-| Compute          | cDWU            | 9              | DW6000 x 7.5 = 54.000 DTU |
-
-U kunt uw huidige DTU-verbruik Zie eigenschappen van SQL server weergeven in de portal.
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>Hoeveel gegevens datawarehouse eenheden moet ik gebruiken?
 Het aantal ideaal datawarehouse Units afhankelijk van te veel uw werkbelasting en de hoeveelheid gegevens die u hebt geladen in het systeem.

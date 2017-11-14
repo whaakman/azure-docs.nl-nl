@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3e4eef12c1d19be6e0f1051caaa5cf2e98626aef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f9882ebc86b8119e6e683c7442ee3448a8d111b
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Een functie-app maken vanuit de Azure portal
 
@@ -40,7 +40,7 @@ Nadat de functie-app is gemaakt, kunt u afzonderlijke functies in een of meer ve
 
 Azure Functions heeft twee verschillende serviceplannen: verbruik plannings- en App Service-abonnement. Het plan verbruik wijst automatisch rekencapaciteit wanneer uw code wordt uitgevoerd, kan worden geschaald uit als nodig is om belasting te verwerken, en vervolgens kan worden geschaald in wanneer de code wordt niet uitgevoerd. De App Service-abonnement geeft uw functie app-toegang tot de faciliteiten van App Service. Als de functie-app wordt gemaakt en kan niet op dit moment worden gewijzigd, moet u uw service-abonnement kiezen. Zie voor meer informatie [Kies een Azure-functies die als host fungeert voor plan](functions-scale.md).
 
-Als u van plan bent voor het uitvoeren van JavaScript-functies op een App Service-abonnement, moet u een plan met minder cores kiezen. Zie voor meer informatie de [verwijzing in JavaScript voor functies](functions-reference-node.md#choose-single-core-app-service-plans).
+Als u van plan bent voor het uitvoeren van JavaScript-functies op een App Service-abonnement, moet u een plan met minder cores kiezen. Zie voor meer informatie de [verwijzing in JavaScript voor functies](functions-reference-node.md#choose-single-vcpu-app-service-plans).
 
 <a name="storage-account-requirements"></a>
 

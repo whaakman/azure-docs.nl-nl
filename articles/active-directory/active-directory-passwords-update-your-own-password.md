@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 8f175f5711b9798153d209f6645aa8bae9f2a00b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 763248b1b7adf821d37f2308195a0934a0aee152
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="help-i-forgot-my-azure-ad-password"></a>Help, ik ben mijn Azure AD-wachtwoord vergeten
+# <a name="reset-your-work-or-school-password"></a>Uw werk of school-wachtwoord opnieuw instellen
 
-Als u uw wachtwoord bent vergeten of dit nooit hebt ontvangen van uw IT-afdeling, bent uitgesloten van uw account of uw wachtwoord wilt wijzigen, kunnen wij u helpen. Als u uw wachtwoord weet en moet wijzigen het en doorgaan naar de sectie [mijn wachtwoord wijzigen](#change-my-password) hieronder.
+Als u uw wachtwoord bent vergeten, nooit ontvangen van de ondersteuning van uw bedrijf, vergrendeld buiten uw account of wilt wijzigen, kunnen we helpen. Als u uw wachtwoord weet en moet wijzigen het en doorgaan naar de sectie [mijn wachtwoord wijzigen](#change-my-password) hieronder.
 
    > [!NOTE]
    > Als u probeert weer toegang te krijgen tot uw persoonlijke account zoals Xbox, hotmail.com of outlook.com-probeer de [suggesties gevonden in dit artikel](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
@@ -64,7 +64,7 @@ Volg de stappen volgen voor toegang tot Azure AD selfservice voor wachtwoordhers
    ![Controleer uw authenticatiegegevens controleren][Verification]
 
 4. Mogelijk vraagt uw IT-afdeling om aanvullende verificatie. In dat geval moet u stap 3 misschien met een andere keuze herhalen.
-5. Geef op de pagina **Een nieuw wachtwoord kiezen** een nieuw wachtwoord, bevestig het wachtwoord en klik op **Voltooien**. Het is raadzaam om een wachtwoord te kiezen van 8-16 tekens met hoofdletters en kleine letters, cijfers en speciale tekens.
+5. Geef op de pagina **Een nieuw wachtwoord kiezen** een nieuw wachtwoord, bevestig het wachtwoord en klik op **Voltooien**. Uw werk- of schoolaccount wachtwoord mogelijk bepaalde vereisten; het is raadzaam om dat uw wachtwoord worden 8-16 tekens met hoofdletters en kleine letters, cijfers en speciale tekens.
 6. Wanneer de melding **Uw wachtwoord is opnieuw ingesteld** wordt weergegeven, kunt u zich aanmelden met uw nieuwe wachtwoord.
 
     ![Uw wachtwoord is opnieuw ingesteld][Complete]

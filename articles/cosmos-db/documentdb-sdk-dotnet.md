@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2f32f16ae9559a057f9b39658e437aeedfd575c7
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 25fd7ca3a7a6f2bd9b361bd459a707bad49449e4
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK: Downloaden en release-opmerkingen
 > [!div class="op_single_selector"]
@@ -55,6 +55,7 @@ ms.lasthandoff: 11/11/2017
 
 * Wijzigingen van de Azure DocumentDB naar Azure Cosmos-database in de API-verwijzing huisstijl documentatie, informatie over de metagegevens in assembly's en het NuGet-pakket. 
 * Diagnostische gegevens en de latentie van de respons van aanvragen die worden verzonden met directe verbinding modus worden blootgesteld. De namen van eigenschappen zijn RequestDiagnosticsString en RequestLatency voor ResourceResponse-klasse.
+* Deze SDK-versie moet de meest recente versie van Azure Cosmos DB Emulator die beschikbaar is voor downloaden van https://aka.ms/cosmosdb-emulator. 
 
 ### <a name="a-name11811181"></a><a name="1.18.1"/>1.18.1 
 

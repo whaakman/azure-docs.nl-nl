@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 76e23d85b392f8120914f6170040c6b3c450aba6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4a197af41f5450d84e1c18e15198d1febb02bab1
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Objecten voor overdracht naar/van Azure Blob storage met Python
 In deze snelstartgids leert u hoe u Python gebruikt om te uploaden, downloaden en weergeven van blok-blobs in een container in Azure Blob-opslag. 
@@ -73,7 +73,11 @@ U kunt ook een hulpprogramma zoals gebruiken de [Azure Storage Explorer](http://
 
 Nadat u de bestanden hebt gecontroleerd, druk op een willekeurige toets om de demo voltooien en verwijderen van de testbestanden. Nu dat u wat het voorbeeld doet weet, open het bestand example.py om te kijken naar de code. 
 
-## <a name="get-references-to-the-storage-objects"></a>Het ophalen van verwijzingen naar de opslagobjecten
+## <a name="understand-the-sample-code"></a>Inzicht in de voorbeeldcode
+
+Daarna bekijken we de voorbeeldcode zodat u kunt begrijpen hoe het werkt.
+
+### <a name="get-references-to-the-storage-objects"></a>Het ophalen van verwijzingen naar de opslagobjecten
 Het eerste wat te doen is de verwijzingen naar objecten die worden gebruikt voor toegang tot en beheren van Blob-opslag maken. Deze objecten bouwen op elkaar en elk wordt gebruikt door de volgende link in de lijst.
 
 * Exemplaar maken van de **BlockBlobService** -object, dat naar de Blob-service in uw opslagaccount verwijst. 
@@ -98,7 +102,7 @@ block_blob_service.create_container(container_name)
 # Set the permission so the blobs are public.
 block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
 ```
-## <a name="upload-blobs-to-the-container"></a>BLOB's uploaden naar de container
+### <a name="upload-blobs-to-the-container"></a>BLOB's uploaden naar de container
 
 Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. Blok-blobs zijn het meest gebruikt en dat is wat wordt gebruikt in deze snelstartgids.  
 
@@ -128,7 +132,7 @@ Er zijn verschillende methoden voor het uploaden die u met Blob storage gebruike
 
 Blok-blobs kunnen even groot zijn als 4,7 TB en kunnen van alles van Excel-werkbladen te grote videobestanden zijn. Pagina-blobs zijn voornamelijk gebruikt voor de VHD-bestanden gebruikt voor back-IaaS VM's. Toevoeg-BLOB's worden gebruikt voor logboekregistratie, zoals indien u wenst te schrijven naar een bestand en klik vervolgens houden meer gegevens toe te voegen. De meeste objecten die zijn opgeslagen in Blob storage zijn blok-blobs.
 
-## <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
+### <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
 Een lijst met bestanden in de container met behulp van de **list_blobs** methode. Deze methode retourneert een generator. De volgende code haalt de lijst met blobs en doorlopen, met de namen van de blobs in een container.  
 
@@ -140,7 +144,7 @@ print("\nList blobs in the container")
         print("\t Blob name: " + blob.name)
 ```
 
-## <a name="download-the-blobs"></a>De blobs downloaden
+### <a name="download-the-blobs"></a>De blobs downloaden
 
 Blobs downloaden naar uw lokale schijf met de **ophalen\_blob\_naar\_pad** methode. De volgende code downloadt de blob uploaden van een vorige sectie. '_DOWNLOADED' wordt toegevoegd als achtervoegsel aan de blob-naam, zodat u beide bestanden op lokale schijf kunt zien. 
 
@@ -152,7 +156,7 @@ print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
 ```
 
-## <a name="clean-up-resources"></a>Resources opschonen
+### <a name="clean-up-resources"></a>Resources opschonen
 Als u de blobs in deze snelstartgids geüpload niet meer nodig hebt, kunt u verwijderen de volledige container via de **verwijderen\_container**. Als de bestanden die zijn gemaakt niet meer nodig zijn, gebruikt u de **verwijderen\_blob** methode om de bestanden te verwijderen.
 
 ```python

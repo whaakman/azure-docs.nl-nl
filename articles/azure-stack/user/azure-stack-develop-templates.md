@@ -12,19 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/13/2017
 ms.author: helaw
-ms.openlocfilehash: ffad7bfd4ffcd9159dea23b70640f0ee761fbae0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9109c58b29d5f09f1a86068a87c5e7f839228af
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Overwegingen met betrekking tot Azure Resource Manager-sjabloon
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
 Tijdens het ontwikkelen van uw toepassing, is het belangrijk om ervoor te zorgen sjabloon draagbaarheid tussen Azure en Azure-Stack.  Dit onderwerp bevat overwegingen voor het ontwikkelen van Azure Resource Manager [sjablonen](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), zodat u kunt prototype van uw toepassing en test-implementatie in Azure zonder toegang tot een Azure-Stack-omgeving.
+
+## <a name="resource-provider-availability"></a>Provider beschikbaarheid
+De sjabloon die u van plan bent om te implementeren moet gebruikmaken van een Microsoft Azure-service is al beschikbaar of in het voorbeeld in de Azure-Stack.
 
 ## <a name="public-namespaces"></a>Openbare naamruimten
 Omdat Azure Stack wordt gehost in uw datacenter, heeft andere service-eindpunt naamruimten dan de openbare Azure-cloud. Openbare eindpunten vastgelegd in het Resource Manager-sjablonen mislukt als gevolg hiervan, wanneer u probeert te implementeren naar Azure-Stack. In plaats daarvan kunt u de *verwijzing* en *samenvoegen* functie voor het dynamisch opbouwen van het service-eindpunt op basis van waarden opgehaald van de resourceprovider tijdens de implementatie. Bijvoorbeeld, in plaats van het opgeven van *blob.core.windows.net* ophalen in de sjabloon de [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) dynamisch instellen de *osDisk.URI* eindpunt:
@@ -73,7 +76,6 @@ Het locatiekenmerk Resource Manager-sjablonen gebruiken om resources tijdens de 
       }
     }
     ]
-
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Sjablonen implementeren met PowerShell](azure-stack-deploy-template-powershell.md)

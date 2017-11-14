@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/01/2017
+ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 35dd3c6be2fb2fa5ec4d14eefce1c16005210364
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: b041244b28d76de4bac2822c115482e31d073a22
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configureren van netwerk-Prestatiemeter voor ExpressRoute (Preview)
 
@@ -39,21 +39,27 @@ U kunt:
 
 * Zie de ExpressRoute-systeemstatus van een eerder punt in tijd
 
-**Hoe werkt het?**
+## <a name="regions"></a>Ondersteunde regio 's
+
+U kunt ExpressRoute-circuits in elk deel van de hele wereld bewaken met behulp van een werkruimte die wordt gehost in een van de volgende gebieden:
+
+* West-Europa 
+* VS - oost 
+* Zuidoost-Azië 
+
+## <a name="workflow"></a>Werkstroom
 
 Bewaking agents zijn geïnstalleerd op meerdere servers, zowel on-premises en in Azure. De agents met elkaar communiceren, maar geen gegevens verzenden, ze TCP-handshake pakketten verzenden. De communicatie tussen de agents kan Azure de netwerktopologie en pad van het verkeer kan worden toegewezen.
 
-**Werkstroom**
-
-1. Maak een NPM-werkruimte in de regio West-Centraal VS. Dit is momenteel de enige regio waar deze Preview wordt ondersteund.
+1. Maken van een werkruimte NPM in een van de [ondersteunde regio's](#regions).
 2. Installeren en configureren van softwareagents: 
     * Installeer monitoring-agents op de on-premises servers en de Azure VM's.
     * Instellingen configureren op de monitoring agentservers om toe te staan van de bewaking agents om te communiceren. (Open firewall-poorten, enz.)
 3. Configureren (NSG) netwerkbeveiligingsgroepen zodat de monitoring agent is geïnstalleerd op Azure Virtual machines om te communiceren met on-premises monitoring-agents.
-4. Aanvraag voor het goedgekeurde IP-adressen van de NPM-werkruimte
+4. Verzoek voor het goedgekeurde IP-adressen de NPM-werkruimte.
 5. Bewaking ingesteld: Voer automatisch ontdekken en te beheren welke netwerken zichtbaar zijn in NPM.
 
-Als u al met een netwerk Prestatiemeter voor het bewaken van andere objecten of -services en u al werkruimte in West-Centraal VS hebt, kunt u stap 1 en 2 van de stap overslaan en beginnen met de configuratie met stap 3.
+Als u al met een netwerk Prestatiemeter voor het bewaken van andere objecten of -services en u al werkruimte in een van de ondersteunde regio's hebt, kunt u stap 1 en 2 van de stap overslaan en beginnen met de configuratie met stap 3.
 
 ## <a name="configure"></a>Stap 1: Een werkruimte maken
 
@@ -66,7 +72,7 @@ Als u al met een netwerk Prestatiemeter voor het bewaken van andere objecten of 
   * OMS-werkruimte - Typ een naam voor uw werkruimte.
   * Abonnement - als u meerdere abonnementen, kies de variant die u wilt koppelen aan de nieuwe werkruimte hebt.
   * Resourcegroep - een resourcegroep maken of gebruik een bestaande.
-  * Locatie - u moet selecteren West-Centraal VS voor deze Preview
+  * Locatie - moet u een [regio ondersteund](#regions).
   * Prijscategorie - Selecteer vrije
 
   ![Werkruimte](.\media\how-to-npm\4.png)<br><br>

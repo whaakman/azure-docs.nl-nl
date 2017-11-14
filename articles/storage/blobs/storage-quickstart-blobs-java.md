@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/01/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: b096b9d79c049d8659a4171a0cbb42a99e245776
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2a825e59093b64ab56110f9a045b0325728b39b2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-java"></a>Objecten voor overdracht naar/van Azure Blob storage met Java
 
@@ -85,19 +85,23 @@ Nadat u de bestanden hebt gecontroleerd, drukt u op enter drukken om de demo vol
 
 ## <a name="understand-the-sample-code"></a>Inzicht in de voorbeeldcode
 
+Daarna bekijken we de voorbeeldcode zodat u kunt begrijpen hoe het werkt.
+
+### <a name="get-references-to-the-storage-objects"></a>Het ophalen van verwijzingen naar de opslagobjecten
+
 Het eerste wat te doen is de verwijzingen naar objecten die worden gebruikt voor toegang tot en beheren van Blob-opslag maken. Deze objecten bouwen op elkaar--elk wordt gebruikt door de volgende gateway in de lijst.
 
 * Maak een instantie van de **CloudStorageAccount** object verwijst naar de [opslagaccount](/java/api/com.microsoft.azure.management.storage._storage_account).
 
-De **CloudStorageAccount** object is een weergave van uw opslagaccount en kunt u instellen en eigenschappen van het opslagaccount programmatisch toegang. Met behulp van de **CloudStorageAccount** object kunt u een exemplaar van de **CloudBlobClient**, die nodig zijn voor toegang tot de blob-service is.
+    De **CloudStorageAccount** object is een weergave van uw opslagaccount en kunt u instellen en eigenschappen van het opslagaccount programmatisch toegang. Met behulp van de **CloudStorageAccount** object kunt u een exemplaar van de **CloudBlobClient**, die nodig zijn voor toegang tot de blob-service is.
 
 * Maak een instantie van de **CloudBlobClient** -object, dat naar verwijst de [Blob-service](/java/api/com.microsoft.azure.storage.blob._cloud_blob_client) in uw opslagaccount.
 
-De **CloudBlobClient** biedt u een punt voor toegang tot de blob-service, zodat u kunt instellen en programmatisch toegang krijgen tot blob storage-eigenschappen. Met behulp van de **CloudBlobClient** kunt u een exemplaar van de **CloudBlobContainer** -object, dat nodig is om containers te maken.
+    De **CloudBlobClient** biedt u een punt voor toegang tot de blob-service, zodat u kunt instellen en programmatisch toegang krijgen tot blob storage-eigenschappen. Met behulp van de **CloudBlobClient** kunt u een exemplaar van de **CloudBlobContainer** -object, dat nodig is om containers te maken.
 
 * Geen exemplaar maken van de **CloudBlobContainer** -object, dat staat voor de [container](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container) u opent. Containers worden gebruikt om uw blobs te organiseren dat u de mappen op uw computer gebruiken om uw bestanden te organiseren.    
 
-Zodra u hebt de **CloudBlobContainer**, kunt u een exemplaar van de **CloudBlockBlob** -object dat naar de specifieke verwijst [blob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) in die u vinden wilt, en een upload, downloaden, kopiëren, enzovoort-bewerking uitvoeren.
+    Zodra u hebt de **CloudBlobContainer**, kunt u een exemplaar van de **CloudBlockBlob** -object dat naar de specifieke verwijst [blob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) in die u vinden wilt, en een upload, downloaden, kopiëren, enzovoort-bewerking uitvoeren.
 
 > [!IMPORTANT]
 > Containernamen moeten kleine letters. Zie [Naming en verwijzen naar Containers, Blobs en metagegevens](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) voor meer informatie over de container en de blob-namen.

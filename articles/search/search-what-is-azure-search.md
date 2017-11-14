@@ -3,7 +3,7 @@ title: Wat is Azure Search | Microsoft Docs
 description: Azure Search is een volledig beheerde gehoste cloud search-service. Meer informatie in het Functieoverzicht van deze.
 services: search
 manager: jhubbard
-author: ashmaka
+author: HeidiSteen
 documentationcenter: 
 ms.assetid: 50bed849-b716-4cc9-bbbc-b5b34e2c6153
 ms.service: search
@@ -11,18 +11,18 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
-ms.author: ashmaka
-ms.openlocfilehash: 9893be47ec0c2f58ca206ec7c1bce13734513390
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/10/2017
+ms.author: heidist
+ms.openlocfilehash: 63c7bcc1bf4e650f913d31e5687c31257a85bfee
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="what-is-azure-search"></a>Wat is Azure Search?
-Azure Search is een search-as-a-service cloudoplossing die biedt ontwikkelaars API's en hulpprogramma's voor het toevoegen van een uitgebreide zoekervaring via uw gegevens in toepassingen met web, mobiel en enterprise.
+Azure Search is een search-as-a-service cloudoplossing die biedt ontwikkelaars API's en hulpprogramma's voor het toevoegen van een uitgebreide zoekervaring via uw inhoud in toepassingen met web, mobiel en enterprise.
 
-Functionaliteit is beschikbaar gemaakt via een eenvoudige [REST-API](/rest/api/searchservice/) of [.NET SDK](search-howto-dotnet-sdk.md) die maskeert de intrinsieke complexiteit van de search-technologie. De Azure-portal biedt naast API's, beheer en maken van een prototype-ondersteuning. Infrastructuur en beschikbaarheid worden beheerd door Microsoft.
+Functionaliteit is beschikbaar gemaakt via een eenvoudige [REST-API](/rest/api/searchservice/) of [.NET SDK](search-howto-dotnet-sdk.md) die maskeert de intrinsieke complexiteit ophalen van informatie. Naast API's biedt de Azure portal beheer en inhoudbeheer ondersteunen, met hulpprogramma's voor het maken van een prototype en opvragen van de indexen. Omdat de service wordt uitgevoerd in de cloud, worden infrastructuur en beschikbaarheid beheerd door Microsoft.
 
 <a name="feature-drilldown"></a>
 
@@ -70,7 +70,7 @@ Klanten wordt vaak vragen hoe Azure Search worden vergeleken met andere oplossin
 
 | Vergeleken met | Belangrijke verschillen |
 |--|--|
-|Bing | [Bing Web Search API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/) de indexen op Bing.com gezocht naar overeenkomende voorwaarden die u verzendt. Indexen zijn van HTML-, XML en andere webinhoud op openbare sites gebouwd. [Bing aangepaste zoekactie](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/) biedt dezelfde crawler technologie voor web inhoudstypen binnen het bereik van individuele websites.<br/><br/>Azure Search zoekt een index die u definieert, ingevuld met gegevens en documenten die u eigenaar bent, vaak uit verschillende bronnen. Azure Search is crawler capabilies voor sommige gegevensbronnen via [indexeerfuncties](search-indexer-overview.md), maar u kunt elk JSON-document dat voldoet aan uw indexschema push in een enkele, geconsolideerde doorzoekbare resource. |
+|Bing | [Bing Web Search API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/) de indexen op Bing.com gezocht naar overeenkomende voorwaarden die u verzendt. Indexen zijn van HTML-, XML en andere webinhoud op openbare sites gebouwd. [Bing aangepaste zoekactie](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/) biedt dezelfde crawler technologie voor web inhoudstypen binnen het bereik van individuele websites.<br/><br/>Azure Search zoekt een index die u definieert, ingevuld met gegevens en documenten die u eigenaar bent, vaak uit verschillende bronnen. Azure Search heeft crawler mogelijkheden voor sommige gegevensbronnen via [indexeerfuncties](search-indexer-overview.md), maar u kunt elk JSON-document dat voldoet aan uw indexschema push in een enkele, geconsolideerde doorzoekbare resource. |
 |Zoeken in database | [SQL Server zoekopdracht in volledige tekst](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) is voor intern gebruik binnen het DBMS in SQL-tabellen inhoud. <br/><br/>Azure Search slaat de inhoud van heterogene bronnen en biedt speciale tekst verwerken functies zoals taalkundige en aangepaste analyse. De [zoekmachine voor volledige tekst](search-lucene-query-architecture.md) in Azure Search is gebouwd op Apache Lucene, een industriestandaard in informatie ophalen. <br/><br/>Resourcegebruik is een ander infecties punt. Zoeken in natuurlijke taal is vaak rekenkracht. Offloading zoeken om een oplossing voor toegewezen bewaart bronnen voor transactieverwerking. Door externalizing zoeken, kunt u eenvoudig scale zodat deze overeenkomen met de query volume aanpassen.|
 |Zoekoplossing voor speciale | On premises of cloud zijn serviceoplossingen toegewezen zoekoplossingen met volledige spectrum functionaliteit. Zoeken technologieën doorgaans controle over het indexeren en de query pijplijnen bieden, en toegang tot uitgebreidere query positie en relevantie en functies voor zoeken in gericht en intelligente filteren syntaxis, kunt beheren. <br/><br/>U kunt specifieke zoekoplossingen wordt aangeboden als een cloud service of als een zelfstandige server gehost on-premises of op een virtuele machine vinden. Een cloudservice de juiste keuze is als u wilt een [directe oplossing met minimale overhead en onderhoud en aanpasbare schaal](#cloud-service-advantage). <br/><br/>Binnen het paradigma cloud bieden verschillende providers vergelijkbare basislijn-functies met zoeken in volledige tekst, geo-search en de mogelijkheid voor het afhandelen van een bepaalde mate van dubbelzinnigheid in invoer zoeken. Normaal gesproken is dit een [gespecialiseerde functie](#feature-drilldown), of het gemak en de algehele eenvoud van API's, hulpprogramma's en beheer waarmee wordt bepaald van het meest geschikt is. |
 

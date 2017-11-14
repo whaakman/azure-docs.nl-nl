@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: 26a5854735bd197fb114fce409a093251dc5c2f0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33fedd765acde666eef280ba7dfa72536bf1bd2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Een rondleiding van Analytics in Application Insights
 [Analytics](app-insights-analytics.md) is de functie krachtige zoeken van [Application Insights](app-insights-overview.md). Deze pagina's worden de Log Analytics query language beschreven.
@@ -54,7 +54,7 @@ Vouw een item om de details:
 ![Kies tabel en kolommen configureren gebruiken](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
-> Klik op de kop van een kolom die de resultaten die beschikbaar zijn in de webbrowser opnieuw te rangschikken. Maar houd er rekening mee dat voor een grote resultatenset, het aantal rijen dat is gedownload naar de browser beperkt wordt. Sorteren op deze manier niet altijd u de werkelijke hoogste of laagste items weergeven. U sorteert items betrouwbaar, gebruiken de `top` of `sort` operator.
+> Klik op de koptekst van een kolom die de resultaten die beschikbaar zijn in de webbrowser opnieuw te rangschikken. Maar houd er rekening mee dat voor een grote resultatenset, het aantal rijen dat is gedownload naar de browser beperkt wordt. Sorteren op deze manier gewoon de geretourneerde resultatenset sorteert en komt niet altijd u de werkelijke hoogste of laagste items weergeven. U sorteert items betrouwbaar, gebruiken de `top` of `sort` operator.
 >
 >
 
@@ -92,7 +92,7 @@ De eerste n rijen, geordend op een bepaalde kolom weergeven:
 
 Het resultaat zou zijn hetzelfde, maar deze zou iets langzamer uitgevoerd. (U kunt ook schrijven `order`, dit is een alias van `sort`.)
 
-De kolomkoppen in de tabelweergave kunnen ook worden gebruikt om te sorteren van de resultaten op het scherm. Maar natuurlijk, als u hebt gebruikt `take` of `top` ophalen alleen maar een deel van een tabel, u hebt alleen opnieuw rangschikken de records die u hebt opgehaald.
+De kolomkoppen in de tabelweergave kunnen ook worden gebruikt om te sorteren van de resultaten op het scherm. Maar natuurlijk, als u hebt gebruikt `take` of `top` om op te halen, alleen deel uitmaken van een tabel, te klikken op de kolomkop wordt alleen opnieuw rangschikken de records die u hebt opgehaald.
 
 ## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>[Waar](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): voor het filteren van een voorwaarde
 
@@ -115,8 +115,9 @@ De `where` operator werkt met een Boole-expressie. Hier volgen enkele belangrijk
 
 <!---Read all about [scalar expressions]().--->
 
-### <a name="getting-the-right-type"></a>Ophalen van het verkeerde type
-Mislukte aanvragen zoeken:
+### <a name="find-unsuccessful-requests"></a>Mislukte aanvragen zoeken
+
+Een string-waarde converteren naar een geheel getal groter gebruiken-dan vergelijking:
 
 ```AIQL
 
@@ -240,7 +241,7 @@ Of we het resultaat kan verdelen in aanvragen van verschillende namen:
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize`verzamelt de gegevenspunten in de stroom in groepen waarvan de `by` component evenveel evalueert. Elke waarde in de `by` - elke bewerkingsnaam in het bovenstaande voorbeeld - expressie resulteert in een rij in de resultaattabel.
+`Summarize`verzamelt de gegevenspunten in de stroom in groepen waarvan de `by` component evenveel evalueert. Elke waarde in de `by` - elke unieke naam van de bewerking in het bovenstaande voorbeeld - expressie resulteert in een rij in de resultaattabel.
 
 Of we kan resultaten groeperen op tijd van de dag:
 
