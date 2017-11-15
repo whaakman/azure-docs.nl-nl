@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 25e2538e220327a078a6527e667dfcd6cb838b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc25d6106ad67710660b1a5c48270a7082688d51
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Het laden van Linux virtuele machines in Azure maken van een maximaal beschikbare toepassing saldo
 Taakverdeling biedt een hoger niveau van de beschikbaarheid van binnenkomende aanvragen verspreid over meerdere virtuele machines. In deze zelfstudie leert u over de verschillende onderdelen van de Azure load balancer die verkeer distribueren en bieden hoge beschikbaarheid. Procedures voor:
@@ -162,10 +162,13 @@ for i in `seq 1 3`; do
 done
 ```
 
+Wanneer alle drie virtuele NIC's worden gemaakt, door te gaan naar de volgende stap
+
+
 ## <a name="create-virtual-machines"></a>Virtuele machines maken
 
 ### <a name="create-cloud-init-config"></a>Cloud-init-configuratie maken
-In een vorige zelfstudie over [het aanpassen van een virtuele Linux-machine op de eerste keer opstarten](tutorial-automate-vm-deployment.md), hebt u geleerd hoe u de aanpassing van de virtuele machine met cloud-init automatiseren. U kunt het bestand met dezelfde configuratie cloud init NGINX installeren en uitvoeren van een eenvoudige 'Hallo wereld' Node.js-app.
+In een vorige zelfstudie over [het aanpassen van een virtuele Linux-machine op de eerste keer opstarten](tutorial-automate-vm-deployment.md), hebt u geleerd hoe u de aanpassing van de virtuele machine met cloud-init automatiseren. U kunt het bestand met dezelfde configuratie cloud init NGINX installeren en uitvoeren van een eenvoudige 'Hallo wereld' Node.js-app in de volgende stap. Toegang tot deze eenvoudige app in een webbrowser om te zien van de load balancer in actie aan het einde van de zelfstudie.
 
 Maak een bestand met de naam in uw huidige shell *cloud init.txt* en plak de volgende configuratie. Maak bijvoorbeeld het bestand in de Cloud-Shell niet op uw lokale machine. Voer `sensible-editor cloud-init.txt` voor het maken van het bestand en een overzicht van beschikbare editors. Controleer of het hele cloud-init-bestand correct is gekopieerd met name de eerste regel:
 
@@ -253,7 +256,7 @@ az network public-ip show \
     --output tsv
 ```
 
-Vervolgens kunt u het openbare IP-adres in invoeren aan een webbrowser. Houd er rekening mee - duurt een paar minuten de de virtuele machines moet gereed voor de load balancer-verkeer naar ze te distribueren. De app wordt weergegeven, inclusief de hostnaam van de virtuele machine die de load balancer verkeer naar het volgende voorbeeld gedistribueerde:
+Vervolgens kunt u het openbare IP-adres in invoeren aan een webbrowser. Houd er rekening mee - duurt het enkele minuten duren voordat de virtuele machines moet gereed voor de load balancer-verkeer naar ze te distribueren. De app wordt weergegeven, inclusief de hostnaam van de virtuele machine die de load balancer verkeer naar het volgende voorbeeld gedistribueerde:
 
 ![Actieve Node.js-app](./media/tutorial-load-balancer/running-nodejs-app.png)
 
@@ -277,6 +280,24 @@ az network nic ip-config address-pool remove \
 
 Als u wilt zien van de load balancer verkeer verdelen over de resterende twee virtuele machines waarop uw app wordt uitgevoerd. u kunt force vernieuwen uw webbrowser. U kunt nu onderhoud uitvoeren op de virtuele machine, zoals het installeren van updates voor het besturingssysteem of het uitvoeren van een VM opnieuw wordt opgestart.
 
+Een overzicht van virtuele machines met virtuele NIC's die zijn verbonden met de load balancer gebruiken [az netwerk lb-adresgroep weergeven](/cli/azure/network/lb/address-pool#show). Zoeken en filteren van de ID van de virtuele NIC als volgt:
+
+```azurecli-interactive
+az network lb address-pool show \
+    --resource-group myResourceGroupLoadBalancer \
+    --lb-name myLoadBalancer \
+    --name myBackEndPool \
+    --query backendIpConfigurations \
+    --output tsv | cut -f4
+```
+
+De uitvoer is vergelijkbaar met het volgende voorbeeld, waaruit blijkt dat de virtuele NIC voor VM 2 niet langer deel van de back-end-adresgroep uitmaakt:
+
+```bash
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic1/ipConfigurations/ipconfig1
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic3/ipConfigurations/ipconfig1
+```
+
 ### <a name="add-a-vm-to-the-load-balancer"></a>Een virtuele machine toevoegen aan de load balancer
 Na het uitvoeren van onderhoud van de virtuele machine, of als u over meer capaciteit nodig hebt, kunt u een virtuele machine toevoegen aan de back-end-adresgroep met [az nic ip-config-netwerkadresgroep toevoegen](/cli/azure/network/nic/ip-config/address-pool#add). Het volgende voorbeeld wordt de virtuele NIC voor **myVM2** naar *myLoadBalancer*:
 
@@ -288,6 +309,8 @@ az network nic ip-config address-pool add \
     --lb-name myLoadBalancer \
     --address-pool myBackEndPool
 ```
+
+Gebruik om te controleren dat de virtuele NIC is verbonden met de back-end-adresgroep, [az netwerk lb-adresgroep weergeven](/cli/azure/network/lb/address-pool#show) opnieuw uit de vorige stap.
 
 
 ## <a name="next-steps"></a>Volgende stappen

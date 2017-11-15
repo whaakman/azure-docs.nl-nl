@@ -3,7 +3,7 @@ title: Uw toepassing werklast testen met behulp van Visual Studio Team Services 
 description: Ontdek hoe testen uw Azure Service Fabric-toepassingen met behulp van Visual Studio Team Services.
 services: service-fabric
 documentationcenter: na
-author: cawams
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: fc743585-0d1b-483f-981d-493f4552ac07
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/18/2016
-ms.author: cawa
-ms.openlocfilehash: e8e270ce865d4da3ee219958b308db2c1c89b11b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ryanwi
+ms.openlocfilehash: 42cd4fc0f7a8d1efdc4afff9c51693e756a1d1e3
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="load-test-your-application-by-using-visual-studio-team-services"></a>Uw toepassing werklast testen met behulp van Visual Studio Team Services
 In dit artikel laat zien hoe Microsoft Visual Studio load test functies gebruiken om te testen een toepassing. Maakt gebruik van een Azure Service Fabric stateful service back-end en een webfront-end staatloze service. De voorbeeldtoepassing gebruikt hier is een locatie in een vliegtuig simulator. U opgeven dat een vliegtuig-ID, de vertrektijd en de bestemming. De back-end van de toepassing de verzoeken verwerkt en de front-endserver wordt weergegeven op een kaart het vliegtuig die overeenkomt met de criteria.
@@ -32,7 +32,7 @@ Voordat u aan de slag, moet u het volgende doen:
 
 * Maak een Visual Studio Team Services-account. U kunt een gratis verkrijgen op [Visual Studio Team Services](https://www.visualstudio.com).
 * Ontvangen en Visual Studio 2013 of Visual Studio 2015 te installeren. Dit artikel wordt Visual Studio 2015 Enterprise edition gebruikt, maar Visual Studio 2013 en andere edities moeten op dezelfde manier werken.
-* Uw toepassing implementeren naar een testomgeving. Zie [toepassingen naar een externe cluster met Visual Studio implementeren](service-fabric-publish-app-remote-cluster.md) voor informatie over deze.
+* Uw toepassing implementeren naar een testomgeving. Zie [toepassingen naar een externe cluster met Visual Studio implementeren](service-fabric-manage-application-in-visual-studio.md) voor informatie over deze.
 * Inzicht in uw toepassing gebruikspatroon. Deze informatie wordt gebruikt om te simuleren van de load-patroon.
 * Het doel voor het testen van uw belasting te begrijpen. Dit helpt u bij het interpreteren en de load-testresultaten analyseert.
 

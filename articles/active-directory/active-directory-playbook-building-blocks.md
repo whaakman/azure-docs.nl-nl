@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bdbdebe069b3150bed4aa26f1f6e677a66f75f32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e4af248a1aafbd34a62c75e792746514456577b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory bewijs van concept playbook: bouwstenen
 
@@ -99,10 +99,10 @@ Geschatte tijd om te voltooien: 15 minuten
 | Stap | Resources |
 | --- | --- |
 | Ga naar Azure AD-beheerportal | [Azure AD-beheerportal - huisstijl van uw bedrijf](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| Upload de activa voor de aanmeldingspagina (hero logo, kleine logo, labels, enzovoort). Als u AD FS hebt, uitlijnen eventueel de dezelfde activa met AD FS-aanmeldingspagina 's | [Huisstijl aan uw aanmeldingspagina en pagina's toevoegen: aanpasbare elementen](active-directory-add-company-branding.md) |
+| Upload de activa voor de aanmeldingspagina (hero logo, kleine logo, labels, enzovoort). Als u AD FS hebt, uitlijnen eventueel de dezelfde activa met AD FS-aanmeldingspagina 's | [Huisstijl aan uw aanmeldingspagina en pagina's toevoegen: aanpasbare elementen](customize-branding.md) |
 | Wacht een paar minuten voordat de wijziging doorgevoerd |  |
 | Meld u aan met de gebruikersreferenties Implementatiemodel met https://myapps.microsoft.com |  |
-| Bevestig het uiterlijk in browser | [Huisstijl aan uw aanmeldingspagina en pagina's toevoegen](active-directory-add-company-branding.md) |
+| Bevestig het uiterlijk in browser | [Huisstijl aan uw aanmeldingspagina en pagina's toevoegen](customize-branding.md) |
 | Eventueel, bevestig het uiterlijk in andere apparaten |  |
 
 ### <a name="considerations"></a>Overwegingen
@@ -379,7 +379,7 @@ Geschatte tijd om te voltooien: 15 minuten
 
 | Vereiste | Resources |
 | --- | --- |
-| Schakel het beheer van de selfservice voor wachtwoordherstel in uw tenant. | [Azure Active Directory-wachtwoord opnieuw instellen voor IT-beheerders](active-directory-passwords.md) |
+| Schakel het beheer van de selfservice voor wachtwoordherstel in uw tenant. | [Azure Active Directory-wachtwoord opnieuw instellen voor IT-beheerders](active-directory-passwords-update-your-own-password.md) |
 | Schakel wachtwoord terugschrijven van wachtwoorden van on-premises beheren. Opmerking hiervoor specifieke Azure AD Connect-versies | [Vereisten voor het terugschrijven van wachtwoorden](active-directory-passwords-writeback.md) |
 | Identificeer de PoC-gebruikers die deze functionaliteit gebruiken en zorg ervoor dat ze lid zijn van een beveiligingsgroep. De gebruikers moeten niet-beheerders de mogelijkheid volledig presenteren | [Aanpassen: Azure AD-wachtwoordbeheer: toegang beperken tot wachtwoord opnieuw instellen](active-directory-passwords-writeback.md) |
 

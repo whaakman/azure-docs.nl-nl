@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: e72dd7e84ce3961274cf312649cc679abc576aae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b71c7e7f1ea58a273beb58717102522ad0f8c4a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="security-in-azure-data-lake-store"></a>Beveiliging in Azure Data Lake Store
 Veel bedrijven profiteert van big data-analyses voor zakelijke inzichten zodat beslissingen voor de smartcard. Een organisatie kan een complex en gereglementeerde omgeving met een toenemend aantal diverse gebruikers hebben. Is het essentieel is voor een ondernemings-om ervoor te zorgen dat essentiële bedrijfsgegevens veiliger, wordt opgeslagen met het juiste niveau van toegang te krijgen tot afzonderlijke gebruikers. Azure Data Lake Store is ontworpen om te voldoen aan deze beveiligingsvereisten. In dit artikel meer informatie over de beveiligingsmogelijkheden van Data Lake Store, met inbegrip van:
@@ -35,7 +35,7 @@ Verificatie is het proces waarmee de identiteit van een gebruiker is geverifieer
 Elk Azure-abonnement kan worden gekoppeld aan een exemplaar van Azure Active Directory. Alleen gebruikers en service-identiteiten die zijn gedefinieerd in uw Azure Active Directory-service heeft toegang tot uw Data Lake Store-account met behulp van de Azure-portal, opdrachtregelprogramma's of via de clienttoepassingen van uw organisatie worden gebouwd met behulp van Azure Data Lake Store SDK. Belangrijkste voordelen van het gebruik van Azure Active Directory als een gecentraliseerde mechanisme voor toegangsbeheer zijn:
 
 * Identity lifecycle beheer vereenvoudigd. De identiteit van een gebruiker of een service (een service principal identiteit) worden snel gemaakt en snel door gewoon verwijderen of uitschakelen van de account in de map is ingetrokken.
-* Multi-factor authentication-server. [Multi-factorauthenticatie](../multi-factor-authentication/multi-factor-authentication.md) biedt een extra beveiligingslaag voor gebruikersaanmeldingen en transacties.
+* Meervoudige verificatie. [Multi-factorauthenticatie](../multi-factor-authentication/multi-factor-authentication.md) biedt een extra beveiligingslaag voor gebruikersaanmeldingen en transacties.
 * Verificatie van elke client via een open standaardprotocol, zoals OAuth of OpenID.
 * Federatie met enterprise directoryservices en cloud-id-providers.
 
@@ -56,7 +56,7 @@ Houd er rekening mee dat hoewel rollen zijn toegewezen voor accountbeheer, sommi
 | --- | --- | --- | --- |
 | Er is geen rol die is toegewezen |Geen |Beheerst door de ACL |De gebruiker niet de Azure portal of Azure PowerShell-cmdlets gebruiken om te bladeren Data Lake Store. De gebruiker kan alleen de opdrachtregelprogramma's gebruiken. |
 | Eigenaar |Alle |Alle |De rol van eigenaar is een beheerder. Deze rol kan alles beheren en heeft volledige toegang tot gegevens. |
-| Lezer |alleen-lezen |Beheerst door de ACL |De rol lezer kunt alles met betrekking tot accountbeheer, zoals welke gebruiker is toegewezen aan welke rol weergeven. De rol lezer kunt geen wijzigingen aanbrengen. |
+| Lezer |Alleen-lezen |Beheerst door de ACL |De rol lezer kunt alles met betrekking tot accountbeheer, zoals welke gebruiker is toegewezen aan welke rol weergeven. De rol lezer kunt geen wijzigingen aanbrengen. |
 | Inzender |Alles behalve rollen toevoegen en verwijderen |Beheerst door de ACL |De rol Inzender kunt bepaalde aspecten van een account, zoals implementaties en bij het maken en beheren van waarschuwingen beheren. De rol Inzender kunt toevoegen of verwijderen van rollen. |
 | Beheerder van gebruikerstoegang |Toevoegen en verwijderen van rollen |Beheerst door de ACL |De rol beheerder voor gebruikerstoegang kunt gebruikerstoegang tot accounts beheren. |
 
@@ -65,7 +65,7 @@ Zie voor instructies [gebruikers of beveiligingsgroepen toewijzen aan Data Lake 
 ### <a name="using-acls-for-operations-on-file-systems"></a>Met behulp van ACL's voor bewerkingen voor bestandssystemen
 Data Lake Store is een hiërarchische bestandssysteem zoals Hadoop Distributed File System (HDFS) en het ondersteunt [POSIX-ACL's](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Hiermee kunt u lezen (r), (b) schrijven en uitvoeren van (machtigingen voor de resources voor de rol van eigenaar, voor de groep eigenaren en voor andere gebruikers en groepen x). In de openbare preview van de Data Lake Store (de huidige release) kunnen ACL's worden ingeschakeld voor de hoofdmap, submappen en afzonderlijke bestanden. Zie voor meer informatie over de werking van ACL's in de context van Data Lake Store [Toegangsbeheer in Data Lake Store](data-lake-store-access-control.md).
 
-Het is raadzaam dat u voor meerdere gebruikers met behulp van ACL's definiëren [beveiligingsgroepen](../active-directory/active-directory-accessmanagement-manage-groups.md). Gebruikers toevoegen aan een beveiligingsgroep en vervolgens de ACL's voor een bestand of map toewijzen aan die beveiligingsgroep. Dit is handig wanneer u toegang bieden aangepaste, wilt omdat u beperkt tot maximaal negen items voor aangepaste toegang toe te voegen. Zie voor meer informatie over het beter beveiligen van gegevens die zijn opgeslagen in Data Lake Store met Azure Active Directory-beveiligingsgroepen [gebruikers of beveiligingsgroep als ACL's toewijzen aan het bestandssysteem van Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions).
+Het is raadzaam dat u voor meerdere gebruikers met behulp van ACL's definiëren [beveiligingsgroepen](../active-directory/active-directory-groups-create-azure-portal.md). Gebruikers toevoegen aan een beveiligingsgroep en vervolgens de ACL's voor een bestand of map toewijzen aan die beveiligingsgroep. Dit is handig wanneer u toegang bieden aangepaste, wilt omdat u beperkt tot maximaal negen items voor aangepaste toegang toe te voegen. Zie voor meer informatie over het beter beveiligen van gegevens die zijn opgeslagen in Data Lake Store met Azure Active Directory-beveiligingsgroepen [gebruikers of beveiligingsgroep als ACL's toewijzen aan het bestandssysteem van Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions).
 
 ![Standaard- en aangepaste toegang lijst](./media/data-lake-store-security-overview/adl.acl.2.png "lijst standaard en aangepaste toegang")
 

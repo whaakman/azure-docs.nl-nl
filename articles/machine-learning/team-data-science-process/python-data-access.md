@@ -4,7 +4,7 @@ description: Installeren en de Python-clientbibliotheek gebruiken voor toegang t
 services: machine-learning
 documentationcenter: python
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 9ab42272-c30c-4b7e-8e66-d64eafef22d0
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: huvalo;bradsev
-ms.openlocfilehash: 104999f3e667457892efb76a32123f8d64a8ffc7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3cffb90baadef570bbb7e4e2d96741cc0420b0a2
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Toegang tot gegevenssets met Python met behulp van de clientbibliotheek van Azure Machine Learning Python
 De evaluatieversie van Microsoft Azure Machine Learning Python-clientbibliotheek kunt inschakelen van beveiligde toegang naar uw Azure Machine Learning-gegevenssets vanuit een lokale Python-omgeving en kunt het maken en beheren van gegevenssets in een werkruimte.
@@ -40,7 +40,7 @@ De Python-clientbibliotheek is getest onder de volgende omgevingen:
 
 Deze is afhankelijk van de volgende pakketten:
 
-* Aanvragen
+* aanvragen
 * Python-dateutil
 * pandas
 

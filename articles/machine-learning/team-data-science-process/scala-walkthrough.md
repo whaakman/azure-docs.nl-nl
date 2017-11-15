@@ -4,7 +4,7 @@ description: Het gebruik van Scala voor bewaakte machine learning taken met de S
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: a7c97153-583e-48fe-b301-365123db3780
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: bradsev;deguhath
-ms.openlocfilehash: 19e963a56e8f905bb89d0162c65e893ae7515a97
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 940911144993f30723ad395722742c81a4b0a71c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Gegevenswetenschap met Scala en Spark op Azure
 In dit artikel leest u hoe Scala gebruiken voor beheerde machine learning taken met de Spark schaalbare MLlib en Spark ML pakketten op een Azure HDInsight Spark-cluster. Dit leidt u door de taken die deel uitmaken van de [proces voor Gegevenswetenschap](http://aka.ms/datascienceprocess): gegevensopname en verkennen, visualisatie, functie-engineering, modellering en model verbruik. De modellen in het artikel zijn logistic en lineaire regressie, willekeurige forests en verloop boosted structuren (GBTs), naast de twee algemene beheerde machine learning-taken:
@@ -292,7 +292,7 @@ U kunt met behulp van Python-code nadat het kader van de gegevens in de lokale c
  De uitvoer van SQL (HiveQL)-query's visualiseren de kernel Spark automatisch nadat u de code hebt uitgevoerd. U kunt kiezen tussen verschillende soorten visualisaties:
 
 * Tabel
-* Pie
+* Cirkel
 * Regel
 * Onderwerp
 * Balk

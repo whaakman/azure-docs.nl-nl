@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: bb739d19be7aedf73f422faaa0f5f63a81633d07
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 36443ec86c15edce27bdc4f50cabcaf2e14936bc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>De Kopieeractiviteit in Azure Data Factory
 
@@ -65,6 +65,10 @@ U kunt bijvoorbeeld de volgende kopie activiteiten doen:
 * Kopieer de bestanden in tekstindeling (CSV) van de on-premises bestandssysteem en schrijven naar Azure Blob Avro-indeling.
 * ZIP-bestanden kopiëren van on-premises bestandssysteem en decomprimeren vervolgens land naar Azure Data Lake Store.
 * Kopiëren van gegevens in de GZip gecomprimeerde tekst (CSV)-indeling van Azure Blob en schrijven naar Azure SQL Database.
+
+## <a name="supported-regions"></a>Ondersteunde regio’s
+
+De service die ook door de kopieerbewerking is beschikbaar globaal in de regio's en locaties die worden vermeld in [Azure integratie Runtime locaties](concepts-integration-runtime.md#integration-runtime-location). De topologie wereldwijd beschikbare zorgt ervoor dat efficiënt gegevensverplaatsing die meestal regio-overschrijdende hops voorkomt. Zie [-Services per regio](https://azure.microsoft.com/regions/#services) voor beschikbaarheid van de Gegevensfactory en de verplaatsing van gegevens in een regio.
 
 ## <a name="configuration"></a>Configuratie
 
@@ -132,7 +136,7 @@ De volgende sjabloon van een kopieeractiviteit bevat een uitgebreide lijst met o
 | Invoer | Geef de gegevensset die u hebt gemaakt die verwijst naar de brongegevens. Kopieeractiviteit ondersteunt alleen een één invoer. | Ja |
 | uitvoer | Geef de gegevensset die u hebt gemaakt die verwijst naar de sink-gegevens. Kopieeractiviteit ondersteunt slechts één uitvoer. | Ja |
 | typeProperties | Een groep met eigenschappen voor het configureren van de kopieeractiviteit. | Ja |
-| Bron | Het brontype van het exemplaar en de bijbehorende eigenschappen opgeven voor het ophalen van gegevens.<br/><br/>Meer informatie over de details van de sectie 'activiteitseigenschappen kopiëren' in de connector artikelen in [ondersteunde gegevensarchieven en indelingen](#supported-data-stores-and-formats). | Ja |
+| bron | Het brontype van het exemplaar en de bijbehorende eigenschappen opgeven voor het ophalen van gegevens.<br/><br/>Meer informatie over de details van de sectie 'activiteitseigenschappen kopiëren' in de connector artikelen in [ondersteunde gegevensarchieven en indelingen](#supported-data-stores-and-formats). | Ja |
 | sink | Geef het exemplaar sink-type en de bijbehorende eigenschappen op het schrijven van gegevens.<br/><br/>Meer informatie over de details van de sectie 'activiteitseigenschappen kopiëren' in de connector artikelen in [ondersteunde gegevensarchieven en indelingen](#supported-data-stores-and-formats). | Ja |
 | Translator | Geef expliciete kolomtoewijzingen van bron opvangen. Wanneer u het standaardgedrag voor het exemplaar kan niet voldoen aan uw behoeften past.<br/><br/>Meer informatie over de details van [Schema en de gegevens Typetoewijzing](copy-activity-schema-and-type-mapping.md). | Nee |
 | cloudDataMovementUnits | Geef de powerfulness van [Azure integratie Runtime](concepts-integration-runtime.md) zorgen dat gegevens opnieuw te kopiëren.<br/><br/>Meer informatie over de details van [Cloud data movement eenheden](copy-activity-performance.md). | Nee |
@@ -152,9 +156,9 @@ De activiteitsgegevens uitvoering kopiëren en prestatiekenmerken worden geretou
 | rowsSkipped | Aantal niet-compatibele rijen wordt overgeslagen. U kunt de functie inschakelen door de set 'enableSkipIncompatibleRow' op true. | Waarde voor Int64 (geen unit) |
 | Doorvoer | Verhouding waarmee gegevens worden overgedragen | Drijvendekommagetal in KB per seconde |
 | copyDuration | De duur van de kopie | Waarde voor Int32 (in seconden) |
-| sqlDwPolyBase | Als bij het kopiëren van gegevens in SQL Data Warehouse PolyBase gebruikt. | Booleaanse waarde |
-| redshiftUnload | Als uit het geheugen laden wordt gebruikt bij het kopiëren van gegevens van Redshift. | Booleaanse waarde |
-| hdfsDistcp | Als DistCp wordt gebruikt bij het kopiëren van gegevens uit HDFS. | Booleaanse waarde |
+| sqlDwPolyBase | Als bij het kopiëren van gegevens in SQL Data Warehouse PolyBase gebruikt. | Boole-waarde |
+| redshiftUnload | Als uit het geheugen laden wordt gebruikt bij het kopiëren van gegevens van Redshift. | Boole-waarde |
+| hdfsDistcp | Als DistCp wordt gebruikt bij het kopiëren van gegevens uit HDFS. | Boole-waarde |
 | effectiveIntegrationRuntime | Kunt u zien welk integratie Runtime(s) wordt gebruikt om te zorgen dat de activiteit die wordt uitgevoerd in de indeling van `<IR name> (<region if it's Azure IR>)`. | Tekst (tekenreeks) |
 | usedCloudDataMovementUnits | De effectieve cloud data movement eenheden tijdens het kopiëren van. | Int32-waarde |
 | redirectRowPath | Pad naar het logboek van overgeslagen incompatibel rijen in de blobopslag die u onder 'redirectIncompatibleRowSettings configureert'. Zie onderstaand voorbeeld. | Tekst (tekenreeks) |

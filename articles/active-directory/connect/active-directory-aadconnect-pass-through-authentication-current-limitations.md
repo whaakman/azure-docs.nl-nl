@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 42a6d7156a28aaeadea96f9134b0becc004816ba
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 4a33df43ca218545d6c684103a64f2cd1460913b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory Pass-through-verificatie: Huidige beperkingen
 
@@ -38,7 +38,7 @@ De volgende scenario's worden volledig ondersteund:
 
 De volgende scenario's zijn _niet_ ondersteund:
 
-- Gebruiker aanmeldingen in oudere Office-clienttoepassingen - Office 2010 en Office 2013 _zonder_ moderne verificatie). Organisaties aangemoedigd overschakelen naar moderne verificatie, indien mogelijk. Moderne verificatie kunt u ondersteuning voor Pass-through-verificatie, maar ook helpt bij het beveiligen van uw gebruikers gebruikersaccounts via [voorwaardelijke toegang](../active-directory-conditional-access.md) functies zoals multi-factor Authentication (MFA).
+- Gebruiker aanmeldingen in oudere Office-clienttoepassingen - Office 2010 en Office 2013 _zonder_ moderne verificatie). Organisaties aangemoedigd overschakelen naar moderne verificatie, indien mogelijk. Moderne verificatie kunt u ondersteuning voor Pass-through-verificatie, maar ook helpt bij het beveiligen van uw gebruikers gebruikersaccounts via [voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md) functies zoals multi-factor Authentication (MFA).
 - Gebruikersaanmeldingen in Skype voor bedrijven-clienttoepassingen, met inbegrip van Skype voor bedrijven 2016.
 - Gebruikersaanmeldingen in PowerShell v1.0. Het wordt aanbevolen v2.0 PowerShell te gebruiken.
 - Azure AD Domain Services.

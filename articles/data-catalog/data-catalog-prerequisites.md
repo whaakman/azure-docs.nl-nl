@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/01/2017
 ms.author: maroche
-ms.openlocfilehash: cf32ef4c80fa0ee68ce3dc1289467a419aab39c9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7d4ed0cc06e8b218b2b63c1d899701ba2eafd648
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-data-catalog-prerequisites"></a>Vereisten voor Azure Data Catalog
 
@@ -28,7 +28,7 @@ U moet zorgen voor een aantal dingen voordat u Azure Data Catalog kunt instellen
 ## <a name="azure-subscription"></a>Azure-abonnement
 Als u Data Catalog instelt, moet u de eigenaar of mede-eigenaar van een Azure-abonnement.
 
-Azure-abonnementen kunnen u toegang tot de service in de cloud bronnen zoals Data Catalog indelen. Abonnementen kunnen u ook bepalen hoe Resourcegebruik is gerapporteerd, kosten in rekening gebracht en betaald. Elk abonnement kan een afzonderlijke facturerings- en -instellingen hebben, zodat u kunt abonnementen en schema's die per afdeling, project en regionaal kantoor verschillen. Elke cloudservice behoort tot een abonnement en moet u beschikken over een abonnement voordat u Data Catalog instelt. Zie [Accounts, abonnementen en beheerdersrollen beheren](../active-directory/active-directory-assign-admin-roles.md) voor meer informatie.
+Azure-abonnementen kunnen u toegang tot de service in de cloud bronnen zoals Data Catalog indelen. Abonnementen kunnen u ook bepalen hoe Resourcegebruik is gerapporteerd, kosten in rekening gebracht en betaald. Elk abonnement kan een afzonderlijke facturerings- en -instellingen hebben, zodat u kunt abonnementen en schema's die per afdeling, project en regionaal kantoor verschillen. Elke cloudservice behoort tot een abonnement en moet u beschikken over een abonnement voordat u Data Catalog instelt. Zie [Accounts, abonnementen en beheerdersrollen beheren](../active-directory/active-directory-assign-admin-roles-azure-portal.md) voor meer informatie.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 Als u Data Catalog instelt, moet u bent aangemeld met een gebruikersaccount van Azure Active Directory (Azure AD).

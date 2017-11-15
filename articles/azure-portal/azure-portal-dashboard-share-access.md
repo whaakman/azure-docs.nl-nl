@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.openlocfilehash: ea0cf7ad074f95c2b49a92f9a8e32270a1d39b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50a965f9773524a36bedc3d040bf1a1ca391507f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Azure dashboards delen met toegangsbeheer op basis van rollen
 U kunt na het configureren van een dashboard, publiceren en delen met andere gebruikers in uw organisatie. Anderen uw dashboard weergeven met behulp van Azure [toegangsbeheer op basis van rollen](../active-directory/role-based-access-control-configure.md). U een gebruiker of groep gebruikers toewijzen aan een rol en die rol definieert die gebruikers kunnen weergeven of wijzigen van het gepubliceerde-dashboard. 
@@ -35,7 +35,7 @@ Met op rollen gebaseerde toegangsbeheer (RBAC), kunt u gebruikers toewijzen aan 
 
 * abonnement
 * resourcegroep
-* Resource
+* Bron
 
 De machtigingen die u toewijst, worden overgenomen van abonnement omlaag naar de resource. Het gepubliceerde dashboard is een resource. Daarom mogelijk hebt u al gebruikers toegewezen aan rollen voor het abonnement dat ook voor het gepubliceerde dashboard werken. 
 
@@ -44,7 +44,7 @@ Hier volgt een voorbeeld.  Stel dat u hebt een Azure-abonnement en verschillende
 U kan echter ook machtigingen toewijzen aan de resourcegroep met de verschillende dashboards of naar een afzonderlijke dashboard. U kunt bijvoorbeeld besluiten dat een groep gebruikers moet hebben beperkte machtigingen voor het abonnement, maar groter toegang tot een bepaalde dashboard. U toewijzen gebruikers aan een rol voor dit dashboard. 
 
 ## <a name="publish-dashboard"></a>dashboard publiceren
-Stel dat u klaar bent met het configureren van een dashboard dat u wilt delen met een groep gebruikers in uw abonnement. De volgende stappen uit een aangepaste groep met de naam van de opslag Managers weer, maar u kunt uw groep naam wat u wilt. Zie voor meer informatie over het maken van een Active Directory-groep en gebruikers toevoegen aan die groep [groepen beheren in Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
+Stel dat u klaar bent met het configureren van een dashboard dat u wilt delen met een groep gebruikers in uw abonnement. De volgende stappen uit een aangepaste groep met de naam van de opslag Managers weer, maar u kunt uw groep naam wat u wilt. Zie voor meer informatie over het maken van een Active Directory-groep en gebruikers toevoegen aan die groep [groepen beheren in Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 
 1. Selecteer in het dashboard **Share**.
    

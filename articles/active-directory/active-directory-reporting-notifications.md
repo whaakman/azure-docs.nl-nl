@@ -16,11 +16,11 @@ ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e561061cadd88e2c5670e27f2a66ef21002e30b0
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: fa8ca5940bb437c1e5c3939262db000544b04e36
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Azure Active Directory-rapportage meldingen
 ## <a name="what-reports-generate-email-notifications"></a>Welke rapporten genereren e-mailmeldingen
@@ -47,5 +47,5 @@ Ja, u kunt uitschakelen meldingen betrekking hebben op afwijkende aanmeldingen i
 ## <a name="whats-next"></a>Volgend onderwerp
 * Meer wilt weten over welke beveiliging, controle en rapporten van activiteiten zijn beschikbaar? Bekijk [Azure AD-beveiliging, controle en rapporten van activiteiten](active-directory-view-access-usage-reports.md)
 * [Aan de slag met Azure Active Directory Premium](active-directory-get-started-premium.md)
-* [De huisstijl van uw bedrijf toevoegen aan de aanmeldingspagina en de toegangsvensterpagina’s](active-directory-add-company-branding.md)
+* [De huisstijl van uw bedrijf toevoegen aan de aanmeldingspagina en de toegangsvensterpagina’s](customize-branding.md)
 

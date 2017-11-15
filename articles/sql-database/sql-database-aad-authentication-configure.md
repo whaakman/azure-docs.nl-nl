@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 07/10/2017
 ms.author: rickbyh
-ms.openlocfilehash: d1a73da7ba3e92f5229faf73cb932dd50b50dfe1
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f0c9578217beff22b4a322b363c7499943311d88
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>Configureren en beheren van Azure Active Directory-verificatie met SQL-Database of SQL Data Warehouse
 
@@ -32,7 +32,7 @@ In dit artikel leest u hoe maken en Azure AD te vullen en vervolgens Azure AD te
 ## <a name="create-and-populate-an-azure-ad"></a>U maakt en vult u een Azure AD
 Maak een Azure AD en deze vullen met gebruikers en groepen. Azure AD de eerste Azure AD kan worden beheerd domein. Azure AD kan ook worden voor een lokale Active Directory Domain Services die is gefedereerd met Azure AD.
 
-Zie [Uw on-premises identiteiten integreren met Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Uw domeinnaam toevoegen in Azure AD](../active-directory/active-directory-add-domain.md), [Microsoft Azure ondersteunt nu federatie met Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Uw Azure AD-adreslijst beheren](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Azure AD beheren met Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) en [Poorten en protocollen waarvoor hybride identiteit is vereist](../active-directory/active-directory-aadconnect-ports.md) voor meer informatie.
+Zie [Uw on-premises identiteiten integreren met Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Uw domeinnaam toevoegen in Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure ondersteunt nu federatie met Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Uw Azure AD-adreslijst beheren](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Azure AD beheren met Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) en [Poorten en protocollen waarvoor hybride identiteit is vereist](../active-directory/active-directory-aadconnect-ports.md) voor meer informatie.
 
 ## <a name="optional-associate-or-change-the-active-directory-that-is-currently-associated-with-your-azure-subscription"></a>Optioneel: Koppelen of de active directory die momenteel is gekoppeld aan uw Azure-abonnement wijzigen
 Als u wilt uw database koppelen aan de Azure AD-directory voor uw organisatie, de map een vertrouwde map maken voor de Azure-abonnement met de database. Zie [Hoe Azure-abonnementen worden gekoppeld aan Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx) voor meer informatie.

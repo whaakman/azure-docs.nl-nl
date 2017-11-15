@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: fe708b14fac971d18d95fd1619907023ec35af89
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ae204b79be228d55b30bb543dd25efdd9c3f0436
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Power BI feed vanuit Application Insights
 [Power BI](http://www.powerbi.com/) is een suite met business analytics hulpmiddelen waarmee u gegevens analyseren en inzichten te delen. Uitgebreide dashboards zijn beschikbaar op elk apparaat. U kunt gegevens uit diverse bronnen, met inbegrip van analysequery's van combineren [Azure Application Insights](app-insights-overview.md).
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/01/2017
 Er zijn drie aanbevolen methoden voor het exporteren van gegevens van de Application Insights naar Power BI. U kunt deze afzonderlijk of samen gebruiken.
 
 * [**Power BI adapter** ](#power-pi-adapter) -instellen van een volledig dashboard telemetrie van uw app. De reeks grafieken vooraf wordt gedefinieerd, maar u kunt uw eigen query's uit andere bronnen toevoegen.
-* [**Exporteren van analysequery's** ](#export-analytics-queries) -schrijven van een query die u wilt met Analytics en exporteren naar Power BI. U kunt deze query op een dashboard samen met andere gegevens plaatsen.
+* [**Exporteren van analysequery's** ](#export-analytics-queries) -schrijven van een query die u wilt met behulp van Analytics of vanuit de schoorstenen gebruik en exporteren naar Power BI. U kunt deze query op een dashboard samen met andere gegevens plaatsen.
 * [**Continue export en Stream Analytics** ](app-insights-export-stream-analytics.md) -hierbij meer werk om in te stellen. Dit is handig als u wilt uw gegevens behouden gedurende langere perioden. Anders wordt worden de andere methoden aanbevolen.
 
 ## <a name="power-bi-adapter"></a>Power BI-adapter
@@ -48,7 +48,7 @@ U kunt het dashboard bewerken de Application Insights-grafieken combineren met d
 Na de initiële import blijven het dashboard en de rapporten dagelijks bijgewerkt. U kunt het vernieuwingsschema op de gegevensset beheren.
 
 ## <a name="export-analytics-queries"></a>Analysequery's exporteren
-Deze route kunt u elke gewenste Analytics-query schrijven en die vervolgens exporteren naar een Power BI-dashboard. (U kunt toevoegen aan het dashboard is gemaakt door de adapter.)
+Deze route kunt u een query Analytics, zoals- of exporteren uit gebruik schoorstenen schrijven en die vervolgens exporteren naar een Power BI-dashboard. (U kunt toevoegen aan het dashboard is gemaakt door de adapter.)
 
 ### <a name="one-time-install-power-bi-desktop"></a>Eén keer: Installeer Power BI Desktop
 Als u wilt uw Application Insights-query importeren, moet u de bureaubladversie van Power BI gebruiken. Maar vervolgens kunt u deze publiceren naar het web of naar uw Power BI-cloud-werkruimte. 
@@ -82,10 +82,32 @@ Installeer [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
     ![Visualisatie selecteren](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Het rapport handmatig vernieuwen met tussenpozen of een geplande vernieuwing op de optiepagina instellen.
 
+### <a name="export-a-funnel"></a>Exporteren van een trechter
+1. [Maken van de trechter](usage-funnels.md)
+2. Klik op de knop van Power BI 
+
+   ![Power BI-knop](./media/app-insights-export-power-bi/button.png)
+   
+3. In Power BI Desktop selecteer **gegevens ophalen, lege Query** en klik in de query-editor, onder **weergave** Selecteer **geavanceerde Query-Editor**.
+
+   ![Lege Query](./media/app-insights-export-power-bi/blankquery.png)
+
+   Plak het geëxporteerde M taal script in de geavanceerde Query-Editor. 
+
+   ![Geavanceerde Query-Editor](./media/app-insights-export-power-bi/advancedquery.png)
+
+4. Selecteren van items uit de query en trechter visualisatie kiezen
+
+   ![Selecteer de volgorde en trechter](./media/app-insights-export-power-bi/selectsequence.png)
+
+5. Wijzig de titel zinvolle maken en publiceren van uw rapport aan uw Power BI-cloud-werkruimte. 
+
+   ![Titel wijzigen](./media/app-insights-export-power-bi/changetitle.png)
+
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 ### <a name="401-or-403-unauthorized"></a>401- of 403 niet geautoriseerd 
-Dit kan gebeuren als uw refesh-token is niet bijgewerkt. Probeer de volgende stappen om te controleren of dat u nog steeds toegang hebben. Als u hebt toegang tot en refershing de referenties niet werkt, opent u een ondersteuningsticket.
+Dit kan gebeuren als het vernieuwingstoken dat is niet bijgewerkt. Probeer de volgende stappen om te controleren of dat u nog steeds toegang hebben. Als u toegang hebt en vernieuwen van de referenties niet werkt, opent u een ondersteuningsticket.
 
 1. Meld u aan bij de Azure-Portal en controleer of dat u toegang hebt tot de resource
 2. Probeer de referenties voor het Dashboard vernieuwen

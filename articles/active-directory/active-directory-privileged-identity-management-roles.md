@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/31/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: c20aca4202319154b01d6398570f745636120f49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3f67b978ff66cbb71709f2f8d66986a33149ae6
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Andere administratieve rol in Azure Active Directory PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -29,7 +29,7 @@ U kunt gebruikers in uw organisatie voor verschillende beheerdersrechten rollen 
 > [!IMPORTANT]
 > Microsoft raadt u aan Azure AD te beheren met het [Azure AD-beheercentrum](https://aad.portal.azure.com) in Azure Portal in plaats van de klassieke Azure portal waarnaar in dit artikel wordt verwezen.
 
-Een globale beheerder kunt bijwerken die gebruikers **permanent** toegewezen aan rollen in Azure AD, met behulp van PowerShell-cmdlets, zoals `Add-MsolRoleMember` en `Remove-MsolRoleMember`, of via de klassieke portal zoals beschreven in [ beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles.md).
+Een globale beheerder kunt bijwerken die gebruikers **permanent** toegewezen aan rollen in Azure AD, met behulp van PowerShell-cmdlets, zoals `Add-MsolRoleMember` en `Remove-MsolRoleMember`, of via de klassieke portal zoals beschreven in [ beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Azure AD Privileged Identity Management (PIM) beheert de beleidsregels voor bevoorrechte toegang voor gebruikers in Azure AD. PIM wijst gebruikers toe aan een of meer rollen in Azure AD en u iemand permanent in de rol, of in aanmerking komen voor de rol kunt toewijzen. Wanneer een gebruiker permanent wordt toegewezen aan een functie of een in aanmerking komende roltoewijzing activeert vervolgens zij Azure Active Directory, Office 365 en andere toepassingen met de machtigingen worden toegewezen aan hun rollen beheren kunnen.
 
@@ -53,7 +53,7 @@ Privileged Identity Management kunt u gebruikers toewijzen aan de algemene behee
 * **SharePoint-beheerder** beheerderstoegang tot SharePoint Online via het SharePoint Online beheercentrum en bijna alle taken kunt uitvoeren in SharePoint Online.
 * **Skype voor bedrijven beheerder** over beheerderstoegang beschikt tot Skype voor bedrijven via het Skype voor bedrijven-beheercentrum en bijna alle taken kunt uitvoeren in Skype voor bedrijven Online.
 
-Deze artikelen voor meer informatie lezen over [beheerdersrollen toewijzen in Azure AD](active-directory-assign-admin-roles.md) en [beheerdersrollen toewijzen in Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
+Deze artikelen voor meer informatie lezen over [beheerdersrollen toewijzen in Azure AD](active-directory-assign-admin-roles-azure-portal.md) en [beheerdersrollen toewijzen in Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: sethm;babanisa
-ms.openlocfilehash: db8b119178de0e565b2064e9a52d5e9989d60d38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 613ea691e38b6f0bcd8873fc2ec6bcafb3cc6c78
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Overzicht van Event Hubs Dedicated
 
@@ -34,7 +34,7 @@ De volgende tabel worden de beschikbare service-lagen van Event Hubs vergeleken.
 | Beleid voor uitgevers | Ja | Ja |   
 | Consumergroepen | 20 | 20 |
 | Berichtherhaling | Ja | Ja |
-| Maximum aantal Throughput Units | 20 (flexibele en 100)   | 1 CU≈200 |
+| Maximum aantal Throughput Units | 20 (flexibele en 100)   | 1 CU≈50 |
 | Brokered Connections | 1000 opgenomen | 100 K opgenomen |
 | Extra Brokered Connections | Ja | Ja |
 | Bewaartermijn voor berichten | 1 dag inbegrepen | Tot 7 dagen inbegrepen |
@@ -48,18 +48,25 @@ De volgende voordelen zijn beschikbaar bij gebruik van Event Hubs toegewezen:
 * Grootte van het bericht verhoogt 1 MB in vergelijking met 256 KB voor standaard.
 * Herhaalbare prestaties elke keer.
 * Capaciteit om te voldoen aan de behoeften van uw burst gegarandeerd.
-* Schaalbaar tussen 1 en 8 capaciteitseenheden (CU) – te bieden tot 2 miljoen ingangsgebeurtenissen per seconde.
-  * De schaal beheren CUs voor Event Hubs Dedicated, waarin elke CU ongeveer het equivalent van 200 doorvoereenheden (TU) kunt opgeven.
+* Bevat de [vastleggen](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) functie van Azure Event Hubs te bieden integratie met micro-batch- en langdurige bewaarperiode
 * Onderhoud nul: we beheren taakverdeling, OS-updates, beveiligingspatches en partitioneren.
-* Vaste maandelijkse prijzen.
+* Vaste prijs per uur.
+* Bewaren van bericht aan 7 dagen met zonder extra kosten
 
 Event Hubs toegewezen verwijdert u ook een aantal beperkingen doorvoer van de standaard aanbieding. Doorvoereenheden in de prijscategorie Standard aanspraak u op 1000 gebeurtenissen per seconde of 1 MB per seconde van toegangsroutes per TU en dubbele die hoeveelheid uitgaande. De aanbieding speciale scale heeft geen beperkingen op toegangsroutes en uitgaande gebeurtenis telt. Deze limieten gelden alleen door de verwerkingscapaciteit van de aangeschafte event hubs.
+
+Deze gereserveerd, toegewezen omgeving biedt andere mogelijkheden die uniek is voor deze laag, zoals:
+
+* Het aantal naamruimten in uw cluster beheren
+* Doorvoer limitson, elk van de naamruimten opgeven
+* Het aantal Event Hubs voor elke naamruimte configureren
+* Het maximale aantal partities bepalen
 
 Deze service is gericht op de grootste telemetrie-gebruikers en is beschikbaar voor klanten met een enterprise agreement.
 
 ## <a name="how-to-onboard"></a>Hoe voorbereiden
 
-Het platform Event Hubs Dedicated wordt aangeboden via een enterprise-overeenkomst met verschillende grootten van CUs. Elke CU biedt ongeveer het equivalent van 200 doorvoereenheden. U kunt de capaciteit van de omhoog of omlaag schalen gedurende de maand om te voldoen aan uw behoeften door toe te voegen of te verwijderen van CUs. De toegewezen planning is uniek in dat er een meer praktijkervaring voorbereiding van het productteam Event Hubs om op te halen van de flexibele implementatie die geschikt is voor u. 
+U kunt de capaciteit van de omhoog of omlaag schalen gedurende de maand om te voldoen aan uw behoeften door toe te voegen of te verwijderen van CUs. De toegewezen planning is uniek in dat er een meer praktijkervaring voorbereiding van het productteam Event Hubs om op te halen van de flexibele implementatie die geschikt is voor u. Voorbereiden op deze SKU, neem contact op met (ondersteuning voor facturering) [https://ms.portal.azure.com/#create/Microsoft.Support] of uw Microsoft-vertegenwoordiger.
 
 ## <a name="next-steps"></a>Volgende stappen
 Neem contact op met uw Microsoft-vertegenwoordiger of Microsoft Support om aanvullende informatie over Event Hubs toegewezen capaciteit. U kunt ook meer informatie over Event Hubs via de volgende koppelingen:

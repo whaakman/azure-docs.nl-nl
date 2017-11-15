@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 321c87f242f2c24eb2b28be2dc69cde278117b97
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: eddc1988e094a50ba7e41331a576846aa26f77a4
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Handleiding voor ontwikkelaars voor voorwaardelijke toegang van Azure Active Directory
 
@@ -28,7 +28,7 @@ Azure Active Directory (AD) biedt verschillende manieren voor het beveiligen van
 * Zodat alleen Intune ingeschreven apparaten hebben toegang tot specifieke services
 * Beperken van de gebruikerslocaties en IP-adresbereiken
 
-Zie voor meer informatie over de volledige functionaliteit van voorwaardelijke toegang [voorwaardelijke toegang in de klassieke Azure portal](../active-directory-conditional-access.md). 
+Zie voor meer informatie over de volledige functionaliteit van voorwaardelijke toegang [voorwaardelijke toegang in de klassieke Azure portal](../active-directory-conditional-access-azure-portal.md). 
 
 In dit artikel richten we op wat voorwaardelijke toegang betekent dat ontwikkelaars bouwen van apps voor Azure AD.  Er wordt vanuit gegaan kennis van [één](active-directory-integrating-applications.md) en [multitenant](active-directory-devhowto-multi-tenant-overview.md) apps en [algemene patronen voor verificatie](active-directory-authentication-scenarios.md).
 
@@ -48,7 +48,7 @@ De volgende scenario's vereist in het bijzonder code voor het verwerken van voor
 * Apps van één pagina met ADAL.js
 * Web-Apps voor het aanroepen van een resource
 
-Voorwaardelijke toegang beleidsregels kunnen worden toegepast op de app, maar kunnen ook worden toegepast op een web-API uw app wordt geopend. Raadpleeg voor meer informatie over het configureren van beleid voor voorwaardelijke toegang, [aan de slag met Azure Active Directory voorwaardelijke toegang](../active-directory-conditional-access-azuread-connected-apps.md).
+Voorwaardelijke toegang beleidsregels kunnen worden toegepast op de app, maar kunnen ook worden toegepast op een web-API uw app wordt geopend. Raadpleeg voor meer informatie over het configureren van beleid voor voorwaardelijke toegang, [aan de slag met Azure Active Directory voorwaardelijke toegang](../active-directory-conditional-access-azure-portal-get-started.md).
 
 Afhankelijk van het scenario met een enterprise-klanten toepassen en beleidsregels voor voorwaardelijke toegang op elk gewenst moment verwijderen.  Om uw app om te blijven functioneren als een nieuw beleid wordt toegepast, moet u de verwerking van de 'uitdaging' implementeren. De volgende voorbeelden ziet challenge-verwerking. 
 
@@ -218,7 +218,7 @@ Als u wilt uitproberen dit scenario, Zie onze [JS SPA op-andere gebruikers-of co
 
 ## <a name="see-also"></a>Zie ook
 
-* Zie voor meer informatie over de mogelijkheden, [voorwaardelijke toegang in Azure AD](../active-directory-conditional-access.md).
+* Zie voor meer informatie over de mogelijkheden, [voorwaardelijke toegang in Azure AD](../active-directory-conditional-access-azure-portal.md).
 * Zie voor meer Azure AD-codevoorbeelden [Github-Repo-van-codevoorbeelden](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * Zie voor meer informatie over de ADAL SDK van en toegang naslagdocumentatie over de [bibliotheek handleiding](active-directory-authentication-libraries.md).
 * Zie voor meer informatie over scenario's met meerdere tenants, [aanmelden van gebruikers met behulp van het patroon multitenant](active-directory-devhowto-multi-tenant-overview.md).

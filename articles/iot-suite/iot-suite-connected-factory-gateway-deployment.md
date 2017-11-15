@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: e99a7bc34ac5ed060100e5f5032513bf4b18b2eb
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: f6a69ecbeb09dc042eff7c1f95ee518e701b0507
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Implementeer een gateway op Windows of Linux voor de verbonden factory vooraf geconfigureerde oplossing
 
@@ -44,7 +44,7 @@ De stappen in dit artikel ziet u het implementeren van een gateway met behulp va
 ## <a name="windows-deployment"></a>Windows-implementatie
 
 > [!NOTE]
-> Als u een gateway-apparaat nog geen hebt, is het raadzaam om dat u een commerciële gateway koopt van een van onze partners. Ga naar de [Azure IoT-apparaat catalogus] voor een lijst met de gatewayapparaten die compatibel zijn met de verbonden factory-oplossing. Volg de instructies die worden geleverd met het apparaat voor het instellen van de gateway. U kunt ook gebruik de volgende instructies voor het handmatig instellen van een van uw bestaande gateways.
+> Als u een gateway-apparaat nog geen hebt, is het raadzaam om dat u een commerciële gateway koopt van een van de partners. Ga naar de [Azure IoT-apparaat catalogus] voor een lijst met de gatewayapparaten die compatibel zijn met de verbonden factory-oplossing. Volg de instructies die worden geleverd met het apparaat voor het instellen van de gateway. U kunt ook gebruik de volgende instructies voor het handmatig instellen van een van uw bestaande gateways.
 
 ### <a name="install-docker"></a>Docker installeren
 
@@ -103,7 +103,7 @@ U kunt deze stap ook uitvoeren na de installatie van docker van de **instellinge
 ## <a name="linux-deployment"></a>Linux-implementatie
 
 > [!NOTE]
-> Als u een gateway-apparaat nog geen hebt, is het raadzaam om dat u een commerciële gateway koopt van een van onze partners. Ga naar de [Azure IoT-apparaat catalogus] voor een lijst met de gatewayapparaten die compatibel zijn met de verbonden factory-oplossing. Volg de instructies die worden geleverd met het apparaat voor het instellen van de gateway. U kunt ook gebruik de volgende instructies voor het handmatig instellen van een van uw bestaande gateways.
+> Als u een gateway-apparaat nog geen hebt, is het raadzaam om dat u een commerciële gateway koopt van een van de partners. Ga naar de [Azure IoT-apparaat catalogus] voor een lijst met de gatewayapparaten die compatibel zijn met de verbonden factory-oplossing. Volg de instructies die worden geleverd met het apparaat voor het instellen van de gateway. U kunt ook gebruik de volgende instructies voor het handmatig instellen van een van uw bestaande gateways.
 
 [Installeren van Docker] op uw Linux-gatewayapparaat.
 

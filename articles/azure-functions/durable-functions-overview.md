@@ -1,5 +1,5 @@
 ---
-title: Overzicht van duurzame Functions - Azure
+title: Overzicht van duurzame Functions - Azure (preview)
 description: Inleiding tot de extensie duurzame functies voor Azure Functions.
 services: functions
 author: cgillum
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 04d660d5fdd878788c09e46b078b2e2b043b7dbb
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="durable-functions-overview-azure-functions"></a>Overzicht van duurzame Functions (Azure-functies)
+# <a name="durable-functions-overview-preview"></a>Overzicht van duurzame Functions (preview)
 
 *Duurzame functies* is een uitbreiding van [Azure Functions](functions-overview.md) en [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) die u kunt schrijven stateful functies in een omgeving zonder server. De extensie beheert de status, controlepunten en opnieuw opstarten voor u.
 
@@ -31,7 +31,7 @@ De uitbreiding kunt u definiëren stateful werkstromen in een nieuw type aangero
 * Ze automatisch controlepunt hun uitgevoerd wanneer de functie wacht op. Lokale status is nooit verloren gaan als het proces wordt gerecycled of de virtuele machine opnieuw is opgestart.
 
 > [!NOTE]
-> Duurzame functies is een geavanceerde extensie voor Azure Functions en is niet geschikt voor alle toepassingen. De rest van dit artikel wordt ervan uitgegaan dat u een sterke bekend bent met hebt [Azure Functions](functions-overview.md) concepten en de uitdagingen die zijn betrokken bij de ontwikkeling van de toepassing zonder server.
+> Duurzame functies is Preview-versie en is een geavanceerde uitbreiding voor Azure-functies die niet geschikt voor alle toepassingen. De rest van dit artikel wordt ervan uitgegaan dat u een sterke bekend bent met hebt [Azure Functions](functions-overview.md) concepten en de uitdagingen die zijn betrokken bij de ontwikkeling van de toepassing zonder server.
 
 Het primaire gebruiksvoorbeeld voor duurzame functies is coördinatie van complexe, stateful problemen in zonder server toepassingen vereenvoudigen. De volgende secties worden enkele typische toepassing patronen die van duurzame functies profiteren kunnen.
 

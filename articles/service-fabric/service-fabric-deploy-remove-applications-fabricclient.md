@@ -14,16 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 480f574640d4a9ccd4da97a98adc8b284d373855
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d737e354f5e7ee57c2e2c3d9b5599d4ba2b09af
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Implementeren en toepassingen die gebruikmaken van FabricClient verwijderen
 > [!div class="op_single_selector"]
+> * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
-> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> * [Service Fabric-CLI](service-fabric-application-lifecycle-sfctl.md)
 > * [FabricClient-API's](service-fabric-deploy-remove-applications-fabricclient.md)
 > 
 > 
@@ -42,7 +43,7 @@ Nadat een toepassing wordt geïmplementeerd en een exemplaar in het cluster word
 1. De uitgevoerd verwijderen (of verwijderen) toepassingsexemplaar
 2. Hef de registratie van het toepassingstype als u deze niet langer nodig hebt
 
-Als u [Visual Studio voor het implementeren en foutopsporing in toepassingen](service-fabric-publish-app-remote-cluster.md) op uw lokaal ontwikkelcluster alle voorgaande stappen worden afgehandeld automatisch via een PowerShell-script.  Dit script is gevonden in de *Scripts* map van het toepassingsproject. Dit artikel vindt achtergrond op script doet zodat u dezelfde bewerkingen buiten Visual Studio kunt uitvoeren. 
+Als u Visual Studio gebruikt voor het implementeren en foutopsporing van toepassingen op uw lokale ontwikkeling-cluster, worden automatisch alle voorgaande stappen afgehandeld via een PowerShell-script.  Dit script is gevonden in de *Scripts* map van het toepassingsproject. Dit artikel vindt achtergrond op script doet zodat u dezelfde bewerkingen buiten Visual Studio kunt uitvoeren. 
  
 ## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
 Verbinding maken met het cluster met het maken van een [FabricClient](/dotnet/api/system.fabric.fabricclient) exemplaar voordat u een van de codevoorbeelden in dit artikel uitvoert. Voor voorbeelden van verbinding maken met een lokaal ontwikkelcluster of een externe cluster of cluster die zijn beveiligd met Azure Active Directory, X509 certificaten of Windows Active Directory-Zie [verbinding maken met een beveiligde cluster](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Voor verbinding met het lokaal ontwikkelcluster, voert u de volgende:

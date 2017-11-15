@@ -13,18 +13,18 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: a8bfbf2e30f8568212ab49ba1772588cc9e45b38
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6a73f8d0b85198f0d4e10fbc31cbd21f93bdb8a8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Schaalbare clouddatabases bouwen
 Databases uitbreiden kan gemakkelijk worden gedaan met behulp van schaalbare hulpprogramma's en functies voor Azure SQL Database. U kunt in het bijzonder de **clientbibliotheek voor elastische Database** maken en beheren van uitgebreide databases. Deze functie kunt u eenvoudig shard toepassingen ontwikkelen met honderden, of zelfs duizenden — van Azure SQL-databases. [Elastische taken](sql-database-elastic-jobs-powershell.md) kan vervolgens worden gebruikt voor het beheer te vereenvoudigen voor deze databases.
 
-Als u wilt installeren in de bibliotheek, gaat u naar [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+Als u wilt installeren in de bibliotheek, gaat u naar NuGet op [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
 
 ## <a name="documentation"></a>Documentatie
 1. [Aan de slag met tools voor Elastic Database](sql-database-elastic-scale-get-started.md)
@@ -54,22 +54,32 @@ Uitbreiden van toepassingen via *sharding* geeft uitdagingen voor zowel de ontwi
 
 In het algemeen kunnen klanten die gebruikmaken van hulpprogramma's voor elastische database verwachten volledige functionaliteit van T-SQL ophalen bij het indienen van shard-local-bewerkingen in plaats van cross-shard-bewerkingen die hun eigen heeft.
 
+
+
 ## <a name="next-steps"></a>Volgende stappen
-Probeer de [voorbeeldapp](sql-database-elastic-scale-get-started.md) die laat zien van de clientfuncties. 
 
-Als u wilt installeren in de bibliotheek, gaat u naar [clientbibliotheek voor elastische Database](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+- [Clientbibliotheek voor elastische Database](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) - tot **installeren** de bibliotheek via NuGet.
 
-Zie voor instructies over het hulpprogramma voor het splitsen samenvoegen, de [gesplitste merge tool overzicht](sql-database-elastic-scale-overview-split-and-merge.md).
+- [Aan de slag met hulpprogramma's voor elastische database](sql-database-elastic-scale-get-started.md) - om te proberen de **voorbeeldapp** die clientfuncties laat zien.
 
-[Clientbibliotheek voor elastische database is nu open brongegevens!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
+- [Github, Azure/elastische-db-tools](https://github.com/Azure/elastic-db-tools) -de bibliotheek is een open-sourcesoftware.
+    - Clientbibliotheek voor elastische database-hulpprogramma's kan ontwikkelaars een ADO.NET toepassingen te maken die implementeren en gebruiken van het patroon bekend als sharding van de database in Azure SQL Database.
 
-Gebruik [elastische query's](sql-database-elastic-query-overview.md).
+- [Clientbibliotheek voor elastische database is nu open brongegevens!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) -een **blogbericht** over clientbibliotheek voor elastische Database, met de datum 09/2015/09.
 
-De bibliotheek is beschikbaar als open-sourcesoftware op [GitHub](https://github.com/Azure/elastic-db-tools). 
+- [Overzicht van Azure SQL Database elastische query](sql-database-elastic-query-overview.md) : gebruik elastische query's.
+
+- [Verplaatsen van gegevens tussen cloud uitgebreide databases](sql-database-elastic-scale-overview-split-and-merge.md) - voor instructies over het gebruik van de **gesplitste merge tool**.
+
+
+
+<!-- Additional resources H2 -->
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
+
 <!--Anchors-->
 <!--Image references-->
-[1]:./media/sql-database-elastic-database-client-library/glossary.png
+
+[1]: ./media/sql-database-elastic-database-client-library/glossary.png
 

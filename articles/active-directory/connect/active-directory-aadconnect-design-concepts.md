@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 4041cacd72b1db74012497287030faf5d05ee6bf
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 53a0f766de9db7e6ee48b6659aad378620c0d727
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Ontwerpconcepten
 Het doel van dit onderwerp is om gebieden die moeten worden beschouwd door bij het implementatieontwerp van Azure AD Connect te beschrijven. In dit onderwerp is een deep dive op bepaalde gebieden en deze concepten worden kort beschreven in andere onderwerpen ook.
@@ -172,7 +172,7 @@ Stel dat u Azure AD Connect hebt geïmplementeerd met de functie ConsistencyGuid
 
 ![Nieuwe mappen toevoegen aan bestaande implementatie](./media/active-directory-aadconnect-design-concepts/consistencyGuid-04.png)
 
-## <a name="azure-ad-sign-in"></a>Azure AD aanmelden
+## <a name="azure-ad-sign-in"></a>Aanmelding bij Azure AD
 Bij het integreren van uw on-premises directory met Azure AD, is het belangrijk om te begrijpen hoe de synchronisatie-instellingen invloed hebben op de gebruiker manier wordt geverifieerd. Azure AD gebruikt userPrincipalName (User Principal Name) voor het verifiëren van de gebruiker. Wanneer u uw gebruikers synchroniseert, moet u het kenmerk moet worden gebruikt voor de waarde van userPrincipalName zorgvuldig kiezen.
 
 ### <a name="choosing-the-attribute-for-userprincipalname"></a>Het kenmerk voor userPrincipalName kiezen
@@ -191,7 +191,7 @@ Johan is een gebruiker in contoso.com. U wilt dat Jeroen gebruik van de lokale U
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>Niet-routeerbaar on-premises domeinen en UPN voor Azure AD
 Sommige organisaties hebben niet-routeerbare domeinen, zoals contoso.local of eenvoudige enkelvoudige domeinen zoals contoso. U bent geen een niet-routeerbare domein verifiëren in Azure AD. Azure AD Connect kunt synchroniseren met alleen een geverifieerde domeinnaam in Azure AD. Wanneer u een Azure Active directory maakt, maakt u een routeerbaar domein dat standaarddomein voor uw Azure AD, bijvoorbeeld: contoso.onmicrosoft.com wordt. Het wordt daarom nodig zijn om te controleren of een ander domein in een dergelijk scenario routeerbaar als u niet wilt synchroniseren naar het standaarddomein onmicrosoft.com.
 
-Lees [uw aangepaste domeinnaam toevoegen aan Azure Active Directory](../active-directory-add-domain.md) voor meer informatie over het toevoegen en verifiëren van domeinen.
+Lees [uw aangepaste domeinnaam toevoegen aan Azure Active Directory](../active-directory-domains-add-azure-portal.md) voor meer informatie over het toevoegen en verifiëren van domeinen.
 
 Azure AD Connect detecteert als u in een niet-routeerbare domeinomgeving uitvoert en zou u op de juiste wijze van u wilt doorgaan met expresinstellingen waarschuwen. Als u in een niet-routeerbare domein werkt, is het waarschijnlijk dat de UPN van de gebruikers niet-routeerbare achtervoegsels te hebben. Bijvoorbeeld, als u worden uitgevoerd onder contoso.local, stelt Azure AD Connect u de aangepaste instellingen in plaats van met expresinstellingen gebruiken. Met aangepaste instellingen voor zijn u opgeven van het kenmerk op dat moet worden gebruikt als de UPN aan te melden bij Azure nadat de gebruikers zijn gesynchroniseerd naar Azure AD.
 

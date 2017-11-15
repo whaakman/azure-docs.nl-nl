@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b119be9c06d8c1ccc8e747168429e6c2d2e7a8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76bb8d239b54b5236d077b98a5908c230cdc31a1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Line-of-business-apps ontwikkelen voor Azure Active Directory
 Deze handleiding biedt een overzicht van het ontwikkelen van line-of-business (LoB)-toepassingen voor Azure Active Directory (AD). De doelgroep is globale beheerders Active Directory/Office 365.
 
 ## <a name="overview"></a>Overzicht
-Maken van toepassingen die zijn geïntegreerd met Azure AD geeft gebruikers in uw organisatie eenmalige aanmelding met Office 365. De toepassing is in Azure AD-hebt die u meer controle over het verificatiebeleid voor de toepassing. Voor meer informatie over voorwaardelijke toegang en het beveiligen van apps met multi-factor authentication (MFA) Zie [toegangsregels configureren](active-directory-conditional-access-azuread-connected-apps.md).
+Maken van toepassingen die zijn geïntegreerd met Azure AD geeft gebruikers in uw organisatie eenmalige aanmelding met Office 365. De toepassing is in Azure AD-hebt die u meer controle over het verificatiebeleid voor de toepassing. Voor meer informatie over voorwaardelijke toegang en het beveiligen van apps met multi-factor authentication (MFA) Zie [toegangsregels configureren](active-directory-conditional-access-azure-portal-get-started.md).
 
 Uw toepassing te gebruiken van Azure Active Directory registreren. Registreren van de toepassing, betekent dat ontwikkelaars van uw Azure AD gebruiken kunnen voor het verifiëren van gebruikers en toegang vragen tot Gebruikersresources zoals e-mail, agenda en documenten.
 
@@ -57,7 +57,7 @@ Dit is wat u als globale beheerder moet doen om ervoor dat de toepassing gereed 
 * De standaard toestemming gebruikerservaring onderdrukken
 
 ## <a name="configure-access-rules"></a>Toegangsregels configureren
-Configureer regels voor toegang per toepassing naar uw SaaS-apps. U kunt bijvoorbeeld MFA vereisen of dat alleen toegang tot gebruikers in vertrouwde netwerken. De details voor deze zijn beschikbaar in het document [toegangsregels configureren](active-directory-conditional-access-azuread-connected-apps.md).
+Configureer regels voor toegang per toepassing naar uw SaaS-apps. U kunt bijvoorbeeld MFA vereisen of dat alleen toegang tot gebruikers in vertrouwde netwerken. De details voor deze zijn beschikbaar in het document [toegangsregels configureren](active-directory-conditional-access-azure-portal-get-started.md).
 
 ## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>De app configureren om te vereisen Gebruikerstoewijzing en gebruikers toewijzen
 Standaard kunnen gebruikers toepassingen openen zonder dat wordt toegewezen. Als de toepassing ook functies of als u wilt dat de toepassing worden weergegeven op het toegangsvenster van een gebruiker, moet u de Gebruikerstoewijzing van de instellen.
@@ -76,8 +76,8 @@ Voor toepassingen die u vertrouwt, kunt u de gebruikerservaring met ermee akkoor
 
 Zie voor meer informatie over de toestemming van de gebruiker en de toestemming in Azure optreden, [toepassingen integreren met Azure Active Directory](active-directory-integrating-applications.md).
 
-## <a name="related-articles"></a>Verwante artikelen
+## <a name="related-articles"></a>Gerelateerde artikelen
 * [Veilige externe toegang tot on-premises toepassingen met Azure AD-toepassingsproxy inschakelen](active-directory-application-proxy-get-started.md)
-* [Voorwaardelijke toegang tot Azure Preview voor SaaS-Apps](active-directory-conditional-access-azuread-connected-apps.md)
+* [Voorwaardelijke toegang tot Azure Preview voor SaaS-Apps](active-directory-conditional-access-azure-portal-get-started.md)
 * [Het beheren van toegang tot apps met Azure AD](active-directory-managing-access-to-apps.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)

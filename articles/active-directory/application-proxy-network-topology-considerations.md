@@ -15,11 +15,11 @@ ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 11244e0044eef8441e3a37ab8aeff0da30dacdb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15c392c6e94abaff7c28bc672cfe61c7551ede4d
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Netwerk topologie overwegingen bij het gebruik van Azure Active Directory-toepassingsproxy
 
@@ -102,7 +102,7 @@ Hoewel de focus van dit artikel de plaatsing van de connector wordt, kunt u ook 
 
 Steeds meer verplaatst organisaties hun netwerken in gehoste omgevingen. Hierdoor kunnen ze hun apps plaatsen in een gehoste omgeving die ook deel uitmaakt van het bedrijfsnetwerk en nog steeds binnen het domein. In dit geval kunnen de patronen die zijn beschreven in de voorgaande secties worden toegepast op de nieuwe locatie van de toepassing. Als u deze optie overweegt, Zie [Azure AD Domain Services](../active-directory-domain-services/active-directory-ds-overview.md).
 
-Houd ook rekening met het ordenen van uw connectors met [connector groepen](active-directory-application-proxy-connectors.md) naar doel-apps die zich in verschillende locaties en netwerken. 
+Houd ook rekening met het ordenen van uw connectors met [connector groepen](active-directory-application-proxy-connectors-azure-portal.md) naar doel-apps die zich in verschillende locaties en netwerken. 
 
 ## <a name="common-use-cases"></a>Algemene scenario’s
 
@@ -174,5 +174,5 @@ U kunt ook rekening houden met behulp van een andere variant in deze situatie. A
 
 - [Toepassingsproxy inschakelen](active-directory-application-proxy-enable.md)
 - [Eenmalige aanmelding inschakelen](active-directory-application-proxy-sso-using-kcd.md)
-- [Voorwaardelijke toegang inschakelen](active-directory-application-proxy-conditional-access.md)
+- [Voorwaardelijke toegang inschakelen](application-proxy-enable-remote-access-sharepoint.md)
 - [Oplossen van problemen met toepassingsproxy](active-directory-application-proxy-troubleshoot.md)

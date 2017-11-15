@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/19/2017
 ms.author: raynew
-ms.openlocfilehash: 0b2a36c293e899ebed9d1220dff043a85321cacf
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: ad6f70cf9c2f420e887031c8b240d2f831e6c359
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: veelgestelde vragen
 Dit artikel bevat veelgestelde vragen over Azure Site Recovery. Als u vragen hebt na het lezen van dit artikel, plaatst u deze op de [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -75,22 +75,7 @@ Als u virtuele VMware-machines wilt beveiligen, hebt u een vSphere-hypervisor no
 Ja. Wanneer u Site Recovery gebruiken om replicatie en failover te organiseren in uw filialen, krijgt u een uniforme orchestration en de weergave van alle werkbelastingen van uw branch office op een centrale locatie. Vanuit het hoofdkantoor kunt u eenvoudig failovers uitvoeren en herstel na noodgeval beheren voor alle filialen. Het is niet nodig de afzonderlijke filialen te bezoeken.
 
 ## <a name="pricing"></a>Prijzen
-
-### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>Welke kosten gebruik ik tijdens het gebruik van Azure Site Recovery?
-Wanneer u Site Recovery gebruikt, kosten u die voor de Site Recovery-licentie, Azure storage, opslagtransacties en uitgaande gegevensoverdracht. [Meer informatie](https://azure.microsoft.com/pricing/details/site-recovery).
-
-De Site Recovery-licentie is per beveiligde exemplaar, waarbij een exemplaar een virtuele machine of een fysieke server is.
-
-- Als een schijf voor VM gerepliceerd naar een standard-opslagaccount, is de Azure-opslag-kosten voor het opslagverbruik. Bijvoorbeeld, als de grootte van de schijf is 1 TB en 400 GB wordt gebruikt, maakt Site Recovery een 1 TB VHD in Azure, maar de opslag in rekening gebracht is 400 GB (plus de hoeveelheid opslagruimte die wordt gebruikt voor replicatielogboeken).
-- Als een schijf voor VM gerepliceerd naar een premium storage-account, is de Azure-opslag-kosten voor de ingerichte opslaggrootte uit voor de dichtstbijzijnde premium schijf opslagoptie afgerond. Als de grootte van de schijf 50 GB is, maakt u een schijf van 50 GB in Azure Site Recovery en Azure wijst dit naar de dichtstbijzijnde schijf premium-opslag (P10).  Kosten berekend op P10 en niet op de schijfgrootte 50 GB.  [Meer informatie](https://aka.ms/premium-storage-pricing).  Als u premium-opslag, een standaard opslagaccount voor de replicatie-logboekregistratie is ook vereist en de hoeveelheid standaard opslagruimte die wordt gebruikt voor deze logboeken wordt ook in rekening gebracht.
-- Er zijn geen schijven worden tot een testfailover of een failover gemaakt. In de replicatiestatus kosten opslag onder de categorie van 'pagina-blobs en schijf' conform de [opslag prijscategorie Rekenmachine](https://azure.microsoft.com/en-in/pricing/calculator/) zijn gemaakt. Deze kosten zijn gebaseerd op de opslag type premium/standaard en de gegevensredundantie typt - LRS, GRS, RA-GRS enzovoort.
-- Als de optie voor het gebruik van beheerde schijven op een failover is ingeschakeld, [kosten voor beheerde schijven](https://azure.microsoft.com/en-in/pricing/details/managed-disks/) toegepast na de failover van een failover en testen. Kosten zijn niet van toepassing tijdens de replicatie schijven die worden beheerd.
-- Als de optie voor het gebruik van beheerde schijven op een failover niet is geselecteerd, kosten opslag onder de categorie van 'pagina-blobs en schijf' conform de [opslag prijscategorie Rekenmachine](https://azure.microsoft.com/en-in/pricing/calculator/) zijn gemaakt na een failover. Deze kosten zijn gebaseerd op de opslag type premium/standaard en de gegevensredundantie typt - LRS, GRS, RA-GRS enzovoort.
-- Opslagtransacties in rekening worden gebracht tijdens de replicatie van de actieve status en voor standaardbewerkingen VM na een failover-failover testen. Maar deze kosten verwaarloosbaar zijn.
-
-Ook worden kosten tijdens de testfailover, waar de VM, opslag, uitgaande en opslag transacties kosten worden toegepast.
-
-
+Voor vragen over prijzen, raadpleegt u de veelgestelde vragen op [prijzen voor Azure Site Recovery](https://azure.microsoft.com/en-in/pricing/details/site-recovery/).
 
 ## <a name="security"></a>Beveiliging
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Worden er replicatiegegevens verzonden naar de Site Recovery-service?

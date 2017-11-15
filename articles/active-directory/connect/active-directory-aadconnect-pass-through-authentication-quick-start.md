@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: cbedb87722d1c230f3b8003cadd069947881f25d
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: e0b58142a2ed17d2cd4749b33e9e80ff1a01662a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory Pass-through-verificatie: Snel starten
 
@@ -38,7 +38,7 @@ Zorg ervoor dat de volgende vereisten voldaan is:
 ### <a name="on-the-azure-active-directory-admin-center"></a>Op het Azure Active Directory-beheercentrum
 
 1. Maak een account van de globale beheerder alleen in de cloud op uw Azure AD-tenant. Op deze manier kunt u de configuratie van uw tenant beheren moeten uw on-premises-services mislukt of niet meer beschikbaar. Meer informatie over [toevoegen van een cloudconfiguratie globale beheerdersaccount](../active-directory-users-create-azure-portal.md). Tijdens het doorzoeken van deze stap is het belangrijk om ervoor te zorgen dat u geen toegang buiten uw tenant.
-2. Voeg een of meer [aangepast domein namen](../active-directory-add-domain.md) naar uw Azure AD-tenant. Uw gebruikers zich aanmelden met een van deze domeinnamen.
+2. Voeg een of meer [aangepast domein namen](../active-directory-domains-add-azure-portal.md) naar uw Azure AD-tenant. Uw gebruikers zich aanmelden met een van deze domeinnamen.
 
 ### <a name="in-your-on-premises-environment"></a>In uw on-premises-omgeving
 

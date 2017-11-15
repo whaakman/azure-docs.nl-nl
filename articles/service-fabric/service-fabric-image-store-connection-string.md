@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: alexwun
-ms.openlocfilehash: 49003c16c262180afcdba22c5557c91297cb2840
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 723cf7d98022e8bbb4f1e3c8c0836a4c53c6a078
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>De instelling ImageStoreConnectionString begrijpen
 
@@ -44,7 +44,7 @@ Hosting-archief van de installatiekopie in een systeemservice binnen het cluster
 
 De File System-provider wordt gebruikt in plaats van de Image Store-Service voor lokale 1-box-clusters tijdens het ontwikkelen voor het cluster iets sneller bootstrap. Het verschil is normaal gesproken een kleine, maar het is een nuttig optimalisatie voor de meeste mensen tijdens de ontwikkeling. Het is mogelijk een lokaal cluster een vak met de andere provider opslagtypen ook implementeren, maar meestal is er geen reden om dit te doen omdat u de werkstroom ontwikkelen en testen blijft hetzelfde, ongeacht de provider. Dan dit gebruik bestaan de bestandssysteem en Azure Storage providers alleen voor ondersteuning.
 
-Dus terwijl de ImageStoreConnectionString kan worden geconfigureerd, wordt meestal NET gebruikt de standaardinstelling. Bij het publiceren naar Azure via [Visual Studio][12], de parameter wordt automatisch voor u ingesteld dienovereenkomstig. De verbindingsreeks is voor programmatische implementatie voor clusters die worden gehost in Azure, altijd 'fabric: Installatiekopieopslag'. Hoewel bij twijfel kan de waarde altijd worden gecontroleerd door bij het ophalen van het clustermanifest door [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), of [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Zowel on-premises test en productieclusters moeten altijd worden geconfigureerd voor gebruik van de Image Store-Service-provider.
+Dus terwijl de ImageStoreConnectionString kan worden geconfigureerd, wordt meestal NET gebruikt de standaardinstelling. Bij het publiceren naar Azure met Visual Studio, wordt de parameter automatisch voor u ingesteld dienovereenkomstig. De verbindingsreeks is voor programmatische implementatie voor clusters die worden gehost in Azure, altijd 'fabric: Installatiekopieopslag'. Hoewel bij twijfel kan de waarde altijd worden gecontroleerd door bij het ophalen van het clustermanifest door [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), of [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Zowel on-premises test en productieclusters moeten altijd worden geconfigureerd voor gebruik van de Image Store-Service-provider.
 
 ### <a name="next-steps"></a>Volgende stappen
 [Implementeren en verwijderen van toepassingen met behulp van PowerShell][10]
@@ -55,4 +55,4 @@ Dus terwijl de ImageStoreConnectionString kan worden geconfigureerd, wordt meest
 
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
-[12]: service-fabric-publish-app-remote-cluster.md
+

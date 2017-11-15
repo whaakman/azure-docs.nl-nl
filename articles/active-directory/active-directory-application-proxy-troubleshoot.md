@@ -15,11 +15,11 @@ ms.date: 07/21/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 3ef74c8d5d5b75eb2bca4e6c994f4718b5226db8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6534320d36653d296f254dfff129d4c5031f8ce8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Oplossen van problemen met toepassingsproxy en foutberichten
 Als er fouten optreden bij het openen van een gepubliceerde toepassing of in de publicatie van toepassingen, controleert u de volgende opties om te zien of Microsoft Azure AD-toepassingsproxy correct werkt:
@@ -51,7 +51,7 @@ Zodra u de Connector-fout in het gebeurtenislogboek vindt, gebruikt u deze tabel
 | Fout | Aanbevolen stappen |
 | ----- | ----------------- |
 | Registratie van de connector is mislukt: Zorg ervoor dat u toepassingsproxy in de Azure-beheerportal en dat u uw Active Directory-gebruikersnaam en wachtwoord correct ingevoerd ingeschakeld. Fout: 'een of meer fouten opgetreden." | Als u het registratie-venster gesloten zonder het aanmelden bij Azure AD, de Connector-wizard opnieuw uitvoeren en registreert u de Connector. <br><br> Als het registratie-venster wordt geopend en wordt onmiddellijk afgesloten zonder dat u aan te melden, wordt u waarschijnlijk deze fout. Deze fout treedt op wanneer er een netwerkfout op uw systeem. Zorg ervoor dat het mogelijk om vanuit een browser met een openbare website is en dat de poorten zijn geopend zoals opgegeven in [toepassingsproxy vereisten](active-directory-application-proxy-enable.md). |
-| Schakel fout wordt weergegeven in het venster van de registratie. Kan niet worden voortgezet | Als u deze fout te zien en vervolgens het venster sluit, u de onjuiste gebruikersnaam of het wachtwoord ingevoerd. &Opnieuw. |
+| Schakel fout wordt weergegeven in het venster van de registratie. Kan niet worden voortgezet | Als u deze fout te zien en vervolgens het venster sluit, u de onjuiste gebruikersnaam of het wachtwoord ingevoerd. Probeer het opnieuw. |
 | Registratie van de connector is mislukt: Zorg ervoor dat u toepassingsproxy in de Azure-beheerportal en dat u uw Active Directory-gebruikersnaam en wachtwoord correct ingevoerd ingeschakeld. Fout: ' AADSTS50059: Er is geen tenant-identificatiegegevens gevonden in een van de aanvraag of impliciet door een opgegeven referenties en zoeken door de service principal URI is mislukt. | U probeert aan te melden met een Microsoft-Account en niet van een domein dat deel uitmaakt van de organisatie-ID van de map die u probeert te openen. Zorg ervoor dat de beheerder maakt deel uit van dezelfde domeinnaam als het domein van de tenant, bijvoorbeeld als de Azure AD-domein contoso.com is, de beheerder moet admin@contoso.com. |
 | Kan niet ophalen van het huidige uitvoeringsbeleid voor het uitvoeren van PowerShell-scripts. | Als de installatie van de Connector is mislukt, controleert u om ervoor te zorgen dat er geen PowerShell-uitvoeringsbeleid is uitgeschakeld. <br><br>1. Open de Editor voor Groepsbeleid.<br>2. Ga naar **Computerconfiguratie** > **Beheersjablonen** > **Windows-onderdelen** > **Windows PowerShell** en dubbelklikt u op **uitvoering van Script inschakelen**.<br>3. Het uitvoeringsbeleid kan worden ingesteld op **niet geconfigureerd** of **ingeschakeld**. Indien ingesteld op **ingeschakeld**, zorg ervoor dat onder Opties, het uitvoeringsbeleid is ingesteld op **scripts lokale en externe ondertekende scripts toestaan** of **alle scripts toestaan**. |
 | Downloaden van de configuratie van de connector is mislukt. | De Connector clientcertificaat dat wordt gebruikt voor verificatie, is verlopen. Dit kan ook gebeuren als u de Connector is geïnstalleerd achter een proxy hebt. In dit geval de Connector geen toegang tot het Internet en niet kunnen worden om te bieden aan externe gebruikers. Vernieuwen van de vertrouwensrelatie handmatig met behulp van de `Register-AppProxyConnector` cmdlet in Windows PowerShell. Als de Connector zich achter een proxy, is het nodig zijn voor het verlenen van toegang tot Internet op de Connector-accounts 'network services' en 'Lokaal systeem'. Dit kan worden bereikt door ze naar de Proxy toegang verlenen of geconfigureerd voor de proxyserver wordt overgeslagen. |
@@ -90,7 +90,7 @@ Als er een fout of een probleem met Azure AD-toepassingsproxy die niet is vermel
 * [Toepassingsproxy voor Azure Active Directory inschakelen](active-directory-application-proxy-enable.md)
 * [Publiceren van toepassingen met toepassingsproxy](active-directory-application-proxy-publish.md)
 * [Eenmalige aanmelding inschakelen](active-directory-application-proxy-sso-using-kcd.md)
-* [Voorwaardelijke toegang inschakelen](active-directory-application-proxy-conditional-access.md)
+* [Voorwaardelijke toegang inschakelen](application-proxy-enable-remote-access-sharepoint.md)
 
 
 <!--Image references-->

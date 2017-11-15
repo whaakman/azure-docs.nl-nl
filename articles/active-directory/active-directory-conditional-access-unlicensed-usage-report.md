@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 0f5f0eb79d8924ebe7e5848e1d8b761ea2e4983d
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 91b48098cc8ba2bb230b0536a9bcd121db79c533
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="unlicensed-usage-report"></a>Niet-gelicentieerde gebruiksrapport
 Het gebruik van niet-gelicentieerde rapport helpt bij het identificeren van niet-gelicentieerde gebruikers die gebruikmaken van betaald Azure AD-functies. Hiermee kunt u beter te maken van de licenties die u hebt aangeschaft en om te identificeren die u weet wanneer u aanvullende licenties moet mogelijk. 
@@ -42,6 +42,6 @@ Niet-gelicentieerde gebruikers gemarkeerd wanneer ze toegang krijgen een service
 Dit geldt voor MFA / locatie beleid, evenals een apparaat beleid met Intune.
 
 ## <a name="see-also"></a>Zie ook
-* [Voorwaardelijke toegang gebruiken met Office 365 en andere Azure Active Directory verbonden apps](active-directory-conditional-access.md)
-* [Aan de slag met voorwaardelijke toegang tot Azure AD](active-directory-conditional-access-azuread-connected-apps.md) 
+* [Voorwaardelijke toegang gebruiken met Office 365 en andere Azure Active Directory verbonden apps](active-directory-conditional-access-azure-portal.md)
+* [Aan de slag met voorwaardelijke toegang tot Azure AD](active-directory-conditional-access-azure-portal-get-started.md) 
 

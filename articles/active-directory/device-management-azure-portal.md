@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2017
+ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6ac076917092caa8b3c14ab179515c0693fc89bf
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: cd13ecf50cf03c362f8da2da83ab698c4e8ba0cc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Het beheer van apparaten met de Azure portal
 
@@ -36,7 +36,7 @@ Dit onderwerp:
 
 ## <a name="configure-device-settings"></a>Apparaatinstellingen configureren
 
-Voor het beheren van uw apparaten met de Azure portal, moeten uw apparaten worden ingeschreven of toegevoegd aan Azure AD. Als beheerder, kunt u het proces van registreren en door apparaten te koppelen door het configureren van de instellingen aanpassen. 
+Voor het beheren van uw apparaten met de Azure portal uw apparaten, moeten deze [ingeschreven of die lid zijn van](device-management-introduction.md#getting-devices-under-the-control-of-azure-ad) naar Azure AD. Als beheerder, kunt u het proces van registreren en door apparaten te koppelen door het configureren van de instellingen aanpassen. 
 
 ![Apparaatinstellingen configureren](./media/device-management-azure-portal/22.png)
 
@@ -45,13 +45,13 @@ De instellingenpagina voor het apparaat kunt u configureren:
 ![Een apparaat met Intune beheren](./media/device-management-azure-portal/21.png)
 
 
-- **Gebruikers kunnen apparaten te koppelen aan Azure AD** - deze instellingen kunt u selecteren welke gebruikers apparaten met Azure AD verbinden kunnen. De standaardwaarde is **alle**.
+- **Gebruikers kunnen apparaten te koppelen aan Azure AD** -deze instelling schakelt u de gebruikers die u kunnen selecteren [apparaten te koppelen aan](device-management-introduction.md#azure-ad-joined-devices) naar Azure AD. De standaardwaarde is **alle**.
 
 - **Aanvullende lokale beheerders op Azure AD die lid zijn van de apparaten** -kunt u de gebruikers die lokale beheerdersrechten op een apparaat worden verleend. Gebruikers die zijn toegevoegd, worden toegevoegd aan de *Apparaatbeheerders* rol in Azure AD. Globale beheerders in Azure AD en eigenaren van de apparaten zijn lokale beheerdersrechten standaard toegekend. Deze optie is een premium edition-functie beschikbaar via producten zoals Azure AD Premium of Enterprise Mobility Suite (EMS). 
 
-- **Gebruikers kunnen hun apparaten registreren met Azure AD** -moet u deze instelling om apparaten worden geregistreerd bij Azure AD te laten configureren. Als u selecteert **geen**, apparaten zijn niet toegestaan om te registreren wanneer ze niet Azure AD zijn toegevoegd of hybride die lid zijn van Azure AD. Registratie bij Microsoft Intune of Mobile Device Management (MDM) voor Office 365 moet worden geregistreerd. Als u een van deze services hebt geconfigureerd **alle** is geselecteerd en is **NONE** niet beschikbaar...
+- **Gebruikers kunnen hun apparaten registreren met Azure AD** -u moet deze instelling en ervoor zorgen dat apparaten worden [geregistreerd](device-management-introduction.md#azure-ad-registered-devices) met Azure AD. Als u selecteert **geen**, apparaten zijn niet toegestaan om te registreren wanneer ze niet Azure AD zijn toegevoegd of hybride die lid zijn van Azure AD. Registratie bij Microsoft Intune of Mobile Device Management (MDM) voor Office 365 moet worden geregistreerd. Als u een van deze services hebt geconfigureerd **alle** is geselecteerd en is **NONE** niet beschikbaar...
 
-- **Multi-factor Authentication om toe te voegen apparaten vereisen** -kunt u kiezen of gebruikers zijn vereist voor een tweede verificatiefactor om hun apparaat toevoegen aan Azure AD. De standaardwaarde is **Nee**. Het is raadzaam om meervoudige verificatie vereisen wanneer een apparaat wordt geregistreerd. Voordat u multi-factor authentication voor deze service inschakelt, moet u ervoor zorgen dat multi-factor authentication-server is geconfigureerd voor de gebruikers die hun apparaten registreren. Zie voor meer informatie over andere Azure multi-factor authentication-services [aan de slag met Azure multi-factor authentication](../multi-factor-authentication/multi-factor-authentication-get-started.md). 
+- **Multi-factor Authentication om toe te voegen apparaten vereisen** -kunt u kiezen of gebruikers zijn vereist voor een tweede verificatiefactor naar [join](device-management-introduction.md#azure-ad-joined-devices) hun apparaat bij Azure AD. De standaardwaarde is **Nee**. Het is raadzaam om meervoudige verificatie vereisen wanneer een apparaat wordt geregistreerd. Voordat u multi-factor authentication voor deze service inschakelt, moet u ervoor zorgen dat multi-factor authentication-server is geconfigureerd voor de gebruikers die hun apparaten registreren. Zie voor meer informatie over andere Azure multi-factor authentication-services [aan de slag met Azure multi-factor authentication](../multi-factor-authentication/multi-factor-authentication-get-started.md). 
 
 - **Maximum aantal apparaten** -deze instelling schakelt u het maximum aantal apparaten dat een gebruiker in Azure AD hebben kan selecteren. Als een gebruiker dit quotum bereikt, dat niet meer mogelijk extra apparaten toevoegen totdat een of meer van de bestaande apparaten zijn verwijderd. De aanhalingstekens van het apparaat wordt beschouwd voor alle apparaten die Azure AD zijn toegevoegd of Azure AD vandaag geregistreerd. De standaardwaarde is **20**.
 
@@ -66,12 +66,12 @@ Deze optie is een premium-functie beschikbaar via producten zoals Azure AD Premi
 
 U hebt twee opties geregistreerd en gekoppelde apparaten vinden:
 
-- **Alle apparaten** in de **beheren** sectie van de **apparaten** blade  
+- **Alle apparaten** in de **beheren** sectie van de **apparaten** pagina  
 
     ![Alle apparaten](./media/device-management-azure-portal/41.png)
 
 
-- **Apparaten** in de **beheren** gedeelte van een **gebruiker** blade
+- **Apparaten** in de **beheren** gedeelte van een **gebruiker** pagina
  
     ![Alle apparaten](./media/device-management-azure-portal/43.png)
 
@@ -170,15 +170,15 @@ Als u een beheerder bent, kunt u deze kunt bekijken en kopiëren van de BitLocke
 ## <a name="audit-logs"></a>Controlelogboeken
 
 
-De apparaat-activiteiten zijn beschikbaar via de activiteitenlogboeken van de. Dit omvat activiteiten die zijn geactiveerd door de device registratieservice of door de gebruiker:
+Apparaat-activiteiten zijn beschikbaar via de activiteitenlogboeken van de. Dit omvat activiteiten die zijn geactiveerd door de device registratieservice en door gebruikers:
 
-- Maken van het apparaat en het toevoegen van eigenaars/gebruikers op het apparaat
+- Maken van het apparaat en toe te voegen eigenaars / gebruikers op het apparaat
 
 - Apparaatinstellingen
 
 - Apparaatbewerkingen zoals het verwijderen of bijwerken van een apparaat
  
-Uw toegangspunt voor de controle gegevens is **controlelogboeken** in de **activiteit** sectie van de **apparaten* blade.
+Uw toegangspunt voor de controle gegevens is **controlelogboeken** in de **activiteit** sectie van de **apparaten** pagina.
 
 ![Controlelogboeken](./media/device-management-azure-portal/61.png)
 
@@ -202,7 +202,7 @@ U kunt de lijstweergave aanpassen door te klikken op **Kolommen** op de werkbalk
 
 Als u de gerapporteerde gegevens wilt beperken tot een niveau dat geschikt is voor u, kunt u de controlegegevens filteren met de volgende velden:
 
-- Catergory
+- Category
 - Resourcetype van activiteit
 - Activiteit
 - Datumbereik

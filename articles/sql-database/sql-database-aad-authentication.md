@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 09/12/2017
 ms.author: rickbyh
-ms.openlocfilehash: 2726f5a78920f0ce47ed9d034e6a597c11b92e98
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b6a7a1d6e7c9f8a921dc73bb3bf629de71f85acf
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>Azure Active Directory-verificatie gebruiken voor verificatie met SQL-Database of SQL Data Warehouse
 Azure Active Directory-verificatie is een mechanisme van verbinding maken met Microsoft Azure SQL Database en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) met behulp van identiteiten in Azure Active Directory (Azure AD). Azure AD-verificatie, kunt u de identiteit van gebruikers en andere Microsoft-services op één centrale locatie centraal beheren. Centrale ID-beheer biedt er één plaats is voor het beheren van databasegebruikers en vereenvoudigt het beheer van machtigingen. Voordelen zijn onder andere:
@@ -73,7 +73,7 @@ Voor het maken van een ingesloten database-gebruiker in Azure SQL Database of SQ
 ## <a name="azure-ad-features-and-limitations"></a>Azure AD-functies en beperkingen
 De volgende leden van Azure AD kunnen worden ingericht in Azure SQL-server of SQL Data Warehouse:
 
-* Systeemeigen leden: lid gemaakt in Azure AD in het beheerde domein of in een domein van de klant. Zie voor meer informatie [uw eigen domeinnaam toevoegen aan Azure AD](../active-directory/active-directory-add-domain.md).
+* Systeemeigen leden: lid gemaakt in Azure AD in het beheerde domein of in een domein van de klant. Zie voor meer informatie [uw eigen domeinnaam toevoegen aan Azure AD](../active-directory/active-directory-domains-add-azure-portal.md).
 * Federatieve domeinleden: lid gemaakt in Azure AD met een federatieve domein. Zie voor meer informatie [Microsoft Azure biedt nu ondersteuning voor federatie met Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
 * Geïmporteerde leden van andere Azure AD die systeemeigen of federatieve domeinleden zijn.
 * Active Directory-groepen als beveiligingsgroepen worden gemaakt.

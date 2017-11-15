@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 426b7ff6114fd0b79a6af71a78705f11b80862bf
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 0e6cc412fdb3ea7b9d8291b9f963e6412ae994a9
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testen van uw oplossing met gesimuleerde apparaten
 
@@ -39,6 +39,10 @@ De volgende tabel ziet u de gegevens dat de ligthbulb rapporten naar de cloud al
 | Naam   | Waarden      |
 | ------ | ----------- |
 | Status | 'on', 'off' |
+| Online | True, false |
+
+> [!NOTE]
+> De **online** telemetriewaarde is verplicht voor alle gesimuleerde typen.
 
 *Methoden*
 
@@ -267,7 +271,11 @@ Voor het testen van de **gloeilamp** apparaattype, kunt u eerst testen uw appara
 
 Als u wilt testen en fouten opsporen in uw wijzigingen op een lokaal, Zie [apparaat simulatie overzicht](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md).
 
-Configureren van het project voor het kopiëren van de nieuwe **gloeilamp** apparaatbestanden naar de uitvoermap.
+Configureren van het project voor het kopiëren van de nieuwe **gloeilamp** apparaatbestanden naar de uitvoermap:
+
+* Als u Visual Studio gebruikt, controleert u of u de drie nieuwe gloeilamp bestanden u hebt gemaakt in de vorige sectie toevoegen de **Services** project in de oplossing. Gebruik vervolgens **Solution explorer** ze kunnen worden gekopieerd naar de uitvoermap markeren.
+
+* Als u Visual Studio Code gebruikt, opent u de **Services.csproj** -bestand en voeg de drie nieuwe gloeilamp bestanden u in de vorige sectie hebt gemaakt. Zie het bestaande model bestand apparaatvermeldingen in de **Services.csproj** bestand als voorbeelden.
 
 Test het nieuwe apparaat in een oplossing geïmplementeerd, ziet u een van:
 

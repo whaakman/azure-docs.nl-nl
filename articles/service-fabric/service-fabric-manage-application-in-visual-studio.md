@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/07/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: 3f6a47a15b74a7ceb6504b2834be62e76ab70bcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81814ef07cfab06855b3bfbf0eb6ef51b8dfce4f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Visual Studio gebruiken om te schrijven en beheren van uw Service Fabric-toepassingen vereenvoudigen
 U kunt uw Azure Service Fabric-toepassingen en services met Visual Studio kunt beheren. Zodra u hebt [uw ontwikkelomgeving instellen](service-fabric-get-started.md), kunt u Visual Studio Service Fabric-toepassingen maken, het toevoegen van de services of pakket, registreren en het implementeren van toepassingen in uw lokaal ontwikkelcluster.
@@ -32,7 +32,7 @@ Standaard is de volgende stappen uit in één bewerking combineert een toepassin
 4. Als u een actieve toepassingsexemplaren
 5. Maken van een toepassingsexemplaar
 
-In Visual Studio, drukt u op **F5** implementeert van uw toepassing en het foutopsporingsprogramma koppelen aan alle exemplaren van een toepassing. U kunt **Ctrl + F5** voor het implementeren van een toepassing zonder foutopsporing, of u kunnen publiceren naar een lokale of externe cluster met behulp van het publicatieprofiel. Zie voor meer informatie [een toepassing naar een externe cluster publiceren met behulp van Visual Studio](service-fabric-publish-app-remote-cluster.md).
+In Visual Studio, drukt u op **F5** implementeert van uw toepassing en het foutopsporingsprogramma koppelen aan alle exemplaren van een toepassing. U kunt **Ctrl + F5** voor het implementeren van een toepassing zonder foutopsporing, of u kunnen publiceren naar een lokale of externe cluster met behulp van het publicatieprofiel. 
 
 ### <a name="application-debug-mode"></a>De foutopsporingsmodus toepassing
 Visual Studio bieden een eigenschap genaamd **toepassing foutopsporingsmodus**, die bepaalt hoe u wilt dat Visual Studios voor het afhandelen van de implementatie van toepassing als onderdeel van het opsporen van fouten.
