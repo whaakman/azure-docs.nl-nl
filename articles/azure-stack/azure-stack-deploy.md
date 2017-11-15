@@ -3,8 +3,8 @@ title: Vereisten voor Azure Stack Development Kit implementatie | Microsoft Docs
 description: Bekijk de hardware-omgeving en vereisten voor Azure Stack Development Kit (cloud-operator).
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: 32a21d9b-ee42-417d-8e54-98a7f90f7311
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/11/2017
-ms.author: erikje
-ms.openlocfilehash: 73e7efb7d789fe12846d68066c0927bb123831a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/14/2017
+ms.author: jeffgilb
+ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Vereisten voor de implementatie van Azure Stack
 
@@ -40,7 +40,7 @@ Voordat u implementeert [Azure Stack Development Kit](azure-stack-poc.md), zorg 
 
 \*U moet meer dan dit capaciteit aanbevolen als u van plan bent over het toevoegen van veel van de [marketplace-items](azure-stack-download-azure-marketplace-item.md) van Azure.
 
-**Configuratie van gegevensschijfstation:** alle gegevensstations moeten van hetzelfde type zijn (allemaal SAS of SATA) en dezelfde capaciteit hebben. Als harde schijven van het type SAS worden gebruikt, moet u de schijfstations koppelen via één pad (er wordt geen ondersteuning geboden voor MPIO, Multipath).
+**Gegevens schijfstation configuratie:** alle gegevensstations moet van hetzelfde type (alle SAS, alle SATA of alle NVMe) en capaciteit. Als harde schijven van het type SAS worden gebruikt, moet u de schijfstations koppelen via één pad (er wordt geen ondersteuning geboden voor MPIO, Multipath).
 
 **HBA-configuratie-opties**
 
@@ -56,6 +56,7 @@ Voordat u implementeert [Azure Stack Development Kit](azure-stack-poc.md), zorg 
 * RAID SSD (als het mediatype niet is opgegeven/onbekend is\*)
 * SATA SSD + SATA HDD
 * SAS SSD + SAS HDD
+* NVMe
 
 \*RAID-controllers zonder Pass Through-functionaliteit wordt het mediatype niet herkend. Deze controllers markeren zowel HDD als SSD als Niet-opgegeven. In dat geval wordt de SSD gebruikt als permanente opslag in plaats van het cachegeheugen van apparaten. Daarom kunt u de development kit op de SSD's implementeren.
 
