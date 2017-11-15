@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
 ---
-# v2.0 protocollen - kuuroorden met behulp van de impliciete stroom
+# <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protocollen - kuuroorden met behulp van de impliciete stroom
 Met het v2.0-eindpunt kunt u gebruikers zich bij uw apps op één pagina met persoonlijke en zakelijke/school accounts van Microsoft.  Één pagina en andere JavaScript-apps die worden uitgevoerd voornamelijk in een browser gezicht interessante enkele uitdagingen bij de verificatie:
 
 * De beveiligingskenmerken van deze apps zijn aanzienlijk anders dan traditionele server op basis van webtoepassingen.
@@ -39,12 +39,12 @@ Als u liever niet te gebruiken van een bibliotheek in uw app met één pagina en
 > 
 > 
 
-## Protocol-diagram
+## <a name="protocol-diagram"></a>Protocol-diagram
 Het hele impliciete teken in stroom uitziet - elk van de stappen hieronder in detail worden beschreven.
 
 ![OpenId Connect banen](../../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
-## Verzending van de aanvraag voor aanmelden
+## <a name="send-the-sign-in-request"></a>Verzending van de aanvraag voor aanmelden
 U kunt verzenden om te ondertekenen in eerste instantie de gebruiker in uw app, een [OpenID Connect](active-directory-v2-protocols-oidc.md) autorisatieaanvraag en get een `id_token` van het v2.0-eindpunt:
 
 ```
@@ -84,7 +84,7 @@ Op dit moment wordt de gebruiker wordt gevraagd hun referenties invoeren en de a
 
 Als de gebruiker wordt geverifieerd en toestemming verleent, het v2.0-eindpunt resulteert in een antwoord aan uw app op de aangegeven `redirect_uri`, via de methode die is opgegeven in de `response_mode` parameter.
 
-#### Geslaagde reactie
+#### <a name="successful-response"></a>Geslaagde reactie
 Een geslaagde reactie met `response_mode=fragment` en `response_type=id_token+token` met regeleinden voor de leesbaarheid van de volgende lijkt:
 
 ```
@@ -106,7 +106,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | id_token |De id_token die de app wordt aangevraagd. U kunt de id_token gebruiken om te controleren van de identiteit van de gebruiker en beginnen met een sessie met de gebruiker.  Meer informatie over id_tokens en de inhoud ervan is opgenomen in de [v2.0-eindpunt tokenverwijzing](active-directory-v2-tokens.md). |
 | state |Als een parameter state is opgenomen in de aanvraag, moet dezelfde waarde weergegeven in het antwoord. De app dient te verifiëren dat de statuswaarden in de aanvraag en antwoord identiek zijn. |
 
-#### Foutbericht
+#### <a name="error-response"></a>Foutbericht
 Foutberichten kunnen ook worden verzonden naar de `redirect_uri` zodat de app ze op de juiste wijze kan verwerken:
 
 ```
@@ -120,7 +120,7 @@ error=access_denied
 | error |Een tekenreeks van de fout code die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | error_description |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
 
-## De id_token valideren
+## <a name="validate-the-idtoken"></a>De id_token valideren
 Zojuist hebt ontvangen van een id_token is niet voldoende om te verifiëren van de gebruiker. u moet de id_token handtekening valideren en controleer of de claims in het token per vereisten van uw app.  Maakt gebruik van het v2.0-eindpunt [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) en cryptografie met openbare sleutels voor het ondertekenen van tokens en controleren of ze geldig zijn.
 
 U kunt kiezen om te valideren de `id_token` in client-code, maar een gangbare optie is om te verzenden de `id_token` naar een back-endserver en er de validatie uit te voeren.  Zodra u hebt de handtekening van de id_token gevalideerd, zijn er enkele claims, u moet om te controleren.  Zie de [v2.0 tokenverwijzing](active-directory-v2-tokens.md) voor meer informatie, met inbegrip van [valideren van Tokens](active-directory-v2-tokens.md#validating-tokens) en [belangrijke informatie over het ondertekenen van sleutel Rollover](active-directory-v2-tokens.md#validating-tokens).  U wordt aangeraden die gebruikmaken van een bibliotheek geparseerd en valideren van tokens: Er is ten minste één beschikbaar voor de meeste talen en platforms.
@@ -136,7 +136,7 @@ Zie voor meer informatie over de claims in een id_token de [v2.0-eindpunt tokenv
 
 Zodra u hebt de id_token volledig gevalideerd, kunt u beginnen met een sessie met de gebruiker en de claims in de id_token gebruiken om informatie over de gebruiker in uw app te verkrijgen.  Deze informatie kan worden gebruikt voor weergave, registreert, autorisaties, enzovoort.
 
-## Toegangstokens ophalen
+## <a name="get-access-tokens"></a>Toegangstokens ophalen
 Nu dat u hebt de gebruiker zich in uw app met één pagina, kunt u toegangstokens ophalen voor het aanroepen van web API's die zijn beveiligd door Azure AD, zoals de [Microsoft Graph](https://graph.microsoft.io).  Zelfs als u al hebt ontvangen een token met de `token` response_type, kunt u deze methode verkrijgen van tokens, voor aanvullende bronnen zonder dat het omleiden van de gebruiker zich opnieuw aanmeldt.
 
 In de normale OpenID Connect/OAuth-stroom zou u dit doen door een aanvraag naar het v2.0 `/token` eindpunt.  Echter, het v2.0-eindpunt ondersteunt geen CORS-aanvragen, zodat het AJAX-aanroepen ophalen en vernieuwen van tokens buiten de vraag valt.  In plaats daarvan kunt u de impliciete stroom in een verborgen iframe nieuwe tokens krijgen voor andere web-API's: 
@@ -180,7 +180,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de7
 
 Dank aan de `prompt=none` parameter, deze aanvraag ofwel slagen of mislukken onmiddellijk en terugkeren naar de toepassing.  Een geslaagde reactie wordt verzonden naar uw app op de aangegeven `redirect_uri`, via de methode die is opgegeven in de `response_mode` parameter.
 
-#### Geslaagde reactie
+#### <a name="successful-response"></a>Geslaagde reactie
 Een geslaagde reactie met `response_mode=fragment` lijkt:
 
 ```
@@ -200,7 +200,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | expires_in |Hoe lang het toegangstoken is ongeldig (in seconden). |
 | Bereik |De bereiken die het toegangstoken is geldig voor. |
 
-#### Foutbericht
+#### <a name="error-response"></a>Foutbericht
 Foutberichten kunnen ook worden verzonden naar de `redirect_uri` zodat de app ze op de juiste wijze kan verwerken.  In het geval van `prompt=none`, een verwachte fout is:
 
 ```
@@ -216,10 +216,10 @@ error=user_authentication_required
 
 Als u deze fout in de aanvraag iframe ontvangt, moet de gebruiker interactief aanmelden opnieuw voor het ophalen van een nieuw token.  U kunt kiezen om deze situatie in een manier die het zinvol is voor uw toepassing te verwerken.
 
-## Vernieuwen van tokens
+## <a name="refreshing-tokens"></a>Vernieuwen van tokens
 Beide `id_token`s en `access_token`s verloopt na een korte periode, zodat uw app moet worden voorbereid om te vernieuwen deze tokens regelmatig.  Voor beide typen token vernieuwt, kunt u uitvoeren dezelfde verborgen iframe aanvraag boven het gebruik van de `prompt=none` parameter Azure AD-gedrag te bepalen.  Als u wilt ontvangen van een nieuwe `id_token`, zorg ervoor dat u `response_type=id_token` en `scope=openid`, evenals een `nonce` parameter.
 
-## Een afmelden aanvraag verzenden
+## <a name="send-a-sign-out-request"></a>Een afmelden aanvraag verzenden
 De OpenIdConnect `end_session_endpoint` , kan uw app een aanvraag te verzenden naar het v2.0-eindpunt een gebruikerssessie beëindigen en cookies die zijn ingesteld door het v2.0-eindpunt te wissen.  Volledig ondertekenen van een gebruiker uit een webtoepassing, moet uw app een eigen sessie met de gebruiker beëindigen (meestal met een token cache wissen of verwijderen van cookies) en leid de browser:
 
 ```

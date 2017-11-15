@@ -20,10 +20,10 @@ ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/14/2017
 ---
-# Ondersteuning voor aanvullende protocollen voor IoT Hub
+# <a name="support-additional-protocols-for-iot-hub"></a>Ondersteuning voor aanvullende protocollen voor IoT Hub
 Azure IoT Hub ondersteunt systeemeigen communicatie via de protocollen MQTT, AMQP en HTTPS. In sommige gevallen apparaten of veld gateways niet mogelijk een van deze standaardprotocollen en moeten worden aangepast protocol. In dergelijke gevallen kunt u een aangepaste gateway. Een aangepaste gateway kunt protocol aanpassing voor eindpunten van IoT Hub met bridging het verkeer van en naar IoT Hub. U kunt de [protocolgateway van Azure IOT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) als een aangepaste gateway protocol aanpassing voor IoT Hub inschakelen.
 
-## Azure IoT-protocol-gateway
+## <a name="azure-iot-protocol-gateway"></a>Azure IoT-protocol-gateway
 De Azure IoT-protocol-gateway is een framework voor aanpassing protocol die is ontworpen voor bidirectionele communicatie met IoT Hub met hoge schaalbaarheid. De protocolgateway is een Pass Through-onderdeel dat apparaatverbindingen over een specifiek protocol aanvaardt. Deze verbinding van het verkeer naar IoT Hub via AMQP 1.0. 
 
 U kunt de protocolgateway in Azure implementeren in een uiterst schaalbare manier met behulp van Azure Service Fabric, Azure Cloud Services-werkrollen of Windows virtuele Machines. Bovendien kan de protocolgateway worden geïmplementeerd in on-premises omgevingen zoals veld gateways.
@@ -34,7 +34,7 @@ De adapter MQTT ziet u ook het programmeermodel voor het bouwen van protocol ada
 
 Voor flexibiliteit, het protocolgateway van Azure IOT en de implementatie van de protocollen MQTT vindt u in een open source software-project. U kunt het open source-project ondersteuning toevoegen voor verschillende protocollen en adresprotocolversies gebruiken of aanpassen van de implementatie voor uw scenario. 
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over de Azure IoT-protocol-gateway en het gebruiken en als onderdeel van uw IoT-oplossing te implementeren:
 
 * [Azure IoT-protocol-gateway-opslagplaats op GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)

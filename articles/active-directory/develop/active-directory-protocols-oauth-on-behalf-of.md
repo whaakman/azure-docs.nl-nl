@@ -21,10 +21,10 @@ ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
 ---
-# Service naar serviceaanroepen met behulp van gedelegeerde gebruikersidentiteit in de On-namens-stroom
+# <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Service naar serviceaanroepen met behulp van gedelegeerde gebruikersidentiteit in de On-namens-stroom
 De OAuth 2.0 On-Behalf-Of stroom fungeert de gebruiksvoorbeeld waar een toepassing wordt aangeroepen met een service of web-API, die op zijn beurt moet aan te roepen op een andere service of web-API. Het idee is het doorgeven van de gedelegeerde gebruikersidentiteit en machtigingen via de aanvraagketen. Voor de middelste laag-service voor geverifieerde aanvragen naar de downstream-service maken, moet deze voor het beveiligen van een toegangstoken van Azure Active Directory (Azure AD), namens de gebruiker.
 
-## Op-andere gebruikers-Of stroomdiagram
+## <a name="on-behalf-of-flow-diagram"></a>Op-andere gebruikers-Of stroomdiagram
 Wordt ervan uitgegaan dat de gebruiker is geverifieerd op een toepassing met behulp van de [autorisatiecodetoekenning OAuth 2.0](active-directory-protocols-oauth-code.md). De toepassing is op dit moment een toegangstoken (token A) met de claims van de gebruiker en toestemming voor toegang tot de web-API (A-API) voor de middelste laag. API A moet nu een geverifieerde aanvraag om aan te brengen de downstream web-API (API-B).
 
 Welke stappen volgen vormen van de On-namens-stroom en met behulp van het volgende diagram worden uitgelegd.
@@ -38,9 +38,9 @@ Welke stappen volgen vormen van de On-namens-stroom en met behulp van het volgen
 4. Het token B is ingesteld in de autorisatie-header van het verzoek om API B.
 5. Gegevens van de beveiligde bron wordt geretourneerd door de API B.
 
-## Registreren van de toepassing en service in Azure AD
+## <a name="register-the-application-and-service-in-azure-ad"></a>Registreren van de toepassing en service in Azure AD
 Registreer zowel de clienttoepassing en de middelste laag-service in Azure AD.
-### De service voor de middelste laag registreren
+### <a name="register-the-middle-tier-service"></a>De service voor de middelste laag registreren
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op de bovenste balk op je account en klikt u onder de **Directory** kiest u de Active Directory-tenant waar u wilt uw toepassing registreren.
 3. Klik op **meer Services** in de nav linkerkant en kies **Azure Active Directory**.
@@ -48,7 +48,7 @@ Registreer zowel de clienttoepassing en de middelste laag-service in Azure AD.
 5. Geef een beschrijvende naam voor de toepassing en selecteer het toepassingstype. Op basis van de toepassing type set de aanmeldings-URL of Omleidings-URL naar de basis-URL. Klik op **maken** om de toepassing te maken.
 6. Kies uw toepassing tijdens het nog steeds in de Azure portal en klik op **instellingen**. Kies in het menu instellingen **sleutels** en toevoegen van een sleutel - selecteert u een sleutel duur van 1 jaar of 2 jaar. Wanneer u deze pagina, de waarde van de sleutel wordt weergegeven, kopiëren en opslaan van de waarde in een veilige locatie - moet u deze sleutel later naar de toepassing configureren in uw implementatie - waarde van deze sleutel wordt niet meer weergegeven, noch worden opgehaald door een andere manier, dus neem record zodra deze is zichtbaar zijn vanaf de Azure-Portal.
 
-### De clienttoepassing registreren
+### <a name="register-the-client-application"></a>De clienttoepassing registreren
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op de bovenste balk op je account en klikt u onder de **Directory** kiest u de Active Directory-tenant waar u wilt uw toepassing registreren.
 3. Klik op **meer Services** in de nav linkerkant en kies **Azure Active Directory**.
@@ -56,14 +56,14 @@ Registreer zowel de clienttoepassing en de middelste laag-service in Azure AD.
 5. Geef een beschrijvende naam voor de toepassing en selecteer het toepassingstype. Op basis van de toepassing type set de aanmeldings-URL of Omleidings-URL naar de basis-URL. Klik op **maken** om de toepassing te maken.
 6. Machtigingen configureren voor uw toepassing - in het menu instellingen, kiest u de **vereist machtigingen** sectie, klikt u op **toevoegen**, klikt u vervolgens **selecteert u een API**, en typ de naam van de service voor de middelste laag in het tekstvak. Klik vervolgens op **Selecteer machtigingen** en selecteer ' toegang *servicenaam*'.
 
-### Bekende clienttoepassingen configureren
+### <a name="configure-known-client-applications"></a>Bekende clienttoepassingen configureren
 In dit scenario heeft de middelste laag-service geen tussenkomst van de gebruiker om op te halen van de gebruiker toestemming voor toegang tot de downstream-API. Daarom moet de optie om toegang te verlenen aan de downstream-API worden gepresenteerd tevoren als onderdeel van de toestemming stap tijdens de verificatie.
 Om dit te bereiken, volg onderstaande stappen voor het binden expliciet de registratie van de clientapp in Azure AD met de registratie van de middelste laag-service, die de toestemming vereist door de client en de middelste laag in een dialoogvenster met één worden samengevoegd.
 1. Navigeer naar de middelste laag serviceregistratie en klik op **Manifest** om de manifest-editor te openen.
 2. Zoek in het manifest de `knownClientApplications` eigenschap matrix en de Client-ID van de clienttoepassing toevoegen als een element.
 3. Het manifest opslaan door te klikken op de opslagbewerking knop.
 
-## Token serviceaanvraag access-service
+## <a name="service-to-service-access-token-request"></a>Token serviceaanvraag access-service
 Om aan te vragen een toegangstoken, moet u een HTTP POST naar de tenant-specifieke Azure AD-eindpunt met de volgende parameters.
 
 ```
@@ -71,7 +71,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 ```
 Er zijn twee gevallen, afhankelijk van of de clienttoepassing kiest om te worden beveiligd door een gedeeld geheim of een certificaat.
 
-### Het eerste aanvraagnummer: aanvraag voor toegang tot token met een gedeeld geheim
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Het eerste aanvraagnummer: aanvraag voor toegang tot token met een gedeeld geheim
 Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor service-naar-service toegang tot de volgende parameters:
 
 | Parameter |  | Beschrijving |
@@ -84,7 +84,7 @@ Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor service-naar-service 
 | requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de On-namens-stroom, de waarde moet **on_behalf_of**. |
 | Bereik |Vereist | Een spatie gescheiden lijst met bereiken voor de tokenaanvraag. Voor het OpenID Connect, het bereik **openid** moet worden opgegeven.|
 
-#### Voorbeeld
+#### <a name="example"></a>Voorbeeld
 De volgende HTTP POST-aanvragen een toegangstoken voor de https://graph.windows.net web-API. De `client_id` de service identificeert die het toegangstoken aanvragen.
 
 ```
@@ -103,7 +103,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-### Tweede geval: aanvraag voor toegang tot token met een certificaat
+### <a name="second-case-access-token-request-with-a-certificate"></a>Tweede geval: aanvraag voor toegang tot token met een certificaat
 Een service-naar-service toegang tokenaanvraag met een certificaat bevat de volgende parameters:
 
 | Parameter |  | Beschrijving |
@@ -119,7 +119,7 @@ Een service-naar-service toegang tokenaanvraag met een certificaat bevat de volg
 
 De parameters zijn bijna hetzelfde is in het geval van de aanvraag door een gedeeld geheim, behalve dat de parameter client_secret wordt vervangen door twee parameters: een client_assertion_type en client_assertion.
 
-#### Voorbeeld
+#### <a name="example"></a>Voorbeeld
 De volgende HTTP POST-aanvragen een toegangstoken voor de web-https://graph.windows.net API met een certificaat. De `client_id` de service identificeert die het toegangstoken aanvragen.
 
 ```
@@ -139,7 +139,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-## Antwoord token service-access-service
+## <a name="service-to-service-access-token-response"></a>Antwoord token service-access-service
 Een geslaagde reactie is een JSON OAuth 2.0-antwoord met de volgende parameters.
 
 | Parameter | Beschrijving |
@@ -153,7 +153,7 @@ Een geslaagde reactie is een JSON OAuth 2.0-antwoord met de volgende parameters.
 | id_token |De aangevraagde id-token. De service aanroepen kunt deze gebruiken om te controleren van de identiteit van de gebruiker en beginnen met een sessie met de gebruiker. |
 | refresh_token |Het vernieuwingstoken voor het aangevraagde toegangstoken. De aanroepende service kunt u dit token gebruiken om aan te vragen van een andere toegangstoken nadat het huidige toegangstoken is verlopen. |
 
-### Geslaagd antwoord voorbeeld
+### <a name="success-response-example"></a>Geslaagd antwoord voorbeeld
 Het volgende voorbeeld toont een geslaagde reactie op een aanvraag voor een toegangstoken voor de https://graph.windows.net web-API.
 
 ```
@@ -171,7 +171,7 @@ Het volgende voorbeeld toont een geslaagde reactie op een aanvraag voor een toeg
 }
 ```
 
-### Fout antwoord voorbeeld
+### <a name="error-response-example"></a>Fout antwoord voorbeeld
 Reactie op een fout is geretourneerd door Azure AD-tokeneindpunt als bij het verkrijgen van een toegangstoken voor de downstream-API als de downstream-API een beleid voor voorwaardelijke toegang zoals multi-factor authentication-server erop is ingesteld heeft. De service voor de middelste laag moet deze fout aan de clienttoepassing surface, zodat de clienttoepassing de interactie van de gebruiker om te voldoen aan het beleid voor voorwaardelijke toegang kunt bieden.
 
 ```
@@ -186,17 +186,17 @@ Reactie op een fout is geretourneerd door Azure AD-tokeneindpunt als bij het ver
 }
 ```
 
-## Gebruik het toegangstoken voor toegang tot de beveiligde bron
+## <a name="use-the-access-token-to-access-the-secured-resource"></a>Gebruik het toegangstoken voor toegang tot de beveiligde bron
 Nu de middelste laag-service kan het token verkregen hierboven geverifieerde aanvragen door het instellen van het token in aanbrengen de downstream web-API, gebruiken de `Authorization` header.
 
-### Voorbeeld
+### <a name="example"></a>Voorbeeld
 ```
 GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 Meer informatie over het OAuth 2.0-protocol en een andere manier om uit te voeren services auth met clientreferenties.
 * [Service-verificatie met OAuth 2.0-client referenties grant in Azure AD-service](active-directory-protocols-oauth-service-to-service.md)
 * [OAuth 2.0 in Azure AD](active-directory-protocols-oauth-code.md)

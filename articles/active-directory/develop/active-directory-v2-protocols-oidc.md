@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
 ---
-# Azure Active Directory-v2.0 en het protocol OpenID Connect
+# <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory-v2.0 en het protocol OpenID Connect
 OpenID Connect is een authenticatieprotocol dat is gebaseerd op OAuth 2.0 die u gebruiken kunt voor het veilig Meld u aan een gebruiker aan een webtoepassing. Wanneer u het v2.0-eindpunt implementatie van OpenID Connect gebruikt, kunt u aanmelden en toegang tot API toevoegen aan uw web gebaseerde apps. In dit artikel wordt beschreven hoe u te doen dit onafhankelijk van de taal. We beschrijven hoe verzenden en ontvangen van HTTP-berichten zonder een Microsoft open source-bibliotheken.
 
 > [!NOTE]
@@ -31,12 +31,12 @@ OpenID Connect is een authenticatieprotocol dat is gebaseerd op OAuth 2.0 die u 
 
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) breidt het OAuth 2.0 *autorisatie* protocol moet worden gebruikt als een *verificatie* protocol, zodat u één uitvoeren kunt aanmelding met OAuth. OpenID Connect introduceert het concept van een *token ID*, dit is een beveiligingstoken waarmee de client de identiteit van de gebruiker. Het token ID wordt ook basisprofiel informatie over de gebruiker. Omdat het OpenID Connect breidt OAuth 2.0, apps veilig kunnen verkrijgen *toegang tot tokens*, die kan worden gebruikt voor toegang tot resources die zijn beveiligd met een [autorisatie server](active-directory-v2-protocols.md#the-basics). Het is raadzaam dat u OpenID Connect als u een [webtoepassing](active-directory-v2-flows.md#web-apps) die wordt gehost op een server en geopend via een browser.
 
-## Protocol diagram: aanmelden
+## <a name="protocol-diagram-sign-in"></a>Protocol diagram: aanmelden
 De meest eenvoudige aanmelding-stroom heeft de stappen die u in het volgende diagram. Elke stap in detail in dit artikel worden beschreven.
 
 ![Protocol OpenID Connect: aanmelden](../../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
 
-## Het metagegevensdocument OpenID Connect ophalen
+## <a name="fetch-the-openid-connect-metadata-document"></a>Het metagegevensdocument OpenID Connect ophalen
 Beschrijving van een document met metagegevens die de meeste van de vereiste informatie voor een app uit te voeren aanmelden bevat OpenID Connect. Dit omvat gegevens zoals de URL's te gebruiken en de locatie van de openbare handtekeningsleutels van de service. Dit is het metagegevensdocument OpenID Connect dat moet u voor het v2.0-eindpunt:
 
 ```
@@ -71,7 +71,7 @@ De metagegevens is een eenvoudige JSON JavaScript Object Notation ()-document. Z
 
 Normaal gesproken wilt u dit metagegevensdocument gebruiken voor het configureren van een bibliotheek OpenID Connect of de SDK. de bibliotheek zou de metagegevens voor het werk gebruiken. Als u een vooraf build OpenID Connect-bibliotheek niet gebruikt, kunt u de stappen in de rest van dit artikel uitvoeren aanmelden in een web-app met behulp van het v2.0-eindpunt volgen.
 
-## Verzending van de aanvraag voor aanmelden
+## <a name="send-the-sign-in-request"></a>Verzending van de aanvraag voor aanmelden
 Als uw web-app moet de gebruiker te verifiëren, kan de gebruiker worden doorgestuurd de `/authorize` eindpunt. Deze aanvraag is vergelijkbaar met de eerste zijde van de [OAuth 2.0-autorisatiecodestroom](active-directory-v2-protocols-oauth-code.md), met deze belangrijke verschillen:
 
 * De aanvraag moet bevatten de `openid` bereik de `scope` parameter.
@@ -117,7 +117,7 @@ Op dit moment wordt de gebruiker gevraagd om hun referenties invoeren en de veri
 
 Nadat de gebruiker wordt geverifieerd en toestemming verleent het v2.0-eindpunt retourneert een antwoord aan uw app op de aangegeven omleidings-URI met de methode die is opgegeven in de `response_mode` parameter.
 
-### Geslaagde reactie
+### <a name="successful-response"></a>Geslaagde reactie
 Een geslaagde reactie wanneer u `response_mode=form_post` ziet er als volgt:
 
 ```
@@ -133,7 +133,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | id_token |Het token ID die de app wordt aangevraagd. U kunt de `id_token` parameter om te controleren van de identiteit van de gebruiker en beginnen met een sessie met de gebruiker. Zie voor meer informatie over het ID-tokens en de inhoud van de [v2.0-eindpunt tokens verwijzing](active-directory-v2-tokens.md). |
 | state |Als een `state` parameter is opgenomen in de aanvraag dezelfde waarde moet worden weergegeven in het antwoord. De app dient te verifiëren dat de statuswaarden in de aanvraag en antwoord identiek zijn. |
 
-### Foutbericht
+### <a name="error-response"></a>Foutbericht
 Foutberichten kunnen ook worden verzonden naar de omleidings-URI, zodat de app te kan verwerken. Een foutmelding ziet er als volgt:
 
 ```
@@ -149,7 +149,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | error |Een tekenreeks van de fout code die u gebruiken kunt voor het classificeren van typen fouten die optreden en om te reageren op fouten. |
 | error_description |Een specifiek foutbericht die u kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
 
-### Foutcodes voor autorisatie eindpunt fouten
+### <a name="error-codes-for-authorization-endpoint-errors"></a>Foutcodes voor autorisatie eindpunt fouten
 De volgende tabel worden foutcodes beschreven die kunnen worden geretourneerd in de `error` parameter van het foutbericht:
 
 | Foutcode | Beschrijving | Clientactie |
@@ -162,7 +162,7 @@ De volgende tabel worden foutcodes beschreven die kunnen worden geretourneerd in
 | temporarily_unavailable |De server is tijdelijk te druk bezet om de aanvraag te verwerken. |De aanvraag opnieuw proberen. Aan de gebruiker kan de clienttoepassing verklaren dat het antwoord is vertraagd doordat een tijdelijke situatie. |
 | invalid_resource |De doelresource is ongeldig omdat deze niet bestaat, Azure AD kan niet worden gevonden of is niet correct geconfigureerd. |Hiermee wordt aangegeven dat de resource als deze bestaat, is niet geconfigureerd in de tenant. De toepassing kan het bericht met instructies voor het installeren van de toepassing en deze naar Azure AD toe te voegen. |
 
-## Het token ID valideren
+## <a name="validate-the-id-token"></a>Het token ID valideren
 Ontvangen van een token ID is niet voldoende om de gebruiker te verifiëren. U moet ook de handtekening van het token ID valideren en controleer of de claims in het token per vereisten van uw app. Maakt gebruik van het v2.0-eindpunt [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) en cryptografie met openbare sleutels voor het ondertekenen van tokens en controleren of ze geldig zijn.
 
 U kunt kiezen voor het valideren van het token ID in de clientcode, maar een gebruikelijk om is stuurt het token ID naar een back-endserver en er de validatie uitvoeren. Nadat u hebt geverifieerd dat de handtekening van het token ID, moet u controleren of een paar claims. Voor meer informatie, met inbegrip van informatie over [valideren van tokens](active-directory-v2-tokens.md#validating-tokens) en [belangrijke informatie over het ondertekenen van sleutelrollover](active-directory-v2-tokens.md#validating-tokens), Zie de [v2.0 tokens verwijzing](active-directory-v2-tokens.md). U wordt aangeraden met behulp van een bibliotheek parseren en valideren van tokens. Er is ten minste één van deze bibliotheken beschikbaar zijn voor de meeste talen en platforms.
@@ -178,7 +178,7 @@ Zie voor meer informatie over de claims in een token ID, de [v2.0-eindpunt token
 
 Nadat u hebt het token ID volledig gevalideerd, kunt u beginnen met een sessie met de gebruiker. De claims in het token ID gebruiken voor informatie over de gebruiker in uw app. U kunt deze informatie gebruiken voor de weergave, registreert en autorisaties.
 
-## Afmelden aanvraag verzenden
+## <a name="send-a-sign-out-request"></a>Afmelden aanvraag verzenden
 Als u afmelden van de gebruiker van uw app wilt, is het niet voldoende om te wissen van cookies van uw app of anders de gebruikerssessie te beëindigen. U moet ook de gebruiker omgeleid naar het v2.0-eindpunt om af te melden. Als u dit doet, de gebruiker opnieuw geverifieerd naar uw app zonder hun referenties opnieuw invoeren omdat ze een geldig één aanmeldingssessie met het v2.0-eindpunt.
 
 U kunt omleiden door de gebruiker de `end_session_endpoint` vermeld in het document met OpenID Connect metagegevens:
@@ -192,17 +192,17 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | ----------------------- | ------------------------------- | ------------ |
 | post_logout_redirect_uri | Aanbevolen | De URL waarnaar de gebruiker wordt omgeleid naar na het afmelden is. Als de parameter niet opgenomen is, wordt de gebruiker een algemeen bericht dat wordt gegenereerd door het v2.0-eindpunt weergegeven. Deze URL moet overeenkomen met een van de omleiding die URI 's geregistreerd voor uw toepassing in de app-portal voor wachtwoordregistratie.  |
 
-## Eenmalige afmelding
+## <a name="single-sign-out"></a>Eenmalige afmelding
 Wanneer het omleiden van de gebruiker de `end_session_endpoint`, het v2.0-eindpunt wist de gebruikerssessie vanuit de browser. Echter, de gebruiker mogelijk nog steeds zijn aangemeld bij andere toepassingen die Microsoft-accounts voor verificatie gebruiken. Voor deze toepassingen voor het ondertekenen van de gebruiker uit tegelijk, het v2.0 eindpunt een HTTP GET-aanvraag verzendt naar de geregistreerde `LogoutUrl` van alle toepassingen die de gebruiker momenteel is aangemeld bij. Toepassingen op deze aanvraag moeten reageren door alle sessies waarin de gebruiker te wissen en retourneren een `200` antwoord.  Als u afmelden ondersteuning voor eenmalige aanmelding in uw toepassing wilt, moet u deze implementeren een `LogoutUrl` in de code van uw toepassing.  U kunt instellen de `LogoutUrl` van de app-portal voor wachtwoordregistratie.
 
-## Protocol diagram: Token verkrijgen
+## <a name="protocol-diagram-token-acquisition"></a>Protocol diagram: Token verkrijgen
 Veel WebApps moeten niet alleen de gebruiker te melden bij, maar ook voor toegang tot een webservice namens de gebruiker met behulp van OAuth. Dit scenario combineert OpenID Connect voor de verificatie bij het ophalen van een autorisatiecode die u gebruiken kunt voor toegangstokens ophalen als u van de OAuth-autorisatiecodestroom gebruikmaakt tegelijk.
 
 De volledige OpenID Connect aanmelden en tokens verkrijgen stroom lijkt op het volgende diagram. Elke stap in de volgende secties van het artikel in detail worden beschreven.
 
 ![Protocol OpenID Connect: Token verkrijgen](../../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
-## Toegangstokens ophalen
+## <a name="get-access-tokens"></a>Toegangstokens ophalen
 Te verkrijgen toegangstokens, wijzig de aanvraag aanmelden:
 
 ```
@@ -228,7 +228,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 
 Inclusief machtiging scopes in de aanvraag en met `response_type=id_token code`, het v2.0-eindpunt zorgt ervoor dat de gebruiker heeft ingestemd met de machtigingen die zijn aangegeven in de `scope` queryparameter. Het resultaat een autorisatiecode aan uw app voor het uitwisselen van een toegangstoken.
 
-### Geslaagde reactie
+### <a name="successful-response"></a>Geslaagde reactie
 Een geslaagde reactie van het gebruik van `response_mode=form_post` ziet er als volgt:
 
 ```
@@ -245,7 +245,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | code |De autorisatiecode die de app wordt aangevraagd. De app kunt u de autorisatiecode gebruiken om aan te vragen van een toegangstoken voor de doelresource. Er is een autorisatiecode zeer tijdelijke. Normaal gesproken verloopt een autorisatiecode over ongeveer tien minuten. |
 | state |Als een parameter state is opgenomen in de aanvraag, moet dezelfde waarde weergegeven in het antwoord. De app dient te verifiëren dat de statuswaarden in de aanvraag en antwoord identiek zijn. |
 
-### Foutbericht
+### <a name="error-response"></a>Foutbericht
 Foutberichten kunnen ook worden verzonden naar de omleidings-URI, zodat de app ze op de juiste wijze kan verwerken. Een foutmelding ziet er als volgt:
 
 ```

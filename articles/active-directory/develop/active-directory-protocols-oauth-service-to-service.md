@@ -21,10 +21,10 @@ ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
 ---
-# Service naar serviceaanroepen met clientreferenties (gedeelde geheim of certificaat)
+# <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Service naar serviceaanroepen met clientreferenties (gedeelde geheim of certificaat)
 De OAuth 2.0-Client referenties Grant stromen is toegestaan voor een webservice (*vertrouwelijke client*) zijn eigen referenties gebruiken in plaats van een gebruiker imiteren om te verifiëren bij het aanroepen van een andere webservice. In dit scenario wordt is de client meestal een middelste laag webservice, een daemon-service of de website. Voor een hoger niveau van zekerheid kan Azure AD ook de aanroepende service moet een certificaat (in plaats van een gedeeld geheim) gebruiken als referentie.
 
-## Clientreferenties verlenen stroomdiagram
+## <a name="client-credentials-grant-flow-diagram"></a>Clientreferenties verlenen stroomdiagram
 Het volgende diagram wordt uitgelegd hoe de stroom werkt in Azure Active Directory (Azure AD) voor het verlenen van referenties van de client.
 
 ![OAuth2.0 Grant Clientreferentiestroom](media/active-directory-protocols-oauth-service-to-service/active-directory-protocols-oauth-client-credentials-grant-flow.jpg)
@@ -34,20 +34,20 @@ Het volgende diagram wordt uitgelegd hoe de stroom werkt in Azure Active Directo
 3. Het toegangstoken is gebruikt voor verificatie met de beveiligde bron.
 4. Gegevens van de beveiligde bron wordt geretourneerd naar de webtoepassing.
 
-## De Services in Azure AD registreren
+## <a name="register-the-services-in-azure-ad"></a>De Services in Azure AD registreren
 Registreer de aanroepende service en de ontvangende service in Azure Active Directory (Azure AD). Zie voor gedetailleerde instructies [toepassingen integreren met Azure Active Directory](active-directory-integrating-applications.md).
 
-## Aanvragen van een toegangstoken
+## <a name="request-an-access-token"></a>Aanvragen van een toegangstoken
 Om aan te vragen een toegangstoken, gebruikt u een HTTP POST naar de tenant-specifieke Azure AD-eindpunt.
 
 ```
 https://login.microsoftonline.com/<tenant id>/oauth2/token
 ```
 
-## Service-naar-service toegang tokenaanvraag
+## <a name="service-to-service-access-token-request"></a>Service-naar-service toegang tokenaanvraag
 Er zijn twee gevallen, afhankelijk van of de clienttoepassing kiest om te worden beveiligd door een gedeeld geheim of een certificaat.
 
-### Het eerste aanvraagnummer: aanvraag voor toegang tot token met een gedeeld geheim
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Het eerste aanvraagnummer: aanvraag voor toegang tot token met een gedeeld geheim
 Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor service-naar-service toegang tot de volgende parameters:
 
 | Parameter |  | Beschrijving |
@@ -57,7 +57,7 @@ Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor service-naar-service 
 | client_secret |Vereist |Geef een sleutel die is geregistreerd voor de aanroepende web service of -daemon toepassing in Azure AD. Klik op om een sleutel in de Azure portal **Active Directory**, directory overschakelen, klikt u op de toepassing, klikt u op **instellingen**, klikt u op **sleutels**, en een sleutel toevoegen.|
 | Resource |Vereist |Voer de App ID URI van de ontvangende webservice. Klik op de App ID URI, informatie in de Azure portal **Active Directory**, directory overschakelen, klikt u op de servicetoepassing en klik vervolgens op **instellingen** en **eigenschappen** |
 
-#### Voorbeeld
+#### <a name="example"></a>Voorbeeld
 De volgende HTTP POST-aanvragen een toegangstoken voor de webservice https://service.contoso.com/. De `client_id` identificeert de webservice die het toegangstoken aanvragen.
 
 ```
@@ -68,7 +68,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&client_secret=qkDwDJlDfig2IpeuUZYKH1Wb8q1V0ju6sILxQQqhJ+s=&resource=https%3A%2F%2Fservice.contoso.com%2F
 ```
 
-### Tweede geval: aanvraag voor toegang tot token met een certificaat
+### <a name="second-case-access-token-request-with-a-certificate"></a>Tweede geval: aanvraag voor toegang tot token met een certificaat
 Een service-naar-service toegang tokenaanvraag met een certificaat bevat de volgende parameters:
 
 | Parameter |  | Beschrijving |
@@ -81,7 +81,7 @@ Een service-naar-service toegang tokenaanvraag met een certificaat bevat de volg
 
 De parameters zijn bijna hetzelfde is in het geval van de aanvraag door een gedeeld geheim, behalve dat de parameter client_secret wordt vervangen door twee parameters: een client_assertion_type en client_assertion.
 
-#### Voorbeeld
+#### <a name="example"></a>Voorbeeld
 De volgende HTTP POST-aanvragen een toegangstoken voor de webservice https://service.contoso.com/ met een certificaat. De `client_id` identificeert de webservice die het toegangstoken aanvragen.
 
 ```
@@ -92,7 +92,7 @@ Content-Type: application/x-www-form-urlencoded
 resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b3bf&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg&grant_type=client_credentials
 ```
 
-### Service-naar-Service toegang Token antwoord
+### <a name="service-to-service-access-token-response"></a>Service-naar-Service toegang Token antwoord
 
 Een geslaagde reactie bevat een JSON OAuth 2.0-antwoord met de volgende parameters:
 
@@ -105,7 +105,7 @@ Een geslaagde reactie bevat een JSON OAuth 2.0-antwoord met de volgende paramete
 | not_before |Het tijdstip van waaruit het toegangstoken gebruikt wordt. De datum die wordt weergegeven als het aantal seconden van 1970-01-01T0:0:0Z UTC totdat de tijd van geldigheid voor het token.|
 | Resource |De App ID URI van de ontvangende webservice. |
 
-#### Voorbeeld van antwoord
+#### <a name="example-of-response"></a>Voorbeeld van antwoord
 Het volgende voorbeeld toont een geslaagde reactie op een aanvraag voor een toegangstoken bij een webservice.
 
 ```
@@ -118,6 +118,6 @@ Het volgende voorbeeld toont een geslaagde reactie op een aanvraag voor een toeg
 }
 ```
 
-## Zie ook
+## <a name="see-also"></a>Zie ook
 * [OAuth 2.0 in Azure AD](active-directory-protocols-oauth-code.md)
 * [Voorbeeld in C# van de aanroep van de service-service met een gedeeld geheim](https://github.com/Azure-Samples/active-directory-dotnet-daemon) en [voorbeeld in C# van de aanroep van de service-service met een certificaat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)

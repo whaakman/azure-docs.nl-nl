@@ -20,7 +20,7 @@ ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
 ---
-# Verwijzen naar - een communicatieprotocol kiezen
+# <a name="reference---choose-a-communication-protocol"></a>Verwijzen naar - een communicatieprotocol kiezen
 
 IoT-Hub kunt u apparaten met de volgende protocollen voor apparaat-side '-communicatie:
 
@@ -51,7 +51,7 @@ Houd rekening met de volgende punten wanneer u ervoor uw protocol voor het appar
 > [!WARNING]
 > Wanneer u HTTPS gebruikt, moet elk apparaat voor cloud-naar-apparaat-berichten pollen elke 25 minuten of langer. Tijdens de ontwikkeling is het echter aanvaardbaar is voor het pollen vaker dan elke 25 minuten.
 
-## Poortnummers
+## <a name="port-numbers"></a>Poortnummers
 
 Apparaten kunnen communiceren met IoT Hub in Azure met behulp van verschillende protocollen. Normaal gesproken wordt de keuze van het protocol bepaald door de specifieke vereisten van de oplossing. De volgende tabel bevat de uitgaande poorten die moeten zijn geopend voor een apparaat om te kunnen gebruiken van een specifiek protocol:
 
@@ -66,7 +66,7 @@ Apparaten kunnen communiceren met IoT Hub in Azure met behulp van verschillende 
 Nadat u een IoT-hub hebt gemaakt in een Azure-regio, houdt de IoT-hub hetzelfde IP-adres voor de levensduur van iothub. Echter, als de IoT-hub Microsoft naar een andere schaaleenheid quality of service-onderhouden verplaatst, wordt het toegewezen een nieuw IP-adres.
 
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer informatie over hoe IoT Hub het MQTT-protocol implementeert, [communiceren met uw iothub met het protocol MQTT][lnk-mqtt-support].
 

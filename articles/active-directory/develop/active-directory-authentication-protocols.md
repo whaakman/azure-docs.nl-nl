@@ -21,10 +21,10 @@ ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
 ---
-# Azure Active Directory-verificatieprotocollen
+# <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory-verificatieprotocollen
 Azure Active Directory (Azure AD) ondersteunt verschillende van de meest gebruikte protocollen voor verificatie en autorisatie. De onderwerpen in deze sectie beschrijven de ondersteunde protocollen en de toepassing in Azure AD. De onderwerpen opgenomen van een overzicht van ondersteunde claimtypen, een inleiding tot het gebruik van federatiemetagegevens, gedetailleerde OAuth 2.0. en naslagdocumentatie SAML 2.0-protocol en een gedeelte voor probleemoplossing.
 
-## Verificatieprotocollen artikelen en verwijzing
+## <a name="authentication-protocols-articles-and-reference"></a>Verificatieprotocollen artikelen en verwijzing
 * [Belangrijke informatie over het ondertekenen van sleutel Rollover in Azure AD](active-directory-signing-key-rollover.md) : meer informatie over het ondertekenen van Azure AD sleutelrollover uitgebracht, wijzigingen kunt u de sleutel automatisch bijwerken en beschrijving voor het bijwerken van de meest voorkomende scenario's van toepassing.
 * [Ondersteund Token en claimtypen](active-directory-token-and-claims.md) -meer informatie over de claims in de tokens die Azure AD geeft.
 * [Federatiemetagegevens](active-directory-federation-metadata.md) -informatie over het vinden en het interpreteren van de metagegevens van documenten die Azure AD wordt gegenereerd.
@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD) ondersteunt verschillende van de meest gebruik
 * [Service-Service aanroepen met On-Behalf-Of stroom](active-directory-protocols-oauth-on-behalf-of.md) -informatie over het gebruik van OAuth 2.0 On-Behalf-Of stroom voor service-service aanroepen.
 * [Naslaginformatie over het SAML-Protocol](active-directory-saml-protocol-reference.md) -meer informatie over de profielen voor eenmalige aanmelding en één Sign-out SAML van Azure AD.
 
-## Zie ook
+## <a name="see-also"></a>Zie ook
 [Ontwikkelaarshandleiding Azure Active Directory](active-directory-developers-guide.md)
 
 [Active Directory-codevoorbeelden](active-directory-code-samples.md)
