@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/10/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: 35e67d86b42358c4ce28b41beae1ee8e1896e939
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 976c7b425dd17f8ed38f18b6ffa50b4368ab44b3
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Een Service Bus-naamruimte maken met onderwerp, abonnement en regel met een Azure Resource Manager-sjabloon
 
-Dit artikel laat zien hoe u een Azure Resource Manager-sjabloon die wordt gemaakt van een Service Bus-naamruimte met een onderwerp, abonnement en regel (filter). U leert hoe om te definiëren welke bronnen worden geïmplementeerd en het definiëren van de parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen
+Dit artikel laat zien hoe u een Azure Resource Manager-sjabloon die wordt gemaakt van een Service Bus-naamruimte met een onderwerp, abonnement en regel (filter). Het artikel wordt uitgelegd hoe om op te geven welke resources worden geïmplementeerd en het definiëren van de parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen
 
 Zie [Azure Resource Manager-sjablonen samenstellen][Authoring Azure Resource Manager templates] voor meer informatie over het maken van sjablonen.
 
@@ -50,7 +50,7 @@ Met deze sjabloon kunt u een Service Bus-naamruimte met onderwerp, abonnement en
 
 ## <a name="what-are-rules-filters"></a>Wat zijn de regels (filters)?
 
-In veel scenario's, moeten de berichten met specifieke kenmerken op verschillende manieren worden verwerkt. U kunt abonnementen op berichten die specifieke eigenschappen en voer vervolgens wijzigingen in deze eigenschappen zoeken configureren om dit mogelijk. Hoewel Service Bus-abonnementen alle berichten die naar het onderwerp zien, kunt u alleen een subset van die berichten kopiëren naar de abonnementenwachtrij voor virtuele. Dit wordt bereikt met behulp van abonnementsfilters. Zie voor meer informatie over regels (filters), [regels en acties](service-bus-queues-topics-subscriptions.md#rules-and-actions).
+In veel scenario's, moeten de berichten met specifieke kenmerken op verschillende manieren worden verwerkt. U kunt abonnementen op berichten die specifieke eigenschappen en voer vervolgens wijzigingen in deze eigenschappen zoeken configureren zodat deze aangepaste verwerking. Hoewel Service Bus-abonnementen alle berichten die naar het onderwerp zien, kunt u alleen een subset van die berichten kopiëren naar de abonnementenwachtrij voor virtuele. Dit wordt bereikt met behulp van abonnementsfilters. Zie voor meer informatie over regels (filters), [regels en acties](service-bus-queues-topics-subscriptions.md#rules-and-actions).
 
 Klik op de volgende knop om de implementatie automatisch uit te voeren:
 
@@ -100,9 +100,12 @@ De naam van de rule(filter) in de Service Bus-naamruimte gemaakt.
 De Service Bus-API-versie van de sjabloon.
 
 ```json
-"serviceBusApiVersion": {
-"type": "string"
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2017-04-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       }
 ```
 ## <a name="resources-to-deploy"></a>Resources om te implementeren
 Maakt een standaard Service Bus-naamruimte van het type **Messaging**, onderwerp, abonnement en regels.

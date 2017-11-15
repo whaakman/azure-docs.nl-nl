@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 11/10/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 300b2b17b44e21ed446fd63d572a2461e2fc1343
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb08d5c80954e1c231bf6e8b781b09700ef0959d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-the-classic-deployment-model"></a>Met het klassieke implementatiemodel bestanden herstellen op een Windows-server of Windows-clientcomputer
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 Dit artikel wordt uitgelegd hoe u kunt gegevens herstellen vanaf een back-upkluis en een server of de computer herstellen. U start in maart 2017, kunt u niet langer maken back-upkluizen in de klassieke portal.
 
 > [!IMPORTANT]
-> U kunt uw back-upkluizen nu upgraden naar Recovery Services-kluizen. Zie voor meer informatie het artikel [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md) (Een back-upkluis upgraden naar een Recovery Services-kluis). Microsoft adviseert om uw back-upkluizen te upgraden naar Recovery Services-kluizen.<br/> Vanaf **15 oktober 2017** kunt u PowerShell niet meer gebruiken voor het maken van back-upkluizen. <br/> **Vanaf 1 november 2017**:
+> U kunt uw back-upkluizen nu upgraden naar Recovery Services-kluizen. Zie voor meer informatie het artikel [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md) (Een back-upkluis upgraden naar een Recovery Services-kluis). Microsoft adviseert om uw back-upkluizen te upgraden naar Recovery Services-kluizen.<br/> Na **30 November 2017**, u zich niet PowerShell gebruiken voor het maken van de Backup-kluizen. <br/> **Starten van 30 November 2017**:
 >- Alle resterende back-upkluizen worden automatisch omgezet in Recovery Services-kluizen.
 >- Het is niet mogelijk om via de klassieke portal toegang te krijgen tot uw back-upgegevens. In plaats daarvan gebruikt u Azure Portal voor toegang tot uw back-upgegevens in Recovery Services-kluizen.
 >

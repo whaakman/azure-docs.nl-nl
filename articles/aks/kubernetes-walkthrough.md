@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 89d469b330644b8f5b82a343ea4408d5b8d10b12
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d774f776bf4ef5434b0748e50b3064f47c834b7e
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Een Azure Container Service (AKS)-cluster implementeren
 
@@ -48,10 +48,10 @@ Na de registratie, bent u nu klaar voor het maken van een cluster Kubernetes met
 
 Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische groep waarin Azure-resources worden geïmplementeerd en beheerd.
 
-Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *westus2* locatie.
+In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westus2
+az group create --name myResourceGroup --location eastus
 ```
 
 Uitvoer:
@@ -59,7 +59,7 @@ Uitvoer:
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "westus2",
+  "location": "eastus",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {

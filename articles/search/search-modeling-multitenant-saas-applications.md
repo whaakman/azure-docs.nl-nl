@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/26/2016
+ms.date: 11/09/2017
 ms.author: ashmaka
-ms.openlocfilehash: 33897e7966de5d467602f6cb36fe16caf0786ffd
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 622ae64e118dd2498aff0bf2e9f6c1dbfb0ab045
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Ontwerppatronen voor multitenant SaaS-toepassingen en Azure Search
 Een multitenant-toepassing is dat de services en de mogelijkheden biedt voor een willekeurig aantal tenants die niet zien of delen van de gegevens van een andere tenant. Dit document wordt besproken tenant isolatie strategieën voor multitenant toepassingen die zijn gebouwd met Azure Search.
 
 ## <a name="azure-search-concepts"></a>Azure Search-concepten
-Als een oplossing zoeken as a service kunnen Azure Search ontwikkelaars een uitgebreide zoekopdracht ervaringen toevoegen aan toepassingen zonder eventuele infrastructuurbeheer of u een expert in de zoekopdracht. Gegevens worden geüpload naar de service en klik vervolgens in de cloud worden opgeslagen. Eenvoudige aanvragen tot de Azure Search API gebruikt, kunnen de gegevens vervolgens worden gewijzigd en doorzocht. Een overzicht van de service kunt u vinden in [in dit artikel](http://aka.ms/whatisazsearch). Voordat u ontwerppatronen, is het belangrijk te weten van enkele concepten die in Azure Search.
+Als een oplossing zoeken as a service kunnen Azure Search ontwikkelaars een uitgebreide zoekopdracht ervaringen toevoegen aan toepassingen zonder eventuele infrastructuurbeheer of u een expert in informatie ophalen. Gegevens worden geüpload naar de service en klik vervolgens in de cloud worden opgeslagen. Eenvoudige aanvragen tot de Azure Search API gebruikt, kunnen de gegevens vervolgens worden gewijzigd en doorzocht. Een overzicht van de service kunt u vinden in [in dit artikel](http://aka.ms/whatisazsearch). Voordat u ontwerppatronen, is het belangrijk te weten van enkele concepten die in Azure Search.
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Search-services, indexen, velden en -documenten
 Wanneer u Azure Search, een lid van een *zoekservice*. Als gegevens worden geüpload naar Azure Search, wordt opgeslagen in een *index* binnen de search-service. Er is een aantal indexen binnen een enkele service. Voor het gebruik van de vertrouwde concepten van databases kan de zoekservice worden vergeleken met een database terwijl de indexen in een service kunnen worden vergeleken met tabellen in een database.

@@ -12,22 +12,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/10/2017
 ms.author: markgal
-ms.openlocfilehash: 5922e308f5c205a07bd329c28322ae82cea0e1fa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58080d0e045f1825e89287fc421b7e84db36331e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Azure Recovery Services-kluizen en -servers controleren en beheren voor Windows-machines
-> [!div class="op_single_selector"]
-> * [Resource Manager](backup-azure-manage-windows-server.md)
-> * [Klassiek](backup-azure-manage-windows-server-classic.md)
->
->
 
-In dit artikel vindt u een overzicht van de back-monitor en beheertaken via de Azure portal en de Microsoft Azure Backup agent beschikbaar. In dit artikel wordt ervan uitgegaan dat u al een Azure-abonnement en ten minste één Recovery Services-kluis hebt gemaakt.
+Dit artikel bevat een overzicht van de back-monitor en beheertaken via de Azure portal en de Microsoft Azure Backup agent beschikbaar. In dit artikel wordt ervan uitgegaan dat u al een Azure-abonnement en ten minste één Recovery Services-kluis hebt gemaakt.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -49,7 +44,7 @@ De Recovery Services-kluisdashboard ziet u de gegevens of de kenmerken van een R
 
     ![Een Recovery Services-kluis maken, stap 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. Selecteer de naam van de Recovery Services-kluis die u wilt openen in de lijst met kluizen. De Recovery Services-kluis dashboard blade wordt geopend.
+4. Selecteer de naam van de Recovery Services-kluis die u wilt openen in de lijst met kluizen. De Recovery Services-kluis dashboard menu wordt geopend.
 
     ![Recovery services-kluisdashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -66,13 +61,13 @@ U controleren taken en waarschuwingen vanuit het dashboard Recovery Services-klu
 
 ![Taken van de back-dashboard](./media/backup-azure-manage-windows-server/dashboard-tiles.png)
 
-Op de gegevens in elk van deze tegels te klikken, wordt de bijbehorende blade waar u gerelateerde taken beheren geopend.
+Op de informatie in elk van deze tegels, wordt het bijbehorende menu waar u gerelateerde taken beheren geopend.
 
 Vanaf de bovenkant van het Dashboard:
 
-* Instellingen geeft toegang tot beschikbare back-uptaken.
+* Instellingen voor - toegang biedt beschikbare back-uptaken.
 * Back-up - kunt u back-up van nieuwe bestanden en mappen (of virtuele Azure-machines) naar de Recovery Services-kluis.
-* DELETE - als een recovery services-kluis niet meer wordt gebruikt, kunt u verwijderen het vrijmaken van opslagruimte. Verwijderen is alleen ingeschakeld nadat alle beveiligde servers zijn verwijderd uit de kluis.
+* Verwijderen - als een recovery services-kluis is niet langer in gebruik en verwijdert het vrijmaken van opslagruimte. Verwijderen is alleen ingeschakeld nadat alle beveiligde servers zijn verwijderd uit de kluis.
 
 ![Taken van de back-dashboard](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
 
@@ -80,11 +75,11 @@ Vanaf de bovenkant van het Dashboard:
 | Waarschuwingsniveau | Waarschuwingen verzonden |
 | --- | --- |
 | Kritieke |Back-upfouten, herstelfout |
-| Waarschuwing |Back-up is voltooid met waarschuwingen (indien minder dan honderd bestanden worden niet gekopieerd vanwege problemen met de beschadiging en meer dan 1 miljoen bestanden zijn met succes back-up) |
+| Waarschuwing |Back-up is voltooid met waarschuwingen (wanneer < 100 bestanden zijn niet back-up vanwege problemen met de beschadiging en > 1.000.000 bestanden zijn met succes back-up) |
 | Informatief |Geen |
 
 ## <a name="manage-backup-alerts"></a>Back-up waarschuwingen beheren
-Klik op de **waarschuwingen voor back-up** tegel openen de **waarschuwingen voor back-up** blade waarschuwingen en beheren.
+Klik op de **waarschuwingen voor back-up** tegel openen de **waarschuwingen voor back-up** menu waarschuwingen en beheren.
 
 ![Back-waarschuwingen](./media/backup-azure-manage-windows-server/manage-backup-alerts.png)
 
@@ -93,23 +88,23 @@ De tegel waarschuwingen voor back-up toont het aantal:
 * kritieke waarschuwingen niet omgezet in de afgelopen 24 uur
 * waarschuwingen niet omgezet in de afgelopen 24 uur
 
-Op elk van deze koppelingen te klikken, gaat u naar de **waarschuwingen voor back-up** blade met een gefilterde weergave van waarschuwingen (kritieke of waarschuwingsstatus).
+Klik op de koppeling om weer te geven de **waarschuwingen voor back-up** menu, met een gefilterde weergave van waarschuwingen (kritieke of waarschuwingsstatus).
 
-Op de blade back-up waarschuwingen u:
+In het menu back-up waarschuwingen u:
 
 * Kies de juiste informatie om op te nemen met uw waarschuwingen.
 
     ![Kolommen kiezen](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)
-* Waarschuwingen filteren op ernst, status en beginnen of eindigen tijden.
+* Waarschuwingen voor de status van de ernst filteren en tijden beginnen of eindigen.
 
     ![Waarschuwingen filteren](./media/backup-azure-manage-windows-server/filter-alerts.png)
 * Meldingen configureren voor de ernst, frequentie en ontvangers, evenals waarschuwingen inschakelen of uitschakelen.
 
     ![Waarschuwingen filteren](./media/backup-azure-manage-windows-server/configure-notifications.png)
 
-Als **Per waarschuwing** is geselecteerd als de **hoogte** frequentie geen groepering of vermindering van e-mailberichten optreedt. Elke waarschuwing resulteert in 1 melding. Dit is de standaardinstelling en het e-mailadres voor de oplossing ook onmiddellijk wordt verstuurd.
+Als **Per waarschuwing** is geselecteerd als de **hoogte** frequentie, geen groepering of vermindering van e-mailberichten optreedt. Elke waarschuwing resulteert in een melding (de standaardinstelling) en een resolutie e-mailadres onmiddellijk wordt verzonden.
 
-Als **per uur Digest** is geselecteerd als de **hoogte** frequentie één e-mailbericht verzonden naar de gebruiker melden dat er nieuwe waarschuwingen gegenereerd in het afgelopen uur niet opgelost. Een resolutie e-mailbericht is verzonden aan het einde van het uur.
+Als **per uur Digest** is geselecteerd als de **hoogte** frequentie, wordt een e-mailbericht verzonden naar de gebruiker uitleg over niet-opgeloste waarschuwingen zijn gegenereerd in het afgelopen uur. Een resolutie e-mailbericht is verzonden aan het einde van het uur.
 
 Waarschuwingen kunnen worden verzonden voor de volgende niveaus:
 
@@ -117,12 +112,12 @@ Waarschuwingen kunnen worden verzonden voor de volgende niveaus:
 * Waarschuwing
 * Informatie
 
-Deactiveren van de waarschuwing met de **deactiveren** knop in de blade taak details. Wanneer u klikt op deactiveert, kunt u de opmerkingen bij de resolutie opgeven.
+Deactiveren van de waarschuwing met de **deactiveren** knop in het menu taak details. Wanneer u klikt op deactiveert, kunt u de opmerkingen bij de resolutie opgeven.
 
 Kies van de kolommen die u wilt weergeven als onderdeel van de waarschuwing met de **kolommen kiezen** knop.
 
 > [!NOTE]
-> Van de **instellingen** blade u back-waarschuwingen beheren door te selecteren **bewaking en rapporten > waarschuwingen en gebeurtenissen > back-waarschuwingen** en vervolgens te klikken op **Filter** of  **Meldingen configureren**.
+> Van de **instellingen** menu u back-waarschuwingen beheren door te selecteren **bewaking en rapporten > waarschuwingen en gebeurtenissen > back-waarschuwingen** en vervolgens te klikken op **Filter** of ** Meldingen configureren**.
 >
 >
 
@@ -133,14 +128,14 @@ Klik op **bestandsmappen** tegel in de back-up-Items.
 
 ![Tegel back-items](./media/backup-azure-manage-windows-server/backup-items-tile.png)
 
-De blade back-Items wordt geopend met het filter ingesteld op bestand met de map waar u elke specifieke back-up vermeld item zien.
+Het menu back-Items wordt geopend met het filter ingesteld op bestand met de map waar u elke specifieke back-up vermeld item zien.
 
 ![Back-items](./media/backup-azure-manage-windows-server/backup-item-list.png)
 
 Als u een specifieke back-item uit de lijst selecteert, ziet u de essentiële gegevens voor het item.
 
 > [!NOTE]
-> Van de **instellingen** blade u bestanden en mappen beheren door te selecteren **beveiligde Items > back-Upitems** en selecteren **bestandsmappen** in de vervolgkeuzelijst.
+> Van de **instellingen** menu u bestanden en mappen beheren door te selecteren **beveiligde Items > back-Upitems** en selecteren **bestandsmappen** in de vervolgkeuzelijst.
 >
 >
 
@@ -154,18 +149,18 @@ In de sectie back-up van het dashboard ziet u de tegel van de taak back-up van h
 * wordt uitgevoerd
 * mislukt in de afgelopen 24 uur.
 
-Voor het beheren van uw back-uptaken, klikt u op de **back-uptaken** tegel, waarmee de blade back-uptaken wordt geopend.
+Voor het beheren van uw back-uptaken, klikt u op de **back-uptaken** tegel, waarmee u het back-uptaken menu opent.
 
 ![Back-items uit de instellingen voor](./media/backup-azure-manage-windows-server/backup-jobs.png)
 
-Wijzigen van de informatie die beschikbaar zijn in de blade back-uptaken met de **kolommen kiezen** knop aan de bovenkant van de pagina.
+Wijzigen van de informatie die beschikbaar zijn in het menu taken van de back-up met de **kolommen kiezen** knop aan de bovenkant van de pagina.
 
 Gebruik de **Filter** knop van bestanden en mappen en back-up van virtuele machine van Azure kunt selecteren.
 
-Als u uw back-ups van bestanden en mappen niet ziet, klikt u op **Filter** knop aan de bovenkant van de pagina en selecteer **bestanden en mappen** in het menu-Item.
+Als u uw back-bestanden en mappen niet ziet, klikt u op **Filter** knop aan de bovenkant van de pagina en selecteer **bestanden en mappen** in het menu-Item.
 
 > [!NOTE]
-> Van de **instellingen** blade u back-uptaken beheren door te selecteren **bewaking en rapporten > taken > back-uptaken** en selecteren **bestandsmappen** in de vervolgkeuzelijst het menu.
+> Van de **instellingen** menu voor het beheren van de back-uptaken door te selecteren **bewaking en rapporten > taken > back-uptaken** en selecteren **bestandsmappen** in de vervolgkeuzelijst het menu.
 >
 >
 
@@ -180,7 +175,7 @@ Voor het beheren van uw productieservers, klikt u op **instellingen**.
 
 Klik onder beheren op **back-upinfrastructuur > productieservers**.
 
-De productieservers blade een lijst met alle beschikbare productieservers. Klik op een server in de lijst met gegevens van de server openen.
+De productieservers menu een lijst met alle beschikbare productieservers. Klik op een server in de lijst met gegevens van de server openen.
 
 ![Beveiligde items](./media/backup-azure-manage-windows-server/production-server-list.png)
 

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
-ms.openlocfilehash: a294a3f92163f78bace56654c284c4e83623b829
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: HT
+ms.openlocfilehash: 2b2f35b3241bd1700bb1fb3319d38fdfda2545f9
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="sprint-1---november-2017"></a>1 - November 2017 Sprint 
 
@@ -127,13 +127,13 @@ Hieronder ziet u een lijst met gedetailleerde updates voor elk onderdeel gebied 
 - Bouw afbeeldingsservice ondersteunt nu installatiekopieën van het gebouw voor Azure IoT services/apparaten.
 
 ### <a name="sample-projects"></a>Voorbeeldprojecten
-- _Classificeren van Iris_ voorbeeldproject:
+- [_Classificeren van Iris_ ](./tutorial-classifying-iris-part-1.md) voorbeeldproject:
     - `iris_pyspark.py`is gewijzigd in `iris_spark.py`.
-    - `iris_score.py`is gewijzigd in `iris-score.py`.
+    - `iris_score.py`is gewijzigd in `score_iris.py`.
     - `iris.dprep`en `iris.dsource` bijgewerkt op basis van de meest recente gegevens prep engine-updates.
     - `iris.ipynb`Laptop is gewijzigd om te werken in HDInsight-cluster.
     - Uitvoeringsgeschiedenis is ingeschakeld in `iris.ipynb` Notebook cel.
-- _Geavanceerde Prep van gegevens met behulp van de sharegegevens fiets_ voorbeeldproject 'Foutwaarde verwerken' stap vast.
-- _MMLSpark op volwassenen telling gegevens_ voorbeeldproject `docker.runconfig` bijgewerkt van JSON naar YAML indeling.
-- Gedistribueerde Hyperparameter afstemmen voorbeeldproject`docker.runconfig` bijgewerkt van JSON naar YAML indeling.
-- Nieuwe voorbeeldproject _installatiekopie classificatie met CNTK_.
+- [_Geavanceerde Prep van gegevens met behulp van de sharegegevens fiets_ ](./tutorial-bikeshare-dataprep.md) voorbeeldproject 'Foutwaarde verwerken' stap vast.
+- [_MMLSpark op volwassenen telling gegevens_ ](https://github.com/Azure/MachineLearningSamples-mmlspark) voorbeeldproject `docker.runconfig` bijgewerkt van JSON naar YAML indeling.
+- [_Gedistribueerde Hyperparameter afstemmen_ ](./scenario-distributed-tuning-of-hyperparameters.md) voorbeeldproject`docker.runconfig` bijgewerkt van JSON naar YAML indeling.
+- Nieuwe voorbeeldproject [ _installatiekopie classificatie met CNTK_](./scenario-image-classification-using-cntk.md).

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb6ade65879b245bf44800da3352354ba274ee5a
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 423eee65040a11695d9f6c18d64948e4c3d3aafe
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Azure Functions die als host fungeert voor de vergelijking plannen
 
@@ -68,7 +68,7 @@ Een virtuele machine worden losgekoppeld van de kosten van het aantal uitvoering
 
 Met App Service-abonnement kunt u handmatig uitschalen door meer VM-exemplaren toe te voegen of u automatisch schalen kunt inschakelen. Zie voor meer informatie [aantal exemplaren handmatig of automatisch schalen](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). U kunt ook opschalen door een ander App Service-abonnement te kiezen. Zie voor meer informatie [een app in Azure opschalen](../app-service/web-sites-scale.md). 
 
-Als u van plan bent voor het uitvoeren van JavaScript-functies op een App Service-abonnement, moet u een plan dat minder kernen heeft. Zie voor meer informatie de [verwijzing in JavaScript voor functies](functions-reference-node.md#choose-single-core-app-service-plans).  
+Als u van plan bent voor het uitvoeren van JavaScript-functies op een App Service-abonnement, moet u een plan dat minder vcpu's is kiezen. Zie voor meer informatie de [single core-App Service-abonnementen Kies](functions-reference-node.md#considerations-for-javascript-functions).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
@@ -93,7 +93,7 @@ Wanneer u het verbruik die als host fungeert voor plan gebruikt, wordt de functi
 > [!NOTE]
 > Wanneer u een blob-trigger op een plan verbruik, kunnen er maximaal 10 minuten vertraging bij de verwerking van nieuwe blobs als een functie-app niet actief is geworden. Nadat de functie-app wordt uitgevoerd, worden onmiddellijk blobs verwerkt. Overweeg om te voorkomen dat deze initiële vertraging, een van de volgende opties:
 > - Host functie-app op een App Service-abonnement met altijd op ingeschakeld.
-> - Gebruik een ander mechanisme voor het activeren van de blob verwerken, zoals een wachtrijbericht met de blob-naam. Zie voor een voorbeeld [wachtrij trigger met blob invoer binding](functions-bindings-storage-blob.md#input-sample).
+> - Gebruik een ander mechanisme voor het activeren van de blob verwerken, zoals een wachtrijbericht met de blob-naam. Zie voor een voorbeeld de [C# script en JavaScript-voorbeelden voor de blob invoer en uitvoer bindingen](functions-bindings-storage-blob.md#input--output---example).
 
 ### <a name="runtime-scaling"></a>Runtime-schaling
 

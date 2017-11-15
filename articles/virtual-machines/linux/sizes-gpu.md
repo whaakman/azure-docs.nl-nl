@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/28/2017
+ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 5c9bf89feba519147b07f2810fe4da882664e89e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 645f69e71c5a13bb70edabfd22f51ed5df619693
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
-# <a name="gpu-linux-vm-sizes"></a>GPU Linux VM-grootten
+# <a name="gpu-optimized-virtual-machine-sizes"></a>GPU geoptimaliseerd grootten van virtuele machines
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
 
@@ -34,7 +34,7 @@ Zie voor stuurprogramma-installatie- en verificatiestappen stappen [N-reeks stuu
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
-* We adviseren niet te installeren X server of andere systemen die gebruikmaken van het stuurprogramma nouveau op Ubuntu NC-virtuele machines. Voordat u NVIDIA GPU-stuurprogramma's installeert, moet u het stuurprogramma nouveau uitschakelen.  
+* U mag niet X installeren server of andere systemen die gebruikmaken van de `Nouveau` stuurprogramma op Ubuntu NC-virtuele machines. Voordat u NVIDIA GPU-stuurprogramma's installeert, moet u uitschakelen de `Nouveau` stuurprogramma.  
 
 ## <a name="other-sizes"></a>Andere grootten
 - [Algemeen doel](sizes-general.md)

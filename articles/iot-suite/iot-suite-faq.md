@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2017
+ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 9dfb0c898e74063719b3fd242d1fa9be2b89246c
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: aa8a053e6b3b6fcf6e026f2fd65942a943e12a08
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Veelgestelde vragen over IoT Suite
 
@@ -30,7 +30,7 @@ Zie ook de verbonden factory-specifieke [Veelgestelde vragen over](iot-suite-faq
 De broncode is opgeslagen in de volgende GitHub-opslagplaatsen:
 
 * [Externe controle vooraf geconfigureerde oplossing (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
-* [Externe controle vooraf geconfigureerde oplossing (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+* [Externe controle vooraf geconfigureerde oplossing (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 * [Oplossing voor voorspeld onderhoud vooraf geconfigureerde](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Verbonden factory vooraf geconfigureerde oplossing](https://github.com/Azure/azure-iot-connected-factory)
 

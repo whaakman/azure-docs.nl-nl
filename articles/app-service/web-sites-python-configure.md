@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 08b07053dd1507bcf0564f3071642f66f06b3559
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 86e19d5bb942937779665eb60d9dc0654c16747d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Python configureren met Azure App Service WebApps
 Deze zelfstudie wordt beschreven opties voor het ontwerpen en configureren van een eenvoudige Web Server Gateway Interface (WSGI) compatibele Python-toepassing op [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -33,15 +33,15 @@ Azure Marketplace bevat sjablonen voor de frameworks Bottle, Django en Flask. Al
 * [Web-apps maken met Django](https://portal.azure.com/#create/PTVS.Django)
 * [Web-apps maken met Flask](https://portal.azure.com/#create/PTVS.Flask)
 
-## <a name="web-app-creation-on-azure-portal"></a>Web-Apps maken op Azure-Portal
-Deze zelfstudie wordt ervan uitgegaan van een bestaand Azure-abonnement en de toegang tot de Azure-Portal.
+## <a name="web-app-creation-on-azure-portal"></a>Web-Apps maken in Azure portal
+Deze zelfstudie wordt ervan uitgegaan van een bestaand Azure-abonnement en de toegang tot de Azure-portal.
 
-Als u een bestaande web-app niet hebt, kunt u een van de [Azure Portal](https://portal.azure.com).  Klik op de knop Nieuw in de linkerbovenhoek en klik vervolgens op **Web en mobiel** > **Web-app**.
+Als u een bestaande web-app niet hebt, kunt u een van de [Azure-portal](https://portal.azure.com).  Klik op de knop Nieuw in de linkerbovenhoek en klik vervolgens op **Web en mobiel** > **Web-app**.
 
 ## <a name="git-publishing"></a>GIT-publicatie
-Configureer Git-publicatie voor uw nieuwe web-app door de instructies te volgen in [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokale Git-implementatie naar Azure App Service). Deze zelfstudie maakt gebruik van Git te maken, beheren en publiceren van onze Python-web-app in Azure App Service.
+Configureer Git-publicatie voor uw nieuwe web-app door de instructies te volgen in [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokale Git-implementatie naar Azure App Service). Deze zelfstudie maakt gebruik van Git te maken, beheren en publiceren van uw Python-web-app in Azure App Service.
 
-Zodra de Git-publicatie is ingesteld, wordt een Git-opslagplaats gemaakt en gekoppeld aan uw web-app. URL van de opslagplaats wordt weergegeven en kunt voortaan worden gebruikt om gegevens uit de lokale ontwikkelomgeving uiterste naar de cloud. Zorg ervoor dat een Git-client is geïnstalleerd en gebruik de instructies voor de push-inhoud van uw web-app in Azure App Service voor het publiceren van toepassingen via Git.
+Zodra de Git-publicatie is ingesteld, wordt een Git-opslagplaats gemaakt en gekoppeld aan uw web-app. URL van de opslagplaats wordt weergegeven en kan worden gebruikt voor gegevens uit de lokale ontwikkelomgeving push naar de cloud. Zorg ervoor dat een Git-client is geïnstalleerd en gebruik de instructies voor de push-inhoud van uw web-app in Azure App Service voor het publiceren van toepassingen via Git.
 
 ## <a name="application-overview"></a>Toepassingsoverzicht
 In de volgende secties worden de volgende bestanden worden gemaakt. Ze moeten worden geplaatst in de hoofdmap van de Git-opslagplaats.
@@ -74,16 +74,16 @@ Hier volgt een voorbeeld van een `app.py` waarmee wordt gedefinieerd met een aan
 U kunt deze toepassing lokaal met uitvoeren `python app.py`, bladert u naar `http://localhost:5555` in uw webbrowser.
 
 ## <a name="virtual-environment"></a>Virtuele omgeving
-Hoewel het bovenstaande voorbeeld-app niet alle externe pakketten vereist, is het waarschijnlijk dat uw toepassing enkele wordt vereist.
+Hoewel het voorgaande voorbeeld-app niet alle externe pakketten vereist, is het waarschijnlijk dat uw toepassing enkele vereist.
 
 Azure Git-implementatie ondersteunt om te beheren externe pakketafhankelijkheden, het maken van virtuele omgevingen.
 
 Als Azure een requirements.txt in de hoofdmap van de opslagplaats detecteert, wordt automatisch een virtuele omgeving met de naam gemaakt `env`. Dit gebeurt alleen bij de eerste implementatie of tijdens een implementatie na het geselecteerde Python runtime is gewijzigd.
 
-U wilt waarschijnlijk voor het maken van een virtuele omgeving lokaal voor ontwikkeling, maar niet opnemen in de Git-opslagplaats.
+U waarschijnlijk wilt maken van een virtuele omgeving lokaal voor ontwikkeling, maar niet opnemen in de Git-opslagplaats.
 
 ## <a name="package-management"></a>Pakketbeheer
-Pakketten die worden vermeld in requirements.txt worden automatisch geïnstalleerd in de virtuele omgeving met behulp van pip. Dit gebeurt op elke implementatie, maar pip slaat de installatie over als u een pakket is al geïnstalleerd.
+Pakketten die worden vermeld in requirements.txt worden automatisch geïnstalleerd in de virtuele omgeving met behulp van pip. Dit gebeurt op elke implementatie, maar pip slaat de installatie als een pakket is al geïnstalleerd.
 
 Voorbeeld `requirements.txt`:
 
@@ -101,7 +101,7 @@ Voorbeeld `runtime.txt`:
 ## <a name="webconfig"></a>Web.config
 U moet maken van een web.config-bestand om op te geven hoe de-server aanvragen moet verwerken.
 
-Houd er rekening mee dat als er een web.x.y.config-bestand in de opslagplaats, waar x.y overeenkomt met de geselecteerde Python-runtime en vervolgens kopieert Azure automatisch het juiste bestand als web.config.
+Als er een web.x.y.config-bestand in de opslagplaats, waar x.y komt overeen met de geselecteerde Python-runtime, vervolgens kopieert Azure automatisch het juiste bestand als web.config.
 
 De volgende voorbeelden van web.config is afhankelijk van een virtuele omgeving proxyscript die in de volgende sectie wordt beschreven.  Ze werken met de WSGI-handler die wordt gebruikt in het voorbeeld `app.py` hierboven.
 
@@ -203,11 +203,11 @@ Voorbeeld `web.config` voor Python 3.4:
     </configuration>
 
 
-Statische bestanden wordt verwerkt door de webserver rechtstreeks, zonder tussenkomst van Python-code, voor betere prestaties.
+Statische bestanden worden verwerkt door de webserver rechtstreeks, zonder tussenkomst van Python-code, voor betere prestaties.
 
-De locatie van de statische bestanden op schijf moet overeenkomen met de locatie in de URL in de bovenstaande voorbeelden. Dit betekent dat een aanvraag voor `http://pythonapp.azurewebsites.net/static/site.css` dient het bestand op de schijf op `\static\site.css`.
+De locatie van de statische bestanden op schijf moet overeenkomen met de locatie in de URL in de voorgaande voorbeelden. Dit betekent dat een aanvraag voor `http://pythonapp.azurewebsites.net/static/site.css` dient het bestand op de schijf op `\static\site.css`.
 
-`WSGI_ALT_VIRTUALENV_HANDLER`is waar u de handler WSGI opgeven. In de bovenstaande voorbeelden hieraan `app.wsgi_app` omdat de handler een functie met de naam is `wsgi_app` in `app.py` in de hoofdmap.
+`WSGI_ALT_VIRTUALENV_HANDLER`is waar u de handler WSGI opgeven. In de voorgaande voorbeelden hieraan `app.wsgi_app` omdat de handler een functie met de naam is `wsgi_app` in `app.py` in de hoofdmap.
 
 `PYTHONPATH`kan worden aangepast, maar als u alle afhankelijkheden in de virtuele omgeving door te geven ze in requirements.txt installeert, moet u dient niet te wijzigen.
 
@@ -356,7 +356,3 @@ Raadpleeg het [Python Developer Center](/develop/python/) voor meer informatie.
 > Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
 > 
 > 
-
-## <a name="whats-changed"></a>Wat is er gewijzigd
-* Als u van Websites wilt overstappen op App Service, raadpleegt u de volgende handleiding: [Azure App Service en de invloed ervan op bestaande Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: glenga
-ms.openlocfilehash: 74933d9c3535ab71f47c792e20bfbc35e589ec08
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-triggers en bindingen concepten
 Azure Functions, kunt u code te schrijven in reactie op gebeurtenissen in Azure en andere services via *triggers* en *bindingen*. Dit artikel is een conceptueel overzicht van triggers en bindingen voor alle programmeertalen worden ondersteund. Functies die gemeenschappelijk voor alle bindingen zijn worden hier beschreven.
@@ -243,7 +243,7 @@ Een Azure-Opslagwachtrij-trigger ondersteunt bijvoorbeeld de volgende eigenschap
 
 Details van de eigenschappen van de metagegevens voor elke trigger worden beschreven in het bijbehorende naslagonderwerp. Documentatie is ook beschikbaar in de **integreren** tabblad van de portal in de **documentatie** hieronder de configuratiegebied binding.  
 
-Bijvoorbeeld, aangezien blob triggers sommige vertragingen hebben, kunt u een wachtrij-trigger voor het uitvoeren uw functie (Zie [Blob Storage Trigger](functions-bindings-storage-blob.md#storage-blob-trigger)). Bericht uit de wachtrij kan de blob filename activeren op zou bevatten. Met behulp van de `queueTrigger` metagegevenseigenschap, kunt u dit gedrag in uw configuratie, in plaats van uw code.
+Bijvoorbeeld, aangezien blob triggers sommige vertragingen hebben, kunt u een wachtrij-trigger voor het uitvoeren uw functie (Zie [Blob Storage Trigger](functions-bindings-storage-blob.md#blob-storage-trigger)). Bericht uit de wachtrij kan de blob filename activeren op zou bevatten. Met behulp van de `queueTrigger` metagegevenseigenschap, kunt u dit gedrag in uw configuratie, in plaats van uw code.
 
 ```json
   "bindings": [

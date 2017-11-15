@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/06/2017
 ms.author: jingwang
-ms.openlocfilehash: 579311b28abb650c6527fe1160ebf875ce7e8c82
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: e27c1a8e130d20eb0ba0e5c001fc9a435e07c1cd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Een data factory en pijplijn maken met behulp van .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -78,7 +78,7 @@ Maak met behulp van Visual Studio 2013/2015/2017 een C# .NET-consoletoepassing.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Voeg de volgende code toe aan de methode **Main** waarmee de variabelen worden ingesteld. Vervang de plaatsaanduidingen door uw eigen waarden.
+2. Voeg de volgende code toe aan de methode **Main** waarmee de variabelen worden ingesteld. Vervang de plaatsaanduidingen door uw eigen waarden. Momenteel kunt u in Data Factory V2 alleen data factory's maken in de regio's VS - oost, VS - oost 2 en West-Europa. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
 
     ```csharp
     // Set variables
@@ -87,8 +87,6 @@ Maak met behulp van Visual Studio 2013/2015/2017 een C# .NET-consoletoepassing.
     string authenticationKey = "<your authentication key for the application>";
     string subscriptionId = "<your subscription ID where the data factory resides>";
     string resourceGroup = "<your resource group where the data factory resides>";
-    // Currently, Data Factory V2 allows you to create data factories only in the East US and East US2 regions. 
-    // Note that the data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions
     string region = "East US 2";
     string dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>";
     string storageAccount = "<your storage account name to copy data>";

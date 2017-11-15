@@ -13,23 +13,23 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/07/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 60e63401e3915e62e1ec5ac03cd548c291580b24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3deb0ff81114c840798c5927ad7311d7e603813d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="service-limits-in-azure-search"></a>Servicelimieten in Azure Search
 Maximum beperkt op opslag, workloads en aantallen van indexen, documenten en andere objecten afhankelijk zijn van of u [inrichten van Azure Search](search-create-service-portal.md) op een **vrije**, **Basic**, of **standaard** prijscategorie.
 
-* **Gratis** is een gedeelde multitenant-service die wordt geleverd met uw Azure-abonnement. Het is een optie geen extra kosten voor bestaande abonnees waarmee u om te experimenteren met de service voordat u zich aanmeldt voor toegewezen bronnen.
+* **Gratis** is een gedeelde multitenant-service die wordt geleverd met uw Azure-abonnement. 
 * **Basic** biedt speciale computerbronnen voor productieworkloads op kleinere schaal.
-* **Standaard** wordt uitgevoerd op specifieke machines, met een grotere opslag en verwerking capaciteit op elk niveau. Standaard wordt geleverd in vier niveaus: S1, S2, S3 en S3 High-Density (S3 HD).
+* **Standaard** wordt uitgevoerd op specifieke computers met meer capaciteit voor opslag en verwerking op elk niveau. Standaard wordt geleverd in vier niveaus: S1, S2, S3 en S3 High-Density (S3 HD).
 
 > [!NOTE]
-> Een service is ingericht op een bepaalde laag. Als u gaan lagen wilt als u meer capaciteit, moet u een nieuwe service (Er is geen in-place upgrade) inrichten. Zie voor meer informatie [Kies een SKU of laag](search-sku-tier.md). Zie voor meer informatie over het aanpassen van de capaciteit binnen een service die u al hebt ingericht, [schalen niveaus van de bron voor query's en workloads indexering](search-capacity-planning.md).
+> Een service is ingericht op een bepaalde laag. Categorieën voor het verkrijgen van capaciteit springen omvat het inrichten van een nieuwe service (Er is geen in-place upgrade). Zie voor meer informatie [Kies een SKU of laag](search-sku-tier.md). Zie voor meer informatie over het aanpassen van de capaciteit binnen een service die u al hebt ingericht, [schalen niveaus van de bron voor query's en workloads indexering](search-capacity-planning.md).
 >
 
 ## <a name="per-subscription-limits"></a>Per abonnement limieten
@@ -66,16 +66,11 @@ Verwijst naar de grootte van de maximale document bij het aanroepen van een API-
 
 Vergeet niet uitsluiten van niet-waarop gegevens van de aanvraag om de documentgrootte van het beperken. Afbeeldingen en andere binaire gegevens zijn niet rechtstreeks waarop en mag niet worden opgeslagen in de index. Niet-query om gegevens te integreren zoekresultaten, definieert u een niet-doorzoekbare veld dat een URL-verwijzing naar de resource opgeslagen.
 
-## <a name="workload-limits-queries-per-second"></a>Werkbelasting beperkt (query's per seconde)
-| Resource | Gratis | Basic | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| QPS |N.v.t. |~3 per replica |~15 per replica |~60 per replica |>60 per replica |>60 per replica |
+## <a name="queries-per-second-qps"></a>Query's per seconde (QPS)
 
-Query's per seconde (QPS) is een schatting op basis van methodiek, met behulp van de klant gesimuleerde en de daadwerkelijke werkbelastingen worden afgeleid van de geschatte waarden. Exacte doorvoer van QPS varieert, afhankelijk van uw gegevens en de aard van de query.
+Maakt een schatting van QPS moeten onafhankelijk zijn ontwikkeld door elke klant. De grootte van de index en complexiteit, de grootte van de query en complexiteit en de hoeveelheid verkeer zijn primaire factoren van QPS. Er is geen manier voor een zinvolle maakt een schatting bij factoren onbekend zijn.
 
-Hoewel ruwe schattingen hierboven zijn beschreven, is een werkelijke tempo moeilijk te bepalen, met name in de gratis gedeelde service waar doorvoer is gebaseerd op beschikbare bandbreedte en concurrentie voor systeemresources. Reken-en opslagbronnen worden gedeeld door meerdere abonnees in de laag gratis zodat QPS voor uw oplossing altijd variëren afhankelijk van hoeveel andere werkbelastingen worden uitgevoerd op hetzelfde moment.
-
-Op het niveau van standaard kunt u schatten QPS nauwkeuriger omdat u controle over meer van de parameters hebt. Zie de sectie met de best practices in [beheren van uw zoekoplossing](search-manage.md) voor hulp bij het berekenen van QPS voor uw werkbelastingen.
+Er zijn geen schattingen beter voorspelbaar wanneer berekend op services die worden uitgevoerd op specifieke bronnen (lagen Basic en Standard). U kunt meer QPS nauw schatten omdat u controle over meer van de parameters hebt. Zie voor instructies over het benadering schatting [Azure Search-prestaties en optimalisatie](search-performance-optimization.md).
 
 ## <a name="api-request-limits"></a>Limieten voor API-aanvraag
 * Maximum van 16 MB per aanvraag <sup>1</sup>

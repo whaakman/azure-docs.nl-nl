@@ -1,5 +1,5 @@
 ---
-title: Azure SQL-gegevens synchroniseren Best Practices | Microsoft Docs
+title: Aanbevolen procedures voor het synchroniseren van Azure SQL-gegevens | Microsoft Docs
 description: Informatie over aanbevolen procedures voor het configureren en synchroniseren van Azure SQL-gegevens uitgevoerd
 services: sql-database
 ms.date: 11/2/2017
@@ -8,13 +8,13 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 7492fffd1c18a149ef12174c79d64b47afbaa3e4
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d23bd186300d451186dd4f3644290cb4178417a2
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="best-practices-for-azure-sql-data-sync-preview"></a>Aanbevolen procedures voor het synchroniseren van Azure SQL gegevens (Preview) 
+# <a name="best-practices-for-sql-data-sync-preview"></a>Aanbevolen procedures voor het synchroniseren van de SQL-gegevens (Preview) 
 
 In dit artikel beschrijft aanbevolen procedures voor het synchroniseren van de SQL-gegevens (Preview).
 
@@ -228,7 +228,8 @@ Als u probeert te verwijderen van een database en bewerk vervolgens een groep vo
 Zie voor meer informatie over het synchroniseren van de SQL-gegevens:
 
 -   [Synchronisatie van gegevens over meerdere cloud en on-premises databases met synchroniseren van Azure SQL-gegevens](sql-database-sync-data.md)
--   [Aan de slag met Azure SQL-gegevenssynchronisatie](sql-database-get-started-sql-data-sync.md)
+-   [Synchroniseren van Azure SQL-gegevens instellen](sql-database-get-started-sql-data-sync.md)
+-   [Monitor Azure SQL-gegevens synchroniseren met OMS Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Problemen oplossen met het synchroniseren van Azure SQL-gegevens](sql-database-troubleshoot-data-sync.md)
 
 -   Voer de PowerShell-voorbeelden die laten hoe u zien voor het synchroniseren van de SQL-gegevens configureren:

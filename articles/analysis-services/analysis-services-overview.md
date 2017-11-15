@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 11/07/2017
 ms.author: owend
-ms.openlocfilehash: c6be396f22ee364e7746038b2243162e775c8c54
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -46,9 +46,18 @@ In Azure Portal kunt u binnen enkele minuten [een server maken](analysis-service
 Nadat u een server hebt gemaakt, kunt u rechtstreeks in Azure Portal een tabellair model maken. Met de nieuwe functie [Web Designer](analysis-services-create-model-portal.md) (preview-versie) kunt u verbinding maken met een Azure SQL-database of een Azure SQL Data Warehouse-gegevensbron, maar ook een pbix-bestand uit Power BI Desktop importeren. De relaties tussen de tabellen worden automatisch aangebracht. Bovendien kunt u rechtstreeks vanuit uw browser metingen instellen en het model.bim-bestand in JSON-indeling bewerken.
 
 ## <a name="scale-to-your-needs"></a>Schalen naar uw behoeften
+
+### <a name="the-right-tier-when-you-need-it"></a>Altijd de juiste laag
+
 Azure Analysis Services is beschikbaar in de servicelagen Developer, Basic en Standard. Binnen elke servicelaag variëren de abonnementskosten afhankelijk van verwerkingskracht, QPU's en geheugen. Wanneer u een server maakt, selecteert u binnen een servicelaag een abonnement. U kunt een abonnement binnen dezelfde servicelaag omhoog of omlaag bijstellen en ook upgraden naar een hogere servicelaag. U kunt echter niet downgraden naar een lagere servicelaag.
 
 U kunt uw server omhoog of omlaag schalen en zelfs onderbreken. Dit doet u via Azure Portal of, voor volledige controle op elk moment, met behulp van PowerShell. U betaalt alleen voor wat u gebruikt. Raadpleeg [Prijzen van Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/) voor meer informatie over de verschillende abonnementen en servicelagen, en om de prijscalculator te gebruiken. Hiermee bepaalt u eenvoudig welk abonnement het meest geschikt voor u is.
+
+### <a name="scale-out-resources-for-fast-query-responses"></a>Resources uitschakelen voor snellere respons van query's
+
+Met de uitschaalfunctie van Azure Analysis Services worden clientquery's verdeeld over meerdere *queryreplica's* in een querypool. Queryreplica's bevatten gesynchroniseerde kopieën van uw modellen in tabelvorm. Door de werkbelasting van query's te spreiden, kunnen responstijden tijdens hoge querywerkbelastingen worden verlaagd. Taken voor modelverwerking kunnen worden gescheiden van de querypool, zodat de prestaties van clientquery's niet nadelig worden beïnvloed door verwerkingstaken. U kunt een querypool maken met maximaal zeven extra queryreplica's (acht in totaal, met inbegrip van uw server). 
+
+Net zoals bij het wijzigen van de laag, kunt u queryreplica's uitschalen als dat nodig is. Dit kan in de portal of met behulp van REST-API's. Zie [Azure Analysis Services uitschalen](analysis-services-scale-out.md) voor meer informatie.
 
 ## <a name="keep-your-data-close"></a>Gegevens in de buurt houden
 U kunt een Azure Analysis Services-server maken in de volgende [Azure-regio's](https://azure.microsoft.com/regions/):
@@ -92,11 +101,17 @@ Gebruikersverificatie voor Azure Analysis services wordt afgehandeld door [Azure
 #### <a name="data-security"></a>Gegevensbeveiliging
 Azure Analysis Services maakt gebruik van Azure Blob-opslag om opslag en metagegevens voor Analysis Services-databases persistent te maken. Gegevensbestanden in Blob worden versleuteld met behulp van Azure Blob Server Side Encryption (SSE). Wanneer de Direct Query-modus wordt gebruikt, worden alleen metagegevens opgeslagen. De werkelijke gegevens worden op het moment van uitvoering van de query opgehaald uit de gegevensbron.
 
+#### <a name="firewall"></a>Firewall
+
+De firewall van Azure Analysis Services blokkeert alle clientverbindingen behalve de verbindingen die zijn opgegeven in regels. Configureer regels voor toegestane IP-adressen als individuele client-IP-adressen of als een bereik. Verbindingen van Power BI (service) kunnen ook worden toegestaan of geblokkeerd. 
+
 #### <a name="on-premises-data-sources"></a>On-premises gegevensbronnen
 Beveiligde toegang tot gegevens die on-premises zijn opgeslagen binnen uw organisatie, is mogelijk door installatie en configuratie van een [on-premises gegevensgateway](analysis-services-gateway.md). Gateways bieden toegang tot gegevens voor zowel de Direct Query-modus als de modus In-memory. Wanneer een Azure Analysis Services-model verbinding maakt met een on-premises gegevensbron, wordt er een query gemaakt die ook de versleutelde referenties voor de on-premises gegevensbron bevat. De gateway-cloudservice analyseert de query en verstuurt de aanvraag naar een Azure Service Bus. De on-premises gateway pollt de Azure Service Bus op aanvragen die in behandeling zijn. De gateway ontvangt vervolgens de query, ontsleutelt de referenties en maakt verbinding met de gegevensbron voor uitvoering. De resultaten worden vervolgens vanuit de gegevensbron verzonden naar de gateway en vervolgens verder naar de Azure Analysis Services-database.
 
 Azure Analysis Services is onderhevig aan de [gebruiksvoorwaarden van Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) en de [privacyverklaring van Microsoft Online Services](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 Ga naar het [Microsoft Vertrouwenscentrum](https://www.microsoft.com/trustcenter/Security/AzureSecurity) voor meer informatie over Azure-beveiliging.
+
+
 
 ## <a name="supports-the-latest-client-tools"></a>Ondersteuning voor de nieuwste clienthulpprogramma's
 ![Gegevensvisualisaties](./media/analysis-services-overview/aas-overview-clients.png)

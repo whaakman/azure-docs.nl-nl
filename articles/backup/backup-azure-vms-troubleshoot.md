@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: 096c97f4cb41ff8df2e646f59dbc0bf845721ac7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c4ea3e3714f6a3989a260937c2c67815a6dd6f7
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Problemen oplossen met back-ups van virtuele Azure-machines
 > [!div class="op_single_selector"]
@@ -32,6 +32,11 @@ U kunt er zijn fouten opgetreden tijdens het gebruik van Azure Backup met inform
 ## <a name="backup"></a>Back-up
 
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Fout: De opgegeven schijf-configuratie wordt niet ondersteund.
+
+> [!NOTE]
+> We hebben een private preview ter ondersteuning van back-ups voor virtuele machines met > 1TB zonder begeleiding schijven. Raadpleeg voor informatie [Private preview voor back-ondersteuning voor grote schijven VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+>
+>
 
 Momenteel schijfgrootten biedt geen ondersteuning voor Azure Backup [groter zijn dan 1023GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
 - Als er meer dan 1 TB schijven [koppel nieuwe schijven](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) die minder dan 1 TB zijn <br>

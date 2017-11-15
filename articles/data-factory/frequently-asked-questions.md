@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
-ms.openlocfilehash: 2cc128e8f7792a6a363aacf50f8724d689892c83
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory Veelgestelde vragen
 In dit artikel is van toepassing op versie 2 van de Azure Data Factory-service. Dit vindt u antwoorden op veelgestelde vragen over Data Factory.  
@@ -152,7 +152,7 @@ Zie de volgende artikelen voor meer informatie over Data Factory-concepten:
 Zie voor Azure Data Factory prijsinformatie, [Data Factory prijsinformatie](https://azure.microsoft.com/pricing/details/data-factory/).
 
 ## <a name="what-regions-support-azure-data-factory-version-2"></a>Welke regio's Azure Data Factory versie 2 ondersteund?
-Op dit moment kunt u data Factory van versie 2 in de VS-Oost en regio's VS-Oost 2. Een gegevensfactory kan integratie runtime echter gebruiken in een andere regio om gegevens te verplaatsen tussen gegevensarchieven, dispatch activiteiten op basis van compute services of verzending SSIS-pakketten. Zie voor meer informatie [Data Factory locaties](concepts-integration-runtime.md#integration-runtime-location).
+Op dit moment kunt u data Factory van versie 2 in de regio's VS-Oost, VS-Oost 2 en West-Europa. Een gegevensfactory kan integratie runtime echter gebruiken in een andere regio om gegevens te verplaatsen tussen gegevensarchieven, dispatch activiteiten op basis van compute services of verzending SSIS-pakketten. Zie voor meer informatie [Data Factory locaties](concepts-integration-runtime.md#integration-runtime-location).
 
 ## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>Hoe kan ik product up-to-date houden met informatie over Data Factory?
 Voor de meest actuele informatie over Azure Data Factory, gaat u naar de volgende sites:

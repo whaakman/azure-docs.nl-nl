@@ -4,7 +4,7 @@ description: Beschrijft de nieuwe functies, problemen en tijdelijke oplossingen 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/28/2017
+ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: fa7360a44c48d4f15233b937f09285233533a0e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 672757e82bcf645b705f46a9975e09c9dc5eef92
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>Opmerkingen bij de release van de StorSimple 8000 Series Update 5
 
@@ -31,6 +31,7 @@ Update 5 kan worden toegepast op een StorSimple-apparaat met Update 0.1 tot en m
 Bekijk de informatie in de release-opmerkingen voordat u de update in uw StorSimple-oplossing implementeert.
 
 > [!IMPORTANT]
+> * Update 5 is een verplichte update en onmiddellijk moet worden geïnstalleerd. Zie voor meer informatie hoe [toepassen Update 5](storsimple-8000-install-update-5.md).
 > * Update 5 heeft device-software, firmware van de schijf, OS-beveiliging en andere updates voor het besturingssysteem. Het duurt ongeveer 4 uur deze update te installeren. Schijf firmware-update is een update verstoren en resulteert in een uitvaltijd voor uw apparaat. U wordt aangeraden Update 5 up-to-date te houden uw apparaat toe te passen.
 > * Voor nieuwe releases, kunnen er geen updates onmiddellijk omdat we een gefaseerde implementatie van de updates. Wacht een paar dagen, en vervolgens zoeken naar updates opnieuw als deze updates worden binnenkort beschikbaar.
 

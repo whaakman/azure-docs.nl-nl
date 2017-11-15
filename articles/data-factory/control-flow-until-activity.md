@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: 25581fa1aa2086accabc9b480d936ebae0338dd3
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8fb656a86689e59c3408b1e2a9274737430eb127
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Totdat activiteit in Azure Data Factory
 De activiteit Until bieden dezelfde functionaliteit die een do-totdat lusstructuur biedt in programmeertalen. Deze een set van activiteiten in een lus uitgevoerd totdat de voorwaarde die is gekoppeld aan de activiteit in waar resulteert. U kunt opgeven dat een time-outwaarde voor de totdat activiteit in de Data Factory. 
@@ -60,7 +60,7 @@ Eigenschap | Beschrijving | Toegestane waarden | Vereist
 naam | Naam van de `Until` activiteit. | Tekenreeks | Ja
 type | Moet worden ingesteld op **totdat**. | Tekenreeks | Ja
 expressie | Expressie die moet worden geëvalueerd op true of false | De expressie.  | Ja
-timeout | De komen-pas na de opgegeven tijd hier time-out lus. | De tekenreeks. `d.hh:mm:ss`(of) `hh:mm:ss`. De standaardwaarde is 7 dagen. | Nee
+timeout | De komen-pas na de opgegeven tijd hier time-out lus. | De tekenreeks. `d.hh:mm:ss`(of) `hh:mm:ss`. De standaardwaarde is 7 dagen. Maximale waarde is: 90 dagen. | Nee
 Activiteiten | Set van activiteiten die worden uitgevoerd totdat expressie resulteert in `true`. | Matrix van activiteiten. |  Ja
 
 ## <a name="example-1"></a>Voorbeeld 1

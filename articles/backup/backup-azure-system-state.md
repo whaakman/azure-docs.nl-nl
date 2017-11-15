@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: 5477068ddab46bbe0fdbdda754227642ed97bb36
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 5481e9139f18cb88ce5152776fa18df3f9441c80
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Back-up van systeemstatus Windows in de implementatie van Resource Manager
 Dit artikel wordt uitgelegd hoe u back-up van de systeemstatus van uw Windows Server naar Azure. Het artikel is bedoeld als handleiding waarmee u stapsgewijs de basis onder de knie krijgt.
@@ -35,7 +35,7 @@ Als u wilt back-up van de systeemstatus van uw Windows-Server, moet u een Recove
 1. Meld u met uw Azure-abonnement aan bij de [Azure Portal](https://portal.azure.com/) als u dat nog niet hebt gedaan.
 2. Klik in het menu Hub op **Meer services**, typ in de lijst met resources **Recovery Services** en klik vervolgens op **Recovery Services-kluizen**.
 
-    ![Een Recovery Services-kluis maken, stap 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
+    ![Een Recovery Services-kluis maken, stap 1](./media/backup-azure-system-state/open-rs-vault-list.png) <br/>
 
     Als er Recovery Services-kluizen in het abonnement aanwezig zijn, worden deze weergegeven.
 3. Klik in het menu **Recovery Services-kluizen** op **Toevoegen**.

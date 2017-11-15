@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/30/2017
+ms.date: 11/13/2017
 ms.author: genemi
-ms.openlocfilehash: 69059b6169e1fac4d0abea2770b0de502f816113
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e1bb3e9f09ca7f5463228da4079b06ad2e771def
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Gebruik Virtual Network service-eindpunten en regels voor Azure SQL Database
 
@@ -141,6 +141,9 @@ De functie van de regels voor virtueel netwerk heeft voor Azure SQL Database, de
 - Elke Azure SQL Database-server kan maximaal 128 ACL-vermeldingen voor een bepaald virtueel netwerk hebben.
 
 - Virtueel netwerk regels alleen van toepassing op virtuele netwerken van Azure Resource Manager; en niet op [klassieke implementatiemodel] [ arm-deployment-model-568f] netwerken.
+
+- Inschakelen van virtueel netwerk service-eindpunten met Azure SQL Database kunt ook de eindpunten voor de MySQL en PostGres Azure-services. Met de eindpunten van mislukt verbindingspogingen met uw MySQL of Postgres exemplaren van de eindpunten echter.
+    - De onderliggende reden is dat MySQL en PostGres bieden momenteel geen ondersteuning voor ACLing.
 
 - Op de firewall IP-adresbereiken zijn van toepassing op de volgende items voor netwerken, maar niet het virtuele netwerk regels:
     - [Site-naar-Site (S2S) virtueel particulier netwerk (VPN)][vpn-gateway-indexmd-608y]

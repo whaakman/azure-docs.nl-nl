@@ -1,5 +1,5 @@
 ---
-title: PowerShell-voorbeeld-synchronisatie tussen meerdere Azure SQL-databases | Microsoft Docs
+title: PowerShell-voorbeeld-synchronisatie tussen meerdere Azure SQL-Databases | Microsoft Docs
 description: Azure PowerShell-voorbeeldscript om te synchroniseren tussen meerdere Azure SQL-databases
 services: sql-database
 documentationcenter: sql-database
@@ -17,13 +17,13 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: b96fc9525110729c618469665a697a4a2887f0bc
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 81bec820bd815f0a8826f3a5dc46b1924aa07772
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="use-powershell-to-sync-between-multiple-azure-sql-databases"></a>PowerShell gebruiken om te synchroniseren tussen meerdere Azure SQL-databases
+# <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>PowerShell gebruiken om te synchroniseren tussen meerdere SQL-Databases
  
 In dit voorbeeld PowerShell configureert synchroniseren van gegevens te synchroniseren tussen meerdere Azure SQL-databases.
 
@@ -367,8 +367,9 @@ Voorbeelden van aanvullende SQL Database PowerShell-script kunnen worden gevonde
 Zie voor meer informatie over het synchroniseren van de SQL-gegevens:
 
 -   [Synchronisatie van gegevens over meerdere cloud en on-premises databases met synchroniseren van Azure SQL-gegevens](../sql-database-sync-data.md)
--   [Aan de slag met Azure SQL-gegevenssynchronisatie](../sql-database-get-started-sql-data-sync.md)
+-   [Synchroniseren van Azure SQL-gegevens instellen](../sql-database-get-started-sql-data-sync.md)
 -   [Aanbevolen procedures voor het synchroniseren van Azure SQL-gegevens](../sql-database-best-practices-data-sync.md)
+-   [Monitor Azure SQL-gegevens synchroniseren met OMS Log Analytics](../sql-database-sync-monitor-oms.md)
 -   [Problemen oplossen met het synchroniseren van Azure SQL-gegevens](../sql-database-troubleshoot-data-sync.md)
 
 -   Voer de PowerShell-voorbeelden die laten hoe u zien voor het synchroniseren van de SQL-gegevens configureren:

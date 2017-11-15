@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: panarasi
-ms.openlocfilehash: 9e14e95793bcc81ad46783fd50ba223eec4ea360
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81c731f560ed9cdc56416076cd44cba504fa614d
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Verificatie toevoegen aan uw app voor Xamarin Forms
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -38,7 +38,7 @@ Als u het gedownloade quick start-serverproject niet gebruikt, moet u het pakket
 
 Veilige verificatie vereist dat u een nieuwe URL-schema voor uw app definiëren. Hierdoor kan de verificatiesysteem terug te keren naar uw app zodra het verificatieproces voltooid is. In deze zelfstudie gebruiken we het URL-schema _appname_ in. U kunt echter een URL-schema dat u kiest. Deze moet uniek zijn voor uw mobiele App. De omleiding op de server inschakelen:
 
-1. Selecteer in de [Azure-portal] uw App Service.
+1. In de [Azure-portal][8], selecteer uw App Service.
 
 2. Klik op de **verificatie / autorisatie** menuoptie.
 
@@ -166,9 +166,9 @@ Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface 
 
     Als u van een id-provider dan Facebook gebruikmaakt, kiest u een andere waarde voor [MobileServiceAuthenticationProvider][7].
 
-6. Voeg de volgende code in <application> knooppunt van AndroidManifest.xml:
+6. Update de **AndroidManifest.xml** bestand door het toevoegen van de volgende XML-code binnen de `<application>` element:
 
-```xml
+    ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
       <intent-filter>
         <action android:name="android.intent.action.VIEW" />
@@ -177,15 +177,15 @@ Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface 
         <data android:scheme="{url_scheme_of_your_app}" android:host="easyauth.callback" />
       </intent-filter>
     </activity>
-```
-
-1. Voeg de volgende code naar de **OnCreate** methode van de **MainActivity** klasse voordat de aanroep van `LoadApplication()`:
+    ```
+    Vervang `{url_scheme_of_your_app}` met URL-schema.
+7. Voeg de volgende code naar de **OnCreate** methode van de **MainActivity** klasse voordat de aanroep van `LoadApplication()`:
 
         // Initialize the authenticator before loading the app.
         App.Init((IAuthenticate)this);
 
     Deze code zorgt ervoor dat de verificator wordt geïnitialiseerd voordat de app-belastingen.
-2. De app opnieuw samenstellen, uitvoeren en aanmelden met de verificatieprovider die u hebt gekozen en controleer of u kunt toegang krijgen tot gegevens als een geverifieerde gebruiker.
+8. De app opnieuw samenstellen, uitvoeren en aanmelden met de verificatieprovider die u hebt gekozen en controleer of u kunt toegang krijgen tot gegevens als een geverifieerde gebruiker.
 
 ## <a name="add-authentication-to-the-ios-app"></a>Verificatie toevoegen aan de iOS-app
 Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface in het iOS-app-project. Deze sectie overslaan als iOS-apparaten worden niet ondersteund.
@@ -236,28 +236,28 @@ Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface 
         }
 
     Als u van een id-provider dan Facebook gebruikmaakt, kiest u een andere waarde voor [MobileServiceAuthenticationProvider].
-
-6. De klasse AppDelegate bijwerken door toe te voegen methode-overload OpenUrl (UIApplication NSUrl-url-app NSDictionary opties)
+    
+6. Update de **AppDelegate** klasse door toe te voegen de **OpenUrl** methode overbelasting als volgt:
 
         public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
             return TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(url);
         }
-
-6. Voeg de volgende regel code aan de **FinishedLaunching** methode voordat de aanroep van `LoadApplication()`:
+   
+7. Voeg de volgende regel code aan de **FinishedLaunching** methode voordat de aanroep van `LoadApplication()`:
 
         App.Init(this);
 
     Deze code zorgt ervoor dat de verificator is geïnitialiseerd voordat de app wordt geladen.
 
-6. Voeg **{url_scheme_of_your_app}** voor URL-schema's in de Info.plist.
+8. Open Info.plist en voeg een **URL-Type**. Instellen de **id** in een naam van uw keuze, de **URL-schema's** naar de URL-schema voor uw app en de **rol** op None.
 
-7. De app opnieuw samenstellen, uitvoeren en aanmelden met de verificatieprovider die u hebt gekozen en controleer of u kunt toegang krijgen tot gegevens als een geverifieerde gebruiker.
+9. De app opnieuw samenstellen, uitvoeren en aanmelden met de verificatieprovider die u hebt gekozen en controleer of u kunt toegang krijgen tot gegevens als een geverifieerde gebruiker.
 
 ## <a name="add-authentication-to-windows-10-including-phone-app-projects"></a>Verificatie toevoegen aan Windows 10 (inclusief telefoon) app-projecten
 Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface in het Windows 10-app-projecten. De stappen die gelden voor Universal Windows Platform (UWP)-projecten, maar met behulp van de **UWP** project (met vermelde wijzigingen). Deze sectie overslaan als Windows-apparaten worden niet ondersteund.
 
-1. ' In Visual Studio met de rechtermuisknop op ofwel de **UWP** project, klikt u vervolgens **instellen als opstartproject**.
+1. In Visual Studio met de rechtermuisknop op de **UWP** project, klikt u vervolgens **instellen als opstartproject**.
 2. Druk op F5 om het project in het foutopsporingsprogramma start en vervolgens controleren of een niet-verwerkte uitzondering met een statuscode van 401 (niet-geautoriseerd) wordt gegenereerd na de app wordt gestart. De 401-respons treedt op omdat de toegang op de back-end is beperkt tot alleen geautoriseerde gebruikers.
 3. MainPage.xaml.cs openen voor het Windows-app-project en voeg de volgende `using` instructies:
 
@@ -306,7 +306,7 @@ Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface 
             return success;
         }
 
-    Als u van een id-provider dan Facebook gebruikmaakt, kiest u een andere waarde voor [MobileServiceAuthenticationProvider].
+    Als u van een id-provider dan Facebook gebruikmaakt, kiest u een andere waarde voor [MobileServiceAuthenticationProvider][7].
 
 1. Voeg de volgende coderegel toe in de constructor voor het **MainPage** klasse voordat de aanroep van `LoadApplication()`:
 
@@ -326,12 +326,9 @@ Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface 
                 ProtocolActivatedEventArgs protocolArgs = args as ProtocolActivatedEventArgs;
                 TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(protocolArgs.Uri);
             }
-
        }
 
-   Wanneer het overschrijven van de methode al bestaat, moet u de voorwaardelijke code toevoegen vanuit het bovenstaande codefragment.  Deze code is niet vereist voor universele Windows-projecten.
-
-3. Voeg **{url_scheme_of_your_app}** in Package.appxmanifest. 
+3. Open Package.appxmanifest en voeg een **Protocol** declaratie. Instellen de **weergavenaam** in een naam van uw keuze en de **naam** naar de URL-schema van uw app.
 
 4. De app opnieuw samenstellen, uitvoeren en aanmelden met de verificatieprovider die u hebt gekozen en controleer of u kunt toegang krijgen tot gegevens als een geverifieerde gebruiker.
 
@@ -355,3 +352,4 @@ Nu dat u deze basisverificatie-zelfstudie hebt voltooid, overweeg dan u verder g
 [5]: app-service-mobile-dotnet-how-to-use-client-library.md#serverflow
 [6]: app-service-mobile-dotnet-how-to-use-client-library.md#clientflow
 [7]: https://msdn.microsoft.com/library/azure/jj730936(v=azure.10).aspx
+[8]: https://portal.azure.com

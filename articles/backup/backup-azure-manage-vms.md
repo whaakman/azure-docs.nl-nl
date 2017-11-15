@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 597d8e12377ca19b0c58eb2fc8bdb7597c1c6c07
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Back-ups van een virtuele Azure-machine beheren
 > [!div class="op_single_selector"]
@@ -32,10 +32,10 @@ Dit artikel biedt richtlijnen voor het beheren van VM-back-ups en wordt uitgeleg
 ## <a name="manage-vaults-and-protected-virtual-machines"></a>Kluizen en beveiligde virtuele machines beheren
 In de Azure portal biedt de Recovery Services-kluisdashboard toegang tot informatie over de kluis, waaronder:
 
-* de meest recente back-upmomentopname, dat ook de meest recente herstelpunt < br\>
-* het back-upbeleid < br\>
-* totale grootte van alle back-upmomentopnamen < br\>
-* aantal virtuele machines die zijn beveiligd met de kluis < br\>
+* de meest recente back-upmomentopname, dat ook de meest recente herstelpunt
+* het back-upbeleid
+* totale grootte van alle momentopnamen van de back-up
+* aantal virtuele machines die zijn beveiligd met de kluis
 
 Veel beheertaken voor een virtuele machine back-up begint met het openen van de kluis in het dashboard. Omdat kluizen kunnen worden gebruikt voor het beveiligen van meerdere items (of meerdere virtuele machines), om te bekijken over een bepaalde virtuele machine, opent u het item kluisdashboard. De volgende procedure laat zien hoe opent u de *kluisdashboard* en ga verder naar de *kluisdashboard item*. Er zijn 'tips' in beide procedures die wijzen op het toevoegen van de kluis en item naar het dashboard van Azure met behulp van de vastmaken aan dashboard opdracht-kluis. Vastmaken aan dashboard is een manier voor het maken van een snelkoppeling naar de kluis of het item. Ook kunt u veelgebruikte opdrachten uitvoeren vanuit de snelkoppeling.
 
@@ -50,11 +50,11 @@ Veel beheertaken voor een virtuele machine back-up begint met het openen van de 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Klik in het menu Hub op **Bladeren** en typ in de lijst met resources **Recovery Services**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Klik op **Recovery Services-kluis**.
 
-    ![Een Recovery Services-kluis maken, stap 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png) <br/>
+    ![Een Recovery Services-kluis maken, stap 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
     De lijst met Recovery Services-kluizen wordt weergegeven.
 
-    ![Lijst met Recovery Services-kluizen ](./media/backup-azure-manage-vms/list-o-vaults.png) <br/>
+    ![Lijst met Recovery Services-kluizen ](./media/backup-azure-manage-vms/list-o-vaults.png)
 
    > [!TIP]
    > Als u een kluis naar het Azure-Dashboard vastmaken, is deze kluis direct toegankelijk wanneer u de Azure-portal opent. Als u wilt vastmaken een kluis naar het dashboard in de lijst van de kluis, met de rechtermuisknop op de kluis en selecteer **vastmaken aan dashboard**.
@@ -89,13 +89,13 @@ In de vorige procedure moet u het kluisdashboard geopend. Hiermee opent u het kl
 
     Van het kluisdashboard item, kunt u veel Sleutelbeheer taken, zoals uitvoeren:
 
-   * beleidsregels wijzigen of maak een nieuwe back-upbeleid < br\>
-   * herstelpunten weergeven en hun status consistentie Zie < br\>
-   * op aanvraag back-up van een virtuele machine < br\>
-   * Stop de beveiliging van virtuele machines < br\>
-   * beveiliging van een virtuele machine hervatten < br\>
-   * verwijderen van een back-upgegevens (of herstelpunt) < br\>
-   * [terugzetten van back-schijven](backup-azure-arm-restore-vms.md#restore-backed-up-disks) < br\>
+   * wijzigen van beleid of een nieuwe back-upbeleid maken
+   * bekijken van herstelpunten en hun status consistentie bekijken
+   * Op aanvraag back-up van een virtuele machine
+   * Stop de beveiliging van virtuele machines
+   * Beveiliging van een virtuele machine hervatten
+   * verwijderen van een back-upgegevens (of herstelpunt)
+   * [terugzetten van back-schijven](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
 
 Het startpunt is voor de volgende procedures het kluisdashboard item.
 
@@ -110,7 +110,7 @@ Het startpunt is voor de volgende procedures het kluisdashboard item.
     ![De blade back-upbeleid](./media/backup-azure-manage-vms/backup-policy-blade.png)
 3. Van de **back-upbeleid kiezen** menu:
 
-   * Selecteer een ander beleid als beleid wilt wijzigen, en klik op **opslaan**. Het nieuwe beleid wordt onmiddellijk op de kluis toegepast. < br\>
+   * Selecteer een ander beleid als beleid wilt wijzigen, en klik op **opslaan**. Het nieuwe beleid wordt onmiddellijk op de kluis toegepast.
    * Voor het maken van een beleid selecteert **nieuw**.
 
      ![Back-up van virtuele machine](./media/backup-azure-manage-vms/backup-policy-create-new.png)
@@ -148,7 +148,7 @@ Voor het activeren van een op aanvraag back-up van een virtuele machine:
 Als u de beveiliging van een virtuele machine stopt, wordt u gevraagd als u wilt de herstelpunten bewaren. Er zijn twee manieren om te stoppen met het beveiligen van virtuele machines:
 
 * alle toekomstige back-uptaken stoppen en verwijderen van alle herstelpunten, of
-* alle toekomstige back-uptaken stoppen, maar laat de herstelpunten <br/>
+* alle toekomstige back-uptaken stoppen, maar laat de herstelpunten
 
 Er is een kosten in verband met het verlaten van de herstelpunten die in de opslag. Het voordeel van het verlaten van de herstelpunten is echter dat kunt u later de virtuele machine herstellen indien gewenst. Zie voor informatie over de kosten van het verlaten van de herstelpunten, de [prijsinformatie](https://azure.microsoft.com/pricing/details/backup/). Als u alle herstelpunten verwijderd wilt, kunt u de virtuele machine niet herstellen.
 

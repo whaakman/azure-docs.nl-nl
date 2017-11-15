@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5b3d1b9e0d176f29fbcc90410f1fe80085ec5fa8
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f11f7bf6ed94c5d19ad51b1e474ab45d20216351
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Volume-prijzen en -gegevens in Application Insights beheren
 
@@ -39,7 +39,7 @@ Zie de [Application Insights pagina met prijzen] [ pricing] voor huidige prijzen
 Het basisniveau is de standaardinstelling wanneer een nieuwe Application Insights-resource is gemaakt en er is voldoende voor de meeste klanten.
 
 * In het basis-plan u in rekening worden gebracht door gegevensvolume: aantal bytes van telemetrie ontvangen door de Application Insights. Gegevensvolume wordt gemeten als de grootte van de niet-gecomprimeerde JSON gegevenspakket ontvangen door de Application Insights van uw toepassing.
-Voor [tabelgegevens geïmporteerd in Analytics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import), gegevensvolume wordt gemeten als de niet-gecomprimeerde grootte van bestanden die worden verzonden naar Application Insights.  
+Voor [tabelgegevens geïmporteerd in Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), gegevensvolume wordt gemeten als de niet-gecomprimeerde grootte van bestanden die worden verzonden naar Application Insights.  
 * Uw eerste 1 GB voor elke app is gratis, dus als u alleen experimenteren of ontwikkelen, u waarschijnlijk niet hoeft bent te betalen.
 * [Metrische gegevens livestream](app-insights-live-stream.md) gegevens wordt niet meegeteld voor de doeleinden prijzen.
 * [Continue Export](app-insights-export-telemetry.md) is beschikbaar voor de kosten van een extra GB in het basis-plan.

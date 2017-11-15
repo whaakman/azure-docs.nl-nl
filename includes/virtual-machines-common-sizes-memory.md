@@ -1,4 +1,6 @@
 
+Geoptimaliseerd voor geheugen aanbieding voor VM-grootten een hoge ratio van geheugen voor CPU die zijn ideaal voor relationele database-servers, middelgrote tot grote caches en in het geheugen analytics. In dit artikel bevat informatie over het aantal Vcpu, gegevensschijven en NIC's, evenals doorvoer en prestaties van de opslag voor elke grootte in deze groepering. 
+
 * De M-serie biedt het hoogste aantal vCPU's (maximaal 128 vCPU's) en het grootste geheugen (maximaal 2.0 TiB) van alle virtuele machines in de cloud.  Dit is ideaal voor zeer grote databases of andere toepassingen die zo kunnen profiteren van een groot aantal vCPU’s en grote hoeveelheden geheugen.
 
 * Hun tegenhangers uit de Dv2-serie, D-serie, G-serie en DS/GS-serie zijn ideaal voor toepassingen waarvoor snellere CPU's of betere prestaties van de tijdelijke opslag zijn vereist, of waarvoor de geheugeneisen hoger zijn.  Ze bieden een krachtige combinatie voor vele toepassingen op bedrijfsniveau.

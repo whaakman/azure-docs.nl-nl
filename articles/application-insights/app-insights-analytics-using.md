@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
-ms.openlocfilehash: 50161c71443a3cc0192ab2db771bb258058e233c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="using-analytics-in-application-insights"></a>Door middel van analyses in Application Insights
 [Analytics](app-insights-analytics.md) is de functie krachtige zoeken van [Application Insights](app-insights-overview.md). Deze pagina's worden de Log Analytics query language beschreven.
@@ -38,7 +38,7 @@ Er is een [hier uitgebreider rondleiding](app-insights-analytics-tour.md).
 ### <a name="write-a-query"></a>Een query schrijven
 ![Schema weergeven](./media/app-insights-analytics-using/150.png)
 
-Beginnen met de namen van elk van de tabellen die aan de linkerkant worden vermeld (of de [bereik](https://docs.loganalytics.io/queryLanguage/query_language_rangeoperator.html) of [union](https://docs.loganalytics.io/queryLanguage/query_language_unionoperator.html) operators). Gebruik `|` voor het maken van een pijplijn van [operators](https://docs.loganalytics.io/learn/cheatsheets/useful_operators.html). 
+Beginnen met de namen van elk van de tabellen die aan de linkerkant worden vermeld (of de [bereik](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/range-operator) of [union](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/union-operator) operators). Gebruik `|` voor het maken van een pijplijn van [operators](https://docs.loganalytics.io/docs/Learn/References/Useful-operators). 
 
 IntelliSense vraagt u met de operators en de expressie-elementen die u kunt gebruiken. Klik op het informatiepictogram (of druk op CTRL + SPATIEBALK) om op te halen van een langere beschrijving en voorbeelden van het gebruik van elk element.
 
@@ -49,7 +49,7 @@ Zie de [Analytics taal rondleiding](app-insights-analytics-tour.md) en [taalrefe
 
 1. U kunt één regeleinden gebruiken in een query.
 2. Plaats de cursor in- of aan het einde van de query die u wilt uitvoeren.
-3. Controleer het tijdsbereik van uw query. (U kunt deze wijzigen of deze door uw eigen overschrijven [ `where...timestamp...` ](https://docs.loganalytics.io/concepts/concepts_datatypes_timespan.html) -component in uw query.)
+3. Controleer het tijdsbereik van uw query. (U kunt deze wijzigen of deze door uw eigen overschrijven [ `where...timestamp...` ](https://docs.loganalytics.io/docs/Learn/Tutorials/Date-and-time-operations) -component in uw query.)
 3. Klik op naar de query wilt uitvoeren.
 4. Lege regels niet in uw query worden geplaatst. U kunt meerdere gescheiden query's in één query tabblad houden door deze te scheiden met een lege regels. Alleen de query met de cursor wordt uitgevoerd.
 
@@ -71,7 +71,7 @@ U kunt sorteren, filteren, pagineren en de resultaten van uw query te groeperen.
 > [!NOTE]
 > Sorteren, groeperen en filteren in de browser niet Voer de query opnieuw uit. Ze alleen de resultaten die zijn geretourneerd door de laatste query opnieuw te rangschikken. 
 > 
-> Om deze taken in de server uitvoeren voordat u de resultaten worden geretourneerd, schrijft u uw query met de [sorteren](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html), [samenvatten](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) en [waar](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) operators.
+> Om deze taken in de server uitvoeren voordat u de resultaten worden geretourneerd, schrijft u uw query met de [sorteren](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator), [samenvatten](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) en [waar](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) operators.
 > 
 > 
 
@@ -99,7 +99,7 @@ Als u denkt dat u niet de verwachte resultaten ziet, moet u er een aantal mogeli
 
     U kunt echter het tijdsbereik wijzigen filteren met behulp van de vervolgkeuzelijst.
 
-    Of u kunt het automatische bereik vervangen door uw eigen [ `where  ... timestamp ...` component](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) in uw query. Bijvoorbeeld:
+    Of u kunt het automatische bereik vervangen door uw eigen [ `where  ... timestamp ...` component](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) in uw query. Bijvoorbeeld:
 
     `requests | where timestamp > ago('2d')`
 
@@ -107,10 +107,10 @@ Als u denkt dat u niet de verwachte resultaten ziet, moet u er een aantal mogeli
 
     Het is raadzaam om te voorkomen dat roept de limiet. Het filter tijdsbereik gebruiken, of gebruik operators, zoals:
 
-  * [Top 100 volgens de timestamp](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) 
-  * [100 duren](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html)
-  * [samenvatten](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) 
-  * [waar tijdstempel > ago(3d)](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html)
+  * [Top 100 volgens de timestamp](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) 
+  * [100 duren](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/take-operator)
+  * [samenvatten](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
+  * [waar tijdstempel > ago(3d)](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)
 
 (Meer dan 10 k rijen wilt? Overweeg het gebruik van [continue Export](app-insights-export-telemetry.md) in plaats daarvan. Analytics is ontworpen voor analyse, in plaats van onbewerkte gegevens op te halen.)
 
@@ -121,7 +121,7 @@ Selecteer het type diagram dat u wilt dat:
 
 Als u meerdere kolommen van de juiste typen hebt, kunt u de x en y-as en een kolom van dimensies scheiden van de resultaten op.
 
-Standaard resultaten in eerste instantie worden weergegeven als een tabel, en u handmatig het diagram selecteren. Maar u kunt de [renderen richtlijn](https://docs.loganalytics.io/queryLanguage/query_language_renderoperator.html) aan het einde van een query naar een diagram selecteren.
+Standaard resultaten in eerste instantie worden weergegeven als een tabel, en u handmatig het diagram selecteren. Maar u kunt de [renderen richtlijn](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) aan het einde van een query naar een diagram selecteren.
 
 ### <a name="analytics-diagnostics"></a>Analytics diagnostische gegevens
 

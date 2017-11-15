@@ -13,11 +13,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jingwang
-ms.openlocfilehash: bc1c1fdc4d7482b0a92b14ac90b8162367946636
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 20130d6d4f331ec0a2435c9eea800ee6f62beaba
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Een data factory en pijplijn maken met behulp van Python
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -108,7 +108,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
             print("\tErrors: {}".format(activity_run.error['message']))
 
     ```
-3. Voeg de volgende code toe aan de methode **Main** om een instantie van de klasse DataFactoryManagementClient te maken. U gebruikt dit object om de data factory, een gekoppelde service, gegevenssets en een pijplijn te maken. U kunt dit object ook gebruiken om de details van de pijplijnuitvoering te controleren. Stel **subscription_id** in op de id van uw Azure-abonnement.
+3. Voeg de volgende code toe aan de methode **Main** om een instantie van de klasse DataFactoryManagementClient te maken. U gebruikt dit object om de data factory, een gekoppelde service, gegevenssets en een pijplijn te maken. U kunt dit object ook gebruiken om de details van de pijplijnuitvoering te controleren. Stel **subscription_id** in op de id van uw Azure-abonnement. Momenteel kunt u in Data Factory V2 alleen data factory's maken in de regio's VS - oost, VS - oost 2 en West-Europa. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
 
     ```python   
     def main():
@@ -424,7 +424,7 @@ Copy duration: 4
 Als u de data factory wilt verwijderen, voegt u de volgende code toe aan het programma:
 
 ```python
-adf_client.data_factories.delete(rg_name, df_name)
+adf_client.factories.delete(rg_name,df_name)
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

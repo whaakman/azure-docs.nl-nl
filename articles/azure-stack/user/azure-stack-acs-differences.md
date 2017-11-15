@@ -3,22 +3,22 @@ title: 'Azure Storage Stack: Verschillen en overwegingen'
 description: Het verschil tussen Azure Stack Storage en Azure Storage, samen met aandachtspunten voor implementatie van Azure-Stack.
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: jeffgilb
+manager: femila
+ms.reviwer: xiaofmao
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: xiaofmao
-ms.openlocfilehash: 4d6fb44fd6fd2261059ca45093d8b49345adfa74
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 11/08/2017
+ms.author: jeffgilb
+ms.openlocfilehash: 1dc099fa234e217b682c88f2214fe271c916eec2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Storage Stack: Verschillen en overwegingen
 
@@ -33,7 +33,7 @@ In dit artikel bevat een overzicht van de bekende Azure Stack Storage verschille
 | Functie | Azure (global) | Azure Stack |
 | --- | --- | --- |
 |File Storage|Cloud-gebaseerde SMB-bestandsshares ondersteund|Nog niet ondersteund
-|Data-at-rest versleuteling|256-bits AES-versleuteling|Nog niet ondersteund
+|Azure Storage Service-versleuteling voor inactieve gegevens|256-bits AES-versleuteling|Nog niet ondersteund
 |Type opslagaccount|Voor algemene doeleinden en Azure Blob storage-accounts|Voor algemene doeleinden alleen
 |Opties voor gegevensreplicatie|Lokaal redundante opslag, geografisch redundante opslag met leestoegang geografisch redundante opslag en zone-redundante opslag|Lokaal redundante opslag
 |Premium Storage|Volledig ondersteund|Kunnen worden ingericht, maar geen prestatielimiet voor of de garantie

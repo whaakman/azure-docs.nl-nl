@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/11/2017
+ms.date: 11/10/2017
 ms.author: markgal;trinadhk
-ms.openlocfilehash: ae4a73d12898c62fe2c5cf3683bc7c1c8c845fdf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b07b9e01a5a8d8a5189b130fb5a9baeef7a43f4f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="delete-a-recovery-services-vault"></a>Een Recovery Services-kluis verwijderen
 De Azure Backup-service heeft twee soorten kluizen: de Backup-kluis en de Recovery Services-kluis. De Backup-kluis was er het eerst. Vervolgens kwam de Recovery Services-kluis ter ondersteuning van de uitgebreide Resource Manager-implementaties. Vanwege de uitgebreide mogelijkheden en de afhankelijkheden van de informatie die moeten worden opgeslagen in de kluis kan verwijderen van een back-up of Recovery Services-kluis verwarrend zijn. Dit artikel wordt uitgelegd hoe u verwijdert de kluizen in de klassieke portal en de Azure-portal.  
@@ -33,7 +33,7 @@ De Azure Backup-service heeft twee soorten kluizen: de Backup-kluis en de Recove
 >
 
 > [!IMPORTANT]
-> U kunt uw back-upkluizen nu upgraden naar Recovery Services-kluizen. Zie voor meer informatie het artikel [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md) (Een back-upkluis upgraden naar een Recovery Services-kluis). Microsoft adviseert om uw back-upkluizen te upgraden naar Recovery Services-kluizen.<br/> Vanaf **15 oktober 2017** kunt u PowerShell niet meer gebruiken voor het maken van back-upkluizen. <br/> **Vanaf 1 november 2017**:
+> U kunt uw back-upkluizen nu upgraden naar Recovery Services-kluizen. Zie voor meer informatie het artikel [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md) (Een back-upkluis upgraden naar een Recovery Services-kluis). Microsoft adviseert om uw back-upkluizen te upgraden naar Recovery Services-kluizen.<br/> Na **30 November 2017**, u zich niet PowerShell gebruiken voor het maken van de Backup-kluizen. <br/> **Per 30 November 2017**:
 >- Alle resterende back-upkluizen worden automatisch omgezet in Recovery Services-kluizen.
 >- Het is niet mogelijk om via de klassieke portal toegang te krijgen tot uw back-upgegevens. In plaats daarvan gebruikt u Azure Portal voor toegang tot uw back-upgegevens in Recovery Services-kluizen.
 >

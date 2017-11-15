@@ -8,13 +8,13 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: bbfcac5a54f04f20dbdeeecef7c06b91128b8c6a
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8c59e6ad42109c7df64fd651a012a56446daaad0
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="troubleshoot-issues-with-azure-sql-data-sync-preview"></a>Problemen oplossen met Azure SQL-gegevenssynchronisatie (Preview)
+# <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Problemen oplossen met het synchroniseren van de SQL-gegevens (Preview)
 
 Dit artikel wordt beschreven hoe u problemen met huidige die bekend zijn bij het synchroniseren van de SQL-gegevens (Preview)-team. Als er een oplossing voor een probleem is, is het hier opgegeven.
 
@@ -493,8 +493,9 @@ Als u niet het probleem wilt verhelpen, de status van de groep voor synchronisat
 Zie voor meer informatie over het synchroniseren van de SQL-gegevens:
 
 -   [Synchronisatie van gegevens over meerdere cloud en on-premises databases met synchroniseren van Azure SQL-gegevens](sql-database-sync-data.md)
--   [Aan de slag met Azure SQL-gegevenssynchronisatie](sql-database-get-started-sql-data-sync.md)
+-   [Synchroniseren van Azure SQL-gegevens instellen](sql-database-get-started-sql-data-sync.md)
 -   [Aanbevolen procedures voor het synchroniseren van Azure SQL-gegevens](sql-database-best-practices-data-sync.md)
+-   [Monitor Azure SQL-gegevens synchroniseren met OMS Log Analytics](sql-database-sync-monitor-oms.md)
 
 -   Voer de PowerShell-voorbeelden die laten hoe u zien voor het synchroniseren van de SQL-gegevens configureren:
     -   [PowerShell gebruiken om te synchroniseren tussen meerdere Azure SQL-databases](scripts/sql-database-sync-data-between-sql-databases.md)

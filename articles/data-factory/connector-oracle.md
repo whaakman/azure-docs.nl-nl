@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 2266bf17dd769102e70c20728ededb304f73beb4
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: df9ba6367b2d2ce1b2c281ce483e63b0baa9feb6
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>Gegevens kopiëren van en naar Azure Data Factory met Oracle
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -164,7 +164,7 @@ Om gegevens te kopiëren met Oracle, stelt u het sink-type in de kopieerbewerkin
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **OracleSink** | Ja |
+| type | De eigenschap type van de activiteit kopiëren sink moet worden ingesteld op: **OracleSink** | Ja |
 | writeBatchSize | Voegt de gegevens in de SQL-tabel wanneer de buffergrootte writeBatchSize bereikt.<br/>Toegestane waarden zijn: geheel getal (aantal rijen). |Nee (de standaardwaarde is 10000) |
 | writeBatchTimeout | Wachttijd voor de batch-insert-bewerking te voltooien voordat er een optreedt time-out.<br/>Toegestane waarden zijn: Timespan. Voorbeeld: 00:30:00 (30 minuten). | Nee |
 | preCopyScript | Geef een SQL-query voor de Kopieeractiviteit worden uitgevoerd voordat het schrijven van gegevens in Oracle in elke uitvoering. U kunt deze eigenschap gebruiken om de vooraf geladen gegevens op te schonen. | Nee |

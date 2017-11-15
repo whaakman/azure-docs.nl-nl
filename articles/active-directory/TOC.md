@@ -87,7 +87,6 @@
 #### [Naslaginformatie voor producten en serviceabonnementen in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Vervaldatum instellen voor Office 365-groepen](active-directory-groups-lifecycle-azure-portal.md)
 ### [Alle groepen weergeven](active-directory-groups-view-azure-portal.md)
-### [Toegewezen groepen inschakelen](active-directory-accessmanagement-dedicated-groups.md)
 ### [Groepstoegang tot SaaS-apps toevoegen](active-directory-accessmanagement-group-saasapps.md)
 ### [Herstellen van een verwijderde Office 365-groep](active-directory-groups-restore-azure-portal.md)
 ### Groepsinstellingen beheren
@@ -254,7 +253,6 @@
 ##### [Klassieke portal](active-directory-add-manage-domain-names.md)
 ### [Uw directory beheren](active-directory-administer.md)
 ### [Meerdere directory’s beheren](active-directory-licensing-directory-independence.md)
-### [O365-directory's](active-directory-manage-o365-subscription.md)
 ### [Selfservice registreren](active-directory-self-service-signup.md)
 #### [Een niet-beheerde directory overnemen](domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)

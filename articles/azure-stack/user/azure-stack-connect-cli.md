@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 11/11/2017
 ms.author: sngun
-ms.openlocfilehash: 5ef64e727615d17ae550efbc7ea427936d7d4c3b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 60b06cf41ea632219d2f16b29607899bd2e8d789
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>CLI installeren en configureren voor gebruik met Azure-Stack
 
@@ -204,6 +204,15 @@ az group create \
 Als de resourcegroep wordt gemaakt, levert de vorige opdracht de volgende eigenschappen van de zojuist gemaakte resource:
 
 ![Resourcegroep maken-uitvoer](media/azure-stack-connect-cli/image1.png)
+
+## <a name="known-issues"></a>Bekende problemen
+Er zijn enkele bekende problemen waarmee u rekening houden moet bij het gebruik van CLI in Azure-Stack:
+
+* De interactieve modus CLI eenledige de `az interactive` opdracht is nog niet ondersteund in Azure-Stack.
+* Als u de lijst met installatiekopieën van virtuele machines beschikbaar zijn in Azure-Stack, gebruikt de `az vm images list --all` opdracht in plaats van de `az vm image list` opdracht. Geven de `--all` optie zorgt ervoor dat antwoord retourneert alleen de afbeeldingen die beschikbaar in uw Azure-Stack-omgeving zijn. 
+* Virtuele machine installatiekopie aliassen die beschikbaar in Azure zijn is mogelijk niet van toepassing op Azure-Stack. Als u installatiekopieën van virtuele machines gebruikt, moet u de volledige URN-parameter (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) in plaats van de alias van de installatiekopie. Deze URN moet overeenkomen met de installatiekopie-specificaties die is afgeleid van de `az vm images list` opdracht.
+* Standaard wordt met CLI 2.0 'Standard_DS1_v2' gebruikt als de standaardgrootte voor de installatiekopie van virtuele machine. Maar deze grootte is nog niet beschikbaar in de Stack van Azure, dus u moet opgeven de `--size` parameter expliciet bij het maken van een virtuele machine. U kunt u de lijst met grootten van virtuele machines die beschikbaar in Azure Stack met behulp van zijn de `az vm list-sizes --location <locationName>` opdracht.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

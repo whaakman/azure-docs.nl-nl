@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/18/2017
+ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 025bde02b3f342ec3399d51819d1fa8a91f11374
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d58ba0985d7a5bb302028254be0951859b79dbb
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Uw eerste Service Fabric-containertoepassing maken in Windows
 > [!div class="op_single_selector"]
@@ -169,7 +169,7 @@ De Service Fabric SDK en hulpprogramma's bieden een servicesjabloon waarmee u ee
 
 1. Start Visual Studio.  Selecteer **Bestand** > **Nieuw** > **Project**.
 2. Selecteer **Service Fabric-toepassing**, geef deze de naam MyFirstContainer en klik op **OK**.
-3. Selecteer **Gastcontainer** in de lijst met **servicesjablonen**.
+3. Selecteer **Container** in de lijst met **servicesjablonen**.
 4. Voer bij **Naam van installatiekopie** het volgende in: myregistry.azurecr.io/samples/helloworldapp. Dit is de installatiekopie die u naar uw containeropslagplaats hebt gepusht.
 5. Geef de service een naam en klik op **OK**.
 
@@ -293,6 +293,10 @@ Windows ondersteunt twee isolatiemodi voor containers: proces en Hyper-V. Met de
 ```xml
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
+   > [!NOTE]
+   > De hyperv-isolatiemodus is beschikbaar in de Azure-SKU's Ev3 en Dv3 aangezien die ondersteuning voor geneste virtualisatie bieden. 
+   >
+   >
 
 ## <a name="configure-resource-governance"></a>Resourcebeheer configureren
 [Resourcebeheer](service-fabric-resource-governance.md) beperkt de resources die de container op de host kan gebruiken. Het element `ResourceGovernancePolicy`, dat is opgegeven in het toepassingsmanifest, wordt gebruikt om resourcebeperkingen te declareren voor een servicecodepakket. Er kunnen resourcebeperkingen worden ingesteld voor de volgende resources: geheugen, MemorySwap, CpuShares (relatief CPU-gewicht), MemoryReservationInMB, BlkioWeight (relatief BlockIO-gewicht).  In dit voorbeeld krijgt het servicepakket Guest1Pkg één kern op de clusterknooppunten waar het wordt geplaatst.  Geheugenlimieten zijn absoluut, dus het codepakket wordt beperkt tot 1024 MB aan geheugen (en een gegarandeerde flexibele reservering hierop). Codepakketten (containers of processen) kunnen niet meer geheugen toewijzen dan deze limiet. Een poging dit toch te doen, leidt tot een Onvoldoende geheugen-uitzondering. Voor een effectieve handhaving van resourcebeperkingen moeten voor alle pakketten binnen een servicepakket geheugenlimieten zijn opgegeven.
@@ -469,7 +473,7 @@ De installatiekopieën die niet moeten worden verwijderd, kunt u opgeven met de 
 * Meer informatie over het uitvoeren van [containers in Service Fabric](service-fabric-containers-overview.md).
 * Lees de zelfstudie [Een .NET-toepassing implementeren in een container](service-fabric-host-app-in-a-container.md).
 * Meer informatie over de [levenscyclus](service-fabric-application-lifecycle.md) van de Service Fabric-toepassing.
-* Bekijk [voorbeelden van Service Fabric-containercode op GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers).
+* Bekijk [voorbeelden van Service Fabric-containercode op GitHub](https://github.com/Azure-Samples/service-fabric-containers).
 
 [1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
 [2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png

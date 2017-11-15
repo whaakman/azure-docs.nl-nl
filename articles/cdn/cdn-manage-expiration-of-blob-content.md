@@ -1,5 +1,5 @@
 ---
-title: Vervaldatum van Azure Storage-blobs in Azure CDN beheren | Microsoft Docs
+title: Vervaldatum van Azure Blob storage in Azure Content Delivery Network beheren | Microsoft Docs
 description: Meer informatie over de opties voor het beheren van time to live voor blobs in Azure CDN opslaan in cache.
 services: cdn
 documentationcenter: 
@@ -12,31 +12,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: d4741921806e443d92c385a04b781cec296c2ae8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41b8f9d439184b91f8105e6bd136e48525632a85
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>Vervaldatum van Azure Storage-blobs in Azure CDN beheren
+# <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Vervaldatum van Azure Blob storage in Azure Content Delivery Network beheren
 > [!div class="op_single_selector"]
 > * [Azure-Web-Apps/Cloud Services, ASP.NET of IIS](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Azure blob Storage-service](cdn-manage-expiration-of-blob-content.md)
+> * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
-De [blob-service](../storage/common/storage-introduction.md#blob-storage) in [Azure Storage](../storage/common/storage-introduction.md) is een van de verschillende Azure gebaseerde oorsprongen geïntegreerd met Azure CDN.  Kan een openbaar toegankelijke blob-inhoud in cache worden opgeslagen in Azure CDN totdat de time-to-live (TTL) is verstreken.  De TTL-waarde wordt bepaald door de [ *Cache-Control* header](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) in de HTTP-antwoord uit Azure Storage.
+De [blob-service](../storage/common/storage-introduction.md#blob-storage) in [Azure Storage](../storage/common/storage-introduction.md) is een van de verschillende Azure gebaseerde oorsprongen geïntegreerd met Azure Content Delivery Network (CDN). Kan een openbaar toegankelijke blob-inhoud in cache worden opgeslagen in Azure CDN totdat de time-to-live (TTL) is verstreken. De TTL-waarde wordt bepaald door de [ `Cache-Control` header](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) in de HTTP-antwoord uit Azure Storage.
 
 > [!TIP]
-> U kunt geen TTL instellen voor een blob.  In dit geval past Azure CDN automatisch een standaard-TTL van zeven dagen.
+> U kunt geen TTL instellen voor een blob. In dit geval past Azure CDN automatisch een standaard-TTL van zeven dagen.
 > 
-> Zie voor meer informatie over de werking van Azure CDN om sneller toegang tot blobs en andere bestanden de [overzicht van Azure CDN](cdn-overview.md).
+> Zie voor meer informatie over de werking van Azure CDN om sneller toegang tot blobs en andere bestanden [overzicht van het Azure Content Delivery Network](cdn-overview.md).
 > 
-> Zie voor meer informatie over de Azure Storage-blob-service, [concepten van Blob-Service](https://msdn.microsoft.com/library/dd179376.aspx). 
-> 
-> 
+> Zie voor meer informatie over Azure-blobopslag [Inleiding tot Blob storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
+ 
 
 Deze zelfstudie laat zien dat verschillende manieren waarop u de TTL-waarde op een blob in Azure Storage instellen kunt.  
 
@@ -93,14 +92,14 @@ class Program
 ```
 
 > [!TIP]
-> Er zijn veel meer .NET-codevoorbeelden beschikbaar in de [voorbeelden van Azure Blob Storage voor .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/).
+> Er zijn veel meer .NET-codevoorbeelden beschikbaar in [voorbeelden van Azure Blob Storage voor .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/).
 > 
 > 
 
 ## <a name="other-methods"></a>Andere methoden
 * [Azure-opdrachtregelinterface](../cli-install-nodejs.md)
   
-    Tijdens het uploaden van de blob, stel de *cacheControl* met behulp van de eigenschap de `-p` overschakelen.  In het volgende voorbeeld wordt de TTL aan één uur (3600 seconden).
+    Tijdens het uploaden van de blob, stel de *cacheControl* eigenschap met behulp van de `-p` overschakelen. In het volgende voorbeeld wordt de TTL aan één uur (3600 seconden).
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
@@ -112,10 +111,10 @@ class Program
   
     Sommige hulpprogramma's van derden Azure Storage management kunnen u instellen de *CacheControl* -eigenschap op blobs. 
 
-## <a name="testing-the-cache-control-header"></a>Testen van de *Cache-Control* koptekst
-U kunt eenvoudig de TTL van uw blobs controleren.  Met behulp van uw browser [hulpprogramma's voor ontwikkelaars](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test die uw blob is inclusief de *Cache-Control* antwoordheader.  U kunt ook een hulpprogramma zoals **wget**, [Postman](https://www.getpostman.com/), of [Fiddler](http://www.telerik.com/fiddler) om te onderzoeken de antwoordheaders.
+## <a name="testing-the-cache-control-header"></a>Testen van de Cache-Control-header
+U kunt eenvoudig de TTL van uw blobs controleren.  Met behulp van uw browser [hulpprogramma's voor ontwikkelaars](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test die uw blob bevat de `Cache-Control` antwoordheader. U kunt ook een hulpprogramma zoals gebruiken **wget**, [Postman](https://www.getpostman.com/), of [Fiddler](http://www.telerik.com/fiddler) om te onderzoeken de antwoordheaders.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Meer informatie over de *Cache-Control* koptekst](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
+* [Meer informatie over de `Cache-Control` header](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 * [Informatie over het beheren van de verlooptijd van Cloudservice-inhoud in Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
 

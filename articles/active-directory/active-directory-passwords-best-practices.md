@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: e28324fe0d7e52f1721af6cd835369f024d4c58f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 0be1616f5df915e566dc73c15dbea2e53177aa1c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="how-to-successfully-rollout-self-service-password-reset"></a>Selfservice voor wachtwoordherstel implementeren
 
@@ -38,8 +38,8 @@ De meeste klanten volgen deze stappen voor een soepele implementatie van selfser
 10. Controleer in de loop van de tijd gebruikers die zich hebben geregistreerd en gebruikmaken van de service door de [rapporten die worden verstrekt door Azure AD](active-directory-passwords-reporting.md) te bekijken.
 11. Schakel wanneer u klaar bent wachtwoordherstel in voor alle gebruikers door de wisselknop **Selfservice voor wachtwoord opnieuw instellen is ingeschakeld** op **Alle** te zetten. 
 
-    > [!IMPORTANT]
-    > Test self-service voor wachtwoordherstel met een gebruiker en niet als beheerder, aangezien Microsoft sterke verificatievereisten afdwingt voor Azure-accounts van beheerders. Zie ons [artikel met gedetailleerde informatie](active-directory-passwords-how-it-works.md) voor meer informatie over het wachtwoordbeleid voor beheerders.
+   > [!IMPORTANT]
+   > Test self-service voor wachtwoordherstel met een gebruiker en niet als beheerder, aangezien Microsoft sterke verificatievereisten afdwingt voor Azure-accounts van beheerders. Zie ons [artikel over wachtwoordbeleid](active-directory-passwords-policy.md#administrator-password-policy-differences) voor meer informatie over het wachtwoordbeleid voor beheerders.
 
 ## <a name="email-based-rollout"></a>Implementatie op basis van e-mail
 

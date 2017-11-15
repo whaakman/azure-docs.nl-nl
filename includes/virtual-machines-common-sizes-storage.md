@@ -1,5 +1,6 @@
+Opslag geoptimaliseerd VM-grootten bieden hoge doorvoer en i/o en zijn ideaal voor Big Data, SQL en NoSQL-databases. In dit artikel bevat informatie over het aantal Vcpu, gegevensschijven en NIC's, evenals doorvoer en prestaties van de opslag voor elke grootte in deze groepering. 
 
-De Ls-serie is geoptimaliseerd voor workloads die tijdelijke opslag met lage latentie vereisen, zoals NoSQL-databases (bijvoorbeeld Cassandra, MongoDB, Cloudera en Redis). De Ls-serie biedt maximaal 32 vCPU's en maakt gebruik van een [Intel Xeon®-processor uit de E5 v3-familie](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). De Ls-serie heeft dezelfde CPU-prestaties als de G/GS-serie en wordt geleverd met 8 GiB geheugen per vCPU.  
+De Ls-serie biedt maximaal 32 vCPU's en maakt gebruik van een [Intel Xeon®-processor uit de E5 v3-familie](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). De Ls-serie heeft dezelfde CPU-prestaties als de G/GS-serie en wordt geleverd met 8 GiB geheugen per vCPU.  
 
 ## <a name="ls-series"></a>Ls-serie
 

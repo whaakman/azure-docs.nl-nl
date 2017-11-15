@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure SQL-gegevenssynchronisatie (Preview) | Microsoft Docs
-description: Deze zelfstudie helpt u aan de slag met Azure SQL-gegevenssynchronisatie (Preview)
+title: Instellen van Azure SQL-gegevenssynchronisatie (Preview) | Microsoft Docs
+description: Deze zelfstudie ziet u het instellen van Azure SQL-gegevenssynchronisatie (Preview)
 services: sql-database
 documentationcenter: 
 author: douglaslms
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: ddcf6868a0fca88a52774e20623d25de31c063bb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d0b3f3b188bc5da91414efb763b5165377009191
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="get-started-with-azure-sql-data-sync-preview"></a>Aan de slag met Azure SQL-gegevenssynchronisatie (Preview)
+# <a name="set-up-sql-data-sync-preview"></a>Instellen van het synchroniseren van de SQL-gegevens (Preview)
 In deze zelfstudie leert u het instellen van het synchroniseren van Azure SQL-gegevens door te maken van een hybride-groep voor synchronisatie met Azure SQL Database- en SQL Server-exemplaren. De nieuwe groep voor synchronisatie is volledig geconfigureerd en gesynchroniseerd volgens de planning die u instelt.
 
 Deze zelfstudie wordt ervan uitgegaan dat er ten minste enige ervaring met SQL-Database en SQL Server. 
@@ -110,7 +110,7 @@ Op de **Azure-Database configureren** pagina, het volgende doen:
 
     ![Nieuw lid van de SQL-Database-synchronisatie is toegevoegd](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-### <a name="add-an-on-premises-sql-server-database"></a>Toevoegen van een lokale SQL Server-database.
+### <a name="add-on-prem"></a>Toevoegen van een lokale SQL Server-database.
 
 In de **Liddatabase** sectie eventueel een lokale SQL-Server toevoegen aan de groep voor synchronisatie door te selecteren **toevoegen van een On-Premises Database**. De **configureren On-Premises** pagina wordt geopend.
 
@@ -200,6 +200,7 @@ Zie voor meer informatie over het synchroniseren van de SQL-gegevens:
 
 -   [Synchronisatie van gegevens over meerdere cloud en on-premises databases met synchroniseren van Azure SQL-gegevens](sql-database-sync-data.md)
 -   [Aanbevolen procedures voor het synchroniseren van Azure SQL-gegevens](sql-database-best-practices-data-sync.md)
+-   [Monitor Azure SQL-gegevens synchroniseren met OMS Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Problemen oplossen met het synchroniseren van Azure SQL-gegevens](sql-database-troubleshoot-data-sync.md)
 
 -   Voer de PowerShell-voorbeelden die laten hoe u zien voor het synchroniseren van de SQL-gegevens configureren:

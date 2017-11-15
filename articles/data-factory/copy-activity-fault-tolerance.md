@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 11/10/2017
 ms.author: jingwang
-ms.openlocfilehash: 5b2658cecba80ef871cc38b930b0e52bc3952530
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 990bffa728977efead7b2b20847ff2adaa63a7f8
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/10/2017
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Fouttolerantie van de kopieeractiviteit in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/18/2017
 De kopieeractiviteit in Azure Data Factory biedt twee manieren om af te handelen incompatibel rijen bij het kopiëren van gegevens tussen de bron- en sink gegevensarchieven:
 
 - U kunt afbreken en mislukt de kopie activiteit als niet-compatibele gegevens aangetroffen (standaardinstelling).
-- U kunt doorgaan met het kopiëren alle gegevens door toe te voegen fouttolerantie en niet-compatibele gegevensrijen wordt overgeslagen. Bovendien kunt u de niet-compatibele rijen registreren in Azure Blob-opslag. Bekijk vervolgens het logboek voor meer informatie over de oorzaak van de fout, los van de gegevens op de gegevensbron en probeer het opnieuw met de kopieerbewerking.
+- U kunt doorgaan met het kopiëren alle gegevens door toe te voegen fouttolerantie en niet-compatibele gegevensrijen wordt overgeslagen. Bovendien kunt u de niet-compatibele rijen registreren in Azure Blob storage of Azure Data Lake Store. Bekijk vervolgens het logboek voor meer informatie over de oorzaak van de fout, los van de gegevens op de gegevensbron en probeer het opnieuw met de kopieerbewerking.
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [activiteit fouttolerantie in V1 kopiëren](v1/data-factory-copy-activity-fault-tolerance.md).
@@ -50,23 +50,24 @@ Het volgende voorbeeld bevat een JSON-definitie voor het configureren van de nie
     },
     "sink": {
         "type": "SqlSink",
-    },         
-    "enableSkipIncompatibleRow": true,           
+    },
+    "enableSkipIncompatibleRow": true,
     "redirectIncompatibleRowSettings": {
          "linkedServiceName": {
-              "referenceName": "AzureBlobLinkedService",
+              "referenceName": "<Azure Storage or Data Lake Store linked service>",
               "type": "LinkedServiceReference"
             },
             "path": "redirectcontainer/erroroutput"
      }
 }
 ```
+
 Eigenschap | Beschrijving | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Geeft aan of niet-compatibele rijen overslaan tijdens het kopiëren van of niet. | True<br/>False (standaard) | Nee
 redirectIncompatibleRowSettings | Een groep met eigenschappen die kunnen worden opgegeven wanneer u wilt vastleggen van de niet-compatibele rijen. | &nbsp; | Nee
-linkedServiceName | De gekoppelde service van Azure Storage voor het opslaan van het logboek dat overgeslagen rijen bevat. | De naam van een AzureStorage of AzureStorageSas gekoppeld-service, die naar de opslag-instantie die u gebruiken verwijst wilt voor het opslaan van het logboekbestand. | Nee
-Pad | Het pad van het logboekbestand dat overgeslagen rijen bevat. | Geef het pad voor Blob-opslag die u wilt gebruiken om de niet-compatibele gegevens te registreren. Als u niet een pad opgeeft, wordt in de service een container voor u gemaakt. | Nee
+linkedServiceName | De gekoppelde service van [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) of [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) voor het opslaan van het logboek dat overgeslagen rijen bevat. | De naam van een `AzureStorage` of `AzureDataLakeStore` type gekoppelde service, die naar het exemplaar dat u gebruiken verwijst wilt voor het opslaan van het logboekbestand. | Nee
+Pad | Het pad van het logboekbestand dat overgeslagen rijen bevat. | Geef het pad dat u wilt gebruiken om de niet-compatibele gegevens te registreren. Als u niet een pad opgeeft, wordt in de service een container voor u gemaakt. | Nee
 
 ## <a name="monitor-skipped-rows"></a>Monitor overgeslagen rijen
 Nadat de kopieeractiviteit uitgevoerd is voltooid, ziet u het aantal overgeslagen rijen in de uitvoer van de kopieeractiviteit:

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 291ca51c83233294d882a94f886bc874e13e97be
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 3686057a267ef28d6a01ccc36775a399c64a0804
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Cosmos DB met Azure Data Factory
 
@@ -165,7 +165,7 @@ Om gegevens te kopiëren van Azure Cosmos DB, stelt u het sink-type in de kopiee
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **DocumentDbCollectionSink** |Ja |
+| type | De eigenschap type van de activiteit kopiëren sink moet worden ingesteld op: **DocumentDbCollectionSink** |Ja |
 | nestingSeparator |Er is een speciaal teken in naam van de bronkolom om aan te geven dat geneste document nodig. <br/><br/>Bijvoorbeeld: `Name.First` de uitvoergegevensset structuur genereert de volgende JSON-structuur in het document DB Cosmos:`"Name": {"First": "[value maps to this column from source]"}` wanneer de nestedSeparator punt is. |Nee (standaard is dit punt `.`) |
 | writeBatchTimeout |Wachttijd voor de bewerking te voltooien voordat er een optreedt time-out.<br/><br/>Toegestane waarden zijn: timespan. Voorbeeld: "00: 30:00 ' (30 minuten). |Nee |
 

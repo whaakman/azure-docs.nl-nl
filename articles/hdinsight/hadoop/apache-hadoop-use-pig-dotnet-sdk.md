@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 11/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 27ecba06f2251aaf742f2221982cad5cb9602769
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c828a7b63e70669ed38ecea898442a3978e67ba7
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Pig-taken met de .NET SDK voor Hadoop in HDInsight uitvoeren
 
@@ -57,7 +57,7 @@ De HDInsight .NET SDK biedt clientbibliotheken .NET, waardoor het makkelijker wo
 
 3. Klik op **OK** om het project te maken.
 
-4. Van de **extra** selecteert u **Library Package Manager** of **Nuget Package Manager**, en selecteer vervolgens **Package Manager Console**.
+4. Van de **extra** selecteert u **Library Package Manager** of **NuGet Package Manager**, en selecteer vervolgens **Package Manager Console**.
 
 5. Gebruik de volgende opdracht voor het installeren van de .NET SDK-pakketten:
 
@@ -121,10 +121,6 @@ De HDInsight .NET SDK biedt clientbibliotheken .NET, waardoor het makkelijker wo
 7. Als u wilt de toepassing niet starten, drukt u op **F5**.
 
 8. Om af te sluiten van de toepassing, drukt u op **ENTER**.
-
-## <a name="summary"></a>Samenvatting
-
-Zoals u ziet, wordt de .NET SDK voor Hadoop kunt u .NET-toepassingen die verzenden van Pig-taken naar een HDInsight-cluster maken en controleren van de status van de taak.
 
 ## <a name="next-steps"></a>Volgende stappen
 

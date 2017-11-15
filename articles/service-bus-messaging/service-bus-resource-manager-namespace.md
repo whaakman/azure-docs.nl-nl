@@ -14,17 +14,17 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: 0598ee93a38c07aa7b1102cdaf228c2a4b4dcf71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8a42638c79a8a53f80102fc344eccb521e4c1c5
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Een Service Bus-naamruimte met een Azure Resource Manager-sjabloon maken
 
 In dit artikel wordt beschreven hoe u een Azure Resource Manager-sjabloon die wordt gemaakt van een Service Bus-naamruimte van het type **Messaging** met een standaard SKU. Het artikel definieert ook de parameters die zijn opgegeven voor de uitvoering van de implementatie. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
 
-Zie voor meer informatie over het maken van sjablonen [Azure Resource Manager-sjablonen samenstellen][Authoring Azure Resource Manager templates].
+Zie [Azure Resource Manager-sjablonen samenstellen][Authoring Azure Resource Manager templates] voor meer informatie over het maken van sjablonen.
 
 Zie voor de volledige sjabloon, het [Service Bus-naamruimte sjabloon] [ Service Bus namespace template] op GitHub.
 
@@ -48,9 +48,9 @@ Klik op de volgende knop om de implementatie automatisch uit te voeren:
 [![Implementeren in Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parameters
-Met Azure Resource Manager kunt u parameters definiëren voor waarden die u wilt opgeven wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie met de naam `Parameters` die de parameterwaarden bevat. U moet een parameter voor de waarden die variëren op basis van het project dat u wilt implementeren of op basis van de omgeving die u om te implementeert definiëren. Geen parameters op voor waarden die u altijd hetzelfde gedefinieerd. De waarde van elke parameter wordt gebruikt in de sjabloon voor het definiëren van de resources die worden geïmplementeerd.
+Met Azure Resource Manager kunt u parameters definiëren voor waarden die u wilt opgeven wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie met de naam `Parameters` die de parameterwaarden bevat. U moet een parameter definiëren voor de waarden die variëren op basis van het project dat u wilt implementeren of op basis van de omgeving waarin u gaat implementeren. Definieer geen parameters voor waarden die altijd hetzelfde blijven. De waarde van elke parameter wordt gebruikt in de sjabloon voor het definiëren van de resources die worden geïmplementeerd.
 
-Deze sjabloon definieert de volgende parameters.
+Deze sjabloon definieert de volgende parameters:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 De naam van de Service Bus-naamruimte maken.
@@ -81,7 +81,7 @@ De naam van de Service Bus [SKU](https://azure.microsoft.com/pricing/details/ser
 
 ```
 
-De sjabloon definieert de waarden die zijn toegestaan voor deze parameter (Standard of Premium) en een standaardwaarde (standaard) wordt toegewezen als er geen waarde is opgegeven.
+De sjabloon definieert de waarden die zijn toegestaan voor deze parameter (Standard of Premium). Als geen waarde opgeeft, wijst de resourcemanager een standaardwaarde (standaard).
 
 Zie voor meer informatie over prijzen voor Service Bus [Service Bus-prijzen en facturering][Service Bus pricing and billing].
 
@@ -91,7 +91,7 @@ De Service Bus-API-versie van de sjabloon.
 ```json
 "serviceBusApiVersion": { 
        "type": "string", 
-       "defaultValue": "2015-08-01", 
+       "defaultValue": "2017-04-01", 
        "metadata": { 
            "description": "Service Bus ApiVersion used by the template" 
        } 

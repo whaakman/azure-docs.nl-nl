@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/02/2017
+ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 9f5b5cc597da714369d4c452edce42ea7fe205dd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: eefeedfb87bd30630439d13a434b246508defa96
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Update 5 installeren op uw StorSimple-apparaat
 
@@ -29,6 +29,7 @@ Deze zelfstudie wordt uitgelegd hoe Update 5 installeren op een StorSimple-appar
 Update 5 omvat software van apparaten, Storport en Spaceport, OS beveiligingsupdates en updates voor het besturingssysteem en schijf firmware-updates.  Software van het apparaat, Spaceport Storport, beveiliging en andere updates OS ononderbroken updates beschikbaar zijn. De ononderbroken of regelmatige updates kunnen worden toegepast via de Azure-portal of de hotfix-methode. De schijf firmware-updates verstoren updates beschikbaar zijn en worden toegepast wanneer het apparaat in de onderhoudsmodus via de hotfix-methode met de Windows PowerShell-interface van het apparaat.
 
 > [!IMPORTANT]
+> * Update 5 is een verplichte update en moet onmiddellijk worden geïnstalleerd. Zie voor meer informatie [opmerkingen bij de release van Update 5](storsimple-update5-release-notes.md).
 > * Een aantal handmatige en automatische eerste controles worden uitgevoerd voordat de installatie om te bepalen van de apparaatstatus in termen van hardware-staat en de netwerkverbinding. Deze controles vooraf worden alleen uitgevoerd als u de updates vanuit de Azure-portal toepassen.
 > * Het is raadzaam dat bij het bijwerken van een apparaat met Update 3 voor eerdere versies u de updates installeert met behulp van de hotfix-methode. Als u problemen ondervindt, [Meld een ondersteuningsticket](storsimple-8000-contact-microsoft-support.md).
 > * Het is raadzaam dat u de software en andere regelmatig updates via de Azure-portal installeert. U moet alleen gaat u naar de Windows PowerShell-interface van het apparaat (om updates te installeren) als de controle van de gateway vóór het bijwerken is mislukt in de portal. Afhankelijk van de versie die u bijwerkt, de updates kunnen 4 uur duren (of hoger) te installeren. De updates van de modus onderhoud moeten worden geïnstalleerd via de Windows PowerShell-interface van het apparaat. Als u onderhoud modus updates verstoren updates beschikbaar zijn, wordt deze leiden tot een uitvaltijd voor uw apparaat.
@@ -74,19 +75,19 @@ De hotfix-methode omvat de volgende drie stappen:
 
 U moet downloaden en installeren van de volgende hotfixes in de aangegeven volgorde en de voorgestelde mappen:
 
-| Volgorde | KB | Beschrijving | Updatetype | Installatietijd |Installeren in map|
+| Order | KB | Beschrijving | Updatetype | Installatietijd |Installeren in map|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4037264 |Software-update<br> Download beide _HcsSfotwareUpdate.exe_ en _CisMSDAgent.exe_ |Reguliere <br></br>Niet-verstoren |~ 25 minuten |FirstOrderUpdate|
 
 Als u bijwerkt vanaf een apparaat met Update 4, hoeft u alleen de cumulatieve updates voor het besturingssysteem als tweede volgorde updates installeren.
 
-| Volgorde | KB | Beschrijving | Updatetype | Installatietijd |Installeren in map|
+| Order | KB | Beschrijving | Updatetype | Installatietijd |Installeren in map|
 | --- | --- | --- | --- | --- | --- |
 | 2A. |KB4025336 |OS cumulatieve updates pakket <br> Versie van Windows Server 2012 R2 downloaden |Reguliere <br></br>Niet-verstoren |- |SecondOrderUpdate|
 
 Als installeren vanaf een apparaat met Update 3 of ouder, installeert u de volgende naast de cumulatieve updates.
 
-| Volgorde | KB | Beschrijving | Updatetype | Installatietijd |Installeren in map|
+| Order | KB | Beschrijving | Updatetype | Installatietijd |Installeren in map|
 | --- | --- | --- | --- | --- | --- |
 | 2B. |KB4011841 <br> KB4011842 |LSI stuurprogramma's en firmware-updates <br> USM firmware-update (versie 3.38) |Reguliere <br></br>Niet-verstoren |~ 3 uur <br> (inclusief 2A. + 2B. (+ 2 C.)|SecondOrderUpdate|
 | 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |OS-beveiligingspakket updates <br> Versie van Windows Server 2012 R2 downloaden |Reguliere <br></br>Niet-verstoren |- |SecondOrderUpdate|
@@ -95,7 +96,7 @@ Als installeren vanaf een apparaat met Update 3 of ouder, installeert u de volge
 
 U moet mogelijk ook installeren schijf firmware-updates boven op de updates die zijn aangegeven in de voorgaande tabellen. U kunt controleren of u de schijf firmware-updates door het uitvoeren van moet de `Get-HcsFirmwareVersion` cmdlet. Als u deze firmwareversies: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, en u niet wilt dat deze updates te installeren.
 
-| Volgorde | KB | Beschrijving | Updatetype | Installatietijd | Installeren in map|
+| Order | KB | Beschrijving | Updatetype | Installatietijd | Installeren in map|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB4037263 |Schijf-firmware |Onderhoud <br></br>Verstoren |~ 30 minuten | ThirdOrderUpdate |
 

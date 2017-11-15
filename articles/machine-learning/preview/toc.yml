@@ -88,7 +88,7 @@
           href: how-to-scale-clusters.md
         - name: Een webservice implementeren
           href: model-management-service-deploy.md
-        - name: Een webservice consumeren
+        - name: Een webservice gebruiken
           href: model-management-consumption.md
         - name: Modelgegevens verzamelen
           href: how-to-use-model-data-collection.md
@@ -118,6 +118,8 @@
           href: scenario-tdsp-biomedical-recognition.md
         - name: Inkomsten in VS classificeren - TDSP-project
           href: scenario-tdsp-classifying-us-incomes.md
+        - name: Afbeeldingsclassificatie met behulp van CNTK
+          href: scenario-image-classification-using-cntk.md
 - name: Naslaginformatie
   items:
     - name: Gegevensvoorbereiding
@@ -162,6 +164,8 @@
       items:
         - name: Sprint 0 - oktober 2017
           href: release-notes-sprint-0.md
+        - name: Sprint 1 - november 2017
+          href: release-notes-sprint-1.md
 - name: Resources
   items:
     - name: Veelgestelde vragen

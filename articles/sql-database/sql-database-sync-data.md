@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 5c4509bc1d05bc422f6bc5599d4635020ded63e9
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: fe11926cb7f6b2a80913895b685acfcc433e9805
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-azure-sql-data-sync-preview"></a>Synchronisatie van gegevens over meerdere cloud en on-premises databases met Azure SQL-gegevenssynchronisatie (Preview)
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synchronisatie van gegevens over meerdere cloud en on-premises databases met SQL synchroniseren van gegevens (Preview)
 
 Synchroniseren van de SQL-gegevens is een service die is gebouwd op Azure SQL Database waarmee u de gegevens die u twee richtingen op meerdere SQL-databases en exemplaren van SQL Server selecteert synchroniseren.
 
@@ -44,7 +44,7 @@ Een hub en spoke-topologie gegevenssynchronisatie gebruikt om gegevens te synchr
 -   De **synchronisatiedatabase** bevat de metagegevens en het logboek voor synchroniseren van gegevens. De synchronisatiedatabase is dat een Azure SQL Database zich in dezelfde regio bevinden als de Database van de Hub. De synchronisatiedatabase is klant gemaakt en die eigendom zijn van de klant.
 
 > [!NOTE]
-> Als u een on-premises-database gebruikt, hebt u [een lokale agent configureren.](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-sql-data-sync)
+> Als u een on-premises-database gebruikt, hebt u [configureren van een lokale agent](sql-database-get-started-sql-data-sync.md#add-on-prem).
 
 ![Gegevens tussen databases synchroniseren](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -60,7 +60,7 @@ Synchroniseren van gegevens is handig in gevallen waarbij gegevens moet worden b
 
 Synchroniseren van gegevens is niet geschikt is voor de volgende scenario's:
 
--   Noodherstel
+-   Herstel na noodgevallen
 
 -   Lezen van schaal
 
@@ -155,8 +155,9 @@ Gegevens synchroniseren gebruikt invoegen, bijwerken en verwijderen van triggers
 
 Zie voor meer informatie over het synchroniseren van de SQL-gegevens:
 
--   [Aan de slag met Azure SQL-gegevenssynchronisatie](sql-database-get-started-sql-data-sync.md)
+-   [Synchroniseren van Azure SQL-gegevens instellen](sql-database-get-started-sql-data-sync.md)
 -   [Aanbevolen procedures voor het synchroniseren van Azure SQL-gegevens](sql-database-best-practices-data-sync.md)
+-   [Monitor Azure SQL-gegevens synchroniseren met OMS Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Problemen oplossen met het synchroniseren van Azure SQL-gegevens](sql-database-troubleshoot-data-sync.md)
 
 -   Voer de PowerShell-voorbeelden die laten hoe u zien voor het synchroniseren van de SQL-gegevens configureren:

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: badaefb4986f573362babea81d704bf2be067d6b
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 28ceb7345c0d74e2a7d7911d5b4bf24a0ceb214a
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL-database gebruiken op Microsoft Azure-Stack
 
@@ -153,7 +153,7 @@ U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of para
 Afhankelijk van de snelheid van de prestaties en downloaden voor system, kan installatie slechts 20 minuten of als long als enkele uren duren. Als de blade MySQLAdapter niet beschikbaar is, vernieuwt u de beheerportal.
 
 > [!NOTE]
-> Als de installatie van meer dan 90 minuten duurt, mislukken mogelijk en ziet u een foutbericht op het scherm en in het logboekbestand. De implementatie wordt van de mislukte stap geprobeerd. Systemen die niet voldoen aan de aanbevolen specificaties voor geheugen en core kan mogelijk niet de MySQL RP implementeren.
+> Als de installatie van meer dan 90 minuten duurt, mislukken mogelijk en ziet u een foutbericht op het scherm en in het logboekbestand. De implementatie wordt van de mislukte stap geprobeerd. Systemen die niet voldoen aan de aanbevolen specificaties voor geheugen en vCPU kan mogelijk niet de MySQL RP implementeren.
 
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: jingwang
-ms.openlocfilehash: d7da4c3c4aa902cf9ccb97ebd13b7d16940f2c32
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: ca5f8e43b6667aa1c2e3ac38e7ea00b5bd86b72f
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Gegevens kopiëren naar of van de Azure-tabel met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -187,11 +187,11 @@ Als Azure Table-kolom van het type datetime:
 
 ### <a name="azure-table-as-sink"></a>Azure-tabel als sink
 
-Om gegevens te kopiëren van Azure Table, stelt u het brontype in de kopieerbewerking naar **AzureTableSink**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **sink** sectie:
+Om gegevens te kopiëren naar Azure Table, stelt u het sink-type in de kopieerbewerking naar **AzureTableSink**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **sink** sectie:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **AzureTableSink** |Ja |
+| type | De eigenschap type van de activiteit kopiëren sink moet worden ingesteld op: **AzureTableSink** |Ja |
 | azureTableDefaultPartitionKeyValue |Standaardwaarde voor de partitiesleutel die kan worden gebruikt door de sink. |Nee |
 | azureTablePartitionKeyName |Geef de naam van de kolom waarvan de waarden worden gebruikt als partitiesleutels. Als niet wordt opgegeven, wordt 'AzureTableDefaultPartitionKeyValue' gebruikt als de partitiesleutel. |Nee |
 | azureTableRowKeyName |Geef de naam van de kolom waarvan de kolomwaarden worden gebruikt als de rijsleutel. Als niet wordt opgegeven, gebruikt u een GUID voor elke rij. |Nee |
@@ -264,7 +264,7 @@ Wanneer u gegevens verplaatst naar & van Azure-tabel, de volgende [toewijzingen 
 |:--- |:--- |:--- |
 | Edm.Binary |Byte] |Een matrix met bytes maximaal 64 KB. |
 | Edm.Boolean |BOOL |Een Booleaanse waarde. |
-| Edm.DateTime |Datum/tijd |Een 64-bits waarde wordt uitgedrukt als Coordinated Universal Time (UTC). Het ondersteunde bereik van de datum-/ begint vanaf 12:00 middernacht, 1 januari 1601 A.D. (C.E.) UTC. Het bereik eindigt op 31 December 9999. |
+| Edm.DateTime |Datum en tijd |Een 64-bits waarde wordt uitgedrukt als Coordinated Universal Time (UTC). Het ondersteunde bereik van de datum-/ begint vanaf 12:00 middernacht, 1 januari 1601 A.D. (C.E.) UTC. Het bereik eindigt op 31 December 9999. |
 | Edm.Double |dubbele |Een 64-bits drijvende-kommawaarde. |
 | Edm.Guid |GUID |Een globally unique identifier van 128-bits. |
 | Edm.Int32 |Int32 |Een 32-bits geheel getal. |

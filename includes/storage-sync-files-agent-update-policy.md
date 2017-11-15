@@ -1,8 +1,10 @@
-Regelmatig worden updates van de Azure File Sync-agent uitgebracht om nieuwe functionaliteit toe te voegen en eventuele aangetroffen problemen op te lossen. We raden u aan om Microsoft Update in te schakelen om alle updates van de Azure File Sync-agent te ontvangen op het moment dat we ze uitbrengen. We begrijpen dat sommige organisaties een strikt beleid hebben voor updates en ze eerst willen testen. Voor implementaties met oudere versies van de Azure File Sync-agent:
+Updates op de Azure-bestand Sync-agent worden uitgebracht regelmatig nieuwe functionaliteit toe te voegen en los eventuele problemen die zijn ontdekt. Het is raadzaam dat u Microsoft Update om alle updates met de Azure-bestand Sync-agent zoals we ze brengen configureren. We begrijpen dat sommige organisaties, zoals strikt bepalen en de updates hebt getest. 
 
-- De opslagsynchronisatieservice houdt gedurende drie maanden na de eerste release van een nieuwe primaire versie rekening met de vorige primaire versie. Versie 1. \* wordt bijvoorbeeld tot drie maanden na de release van versie 2.\* door de opslagsynchronisatieservice ondersteund.
-- Nadat de drie maanden zijn verstreken, gaat de opslagsynchronisatieservice geregistreerde servers die de verlopen versie gebruiken, blokkeren van synchronisatie met de synchronisatiegroepen.
-- Binnen de drie maanden voor een eerdere primaire versie, worden alle opgeloste fouten alleen voor de huidige primaire versie doorgevoerd.
+Voor implementaties die gebruikmaken van eerdere versies van de Azure-bestand Sync-agent:
+
+- De synchronisatieservice opslag respecteert de hoofdversie van de voorgaande drie maanden na de initiële release van een nieuwe primaire versie. De synchronisatieservice opslag ondersteunen bijvoorbeeld versie 1. \* tot drie maanden na de release van versie 2. \*.
+- Nadat de drie maanden zijn verstreken, begint de synchronisatieservice opslag blokkeren geregistreerde Servers die van de verlopen versie gebruikmaken wordt gesynchroniseerd met de synchronisatie-groepen.
+- In de drie maanden voor een voorgaande hoofdversie gaat alle oplossingen voor problemen alleen voor de huidige primaire versie.
 
 > [!Note]  
 > U ontvangt een pop-upmelding in Azure Portal als u een versie van Azure File Sync gebruikt die binnen de komende drie maanden verloopt.

@@ -36,12 +36,19 @@
 ### [Azure Portal](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
 ### [Azure CLI](how-to-routefilter-cli.md)
+## [Van openbare peering overstappen op Microsoft-peering](how-to-move-peering.md)
 ## [Een circuit van klassiek naar Resource Manager verplaatsen](expressroute-howto-move-arm.md)
 ## [Gekoppelde virtuele netwerken van het klassieke model naar Resource Manager migreren](expressroute-migration-classic-resource-manager.md)
 ## Een router voor ExpressRoute configureren
 ### [Een router configureren](expressroute-config-samples-routing.md)
 ### [Voorbeelden van routerconfiguraties voor NAT](expressroute-config-samples-nat.md)
 ## [Netwerkprestatiemeter configureren voor ExpressRoute](how-to-npm.md)
+## Artikelen over het klassieke implementatiemodel
+### [Een circuit wijzigen](expressroute-howto-circuit-classic.md)
+### [Een peeringconfiguratie maken en wijzigen](expressroute-howto-routing-classic.md)
+### [Een virtueel netwerk koppelen aan een ExpressRoute-circuit](expressroute-howto-linkvnet-classic.md)
+### [Gelijktijdige ExpressRoute- en S2S-verbindingen configureren](expressroute-howto-coexist-classic.md)
+### [Een gateway aan een VNet toevoegen](expressroute-howto-add-gateway-classic.md)
 
 ## Beste praktijken
 ### [Aanbevolen procedures voor netwerkbeveiliging en cloudservices](../best-practices-network-security.md)

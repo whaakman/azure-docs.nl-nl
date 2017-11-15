@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: xshi
-ms.openlocfilehash: 0b8ae318fab2eaa186dca050ce2710b1ff232783
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: da757085e55fa0d8ca883f8ed64f30ea81e973f7
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Verbinding maken met IoT DevKit AZ3166 Azure IoT Hub in de cloud
 
@@ -29,7 +29,7 @@ U kunt de [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-ki
 ## <a name="what-you-do"></a>Wat u doet
 Verbinding maken met de [DevKit](https://microsoft.github.io/azure-iot-developer-kit/) naar een Azure-IoT-hub die u maakt, kunt u de temperatuur en vochtigheid-gegevens verzamelen van sensoren en de gegevens verzenden naar de IoT-hub.
 
-Heb je nog een DevKit? [Een](https://aka.ms/iot-devkit-purchase).
+Heb je nog een DevKit? [Probeer de simulator](https://aka.ms/iot-devkit-simulator) of [een](https://aka.ms/iot-devkit-purchase).
 
 ## <a name="what-you-learn"></a>Wat u leert
 

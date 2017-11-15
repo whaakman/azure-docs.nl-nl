@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 11/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 6c74db1659742aa41306388273bec46800ba7609
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bab7a0646d34de3b6d71370a0fa4216845ee6a2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Toegang tot diagnoselogboeken voor Azure Data Lake Analytics
 
@@ -36,11 +36,9 @@ Diagnostische logboekregistratie kunt u voor het verzamelen van gegevens audittr
 
     ![Diagnostische gegevens voor het verzamelen van de audit en logboeken aanvragen inschakelen](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
-3. Van __diagnostische instellingen__, heeft de status __op__ en selecteer de opties voor logboekregistratie.
+3. Van __diagnostische instellingen__, voer een __naam__ voor deze configuratie voor logboekregistratie en selecteer vervolgens registratieopties.
 
     ![Diagnostische gegevens voor het verzamelen van de audit en logboeken aanvragen inschakelen](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "logboeken met diagnostische gegevens inschakelen")
-
-   * Stel **Status** naar **op** Diagnostische logboekregistratie in te schakelen.
 
    * U kunt kiezen om te verwerken/store de gegevens op drie verschillende manieren.
 
@@ -58,34 +56,14 @@ Diagnostische logboekregistratie kunt u voor het verzamelen van gegevens audittr
         > [!NOTE]
         > U moet een selecteren __archiveren naar een opslagaccount__, __Stream naar een Event Hub__ of __verzenden met logboekanalyse__ voordat u op de __opslaan__ knop.
 
-Wanneer u de diagnostische instellingen hebt ingeschakeld, kunt u terugkeren naar de __diagnostische logboeken__ blade om de logboeken weer te geven.
-
-## <a name="view-logs"></a>Logboeken bekijken
-
-### <a name="use-the-data-lake-analytics-view"></a>De weergave van Data Lake Analytics gebruiken
-
-1. Account van uw Data Lake Analytics blade onder **bewaking**, selecteer **diagnostische logboeken** en selecteer vervolgens een item om Logboeken voor weer te geven.
-
-    ![Diagnostische logboekregistratie weergave](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "diagnostische logboeken bekijken")
-
-2. De logboeken worden gecategoriseerd door **controlelogboeken** en **aanvragen logboeken**.
-
-    ![logboekvermeldingen](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
-
-   * Logboeken aanvragen vastleggen elk verzoek API op het Data Lake Analytics-account.
-   * Controlelogboeken zijn vergelijkbaar met Logboeken aanvragen, maar bieden een veel gedetailleerder verdeling van de bewerkingen. Bijvoorbeeld, kan een API-aanroep voor het uploaden van één in een logboek met aanvragen resulteren in meerdere "Toevoegen" bewerkingen in het controlelogboek.
-
-3. Klik op de **downloaden** koppeling voor een logboekvermelding logboek downloaden.
-
 ### <a name="use-the-azure-storage-account-that-contains-log-data"></a>Gebruik de Azure Storage-account met logboekgegevens
 
-1. Open de blade van Azure Storage-account die is gekoppeld met Data Lake Analytics voor logboekregistratie en klik vervolgens op __Blobs__. De **Blob-service** blade bevat twee containers.
-
-    ![Diagnostische logboekregistratie weergave](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "diagnostische logboeken bekijken")
+1. Als u wilt weergeven in de blobcontainers die logboekgegevens houdt, open de Azure Storage-account voor Data Lake Analytics gebruikt voor aanmelding en klik vervolgens op __Blobs__.
 
    * De container **insights-logboeken-controlegebeurtenissen** bevat de controlelogboeken.
    * De container **insights-logboeken-aanvragen** bevat de logboeken van de aanvraag.
-2. In deze containers worden de logboeken worden opgeslagen onder de volgende structuur:
+
+2. De logboeken worden opgeslagen in de containers onder de structuur van het volgende:
 
         resourceId=/
           SUBSCRIPTIONS/

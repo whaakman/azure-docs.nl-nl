@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 10/16/2017
-ms.openlocfilehash: 73785cf8c4f1539cb52254ba316ed7d888b683aa
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.date: 11/01/2017
+ms.openlocfilehash: a8cea099103bd6a306e41770e47b1279f5dbcdea
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Een Azure-database voor MySQL-server maken met behulp van Azure Portal
 Azure Database voor MySQL is een beheerde service waarmee u MySQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. In deze Quick Start ontdekt u hoe u in ongeveer vijf minuten een Azure Database voor MySQL-server maakt in Azure Portal.  
@@ -70,19 +70,21 @@ De service Azure Database voor MySQL maakt een firewall op serverniveau. De fire
 
 3.  Selecteer onder de kop **Firewallregels** het lege tekstvak in de kolom **Regelnaam** om te beginnen met het maken van de firewallregel. 
 
-    In deze Quick Start staan we alle IP-adressen toe op de server door in het vak in elke kolom de volgende waarden in te vullen:
+   ![Verbindingsbeveiliging - Firewallregels](./media/quickstart-create-mysql-server-database-using-azure-portal/5_firewall-settings.png)
 
-    Regelnaam | Start-IP | Eind-IP 
-    ---|---|---
-    AllowAllIps |  0.0.0.0 | 255.255.255.255
-    
-    Het toestaan van alle IP-adressen is niet veilig. Dit voorbeeld wordt gemakshalve gegeven, maar in een praktijksituatie moet u de precieze IP-adresbereiken weten die u voor uw toepassingen en gebruikers moet toevoegen. 
+   In deze Quick Start staan we alle IP-adressen toe op de server door in het vak in elke kolom de volgende waarden in te vullen:
+
+   Regelnaam | Start-IP | Eind-IP 
+   ---|---|---
+   AllowAllIps |  0.0.0.0 | 255.255.255.255
+   
+   Het toestaan van alle IP-adressen is niet veilig. Dit voorbeeld wordt gemakshalve gegeven, maar in een praktijksituatie moet u de precieze IP-adresbereiken weten die u voor uw toepassingen en gebruikers moet toevoegen. 
 
 4. Selecteer **Opslaan** op de bovenste werkbalk van de pagina **Verbindingsbeveiliging**. Ga pas verder als u de melding ziet dat de update is voltooid. 
 
-    > [!NOTE]
-    > Verbindingen met Azure Database voor MySQL communiceren via poort 3306. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 3306 mogelijk niet toegestaan. In dat geval kunt u alleen verbinding maken met uw server als uw IT-afdeling poort 3306 openstelt.
-    > 
+   > [!NOTE]
+   > Verbindingen met Azure Database voor MySQL communiceren via poort 3306. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 3306 mogelijk niet toegestaan. In dat geval kunt u alleen verbinding maken met uw server als uw IT-afdeling poort 3306 openstelt.
+   > 
 
 ## <a name="get-the-connection-information"></a>De verbindingsgegevens ophalen
 Voor verbinding met uw databaseserver moet u beschikken over de volledige servernaam en aanmeldingsreferenties van de beheerder. U hebt deze waarden mogelijk al eerder in dit artikel genoteerd. Als u dat niet hebt gedaan, kunt u de servernaam en aanmeldingsgegevens eenvoudig terugvinden op de pagina **Overzicht** of  **Eigenschappen** van de server in Azure Portal.

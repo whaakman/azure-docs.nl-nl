@@ -13,13 +13,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/18/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: c293de5b43103c8cbec01f61a26b8b28ac7e9116
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Beheer van de service voor Azure Search in de Azure portal
 > [!div class="op_single_selector"]
@@ -34,13 +34,10 @@ Azure Search is een volledig beheerde, cloud-gebaseerde zoekservice gebruikt voo
 * Servicecapaciteit door het wijzigen van de toewijzing van partities en replica's aanpassen.
 * Monitor Resourcegebruik ten opzichte van maximaal limieten van de servicelaag.
 
-**Niet binnen het bereik** 
+U ziet dat *upgrade* wordt niet vermeld als een beheertaak. Omdat bronnen worden toegewezen wanneer de service is ingericht, vereist verplaatsen naar een andere laag een nieuwe service. Zie voor meer informatie [maken van een Azure Search-service](search-create-service-portal.md).
 
-*Inhoudsbeheer* (of index-management) verwijst naar bewerkingen zoals zoeken verkeer om te begrijpen query volume, Ontdek welke mensen zoeken voor, en hoe geslaagde zoekresultaten zijn klanten tot specifieke documenten in uw index begeleiding voorwaarden analyseren. Zie voor meer informatie in dit opzicht [Search Traffic Analytics voor Azure Search](search-traffic-analytics.md).
-
-*Query-prestaties* ook valt buiten het bereik van dit artikel. Zie voor meer informatie [gebruiks- en metrische gegevens controleren](search-monitor-usage.md) en [prestaties en optimalisatie](search-performance-optimization.md).
-
-*Upgrade* is niet een beheertaak. Omdat bronnen worden toegewezen wanneer de service is ingericht, vereist verplaatsen naar een andere laag een nieuwe service. Zie voor meer informatie [maken van een Azure Search-service](search-create-service-portal.md).
+> [!Tip]
+> Hulp bij het zoeken verkeer of query-prestaties analyseren zoekt? Beter inzicht in de query-volume voorwaarden mensen zoeken, en hoe geslaagde zoekresultaten zijn klanten leidt tot specifieke documenten in uw index. Zie voor instructies [Search Traffic Analytics voor Azure Search](search-traffic-analytics.md), [gebruiks- en metrische gegevens controleren](search-monitor-usage.md), en [prestaties en optimalisatie](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -113,15 +110,10 @@ Een andere manier om weer te geven van machtigingen voor toegang is te klikken o
 ## <a name="monitor-resource-usage"></a>Resourcegebruik van de monitor
 In het dashboard is Broncontrole beperkt tot de informatie die wordt weergegeven in het servicedashboard en enkele metrische gegevens die u verkrijgen kunt door het opvragen van de service. U kunt op het servicedashboard in de sectie gebruik snel bepalen of partitie resource niveaus, geschikt voor uw toepassing zijn.
 
-De API van zoekservice gebruikt, kunt u een aantal aan documenten en indexen ophalen. Er zijn een vaste limieten die zijn gekoppeld aan dit aantal is gebaseerd op de prijscategorie. Zie voor meer informatie [Servicelimieten zoeken](search-limits-quotas-capacity.md). 
+Met de Search Service REST API, krijgt u een aantal aan documenten en indexen programmatisch: 
 
 * [Indexstatistieken opvragen](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
 * [Aantal documenten](https://docs.microsoft.com/rest/api/searchservice/count-documents)
-
-> [!NOTE]
-> Gedrag caching, kunt u een limiet tijdelijk overstate. Bijvoorbeeld, wanneer u de gedeelde-service gebruikt, ziet u een document aantal via de vaste limiet van 10.000 documenten. Te is tijdelijk en op de volgende controle van de enforcement zal worden gedetecteerd. 
-> 
-> 
 
 ## <a name="disaster-recovery-and-service-outages"></a>Disaster recovery en service uitval
 

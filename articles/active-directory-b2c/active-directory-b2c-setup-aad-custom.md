@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: 6c073d70debfdc3560405955d65fa9ccaa7d8b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b91c75ec73a8b47a67241e3b69c2ed68d5f9b2a
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: Meld u aan met behulp van Azure AD-accounts
 
@@ -52,6 +52,9 @@ Om in te schakelen aanmelden voor gebruikers met een specifiek Azure AD-organisa
 1. Voer een naam voor uw toepassing (bijvoorbeeld `Azure AD B2C App`).
 1. Selecteer **Web-app / API** voor het toepassingstype.
 1. Voor **aanmeldings-URL**, voer de volgende URL waar `yourtenant` wordt vervangen door de naam van uw Azure AD B2C-tenant (`fabrikamb2c.onmicrosoft.com`):
+
+    >[!NOTE]
+    >De waarde voor 'yourtenant' moet alleen kleine letters in de **aanmeldings-URL**.
 
     ```
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp

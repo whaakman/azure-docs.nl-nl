@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
-ms.openlocfilehash: f3195fa83479986a3e605abce618c78bcdb64dac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a07fb9388f1e83bd167cf7c65cd3cd1e4f51ecd1
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Azure Backup-fout oplossen: problemen met de agent en/of extensie
 
@@ -67,6 +67,11 @@ Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-ser
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>5 oorzaak: [de Backup-extensie niet bijwerken of laden](#the-backup-extension-fails-to-update-or-load)
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>De opgegeven schijf-configuratie wordt niet ondersteund.
+
+> [!NOTE]
+> We hebben een private preview ter ondersteuning van back-ups voor virtuele machines met > 1TB zonder begeleiding schijven. Raadpleeg voor informatie [Private preview voor back-ondersteuning voor grote schijven VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+>
+>
 
 Momenteel schijfgrootten biedt geen ondersteuning voor Azure Backup [groter zijn dan 1023GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
 - Als er meer dan 1 TB schijven [koppel nieuwe schijven](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) die minder dan 1 TB zijn <br>

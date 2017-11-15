@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/06/2017
+ms.date: 11/09/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 46f8b2c20d9ce31ef3f782d098de09952701bbcc
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 59790185c4603eac99032dd77a79bd8315402538
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>NVIDIA GPU-stuurprogramma's installeren op N-reeks virtuele machines waarop Linux wordt uitgevoerd
 
@@ -70,11 +70,11 @@ NVIDIA RASTER stuurprogramma's installeren op virtuele machines NV, een SSH-verb
 5. Download en installeer het stuurprogramma RASTER:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
   ``` 
 
 6. Wanneer u wordt gevraagd of u wilt uitvoeren van het hulpprogramma nvidia xconfig selecteren om bij te werken uw configuratiebestand X **Ja**.
@@ -139,11 +139,11 @@ NVIDIA RASTER stuurprogramma's installeren op virtuele machines NV, een SSH-verb
 5. Download en installeer het stuurprogramma RASTER:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
   ``` 
 6. Wanneer u wordt gevraagd of u wilt uitvoeren van het hulpprogramma nvidia xconfig selecteren om bij te werken uw configuratiebestand X **Ja**.
 
@@ -165,7 +165,7 @@ NVIDIA RASTER stuurprogramma's installeren op virtuele machines NV, een SSH-verb
 
 Query uitvoeren op de apparaatstatus GPU SSH naar de virtuele machine en voer de [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) opdrachtregelprogramma met het stuurprogramma geïnstalleerd. 
 
-Vergelijkbaar met de volgende uitvoer wordt weergegeven:
+Vergelijkbaar met de volgende uitvoer weergegeven. Het is mogelijk dat uw versie van stuurprogramma en GPU details afwijken van de namen weergegeven.
 
 ![De apparaatstatus NVIDIA](./media/n-series-driver-setup/smi-nv.png)
  
@@ -229,7 +229,7 @@ Vervolgens uitvoeren installatieopdrachten die specifiek is voor uw distributiep
 
 1. Download en installeer de CUDA stuurprogramma's.
   ```bash
-  CUDA_REPO_PKG=cuda-9-0_9.0.176-1_amd64.deb
+  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
 
   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
@@ -352,7 +352,7 @@ NC24r VM's van een van de volgende afbeeldingen in de Azure Marketplace die onde
 
 * Er is een bekend probleem met stuurprogramma's voor CUDA op N-reeks virtuele machines in Azure die de 4.4.0-75 Linux kernel op Ubuntu 16.04 TNS worden uitgevoerd. Als u een upgrade vanaf een eerdere kernelversie uitvoert, upgrade uit naar ten minste kernel versie 4.4.0-77.
 
-* U kunt persistentie-modus met nvidia smi zodat de uitvoer van de opdracht sneller is als u kaarten query wilt instellen. Persistentie als modus wilt instellen, uitvoeren `nvidia-smi -pm 1`. Houd er rekening mee dat als de virtuele machine opnieuw wordt opgestart, de instelling voor de verdwijnt. U kunt de instelling voor de uit te voeren bij het opstarten altijd script.
+* U kunt instellen persistentie modus met `nvidia-smi` zodat de uitvoer van de opdracht sneller is als u query-kaarten wilt. Persistentie als modus wilt instellen, uitvoeren `nvidia-smi -pm 1`. Houd er rekening mee dat als de virtuele machine opnieuw wordt opgestart, de instelling voor de verdwijnt. U kunt de instelling voor de uit te voeren bij het opstarten altijd script.
 
 
 ## <a name="next-steps"></a>Volgende stappen

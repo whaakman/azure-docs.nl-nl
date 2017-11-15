@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/16/2017
+ms.date: 11/10/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 732ec45003481b0e2f2eca03b6ae13772d325ef1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 426b7ff6114fd0b79a6af71a78705f11b80862bf
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testen van uw oplossing met gesimuleerde apparaten
 
@@ -173,7 +173,7 @@ De `lightbulb-01.json` -bestand definieert de kenmerken van het type, zoals de t
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      },
+      }
     }
     ```
 
@@ -299,12 +299,12 @@ De volgende stappen ziet u hoe u de bestanden die definiëren van de ingebouwde 
 1. Als u dit nog niet hebt gedaan, gebruik de volgende opdracht voor het klonen van de **apparaat simulatie** GitHub-opslagplaats met uw lokale machine:
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
+    git clone https://github.com/Azure/device-simulation-dotnet.git
     ```
 
-1. Elk apparaattype heeft een JSON-modelbestand en de bijbehorende scripts in de `data/devicemodels` map. De bestanden die de gesimuleerde definiëren **Koelunit** apparaattype zijn:
-    * `data/devicemodels/chiller-01.json`
-    * `data/devicemodels/scripts/chiller-01-state.js`
+1. Elk apparaattype heeft een JSON-modelbestand en de bijbehorende scripts in de `Services/data/devicemodels` map. De bestanden die de gesimuleerde definiëren **Koelunit** apparaattype zijn:
+    * `Services/data/devicemodels/chiller-01.json`
+    * `Services/data/devicemodels/scripts/chiller-01-state.js`
 
 ### <a name="specify-the-new-telemetry-type"></a>Geef het nieuwe telemetrie-type
 

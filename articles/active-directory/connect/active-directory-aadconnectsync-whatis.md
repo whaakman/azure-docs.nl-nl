@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 4edac05325ad12596d982d113df0db7461124b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b00f756fdbd059b917ac7d28f24b1a0ec22594a9
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect-synchronisatie: inzicht en synchronisatie aanpassen
 De Azure Active Directory Connect-Synchronisatieservices (Azure AD Connect sync) is een belangrijkste onderdeel van Azure AD Connect. Dit zorgt voor alle bewerkingen die betrekking hebben op het synchroniseren van identiteitsgegevens tussen uw on-premises omgeving en Azure AD. Azure AD Connect-synchronisatie is de opvolger van DirSync, Azure AD Sync en Forefront Identity Manager met de Azure Active Directory-Connector geconfigureerd.
 
 Dit onderwerp is de startpagina voor **Azure AD Connect-synchronisatie** (ook wel **synchronisatie-engine**) en vindt u koppelingen naar andere onderwerpen die zijn gekoppeld. Zie voor koppelingen naar Azure AD Connect [uw on-premises identiteiten integreren met Azure Active Directory](active-directory-aadconnect.md).
 
-De synchronisatieservice bestaat uit twee onderdelen: de on-premises **Azure AD Connect-synchronisatie** onderdeel en de servicezijde in Azure AD aangeroepen **Azure AD Connect-synchronisatieservice**. De service is gebruikelijk voor DirSync, Azure AD Sync en Azure AD Connect.
+De synchronisatieservice bestaat uit twee onderdelen: de on-premises **Azure AD Connect-synchronisatie** onderdeel en de servicezijde in Azure AD aangeroepen **Azure AD Connect-synchronisatieservice**. 
 
 ## <a name="azure-ad-connect-sync-topics"></a>Azure AD Connect sync-onderwerpen
 | Onderwerp | Er wordt aangegeven en wanneer lezen |

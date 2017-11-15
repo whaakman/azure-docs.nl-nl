@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 1ecded3af6396f50e67dc5d2a9ef8337699046ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 855e315f66858210875039f91f7f05055ff7d9b9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Netwerken modi voor service Fabric-container
 
-De standaardwaarde netwerken modus in de Service Fabric-cluster voor containerservices aangeboden is de `nat` netwerken modus. Met de `nat` netwerken met meer dan één containers service luistert naar de dezelfde poort leidt tot implementatiefouten modus. Voor verschillende uitgevoerd services die luisteren op dezelfde poort-, Service Fabric ondersteunt de `open` netwerken modus (versie 5.7 of hoger). Met de `open` modus netwerken elke containerservice een dynamisch toegewezen IP-adres intern zodat meerdere services om te luisteren op dezelfde poort opgehaald.   
+De standaardwaarde netwerken modus in de Service Fabric-cluster voor containerservices aangeboden is de `nat` netwerken modus. Met de `nat` netwerken met meer dan één containers service luistert naar de dezelfde poort leidt tot implementatiefouten modus. Voor verschillende uitgevoerd services die luisteren op dezelfde poort-, Service Fabric ondersteunt de `Open` netwerken modus (versie 5.7 of hoger). Met de `Open` modus netwerken elke containerservice een dynamisch toegewezen IP-adres intern zodat meerdere services om te luisteren op dezelfde poort opgehaald.   
 
-Dus met een type één service met een statische eindpunt gedefinieerd in het servicemanifest, nieuwe services kunnen worden gemaakt en verwijderd zonder implementatiefouten met behulp van de `open` netwerken modus. Op deze manier kunnen worden gebruikt dezelfde `docker-compose.yml` bestand met toewijzingen van statische poort voor het maken van meerdere services.
+Dus met een type één service met een statische eindpunt gedefinieerd in het servicemanifest, nieuwe services kunnen worden gemaakt en verwijderd zonder implementatiefouten met behulp van de `Open` netwerken modus. Op deze manier kunnen worden gebruikt dezelfde `docker-compose.yml` bestand met toewijzingen van statische poort voor het maken van meerdere services.
 
 Met behulp van het dynamisch toegewezen IP-adres voor het detecteren van de services wordt niet aangeraden sinds de IP-adreswijzigingen wanneer de service opnieuw wordt gestart of verplaatst naar een ander knooppunt. Gebruik alleen de **Service Fabric Naming Service** of de **DNS-Service** voor servicedetectie. 
 
 
 > [!WARNING]
-> Alleen een totaal van 4096 IP-adressen per vNET in Azure zijn toegestaan. Dus de som van het aantal knooppunten en het aantal container service-exemplaren (met `open` netwerken) mag niet meer dan 4096 binnen een vNET. Voor dergelijke high-density scenario's, de `nat` netwerken modus wordt aanbevolen.
+> Alleen een totaal van 4096 IP-adressen per vNET in Azure zijn toegestaan. Dus de som van het aantal knooppunten en het aantal container service-exemplaren (met `Open` netwerken) mag niet meer dan 4096 binnen een vNET. Voor dergelijke high-density scenario's, de `nat` netwerken modus wordt aanbevolen.
 >
 
 ## <a name="setting-up-open-networking-mode"></a>Open netwerken modus instellen
@@ -183,7 +183,7 @@ Met behulp van het dynamisch toegewezen IP-adres voor het detecteren van de serv
    |     2000 | Custom_Dns | VirtualNetwork | VirtualNetwork | DNS (UDP/53) | Toestaan  |
 
 
-4. Geef de modus voor netwerken in het app-manifest voor elke service `<NetworkConfig NetworkType="open">`.  De modus `open` resulteert in de service een toegewijde IP-adres ophalen. Als een modus niet is opgegeven, wordt het basic standaard `nat` modus. Dus in het volgende voorbeeld manifest `NodeContainerServicePackage1` en `NodeContainerServicePackage2` kan elke luisteren op dezelfde poort (beide services luisteren `Endpoint1`).
+4. Geef de modus voor netwerken in het app-manifest voor elke service `<NetworkConfig NetworkType="Open">`.  De modus `Open` resulteert in de service een toegewijde IP-adres ophalen. Als een modus niet is opgegeven, wordt het basic standaard `nat` modus. Dus in het volgende voorbeeld manifest `NodeContainerServicePackage1` en `NodeContainerServicePackage2` kan elke luisteren op dezelfde poort (beide services luisteren `Endpoint1`). Wanneer de `Open` netwerken modus serienummergroep opgegeven, is `PortBinding` configs kan niet worden opgegeven.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -197,8 +197,7 @@ Met behulp van het dynamisch toegewezen IP-adres voor het detecteren van de serv
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage1" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService1.Code" Isolation="hyperv">
-           <NetworkConfig NetworkType="open"/>
-           <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+           <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
@@ -206,14 +205,13 @@ Met behulp van het dynamisch toegewezen IP-adres voor het detecteren van de serv
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage2" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService2.Code" Isolation="default">
-            <NetworkConfig NetworkType="open"/>
-            <PortBinding ContainerPort="8910" EndpointRef="Endpoint1"/>
+            <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
     </ApplicationManifest>
     ```
-U kunt combineren en overeenkomen met verschillende netwerken modi alle services in een toepassing voor een Windows-cluster. U kunt dus sommige services hebben op `open` modus en sommige op `nat` netwerken modus. Als een service is geconfigureerd met `nat`, de poort die wordt geluisterd naar moet uniek zijn. De combinatie van netwerken modi voor verschillende services wordt niet ondersteund op Linux-clusters. 
+U kunt combineren en overeenkomen met verschillende netwerken modi alle services in een toepassing voor een Windows-cluster. U kunt dus sommige services hebben op `Open` modus en sommige op `nat` netwerken modus. Als een service is geconfigureerd met `nat`, de poort die wordt geluisterd naar moet uniek zijn. De combinatie van netwerken modi voor verschillende services wordt niet ondersteund op Linux-clusters. 
 
 
 ## <a name="next-steps"></a>Volgende stappen

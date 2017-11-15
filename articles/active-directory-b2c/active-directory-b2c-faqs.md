@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: e8b28bc9ccc12b280b1746272519bd4c9ea9e4a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bed51dc1216b40f6602fae6d32bc8bd7aa517605
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Veelgestelde vragen (FAQ) 
 Deze pagina antwoorden op veelgestelde vragen over de Azure Active Directory (Azure AD) B2C. Houd regelmatig op updates controleren.
@@ -66,11 +66,11 @@ U kunt de [functie huisstijl](../active-directory/active-directory-add-company-b
 
 De e-handtekening bevat van de B2C-tenant-naam die u hebt opgegeven tijdens het maken van de B2C-tenant. U kunt de naam van deze instructies wijzigen:
 
-1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com/) als abonnementsbeheerder.
-1. Navigeer naar uw B2C-tenant.
-1. Klik op het tabblad **Configureren**.
-1. Wijzig de **naam** veld onder de **mapeigenschappen** sectie.
-1. Klik op **Opslaan** onder aan de pagina.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als Abonnementsbeheerder.
+1. Open de **Azure Active Directory** blade.
+1. Klik op de **eigenschappen** tabblad.
+1. Wijzig de **naam** veld.
+1. Klik op **opslaan** boven aan de pagina.
 
 Er is momenteel geen manier om de ' uit: ' op het e-mailbericht. Stemmen over [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) u geïnteresseerd bent in de hoofdtekst van de bevestigingsmail aanpassen.
 

@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: a34c47efbe811bec2ebe2c43abb9516cdab492bd
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: HT
+ms.openlocfilehash: 64c01c1256e4bcb472ceea874ab3f3b17c0467d7
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/09/2017
 ---
@@ -165,7 +165,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
     Cosmos DB biedt een uitgebreide reeks databasebewerkingen, met inbegrip van relationele en hiërarchische query's met UDF's, opgeslagen procedures en triggers – alle operationele op de documenten binnen een verzameling van de database. De kosten die zijn gekoppeld aan elk van deze bewerkingen varieert op basis van de CPU, IO en geheugen dat nodig is om de bewerking te voltooien. In plaats van het denken over en beheer van hardwareresources, kunt u een aanvraag-eenheid (RU) beschouwen als een enkele meting voor de resources die zijn vereist voor het uitvoeren van verschillende databasebewerkingen en de aanvraag voor een toepassing.
 
-    Doorvoer is ingericht op basis van de hoeveelheid [aanvraageenheden](request-units.md) instellen voor elke container. Aanvraag eenheidsverbruik wordt geëvalueerd als een percentage per seconde. Toepassingen die groter is dan het percentage van de eenheid ingerichte aanvragen voor het account beperkt is tot de snelheid onder het gereserveerde niveau voor het account zakt. Als uw toepassing een hogere mate van doorvoer vereist, kunt u uw doorvoer verhogen door extra aanvraageenheden provisioning. 
+    Doorvoer is ingericht op basis van de hoeveelheid [aanvraageenheden](request-units.md) instellen voor elke container. Aanvraag eenheidsverbruik wordt geëvalueerd als een percentage per seconde. Toepassingen die groter is dan de frequentie van de eenheid ingerichte aanvraag voor hun container zijn beperkt tot de snelheid onder het ingerichte niveau voor de container zakt. Als uw toepassing een hogere mate van doorvoer vereist, kunt u uw doorvoer verhogen door extra aanvraageenheden provisioning. 
 
     De complexiteit van een query heeft gevolgen voor het aantal eenheden van de aanvraag voor een bewerking worden verbruikt. Het aantal predicaten, aard van de predicaten, aantal UDF's en de grootte van de bron-gegevensset alle invloed hebben op de kosten van querybewerkingen.
 

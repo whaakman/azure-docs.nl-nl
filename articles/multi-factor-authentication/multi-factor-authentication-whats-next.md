@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
-ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 5da47bf2f48b0f5df5f7fa19f1f626fbdca2b8db
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Configureren van instellingen voor Azure multi-factor Authentication - Public preview
 
@@ -29,7 +29,7 @@ Dit artikel helpt u bij het beheren van Azure multi-factor Authentication nu dat
 
 | Functie | Beschrijving | 
 |:--- |:--- |
-| [Gebruikers blokkeren/blokkering opheffen](#block/unblock-users) |Gebruikers blokkeren/blokkering opheffen kunnen voorkomen dat gebruikers verificatieaanvragen ontvangt. |
+| [Blokkeren en blokkering van gebruikers](#block-and-unblock) |Gebruikers blokkeren/blokkering opheffen kunnen voorkomen dat gebruikers verificatieaanvragen ontvangt. |
 | [Fraudewaarschuwing](#fraud-alert) |Fraudewaarschuwing worden geconfigureerd en zo instellen dat uw gebruikers frauduleuze probeert te krijgen tot hun bronnen kunnen rapporteren. |
 | [Eenmalig overslaan](#one-time-bypass) |Eenmalig overslaan kan een gebruiker één keer verifiëren door te multi-factor authentication 'negeren'. |
 | [Aangepaste spraakberichten](#custom-voice-messages) |Aangepaste spraakberichten kunnen u uw eigen opnamen of begroetingen met meervoudige verificatie gebruiken. |
@@ -39,7 +39,7 @@ Dit artikel helpt u bij het beheren van Azure multi-factor Authentication nu dat
 | [Houd er rekening mee multi-factor Authentication voor onthouden apparaten en browsers](#remember-multi-factor-authentication-for-devices-that-users-trust) |Hiermee kunt u apparaten onthouden voor een bepaald aantal dagen nadat een gebruiker heeft aangemeld met MFA. |
 | [Selecteerbare verificatiemethoden](#selectable-verification-methods) |Kunt u de verificatiemethoden die beschikbaar zijn voor gebruikers om te gebruiken. |
 
-## <a name="blockunblock-users"></a>Gebruikers blokkeren/blokkering opheffen
+## <a name="block-and-unblock"></a>Blokkeren en blokkering
 Gebruikers blokkeren/blokkering kunnen worden gebruikt om te voorkomen dat gebruikers ontvangen van verificatieaanvragen. Alle verificatiepogingen voor geblokkeerde gebruikers worden automatisch geweigerd. Geblokkeerde gebruikers blijven geblokkeerde voor 90 dagen vanaf het moment dat ze worden geblokkeerd.
 
 ### <a name="block-a-user"></a>Een gebruiker blokkeren
@@ -63,14 +63,14 @@ Fraudewaarschuwing worden geconfigureerd en zo instellen dat uw gebruikers fraud
 1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
 2. Navigeer naar **Azure Active Directory** > **MFA-Server** > **fraudewaarschuwing**.
 
-   ![Melding bij fraude](./media/multi-factor-authentication-whats-next/fraudalert.png)
+   ![Fraudewaarschuwing](./media/multi-factor-authentication-whats-next/fraudalert.png)
 
 3. Schakel **dat gebruikers kunnen indienen Fraudewaarschuwingen** naar **op**.
 4. Selecteer **Opslaan**.
 
 ### <a name="configuration-options"></a>Configuratie-opties
 
-- **Gebruiker blokkeren wanneer fraude wordt gemeld** - als een gebruiker rapporten fraude, hun account is geblokkeerd.
+- **Gebruiker blokkeren wanneer fraude wordt gemeld** : als een gebruiker rapporten fraude, hun account is geblokkeerd tot 90 dagen of totdat een beheerder blokkering hun account opgeheven. Een beheerder kan aanmeldingen met behulp van het rapport aanmelden controleren en onderneem gepaste actie om te voorkomen dat toekomstige fraude. Vervolgens kan een beheerder [deblokkeren](#unblock-a-user) account van de gebruiker.
 - **Code voor het melden van fraude tijdens de eerste begroeting** : wanneer gebruikers een telefoonoproep om uit te voeren verificatie in twee stappen, krijgen ze normaal druk op # om te bevestigen dat hun aanmelden. Als ze fraude rapporteren wilt, invoeren ze een code voordat u op #. Deze code is **0** standaard, maar u kunt deze aanpassen.
 
 > [!NOTE]
@@ -188,7 +188,7 @@ Verificatie in twee stappen is vereist voor de browser stromen of goedgekeurde I
 
 ![Goedgekeurde IP-adressen](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
-## <a name="app-passwords"></a>App-wachtwoorden
+## <a name="app-passwords"></a>Appwachtwoorden
 Bepaalde apps, zoals Office 2010 of ouder en Apple Mail ondersteunen geen verificatie in twee stappen. Ze zijn niet geconfigureerd voor het accepteren van een tweede verificatie. Voor het gebruik van deze apps, moet u 'app-wachtwoorden' gebruiken in plaats van uw traditionele wachtwoord. Het app-wachtwoord kunt de toepassing voor verificatie in twee stappen overslaan en doorgaan met werken.
 
 > [!NOTE]
@@ -258,7 +258,7 @@ Onthoud multi-factor Authentication voor apparaten en browsers dat gebruikers ve
 
 Echter, als een account of apparaat is geknoeid, onthoud MFA voor vertrouwde apparaten kan invloed hebben op beveiliging. Als een zakelijke account wordt aangetast of een vertrouwd apparaat is zoekgeraakt of gestolen, moet u [multi-factor Authentication herstellen op alle apparaten](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user). Deze actie worden de vertrouwde status van alle apparaten ingetrokken en de gebruiker is vereist om opnieuw verificatie in twee stappen uitvoeren. U kunt ook instrueert u uw gebruikers MFA om op te herstellen met de instructies in hun eigen apparaten [beheren van uw instellingen voor verificatie in twee stappen](./end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)
 
-### <a name="how-it-works"></a>Het werkt als volgt
+### <a name="how-it-works"></a>Hoe werkt het?
 
 Onthouden van multi-factor Authentication werkt door het instellen van een permanente cookie op de browser wanneer een gebruiker controleert de ' niet opnieuw vragen voor **X** dagen ' vak bij het aanmelden. De gebruiker niet gevraagd voor MFA opnieuw in die browser totdat de cookie verloopt. Als de gebruiker een andere browser op hetzelfde apparaat opent of hun cookies wist, wordt deze gevraagd om te controleren of opnieuw. 
 
@@ -296,7 +296,7 @@ Wanneer uw gebruikers hun account voor MFA registreren, kiest u de methode voork
 |:--- |:--- |
 | Bellen naar telefoon |Een geautomatiseerd telefoongesprek plaatst. De gebruiker beantwoordt het gesprek en drukt # in op de toetsenblok van de telefoon om te verifiëren. Dit telefoonnummer is niet gesynchroniseerd met lokale Active Directory. |
 | Sms-bericht naar telefoon |Verzendt een SMS-bericht met een verificatiecode. De gebruiker wordt gevraagd te beantwoorden aan de SMS-bericht met de verificatiecode of Voer de verificatiecode in de interface voor aanmelden. |
-| Melding via de mobiele app |Een pushmelding verzendt naar uw telefoon of geregistreerd apparaat. De gebruiker de melding weergaven en **controleren** om verificatie te voltooien. <br>De Microsoft Authenticator-app is beschikbaar voor [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), en [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| Melding via mobiele app |Een pushmelding verzendt naar uw telefoon of geregistreerd apparaat. De gebruiker de melding weergaven en **controleren** om verificatie te voltooien. <br>De Microsoft Authenticator-app is beschikbaar voor [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), en [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 | Verificatiecode via mobiele app |De Microsoft Authenticator-app genereert elke 30 seconden een nieuwe OATH-verificatiecode uit. De gebruiker voert deze bevestigingscode in de interface voor aanmelden.<br>De Microsoft Authenticator-app is beschikbaar voor [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), en [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Hoe verificatiemethoden in-of uitschakelen

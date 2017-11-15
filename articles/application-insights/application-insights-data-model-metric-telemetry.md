@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4cfdf3b70f6fdb2ddd5f89a72c931d3b6be54132
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: bd09e2a21c25097fa4b378cb2dbe2787edbb1967
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Metrische telemetrie: Application Insights-gegevensmodel
 
@@ -24,7 +24,7 @@ Er zijn twee soorten metrische telemetrie ondersteund door [Application Insights
 
 Vooraf samengevoegde metrische telemetrie wordt ervan uitgegaan dat aggregatie-periode is 1 minuut.
 
-Er zijn verschillende bekende metrische namen ondersteund door de Application Insights. 
+Er zijn verschillende bekende metrische namen ondersteund door de Application Insights. Deze metrische gegevens in de tabel performanceCounters geplaatst.
 
 Metrische gegevens voor systeem- en prestatiemeteritems:
 
@@ -48,7 +48,7 @@ De naam van de metrische gegevens die u zou willen zien in Application Insights-
 
 Enkelvoudige waarde voor de meting. De som van de afzonderlijke metingen voor de aggregatie.
 
-## <a name="count"></a>Aantal
+## <a name="count"></a>Count
 
 Metrische gewicht van de cumulatieve metrische gegevens. Mag niet worden ingesteld voor een meting.
 
@@ -65,6 +65,8 @@ De maximumwaarde van de cumulatieve metrische gegevens. Mag niet worden ingestel
 De standaarddeviatie van de cumulatieve metrische gegevens. Mag niet worden ingesteld voor een meting.
 
 ## <a name="custom-properties"></a>Aangepaste eigenschappen
+
+Metrische waarde met de aangepaste eigenschap `CustomPerfCounter` ingesteld op `true` aangeven dat de metriek het windows-prestatiemeteritem vertegenwoordigt. Deze metrische gegevens in de tabel performanceCounters geplaatst. Niet in customMetrics. Ook wordt de naam van deze metriek geparseerd om uit te pakken categorie, prestatiemeteritems en instantienamen.
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 

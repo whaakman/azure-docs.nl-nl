@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 11/01/2017
 ms.author: maroche
-ms.openlocfilehash: 0623847ea1e79c3a45a8fbdcc1d3a551864aefd6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: da7ac8f323f9b2ec6303fbc85aa570373a538bcf
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Hoe gerelateerde gegevens activa weergeven in Azure Data Catalog?
 Azure Data Catalog kunt u gegevensassets die betrekking hebben op een geselecteerde gegevens asset en bekijk de relaties tussen deze twee weergeven. 
@@ -30,6 +30,9 @@ Wanneer u gegevensassets van de volgende gegevensbronnen registreert, worden de 
 - Azure SQL Database
 - MySQL
 - Oracle
+
+> [!NOTE]
+> Voor Data Catalog voor het importeren van de relatie tussen twee gegevensassets, moet u zowel de elementen op hetzelfde moment te registreren. Als u een van deze afzonderlijk had toegevoegd, is deze opnieuw op en de andere gegevensasset voor het importeren van de relatie tussen deze twee toevoegen.
 
 ## <a name="view-related-data-assets"></a>Gerelateerde gegevens activa weergeven
 Als u wilt weergeven van gegevensassets die zijn gerelateerd aan een geselecteerde gegevensset, gebruiken de **relaties** tabblad zoals weergegeven in de volgende afbeelding: 

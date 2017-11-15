@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: raynew
-ms.openlocfilehash: 27491e34ad9e47aec2f424cfc439fad614f0e435
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a846cc3e2f06199bdef9e597198f309801d5c75
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Zakelijke continuïteit en herstel na noodgevallen (BCDR): Azure-gebieden gekoppeld
 
@@ -48,7 +48,8 @@ Afbeelding 1: Azure regionale paar diagram
 | Europa |Noord-Europa |West-Europa |
 | Japan |Japan - oost |Japan - west |
 | Brazilië |Brazilië-Zuid (1) |Zuid-centraal VS |
-| Amerikaanse overheid |VS (overheid) - Iowa |VS (overheid) - Virginia |
+| Amerikaanse overheid |VS Gov Iowa (2) |VS (overheid) - Virginia |
+| Amerikaanse overheid |VS Gov Virginia (3) |VS (overheid) - Texas |
 | Amerikaanse overheid |VS (overheid) - Arizona |VS (overheid) - Texas |
 | Amerikaanse ministerie van defensie |US DoD - oost |US DoD - centraal |
 | VERENIGD KONINKRIJK |Verenigd Koninkrijk West |Verenigd Koninkrijk Zuid |
@@ -57,6 +58,10 @@ Afbeelding 1: Azure regionale paar diagram
 Tabel 1 - toewijzing van Azure regionale paren
 
 > (1) Brazilië-Zuid is uniek omdat deze is gekoppeld aan een regio buiten de eigen Geografie. Brazilië-Zuid secundaire regio is Zuid-centraal VS, maar er is geen Zuid-centraal VS van secundaire regio Brazilië-Zuid.
+>
+> (2) VS Gov Iowa secundaire regio is Gov ons Virginia, maar de Gov ons Virginia secundaire regio is niet Gov ons Iowa.
+> 
+> (3) de secundaire regio VS Gov Virginia Gov ons Texas is, maar Gov ons-Texas secundaire regio is niet Gov ons Virginia.
 
 
 Het is raadzaam dat u workloads over regionale paren repliceren profiteren van Azure isolatie en beschikbaarheid van beleid. Bijvoorbeeld, geplande Azure systeemupdates sequentieel worden geïmplementeerd (en niet op hetzelfde moment) tussen de gekoppelde regio's. Dat betekent dat zelfs in het zeldzame geval van een defecte update beide regio's worden niet beïnvloed tegelijkertijd. Bovendien, in het onwaarschijnlijke geval van een brede onderbreking herstel van ten minste één regio buiten elk paar voorrang krijgt.

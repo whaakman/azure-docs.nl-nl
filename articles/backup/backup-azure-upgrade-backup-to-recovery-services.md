@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/03/2017
+ms.date: 11/09/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 7347301cd34979df9b3acc59f623ab346dbe41f6
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Een back-upkluis upgraden naar een Recovery Services-kluis
 
@@ -120,7 +120,7 @@ Wanneer u een naar een Recovery Services-kluis upgrade, rapporten configureren v
 Nee. Uw actieve back-ups niet wordt onderbroken tijdens en na de upgrade.
 
 **Als ik niet van plan bent over het upgraden van snel, wat gebeurt er met mijn kluizen?**</br>
-Omdat alle nieuwe functies alleen voor Recovery Services-kluizen gelden, raden we u aan uw kluizen upgraden. Microsoft zal uiteindelijk de klassieke portal afschaffen. Vanaf 1 September 2017 begint Microsoft back-upkluizen automatisch upgraden naar een Recovery Services-kluizen. Per 30 November 2017 voltooit Microsoft het upgradeproces. Uw kluis kan automatisch worden bijgewerkt elk gewenst moment ertussen. Microsoft raadt dat u uw kluis zo snel mogelijk bijwerken.
+Omdat alle nieuwe functies alleen voor Recovery Services-kluizen gelden, raden we u aan uw kluizen upgraden. Microsoft zal uiteindelijk de klassieke portal afschaffen. Vanaf 1 September 2017 begint Microsoft back-upkluizen automatisch upgraden naar een Recovery Services-kluizen. Na November 30,2017, kunt u niet langer Backup-kluizen met behulp van PowerShell maken. Uw kluis kan automatisch worden bijgewerkt elk gewenst moment ertussen. Microsoft raadt dat u uw kluis zo snel mogelijk bijwerken.
 
 **Wat houdt de upgrade voor mijn bestaande tooling?**</br>
 Werk uw tooling naar het Resource Manager-implementatiemodel. Recovery Services-kluizen zijn gemaakt voor gebruik in het Resource Manager-implementatiemodel. Planning voor het Resource Manager-implementatiemodel en accounting voor het verschil in uw kluizen zijn belangrijk. 

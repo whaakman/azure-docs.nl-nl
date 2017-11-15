@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/06/2017
 ms.author: babanisa
-ms.openlocfilehash: a0bcc9650fda10c099887b74b408551b12cde667
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Een inleiding tot Azure gebeurtenis raster
 
@@ -25,6 +25,30 @@ Voor de preview-versie ondersteunt Event Grid de locaties **westus2** en **westc
 Dit artikel bevat een overzicht van Azure Event raster. Als u aan de slag met Event raster wilt, Zie [maken en route aangepaste gebeurtenissen met Azure Event raster](custom-event-quickstart.md).
 
 ![Gebeurtenis raster functionele model](./media/overview/event-grid-functional-model.png)
+
+## <a name="event-publishers"></a>Gebeurtenisuitgevers
+
+De volgende Azure-services hebt op dit moment wordt de uitgever van de ingebouwde ondersteuning voor de gebeurtenis raster:
+
+* Resourcegroepen (beheerbewerkingen)
+* Azure-abonnementen (beheerbewerkingen)
+* Event Hubs
+* Storage-Blob
+* Aangepaste-onderwerpen
+
+Andere Azure-services worden van dit jaar met toegevoegd.
+
+## <a name="event-handlers"></a>Gebeurtenis-handlers
+
+De volgende Azure-services hebt op dit moment handler ingebouwde ondersteuning voor gebeurtenis raster: 
+
+* Azure Functions
+* Logic Apps
+* Azure Automation
+* Webhooks.
+* Microsoft-stroom
+
+Andere Azure-services worden van dit jaar met toegevoegd.
 
 ## <a name="concepts"></a>Concepten
 
@@ -52,34 +76,6 @@ Hier volgen enkele van de belangrijkste functies van Azure Event raster:
 * **Aangepaste gebeurtenissen** -gebeurtenis raster route, filter en betrouwbaar afleveren aangepaste gebeurtenissen in uw app gebruiken.
 
 Zie voor een vergelijking van gebeurtenis raster, Event Hubs en Service Bus [Kies tussen Azure-services die berichten bezorgen](compare-messaging-services.md).
-
-## <a name="built-in-publisher-and-handler-integration"></a>Ingebouwde publisher en de handler-integratie
-
-Azure biedt gebeurtenisondersteuning voor ingebouwde met meerdere services, waaronder zowel uitgevers en handlers.
-
-### <a name="publishers"></a>Uitgevers
-
-De volgende Azure-services hebt op dit moment wordt de uitgever van de ingebouwde ondersteuning voor de gebeurtenis raster:
-
-* Resourcegroepen (beheerbewerkingen)
-* Azure-abonnementen (beheerbewerkingen)
-* Event Hubs
-* Storage-Blob
-* Aangepaste-onderwerpen
-
-Andere Azure-services worden van dit jaar met toegevoegd.
-
-### <a name="handlers"></a>Handlers
-
-De volgende Azure-services hebt op dit moment handler ingebouwde ondersteuning voor gebeurtenis raster: 
-
-* Azure Functions
-* Logic Apps
-* Azure Automation
-* Webhooks.
-* Microsoft-stroom
-
-Andere Azure-services worden van dit jaar met toegevoegd.
 
 ## <a name="what-can-i-do-with-event-grid"></a>Wat kan ik doen met gebeurtenis raster
 

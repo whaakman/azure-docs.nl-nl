@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 329970d8717053ab7126fb8fb6a4a119ccbff6b7
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 6e65af68dcd2306aabda65efdf8fe056c0d9b4a4
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>SQL-databases op Microsoft Azure-Stack gebruiken
 
@@ -74,7 +74,7 @@ Het script voert de volgende stappen uit:
 - Registreer uw resourceprovider met de lokale Azure Resource Manager (gebruiker en beheer).
 
 > [!NOTE]
-> Als de installatie van meer dan 90 minuten duurt, mislukken mogelijk en er een foutbericht op het scherm en in het logboekbestand, maar de implementatie van de mislukte stap wordt geprobeerd. Systemen die niet voldoen aan de aanbevolen specificaties voor geheugen en core kan mogelijk niet de SQL RP implementeren.
+> Als de installatie van meer dan 90 minuten duurt, mislukken mogelijk en er een foutbericht op het scherm en in het logboekbestand, maar de implementatie van de mislukte stap wordt geprobeerd. Systemen die niet voldoen aan de aanbevolen specificaties voor geheugen en vCPU kan mogelijk niet de SQL RP implementeren.
 >
 
 Hier volgt een voorbeeld u vanuit het PowerShell uitvoeren kunt vragen (maar desgewenst wijzigen van de accountgegevens en wachtwoorden):

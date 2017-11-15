@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: c319979cce23da69965d4fbab037919461f67b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pijplijnen uitvoeren en triggers in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -177,7 +177,7 @@ Als u wilt dat de scheduler-trigger een pijplijnuitvoering activeert, moet u een
         "interval": <<int>>,             // optional, how often to fire (default to 1)
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
-        "timeZone": <<default UTC>>
+        "timeZone": "UTC"
         "schedule": {                    // optional (advanced scheduling specifics)
           "hours": [<<0-24>>],
           "weekDays": ": [<<Monday-Sunday>>],
@@ -189,6 +189,7 @@ Als u wilt dat de scheduler-trigger een pijplijnuitvoering activeert, moet u een
                     "occurrence": <<1-5>>
                }
            ] 
+        }
       }
     },
    "pipelines": [
@@ -202,7 +203,7 @@ Als u wilt dat de scheduler-trigger een pijplijnuitvoering activeert, moet u een
                         "type": "Expression",
                         "value": "<parameter 1 Value>"
                     },
-                    "<parameter 2 Name> : "<parameter 2 Value>"
+                    "<parameter 2 Name>" : "<parameter 2 Value>"
                 }
            }
       ]
@@ -210,17 +211,57 @@ Als u wilt dat de scheduler-trigger een pijplijnuitvoering activeert, moet u een
 }
 ```
 
+> [!IMPORTANT]
+>  De eigenschap **parameters** is een verplichte eigenschap binnen **pijplijnen**. Zelfs als uw pijplijn geen parameters accepteert, voegt u een lege json toe voor 'parameters', aangezien de eigenschap moet bestaan.
+
+
 ### <a name="overview-scheduler-trigger-schema"></a>Overzicht: scheduler-triggerschema
 De volgende tabel bevat een overzicht van de belangrijkste elementen die betrekking hebben op het terugkeerpatroon en de planning in een trigger:
 
 JSON-eigenschap |     Beschrijving
 ------------- | -------------
 startTime | startTime is een datum en tijd. In eenvoudige planningen is de startTime de eerste gebeurtenis. In complexe planningen begint de trigger niet eerder dan de startTime.
+endTime | Hiermee geeft u de einddatum en -tijd voor de trigger op. De trigger wordt niet meer uitgevoerd na deze tijd. U kunt geen endTime die in het verleden ligt opgeven.
+timeZone | Op dit moment wordt alleen UTC ondersteund. 
 recurrence | Het object recurrence bepaalt de regels voor het terugkeerpatroon van de trigger. Het object recurrence ondersteunt de volgende elementen: frequency, interval, endTime, count en schedule. Als de recurrence is gedefinieerd, is het element frequency vereist. De andere elementen van de recurrence zijn optioneel.
 frequency | Hiermee geeft u de frequentie-eenheid aan waarmee de trigger wordt uitgevoerd. Ondersteunde waarden zijn: `minute`, `hour`, `day`, `week` of `month`.
 interval | Het interval is een positief geheel getal. Het geeft het interval aan voor de frequentie waarmee wordt bepaald hoe vaak de trigger wordt uitgevoerd. Als het interval bijvoorbeeld 3 is en de frequency 'week', wordt de trigger elke 3 weken uitgevoerd.
-endTime | Hiermee geeft u de einddatum en -tijd voor de trigger op. De trigger wordt niet meer uitgevoerd na deze tijd. U kunt geen endTime die in het verleden ligt opgeven.
 schedule | Een trigger met een opgegeven frequency wijzigt de recurrence op basis van een terugkerende schedule. Een schedule bevat wijzigingen op basis van de minuten, uren, weekdagen, dagen van de maand en het weeknummer.
+
+
+### <a name="schedule-trigger-example"></a>Voorbeeld van schedule-trigger
+
+```json
+{
+    "properties": {
+        "name": "MyTrigger",
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Hour",
+                "interval": 1,
+                "startTime": "2017-11-01T09:00:00-08:00",
+                "endTime": "2017-11-02T22:00:00-08:00"
+            }
+        },
+        "pipelines": [{
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToBlobPipeline"
+                },
+                "parameters": {}
+            },
+            {
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToAzureSQLPipeline"
+                },
+                "parameters": {}
+            }
+        ]
+    }
+}
+```
 
 ### <a name="overview-scheduler-trigger-schema-defaults-limits-and-examples"></a>Overzicht: standaardplanning, limieten en voorbeelden voor scheduler-trigger
 
@@ -262,9 +303,9 @@ JSON-naam | Beschrijving | Geldige waarden
 --------- | ----------- | ------------
 minutes | Minuten van het uur waarop de trigger wordt uitgevoerd. | <ul><li>Geheel getal</li><li>Matrix van gehele getallen</li></ul>
 hours | Uren van de dag waarop de trigger wordt uitgevoerd. | <ul><li>Geheel getal</li><li>Matrix van gehele getallen</li></ul>
-weekDays | Dagen van de week waarop de trigger wordt uitgevoerd. Kan alleen worden opgegeven met de frequency wekelijks. | <ul><li>Maandag, dinsdag, woensdag, donderdag, vrijdag, zaterdag of zondag</li><li>Matrix van elk van de bovenstaande waarden (maximale matrixgrootte van 7)</li></p>Niet hoofdlettergevoelig</p>
+weekDays | Dagen van de week waarop de trigger wordt uitgevoerd. Kan alleen worden opgegeven met de frequency wekelijks. | <ul><li>Maandag, dinsdag, woensdag, donderdag, vrijdag, zaterdag of zondag</li><li>Matrix van elk van de waarden (maximale matrixgrootte van 7)</li></p>Niet hoofdlettergevoelig</p>
 monthlyOccurrences | Hiermee wordt bepaald op welke dagen van de maand de trigger wordt uitgevoerd. Kan alleen worden opgegeven met de frequency maandelijks. | Matrix met monthlyOccurence-objecten: `{ "day": day,  "occurrence": occurence }`. <p> Day is de dag van de week waarop de trigger wordt uitgevoerd. `{Sunday}` is bijvoorbeeld elke zondag van de maand. Vereist.<p>Occurrence geeft aan op welke dag de trigger wordt uitgevoerd. `{Sunday, -1}` is bijvoorbeeld de laatste zondag van de maand. Optioneel.
-monthDays | Dag van de maand waarop de trigger wordt uitgevoerd. Kan alleen worden opgegeven met de frequency maandelijks. | <ul><li>Alle waarden < = -1 en > =-31</li><li>Alle waarden > = -1 en < =-31</li><li>Een matrix met bovenstaande waarden</li>
+monthDays | Dag van de maand waarop de trigger wordt uitgevoerd. Kan alleen worden opgegeven met de frequency maandelijks. | <ul><li>Alle waarden < = -1 en > =-31</li><li>Alle waarden > = -1 en < =-31</li><li>Een matrix met waarden</li>
 
 
 ## <a name="examples-recurrence-schedules"></a>Voorbeelden: herhalingsplanningen

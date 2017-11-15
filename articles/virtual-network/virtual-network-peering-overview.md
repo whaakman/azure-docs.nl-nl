@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: f055f1e87e73733b3f2ecfa87e4d372ade8a7868
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 7d3e6a34b5851a5a35a530b18efc3db3e2249274
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -35,7 +35,7 @@ Enkele voordelen van peering van virtuele netwerken zijn:
 
 ## <a name="requirements-constraints"></a>Vereisten en beperkingen
 
-* Peering van virtuele netwerken in dezelfde regio's is algemeen beschikbaar. Peering van virtuele netwerken in verschillende regio's is momenteel als preview beschikbaar in de regio's VS - west-centraal, Canada centraal en VS West 2. U kunt [uw abonnement registreren](virtual-network-create-peering.md) voor de preview.
+* Peering van virtuele netwerken in dezelfde regio's is algemeen beschikbaar. Peering van virtuele netwerken in verschillende regio's is momenteel als preview beschikbaar in de regio's VS - west-centraal, Canada centraal en VS West 2. Voordat u peering van virtuele netwerken in verschillende regio's gaat instellen, moet u eerst [uw abonnement registreren](virtual-network-create-peering.md#register) voor de preview. Als u dat niet doet, mislukt de peering van virtuele netwerken in verschillende regio's.
     > [!WARNING]
     > Peerings van virtuele netwerken die in verschillende regio's worden gemaakt, hebben mogelijk niet dezelfde mate van beschikbaarheid en betrouwbaarheid als peerings waarbij een versie met algemene beschikbaarheid wordt gebruikt. Sommige functies van gekoppelde virtuele netwerken zijn mogelijk beperkt of zijn niet beschikbaar in alle Azure-regio's. Controleer de pagina [Azure Virtual Network-updates](https://azure.microsoft.com/updates/?product=virtual-network) voor de meest recente meldingen over de beschikbaarheid en de status van deze functie.
 

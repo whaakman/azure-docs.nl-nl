@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 502b7678e0c47f594291409a9ede976dea3895e5
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 2d6a09e234ee8ec63454d42a91613ed8da9d1c4b
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-iot-suite"></a>Wat is Azure IoT Suite?
 
@@ -85,6 +85,9 @@ Wanneer u een vooraf geconfigureerde oplossing implementeert, wordt in het inric
 | Cosmos DB            | Ja                | Ja                    | Ja               |
 | Azure-tabellen         |                    | Ja                    | Ja               |
 
+> [!NOTE]
+> Zie dit [artikel](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) op GitHub voor meer informatie over de resources die zijn geïmplementeerd in de vooraf geconfigureerde oplossing voor externe controle.
+
 * [Azure IoT Hub](../iot-hub/index.md). Deze service verzorgt de berichtgeving van het apparaat naar de cloud en van de cloud naar het apparaat, en fungeert als toegangspoort tot de cloud en de andere belangrijke IoT Suite-services. Door deze service kunt u op grote schaal berichten ontvangen van uw apparaten en opdrachten naar uw apparaten verzenden. Met deze service kunt u ook [uw apparaten beheren](../iot-hub/iot-hub-device-management-overview.md). U kunt bijvoorbeeld een of meer apparaten die zijn verbonden met de hub configureren, opnieuw opstarten of hierop de fabrieksinstellingen terugzetten.
 * [Azure Event Hubs](../event-hubs/index.md). Deze service biedt gebeurtenisopname naar de cloud met grote volumes. Zie [Comparison of Azure IoT Hub and Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md) (Vergelijking van Azure IoT Hub en Azure Event Hubs).
 * [Azure Time Series Insights](../time-series-insights/index.md). De vooraf geconfigureerde oplossingen gebruiken deze service om de telemetriegegevens van uw apparaten te analyseren en weer te geven.
@@ -124,7 +127,7 @@ Deze architectuur op basis van microservices is een beproefd patroon voor cloudo
 Wanneer u de nieuwe versie van externe bewaking implementeert, moet u een van de volgende implementatieopties selecteren:
 
 * **Basic:** voordelige versie voor een demonstratie of het testen van een implementatie. Alle microservices worden geïmplementeerd op een enkele virtuele Azure-machine.
-* **Enterprise:** uitgebreide infrastructuurimplementatie voor het ontwikkelen van een productie-implementatie. De Azure Container Service implementeert de microservices naar meerdere virtuele Azure-machines. Kubernetes deelt de Docker-containers in die de afzonderlijke microservices hosten.
+* **Standard:** uitgebreide infrastructuurimplementatie voor het ontwikkelen van een productie-implementatie. De Azure Container Service implementeert de microservices naar meerdere virtuele Azure-machines. Kubernetes deelt de Docker-containers in die de afzonderlijke microservices hosten.
 
 ### <a name="language-choices-java-and-net"></a>Computertalen: Java en .NET
 

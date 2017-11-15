@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: 9696a74ac02688f9004156f6f16b39b37756751d
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 70ddec1c7ba76ef7f42048896079e5c5fa2bf60c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-user-defined-route---powershell"></a>Maken van een gebruiker gedefinieerde route - PowerShell
 
@@ -340,6 +340,12 @@ U kunt installeren en configureren van de meest recente versie van de PowerShell
         - **Ubuntu**: Voer de `tracepath myvm-private` opdracht.
       Verkeer wordt doorgegeven via 10.0.2.4 (NVA) voordat 10.0.1.4 (de virtuele machine in het persoonlijke subnet) is bereikt. 
     - De vorige stappen voltooien door verbinding te maken met de *myVm privé-* virtuele machine en ping het *myVm-openbare* virtuele machine. De opdracht Traceroute toont communicatie via 10.0.2.4 onderweg alvorens 10.0.0.4 (de virtuele machine in de openbare subnet).
+    
+      > [!NOTE]
+      > De vorige stappen kunnen u bevestigen routering tussen Azure privé IP-adressen. Als u worden doorgestuurd of proxy wilt, adressen verkeer naar openbare IP-adres via een virtueel netwerkapparaat:
+      > - Het apparaat moet opgeven voor NAT of proxy-mogelijkheden. Als netwerkadresomzetting, het apparaat de bron-IP vertalen moet-adres in een eigen en vervolgens doorsturen die aanvraag naar het openbare IP-adres. Of het apparaat heeft netwerkadres vertaald adres van de bronserver of proxy, Azure zet de virtuele netwerkapparaat van privé IP-adres voor een openbaar IP-adres. Zie voor meer informatie over de verschillende methoden Azure gebruikt om te vertalen van privé IP-adressen voor openbare IP-adressen, [inzicht in uitgaande verbindingen](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+      > - Een extra route in de routetabel zoals voorvoegsel: 0.0.0.0/0, volgend hoptype VirtualAppliance en volgende hop-IP-adres 10.0.2.4 (in het vorige voorbeeldscript).
+      >
     - **Eventueel**: Gebruik de volgende hop-mogelijkheden van Azure-netwerk-Watcher voor het valideren van de volgende hop tussen twee virtuele machines in Azure. Voordat u de netwerk-Watcher, moet u eerst [maken van een exemplaar van Azure-netwerk-Watcher](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor de regio die u wilt gebruiken in. In deze zelfstudie wordt de regio VS-Oost gebruikt. Nadat u een exemplaar van de netwerk-Watcher voor de regio hebt ingeschakeld, voer de volgende opdracht om te zien van de volgende hop informatie tussen de virtuele machines in de openbare en particuliere subnetten:
      
         ```azurecli-interactive

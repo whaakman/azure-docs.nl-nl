@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.openlocfilehash: aaceb556d926dbb09aeb2843a7941eadaaeb588b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
@@ -51,14 +51,6 @@ De patch orchestration app bestaat uit de volgende onderdelen:
 > De patch orchestration-app gebruikmaakt van de Service Fabric reparatie manager service uitschakelen of het inschakelen van het knooppunt en het uitvoeren van statuscontroles. De hersteltaak gemaakt door de patch orchestration app houdt de voortgang van de Windows Update voor elk knooppunt.
 
 ## <a name="prerequisites"></a>Vereisten
-
-### <a name="minimum-supported-service-fabric-runtime-version"></a>Minimaal ondersteunde versie van Service Fabric-runtime
-
-#### <a name="azure-clusters"></a>Azure-clusters
-De patch orchestration-app moet worden uitgevoerd op Azure clusters met Service Fabric-runtime versie v5.5 of hoger.
-
-#### <a name="standalone-on-premises-clusters"></a>Zelfstandige lokale clusters
-De patch orchestration-app moet worden uitgevoerd op zelfstandige clusters met Service Fabric-runtime versie v5.6 of hoger.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>De reparatie manager-service inschakelen (indien deze niet al actief)
 
@@ -135,59 +127,6 @@ De reparatie manager-service inschakelen:
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Automatische Update van Windows op alle knooppunten uitschakelen
 
 Automatische Windows-updates kunnen leiden tot verlies van beschikbaarheid omdat meerdere clusterknooppunten tegelijkertijd kunnen opnieuw worden opgestart. De patch orchestration-app probeert standaard, u de automatische Update van Windows op elk clusterknooppunt uitschakelen. Echter, als de instellingen worden beheerd door een beheerder of Groepsbeleid, raden wij aan het beleid van Windows Update naar 'Waarschuwen voordat downloaden' expliciet instellen.
-
-### <a name="optional-enable-azure-diagnostics"></a>Optioneel: Azure diagnostische gegevens inschakelen
-
-Clusters met Service Fabric-runtime-versie `5.6.220.9494` en registreert hierboven verzamelen patch orchestration app Logboeken als onderdeel van Service Fabric.
-U kunt deze stap overslaan als het cluster wordt uitgevoerd op de Service Fabric-runtime-versie `5.6.220.9494` en hoger.
-
-Voor clusters met Service Fabric-runtime-versie lager dan `5.6.220.9494`, logboeken voor de orchestration patch app lokaal worden verzameld op elk van de clusterknooppunten.
-Het is raadzaam dat u Azure Diagnostics om te uploaden van Logboeken van alle knooppunten op een centrale locatie configureren.
-
-Zie voor meer informatie over het inschakelen van Azure Diagnostics [logboeken verzamelen met behulp van Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
-
-Logboeken voor de orchestration-app patch worden gegenereerd op de volgende vaste provider id's:
-
-- e39b723c-590c-4090-abb0-11e3e6616346
-- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
-- 24afa313-0d3b-4c7c-b485-1047fd964b60
-- 05dc046c-60e9-4ef7-965e-91660adffa68
-
-In het Resource Manager-sjabloon goto `EtwEventSourceProviderConfiguration` onder sectie `WadCfg` en voeg de volgende items:
-
-```json
-  {
-    "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-      "eventDestination": "PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "fc0028ff-bfdc-499f-80dc-ed922c52c5e9",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "24afa313-0d3b-4c7c-b485-1047fd964b60",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "05dc046c-60e9-4ef7-965e-91660adffa68",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  }
-```
-
-> [!NOTE]
-> Als uw Service Fabric-cluster typen met meerdere knooppunten heeft, wordt de vorige sectie moet worden toegevoegd voor alle de `WadCfg` secties.
 
 ## <a name="download-the-app-package"></a>Download het apppakket
 
@@ -303,20 +242,16 @@ Volg de stappen in zodat de omgekeerde proxy op het cluster [omgekeerde proxy in
 
 ## <a name="diagnosticshealth-events"></a>Diagnostische gegevens/health-gebeurtenissen
 
-### <a name="collect-patch-orchestration-app-logs"></a>Collect patch orchestration applogboeken
+### <a name="diagnostic-logs"></a>Diagnostische logboeken
 
-Patch orchestration app logboeken worden verzameld als onderdeel van Service Fabric-logboeken van de runtimeversie `5.6.220.9494` en hoger.
-Voor clusters met Service Fabric-runtime-versie lager dan `5.6.220.9494`, logboeken kunnen worden verzameld met behulp van een van de volgende methoden.
+Patch orchestration app logboeken worden bijgehouden als onderdeel van Service Fabric-runtime-Logboeken.
 
-#### <a name="locally-on-each-node"></a>Lokaal op elk knooppunt
+Als u vastleggen logboeken via diagnostische hulpprogramma/pipeline van uw keuze wilt. Patch orchestration toepassing gebruikt hieronder vaste provider-id's voor logboekregistratie van gebeurtenissen via [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
-Logboeken worden verzameld lokaal op elk clusterknooppunt Service Fabric als Service Fabric-runtime-versie is minder dan `5.6.220.9494`. De locatie voor toegang tot de logboeken is \[Service Fabric\_installatie\_station\]:\\PatchOrchestrationApplication\\Logboeken.
-
-Als Service Fabric is geïnstalleerd op station D, het pad is bijvoorbeeld D:\\PatchOrchestrationApplication\\Logboeken.
-
-#### <a name="central-location"></a>Centrale locatie
-
-Als Azure Diagnostics is geconfigureerd als onderdeel van de vereiste stappen, zijn logboeken voor de orchestration-app patch beschikbaar in Azure Storage.
+- e39b723c-590c-4090-abb0-11e3e6616346
+- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
+- 24afa313-0d3b-4c7c-b485-1047fd964b60
+- 05dc046c-60e9-4ef7-965e-91660adffa68
 
 ### <a name="health-reports"></a>Statusrapporten
 

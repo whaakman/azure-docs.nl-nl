@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: a4b28e8a1269374a24e169f9363401109bacc471
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e19ba9c88e4fbe4f065c45ce7029247436f7155c
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="remote-monitoring-preconfigured-solution-architecture"></a>Externe controle vooraf geconfigureerde oplossingsarchitectuur
 
@@ -42,7 +42,7 @@ Het volgende diagram geeft een overzicht van de logische onderdelen van de voora
 Cloudarchitectuur heeft ontwikkeld sinds de eerste vooraf geconfigureerde oplossingen de release van Microsoft. [Microservices](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) beproefde uit veiligheidsoverwegingen als u de schaal en flexibiliteit zonder verlies van ontwikkelingssnelheid is ontstaan. Diverse Microsoft-services gebruiken dit patroon van een architectuur intern met betrouwbaar en schaalbaarheid resultaten. De bijgewerkte vooraf geconfigureerde oplossingen plaatsen deze geleerde lessen concreet, zodat u ook van deze profiteren kunt.
 
 > [!TIP]
-> Zie voor meer informatie over microservice-architectuur, [.NET toepassingsarchitectuur](https://www.microsoft.com/net/learn/architecture) en [Microservices: een toepassing revolution aangedreven door de cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
+> Zie [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (.NET-toepassingsarchitectuur) en [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservices: een toepassingsrevolutie aangedreven door de cloud) voor meer informatie over microservicearchitectuur.
 
 ## <a name="device-connectivity"></a>Connectiviteit van apparaten
 
@@ -141,5 +141,6 @@ Als u de bron-documentatie voor code- en developer verkennen wilt, beginnen met 
 
 * [Vooraf geconfigureerde oplossing voor externe controle met Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
 * [Vooraf geconfigureerde oplossing voor externe controle met Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+* [Vooraf geconfigureerde oplossing voor externe controle architectuur)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
 Zie voor meer informatie over de vooraf geconfigureerde oplossing voor externe controle [aanpassen van de vooraf geconfigureerde oplossing](iot-suite-remote-monitoring-customize.md).

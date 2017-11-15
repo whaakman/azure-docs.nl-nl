@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: cdaf09d5558e0453b826b9a3e52500379ced5422
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: b3829f0e1b87451bf0706edc268359be5c4480bc
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Een as-omgeving maken met een Azure Resource Manager-sjabloon
 
@@ -150,7 +150,7 @@ App Service-omgeving zijn er twee versies: ASEv1 en ASEv2. De voorgaande informa
 
 In ASEv1 beheert u alle resources handmatig. Dat betekent onder meer de front-ends, werknemers en IP-adressen gebruikt voor SSL op basis van IP. Voordat u uw App Service-abonnement uitbreiden kunt, moet u de worker-groep die u wilt deze hosten uitschalen.
 
-ASEv1 maakt gebruik van een andere prijscategorie model uit ASEv2. In ASEv1 betaalt u voor elke core toegewezen. Dat betekent onder meer kernen die worden gebruikt voor de front-ends of workers die werkbelastingen worden niet als host. Grootte van de maximale schaal van een as-omgeving is in ASEv1, 55 totale hosts. Die bevat werknemers en -front-ends. Een voordeel ASEv1 is dat deze kan worden geïmplementeerd in een klassiek virtueel netwerk en een virtueel netwerk van Resource Manager. Zie voor meer informatie over ASEv1, [App Service-omgeving v1 inleiding][ASEv1Intro].
+ASEv1 maakt gebruik van een andere prijscategorie model uit ASEv2. In ASEv1 betaalt u voor elke vCPU toegewezen. Dat betekent onder meer vcpu's die worden gebruikt voor de front-ends of workers die werkbelastingen worden niet als host. Grootte van de maximale schaal van een as-omgeving is in ASEv1, 55 totale hosts. Die bevat werknemers en -front-ends. Een voordeel ASEv1 is dat deze kan worden geïmplementeerd in een klassiek virtueel netwerk en een virtueel netwerk van Resource Manager. Zie voor meer informatie over ASEv1, [App Service-omgeving v1 inleiding][ASEv1Intro].
 
 Zie voor informatie over het maken van een ASEv1 met behulp van een Resource Manager-sjabloon [een v1 ILB as-omgeving maken met Resource Manager-sjabloon][ILBASEv1Template].
 

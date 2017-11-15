@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: eefede6196bedf208d9b14cee63632922223a6d6
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: 336d3ffaee21040a95366e0317cecdb83977ce97
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classificatie van de installatiekopie met behulp van Azure Machine Learning Workbench
 
@@ -91,12 +91,10 @@ Deze zelfstudie wordt gebruikt als voorbeeld met een hogere hoofdtekst kleding p
 
 Het script `0_downloadData.py` downloadt alle installatiekopieën naar de *installatiekopieën-DATA_DIR/fashionTexture/* directory. Sommige van de 428 URL's zijn waarschijnlijk verbroken. Dit is geen probleem en houdt in dat we iets minder afbeeldingen hebben voor trainings- en testdoeleinden.
 
-De volgende afbeelding ziet u voorbeelden voor kenmerken met stippen (twee kolommen aan de linkerkant), striped (middelste twee kolommen) en leopard (rechts twee kolommen). Aantekeningen zijn uitgevoerd volgens het bovenste hoofdtekst kleding item.
+De volgende afbeelding ziet u voorbeelden van de kenmerken (links) scheidingspunten striped (midden) en leopard (rechts). Aantekeningen zijn uitgevoerd volgens het bovenste hoofdtekst kleding item.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/examples_dotted.jpg"  alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_striped.jpg" alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_leopard.jpg" alt="alt text" height="200">
+<img src="media/scenario-image-classification-using-cntk/examples_all.jpg"  alt="alt text" width="700">
 </p>
 
 
@@ -293,7 +291,7 @@ Er zijn een aantal belangrijke licht van dit voorbeeld:
 - Interactieve model ontwikkelen met Azure Machine Learning Workbench en Jupyter-Notebook.
 
 
-## <a name="references"></a>Naslaginformatie
+## <a name="references"></a>Verwijzingen
 
 [1] Alex Krizhevsky Ilya Sutskever en Geoffrey E. Hinton, [ _ImageNet classificatie met diep Convolutional Neural Networks_](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf). NIPS 2012.  
 [2] Kaiming hij, Xiangyu Zhang Shaoqing Ren en Jian Sun, [ _diep achtergebleven voor opname van de installatiekopie leren_](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf). CVPR 2016.

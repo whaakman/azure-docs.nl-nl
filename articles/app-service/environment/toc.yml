@@ -38,6 +38,8 @@
       href: integrate-with-application-gateway.md
     - name: Een App Service-omgeving maken op basis van een sjabloon
       href: create-from-template.md
+    - name: Een geforceerde tunnel configureren
+      href: forced-tunnel-support.md
 - name: Naslaginformatie
   items:
     - name: Beheeradressen

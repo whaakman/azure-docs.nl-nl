@@ -4,7 +4,7 @@ description: Vooraf verwerken en gegevens naar de voorbereiding op deze machine 
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: bdf659ec-4881-4324-8b9c-747cbfa0c3cd
 ms.service: machine-learning
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/09/2017
 ms.author: bradsev
-ms.openlocfilehash: cfaccad0a7d81950d80486dcb0d9e6520deab9b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f0c1f0f549e746cc99db3b47f6c90bb51145d5d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Taken om gegevens voor te bereiden voor verbeterde Machine Learning
-Vooraf verwerken en het opruimen van gegevens zijn belangrijke taken die normaal gesproken plaatsvinden moeten voordat gegevensset effectief kan worden gebruikt voor machine learning. Onbewerkte gegevens is vaak veel ruis veroorzaken en onbetrouwbare mogelijk ontbreken waarden. Met deze gegevens voor modellering kan misleidende resultaten opleveren. Deze taken maken deel uit van het Team gegevens wetenschap proces (TDSP) en doorgaans als volgt een initiële exploratie van een gegevensset die wordt gebruikt om te detecteren en plannen van de vooraf verwerken vereist. Voor meer instructies voor het proces TDSP gedetailleerde, Zie de stappen in de [Team gegevens wetenschap proces](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Vooraf verwerken en het opruimen van gegevens zijn belangrijke taken die normaal gesproken plaatsvinden moeten voordat gegevensset effectief kan worden gebruikt voor machine learning. Onbewerkte gegevens is vaak veel ruis veroorzaken en onbetrouwbare mogelijk ontbreken waarden. Met deze gegevens voor modellering kan misleidende resultaten opleveren. Deze taken maken deel uit van het Team gegevens wetenschap proces (TDSP) en doorgaans als volgt een initiële exploratie van een gegevensset die wordt gebruikt om te detecteren en plannen van de vooraf verwerken vereist. Voor meer instructies voor het proces TDSP gedetailleerde, Zie de stappen in de [Team gegevens wetenschap proces](overview.md).
 
 Vooraf verwerken en opschonen van taken, zoals de taak van de exploratie gegevens kunnen worden uitgevoerd in een groot aantal verschillende omgevingen, zoals SQL of Hive of Azure Machine Learning Studio, en met verschillende hulpprogramma's en talen, zoals het R- of Python, afhankelijk van waar de gegevens worden opgeslagen en hoe deze is geformatteerd. Omdat TDSP iteratieve aard, deze taken kunnen worden uitgevoerd op verschillende stappen in de werkstroom van het proces.
 

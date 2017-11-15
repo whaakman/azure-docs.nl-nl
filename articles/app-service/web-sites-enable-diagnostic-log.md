@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 1366cd79248b2e0008234a5da0d87552e6530d80
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a9c5743c92ac48202c19c2f6f024238c147d8444
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Logboekregistratie van diagnostische gegevens van web-apps in Azure App Service
 ## <a name="overview"></a>Overzicht
 Azure biedt ingebouwde diagnostische gegevens om te helpen bij foutopsporing een [App Service-web-app](http://go.microsoft.com/fwlink/?LinkId=529714). In dit artikel leert u hoe diagnostische logboekregistratie inschakelen en instrumentation toevoegen aan uw toepassing, evenals over toegang tot de informatie die wordt geregistreerd door Azure.
 
-Dit artikel wordt de [Azure Portal](https://portal.azure.com), Azure PowerShell en de Azure-opdrachtregelinterface (Azure CLI) werken met Logboeken met diagnostische gegevens. Zie voor meer informatie over het werken met Logboeken met diagnostische gegevens met Visual Studio [probleemoplossing voor Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+Dit artikel wordt de [Azure-portal](https://portal.azure.com), Azure PowerShell en de Azure-opdrachtregelinterface (Azure CLI) werken met Logboeken met diagnostische gegevens. Zie voor meer informatie over het werken met Logboeken met diagnostische gegevens met Visual Studio [probleemoplossing voor Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -48,12 +48,12 @@ U kunt deze logboeken om te helpen bij het oplossen van problemen ophalen tijden
 App Service WebApps zich ook aanmelden voor informatie over de implementatie, wanneer u inhoud naar een web-app publiceert. Dit gebeurt automatisch en er zijn geen configuratieinstellingen voor logboekregistratie in een implementatie. Logboekregistratie van de implementatie kunt u om te bepalen waarom een implementatie is mislukt. Als u een aangepaste implementatiescript gebruikt, kunt u implementatie logboekregistratie gebruiken om te bepalen waarom het script is mislukt.
 
 ## <a name="enablediag"></a>Hoe diagnostische gegevens inschakelen
-Inschakelen van diagnostische gegevens in de [Azure Portal](https://portal.azure.com), gaat u naar de blade voor uw web-app en klik op **instellingen > diagnostische logboeken**.
+Inschakelen van diagnostische gegevens in de [Azure-portal](https://portal.azure.com), gaat u naar de pagina voor uw web-app en klik op **instellingen > diagnostische logboeken**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Logboeken-onderdeel](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Wanneer u het inschakelen van **application diagnostics** u ook voor kiezen de **niveau**. Deze instelling kunt u de gegevens die zijn vastgelegd op wilt filteren **informatief**, **waarschuwing** of **fout** informatie. Als u dit op **uitgebreide** alle informatie die wordt geproduceerd door de toepassing wordt aangemeld.
+Wanneer u het inschakelen van **application diagnostics**, u er ook voor kiezen de **niveau**. Deze instelling kunt u de gegevens die zijn vastgelegd op wilt filteren **informatief**, **waarschuwing**, of **fout** informatie. Als u dit op **uitgebreide** registreert alle informatie die wordt geproduceerd door de toepassing.
 
 > [!NOTE]
 > In tegenstelling tot het bestand web.config te wijzigen, komt Application diagnostics inschakelen of wijzigen van diagnostische logboekniveaus niet gerecycled het app-domein dat de toepassing wordt uitgevoerd in.
@@ -113,7 +113,7 @@ Downloaden van de logboekbestanden, start een nieuw exemplaar van Azure PowerShe
 
     Save-AzureWebSiteLog -Name webappname
 
-Dit bespaart de logboeken voor de web-app die is opgegeven door de **-naam** parameter naar een bestand met de naam **logs.zip** in de huidige map.
+Deze opdracht slaat u de logboeken voor de web-app die is opgegeven door de **-naam** parameter naar een bestand met de naam **logs.zip** in de huidige map.
 
 > [!NOTE]
 > Als u Azure PowerShell nog niet hebt geïnstalleerd, of het gebruik van uw Azure-abonnement niet hebt geconfigureerd, Zie [hoe Azure PowerShell gebruiken](/develop/nodejs/how-to-guides/powershell-cmdlets/).
@@ -125,7 +125,7 @@ De logboekbestanden met de Azure-opdrachtregelinterface downloaden, opent u een 
 
     azure site log download webappname
 
-De logboeken voor de web-app met de naam 'webappname' naar een bestand met de naam wordt opgeslagen **diagnostics.zip** in de huidige map.
+Deze opdracht slaat u de logboeken voor de web-app met de naam 'webappname' naar een bestand met de naam **diagnostics.zip** in de huidige map.
 
 > [!NOTE]
 > Als u de Azure-opdrachtregelinterface (Azure CLI) nog niet hebt geïnstalleerd of niet via uw Azure-abonnement hebt geconfigureerd, Zie [hoe Azure CLI gebruiken](../cli-install-nodejs.md).
@@ -136,11 +136,11 @@ De logboeken voor de web-app met de naam 'webappname' naar een bestand met de na
 Visual Studio Application Insights biedt hulpprogramma's voor het filteren en zoeken van Logboeken en de logboeken correleren met aanvragen en andere gebeurtenissen.
 
 1. De Application Insights-SDK toevoegen aan uw project in Visual Studio.
-   * Klik in Solution Explorer, klik met de rechtermuisknop op uw project en kies Application Insights toevoegen. U wordt nu door de stappen die bestaan uit het maken van een Application Insights-resource. [Meer informatie](../application-insights/app-insights-asp-net.md)
+   * Klik in Solution Explorer met de rechtermuisknop op uw project en kies Application Insights toevoegen. De interface leidt u door de stappen die bestaan uit het maken van een Application Insights-resource. [Meer informatie](../application-insights/app-insights-asp-net.md)
 2. Het pakket traceringslistener toevoegen aan uw project.
-   * Klik met de rechtermuisknop op uw project en kies NuGet-pakketten beheren. Selecteer `Microsoft.ApplicationInsights.TraceListener` [meer informatie](../application-insights/app-insights-asp-net-trace-logs.md)
+   * Met de rechtermuisknop op uw project en kies NuGet-pakketten beheren. Selecteer `Microsoft.ApplicationInsights.TraceListener` [meer informatie](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Uploaden van uw project en voer dit logboekgegevens moeten worden gegenereerd.
-4. In de [Azure Portal](https://portal.azure.com/), blader naar de nieuwe Application Insights-resource en open **Search**. Hier ziet u de logboekgegevens, samen met de aanvraag, het gebruik en andere telemetrie. Telemetrie kan even duren om te komen: klik op vernieuwen. [Meer informatie](../application-insights/app-insights-diagnostic-search.md)
+4. In de [Azure-portal](https://portal.azure.com/), blader naar de nieuwe Application Insights-resource en open **Search**. U ziet uw logboekgegevens, samen met de aanvraag, het gebruik en andere telemetrie. Telemetrie kan even duren om te komen: klik op vernieuwen. [Meer informatie](../application-insights/app-insights-diagnostic-search.md)
 
 [Meer informatie over prestaties bijhouden met Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
@@ -151,7 +151,7 @@ Tijdens het ontwikkelen van een toepassing, is het vaak nuttig om gegevens in bi
 > Bepaalde typen logboekregistratie buffer schrijven naar het logboekbestand, in volgorde van gebeurtenissen in de stroom resulteren kan. Een toepassing logboekvermelding die deze gebeurtenis treedt op wanneer een gebruiker een pagina bezoekt kan bijvoorbeeld worden weergegeven in de stroom voordat de bijbehorende HTTP logboekvermelding voor de pagina-aanvraag.
 >
 > [!NOTE]
-> Streaming-logboek wordt ook stream informatie opgeslagen in een tekstbestand opgeslagen in de **D:\\thuis\\logboekbestanden\\**  map.
+> Streaming-logboek ook-streams gegevens geschreven naar een tekstbestand dat is opgeslagen in de **D:\\thuis\\logboekbestanden\\**  map.
 >
 >
 
@@ -160,7 +160,7 @@ Stream logboekinformatie, start een nieuw exemplaar van Azure PowerShell en gebr
 
     Get-AzureWebSiteLog -Name webappname -Tail
 
-Dit maakt verbinding met de web-app die is opgegeven door de **-naam** parameter en beginnen met het streaming-informatie naar de PowerShell-venster als logboekgebeurtenissen op de web-app optreden. Alle informatie die is geschreven naar eindigt op .txt, .log of htm-bestanden die zijn opgeslagen in de map /LogFiles (home-d:/logboekbestanden) zal worden gestreamd naar de lokale console.
+Met deze opdracht maakt verbinding met de web-app die is opgegeven door de **-naam** parameter en beginnen met het streaming-informatie naar de PowerShell-venster als logboekgebeurtenissen op de web-app optreden. Alle informatie die is geschreven naar eindigt op .txt, .log of htm-bestanden die zijn opgeslagen in de map /LogFiles (home-d:/logboekbestanden) is gestreamd naar de lokale console.
 
 Om te filteren op specifieke gebeurtenissen, zoals fouten, gebruiken de **-bericht** parameter. Bijvoorbeeld:
 
@@ -182,7 +182,7 @@ Om te streamen logboekinformatie, opent u een nieuwe opdrachtprompt, PowerShell,
 
     az webapp log tail --name webappname --resource-group myResourceGroup
 
-Hiermee verbinding maken met de web-app met de naam 'webappname' en beginnen met de informatie in het venster streaming zoals gebeurtenissen op de web-app plaatsvinden. Alle informatie die is geschreven naar eindigt op .txt, .log of htm-bestanden die zijn opgeslagen in de map /LogFiles (home-d:/logboekbestanden) zal worden gestreamd naar de lokale console.
+Deze opdracht maakt verbinding met de web-app met de naam 'webappname' en beginnen met de informatie in het venster streaming zoals gebeurtenissen op de web-app plaatsvinden. Alle informatie die is geschreven naar eindigt op .txt, .log of htm-bestanden die zijn opgeslagen in de map /LogFiles (home-d:/logboekbestanden) is gestreamd naar de lokale console.
 
 Om te filteren op specifieke gebeurtenissen, zoals fouten, gebruiken de **--Filter** parameter. Bijvoorbeeld:
 
@@ -203,15 +203,15 @@ Application diagnostics wordt informatie opgeslagen in een specifieke indeling v
 
 **Bestandssysteem**
 
-Elke regel geregistreerd in het bestandssysteem of ontvangen met streaming niet in de volgende indeling:
+Elke regel geregistreerd in het bestandssysteem of ontvangen met streaming is in de volgende indeling:
 
-    {Date}  PID[{process id}] {event type/level} {message}
+    {Date}  PID[{process ID}] {event type/level} {message}
 
 Een foutgebeurtenis zou bijvoorbeeld de volgende strekking weergegeven:
 
     2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
 
-Logboekregistratie naar het bestandssysteem biedt de meest elementaire informatie van de drie beschikbare methoden bieden alleen de tijd, proces-id, gebeurtenisniveau en bericht.
+Logboekregistratie naar het bestandssysteem biedt de meest elementaire informatie van de drie beschikbare methoden bieden alleen de tijd, proces-ID, gebeurtenisniveau en bericht.
 
 **Table Storage**
 
@@ -253,12 +253,12 @@ De gegevens die zijn opgeslagen in een blob eruit ziet er als volgt:
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> De eerste regel van het logboek bevat de kolomkoppen zoals wordt weergegeven in dit voorbeeld.
+> De eerste regel van het logboek bevat de kolomkoppen, zoals wordt weergegeven in dit voorbeeld.
 >
 >
 
 ### <a name="failed-request-traces"></a>Aanvraag traceringen is mislukt
-Traceringen van mislukte aanvragen zijn opgeslagen in XML-bestanden met de naam **fr ### .xml**. Als u wilt zodat het eenvoudiger om de geregistreerde gegevens weer te geven, een XSL-opmaakmodel met de naam **freb.xsl** vindt u in dezelfde map als de XML-bestanden. Een van de XML-bestanden te openen in Internet Explorer, wordt het XSL-opmaakmodel gebruiken voor een opgemaakte weergave van de trace-informatie. Deze wordt de volgende strekking weergegeven:
+Traceringen van mislukte aanvragen zijn opgeslagen in XML-bestanden met de naam **fr ### .xml**. Als u wilt zodat het eenvoudiger om de geregistreerde gegevens weer te geven, een XSL-opmaakmodel met de naam **freb.xsl** vindt u in dezelfde map als de XML-bestanden. Als u een van de XML-bestanden in Internet Explorer openen, Internet Explorer het XSL-opmaakmodel gebruikt om een opgemaakte weergave van de trace-informatie. Dit wordt de volgende strekking weergegeven:
 
 ![mislukte aanvragen in de browser weergegeven](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
@@ -282,7 +282,3 @@ De web server-logboeken zijn geformatteerd met het [uitgebreide W3C-logboekbesta
 > Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
 >
 >
-
-## <a name="whats-changed"></a>Wat is er gewijzigd
-* Als u van Websites wilt overstappen op App Service, raadpleegt u de volgende handleiding: [Azure App Service en de invloed ervan op bestaande Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Zie voor een handleiding voor de wijziging van de oude portal aan de nieuwe portal: [verwijzing voor het navigeren door de Azure-portal](http://go.microsoft.com/fwlink/?LinkId=529715)

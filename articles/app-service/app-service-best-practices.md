@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: a65b50a90a67b718f2a0cdd8657194d9740b3bd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 251ce238b745734bdfb508b30097304a9a650a8c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="best-practices-for-azure-app-service"></a>Aanbevolen procedures voor Azure App Service
 In dit artikel bevat een overzicht van aanbevolen procedures voor het gebruik van [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -40,7 +40,26 @@ Wanneer er dat een app verbruikt meer CPU dan verwacht of optreedt herhaald CPU,
 Voor meer informatie over 'statefull' vs 'stateless' toepassingen kunt Bekijk deze video: [Planning van een toepassing met meerdere lagen schaalbare End-to-End voor Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Lees voor meer informatie over App Service-opties voor schaalbaarheid en automatisch schalen: [schalen van een Web-App in Azure App Service](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Wanneer de socket-resources zijn uitgeput
-Een veelvoorkomende reden voor put uitgaande TCP-verbindingen is het gebruik van clientbibliotheken die niet worden geïmplementeerd om TCP-verbindingen opnieuw te gebruiken, of in het geval van een hoger niveau protocol zoals HTTP - keepalive-niet gebruikt. Raadpleeg de documentatie voor elk van de bibliotheken waarnaar wordt verwezen door de apps in uw App Service-abonnement om te controleren of ze zijn geconfigureerd of toegankelijk is in uw code voor efficiënte hergebruik van uitgaande verbindingen. Volgt tevens de bibliotheek documentatie richtlijnen voor het maken van goede en release of cleanup om te voorkomen dat verbindingen lekken. Bij dergelijke clientbibliotheken onderzoeken in voortgang van de gevolgen zijn mogelijk worden verholpen door uitbreiden naar meerdere exemplaren.  
+Een veelvoorkomende reden voor put uitgaande TCP-verbindingen is het gebruik van clientbibliotheken die niet worden geïmplementeerd om TCP-verbindingen opnieuw te gebruiken, of in het geval van een hoger niveau protocol zoals HTTP - keepalive-niet gebruikt. Raadpleeg de documentatie voor elk van de bibliotheken waarnaar wordt verwezen door de apps in uw App Service-abonnement om te controleren of ze zijn geconfigureerd of toegankelijk is in uw code voor efficiënte hergebruik van uitgaande verbindingen. Volgt tevens de bibliotheek documentatie richtlijnen voor het maken van goede en release of cleanup om te voorkomen dat verbindingen lekken. Bij dergelijke clientbibliotheken onderzoeken in voortgang van de gevolgen zijn mogelijk worden verholpen door uitbreiden naar meerdere exemplaren.
+
+### <a name="nodejs-and-outgoing-http-requests"></a>Node.js en uitgaande http-aanvragen
+Als u werkt met Node.js en veel uitgaande http-aanvragen, is het omgaan met HTTP - keepalive echt belangrijk. U kunt de [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` pakket om het gemakkelijker in uw code.
+
+U moet altijd verwerkt de `http` antwoord, zelfs als u niets in de handler. Als u niet het antwoord niet goed verwerkt, wordt uw toepassing uiteindelijk ophalen vastgelopen omdat er geen meer sockets beschikbaar zijn.
+
+Bijvoorbeeld, als u werkt met de `http` of `https` pakket:
+
+```
+var request = https.request(options, function(response) {
+    response.on('data', function() { /* do nothing */ });
+});
+```
+
+Als u op een machine met meerdere kernen op op Linux-App Service uitvoert, wordt een andere aanbevolen procedure is het gebruik van PM2 meerdere Node.js-processen voor het uitvoeren van uw toepassing te starten. U kunt dit doen door op te geven van een opstartopdracht naar de container.
+
+Als u bijvoorbeeld vier exemplaren starten:
+
+`pm2 start /home/site/wwwroot/app.js --no-daemon -i 4`
 
 ## <a name="appbackup"></a>Wanneer uw app back-up begint mislukt
 De twee meest voorkomende redenen waarom app back-up mislukt zijn: instellingen van het opslagaccount is ongeldig en ongeldige database-configuratie. Deze fouten worden doorgaans gebeuren wanneer er wijzigingen in de opslaggroep of database resources of wijzigingen voor toegang tot deze bronnen (bijvoorbeeld referenties voor de database die is geselecteerd in de back-upinstellingen bijgewerkt). Back-ups worden doorgaans volgens een planning wordt uitgevoerd en toegang tot opslag (voor het uitvoeren van de back-up van bestanden) en databases vereisen (voor het kopiëren en lezen van de inhoud moet worden opgenomen in de back-up). Het resultaat van de toegankelijkheid van een van deze resources zijn consistent back-upfouten. 

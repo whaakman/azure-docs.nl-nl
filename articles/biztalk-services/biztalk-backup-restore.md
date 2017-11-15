@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: c55d1ab124441c42101b4ad60924a9ea28231408
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45365092f5bcd1a8d309c10404a7437c494a8967
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: back-ups maken en herstellen
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Azure BizTalk Services bevat de mogelijkheden van back-up en herstel. Dit onderwerp wordt beschreven hoe u back-up en herstellen van BizTalk Services met behulp van de klassieke Azure portal.
+Azure BizTalk Services bevat de mogelijkheden van back-up en herstel. 
 
-U kunt ook back-up met behulp van BizTalk Services de [REST-API van BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=325584). 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 > [!NOTE]
 > Hybride verbindingen zijn geen back-up, ongeacht de editie. U moet uw hybride verbindingen opnieuw maken.
@@ -34,7 +34,6 @@ U kunt ook back-up met behulp van BizTalk Services de [REST-API van BizTalk Serv
 
 ## <a name="before-you-begin"></a>Voordat u begint
 * Back-up en herstel mogelijk niet beschikbaar voor alle edities. Zie [BizTalk Services: grafiek van edities](biztalk-editions-feature-chart.md).
-* Met de klassieke Azure portal, kunt u een On Demand back-up maken of een geplande back-up maken. 
 * Back-inhoud kan worden hersteld naar dezelfde BizTalk Service of naar een nieuwe BizTalk Service. Voor het herstellen van de BizTalk Service gebruikt dezelfde naam, de bestaande BizTalk-Service moet worden verwijderd en de naam moet beschikbaar zijn. Nadat u een BizTalk Service hebt verwijderd, kan duren langer dan wilden voor dezelfde naam beschikbaar. Als u dezelfde naam beschikbaar niet kunt wachten, zet u een nieuwe BizTalk Service.
 * BizTalk Services kunnen worden hersteld naar dezelfde versie of een hogere editie. BizTalk Services is teruggezet naar een lagere versie, wordt uit wanneer de back-up is gemaakt, niet ondersteund.
   
@@ -46,70 +45,10 @@ U kunt ook back-up met behulp van BizTalk Services de [REST-API van BizTalk Serv
 * Optioneel: In de Portal BizTalk-Services stop alle beheerbewerkingen.
 
 ## <a name="create-a-backup"></a>Maak een back-up
-Een back-up kan worden uitgevoerd op elk gewenst moment en volledig door u worden beheerd. Deze sectie vindt u de stappen voor het maken van back-ups met de klassieke Azure portal, met inbegrip van:
-
-[Op aanvraag back-up](#backupnow)
-
-[Een back-up plannen](#backupschedule)
-
-#### <a name="backupnow"></a>Op aanvraag back-up
-1. Selecteer in de klassieke Azure portal **BizTalk Services**, en selecteer vervolgens de BizTalk-Service die u wilt back-up.
-2. In de **Dashboard** tabblad **Back-up** aan de onderkant van de pagina.
-3. Voer de naam van een back-up. Voer bijvoorbeeld *myBizTalkService*door*datum*.
-4. Kies een blob storage-account en schakel het selectievakje voor het starten van de back-up.
-
-Zodra de back-up is voltooid, wordt een container met de back-naam die u invoert in het opslagaccount gemaakt. Deze container bevat uw BizTalk Service back-upconfiguratie.
-
-#### <a name="backupschedule"></a>Een back-up plannen
-1. Selecteer in de klassieke Azure portal **BizTalk Services**, selecteert u de BizTalk Service-naam die u wilt de back-up plannen en selecteer vervolgens de **configureren** tabblad.
-2. Stel de **back-up van de Status** naar **automatische**. 
-3. Selecteer de **Opslagaccount** invoeren voor het opslaan van de back-up, de **frequentie** voor het maken van de back-ups, en hoe lang de back-ups behouden (**dagen bewaren**):
-   
-    ![][AutomaticBU]
-   
-    **Opmerkingen bij de**     
-   
-   * In **dagen bewaren**, de retentietijd moet groter zijn dan de back-upfrequentie.
-   * Selecteer **altijd ten minste één back-up bewaren**, zelfs als deze na de bewaarperiode valt.
-4. Selecteer **Opslaan**.
-
-Wanneer een geplande back-uptaak wordt uitgevoerd, wordt een container (voor het opslaan van back-upgegevens) gemaakt in het opslagaccount dat u hebt ingevoerd. De naam van de container met de naam *naam-/-tijd van de BizTalk Service*. 
-
-Als de BizTalk Service-dashboard toont een **mislukt** status:
-
-![Status van laatste geplande back-up][BackupStatus] 
-
-De koppeling opent de Bewerkingslogboeken van de Management-Services voor het oplossen van. Zie [BizTalk Services: problemen oplossen met bewerkingslogboeken](http://go.microsoft.com/fwlink/p/?LinkId=391211).
+Een back-up kan worden uitgevoerd op elk gewenst moment en volledig door u worden beheerd. Gebruik voor het maken van een back-up de [REST-API voor het beheren van BizTalk Services op Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
 ## <a name="restore"></a>Herstellen
-U kunt back-ups herstellen vanuit de klassieke Azure portal of vanuit de [herstellen BizTalk Service REST API](http://go.microsoft.com/fwlink/p/?LinkID=325582). Deze sectie vindt u de stappen om te herstellen met de klassieke portal.
-
-#### <a name="before-restoring-a-backup"></a>Voordat u een back-up herstellen
-* Nieuwe bijhouden, archiveren en te bewaken winkels kunnen worden ingevoerd tijdens het herstellen van een BizTalk Service.
-* Dezelfde EDI-Runtime-gegevens is hersteld. De back-up van EDI-Runtime slaat de besturingselement-getallen. De herstelde besturingselement-nummers zijn in volgorde van de tijd van de back-up. Als berichten worden verwerkt na de laatste back-up, herstellen van de inhoud van deze back-up kan leiden tot dubbele besturingselement cijfers.
-
-#### <a name="restore-a-backup"></a>Een back-up terugzetten
-1. Selecteer in de klassieke Azure portal **nieuw** > **App Services** > **BizTalk Service** > **herstellen**:
-   
-    ![Een back-up terugzetten][Restore]
-2. In **back-URL**, selecteert u het pictogram van de map en vouw de Azure storage-account waarmee de BizTalk Service configuratieback-up worden opgeslagen. Vouw de container uit en selecteer in het rechterdeelvenster de bijbehorende back-up txt-bestand. 
-   <br/><br/>
-   Selecteer **Open**.
-3. Op de **herstellen BizTalk Service** pagina, voert u een **BizTalk-servicenaam** en controleer of de **domein-URL**, **Edition**, en **regio** voor de herstelde BizTalk Service. **Maak een nieuw exemplaar van SQL database** voor de database bijhouden:
-   
-    ![][RestoreBizTalkService]
-   
-    Selecteer de pijl Volgende.
-4. Controleer de naam van de SQL-database, de fysieke server waar de SQL-database wordt gemaakt en een gebruikersnaam en wachtwoord invoeren voor die server.
-
-    Als u de editie van SQL database, de grootte en andere eigenschappen configureren wilt, selecteert u **geavanceerde Database-instellingen configureren**. 
-
-    Selecteer de pijl Volgende.
-
-1. Een nieuw opslagaccount maken of voert u een bestaand opslagaccount voor de BizTalk Service.
-2. Selecteer het vinkje om te beginnen met terugzetten.
-
-Nadat de herstelbewerking is voltooid, wordt een nieuwe BizTalk Service wordt vermeld in een onderbroken status op de pagina BizTalk Services in de klassieke Azure portal.
+Als u een back-up herstellen, gebruikt u de [REST-API voor het beheren van BizTalk Services op Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
 ### <a name="postrestore"></a>Na het terugzetten van een back-up
 De BizTalk Service altijd wordt hersteld een **onderbroken** status. In deze toestand is, kunt u geen configuratiewijzigingen maken voordat de nieuwe omgeving functioneel is, met inbegrip van:
@@ -118,8 +57,6 @@ De BizTalk Service altijd wordt hersteld een **onderbroken** status. In deze toe
 * U herstelt een BizTalk Service om te repliceren van een bestaande BizTalk Service-omgeving. In dit geval als er zijn geconfigureerd in de oorspronkelijke BizTalk Services-portal overeenkomsten die gebruikmaken van een FTP-bronmap mogelijk moet u de overeenkomsten in de herstelde omgeving naar een andere bron FTP-map gebruiken bijwerken. Anders kunnen er twee verschillende overeenkomsten probeert om hetzelfde bericht binnen te halen.
 * Als u voor omgevingen met meerdere BizTalk Service hebt hersteld, zorg er dan voor dat u de juiste omgeving in de Visual Studio-toepassingen, PowerShell-cmdlets, REST-API's of Trading Partner Management OM API's zijn gericht.
 * Het is verstandig om te configureren van automatische back-ups op de herstelde BizTalk Service-omgeving.
-
-U start de BizTalk Service in de klassieke Azure portal, selecteer de herstelde BizTalk Service en selecteer **hervatten** in de taakbalk. 
 
 ## <a name="what-gets-backed-up"></a>Wat wordt een back-up
 Wanneer een back-up is gemaakt, de volgende items zijn back-up gemaakt:
@@ -194,13 +131,13 @@ Als de Database bijhouden wordt verwijderd en de databasebehoeften is hersteld, 
 </table>
 
 ## <a name="next"></a>Volgende
-Voor het maken van Azure BizTalk Services in de klassieke Azure portal, gaat u naar [BizTalk Services: inrichten met behulp van Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=302280). Ga naar [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197) om te beginnen met het maken van toepassingen.
+Voor het maken van Azure BizTalk Services, gaat u naar [BizTalk Services: inrichten](http://go.microsoft.com/fwlink/p/?LinkID=302280). Ga naar [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197) om te beginnen met het maken van toepassingen.
 
 ## <a name="see-also"></a>Zie ook
 * [Back-up van BizTalk-Service](http://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [BizTalk Service back-up terugzetten](http://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [BizTalk Services: Developer, Basic, Standard en Premium-edities grafiek](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: Inrichten met behulp van Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: inrichten](http://go.microsoft.com/fwlink/p/?LinkID=302280)
 * [BizTalk Services: statusgrafiek voor de inrichting](http://go.microsoft.com/fwlink/p/?LinkID=329870)
 * [BizTalk Services: de tabbladen Dashboard, Bewaken en Schalen](http://go.microsoft.com/fwlink/p/?LinkID=302281)
 * [BizTalk Services: beperking](http://go.microsoft.com/fwlink/p/?LinkID=302282)

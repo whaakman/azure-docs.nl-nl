@@ -13,11 +13,11 @@ ms.devlang: rest-api
 ms.topic: hero-article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.openlocfilehash: c48e99c0e3248a80aae864c9d11edec740f3bb41
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 5535bc0438c650fdf0e03229359bc8bf4a1f6990
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Een Azure data factory en pijplijn maken door de REST-API te gebruiken
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -114,6 +114,7 @@ Houd rekening met de volgende punten:
     ```
     Data factory name "ADFv2QuickStartDataFactory" is not available.
     ```
+* Momenteel kunt u in Data Factory V2 alleen data factory's maken in de regio's VS - oost, VS - oost 2 en West-Europa. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
 
 Dit is het voorbeeldantwoord:
 
